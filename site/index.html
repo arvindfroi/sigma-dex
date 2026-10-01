@@ -111,6 +111,7 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; }
     <option value="all">All slots</option>
     <option value="filled">Has a Pokemon</option>
     <option value="todo">Not complete</option>
+    <option value="playable">Playable in the game</option>
     <option value="problems">Has warnings</option>
     <option value="open">Open slots</option>
   </select>
@@ -196,7 +197,21 @@ function derive(s) {
   s.complete = Math.round(100 * (DEX.checks.length - s.missing.length) / DEX.checks.length);
   s.evolutions = (d.evolutions || []).filter(e => e && typeof e === "object").map(e => ({into: e.into, how: evolutionText(e)}));
   s.problems = s.problems || [];
+  s.gameNeeds = gameNeeds(s);
   return s;
+}
+
+// What a Pokemon still needs before it can be put into the game (same rule as the game export).
+function gameNeeds(s) {
+  const d = s.data, needs = [];
+  const inGame = (kind, name) => name && (new Set(DEX.lists[kind === "move" ? "moves" : "abilities"].map(norm)).has(norm(name))
+    || DEX.custom[kind].some(c => norm(c.name) === norm(name) && c.implemented));
+  if (s.bst === null) needs.push("all six base stats");
+  if (!(d.types || []).length || (d.types || []).some(t => !DEX.types.includes(t))) needs.push("a type");
+  if (!inGame("ability", (d.abilities || {}).primary)) needs.push("an ability that exists in the game");
+  if (!((d.learnset || {}).level_up || []).some(m => inGame("move", m.move))) needs.push("a level-up move that exists in the game");
+  if (String(d.name || "").length > DEX.lists.name_limit) needs.push("a name of at most " + DEX.lists.name_limit + " letters");
+  return needs;
 }
 
 function calcStat(base, level, iv, ev, nature, isHp) {
@@ -269,6 +284,9 @@ function openDetail(s) {
     s.pending ? h("div", {class: "notice", style: "border-color:var(--accent)"}, "Saved on the website" + (s.pending.editor ? " by " + s.pending.editor : "") +
       ". The dex checks it and stores it within about 15 minutes; if something is wrong it shows up at the top of the front page.") : null,
     h("div", {class: "entry"}, filled(d.description) ? d.description.trim() : h("span", {class: "empty"}, "No Pokedex entry yet.")),
+    h("div", {style: "margin-top:10px"}, s.gameNeeds.length
+      ? [h("span", {class: "badge need"}, "not in the game yet"), " To be put into the game it still needs: " + s.gameNeeds.join(", ") + "."]
+      : [h("span", {class: "badge done"}, "playable"), " Has everything the game needs. It is built into the game with placeholder art until it has sprites."]),
     s.problems.length ? h("div", {}, h("h2", {}, "Warnings"), h("ul", {class: "problems"}, s.problems.map(p => h("li", {}, p)))) : null,
     h("h2", {}, "Base stats" + (s.bst ? " - total " + s.bst : "")),
     h("table", {class: "stat"}, STATS.map(([k, label]) => h("tr", {}, h("td", {}, label), h("td", {}, Number.isInteger(stats[k]) ? String(stats[k]) : "-"),
@@ -636,7 +654,7 @@ function render() {
         h("div", {class: "num"}, "#" + String(slot).padStart(3, "0")), h("div", {class: "name"}, "Open slot"), DEX.web.url ? h("div", {class: "pending"}, "+ Add a Pokemon") : null));
       continue;
     }
-    if (mode === "open" || (mode === "todo" && s.complete === 100) || (mode === "problems" && !s.problems.length)) continue;
+    if (mode === "open" || (mode === "todo" && s.complete === 100) || (mode === "problems" && !s.problems.length) || (mode === "playable" && s.gameNeeds.length)) continue;
     if (type && !(s.data.types || []).includes(type)) continue;
     if (query && !JSON.stringify(s.data).toLowerCase().includes(query)) continue;
     grid.append(h("button", {class: "card", onclick: () => openDetail(s)},
@@ -649,7 +667,7 @@ function render() {
   const done = DEX.species.filter(s => s.complete === 100).length;
   const average = DEX.species.length ? Math.round(DEX.species.reduce((a, s) => a + s.complete, 0) / DEX.species.length) : 0;
   document.getElementById("totals").replaceChildren(...[[DEX.species.length + " / " + DEX.dex_size, "slots filled"], [done, "fully complete"], [average + "%", "average completeness"],
-    [DEX.species.filter(s => s.problems.length).length, "with warnings"]].map(([n, label]) => h("div", {class: "total"}, h("b", {}, String(n)), h("span", {}, label))));
+    [DEX.species.filter(s => !s.gameNeeds.length).length, "playable in the game"], [DEX.species.filter(s => s.problems.length).length, "with warnings"]].map(([n, label]) => h("div", {class: "total"}, h("b", {}, String(n)), h("span", {}, label))));
 }
 
 // Saves made on the website since this page was built are laid over the built data.
