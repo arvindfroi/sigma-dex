@@ -1,0 +1,40 @@
+name: Dex
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 * * * *"   # every hour: pick up what people typed into the Google Sheet
+  workflow_dispatch:        # the "Run workflow" button, to sync right now
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dex-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Import from the Google Sheet
+        if: github.event_name != 'pull_request'
+        run: python scripts/import_sheet.py
+      - name: Check the species files
+        run: python scripts/validate.py
+      - name: Rebuild DEX.md, TODO.md, export/ and the website
+        run: python scripts/build.py
+      - name: Save the changes
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data DEX.md TODO.md export site
+          git diff --cached --quiet || (git commit -m "Sync from the Google Sheet and rebuild generated files" && git push)

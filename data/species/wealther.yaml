@@ -1,0 +1,87 @@
+# Sigma Dex species file. What every field means: docs/FIELDS.md
+dex: 5
+name: Wealther
+
+credits:
+  designer:              # who came up with it (Discord name)
+  artist:                # who drew the concept art
+
+types: [Water, Dark]     # 1 or 2 types, e.g. [Grass, Steel]
+
+# --- Pokedex page ---
+category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 11 characters
+description:             # the Pokedex entry text: max 4 lines of about 40 characters
+height_m:                # e.g. 0.7
+weight_kg:               # e.g. 6.9
+body_color:              # red blue yellow green black brown purple gray white pink
+
+# --- Battle data ---
+abilities:
+  primary:
+  secondary:             # optional
+  hidden:                # optional - Emerald has no hidden abilities, needs extra game code
+
+base_stats:              # each 1-255
+  hp:
+  attack:
+  defense:
+  sp_attack:
+  sp_defense:
+  speed:
+
+ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+catch_rate:              # 3 (legendary) to 255 (very easy)
+base_exp:                # exp yield when defeated, e.g. 64
+growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship:         # 70 is the standard value
+
+# --- Breeding ---
+gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: []           # 1 or 2, e.g. [field, grass]
+egg_cycles:              # hatch time, 20 is typical
+
+held_items:              # items wild ones can hold (optional)
+  common:
+  rare:
+
+# --- Evolution: what THIS Pokemon evolves INTO ---
+evolutions:
+  - into: warrallier
+    method: level
+    level: 36
+
+# --- Moves ---
+learnset:
+  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's 50 TMs and 8 HMs
+  tutor: []              # only the game's 30 tutor moves
+  egg: []                # only needed for the first stage of an evolution line
+
+# --- Where it is found ---
+encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
+
+# --- Design ---
+design:
+  concept:               # what is it? one or two sentences
+  name_origin:
+  notes:
+
+# --- Assets (paths inside this repo, leave empty until the file exists) ---
+assets:
+  concept_art:           # e.g. assets/concept-art/wealther.png
+  front_sprite:          # front.png      64x64, 16 colors
+  front_anim:            # anim_front.png 64x128, two frames stacked
+  back_sprite:           # back.png       64x64, same 16 colors as the front
+  icon:                  # icon.png       32x64, two frames stacked
+  footprint:             # footprint.png  16x16, black and white
+  shiny_palette:         # shiny.pal      the 16 colors of the shiny version
+  cry:                   # sound file
+
+# --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---
+engine:
+  no_flip: false         # true if the sprite must never be mirrored
+  elevation: 0           # pixels it floats above the ground in battle
+  front_y_offset:        # pixels the front sprite is moved down
+  back_y_offset:         # pixels the back sprite is moved down
+  icon_palette:          # 0, 1 or 2 - which shared icon palette fits best
+  safari_flee_rate: 0

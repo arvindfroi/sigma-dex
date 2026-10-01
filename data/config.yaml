@@ -1,0 +1,8 @@
+# Project-wide settings for the Sigma Dex.
+project: Council of the Sigmas Pokedex
+region:            # name of the region, once decided
+dex_size: 100      # number of slots in the regional dex
+
+# The Google Sheet people fill in (see docs/SHEET.md).
+sheet_url:         # the normal link to the sheet, shown as "Edit" on the website
+sheet_csv_url:     # https://docs.google.com/spreadsheets/d/<SHEET ID>/export?format=csv&gid=0

@@ -1,0 +1,17 @@
+name: Change or decision
+description: Propose a change to an existing Pokemon, or raise something the group must decide
+title: "Change: "
+labels: ["discussion"]
+body:
+  - type: input
+    id: pokemon
+    attributes:
+      label: Which Pokemon (or "whole dex")
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What should change, and why
+    validations:
+      required: true

@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+.DS_Store
+# Raw Discord exports contain everybody's private messages - never commit them.
+discord-export/
+poc/

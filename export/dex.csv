@@ -1,0 +1,105 @@
+dex,id,name,type_1,type_2,ability_1,ability_2,hidden_ability,bst,hp,attack,defense,sp_attack,sp_defense,speed,evolves_from,evo_condition,category,height_m,weight_kg,body_color,ev_yield,catch_rate,base_exp,growth_rate,base_friendship,gender,egg_group_1,egg_group_2,egg_cycles,held_item_common,held_item_rare,level_up_moves,tm_hm_moves,tutor_moves,egg_moves,encounters,description,concept,name_origin,notes,designer,artist,complete_percent
+1,leafing,Leafing,Grass,,Overgrow,,,310,45,60,55,45,50,55,,,Sprout,0.5,5.8,green,1 attack,45,64,medium_slow,70,87.5,field,grass,20,,,"Tackle (1), Leer (1), Absorb (6), Fury Cutter (10), Razor Leaf (15), Metal Claw (20), Mega Drain (25), Slash (30), Iron Defense (35), Leaf Blade (40), Swords Dance (45)","Toxic, Bullet Seed, Hidden Power, Sunny Day, Protect, Giga Drain, Frustration, Solar Beam, Iron Tail, Return, Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Cut, Strength, Flash, Rock Smash","Swords Dance, Body Slam, Double-Edge, Mimic, Substitute, Snore, Endure, Mud-Slap, Swagger, Sleep Talk, Fury Cutter","Leech Seed, Synthesis, Grass Whistle, Metal Sound",Starter Pokemon | gift | 5,"LEAFING hides among fallen leaves to
+nap in the sun. The leaf on its head
+hardens a little each time it battles,
+until the edge shines like metal.
+",Grass starter. A small creature with a leaf that slowly turns to steel as it evolves.,,"PROOF OF CONCEPT - every value in this file except name, type and evolution is a draft proposed by Claude on 2026-10-02. The Council should review and replace them.",,,69
+2,leafsteel,Leafsteel,Grass,Steel,,,,,,,,,,,Leafing,Lv 16,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+3,leafaxer,Leafaxer,Grass,Steel,,,,,,,,,,,Leafsteel,Lv 36,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+4,waffy,Waffy,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+5,wealther,Wealther,Water,Dark,,,,,,,,,,,Waffy,Lv 16,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+6,warrallier,Warrallier,Water,Dark,,,,,,,,,,,Wealther,Lv 36,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+7,torchbat,Torchbat,Fire,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+8,heatbat,Heatbat,Fire,Flying,,,,,,,,,,,Torchbat,Lv 16,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+9,blazterra,Blazterra,Fire,Flying,,,,,,,,,,,Heatbat,Lv 36,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+10,erobi,Erobi,Normal,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+11,harpie,Harpie,Normal,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+12,smeatherace,Smeatherace,Normal,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+13,bolthook,Bolthook,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+14,wump,Wump,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+15,twemp,Twemp,Bug,Grass,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+16,florantula,Florantula,Bug,Grass,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+17,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+18,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+20,cowfin,Cowfin,Normal,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+21,mooceon,Mooceon,Normal,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+22,lapper,Lapper,Normal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+23,brawleo,Brawleo,Normal,Fighting,,,,,,,,,,,Lapper,Lv 25,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+25,icy-freeze,Icy Freeze,Ice,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+26,freezrick,Freezrick,Ice,,,,,,,,,,,,Icy Freeze,Lv 28,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+27,bulbtle,Bulbtle,Ground,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+28,bulbtoise,Bulbtoise,Ground,Electric,,,,,,,,,,,Bulbtle,Lv 22,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+30,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+31,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+32,eiscue,Eiscue,Ice,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Doc lists the typing as Ice/? (second type undecided). Eiscue is also the name of an official Pokemon.,,,3
+33,rainbro,Rainbro,Stellar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Doc lists the type as Stellar, which is not a normal species type.",,,3
+34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+35,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+36,nukfae,Nukfae,Poison,Fairy,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+37,toxiren,Toxiren,Poison,Fairy,,,,,,,,,,,Nukfae,Lv 38,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+38,stonma,Stonma,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+39,sigmauler,Sigmauler,Rock,Fighting,,,,,,,,,,,Stonma,Lv 38,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+40,tinky,Tinky,Grass,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+41,motinky,Motinky,Grass,Fire,,,,,,,,,,,Tinky,Lv 22,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+42,gortiki,Gortiki,Grass,Fire,,,,,,,,,,,Motinky,Lv 40,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+43,chebbi,Chebbi,Normal,Dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+44,devampry,Devampry,Normal,Dark,,,,,,,,,,,Chebbi,Lv 32,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+45,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+46,zapana,Zapana,Water,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+47,ampeel,Ampeel,Water,Electric,,,,,,,,,,,Zapana,Lv 30,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+48,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+49,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+50,beatld,Beatld,Bug,Psychic,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+51,wispole,Wispole,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+52,galfrogtom,Galfrogtom,Ghost,Electric,,,,,,,,,,,Wispole,Thunder Stone,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+53,giga-circuit,Giga-Circuit,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+54,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+56,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+57,bulgarian-unown,Bulgarian Unown,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Written as 'bulgarian unown' in the doc - looks like a working title, not a final name.",,,0
+58,united,United,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Written as 'united' in the doc - may be a working title.,,,0
+59,hairyen,Hairyen,Grass,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+60,panzerien,Panzerien,Steel,Ground,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+61,nucloid,Nucloid,Poison,Steel,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+62,nuclobyl,Nuclobyl,Poison,Steel,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+63,gentie,Gentie,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+64,yanklet,Yanklet,Steel,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+65,anjane,Anjane,Dark,Fairy,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+66,janenon,Janenon,Dark,Fairy,,,,,,,,,,,Anjane,Lv 42,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+67,saucerl,Saucerl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+68,abyssys,Abyssys,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+69,octopearl,Octopearl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+70,cryoblade,Cryoblade,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+71,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+72,bygon,Bygon,Ghost,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+73,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+75,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+76,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+77,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+78,sandrema,Sandrema,Fairy,Ground,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+79,ciggiti,Ciggiti,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+80,chuchar,Chuchar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+81,parahaunt,Parahaunt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+82,insectoid,Insectoid,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+83,darkgonark,Darkgonark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+84,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+85,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+86,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+87,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+88,gravriel,Gravriel,Water,Ghost,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+89,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+90,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+91,dragem,Dragem,Dragon,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+92,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+94,skiirtle,Skiirtle,Fire,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+95,mcskiirtle,McSkiirtle,Fire,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+96,balleisk,Balleisk,Dragon,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+97,greation,Greation,Dragon,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+98,ultragon,Ultragon,Dragon,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,39 @@
+name: New Pokemon
+description: Propose a Pokemon for an open dex slot
+title: "New Pokemon: "
+labels: ["new pokemon"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: Max 10 characters (the game's limit)
+    validations:
+      required: true
+  - type: input
+    id: slot
+    attributes:
+      label: Dex slot
+      description: Open slots are listed in TODO.md
+  - type: input
+    id: types
+    attributes:
+      label: Types
+      placeholder: Grass / Steel
+  - type: textarea
+    id: concept
+    attributes:
+      label: Concept
+      description: What is it? Attach concept art if you have it.
+    validations:
+      required: true
+  - type: input
+    id: evolution
+    attributes:
+      label: Evolution
+      placeholder: Evolves from X at level 20
+  - type: textarea
+    id: more
+    attributes:
+      label: Anything else already decided
+      description: Stats, abilities, moves, where it lives...
