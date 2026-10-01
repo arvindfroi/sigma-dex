@@ -79,6 +79,11 @@ The game compiled, and its automated test system confirmed both generated checks
 
 Sprites and cry are the game's question-mark placeholders until we have art.
 
+**New move and new ability:** one example of each was programmed and tested the same way -
+a move that is pure data (Sigma Strike) and an ability that needs new code (Sigma Aura).
+All four of their tests passed. They live in [`game/examples/`](../game/examples) as a
+reference for the real ones; [`game/README.md`](../game/README.md) describes the routine.
+
 **Earlier, on plain Emerald:** the same Leafing was put into `fuddlesworth/pokeemerald-native`
 (the native macOS port) in Treecko's slot and played through the first battle. That showed
 the native port works on this machine, which matters if we port expansion to it later.

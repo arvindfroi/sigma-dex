@@ -59,8 +59,8 @@ From this repository:
 python scripts/apply_to_expansion.py ~/sigma-expansion
 ```
 
-That copies everything in `export/expansion/` into the game's source and hooks it in at the
-places expansion reserves for custom species. Run it again whenever the dex has changed, then
+That copies the Pokemon in `export/expansion/` and the hand-written moves, abilities and
+tests in [`game/`](../game/README.md) into the game's source and hooks them in. Run it again whenever the dex has changed, then
 build again. Which Pokemon are included, and what each of the others still needs, is listed
 in [`export/expansion/NOT_READY.md`](../export/expansion/NOT_READY.md).
 
@@ -71,8 +71,10 @@ writes two checks per Pokemon - that its data in the game matches its species fi
 it can use its first move in a battle. Run them with the same settings as a build:
 
 ```bash
-CPATH=$HOME/sigma-toolchain/arm-none-eabi/include gmake check -j8 TESTS="Sigma dex" \
+gmake check-tools
+CPATH=$HOME/sigma-toolchain/arm-none-eabi/include gmake check -j8 TESTS="Sigma" \
   LIBPATH="-L \"$LIBGCC\" -L \"$HOME/sigma-toolchain/arm-none-eabi/lib\""
 ```
 
-New moves and abilities get their own tests in the same system when they are programmed.
+`gmake check-tools` is only needed the first time. New moves and abilities have their own
+tests in the same system; see [`game/README.md`](../game/README.md).

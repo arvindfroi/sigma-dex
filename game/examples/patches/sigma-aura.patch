@@ -1,0 +1,20 @@
+diff --git a/src/battle_util.c b/src/battle_util.c
+index 85523e06..62ee5de9 100644
+--- a/src/battle_util.c
++++ b/src/battle_util.c
+@@ -3451,6 +3451,15 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
+                 effect++;
+             }
+             break;
++        case ABILITY_SIGMA_AURA:
++            if (shouldAbilityTrigger && CompareStat(battler, STAT_SPEED, MAX_STAT_STAGE, CMP_LESS_THAN, gLastUsedAbility))
++            {
++                gEffectBattler = gBattlerAbility = battler;
++                SetStatChange(battler, STAT_SPEED, 1);
++                BattleScriptCall(BattleScript_AbilityStatChange);
++                effect++;
++            }
++            break;
+         case ABILITY_INTREPID_SWORD:
+             if (shouldAbilityTrigger && !GetBattlerPartyState(battler)->intrepidSwordBoost)
+             {

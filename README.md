@@ -17,7 +17,7 @@ abilities, moves, evolution, dex entry, breeding data, art, and so on.
 
 Everything else is produced from those files automatically, every time something changes:
 
-| Generated file | What it is |
+| File or folder | What it is |
 |---|---|
 | `DEX.md` | Overview table of all 100 slots |
 | `TODO.md` | What is missing before the dex is complete |
@@ -25,6 +25,7 @@ Everything else is produced from those files automatically, every time something
 | `export/sheet.csv` | The same, laid out for the Google Sheet people fill in |
 | `export/dex.json` | The whole dex as data, for tools |
 | `export/expansion/` | The Pokemon that are ready, written as game code, plus automated checks for them |
+| `game/` | Hand-written game code: new moves, new abilities and their tests (not generated) |
 | `site/index.html` | The website: every Pokemon's page, stats at any level, warnings, what is missing |
 
 Never edit the generated files by hand - they get overwritten.
