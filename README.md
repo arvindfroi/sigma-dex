@@ -3,6 +3,7 @@
 The single source of truth for our fakemon region: every Pokemon, with every piece of
 information the game needs, in one place.
 
+- **[The website](https://arvindfroi.github.io/sigma-dex/)** - every Pokemon's page, stats at any level, warnings
 - **[DEX.md](DEX.md)** - the whole dex at a glance
 - **[TODO.md](TODO.md)** - what is still missing, per Pokemon and per area
 - **[docs/OPEN_QUESTIONS.md](docs/OPEN_QUESTIONS.md)** - decisions the Council still has to make

@@ -14,6 +14,7 @@ import copy
 import csv
 import io
 import json
+import os
 import re
 import sys
 import urllib.request
@@ -159,10 +160,16 @@ def apply_row(data, row):
 
 def read_rows(source):
     if re.match(r"^https?://", source):
-        with urllib.request.urlopen(urllib.request.Request(source, headers={"User-Agent": "sigma-dex"})) as response:
-            text = response.read().decode("utf-8-sig")
+        try:
+            with urllib.request.urlopen(urllib.request.Request(source, headers={"User-Agent": "sigma-dex"})) as response:
+                text = response.read().decode("utf-8-sig")
+        except OSError as error:
+            text = "<html %s" % error
         if text.lstrip().lower().startswith("<!doctype html") or "<html" in text[:200].lower():
-            sys.exit("The sheet is not readable. Set its sharing to 'Anyone with the link: Viewer'.")
+            print("WARNING: the Google Sheet is not readable. Set its sharing to 'Anyone with the link'. Nothing imported.")
+            if os.environ.get("GITHUB_ACTIONS") == "true":
+                print("::warning::The Google Sheet is not readable - set its sharing to 'Anyone with the link'.")
+            return None
     else:
         text = open(source, encoding="utf-8-sig").read()
     table = list(csv.reader(io.StringIO(text)))
@@ -181,6 +188,8 @@ def main():
         print("No sheet configured (sheet_csv_url in data/config.yaml is empty) - nothing to import.")
         return 0
     rows = read_rows(source)
+    if rows is None:
+        return 0
     species, problems = dexlib.load_species()
     if problems:
         sys.exit("Fix the species files first (run scripts/validate.py).")
