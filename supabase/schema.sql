@@ -54,6 +54,13 @@ grant execute on function public.submit_species(text, text, jsonb, text) to anon
 
 create index species_edits_created_at_idx on public.species_edits (created_at);
 
+-- Added later: the log also holds new moves and abilities ('kind'), saved through submit_edit.
+-- submit_species remains as a wrapper for pages that were open before the change.
+alter table public.species_edits
+  add column kind text not null default 'species' check (kind in ('species', 'move', 'ability'));
+-- create function public.submit_edit(p_key text, p_kind text, p_id text, p_data jsonb, p_editor text)
+--   same checks as submit_species above, inserts (kind, species_id, data, editor).
+
 -- Set or change the edit key (run in the Supabase SQL editor, with your own key):
 --   insert into private.settings (key, value)
 --   values ('edit_key_sha256', encode(sha256(convert_to('YOUR NEW KEY', 'UTF8')), 'hex'))

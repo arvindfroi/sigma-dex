@@ -245,15 +245,84 @@ def constant(text):
     return re.sub(r"[^A-Z0-9]+", "_", str(text).upper()).strip("_")
 
 
+# New moves and abilities: what the files in data/custom_*.yaml may contain.
+MOVE_CATEGORIES = ["physical", "special", "status"]
+MOVE_TARGETS = ["one opponent", "all opponents", "everyone else", "the user", "an ally", "user and allies",
+                "the whole field", "a random opponent"]
+CUSTOM_FIELDS = {
+    "moves": ("id", "name", "type", "category", "power", "accuracy", "pp", "priority", "target", "contact",
+              "effect", "effect_chance", "similar_to", "notes", "designer", "implemented"),
+    "abilities": ("id", "name", "description", "effect", "similar_to", "notes", "designer", "implemented"),
+}
+CUSTOM_HEADERS = {
+    "moves": "# New moves invented for this project (moves that do not exist in the game yet,\n"
+             "# see data/engine/expansion.yaml for the 846 that do). Edit them on the website.\n"
+             "# Each one has to be programmed into the game; 'implemented: true' marks the ones that are.\n",
+    "abilities": "# New abilities invented for this project (abilities that do not exist in the game yet,\n"
+                 "# see data/engine/expansion.yaml for the 319 that do). Edit them on the website.\n"
+                 "# Each one has to be programmed into the game; 'implemented: true' marks the ones that are.\n",
+}
+
+
+def load_custom(kind):
+    """The project's own moves or abilities (kind is 'moves' or 'abilities')."""
+    with open(ROOT / "data" / ("custom_%s.yaml" % kind), encoding="utf-8") as handle:
+        entries = (yaml.safe_load(handle) or {}).get(kind) or []
+    entries = [e for e in entries if isinstance(e, dict) and e.get("name")]
+    for entry in entries:
+        entry.setdefault("id", slugify(entry["name"]))
+    return entries
+
+
+def write_custom(kind, entries):
+    ordered = [{k: e[k] for k in CUSTOM_FIELDS[kind] if e.get(k) not in (None, "", False)} for e in entries]
+    ordered.sort(key=lambda e: norm(e["name"]))
+    body = yaml.safe_dump({kind: ordered}, sort_keys=False, allow_unicode=True, width=100) if ordered else "%s: []\n" % kind
+    (ROOT / "data" / ("custom_%s.yaml" % kind)).write_text(CUSTOM_HEADERS[kind] + body, encoding="utf-8")
+
+
+def check_custom(kind, entry, engine_names):
+    """Problems with one custom move or ability, as a list of sentences."""
+    problems = []
+    limit = MOVE_NAME_LIMIT if kind == "moves" else ABILITY_NAME_LIMIT
+    what = "move" if kind == "moves" else "ability"
+    name = entry.get("name")
+    if not isinstance(name, str) or not name.strip():
+        return ["the %s needs a name" % what]
+    if len(name) > limit:
+        problems.append("the name '%s' is %d characters, the game fits at most %d" % (name, len(name), limit))
+    if norm(name) in engine_names:
+        problems.append("'%s' already exists in the game - it does not need to be described as a new %s" % (name, what))
+    if not isinstance(entry.get("effect"), str) or not entry["effect"].strip():
+        problems.append("describe what the %s does (effect)" % what)
+    for key in ("effect", "notes", "description", "similar_to", "designer"):
+        if entry.get(key) is not None and not isinstance(entry[key], str):
+            problems.append("%s must be text" % key)
+    if kind == "moves":
+        if entry.get("type") not in TYPES:
+            problems.append("type must be one of: %s" % ", ".join(TYPES))
+        if entry.get("category") not in MOVE_CATEGORIES:
+            problems.append("category must be physical, special or status")
+        if entry.get("target") is not None and entry["target"] not in MOVE_TARGETS:
+            problems.append("target must be one of: %s" % ", ".join(MOVE_TARGETS))
+        for key, low, high in (("power", 1, 250), ("accuracy", 1, 100), ("pp", 1, 40), ("priority", -7, 5), ("effect_chance", 1, 100)):
+            value = entry.get(key)
+            if value is not None and (not isinstance(value, int) or isinstance(value, bool) or not low <= value <= high):
+                problems.append("%s must be a whole number %d to %d, found %r" % (key, low, high, value))
+        if entry.get("pp") is None:
+            problems.append("the move needs PP")
+        if entry.get("category") == "status" and entry.get("power"):
+            problems.append("a status move has no power")
+        if entry.get("category") in ("physical", "special") and not entry.get("power"):
+            problems.append("a %s move needs a power (use 1 if the damage is special, and explain it in the effect)" % entry.get("category"))
+    return problems
+
+
 def load_engine():
     """Names the unmodified game knows, plus this project's custom moves and abilities."""
     with open(ENGINE_PATH, encoding="utf-8") as handle:
         engine = yaml.safe_load(handle)
-    custom = {}
-    for kind in ("moves", "abilities"):
-        with open(ROOT / "data" / ("custom_%s.yaml" % kind), encoding="utf-8") as handle:
-            entries = (yaml.safe_load(handle) or {}).get(kind) or []
-        custom[kind] = [e for e in entries if isinstance(e, dict) and e.get("name")]
+    custom = {kind: load_custom(kind) for kind in ("moves", "abilities")}
     return {
         "moves": {norm(m) for m in engine["moves"]} | {norm(e["name"]) for e in custom["moves"]},
         "abilities": {norm(a) for a in engine["abilities"]} | {norm(e["name"]) for e in custom["abilities"]},
@@ -264,6 +333,7 @@ def load_engine():
             "moves": sorted(list(engine["moves"]) + [e["name"] for e in custom["moves"]]),
             "abilities": sorted(list(engine["abilities"]) + [e["name"] for e in custom["abilities"]]),
         },
+        "engine_names": {"moves": list(engine["moves"]), "abilities": list(engine["abilities"])},
         "custom": custom,
     }
 

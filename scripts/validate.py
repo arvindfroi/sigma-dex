@@ -189,11 +189,12 @@ def main():
     ids = {sid for sid, _, _ in species}
     results = [(path, [msg], []) for path, msg in problems]
 
-    for kind, limit in (("moves", dexlib.MOVE_NAME_LIMIT), ("abilities", dexlib.ABILITY_NAME_LIMIT)):
-        too_long = ["custom name '%s' is longer than %d characters" % (e["name"], limit)
-                    for e in engine["custom"][kind] if len(str(e["name"])) > limit]
-        if too_long:
-            results.append((ROOT / "data" / ("custom_%s.yaml" % kind), [], too_long))
+    for kind in ("moves", "abilities"):
+        existing = {dexlib.norm(name) for name in engine["engine_names"][kind]}
+        found = ["%s: %s" % (entry.get("name"), problem) for entry in engine["custom"][kind]
+                 for problem in dexlib.check_custom(kind, entry, existing)]
+        if found:
+            results.append((ROOT / "data" / ("custom_%s.yaml" % kind), [], found))
 
     seen_dex, seen_names = {}, {}
     for sid, path, data in species:

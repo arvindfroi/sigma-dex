@@ -85,6 +85,13 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; }
 .checks { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 2px 10px; }
 .checks label { display: flex; gap: 6px; align-items: center; font-size: 14px; }
 .savebar { position: sticky; bottom: 0; background: var(--panel); border-top: 1px solid var(--line); margin: 22px -20px -24px; padding: 12px 20px; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 4px 16px 0; }
+.tabs button { border-radius: 999px; padding: 6px 14px; }
+.tabs button[aria-pressed=true] { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.card .line { color: var(--muted); font-size: 13px; margin-top: 4px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+.badge { font-size: 12px; border-radius: 6px; padding: 1px 7px; border: 1px solid var(--line); color: var(--muted); }
+.badge.done { color: var(--good); border-color: var(--good); }
+.badge.need { color: var(--warn); border-color: var(--warn); }
 .error { color: var(--bad); }
 .error:not(:empty) { margin: 0 0 8px; }
 @media (max-width: 520px) { .todo { columns: 1; } .detail .top img { width: 84px; height: 84px; } }
@@ -93,9 +100,10 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; }
 <body>
 <header>
   <h1 id="title"></h1>
-  <div class="sub">Every Pokemon as the game will use it. Click one to see its page and to edit it. Click an open slot to add a new one.</div>
+  <div class="sub">Every Pokemon as the game will use it. Click one to see its page and to edit it. Click an open slot to add a new one. Moves and abilities that do not exist in any Pokemon game are described under "New moves" and "New abilities".</div>
   <div class="totals" id="totals"></div>
 </header>
+<div class="tabs" id="tabs"></div>
 <div class="tools">
   <input type="search" id="search" placeholder="Search name, move, ability...">
   <select id="type"><option value="">All types</option></select>
@@ -330,6 +338,144 @@ function clean(value) {
   return value;
 }
 
+// Sends one save to the database. Throws an Error with a readable message if it fails.
+async function saveEdit(kind, id, data, editor, key) {
+  let response;
+  try {
+    response = await fetch(DEX.web.url + "/rest/v1/rpc/submit_edit", {method: "POST",
+      headers: {apikey: DEX.web.key, "Content-Type": "application/json"},
+      body: JSON.stringify({p_key: key, p_kind: kind, p_id: id, p_data: data, p_editor: editor})});
+  } catch (err) { throw new Error("Could not reach the server. Check your connection and try again."); }
+  if (!response.ok) {
+    const body = await response.json().catch(() => ({}));
+    throw new Error(/edit key/i.test(body.message || "") ? "Wrong edit key. Ask in the Discord for the current one." : (body.message || "The save did not go through (" + response.status + ")."));
+  }
+  remember.set("editor", editor); remember.set("key", key);
+}
+
+// ---------- new moves and abilities ----------
+const KINDS = {
+  move: {plural: "New moves", one: "move", used: s => { const l = s.data.learnset || {}; return [...(l.level_up || []).map(m => m.move), ...(l.tm_hm || []), ...(l.tutor || []), ...(l.egg || [])]; }},
+  ability: {plural: "New abilities", one: "ability", used: s => Object.values(s.data.abilities || {})},
+};
+const existingNames = kind => new Set(DEX.lists[kind === "move" ? "moves" : "abilities"].map(norm));
+const usedBy = (kind, name) => DEX.species.filter(s => KINDS[kind].used(s).some(n => n && norm(n) === norm(name)));
+// Names Pokemon use that exist neither in the game nor in our list of new ones.
+function undescribed(kind) {
+  const known = existingNames(kind), described = new Set(DEX.custom[kind].map(c => norm(c.name))), found = new Map();
+  for (const s of DEX.species) for (const name of KINDS[kind].used(s))
+    if (name && !known.has(norm(name)) && !described.has(norm(name)) && !found.has(norm(name))) found.set(norm(name), String(name));
+  return [...found.values()].sort();
+}
+function refreshLists() {
+  document.getElementById("list-moves").replaceChildren(...[...DEX.lists.moves, ...DEX.custom.move.map(c => c.name)].sort().map(m => h("option", {value: m})));
+  document.getElementById("list-abilities").replaceChildren(...[...new Set([...DEX.lists.abilities, ...DEX.custom.ability.map(c => c.name)])].sort().map(m => h("option", {value: m})));
+}
+
+function openCustomEditor(kind, item) {
+  const isNew = !item.id, K = KINDS[kind], L = DEX.lists, isMove = kind === "move";
+  const users = item.name ? usedBy(kind, item.name) : [];
+  const f = {
+    name: textInput(item.name, {required: true, maxlength: isMove ? L.move_name_limit : L.ability_name_limit}),
+    effect: h("textarea", {rows: 4, required: true, maxlength: 1500}, item.effect || ""),
+    similar: textInput(item.similar_to, {list: isMove ? "list-moves" : "list-abilities", maxlength: 60}),
+    notes: h("textarea", {rows: 2, maxlength: 1000}, item.notes || ""),
+    designer: textInput(item.designer, {maxlength: 40}),
+    editor: textInput(remember.get("editor"), {maxlength: 40, placeholder: "your Discord name"}),
+    key: h("input", {type: "password", value: remember.get("key"), autocomplete: "off"}),
+  };
+  if (isMove) Object.assign(f, {
+    type: selectInput(item.type, DEX.types, "choose..."), category: selectInput(item.category, L.move_categories, "choose..."),
+    power: numberInput(item.power, 1, 250), accuracy: numberInput(item.accuracy, 1, 100), pp: numberInput(item.pp, 1, 40),
+    priority: numberInput(item.priority, -7, 5), target: selectInput(item.target || "one opponent", L.move_targets),
+    contact: h("input", {type: "checkbox", checked: !!item.contact}), chance: numberInput(item.effect_chance, 1, 100),
+  });
+  else f.description = textInput(item.description, {maxlength: 70});
+  f.type && (f.type.required = true); f.category && (f.category.required = true); f.pp && (f.pp.required = true);
+  const error = h("div", {class: "error", role: "alert"});
+  const save = h("button", {class: "primary", type: "submit"}, "Save");
+  async function send(data, id) {
+    save.disabled = true; save.textContent = "Saving...";
+    try {
+      await saveEdit(kind, id, data, f.editor.value, f.key.value);
+      DEX.custom[kind] = DEX.custom[kind].filter(c => c.id !== id);
+      if (!data.deleted) DEX.custom[kind].push(Object.assign({}, data, {id, pending: true, implemented: item.implemented}));
+      refreshLists(); closeDialog(); render();
+    } catch (err) { error.textContent = err.message; save.disabled = false; save.textContent = "Save"; }
+  }
+  function submit(ev) {
+    ev.preventDefault();
+    const data = clean(Object.assign({name: readText(f.name), effect: readText(f.effect), similar_to: readText(f.similar), notes: readText(f.notes), designer: readText(f.designer)},
+      isMove ? {type: f.type.value, category: f.category.value, power: readNumber(f.power), accuracy: readNumber(f.accuracy), pp: readNumber(f.pp),
+        priority: readNumber(f.priority), target: f.target.value, contact: f.contact.checked, effect_chance: readNumber(f.chance)} : {description: readText(f.description)}));
+    if (!data.contact) delete data.contact;
+    if (!data.priority) delete data.priority;
+    const id = isNew ? slugify(data.name) : item.id;
+    let problem = null;
+    if (!id) problem = "Give it a name.";
+    else if (existingNames(kind).has(norm(data.name))) problem = data.name + " already exists in the game, so it does not need to be described here.";
+    else if (DEX.custom[kind].some(c => c.id !== item.id && (c.id === id || norm(c.name) === norm(data.name)))) problem = "There is already a new " + K.one + " with that name.";
+    else if (isMove && data.category === "status" && data.power) problem = "A status move has no power - leave power empty.";
+    else if (isMove && data.category !== "status" && !data.power) problem = "A " + data.category + " move needs a power. If the damage works in a special way, write 1 and explain it in the description.";
+    error.textContent = problem || "";
+    if (!problem) send(data, id);
+  }
+  showDialog(h("form", {onsubmit: submit},
+    h("div", {class: "top"}, h("div", {}, h("div", {class: "sub"}, "New " + K.one + (item.implemented ? " - already programmed into the game" : " - has to be programmed into the game")),
+        h("h3", {}, isNew ? (item.name ? "Describe " + item.name : "Add a new " + K.one) : "Edit " + item.name)),
+      h("div", {class: "actions"}, h("button", {type: "button", onclick: closeDialog}, "Cancel"))),
+    h("div", {class: "hint"}, "This is only for " + K.plural.toLowerCase().replace("new ", "") + " that do not exist in any Pokemon game. Be exact: this text is what gets programmed."),
+    users.length ? h("div", {class: "hint"}, "Used by: " + users.map(s => s.data.name).join(", ")) : null,
+    h("h2", {}, "The " + K.one),
+    isMove ? h("div", {class: "fields"}, field("Name (max " + L.move_name_limit + " letters)", f.name), field("Type", f.type), field("Category", f.category),
+        field("Power (empty for status moves)", f.power), field("Accuracy % (empty = never misses)", f.accuracy), field("PP", f.pp),
+        field("Priority (empty = normal, +1 = like Quick Attack)", f.priority), field("Hits", f.target),
+        h("label", {class: "field"}, h("span", {}, "Makes contact"), h("div", {}, f.contact, " yes")))
+      : h("div", {class: "fields"}, field("Name (max " + L.ability_name_limit + " letters)", f.name), field("Short text shown in the game", f.description, "wide")),
+    h("h2", {}, "What exactly does it do?"),
+    h("div", {class: "hint"}, isMove ? "Every detail: extra effects, how likely they are, stat changes and by how many stages, how many turns things last, special conditions."
+      : "Every detail: when it triggers, what it changes and by how much, whether it works in doubles, what it does outside battle."),
+    h("div", {class: "fields"}, field("Description", f.effect, "wide"), isMove ? field("Chance of the extra effect, % (empty = always)", f.chance) : null,
+      field("Works like this existing " + K.one + " (if any)", f.similar), field("Invented by", f.designer), field("Notes", f.notes, "wide")),
+    h("h2", {}, "Who is saving"),
+    h("div", {class: "fields"}, field("Your name", f.editor), field("Edit key (from the Discord)", f.key)),
+    h("div", {class: "savebar"}, error, h("div", {style: "display:flex;gap:8px;flex-wrap:wrap"}, save, h("button", {type: "button", onclick: closeDialog}, "Cancel"),
+      !isNew ? h("button", {type: "button", style: "margin-left:auto", onclick: () => { if (confirm("Remove " + item.name + " from the list of new " + K.one + (isMove ? "s" : "") + "?")) send({deleted: true}, item.id); }}, "Remove") : null))));
+}
+
+function renderCustom(kind) {
+  const K = KINDS[kind], grid = document.getElementById("grid"), query = document.getElementById("search").value.trim().toLowerCase();
+  const type = document.getElementById("type").value;
+  grid.replaceChildren();
+  if (DEX.web.url && !query && !type) grid.append(h("button", {class: "card open", onclick: () => openCustomEditor(kind, {})}, h("div", {class: "name"}, "+ Add a new " + K.one),
+    h("div", {class: "line"}, "Only for ones that do not exist in any Pokemon game.")));
+  for (const name of undescribed(kind)) {
+    if ((query && !name.toLowerCase().includes(query)) || type) continue;
+    grid.append(h("button", {class: "card", onclick: () => openCustomEditor(kind, {name})}, h("div", {class: "num"}, h("span", {class: "badge need"}, "needs a description")),
+      h("div", {class: "name"}, name), h("div", {class: "line"}, "Used by " + usedBy(kind, name).map(s => s.data.name).join(", ") + ", but it is not in the game and nobody has described it yet.")));
+  }
+  for (const item of DEX.custom[kind].slice().sort((a, b) => a.name.localeCompare(b.name))) {
+    if (query && !JSON.stringify(item).toLowerCase().includes(query)) continue;
+    if (type && item.type !== type) continue;
+    const users = usedBy(kind, item.name);
+    grid.append(h("button", {class: "card", onclick: () => openCustomEditor(kind, item)},
+      h("div", {class: "num"}, item.implemented ? h("span", {class: "badge done"}, "in the game") : h("span", {class: "badge"}, "not programmed yet"), item.pending ? h("span", {class: "pending"}, "just edited") : null),
+      h("div", {class: "name"}, item.name),
+      kind === "move" ? h("div", {class: "types"}, item.type ? typeChip(item.type) : null, h("span", {class: "chip"}, [item.category, item.power ? item.power + " power" : null, item.accuracy ? item.accuracy + "%" : null, item.pp ? item.pp + " PP" : null].filter(Boolean).join(" - "))) : null,
+      h("div", {class: "line"}, item.effect || ""), h("div", {class: "line"}, users.length ? "Used by " + users.map(s => s.data.name).join(", ") : "Not used by any Pokemon yet")));
+  }
+  if (!grid.children.length) grid.append(h("div", {class: "empty"}, "Nothing matches."));
+}
+
+let view = "species";
+function renderTabs() {
+  const count = kind => DEX.custom[kind].length + undescribed(kind).length;
+  document.getElementById("tabs").replaceChildren(...[["species", "Pokemon"], ["move", "New moves (" + count("move") + ")"], ["ability", "New abilities (" + count("ability") + ")"]]
+    .map(([id, label]) => h("button", {"aria-pressed": String(view === id), onclick: () => { view = id; render(); }}, label)));
+  document.getElementById("show").style.display = view === "species" ? "" : "none";
+  document.getElementById("type").style.display = view === "ability" ? "none" : "";
+}
+
 function openEditor(s) {
   const isNew = !s.id, d = s.data, L = DEX.lists;
   const credits = d.credits || {}, abilities = d.abilities || {}, stats = d.base_stats || {}, ev = d.ev_yield || {}, items = d.held_items || {}, learn = d.learnset || {}, design = d.design || {};
@@ -432,20 +578,13 @@ function openEditor(s) {
     const id = isNew ? slugify(data.name) : s.id;
     save.disabled = true; save.textContent = "Saving...";
     try {
-      const response = await fetch(DEX.web.url + "/rest/v1/rpc/submit_species", {method: "POST",
-        headers: {apikey: DEX.web.key, "Content-Type": "application/json"},
-        body: JSON.stringify({p_key: f.key.value, p_species_id: id, p_data: data, p_editor: f.editor.value})});
-      if (!response.ok) {
-        const body = await response.json().catch(() => ({}));
-        throw new Error(/edit key/i.test(body.message || "") ? "Wrong edit key. Ask in the Discord for the current one." : (body.message || "The save did not go through (" + response.status + ")."));
-      }
-      remember.set("editor", f.editor.value); remember.set("key", f.key.value);
+      await saveEdit("species", id, data, f.editor.value, f.key.value);
       const entry = isNew ? {id, art: null, problems: []} : s;
       entry.data = data; entry.pending = {editor: f.editor.value.trim()}; entry.problems = [];
       if (isNew) DEX.species.push(entry);
       DEX.species.forEach(derive); index(); render(); openDetail(entry);
     } catch (err) {
-      error.textContent = err.message === "Failed to fetch" ? "Could not reach the server. Check your connection and try again." : err.message;
+      error.textContent = err.message;
       save.disabled = false; save.textContent = "Save";
     }
   }
@@ -484,6 +623,8 @@ function openEditor(s) {
 }
 
 function render() {
+  renderTabs();
+  if (view !== "species") return renderCustom(view);
   const query = document.getElementById("search").value.trim().toLowerCase();
   const type = document.getElementById("type").value, mode = document.getElementById("show").value;
   const grid = document.getElementById("grid");
@@ -515,10 +656,16 @@ function render() {
 async function loadRecentEdits() {
   if (!DEX.web.url) return;
   try {
-    const response = await fetch(DEX.web.url + "/rest/v1/species_edits?select=id,species_id,data,editor&id=gt." + DEX.web.cursor + "&order=id.asc", {headers: {apikey: DEX.web.key}});
+    const response = await fetch(DEX.web.url + "/rest/v1/species_edits?select=id,kind,species_id,data,editor&id=gt." + DEX.web.cursor + "&order=id.asc", {headers: {apikey: DEX.web.key}});
     if (!response.ok) return;
     for (const row of await response.json()) {
       if (!row.data || typeof row.data !== "object" || slugify(row.species_id) !== row.species_id) continue;
+      if (row.kind === "move" || row.kind === "ability") {
+        const old = DEX.custom[row.kind].find(c => c.id === row.species_id);
+        DEX.custom[row.kind] = DEX.custom[row.kind].filter(c => c.id !== row.species_id);
+        if (!row.data.deleted && typeof row.data.name === "string") DEX.custom[row.kind].push(Object.assign({}, row.data, {id: row.species_id, pending: true, implemented: old && old.implemented}));
+        continue;
+      }
       let entry = byId.get(row.species_id);
       if (entry) row.data = Object.assign({}, row.data, {dex: entry.data.dex, assets: entry.data.assets, engine: entry.data.engine});
       else {
@@ -528,15 +675,14 @@ async function loadRecentEdits() {
       entry.data = row.data; entry.pending = {editor: row.editor}; entry.problems = [];
       DEX.species.forEach(derive); index();
     }
-    render();
+    refreshLists(); render();
   } catch (e) { /* the built data is still shown */ }
 }
 
 document.getElementById("title").textContent = DEX.project;
 DEX.species.forEach(derive); index();
 document.getElementById("type").append(...DEX.types.map(t => h("option", {value: t}, t)));
-document.getElementById("list-moves").append(...DEX.lists.moves.map(m => h("option", {value: m})));
-document.getElementById("list-abilities").append(...DEX.lists.abilities.map(m => h("option", {value: m})));
+refreshLists();
 document.getElementById("list-methods").append(...["grass", "cave", "surf", "fishing", "rock smash", "gift", "trade", "static"].map(m => h("option", {value: m})));
 if (DEX.problems.length) document.getElementById("notice").append(h("div", {class: "notice"}, h("b", {}, "These edits could not be used - please fix and save them again:"),
   h("ul", {}, DEX.problems.map(p => h("li", {}, h("b", {}, p.row + ": "), p.problem)))));

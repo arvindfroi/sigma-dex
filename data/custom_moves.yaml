@@ -1,11 +1,4 @@
 # New moves invented for this project (moves that do not exist in the game yet,
-# see data/engine/expansion.yaml for the 846 that do).
-# Each one has to be programmed into the game later, so keep the list short and precise.
+# see data/engine/expansion.yaml for the 846 that do). Edit them on the website.
+# Each one has to be programmed into the game; 'implemented: true' marks the ones that are.
 moves: []
-# moves:
-#   - name: Sigma Strike     # max 16 characters
-#     type: Fighting
-#     power: 80              # leave empty for status moves
-#     accuracy: 100
-#     pp: 15
-#     effect: May lower the target's Defense.

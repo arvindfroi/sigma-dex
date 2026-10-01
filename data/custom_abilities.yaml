@@ -1,7 +1,4 @@
 # New abilities invented for this project (abilities that do not exist in the game yet,
-# see data/engine/expansion.yaml for the 319 that do).
-# Each one has to be programmed into the game later, so keep the list short and precise.
+# see data/engine/expansion.yaml for the 319 that do). Edit them on the website.
+# Each one has to be programmed into the game; 'implemented: true' marks the ones that are.
 abilities: []
-# abilities:
-#   - name: Sigma Aura       # max 16 characters
-#     effect: Raises Attack by one stage when entering battle.

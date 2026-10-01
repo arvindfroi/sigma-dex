@@ -48,10 +48,13 @@ def main():
     payload = {
         "project": config.get("project", "Pokedex"), "dex_size": config.get("dex_size", 100),
         "species": entries, "types": dexlib.TYPES, "checks": dexlib.CHECK_LIST,
+        "custom": {"move": engine["custom"]["moves"], "ability": engine["custom"]["abilities"]},
         "problems": report("sheet_problems.json") + report("web_problems.json"),
         "web": dict(config.get("web_edits") or {}, cursor=int(cursor_path.read_text().strip() or 0) if cursor_path.exists() else 0),
         "lists": {
-            "moves": engine["names"]["moves"], "abilities": engine["names"]["abilities"],
+            "moves": engine["engine_names"]["moves"], "abilities": engine["engine_names"]["abilities"],
+            "move_categories": dexlib.MOVE_CATEGORIES, "move_targets": dexlib.MOVE_TARGETS,
+            "move_name_limit": dexlib.MOVE_NAME_LIMIT, "ability_name_limit": dexlib.ABILITY_NAME_LIMIT,
             "tm_hm": engine["tm_hm_order"],
             "growth_rates": dexlib.GROWTH_RATES, "egg_groups": dexlib.EGG_GROUPS, "body_colors": dexlib.BODY_COLORS,
             "evolution_methods": list(dexlib.EVOLUTION_METHODS),

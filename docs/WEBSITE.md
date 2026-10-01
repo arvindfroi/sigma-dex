@@ -19,6 +19,21 @@ notes. Moves and abilities suggest the ones that already exist in the game while
 
 Not on the website: art and sprites. Post concept art in the Discord for now.
 
+## New moves and abilities
+
+Moves and abilities that exist in the Pokemon games (846 moves, 319 abilities, up to
+generation 9) can simply be picked. Anything else is **new** and has to be programmed into
+the game, so it needs an exact description:
+
+1. Open the **New moves** or **New abilities** tab.
+2. Press **Add a new move** - or, if a Pokemon already uses a name the game does not know,
+   click its card marked "needs a description".
+3. Fill in type, category, power, accuracy, PP and - most important - exactly what it does:
+   extra effects and their chance, stat changes and by how many stages, how long things
+   last. If it works like an existing move or ability, say which one.
+
+Each card shows which Pokemon use it and whether it is already programmed into the game.
+
 ## What happens after saving
 
 - Everyone who opens the site sees your save right away, marked "just edited".
@@ -36,6 +51,8 @@ Not on the website: art and sprites. Post concept art in the Discord for now.
 - Saves go to a small database (Supabase project `sigma-dex`, free plan). Each save is one
   row holding the whole Pokemon; rows are never changed, so the table is the edit history.
   The layout is in [`supabase/schema.sql`](../supabase/schema.sql).
+- New moves and abilities are stored in `data/custom_moves.yaml` and `data/custom_abilities.yaml`.
+  Set `implemented: true` there once one is programmed; the website cannot change that flag.
 - `scripts/import_web.py` applies rows newer than `data/web_edits_cursor.txt`. Art paths and
   sprite details are always kept from the species file, never taken from the website.
 - **The edit key** stops strangers from saving. Only its hash is stored in the database.

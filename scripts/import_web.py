@@ -31,7 +31,7 @@ def read_cursor():
 def fetch_rows(settings, cursor):
     rows = []
     while True:
-        url = "%s/rest/v1/species_edits?select=id,species_id,data,editor,created_at&id=gt.%d&order=id.asc&limit=1000" % (
+        url = "%s/rest/v1/species_edits?select=id,kind,species_id,data,editor,created_at&id=gt.%d&order=id.asc&limit=1000" % (
             settings["url"].rstrip("/"), rows[-1]["id"] if rows else cursor)
         request = urllib.request.Request(url, headers={"apikey": settings["key"], "User-Agent": "sigma-dex"})
         with urllib.request.urlopen(request) as response:
@@ -77,9 +77,40 @@ def main():
     report = json.loads(REPORT.read_text(encoding="utf-8")) if REPORT.exists() else []
     changed = 0
 
+    custom = {kind: dexlib.load_custom(kind) for kind in ("moves", "abilities")}
+    custom_changed = set()
+
     for row in rows:
         sid, editor = str(row.get("species_id")), row.get("editor") or "someone"
         label = "%s (saved by %s)" % (sid, editor)
+        if row.get("kind") in ("move", "ability"):
+            kind = "moves" if row["kind"] == "move" else "abilities"
+            label = "new %s %s" % (row["kind"], label)
+            try:
+                data = row.get("data")
+                if not isinstance(data, dict) or dexlib.slugify(sid) != sid or not sid:
+                    raise ValueError("the saved data is not a %s" % row["kind"])
+                old = next((e for e in custom[kind] if e["id"] == sid), None)
+                if data.get("deleted"):
+                    custom[kind] = [e for e in custom[kind] if e["id"] != sid]
+                else:
+                    entry = {k: data.get(k) for k in dexlib.CUSTOM_FIELDS[kind] if k not in ("id", "implemented")}
+                    entry["id"] = sid
+                    if old and old.get("implemented"):
+                        entry["implemented"] = old["implemented"]   # only set by whoever programs it
+                    existing = {norm(name) for name in engine["engine_names"][kind]}
+                    taken = {norm(e["name"]) for e in custom[kind] if e["id"] != sid}
+                    found = dexlib.check_custom(kind, entry, existing)
+                    if norm(entry.get("name") or "") in taken:
+                        found.append("another new %s already has that name" % row["kind"])
+                    if found:
+                        raise ValueError("; ".join(found))
+                    custom[kind] = [e for e in custom[kind] if e["id"] != sid] + [entry]
+                custom_changed.add(kind)
+                report = [entry for entry in report if entry.get("species") != row["kind"] + ":" + sid]
+            except Exception as error:
+                report.append({"id": row.get("id"), "species": row["kind"] + ":" + sid, "row": label, "problem": str(error)})
+            continue
         try:
             if not isinstance(row.get("data"), dict) or dexlib.slugify(sid) != sid or not sid:
                 raise ValueError("the saved data is not a Pokemon")
@@ -115,13 +146,16 @@ def main():
         except Exception as error:  # one bad save must never stop the others
             report.append({"id": row.get("id"), "species": sid, "row": label, "problem": str(error)})
 
+    for kind in sorted(custom_changed):
+        dexlib.write_custom(kind, custom[kind])
+        changed += 1
     if rows:
         CURSOR.write_text("%d\n" % rows[-1]["id"])
     REPORT.parent.mkdir(exist_ok=True)
     REPORT.write_text(json.dumps(report[-50:], indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     for entry in report:
         print("NOT USED %s: %s" % (entry["row"], entry["problem"]))
-    print("Website import: %d saves read, %d species files changed, %d problems listed" % (len(rows), changed, len(report)))
+    print("Website import: %d saves read, %d files changed, %d problems listed" % (len(rows), changed, len(report)))
     return 0
 
 
