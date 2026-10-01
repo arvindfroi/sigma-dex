@@ -5,7 +5,7 @@ on:
     branches: [main]
   pull_request:
   schedule:
-    - cron: "17 * * * *"   # every hour: pick up what people typed into the Google Sheet
+    - cron: "7,22,37,52 * * * *"   # every 15 minutes: pick up edits from the website and the Google Sheet
   workflow_dispatch:        # the "Run workflow" button, to sync right now
 
 permissions:
@@ -31,6 +31,9 @@ jobs:
         env:
           SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
         run: python scripts/import_sheet.py
+      - name: Import from the website
+        if: github.event_name != 'pull_request'
+        run: python scripts/import_web.py
       - name: Check the species files
         run: python scripts/validate.py
       - name: Rebuild DEX.md, TODO.md, export/ and the website
@@ -41,7 +44,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data DEX.md TODO.md export site
-          git diff --cached --quiet || (git commit -m "Sync from the Google Sheet and rebuild generated files" && git push)
+          git diff --cached --quiet || (git commit -m "Sync edits from the website and the Google Sheet" && git push)
       - name: Package the website
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3

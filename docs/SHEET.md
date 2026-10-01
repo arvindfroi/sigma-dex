@@ -1,4 +1,7 @@
-# Filling in the dex without GitHub
+# Filling in the dex with the Google Sheet
+
+The easiest way to contribute is the edit form on the website ([WEBSITE.md](WEBSITE.md)).
+The sheet is the alternative for filling in many Pokemon at once.
 
 Two things exist for people who never want to touch GitHub:
 
@@ -9,8 +12,8 @@ Two things exist for people who never want to touch GitHub:
 
 ## How to use the sheet
 
-One row per dex slot. Type in a cell; once an hour the dex picks it up, checks it and
-updates the website.
+One row per dex slot. Type in a cell; every 15 minutes the dex picks it up, checks it and
+updates the website. If the same Pokemon is changed in both places, the website wins.
 
 - **An empty cell changes nothing.** To change a value, type the new one. (Removing a value
   completely has to be done in the species file on GitHub.)
@@ -58,7 +61,7 @@ updates the website.
    It is a secret because this repository is public: anyone who has the link to an
    "anyone can edit" sheet can change it, so share the sheet link in Discord only and never
    write it in a file here.
-4. To sync immediately instead of waiting for the hour: on GitHub, **Actions > Dex > Run workflow**.
+4. To sync immediately instead of waiting: on GitHub, **Actions > Dex > Run workflow**.
 
 The sheet and the species files are the same data. The sheet is for the everyday filling
 in; the files additionally hold art paths and sprite details.

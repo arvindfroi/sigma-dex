@@ -87,7 +87,7 @@ def check_species(sid, data, ids, engine, errors, warnings):
             if sum(v for v in ev.values() if isinstance(v, int)) > 3:
                 err("ev_yield gives more than 3 points in total")
 
-    for key, low, high in (("catch_rate", 1, 255), ("base_exp", 1, 635), ("base_friendship", 0, 255), ("egg_cycles", 1, 120)):
+    for key, low, high in (("catch_rate", 1, 255), ("base_exp", 1, 255), ("base_friendship", 0, 255), ("egg_cycles", 1, 120)):
         value = data.get(key)
         if value is not None and (not isinstance(value, int) or not low <= value <= high):
             err("%s must be a whole number %d-%d, found %r" % (key, low, high, value))

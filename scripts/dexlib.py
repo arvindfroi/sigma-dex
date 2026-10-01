@@ -262,6 +262,11 @@ def load_engine():
         "tm_hm": {norm(m) for m in engine["tms"] + engine["hms"]},
         "tm_hm_order": engine["tms"] + engine["hms"],
         "tutor": {norm(m) for m in engine["tutor_moves"]},
+        "names": {
+            "moves": sorted(engine["moves"] + [e["name"] for e in custom["moves"]]),
+            "abilities": sorted(engine["abilities"] + [e["name"] for e in custom["abilities"]]),
+            "tutor": engine["tutor_moves"],
+        },
         "custom": custom,
     }
 
@@ -393,38 +398,51 @@ def filled(value):
     return value is not None and value != "" and value != [] and value != {}
 
 
-# (section, label, test) - everything a species needs before it can go into the game.
-CHECKS = [
-    ("Identity", "types", lambda d: filled(d.get("types"))),
-    ("Identity", "designer credit", lambda d: filled(section(d, "credits").get("designer"))),
-    ("Dex page", "category", lambda d: filled(d.get("category"))),
-    ("Dex page", "description", lambda d: filled(d.get("description"))),
-    ("Dex page", "height", lambda d: filled(d.get("height_m"))),
-    ("Dex page", "weight", lambda d: filled(d.get("weight_kg"))),
-    ("Dex page", "body color", lambda d: filled(d.get("body_color"))),
-    ("Stats", "base stats", lambda d: bst(d) is not None),
-    ("Stats", "ability", lambda d: filled(section(d, "abilities").get("primary"))),
-    ("Stats", "EV yield", lambda d: filled(d.get("ev_yield"))),
-    ("Stats", "catch rate", lambda d: filled(d.get("catch_rate"))),
-    ("Stats", "base exp", lambda d: filled(d.get("base_exp"))),
-    ("Stats", "growth rate", lambda d: filled(d.get("growth_rate"))),
-    ("Stats", "base friendship", lambda d: filled(d.get("base_friendship"))),
-    ("Breeding", "gender", lambda d: filled(d.get("gender"))),
-    ("Breeding", "egg groups", lambda d: filled(d.get("egg_groups"))),
-    ("Breeding", "egg cycles", lambda d: filled(d.get("egg_cycles"))),
-    ("Moves", "level-up moves", lambda d: filled(section(d, "learnset").get("level_up"))),
-    ("Moves", "TM/HM moves", lambda d: filled(section(d, "learnset").get("tm_hm"))),
-    ("Location", "encounters", lambda d: filled(d.get("encounters"))),
-    ("Design", "concept", lambda d: filled(section(d, "design").get("concept"))),
-    ("Art", "concept art", lambda d: filled(section(d, "assets").get("concept_art"))),
-    ("Art", "front sprite", lambda d: filled(section(d, "assets").get("front_sprite"))),
-    ("Art", "front animation frame", lambda d: filled(section(d, "assets").get("front_anim"))),
-    ("Art", "back sprite", lambda d: filled(section(d, "assets").get("back_sprite"))),
-    ("Art", "icon", lambda d: filled(section(d, "assets").get("icon"))),
-    ("Art", "footprint", lambda d: filled(section(d, "assets").get("footprint"))),
-    ("Art", "shiny palette", lambda d: filled(section(d, "assets").get("shiny_palette"))),
-    ("Art", "cry", lambda d: filled(section(d, "assets").get("cry"))),
+# (section, label, path) - everything a species needs before it can go into the game.
+# The website uses the same list, so keep it as plain data.
+CHECK_LIST = [
+    ("Identity", "types", "types"),
+    ("Identity", "designer credit", "credits.designer"),
+    ("Dex page", "category", "category"),
+    ("Dex page", "description", "description"),
+    ("Dex page", "height", "height_m"),
+    ("Dex page", "weight", "weight_kg"),
+    ("Dex page", "body color", "body_color"),
+    ("Stats", "base stats", "base_stats.*"),
+    ("Stats", "ability", "abilities.primary"),
+    ("Stats", "EV yield", "ev_yield"),
+    ("Stats", "catch rate", "catch_rate"),
+    ("Stats", "base exp", "base_exp"),
+    ("Stats", "growth rate", "growth_rate"),
+    ("Stats", "base friendship", "base_friendship"),
+    ("Breeding", "gender", "gender"),
+    ("Breeding", "egg groups", "egg_groups"),
+    ("Breeding", "egg cycles", "egg_cycles"),
+    ("Moves", "level-up moves", "learnset.level_up"),
+    ("Moves", "TM/HM moves", "learnset.tm_hm"),
+    ("Location", "encounters", "encounters"),
+    ("Design", "concept", "design.concept"),
+    ("Art", "concept art", "assets.concept_art"),
+    ("Art", "front sprite", "assets.front_sprite"),
+    ("Art", "front animation frame", "assets.front_anim"),
+    ("Art", "back sprite", "assets.back_sprite"),
+    ("Art", "icon", "assets.icon"),
+    ("Art", "footprint", "assets.footprint"),
+    ("Art", "shiny palette", "assets.shiny_palette"),
+    ("Art", "cry", "assets.cry"),
 ]
+
+
+def has(data, path):
+    if path == "base_stats.*":
+        return bst(data) is not None
+    value = data
+    for key in path.split("."):
+        value = value.get(key) if isinstance(value, dict) else None
+    return filled(value)
+
+
+CHECKS = [(_section, _label, (lambda d, _path=_path: has(d, _path))) for _section, _label, _path in CHECK_LIST]
 SECTIONS = []
 for _section, _label, _test in CHECKS:
     if _section not in SECTIONS:

@@ -3,7 +3,7 @@
 The single source of truth for our fakemon region: every Pokemon, with every piece of
 information the game needs, in one place.
 
-- **[The website](https://arvindfroi.github.io/sigma-dex/)** - every Pokemon's page, stats at any level, warnings
+- **[The website](https://arvindfroi.github.io/sigma-dex/)** - see every Pokemon and **edit it right there**
 - **[DEX.md](DEX.md)** - the whole dex at a glance
 - **[TODO.md](TODO.md)** - what is still missing, per Pokemon and per area
 - **[docs/OPEN_QUESTIONS.md](docs/OPEN_QUESTIONS.md)** - decisions the Council still has to make
@@ -31,12 +31,14 @@ Never edit the generated files by hand - they get overwritten.
 
 ## Contributing
 
-- **Without GitHub:** type into the Google Sheet and look at the result on the website.
+- **On the website (easiest):** click a Pokemon, press Edit, save. No account needed.
+  See [docs/WEBSITE.md](docs/WEBSITE.md).
+- **In the Google Sheet:** good for filling in many Pokemon at once.
   See [docs/SHEET.md](docs/SHEET.md).
 - **With GitHub:** edit a species file, open a pull request, wait for the green check, merge.
   See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Both end up in the same species files. Concept art and decisions still buried in Discord
+All three end up in the same species files. Concept art and decisions still buried in Discord
 can be pulled out with [docs/DISCORD.md](docs/DISCORD.md).
 
 ## The game

@@ -3,7 +3,7 @@
 The repository is the one place where dex information lives. Discord is for discussing;
 once something is decided, it goes here. If it is not in the repo, it is not decided.
 
-No GitHub account? Use the Google Sheet instead: [docs/SHEET.md](docs/SHEET.md).
+No GitHub account? Edit on the website instead: [docs/WEBSITE.md](docs/WEBSITE.md).
 
 ## Filling in or changing a Pokemon (in the browser)
 

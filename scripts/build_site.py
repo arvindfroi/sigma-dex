@@ -21,7 +21,6 @@ def main():
         raise SystemExit("Fix the species files first (run scripts/validate.py).")
     engine = dexlib.load_engine()
     ids = {sid for sid, _, _ in species}
-    names = {sid: data.get("name") for sid, _, data in species}
     SITE.mkdir(exist_ok=True)
     art_dir = SITE / "art"
     if art_dir.exists():
@@ -39,19 +38,25 @@ def main():
             art = "art/" + target.name
         else:
             art = None
-        entries.append({
-            "id": sid, "data": data, "art": art, "bst": dexlib.bst(data),
-            "complete": dexlib.completeness(data),
-            "missing": ["%s: %s" % pair for pair in dexlib.missing(data)],
-            "problems": errors + warnings,
-            "evolutions": [{"into": e.get("into"), "name": names.get(e.get("into"), e.get("into")), "how": dexlib.evolution_to_text(e)}
-                           for e in dexlib.listing(data.get("evolutions")) if isinstance(e, dict)],
-        })
-    report_path = ROOT / "export" / "sheet_problems.json"
+        entries.append({"id": sid, "data": data, "art": art, "problems": errors + warnings})
+
+    def report(name):
+        path = ROOT / "export" / name
+        return json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+
+    cursor_path = ROOT / "data" / "web_edits_cursor.txt"
     payload = {
         "project": config.get("project", "Pokedex"), "dex_size": config.get("dex_size", 100),
-        "sheet_url": config.get("sheet_url"), "species": entries, "types": dexlib.TYPES,
-        "sheet_problems": json.loads(report_path.read_text(encoding="utf-8")) if report_path.exists() else [],
+        "species": entries, "types": dexlib.TYPES, "checks": dexlib.CHECK_LIST,
+        "problems": report("sheet_problems.json") + report("web_problems.json"),
+        "web": dict(config.get("web_edits") or {}, cursor=int(cursor_path.read_text().strip() or 0) if cursor_path.exists() else 0),
+        "lists": {
+            "moves": engine["names"]["moves"], "abilities": engine["names"]["abilities"],
+            "tm_hm": engine["tm_hm_order"], "tutor": engine["names"]["tutor"],
+            "growth_rates": dexlib.GROWTH_RATES, "egg_groups": dexlib.EGG_GROUPS, "body_colors": dexlib.BODY_COLORS,
+            "evolution_methods": list(dexlib.EVOLUTION_METHODS),
+            "name_limit": dexlib.NAME_LIMIT, "category_limit": dexlib.CATEGORY_LIMIT,
+        },
     }
     blob = json.dumps(payload, ensure_ascii=False).replace("</", "<\\/")
     page = PAGE.read_text(encoding="utf-8").replace("/*DATA*/null", blob).replace("@@TITLE@@", str(payload["project"]))

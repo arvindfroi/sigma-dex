@@ -2,7 +2,11 @@
   "config": {
     "project": "Council of the Sigmas Pokedex",
     "region": null,
-    "dex_size": 100
+    "dex_size": 100,
+    "web_edits": {
+      "url": "https://hlkabnevaljtrbldgeqm.supabase.co",
+      "key": "sb_publishable_wCNbjGSHaUnR-Iur5Z86SA_RlJetVYW"
+    }
   },
   "species": [
     {

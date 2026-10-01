@@ -73,12 +73,12 @@ tutor_moves:
   - Swords Dance
   - Mega Kick
   - Body Slam
-  - Double Edge
+  - Double-Edge
   - Counter
   - Seismic Toss
   - Mimic
   - Metronome
-  - Soft Boiled
+  - Soft-Boiled
   - Dream Eater
   - Thunder Wave
   - Explosion
@@ -90,7 +90,7 @@ tutor_moves:
   - Snore
   - Icy Wind
   - Endure
-  - Mud Slap
+  - Mud-Slap
   - Ice Punch
   - Swagger
   - Sleep Talk
@@ -219,7 +219,7 @@ moves:
   - Wrap
   - Take Down
   - Thrash
-  - Double Edge
+  - Double-Edge
   - Tail Whip
   - Poison Sting
   - Twineedle
@@ -301,7 +301,7 @@ moves:
   - Bide
   - Metronome
   - Mirror Move
-  - Self Destruct
+  - Self-Destruct
   - Egg Bomb
   - Lick
   - Smog
@@ -316,7 +316,7 @@ moves:
   - Constrict
   - Amnesia
   - Kinesis
-  - Soft Boiled
+  - Soft-Boiled
   - Hi Jump Kick
   - Glare
   - Dream Eater
@@ -370,7 +370,7 @@ moves:
   - Sweet Kiss
   - Belly Drum
   - Sludge Bomb
-  - Mud Slap
+  - Mud-Slap
   - Octazooka
   - Spikes
   - Zap Cannon
@@ -380,7 +380,7 @@ moves:
   - Icy Wind
   - Detect
   - Bone Rush
-  - Lock On
+  - Lock-On
   - Outrage
   - Sandstorm
   - Giga Drain
@@ -442,7 +442,7 @@ moves:
   - Hail
   - Torment
   - Flatter
-  - Will O Wisp
+  - Will-O-Wisp
   - Memento
   - Facade
   - Focus Punch
