@@ -24,7 +24,7 @@ Everything else is produced from those files automatically, every time something
 | `export/dex.csv` | The whole dex as a spreadsheet |
 | `export/sheet.csv` | The same, laid out for the Google Sheet people fill in |
 | `export/dex.json` | The whole dex as data, for tools |
-| `export/engine/` | Every Pokemon written as game code (still in the old vanilla-Emerald layout, see docs/ENGINE.md) |
+| `export/expansion/` | The Pokemon that are ready, written as game code, plus automated checks for them |
 | `site/index.html` | The website: every Pokemon's page, stats at any level, warnings, what is missing |
 
 Never edit the generated files by hand - they get overwritten.

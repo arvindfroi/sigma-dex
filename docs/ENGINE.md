@@ -62,18 +62,26 @@ name, category, height, weight, dex text, body color, sprites and their position
 links to its level-up, teachable and egg move lists and its evolutions. Our species files
 contain all of that except the art.
 
-`scripts/export_engine.py` still writes the **old plain-Emerald layout** into
-`export/engine/`. It will be replaced by an expansion exporter once expansion can be built
-here to test it against.
+`scripts/export_expansion.py` writes every Pokemon that is far enough along as game code
+into `export/expansion/`, and `scripts/apply_to_expansion.py` puts it into the game's source.
+[BUILDING.md](BUILDING.md) has the steps.
 
-## Proof of concept so far (2026-10-02, plain Emerald)
+## Proof of concept (2026-10-02)
 
-Leafing was filled in with draft values and tested in a real game: `pokeemerald-native`
-was built on macOS, Leafing's exported data was put in Treecko's slot (Treecko's sprite as
-placeholder), and the port's automated test played a new game with it. The game showed
-"Go! LEAFING!", "LEAFING used TACKLE!", type GRASS, ability OVERGROW and the expected
-level 5 stats. That proved the route species file > export > game. It has to be repeated
-on expansion.
+**On pokeemerald-expansion (the real base):** expansion 1.17.1 was built on macOS. Leafing
+(draft values) was exported and added as a **new** species, next to the existing ones.
+The game compiled, and its automated test system confirmed both generated checks:
+
+- "Leafing has the data from its species file" - stats, type, ability, first move and name
+  in the running game match the species file.
+- "Leafing can use its first move in battle" - a real battle against a Wobbuffet in which
+  Leafing uses Tackle.
+
+Sprites and cry are the game's question-mark placeholders until we have art.
+
+**Earlier, on plain Emerald:** the same Leafing was put into `fuddlesworth/pokeemerald-native`
+(the native macOS port) in Treecko's slot and played through the first battle. That showed
+the native port works on this machine, which matters if we port expansion to it later.
 
 ## Tools the community uses
 
