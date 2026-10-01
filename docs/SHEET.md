@@ -16,7 +16,9 @@ updates the website.
   completely has to be done in the species file on GitHub.)
 - **To add a Pokemon**, write its name in an open slot's row.
 - **Never change the `dex` column.** It is how rows are matched.
-- The columns `id`, `bst` and `complete_percent` are calculated - typing in them does nothing.
+- The `bst` column is calculated - typing in it does nothing.
+- Columns are recognised by their header in row 1, so the order does not matter and extra
+  columns of your own are ignored.
 
 | Column | How to write it |
 |---|---|
@@ -43,19 +45,19 @@ updates the website.
 
 ## Setting it up (once)
 
-1. Open `export/dex.csv` from this repository and import it into the Google Sheet
-   (**File > Import > Upload**, "Replace current sheet"). That gives the sheet the right
-   columns and everything already known.
-2. **Share > General access > Anyone with the link: Viewer.** (Editing stays limited to the
-   people you invite.) The sync reads the sheet through this link.
-3. Put both links in `data/config.yaml`:
-
-   ```yaml
-   sheet_url: https://docs.google.com/spreadsheets/d/SHEET_ID/edit
-   sheet_csv_url: https://docs.google.com/spreadsheets/d/SHEET_ID/export?format=csv&gid=0
-   ```
-
+1. Download [`export/sheet.csv`](../export/sheet.csv) and import it into the Google Sheet
+   (**File > Import > Upload**, "Replace current sheet"). That gives the sheet every column
+   and everything already known. If numbers like `5.8` turn into dates, set
+   **File > Settings > Locale** to United Kingdom and import again.
+2. The sheet must be shared as **Anyone with the link** (Viewer is enough for the sync;
+   Editor lets people fill it in without being invited).
+3. The sync finds the sheet through a repository secret named `SHEET_CSV_URL`
+   (**Settings > Secrets and variables > Actions**), with the value
+   `https://docs.google.com/spreadsheets/d/SHEET_ID/export?format=csv&gid=0`.
    `gid` is the number after `gid=` in the address bar when the right tab is open.
+   It is a secret because this repository is public: anyone who has the link to an
+   "anyone can edit" sheet can change it, so share the sheet link in Discord only and never
+   write it in a file here.
 4. To sync immediately instead of waiting for the hour: on GitHub, **Actions > Dex > Run workflow**.
 
 The sheet and the species files are the same data. The sheet is for the everyday filling

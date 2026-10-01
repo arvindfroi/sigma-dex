@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Copy what people typed into the Google Sheet into the species files.
 
-    python scripts/import_sheet.py                 # uses sheet_csv_url from data/config.yaml
+    python scripts/import_sheet.py                 # uses the SHEET_CSV_URL environment variable
     python scripts/import_sheet.py some/file.csv   # or a downloaded CSV / another URL
 
 The sheet has one row per dex slot and the same columns as export/dex.csv. Rules:
@@ -183,9 +183,9 @@ def read_rows(source):
 
 def main():
     config = dexlib.load_config()
-    source = sys.argv[1] if len(sys.argv) > 1 else config.get("sheet_csv_url")
+    source = sys.argv[1] if len(sys.argv) > 1 else os.environ.get("SHEET_CSV_URL")
     if not source:
-        print("No sheet configured (sheet_csv_url in data/config.yaml is empty) - nothing to import.")
+        print("No sheet configured (SHEET_CSV_URL is not set) - nothing to import.")
         return 0
     rows = read_rows(source)
     if rows is None:

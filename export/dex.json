@@ -2,9 +2,7 @@
   "config": {
     "project": "Council of the Sigmas Pokedex",
     "region": null,
-    "dex_size": 100,
-    "sheet_url": null,
-    "sheet_csv_url": null
+    "dex_size": 100
   },
   "species": [
     {

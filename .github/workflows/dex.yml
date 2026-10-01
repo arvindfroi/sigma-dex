@@ -28,6 +28,8 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Import from the Google Sheet
         if: github.event_name != 'pull_request'
+        env:
+          SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
         run: python scripts/import_sheet.py
       - name: Check the species files
         run: python scripts/validate.py

@@ -21,7 +21,8 @@ Everything else is produced from those files automatically, every time something
 |---|---|
 | `DEX.md` | Overview table of all 100 slots |
 | `TODO.md` | What is missing before the dex is complete |
-| `export/dex.csv` | The whole dex as a spreadsheet (File > Import in Google Sheets) |
+| `export/dex.csv` | The whole dex as a spreadsheet |
+| `export/sheet.csv` | The same, laid out for the Google Sheet people fill in |
 | `export/dex.json` | The whole dex as data, for tools |
 | `export/engine/` | Every Pokemon written in the C format the Emerald PC port uses |
 | `site/index.html` | The website: every Pokemon's page, stats at any level, warnings, what is missing |

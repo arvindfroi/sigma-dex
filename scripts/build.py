@@ -121,11 +121,25 @@ def main():
                 section(data, "credits").get("artist"), dexlib.completeness(data)]
             writer.writerow(["" if value is None else value for value in row])
 
+    # ---- export/sheet.csv (dex.csv laid out for the Google Sheet: no internal columns, total as a formula) ----
+    with open(export / "dex.csv", newline="", encoding="utf-8") as handle:
+        table = list(csv.reader(handle))
+    keep = [i for i, column in enumerate(table[0]) if column not in ("id", "complete_percent")]
+    total = [table[0][i] for i in keep].index("bst")
+    first, last = (chr(ord("A") + [table[0][i] for i in keep].index(stat)) for stat in (STATS[0], STATS[-1]))
+    with open(export / "sheet.csv", "w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle)
+        for number, line in enumerate(table, start=1):
+            cells = [line[i] for i in keep]
+            if number > 1:
+                cells[total] = "=SUM(%s%d:%s%d)" % (first, number, last, number)
+            writer.writerow(cells)
+
     # ---- export/dex.json (everything, for the ROM hack tooling later) ----
     payload = {"config": config, "species": [dict(data, id=sid) for sid, _, data in species]}
     (export / "dex.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    print("Built DEX.md, TODO.md, export/dex.csv, export/dex.json (%d species, %d open slots)" % (len(species), len(open_slots)))
+    print("Built DEX.md, TODO.md, export/dex.csv, export/sheet.csv, export/dex.json (%d species, %d open slots)" % (len(species), len(open_slots)))
     export_engine.main()
     build_site.main()
 
