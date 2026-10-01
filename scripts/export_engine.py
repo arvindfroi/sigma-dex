@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Write every species in the C format the Emerald PC port uses, into export/engine/.
+"""Write every species in the C format of VANILLA Emerald (pret/pokeemerald), into export/engine/.
+
+NOTE: the project has since chosen pokeemerald-expansion as its base, which stores species
+differently. This exporter still produces the vanilla layout used for the first proof of
+concept and will be replaced by an expansion exporter (see docs/ENGINE.md).
 
 Each output file is named after the file in the game's source it belongs in (see
 docs/ENGINE.md). Values that are not filled in yet come out as TODO comments, so the

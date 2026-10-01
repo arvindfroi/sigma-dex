@@ -24,7 +24,7 @@ Everything else is produced from those files automatically, every time something
 | `export/dex.csv` | The whole dex as a spreadsheet |
 | `export/sheet.csv` | The same, laid out for the Google Sheet people fill in |
 | `export/dex.json` | The whole dex as data, for tools |
-| `export/engine/` | Every Pokemon written in the C format the Emerald PC port uses |
+| `export/engine/` | Every Pokemon written as game code (still in the old vanilla-Emerald layout, see docs/ENGINE.md) |
 | `site/index.html` | The website: every Pokemon's page, stats at any level, warnings, what is missing |
 
 Never edit the generated files by hand - they get overwritten.
@@ -43,9 +43,9 @@ can be pulled out with [docs/DISCORD.md](docs/DISCORD.md).
 
 ## The game
 
-The plan is a ROM hack on a PC port of Pokemon Emerald. [docs/ENGINE.md](docs/ENGINE.md)
-describes how that game stores a Pokemon, what limits it sets (10-letter names, no Fairy
-type, ...) and how our files map onto it.
+The plan is a ROM hack built on pokeemerald-expansion, the modernised version of Pokemon
+Emerald. [docs/ENGINE.md](docs/ENGINE.md)
+explains why, what it gives us, what limits it sets and what is still undecided.
 
 ## What is and is not in this repository
 

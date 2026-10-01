@@ -52,7 +52,7 @@ def main():
         "web": dict(config.get("web_edits") or {}, cursor=int(cursor_path.read_text().strip() or 0) if cursor_path.exists() else 0),
         "lists": {
             "moves": engine["names"]["moves"], "abilities": engine["names"]["abilities"],
-            "tm_hm": engine["tm_hm_order"], "tutor": engine["names"]["tutor"],
+            "tm_hm": engine["tm_hm_order"],
             "growth_rates": dexlib.GROWTH_RATES, "egg_groups": dexlib.EGG_GROUPS, "body_colors": dexlib.BODY_COLORS,
             "evolution_methods": list(dexlib.EVOLUTION_METHODS),
             "name_limit": dexlib.NAME_LIMIT, "category_limit": dexlib.CATEGORY_LIMIT,

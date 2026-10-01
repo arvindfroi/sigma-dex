@@ -38,7 +38,7 @@ set `concept_art: assets/concept-art/leafing.png` in the species file. Sprites g
 - One pull request per Pokemon or evolution line - small changes are easy to review.
 - Anything that needs a group decision goes in an issue or
   [docs/OPEN_QUESTIONS.md](docs/OPEN_QUESTIONS.md), not in a private chat.
-- Stick to moves and abilities that exist in Emerald where possible. The check warns about
+- Stick to moves and abilities that already exist in the game where possible. The check warns about
   unknown ones; a truly new one must be described in `data/custom_moves.yaml` or
   `data/custom_abilities.yaml`, and somebody has to program it later.
 - Never edit `DEX.md`, `TODO.md` or anything in `export/` or `site/`.

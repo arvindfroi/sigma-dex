@@ -43,8 +43,8 @@ updates the website. If the same Pokemon is changed in both places, the website 
 - A row that cannot be used (a letter where a number belongs, a growth rate that does not
   exist, ...) is skipped **as a whole**, and the reason appears in a box at the top of the
   website. Fix the cell and it goes through on the next sync.
-- Things that work but look off (a move that does not exist in Emerald, a name longer than
-  10 letters) show up as **warnings** on that Pokemon's page.
+- Things that work but look off (a move that does not exist in the game yet, a name longer than
+  12 letters) show up as **warnings** on that Pokemon's page.
 
 ## Setting it up (once)
 

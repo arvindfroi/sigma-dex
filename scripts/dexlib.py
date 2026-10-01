@@ -9,15 +9,13 @@ ROOT = Path(__file__).resolve().parent.parent
 SPECIES_DIR = ROOT / "data" / "species"
 CONFIG_PATH = ROOT / "data" / "config.yaml"
 
-ENGINE_PATH = ROOT / "data" / "engine" / "gen3.yaml"
+ENGINE_PATH = ROOT / "data" / "engine" / "expansion.yaml"
 
-# The 17 types the Emerald PC port has. Fairy is accepted too, but it has to be added to
-# the game first (see docs/ENGINE.md).
-ENGINE_TYPES = [
+# The 18 types a Pokemon can have in pokeemerald-expansion.
+TYPES = [
     "Normal", "Fire", "Water", "Grass", "Electric", "Ice", "Fighting", "Poison", "Ground",
-    "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel",
+    "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy",
 ]
-TYPES = ENGINE_TYPES + ["Fairy"]
 STATS = ["hp", "attack", "defense", "sp_attack", "sp_defense", "speed"]
 GROWTH_RATES = ["erratic", "fast", "medium_fast", "medium_slow", "slow", "fluctuating"]
 EGG_GROUPS = [
@@ -45,11 +43,11 @@ LEVEL_METHODS = ("level", "level_attack_higher", "level_attack_equal", "level_de
 ITEM_METHODS = ("item", "trade_item")
 MAX_EVOLUTIONS = 5           # EVOS_PER_MON
 
-# Text limits in the Emerald PC port (include/constants/global.h, struct PokedexEntry).
-NAME_LIMIT = 10              # POKEMON_NAME_LENGTH
-CATEGORY_LIMIT = 11          # categoryName[12]
-MOVE_NAME_LIMIT = 12
-ABILITY_NAME_LIMIT = 12
+# Text limits in pokeemerald-expansion (include/constants/global.h, struct SpeciesInfo).
+NAME_LIMIT = 12              # POKEMON_NAME_LENGTH
+CATEGORY_LIMIT = 12          # categoryName[13]
+MOVE_NAME_LIMIT = 16
+ABILITY_NAME_LIMIT = 16
 DESCRIPTION_LINES = 4
 DESCRIPTION_LINE_LENGTH = 42
 
@@ -128,7 +126,7 @@ def render_species(data):
     lines.append("")
     put_list(0, "types", data.get("types"), "1 or 2 types, e.g. [Grass, Steel]")
     lines += ["", "# --- Pokedex page ---"]
-    put(0, "category", scalar(data.get("category")), 'e.g. Seed  (shown in game as "Seed Pokemon"), max 11 characters')
+    put(0, "category", scalar(data.get("category")), 'e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters')
     description = data.get("description")
     if isinstance(description, str) and "\n" in description.strip():
         put(0, "description", "|", "the Pokedex entry text: max 4 lines of about 40 characters")
@@ -142,7 +140,7 @@ def render_species(data):
     put(0, "abilities")
     put(1, "primary", scalar(abilities.get("primary")))
     put(1, "secondary", scalar(abilities.get("secondary")), "optional")
-    put(1, "hidden", scalar(abilities.get("hidden")), "optional - Emerald has no hidden abilities, needs extra game code")
+    put(1, "hidden", scalar(abilities.get("hidden")), "optional")
     lines.append("")
     put(0, "base_stats", "", "each 1-255")
     for stat in STATS:
@@ -185,8 +183,8 @@ def render_species(data):
     lines += ["", "# --- Moves ---"]
     put(0, "learnset")
     put_block(1, "level_up", learnset.get("level_up"), ("level", "move"), "e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]")
-    put_list(1, "tm_hm", learnset.get("tm_hm"), "e.g. [Cut, Solar Beam] - only the game's 50 TMs and 8 HMs")
-    put_list(1, "tutor", learnset.get("tutor"), "only the game's 30 tutor moves")
+    put_list(1, "tm_hm", learnset.get("tm_hm"), "e.g. [Cut, Solar Beam] - only the game's TMs and HMs")
+    put_list(1, "tutor", learnset.get("tutor"), "moves a move tutor can teach it")
     put_list(1, "egg", learnset.get("egg"), "only needed for the first stage of an evolution line")
     lines += ["", "# --- Where it is found ---"]
     put_block(0, "encounters", data.get("encounters"), ("location", "method", "levels", "rate"),
@@ -261,11 +259,10 @@ def load_engine():
         "abilities": {norm(a) for a in engine["abilities"]} | {norm(e["name"]) for e in custom["abilities"]},
         "tm_hm": {norm(m) for m in engine["tms"] + engine["hms"]},
         "tm_hm_order": engine["tms"] + engine["hms"],
-        "tutor": {norm(m) for m in engine["tutor_moves"]},
+        "constants": {norm(name): const for kind in ("moves", "abilities") for name, const in engine[kind].items()},
         "names": {
-            "moves": sorted(engine["moves"] + [e["name"] for e in custom["moves"]]),
-            "abilities": sorted(engine["abilities"] + [e["name"] for e in custom["abilities"]]),
-            "tutor": engine["tutor_moves"],
+            "moves": sorted(list(engine["moves"]) + [e["name"] for e in custom["moves"]]),
+            "abilities": sorted(list(engine["abilities"]) + [e["name"] for e in custom["abilities"]]),
         },
         "custom": custom,
     }

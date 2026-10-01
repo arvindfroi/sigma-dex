@@ -1,0 +1,1240 @@
+# What pokeemerald-expansion (the base of our game) already contains.
+# Anything a species uses that is NOT listed here has to be programmed as new content -
+# describe it in data/custom_moves.yaml or data/custom_abilities.yaml.
+# Source: rh-hideout/pokeemerald-expansion, branch master, read 2026-10-02 (release 1.17.1).
+# Moves and abilities are written as  "Name in the game": CONSTANT_IN_THE_CODE
+
+# The game's TMs, in order. A hack can change this list later.
+tms:
+  - "Focus Punch"
+  - "Dragon Claw"
+  - "Water Pulse"
+  - "Calm Mind"
+  - "Roar"
+  - "Toxic"
+  - "Hail"
+  - "Bulk Up"
+  - "Bullet Seed"
+  - "Hidden Power"
+  - "Sunny Day"
+  - "Taunt"
+  - "Ice Beam"
+  - "Blizzard"
+  - "Hyper Beam"
+  - "Light Screen"
+  - "Protect"
+  - "Rain Dance"
+  - "Giga Drain"
+  - "Safeguard"
+  - "Frustration"
+  - "Solar Beam"
+  - "Iron Tail"
+  - "Thunderbolt"
+  - "Thunder"
+  - "Earthquake"
+  - "Return"
+  - "Dig"
+  - "Psychic"
+  - "Shadow Ball"
+  - "Brick Break"
+  - "Double Team"
+  - "Reflect"
+  - "Shock Wave"
+  - "Flamethrower"
+  - "Sludge Bomb"
+  - "Sandstorm"
+  - "Fire Blast"
+  - "Rock Tomb"
+  - "Aerial Ace"
+  - "Torment"
+  - "Facade"
+  - "Secret Power"
+  - "Rest"
+  - "Attract"
+  - "Thief"
+  - "Steel Wing"
+  - "Skill Swap"
+  - "Snatch"
+  - "Overheat"
+
+# The game's HMs, in order.
+hms:
+  - "Cut"
+  - "Fly"
+  - "Surf"
+  - "Strength"
+  - "Flash"
+  - "Rock Smash"
+  - "Waterfall"
+  - "Dive"
+
+# All 319 abilities.
+abilities:
+  "Stench": ABILITY_STENCH
+  "Drizzle": ABILITY_DRIZZLE
+  "Speed Boost": ABILITY_SPEED_BOOST
+  "Battle Armor": ABILITY_BATTLE_ARMOR
+  "Sturdy": ABILITY_STURDY
+  "Damp": ABILITY_DAMP
+  "Limber": ABILITY_LIMBER
+  "Sand Veil": ABILITY_SAND_VEIL
+  "Static": ABILITY_STATIC
+  "Volt Absorb": ABILITY_VOLT_ABSORB
+  "Water Absorb": ABILITY_WATER_ABSORB
+  "Oblivious": ABILITY_OBLIVIOUS
+  "Cloud Nine": ABILITY_CLOUD_NINE
+  "Compound Eyes": ABILITY_COMPOUND_EYES
+  "Insomnia": ABILITY_INSOMNIA
+  "Color Change": ABILITY_COLOR_CHANGE
+  "Immunity": ABILITY_IMMUNITY
+  "Flash Fire": ABILITY_FLASH_FIRE
+  "Shield Dust": ABILITY_SHIELD_DUST
+  "Own Tempo": ABILITY_OWN_TEMPO
+  "Suction Cups": ABILITY_SUCTION_CUPS
+  "Intimidate": ABILITY_INTIMIDATE
+  "Shadow Tag": ABILITY_SHADOW_TAG
+  "Rough Skin": ABILITY_ROUGH_SKIN
+  "Wonder Guard": ABILITY_WONDER_GUARD
+  "Levitate": ABILITY_LEVITATE
+  "Effect Spore": ABILITY_EFFECT_SPORE
+  "Synchronize": ABILITY_SYNCHRONIZE
+  "Clear Body": ABILITY_CLEAR_BODY
+  "Natural Cure": ABILITY_NATURAL_CURE
+  "Lightning Rod": ABILITY_LIGHTNING_ROD
+  "Serene Grace": ABILITY_SERENE_GRACE
+  "Swift Swim": ABILITY_SWIFT_SWIM
+  "Chlorophyll": ABILITY_CHLOROPHYLL
+  "Illuminate": ABILITY_ILLUMINATE
+  "Trace": ABILITY_TRACE
+  "Huge Power": ABILITY_HUGE_POWER
+  "Poison Point": ABILITY_POISON_POINT
+  "Inner Focus": ABILITY_INNER_FOCUS
+  "Magma Armor": ABILITY_MAGMA_ARMOR
+  "Water Veil": ABILITY_WATER_VEIL
+  "Magnet Pull": ABILITY_MAGNET_PULL
+  "Soundproof": ABILITY_SOUNDPROOF
+  "Rain Dish": ABILITY_RAIN_DISH
+  "Sand Stream": ABILITY_SAND_STREAM
+  "Pressure": ABILITY_PRESSURE
+  "Thick Fat": ABILITY_THICK_FAT
+  "Early Bird": ABILITY_EARLY_BIRD
+  "Flame Body": ABILITY_FLAME_BODY
+  "Run Away": ABILITY_RUN_AWAY
+  "Keen Eye": ABILITY_KEEN_EYE
+  "Hyper Cutter": ABILITY_HYPER_CUTTER
+  "Pickup": ABILITY_PICKUP
+  "Truant": ABILITY_TRUANT
+  "Hustle": ABILITY_HUSTLE
+  "Cute Charm": ABILITY_CUTE_CHARM
+  "Plus": ABILITY_PLUS
+  "Minus": ABILITY_MINUS
+  "Forecast": ABILITY_FORECAST
+  "Sticky Hold": ABILITY_STICKY_HOLD
+  "Shed Skin": ABILITY_SHED_SKIN
+  "Guts": ABILITY_GUTS
+  "Marvel Scale": ABILITY_MARVEL_SCALE
+  "Liquid Ooze": ABILITY_LIQUID_OOZE
+  "Overgrow": ABILITY_OVERGROW
+  "Blaze": ABILITY_BLAZE
+  "Torrent": ABILITY_TORRENT
+  "Swarm": ABILITY_SWARM
+  "Rock Head": ABILITY_ROCK_HEAD
+  "Drought": ABILITY_DROUGHT
+  "Arena Trap": ABILITY_ARENA_TRAP
+  "Vital Spirit": ABILITY_VITAL_SPIRIT
+  "White Smoke": ABILITY_WHITE_SMOKE
+  "Pure Power": ABILITY_PURE_POWER
+  "Shell Armor": ABILITY_SHELL_ARMOR
+  "Air Lock": ABILITY_AIR_LOCK
+  "Tangled Feet": ABILITY_TANGLED_FEET
+  "Motor Drive": ABILITY_MOTOR_DRIVE
+  "Rivalry": ABILITY_RIVALRY
+  "Steadfast": ABILITY_STEADFAST
+  "Snow Cloak": ABILITY_SNOW_CLOAK
+  "Gluttony": ABILITY_GLUTTONY
+  "Anger Point": ABILITY_ANGER_POINT
+  "Unburden": ABILITY_UNBURDEN
+  "Heatproof": ABILITY_HEATPROOF
+  "Simple": ABILITY_SIMPLE
+  "Dry Skin": ABILITY_DRY_SKIN
+  "Download": ABILITY_DOWNLOAD
+  "Iron Fist": ABILITY_IRON_FIST
+  "Poison Heal": ABILITY_POISON_HEAL
+  "Adaptability": ABILITY_ADAPTABILITY
+  "Skill Link": ABILITY_SKILL_LINK
+  "Hydration": ABILITY_HYDRATION
+  "Solar Power": ABILITY_SOLAR_POWER
+  "Quick Feet": ABILITY_QUICK_FEET
+  "Normalize": ABILITY_NORMALIZE
+  "Sniper": ABILITY_SNIPER
+  "Magic Guard": ABILITY_MAGIC_GUARD
+  "No Guard": ABILITY_NO_GUARD
+  "Stall": ABILITY_STALL
+  "Technician": ABILITY_TECHNICIAN
+  "Leaf Guard": ABILITY_LEAF_GUARD
+  "Klutz": ABILITY_KLUTZ
+  "Mold Breaker": ABILITY_MOLD_BREAKER
+  "Super Luck": ABILITY_SUPER_LUCK
+  "Aftermath": ABILITY_AFTERMATH
+  "Anticipation": ABILITY_ANTICIPATION
+  "Forewarn": ABILITY_FOREWARN
+  "Unaware": ABILITY_UNAWARE
+  "Tinted Lens": ABILITY_TINTED_LENS
+  "Filter": ABILITY_FILTER
+  "Slow Start": ABILITY_SLOW_START
+  "Scrappy": ABILITY_SCRAPPY
+  "Storm Drain": ABILITY_STORM_DRAIN
+  "Ice Body": ABILITY_ICE_BODY
+  "Solid Rock": ABILITY_SOLID_ROCK
+  "Snow Warning": ABILITY_SNOW_WARNING
+  "Honey Gather": ABILITY_HONEY_GATHER
+  "Frisk": ABILITY_FRISK
+  "Reckless": ABILITY_RECKLESS
+  "Multitype": ABILITY_MULTITYPE
+  "Flower Gift": ABILITY_FLOWER_GIFT
+  "Bad Dreams": ABILITY_BAD_DREAMS
+  "Pickpocket": ABILITY_PICKPOCKET
+  "Sheer Force": ABILITY_SHEER_FORCE
+  "Contrary": ABILITY_CONTRARY
+  "Unnerve": ABILITY_UNNERVE
+  "Defiant": ABILITY_DEFIANT
+  "Defeatist": ABILITY_DEFEATIST
+  "Cursed Body": ABILITY_CURSED_BODY
+  "Healer": ABILITY_HEALER
+  "Friend Guard": ABILITY_FRIEND_GUARD
+  "Weak Armor": ABILITY_WEAK_ARMOR
+  "Heavy Metal": ABILITY_HEAVY_METAL
+  "Light Metal": ABILITY_LIGHT_METAL
+  "Multiscale": ABILITY_MULTISCALE
+  "Toxic Boost": ABILITY_TOXIC_BOOST
+  "Flare Boost": ABILITY_FLARE_BOOST
+  "Harvest": ABILITY_HARVEST
+  "Telepathy": ABILITY_TELEPATHY
+  "Moody": ABILITY_MOODY
+  "Overcoat": ABILITY_OVERCOAT
+  "Poison Touch": ABILITY_POISON_TOUCH
+  "Regenerator": ABILITY_REGENERATOR
+  "Big Pecks": ABILITY_BIG_PECKS
+  "Sand Rush": ABILITY_SAND_RUSH
+  "Wonder Skin": ABILITY_WONDER_SKIN
+  "Analytic": ABILITY_ANALYTIC
+  "Illusion": ABILITY_ILLUSION
+  "Imposter": ABILITY_IMPOSTER
+  "Infiltrator": ABILITY_INFILTRATOR
+  "Mummy": ABILITY_MUMMY
+  "Moxie": ABILITY_MOXIE
+  "Justified": ABILITY_JUSTIFIED
+  "Rattled": ABILITY_RATTLED
+  "Magic Bounce": ABILITY_MAGIC_BOUNCE
+  "Sap Sipper": ABILITY_SAP_SIPPER
+  "Prankster": ABILITY_PRANKSTER
+  "Sand Force": ABILITY_SAND_FORCE
+  "Iron Barbs": ABILITY_IRON_BARBS
+  "Zen Mode": ABILITY_ZEN_MODE
+  "Victory Star": ABILITY_VICTORY_STAR
+  "Turboblaze": ABILITY_TURBOBLAZE
+  "Teravolt": ABILITY_TERAVOLT
+  "Aroma Veil": ABILITY_AROMA_VEIL
+  "Flower Veil": ABILITY_FLOWER_VEIL
+  "Cheek Pouch": ABILITY_CHEEK_POUCH
+  "Protean": ABILITY_PROTEAN
+  "Fur Coat": ABILITY_FUR_COAT
+  "Magician": ABILITY_MAGICIAN
+  "Bulletproof": ABILITY_BULLETPROOF
+  "Competitive": ABILITY_COMPETITIVE
+  "Strong Jaw": ABILITY_STRONG_JAW
+  "Refrigerate": ABILITY_REFRIGERATE
+  "Sweet Veil": ABILITY_SWEET_VEIL
+  "Stance Change": ABILITY_STANCE_CHANGE
+  "Gale Wings": ABILITY_GALE_WINGS
+  "Mega Launcher": ABILITY_MEGA_LAUNCHER
+  "Grass Pelt": ABILITY_GRASS_PELT
+  "Symbiosis": ABILITY_SYMBIOSIS
+  "Tough Claws": ABILITY_TOUGH_CLAWS
+  "Pixilate": ABILITY_PIXILATE
+  "Gooey": ABILITY_GOOEY
+  "Aerilate": ABILITY_AERILATE
+  "Parental Bond": ABILITY_PARENTAL_BOND
+  "Dark Aura": ABILITY_DARK_AURA
+  "Fairy Aura": ABILITY_FAIRY_AURA
+  "Aura Break": ABILITY_AURA_BREAK
+  "Primordial Sea": ABILITY_PRIMORDIAL_SEA
+  "Desolate Land": ABILITY_DESOLATE_LAND
+  "Delta Stream": ABILITY_DELTA_STREAM
+  "Stamina": ABILITY_STAMINA
+  "Wimp Out": ABILITY_WIMP_OUT
+  "Emergency Exit": ABILITY_EMERGENCY_EXIT
+  "Water Compaction": ABILITY_WATER_COMPACTION
+  "Merciless": ABILITY_MERCILESS
+  "Shields Down": ABILITY_SHIELDS_DOWN
+  "Stakeout": ABILITY_STAKEOUT
+  "Water Bubble": ABILITY_WATER_BUBBLE
+  "Steelworker": ABILITY_STEELWORKER
+  "Berserk": ABILITY_BERSERK
+  "Slush Rush": ABILITY_SLUSH_RUSH
+  "Long Reach": ABILITY_LONG_REACH
+  "Liquid Voice": ABILITY_LIQUID_VOICE
+  "Triage": ABILITY_TRIAGE
+  "Galvanize": ABILITY_GALVANIZE
+  "Surge Surfer": ABILITY_SURGE_SURFER
+  "Schooling": ABILITY_SCHOOLING
+  "Disguise": ABILITY_DISGUISE
+  "Battle Bond": ABILITY_BATTLE_BOND
+  "Power Construct": ABILITY_POWER_CONSTRUCT
+  "Corrosion": ABILITY_CORROSION
+  "Comatose": ABILITY_COMATOSE
+  "Queenly Majesty": ABILITY_QUEENLY_MAJESTY
+  "Innards Out": ABILITY_INNARDS_OUT
+  "Dancer": ABILITY_DANCER
+  "Battery": ABILITY_BATTERY
+  "Fluffy": ABILITY_FLUFFY
+  "Dazzling": ABILITY_DAZZLING
+  "Soul-Heart": ABILITY_SOUL_HEART
+  "Tangling Hair": ABILITY_TANGLING_HAIR
+  "Receiver": ABILITY_RECEIVER
+  "Power Of Alchemy": ABILITY_POWER_OF_ALCHEMY
+  "Beast Boost": ABILITY_BEAST_BOOST
+  "RKS System": ABILITY_RKS_SYSTEM
+  "Electric Surge": ABILITY_ELECTRIC_SURGE
+  "Psychic Surge": ABILITY_PSYCHIC_SURGE
+  "Misty Surge": ABILITY_MISTY_SURGE
+  "Grassy Surge": ABILITY_GRASSY_SURGE
+  "Full Metal Body": ABILITY_FULL_METAL_BODY
+  "Shadow Shield": ABILITY_SHADOW_SHIELD
+  "Prism Armor": ABILITY_PRISM_ARMOR
+  "Neuroforce": ABILITY_NEUROFORCE
+  "Intrepid Sword": ABILITY_INTREPID_SWORD
+  "Dauntless Shield": ABILITY_DAUNTLESS_SHIELD
+  "Libero": ABILITY_LIBERO
+  "Ball Fetch": ABILITY_BALL_FETCH
+  "Cotton Down": ABILITY_COTTON_DOWN
+  "Propeller Tail": ABILITY_PROPELLER_TAIL
+  "Mirror Armor": ABILITY_MIRROR_ARMOR
+  "Gulp Missile": ABILITY_GULP_MISSILE
+  "Stalwart": ABILITY_STALWART
+  "Steam Engine": ABILITY_STEAM_ENGINE
+  "Punk Rock": ABILITY_PUNK_ROCK
+  "Sand Spit": ABILITY_SAND_SPIT
+  "Ice Scales": ABILITY_ICE_SCALES
+  "Ripen": ABILITY_RIPEN
+  "Ice Face": ABILITY_ICE_FACE
+  "Power Spot": ABILITY_POWER_SPOT
+  "Mimicry": ABILITY_MIMICRY
+  "Screen Cleaner": ABILITY_SCREEN_CLEANER
+  "Steely Spirit": ABILITY_STEELY_SPIRIT
+  "Perish Body": ABILITY_PERISH_BODY
+  "Wandering Spirit": ABILITY_WANDERING_SPIRIT
+  "Gorilla Tactics": ABILITY_GORILLA_TACTICS
+  "Neutralizing Gas": ABILITY_NEUTRALIZING_GAS
+  "Pastel Veil": ABILITY_PASTEL_VEIL
+  "Hunger Switch": ABILITY_HUNGER_SWITCH
+  "Quick Draw": ABILITY_QUICK_DRAW
+  "Unseen Fist": ABILITY_UNSEEN_FIST
+  "Curious Medicine": ABILITY_CURIOUS_MEDICINE
+  "Transistor": ABILITY_TRANSISTOR
+  "Dragon's Maw": ABILITY_DRAGONS_MAW
+  "Chilling Neigh": ABILITY_CHILLING_NEIGH
+  "Grim Neigh": ABILITY_GRIM_NEIGH
+  "As One": ABILITY_AS_ONE_ICE_RIDER
+  "As One": ABILITY_AS_ONE_SHADOW_RIDER
+  "Lingering Aroma": ABILITY_LINGERING_AROMA
+  "Seed Sower": ABILITY_SEED_SOWER
+  "Thermal Exchange": ABILITY_THERMAL_EXCHANGE
+  "Anger Shell": ABILITY_ANGER_SHELL
+  "Purifying Salt": ABILITY_PURIFYING_SALT
+  "Well-Baked Body": ABILITY_WELL_BAKED_BODY
+  "Wind Rider": ABILITY_WIND_RIDER
+  "Guard Dog": ABILITY_GUARD_DOG
+  "Rocky Payload": ABILITY_ROCKY_PAYLOAD
+  "Wind Power": ABILITY_WIND_POWER
+  "Zero to Hero": ABILITY_ZERO_TO_HERO
+  "Commander": ABILITY_COMMANDER
+  "Electromorphosis": ABILITY_ELECTROMORPHOSIS
+  "Protosynthesis": ABILITY_PROTOSYNTHESIS
+  "Quark Drive": ABILITY_QUARK_DRIVE
+  "Good as Gold": ABILITY_GOOD_AS_GOLD
+  "Vessel of Ruin": ABILITY_VESSEL_OF_RUIN
+  "Sword of Ruin": ABILITY_SWORD_OF_RUIN
+  "Tablets of Ruin": ABILITY_TABLETS_OF_RUIN
+  "Beads of Ruin": ABILITY_BEADS_OF_RUIN
+  "Orichalcum Pulse": ABILITY_ORICHALCUM_PULSE
+  "Hadron Engine": ABILITY_HADRON_ENGINE
+  "Opportunist": ABILITY_OPPORTUNIST
+  "Cud Chew": ABILITY_CUD_CHEW
+  "Sharpness": ABILITY_SHARPNESS
+  "Supreme Overlord": ABILITY_SUPREME_OVERLORD
+  "Costar": ABILITY_COSTAR
+  "Toxic Debris": ABILITY_TOXIC_DEBRIS
+  "Armor Tail": ABILITY_ARMOR_TAIL
+  "Earth Eater": ABILITY_EARTH_EATER
+  "Mycelium Might": ABILITY_MYCELIUM_MIGHT
+  "Hospitality": ABILITY_HOSPITALITY
+  "Mind's Eye": ABILITY_MINDS_EYE
+  "Embody Aspect": ABILITY_EMBODY_ASPECT_TEAL_MASK
+  "Embody Aspect": ABILITY_EMBODY_ASPECT_HEARTHFLAME_MASK
+  "Embody Aspect": ABILITY_EMBODY_ASPECT_WELLSPRING_MASK
+  "Embody Aspect": ABILITY_EMBODY_ASPECT_CORNERSTONE_MASK
+  "Toxic Chain": ABILITY_TOXIC_CHAIN
+  "Supersweet Syrup": ABILITY_SUPERSWEET_SYRUP
+  "Tera Shift": ABILITY_TERA_SHIFT
+  "Tera Shell": ABILITY_TERA_SHELL
+  "Teraform Zero": ABILITY_TERAFORM_ZERO
+  "Poison Puppeteer": ABILITY_POISON_PUPPETEER
+  "Piercing Drill": ABILITY_PIERCING_DRILL
+  "Dragonize": ABILITY_DRAGONIZE
+  "Eelevate": ABILITY_EELEVATE
+  "-------": ABILITY_314
+  "Mega Sol": ABILITY_MEGA_SOL
+  "Fire Mane": ABILITY_FIRE_MANE
+  "-------": ABILITY_317
+  "Spicy Spray": ABILITY_SPICY_SPRAY
+  "Aura Guard": ABILITY_AURA_GUARD
+
+# All 846 moves (generation 1-9; Z-moves and Max moves are left out).
+moves:
+  "Pound": MOVE_POUND
+  "Karate Chop": MOVE_KARATE_CHOP
+  "Double Slap": MOVE_DOUBLE_SLAP
+  "Comet Punch": MOVE_COMET_PUNCH
+  "Mega Punch": MOVE_MEGA_PUNCH
+  "Pay Day": MOVE_PAY_DAY
+  "Fire Punch": MOVE_FIRE_PUNCH
+  "Ice Punch": MOVE_ICE_PUNCH
+  "Thunder Punch": MOVE_THUNDER_PUNCH
+  "Scratch": MOVE_SCRATCH
+  "Vise Grip": MOVE_VISE_GRIP
+  "Guillotine": MOVE_GUILLOTINE
+  "Razor Wind": MOVE_RAZOR_WIND
+  "Swords Dance": MOVE_SWORDS_DANCE
+  "Cut": MOVE_CUT
+  "Gust": MOVE_GUST
+  "Wing Attack": MOVE_WING_ATTACK
+  "Whirlwind": MOVE_WHIRLWIND
+  "Fly": MOVE_FLY
+  "Bind": MOVE_BIND
+  "Slam": MOVE_SLAM
+  "Vine Whip": MOVE_VINE_WHIP
+  "Stomp": MOVE_STOMP
+  "Double Kick": MOVE_DOUBLE_KICK
+  "Mega Kick": MOVE_MEGA_KICK
+  "Jump Kick": MOVE_JUMP_KICK
+  "Rolling Kick": MOVE_ROLLING_KICK
+  "Sand Attack": MOVE_SAND_ATTACK
+  "Headbutt": MOVE_HEADBUTT
+  "Horn Attack": MOVE_HORN_ATTACK
+  "Fury Attack": MOVE_FURY_ATTACK
+  "Horn Drill": MOVE_HORN_DRILL
+  "Tackle": MOVE_TACKLE
+  "Body Slam": MOVE_BODY_SLAM
+  "Wrap": MOVE_WRAP
+  "Take Down": MOVE_TAKE_DOWN
+  "Thrash": MOVE_THRASH
+  "Double-Edge": MOVE_DOUBLE_EDGE
+  "Tail Whip": MOVE_TAIL_WHIP
+  "Poison Sting": MOVE_POISON_STING
+  "Twineedle": MOVE_TWINEEDLE
+  "Pin Missile": MOVE_PIN_MISSILE
+  "Leer": MOVE_LEER
+  "Bite": MOVE_BITE
+  "Growl": MOVE_GROWL
+  "Roar": MOVE_ROAR
+  "Sing": MOVE_SING
+  "Supersonic": MOVE_SUPERSONIC
+  "Sonic Boom": MOVE_SONIC_BOOM
+  "Disable": MOVE_DISABLE
+  "Acid": MOVE_ACID
+  "Ember": MOVE_EMBER
+  "Flamethrower": MOVE_FLAMETHROWER
+  "Mist": MOVE_MIST
+  "Water Gun": MOVE_WATER_GUN
+  "Hydro Pump": MOVE_HYDRO_PUMP
+  "Surf": MOVE_SURF
+  "Ice Beam": MOVE_ICE_BEAM
+  "Blizzard": MOVE_BLIZZARD
+  "Psybeam": MOVE_PSYBEAM
+  "Bubble Beam": MOVE_BUBBLE_BEAM
+  "Aurora Beam": MOVE_AURORA_BEAM
+  "Hyper Beam": MOVE_HYPER_BEAM
+  "Peck": MOVE_PECK
+  "Drill Peck": MOVE_DRILL_PECK
+  "Submission": MOVE_SUBMISSION
+  "Low Kick": MOVE_LOW_KICK
+  "Counter": MOVE_COUNTER
+  "Seismic Toss": MOVE_SEISMIC_TOSS
+  "Strength": MOVE_STRENGTH
+  "Absorb": MOVE_ABSORB
+  "Mega Drain": MOVE_MEGA_DRAIN
+  "Leech Seed": MOVE_LEECH_SEED
+  "Growth": MOVE_GROWTH
+  "Razor Leaf": MOVE_RAZOR_LEAF
+  "Solar Beam": MOVE_SOLAR_BEAM
+  "Poison Powder": MOVE_POISON_POWDER
+  "Stun Spore": MOVE_STUN_SPORE
+  "Sleep Powder": MOVE_SLEEP_POWDER
+  "Petal Dance": MOVE_PETAL_DANCE
+  "String Shot": MOVE_STRING_SHOT
+  "Dragon Rage": MOVE_DRAGON_RAGE
+  "Fire Spin": MOVE_FIRE_SPIN
+  "Thunder Shock": MOVE_THUNDER_SHOCK
+  "Thunderbolt": MOVE_THUNDERBOLT
+  "Thunder Wave": MOVE_THUNDER_WAVE
+  "Thunder": MOVE_THUNDER
+  "Rock Throw": MOVE_ROCK_THROW
+  "Earthquake": MOVE_EARTHQUAKE
+  "Fissure": MOVE_FISSURE
+  "Dig": MOVE_DIG
+  "Toxic": MOVE_TOXIC
+  "Confusion": MOVE_CONFUSION
+  "Psychic": MOVE_PSYCHIC
+  "Hypnosis": MOVE_HYPNOSIS
+  "Meditate": MOVE_MEDITATE
+  "Agility": MOVE_AGILITY
+  "Quick Attack": MOVE_QUICK_ATTACK
+  "Rage": MOVE_RAGE
+  "Teleport": MOVE_TELEPORT
+  "Night Shade": MOVE_NIGHT_SHADE
+  "Mimic": MOVE_MIMIC
+  "Screech": MOVE_SCREECH
+  "Double Team": MOVE_DOUBLE_TEAM
+  "Recover": MOVE_RECOVER
+  "Harden": MOVE_HARDEN
+  "Minimize": MOVE_MINIMIZE
+  "Smokescreen": MOVE_SMOKESCREEN
+  "Confuse Ray": MOVE_CONFUSE_RAY
+  "Withdraw": MOVE_WITHDRAW
+  "Defense Curl": MOVE_DEFENSE_CURL
+  "Barrier": MOVE_BARRIER
+  "Light Screen": MOVE_LIGHT_SCREEN
+  "Haze": MOVE_HAZE
+  "Reflect": MOVE_REFLECT
+  "Focus Energy": MOVE_FOCUS_ENERGY
+  "Bide": MOVE_BIDE
+  "Metronome": MOVE_METRONOME
+  "Mirror Move": MOVE_MIRROR_MOVE
+  "Self-Destruct": MOVE_SELF_DESTRUCT
+  "Egg Bomb": MOVE_EGG_BOMB
+  "Lick": MOVE_LICK
+  "Smog": MOVE_SMOG
+  "Sludge": MOVE_SLUDGE
+  "Bone Club": MOVE_BONE_CLUB
+  "Fire Blast": MOVE_FIRE_BLAST
+  "Waterfall": MOVE_WATERFALL
+  "Clamp": MOVE_CLAMP
+  "Swift": MOVE_SWIFT
+  "Skull Bash": MOVE_SKULL_BASH
+  "Spike Cannon": MOVE_SPIKE_CANNON
+  "Constrict": MOVE_CONSTRICT
+  "Amnesia": MOVE_AMNESIA
+  "Kinesis": MOVE_KINESIS
+  "Soft-Boiled": MOVE_SOFT_BOILED
+  "High Jump Kick": MOVE_HIGH_JUMP_KICK
+  "Glare": MOVE_GLARE
+  "Dream Eater": MOVE_DREAM_EATER
+  "Poison Gas": MOVE_POISON_GAS
+  "Barrage": MOVE_BARRAGE
+  "Leech Life": MOVE_LEECH_LIFE
+  "Lovely Kiss": MOVE_LOVELY_KISS
+  "Sky Attack": MOVE_SKY_ATTACK
+  "Transform": MOVE_TRANSFORM
+  "Bubble": MOVE_BUBBLE
+  "Dizzy Punch": MOVE_DIZZY_PUNCH
+  "Spore": MOVE_SPORE
+  "Flash": MOVE_FLASH
+  "Psywave": MOVE_PSYWAVE
+  "Splash": MOVE_SPLASH
+  "Acid Armor": MOVE_ACID_ARMOR
+  "Crabhammer": MOVE_CRABHAMMER
+  "Explosion": MOVE_EXPLOSION
+  "Fury Swipes": MOVE_FURY_SWIPES
+  "Bonemerang": MOVE_BONEMERANG
+  "Rest": MOVE_REST
+  "Rock Slide": MOVE_ROCK_SLIDE
+  "Hyper Fang": MOVE_HYPER_FANG
+  "Sharpen": MOVE_SHARPEN
+  "Conversion": MOVE_CONVERSION
+  "Tri Attack": MOVE_TRI_ATTACK
+  "Super Fang": MOVE_SUPER_FANG
+  "Slash": MOVE_SLASH
+  "Substitute": MOVE_SUBSTITUTE
+  "Struggle": MOVE_STRUGGLE
+  "Sketch": MOVE_SKETCH
+  "Triple Kick": MOVE_TRIPLE_KICK
+  "Thief": MOVE_THIEF
+  "Spider Web": MOVE_SPIDER_WEB
+  "Mind Reader": MOVE_MIND_READER
+  "Nightmare": MOVE_NIGHTMARE
+  "Flame Wheel": MOVE_FLAME_WHEEL
+  "Snore": MOVE_SNORE
+  "Curse": MOVE_CURSE
+  "Flail": MOVE_FLAIL
+  "Conversion 2": MOVE_CONVERSION_2
+  "Aeroblast": MOVE_AEROBLAST
+  "Cotton Spore": MOVE_COTTON_SPORE
+  "Reversal": MOVE_REVERSAL
+  "Spite": MOVE_SPITE
+  "Powder Snow": MOVE_POWDER_SNOW
+  "Protect": MOVE_PROTECT
+  "Mach Punch": MOVE_MACH_PUNCH
+  "Scary Face": MOVE_SCARY_FACE
+  "Feint Attack": MOVE_FEINT_ATTACK
+  "Sweet Kiss": MOVE_SWEET_KISS
+  "Belly Drum": MOVE_BELLY_DRUM
+  "Sludge Bomb": MOVE_SLUDGE_BOMB
+  "Mud-Slap": MOVE_MUD_SLAP
+  "Octazooka": MOVE_OCTAZOOKA
+  "Spikes": MOVE_SPIKES
+  "Zap Cannon": MOVE_ZAP_CANNON
+  "Foresight": MOVE_FORESIGHT
+  "Destiny Bond": MOVE_DESTINY_BOND
+  "Perish Song": MOVE_PERISH_SONG
+  "Icy Wind": MOVE_ICY_WIND
+  "Detect": MOVE_DETECT
+  "Bone Rush": MOVE_BONE_RUSH
+  "Lock-On": MOVE_LOCK_ON
+  "Outrage": MOVE_OUTRAGE
+  "Sandstorm": MOVE_SANDSTORM
+  "Giga Drain": MOVE_GIGA_DRAIN
+  "Endure": MOVE_ENDURE
+  "Charm": MOVE_CHARM
+  "Rollout": MOVE_ROLLOUT
+  "False Swipe": MOVE_FALSE_SWIPE
+  "Swagger": MOVE_SWAGGER
+  "Milk Drink": MOVE_MILK_DRINK
+  "Spark": MOVE_SPARK
+  "Fury Cutter": MOVE_FURY_CUTTER
+  "Steel Wing": MOVE_STEEL_WING
+  "Mean Look": MOVE_MEAN_LOOK
+  "Attract": MOVE_ATTRACT
+  "Sleep Talk": MOVE_SLEEP_TALK
+  "Heal Bell": MOVE_HEAL_BELL
+  "Return": MOVE_RETURN
+  "Present": MOVE_PRESENT
+  "Frustration": MOVE_FRUSTRATION
+  "Safeguard": MOVE_SAFEGUARD
+  "Pain Split": MOVE_PAIN_SPLIT
+  "Sacred Fire": MOVE_SACRED_FIRE
+  "Magnitude": MOVE_MAGNITUDE
+  "Dynamic Punch": MOVE_DYNAMIC_PUNCH
+  "Megahorn": MOVE_MEGAHORN
+  "Dragon Breath": MOVE_DRAGON_BREATH
+  "Baton Pass": MOVE_BATON_PASS
+  "Encore": MOVE_ENCORE
+  "Pursuit": MOVE_PURSUIT
+  "Rapid Spin": MOVE_RAPID_SPIN
+  "Sweet Scent": MOVE_SWEET_SCENT
+  "Iron Tail": MOVE_IRON_TAIL
+  "Metal Claw": MOVE_METAL_CLAW
+  "Vital Throw": MOVE_VITAL_THROW
+  "Morning Sun": MOVE_MORNING_SUN
+  "Synthesis": MOVE_SYNTHESIS
+  "Moonlight": MOVE_MOONLIGHT
+  "Hidden Power": MOVE_HIDDEN_POWER
+  "Cross Chop": MOVE_CROSS_CHOP
+  "Twister": MOVE_TWISTER
+  "Rain Dance": MOVE_RAIN_DANCE
+  "Sunny Day": MOVE_SUNNY_DAY
+  "Crunch": MOVE_CRUNCH
+  "Mirror Coat": MOVE_MIRROR_COAT
+  "Psych Up": MOVE_PSYCH_UP
+  "Extreme Speed": MOVE_EXTREME_SPEED
+  "Ancient Power": MOVE_ANCIENT_POWER
+  "Shadow Ball": MOVE_SHADOW_BALL
+  "Future Sight": MOVE_FUTURE_SIGHT
+  "Rock Smash": MOVE_ROCK_SMASH
+  "Whirlpool": MOVE_WHIRLPOOL
+  "Beat Up": MOVE_BEAT_UP
+  "Fake Out": MOVE_FAKE_OUT
+  "Uproar": MOVE_UPROAR
+  "Stockpile": MOVE_STOCKPILE
+  "Spit Up": MOVE_SPIT_UP
+  "Swallow": MOVE_SWALLOW
+  "Heat Wave": MOVE_HEAT_WAVE
+  "Hail": MOVE_HAIL
+  "Torment": MOVE_TORMENT
+  "Flatter": MOVE_FLATTER
+  "Will-O-Wisp": MOVE_WILL_O_WISP
+  "Memento": MOVE_MEMENTO
+  "Facade": MOVE_FACADE
+  "Focus Punch": MOVE_FOCUS_PUNCH
+  "Smelling Salts": MOVE_SMELLING_SALTS
+  "Follow Me": MOVE_FOLLOW_ME
+  "Nature Power": MOVE_NATURE_POWER
+  "Charge": MOVE_CHARGE
+  "Taunt": MOVE_TAUNT
+  "Helping Hand": MOVE_HELPING_HAND
+  "Trick": MOVE_TRICK
+  "Role Play": MOVE_ROLE_PLAY
+  "Wish": MOVE_WISH
+  "Assist": MOVE_ASSIST
+  "Ingrain": MOVE_INGRAIN
+  "Superpower": MOVE_SUPERPOWER
+  "Magic Coat": MOVE_MAGIC_COAT
+  "Recycle": MOVE_RECYCLE
+  "Revenge": MOVE_REVENGE
+  "Brick Break": MOVE_BRICK_BREAK
+  "Yawn": MOVE_YAWN
+  "Knock Off": MOVE_KNOCK_OFF
+  "Endeavor": MOVE_ENDEAVOR
+  "Eruption": MOVE_ERUPTION
+  "Skill Swap": MOVE_SKILL_SWAP
+  "Imprison": MOVE_IMPRISON
+  "Refresh": MOVE_REFRESH
+  "Grudge": MOVE_GRUDGE
+  "Snatch": MOVE_SNATCH
+  "Secret Power": MOVE_SECRET_POWER
+  "Dive": MOVE_DIVE
+  "Arm Thrust": MOVE_ARM_THRUST
+  "Camouflage": MOVE_CAMOUFLAGE
+  "Tail Glow": MOVE_TAIL_GLOW
+  "Luster Purge": MOVE_LUSTER_PURGE
+  "Mist Ball": MOVE_MIST_BALL
+  "Feather Dance": MOVE_FEATHER_DANCE
+  "Teeter Dance": MOVE_TEETER_DANCE
+  "Blaze Kick": MOVE_BLAZE_KICK
+  "Mud Sport": MOVE_MUD_SPORT
+  "Ice Ball": MOVE_ICE_BALL
+  "Needle Arm": MOVE_NEEDLE_ARM
+  "Slack Off": MOVE_SLACK_OFF
+  "Hyper Voice": MOVE_HYPER_VOICE
+  "Poison Fang": MOVE_POISON_FANG
+  "Crush Claw": MOVE_CRUSH_CLAW
+  "Blast Burn": MOVE_BLAST_BURN
+  "Hydro Cannon": MOVE_HYDRO_CANNON
+  "Meteor Mash": MOVE_METEOR_MASH
+  "Astonish": MOVE_ASTONISH
+  "Weather Ball": MOVE_WEATHER_BALL
+  "Aromatherapy": MOVE_AROMATHERAPY
+  "Fake Tears": MOVE_FAKE_TEARS
+  "Air Cutter": MOVE_AIR_CUTTER
+  "Overheat": MOVE_OVERHEAT
+  "Odor Sleuth": MOVE_ODOR_SLEUTH
+  "Rock Tomb": MOVE_ROCK_TOMB
+  "Silver Wind": MOVE_SILVER_WIND
+  "Metal Sound": MOVE_METAL_SOUND
+  "Grass Whistle": MOVE_GRASS_WHISTLE
+  "Tickle": MOVE_TICKLE
+  "Cosmic Power": MOVE_COSMIC_POWER
+  "Water Spout": MOVE_WATER_SPOUT
+  "Signal Beam": MOVE_SIGNAL_BEAM
+  "Shadow Punch": MOVE_SHADOW_PUNCH
+  "Extrasensory": MOVE_EXTRASENSORY
+  "Sky Uppercut": MOVE_SKY_UPPERCUT
+  "Sand Tomb": MOVE_SAND_TOMB
+  "Sheer Cold": MOVE_SHEER_COLD
+  "Muddy Water": MOVE_MUDDY_WATER
+  "Bullet Seed": MOVE_BULLET_SEED
+  "Aerial Ace": MOVE_AERIAL_ACE
+  "Icicle Spear": MOVE_ICICLE_SPEAR
+  "Iron Defense": MOVE_IRON_DEFENSE
+  "Block": MOVE_BLOCK
+  "Howl": MOVE_HOWL
+  "Dragon Claw": MOVE_DRAGON_CLAW
+  "Frenzy Plant": MOVE_FRENZY_PLANT
+  "Bulk Up": MOVE_BULK_UP
+  "Bounce": MOVE_BOUNCE
+  "Mud Shot": MOVE_MUD_SHOT
+  "Poison Tail": MOVE_POISON_TAIL
+  "Covet": MOVE_COVET
+  "Volt Tackle": MOVE_VOLT_TACKLE
+  "Magical Leaf": MOVE_MAGICAL_LEAF
+  "Water Sport": MOVE_WATER_SPORT
+  "Calm Mind": MOVE_CALM_MIND
+  "Leaf Blade": MOVE_LEAF_BLADE
+  "Dragon Dance": MOVE_DRAGON_DANCE
+  "Rock Blast": MOVE_ROCK_BLAST
+  "Shock Wave": MOVE_SHOCK_WAVE
+  "Water Pulse": MOVE_WATER_PULSE
+  "Doom Desire": MOVE_DOOM_DESIRE
+  "Psycho Boost": MOVE_PSYCHO_BOOST
+  "Roost": MOVE_ROOST
+  "Gravity": MOVE_GRAVITY
+  "Miracle Eye": MOVE_MIRACLE_EYE
+  "Wake-Up Slap": MOVE_WAKE_UP_SLAP
+  "Hammer Arm": MOVE_HAMMER_ARM
+  "Gyro Ball": MOVE_GYRO_BALL
+  "Healing Wish": MOVE_HEALING_WISH
+  "Brine": MOVE_BRINE
+  "Natural Gift": MOVE_NATURAL_GIFT
+  "Feint": MOVE_FEINT
+  "Pluck": MOVE_PLUCK
+  "Tailwind": MOVE_TAILWIND
+  "Acupressure": MOVE_ACUPRESSURE
+  "Metal Burst": MOVE_METAL_BURST
+  "U-turn": MOVE_U_TURN
+  "Close Combat": MOVE_CLOSE_COMBAT
+  "Payback": MOVE_PAYBACK
+  "Assurance": MOVE_ASSURANCE
+  "Embargo": MOVE_EMBARGO
+  "Fling": MOVE_FLING
+  "Psycho Shift": MOVE_PSYCHO_SHIFT
+  "Trump Card": MOVE_TRUMP_CARD
+  "Heal Block": MOVE_HEAL_BLOCK
+  "Wring Out": MOVE_WRING_OUT
+  "Power Trick": MOVE_POWER_TRICK
+  "Gastro Acid": MOVE_GASTRO_ACID
+  "Lucky Chant": MOVE_LUCKY_CHANT
+  "Me First": MOVE_ME_FIRST
+  "Copycat": MOVE_COPYCAT
+  "Power Swap": MOVE_POWER_SWAP
+  "Guard Swap": MOVE_GUARD_SWAP
+  "Punishment": MOVE_PUNISHMENT
+  "Last Resort": MOVE_LAST_RESORT
+  "Worry Seed": MOVE_WORRY_SEED
+  "Sucker Punch": MOVE_SUCKER_PUNCH
+  "Toxic Spikes": MOVE_TOXIC_SPIKES
+  "Heart Swap": MOVE_HEART_SWAP
+  "Aqua Ring": MOVE_AQUA_RING
+  "Magnet Rise": MOVE_MAGNET_RISE
+  "Flare Blitz": MOVE_FLARE_BLITZ
+  "Force Palm": MOVE_FORCE_PALM
+  "Aura Sphere": MOVE_AURA_SPHERE
+  "Rock Polish": MOVE_ROCK_POLISH
+  "Poison Jab": MOVE_POISON_JAB
+  "Dark Pulse": MOVE_DARK_PULSE
+  "Night Slash": MOVE_NIGHT_SLASH
+  "Aqua Tail": MOVE_AQUA_TAIL
+  "Seed Bomb": MOVE_SEED_BOMB
+  "Air Slash": MOVE_AIR_SLASH
+  "X-Scissor": MOVE_X_SCISSOR
+  "Bug Buzz": MOVE_BUG_BUZZ
+  "Dragon Pulse": MOVE_DRAGON_PULSE
+  "Dragon Rush": MOVE_DRAGON_RUSH
+  "Power Gem": MOVE_POWER_GEM
+  "Drain Punch": MOVE_DRAIN_PUNCH
+  "Vacuum Wave": MOVE_VACUUM_WAVE
+  "Focus Blast": MOVE_FOCUS_BLAST
+  "Energy Ball": MOVE_ENERGY_BALL
+  "Brave Bird": MOVE_BRAVE_BIRD
+  "Earth Power": MOVE_EARTH_POWER
+  "Switcheroo": MOVE_SWITCHEROO
+  "Giga Impact": MOVE_GIGA_IMPACT
+  "Nasty Plot": MOVE_NASTY_PLOT
+  "Bullet Punch": MOVE_BULLET_PUNCH
+  "Avalanche": MOVE_AVALANCHE
+  "Ice Shard": MOVE_ICE_SHARD
+  "Shadow Claw": MOVE_SHADOW_CLAW
+  "Thunder Fang": MOVE_THUNDER_FANG
+  "Ice Fang": MOVE_ICE_FANG
+  "Fire Fang": MOVE_FIRE_FANG
+  "Shadow Sneak": MOVE_SHADOW_SNEAK
+  "Mud Bomb": MOVE_MUD_BOMB
+  "Psycho Cut": MOVE_PSYCHO_CUT
+  "Zen Headbutt": MOVE_ZEN_HEADBUTT
+  "Mirror Shot": MOVE_MIRROR_SHOT
+  "Flash Cannon": MOVE_FLASH_CANNON
+  "Rock Climb": MOVE_ROCK_CLIMB
+  "Defog": MOVE_DEFOG
+  "Trick Room": MOVE_TRICK_ROOM
+  "Draco Meteor": MOVE_DRACO_METEOR
+  "Discharge": MOVE_DISCHARGE
+  "Lava Plume": MOVE_LAVA_PLUME
+  "Leaf Storm": MOVE_LEAF_STORM
+  "Power Whip": MOVE_POWER_WHIP
+  "Rock Wrecker": MOVE_ROCK_WRECKER
+  "Cross Poison": MOVE_CROSS_POISON
+  "Gunk Shot": MOVE_GUNK_SHOT
+  "Iron Head": MOVE_IRON_HEAD
+  "Magnet Bomb": MOVE_MAGNET_BOMB
+  "Stone Edge": MOVE_STONE_EDGE
+  "Captivate": MOVE_CAPTIVATE
+  "Stealth Rock": MOVE_STEALTH_ROCK
+  "Grass Knot": MOVE_GRASS_KNOT
+  "Chatter": MOVE_CHATTER
+  "Judgment": MOVE_JUDGMENT
+  "Bug Bite": MOVE_BUG_BITE
+  "Charge Beam": MOVE_CHARGE_BEAM
+  "Wood Hammer": MOVE_WOOD_HAMMER
+  "Aqua Jet": MOVE_AQUA_JET
+  "Attack Order": MOVE_ATTACK_ORDER
+  "Defend Order": MOVE_DEFEND_ORDER
+  "Heal Order": MOVE_HEAL_ORDER
+  "Head Smash": MOVE_HEAD_SMASH
+  "Double Hit": MOVE_DOUBLE_HIT
+  "Roar of Time": MOVE_ROAR_OF_TIME
+  "Spacial Rend": MOVE_SPACIAL_REND
+  "Lunar Dance": MOVE_LUNAR_DANCE
+  "Crush Grip": MOVE_CRUSH_GRIP
+  "Magma Storm": MOVE_MAGMA_STORM
+  "Dark Void": MOVE_DARK_VOID
+  "Seed Flare": MOVE_SEED_FLARE
+  "Ominous Wind": MOVE_OMINOUS_WIND
+  "Shadow Force": MOVE_SHADOW_FORCE
+  "Hone Claws": MOVE_HONE_CLAWS
+  "Wide Guard": MOVE_WIDE_GUARD
+  "Guard Split": MOVE_GUARD_SPLIT
+  "Power Split": MOVE_POWER_SPLIT
+  "Wonder Room": MOVE_WONDER_ROOM
+  "Psyshock": MOVE_PSYSHOCK
+  "Venoshock": MOVE_VENOSHOCK
+  "Autotomize": MOVE_AUTOTOMIZE
+  "Rage Powder": MOVE_RAGE_POWDER
+  "Telekinesis": MOVE_TELEKINESIS
+  "Magic Room": MOVE_MAGIC_ROOM
+  "Smack Down": MOVE_SMACK_DOWN
+  "Storm Throw": MOVE_STORM_THROW
+  "Flame Burst": MOVE_FLAME_BURST
+  "Sludge Wave": MOVE_SLUDGE_WAVE
+  "Quiver Dance": MOVE_QUIVER_DANCE
+  "Heavy Slam": MOVE_HEAVY_SLAM
+  "Synchronoise": MOVE_SYNCHRONOISE
+  "Electro Ball": MOVE_ELECTRO_BALL
+  "Soak": MOVE_SOAK
+  "Flame Charge": MOVE_FLAME_CHARGE
+  "Coil": MOVE_COIL
+  "Low Sweep": MOVE_LOW_SWEEP
+  "Acid Spray": MOVE_ACID_SPRAY
+  "Foul Play": MOVE_FOUL_PLAY
+  "Simple Beam": MOVE_SIMPLE_BEAM
+  "Entrainment": MOVE_ENTRAINMENT
+  "After You": MOVE_AFTER_YOU
+  "Round": MOVE_ROUND
+  "Echoed Voice": MOVE_ECHOED_VOICE
+  "Chip Away": MOVE_CHIP_AWAY
+  "Clear Smog": MOVE_CLEAR_SMOG
+  "Stored Power": MOVE_STORED_POWER
+  "Quick Guard": MOVE_QUICK_GUARD
+  "Ally Switch": MOVE_ALLY_SWITCH
+  "Scald": MOVE_SCALD
+  "Shell Smash": MOVE_SHELL_SMASH
+  "Heal Pulse": MOVE_HEAL_PULSE
+  "Hex": MOVE_HEX
+  "Sky Drop": MOVE_SKY_DROP
+  "Shift Gear": MOVE_SHIFT_GEAR
+  "Circle Throw": MOVE_CIRCLE_THROW
+  "Incinerate": MOVE_INCINERATE
+  "Quash": MOVE_QUASH
+  "Acrobatics": MOVE_ACROBATICS
+  "Reflect Type": MOVE_REFLECT_TYPE
+  "Retaliate": MOVE_RETALIATE
+  "Final Gambit": MOVE_FINAL_GAMBIT
+  "Bestow": MOVE_BESTOW
+  "Inferno": MOVE_INFERNO
+  "Water Pledge": MOVE_WATER_PLEDGE
+  "Fire Pledge": MOVE_FIRE_PLEDGE
+  "Grass Pledge": MOVE_GRASS_PLEDGE
+  "Volt Switch": MOVE_VOLT_SWITCH
+  "Struggle Bug": MOVE_STRUGGLE_BUG
+  "Bulldoze": MOVE_BULLDOZE
+  "Frost Breath": MOVE_FROST_BREATH
+  "Dragon Tail": MOVE_DRAGON_TAIL
+  "Work Up": MOVE_WORK_UP
+  "Electroweb": MOVE_ELECTROWEB
+  "Wild Charge": MOVE_WILD_CHARGE
+  "Drill Run": MOVE_DRILL_RUN
+  "Dual Chop": MOVE_DUAL_CHOP
+  "Heart Stamp": MOVE_HEART_STAMP
+  "Horn Leech": MOVE_HORN_LEECH
+  "Sacred Sword": MOVE_SACRED_SWORD
+  "Razor Shell": MOVE_RAZOR_SHELL
+  "Heat Crash": MOVE_HEAT_CRASH
+  "Leaf Tornado": MOVE_LEAF_TORNADO
+  "Steamroller": MOVE_STEAMROLLER
+  "Cotton Guard": MOVE_COTTON_GUARD
+  "Night Daze": MOVE_NIGHT_DAZE
+  "Psystrike": MOVE_PSYSTRIKE
+  "Tail Slap": MOVE_TAIL_SLAP
+  "Hurricane": MOVE_HURRICANE
+  "Head Charge": MOVE_HEAD_CHARGE
+  "Gear Grind": MOVE_GEAR_GRIND
+  "Searing Shot": MOVE_SEARING_SHOT
+  "Techno Blast": MOVE_TECHNO_BLAST
+  "Relic Song": MOVE_RELIC_SONG
+  "Secret Sword": MOVE_SECRET_SWORD
+  "Glaciate": MOVE_GLACIATE
+  "Bolt Strike": MOVE_BOLT_STRIKE
+  "Blue Flare": MOVE_BLUE_FLARE
+  "Fiery Dance": MOVE_FIERY_DANCE
+  "Freeze Shock": MOVE_FREEZE_SHOCK
+  "Ice Burn": MOVE_ICE_BURN
+  "Snarl": MOVE_SNARL
+  "Icicle Crash": MOVE_ICICLE_CRASH
+  "V-create": MOVE_V_CREATE
+  "Fusion Flare": MOVE_FUSION_FLARE
+  "Fusion Bolt": MOVE_FUSION_BOLT
+  "Flying Press": MOVE_FLYING_PRESS
+  "Mat Block": MOVE_MAT_BLOCK
+  "Belch": MOVE_BELCH
+  "Rototiller": MOVE_ROTOTILLER
+  "Sticky Web": MOVE_STICKY_WEB
+  "Fell Stinger": MOVE_FELL_STINGER
+  "Phantom Force": MOVE_PHANTOM_FORCE
+  "Trick-or-Treat": MOVE_TRICK_OR_TREAT
+  "Noble Roar": MOVE_NOBLE_ROAR
+  "Ion Deluge": MOVE_ION_DELUGE
+  "Parabolic Charge": MOVE_PARABOLIC_CHARGE
+  "Forest's Curse": MOVE_FORESTS_CURSE
+  "Petal Blizzard": MOVE_PETAL_BLIZZARD
+  "Freeze-Dry": MOVE_FREEZE_DRY
+  "Disarming Voice": MOVE_DISARMING_VOICE
+  "Parting Shot": MOVE_PARTING_SHOT
+  "Topsy-Turvy": MOVE_TOPSY_TURVY
+  "Draining Kiss": MOVE_DRAINING_KISS
+  "Crafty Shield": MOVE_CRAFTY_SHIELD
+  "Flower Shield": MOVE_FLOWER_SHIELD
+  "Grassy Terrain": MOVE_GRASSY_TERRAIN
+  "Misty Terrain": MOVE_MISTY_TERRAIN
+  "Electrify": MOVE_ELECTRIFY
+  "Play Rough": MOVE_PLAY_ROUGH
+  "Fairy Wind": MOVE_FAIRY_WIND
+  "Moonblast": MOVE_MOONBLAST
+  "Boomburst": MOVE_BOOMBURST
+  "Fairy Lock": MOVE_FAIRY_LOCK
+  "King's Shield": MOVE_KINGS_SHIELD
+  "Play Nice": MOVE_PLAY_NICE
+  "Confide": MOVE_CONFIDE
+  "Diamond Storm": MOVE_DIAMOND_STORM
+  "Steam Eruption": MOVE_STEAM_ERUPTION
+  "Hyperspace Hole": MOVE_HYPERSPACE_HOLE
+  "Water Shuriken": MOVE_WATER_SHURIKEN
+  "Mystical Fire": MOVE_MYSTICAL_FIRE
+  "Spiky Shield": MOVE_SPIKY_SHIELD
+  "Aromatic Mist": MOVE_AROMATIC_MIST
+  "Eerie Impulse": MOVE_EERIE_IMPULSE
+  "Venom Drench": MOVE_VENOM_DRENCH
+  "Powder": MOVE_POWDER
+  "Geomancy": MOVE_GEOMANCY
+  "Magnetic Flux": MOVE_MAGNETIC_FLUX
+  "Happy Hour": MOVE_HAPPY_HOUR
+  "Electric Terrain": MOVE_ELECTRIC_TERRAIN
+  "Dazzling Gleam": MOVE_DAZZLING_GLEAM
+  "Celebrate": MOVE_CELEBRATE
+  "Hold Hands": MOVE_HOLD_HANDS
+  "Baby-Doll Eyes": MOVE_BABY_DOLL_EYES
+  "Nuzzle": MOVE_NUZZLE
+  "Hold Back": MOVE_HOLD_BACK
+  "Infestation": MOVE_INFESTATION
+  "Power-Up Punch": MOVE_POWER_UP_PUNCH
+  "Oblivion Wing": MOVE_OBLIVION_WING
+  "Thousand Arrows": MOVE_THOUSAND_ARROWS
+  "Thousand Waves": MOVE_THOUSAND_WAVES
+  "Land's Wrath": MOVE_LANDS_WRATH
+  "Light Of Ruin": MOVE_LIGHT_OF_RUIN
+  "Origin Pulse": MOVE_ORIGIN_PULSE
+  "Precipice Blades": MOVE_PRECIPICE_BLADES
+  "Dragon Ascent": MOVE_DRAGON_ASCENT
+  "Hyperspace Fury": MOVE_HYPERSPACE_FURY
+  "Shore Up": MOVE_SHORE_UP
+  "First Impression": MOVE_FIRST_IMPRESSION
+  "Baneful Bunker": MOVE_BANEFUL_BUNKER
+  "Spirit Shackle": MOVE_SPIRIT_SHACKLE
+  "Darkest Lariat": MOVE_DARKEST_LARIAT
+  "Sparkling Aria": MOVE_SPARKLING_ARIA
+  "Ice Hammer": MOVE_ICE_HAMMER
+  "Floral Healing": MOVE_FLORAL_HEALING
+  "High Horsepower": MOVE_HIGH_HORSEPOWER
+  "Strength Sap": MOVE_STRENGTH_SAP
+  "Solar Blade": MOVE_SOLAR_BLADE
+  "Leafage": MOVE_LEAFAGE
+  "Spotlight": MOVE_SPOTLIGHT
+  "Toxic Thread": MOVE_TOXIC_THREAD
+  "Laser Focus": MOVE_LASER_FOCUS
+  "Gear Up": MOVE_GEAR_UP
+  "Throat Chop": MOVE_THROAT_CHOP
+  "Pollen Puff": MOVE_POLLEN_PUFF
+  "Anchor Shot": MOVE_ANCHOR_SHOT
+  "Psychic Terrain": MOVE_PSYCHIC_TERRAIN
+  "Lunge": MOVE_LUNGE
+  "Fire Lash": MOVE_FIRE_LASH
+  "Power Trip": MOVE_POWER_TRIP
+  "Burn Up": MOVE_BURN_UP
+  "Speed Swap": MOVE_SPEED_SWAP
+  "Smart Strike": MOVE_SMART_STRIKE
+  "Purify": MOVE_PURIFY
+  "Revelation Dance": MOVE_REVELATION_DANCE
+  "Core Enforcer": MOVE_CORE_ENFORCER
+  "Trop Kick": MOVE_TROP_KICK
+  "Instruct": MOVE_INSTRUCT
+  "Beak Blast": MOVE_BEAK_BLAST
+  "Clanging Scales": MOVE_CLANGING_SCALES
+  "Dragon Hammer": MOVE_DRAGON_HAMMER
+  "Brutal Swing": MOVE_BRUTAL_SWING
+  "Aurora Veil": MOVE_AURORA_VEIL
+  "Shell Trap": MOVE_SHELL_TRAP
+  "Fleur Cannon": MOVE_FLEUR_CANNON
+  "Psychic Fangs": MOVE_PSYCHIC_FANGS
+  "Stomping Tantrum": MOVE_STOMPING_TANTRUM
+  "Shadow Bone": MOVE_SHADOW_BONE
+  "Accelerock": MOVE_ACCELEROCK
+  "Liquidation": MOVE_LIQUIDATION
+  "Prismatic Laser": MOVE_PRISMATIC_LASER
+  "Spectral Thief": MOVE_SPECTRAL_THIEF
+  "Sunsteel Strike": MOVE_SUNSTEEL_STRIKE
+  "Moongeist Beam": MOVE_MOONGEIST_BEAM
+  "Tearful Look": MOVE_TEARFUL_LOOK
+  "Zing Zap": MOVE_ZING_ZAP
+  "Nature's Madness": MOVE_NATURES_MADNESS
+  "Multi-Attack": MOVE_MULTI_ATTACK
+  "Mind Blown": MOVE_MIND_BLOWN
+  "Plasma Fists": MOVE_PLASMA_FISTS
+  "Photon Geyser": MOVE_PHOTON_GEYSER
+  "Zippy Zap": MOVE_ZIPPY_ZAP
+  "Splishy Splash": MOVE_SPLISHY_SPLASH
+  "Floaty Fall": MOVE_FLOATY_FALL
+  "Pika Papow": MOVE_PIKA_PAPOW
+  "Bouncy Bubble": MOVE_BOUNCY_BUBBLE
+  "Buzzy Buzz": MOVE_BUZZY_BUZZ
+  "Sizzly Slide": MOVE_SIZZLY_SLIDE
+  "Glitzy Glow": MOVE_GLITZY_GLOW
+  "Baddy Bad": MOVE_BADDY_BAD
+  "Sappy Seed": MOVE_SAPPY_SEED
+  "Freezy Frost": MOVE_FREEZY_FROST
+  "Sparkly Swirl": MOVE_SPARKLY_SWIRL
+  "Veevee Volley": MOVE_VEEVEE_VOLLEY
+  "Double Iron Bash": MOVE_DOUBLE_IRON_BASH
+  "Dynamax Cannon": MOVE_DYNAMAX_CANNON
+  "Snipe Shot": MOVE_SNIPE_SHOT
+  "Jaw Lock": MOVE_JAW_LOCK
+  "Stuff Cheeks": MOVE_STUFF_CHEEKS
+  "No Retreat": MOVE_NO_RETREAT
+  "Tar Shot": MOVE_TAR_SHOT
+  "Magic Powder": MOVE_MAGIC_POWDER
+  "Dragon Darts": MOVE_DRAGON_DARTS
+  "Teatime": MOVE_TEATIME
+  "Octolock": MOVE_OCTOLOCK
+  "Bolt Beak": MOVE_BOLT_BEAK
+  "Fishious Rend": MOVE_FISHIOUS_REND
+  "Court Change": MOVE_COURT_CHANGE
+  "Clangorous Soul": MOVE_CLANGOROUS_SOUL
+  "Body Press": MOVE_BODY_PRESS
+  "Decorate": MOVE_DECORATE
+  "Drum Beating": MOVE_DRUM_BEATING
+  "Snap Trap": MOVE_SNAP_TRAP
+  "Pyro Ball": MOVE_PYRO_BALL
+  "Behemoth Blade": MOVE_BEHEMOTH_BLADE
+  "Behemoth Bash": MOVE_BEHEMOTH_BASH
+  "Aura Wheel": MOVE_AURA_WHEEL
+  "Breaking Swipe": MOVE_BREAKING_SWIPE
+  "Branch Poke": MOVE_BRANCH_POKE
+  "Overdrive": MOVE_OVERDRIVE
+  "Apple Acid": MOVE_APPLE_ACID
+  "Grav Apple": MOVE_GRAV_APPLE
+  "Spirit Break": MOVE_SPIRIT_BREAK
+  "Strange Steam": MOVE_STRANGE_STEAM
+  "Life Dew": MOVE_LIFE_DEW
+  "Obstruct": MOVE_OBSTRUCT
+  "False Surrender": MOVE_FALSE_SURRENDER
+  "Meteor Assault": MOVE_METEOR_ASSAULT
+  "Eternabeam": MOVE_ETERNABEAM
+  "Steel Beam": MOVE_STEEL_BEAM
+  "Expanding Force": MOVE_EXPANDING_FORCE
+  "Steel Roller": MOVE_STEEL_ROLLER
+  "Scale Shot": MOVE_SCALE_SHOT
+  "Meteor Beam": MOVE_METEOR_BEAM
+  "Shell Side Arm": MOVE_SHELL_SIDE_ARM
+  "Misty Explosion": MOVE_MISTY_EXPLOSION
+  "Grassy Glide": MOVE_GRASSY_GLIDE
+  "Rising Voltage": MOVE_RISING_VOLTAGE
+  "Terrain Pulse": MOVE_TERRAIN_PULSE
+  "Skitter Smack": MOVE_SKITTER_SMACK
+  "Burning Jealousy": MOVE_BURNING_JEALOUSY
+  "Lash Out": MOVE_LASH_OUT
+  "Poltergeist": MOVE_POLTERGEIST
+  "Corrosive Gas": MOVE_CORROSIVE_GAS
+  "Coaching": MOVE_COACHING
+  "Flip Turn": MOVE_FLIP_TURN
+  "Triple Axel": MOVE_TRIPLE_AXEL
+  "Dual Wingbeat": MOVE_DUAL_WINGBEAT
+  "Scorching Sands": MOVE_SCORCHING_SANDS
+  "Jungle Healing": MOVE_JUNGLE_HEALING
+  "Wicked Blow": MOVE_WICKED_BLOW
+  "Surging Strikes": MOVE_SURGING_STRIKES
+  "Thunder Cage": MOVE_THUNDER_CAGE
+  "Dragon Energy": MOVE_DRAGON_ENERGY
+  "Freezing Glare": MOVE_FREEZING_GLARE
+  "Fiery Wrath": MOVE_FIERY_WRATH
+  "Thunderous Kick": MOVE_THUNDEROUS_KICK
+  "Glacial Lance": MOVE_GLACIAL_LANCE
+  "Astral Barrage": MOVE_ASTRAL_BARRAGE
+  "Eerie Spell": MOVE_EERIE_SPELL
+  "Dire Claw": MOVE_DIRE_CLAW
+  "Psyshield Bash": MOVE_PSYSHIELD_BASH
+  "Power Shift": MOVE_POWER_SHIFT
+  "Stone Axe": MOVE_STONE_AXE
+  "Springtide Storm": MOVE_SPRINGTIDE_STORM
+  "Mystical Power": MOVE_MYSTICAL_POWER
+  "Raging Fury": MOVE_RAGING_FURY
+  "Wave Crash": MOVE_WAVE_CRASH
+  "Chloroblast": MOVE_CHLOROBLAST
+  "Mountain Gale": MOVE_MOUNTAIN_GALE
+  "Victory Dance": MOVE_VICTORY_DANCE
+  "Headlong Rush": MOVE_HEADLONG_RUSH
+  "Barb Barrage": MOVE_BARB_BARRAGE
+  "Esper Wing": MOVE_ESPER_WING
+  "Bitter Malice": MOVE_BITTER_MALICE
+  "Shelter": MOVE_SHELTER
+  "Triple Arrows": MOVE_TRIPLE_ARROWS
+  "Infernal Parade": MOVE_INFERNAL_PARADE
+  "Ceaseless Edge": MOVE_CEASELESS_EDGE
+  "Bleakwind Storm": MOVE_BLEAKWIND_STORM
+  "Wildbolt Storm": MOVE_WILDBOLT_STORM
+  "Sandsear Storm": MOVE_SANDSEAR_STORM
+  "Lunar Blessing": MOVE_LUNAR_BLESSING
+  "Take Heart": MOVE_TAKE_HEART
+  "Tera Blast": MOVE_TERA_BLAST
+  "Silk Trap": MOVE_SILK_TRAP
+  "Axe Kick": MOVE_AXE_KICK
+  "Last Respects": MOVE_LAST_RESPECTS
+  "Lumina Crash": MOVE_LUMINA_CRASH
+  "Order Up": MOVE_ORDER_UP
+  "Jet Punch": MOVE_JET_PUNCH
+  "Spicy Extract": MOVE_SPICY_EXTRACT
+  "Spin Out": MOVE_SPIN_OUT
+  "Population Bomb": MOVE_POPULATION_BOMB
+  "Ice Spinner": MOVE_ICE_SPINNER
+  "Glaive Rush": MOVE_GLAIVE_RUSH
+  "Revival Blessing": MOVE_REVIVAL_BLESSING
+  "Salt Cure": MOVE_SALT_CURE
+  "Triple Dive": MOVE_TRIPLE_DIVE
+  "Mortal Spin": MOVE_MORTAL_SPIN
+  "Doodle": MOVE_DOODLE
+  "Fillet Away": MOVE_FILLET_AWAY
+  "Kowtow Cleave": MOVE_KOWTOW_CLEAVE
+  "Flower Trick": MOVE_FLOWER_TRICK
+  "Torch Song": MOVE_TORCH_SONG
+  "Aqua Step": MOVE_AQUA_STEP
+  "Raging Bull": MOVE_RAGING_BULL
+  "Make It Rain": MOVE_MAKE_IT_RAIN
+  "Ruination": MOVE_RUINATION
+  "Collision Course": MOVE_COLLISION_COURSE
+  "Electro Drift": MOVE_ELECTRO_DRIFT
+  "Shed Tail": MOVE_SHED_TAIL
+  "Chilly Reception": MOVE_CHILLY_RECEPTION
+  "Tidy Up": MOVE_TIDY_UP
+  "Snowscape": MOVE_SNOWSCAPE
+  "Pounce": MOVE_POUNCE
+  "Trailblaze": MOVE_TRAILBLAZE
+  "Chilling Water": MOVE_CHILLING_WATER
+  "Hyper Drill": MOVE_HYPER_DRILL
+  "Twin Beam": MOVE_TWIN_BEAM
+  "Rage Fist": MOVE_RAGE_FIST
+  "Armor Cannon": MOVE_ARMOR_CANNON
+  "Bitter Blade": MOVE_BITTER_BLADE
+  "Double Shock": MOVE_DOUBLE_SHOCK
+  "Gigaton Hammer": MOVE_GIGATON_HAMMER
+  "Comeuppance": MOVE_COMEUPPANCE
+  "Aqua Cutter": MOVE_AQUA_CUTTER
+  "Blazing Torque": MOVE_BLAZING_TORQUE
+  "Wicked Torque": MOVE_WICKED_TORQUE
+  "Noxious Torque": MOVE_NOXIOUS_TORQUE
+  "Combat Torque": MOVE_COMBAT_TORQUE
+  "Magical Torque": MOVE_MAGICAL_TORQUE
+  "Psyblade": MOVE_PSYBLADE
+  "Hydro Steam": MOVE_HYDRO_STEAM
+  "Blood Moon": MOVE_BLOOD_MOON
+  "Matcha Gotcha": MOVE_MATCHA_GOTCHA
+  "Syrup Bomb": MOVE_SYRUP_BOMB
+  "Ivy Cudgel": MOVE_IVY_CUDGEL
+  "Electro Shot": MOVE_ELECTRO_SHOT
+  "Tera Starstorm": MOVE_TERA_STARSTORM
+  "Fickle Beam": MOVE_FICKLE_BEAM
+  "Burning Bulwark": MOVE_BURNING_BULWARK
+  "Thunderclap": MOVE_THUNDERCLAP
+  "Mighty Cleave": MOVE_MIGHTY_CLEAVE
+  "Tachyon Cutter": MOVE_TACHYON_CUTTER
+  "Hard Press": MOVE_HARD_PRESS
+  "Dragon Cheer": MOVE_DRAGON_CHEER
+  "Alluring Voice": MOVE_ALLURING_VOICE
+  "Temper Flare": MOVE_TEMPER_FLARE
+  "Supercell Slam": MOVE_SUPERCELL_SLAM
+  "Psychic Noise": MOVE_PSYCHIC_NOISE
+  "Malignant Chain": MOVE_MALIGNANT_CHAIN

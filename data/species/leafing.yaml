@@ -9,7 +9,7 @@ credits:
 types: [Grass]           # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category: Sprout         # e.g. Seed  (shown in game as "Seed Pokemon"), max 11 characters
+category: Sprout         # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description: |           # the Pokedex entry text: max 4 lines of about 40 characters
   LEAFING hides among fallen leaves to
   nap in the sun. The leaf on its head
@@ -23,7 +23,7 @@ body_color: green        # red blue yellow green black brown purple gray white p
 abilities:
   primary: Overgrow
   secondary:             # optional
-  hidden:                # optional - Emerald has no hidden abilities, needs extra game code
+  hidden:                # optional
 
 base_stats:              # each 1-255
   hp: 45
@@ -69,11 +69,11 @@ learnset:
     - {level: 35, move: Iron Defense}
     - {level: 40, move: Leaf Blade}
     - {level: 45, move: Swords Dance}
-  # e.g. [Cut, Solar Beam] - only the game's 50 TMs and 8 HMs
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Protect, Giga Drain, Frustration,
           Solar Beam, Iron Tail, Return, Double Team, Aerial Ace, Facade, Secret Power,
           Rest, Attract, Cut, Strength, Flash, Rock Smash]
-  # only the game's 30 tutor moves
+  # moves a move tutor can teach it
   tutor: [Swords Dance, Body Slam, Double-Edge, Mimic, Substitute, Snore, Endure, Mud-Slap,
           Swagger, Sleep Talk, Fury Cutter]
   # only needed for the first stage of an evolution line

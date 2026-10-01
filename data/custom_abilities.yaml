@@ -1,6 +1,7 @@
-# New abilities invented for this project (abilities that do not exist in Emerald).
+# New abilities invented for this project (abilities that do not exist in the game yet,
+# see data/engine/expansion.yaml for the 319 that do).
 # Each one has to be programmed into the game later, so keep the list short and precise.
 abilities: []
 # abilities:
-#   - name: Sigma Aura       # max 12 characters
+#   - name: Sigma Aura       # max 16 characters
 #     effect: Raises Attack by one stage when entering battle.

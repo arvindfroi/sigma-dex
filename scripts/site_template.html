@@ -345,7 +345,7 @@ function openEditor(s) {
     hidden: textInput(abilities.hidden, {list: "list-abilities"}),
     stats: Object.fromEntries(STATS.map(([k]) => [k, numberInput(stats[k], 1, 255)])),
     ev: Object.fromEntries(STATS.map(([k]) => [k, numberInput(ev[k] || "", 0, 3)])),
-    catchRate: numberInput(d.catch_rate, 1, 255), baseExp: numberInput(d.base_exp, 1, 255),
+    catchRate: numberInput(d.catch_rate, 1, 255), baseExp: numberInput(d.base_exp, 1, 700),
     growth: selectInput(d.growth_rate, L.growth_rates, "not decided"), friendship: numberInput(d.base_friendship, 0, 255),
     gender: selectInput(d.gender === undefined || d.gender === null ? "" : String(d.gender),
       [["87.5", "87.5% male (starters)"], ["50", "50% male"], ["100", "Always male"], ["75", "75% male"], ["25", "25% male"], ["12.5", "12.5% male"], ["0", "Always female"], ["genderless", "Genderless"]], "not decided"),
@@ -371,7 +371,8 @@ function openEditor(s) {
     {key: "level", number: true, make: v => numberInput(v, 1, 100, 1, {class: "tiny", placeholder: "level"})},
     {key: "move", make: v => textInput(v, {list: "list-moves", placeholder: "move"})}],
     (learn.level_up || []).slice().sort((a, b) => a.level - b.level), "Add a level-up move");
-  const tmhm = checkGrid(L.tm_hm, learn.tm_hm), tutor = checkGrid(L.tutor, learn.tutor);
+  const tmhm = checkGrid(L.tm_hm, learn.tm_hm);
+  const tutor = rowList([{key: "move", make: v => textInput(v, {list: "list-moves", placeholder: "move"})}], (learn.tutor || []).map(m => ({move: m})), "Add a tutor move");
   const egg = rowList([{key: "move", make: v => textInput(v, {list: "list-moves", placeholder: "move"})}], (learn.egg || []).map(m => ({move: m})), "Add an egg move");
   const encounters = rowList([
     {key: "location", make: v => textInput(v, {placeholder: "place, e.g. Route 1"})},
@@ -401,7 +402,7 @@ function openEditor(s) {
         if (ITEM_METHODS.includes(e.method)) evo.item = e.item;
         if (e.note) evo.note = e.note;
         return evo; }),
-      learnset: {level_up: levelUp.read().filter(m => m.move).sort((a, b) => a.level - b.level), tm_hm: tmhm.read(), tutor: tutor.read(), egg: egg.read().map(m => m.move).filter(Boolean)},
+      learnset: {level_up: levelUp.read().filter(m => m.move).sort((a, b) => a.level - b.level), tm_hm: tmhm.read(), tutor: tutor.read().map(m => m.move).filter(Boolean), egg: egg.read().map(m => m.move).filter(Boolean)},
       encounters: encounters.read().filter(e => e.location).map(e => Object.assign({}, e, {levels: /^\d+$/.test(e.levels || "") ? Number(e.levels) : e.levels})),
       design: {concept: readText(f.concept), name_origin: readText(f.origin), notes: readText(f.notes)},
     });
@@ -464,12 +465,12 @@ function openEditor(s) {
     h("h2", {}, "EVs given when defeated (0-3, at most 3 in total)"),
     h("div", {class: "fields narrow"}, STATS.map(([k, label]) => field(label, f.ev[k]))),
     h("h2", {}, "Catching and growing"),
-    h("div", {class: "fields"}, field("Catch rate (3 hard - 255 easy)", f.catchRate), field("Exp given (1-255)", f.baseExp), field("Growth rate", f.growth), field("Starting friendship (70 normal)", f.friendship)),
+    h("div", {class: "fields"}, field("Catch rate (3 hard - 255 easy)", f.catchRate), field("Exp given (e.g. 64)", f.baseExp), field("Growth rate", f.growth), field("Starting friendship (70 normal)", f.friendship)),
     h("h2", {}, "Breeding and items"),
     h("div", {class: "fields"}, field("Gender", f.gender), field("Egg group 1", f.egg1), field("Egg group 2", f.egg2), field("Egg cycles (20 normal)", f.eggCycles),
       field("Held item, common", f.itemCommon), field("Held item, rare", f.itemRare)),
     h("h2", {}, "Evolves into"), h("div", {class: "hint"}, "What THIS Pokemon turns into. Where it comes from is set on the earlier Pokemon."), evolutions.el,
-    h("h2", {}, "Level-up moves"), h("div", {class: "hint"}, "Start typing to pick from the moves that exist in Emerald."), levelUp.el,
+    h("h2", {}, "Level-up moves"), h("div", {class: "hint"}, "Start typing to pick from the moves that already exist in the game. A brand-new move can be typed in too - it gets a warning until it is programmed."), levelUp.el,
     h("h2", {}, "TM and HM moves it can learn"), tmhm.el,
     h("h2", {}, "Move tutor moves it can learn"), tutor.el,
     h("h2", {}, "Egg moves"), egg.el,

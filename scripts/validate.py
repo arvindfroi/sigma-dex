@@ -51,7 +51,7 @@ def check_species(sid, data, ids, engine, errors, warnings):
         err("abilities must have primary / secondary / hidden")
     for slot, ability in section(data, "abilities").items():
         if slot in ("primary", "secondary", "hidden") and ability is not None and dexlib.norm(ability) not in engine["abilities"]:
-            warn("ability '%s' does not exist in Emerald - check the spelling or add it to data/custom_abilities.yaml" % ability)
+            warn("ability '%s' does not exist in the game yet - check the spelling; if it is a new ability it has to be programmed" % ability)
 
     types = data.get("types")
     if types is not None and not isinstance(types, list):
@@ -87,7 +87,7 @@ def check_species(sid, data, ids, engine, errors, warnings):
             if sum(v for v in ev.values() if isinstance(v, int)) > 3:
                 err("ev_yield gives more than 3 points in total")
 
-    for key, low, high in (("catch_rate", 1, 255), ("base_exp", 1, 255), ("base_friendship", 0, 255), ("egg_cycles", 1, 120)):
+    for key, low, high in (("catch_rate", 1, 255), ("base_exp", 1, 700), ("base_friendship", 0, 255), ("egg_cycles", 1, 120)):
         value = data.get(key)
         if value is not None and (not isinstance(value, int) or not low <= value <= high):
             err("%s must be a whole number %d-%d, found %r" % (key, low, high, value))
@@ -150,17 +150,15 @@ def check_species(sid, data, ids, engine, errors, warnings):
                 or not 0 <= entry["level"] <= 100 or not isinstance(entry.get("move"), str)):
             err("level_up entry %r must look like {level: 7, move: Vine Whip}" % (entry,))
         elif dexlib.norm(entry["move"]) not in engine["moves"]:
-            warn("move '%s' does not exist in Emerald - check the spelling or add it to data/custom_moves.yaml" % entry["move"])
+            warn("move '%s' does not exist in the game yet - check the spelling; if it is a new move it has to be programmed" % entry["move"])
     for key in ("tm_hm", "tutor", "egg"):
         for move in listing(learnset.get(key)):
             if not isinstance(move, str):
                 err("learnset.%s entry %r must be a move name" % (key, move))
-            elif key == "egg" and dexlib.norm(move) not in engine["moves"]:
-                warn("egg move '%s' does not exist in Emerald - check the spelling or add it to data/custom_moves.yaml" % move)
             elif key == "tm_hm" and dexlib.norm(move) not in engine["tm_hm"]:
-                warn("'%s' is not one of the game's TMs/HMs (list: data/engine/gen3.yaml)" % move)
-            elif key == "tutor" and dexlib.norm(move) not in engine["tutor"]:
-                warn("'%s' is not one of the game's tutor moves (list: data/engine/gen3.yaml)" % move)
+                warn("'%s' is not one of the game's TMs/HMs (list: data/engine/expansion.yaml)" % move)
+            elif key != "tm_hm" and dexlib.norm(move) not in engine["moves"]:
+                warn("%s move '%s' does not exist in the game yet - check the spelling; if it is a new move it has to be programmed" % (key, move))
 
     encounters = data.get("encounters")
     if encounters is not None and not isinstance(encounters, list):

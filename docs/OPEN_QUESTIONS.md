@@ -6,19 +6,16 @@ species files are updated.
 
 ## Conflicts with the game engine
 
-1. **Fairy type does not exist in Emerald.** Nukfae, Toxiren, Anjane, Janenon and Sandrema
-   are Fairy. Either add the Fairy type to the game (new type, its matchups, an icon -
-   doable, known procedure) or give them other types.
-2. **Rainbro is listed as "Stellar".** That is not a type a Pokemon can have. What should it be?
-3. **Names longer than 10 characters:** Smeatherace (11), Giga-Circuit (12), Bulgarian Unown (15).
-   Shorten them, or accept the work of raising the limit in the game.
-4. **Hidden abilities do not exist in Emerald** (the spreadsheet has a column for them).
-   Two normal ability slots only, unless the game is extended.
-5. **No physical/special split in Emerald.** Whether a move is physical or special depends on
-   its type. This affects how stats should be spread (a Grass attacker wants Sp. Attack).
-   Keep it, or add the split to the game?
-6. **Only Emerald's 354 moves and 77 abilities exist.** Every newer or invented move/ability
-   has to be programmed. Decide how many custom ones we are willing to build.
+The base is now pokeemerald-expansion (see [ENGINE.md](ENGINE.md)), which removed most of the
+earlier conflicts: Fairy type, hidden abilities, the physical/special split and 846 moves /
+319 abilities from generation 1-9 all exist. What is left:
+
+1. **Rainbro is listed as "Stellar".** Stellar exists only as a Tera type, not as a type a
+   Pokemon can have. What should it be?
+2. **Names longer than 12 characters:** Bulgarian Unown (15).
+3. **New moves and abilities** (ones that do not exist in any official game) have to be
+   programmed. For each one we need: name, type, physical/special/status, power, accuracy,
+   PP, and exactly what it does. The fewer and the more precisely described, the better.
 
 ## Unclear in the doc
 
@@ -45,9 +42,10 @@ species files are updated.
 
 ## Project decisions
 
-13. **Which PC port?** All three use the same data format, so the dex does not depend on it:
-    `fuddlesworth/pokeemerald-native` (Windows, Linux, macOS), `NTx86/pokeemerald-sdl2pc`
-    (the original; Windows, Linux), `gradenGnostic/pokeemerald-multiplatform` (also Android).
+13. **Native PC build or GBA ROM?** pokeemerald-expansion builds a GBA ROM, which runs on
+    any computer or phone in an emulator. A native PC program of it does not exist ready-made
+    (see [ENGINE.md](ENGINE.md)). The Pokemon data, moves, maps and scripts are the same
+    work either way, so this can be decided later.
 14. **Replace or add?** Do our 100 replace the Hoenn dex, or get added next to the 386
     existing Pokemon?
 15. **Region name** - goes in `data/config.yaml`.

@@ -8,7 +8,7 @@ decided yet - [TODO.md](../TODO.md) keeps track of what is missing.
 | Field | Meaning | Rules |
 |---|---|---|
 | `dex` | Slot in our regional dex | 1-100, unique |
-| `name` | Name | Max 10 characters in the game |
+| `name` | Name | Max 12 characters in the game |
 | `credits.designer`, `credits.artist` | Who made it | Discord names |
 | `types` | One or two types | `[Grass]` or `[Grass, Steel]` |
 
@@ -16,7 +16,7 @@ decided yet - [TODO.md](../TODO.md) keeps track of what is missing.
 
 | Field | Meaning | Rules |
 |---|---|---|
-| `category` | The "Seed" in "Seed Pokemon" | Max 11 characters |
+| `category` | The "Seed" in "Seed Pokemon" | Max 12 characters |
 | `description` | Dex entry | Max 4 lines of about 40 characters |
 | `height_m`, `weight_kg` | Size | One decimal, e.g. `0.7` and `6.9` |
 | `body_color` | Color used by the dex search | red, blue, yellow, green, black, brown, purple, gray, white, pink |
@@ -25,8 +25,8 @@ decided yet - [TODO.md](../TODO.md) keeps track of what is missing.
 
 | Field | Meaning | Rules and guidance |
 |---|---|---|
-| `abilities.primary` / `secondary` | Abilities | Emerald has two slots. Use existing Emerald abilities where possible |
-| `abilities.hidden` | Hidden ability | Does not exist in Emerald - optional, needs extra game code |
+| `abilities.primary` / `secondary` | Abilities | Use abilities that already exist in the game where possible |
+| `abilities.hidden` | Hidden ability | Optional |
 | `base_stats` | HP, Attack, Defense, Sp. Attack, Sp. Defense, Speed | Each 1-255. Typical totals: first stage 300-320, middle 400-420, fully evolved 480-540, legendary 580-680 |
 | `ev_yield` | EVs given when defeated | `{attack: 1}`. 1 point for a first stage, 2 for a middle stage, 3 for a final stage |
 | `catch_rate` | How easy it is to catch | 3 legendary, 45 starters and rare, 120-190 uncommon, 255 very common |
@@ -78,12 +78,13 @@ learnset:
   egg: [Leech Seed]
 ```
 
-- `level_up` and `egg` may use any Emerald move. `egg` is only needed for the first stage of a line.
-- `tm_hm` may only use the game's 50 TMs and 8 HMs; `tutor` only the 30 tutor moves.
-- All valid names are listed in [`data/engine/gen3.yaml`](../data/engine/gen3.yaml).
-- Remember that Emerald has no physical/special split: whether a move is physical or
-  special depends on its **type** (Grass, Fire, Water, Electric, Ice, Psychic, Dragon and
-  Dark are special, the rest physical).
+- `level_up`, `tutor` and `egg` may use any move in the game (generation 1-9). `egg` is only
+  needed for the first stage of a line.
+- `tm_hm` may only use the game's TMs and HMs.
+- All existing names are listed in [`data/engine/expansion.yaml`](../data/engine/expansion.yaml).
+- A move or ability that is not in that list is a **new** one. It gets a warning and has to be
+  programmed into the game, so describe exactly what it does.
+- Moves are physical or special per move, like in the modern games.
 
 ## Location
 

@@ -15,7 +15,7 @@
 Everything about a Pokemon can be entered: name, types, credits, dex entry, size, abilities,
 base stats, EV yield, catch rate, exp, growth rate, friendship, gender, egg groups, held
 items, evolutions, level-up / TM / HM / tutor / egg moves, where it is found, and design
-notes. Moves and abilities suggest the ones that exist in Emerald while you type.
+notes. Moves and abilities suggest the ones that already exist in the game while you type.
 
 Not on the website: art and sprites. Post concept art in the Discord for now.
 
@@ -26,7 +26,7 @@ Not on the website: art and sprites. Post concept art in the Discord for now.
   repository. `DEX.md`, `TODO.md` and the game export update with it.
 - If a save cannot be used (for example a stat of 999), it is listed in a box at the top of
   the front page with the reason. Open the Pokemon, fix it, save again.
-- Things that work but look off (a move that is not in Emerald, a name over 10 letters)
+- Things that work but look off (a move that is not in the game yet, a name over 12 letters)
   appear as warnings on the Pokemon's page after the next check.
 - If two people edit the same Pokemon at the same time, the later save wins. Say in the
   Discord which one you are working on.
