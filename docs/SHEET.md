@@ -12,30 +12,34 @@ Two things exist for people who never want to touch GitHub:
 
 ## How to use the sheet
 
-One row per dex slot. Type in a cell; every 15 minutes the dex picks it up, checks it and
-updates the website. If the same Pokemon is changed in both places, the website wins.
+One row per dex slot, one column per piece of information (42 columns - everything a
+Pokemon has except images). Row 1 is the column name, row 2 a hint about what to write.
+Type in a cell; every 15 minutes the dex picks it up, checks it and updates the website.
 
-- **An empty cell changes nothing.** To change a value, type the new one. (Removing a value
-  completely has to be done in the species file on GitHub.)
+- **Only cells you change are applied.** The sync remembers what the sheet looked like last
+  time, so an old value sitting in the sheet never overwrites something that was edited on
+  the website. The other way round does not happen automatically: an edit made on the
+  website does not appear in the sheet. The website always shows the current state.
+- **Emptying a cell** removes that value.
 - **To add a Pokemon**, write its name in an open slot's row.
-- **Never change the `dex` column.** It is how rows are matched.
-- The `bst` column is calculated - typing in it does nothing.
-- Columns are recognised by their header in row 1, so the order does not matter and extra
+- **Never change the `Dex #` column.** It is how rows are matched.
+- The `BST` column is calculated - typing in it does nothing.
+- Columns are recognised by their name in row 1, so the order does not matter and extra
   columns of your own are ignored.
 
 | Column | How to write it |
 |---|---|
-| `type_1`, `type_2` | `Grass`, `Steel` |
-| `ability_1`, `ability_2`, `hidden_ability` | `Overgrow` |
-| `hp` ... `speed` | Base stats, 1-255 |
-| `evolves_from`, `evo_condition` | On the **evolved** Pokemon's row: `Leafing` and `Lv 16`. Other conditions: `Thunder Stone`, `Trade`, `Trade holding Metal Coat`, `Friendship`, `Friendship (night)`, `Other: explain it here` |
-| `height_m`, `weight_kg` | `0.5`, `5.8` |
-| `ev_yield` | `1 attack` or `1 attack, 1 speed` |
-| `gender` | Percent male: `87.5`, `50`, `0`, ... or `genderless` |
-| `egg_group_1`, `egg_group_2` | `field`, `grass` |
-| `level_up_moves` | `Tackle (1), Leer (1), Absorb (6)` - the level in brackets |
-| `tm_hm_moves`, `tutor_moves`, `egg_moves` | `Cut, Solar Beam, Toxic` |
-| `encounters` | `Route 1 \| grass \| 2-4 \| 20; Sigma Cave \| cave \| 8-10 \| 5` (place, method, levels, percent) |
+| `Type 1`, `Type 2` | `Grass`, `Steel` |
+| `Ability 1`, `Ability 2`, `Hidden ability` | `Overgrow` |
+| `HP` ... `Speed` | Base stats, 1-255 |
+| `Evolves from`, `Evo condition` | On the **evolved** Pokemon's row: `Leafing` and `Lv 16`. Other conditions: `Thunder Stone`, `Trade`, `Trade holding Metal Coat`, `Friendship`, `Friendship (night)`, `Other: explain it here` |
+| `Height (m)`, `Weight (kg)` | `0.5`, `5.8` (a comma works too) |
+| `EV yield` | `1 attack` or `1 attack, 1 speed` |
+| `Gender (% male)` | `87.5`, `50`, `0`, ... or `genderless` |
+| `Egg group 1`, `Egg group 2` | `field`, `grass` |
+| `Level-up moves` | `Tackle (1), Leer (1), Absorb (6)` - the level in brackets |
+| `TM/HM moves`, `Tutor moves`, `Egg moves` | `Cut, Solar Beam, Toxic` |
+| `Encounters` | `Route 1 \| grass \| 2-4 \| 20; Sigma Cave \| cave \| 8-10 \| 5` (place, method, levels, percent) |
 | everything else | Plain text or a number. [FIELDS.md](FIELDS.md) explains each field and its allowed values |
 
 ## When something is wrong
@@ -48,10 +52,9 @@ updates the website. If the same Pokemon is changed in both places, the website 
 
 ## Setting it up (once)
 
-1. Download [`export/sheet.csv`](../export/sheet.csv) and import it into the Google Sheet
-   (**File > Import > Upload**, "Replace current sheet"). That gives the sheet every column
-   and everything already known. If numbers like `5.8` turn into dates, set
-   **File > Settings > Locale** to United Kingdom and import again.
+1. The sheet was filled from [`export/sheet.csv`](../export/sheet.csv) on 2026-10-02 (all
+   columns, every known Pokemon, two frozen header rows). To rebuild it from scratch, paste
+   or import that file into an empty tab.
 2. The sheet must be shared as **Anyone with the link** (Viewer is enough for the sync;
    Editor lets people fill it in without being invited).
 3. The sync finds the sheet through a repository secret named `SHEET_CSV_URL`

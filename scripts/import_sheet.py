@@ -4,8 +4,11 @@
     python scripts/import_sheet.py                 # uses the SHEET_CSV_URL environment variable
     python scripts/import_sheet.py some/file.csv   # or a downloaded CSV / another URL
 
-The sheet has one row per dex slot and the same columns as export/dex.csv. Rules:
-- A filled-in cell overwrites the value in the species file. An empty cell changes nothing.
+The sheet has one row per dex slot and the same columns as export/sheet.csv. Rules:
+- Only cells that CHANGED since the last import are applied (data/sheet_snapshot.json remembers
+  what the sheet looked like). So an old value sitting in the sheet never overwrites something
+  that was edited on the website in the meantime.
+- Emptying a cell that had a value clears that value.
 - A row with a name in an empty slot creates a new Pokemon.
 - A row that would break a species file is skipped as a whole, and the reason is written
   to export/sheet_problems.json (shown on the website), so one typo never blocks the rest.
@@ -24,6 +27,9 @@ import validate
 from dexlib import ROOT, STATS, norm, section
 
 REPORT = ROOT / "export" / "sheet_problems.json"
+SNAPSHOT = ROOT / "data" / "sheet_snapshot.json"
+# Columns that only make sense together: if one changes, both are applied.
+PAIRS = (("egg_group_1", "egg_group_2"), ("type_1", "type_2"), ("evolves_from", "evo_condition"))
 
 # Column header (letters and digits only, lowercase) -> what it is. Covers export/dex.csv
 # and the headers of the original "Council of the sigmas Pokedex sheet".
@@ -40,11 +46,11 @@ COLUMNS = {
     "category": "category", "heightm": "height_m", "height": "height_m", "weightkg": "weight_kg", "weight": "weight_kg",
     "bodycolor": "body_color", "bodycolour": "body_color", "evyield": "ev_yield", "catchrate": "catch_rate",
     "baseexp": "base_exp", "expyield": "base_exp", "growthrate": "growth_rate",
-    "basefriendship": "base_friendship", "friendship": "base_friendship", "gender": "gender",
+    "basefriendship": "base_friendship", "friendship": "base_friendship", "gender": "gender", "gendermale": "gender",
     "egggroup1": "egg_group_1", "egggroup2": "egg_group_2", "eggcycles": "egg_cycles",
     "helditemcommon": "held_item_common", "helditemrare": "held_item_rare",
     "levelupmoves": "level_up_moves", "tmhmmoves": "tm_hm_moves", "tutormoves": "tutor_moves", "eggmoves": "egg_moves",
-    "encounters": "encounters", "description": "description", "dexentry": "description",
+    "encounters": "encounters", "description": "description", "dexentry": "description", "pokedexentry": "description",
     "concept": "concept", "nameorigin": "name_origin", "notes": "notes", "designer": "designer", "artist": "artist",
 }
 STAT_WORDS = {norm(k): v for k, v in COLUMNS.items() if v in STATS}
@@ -158,6 +164,44 @@ def apply_row(data, row):
             data["credits"][column] = row[column]
 
 
+def clear_cells(data, columns):
+    """Empty the fields whose sheet cells were emptied."""
+    for column in columns:
+        if column in ("category", "description", "height_m", "weight_kg", "body_color", "growth_rate", "gender",
+                      "catch_rate", "base_exp", "base_friendship", "egg_cycles", "ev_yield"):
+            data[column] = None
+        elif column in STATS:
+            data["base_stats"][column] = None
+        elif column in ("ability_1", "ability_2", "hidden_ability"):
+            data["abilities"][{"ability_1": "primary", "ability_2": "secondary", "hidden_ability": "hidden"}[column]] = None
+        elif column in ("held_item_common", "held_item_rare"):
+            data["held_items"][column.rsplit("_", 1)[1]] = None
+        elif column in ("level_up_moves", "tm_hm_moves", "tutor_moves", "egg_moves"):
+            data["learnset"][{"level_up_moves": "level_up", "tm_hm_moves": "tm_hm", "tutor_moves": "tutor", "egg_moves": "egg"}[column]] = []
+        elif column == "encounters":
+            data["encounters"] = []
+        elif column in ("concept", "name_origin", "notes"):
+            data["design"][column] = None
+        elif column in ("designer", "artist"):
+            data["credits"][column] = None
+        elif column == "type_2":
+            data["types"] = dexlib.listing(data.get("types"))[:1]
+        elif column == "egg_group_2":
+            data["egg_groups"] = dexlib.listing(data.get("egg_groups"))[:1]
+
+
+def changes(row, old):
+    """(cells to apply, columns that were emptied) compared with the last import. old=None: first import."""
+    if old is None:
+        return dict(row), []
+    delta = {key: value for key, value in row.items() if old.get(key) != value}
+    for pair in PAIRS:
+        if any(column in delta for column in pair):
+            delta.update({column: row[column] for column in pair if column in row})
+    cleared = [key for key in old if key not in row and key not in ("dex", "name")]
+    return delta, cleared
+
+
 def read_rows(source):
     if re.match(r"^https?://", source):
         try:
@@ -198,6 +242,8 @@ def main():
     by_name = {norm(data.get("name")): sid for sid, _, data in species}
     ids = {sid for sid, _, _ in species}
     report, changed, pending_evolutions = [], 0, []
+    snapshot = json.loads(SNAPSHOT.read_text(encoding="utf-8")) if SNAPSHOT.exists() else None
+    new_snapshot = {}
 
     for row in rows:
         if not row.get("dex") or not row.get("name"):
@@ -205,6 +251,11 @@ def main():
         label = "#%s %s" % (row["dex"], row["name"])
         try:
             dex = whole(row["dex"], "dex")
+            old = None if snapshot is None else snapshot.get(str(dex), {})
+            delta, cleared = changes(row, old)
+            if old is not None and not delta and not cleared:
+                new_snapshot[str(dex)] = row
+                continue
             if dex in by_dex:
                 sid, path, current = by_dex[dex]
             else:
@@ -213,7 +264,8 @@ def main():
                     raise CellError("cannot create '%s': the name is empty or already used" % row["name"])
                 path, current = dexlib.SPECIES_DIR / (sid + ".yaml"), {"dex": dex}
             updated = copy.deepcopy(current)
-            apply_row(updated, row)
+            apply_row(updated, delta)
+            clear_cells(updated, cleared)
             errors, warnings = [], []
             if not 1 <= dex <= config.get("dex_size", 100):
                 errors.append("dex number %d is outside the dex" % dex)
@@ -225,15 +277,18 @@ def main():
                 raise CellError("; ".join(errors))
         except CellError as error:
             report.append({"row": label, "problem": str(error)})
+            if snapshot is not None and str(row["dex"]) in snapshot:
+                new_snapshot[str(row["dex"])] = snapshot[str(row["dex"])]   # so it is tried again once fixed
             continue
+        new_snapshot[str(dex)] = row
         if dexlib.prune(updated) != dexlib.prune(current):
             dexlib.write_species(path, updated)
             changed += 1
         by_dex[dex] = (sid, path, updated)
         by_name[norm(updated.get("name"))] = sid
         ids.add(sid)
-        if row.get("evolves_from") and row.get("evo_condition"):
-            pending_evolutions.append((label, row["evolves_from"], row["evo_condition"], sid))
+        if delta.get("evolves_from") and delta.get("evo_condition"):
+            pending_evolutions.append((label, delta["evolves_from"], delta["evo_condition"], sid))
 
     # Evolutions are written on the evolved Pokemon's row, but stored on the one that evolves.
     for label, source_name, condition, target in pending_evolutions:
@@ -255,6 +310,7 @@ def main():
             by_dex[updated["dex"]] = (sid, path, updated)
             changed += 1
 
+    SNAPSHOT.write_text(json.dumps(new_snapshot, indent=1, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
     REPORT.parent.mkdir(exist_ok=True)
     REPORT.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     for entry in report:

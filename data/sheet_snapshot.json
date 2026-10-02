@@ -1,0 +1,448 @@
+{
+ "1": {
+  "ability_1": "Overgrow",
+  "attack": "60",
+  "base_exp": "64",
+  "base_friendship": "70",
+  "body_color": "green",
+  "catch_rate": "45",
+  "category": "Sprout",
+  "concept": "Grass starter. A small creature with a leaf that slowly turns to steel as it evolves.",
+  "defense": "55",
+  "description": "LEAFING hides among fallen leaves to\nnap in the sun. The leaf on its head\nhardens a little each time it battles,\nuntil the edge shines like metal.",
+  "dex": "1",
+  "egg_cycles": "20",
+  "egg_group_1": "field",
+  "egg_group_2": "grass",
+  "egg_moves": "Leech Seed, Synthesis, Grass Whistle, Metal Sound",
+  "encounters": "Starter Pokemon | gift | 5",
+  "ev_yield": "1 attack",
+  "gender": "87.5",
+  "growth_rate": "medium_slow",
+  "height_m": "0.5",
+  "hp": "45",
+  "level_up_moves": "Tackle (1), Leer (1), Absorb (6), Fury Cutter (10), Razor Leaf (15), Metal Claw (20), Mega Drain (25), Slash (30), Iron Defense (35), Leaf Blade (40), Swords Dance (45)",
+  "name": "Leafing",
+  "notes": "PROOF OF CONCEPT - every value in this file except name, type and evolution is a draft proposed by Claude on 2026-10-02. The Council should review and replace them.",
+  "sp_attack": "45",
+  "sp_defense": "50",
+  "speed": "55",
+  "tm_hm_moves": "Toxic, Bullet Seed, Hidden Power, Sunny Day, Protect, Giga Drain, Frustration, Solar Beam, Iron Tail, Return, Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Cut, Strength, Flash, Rock Smash",
+  "tutor_moves": "Swords Dance, Body Slam, Double-Edge, Mimic, Substitute, Snore, Endure, Mud-Slap, Swagger, Sleep Talk, Fury Cutter",
+  "type_1": "Grass",
+  "weight_kg": "5.8"
+ },
+ "10": {
+  "dex": "10",
+  "name": "Erobi",
+  "type_1": "Normal",
+  "type_2": "Flying"
+ },
+ "11": {
+  "dex": "11",
+  "name": "Harpie",
+  "type_1": "Normal",
+  "type_2": "Flying"
+ },
+ "12": {
+  "dex": "12",
+  "name": "Smeatherace",
+  "type_1": "Normal",
+  "type_2": "Flying"
+ },
+ "13": {
+  "dex": "13",
+  "name": "Bolthook"
+ },
+ "14": {
+  "dex": "14",
+  "name": "Wump",
+  "type_1": "Bug"
+ },
+ "15": {
+  "dex": "15",
+  "name": "Twemp",
+  "type_1": "Bug",
+  "type_2": "Grass"
+ },
+ "16": {
+  "dex": "16",
+  "name": "Florantula",
+  "type_1": "Bug",
+  "type_2": "Grass"
+ },
+ "2": {
+  "dex": "2",
+  "evo_condition": "Lv 16",
+  "evolves_from": "Leafing",
+  "name": "Leafsteel",
+  "type_1": "Grass",
+  "type_2": "Steel"
+ },
+ "20": {
+  "dex": "20",
+  "name": "Cowfin",
+  "type_1": "Normal",
+  "type_2": "Water"
+ },
+ "21": {
+  "dex": "21",
+  "name": "Mooceon",
+  "type_1": "Normal",
+  "type_2": "Water"
+ },
+ "22": {
+  "dex": "22",
+  "name": "Lapper",
+  "type_1": "Normal"
+ },
+ "23": {
+  "dex": "23",
+  "evo_condition": "Lv 25",
+  "evolves_from": "Lapper",
+  "name": "Brawleo",
+  "type_1": "Normal",
+  "type_2": "Fighting"
+ },
+ "25": {
+  "dex": "25",
+  "name": "Icy Freeze",
+  "type_1": "Ice"
+ },
+ "26": {
+  "dex": "26",
+  "evo_condition": "Lv 28",
+  "evolves_from": "Icy Freeze",
+  "name": "Freezrick",
+  "type_1": "Ice"
+ },
+ "27": {
+  "dex": "27",
+  "name": "Bulbtle",
+  "type_1": "Ground",
+  "type_2": "Electric"
+ },
+ "28": {
+  "dex": "28",
+  "evo_condition": "Lv 22",
+  "evolves_from": "Bulbtle",
+  "name": "Bulbtoise",
+  "type_1": "Ground",
+  "type_2": "Electric"
+ },
+ "3": {
+  "dex": "3",
+  "evo_condition": "Lv 36",
+  "evolves_from": "Leafsteel",
+  "name": "Leafaxer",
+  "type_1": "Grass",
+  "type_2": "Steel"
+ },
+ "32": {
+  "dex": "32",
+  "name": "Eiscue",
+  "notes": "Doc lists the typing as Ice/? (second type undecided). Eiscue is also the name of an official Pokemon.",
+  "type_1": "Ice"
+ },
+ "33": {
+  "dex": "33",
+  "name": "Rainbro",
+  "notes": "Doc lists the type as Stellar, which is not a normal species type.",
+  "type_1": "Stellar"
+ },
+ "36": {
+  "dex": "36",
+  "name": "Nukfae",
+  "type_1": "Poison",
+  "type_2": "Fairy"
+ },
+ "37": {
+  "dex": "37",
+  "evo_condition": "Lv 38",
+  "evolves_from": "Nukfae",
+  "name": "Toxiren",
+  "type_1": "Poison",
+  "type_2": "Fairy"
+ },
+ "38": {
+  "dex": "38",
+  "name": "Stonma",
+  "type_1": "Rock"
+ },
+ "39": {
+  "dex": "39",
+  "evo_condition": "Lv 38",
+  "evolves_from": "Stonma",
+  "name": "Sigmauler",
+  "type_1": "Rock",
+  "type_2": "Fighting"
+ },
+ "4": {
+  "dex": "4",
+  "name": "Waffy",
+  "type_1": "Water"
+ },
+ "40": {
+  "dex": "40",
+  "name": "Tinky",
+  "type_1": "Grass"
+ },
+ "41": {
+  "dex": "41",
+  "evo_condition": "Lv 22",
+  "evolves_from": "Tinky",
+  "name": "Motinky",
+  "type_1": "Grass",
+  "type_2": "Fire"
+ },
+ "42": {
+  "dex": "42",
+  "evo_condition": "Lv 40",
+  "evolves_from": "Motinky",
+  "name": "Gortiki",
+  "type_1": "Grass",
+  "type_2": "Fire"
+ },
+ "43": {
+  "dex": "43",
+  "name": "Chebbi",
+  "type_1": "Normal",
+  "type_2": "Dark"
+ },
+ "44": {
+  "dex": "44",
+  "evo_condition": "Lv 32",
+  "evolves_from": "Chebbi",
+  "name": "Devampry",
+  "type_1": "Normal",
+  "type_2": "Dark"
+ },
+ "46": {
+  "dex": "46",
+  "name": "Zapana",
+  "type_1": "Water",
+  "type_2": "Electric"
+ },
+ "47": {
+  "dex": "47",
+  "evo_condition": "Lv 30",
+  "evolves_from": "Zapana",
+  "name": "Ampeel",
+  "type_1": "Water",
+  "type_2": "Electric"
+ },
+ "5": {
+  "dex": "5",
+  "evo_condition": "Lv 16",
+  "evolves_from": "Waffy",
+  "name": "Wealther",
+  "type_1": "Water",
+  "type_2": "Dark"
+ },
+ "50": {
+  "dex": "50",
+  "name": "Beatld",
+  "type_1": "Bug",
+  "type_2": "Psychic"
+ },
+ "51": {
+  "dex": "51",
+  "name": "Wispole",
+  "type_1": "Water"
+ },
+ "52": {
+  "dex": "52",
+  "evo_condition": "Thunder Stone",
+  "evolves_from": "Wispole",
+  "name": "Galfrogtom",
+  "type_1": "Ghost",
+  "type_2": "Electric"
+ },
+ "53": {
+  "dex": "53",
+  "name": "Giga-Circuit",
+  "type_1": "Electric"
+ },
+ "57": {
+  "dex": "57",
+  "name": "Bulgarian Unown",
+  "notes": "Written as 'bulgarian unown' in the doc - looks like a working title, not a final name."
+ },
+ "58": {
+  "dex": "58",
+  "name": "United",
+  "notes": "Written as 'united' in the doc - may be a working title."
+ },
+ "59": {
+  "dex": "59",
+  "name": "Hairyen",
+  "type_1": "Grass",
+  "type_2": "Water"
+ },
+ "6": {
+  "dex": "6",
+  "evo_condition": "Lv 36",
+  "evolves_from": "Wealther",
+  "name": "Warrallier",
+  "type_1": "Water",
+  "type_2": "Dark"
+ },
+ "60": {
+  "dex": "60",
+  "name": "Panzerien",
+  "type_1": "Steel",
+  "type_2": "Ground"
+ },
+ "61": {
+  "dex": "61",
+  "name": "Nucloid",
+  "type_1": "Poison",
+  "type_2": "Steel"
+ },
+ "62": {
+  "dex": "62",
+  "name": "Nuclobyl",
+  "type_1": "Poison",
+  "type_2": "Steel"
+ },
+ "63": {
+  "dex": "63",
+  "name": "Gentie"
+ },
+ "64": {
+  "dex": "64",
+  "name": "Yanklet",
+  "type_1": "Steel",
+  "type_2": "Flying"
+ },
+ "65": {
+  "dex": "65",
+  "name": "Anjane",
+  "type_1": "Dark",
+  "type_2": "Fairy"
+ },
+ "66": {
+  "dex": "66",
+  "evo_condition": "Lv 42",
+  "evolves_from": "Anjane",
+  "name": "Janenon",
+  "type_1": "Dark",
+  "type_2": "Fairy"
+ },
+ "67": {
+  "dex": "67",
+  "name": "Saucerl",
+  "type_1": "Psychic",
+  "type_2": "Water"
+ },
+ "68": {
+  "dex": "68",
+  "name": "Abyssys",
+  "type_1": "Psychic",
+  "type_2": "Water"
+ },
+ "69": {
+  "dex": "69",
+  "name": "Octopearl",
+  "type_1": "Psychic",
+  "type_2": "Water"
+ },
+ "7": {
+  "dex": "7",
+  "name": "Torchbat",
+  "type_1": "Fire"
+ },
+ "70": {
+  "dex": "70",
+  "name": "Cryoblade"
+ },
+ "72": {
+  "dex": "72",
+  "name": "Bygon",
+  "type_1": "Ghost",
+  "type_2": "Rock"
+ },
+ "78": {
+  "dex": "78",
+  "name": "Sandrema",
+  "type_1": "Fairy",
+  "type_2": "Ground"
+ },
+ "79": {
+  "dex": "79",
+  "name": "Ciggiti"
+ },
+ "8": {
+  "dex": "8",
+  "evo_condition": "Lv 16",
+  "evolves_from": "Torchbat",
+  "name": "Heatbat",
+  "type_1": "Fire",
+  "type_2": "Flying"
+ },
+ "80": {
+  "dex": "80",
+  "name": "Chuchar"
+ },
+ "81": {
+  "dex": "81",
+  "name": "Parahaunt"
+ },
+ "82": {
+  "dex": "82",
+  "name": "Insectoid"
+ },
+ "83": {
+  "dex": "83",
+  "name": "Darkgonark"
+ },
+ "88": {
+  "dex": "88",
+  "name": "Gravriel",
+  "type_1": "Water",
+  "type_2": "Ghost"
+ },
+ "9": {
+  "dex": "9",
+  "evo_condition": "Lv 36",
+  "evolves_from": "Heatbat",
+  "name": "Blazterra",
+  "type_1": "Fire",
+  "type_2": "Flying"
+ },
+ "91": {
+  "dex": "91",
+  "name": "Dragem",
+  "type_1": "Dragon",
+  "type_2": "Rock"
+ },
+ "94": {
+  "dex": "94",
+  "name": "Skiirtle",
+  "type_1": "Fire"
+ },
+ "95": {
+  "dex": "95",
+  "name": "McSkiirtle",
+  "type_1": "Fire",
+  "type_2": "Electric"
+ },
+ "96": {
+  "dex": "96",
+  "name": "Balleisk",
+  "type_1": "Dragon",
+  "type_2": "Bug"
+ },
+ "97": {
+  "dex": "97",
+  "name": "Greation",
+  "type_1": "Dragon",
+  "type_2": "Bug"
+ },
+ "98": {
+  "dex": "98",
+  "name": "Ultragon",
+  "type_1": "Dragon",
+  "type_2": "Bug"
+ }
+}
