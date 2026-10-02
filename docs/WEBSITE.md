@@ -6,8 +6,7 @@
 
 1. Click a Pokemon, then **Edit**. Or click an **open slot** to add a new Pokemon.
 2. Fill in what you know. Leave the rest empty - a half-finished Pokemon is fine.
-3. At the bottom, write your name and the **edit key** (pinned in the Discord). The site
-   remembers both on your device.
+3. At the bottom, write your name. The site remembers it on your device.
 4. **Save.** You land on the Pokemon's page with your changes: its dex entry, its stats at
    any level, which moves it knows at that level, the damage it takes, and the list of what
    is still missing. That page is how you test a Pokemon without playing the game.
@@ -64,9 +63,11 @@ Each card shows which Pokemon use it and whether it is already programmed into t
   by `scripts/import_images.py`, so the repository keeps its own copy of all art (`data/images.json` lists them).
 - `scripts/import_web.py` applies rows newer than `data/web_edits_cursor.txt`. Art paths and
   sprite details are always kept from the species file, never taken from the website.
-- **The edit key** stops strangers from saving. Only its hash is stored in the database.
-  To change it or remove it, run the statements at the bottom of `supabase/schema.sql` in
-  the Supabase SQL editor. Change it if it leaks.
+- **There is no edit key** (removed 2026-10-02 because it confused people): anyone who finds
+  the website can save edits, upload pictures and ask for sprites. What protects the dex is
+  the hourly limits, the full history in git and in the database, and the checks that reject
+  invalid data. If strangers start vandalising it, set a key again with the statements at the
+  bottom of `supabase/schema.sql` and add the key field back to the forms.
 - **Undoing a bad edit:** restore the species file with git (or just fix it on the website).
   Older saves are never re-applied, so a restored file stays restored.
 - To sync right now instead of waiting: GitHub > **Actions > Dex > Run workflow**.

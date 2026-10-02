@@ -430,7 +430,7 @@ function imageSection(s) {
   });
   draw();
   return h("div", {}, box, DEX.web.url ? h("div", {class: "upload"},
-    h("div", {class: "fields"}, field("Add images (concept art, sketches, sprites)", files, "wide"), field("What is it? Sprite pictures are turned into game sprites automatically", kind, "wide"), field("Caption (optional)", caption, "wide"), field("Your name", editor), field("Edit key (from the Discord)", key)),
+    h("div", {class: "fields"}, field("Add images (concept art, sketches, sprites)", files, "wide"), field("What is it? Sprite pictures are turned into game sprites automatically", kind, "wide"), field("Caption (optional)", caption, "wide"), field("Your name", editor)),
     h("div", {style: "margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap"}, send, status)) : null);
 }
 
@@ -575,7 +575,7 @@ function openCustomEditor(kind, item) {
     h("div", {class: "fields"}, field("Description", f.effect, "wide"), isMove ? field("Chance of the extra effect, % (empty = always)", f.chance) : null,
       field("Works like this existing " + K.one + " (if any)", f.similar), field("Invented by", f.designer), field("Notes", f.notes, "wide")),
     h("h2", {}, "Who is saving"),
-    h("div", {class: "fields"}, field("Your name", f.editor), field("Edit key (from the Discord)", f.key)),
+    h("div", {class: "fields"}, field("Your name", f.editor)),
     h("div", {class: "savebar"}, error, h("div", {style: "display:flex;gap:8px;flex-wrap:wrap"}, save, h("button", {type: "button", onclick: closeDialog}, "Cancel"),
       !isNew ? h("button", {type: "button", style: "margin-left:auto", onclick: () => { if (confirm("Remove " + item.name + " from the list of new " + K.one + (isMove ? "s" : "") + "?")) send({deleted: true}, item.id); }}, "Remove") : null))));
 }
@@ -701,7 +701,7 @@ function studioSection(s) {
     h("div", {class: "fields"}, field("The look - what to keep and exaggerate (a sprite is only 64 pixels)", look, "wide"),
       pictures.length ? h("div", {class: "field wide"}, h("span", {}, "Pictures the AI should look at (attach concept art under Images first)"),
         h("div", {class: "refpick"}, ticks.map(([image, tick]) => h("label", {}, tick, h("img", {src: image.src, alt: image.caption || "picture"}))))) : h("div", {class: "hint"}, "No concept art attached yet - the AI will only have the text to go on."),
-      field("How many attempts", attempts), field("Your name", editor), field("Edit key (from the Discord)", key)),
+      field("How many attempts", attempts), field("Your name", editor)),
     h("div", {style: "margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap"}, draw, status), queue, list,
     h("details", {class: "hint"}, h("summary", {}, "The fixed style every sprite is drawn in"), DEX.studio.style));
   load();
@@ -917,7 +917,7 @@ function openEditor(s) {
     h("h2", {}, "Design"),
     h("div", {class: "fields"}, field("What is it? (one or two sentences)", f.concept, "wide"), field("Where the name comes from", f.origin, "wide"), field("Notes", f.notes, "wide")),
     h("h2", {}, "Who is saving"),
-    h("div", {class: "fields"}, field("Your name", f.editor), field("Edit key (from the Discord)", f.key)),
+    h("div", {class: "fields"}, field("Your name", f.editor)),
     h("div", {class: "savebar"}, error,
       h("div", {style: "display:flex;gap:8px"}, save, h("button", {type: "button", onclick: () => isNew ? closeDialog() : openDetail(s)}, "Cancel")))));
 }

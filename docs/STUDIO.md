@@ -2,7 +2,7 @@
 
 On every Pokemon's page on the website there is a **Sprite studio**: ask the AI for sprites,
 look at the attempts, comment on them, have them redone and approve one. Nobody needs
-anything but the website and the edit key.
+anything but the website.
 
 ## How to use it
 
