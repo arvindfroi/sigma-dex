@@ -182,7 +182,7 @@ def render_species(data):
         ]
     lines += ["", "# --- Moves ---"]
     put(0, "learnset")
-    put_block(1, "level_up", learnset.get("level_up"), ("level", "move"), "e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]")
+    put_block(1, "level_up", learnset.get("level_up"), ("level", "move"), "e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon")
     put_list(1, "tm_hm", learnset.get("tm_hm"), "e.g. [Cut, Solar Beam] - only the game's TMs and HMs")
     put_list(1, "tutor", learnset.get("tutor"), "moves a move tutor can teach it")
     put_list(1, "egg", learnset.get("egg"), "only needed for the first stage of an evolution line")

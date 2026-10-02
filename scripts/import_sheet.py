@@ -136,10 +136,11 @@ def apply_row(data, row):
     if row.get("level_up_moves"):
         moves = []
         for part in names(row["level_up_moves"]):
-            match = re.match(r"^(.+?)\s*\(\s*(?:lv\.?\s*)?(\d+)\s*\)$", part, re.I)
+            match = re.match(r"^(.+?)\s*\(\s*(?:lv\.?\s*)?(\d+|evo\w*)\s*\)$", part, re.I)
             if not match:
-                raise CellError("level-up move '%s' not understood - write it like 'Tackle (1), Vine Whip (7)'" % part)
-            moves.append({"level": int(match.group(2)), "move": match.group(1).strip()})
+                raise CellError("level-up move '%s' not understood - write it like 'Tackle (1), Vine Whip (7)', or 'Slash (evo)' for a move learned when evolving" % part)
+            level = match.group(2)
+            moves.append({"level": int(level) if level.isdigit() else 0, "move": match.group(1).strip()})
         data["learnset"]["level_up"] = sorted(moves, key=lambda m: m["level"])
     for column, slot in (("tm_hm_moves", "tm_hm"), ("tutor_moves", "tutor"), ("egg_moves", "egg")):
         if row.get(column):

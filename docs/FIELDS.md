@@ -71,6 +71,7 @@ evolutions:
 ```yaml
 learnset:
   level_up:
+    - {level: 0, move: Slash}          # level 0 = learned at the moment it evolves into this Pokemon
     - {level: 1, move: Tackle}
     - {level: 7, move: Vine Whip}
   tm_hm: [Cut, Solar Beam]
@@ -78,6 +79,9 @@ learnset:
   egg: [Leech Seed]
 ```
 
+- A `level_up` move with level 0 is an **evolution move**: the Pokemon learns it when it evolves
+  into this form, whatever its level. On the website it has its own list ("Moves learned when
+  evolving"); in the Google Sheet write it as `Slash (evo)`.
 - `level_up`, `tutor` and `egg` may use any move in the game (generation 1-9). `egg` is only
   needed for the first stage of a line.
 - `tm_hm` may only use the game's TMs and HMs.

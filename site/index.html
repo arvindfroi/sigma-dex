@@ -339,7 +339,7 @@ function openDetail(s) {
       fact("Found at", (d.encounters || []).map(e => e.location + (e.method ? " (" + e.method + ")" : "")).join(", ")),
       fact("Designer", credits.designer), fact("Artist", credits.artist)),
     h("h2", {}, "Level-up moves"),
-    filled(learn.level_up) ? h("table", {}, learn.level_up.slice().sort((a, b) => a.level - b.level).map(m => h("tr", {}, h("td", {style: "width:60px;color:var(--muted)"}, "Lv " + m.level), h("td", {}, m.move)))) : h("div", {class: "empty"}, "none yet"),
+    filled(learn.level_up) ? h("table", {}, learn.level_up.slice().sort((a, b) => a.level - b.level).map(m => h("tr", {}, h("td", {style: "width:60px;color:var(--muted)"}, m.level === 0 ? "Evolving" : "Lv " + m.level), h("td", {}, m.move)))) : h("div", {class: "empty"}, "none yet"),
     h("h2", {}, "TM / HM"), list(learn.tm_hm), h("h2", {}, "Move tutor"), list(learn.tutor), h("h2", {}, "Egg moves"), list(learn.egg),
     filled(design.concept) || filled(design.name_origin) || filled(design.notes) ? h("div", {}, h("h2", {}, "Design notes"),
       [design.concept, design.name_origin, design.notes].filter(filled).map(t => h("p", {style: "margin:4px 0"}, t))) : null,
@@ -819,7 +819,9 @@ function openEditor(s) {
   const levelUp = rowList([
     {key: "level", number: true, make: v => numberInput(v, 1, 100, 1, {class: "tiny", placeholder: "level"})},
     {key: "move", make: v => textInput(v, {list: "list-moves", placeholder: "move"})}],
-    (learn.level_up || []).slice().sort((a, b) => a.level - b.level), "Add a level-up move");
+    (learn.level_up || []).filter(m => m.level !== 0).sort((a, b) => a.level - b.level), "Add a level-up move");
+  const evoMoves = rowList([{key: "move", make: v => textInput(v, {list: "list-moves", placeholder: "move"})}],
+    (learn.level_up || []).filter(m => m.level === 0), "Add a move learned when evolving");
   const tmhm = checkGrid(L.tm_hm, learn.tm_hm);
   const tutor = rowList([{key: "move", make: v => textInput(v, {list: "list-moves", placeholder: "move"})}], (learn.tutor || []).map(m => ({move: m})), "Add a tutor move");
   const egg = rowList([{key: "move", make: v => textInput(v, {list: "list-moves", placeholder: "move"})}], (learn.egg || []).map(m => ({move: m})), "Add an egg move");
@@ -851,7 +853,7 @@ function openEditor(s) {
         if (ITEM_METHODS.includes(e.method)) evo.item = e.item;
         if (e.note) evo.note = e.note;
         return evo; }),
-      learnset: {level_up: levelUp.read().filter(m => m.move).sort((a, b) => a.level - b.level), tm_hm: tmhm.read(), tutor: tutor.read().map(m => m.move).filter(Boolean), egg: egg.read().map(m => m.move).filter(Boolean)},
+      learnset: {level_up: evoMoves.read().filter(m => m.move).map(m => ({level: 0, move: m.move})).concat(levelUp.read().filter(m => m.move).sort((a, b) => a.level - b.level)), tm_hm: tmhm.read(), tutor: tutor.read().map(m => m.move).filter(Boolean), egg: egg.read().map(m => m.move).filter(Boolean)},
       encounters: encounters.read().filter(e => e.location).map(e => Object.assign({}, e, {levels: /^\d+$/.test(e.levels || "") ? Number(e.levels) : e.levels})),
       design: {concept: readText(f.concept), name_origin: readText(f.origin), notes: readText(f.notes)},
     });
@@ -870,7 +872,7 @@ function openEditor(s) {
       if (ITEM_METHODS.includes(e.method) && !e.item) return "The evolution into " + nameOf(e.into) + " needs an item.";
       if (e.method === "other" && !e.note) return "Describe how it evolves into " + nameOf(e.into) + " in the note.";
     }
-    for (const m of data.learnset && data.learnset.level_up || []) if (!m.level) return "The level-up move " + m.move + " needs a level.";
+    for (const m of data.learnset && data.learnset.level_up || []) if (!m.level && m.level !== 0) return "The level-up move " + m.move + " needs a level.";
     return null;
   }
   async function submit(ev) {
@@ -913,6 +915,7 @@ function openEditor(s) {
       field("Held item, common", f.itemCommon), field("Held item, rare", f.itemRare)),
     h("h2", {}, "Evolves into"), h("div", {class: "hint"}, "What THIS Pokemon turns into. Where it comes from is set on the earlier Pokemon."), evolutions.el,
     h("h2", {}, "Level-up moves"), h("div", {class: "hint"}, "Start typing to pick from the moves that already exist in the game. A brand-new move can be typed in too - it gets a warning until it is programmed."), levelUp.el,
+    h("h2", {}, "Moves learned when evolving"), h("div", {class: "hint"}, "Moves this Pokemon learns at the moment it evolves INTO this form, whatever its level (like Decidueye learning Spirit Shackle). Leave empty for a Pokemon that does not evolve from anything."), evoMoves.el,
     h("h2", {}, "TM and HM moves it can learn"), tmhm.el,
     h("h2", {}, "Move tutor moves it can learn"), tutor.el,
     h("h2", {}, "Egg moves"), egg.el,

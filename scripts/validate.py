@@ -148,7 +148,7 @@ def check_species(sid, data, ids, engine, errors, warnings):
     for entry in listing(learnset.get("level_up")):
         if (not isinstance(entry, dict) or not isinstance(entry.get("level"), int)
                 or not 0 <= entry["level"] <= 100 or not isinstance(entry.get("move"), str)):
-            err("level_up entry %r must look like {level: 7, move: Vine Whip}" % (entry,))
+            err("level_up entry %r must look like {level: 7, move: Vine Whip} (level 0 = learned when evolving)" % (entry,))
         elif dexlib.norm(entry["move"]) not in engine["moves"]:
             warn("move '%s' does not exist in the game yet - check the spelling; if it is a new move it has to be programmed" % entry["move"])
     for key in ("tm_hm", "tutor", "egg"):
