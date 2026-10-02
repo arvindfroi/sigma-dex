@@ -115,6 +115,28 @@ Pupdetect / Detecup / Gumshoe, Meteoric, Gemonite, Nosexus, Stenrik, Cholt / Vol
 Zapydra / Voltagar / Aero-Voltex, Aqualaveil, Brention and an own design called Parasect. Joke
 cards and anything not suitable for a public site were left out.
 
+## Second pass: linking by what the pictures show (2026-10-03)
+
+The first pass only linked a picture when a name was written in it or in its message. A second
+pass looked at every unlinked picture, every picture with several creatures in it, and all
+pictures from the two older channels, and compared them with the art each Pokemon already had
+and with what was posted right before and after.
+
+- 178 pictures examined; 54 more pictures or cut-outs attached (captions say "probably" when
+  the link rests on resemblance, not on a written name).
+- Pictures with several creatures were cut up, so each Pokemon gets its own clean picture - for
+  example the ghost trio (Ciggiti, Parahaunt, Chuchar), Hippore / Docuphant / Razox, the Leafing
+  line, Tinky / Motinky / Gortiki, Stonma / Sigmauler. The cut-out boxes were estimated by eye.
+- First art for: Saucerl, Octopearl, Balleisk (all "probably").
+- Too uncertain to attach (low confidence): a larger ring creature that may be Abyssys, a pink
+  gem-bodied creature and a small blue ghost that may be Gentie, a lizard with a green crystal
+  shield that may be Dragem, a pencil bird that may be Erobi, a seagull sketch that may be Maagamad.
+- Still without any art: Abyssys, Bygon, Dragem, Gentie, Greation, Lapper, Twemp, Ultragon, Wealther.
+- 34 pictures were left out because they are not suitable for a public site or are not designs.
+- A group member replaced Torchbat's pictures on the website with the Torchbat / Heatbat /
+  Blazterra line sheet; that sheet is now Torchbat's reference, and the older "choose your
+  starter" Torchbat was not re-attached.
+
 ## Left out on purpose
 
 Three pictures were matched too weakly to attach: a bee-winged dragon sketch (maybe Balleisk), a leafy web sprite (maybe Twemp) and a spiky tree creature (maybe Sigmanian Sudowoodo).

@@ -75,9 +75,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 64 | [Yanklet](data/species/yanklet.yaml) | Steel / Flying |  |  |  | 7% |
 | 65 | [Anjane](data/species/anjane.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 325 | Janenon (Lv 42) | 28% |
 | 66 | [Janenon](data/species/janenon.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 495 |  | 31% |
-| 67 | [Saucerl](data/species/saucerl.yaml) | Psychic / Water |  |  |  | 3% |
+| 67 | [Saucerl](data/species/saucerl.yaml) | Psychic / Water |  |  |  | 7% |
 | 68 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water |  |  |  | 3% |
-| 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water |  |  |  | 3% |
+| 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water |  |  |  | 7% |
 | 70 | [Cryoblade](data/species/cryoblade.yaml) | Dark / Ice | Cold-hearted | 605 |  | 24% |
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
 | 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
@@ -104,7 +104,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 93 | *open slot* | | | | | |
 | 94 | [Skiirtle](data/species/skiirtle.yaml) | Fire |  |  |  | 7% |
 | 95 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric |  |  |  | 7% |
-| 96 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug |  |  |  | 3% |
+| 96 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug |  |  |  | 7% |
 | 97 | [Greation](data/species/greation.yaml) | Dragon / Bug |  |  |  | 3% |
 | 98 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug |  |  |  | 3% |
 | 99 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground | Drizzle | 680 |  | 48% |

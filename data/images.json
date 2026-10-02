@@ -1370,5 +1370,383 @@
     "file": "assets/concept-art/waffy/386.png",
     "caption": "[back] AI draft #33",
     "editor": "Claude (pipeline test)"
+  },
+  {
+    "id": 387,
+    "species": "icy-freeze",
+    "file": "assets/concept-art/icy-freeze/387.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-02 (Name written above the left creature)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 388,
+    "species": "freezrick",
+    "file": "assets/concept-art/freezrick/388.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-02 (Name written above the right creature)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 389,
+    "species": "icy-freeze",
+    "file": "assets/concept-art/icy-freeze/389.webp",
+    "caption": "Cut-out from Discord, posted by Ruben 2026-05-02 (Name written above the left creature)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 390,
+    "species": "freezrick",
+    "file": "assets/concept-art/freezrick/390.webp",
+    "caption": "Cut-out from Discord, posted by Ruben 2026-05-02 (Name written above the right creature)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 391,
+    "species": "zapana",
+    "file": "assets/concept-art/zapana/391.webp",
+    "caption": "Cut-out from Discord, posted by johnnes3204 2026-05-02 (Named in the small evolution strip at the bottom)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 392,
+    "species": "ampeel",
+    "file": "assets/concept-art/ampeel/392.webp",
+    "caption": "Cut-out from Discord, posted by johnnes3204 2026-05-02 (Named in the small evolution strip at the bottom)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 393,
+    "species": "octopearl",
+    "file": "assets/concept-art/octopearl/393.webp",
+    "caption": "Picture from Discord, posted by Arvind Frøiland 2026-05-02 (probably",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 394,
+    "species": "saucerl",
+    "file": "assets/concept-art/saucerl/394.webp",
+    "caption": "Cut-out from Discord, posted by Arvind Frøiland 2026-05-02 (probably",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 395,
+    "species": "balleisk",
+    "file": "assets/concept-art/balleisk/395.webp",
+    "caption": "Picture from Discord, posted by Arvind Frøiland 2026-05-02 (probably",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 396,
+    "species": "erobi",
+    "file": "assets/concept-art/erobi/396.webp",
+    "caption": "Picture from Discord, posted by BUST 2026-05-02 (probably",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 397,
+    "species": "erobi",
+    "file": "assets/concept-art/erobi/397.webp",
+    "caption": "Picture from Discord, posted by BUST 2026-05-02 (probably",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 398,
+    "species": "stonma",
+    "file": "assets/concept-art/stonma/398.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-02 (Name written above the left creature)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 399,
+    "species": "sigmauler",
+    "file": "assets/concept-art/sigmauler/399.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-02 (Name written above the right creature)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 400,
+    "species": "stonma",
+    "file": "assets/concept-art/stonma/400.webp",
+    "caption": "Cut-out from Discord, posted by BUST 2026-05-02 (Card labelled STONMA)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 401,
+    "species": "sigmauler",
+    "file": "assets/concept-art/sigmauler/401.webp",
+    "caption": "Cut-out from Discord, posted by BUST 2026-05-02 (Card labelled SIGMAULER)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 402,
+    "species": "beatld",
+    "file": "assets/concept-art/beatld/402.webp",
+    "caption": "Picture from Discord, posted by Arvind Frøiland 2026-05-02 (Same design as Beatld sprite: brown bowl hair, moustache, yellow shoulder tufts, red strip)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 403,
+    "species": "tinky",
+    "file": "assets/concept-art/tinky/403.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-03 (Labelled TINKY)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 404,
+    "species": "motinky",
+    "file": "assets/concept-art/motinky/404.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-03 (Labelled MOTINKY)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 405,
+    "species": "ciggiti",
+    "file": "assets/concept-art/ciggiti/405.webp",
+    "caption": "Cut-out from Discord, posted by BUST 2026-05-03 (Smoking ghost face with cigarette matches Ciggiti card)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 406,
+    "species": "parahaunt",
+    "file": "assets/concept-art/parahaunt/406.webp",
+    "caption": "Cut-out from Discord, posted by BUST 2026-05-03 (Wide hat and long pipe matches Parahaunt)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 407,
+    "species": "chuchar",
+    "file": "assets/concept-art/chuchar/407.webp",
+    "caption": "Cut-out from Discord, posted by BUST 2026-05-03 (Bowler hat and cigar matches Churchar/Chuchar)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 408,
+    "species": "tinky",
+    "file": "assets/concept-art/tinky/408.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-03 (Labelled TINKY)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 409,
+    "species": "motinky",
+    "file": "assets/concept-art/motinky/409.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-03 (Labelled MOTINKY)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 410,
+    "species": "gortiki",
+    "file": "assets/concept-art/gortiki/410.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-03 (Labelled GORTIKI)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 411,
+    "species": "tinky",
+    "file": "assets/concept-art/tinky/411.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-05 (Labelled TINKY)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 412,
+    "species": "motinky",
+    "file": "assets/concept-art/motinky/412.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-05 (Labelled MOTINKY)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 413,
+    "species": "gortiki",
+    "file": "assets/concept-art/gortiki/413.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-05 (Labelled GORTIKI)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 414,
+    "species": "chebbi",
+    "file": "assets/concept-art/chebbi/414.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-07 (Labelled Chebbi)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 415,
+    "species": "devampry",
+    "file": "assets/concept-art/devampry/415.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-07 (Labelled Devampry)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 416,
+    "species": "mooceon",
+    "file": "assets/concept-art/mooceon/416.webp",
+    "caption": "Cut-out from Discord, posted by Arvind Frøiland 2026-05-07 (Panel labelled MOOCEAN, big blue cow with whale tail)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 417,
+    "species": "cowfin",
+    "file": "assets/concept-art/cowfin/417.webp",
+    "caption": "Cut-out from Discord, posted by Arvind Frøiland 2026-05-07 (Panel labelled COWFIN, small white cow with big ears)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 418,
+    "species": "anjane",
+    "file": "assets/concept-art/anjane/418.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-07 (Labelled Anjane)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 419,
+    "species": "janenon",
+    "file": "assets/concept-art/janenon/419.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-07 (Labelled Janenon)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 420,
+    "species": "hippore",
+    "file": "assets/concept-art/hippore/420.webp",
+    "caption": "Cut-out from Discord, posted by Arvind Frøiland 2026-05-15 (Steel Rock grey hippo matches Hippore)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 421,
+    "species": "docuphant",
+    "file": "assets/concept-art/docuphant/421.webp",
+    "caption": "Cut-out from Discord, posted by Arvind Frøiland 2026-05-15 (Ground Dragon newspaper roof matches Docuphant)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 422,
+    "species": "razox",
+    "file": "assets/concept-art/razox/422.webp",
+    "caption": "Cut-out from Discord, posted by Arvind Frøiland 2026-05-15 (Fairy Ice winged pink cow matches Razox)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 423,
+    "species": "hippore",
+    "file": "assets/concept-art/hippore/423.webp",
+    "caption": "Cut-out from Discord, posted by Arvind Frøiland 2026-05-15 (Name written next to the grey stone hippo)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 424,
+    "species": "docuphant",
+    "file": "assets/concept-art/docuphant/424.webp",
+    "caption": "Cut-out from Discord, posted by Arvind Frøiland 2026-05-15 (Name written next to the newspaper-roofed animal)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 425,
+    "species": "razox",
+    "file": "assets/concept-art/razox/425.webp",
+    "caption": "Cut-out from Discord, posted by Arvind Frøiland 2026-05-15 (Name written next to the pink winged cow)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 426,
+    "species": "nukfae",
+    "file": "assets/concept-art/nukfae/426.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-09-13 (Name written on left half)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 427,
+    "species": "toxiren",
+    "file": "assets/concept-art/toxiren/427.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-09-13 (Written as Toxsiren on right half)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 428,
+    "species": "bulbtle",
+    "file": "assets/concept-art/bulbtle/428.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-09-20 (Name written on left half)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 429,
+    "species": "bulbtoise",
+    "file": "assets/concept-art/bulbtoise/429.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-09-20 (Name written on right half)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 430,
+    "species": "maagamad",
+    "file": "assets/concept-art/maagamad/430.webp",
+    "caption": "Picture from Discord, posted by Arvind Frøiland 2026-09-30 (Same seagull with grey sash and three green sword hilts as the Gullmire card M236)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 431,
+    "species": "maagamad",
+    "file": "assets/concept-art/maagamad/431.webp",
+    "caption": "Picture from Discord, posted by Arvind Frøiland 2026-09-30 (Same seagull with grey sash and green sword hilts as M236 (Gullmire))",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 432,
+    "species": "bolthook",
+    "file": "assets/concept-art/bolthook/432.webp",
+    "caption": "Picture from Discord, posted by Arvind Frøiland 2026-05-01 (Name written on the sheet)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 433,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/433.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-01 (Name written above small green one)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 434,
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/434.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-01 (Name written above middle form)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 435,
+    "species": "leafaxer",
+    "file": "assets/concept-art/leafaxer/435.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-01 (Name written above large form)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 436,
+    "species": "giga-circuit",
+    "file": "assets/concept-art/giga-circuit/436.webp",
+    "caption": "Cut-out from Discord, posted by Ruben 2026-05-01 (Name written",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 437,
+    "species": "giga-circuit",
+    "file": "assets/concept-art/giga-circuit/437.webp",
+    "caption": "Cut-out from Discord, posted by Ruben 2026-05-01 (Name GIGA-CIRCUIT written under the large form on the right.)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 438,
+    "species": "ampeel",
+    "file": "assets/concept-art/ampeel/438.webp",
+    "caption": "Picture from Discord, posted by johnnes3204 2026-05-01 (Name Ampeel written on the card.)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 439,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/439.webp",
+    "caption": "Picture from Discord, posted by dr.grey8421 2026-05-02 (Name DARKGONARK written on the card.)",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 440,
+    "species": "ampeel",
+    "file": "assets/concept-art/ampeel/440.webp",
+    "caption": "Picture from Discord, posted by johnnes3204 2026-05-02 (Name Ampeel ex written on the card.)",
+    "editor": "Claude (from Discord)"
   }
 ]

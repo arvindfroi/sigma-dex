@@ -30,7 +30,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Moves | TM/HM moves | 2 / 83 |
 | Location | encounters | 1 / 83 |
 | Design | concept | 2 / 83 |
-| Art | concept art | 71 / 83 |
+| Art | concept art | 74 / 83 |
 | Art | front sprite | 4 / 83 |
 | Art | front animation frame | 4 / 83 |
 | Art | back sprite | 4 / 83 |
@@ -663,7 +663,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #67 [Saucerl](data/species/saucerl.yaml) - 3%
+### #67 [Saucerl](data/species/saucerl.yaml) - 7%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
@@ -672,7 +672,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #68 [Abyssys](data/species/abyssys.yaml) - 3%
 
@@ -685,7 +685,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #69 [Octopearl](data/species/octopearl.yaml) - 3%
+### #69 [Octopearl](data/species/octopearl.yaml) - 7%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
@@ -694,7 +694,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #70 [Cryoblade](data/species/cryoblade.yaml) - 24%
 
@@ -858,7 +858,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #96 [Balleisk](data/species/balleisk.yaml) - 3%
+### #96 [Balleisk](data/species/balleisk.yaml) - 7%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
@@ -867,7 +867,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #97 [Greation](data/species/greation.yaml) - 3%
 
