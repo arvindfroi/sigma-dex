@@ -1843,12 +1843,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 55,
+        "attack": 65,
+        "defense": 40,
+        "sp_attack": 20,
+        "sp_defense": 40,
+        "speed": 60
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -1918,18 +1918,20 @@
       "body_color": null,
       "abilities": {
         "primary": "Ice Body",
-        "secondary": null,
-        "hidden": null
+        "secondary": "Oblivious",
+        "hidden": "Slush Rush"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 80,
+        "attack": 110,
+        "defense": 60,
+        "sp_attack": 30,
+        "sp_defense": 70,
+        "speed": 70
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -3236,7 +3238,7 @@
       "dex": 46,
       "name": "Zapana",
       "credits": {
-        "designer": null,
+        "designer": "Johannes",
         "artist": null
       },
       "types": [
@@ -3249,19 +3251,21 @@
       "weight_kg": 5,
       "body_color": null,
       "abilities": {
-        "primary": "Static",
-        "secondary": "Lightning Rod",
-        "hidden": null
+        "primary": "Swift Swim",
+        "secondary": "Static",
+        "hidden": "Sap Sipper"
       },
       "base_stats": {
-        "hp": 45,
-        "attack": 60,
-        "defense": 35,
+        "hp": 35,
+        "attack": 55,
+        "defense": 25,
         "sp_attack": 55,
-        "sp_defense": 40,
-        "speed": 65
+        "sp_defense": 30,
+        "speed": 80
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -3277,7 +3281,7 @@
         {
           "into": "ampeel",
           "method": "level",
-          "level": 30
+          "level": 25
         }
       ],
       "learnset": {
@@ -3316,7 +3320,7 @@
       "dex": 47,
       "name": "Ampeel",
       "credits": {
-        "designer": null,
+        "designer": "Johannes",
         "artist": null
       },
       "types": [
@@ -3329,9 +3333,9 @@
       "weight_kg": 22,
       "body_color": null,
       "abilities": {
-        "primary": "Static Surge",
-        "secondary": "Volt Absorb",
-        "hidden": null
+        "primary": "Swift Swim",
+        "secondary": "Static",
+        "hidden": "Sap Sipper"
       },
       "base_stats": {
         "hp": 70,
@@ -3341,7 +3345,9 @@
         "sp_defense": 60,
         "speed": 115
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -5283,9 +5289,9 @@
         "hidden": "Corrosion"
       },
       "base_stats": {
-        "hp": 85,
-        "attack": 60,
-        "defense": 100,
+        "hp": 81,
+        "attack": 67,
+        "defense": 102,
         "sp_attack": 125,
         "sp_defense": 130,
         "speed": 20
@@ -5364,14 +5370,16 @@
         "hidden": "Ice Scales"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 85,
+        "attack": 125,
+        "defense": 70,
+        "sp_attack": 85,
+        "sp_defense": 100,
+        "speed": 65
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -5874,19 +5882,22 @@
       "weight_kg": 78.6,
       "body_color": null,
       "abilities": {
-        "primary": "Sap Sipper",
-        "secondary": "Grim Neigh",
-        "hidden": null
+        "primary": "Grim Neigh",
+        "secondary": null,
+        "hidden": "Sap Sipper"
       },
       "base_stats": {
         "hp": 81,
-        "attack": 141,
+        "attack": 151,
         "defense": 84,
-        "sp_attack": 141,
+        "sp_attack": 151,
         "sp_defense": 84,
-        "speed": 49
+        "speed": 29
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 1,
+        "sp_attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,

@@ -456,9 +456,9 @@ SINGLE_BATTLE_TEST("Sigma dex: Janenon can use its first move in battle")
 TEST("Sigma dex: Blylem has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BLYLEM];
-    EXPECT_EQ(info->baseHP, 85);
-    EXPECT_EQ(info->baseAttack, 60);
-    EXPECT_EQ(info->baseDefense, 100);
+    EXPECT_EQ(info->baseHP, 81);
+    EXPECT_EQ(info->baseAttack, 67);
+    EXPECT_EQ(info->baseDefense, 102);
     EXPECT_EQ(info->baseSpeed, 20);
     EXPECT_EQ(info->baseSpAttack, 125);
     EXPECT_EQ(info->baseSpDefense, 130);

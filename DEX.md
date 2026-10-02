@@ -33,8 +33,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 22 | [Lapper](data/species/lapper.yaml) | Normal |  |  | Brawleo (Lv 25) | 7% |
 | 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 28% |
 | 24 | [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) | Rock / Ground |  |  |  | 7% |
-| 25 | [Icy Freeze](data/species/icy-freeze.yaml) | Ice | Cold Flow |  | Freezrick (Lv 28) | 21% |
-| 26 | [Freezrick](data/species/freezrick.yaml) | Ice | Ice Body |  |  | 21% |
+| 25 | [Icy Freeze](data/species/icy-freeze.yaml) | Ice | Cold Flow | 280 | Freezrick (Lv 28) | 24% |
+| 26 | [Freezrick](data/species/freezrick.yaml) | Ice | Ice Body, Oblivious, Slush Rush (H) | 420 |  | 28% |
 | 27 | [Bulbtle](data/species/bulbtle.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 280 | Bulbtoise (Lv 22) | 24% |
 | 28 | [Bulbtoise](data/species/bulbtoise.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 480 |  | 24% |
 | 29 | *open slot* | | | | | |
@@ -54,8 +54,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 43 | [Chebbi](data/species/chebbi.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 360 | Devampry (Lv 32) | 24% |
 | 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark | Soundproof, Levitate, Punk Rock (H) | 490 |  | 28% |
 | 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water | Swift Swim, Battle Bond | 495 |  | 28% |
-| 46 | [Zapana](data/species/zapana.yaml) | Water / Electric | Static, Lightning Rod | 300 | Ampeel (Lv 30) | 28% |
-| 47 | [Ampeel](data/species/ampeel.yaml) | Water / Electric | Static Surge, Volt Absorb | 490 |  | 28% |
+| 46 | [Zapana](data/species/zapana.yaml) | Water / Electric | Swift Swim, Static, Sap Sipper (H) | 280 | Ampeel (Lv 25) | 34% |
+| 47 | [Ampeel](data/species/ampeel.yaml) | Water / Electric | Swift Swim, Static, Sap Sipper (H) | 490 |  | 34% |
 | 48 | [Tomaterdander](data/species/tomaterdander.yaml) | Poison / Grass | Pickle Armor, Chlorophyll | 480 |  | 28% |
 | 49 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass | XL and Deep fried, Chlorophyll | 560 |  | 28% |
 | 50 | [Beatld](data/species/beatld.yaml) | Bug / Psychic |  |  |  | 7% |
@@ -82,10 +82,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
 | 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
 | 73 | *open slot* | | | | | |
-| 74 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 520 |  | 38% |
+| 74 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 525 |  | 38% |
 | 75 | *open slot* | | | | | |
 | 76 | *open slot* | | | | | |
-| 77 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) |  |  | 28% |
+| 77 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 530 |  | 34% |
 | 78 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground |  |  |  | 7% |
 | 79 | [Ciggiti](data/species/ciggiti.yaml) | Ghost | Smoked Up | 310 |  | 28% |
 | 80 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 28% |
@@ -96,7 +96,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 85 | *open slot* | | | | | |
 | 86 | *open slot* | | | | | |
 | 87 | *open slot* | | | | | |
-| 88 | [Gravriel](data/species/gravriel.yaml) | Water / Ghost | Sap Sipper, Grim Neigh | 580 |  | 31% |
+| 88 | [Gravriel](data/species/gravriel.yaml) | Water / Ghost | Grim Neigh, Sap Sipper (H) | 580 |  | 34% |
 | 89 | *open slot* | | | | | |
 | 90 | *open slot* | | | | | |
 | 91 | [Dragem](data/species/dragem.yaml) | Dragon / Rock |  |  |  | 3% |

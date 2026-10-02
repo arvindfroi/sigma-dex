@@ -798,9 +798,9 @@
 
     [SPECIES_BLYLEM] =
     {
-        .baseHP = 85,
-        .baseAttack = 60,
-        .baseDefense = 100,
+        .baseHP = 81,
+        .baseAttack = 67,
+        .baseDefense = 102,
         .baseSpeed = 20,
         .baseSpAttack = 125,
         .baseSpDefense = 130,

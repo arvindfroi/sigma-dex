@@ -20,8 +20,8 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Lapper** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Brawleo** needs: a level-up move that exists in the game
 - **Sigmanian Sudowoodo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
-- **Icy Freeze** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Freezrick** needs: base stats, a level-up move that exists in the game
+- **Icy Freeze** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Freezrick** needs: a level-up move that exists in the game
 - **Bulbtle** needs: a level-up move that exists in the game
 - **Bulbtoise** needs: a level-up move that exists in the game
 - **Sigmanian Eiscue** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
@@ -34,7 +34,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Chebbi** needs: a level-up move that exists in the game
 - **Chillalit** needs: a level-up move that exists in the game
 - **Zapana** needs: a level-up move that exists in the game
-- **Ampeel** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Ampeel** needs: a level-up move that exists in the game
 - **Tomaterdander** needs: an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
 - **Crappy Meal** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Beatld** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
@@ -58,7 +58,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Cryoblade** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Roostasaur** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Bygon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Iglomodo** needs: base stats, a level-up move that exists in the game
+- **Iglomodo** needs: a level-up move that exists in the game
 - **Sandrema** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Ciggiti** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Chuchar** needs: an ability that exists in the game, a level-up move that exists in the game
