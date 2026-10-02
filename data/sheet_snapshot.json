@@ -38,6 +38,9 @@
   "type_1": "Normal",
   "type_2": "Flying"
  },
+ "100": {
+  "dex": "100"
+ },
  "11": {
   "dex": "11",
   "name": "Harpie",
@@ -104,6 +107,9 @@
   "type_1": "Normal",
   "type_2": "Fighting"
  },
+ "24": {
+  "dex": "24"
+ },
  "25": {
   "dex": "25",
   "name": "Icy Freeze",
@@ -149,6 +155,12 @@
   "name": "Rainbro",
   "notes": "Doc lists the type as Stellar, which is not a normal species type.",
   "type_1": "Stellar"
+ },
+ "34": {
+  "dex": "34"
+ },
+ "35": {
+  "dex": "35"
  },
  "36": {
   "dex": "36",
@@ -217,6 +229,9 @@
   "type_1": "Normal",
   "type_2": "Dark"
  },
+ "45": {
+  "dex": "45"
+ },
  "46": {
   "dex": "46",
   "name": "Zapana",
@@ -230,6 +245,12 @@
   "name": "Ampeel",
   "type_1": "Water",
   "type_2": "Electric"
+ },
+ "48": {
+  "dex": "48"
+ },
+ "49": {
+  "dex": "49"
  },
  "5": {
   "dex": "5",
@@ -262,6 +283,15 @@
   "dex": "53",
   "name": "Giga-Circuit",
   "type_1": "Electric"
+ },
+ "54": {
+  "dex": "54"
+ },
+ "55": {
+  "dex": "55"
+ },
+ "56": {
+  "dex": "56"
  },
  "57": {
   "dex": "57",
@@ -356,11 +386,17 @@
   "dex": "70",
   "name": "Cryoblade"
  },
+ "71": {
+  "dex": "71"
+ },
  "72": {
   "dex": "72",
   "name": "Bygon",
   "type_1": "Ghost",
   "type_2": "Rock"
+ },
+ "77": {
+  "dex": "77"
  },
  "78": {
   "dex": "78",
@@ -444,5 +480,8 @@
   "name": "Ultragon",
   "type_1": "Dragon",
   "type_2": "Bug"
+ },
+ "99": {
+  "dex": "99"
  }
 }
