@@ -154,6 +154,9 @@ SPRITE_XL = dict(checkpoint="NoobAI-XL-v1.1.safetensors", lora_name="pkspif_nb_v
                  negative="worst quality, low quality, human, trainer, text, watermark, signature, blurry, 3d, realistic, dithering, noise, jpeg artifacts")
 
 
+BACK_ZOOM = 1.4
+
+
 def sprite_pixels(species_id, view):
     """How many pixels big the creature should be drawn, like official sprites of its strength.
 
@@ -163,7 +166,7 @@ def sprite_pixels(species_id, view):
     stats = next((data.get("base_stats") or {} for sid, _, data in dexlib.load_species()[0] if sid == species_id), {})
     total = sum(v for v in stats.values() if isinstance(v, int))
     size = 42 if total and total < 360 else 52 if total and total < 480 else 62 if total else 52
-    return min(63, size + 8) if view == "back" else size
+    return size
 
 
 def colour_lock(start, repainted, target, keep_light=0.35):
@@ -201,8 +204,15 @@ def sprite_xl(picture, look, view, seed, target, species_id, repaint):
     from PIL import Image
     image = sprites.cutout(Image.open(picture))
     image = image.crop(image.getchannel("A").point(lambda a: 255 if a >= 128 else 0).getbbox())
-    scale = sprite_pixels(species_id, view) * 8 / max(image.size)
+    size = sprite_pixels(species_id, view)
+    if view == "back":
+        # The games draw the back view closer than the front and show only the upper body, cut off flat at the bottom.
+        scale = min(size * BACK_ZOOM * 8 / image.height, 62 * 8 / image.width)
+    else:
+        scale = size * 8 / max(image.size)
     image = image.resize((max(1, round(image.width * scale)), max(1, round(image.height * scale))), Image.LANCZOS)
+    if view == "back":
+        image = image.crop((0, 0, image.width, min(image.height, min(62, size + 2) * 8)))
     canvas = Image.new("RGBA", (768, 768), "white")
     canvas.alpha_composite(image, ((768 - image.width) // 2, (768 - image.height) // 2))
     start = Path(str(target) + ".in.png")

@@ -33,7 +33,8 @@ The **Sprites** tab lists everything that is waiting for a verdict.
   The illustration is drawn in the angles the games use (front: three-quarter view turned
   left; back: over the shoulder, facing up and right), the creature is drawn at the size
   official sprites of its strength have (first stages about 40 pixels, final stages fill the
-  frame). The attempts of one request alternate between two ways of finishing, because each
+  frame). The back view is drawn 1.4 times closer and only its upper part is kept, cut off
+  flat at the bottom, as the games do. The attempts of one request alternate between two ways of finishing, because each
   wins on some creatures: **drawn** (the illustration is shrunk with a method that keeps thin
   outlines, eyes and claws alive - PixelOE) and **repainted** (the sprite LoRA repaints it and
   the colors are then locked to the illustration). Ask for at least two attempts to see both.
