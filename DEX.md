@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**82 / 100** slots have a Pokemon - **0** are fully complete - average completeness **4%**.
+**82 / 100** slots have a Pokemon - **0** are fully complete - average completeness **5%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -12,12 +12,12 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 1 | [Leafing](data/species/leafing.yaml) | Grass | Overgrow, Sharpness (H) | 320 | Leafsteel (Lv 16) | 72% |
 | 2 | [Leafsteel](data/species/leafsteel.yaml) | Grass / Steel | Overgrow, Sharpness (H) | 420 | Leafaxer (Lv 36) | 21% |
 | 3 | [Leafaxer](data/species/leafaxer.yaml) | Grass / Steel | Overgrow, Sharpness (H) | 530 |  | 17% |
-| 4 | [Waffy](data/species/waffy.yaml) | Water |  |  | Wealther (Lv 16) | 3% |
-| 5 | [Wealther](data/species/wealther.yaml) | Water / Dark |  |  | Warrallier (Lv 36) | 3% |
-| 6 | [Warrallier](data/species/warrallier.yaml) | Water / Dark |  |  |  | 3% |
+| 4 | [Waffy](data/species/waffy.yaml) | Water | Torrent, Defiant (H) | 300 | Wealther (Lv 16) | 14% |
+| 5 | [Wealther](data/species/wealther.yaml) | Water / Dark | Torrent, Defiant (H) | 405 | Warrallier (Lv 36) | 21% |
+| 6 | [Warrallier](data/species/warrallier.yaml) | Water / Dark | Torrent, Defiant (H) | 530 |  | 24% |
 | 7 | [Torchbat](data/species/torchbat.yaml) | Fire |  |  | Heatbat (Lv 16) | 3% |
 | 8 | [Heatbat](data/species/heatbat.yaml) | Fire / Flying |  |  | Blazterra (Lv 36) | 3% |
-| 9 | [Blazterra](data/species/blazterra.yaml) | Fire / Flying |  |  |  | 3% |
+| 9 | [Blazterra](data/species/blazterra.yaml) | Fire / Flying | Blaze, No Guard (H) | 530 |  | 21% |
 | 10 | [Erobi](data/species/erobi.yaml) | Normal / Flying |  |  |  | 3% |
 | 11 | [Harpie](data/species/harpie.yaml) | Normal / Flying |  |  |  | 3% |
 | 12 | [Smeatherace](data/species/smeatherace.yaml) | Normal / Flying |  |  |  | 3% |

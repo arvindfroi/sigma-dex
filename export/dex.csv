@@ -6,12 +6,12 @@ until the edge shines like metal.
 ",Grass starter. A small creature with a leaf that slowly turns to steel as it evolves.,,"PROOF OF CONCEPT - every value in this file except name, type and evolution is a draft proposed by Claude on 2026-10-02. The Council should review and replace them.",Emil Venge-Kvamme,,72
 2,leafsteel,Leafsteel,Grass,Steel,Overgrow,,Sharpness,420,75,90,80,60,65,50,Leafing,Lv 16,,,,,2 attack,,,,,,,,,,,Slash (1),,,,,,,,,Emil Venge-Kvamme,,21
 3,leafaxer,Leafaxer,Grass,Steel,Overgrow,,Sharpness,530,90,130,100,70,80,60,Leafsteel,Lv 36,,,,,3 attack,,,,,,,,,,,"Leaf Blade (1), Iron Tail (40), Behemoth Blade (60)",,,,,,,,,,,17
-4,waffy,Waffy,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-5,wealther,Wealther,Water,Dark,,,,,,,,,,,Waffy,Lv 16,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-6,warrallier,Warrallier,Water,Dark,,,,,,,,,,,Wealther,Lv 36,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+4,waffy,Waffy,Water,,Torrent,,Defiant,300,50,60,45,45,45,55,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,,,14
+5,wealther,Wealther,Water,Dark,Torrent,,Defiant,405,65,85,60,60,60,75,Waffy,Lv 16,,,,,2 attack,,,,,,,,,,,Feint Attack (1),,,,,,,,,Emil Venge-Kvamme,,21
+6,warrallier,Warrallier,Water,Dark,Torrent,,Defiant,530,80,115,75,80,75,105,Wealther,Lv 36,,,,,"2 attack, 1 speed",,,,,,,,,,,Flip Turn (1),"Focus Punch, Water Pulse, Toxic, Bulk Up, Hidden Power, Taunt, Ice Beam, Protect, Rain Dance, Frustration, Iron Tail, Brick Break, Double Team, Torment, Facade, Thief, Snatch, Cut, Surf, Strength, Rock Smash, Waterfall, Dive",,,,,,,,Emil Venge-Kvamme,,24
 7,torchbat,Torchbat,Fire,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 8,heatbat,Heatbat,Fire,Flying,,,,,,,,,,,Torchbat,Lv 16,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-9,blazterra,Blazterra,Fire,Flying,,,,,,,,,,,Heatbat,Lv 36,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+9,blazterra,Blazterra,Fire,Flying,Blaze,,No Guard,530,70,85,75,105,75,120,Heatbat,Lv 36,,,,,3 speed,,,,,,,,,,,Heat Wave (1),,,,,,,,,Emil Venge-Kvamme,,21
 10,erobi,Erobi,Normal,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 11,harpie,Harpie,Normal,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 12,smeatherace,Smeatherace,Normal,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3

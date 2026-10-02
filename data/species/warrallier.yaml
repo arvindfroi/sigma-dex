@@ -3,7 +3,7 @@ dex: 6
 name: Warrallier
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Emil Venge-Kvamme # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Water, Dark]     # 1 or 2 types, e.g. [Grass, Steel]
@@ -17,19 +17,19 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Torrent
   secondary:             # optional
-  hidden:                # optional
+  hidden: Defiant        # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 80
+  attack: 115
+  defense: 75
+  sp_attack: 80
+  sp_defense: 75
+  speed: 105
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {attack: 2, speed: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -55,8 +55,13 @@ evolutions: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  level_up:
+    - {level: 1, move: Flip Turn}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Focus Punch, Water Pulse, Toxic, Bulk Up, Hidden Power, Taunt, Ice Beam, Protect,
+          Rain Dance, Frustration, Iron Tail, Brick Break, Double Team, Torment, Facade,
+          Thief, Snatch, Cut, Surf, Strength, Rock Smash, Waterfall, Dive]
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
 

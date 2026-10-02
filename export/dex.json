@@ -375,19 +375,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Torrent",
         "secondary": null,
-        "hidden": null
+        "hidden": "Defiant"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 60,
+        "defense": 45,
+        "sp_attack": 45,
+        "sp_defense": 45,
+        "speed": 55
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -442,7 +444,7 @@
       "dex": 5,
       "name": "Wealther",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -455,19 +457,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Torrent",
         "secondary": null,
-        "hidden": null
+        "hidden": "Defiant"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 65,
+        "attack": 85,
+        "defense": 60,
+        "sp_attack": 60,
+        "sp_defense": 60,
+        "speed": 75
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -487,7 +491,12 @@
         }
       ],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Feint Attack"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -522,7 +531,7 @@
       "dex": 6,
       "name": "Warrallier",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -535,19 +544,22 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Torrent",
         "secondary": null,
-        "hidden": null
+        "hidden": "Defiant"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 80,
+        "attack": 115,
+        "defense": 75,
+        "sp_attack": 80,
+        "sp_defense": 75,
+        "speed": 105
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2,
+        "speed": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -561,8 +573,37 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Flip Turn"
+          }
+        ],
+        "tm_hm": [
+          "Focus Punch",
+          "Water Pulse",
+          "Toxic",
+          "Bulk Up",
+          "Hidden Power",
+          "Taunt",
+          "Ice Beam",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Iron Tail",
+          "Brick Break",
+          "Double Team",
+          "Torment",
+          "Facade",
+          "Thief",
+          "Snatch",
+          "Cut",
+          "Surf",
+          "Strength",
+          "Rock Smash",
+          "Waterfall",
+          "Dive"
+        ],
         "tutor": [],
         "egg": []
       },
@@ -755,7 +796,7 @@
       "dex": 9,
       "name": "Blazterra",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -768,19 +809,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Blaze",
         "secondary": null,
-        "hidden": null
+        "hidden": "No Guard"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 70,
+        "attack": 85,
+        "defense": 75,
+        "sp_attack": 105,
+        "sp_defense": 75,
+        "speed": 120
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 3
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -794,7 +837,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Heat Wave"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []

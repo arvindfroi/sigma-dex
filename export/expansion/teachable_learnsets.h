@@ -44,3 +44,38 @@ static const u16 sLeafaxerTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sWealtherTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sWarrallierTeachableLearnset[] = {
+    MOVE_FOCUS_PUNCH,
+    MOVE_WATER_PULSE,
+    MOVE_TOXIC,
+    MOVE_BULK_UP,
+    MOVE_HIDDEN_POWER,
+    MOVE_TAUNT,
+    MOVE_ICE_BEAM,
+    MOVE_PROTECT,
+    MOVE_RAIN_DANCE,
+    MOVE_FRUSTRATION,
+    MOVE_IRON_TAIL,
+    MOVE_BRICK_BREAK,
+    MOVE_DOUBLE_TEAM,
+    MOVE_TORMENT,
+    MOVE_FACADE,
+    MOVE_THIEF,
+    MOVE_SNATCH,
+    MOVE_CUT,
+    MOVE_SURF,
+    MOVE_STRENGTH,
+    MOVE_ROCK_SMASH,
+    MOVE_WATERFALL,
+    MOVE_DIVE,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sBlazterraTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+

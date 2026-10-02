@@ -2,18 +2,15 @@
 
 # Game export status
 
-**3** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer
+**6** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Wealther, Warrallier, Blazterra
 
-## Not exported yet (79)
+## Not exported yet (76)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
-- **Waffy** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Wealther** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Warrallier** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Waffy** needs: a level-up move that exists in the game
 - **Torchbat** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Heatbat** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Blazterra** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Erobi** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Harpie** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Smeatherace** needs: base stats, an ability that exists in the game, a level-up move that exists in the game

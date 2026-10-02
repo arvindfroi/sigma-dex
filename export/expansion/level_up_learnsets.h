@@ -27,3 +27,18 @@ static const struct LevelUpMove sLeafaxerLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sWealtherLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_FEINT_ATTACK),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sWarrallierLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_FLIP_TURN),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sBlazterraLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_HEAT_WAVE),
+    LEVEL_UP_END
+};
+
