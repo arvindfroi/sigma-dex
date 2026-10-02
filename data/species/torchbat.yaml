@@ -3,7 +3,7 @@ dex: 7
 name: Torchbat
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Emil Venge-Kvamme # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Fire]            # 1 or 2 types, e.g. [Grass, Steel]
@@ -52,13 +52,7 @@ evolutions:
 
 # --- Moves ---
 learnset:
-  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  level_up:
-    - {level: 1, move: Scratch}
-    - {level: 1, move: Growl}
-    - {level: 6, move: Ember}
-    - {level: 10, move: Supersonic}
-    - {level: 15, move: Wing Attack}
+  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
@@ -70,11 +64,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes: DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.
+  notes:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art: "assets/concept-art/torchbat/337.webp"
+  concept_art: "assets/concept-art/torchbat/371.png"
   front_sprite: "assets/sprites/torchbat/front.png"
   front_anim: "assets/sprites/torchbat/anim_front.png"
   back_sprite: "assets/sprites/torchbat/back.png"

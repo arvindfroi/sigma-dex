@@ -279,7 +279,7 @@
       "dex": 3,
       "name": "Leafaxer",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -368,7 +368,7 @@
       "dex": 4,
       "name": "Waffy",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -414,28 +414,7 @@
         }
       ],
       "learnset": {
-        "level_up": [
-          {
-            "level": 1,
-            "move": "Tackle"
-          },
-          {
-            "level": 1,
-            "move": "Growl"
-          },
-          {
-            "level": 6,
-            "move": "Water Gun"
-          },
-          {
-            "level": 10,
-            "move": "Bite"
-          },
-          {
-            "level": 15,
-            "move": "Aqua Jet"
-          }
-        ],
+        "level_up": [],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -444,7 +423,7 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones."
+        "notes": null
       },
       "assets": {
         "concept_art": "assets/concept-art/waffy/336.webp",
@@ -664,7 +643,7 @@
       "dex": 7,
       "name": "Torchbat",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -710,28 +689,7 @@
         }
       ],
       "learnset": {
-        "level_up": [
-          {
-            "level": 1,
-            "move": "Scratch"
-          },
-          {
-            "level": 1,
-            "move": "Growl"
-          },
-          {
-            "level": 6,
-            "move": "Ember"
-          },
-          {
-            "level": 10,
-            "move": "Supersonic"
-          },
-          {
-            "level": 15,
-            "move": "Wing Attack"
-          }
-        ],
+        "level_up": [],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -740,10 +698,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones."
+        "notes": null
       },
       "assets": {
-        "concept_art": "assets/concept-art/torchbat/337.webp",
+        "concept_art": "assets/concept-art/torchbat/371.png",
         "front_sprite": "assets/sprites/torchbat/front.png",
         "front_anim": "assets/sprites/torchbat/anim_front.png",
         "back_sprite": "assets/sprites/torchbat/back.png",
@@ -828,7 +786,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/heatbat/372.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1228,7 +1186,7 @@
       "dex": 14,
       "name": "Wump",
       "credits": {
-        "designer": null,
+        "designer": "Arvind",
         "artist": null
       },
       "types": [
@@ -1301,7 +1259,7 @@
       "dex": 15,
       "name": "Twemp",
       "credits": {
-        "designer": null,
+        "designer": "Arvind",
         "artist": null
       },
       "types": [
@@ -1375,7 +1333,7 @@
       "dex": 16,
       "name": "Florantula",
       "credits": {
-        "designer": null,
+        "designer": "Arvind",
         "artist": null
       },
       "types": [
@@ -1449,7 +1407,7 @@
       "dex": 20,
       "name": "Cowfin",
       "credits": {
-        "designer": null,
+        "designer": "Arvind",
         "artist": null
       },
       "types": [
@@ -1523,7 +1481,7 @@
       "dex": 21,
       "name": "Mooceon",
       "credits": {
-        "designer": null,
+        "designer": "Arvind",
         "artist": null
       },
       "types": [
@@ -1597,7 +1555,7 @@
       "dex": 22,
       "name": "Lapper",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -1826,7 +1784,7 @@
       "dex": 25,
       "name": "Icy Freeze",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -1905,7 +1863,7 @@
       "dex": 26,
       "name": "Freezrick",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -1978,7 +1936,7 @@
       "dex": 27,
       "name": "Bulbtle",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -2058,7 +2016,7 @@
       "dex": 28,
       "name": "Bulbtoise",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -2278,7 +2236,7 @@
       "dex": 34,
       "name": "Autuman",
       "credits": {
-        "designer": null,
+        "designer": "Arvind",
         "artist": null
       },
       "types": [
@@ -2352,7 +2310,7 @@
       "dex": 35,
       "name": "Bugmight",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -4740,7 +4698,7 @@
       "dex": 66,
       "name": "Janenon",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -5346,7 +5304,7 @@
       "dex": 77,
       "name": "Iglomodo",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -5861,7 +5819,7 @@
       "dex": 88,
       "name": "Gravriel",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -6378,7 +6336,7 @@
       "dex": 99,
       "name": "Bergflabbser",
       "credits": {
-        "designer": "Slothbaby",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [

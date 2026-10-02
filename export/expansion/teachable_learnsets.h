@@ -44,10 +44,6 @@ static const u16 sLeafaxerTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sWaffyTeachableLearnset[] = {
-    MOVE_UNAVAILABLE,
-};
-
 static const u16 sWealtherTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
@@ -76,10 +72,6 @@ static const u16 sWarrallierTeachableLearnset[] = {
     MOVE_ROCK_SMASH,
     MOVE_WATERFALL,
     MOVE_DIVE,
-    MOVE_UNAVAILABLE,
-};
-
-static const u16 sTorchbatTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 

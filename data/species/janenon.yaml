@@ -3,7 +3,7 @@ dex: 66
 name: Janenon
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Emil Venge-Kvamme # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Dark, Fairy]     # 1 or 2 types, e.g. [Grass, Steel]
@@ -55,7 +55,7 @@ evolutions: []
 
 # --- Moves ---
 learnset:
-  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Dark Pulse}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs

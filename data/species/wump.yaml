@@ -3,7 +3,7 @@ dex: 14
 name: Wump
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Arvind       # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Bug]             # 1 or 2 types, e.g. [Grass, Steel]
@@ -55,7 +55,7 @@ evolutions: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line

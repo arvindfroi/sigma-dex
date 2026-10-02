@@ -1148,13 +1148,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 337,
-    "species": "torchbat",
-    "file": "assets/concept-art/torchbat/337.webp",
-    "caption": "Concept art, cut out of the starter picture from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 338,
     "species": "leafing",
     "file": "assets/concept-art/leafing/338.webp",
@@ -1176,31 +1169,10 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 341,
-    "species": "torchbat",
-    "file": "assets/concept-art/torchbat/341.webp",
-    "caption": "The three starters, from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 342,
-    "species": "torchbat",
-    "file": "assets/concept-art/torchbat/342.webp",
-    "caption": "The three starters as a starter-choice screen, from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 343,
     "species": "leafing",
     "file": "assets/concept-art/leafing/343.webp",
     "caption": "The three starters, from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 344,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/344.webp",
-    "caption": "The three starters as a starter-choice screen, from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
     "editor": "Claude (from Discord)"
   },
   {
@@ -1384,5 +1356,19 @@
     "file": "assets/concept-art/torchbat/370.png",
     "caption": "[back] AI draft #20",
     "editor": "Claude (starter test)"
+  },
+  {
+    "id": 371,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/371.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 372,
+    "species": "heatbat",
+    "file": "assets/concept-art/heatbat/372.png",
+    "caption": null,
+    "editor": null
   }
 ]

@@ -27,15 +27,6 @@ static const struct LevelUpMove sLeafaxerLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const struct LevelUpMove sWaffyLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
-    LEVEL_UP_MOVE( 1, MOVE_GROWL),
-    LEVEL_UP_MOVE( 6, MOVE_WATER_GUN),
-    LEVEL_UP_MOVE(10, MOVE_BITE),
-    LEVEL_UP_MOVE(15, MOVE_AQUA_JET),
-    LEVEL_UP_END
-};
-
 static const struct LevelUpMove sWealtherLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_FEINT_ATTACK),
     LEVEL_UP_END
@@ -43,15 +34,6 @@ static const struct LevelUpMove sWealtherLevelUpLearnset[] = {
 
 static const struct LevelUpMove sWarrallierLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_FLIP_TURN),
-    LEVEL_UP_END
-};
-
-static const struct LevelUpMove sTorchbatLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_SCRATCH),
-    LEVEL_UP_MOVE( 1, MOVE_GROWL),
-    LEVEL_UP_MOVE( 6, MOVE_EMBER),
-    LEVEL_UP_MOVE(10, MOVE_SUPERSONIC),
-    LEVEL_UP_MOVE(15, MOVE_WING_ATTACK),
     LEVEL_UP_END
 };
 

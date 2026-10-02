@@ -6,15 +6,3 @@ const u16 gMonShinyPalette_Leafing[] = INCGFX_U16("graphics/pokemon/sigma/leafin
 const u8 gMonIcon_Leafing[] = INCGFX_U8("graphics/pokemon/sigma/leafing/icon.png", ".4bpp");
 const u32 gMonBackPic_Leafing[] = INCGFX_U32("graphics/pokemon/sigma/leafing/back.png", ".4bpp.smol");
 
-const u32 gMonFrontPic_Waffy[] = INCGFX_U32("graphics/pokemon/sigma/waffy/anim_front.png", ".4bpp.smol");
-const u16 gMonPalette_Waffy[] = INCGFX_U16("graphics/pokemon/sigma/waffy/normal.pal", ".gbapal");
-const u16 gMonShinyPalette_Waffy[] = INCGFX_U16("graphics/pokemon/sigma/waffy/shiny.pal", ".gbapal");
-const u8 gMonIcon_Waffy[] = INCGFX_U8("graphics/pokemon/sigma/waffy/icon.png", ".4bpp");
-const u32 gMonBackPic_Waffy[] = INCGFX_U32("graphics/pokemon/sigma/waffy/back.png", ".4bpp.smol");
-
-const u32 gMonFrontPic_Torchbat[] = INCGFX_U32("graphics/pokemon/sigma/torchbat/anim_front.png", ".4bpp.smol");
-const u16 gMonPalette_Torchbat[] = INCGFX_U16("graphics/pokemon/sigma/torchbat/normal.pal", ".gbapal");
-const u16 gMonShinyPalette_Torchbat[] = INCGFX_U16("graphics/pokemon/sigma/torchbat/shiny.pal", ".gbapal");
-const u8 gMonIcon_Torchbat[] = INCGFX_U8("graphics/pokemon/sigma/torchbat/icon.png", ".4bpp");
-const u32 gMonBackPic_Torchbat[] = INCGFX_U32("graphics/pokemon/sigma/torchbat/back.png", ".4bpp.smol");
-
