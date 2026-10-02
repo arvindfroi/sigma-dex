@@ -47,6 +47,11 @@ static const struct LevelUpMove sBlazterraLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sNukfaeLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_HYPER_VOICE),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sSigmaulerLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_HAMMER_ARM),
     LEVEL_UP_END

@@ -83,6 +83,10 @@ static const u16 sBlazterraTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sNukfaeTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sSigmaulerTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };

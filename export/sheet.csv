@@ -39,7 +39,7 @@ until the edge shines like metal.
 33,Rainbro,Stellar,,,,,=SUM(I35:N35),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 34,Autuman,Fighting,Grass,,,,=SUM(I36:N36),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 35,Bugmight,Bug,Fighting,,,,=SUM(I37:N37),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-36,Nukfae,Poison,Fairy,,,,=SUM(I38:N38),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+36,Nukfae,Poison,Fairy,Liquid Ooze,Cute Charm,Pixilate,=SUM(I38:N38),94,52,69,110,140,35,,,,,,,2 sp_defense,,,,,,,,,,,Hyper Voice (1),,,,,,,,,Emil Venge-Kvamme,
 37,Toxiren,Poison,Fairy,,,,=SUM(I39:N39),,,,,,,Nukfae,Lv 38,,,,,,,,,,,,,,,,,,,,,,,,,,
 38,Stonma,Rock,,Sturdy,Rock Head,Solid Rock,=SUM(I40:N40),67,67,111,25,50,10,,,,,,,1 defense,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,
 39,Sigmauler,Rock,Fighting,Sturdy,Iron Fist,Solid Rock,=SUM(I41:N41),100,100,167,55,67,21,Stonma,Lv 38,,,,,,,,,,,,,,,,Hammer Arm (1),,,,,,,,,Emil Venge-Kvamme,

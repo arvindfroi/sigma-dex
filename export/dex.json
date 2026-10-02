@@ -2376,7 +2376,7 @@
       "dex": 36,
       "name": "Nukfae",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -2389,19 +2389,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Liquid Ooze",
+        "secondary": "Cute Charm",
+        "hidden": "Pixilate"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 94,
+        "attack": 52,
+        "defense": 69,
+        "sp_attack": 110,
+        "sp_defense": 140,
+        "speed": 35
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_defense": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -2421,7 +2423,12 @@
         }
       ],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Hyper Voice"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []

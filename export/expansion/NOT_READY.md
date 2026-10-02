@@ -2,9 +2,9 @@
 
 # Game export status
 
-**13** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Wealther, Warrallier, Heatbat, Blazterra, Sigmauler, Motinky, Gortiki, Galfrogtom, Janenon, Blylem
+**14** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Wealther, Warrallier, Heatbat, Blazterra, Nukfae, Sigmauler, Motinky, Gortiki, Galfrogtom, Janenon, Blylem
 
-## Not exported yet (70)
+## Not exported yet (69)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -30,7 +30,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Rainbro** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
 - **Autuman** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Bugmight** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Nukfae** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Toxiren** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Stonma** needs: a level-up move that exists in the game
 - **Tinky** needs: a level-up move that exists in the game
@@ -81,5 +80,5 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 
 ## Left out of exported Pokemon
 
-Nothing.
+- Nukfae: evolution into Toxiren left out until that Pokemon is ready
 

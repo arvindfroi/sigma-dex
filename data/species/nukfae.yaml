@@ -3,7 +3,7 @@ dex: 36
 name: Nukfae
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Emil Venge-Kvamme # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Poison, Fairy]   # 1 or 2 types, e.g. [Grass, Steel]
@@ -17,19 +17,19 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
-  hidden:                # optional
+  primary: Liquid Ooze
+  secondary: Cute Charm  # optional
+  hidden: Pixilate       # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 94
+  attack: 52
+  defense: 69
+  sp_attack: 110
+  sp_defense: 140
+  speed: 35
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {sp_defense: 2} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -52,7 +52,9 @@ evolutions:
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  level_up:
+    - {level: 1, move: Hyper Voice}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line

@@ -201,6 +201,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Blazterra can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Nukfae has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_NUKFAE];
+    EXPECT_EQ(info->baseHP, 94);
+    EXPECT_EQ(info->baseAttack, 52);
+    EXPECT_EQ(info->baseDefense, 69);
+    EXPECT_EQ(info->baseSpeed, 35);
+    EXPECT_EQ(info->baseSpAttack, 110);
+    EXPECT_EQ(info->baseSpDefense, 140);
+    EXPECT_EQ(info->types[0], TYPE_POISON);
+    EXPECT_EQ(info->types[1], TYPE_FAIRY);
+    EXPECT_EQ(info->abilities[0], ABILITY_LIQUID_OOZE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_HYPER_VOICE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_NUKFAE)[0], CHAR_N);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Nukfae can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_NUKFAE) { Moves(MOVE_HYPER_VOICE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_HYPER_VOICE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, player);
+    }
+}
+
 TEST("Sigma dex: Sigmauler has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SIGMAULER];

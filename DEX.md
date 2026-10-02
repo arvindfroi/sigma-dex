@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**83 / 100** slots have a Pokemon - **0** are fully complete - average completeness **7%**.
+**83 / 100** slots have a Pokemon - **0** are fully complete - average completeness **8%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -44,7 +44,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 33 | [Rainbro](data/species/rainbro.yaml) | Stellar |  |  |  | 3% |
 | 34 | [Autuman](data/species/autuman.yaml) | Fighting / Grass |  |  |  | 3% |
 | 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting |  |  |  | 3% |
-| 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy |  |  | Toxiren (Lv 38) | 3% |
+| 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Pixilate (H) | 500 | Toxiren (Lv 38) | 21% |
 | 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy |  |  |  | 3% |
 | 38 | [Stonma](data/species/stonma.yaml) | Rock | Sturdy, Rock Head, Solid Rock (H) | 330 | Sigmauler (Lv 38) | 17% |
 | 39 | [Sigmauler](data/species/sigmauler.yaml) | Rock / Fighting | Sturdy, Iron Fist, Solid Rock (H) | 510 |  | 17% |
