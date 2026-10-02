@@ -1370,5 +1370,26 @@
     "file": "assets/concept-art/heatbat/372.png",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 373,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/373.webp",
+    "caption": "Pixel version, cut out of the starter-choice picture from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 374,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/374.webp",
+    "caption": "Pixel version, cut out of the starter-choice picture from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 375,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/375.webp",
+    "caption": "Pixel version, cut out of the starter-choice picture from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
   }
 ]
