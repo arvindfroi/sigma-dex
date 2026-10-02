@@ -9,25 +9,25 @@ credits:
 types: [Normal, Flying]  # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+category: Smiley Bird    # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: "Erobi is a cheerful regional bird Pokémon known for the bright yellow feathers covering its face. The black smiley markings on its face look as if they were drawn on with a marker, and they help it appear friendly to both people and Pokémon. Even when startled, Erobi keeps its painted smile, making it difficult to tell what it is really thinking."
+height_m: 0.4            # e.g. 0.7
+weight_kg: 1.9           # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Keen Eye
   secondary:             # optional
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 44
+  attack: 45
+  defense: 39
+  sp_attack: 44
+  sp_defense: 64
+  speed: 44
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -67,11 +67,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: "From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -; flavor 'Erobi flutters around fields and towns, spreading a sense of warmth wherever it goes.'."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/erobi.png
+  concept_art: "assets/concept-art/erobi/223.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

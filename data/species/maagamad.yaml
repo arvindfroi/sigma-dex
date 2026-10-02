@@ -9,25 +9,25 @@ credits:
 types: [Flying, Poison]  # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+category: Weather Switch # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: "It stores three swords made of gaseous matter within its body. The oily coating on its wings and tail lets it glide through any weather. It flips the weather at will, bringing balance to the skies above the sea."
+height_m: 1.9            # e.g. 0.7
+weight_kg: 82.4          # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
+  primary: Weather Switch
+  secondary: Technician  # optional
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 124
+  attack: 120
+  defense: 105
+  sp_attack: 120
+  sp_defense: 142
+  speed: 69
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -67,11 +67,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes: "From the Google Doc: Maagamad/gullmire (Flying, Poison)"
+  notes: "From the Google Doc: Maagamad/gullmire (Flying, Poison)\nFrom the Discord concept card (Arvind Frøiland, 2026-09-30): card name: Gullmire; also on the card: Weather Switch switches rain to drought and drought to rain, random Drizzle or Drought otherwise; Technician is the hidden ability; signature move Oily Arsenal (Drought Physical, Poison, BP 60x2; Rain Special, Poison, BP 40x3)."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/maagamad.png
+  concept_art: "assets/concept-art/maagamad/263.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

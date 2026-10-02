@@ -9,15 +9,15 @@ credits:
 types: [Ice]             # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
+category: Frost Swagger  # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: "Icy Freeze roams city streets with effortless swagger, chilling the air around him wherever he goes. When threatened, he unleashes a freezing glare and a burst of icy wind that can stop opponents in their tracks."
 height_m:                # e.g. 0.7
 weight_kg:               # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Cold Flow
   secondary:             # optional
   hidden:                # optional
 
@@ -64,11 +64,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: "From the Discord concept card (BUST, 2026-05-07): also on the card: Height 4'0\", weight 92 lbs; Coolness 95, Speed 78, Chill Power 98, Style 97; signature move Freeze Flex."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/icy-freeze.png
+  concept_art: "assets/concept-art/icy-freeze/250.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

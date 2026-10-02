@@ -9,8 +9,8 @@ credits:
 types: [Rock]            # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
+category: Stone Head     # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: Can support immense weight on its head. Its thumbs-up form is a mystery of ancient masonry.
 height_m:                # e.g. 0.7
 weight_kg:               # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
@@ -64,11 +64,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: "From the Discord concept card (SLOTHBABY, 2026-05-02): evolution on the card: Stonma -> Megastonma; also on the card: MEGASTONMA: Rock type, species Conglomerate Pokémon, ability Mason's Power; entry: A behemoth form achieved by the convergence of many. Using ancient masonry techniques, countless Stonma units align and interlock perfectly to construct this stacked monument. While mimicking a forgotten golem, this colossal form is composed entirely of unified stone heads, each a silent, powerful component.."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/stonma.png
+  concept_art: "assets/concept-art/stonma/308.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

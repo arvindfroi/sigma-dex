@@ -6,28 +6,28 @@ credits:
   designer:              # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: []                # 1 or 2 types, e.g. [Grass, Steel]
+types: [Ghost, Steel]    # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+category: Requiem        # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: "Legends claim that when Darkgonark's song ends, the universe will be remade in perfect, silent harmony."
+height_m: 3.8            # e.g. 0.7
+weight_kg: 296.7         # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
+  primary: Eternal Dirge
+  secondary: Soulforged Body # optional
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 80
+  attack: 130
+  defense: 60
+  sp_attack: 80
+  sp_defense: 60
+  speed: 140
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -67,11 +67,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: "From the Discord concept card (dr.grey8421, 2026-05-02): also on the card: Subtitle The Abyssal Requiem Pokémon; Soulforged Body is the hidden ability; signature move Requiem Breaker (Ghost/Steel, power 160, accuracy 100%, PP 5); also a lore blurb: Darkgonark is said to be the embodiment of ruin and rebirth.."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/darkgonark.png
+  concept_art: "assets/concept-art/darkgonark/215.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**83 / 100** slots have a Pokemon - **0** are fully complete - average completeness **8%**.
+**83 / 100** slots have a Pokemon - **0** are fully complete - average completeness **18%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -18,94 +18,94 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 7 | [Torchbat](data/species/torchbat.yaml) | Fire | Blaze, No Guard (H) | 320 | Heatbat (Lv 16) | 14% |
 | 8 | [Heatbat](data/species/heatbat.yaml) | Fire / Flying | Blaze, No Guard (H) | 420 | Blazterra (Lv 36) | 17% |
 | 9 | [Blazterra](data/species/blazterra.yaml) | Fire / Flying | Blaze, No Guard (H) | 530 |  | 21% |
-| 10 | [Erobi](data/species/erobi.yaml) | Normal / Flying |  |  |  | 3% |
-| 11 | [Harpie](data/species/harpie.yaml) | Normal / Flying |  |  |  | 3% |
-| 12 | [Smeatherace](data/species/smeatherace.yaml) | Normal / Flying |  |  |  | 3% |
-| 13 | [Bolthook](data/species/bolthook.yaml) |  |  |  |  | 0% |
-| 14 | [Wump](data/species/wump.yaml) | Bug |  |  |  | 3% |
+| 10 | [Erobi](data/species/erobi.yaml) | Normal / Flying | Keen Eye | 280 |  | 28% |
+| 11 | [Harpie](data/species/harpie.yaml) | Normal / Flying |  |  |  | 7% |
+| 12 | [Smeatherace](data/species/smeatherace.yaml) | Normal / Flying | Unburden | 495 |  | 28% |
+| 13 | [Bolthook](data/species/bolthook.yaml) | Dark / Flying | Strong Jaw |  |  | 24% |
+| 14 | [Wump](data/species/wump.yaml) | Bug |  |  |  | 7% |
 | 15 | [Twemp](data/species/twemp.yaml) | Bug / Grass |  |  |  | 3% |
-| 16 | [Florantula](data/species/florantula.yaml) | Bug / Grass |  |  |  | 3% |
+| 16 | [Florantula](data/species/florantula.yaml) | Bug / Grass |  |  |  | 7% |
 | 17 | *open slot* | | | | | |
 | 18 | *open slot* | | | | | |
 | 19 | *open slot* | | | | | |
-| 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water |  |  |  | 3% |
-| 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water |  |  |  | 3% |
+| 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water |  |  |  | 7% |
+| 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water |  |  |  | 7% |
 | 22 | [Lapper](data/species/lapper.yaml) | Normal |  |  | Brawleo (Lv 25) | 3% |
-| 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 17% |
-| 24 | [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) | Rock / Ground |  |  |  | 3% |
-| 25 | [Icy Freeze](data/species/icy-freeze.yaml) | Ice |  |  | Freezrick (Lv 28) | 3% |
-| 26 | [Freezrick](data/species/freezrick.yaml) | Ice |  |  |  | 3% |
-| 27 | [Bulbtle](data/species/bulbtle.yaml) | Ground / Electric |  |  | Bulbtoise (Lv 22) | 3% |
-| 28 | [Bulbtoise](data/species/bulbtoise.yaml) | Ground / Electric |  |  |  | 3% |
+| 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 28% |
+| 24 | [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) | Rock / Ground |  |  |  | 7% |
+| 25 | [Icy Freeze](data/species/icy-freeze.yaml) | Ice | Cold Flow |  | Freezrick (Lv 28) | 17% |
+| 26 | [Freezrick](data/species/freezrick.yaml) | Ice | Ice Body |  |  | 17% |
+| 27 | [Bulbtle](data/species/bulbtle.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 280 | Bulbtoise (Lv 22) | 21% |
+| 28 | [Bulbtoise](data/species/bulbtoise.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 480 |  | 21% |
 | 29 | *open slot* | | | | | |
 | 30 | *open slot* | | | | | |
 | 31 | *open slot* | | | | | |
-| 32 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice |  |  |  | 3% |
-| 33 | [Rainbro](data/species/rainbro.yaml) | Stellar |  |  |  | 3% |
-| 34 | [Autuman](data/species/autuman.yaml) | Fighting / Grass |  |  |  | 3% |
-| 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting |  |  |  | 3% |
-| 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Sticky Hold (H) | 325 | Toxiren (Lv 38) | 14% |
-| 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Pixilate (H) | 500 |  | 21% |
-| 38 | [Stonma](data/species/stonma.yaml) | Rock | Sturdy, Rock Head, Solid Rock (H) | 330 | Sigmauler (Lv 38) | 17% |
-| 39 | [Sigmauler](data/species/sigmauler.yaml) | Rock / Fighting | Sturdy, Iron Fist, Solid Rock (H) | 510 |  | 17% |
-| 40 | [Tinky](data/species/tinky.yaml) | Grass | Heatproof, Dancer, Prankster (H) | 285 | Motinky (Lv 22) | 17% |
-| 41 | [Motinky](data/species/motinky.yaml) | Grass / Fire | Flash Fire, Dancer, Prankster (H) | 420 | Gortiki (Lv 40) | 21% |
-| 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire | Flash Fire, Dancer, Huge Power (H) | 520 |  | 21% |
-| 43 | [Chebbi](data/species/chebbi.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 360 | Devampry (Lv 32) | 17% |
-| 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark | Soundproof, Levitate, Punk Rock (H) | 490 |  | 21% |
-| 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water |  |  |  | 3% |
-| 46 | [Zapana](data/species/zapana.yaml) | Water / Electric |  |  | Ampeel (Lv 30) | 3% |
-| 47 | [Ampeel](data/species/ampeel.yaml) | Water / Electric |  |  |  | 3% |
-| 48 | [Tomaterdander](data/species/tomaterdander.yaml) | Poison / Grass |  |  |  | 3% |
-| 49 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass |  |  |  | 3% |
-| 50 | [Beatld](data/species/beatld.yaml) | Bug / Psychic |  |  |  | 3% |
-| 51 | [Wispole](data/species/wispole.yaml) | Water | Swift Swim, Water Veil, Water Bubble (H) | 230 | Galfrogtom (Thunder Stone) | 17% |
-| 52 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Clear Body, Lightning Rod, Galvanize (H) | 504 |  | 21% |
+| 32 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice |  |  |  | 7% |
+| 33 | [Rainbro](data/species/rainbro.yaml) | Stellar |  |  |  | 7% |
+| 34 | [Autuman](data/species/autuman.yaml) | Fighting / Grass |  |  |  | 7% |
+| 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Guts, Justified | 510 |  | 28% |
+| 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Sticky Hold (H) | 325 | Toxiren (Lv 38) | 31% |
+| 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Pixilate (H) | 500 |  | 38% |
+| 38 | [Stonma](data/species/stonma.yaml) | Rock | Sturdy, Rock Head, Solid Rock (H) | 330 | Sigmauler (Lv 38) | 28% |
+| 39 | [Sigmauler](data/species/sigmauler.yaml) | Rock / Fighting | Sturdy, Iron Fist, Solid Rock (H) | 510 |  | 21% |
+| 40 | [Tinky](data/species/tinky.yaml) | Grass | Heatproof, Dancer, Prankster (H) | 285 | Motinky (Lv 22) | 28% |
+| 41 | [Motinky](data/species/motinky.yaml) | Grass / Fire | Flash Fire, Dancer, Prankster (H) | 420 | Gortiki (Lv 40) | 31% |
+| 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire | Flash Fire, Dancer, Huge Power (H) | 520 |  | 31% |
+| 43 | [Chebbi](data/species/chebbi.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 360 | Devampry (Lv 32) | 24% |
+| 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark | Soundproof, Levitate, Punk Rock (H) | 490 |  | 28% |
+| 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water | Swift Swim, Battle Bond | 495 |  | 28% |
+| 46 | [Zapana](data/species/zapana.yaml) | Water / Electric | Static, Lightning Rod | 300 | Ampeel (Lv 30) | 28% |
+| 47 | [Ampeel](data/species/ampeel.yaml) | Water / Electric | Static Surge, Volt Absorb | 490 |  | 28% |
+| 48 | [Tomaterdander](data/species/tomaterdander.yaml) | Poison / Grass | Pickle Armor, Chlorophyll | 480 |  | 28% |
+| 49 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass | XL and Deep fried, Chlorophyll | 560 |  | 28% |
+| 50 | [Beatld](data/species/beatld.yaml) | Bug / Psychic |  |  |  | 7% |
+| 51 | [Wispole](data/species/wispole.yaml) | Water | Swift Swim, Water Veil, Water Bubble (H) | 230 | Galfrogtom (Thunder Stone) | 28% |
+| 52 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Clear Body, Lightning Rod, Galvanize (H) | 504 |  | 31% |
 | 53 | [Giga-Circuit](data/species/giga-circuit.yaml) | Electric |  |  |  | 3% |
-| 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock |  |  |  | 3% |
-| 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon |  |  |  | 3% |
-| 56 | [Razox](data/species/razox.yaml) | Fairy / Ice |  |  |  | 3% |
-| 57 | [Sigmanian Unown](data/species/bulgarian-unown.yaml) |  |  |  |  | 0% |
-| 58 | [Unknighted](data/species/united.yaml) |  |  |  |  | 0% |
-| 59 | [Hairyen](data/species/hairyen.yaml) | Grass / Water |  |  |  | 3% |
-| 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground |  |  |  | 3% |
-| 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel |  |  |  | 3% |
-| 62 | [Nuclobyl](data/species/nuclobyl.yaml) | Poison / Steel |  |  |  | 3% |
+| 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock |  |  |  | 7% |
+| 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon |  |  |  | 7% |
+| 56 | [Razox](data/species/razox.yaml) | Fairy / Ice |  |  |  | 7% |
+| 57 | [Sigmanian Unown](data/species/bulgarian-unown.yaml) | Electric / Psychic |  | 336 |  | 24% |
+| 58 | [Unknighted](data/species/united.yaml) | Electric / Psychic |  | 425 |  | 24% |
+| 59 | [Hairyen](data/species/hairyen.yaml) | Grass / Water | Diver | 325 |  | 24% |
+| 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Broken Swivel | 540 |  | 24% |
+| 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel |  | 301 |  | 24% |
+| 62 | [Nuclobyl](data/species/nuclobyl.yaml) | Poison / Steel |  | 525 |  | 24% |
 | 63 | [Gentie](data/species/gentie.yaml) |  |  |  |  | 0% |
-| 64 | [Yanklet](data/species/yanklet.yaml) | Steel / Flying |  |  |  | 3% |
-| 65 | [Anjane](data/species/anjane.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 325 | Janenon (Lv 42) | 17% |
-| 66 | [Janenon](data/species/janenon.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 495 |  | 17% |
+| 64 | [Yanklet](data/species/yanklet.yaml) | Steel / Flying |  |  |  | 7% |
+| 65 | [Anjane](data/species/anjane.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 325 | Janenon (Lv 42) | 28% |
+| 66 | [Janenon](data/species/janenon.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 495 |  | 28% |
 | 67 | [Saucerl](data/species/saucerl.yaml) | Psychic / Water |  |  |  | 3% |
 | 68 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water |  |  |  | 3% |
 | 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water |  |  |  | 3% |
 | 70 | [Cryoblade](data/species/cryoblade.yaml) |  |  |  |  | 0% |
-| 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 3% |
+| 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
 | 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
 | 73 | *open slot* | | | | | |
-| 74 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 520 |  | 21% |
+| 74 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 520 |  | 38% |
 | 75 | *open slot* | | | | | |
 | 76 | *open slot* | | | | | |
-| 77 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison |  |  |  | 3% |
-| 78 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground |  |  |  | 3% |
-| 79 | [Ciggiti](data/species/ciggiti.yaml) |  |  |  |  | 0% |
-| 80 | [Chuchar](data/species/chuchar.yaml) |  |  |  |  | 0% |
-| 81 | [Parahaunt](data/species/parahaunt.yaml) |  |  |  |  | 0% |
+| 77 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) |  |  | 24% |
+| 78 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground |  |  |  | 7% |
+| 79 | [Ciggiti](data/species/ciggiti.yaml) | Ghost | Smoked Up | 310 |  | 28% |
+| 80 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 28% |
+| 81 | [Parahaunt](data/species/parahaunt.yaml) | Ghost | Smoked Up | 556 |  | 28% |
 | 82 | [Insectoid](data/species/insectoid.yaml) |  |  |  |  | 0% |
-| 83 | [Darkgonark](data/species/darkgonark.yaml) |  |  |  |  | 0% |
+| 83 | [Darkgonark](data/species/darkgonark.yaml) | Ghost / Steel | Eternal Dirge, Soulforged Body | 550 |  | 28% |
 | 84 | *open slot* | | | | | |
 | 85 | *open slot* | | | | | |
 | 86 | *open slot* | | | | | |
 | 87 | *open slot* | | | | | |
-| 88 | [Gravriel](data/species/gravriel.yaml) | Water / Ghost |  |  |  | 3% |
+| 88 | [Gravriel](data/species/gravriel.yaml) | Water / Ghost | Sap Sipper, Grim Neigh | 580 |  | 28% |
 | 89 | *open slot* | | | | | |
 | 90 | *open slot* | | | | | |
 | 91 | [Dragem](data/species/dragem.yaml) | Dragon / Rock |  |  |  | 3% |
 | 92 | *open slot* | | | | | |
 | 93 | *open slot* | | | | | |
-| 94 | [Skiirtle](data/species/skiirtle.yaml) | Fire |  |  |  | 3% |
-| 95 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric |  |  |  | 3% |
+| 94 | [Skiirtle](data/species/skiirtle.yaml) | Fire |  |  |  | 7% |
+| 95 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric |  |  |  | 7% |
 | 96 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug |  |  |  | 3% |
 | 97 | [Greation](data/species/greation.yaml) | Dragon / Bug |  |  |  | 3% |
 | 98 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug |  |  |  | 3% |
 | 99 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground | Drizzle | 680 |  | 48% |
-| 100 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison |  |  |  | 3% |
+| 100 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician | 680 |  | 28% |

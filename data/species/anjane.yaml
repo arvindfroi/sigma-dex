@@ -9,8 +9,8 @@ credits:
 types: [Dark, Fairy]     # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
+category: Drooping Hair  # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: "Anjane's heavy hair droops down to the ground. It absorbs the curse-filled emotions of others and hangs motionless. When angered, the hair stiffens and sways, unleashing bursts of cursed energy. It's said that when it sways its hair, the sound is like the curse a thousand spirits let loose in a single moan."
 height_m:                # e.g. 0.7
 weight_kg:               # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
@@ -64,11 +64,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: "From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: Lv. 24 -> Janenon; also on the card: Height 2'07\", weight 24.3 lbs; signature move Hex Burst (Fairy, Special, power 95, accuracy 100%, PP 15); role Trick Room Sweeper."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/anjane.png
+  concept_art: "assets/concept-art/anjane/170.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

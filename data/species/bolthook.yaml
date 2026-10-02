@@ -6,18 +6,18 @@ credits:
   designer:              # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: []                # 1 or 2 types, e.g. [Grass, Steel]
+types: [Dark, Flying]    # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+category: Gaze           # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: "Bolthook waits in eerie stillness until prey comes into view. It then spreads its great wings to blot out the sun and strikes with its enormous beak in a single, thunderous blow. The echo of its beak can be heard for miles."
+height_m: 2              # e.g. 0.7
+weight_kg: 86            # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Strong Jaw
   secondary:             # optional
   hidden:                # optional
 
@@ -67,11 +67,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: "From the Discord concept card (Arvind Frøiland, 2026-05-02): also on the card: Notable moves: Crunch, Brutal Swing, Hurricane, Knock Off. Extra note: Its beak is so heavy that it must spread its wings wide to take off. It rarely flaps unless it needs to strike.."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/bolthook.png
+  concept_art: "assets/concept-art/bolthook/182.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

@@ -9,17 +9,17 @@ credits:
 types: [Ice, Poison]     # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+category: Frost Arena    # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: "It hunts in frozen wetlands and icy rivers, using its frost breath and venomous tongue to immobilize prey. When it feels safe or needs to conserve energy, it curls its body into an iglo, using its own icy scales as a protective shell."
+height_m: 2.5            # e.g. 0.7
+weight_kg: 280           # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
-  hidden:                # optional
+  primary: Ice Body
+  secondary: Merciless   # optional
+  hidden: Ice Scales     # optional
 
 base_stats:              # each 1-255
   hp:
@@ -67,11 +67,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: "From the Discord concept card (SLOTHBABY, 2026-10-01): also on the card: Ice Scales is hidden ability; panels for Ice Shards, Frosty Breath, Venomous Tongue, Resting/Sleeping form and size comparison."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/iglomodo.png
+  concept_art: "assets/concept-art/iglomodo/256.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

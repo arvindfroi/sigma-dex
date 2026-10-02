@@ -10,7 +10,7 @@ types: [Normal, Dark]    # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
+description: "It’s loud, it’s fuzzy, and it doesn’t care who hears it. Chebbi lives for the stage—and the chaos it brings."
 height_m:                # e.g. 0.7
 weight_kg:               # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
@@ -64,11 +64,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: "From the Discord concept card (SLOTHBABY, 2026-05-06): also on the card: Lv.50, male; Levitate is the Hidden Ability; Exp. Points 125000, To Next Lv. 7651."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/chebbi.png
+  concept_art: "assets/concept-art/chebbi/200.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

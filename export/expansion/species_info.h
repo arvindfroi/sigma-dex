@@ -367,11 +367,14 @@
         .speciesName = _("Toxiren"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_TOXIREN,
-        .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .categoryName = _("Toxic Siren"),
+        .height = 24,
+        .weight = 687,
         .description = COMPOUND_STRING(
-            "This Pokemon has no Pokedex entry yet."),
+            "Toxsiren is entirely transformed into\n"
+            "toxic waste. Its tentacles are both\n"
+            "alluring and deadly, releasing poisonous\n"
+            "chemicals that can melt flesh and\n"),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,
@@ -463,11 +466,14 @@
         .speciesName = _("Motinky"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_MOTINKY,
-        .categoryName = _("Unknown"),
+        .categoryName = _("Tiki Monkey"),
         .height = 0,
         .weight = 0,
         .description = COMPOUND_STRING(
-            "This Pokemon has no Pokedex entry yet."),
+            "A Pokémon that performs intricate fire\n"
+            "dances, mimicking moves it observes. The\n"
+            "flames on its staff are said to burn\n"
+            "hotter with the complexity of its\n"),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,
@@ -513,11 +519,14 @@
         .speciesName = _("Gortiki"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_GORTIKI,
-        .categoryName = _("Unknown"),
+        .categoryName = _("Tiki Gorilla"),
         .height = 0,
         .weight = 0,
         .description = COMPOUND_STRING(
-            "This Pokemon has no Pokedex entry yet."),
+            "A powerful Pokémon that leads its tribe\n"
+            "with fiery passion. Gortiki’s burning\n"
+            "torch can incinerate thick trees in an\n"
+            "instant. It performs intense dances to\n"),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,
@@ -566,7 +575,9 @@
         .height = 0,
         .weight = 0,
         .description = COMPOUND_STRING(
-            "This Pokemon has no Pokedex entry yet."),
+            "Its voice can shatter glass— and shake\n"
+            "hearts. Debatry won't just be heard,\n"
+            "it'll be remembered."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,
@@ -610,11 +621,12 @@
         .speciesName = _("Galfrogtom"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_GALFROGTOM,
-        .categoryName = _("Unknown"),
+        .categoryName = _("Ghost"),
         .height = 0,
         .weight = 0,
         .description = COMPOUND_STRING(
-            "This Pokemon has no Pokedex entry yet."),
+            "May disable a move that deals damage to\n"
+            "the Pokemon."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,
@@ -658,11 +670,13 @@
         .speciesName = _("Janenon"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_JANENON,
-        .categoryName = _("Unknown"),
+        .categoryName = _("Cursed Cannon"),
         .height = 0,
         .weight = 0,
         .description = COMPOUND_STRING(
-            "This Pokemon has no Pokedex entry yet."),
+            "It's said that when it fires its cannon,\n"
+            "the sound is like the curse a thousand\n"
+            "spirits let loose in a single scream."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,
@@ -706,11 +720,13 @@
         .speciesName = _("Blylem"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_BLYLEM,
-        .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .categoryName = _("Lead Golem"),
+        .height = 26,
+        .weight = 4120,
         .description = COMPOUND_STRING(
-            "This Pokemon has no Pokedex entry yet."),
+            "Born from bones and lead, it rises in\n"
+            "polluted lands. Its touch can corrode\n"
+            "rock and rot even steel."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,

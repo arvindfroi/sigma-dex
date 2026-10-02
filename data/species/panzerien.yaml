@@ -9,25 +9,25 @@ credits:
 types: [Steel, Ground]   # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
+category: Tank           # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: A group of Hairyen has taken over an abandoned tank. They patched it up with swamp weeds and logs to keep moving. It can only fire at what's straight ahead.
+height_m: 1.6            # e.g. 0.7
 weight_kg:               # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Broken Swivel
   secondary:             # optional
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 70
+  attack: 100
+  defense: 130
+  sp_attack: 110
+  sp_defense: 100
+  speed: 30
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -67,11 +67,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: "From the Discord concept card (BUST, 2026-05-02): card name: Panzerion; also on the card: Length 3.2 m; Broken Swivel: can only attack the Pokemon directly in front of it.."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/panzerien.png
+  concept_art: "assets/concept-art/panzerien/284.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

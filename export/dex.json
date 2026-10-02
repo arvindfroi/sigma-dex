@@ -892,23 +892,23 @@
         "Normal",
         "Flying"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Smiley Bird",
+      "description": "Erobi is a cheerful regional bird Pokémon known for the bright yellow feathers covering its face. The black smiley markings on its face look as if they were drawn on with a marker, and they help it appear friendly to both people and Pokémon. Even when startled, Erobi keeps its painted smile, making it difficult to tell what it is really thinking.",
+      "height_m": 0.4,
+      "weight_kg": 1.9,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Keen Eye",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 44,
+        "attack": 45,
+        "defense": 39,
+        "sp_attack": 44,
+        "sp_defense": 64,
+        "speed": 44
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -933,10 +933,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -; flavor 'Erobi flutters around fields and towns, spreading a sense of warmth wherever it goes.'."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/erobi/223.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1010,7 +1010,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/harpie/247.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1040,23 +1040,23 @@
         "Normal",
         "Flying"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Skyemoji Bird",
+      "description": "Smeatherace rides high winds with silent grace, using the emoji-like marking on its chest to signal its flock from afar. When it drops what it carries, its body becomes startlingly light, letting it burst through the sky with incredible speed.",
+      "height_m": 1.7,
+      "weight_kg": 28.4,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Unburden",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 67,
+        "attack": 109,
+        "defense": 60,
+        "sp_attack": 72,
+        "sp_defense": 102,
+        "speed": 85
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -1081,10 +1081,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/smeatherace/306.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1110,14 +1110,17 @@
         "designer": null,
         "artist": null
       },
-      "types": [],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "types": [
+        "Dark",
+        "Flying"
+      ],
+      "category": "Gaze",
+      "description": "Bolthook waits in eerie stillness until prey comes into view. It then spreads its great wings to blot out the sun and strikes with its enormous beak in a single, thunderous blow. The echo of its beak can be heard for miles.",
+      "height_m": 2,
+      "weight_kg": 86,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Strong Jaw",
         "secondary": null,
         "hidden": null
       },
@@ -1152,10 +1155,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (Arvind Frøiland, 2026-05-02): also on the card: Notable moves: Crunch, Brutal Swing, Hurricane, Knock Off. Extra note: Its beak is so heavy that it must spread its wings wide to take off. It rarely flaps unless it needs to strike.."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/bolthook/182.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1228,7 +1231,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/wump/327.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1376,7 +1379,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/florantula/226.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1450,7 +1453,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/cowfin/211.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1524,7 +1527,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/mooceon/268.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1633,8 +1636,8 @@
         "Normal",
         "Fighting"
       ],
-      "category": null,
-      "description": null,
+      "category": "Guard Dog",
+      "description": "It swings its ears like fists to slap the target. Its tough fur protects it while it fights.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
@@ -1676,10 +1679,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/brawleo/183.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1753,7 +1756,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/sigmanian-sudowoodo/295.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1782,13 +1785,13 @@
       "types": [
         "Ice"
       ],
-      "category": null,
-      "description": null,
+      "category": "Frost Swagger",
+      "description": "Icy Freeze roams city streets with effortless swagger, chilling the air around him wherever he goes. When threatened, he unleashes a freezing glare and a burst of icy wind that can stop opponents in their tracks.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Cold Flow",
         "secondary": null,
         "hidden": null
       },
@@ -1829,10 +1832,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (BUST, 2026-05-07): also on the card: Height 4'0\", weight 92 lbs; Coolness 95, Speed 78, Chill Power 98, Style 97; signature move Freeze Flex."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/icy-freeze/250.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1861,13 +1864,13 @@
       "types": [
         "Ice"
       ],
-      "category": null,
-      "description": null,
+      "category": "Ice Rabbit",
+      "description": "Freezrick evolved by gaining more ice mass and perfecting control over its frigid aura. Its hair bangs, made of fine ice crystals, are so cold they conceal even its eyes.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Ice Body",
         "secondary": null,
         "hidden": null
       },
@@ -1902,10 +1905,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Height 2'11\", weight 132.3 lbs. Ice Body: gradually recovers HP in hail. Personality: cool and composed, fiercely loyal. Signature move Ice Egg (Ice, 80 BP, 100% accuracy).."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/freezrick/227.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1935,23 +1938,23 @@
         "Ground",
         "Electric"
       ],
-      "category": null,
-      "description": null,
+      "category": "Little Light",
+      "description": "Its nose glows when it's excited, alert, or using its light. It uses that light to light up dark caves or to blind enemies.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Shell Armor",
+        "secondary": "Earth Eater",
+        "hidden": "Electric Surge"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 40,
+        "attack": 33,
+        "defense": 55,
+        "sp_attack": 50,
+        "sp_defense": 90,
+        "speed": 12
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -1982,10 +1985,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-09-20): also on the card: Earth Eater is the hidden ability; poses Happy, Clumsy, Back view, Light attack."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/bulbtle/192.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2015,23 +2018,23 @@
         "Ground",
         "Electric"
       ],
-      "category": null,
-      "description": null,
+      "category": "Light Shell",
+      "description": "Bulbtoise's shell is made of glass, which it fills with its own light. It uses this light to illuminate caves or to blind enemies in battle.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Shell Armor",
+        "secondary": "Earth Eater",
+        "hidden": "Electric Surge"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 75,
+        "attack": 55,
+        "defense": 95,
+        "sp_attack": 85,
+        "sp_defense": 150,
+        "speed": 20
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -2056,10 +2059,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-09-20): also on the card: Earth Eater is the hidden ability; front/side/back views and four move panels (Lights up caves, Blinds enemies, Earth Eater, Electric Surge)."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/bulbtoise/195.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2132,7 +2135,7 @@
         "notes": "From the Google Doc: Sigmanian Eiscue/eller eiscue evo (Ice/?)"
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/eiscue/221.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2205,7 +2208,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/rainbro/288.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2279,7 +2282,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/autuman/174.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2309,23 +2312,23 @@
         "Bug",
         "Fighting"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Hero",
+      "description": "Bugmight fights for smiles and justice. It flares its wings like a cape to inspire its allies and crush evil with overwhelming might.",
+      "height_m": 1.9,
+      "weight_kg": 75,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
+        "primary": "Guts",
+        "secondary": "Justified",
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 102,
+        "attack": 122,
+        "defense": 92,
+        "sp_attack": 51,
+        "sp_defense": 51,
+        "speed": 92
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -2350,10 +2353,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Tinted Lens; height 6'03\", weight 165.3 lbs."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/bugmight/186.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2383,10 +2386,10 @@
         "Poison",
         "Fairy"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Nuclear Sludge",
+      "description": "Nukfae is made entirely of toxic nuclear waste. Its sweet appearance can be deceiving — it releases highly poisonous chemicals from its body and tentacles. The rainbow sheen on its sludge is a sign of concentrated radiation. It may look friendly, but it can be lethal if it gets too close.",
+      "height_m": 1.2,
+      "weight_kg": 32.5,
       "body_color": null,
       "abilities": {
         "primary": "Liquid Ooze",
@@ -2430,10 +2433,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-09-13): also on the card: Regenerator is hidden ability."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/nukfae/280.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2463,10 +2466,10 @@
         "Poison",
         "Fairy"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Toxic Siren",
+      "description": "Toxsiren is entirely transformed into toxic waste. Its tentacles are both alluring and deadly, releasing poisonous chemicals that can melt flesh and corrode the environment. Despite its dangerous nature, it possesses a haunting beauty that draws in prey and prey alike.",
+      "height_m": 2.4,
+      "weight_kg": 68.7,
       "body_color": null,
       "abilities": {
         "primary": "Liquid Ooze",
@@ -2511,10 +2514,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-09-13): card name: Toxsiren; also on the card: Regenerator is hidden ability."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/toxiren/319.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2543,8 +2546,8 @@
       "types": [
         "Rock"
       ],
-      "category": null,
-      "description": null,
+      "category": "Stone Head",
+      "description": "Can support immense weight on its head. Its thumbs-up form is a mystery of ancient masonry.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
@@ -2592,10 +2595,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-02): evolution on the card: Stonma -> Megastonma; also on the card: MEGASTONMA: Rock type, species Conglomerate Pokémon, ability Mason's Power; entry: A behemoth form achieved by the convergence of many. Using ancient masonry techniques, countless Stonma units align and interlock perfectly to construct this stacked monument. While mimicking a forgotten golem, this colossal form is composed entirely of unified stone heads, each a silent, powerful component.."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/stonma/308.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2674,7 +2677,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/sigmauler/298.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2703,8 +2706,8 @@
       "types": [
         "Grass"
       ],
-      "category": null,
-      "description": null,
+      "category": "Small Tiki",
+      "description": "A very small Pokémon. It struggles to form its first masks, its hands constantly gripping and shaping the raw wood face it wears. The unique green moss that forms around its mouth and in its wood grain provides its natural nutrition. It is much less active than its evolution.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
@@ -2752,10 +2755,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-03)."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/tinky/312.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2785,8 +2788,8 @@
         "Grass",
         "Fire"
       ],
-      "category": null,
-      "description": null,
+      "category": "Tiki Monkey",
+      "description": "A Pokémon that performs intricate fire dances, mimicking moves it observes. The flames on its staff are said to burn hotter with the complexity of its routines. While its tail now trails only smoke, it uses it to create smokescreens.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
@@ -2840,10 +2843,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-03)."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/motinky/272.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2873,8 +2876,8 @@
         "Grass",
         "Fire"
       ],
-      "category": null,
-      "description": null,
+      "category": "Tiki Gorilla",
+      "description": "A powerful Pokémon that leads its tribe with fiery passion. Gortiki’s burning torch can incinerate thick trees in an instant. It performs intense dances to inspire allies and intimidate foes. When its flames die down, it retreats to the jungle to meditate and rekindle its inner fire.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
@@ -2922,10 +2925,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-03): also on the card: Hidden Ability: Huge Power."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/gortiki/234.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2956,7 +2959,7 @@
         "Dark"
       ],
       "category": null,
-      "description": null,
+      "description": "It’s loud, it’s fuzzy, and it doesn’t care who hears it. Chebbi lives for the stage—and the chaos it brings.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
@@ -3004,10 +3007,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-06): also on the card: Lv.50, male; Levitate is the Hidden Ability; Exp. Points 125000, To Next Lv. 7651."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/chebbi/200.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -3038,7 +3041,7 @@
         "Dark"
       ],
       "category": null,
-      "description": null,
+      "description": "Its voice can shatter glass— and shake hearts. Debatry won't just be heard, it'll be remembered.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
@@ -3086,10 +3089,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-07): card name: Debatry; also on the card: Lv.50, male, Exp. Points 125000, To Next Lv. 7651; Hidden Ability Levitate."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/devampry/216.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -3119,23 +3122,23 @@
         "Fire",
         "Water"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Flame Surf",
+      "description": "Chillalit is a laid-back Pokémon that rides a surfboard made of fluid water. It controls the shape and sharpness of the board to outmaneuver opponents. Its flames never burn it—or its board.",
+      "height_m": 1.1,
+      "weight_kg": 26.5,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
+        "primary": "Swift Swim",
+        "secondary": "Battle Bond",
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 47,
+        "attack": 95,
+        "defense": 57,
+        "sp_attack": 109,
+        "sp_defense": 68,
+        "speed": 119
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -3160,10 +3163,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (**Joe**, 2026-05-15): evolution on the card: Battle Bond transformation: defeating an opponent with Battle Bond transforms it into its blue-red Battle Bond Form; also on the card: Normal form stats shown; Battle Bond Form stats HP 47, Atk 118, Def 66, SpA 150, SpD 80, Spe 138, total 599; Battle Bond is the hidden ability; signature moves Scalding Surf and Aqua Slash."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/chillalit/203.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -3193,23 +3196,23 @@
         "Water",
         "Electric"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Eel",
+      "description": "Zapana stores electricity in special cells along its body. It practices by discharging small shocks in the water to stun prey. It grows stronger as it learns to control its power.",
+      "height_m": 0.5,
+      "weight_kg": 5,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
+        "primary": "Static",
+        "secondary": "Lightning Rod",
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 45,
+        "attack": 60,
+        "defense": 35,
+        "sp_attack": 55,
+        "sp_defense": 40,
+        "speed": 65
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -3240,10 +3243,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (johnnes3204, 2026-05-02): evolution on the card: Zapana -> Ampeel -> Zapana (as printed, last stage appears to be a mislabel); also on the card: Lightning Rod is the hidden ability. Notable moves: Thunder Shock, Charge Beam, Aqua Jet, Thunder Wave, Bite, Agility. Catch rate 190, base exp 66, friendship 70.."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/zapana/329.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -3273,23 +3276,23 @@
         "Water",
         "Electric"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Eel",
+      "description": "Ampeel generates electricity by flexing its slender body at high speed. It stores massive amounts of electric energy within its muscles and releases it in blinding bursts. It's extremely aggressive and will attack anything that enters its territory without hesitation.",
+      "height_m": 0.9,
+      "weight_kg": 22,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
+        "primary": "Static Surge",
+        "secondary": "Volt Absorb",
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 70,
+        "attack": 95,
+        "defense": 55,
+        "sp_attack": 95,
+        "sp_defense": 60,
+        "speed": 115
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -3314,10 +3317,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (johnnes3204, 2026-05-02): evolution on the card: Evolves from Zapana at Lv. 26; also on the card: Volt Absorb is the hidden ability. Notable moves: Thunder Shock, Wild Charge, Aqua Jet, Discharge, Coil, Agility.."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/ampeel/169.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -3347,23 +3350,23 @@
         "Poison",
         "Grass"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Toxic Burger",
+      "description": "An urban plain-sight stealth specialist, often found hiding in bins and picnic leftovers. Its leafy eyes reveal its mood.",
+      "height_m": 0.8,
+      "weight_kg": 24.5,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
+        "primary": "Pickle Armor",
+        "secondary": "Chlorophyll",
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 90,
+        "attack": 105,
+        "defense": 95,
+        "sp_attack": 65,
+        "sp_defense": 80,
+        "speed": 45
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -3388,10 +3391,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (Casse, 2026-10-01): card name: Tomadernader; also on the card: Pickle Armor: its sour coating deters any healing effects of any attack from opponents; Chlorophyll is hidden ability; signature move Onion Cyclone (Poison Physical, Power 85, Accuracy 100, 30% chance to poison); Head Smash 70 damage, 30 damage to itself; No. ???."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/tomaterdander/317.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -3421,23 +3424,23 @@
         "Poison",
         "Grass"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Toxic Burger",
+      "description": "It hides among discarded takeaway meals. The fries on its bun bristle when threatened, while its leafy eyes reveal its mood.",
+      "height_m": 1.1,
+      "weight_kg": 42,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
+        "primary": "XL and Deep fried",
+        "secondary": "Chlorophyll",
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 110,
+        "attack": 120,
+        "defense": 110,
+        "sp_attack": 75,
+        "sp_defense": 90,
+        "speed": 55
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -3462,10 +3465,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (Casse, 2026-10-01): evolution on the card: Stage 1, evolves from Tomadernader; also on the card: XL and Deep fried: takes 20 less damage from any attack and opponents take 20 damage when using a melee attack on it; Chlorophyll is hidden ability; moves Leftover Vortex (Power 70, Acc 80) and Acidic Spit (Power 40, Acc 100, poisons); No. ???."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/crappy-meal/213.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -3539,7 +3542,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/beatld/177.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -3568,8 +3571,8 @@
       "types": [
         "Water"
       ],
-      "category": null,
-      "description": null,
+      "category": "Tadpole",
+      "description": "Boosts the Pokemon's Speed stat in rain.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
@@ -3617,10 +3620,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 1, male."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/wispole/324.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -3650,8 +3653,8 @@
         "Ghost",
         "Electric"
       ],
-      "category": null,
-      "description": null,
+      "category": "Ghost",
+      "description": "May disable a move that deals damage to the Pokemon.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
@@ -3698,10 +3701,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/galfrogtom/231.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -3848,7 +3851,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/hippore/249.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -3922,7 +3925,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/docuphant/220.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -3996,7 +3999,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/razox/290.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -4022,11 +4025,14 @@
         "designer": null,
         "artist": null
       },
-      "types": [],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "types": [
+        "Electric",
+        "Psychic"
+      ],
+      "category": "Circuit Symbol",
+      "description": "This form of Unown appears in abandoned control panels and ancient circuit diagrams. It channels energy in one direction, quietly preventing dangerous surges.",
+      "height_m": 0.5,
+      "weight_kg": 5,
       "body_color": null,
       "abilities": {
         "primary": null,
@@ -4034,12 +4040,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 48,
+        "attack": 62,
+        "defense": 48,
+        "sp_attack": 62,
+        "sp_defense": 48,
+        "speed": 68
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -4064,10 +4070,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — DIODE FORM; also on the card: Habitat: abandoned facilities, ancient ruins, underground labs. Behavior: silent and watchful, flickers when sensing erratic or unstable energy. Cry: bzz... >>>> ...."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/bulgarian-unown/198.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -4093,11 +4099,14 @@
         "designer": null,
         "artist": null
       },
-      "types": [],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "types": [
+        "Electric",
+        "Psychic"
+      ],
+      "category": "Closed Circuit",
+      "description": "When four Unown attune to compatible energies, they form a closed circuit. Their connection stabilizes energy flow and prevents dissipation, allowing power to cycle endlessly within their loop. They appear where strong currents convene.",
+      "height_m": 1.4,
+      "weight_kg": 22.8,
       "body_color": null,
       "abilities": {
         "primary": null,
@@ -4105,12 +4114,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 48,
+        "attack": 72,
+        "defense": 60,
+        "sp_attack": 72,
+        "sp_defense": 50,
+        "speed": 123
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -4135,10 +4144,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Google Doc: unknighted (unknown thunder stone?)"
+        "notes": "From the Google Doc: unknighted (unknown thunder stone?)\nFrom the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT FORM; also on the card: Habitat: power plants, energy facilities, abandoned labs and ancient ruins. Behavior: maintains perfect energy circulation; disturbing the balance makes it disassemble and scatter. Cry: bzzztt-krrm...."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/united/322.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -4168,23 +4177,23 @@
         "Grass",
         "Water"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
+      "category": "Ambush",
+      "description": "It hides in marshes beneath curtains of swamp grass. In heavy rain, it sinks low into the water, causing attacks from above to pass harmlessly by.",
+      "height_m": 0.6,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Diver",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 55,
+        "attack": 51,
+        "defense": 90,
+        "sp_attack": 34,
+        "sp_defense": 80,
+        "speed": 15
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -4209,10 +4218,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (BUST, 2026-05-02): also on the card: Diver: Can't be hit by Flying-type moves in rain. Habitat: Swamps, Marshes. Flavor: It lies motionless for days, letting swamp grass grow over it. Those who know the marshes step carefully. Size comparison with a 1.2 m human silhouette.."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/hairyen/242.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -4242,23 +4251,23 @@
         "Steel",
         "Ground"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
+      "category": "Tank",
+      "description": "A group of Hairyen has taken over an abandoned tank. They patched it up with swamp weeds and logs to keep moving. It can only fire at what's straight ahead.",
+      "height_m": 1.6,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Broken Swivel",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 70,
+        "attack": 100,
+        "defense": 130,
+        "sp_attack": 110,
+        "sp_defense": 100,
+        "speed": 30
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -4283,10 +4292,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (BUST, 2026-05-02): card name: Panzerion; also on the card: Length 3.2 m; Broken Swivel: can only attack the Pokemon directly in front of it.."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/panzerien/284.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -4316,10 +4325,10 @@
         "Poison",
         "Steel"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Nano Waste",
+      "description": "It stores unstable waste in its core. When alarmed, it releases toxic fumes and skitters away on cable-like legs.",
+      "height_m": 0.5,
+      "weight_kg": 12.3,
       "body_color": null,
       "abilities": {
         "primary": null,
@@ -4327,12 +4336,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 20,
+        "attack": 40,
+        "defense": 78,
+        "sp_attack": 40,
+        "sp_defense": 60,
+        "speed": 63
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -4357,10 +4366,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (BUST, 2026-05-07): card name: Nucleoid; also on the card: It is composed of recycled alloys and unknown organic matter.."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/nucloid/279.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -4390,10 +4399,10 @@
         "Poison",
         "Steel"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Hazard Core",
+      "description": "Its core has grown dangerously unstable. It lumbers through wastelands, venting corrosive fumes while its reinforced body shields the toxin within.",
+      "height_m": 1.7,
+      "weight_kg": 188.4,
       "body_color": null,
       "abilities": {
         "primary": null,
@@ -4401,12 +4410,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 80,
+        "attack": 59,
+        "defense": 120,
+        "sp_attack": 103,
+        "sp_defense": 103,
+        "speed": 60
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -4431,10 +4440,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (BUST, 2026-05-07): also on the card: Its shell is forged from reinforced alloys and unstable radioactive sludge.."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/nuclobyl/278.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -4579,7 +4588,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/yanklet/328.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -4609,8 +4618,8 @@
         "Dark",
         "Fairy"
       ],
-      "category": null,
-      "description": null,
+      "category": "Drooping Hair",
+      "description": "Anjane's heavy hair droops down to the ground. It absorbs the curse-filled emotions of others and hangs motionless. When angered, the hair stiffens and sways, unleashing bursts of cursed energy. It's said that when it sways its hair, the sound is like the curse a thousand spirits let loose in a single moan.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
@@ -4658,10 +4667,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: Lv. 24 -> Janenon; also on the card: Height 2'07\", weight 24.3 lbs; signature move Hex Burst (Fairy, Special, power 95, accuracy 100%, PP 15); role Trick Room Sweeper."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/anjane/170.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -4691,8 +4700,8 @@
         "Dark",
         "Fairy"
       ],
-      "category": null,
-      "description": null,
+      "category": "Cursed Cannon",
+      "description": "It's said that when it fires its cannon, the sound is like the curse a thousand spirits let loose in a single scream.",
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
@@ -4739,10 +4748,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: ??? -> (Lv. 24) ??? -> (Lv. 48) Janenon; also on the card: Height 5'11\", weight 143 lbs; signature move Hex Burst; role Trick Room Sweeper."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/janenon/258.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -5109,7 +5118,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/roostasaur/291.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -5213,10 +5222,10 @@
         "Rock",
         "Poison"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Lead Golem",
+      "description": "Born from bones and lead, it rises in polluted lands. Its touch can corrode rock and rot even steel.",
+      "height_m": 2.6,
+      "weight_kg": 412,
       "body_color": null,
       "abilities": {
         "primary": "Sturdy",
@@ -5261,10 +5270,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Sand Stream; height 8'06\", weight 908.3 lbs."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/blylem/180.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -5294,15 +5303,15 @@
         "Ice",
         "Poison"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Frost Arena",
+      "description": "It hunts in frozen wetlands and icy rivers, using its frost breath and venomous tongue to immobilize prey. When it feels safe or needs to conserve energy, it curls its body into an iglo, using its own icy scales as a protective shell.",
+      "height_m": 2.5,
+      "weight_kg": 280,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Ice Body",
+        "secondary": "Merciless",
+        "hidden": "Ice Scales"
       },
       "base_stats": {
         "hp": null,
@@ -5335,10 +5344,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-10-01): also on the card: Ice Scales is hidden ability; panels for Ice Shards, Frosty Breath, Venomous Tongue, Resting/Sleeping form and size comparison."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/iglomodo/256.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -5412,7 +5421,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/sandrema/293.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -5438,24 +5447,26 @@
         "designer": null,
         "artist": null
       },
-      "types": [],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "types": [
+        "Ghost"
+      ],
+      "category": "Smoke",
+      "description": "Ciggiti is always puffing on a cigarette it found. Its smoke clouds its mind and body, and it can barely hold itself together. It’s said to enjoy the feeling—right before it fades away.",
+      "height_m": 0.7,
+      "weight_kg": 4.2,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Smoked Up",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 10,
+        "attack": 40,
+        "defense": 30,
+        "sp_attack": 100,
+        "sp_defense": 30,
+        "speed": 100
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -5480,10 +5491,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (BUST, 2026-05-03): also on the card: Smoked Up: This Pokemon faints after three turns in the field.."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/ciggiti/210.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -5509,24 +5520,26 @@
         "designer": null,
         "artist": null
       },
-      "types": [],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "types": [
+        "Ghost"
+      ],
+      "category": "Smoke",
+      "description": "CHURCHAR evolved from CIGGITI after its smoke condensed into a wicked, scheming spirit. It lurks in dim alleys and abandoned halls, grinning through thick haze as its cursed cigar burns ever brighter.",
+      "height_m": 1.2,
+      "weight_kg": 9.6,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Smoked Up",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 45,
+        "attack": 75,
+        "defense": 100,
+        "sp_attack": 170,
+        "sp_defense": 64,
+        "speed": 120
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -5551,10 +5564,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (BUST, 2026-05-03): card name: CHURCHAR; evolution on the card: Evolved from CIGGITI; also on the card: Smoked Up: This Pokemon faints after three turns in the field.."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/chuchar/209.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -5580,24 +5593,26 @@
         "designer": null,
         "artist": null
       },
-      "types": [],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "types": [
+        "Ghost"
+      ],
+      "category": "Smoke",
+      "description": "PARAHAUNT slips through the night like a drifting phantom, silently trailing smoke from its jeweled cigarette holder. It vanishes before anyone can react, leaving only a chill haze and the feeling of being watched.",
+      "height_m": 1,
+      "weight_kg": 6.8,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Smoked Up",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 20,
+        "attack": 76,
+        "defense": 50,
+        "sp_attack": 110,
+        "sp_defense": 90,
+        "speed": 210
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -5622,10 +5637,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (BUST, 2026-05-03): also on the card: Smoked Up: This Pokemon faints after three turns in the field.."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/parahaunt/287.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -5722,24 +5737,27 @@
         "designer": null,
         "artist": null
       },
-      "types": [],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "types": [
+        "Ghost",
+        "Steel"
+      ],
+      "category": "Requiem",
+      "description": "Legends claim that when Darkgonark's song ends, the universe will be remade in perfect, silent harmony.",
+      "height_m": 3.8,
+      "weight_kg": 296.7,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
+        "primary": "Eternal Dirge",
+        "secondary": "Soulforged Body",
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 80,
+        "attack": 130,
+        "defense": 60,
+        "sp_attack": 80,
+        "sp_defense": 60,
+        "speed": 140
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -5764,10 +5782,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (dr.grey8421, 2026-05-02): also on the card: Subtitle The Abyssal Requiem Pokémon; Soulforged Body is the hidden ability; signature move Requiem Breaker (Ghost/Steel, power 160, accuracy 100%, PP 5); also a lore blurb: Darkgonark is said to be the embodiment of ruin and rebirth.."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/darkgonark/215.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -5797,23 +5815,23 @@
         "Water",
         "Ghost"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Ghost Ship",
+      "description": "Long ago, Gravriel was the first mate of a cruel pirate. After betrayal, he was cast into the ocean, left to rot with his ship. Now, he haunts the seabed, seeking those who dare to steal from the deep.",
+      "height_m": 2.1,
+      "weight_kg": 78.6,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
+        "primary": "Sap Sipper",
+        "secondary": "Grim Neigh",
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 81,
+        "attack": 141,
+        "defense": 84,
+        "sp_attack": 141,
+        "sp_defense": 84,
+        "speed": 49
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -5838,10 +5856,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Sap Sipper (regular), Grim Neigh (hidden). Signature moves: Gabriel's Curse (Ghost, 85 BP, 100%), Haunted Slash (Ghost, 85 BP, 100%).."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/gravriel/240.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -5988,7 +6006,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/skiirtle/303.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -6062,7 +6080,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/mcskiirtle/264.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -6388,23 +6406,23 @@
         "Flying",
         "Poison"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Weather Switch",
+      "description": "It stores three swords made of gaseous matter within its body. The oily coating on its wings and tail lets it glide through any weather. It flips the weather at will, bringing balance to the skies above the sea.",
+      "height_m": 1.9,
+      "weight_kg": 82.4,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
+        "primary": "Weather Switch",
+        "secondary": "Technician",
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 124,
+        "attack": 120,
+        "defense": 105,
+        "sp_attack": 120,
+        "sp_defense": 142,
+        "speed": 69
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -6429,10 +6447,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Google Doc: Maagamad/gullmire (Flying, Poison)"
+        "notes": "From the Google Doc: Maagamad/gullmire (Flying, Poison)\nFrom the Discord concept card (Arvind Frøiland, 2026-09-30): card name: Gullmire; also on the card: Weather Switch switches rain to drought and drought to rain, random Drizzle or Drought otherwise; Technician is the hidden ability; signature move Oily Arsenal (Drought Physical, Poison, BP 60x2; Rain Special, Poison, BP 40x3)."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/maagamad/263.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,

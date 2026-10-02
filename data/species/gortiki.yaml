@@ -9,8 +9,8 @@ credits:
 types: [Grass, Fire]     # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
+category: Tiki Gorilla   # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: "A powerful Pokémon that leads its tribe with fiery passion. Gortiki’s burning torch can incinerate thick trees in an instant. It performs intense dances to inspire allies and intimidate foes. When its flames die down, it retreats to the jungle to meditate and rekindle its inner fire."
 height_m:                # e.g. 0.7
 weight_kg:               # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
@@ -69,11 +69,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: "From the Discord concept card (SLOTHBABY, 2026-05-03): also on the card: Hidden Ability: Huge Power."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/gortiki.png
+  concept_art: "assets/concept-art/gortiki/234.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

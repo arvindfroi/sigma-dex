@@ -9,25 +9,25 @@ credits:
 types: [Poison, Grass]   # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+category: Toxic Burger   # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: "An urban plain-sight stealth specialist, often found hiding in bins and picnic leftovers. Its leafy eyes reveal its mood."
+height_m: 0.8            # e.g. 0.7
+weight_kg: 24.5          # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
+  primary: Pickle Armor
+  secondary: Chlorophyll # optional
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 90
+  attack: 105
+  defense: 95
+  sp_attack: 65
+  sp_defense: 80
+  speed: 45
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -67,11 +67,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: "From the Discord concept card (Casse, 2026-10-01): card name: Tomadernader; also on the card: Pickle Armor: its sour coating deters any healing effects of any attack from opponents; Chlorophyll is hidden ability; signature move Onion Cyclone (Poison Physical, Power 85, Accuracy 100, 30% chance to poison); Head Smash 70 damage, 30 damage to itself; No. ???."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/tomaterdander.png
+  concept_art: "assets/concept-art/tomaterdander/317.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

@@ -9,10 +9,10 @@ credits:
 types: [Poison, Fairy]   # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+category: Toxic Siren    # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: "Toxsiren is entirely transformed into toxic waste. Its tentacles are both alluring and deadly, releasing poisonous chemicals that can melt flesh and corrode the environment. Despite its dangerous nature, it possesses a haunting beauty that draws in prey and prey alike."
+height_m: 2.4            # e.g. 0.7
+weight_kg: 68.7          # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
@@ -69,11 +69,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: "From the Discord concept card (SLOTHBABY, 2026-09-13): card name: Toxsiren; also on the card: Regenerator is hidden ability."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/toxiren.png
+  concept_art: "assets/concept-art/toxiren/319.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
