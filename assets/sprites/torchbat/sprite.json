@@ -12,14 +12,14 @@
     "icon.png (the front picture shrunk; a hand-made icon looks better)"
   ],
   "sources": {
-    "back": "a3b68f6a01865bd1",
-    "front": "145d4c7d710cca3f"
+    "back": "f32c1fec26bf3def",
+    "front": "16f029fbde957b5c"
   },
-  "note": "made by hand",
+  "note": "AI draft",
   "back": {
-    "width": 32,
+    "width": 48,
     "height": 48,
-    "y_offset": 9
+    "y_offset": 11
   },
   "icon_palette": 5
 }

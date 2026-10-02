@@ -182,8 +182,8 @@
         "no_flip": false,
         "elevation": 0,
         "front_y_offset": 11,
-        "back_y_offset": 9,
-        "icon_palette": 5,
+        "back_y_offset": 10,
+        "icon_palette": 1,
         "safari_flee_rate": 0
       },
       "id": "leafing"
@@ -414,7 +414,28 @@
         }
       ],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 6,
+            "move": "Water Gun"
+          },
+          {
+            "level": 10,
+            "move": "Bite"
+          },
+          {
+            "level": 15,
+            "move": "Aqua Jet"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -423,7 +444,7 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones."
       },
       "assets": {
         "concept_art": "assets/concept-art/waffy/336.webp",
@@ -438,8 +459,8 @@
       "engine": {
         "no_flip": false,
         "elevation": 0,
-        "front_y_offset": 10,
-        "back_y_offset": 15,
+        "front_y_offset": 12,
+        "back_y_offset": 10,
         "icon_palette": 3,
         "safari_flee_rate": 0
       },
@@ -689,7 +710,28 @@
         }
       ],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Scratch"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 6,
+            "move": "Ember"
+          },
+          {
+            "level": 10,
+            "move": "Supersonic"
+          },
+          {
+            "level": 15,
+            "move": "Wing Attack"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -698,7 +740,7 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones."
       },
       "assets": {
         "concept_art": "assets/concept-art/torchbat/371.png",
@@ -714,7 +756,7 @@
         "no_flip": false,
         "elevation": 0,
         "front_y_offset": 11,
-        "back_y_offset": 9,
+        "back_y_offset": 11,
         "icon_palette": 5,
         "safari_flee_rate": 0
       },
@@ -2603,7 +2645,7 @@
         "notes": "From the Discord concept card (SLOTHBABY, 2026-05-02): evolution on the card: Stonma -> Megastonma; also on the card: MEGASTONMA: Rock type, species Conglomerate Pokémon, ability Mason's Power; entry: A behemoth form achieved by the convergence of many. Using ancient masonry techniques, countless Stonma units align and interlock perfectly to construct this stacked monument. While mimicking a forgotten golem, this colossal form is composed entirely of unified stone heads, each a silent, powerful component.."
       },
       "assets": {
-        "concept_art": "assets/concept-art/stonma/308.webp",
+        "concept_art": "assets/concept-art/stonma/379.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2682,7 +2724,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": "assets/concept-art/sigmauler/298.webp",
+        "concept_art": "assets/concept-art/sigmauler/299.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,

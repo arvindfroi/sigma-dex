@@ -52,7 +52,13 @@ evolutions:
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Growl}
+    - {level: 6, move: Water Gun}
+    - {level: 10, move: Bite}
+    - {level: 15, move: Aqua Jet}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
@@ -64,7 +70,7 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
@@ -81,7 +87,7 @@ assets:
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle
-  front_y_offset: 10     # pixels the front sprite is moved down
-  back_y_offset: 15      # pixels the back sprite is moved down
+  front_y_offset: 12     # pixels the front sprite is moved down
+  back_y_offset: 10      # pixels the back sprite is moved down
   icon_palette: 3        # 0, 1 or 2 - which shared icon palette fits best
   safari_flee_rate: 0

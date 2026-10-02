@@ -917,13 +917,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 298,
-    "species": "sigmauler",
-    "file": "assets/concept-art/sigmauler/298.webp",
-    "caption": "Concept card with Stonma from Discord, posted by SLOTHBABY 2026-05-02",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 299,
     "species": "sigmauler",
     "file": "assets/concept-art/sigmauler/299.webp",
@@ -931,23 +924,9 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 300,
-    "species": "sigmauler",
-    "file": "assets/concept-art/sigmauler/300.webp",
-    "caption": "Sprite from Discord, posted by BUST 2026-05-02 (matched from context)",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 301,
     "species": "sigmauler",
     "file": "assets/concept-art/sigmauler/301.webp",
-    "caption": "Sketch from Discord, posted by SLOTHBABY 2026-05-02 (matched from context)",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 302,
-    "species": "sigmauler",
-    "file": "assets/concept-art/sigmauler/302.webp",
     "caption": "Sketch from Discord, posted by SLOTHBABY 2026-05-02 (matched from context)",
     "editor": "Claude (from Discord)"
   },
@@ -984,34 +963,6 @@
     "species": "smeatherace",
     "file": "assets/concept-art/smeatherace/307.webp",
     "caption": "Sketch from Discord, posted by BUST 2026-05-02 (matched from context)",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 308,
-    "species": "stonma",
-    "file": "assets/concept-art/stonma/308.webp",
-    "caption": "Concept card with Sigmauler from Discord, posted by SLOTHBABY 2026-05-02",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 309,
-    "species": "stonma",
-    "file": "assets/concept-art/stonma/309.webp",
-    "caption": "Concept card from Discord, posted by SLOTHBABY 2026-05-02",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 310,
-    "species": "stonma",
-    "file": "assets/concept-art/stonma/310.webp",
-    "caption": "Concept card from Discord, posted by SLOTHBABY 2026-05-02",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 311,
-    "species": "stonma",
-    "file": "assets/concept-art/stonma/311.webp",
-    "caption": "Concept card with Sigmauler from Discord, posted by BUST 2026-05-02",
     "editor": "Claude (from Discord)"
   },
   {
@@ -1316,48 +1267,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 365,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/365.png",
-    "caption": "[front] AI draft #16",
-    "editor": "Claude (starter test)"
-  },
-  {
-    "id": 366,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/366.png",
-    "caption": "[back] AI draft #16",
-    "editor": "Claude (starter test)"
-  },
-  {
-    "id": 367,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/367.png",
-    "caption": "[front] AI draft #18",
-    "editor": "Claude (starter test)"
-  },
-  {
-    "id": 368,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/368.png",
-    "caption": "[back] AI draft #18",
-    "editor": "Claude (starter test)"
-  },
-  {
-    "id": 369,
-    "species": "torchbat",
-    "file": "assets/concept-art/torchbat/369.png",
-    "caption": "[front] AI draft #20",
-    "editor": "Claude (starter test)"
-  },
-  {
-    "id": 370,
-    "species": "torchbat",
-    "file": "assets/concept-art/torchbat/370.png",
-    "caption": "[back] AI draft #20",
-    "editor": "Claude (starter test)"
-  },
-  {
     "id": 371,
     "species": "torchbat",
     "file": "assets/concept-art/torchbat/371.png",
@@ -1379,17 +1288,87 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 374,
-    "species": "torchbat",
-    "file": "assets/concept-art/torchbat/374.webp",
-    "caption": "Pixel version, cut out of the starter-choice picture from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 375,
     "species": "waffy",
     "file": "assets/concept-art/waffy/375.webp",
     "caption": "Pixel version, cut out of the starter-choice picture from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
     "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 376,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/376.webp",
+    "caption": "Concept art, cut out of the Torchbat line sheet that was uploaded on the website",
+    "editor": "Claude"
+  },
+  {
+    "id": 377,
+    "species": "heatbat",
+    "file": "assets/concept-art/heatbat/377.webp",
+    "caption": "Concept art, cut out of the Torchbat line sheet that was uploaded on the website",
+    "editor": "Claude"
+  },
+  {
+    "id": 378,
+    "species": "blazterra",
+    "file": "assets/concept-art/blazterra/378.webp",
+    "caption": "Concept art, cut out of the Torchbat line sheet that was uploaded on the website",
+    "editor": "Claude"
+  },
+  {
+    "id": 379,
+    "species": "stonma",
+    "file": "assets/concept-art/stonma/379.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 380,
+    "species": "stonma",
+    "file": "assets/concept-art/stonma/380.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 381,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/381.png",
+    "caption": "[front] AI draft #31",
+    "editor": "Claude (pipeline test)"
+  },
+  {
+    "id": 382,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/382.png",
+    "caption": "[back] AI draft #31",
+    "editor": "Claude (pipeline test)"
+  },
+  {
+    "id": 383,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/383.png",
+    "caption": "[front] AI draft #37",
+    "editor": "Claude (pipeline test)"
+  },
+  {
+    "id": 384,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/384.png",
+    "caption": "[back] AI draft #37",
+    "editor": "Claude (pipeline test)"
+  },
+  {
+    "id": 385,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/385.png",
+    "caption": "[front] AI draft #33",
+    "editor": "Claude (pipeline test)"
+  },
+  {
+    "id": 386,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/386.png",
+    "caption": "[back] AI draft #33",
+    "editor": "Claude (pipeline test)"
   }
 ]

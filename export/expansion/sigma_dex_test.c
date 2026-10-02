@@ -89,6 +89,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Leafaxer can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Waffy has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WAFFY];
+    EXPECT_EQ(info->baseHP, 55);
+    EXPECT_EQ(info->baseAttack, 65);
+    EXPECT_EQ(info->baseDefense, 50);
+    EXPECT_EQ(info->baseSpeed, 55);
+    EXPECT_EQ(info->baseSpAttack, 45);
+    EXPECT_EQ(info->baseSpDefense, 50);
+    EXPECT_EQ(info->types[0], TYPE_WATER);
+    EXPECT_EQ(info->types[1], TYPE_WATER);
+    EXPECT_EQ(info->abilities[0], ABILITY_TORRENT);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_TACKLE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_WAFFY)[0], CHAR_W);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Waffy can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_WAFFY) { Moves(MOVE_TACKLE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_TACKLE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_TACKLE, player);
+    }
+}
+
 TEST("Sigma dex: Wealther has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WEALTHER];
@@ -142,6 +170,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Warrallier can use its first move in battle")
         TURN { MOVE(player, MOVE_FLIP_TURN); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FLIP_TURN, player);
+    }
+}
+
+TEST("Sigma dex: Torchbat has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_TORCHBAT];
+    EXPECT_EQ(info->baseHP, 40);
+    EXPECT_EQ(info->baseAttack, 50);
+    EXPECT_EQ(info->baseDefense, 45);
+    EXPECT_EQ(info->baseSpeed, 75);
+    EXPECT_EQ(info->baseSpAttack, 65);
+    EXPECT_EQ(info->baseSpDefense, 45);
+    EXPECT_EQ(info->types[0], TYPE_FIRE);
+    EXPECT_EQ(info->types[1], TYPE_FIRE);
+    EXPECT_EQ(info->abilities[0], ABILITY_BLAZE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SCRATCH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_TORCHBAT)[0], CHAR_T);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Torchbat can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_TORCHBAT) { Moves(MOVE_SCRATCH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SCRATCH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
     }
 }
 

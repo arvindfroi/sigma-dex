@@ -1,6 +1,6 @@
 {
   "tool_version": 1,
-  "colors": 15,
+  "colors": 14,
   "animated": false,
   "front": {
     "width": 40,
@@ -12,14 +12,14 @@
     "icon.png (the front picture shrunk; a hand-made icon looks better)"
   ],
   "sources": {
-    "back": "6398f1c798234f78",
-    "front": "218b1698e3071a6f"
+    "back": "9e41101b784d6c61",
+    "front": "5c2e2bea68b8599a"
   },
-  "note": "made by hand",
+  "note": "AI draft",
   "back": {
-    "width": 40,
+    "width": 48,
     "height": 48,
-    "y_offset": 9
+    "y_offset": 10
   },
-  "icon_palette": 5
+  "icon_palette": 1
 }

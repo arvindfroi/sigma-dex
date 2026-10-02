@@ -883,7 +883,8 @@ function openEditor(s) {
     const id = isNew ? slugify(data.name) : s.id;
     save.disabled = true; save.textContent = "Saving...";
     try {
-      await saveEdit("species", id, data, f.editor.value, f.key.value);
+      // _base = the Pokemon as it was when this form opened, so only what was changed here gets applied.
+      await saveEdit("species", id, isNew ? data : Object.assign({}, data, {_base: d}), f.editor.value, f.key.value);
       const entry = isNew ? {id, problems: []} : s;
       entry.data = data; entry.pending = {editor: f.editor.value.trim()}; entry.problems = [];
       if (isNew) DEX.species.push(entry);

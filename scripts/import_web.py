@@ -41,6 +41,36 @@ def fetch_rows(settings, cursor):
             return rows
 
 
+def empty(value):
+    return value in (None, "", [], {})
+
+
+def changed(new, old):
+    return not (empty(new) and empty(old)) and new != old
+
+
+def merge_edit(current, new, base):
+    """Apply only what the editor actually changed (new versus the `base` they started from) onto the file.
+
+    The website sends the whole Pokemon. If the page was opened before somebody else's change
+    landed, saving everything would undo that change; this keeps it.
+    """
+    merged = copy.deepcopy(current)
+    for key, parts in dexlib.FIELDS.items():
+        if key in KEPT_FROM_FILE or key == "dex":
+            continue
+        if parts and isinstance(new.get(key) or {}, dict) and isinstance(base.get(key) or {}, dict):
+            for part in parts:
+                value, before = (new.get(key) or {}).get(part), (base.get(key) or {}).get(part)
+                if changed(value, before):
+                    if not isinstance(merged.get(key), dict):
+                        merged[key] = {}
+                    merged[key][part] = copy.deepcopy(value)
+        elif changed(new.get(key), base.get(key)):
+            merged[key] = copy.deepcopy(new.get(key))
+    return merged
+
+
 def known_fields_only(data):
     """Keep only fields a species file can hold, so stray input never reaches a file."""
     cleaned = {}
@@ -115,6 +145,9 @@ def main():
             if not isinstance(row.get("data"), dict) or dexlib.slugify(sid) != sid or not sid:
                 raise ValueError("the saved data is not a Pokemon")
             updated = known_fields_only(row["data"])
+            base = row["data"].get("_base")
+            if sid in files and isinstance(base, dict):
+                updated = merge_edit(files[sid][1], updated, known_fields_only(base))
             if sid in files:
                 path, current = files[sid]
                 updated["dex"] = current.get("dex")

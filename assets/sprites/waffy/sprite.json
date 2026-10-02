@@ -5,21 +5,21 @@
   "front": {
     "width": 48,
     "height": 48,
-    "y_offset": 10
+    "y_offset": 12
   },
   "drafts": [
     "shiny.pal (same colors as normal until a shiny picture is given)",
     "icon.png (the front picture shrunk; a hand-made icon looks better)"
   ],
   "sources": {
-    "back": "848071c705a2faaf",
-    "front": "05f665b76ade9684"
+    "back": "a1c50e66e5542cdf",
+    "front": "5a2b864089291c71"
   },
-  "note": "made by hand",
+  "note": "AI draft",
   "back": {
-    "width": 48,
-    "height": 40,
-    "y_offset": 15
+    "width": 64,
+    "height": 48,
+    "y_offset": 10
   },
   "icon_palette": 3
 }
