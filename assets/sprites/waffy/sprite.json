@@ -1,0 +1,25 @@
+{
+  "tool_version": 1,
+  "colors": 15,
+  "animated": false,
+  "front": {
+    "width": 48,
+    "height": 64,
+    "y_offset": 1
+  },
+  "drafts": [
+    "shiny.pal (same colors as normal until a shiny picture is given)",
+    "icon.png (the front picture shrunk; a hand-made icon looks better)"
+  ],
+  "sources": {
+    "back": "ee7d1805caa82065",
+    "front": "6f972675fa1e57d6"
+  },
+  "note": "AI draft",
+  "back": {
+    "width": 48,
+    "height": 64,
+    "y_offset": 1
+  },
+  "icon_palette": 3
+}

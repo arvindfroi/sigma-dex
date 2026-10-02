@@ -96,6 +96,39 @@ def apply_game_code(game, examples):
     return constants, found
 
 
+def apply_sprites(game):
+    """Copy the sprite files of every exported Pokemon that has sprites into the game's graphics folder."""
+    target = game / "graphics" / "pokemon" / "sigma"
+    if target.exists():
+        shutil.rmtree(target)
+    wanted = sorted(set(re.findall(r"graphics/pokemon/sigma/([a-z0-9-]+)/", (SOURCE / "graphics.h").read_text(encoding="utf-8"))))
+    for sid in wanted:
+        (target / sid).mkdir(parents=True)
+        for path in (dexlib.ROOT / "assets" / "sprites" / sid).iterdir():
+            if path.suffix in (".png", ".pal") and path.name not in ("preview.png", "front.png"):
+                shutil.copyfile(path, target / sid / path.name)
+    return wanted
+
+
+def apply_starters(game, exported):
+    """Make the three Pokemon named under `starters` in data/config.yaml the ones in Professor Birch's bag.
+
+    Only when all three are in the game; otherwise the game's own starters are put back.
+    """
+    names = {sid: data.get("name") for sid, _, data in dexlib.load_species()[0]}
+    chosen = [s for s in (dexlib.load_config().get("starters") or []) if s in names]
+    constants = ["SPECIES_" + dexlib.constant(names[s]) for s in chosen]
+    usable = len(constants) == 3 and all(c + "," in exported for c in constants)
+    rows = constants if usable else ["GRASS_STARTER", "FIRE_STARTER", "WATER_STARTER"]
+    path = game / "src" / "starter_choose.c"
+    source, count = re.subn(r"(static const u16 sStarterMon\[STARTER_MON_COUNT\] =\n\{\n).*?(\};)",
+                            lambda m: m.group(1) + "".join("    %s,\n" % row for row in rows) + m.group(2), path.read_text(encoding="utf-8"), flags=re.S)
+    if count != 1:
+        sys.exit("%s: could not find the starter list." % path)
+    path.write_text(source, encoding="utf-8")
+    return [names[s] for s in chosen] if usable else []
+
+
 def generated(name):
     text = (SOURCE / name).read_text(encoding="utf-8")
     return "".join(line + "\n" for line in text.split("\n") if line and not line.startswith("// GENERATED"))
@@ -111,7 +144,7 @@ def main():
 
     target = game / "src" / "data" / "pokemon" / "sigma"
     target.mkdir(exist_ok=True)
-    for name in ("species_info.h", "level_up_learnsets.h", "teachable_learnsets.h", "egg_moves.h"):
+    for name in ("species_info.h", "level_up_learnsets.h", "teachable_learnsets.h", "egg_moves.h", "graphics.h"):
         shutil.copyfile(SOURCE / name, target / name)
     shutil.copyfile(SOURCE / "sigma_dex_test.c", game / "test" / "sigma_dex.c")
 
@@ -130,10 +163,12 @@ def main():
         sys.exit("%s: could not find the NATIONAL_DEX_COUNT line to update." % pokedex)
     pokedex.write_text(source, encoding="utf-8")
     insert(game / "src" / "pokemon.c", '#include "data/pokemon/egg_moves.h"',
-           '#include "data/pokemon/sigma/level_up_learnsets.h"\n#include "data/pokemon/sigma/teachable_learnsets.h"\n#include "data/pokemon/sigma/egg_moves.h"\n',
+           '#include "data/pokemon/sigma/graphics.h"\n#include "data/pokemon/sigma/level_up_learnsets.h"\n#include "data/pokemon/sigma/teachable_learnsets.h"\n#include "data/pokemon/sigma/egg_moves.h"\n',
            before=False)
     insert(game / "src" / "data" / "pokemon" / "species_info.h", "You may add any custom species below this point",
            '    #include "sigma/species_info.h"\n')
+    sprites = apply_sprites(game)
+    starters = apply_starters(game, species)
     constants, found = apply_game_code(game, "--examples" in sys.argv)
     engine = dexlib.load_engine()
     for kind, prefix in (("moves", "MOVE_"), ("abilities", "ABILITY_")):
@@ -142,8 +177,9 @@ def main():
             if entry.get("implemented") and const not in constants[kind]:
                 sys.exit("%s is marked implemented in data/custom_%s.yaml but game/%s/ has no file defining %s."
                          % (entry["name"], kind, kind, const))
-    print("Applied %d Pokemon, %d new moves, %d new abilities, %d code patches to %s" % (
-        len(species.strip().split("\n")), len(constants["moves"]), len(constants["abilities"]), len(found["patches"]), game))
+    print("Applied %d Pokemon (%d with their own sprites), %d new moves, %d new abilities, %d code patches to %s" % (
+        len(species.strip().split("\n")), len(sprites), len(constants["moves"]), len(constants["abilities"]), len(found["patches"]), game))
+    print("Starters: %s" % (", ".join(starters) if starters else "the game's own (set three exported Pokemon under `starters` in data/config.yaml to change)"))
     print('Build the game as usual. To run the checks: make check TESTS="Sigma"')
 
 

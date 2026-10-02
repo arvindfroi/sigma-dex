@@ -59,7 +59,8 @@ From this repository:
 python scripts/apply_to_expansion.py ~/sigma-expansion
 ```
 
-That copies the Pokemon in `export/expansion/` and the hand-written moves, abilities and
+That copies the Pokemon in `export/expansion/` (with their sprites, where they have any),
+sets the starters named in `data/config.yaml`, and copies the hand-written moves, abilities and
 tests in [`game/`](../game/README.md) into the game's source and hooks them in. Run it again whenever the dex has changed, then
 build again. Which Pokemon are included, and what each of the others still needs, is listed
 in [`export/expansion/NOT_READY.md`](../export/expansion/NOT_READY.md).

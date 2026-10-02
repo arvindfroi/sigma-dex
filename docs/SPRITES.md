@@ -56,7 +56,16 @@ Still placeholders until someone supplies them: the shiny colors, a hand-made ic
 animation frame, the footprint and the cry. `python scripts/sprites.py check` checks every
 folder against the rules above; the automatic checks run it too.
 
-## Not done yet
+## In the game
 
-The game export still uses the question-mark placeholder for every Pokemon. Putting these
-files into the game build is the next step.
+`scripts/export_expansion.py` writes the sprite files of every exported Pokemon into the game
+code (`export/expansion/graphics.h`), and `scripts/apply_to_expansion.py` copies the files to
+`graphics/pokemon/sigma/` in the game. A Pokemon without sprites keeps the question mark.
+First done on 2026-10-03 with the three starters; this is what the game's own tools decode
+from the built graphics (front, back, icon):
+
+![starters](img/starters_in_rom.png)
+
+The three Pokemon under `starters` in `data/config.yaml` replace Treecko, Torchic and Mudkip
+in Professor Birch's bag once all three are in the game. Still missing for every Pokemon:
+shiny colors, a second animation frame, footprint, cry and the small overworld sprite.

@@ -3,6 +3,11 @@
     "project": "Council of the Sigmas Pokedex",
     "region": null,
     "dex_size": 100,
+    "starters": [
+      "leafing",
+      "torchbat",
+      "waffy"
+    ],
     "web_edits": {
       "url": "https://hlkabnevaljtrbldgeqm.supabase.co",
       "key": "sb_publishable_wCNbjGSHaUnR-Iur5Z86SA_RlJetVYW"
@@ -164,11 +169,11 @@
         "notes": "PROOF OF CONCEPT - every value in this file except name, type and evolution is a draft proposed by Claude on 2026-10-02. The Council should review and replace them."
       },
       "assets": {
-        "concept_art": null,
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
+        "concept_art": "assets/concept-art/leafing/330.png",
+        "front_sprite": "assets/sprites/leafing/front.png",
+        "front_anim": "assets/sprites/leafing/anim_front.png",
+        "back_sprite": "assets/sprites/leafing/back.png",
+        "icon": "assets/sprites/leafing/icon.png",
         "footprint": null,
         "shiny_palette": null,
         "cry": null
@@ -176,9 +181,9 @@
       "engine": {
         "no_flip": false,
         "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
+        "front_y_offset": 1,
+        "back_y_offset": 1,
+        "icon_palette": 1,
         "safari_flee_rate": 0
       },
       "id": "leafing"
@@ -409,7 +414,28 @@
         }
       ],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 6,
+            "move": "Water Gun"
+          },
+          {
+            "level": 10,
+            "move": "Bite"
+          },
+          {
+            "level": 15,
+            "move": "Aqua Jet"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -418,14 +444,14 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones."
       },
       "assets": {
-        "concept_art": null,
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
+        "concept_art": "assets/concept-art/waffy/332.png",
+        "front_sprite": "assets/sprites/waffy/front.png",
+        "front_anim": "assets/sprites/waffy/anim_front.png",
+        "back_sprite": "assets/sprites/waffy/back.png",
+        "icon": "assets/sprites/waffy/icon.png",
         "footprint": null,
         "shiny_palette": null,
         "cry": null
@@ -433,9 +459,9 @@
       "engine": {
         "no_flip": false,
         "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
+        "front_y_offset": 1,
+        "back_y_offset": 1,
+        "icon_palette": 3,
         "safari_flee_rate": 0
       },
       "id": "waffy"
@@ -684,7 +710,28 @@
         }
       ],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Scratch"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 6,
+            "move": "Ember"
+          },
+          {
+            "level": 10,
+            "move": "Supersonic"
+          },
+          {
+            "level": 15,
+            "move": "Wing Attack"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -693,14 +740,14 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones."
       },
       "assets": {
-        "concept_art": null,
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
+        "concept_art": "assets/concept-art/torchbat/334.png",
+        "front_sprite": "assets/sprites/torchbat/front.png",
+        "front_anim": "assets/sprites/torchbat/anim_front.png",
+        "back_sprite": "assets/sprites/torchbat/back.png",
+        "icon": "assets/sprites/torchbat/icon.png",
         "footprint": null,
         "shiny_palette": null,
         "cry": null
@@ -708,9 +755,9 @@
       "engine": {
         "no_flip": false,
         "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
+        "front_y_offset": 2,
+        "back_y_offset": 12,
+        "icon_palette": 1,
         "safari_flee_rate": 0
       },
       "id": "torchbat"

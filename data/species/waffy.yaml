@@ -52,7 +52,13 @@ evolutions:
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  level_up:
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Growl}
+    - {level: 6, move: Water Gun}
+    - {level: 10, move: Bite}
+    - {level: 15, move: Aqua Jet}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
@@ -64,15 +70,15 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes:
+  notes: DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/waffy.png
-  front_sprite:          # front.png      64x64, 16 colors
-  front_anim:            # anim_front.png 64x128, two frames stacked
-  back_sprite:           # back.png       64x64, same 16 colors as the front
-  icon:                  # icon.png       32x64, two frames stacked
+  concept_art: "assets/concept-art/waffy/332.png"
+  front_sprite: "assets/sprites/waffy/front.png"
+  front_anim: "assets/sprites/waffy/anim_front.png"
+  back_sprite: "assets/sprites/waffy/back.png"
+  icon: "assets/sprites/waffy/icon.png" # icon.png       32x64, two frames stacked
   footprint:             # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
@@ -81,7 +87,7 @@ assets:
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle
-  front_y_offset:        # pixels the front sprite is moved down
-  back_y_offset:         # pixels the back sprite is moved down
-  icon_palette:          # 0, 1 or 2 - which shared icon palette fits best
+  front_y_offset: 1      # pixels the front sprite is moved down
+  back_y_offset: 1       # pixels the back sprite is moved down
+  icon_palette: 3        # 0, 1 or 2 - which shared icon palette fits best
   safari_flee_rate: 0

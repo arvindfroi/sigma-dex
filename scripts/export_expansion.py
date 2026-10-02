@@ -7,6 +7,7 @@ ready Pokemon still lacks gets a neutral default, and sprites and cry use the ga
 question-mark placeholders. scripts/apply_to_expansion.py puts the files into a checkout
 of the game.
 """
+import json
 import textwrap
 
 import dexlib
@@ -90,7 +91,65 @@ def evolution(evo, target):
     return simple.get(method)
 
 
-def species_block(data, ready_ids, id_names, names, notes):
+GAME_CHARACTERS = {"\u2014": "-", "\u2013": "-", "\u2019": "'", "\u2018": "'", "\u201c": '"', "\u201d": '"', "\u2026": "..."}
+
+
+def game_text(text):
+    """Text as the game can show it: typographic dashes and quotes become plain ones, unknown letters lose their accent."""
+    import unicodedata
+    out = []
+    for char in str(text):
+        char = GAME_CHARACTERS.get(char, char)
+        if ord(char[0]) > 126 and char not in "éÉ":
+            char = unicodedata.normalize("NFKD", char).encode("ascii", "ignore").decode() or "?"
+        out.append(char)
+    return "".join(out)
+
+
+def sprite_facts(sid):
+    """What scripts/sprites.py recorded about a Pokemon's sprites, or None if it has none."""
+    folder = ROOT / "assets" / "sprites" / sid
+    if not all((folder / name).is_file() for name in ("anim_front.png", "normal.pal", "shiny.pal", "icon.png", "sprite.json")):
+        return None
+    facts = json.loads((folder / "sprite.json").read_text(encoding="utf-8"))
+    facts["has_back"] = (folder / "back.png").is_file() and "back" in facts
+    return facts
+
+
+def graphics_block(sid, name, facts):
+    """The lines that put a Pokemon's sprite files into the game."""
+    var, base = ident(name), "graphics/pokemon/sigma/%s/" % sid
+    lines = ['const u32 gMonFrontPic_%s[] = INCGFX_U32("%sanim_front.png", ".4bpp.smol");' % (var, base),
+             'const u16 gMonPalette_%s[] = INCGFX_U16("%snormal.pal", ".gbapal");' % (var, base),
+             'const u16 gMonShinyPalette_%s[] = INCGFX_U16("%sshiny.pal", ".gbapal");' % (var, base),
+             'const u8 gMonIcon_%s[] = INCGFX_U8("%sicon.png", ".4bpp");' % (var, base)]
+    if facts["has_back"]:
+        lines.append('const u32 gMonBackPic_%s[] = INCGFX_U32("%sback.png", ".4bpp.smol");' % (var, base))
+    return "\n".join(lines) + "\n\n"
+
+
+def art_rows(sid, var, engine):
+    """The sprite fields: the Pokemon's own sprites if it has them, the question mark otherwise."""
+    facts = sprite_facts(sid)
+    size = lambda box: "MON_COORDS_SIZE(%d, %d)" % (box["width"], box["height"])
+    back_offset = str(engine.get("back_y_offset") if engine.get("back_y_offset") is not None else 7)
+    if not facts:
+        return [(".frontPic", "gMonFrontPic_CircledQuestionMark"), (".frontPicSize", "MON_COORDS_SIZE(64, 64)"),
+                (".frontPicYOffset", str(engine.get("front_y_offset") or 0)), (".frontAnimFrames", "sAnims_SingleFramePlaceHolder"),
+                (".backPic", "gMonBackPic_CircledQuestionMark"), (".backPicSize", "MON_COORDS_SIZE(64, 64)"),
+                (".backPicYOffset", back_offset), (".backAnimId", "BACK_ANIM_NONE"),
+                (".palette", "gMonPalette_CircledQuestionMark"), (".shinyPalette", "gMonShinyPalette_CircledQuestionMark"),
+                (".iconSprite", "gMonIcon_QuestionMark"), (".iconPalIndex", str(engine.get("icon_palette") or 0))]
+    frames = "ANIM_FRAMES(ANIMCMD_FRAME(0, 1), ANIMCMD_FRAME(1, 30), ANIMCMD_FRAME(0, 10))" if facts.get("animated") else "sAnims_SingleFramePlaceHolder"
+    back = [(".backPic", "gMonBackPic_%s" % var), (".backPicSize", size(facts["back"])), (".backPicYOffset", str(facts["back"]["y_offset"]))] if facts["has_back"] else \
+           [(".backPic", "gMonBackPic_CircledQuestionMark"), (".backPicSize", "MON_COORDS_SIZE(64, 64)"), (".backPicYOffset", back_offset)]
+    return [(".frontPic", "gMonFrontPic_%s" % var), (".frontPicSize", size(facts["front"])), (".frontPicYOffset", str(facts["front"]["y_offset"])),
+            (".frontAnimFrames", frames)] + back + [(".backAnimId", "BACK_ANIM_NONE"),
+            (".palette", "gMonPalette_%s" % var), (".shinyPalette", "gMonShinyPalette_%s" % var),
+            (".iconSprite", "gMonIcon_%s" % var), (".iconPalIndex", str(facts.get("icon_palette", 0)))]
+
+
+def species_block(sid, data, ready_ids, id_names, names, notes):
     name, const, var = data["name"], constant(data["name"]), ident(data["name"])
     stats, ev, abilities = section(data, "base_stats"), data.get("ev_yield"), section(data, "abilities")
     items, engine, learnset = section(data, "held_items"), section(data, "engine"), section(data, "learnset")
@@ -124,7 +183,7 @@ def species_block(data, ready_ids, id_names, names, notes):
     ]
     if engine.get("no_flip"):
         rows.append((".noFlip", "TRUE"))
-    description = data.get("description")
+    description = game_text(data["description"]) if data.get("description") else None
     if description:
         lines = description.strip().split("\n")
         if len(lines) == 1:
@@ -135,23 +194,16 @@ def species_block(data, ready_ids, id_names, names, notes):
               for i, line in enumerate(lines[:dexlib.DESCRIPTION_LINES])]
     height, weight = data.get("height_m"), data.get("weight_kg")
     rows += [
-        (".speciesName", '_("%s")' % name),
+        (".speciesName", '_("%s")' % game_text(name)[:dexlib.NAME_LIMIT].rstrip()),
         (".cryId", "CRY_NONE"),
         (".natDexNum", "NATIONAL_DEX_" + const),
-        (".categoryName", '_("%s")' % (data.get("category") or "Unknown")),
+        (".categoryName", '_("%s")' % game_text(data.get("category") or "Unknown")[:dexlib.CATEGORY_LIMIT].rstrip()),
         (".height", str(round(height * 10)) if height else "0"),
         (".weight", str(round(weight * 10)) if weight else "0"),
         (".description", "COMPOUND_STRING(\n%s)" % "\n".join(quoted)),
         (".pokemonScale", "256"), (".pokemonOffset", "0"), (".trainerScale", "256"), (".trainerOffset", "0"),
-        # Placeholder art until this Pokemon has sprites.
-        (".frontPic", "gMonFrontPic_CircledQuestionMark"), (".frontPicSize", "MON_COORDS_SIZE(64, 64)"),
-        (".frontPicYOffset", str(engine.get("front_y_offset") or 0)), (".frontAnimFrames", "sAnims_SingleFramePlaceHolder"),
-        (".backPic", "gMonBackPic_CircledQuestionMark"), (".backPicSize", "MON_COORDS_SIZE(64, 64)"),
-        (".backPicYOffset", str(engine.get("back_y_offset") if engine.get("back_y_offset") is not None else 7)),
-        (".backAnimId", "BACK_ANIM_NONE"),
-        (".palette", "gMonPalette_CircledQuestionMark"), (".shinyPalette", "gMonShinyPalette_CircledQuestionMark"),
-        (".iconSprite", "gMonIcon_QuestionMark"), (".iconPalIndex", str(engine.get("icon_palette") or 0)),
     ]
+    rows += art_rows(sid, var, engine)
     if engine.get("elevation"):
         rows.append((".enemyMonElevation", str(engine["elevation"])))
     rows.append((".levelUpLearnset", "s%sLevelUpLearnset" % var))
@@ -200,11 +252,13 @@ def main():
         (waiting if reasons else ready).append((sid, data, reasons))
     ready_ids = {sid for sid, _, _ in ready}
 
-    info, level_up, teachable, egg, tests = [], [], [], [], []
+    info, level_up, teachable, egg, tests, graphics = [], [], [], [], [], []
     for sid, data, _ in ready:
         name, const, var = data["name"], constant(data["name"]), ident(data["name"])
         learnset = section(data, "learnset")
-        info.append(species_block(data, ready_ids, id_names, names, notes))
+        info.append(species_block(sid, data, ready_ids, id_names, names, notes))
+        if sprite_facts(sid):
+            graphics.append(graphics_block(sid, name, sprite_facts(sid)))
         moves = sorted((m for m in listing(learnset.get("level_up")) if isinstance(m, dict)), key=lambda m: m.get("level", 0))
         rows, first_move = [], None
         for move in moves:
@@ -238,6 +292,7 @@ def main():
         "species_enum.h": HEADER + "".join("    SPECIES_%s,\n" % constant(d["name"]) for _, d, _ in ready),
         "pokedex_enum.h": HEADER + "".join("    NATIONAL_DEX_%s,\n" % constant(d["name"]) for _, d, _ in ready),
         "species_info.h": HEADER + "".join(info),
+        "graphics.h": HEADER + "".join(graphics),
         "level_up_learnsets.h": HEADER + "".join(level_up),
         "teachable_learnsets.h": HEADER + "".join(teachable),
         "egg_moves.h": HEADER + "".join(egg),

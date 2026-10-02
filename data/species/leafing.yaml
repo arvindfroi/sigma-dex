@@ -92,11 +92,11 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/leafing.png
-  front_sprite:          # front.png      64x64, 16 colors
-  front_anim:            # anim_front.png 64x128, two frames stacked
-  back_sprite:           # back.png       64x64, same 16 colors as the front
-  icon:                  # icon.png       32x64, two frames stacked
+  concept_art: "assets/concept-art/leafing/330.png"
+  front_sprite: "assets/sprites/leafing/front.png"
+  front_anim: "assets/sprites/leafing/anim_front.png"
+  back_sprite: "assets/sprites/leafing/back.png"
+  icon: "assets/sprites/leafing/icon.png"
   footprint:             # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
@@ -105,7 +105,7 @@ assets:
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle
-  front_y_offset:        # pixels the front sprite is moved down
-  back_y_offset:         # pixels the back sprite is moved down
-  icon_palette:          # 0, 1 or 2 - which shared icon palette fits best
+  front_y_offset: 1      # pixels the front sprite is moved down
+  back_y_offset: 1       # pixels the back sprite is moved down
+  icon_palette: 1        # 0, 1 or 2 - which shared icon palette fits best
   safari_flee_rate: 0

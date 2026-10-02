@@ -1139,5 +1139,47 @@
     "file": "assets/concept-art/zapana/329.webp",
     "caption": "Concept card from Discord, posted by johnnes3204 2026-05-02",
     "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 330,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/330.png",
+    "caption": "[front] AI draft #10",
+    "editor": "Claude (starter test)"
+  },
+  {
+    "id": 331,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/331.png",
+    "caption": "[back] AI draft #10",
+    "editor": "Claude (starter test)"
+  },
+  {
+    "id": 332,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/332.png",
+    "caption": "[front] AI draft #12",
+    "editor": "Claude (starter test)"
+  },
+  {
+    "id": 333,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/333.png",
+    "caption": "[back] AI draft #12",
+    "editor": "Claude (starter test)"
+  },
+  {
+    "id": 334,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/334.png",
+    "caption": "[front] AI draft #14",
+    "editor": "Claude (starter test)"
+  },
+  {
+    "id": 335,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/335.png",
+    "caption": "[back] AI draft #14",
+    "editor": "Claude (starter test)"
   }
 ]

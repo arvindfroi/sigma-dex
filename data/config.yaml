@@ -3,6 +3,10 @@ project: Council of the Sigmas Pokedex
 region:            # name of the region, once decided
 dex_size: 100      # number of slots in the regional dex
 
+# The three Pokemon in Professor Birch's bag, in the order grass, fire, water (file names
+# without .yaml). Used by scripts/apply_to_expansion.py once all three are in the game.
+starters: [leafing, torchbat, waffy]
+
 # The database behind the website's edit form. Both values are public by design:
 # they only allow reading edits and saving through the checked save function.
 web_edits:
