@@ -79,3 +79,25 @@ CPATH=$HOME/sigma-toolchain/arm-none-eabi/include gmake check -j8 TESTS="Sigma" 
 
 `gmake check-tools` is only needed the first time. New moves and abilities have their own
 tests in the same system; see [`game/README.md`](../game/README.md).
+
+## Screenshots straight from the ROM
+
+`tools/gbashot/gbashot.c` runs the ROM without a window, presses buttons from a script and
+saves screenshots. It needs the mGBA library, built once from source (no administrator
+password; `brew install cmake` first):
+
+```bash
+git clone --depth 1 --branch 0.10.5 https://github.com/mgba-emu/mgba.git ~/sigma-toolchain/src/mgba
+cd ~/sigma-toolchain/src/mgba && mkdir build && cd build
+cmake .. -DBUILD_QT=OFF -DBUILD_SDL=OFF -DBUILD_SHARED=OFF -DBUILD_STATIC=ON -DUSE_FFMPEG=OFF -DUSE_LUA=OFF \
+  -DUSE_SQLITE3=OFF -DUSE_ELF=OFF -DUSE_EPOXY=OFF -DUSE_LIBZIP=OFF -DUSE_MINIZIP=OFF -DUSE_EDITLINE=OFF \
+  -DUSE_GDB_STUB=OFF -DUSE_DISCORD_RPC=OFF -DM_CORE_GB=OFF -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+cmake --build . -j8
+M=~/sigma-toolchain/src/mgba
+cc -O2 -o gbashot tools/gbashot/gbashot.c -I $M/include -I $M/build/include $M/build/libmgba.a -lz -L/opt/homebrew/lib -lpng -lm -framework Foundation
+```
+
+To see the starters without playing through the story, apply `game/test-patches/starter_test.patch`
+to the game (`git apply`), build, and "New Game" jumps straight to Professor Birch's bag and the
+first battle. Take the patch out again (`git apply -R`) before building the real game. The
+pictures in [SPRITES.md](SPRITES.md) were made this way.

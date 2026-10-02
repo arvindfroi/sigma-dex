@@ -150,30 +150,66 @@ def emerald(picture, look, strength, seed, target):
     return target
 
 
-SPRITE_XL = dict(checkpoint="NoobAI-XL-v1.1.safetensors", lora_name="pkspif_nb_v1-2.safetensors", trigger="", cfg=5.0, denoise=0.55, control=0.6,
-                 negative="worst quality, low quality, human, trainer, text, watermark, signature, blurry, 3d, realistic")
+SPRITE_XL = dict(checkpoint="NoobAI-XL-v1.1.safetensors", lora_name="pkspif_nb_v1-2.safetensors", trigger="", cfg=5.0, denoise=0.8, control=0.65,
+                 negative="worst quality, low quality, human, trainer, text, watermark, signature, blurry, 3d, realistic, dithering, noise, jpeg artifacts")
 
 
-def sprite_xl(picture, look, view, seed, target):
+def sprite_pixels(species_id, view):
+    """How many pixels big the creature should be drawn, like official sprites of its strength.
+
+    Measured on official GBA sprites: first stages are about 40 pixels (their backs 46), middle
+    stages about 50, final stages and legendaries fill the 64 pixel frame.
+    """
+    stats = next((data.get("base_stats") or {} for sid, _, data in dexlib.load_species()[0] if sid == species_id), {})
+    total = sum(v for v in stats.values() if isinstance(v, int))
+    size = 42 if total and total < 360 else 52 if total and total < 480 else 62 if total else 52
+    return min(63, size + 6) if view == "back" else size
+
+
+def colour_lock(start, repainted, target, keep_light=0.35):
+    """Keep the sprite model's pixel shading and outlines, but take the colors from the illustration.
+
+    The sprite model drifts toward grey and invents colors; the illustration has the right ones.
+    """
+    import numpy as np
+    from PIL import Image
+    first = Image.open(start).convert("RGB")
+    second = Image.open(repainted).convert("RGB").resize(first.size)
+    a, b = np.array(first.convert("HSV")).astype(float), np.array(second.convert("HSV")).astype(float)
+    drawn = np.abs(np.array(first).astype(int) - 255).sum(axis=2) > 40          # not the white background
+    out = b.copy()
+    out[..., 0] = np.where(drawn, a[..., 0], b[..., 0])
+    out[..., 1] = np.where(drawn, a[..., 1], b[..., 1])
+    out[..., 2] = np.where(drawn, b[..., 2] * (1 - keep_light) + a[..., 2] * keep_light, b[..., 2])
+    dark = b[..., 2] < 70                                                       # the sprite model's outlines stay dark
+    out[..., 1] = np.where(dark, np.minimum(out[..., 1], 120), out[..., 1])
+    out[..., 2] = np.where(dark, b[..., 2], out[..., 2])
+    Image.fromarray(out.clip(0, 255).astype(np.uint8), "HSV").convert("RGB").save(target)
+    return target
+
+
+def sprite_xl(picture, look, view, seed, target, species_id):
     """Repaint an illustration as a Pokemon sprite with the Pokemon Sprite XL LoRA; returns the path of the result.
 
-    The LoRA draws 96x96 sprites (as 768x768 pictures). The game wants 64x64, so the creature is
-    placed to fill at most 500 of the 768 pixels: it then comes out at most 63 sprite pixels big
-    and nothing has to be shrunk afterwards. Its outlines are held in place by a ControlNet.
+    The LoRA draws 96x96 sprites (as 768x768 pictures). The creature is placed on that canvas at
+    the size an official sprite of its strength has, so it comes out at sprite scale and nothing
+    has to be shrunk afterwards. A ControlNet holds its outlines, and the colors are locked to
+    the illustration afterwards.
     """
     from PIL import Image
     image = sprites.cutout(Image.open(picture))
     image = image.crop(image.getchannel("A").point(lambda a: 255 if a >= 128 else 0).getbbox())
-    scale = 500 / max(image.size)
+    scale = sprite_pixels(species_id, view) * 8 / max(image.size)
     image = image.resize((max(1, round(image.width * scale)), max(1, round(image.height * scale))), Image.LANCZOS)
     canvas = Image.new("RGBA", (768, 768), "white")
     canvas.alpha_composite(image, ((768 - image.width) // 2, (768 - image.height) // 2))
     start = Path(str(target) + ".in.png")
     canvas.convert("RGB").save(start)
-    tags = "pokemon sprite, gen3, pixel art, no humans, pokemon (creature), solo, full body, %s, white background, simple background%s" % (
-        look.strip().rstrip("."), ", from behind, back view" if view == "back" else "")
-    comfy.restyle(start, tags, target, seed=seed, quiet=True, **SPRITE_XL)
-    return target
+    tags = "pokemon sprite, gen3, pixel art, no humans, pokemon (creature), solo, %s, %s, white background, simple background" % (
+        look.strip().rstrip("."), "from behind, back view, facing away" if view == "back" else "full body")
+    repainted = Path(str(target) + ".lora.png")
+    comfy.restyle(start, tags, repainted, seed=seed, quiet=True, **SPRITE_XL)
+    return colour_lock(start, repainted, target)
 
 
 def run(job, base, key, settings):
@@ -206,7 +242,7 @@ def run(job, base, key, settings):
             grid = 64
             if job.get("style") == "sprite-xl":       # second step: the Pokemon Sprite XL LoRA
                 for view in raw:
-                    final[view] = sprite_xl(raw[view], job["look"], view, seed, folder / ("%d_%s_spritexl.png" % (number, view)))
+                    final[view] = sprite_xl(raw[view], job["look"], view, seed, folder / ("%d_%s_spritexl.png" % (number, view)), job["species_id"])
                 grid = 96
             sprites.build(job["species_id"], final, note="AI draft", grid=grid, out=out)
             small = {}

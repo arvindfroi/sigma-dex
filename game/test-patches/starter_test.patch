@@ -1,0 +1,25 @@
+diff --git a/src/main_menu.c b/src/main_menu.c
+index 7fc7e417..296ac3a0 100644
+--- a/src/main_menu.c
++++ b/src/main_menu.c
+@@ -14,6 +14,8 @@
+ #include "link.h"
+ #include "main.h"
+ #include "main_menu.h"
++#include "new_game.h"
++#include "battle_setup.h"
+ #include "menu.h"
+ #include "list_menu.h"
+ #include "mystery_event_menu.h"
+@@ -1296,6 +1298,11 @@ static void HighlightSelectedMainMenuItem(enum PartyMenuType menuType, u8 select
+ 
+ static void Task_NewGameBirchSpeech_Init(u8 taskId)
+ {
++    // SIGMA STARTER TEST: skip the story and go straight to the starter choice and the first battle.
++    NewGameInitData();
++    ChooseStarter();
++    DestroyTask(taskId);
++    return;
+     SetGpuReg(REG_OFFSET_DISPCNT, 0);
+     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
+     InitBgFromTemplate(&sBirchBgTemplate);

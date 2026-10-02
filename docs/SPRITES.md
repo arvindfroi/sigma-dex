@@ -66,6 +66,10 @@ from the built graphics (front, back, icon):
 
 ![starters](img/starters_in_rom.png)
 
+And this is the ROM itself, on the starter choice and in the first battle (2026-10-03):
+
+![starters in the game](img/starters_in_game.png)
+
 The three Pokemon under `starters` in `data/config.yaml` replace Treecko, Torchic and Mudkip
 in Professor Birch's bag once all three are in the game. Still missing for every Pokemon:
 shiny colors, a second animation frame, footprint, cry and the small overworld sprite.

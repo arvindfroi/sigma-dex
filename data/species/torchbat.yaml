@@ -52,7 +52,7 @@ evolutions:
 
 # --- Moves ---
 learnset:
-  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Scratch}
     - {level: 1, move: Growl}
@@ -87,7 +87,7 @@ assets:
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle
-  front_y_offset: 1      # pixels the front sprite is moved down
-  back_y_offset: 1       # pixels the back sprite is moved down
-  icon_palette: 3        # 0, 1 or 2 - which shared icon palette fits best
+  front_y_offset: 11     # pixels the front sprite is moved down
+  back_y_offset: 9       # pixels the back sprite is moved down
+  icon_palette: 5        # 0, 1 or 2 - which shared icon palette fits best
   safari_flee_rate: 0

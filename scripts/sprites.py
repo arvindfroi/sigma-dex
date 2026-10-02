@@ -70,6 +70,7 @@ def cutout(image):
         queue.extend(((y + 1, x), (y - 1, x), (y, x + 1), (y, x - 1)))
     mask = Image.fromarray((~outside * 255).astype(np.uint8)).resize(image.size, Image.NEAREST)
     image.putalpha(mask)
+    image.info["background"] = tuple(int(v) for v in background)
     return image
 
 
@@ -108,6 +109,35 @@ def snap(image, grid):
     return Image.fromarray(out)
 
 
+def defringe(image, background):
+    """Remove the pale rim that is left where a drawing's edge blended into its background."""
+    pixels = np.array(image)
+    for _ in range(2):
+        opaque = pixels[..., 3] >= 128
+        padded = np.pad(opaque, 1)
+        inside = padded[:-2, 1:-1] & padded[2:, 1:-1] & padded[1:-1, :-2] & padded[1:-1, 2:]
+        like_background = np.abs(pixels[..., :3].astype(int) - np.array(background)).sum(axis=2) < 150
+        pixels[opaque & ~inside & like_background, 3] = 0
+    return Image.fromarray(pixels)
+
+
+def despeckle(indexes, opaque, palette):
+    """Replace lone pixels (noise) with the color around them. The lightest and darkest colors stay: eye glints and pupils."""
+    brightness = [sum(color) for color in palette]
+    keep = {brightness.index(min(brightness)), brightness.index(max(brightness))}
+    out = indexes.copy()
+    height, width = indexes.shape
+    for y in range(height):
+        for x in range(width):
+            if not opaque[y, x] or indexes[y, x] in keep:
+                continue
+            around = [indexes[j, i] for j in range(max(0, y - 1), min(height, y + 2)) for i in range(max(0, x - 1), min(width, x + 2))
+                      if (j, i) != (y, x) and opaque[j, i]]
+            if around and indexes[y, x] not in around:
+                out[y, x] = max(set(around), key=around.count)
+    return out
+
+
 def tidy(opaque):
     """Remove single stray pixels that stick out of or float around the drawing."""
     padded = np.pad(opaque, 1)
@@ -119,7 +149,10 @@ def shrink(image, limit, grid=None):
     """Crop to the drawing and make it fit in limit x limit. Returns (rgb, opaque) arrays."""
     image = cutout(image)
     if grid:
+        background = image.info.get("background")
         image = snap(image, grid)
+        if background:
+            image = defringe(image, background)
     n = block_size(image)
     if n > 1:
         image = image.resize((image.width // n, image.height // n), Image.NEAREST)
@@ -257,7 +290,8 @@ def build(sid, sources, size=FRAME, note=None, grid=None, out=None):
     drawn = {kind: shrink(opened[kind], size, grid) for kind in ("front", "front2", "back") if kind in opened}
     palette = pick_palette(list(drawn.values()))
     colors = [backdrop(palette)] + palette
-    frames = {kind: place(nearest(rgb, palette), opaque, FRAME) for kind, (rgb, opaque) in drawn.items()}
+    clean = (lambda indexes, opaque: despeckle(indexes, opaque, palette)) if grid else (lambda indexes, opaque: indexes)
+    frames = {kind: place(clean(nearest(rgb, palette), opaque), opaque, FRAME) for kind, (rgb, opaque) in drawn.items()}
 
     out = Path(out) if out else SPRITES / sid
     out.mkdir(parents=True, exist_ok=True)

@@ -13,16 +13,23 @@ style: >-
 front: >-
   The creature is seen from the front, facing the viewer, simplified like a caricature:
 back: >-
-  The creature is seen from behind and slightly above, as the player's own monster in battle,
-  its face not visible, simplified like a caricature:
+  View: a back sprite pose for a monster battle game. The camera is behind the creature and a
+  little to its left, looking over its shoulder. The creature's body faces away from the viewer
+  and its head is turned toward the upper right, so we see the back of its body, its tail, the
+  back of its head, one cheek and one eye in profile. It leans forward into a battle stance.
+  Drawn large, filling the picture. Clear two-tone shading: a darker shade on the lower and
+  right side of every body part, dark outlines around every part, the limbs and tail clearly
+  separated from the body. The creature is
 
 # Poses people can choose for the front view. The key is what the website stores.
 poses:
   front: >-
     The creature is seen from the front, facing the viewer, simplified like a caricature:
   three-quarter: >-
-    Classic battle pose: the whole body is visible, standing in three-quarter view turned
-    slightly to the left, looking toward the viewer, simplified like a caricature:
+    View: three-quarter front view, as the opponent's sprite in a monster battle game. The
+    creature stands turned toward the left side of the picture, its body angled diagonally, its
+    head turned so that both eyes are visible, in a lively ready-for-battle stance. The whole
+    body is visible. The creature is
   rearing: >-
     Rearing up tall and imposing in three-quarter view turned slightly to the left, the whole
     body visible, simplified like a caricature:
@@ -33,13 +40,14 @@ poses:
     Crouched low and ready to pounce in three-quarter view turned slightly to the left, the
     whole body visible, simplified like a caricature:
 
-# For the "Emerald" styles the AI first draws a clean illustration (this text instead of
-# `style`), which a second model with the Pokemon Emerald sprite LoRA then repaints as a sprite.
+# For the "Pokemon sprite style" the AI first draws a clean illustration (this text instead of
+# `style`), which a second model then repaints as a sprite.
 illustration: >-
-  Creature artwork for a monster-collecting RPG, the creature drawn alone on a transparent
-  background. Simple clean cartoon style with bold dark outlines and flat colors, simplified
-  chunky shapes that stay readable when shrunk to 64 pixels, strong contrast. No text, no
-  border, no shadow, no ground, no scenery, one creature only, centered with a small margin.
+  Clean creature illustration for a monster-collecting RPG, the creature drawn alone on a
+  transparent background. Flat cel shading with only two tones per color, bold dark outlines,
+  simple chunky shapes with no fine texture, big expressive eyes with a white highlight. No text,
+  no border, no shadow, no ground, no scenery, exactly one creature, centered with a margin.
+  Keep the creature's design and colors exactly as in the reference pictures.
 emerald_strength: {emerald-light: 0.4, emerald-medium: 0.55}
 
 pokemon:

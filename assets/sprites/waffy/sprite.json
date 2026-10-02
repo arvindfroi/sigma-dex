@@ -3,23 +3,23 @@
   "colors": 15,
   "animated": false,
   "front": {
-    "width": 64,
-    "height": 64,
-    "y_offset": 1
+    "width": 48,
+    "height": 48,
+    "y_offset": 10
   },
   "drafts": [
     "shiny.pal (same colors as normal until a shiny picture is given)",
     "icon.png (the front picture shrunk; a hand-made icon looks better)"
   ],
   "sources": {
-    "back": "70e87d877915e262",
-    "front": "0cbe823f8988a3ec"
+    "back": "848071c705a2faaf",
+    "front": "05f665b76ade9684"
   },
-  "note": "AI draft",
+  "note": "made by hand",
   "back": {
-    "width": 40,
-    "height": 64,
-    "y_offset": 1
+    "width": 48,
+    "height": 40,
+    "y_offset": 15
   },
   "icon_palette": 3
 }
