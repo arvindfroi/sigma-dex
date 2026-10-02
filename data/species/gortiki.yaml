@@ -3,7 +3,7 @@ dex: 42
 name: Gortiki
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Emil Venge-Kvamme # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Grass, Fire]     # 1 or 2 types, e.g. [Grass, Steel]
@@ -17,19 +17,19 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
-  hidden:                # optional
+  primary: Flash Fire
+  secondary: Dancer      # optional
+  hidden: Huge Power     # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 80
+  attack: 56
+  defense: 110
+  sp_attack: 108
+  sp_defense: 94
+  speed: 72
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {defense: 2, sp_attack: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -55,7 +55,9 @@ evolutions: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  level_up:
+    - {level: 1, move: Fiery Dance}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line

@@ -25,11 +25,11 @@ base_stats:              # each 1-255
   hp: 65
   attack: 85
   defense: 60
-  sp_attack: 60
+  sp_attack: 65
   sp_defense: 60
-  speed: 75
+  speed: 85
 
-ev_yield: {attack: 2}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {attack: 1, speed: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating

@@ -1,12 +1,12 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
-dex: 40
-name: Tinky
+dex: 74
+name: Blylem
 
 credits:
   designer: Emil Venge-Kvamme # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: [Grass]           # 1 or 2 types, e.g. [Grass, Steel]
+types: [Rock, Poison]    # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -17,19 +17,19 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Heatproof
-  secondary: Dancer      # optional
-  hidden: Prankster      # optional
+  primary: Sturdy
+  secondary: Toxic Debris # optional
+  hidden: Corrosion      # optional
 
 base_stats:              # each 1-255
-  hp: 35
-  attack: 30
-  defense: 65
-  sp_attack: 55
-  sp_defense: 50
-  speed: 50
+  hp: 85
+  attack: 60
+  defense: 100
+  sp_attack: 125
+  sp_defense: 130
+  speed: 20
 
-ev_yield: {defense: 1}   # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {sp_defense: 2} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -45,14 +45,19 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions:
-  - into: motinky
-    method: level
-    level: 22
+evolutions: []
+# evolutions:
+#   - into: leafsteel    # file name of the target, without .yaml
+#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
+#     level: 16          # for method: level
+#     item:              # for method: item, e.g. Thunder Stone
+#     note:              # anything else worth knowing
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  level_up:
+    - {level: 1, move: Stealth Rock}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
@@ -68,7 +73,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/tinky.png
+  concept_art:           # e.g. assets/concept-art/blylem.png
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

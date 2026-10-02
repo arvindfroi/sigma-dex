@@ -37,8 +37,43 @@ static const struct LevelUpMove sWarrallierLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sHeatbatLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_AIR_SLASH),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sBlazterraLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_HEAT_WAVE),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sSigmaulerLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_HAMMER_ARM),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sMotinkyLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_FIRE_SPIN),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sGortikiLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_FIERY_DANCE),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sGalfrogtomLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_DISCHARGE),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sJanenonLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_DARK_PULSE),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sBlylemLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_STEALTH_ROCK),
     LEVEL_UP_END
 };
 

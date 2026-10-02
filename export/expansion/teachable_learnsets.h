@@ -75,7 +75,35 @@ static const u16 sWarrallierTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sHeatbatTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sBlazterraTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSigmaulerTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sMotinkyTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sGortikiTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sGalfrogtomTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sJanenonTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sBlylemTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 

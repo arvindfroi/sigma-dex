@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**82 / 100** slots have a Pokemon - **0** are fully complete - average completeness **5%**.
+**83 / 100** slots have a Pokemon - **0** are fully complete - average completeness **7%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -12,11 +12,11 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 1 | [Leafing](data/species/leafing.yaml) | Grass | Overgrow, Sharpness (H) | 320 | Leafsteel (Lv 16) | 72% |
 | 2 | [Leafsteel](data/species/leafsteel.yaml) | Grass / Steel | Overgrow, Sharpness (H) | 420 | Leafaxer (Lv 36) | 21% |
 | 3 | [Leafaxer](data/species/leafaxer.yaml) | Grass / Steel | Overgrow, Sharpness (H) | 530 |  | 17% |
-| 4 | [Waffy](data/species/waffy.yaml) | Water | Torrent, Defiant (H) | 300 | Wealther (Lv 16) | 14% |
-| 5 | [Wealther](data/species/wealther.yaml) | Water / Dark | Torrent, Defiant (H) | 405 | Warrallier (Lv 36) | 21% |
+| 4 | [Waffy](data/species/waffy.yaml) | Water | Torrent, Defiant (H) | 320 | Wealther (Lv 16) | 14% |
+| 5 | [Wealther](data/species/wealther.yaml) | Water / Dark | Torrent, Defiant (H) | 420 | Warrallier (Lv 36) | 21% |
 | 6 | [Warrallier](data/species/warrallier.yaml) | Water / Dark | Torrent, Defiant (H) | 530 |  | 24% |
-| 7 | [Torchbat](data/species/torchbat.yaml) | Fire |  |  | Heatbat (Lv 16) | 3% |
-| 8 | [Heatbat](data/species/heatbat.yaml) | Fire / Flying |  |  | Blazterra (Lv 36) | 3% |
+| 7 | [Torchbat](data/species/torchbat.yaml) | Fire | Blaze, No Guard (H) | 320 | Heatbat (Lv 16) | 14% |
+| 8 | [Heatbat](data/species/heatbat.yaml) | Fire / Flying | Blaze, No Guard (H) | 420 | Blazterra (Lv 36) | 17% |
 | 9 | [Blazterra](data/species/blazterra.yaml) | Fire / Flying | Blaze, No Guard (H) | 530 |  | 21% |
 | 10 | [Erobi](data/species/erobi.yaml) | Normal / Flying |  |  |  | 3% |
 | 11 | [Harpie](data/species/harpie.yaml) | Normal / Flying |  |  |  | 3% |
@@ -31,7 +31,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water |  |  |  | 3% |
 | 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water |  |  |  | 3% |
 | 22 | [Lapper](data/species/lapper.yaml) | Normal |  |  | Brawleo (Lv 25) | 3% |
-| 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting |  |  |  | 3% |
+| 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 17% |
 | 24 | [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) | Rock / Ground |  |  |  | 3% |
 | 25 | [Icy Freeze](data/species/icy-freeze.yaml) | Ice |  |  | Freezrick (Lv 28) | 3% |
 | 26 | [Freezrick](data/species/freezrick.yaml) | Ice |  |  |  | 3% |
@@ -46,11 +46,11 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting |  |  |  | 3% |
 | 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy |  |  | Toxiren (Lv 38) | 3% |
 | 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy |  |  |  | 3% |
-| 38 | [Stonma](data/species/stonma.yaml) | Rock |  |  | Sigmauler (Lv 38) | 3% |
-| 39 | [Sigmauler](data/species/sigmauler.yaml) | Rock / Fighting |  |  |  | 3% |
-| 40 | [Tinky](data/species/tinky.yaml) | Grass |  |  | Motinky (Lv 22) | 3% |
-| 41 | [Motinky](data/species/motinky.yaml) | Grass / Fire |  |  | Gortiki (Lv 40) | 3% |
-| 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire |  |  |  | 3% |
+| 38 | [Stonma](data/species/stonma.yaml) | Rock | Sturdy, Rock Head, Solid Rock (H) | 330 | Sigmauler (Lv 38) | 17% |
+| 39 | [Sigmauler](data/species/sigmauler.yaml) | Rock / Fighting | Sturdy, Iron Fist, Solid Rock (H) | 510 |  | 17% |
+| 40 | [Tinky](data/species/tinky.yaml) | Grass | Heatproof, Dancer, Prankster (H) | 285 | Motinky (Lv 22) | 17% |
+| 41 | [Motinky](data/species/motinky.yaml) | Grass / Fire | Flash Fire, Dancer, Prankster (H) | 420 | Gortiki (Lv 40) | 21% |
+| 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire | Flash Fire, Dancer, Huge Power (H) | 520 |  | 21% |
 | 43 | [Chebbi](data/species/chebbi.yaml) | Normal / Dark |  |  | Devampry (Lv 32) | 3% |
 | 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark |  |  |  | 3% |
 | 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water |  |  |  | 3% |
@@ -60,7 +60,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 49 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass |  |  |  | 3% |
 | 50 | [Beatld](data/species/beatld.yaml) | Bug / Psychic |  |  |  | 3% |
 | 51 | [Wispole](data/species/wispole.yaml) | Water |  |  | Galfrogtom (Thunder Stone) | 3% |
-| 52 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric |  |  |  | 3% |
+| 52 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Clear Body, Lightning Rod, Galvanize (H) | 504 |  | 21% |
 | 53 | [Giga-Circuit](data/species/giga-circuit.yaml) | Electric |  |  |  | 3% |
 | 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock |  |  |  | 3% |
 | 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon |  |  |  | 3% |
@@ -73,8 +73,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 62 | [Nuclobyl](data/species/nuclobyl.yaml) | Poison / Steel |  |  |  | 3% |
 | 63 | [Gentie](data/species/gentie.yaml) |  |  |  |  | 0% |
 | 64 | [Yanklet](data/species/yanklet.yaml) | Steel / Flying |  |  |  | 3% |
-| 65 | [Anjane](data/species/anjane.yaml) | Dark / Fairy |  |  | Janenon (Lv 42) | 3% |
-| 66 | [Janenon](data/species/janenon.yaml) | Dark / Fairy |  |  |  | 3% |
+| 65 | [Anjane](data/species/anjane.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 325 | Janenon (Lv 42) | 17% |
+| 66 | [Janenon](data/species/janenon.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 495 |  | 17% |
 | 67 | [Saucerl](data/species/saucerl.yaml) | Psychic / Water |  |  |  | 3% |
 | 68 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water |  |  |  | 3% |
 | 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water |  |  |  | 3% |
@@ -82,7 +82,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 3% |
 | 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
 | 73 | *open slot* | | | | | |
-| 74 | *open slot* | | | | | |
+| 74 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 520 |  | 21% |
 | 75 | *open slot* | | | | | |
 | 76 | *open slot* | | | | | |
 | 77 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison |  |  |  | 3% |

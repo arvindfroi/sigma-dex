@@ -380,11 +380,11 @@
         "hidden": "Defiant"
       },
       "base_stats": {
-        "hp": 50,
-        "attack": 60,
-        "defense": 45,
+        "hp": 55,
+        "attack": 65,
+        "defense": 50,
         "sp_attack": 45,
-        "sp_defense": 45,
+        "sp_defense": 50,
         "speed": 55
       },
       "ev_yield": {
@@ -465,12 +465,13 @@
         "hp": 65,
         "attack": 85,
         "defense": 60,
-        "sp_attack": 60,
+        "sp_attack": 65,
         "sp_defense": 60,
-        "speed": 75
+        "speed": 85
       },
       "ev_yield": {
-        "attack": 2
+        "attack": 1,
+        "speed": 1
       },
       "catch_rate": null,
       "base_exp": null,
@@ -649,19 +650,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Blaze",
         "secondary": null,
-        "hidden": null
+        "hidden": "No Guard"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 40,
+        "attack": 50,
+        "defense": 45,
+        "sp_attack": 65,
+        "sp_defense": 45,
+        "speed": 75
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -716,7 +719,7 @@
       "dex": 8,
       "name": "Heatbat",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -729,17 +732,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Blaze",
         "secondary": null,
-        "hidden": null
+        "hidden": "No Guard"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 55,
+        "attack": 65,
+        "defense": 55,
+        "sp_attack": 85,
+        "sp_defense": 60,
+        "speed": 100
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -761,7 +764,12 @@
         }
       ],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Air Slash"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -1618,7 +1626,7 @@
       "dex": 23,
       "name": "Brawleo",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -1631,19 +1639,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Scrappy",
+        "secondary": "Fur Coat",
+        "hidden": "Technician"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 80,
+        "attack": 110,
+        "defense": 67,
+        "sp_attack": 45,
+        "sp_defense": 80,
+        "speed": 103
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -2520,7 +2530,7 @@
       "dex": 38,
       "name": "Stonma",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -2532,19 +2542,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Sturdy",
+        "secondary": "Rock Head",
+        "hidden": "Solid Rock"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 67,
+        "attack": 67,
+        "defense": 111,
+        "sp_attack": 25,
+        "sp_defense": 50,
+        "speed": 10
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -2599,7 +2611,7 @@
       "dex": 39,
       "name": "Sigmauler",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -2612,17 +2624,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Sturdy",
+        "secondary": "Iron Fist",
+        "hidden": "Solid Rock"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 100,
+        "attack": 100,
+        "defense": 167,
+        "sp_attack": 55,
+        "sp_defense": 67,
+        "speed": 21
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -2638,7 +2650,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Hammer Arm"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -2673,7 +2690,7 @@
       "dex": 40,
       "name": "Tinky",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -2685,19 +2702,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Heatproof",
+        "secondary": "Dancer",
+        "hidden": "Prankster"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 35,
+        "attack": 30,
+        "defense": 65,
+        "sp_attack": 55,
+        "sp_defense": 50,
+        "speed": 50
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -2752,7 +2771,7 @@
       "dex": 41,
       "name": "Motinky",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -2765,19 +2784,22 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Flash Fire",
+        "secondary": "Dancer",
+        "hidden": "Prankster"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 55,
+        "attack": 42,
+        "defense": 91,
+        "sp_attack": 90,
+        "sp_defense": 70,
+        "speed": 72
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1,
+        "sp_attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -2797,7 +2819,12 @@
         }
       ],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Fire Spin"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -2832,7 +2859,7 @@
       "dex": 42,
       "name": "Gortiki",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -2845,19 +2872,22 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Flash Fire",
+        "secondary": "Dancer",
+        "hidden": "Huge Power"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 80,
+        "attack": 56,
+        "defense": 110,
+        "sp_attack": 108,
+        "sp_defense": 94,
+        "speed": 72
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 2,
+        "sp_attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -2871,7 +2901,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Fiery Dance"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -3589,7 +3624,7 @@
       "dex": 52,
       "name": "Galfrogtom",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -3602,19 +3637,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Clear Body",
+        "secondary": "Lightning Rod",
+        "hidden": "Galvanize"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 59,
+        "attack": 89,
+        "defense": 49,
+        "sp_attack": 139,
+        "sp_defense": 49,
+        "speed": 119
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -3628,7 +3665,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Discharge"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -4541,7 +4583,7 @@
       "dex": 65,
       "name": "Anjane",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -4554,19 +4596,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Tangling Hair",
+        "secondary": "Mega Launcher",
+        "hidden": "Misty Surge"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 35,
+        "attack": 37,
+        "defense": 71,
+        "sp_attack": 100,
+        "sp_defense": 67,
+        "speed": 15
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -4634,19 +4678,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Tangling Hair",
+        "secondary": "Mega Launcher",
+        "hidden": "Misty Surge"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 51,
+        "attack": 67,
+        "defense": 100,
+        "sp_attack": 167,
+        "sp_defense": 85,
+        "speed": 25
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_attack": 3
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -4660,7 +4706,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Dark Pulse"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -5131,6 +5182,87 @@
         "safari_flee_rate": 0
       },
       "id": "bygon"
+    },
+    {
+      "dex": 74,
+      "name": "Blylem",
+      "credits": {
+        "designer": "Emil Venge-Kvamme",
+        "artist": null
+      },
+      "types": [
+        "Rock",
+        "Poison"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Sturdy",
+        "secondary": "Toxic Debris",
+        "hidden": "Corrosion"
+      },
+      "base_stats": {
+        "hp": 85,
+        "attack": 60,
+        "defense": 100,
+        "sp_attack": 125,
+        "sp_defense": 130,
+        "speed": 20
+      },
+      "ev_yield": {
+        "sp_defense": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Stealth Rock"
+          }
+        ],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "blylem"
     },
     {
       "dex": 77,

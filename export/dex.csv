@@ -6,11 +6,11 @@ until the edge shines like metal.
 ",Grass starter. A small creature with a leaf that slowly turns to steel as it evolves.,,"PROOF OF CONCEPT - every value in this file except name, type and evolution is a draft proposed by Claude on 2026-10-02. The Council should review and replace them.",Emil Venge-Kvamme,,72
 2,leafsteel,Leafsteel,Grass,Steel,Overgrow,,Sharpness,420,75,90,80,60,65,50,Leafing,Lv 16,,,,,2 attack,,,,,,,,,,,Slash (1),,,,,,,,,Emil Venge-Kvamme,,21
 3,leafaxer,Leafaxer,Grass,Steel,Overgrow,,Sharpness,530,90,130,100,70,80,60,Leafsteel,Lv 36,,,,,3 attack,,,,,,,,,,,"Leaf Blade (1), Iron Tail (40), Behemoth Blade (60)",,,,,,,,,,,17
-4,waffy,Waffy,Water,,Torrent,,Defiant,300,50,60,45,45,45,55,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,,,14
-5,wealther,Wealther,Water,Dark,Torrent,,Defiant,405,65,85,60,60,60,75,Waffy,Lv 16,,,,,2 attack,,,,,,,,,,,Feint Attack (1),,,,,,,,,Emil Venge-Kvamme,,21
+4,waffy,Waffy,Water,,Torrent,,Defiant,320,55,65,50,45,50,55,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,,,14
+5,wealther,Wealther,Water,Dark,Torrent,,Defiant,420,65,85,60,65,60,85,Waffy,Lv 16,,,,,"1 attack, 1 speed",,,,,,,,,,,Feint Attack (1),,,,,,,,,Emil Venge-Kvamme,,21
 6,warrallier,Warrallier,Water,Dark,Torrent,,Defiant,530,80,115,75,80,75,105,Wealther,Lv 36,,,,,"2 attack, 1 speed",,,,,,,,,,,Flip Turn (1),"Focus Punch, Water Pulse, Toxic, Bulk Up, Hidden Power, Taunt, Ice Beam, Protect, Rain Dance, Frustration, Iron Tail, Brick Break, Double Team, Torment, Facade, Thief, Snatch, Cut, Surf, Strength, Rock Smash, Waterfall, Dive",,,,,,,,Emil Venge-Kvamme,,24
-7,torchbat,Torchbat,Fire,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-8,heatbat,Heatbat,Fire,Flying,,,,,,,,,,,Torchbat,Lv 16,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+7,torchbat,Torchbat,Fire,,Blaze,,No Guard,320,40,50,45,65,45,75,,,,,,,1 speed,,,,,,,,,,,,,,,,,,,,,,14
+8,heatbat,Heatbat,Fire,Flying,Blaze,,No Guard,420,55,65,55,85,60,100,Torchbat,Lv 16,,,,,,,,,,,,,,,,Air Slash (1),,,,,,,,,Emil Venge-Kvamme,,17
 9,blazterra,Blazterra,Fire,Flying,Blaze,,No Guard,530,70,85,75,105,75,120,Heatbat,Lv 36,,,,,3 speed,,,,,,,,,,,Heat Wave (1),,,,,,,,,Emil Venge-Kvamme,,21
 10,erobi,Erobi,Normal,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 11,harpie,Harpie,Normal,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
@@ -25,7 +25,7 @@ until the edge shines like metal.
 20,cowfin,Cowfin,Normal,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 21,mooceon,Mooceon,Normal,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 22,lapper,Lapper,Normal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-23,brawleo,Brawleo,Normal,Fighting,,,,,,,,,,,Lapper,Lv 25,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+23,brawleo,Brawleo,Normal,Fighting,Scrappy,Fur Coat,Technician,485,80,110,67,45,80,103,Lapper,Lv 25,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,17
 24,sigmanian-sudowoodo,Sigmanian Sudowoodo,Rock,Ground,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 25,icy-freeze,Icy Freeze,Ice,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 26,freezrick,Freezrick,Ice,,,,,,,,,,,,Icy Freeze,Lv 28,,,,,,,,,,,,,,,,,,,,,,,,,,,3
@@ -40,11 +40,11 @@ until the edge shines like metal.
 35,bugmight,Bugmight,Bug,Fighting,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 36,nukfae,Nukfae,Poison,Fairy,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 37,toxiren,Toxiren,Poison,Fairy,,,,,,,,,,,Nukfae,Lv 38,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-38,stonma,Stonma,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-39,sigmauler,Sigmauler,Rock,Fighting,,,,,,,,,,,Stonma,Lv 38,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-40,tinky,Tinky,Grass,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-41,motinky,Motinky,Grass,Fire,,,,,,,,,,,Tinky,Lv 22,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-42,gortiki,Gortiki,Grass,Fire,,,,,,,,,,,Motinky,Lv 40,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+38,stonma,Stonma,Rock,,Sturdy,Rock Head,Solid Rock,330,67,67,111,25,50,10,,,,,,,1 defense,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,17
+39,sigmauler,Sigmauler,Rock,Fighting,Sturdy,Iron Fist,Solid Rock,510,100,100,167,55,67,21,Stonma,Lv 38,,,,,,,,,,,,,,,,Hammer Arm (1),,,,,,,,,Emil Venge-Kvamme,,17
+40,tinky,Tinky,Grass,,Heatproof,Dancer,Prankster,285,35,30,65,55,50,50,,,,,,,1 defense,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,17
+41,motinky,Motinky,Grass,Fire,Flash Fire,Dancer,Prankster,420,55,42,91,90,70,72,Tinky,Lv 22,,,,,"1 defense, 1 sp_attack",,,,,,,,,,,Fire Spin (1),,,,,,,,,Emil Venge-Kvamme,,21
+42,gortiki,Gortiki,Grass,Fire,Flash Fire,Dancer,Huge Power,520,80,56,110,108,94,72,Motinky,Lv 40,,,,,"2 defense, 1 sp_attack",,,,,,,,,,,Fiery Dance (1),,,,,,,,,Emil Venge-Kvamme,,21
 43,chebbi,Chebbi,Normal,Dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 44,devampry,Devampry,Normal,Dark,,,,,,,,,,,Chebbi,Lv 32,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 45,chillalit,Chillalit,Fire,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
@@ -54,7 +54,7 @@ until the edge shines like metal.
 49,crappy-meal,Crappy Meal,Poison,Grass,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 50,beatld,Beatld,Bug,Psychic,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 51,wispole,Wispole,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-52,galfrogtom,Galfrogtom,Ghost,Electric,,,,,,,,,,,Wispole,Thunder Stone,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+52,galfrogtom,Galfrogtom,Ghost,Electric,Clear Body,Lightning Rod,Galvanize,504,59,89,49,139,49,119,Wispole,Thunder Stone,,,,,2 sp_attack,,,,,,,,,,,Discharge (1),,,,,,,,,Emil Venge-Kvamme,,21
 53,giga-circuit,Giga-Circuit,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 54,hippore,Hippore,Steel,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 55,docuphant,Docuphant,Ground,Dragon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
@@ -67,8 +67,8 @@ until the edge shines like metal.
 62,nuclobyl,Nuclobyl,Poison,Steel,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 63,gentie,Gentie,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
 64,yanklet,Yanklet,Steel,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-65,anjane,Anjane,Dark,Fairy,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-66,janenon,Janenon,Dark,Fairy,,,,,,,,,,,Anjane,Lv 42,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+65,anjane,Anjane,Dark,Fairy,Tangling Hair,Mega Launcher,Misty Surge,325,35,37,71,100,67,15,,,,,,,1 sp_attack,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,17
+66,janenon,Janenon,Dark,Fairy,Tangling Hair,Mega Launcher,Misty Surge,495,51,67,100,167,85,25,Anjane,Lv 42,,,,,3 sp_attack,,,,,,,,,,,Dark Pulse (1),,,,,,,,,,,17
 67,saucerl,Saucerl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 68,abyssys,Abyssys,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 69,octopearl,Octopearl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
@@ -76,7 +76,7 @@ until the edge shines like metal.
 71,roostasaur,Roostasaur,Dragon,Normal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 72,bygon,Bygon,Ghost,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 73,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+74,blylem,Blylem,Rock,Poison,Sturdy,Toxic Debris,Corrosion,520,85,60,100,125,130,20,,,,,,,2 sp_defense,,,,,,,,,,,Stealth Rock (1),,,,,,,,,Emil Venge-Kvamme,,21
 75,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 76,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 77,iglomodo,Iglomodo,Ice,Poison,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3

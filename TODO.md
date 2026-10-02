@@ -9,39 +9,39 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 72 / 82 |
-| Identity | designer credit | 6 / 82 |
-| Dex page | category | 2 / 82 |
-| Dex page | description | 2 / 82 |
-| Dex page | height | 2 / 82 |
-| Dex page | weight | 2 / 82 |
-| Dex page | body color | 1 / 82 |
-| Stats | base stats | 8 / 82 |
-| Stats | ability | 8 / 82 |
-| Stats | EV yield | 7 / 82 |
-| Stats | catch rate | 1 / 82 |
-| Stats | base exp | 1 / 82 |
-| Stats | growth rate | 1 / 82 |
-| Stats | base friendship | 1 / 82 |
-| Breeding | gender | 1 / 82 |
-| Breeding | egg groups | 1 / 82 |
-| Breeding | egg cycles | 1 / 82 |
-| Moves | level-up moves | 6 / 82 |
-| Moves | TM/HM moves | 2 / 82 |
-| Location | encounters | 1 / 82 |
-| Design | concept | 2 / 82 |
-| Art | concept art | 1 / 82 |
-| Art | front sprite | 1 / 82 |
-| Art | front animation frame | 1 / 82 |
-| Art | back sprite | 1 / 82 |
-| Art | icon | 1 / 82 |
-| Art | footprint | 0 / 82 |
-| Art | shiny palette | 0 / 82 |
-| Art | cry | 0 / 82 |
+| Identity | types | 73 / 83 |
+| Identity | designer credit | 16 / 83 |
+| Dex page | category | 2 / 83 |
+| Dex page | description | 2 / 83 |
+| Dex page | height | 2 / 83 |
+| Dex page | weight | 2 / 83 |
+| Dex page | body color | 1 / 83 |
+| Stats | base stats | 20 / 83 |
+| Stats | ability | 20 / 83 |
+| Stats | EV yield | 17 / 83 |
+| Stats | catch rate | 1 / 83 |
+| Stats | base exp | 1 / 83 |
+| Stats | growth rate | 1 / 83 |
+| Stats | base friendship | 1 / 83 |
+| Breeding | gender | 1 / 83 |
+| Breeding | egg groups | 1 / 83 |
+| Breeding | egg cycles | 1 / 83 |
+| Moves | level-up moves | 13 / 83 |
+| Moves | TM/HM moves | 2 / 83 |
+| Location | encounters | 1 / 83 |
+| Design | concept | 2 / 83 |
+| Art | concept art | 1 / 83 |
+| Art | front sprite | 1 / 83 |
+| Art | front animation frame | 1 / 83 |
+| Art | back sprite | 1 / 83 |
+| Art | icon | 1 / 83 |
+| Art | footprint | 0 / 83 |
+| Art | shiny palette | 0 / 83 |
+| Art | cry | 0 / 83 |
 
-## Open dex slots (18)
+## Open dex slots (17)
 
-#17, #18, #19, #29, #30, #31, #73, #74, #75, #76, #84, #85, #86, #87, #89, #90, #92, #93
+#17, #18, #19, #29, #30, #31, #73, #75, #76, #84, #85, #86, #87, #89, #90, #92, #93
 
 ## Missing per Pokemon
 
@@ -100,24 +100,23 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #7 [Torchbat](data/species/torchbat.yaml) - 3%
+### #7 [Torchbat](data/species/torchbat.yaml) - 14%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #8 [Heatbat](data/species/heatbat.yaml) - 3%
+### #8 [Heatbat](data/species/heatbat.yaml) - 17%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -242,11 +241,10 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #23 [Brawleo](data/species/brawleo.yaml) - 3%
+### #23 [Brawleo](data/species/brawleo.yaml) - 17%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -374,57 +372,52 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #38 [Stonma](data/species/stonma.yaml) - 3%
+### #38 [Stonma](data/species/stonma.yaml) - 17%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #39 [Sigmauler](data/species/sigmauler.yaml) - 3%
+### #39 [Sigmauler](data/species/sigmauler.yaml) - 17%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #40 [Tinky](data/species/tinky.yaml) - 17%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #40 [Tinky](data/species/tinky.yaml) - 3%
+### #41 [Motinky](data/species/motinky.yaml) - 21%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #41 [Motinky](data/species/motinky.yaml) - 3%
+### #42 [Gortiki](data/species/gortiki.yaml) - 21%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #42 [Gortiki](data/species/gortiki.yaml) - 3%
-
-- **Identity:** designer credit
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -528,13 +521,12 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #52 [Galfrogtom](data/species/galfrogtom.yaml) - 3%
+### #52 [Galfrogtom](data/species/galfrogtom.yaml) - 21%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -671,24 +663,23 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #65 [Anjane](data/species/anjane.yaml) - 3%
+### #65 [Anjane](data/species/anjane.yaml) - 17%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #66 [Janenon](data/species/janenon.yaml) - 3%
+### #66 [Janenon](data/species/janenon.yaml) - 17%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -755,6 +746,16 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #74 [Blylem](data/species/blylem.yaml) - 21%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
