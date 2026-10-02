@@ -1,0 +1,4 @@
+# Extra packages for scripts/sprite_worker.py (the PC that draws sprites). Needs Python 3.10 or newer.
+-r requirements.txt
+opencv-python-headless>=4.9
+pixeloe>=0.1

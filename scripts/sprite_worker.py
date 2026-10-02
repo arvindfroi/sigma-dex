@@ -163,7 +163,7 @@ def sprite_pixels(species_id, view):
     stats = next((data.get("base_stats") or {} for sid, _, data in dexlib.load_species()[0] if sid == species_id), {})
     total = sum(v for v in stats.values() if isinstance(v, int))
     size = 42 if total and total < 360 else 52 if total and total < 480 else 62 if total else 52
-    return min(63, size + 6) if view == "back" else size
+    return min(63, size + 8) if view == "back" else size
 
 
 def colour_lock(start, repainted, target, keep_light=0.35):
@@ -188,13 +188,15 @@ def colour_lock(start, repainted, target, keep_light=0.35):
     return target
 
 
-def sprite_xl(picture, look, view, seed, target, species_id):
-    """Repaint an illustration as a Pokemon sprite with the Pokemon Sprite XL LoRA; returns the path of the result.
+def sprite_xl(picture, look, view, seed, target, species_id, repaint):
+    """Turn an illustration into a sprite-sized picture (768x768, one sprite pixel = 8 pixels); returns its path.
 
-    The LoRA draws 96x96 sprites (as 768x768 pictures). The creature is placed on that canvas at
-    the size an official sprite of its strength has, so it comes out at sprite scale and nothing
-    has to be shrunk afterwards. A ControlNet holds its outlines, and the colors are locked to
-    the illustration afterwards.
+    The creature is placed on the canvas at the size an official sprite of its strength has, so
+    nothing has to be shrunk afterwards. Two recipes, because each wins on some creatures:
+    - repaint False ("drawn"): the illustration itself; the converter then shrinks it while
+      keeping outlines and small features alive (sprites.snap_detail).
+    - repaint True ("repainted"): the Pokemon Sprite XL LoRA repaints it in sprite shading while
+      a ControlNet holds its outlines; the colors are locked to the illustration afterwards.
     """
     from PIL import Image
     image = sprites.cutout(Image.open(picture))
@@ -205,6 +207,9 @@ def sprite_xl(picture, look, view, seed, target, species_id):
     canvas.alpha_composite(image, ((768 - image.width) // 2, (768 - image.height) // 2))
     start = Path(str(target) + ".in.png")
     canvas.convert("RGB").save(start)
+    if not repaint:
+        canvas.convert("RGB").save(target)
+        return target
     tags = "pokemon sprite, gen3, pixel art, no humans, pokemon (creature), solo, %s, %s, white background, simple background" % (
         look.strip().rstrip("."), "from behind, back view, facing away" if view == "back" else "full body")
     repainted = Path(str(target) + ".lora.png")
@@ -240,16 +245,18 @@ def run(job, base, key, settings):
                 for view in raw:
                     final[view] = emerald(raw[view], job["look"], strength, seed, folder / ("%d_%s_emerald.png" % (number, view)))
             grid = 64
-            if job.get("style") == "sprite-xl":       # second step: the Pokemon Sprite XL LoRA
+            detail, recipe = False, ""
+            if job.get("style") == "sprite-xl":       # second step: make it a sprite; odd attempts are repainted by the LoRA
+                repaint = number % 2 == 1
                 for view in raw:
-                    final[view] = sprite_xl(raw[view], job["look"], view, seed, folder / ("%d_%s_spritexl.png" % (number, view)), job["species_id"])
-                grid = 96
-            sprites.build(job["species_id"], final, note="AI draft", grid=grid, out=out)
+                    final[view] = sprite_xl(raw[view], job["look"], view, seed, folder / ("%d_%s_spritexl.png" % (number, view)), job["species_id"], repaint)
+                grid, detail, recipe = 96, not repaint, "repainted" if repaint else "drawn"
+            sprites.build(job["species_id"], final, note="AI draft", grid=grid, out=out, detail=detail)
             small = {}
             for view in ("front", "back"):
                 small[view] = folder / ("%d_%s_64.png" % (number, view))
                 sprites.as_rgba(out / (view + ".png")).save(small[view])
-            prompt = ("style: %s, pose: %s\n\n" % (job.get("style", "pixel"), job.get("pose", "front"))) + "\n\n".join("%s: %s" % (view, recipe[0] if recipe else "(kept from the earlier sprite)") for view, recipe in plan.items())
+            prompt = ("style: %s%s, pose: %s\n\n" % (job.get("style", "pixel"), " (%s)" % recipe if recipe else "", job.get("pose", "front"))) + "\n\n".join("%s: %s" % (view, recipe[0] if recipe else "(kept from the earlier sprite)") for view, recipe in plan.items())
             post(base, key, {"action": "candidate", "job_id": job["id"], "seed": seed, "prompt": prompt, "style_version": style_version},
                  {"raw_front": raw["front"], "raw_back": raw["back"], "front": small["front"], "back": small["back"], "preview": out / "preview.png"})
             made += 1

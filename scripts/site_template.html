@@ -637,7 +637,7 @@ function candidateCard(c, comments, tools) {
   const note = tools ? textInput("", {maxlength: 400, placeholder: "Comment on the whole sprite, or say what to change"}) : null;
   return h("div", {class: "cand " + c.status}, wrap,
     h("div", {class: "candline"}, h("span", {class: "badge " + (c.status === "approved" ? "done" : c.status === "candidate" ? "need" : "")}, STATUS_TEXT[c.status] || c.status),
-      h("span", {class: "sub"}, " attempt #" + c.id + (/^style: sprite-xl/.test(c.prompt || "") ? " - Pokemon sprite style" : /^style: emerald/.test(c.prompt || "") ? " - Emerald LoRA" : "") + (c.reviewed_by ? " - by " + c.reviewed_by : ""))),
+      h("span", {class: "sub"}, " attempt #" + c.id + (/^style: sprite-xl \(repainted\)/.test(c.prompt || "") ? " - repainted by the sprite model" : /^style: sprite-xl/.test(c.prompt || "") ? " - drawn" : /^style: emerald/.test(c.prompt || "") ? " - Emerald LoRA" : "") + (c.reviewed_by ? " - by " + c.reviewed_by : ""))),
     said.length ? h("ul", {class: "said"}, said) : null,
     tools ? h("div", {class: "candtools"}, note,
       h("button", {type: "button", class: "small", onclick: () => note.value.trim() && tools.comment(c, note.value.trim(), null, null)}, "Comment"),

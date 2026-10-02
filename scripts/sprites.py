@@ -109,6 +109,26 @@ def snap(image, grid):
     return Image.fromarray(out)
 
 
+def snap_detail(image, grid, thickness=2):
+    """Like snap(), but keeps thin outlines and small features (eyes, claws) alive.
+
+    Uses the PixelOE method (github.com/KohakuBlueleaf/PixelOE): contrasting lines are thickened
+    before the picture is shrunk, and every cell takes its most contrasting value instead of
+    its commonest. Needs the `pixeloe` package (Python 3.10 or newer).
+    """
+    import cv2
+    from pixeloe.legacy.pixelize import pixelize
+    side = grid * 8
+    big = image.resize((side, side), Image.LANCZOS)
+    flat = Image.new("RGBA", big.size, "white")
+    flat.alpha_composite(big)
+    bgr = cv2.cvtColor(np.array(flat.convert("RGB")), cv2.COLOR_RGB2BGR)
+    small = cv2.cvtColor(pixelize(bgr, mode="contrast", target_size=grid, patch_size=8, thickness=thickness, no_upscale=True), cv2.COLOR_BGR2RGB)
+    alpha = np.array(big.getchannel("A")).reshape(grid, 8, grid, 8).swapaxes(1, 2).reshape(grid, grid, 64)
+    solid = ((alpha >= 128).sum(axis=2) >= 32).astype(np.uint8) * 255
+    return Image.fromarray(np.dstack([small[:grid, :grid], solid]))
+
+
 def defringe(image, background):
     """Remove the pale rim that is left where a drawing's edge blended into its background."""
     pixels = np.array(image)
@@ -145,12 +165,12 @@ def tidy(opaque):
     return opaque & (neighbours >= 2)
 
 
-def shrink(image, limit, grid=None):
+def shrink(image, limit, grid=None, detail=False):
     """Crop to the drawing and make it fit in limit x limit. Returns (rgb, opaque) arrays."""
     image = cutout(image)
     if grid:
         background = image.info.get("background")
-        image = snap(image, grid)
+        image = snap_detail(image, grid) if detail else snap(image, grid)
         if background:
             image = defringe(image, background)
     n = block_size(image)
@@ -278,7 +298,7 @@ def make_icon(rgb, opaque):
 
 # ---------- building one Pokemon's sprites ----------
 
-def build(sid, sources, size=FRAME, note=None, grid=None, out=None):
+def build(sid, sources, size=FRAME, note=None, grid=None, out=None, detail=False):
     """sources: {kind: path}. Writes assets/sprites/<sid>/ (or `out`) and returns the facts about it."""
     if "front" not in sources:
         raise SpriteError("a front picture is needed")
@@ -287,7 +307,7 @@ def build(sid, sources, size=FRAME, note=None, grid=None, out=None):
     opened = {kind: Image.open(path) for kind, path in sources.items()}
     for kind, image in opened.items():
         image.load()
-    drawn = {kind: shrink(opened[kind], size, grid) for kind in ("front", "front2", "back") if kind in opened}
+    drawn = {kind: shrink(opened[kind], size, grid, detail) for kind in ("front", "front2", "back") if kind in opened}
     palette = pick_palette(list(drawn.values()))
     colors = [backdrop(palette)] + palette
     clean = (lambda indexes, opaque: despeckle(indexes, opaque, palette)) if grid else (lambda indexes, opaque: indexes)
@@ -312,7 +332,7 @@ def build(sid, sources, size=FRAME, note=None, grid=None, out=None):
 
     shiny = None
     if "shiny" in opened:                                # the same drawing in the shiny colors
-        rgb, opaque = shrink(opened["shiny"], size, grid)
+        rgb, opaque = shrink(opened["shiny"], size, grid, detail)
         if opaque.shape != drawn["front"][1].shape:
             raise SpriteError("the shiny picture must be the front picture recolored (same size and outline)")
         indexes = nearest(drawn["front"][0], palette)
@@ -482,6 +502,7 @@ def main():
     for kind in KINDS:
         make.add_argument("--" + kind, required=kind == "front")
     make.add_argument("--size", type=int, default=FRAME, help="longest side of the drawing in pixels (smaller Pokemon look right at 40-56)")
+    make.add_argument("--detail", action="store_true", help="with --grid: keep thin outlines and small features when shrinking (needs the pixeloe package)")
     make.add_argument("--grid", type=int, help="the picture is AI pixel art drawn on a GRID x GRID canvas (usually 64): keep its pixels crisp")
     commands.add_parser("auto")
     commands.add_parser("check")
@@ -501,7 +522,7 @@ def main():
         sys.exit("There is no Pokemon '%s' in data/species/." % sid)
     sources = {kind: getattr(args, kind) for kind in KINDS if getattr(args, kind)}
     try:
-        facts = build(sid, sources, args.size, note="made by hand", grid=args.grid)
+        facts = build(sid, sources, args.size, note="made by hand", grid=args.grid, detail=args.detail)
     except (SpriteError, OSError) as error:
         sys.exit("Could not make the sprites: %s" % error)
     record(sid, facts)
