@@ -245,8 +245,8 @@ def make_icon(rgb, opaque):
 
 # ---------- building one Pokemon's sprites ----------
 
-def build(sid, sources, size=FRAME, note=None, grid=None):
-    """sources: {kind: path}. Writes assets/sprites/<sid>/ and returns the facts about it."""
+def build(sid, sources, size=FRAME, note=None, grid=None, out=None):
+    """sources: {kind: path}. Writes assets/sprites/<sid>/ (or `out`) and returns the facts about it."""
     if "front" not in sources:
         raise SpriteError("a front picture is needed")
     if not 8 <= size <= FRAME:
@@ -259,7 +259,7 @@ def build(sid, sources, size=FRAME, note=None, grid=None):
     colors = [backdrop(palette)] + palette
     frames = {kind: place(nearest(rgb, palette), opaque, FRAME) for kind, (rgb, opaque) in drawn.items()}
 
-    out = SPRITES / sid
+    out = Path(out) if out else SPRITES / sid
     out.mkdir(parents=True, exist_ok=True)
     for stale in out.iterdir():
         stale.unlink()
@@ -324,6 +324,15 @@ def preview(out, colors, shiny, frames, icon, icon_colors, zoom=4):
     tiles.append(small)
     strip = np.concatenate(tiles, axis=1)
     Image.fromarray(strip).resize((strip.shape[1] * zoom, strip.shape[0] * zoom), Image.NEAREST).save(out / "preview.png")
+
+
+def as_rgba(path):
+    """An indexed sprite as a normal picture with a see-through background (color 0)."""
+    image = Image.open(path)
+    alpha = np.where(np.array(image) > 0, 255, 0).astype(np.uint8)
+    rgba = image.convert("RGBA")
+    rgba.putalpha(Image.fromarray(alpha))
+    return rgba
 
 
 def digest(path):
@@ -422,7 +431,8 @@ def auto():
         if old.get("sources") == {k: digest(p) for k, p in sorted(sources.items())} and old.get("tool_version") == TOOL_VERSION:
             continue
         try:
-            record(sid, build(sid, sources, note="from the website"))
+            drawn_by_ai = any((entry.get("caption") or "").startswith("[front] AI draft") for entry in manifest if entry["species"] == sid)
+            record(sid, build(sid, sources, note="AI draft" if drawn_by_ai else "from the website"))
             built += 1
         except (SpriteError, OSError) as error:
             print("WARNING: sprites for %s could not be made: %s" % (sid, error))

@@ -73,3 +73,9 @@ alter table public.species_edits
 -- create table public.species_images (id, species_id, path, caption, editor, bytes, removed, created_at)
 --   with row level security: anyone can read, nobody can write directly.
 -- create function public.check_edit_key(p_key text) returns boolean   -- callable by the service role only
+
+-- Sprite studio (migration `sprite_studio`, 2026-10-02): tables sprite_jobs, sprite_candidates,
+-- sprite_comments, sprite_worker (all readable by anyone, written only through functions);
+-- request_sprites / comment_sprite / review_sprite check the edit key; claim_sprite_job and
+-- check_worker_key are for the sprite-worker edge function only (service role). The worker
+-- key's hash is in private.settings as 'worker_key_sha256'. See docs/STUDIO.md.

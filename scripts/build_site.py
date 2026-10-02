@@ -60,6 +60,10 @@ def main():
             sprite_info[sid] = {"src": "art/%s/sprite.png" % sid, "note": facts.get("note"), "back": "back" in facts,
                                 "drafts": [d.split(" ")[0] for d in facts.get("drafts", [])]}
 
+    prompts = yaml.safe_load((ROOT / "data" / "sprite_prompts.yaml").read_text(encoding="utf-8"))
+    studio = {"style": " ".join(prompts["style"].split()),
+              "looks": {sid: " ".join(entry["look"].split()) for sid, entry in (prompts.get("pokemon") or {}).items()}}
+
     def report(name):
         path = ROOT / "export" / name
         return json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
@@ -69,7 +73,7 @@ def main():
         "project": config.get("project", "Pokedex"), "dex_size": config.get("dex_size", 100),
         "species": entries, "types": dexlib.TYPES, "checks": dexlib.CHECK_LIST,
         "custom": {"move": engine["custom"]["moves"], "ability": engine["custom"]["abilities"]},
-        "images": images, "sprites": sprite_info,
+        "images": images, "sprites": sprite_info, "studio": studio,
         "type_shares": yaml.safe_load((ROOT / "data" / "engine" / "type_shares.yaml").read_text(encoding="utf-8")),
         "problems": report("doc_problems.json") + report("sheet_problems.json") + report("web_problems.json"),
         "web": dict(config.get("web_edits") or {}, cursor=int(cursor_path.read_text().strip() or 0) if cursor_path.exists() else 0),

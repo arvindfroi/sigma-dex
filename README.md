@@ -54,7 +54,7 @@ explains why, what it gives us, what limits it sets and what is still undecided.
 
 A picture becomes a game sprite (64x64, 15 colors) automatically: upload it on the website as
 a sprite picture, or let the image model on our PC draw one from the concept art. See
-[docs/SPRITES.md](docs/SPRITES.md) and [docs/COMFYUI.md](docs/COMFYUI.md). The website's
+[docs/STUDIO.md](docs/STUDIO.md), [docs/SPRITES.md](docs/SPRITES.md) and [docs/COMFYUI.md](docs/COMFYUI.md). The website's
 **Sprites** tab shows what exists.
 
 ## What is and is not in this repository

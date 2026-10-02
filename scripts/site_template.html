@@ -96,6 +96,21 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
 .gallery figure { margin: 0; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 6px; font-size: 12px; color: var(--muted); }
 .gallery img { width: 100%; height: 110px; object-fit: contain; border-radius: 6px; background: var(--bar); display: block; }
+.cands { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-top: 10px; }
+.cand { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px; font-size: 13px; }
+.cand.approved { border-color: var(--good); }
+.cand.rejected, .cand.superseded { opacity: .55; }
+.pinwrap { position: relative; line-height: 0; }
+.pinwrap img { width: 100%; image-rendering: pixelated; border-radius: 6px; cursor: crosshair; }
+.pin { position: absolute; transform: translate(-50%, -50%); background: var(--accent); color: #fff; border-radius: 999px; min-width: 18px; height: 18px; font-size: 11px; line-height: 18px; text-align: center; box-shadow: 0 0 0 2px #fff; }
+.pin.still { position: static; display: inline-block; transform: none; box-shadow: none; }
+.candline { margin: 6px 0 2px; }
+.said { margin: 4px 0; padding-left: 4px; list-style: none; }
+.candtools { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.candtools input { flex: 1 1 100%; }
+.refpick { display: flex; gap: 8px; flex-wrap: wrap; }
+.refpick label { display: flex; align-items: center; gap: 4px; }
+.refpick img { width: 56px; height: 56px; object-fit: contain; background: var(--bar); border-radius: 6px; }
 .sprite { margin: 0; }
 .sprite img { max-width: 100%; image-rendering: pixelated; border-radius: 8px; border: 1px solid var(--line); display: block; }
 .sprite figcaption { margin-top: 6px; font-size: 13px; color: var(--muted); }
@@ -302,7 +317,8 @@ function openDetail(s) {
       ? [h("span", {class: "badge need"}, "not in the game yet"), " To be put into the game it still needs: " + s.gameNeeds.join(", ") + "."]
       : [h("span", {class: "badge done"}, "playable"), " Has everything the game needs. It is built into the game with placeholder art until it has sprites."]),
     s.problems.length ? h("div", {}, h("h2", {}, "Warnings"), h("ul", {class: "problems"}, s.problems.map(p => h("li", {}, p)))) : null,
-    DEX.sprites[s.id] ? [h("h2", {}, "Sprites"), spriteBox(s)] : null,
+    h("h2", {}, "Sprites"), DEX.sprites[s.id] ? spriteBox(s) : h("div", {class: "empty"}, "No approved sprite yet."),
+    DEX.web.url ? [h("h3", {}, "Sprite studio"), studioSection(s)] : null,
     h("h2", {}, "Images"), imageSection(s),
     h("h2", {}, "Base stats" + (s.bst ? " - total " + s.bst : "")),
     h("table", {class: "stat"}, STATS.map(([k, label]) => h("tr", {}, h("td", {}, label), h("td", {}, Number.isInteger(stats[k]) ? String(stats[k]) : "-"),
@@ -588,6 +604,110 @@ function renderCustom(kind) {
   if (!grid.children.length) grid.append(h("div", {class: "empty"}, "Nothing matches."));
 }
 
+// ---------- sprite studio: ask the AI for sprites, judge them, comment, approve ----------
+const artUrl = path => DEX.web.url + "/storage/v1/object/public/art/" + path;
+async function dbRead(path) {
+  const response = await fetch(DEX.web.url + "/rest/v1/" + path, {headers: {apikey: DEX.web.key}});
+  if (!response.ok) throw new Error("Could not load the sprites (" + response.status + ").");
+  return response.json();
+}
+async function dbCall(name, args) {
+  let response;
+  try {
+    response = await fetch(DEX.web.url + "/rest/v1/rpc/" + name, {method: "POST", headers: {apikey: DEX.web.key, "Content-Type": "application/json"}, body: JSON.stringify(args)});
+  } catch (err) { throw new Error("Could not reach the server. Check your connection and try again."); }
+  if (!response.ok) {
+    const body = await response.json().catch(() => ({}));
+    throw new Error(/edit key/i.test(body.message || "") ? "Wrong edit key. Ask in the Discord for the current one." : (body.message || "That did not work (" + response.status + ")."));
+  }
+  return response.json().catch(() => null);
+}
+const STATUS_TEXT = {candidate: "waiting for a verdict", approved: "approved", rejected: "rejected", superseded: "replaced by a newer approved one"};
+
+// One drawn sprite with its comments. `tools` is null in read-only places (the Sprites tab).
+function candidateCard(c, comments, tools) {
+  const pins = comments.filter(m => m.x !== null && m.y !== null);
+  const image = h("img", {src: artUrl(c.preview), alt: "Sprite attempt " + c.id, loading: "lazy", title: tools ? "Click a spot to comment on it" : ""});
+  const wrap = h("div", {class: "pinwrap"}, image, pins.map((m, n) => h("b", {class: "pin", style: "left:" + (m.x * 100) + "%;top:" + (m.y * 100) + "%", title: m.body}, String(n + 1))));
+  if (tools) image.addEventListener("click", ev => {
+    const box = image.getBoundingClientRect(), text = prompt("Comment on this spot (for example: bigger eyes, this should be red):");
+    if (text && text.trim()) tools.comment(c, text.trim(), (ev.clientX - box.left) / box.width, (ev.clientY - box.top) / box.height);
+  });
+  const said = comments.map(m => h("li", {}, m.x !== null ? h("b", {class: "pin still"}, String(pins.indexOf(m) + 1)) : null, " " + m.body, m.editor ? h("span", {class: "sub"}, " - " + m.editor) : null));
+  const note = tools ? textInput("", {maxlength: 400, placeholder: "Comment on the whole sprite, or say what to change"}) : null;
+  return h("div", {class: "cand " + c.status}, wrap,
+    h("div", {class: "candline"}, h("span", {class: "badge " + (c.status === "approved" ? "done" : c.status === "candidate" ? "need" : "")}, STATUS_TEXT[c.status] || c.status),
+      h("span", {class: "sub"}, " attempt #" + c.id + (c.reviewed_by ? " - by " + c.reviewed_by : ""))),
+    said.length ? h("ul", {class: "said"}, said) : null,
+    tools ? h("div", {class: "candtools"}, note,
+      h("button", {type: "button", class: "small", onclick: () => note.value.trim() && tools.comment(c, note.value.trim(), null, null)}, "Comment"),
+      h("button", {type: "button", class: "small", title: "Draw it again with all comments on this attempt (and what is typed here) as instructions", onclick: () => tools.redo(c, note.value.trim(), comments.length)}, "Redo with comments"),
+      c.status !== "approved" ? h("button", {type: "button", class: "small primary", onclick: () => tools.review(c, "approved")}, "Approve") : h("button", {type: "button", class: "small", onclick: () => tools.review(c, "candidate")}, "Un-approve"),
+      c.status === "candidate" ? h("button", {type: "button", class: "small", onclick: () => tools.review(c, "rejected")}, "Reject") : null) : null);
+}
+
+function studioSection(s) {
+  const box = h("div", {class: "upload"}), list = h("div", {class: "cands"}), queue = h("div", {class: "hint"}), status = h("div", {class: "hint", role: "status"});
+  const editor = textInput(remember.get("editor"), {maxlength: 40, placeholder: "your Discord name"});
+  const key = h("input", {type: "password", value: remember.get("key"), autocomplete: "off"});
+  const look = h("textarea", {rows: 4, maxlength: 800, placeholder: "What should be kept and exaggerated at sprite size? E.g.: a round brown fish with a huge grinning mouth, big white teeth, fierce eyes, three green mountain peaks on its back."});
+  look.value = DEX.studio.looks[s.id] || "";
+  const attempts = selectInput("2", [["1", "1 attempt"], ["2", "2 attempts"], ["3", "3 attempts"], ["4", "4 attempts"]]);
+  const pictures = imagesOf(s.id).filter(i => Number.isInteger(i.id) && !/^\[/.test(i.caption || "")).slice(0, 8);
+  const ticks = pictures.map((image, n) => { const tick = h("input", {type: "checkbox"}); tick.checked = n === 0; return [image, tick]; });
+  let jobs = [], started = false;
+  const who = () => ({p_key: key.value, p_editor: editor.value});
+  async function act(work) {
+    status.textContent = "Working...";
+    try { await work(); remember.set("editor", editor.value); remember.set("key", key.value); status.textContent = ""; await load(); }
+    catch (err) { status.textContent = err.message; }
+  }
+  const tools = {
+    comment: (c, text, x, y) => act(() => dbCall("comment_sprite", {...who(), p_candidate: c.id, p_body: text, p_x: x, p_y: y})),
+    review: (c, verdict) => act(() => dbCall("review_sprite", {...who(), p_candidate: c.id, p_status: verdict})),
+    redo: (c, text, commentCount) => {
+      if (!text && !commentCount) { status.textContent = "Say what should change first: comment on the sprite or type it in the box."; return; }
+      const job = jobs.find(j => j.id === c.job_id) || {};
+      act(() => dbCall("request_sprites", {...who(), p_species_id: s.id, p_look: job.look || look.value || s.data.name, p_notes: text || null, p_parent: c.id,
+        p_refs: job.ref_image_ids || [], p_variations: Number(attempts.value)}));
+    },
+  };
+  async function load() {
+    if (started && !box.isConnected) return;                 // the page was closed: stop refreshing
+    started = true;
+    try {
+      const [cands, allJobs, worker] = await Promise.all([
+        dbRead("sprite_candidates?species_id=eq." + s.id + "&order=id.desc&limit=24"),
+        dbRead("sprite_jobs?species_id=eq." + s.id + "&order=id.desc&limit=30"),
+        dbRead("sprite_worker?select=seen_at,state")]);
+      jobs = allJobs;
+      const comments = cands.length ? await dbRead("sprite_comments?candidate_id=in.(" + cands.map(c => c.id).join(",") + ")&order=id.asc") : [];
+      const waiting = jobs.filter(j => j.status === "queued" || j.status === "running"), failed = jobs.find(j => j.status === "failed" && j.id === jobs[0].id);
+      const online = worker[0] && Date.now() - new Date(worker[0].seen_at).getTime() < 90000;
+      queue.replaceChildren(...[online ? "The drawing PC is on" + (worker[0].state && worker[0].state !== "idle" ? " (" + worker[0].state + ")" : "") + ". " : h("b", {style: "color:var(--warn)"}, "The drawing PC is not answering right now - requests wait until it is back. "),
+        waiting.length ? "Drawing " + waiting.reduce((n, j) => n + j.variations, 0) + " attempt(s) for this Pokemon - about half a minute each, this list updates by itself." : "",
+        failed ? h("div", {style: "color:var(--warn)"}, "The last request failed: " + (failed.error || "unknown reason")) : null].filter(Boolean));
+      list.replaceChildren(...(cands.length ? cands.map(c => candidateCard(c, comments.filter(m => m.candidate_id === c.id), tools)) : [h("div", {class: "empty"}, "No sprites drawn yet.")]));
+      if (waiting.length) setTimeout(load, 8000);
+    } catch (err) { queue.textContent = err.message; }
+  }
+  const draw = h("button", {class: "primary", type: "button", onclick: () => {
+    if (look.value.trim().length < 3) { status.textContent = "Describe the look first."; return; }
+    act(() => dbCall("request_sprites", {...who(), p_species_id: s.id, p_look: look.value, p_notes: null, p_parent: null,
+      p_refs: ticks.filter(([, tick]) => tick.checked).map(([image]) => image.id).slice(0, 4), p_variations: Number(attempts.value)}));
+  }}, "Draw sprites");
+  box.append(
+    h("div", {class: "hint"}, "The AI draws a front and a back view in the dex's fixed pixel style and they are converted to the game's format. The same request always gives the same pictures; different attempts differ."),
+    h("div", {class: "fields"}, field("The look - what to keep and exaggerate (a sprite is only 64 pixels)", look, "wide"),
+      pictures.length ? h("div", {class: "field wide"}, h("span", {}, "Pictures the AI should look at (attach concept art under Images first)"),
+        h("div", {class: "refpick"}, ticks.map(([image, tick]) => h("label", {}, tick, h("img", {src: image.src, alt: image.caption || "picture"}))))) : h("div", {class: "hint"}, "No concept art attached yet - the AI will only have the text to go on."),
+      field("How many attempts", attempts), field("Your name", editor), field("Edit key (from the Discord)", key)),
+    h("div", {style: "margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap"}, draw, status), queue, list,
+    h("details", {class: "hint"}, h("summary", {}, "The fixed style every sprite is drawn in"), DEX.studio.style));
+  load();
+  return box;
+}
+
 // The game sprites of a Pokemon, enlarged. Made by scripts/sprites.py.
 function spriteBox(s) {
   const info = DEX.sprites[s.id];
@@ -598,11 +718,24 @@ function spriteBox(s) {
       info.drafts.length ? " Still placeholders: " + info.drafts.join(", ") + "." : null));
 }
 function renderSprites() {
+  const grid = document.getElementById("grid");
   const have = DEX.species.filter(s => DEX.sprites[s.id]).sort((a, b) => (a.data.dex || 999) - (b.data.dex || 999));
-  const intro = h("p", {class: "sub", style: "grid-column:1/-1;margin:0"}, have.length + " of " + DEX.species.length +
-    " Pokemon have sprites. To get one made, attach concept art to the Pokemon; to have one redone, say so in the Discord.");
-  document.getElementById("grid").replaceChildren(intro, ...have.map(s => h("button", {class: "card", type: "button", onclick: () => openDetail(s)},
-    h("div", {class: "num"}, "#" + String(s.data.dex ?? "?").padStart(3, "0") + " " + s.data.name), spriteBox(s))));
+  const review = h("div", {class: "cands", style: "grid-column:1/-1"}, h("div", {class: "empty"}, "Loading..."));
+  grid.replaceChildren(
+    h("p", {class: "sub", style: "grid-column:1/-1;margin:0"}, "Sprites are drawn in the Sprite studio on each Pokemon's page. Open a Pokemon to ask for sprites, comment on them and approve one."),
+    h("h2", {style: "grid-column:1/-1;margin:6px 0 0"}, "Waiting for a verdict"), review,
+    h("h2", {style: "grid-column:1/-1;margin:6px 0 0"}, "Approved - " + have.length + " of " + DEX.species.length + " Pokemon"),
+    ...have.map(s => h("button", {class: "card", type: "button", onclick: () => openDetail(s)},
+      h("div", {class: "num"}, "#" + String(s.data.dex ?? "?").padStart(3, "0") + " " + s.data.name), spriteBox(s))));
+  if (!DEX.web.url) { review.replaceChildren(h("div", {class: "empty"}, "Not available.")); return; }
+  dbRead("sprite_candidates?status=eq.candidate&order=id.desc&limit=60").then(async cands => {
+    const comments = cands.length ? await dbRead("sprite_comments?candidate_id=in.(" + cands.map(c => c.id).join(",") + ")&order=id.asc") : [];
+    review.replaceChildren(...(cands.length ? cands.map(c => {
+      const s = byId.get(c.species_id);
+      return h("button", {class: "card", type: "button", onclick: () => s && openDetail(s)}, h("div", {class: "num"}, s ? "#" + String(s.data.dex ?? "?").padStart(3, "0") + " " + s.data.name : c.species_id),
+        candidateCard(c, comments.filter(m => m.candidate_id === c.id), null));
+    }) : [h("div", {class: "empty"}, "Nothing is waiting.")]));
+  }).catch(err => review.replaceChildren(h("div", {class: "empty"}, err.message)));
 }
 
 // How our type spread compares with the official games.
