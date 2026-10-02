@@ -70,9 +70,9 @@ learnset:
     - {level: 40, move: Leaf Blade}
     - {level: 45, move: Swords Dance}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Protect, Giga Drain, Frustration,
-          Solar Beam, Iron Tail, Return, Double Team, Aerial Ace, Facade, Secret Power,
-          Rest, Attract, Cut, Strength, Flash, Rock Smash]
+  tm_hm: [Dragon Claw, Toxic, Bullet Seed, Hidden Power, Sunny Day, Protect, Giga Drain,
+          Frustration, Solar Beam, Iron Tail, Return, Double Team, Aerial Ace, Facade,
+          Secret Power, Rest, Attract, Cut, Strength, Flash, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Swords Dance, Body Slam, Double-Edge, Mimic, Substitute, Snore, Endure, Mud-Slap,
           Swagger, Sleep Talk, Fury Cutter]

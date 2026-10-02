@@ -109,6 +109,7 @@
           }
         ],
         "tm_hm": [
+          "Dragon Claw",
           "Toxic",
           "Bullet Seed",
           "Hidden Power",
@@ -186,7 +187,7 @@
       "dex": 2,
       "name": "Leafsteel",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -199,19 +200,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Overgrow",
         "secondary": null,
-        "hidden": null
+        "hidden": "Sharpness"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 75,
+        "attack": 90,
+        "defense": 80,
+        "sp_attack": 60,
+        "sp_defense": 65,
+        "speed": 50
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -231,7 +234,12 @@
         }
       ],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Slash"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -279,19 +287,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Overgrow",
         "secondary": null,
-        "hidden": null
+        "hidden": "Sharpness"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 90,
+        "attack": 130,
+        "defense": 100,
+        "sp_attack": 70,
+        "sp_defense": 80,
+        "speed": 60
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 3
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -305,7 +315,20 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Leaf Blade"
+          },
+          {
+            "level": 40,
+            "move": "Iron Tail"
+          },
+          {
+            "level": 60,
+            "move": "Behemoth Blade"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []

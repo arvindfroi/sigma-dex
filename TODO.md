@@ -10,15 +10,15 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Area | Item | Filled in |
 |------|------|----------:|
 | Identity | types | 72 / 82 |
-| Identity | designer credit | 2 / 82 |
+| Identity | designer credit | 3 / 82 |
 | Dex page | category | 2 / 82 |
 | Dex page | description | 2 / 82 |
 | Dex page | height | 2 / 82 |
 | Dex page | weight | 2 / 82 |
 | Dex page | body color | 1 / 82 |
-| Stats | base stats | 2 / 82 |
-| Stats | ability | 2 / 82 |
-| Stats | EV yield | 1 / 82 |
+| Stats | base stats | 4 / 82 |
+| Stats | ability | 4 / 82 |
+| Stats | EV yield | 3 / 82 |
 | Stats | catch rate | 1 / 82 |
 | Stats | base exp | 1 / 82 |
 | Stats | growth rate | 1 / 82 |
@@ -26,7 +26,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Breeding | gender | 1 / 82 |
 | Breeding | egg groups | 1 / 82 |
 | Breeding | egg cycles | 1 / 82 |
-| Moves | level-up moves | 1 / 82 |
+| Moves | level-up moves | 3 / 82 |
 | Moves | TM/HM moves | 1 / 82 |
 | Location | encounters | 1 / 82 |
 | Design | concept | 2 / 82 |
@@ -49,24 +49,23 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #2 [Leafsteel](data/species/leafsteel.yaml) - 3%
+### #2 [Leafsteel](data/species/leafsteel.yaml) - 21%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #3 [Leafaxer](data/species/leafaxer.yaml) - 3%
+### #3 [Leafaxer](data/species/leafaxer.yaml) - 17%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry

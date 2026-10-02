@@ -33,3 +33,59 @@ SINGLE_BATTLE_TEST("Sigma dex: Leafing can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Leafsteel has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_LEAFSTEEL];
+    EXPECT_EQ(info->baseHP, 75);
+    EXPECT_EQ(info->baseAttack, 90);
+    EXPECT_EQ(info->baseDefense, 80);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 60);
+    EXPECT_EQ(info->baseSpDefense, 65);
+    EXPECT_EQ(info->types[0], TYPE_GRASS);
+    EXPECT_EQ(info->types[1], TYPE_STEEL);
+    EXPECT_EQ(info->abilities[0], ABILITY_OVERGROW);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SLASH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_LEAFSTEEL)[0], CHAR_L);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Leafsteel can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_LEAFSTEEL) { Moves(MOVE_SLASH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SLASH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SLASH, player);
+    }
+}
+
+TEST("Sigma dex: Leafaxer has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_LEAFAXER];
+    EXPECT_EQ(info->baseHP, 90);
+    EXPECT_EQ(info->baseAttack, 130);
+    EXPECT_EQ(info->baseDefense, 100);
+    EXPECT_EQ(info->baseSpeed, 60);
+    EXPECT_EQ(info->baseSpAttack, 70);
+    EXPECT_EQ(info->baseSpDefense, 80);
+    EXPECT_EQ(info->types[0], TYPE_GRASS);
+    EXPECT_EQ(info->types[1], TYPE_STEEL);
+    EXPECT_EQ(info->abilities[0], ABILITY_OVERGROW);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEAF_BLADE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_LEAFAXER)[0], CHAR_L);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Leafaxer can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_LEAFAXER) { Moves(MOVE_LEAF_BLADE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_LEAF_BLADE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEAF_BLADE, player);
+    }
+}
+

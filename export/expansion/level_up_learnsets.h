@@ -15,3 +15,15 @@ static const struct LevelUpMove sLeafingLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sLeafsteelLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_SLASH),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sLeafaxerLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_LEAF_BLADE),
+    LEVEL_UP_MOVE(40, MOVE_IRON_TAIL),
+    LEVEL_UP_MOVE(60, MOVE_BEHEMOTH_BLADE),
+    LEVEL_UP_END
+};
+

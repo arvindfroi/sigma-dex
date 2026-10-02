@@ -17,19 +17,19 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Overgrow
   secondary:             # optional
-  hidden:                # optional
+  hidden: Sharpness      # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 90
+  attack: 130
+  defense: 100
+  sp_attack: 70
+  sp_defense: 80
+  speed: 60
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {attack: 3}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -55,7 +55,11 @@ evolutions: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  level_up:
+    - {level: 1, move: Leaf Blade}
+    - {level: 40, move: Iron Tail}
+    - {level: 60, move: Behemoth Blade}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
