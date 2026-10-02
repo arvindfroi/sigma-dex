@@ -67,6 +67,11 @@ static const struct LevelUpMove sGortikiLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sDevampryLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_HYPER_VOICE),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sGalfrogtomLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_DISCHARGE),
     LEVEL_UP_END

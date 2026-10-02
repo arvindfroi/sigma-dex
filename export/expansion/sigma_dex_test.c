@@ -313,6 +313,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Gortiki can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Devampry has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DEVAMPRY];
+    EXPECT_EQ(info->baseHP, 81);
+    EXPECT_EQ(info->baseAttack, 80);
+    EXPECT_EQ(info->baseDefense, 69);
+    EXPECT_EQ(info->baseSpeed, 95);
+    EXPECT_EQ(info->baseSpAttack, 95);
+    EXPECT_EQ(info->baseSpDefense, 70);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_DARK);
+    EXPECT_EQ(info->abilities[0], ABILITY_SOUNDPROOF);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_HYPER_VOICE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_DEVAMPRY)[0], CHAR_D);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Devampry can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_DEVAMPRY) { Moves(MOVE_HYPER_VOICE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_HYPER_VOICE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, player);
+    }
+}
+
 TEST("Sigma dex: Galfrogtom has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GALFROGTOM];

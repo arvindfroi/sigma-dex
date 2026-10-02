@@ -99,6 +99,10 @@ static const u16 sGortikiTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sDevampryTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sGalfrogtomTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };

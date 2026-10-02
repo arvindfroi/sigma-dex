@@ -45,8 +45,8 @@ until the edge shines like metal.
 40,tinky,Tinky,Grass,,Heatproof,Dancer,Prankster,285,35,30,65,55,50,50,,,,,,,1 defense,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,17
 41,motinky,Motinky,Grass,Fire,Flash Fire,Dancer,Prankster,420,55,42,91,90,70,72,Tinky,Lv 22,,,,,"1 defense, 1 sp_attack",,,,,,,,,,,Fire Spin (1),,,,,,,,,Emil Venge-Kvamme,,21
 42,gortiki,Gortiki,Grass,Fire,Flash Fire,Dancer,Huge Power,520,80,56,110,108,94,72,Motinky,Lv 40,,,,,"2 defense, 1 sp_attack",,,,,,,,,,,Fiery Dance (1),,,,,,,,,Emil Venge-Kvamme,,21
-43,chebbi,Chebbi,Normal,Dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-44,devampry,Devampry,Normal,Dark,,,,,,,,,,,Chebbi,Lv 32,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+43,chebbi,Chebbi,Normal,Dark,Soundproof,Gluttony,Punk Rock,360,70,60,55,70,55,50,,,,,,,1 sp_attack,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,17
+44,devampry,Devampry,Normal,Dark,Soundproof,Levitate,Punk Rock,490,81,80,69,95,70,95,Chebbi,Lv 32,,,,,"1 sp_attack, 1 speed",,,,,,,,,,,Hyper Voice (1),,,,,,,,,Emil Venge-Kvamme,,21
 45,chillalit,Chillalit,Fire,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 46,zapana,Zapana,Water,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 47,ampeel,Ampeel,Water,Electric,,,,,,,,,,,Zapana,Lv 30,,,,,,,,,,,,,,,,,,,,,,,,,,,3
