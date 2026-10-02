@@ -42,6 +42,9 @@ jobs:
       - name: Import images attached on the website
         if: github.event_name != 'pull_request'
         run: python scripts/import_images.py
+      - name: Make sprites from pictures uploaded as sprite pictures
+        if: github.event_name != 'pull_request'
+        run: python scripts/sprites.py auto
       - name: Check the species files
         run: python scripts/validate.py
       - name: Rebuild DEX.md, TODO.md, export/ and the website

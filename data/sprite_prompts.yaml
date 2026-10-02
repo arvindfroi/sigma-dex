@@ -1,0 +1,31 @@
+# What the AI is told when it draws sprites (scripts/ai_sprites.py, see docs/SPRITES.md).
+# `style` is the same for every Pokemon, so the whole dex gets one look. Each Pokemon has a
+# `look`: a short caricature of it - a sprite is 64 pixels wide, so say what to keep and
+# exaggerate, not every detail. `refs` are pictures in this repository the AI looks at.
+# Changing a `look` or a `seed` and running the script again gives a new attempt.
+style: >-
+  Pixel art battle sprite for a Game Boy Advance monster-collecting RPG, drawn on a 64x64 pixel
+  grid and shown enlarged so every pixel is a big crisp square. Bold readable silhouette,
+  exaggerated expressive face, clean dark outline, flat cel shading with at most three tones per
+  color, about 12 colors in total, strong contrast, light from the upper left. No anti-aliasing,
+  no gradients, no dithering, no texture noise, no text, no border, no ground, no shadow, one
+  creature only, centered with a small margin.
+front: >-
+  The creature is seen from the front, facing the viewer, simplified like a caricature:
+back: >-
+  The creature is seen from behind and slightly above, as the player's own monster in battle,
+  its face not visible, simplified like a caricature:
+
+pokemon:
+  bergflabbser:
+    refs: [assets/concept-art/bergflabbser/4.png]
+    look: >-
+      a round brown fish with two stubby fins, a huge grinning open mouth with a few big white
+      triangle teeth and a pink tongue, two large fierce white eyes with black pupils and heavy
+      brows, and on its back three chunky green mountain peaks with grey rock tips, a tiny grey
+      tower on the tallest peak and four tiny colored houses in a row between the peaks.
+    back_look: >-
+      a round brown fish with two stubby fins and a tail fin, and on its back three chunky green
+      mountain peaks with grey rock tips, a tiny grey tower on the tallest peak and four tiny
+      colored houses in a row between the peaks.
+    seeds: {front: 21, back: 22}

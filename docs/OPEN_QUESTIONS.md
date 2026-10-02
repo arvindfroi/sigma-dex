@@ -12,16 +12,18 @@ earlier conflicts: Fairy type, hidden abilities, the physical/special split and 
 
 1. **Rainbro is listed as "Stellar".** Stellar exists only as a Tera type, not as a type a
    Pokemon can have. What should it be?
-2. **Names longer than 12 characters:** Sigmanian Unown (15), Sigmanian Sudowoodo (19), Sigmanian Eiscue (16), Tomaterdander (13).
+2. **Names longer than 12 characters:** Tomaterdander (13) - to be shortened later (decided 2026-10-02).
+   The three Sigmanian ones are regional variants, which show the original's name in the game
+   ("Sudowoodo"), so their length is not a problem.
 3. **New moves and abilities** (ones that do not exist in any official game) have to be
    programmed. For each one we need: name, type, physical/special/status, power, accuracy,
    PP, and exactly what it does. The fewer and the more precisely described, the better.
 
 ## Unclear in the doc
 
-7. **Regional forms of official Pokemon:** Sigmanian Sudowoodo (#24), Sigmanian Eiscue (#32, or an
-   Eiscue evolution - second type still "?") and Sigmanian Unown (#57). A regional form needs the
-   original Pokemon to be in the game too; decide whether these are forms or new species.
+7. **Sigmanian Sudowoodo (#24), Sigmanian Eiscue (#32) and Sigmanian Unown (#57) are regional
+   variants** of the official Pokemon (decided 2026-10-02), like Alolan Vulpix. Still open:
+   Sigmanian Eiscue's second type is "?". The game export does not write regional variants yet.
 8. **No types given:** Bolthook, Sigmanian Unown, Unknighted, Gentie, Cryoblade, Ciggiti, Chuchar,
    Parahaunt, Insectoid, Darkgonark. Rainbro is "Stellar", which is not usable.
 9. **Unclear lines:** #58 "unknighted (unknown thunder stone?)" - does it evolve from Sigmanian Unown
@@ -48,7 +50,7 @@ earlier conflicts: Fairy type, hidden abilities, the physical/special split and 
     any computer or phone in an emulator. A native PC program of it does not exist ready-made
     (see [ENGINE.md](ENGINE.md)). The Pokemon data, moves, maps and scripts are the same
     work either way, so this can be decided later.
-14. **Replace or add?** Do our 100 replace the Hoenn dex, or get added next to the 386
-    existing Pokemon?
+14. **Our 100 are added next to the existing Pokemon; they do not replace the Hoenn dex**
+    (decided 2026-10-02). This is what the game export already does.
 15. **Region name** - goes in `data/config.yaml`.
 16. **Leafing's values are a draft** made for the proof of concept. Review them.

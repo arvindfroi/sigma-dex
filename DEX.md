@@ -107,5 +107,5 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 96 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug |  |  |  | 3% |
 | 97 | [Greation](data/species/greation.yaml) | Dragon / Bug |  |  |  | 3% |
 | 98 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug |  |  |  | 3% |
-| 99 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground | Drizzle | 680 |  | 34% |
+| 99 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground | Drizzle | 680 |  | 48% |
 | 100 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison |  |  |  | 3% |

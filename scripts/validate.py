@@ -169,7 +169,7 @@ def check_species(sid, data, ids, engine, errors, warnings):
 
     details = section(data, "engine")
     for key, low, high in (("elevation", 0, 64), ("front_y_offset", 0, 64), ("back_y_offset", 0, 64),
-                           ("icon_palette", 0, 2), ("safari_flee_rate", 0, 255)):
+                           ("icon_palette", 0, 5), ("safari_flee_rate", 0, 255)):
         value = details.get(key)
         if value is not None and (not isinstance(value, int) or isinstance(value, bool) or not low <= value <= high):
             err("engine.%s must be a whole number %d-%d, found %r" % (key, low, high, value))
@@ -179,6 +179,11 @@ def check_species(sid, data, ids, engine, errors, warnings):
     for key, value in section(data, "assets").items():
         if value is not None and not (isinstance(value, str) and (ROOT / value).is_file()):
             err("assets.%s points to '%s' which does not exist in the repo" % (key, value))
+    folder = ROOT / "assets" / "sprites" / sid
+    if folder.is_dir():
+        import sprites                      # needs Pillow; only loaded when there are sprites to check
+        for problem in sprites.check_folder(folder):
+            err("sprites: " + problem)
 
 
 def main():

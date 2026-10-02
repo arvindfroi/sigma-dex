@@ -6137,10 +6137,10 @@
       },
       "assets": {
         "concept_art": "assets/concept-art/bergflabbser/4.png",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
+        "front_sprite": "assets/sprites/bergflabbser/front.png",
+        "front_anim": "assets/sprites/bergflabbser/anim_front.png",
+        "back_sprite": "assets/sprites/bergflabbser/back.png",
+        "icon": "assets/sprites/bergflabbser/icon.png",
         "footprint": null,
         "shiny_palette": null,
         "cry": null
@@ -6148,9 +6148,9 @@
       "engine": {
         "no_flip": false,
         "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
+        "front_y_offset": 8,
+        "back_y_offset": 16,
+        "icon_palette": 5,
         "safari_flee_rate": 0
       },
       "id": "bergflabbser"

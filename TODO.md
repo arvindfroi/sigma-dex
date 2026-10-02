@@ -31,10 +31,10 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Location | encounters | 1 / 82 |
 | Design | concept | 2 / 82 |
 | Art | concept art | 1 / 82 |
-| Art | front sprite | 0 / 82 |
-| Art | front animation frame | 0 / 82 |
-| Art | back sprite | 0 / 82 |
-| Art | icon | 0 / 82 |
+| Art | front sprite | 1 / 82 |
+| Art | front animation frame | 1 / 82 |
+| Art | back sprite | 1 / 82 |
+| Art | icon | 1 / 82 |
 | Art | footprint | 0 / 82 |
 | Art | shiny palette | 0 / 82 |
 | Art | cry | 0 / 82 |
@@ -919,14 +919,14 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #99 [Bergflabbser](data/species/bergflabbser.yaml) - 34%
+### #99 [Bergflabbser](data/species/bergflabbser.yaml) - 48%
 
 - **Dex page:** body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** footprint, shiny palette, cry
 
 ### #100 [Maagamad](data/species/maagamad.yaml) - 3%
 

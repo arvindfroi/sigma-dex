@@ -96,6 +96,9 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
 .gallery figure { margin: 0; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 6px; font-size: 12px; color: var(--muted); }
 .gallery img { width: 100%; height: 110px; object-fit: contain; border-radius: 6px; background: var(--bar); display: block; }
+.sprite { margin: 0; }
+.sprite img { max-width: 100%; image-rendering: pixelated; border-radius: 8px; border: 1px solid var(--line); display: block; }
+.sprite figcaption { margin-top: 6px; font-size: 13px; color: var(--muted); }
 .gallery figcaption { margin-top: 4px; overflow-wrap: anywhere; }
 .upload { background: var(--bg); border-radius: 10px; padding: 12px; margin-top: 10px; }
 .balance { width: 100%; max-width: 760px; }
@@ -299,6 +302,7 @@ function openDetail(s) {
       ? [h("span", {class: "badge need"}, "not in the game yet"), " To be put into the game it still needs: " + s.gameNeeds.join(", ") + "."]
       : [h("span", {class: "badge done"}, "playable"), " Has everything the game needs. It is built into the game with placeholder art until it has sprites."]),
     s.problems.length ? h("div", {}, h("h2", {}, "Warnings"), h("ul", {class: "problems"}, s.problems.map(p => h("li", {}, p)))) : null,
+    DEX.sprites[s.id] ? [h("h2", {}, "Sprites"), spriteBox(s)] : null,
     h("h2", {}, "Images"), imageSection(s),
     h("h2", {}, "Base stats" + (s.bst ? " - total " + s.bst : "")),
     h("table", {class: "stat"}, STATS.map(([k, label]) => h("tr", {}, h("td", {}, label), h("td", {}, Number.isInteger(stats[k]) ? String(stats[k]) : "-"),
@@ -331,7 +335,7 @@ function openDetail(s) {
 const imagesOf = id => DEX.images[id] || [];
 
 // Large pictures are scaled down in the browser so uploads stay small; small ones (sprites) are sent untouched.
-async function prepareImage(file) {
+async function prepareImage(file, lossless) {
   if (!/^image\/(png|jpeg|webp|gif)$/.test(file.type)) throw new Error(file.name + " is not a PNG, JPG, WEBP or GIF image.");
   if (file.type === "image/gif" || file.size <= 400 * 1024) {
     if (file.size > 3 * 1024 * 1024) throw new Error(file.name + " is larger than 3 MB.");
@@ -342,7 +346,7 @@ async function prepareImage(file) {
   const canvas = Object.assign(document.createElement("canvas"), {width: Math.round(bitmap.width * scale), height: Math.round(bitmap.height * scale)});
   canvas.getContext("2d").drawImage(bitmap, 0, 0, canvas.width, canvas.height);
   const encode = (type, quality) => new Promise(resolve => canvas.toBlob(resolve, type, quality));
-  let blob = await encode("image/webp", 0.85);
+  let blob = lossless ? await encode("image/png") : await encode("image/webp", 0.85);   // sprite pictures must keep their exact pixels
   if (!blob || blob.type !== "image/webp") blob = await encode("image/png");       // browsers that cannot write WEBP
   if (blob.size > 3 * 1024 * 1024) {                                               // still too big: flatten onto white as JPG
     const flat = Object.assign(document.createElement("canvas"), {width: canvas.width, height: canvas.height}), ctx = flat.getContext("2d");
@@ -369,7 +373,9 @@ function imageSection(s) {
   const editor = textInput(remember.get("editor"), {maxlength: 40, placeholder: "your Discord name"});
   const key = h("input", {type: "password", value: remember.get("key"), autocomplete: "off"});
   const files = h("input", {type: "file", accept: "image/png,image/jpeg,image/webp,image/gif", multiple: true});
-  const caption = textInput("", {maxlength: 200, placeholder: "e.g. concept art, front view, shiny idea"});
+  const caption = textInput("", {maxlength: 180, placeholder: "e.g. concept art, front view, shiny idea"});
+  const kind = selectInput("", [["", "Concept art, sketch or anything else"], ["front", "Sprite: front view"], ["front2", "Sprite: front view, second animation frame"],
+    ["back", "Sprite: back view"], ["shiny", "Sprite: front view in shiny colors"], ["icon", "Sprite: small party icon"], ["footprint", "Sprite: footprint"]]);
   const status = h("div", {class: "hint", role: "status"});
   const send = h("button", {class: "primary", type: "button"}, "Upload");
   function draw() {
@@ -396,7 +402,8 @@ function imageSection(s) {
       let done = 0;
       for (const file of files.files) {
         status.textContent = "Uploading " + (++done) + " of " + files.files.length + "...";
-        const row = await imageRequest({key: key.value, species_id: s.id, caption: caption.value, editor: editor.value, file: await prepareImage(file)});
+        const text = (kind.value ? "[" + kind.value + "] " : "") + caption.value;
+        const row = await imageRequest({key: key.value, species_id: s.id, caption: text, editor: editor.value, file: await prepareImage(file, !!kind.value)});
         (DEX.images[s.id] ||= []).push({id: row.id, src: DEX.web.url + "/storage/v1/object/public/art/" + row.path, caption: row.caption, editor: row.editor});
         draw();
       }
@@ -407,7 +414,7 @@ function imageSection(s) {
   });
   draw();
   return h("div", {}, box, DEX.web.url ? h("div", {class: "upload"},
-    h("div", {class: "fields"}, field("Add images (concept art, sketches, sprites)", files, "wide"), field("Caption (optional)", caption, "wide"), field("Your name", editor), field("Edit key (from the Discord)", key)),
+    h("div", {class: "fields"}, field("Add images (concept art, sketches, sprites)", files, "wide"), field("What is it? Sprite pictures are turned into game sprites automatically", kind, "wide"), field("Caption (optional)", caption, "wide"), field("Your name", editor), field("Edit key (from the Discord)", key)),
     h("div", {style: "margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap"}, send, status)) : null);
 }
 
@@ -581,6 +588,23 @@ function renderCustom(kind) {
   if (!grid.children.length) grid.append(h("div", {class: "empty"}, "Nothing matches."));
 }
 
+// The game sprites of a Pokemon, enlarged. Made by scripts/sprites.py.
+function spriteBox(s) {
+  const info = DEX.sprites[s.id];
+  const parts = ["front", info.back ? "back" : null, "icon"].filter(Boolean).join(", ");
+  return h("figure", {class: "sprite"}, h("img", {src: info.src, alt: "Game sprites of " + s.data.name}),
+    h("figcaption", {}, "In the game's format (64x64, 15 colors): " + parts + ". ",
+      info.note === "AI draft" ? h("span", {class: "badge need"}, "AI draft - say in the Discord if it should be redone") : null,
+      info.drafts.length ? " Still placeholders: " + info.drafts.join(", ") + "." : null));
+}
+function renderSprites() {
+  const have = DEX.species.filter(s => DEX.sprites[s.id]).sort((a, b) => (a.data.dex || 999) - (b.data.dex || 999));
+  const intro = h("p", {class: "sub", style: "grid-column:1/-1;margin:0"}, have.length + " of " + DEX.species.length +
+    " Pokemon have sprites. To get one made, attach concept art to the Pokemon; to have one redone, say so in the Discord.");
+  document.getElementById("grid").replaceChildren(intro, ...have.map(s => h("button", {class: "card", type: "button", onclick: () => openDetail(s)},
+    h("div", {class: "num"}, "#" + String(s.data.dex ?? "?").padStart(3, "0") + " " + s.data.name), spriteBox(s))));
+}
+
 // How our type spread compares with the official games.
 function renderBalance() {
   const grid = document.getElementById("grid"), shares = DEX.type_shares.shares;
@@ -613,7 +637,7 @@ let view = "species";
 function renderTabs() {
   const count = kind => DEX.custom[kind].length + undescribed(kind).length;
   document.getElementById("tabs").replaceChildren(...[["species", "Pokemon"], ["move", "New moves (" + count("move") + ")"], ["ability", "New abilities (" + count("ability") + ")"]]
-    .concat([["balance", "Type balance"]]).map(([id, label]) => h("button", {"aria-pressed": String(view === id), onclick: () => { view = id; render(); }}, label)));
+    .concat([["sprites", "Sprites (" + Object.keys(DEX.sprites).length + ")"], ["balance", "Type balance"]]).map(([id, label]) => h("button", {"aria-pressed": String(view === id), onclick: () => { view = id; render(); }}, label)));
   document.getElementById("show").style.display = view === "species" ? "" : "none";
   document.getElementById("type").style.display = view === "ability" || view === "balance" ? "none" : "";
   document.getElementById("search").style.display = view === "balance" ? "none" : "";
@@ -768,6 +792,7 @@ function openEditor(s) {
 function render() {
   renderTabs();
   if (view === "balance") return renderBalance();
+  if (view === "sprites") return renderSprites();
   if (view !== "species") return renderCustom(view);
   const query = document.getElementById("search").value.trim().toLowerCase();
   const type = document.getElementById("type").value, mode = document.getElementById("show").value;

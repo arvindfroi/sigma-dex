@@ -48,6 +48,18 @@ def main():
             "id": entry["id"], "src": "art/%s/%s" % (entry["species"], source.name),
             "caption": entry.get("caption"), "editor": entry.get("editor")})
 
+    # Sprites: the enlarged preview of each Pokemon's game sprites.
+    sprite_info = {}
+    for sid in sorted(ids):
+        folder = ROOT / "assets" / "sprites" / sid
+        if (folder / "preview.png").is_file():
+            target = art_dir / sid / "sprite.png"
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(folder / "preview.png", target)
+            facts = json.loads((folder / "sprite.json").read_text(encoding="utf-8")) if (folder / "sprite.json").is_file() else {}
+            sprite_info[sid] = {"src": "art/%s/sprite.png" % sid, "note": facts.get("note"), "back": "back" in facts,
+                                "drafts": [d.split(" ")[0] for d in facts.get("drafts", [])]}
+
     def report(name):
         path = ROOT / "export" / name
         return json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
@@ -57,7 +69,7 @@ def main():
         "project": config.get("project", "Pokedex"), "dex_size": config.get("dex_size", 100),
         "species": entries, "types": dexlib.TYPES, "checks": dexlib.CHECK_LIST,
         "custom": {"move": engine["custom"]["moves"], "ability": engine["custom"]["abilities"]},
-        "images": images,
+        "images": images, "sprites": sprite_info,
         "type_shares": yaml.safe_load((ROOT / "data" / "engine" / "type_shares.yaml").read_text(encoding="utf-8")),
         "problems": report("doc_problems.json") + report("sheet_problems.json") + report("web_problems.json"),
         "web": dict(config.get("web_edits") or {}, cursor=int(cursor_path.read_text().strip() or 0) if cursor_path.exists() else 0),
