@@ -9,7 +9,8 @@ anything but the website.
 1. Attach the Pokemon's concept art under **Images** (if it is not there yet).
 2. In the studio, write the **look**: what to keep and exaggerate at sprite size. A sprite is
    64 pixels, so "three chunky mountain peaks" works and "seven detailed mountains" does not.
-3. Tick the pictures the AI should look at, choose how many attempts, press **Draw sprites**.
+3. Tick the pictures the AI should look at, choose the **pose** of the front view, the
+   **style** (see below) and how many attempts, then press **Draw sprites**.
    Each attempt takes about a minute and appears by itself.
 4. Judge the attempts:
    - **Click a spot** on a sprite to pin a comment there ("bigger eyes").
@@ -22,6 +23,20 @@ anything but the website.
 
 The **Sprites** tab lists everything that is waiting for a verdict.
 
+## The two styles
+
+- **Pixel art, drawn directly.** One model (Qwen-Image-2.1) draws the sprite as pixel art
+  from the concept art. Keeps the most detail of the design.
+- **Pokemon Emerald LoRA** (light or stronger). The same model first draws a clean
+  illustration in the chosen pose; a second model (Illustrious-XL with the
+  [Pokemon Emerald Sprite Style](https://civitai.com/models/1523016) LoRA) then repaints it
+  the way Emerald's sprites are shaded. "Light" keeps the design, "stronger" looks more like
+  Gen 3 but simplifies: small details disappear and colors drift. A comparison from
+  2026-10-02: ![comparison](img/emerald_lora_test.png)
+
+That LoRA was trained on Pokemon Emerald's own sprites. Whether such a model may be used is
+legally unsettled; Arvind decided to use it (2026-10-02).
+
 ## What is fixed and what is free
 
 The goal: the same request must always give the same result, and all sprites must look like
@@ -30,7 +45,8 @@ they belong to one game - without every Pokemon coming out the same.
 | Fixed (the same for every sprite) | Where |
 |---|---|
 | The style text: pixel grid, outline, shading, number of colors, lighting | `style` in `data/sprite_prompts.yaml` |
-| How front and back views are asked for | `front` and `back` in the same file |
+| The poses to choose from, and how the back view is asked for | `poses` and `back` in the same file |
+| The Emerald step: its model, LoRA and strengths | `emerald_strength` there, `restyle` in `scripts/comfy.py` |
 | The model, its settings (25 steps, 1024x1024) and the conversion to 64x64 / 15 colors | `scripts/comfy.py`, `scripts/sprites.py` |
 | The seed of each attempt: request number x 100 + attempt number | `scripts/sprite_worker.py` |
 
@@ -38,6 +54,7 @@ they belong to one game - without every Pokemon coming out the same.
 |---|---|
 | The look | typed in the studio |
 | Which concept art the AI sees | ticked in the studio |
+| The pose and the style | chosen in the studio |
 | How many attempts to choose between | chosen in the studio |
 | What to change, on which spot | comments |
 | Which attempt wins | Approve |

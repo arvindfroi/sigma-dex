@@ -12,7 +12,11 @@ Sprites and concept art can be drawn by an image model running on a gaming PC. S
 | Its text encoder, int8 (9.4 GB) | `models\text_encoders\qwen3vl_8b_int8_convrot.safetensors` |
 | Its VAE (0.7 GB) | `models\vae\qwen_image_2.1_vae_bf16.safetensors` |
 
-The model files come from huggingface.co/Comfy-Org/Qwen-Image-2.1. One 1024x1024 picture
+| Illustrious-XL v1.0 (6.9 GB), for the Emerald style | `models\checkpoints\Illustrious-XL-v1.0.safetensors` |
+| Pokemon Emerald Sprite Style LoRA (0.2 GB, civitai.com/models/1523016) | `models\loras\Pokemon_Sprite_Style.safetensors` |
+| ControlNet Union SDXL promax (2.5 GB, xinsir on Hugging Face; optional outline lock, not used by default) | `models\controlnet\controlnet-union-sdxl-promax.safetensors` |
+
+The Qwen files come from huggingface.co/Comfy-Org/Qwen-Image-2.1. One 1024x1024 picture
 takes about 25 seconds.
 
 **Licence:** Qwen-Image-2.1 is released under the Qwen Research License: non-commercial use

@@ -16,6 +16,32 @@ back: >-
   The creature is seen from behind and slightly above, as the player's own monster in battle,
   its face not visible, simplified like a caricature:
 
+# Poses people can choose for the front view. The key is what the website stores.
+poses:
+  front: >-
+    The creature is seen from the front, facing the viewer, simplified like a caricature:
+  three-quarter: >-
+    Classic battle pose: the whole body is visible, standing in three-quarter view turned
+    slightly to the left, looking toward the viewer, simplified like a caricature:
+  rearing: >-
+    Rearing up tall and imposing in three-quarter view turned slightly to the left, the whole
+    body visible, simplified like a caricature:
+  flying: >-
+    Hovering in mid-air in three-quarter view turned slightly to the left, wings or fins
+    spread, the whole body visible, simplified like a caricature:
+  crouching: >-
+    Crouched low and ready to pounce in three-quarter view turned slightly to the left, the
+    whole body visible, simplified like a caricature:
+
+# For the "Emerald" styles the AI first draws a clean illustration (this text instead of
+# `style`), which a second model with the Pokemon Emerald sprite LoRA then repaints as a sprite.
+illustration: >-
+  Creature artwork for a monster-collecting RPG, the creature drawn alone on a transparent
+  background. Simple clean cartoon style with bold dark outlines and flat colors, simplified
+  chunky shapes that stay readable when shrunk to 64 pixels, strong contrast. No text, no
+  border, no shadow, no ground, no scenery, one creature only, centered with a small margin.
+emerald_strength: {emerald-light: 0.4, emerald-medium: 0.55}
+
 pokemon:
   bergflabbser:
     refs: [assets/concept-art/bergflabbser/4.png]

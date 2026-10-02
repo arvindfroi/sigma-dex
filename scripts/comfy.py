@@ -74,13 +74,8 @@ def workflow(prompt, references, width, height, steps, seed, prefix):
     return graph
 
 
-def generate(prompt, out, refs=(), size=(1024, 1024), steps=25, seed=None, transparent=False, quiet=False):
-    """Make one picture and save it to `out`. Returns the seed that was used."""
-    seed = int(time.time() * 1000) % (2 ** 31) if seed is None else seed
-    if transparent:
-        prompt = TRANSPARENT % prompt.strip()
-    references = [upload(path) for path in refs]
-    graph = workflow(prompt, references, size[0], size[1], steps, seed, "sigma/" + Path(out).stem)
+def run(graph):
+    """Queue a workflow, wait for it and return the bytes of the picture it saved."""
     job = json.loads(call("/prompt", json.dumps({"prompt": graph, "client_id": "sigma-dex"}).encode(), {"Content-Type": "application/json"}))
     if job.get("node_errors"):
         raise ComfyError("ComfyUI rejected the workflow: %s" % json.dumps(job["node_errors"])[:800])
@@ -97,6 +92,65 @@ def generate(prompt, out, refs=(), size=(1024, 1024), steps=25, seed=None, trans
         time.sleep(2)
     image = next(image for output in entry["outputs"].values() for image in output.get("images", []))
     data = call("/view?" + urllib.parse.urlencode({"filename": image["filename"], "subfolder": image["subfolder"], "type": image["type"]}))
+    return data
+
+
+def generate(prompt, out, refs=(), size=(1024, 1024), steps=25, seed=None, transparent=False, quiet=False):
+    """Make one picture and save it to `out`. Returns the seed that was used."""
+    seed = int(time.time() * 1000) % (2 ** 31) if seed is None else seed
+    if transparent:
+        prompt = TRANSPARENT % prompt.strip()
+    references = [upload(path) for path in refs]
+    graph = workflow(prompt, references, size[0], size[1], steps, seed, "sigma/" + Path(out).stem)
+    started = time.time()
+    data = run(graph)
+    Path(out).parent.mkdir(parents=True, exist_ok=True)
+    Path(out).write_bytes(data)
+    if not quiet:
+        print("%s  (%d s, seed %d)" % (out, time.time() - started, seed))
+    return seed
+
+
+CHECKPOINT = "Illustrious-XL-v1.0.safetensors"
+EMERALD_LORA = "Pokemon_Sprite_Style.safetensors"
+CONTROLNET = "controlnet-union-sdxl-promax.safetensors"
+EMERALD_NEGATIVE = "human, trainer, text, watermark, signature, border, frame, blurry, gradient, 3d, realistic, photo, multiple views, background scenery"
+
+
+def restyle(image, prompt, out, denoise=0.85, control=0.7, lora=1.0, steps=28, cfg=5.5, seed=None, quiet=False):
+    """Redraw a picture as a Pokemon Emerald sprite: Illustrious + the Emerald sprite LoRA, image to image.
+
+    `image` gives the creature and its pose: its outlines are held in place by a ControlNet
+    (`control` = how firmly), while `denoise` says how freely the surfaces are repainted in the
+    sprite style (0.5 keeps the original shading, 1.0 keeps only the outlines).
+    """
+    seed = int(time.time() * 1000) % (2 ** 31) if seed is None else seed
+    graph = {
+        "ckpt": {"class_type": "CheckpointLoaderSimple", "inputs": {"ckpt_name": CHECKPOINT}},
+        "lora": {"class_type": "LoraLoader", "inputs": {"model": ["ckpt", 0], "clip": ["ckpt", 1], "lora_name": EMERALD_LORA,
+                                                         "strength_model": lora, "strength_clip": lora}},
+        "positive": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["lora", 1], "text": "Pokemon Emerald Sprite, pixel art, " + prompt}},
+        "negative": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["lora", 1], "text": EMERALD_NEGATIVE}},
+        "image": {"class_type": "LoadImage", "inputs": {"image": upload(image)}},
+        "edges": {"class_type": "Canny", "inputs": {"image": ["image", 0], "low_threshold": 0.2, "high_threshold": 0.5}},
+        "cnet": {"class_type": "ControlNetLoader", "inputs": {"control_net_name": CONTROLNET}},
+        "cnet_type": {"class_type": "SetUnionControlNetType", "inputs": {"control_net": ["cnet", 0], "type": "canny/lineart/anime_lineart/mlsd"}},
+        "control": {"class_type": "ControlNetApplyAdvanced", "inputs": {
+            "positive": ["positive", 0], "negative": ["negative", 0], "control_net": ["cnet_type", 0], "image": ["edges", 0],
+            "strength": control, "start_percent": 0.0, "end_percent": 0.85, "vae": ["ckpt", 2]}},
+        "encode": {"class_type": "VAEEncode", "inputs": {"pixels": ["image", 0], "vae": ["ckpt", 2]}},
+        "sampler": {"class_type": "KSampler", "inputs": {
+            "model": ["lora", 0], "positive": ["control", 0], "negative": ["control", 1], "latent_image": ["encode", 0],
+            "seed": seed, "steps": steps, "cfg": cfg, "sampler_name": "euler_ancestral", "scheduler": "normal", "denoise": denoise}},
+        "decode": {"class_type": "VAEDecode", "inputs": {"samples": ["sampler", 0], "vae": ["ckpt", 2]}},
+        "save": {"class_type": "SaveImage", "inputs": {"images": ["decode", 0], "filename_prefix": "sigma/" + Path(out).stem}},
+    }
+    if control <= 0:                                  # no outline lock: leave the ControlNet out entirely
+        for name in ("edges", "cnet", "cnet_type", "control"):
+            del graph[name]
+        graph["sampler"]["inputs"].update(positive=["positive", 0], negative=["negative", 0])
+    started = time.time()
+    data = run(graph)
     Path(out).parent.mkdir(parents=True, exist_ok=True)
     Path(out).write_bytes(data)
     if not quiet:

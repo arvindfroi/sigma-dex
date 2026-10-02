@@ -101,7 +101,9 @@ def where(comment):
 
 def recipes(job, settings):
     """For every view: the prompt and the reference pictures (as storage paths)."""
-    style = " ".join(settings["style"].split())
+    emerald = job.get("style", "pixel") != "pixel"
+    style = " ".join(settings["illustration" if emerald else "style"].split())
+    views = {"front": settings["poses"].get(job.get("pose") or "front", settings["front"]), "back": settings["back"]}
     refs = list(job.get("refs") or [])
     parent = job.get("parent")
     out = {}
@@ -116,17 +118,42 @@ def recipes(job, settings):
                 out[view] = None                     # nothing asked for this view: keep the old picture
                 continue
             others = "".join(" The creature's design is shown in <image%d>." % (n + 2) for n in range(len(refs)))
-            out[view] = ("%s Redraw the sprite in <image1> with these changes: %s Keep everything else about the sprite the same: same creature, same pose, same view, same colors.%s"
+            out[view] = ("%s Redraw the creature picture in <image1> with these changes: %s Keep everything else about it the same: same creature, same pose, same view, same colors.%s"
                          % (style, " ".join(c if c.rstrip().endswith((".", "!", "?")) else c.rstrip() + "." for c in changes), others),
                          [parent["raw_" + view]] + refs)
         else:
             subject = "The creature is the one shown in <image1>. " if refs else ""
-            out[view] = ("%s %s%s %s" % (style, subject, " ".join(settings[view].split()), job["look"]), refs)
+            out[view] = ("%s %s%s %s" % (style, subject, " ".join(views[view].split()), job["look"]), refs)
     return out
 
 
+LORA_BACKGROUND = (181, 238, 252)        # the flat light blue the Emerald LoRA puts behind its sprites
+
+
+def emerald(picture, look, strength, seed, target):
+    """Repaint an illustration as a Pokemon Emerald sprite with the LoRA; returns the path of the result.
+
+    The LoRA only keeps a design it is shown at sprite size on its own kind of background, so
+    the illustration is first shrunk to 60 pixels on light blue and blown up again.
+    """
+    import numpy as np
+    from PIL import Image
+    rgb, opaque = sprites.shrink(Image.open(picture), 60)
+    canvas = np.zeros((64, 64, 3), np.uint8)
+    canvas[:] = LORA_BACKGROUND
+    height, width = opaque.shape
+    top, left = (64 - height) // 2, (64 - width) // 2
+    canvas[top:top + height, left:left + width] = np.where(opaque[..., None], rgb, canvas[top:top + height, left:left + width])
+    small = Path(str(target) + ".in.png")
+    Image.fromarray(canvas).resize((1024, 1024), Image.NEAREST).save(small)
+    comfy.restyle(small, "no humans, pokemon (creature), solo, full body, " + look, target, denoise=strength, control=0.0, seed=seed, quiet=True)
+    return target
+
+
 def run(job, base, key, settings):
-    style_version = hashlib.sha1(json.dumps([settings["style"], settings["front"], settings["back"]]).encode()).hexdigest()[:10]
+    style_version = hashlib.sha1(json.dumps([settings["style"], settings["illustration"], settings["poses"], settings["back"],
+                                             settings["emerald_strength"]], sort_keys=True).encode()).hexdigest()[:10]
+    strength = settings["emerald_strength"].get(job.get("style"))
     plan = recipes(job, settings)
     made = 0
     with tempfile.TemporaryDirectory() as folder:
@@ -146,12 +173,16 @@ def run(job, base, key, settings):
                 else:
                     comfy.generate(recipe[0], raw[view], [local(p) for p in recipe[1]], seed=seed, transparent=True, quiet=True)
             out = folder / ("sprite%d" % number)
-            sprites.build(job["species_id"], raw, note="AI draft", grid=64, out=out)
+            final = dict(raw)
+            if strength:                              # second step: the Emerald sprite LoRA
+                for view in raw:
+                    final[view] = emerald(raw[view], job["look"], strength, seed, folder / ("%d_%s_emerald.png" % (number, view)))
+            sprites.build(job["species_id"], final, note="AI draft", grid=64, out=out)
             small = {}
             for view in ("front", "back"):
                 small[view] = folder / ("%d_%s_64.png" % (number, view))
                 sprites.as_rgba(out / (view + ".png")).save(small[view])
-            prompt = "\n\n".join("%s: %s" % (view, recipe[0] if recipe else "(kept from the earlier sprite)") for view, recipe in plan.items())
+            prompt = ("style: %s, pose: %s\n\n" % (job.get("style", "pixel"), job.get("pose", "front"))) + "\n\n".join("%s: %s" % (view, recipe[0] if recipe else "(kept from the earlier sprite)") for view, recipe in plan.items())
             post(base, key, {"action": "candidate", "job_id": job["id"], "seed": seed, "prompt": prompt, "style_version": style_version},
                  {"raw_front": raw["front"], "raw_back": raw["back"], "front": small["front"], "back": small["back"], "preview": out / "preview.png"})
             made += 1
