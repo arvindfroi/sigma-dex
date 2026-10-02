@@ -64,7 +64,12 @@ def main():
         author = message.get("author", {}).get("global_name") or message.get("author", {}).get("username", "?")
         lines.append("**%s** (%s): %s" % (author, message.get("timestamp", "")[:16].replace("T", " "), message.get("content", "")))
         for attachment in message.get("attachments", []):
-            name = "%s_%s" % (message["id"], re.sub(r"[^A-Za-z0-9._-]", "_", attachment.get("filename", "file")))
+            original = re.sub(r"[^A-Za-z0-9._-]", "_", attachment.get("filename", "file"))
+            stem, dot, extension = original.rpartition(".")
+            if not dot:
+                stem, extension = original, ""
+            # Message ID + attachment ID keep names unique; long names are cut (some are over 255 characters).
+            name = "%s_%s_%s%s" % (message["id"], attachment.get("id", "0"), stem[:60], "." + extension[:8] if extension else "")
             target = out / "attachments" / name
             if not target.exists():
                 request = urllib.request.Request(attachment["url"], headers={"User-Agent": USER_AGENT})
