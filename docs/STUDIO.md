@@ -30,6 +30,10 @@ The **Sprites** tab lists everything that is waiting for a verdict.
   the [Pokemon Sprite XL PixelArt LoRA](https://civitai.com/models/378602) repaints it as a
   Pokemon sprite while a ControlNet holds its outlines in place. This is the one that looks
   like a real Pokemon game.
+  How freely it repaints is a trade-off (`denoise` and `control` in `SPRITE_XL`): more freedom
+  looks more like Pokemon but drifts toward grey and invents things, less keeps the colors and
+  the design. Set to 0.55 / 0.6 after this test on 2026-10-02 (d = denoise, c = control):
+  ![strengths](img/sprite_xl_strengths.png)
 - **Plain pixel art.** Qwen draws the sprite as pixel art directly. Keeps the most detail of
   the design, but looks less like Pokemon.
 

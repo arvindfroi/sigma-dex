@@ -150,7 +150,7 @@ def emerald(picture, look, strength, seed, target):
     return target
 
 
-SPRITE_XL = dict(checkpoint="NoobAI-XL-v1.1.safetensors", lora_name="pkspif_nb_v1-2.safetensors", trigger="", cfg=5.0, denoise=0.75, control=0.5,
+SPRITE_XL = dict(checkpoint="NoobAI-XL-v1.1.safetensors", lora_name="pkspif_nb_v1-2.safetensors", trigger="", cfg=5.0, denoise=0.55, control=0.6,
                  negative="worst quality, low quality, human, trainer, text, watermark, signature, blurry, 3d, realistic")
 
 
