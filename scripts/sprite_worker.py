@@ -96,7 +96,7 @@ def where(comment):
     view = "front" if x < 1 / 3 else "back" if x < 2 / 3 else None       # the preview shows front, back, icon side by side
     inside = (x * 3) % 1
     spot = "%s %s" % ("upper" if y < 0.38 else "lower" if y > 0.62 else "middle", "left" if inside < 0.38 else "right" if inside > 0.62 else "center")
-    return view, "(%s part) " % spot
+    return view, "About the %s area of the sprite: " % spot
 
 
 def recipes(job, settings):
