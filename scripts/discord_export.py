@@ -4,7 +4,7 @@
 Uses Discord's official bot API, so it is allowed by Discord's rules - unlike "self-bot"
 tools that log in with your personal account. Setup (docs/DISCORD.md has the full steps):
 
-    export DISCORD_BOT_TOKEN=...          # never put the token in a file in this repo
+    export DISCORD_BOT_TOKEN=...          # or save it in the file .discord-token (ignored by git)
     python3 scripts/discord_export.py CHANNEL_ID
 
 Output goes to discord-export/<channel id>/ (ignored by git, because it contains
@@ -40,7 +40,8 @@ def api_get(path, token):
 
 
 def main():
-    token = os.environ.get("DISCORD_BOT_TOKEN")
+    token_file = ROOT / ".discord-token"                 # ignored by git; an alternative to the environment variable
+    token = os.environ.get("DISCORD_BOT_TOKEN") or (token_file.read_text().strip() if token_file.exists() else None)
     if len(sys.argv) != 2 or not sys.argv[1].isdigit() or not token:
         sys.exit(__doc__)
     channel = sys.argv[1]

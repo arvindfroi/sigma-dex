@@ -6,3 +6,4 @@ discord-export/
 poc/
 .edit-key
 .worker-key
+.discord-token

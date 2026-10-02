@@ -28,6 +28,9 @@ Someone with the **Manage Server** permission on the server has to do steps 3-4.
 export DISCORD_BOT_TOKEN=paste-the-token-here
 ```
 
+Or save the token as the only line of a file named `.discord-token` in this folder (git
+ignores it).
+
 ```bash
 python3 scripts/discord_export.py CHANNEL_ID
 ```
