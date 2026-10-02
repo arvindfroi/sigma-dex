@@ -39,7 +39,11 @@
   "type_2": "Flying"
  },
  "100": {
-  "dex": "100"
+  "dex": "100",
+  "name": "Maagamad",
+  "notes": "From the Google Doc: Maagamad/gullmire (Flying, Poison)",
+  "type_1": "Flying",
+  "type_2": "Poison"
  },
  "11": {
   "dex": "11",
@@ -108,7 +112,10 @@
   "type_2": "Fighting"
  },
  "24": {
-  "dex": "24"
+  "dex": "24",
+  "name": "Sigmanian Sudowoodo",
+  "type_1": "Rock",
+  "type_2": "Ground"
  },
  "25": {
   "dex": "25",
@@ -146,21 +153,26 @@
  },
  "32": {
   "dex": "32",
-  "name": "Eiscue",
-  "notes": "Doc lists the typing as Ice/? (second type undecided). Eiscue is also the name of an official Pokemon.",
+  "name": "Sigmanian Eiscue",
+  "notes": "From the Google Doc: Sigmanian Eiscue/eller eiscue evo (Ice/?)",
   "type_1": "Ice"
  },
  "33": {
   "dex": "33",
   "name": "Rainbro",
-  "notes": "Doc lists the type as Stellar, which is not a normal species type.",
   "type_1": "Stellar"
  },
  "34": {
-  "dex": "34"
+  "dex": "34",
+  "name": "Autuman",
+  "type_1": "Fighting",
+  "type_2": "Grass"
  },
  "35": {
-  "dex": "35"
+  "dex": "35",
+  "name": "Bugmight",
+  "type_1": "Bug",
+  "type_2": "Fighting"
  },
  "36": {
   "dex": "36",
@@ -230,7 +242,10 @@
   "type_2": "Dark"
  },
  "45": {
-  "dex": "45"
+  "dex": "45",
+  "name": "Chillalit",
+  "type_1": "Fire",
+  "type_2": "Water"
  },
  "46": {
   "dex": "46",
@@ -247,10 +262,16 @@
   "type_2": "Electric"
  },
  "48": {
-  "dex": "48"
+  "dex": "48",
+  "name": "Tomaterdander",
+  "type_1": "Poison",
+  "type_2": "Grass"
  },
  "49": {
-  "dex": "49"
+  "dex": "49",
+  "name": "Crappy Meal",
+  "type_1": "Poison",
+  "type_2": "Grass"
  },
  "5": {
   "dex": "5",
@@ -285,23 +306,31 @@
   "type_1": "Electric"
  },
  "54": {
-  "dex": "54"
+  "dex": "54",
+  "name": "Hippore",
+  "type_1": "Steel",
+  "type_2": "Rock"
  },
  "55": {
-  "dex": "55"
+  "dex": "55",
+  "name": "Docuphant",
+  "type_1": "Ground",
+  "type_2": "Dragon"
  },
  "56": {
-  "dex": "56"
+  "dex": "56",
+  "name": "Razox",
+  "type_1": "Fairy",
+  "type_2": "Ice"
  },
  "57": {
   "dex": "57",
-  "name": "Bulgarian Unown",
-  "notes": "Written as 'bulgarian unown' in the doc - looks like a working title, not a final name."
+  "name": "Sigmanian Unown"
  },
  "58": {
   "dex": "58",
-  "name": "United",
-  "notes": "Written as 'united' in the doc - may be a working title."
+  "name": "Unknighted",
+  "notes": "From the Google Doc: unknighted (unknown thunder stone?)"
  },
  "59": {
   "dex": "59",
@@ -387,7 +416,10 @@
   "name": "Cryoblade"
  },
  "71": {
-  "dex": "71"
+  "dex": "71",
+  "name": "Roostasaur",
+  "type_1": "Dragon",
+  "type_2": "Normal"
  },
  "72": {
   "dex": "72",
@@ -396,7 +428,10 @@
   "type_2": "Rock"
  },
  "77": {
-  "dex": "77"
+  "dex": "77",
+  "name": "Iglomodo",
+  "type_1": "Ice",
+  "type_2": "Poison"
  },
  "78": {
   "dex": "78",
@@ -482,6 +517,9 @@
   "type_2": "Bug"
  },
  "99": {
-  "dex": "99"
+  "dex": "99",
+  "name": "Bergflabbser",
+  "type_1": "Water",
+  "type_2": "Ground"
  }
 }
