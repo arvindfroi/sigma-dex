@@ -26,7 +26,7 @@ until the edge shines like metal.
 21,mooceon,Mooceon,Normal,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 22,lapper,Lapper,Normal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 23,brawleo,Brawleo,Normal,Fighting,,,,,,,,,,,Lapper,Lv 25,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+24,sigmanian-sudowoodo,Sigmanian Sudowoodo,Rock,Ground,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 25,icy-freeze,Icy Freeze,Ice,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 26,freezrick,Freezrick,Ice,,,,,,,,,,,,Icy Freeze,Lv 28,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 27,bulbtle,Bulbtle,Ground,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
@@ -34,10 +34,10 @@ until the edge shines like metal.
 29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 30,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 31,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-32,eiscue,Eiscue,Ice,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Doc lists the typing as Ice/? (second type undecided). Eiscue is also the name of an official Pokemon.,,,3
-33,rainbro,Rainbro,Stellar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Doc lists the type as Stellar, which is not a normal species type.",,,3
-34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-35,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+32,eiscue,Sigmanian Eiscue,Ice,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,From the Google Doc: Sigmanian Eiscue/eller eiscue evo (Ice/?),,,3
+33,rainbro,Rainbro,Stellar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+34,autuman,Autuman,Fighting,Grass,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+35,bugmight,Bugmight,Bug,Fighting,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 36,nukfae,Nukfae,Poison,Fairy,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 37,toxiren,Toxiren,Poison,Fairy,,,,,,,,,,,Nukfae,Lv 38,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 38,stonma,Stonma,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
@@ -47,20 +47,20 @@ until the edge shines like metal.
 42,gortiki,Gortiki,Grass,Fire,,,,,,,,,,,Motinky,Lv 40,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 43,chebbi,Chebbi,Normal,Dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 44,devampry,Devampry,Normal,Dark,,,,,,,,,,,Chebbi,Lv 32,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-45,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+45,chillalit,Chillalit,Fire,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 46,zapana,Zapana,Water,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 47,ampeel,Ampeel,Water,Electric,,,,,,,,,,,Zapana,Lv 30,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-48,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-49,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+48,tomaterdander,Tomaterdander,Poison,Grass,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+49,crappy-meal,Crappy Meal,Poison,Grass,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 50,beatld,Beatld,Bug,Psychic,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 51,wispole,Wispole,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 52,galfrogtom,Galfrogtom,Ghost,Electric,,,,,,,,,,,Wispole,Thunder Stone,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 53,giga-circuit,Giga-Circuit,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-54,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-56,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-57,bulgarian-unown,Bulgarian Unown,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Written as 'bulgarian unown' in the doc - looks like a working title, not a final name.",,,0
-58,united,United,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Written as 'united' in the doc - may be a working title.,,,0
+54,hippore,Hippore,Steel,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+55,docuphant,Docuphant,Ground,Dragon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+56,razox,Razox,Fairy,Ice,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+57,bulgarian-unown,Sigmanian Unown,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+58,united,Unknighted,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,From the Google Doc: unknighted (unknown thunder stone?),,,0
 59,hairyen,Hairyen,Grass,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 60,panzerien,Panzerien,Steel,Ground,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 61,nucloid,Nucloid,Poison,Steel,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
@@ -73,13 +73,13 @@ until the edge shines like metal.
 68,abyssys,Abyssys,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 69,octopearl,Octopearl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 70,cryoblade,Cryoblade,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
-71,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+71,roostasaur,Roostasaur,Dragon,Normal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 72,bygon,Bygon,Ghost,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 73,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 75,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 76,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-77,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+77,iglomodo,Iglomodo,Ice,Poison,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 78,sandrema,Sandrema,Fairy,Ground,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 79,ciggiti,Ciggiti,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
 80,chuchar,Chuchar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
@@ -101,5 +101,5 @@ until the edge shines like metal.
 96,balleisk,Balleisk,Dragon,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 97,greation,Greation,Dragon,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 98,ultragon,Ultragon,Dragon,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+99,bergflabbser,Bergflabbser,Water,Ground,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+100,maagamad,Maagamad,Flying,Poison,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"From the Google Doc: Maagamad/gullmire (Flying, Poison)",,,3

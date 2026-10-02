@@ -1,12 +1,12 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
-dex: 32
-name: Sigmanian Eiscue
+dex: 54
+name: Hippore
 
 credits:
   designer:              # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: [Ice]             # 1 or 2 types, e.g. [Grass, Steel]
+types: [Steel, Rock]     # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -67,11 +67,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes: "From the Google Doc: Sigmanian Eiscue/eller eiscue evo (Ice/?)"
+  notes:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/sigmanian-eiscue.png
+  concept_art:           # e.g. assets/concept-art/hippore.png
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

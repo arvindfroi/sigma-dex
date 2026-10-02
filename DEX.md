@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**69 / 100** slots have a Pokemon - **0** are fully complete - average completeness **4%**.
+**82 / 100** slots have a Pokemon - **0** are fully complete - average completeness **3%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -32,7 +32,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water |  |  |  | 3% |
 | 22 | [Lapper](data/species/lapper.yaml) | Normal |  |  | Brawleo (Lv 25) | 3% |
 | 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting |  |  |  | 3% |
-| 24 | *open slot* | | | | | |
+| 24 | [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) | Rock / Ground |  |  |  | 3% |
 | 25 | [Icy Freeze](data/species/icy-freeze.yaml) | Ice |  |  | Freezrick (Lv 28) | 3% |
 | 26 | [Freezrick](data/species/freezrick.yaml) | Ice |  |  |  | 3% |
 | 27 | [Bulbtle](data/species/bulbtle.yaml) | Ground / Electric |  |  | Bulbtoise (Lv 22) | 3% |
@@ -40,10 +40,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 29 | *open slot* | | | | | |
 | 30 | *open slot* | | | | | |
 | 31 | *open slot* | | | | | |
-| 32 | [Eiscue](data/species/eiscue.yaml) | Ice |  |  |  | 3% |
+| 32 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice |  |  |  | 3% |
 | 33 | [Rainbro](data/species/rainbro.yaml) | Stellar |  |  |  | 3% |
-| 34 | *open slot* | | | | | |
-| 35 | *open slot* | | | | | |
+| 34 | [Autuman](data/species/autuman.yaml) | Fighting / Grass |  |  |  | 3% |
+| 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting |  |  |  | 3% |
 | 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy |  |  | Toxiren (Lv 38) | 3% |
 | 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy |  |  |  | 3% |
 | 38 | [Stonma](data/species/stonma.yaml) | Rock |  |  | Sigmauler (Lv 38) | 3% |
@@ -53,20 +53,20 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire |  |  |  | 3% |
 | 43 | [Chebbi](data/species/chebbi.yaml) | Normal / Dark |  |  | Devampry (Lv 32) | 3% |
 | 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark |  |  |  | 3% |
-| 45 | *open slot* | | | | | |
+| 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water |  |  |  | 3% |
 | 46 | [Zapana](data/species/zapana.yaml) | Water / Electric |  |  | Ampeel (Lv 30) | 3% |
 | 47 | [Ampeel](data/species/ampeel.yaml) | Water / Electric |  |  |  | 3% |
-| 48 | *open slot* | | | | | |
-| 49 | *open slot* | | | | | |
+| 48 | [Tomaterdander](data/species/tomaterdander.yaml) | Poison / Grass |  |  |  | 3% |
+| 49 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass |  |  |  | 3% |
 | 50 | [Beatld](data/species/beatld.yaml) | Bug / Psychic |  |  |  | 3% |
 | 51 | [Wispole](data/species/wispole.yaml) | Water |  |  | Galfrogtom (Thunder Stone) | 3% |
 | 52 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric |  |  |  | 3% |
 | 53 | [Giga-Circuit](data/species/giga-circuit.yaml) | Electric |  |  |  | 3% |
-| 54 | *open slot* | | | | | |
-| 55 | *open slot* | | | | | |
-| 56 | *open slot* | | | | | |
-| 57 | [Bulgarian Unown](data/species/bulgarian-unown.yaml) |  |  |  |  | 0% |
-| 58 | [United](data/species/united.yaml) |  |  |  |  | 0% |
+| 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock |  |  |  | 3% |
+| 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon |  |  |  | 3% |
+| 56 | [Razox](data/species/razox.yaml) | Fairy / Ice |  |  |  | 3% |
+| 57 | [Sigmanian Unown](data/species/bulgarian-unown.yaml) |  |  |  |  | 0% |
+| 58 | [Unknighted](data/species/united.yaml) |  |  |  |  | 0% |
 | 59 | [Hairyen](data/species/hairyen.yaml) | Grass / Water |  |  |  | 3% |
 | 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground |  |  |  | 3% |
 | 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel |  |  |  | 3% |
@@ -79,13 +79,13 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 68 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water |  |  |  | 3% |
 | 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water |  |  |  | 3% |
 | 70 | [Cryoblade](data/species/cryoblade.yaml) |  |  |  |  | 0% |
-| 71 | *open slot* | | | | | |
+| 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 3% |
 | 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
 | 73 | *open slot* | | | | | |
 | 74 | *open slot* | | | | | |
 | 75 | *open slot* | | | | | |
 | 76 | *open slot* | | | | | |
-| 77 | *open slot* | | | | | |
+| 77 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison |  |  |  | 3% |
 | 78 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground |  |  |  | 3% |
 | 79 | [Ciggiti](data/species/ciggiti.yaml) |  |  |  |  | 0% |
 | 80 | [Chuchar](data/species/chuchar.yaml) |  |  |  |  | 0% |
@@ -107,5 +107,5 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 96 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug |  |  |  | 3% |
 | 97 | [Greation](data/species/greation.yaml) | Dragon / Bug |  |  |  | 3% |
 | 98 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug |  |  |  | 3% |
-| 99 | *open slot* | | | | | |
-| 100 | *open slot* | | | | | |
+| 99 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground |  |  |  | 3% |
+| 100 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison |  |  |  | 3% |

@@ -6,6 +6,8 @@ One self-contained file - open it in a browser, or host the site/ folder anywher
 import json
 import shutil
 
+import yaml
+
 import dexlib
 import validate
 from dexlib import ROOT
@@ -56,7 +58,8 @@ def main():
         "species": entries, "types": dexlib.TYPES, "checks": dexlib.CHECK_LIST,
         "custom": {"move": engine["custom"]["moves"], "ability": engine["custom"]["abilities"]},
         "images": images,
-        "problems": report("sheet_problems.json") + report("web_problems.json"),
+        "type_shares": yaml.safe_load((ROOT / "data" / "engine" / "type_shares.yaml").read_text(encoding="utf-8")),
+        "problems": report("doc_problems.json") + report("sheet_problems.json") + report("web_problems.json"),
         "web": dict(config.get("web_edits") or {}, cursor=int(cursor_path.read_text().strip() or 0) if cursor_path.exists() else 0),
         "lists": {
             "moves": engine["engine_names"]["moves"], "abilities": engine["engine_names"]["abilities"],

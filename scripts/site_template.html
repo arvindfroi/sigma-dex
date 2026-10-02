@@ -98,6 +98,11 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; }
 .gallery img { width: 100%; height: 110px; object-fit: contain; border-radius: 6px; background: var(--bar); display: block; }
 .gallery figcaption { margin-top: 4px; overflow-wrap: anywhere; }
 .upload { background: var(--bg); border-radius: 10px; padding: 12px; margin-top: 10px; }
+.balance { width: 100%; max-width: 760px; }
+.balance td { padding: 5px 6px; vertical-align: middle; }
+.balance .track { position: relative; height: 14px; background: var(--bar); border-radius: 7px; min-width: 120px; }
+.balance .track i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 7px; }
+.balance .track b { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--text); }
 .error { color: var(--bad); }
 .error:not(:empty) { margin: 0 0 8px; }
 @media (max-width: 520px) { .todo { columns: 1; } .detail .top img { width: 84px; height: 84px; } }
@@ -576,13 +581,42 @@ function renderCustom(kind) {
   if (!grid.children.length) grid.append(h("div", {class: "empty"}, "Nothing matches."));
 }
 
+// How our type spread compares with the official games.
+function renderBalance() {
+  const grid = document.getElementById("grid"), shares = DEX.type_shares.shares;
+  const typed = DEX.species.filter(s => (s.data.types || []).some(t => shares[t] !== undefined));
+  // Ours have two types more often than official Pokemon do, which would make every type look
+  // over-represented. So compare type slots with type slots: the gaps then add up to zero.
+  const slots = typed.reduce((sum, s) => sum + new Set(s.data.types.filter(t => shares[t] !== undefined)).size, 0);
+  const rows = DEX.types.map(type => {
+    const ours = typed.filter(s => s.data.types.includes(type)).length, normal = shares[type] / (1 + DEX.type_shares.dual_type_share) * slots;
+    return {type, ours, normal, gap: ours - normal, atFull: Math.round(shares[type] * DEX.dex_size)};
+  }).sort((a, b) => a.gap - b.gap);
+  const top = Math.max(...rows.map(r => Math.max(r.ours, r.normal)), 1);
+  const verdict = r => r.gap <= -1.5 ? [h("b", {style: "color:var(--warn)"}, "under-represented"), " - about " + Math.round(-r.gap) + " short"]
+    : r.gap >= 1.5 ? ["over-represented - about " + Math.round(r.gap) + " extra"] : ["about right"];
+  const dual = typed.filter(s => new Set(s.data.types).size === 2).length;
+  const untyped = DEX.species.length - typed.length, open = DEX.dex_size - DEX.species.length;
+  const wrap = h("div", {style: "grid-column:1/-1"},
+    h("p", {class: "sub", style: "margin-top:0"}, "Compared with all " + DEX.type_shares.species_counted + " official Pokemon (generation 1-9). A Pokemon with two types counts for both. " +
+      "The line on each bar is where the type would be if our " + typed.length + " typed Pokemon followed the official spread (adjusted for how many of ours have two types). Types at the top are where new Pokemon are most needed."),
+    h("table", {class: "balance"}, h("tr", {}, h("th", {}, "Type"), h("th", {}, "Ours"), h("th", {}, "Normal"), h("th", {}, ""), h("th", {}, ""), h("th", {}, "At " + DEX.dex_size)),
+      rows.map(r => h("tr", {}, h("td", {}, typeChip(r.type)), h("td", {}, h("b", {}, String(r.ours))), h("td", {}, r.normal.toFixed(1)),
+        h("td", {style: "width:40%"}, h("div", {class: "track"}, h("i", {style: "width:" + (100 * r.ours / top) + "%;background:" + TYPE_COLORS[r.type]}), h("b", {style: "left:" + (100 * r.normal / top) + "%"}))),
+        h("td", {}, verdict(r)), h("td", {class: "sub"}, "about " + r.atFull)))),
+    h("p", {class: "sub"}, dual + " of " + typed.length + " have two types (" + Math.round(100 * dual / Math.max(typed.length, 1)) + "%; officially " + Math.round(100 * DEX.type_shares.dual_type_share) + "%). " +
+      open + " dex slots are still open" + (untyped ? " and " + untyped + " Pokemon have no type yet" : "") + ". \"At " + DEX.dex_size + "\" is how many of that type a full dex would normally have."));
+  grid.replaceChildren(wrap);
+}
+
 let view = "species";
 function renderTabs() {
   const count = kind => DEX.custom[kind].length + undescribed(kind).length;
   document.getElementById("tabs").replaceChildren(...[["species", "Pokemon"], ["move", "New moves (" + count("move") + ")"], ["ability", "New abilities (" + count("ability") + ")"]]
-    .map(([id, label]) => h("button", {"aria-pressed": String(view === id), onclick: () => { view = id; render(); }}, label)));
+    .concat([["balance", "Type balance"]]).map(([id, label]) => h("button", {"aria-pressed": String(view === id), onclick: () => { view = id; render(); }}, label)));
   document.getElementById("show").style.display = view === "species" ? "" : "none";
-  document.getElementById("type").style.display = view === "ability" ? "none" : "";
+  document.getElementById("type").style.display = view === "ability" || view === "balance" ? "none" : "";
+  document.getElementById("search").style.display = view === "balance" ? "none" : "";
 }
 
 function openEditor(s) {
@@ -733,6 +767,7 @@ function openEditor(s) {
 
 function render() {
   renderTabs();
+  if (view === "balance") return renderBalance();
   if (view !== "species") return renderCustom(view);
   const query = document.getElementById("search").value.trim().toLowerCase();
   const type = document.getElementById("type").value, mode = document.getElementById("show").value;

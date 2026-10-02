@@ -5,7 +5,7 @@ on:
     branches: [main]
   pull_request:
   schedule:
-    - cron: "7,22,37,52 * * * *"   # every 15 minutes: pick up edits from the website and the Google Sheet
+    - cron: "7,22,37,52 * * * *"   # every 15 minutes: pick up edits from the website, the Google Sheet and the Google Doc
   workflow_dispatch:        # the "Run workflow" button, to sync right now
 
 permissions:
@@ -26,6 +26,11 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
+      - name: Import from the Google Doc
+        if: github.event_name != 'pull_request'
+        env:
+          DOC_TXT_URL: ${{ secrets.DOC_TXT_URL }}
+        run: python scripts/import_doc.py
       - name: Import from the Google Sheet
         if: github.event_name != 'pull_request'
         env:
@@ -47,7 +52,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data assets DEX.md TODO.md export site
-          git diff --cached --quiet || (git commit -m "Sync edits from the website and the Google Sheet" && git push)
+          git diff --cached --quiet || (git commit -m "Sync edits from the website, the Google Sheet and the Google Doc" && git push)
       - name: Package the website
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3

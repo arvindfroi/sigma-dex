@@ -12,18 +12,20 @@ earlier conflicts: Fairy type, hidden abilities, the physical/special split and 
 
 1. **Rainbro is listed as "Stellar".** Stellar exists only as a Tera type, not as a type a
    Pokemon can have. What should it be?
-2. **Names longer than 12 characters:** Bulgarian Unown (15).
+2. **Names longer than 12 characters:** Sigmanian Unown (15), Sigmanian Sudowoodo (19), Sigmanian Eiscue (16), Tomaterdander (13).
 3. **New moves and abilities** (ones that do not exist in any official game) have to be
    programmed. For each one we need: name, type, physical/special/status, power, accuracy,
    PP, and exactly what it does. The fewer and the more precisely described, the better.
 
 ## Unclear in the doc
 
-7. **Eiscue (#32)** is the name of an official Pokemon, and its second type is "?".
-   Rename it? Is it meant as a regional form?
-8. **No types given:** Bolthook, Bulgarian Unown, United, Gentie, Cryoblade, Ciggiti, Chuchar,
-   Parahaunt, Insectoid, Darkgonark.
-9. **Working titles?** "bulgarian unown" (#57) and "united" (#58) look like placeholders.
+7. **Regional forms of official Pokemon:** Sigmanian Sudowoodo (#24), Sigmanian Eiscue (#32, or an
+   Eiscue evolution - second type still "?") and Sigmanian Unown (#57). A regional form needs the
+   original Pokemon to be in the game too; decide whether these are forms or new species.
+8. **No types given:** Bolthook, Sigmanian Unown, Unknighted, Gentie, Cryoblade, Ciggiti, Chuchar,
+   Parahaunt, Insectoid, Darkgonark. Rainbro is "Stellar", which is not usable.
+9. **Unclear lines:** #58 "unknighted (unknown thunder stone?)" - does it evolve from Sigmanian Unown
+   with a Thunder Stone? #100 "Maagamad/gullmire" - which name?
 10. **Evolution lines without a stated method.** These look like families but the doc gives
     no level or item, so no evolution is recorded yet:
     - Erobi > Harpie > Smeatherace
@@ -38,7 +40,7 @@ earlier conflicts: Fairy type, hidden abilities, the physical/special split and 
     recorded as "the previous entry evolves into this one at level 16". Wispole evolves into
     Galfrogtom with a Thunder Stone on the same assumption. Check
     [DEX.md](../DEX.md) for mistakes.
-12. **31 open slots** - see [TODO.md](../TODO.md).
+12. **Open slots** - see [TODO.md](../TODO.md).
 
 ## Project decisions
 

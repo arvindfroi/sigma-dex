@@ -246,11 +246,13 @@ def main():
     new_snapshot = {}
 
     for row in rows:
-        if not row.get("dex") or not row.get("name"):
+        if not row.get("dex"):
             continue
-        label = "#%s %s" % (row["dex"], row["name"])
+        label = "#%s %s" % (row["dex"], row.get("name", ""))
         try:
             dex = whole(row["dex"], "dex")
+            if dex not in by_dex and not row.get("name"):
+                continue                      # an open slot: nothing to do until it gets a name
             old = None if snapshot is None else snapshot.get(str(dex), {})
             delta, cleared = changes(row, old)
             if old is not None and not delta and not cleared:

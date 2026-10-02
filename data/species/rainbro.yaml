@@ -67,7 +67,7 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes: "Doc lists the type as Stellar, which is not a normal species type."
+  notes:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

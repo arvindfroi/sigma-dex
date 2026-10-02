@@ -1,0 +1,24 @@
+# How common each type is among the official Pokemon (generation 1-9, base forms only).
+# A Pokemon with two types counts for both. Calculated from pokeemerald-expansion 1.17.1's
+# species data on 2026-10-02 (1012 species). Used by the website's type balance view.
+species_counted: 1012
+dual_type_share: 0.5227
+shares:
+  Water: 0.1472
+  Normal: 0.1225
+  Grass: 0.1136
+  Flying: 0.1097
+  Psychic: 0.1077
+  Bug: 0.084
+  Poison: 0.08
+  Fire: 0.08
+  Electric: 0.0791
+  Ground: 0.0761
+  Fighting: 0.0731
+  Rock: 0.0731
+  Dark: 0.0721
+  Dragon: 0.0672
+  Steel: 0.0662
+  Fairy: 0.0603
+  Ghost: 0.0603
+  Ice: 0.0504

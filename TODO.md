@@ -9,39 +9,39 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 59 / 69 |
-| Identity | designer credit | 0 / 69 |
-| Dex page | category | 1 / 69 |
-| Dex page | description | 1 / 69 |
-| Dex page | height | 1 / 69 |
-| Dex page | weight | 1 / 69 |
-| Dex page | body color | 1 / 69 |
-| Stats | base stats | 1 / 69 |
-| Stats | ability | 1 / 69 |
-| Stats | EV yield | 1 / 69 |
-| Stats | catch rate | 1 / 69 |
-| Stats | base exp | 1 / 69 |
-| Stats | growth rate | 1 / 69 |
-| Stats | base friendship | 1 / 69 |
-| Breeding | gender | 1 / 69 |
-| Breeding | egg groups | 1 / 69 |
-| Breeding | egg cycles | 1 / 69 |
-| Moves | level-up moves | 1 / 69 |
-| Moves | TM/HM moves | 1 / 69 |
-| Location | encounters | 1 / 69 |
-| Design | concept | 1 / 69 |
-| Art | concept art | 0 / 69 |
-| Art | front sprite | 0 / 69 |
-| Art | front animation frame | 0 / 69 |
-| Art | back sprite | 0 / 69 |
-| Art | icon | 0 / 69 |
-| Art | footprint | 0 / 69 |
-| Art | shiny palette | 0 / 69 |
-| Art | cry | 0 / 69 |
+| Identity | types | 72 / 82 |
+| Identity | designer credit | 0 / 82 |
+| Dex page | category | 1 / 82 |
+| Dex page | description | 1 / 82 |
+| Dex page | height | 1 / 82 |
+| Dex page | weight | 1 / 82 |
+| Dex page | body color | 1 / 82 |
+| Stats | base stats | 1 / 82 |
+| Stats | ability | 1 / 82 |
+| Stats | EV yield | 1 / 82 |
+| Stats | catch rate | 1 / 82 |
+| Stats | base exp | 1 / 82 |
+| Stats | growth rate | 1 / 82 |
+| Stats | base friendship | 1 / 82 |
+| Breeding | gender | 1 / 82 |
+| Breeding | egg groups | 1 / 82 |
+| Breeding | egg cycles | 1 / 82 |
+| Moves | level-up moves | 1 / 82 |
+| Moves | TM/HM moves | 1 / 82 |
+| Location | encounters | 1 / 82 |
+| Design | concept | 1 / 82 |
+| Art | concept art | 0 / 82 |
+| Art | front sprite | 0 / 82 |
+| Art | front animation frame | 0 / 82 |
+| Art | back sprite | 0 / 82 |
+| Art | icon | 0 / 82 |
+| Art | footprint | 0 / 82 |
+| Art | shiny palette | 0 / 82 |
+| Art | cry | 0 / 82 |
 
-## Open dex slots (31)
+## Open dex slots (18)
 
-#17, #18, #19, #24, #29, #30, #31, #34, #35, #45, #48, #49, #54, #55, #56, #71, #73, #74, #75, #76, #77, #84, #85, #86, #87, #89, #90, #92, #93, #99, #100
+#17, #18, #19, #29, #30, #31, #73, #74, #75, #76, #84, #85, #86, #87, #89, #90, #92, #93
 
 ## Missing per Pokemon
 
@@ -259,6 +259,17 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
+### #24 [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
 ### #25 [Icy Freeze](data/species/icy-freeze.yaml) - 3%
 
 - **Identity:** designer credit
@@ -303,7 +314,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #32 [Eiscue](data/species/eiscue.yaml) - 3%
+### #32 [Sigmanian Eiscue](data/species/eiscue.yaml) - 3%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
@@ -315,6 +326,28 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #33 [Rainbro](data/species/rainbro.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #34 [Autuman](data/species/autuman.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #35 [Bugmight](data/species/bugmight.yaml) - 3%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
@@ -424,6 +457,17 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
+### #45 [Chillalit](data/species/chillalit.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
 ### #46 [Zapana](data/species/zapana.yaml) - 3%
 
 - **Identity:** designer credit
@@ -436,6 +480,28 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #47 [Ampeel](data/species/ampeel.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #48 [Tomaterdander](data/species/tomaterdander.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #49 [Crappy Meal](data/species/crappy-meal.yaml) - 3%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
@@ -490,7 +556,40 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #57 [Bulgarian Unown](data/species/bulgarian-unown.yaml) - 0%
+### #54 [Hippore](data/species/hippore.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #55 [Docuphant](data/species/docuphant.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #56 [Razox](data/species/razox.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #57 [Sigmanian Unown](data/species/bulgarian-unown.yaml) - 0%
 
 - **Identity:** types, designer credit
 - **Dex page:** category, description, height, weight, body color
@@ -501,7 +600,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #58 [United](data/species/united.yaml) - 0%
+### #58 [Unknighted](data/species/united.yaml) - 0%
 
 - **Identity:** types, designer credit
 - **Dex page:** category, description, height, weight, body color
@@ -644,7 +743,29 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
+### #71 [Roostasaur](data/species/roostasaur.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
 ### #72 [Bygon](data/species/bygon.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #77 [Iglomodo](data/species/iglomodo.yaml) - 3%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
@@ -788,6 +909,28 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #98 [Ultragon](data/species/ultragon.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #99 [Bergflabbser](data/species/bergflabbser.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #100 [Maagamad](data/species/maagamad.yaml) - 3%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color

@@ -36,10 +36,12 @@ Never edit the generated files by hand - they get overwritten.
   See [docs/WEBSITE.md](docs/WEBSITE.md).
 - **In the Google Sheet:** good for filling in many Pokemon at once.
   See [docs/SHEET.md](docs/SHEET.md).
+- **In the Google Doc:** the numbered list of names and types. New lines and changed lines
+  are picked up automatically (name, types, and "Lv 16"-style evolutions).
 - **With GitHub:** edit a species file, open a pull request, wait for the green check, merge.
   See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-All three end up in the same species files. Concept art and decisions still buried in Discord
+All of them end up in the same species files, within about 15 minutes. Concept art and decisions still buried in Discord
 can be pulled out with [docs/DISCORD.md](docs/DISCORD.md).
 
 ## The game

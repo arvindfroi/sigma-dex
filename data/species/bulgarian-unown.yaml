@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
 dex: 57
-name: Bulgarian Unown
+name: Sigmanian Unown
 
 credits:
   designer:              # who came up with it (Discord name)
@@ -67,11 +67,11 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes: "Written as 'bulgarian unown' in the doc - looks like a working title, not a final name."
+  notes:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/bulgarian-unown.png
+  concept_art:           # e.g. assets/concept-art/sigmanian-unown.png
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
