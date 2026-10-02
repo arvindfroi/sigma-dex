@@ -101,8 +101,8 @@ def where(comment):
 
 def recipes(job, settings):
     """For every view: the prompt and the reference pictures (as storage paths)."""
-    emerald = job.get("style", "pixel") != "pixel"
-    style = " ".join(settings["illustration" if emerald else "style"].split())
+    two_step = job.get("style", "pixel") != "pixel"          # these styles start from a clean illustration
+    style = " ".join(settings["illustration" if two_step else "style"].split())
     views = {"front": settings["poses"].get(job.get("pose") or "front", settings["front"]), "back": settings["back"]}
     refs = list(job.get("refs") or [])
     parent = job.get("parent")
@@ -150,6 +150,32 @@ def emerald(picture, look, strength, seed, target):
     return target
 
 
+SPRITE_XL = dict(checkpoint="NoobAI-XL-v1.1.safetensors", lora_name="pkspif_nb_v1-2.safetensors", trigger="", cfg=5.0, denoise=0.75, control=0.5,
+                 negative="worst quality, low quality, human, trainer, text, watermark, signature, blurry, 3d, realistic")
+
+
+def sprite_xl(picture, look, view, seed, target):
+    """Repaint an illustration as a Pokemon sprite with the Pokemon Sprite XL LoRA; returns the path of the result.
+
+    The LoRA draws 96x96 sprites (as 768x768 pictures). The game wants 64x64, so the creature is
+    placed to fill at most 500 of the 768 pixels: it then comes out at most 63 sprite pixels big
+    and nothing has to be shrunk afterwards. Its outlines are held in place by a ControlNet.
+    """
+    from PIL import Image
+    image = sprites.cutout(Image.open(picture))
+    image = image.crop(image.getchannel("A").point(lambda a: 255 if a >= 128 else 0).getbbox())
+    scale = 500 / max(image.size)
+    image = image.resize((max(1, round(image.width * scale)), max(1, round(image.height * scale))), Image.LANCZOS)
+    canvas = Image.new("RGBA", (768, 768), "white")
+    canvas.alpha_composite(image, ((768 - image.width) // 2, (768 - image.height) // 2))
+    start = Path(str(target) + ".in.png")
+    canvas.convert("RGB").save(start)
+    tags = "pokemon sprite, gen3, pixel art, no humans, pokemon (creature), solo, full body, %s, white background, simple background%s" % (
+        look.strip().rstrip("."), ", from behind, back view" if view == "back" else "")
+    comfy.restyle(start, tags, target, seed=seed, quiet=True, **SPRITE_XL)
+    return target
+
+
 def run(job, base, key, settings):
     style_version = hashlib.sha1(json.dumps([settings["style"], settings["illustration"], settings["poses"], settings["back"],
                                              settings["emerald_strength"]], sort_keys=True).encode()).hexdigest()[:10]
@@ -177,7 +203,12 @@ def run(job, base, key, settings):
             if strength:                              # second step: the Emerald sprite LoRA
                 for view in raw:
                     final[view] = emerald(raw[view], job["look"], strength, seed, folder / ("%d_%s_emerald.png" % (number, view)))
-            sprites.build(job["species_id"], final, note="AI draft", grid=64, out=out)
+            grid = 64
+            if job.get("style") == "sprite-xl":       # second step: the Pokemon Sprite XL LoRA
+                for view in raw:
+                    final[view] = sprite_xl(raw[view], job["look"], view, seed, folder / ("%d_%s_spritexl.png" % (number, view)))
+                grid = 96
+            sprites.build(job["species_id"], final, note="AI draft", grid=grid, out=out)
             small = {}
             for view in ("front", "back"):
                 small[view] = folder / ("%d_%s_64.png" % (number, view))

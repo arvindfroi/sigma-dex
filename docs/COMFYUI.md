@@ -12,9 +12,11 @@ Sprites and concept art can be drawn by an image model running on a gaming PC. S
 | Its text encoder, int8 (9.4 GB) | `models\text_encoders\qwen3vl_8b_int8_convrot.safetensors` |
 | Its VAE (0.7 GB) | `models\vae\qwen_image_2.1_vae_bf16.safetensors` |
 
-| Illustrious-XL v1.0 (6.9 GB), for the Emerald style | `models\checkpoints\Illustrious-XL-v1.0.safetensors` |
+| NoobAI-XL v1.1 (7.1 GB, Laxhar on Hugging Face), for the Pokemon sprite style | `models\\checkpoints\\NoobAI-XL-v1.1.safetensors` |
+| Pokemon Sprite XL PixelArt LoRA, Noob v1.0 and back&front (0.2 GB each, civitai.com/models/378602, needs a Civitai login to download) | `models\\loras\\pkspif_nb_v1-2.safetensors`, `pkspbf_nb_v1.safetensors` |
+| Illustrious-XL v1.0 (6.9 GB), for the dropped Emerald style | `models\checkpoints\Illustrious-XL-v1.0.safetensors` |
 | Pokemon Emerald Sprite Style LoRA (0.2 GB, civitai.com/models/1523016) | `models\loras\Pokemon_Sprite_Style.safetensors` |
-| ControlNet Union SDXL promax (2.5 GB, xinsir on Hugging Face; optional outline lock, not used by default) | `models\controlnet\controlnet-union-sdxl-promax.safetensors` |
+| ControlNet Union SDXL promax (2.5 GB, xinsir on Hugging Face; holds the outlines in the sprite step) | `models\controlnet\controlnet-union-sdxl-promax.safetensors` |
 
 The Qwen files come from huggingface.co/Comfy-Org/Qwen-Image-2.1. One 1024x1024 picture
 takes about 25 seconds.

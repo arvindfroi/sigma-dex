@@ -117,7 +117,8 @@ CONTROLNET = "controlnet-union-sdxl-promax.safetensors"
 EMERALD_NEGATIVE = "human, trainer, text, watermark, signature, border, frame, blurry, gradient, 3d, realistic, photo, multiple views, background scenery"
 
 
-def restyle(image, prompt, out, denoise=0.85, control=0.7, lora=1.0, steps=28, cfg=5.5, seed=None, quiet=False):
+def restyle(image, prompt, out, denoise=0.85, control=0.7, lora=1.0, steps=28, cfg=5.5, seed=None, quiet=False,
+            checkpoint=None, lora_name=None, trigger="Pokemon Emerald Sprite, pixel art, ", negative=None, size=(1024, 1024)):
     """Redraw a picture as a Pokemon Emerald sprite: Illustrious + the Emerald sprite LoRA, image to image.
 
     `image` gives the creature and its pose: its outlines are held in place by a ControlNet
@@ -126,12 +127,12 @@ def restyle(image, prompt, out, denoise=0.85, control=0.7, lora=1.0, steps=28, c
     """
     seed = int(time.time() * 1000) % (2 ** 31) if seed is None else seed
     graph = {
-        "ckpt": {"class_type": "CheckpointLoaderSimple", "inputs": {"ckpt_name": CHECKPOINT}},
-        "lora": {"class_type": "LoraLoader", "inputs": {"model": ["ckpt", 0], "clip": ["ckpt", 1], "lora_name": EMERALD_LORA,
+        "ckpt": {"class_type": "CheckpointLoaderSimple", "inputs": {"ckpt_name": checkpoint or CHECKPOINT}},
+        "lora": {"class_type": "LoraLoader", "inputs": {"model": ["ckpt", 0], "clip": ["ckpt", 1], "lora_name": lora_name or EMERALD_LORA,
                                                          "strength_model": lora, "strength_clip": lora}},
-        "positive": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["lora", 1], "text": "Pokemon Emerald Sprite, pixel art, " + prompt}},
-        "negative": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["lora", 1], "text": EMERALD_NEGATIVE}},
-        "image": {"class_type": "LoadImage", "inputs": {"image": upload(image)}},
+        "positive": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["lora", 1], "text": trigger + prompt}},
+        "negative": {"class_type": "CLIPTextEncode", "inputs": {"clip": ["lora", 1], "text": negative or EMERALD_NEGATIVE}},
+        "image": {"class_type": "LoadImage", "inputs": {"image": upload(image) if image else ""}},
         "edges": {"class_type": "Canny", "inputs": {"image": ["image", 0], "low_threshold": 0.2, "high_threshold": 0.5}},
         "cnet": {"class_type": "ControlNetLoader", "inputs": {"control_net_name": CONTROLNET}},
         "cnet_type": {"class_type": "SetUnionControlNetType", "inputs": {"control_net": ["cnet", 0], "type": "canny/lineart/anime_lineart/mlsd"}},
@@ -145,6 +146,10 @@ def restyle(image, prompt, out, denoise=0.85, control=0.7, lora=1.0, steps=28, c
         "decode": {"class_type": "VAEDecode", "inputs": {"samples": ["sampler", 0], "vae": ["ckpt", 2]}},
         "save": {"class_type": "SaveImage", "inputs": {"images": ["decode", 0], "filename_prefix": "sigma/" + Path(out).stem}},
     }
+    if image is None:                                 # nothing to start from: draw from the text alone
+        control, graph["sampler"]["inputs"]["denoise"] = 0, 1.0
+        del graph["image"]
+        graph["encode"] = {"class_type": "EmptyLatentImage", "inputs": {"width": size[0], "height": size[1], "batch_size": 1}}
     if control <= 0:                                  # no outline lock: leave the ControlNet out entirely
         for name in ("edges", "cnet", "cnet_type", "control"):
             del graph[name]
