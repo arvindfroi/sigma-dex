@@ -13,7 +13,7 @@
       "dex": 1,
       "name": "Leafing",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -27,15 +27,15 @@
       "abilities": {
         "primary": "Overgrow",
         "secondary": null,
-        "hidden": null
+        "hidden": "Sharpness"
       },
       "base_stats": {
-        "hp": 45,
-        "attack": 60,
-        "defense": 55,
+        "hp": 60,
+        "attack": 65,
+        "defense": 60,
         "sp_attack": 45,
         "sp_defense": 50,
-        "speed": 55
+        "speed": 40
       },
       "ev_yield": {
         "attack": 1
@@ -6149,7 +6149,7 @@
         "no_flip": false,
         "elevation": 0,
         "front_y_offset": 8,
-        "back_y_offset": 16,
+        "back_y_offset": 10,
         "icon_palette": 5,
         "safari_flee_rate": 0
       },

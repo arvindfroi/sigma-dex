@@ -12,5 +12,19 @@
     "file": "assets/concept-art/bergflabbser/5.png",
     "caption": "Original sketch posted by Slothbaby in Discord, 29 Sep 2026",
     "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 6,
+    "species": "bergflabbser",
+    "file": "assets/concept-art/bergflabbser/6.png",
+    "caption": "[front] AI draft #2",
+    "editor": "Claude (test)"
+  },
+  {
+    "id": 7,
+    "species": "bergflabbser",
+    "file": "assets/concept-art/bergflabbser/7.png",
+    "caption": "[back] AI draft #2",
+    "editor": "Claude (test)"
   }
 ]

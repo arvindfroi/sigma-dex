@@ -12,19 +12,14 @@
     "icon.png (the front picture shrunk; a hand-made icon looks better)"
   ],
   "sources": {
-    "back": "c0fc405f2eaf4fc9",
-    "front": "06f2425b62a3e8c3"
+    "back": "539c8fef29b1d6a0",
+    "front": "11a95caf4d2be571"
   },
   "note": "AI draft",
   "back": {
-    "width": 40,
-    "height": 40,
-    "y_offset": 16
+    "width": 48,
+    "height": 48,
+    "y_offset": 10
   },
-  "icon_palette": 5,
-  "recipe": "8ec8a8c551ac699f",
-  "seeds": {
-    "front": 21,
-    "back": 22
-  }
+  "icon_palette": 5
 }

@@ -85,6 +85,6 @@ engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle
   front_y_offset: 8      # pixels the front sprite is moved down
-  back_y_offset: 16      # pixels the back sprite is moved down
+  back_y_offset: 10      # pixels the back sprite is moved down
   icon_palette: 5        # 0, 1 or 2 - which shared icon palette fits best
   safari_flee_rate: 0

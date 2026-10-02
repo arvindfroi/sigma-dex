@@ -2,10 +2,10 @@
 
     [SPECIES_LEAFING] =
     {
-        .baseHP = 45,
-        .baseAttack = 60,
-        .baseDefense = 55,
-        .baseSpeed = 55,
+        .baseHP = 60,
+        .baseAttack = 65,
+        .baseDefense = 60,
+        .baseSpeed = 40,
         .baseSpAttack = 45,
         .baseSpDefense = 50,
         .types = MON_TYPES(TYPE_GRASS),
@@ -17,7 +17,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_GRASS),
-        .abilities = { ABILITY_OVERGROW, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_OVERGROW, ABILITY_NONE, ABILITY_SHARPNESS },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Leafing"),
         .cryId = CRY_NONE,

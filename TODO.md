@@ -10,7 +10,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Area | Item | Filled in |
 |------|------|----------:|
 | Identity | types | 72 / 82 |
-| Identity | designer credit | 1 / 82 |
+| Identity | designer credit | 2 / 82 |
 | Dex page | category | 2 / 82 |
 | Dex page | description | 2 / 82 |
 | Dex page | height | 2 / 82 |
@@ -45,9 +45,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 ## Missing per Pokemon
 
-### #1 [Leafing](data/species/leafing.yaml) - 69%
+### #1 [Leafing](data/species/leafing.yaml) - 72%
 
-- **Identity:** designer credit
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #2 [Leafsteel](data/species/leafsteel.yaml) - 3%

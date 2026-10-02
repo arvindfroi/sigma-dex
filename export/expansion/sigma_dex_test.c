@@ -8,10 +8,10 @@
 TEST("Sigma dex: Leafing has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_LEAFING];
-    EXPECT_EQ(info->baseHP, 45);
-    EXPECT_EQ(info->baseAttack, 60);
-    EXPECT_EQ(info->baseDefense, 55);
-    EXPECT_EQ(info->baseSpeed, 55);
+    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseAttack, 65);
+    EXPECT_EQ(info->baseDefense, 60);
+    EXPECT_EQ(info->baseSpeed, 40);
     EXPECT_EQ(info->baseSpAttack, 45);
     EXPECT_EQ(info->baseSpDefense, 50);
     EXPECT_EQ(info->types[0], TYPE_GRASS);
