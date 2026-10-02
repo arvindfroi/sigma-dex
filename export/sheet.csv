@@ -102,5 +102,5 @@ until the edge shines like metal.
 96,Balleisk,Dragon,Bug,,,,=SUM(I98:N98),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 97,Greation,Dragon,Bug,,,,=SUM(I99:N99),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 98,Ultragon,Dragon,Bug,,,,=SUM(I100:N100),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-99,Bergflabbser,Water,Ground,,,,=SUM(I101:N101),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+99,Bergflabbser,Water,Ground,Drizzle,,,=SUM(I101:N101),150,130,130,110,110,50,,,Fjellfisk,2.4,285,,,,,,,,,,,,,,,,,,"Bergflabbser is a rare Pokémon that dwells in the fjords of Bergen. The seven mountains on its back form a living ecosystem, and the Ulriken pillar serves as its guiding beacon. It summons rain with its Drizzle and moves silently through the deep, using its wide mouth to catch prey.","Legendary concept: a giant fish carrying Bergen's seven mountains, Bryggen and the Ulriken tower on its back.",,"From Discord (#official-sigma-pokedex, Slothbaby, 29 Sep 2026, ""Legendary konsept""): sketch and concept card. The card numbers it Nr. 1027; in our dex it is #99.",Slothbaby,
 100,Maagamad,Flying,Poison,,,,=SUM(I102:N102),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"From the Google Doc: Maagamad/gullmire (Flying, Poison)",,

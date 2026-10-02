@@ -3,31 +3,31 @@ dex: 99
 name: Bergflabbser
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Slothbaby    # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Water, Ground]   # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+category: Fjellfisk      # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: "Bergflabbser is a rare Pokémon that dwells in the fjords of Bergen. The seven mountains on its back form a living ecosystem, and the Ulriken pillar serves as its guiding beacon. It summons rain with its Drizzle and moves silently through the deep, using its wide mouth to catch prey."
+height_m: 2.4            # e.g. 0.7
+weight_kg: 285           # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Drizzle
   secondary:             # optional
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 150
+  attack: 130
+  defense: 130
+  sp_attack: 110
+  sp_defense: 110
+  speed: 50
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -65,13 +65,13 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 
 # --- Design ---
 design:
-  concept:               # what is it? one or two sentences
+  concept: "Legendary concept: a giant fish carrying Bergen's seven mountains, Bryggen and the Ulriken tower on its back."
   name_origin:
-  notes:
+  notes: "From Discord (#official-sigma-pokedex, Slothbaby, 29 Sep 2026, \"Legendary konsept\"): sketch and concept card. The card numbers it Nr. 1027; in our dex it is #99."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/bergflabbser.png
+  concept_art: "assets/concept-art/bergflabbser/4.png"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

@@ -87,7 +87,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Balleisk** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Greation** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Ultragon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Bergflabbser** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Bergflabbser** needs: a level-up move that exists in the game
 - **Maagamad** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 
 ## Left out of exported Pokemon

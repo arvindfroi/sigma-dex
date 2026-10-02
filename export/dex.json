@@ -6085,30 +6085,30 @@
       "dex": 99,
       "name": "Bergflabbser",
       "credits": {
-        "designer": null,
+        "designer": "Slothbaby",
         "artist": null
       },
       "types": [
         "Water",
         "Ground"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "category": "Fjellfisk",
+      "description": "Bergflabbser is a rare Pokémon that dwells in the fjords of Bergen. The seven mountains on its back form a living ecosystem, and the Ulriken pillar serves as its guiding beacon. It summons rain with its Drizzle and moves silently through the deep, using its wide mouth to catch prey.",
+      "height_m": 2.4,
+      "weight_kg": 285,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Drizzle",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 150,
+        "attack": 130,
+        "defense": 130,
+        "sp_attack": 110,
+        "sp_defense": 110,
+        "speed": 50
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -6131,12 +6131,12 @@
       },
       "encounters": [],
       "design": {
-        "concept": null,
+        "concept": "Legendary concept: a giant fish carrying Bergen's seven mountains, Bryggen and the Ulriken tower on its back.",
         "name_origin": null,
-        "notes": null
+        "notes": "From Discord (#official-sigma-pokedex, Slothbaby, 29 Sep 2026, \"Legendary konsept\"): sketch and concept card. The card numbers it Nr. 1027; in our dex it is #99."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/bergflabbser/4.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,

@@ -10,14 +10,14 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Area | Item | Filled in |
 |------|------|----------:|
 | Identity | types | 72 / 82 |
-| Identity | designer credit | 0 / 82 |
-| Dex page | category | 1 / 82 |
-| Dex page | description | 1 / 82 |
-| Dex page | height | 1 / 82 |
-| Dex page | weight | 1 / 82 |
+| Identity | designer credit | 1 / 82 |
+| Dex page | category | 2 / 82 |
+| Dex page | description | 2 / 82 |
+| Dex page | height | 2 / 82 |
+| Dex page | weight | 2 / 82 |
 | Dex page | body color | 1 / 82 |
-| Stats | base stats | 1 / 82 |
-| Stats | ability | 1 / 82 |
+| Stats | base stats | 2 / 82 |
+| Stats | ability | 2 / 82 |
 | Stats | EV yield | 1 / 82 |
 | Stats | catch rate | 1 / 82 |
 | Stats | base exp | 1 / 82 |
@@ -29,8 +29,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Moves | level-up moves | 1 / 82 |
 | Moves | TM/HM moves | 1 / 82 |
 | Location | encounters | 1 / 82 |
-| Design | concept | 1 / 82 |
-| Art | concept art | 0 / 82 |
+| Design | concept | 2 / 82 |
+| Art | concept art | 1 / 82 |
 | Art | front sprite | 0 / 82 |
 | Art | front animation frame | 0 / 82 |
 | Art | back sprite | 0 / 82 |
@@ -919,16 +919,14 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #99 [Bergflabbser](data/species/bergflabbser.yaml) - 3%
+### #99 [Bergflabbser](data/species/bergflabbser.yaml) - 34%
 
-- **Identity:** designer credit
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Dex page:** body color
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
-- **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #100 [Maagamad](data/species/maagamad.yaml) - 3%
 
