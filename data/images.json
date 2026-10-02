@@ -1141,45 +1141,248 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 330,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/330.png",
-    "caption": "[front] AI draft #10",
-    "editor": "Claude (starter test)"
-  },
-  {
-    "id": 331,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/331.png",
-    "caption": "[back] AI draft #10",
-    "editor": "Claude (starter test)"
-  },
-  {
-    "id": 332,
+    "id": 336,
     "species": "waffy",
-    "file": "assets/concept-art/waffy/332.png",
-    "caption": "[front] AI draft #12",
-    "editor": "Claude (starter test)"
+    "file": "assets/concept-art/waffy/336.webp",
+    "caption": "Concept art, cut out of the starter picture from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
   },
   {
-    "id": 333,
+    "id": 337,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/337.webp",
+    "caption": "Concept art, cut out of the starter picture from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 338,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/338.webp",
+    "caption": "Concept art, cut out of the starter picture from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 339,
     "species": "waffy",
-    "file": "assets/concept-art/waffy/333.png",
-    "caption": "[back] AI draft #12",
+    "file": "assets/concept-art/waffy/339.webp",
+    "caption": "The three starters, from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 340,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/340.webp",
+    "caption": "The three starters as a starter-choice screen, from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 341,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/341.webp",
+    "caption": "The three starters, from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 342,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/342.webp",
+    "caption": "The three starters as a starter-choice screen, from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 343,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/343.webp",
+    "caption": "The three starters, from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 344,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/344.webp",
+    "caption": "The three starters as a starter-choice screen, from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 345,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/345.webp",
+    "caption": "The Leafing line with stats from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 346,
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/346.webp",
+    "caption": "The Leafing line with stats from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 347,
+    "species": "leafaxer",
+    "file": "assets/concept-art/leafaxer/347.webp",
+    "caption": "The Leafing line with stats from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 348,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/348.webp",
+    "caption": "The Leafing line, red version from Discord (#kanteradet), posted by Ruben 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 349,
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/349.webp",
+    "caption": "The Leafing line, red version from Discord (#kanteradet), posted by Ruben 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 350,
+    "species": "leafaxer",
+    "file": "assets/concept-art/leafaxer/350.webp",
+    "caption": "The Leafing line, red version from Discord (#kanteradet), posted by Ruben 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 351,
+    "species": "leafaxer",
+    "file": "assets/concept-art/leafaxer/351.webp",
+    "caption": "Trading-card style picture from Discord (#kanteradet), posted by Ruben 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 352,
+    "species": "leafaxer",
+    "file": "assets/concept-art/leafaxer/352.webp",
+    "caption": "Trading-card style picture (gold) from Discord (#kanteradet), posted by Ruben 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 353,
+    "species": "warrallier",
+    "file": "assets/concept-art/warrallier/353.webp",
+    "caption": "Trading-card style picture from Discord (#kanteradet), posted by Ruben 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 354,
+    "species": "warrallier",
+    "file": "assets/concept-art/warrallier/354.webp",
+    "caption": "Trading-card style picture from Discord (#kanteradet), posted by Ruben 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 355,
+    "species": "blazterra",
+    "file": "assets/concept-art/blazterra/355.webp",
+    "caption": "Trading-card style picture from Discord (#kanteradet), posted by Ruben 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 356,
+    "species": "blazterra",
+    "file": "assets/concept-art/blazterra/356.webp",
+    "caption": "Trading-card style picture from Discord (#kanteradet), posted by Ruben 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 357,
+    "species": "cryoblade",
+    "file": "assets/concept-art/cryoblade/357.webp",
+    "caption": "Concept card from Discord (#kanteradet), posted by dr.grey8421 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 358,
+    "species": "cryoblade",
+    "file": "assets/concept-art/cryoblade/358.webp",
+    "caption": "Sketch from Discord (#kanteradet), posted by dr.grey8421 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 359,
+    "species": "giga-circuit",
+    "file": "assets/concept-art/giga-circuit/359.webp",
+    "caption": "The Voltline (Watt-ling, Ampe-reon, Giga-Circuit) from Discord (#kanteradet), posted by Ruben 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 360,
+    "species": "giga-circuit",
+    "file": "assets/concept-art/giga-circuit/360.webp",
+    "caption": "Trading-card style picture from Discord (#kanteradet), posted by Ruben 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 361,
+    "species": "insectoid",
+    "file": "assets/concept-art/insectoid/361.webp",
+    "caption": "Concept card from Discord (#pokemon-goons), posted by dr.grey8421 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 362,
+    "species": "insectoid",
+    "file": "assets/concept-art/insectoid/362.webp",
+    "caption": "Sketch from Discord (#pokemon-goons), posted by dr.grey8421 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 363,
+    "species": "ampeel",
+    "file": "assets/concept-art/ampeel/363.webp",
+    "caption": "Sketch from Discord (#pokemon-goons), posted by johnnes3204 2026-05-01",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 364,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/364.webp",
+    "caption": "Sketch from Discord (#pokemon-goons), posted by dr.grey8421 2026-05-02",
+    "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 365,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/365.png",
+    "caption": "[front] AI draft #16",
     "editor": "Claude (starter test)"
   },
   {
-    "id": 334,
-    "species": "torchbat",
-    "file": "assets/concept-art/torchbat/334.png",
-    "caption": "[front] AI draft #14",
+    "id": 366,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/366.png",
+    "caption": "[back] AI draft #16",
     "editor": "Claude (starter test)"
   },
   {
-    "id": 335,
+    "id": 367,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/367.png",
+    "caption": "[front] AI draft #18",
+    "editor": "Claude (starter test)"
+  },
+  {
+    "id": 368,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/368.png",
+    "caption": "[back] AI draft #18",
+    "editor": "Claude (starter test)"
+  },
+  {
+    "id": 369,
     "species": "torchbat",
-    "file": "assets/concept-art/torchbat/335.png",
-    "caption": "[back] AI draft #14",
+    "file": "assets/concept-art/torchbat/369.png",
+    "caption": "[front] AI draft #20",
+    "editor": "Claude (starter test)"
+  },
+  {
+    "id": 370,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/370.png",
+    "caption": "[back] AI draft #20",
     "editor": "Claude (starter test)"
   }
 ]

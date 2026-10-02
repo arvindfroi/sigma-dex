@@ -92,7 +92,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art: "assets/concept-art/leafing/330.png"
+  concept_art: "assets/concept-art/leafing/338.webp"
   front_sprite: "assets/sprites/leafing/front.png"
   front_anim: "assets/sprites/leafing/anim_front.png"
   back_sprite: "assets/sprites/leafing/back.png"

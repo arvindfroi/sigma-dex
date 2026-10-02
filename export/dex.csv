@@ -4,14 +4,14 @@ nap in the sun. The leaf on its head
 hardens a little each time it battles,
 until the edge shines like metal.
 ",Grass starter. A small creature with a leaf that slowly turns to steel as it evolves.,,"PROOF OF CONCEPT - every value in this file except name, type and evolution is a draft proposed by Claude on 2026-10-02. The Council should review and replace them.",Emil Venge-Kvamme,,90
-2,leafsteel,Leafsteel,Grass,Steel,Overgrow,,Sharpness,420,75,90,80,60,65,50,Leafing,Lv 16,,,,,2 attack,,,,,,,,,,,Slash (1),,,,,,,,,Emil Venge-Kvamme,,21
-3,leafaxer,Leafaxer,Grass,Steel,Overgrow,,Sharpness,530,90,130,100,70,80,60,Leafsteel,Lv 36,,,,,3 attack,,,,,,,,,,,"Leaf Blade (1), Iron Tail (40), Behemoth Blade (60)",,,,,,,,,,,17
+2,leafsteel,Leafsteel,Grass,Steel,Overgrow,,Sharpness,420,75,90,80,60,65,50,Leafing,Lv 16,,,,,2 attack,,,,,,,,,,,Slash (1),,,,,,,,,Emil Venge-Kvamme,,24
+3,leafaxer,Leafaxer,Grass,Steel,Overgrow,,Sharpness,530,90,130,100,70,80,60,Leafsteel,Lv 36,,,,,3 attack,,,,,,,,,,,"Leaf Blade (1), Iron Tail (40), Behemoth Blade (60)",,,,,,,,,,,21
 4,waffy,Waffy,Water,,Torrent,,Defiant,320,55,65,50,45,50,55,,,,,,,1 attack,,,,,,,,,,,"Tackle (1), Growl (1), Water Gun (6), Bite (10), Aqua Jet (15)",,,,,,,,DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.,,,34
 5,wealther,Wealther,Water,Dark,Torrent,,Defiant,420,65,85,60,65,60,85,Waffy,Lv 16,,,,,"1 attack, 1 speed",,,,,,,,,,,Feint Attack (1),,,,,,,,,Emil Venge-Kvamme,,21
-6,warrallier,Warrallier,Water,Dark,Torrent,,Defiant,530,80,115,75,80,75,105,Wealther,Lv 36,,,,,"2 attack, 1 speed",,,,,,,,,,,Flip Turn (1),"Focus Punch, Water Pulse, Toxic, Bulk Up, Hidden Power, Taunt, Ice Beam, Protect, Rain Dance, Frustration, Iron Tail, Brick Break, Double Team, Torment, Facade, Thief, Snatch, Cut, Surf, Strength, Rock Smash, Waterfall, Dive",,,,,,,,Emil Venge-Kvamme,,24
+6,warrallier,Warrallier,Water,Dark,Torrent,,Defiant,530,80,115,75,80,75,105,Wealther,Lv 36,,,,,"2 attack, 1 speed",,,,,,,,,,,Flip Turn (1),"Focus Punch, Water Pulse, Toxic, Bulk Up, Hidden Power, Taunt, Ice Beam, Protect, Rain Dance, Frustration, Iron Tail, Brick Break, Double Team, Torment, Facade, Thief, Snatch, Cut, Surf, Strength, Rock Smash, Waterfall, Dive",,,,,,,,Emil Venge-Kvamme,,28
 7,torchbat,Torchbat,Fire,,Blaze,,No Guard,320,40,50,45,65,45,75,,,,,,,1 speed,,,,,,,,,,,"Scratch (1), Growl (1), Ember (6), Supersonic (10), Wing Attack (15)",,,,,,,,DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.,,,34
 8,heatbat,Heatbat,Fire,Flying,Blaze,,No Guard,420,55,65,55,85,60,100,Torchbat,Lv 16,,,,,,,,,,,,,,,,Air Slash (1),,,,,,,,,Emil Venge-Kvamme,,17
-9,blazterra,Blazterra,Fire,Flying,Blaze,,No Guard,530,70,85,75,105,75,120,Heatbat,Lv 36,,,,,3 speed,,,,,,,,,,,Heat Wave (1),,,,,,,,,Emil Venge-Kvamme,,21
+9,blazterra,Blazterra,Fire,Flying,Blaze,,No Guard,530,70,85,75,105,75,120,Heatbat,Lv 36,,,,,3 speed,,,,,,,,,,,Heat Wave (1),,,,,,,,,Emil Venge-Kvamme,,24
 10,erobi,Erobi,Normal,Flying,Keen Eye,,,280,44,45,39,44,64,44,,,Smiley Bird,0.4,1.9,,,,,,,,,,,,,,,,,,"Erobi is a cheerful regional bird Pokémon known for the bright yellow feathers covering its face. The black smiley markings on its face look as if they were drawn on with a marker, and they help it appear friendly to both people and Pokémon. Even when startled, Erobi keeps its painted smile, making it difficult to tell what it is really thinking.",,,"From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -; flavor 'Erobi flutters around fields and towns, spreading a sense of warmth wherever it goes.'.",,,28
 11,harpie,Harpie,Normal,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 12,smeatherace,Smeatherace,Normal,Flying,Unburden,,,495,67,109,60,72,102,85,,,Skyemoji Bird,1.7,28.4,,,,,,,,,,,,,,,,,,"Smeatherace rides high winds with silent grace, using the emoji-like marking on its chest to signal its flock from afar. When it drops what it carries, its body becomes startlingly light, letting it burst through the sky with incredible speed.",,,"From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -.",,,28
@@ -55,7 +55,7 @@ until the edge shines like metal.
 50,beatld,Beatld,Bug,Psychic,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 51,wispole,Wispole,Water,,Swift Swim,Water Veil,Water Bubble,230,30,25,20,40,35,80,,,Tadpole,,,,1 speed,,,,,,,,,,,,,,,,Boosts the Pokemon's Speed stat in rain.,,,"From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 1, male.",Emil Venge-Kvamme,,28
 52,galfrogtom,Galfrogtom,Ghost,Electric,Clear Body,Lightning Rod,Galvanize,504,59,89,49,139,49,119,Wispole,Thunder Stone,Ghost,,,,2 sp_attack,,,,,,,,,,,Discharge (1),,,,,May disable a move that deals damage to the Pokemon.,,,"From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male.",Emil Venge-Kvamme,,31
-53,giga-circuit,Giga-Circuit,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+53,giga-circuit,Giga-Circuit,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 54,hippore,Hippore,Steel,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 55,docuphant,Docuphant,Ground,Dragon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 56,razox,Razox,Fairy,Ice,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
@@ -73,7 +73,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 67,saucerl,Saucerl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 68,abyssys,Abyssys,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 69,octopearl,Octopearl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-70,cryoblade,Cryoblade,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+70,cryoblade,Cryoblade,Dark,Ice,Cold-hearted,,,605,90,140,100,95,110,70,,,Frozen Executioner,2.1,182,,,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",,,24
 71,roostasaur,Roostasaur,Dragon,Normal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 72,bygon,Bygon,Ghost,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 73,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -85,7 +85,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 79,ciggiti,Ciggiti,Ghost,,Smoked Up,,,310,10,40,30,100,30,100,,,Smoke,0.7,4.2,,,,,,,,,,,,,,,,,,"Ciggiti is always puffing on a cigarette it found. Its smoke clouds its mind and body, and it can barely hold itself together. It’s said to enjoy the feeling—right before it fades away.",,,"From the Discord concept card (BUST, 2026-05-03): also on the card: Smoked Up: This Pokemon faints after three turns in the field..",,,28
 80,chuchar,Chuchar,Ghost,,Smoked Up,,,574,45,75,100,170,64,120,,,Smoke,1.2,9.6,,,,,,,,,,,,,,,,,,"CHURCHAR evolved from CIGGITI after its smoke condensed into a wicked, scheming spirit. It lurks in dim alleys and abandoned halls, grinning through thick haze as its cursed cigar burns ever brighter.",,,"From the Discord concept card (BUST, 2026-05-03): card name: CHURCHAR; evolution on the card: Evolved from CIGGITI; also on the card: Smoked Up: This Pokemon faints after three turns in the field..",,,28
 81,parahaunt,Parahaunt,Ghost,,Smoked Up,,,556,20,76,50,110,90,210,,,Smoke,1,6.8,,,,,,,,,,,,,,,,,,"PARAHAUNT slips through the night like a drifting phantom, silently trailing smoke from its jeweled cigarette holder. It vanishes before anyone can react, leaving only a chill haze and the feeling of being watched.",,,"From the Discord concept card (BUST, 2026-05-03): also on the card: Smoked Up: This Pokemon faints after three turns in the field..",,,28
-82,insectoid,Insectoid,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
+82,insectoid,Insectoid,Dark,Bug,Shadow Poise,,Predator's Veil,580,70,130,85,60,95,140,,,Regal Mantis,2.3,68.7,,,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#pokemon-goons, dr.grey8421, 2026-05-01).",,,24
 83,darkgonark,Darkgonark,Ghost,Steel,Eternal Dirge,Soulforged Body,,550,80,130,60,80,60,140,,,Requiem,3.8,296.7,,,,,,,,,,,,,,,,,,"Legends claim that when Darkgonark's song ends, the universe will be remade in perfect, silent harmony.",,,"From the Discord concept card (dr.grey8421, 2026-05-02): also on the card: Subtitle The Abyssal Requiem Pokémon; Soulforged Body is the hidden ability; signature move Requiem Breaker (Ghost/Steel, power 160, accuracy 100%, PP 5); also a lore blurb: Darkgonark is said to be the embodiment of ruin and rebirth..",,,28
 84,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 85,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -55,7 +55,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Saucerl** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Abyssys** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Octopearl** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Cryoblade** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
+- **Cryoblade** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Roostasaur** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Bygon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Iglomodo** needs: base stats, a level-up move that exists in the game
@@ -63,7 +63,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Ciggiti** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Chuchar** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Parahaunt** needs: an ability that exists in the game, a level-up move that exists in the game
-- **Insectoid** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
+- **Insectoid** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Darkgonark** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Gravriel** needs: a level-up move that exists in the game
 - **Dragem** needs: base stats, an ability that exists in the game, a level-up move that exists in the game

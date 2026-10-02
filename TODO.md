@@ -9,15 +9,15 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 80 / 83 |
+| Identity | types | 82 / 83 |
 | Identity | designer credit | 21 / 83 |
-| Dex page | category | 40 / 83 |
+| Dex page | category | 42 / 83 |
 | Dex page | description | 42 / 83 |
-| Dex page | height | 27 / 83 |
-| Dex page | weight | 25 / 83 |
+| Dex page | height | 29 / 83 |
+| Dex page | weight | 27 / 83 |
 | Dex page | body color | 1 / 83 |
-| Stats | base stats | 47 / 83 |
-| Stats | ability | 47 / 83 |
+| Stats | base stats | 49 / 83 |
+| Stats | ability | 49 / 83 |
 | Stats | EV yield | 21 / 83 |
 | Stats | catch rate | 1 / 83 |
 | Stats | base exp | 1 / 83 |
@@ -30,7 +30,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Moves | TM/HM moves | 2 / 83 |
 | Location | encounters | 1 / 83 |
 | Design | concept | 2 / 83 |
-| Art | concept art | 63 / 83 |
+| Art | concept art | 70 / 83 |
 | Art | front sprite | 4 / 83 |
 | Art | front animation frame | 4 / 83 |
 | Art | back sprite | 4 / 83 |
@@ -49,7 +49,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 - **Art:** footprint, shiny palette, cry
 
-### #2 [Leafsteel](data/species/leafsteel.yaml) - 21%
+### #2 [Leafsteel](data/species/leafsteel.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
@@ -57,9 +57,9 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #3 [Leafaxer](data/species/leafaxer.yaml) - 17%
+### #3 [Leafaxer](data/species/leafaxer.yaml) - 21%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
@@ -68,7 +68,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #4 [Waffy](data/species/waffy.yaml) - 34%
 
@@ -91,14 +91,14 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #6 [Warrallier](data/species/warrallier.yaml) - 24%
+### #6 [Warrallier](data/species/warrallier.yaml) - 28%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #7 [Torchbat](data/species/torchbat.yaml) - 34%
 
@@ -121,7 +121,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #9 [Blazterra](data/species/blazterra.yaml) - 21%
+### #9 [Blazterra](data/species/blazterra.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
@@ -129,7 +129,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #10 [Erobi](data/species/erobi.yaml) - 28%
 
@@ -526,7 +526,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #53 [Giga-Circuit](data/species/giga-circuit.yaml) - 3%
+### #53 [Giga-Circuit](data/species/giga-circuit.yaml) - 7%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
@@ -535,7 +535,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #54 [Hippore](data/species/hippore.yaml) - 7%
 
@@ -712,16 +712,16 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #70 [Cryoblade](data/species/cryoblade.yaml) - 0%
+### #70 [Cryoblade](data/species/cryoblade.yaml) - 24%
 
-- **Identity:** types, designer credit
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Identity:** designer credit
+- **Dex page:** description, body color
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #71 [Roostasaur](data/species/roostasaur.yaml) - 7%
 
@@ -810,16 +810,16 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #82 [Insectoid](data/species/insectoid.yaml) - 0%
+### #82 [Insectoid](data/species/insectoid.yaml) - 24%
 
-- **Identity:** types, designer credit
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Identity:** designer credit
+- **Dex page:** description, body color
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #83 [Darkgonark](data/species/darkgonark.yaml) - 28%
 

@@ -74,7 +74,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art: "assets/concept-art/waffy/332.png"
+  concept_art: "assets/concept-art/waffy/336.webp"
   front_sprite: "assets/sprites/waffy/front.png"
   front_anim: "assets/sprites/waffy/anim_front.png"
   back_sprite: "assets/sprites/waffy/back.png"

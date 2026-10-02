@@ -3,7 +3,7 @@
   "colors": 15,
   "animated": false,
   "front": {
-    "width": 48,
+    "width": 56,
     "height": 64,
     "y_offset": 1
   },
@@ -12,12 +12,12 @@
     "icon.png (the front picture shrunk; a hand-made icon looks better)"
   ],
   "sources": {
-    "back": "e1002482344eebdb",
-    "front": "6606d302f992cd59"
+    "back": "5512888fac0ae8c6",
+    "front": "409bf8c6d794b612"
   },
   "note": "AI draft",
   "back": {
-    "width": 48,
+    "width": 40,
     "height": 64,
     "y_offset": 1
   },

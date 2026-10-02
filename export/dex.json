@@ -169,7 +169,7 @@
         "notes": "PROOF OF CONCEPT - every value in this file except name, type and evolution is a draft proposed by Claude on 2026-10-02. The Council should review and replace them."
       },
       "assets": {
-        "concept_art": "assets/concept-art/leafing/330.png",
+        "concept_art": "assets/concept-art/leafing/338.webp",
         "front_sprite": "assets/sprites/leafing/front.png",
         "front_anim": "assets/sprites/leafing/anim_front.png",
         "back_sprite": "assets/sprites/leafing/back.png",
@@ -256,7 +256,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/leafsteel/346.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -345,7 +345,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/leafaxer/347.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -447,7 +447,7 @@
         "notes": "DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones."
       },
       "assets": {
-        "concept_art": "assets/concept-art/waffy/332.png",
+        "concept_art": "assets/concept-art/waffy/336.webp",
         "front_sprite": "assets/sprites/waffy/front.png",
         "front_anim": "assets/sprites/waffy/anim_front.png",
         "back_sprite": "assets/sprites/waffy/back.png",
@@ -641,7 +641,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/warrallier/353.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -743,7 +743,7 @@
         "notes": "DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones."
       },
       "assets": {
-        "concept_art": "assets/concept-art/torchbat/334.png",
+        "concept_art": "assets/concept-art/torchbat/337.webp",
         "front_sprite": "assets/sprites/torchbat/front.png",
         "front_anim": "assets/sprites/torchbat/anim_front.png",
         "back_sprite": "assets/sprites/torchbat/back.png",
@@ -755,9 +755,9 @@
       "engine": {
         "no_flip": false,
         "elevation": 0,
-        "front_y_offset": 2,
-        "back_y_offset": 12,
-        "icon_palette": 1,
+        "front_y_offset": 1,
+        "back_y_offset": 1,
+        "icon_palette": 3,
         "safari_flee_rate": 0
       },
       "id": "torchbat"
@@ -909,7 +909,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/blazterra/355.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -3824,7 +3824,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/giga-circuit/359.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -5046,24 +5046,27 @@
         "designer": null,
         "artist": null
       },
-      "types": [],
-      "category": null,
+      "types": [
+        "Dark",
+        "Ice"
+      ],
+      "category": "Frozen Executioner",
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 2.1,
+      "weight_kg": 182,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Cold-hearted",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 90,
+        "attack": 140,
+        "defense": 100,
+        "sp_attack": 95,
+        "sp_defense": 110,
+        "speed": 70
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -5088,10 +5091,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01)."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/cryoblade/357.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -5713,24 +5716,27 @@
         "designer": null,
         "artist": null
       },
-      "types": [],
-      "category": null,
+      "types": [
+        "Dark",
+        "Bug"
+      ],
+      "category": "Regal Mantis",
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 2.3,
+      "weight_kg": 68.7,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Shadow Poise",
         "secondary": null,
-        "hidden": null
+        "hidden": "Predator's Veil"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 70,
+        "attack": 130,
+        "defense": 85,
+        "sp_attack": 60,
+        "sp_defense": 95,
+        "speed": 140
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -5755,10 +5761,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": "From the Discord concept card (#pokemon-goons, dr.grey8421, 2026-05-01)."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/insectoid/361.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,

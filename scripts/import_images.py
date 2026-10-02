@@ -79,7 +79,8 @@ def main():
     # A Pokemon's concept_art follows its first attached image (unless someone set another file by hand).
     managed = str(ART.relative_to(ROOT)) + "/"
     for sid, (path, data) in files.items():
-        first = next((entry["file"] for entry in manifest if entry["species"] == sid), None)
+        # Sprite pictures (captions like "[front] ...") are not concept art.
+        first = next((entry["file"] for entry in manifest if entry["species"] == sid and not (entry.get("caption") or "").startswith("[")), None)
         current = section(data, "assets").get("concept_art")
         by_hand = current and not (current.startswith(managed + sid + "/") and current[len(managed + sid) + 1:].split(".")[0].isdigit())
         if by_hand or current == first:

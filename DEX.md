@@ -3,21 +3,21 @@
 
 # Council of the Sigmas Pokedex
 
-**83 / 100** slots have a Pokemon - **0** are fully complete - average completeness **19%**.
+**83 / 100** slots have a Pokemon - **0** are fully complete - average completeness **20%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
 | # | Name | Types | Abilities | BST | Evolves into | Done |
 |--:|------|-------|-----------|----:|--------------|-----:|
 | 1 | [Leafing](data/species/leafing.yaml) | Grass | Overgrow, Sharpness (H) | 320 | Leafsteel (Lv 16) | 90% |
-| 2 | [Leafsteel](data/species/leafsteel.yaml) | Grass / Steel | Overgrow, Sharpness (H) | 420 | Leafaxer (Lv 36) | 21% |
-| 3 | [Leafaxer](data/species/leafaxer.yaml) | Grass / Steel | Overgrow, Sharpness (H) | 530 |  | 17% |
+| 2 | [Leafsteel](data/species/leafsteel.yaml) | Grass / Steel | Overgrow, Sharpness (H) | 420 | Leafaxer (Lv 36) | 24% |
+| 3 | [Leafaxer](data/species/leafaxer.yaml) | Grass / Steel | Overgrow, Sharpness (H) | 530 |  | 21% |
 | 4 | [Waffy](data/species/waffy.yaml) | Water | Torrent, Defiant (H) | 320 | Wealther (Lv 16) | 34% |
 | 5 | [Wealther](data/species/wealther.yaml) | Water / Dark | Torrent, Defiant (H) | 420 | Warrallier (Lv 36) | 21% |
-| 6 | [Warrallier](data/species/warrallier.yaml) | Water / Dark | Torrent, Defiant (H) | 530 |  | 24% |
+| 6 | [Warrallier](data/species/warrallier.yaml) | Water / Dark | Torrent, Defiant (H) | 530 |  | 28% |
 | 7 | [Torchbat](data/species/torchbat.yaml) | Fire | Blaze, No Guard (H) | 320 | Heatbat (Lv 16) | 34% |
 | 8 | [Heatbat](data/species/heatbat.yaml) | Fire / Flying | Blaze, No Guard (H) | 420 | Blazterra (Lv 36) | 17% |
-| 9 | [Blazterra](data/species/blazterra.yaml) | Fire / Flying | Blaze, No Guard (H) | 530 |  | 21% |
+| 9 | [Blazterra](data/species/blazterra.yaml) | Fire / Flying | Blaze, No Guard (H) | 530 |  | 24% |
 | 10 | [Erobi](data/species/erobi.yaml) | Normal / Flying | Keen Eye | 280 |  | 28% |
 | 11 | [Harpie](data/species/harpie.yaml) | Normal / Flying |  |  |  | 7% |
 | 12 | [Smeatherace](data/species/smeatherace.yaml) | Normal / Flying | Unburden | 495 |  | 28% |
@@ -61,7 +61,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 50 | [Beatld](data/species/beatld.yaml) | Bug / Psychic |  |  |  | 7% |
 | 51 | [Wispole](data/species/wispole.yaml) | Water | Swift Swim, Water Veil, Water Bubble (H) | 230 | Galfrogtom (Thunder Stone) | 28% |
 | 52 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Clear Body, Lightning Rod, Galvanize (H) | 504 |  | 31% |
-| 53 | [Giga-Circuit](data/species/giga-circuit.yaml) | Electric |  |  |  | 3% |
+| 53 | [Giga-Circuit](data/species/giga-circuit.yaml) | Electric |  |  |  | 7% |
 | 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock |  |  |  | 7% |
 | 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon |  |  |  | 7% |
 | 56 | [Razox](data/species/razox.yaml) | Fairy / Ice |  |  |  | 7% |
@@ -78,7 +78,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 67 | [Saucerl](data/species/saucerl.yaml) | Psychic / Water |  |  |  | 3% |
 | 68 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water |  |  |  | 3% |
 | 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water |  |  |  | 3% |
-| 70 | [Cryoblade](data/species/cryoblade.yaml) |  |  |  |  | 0% |
+| 70 | [Cryoblade](data/species/cryoblade.yaml) | Dark / Ice | Cold-hearted | 605 |  | 24% |
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
 | 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
 | 73 | *open slot* | | | | | |
@@ -90,7 +90,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 79 | [Ciggiti](data/species/ciggiti.yaml) | Ghost | Smoked Up | 310 |  | 28% |
 | 80 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 28% |
 | 81 | [Parahaunt](data/species/parahaunt.yaml) | Ghost | Smoked Up | 556 |  | 28% |
-| 82 | [Insectoid](data/species/insectoid.yaml) |  |  |  |  | 0% |
+| 82 | [Insectoid](data/species/insectoid.yaml) | Dark / Bug | Shadow Poise, Predator's Veil (H) | 580 |  | 24% |
 | 83 | [Darkgonark](data/species/darkgonark.yaml) | Ghost / Steel | Eternal Dirge, Soulforged Body | 550 |  | 28% |
 | 84 | *open slot* | | | | | |
 | 85 | *open slot* | | | | | |

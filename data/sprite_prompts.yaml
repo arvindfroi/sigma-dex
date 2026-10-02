@@ -55,3 +55,17 @@ pokemon:
       mountain peaks with grey rock tips, a tiny grey tower on the tallest peak and four tiny
       colored houses in a row between the peaks.
     seeds: {front: 21, back: 22}
+  leafing:
+    look: >-
+      a small green long-necked dinosaur covered in overlapping leaf scales, one big leaf sprouting
+      from the top of its head, big friendly brown eyes, grey claws, and a tail tipped with a
+      silver axe blade.
+  waffy:
+    look: >-
+      a chubby blue platypus with a big yellow duck bill, big round eyes, an open happy mouth, a
+      white belly, black clawed feet and a flat dark beaver tail.
+  torchbat:
+    look: >-
+      a small orange-red lizard standing upright, with huge pointed bat-like ears, a yellow
+      flame-shaped tuft on its head, a cream belly, yellow claws and a flame burning on the tip
+      of its tail.

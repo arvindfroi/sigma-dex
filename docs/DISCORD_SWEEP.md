@@ -102,6 +102,19 @@ These have a name in the picture that matches no Pokemon in the dex. Add them on
 | Viridub | 2 | Ruben | Grass |
 | Whaldrill | 1 | SLOTHBABY | Ice/Ground |
 
+## The two older channels
+
+The very first designs were posted on 2026-05-01 in #kanteradet and #pokemon-goons, before the
+dex channel existed. Found there on 2026-10-03 and attached: the three starters (Leafing,
+Torchbat, Waffy) with the Leafing line, Warrallier, Blazterra, Cryoblade, Giga-Circuit, Insectoid,
+plus sketches of Ampeel and Darkgonark. Cryoblade and Insectoid got their card data.
+
+Designs from those channels that are not in the dex: Zarevok, Slobbleaf, Bratgore, Scorcoal /
+Combustace / Infernalace, Watt-ling and Ampe-reon (the stages before Giga-Circuit), Voidgen,
+Pupdetect / Detecup / Gumshoe, Meteoric, Gemonite, Nosexus, Stenrik, Cholt / Voltralt / Zapitera,
+Zapydra / Voltagar / Aero-Voltex, Aqualaveil, Brention and an own design called Parasect. Joke
+cards and anything not suitable for a public site were left out.
+
 ## Left out on purpose
 
 Three pictures were matched too weakly to attach: a bee-winged dragon sketch (maybe Balleisk), a leafy web sprite (maybe Twemp) and a spiky tree creature (maybe Sigmanian Sudowoodo).
