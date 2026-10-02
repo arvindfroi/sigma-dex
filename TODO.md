@@ -10,15 +10,15 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Area | Item | Filled in |
 |------|------|----------:|
 | Identity | types | 73 / 83 |
-| Identity | designer credit | 17 / 83 |
+| Identity | designer credit | 19 / 83 |
 | Dex page | category | 2 / 83 |
 | Dex page | description | 2 / 83 |
 | Dex page | height | 2 / 83 |
 | Dex page | weight | 2 / 83 |
 | Dex page | body color | 1 / 83 |
-| Stats | base stats | 21 / 83 |
-| Stats | ability | 21 / 83 |
-| Stats | EV yield | 18 / 83 |
+| Stats | base stats | 23 / 83 |
+| Stats | ability | 23 / 83 |
+| Stats | EV yield | 19 / 83 |
 | Stats | catch rate | 1 / 83 |
 | Stats | base exp | 1 / 83 |
 | Stats | growth rate | 1 / 83 |
@@ -350,23 +350,22 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #36 [Nukfae](data/species/nukfae.yaml) - 21%
+### #36 [Nukfae](data/species/nukfae.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #37 [Toxiren](data/species/toxiren.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #37 [Toxiren](data/species/toxiren.yaml) - 3%
-
-- **Identity:** designer credit
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -509,11 +508,10 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #51 [Wispole](data/species/wispole.yaml) - 3%
+### #51 [Wispole](data/species/wispole.yaml) - 17%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

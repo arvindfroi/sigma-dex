@@ -44,8 +44,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 33 | [Rainbro](data/species/rainbro.yaml) | Stellar |  |  |  | 3% |
 | 34 | [Autuman](data/species/autuman.yaml) | Fighting / Grass |  |  |  | 3% |
 | 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting |  |  |  | 3% |
-| 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Pixilate (H) | 500 | Toxiren (Lv 38) | 21% |
-| 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy |  |  |  | 3% |
+| 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Sticky Hold (H) | 325 | Toxiren (Lv 38) | 14% |
+| 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Pixilate (H) | 500 |  | 21% |
 | 38 | [Stonma](data/species/stonma.yaml) | Rock | Sturdy, Rock Head, Solid Rock (H) | 330 | Sigmauler (Lv 38) | 17% |
 | 39 | [Sigmauler](data/species/sigmauler.yaml) | Rock / Fighting | Sturdy, Iron Fist, Solid Rock (H) | 510 |  | 17% |
 | 40 | [Tinky](data/species/tinky.yaml) | Grass | Heatproof, Dancer, Prankster (H) | 285 | Motinky (Lv 22) | 17% |
@@ -59,7 +59,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 48 | [Tomaterdander](data/species/tomaterdander.yaml) | Poison / Grass |  |  |  | 3% |
 | 49 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass |  |  |  | 3% |
 | 50 | [Beatld](data/species/beatld.yaml) | Bug / Psychic |  |  |  | 3% |
-| 51 | [Wispole](data/species/wispole.yaml) | Water |  |  | Galfrogtom (Thunder Stone) | 3% |
+| 51 | [Wispole](data/species/wispole.yaml) | Water | Swift Swim, Water Veil, Water Bubble (H) | 230 | Galfrogtom (Thunder Stone) | 17% |
 | 52 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Clear Body, Lightning Rod, Galvanize (H) | 504 |  | 21% |
 | 53 | [Giga-Circuit](data/species/giga-circuit.yaml) | Electric |  |  |  | 3% |
 | 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock |  |  |  | 3% |

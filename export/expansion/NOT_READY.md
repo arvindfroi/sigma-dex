@@ -2,7 +2,7 @@
 
 # Game export status
 
-**14** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Wealther, Warrallier, Heatbat, Blazterra, Nukfae, Sigmauler, Motinky, Gortiki, Galfrogtom, Janenon, Blylem
+**14** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Wealther, Warrallier, Heatbat, Blazterra, Toxiren, Sigmauler, Motinky, Gortiki, Galfrogtom, Janenon, Blylem
 
 ## Not exported yet (69)
 
@@ -30,7 +30,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Rainbro** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
 - **Autuman** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Bugmight** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Toxiren** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Nukfae** needs: a level-up move that exists in the game
 - **Stonma** needs: a level-up move that exists in the game
 - **Tinky** needs: a level-up move that exists in the game
 - **Chebbi** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
@@ -41,7 +41,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Tomaterdander** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
 - **Crappy Meal** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Beatld** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Wispole** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Wispole** needs: a level-up move that exists in the game
 - **Giga-Circuit** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Hippore** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Docuphant** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
@@ -80,5 +80,5 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 
 ## Left out of exported Pokemon
 
-- Nukfae: evolution into Toxiren left out until that Pokemon is ready
+Nothing.
 

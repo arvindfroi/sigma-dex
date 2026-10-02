@@ -345,7 +345,7 @@
         FOOTPRINT(QuestionMark)
     },
 
-    [SPECIES_NUKFAE] =
+    [SPECIES_TOXIREN] =
     {
         .baseHP = 94,
         .baseAttack = 52,
@@ -364,9 +364,9 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_LIQUID_OOZE, ABILITY_CUTE_CHARM, ABILITY_PIXILATE },
         .bodyColor = BODY_COLOR_GRAY,
-        .speciesName = _("Nukfae"),
+        .speciesName = _("Toxiren"),
         .cryId = CRY_NONE,
-        .natDexNum = NATIONAL_DEX_NUKFAE,
+        .natDexNum = NATIONAL_DEX_TOXIREN,
         .categoryName = _("Unknown"),
         .height = 0,
         .weight = 0,
@@ -388,8 +388,8 @@
         .shinyPalette = gMonShinyPalette_CircledQuestionMark,
         .iconSprite = gMonIcon_QuestionMark,
         .iconPalIndex = 0,
-        .levelUpLearnset = sNukfaeLevelUpLearnset,
-        .teachableLearnset = sNukfaeTeachableLearnset,
+        .levelUpLearnset = sToxirenLevelUpLearnset,
+        .teachableLearnset = sToxirenTeachableLearnset,
         FOOTPRINT(QuestionMark)
     },
 

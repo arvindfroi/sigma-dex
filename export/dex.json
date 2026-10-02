@@ -2391,19 +2391,17 @@
       "abilities": {
         "primary": "Liquid Ooze",
         "secondary": "Cute Charm",
-        "hidden": "Pixilate"
+        "hidden": "Sticky Hold"
       },
       "base_stats": {
-        "hp": 94,
-        "attack": 52,
-        "defense": 69,
-        "sp_attack": 110,
-        "sp_defense": 140,
-        "speed": 35
+        "hp": 67,
+        "attack": 30,
+        "defense": 38,
+        "sp_attack": 76,
+        "sp_defense": 92,
+        "speed": 22
       },
-      "ev_yield": {
-        "sp_defense": 2
-      },
+      "ev_yield": null,
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -2423,12 +2421,7 @@
         }
       ],
       "learnset": {
-        "level_up": [
-          {
-            "level": 1,
-            "move": "Hyper Voice"
-          }
-        ],
+        "level_up": [],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -2463,7 +2456,7 @@
       "dex": 37,
       "name": "Toxiren",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -2476,19 +2469,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Liquid Ooze",
+        "secondary": "Cute Charm",
+        "hidden": "Pixilate"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 94,
+        "attack": 52,
+        "defense": 69,
+        "sp_attack": 110,
+        "sp_defense": 140,
+        "speed": 35
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_defense": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -2502,7 +2497,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Hyper Voice"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -3552,7 +3552,7 @@
       "dex": 51,
       "name": "Wispole",
       "credits": {
-        "designer": null,
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -3564,19 +3564,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Swift Swim",
+        "secondary": "Water Veil",
+        "hidden": "Water Bubble"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 30,
+        "attack": 25,
+        "defense": 20,
+        "sp_attack": 40,
+        "sp_defense": 35,
+        "speed": 80
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,

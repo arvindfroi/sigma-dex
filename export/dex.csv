@@ -38,8 +38,8 @@ until the edge shines like metal.
 33,rainbro,Rainbro,Stellar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 34,autuman,Autuman,Fighting,Grass,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 35,bugmight,Bugmight,Bug,Fighting,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-36,nukfae,Nukfae,Poison,Fairy,Liquid Ooze,Cute Charm,Pixilate,500,94,52,69,110,140,35,,,,,,,2 sp_defense,,,,,,,,,,,Hyper Voice (1),,,,,,,,,Emil Venge-Kvamme,,21
-37,toxiren,Toxiren,Poison,Fairy,,,,,,,,,,,Nukfae,Lv 38,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+36,nukfae,Nukfae,Poison,Fairy,Liquid Ooze,Cute Charm,Sticky Hold,325,67,30,38,76,92,22,,,,,,,,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,14
+37,toxiren,Toxiren,Poison,Fairy,Liquid Ooze,Cute Charm,Pixilate,500,94,52,69,110,140,35,Nukfae,Lv 38,,,,,2 sp_defense,,,,,,,,,,,Hyper Voice (1),,,,,,,,,Emil Venge-Kvamme,,21
 38,stonma,Stonma,Rock,,Sturdy,Rock Head,Solid Rock,330,67,67,111,25,50,10,,,,,,,1 defense,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,17
 39,sigmauler,Sigmauler,Rock,Fighting,Sturdy,Iron Fist,Solid Rock,510,100,100,167,55,67,21,Stonma,Lv 38,,,,,,,,,,,,,,,,Hammer Arm (1),,,,,,,,,Emil Venge-Kvamme,,17
 40,tinky,Tinky,Grass,,Heatproof,Dancer,Prankster,285,35,30,65,55,50,50,,,,,,,1 defense,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,17
@@ -53,7 +53,7 @@ until the edge shines like metal.
 48,tomaterdander,Tomaterdander,Poison,Grass,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 49,crappy-meal,Crappy Meal,Poison,Grass,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 50,beatld,Beatld,Bug,Psychic,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-51,wispole,Wispole,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+51,wispole,Wispole,Water,,Swift Swim,Water Veil,Water Bubble,230,30,25,20,40,35,80,,,,,,,1 speed,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,17
 52,galfrogtom,Galfrogtom,Ghost,Electric,Clear Body,Lightning Rod,Galvanize,504,59,89,49,139,49,119,Wispole,Thunder Stone,,,,,2 sp_attack,,,,,,,,,,,Discharge (1),,,,,,,,,Emil Venge-Kvamme,,21
 53,giga-circuit,Giga-Circuit,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 54,hippore,Hippore,Steel,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
