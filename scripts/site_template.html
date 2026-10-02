@@ -92,6 +92,12 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; }
 .badge { font-size: 12px; border-radius: 6px; padding: 1px 7px; border: 1px solid var(--line); color: var(--muted); }
 .badge.done { color: var(--good); border-color: var(--good); }
 .badge.need { color: var(--warn); border-color: var(--warn); }
+.card .thumb { float: right; width: 56px; height: 56px; object-fit: contain; border-radius: 8px; background: var(--bar); margin: 0 0 4px 8px; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
+.gallery figure { margin: 0; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 6px; font-size: 12px; color: var(--muted); }
+.gallery img { width: 100%; height: 110px; object-fit: contain; border-radius: 6px; background: var(--bar); display: block; }
+.gallery figcaption { margin-top: 4px; overflow-wrap: anywhere; }
+.upload { background: var(--bg); border-radius: 10px; padding: 12px; margin-top: 10px; }
 .error { color: var(--bad); }
 .error:not(:empty) { margin: 0 0 8px; }
 @media (max-width: 520px) { .todo { columns: 1; } .detail .top img { width: 84px; height: 84px; } }
@@ -277,7 +283,7 @@ function openDetail(s) {
   const list = items => filled(items) ? h("div", {class: "chips"}, items.map(m => h("span", {class: "chip"}, m))) : h("div", {class: "empty"}, "none yet");
   showDialog(
     h("div", {class: "top"},
-      s.art ? h("img", {src: s.art, alt: "Concept art of " + d.name}) : null,
+      imagesOf(s.id).length ? h("img", {src: imagesOf(s.id)[0].src, alt: "Picture of " + d.name}) : null,
       h("div", {}, h("div", {class: "sub"}, "#" + String(d.dex).padStart(3, "0") + (filled(d.category) ? " - " + d.category + " Pokemon" : "")),
         h("h3", {}, d.name), h("div", {class: "types", style: "margin-top:6px"}, (d.types || []).map(typeChip))),
       h("div", {class: "actions"}, DEX.web.url ? h("button", {class: "primary", onclick: () => openEditor(s)}, "Edit") : null, h("button", {onclick: closeDialog}, "Close"))),
@@ -288,6 +294,7 @@ function openDetail(s) {
       ? [h("span", {class: "badge need"}, "not in the game yet"), " To be put into the game it still needs: " + s.gameNeeds.join(", ") + "."]
       : [h("span", {class: "badge done"}, "playable"), " Has everything the game needs. It is built into the game with placeholder art until it has sprites."]),
     s.problems.length ? h("div", {}, h("h2", {}, "Warnings"), h("ul", {class: "problems"}, s.problems.map(p => h("li", {}, p)))) : null,
+    h("h2", {}, "Images"), imageSection(s),
     h("h2", {}, "Base stats" + (s.bst ? " - total " + s.bst : "")),
     h("table", {class: "stat"}, STATS.map(([k, label]) => h("tr", {}, h("td", {}, label), h("td", {}, Number.isInteger(stats[k]) ? String(stats[k]) : "-"),
       h("td", {}, h("div", {class: "statbar", style: "width:" + Math.min(100, (stats[k] || 0) / 1.8) + "%"}))))),
@@ -313,6 +320,90 @@ function openDetail(s) {
       [design.concept, design.name_origin, design.notes].filter(filled).map(t => h("p", {style: "margin:4px 0"}, t))) : null,
     h("h2", {}, "Still missing - " + s.complete + "% complete"),
     s.missing.length ? h("ul", {class: "todo"}, s.missing.map(m => h("li", {}, m))) : h("div", {style: "color:var(--good)"}, "Complete!"));
+}
+
+// ---------- images ----------
+const imagesOf = id => DEX.images[id] || [];
+
+// Large pictures are scaled down in the browser so uploads stay small; small ones (sprites) are sent untouched.
+async function prepareImage(file) {
+  if (!/^image\/(png|jpeg|webp|gif)$/.test(file.type)) throw new Error(file.name + " is not a PNG, JPG, WEBP or GIF image.");
+  if (file.type === "image/gif" || file.size <= 400 * 1024) {
+    if (file.size > 3 * 1024 * 1024) throw new Error(file.name + " is larger than 3 MB.");
+    return file;
+  }
+  const bitmap = await createImageBitmap(file);
+  const scale = Math.min(1, 1600 / Math.max(bitmap.width, bitmap.height));
+  const canvas = Object.assign(document.createElement("canvas"), {width: Math.round(bitmap.width * scale), height: Math.round(bitmap.height * scale)});
+  canvas.getContext("2d").drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  const encode = (type, quality) => new Promise(resolve => canvas.toBlob(resolve, type, quality));
+  let blob = await encode("image/webp", 0.85);
+  if (!blob || blob.type !== "image/webp") blob = await encode("image/png");       // browsers that cannot write WEBP
+  if (blob.size > 3 * 1024 * 1024) {                                               // still too big: flatten onto white as JPG
+    const flat = Object.assign(document.createElement("canvas"), {width: canvas.width, height: canvas.height}), ctx = flat.getContext("2d");
+    ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, flat.width, flat.height); ctx.drawImage(canvas, 0, 0);
+    blob = await new Promise(resolve => flat.toBlob(resolve, "image/jpeg", 0.85));
+  }
+  if (!blob || blob.size > 3 * 1024 * 1024) throw new Error(file.name + " is too large even after shrinking.");
+  return new File([blob], file.name, {type: blob.type});
+}
+
+async function imageRequest(fields) {
+  const form = new FormData();
+  for (const [key, value] of Object.entries(fields)) form.append(key, value);
+  let response;
+  try { response = await fetch(DEX.web.url + "/functions/v1/species-image", {method: "POST", body: form}); }
+  catch (err) { throw new Error("Could not reach the server. Check your connection and try again."); }
+  const body = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(/edit key/i.test(body.message || "") ? "Wrong edit key. Ask in the Discord for the current one." : (body.message || "That did not work (" + response.status + ")."));
+  return body;
+}
+
+function imageSection(s) {
+  const box = h("div", {});
+  const editor = textInput(remember.get("editor"), {maxlength: 40, placeholder: "your Discord name"});
+  const key = h("input", {type: "password", value: remember.get("key"), autocomplete: "off"});
+  const files = h("input", {type: "file", accept: "image/png,image/jpeg,image/webp,image/gif", multiple: true});
+  const caption = textInput("", {maxlength: 200, placeholder: "e.g. concept art, front view, shiny idea"});
+  const status = h("div", {class: "hint", role: "status"});
+  const send = h("button", {class: "primary", type: "button"}, "Upload");
+  function draw() {
+    const list = imagesOf(s.id);
+    box.replaceChildren(list.length ? h("div", {class: "gallery"}, list.map(image => h("figure", {},
+      h("a", {href: image.src, target: "_blank", rel: "noopener"}, h("img", {src: image.src, alt: image.caption || "Picture of " + s.data.name, loading: "lazy"})),
+      h("figcaption", {}, [image.caption, image.editor ? "by " + image.editor : null].filter(Boolean).join(" - ") || "no caption", " ",
+        DEX.web.url ? h("button", {type: "button", class: "small", onclick: () => remove(image)}, "Remove") : null))))
+      : h("div", {class: "empty"}, "No images yet."));
+  }
+  async function remove(image) {
+    if (!confirm("Remove this image from " + s.data.name + "?")) return;
+    status.textContent = "Removing...";
+    try {
+      await imageRequest({action: "remove", id: image.id, key: key.value});
+      DEX.images[s.id] = imagesOf(s.id).filter(i => i.id !== image.id);
+      remember.set("key", key.value); status.textContent = ""; draw(); render();
+    } catch (err) { status.textContent = err.message; }
+  }
+  send.addEventListener("click", async () => {
+    if (!files.files.length) { status.textContent = "Choose one or more images first."; return; }
+    send.disabled = true;
+    try {
+      let done = 0;
+      for (const file of files.files) {
+        status.textContent = "Uploading " + (++done) + " of " + files.files.length + "...";
+        const row = await imageRequest({key: key.value, species_id: s.id, caption: caption.value, editor: editor.value, file: await prepareImage(file)});
+        (DEX.images[s.id] ||= []).push({id: row.id, src: DEX.web.url + "/storage/v1/object/public/art/" + row.path, caption: row.caption, editor: row.editor});
+        draw();
+      }
+      remember.set("editor", editor.value); remember.set("key", key.value);
+      files.value = ""; caption.value = ""; status.textContent = "Uploaded."; render();
+    } catch (err) { status.textContent = err.message; }
+    send.disabled = false;
+  });
+  draw();
+  return h("div", {}, box, DEX.web.url ? h("div", {class: "upload"},
+    h("div", {class: "fields"}, field("Add images (concept art, sketches, sprites)", files, "wide"), field("Caption (optional)", caption, "wide"), field("Your name", editor), field("Edit key (from the Discord)", key)),
+    h("div", {style: "margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap"}, send, status)) : null);
 }
 
 // ---------- editing ----------
@@ -597,7 +688,7 @@ function openEditor(s) {
     save.disabled = true; save.textContent = "Saving...";
     try {
       await saveEdit("species", id, data, f.editor.value, f.key.value);
-      const entry = isNew ? {id, art: null, problems: []} : s;
+      const entry = isNew ? {id, problems: []} : s;
       entry.data = data; entry.pending = {editor: f.editor.value.trim()}; entry.problems = [];
       if (isNew) DEX.species.push(entry);
       DEX.species.forEach(derive); index(); render(); openDetail(entry);
@@ -659,6 +750,7 @@ function render() {
     if (query && !JSON.stringify(s.data).toLowerCase().includes(query)) continue;
     grid.append(h("button", {class: "card", onclick: () => openDetail(s)},
       h("div", {class: "num"}, h("span", {}, "#" + String(slot).padStart(3, "0")), h("span", {}, s.problems.length ? h("span", {class: "flag", title: "Has warnings"}, "! ") : null, s.complete + "%")),
+      imagesOf(s.id).length ? h("img", {class: "thumb", src: imagesOf(s.id)[0].src, alt: "", loading: "lazy"}) : null,
       h("div", {class: "name"}, s.data.name), h("div", {class: "types"}, (s.data.types || []).map(typeChip)),
       s.pending ? h("div", {class: "pending"}, "just edited") : null,
       h("div", {class: "meter"}, h("i", {style: "width:" + s.complete + "%"}))));
@@ -688,12 +780,22 @@ async function loadRecentEdits() {
       if (entry) row.data = Object.assign({}, row.data, {dex: entry.data.dex, assets: entry.data.assets, engine: entry.data.engine});
       else {
         if (!Number.isInteger(row.data.dex) || bySlot.has(row.data.dex) || !row.data.name) continue;
-        entry = {id: row.species_id, art: null}; DEX.species.push(entry);
+        entry = {id: row.species_id}; DEX.species.push(entry);
       }
       entry.data = row.data; entry.pending = {editor: row.editor}; entry.problems = [];
       DEX.species.forEach(derive); index();
     }
     refreshLists(); render();
+    // Images uploaded since this page was built, and ones removed since.
+    const built = new Set(Object.values(DEX.images).flat().map(i => i.id));
+    const list = await fetch(DEX.web.url + "/rest/v1/species_images?select=id,species_id,path,caption,editor,removed&order=id.asc", {headers: {apikey: DEX.web.key}});
+    if (list.ok) {
+      for (const row of await list.json()) {
+        if (row.removed) DEX.images[row.species_id] = imagesOf(row.species_id).filter(i => i.id !== row.id);
+        else if (!built.has(row.id)) (DEX.images[row.species_id] ||= []).push({id: row.id, src: DEX.web.url + "/storage/v1/object/public/art/" + row.path, caption: row.caption, editor: row.editor});
+      }
+      render();
+    }
   } catch (e) { /* the built data is still shown */ }
 }
 

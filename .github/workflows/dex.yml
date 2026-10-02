@@ -34,6 +34,9 @@ jobs:
       - name: Import from the website
         if: github.event_name != 'pull_request'
         run: python scripts/import_web.py
+      - name: Import images attached on the website
+        if: github.event_name != 'pull_request'
+        run: python scripts/import_images.py
       - name: Check the species files
         run: python scripts/validate.py
       - name: Rebuild DEX.md, TODO.md, export/ and the website
@@ -43,7 +46,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data DEX.md TODO.md export site
+          git add data assets DEX.md TODO.md export site
           git diff --cached --quiet || (git commit -m "Sync edits from the website and the Google Sheet" && git push)
       - name: Package the website
         if: github.event_name != 'pull_request'

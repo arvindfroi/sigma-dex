@@ -14,10 +14,17 @@
 
 Everything about a Pokemon can be entered: name, types, credits, dex entry, size, abilities,
 base stats, EV yield, catch rate, exp, growth rate, friendship, gender, egg groups, held
-items, evolutions, level-up / TM / HM / tutor / egg moves, where it is found, and design
-notes. Moves and abilities suggest the ones that already exist in the game while you type.
+items, evolutions, level-up / TM / HM / tutor / egg moves, where it is found, design
+notes, and images. Moves and abilities suggest the ones that already exist in the game while you type.
 
-Not on the website: art and sprites. Post concept art in the Discord for now.
+## Images
+
+Open a Pokemon and scroll to **Images**. Choose one or more pictures - concept art, sketches,
+sprite drafts - add a caption if you like, and press **Upload**. PNG, JPG, WEBP and GIF work.
+Big pictures are shrunk automatically; small ones such as sprites are kept exactly as they are.
+
+The first image is shown on the Pokemon's card and at the top of its page. Any image can be
+removed again with its **Remove** button. Only upload art made by us.
 
 ## New moves and abilities
 
@@ -53,6 +60,8 @@ Each card shows which Pokemon use it and whether it is already programmed into t
   The layout is in [`supabase/schema.sql`](../supabase/schema.sql).
 - New moves and abilities are stored in `data/custom_moves.yaml` and `data/custom_abilities.yaml`.
   Set `implemented: true` there once one is programmed; the website cannot change that flag.
+- Images are stored by the database's upload function and copied into `assets/concept-art/<pokemon>/`
+  by `scripts/import_images.py`, so the repository keeps its own copy of all art (`data/images.json` lists them).
 - `scripts/import_web.py` applies rows newer than `data/web_edits_cursor.txt`. Art paths and
   sprite details are always kept from the species file, never taken from the website.
 - **The edit key** stops strangers from saving. Only its hash is stored in the database.

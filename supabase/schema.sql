@@ -67,3 +67,9 @@ alter table public.species_edits
 --   on conflict (key) do update set value = excluded.value;
 -- Remove the key so anyone can save:
 --   delete from private.settings where key = 'edit_key_sha256';
+
+-- Added later: images attached to a Pokemon. Files are in the public storage bucket "art";
+-- only the edge function "species-image" (which checks the edit key) can add or remove them.
+-- create table public.species_images (id, species_id, path, caption, editor, bytes, removed, created_at)
+--   with row level security: anyone can read, nobody can write directly.
+-- create function public.check_edit_key(p_key text) returns boolean   -- callable by the service role only

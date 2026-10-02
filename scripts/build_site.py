@@ -8,7 +8,7 @@ import shutil
 
 import dexlib
 import validate
-from dexlib import ROOT, section
+from dexlib import ROOT
 
 SITE = ROOT / "site"
 PAGE = ROOT / "scripts" / "site_template.html"
@@ -30,15 +30,21 @@ def main():
     for sid, _, data in species:
         errors, warnings = [], []
         validate.check_species(sid, data, ids, engine, errors, warnings)
-        art = section(data, "assets").get("concept_art")
-        if art and (ROOT / art).is_file():
-            art_dir.mkdir(exist_ok=True)
-            target = art_dir / (sid + (ROOT / art).suffix.lower())
-            shutil.copyfile(ROOT / art, target)
-            art = "art/" + target.name
-        else:
-            art = None
-        entries.append({"id": sid, "data": data, "art": art, "problems": errors + warnings})
+        entries.append({"id": sid, "data": data, "problems": errors + warnings})
+
+    # Attached images: copied next to the page so the site does not depend on the database.
+    images = {}
+    manifest_path = ROOT / "data" / "images.json"
+    for entry in (json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else []):
+        source = ROOT / entry["file"]
+        if not source.is_file() or entry["species"] not in ids:
+            continue
+        target = art_dir / entry["species"] / source.name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, target)
+        images.setdefault(entry["species"], []).append({
+            "id": entry["id"], "src": "art/%s/%s" % (entry["species"], source.name),
+            "caption": entry.get("caption"), "editor": entry.get("editor")})
 
     def report(name):
         path = ROOT / "export" / name
@@ -49,6 +55,7 @@ def main():
         "project": config.get("project", "Pokedex"), "dex_size": config.get("dex_size", 100),
         "species": entries, "types": dexlib.TYPES, "checks": dexlib.CHECK_LIST,
         "custom": {"move": engine["custom"]["moves"], "ability": engine["custom"]["abilities"]},
+        "images": images,
         "problems": report("sheet_problems.json") + report("web_problems.json"),
         "web": dict(config.get("web_edits") or {}, cursor=int(cursor_path.read_text().strip() or 0) if cursor_path.exists() else 0),
         "lists": {
