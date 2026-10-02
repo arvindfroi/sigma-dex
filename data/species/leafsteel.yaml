@@ -52,9 +52,14 @@ evolutions:
 
 # --- Moves ---
 learnset:
-  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Slash}
     - {level: 1, move: Slash}
+    - {level: 19, move: Metal Claw}
+    - {level: 24, move: Sharpen}
+    - {level: 28, move: Take Down}
+    - {level: 32, move: Synthesis}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line

@@ -57,9 +57,15 @@ evolutions: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Leaf Blade}
     - {level: 1, move: Leaf Blade}
     - {level: 40, move: Iron Tail}
-    - {level: 60, move: Behemoth Blade}
+    - {level: 44, move: X-Scissor}
+    - {level: 48, move: Night Slash}
+    - {level: 52, move: Wood Hammer}
+    - {level: 56, move: Stone Axe}
+    - {level: 60, move: Solar Blade}
+    - {level: 64, move: Behemoth Blade}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line

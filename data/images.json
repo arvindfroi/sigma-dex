@@ -1741,5 +1741,19 @@
     "file": "assets/concept-art/ampeel/440.webp",
     "caption": "Picture from Discord, posted by johnnes3204 2026-05-02 (Name Ampeel ex written on the card.)",
     "editor": "Claude (from Discord)"
+  },
+  {
+    "id": 445,
+    "species": "lapper",
+    "file": "assets/concept-art/lapper/445.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 446,
+    "species": "lapper",
+    "file": "assets/concept-art/lapper/446.png",
+    "caption": null,
+    "editor": null
   }
 ]

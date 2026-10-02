@@ -2,9 +2,9 @@
 
 # Game export status
 
-**17** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Toxiren, Sigmauler, Motinky, Gortiki, Devampry, Galfrogtom, Janenon, Blylem
+**18** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Brawleo, Toxiren, Sigmauler, Motinky, Gortiki, Devampry, Galfrogtom, Janenon, Blylem
 
-## Not exported yet (66)
+## Not exported yet (65)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -16,9 +16,8 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Twemp** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Florantula** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Cowfin** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Mooceon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Lapper** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Brawleo** needs: a level-up move that exists in the game
+- **Mooceon** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Lapper** needs: a level-up move that exists in the game
 - **Sigmanian Sudowoodo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
 - **Icy Freeze** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Freezrick** needs: a level-up move that exists in the game
@@ -26,7 +25,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Bulbtoise** needs: a level-up move that exists in the game
 - **Sigmanian Eiscue** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
 - **Rainbro** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
-- **Autuman** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Autuman** needs: base stats, a level-up move that exists in the game
 - **Bugmight** needs: a level-up move that exists in the game
 - **Nukfae** needs: a level-up move that exists in the game
 - **Stonma** needs: a level-up move that exists in the game

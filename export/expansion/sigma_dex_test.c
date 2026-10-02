@@ -17,19 +17,19 @@ TEST("Sigma dex: Leafing has the data from its species file")
     EXPECT_EQ(info->types[0], TYPE_GRASS);
     EXPECT_EQ(info->types[1], TYPE_GRASS);
     EXPECT_EQ(info->abilities[0], ABILITY_OVERGROW);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_TACKLE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SCRATCH);
     EXPECT_EQ(GetSpeciesName(SPECIES_LEAFING)[0], CHAR_L);
 }
 
 SINGLE_BATTLE_TEST("Sigma dex: Leafing can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_LEAFING) { Moves(MOVE_TACKLE); }
+        PLAYER(SPECIES_LEAFING) { Moves(MOVE_SCRATCH); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_TACKLE); }
+        TURN { MOVE(player, MOVE_SCRATCH); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_TACKLE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
     }
 }
 
@@ -257,6 +257,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Blazterra can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Brawleo has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BRAWLEO];
+    EXPECT_EQ(info->baseHP, 80);
+    EXPECT_EQ(info->baseAttack, 110);
+    EXPECT_EQ(info->baseDefense, 67);
+    EXPECT_EQ(info->baseSpeed, 103);
+    EXPECT_EQ(info->baseSpAttack, 45);
+    EXPECT_EQ(info->baseSpDefense, 80);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_FIGHTING);
+    EXPECT_EQ(info->abilities[0], ABILITY_SCRAPPY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_MACH_PUNCH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_BRAWLEO)[0], CHAR_B);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Brawleo can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_BRAWLEO) { Moves(MOVE_MACH_PUNCH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_MACH_PUNCH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_MACH_PUNCH, player);
+    }
+}
+
 TEST("Sigma dex: Toxiren has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_TOXIREN];
@@ -372,8 +400,8 @@ SINGLE_BATTLE_TEST("Sigma dex: Gortiki can use its first move in battle")
 TEST("Sigma dex: Devampry has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DEVAMPRY];
-    EXPECT_EQ(info->baseHP, 81);
-    EXPECT_EQ(info->baseAttack, 80);
+    EXPECT_EQ(info->baseHP, 86);
+    EXPECT_EQ(info->baseAttack, 75);
     EXPECT_EQ(info->baseDefense, 69);
     EXPECT_EQ(info->baseSpeed, 95);
     EXPECT_EQ(info->baseSpAttack, 95);

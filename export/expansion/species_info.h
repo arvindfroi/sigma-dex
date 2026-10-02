@@ -23,8 +23,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_LEAFING,
         .categoryName = _("Sprout"),
-        .height = 5,
-        .weight = 58,
+        .height = 10,
+        .weight = 100,
         .description = COMPOUND_STRING(
             "LEAFING hides among fallen leaves to\n"
             "nap in the sun. The leaf on its head\n"
@@ -443,6 +443,56 @@
         FOOTPRINT(QuestionMark)
     },
 
+    [SPECIES_BRAWLEO] =
+    {
+        .baseHP = 80,
+        .baseAttack = 110,
+        .baseDefense = 67,
+        .baseSpeed = 103,
+        .baseSpAttack = 45,
+        .baseSpDefense = 80,
+        .types = MON_TYPES(TYPE_NORMAL, TYPE_FIGHTING),
+        .catchRate = 45,
+        .expYield = 64,
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_SCRAPPY, ABILITY_FUR_COAT, ABILITY_TECHNICIAN },
+        .bodyColor = BODY_COLOR_GRAY,
+        .speciesName = _("Brawleo"),
+        .cryId = CRY_NONE,
+        .natDexNum = NATIONAL_DEX_BRAWLEO,
+        .categoryName = _("Guard Dog"),
+        .height = 0,
+        .weight = 0,
+        .description = COMPOUND_STRING(
+            "It swings its ears like fists to slap\n"
+            "the target. Its tough fur protects it\n"
+            "while it fights."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_CircledQuestionMark,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .backPic = gMonBackPic_CircledQuestionMark,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 7,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_CircledQuestionMark,
+        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
+        .iconSprite = gMonIcon_QuestionMark,
+        .iconPalIndex = 0,
+        .levelUpLearnset = sBrawleoLevelUpLearnset,
+        .teachableLearnset = sBrawleoTeachableLearnset,
+        FOOTPRINT(QuestionMark)
+    },
+
     [SPECIES_TOXIREN] =
     {
         .baseHP = 94,
@@ -590,7 +640,7 @@
         .iconPalIndex = 0,
         .levelUpLearnset = sMotinkyLevelUpLearnset,
         .teachableLearnset = sMotinkyTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_GORTIKI}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_FIRESTONE, SPECIES_GORTIKI}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -648,8 +698,8 @@
 
     [SPECIES_DEVAMPRY] =
     {
-        .baseHP = 81,
-        .baseAttack = 80,
+        .baseHP = 86,
+        .baseAttack = 75,
         .baseDefense = 69,
         .baseSpeed = 95,
         .baseSpAttack = 95,

@@ -15,8 +15,8 @@ description: |           # the Pokedex entry text: max 4 lines of about 40 chara
   nap in the sun. The leaf on its head
   hardens a little each time it battles,
   until the edge shines like metal.
-height_m: 0.5            # e.g. 0.7
-weight_kg: 5.8           # e.g. 6.9
+height_m: 1              # e.g. 0.7
+weight_kg: 10            # e.g. 6.9
 body_color: green        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
@@ -58,11 +58,11 @@ evolutions:
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Tackle}
+    - {level: 1, move: Scratch}
     - {level: 1, move: Leer}
-    - {level: 6, move: Absorb}
-    - {level: 10, move: Fury Cutter}
-    - {level: 15, move: Razor Leaf}
+    - {level: 6, move: Leafage}
+    - {level: 8, move: Fury Cutter}
+    - {level: 12, move: Razor Leaf}
     - {level: 20, move: Metal Claw}
     - {level: 25, move: Mega Drain}
     - {level: 30, move: Slash}

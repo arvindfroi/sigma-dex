@@ -26,8 +26,8 @@
       ],
       "category": "Sprout",
       "description": "LEAFING hides among fallen leaves to\nnap in the sun. The leaf on its head\nhardens a little each time it battles,\nuntil the edge shines like metal.\n",
-      "height_m": 0.5,
-      "weight_kg": 5.8,
+      "height_m": 1,
+      "weight_kg": 10,
       "body_color": "green",
       "abilities": {
         "primary": "Overgrow",
@@ -70,7 +70,7 @@
         "level_up": [
           {
             "level": 1,
-            "move": "Tackle"
+            "move": "Scratch"
           },
           {
             "level": 1,
@@ -78,14 +78,14 @@
           },
           {
             "level": 6,
-            "move": "Absorb"
+            "move": "Leafage"
           },
           {
-            "level": 10,
+            "level": 8,
             "move": "Fury Cutter"
           },
           {
-            "level": 15,
+            "level": 12,
             "move": "Razor Leaf"
           },
           {
@@ -241,8 +241,28 @@
       "learnset": {
         "level_up": [
           {
+            "level": 0,
+            "move": "Slash"
+          },
+          {
             "level": 1,
             "move": "Slash"
+          },
+          {
+            "level": 19,
+            "move": "Metal Claw"
+          },
+          {
+            "level": 24,
+            "move": "Sharpen"
+          },
+          {
+            "level": 28,
+            "move": "Take Down"
+          },
+          {
+            "level": 32,
+            "move": "Synthesis"
           }
         ],
         "tm_hm": [],
@@ -322,6 +342,10 @@
       "learnset": {
         "level_up": [
           {
+            "level": 0,
+            "move": "Leaf Blade"
+          },
+          {
             "level": 1,
             "move": "Leaf Blade"
           },
@@ -330,7 +354,27 @@
             "move": "Iron Tail"
           },
           {
+            "level": 44,
+            "move": "X-Scissor"
+          },
+          {
+            "level": 48,
+            "move": "Night Slash"
+          },
+          {
+            "level": 52,
+            "move": "Wood Hammer"
+          },
+          {
+            "level": 56,
+            "move": "Stone Axe"
+          },
+          {
             "level": 60,
+            "move": "Solar Blade"
+          },
+          {
+            "level": 64,
             "move": "Behemoth Blade"
           }
         ],
@@ -520,6 +564,10 @@
       "learnset": {
         "level_up": [
           {
+            "level": 0,
+            "move": "Feint Attack"
+          },
+          {
             "level": 1,
             "move": "Feint Attack"
           }
@@ -601,6 +649,10 @@
       "evolutions": [],
       "learnset": {
         "level_up": [
+          {
+            "level": 0,
+            "move": "Flip Turn"
+          },
           {
             "level": 1,
             "move": "Flip Turn"
@@ -813,6 +865,10 @@
       "learnset": {
         "level_up": [
           {
+            "level": 0,
+            "move": "Air Slash"
+          },
+          {
             "level": 1,
             "move": "Air Slash"
           }
@@ -893,6 +949,10 @@
       "evolutions": [],
       "learnset": {
         "level_up": [
+          {
+            "level": 0,
+            "move": "Heat Wave"
+          },
           {
             "level": 1,
             "move": "Heat Wave"
@@ -1541,14 +1601,16 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 155,
+        "attack": 55,
+        "defense": 75,
+        "sp_attack": 70,
+        "sp_defense": 85,
+        "speed": 50
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "hp": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -1601,7 +1663,8 @@
         "artist": null
       },
       "types": [
-        "Normal"
+        "Normal",
+        "Fighting"
       ],
       "category": null,
       "description": null,
@@ -1609,17 +1672,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Scrappy",
+        "secondary": "Fur Coat",
+        "hidden": "Hustle"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 60,
+        "attack": 75,
+        "defense": 45,
+        "sp_attack": 25,
+        "sp_defense": 55,
+        "speed": 70
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -1637,7 +1700,7 @@
         {
           "into": "brawleo",
           "method": "level",
-          "level": 25
+          "level": 28
         }
       ],
       "learnset": {
@@ -1653,7 +1716,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/lapper/445.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1717,7 +1780,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Mach Punch"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -1866,7 +1934,7 @@
         {
           "into": "freezrick",
           "method": "level",
-          "level": 28
+          "level": 25
         }
       ],
       "learnset": {
@@ -2021,7 +2089,7 @@
         {
           "into": "bulbtoise",
           "method": "level",
-          "level": 22
+          "level": 28
         }
       ],
       "learnset": {
@@ -2293,9 +2361,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Justified",
+        "secondary": "Guts",
+        "hidden": "Wind Rider"
       },
       "base_stats": {
         "hp": null,
@@ -2369,7 +2437,7 @@
       "abilities": {
         "primary": "Guts",
         "secondary": "Justified",
-        "hidden": null
+        "hidden": "Tinted Lens"
       },
       "base_stats": {
         "hp": 102,
@@ -2711,6 +2779,10 @@
       "learnset": {
         "level_up": [
           {
+            "level": 0,
+            "move": "Hammer Arm"
+          },
+          {
             "level": 1,
             "move": "Hammer Arm"
           }
@@ -2873,12 +2945,16 @@
       "evolutions": [
         {
           "into": "gortiki",
-          "method": "level",
-          "level": 40
+          "method": "item",
+          "item": "Firestone"
         }
       ],
       "learnset": {
         "level_up": [
+          {
+            "level": 0,
+            "move": "Fire Spin"
+          },
           {
             "level": 1,
             "move": "Fire Spin"
@@ -2961,6 +3037,10 @@
       "evolutions": [],
       "learnset": {
         "level_up": [
+          {
+            "level": 0,
+            "move": "Fiery Dance"
+          },
           {
             "level": 1,
             "move": "Fiery Dance"
@@ -3100,8 +3180,8 @@
         "hidden": "Punk Rock"
       },
       "base_stats": {
-        "hp": 81,
-        "attack": 80,
+        "hp": 86,
+        "attack": 75,
         "defense": 69,
         "sp_attack": 95,
         "sp_defense": 70,
@@ -3125,6 +3205,10 @@
       "evolutions": [],
       "learnset": {
         "level_up": [
+          {
+            "level": 0,
+            "move": "Hyper Voice"
+          },
           {
             "level": 1,
             "move": "Hyper Voice"
@@ -3741,6 +3825,10 @@
       "evolutions": [],
       "learnset": {
         "level_up": [
+          {
+            "level": 0,
+            "move": "Discharge"
+          },
           {
             "level": 1,
             "move": "Discharge"
@@ -4789,8 +4877,20 @@
       "learnset": {
         "level_up": [
           {
+            "level": 0,
+            "move": "Dark Pulse"
+          },
+          {
             "level": 1,
             "move": "Dark Pulse"
+          },
+          {
+            "level": 45,
+            "move": "Moonblast"
+          },
+          {
+            "level": 48,
+            "move": "Aura Sphere"
           }
         ],
         "tm_hm": [],

@@ -19,7 +19,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 abilities:
   primary: Guts
   secondary: Justified   # optional
-  hidden:                # optional
+  hidden: Tinted Lens    # optional
 
 base_stats:              # each 1-255
   hp: 102

@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**83 / 100** slots have a Pokemon - **0** are fully complete - average completeness **21%**.
+**83 / 100** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -29,27 +29,27 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 18 | *open slot* | | | | | |
 | 19 | *open slot* | | | | | |
 | 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water |  |  |  | 10% |
-| 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water |  |  |  | 10% |
-| 22 | [Lapper](data/species/lapper.yaml) | Normal |  |  | Brawleo (Lv 25) | 7% |
-| 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 28% |
+| 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water |  | 490 |  | 17% |
+| 22 | [Lapper](data/species/lapper.yaml) | Normal / Fighting | Scrappy, Fur Coat, Hustle (H) | 330 | Brawleo (Lv 28) | 17% |
+| 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 31% |
 | 24 | [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) | Rock / Ground |  |  |  | 7% |
-| 25 | [Icy Freeze](data/species/icy-freeze.yaml) | Ice | Cold Flow | 280 | Freezrick (Lv 28) | 24% |
+| 25 | [Icy Freeze](data/species/icy-freeze.yaml) | Ice | Cold Flow | 280 | Freezrick (Lv 25) | 24% |
 | 26 | [Freezrick](data/species/freezrick.yaml) | Ice | Ice Body, Oblivious, Slush Rush (H) | 420 |  | 28% |
-| 27 | [Bulbtle](data/species/bulbtle.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 280 | Bulbtoise (Lv 22) | 24% |
+| 27 | [Bulbtle](data/species/bulbtle.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 280 | Bulbtoise (Lv 28) | 24% |
 | 28 | [Bulbtoise](data/species/bulbtoise.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 480 |  | 24% |
 | 29 | *open slot* | | | | | |
 | 30 | *open slot* | | | | | |
 | 31 | *open slot* | | | | | |
 | 32 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice |  |  |  | 7% |
 | 33 | [Rainbro](data/species/rainbro.yaml) | Stellar |  |  |  | 7% |
-| 34 | [Autuman](data/species/autuman.yaml) | Fighting / Grass |  |  |  | 10% |
-| 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Guts, Justified | 510 |  | 31% |
+| 34 | [Autuman](data/species/autuman.yaml) | Fighting / Grass | Justified, Guts, Wind Rider (H) |  |  | 14% |
+| 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Guts, Justified, Tinted Lens (H) | 510 |  | 31% |
 | 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Sticky Hold (H) | 325 | Toxiren (Lv 38) | 31% |
 | 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Pixilate (H) | 500 |  | 38% |
 | 38 | [Stonma](data/species/stonma.yaml) | Rock | Sturdy, Rock Head, Solid Rock (H) | 330 | Sigmauler (Lv 38) | 28% |
 | 39 | [Sigmauler](data/species/sigmauler.yaml) | Rock / Fighting | Sturdy, Iron Fist, Solid Rock (H) | 510 |  | 21% |
 | 40 | [Tinky](data/species/tinky.yaml) | Grass | Heatproof, Dancer, Prankster (H) | 285 | Motinky (Lv 22) | 28% |
-| 41 | [Motinky](data/species/motinky.yaml) | Grass / Fire | Flash Fire, Dancer, Prankster (H) | 420 | Gortiki (Lv 40) | 31% |
+| 41 | [Motinky](data/species/motinky.yaml) | Grass / Fire | Flash Fire, Dancer, Prankster (H) | 420 | Gortiki (Firestone) | 31% |
 | 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire | Flash Fire, Dancer, Huge Power (H) | 520 |  | 31% |
 | 43 | [Chebbi](data/species/chebbi.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 360 | Devampry (Lv 32) | 24% |
 | 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark | Soundproof, Levitate, Punk Rock (H) | 490 |  | 28% |

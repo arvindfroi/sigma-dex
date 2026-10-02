@@ -16,9 +16,9 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | height | 29 / 83 |
 | Dex page | weight | 27 / 83 |
 | Dex page | body color | 1 / 83 |
-| Stats | base stats | 52 / 83 |
-| Stats | ability | 49 / 83 |
-| Stats | EV yield | 26 / 83 |
+| Stats | base stats | 54 / 83 |
+| Stats | ability | 51 / 83 |
+| Stats | EV yield | 27 / 83 |
 | Stats | catch rate | 1 / 83 |
 | Stats | base exp | 1 / 83 |
 | Stats | growth rate | 1 / 83 |
@@ -26,11 +26,11 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Breeding | gender | 1 / 83 |
 | Breeding | egg groups | 1 / 83 |
 | Breeding | egg cycles | 1 / 83 |
-| Moves | level-up moves | 17 / 83 |
+| Moves | level-up moves | 18 / 83 |
 | Moves | TM/HM moves | 2 / 83 |
 | Location | encounters | 1 / 83 |
 | Design | concept | 2 / 83 |
-| Art | concept art | 74 / 83 |
+| Art | concept art | 75 / 83 |
 | Art | front sprite | 4 / 83 |
 | Art | front animation frame | 4 / 83 |
 | Art | back sprite | 4 / 83 |
@@ -212,32 +212,32 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #21 [Mooceon](data/species/mooceon.yaml) - 10%
+### #21 [Mooceon](data/species/mooceon.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** ability, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #22 [Lapper](data/species/lapper.yaml) - 7%
+### #22 [Lapper](data/species/lapper.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #23 [Brawleo](data/species/brawleo.yaml) - 28%
+### #23 [Brawleo](data/species/brawleo.yaml) - 31%
 
 - **Dex page:** height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -315,10 +315,10 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #34 [Autuman](data/species/autuman.yaml) - 10%
+### #34 [Autuman](data/species/autuman.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

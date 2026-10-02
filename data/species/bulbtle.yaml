@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions:
   - into: bulbtoise
     method: level
-    level: 22
+    level: 28
 
 # --- Moves ---
 learnset:

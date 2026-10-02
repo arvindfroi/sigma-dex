@@ -22,8 +22,8 @@ abilities:
   hidden: Punk Rock      # optional
 
 base_stats:              # each 1-255
-  hp: 81
-  attack: 80
+  hp: 86
+  attack: 75
   defense: 69
   sp_attack: 95
   sp_defense: 70
@@ -55,8 +55,9 @@ evolutions: []
 
 # --- Moves ---
 learnset:
-  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Hyper Voice}
     - {level: 1, move: Hyper Voice}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
