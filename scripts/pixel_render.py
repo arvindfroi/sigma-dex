@@ -264,15 +264,51 @@ def sample(L, ink, part, mask, gh, gw, k):
     return cells, tone, inkshare
 
 
+def thin_features(mask, part, ink, cells, k):
+    """Parts of the artwork thinner than a sprite pixel - antennae, thin horns, tail tips, narrow
+    stripes, wing veins - would drop out of the grid (a pixel needs half its area covered). A
+    spriter draws them as one-pixel lines, and so does this: every thin structure is worn down to
+    its middle line, and each sprite pixel that middle line runs through for a third of its width
+    takes the part it belongs to. Thin structures of the silhouette (antennae) and thin stripes of
+    one colour inside the creature (a gold stripe on red) are both found. Returns (cells, mask of
+    the pixels so drawn, which the shape step must keep)."""
+    gh, gw = cells.shape
+    cells = cells.copy()
+    kernel = np.ones((k // 2 + 1,) * 2, np.uint8)
+    keep = np.zeros((gh, gw), bool)
+    def trace(region, owner):
+        middle = thin(region)
+        run = middle.reshape(gh, k, gw, k).sum(axis=(1, 3)) >= k / 3
+        for y, x in zip(*np.nonzero(run)):
+            o = owner[y * k:(y + 1) * k, x * k:(x + 1) * k][middle[y * k:(y + 1) * k, x * k:(x + 1) * k]]
+            o = o[o >= 0]
+            if o.size:
+                cells[y, x] = np.bincount(o).argmax()
+                keep[y, x] = True
+    # thin parts of the silhouette (outside what the grid already holds)
+    whole = mask & ~ink
+    thin_out = mask & ~cv2.morphologyEx(mask.astype(np.uint8), cv2.MORPH_OPEN, kernel).astype(bool)
+    grid = np.repeat(np.repeat(cells >= 0, k, axis=0), k, axis=1)
+    trace(thin_out & ~grid, part)
+    # thin stripes of one part inside the creature
+    for i in np.unique(part[part >= 0]):
+        sel = (part == i) & whole
+        thin_in = sel & ~cv2.morphologyEx(sel.astype(np.uint8), cv2.MORPH_OPEN, kernel).astype(bool)
+        n, lbl, st, _ = cv2.connectedComponentsWithStats(thin_in.astype(np.uint8), connectivity=8)
+        long = np.isin(lbl, [j for j in range(1, n) if max(st[j, 2], st[j, 3]) >= 2 * k])   # a stripe, not an edge fringe
+        trace(long & grid, np.where(long, part, -1))
+    return cells, keep
+
+
 # ---------- 3. shape ----------
 
-def clean_shape(cells, colours):
+def clean_shape(cells, colours, keep=None):
     """See below; specks in the face (the upper part of the creature: eye whites, irises, a nose)
     of two pixels or more are kept, they are what makes the face."""
-    return _clean_shape(cells, colours)
+    return _clean_shape(cells, colours, keep)
 
 
-def _clean_shape(cells, colours):
+def _clean_shape(cells, colours, keep=None):
     """Fill one-pixel notches, drop one-pixel spurs, and let specks of a part join their surroundings.
     Pupils and glints are not parts: the face step draws them, so no speck needs to be kept for them."""
     cells = cells.copy()
@@ -283,14 +319,17 @@ def _clean_shape(cells, colours):
         for y, x in zip(*np.nonzero(~solid & (n4 >= 3))):
             around = [cp[y + 1 + dy, x + 1 + dx] for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)) if cp[y + 1 + dy, x + 1 + dx] >= 0]
             cells[y, x] = max(set(around), key=around.count)
-        cells[solid & (n4 <= 1)] = -1
+        cells[solid & (n4 <= 1) & ~(keep if keep is not None else False)] = -1
+    traced = cells.copy()
     cells = pixel_perfect(cells)
+    if keep is not None:
+        cells[keep] = traced[keep]                                # traced thin features stay as drawn
     for _ in range(2):
         for i in range(len(colours)):
             n, lbl = cv2.connectedComponents((cells == i).astype(np.uint8), connectivity=4)
             for j in range(1, n):
                 speck = lbl == j
-                if speck.sum() >= STYLE["min_part"]:
+                if speck.sum() >= STYLE["min_part"] or (keep is not None and keep[speck].any()):
                     continue
                 if speck.sum() >= 2 and np.nonzero(speck)[0].mean() < STYLE["face"] * cells.shape[0]:
                     continue
@@ -645,7 +684,8 @@ def draw(path, size=54, window=None, fit=None, palette=None):
 
     L, ink, part, colours = segment(big_rgb, big_mask)                       # 1
     cells, tone, inkshare = sample(L, ink, part, big_mask, gh, gw, k)        # 2
-    cells = clean_shape(cells, colours)                                       # 3
+    cells, thin_kept = thin_features(big_mask, part, ink, cells, k)           # 2b
+    cells = clean_shape(cells, colours, thin_kept)                            # 3
     features, face_lines = find_face(L, ink, big_mask, gh, gw, k, size)      # 4
     eyes, eye_colours = draw_eyes(big_rgb, L, ink, big_mask, cells, k)
     drawn_lines = line_art(ink, big_mask, cells, k) | (face_lines & (cells >= 0))

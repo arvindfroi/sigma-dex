@@ -73,7 +73,10 @@ back of the queue and says why.
       so light and shadow of one colour never get a line between them. Wide dark areas such as
       black claws or sunglasses are parts, not ink; likewise a light area thinner than half a
       sprite pixel (rim light, shine) is lighting, not a part.
-   2. *sample* it onto the sprite grid: part, lightness and ink for every pixel.
+   2. *sample* it onto the sprite grid: part, lightness and ink for every pixel. Anything thinner
+      than a sprite pixel (antennae, thin horns, tail tips, narrow stripes) would drop out, so it
+      is traced to its middle line and drawn as a one-pixel line, as spriters draw them, and kept
+      through the clean-up.
    3. *shape*: fill notches, remove spurs, round doubled corners (the pixel-perfect rule),
       let specks of a part join their surroundings.
    4. *face*: each eye is redrawn from the artwork: the eye white with the iris and pupil inside
