@@ -56,8 +56,9 @@ back of the queue and says why.
 ## How a sprite is made
 
 1. **Official-style artwork.** Qwen-Image redraws the group's concept art (up to three
-   reference pictures) as official Pokemon artwork: clean thin outlines, flat cel shading, head
-   and eyes a little bigger than in the reference, simple shapes, in the chosen pose. Then it
+   reference pictures) as official Pokemon artwork: clean thin outlines, flat cel shading, and
+   sprite proportions - a head about 40% of the height with a big, clear face - because a face
+   needs pixels: at normal proportions a head is 12 pixels wide and brows and mouth drop out. Then it
    draws the same creature from behind, using its new front picture as the reference, so front
    and back match. Prompts: `official_front`, `official_back` and `official_poses` in
    `data/sprite_prompts.yaml`.
@@ -74,8 +75,9 @@ back of the queue and says why.
    4. *face*: each eye is redrawn from the artwork: the eye white with the iris and pupil inside
       it, a glint where the artwork has one (every pupil gets one). Brows and mouths are kept as
       face lines. Only in the upper part of the creature.
-   5. *light*: four tones per part from the artwork's light and dark plus light from the upper
-      left across the whole part; shades come in clusters.
+   5. *tones*: every pixel takes the tone of its part (shadow, base, light, highlight, line or
+      outline) nearest to what the artwork shows there; where a dark stroke runs through a pixel
+      the stroke wins. The artwork's detail decides, the ramps keep it clean.
    6. *lines*: coloured outline (darkest on the shadow side), lines between parts that differ,
       and the artwork's inner lines (scales, wood grain, creases) traced as clean one-pixel lines:
       every ink stroke is thinned to its middle line and laid on the grid, without doubled corners.

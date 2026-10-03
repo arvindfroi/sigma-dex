@@ -12,9 +12,11 @@ with where it comes from:
 3. shape     clean the shape: notches in the silhouette are filled and spurs removed; specks of
              a part smaller than a few pixels join the part around them.
 4. face      find the features that must keep their pixels: pupils, glints, brows and mouths.
-5. light     shade every part with four tones (shadow, base, light, highlight) from the artwork's
-             own light and dark plus light falling from the upper left across the part; shades
-             come in clusters, never as lone pixels.
+5. light     every pixel takes the tone of its part's ramp (shadow, base, light, highlight, line,
+             outline) nearest to what the artwork shows there: the artwork's own light, shadow and
+             strokes decide, so its detail (brows, mouths, scales) survives; where a dark stroke
+             runs through a pixel, the stroke wins (the contrast rule of PixelOE). The older
+             modelled light (faithful=False) invents light from the upper left instead.
 6. lines     outline in each part's own dark tone (darkest on the shadow side at the bottom
              right), lines between parts that differ, and the artwork's inner lines where they
              form a line.
@@ -48,6 +50,9 @@ STYLE = dict(
     art_light=0.8,         # how much the artwork's own light and dark counts
     levels=(-0.45, 0.8, 1.7),  # light score thresholds: shadow | base | light | highlight
     colours=15,            # the game's limit per sprite (plus the see-through colour)
+    faithful=True,         # tones and dark detail from the artwork itself (else: modelled light)
+    detail_drop=60,        # Lab lightness below the part's colour at which a pixel's dark detail is drawn as a line
+    stroke_contrast=35,    # Lab lightness: a cell whose darkest sixth is this much darker than its middle shows a stroke
 )
 # The tones of a part, as (lightness change or factor, colourfulness factor, cool/warm shift).
 # Shadows a little cooler and lights a little warmer; outlines keep the hue but are muted, as the
@@ -224,6 +229,9 @@ def sample(L, ink, part, mask, gh, gw, k):
     cells = np.full((gh, gw), -1, np.int32)
     tone = np.zeros((gh, gw), np.float32)
     inkshare = np.zeros((gh, gw), np.float32)
+    global detail, rep
+    detail = np.zeros((gh, gw), np.float32)
+    rep = np.zeros((gh, gw, 3), np.float32)
     for y in range(gh):
         for x in range(gw):
             cm = mask[y * k:(y + 1) * k, x * k:(x + 1) * k]
@@ -238,6 +246,13 @@ def sample(L, ink, part, mask, gh, gw, k):
             inkshare[y, x] = ci[cm].mean()
             own = L[y * k:(y + 1) * k, x * k:(x + 1) * k][cm & ~ci]
             tone[y, x] = own[:, 0].mean() if own.size else L[y * k:(y + 1) * k, x * k:(x + 1) * k][cm][:, 0].mean()
+            cl = L[y * k:(y + 1) * k, x * k:(x + 1) * k][cm][:, 0]
+            detail[y, x] = np.percentile(cl, 20)          # the dark detail in the cell (PixelOE-style: contrast wins)
+            cells_lab = L[y * k:(y + 1) * k, x * k:(x + 1) * k][cm]
+            med = np.median(cl)
+            dark_part = cells_lab[cl <= np.percentile(cl, 15)]
+            # what the cell shows: its darkest sixth where a dark stroke runs through it, else its middle
+            rep[y, x] = dark_part.mean(axis=0) if med - np.percentile(cl, 15) > STYLE["stroke_contrast"] else np.median(cells_lab, axis=0)
     return cells, tone, inkshare
 
 
@@ -402,6 +417,26 @@ def draw_eyes(rgb, L, ink, mask, cells, k):
 
 
 # ---------- 5. light ----------
+
+def faithful_levels(cells, tone, colours):
+    """0 shadow, 1 base, 2 light, 3 highlight for every pixel, from the artwork itself: each pixel
+    takes the tone of its part's ramp nearest to the artwork's own lightness there. The artwork's
+    light, shadow and detail decide; nothing is invented. Lone shade pixels join their neighbours."""
+    gh, gw = cells.shape
+    solid = cells >= 0
+    level = np.full((gh, gw), -1, np.int8)
+    names = ("shadow", "base", "light", "highlight")
+    for i in np.unique(cells[solid]):
+        sel = cells == i
+        ramp = np.array([tone_of(colours[i], n)[0] for n in names])
+        level[sel] = np.abs(tone[sel][:, None] - ramp[None, :]).argmin(axis=1)
+    lp = np.pad(level, 1, constant_values=-1); cp = np.pad(cells, 1, constant_values=-1)
+    for y, x in zip(*np.nonzero(solid)):
+        own = [lp[y + 1 + dy, x + 1 + dx] for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)) if cp[y + 1 + dy, x + 1 + dx] == cells[y, x]]
+        if len(own) >= 3 and level[y, x] not in own:
+            level[y, x] = max(set(own), key=own.count)
+    return level
+
 
 def light_levels(cells, tone):
     """0 shadow, 1 base, 2 light, 3 highlight for every pixel (-1 empty)."""
@@ -576,7 +611,14 @@ def draw(path, size=54, window=None, fit=None, palette=None):
     # no lines inside eye whites (or other very light parts): an eye is its rim, pupil and glint
     light_part = np.isin(cells, [i for i in range(len(colours)) if colours[i][0] > 200])
     drawn_lines &= ~light_part
-    level = light_levels(cells, tone)                                         # 5
+    if STYLE["faithful"]:
+        level = faithful_levels(cells, tone, colours)                         # 5
+        # dark detail of the artwork (brows, creases, scale edges) that the traced lines missed
+        base_L = np.array([c[0] for c in colours])
+        dark_detail = (cells >= 0) & (detail < np.where(cells >= 0, base_L[np.maximum(cells, 0)], 0) - STYLE["detail_drop"])
+        drawn_lines = drawn_lines | (dark_detail & ~light_part)
+    else:
+        level = light_levels(cells, tone)                                     # 5
     kinds = line_kinds(cells, colours, drawn_lines)                           # 6
 
     # 7: what every pixel wants, then fitted into the palette
@@ -584,6 +626,20 @@ def draw(path, size=54, window=None, fit=None, palette=None):
     solid = cells >= 0
     want = {}
     counts = {}
+    tone_names = names + ("line", "outline")
+    if STYLE["faithful"]:
+        # every pixel inside the silhouette takes the tone of its part nearest to what the artwork
+        # shows there (strokes included): the artwork's detail decides, the ramp keeps it clean
+        for y, x in zip(*np.nonzero(solid)):
+            if kinds[y, x] in ("outline_dark",) or (kinds[y, x] == "outline" and -1 in [n[y, x] for n in neighbours4(cells, -1)]):
+                continue
+            c = int(cells[y, x])
+            options = [(n, tone_of(colours[c], n)) for n in tone_names]
+            best = min(options, key=lambda o: np.linalg.norm((o[1] - rep[y, x]) * np.array([1.0, 0.6, 0.6])))[0]
+            if best in names:
+                level[y, x], kinds[y, x] = names.index(best), ""
+            else:
+                kinds[y, x] = best
     for y, x in zip(*np.nonzero(solid)):
         key = (int(cells[y, x]), kinds[y, x] or names[level[y, x]])
         want[(y, x)] = key
