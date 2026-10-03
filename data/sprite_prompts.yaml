@@ -99,11 +99,12 @@ cleanup: >-
 # {others} names the other reference pictures, {pose} comes from official_poses.
 official_front: >-
   Redraw the creature from <image1> as official artwork from Pokemon Ruby and Sapphire (2002), Ken
-  Sugimori's Game Boy Advance era style: thick confident dark outlines, large flat areas of color
-  with a single crisp shadow tone, few small details, chunky simple readable shapes, a big head and
-  big expressive eyes. Lighting is only the flat shadow tone: no rim light, no white highlight
-  lines along the edges, no glossy shine spots (the eyes' own glints stay).{others} Keep its
-  design, colors and signature features: {look}; the same
+  Sugimori's Game Boy Advance era style: thick confident dark outlines, large flat areas of color,
+  chunky simple readable shapes with few small details (no muscle lines, no fine texture), a big
+  head and big expressive eyes. Shading like a Game Boy
+  Advance battle sprite: light from the upper left, a crisp shadow tone on the lower right of every
+  part and a few bold, clearly shaped highlight patches on the head and body; no thin rim light
+  lines along the edges.{others} Keep its design, colors and signature features: {look}; the same
   expression as in the reference, stronger. Pose: {pose} Three-quarter view turned toward the
   lower left, the whole body visible. Exactly one creature, full body, plain white background, no
   text, no shadow on the ground.
@@ -118,7 +119,7 @@ official_back: >-
   forward toward the opponent, ready to fight. Exactly one creature, plain white background, no
   text, no shadow on the ground.
 official_poses:
-  three-quarter: an expressive battle stance that shows its personality, leaning forward and ready to fight.
+  three-quarter: a lively, confident pose full of personality, standing tall with its head held high and looking at the viewer, one arm, paw or wing raised if it has one, limbs a little away from the body.
   front: standing facing the viewer, confident, ready to fight.
   rearing: rearing up and roaring with its mouth open, chest out, arms or front legs raised, fierce and proud.
   flying: hovering in mid-air, wings or fins spread wide, ready to dive at the opponent.
