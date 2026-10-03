@@ -101,6 +101,29 @@ def render(path, size=54, k=12, materials=9, view="front", window=None, fit=None
             tone[y, x] = own[:, 0].mean() if own.size else 0
 
     base_lab = np.array([L[(filled == i) & ~line].mean(axis=0) if ((filled == i) & ~line).any() else [0, 128, 128] for i in range(materials)])
+    if gen3:
+        # one colour in light and in shadow is one part, not two: materials with the same hue and
+        # colourfulness that differ only in lightness are merged (else a line appears where a shadow
+        # starts). Very dark and very light stay apart from each other (claws against a white belly).
+        parent = list(range(materials))
+        def root(i):
+            while parent[i] != i:
+                i = parent[i]
+            return i
+        chroma = np.hypot(base_lab[:, 1] - 128, base_lab[:, 2] - 128)
+        hue = np.degrees(np.arctan2(base_lab[:, 2] - 128, base_lab[:, 1] - 128))
+        for i in range(materials):
+            for j in range(i + 1, materials):
+                dl = abs(base_lab[i][0] - base_lab[j][0])
+                dh = abs((hue[i] - hue[j] + 180) % 360 - 180)
+                neutral = chroma[i] < 10 and chroma[j] < 10
+                similar = chroma[i] >= 10 and chroma[j] >= 10 and dh < 10 and min(chroma[i], chroma[j]) > 0.7 * max(chroma[i], chroma[j])
+                if (neutral and dl < 60) or (similar and dl < 55):
+                    parent[root(j)] = root(i)
+        remap = np.array([root(i) for i in range(materials)])
+        filled = np.where(filled >= 0, remap[np.maximum(filled, 0)], -1)
+        cells = np.where(cells >= 0, remap[np.maximum(cells, 0)], -1)
+        base_lab = np.array([L[(filled == i) & ~line].mean(axis=0) if ((filled == i) & ~line).any() else [0, 128, 128] for i in range(materials)])
     # merge specks: a patch of a material smaller than `speck` pixels joins the material around it
     # (keeps mouths and bills calm); very dark and very light patches stay, they are eyes and glints
     speck = 4 if bold else 3
@@ -125,6 +148,8 @@ def render(path, size=54, k=12, materials=9, view="front", window=None, fit=None
             area = stats[i, cv2.CC_STAT_AREA]
             bw, bh = stats[i, cv2.CC_STAT_WIDTH], stats[i, cv2.CC_STAT_HEIGHT]
             if area >= 0.25 * k * k and max(bw, bh) <= 4 * k and min(bw, bh) >= 0.35 * k:   # blob-like, not a long ink line
+                if kind == "dark" and gen3 and cent[i][1] // k > 0.55 * gh:
+                    continue                                  # dark dots low on the body are spots, not pupils
                 features.append((kind, int(cent[i][1] // k), int(cent[i][0] // k), area / (k * k)))
 
     # face strokes: ink drawn inside the creature (brows, eyelids, mouth, pupils) that is not part of the
@@ -371,7 +396,11 @@ def shade_gen3(cells, tone, ink, base_lab, materials, strokes):
         names = ("shadow", "base", "light", "highlight")
         for y, x in zip(*np.nonzero(sel)):
             out[y, x] = ramp[i][names[band[y, x]]]
-    # lines: silhouette outline, part boundaries, and the artwork's inner lines in dark tones
+    # lines: silhouette outline, part boundaries, and the artwork's inner lines in dark tones.
+    # An inner line pixel needs another one next to it: a lone dot of ink is not a line.
+    inner = solid & (ink > 0.5)
+    ip = np.pad(inner, 1)
+    linked = inner & (sum(ip[1 + dy:gh + 1 + dy, 1 + dx:gw + 1 + dx].astype(int) for dy in (-1, 0, 1) for dx in (-1, 0, 1) if dy or dx) >= 1)
     pad = np.pad(cells, 1, constant_values=-1)
     for y in range(gh):
         for x in range(gw):
@@ -390,6 +419,6 @@ def shade_gen3(cells, tone, ink, base_lab, materials, strokes):
             else:
                 if strokes[y, x]:
                     out[y, x] = ramp[c]["outline"]
-                elif ink[y, x] > 0.5:
+                elif linked[y, x]:
                     out[y, x] = ramp[c]["dark"]
     return out
