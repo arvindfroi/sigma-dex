@@ -68,13 +68,16 @@ back of the queue and says why.
    1. *segment* the artwork into silhouette, ink (dark and thin) and parts. A part is one colour
       in all its light and shadow (grouped by hue and colourfulness; greys by their lightness),
       so light and shadow of one colour never get a line between them. Wide dark areas such as
-      black claws or sunglasses are parts, not ink.
+      black claws or sunglasses are parts, not ink; likewise a light area thinner than half a
+      sprite pixel (rim light, shine) is lighting, not a part.
    2. *sample* it onto the sprite grid: part, lightness and ink for every pixel.
    3. *shape*: fill notches, remove spurs, round doubled corners (the pixel-perfect rule),
       let specks of a part join their surroundings.
    4. *face*: each eye is redrawn from the artwork: the eye white with the iris and pupil inside
-      it, a glint where the artwork has one (every pupil gets one). Brows and mouths are kept as
-      face lines. Only in the upper part of the creature.
+      it, and the glint the artwork has. Rules that keep it from ever drawing a false eye: an eye
+      has a pupil (a white without one is a horn or a tooth); a dark blob is an eye only if the
+      artwork has a glint in it (else it is a tail, a claw or a marking); glints are never
+      invented. Brows and mouths are kept as face lines. Only in the upper part of the creature.
    5. *tones*: every pixel takes the tone of its part (shadow, base, light, highlight, line or
       outline) nearest to what the artwork shows there; where a dark stroke runs through a pixel
       the stroke wins. The artwork's detail decides, the ramps keep it clean.

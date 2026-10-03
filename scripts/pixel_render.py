@@ -160,7 +160,12 @@ def segment(rgb, mask):
     k = STYLE["supersample"]
     solid_dark = cv2.morphologyEx(dark.astype(np.uint8), cv2.MORPH_OPEN, np.ones((k // 2 + 1,) * 2, np.uint8)).astype(bool)
     ink = dark & ~solid_dark
-    paint = mask & ~ink
+    # the same for light: a light area thinner than half a sprite pixel (rim light along an edge, a
+    # shine) is lighting, not a part of the design; it belongs to the part it lies on
+    light = mask & (L[..., 0] > 200)
+    solid_light = cv2.morphologyEx(light.astype(np.uint8), cv2.MORPH_OPEN, np.ones((k // 2 + 1,) * 2, np.uint8)).astype(bool)
+    shine = light & ~solid_light
+    paint = mask & ~ink & ~shine
     chroma, hue = chroma_hue(L)
     part = np.full(mask.shape, -1, np.int32)
     colours = []
@@ -265,8 +270,8 @@ def clean_shape(cells, colours):
 
 
 def _clean_shape(cells, colours):
-    """Fill one-pixel notches, drop one-pixel spurs, and let specks of a part join their surroundings
-    (very dark and very light specks stay: they are pupils and glints)."""
+    """Fill one-pixel notches, drop one-pixel spurs, and let specks of a part join their surroundings.
+    Pupils and glints are not parts: the face step draws them, so no speck needs to be kept for them."""
     cells = cells.copy()
     for _ in range(2):
         solid = cells >= 0
@@ -279,8 +284,6 @@ def _clean_shape(cells, colours):
     cells = pixel_perfect(cells)
     for _ in range(2):
         for i in range(len(colours)):
-            if colours[i][0] < STYLE["pupil"] + 5 or colours[i][0] > STYLE["glint"]:
-                continue
             n, lbl = cv2.connectedComponents((cells == i).astype(np.uint8), connectivity=4)
             for j in range(1, n):
                 speck = lbl == j
@@ -328,28 +331,33 @@ def find_face(L, ink, mask, gh, gw, k, size):
     """Pupils and glints (blobs in the artwork) and face lines (ink inside the creature that is not
     its outline), in the upper part of the creature. Returns ([(kind, y, x)], face line mask)."""
     features = []
-    # a pupil is a solid dark blob; in the artwork it often touches the eye's own outline, so thin
-    # lines are first worn away (an opening of a third of a sprite pixel) and only solid dark stays
+    # A dark eye is a solid dark blob with the artwork's own glint in it (Autuman's black ovals); a
+    # dark blob without a glint is a tail, a claw or a marking, never an eye. Glints are never
+    # invented: only light the artwork has inside a pupil is a glint. (Eyes with an eye white are
+    # found by draw_eyes.) Thin lines are worn away first, as a pupil often touches the eye's rim.
     thin = np.ones((max(3, k // 3),) * 2, np.uint8)
     dark = cv2.morphologyEx((mask & (L[..., 0] < STYLE["pupil"])).astype(np.uint8), cv2.MORPH_OPEN, thin).astype(bool)
-    for kind, sel in (("pupil", dark), ("glint", mask & (L[..., 0] > STYLE["glint"]))):
-        n, lbl, stats, cent = cv2.connectedComponentsWithStats(sel.astype(np.uint8), connectivity=8)
-        for i in range(1, n):
-            area, bw, bh = stats[i, cv2.CC_STAT_AREA], stats[i, cv2.CC_STAT_WIDTH], stats[i, cv2.CC_STAT_HEIGHT]
-            if area < 0.2 * k * k or max(bw, bh) > 4 * k or min(bw, bh) < 0.3 * k:
-                continue                                          # not a blob: a speck or a long line
-            y, x = int(cent[i][1] // k), int(cent[i][0] // k)
-            if kind == "pupil" and y > STYLE["face"] * gh:
-                continue                                          # a dark spot low on the body is a spot, not a pupil
-            if kind == "pupil":
-                # a dark eye keeps its shape: every pixel the blob covers for a third or more is pupil
-                cov = (lbl == i).reshape(gh, k, gw, k).mean(axis=(1, 3))
-                cover = list(zip(*np.nonzero(cov >= 0.33))) or [(y, x)]
-                for cy, cx in cover:
-                    features.append(("pupil", int(cy), int(cx)))
-                features.append(("pupil_centre", y, x))
-            else:
-                features.append((kind, y, x))
+    shine = mask & (L[..., 0] > STYLE["glint"])
+    n, lbl, stats, cent = cv2.connectedComponentsWithStats(dark.astype(np.uint8), connectivity=8)
+    for i in range(1, n):
+        area, bw, bh = stats[i, cv2.CC_STAT_AREA], stats[i, cv2.CC_STAT_WIDTH], stats[i, cv2.CC_STAT_HEIGHT]
+        if area < 0.2 * k * k or max(bw, bh) > 4 * k or min(bw, bh) < 0.3 * k:
+            continue                                              # not a blob: a speck or a long line
+        y, x = int(cent[i][1] // k), int(cent[i][0] // k)
+        if y > STYLE["face"] * gh:
+            continue
+        blob = lbl == i
+        # the blob with its holes filled: a glint sits in a hole of the pupil, or on its edge
+        hull = np.zeros(mask.shape, np.uint8)
+        cv2.fillConvexPoly(hull, cv2.convexHull(cv2.findNonZero(blob.astype(np.uint8))), 1)
+        glint = shine & hull.astype(bool)
+        if glint.sum() < 0.04 * k * k:
+            continue                                              # no glint of its own: not an eye
+        cov = blob.reshape(gh, k, gw, k).mean(axis=(1, 3))
+        for cy, cx in (list(zip(*np.nonzero(cov >= 0.33))) or [(y, x)]):
+            features.append(("pupil", int(cy), int(cx)))
+        gy, gx = np.nonzero(glint)
+        features.append(("glint", int(gy.mean() // k), int(gx.mean() // k)))
     edge = mask & ~cv2.erode(mask.astype(np.uint8), np.ones((k // 2 * 2 + 1,) * 2, np.uint8)).astype(bool)
     n, lbl, stats, _ = cv2.connectedComponentsWithStats(ink.astype(np.uint8), connectivity=8)
     lines = np.zeros((gh, gw), bool)
@@ -375,7 +383,7 @@ def draw_eyes(rgb, L, ink, mask, cells, k):
     chroma, _ = chroma_hue(L)
     white = mask & (L[..., 0] > 200) & (chroma < 15)
     dark = mask & (L[..., 0] < 100)
-    eyes, colours, glints = {}, {}, []
+    eyes, colours = {}, {}
     n, lbl, stats, cent = cv2.connectedComponentsWithStats(white.astype(np.uint8), connectivity=8)
     creature = mask.sum()
     ring_kernel = np.ones((max(3, k // 4),) * 2, np.uint8)
@@ -387,7 +395,7 @@ def draw_eyes(rgb, L, ink, mask, cells, k):
         comp = lbl == i
         ring = cv2.dilate(comp.astype(np.uint8), ring_kernel).astype(bool) & ~comp & mask
         if ring.any() and dark[ring].mean() > 0.6:
-            glints.append((int(cent[i][1] // k), int(cent[i][0] // k)))     # white inside dark: a glint
+            continue                     # white inside dark: a glint (find_face draws those, inside pupils) or a claw tip
         elif area >= 0.5 * k * k:
             candidates.append(i)
     # a narrow (angry, squinting) eye has little white: if one eye was found, a smaller white at
@@ -395,7 +403,7 @@ def draw_eyes(rgb, L, ink, mask, cells, k):
     if candidates:
         heights = [cent[i][1] for i in candidates]
         for i in range(1, n):
-            if i in candidates or (int(cent[i][1] // k), int(cent[i][0] // k)) in glints:
+            if i in candidates:
                 continue
             x0, y0, bw, bh, area = stats[i]
             if area >= 0.12 * k * k and any(abs(cent[i][1] - hy) < 2 * k for hy in heights) and y0 + bh / 2 <= STYLE["face"] * mask.shape[0]:
@@ -411,6 +419,12 @@ def draw_eyes(rgb, L, ink, mask, cells, k):
         hull = np.zeros(mask.shape, np.uint8)
         cv2.fillConvexPoly(hull, cv2.convexHull(pts), 1)
         whole = hull.astype(bool) & mask
+        # an eye has a pupil: a white with no solid dark inside it is a horn, a tooth or a marking;
+        # and the eye is the pupil and the white close around it (a horn touching the eye is not eye)
+        pupil_px = whole & (L[..., 0] < STYLE["pupil"] + 20)
+        if pupil_px.sum() < 0.25 * k * k:
+            continue
+        whole &= cv2.dilate(pupil_px.astype(np.uint8), np.ones((4 * k + 1,) * 2, np.uint8)).astype(bool)
         iris_px = whole & dark & (chroma > 14) & (L[..., 0] > STYLE["pupil"])
         if iris_px.sum() > 0.3 * k * k:
             colours["iris"] = L[iris_px].mean(axis=0)
@@ -428,9 +442,6 @@ def draw_eyes(rgb, L, ink, mask, cells, k):
                 else:
                     eyes[(y, x)] = "white"
         colours["white"] = np.array([244, 128, 128], np.float32)
-    for y, x in glints:
-        if (y, x) in eyes or (0 <= y < gh and 0 <= x < gw and cells[y, x] >= 0):
-            eyes[(y, x)] = "glint"
     return eyes, colours
 
 
@@ -677,40 +688,6 @@ def draw(path, size=54, window=None, fit=None, palette=None):
     wanted = {key: tone_of(colours[key[0]], key[1]) for key in counts}
     pupil = min((wanted[key] for key in wanted if key[1] == "outline_dark"), key=lambda c: c[0], default=np.array([20, 128, 128], np.float32))
     eye = {"pupil": pupil.copy(), "glint": np.array([248, 128, 128], np.float32)}
-    # a glint belongs in an eye: light specks that are not next to a pupil (the thin white rim
-    # light along the edge of official-style art) are not glints
-    pupils = [(y, x) for kind, y, x in features if kind == "pupil"]
-    pupils += [yx for yx, kind in eyes.items() if kind in ("pupil", "iris")]
-    features = [f for f in features if f[0] != "glint" or any(abs(f[1] - py) <= 2 and abs(f[2] - px) <= 2 for py, px in pupils)]
-    centres = [(y, x) for kind, y, x in features if kind == "pupil_centre"]
-    kept, used = [], set()
-    for f in features:
-        if f[0] == "pupil_centre":
-            continue
-        if f[0] == "glint" and centres:
-            owner = min(centres, key=lambda c: abs(c[0] - f[1]) + abs(c[1] - f[2]))
-            if owner in used:
-                continue                                          # one glint per eye
-            used.add(owner)
-        kept.append(f)
-    features = kept
-    eyes = {yx: kind for yx, kind in eyes.items() if kind != "glint" or any(abs(yx[0] - py) <= 2 and abs(yx[1] - px) <= 2 for py, px in pupils)}
-    glints = [(y, x) for kind, y, x in features if kind == "glint"]
-    pupils = [(y, x) for kind, y, x in features if kind == "pupil"]
-    # every eye has one glint: an eye whose pupil has none gets one at its upper left, inside it if
-    # the eye is big enough, else just above it
-    for cy, cx in centres:
-        blob = [(y, x) for y, x in pupils if abs(y - cy) <= 2 and abs(x - cx) <= 2]
-        if any(abs(gy - cy) <= 2 and abs(gx - cx) <= 2 for gy, gx in glints):
-            continue
-        if len(blob) >= 4:
-            gy, gx = min(blob, key=lambda p: p[0] + p[1])
-            features.append(("glint", gy, gx)); glints.append((gy, gx))
-        else:
-            for gy, gx in ((cy - 1, cx), (cy - 1, cx - 1), (cy, cx - 1)):
-                if 0 <= gy < gh and 0 <= gx < gw and solid[gy, gx] and (gy, gx) not in pupils:
-                    features.append(("glint", gy, gx)); glints.append((gy, gx))
-                    break
     # glints are drawn after pupils, so they stay on top
     features = [f for f in features if f[0] != "glint"] + [f for f in features if f[0] == "glint"]
     for kind, y, x in features:

@@ -101,14 +101,17 @@ official_front: >-
   Redraw the creature from <image1> as official artwork from Pokemon Ruby and Sapphire (2002), Ken
   Sugimori's Game Boy Advance era style: thick confident dark outlines, large flat areas of color
   with a single crisp shadow tone, few small details, chunky simple readable shapes, a big head and
-  big expressive eyes.{others} Keep its design, colors and signature features: {look}; the same
+  big expressive eyes. Lighting is only the flat shadow tone: no rim light, no white highlight
+  lines along the edges, no glossy shine spots (the eyes' own glints stay).{others} Keep its
+  design, colors and signature features: {look}; the same
   expression as in the reference, stronger. Pose: {pose} Three-quarter view turned toward the
   lower left, the whole body visible. Exactly one creature, full body, plain white background, no
   text, no shadow on the ground.
 official_back: >-
   Draw the creature from <image1>{others} from behind, as official artwork from Pokemon Ruby and
   Sapphire (2002), Ken Sugimori's Game Boy Advance era style: thick confident dark outlines, large
-  flat areas of color with a single crisp shadow tone, chunky simple readable shapes. It is {look}. View: seen
+  flat areas of color with a single crisp shadow tone, chunky simple readable shapes, no rim light
+  and no glossy shine. It is {look}. View: seen
   from behind, as the player's own creature in a battle: the camera is behind it and a little
   above, looking over its shoulder. We see its back, the back of its head and its tail; its head
   is turned toward the upper right so one eye and the side of its face show in profile. It leans
