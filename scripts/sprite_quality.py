@@ -25,7 +25,7 @@ def parts(img, view="front"):
     edge = op & ~inside
     outline = (lum[edge] < 90).mean() if edge.any() else 0
     # eyes: a dark pixel touching a very light pixel, in the upper 60% of the drawing (pupil + glint)
-    dark = op & (lum < 60); light = op & (lum > 215)
+    dark = op & (lum < 60); light = op & (rgb.min(axis=2) > 170)    # a glint is near white, not yellow
     near_light = cv2.dilate(light.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)
     region = np.zeros_like(op); region[top:top + int(h * 0.6) + 1] = True
     eyes = (dark & near_light & region).sum()

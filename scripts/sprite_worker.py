@@ -316,15 +316,15 @@ def lora_touch(sprite64, look, view, seed, target):
 
 def official_sprites(raw, species_id, prefix):
     """The sprite-official finish: front, back and icon built from the artwork by the pixel renderer.
-    The back is drawn closer than the front (BACK_ZOOM) and cut off flat at the bottom, as the games do."""
+    The back uses the front's colours, is drawn closer than the front (BACK_ZOOM) and is cut off flat
+    at the bottom (at the usual height, or its lowest 15% for low, wide creatures)."""
     size = sprite_pixels(species_id, "front")
     files = {"front": Path(str(prefix) + "front.png"), "back": Path(str(prefix) + "back.png"), "icon": Path(str(prefix) + "icon.png")}
-    pixel_render.render(raw["front"], size=size, gen3=True).save(files["front"])
-    # the bottom is always cut off flat: at the usual height, or the lowest 15% for low, wide
-    # creatures (wings, long bodies) that the frame's width keeps smaller
-    back = pixel_render.render(raw["back"], fit=(62, round(size * BACK_ZOOM)), gen3=True)
+    front = pixel_render.render(raw["front"], size=size)
+    front.save(files["front"])
+    back = pixel_render.render(raw["back"], fit=(62, round(size * BACK_ZOOM)), palette=pixel_render.palette_of(front))
     back.crop((0, 0, back.width, min(size + 2, int(back.height * 0.85)))).save(files["back"])
-    pixel_render.render(raw["front"], size=28, gen3=True).save(files["icon"])
+    pixel_render.render(raw["front"], size=28).save(files["icon"])
     return files
 
 

@@ -23,12 +23,16 @@ the numbers only; no Nintendo picture is in this repository). Ours must fall in 
 
 | | games' sprites (5% / median / 95%) | ours |
 |---|---|---|
-| colours | 10 / 13 / 15 | 14 |
-| outline brightness (0 black, 255 white) | 23 / 44 / 73 | 43 |
-| share of the outline that is black | 0.28 / 0.54 / 0.84 | 0.47 |
-| inner lines (share of the inside) | 0.05 / 0.11 / 0.18 | 0.10 |
-| single-pixel texture | 0.06 / 0.10 / 0.17 | 0.07 |
-| shades per colour | 2.0 / 2.8 / 4.7 | 2.6 |
+| colours | 10 / 13 / 15 | 15 |
+| outline brightness (0 black, 255 white) | 23 / 44 / 73 | 48 |
+| share of the outline that is black | 0.28 / 0.54 / 0.84 | 0.61 |
+| inner lines (share of the inside) | 0.05 / 0.11 / 0.18 | 0.05 |
+| single-pixel texture | 0.06 / 0.10 / 0.17 | 0.04 |
+| shades per colour | 2.0 / 2.8 / 4.7 | 3.0 |
+
+Ours have a little less single-pixel texture and fewer inner lines than the games: shades come
+in clusters on purpose, because scattered shade pixels and lines where a shadow starts read as
+mess on our sprites (the group's verdict, 2026-10-03).
 
 What that means for a sprite:
 
@@ -58,10 +62,25 @@ back of the queue and says why.
    and back match. Prompts: `official_front`, `official_back` and `official_poses` in
    `data/sprite_prompts.yaml`.
 2. **Built pixel by pixel.** `scripts/pixel_render.py` does not shrink the artwork (that turns
-   lines and faces to mud). It finds the artwork's colour areas, lays them on the 64 grid,
-   smooths the silhouette, shades each part with light from the upper left plus the artwork's own
-   light and dark, draws coloured outlines and keeps the eyes, brows and mouth. The icon
-   (32 x 32) is built the same way at its own size.
+   lines and faces to mud). It works in seven fixed steps, each with one job, and all its numbers
+   are in one place (`STYLE` and `RAMP` at the top of the file, each with where it comes from):
+   1. *segment* the artwork into silhouette, ink (dark and thin) and parts. A part is one colour
+      in all its light and shadow (grouped by hue and colourfulness; greys by their lightness),
+      so light and shadow of one colour never get a line between them. Wide dark areas such as
+      black claws or sunglasses are parts, not ink.
+   2. *sample* it onto the sprite grid: part, lightness and ink for every pixel.
+   3. *shape*: fill notches, remove spurs, round doubled corners (the pixel-perfect rule),
+      let specks of a part join their surroundings.
+   4. *face*: pupils (solid dark blobs, even when they touch the eye's outline), glints (every
+      pupil gets one) and face lines, only in the upper part of the creature.
+   5. *light*: four tones per part from the artwork's light and dark plus light from the upper
+      left across the whole part; shades come in clusters.
+   6. *lines*: coloured outline (darkest on the shadow side), lines between parts that differ,
+      inner lines only where they form a line.
+   7. *palette*: the renderer fits every part's ramp into 15 colours itself, and the back uses
+      exactly the front's colours.
+   If the drawn creature comes out smaller than asked (thin tips drop out), it is drawn once
+   more at the size that makes it fit. The icon (32 x 32) is built the same way.
 3. **Checked.** `standards()` in `scripts/sprite_quality.py` measures each attempt against the
    standard above. The worker makes twice as many attempts as asked for and hands in the better half;
    an attempt that misses the standard goes to the back and says why in its notes.
@@ -70,6 +89,21 @@ back of the queue and says why.
 
 The same request always gives the same sprites (the seeds come from the request number, and the
 renderer is not random).
+
+## The test set
+
+`tests/sprite_style/` holds artwork for eight very different Pokemon (two attempts each, front
+and back) and the sprites accepted for them. After any change to the renderer:
+
+```bash
+python scripts/check_sprite_style.py
+```
+
+It renders all 16, says which changed and by how many pixels, checks each against the standard,
+and writes a sheet (art, front, back, reference) to `tests/sprite_style/sheet.png`. If the change
+is wanted, `--update` makes the new sprites the reference. On 2026-10-03: 14 of 16 pass; both
+Ampeels fail on the eye (its eye in the artwork is a tiny blue dot), one also on its back (drawn
+from the side).
 
 ## Making one by hand
 
@@ -80,7 +114,7 @@ python scripts/pixel_render.py art.png front.png --size 54
 ```
 
 ```bash
-python scripts/pixel_render.py art_back.png back.png --size 54 --back
+python scripts/pixel_render.py art_back.png back.png --size 54 --back --palette-from front.png
 ```
 
 ```bash
