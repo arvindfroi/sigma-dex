@@ -400,6 +400,10 @@ def run(job, base, key, settings):
             mark, _ = sprite_quality.score(sprites.as_rgba(out / "front.png"), "front")
             failed = sprite_quality.standards(sprites.as_rgba(out / "front.png"), sprites.as_rgba(out / "back.png"), sprite_pixels(job["species_id"], "front"))
             mark -= 10 * len(failed)                  # an attempt that misses the standard goes to the back of the queue
+            if job.get("style") == "sprite-official":  # and one whose colours drifted from its artwork too
+                keep = sprite_quality.fidelity(raw["front"], sprites.as_rgba(out / "front.png"))
+                mark -= 20 * (1 - keep)
+                prompt = prompt.replace("\n\n", " (colours kept %.0f%%)\n\n" % (100 * keep), 1)
             if failed:
                 prompt += "\n\nMisses the sprite standard: " + "; ".join(failed)
             candidates.append((mark, seed, prompt, {"raw_front": raw["front"], "raw_back": raw["back"], "front": small["front"], "back": small["back"], "preview": out / "preview.png"}))

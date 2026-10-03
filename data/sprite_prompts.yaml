@@ -141,20 +141,90 @@ pokemon:
       colored houses in a row between the peaks.
     seeds: {front: 21, back: 22}
   leafing:
+    refs: [assets/concept-art/leafing/450.png, assets/concept-art/leafing/433.webp]
     look: >-
       a green long-necked four-legged dinosaur covered in overlapping leaf scales, a single
       pointed leaf-shaped horn on its head pointing backwards, big friendly eyes, grey claws, and
       a long tail ending in a grey blade.
   waffy:
+    refs: [assets/concept-art/waffy/451.jpg, assets/concept-art/waffy/336.webp]
     look: >-
       a chubby blue platypus with a big yellow duck bill, big round eyes, an open happy mouth, a
       white belly, black clawed feet and a flat dark beaver tail.
   torchbat:
+    refs: [assets/concept-art/torchbat/448.png, assets/concept-art/torchbat/376.webp]
     look: >-
       a small red lizard standing upright, with huge long pointed bat-like ears that burn with
       small yellow flames at their tips, a cream belly, small claws and a
       flame burning on the tip of its tail.
   autuman:
+    refs: [assets/concept-art/autuman/174.webp, assets/concept-art/autuman/175.webp]
+    look: >-
+      a short yellow humanoid with a round head, a grumpy frowning face with angry eyebrows and
+      pink blush, two leaf-shaped tufts sticking out of its head like pigtails, a grey bodysuit
+      with a gold belt, a big cape made of orange-red maple leaves around its shoulders, and big
+      yellow hands
     signature: a grumpy frowning face with angry eyebrows and a small frowning mouth, pink blush marks on both cheeks
   bugmight:
+    refs: [assets/concept-art/bugmight/]
+    look: >-
+      a muscular heroic bug-humanoid with a dark blue body and a red chest with gold stripes, a
+      yellow insect head with large antennae and white eyes, and big golden translucent insect wings
     signature: a huge wide toothy grin with white teeth, big round white eyes, a big head, long antennae
+  chillalit:
+    refs: [assets/concept-art/chillalit/206.webp, assets/concept-art/chillalit/207.webp]
+    look: >-
+      a chubby navy-blue penguin with a white belly, a red stripe along its side, spiky red and
+      orange flame hair, black sunglasses, a yellow beak and orange feet
+    signature: black sunglasses, spiky flame hair, a cool confident smirk
+  erobi:
+    refs: [assets/concept-art/erobi/223.webp, assets/concept-art/erobi/397.webp]
+    look: >-
+      a small round bird with a fluffy bright yellow head like a smiling sun, a big happy smile,
+      small dark eyes, white feathered wings and body and thin orange legs
+    signature: a big happy smile on a round sunny yellow face
+  freezrick:
+    refs: [assets/concept-art/freezrick/388.webp, assets/concept-art/freezrick/390.webp]
+    look: >-
+      a big hulking icy-blue rabbit-like brute with a light-brown bowl haircut, buck teeth, small
+      eyes, a broad muscular body and icicle spikes on its back and ears
+    signature: a bowl haircut, buck teeth, icicle spikes
+  janenon:
+    refs: [assets/concept-art/janenon/260.webp, assets/concept-art/janenon/262.webp]
+    look: >-
+      a dark purple ghostly creature made of drooping black hair, with a long cannon-like barrel for
+      a head that glows bright blue at its mouth, and two small round dark legs
+    signature: the long hair cannon with a glowing blue muzzle
+  mooceon:
+    refs: [assets/concept-art/mooceon/269.webp, assets/concept-art/mooceon/416.webp]
+    look: >-
+      a sea cow: a white cow with large black spots, a pink snout and pink udder, small horns, and a
+      blue whale tail and blue fins instead of hind legs
+    signature: black and white cow spots, a pink snout, a whale tail
+  motinky:
+    refs: [assets/concept-art/motinky/276.webp, assets/concept-art/motinky/277.webp]
+    look: >-
+      a wooden tiki-mask monkey: a brown carved wooden mask face with a huge open grinning mouth full
+      of teeth and a green grass skirt, smoke rising from its head, long thin monkey arms holding a
+      burning torch, and a curly tail
+    signature: the big grinning tiki mask mouth with teeth, the burning torch, smoke from its head
+  stonma:
+    refs: [assets/concept-art/stonma/398.webp, assets/concept-art/stonma/400.webp]
+    look: >-
+      a living moai stone head: a tall sandy-brown stone head with a big nose, a heavy brow and
+      deep-set dark eyes, and one small stone hand giving a thumbs up
+    signature: the long moai face with a heavy brow, a thumbs-up hand
+  tinky:
+    refs: [assets/concept-art/tinky/408.webp, assets/concept-art/tinky/316.webp]
+    look: >-
+      a small walking wooden tree stump with a carved wooden face, big round eyes, a wide open
+      green-lipped mouth with a red tongue, a small sprout with two leaves on top, short wooden
+      arms and legs and a curly tail
+    signature: a wide open green-lipped mouth with a red tongue, big round eyes, the little sprout
+  nukfae:
+    refs: [assets/concept-art/nukfae/280.webp, assets/concept-art/nukfae/283.webp]
+    look: >-
+      a slime fairy made of iridescent toxic sludge in pastel green, yellow, pink and blue, with a
+      round head, small black eyes, a little smile, droopy slime arms and a body that melts into a
+      puddle
+    signature: the rainbow shimmer of its slime, the little smile

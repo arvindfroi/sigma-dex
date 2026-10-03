@@ -56,6 +56,7 @@ STYLE = dict(
     trace=0.5,             # share of a sprite pixel's width an ink stroke must run through it to become a line
     trace_margin=0.8,      # strokes closer to the silhouette than this (in sprite pixels) belong to the outline
     thin_run=1 / 3,        # share of a sprite pixel's width a thin feature's middle line must run through it
+    line_density=0.12,     # at most this share of a part is inner line (the games' median is 0.11)
     accents=3,             # face marks in colours the sprite does not have (a pink blush) get at most this many palette slots
     accent_gap=35,         # Lab distance from every colour the sprite has, for a mark's colour to count as an accent    # Lab lightness: a cell whose darkest sixth is this much darker than its middle shows a stroke
 )
@@ -240,8 +241,9 @@ def sample(L, ink, part, mask, gh, gw, k):
     cells = np.full((gh, gw), -1, np.int32)
     tone = np.zeros((gh, gw), np.float32)
     inkshare = np.zeros((gh, gw), np.float32)
-    global detail, rep
+    global detail, rep, stroke
     detail = np.zeros((gh, gw), np.float32)
+    stroke = np.zeros((gh, gw), bool)
     rep = np.zeros((gh, gw, 3), np.float32)
     for y in range(gh):
         for x in range(gw):
@@ -263,7 +265,8 @@ def sample(L, ink, part, mask, gh, gw, k):
             med = np.median(cl)
             dark_part = cells_lab[cl <= np.percentile(cl, 15)]
             # what the cell shows: its darkest sixth where a dark stroke runs through it, else its middle
-            rep[y, x] = dark_part.mean(axis=0) if med - np.percentile(cl, 15) > STYLE["stroke_contrast"] else np.median(cells_lab, axis=0)
+            stroke[y, x] = med - np.percentile(cl, 15) > STYLE["stroke_contrast"]
+            rep[y, x] = dark_part.mean(axis=0) if stroke[y, x] else np.median(cells_lab, axis=0)
     return cells, tone, inkshare
 
 
@@ -305,18 +308,23 @@ def thin_features(mask, part, ink, cells, k):
 
 
 def face_marks(rgb, L, mask, ink, cells, k):
-    """Every mark in the face is drawn, as a spriter draws it: in the head (the upper part of the
-    creature) each small region of the artwork that differs from the skin around it - a blush, a
-    mouth, teeth, brows, a nose - keeps at least one pixel in its own colour: its middle line if it
-    is a stroke, the pixels it covers most if it is a blob. Returns {(y, x): Lab colour}."""
+    """Every mark is drawn, as a spriter draws it: each small region of the artwork that differs
+    from what is around it - a blush, a mouth, teeth, a stripe on a shoulder, a spot - keeps at least
+    one pixel in its own colour: its middle line if it is a stroke, the pixels it covers most if it
+    is a blob. (A pixel otherwise takes the colour of the part that covers most of it, and a dark
+    red stripe on yellow became a muddy dark yellow.) Returns {(y, x): Lab colour}."""
     gh, gw = cells.shape
-    top = int(STYLE["face"] * mask.shape[0])
-    head = np.zeros(mask.shape, bool); head[:top] = mask[:top]
+    # the whole creature: a stripe on a shoulder is as much a mark as a blush on a cheek
+    head = mask & cv2.erode(mask.astype(np.uint8), np.ones((k // 2 + 1,) * 2, np.uint8)).astype(bool)
     smooth = cv2.medianBlur(rgb, 5)
     Ls = lab(smooth)
     skin = cv2.medianBlur(rgb, 4 * k + 1 if (4 * k + 1) % 2 else 4 * k + 2)       # the surroundings of every point
-    diff = np.linalg.norm(Ls - lab(skin), axis=2)
-    mark = head & (diff > 30) & ~ink
+    # a mark differs in colour (hue, colourfulness), or is near white or near black on a coloured
+    # skin (teeth, an eye); a region that is only darker or lighter is shading, not a mark
+    Lk = lab(skin)
+    colour_diff = np.linalg.norm(Ls[..., 1:] - Lk[..., 1:], axis=2)
+    extreme = ((Ls[..., 0] > 225) | (Ls[..., 0] < 50)) & (np.abs(Ls[..., 0] - Lk[..., 0]) > 60)
+    mark = head & ((colour_diff > 22) | extreme) & ~ink
     marks = {}
     n, lbl, st, _ = cv2.connectedComponentsWithStats(mark.astype(np.uint8), connectivity=8)
     for i in range(1, n):
@@ -415,8 +423,8 @@ def find_face(L, ink, mask, gh, gw, k, size):
     # dark blob without a glint is a tail, a claw or a marking, never an eye. Glints are never
     # invented: only light the artwork has inside a pupil is a glint. (Eyes with an eye white are
     # found by draw_eyes.) Thin lines are worn away first, as a pupil often touches the eye's rim.
-    thin = np.ones((max(3, k // 3),) * 2, np.uint8)
-    dark = cv2.morphologyEx((mask & (L[..., 0] < STYLE["pupil"])).astype(np.uint8), cv2.MORPH_OPEN, thin).astype(bool)
+    wear = np.ones((max(3, k // 3),) * 2, np.uint8)
+    dark = cv2.morphologyEx((mask & (L[..., 0] < STYLE["pupil"])).astype(np.uint8), cv2.MORPH_OPEN, wear).astype(bool)
     shine = mask & (L[..., 0] > 190)                              # inside a pupil, anything light is its glint
     n, lbl, stats, cent = cv2.connectedComponentsWithStats(dark.astype(np.uint8), connectivity=8)
     for i in range(1, n):
@@ -448,7 +456,13 @@ def find_face(L, ink, mask, gh, gw, k, size):
         comp = lbl == i
         if (comp & edge).sum() > 0.3 * comp.sum():
             continue                                              # part of the outline
-        lines |= comp.reshape(gh, k, gw, k).mean(axis=(1, 3)) >= 0.18
+        # traced along its middle line, at least one pixel: a short mouth spread over three pixels
+        # covers none of them much, but is still a mouth
+        middle = thin(comp).reshape(gh, k, gw, k).sum(axis=(1, 3))
+        stroke = middle >= k / 4
+        if not stroke.any():
+            stroke = middle == middle.max()
+        lines |= stroke
     lines[int(gh * 0.5):] = False
     return features, lines
 
@@ -609,10 +623,28 @@ def line_art(ink, mask, cells, k):
     for i in range(1, n):
         if stats[i, cv2.CC_STAT_AREA] < 2:
             lines[lbl == i] = False
+    # texture (muscles, fur, scales) is suggested, not drawn stroke for stroke: where a part's lines
+    # would cover more than STYLE["line_density"] of it, its longest lines are kept first
+    n, lbl, stats, _ = cv2.connectedComponentsWithStats(lines.astype(np.uint8), connectivity=8)
+    patches = []                                         # each connected patch of a part on its own (a head, a wing)
+    for i in np.unique(cells[cells >= 0]):
+        pn, plbl = cv2.connectedComponents((cells == i).astype(np.uint8), connectivity=4)
+        patches += [plbl == j for j in range(1, pn)]
+    for sel in patches:
+        budget = STYLE["line_density"] * sel.sum()
+        comps = sorted({int(c) for c in np.unique(lbl[sel & lines]) if c}, key=lambda c: -stats[c, cv2.CC_STAT_AREA])
+        used = 0
+        for c in comps:
+            size = int((lbl[sel] == c).sum())
+            if used + size > budget:
+                lines[(lbl == c) & sel] = False
+            else:
+                used += size
     return lines
 
 
-def line_kinds(cells, colours, drawn_lines):
+def line_kinds(cells, colours, drawn_lines, face_lines=None):
+    face_lines = np.zeros(cells.shape, bool) if face_lines is None else face_lines
     """For every pixel which tone it takes instead of its shade: 'outline', 'outline_dark', 'line' or ''."""
     gh, gw = cells.shape
     solid = cells >= 0
@@ -638,8 +670,10 @@ def line_kinds(cells, colours, drawn_lines):
                 kinds[y, x] = "outline"                            # the line goes on the darker part's side
                 break
         else:
-            if drawn_lines[y, x]:                                  # traced lines: darkest in the face
-                kinds[y, x] = "outline" if y < face_top else "line"
+            if face_lines[y, x]:                                   # brows and mouths: darkest
+                kinds[y, x] = "outline"
+            elif drawn_lines[y, x]:                                # other traced lines: the part's line tone
+                kinds[y, x] = "line"
     return kinds
 
 
@@ -672,7 +706,11 @@ def fit_palette(wanted, counts, limit):
         for a in range(len(reps)):
             for b in range(a + 1, len(reps)):
                 ra, rb = reps[a], reps[b]
-                cost = np.linalg.norm(colour[ra] - colour[rb]) * (1 + 0.02 * min(counts.get(ra, 0), counts.get(rb, 0)))
+                ca, cb = colour[ra], colour[rb]
+                # a change of hue is far worse than a change of lightness: a yellow must never become olive
+                d = np.sqrt((ca[0] - cb[0]) ** 2 + 4 * ((ca[1] - cb[1]) ** 2 + (ca[2] - cb[2]) ** 2))
+                same_part = ra[0] == rb[0] and ra[0] != "eye"
+                cost = d * (0.5 if same_part else 1.0) * (1 + 0.02 * min(counts.get(ra, 0), counts.get(rb, 0)))
                 if best is None or cost < best[0]:
                     best = (cost, ra, rb)
         _, keep, drop = best
@@ -733,6 +771,14 @@ def draw(path, size=54, window=None, fit=None, palette=None):
     features, face_lines = find_face(L, ink, big_mask, gh, gw, k, size)      # 4
     eyes, eye_colours = draw_eyes(big_rgb, L, ink, big_mask, cells, k)
     marks = face_marks(big_rgb, L, big_mask, ink, cells, k)
+    # the face is where the eyes are: brows and mouth lie around them; elsewhere a stroke is a line
+    eye_px = [yx for yx, kind in eyes.items()] + [(y, x) for kind, y, x in features if kind == "pupil"]
+    face_box = np.zeros((gh, gw), bool)
+    if eye_px:
+        ys = [p[0] for p in eye_px]; xs = [p[1] for p in eye_px]
+        reach = max(3, (max(xs) - min(xs)) // 2 + 2)
+        face_box[max(0, min(ys) - 3):min(gh, max(ys) + reach + 2), max(0, min(xs) - reach):min(gw, max(xs) + reach + 1)] = True
+    face_lines = face_lines & face_box
     drawn_lines = line_art(ink, big_mask, cells, k) | (face_lines & (cells >= 0))
     # no lines inside eye whites (or other very light parts): an eye is its rim, pupil and glint
     light_part = np.isin(cells, [i for i in range(len(colours)) if colours[i][0] > 200])
@@ -745,7 +791,7 @@ def draw(path, size=54, window=None, fit=None, palette=None):
         drawn_lines = drawn_lines | (dark_detail & ~light_part)
     else:
         level = light_levels(cells, tone)                                     # 5
-    kinds = line_kinds(cells, colours, drawn_lines)                           # 6
+    kinds = line_kinds(cells, colours, drawn_lines, face_lines & (cells >= 0))  # 6
 
     # 7: what every pixel wants, then fitted into the palette
     names = ("shadow", "base", "light", "highlight")
@@ -763,7 +809,9 @@ def draw(path, size=54, window=None, fit=None, palette=None):
             if traced[y, x] and kinds[y, x]:
                 continue                                   # a traced line of the artwork stays a line
             c = int(cells[y, x])
-            options = [(n, tone_of(colours[c], n)) for n in tone_names]
+            # line and outline tones only where the artwork has a stroke: a deep shadow is still a shadow
+            allowed = names + ("line",) if stroke[y, x] else names       # the outline tone belongs to the silhouette
+            options = [(n, tone_of(colours[c], n)) for n in allowed]
             best = min(options, key=lambda o: np.linalg.norm((o[1] - rep[y, x]) * np.array([1.0, 0.6, 0.6])))[0]
             if best in names:
                 level[y, x], kinds[y, x] = names.index(best), ""

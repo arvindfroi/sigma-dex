@@ -94,3 +94,38 @@ def standards(front, back=None, target=None):
             if b["noise"] > 0.2:
                 failed.append("the back is noisy (%.0f%% single pixels)" % (100 * b["noise"]))
     return failed
+
+
+def fidelity(art_path, sprite):
+    """How well the sprite keeps the artwork's colours: for each main colour of the artwork (by
+    the share of the creature it covers), how much of the sprite has a colour like it. 1.0 = the
+    same colours in the same amounts; a yellow that turned olive or a part that vanished lowers it.
+    Outline and shading tones are left out (only well-lit, flat colours are compared)."""
+    import cv2
+    import numpy as np
+    from PIL import Image
+    def flat_colours(rgb, opaque):
+        lab = cv2.cvtColor(rgb.reshape(-1, 1, 3).astype(np.uint8), cv2.COLOR_RGB2LAB).reshape(-1, 3).astype(np.float32)[opaque.ravel()]
+        lab = lab[(lab[:, 0] > 60)]                       # not ink, not outline
+        return lab
+    art = Image.open(art_path).convert("RGBA")
+    flat = Image.new("RGBA", art.size, "white"); flat.alpha_composite(art)
+    a = np.array(flat.convert("RGB"))
+    bg = (a.min(axis=2) > 232).astype(np.uint8)
+    n, lbl = cv2.connectedComponents(bg, connectivity=4)
+    border = set(np.unique(np.concatenate([lbl[0], lbl[-1], lbl[:, 0], lbl[:, -1]]))) - {0}
+    mask = ~(np.isin(lbl, list(border)) & (bg == 1))
+    small = cv2.resize(a, (128, 128), interpolation=cv2.INTER_AREA); m = cv2.resize(mask.astype(np.uint8), (128, 128), interpolation=cv2.INTER_NEAREST).astype(bool)
+    art_lab = flat_colours(small, m)
+    s = np.array(sprite.convert("RGBA")); sp_lab = flat_colours(s[..., :3], s[..., 3] > 0)
+    if not len(art_lab) or not len(sp_lab):
+        return 0.0
+    cv2.setRNGSeed(1)
+    k = 6
+    _, idx, centres = cv2.kmeans(art_lab[:, 1:].copy(), k, None, (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.5), 3, cv2.KMEANS_PP_CENTERS)
+    shares = np.bincount(idx.ravel(), minlength=k) / len(idx)
+    score = 0.0
+    for c, share in zip(centres, shares):
+        near = (np.linalg.norm(sp_lab[:, 1:] - c, axis=1) < 18).mean()
+        score += min(near, share)                          # the sprite has this colour in about this amount
+    return round(float(score), 3)
