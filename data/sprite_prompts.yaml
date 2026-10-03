@@ -52,29 +52,32 @@ emerald_strength: {emerald-light: 0.4, emerald-medium: 0.55}
 
 # The "clean" sprite style (sprite-clean), the one the group liked on 2026-10-03. Most concept
 # art is a plain, static drawing, and a sprite needs more character than that: the AI *redraws*
-# the first reference picture with freedom (bigger head and eyes, attitude, a dynamic pose);
+# the reference pictures with freedom (bigger head and eyes, attitude, a dynamic pose);
 # telling it to "keep the design exactly" makes it copy the reference instead. {look} is the
-# Pokemon's look. The result is shrunk to a rough sprite at official size, and `cleanup` has the
+# Pokemon's look, {others} names the other reference pictures. A fixed grin overrode grumpy
+# designs (Autuman), so the expression now comes from the references. The result is shrunk to a rough sprite at official size, and `cleanup` has the
 # AI repaint that rough sprite at exactly its size and place; this is snapped to the 64 grid.
 # Tried and worse: asking the cleanup to stay pixel art, and a Sprite XL LoRA finish on top.
 redesign_front: >-
-  Redraw the creature from <image1> as new official artwork. Clean official artwork of a starter
-  monster from a Game Boy Advance era monster-collecting RPG: bold dark outlines, flat two-tone
-  cel shading, vivid colors, simple chunky shapes, thick limbs. Drawn alone on a transparent
-  background: no text, no border, no shadow, no ground, no scenery, exactly one creature,
-  centered with a margin. Keep its species, colors and signature features ({look}), but change
-  its pose and proportions: give it an oversized round head, very large expressive eyes with big
-  black pupils and bright white highlights, an open grinning mouth, a cheeky confident face full
-  of attitude, chunkier rounder body and thicker limbs, and put it in an energetic, dynamic
-  battle pose, crouched and leaning forward toward the left side of the picture, one arm raised,
-  in three-quarter view, the whole body visible.
+  Redraw the creature from <image1> as new official artwork.{others} Clean official artwork of a
+  starter monster from a Game Boy Advance era monster-collecting RPG: bold dark outlines, flat
+  two-tone cel shading, vivid colors, simple chunky shapes, thick limbs. Drawn alone on a
+  transparent background: no text, no border, no shadow, no ground, no scenery, exactly one
+  creature, centered with a margin. Keep its species, colors and signature features ({look}),
+  but change its pose and proportions: give it an oversized round head, very large expressive
+  eyes with big black pupils and bright white highlights, the same expression and personality as
+  in the reference pictures but exaggerated and full of attitude, chunkier rounder body and
+  thicker limbs, big simple rounded hands and feet, any pattern drawn as a few big shapes, and put
+  it in an energetic, dynamic battle pose, crouched and leaning forward toward the left side of
+  the picture, one arm raised, in three-quarter view, the whole body visible.
 redesign_back: >-
-  Redraw the creature from <image1> as new official artwork. Clean official artwork of a starter
-  monster from a Game Boy Advance era monster-collecting RPG: bold dark outlines, flat two-tone
-  cel shading, vivid colors, simple chunky shapes, thick limbs. Drawn alone on a transparent
-  background: no text, no border, no shadow, no ground, no scenery, exactly one creature,
-  centered with a margin. Keep its species, colors and signature features ({look}), with a big
-  round head and chunky limbs. View: seen from behind, as the player's own creature in a monster
+  Redraw the creature from <image1> as new official artwork.{others} Clean official artwork of a
+  starter monster from a Game Boy Advance era monster-collecting RPG: bold dark outlines, flat
+  two-tone cel shading, vivid colors, simple chunky shapes, thick limbs. Drawn alone on a
+  transparent background: no text, no border, no shadow, no ground, no scenery, exactly one
+  creature, centered with a margin. Keep its species, colors and signature features ({look}),
+  with a big round head, chunky limbs, big simple rounded hands and feet, and any pattern drawn
+  as a few big shapes. View: seen from behind, as the player's own creature in a monster
   battle game. The camera is behind it and a little above, looking over its shoulder: we see its
   back, the back of its head and its tail, and its head is turned toward the upper right so one
   eye and the side of its face show in profile. It leans forward toward the opponent, tense and

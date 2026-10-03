@@ -125,7 +125,8 @@ def recipes(job, settings):
                          [parent["raw_" + view]] + refs)
         elif redesign:
             look = job["look"].strip().rstrip(".")
-            out[view] = (" ".join(settings["redesign_" + view].split()).replace("{look}", look), refs[:1])
+            others = "".join(" <image%d> shows the same creature." % (n + 2) for n in range(len(refs[1:3])))
+            out[view] = (" ".join(settings["redesign_" + view].split()).replace("{look}", look).replace("{others}", others), refs[:3])
         else:
             subject = "The creature is the one shown in <image1>. " if refs else ""
             out[view] = ("%s %s%s %s" % (style, subject, " ".join(views[view].split()), job["look"]), refs)
@@ -232,26 +233,49 @@ def sprite_xl(picture, look, view, seed, target, species_id, repaint):
     return colour_lock(start, repainted, target)
 
 
+def fit_into(image, box, side=1024):
+    """The drawing in `image` (background cut away), scaled to fit `box` (left, top, right, bottom)
+    and placed in it bottom-centered, on a white side x side picture."""
+    from PIL import Image
+    image = sprites.cutout(image)
+    image = image.crop(image.getchannel("A").point(lambda a: 255 if a >= 128 else 0).getbbox())
+    scale = min((box[2] - box[0]) / image.width, (box[3] - box[1]) / image.height)
+    image = image.resize((max(1, round(image.width * scale)), max(1, round(image.height * scale))), Image.LANCZOS)
+    canvas = Image.new("RGBA", (side, side), "white")
+    canvas.alpha_composite(image, ((box[0] + box[2] - image.width) // 2, box[3] - image.height))
+    return canvas.convert("RGB")
+
+
 def clean_sprite(picture, view, seed, target, species_id, prompt):
     """The sprite-clean finish: shrink the illustration to a rough sprite, then have the AI repaint
     that rough sprite at the same size and place, as a spriter draws over a shrunk reference.
-    Returns a 1024 picture of the whole 64 frame (one sprite pixel = 16 pixels)."""
+    Returns a 1024 picture of the whole 64 frame (one sprite pixel = 16 pixels).
+
+    The size is not left to the AI: the illustration it is shown is placed exactly over the rough
+    sprite, and whatever it draws is scaled back into the rough sprite's box (official size)."""
     from PIL import Image
     with tempfile.TemporaryDirectory() as folder:
         folder = Path(folder)
         start = sprite_xl(picture, "", view, seed, folder / "start.png", species_id, False)
         sprites.build(species_id, {"front": start}, note="rough", grid=96, out=folder / "rough", detail=True)
         small = sprites.as_rgba(folder / "rough" / "front.png")
+        guide = Image.open(start)
+        guide.load()
     rough = Image.new("RGBA", small.size, "white")
     rough.alpha_composite(small)
     rough_path = Path(str(target) + ".rough.png")
     rough.convert("RGB").resize((1024, 1024), Image.NEAREST).save(rough_path)
-    comfy.generate(prompt, target, [rough_path, picture], seed=seed, quiet=True)
+    unit = 1024 // small.width
+    box = tuple(v * unit for v in small.getchannel("A").getbbox())
+    guide_path = Path(str(target) + ".guide.png")
+    fit_into(guide, box).save(guide_path)
+    comfy.generate(prompt, target, [rough_path, guide_path], seed=seed, quiet=True)
     if view == "back":                                # the AI likes to draw the legs back in: cut it off where the rough sprite ends
-        bottom = small.getchannel("A").getbbox()[3] * 1024 // small.height
         cleaned = Image.open(target).convert("RGB")
-        cleaned.paste("white", (0, bottom, cleaned.width, cleaned.height))
-        cleaned.save(target)
+        cleaned.paste("white", (0, box[3], cleaned.width, cleaned.height))
+    else:
+        cleaned = fit_into(Image.open(target), box)
+    cleaned.save(target)
     return target
 
 
