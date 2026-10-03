@@ -94,26 +94,21 @@ cleanup: >-
   highlight pixel, the mouth a clean dark line. Plain white background.
 
 # The "official" sprite style (sprite-official, the default since 2026-10-03): Qwen draws the
-# creature as official-style artwork (clean outlines, flat cel shading, sprite proportions), then
+# creature as Ruby/Sapphire-style official artwork (chosen by the group over three other styles) (clean outlines, flat cel shading, sprite proportions), then
 # scripts/pixel_render.py builds the sprite from it pixel by pixel. {look} is the Pokemon's look,
 # {others} names the other reference pictures, {pose} comes from official_poses.
 official_front: >-
-  Redraw the creature from <image1> as official Pokemon artwork, in the style of Ken Sugimori's
-  character art for the Game Boy Advance Pokemon games: clean thin dark outlines, smooth flat cel
-  shading with one soft shadow tone and small highlights, natural believable anatomy and appealing
-  proportions.{others} Keep its design, colors, markings and signature features clearly
-  recognisable: {look}. Draw it the way it would be drawn for a Game Boy Advance battle sprite, with
-  the proportions of a starter-stage sprite: a large head, about 40 percent of its total height, a
-  compact body, a big expressive face with large clear eyes, bold eyebrows and a clear mouth, so
-  its expression reads at a tiny size; the same expression and personality as in the reference
-  pictures. Pose:
-  {pose} Three-quarter view turned toward the lower left, the whole body visible, a compact
-  silhouette with the limbs clearly separated from the body. Exactly one creature, full body,
-  plain white background, no text, no shadow on the ground.
+  Redraw the creature from <image1> as official artwork from Pokemon Ruby and Sapphire (2002), Ken
+  Sugimori's Game Boy Advance era style: thick confident dark outlines, large flat areas of color
+  with a single crisp shadow tone, few small details, chunky simple readable shapes, a big head and
+  big expressive eyes.{others} Keep its design, colors and signature features: {look}; the same
+  expression as in the reference, stronger. Pose: {pose} Three-quarter view turned toward the
+  lower left, the whole body visible. Exactly one creature, full body, plain white background, no
+  text, no shadow on the ground.
 official_back: >-
-  Draw the creature from <image1>{others} from behind, as official Pokemon artwork in the style of
-  Ken Sugimori's character art for the Game Boy Advance Pokemon games: clean thin dark outlines,
-  smooth flat cel shading with one soft shadow tone, simple clean shapes. It is {look}. View: seen
+  Draw the creature from <image1>{others} from behind, as official artwork from Pokemon Ruby and
+  Sapphire (2002), Ken Sugimori's Game Boy Advance era style: thick confident dark outlines, large
+  flat areas of color with a single crisp shadow tone, chunky simple readable shapes. It is {look}. View: seen
   from behind, as the player's own creature in a battle: the camera is behind it and a little
   above, looking over its shoulder. We see its back, the back of its head and its tail; its head
   is turned toward the upper right so one eye and the side of its face show in profile. It leans

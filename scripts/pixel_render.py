@@ -341,7 +341,15 @@ def find_face(L, ink, mask, gh, gw, k, size):
             y, x = int(cent[i][1] // k), int(cent[i][0] // k)
             if kind == "pupil" and y > STYLE["face"] * gh:
                 continue                                          # a dark spot low on the body is a spot, not a pupil
-            features.append((kind, y, x))
+            if kind == "pupil":
+                # a dark eye keeps its shape: every pixel the blob covers for a third or more is pupil
+                cov = (lbl == i).reshape(gh, k, gw, k).mean(axis=(1, 3))
+                cover = list(zip(*np.nonzero(cov >= 0.33))) or [(y, x)]
+                for cy, cx in cover:
+                    features.append(("pupil", int(cy), int(cx)))
+                features.append(("pupil_centre", y, x))
+            else:
+                features.append((kind, y, x))
     edge = mask & ~cv2.erode(mask.astype(np.uint8), np.ones((k // 2 * 2 + 1,) * 2, np.uint8)).astype(bool)
     n, lbl, stats, _ = cv2.connectedComponentsWithStats(ink.astype(np.uint8), connectivity=8)
     lines = np.zeros((gh, gw), bool)
@@ -382,6 +390,16 @@ def draw_eyes(rgb, L, ink, mask, cells, k):
             glints.append((int(cent[i][1] // k), int(cent[i][0] // k)))     # white inside dark: a glint
         elif area >= 0.5 * k * k:
             candidates.append(i)
+    # a narrow (angry, squinting) eye has little white: if one eye was found, a smaller white at
+    # the same height is the other eye
+    if candidates:
+        heights = [cent[i][1] for i in candidates]
+        for i in range(1, n):
+            if i in candidates or (int(cent[i][1] // k), int(cent[i][0] // k)) in glints:
+                continue
+            x0, y0, bw, bh, area = stats[i]
+            if area >= 0.12 * k * k and any(abs(cent[i][1] - hy) < 2 * k for hy in heights) and y0 + bh / 2 <= STYLE["face"] * mask.shape[0]:
+                candidates.append(i)
     for i in candidates:
         x0, y0, bw, bh, area = stats[i]
         ys0, ys1, xs0, xs1 = max(0, y0 - k // 2), min(mask.shape[0], y0 + bh + k // 2), max(0, x0 - k // 2), min(mask.shape[1], x0 + bw + k // 2)
@@ -640,6 +658,18 @@ def draw(path, size=54, window=None, fit=None, palette=None):
                 level[y, x], kinds[y, x] = names.index(best), ""
             else:
                 kinds[y, x] = best
+        # inner strokes are one pixel wide, as a spriter draws them: thick dark runs from the artwork
+        # are thinned to their middle (pupils are drawn separately and keep their shape)
+        edge = np.zeros_like(solid)
+        for n in neighbours4(cells, -1):
+            edge |= solid & (n < 0)
+        inner = solid & ~edge & np.isin(kinds, ["line", "outline"])
+        keep = thin(inner)
+        for y, x in zip(*np.nonzero(inner & ~keep)):
+            c = int(cells[y, x])
+            options = [(n, tone_of(colours[c], n)) for n in names]
+            kinds[y, x] = ""
+            level[y, x] = names.index(min(options, key=lambda o: np.linalg.norm(o[1] - rep[y, x]))[0])
     for y, x in zip(*np.nonzero(solid)):
         key = (int(cells[y, x]), kinds[y, x] or names[level[y, x]])
         want[(y, x)] = key
@@ -647,16 +677,42 @@ def draw(path, size=54, window=None, fit=None, palette=None):
     wanted = {key: tone_of(colours[key[0]], key[1]) for key in counts}
     pupil = min((wanted[key] for key in wanted if key[1] == "outline_dark"), key=lambda c: c[0], default=np.array([20, 128, 128], np.float32))
     eye = {"pupil": pupil.copy(), "glint": np.array([248, 128, 128], np.float32)}
-    # every pupil has its glint: if the artwork's glint did not land next to it, it goes just above it
-    # (or beside it), as in the games' eyes
+    # a glint belongs in an eye: light specks that are not next to a pupil (the thin white rim
+    # light along the edge of official-style art) are not glints
     pupils = [(y, x) for kind, y, x in features if kind == "pupil"]
+    pupils += [yx for yx, kind in eyes.items() if kind in ("pupil", "iris")]
+    features = [f for f in features if f[0] != "glint" or any(abs(f[1] - py) <= 2 and abs(f[2] - px) <= 2 for py, px in pupils)]
+    centres = [(y, x) for kind, y, x in features if kind == "pupil_centre"]
+    kept, used = [], set()
+    for f in features:
+        if f[0] == "pupil_centre":
+            continue
+        if f[0] == "glint" and centres:
+            owner = min(centres, key=lambda c: abs(c[0] - f[1]) + abs(c[1] - f[2]))
+            if owner in used:
+                continue                                          # one glint per eye
+            used.add(owner)
+        kept.append(f)
+    features = kept
+    eyes = {yx: kind for yx, kind in eyes.items() if kind != "glint" or any(abs(yx[0] - py) <= 2 and abs(yx[1] - px) <= 2 for py, px in pupils)}
     glints = [(y, x) for kind, y, x in features if kind == "glint"]
-    for y, x in pupils:
-        if not any(abs(y - gy) <= 1 and abs(x - gx) <= 1 and (gy, gx) != (y, x) for gy, gx in glints):
-            for gy, gx in ((y - 1, x), (y - 1, x - 1), (y, x - 1), (y, x + 1)):
+    pupils = [(y, x) for kind, y, x in features if kind == "pupil"]
+    # every eye has one glint: an eye whose pupil has none gets one at its upper left, inside it if
+    # the eye is big enough, else just above it
+    for cy, cx in centres:
+        blob = [(y, x) for y, x in pupils if abs(y - cy) <= 2 and abs(x - cx) <= 2]
+        if any(abs(gy - cy) <= 2 and abs(gx - cx) <= 2 for gy, gx in glints):
+            continue
+        if len(blob) >= 4:
+            gy, gx = min(blob, key=lambda p: p[0] + p[1])
+            features.append(("glint", gy, gx)); glints.append((gy, gx))
+        else:
+            for gy, gx in ((cy - 1, cx), (cy - 1, cx - 1), (cy, cx - 1)):
                 if 0 <= gy < gh and 0 <= gx < gw and solid[gy, gx] and (gy, gx) not in pupils:
                     features.append(("glint", gy, gx)); glints.append((gy, gx))
                     break
+    # glints are drawn after pupils, so they stay on top
+    features = [f for f in features if f[0] != "glint"] + [f for f in features if f[0] == "glint"]
     for kind, y, x in features:
         if 0 <= y < gh and 0 <= x < gw and solid[y, x]:
             old_key = want[(y, x)]
