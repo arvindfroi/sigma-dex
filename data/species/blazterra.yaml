@@ -74,7 +74,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art: "assets/concept-art/blazterra/355.webp"
+  concept_art: "assets/concept-art/blazterra/378.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

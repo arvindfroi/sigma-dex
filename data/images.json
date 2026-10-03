@@ -1190,20 +1190,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 355,
-    "species": "blazterra",
-    "file": "assets/concept-art/blazterra/355.webp",
-    "caption": "Trading-card style picture from Discord (#kanteradet), posted by Ruben 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 356,
-    "species": "blazterra",
-    "file": "assets/concept-art/blazterra/356.webp",
-    "caption": "Trading-card style picture from Discord (#kanteradet), posted by Ruben 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 357,
     "species": "cryoblade",
     "file": "assets/concept-art/cryoblade/357.webp",
@@ -1265,20 +1251,6 @@
     "file": "assets/concept-art/torchbat/371.png",
     "caption": null,
     "editor": null
-  },
-  {
-    "id": 372,
-    "species": "heatbat",
-    "file": "assets/concept-art/heatbat/372.png",
-    "caption": null,
-    "editor": null
-  },
-  {
-    "id": 373,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/373.webp",
-    "caption": "Pixel version, cut out of the starter-choice picture from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
-    "editor": "Claude (from Discord)"
   },
   {
     "id": 375,
@@ -1753,6 +1725,34 @@
     "id": 446,
     "species": "lapper",
     "file": "assets/concept-art/lapper/446.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 447,
+    "species": "blazterra",
+    "file": "assets/concept-art/blazterra/447.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 448,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/448.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 449,
+    "species": "heatbat",
+    "file": "assets/concept-art/heatbat/449.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 450,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/450.png",
     "caption": null,
     "editor": null
   }
