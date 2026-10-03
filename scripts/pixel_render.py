@@ -11,7 +11,8 @@ Shrinking a picture to 64 pixels turns its lines and faces to mud. Game sprites 
 
 It needs clean cel-shaded art on a white or transparent background: the sprite worker's
 "sprite-official" style has Qwen draw that first. Same input, same sprite: nothing is random.
-`bold` is the Sigma look (near-black outline, two tones, only strong inner lines).
+`gen3` is the Sigma look, modelled on the games' own sprites (see shade_gen3); `bold` is the
+older look (near-black outline, two flat tones).
 """
 import cv2
 import numpy as np
@@ -48,10 +49,11 @@ def box_of(path):
     return xs.min(), ys.min(), xs.max() + 1, ys.max() + 1
 
 
-def render(path, size=54, k=12, materials=9, view="front", window=None, fit=None, bold=False):
+def render(path, size=54, k=12, materials=9, view="front", window=None, fit=None, bold=False, gen3=False):
     """window: the part of the picture to use (x0, y0, x1, y1), e.g. shared by two animation frames;
     fit: (width, height) in sprite pixels instead of `size` for the longest side;
-    bold: the clean, bold look (near-black outline, two tones, only strong inner lines)."""
+    bold: the clean, bold look (near-black outline, two tones, only strong inner lines);
+    gen3: the look of the games' own sprites, measured on them (see shade_gen3)."""
     art = load(path)
     mask = mask_of(art)
     x0, y0, x1, y1 = window or box_of(path)
@@ -142,6 +144,12 @@ def render(path, size=54, k=12, materials=9, view="front", window=None, fit=None
         strokes |= (cov >= 0.18)
     strokes[top_limit:] = False
 
+    if gen3:
+        cells = smooth_silhouette(cells)
+        out = shade_gen3(cells, tone, ink, base_lab, materials, strokes)
+        # face strokes are drawn by shade_gen3 in the part's own outline tone, not stamped in black
+        return finish(out, cells, features, np.zeros_like(strokes), by_material=True)
+
     # 3. three hard tones per material from the art's own light and dark
     rgb = np.zeros((gh, gw, 3), np.uint8)
     bandmap = np.ones((gh, gw), np.int8)                          # 0 shadow, 1 base, 2 light
@@ -213,24 +221,40 @@ def render(path, size=54, k=12, materials=9, view="front", window=None, fit=None
             if ink[y, x] > (0.45 if y < gh * 0.5 else (2 if bold else 0.65)):     # strong ink inside a part (mouth, eyelid); stricter on the body
                 out[y, x] = dark_of[c]
 
+    return finish(out, cells, features, strokes)
+
+
+def finish(out, cells, features, strokes, by_material=False):
+    """Stamp the small features and clean stray pixels; returns the RGBA sprite.
+    by_material: only a pixel whose material differs from all four neighbours is a stray pixel
+    (single pixels of shading inside a part are texture, as in the games' sprites)."""
+    gh, gw = cells.shape
+    solid = cells >= 0
+    out = out.copy()
     out[strokes & solid] = (40, 30, 40)
-    # 5. small features: pupils dark, eye whites and glints light, at least one pixel each
+    # small features: pupils dark, eye whites and glints light, at least one pixel each
     for kind, fy, fx, area in features:
         if 0 <= fy < gh and 0 <= fx < gw and solid[fy, fx]:
             out[fy, fx] = (24, 24, 32) if kind == "dark" else (248, 248, 248)
-    # clean: a pixel that shares its colour with none of its four neighbours is a stray pixel; it
-    # takes the commonest colour around it (not the stamped eyes, brows and mouths)
+    # clean: a pixel that shares its colour (or material) with none of its four neighbours is a stray
+    # pixel; it takes the commonest colour around it (not the stamped eyes, brows and mouths)
     stamped = {(fy, fx) for _, fy, fx, _ in features} | set(zip(*np.nonzero(strokes)))
     for _ in range(3):
         key = out[..., 0].astype(int) * 65536 + out[..., 1].astype(int) * 256 + out[..., 2]
         keyp = np.pad(np.where(solid, key, -1), 1, constant_values=-1)
+        cellp = np.pad(cells, 1, constant_values=-1)
         changed = False
         for y in range(gh):
             for x in range(gw):
                 if not solid[y, x] or (y, x) in stamped:
                     continue
                 four = [keyp[y + 1 + dy, x + 1 + dx] for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1))]
-                if key[y, x] in four or -1 in four:      # the outline along the silhouette stays
+                if -1 in four:                           # the outline along the silhouette stays
+                    continue
+                if by_material:
+                    if cells[y, x] in [cellp[y + 1 + dy, x + 1 + dx] for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1))]:
+                        continue
+                elif key[y, x] in four:
                     continue
                 around = [(keyp[y + 1 + dy, x + 1 + dx], y + dy, x + dx) for dy in (-1, 0, 1) for dx in (-1, 0, 1)
                           if (dy or dx) and keyp[y + 1 + dy, x + 1 + dx] >= 0]
@@ -248,25 +272,124 @@ def render(path, size=54, k=12, materials=9, view="front", window=None, fit=None
     return Image.fromarray(rgba)
 
 
-def main():
-    import argparse
-    import sys
-    parser = argparse.ArgumentParser(description="Build a sprite from clean cel-shaded art (the Sigma sprite style).")
-    parser.add_argument("art", help="the artwork (official-style, white or transparent background)")
-    parser.add_argument("out", help="where to save the sprite (a PNG, to give to scripts/sprites.py)")
-    parser.add_argument("--size", type=int, default=54, help="longest side in pixels: 54 first stage, 60 middle, 63 final")
-    parser.add_argument("--back", action="store_true", help="a back view: drawn 1.4 times closer, cut off flat at the bottom")
-    parser.add_argument("--soft", action="store_true", help="coloured outlines and three tones instead of the bold Sigma look")
-    args = parser.parse_args()
-    if args.back:
-        image = render(args.art, fit=(62, round(args.size * 1.4)), bold=not args.soft)
-        image = image.crop((0, 0, image.width, min(args.size + 2, int(image.height * 0.85))))
-    else:
-        image = render(args.art, size=args.size, bold=not args.soft)
-    image.save(args.out)
-    print("%s: %d x %d pixels" % (args.out, image.width, image.height))
-    return 0
+def smooth_silhouette(cells):
+    """Clean the outer shape the way a spriter would: an empty pixel with solid pixels on three or
+    four sides is a notch and gets filled; a solid pixel touching the shape on only one side is a
+    spur and goes. Keeps outlines as smooth curves instead of jagged steps."""
+    cells = cells.copy()
+    gh, gw = cells.shape
+    for _ in range(2):
+        solid = cells >= 0
+        pad = np.pad(solid, 1)
+        n4 = pad[:-2, 1:-1].astype(int) + pad[2:, 1:-1] + pad[1:-1, :-2] + pad[1:-1, 2:]
+        cp = np.pad(cells, 1, constant_values=-1)
+        for y, x in zip(*np.nonzero(~solid & (n4 >= 3))):
+            around = [cp[y + 1 + dy, x + 1 + dx] for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)) if cp[y + 1 + dy, x + 1 + dx] >= 0]
+            cells[y, x] = max(set(around), key=around.count)
+        cells[solid & (n4 <= 1)] = -1
+    return cells
 
 
-if __name__ == "__main__":
-    raise SystemExit(main())
+def shade_gen3(cells, tone, ink, base_lab, materials, strokes):
+    """Colours in the manner of the games' sprites, as measured on 844 of them (2026-10-03):
+    - each part has four tones (dark, shadow, base, light) plus a rare highlight; shadows lean cool,
+      lights warm;
+    - volume comes from the shape: a pixel with the outside (or another big part) close below and to
+      its right is in shadow, one with it close above and to its left is lit; added to the artwork's
+      own light and dark. Light falls from the upper left; edges are not all darkened alike;
+    - the outline is the part's own darkest tone (a coloured outline), nearly black only on the
+      shadow side at the bottom right; lines between parts and the artwork's inner lines (fur,
+      creases) are drawn in dark tones of the part, not in black."""
+    gh, gw = cells.shape
+    solid = cells >= 0
+    def tint(i, dl, da=0.0, db=0.0, scale=None, chroma=1.0):
+        b = base_lab[i].astype(np.float32).copy()
+        b[0] = b[0] * scale if scale is not None else np.clip(b[0] + dl, 0, 255)
+        b[1] = 128 + (b[1] - 128) * chroma + da; b[2] = 128 + (b[2] - 128) * chroma + db
+        return to_rgb(b.reshape(1, 1, 3))[0, 0]
+    ramp = {}
+    for i in range(materials):
+        L0 = base_lab[i][0]
+        soft = 0.55 if L0 > 210 else 1.0                       # white parts get gentler shading
+        # dark tones keep the part's hue but not its full colour: the games' outlines are muted
+        ramp[i] = {"outline": tint(i, 0, 1, -3, scale=0.38, chroma=0.22), "outline_dark": tint(i, 0, 0, -2, scale=0.22, chroma=0.15),
+                   "dark": tint(i, 0, 2, -4, scale=0.52, chroma=0.4), "shadow": tint(i, -26 * soft, 3, -7),
+                   "base": tint(i, 0), "light": tint(i, min(16, 252 - L0), -2, 5), "highlight": tint(i, min(30, 254 - L0), -3, 3)}
+    # parts: patches of a material big enough to count as a part
+    patch = np.zeros((gh, gw), np.int32)
+    for i in range(materials):
+        n, lbl, stats, _ = cv2.connectedComponentsWithStats((cells == i).astype(np.uint8), connectivity=4)
+        for j in range(1, n):
+            patch[lbl == j] = stats[j, cv2.CC_STAT_AREA]
+    big = patch >= 10
+    # volume from the shape: look 1-3 pixels toward the light (up-left) and away from it (down-right)
+    def outside(y, x, c):                                   # only the silhouette: inner part borders made false creases
+        return not (0 <= y < gh and 0 <= x < gw) or cells[y, x] < 0
+    light = np.zeros((gh, gw), np.float32)
+    for y in range(gh):
+        for x in range(gw):
+            c = cells[y, x]
+            if c < 0:
+                continue
+            s = 0.0
+            for d, w in ((1, 1.0), (2, 0.6), (3, 0.35)):
+                s += w * (outside(y - d, x - d, c) or outside(y - d, x, c)) - w * (outside(y + d, x + d, c) or outside(y + d, x, c))
+            light[y, x] = s
+    # and across each whole part: lighter toward its upper left, darker toward its lower right
+    for i in range(materials):
+        n, lbl, stats, cent = cv2.connectedComponentsWithStats((cells == i).astype(np.uint8), connectivity=4)
+        for j in range(1, n):
+            x0, y0, bw, bh, area = stats[j]
+            if area < 6:
+                continue
+            ys, xs = np.nonzero(lbl == j)
+            light[ys, xs] += -1.1 * ((xs - cent[j][0]) / max(bw, 2) + (ys - cent[j][1]) / max(bh, 2))
+    # smooth light and the artwork's tone a little within each part, so shading comes in clusters
+    def smooth(field, i):
+        sel = (cells == i).astype(np.float32)
+        num = cv2.GaussianBlur(field * sel, (0, 0), 0.9)
+        den = cv2.GaussianBlur(sel, (0, 0), 0.9)
+        return num / np.maximum(den, 1e-3)
+    out = np.zeros((gh, gw, 3), np.uint8)
+    for i in range(materials):
+        sel = solid & (cells == i)
+        if not sel.any():
+            continue
+        t = smooth(tone, i)[sel]
+        z = (t - np.median(t)) / (t.std() + 6)
+        score = 0.8 * z + smooth(light, i)[sel]
+        level = np.select([score < -0.45, score < 0.8, score < 1.7], [0, 1, 2], 3)      # shadow, base, light, highlight
+        band = np.full((gh, gw), -1, np.int8); band[sel] = level
+        # a shade that touches no pixel of its own shade (four sides) joins the commonest one around it
+        for _ in range(2):
+            bp = np.pad(band, 1, constant_values=-1)
+            for y, x in zip(*np.nonzero(sel)):
+                four = [bp[y + 1 + dy, x + 1 + dx] for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1))]
+                own = [v for v in four if v >= 0]
+                if own and band[y, x] not in own:
+                    band[y, x] = max(set(own), key=own.count)
+        names = ("shadow", "base", "light", "highlight")
+        for y, x in zip(*np.nonzero(sel)):
+            out[y, x] = ramp[i][names[band[y, x]]]
+    # lines: silhouette outline, part boundaries, and the artwork's inner lines in dark tones
+    pad = np.pad(cells, 1, constant_values=-1)
+    for y in range(gh):
+        for x in range(gw):
+            c = cells[y, x]
+            if c < 0:
+                continue
+            up, down, left, right = pad[y, x + 1], pad[y + 2, x + 1], pad[y + 1, x], pad[y + 1, x + 2]
+            if -1 in (up, down, left, right):
+                shadow_side = down == -1 or right == -1
+                out[y, x] = ramp[c]["outline_dark"] if shadow_side else ramp[c]["outline"]
+                continue
+            for o, (dy, dx) in ((up, (-1, 0)), (down, (1, 0)), (left, (0, -1)), (right, (0, 1))):
+                if o != c and big[y, x] and big[y + dy, x + dx] and base_lab[c][0] <= base_lab[o][0] and np.linalg.norm(base_lab[c] - base_lab[o]) > 22:
+                    out[y, x] = ramp[c]["outline"]
+                    break
+            else:
+                if strokes[y, x]:
+                    out[y, x] = ramp[c]["outline"]
+                elif ink[y, x] > 0.5:
+                    out[y, x] = ramp[c]["dark"]
+    return out

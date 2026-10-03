@@ -47,8 +47,11 @@ def score(img, view="front", target=None):
 
 
 # What "up to the standard of the games' sprites" means here, as checks that can be measured.
-# Each is (name, test on the parts of a sprite, what it means). Thresholds were set on 2026-10-03
-# from Gen 3 conventions (16-colour palettes, 1-pixel dark outline, no stray pixels, readable eyes).
+# Calibrated on 2026-10-03 on the game's own 843 front/back pairs (pokeemerald-expansion's
+# graphics, measured locally, not copied): every limit sits at or beyond what 95% of them do, so a
+# real Pokemon sprite passes and ours have to look like one. Measured ranges (5% / median / 95%):
+# colours 10/13/15, outline brightness 23/44/73, black share of the outline 0.28/0.54/0.84,
+# inner lines 0.05/0.11/0.18 of the inside, single-pixel texture 0.06/0.10/0.17.
 def standards(front, back=None, target=None):
     """A list of the standards the sprite pair fails (empty = passes). front/back: 64x64 RGBA."""
     import numpy as np
@@ -56,24 +59,27 @@ def standards(front, back=None, target=None):
     f = parts(front, "front")
     if "empty" in f:
         return ["the front is empty"]
-    colours = set()
-    for image in [front] + ([back] if back is not None else []):
+    for name, image in (("front", front), ("back", back)):
+        if image is None:
+            continue
         a = np.array(image.convert("RGBA"))
-        colours |= {tuple(c) for c in a[a[..., 3] >= 128][:, :3]}
-    if len(colours) > 15:
-        failed.append("more than 15 colours (%d) shared by front and back" % len(colours))
-    if f["outline"] < 0.9:
-        failed.append("the outline is not closed and dark (%d%% of the edge)" % round(100 * f["outline"]))
-    if f["noise"] > 0.04:
-        failed.append("stray pixels (%.1f%% of the inside)" % (100 * f["noise"]))
-    if f["eyes"] < 1:
-        failed.append("no readable eye (a dark pupil next to a light pixel) in the upper part")
-    if target and abs(max(f["height"], f["width"]) - target) > 4:
-        failed.append("wrong size: %d pixels, should be about %d" % (max(f["height"], f["width"]), target))
+        n = len({tuple(c) for c in a[a[..., 3] >= 128][:, :3]})
+        if n > 15:
+            failed.append("the %s has more than 15 colours (%d)" % (name, n))
     a = np.array(front.convert("RGBA")); op = a[..., 3] >= 128
     pad = np.pad(op, 1)
     edge = op & ~(pad[:-2, 1:-1] & pad[2:, 1:-1] & pad[1:-1, :-2] & pad[1:-1, 2:])
     lum = a[..., :3].astype(int) @ [0.299, 0.587, 0.114]
+    if lum[edge].mean() > 80 or (lum[edge] > 150).mean() > 0.12:
+        failed.append("no clear dark outline (outline brightness %d, the games' sprites stay under 80)" % lum[edge].mean())
+    if (lum[edge] < 40).mean() > 0.9:
+        failed.append("the outline is plain black (%d%%); the games colour it except on the shadow side" % round(100 * (lum[edge] < 40).mean()))
+    if f["noise"] > 0.2:
+        failed.append("noisy: %.0f%% single pixels (the games' sprites stay under 17%%)" % (100 * f["noise"]))
+    if f["eyes"] < 1:
+        failed.append("no readable eye (a dark pupil next to a light pixel) in the upper part")
+    if target and abs(max(f["height"], f["width"]) - target) > 4:
+        failed.append("wrong size: %d pixels, should be about %d" % (max(f["height"], f["width"]), target))
     if (lum[edge] > 200).mean() > 0.05:
         failed.append("a light halo around the edge (background left in)")
     if back is not None:
@@ -85,6 +91,6 @@ def standards(front, back=None, target=None):
             rows = np.nonzero(ba.any(axis=1))[0]
             if ba[rows.max()].sum() < 0.35 * b["width"]:
                 failed.append("the back is not cut off flat at the bottom")
-            if b["noise"] > 0.04:
-                failed.append("stray pixels on the back (%.1f%%)" % (100 * b["noise"]))
+            if b["noise"] > 0.2:
+                failed.append("the back is noisy (%.0f%% single pixels)" % (100 * b["noise"]))
     return failed
