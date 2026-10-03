@@ -144,6 +144,10 @@ python scripts/sprites.py make waffy --front front.png --back back.png
   character sheets for Leafing and Torchbat). Pictures with a lot of text work, but the creature
   should be big in them.
 - A short look on the Pokemon's page (colours and the 2-3 things that must be there).
+- A `signature` for detailed creatures (in `data/sprite_prompts.yaml` under the Pokemon): the
+  features that must be big and clear on the sprite, e.g. "a huge toothy grin" or "pink blush on
+  both cheeks". The artwork then exaggerates them, as a spriter would; on a 64-pixel sprite a
+  detail the artwork draws small cannot be saved later.
 - The pose choice in the studio, for creatures whose personality shows in a pose.
 
 ## Tried and dropped (2026-10-03)

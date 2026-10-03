@@ -132,6 +132,9 @@ def recipes(job, settings):
                 others = "".join(" <image%d> shows the same creature." % (n + 2) for n in range(len(refs[1:3])))
                 pose = settings["official_poses"].get(job.get("pose") or "three-quarter", settings["official_poses"]["three-quarter"])
                 text = settings["official_front"].replace("{pose}", pose)
+                signature = job.get("signature") or (settings.get("pokemon", {}).get(job["species_id"]) or {}).get("signature")
+                text = text.replace("{signature}", (" Its most important features must be big, bold and clearly readable even on a tiny sprite, "
+                                                    "exaggerated if needed: %s." % signature.strip().rstrip(".")) if signature else "")
                 out[view] = (" ".join(text.split()).replace("{look}", look).replace("{others}", others), refs[:3])
             else:
                 # the concept art comes first: shown the new front picture first, Qwen copies its angle

@@ -96,7 +96,9 @@ cleanup: >-
 # The "official" sprite style (sprite-official, the default since 2026-10-03): Qwen draws the
 # creature as Ruby/Sapphire-style official artwork (chosen by the group over three other styles) (clean outlines, flat cel shading, sprite proportions), then
 # scripts/pixel_render.py builds the sprite from it pixel by pixel. {look} is the Pokemon's look,
-# {others} names the other reference pictures, {pose} comes from official_poses.
+# {others} names the other reference pictures, {pose} comes from official_poses, {signature} from the
+# Pokemon's `signature`: the features that must be big and clear on the sprite (a spriter's detail
+# hierarchy: what makes it recognisable is exaggerated, the rest simplified).
 official_front: >-
   Redraw the creature from <image1> as official artwork from Pokemon Ruby and Sapphire (2002), Ken
   Sugimori's Game Boy Advance era style: thick confident dark outlines, large flat areas of color,
@@ -105,7 +107,7 @@ official_front: >-
   Advance battle sprite: light from the upper left, a crisp shadow tone on the lower right of every
   part and a few bold, clearly shaped highlight patches on the head and body; no thin rim light
   lines along the edges.{others} Keep its design, colors and signature features: {look}; the same
-  expression as in the reference, stronger. Pose: {pose} Three-quarter view turned toward the
+  expression as in the reference, stronger.{signature} Pose: {pose} Three-quarter view turned toward the
   lower left, the whole body visible. Exactly one creature, full body, plain white background, no
   text, no shadow on the ground.
 official_back: >-
@@ -152,3 +154,7 @@ pokemon:
       a small red lizard standing upright, with huge long pointed bat-like ears that burn with
       small yellow flames at their tips, a cream belly, small claws and a
       flame burning on the tip of its tail.
+  autuman:
+    signature: a grumpy frowning face with angry eyebrows and a small frowning mouth, pink blush marks on both cheeks
+  bugmight:
+    signature: a huge wide toothy grin with white teeth, big round white eyes, a big head, long antennae
