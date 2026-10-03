@@ -54,7 +54,9 @@ STYLE = dict(
     detail_drop=60,        # Lab lightness below the part's colour at which a pixel's dark detail is drawn as a line
     stroke_contrast=35,
     trace=0.5,             # share of a sprite pixel's width an ink stroke must run through it to become a line
-    trace_margin=0.8,      # strokes closer to the silhouette than this (in sprite pixels) belong to the outline    # Lab lightness: a cell whose darkest sixth is this much darker than its middle shows a stroke
+    trace_margin=0.8,      # strokes closer to the silhouette than this (in sprite pixels) belong to the outline
+    accents=3,             # face marks in colours the sprite does not have (a pink blush) get at most this many palette slots
+    accent_gap=35,         # Lab distance from every colour the sprite has, for a mark's colour to count as an accent    # Lab lightness: a cell whose darkest sixth is this much darker than its middle shows a stroke
 )
 # The tones of a part, as (lightness change or factor, colourfulness factor, cool/warm shift).
 # Shadows a little cooler and lights a little warmer. Outlines as measured on the games' starters:
@@ -276,9 +278,9 @@ def thin_features(mask, part, ink, cells, k):
     cells = cells.copy()
     kernel = np.ones((k // 2 + 1,) * 2, np.uint8)
     keep = np.zeros((gh, gw), bool)
-    def trace(region, owner):
+    def trace(region, owner, min_run=1):
         middle = thin(region)
-        run = middle.reshape(gh, k, gw, k).sum(axis=(1, 3)) >= k / 3
+        run = middle.reshape(gh, k, gw, k).sum(axis=(1, 3)) >= min_run      # the middle line is continuous, so is the traced line
         for y, x in zip(*np.nonzero(run)):
             o = owner[y * k:(y + 1) * k, x * k:(x + 1) * k][middle[y * k:(y + 1) * k, x * k:(x + 1) * k]]
             o = o[o >= 0]
@@ -296,8 +298,42 @@ def thin_features(mask, part, ink, cells, k):
         thin_in = sel & ~cv2.morphologyEx(sel.astype(np.uint8), cv2.MORPH_OPEN, kernel).astype(bool)
         n, lbl, st, _ = cv2.connectedComponentsWithStats(thin_in.astype(np.uint8), connectivity=8)
         long = np.isin(lbl, [j for j in range(1, n) if max(st[j, 2], st[j, 3]) >= 2 * k])   # a stripe, not an edge fringe
-        trace(long & grid, np.where(long, part, -1))
+        trace(long & grid, np.where(long, part, -1), k / 3)
     return cells, keep
+
+
+def face_marks(rgb, L, mask, ink, cells, k):
+    """Every mark in the face is drawn, as a spriter draws it: in the head (the upper part of the
+    creature) each small region of the artwork that differs from the skin around it - a blush, a
+    mouth, teeth, brows, a nose - keeps at least one pixel in its own colour: its middle line if it
+    is a stroke, the pixels it covers most if it is a blob. Returns {(y, x): Lab colour}."""
+    gh, gw = cells.shape
+    top = int(STYLE["face"] * mask.shape[0])
+    head = np.zeros(mask.shape, bool); head[:top] = mask[:top]
+    smooth = cv2.medianBlur(rgb, 5)
+    Ls = lab(smooth)
+    skin = cv2.medianBlur(rgb, 4 * k + 1 if (4 * k + 1) % 2 else 4 * k + 2)       # the surroundings of every point
+    diff = np.linalg.norm(Ls - lab(skin), axis=2)
+    mark = head & (diff > 30) & ~ink
+    marks = {}
+    n, lbl, st, _ = cv2.connectedComponentsWithStats(mark.astype(np.uint8), connectivity=8)
+    for i in range(1, n):
+        x0, y0, bw, bh, area = st[i]
+        if area < 0.08 * k * k or area > 6 * k * k:
+            continue                                           # a speck, or not a mark but a whole part
+        comp = lbl == i
+        colour = Ls[comp].mean(axis=0)
+        cover = comp.reshape(gh, k, gw, k).mean(axis=(1, 3))
+        cellsof = list(zip(*np.nonzero(cover >= 0.3)))
+        if not cellsof:
+            middle = thin(comp)
+            cellsof = list(zip(*np.nonzero(middle.reshape(gh, k, gw, k).sum(axis=(1, 3)) >= max(1, k // 4))))
+        if not cellsof:
+            y, x = np.unravel_index(cover.argmax(), cover.shape); cellsof = [(y, x)]
+        for y, x in cellsof:
+            if cells[y, x] >= 0:
+                marks[(int(y), int(x))] = colour
+    return marks
 
 
 # ---------- 3. shape ----------
@@ -464,7 +500,7 @@ def draw_eyes(rgb, L, ink, mask, cells, k):
         # an eye has a pupil: a white with no solid dark inside it is a horn, a tooth or a marking;
         # and the eye is the pupil and the white close around it (a horn touching the eye is not eye)
         pupil_px = whole & (L[..., 0] < STYLE["pupil"] + 20)
-        if pupil_px.sum() < 0.25 * k * k:
+        if pupil_px.sum() < 0.05 * k * k:
             continue
         whole &= cv2.dilate(pupil_px.astype(np.uint8), np.ones((4 * k + 1,) * 2, np.uint8)).astype(bool)
         iris_px = whole & dark & (chroma > 14) & (L[..., 0] > STYLE["pupil"])
@@ -483,6 +519,12 @@ def draw_eyes(rgb, L, ink, mask, cells, k):
                     eyes[(y, x)] = "iris" if "iris" in colours and coloured > 0.5 * d else "pupil"
                 else:
                     eyes[(y, x)] = "white"
+        # a small or thin pupil still gets its pixel: the one holding most of it
+        if not any(eyes.get((y, x)) in ("pupil", "iris") for y in range(max(0, ys0 // k), min(gh, (ys1 - 1) // k + 1)) for x in range(max(0, xs0 // k), min(gw, (xs1 - 1) // k + 1))):
+            share = pupil_px.reshape(gh, k, gw, k).sum(axis=(1, 3))
+            y, x = np.unravel_index(share.argmax(), share.shape)
+            if share[y, x] > 0 and cells[y, x] >= 0:
+                eyes[(int(y), int(x))] = "pupil"
         colours["white"] = np.array([244, 128, 128], np.float32)
     return eyes, colours
 
@@ -688,6 +730,7 @@ def draw(path, size=54, window=None, fit=None, palette=None):
     cells = clean_shape(cells, colours, thin_kept)                            # 3
     features, face_lines = find_face(L, ink, big_mask, gh, gw, k, size)      # 4
     eyes, eye_colours = draw_eyes(big_rgb, L, ink, big_mask, cells, k)
+    marks = face_marks(big_rgb, L, big_mask, ink, cells, k)
     drawn_lines = line_art(ink, big_mask, cells, k) | (face_lines & (cells >= 0))
     # no lines inside eye whites (or other very light parts): an eye is its rim, pupil and glint
     light_part = np.isin(cells, [i for i in range(len(colours)) if colours[i][0] > 200])
@@ -754,6 +797,7 @@ def draw(path, size=54, window=None, fit=None, palette=None):
             counts[("eye", kind)] = counts.get(("eye", kind), 0) + 1
             counts[old_key] -= 1
     eye.update(eye_colours)
+    wanted_marks = {}
     for (y, x), kind in eyes.items():
         if kind not in eye:
             continue
@@ -763,6 +807,33 @@ def draw(path, size=54, window=None, fit=None, palette=None):
         want[(y, x)] = ("eye", kind)
         counts[("eye", kind)] = counts.get(("eye", kind), 0) + 1
         counts[old_key] -= 1
+    # face marks: a mark takes the nearest colour the sprite already has (a mouth is the line tone, teeth
+    # the white); only a true accent - a colour far from all of them, like a pink blush - gets a palette
+    # slot of its own, at most STYLE["accents"] of them (palette budgeting, as spriters do it)
+    existing = dict(wanted); existing.update({("eye", k2): v for k2, v in eye.items()})
+    accents = {}
+    for colour in marks.values():
+        if min(np.linalg.norm(v - colour) for v in existing.values()) > STYLE["accent_gap"]:
+            near = next((a for a in accents if np.linalg.norm(accents[a][0] - colour) < 20), None)
+            if near is None:
+                accents[("mark", len(accents))] = [colour, 1]
+            else:
+                accents[near][1] += 1
+    keep_accents = dict(sorted(accents.items(), key=lambda a: -a[1][1])[:STYLE["accents"]])
+    for key, (colour, n) in keep_accents.items():
+        wanted_marks[key] = colour
+    pool = dict(existing); pool.update(wanted_marks)
+    for (y, x), colour in marks.items():
+        if want.get((y, x), ("", ""))[0] == "eye":
+            continue
+        key = min(pool, key=lambda kk: np.linalg.norm(pool[kk] - colour))
+        if key[0] == "eye" and key[1] in ("pupil", "glint") and key not in counts:
+            continue
+        old_key = want[(y, x)]
+        want[(y, x)] = key
+        counts[key] = counts.get(key, 0) + 1
+        counts[old_key] -= 1
+    wanted.update(wanted_marks)
     wanted.update({("eye", k2): v for k2, v in eye.items()})
     counts = {key: n for key, n in counts.items() if n > 0}
     wanted = {key: wanted[key] for key in counts}
@@ -774,6 +845,9 @@ def draw(path, size=54, window=None, fit=None, palette=None):
         for kind in ("pupil", "glint", "iris", "white"):                     # eyes are never merged away
             if ("eye", kind) in counts:
                 counts[("eye", kind)] += 10 ** 6
+        for key in list(counts):                                              # nor are the face marks
+            if key[0] == "mark":
+                counts[key] += 10 ** 5
         chosen = fit_palette(wanted, counts, STYLE["colours"])
         rgb_of = {key: tuple(int(v) for v in to_rgb(c)[0]) for key, c in chosen.items()}
     out = np.zeros((gh, gw, 4), np.uint8)

@@ -83,7 +83,11 @@ back of the queue and says why.
       it, and the glint the artwork has. Rules that keep it from ever drawing a false eye: an eye
       has a pupil (a white without one is a horn or a tooth); a dark blob is an eye only if the
       artwork has a glint in it (else it is a tail, a claw or a marking); glints are never
-      invented. Brows and mouths are kept as face lines. Only in the upper part of the creature.
+      invented. Every other mark in the face that differs from the skin around it - a blush,
+      a mouth, teeth, brows - keeps at least one pixel (detail ranked by recognition, not by
+      area, as spriters do). A mark takes the nearest colour the sprite already has; only true
+      accents (a pink blush) get palette slots of their own, at most three, so a detailed
+      creature does not lose its body colours. Only in the upper part of the creature.
    5. *tones*: every pixel takes the tone of its part (shadow, base, light, highlight, line or
       outline) nearest to what the artwork shows there; where a dark stroke runs through a pixel
       the stroke wins. The artwork's detail decides, the ramps keep it clean.
