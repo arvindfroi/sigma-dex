@@ -18,9 +18,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 7 | [Torchbat](data/species/torchbat.yaml) | Fire | Blaze, No Guard (H) | 320 | Heatbat (Lv 16) | 38% |
 | 8 | [Heatbat](data/species/heatbat.yaml) | Fire / Flying | Blaze, No Guard (H) | 420 | Blazterra (Lv 36) | 21% |
 | 9 | [Blazterra](data/species/blazterra.yaml) | Fire / Flying | Blaze, No Guard (H) | 530 |  | 24% |
-| 10 | [Erobi](data/species/erobi.yaml) | Normal / Flying | Keen Eye | 280 |  | 28% |
-| 11 | [Harpie](data/species/harpie.yaml) | Normal / Flying |  |  |  | 7% |
-| 12 | [Smeatherace](data/species/smeatherace.yaml) | Normal / Flying | Unburden | 495 |  | 28% |
+| 10 | [Erobi](data/species/erobi.yaml) | Normal / Flying | Keen Eye | 280 |  | 31% |
+| 11 | [Harpie](data/species/harpie.yaml) | Normal / Flying |  |  |  | 10% |
+| 12 | [Smeatherace](data/species/smeatherace.yaml) | Normal / Flying | Unburden | 495 |  | 31% |
 | 13 | [Bolthook](data/species/bolthook.yaml) | Dark / Flying | Strong Jaw |  |  | 24% |
 | 14 | [Wump](data/species/wump.yaml) | Bug |  |  |  | 10% |
 | 15 | [Twemp](data/species/twemp.yaml) | Bug / Grass |  |  |  | 7% |
@@ -67,10 +67,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 56 | [Razox](data/species/razox.yaml) | Fairy / Ice |  |  |  | 7% |
 | 57 | [Sigmanian Unown](data/species/bulgarian-unown.yaml) | Electric / Psychic |  | 336 |  | 24% |
 | 58 | [Unknighted](data/species/united.yaml) | Electric / Psychic |  | 425 |  | 24% |
-| 59 | [Hairyen](data/species/hairyen.yaml) | Grass / Water | Diver | 325 |  | 24% |
-| 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Broken Swivel | 540 |  | 24% |
-| 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel |  | 301 |  | 24% |
-| 62 | [Nuclobyl](data/species/nuclobyl.yaml) | Poison / Steel |  | 525 |  | 24% |
+| 59 | [Hairyen](data/species/hairyen.yaml) | Grass / Water | Diver | 325 |  | 28% |
+| 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Broken Swivel | 540 |  | 28% |
+| 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel |  | 301 |  | 28% |
+| 62 | [Nuclobyl](data/species/nuclobyl.yaml) | Poison / Steel |  | 525 |  | 28% |
 | 63 | [Gentie](data/species/gentie.yaml) |  |  |  |  | 0% |
 | 64 | [Yanklet](data/species/yanklet.yaml) | Steel / Flying |  |  |  | 7% |
 | 65 | [Anjane](data/species/anjane.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 325 | Janenon (Lv 42) | 28% |

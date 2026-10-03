@@ -10,7 +10,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Area | Item | Filled in |
 |------|------|----------:|
 | Identity | types | 82 / 83 |
-| Identity | designer credit | 41 / 83 |
+| Identity | designer credit | 48 / 83 |
 | Dex page | category | 42 / 83 |
 | Dex page | description | 42 / 83 |
 | Dex page | height | 29 / 83 |
@@ -128,9 +128,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #10 [Erobi](data/species/erobi.yaml) - 28%
+### #10 [Erobi](data/species/erobi.yaml) - 31%
 
-- **Identity:** designer credit
 - **Dex page:** body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
@@ -139,9 +138,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #11 [Harpie](data/species/harpie.yaml) - 7%
+### #11 [Harpie](data/species/harpie.yaml) - 10%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
@@ -150,9 +148,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #12 [Smeatherace](data/species/smeatherace.yaml) - 28%
+### #12 [Smeatherace](data/species/smeatherace.yaml) - 31%
 
-- **Identity:** designer credit
 - **Dex page:** body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
@@ -575,9 +572,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #59 [Hairyen](data/species/hairyen.yaml) - 24%
+### #59 [Hairyen](data/species/hairyen.yaml) - 28%
 
-- **Identity:** designer credit
 - **Dex page:** weight, body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
@@ -586,9 +582,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #60 [Panzerien](data/species/panzerien.yaml) - 24%
+### #60 [Panzerien](data/species/panzerien.yaml) - 28%
 
-- **Identity:** designer credit
 - **Dex page:** weight, body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
@@ -597,9 +592,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #61 [Nucloid](data/species/nucloid.yaml) - 24%
+### #61 [Nucloid](data/species/nucloid.yaml) - 28%
 
-- **Identity:** designer credit
 - **Dex page:** body color
 - **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
@@ -608,9 +602,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #62 [Nuclobyl](data/species/nuclobyl.yaml) - 24%
+### #62 [Nuclobyl](data/species/nuclobyl.yaml) - 28%
 
-- **Identity:** designer credit
 - **Dex page:** body color
 - **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles

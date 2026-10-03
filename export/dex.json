@@ -992,7 +992,7 @@
       "dex": 10,
       "name": "Erobi",
       "credits": {
-        "designer": null,
+        "designer": "Magnus",
         "artist": null
       },
       "types": [
@@ -1066,7 +1066,7 @@
       "dex": 11,
       "name": "Harpie",
       "credits": {
-        "designer": null,
+        "designer": "Magnus",
         "artist": null
       },
       "types": [
@@ -1140,7 +1140,7 @@
       "dex": 12,
       "name": "Smeatherace",
       "credits": {
-        "designer": null,
+        "designer": "Magnus",
         "artist": null
       },
       "types": [
@@ -3451,12 +3451,12 @@
         "hidden": "Sap Sipper"
       },
       "base_stats": {
-        "hp": 70,
+        "hp": 75,
         "attack": 95,
-        "defense": 55,
+        "defense": 50,
         "sp_attack": 95,
-        "sp_defense": 60,
-        "speed": 115
+        "sp_defense": 50,
+        "speed": 125
       },
       "ev_yield": {
         "speed": 2
@@ -4340,7 +4340,7 @@
       "dex": 59,
       "name": "Hairyen",
       "credits": {
-        "designer": null,
+        "designer": "Magnus",
         "artist": null
       },
       "types": [
@@ -4414,7 +4414,7 @@
       "dex": 60,
       "name": "Panzerien",
       "credits": {
-        "designer": null,
+        "designer": "Magnus",
         "artist": null
       },
       "types": [
@@ -4488,7 +4488,7 @@
       "dex": 61,
       "name": "Nucloid",
       "credits": {
-        "designer": null,
+        "designer": "Magnus",
         "artist": null
       },
       "types": [
@@ -4562,7 +4562,7 @@
       "dex": 62,
       "name": "Nuclobyl",
       "credits": {
-        "designer": null,
+        "designer": "Magnus",
         "artist": null
       },
       "types": [

@@ -22,12 +22,12 @@ abilities:
   hidden: Sap Sipper     # optional
 
 base_stats:              # each 1-255
-  hp: 70
+  hp: 75
   attack: 95
-  defense: 55
+  defense: 50
   sp_attack: 95
-  sp_defense: 60
-  speed: 115
+  sp_defense: 50
+  speed: 125
 
 ev_yield: {speed: 2}     # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
