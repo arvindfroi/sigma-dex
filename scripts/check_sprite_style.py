@@ -25,13 +25,15 @@ import sprites
 
 ROOT = Path(__file__).resolve().parent.parent / "tests" / "sprite_style"
 SIZE = {"waffy": 54, "torchbat": 54, "leafing": 54, "autuman": 60, "tinky": 54, "chillalit": 54, "bugmight": 63, "ampeel": 63}
+AREA = {54: 955, 60: 1530, 63: 2452}          # first, middle, final stage (sprite_worker.sprite_area)
 
 
 def render_pair(front_art, back_art, size):
     """Front and back exactly as the sprite worker makes them (official_sprites), through the game converter."""
-    front = pixel_render.render(front_art, size=size)
+    front = pixel_render.render(front_art, size=size, area=AREA.get(size))
+    size = max(front.size)
     back = pixel_render.render(back_art, fit=(62, round(size * 1.4)), palette=pixel_render.palette_of(front))
-    back = back.crop((0, 0, back.width, min(size + 2, int(back.height * 0.85))))
+    back = back.crop((0, 0, back.width, round(back.height / 1.4) + 2))
     with tempfile.TemporaryDirectory() as folder:
         folder = Path(folder)
         front.save(folder / "f.png"); back.save(folder / "b.png")
@@ -50,7 +52,7 @@ def main():
         name = art.name[:-len("_front.webp")]
         sid = name.rsplit("_", 1)[0]
         front, back = render_pair(art, art.with_name(name + "_back.webp"), SIZE.get(sid, 54))
-        fails = sprite_quality.standards(front, back, SIZE.get(sid))
+        fails = sprite_quality.standards(front, back, None)
         total += 1
         passed += not fails
         diff = []

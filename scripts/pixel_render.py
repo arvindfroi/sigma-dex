@@ -57,16 +57,17 @@ STYLE = dict(
     trace_margin=0.8,      # strokes closer to the silhouette than this (in sprite pixels) belong to the outline    # Lab lightness: a cell whose darkest sixth is this much darker than its middle shows a stroke
 )
 # The tones of a part, as (lightness change or factor, colourfulness factor, cool/warm shift).
-# Shadows a little cooler and lights a little warmer; outlines keep the hue but are muted, as the
-# measured outlines of the games' sprites are (median brightness 44, about half nearly black).
+# Shadows a little cooler and lights a little warmer. Outlines as measured on the games' starters:
+# nearly black on the shadow side (about half of every outline is darker than brightness 30, which
+# gives the sprites their "pop"), and a muted dark tone of the part on the lit side (brightness ~70-90).
 RAMP = {
     "highlight": ("+", 30, 1.0, 3), "light": ("+", 16, 1.0, 5), "base": ("+", 0, 1.0, 0),
     "shadow": ("+", -26, 1.0, -7), "line": ("*", 0.42, 0.3, -4),
-    "outline": ("*", 0.38, 0.22, -3), "outline_dark": ("*", 0.22, 0.15, -2),
+    "outline": ("*", 0.5, 0.45, -3), "outline_dark": ("*", 0.1, 0.12, -2),
 }
 
 
-RAMP_FLOOR = {"outline": 72, "outline_dark": 40, "line": 62}   # in Lab lightness (0-255): 72 is about brightness 44
+RAMP_FLOOR = {"outline": 72, "outline_dark": 0, "line": 62}   # in Lab lightness (0-255): 72 is about brightness 44
 
 
 # ---------- colour helpers ----------
@@ -339,7 +340,7 @@ def find_face(L, ink, mask, gh, gw, k, size):
     # found by draw_eyes.) Thin lines are worn away first, as a pupil often touches the eye's rim.
     thin = np.ones((max(3, k // 3),) * 2, np.uint8)
     dark = cv2.morphologyEx((mask & (L[..., 0] < STYLE["pupil"])).astype(np.uint8), cv2.MORPH_OPEN, thin).astype(bool)
-    shine = mask & (L[..., 0] > STYLE["glint"])
+    shine = mask & (L[..., 0] > 190)                              # inside a pupil, anything light is its glint
     n, lbl, stats, cent = cv2.connectedComponentsWithStats(dark.astype(np.uint8), connectivity=8)
     for i in range(1, n):
         area, bw, bh = stats[i, cv2.CC_STAT_AREA], stats[i, cv2.CC_STAT_WIDTH], stats[i, cv2.CC_STAT_HEIGHT]
@@ -353,7 +354,7 @@ def find_face(L, ink, mask, gh, gw, k, size):
         hull = np.zeros(mask.shape, np.uint8)
         cv2.fillConvexPoly(hull, cv2.convexHull(cv2.findNonZero(blob.astype(np.uint8))), 1)
         glint = shine & hull.astype(bool)
-        if glint.sum() < 0.04 * k * k:
+        if glint.sum() < 0.015 * k * k:
             continue                                              # no glint of its own: not an eye
         cov = blob.reshape(gh, k, gw, k).mean(axis=(1, 3))
         for cy, cx in (list(zip(*np.nonzero(cov >= 0.33))) or [(y, x)]):
@@ -603,13 +604,22 @@ def fit_palette(wanted, counts, limit):
 
 # ---------- the whole ----------
 
-def render(path, size=54, window=None, fit=None, palette=None):
+def render(path, size=54, window=None, fit=None, palette=None, area=None):
     """The sprite for the artwork at `path` as an RGBA picture.
     size: longest side in pixels; fit: (width, height) to fit instead; window: (x0, y0, x1, y1) part
     of the picture to use (shared by two animation frames); palette: RGB colours to use (the
     front's, for a back view), else the renderer chooses its own 15.
     Thin tips thinner than half a pixel drop out, so the drawn creature can come out smaller than
     asked; then it is drawn once more, scaled up by the difference."""
+    if area and fit is None and window is None:
+        # the game sizes creatures by how much of the frame they cover, not by their longest side: a
+        # compact creature and a long one of the same stage cover about the same number of pixels
+        first = draw(path, size, window, fit, palette)
+        covered = max(1, int((np.array(first)[..., 3] > 0).sum()))
+        size = min(64.0, size * (area / covered) ** 0.5)
+        image = draw(path, size, window, fit, palette)
+        drawn = max(image.size)
+        return image if drawn <= 64 else draw(path, size * 64 / drawn, window, fit, palette)
     image = draw(path, size, window, fit, palette)
     if fit is None and window is None:
         a = np.array(image)[..., 3] > 0
@@ -751,7 +761,7 @@ def main():
     palette = palette_of(Image.open(args.palette_from)) if args.palette_from else None
     if args.back:
         image = render(args.art, fit=(62, round(args.size * 1.4)), palette=palette)
-        image = image.crop((0, 0, image.width, min(args.size + 2, int(image.height * 0.85))))
+        image = image.crop((0, 0, image.width, round(image.height / 1.4) + 2))
     else:
         image = render(args.art, size=args.size, palette=palette)
     image.save(args.out)

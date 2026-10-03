@@ -190,6 +190,16 @@ def sprite_pixels(species_id, view):
     return size
 
 
+def sprite_area(species_id):
+    """How many pixels of the frame the front sprite should cover. Measured on the games' 45 starter
+    sprites (2026-10-03, median): first stages 764, middle 1224, final 1962; ours are a quarter
+    bigger, as the group found the official ones small."""
+    stats = next((data.get("base_stats") or {} for sid, _, data in dexlib.load_species()[0] if sid == species_id), {})
+    total = sum(v for v in stats.values() if isinstance(v, int))
+    official = 764 if total and total < 360 else 1224 if total and total < 480 else 1962 if total else 1224
+    return round(official * 1.25)
+
+
 def colour_lock(start, repainted, target, keep_light=0.35):
     """Keep the sprite model's pixel shading and outlines, but take the colors from the illustration.
 
@@ -320,10 +330,11 @@ def official_sprites(raw, species_id, prefix):
     at the bottom (at the usual height, or its lowest 15% for low, wide creatures)."""
     size = sprite_pixels(species_id, "front")
     files = {"front": Path(str(prefix) + "front.png"), "back": Path(str(prefix) + "back.png"), "icon": Path(str(prefix) + "icon.png")}
-    front = pixel_render.render(raw["front"], size=size)
+    front = pixel_render.render(raw["front"], size=size, area=sprite_area(species_id))
+    size = max(front.size)
     front.save(files["front"])
     back = pixel_render.render(raw["back"], fit=(62, round(size * BACK_ZOOM)), palette=pixel_render.palette_of(front))
-    back.crop((0, 0, back.width, min(size + 2, int(back.height * 0.85)))).save(files["back"])
+    back.crop((0, 0, back.width, round(back.height / BACK_ZOOM) + 2)).save(files["back"])   # the lowest part is cut off
     pixel_render.render(raw["front"], size=28).save(files["icon"])
     return files
 

@@ -37,12 +37,15 @@ mess on our sprites (the group's verdict, 2026-10-03).
 What that means for a sprite:
 
 - **Frame:** 64 x 64 pixels; front and back share one palette of at most 15 colours.
-- **Size:** first stages about 54 pixels, middle stages 60, final stages 63 (from the base stat
-  total; `sprite_pixels` in `scripts/sprite_worker.py`). The games' median is 53.
+- **Size:** by how much of the frame the creature covers, not by its longest side, as the games
+  do: measured on their 45 starter sprites, first stages cover 764 pixels, middle 1224, final 1962;
+  ours a quarter more (`sprite_area` in `scripts/sprite_worker.py`, by base stat total). A compact
+  creature and a long one of the same stage then look the same size.
 - **Front:** three-quarter view turned to the left, the whole body, an expressive battle pose.
 - **Back:** seen over the shoulder, drawn closer than the front and cut off flat at the bottom.
-- **Outline:** closed and dark, but coloured: each part's own darkest tone, nearly black only on
-  the shadow side at the bottom right. Lines between parts and inner lines (creases, mouths) are
+- **Outline:** closed; nearly black on the shadow side (about half of the games' outlines are
+  darker than brightness 30, which gives the sprites their "pop"), a muted dark tone of the part
+  on the lit side. Lines between parts and inner lines (creases, mouths) are
   dark tones of the part, not black.
 - **Shading:** four tones per part (shadow, base, light, a rare highlight), shadows a little
   cooler and lights warmer. Light comes from the upper left across the whole part, and shade
