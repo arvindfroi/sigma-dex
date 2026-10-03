@@ -27,7 +27,7 @@ base_stats:              # each 1-255
   defense: 45
   sp_attack: 25
   sp_defense: 55
-  speed: 70
+  speed: 67
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -52,7 +52,15 @@ evolutions:
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Growl}
+    - {level: 8, move: Howl}
+    - {level: 12, move: Mud-Slap}
+    - {level: 16, move: Double Slap}
+    - {level: 20, move: Wake-Up Slap}
+    - {level: 24, move: Take Down}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line

@@ -70,7 +70,7 @@
         "level_up": [
           {
             "level": 1,
-            "move": "Scratch"
+            "move": "Tackle"
           },
           {
             "level": 1,
@@ -81,11 +81,11 @@
             "move": "Leafage"
           },
           {
-            "level": 8,
+            "level": 10,
             "move": "Fury Cutter"
           },
           {
-            "level": 12,
+            "level": 14,
             "move": "Razor Leaf"
           },
           {
@@ -476,7 +476,7 @@
             "move": "Bite"
           },
           {
-            "level": 15,
+            "level": 14,
             "move": "Aqua Jet"
           }
         ],
@@ -565,7 +565,7 @@
         "level_up": [
           {
             "level": 0,
-            "move": "Feint Attack"
+            "move": "Hone Claws"
           },
           {
             "level": 1,
@@ -734,9 +734,9 @@
       },
       "base_stats": {
         "hp": 40,
-        "attack": 50,
+        "attack": 55,
         "defense": 45,
-        "sp_attack": 65,
+        "sp_attack": 60,
         "sp_defense": 45,
         "speed": 75
       },
@@ -780,8 +780,8 @@
             "move": "Supersonic"
           },
           {
-            "level": 15,
-            "move": "Wing Attack"
+            "level": 14,
+            "move": "Flame Charge"
           }
         ],
         "tm_hm": [],
@@ -1682,7 +1682,7 @@
         "defense": 45,
         "sp_attack": 25,
         "sp_defense": 55,
-        "speed": 70
+        "speed": 67
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -1704,7 +1704,36 @@
         }
       ],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 8,
+            "move": "Howl"
+          },
+          {
+            "level": 12,
+            "move": "Mud-Slap"
+          },
+          {
+            "level": 16,
+            "move": "Double Slap"
+          },
+          {
+            "level": 20,
+            "move": "Wake-Up Slap"
+          },
+          {
+            "level": 24,
+            "move": "Take Down"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []

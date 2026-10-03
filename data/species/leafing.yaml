@@ -58,11 +58,11 @@ evolutions:
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Scratch}
+    - {level: 1, move: Tackle}
     - {level: 1, move: Leer}
     - {level: 6, move: Leafage}
-    - {level: 8, move: Fury Cutter}
-    - {level: 12, move: Razor Leaf}
+    - {level: 10, move: Fury Cutter}
+    - {level: 14, move: Razor Leaf}
     - {level: 20, move: Metal Claw}
     - {level: 25, move: Mega Drain}
     - {level: 30, move: Slash}

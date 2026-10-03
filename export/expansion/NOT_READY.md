@@ -2,9 +2,9 @@
 
 # Game export status
 
-**18** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Brawleo, Toxiren, Sigmauler, Motinky, Gortiki, Devampry, Galfrogtom, Janenon, Blylem
+**19** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Lapper, Brawleo, Toxiren, Sigmauler, Motinky, Gortiki, Devampry, Galfrogtom, Janenon, Blylem
 
-## Not exported yet (65)
+## Not exported yet (64)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -17,7 +17,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Florantula** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Cowfin** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Mooceon** needs: an ability that exists in the game, a level-up move that exists in the game
-- **Lapper** needs: a level-up move that exists in the game
 - **Sigmanian Sudowoodo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
 - **Icy Freeze** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Freezrick** needs: a level-up move that exists in the game

@@ -30,7 +30,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 19 | *open slot* | | | | | |
 | 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water |  |  |  | 10% |
 | 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water |  | 490 |  | 17% |
-| 22 | [Lapper](data/species/lapper.yaml) | Normal / Fighting | Scrappy, Fur Coat, Hustle (H) | 330 | Brawleo (Lv 28) | 17% |
+| 22 | [Lapper](data/species/lapper.yaml) | Normal / Fighting | Scrappy, Fur Coat, Hustle (H) | 327 | Brawleo (Lv 28) | 21% |
 | 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 31% |
 | 24 | [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) | Rock / Ground |  |  |  | 7% |
 | 25 | [Icy Freeze](data/species/icy-freeze.yaml) | Ice | Cold Flow | 280 | Freezrick (Lv 25) | 24% |
