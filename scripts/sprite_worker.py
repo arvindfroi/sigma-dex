@@ -27,6 +27,7 @@ import yaml
 
 import comfy
 import dexlib
+import sprite_quality
 import sprites
 from dexlib import ROOT
 
@@ -166,12 +167,13 @@ BACK_ZOOM = 1.4
 def sprite_pixels(species_id, view):
     """How many pixels big the creature should be drawn, like official sprites of its strength.
 
-    Measured on official GBA sprites: first stages are about 40 pixels (their backs 46), middle
-    stages about 50, final stages and legendaries fill the 64 pixel frame.
+    Official GBA sprites: first stages are about 40 pixels (their backs 46), middle stages about
+    50, final stages and legendaries fill the 64 pixel frame. That looked too small to the group
+    and leaves too few pixels for a face, so ours are drawn bigger: 54, 60 and 63 (2026-10-03).
     """
     stats = next((data.get("base_stats") or {} for sid, _, data in dexlib.load_species()[0] if sid == species_id), {})
     total = sum(v for v in stats.values() if isinstance(v, int))
-    size = 42 if total and total < 360 else 52 if total and total < 480 else 62 if total else 52
+    size = 54 if total and total < 360 else 60 if total and total < 480 else 63 if total else 60
     return size
 
 
@@ -279,6 +281,26 @@ def clean_sprite(picture, view, seed, target, species_id, prompt):
     return target
 
 
+TOUCH = dict(SPRITE_XL, denoise=0.4, control=0.75)
+
+
+def lora_touch(sprite64, look, view, seed, target):
+    """A light pass of the Pokemon sprite LoRA over a finished 64 sprite: it is put on the LoRA's
+    canvas at the scale the LoRA was trained on (one pixel = 8x8 in a 96 frame), repainted lightly
+    while its outlines are held, and the colours are locked back. Calms noisy shading a little;
+    stronger than 0.45 starts to wipe out eyes. Returns the 768 picture (snap it with grid 96)."""
+    from PIL import Image
+    canvas = Image.new("RGBA", (96, 96), "white")
+    canvas.alpha_composite(sprite64, (16, 16))
+    start = Path(str(target) + ".in.png")
+    canvas.convert("RGB").resize((768, 768), Image.NEAREST).save(start)
+    tags = "pokemon sprite, gen3, pixel art, no humans, pokemon (creature), solo, %s, %s, white background, simple background" % (
+        look.strip().rstrip("."), "from behind, back view, facing away" if view == "back" else "full body")
+    repainted = Path(str(target) + ".lora.png")
+    comfy.restyle(start, tags, repainted, seed=seed, quiet=True, **TOUCH)
+    return colour_lock(start, repainted, target, keep_light=0.5)
+
+
 def run(job, base, key, settings):
     style_version = hashlib.sha1(json.dumps([settings["style"], settings["illustration"], settings["poses"], settings["back"],
                                              settings["emerald_strength"], settings["redesign_front"], settings["redesign_back"], settings["cleanup"]], sort_keys=True).encode()).hexdigest()[:10]
@@ -292,7 +314,9 @@ def run(job, base, key, settings):
             if path not in fetched:
                 fetched[path] = download(base, path, folder / ("ref%d.png" % len(fetched)))
             return fetched[path]
-        for number in range(job["variations"]):
+        clean_style = job.get("style") == "sprite-clean"
+        candidates = []
+        for number in range(job["variations"] * (2 if clean_style else 1)):   # clean style: make twice as many, hand in the better half
             seed = job["id"] * 100 + number          # the same request always gives the same pictures
             raw = {}
             for view, recipe in plan.items():
@@ -316,16 +340,25 @@ def run(job, base, key, settings):
             if job.get("style") == "sprite-clean":     # second step: rough sprite, repainted clean at sprite size
                 cleanup = " ".join(settings["cleanup"].split())
                 for view in raw:
-                    final[view] = clean_sprite(raw[view], view, seed, folder / ("%d_%s_clean.png" % (number, view)), job["species_id"], cleanup)
-                grid = 64
+                    clean = clean_sprite(raw[view], view, seed, folder / ("%d_%s_clean.png" % (number, view)), job["species_id"], cleanup)
+                    sprites.build(job["species_id"], {"front": clean}, note="step", grid=64, out=folder / ("%d_%s_step" % (number, view)), detail=True)
+                    final[view] = lora_touch(sprites.as_rgba(folder / ("%d_%s_step" % (number, view)) / "front.png"), job["look"], view, seed,
+                                             folder / ("%d_%s_touch.png" % (number, view)))
+                grid = 96
             sprites.build(job["species_id"], final, note="AI draft", grid=grid, out=out, detail=detail)
             small = {}
             for view in ("front", "back"):
                 small[view] = folder / ("%d_%s_64.png" % (number, view))
                 sprites.as_rgba(out / (view + ".png")).save(small[view])
             prompt = ("style: %s%s, pose: %s\n\n" % (job.get("style", "pixel"), " (%s)" % recipe if recipe else "", job.get("pose", "front"))) + "\n\n".join("%s: %s" % (view, recipe[0] if recipe else "(kept from the earlier sprite)") for view, recipe in plan.items())
-            post(base, key, {"action": "candidate", "job_id": job["id"], "seed": seed, "prompt": prompt, "style_version": style_version},
-                 {"raw_front": raw["front"], "raw_back": raw["back"], "front": small["front"], "back": small["back"], "preview": out / "preview.png"})
+            mark, _ = sprite_quality.score(sprites.as_rgba(out / "front.png"), "front")
+            candidates.append((mark, seed, prompt, {"raw_front": raw["front"], "raw_back": raw["back"], "front": small["front"], "back": small["back"], "preview": out / "preview.png"}))
+        if clean_style:
+            candidates = sorted(candidates, key=lambda c: -c[0])[:job["variations"]]
+        for mark, seed, prompt, files in candidates:
+            if clean_style:
+                prompt = prompt.replace("\n\n", " (quality %.1f)\n\n" % mark, 1)
+            post(base, key, {"action": "candidate", "job_id": job["id"], "seed": seed, "prompt": prompt, "style_version": style_version}, files)
             made += 1
     return made
 

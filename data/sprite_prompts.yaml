@@ -108,9 +108,9 @@ pokemon:
     seeds: {front: 21, back: 22}
   leafing:
     look: >-
-      a small green long-necked dinosaur covered in overlapping leaf scales, one big leaf sprouting
-      from the top of its head, big friendly brown eyes, grey claws, and a tail tipped with a
-      silver axe blade.
+      a green long-necked four-legged dinosaur covered in overlapping leaf scales, a single
+      pointed leaf-shaped horn on its head pointing backwards, big friendly eyes, grey claws, and
+      a long tail ending in a grey blade.
   waffy:
     look: >-
       a chubby blue platypus with a big yellow duck bill, big round eyes, an open happy mouth, a
@@ -118,5 +118,5 @@ pokemon:
   torchbat:
     look: >-
       a small red lizard standing upright, with huge long pointed bat-like ears that burn with
-      small yellow flames at their tips, small wing-like flaps on its arms, a cream belly and a
+      small yellow flames at their tips, a cream belly, small claws and a
       flame burning on the tip of its tail.
