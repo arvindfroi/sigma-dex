@@ -23,9 +23,19 @@ anything but the website.
 
 The **Sprites** tab lists everything that is waiting for a verdict.
 
-## The two styles
+## The styles
 
-- **Pokemon sprite style (recommended).** Two steps: Qwen-Image-2.1 draws a clean
+- **Redesigned with more character (recommended, `sprite-clean`, since 2026-10-03).** Most
+  concept art is a plain drawing without pose or expression, and shrinking it loses the face.
+  So: (1) Qwen *redraws* the concept art with freedom - bigger head and eyes, a face with
+  attitude, a dynamic pose, patterns as a few big shapes (`redesign` in
+  `data/sprite_prompts.yaml`; telling it to "keep the design exactly" makes it copy the
+  reference instead); (2) that is shrunk to a rough sprite at official size, as below;
+  (3) Qwen cleans up the rough sprite pixel by pixel (`cleanup`) - shown only the rough sprite
+  plus the artwork as a look-up, so it stays pixel art; (4) snapped to the 64 grid.
+  Test on the starters (front and back, two attempts each):
+  ![sprite-clean](img/sprite_clean_test.png)
+- **Close to the concept art (`sprite-xl`).** Two steps: Qwen-Image-2.1 draws a clean
   illustration of the creature in the chosen pose from the concept art; then NoobAI-XL with
   the [Pokemon Sprite XL PixelArt LoRA](https://civitai.com/models/378602) repaints it as a
   Pokemon sprite while a ControlNet holds its outlines in place. This is the one that looks

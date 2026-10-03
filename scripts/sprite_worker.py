@@ -103,8 +103,12 @@ def recipes(job, settings):
     """For every view: the prompt and the reference pictures (as storage paths)."""
     two_step = job.get("style", "pixel") != "pixel"          # these styles start from a clean illustration
     style = " ".join(settings["illustration" if two_step else "style"].split())
-    views = {"front": settings["poses"].get(job.get("pose") or "front", settings["front"]), "back": settings["back"]}
+    pose = job.get("pose") or "front"
+    views = {"front": settings["poses"].get(pose, settings["front"]), "back": settings["back"]}
     refs = list(job.get("refs") or [])
+    redesign = job.get("style") == "sprite-clean" and refs   # free to redesign the reference (needs one)
+    if redesign:
+        views["front"] = settings["clean_poses"].get(pose, views["front"])
     parent = job.get("parent")
     out = {}
     for view in ("front", "back"):
@@ -121,6 +125,8 @@ def recipes(job, settings):
             out[view] = ("%s Redraw the creature picture in <image1> with these changes: %s Keep everything else about it the same: same creature, same pose, same view, same colors.%s"
                          % (style, " ".join(c if c.rstrip().endswith((".", "!", "?")) else c.rstrip() + "." for c in changes), others),
                          [parent["raw_" + view]] + refs)
+        elif redesign:
+            out[view] = ("%s %s %s" % (" ".join(settings["redesign"].split()), " ".join(views[view].split()), job["look"]), refs)
         else:
             subject = "The creature is the one shown in <image1>. " if refs else ""
             out[view] = ("%s %s%s %s" % (style, subject, " ".join(views[view].split()), job["look"]), refs)
@@ -227,9 +233,32 @@ def sprite_xl(picture, look, view, seed, target, species_id, repaint):
     return colour_lock(start, repainted, target)
 
 
+def clean_sprite(picture, view, seed, target, species_id, prompt):
+    """The sprite-clean finish: shrink the illustration to a rough sprite, then have the AI repaint
+    that rough sprite at the same size and place, as a spriter draws over a shrunk reference.
+    Returns a 1024 picture of the whole 64 frame (one sprite pixel = 16 pixels)."""
+    from PIL import Image
+    with tempfile.TemporaryDirectory() as folder:
+        folder = Path(folder)
+        start = sprite_xl(picture, "", view, seed, folder / "start.png", species_id, False)
+        sprites.build(species_id, {"front": start}, note="rough", grid=96, out=folder / "rough", detail=True)
+        small = sprites.as_rgba(folder / "rough" / "front.png")
+    rough = Image.new("RGBA", small.size, "white")
+    rough.alpha_composite(small)
+    rough_path = Path(str(target) + ".rough.png")
+    rough.convert("RGB").resize((1024, 1024), Image.NEAREST).save(rough_path)
+    comfy.generate(prompt, target, [rough_path, picture], seed=seed, quiet=True)
+    if view == "back":                                # the AI likes to draw the legs back in: cut it off where the rough sprite ends
+        bottom = small.getchannel("A").getbbox()[3] * 1024 // small.height
+        cleaned = Image.open(target).convert("RGB")
+        cleaned.paste("white", (0, bottom, cleaned.width, cleaned.height))
+        cleaned.save(target)
+    return target
+
+
 def run(job, base, key, settings):
     style_version = hashlib.sha1(json.dumps([settings["style"], settings["illustration"], settings["poses"], settings["back"],
-                                             settings["emerald_strength"]], sort_keys=True).encode()).hexdigest()[:10]
+                                             settings["emerald_strength"], settings["redesign"], settings["clean_poses"], settings["cleanup"]], sort_keys=True).encode()).hexdigest()[:10]
     strength = settings["emerald_strength"].get(job.get("style"))
     plan = recipes(job, settings)
     made = 0
@@ -261,6 +290,11 @@ def run(job, base, key, settings):
                 for view in raw:
                     final[view] = sprite_xl(raw[view], job["look"], view, seed, folder / ("%d_%s_spritexl.png" % (number, view)), job["species_id"], repaint)
                 grid, detail, recipe = 96, not repaint, "repainted" if repaint else "drawn"
+            if job.get("style") == "sprite-clean":     # second step: rough sprite, repainted clean at sprite size
+                cleanup = " ".join(settings["cleanup"].split())
+                for view in raw:
+                    final[view] = clean_sprite(raw[view], view, seed, folder / ("%d_%s_clean.png" % (number, view)), job["species_id"], cleanup)
+                grid = 64
             sprites.build(job["species_id"], final, note="AI draft", grid=grid, out=out, detail=detail)
             small = {}
             for view in ("front", "back"):

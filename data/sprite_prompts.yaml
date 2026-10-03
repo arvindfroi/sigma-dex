@@ -50,6 +50,39 @@ illustration: >-
   Keep the creature's design and colors exactly as in the reference pictures.
 emerald_strength: {emerald-light: 0.4, emerald-medium: 0.55}
 
+# The "clean" sprite style (sprite-clean). Most concept art is a plain, static drawing, and a
+# sprite needs more character than that: the AI may redesign proportions, face and pose while
+# keeping the creature recognisable (`redesign`, then the pose and the `look`). Asking it to
+# "redraw with changes" frees it; telling it to "keep the design exactly" makes it copy the
+# reference. The result is shrunk to a rough sprite, and `cleanup` then has the AI repaint it at
+# exactly that size and place, the way spriters clean up a shrunk reference: it is shown only the
+# rough sprite (plus the artwork as a look-up), so it stays pixel art; given the artwork as the
+# thing to repaint, it draws a smooth picture again and the face turns to mud when snapped. Comparison: docs/SPRITES.md.
+redesign: >-
+  Redraw the creature from <image1> as new official artwork of a starter-style monster from a
+  Game Boy Advance era monster-collecting RPG: bold dark outlines, flat two-tone cel shading,
+  vivid colors, simple chunky shapes, thick limbs. Drawn alone on a transparent background: no
+  text, no border, no shadow, no ground, no scenery, exactly one creature, centered with a
+  margin. Keep its species, colors and signature features, but change its pose and proportions
+  to give it much more personality: an oversized round head, very large expressive eyes with big
+  black pupils and bright white highlights, a cheeky confident face full of attitude, a chunkier
+  body. Any pattern such as scales, leaves, feathers or spots is drawn as only a few big simple
+  shapes, readable on a tiny sprite.
+clean_poses:
+  three-quarter: >-
+    It strikes an energetic, dynamic battle pose, crouched and leaning forward toward the left
+    side of the picture, one arm or front leg raised, in three-quarter view, the whole body
+    visible. The creature is
+cleanup: >-
+  Edit the pixel art sprite in <image1> from a Game Boy Advance monster-collecting RPG. It is a
+  64x64 pixel sprite shown enlarged, every pixel a big square block. Keep it pixel art on exactly
+  the same pixel grid, with the same creature, pose, size, position and colors. Clean it up the
+  way a professional spriter would: remove stray and noisy pixels, make every color area a clean
+  flat shape with at most three shades, give the creature a clean one-pixel dark outline, make
+  each eye a clear black pupil with a single white highlight pixel, make the mouth a clean dark
+  line, and make the hands and feet simple clear shapes with distinct claws. No anti-aliasing, no
+  blur, no gradients. <image2> shows what the creature looks like. Plain white background.
+
 pokemon:
   bergflabbser:
     refs: [assets/concept-art/bergflabbser/4.png]
@@ -74,6 +107,6 @@ pokemon:
       white belly, black clawed feet and a flat dark beaver tail.
   torchbat:
     look: >-
-      a small orange-red lizard standing upright, with huge pointed bat-like ears, a yellow
-      flame-shaped tuft on its head, a cream belly, yellow claws and a flame burning on the tip
-      of its tail.
+      a small red lizard standing upright, with huge long pointed bat-like ears that burn with
+      small yellow flames at their tips, small wing-like flaps on its arms, a cream belly and a
+      flame burning on the tip of its tail.
