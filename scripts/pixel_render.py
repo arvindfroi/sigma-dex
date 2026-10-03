@@ -103,6 +103,47 @@ def neighbours4(a, fill):
     return p[:-2, 1:-1], p[2:, 1:-1], p[1:-1, :-2], p[1:-1, 2:]          # up, down, left, right
 
 
+def thin(binary):
+    """Zhang-Suen thinning: wears a drawn stroke down to its one-pixel middle line."""
+    img = binary.astype(np.uint8).copy()
+    while True:
+        changed = False
+        for step in (0, 1):
+            p = np.pad(img, 1)
+            n = [p[:-2, 1:-1], p[:-2, 2:], p[1:-1, 2:], p[2:, 2:], p[2:, 1:-1], p[2:, :-2], p[1:-1, :-2], p[:-2, :-2]]   # P2..P9
+            b = sum(x.astype(int) for x in n)
+            a = sum(((n[i] == 0) & (n[(i + 1) % 8] == 1)).astype(int) for i in range(8))
+            if step == 0:
+                c1, c2 = n[0] * n[2] * n[4], n[2] * n[4] * n[6]
+            else:
+                c1, c2 = n[0] * n[2] * n[6], n[0] * n[4] * n[6]
+            drop = (img == 1) & (b >= 2) & (b <= 6) & (a == 1) & (c1 == 0) & (c2 == 0)
+            if drop.any():
+                img[drop] = 0
+                changed = True
+        if not changed:
+            return img.astype(bool)
+
+
+def clean_lines(lines):
+    """One-pixel lines without doubled corners (the pixel-perfect rule): a line pixel with line
+    pixels on two touching sides (an L) goes if those two also touch diagonally through it."""
+    lines = lines.copy()
+    up, down, left, right = neighbours4(lines, False)
+    for vert, horiz in ((up, left), (up, right), (down, left), (down, right)):
+        corner = lines & vert & horiz
+        # keep it if it is the only link (an end or a junction): more than the two L neighbours
+        n8 = sum(x.astype(int) for x in neighbours8(lines))
+        lines[corner & (n8 == 2)] = False
+        up, down, left, right = neighbours4(lines, False)
+    return lines
+
+
+def neighbours8(a):
+    p = np.pad(a, 1)
+    return [p[:-2, :-2], p[:-2, 1:-1], p[:-2, 2:], p[1:-1, :-2], p[1:-1, 2:], p[2:, :-2], p[2:, 1:-1], p[2:, 2:]]
+
+
 # ---------- 1. segment ----------
 
 def segment(rgb, mask):
@@ -203,6 +244,12 @@ def sample(L, ink, part, mask, gh, gw, k):
 # ---------- 3. shape ----------
 
 def clean_shape(cells, colours):
+    """See below; specks in the face (the upper part of the creature: eye whites, irises, a nose)
+    of two pixels or more are kept, they are what makes the face."""
+    return _clean_shape(cells, colours)
+
+
+def _clean_shape(cells, colours):
     """Fill one-pixel notches, drop one-pixel spurs, and let specks of a part join their surroundings
     (very dark and very light specks stay: they are pupils and glints)."""
     cells = cells.copy()
@@ -223,6 +270,8 @@ def clean_shape(cells, colours):
             for j in range(1, n):
                 speck = lbl == j
                 if speck.sum() >= STYLE["min_part"]:
+                    continue
+                if speck.sum() >= 2 and np.nonzero(speck)[0].mean() < STYLE["face"] * cells.shape[0]:
                     continue
                 ring = cv2.dilate(speck.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool) & ~speck & (cells >= 0) & (cells != i)
                 if ring.any():
@@ -293,6 +342,65 @@ def find_face(L, ink, mask, gh, gw, k, size):
     return features, lines
 
 
+def draw_eyes(rgb, L, ink, mask, cells, k):
+    """The eyes, taken from the artwork. An eye is a white (an eye white) in the upper part of the
+    creature, together with what sits inside it. A white patch surrounded by dark is not an eye
+    white but a glint. Every sprite pixel of an eye becomes pupil or iris where the artwork is
+    mostly dark there (iris where that dark is coloured), white where it is mostly white; each
+    glint becomes one light pixel. Returns ({(y, x): kind}, {kind: Lab colour})."""
+    gh, gw = cells.shape
+    chroma, _ = chroma_hue(L)
+    white = mask & (L[..., 0] > 200) & (chroma < 15)
+    dark = mask & (L[..., 0] < 100)
+    eyes, colours, glints = {}, {}, []
+    n, lbl, stats, cent = cv2.connectedComponentsWithStats(white.astype(np.uint8), connectivity=8)
+    creature = mask.sum()
+    ring_kernel = np.ones((max(3, k // 4),) * 2, np.uint8)
+    candidates = []
+    for i in range(1, n):
+        x0, y0, bw, bh, area = stats[i]
+        if area < 0.15 * k * k or y0 + bh / 2 > STYLE["face"] * mask.shape[0] or area > 0.06 * creature:
+            continue
+        comp = lbl == i
+        ring = cv2.dilate(comp.astype(np.uint8), ring_kernel).astype(bool) & ~comp & mask
+        if ring.any() and dark[ring].mean() > 0.6:
+            glints.append((int(cent[i][1] // k), int(cent[i][0] // k)))     # white inside dark: a glint
+        elif area >= 0.5 * k * k:
+            candidates.append(i)
+    for i in candidates:
+        x0, y0, bw, bh, area = stats[i]
+        ys0, ys1, xs0, xs1 = max(0, y0 - k // 2), min(mask.shape[0], y0 + bh + k // 2), max(0, x0 - k // 2), min(mask.shape[1], x0 + bw + k // 2)
+        # the whole eye: the white with the holes in it filled (the iris and pupil sit in a hole)
+        # (filled from outside the box; holes are what the fill cannot reach). An iris often runs out
+        # through a gap in the white at the bottom, so the white's convex hull is used as the eye
+        comp = (lbl == i).astype(np.uint8)
+        pts = cv2.findNonZero(comp)
+        hull = np.zeros(mask.shape, np.uint8)
+        cv2.fillConvexPoly(hull, cv2.convexHull(pts), 1)
+        whole = hull.astype(bool) & mask
+        iris_px = whole & dark & (chroma > 14) & (L[..., 0] > STYLE["pupil"])
+        if iris_px.sum() > 0.3 * k * k:
+            colours["iris"] = L[iris_px].mean(axis=0)
+        for y in range(max(0, ys0 // k), min(gh, (ys1 - 1) // k + 1)):
+            for x in range(max(0, xs0 // k), min(gw, (xs1 - 1) // k + 1)):
+                if cells[y, x] < 0:
+                    continue
+                cw = whole[y * k:(y + 1) * k, x * k:(x + 1) * k]
+                if cw.mean() < 0.35:
+                    continue                                       # the rim and the skin around it
+                d = dark[y * k:(y + 1) * k, x * k:(x + 1) * k][cw].mean()
+                if d >= 0.4:
+                    coloured = iris_px[y * k:(y + 1) * k, x * k:(x + 1) * k][cw].mean()
+                    eyes[(y, x)] = "iris" if "iris" in colours and coloured > 0.5 * d else "pupil"
+                else:
+                    eyes[(y, x)] = "white"
+        colours["white"] = np.array([244, 128, 128], np.float32)
+    for y, x in glints:
+        if (y, x) in eyes or (0 <= y < gh and 0 <= x < gw and cells[y, x] >= 0):
+            eyes[(y, x)] = "glint"
+    return eyes, colours
+
+
 # ---------- 5. light ----------
 
 def light_levels(cells, tone):
@@ -336,7 +444,25 @@ def light_levels(cells, tone):
 
 # ---------- 6. lines ----------
 
-def line_kinds(cells, colours, inkshare, face_lines):
+def line_art(ink, mask, cells, k):
+    """The artwork's inner lines as one-pixel sprite lines, the way a spriter traces them: every
+    ink stroke is thinned to its middle line, a sprite pixel the middle line runs through for at
+    least half its width becomes a line pixel, and the result is thinned again and cleaned of
+    doubled corners. Strokes along the silhouette are left out (the outline draws those), and so
+    are lone dots."""
+    gh, gw = cells.shape
+    inner = cv2.erode(mask.astype(np.uint8), np.ones((int(k * 0.8) | 1,) * 2, np.uint8)).astype(bool)
+    middle = thin(ink) & inner
+    lines = middle.reshape(gh, k, gw, k).sum(axis=(1, 3)) >= 0.5 * k
+    lines = clean_lines(thin(lines) & (cells >= 0))
+    n, lbl, stats, _ = cv2.connectedComponentsWithStats(lines.astype(np.uint8), connectivity=8)
+    for i in range(1, n):
+        if stats[i, cv2.CC_STAT_AREA] < 2:
+            lines[lbl == i] = False
+    return lines
+
+
+def line_kinds(cells, colours, drawn_lines):
     """For every pixel which tone it takes instead of its shade: 'outline', 'outline_dark', 'line' or ''."""
     gh, gw = cells.shape
     solid = cells >= 0
@@ -349,9 +475,7 @@ def line_kinds(cells, colours, inkshare, face_lines):
             sizes[lbl == j] = stats[j, cv2.CC_STAT_AREA]
     big = sizes >= STYLE["big_part"]
     bigp = np.pad(big, 1)
-    inner = solid & (inkshare > 0.5)
-    ip = np.pad(inner, 1)
-    linked = inner & (sum(ip[1 + dy:gh + 1 + dy, 1 + dx:gw + 1 + dx].astype(int) for dy in (-1, 0, 1) for dx in (-1, 0, 1) if dy or dx) >= 1)
+    face_top = STYLE["face"] * gh
     for y, x in zip(*np.nonzero(solid)):
         c = cells[y, x]
         nb = (up[y, x], down[y, x], left[y, x], right[y, x])
@@ -364,10 +488,8 @@ def line_kinds(cells, colours, inkshare, face_lines):
                 kinds[y, x] = "outline"                            # the line goes on the darker part's side
                 break
         else:
-            if face_lines[y, x]:
-                kinds[y, x] = "outline"
-            elif linked[y, x]:
-                kinds[y, x] = "line"
+            if drawn_lines[y, x]:                                  # traced lines: darkest in the face
+                kinds[y, x] = "outline" if y < face_top else "line"
     return kinds
 
 
@@ -449,8 +571,13 @@ def draw(path, size=54, window=None, fit=None, palette=None):
     cells, tone, inkshare = sample(L, ink, part, big_mask, gh, gw, k)        # 2
     cells = clean_shape(cells, colours)                                       # 3
     features, face_lines = find_face(L, ink, big_mask, gh, gw, k, size)      # 4
+    eyes, eye_colours = draw_eyes(big_rgb, L, ink, big_mask, cells, k)
+    drawn_lines = line_art(ink, big_mask, cells, k) | (face_lines & (cells >= 0))
+    # no lines inside eye whites (or other very light parts): an eye is its rim, pupil and glint
+    light_part = np.isin(cells, [i for i in range(len(colours)) if colours[i][0] > 200])
+    drawn_lines &= ~light_part
     level = light_levels(cells, tone)                                         # 5
-    kinds = line_kinds(cells, colours, inkshare, face_lines)                  # 6
+    kinds = line_kinds(cells, colours, drawn_lines)                           # 6
 
     # 7: what every pixel wants, then fitted into the palette
     names = ("shadow", "base", "light", "highlight")
@@ -476,9 +603,22 @@ def draw(path, size=54, window=None, fit=None, palette=None):
                     break
     for kind, y, x in features:
         if 0 <= y < gh and 0 <= x < gw and solid[y, x]:
+            old_key = want[(y, x)]
+            if old_key == ("eye", kind):
+                continue
             want[(y, x)] = ("eye", kind)
             counts[("eye", kind)] = counts.get(("eye", kind), 0) + 1
-            counts[(int(cells[y, x]), kinds[y, x] or names[level[y, x]])] -= 1
+            counts[old_key] -= 1
+    eye.update(eye_colours)
+    for (y, x), kind in eyes.items():
+        if kind not in eye:
+            continue
+        old_key = want[(y, x)]
+        if old_key == ("eye", "glint"):
+            continue                                             # the glint stays on top
+        want[(y, x)] = ("eye", kind)
+        counts[("eye", kind)] = counts.get(("eye", kind), 0) + 1
+        counts[old_key] -= 1
     wanted.update({("eye", k2): v for k2, v in eye.items()})
     counts = {key: n for key, n in counts.items() if n > 0}
     wanted = {key: wanted[key] for key in counts}
@@ -487,8 +627,9 @@ def draw(path, size=54, window=None, fit=None, palette=None):
         rgb_of = {key: tuple(int(v) for v in palette[int(np.argmin(np.linalg.norm(table - c, axis=1)))]) for key, c in wanted.items()}
     else:
         counts = dict(counts)
-        counts[("eye", "pupil")] = counts.get(("eye", "pupil"), 0) + 10 ** 6   # eyes are never merged away
-        counts[("eye", "glint")] = counts.get(("eye", "glint"), 0) + 10 ** 6
+        for kind in ("pupil", "glint", "iris", "white"):                     # eyes are never merged away
+            if ("eye", kind) in counts:
+                counts[("eye", kind)] += 10 ** 6
         chosen = fit_palette(wanted, counts, STYLE["colours"])
         rgb_of = {key: tuple(int(v) for v in to_rgb(c)[0]) for key, c in chosen.items()}
     out = np.zeros((gh, gw, 4), np.uint8)

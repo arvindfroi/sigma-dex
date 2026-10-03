@@ -71,12 +71,14 @@ back of the queue and says why.
    2. *sample* it onto the sprite grid: part, lightness and ink for every pixel.
    3. *shape*: fill notches, remove spurs, round doubled corners (the pixel-perfect rule),
       let specks of a part join their surroundings.
-   4. *face*: pupils (solid dark blobs, even when they touch the eye's outline), glints (every
-      pupil gets one) and face lines, only in the upper part of the creature.
+   4. *face*: each eye is redrawn from the artwork: the eye white with the iris and pupil inside
+      it, a glint where the artwork has one (every pupil gets one). Brows and mouths are kept as
+      face lines. Only in the upper part of the creature.
    5. *light*: four tones per part from the artwork's light and dark plus light from the upper
       left across the whole part; shades come in clusters.
    6. *lines*: coloured outline (darkest on the shadow side), lines between parts that differ,
-      inner lines only where they form a line.
+      and the artwork's inner lines (scales, wood grain, creases) traced as clean one-pixel lines:
+      every ink stroke is thinned to its middle line and laid on the grid, without doubled corners.
    7. *palette*: the renderer fits every part's ramp into 15 colours itself, and the back uses
       exactly the front's colours.
    If the drawn creature comes out smaller than asked (thin tips drop out), it is drawn once
