@@ -27,14 +27,18 @@ The **Sprites** tab lists everything that is waiting for a verdict.
 
 - **Redesigned with more character (recommended, `sprite-clean`, since 2026-10-03).** Most
   concept art is a plain drawing without pose or expression, and shrinking it loses the face.
-  So: (1) Qwen *redraws* the concept art with freedom - bigger head and eyes, a face with
-  attitude, a dynamic pose, patterns as a few big shapes (`redesign` in
+  So: (1) Qwen *redraws* the first reference picture with freedom - bigger head and eyes, a
+  face with attitude, a dynamic pose (`redesign_front` / `redesign_back` in
   `data/sprite_prompts.yaml`; telling it to "keep the design exactly" makes it copy the
   reference instead); (2) that is shrunk to a rough sprite at official size, as below;
-  (3) Qwen cleans up the rough sprite pixel by pixel (`cleanup`) - shown only the rough sprite
-  plus the artwork as a look-up, so it stays pixel art; (4) snapped to the 64 grid.
-  Test on the starters (front and back, two attempts each):
+  (3) Qwen repaints the rough sprite at exactly its size and place (`cleanup`); (4) that is
+  snapped to the 64 grid. The pose choice does not apply to this style. Results vary a lot
+  between attempts, so ask for several and pick. Test on the starters (front and back, two
+  attempts each):
   ![sprite-clean](img/sprite_clean_test.png)
+  Tried and worse: a cleanup that is told to stay pixel art (cleaner but lifeless), and the
+  Sprite XL LoRA on top of this (softer and muddier):
+  ![LoRA finish](img/sprite_clean_lora_test.png)
 - **Close to the concept art (`sprite-xl`).** Two steps: Qwen-Image-2.1 draws a clean
   illustration of the creature in the chosen pose from the concept art; then NoobAI-XL with
   the [Pokemon Sprite XL PixelArt LoRA](https://civitai.com/models/378602) repaints it as a

@@ -50,38 +50,45 @@ illustration: >-
   Keep the creature's design and colors exactly as in the reference pictures.
 emerald_strength: {emerald-light: 0.4, emerald-medium: 0.55}
 
-# The "clean" sprite style (sprite-clean). Most concept art is a plain, static drawing, and a
-# sprite needs more character than that: the AI may redesign proportions, face and pose while
-# keeping the creature recognisable (`redesign`, then the pose and the `look`). Asking it to
-# "redraw with changes" frees it; telling it to "keep the design exactly" makes it copy the
-# reference. The result is shrunk to a rough sprite, and `cleanup` then has the AI repaint it at
-# exactly that size and place, the way spriters clean up a shrunk reference: it is shown only the
-# rough sprite (plus the artwork as a look-up), so it stays pixel art; given the artwork as the
-# thing to repaint, it draws a smooth picture again and the face turns to mud when snapped. Comparison: docs/SPRITES.md.
-redesign: >-
-  Redraw the creature from <image1> as new official artwork of a starter-style monster from a
-  Game Boy Advance era monster-collecting RPG: bold dark outlines, flat two-tone cel shading,
-  vivid colors, simple chunky shapes, thick limbs. Drawn alone on a transparent background: no
-  text, no border, no shadow, no ground, no scenery, exactly one creature, centered with a
-  margin. Keep its species, colors and signature features, but change its pose and proportions
-  to give it much more personality: an oversized round head, very large expressive eyes with big
-  black pupils and bright white highlights, a cheeky confident face full of attitude, a chunkier
-  body. Any pattern such as scales, leaves, feathers or spots is drawn as only a few big simple
-  shapes, readable on a tiny sprite.
-clean_poses:
-  three-quarter: >-
-    It strikes an energetic, dynamic battle pose, crouched and leaning forward toward the left
-    side of the picture, one arm or front leg raised, in three-quarter view, the whole body
-    visible. The creature is
+# The "clean" sprite style (sprite-clean), the one the group liked on 2026-10-03. Most concept
+# art is a plain, static drawing, and a sprite needs more character than that: the AI *redraws*
+# the first reference picture with freedom (bigger head and eyes, attitude, a dynamic pose);
+# telling it to "keep the design exactly" makes it copy the reference instead. {look} is the
+# Pokemon's look. The result is shrunk to a rough sprite at official size, and `cleanup` has the
+# AI repaint that rough sprite at exactly its size and place; this is snapped to the 64 grid.
+# Tried and worse: asking the cleanup to stay pixel art, and a Sprite XL LoRA finish on top.
+redesign_front: >-
+  Redraw the creature from <image1> as new official artwork. Clean official artwork of a starter
+  monster from a Game Boy Advance era monster-collecting RPG: bold dark outlines, flat two-tone
+  cel shading, vivid colors, simple chunky shapes, thick limbs. Drawn alone on a transparent
+  background: no text, no border, no shadow, no ground, no scenery, exactly one creature,
+  centered with a margin. Keep its species, colors and signature features ({look}), but change
+  its pose and proportions: give it an oversized round head, very large expressive eyes with big
+  black pupils and bright white highlights, an open grinning mouth, a cheeky confident face full
+  of attitude, chunkier rounder body and thicker limbs, and put it in an energetic, dynamic
+  battle pose, crouched and leaning forward toward the left side of the picture, one arm raised,
+  in three-quarter view, the whole body visible.
+redesign_back: >-
+  Redraw the creature from <image1> as new official artwork. Clean official artwork of a starter
+  monster from a Game Boy Advance era monster-collecting RPG: bold dark outlines, flat two-tone
+  cel shading, vivid colors, simple chunky shapes, thick limbs. Drawn alone on a transparent
+  background: no text, no border, no shadow, no ground, no scenery, exactly one creature,
+  centered with a margin. Keep its species, colors and signature features ({look}), with a big
+  round head and chunky limbs. View: seen from behind, as the player's own creature in a monster
+  battle game. The camera is behind it and a little above, looking over its shoulder: we see its
+  back, the back of its head and its tail, and its head is turned toward the upper right so one
+  eye and the side of its face show in profile. It leans forward toward the opponent, tense and
+  ready to fight.
 cleanup: >-
-  Edit the pixel art sprite in <image1> from a Game Boy Advance monster-collecting RPG. It is a
-  64x64 pixel sprite shown enlarged, every pixel a big square block. Keep it pixel art on exactly
-  the same pixel grid, with the same creature, pose, size, position and colors. Clean it up the
-  way a professional spriter would: remove stray and noisy pixels, make every color area a clean
-  flat shape with at most three shades, give the creature a clean one-pixel dark outline, make
-  each eye a clear black pupil with a single white highlight pixel, make the mouth a clean dark
-  line, and make the hands and feet simple clear shapes with distinct claws. No anti-aliasing, no
-  blur, no gradients. <image2> shows what the creature looks like. Plain white background.
+  <image1> is a rough pixel art battle sprite of a creature for a Game Boy Advance
+  monster-collecting RPG, shown enlarged so each pixel is a big square; <image2> is the artwork
+  it was made from. Repaint <image1> as the finished sprite a professional pixel artist would
+  make, exactly as large as in <image1>, with the same pose, silhouette, position and colors, on
+  the same coarse pixel grid with big crisp square pixels. Clean, readable shapes: replace noisy
+  texture with a few clear shapes, three or four shades per color with light from the upper
+  left, a dark outline one pixel wide around the creature and its parts, no dithering, no
+  anti-aliasing. Make the face readable: each visible eye is a clear dark pupil with one white
+  highlight pixel, the mouth a clean dark line. Plain white background.
 
 pokemon:
   bergflabbser:

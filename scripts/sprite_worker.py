@@ -106,9 +106,7 @@ def recipes(job, settings):
     pose = job.get("pose") or "front"
     views = {"front": settings["poses"].get(pose, settings["front"]), "back": settings["back"]}
     refs = list(job.get("refs") or [])
-    redesign = job.get("style") == "sprite-clean" and refs   # free to redesign the reference (needs one)
-    if redesign:
-        views["front"] = settings["clean_poses"].get(pose, views["front"])
+    redesign = job.get("style") == "sprite-clean" and refs   # free to redesign the first reference (needs one)
     parent = job.get("parent")
     out = {}
     for view in ("front", "back"):
@@ -126,7 +124,8 @@ def recipes(job, settings):
                          % (style, " ".join(c if c.rstrip().endswith((".", "!", "?")) else c.rstrip() + "." for c in changes), others),
                          [parent["raw_" + view]] + refs)
         elif redesign:
-            out[view] = ("%s %s %s" % (" ".join(settings["redesign"].split()), " ".join(views[view].split()), job["look"]), refs)
+            look = job["look"].strip().rstrip(".")
+            out[view] = (" ".join(settings["redesign_" + view].split()).replace("{look}", look), refs[:1])
         else:
             subject = "The creature is the one shown in <image1>. " if refs else ""
             out[view] = ("%s %s%s %s" % (style, subject, " ".join(views[view].split()), job["look"]), refs)
@@ -258,7 +257,7 @@ def clean_sprite(picture, view, seed, target, species_id, prompt):
 
 def run(job, base, key, settings):
     style_version = hashlib.sha1(json.dumps([settings["style"], settings["illustration"], settings["poses"], settings["back"],
-                                             settings["emerald_strength"], settings["redesign"], settings["clean_poses"], settings["cleanup"]], sort_keys=True).encode()).hexdigest()[:10]
+                                             settings["emerald_strength"], settings["redesign_front"], settings["redesign_back"], settings["cleanup"]], sort_keys=True).encode()).hexdigest()[:10]
     strength = settings["emerald_strength"].get(job.get("style"))
     plan = recipes(job, settings)
     made = 0
