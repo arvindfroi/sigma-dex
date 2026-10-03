@@ -55,6 +55,7 @@ STYLE = dict(
     stroke_contrast=35,
     trace=0.5,             # share of a sprite pixel's width an ink stroke must run through it to become a line
     trace_margin=0.8,      # strokes closer to the silhouette than this (in sprite pixels) belong to the outline
+    thin_run=1 / 3,        # share of a sprite pixel's width a thin feature's middle line must run through it
     accents=3,             # face marks in colours the sprite does not have (a pink blush) get at most this many palette slots
     accent_gap=35,         # Lab distance from every colour the sprite has, for a mark's colour to count as an accent    # Lab lightness: a cell whose darkest sixth is this much darker than its middle shows a stroke
 )
@@ -278,7 +279,8 @@ def thin_features(mask, part, ink, cells, k):
     cells = cells.copy()
     kernel = np.ones((k // 2 + 1,) * 2, np.uint8)
     keep = np.zeros((gh, gw), bool)
-    def trace(region, owner, min_run=1):
+    def trace(region, owner, min_run=None):
+        min_run = STYLE["thin_run"] * k if min_run is None else min_run
         middle = thin(region)
         run = middle.reshape(gh, k, gw, k).sum(axis=(1, 3)) >= min_run      # the middle line is continuous, so is the traced line
         for y, x in zip(*np.nonzero(run)):
@@ -824,8 +826,8 @@ def draw(path, size=54, window=None, fit=None, palette=None):
         wanted_marks[key] = colour
     pool = dict(existing); pool.update(wanted_marks)
     for (y, x), colour in marks.items():
-        if want.get((y, x), ("", ""))[0] == "eye":
-            continue
+        if want.get((y, x), ("", ""))[0] == "eye" or kinds[y, x] in ("outline", "outline_dark") and -1 in [n[y, x] for n in neighbours4(cells, -1)]:
+            continue                                             # marks never replace the eyes or the outline
         key = min(pool, key=lambda kk: np.linalg.norm(pool[kk] - colour))
         if key[0] == "eye" and key[1] in ("pupil", "glint") and key not in counts:
             continue
