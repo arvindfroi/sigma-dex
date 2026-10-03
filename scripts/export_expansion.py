@@ -73,8 +73,20 @@ def gender(value):
     return "PERCENT_FEMALE(%g)" % (100 - (50 if value is None else value))
 
 
+STONES = ("FIRE", "WATER", "THUNDER", "LEAF", "MOON", "SUN", "SHINY", "DUSK", "DAWN", "ICE")
+
+
+def item_constant(name):
+    """The game's constant for an item name, forgiving common spellings ("Firestone" -> ITEM_FIRE_STONE)."""
+    value = constant(name or "none")
+    for stone in STONES:
+        if value == stone + "STONE":
+            value = stone + "_STONE"
+    return "ITEM_" + value
+
+
 def evolution(evo, target):
-    method, level, item = evo.get("method"), evo.get("level"), "ITEM_" + constant(evo.get("item") or "none")
+    method, level, item = evo.get("method"), evo.get("level"), item_constant(evo.get("item"))
     simple = {
         "level": "{EVO_LEVEL, %s, %s}" % (level, target),
         "item": "{EVO_ITEM, %s, %s}" % (item, target),
@@ -140,7 +152,8 @@ def art_rows(sid, var, engine):
                 (".backPicYOffset", back_offset), (".backAnimId", "BACK_ANIM_NONE"),
                 (".palette", "gMonPalette_CircledQuestionMark"), (".shinyPalette", "gMonShinyPalette_CircledQuestionMark"),
                 (".iconSprite", "gMonIcon_QuestionMark"), (".iconPalIndex", str(engine.get("icon_palette") or 0))]
-    frames = "ANIM_FRAMES(ANIMCMD_FRAME(0, 1), ANIMCMD_FRAME(1, 30), ANIMCMD_FRAME(0, 10))" if facts.get("animated") else "sAnims_SingleFramePlaceHolder"
+    # the game's ANIM_FRAMES macro needs a comma after the last frame
+    frames = "ANIM_FRAMES(ANIMCMD_FRAME(0, 30), ANIMCMD_FRAME(1, 30), ANIMCMD_FRAME(0, 1),)" if facts.get("animated") else "sAnims_SingleFramePlaceHolder"
     back = [(".backPic", "gMonBackPic_%s" % var), (".backPicSize", size(facts["back"])), (".backPicYOffset", str(facts["back"]["y_offset"]))] if facts["has_back"] else \
            [(".backPic", "gMonBackPic_CircledQuestionMark"), (".backPicSize", "MON_COORDS_SIZE(64, 64)"), (".backPicYOffset", back_offset)]
     return [(".frontPic", "gMonFrontPic_%s" % var), (".frontPicSize", size(facts["front"])), (".frontPicYOffset", str(facts["front"]["y_offset"])),
@@ -162,7 +175,7 @@ def species_block(sid, data, ready_ids, id_names, names, notes):
             rows.append((".evYield_%s" % field, str(ev[key])))
     for key, field in (("common", ".itemCommon"), ("rare", ".itemRare")):
         if items.get(key):
-            rows.append((field, "ITEM_" + constant(items[key])))
+            rows.append((field, item_constant(items[key])))
     groups = [g for g in listing(data.get("egg_groups"))] or ["undiscovered"]
     slots = []
     for slot in ("primary", "secondary", "hidden"):

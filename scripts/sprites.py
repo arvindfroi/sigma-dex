@@ -253,6 +253,31 @@ def place(indexes, opaque, size, bottom=False):
     return frame
 
 
+def second_frame_offset(opened, drawn):
+    """Where the second animation frame goes, if it was drawn on the same canvas at the same scale as
+    the first (same picture size, nothing shrunk): the first frame's place plus the difference of
+    where the two drawings sit on their canvas. None means: center it on its own like the first."""
+    if "front2" not in opened or opened["front"].size != opened["front2"].size or max(opened["front"].size) > FRAME:
+        return None
+    boxes = [cutout(opened[k]).getchannel("A").point(lambda a: 255 if a >= 128 else 0).getbbox() for k in ("front", "front2")]
+    if None in boxes:
+        return None
+    height, width = drawn["front"][1].shape
+    top, left = (FRAME - height) // 2, (FRAME - width) // 2
+    return top + boxes[1][1] - boxes[0][1], left + boxes[1][0] - boxes[0][0]
+
+
+def place_at(indexes, opaque, size, top_left):
+    """Like place(), at a given top-left corner (clipped to the frame)."""
+    frame = np.zeros((size, size), np.uint8)
+    top, left = top_left
+    for y in range(opaque.shape[0]):
+        for x in range(opaque.shape[1]):
+            if opaque[y, x] and 0 <= top + y < size and 0 <= left + x < size:
+                frame[top + y, left + x] = indexes[y, x] + 1
+    return frame
+
+
 def backdrop(palette):
     return next(color for color in BACKDROPS if color not in palette)
 
@@ -312,6 +337,10 @@ def build(sid, sources, size=FRAME, note=None, grid=None, out=None, detail=False
     colors = [backdrop(palette)] + palette
     clean = (lambda indexes, opaque: despeckle(indexes, opaque, palette)) if grid else (lambda indexes, opaque: indexes)
     frames = {kind: place(clean(nearest(rgb, palette), opaque), opaque, FRAME) for kind, (rgb, opaque) in drawn.items()}
+    anchor = second_frame_offset(opened, drawn)
+    if anchor is not None:                               # the two animation frames share a canvas: keep their relative position
+        rgb, opaque = drawn["front2"]
+        frames["front2"] = place_at(clean(nearest(rgb, palette), opaque), opaque, FRAME, anchor)
 
     out = Path(out) if out else SPRITES / sid
     out.mkdir(parents=True, exist_ok=True)
