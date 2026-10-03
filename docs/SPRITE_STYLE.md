@@ -7,6 +7,12 @@ and how a sprite is checked. In the sprite studio on the website this is the sty
 
 ![The style on eight Pokemon](img/sprite_style_test.png)
 
+Eight Pokemon with very different designs, two attempts each: the artwork Qwen drew, then the
+front and back sprites built from it. 15 of the 16 pass every check; Ampeel's first back fails
+(Qwen drew the eel from the side, not from behind), so the studio would put it last. In the game:
+
+![In the game](img/sprite_style_in_rom.png)
+
 ## The standard
 
 What the Game Boy Advance games' sprites do, and what ours must do too:
@@ -46,6 +52,22 @@ What the Game Boy Advance games' sprites do, and what ours must do too:
 
 The same request always gives the same sprites (the seeds come from the request number, and the
 renderer is not random).
+
+## Making one by hand
+
+The studio does all of this. To build a sprite from a picture yourself:
+
+```bash
+python scripts/pixel_render.py art.png front.png --size 54
+```
+
+```bash
+python scripts/pixel_render.py art_back.png back.png --size 54 --back
+```
+
+```bash
+python scripts/sprites.py make waffy --front front.png --back back.png
+```
 
 ## What helps
 

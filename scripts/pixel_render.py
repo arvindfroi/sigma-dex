@@ -246,3 +246,27 @@ def render(path, size=54, k=12, materials=9, view="front", window=None, fit=None
     rgba[..., :3] = out
     rgba[..., 3] = np.where(solid, 255, 0)
     return Image.fromarray(rgba)
+
+
+def main():
+    import argparse
+    import sys
+    parser = argparse.ArgumentParser(description="Build a sprite from clean cel-shaded art (the Sigma sprite style).")
+    parser.add_argument("art", help="the artwork (official-style, white or transparent background)")
+    parser.add_argument("out", help="where to save the sprite (a PNG, to give to scripts/sprites.py)")
+    parser.add_argument("--size", type=int, default=54, help="longest side in pixels: 54 first stage, 60 middle, 63 final")
+    parser.add_argument("--back", action="store_true", help="a back view: drawn 1.4 times closer, cut off flat at the bottom")
+    parser.add_argument("--soft", action="store_true", help="coloured outlines and three tones instead of the bold Sigma look")
+    args = parser.parse_args()
+    if args.back:
+        image = render(args.art, fit=(62, round(args.size * 1.4)), bold=not args.soft)
+        image = image.crop((0, 0, image.width, min(args.size + 2, int(image.height * 0.85))))
+    else:
+        image = render(args.art, size=args.size, bold=not args.soft)
+    image.save(args.out)
+    print("%s: %d x %d pixels" % (args.out, image.width, image.height))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

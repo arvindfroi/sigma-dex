@@ -320,8 +320,10 @@ def official_sprites(raw, species_id, prefix):
     size = sprite_pixels(species_id, "front")
     files = {"front": Path(str(prefix) + "front.png"), "back": Path(str(prefix) + "back.png"), "icon": Path(str(prefix) + "icon.png")}
     pixel_render.render(raw["front"], size=size, bold=True).save(files["front"])
+    # the bottom is always cut off flat: at the usual height, or the lowest 15% for low, wide
+    # creatures (wings, long bodies) that the frame's width keeps smaller
     back = pixel_render.render(raw["back"], fit=(62, round(size * BACK_ZOOM)), bold=True)
-    back.crop((0, 0, back.width, min(back.height, size + 2))).save(files["back"])
+    back.crop((0, 0, back.width, min(size + 2, int(back.height * 0.85)))).save(files["back"])
     pixel_render.render(raw["front"], size=28, bold=True).save(files["icon"])
     return files
 
