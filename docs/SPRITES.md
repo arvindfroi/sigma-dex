@@ -18,6 +18,8 @@ They live in `assets/sprites/<pokemon>/`, next to `preview.png` (everything enla
 judging) and `sprite.json` (how it was made). The website shows the preview on the Pokemon's
 page and in the **Sprites** tab.
 
+The house style and its standard: [SPRITE_STYLE.md](SPRITE_STYLE.md).
+
 ## Three ways to get sprites
 
 **1. Upload a picture on the website.** On a Pokemon's page, under Images, choose what the

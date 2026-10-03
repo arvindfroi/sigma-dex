@@ -25,7 +25,11 @@ The **Sprites** tab lists everything that is waiting for a verdict.
 
 ## The styles
 
-- **Redesigned with more character (recommended, `sprite-clean`, since 2026-10-03).** Most
+- **Sigma sprite style (recommended, `sprite-official`, the default since 2026-10-03).** Qwen
+  draws the concept art as official-style Pokemon artwork, and `scripts/pixel_render.py` builds
+  the sprite from it pixel by pixel; every attempt is checked against the sprite standard. What
+  the standard is and how it works: [SPRITE_STYLE.md](SPRITE_STYLE.md).
+- **Redesigned with more character (`sprite-clean`).** Most
   concept art is a plain drawing without pose or expression, and shrinking it loses the face.
   So: (1) Qwen *redraws* the first reference picture with freedom - bigger head and eyes, a
   face with attitude, a dynamic pose (`redesign_front` / `redesign_back` in

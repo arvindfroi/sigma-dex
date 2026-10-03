@@ -637,7 +637,7 @@ function candidateCard(c, comments, tools) {
   const note = tools ? textInput("", {maxlength: 400, placeholder: "Comment on the whole sprite, or say what to change"}) : null;
   return h("div", {class: "cand " + c.status}, wrap,
     h("div", {class: "candline"}, h("span", {class: "badge " + (c.status === "approved" ? "done" : c.status === "candidate" ? "need" : "")}, STATUS_TEXT[c.status] || c.status),
-      h("span", {class: "sub"}, " attempt #" + c.id + (/^style: sprite-xl \(repainted\)/.test(c.prompt || "") ? " - repainted by the sprite model" : /^style: sprite-xl/.test(c.prompt || "") ? " - drawn" : /^style: sprite-clean/.test(c.prompt || "") ? " - redesigned and cleaned up" : /^style: emerald/.test(c.prompt || "") ? " - Emerald LoRA" : "") + (c.reviewed_by ? " - by " + c.reviewed_by : ""))),
+      h("span", {class: "sub"}, " attempt #" + c.id + (/^style: sprite-xl \(repainted\)/.test(c.prompt || "") ? " - repainted by the sprite model" : /^style: sprite-xl/.test(c.prompt || "") ? " - drawn" : /^style: sprite-clean/.test(c.prompt || "") ? " - redesigned and cleaned up" : /^style: sprite-official/.test(c.prompt || "") ? " - Sigma sprite style" : /^style: emerald/.test(c.prompt || "") ? " - Emerald LoRA" : "") + (c.reviewed_by ? " - by " + c.reviewed_by : ""))),
     said.length ? h("ul", {class: "said"}, said) : null,
     tools ? h("div", {class: "candtools"}, note,
       h("button", {type: "button", class: "small", onclick: () => note.value.trim() && tools.comment(c, note.value.trim(), null, null)}, "Comment"),
@@ -655,7 +655,7 @@ function studioSection(s) {
   const attempts = selectInput("2", [["1", "1 attempt"], ["2", "2 attempts"], ["3", "3 attempts"], ["4", "4 attempts"]]);
   const pose = selectInput("three-quarter", [["three-quarter", "Classic battle pose (three-quarter view)"], ["front", "Facing the viewer"], ["rearing", "Rearing up tall"],
     ["flying", "Hovering in the air"], ["crouching", "Crouched, ready to pounce"]]);
-  const style = selectInput("sprite-clean", [["sprite-clean", "Pokemon sprite, redesigned with more character (recommended)"], ["sprite-xl", "Pokemon sprite, close to the concept art"], ["pixel", "Plain pixel art (keeps the most detail, less Pokemon-like)"]]);
+  const style = selectInput("sprite-official", [["sprite-official", "Sigma sprite style: official-style art, built pixel by pixel (recommended)"], ["sprite-clean", "Pokemon sprite, redesigned with more character"], ["sprite-xl", "Pokemon sprite, close to the concept art"], ["pixel", "Plain pixel art (keeps the most detail, less Pokemon-like)"]]);
   const pictures = imagesOf(s.id).filter(i => Number.isInteger(i.id) && !/^\[/.test(i.caption || "")).slice(0, 8);
   const ticks = pictures.map((image, n) => { const tick = h("input", {type: "checkbox"}); tick.checked = n === 0; return [image, tick]; });
   let jobs = [], started = false;

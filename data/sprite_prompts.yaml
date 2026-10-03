@@ -93,6 +93,37 @@ cleanup: >-
   anti-aliasing. Make the face readable: each visible eye is a clear dark pupil with one white
   highlight pixel, the mouth a clean dark line. Plain white background.
 
+# The "official" sprite style (sprite-official, the default since 2026-10-03): Qwen draws the
+# creature as official-style artwork (clean outlines, flat cel shading, sprite proportions), then
+# scripts/pixel_render.py builds the sprite from it pixel by pixel. {look} is the Pokemon's look,
+# {others} names the other reference pictures, {pose} comes from official_poses.
+official_front: >-
+  Redraw the creature from <image1> as official Pokemon artwork, in the style of Ken Sugimori's
+  character art for the Game Boy Advance Pokemon games: clean thin dark outlines, smooth flat cel
+  shading with one soft shadow tone and small highlights, natural believable anatomy and appealing
+  proportions.{others} Keep its design, colors, markings and signature features clearly
+  recognisable: {look}. Draw it the way it would be drawn for a Game Boy Advance battle sprite: its
+  head and eyes a little bigger than in the reference, big readable eyes with clear pupils and
+  highlights, simple clean shapes without fine texture or tiny details, a simple mouth. Pose:
+  {pose} Three-quarter view turned toward the lower left, the whole body visible, a compact
+  silhouette with the limbs clearly separated from the body. Exactly one creature, full body,
+  plain white background, no text, no shadow on the ground.
+official_back: >-
+  Draw the creature from <image1>{others} from behind, as official Pokemon artwork in the style of
+  Ken Sugimori's character art for the Game Boy Advance Pokemon games: clean thin dark outlines,
+  smooth flat cel shading with one soft shadow tone, simple clean shapes. It is {look}. View: seen
+  from behind, as the player's own creature in a battle: the camera is behind it and a little
+  above, looking over its shoulder. We see its back, the back of its head and its tail; its head
+  is turned toward the upper right so one eye and the side of its face show in profile. It leans
+  forward toward the opponent, ready to fight. Exactly one creature, plain white background, no
+  text, no shadow on the ground.
+official_poses:
+  three-quarter: an expressive battle stance that shows its personality, leaning forward and ready to fight.
+  front: standing facing the viewer, confident, ready to fight.
+  rearing: rearing up and roaring with its mouth open, chest out, arms or front legs raised, fierce and proud.
+  flying: hovering in mid-air, wings or fins spread wide, ready to dive at the opponent.
+  crouching: crouched low and ready to pounce, head lowered, glaring at the opponent with a determined frown.
+
 pokemon:
   bergflabbser:
     refs: [assets/concept-art/bergflabbser/4.png]

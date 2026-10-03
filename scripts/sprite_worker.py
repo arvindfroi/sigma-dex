@@ -27,6 +27,7 @@ import yaml
 
 import comfy
 import dexlib
+import pixel_render
 import sprite_quality
 import sprites
 from dexlib import ROOT
@@ -108,6 +109,7 @@ def recipes(job, settings):
     views = {"front": settings["poses"].get(pose, settings["front"]), "back": settings["back"]}
     refs = list(job.get("refs") or [])
     redesign = job.get("style") == "sprite-clean" and refs   # free to redesign the first reference (needs one)
+    official = job.get("style") == "sprite-official" and refs
     parent = job.get("parent")
     out = {}
     for view in ("front", "back"):
@@ -124,6 +126,17 @@ def recipes(job, settings):
             out[view] = ("%s Redraw the creature picture in <image1> with these changes: %s Keep everything else about it the same: same creature, same pose, same view, same colors.%s"
                          % (style, " ".join(c if c.rstrip().endswith((".", "!", "?")) else c.rstrip() + "." for c in changes), others),
                          [parent["raw_" + view]] + refs)
+        elif official:                               # official-style artwork; the back is drawn from the new front ("@front")
+            look = job["look"].strip().rstrip(".")
+            if view == "front":
+                others = "".join(" <image%d> shows the same creature." % (n + 2) for n in range(len(refs[1:3])))
+                pose = settings["official_poses"].get(job.get("pose") or "three-quarter", settings["official_poses"]["three-quarter"])
+                text = settings["official_front"].replace("{pose}", pose)
+                out[view] = (" ".join(text.split()).replace("{look}", look).replace("{others}", others), refs[:3])
+            else:
+                # the concept art comes first: shown the new front picture first, Qwen copies its angle
+                others = " (<image%d> shows how it was drawn from the front)" % (len(refs[:2]) + 1)
+                out[view] = (" ".join(settings["official_back"].split()).replace("{look}", look).replace("{others}", others), refs[:2] + ["@front"])
         elif redesign:
             look = job["look"].strip().rstrip(".")
             others = "".join(" <image%d> shows the same creature." % (n + 2) for n in range(len(refs[1:3])))
@@ -301,9 +314,22 @@ def lora_touch(sprite64, look, view, seed, target):
     return colour_lock(start, repainted, target, keep_light=0.5)
 
 
+def official_sprites(raw, species_id, prefix):
+    """The sprite-official finish: front, back and icon built from the artwork by the pixel renderer.
+    The back is drawn closer than the front (BACK_ZOOM) and cut off flat at the bottom, as the games do."""
+    size = sprite_pixels(species_id, "front")
+    files = {"front": Path(str(prefix) + "front.png"), "back": Path(str(prefix) + "back.png"), "icon": Path(str(prefix) + "icon.png")}
+    pixel_render.render(raw["front"], size=size, bold=True).save(files["front"])
+    back = pixel_render.render(raw["back"], fit=(62, round(size * BACK_ZOOM)), bold=True)
+    back.crop((0, 0, back.width, min(back.height, size + 2))).save(files["back"])
+    pixel_render.render(raw["front"], size=28, bold=True).save(files["icon"])
+    return files
+
+
 def run(job, base, key, settings):
     style_version = hashlib.sha1(json.dumps([settings["style"], settings["illustration"], settings["poses"], settings["back"],
-                                             settings["emerald_strength"], settings["redesign_front"], settings["redesign_back"], settings["cleanup"]], sort_keys=True).encode()).hexdigest()[:10]
+                                             settings["emerald_strength"], settings["redesign_front"], settings["redesign_back"], settings["cleanup"],
+                                             settings["official_front"], settings["official_back"], settings["official_poses"]], sort_keys=True).encode()).hexdigest()[:10]
     strength = settings["emerald_strength"].get(job.get("style"))
     plan = recipes(job, settings)
     made = 0
@@ -314,7 +340,7 @@ def run(job, base, key, settings):
             if path not in fetched:
                 fetched[path] = download(base, path, folder / ("ref%d.png" % len(fetched)))
             return fetched[path]
-        clean_style = job.get("style") == "sprite-clean"
+        clean_style = job.get("style") in ("sprite-clean", "sprite-official")
         candidates = []
         for number in range(job["variations"] * (2 if clean_style else 1)):   # clean style: make twice as many, hand in the better half
             seed = job["id"] * 100 + number          # the same request always gives the same pictures
@@ -324,7 +350,8 @@ def run(job, base, key, settings):
                 if recipe is None:
                     download(base, job["parent"]["raw_" + view], raw[view])
                 else:
-                    comfy.generate(recipe[0], raw[view], [local(p) for p in recipe[1]], seed=seed, transparent=True, quiet=True)
+                    comfy.generate(recipe[0], raw[view], [raw["front"] if p == "@front" else local(p) for p in recipe[1]], seed=seed,
+                                   transparent=job.get("style") != "sprite-official", quiet=True)
             out = folder / ("sprite%d" % number)
             final = dict(raw)
             if strength:                              # second step: the Emerald sprite LoRA
@@ -345,6 +372,9 @@ def run(job, base, key, settings):
                     final[view] = lora_touch(sprites.as_rgba(folder / ("%d_%s_step" % (number, view)) / "front.png"), job["look"], view, seed,
                                              folder / ("%d_%s_touch.png" % (number, view)))
                 grid = 96
+            if job.get("style") == "sprite-official":  # second step: build the sprite from the artwork, pixel by pixel
+                final = official_sprites(raw, job["species_id"], folder / ("%d_pixels_" % number))   # own names: raw[...] must stay the artwork
+                grid = None
             sprites.build(job["species_id"], final, note="AI draft", grid=grid, out=out, detail=detail)
             small = {}
             for view in ("front", "back"):
@@ -352,6 +382,10 @@ def run(job, base, key, settings):
                 sprites.as_rgba(out / (view + ".png")).save(small[view])
             prompt = ("style: %s%s, pose: %s\n\n" % (job.get("style", "pixel"), " (%s)" % recipe if recipe else "", job.get("pose", "front"))) + "\n\n".join("%s: %s" % (view, recipe[0] if recipe else "(kept from the earlier sprite)") for view, recipe in plan.items())
             mark, _ = sprite_quality.score(sprites.as_rgba(out / "front.png"), "front")
+            failed = sprite_quality.standards(sprites.as_rgba(out / "front.png"), sprites.as_rgba(out / "back.png"), sprite_pixels(job["species_id"], "front"))
+            mark -= 10 * len(failed)                  # an attempt that misses the standard goes to the back of the queue
+            if failed:
+                prompt += "\n\nMisses the sprite standard: " + "; ".join(failed)
             candidates.append((mark, seed, prompt, {"raw_front": raw["front"], "raw_back": raw["back"], "front": small["front"], "back": small["back"], "preview": out / "preview.png"}))
         if clean_style:
             candidates = sorted(candidates, key=lambda c: -c[0])[:job["variations"]]

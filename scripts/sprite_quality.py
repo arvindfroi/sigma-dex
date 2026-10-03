@@ -44,3 +44,47 @@ def score(img, view="front", target=None):
     if view == "front": s += 2 if p["eyes"] >= 2 else (1 if p["eyes"] >= 1 else -2)
     if target: s -= 0.08 * abs(max(p["height"], p["width"]) - target)
     return round(s, 2), p
+
+
+# What "up to the standard of the games' sprites" means here, as checks that can be measured.
+# Each is (name, test on the parts of a sprite, what it means). Thresholds were set on 2026-10-03
+# from Gen 3 conventions (16-colour palettes, 1-pixel dark outline, no stray pixels, readable eyes).
+def standards(front, back=None, target=None):
+    """A list of the standards the sprite pair fails (empty = passes). front/back: 64x64 RGBA."""
+    import numpy as np
+    failed = []
+    f = parts(front, "front")
+    if "empty" in f:
+        return ["the front is empty"]
+    colours = set()
+    for image in [front] + ([back] if back is not None else []):
+        a = np.array(image.convert("RGBA"))
+        colours |= {tuple(c) for c in a[a[..., 3] >= 128][:, :3]}
+    if len(colours) > 15:
+        failed.append("more than 15 colours (%d) shared by front and back" % len(colours))
+    if f["outline"] < 0.9:
+        failed.append("the outline is not closed and dark (%d%% of the edge)" % round(100 * f["outline"]))
+    if f["noise"] > 0.04:
+        failed.append("stray pixels (%.1f%% of the inside)" % (100 * f["noise"]))
+    if f["eyes"] < 1:
+        failed.append("no readable eye (a dark pupil next to a light pixel) in the upper part")
+    if target and abs(max(f["height"], f["width"]) - target) > 4:
+        failed.append("wrong size: %d pixels, should be about %d" % (max(f["height"], f["width"]), target))
+    a = np.array(front.convert("RGBA")); op = a[..., 3] >= 128
+    pad = np.pad(op, 1)
+    edge = op & ~(pad[:-2, 1:-1] & pad[2:, 1:-1] & pad[1:-1, :-2] & pad[1:-1, 2:])
+    lum = a[..., :3].astype(int) @ [0.299, 0.587, 0.114]
+    if (lum[edge] > 200).mean() > 0.05:
+        failed.append("a light halo around the edge (background left in)")
+    if back is not None:
+        b = parts(back, "back")
+        if "empty" in b:
+            failed.append("the back is empty")
+        else:
+            ba = np.array(back.convert("RGBA"))[..., 3] >= 128
+            rows = np.nonzero(ba.any(axis=1))[0]
+            if ba[rows.max()].sum() < 0.35 * b["width"]:
+                failed.append("the back is not cut off flat at the bottom")
+            if b["noise"] > 0.04:
+                failed.append("stray pixels on the back (%.1f%%)" % (100 * b["noise"]))
+    return failed
