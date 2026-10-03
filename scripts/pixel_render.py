@@ -52,19 +52,21 @@ STYLE = dict(
     colours=15,            # the game's limit per sprite (plus the see-through colour)
     faithful=True,         # tones and dark detail from the artwork itself (else: modelled light)
     detail_drop=60,        # Lab lightness below the part's colour at which a pixel's dark detail is drawn as a line
-    stroke_contrast=35,    # Lab lightness: a cell whose darkest sixth is this much darker than its middle shows a stroke
+    stroke_contrast=35,
+    trace=0.5,             # share of a sprite pixel's width an ink stroke must run through it to become a line
+    trace_margin=0.8,      # strokes closer to the silhouette than this (in sprite pixels) belong to the outline    # Lab lightness: a cell whose darkest sixth is this much darker than its middle shows a stroke
 )
 # The tones of a part, as (lightness change or factor, colourfulness factor, cool/warm shift).
 # Shadows a little cooler and lights a little warmer; outlines keep the hue but are muted, as the
 # measured outlines of the games' sprites are (median brightness 44, about half nearly black).
 RAMP = {
     "highlight": ("+", 30, 1.0, 3), "light": ("+", 16, 1.0, 5), "base": ("+", 0, 1.0, 0),
-    "shadow": ("+", -26, 1.0, -7), "line": ("*", 0.52, 0.4, -4),
+    "shadow": ("+", -26, 1.0, -7), "line": ("*", 0.42, 0.3, -4),
     "outline": ("*", 0.38, 0.22, -3), "outline_dark": ("*", 0.22, 0.15, -2),
 }
 
 
-RAMP_FLOOR = {"outline": 72, "outline_dark": 40, "line": 86}   # in Lab lightness (0-255): 72 is about brightness 44
+RAMP_FLOOR = {"outline": 72, "outline_dark": 40, "line": 62}   # in Lab lightness (0-255): 72 is about brightness 44
 
 
 # ---------- colour helpers ----------
@@ -515,9 +517,9 @@ def line_art(ink, mask, cells, k):
     doubled corners. Strokes along the silhouette are left out (the outline draws those), and so
     are lone dots."""
     gh, gw = cells.shape
-    inner = cv2.erode(mask.astype(np.uint8), np.ones((int(k * 0.8) | 1,) * 2, np.uint8)).astype(bool)
+    inner = cv2.erode(mask.astype(np.uint8), np.ones((int(k * STYLE["trace_margin"]) | 1,) * 2, np.uint8)).astype(bool)
     middle = thin(ink) & inner
-    lines = middle.reshape(gh, k, gw, k).sum(axis=(1, 3)) >= 0.5 * k
+    lines = middle.reshape(gh, k, gw, k).sum(axis=(1, 3)) >= STYLE["trace"] * k
     lines = clean_lines(thin(lines) & (cells >= 0))
     n, lbl, stats, _ = cv2.connectedComponentsWithStats(lines.astype(np.uint8), connectivity=8)
     for i in range(1, n):
@@ -659,9 +661,12 @@ def draw(path, size=54, window=None, fit=None, palette=None):
     if STYLE["faithful"]:
         # every pixel inside the silhouette takes the tone of its part nearest to what the artwork
         # shows there (strokes included): the artwork's detail decides, the ramp keeps it clean
+        traced = drawn_lines.copy()
         for y, x in zip(*np.nonzero(solid)):
             if kinds[y, x] in ("outline_dark",) or (kinds[y, x] == "outline" and -1 in [n[y, x] for n in neighbours4(cells, -1)]):
                 continue
+            if traced[y, x] and kinds[y, x]:
+                continue                                   # a traced line of the artwork stays a line
             c = int(cells[y, x])
             options = [(n, tone_of(colours[c], n)) for n in tone_names]
             best = min(options, key=lambda o: np.linalg.norm((o[1] - rep[y, x]) * np.array([1.0, 0.6, 0.6])))[0]
@@ -675,7 +680,7 @@ def draw(path, size=54, window=None, fit=None, palette=None):
         for n in neighbours4(cells, -1):
             edge |= solid & (n < 0)
         inner = solid & ~edge & np.isin(kinds, ["line", "outline"])
-        keep = thin(inner)
+        keep = thin(inner) | (traced & inner)
         for y, x in zip(*np.nonzero(inner & ~keep)):
             c = int(cells[y, x])
             options = [(n, tone_of(colours[c], n)) for n in names]
