@@ -58,7 +58,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Bygon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Leadling** needs: a level-up move that exists in the game
 - **Iglomodo** needs: a level-up move that exists in the game
-- **Sandrema** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Sandrema** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Ciggiti** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Chuchar** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Parahaunt** needs: an ability that exists in the game, a level-up move that exists in the game
