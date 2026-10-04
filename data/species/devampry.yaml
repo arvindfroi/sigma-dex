@@ -22,11 +22,11 @@ abilities:
   hidden: Punk Rock      # optional
 
 base_stats:              # each 1-255
-  hp: 86
+  hp: 82
   attack: 75
   defense: 69
   sp_attack: 95
-  sp_defense: 70
+  sp_defense: 87
   speed: 95
 
 ev_yield: {sp_attack: 1, speed: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
@@ -59,6 +59,10 @@ learnset:
   level_up:
     - {level: 0, move: Hyper Voice}
     - {level: 1, move: Hyper Voice}
+    - {level: 1, move: Parting Shot}
+    - {level: 36, move: Nasty Plot}
+    - {level: 40, move: Snarl}
+    - {level: 60, move: Boomburst}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line

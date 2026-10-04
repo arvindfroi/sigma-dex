@@ -2892,11 +2892,20 @@
         {
           "into": "motinky",
           "method": "level",
-          "level": 22
+          "level": 25
         }
       ],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Absorb"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -3042,10 +3051,10 @@
       },
       "base_stats": {
         "hp": 80,
-        "attack": 56,
+        "attack": 67,
         "defense": 110,
         "sp_attack": 108,
-        "sp_defense": 94,
+        "sp_defense": 93,
         "speed": 72
       },
       "ev_yield": {
@@ -3209,11 +3218,11 @@
         "hidden": "Punk Rock"
       },
       "base_stats": {
-        "hp": 86,
+        "hp": 82,
         "attack": 75,
         "defense": 69,
         "sp_attack": 95,
-        "sp_defense": 70,
+        "sp_defense": 87,
         "speed": 95
       },
       "ev_yield": {
@@ -3241,6 +3250,22 @@
           {
             "level": 1,
             "move": "Hyper Voice"
+          },
+          {
+            "level": 1,
+            "move": "Parting Shot"
+          },
+          {
+            "level": 36,
+            "move": "Nasty Plot"
+          },
+          {
+            "level": 40,
+            "move": "Snarl"
+          },
+          {
+            "level": 60,
+            "move": "Boomburst"
           }
         ],
         "tm_hm": [],
@@ -6075,6 +6100,80 @@
         "safari_flee_rate": 0
       },
       "id": "darkgonark"
+    },
+    {
+      "dex": 86,
+      "name": "Verrith",
+      "credits": {
+        "designer": "Casper",
+        "artist": null
+      },
+      "types": [
+        "Ghost",
+        "Steel"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Fog of war",
+        "secondary": null,
+        "hidden": "Takes 1,5 extra crit damage"
+      },
+      "base_stats": {
+        "hp": 120,
+        "attack": 85,
+        "defense": 100,
+        "sp_attack": 65,
+        "sp_defense": 65,
+        "speed": 50
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/verrith/456.jpg",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "verrith"
     },
     {
       "dex": 88,

@@ -1734,5 +1734,19 @@
     "file": "assets/concept-art/wealther/455.jpg",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 456,
+    "species": "verrith",
+    "file": "assets/concept-art/verrith/456.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 457,
+    "species": "verrith",
+    "file": "assets/concept-art/verrith/457.jpg",
+    "caption": null,
+    "editor": null
   }
 ]

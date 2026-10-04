@@ -9,39 +9,39 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 83 / 84 |
-| Identity | designer credit | 50 / 84 |
-| Dex page | category | 42 / 84 |
-| Dex page | description | 42 / 84 |
-| Dex page | height | 29 / 84 |
-| Dex page | weight | 27 / 84 |
-| Dex page | body color | 1 / 84 |
-| Stats | base stats | 56 / 84 |
-| Stats | ability | 52 / 84 |
-| Stats | EV yield | 28 / 84 |
-| Stats | catch rate | 1 / 84 |
-| Stats | base exp | 1 / 84 |
-| Stats | growth rate | 1 / 84 |
-| Stats | base friendship | 1 / 84 |
-| Breeding | gender | 1 / 84 |
-| Breeding | egg groups | 1 / 84 |
-| Breeding | egg cycles | 1 / 84 |
-| Moves | level-up moves | 19 / 84 |
-| Moves | TM/HM moves | 2 / 84 |
-| Location | encounters | 1 / 84 |
-| Design | concept | 2 / 84 |
-| Art | concept art | 77 / 84 |
-| Art | front sprite | 4 / 84 |
-| Art | front animation frame | 4 / 84 |
-| Art | back sprite | 4 / 84 |
-| Art | icon | 4 / 84 |
-| Art | footprint | 0 / 84 |
-| Art | shiny palette | 0 / 84 |
-| Art | cry | 0 / 84 |
+| Identity | types | 84 / 85 |
+| Identity | designer credit | 51 / 85 |
+| Dex page | category | 42 / 85 |
+| Dex page | description | 42 / 85 |
+| Dex page | height | 29 / 85 |
+| Dex page | weight | 27 / 85 |
+| Dex page | body color | 1 / 85 |
+| Stats | base stats | 57 / 85 |
+| Stats | ability | 53 / 85 |
+| Stats | EV yield | 28 / 85 |
+| Stats | catch rate | 1 / 85 |
+| Stats | base exp | 1 / 85 |
+| Stats | growth rate | 1 / 85 |
+| Stats | base friendship | 1 / 85 |
+| Breeding | gender | 1 / 85 |
+| Breeding | egg groups | 1 / 85 |
+| Breeding | egg cycles | 1 / 85 |
+| Moves | level-up moves | 20 / 85 |
+| Moves | TM/HM moves | 2 / 85 |
+| Location | encounters | 1 / 85 |
+| Design | concept | 2 / 85 |
+| Art | concept art | 78 / 85 |
+| Art | front sprite | 4 / 85 |
+| Art | front animation frame | 4 / 85 |
+| Art | back sprite | 4 / 85 |
+| Art | icon | 4 / 85 |
+| Art | footprint | 0 / 85 |
+| Art | shiny palette | 0 / 85 |
+| Art | cry | 0 / 85 |
 
-## Open dex slots (67)
+## Open dex slots (66)
 
-#17, #18, #19, #29, #30, #31, #75, #76, #84, #85, #86, #87, #89, #90, #92, #93, #101, #102, #103, #104, #105, #106, #107, #108, #109, #110, #111, #112, #113, #114, #115, #116, #117, #118, #119, #120, #121, #122, #123, #124, #125, #126, #127, #128, #129, #130, #131, #132, #133, #134, #135, #136, #137, #138, #139, #140, #141, #142, #143, #144, #145, #146, #147, #148, #149, #150, #151
+#17, #18, #19, #29, #30, #31, #75, #76, #84, #85, #87, #89, #90, #92, #93, #101, #102, #103, #104, #105, #106, #107, #108, #109, #110, #111, #112, #113, #114, #115, #116, #117, #118, #119, #120, #121, #122, #123, #124, #125, #126, #127, #128, #129, #130, #131, #132, #133, #134, #135, #136, #137, #138, #139, #140, #141, #142, #143, #144, #145, #146, #147, #148, #149, #150, #151
 
 ## Missing per Pokemon
 
@@ -372,12 +372,12 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #40 [Tinky](data/species/tinky.yaml) - 28%
+### #40 [Tinky](data/species/tinky.yaml) - 31%
 
 - **Dex page:** height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -808,6 +808,16 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 - **Identity:** designer credit
 - **Dex page:** body color
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #86 [Verrith](data/species/verrith.yaml) - 17%
+
+- **Dex page:** category, description, height, weight, body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves

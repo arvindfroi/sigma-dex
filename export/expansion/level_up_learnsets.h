@@ -107,6 +107,12 @@ static const struct LevelUpMove sSigmaulerLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sTinkyLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_ABSORB),
+    LEVEL_UP_MOVE( 1, MOVE_GROWL),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sMotinkyLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_FIRE_SPIN),
     LEVEL_UP_MOVE( 1, MOVE_FIRE_SPIN),
@@ -122,6 +128,10 @@ static const struct LevelUpMove sGortikiLevelUpLearnset[] = {
 static const struct LevelUpMove sDevampryLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_HYPER_VOICE),
     LEVEL_UP_MOVE( 1, MOVE_HYPER_VOICE),
+    LEVEL_UP_MOVE( 1, MOVE_PARTING_SHOT),
+    LEVEL_UP_MOVE(36, MOVE_NASTY_PLOT),
+    LEVEL_UP_MOVE(40, MOVE_SNARL),
+    LEVEL_UP_MOVE(60, MOVE_BOOMBURST),
     LEVEL_UP_END
 };
 

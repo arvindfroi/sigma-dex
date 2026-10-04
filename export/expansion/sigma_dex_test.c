@@ -369,6 +369,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Sigmauler can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Tinky has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_TINKY];
+    EXPECT_EQ(info->baseHP, 35);
+    EXPECT_EQ(info->baseAttack, 30);
+    EXPECT_EQ(info->baseDefense, 65);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 55);
+    EXPECT_EQ(info->baseSpDefense, 50);
+    EXPECT_EQ(info->types[0], TYPE_GRASS);
+    EXPECT_EQ(info->types[1], TYPE_GRASS);
+    EXPECT_EQ(info->abilities[0], ABILITY_HEATPROOF);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ABSORB);
+    EXPECT_EQ(GetSpeciesName(SPECIES_TINKY)[0], CHAR_T);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Tinky can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_TINKY) { Moves(MOVE_ABSORB); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ABSORB); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ABSORB, player);
+    }
+}
+
 TEST("Sigma dex: Motinky has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_MOTINKY];
@@ -401,11 +429,11 @@ TEST("Sigma dex: Gortiki has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GORTIKI];
     EXPECT_EQ(info->baseHP, 80);
-    EXPECT_EQ(info->baseAttack, 56);
+    EXPECT_EQ(info->baseAttack, 67);
     EXPECT_EQ(info->baseDefense, 110);
     EXPECT_EQ(info->baseSpeed, 72);
     EXPECT_EQ(info->baseSpAttack, 108);
-    EXPECT_EQ(info->baseSpDefense, 94);
+    EXPECT_EQ(info->baseSpDefense, 93);
     EXPECT_EQ(info->types[0], TYPE_GRASS);
     EXPECT_EQ(info->types[1], TYPE_FIRE);
     EXPECT_EQ(info->abilities[0], ABILITY_FLASH_FIRE);
@@ -428,12 +456,12 @@ SINGLE_BATTLE_TEST("Sigma dex: Gortiki can use its first move in battle")
 TEST("Sigma dex: Devampry has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DEVAMPRY];
-    EXPECT_EQ(info->baseHP, 86);
+    EXPECT_EQ(info->baseHP, 82);
     EXPECT_EQ(info->baseAttack, 75);
     EXPECT_EQ(info->baseDefense, 69);
     EXPECT_EQ(info->baseSpeed, 95);
     EXPECT_EQ(info->baseSpAttack, 95);
-    EXPECT_EQ(info->baseSpDefense, 70);
+    EXPECT_EQ(info->baseSpDefense, 87);
     EXPECT_EQ(info->types[0], TYPE_NORMAL);
     EXPECT_EQ(info->types[1], TYPE_DARK);
     EXPECT_EQ(info->abilities[0], ABILITY_SOUNDPROOF);
