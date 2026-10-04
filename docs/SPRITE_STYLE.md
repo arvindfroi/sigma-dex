@@ -107,6 +107,21 @@ back of the queue and says why.
 The same request always gives the same sprites (the seeds come from the request number, and the
 renderer is not random).
 
+## The DS (Origin HeartGold)
+
+The same pipeline makes sprites for the DS with `python scripts/sprite_batch.py NAME ... --gen 4`
+(`GAMES` in `scripts/sprite_worker.py`). What changes, measured on 2026-10-04 on HeartGold's own
+493 sprites (locally, from Arvind's dump; nothing of them is in this repo):
+
+- the frame is 80x80; fronts are drawn 50/63/76 pixels (first/middle/final stage; the games'
+  median is 44/57/70) and stand with their feet on the bottom row (we set their height to 0);
+- the artwork prompt is Diamond/Pearl-era (`official_front_gen4`, `official_back_gen4`);
+- backs are big, seen over the shoulder and cut by the frame (HeartGold's backs are 65/74/79
+  pixels); where a back is wider than the frame, the tail or wing side is cut, never the head;
+- outlines keep their colour's hue (`pixel_render.DS`): the GBA hue turn made a blue outline grey.
+
+The GBA path is unchanged (the test set below gives the same sprites).
+
 ## The test set
 
 `tests/sprite_style/` holds artwork for eight very different Pokemon (two attempts each, front

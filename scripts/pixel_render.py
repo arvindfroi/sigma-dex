@@ -139,8 +139,10 @@ def mask_of(rgb):
         coloured = (np.hypot(lab_ring[:, 1] - 128, lab_ring[:, 2] - 128) > 25).mean() if ring.any() else 0
         height = (stats[i, cv2.CC_STAT_TOP] + stats[i, cv2.CC_STAT_HEIGHT] / 2 - top) / max(1, bottom - top)
         # (and a small patch up there may be an eye white with its pupil on the rim: an eye lost is far
-        # worse than a little hole left white)
-        eye_like = height < 0.45 and (coloured > 0.03 or stats[i, cv2.CC_STAT_AREA] < 0.01 * creature)
+        # worse than a little hole left white). A big patch (over 2.5% of the creature) with hardly any
+        # colour around it is a hole even up there: the gap under Janenon's arched body
+        share = stats[i, cv2.CC_STAT_AREA] / creature
+        eye_like = height < 0.45 and ((coloured > 0.03 and not (share > 0.025 and coloured < 0.05)) or share < 0.01)
         if (filled.astype(bool) & ~hole).sum() < 0.02 * stats[i, cv2.CC_STAT_AREA] and edged > 0.5 and not eye_like:
             outside |= hole
     return ~outside
@@ -779,6 +781,29 @@ SHADOW_HUE_TURN = {0: 2.1, 30: 0.7, 60: -7.4, 90: -9.7, 120: 1.3, 150: 0.0, 180:
 SHADE_TONES = {"shadow": 1.5, "line": 3.0, "outline": 3.0, "outline_dark": 3.0}   # how far each darker tone turns (the darker, the further: Pikachu goes yellow, orange, brown)
 
 
+# The DS sprites (HeartGold, 493 front sprites measured 2026-10-04) keep an outline's hue: on the lit
+# upper half an outline has 0.47 of the lightness and 0.58 of the colourfulness of the colour inside
+# it and turns its hue only about 3 degrees (the GBA turn table, three times over, turned a blue's
+# outline 38 degrees into a grey purple). styled(**DS) draws with these.
+DS = {"shade_tones": {"shadow": 1.5, "line": 1.0, "outline": 0.3, "outline_dark": 0.3}}
+
+
+class styled:
+    """with styled(**DS): ... draws with other settings (STYLE keys, or shade_tones), then restores them."""
+    def __init__(self, shade_tones=None, **style):
+        self.tones, self.style = shade_tones, style
+
+    def __enter__(self):
+        self.saved = dict(STYLE), dict(SHADE_TONES)
+        STYLE.update(self.style)
+        if self.tones:
+            SHADE_TONES.update(self.tones)
+
+    def __exit__(self, *exc):
+        STYLE.clear(); STYLE.update(self.saved[0])
+        SHADE_TONES.clear(); SHADE_TONES.update(self.saved[1])
+
+
 def shadow_turn(hue):
     hue %= 360
     lo = int(hue // 30) * 30
@@ -817,9 +842,9 @@ def fit_palette(wanted, counts, limit):
 
 # ---------- the whole ----------
 
-def render(path, size=54, window=None, fit=None, palette=None, area=None):
+def render(path, size=54, window=None, fit=None, palette=None, area=None, frame=64):
     """The sprite for the artwork at `path` (see _render), without stray specks."""
-    return drop_specks(_render(path, size, window, fit, palette, area))
+    return drop_specks(_render(path, size, window, fit, palette, area, frame))
 
 
 def drop_specks(image):
@@ -836,11 +861,12 @@ def drop_specks(image):
     return Image.fromarray(a)
 
 
-def _render(path, size=54, window=None, fit=None, palette=None, area=None):
+def _render(path, size=54, window=None, fit=None, palette=None, area=None, frame=64):
     """The sprite for the artwork at `path` as an RGBA picture.
     size: longest side in pixels; fit: (width, height) to fit instead; window: (x0, y0, x1, y1) part
     of the picture to use (shared by two animation frames); palette: RGB colours to use (the
-    front's, for a back view), else the renderer chooses its own 15.
+    front's, for a back view), else the renderer chooses its own 15; frame: the game's sprite frame
+    (64 on the GBA, 80 on the DS), which an area-sized creature never outgrows.
     Thin tips thinner than half a pixel drop out, so the drawn creature can come out smaller than
     asked; then it is drawn once more, scaled up by the difference."""
     if area and fit is None and window is None:
@@ -849,10 +875,10 @@ def _render(path, size=54, window=None, fit=None, palette=None, area=None):
         first = draw(path, size, window, fit, palette)
         covered = max(1, int((np.array(first)[..., 3] > 0).sum()))
         # but a thin creature is not drawn taller than its stage allows (STYLE["max_stretch"] x size)
-        size = min(64.0, size * STYLE["max_stretch"], size * (area / covered) ** 0.5)
+        size = min(float(frame), size * STYLE["max_stretch"], size * (area / covered) ** 0.5)
         image = draw(path, size, window, fit, palette)
         drawn = max(image.size)
-        return image if drawn <= 64 else draw(path, size * 64 / drawn, window, fit, palette)
+        return image if drawn <= frame else draw(path, size * frame / drawn, window, fit, palette)
     image = draw(path, size, window, fit, palette)
     if fit is None and window is None:
         a = np.array(image)[..., 3] > 0

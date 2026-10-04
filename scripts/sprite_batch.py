@@ -55,7 +55,7 @@ def attempt(job, settings, seed, folder):
                 break
             raw[view].unlink()
             draw(prompt, raw[view], [raw["front"] if r == "@front" else Path(r) for r in refs], seed + 1000 * extra)
-    return finish(job["species_id"], raw, folder)
+    return finish(job["species_id"], raw, folder, job.get("gen", 3))
 
 
 def draw(prompt, target, refs, seed):
@@ -72,11 +72,17 @@ def draw(prompt, target, refs, seed):
     raise comfy.ComfyError("ComfyUI stayed unreachable")
 
 
-def finish(sid, raw, folder):
-    """Sprites from the artwork of one attempt, and their score."""
-    files = sprite_worker.official_sprites(raw, sid, folder / "pixels_")
+def finish(sid, raw, folder, gen=3):
+    """Sprites from the artwork of one attempt, and their score. For the DS (gen 4) the 80x80
+    frames are kept as they are (the GBA converter, scripts/sprites.py, makes 64x64 game files)."""
+    files = sprite_worker.official_sprites(raw, sid, folder / "pixels_", gen)
     out = folder / "sprite"
-    sprites.build(sid, files, note="AI draft (Sigma sprite style)", out=out)
+    if gen == 4:
+        out.mkdir(exist_ok=True)
+        for view, path in files.items():
+            (out / (view + ".png")).write_bytes(path.read_bytes())
+    else:
+        sprites.build(sid, files, note="AI draft (Sigma sprite style)", out=out)
     front, back = sprites.as_rgba(out / "front.png"), sprites.as_rgba(out / "back.png")
     failed = sprite_quality.standards(front, back, None)
     if sprite_quality.same_view(raw["front"], raw["back"]) > 0.6:
@@ -87,7 +93,7 @@ def finish(sid, raw, folder):
     return score, notes, dict(raw, sprite=out)
 
 
-def rerender(out, settings_unused=None):
+def rerender(out, gen=3):
     """Build every attempt's sprites again from its saved artwork (after a change to the renderer),
     rescore and pick the best again. No artwork is drawn."""
     best = []
@@ -97,7 +103,7 @@ def rerender(out, settings_unused=None):
             raw = {"front": folder / "front_art.png", "back": folder / "back_art.png"}
             if not all(p.exists() for p in raw.values()):
                 continue
-            score, notes, files = finish(sid_dir.name, raw, folder)
+            score, notes, files = finish(sid_dir.name, raw, folder, gen)
             (folder / "notes.txt").write_text(notes + "\n")
             tries.append((score, notes, files))
         if tries:
@@ -128,12 +134,13 @@ def main():
     parser.add_argument("--out", default="batch")
     parser.add_argument("--seed", type=int, default=1000, help="first seed; the same seed gives the same sprites")
     parser.add_argument("--pose", default="three-quarter")
+    parser.add_argument("--gen", type=int, choices=(3, 4), default=3, help="3: Emerald (GBA, 64x64); 4: Origin HeartGold (DS, 80x80)")
     args = parser.parse_args()
     settings = yaml.safe_load((ROOT / "data" / "sprite_prompts.yaml").read_text(encoding="utf-8"))
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
     if args.rerender:
-        for sid, folder, notes in rerender(out):
+        for sid, folder, notes in rerender(out, args.gen):
             print(sid, notes)
         return 0
     best = []
@@ -145,7 +152,7 @@ def main():
         if not refs:
             print("%s: no concept art, skipped" % sid)
             continue
-        job = {"id": 0, "species_id": sid, "style": "sprite-official", "pose": args.pose, "look": look, "refs": [str(p) for p in refs]}
+        job = {"id": 0, "species_id": sid, "style": "sprite-official", "pose": args.pose, "look": look, "refs": [str(p) for p in refs], "gen": args.gen}
         tries = []
         for n in range(args.attempts):
             folder = out / sid / ("attempt%d" % (n + 1))

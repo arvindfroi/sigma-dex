@@ -125,6 +125,33 @@ official_back: >-
   face show in profile, never both eyes. It leans
   forward toward the opponent, ready to fight. Exactly one creature, plain white background, no
   text, no shadow on the ground.
+# The same for the DS (Origin HeartGold, GAMES[4] in scripts/sprite_worker.py): Diamond/Pearl-era
+# artwork. The DS backs are big and seen over the shoulder, the head turned to the right in
+# profile, the lower body cut off by the frame (measured on HeartGold's own backs, 2026-10-04).
+official_front_gen4: >-
+  Redraw the creature from <image1> as official artwork from Pokemon Diamond and Pearl (2006) and
+  HeartGold and SoulSilver, Ken Sugimori's Nintendo DS era style: bold clean dark outlines, crisp
+  cel shading with large flat areas of color, a clear shadow tone and small bright highlights,
+  chunky simple readable shapes with few small details (no muscle lines, no fine texture, no
+  pattern lines inside dark areas), a big head and big expressive eyes. Shading like a Nintendo DS battle sprite: light from
+  the upper left, a crisp shadow tone on the lower right of every part, bold highlight patches on
+  the head and body; no thin rim light lines along the edges.{others} Keep its design, colors and
+  signature features: {look}; the same expression as in the reference, stronger.{signature} Pose:
+  {pose} Three-quarter view turned toward the lower left, the whole body visible. Compose it for a
+  square battle sprite, as the game's own sprites are: a compact silhouette about as tall as it is
+  wide, with wings, capes, fins and long tails raised up behind the body or held close to it rather
+  than spread out to the sides, so the head and face can be drawn big. Exactly one creature, full
+  body, plain white background, no text, no shadow on the ground.
+official_back_gen4: >-
+  Draw the creature from <image1>{others} from behind, as official artwork from Pokemon Diamond and
+  Pearl (2006), Ken Sugimori's Nintendo DS era style: bold clean dark outlines, crisp cel shading
+  with large flat areas of color, a clear shadow tone and small bright highlights, chunky simple
+  shapes (no muscle lines, no fine texture). It is {look}. View: as the
+  player's own creature in a Nintendo DS battle: the camera is close behind it, a little to its
+  left and a little above, looking over its shoulder. We see its back, the back of its head and its
+  tail big and close, wings folded or raised behind it rather than spread wide; its head is turned to the right so the side of its face shows in profile
+  with at most one eye, never both eyes. It leans forward toward the opponent, ready to fight.
+  Exactly one creature, plain white background, no text, no shadow on the ground.
 official_poses:
   three-quarter: a lively, confident pose full of personality, standing tall with its head held high and looking at the viewer, one arm or paw raised if it has one, limbs a little away from the body.
   front: standing facing the viewer, confident, ready to fight.

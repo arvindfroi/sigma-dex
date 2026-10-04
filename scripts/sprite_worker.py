@@ -124,8 +124,9 @@ def recipes(job, settings):
                 out[view] = None                     # nothing asked for this view: keep the old picture
                 continue
             others = "".join(" The creature's design is shown in <image%d>." % (n + 2) for n in range(len(refs)))
-            kept = ("Official Pokemon Ruby and Sapphire artwork in the same style as <image1>: thick dark outlines, flat colors, "
-                    "crisp shadows, plain white background, exactly one creature." if official else style)
+            kept = (("Official Pokemon Diamond and Pearl artwork in the same style as <image1>: clean dark outlines, cel-shaded colors, "
+                     if job.get("gen") == 4 else "Official Pokemon Ruby and Sapphire artwork in the same style as <image1>: thick dark outlines, flat colors, ")
+                    + "crisp shadows, plain white background, exactly one creature." if official else style)
             out[view] = ("%s Redraw the creature picture in <image1> with these changes: %s Keep everything else about it the same: same creature, same pose, same view, same colors.%s"
                          % (kept," ".join(c if c.rstrip().endswith((".", "!", "?")) else c.rstrip() + "." for c in changes), others),
                          [parent["raw_" + view]] + refs)
@@ -134,7 +135,7 @@ def recipes(job, settings):
             if view == "front":
                 others = "".join(" <image%d> shows the same creature." % (n + 2) for n in range(len(refs[1:3])))
                 pose = settings["official_poses"].get(job.get("pose") or "three-quarter", settings["official_poses"]["three-quarter"])
-                text = settings["official_front"].replace("{pose}", pose)
+                text = settings["official_front" + GAMES[job.get("gen", 3)]["prompt"]].replace("{pose}", pose)
                 signature = job.get("signature") or (settings.get("pokemon", {}).get(job["species_id"]) or {}).get("signature")
                 text = text.replace("{signature}", (" Its most important features must be big, bold and clearly readable even on a tiny sprite, "
                                                     "exaggerated if needed: %s." % signature.strip().rstrip(".")) if signature else "")
@@ -142,7 +143,7 @@ def recipes(job, settings):
             else:
                 # the concept art comes first: shown the new front picture first, Qwen copies its angle
                 others = " (<image%d> shows how it was drawn from the front)" % (len(refs[:2]) + 1)
-                out[view] = (" ".join(settings["official_back"].split()).replace("{look}", look).replace("{others}", others), refs[:2] + ["@front"])
+                out[view] = (" ".join(settings["official_back" + GAMES[job.get("gen", 3)]["prompt"]].split()).replace("{look}", look).replace("{others}", others), refs[:2] + ["@front"])
         elif redesign:
             look = job["look"].strip().rstrip(".")
             others = "".join(" <image%d> shows the same creature." % (n + 2) for n in range(len(refs[1:3])))
@@ -182,28 +183,34 @@ SPRITE_XL = dict(checkpoint="NoobAI-XL-v1.1.safetensors", lora_name="pkspif_nb_v
 
 BACK_ZOOM = 1.4
 
+# The two games the sprites are made for. Sizes per stage (first, middle, final: base stat total
+# under 360, under 480, more), as the median of the games' own sprites, measured locally:
+# GBA (Emerald, 2026-10-03): fronts about 40/50/64 pixels on the 64 frame, drawn bigger for the
+# group (54/60/63, a quarter more area). DS (HeartGold, the base of Origin HeartGold; 493 sprites
+# measured 2026-10-04): fronts 44/57/70 pixels covering 867/1418/2104 pixels of the 80 frame;
+# the backs are much bigger, 65/74/79 pixels covering 2047/2621/2843, seen from behind and
+# cut off by the frame's bottom edge. Ours are a little bigger than the median, as on the GBA.
+GAMES = {
+    3: dict(frame=64, sizes=(54, 60, 63), areas=(955, 1530, 2452), back_zoom=BACK_ZOOM, prompt=""),
+    4: dict(frame=80, sizes=(50, 63, 76), areas=(1000, 1630, 2420), back_sizes=(68, 77, 80), back_areas=(2250, 2880, 3130), prompt="_gen4"),
+}
 
-def sprite_pixels(species_id, view):
-    """How many pixels big the creature should be drawn, like official sprites of its strength.
 
-    Official GBA sprites: first stages are about 40 pixels (their backs 46), middle stages about
-    50, final stages and legendaries fill the 64 pixel frame. That looked too small to the group
-    and leaves too few pixels for a face, so ours are drawn bigger: 54, 60 and 63 (2026-10-03).
-    """
+def stage(species_id):
+    """0 first stage, 1 middle, 2 final (by base stat total, as the games size their sprites)."""
     stats = next((data.get("base_stats") or {} for sid, _, data in dexlib.load_species()[0] if sid == species_id), {})
     total = sum(v for v in stats.values() if isinstance(v, int))
-    size = 54 if total and total < 360 else 60 if total and total < 480 else 63 if total else 60
-    return size
+    return 1 if not total else 0 if total < 360 else 1 if total < 480 else 2
 
 
-def sprite_area(species_id):
-    """How many pixels of the frame the front sprite should cover. Measured on the games' 45 starter
-    sprites (2026-10-03, median): first stages 764, middle 1224, final 1962; ours are a quarter
-    bigger, as the group found the official ones small."""
-    stats = next((data.get("base_stats") or {} for sid, _, data in dexlib.load_species()[0] if sid == species_id), {})
-    total = sum(v for v in stats.values() if isinstance(v, int))
-    official = 764 if total and total < 360 else 1224 if total and total < 480 else 1962 if total else 1224
-    return round(official * 1.25)
+def sprite_pixels(species_id, view, gen=3):
+    """How many pixels big the creature should be drawn, like official sprites of its strength (GAMES)."""
+    return GAMES[gen]["sizes"][stage(species_id)]
+
+
+def sprite_area(species_id, gen=3):
+    """How many pixels of the frame the front sprite should cover (GAMES)."""
+    return GAMES[gen]["areas"][stage(species_id)]
 
 
 def colour_lock(start, repainted, target, keep_light=0.35):
@@ -330,10 +337,12 @@ def lora_touch(sprite64, look, view, seed, target):
     return colour_lock(start, repainted, target, keep_light=0.5)
 
 
-def official_sprites(raw, species_id, prefix):
+def official_sprites(raw, species_id, prefix, gen=3):
     """The sprite-official finish: front, back and icon built from the artwork by the pixel renderer.
     The back uses the front's colours, is drawn closer than the front (BACK_ZOOM) and is cut off flat
     at the bottom (at the usual height, or its lowest 15% for low, wide creatures)."""
+    if gen == 4:
+        return ds_sprites(raw, species_id, prefix)
     size = sprite_pixels(species_id, "front")
     files = {"front": Path(str(prefix) + "front.png"), "back": Path(str(prefix) + "back.png"), "icon": Path(str(prefix) + "icon.png")}
     front = pixel_render.render(raw["front"], size=size, area=sprite_area(species_id))
@@ -348,6 +357,48 @@ def official_sprites(raw, species_id, prefix):
     back.crop((0, 0, back.width, min(64, round(back.height * 0.78)))).save(files["back"])
     pixel_render.render(raw["front"], size=28).save(files["icon"])
     return files
+
+
+def ds_sprites(raw, species_id, prefix):
+    with pixel_render.styled(**pixel_render.DS):
+        return _ds_sprites(raw, species_id, prefix)
+
+
+def _ds_sprites(raw, species_id, prefix):
+    """The DS finish (GAMES[4]): front and back on the 80x80 frame, feet on the bottom row (the
+    game's height table moves the picture down by 79 minus the feet row; ours is 0, so the creature
+    stands where its feet are drawn and nothing is cut). The back is drawn big, as the DS backs are,
+    and cut off flat by the frame's bottom edge. The icon is 32 pixels as on the GBA."""
+    game = GAMES[4]; frame = game["frame"]; k = stage(species_id)
+    files = {"front": Path(str(prefix) + "front.png"), "back": Path(str(prefix) + "back.png"), "icon": Path(str(prefix) + "icon.png")}
+    front = pixel_render.render(raw["front"], size=game["sizes"][k], area=game["areas"][k], frame=frame)
+    on_frame(front, frame).save(files["front"])
+    # the back is drawn bigger than the frame and cut by it: its upper part shows, cut off flat at the
+    # bottom, and wings or tails reaching past the sides are cut too (as Charizard's are)
+    over = 1.0 if k == 0 else 1.15                      # first stages' backs fit the frame (Bulbasaur's)
+    back = pixel_render.render(raw["back"], size=game["back_sizes"][k] * over, area=game["back_areas"][k] * over ** 2,
+                               frame=round(frame * over), palette=pixel_render.palette_of(front))
+    # where it is wider than the frame, the cut keeps the whole head (the top of the creature) in view
+    # and cuts the other side (a tail, a wing), as the DS backs do
+    alpha = np.array(back)[..., 3] > 0
+    rows = np.nonzero(alpha.any(axis=1))[0]
+    cols = np.nonzero(alpha[rows[0]:rows[0] + max(1, len(rows) // 3)].any(axis=0))[0]
+    head0, head1 = int(cols.min()), int(cols.max())
+    spare = max(0, back.width - frame)
+    left = head1 + 2 - frame if (head0 + head1) / 2 > back.width / 2 else head0 - 2
+    left = int(np.clip(left, 0, spare))
+    back = back.crop((left, 0, left + min(frame, back.width), min(frame, round(back.height * 0.82))))
+    on_frame(back, frame).save(files["back"])
+    pixel_render.render(raw["front"], size=28).save(files["icon"])
+    return files
+
+
+def on_frame(sprite, frame):
+    """The sprite on the game's frame, centred, its lowest pixel on the bottom row."""
+    from PIL import Image
+    canvas = Image.new("RGBA", (frame, frame), (0, 0, 0, 0))
+    canvas.alpha_composite(sprite, ((frame - sprite.width) // 2, frame - sprite.height))
+    return canvas
 
 
 def run(job, base, key, settings):

@@ -412,6 +412,8 @@ def preview(out, colors, shiny, frames, icon, icon_colors, zoom=4):
 def as_rgba(path):
     """An indexed sprite as a normal picture with a see-through background (color 0)."""
     image = Image.open(path)
+    if image.mode == "RGBA":                     # already a normal picture (the DS frames of sprite_batch --gen 4)
+        return image
     alpha = np.where(np.array(image) > 0, 255, 0).astype(np.uint8)
     rgba = image.convert("RGBA")
     rgba.putalpha(Image.fromarray(alpha))
