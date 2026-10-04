@@ -63,6 +63,7 @@ STYLE = dict(
     eye_rim=True,          # eye whites on light skin get a dark rim
     speck=4,               # pixels: a bit this small that does not touch the creature is dropped
     base_band=None,        # lightness percentiles (lo, hi) of a part's pixels whose mean is its base colour; None = the average (tried (50, 85) on 2026-10-04: the group found it worse)
+    small_white=12,        # pixels: a white patch this small is not shaded (its grey shadow would be a speck)
     hole=0.004,            # share of the creature: an enclosed patch of the page's colour at least this big is a hole
     hole_tolerance=6,      # how close to the page's colour (each channel) a hole's pixels are
     brighten=0,            # Lab lightness added to the artwork before tones are picked (sprites are lit brighter)
@@ -384,7 +385,12 @@ def face_marks(rgb, L, mask, ink, cells, k):
         if area < 0.08 * k * k or area > 6 * k * k:
             continue                                           # a speck, or not a mark but a whole part
         comp = lbl == i
-        colour = Ls[comp].mean(axis=0)
+        # the mark's own colour: its core, the half that differs most from the skin around it (the
+        # mean of the whole mark includes its blurred edge, and a small white mark on purple skin
+        # came out grey-lavender, then a grey speck)
+        differ = colour_diff[comp] + np.abs(Ls[..., 0] - Lk[..., 0])[comp]
+        core = differ >= np.median(differ)
+        colour = L[comp][core].mean(axis=0)
         cover = comp.reshape(gh, k, gw, k).mean(axis=(1, 3))
         cellsof = list(zip(*np.nonzero(cover >= 0.3)))
         if not cellsof:
@@ -570,10 +576,12 @@ def draw_eyes(rgb, L, ink, mask, cells, k):
         pupil_px = whole & (L[..., 0] < STYLE["pupil"] + 20)
         if pupil_px.sum() < 0.05 * k * k:
             continue
-        # and the pupil is a solid blob: the thin dark gaps between teeth are not one (a grin is
-        # white with thin dark lines in it); thin lines are worn away, a pupil survives
-        solid_pupil = cv2.morphologyEx(pupil_px.astype(np.uint8), cv2.MORPH_OPEN, np.ones((max(3, k // 4),) * 2, np.uint8))
-        if solid_pupil.sum() < 0.03 * k * k:
+        # and it is not a grin: a grin is white crossed by two or more thin dark gaps between the
+        # teeth, each running across most of its height; an eye has one pupil (which may be a thin
+        # slit too, in a narrow angry eye)
+        gn, glbl, gst, _ = cv2.connectedComponentsWithStats(pupil_px.astype(np.uint8), connectivity=8)
+        gaps = sum(1 for j in range(1, gn) if gst[j, cv2.CC_STAT_HEIGHT] >= 0.6 * bh and gst[j, cv2.CC_STAT_WIDTH] <= 0.35 * k)
+        if gaps >= 2:
             continue
         whole &= cv2.dilate(pupil_px.astype(np.uint8), np.ones((4 * k + 1,) * 2, np.uint8)).astype(bool)
         iris_px = whole & dark & (chroma > 14) & (L[..., 0] > STYLE["pupil"])
@@ -743,6 +751,10 @@ def tone_of(colour, name):
         # a dark part's outline would be plain black: outlines keep at least this much light, as
         # the games do (their outlines median brightness is 44); the shadow side may go darker
         c[0] = max(c[0] * amount, RAMP_FLOOR.get(name, 0))
+        if colour[0] > 200 and np.hypot(colour[1] - 128, colour[2] - 128) < 15:
+            # white's lines (an eye's rim, the gaps between teeth) are near black, not mid grey: a
+            # mid-grey line on a sprite reads as a grey speck
+            c[0] = RAMP_FLOOR.get(name, 0) if name != "outline_dark" else c[0]
     else:
         room = 252 - c[0] if amount > 0 else 255
         c[0] = np.clip(c[0] + min(amount * (0.8 if amount < 0 and colour[0] > 210 else 1.0), room), 0, 255)
@@ -953,6 +965,16 @@ def draw(path, size=54, window=None, fit=None, palette=None):
             options = [(n, tone_of(colours[c], n)) for n in names]
             kinds[y, x] = ""
             level[y, x] = names.index(min(options, key=lambda o: np.linalg.norm(o[1] - rep[y, x]))[0])
+    # small white details (teeth, claw tips, a small eye white) stay white: the shadow tone of white is
+    # grey, and on a few pixels it reads as a grey speck, not as shading. Only big white areas (a
+    # belly) are shaded
+    whites = [i for i in range(len(colours)) if colours[i][0] > 200]
+    if whites:
+        n_w, lbl_w, st_w, _ = cv2.connectedComponentsWithStats((np.isin(cells, whites) & solid).astype(np.uint8), connectivity=4)
+        for j in range(1, n_w):
+            if st_w[j, cv2.CC_STAT_AREA] <= STYLE["small_white"]:
+                spot = (lbl_w == j) & (kinds == "") & (level == 0)
+                level[spot] = 1
     for y, x in zip(*np.nonzero(solid)):
         key = (int(cells[y, x]), kinds[y, x] or names[level[y, x]])
         want[(y, x)] = key
@@ -1022,6 +1044,7 @@ def draw(path, size=54, window=None, fit=None, palette=None):
         want[(y, x)] = key
         counts[key] = counts.get(key, 0) + 1
         counts[old_key] -= 1
+    look_the_same_way(want, lambda key: pool.get(key, wanted.get(key)), L, k)
     wanted.update(wanted_marks)
     wanted.update({("eye", k2): v for k2, v in eye.items()})
     counts = {key: n for key, n in counts.items() if n > 0}
@@ -1044,6 +1067,56 @@ def draw(path, size=54, window=None, fit=None, palette=None):
         out[y, x, :3] = rgb_of[key]
         out[y, x, 3] = 255
     return Image.fromarray(out)
+
+
+def look_the_same_way(want, colour_of, L, k):
+    """Both eyes look where the artwork's eyes look. Each eye is laid on the grid on its own (and its
+    white and pupil come from several rules), and rounding can put a pupil on the wrong side of its
+    white, so the creature squints. Run on the finished pixels: an eye is a patch of white with dark
+    beside it, in the upper part. The gaze is measured in the artwork over all eyes together (where
+    the dark of each eye lies against its white); an eye whose dark sits on the other side has dark
+    and white swapped, row by row. A dark eye with only a glint shows no gaze and is left alone."""
+    def light(key):
+        c = colour_of(key)
+        return c is not None and c[0] > 200 and np.hypot(c[1] - 128, c[2] - 128) < 20
+    def dark(key):
+        c = colour_of(key)
+        return c is not None and c[0] < 70
+    gh = max(y for y, _ in want) + 1
+    white = {yx for yx, key in want.items() if light(key) and yx[0] < STYLE["face"] * gh and key[1] != "glint"}
+    if not white:
+        return
+    grid = np.zeros((gh, max(x for _, x in want) + 1), np.uint8)
+    for y, x in white:
+        grid[y, x] = 1
+    n, lbl, stats, _ = cv2.connectedComponentsWithStats(grid, connectivity=8)
+    groups, gaze = [], []
+    for i in range(1, n):
+        if stats[i, cv2.CC_STAT_AREA] > 16:
+            continue                                  # a white belly or face, not an eye
+        whites = [(int(y), int(x)) for y, x in zip(*np.nonzero(lbl == i))]
+        wy, wx = zip(*whites)
+        pupils = [(y, x) for y in range(min(wy), max(wy) + 1) for x in range(min(wx) - 1, max(wx) + 2)
+                  if (y, x) in want and (y, x) not in white and dark(want[(y, x)])]
+        if not pupils:
+            continue
+        ys, xs = zip(*(whites + pupils))
+        art = L[min(ys) * k:(max(ys) + 1) * k, min(xs) * k:(max(xs) + 1) * k, 0]
+        dark_x, light_x = np.nonzero(art < 90)[1], np.nonzero(art > 200)[1]
+        if len(dark_x) and len(light_x):
+            gaze.append((dark_x.mean() - light_x.mean()) / art.shape[1])
+        groups.append((whites, pupils))
+    if not groups or not gaze or abs(np.mean(gaze)) < 0.08:
+        return                                        # looking straight ahead
+    side = np.sign(np.mean(gaze))
+    for whites, pupils in groups:
+        if np.sign(np.mean([x for _, x in pupils]) - np.mean([x for _, x in whites])) != side:
+            for y, x in pupils:
+                row = sorted(xx for yy, xx in whites if yy == y)
+                if row:
+                    target = (y, row[-1] if side > 0 else row[0])
+                    if (target[1] - x) * side > 0:
+                        want[(y, x)], want[target] = want[target], want[(y, x)]
 
 
 def palette_of(image):
