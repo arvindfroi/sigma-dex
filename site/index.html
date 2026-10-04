@@ -133,7 +133,51 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; }
 .rrow input[type=number] { width: 64px; padding: 3px 6px; }
 .error { color: var(--bad); }
 .error:not(:empty) { margin: 0 0 8px; }
+.scroll { overflow-x: auto; }
+.xclose { display: none; }
 @media (max-width: 520px) { .todo { columns: 1; } .detail .top img { width: 84px; height: 84px; } }
+@media (max-width: 760px), (pointer: coarse) {
+  input, select, textarea { font-size: 16px; min-height: 44px; }
+  input[type=range] { min-height: 32px; }
+  input[type=checkbox] { width: 22px; height: 22px; min-height: 0; flex: none; }
+  button { min-height: 44px; }
+  button.small { min-height: 40px; padding: 6px 12px; }
+  summary { padding: 13px 0; }
+  input[type=file] { padding: 8px 10px; }
+  .checks label, .refpick label { min-height: 40px; }
+  .detail a, .detail td a { display: inline-block; padding: 8px 2px; }
+  .gallery a { padding: 0; }
+  .row > .tiny { flex: 0 1 84px; }
+  .rrow input[type=number] { width: 76px; padding: 3px 6px; }
+  .rrow .who { flex: 1 1 calc(100% - 70px); }
+}
+@media (max-width: 760px) {
+  header { padding: 16px 16px 8px; }
+  h1 { font-size: 22px; }
+  .totals { display: grid; grid-template-columns: repeat(auto-fit, minmax(104px, 1fr)); gap: 8px; }
+  .total { padding: 6px 10px; }
+  .tabs button { min-height: 40px; }
+  .tools { position: static; }
+  .tools select { flex: 1 1 120px; min-width: 0; }
+  .tools input[type=search] { flex-basis: 100%; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .card .thumb { width: 44px; height: 44px; }
+  dialog { width: 100%; max-width: 100%; height: 100vh; height: 100dvh; max-height: 100vh; max-height: 100dvh; margin: 0; border: 0; border-radius: 0; overscroll-behavior: contain; }
+  .detail { padding: 14px 16px 24px; }
+  .detail .top > div:not(.actions) { min-width: 0; flex: 1 1 0; }
+  .detail .top img { flex: none; }
+  .detail h3 { font-size: 22px; }
+  .actions { margin-left: auto; flex-direction: column; flex-wrap: nowrap; }
+  .savebar { margin: 22px -16px -24px; padding: 10px 16px; }
+  .sim table { font-size: 13px; }
+  .sim td, .sim th { padding: 3px 2px; }
+  .sim { overflow-x: auto; }
+  .xclose { display: block; position: sticky; bottom: 14px; margin: 14px 0 -10px auto; width: auto; min-width: 88px; z-index: 3; background: var(--panel); border-color: var(--accent); box-shadow: 0 2px 10px rgba(0,0,0,.3); font-weight: 600; }
+  .reorder .bar input { flex: 1 1 100%; }
+  .balance td { padding: 5px 4px; font-size: 13px; }
+  .balance { min-width: 560px; }
+  .pinwrap img { touch-action: manipulation; }
+}
 </style>
 </head>
 <body>
@@ -205,6 +249,13 @@ const filled = v => v !== null && v !== undefined && v !== "" && !(Array.isArray
 const show = v => filled(v) ? String(v) : h("span", {class: "empty"}, "not decided");
 const norm = t => String(t).toLowerCase().replace(/[^a-z0-9]/g, "");
 const slugify = t => String(t).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+// Two-tap confirmation instead of confirm(), which in-app browsers can block.
+function sure(button, ask, action) {
+  if (button.dataset.sure) { action(); return; }
+  const label = button.textContent;
+  button.dataset.sure = "1"; button.textContent = ask;
+  setTimeout(() => { delete button.dataset.sure; button.textContent = label; }, 4000);
+}
 const remember = { get(k) { try { return localStorage.getItem("sigma-" + k) || ""; } catch (e) { return ""; } },
                    set(k, v) { try { localStorage.setItem("sigma-" + k, v); } catch (e) {} } };
 let bySlot, byId;
@@ -301,6 +352,7 @@ function matchups(types) {
 function showDialog(...content) {
   document.getElementById("detail").replaceChildren(...content.flat().filter(Boolean));
   const dialog = document.getElementById("dialog");
+  if (!document.querySelector("#detail form")) document.getElementById("detail").append(h("button", {type: "button", class: "xclose", onclick: closeDialog}, "Close"));
   if (!dialog.open) dialog.showModal();
   dialog.scrollTop = 0;
 }
@@ -410,11 +462,10 @@ function imageSection(s) {
     box.replaceChildren(list.length ? h("div", {class: "gallery"}, list.map(image => h("figure", {},
       h("a", {href: image.src, target: "_blank", rel: "noopener"}, h("img", {src: image.src, alt: image.caption || "Picture of " + s.data.name, loading: "lazy"})),
       h("figcaption", {}, [image.caption, image.editor ? "by " + image.editor : null].filter(Boolean).join(" - ") || "no caption", " ",
-        DEX.web.url ? h("button", {type: "button", class: "small", onclick: () => remove(image)}, "Remove") : null))))
+        DEX.web.url ? h("button", {type: "button", class: "small", onclick: ev => sure(ev.currentTarget, "Really remove?", () => remove(image))}, "Remove") : null))))
       : h("div", {class: "empty"}, "No images yet."));
   }
   async function remove(image) {
-    if (!confirm("Remove this image from " + s.data.name + "?")) return;
     status.textContent = "Removing...";
     try {
       await imageRequest({action: "remove", id: image.id, key: key.value});
@@ -588,7 +639,7 @@ function openCustomEditor(kind, item) {
     h("h2", {}, "Who is saving"),
     h("div", {class: "fields"}, field("Your name", f.editor)),
     h("div", {class: "savebar"}, error, h("div", {style: "display:flex;gap:8px;flex-wrap:wrap"}, save, h("button", {type: "button", onclick: closeDialog}, "Cancel"),
-      !isNew ? h("button", {type: "button", style: "margin-left:auto", onclick: () => { if (confirm("Remove " + item.name + " from the list of new " + K.one + (isMove ? "s" : "") + "?")) send({deleted: true}, item.id); }}, "Remove") : null))));
+      !isNew ? h("button", {type: "button", style: "margin-left:auto", onclick: ev => sure(ev.currentTarget, "Really remove?", () => send({deleted: true}, item.id))}, "Remove") : null))));
 }
 
 function renderCustom(kind) {
@@ -638,11 +689,17 @@ const STATUS_TEXT = {candidate: "waiting for a verdict", approved: "approved", r
 // One drawn sprite with its comments. `tools` is null in read-only places (the Sprites tab).
 function candidateCard(c, comments, tools) {
   const pins = comments.filter(m => m.x !== null && m.y !== null);
-  const image = h("img", {src: artUrl(c.preview), alt: "Sprite attempt " + c.id, loading: "lazy", title: tools ? "Click a spot to comment on it" : ""});
+  const image = h("img", {src: artUrl(c.preview), alt: "Sprite attempt " + c.id, loading: "lazy", title: tools ? "Tap or click a spot to comment on it" : ""});
   const wrap = h("div", {class: "pinwrap"}, image, pins.map((m, n) => h("b", {class: "pin", style: "left:" + (m.x * 100) + "%;top:" + (m.y * 100) + "%", title: m.body}, String(n + 1))));
+  let spot = null;
   if (tools) image.addEventListener("click", ev => {
-    const box = image.getBoundingClientRect(), text = prompt("Comment on this spot (for example: bigger eyes, this should be red):");
-    if (text && text.trim()) tools.comment(c, text.trim(), (ev.clientX - box.left) / box.width, (ev.clientY - box.top) / box.height);
+    const box = image.getBoundingClientRect(), x = (ev.clientX - box.left) / box.width, y = (ev.clientY - box.top) / box.height;
+    if (spot) spot.forEach(el => el.remove());
+    const text = textInput("", {maxlength: 400, placeholder: "Comment on this spot (e.g. bigger eyes, this should be red)", "aria-label": "Comment on this spot"});
+    const mark = h("b", {class: "pin", style: "left:" + (x * 100) + "%;top:" + (y * 100) + "%"}, "+");
+    const form = h("form", {class: "candtools", onsubmit: e => { e.preventDefault(); if (text.value.trim()) tools.comment(c, text.value.trim(), x, y); }}, text,
+      h("button", {type: "submit", class: "small primary"}, "Add comment"), h("button", {type: "button", class: "small", onclick: () => spot.forEach(el => el.remove())}, "Cancel"));
+    spot = [mark, form]; wrap.append(mark); wrap.after(form); text.focus();
   });
   const said = comments.map(m => h("li", {}, m.x !== null ? h("b", {class: "pin still"}, String(pins.indexOf(m) + 1)) : null, " " + m.body, m.editor ? h("span", {class: "sub"}, " - " + m.editor) : null));
   const note = tools ? textInput("", {maxlength: 400, placeholder: "Feedback: what should change? (e.g. bigger grin, the antennae are missing)"}) : null;
@@ -771,10 +828,10 @@ function renderBalance() {
   const wrap = h("div", {style: "grid-column:1/-1"},
     h("p", {class: "sub", style: "margin-top:0"}, "Compared with all " + DEX.type_shares.species_counted + " official Pokemon (generation 1-9). A Pokemon with two types counts for both. " +
       "The line on each bar is where the type would be if our " + typed.length + " typed Pokemon followed the official spread (adjusted for how many of ours have two types). Types at the top are where new Pokemon are most needed."),
-    h("table", {class: "balance"}, h("tr", {}, h("th", {}, "Type"), h("th", {}, "Ours"), h("th", {}, "Normal"), h("th", {}, ""), h("th", {}, ""), h("th", {}, "At " + DEX.dex_size)),
+    h("div", {class: "scroll"}, h("table", {class: "balance"}, h("tr", {}, h("th", {}, "Type"), h("th", {}, "Ours"), h("th", {}, "Normal"), h("th", {}, ""), h("th", {}, ""), h("th", {}, "At " + DEX.dex_size)),
       rows.map(r => h("tr", {}, h("td", {}, typeChip(r.type)), h("td", {}, h("b", {}, String(r.ours))), h("td", {}, r.normal.toFixed(1)),
         h("td", {style: "width:40%"}, h("div", {class: "track"}, h("i", {style: "width:" + (100 * r.ours / top) + "%;background:" + TYPE_COLORS[r.type]}), h("b", {style: "left:" + (100 * r.normal / top) + "%"}))),
-        h("td", {}, verdict(r)), h("td", {class: "sub"}, "about " + r.atFull)))),
+        h("td", {}, verdict(r)), h("td", {class: "sub"}, "about " + r.atFull))))),
     h("p", {class: "sub"}, dual + " of " + typed.length + " have two types (" + Math.round(100 * dual / Math.max(typed.length, 1)) + "%; officially " + Math.round(100 * DEX.type_shares.dual_type_share) + "%). " +
       open + " dex slots are still open" + (untyped ? " and " + untyped + " Pokemon have no type yet" : "") + ". \"At " + DEX.dex_size + "\" is how many of that type a full dex would normally have."));
   grid.replaceChildren(wrap);
@@ -1004,7 +1061,7 @@ function renderReorder() {
     const go = () => { if (to.value) step({op: "move", id, to: Number(to.value)}); };
     const row = h("div", {class: "rrow" + (s ? "" : " open") + (s && was !== n ? " moved" : "")},
       h("span", {class: "no"}, "#" + pad(n)),
-      s ? h("span", {class: "who", draggable: "true", title: "Drag onto another row to move it there"}, s.data.name || id, " ", s.data.types ? s.data.types.map(typeChip) : null) : h("span", {class: "who", style: "font-weight:400;cursor:default"}, "Open slot"),
+      s ? h("span", {class: "who", draggable: matchMedia("(pointer: fine)").matches ? "true" : null, title: "Drag onto another row to move it there"}, s.data.name || id, " ", s.data.types ? s.data.types.map(typeChip) : null) : h("span", {class: "who", style: "font-weight:400;cursor:default"}, "Open slot"),
       s && was !== n ? h("span", {class: "sub"}, "was #" + pad(was)) : null,
       s ? [h("button", {type: "button", class: "small", disabled: n === 1, onclick: () => step({op: "move", id, to: n - 1})}, "Up"),
            h("button", {type: "button", class: "small", disabled: n === DEX.dex_size, onclick: () => step({op: "move", id, to: n + 1})}, "Down"),
