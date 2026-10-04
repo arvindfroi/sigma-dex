@@ -59,8 +59,8 @@ def on_canvas(sprite, path):
     return path
 
 
-def snap(path, colours=15):
-    """Qwen's picture read on the draft's grid (GRID x GRID cells): colours fitted first, then each
+def snap(path, colours=15, grid=GRID):
+    """Qwen's picture read on the draft's grid (grid x grid cells; GRID, or coarser for an icon): colours fitted first, then each
     cell takes its commonest colour; a cell is see-through when most of it is the white page
     connected to the border. Returns the creature cropped to its own size (RGBA)."""
     a = np.array(Image.open(path).convert("RGB").resize((1024, 1024)))
@@ -74,15 +74,15 @@ def snap(path, colours=15):
                                (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 50, 0.2), 4, cv2.KMEANS_PP_CENTERS)
     index = ((L[..., None, :] - centres[None, None]) ** 2).sum(axis=3).argmin(axis=2)
     index[outside] = colours
-    edges = np.round(np.arange(GRID + 1) * 1024 / GRID).astype(int)
-    cells = np.full((GRID, GRID), colours, np.int32)
-    for i in range(GRID):
-        for j in range(GRID):
+    edges = np.round(np.arange(grid + 1) * 1024 / grid).astype(int)
+    cells = np.full((grid, grid), colours, np.int32)
+    for i in range(grid):
+        for j in range(grid):
             block = index[edges[i]:edges[i + 1], edges[j]:edges[j + 1]].ravel()
             counts = np.bincount(block, minlength=colours + 1)
             cells[i, j] = colours if counts[colours] > 0.55 * block.size else int(np.argmax(counts[:colours]))
     rgb = cv2.cvtColor(centres.clip(0, 255).astype(np.uint8).reshape(-1, 1, 3), cv2.COLOR_LAB2RGB).reshape(-1, 3)
-    out = np.zeros((GRID, GRID, 4), np.uint8)
+    out = np.zeros((grid, grid, 4), np.uint8)
     solid = cells < colours
     out[solid, :3] = rgb[cells[solid]]
     out[solid, 3] = 255
@@ -139,16 +139,19 @@ def front_score(sprite, art, target):
 
 
 def back_score(back, front):
-    """Higher is better: covers about the stage's back area and is cut off flat at the bottom."""
+    """Higher is better: covers about the stage's back area, is cut off flat at the bottom, and is
+    really seen from behind - a back that shows a face (two eyes, as Erobi's first back did) is
+    the front drawn again."""
     a = np.array(back)[..., 3] > 0
     if not a.any():
         return -99.0
     rows = np.nonzero(a.any(axis=1))[0]
     flat = a[rows.max()].sum() / max(1, a.any(axis=0).sum())
-    return round(2 * flat - abs(a.sum() - 2600) / 1000, 2)
+    eyes = sprite_quality.parts(back)["eyes"]
+    return round(2 * flat - abs(a.sum() - 2600) / 1000 - (4 if eyes >= 2 else 0), 2)
 
 
-def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6)):
+def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7)):
     """Front and back for one attempt's artwork (raw: {"front": art, "back": art}). Writes
     front.png, back.png and icon.png in `folder` and returns ({view: path}, front score)."""
     folder = Path(folder)
@@ -179,6 +182,11 @@ def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6)):
     files = {"front": folder / "front.png", "back": folder / "back.png", "icon": folder / "icon.png"}
     front.save(files["front"])
     back.save(files["back"])
-    pixel_render.render(str(raw["front"]), size=28).save(files["icon"])          # the icon is still the renderer's
+    # the icon: the chosen front picture read on a grid coarse enough for the creature to be 28 pixels
+    icon = snap(folder / ("qwen_front_%d.png" % seed), grid=max(24, round(GRID * 28 / max(front.getbbox()[2] - front.getbbox()[0], front.getbbox()[3] - front.getbbox()[1]))))
+    canvas = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
+    icon.thumbnail((32, 32), Image.NEAREST)
+    canvas.alpha_composite(icon, ((32 - icon.width) // 2, 32 - icon.height))
+    canvas.save(files["icon"])
     (folder / "picks.txt").write_text("front seeds %s -> %d; back seeds %s\n" % ([(f[1], f[0]) for f in fronts], seed, [(b[1], b[0]) for b in backs]))
     return files, score
