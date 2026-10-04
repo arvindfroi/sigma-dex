@@ -2470,11 +2470,11 @@
       },
       "base_stats": {
         "hp": 102,
-        "attack": 122,
+        "attack": 118,
         "defense": 92,
         "sp_attack": 51,
-        "sp_defense": 51,
-        "speed": 92
+        "sp_defense": 55,
+        "speed": 82
       },
       "ev_yield": null,
       "catch_rate": null,

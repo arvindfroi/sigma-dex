@@ -43,7 +43,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 32 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice |  |  |  | 7% |
 | 33 | [Rainbro](data/species/rainbro.yaml) | Stellar |  |  |  | 7% |
 | 34 | [Autuman](data/species/autuman.yaml) | Fighting / Grass | Justified, Guts, Wind Rider (H) |  |  | 14% |
-| 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Guts, Justified, Tinted Lens (H) | 510 |  | 31% |
+| 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Guts, Justified, Tinted Lens (H) | 500 |  | 31% |
 | 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Sticky Hold (H) | 325 | Toxiren (Lv 38) | 31% |
 | 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Pixilate (H) | 500 |  | 38% |
 | 38 | [Stonma](data/species/stonma.yaml) | Rock | Sturdy, Rock Head, Solid Rock (H) | 330 | Sigmauler (Lv 38) | 28% |
