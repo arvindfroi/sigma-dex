@@ -61,6 +61,7 @@ STYLE = dict(
     accents=3,             # face marks in colours the sprite does not have (a pink blush) get at most this many palette slots
     accent_gap=35,         # Lab distance from every colour the sprite has, for a mark's colour to count as an accent
     eye_rim=True,          # eye whites on light skin get a dark rim
+    speck=4,               # pixels: a bit this small that does not touch the creature is dropped
 )
 # The tones of a part, as (lightness change or factor, colourfulness factor, cool/warm shift).
 # Shadows a little cooler and lights a little warmer. Outlines as measured on the games' starters:
@@ -758,6 +759,25 @@ def fit_palette(wanted, counts, limit):
 # ---------- the whole ----------
 
 def render(path, size=54, window=None, fit=None, palette=None, area=None):
+    """The sprite for the artwork at `path` (see _render), without stray specks."""
+    return drop_specks(_render(path, size, window, fit, palette, area))
+
+
+def drop_specks(image):
+    """Remove stray specks: bits of at most STYLE["speck"] pixels that do not touch the creature (not
+    even at a corner). They come from thin tips of the artwork that fall between two sprite pixels;
+    a spriter never leaves them. Everything joined to the creature (antenna tips, claws) stays."""
+    a = np.array(image)
+    n, lbl, stats, _ = cv2.connectedComponentsWithStats((a[..., 3] > 0).astype(np.uint8), connectivity=8)
+    if n > 2:
+        biggest = 1 + int(np.argmax(stats[1:, cv2.CC_STAT_AREA]))
+        for i in range(1, n):
+            if i != biggest and stats[i, cv2.CC_STAT_AREA] <= STYLE["speck"]:
+                a[lbl == i] = 0
+    return Image.fromarray(a)
+
+
+def _render(path, size=54, window=None, fit=None, palette=None, area=None):
     """The sprite for the artwork at `path` as an RGBA picture.
     size: longest side in pixels; fit: (width, height) to fit instead; window: (x0, y0, x1, y1) part
     of the picture to use (shared by two animation frames); palette: RGB colours to use (the
