@@ -1748,5 +1748,26 @@
     "file": "assets/concept-art/verrith/458.webp",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 459,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/459.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 461,
+    "species": "obsidog",
+    "file": "assets/concept-art/obsidog/461.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 462,
+    "species": "obsidog",
+    "file": "assets/concept-art/obsidog/462.png",
+    "caption": null,
+    "editor": null
   }
 ]

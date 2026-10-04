@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**85 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
+**86 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -111,7 +111,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 100 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician | 680 |  | 28% |
 | 101 | *open slot* | | | | | |
 | 102 | *open slot* | | | | | |
-| 103 | *open slot* | | | | | |
+| 103 | [Obsidog](data/species/obsidog.yaml) | Dark / Rock | Strong Jaw, Intimidate, Rough Skin (H) | 340 |  | 21% |
 | 104 | *open slot* | | | | | |
 | 105 | *open slot* | | | | | |
 | 106 | *open slot* | | | | | |

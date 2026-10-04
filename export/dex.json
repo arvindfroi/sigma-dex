@@ -6770,6 +6770,82 @@
       "id": "maagamad"
     },
     {
+      "dex": 103,
+      "name": "Obsidog",
+      "credits": {
+        "designer": "Emil Venge-Kvamme",
+        "artist": null
+      },
+      "types": [
+        "Dark",
+        "Rock"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Strong Jaw",
+        "secondary": "Intimidate",
+        "hidden": "Rough Skin"
+      },
+      "base_stats": {
+        "hp": 60,
+        "attack": 80,
+        "defense": 65,
+        "sp_attack": 35,
+        "sp_defense": 50,
+        "speed": 50
+      },
+      "ev_yield": {
+        "attack": 1
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/obsidog/461.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "obsidog"
+    },
+    {
       "dex": 151,
       "name": "Sandrema",
       "credits": {
