@@ -86,7 +86,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 75 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 525 |  | 38% |
 | 76 | *open slot* | | | | | |
 | 77 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 530 |  | 34% |
-| 78 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground |  | 600 |  | 14% |
+| 78 | *open slot* | | | | | |
 | 79 | [Ciggiti](data/species/ciggiti.yaml) | Ghost | Smoked Up | 310 |  | 28% |
 | 80 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 28% |
 | 81 | [Parahaunt](data/species/parahaunt.yaml) | Ghost | Smoked Up | 556 |  | 28% |
@@ -159,4 +159,4 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 148 | *open slot* | | | | | |
 | 149 | *open slot* | | | | | |
 | 150 | *open slot* | | | | | |
-| 151 | *open slot* | | | | | |
+| 151 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground |  | 600 |  | 14% |

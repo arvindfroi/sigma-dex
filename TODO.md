@@ -41,7 +41,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 ## Open dex slots (66)
 
-#17, #18, #19, #29, #30, #31, #74, #76, #84, #85, #87, #89, #90, #92, #93, #101, #102, #103, #104, #105, #106, #107, #108, #109, #110, #111, #112, #113, #114, #115, #116, #117, #118, #119, #120, #121, #122, #123, #124, #125, #126, #127, #128, #129, #130, #131, #132, #133, #134, #135, #136, #137, #138, #139, #140, #141, #142, #143, #144, #145, #146, #147, #148, #149, #150, #151
+#17, #18, #19, #29, #30, #31, #74, #76, #78, #84, #85, #87, #89, #90, #92, #93, #101, #102, #103, #104, #105, #106, #107, #108, #109, #110, #111, #112, #113, #114, #115, #116, #117, #118, #119, #120, #121, #122, #123, #124, #125, #126, #127, #128, #129, #130, #131, #132, #133, #134, #135, #136, #137, #138, #139, #140, #141, #142, #143, #144, #145, #146, #147, #148, #149, #150
 
 ## Missing per Pokemon
 
@@ -750,16 +750,6 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #78 [Sandrema](data/species/sandrema.yaml) - 14%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
 ### #79 [Ciggiti](data/species/ciggiti.yaml) - 28%
 
 - **Identity:** designer credit
@@ -915,6 +905,16 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Identity:** designer credit
 - **Dex page:** body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #151 [Sandrema](data/species/sandrema.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
