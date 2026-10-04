@@ -34,9 +34,13 @@ Press **Change numbers** above the grid. The page shows every slot as a list.
   about a Pokemon is touched, and evolutions and starters keep working (they use names, not numbers).
 - If someone else changes numbers at the same time, steps are applied in the order they were saved.
   Check the grid after saving; a step that no longer fits is listed in the box at the top.
-- After a reorder the Google Sheet and Google Doc still show the old numbers. Replace the sheet
-  contents with the new `export/sheet.csv` (and renumber the doc list) before editing there again,
-  otherwise an edit in an old row lands on whatever Pokemon now has that number.
+- After a reorder the Google Sheet and Google Doc still show the old numbers, and that is fine: both are
+  matched by the Pokemon's name, not its number, so an edit in an old row or line still lands on the right
+  Pokemon, and numbers typed there are ignored. Pasting the new `export/sheet.csv` over the sheet (and
+  renumbering the doc list) is optional tidying. What cannot be done there is adding a Pokemon on a number
+  that is taken now, or renaming one that was moved - those are reported in the box at the top; do them here.
+  The import remembers each sheet row and doc line per Pokemon (`data/sheet_snapshot.json`,
+  `data/doc_snapshot.json`, keyed by species id), so a reorder does not make every row look changed.
 
 ## Images
 

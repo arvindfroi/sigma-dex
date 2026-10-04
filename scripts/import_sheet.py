@@ -9,7 +9,11 @@ The sheet has one row per dex slot and the same columns as export/sheet.csv. Rul
   what the sheet looked like). So an old value sitting in the sheet never overwrites something
   that was edited on the website in the meantime.
 - Emptying a cell that had a value clears that value.
-- A row with a name in an empty slot creates a new Pokemon.
+- A row belongs to the Pokemon NAMED in it, not to its number (numbers change when the dex is reordered on
+  the website while the sheet keeps the old ones). dexlib.identify has the rules; the Dex # column is never
+  applied. data/sheet_snapshot.json is keyed by species id. A name that is new, on an open number, creates a
+  new Pokemon. A row that cannot be matched safely (name on two rows, a new name on a number that is taken now,
+  a rename of a Pokemon that has moved) is reported, not applied.
 - A row that would break a species file is skipped as a whole, and the reason is written
   to export/sheet_problems.json (shown on the website), so one typo never blocks the rest.
 """
@@ -226,6 +230,22 @@ def read_rows(source):
     return [{key: cell.strip() for key, cell in zip(header, line) if key and cell.strip()} for line in table[1:]]
 
 
+def migrate_snapshot(snapshot, species):
+    """The snapshot used to be keyed by dex number; it is keyed by species id now (numbers change when the dex is reordered).
+    Old rows are matched to a Pokemon by the name they had. Returns (new snapshot, labels of rows that matched nobody)."""
+    if not snapshot or not all(key.isdigit() and row.get("dex") == key for key, row in snapshot.items()):
+        return snapshot, []
+    by_name = {norm(data.get("name")): sid for sid, _, data in species}
+    migrated, lost = {}, []
+    for key, row in snapshot.items():
+        sid = by_name.get(norm(row.get("name")))
+        if sid and sid not in migrated:
+            migrated[sid] = row
+        else:
+            lost.append("#%s %s" % (key, row.get("name", "")))
+    return migrated, lost
+
+
 def main():
     config = dexlib.load_config()
     source = sys.argv[1] if len(sys.argv) > 1 else os.environ.get("SHEET_CSV_URL")
@@ -239,34 +259,61 @@ def main():
     if problems:
         sys.exit("Fix the species files first (run scripts/validate.py).")
     engine = dexlib.load_engine()
-    by_dex = {data.get("dex"): (sid, path, data) for sid, path, data in species}
+    files = {sid: (path, data) for sid, path, data in species}
     by_name = {norm(data.get("name")): sid for sid, _, data in species}
-    ids = {sid for sid, _, _ in species}
+    ids = set(files)
     report, changed, pending_evolutions = [], 0, []
     snapshot = json.loads(SNAPSHOT.read_text(encoding="utf-8")) if SNAPSHOT.exists() else None
-    new_snapshot = {}
+    if snapshot is not None:
+        snapshot, lost = migrate_snapshot(snapshot, species)
+        for label in lost:
+            print("NOTE: the old snapshot row %s matches no Pokemon any more and was dropped" % label)
+    new_snapshot = dict(snapshot or {})       # rows nobody touched this time stay remembered
+    # What the sheet showed at the last import: id -> (number, name). The numbers there are the sheet's, not the dex's.
+    last = None if snapshot is None else {sid: (int(old["dex"]), old.get("name", "")) for sid, old in snapshot.items()
+                                          if sid in ids and str(old.get("dex", "")).isdigit()}
+    same_as_before = {json.dumps(old, sort_keys=True): sid for sid, old in (snapshot or {}).items() if sid in ids}
+    names_in_sheet = [norm(row["name"]) for row in rows if row.get("dex") and row.get("name")]
+    handled = set()                           # Pokemon that a row of this sheet has already been about
 
     for row in rows:
         if not row.get("dex"):
             continue
         label = "#%s %s" % (row["dex"], row.get("name", ""))
+        sid = None
         try:
             dex = whole(row["dex"], "dex")
-            if dex not in by_dex and not row.get("name"):
-                continue                      # an open slot: nothing to do until it gets a name
-            old = None if snapshot is None else snapshot.get(str(dex), {})
-            delta, cleared = changes(row, old)
-            if old is not None and not delta and not cleared:
-                new_snapshot[str(dex)] = row
+            sid = same_as_before.get(json.dumps(row, sort_keys=True))
+            if sid:
+                handled.add(sid)              # exactly what was imported last time, however the numbers have changed since
                 continue
-            if dex in by_dex:
-                sid, path, current = by_dex[dex]
+            if row.get("name") and names_in_sheet.count(norm(row["name"])) > 1:
+                raise CellError("the name '%s' is on more than one row of the sheet - nothing was applied" % row["name"])
+            current = {s: (d.get("dex"), d.get("name")) for s, (_, d) in files.items()}
+            try:
+                sid = dexlib.identify(row.get("name", ""), dex, current, last)
+            except ValueError as error:
+                raise CellError(str(error))
+            if sid is None and not row.get("name"):
+                continue                      # an open slot: nothing to do until it gets a name
+            if sid in handled:
+                raise CellError("another row of the sheet is already about %s" % files[sid][1].get("name"))
+            old = None if snapshot is None else snapshot.get(sid, {})
+            # The number in the sheet is never applied: Pokemon are moved on the website (Change numbers).
+            delta, cleared = changes({k: v for k, v in row.items() if k != "dex"},
+                                     None if old is None else {k: v for k, v in old.items() if k != "dex"})
+            if old is not None and not delta and not cleared:
+                new_snapshot[sid] = row
+                handled.add(sid)
+                continue
+            if sid:
+                path, before = files[sid]
             else:
                 sid = dexlib.slugify(row["name"])
                 if not sid or sid in ids:
                     raise CellError("cannot create '%s': the name is empty or already used" % row["name"])
-                path, current = dexlib.SPECIES_DIR / (sid + ".yaml"), {"dex": dex}
-            updated = copy.deepcopy(current)
+                path, before = dexlib.SPECIES_DIR / (sid + ".yaml"), {"dex": dex}
+            updated = copy.deepcopy(before)
             apply_row(updated, delta)
             clear_cells(updated, cleared)
             errors, warnings = [], []
@@ -280,15 +327,17 @@ def main():
                 raise CellError("; ".join(errors))
         except CellError as error:
             report.append({"row": label, "problem": str(error)})
-            if snapshot is not None and str(row["dex"]) in snapshot:
-                new_snapshot[str(row["dex"])] = snapshot[str(row["dex"])]   # so it is tried again once fixed
+            if sid in files:
+                handled.add(sid)              # its old snapshot row stays, so it is tried again once fixed
             continue
-        new_snapshot[str(dex)] = row
-        if dexlib.prune(updated) != dexlib.prune(current):
+        new_snapshot[sid] = row
+        handled.add(sid)
+        if dexlib.prune(updated) != dexlib.prune(before):
             dexlib.write_species(path, updated)
             changed += 1
-        by_dex[dex] = (sid, path, updated)
+        by_name = {n: s for n, s in by_name.items() if s != sid}
         by_name[norm(updated.get("name"))] = sid
+        files[sid] = (path, updated)
         ids.add(sid)
         if delta.get("evolves_from") and delta.get("evo_condition"):
             pending_evolutions.append((label, delta["evolves_from"], delta["evo_condition"], sid))
@@ -299,18 +348,18 @@ def main():
         if not source_id or source_id == target:
             report.append({"row": label, "problem": "evolves_from '%s' is not the name of another Pokemon in the sheet" % source_name})
             continue
-        sid, path, current = next(entry for entry in by_dex.values() if entry[0] == source_id)
-        updated = copy.deepcopy(current)
+        path, before = files[source_id]
+        updated = copy.deepcopy(before)
         evolution = dict(dexlib.text_to_evolution(condition), into=target)
         others = [e for e in dexlib.listing(updated.get("evolutions")) if isinstance(e, dict) and e.get("into") != target]
         updated["evolutions"] = others + [evolution]
         errors = []
-        validate.check_species(sid, updated, ids, engine, errors, [])
+        validate.check_species(source_id, updated, ids, engine, errors, [])
         if errors:
             report.append({"row": label, "problem": "; ".join(errors)})
-        elif dexlib.prune(updated) != dexlib.prune(current):
+        elif dexlib.prune(updated) != dexlib.prune(before):
             dexlib.write_species(path, updated)
-            by_dex[updated["dex"]] = (sid, path, updated)
+            files[source_id] = (path, updated)
             changed += 1
 
     SNAPSHOT.write_text(json.dumps(new_snapshot, indent=1, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
