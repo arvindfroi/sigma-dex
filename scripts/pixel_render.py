@@ -59,7 +59,7 @@ STYLE = dict(
     line_density=0.12,     # at most this share of a part is inner line (the games' median is 0.11)
     max_stretch=1.05,      # sized by covered area, the longest side is at most this times the stage's size
     accents=3,             # face marks in colours the sprite does not have (a pink blush) get at most this many palette slots
-    accent_gap=35,         # Lab distance from every colour the sprite has, for a mark's colour to count as an accent    # Lab lightness: a cell whose darkest sixth is this much darker than its middle shows a stroke
+    accent_gap=35,         # Lab distance from every colour the sprite has, for a mark's colour to count as an accent
 )
 # The tones of a part, as (lightness change or factor, colourfulness factor, cool/warm shift).
 # Shadows a little cooler and lights a little warmer. Outlines as measured on the games' starters:
@@ -753,6 +753,7 @@ def render(path, size=54, window=None, fit=None, palette=None, area=None):
     return image
 
 
+
 def draw(path, size=54, window=None, fit=None, palette=None):
     """One drawing pass of render() (same arguments)."""
     k = STYLE["supersample"]
@@ -790,8 +791,12 @@ def draw(path, size=54, window=None, fit=None, palette=None):
         face_box[max(0, min(ys) - 3):min(gh, max(ys) + reach + 2), max(0, min(xs) - reach):min(gw, max(xs) + reach + 1)] = True
     face_lines = face_lines & face_box
     drawn_lines = line_art(ink, big_mask, cells, k) | (face_lines & (cells >= 0))
-    # no lines inside eye whites (or other very light parts): an eye is its rim, pupil and glint
-    light_part = np.isin(cells, [i for i in range(len(colours)) if colours[i][0] > 200])
+    # no lines inside eye whites: an eye is its rim, pupil and glint. Other white parts (teeth, a white
+    # belly) keep their lines: the gaps between teeth and the edge between a grin and the eyes are
+    # what makes a face readable
+    light_part = np.zeros((gh, gw), bool)
+    for (y, x), kind in eyes.items():
+        light_part[y, x] = kind == "white"
     drawn_lines &= ~light_part
     if STYLE["faithful"]:
         level = faithful_levels(cells, tone, colours)                         # 5
@@ -867,6 +872,21 @@ def draw(path, size=54, window=None, fit=None, palette=None):
         want[(y, x)] = ("eye", kind)
         counts[("eye", kind)] = counts.get(("eye", kind), 0) + 1
         counts[old_key] -= 1
+    # an eye white on light skin (yellow, cream, pale) has a dark rim, as spriters draw it: without it
+    # the white and the skin run together into one pale blob
+    for (y, x), kind in eyes.items():
+        if kind != "white":
+            continue
+        for ny, nx in ((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)):
+            if not (0 <= ny < gh and 0 <= nx < gw) or not solid[ny, nx] or (ny, nx) in eyes:
+                continue
+            old_key = want[(ny, nx)]
+            if old_key[0] == "eye" or old_key[1] in ("line", "outline", "outline_dark") or colours[old_key[0]][0] < 150:
+                continue
+            want[(ny, nx)] = key = (old_key[0], "line")
+            wanted.setdefault(key, tone_of(colours[key[0]], "line"))
+            counts[key] = counts.get(key, 0) + 1
+            counts[old_key] -= 1
     # face marks: a mark takes the nearest colour the sprite already has (a mouth is the line tone, teeth
     # the white); only a true accent - a colour far from all of them, like a pink blush - gets a palette
     # slot of its own, at most STYLE["accents"] of them (palette budgeting, as spriters do it)
