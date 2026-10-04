@@ -30,7 +30,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Moves | TM/HM moves | 2 / 84 |
 | Location | encounters | 1 / 84 |
 | Design | concept | 2 / 84 |
-| Art | concept art | 76 / 84 |
+| Art | concept art | 77 / 84 |
 | Art | front sprite | 4 / 84 |
 | Art | front animation frame | 4 / 84 |
 | Art | back sprite | 4 / 84 |
@@ -79,7 +79,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** footprint, shiny palette, cry
 
-### #5 [Wealther](data/species/wealther.yaml) - 21%
+### #5 [Wealther](data/species/wealther.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
@@ -87,7 +87,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #6 [Warrallier](data/species/warrallier.yaml) - 28%
 
