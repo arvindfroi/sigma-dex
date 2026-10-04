@@ -107,6 +107,10 @@ static const u16 sSigmaulerTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sTinkyTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sMotinkyTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };

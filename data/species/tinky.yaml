@@ -48,11 +48,14 @@ held_items:              # items wild ones can hold (optional)
 evolutions:
   - into: motinky
     method: level
-    level: 22
+    level: 25
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Absorb}
+    - {level: 1, move: Growl}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line

@@ -639,6 +639,58 @@
         FOOTPRINT(QuestionMark)
     },
 
+    [SPECIES_TINKY] =
+    {
+        .baseHP = 35,
+        .baseAttack = 30,
+        .baseDefense = 65,
+        .baseSpeed = 50,
+        .baseSpAttack = 55,
+        .baseSpDefense = 50,
+        .types = MON_TYPES(TYPE_GRASS),
+        .catchRate = 45,
+        .expYield = 64,
+        .evYield_Defense = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_HEATPROOF, ABILITY_DANCER, ABILITY_PRANKSTER },
+        .bodyColor = BODY_COLOR_GRAY,
+        .speciesName = _("Tinky"),
+        .cryId = CRY_NONE,
+        .natDexNum = NATIONAL_DEX_TINKY,
+        .categoryName = _("Small Tiki"),
+        .height = 0,
+        .weight = 0,
+        .description = COMPOUND_STRING(
+            "A very small Pokémon. It struggles to\n"
+            "form its first masks, its hands\n"
+            "constantly gripping and shaping the raw\n"
+            "wood face it wears. The unique green\n"),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_CircledQuestionMark,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .backPic = gMonBackPic_CircledQuestionMark,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 7,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_CircledQuestionMark,
+        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
+        .iconSprite = gMonIcon_QuestionMark,
+        .iconPalIndex = 0,
+        .levelUpLearnset = sTinkyLevelUpLearnset,
+        .teachableLearnset = sTinkyTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_MOTINKY}),
+        FOOTPRINT(QuestionMark)
+    },
+
     [SPECIES_MOTINKY] =
     {
         .baseHP = 55,
@@ -695,11 +747,11 @@
     [SPECIES_GORTIKI] =
     {
         .baseHP = 80,
-        .baseAttack = 56,
+        .baseAttack = 67,
         .baseDefense = 110,
         .baseSpeed = 72,
         .baseSpAttack = 108,
-        .baseSpDefense = 94,
+        .baseSpDefense = 93,
         .types = MON_TYPES(TYPE_GRASS, TYPE_FIRE),
         .catchRate = 45,
         .expYield = 64,
@@ -746,12 +798,12 @@
 
     [SPECIES_DEVAMPRY] =
     {
-        .baseHP = 86,
+        .baseHP = 82,
         .baseAttack = 75,
         .baseDefense = 69,
         .baseSpeed = 95,
         .baseSpAttack = 95,
-        .baseSpDefense = 70,
+        .baseSpDefense = 87,
         .types = MON_TYPES(TYPE_NORMAL, TYPE_DARK),
         .catchRate = 45,
         .expYield = 64,
