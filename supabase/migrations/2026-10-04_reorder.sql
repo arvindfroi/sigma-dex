@@ -2,7 +2,7 @@
 -- empty slots between two Pokemon. A move is saved as ONE row of kind 'reorder', so it is applied
 -- completely or not at all by scripts/import_web.py.
 --
--- NOT applied yet. Run it once in the Supabase SQL editor (project "sigma-dex").
+-- Applied to the live database (project "sigma-dex") on 2026-10-04.
 -- It only widens the allowed kinds; submit_edit (key check, 300 edits per hour limit) is unchanged
 -- and already inserts whatever kind it is given, so a reorder counts as one edit in the limit
 -- and shows up in the history like any other row.
