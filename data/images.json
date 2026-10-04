@@ -1134,13 +1134,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 346,
-    "species": "leafsteel",
-    "file": "assets/concept-art/leafsteel/346.webp",
-    "caption": "The Leafing line with stats from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 347,
     "species": "leafaxer",
     "file": "assets/concept-art/leafaxer/347.webp",
@@ -1151,13 +1144,6 @@
     "id": 348,
     "species": "leafing",
     "file": "assets/concept-art/leafing/348.webp",
-    "caption": "The Leafing line, red version from Discord (#kanteradet), posted by Ruben 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 349,
-    "species": "leafsteel",
-    "file": "assets/concept-art/leafsteel/349.webp",
     "caption": "The Leafing line, red version from Discord (#kanteradet), posted by Ruben 2026-05-01",
     "editor": "Claude (from Discord)"
   },
@@ -1173,20 +1159,6 @@
     "species": "leafaxer",
     "file": "assets/concept-art/leafaxer/352.webp",
     "caption": "Trading-card style picture (gold) from Discord (#kanteradet), posted by Ruben 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 353,
-    "species": "warrallier",
-    "file": "assets/concept-art/warrallier/353.webp",
-    "caption": "Trading-card style picture from Discord (#kanteradet), posted by Ruben 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 354,
-    "species": "warrallier",
-    "file": "assets/concept-art/warrallier/354.webp",
-    "caption": "Trading-card style picture from Discord (#kanteradet), posted by Ruben 2026-05-01",
     "editor": "Claude (from Discord)"
   },
   {
@@ -1774,6 +1746,20 @@
     "id": 453,
     "species": "leadling",
     "file": "assets/concept-art/leadling/453.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 454,
+    "species": "warrallier",
+    "file": "assets/concept-art/warrallier/454.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 455,
+    "species": "wealther",
+    "file": "assets/concept-art/wealther/455.jpg",
     "caption": null,
     "editor": null
   }
