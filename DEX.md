@@ -94,7 +94,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 83 | [Darkgonark](data/species/darkgonark.yaml) | Ghost / Steel | Eternal Dirge, Soulforged Body | 550 |  | 28% |
 | 84 | *open slot* | | | | | |
 | 85 | *open slot* | | | | | |
-| 86 | [Verrith](data/species/verrith.yaml) | Ghost / Steel | Fog of war, Takes 1,5 extra crit damage (H) | 485 |  | 17% |
+| 86 | [Verrith](data/species/verrith.yaml) | Ghost / Steel | Fog of war, Takes 1,5 extra crit damage (H) | 570 |  | 17% |
 | 87 | *open slot* | | | | | |
 | 88 | [Gravriel](data/species/gravriel.yaml) | Water / Ghost | Grim Neigh, Sap Sipper (H) | 580 |  | 34% |
 | 89 | *open slot* | | | | | |

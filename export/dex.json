@@ -6124,11 +6124,11 @@
       },
       "base_stats": {
         "hp": 120,
-        "attack": 85,
-        "defense": 100,
-        "sp_attack": 65,
-        "sp_defense": 65,
-        "speed": 50
+        "attack": 110,
+        "defense": 125,
+        "sp_attack": 75,
+        "sp_defense": 95,
+        "speed": 45
       },
       "ev_yield": null,
       "catch_rate": null,
