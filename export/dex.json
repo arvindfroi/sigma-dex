@@ -389,7 +389,7 @@
         "notes": null
       },
       "assets": {
-        "concept_art": "assets/concept-art/leafaxer/347.webp",
+        "concept_art": "assets/concept-art/leafaxer/435.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -795,7 +795,7 @@
         "notes": "DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones."
       },
       "assets": {
-        "concept_art": "assets/concept-art/torchbat/371.png",
+        "concept_art": "assets/concept-art/torchbat/376.webp",
         "front_sprite": "assets/sprites/torchbat/front.png",
         "front_anim": "assets/sprites/torchbat/anim_front.png",
         "back_sprite": "assets/sprites/torchbat/back.png",
