@@ -1,5 +1,283 @@
 {
- "1": {
+ "abyssys": {
+  "dex": "68",
+  "name": "Abyssys",
+  "type_1": "Psychic",
+  "type_2": "Water"
+ },
+ "ampeel": {
+  "dex": "47",
+  "evo_condition": "Lv 30",
+  "evolves_from": "Zapana",
+  "name": "Ampeel",
+  "type_1": "Water",
+  "type_2": "Electric"
+ },
+ "anjane": {
+  "dex": "65",
+  "name": "Anjane",
+  "type_1": "Dark",
+  "type_2": "Fairy"
+ },
+ "autuman": {
+  "dex": "34",
+  "name": "Autuman",
+  "type_1": "Fighting",
+  "type_2": "Grass"
+ },
+ "balleisk": {
+  "dex": "96",
+  "name": "Balleisk",
+  "type_1": "Dragon",
+  "type_2": "Bug"
+ },
+ "beatld": {
+  "dex": "50",
+  "name": "Beatld",
+  "type_1": "Bug",
+  "type_2": "Psychic"
+ },
+ "bergflabbser": {
+  "dex": "99",
+  "name": "Bergflabbser",
+  "type_1": "Water",
+  "type_2": "Ground"
+ },
+ "blazterra": {
+  "dex": "9",
+  "evo_condition": "Lv 36",
+  "evolves_from": "Heatbat",
+  "name": "Blazterra",
+  "type_1": "Fire",
+  "type_2": "Flying"
+ },
+ "bolthook": {
+  "dex": "13",
+  "name": "Bolthook"
+ },
+ "brawleo": {
+  "dex": "23",
+  "evo_condition": "Lv 25",
+  "evolves_from": "Lapper",
+  "name": "Brawleo",
+  "type_1": "Normal",
+  "type_2": "Fighting"
+ },
+ "bugmight": {
+  "dex": "35",
+  "name": "Bugmight",
+  "type_1": "Bug",
+  "type_2": "Fighting"
+ },
+ "bulbtle": {
+  "dex": "27",
+  "name": "Bulbtle",
+  "type_1": "Ground",
+  "type_2": "Electric"
+ },
+ "bulbtoise": {
+  "dex": "28",
+  "evo_condition": "Lv 22",
+  "evolves_from": "Bulbtle",
+  "name": "Bulbtoise",
+  "type_1": "Ground",
+  "type_2": "Electric"
+ },
+ "bulgarian-unown": {
+  "dex": "57",
+  "name": "Sigmanian Unown"
+ },
+ "bygon": {
+  "dex": "72",
+  "name": "Bygon",
+  "type_1": "Ghost",
+  "type_2": "Rock"
+ },
+ "chebbi": {
+  "dex": "43",
+  "name": "Chebbi",
+  "type_1": "Normal",
+  "type_2": "Dark"
+ },
+ "chillalit": {
+  "dex": "45",
+  "name": "Chillalit",
+  "type_1": "Fire",
+  "type_2": "Water"
+ },
+ "chuchar": {
+  "dex": "80",
+  "name": "Chuchar"
+ },
+ "ciggiti": {
+  "dex": "79",
+  "name": "Ciggiti"
+ },
+ "cowfin": {
+  "dex": "20",
+  "name": "Cowfin",
+  "type_1": "Normal",
+  "type_2": "Water"
+ },
+ "crappy-meal": {
+  "dex": "49",
+  "name": "Crappy Meal",
+  "type_1": "Poison",
+  "type_2": "Grass"
+ },
+ "cryoblade": {
+  "dex": "70",
+  "name": "Cryoblade"
+ },
+ "darkgonark": {
+  "dex": "83",
+  "name": "Darkgonark"
+ },
+ "devampry": {
+  "dex": "44",
+  "evo_condition": "Lv 32",
+  "evolves_from": "Chebbi",
+  "name": "Devampry",
+  "type_1": "Normal",
+  "type_2": "Dark"
+ },
+ "docuphant": {
+  "dex": "55",
+  "name": "Docuphant",
+  "type_1": "Ground",
+  "type_2": "Dragon"
+ },
+ "dragem": {
+  "dex": "91",
+  "name": "Dragem",
+  "type_1": "Dragon",
+  "type_2": "Rock"
+ },
+ "eiscue": {
+  "dex": "32",
+  "name": "Sigmanian Eiscue",
+  "notes": "From the Google Doc: Sigmanian Eiscue/eller eiscue evo (Ice/?)",
+  "type_1": "Ice"
+ },
+ "erobi": {
+  "dex": "10",
+  "name": "Erobi",
+  "type_1": "Normal",
+  "type_2": "Flying"
+ },
+ "florantula": {
+  "dex": "16",
+  "name": "Florantula",
+  "type_1": "Bug",
+  "type_2": "Grass"
+ },
+ "freezrick": {
+  "dex": "26",
+  "evo_condition": "Lv 28",
+  "evolves_from": "Icy Freeze",
+  "name": "Freezrick",
+  "type_1": "Ice"
+ },
+ "galfrogtom": {
+  "dex": "52",
+  "evo_condition": "Thunder Stone",
+  "evolves_from": "Wispole",
+  "name": "Galfrogtom",
+  "type_1": "Ghost",
+  "type_2": "Electric"
+ },
+ "gentie": {
+  "dex": "63",
+  "name": "Gentie"
+ },
+ "giga-circuit": {
+  "dex": "53",
+  "name": "Giga-Circuit",
+  "type_1": "Electric"
+ },
+ "gortiki": {
+  "dex": "42",
+  "evo_condition": "Lv 40",
+  "evolves_from": "Motinky",
+  "name": "Gortiki",
+  "type_1": "Grass",
+  "type_2": "Fire"
+ },
+ "gravriel": {
+  "dex": "88",
+  "name": "Gravriel",
+  "type_1": "Water",
+  "type_2": "Ghost"
+ },
+ "greation": {
+  "dex": "97",
+  "name": "Greation",
+  "type_1": "Dragon",
+  "type_2": "Bug"
+ },
+ "hairyen": {
+  "dex": "59",
+  "name": "Hairyen",
+  "type_1": "Grass",
+  "type_2": "Water"
+ },
+ "harpie": {
+  "dex": "11",
+  "name": "Harpie",
+  "type_1": "Normal",
+  "type_2": "Flying"
+ },
+ "heatbat": {
+  "dex": "8",
+  "evo_condition": "Lv 16",
+  "evolves_from": "Torchbat",
+  "name": "Heatbat",
+  "type_1": "Fire",
+  "type_2": "Flying"
+ },
+ "hippore": {
+  "dex": "54",
+  "name": "Hippore",
+  "type_1": "Steel",
+  "type_2": "Rock"
+ },
+ "icy-freeze": {
+  "dex": "25",
+  "name": "Icy Freeze",
+  "type_1": "Ice"
+ },
+ "iglomodo": {
+  "dex": "77",
+  "name": "Iglomodo",
+  "type_1": "Ice",
+  "type_2": "Poison"
+ },
+ "insectoid": {
+  "dex": "82",
+  "name": "Insectoid"
+ },
+ "janenon": {
+  "dex": "66",
+  "evo_condition": "Lv 42",
+  "evolves_from": "Anjane",
+  "name": "Janenon",
+  "type_1": "Dark",
+  "type_2": "Fairy"
+ },
+ "lapper": {
+  "dex": "22",
+  "name": "Lapper",
+  "type_1": "Normal"
+ },
+ "leafaxer": {
+  "dex": "3",
+  "evo_condition": "Lv 36",
+  "evolves_from": "Leafsteel",
+  "name": "Leafaxer",
+  "type_1": "Grass",
+  "type_2": "Steel"
+ },
+ "leafing": {
   "ability_1": "Overgrow",
   "attack": "60",
   "base_exp": "64",
@@ -32,53 +310,7 @@
   "type_1": "Grass",
   "weight_kg": "5.8"
  },
- "10": {
-  "dex": "10",
-  "name": "Erobi",
-  "type_1": "Normal",
-  "type_2": "Flying"
- },
- "100": {
-  "dex": "100",
-  "name": "Maagamad",
-  "notes": "From the Google Doc: Maagamad/gullmire (Flying, Poison)",
-  "type_1": "Flying",
-  "type_2": "Poison"
- },
- "11": {
-  "dex": "11",
-  "name": "Harpie",
-  "type_1": "Normal",
-  "type_2": "Flying"
- },
- "12": {
-  "dex": "12",
-  "name": "Smeatherace",
-  "type_1": "Normal",
-  "type_2": "Flying"
- },
- "13": {
-  "dex": "13",
-  "name": "Bolthook"
- },
- "14": {
-  "dex": "14",
-  "name": "Wump",
-  "type_1": "Bug"
- },
- "15": {
-  "dex": "15",
-  "name": "Twemp",
-  "type_1": "Bug",
-  "type_2": "Grass"
- },
- "16": {
-  "dex": "16",
-  "name": "Florantula",
-  "type_1": "Bug",
-  "type_2": "Grass"
- },
- "2": {
+ "leafsteel": {
   "dex": "2",
   "evo_condition": "Lv 16",
   "evolves_from": "Leafing",
@@ -86,132 +318,26 @@
   "type_1": "Grass",
   "type_2": "Steel"
  },
- "20": {
-  "dex": "20",
-  "name": "Cowfin",
-  "type_1": "Normal",
-  "type_2": "Water"
+ "maagamad": {
+  "dex": "100",
+  "name": "Maagamad",
+  "notes": "From the Google Doc: Maagamad/gullmire (Flying, Poison)",
+  "type_1": "Flying",
+  "type_2": "Poison"
  },
- "21": {
+ "mcskiirtle": {
+  "dex": "95",
+  "name": "McSkiirtle",
+  "type_1": "Fire",
+  "type_2": "Electric"
+ },
+ "mooceon": {
   "dex": "21",
   "name": "Mooceon",
   "type_1": "Normal",
   "type_2": "Water"
  },
- "22": {
-  "dex": "22",
-  "name": "Lapper",
-  "type_1": "Normal"
- },
- "23": {
-  "dex": "23",
-  "evo_condition": "Lv 25",
-  "evolves_from": "Lapper",
-  "name": "Brawleo",
-  "type_1": "Normal",
-  "type_2": "Fighting"
- },
- "24": {
-  "dex": "24",
-  "name": "Sigmanian Sudowoodo",
-  "type_1": "Rock",
-  "type_2": "Ground"
- },
- "25": {
-  "dex": "25",
-  "name": "Icy Freeze",
-  "type_1": "Ice"
- },
- "26": {
-  "dex": "26",
-  "evo_condition": "Lv 28",
-  "evolves_from": "Icy Freeze",
-  "name": "Freezrick",
-  "type_1": "Ice"
- },
- "27": {
-  "dex": "27",
-  "name": "Bulbtle",
-  "type_1": "Ground",
-  "type_2": "Electric"
- },
- "28": {
-  "dex": "28",
-  "evo_condition": "Lv 22",
-  "evolves_from": "Bulbtle",
-  "name": "Bulbtoise",
-  "type_1": "Ground",
-  "type_2": "Electric"
- },
- "3": {
-  "dex": "3",
-  "evo_condition": "Lv 36",
-  "evolves_from": "Leafsteel",
-  "name": "Leafaxer",
-  "type_1": "Grass",
-  "type_2": "Steel"
- },
- "32": {
-  "dex": "32",
-  "name": "Sigmanian Eiscue",
-  "notes": "From the Google Doc: Sigmanian Eiscue/eller eiscue evo (Ice/?)",
-  "type_1": "Ice"
- },
- "33": {
-  "dex": "33",
-  "name": "Rainbro",
-  "type_1": "Stellar"
- },
- "34": {
-  "dex": "34",
-  "name": "Autuman",
-  "type_1": "Fighting",
-  "type_2": "Grass"
- },
- "35": {
-  "dex": "35",
-  "name": "Bugmight",
-  "type_1": "Bug",
-  "type_2": "Fighting"
- },
- "36": {
-  "dex": "36",
-  "name": "Nukfae",
-  "type_1": "Poison",
-  "type_2": "Fairy"
- },
- "37": {
-  "dex": "37",
-  "evo_condition": "Lv 38",
-  "evolves_from": "Nukfae",
-  "name": "Toxiren",
-  "type_1": "Poison",
-  "type_2": "Fairy"
- },
- "38": {
-  "dex": "38",
-  "name": "Stonma",
-  "type_1": "Rock"
- },
- "39": {
-  "dex": "39",
-  "evo_condition": "Lv 38",
-  "evolves_from": "Stonma",
-  "name": "Sigmauler",
-  "type_1": "Rock",
-  "type_2": "Fighting"
- },
- "4": {
-  "dex": "4",
-  "name": "Waffy",
-  "type_1": "Water"
- },
- "40": {
-  "dex": "40",
-  "name": "Tinky",
-  "type_1": "Grass"
- },
- "41": {
+ "motinky": {
   "dex": "41",
   "evo_condition": "Lv 22",
   "evolves_from": "Tinky",
@@ -219,126 +345,146 @@
   "type_1": "Grass",
   "type_2": "Fire"
  },
- "42": {
-  "dex": "42",
-  "evo_condition": "Lv 40",
-  "evolves_from": "Motinky",
-  "name": "Gortiki",
-  "type_1": "Grass",
-  "type_2": "Fire"
+ "nuclobyl": {
+  "dex": "62",
+  "name": "Nuclobyl",
+  "type_1": "Poison",
+  "type_2": "Steel"
  },
- "43": {
-  "dex": "43",
-  "name": "Chebbi",
-  "type_1": "Normal",
-  "type_2": "Dark"
+ "nucloid": {
+  "dex": "61",
+  "name": "Nucloid",
+  "type_1": "Poison",
+  "type_2": "Steel"
  },
- "44": {
-  "dex": "44",
-  "evo_condition": "Lv 32",
-  "evolves_from": "Chebbi",
-  "name": "Devampry",
-  "type_1": "Normal",
-  "type_2": "Dark"
+ "nukfae": {
+  "dex": "36",
+  "name": "Nukfae",
+  "type_1": "Poison",
+  "type_2": "Fairy"
  },
- "45": {
-  "dex": "45",
-  "name": "Chillalit",
-  "type_1": "Fire",
+ "octopearl": {
+  "dex": "69",
+  "name": "Octopearl",
+  "type_1": "Psychic",
   "type_2": "Water"
  },
- "46": {
-  "dex": "46",
-  "name": "Zapana",
-  "type_1": "Water",
-  "type_2": "Electric"
- },
- "47": {
-  "dex": "47",
-  "evo_condition": "Lv 30",
-  "evolves_from": "Zapana",
-  "name": "Ampeel",
-  "type_1": "Water",
-  "type_2": "Electric"
- },
- "48": {
-  "dex": "48",
-  "name": "Tomaterdander",
-  "type_1": "Poison",
-  "type_2": "Grass"
- },
- "49": {
-  "dex": "49",
-  "name": "Crappy Meal",
-  "type_1": "Poison",
-  "type_2": "Grass"
- },
- "5": {
-  "dex": "5",
-  "evo_condition": "Lv 16",
-  "evolves_from": "Waffy",
-  "name": "Wealther",
-  "type_1": "Water",
-  "type_2": "Dark"
- },
- "50": {
-  "dex": "50",
-  "name": "Beatld",
-  "type_1": "Bug",
-  "type_2": "Psychic"
- },
- "51": {
-  "dex": "51",
-  "name": "Wispole",
-  "type_1": "Water"
- },
- "52": {
-  "dex": "52",
-  "evo_condition": "Thunder Stone",
-  "evolves_from": "Wispole",
-  "name": "Galfrogtom",
-  "type_1": "Ghost",
-  "type_2": "Electric"
- },
- "53": {
-  "dex": "53",
-  "name": "Giga-Circuit",
-  "type_1": "Electric"
- },
- "54": {
-  "dex": "54",
-  "name": "Hippore",
+ "panzerien": {
+  "dex": "60",
+  "name": "Panzerien",
   "type_1": "Steel",
-  "type_2": "Rock"
+  "type_2": "Ground"
  },
- "55": {
-  "dex": "55",
-  "name": "Docuphant",
-  "type_1": "Ground",
-  "type_2": "Dragon"
+ "parahaunt": {
+  "dex": "81",
+  "name": "Parahaunt"
  },
- "56": {
+ "rainbro": {
+  "dex": "33",
+  "name": "Rainbro",
+  "type_1": "Stellar"
+ },
+ "razox": {
   "dex": "56",
   "name": "Razox",
   "type_1": "Fairy",
   "type_2": "Ice"
  },
- "57": {
-  "dex": "57",
-  "name": "Sigmanian Unown"
+ "roostasaur": {
+  "dex": "71",
+  "name": "Roostasaur",
+  "type_1": "Dragon",
+  "type_2": "Normal"
  },
- "58": {
+ "sandrema": {
+  "dex": "78",
+  "name": "Sandrema",
+  "type_1": "Fairy",
+  "type_2": "Ground"
+ },
+ "saucerl": {
+  "dex": "67",
+  "name": "Saucerl",
+  "type_1": "Psychic",
+  "type_2": "Water"
+ },
+ "sigmanian-sudowoodo": {
+  "dex": "24",
+  "name": "Sigmanian Sudowoodo",
+  "type_1": "Rock",
+  "type_2": "Ground"
+ },
+ "sigmauler": {
+  "dex": "39",
+  "evo_condition": "Lv 38",
+  "evolves_from": "Stonma",
+  "name": "Sigmauler",
+  "type_1": "Rock",
+  "type_2": "Fighting"
+ },
+ "skiirtle": {
+  "dex": "94",
+  "name": "Skiirtle",
+  "type_1": "Fire"
+ },
+ "smeatherace": {
+  "dex": "12",
+  "name": "Smeatherace",
+  "type_1": "Normal",
+  "type_2": "Flying"
+ },
+ "stonma": {
+  "dex": "38",
+  "name": "Stonma",
+  "type_1": "Rock"
+ },
+ "tinky": {
+  "dex": "40",
+  "name": "Tinky",
+  "type_1": "Grass"
+ },
+ "tomaterdander": {
+  "dex": "48",
+  "name": "Tomaterdander",
+  "type_1": "Poison",
+  "type_2": "Grass"
+ },
+ "torchbat": {
+  "dex": "7",
+  "name": "Torchbat",
+  "type_1": "Fire"
+ },
+ "toxiren": {
+  "dex": "37",
+  "evo_condition": "Lv 38",
+  "evolves_from": "Nukfae",
+  "name": "Toxiren",
+  "type_1": "Poison",
+  "type_2": "Fairy"
+ },
+ "twemp": {
+  "dex": "15",
+  "name": "Twemp",
+  "type_1": "Bug",
+  "type_2": "Grass"
+ },
+ "ultragon": {
+  "dex": "98",
+  "name": "Ultragon",
+  "type_1": "Dragon",
+  "type_2": "Bug"
+ },
+ "united": {
   "dex": "58",
   "name": "Unknighted",
   "notes": "From the Google Doc: unknighted (unknown thunder stone?)"
  },
- "59": {
-  "dex": "59",
-  "name": "Hairyen",
-  "type_1": "Grass",
-  "type_2": "Water"
+ "waffy": {
+  "dex": "4",
+  "name": "Waffy",
+  "type_1": "Water"
  },
- "6": {
+ "warrallier": {
   "dex": "6",
   "evo_condition": "Lv 36",
   "evolves_from": "Wealther",
@@ -346,186 +492,34 @@
   "type_1": "Water",
   "type_2": "Dark"
  },
- "60": {
-  "dex": "60",
-  "name": "Panzerien",
-  "type_1": "Steel",
-  "type_2": "Ground"
+ "wealther": {
+  "dex": "5",
+  "evo_condition": "Lv 16",
+  "evolves_from": "Waffy",
+  "name": "Wealther",
+  "type_1": "Water",
+  "type_2": "Dark"
  },
- "61": {
-  "dex": "61",
-  "name": "Nucloid",
-  "type_1": "Poison",
-  "type_2": "Steel"
+ "wispole": {
+  "dex": "51",
+  "name": "Wispole",
+  "type_1": "Water"
  },
- "62": {
-  "dex": "62",
-  "name": "Nuclobyl",
-  "type_1": "Poison",
-  "type_2": "Steel"
+ "wump": {
+  "dex": "14",
+  "name": "Wump",
+  "type_1": "Bug"
  },
- "63": {
-  "dex": "63",
-  "name": "Gentie"
- },
- "64": {
+ "yanklet": {
   "dex": "64",
   "name": "Yanklet",
   "type_1": "Steel",
   "type_2": "Flying"
  },
- "65": {
-  "dex": "65",
-  "name": "Anjane",
-  "type_1": "Dark",
-  "type_2": "Fairy"
- },
- "66": {
-  "dex": "66",
-  "evo_condition": "Lv 42",
-  "evolves_from": "Anjane",
-  "name": "Janenon",
-  "type_1": "Dark",
-  "type_2": "Fairy"
- },
- "67": {
-  "dex": "67",
-  "name": "Saucerl",
-  "type_1": "Psychic",
-  "type_2": "Water"
- },
- "68": {
-  "dex": "68",
-  "name": "Abyssys",
-  "type_1": "Psychic",
-  "type_2": "Water"
- },
- "69": {
-  "dex": "69",
-  "name": "Octopearl",
-  "type_1": "Psychic",
-  "type_2": "Water"
- },
- "7": {
-  "dex": "7",
-  "name": "Torchbat",
-  "type_1": "Fire"
- },
- "70": {
-  "dex": "70",
-  "name": "Cryoblade"
- },
- "71": {
-  "dex": "71",
-  "name": "Roostasaur",
-  "type_1": "Dragon",
-  "type_2": "Normal"
- },
- "72": {
-  "dex": "72",
-  "name": "Bygon",
-  "type_1": "Ghost",
-  "type_2": "Rock"
- },
- "73": {
-  "dex": "73"
- },
- "74": {
-  "dex": "74"
- },
- "77": {
-  "dex": "77",
-  "name": "Iglomodo",
-  "type_1": "Ice",
-  "type_2": "Poison"
- },
- "78": {
-  "dex": "78",
-  "name": "Sandrema",
-  "type_1": "Fairy",
-  "type_2": "Ground"
- },
- "79": {
-  "dex": "79",
-  "name": "Ciggiti"
- },
- "8": {
-  "dex": "8",
-  "evo_condition": "Lv 16",
-  "evolves_from": "Torchbat",
-  "name": "Heatbat",
-  "type_1": "Fire",
-  "type_2": "Flying"
- },
- "80": {
-  "dex": "80",
-  "name": "Chuchar"
- },
- "81": {
-  "dex": "81",
-  "name": "Parahaunt"
- },
- "82": {
-  "dex": "82",
-  "name": "Insectoid"
- },
- "83": {
-  "dex": "83",
-  "name": "Darkgonark"
- },
- "88": {
-  "dex": "88",
-  "name": "Gravriel",
+ "zapana": {
+  "dex": "46",
+  "name": "Zapana",
   "type_1": "Water",
-  "type_2": "Ghost"
- },
- "9": {
-  "dex": "9",
-  "evo_condition": "Lv 36",
-  "evolves_from": "Heatbat",
-  "name": "Blazterra",
-  "type_1": "Fire",
-  "type_2": "Flying"
- },
- "91": {
-  "dex": "91",
-  "name": "Dragem",
-  "type_1": "Dragon",
-  "type_2": "Rock"
- },
- "94": {
-  "dex": "94",
-  "name": "Skiirtle",
-  "type_1": "Fire"
- },
- "95": {
-  "dex": "95",
-  "name": "McSkiirtle",
-  "type_1": "Fire",
   "type_2": "Electric"
- },
- "96": {
-  "dex": "96",
-  "name": "Balleisk",
-  "type_1": "Dragon",
-  "type_2": "Bug"
- },
- "97": {
-  "dex": "97",
-  "name": "Greation",
-  "type_1": "Dragon",
-  "type_2": "Bug"
- },
- "98": {
-  "dex": "98",
-  "name": "Ultragon",
-  "type_1": "Dragon",
-  "type_2": "Bug"
- },
- "99": {
-  "dex": "99",
-  "name": "Bergflabbser",
-  "type_1": "Water",
-  "type_2": "Ground"
  }
 }

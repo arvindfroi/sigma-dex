@@ -444,6 +444,53 @@ def load_species():
     return species, problems
 
 
+def identify(name, number, current, last):
+    """Which Pokemon does a row of the sheet / a line of the doc mean? Returns its id, or None for a name that is new
+    (or, with no name, an open slot). Raises ValueError when it cannot be told safely - the caller reports that.
+
+    A row is identified by the Pokemon in it, not by its number, because numbers change when the dex is reordered
+    on the website while the sheet and doc keep showing the old ones.
+      current = {id: (dex, name)}  the species files now
+      last    = {id: (number, name)} what the sheet / doc showed at the last import, or None before the first import
+    1. the name is the name of a Pokemon now -> that one (the number in the row is ignored)
+    2. the name is what the row said at the last import (the Pokemon was renamed on the website since), at the
+       same number -> that one
+    3. an unknown name on the number where a Pokemon stood at the last import -> a rename of that Pokemon, but only
+       if it has not moved or been renamed since; otherwise it is ambiguous
+    4. an unknown name on a number nobody had before: a new Pokemon, if the slot is open
+    5. no name at all: whoever is in that slot, but only if the row stood on that number at the last import
+    """
+    by_name = {norm(shown): sid for sid, (_, shown) in current.items()}
+    slot = {dex: sid for sid, (dex, _) in current.items()}
+    seen = {sid: entry for sid, entry in (last or {}).items() if sid in current}
+    key = norm(name)
+    if key:
+        if key in by_name:
+            return by_name[key]
+        for sid, (old_number, old_name) in seen.items():
+            if old_number == number and norm(old_name) == key:
+                return sid
+        before = [sid for sid, (old_number, _) in seen.items() if old_number == number]
+        if len(before) > 1:
+            raise ValueError("number %d is ambiguous: it belonged to several Pokemon at the last import" % number)
+        if before:
+            sid = before[0]
+            if current[sid][0] == number and norm(current[sid][1]) == norm(seen[sid][1]):
+                return sid
+            raise ValueError("'%s' is not a known name. Number %d used to be %s, which has since been moved or renamed on the website, "
+                             "so this cannot be told apart from a rename - rename it on the website" % (name, number, seen[sid][1]))
+        if number in slot:
+            raise ValueError("'%s' is not a known name and number %d now belongs to %s - the numbers on this list are out of date; "
+                             "add a new Pokemon on the website, or paste the current export/sheet.csv first" % (name, number, current[slot[number]][1]))
+        return None
+    if number not in slot:
+        return None
+    sid = slot[number]
+    if last is None or (sid in seen and seen[sid][0] == number):
+        return sid
+    raise ValueError("this row has no name, and number %d may belong to another Pokemon now - write the name" % number)
+
+
 def change_layout(layout, ops):
     """Apply reorder steps to a dex layout: a list with one entry per slot (slot 1 first), each a species id or None.
 

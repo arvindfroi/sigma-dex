@@ -1,84 +1,330 @@
 {
- "1": "Leafing (Grass)",
- "10": "Erobi (Normal, Flying)",
- "100": "Maagamad/gullmire (Flying, Poison)",
- "11": "Harpie (Normal, Flying)",
- "12": "Smeatherace (Normal, Flying)",
- "13": "Bolthook",
- "14": "Wump (Bug)",
- "15": "Twemp (Bug, Grass)",
- "16": "Florantula (Bug, Grass)",
- "2": "Leafsteel (Lv.16) (Grass, Steel)",
- "20": "Cowfin (Normal, Water)",
- "21": "Mooceon (Normal, Water)",
- "22": "Lapper (Normal)",
- "23": "Brawleo (Lv 25) (Normal, Fighting)",
- "24": "sigmanian sudowoodo (Rock, Ground)",
- "25": "Icy Freeze (Ice)",
- "26": "Freezrick (Lv 28) (Ice)",
- "27": "Bulbtle (Ground, Electric)",
- "28": "Bulbtoise (Lv 22) (Ground, Electric)",
- "3": "Leafaxer (Lv. 36) (Grass, Steel)",
- "32": "Sigmanian Eiscue/eller eiscue evo (Ice/?)",
- "33": "Rainbro (Stellar)",
- "34": "Autuman (Fighting, Grass)",
- "35": "Bugmight (Bug, fighting)",
- "36": "Nukfae (Poison, Fairy)",
- "37": "Toxiren (Lv 38) (Poison, Fairy)",
- "38": "Stonma (Rock)",
- "39": "Sigmauler (Lv 38) (Rock, Fighting)",
- "4": "Waffy (Water)",
- "40": "Tinky (Grass)",
- "41": "Motinky (Lv 22) (Grass, Fire)",
- "42": "Gortiki (Lv 40) (Grass, Fire)",
- "43": "Chebbi (Normal, Dark)",
- "44": "Devampry( Lv. 32) (Normal, Dark)",
- "45": "Chillalit (Fire, Water)",
- "46": "Zapana (Water, Electric)",
- "47": "Ampeel (Lv 30) (Water, Electric)",
- "48": "Tomaterdander (poison, Grass)",
- "49": "Crappy Meal (poison, Grass)",
- "5": "Wealther (Lv.16) (Water, Dark)",
- "50": "Beatld (Bug, Psychic)",
- "51": "Wispole (Water)",
- "52": "Galfrogtom (Thunder Stone) (Ghost, Electric)",
- "53": "Giga-Circuit (Electric)",
- "54": "Hippore (steel rock)",
- "55": "Docuphant (Ground Dragon)",
- "56": "Razox (Fairy, Ice)",
- "57": "sigmanian unown",
- "58": "unknighted (unknown thunder stone?)",
- "59": "hairyen (Grass, Water)",
- "6": "Warrallier (Lv. 36) (Water, Dark)",
- "60": "panzerien (Steel, Ground)",
- "61": "nucloid (Poison, Steel)",
- "62": "nuclobyl (Poison, Steel)",
- "63": "gentie",
- "64": "Yanklet (Steel, flying)",
- "65": "Anjane (Dark, Fairy)",
- "66": "Janenon (Lv. 42) (Dark, Fairy)",
- "67": "Saucerl (psychic, water)",
- "68": "Abyssys (psychic, water)",
- "69": "Octopearl (psychic, water)",
- "7": "Torchbat (Fire)",
- "70": "Cryoblade",
- "71": "Roostasaur (dragon, normal)",
- "72": "Bygon (Ghost, Rock)",
- "77": "Iglomodo (Ice, Poison)",
- "78": "Sandrema (Fairy, Ground)",
- "79": "Ciggiti",
- "8": "Heatbat (Lv.16) (Fire, Flying)",
- "80": "Chuchar",
- "81": "Parahaunt",
- "82": "Insectoid",
- "83": "Darkgonark",
- "88": "Gravriel (Water, Ghost)",
- "9": "Blazterra (Lv. 36) (Fire, Flying)",
- "91": "Dragem (dragon, rock)",
- "94": "Skiirtle (Fire)",
- "95": "McSkiirtle (Fire, Electric)",
- "96": "Balleisk (Dragon, Bug)",
- "97": "Greation (Dragon, Bug)",
- "98": "Ultragon (Dragon, Bug)",
- "99": "Bergflabbser (Water, Ground)"
+ "abyssys": {
+  "dex": 68,
+  "text": "Abyssys (psychic, water)"
+ },
+ "ampeel": {
+  "dex": 47,
+  "text": "Ampeel (Lv 30) (Water, Electric)"
+ },
+ "anjane": {
+  "dex": 65,
+  "text": "Anjane (Dark, Fairy)"
+ },
+ "autuman": {
+  "dex": 34,
+  "text": "Autuman (Fighting, Grass)"
+ },
+ "balleisk": {
+  "dex": 96,
+  "text": "Balleisk (Dragon, Bug)"
+ },
+ "beatld": {
+  "dex": 50,
+  "text": "Beatld (Bug, Psychic)"
+ },
+ "bergflabbser": {
+  "dex": 99,
+  "text": "Bergflabbser (Water, Ground)"
+ },
+ "blazterra": {
+  "dex": 9,
+  "text": "Blazterra (Lv. 36) (Fire, Flying)"
+ },
+ "bolthook": {
+  "dex": 13,
+  "text": "Bolthook"
+ },
+ "brawleo": {
+  "dex": 23,
+  "text": "Brawleo (Lv 25) (Normal, Fighting)"
+ },
+ "bugmight": {
+  "dex": 35,
+  "text": "Bugmight (Bug, fighting)"
+ },
+ "bulbtle": {
+  "dex": 27,
+  "text": "Bulbtle (Ground, Electric)"
+ },
+ "bulbtoise": {
+  "dex": 28,
+  "text": "Bulbtoise (Lv 22) (Ground, Electric)"
+ },
+ "bulgarian-unown": {
+  "dex": 57,
+  "text": "sigmanian unown"
+ },
+ "bygon": {
+  "dex": 72,
+  "text": "Bygon (Ghost, Rock)"
+ },
+ "chebbi": {
+  "dex": 43,
+  "text": "Chebbi (Normal, Dark)"
+ },
+ "chillalit": {
+  "dex": 45,
+  "text": "Chillalit (Fire, Water)"
+ },
+ "chuchar": {
+  "dex": 80,
+  "text": "Chuchar"
+ },
+ "ciggiti": {
+  "dex": 79,
+  "text": "Ciggiti"
+ },
+ "cowfin": {
+  "dex": 20,
+  "text": "Cowfin (Normal, Water)"
+ },
+ "crappy-meal": {
+  "dex": 49,
+  "text": "Crappy Meal (poison, Grass)"
+ },
+ "cryoblade": {
+  "dex": 70,
+  "text": "Cryoblade"
+ },
+ "darkgonark": {
+  "dex": 83,
+  "text": "Darkgonark"
+ },
+ "devampry": {
+  "dex": 44,
+  "text": "Devampry( Lv. 32) (Normal, Dark)"
+ },
+ "docuphant": {
+  "dex": 55,
+  "text": "Docuphant (Ground Dragon)"
+ },
+ "dragem": {
+  "dex": 91,
+  "text": "Dragem (dragon, rock)"
+ },
+ "eiscue": {
+  "dex": 32,
+  "text": "Sigmanian Eiscue/eller eiscue evo (Ice/?)"
+ },
+ "erobi": {
+  "dex": 10,
+  "text": "Erobi (Normal, Flying)"
+ },
+ "florantula": {
+  "dex": 16,
+  "text": "Florantula (Bug, Grass)"
+ },
+ "freezrick": {
+  "dex": 26,
+  "text": "Freezrick (Lv 28) (Ice)"
+ },
+ "galfrogtom": {
+  "dex": 52,
+  "text": "Galfrogtom (Thunder Stone) (Ghost, Electric)"
+ },
+ "gentie": {
+  "dex": 63,
+  "text": "gentie"
+ },
+ "giga-circuit": {
+  "dex": 53,
+  "text": "Giga-Circuit (Electric)"
+ },
+ "gortiki": {
+  "dex": 42,
+  "text": "Gortiki (Lv 40) (Grass, Fire)"
+ },
+ "gravriel": {
+  "dex": 88,
+  "text": "Gravriel (Water, Ghost)"
+ },
+ "greation": {
+  "dex": 97,
+  "text": "Greation (Dragon, Bug)"
+ },
+ "hairyen": {
+  "dex": 59,
+  "text": "hairyen (Grass, Water)"
+ },
+ "harpie": {
+  "dex": 11,
+  "text": "Harpie (Normal, Flying)"
+ },
+ "heatbat": {
+  "dex": 8,
+  "text": "Heatbat (Lv.16) (Fire, Flying)"
+ },
+ "hippore": {
+  "dex": 54,
+  "text": "Hippore (steel rock)"
+ },
+ "icy-freeze": {
+  "dex": 25,
+  "text": "Icy Freeze (Ice)"
+ },
+ "iglomodo": {
+  "dex": 77,
+  "text": "Iglomodo (Ice, Poison)"
+ },
+ "insectoid": {
+  "dex": 82,
+  "text": "Insectoid"
+ },
+ "janenon": {
+  "dex": 66,
+  "text": "Janenon (Lv. 42) (Dark, Fairy)"
+ },
+ "lapper": {
+  "dex": 22,
+  "text": "Lapper (Normal)"
+ },
+ "leafaxer": {
+  "dex": 3,
+  "text": "Leafaxer (Lv. 36) (Grass, Steel)"
+ },
+ "leafing": {
+  "dex": 1,
+  "text": "Leafing (Grass)"
+ },
+ "leafsteel": {
+  "dex": 2,
+  "text": "Leafsteel (Lv.16) (Grass, Steel)"
+ },
+ "maagamad": {
+  "dex": 100,
+  "text": "Maagamad/gullmire (Flying, Poison)"
+ },
+ "mcskiirtle": {
+  "dex": 95,
+  "text": "McSkiirtle (Fire, Electric)"
+ },
+ "mooceon": {
+  "dex": 21,
+  "text": "Mooceon (Normal, Water)"
+ },
+ "motinky": {
+  "dex": 41,
+  "text": "Motinky (Lv 22) (Grass, Fire)"
+ },
+ "nuclobyl": {
+  "dex": 62,
+  "text": "nuclobyl (Poison, Steel)"
+ },
+ "nucloid": {
+  "dex": 61,
+  "text": "nucloid (Poison, Steel)"
+ },
+ "nukfae": {
+  "dex": 36,
+  "text": "Nukfae (Poison, Fairy)"
+ },
+ "octopearl": {
+  "dex": 69,
+  "text": "Octopearl (psychic, water)"
+ },
+ "panzerien": {
+  "dex": 60,
+  "text": "panzerien (Steel, Ground)"
+ },
+ "parahaunt": {
+  "dex": 81,
+  "text": "Parahaunt"
+ },
+ "rainbro": {
+  "dex": 33,
+  "text": "Rainbro (Stellar)"
+ },
+ "razox": {
+  "dex": 56,
+  "text": "Razox (Fairy, Ice)"
+ },
+ "roostasaur": {
+  "dex": 71,
+  "text": "Roostasaur (dragon, normal)"
+ },
+ "sandrema": {
+  "dex": 78,
+  "text": "Sandrema (Fairy, Ground)"
+ },
+ "saucerl": {
+  "dex": 67,
+  "text": "Saucerl (psychic, water)"
+ },
+ "sigmanian-sudowoodo": {
+  "dex": 24,
+  "text": "sigmanian sudowoodo (Rock, Ground)"
+ },
+ "sigmauler": {
+  "dex": 39,
+  "text": "Sigmauler (Lv 38) (Rock, Fighting)"
+ },
+ "skiirtle": {
+  "dex": 94,
+  "text": "Skiirtle (Fire)"
+ },
+ "smeatherace": {
+  "dex": 12,
+  "text": "Smeatherace (Normal, Flying)"
+ },
+ "stonma": {
+  "dex": 38,
+  "text": "Stonma (Rock)"
+ },
+ "tinky": {
+  "dex": 40,
+  "text": "Tinky (Grass)"
+ },
+ "tomaterdander": {
+  "dex": 48,
+  "text": "Tomaterdander (poison, Grass)"
+ },
+ "torchbat": {
+  "dex": 7,
+  "text": "Torchbat (Fire)"
+ },
+ "toxiren": {
+  "dex": 37,
+  "text": "Toxiren (Lv 38) (Poison, Fairy)"
+ },
+ "twemp": {
+  "dex": 15,
+  "text": "Twemp (Bug, Grass)"
+ },
+ "ultragon": {
+  "dex": 98,
+  "text": "Ultragon (Dragon, Bug)"
+ },
+ "united": {
+  "dex": 58,
+  "text": "unknighted (unknown thunder stone?)"
+ },
+ "waffy": {
+  "dex": 4,
+  "text": "Waffy (Water)"
+ },
+ "warrallier": {
+  "dex": 6,
+  "text": "Warrallier (Lv. 36) (Water, Dark)"
+ },
+ "wealther": {
+  "dex": 5,
+  "text": "Wealther (Lv.16) (Water, Dark)"
+ },
+ "wispole": {
+  "dex": 51,
+  "text": "Wispole (Water)"
+ },
+ "wump": {
+  "dex": 14,
+  "text": "Wump (Bug)"
+ },
+ "yanklet": {
+  "dex": 64,
+  "text": "Yanklet (Steel, flying)"
+ },
+ "zapana": {
+  "dex": 46,
+  "text": "Zapana (Water, Electric)"
+ }
 }

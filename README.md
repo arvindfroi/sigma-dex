@@ -37,7 +37,8 @@ Never edit the generated files by hand - they get overwritten.
 - **In the Google Sheet:** good for filling in many Pokemon at once.
   See [docs/SHEET.md](docs/SHEET.md).
 - **In the Google Doc:** the numbered list of names and types. New lines and changed lines
-  are picked up automatically (name, types, and "Lv 16"-style evolutions).
+  are picked up automatically (name, types, and "Lv 16"-style evolutions). Lines are matched by name,
+  so the numbers in the doc may be out of date after Pokemon were renumbered on the website; they are never applied.
 - **With GitHub:** edit a species file, open a pull request, wait for the green check, merge.
   See [CONTRIBUTING.md](CONTRIBUTING.md).
 

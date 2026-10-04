@@ -22,8 +22,21 @@ Type in a cell; every 15 minutes the dex picks it up, checks it and updates the 
   website does not appear in the sheet. The website always shows the current state.
 - **Emptying a cell** removes that value.
 - **To add a Pokemon**, write its name in an open slot's row.
-- **Never change the `Dex #` column.** It is how rows are matched. When Pokemon are renumbered on the
-  website, paste the new `export/sheet.csv` over the sheet before editing again (old rows would hit the wrong Pokemon).
+- **A row belongs to the Pokemon named in it, not to its number.** The `Name` column is how rows are
+  matched, so it does not matter that the sheet shows old numbers after Pokemon were renumbered on
+  the website: an edit in an old row still lands on the right Pokemon, and an old, untouched sheet changes nothing.
+  Rules worth knowing:
+  - **The `Dex #` column is never applied.** Changing a number in the sheet does nothing; move Pokemon
+    with **Change numbers** on the website. The sheet's numbers only get refreshed when you paste a new `export/sheet.csv`
+    (do that now and then for tidiness; nothing breaks if you do not).
+  - **To add a Pokemon**, write a name that does not exist yet in a row whose number is an open slot.
+    If that number now belongs to another Pokemon (because of a reorder), the row is reported - add it on the website
+    or paste the current `export/sheet.csv` first.
+  - **To rename a Pokemon**, change its name in its row. This only works while the Pokemon still has the
+    number and name it had in the sheet; if it was moved or renamed on the website since, the row is reported
+    instead of guessed at - rename it on the website.
+  - A name that stands on two rows, or a row without a name on a number that may belong to someone else now, is
+    reported and not applied.
 - The `BST` column is calculated - typing in it does nothing.
 - Columns are recognised by their name in row 1, so the order does not matter and extra
   columns of your own are ignored.
