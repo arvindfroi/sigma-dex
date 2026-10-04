@@ -60,6 +60,7 @@ STYLE = dict(
     max_stretch=1.05,      # sized by covered area, the longest side is at most this times the stage's size
     accents=3,             # face marks in colours the sprite does not have (a pink blush) get at most this many palette slots
     accent_gap=35,         # Lab distance from every colour the sprite has, for a mark's colour to count as an accent
+    eye_rim=True,          # eye whites on light skin get a dark rim
 )
 # The tones of a part, as (lightness change or factor, colourfulness factor, cool/warm shift).
 # Shadows a little cooler and lights a little warmer. Outlines as measured on the games' starters:
@@ -67,8 +68,8 @@ STYLE = dict(
 # gives the sprites their "pop"), and a muted dark tone of the part on the lit side (brightness ~70-90).
 RAMP = {
     "highlight": ("+", 30, 1.0, 3), "light": ("+", 16, 1.0, 5), "base": ("+", 0, 1.0, 0),
-    "shadow": ("+", -26, 1.0, -7), "line": ("*", 0.42, 0.3, -4),
-    "outline": ("*", 0.5, 0.45, -3), "outline_dark": ("*", 0.1, 0.12, -2),
+    "shadow": ("+", -30, 0.95, -7), "line": ("*", 0.42, 0.55, -4),
+    "outline": ("*", 0.5, 0.6, -3), "outline_dark": ("*", 0.1, 0.12, -2),
 }
 
 
@@ -242,8 +243,9 @@ def sample(L, ink, part, mask, gh, gw, k):
     cells = np.full((gh, gw), -1, np.int32)
     tone = np.zeros((gh, gw), np.float32)
     inkshare = np.zeros((gh, gw), np.float32)
-    global detail, rep, stroke
+    global detail, rep, stroke, middle
     detail = np.zeros((gh, gw), np.float32)
+    middle = np.zeros((gh, gw, 3), np.float32)
     stroke = np.zeros((gh, gw), bool)
     rep = np.zeros((gh, gw, 3), np.float32)
     for y in range(gh):
@@ -267,7 +269,8 @@ def sample(L, ink, part, mask, gh, gw, k):
             dark_part = cells_lab[cl <= np.percentile(cl, 15)]
             # what the cell shows: its darkest sixth where a dark stroke runs through it, else its middle
             stroke[y, x] = med - np.percentile(cl, 15) > STYLE["stroke_contrast"]
-            rep[y, x] = dark_part.mean(axis=0) if stroke[y, x] else np.median(cells_lab, axis=0)
+            middle[y, x] = np.median(cells_lab, axis=0)
+            rep[y, x] = dark_part.mean(axis=0) if stroke[y, x] else middle[y, x]
     return cells, tone, inkshare
 
 
@@ -519,6 +522,11 @@ def draw_eyes(rgb, L, ink, mask, cells, k):
         pupil_px = whole & (L[..., 0] < STYLE["pupil"] + 20)
         if pupil_px.sum() < 0.05 * k * k:
             continue
+        # and the pupil is a solid blob: the thin dark gaps between teeth are not one (a grin is
+        # white with thin dark lines in it); thin lines are worn away, a pupil survives
+        solid_pupil = cv2.morphologyEx(pupil_px.astype(np.uint8), cv2.MORPH_OPEN, np.ones((max(3, k // 4),) * 2, np.uint8))
+        if solid_pupil.sum() < 0.03 * k * k:
+            continue
         whole &= cv2.dilate(pupil_px.astype(np.uint8), np.ones((4 * k + 1,) * 2, np.uint8)).astype(bool)
         iris_px = whole & dark & (chroma > 14) & (L[..., 0] > STYLE["pupil"])
         if iris_px.sum() > 0.3 * k * k:
@@ -689,10 +697,33 @@ def tone_of(colour, name):
         c[0] = max(c[0] * amount, RAMP_FLOOR.get(name, 0))
     else:
         room = 252 - c[0] if amount > 0 else 255
-        c[0] = np.clip(c[0] + min(amount * (0.55 if amount < 0 and colour[0] > 210 else 1.0), room), 0, 255)
+        c[0] = np.clip(c[0] + min(amount * (0.8 if amount < 0 and colour[0] > 210 else 1.0), room), 0, 255)
+    if name in SHADE_TONES:
+        # shadows turn the hue the way the games' own palettes do (SHADOW_HUE_TURN), not one fixed
+        # way: a fixed "cooler" shift turns yellow toward green, which reads as olive mud
+        a, b = c[1] - 128, c[2] - 128
+        chroma, hue = np.hypot(a, b) * chroma_factor, np.arctan2(b, a) + np.radians(shadow_turn(np.degrees(np.arctan2(b, a))) * SHADE_TONES[name])
+        c[1], c[2] = 128 + chroma * np.cos(hue), 128 + chroma * np.sin(hue)
+        return c
     c[1] = 128 + (c[1] - 128) * chroma_factor + shift * 0.4
     c[2] = 128 + (c[2] - 128) * chroma_factor + shift
     return c
+
+
+# How the games turn a colour's hue in its shadow, by the colour's hue (Lab hue angle, degrees):
+# measured on 2026-10-04 over the 844 front sprite palettes of pokeemerald-expansion (each bright
+# colour against its nearest darker shade 20-60 darker, median per 30 degrees). Yellow turns toward
+# orange (-10), blue toward purple (+7 to +13), reds and greens hardly turn.
+SHADOW_HUE_TURN = {0: 2.1, 30: 0.7, 60: -7.4, 90: -9.7, 120: 1.3, 150: 0.0, 180: 0.9, 210: 9.9,
+                   240: 12.7, 270: 6.9, 300: 1.0, 330: -0.5}
+SHADE_TONES = {"shadow": 1.5, "line": 3.0, "outline": 3.0, "outline_dark": 3.0}   # how far each darker tone turns (the darker, the further: Pikachu goes yellow, orange, brown)
+
+
+def shadow_turn(hue):
+    hue %= 360
+    lo = int(hue // 30) * 30
+    t = (hue - lo) / 30
+    return SHADOW_HUE_TURN[lo] * (1 - t) + SHADOW_HUE_TURN[(lo + 30) % 360] * t
 
 
 def fit_palette(wanted, counts, limit):
@@ -803,6 +834,14 @@ def draw(path, size=54, window=None, fit=None, palette=None):
         # dark detail of the artwork (brows, creases, scale edges) that the traced lines missed
         base_L = np.array([c[0] for c in colours])
         dark_detail = (cells >= 0) & (detail < np.where(cells >= 0, base_L[np.maximum(cells, 0)], 0) - STYLE["detail_drop"])
+        # in white parts other than eyes (teeth, a white belly) a thin dark line through a pixel does
+        # not make it dark: a grin's tooth gaps would turn the whole grin grey. Only a pixel that is
+        # dark on the whole is a line there
+        white_part = np.isin(cells, [i for i in range(len(colours)) if colours[i][0] > 200]) & ~light_part
+        soft = white_part & (middle[..., 0] > np.where(cells >= 0, base_L[np.maximum(cells, 0)], 0) - STYLE["detail_drop"])
+        dark_detail &= ~soft
+        stroke[soft] = False
+        rep[soft] = middle[soft]
         drawn_lines = drawn_lines | (dark_detail & ~light_part)
     else:
         level = light_levels(cells, tone)                                     # 5
@@ -875,7 +914,7 @@ def draw(path, size=54, window=None, fit=None, palette=None):
     # an eye white on light skin (yellow, cream, pale) has a dark rim, as spriters draw it: without it
     # the white and the skin run together into one pale blob
     for (y, x), kind in eyes.items():
-        if kind != "white":
+        if kind != "white" or not STYLE["eye_rim"]:
             continue
         for ny, nx in ((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)):
             if not (0 <= ny < gh and 0 <= nx < gw) or not solid[ny, nx] or (ny, nx) in eyes:

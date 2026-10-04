@@ -108,7 +108,10 @@ official_front: >-
   part and a few bold, clearly shaped highlight patches on the head and body; no thin rim light
   lines along the edges.{others} Keep its design, colors and signature features: {look}; the same
   expression as in the reference, stronger.{signature} Pose: {pose} Three-quarter view turned toward the
-  lower left, the whole body visible. Exactly one creature, full body, plain white background, no
+  lower left, the whole body visible. Compose it for a small square battle sprite, as the game's own
+  sprites are: a compact silhouette about as tall as it is wide, with wings, capes, fins and long
+  tails raised up behind the body or held close to it rather than spread out to the sides, so the
+  head and face can be drawn big. Exactly one creature, full body, plain white background, no
   text, no shadow on the ground.
 official_back: >-
   Draw the creature from <image1>{others} from behind, as official artwork from Pokemon Ruby and
@@ -123,7 +126,7 @@ official_back: >-
   forward toward the opponent, ready to fight. Exactly one creature, plain white background, no
   text, no shadow on the ground.
 official_poses:
-  three-quarter: a lively, confident pose full of personality, standing tall with its head held high and looking at the viewer, one arm, paw or wing raised if it has one, limbs a little away from the body.
+  three-quarter: a lively, confident pose full of personality, standing tall with its head held high and looking at the viewer, one arm or paw raised if it has one, limbs a little away from the body.
   front: standing facing the viewer, confident, ready to fight.
   rearing: rearing up and roaring with its mouth open, chest out, arms or front legs raised, fierce and proud.
   flying: hovering in mid-air, wings or fins spread wide, ready to dive at the opponent.
