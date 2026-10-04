@@ -82,8 +82,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
 | 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
 | 73 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 280 | Blylem (Lv 20) | 21% |
-| 74 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 525 |  | 38% |
-| 75 | *open slot* | | | | | |
+| 74 | *open slot* | | | | | |
+| 75 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 525 |  | 38% |
 | 76 | *open slot* | | | | | |
 | 77 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 530 |  | 34% |
 | 78 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground |  | 600 |  | 14% |
