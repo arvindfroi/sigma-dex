@@ -634,14 +634,14 @@ function candidateCard(c, comments, tools) {
     if (text && text.trim()) tools.comment(c, text.trim(), (ev.clientX - box.left) / box.width, (ev.clientY - box.top) / box.height);
   });
   const said = comments.map(m => h("li", {}, m.x !== null ? h("b", {class: "pin still"}, String(pins.indexOf(m) + 1)) : null, " " + m.body, m.editor ? h("span", {class: "sub"}, " - " + m.editor) : null));
-  const note = tools ? textInput("", {maxlength: 400, placeholder: "Comment on the whole sprite, or say what to change"}) : null;
+  const note = tools ? textInput("", {maxlength: 400, placeholder: "Feedback: what should change? (e.g. bigger grin, the antennae are missing)"}) : null;
   return h("div", {class: "cand " + c.status}, wrap,
     h("div", {class: "candline"}, h("span", {class: "badge " + (c.status === "approved" ? "done" : c.status === "candidate" ? "need" : "")}, STATUS_TEXT[c.status] || c.status),
       h("span", {class: "sub"}, " attempt #" + c.id + (/^style: sprite-xl \(repainted\)/.test(c.prompt || "") ? " - repainted by the sprite model" : /^style: sprite-xl/.test(c.prompt || "") ? " - drawn" : /^style: sprite-clean/.test(c.prompt || "") ? " - redesigned and cleaned up" : /^style: sprite-official/.test(c.prompt || "") ? " - Sigma sprite style" : /^style: emerald/.test(c.prompt || "") ? " - Emerald LoRA" : "") + (c.reviewed_by ? " - by " + c.reviewed_by : ""))),
     said.length ? h("ul", {class: "said"}, said) : null,
     tools ? h("div", {class: "candtools"}, note,
-      h("button", {type: "button", class: "small", onclick: () => note.value.trim() && tools.comment(c, note.value.trim(), null, null)}, "Comment"),
-      h("button", {type: "button", class: "small", title: "Draw it again with all comments on this attempt (and what is typed here) as instructions", onclick: () => tools.redo(c, note.value.trim(), comments.length)}, "Redo with comments"),
+      h("button", {type: "button", class: "small primary", title: "Draw this one again with your feedback (and every comment pinned on it)", onclick: () => tools.redo(c, note.value.trim(), comments.length)}, "New version with feedback"),
+      h("button", {type: "button", class: "small", title: "Only save the comment, draw nothing", onclick: () => note.value.trim() && tools.comment(c, note.value.trim(), null, null)}, "Just comment"),
       c.status !== "approved" ? h("button", {type: "button", class: "small primary", onclick: () => tools.review(c, "approved")}, "Approve") : h("button", {type: "button", class: "small", onclick: () => tools.review(c, "candidate")}, "Un-approve"),
       c.status === "candidate" ? h("button", {type: "button", class: "small", onclick: () => tools.review(c, "rejected")}, "Reject") : null) : null);
 }
@@ -650,14 +650,13 @@ function studioSection(s) {
   const box = h("div", {class: "upload"}), list = h("div", {class: "cands"}), queue = h("div", {class: "hint"}), status = h("div", {class: "hint", role: "status"});
   const editor = textInput(remember.get("editor"), {maxlength: 40, placeholder: "your Discord name"});
   const key = h("input", {type: "password", value: remember.get("key"), autocomplete: "off"});
-  const look = h("textarea", {rows: 4, maxlength: 800, placeholder: "What should be kept and exaggerated at sprite size? E.g.: a round brown fish with a huge grinning mouth, big white teeth, fierce eyes, three green mountain peaks on its back."});
+  const look = h("textarea", {rows: 3, maxlength: 800, placeholder: "Optional. What must be on the sprite, big and clear? E.g.: a round brown fish with a huge grinning mouth, big white teeth, three green mountain peaks on its back."});
   look.value = DEX.studio.looks[s.id] || "";
-  const attempts = selectInput("2", [["1", "1 attempt"], ["2", "2 attempts"], ["3", "3 attempts"], ["4", "4 attempts"]]);
-  const pose = selectInput("three-quarter", [["three-quarter", "Classic battle pose (three-quarter view)"], ["front", "Facing the viewer"], ["rearing", "Rearing up tall"],
+  // Always the Sigma sprite style and two attempts (docs/SPRITE_STYLE.md); only the pose can be changed.
+  const pose = selectInput("three-quarter", [["three-quarter", "Lively battle pose (recommended)"], ["front", "Facing the viewer"], ["rearing", "Rearing up tall"],
     ["flying", "Hovering in the air"], ["crouching", "Crouched, ready to pounce"]]);
-  const style = selectInput("sprite-official", [["sprite-official", "Sigma sprite style: official-style art, built pixel by pixel (recommended)"], ["sprite-clean", "Pokemon sprite, redesigned with more character"], ["sprite-xl", "Pokemon sprite, close to the concept art"], ["pixel", "Plain pixel art (keeps the most detail, less Pokemon-like)"]]);
   const pictures = imagesOf(s.id).filter(i => Number.isInteger(i.id) && !/^\[/.test(i.caption || "")).slice(0, 8);
-  const ticks = pictures.map((image, n) => { const tick = h("input", {type: "checkbox"}); tick.checked = n === 0; return [image, tick]; });
+  const ticks = pictures.map((image, n) => { const tick = h("input", {type: "checkbox"}); tick.checked = n < 2; return [image, tick]; });
   let jobs = [], started = false;
   const who = () => ({p_key: key.value, p_editor: editor.value});
   async function act(work) {
@@ -672,7 +671,7 @@ function studioSection(s) {
       if (!text && !commentCount) { status.textContent = "Say what should change first: comment on the sprite or type it in the box."; return; }
       const job = jobs.find(j => j.id === c.job_id) || {};
       act(() => dbCall("request_sprites", {...who(), p_species_id: s.id, p_look: job.look || look.value || s.data.name, p_notes: text || null, p_parent: c.id,
-        p_refs: job.ref_image_ids || [], p_variations: Number(attempts.value), p_pose: job.pose || "front", p_style: job.style || "pixel"}));
+        p_refs: job.ref_image_ids || [], p_variations: 2, p_pose: job.pose || "three-quarter", p_style: job.style || "sprite-official"}));
     },
   };
   async function load() {
@@ -695,18 +694,19 @@ function studioSection(s) {
     } catch (err) { queue.textContent = err.message; }
   }
   const draw = h("button", {class: "primary", type: "button", onclick: () => {
-    if (look.value.trim().length < 3) { status.textContent = "Describe the look first."; return; }
-    act(() => dbCall("request_sprites", {...who(), p_species_id: s.id, p_look: look.value, p_notes: null, p_parent: null,
-      p_refs: ticks.filter(([, tick]) => tick.checked).map(([image]) => image.id).slice(0, 4), p_variations: Number(attempts.value), p_pose: pose.value, p_style: style.value}));
-  }}, "Draw sprites");
+    const refs = ticks.filter(([, tick]) => tick.checked).map(([image]) => image.id).slice(0, 3);
+    if (!refs.length) { status.textContent = "Tick at least one picture for the AI to draw from."; return; }
+    act(() => dbCall("request_sprites", {...who(), p_species_id: s.id, p_look: look.value.trim() || s.data.name, p_notes: null, p_parent: null,
+      p_refs: refs, p_variations: 2, p_pose: pose.value, p_style: "sprite-official"}));
+  }}, "Generate sprites");
   box.append(
-    h("div", {class: "hint"}, "The AI draws a front and a back view in the dex's fixed pixel style and they are converted to the game's format. The same request always gives the same pictures; different attempts differ."),
-    h("div", {class: "fields"}, field("The look - what to keep and exaggerate (a sprite is only 64 pixels)", look, "wide"),
-      pictures.length ? h("div", {class: "field wide"}, h("span", {}, "Pictures the AI should look at (attach concept art under Images first)"),
-        h("div", {class: "refpick"}, ticks.map(([image, tick]) => h("label", {}, tick, h("img", {src: image.src, alt: image.caption || "picture"}))))) : h("div", {class: "hint"}, "No concept art attached yet - the AI will only have the text to go on."),
-      field("Pose of the front view", pose), field("Style", style), field("How many attempts", attempts), field("Your name", editor)),
-    h("div", {style: "margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap"}, draw, status), queue, list,
-    h("details", {class: "hint"}, h("summary", {}, "The fixed style every sprite is drawn in"), DEX.studio.style));
+    h("div", {class: "hint"}, "Press Generate sprites: the AI draws two versions (front, back and icon) in the Sigma sprite style, a few minutes each. Not happy? Write feedback under a version and press New version with feedback. Approve the one you like."),
+    pictures.length ? h("div", {class: "field wide"}, h("span", {}, "Pictures the AI draws from (the clearest front view first; attach concept art under Images)"),
+      h("div", {class: "refpick"}, ticks.map(([image, tick]) => h("label", {}, tick, h("img", {src: image.src, alt: image.caption || "picture"}))))) : h("div", {class: "hint"}, "Attach the concept art under Images first - the AI draws from it."),
+    h("div", {class: "fields"}, field("Your name", editor), field("Edit key", key)),
+    h("details", {class: "hint"}, h("summary", {}, "More choices: the look and the pose"),
+      h("div", {class: "fields"}, field("The look - what must be big and clear on a 64-pixel sprite", look, "wide"), field("Pose of the front view", pose))),
+    h("div", {style: "margin-top:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap"}, draw, status), queue, list);
   load();
   return box;
 }

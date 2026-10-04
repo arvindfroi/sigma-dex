@@ -124,8 +124,10 @@ def recipes(job, settings):
                 out[view] = None                     # nothing asked for this view: keep the old picture
                 continue
             others = "".join(" The creature's design is shown in <image%d>." % (n + 2) for n in range(len(refs)))
+            kept = ("Official Pokemon Ruby and Sapphire artwork in the same style as <image1>: thick dark outlines, flat colors, "
+                    "crisp shadows, plain white background, exactly one creature." if official else style)
             out[view] = ("%s Redraw the creature picture in <image1> with these changes: %s Keep everything else about it the same: same creature, same pose, same view, same colors.%s"
-                         % (style, " ".join(c if c.rstrip().endswith((".", "!", "?")) else c.rstrip() + "." for c in changes), others),
+                         % (kept," ".join(c if c.rstrip().endswith((".", "!", "?")) else c.rstrip() + "." for c in changes), others),
                          [parent["raw_" + view]] + refs)
         elif official:                               # official-style artwork; the back is drawn from the new front ("@front")
             look = job["look"].strip().rstrip(".")
