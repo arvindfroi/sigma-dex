@@ -16,6 +16,28 @@ base stats, EV yield, catch rate, exp, growth rate, friendship, gender, egg grou
 items, evolutions, level-up / TM / HM / tutor / egg moves, where it is found, design
 notes, and images. Moves and abilities suggest the ones that already exist in the game while you type.
 
+## Changing the numbers (moving Pokemon, adding a slot between two)
+
+Press **Change numbers** above the grid. The page shows every slot as a list.
+
+- **Move a Pokemon:** type the number it should get in its row and press **Move**. If that slot
+  is empty it simply goes there. If another Pokemon sits there, the Pokemon in between move one
+  number up or down to make room, so numbers never repeat. **Up** and **Down** swap a Pokemon
+  with its neighbour. On a computer you can also drag a Pokemon onto another row.
+- **Add an empty slot between two Pokemon:** press **Add empty slot here** on the row that
+  should come after the new slot. That Pokemon and everything after it move down one number.
+  This needs the last slot (#151) to be empty; otherwise the page says so.
+- **Close a gap:** press **Remove empty slot** on an empty row; everything after it moves up one.
+- Changes are only a preview until you write your name and press **Save new order** (one save for
+  all your steps; **Undo last step** and **Cancel** are available before that). The import then
+  applies all of it or none of it, within about 15 minutes. Only the numbers change; nothing else
+  about a Pokemon is touched, and evolutions and starters keep working (they use names, not numbers).
+- If someone else changes numbers at the same time, steps are applied in the order they were saved.
+  Check the grid after saving; a step that no longer fits is listed in the box at the top.
+- After a reorder the Google Sheet and Google Doc still show the old numbers. Replace the sheet
+  contents with the new `export/sheet.csv` (and renumber the doc list) before editing there again,
+  otherwise an edit in an old row lands on whatever Pokemon now has that number.
+
 ## Images
 
 Open a Pokemon and scroll to **Images**. Choose one or more pictures - concept art, sketches,
@@ -61,6 +83,8 @@ Each card shows which Pokemon use it and whether it is already programmed into t
   Set `implemented: true` there once one is programmed; the website cannot change that flag.
 - Images are stored by the database's upload function and copied into `assets/concept-art/<pokemon>/`
   by `scripts/import_images.py`, so the repository keeps its own copy of all art (`data/images.json` lists them).
+- A reorder is one row of kind `reorder` (steps `move` / `insert` / `close`, see `dexlib.change_layout`);
+  it needs the migration `supabase/migrations/2026-10-04_reorder.sql`.
 - `scripts/import_web.py` applies rows newer than `data/web_edits_cursor.txt`. Art paths and
   sprite details are always kept from the species file, never taken from the website.
 - **There is no edit key** (removed 2026-10-02 because it confused people): anyone who finds

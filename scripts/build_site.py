@@ -70,7 +70,7 @@ def main():
 
     cursor_path = ROOT / "data" / "web_edits_cursor.txt"
     payload = {
-        "project": config.get("project", "Pokedex"), "dex_size": config.get("dex_size", 100),
+        "project": config.get("project", "Pokedex"), "dex_size": config.get("dex_size", 151),
         "species": entries, "types": dexlib.TYPES, "checks": dexlib.CHECK_LIST,
         "custom": {"move": engine["custom"]["moves"], "ability": engine["custom"]["abilities"]},
         "images": images, "sprites": sprite_info, "studio": studio,

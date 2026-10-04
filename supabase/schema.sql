@@ -79,3 +79,6 @@ alter table public.species_edits
 -- request_sprites / comment_sprite / review_sprite check the edit key; claim_sprite_job and
 -- check_worker_key are for the sprite-worker edge function only (service role). The worker
 -- key's hash is in private.settings as 'worker_key_sha256'. See docs/STUDIO.md.
+
+-- Added 2026-10-04: kind 'reorder' (moving Pokemon to other dex numbers). See
+-- supabase/migrations/2026-10-04_reorder.sql - it widens species_edits_kind_check and adds a shape check.

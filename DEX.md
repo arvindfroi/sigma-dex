@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**83 / 100** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
+**83 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -109,3 +109,54 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 98 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug |  |  |  | 3% |
 | 99 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground | Drizzle | 680 |  | 48% |
 | 100 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician | 680 |  | 28% |
+| 101 | *open slot* | | | | | |
+| 102 | *open slot* | | | | | |
+| 103 | *open slot* | | | | | |
+| 104 | *open slot* | | | | | |
+| 105 | *open slot* | | | | | |
+| 106 | *open slot* | | | | | |
+| 107 | *open slot* | | | | | |
+| 108 | *open slot* | | | | | |
+| 109 | *open slot* | | | | | |
+| 110 | *open slot* | | | | | |
+| 111 | *open slot* | | | | | |
+| 112 | *open slot* | | | | | |
+| 113 | *open slot* | | | | | |
+| 114 | *open slot* | | | | | |
+| 115 | *open slot* | | | | | |
+| 116 | *open slot* | | | | | |
+| 117 | *open slot* | | | | | |
+| 118 | *open slot* | | | | | |
+| 119 | *open slot* | | | | | |
+| 120 | *open slot* | | | | | |
+| 121 | *open slot* | | | | | |
+| 122 | *open slot* | | | | | |
+| 123 | *open slot* | | | | | |
+| 124 | *open slot* | | | | | |
+| 125 | *open slot* | | | | | |
+| 126 | *open slot* | | | | | |
+| 127 | *open slot* | | | | | |
+| 128 | *open slot* | | | | | |
+| 129 | *open slot* | | | | | |
+| 130 | *open slot* | | | | | |
+| 131 | *open slot* | | | | | |
+| 132 | *open slot* | | | | | |
+| 133 | *open slot* | | | | | |
+| 134 | *open slot* | | | | | |
+| 135 | *open slot* | | | | | |
+| 136 | *open slot* | | | | | |
+| 137 | *open slot* | | | | | |
+| 138 | *open slot* | | | | | |
+| 139 | *open slot* | | | | | |
+| 140 | *open slot* | | | | | |
+| 141 | *open slot* | | | | | |
+| 142 | *open slot* | | | | | |
+| 143 | *open slot* | | | | | |
+| 144 | *open slot* | | | | | |
+| 145 | *open slot* | | | | | |
+| 146 | *open slot* | | | | | |
+| 147 | *open slot* | | | | | |
+| 148 | *open slot* | | | | | |
+| 149 | *open slot* | | | | | |
+| 150 | *open slot* | | | | | |
+| 151 | *open slot* | | | | | |

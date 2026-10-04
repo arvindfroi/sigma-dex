@@ -22,7 +22,8 @@ Type in a cell; every 15 minutes the dex picks it up, checks it and updates the 
   website does not appear in the sheet. The website always shows the current state.
 - **Emptying a cell** removes that value.
 - **To add a Pokemon**, write its name in an open slot's row.
-- **Never change the `Dex #` column.** It is how rows are matched.
+- **Never change the `Dex #` column.** It is how rows are matched. When Pokemon are renumbered on the
+  website, paste the new `export/sheet.csv` over the sheet before editing again (old rows would hit the wrong Pokemon).
 - The `BST` column is calculated - typing in it does nothing.
 - Columns are recognised by their name in row 1, so the order does not matter and extra
   columns of your own are ignored.

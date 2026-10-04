@@ -1,7 +1,7 @@
 # Project-wide settings for the Sigma Dex.
 project: Council of the Sigmas Pokedex
 region:            # name of the region, once decided
-dex_size: 100      # number of slots in the regional dex
+dex_size: 151      # number of slots in the regional dex
 
 # The three Pokemon in Professor Birch's bag, in the order grass, fire, water (file names
 # without .yaml). Used by scripts/apply_to_expansion.py once all three are in the game.

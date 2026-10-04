@@ -7,7 +7,7 @@ decided yet - [TODO.md](../TODO.md) keeps track of what is missing.
 
 | Field | Meaning | Rules |
 |---|---|---|
-| `dex` | Slot in our regional dex | 1-100, unique |
+| `dex` | Slot in our regional dex | 1-151, unique |
 | `name` | Name | Max 12 characters in the game |
 | `credits.designer`, `credits.artist` | Who made it | Discord names |
 | `types` | One or two types | `[Grass]` or `[Grass, Steel]` |

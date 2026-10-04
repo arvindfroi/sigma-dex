@@ -5,6 +5,8 @@
     python scripts/import_web.py rows.json    # or a file with the same rows (for testing)
 
 Every save on the website is one row in the database: a complete copy of that Pokemon.
+A row of kind "reorder" is different: it holds steps that move Pokemon to other dex numbers
+(see dexlib.change_layout) and changes only the `dex` numbers.
 Rows newer than data/web_edits_cursor.txt are applied in order, so the newest save wins.
 A row that would break a species file is skipped and reported in export/web_problems.json
 (shown on the website). Art paths and sprite details cannot be edited on the website and
@@ -141,6 +143,27 @@ def main():
             except Exception as error:
                 report.append({"id": row.get("id"), "species": row["kind"] + ":" + sid, "row": label, "problem": str(error)})
             continue
+        if row.get("kind") == "reorder":
+            # Several dex numbers change at once: all of it is applied, or none of it.
+            label = "reorder (saved by %s)" % editor
+            try:
+                size = config.get("dex_size", 151)
+                layout = [None] * size
+                for other, (_, data) in files.items():
+                    if isinstance(data.get("dex"), int) and 1 <= data["dex"] <= size:
+                        layout[data["dex"] - 1] = other
+                new = dexlib.change_layout(layout, (row.get("data") or {}).get("ops"))
+                for number, other in enumerate(new, 1):
+                    if other and files[other][1].get("dex") != number:
+                        path, data = files[other]
+                        data = dict(data, dex=number)
+                        dexlib.write_species(path, data)
+                        files[other] = (path, data)
+                        changed += 1
+                report = [entry for entry in report if entry.get("species") != "reorder"]
+            except Exception as error:
+                report.append({"id": row.get("id"), "species": "reorder", "row": label, "problem": str(error)})
+            continue
         try:
             if not isinstance(row.get("data"), dict) or dexlib.slugify(sid) != sid or not sid:
                 raise ValueError("the saved data is not a Pokemon")
@@ -160,7 +183,7 @@ def main():
                 for key in KEPT_FROM_FILE:
                     updated.pop(key, None)
                 dex = updated.get("dex")
-                if not isinstance(dex, int) or isinstance(dex, bool) or not 1 <= dex <= config.get("dex_size", 100):
+                if not isinstance(dex, int) or isinstance(dex, bool) or not 1 <= dex <= config.get("dex_size", 151):
                     raise ValueError("a new Pokemon needs a dex slot inside the dex")
                 if any(data.get("dex") == dex for _, data in files.values()):
                     raise ValueError("dex slot %d is already taken" % dex)

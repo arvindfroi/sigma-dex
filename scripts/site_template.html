@@ -121,6 +121,16 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; }
 .balance .track { position: relative; height: 14px; background: var(--bar); border-radius: 7px; min-width: 120px; }
 .balance .track i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 7px; }
 .balance .track b { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--text); }
+@media (min-width: 760px) { .reorder .bar { position: sticky; top: 52px; z-index: 1; } }
+.reorder .bar { background: var(--panel); border: 1px solid var(--accent); border-radius: 10px; padding: 10px 12px; margin: 4px 0 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.reorder .bar .grow { flex: 1 1 200px; }
+.rrow { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 5px 10px; margin-bottom: 4px; }
+.rrow.open { border-style: dashed; color: var(--muted); }
+.rrow.moved { border-color: var(--accent); }
+.rrow.over { outline: 2px solid var(--accent); }
+.rrow .no { width: 44px; font-variant-numeric: tabular-nums; color: var(--muted); }
+.rrow .who { flex: 1 1 140px; font-weight: 600; cursor: grab; }
+.rrow input[type=number] { width: 64px; padding: 3px 6px; }
 .error { color: var(--bad); }
 .error:not(:empty) { margin: 0 0 8px; }
 @media (max-width: 520px) { .todo { columns: 1; } .detail .top img { width: 84px; height: 84px; } }
@@ -144,6 +154,7 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; }
     <option value="problems">Has warnings</option>
     <option value="open">Open slots</option>
   </select>
+  <button id="reorder-btn" type="button" style="display:none" title="Move Pokemon to other numbers or add an empty slot between two Pokemon">Change numbers</button>
 </div>
 <main>
   <div id="notice"></div>
@@ -777,6 +788,7 @@ function renderTabs() {
   document.getElementById("show").style.display = view === "species" ? "" : "none";
   document.getElementById("type").style.display = view === "ability" || view === "balance" ? "none" : "";
   document.getElementById("search").style.display = view === "balance" ? "none" : "";
+  document.getElementById("reorder-btn").style.display = view === "species" && DEX.web.url && !plan ? "" : "none";
 }
 
 function openEditor(s) {
@@ -929,8 +941,88 @@ function openEditor(s) {
       h("div", {style: "display:flex;gap:8px"}, save, h("button", {type: "button", onclick: () => isNew ? closeDialog() : openDetail(s)}, "Cancel")))));
 }
 
+// ---------- changing dex numbers ----------
+// The same rules as dexlib.change_layout in scripts/dexlib.py (the import applies them for real). layout = ids per slot, null = empty.
+function arrange(layout, ops) {
+  layout = layout.slice();
+  const size = layout.length;
+  for (const op of ops) {
+    const slot = op.to || op.at;
+    if (!Number.isInteger(slot) || slot < 1 || slot > size) throw new Error("There is no slot #" + slot + ". Use a number from 1 to " + size + ".");
+    if (op.op === "move") {
+      const old = layout.indexOf(op.id);
+      if (old < 0) throw new Error("That Pokemon is not in the dex.");
+      if (layout[slot - 1] === null) { layout[old] = null; layout[slot - 1] = op.id; }
+      else { layout.splice(old, 1); layout.splice(slot - 1, 0, op.id); }
+    } else if (op.op === "insert") {
+      if (layout[size - 1] !== null) throw new Error("The last slot (#" + size + ") is taken, so nothing can move down. Move that Pokemon first or remove an empty slot.");
+      layout.splice(slot - 1, 0, null); layout.pop();
+    } else if (op.op === "close") {
+      if (layout[slot - 1] !== null) throw new Error("Slot #" + slot + " is not empty.");
+      layout.splice(slot - 1, 1); layout.push(null);
+    } else throw new Error("Unknown step.");
+  }
+  return layout;
+}
+const currentLayout = () => Array.from({length: DEX.dex_size}, (_, i) => bySlot.has(i + 1) ? bySlot.get(i + 1).id : null);
+function applyLayout(layout) {
+  layout.forEach((id, i) => { if (id && byId.has(id)) byId.get(id).data.dex = i + 1; });
+  index();
+}
+
+let plan = null;   // {ops, layout, error} while the "Change numbers" screen is open
+const pad = n => String(n).padStart(3, "0");
+function renderReorder() {
+  const grid = document.getElementById("grid"), base = currentLayout();
+  const editor = h("input", {type: "text", placeholder: "Your name", value: remember.get("editor"), maxlength: 40, "aria-label": "Your name"});
+  const message = h("div", {class: "error", style: "flex-basis:100%"}, plan.error || "");
+  const step = op => {
+    try { plan.layout = arrange(plan.layout, [op]); plan.ops.push(op); plan.error = ""; } catch (err) { plan.error = err.message; }
+    render();
+  };
+  const undo = () => { plan.ops.pop(); plan.layout = arrange(base, plan.ops); plan.error = ""; render(); };
+  const save = h("button", {class: "primary", type: "button", disabled: !plan.ops.length}, plan.ops.length ? "Save new order (" + plan.ops.length + " step" + (plan.ops.length > 1 ? "s" : "") + ")" : "Save new order");
+  save.addEventListener("click", async () => {
+    save.disabled = true; save.textContent = "Saving...";
+    try {
+      await saveEdit("reorder", "reorder", {ops: plan.ops}, editor.value, remember.get("key"));
+      applyLayout(plan.layout); plan = null; render();
+    } catch (err) { plan.error = err.message; render(); }
+  });
+  const bar = h("div", {class: "bar"},
+    h("div", {class: "grow"}, h("b", {}, "Changing dex numbers"), h("div", {class: "sub"}, plan.ops.length ? plan.ops.length + " step(s) not saved yet." : "Nothing changed yet.")),
+    editor, h("button", {type: "button", disabled: !plan.ops.length, onclick: undo}, "Undo last step"), save,
+    h("button", {type: "button", onclick: () => { plan = null; render(); }}, "Cancel"), message);
+  const help = h("div", {class: "hint"},
+    "Pokemon keep everything except their number. To MOVE one, type the number it should get and press Move: if that slot is empty it just goes there; if another Pokemon is there, ",
+    "the Pokemon in between move up or down one number to make room (so numbers never repeat). \"Up\" and \"Down\" swap with the neighbour. ",
+    "\"Add empty slot here\" puts a new empty slot at this number and moves this Pokemon and everything after it down one (the last slot, #" + DEX.dex_size + ", must be empty). ",
+    "\"Remove empty slot\" closes a gap. On a computer you can also drag a Pokemon onto another row. Nothing counts until you press Save; it is applied within about 15 minutes.");
+  const rows = plan.layout.map((id, i) => {
+    const n = i + 1, s = id && byId.get(id), was = s ? base.indexOf(id) + 1 : 0;
+    const to = h("input", {type: "number", min: 1, max: DEX.dex_size, placeholder: "#", "aria-label": "New number"});
+    const go = () => { if (to.value) step({op: "move", id, to: Number(to.value)}); };
+    const row = h("div", {class: "rrow" + (s ? "" : " open") + (s && was !== n ? " moved" : "")},
+      h("span", {class: "no"}, "#" + pad(n)),
+      s ? h("span", {class: "who", draggable: "true", title: "Drag onto another row to move it there"}, s.data.name || id, " ", s.data.types ? s.data.types.map(typeChip) : null) : h("span", {class: "who", style: "font-weight:400;cursor:default"}, "Open slot"),
+      s && was !== n ? h("span", {class: "sub"}, "was #" + pad(was)) : null,
+      s ? [h("button", {type: "button", class: "small", disabled: n === 1, onclick: () => step({op: "move", id, to: n - 1})}, "Up"),
+           h("button", {type: "button", class: "small", disabled: n === DEX.dex_size, onclick: () => step({op: "move", id, to: n + 1})}, "Down"),
+           to, h("button", {type: "button", class: "small", onclick: go}, "Move")] : null,
+      h("button", {type: "button", class: "small", onclick: () => step({op: "insert", at: n})}, "Add empty slot here"),
+      s ? null : h("button", {type: "button", class: "small", onclick: () => step({op: "close", at: n})}, "Remove empty slot"));
+    if (s) row.querySelector(".who").addEventListener("dragstart", ev => ev.dataTransfer.setData("text/plain", id));
+    row.addEventListener("dragover", ev => { ev.preventDefault(); row.classList.add("over"); });
+    row.addEventListener("dragleave", () => row.classList.remove("over"));
+    row.addEventListener("drop", ev => { ev.preventDefault(); const dragged = ev.dataTransfer.getData("text/plain"); if (plan.layout.includes(dragged)) step({op: "move", id: dragged, to: n}); else row.classList.remove("over"); });
+    return row;
+  });
+  grid.replaceChildren(h("div", {class: "reorder", style: "grid-column:1/-1"}, bar, help, rows));
+}
+
 function render() {
   renderTabs();
+  if (plan && view === "species") return renderReorder();
   if (view === "balance") return renderBalance();
   if (view === "sprites") return renderSprites();
   if (view !== "species") return renderCustom(view);
@@ -976,6 +1068,10 @@ async function loadRecentEdits() {
         if (!row.data.deleted && typeof row.data.name === "string") DEX.custom[row.kind].push(Object.assign({}, row.data, {id: row.species_id, pending: true, implemented: old && old.implemented}));
         continue;
       }
+      if (row.kind === "reorder") {
+        try { applyLayout(arrange(currentLayout(), Array.isArray(row.data.ops) ? row.data.ops : [])); } catch (e) { /* the import reports it */ }
+        continue;
+      }
       let entry = byId.get(row.species_id);
       if (entry) row.data = Object.assign({}, row.data, {dex: entry.data.dex, assets: entry.data.assets, engine: entry.data.engine});
       else {
@@ -1006,6 +1102,7 @@ refreshLists();
 document.getElementById("list-methods").append(...["grass", "cave", "surf", "fishing", "rock smash", "gift", "trade", "static"].map(m => h("option", {value: m})));
 if (DEX.problems.length) document.getElementById("notice").append(h("div", {class: "notice"}, h("b", {}, "These edits could not be used - please fix and save them again:"),
   h("ul", {}, DEX.problems.map(p => h("li", {}, h("b", {}, p.row + ": "), p.problem)))));
+document.getElementById("reorder-btn").addEventListener("click", () => { plan = {ops: [], layout: currentLayout(), error: ""}; render(); window.scrollTo(0, 0); });
 for (const id of ["search", "type", "show"]) document.getElementById(id).addEventListener("input", render);
 document.getElementById("dialog").addEventListener("click", ev => { if (ev.target.id === "dialog" && !document.querySelector("#detail form")) ev.target.close(); });
 render();
