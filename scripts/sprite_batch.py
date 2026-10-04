@@ -75,13 +75,12 @@ def draw(prompt, target, refs, seed):
 def finish(sid, raw, folder, gen=3):
     """Sprites from the artwork of one attempt, and their score. For the DS (gen 4) the 80x80
     frames are kept as they are (the GBA converter, scripts/sprites.py, makes 64x64 game files)."""
-    files = sprite_worker.official_sprites(raw, sid, folder / "pixels_", gen)
     out = folder / "sprite"
-    if gen == 4:
-        out.mkdir(exist_ok=True)
-        for view, path in files.items():
-            (out / (view + ".png")).write_bytes(path.read_bytes())
+    if gen == 4:                                         # the DS: Qwen draws the pixel art (scripts/ds_pixel.py)
+        import ds_pixel
+        files, _ = ds_pixel.make(raw, sid, out)
     else:
+        files = sprite_worker.official_sprites(raw, sid, folder / "pixels_", gen)
         sprites.build(sid, files, note="AI draft (Sigma sprite style)", out=out)
     front, back = sprites.as_rgba(out / "front.png"), sprites.as_rgba(out / "back.png")
     failed = sprite_quality.standards(front, back, None)

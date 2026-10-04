@@ -189,10 +189,13 @@ BACK_ZOOM = 1.4
 # group (54/60/63, a quarter more area). DS (HeartGold, the base of Origin HeartGold; 493 sprites
 # measured 2026-10-04): fronts 44/57/70 pixels covering 867/1418/2104 pixels of the 80 frame;
 # the backs are much bigger, 65/74/79 pixels covering 2047/2621/2843, seen from behind and
-# cut off by the frame's bottom edge. Ours are a little bigger than the median, as on the GBA.
+# cut off by the frame's bottom edge. On the GBA ours are a little bigger than the median. On the DS
+# the median wasted the bigger frame (Waffy came out 38x43 of 80x80, its eyes four pixels wide and its
+# hand gone; at 76 both read, 2026-10-05), so DS fronts fill the frame: their longest side is 68/74/78,
+# not sized by area (a compact creature drawn by area came out small).
 GAMES = {
     3: dict(frame=64, sizes=(54, 60, 63), areas=(955, 1530, 2452), back_zoom=BACK_ZOOM, prompt=""),
-    4: dict(frame=80, sizes=(50, 63, 76), areas=(1000, 1630, 2420), back_sizes=(68, 77, 80), back_areas=(2250, 2880, 3130), prompt="_gen4"),
+    4: dict(frame=80, sizes=(68, 74, 78), areas=None, back_sizes=(68, 77, 80), back_areas=(2250, 2880, 3130), prompt="_gen4"),
 }
 
 
@@ -209,8 +212,8 @@ def sprite_pixels(species_id, view, gen=3):
 
 
 def sprite_area(species_id, gen=3):
-    """How many pixels of the frame the front sprite should cover (GAMES)."""
-    return GAMES[gen]["areas"][stage(species_id)]
+    """How many pixels of the frame the front sprite should cover (GAMES; None: sized by its longest side)."""
+    return GAMES[gen]["areas"] and GAMES[gen]["areas"][stage(species_id)]
 
 
 def colour_lock(start, repainted, target, keep_light=0.35):
@@ -371,7 +374,7 @@ def _ds_sprites(raw, species_id, prefix):
     and cut off flat by the frame's bottom edge. The icon is 32 pixels as on the GBA."""
     game = GAMES[4]; frame = game["frame"]; k = stage(species_id)
     files = {"front": Path(str(prefix) + "front.png"), "back": Path(str(prefix) + "back.png"), "icon": Path(str(prefix) + "icon.png")}
-    front = pixel_render.render(raw["front"], size=game["sizes"][k], area=game["areas"][k], frame=frame)
+    front = pixel_render.render(raw["front"], size=game["sizes"][k], frame=frame)
     on_frame(front, frame).save(files["front"])
     # the back is drawn bigger than the frame and cut by it: its upper part shows, cut off flat at the
     # bottom, and wings or tails reaching past the sides are cut too (as Charizard's are)

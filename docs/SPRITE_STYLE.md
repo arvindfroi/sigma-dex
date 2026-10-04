@@ -109,16 +109,25 @@ renderer is not random).
 
 ## The DS (Origin HeartGold)
 
-The same pipeline makes sprites for the DS with `python scripts/sprite_batch.py NAME ... --gen 4`
-(`GAMES` in `scripts/sprite_worker.py`). What changes, measured on 2026-10-04 on HeartGold's own
-493 sprites (locally, from Arvind's dump; nothing of them is in this repo):
+`python scripts/sprite_batch.py NAME ... --gen 4` makes 80x80 DS sprites. Since 2026-10-05 the pixel
+art is drawn by Qwen-Image-Edit, not built by our renderer (`scripts/ds_pixel.py`):
 
-- the frame is 80x80; fronts are drawn 50/63/76 pixels (first/middle/final stage; the games'
-  median is 44/57/70) and stand with their feet on the bottom row (we set their height to 0);
-- the artwork prompt is Diamond/Pearl-era (`official_front_gen4`, `official_back_gen4`);
-- backs are big, seen over the shoulder and cut by the frame (HeartGold's backs are 65/74/79
-  pixels); where a back is wider than the frame, the tail or wing side is cut, never the head;
-- outlines keep their colour's hue (`pixel_render.DS`): the GBA hue turn made a blue outline grey.
+1. Qwen redraws the concept art as Diamond/Pearl-era official artwork that keeps the design
+   (`official_front_gen4`, `official_back_gen4` in `data/sprite_prompts.yaml`).
+2. Our renderer makes a rough sprite from it: only for its size, place and pixel grid.
+3. Qwen turns the artwork into a DS battle sprite, laid out like the rough sprite (three seeds).
+4. Its picture is read back on the rough sprite's grid (96x96 cells, 15 colours, each cell its
+   commonest colour), so nothing is redrawn or resized; the best front is picked by size, eyes,
+   noise and colours kept.
+5. The back is drawn by Qwen from the finished pixel front (same creature, same style), big and cut
+   off by the bottom edge, and given the front's colours.
+
+Why: at the DS size our renderer's faces, hands and textures turned to specks, and the Pokemon
+sprite LoRAs either lost the design (they draw from text; given a picture they keep only its
+shape) or the outlines. Tested on 8 mons, 4 of them never tried before: all kept their design and
+filled the frame. Sizes were measured on HeartGold's own 493 sprites (locally, from Arvind's dump;
+nothing of them is in this repo, and no game sprite is ever shown to a model): fronts 68/74/78
+pixels (first/middle/final stage), feet on the bottom row (our height value is 0).
 
 The GBA path is unchanged (the test set below gives the same sprites).
 

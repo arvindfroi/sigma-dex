@@ -130,18 +130,19 @@ official_back: >-
 # profile, the lower body cut off by the frame (measured on HeartGold's own backs, 2026-10-04).
 official_front_gen4: >-
   Redraw the creature from <image1> as official artwork from Pokemon Diamond and Pearl (2006) and
-  HeartGold and SoulSilver, Ken Sugimori's Nintendo DS era style: bold clean dark outlines, crisp
-  cel shading with large flat areas of color, a clear shadow tone and small bright highlights,
-  chunky simple readable shapes with few small details (no muscle lines, no fine texture, no
-  pattern lines inside dark areas), a big head and big expressive eyes. Shading like a Nintendo DS battle sprite: light from
-  the upper left, a crisp shadow tone on the lower right of every part, bold highlight patches on
-  the head and body; no thin rim light lines along the edges.{others} Keep its design, colors and
-  signature features: {look}; the same expression as in the reference, stronger.{signature} Pose:
-  {pose} Three-quarter view turned toward the lower left, the whole body visible. Compose it for a
-  square battle sprite, as the game's own sprites are: a compact silhouette about as tall as it is
-  wide, with wings, capes, fins and long tails raised up behind the body or held close to it rather
-  than spread out to the sides, so the head and face can be drawn big. Exactly one creature, full
-  body, plain white background, no text, no shadow on the ground.
+  HeartGold and SoulSilver, Ken Sugimori's Nintendo DS era style. Keep its design exactly: every
+  part, marking, colour and its silhouette, so it is clearly the same creature. But draw it the way
+  it must look as a small game sprite: bold clean dark outlines, large flat areas of color with one
+  crisp shadow tone and a few small bright highlights, no gradients, no fine lines. Simplify detail
+  instead of dropping it: a texture (scales, feathers, fur, leaves, muscles, wing veins) is shown by
+  a few big clear shapes, not many small ones. A big head and big expressive eyes, each a clear dark
+  pupil with a white glint; the hands, claws and other small parts drawn big and simple.{others}
+  Its look: {look}; the same expression as in the reference, stronger.{signature} Pose: {pose}
+  Three-quarter view turned toward the lower left, the whole body visible. Compose it for a square
+  battle sprite, as the game's own sprites are: a compact silhouette about as tall as it is wide,
+  with wings, capes, fins and long tails raised up behind the body or held close to it rather than
+  spread out to the sides, so the creature can be drawn big. Exactly one creature, full body, plain
+  white background, no text, no shadow on the ground.
 official_back_gen4: >-
   Draw the creature from <image1>{others} from behind, as official artwork from Pokemon Diamond and
   Pearl (2006), Ken Sugimori's Nintendo DS era style: bold clean dark outlines, crisp cel shading
