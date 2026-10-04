@@ -3,7 +3,7 @@ dex: 78
 name: Sandrema
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Arvind       # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Fairy, Ground]   # 1 or 2 types, e.g. [Grass, Steel]
@@ -22,12 +22,12 @@ abilities:
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 100
+  attack: 100
+  defense: 100
+  sp_attack: 100
+  sp_defense: 100
+  speed: 100
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -55,7 +55,7 @@ evolutions: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line

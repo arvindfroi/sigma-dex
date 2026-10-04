@@ -86,7 +86,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 75 | *open slot* | | | | | |
 | 76 | *open slot* | | | | | |
 | 77 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 530 |  | 34% |
-| 78 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground |  |  |  | 7% |
+| 78 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground |  | 600 |  | 14% |
 | 79 | [Ciggiti](data/species/ciggiti.yaml) | Ghost | Smoked Up | 310 |  | 28% |
 | 80 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 28% |
 | 81 | [Parahaunt](data/species/parahaunt.yaml) | Ghost | Smoked Up | 556 |  | 28% |

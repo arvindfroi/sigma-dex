@@ -10,13 +10,13 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Area | Item | Filled in |
 |------|------|----------:|
 | Identity | types | 83 / 84 |
-| Identity | designer credit | 49 / 84 |
+| Identity | designer credit | 50 / 84 |
 | Dex page | category | 42 / 84 |
 | Dex page | description | 42 / 84 |
 | Dex page | height | 29 / 84 |
 | Dex page | weight | 27 / 84 |
 | Dex page | body color | 1 / 84 |
-| Stats | base stats | 55 / 84 |
+| Stats | base stats | 56 / 84 |
 | Stats | ability | 52 / 84 |
 | Stats | EV yield | 28 / 84 |
 | Stats | catch rate | 1 / 84 |
@@ -750,11 +750,10 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #78 [Sandrema](data/species/sandrema.yaml) - 7%
+### #78 [Sandrema](data/species/sandrema.yaml) - 14%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

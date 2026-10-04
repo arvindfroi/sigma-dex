@@ -5639,7 +5639,7 @@
       "dex": 78,
       "name": "Sandrema",
       "credits": {
-        "designer": null,
+        "designer": "Arvind",
         "artist": null
       },
       "types": [
@@ -5657,12 +5657,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 100,
+        "attack": 100,
+        "defense": 100,
+        "sp_attack": 100,
+        "sp_defense": 100,
+        "speed": 100
       },
       "ev_yield": null,
       "catch_rate": null,
