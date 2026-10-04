@@ -67,7 +67,7 @@ def evolution_text(evo, names):
 
 def main():
     config = dexlib.load_config()
-    dex_size = config.get("dex_size", 100)
+    dex_size = config.get("dex_size", 151)
     species, problems = dexlib.load_species()
     if problems:
         for path, msg in problems:

@@ -444,6 +444,49 @@ def load_species():
     return species, problems
 
 
+def change_layout(layout, ops):
+    """Apply reorder steps to a dex layout: a list with one entry per slot (slot 1 first), each a species id or None.
+
+    The same rules are in scripts/site_template.html (arrange), so the website shows what the import will do.
+      {"op": "move", "id": ..., "to": N}  the Pokemon takes slot N. An empty slot N is simply filled; a taken one
+                                           makes the Pokemon in between shift one slot to make room.
+      {"op": "insert", "at": N}           a new empty slot N; everything from N on moves down one (the last slot must be empty).
+      {"op": "close", "at": N}            removes the empty slot N; everything after it moves up one.
+    Returns a new list of the same length. Raises ValueError, and then nothing is changed.
+    """
+    layout = list(layout)
+    size = len(layout)
+    if not isinstance(ops, list) or not 1 <= len(ops) <= 50:
+        raise ValueError("a reorder needs between 1 and 50 steps")
+    for op in ops:
+        if not isinstance(op, dict):
+            raise ValueError("a reorder step is not an object")
+        kind, slot = op.get("op"), op.get("to", op.get("at"))
+        if not isinstance(slot, int) or isinstance(slot, bool) or not 1 <= slot <= size:
+            raise ValueError("slot %r is outside the dex (1-%d)" % (slot, size))
+        if kind == "move":
+            if op.get("id") not in layout:
+                raise ValueError("%r is not in the dex" % op.get("id"))
+            old = layout.index(op["id"])
+            if layout[slot - 1] is None:
+                layout[old], layout[slot - 1] = None, op["id"]
+            else:
+                layout.insert(slot - 1, layout.pop(old))
+        elif kind == "insert":
+            if layout[-1] is not None:
+                raise ValueError("the last slot (#%d) is taken, so nothing can move down" % size)
+            layout.insert(slot - 1, None)
+            layout.pop()
+        elif kind == "close":
+            if layout[slot - 1] is not None:
+                raise ValueError("slot #%d is not empty" % slot)
+            layout.pop(slot - 1)
+            layout.append(None)
+        else:
+            raise ValueError("unknown reorder step %r" % kind)
+    return layout
+
+
 def section(data, key):
     value = data.get(key)
     return value if isinstance(value, dict) else {}

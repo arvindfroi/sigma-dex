@@ -19,7 +19,7 @@ Everything else is produced from those files automatically, every time something
 
 | File or folder | What it is |
 |---|---|
-| `DEX.md` | Overview table of all 100 slots |
+| `DEX.md` | Overview table of all 151 slots |
 | `TODO.md` | What is missing before the dex is complete |
 | `export/dex.csv` | The whole dex as a spreadsheet |
 | `export/sheet.csv` | The same, laid out for the Google Sheet people fill in |

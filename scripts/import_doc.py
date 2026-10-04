@@ -109,7 +109,7 @@ def main():
 
     for dex in sorted(lines):
         text = lines[dex]
-        if snapshot.get(str(dex), "") == text or not 1 <= dex <= config.get("dex_size", 100):
+        if snapshot.get(str(dex), "") == text or not 1 <= dex <= config.get("dex_size", 151):
             continue
         label = "Doc line #%d %s" % (dex, text)
         if not text:

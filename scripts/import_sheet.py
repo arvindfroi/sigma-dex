@@ -270,7 +270,7 @@ def main():
             apply_row(updated, delta)
             clear_cells(updated, cleared)
             errors, warnings = [], []
-            if not 1 <= dex <= config.get("dex_size", 100):
+            if not 1 <= dex <= config.get("dex_size", 151):
                 errors.append("dex number %d is outside the dex" % dex)
             other = by_name.get(norm(updated.get("name")))
             if other and other != sid:

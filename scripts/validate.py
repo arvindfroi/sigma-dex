@@ -188,7 +188,7 @@ def check_species(sid, data, ids, engine, errors, warnings):
 
 def main():
     config = dexlib.load_config()
-    dex_size = config.get("dex_size", 100)
+    dex_size = config.get("dex_size", 151)
     species, problems = dexlib.load_species()
     engine = dexlib.load_engine()
     ids = {sid for sid, _, _ in species}
