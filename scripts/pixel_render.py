@@ -57,6 +57,7 @@ STYLE = dict(
     trace_margin=0.8,      # strokes closer to the silhouette than this (in sprite pixels) belong to the outline
     thin_run=1 / 3,        # share of a sprite pixel's width a thin feature's middle line must run through it
     line_density=0.12,     # at most this share of a part is inner line (the games' median is 0.11)
+    max_stretch=1.05,      # sized by covered area, the longest side is at most this times the stage's size
     accents=3,             # face marks in colours the sprite does not have (a pink blush) get at most this many palette slots
     accent_gap=35,         # Lab distance from every colour the sprite has, for a mark's colour to count as an accent    # Lab lightness: a cell whose darkest sixth is this much darker than its middle shows a stroke
 )
@@ -737,7 +738,8 @@ def render(path, size=54, window=None, fit=None, palette=None, area=None):
         # compact creature and a long one of the same stage cover about the same number of pixels
         first = draw(path, size, window, fit, palette)
         covered = max(1, int((np.array(first)[..., 3] > 0).sum()))
-        size = min(64.0, size * (area / covered) ** 0.5)
+        # but a thin creature is not drawn taller than its stage allows (STYLE["max_stretch"] x size)
+        size = min(64.0, size * STYLE["max_stretch"], size * (area / covered) ** 0.5)
         image = draw(path, size, window, fit, palette)
         drawn = max(image.size)
         return image if drawn <= 64 else draw(path, size * 64 / drawn, window, fit, palette)
@@ -770,6 +772,14 @@ def draw(path, size=54, window=None, fit=None, palette=None):
     cells = clean_shape(cells, colours, thin_kept)                            # 3
     features, face_lines = find_face(L, ink, big_mask, gh, gw, k, size)      # 4
     eyes, eye_colours = draw_eyes(big_rgb, L, ink, big_mask, cells, k)
+    eye_cells = np.zeros((gh, gw), np.uint8)
+    for (y, x), kind in eyes.items():
+        if kind in ("white", "pupil", "iris"):
+            eye_cells[y, x] = 1
+    for kind, y, x in features:
+        if kind == "pupil":
+            eye_cells[y, x] = 1
+    LAST["eyes"] = cv2.connectedComponents(cv2.dilate(eye_cells, np.ones((2, 2), np.uint8)), connectivity=8)[0] - 1
     marks = face_marks(big_rgb, L, big_mask, ink, cells, k)
     # the face is where the eyes are: brows and mouth lie around them; elsewhere a stroke is a line
     eye_px = [yx for yx, kind in eyes.items()] + [(y, x) for kind, y, x in features if kind == "pupil"]
@@ -935,3 +945,36 @@ def main():
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+LAST = {}    # what the last drawing found (LAST["eyes"]: how many eyes)
+
+
+def faces_viewer(path):
+    """Whether the artwork shows the face from the front: a pair of eyes - two round dark blobs of
+    about the same size, side by side at the same height in the upper half of the creature (each
+    may sit in an eye white). A back view shows at most one eye in profile."""
+    rgb = load(path)
+    mask = mask_of(rgb)
+    ys, xs = np.nonzero(mask)
+    top, bottom, left, right = ys.min(), ys.max(), xs.min(), xs.max()
+    H, W = bottom - top + 1, right - left + 1
+    L = lab(rgb)[..., 0]
+    dark = (mask & (L < 60)).astype(np.uint8)
+    dark = cv2.morphologyEx(dark, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+    n, lbl, st, cent = cv2.connectedComponentsWithStats(dark, connectivity=8)
+    creature = mask.sum()
+    blobs = []
+    for i in range(1, n):
+        x0, y0, bw, bh, area = st[i]
+        if not (0.0004 * creature <= area <= 0.012 * creature) or cent[i][1] > top + 0.55 * H:
+            continue
+        if area < 0.55 * bw * bh or max(bw, bh) > 2.6 * min(bw, bh):
+            continue                                   # not round enough to be an eye (a stroke, a brow)
+        blobs.append((cent[i][0], cent[i][1], area))
+    for i in range(len(blobs)):
+        for j in range(i + 1, len(blobs)):
+            (x1, y1, a1), (x2, y2, a2) = blobs[i], blobs[j]
+            if abs(y1 - y2) < 0.05 * H and 0.04 * W < abs(x1 - x2) < 0.4 * W and max(a1, a2) < 2.5 * min(a1, a2):
+                return True
+    return False

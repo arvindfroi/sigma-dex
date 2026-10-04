@@ -24,6 +24,7 @@ from PIL import Image, ImageDraw
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import comfy
+import pixel_render
 import sprite_quality
 import sprite_worker
 import sprites
@@ -47,21 +48,82 @@ def attempt(job, settings, seed, folder):
     for view in ("front", "back"):
         raw[view] = folder / ("%s_art.png" % view)
         prompt, refs = plan[view]
-        comfy.generate(prompt, raw[view], [raw["front"] if r == "@front" else Path(r) for r in refs], seed=seed, quiet=True)
-    files = sprite_worker.official_sprites(raw, job["species_id"], folder / "pixels_")
+        draw(prompt, raw[view], [raw["front"] if r == "@front" else Path(r) for r in refs], seed)
+        # a back that was drawn from the front again is drawn again, with other seeds
+        for extra in range(1, 4 if view == "back" else 1):
+            if sprite_quality.same_view(raw["front"], raw["back"]) <= 0.6:
+                break
+            raw[view].unlink()
+            draw(prompt, raw[view], [raw["front"] if r == "@front" else Path(r) for r in refs], seed + 1000 * extra)
+    return finish(job["species_id"], raw, folder)
+
+
+def draw(prompt, target, refs, seed):
+    """One Qwen picture, unless an earlier run already drew it; retried when the connection drops."""
+    if target.exists():
+        return                                           # drawn by an earlier run that stopped: the same seed gives the same picture
+    for wait in (0, 30, 60, 120, 240):                   # the connection to the GPU computer can drop; try again
+        try:
+            time.sleep(wait)
+            comfy.generate(prompt, target, refs, seed=seed, quiet=True)
+            return
+        except comfy.ComfyError as error:
+            print("  ComfyUI: %s - trying again" % error, flush=True)
+    raise comfy.ComfyError("ComfyUI stayed unreachable")
+
+
+def finish(sid, raw, folder):
+    """Sprites from the artwork of one attempt, and their score."""
+    files = sprite_worker.official_sprites(raw, sid, folder / "pixels_")
     out = folder / "sprite"
-    sprites.build(job["species_id"], files, note="AI draft (Sigma sprite style)", out=out)
+    sprites.build(sid, files, note="AI draft (Sigma sprite style)", out=out)
     front, back = sprites.as_rgba(out / "front.png"), sprites.as_rgba(out / "back.png")
     failed = sprite_quality.standards(front, back, None)
+    if sprite_quality.same_view(raw["front"], raw["back"]) > 0.6:
+        failed.append("the back artwork shows the face (drawn from the front)")
     kept = sprite_quality.fidelity(raw["front"], front)
     score = sprite_quality.score(front)[0] - 10 * len(failed) - 20 * (1 - kept)
     notes = "score %.2f, colours kept %.0f%%%s" % (score, 100 * kept, ("; misses: " + "; ".join(failed)) if failed else "")
     return score, notes, dict(raw, sprite=out)
 
 
+def rerender(out, settings_unused=None):
+    """Build every attempt's sprites again from its saved artwork (after a change to the renderer),
+    rescore and pick the best again. No artwork is drawn."""
+    best = []
+    for sid_dir in sorted(p for p in Path(out).iterdir() if p.is_dir()):
+        tries = []
+        for folder in sorted(sid_dir.glob("attempt*")):
+            raw = {"front": folder / "front_art.png", "back": folder / "back_art.png"}
+            if not all(p.exists() for p in raw.values()):
+                continue
+            score, notes, files = finish(sid_dir.name, raw, folder)
+            (folder / "notes.txt").write_text(notes + "\n")
+            tries.append((score, notes, files))
+        if tries:
+            best.append(keep_best(sid_dir.name, sid_dir, tries))
+    sheet(best, Path(out) / "sheet.png")
+    return best
+
+
+def keep_best(sid, sid_dir, tries):
+    score, notes, files = max(tries, key=lambda t: t[0])
+    target = sid_dir / "best"
+    if target.exists():
+        for f in target.iterdir():
+            f.unlink()
+    target.mkdir(exist_ok=True)
+    for f in files["sprite"].iterdir():
+        (target / f.name).write_bytes(f.read_bytes())
+    (target / "front_art.png").write_bytes(files["front"].read_bytes())
+    (target / "notes.txt").write_text(notes + "\n")
+    return sid, target, notes
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("pokemon", nargs="+")
+    parser.add_argument("pokemon", nargs="*")
+    parser.add_argument("--rerender", action="store_true", help="only build the sprites again from the saved artwork in --out")
     parser.add_argument("--attempts", type=int, default=4)
     parser.add_argument("--out", default="batch")
     parser.add_argument("--seed", type=int, default=1000, help="first seed; the same seed gives the same sprites")
@@ -70,6 +132,10 @@ def main():
     settings = yaml.safe_load((ROOT / "data" / "sprite_prompts.yaml").read_text(encoding="utf-8"))
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
+    if args.rerender:
+        for sid, folder, notes in rerender(out):
+            print(sid, notes)
+        return 0
     best = []
     started = time.time()
     for sid in args.pokemon:
@@ -88,17 +154,7 @@ def main():
             (folder / "notes.txt").write_text(notes + "\n")
             tries.append((score, notes, files))
             print("%s attempt %d: %s" % (sid, n + 1, notes), flush=True)
-        score, notes, files = max(tries, key=lambda t: t[0])
-        target = out / sid / "best"
-        if target.exists():
-            for f in target.iterdir():
-                f.unlink()
-        target.mkdir(exist_ok=True)
-        for f in files["sprite"].iterdir():
-            (target / f.name).write_bytes(f.read_bytes())
-        (target / "front_art.png").write_bytes(files["front"].read_bytes())
-        (target / "notes.txt").write_text(notes + "\n")
-        best.append((sid, target, notes))
+        best.append(keep_best(sid, out / sid, tries))
     sheet(best, out / "sheet.png")
     print("%d Pokemon in %d minutes; sheet: %s" % (len(best), (time.time() - started) / 60, out / "sheet.png"))
     return 0

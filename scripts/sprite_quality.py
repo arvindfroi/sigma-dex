@@ -129,3 +129,29 @@ def fidelity(art_path, sprite):
         near = (np.linalg.norm(sp_lab[:, 1:] - c, axis=1) < 18).mean()
         score += min(near, share)                          # the sprite has this colour in about this amount
     return round(float(score), 3)
+
+
+def same_view(front_art, back_art):
+    """How much the back artwork looks like the front artwork (0-1): the overlap of their shapes
+    times the likeness of their colours, at 24x24, also mirrored. A real back view (back of the
+    head, the tail, the belly hidden) scores under about 0.45; a "back" that was drawn from the
+    front again scores 0.8-0.9 (measured on 45 back views, 2026-10-04). Over 0.6 is redrawn."""
+    import cv2
+    import numpy as np
+    import pixel_render
+    def thumb(path):
+        rgb = pixel_render.load(path)
+        x0, y0, x1, y1 = pixel_render.box_of(path)
+        crop = rgb[y0:y1, x0:x1]
+        shape = pixel_render.mask_of(crop)
+        return pixel_render.lab(cv2.resize(crop, (24, 24), interpolation=cv2.INTER_AREA)), cv2.resize(shape.astype(np.uint8), (24, 24), interpolation=cv2.INTER_AREA) > 0
+    (La, ma), (Lb, mb) = thumb(front_art), thumb(back_art)
+    best = 0.0
+    for flip in (False, True):
+        Lc, mc = (Lb[:, ::-1], mb[:, ::-1]) if flip else (Lb, mb)
+        both = ma & mc
+        if not both.any():
+            continue
+        colour = max(0.0, 1 - float(np.linalg.norm(La - Lc, axis=2)[both].mean()) / 60)
+        best = max(best, both.sum() / (ma | mc).sum() * colour)
+    return round(float(best), 2)

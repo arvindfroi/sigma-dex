@@ -23,6 +23,7 @@ import urllib.request
 import uuid
 from pathlib import Path
 
+import numpy as np
 import yaml
 
 import comfy
@@ -336,8 +337,13 @@ def official_sprites(raw, species_id, prefix):
     front = pixel_render.render(raw["front"], size=size, area=sprite_area(species_id))
     size = max(front.size)
     front.save(files["front"])
-    back = pixel_render.render(raw["back"], fit=(62, round(size * BACK_ZOOM)), palette=pixel_render.palette_of(front))
-    back.crop((0, 0, back.width, round(back.height / BACK_ZOOM) + 2)).save(files["back"])   # the lowest part is cut off
+    # the back: drawn closer than the front (it covers BACK_ZOOM squared times the front's area, as the
+    # games' backs do), fitting the frame's width, and cut off flat at the bottom (its lowest quarter)
+    covered = int((np.array(front)[..., 3] > 0).sum())
+    back = pixel_render.render(raw["back"], size=min(64, round(size * BACK_ZOOM)), area=covered * BACK_ZOOM ** 2, palette=pixel_render.palette_of(front))
+    if back.width > 64:
+        back = pixel_render.render(raw["back"], fit=(64, 200), palette=pixel_render.palette_of(front))
+    back.crop((0, 0, back.width, min(64, round(back.height * 0.78)))).save(files["back"])
     pixel_render.render(raw["front"], size=28).save(files["icon"])
     return files
 
@@ -366,8 +372,11 @@ def run(job, base, key, settings):
                 if recipe is None:
                     download(base, job["parent"]["raw_" + view], raw[view])
                 else:
-                    comfy.generate(recipe[0], raw[view], [raw["front"] if p == "@front" else local(p) for p in recipe[1]], seed=seed,
-                                   transparent=job.get("style") != "sprite-official", quiet=True)
+                    for extra in range(4 if view == "back" and job.get("style") == "sprite-official" else 1):
+                        comfy.generate(recipe[0], raw[view], [raw["front"] if p == "@front" else local(p) for p in recipe[1]], seed=seed + 1000 * extra,
+                                       transparent=job.get("style") != "sprite-official", quiet=True)
+                        if view != "back" or job.get("style") != "sprite-official" or sprite_quality.same_view(raw["front"], raw["back"]) <= 0.6:
+                            break                     # a back drawn from the front again is drawn again
             out = folder / ("sprite%d" % number)
             final = dict(raw)
             if strength:                              # second step: the Emerald sprite LoRA

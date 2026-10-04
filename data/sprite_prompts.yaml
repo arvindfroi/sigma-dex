@@ -113,11 +113,13 @@ official_front: >-
 official_back: >-
   Draw the creature from <image1>{others} from behind, as official artwork from Pokemon Ruby and
   Sapphire (2002), Ken Sugimori's Game Boy Advance era style: thick confident dark outlines, large
-  flat areas of color with a single crisp shadow tone, chunky simple readable shapes, no rim light
-  and no glossy shine. It is {look}. View: seen
+  flat areas of color, chunky simple readable shapes. Shading like a Game Boy Advance battle sprite:
+  light from the upper left, a crisp shadow tone on the lower right of every part and a few bold
+  highlight patches; no rim light and no glossy shine. It is {look}. View: seen
   from behind, as the player's own creature in a battle: the camera is behind it and a little
-  above, looking over its shoulder. We see its back, the back of its head and its tail; its head
-  is turned toward the upper right so one eye and the side of its face show in profile. It leans
+  above, looking over its shoulder. We see its back, the back of its head and its tail; its face
+  is turned away from the viewer, toward the upper right, so at most one eye and the side of its
+  face show in profile, never both eyes. It leans
   forward toward the opponent, ready to fight. Exactly one creature, plain white background, no
   text, no shadow on the ground.
 official_poses:
