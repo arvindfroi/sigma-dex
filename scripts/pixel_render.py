@@ -52,7 +52,7 @@ STYLE = dict(
     colours=15,            # the game's limit per sprite (plus the see-through colour)
     faithful=True,         # tones and dark detail from the artwork itself (else: modelled light)
     detail_drop=60,        # Lab lightness below the part's colour at which a pixel's dark detail is drawn as a line
-    stroke_contrast=55,    # Lab lightness: a cell whose darkest sixth is this much darker than its middle shows a stroke
+    stroke_contrast=35,    # Lab lightness: a cell whose darkest sixth is this much darker than its middle shows a stroke
     trace=0.5,             # share of a sprite pixel's width an ink stroke must run through it to become a line
     trace_margin=0.8,      # strokes closer to the silhouette than this (in sprite pixels) belong to the outline
     thin_run=1 / 3,        # share of a sprite pixel's width a thin feature's middle line must run through it
@@ -62,10 +62,10 @@ STYLE = dict(
     accent_gap=35,         # Lab distance from every colour the sprite has, for a mark's colour to count as an accent
     eye_rim=True,          # eye whites on light skin get a dark rim
     speck=4,               # pixels: a bit this small that does not touch the creature is dropped
-    base_band=(50, 85),    # lightness percentiles of a part's pixels whose mean is its base colour: its lit colour, not the average
+    base_band=None,        # lightness percentiles (lo, hi) of a part's pixels whose mean is its base colour; None = the average (tried (50, 85) on 2026-10-04: the group found it worse)
     hole=0.004,            # share of the creature: an enclosed patch of the page's colour at least this big is a hole
     hole_tolerance=6,      # how close to the page's colour (each channel) a hole's pixels are
-    brighten=15,           # Lab lightness added to the artwork before tones are picked (sprites are lit brighter)
+    brighten=0,            # Lab lightness added to the artwork before tones are picked (sprites are lit brighter)
 )
 # The tones of a part, as (lightness change or factor, colourfulness factor, cool/warm shift).
 # Shadows a little cooler and lights a little warmer. Outlines as measured on the games' starters:
@@ -274,7 +274,7 @@ def segment(rgb, mask):
     # a part's colour is its lit colour, not its average: a spriter picks the colour of the part in
     # light as the base and puts shadow under it; the average of the artwork's light and shadow is a
     # muddy middle (our sprites were darker inside than the games': interior lightness 129 vs 161)
-    for i in range(len(colours)):
+    for i in range(len(colours) if STYLE["base_band"] else 0):
         own = L[(grown == i) & ~ink]
         if len(own) > 50:
             lo, hi = np.percentile(own[:, 0], [STYLE["base_band"][0], STYLE["base_band"][1]])
