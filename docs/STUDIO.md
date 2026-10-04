@@ -7,16 +7,17 @@ anything but the website.
 ## How to use it
 
 1. Attach the Pokemon's concept art under **Images** (if it is not there yet).
-2. In the studio, write the **look**: what to keep and exaggerate at sprite size. A sprite is
-   64 pixels, so "three chunky mountain peaks" works and "seven detailed mountains" does not.
-3. Tick the pictures the AI should look at, choose the **pose** of the front view, the
-   **style** (see below) and how many attempts, then press **Draw sprites**.
-   Each attempt takes about a minute and appears by itself.
-4. Judge the attempts:
-   - **Click a spot** on a sprite to pin a comment there ("bigger eyes").
-   - **Comment** on the whole sprite in the box below it.
-   - **Redo with comments** draws that attempt again with every comment on it as an
-     instruction; only the views that were commented on are redrawn.
+2. In the studio, tick the pictures the AI should draw from (the first two are ticked; the
+   clearest front view should be first) and press **Generate sprites**. It always draws two
+   versions (front, back and icon) in the Sigma sprite style; they appear by themselves after a
+   few minutes. Under **More choices** you can write the **look** (what must be big and clear on a
+   64-pixel sprite: "three chunky mountain peaks", not "seven detailed mountains") and pick
+   another pose.
+3. Judge the versions:
+   - Write **feedback** under a version ("bigger grin, the antennae are missing") and press
+     **New version with feedback**: two new versions are drawn from that one with the changes.
+   - **Click a spot** on a sprite to pin a comment there; pinned comments go into the next
+     new version too.
    - **Reject** the ones that are not good enough, **Approve** the one that is.
 5. The approved one becomes the Pokemon's sprite within about 15 minutes. Approving another
    one later replaces it.
@@ -24,6 +25,9 @@ anything but the website.
 The **Sprites** tab lists everything that is waiting for a verdict.
 
 ## The styles
+
+Since 2026-10-04 the website only asks for the Sigma sprite style; the worker still knows the
+others below (for scripts and old requests).
 
 - **Sigma sprite style (recommended, `sprite-official`, the default since 2026-10-03).** Qwen
   draws the concept art as official-style Pokemon artwork, and `scripts/pixel_render.py` builds
