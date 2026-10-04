@@ -4,7 +4,7 @@
 
 **19** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Lapper, Brawleo, Toxiren, Sigmauler, Motinky, Gortiki, Devampry, Galfrogtom, Janenon, Blylem
 
-## Not exported yet (64)
+## Not exported yet (65)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -56,6 +56,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Cryoblade** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Roostasaur** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Bygon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Leadling** needs: a level-up move that exists in the game
 - **Iglomodo** needs: a level-up move that exists in the game
 - **Sandrema** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Ciggiti** needs: an ability that exists in the game, a level-up move that exists in the game

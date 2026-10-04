@@ -1762,5 +1762,19 @@
     "file": "assets/concept-art/waffy/451.jpg",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 452,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/452.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 453,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/453.jpg",
+    "caption": null,
+    "editor": null
   }
 ]

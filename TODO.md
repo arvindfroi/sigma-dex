@@ -9,39 +9,39 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 82 / 83 |
-| Identity | designer credit | 48 / 83 |
-| Dex page | category | 42 / 83 |
-| Dex page | description | 42 / 83 |
-| Dex page | height | 29 / 83 |
-| Dex page | weight | 27 / 83 |
-| Dex page | body color | 1 / 83 |
-| Stats | base stats | 54 / 83 |
-| Stats | ability | 51 / 83 |
-| Stats | EV yield | 27 / 83 |
-| Stats | catch rate | 1 / 83 |
-| Stats | base exp | 1 / 83 |
-| Stats | growth rate | 1 / 83 |
-| Stats | base friendship | 1 / 83 |
-| Breeding | gender | 1 / 83 |
-| Breeding | egg groups | 1 / 83 |
-| Breeding | egg cycles | 1 / 83 |
-| Moves | level-up moves | 19 / 83 |
-| Moves | TM/HM moves | 2 / 83 |
-| Location | encounters | 1 / 83 |
-| Design | concept | 2 / 83 |
-| Art | concept art | 75 / 83 |
-| Art | front sprite | 4 / 83 |
-| Art | front animation frame | 4 / 83 |
-| Art | back sprite | 4 / 83 |
-| Art | icon | 4 / 83 |
-| Art | footprint | 0 / 83 |
-| Art | shiny palette | 0 / 83 |
-| Art | cry | 0 / 83 |
+| Identity | types | 83 / 84 |
+| Identity | designer credit | 49 / 84 |
+| Dex page | category | 42 / 84 |
+| Dex page | description | 42 / 84 |
+| Dex page | height | 29 / 84 |
+| Dex page | weight | 27 / 84 |
+| Dex page | body color | 1 / 84 |
+| Stats | base stats | 55 / 84 |
+| Stats | ability | 52 / 84 |
+| Stats | EV yield | 28 / 84 |
+| Stats | catch rate | 1 / 84 |
+| Stats | base exp | 1 / 84 |
+| Stats | growth rate | 1 / 84 |
+| Stats | base friendship | 1 / 84 |
+| Breeding | gender | 1 / 84 |
+| Breeding | egg groups | 1 / 84 |
+| Breeding | egg cycles | 1 / 84 |
+| Moves | level-up moves | 19 / 84 |
+| Moves | TM/HM moves | 2 / 84 |
+| Location | encounters | 1 / 84 |
+| Design | concept | 2 / 84 |
+| Art | concept art | 76 / 84 |
+| Art | front sprite | 4 / 84 |
+| Art | front animation frame | 4 / 84 |
+| Art | back sprite | 4 / 84 |
+| Art | icon | 4 / 84 |
+| Art | footprint | 0 / 84 |
+| Art | shiny palette | 0 / 84 |
+| Art | cry | 0 / 84 |
 
-## Open dex slots (17)
+## Open dex slots (16)
 
-#17, #18, #19, #29, #30, #31, #73, #75, #76, #84, #85, #86, #87, #89, #90, #92, #93
+#17, #18, #19, #29, #30, #31, #75, #76, #84, #85, #86, #87, #89, #90, #92, #93
 
 ## Missing per Pokemon
 
@@ -719,6 +719,16 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #73 [Leadling](data/species/leadling.yaml) - 21%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #74 [Blylem](data/species/blylem.yaml) - 38%
 

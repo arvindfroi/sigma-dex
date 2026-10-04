@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**83 / 100** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
+**84 / 100** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -81,7 +81,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 70 | [Cryoblade](data/species/cryoblade.yaml) | Dark / Ice | Cold-hearted | 605 |  | 24% |
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
 | 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
-| 73 | *open slot* | | | | | |
+| 73 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 280 | Blylem (Lv 20) | 21% |
 | 74 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 525 |  | 38% |
 | 75 | *open slot* | | | | | |
 | 76 | *open slot* | | | | | |
