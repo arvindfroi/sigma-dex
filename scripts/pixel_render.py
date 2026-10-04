@@ -52,7 +52,7 @@ STYLE = dict(
     colours=15,            # the game's limit per sprite (plus the see-through colour)
     faithful=True,         # tones and dark detail from the artwork itself (else: modelled light)
     detail_drop=60,        # Lab lightness below the part's colour at which a pixel's dark detail is drawn as a line
-    stroke_contrast=35,
+    stroke_contrast=55,    # Lab lightness: a cell whose darkest sixth is this much darker than its middle shows a stroke
     trace=0.5,             # share of a sprite pixel's width an ink stroke must run through it to become a line
     trace_margin=0.8,      # strokes closer to the silhouette than this (in sprite pixels) belong to the outline
     thin_run=1 / 3,        # share of a sprite pixel's width a thin feature's middle line must run through it
@@ -62,6 +62,10 @@ STYLE = dict(
     accent_gap=35,         # Lab distance from every colour the sprite has, for a mark's colour to count as an accent
     eye_rim=True,          # eye whites on light skin get a dark rim
     speck=4,               # pixels: a bit this small that does not touch the creature is dropped
+    base_band=(50, 85),    # lightness percentiles of a part's pixels whose mean is its base colour: its lit colour, not the average
+    hole=0.004,            # share of the creature: an enclosed patch of the page's colour at least this big is a hole
+    hole_tolerance=6,      # how close to the page's colour (each channel) a hole's pixels are
+    brighten=15,           # Lab lightness added to the artwork before tones are picked (sprites are lit brighter)
 )
 # The tones of a part, as (lightness change or factor, colourfulness factor, cool/warm shift).
 # Shadows a little cooler and lights a little warmer. Outlines as measured on the games' starters:
@@ -105,7 +109,40 @@ def mask_of(rgb):
     bg = (rgb.min(axis=2) > STYLE["background"]).astype(np.uint8)
     n, labels = cv2.connectedComponents(bg, connectivity=4)
     border = set(np.unique(np.concatenate([labels[0], labels[-1], labels[:, 0], labels[:, -1]]))) - {0}
-    return ~(np.isin(labels, list(border)) & (bg == 1))
+    outside = np.isin(labels, list(border)) & (bg == 1)
+    # a hole in the creature (the gap between an arm and the body) is background too: an enclosed
+    # area of exactly the background's colour, bigger than a speck, with nothing dark inside it.
+    # Eye whites have a pupil and teeth are a little grey; a hole is the flat white of the page
+    page = np.median(rgb[outside], axis=0) if outside.any() else np.array([255, 255, 255])
+    creature = (~outside).sum()
+    rows = np.nonzero((~outside).any(axis=1))[0]
+    top, bottom = (rows.min(), rows.max()) if len(rows) else (0, 1)
+    flat = (np.abs(rgb.astype(np.int16) - page).max(axis=2) <= STYLE["hole_tolerance"]) & ~outside
+    n, holes, stats, _ = cv2.connectedComponentsWithStats(flat.astype(np.uint8), connectivity=4)
+    for i in range(1, n):
+        if stats[i, cv2.CC_STAT_AREA] < STYLE["hole"] * creature:
+            continue
+        hole = holes == i
+        # what the patch encloses (an eye white encloses its iris and pupil, of any colour); a hole
+        # encloses nothing
+        filled = np.zeros(hole.shape, np.uint8)
+        contours, _ = cv2.findContours(hole.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+        cv2.drawContours(filled, contours, -1, 1, -1)
+        # and a hole is edged by the creature's dark outline; a glow or a shine is edged by colour
+        ring = cv2.dilate(filled, np.ones((5, 5), np.uint8)).astype(bool) & ~filled.astype(bool)
+        edged = (rgb[ring].max(axis=1) < 130).mean() if ring.any() else 0
+        # high up on the creature, a patch with colour at its edge is an eye white with its iris on the
+        # rim (measured on 20 cases: eyes lie in the upper 40% with 4-15% colour around them; holes
+        # have none, or lie low, between an arm and the body or the body and a tail)
+        lab_ring = lab(rgb[ring].reshape(-1, 1, 3)).reshape(-1, 3)
+        coloured = (np.hypot(lab_ring[:, 1] - 128, lab_ring[:, 2] - 128) > 25).mean() if ring.any() else 0
+        height = (stats[i, cv2.CC_STAT_TOP] + stats[i, cv2.CC_STAT_HEIGHT] / 2 - top) / max(1, bottom - top)
+        # (and a small patch up there may be an eye white with its pupil on the rim: an eye lost is far
+        # worse than a little hole left white)
+        eye_like = height < 0.45 and (coloured > 0.03 or stats[i, cv2.CC_STAT_AREA] < 0.01 * creature)
+        if (filled.astype(bool) & ~hole).sum() < 0.02 * stats[i, cv2.CC_STAT_AREA] and edged > 0.5 and not eye_like:
+            outside |= hole
+    return ~outside
 
 
 def box_of(path):
@@ -234,6 +271,16 @@ def segment(rgb, mask):
             break
         d = cv2.dilate((grown + 1).astype(np.float32), np.ones((3, 3), np.uint8)).astype(np.int32) - 1
         grown = np.where(todo, d, grown)
+    # a part's colour is its lit colour, not its average: a spriter picks the colour of the part in
+    # light as the base and puts shadow under it; the average of the artwork's light and shadow is a
+    # muddy middle (our sprites were darker inside than the games': interior lightness 129 vs 161)
+    for i in range(len(colours)):
+        own = L[(grown == i) & ~ink]
+        if len(own) > 50:
+            lo, hi = np.percentile(own[:, 0], [STYLE["base_band"][0], STYLE["base_band"][1]])
+            band = own[(own[:, 0] >= lo) & (own[:, 0] <= hi)]
+            if len(band):
+                colours[i] = band.mean(axis=0)
     return L, ink, grown, np.array(colours, np.float32)
 
 
@@ -568,7 +615,7 @@ def faithful_levels(cells, tone, colours):
     for i in np.unique(cells[solid]):
         sel = cells == i
         ramp = np.array([tone_of(colours[i], n)[0] for n in names])
-        level[sel] = np.abs(tone[sel][:, None] - ramp[None, :]).argmin(axis=1)
+        level[sel] = np.abs(tone[sel][:, None] + STYLE["brighten"] - ramp[None, :]).argmin(axis=1)
     lp = np.pad(level, 1, constant_values=-1); cp = np.pad(cells, 1, constant_values=-1)
     for y, x in zip(*np.nonzero(solid)):
         own = [lp[y + 1 + dy, x + 1 + dx] for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)) if cp[y + 1 + dy, x + 1 + dx] == cells[y, x]]
@@ -886,7 +933,10 @@ def draw(path, size=54, window=None, fit=None, palette=None):
             # line and outline tones only where the artwork has a stroke: a deep shadow is still a shadow
             allowed = names + ("line",) if stroke[y, x] else names       # the outline tone belongs to the silhouette
             options = [(n, tone_of(colours[c], n)) for n in allowed]
-            best = min(options, key=lambda o: np.linalg.norm((o[1] - rep[y, x]) * np.array([1.0, 0.6, 0.6])))[0]
+            # a sprite is lit brighter than the artwork (the games' sprites are lighter inside than ours
+            # were: STYLE["brighten"]); a stroke stays as dark as the artwork draws it
+            seen = rep[y, x] + (np.array([STYLE["brighten"], 0, 0], np.float32) if not stroke[y, x] else 0)
+            best = min(options, key=lambda o: np.linalg.norm((o[1] - seen) * np.array([1.0, 0.6, 0.6])))[0]
             if best in names:
                 level[y, x], kinds[y, x] = names.index(best), ""
             else:
