@@ -9,4 +9,4 @@ the GBA's largest sprite is 64x64). Only `src/battle_controllers.c` changes; the
 the comparison at today's size). Apply together with `starter_test.patch` to see it in the first
 battle. Known gaps (it is a prototype): the second animation frame and the affine animations
 (stretching) are not handled, and the player's health box overlaps the bigger sprite's feet.
-Comparison in the game: `docs/img/big_pic_prototype.png`.
+Screenshots from the game are not kept in this repository (they show Nintendo graphics).
