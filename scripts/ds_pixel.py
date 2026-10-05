@@ -47,16 +47,15 @@ FRONT = ("Convert <image1> (the design) into %s It must be laid out like <image2
          "creature exactly as in <image1>: its design, colors, markings, pose and face. The face exactly as designed: the same eye "
          "shape and eye color, the same mouth and expression, drawn big and clear; do not add pupils, glints, teeth or details the "
          "design does not have. Hands, claws and small parts stay readable. Plain white background, nothing else.") % STYLE
-ICON_ART = ("Redraw the creature from <image1> in the pose and view of its tiny party menu icon in Pokemon HeartGold, as a "
-            "clean illustration. It must be unmistakably the same creature: <image2> is its original concept art and <image3> its "
-            "battle sprite; copy its design exactly from them: the same proportions, the same colors, every marking, pattern and "
-            "part (stripes, spots, belly markings, the face with its exact eyes and mouth, horns, hair, accessories), nothing added "
-            "or dropped, not chibi, not cuter. Only the pose and view change: the pose is rearranged so the whole creature forms a "
-            "compact, roughly square shape, with wings, tails, arms and legs placed around the body to fill a square, the way "
-            "Beedrill's and Butterfree's menu icons spread their wings to the sides; seen from slightly above, in a three-quarter "
-            "top-down view, almost isometric, facing left toward the lower left. Bold dark outlines, flat colors, one shadow tone, "
-            "the face and signature features big and clear. It fills the picture. Exactly one creature, plain white background, no "
-            "text, no shadow.")
+ICON_ART = ("Redraw the creature from <image1> as the picture for its tiny party menu icon in Pokemon HeartGold, as a clean "
+            "illustration. It must be unmistakably the same creature: <image2> is its original concept art and <image3> its battle "
+            "sprite; copy its design exactly from them: the same body shape and proportions (a long neck stays long, a dragon stays "
+            "a dragon, a round body stays round), the same colors, every marking, pattern and part, the face with its exact eyes "
+            "and mouth; nothing added or dropped, no extra arms or legs, not chibi, not cuter. Keep its own natural pose from "
+            "<image3>, only simplified and drawn compact: limbs, wings and tail close to the body so the whole creature fits in a "
+            "small square frame, the way Charizard or Beedrill fit in theirs, without changing its shape. Seen from slightly above "
+            "in a three-quarter view, facing left toward the lower left. Bold simple shapes, flat colors, one shadow tone, the face "
+            "and signature features clear. It fills the picture. Exactly one creature, plain white background, no text, no shadow.")
 BACK = ("<image1> is an official Pokemon battle sprite from Pokemon Diamond, Pearl and HeartGold on the Nintendo DS. Draw the "
         "same creature's back sprite: the player's own Pokemon in a DS battle, seen from behind and a little from its left, "
         "looking over its shoulder toward the upper right, so we see its back, the back of its head and its tail, at most the "
@@ -253,9 +252,10 @@ def make_icon(art, folder, seeds=(5, 6, 7), side=ICON_SIDE, palettes=None, conce
     fifth of the inside single detail pixels, all in one of three shared palettes) are not the
     battle sprite made smaller: the pose is rearranged into a compact, roughly square shape, seen
     from slightly above (almost isometric), facing left. Qwen draws that icon pose as an
-    illustration (ICON_ART); it is read on a grid where the creature is `side` cells, put in the
-    nearest shared palette (when the ROM's palettes are on this computer), and outlined in the
-    games' grey. Chibi drawings, our renderer at this size, despeckling (it took the detail pixels
+    illustration (ICON_ART: its own body shape and natural pose kept, only compact and seen from
+    slightly above; asked for a "roughly square" rearranged pose, Qwen made balls and broken limbs);
+    it is read on a grid where the creature is `side` cells and its edge pixels become the games'
+    one-pixel grey outline. Chibi drawings, our renderer at this size, despeckling (it took the detail pixels
     the games keep) and outlines tinted by the colour next to them were all rejected (2026-10-05).
     Returns the icon; its palette number is in icon.info["palette"] (None: its own colours).
 
@@ -279,16 +279,29 @@ def make_icon(art, folder, seeds=(5, 6, 7), side=ICON_SIDE, palettes=None, conce
         icon = halve(snap(flat, colours=12, grid=2 * grid))
         icon.thumbnail((30, 30), Image.NEAREST)
         canvas = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
-        canvas.alpha_composite(icon, ((32 - icon.width) // 2, 29 - icon.height))
+        canvas.alpha_composite(icon, ((32 - icon.width) // 2, 30 - icon.height))
         a = np.array(canvas)
         number = None
         if palettes:
             a, number = in_icon_palette(a, palettes)
+        # the outline is the silhouette's own edge pixels, one pixel, in the games' dark grey (an extra
+        # ring outside, on top of the drawing's own dark edge, made it two pixels thick)
         solid = a[..., 3] > 0
         pad = np.pad(solid, 1)
-        ring = ~solid & (pad[:-2, 1:-1] | pad[2:, 1:-1] | pad[1:-1, :-2] | pad[1:-1, 2:])
-        a[ring, :3] = palettes[number][15] if palettes else ICON_OUTLINE
-        a[ring, 3] = 255
+        edge = solid & ~(pad[:-2, 1:-1] & pad[2:, 1:-1] & pad[1:-1, :-2] & pad[1:-1, 2:])
+        a[edge, :3] = palettes[number][15] if palettes else ICON_OUTLINE
+        # a dark line just inside it is the drawing's own outline, now doubled: it takes the colour inside it
+        inner = solid & ~edge
+        lum = a[..., :3].astype(int) @ [299, 587, 114] // 1000
+        pin = np.pad(inner, 1)
+        next_to_edge = inner & ~(np.pad(~edge, 1)[:-2, 1:-1] & np.pad(~edge, 1)[2:, 1:-1] & np.pad(~edge, 1)[1:-1, :-2] & np.pad(~edge, 1)[1:-1, 2:])
+        h, w = solid.shape
+        for y, x in zip(*np.nonzero(next_to_edge & (lum < 70))):
+            for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                yy, xx = y + 2 * dy, x + 2 * dx
+                if 0 <= yy < h and 0 <= xx < w and inner[yy, xx] and lum[yy, xx] >= 70 and not edge[y + dy, x + dx]:
+                    a[y, x, :3] = a[yy, xx, :3]
+                    break
         canvas = Image.fromarray(a)
         canvas.info["palette"] = number
         p = sprite_quality.parts(canvas)
