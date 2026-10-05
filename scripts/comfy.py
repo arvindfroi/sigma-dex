@@ -52,8 +52,8 @@ def upload(path):
     return answer["name"]
 
 
-def workflow(prompt, references, width, height, steps, seed, prefix):
-    """The node graph: load the model, read the prompt and references, sample, save."""
+def workflow(prompt, references, width, height, steps, seed, prefix, lora=None, lora_strength=1.0):
+    """The node graph: load the model (with a LoRA of ours if given), read the prompt and references, sample, save."""
     graph = {
         "model": {"class_type": "UNETLoader", "inputs": {"unet_name": MODEL, "weight_dtype": "default"}},
         "cache": {"class_type": "QwenImage21Cache", "inputs": {"model": ["model", 0], "device": "auto", "dtype": "default"}},
@@ -68,6 +68,9 @@ def workflow(prompt, references, width, height, steps, seed, prefix):
         "decode": {"class_type": "VAEDecode", "inputs": {"samples": ["sampler", 0], "vae": ["vae", 0]}},
         "save": {"class_type": "SaveImage", "inputs": {"images": ["decode", 0], "filename_prefix": prefix}},
     }
+    if lora:                                       # e.g. the icon or follower edit LoRA (docs/LORAS.md)
+        graph["lora"] = {"class_type": "LoraLoaderModelOnly", "inputs": {"model": ["model", 0], "lora_name": lora, "strength_model": lora_strength}}
+        graph["cache"]["inputs"]["model"] = ["lora", 0]
     for number, name in enumerate(references, 1):
         graph["ref%d" % number] = {"class_type": "LoadImage", "inputs": {"image": name}}
         graph["text"]["inputs"]["images.image_%d" % number] = ["ref%d" % number, 0]
@@ -95,13 +98,13 @@ def run(graph):
     return data
 
 
-def generate(prompt, out, refs=(), size=(1024, 1024), steps=25, seed=None, transparent=False, quiet=False):
+def generate(prompt, out, refs=(), size=(1024, 1024), steps=25, seed=None, transparent=False, quiet=False, lora=None, lora_strength=1.0):
     """Make one picture and save it to `out`. Returns the seed that was used."""
     seed = int(time.time() * 1000) % (2 ** 31) if seed is None else seed
     if transparent:
         prompt = TRANSPARENT % prompt.strip()
     references = [upload(path) for path in refs]
-    graph = workflow(prompt, references, size[0], size[1], steps, seed, "sigma/" + Path(out).stem)
+    graph = workflow(prompt, references, size[0], size[1], steps, seed, "sigma/" + Path(out).stem, lora, lora_strength)
     started = time.time()
     data = run(graph)
     Path(out).parent.mkdir(parents=True, exist_ok=True)
