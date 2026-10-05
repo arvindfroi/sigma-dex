@@ -55,6 +55,8 @@ def attempt(job, settings, seed, folder):
                 break
             raw[view].unlink()
             draw(prompt, raw[view], [raw["front"] if r == "@front" else Path(r) for r in refs], seed + 1000 * extra)
+    if job.get("refs"):
+        raw["concept"] = Path(job["refs"][0])            # the DS icon is drawn with the concept art too
     return finish(job["species_id"], raw, folder, job.get("gen", 3))
 
 

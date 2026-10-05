@@ -48,12 +48,15 @@ FRONT = ("Convert <image1> (the design) into %s It must be laid out like <image2
          "shape and eye color, the same mouth and expression, drawn big and clear; do not add pupils, glints, teeth or details the "
          "design does not have. Hands, claws and small parts stay readable. Plain white background, nothing else.") % STYLE
 ICON_ART = ("Redraw the creature from <image1> in the pose and view of its tiny party menu icon in Pokemon HeartGold, as a "
-            "clean illustration. The same design and the same proportions as in <image1> (not chibi, not cuter, nothing added). The "
-            "pose is rearranged so the whole creature forms a compact, roughly square shape: wings, tails, arms and legs placed "
-            "around the body to fill a square, the way Beedrill's and Butterfree's menu icons spread their wings to the sides. Seen "
-            "from slightly above, in a three-quarter top-down view, almost isometric, the creature facing left toward the lower "
-            "left. Bold dark outlines, flat colors, one shadow tone, the face and signature features big and clear. It fills the "
-            "picture. Exactly one creature, plain white background, no text, no shadow.")
+            "clean illustration. It must be unmistakably the same creature: <image2> is its original concept art and <image3> its "
+            "battle sprite; copy its design exactly from them: the same proportions, the same colors, every marking, pattern and "
+            "part (stripes, spots, belly markings, the face with its exact eyes and mouth, horns, hair, accessories), nothing added "
+            "or dropped, not chibi, not cuter. Only the pose and view change: the pose is rearranged so the whole creature forms a "
+            "compact, roughly square shape, with wings, tails, arms and legs placed around the body to fill a square, the way "
+            "Beedrill's and Butterfree's menu icons spread their wings to the sides; seen from slightly above, in a three-quarter "
+            "top-down view, almost isometric, facing left toward the lower left. Bold dark outlines, flat colors, one shadow tone, "
+            "the face and signature features big and clear. It fills the picture. Exactly one creature, plain white background, no "
+            "text, no shadow.")
 BACK = ("<image1> is an official Pokemon battle sprite from Pokemon Diamond, Pearl and HeartGold on the Nintendo DS. Draw the "
         "same creature's back sprite: the player's own Pokemon in a DS battle, seen from behind and a little from its left, "
         "looking over its shoulder toward the upper right, so we see its back, the back of its head and its tail, at most the "
@@ -222,7 +225,29 @@ def in_icon_palette(a, palettes):
     return a, best[1]
 
 
-def make_icon(art, folder, seeds=(5, 6), side=23, palettes="rom"):
+ICON_SIDE = 26                    # every icon about this big, whatever its stage: party icons sit side by side (Arvind, 2026-10-05)
+
+
+def halve(image):
+    """2x2 cells to one pixel, each the colour most of its cell has (see-through if 3 of 4 are)."""
+    a = np.array(image.convert("RGBA"))
+    h, w = a.shape[0] // 2 * 2, a.shape[1] // 2 * 2
+    a = a[:h, :w]
+    key = a[..., 0].astype(int) * 65536 + a[..., 1].astype(int) * 256 + a[..., 2]
+    key[a[..., 3] == 0] = -1
+    out = np.zeros((h // 2, w // 2, 4), np.uint8)
+    for y in range(0, h, 2):
+        for x in range(0, w, 2):
+            block = key[y:y + 2, x:x + 2].ravel()
+            if (block == -1).sum() >= 3:
+                continue
+            values, counts = np.unique(block[block != -1], return_counts=True)
+            i = list(block).index(values[np.argmax(counts)])
+            out[y // 2, x // 2] = a[y + i // 2, x + i % 2]
+    return Image.fromarray(out)
+
+
+def make_icon(art, folder, seeds=(5, 6, 7), side=ICON_SIDE, palettes=None, concept=None, front=None):
     """The menu icon (32x32), its own drawing. HeartGold's icons (measured locally on its 493:
     about 22x21 pixels, bottom on row 29, about 9 colours, a one-colour dark grey outline, about a
     fifth of the inside single detail pixels, all in one of three shared palettes) are not the
@@ -232,17 +257,26 @@ def make_icon(art, folder, seeds=(5, 6), side=23, palettes="rom"):
     nearest shared palette (when the ROM's palettes are on this computer), and outlined in the
     games' grey. Chibi drawings, our renderer at this size, despeckling (it took the detail pixels
     the games keep) and outlines tinted by the colour next to them were all rejected (2026-10-05).
-    Returns the icon; its palette number is in icon.info["palette"] (None without the ROM)."""
+    Returns the icon; its palette number is in icon.info["palette"] (None: its own colours).
+
+    By default the icon keeps its own 15 colours: forced into the three shared palettes, Bugmight's
+    navy turned khaki and Waffy purple (2026-10-05). Origin's icon palette file has room for 16
+    palettes and uses 3, so the export can give our mons palettes of their own (to be checked in
+    the game); palettes="rom" maps to the nearest of the three instead."""
     palettes = icon_palettes() if palettes == "rom" else palettes
     best = None
     for seed in seeds:
         drawing = folder / ("icon_art_%d.png" % seed)
         if not drawing.exists():
-            comfy.generate(ICON_ART, drawing, [art], seed=seed, quiet=True)
-        rgb = pixel_render.load(str(drawing))
-        x0, y0, x1, y1 = pixel_render.box_of(str(drawing))
+            comfy.generate(ICON_ART, drawing, [art] + [r for r in (concept, front) if r], seed=seed, quiet=True)
+        # flattened first (the drawing's soft shading made noise), read at twice the size, then halved by majority
+        flat = folder / ("icon_flat_%d.png" % seed)
+        if not flat.exists():
+            Image.fromarray(cv2.pyrMeanShiftFiltering(np.array(Image.open(drawing).convert("RGB")), 14, 40)).save(flat)
+        rgb = pixel_render.load(str(flat))
+        x0, y0, x1, y1 = pixel_render.box_of(str(flat))
         grid = max(24, round(side * max(rgb.shape[:2]) / max(x1 - x0, y1 - y0)))
-        icon = snap(drawing, colours=12, grid=grid)
+        icon = halve(snap(flat, colours=12, grid=2 * grid))
         icon.thumbnail((30, 30), Image.NEAREST)
         canvas = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
         canvas.alpha_composite(icon, ((32 - icon.width) // 2, 29 - icon.height))
@@ -260,7 +294,8 @@ def make_icon(art, folder, seeds=(5, 6), side=23, palettes="rom"):
         p = sprite_quality.parts(canvas)
         if "empty" in p:
             continue
-        score = -abs(max(p["height"], p["width"]) - (side + 2)) + (2 if p["eyes"] else 0)
+        # like the battle sprite: its colours kept (fidelity against the front's artwork), the right size, an eye
+        score = -abs(max(p["height"], p["width"]) - (side + 2)) + (2 if p["eyes"] else 0) + 10 * sprite_quality.fidelity(str(art), canvas)
         if best is None or score > best[0]:
             best = (score, canvas)
     return best[1]
@@ -304,7 +339,7 @@ def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7)):
     files = {"front": folder / "front.png", "back": folder / "back.png", "icon": folder / "icon.png"}
     front.save(files["front"])
     back.save(files["back"])
-    icon = make_icon(raw["front"], folder)
+    icon = make_icon(raw["front"], folder, side=ICON_SIDE, concept=raw.get("concept"), front=shown)
     icon.save(files["icon"])
     icon_frames(icon).save(folder / "icon_frames.png")
     (folder / "picks.txt").write_text("front seeds %s -> %d; back seeds %s\n" % ([(f[1], f[0]) for f in fronts], seed, [(b[1], b[0]) for b in backs]))
