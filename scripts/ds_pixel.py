@@ -406,6 +406,95 @@ def edit(sprite, change, folder, area=None, seeds=(11, 12), progress=None):
     return max(tries, key=lambda t: t[0])[2]
 
 
+ICON_LORA = "pkmn_icon_edit_v2.safetensors"           # Qwen-Image 2.1 edit LoRAs trained on the Legion (docs/LORAS.md)
+FOLLOWER_LORA = "pkmn_follower_edit_v1.safetensors"
+ICON_EDIT = ("Turn the Pokemon battle sprite in the reference image into its party menu icon from Pokemon HeartGold: the same "
+             "creature as a 32x32 pixel art icon, facing left, with a one-pixel dark grey outline, on a white background.")
+FOLLOWER_EDIT = ("Turn the Pokemon battle sprite in the reference image into its overworld follower sprite sheet from Pokemon "
+                 "HeartGold: the same creature as small 32x32 pixel art walking sprites in a grid, four columns facing up, down, "
+                 "left and right, two walking frames each in two rows, a one-pixel dark outline, on a white background.")
+
+
+def has_lora(name):
+    """Whether ComfyUI has one of our LoRAs (the edit LoRAs live only on the GPU computer)."""
+    try:
+        import json
+        return name in json.loads(comfy.call("/models/loras"))
+    except Exception:
+        return False
+
+
+def read_cells(path, cols, rows):
+    """A picture read as cols x rows pixels: the middle of every cell, near-white page see-through."""
+    a = np.array(Image.open(path).convert("RGB")).astype(np.float32)
+    h, w = a.shape[:2]
+    ch, cw = h / rows, w / cols
+    out = np.zeros((rows, cols, 4), np.uint8)
+    for y in range(rows):
+        for x in range(cols):
+            block = a[int(y * ch + ch * 0.3):int(y * ch + ch * 0.7) + 1, int(x * cw + cw * 0.3):int(x * cw + cw * 0.7) + 1].reshape(-1, 3)
+            colour = np.median(block, axis=0)
+            if colour.min() < 238:
+                out[y, x, :3] = colour
+                out[y, x, 3] = 255
+    return Image.fromarray(out)
+
+
+def front_reference(front, path):
+    """The finished front on white, eight times bigger: what the edit LoRAs were trained to read."""
+    sprite = front.convert("RGBA")
+    page = Image.new("RGB", sprite.size, "white")
+    page.paste(sprite, (0, 0), sprite)
+    page.resize((sprite.width * 8, sprite.height * 8), Image.NEAREST).save(path)
+    return path
+
+
+def icon_from_front(front, folder, seeds=(1, 2)):
+    """The menu icon made from the finished front by the icon edit LoRA (trained on 1400 HeartGold-style
+    battle sprite -> icon pairs, its targets recoloured to the sprite's own colours so ours keep theirs):
+    the icon's pose, view and size come from the LoRA, the design from our sprite. The front's
+    colours are kept (limit_colours). The one most like the front wins."""
+    ref = front_reference(front, folder / "icon_ref.png")
+    keep = np.unique(np.array(front.convert("RGBA"))[np.array(front)[..., 3] > 0][:, :3], axis=0)
+    tries = []
+    for seed in seeds:
+        picture = folder / ("lora_icon_%d.png" % seed)
+        if not picture.exists():
+            comfy.generate(ICON_EDIT, picture, [ref], size=(512, 512), seed=seed, quiet=True, lora=ICON_LORA)
+        icon = limit_colours(read_cells(picture, 32, 32), keep=keep)
+        p = sprite_quality.parts(icon)
+        if "empty" in p:
+            continue
+        tries.append((-40 * p["noise"] + (2 if p["eyes"] else 0) + 10 * sprite_quality.fidelity(str(ref), icon), seed, icon))
+    return max(tries, key=lambda t: t[0])[2] if tries else None
+
+
+def follower_from_front(front, folder, seeds=(1, 2)):
+    """The overworld follower sheet (32x256: up, up, down, down, left, left, right, right, as the game
+    keeps it) made from the finished front by the follower edit LoRA in one picture, so all eight
+    frames are the same creature. Returns (sheet, grid picture of 4 directions x 2 steps)."""
+    ref = front_reference(front, folder / "follower_ref.png")
+    tries = []
+    for seed in seeds:
+        picture = folder / ("lora_follower_%d.png" % seed)
+        if not picture.exists():
+            comfy.generate(FOLLOWER_EDIT, picture, [ref], size=(1024, 512), seed=seed, quiet=True, lora=FOLLOWER_LORA)
+        grid = read_cells(picture, 128, 64)
+        p = sprite_quality.parts(grid)
+        if "empty" in p:
+            continue
+        tries.append((-40 * p["noise"] + 10 * sprite_quality.fidelity(str(ref), grid), seed, grid))
+    if not tries:
+        return None, None
+    grid = max(tries, key=lambda t: t[0])[2]
+    sheet = Image.new("RGBA", (32, 256), (0, 0, 0, 0))
+    for frame in range(8):
+        direction, step = divmod(frame, 2)
+        cell = grid.crop((32 * direction, 32 * step, 32 * direction + 32, 32 * step + 32))
+        sheet.alpha_composite(cell, (0, 32 * frame))
+    return sheet, grid
+
+
 def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7), progress=None):
     """Front and back for one attempt's artwork (raw: {"front": art, "back": art}). Writes
     front.png, back.png and icon.png in `folder` and returns ({view: path}, front score)."""
@@ -450,8 +539,18 @@ def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7), progres
     back.save(files["back"])
     if progress:
         progress("menu icon")
-    icon = make_icon(raw["front"], folder, side=ICON_SIDE, concept=raw.get("concept"), front=shown)
+    icon = icon_from_front(front, folder) if has_lora(ICON_LORA) else None
+    if icon is None:                                      # no LoRA on this computer: the drawn icon
+        icon = make_icon(raw["front"], folder, side=ICON_SIDE, concept=raw.get("concept"), front=shown)
     icon.save(files["icon"])
+    if has_lora(FOLLOWER_LORA):
+        if progress:
+            progress("follower sprite")
+        sheet, grid = follower_from_front(front, folder)
+        if sheet is not None:
+            files["follower"] = folder / "follower.png"
+            sheet.save(files["follower"])
+            grid.save(folder / "follower_grid.png")
     icon_frames(icon).save(folder / "icon_frames.png")
     (folder / "picks.txt").write_text("front seeds %s -> %d; back seeds %s\n" % ([(f[1], f[0]) for f in fronts], seed, [(b[1], b[0]) for b in backs]))
     return files, score
