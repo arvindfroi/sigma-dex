@@ -2228,6 +2228,252 @@
       "id": "bulbtoise"
     },
     {
+      "dex": 29,
+      "name": "Wispole",
+      "credits": {
+        "designer": "Emil Venge-Kvamme",
+        "artist": null
+      },
+      "types": [
+        "Water"
+      ],
+      "category": "Tadpole",
+      "description": "Boosts the Pokemon's Speed stat in rain.",
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Swift Swim",
+        "secondary": "Water Veil",
+        "hidden": "Water Bubble"
+      },
+      "base_stats": {
+        "hp": 30,
+        "attack": 25,
+        "defense": 20,
+        "sp_attack": 40,
+        "sp_defense": 35,
+        "speed": 80
+      },
+      "ev_yield": {
+        "speed": 1
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "galfrogtom",
+          "method": "item",
+          "item": "Thunder Stone"
+        },
+        {
+          "into": "croakble",
+          "method": "level",
+          "level": 25
+        }
+      ],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 1, male."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/wispole/324.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "wispole"
+    },
+    {
+      "dex": 30,
+      "name": "Croakble",
+      "credits": {
+        "designer": "Emil",
+        "artist": null
+      },
+      "types": [
+        "Water"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Swift Swim",
+        "secondary": "Storm Drain",
+        "hidden": "Water Bubble"
+      },
+      "base_stats": {
+        "hp": 69,
+        "attack": 80,
+        "defense": 67,
+        "sp_attack": 100,
+        "sp_defense": 78,
+        "speed": 110
+      },
+      "ev_yield": {
+        "speed": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "croakble"
+    },
+    {
+      "dex": 31,
+      "name": "Galfrogtom",
+      "credits": {
+        "designer": "Emil Venge-Kvamme",
+        "artist": null
+      },
+      "types": [
+        "Ghost",
+        "Electric"
+      ],
+      "category": "Ghost",
+      "description": "May disable a move that deals damage to the Pokemon.",
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Clear Body",
+        "secondary": "Lightning Rod",
+        "hidden": "Galvanize"
+      },
+      "base_stats": {
+        "hp": 59,
+        "attack": 89,
+        "defense": 49,
+        "sp_attack": 139,
+        "sp_defense": 49,
+        "speed": 119
+      },
+      "ev_yield": {
+        "sp_attack": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Discharge"
+          },
+          {
+            "level": 1,
+            "move": "Discharge"
+          }
+        ],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/galfrogtom/231.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "galfrogtom"
+    },
+    {
       "dex": 32,
       "name": "Sigmanian Eiscue",
       "credits": {
@@ -3751,172 +3997,6 @@
         "safari_flee_rate": 0
       },
       "id": "beatld"
-    },
-    {
-      "dex": 51,
-      "name": "Wispole",
-      "credits": {
-        "designer": "Emil Venge-Kvamme",
-        "artist": null
-      },
-      "types": [
-        "Water"
-      ],
-      "category": "Tadpole",
-      "description": "Boosts the Pokemon's Speed stat in rain.",
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": "Swift Swim",
-        "secondary": "Water Veil",
-        "hidden": "Water Bubble"
-      },
-      "base_stats": {
-        "hp": 30,
-        "attack": 25,
-        "defense": 20,
-        "sp_attack": 40,
-        "sp_defense": 35,
-        "speed": 80
-      },
-      "ev_yield": {
-        "speed": 1
-      },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [
-        {
-          "into": "galfrogtom",
-          "method": "item",
-          "item": "Thunder Stone"
-        }
-      ],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 1, male."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/wispole/324.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "wispole"
-    },
-    {
-      "dex": 52,
-      "name": "Galfrogtom",
-      "credits": {
-        "designer": "Emil Venge-Kvamme",
-        "artist": null
-      },
-      "types": [
-        "Ghost",
-        "Electric"
-      ],
-      "category": "Ghost",
-      "description": "May disable a move that deals damage to the Pokemon.",
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": "Clear Body",
-        "secondary": "Lightning Rod",
-        "hidden": "Galvanize"
-      },
-      "base_stats": {
-        "hp": 59,
-        "attack": 89,
-        "defense": 49,
-        "sp_attack": 139,
-        "sp_defense": 49,
-        "speed": 119
-      },
-      "ev_yield": {
-        "sp_attack": 2
-      },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 0,
-            "move": "Discharge"
-          },
-          {
-            "level": 1,
-            "move": "Discharge"
-          }
-        ],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/galfrogtom/231.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "galfrogtom"
     },
     {
       "dex": 53,

@@ -99,6 +99,10 @@ static const u16 sBrawleoTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sGalfrogtomTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sToxirenTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
@@ -120,10 +124,6 @@ static const u16 sGortikiTeachableLearnset[] = {
 };
 
 static const u16 sDevampryTeachableLearnset[] = {
-    MOVE_UNAVAILABLE,
-};
-
-static const u16 sGalfrogtomTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 

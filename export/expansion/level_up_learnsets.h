@@ -96,6 +96,12 @@ static const struct LevelUpMove sBrawleoLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sGalfrogtomLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 0, MOVE_DISCHARGE),
+    LEVEL_UP_MOVE( 1, MOVE_DISCHARGE),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sToxirenLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_HYPER_VOICE),
     LEVEL_UP_END
@@ -132,12 +138,6 @@ static const struct LevelUpMove sDevampryLevelUpLearnset[] = {
     LEVEL_UP_MOVE(36, MOVE_NASTY_PLOT),
     LEVEL_UP_MOVE(40, MOVE_SNARL),
     LEVEL_UP_MOVE(60, MOVE_BOOMBURST),
-    LEVEL_UP_END
-};
-
-static const struct LevelUpMove sGalfrogtomLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_DISCHARGE),
-    LEVEL_UP_MOVE( 1, MOVE_DISCHARGE),
     LEVEL_UP_END
 };
 

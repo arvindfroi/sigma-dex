@@ -2,9 +2,9 @@
 
 # Game export status
 
-**20** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Lapper, Brawleo, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Galfrogtom, Janenon, Blylem
+**20** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Janenon, Blylem
 
-## Not exported yet (66)
+## Not exported yet (67)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -22,6 +22,8 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Freezrick** needs: a level-up move that exists in the game
 - **Bulbtle** needs: a level-up move that exists in the game
 - **Bulbtoise** needs: a level-up move that exists in the game
+- **Wispole** needs: a level-up move that exists in the game
+- **Croakble** needs: a level-up move that exists in the game
 - **Sigmanian Eiscue** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
 - **Rainbro** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
 - **Autuman** needs: base stats, a level-up move that exists in the game
@@ -35,7 +37,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Tomaterdander** needs: an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
 - **Crappy Meal** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Beatld** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Wispole** needs: a level-up move that exists in the game
 - **Giga-Circuit** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Hippore** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Docuphant** needs: base stats, an ability that exists in the game, a level-up move that exists in the game

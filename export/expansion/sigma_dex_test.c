@@ -313,6 +313,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Brawleo can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Galfrogtom has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GALFROGTOM];
+    EXPECT_EQ(info->baseHP, 59);
+    EXPECT_EQ(info->baseAttack, 89);
+    EXPECT_EQ(info->baseDefense, 49);
+    EXPECT_EQ(info->baseSpeed, 119);
+    EXPECT_EQ(info->baseSpAttack, 139);
+    EXPECT_EQ(info->baseSpDefense, 49);
+    EXPECT_EQ(info->types[0], TYPE_GHOST);
+    EXPECT_EQ(info->types[1], TYPE_ELECTRIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_CLEAR_BODY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_DISCHARGE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_GALFROGTOM)[0], CHAR_G);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Galfrogtom can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_GALFROGTOM) { Moves(MOVE_DISCHARGE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_DISCHARGE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DISCHARGE, player);
+    }
+}
+
 TEST("Sigma dex: Toxiren has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_TOXIREN];
@@ -478,34 +506,6 @@ SINGLE_BATTLE_TEST("Sigma dex: Devampry can use its first move in battle")
         TURN { MOVE(player, MOVE_HYPER_VOICE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, player);
-    }
-}
-
-TEST("Sigma dex: Galfrogtom has the data from its species file")
-{
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GALFROGTOM];
-    EXPECT_EQ(info->baseHP, 59);
-    EXPECT_EQ(info->baseAttack, 89);
-    EXPECT_EQ(info->baseDefense, 49);
-    EXPECT_EQ(info->baseSpeed, 119);
-    EXPECT_EQ(info->baseSpAttack, 139);
-    EXPECT_EQ(info->baseSpDefense, 49);
-    EXPECT_EQ(info->types[0], TYPE_GHOST);
-    EXPECT_EQ(info->types[1], TYPE_ELECTRIC);
-    EXPECT_EQ(info->abilities[0], ABILITY_CLEAR_BODY);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_DISCHARGE);
-    EXPECT_EQ(GetSpeciesName(SPECIES_GALFROGTOM)[0], CHAR_G);
-}
-
-SINGLE_BATTLE_TEST("Sigma dex: Galfrogtom can use its first move in battle")
-{
-    GIVEN {
-        PLAYER(SPECIES_GALFROGTOM) { Moves(MOVE_DISCHARGE); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_DISCHARGE); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_DISCHARGE, player);
     }
 }
 

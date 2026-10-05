@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**86 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
+**87 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -37,9 +37,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 26 | [Freezrick](data/species/freezrick.yaml) | Ice | Ice Body, Oblivious, Slush Rush (H) | 420 |  | 28% |
 | 27 | [Bulbtle](data/species/bulbtle.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 280 | Bulbtoise (Lv 28) | 24% |
 | 28 | [Bulbtoise](data/species/bulbtoise.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 480 |  | 24% |
-| 29 | *open slot* | | | | | |
-| 30 | *open slot* | | | | | |
-| 31 | *open slot* | | | | | |
+| 29 | [Wispole](data/species/wispole.yaml) | Water | Swift Swim, Water Veil, Water Bubble (H) | 230 | Galfrogtom (Thunder Stone), Croakble (Lv 25) | 28% |
+| 30 | [Croakble](data/species/croakble.yaml) | Water | Swift Swim, Storm Drain, Water Bubble (H) | 504 |  | 17% |
+| 31 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Clear Body, Lightning Rod, Galvanize (H) | 504 |  | 31% |
 | 32 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice |  |  |  | 7% |
 | 33 | [Rainbro](data/species/rainbro.yaml) | Stellar |  |  |  | 7% |
 | 34 | [Autuman](data/species/autuman.yaml) | Fighting / Grass | Justified, Guts, Wind Rider (H) |  |  | 14% |
@@ -59,8 +59,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 48 | [Tomaterdander](data/species/tomaterdander.yaml) | Poison / Grass | Pickle Armor, Chlorophyll | 480 |  | 28% |
 | 49 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass | XL and Deep fried, Chlorophyll | 560 |  | 28% |
 | 50 | [Beatld](data/species/beatld.yaml) | Bug / Psychic |  |  |  | 7% |
-| 51 | [Wispole](data/species/wispole.yaml) | Water | Swift Swim, Water Veil, Water Bubble (H) | 230 | Galfrogtom (Thunder Stone) | 28% |
-| 52 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Clear Body, Lightning Rod, Galvanize (H) | 504 |  | 31% |
+| 51 | *open slot* | | | | | |
+| 52 | *open slot* | | | | | |
 | 53 | [Giga-Circuit](data/species/giga-circuit.yaml) | Electric |  |  |  | 7% |
 | 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock |  |  |  | 7% |
 | 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon |  |  |  | 7% |
