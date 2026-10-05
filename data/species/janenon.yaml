@@ -73,6 +73,9 @@ design:
   concept:               # what is it? one or two sentences
   name_origin:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: ??? -> (Lv. 24) ??? -> (Lv. 48) Janenon; also on the card: Height 5'11\", weight 143 lbs; signature move Hex Burst; role Trick Room Sweeper."
+  wishes:                # for Claude: how it should play, move ideas
+  claude_fill: false     # true = Claude may fill in what is missing
+  filled_by_claude: []   # fields Claude filled in (people can change them)
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

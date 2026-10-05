@@ -55,7 +55,7 @@ evolutions: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
@@ -68,6 +68,9 @@ design:
   concept:               # what is it? one or two sentences
   name_origin:
   notes: "From the Discord concept card (BUST, 2026-05-03): also on the card: Smoked Up: This Pokemon faints after three turns in the field.."
+  wishes:                # for Claude: how it should play, move ideas
+  claude_fill: false     # true = Claude may fill in what is missing
+  filled_by_claude: []   # fields Claude filled in (people can change them)
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

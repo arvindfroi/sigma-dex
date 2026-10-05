@@ -89,6 +89,9 @@ design:
   concept: Grass starter. A small creature with a leaf that slowly turns to steel as it evolves.
   name_origin:
   notes: "PROOF OF CONCEPT - every value in this file except name, type and evolution is a draft proposed by Claude on 2026-10-02. The Council should review and replace them."
+  wishes:                # for Claude: how it should play, move ideas
+  claude_fill: false     # true = Claude may fill in what is missing
+  filled_by_claude: []   # fields Claude filled in (people can change them)
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

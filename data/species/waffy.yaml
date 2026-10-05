@@ -71,6 +71,9 @@ design:
   concept:               # what is it? one or two sentences
   name_origin:
   notes: DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.
+  wishes:                # for Claude: how it should play, move ideas
+  claude_fill: false     # true = Claude may fill in what is missing
+  filled_by_claude: []   # fields Claude filled in (people can change them)
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

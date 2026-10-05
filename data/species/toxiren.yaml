@@ -55,7 +55,7 @@ evolutions: []
 
 # --- Moves ---
 learnset:
-  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Hyper Voice}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
@@ -70,6 +70,9 @@ design:
   concept:               # what is it? one or two sentences
   name_origin:
   notes: "From the Discord concept card (SLOTHBABY, 2026-09-13): card name: Toxsiren; also on the card: Regenerator is hidden ability."
+  wishes:                # for Claude: how it should play, move ideas
+  claude_fill: false     # true = Claude may fill in what is missing
+  filled_by_claude: []   # fields Claude filled in (people can change them)
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

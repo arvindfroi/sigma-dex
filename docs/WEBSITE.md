@@ -4,21 +4,23 @@
 
 ## How to contribute
 
-1. Click a Pokemon, then **Edit**. Or click an **open slot** to add a new Pokemon.
-2. Fill in what you know. Leave the rest empty - a half-finished Pokemon is fine.
-3. At the bottom, write your name. The site remembers it on your device.
-4. **Save.** You land on the Pokemon's page with your changes: its dex entry, its stats at
-   any level, which moves it knows at that level, the damage it takes, and the list of what
-   is still missing. That page is how you test a Pokemon without playing the game.
+1. Write your name at the top of the page once; the site remembers it on your device.
+2. Tap a Pokemon. Its page has tabs: **Overview**, **Moves**, **Sprite** (the sprite studio,
+   see [STUDIO.md](STUDIO.md)), **Pictures** (concept art) and **More details**.
+3. Press **Edit**. Only "The basics" is open; the other sections (Pokedex page, abilities and
+   stats, moves, evolution, catching and breeding, where it is found, design notes) open when
+   tapped and show how much of them is filled in. Fill in what you know and **Save**.
+4. **+ Add a Pokemon** (the last card) adds a new one on the first open number; the number can be
+   changed in the form. Open slots are listed under the filter "Open slots".
 
-Everything about a Pokemon can be entered: name, types, credits, dex entry, size, abilities,
-base stats, EV yield, catch rate, exp, growth rate, friendship, gender, egg groups, held
-items, evolutions, level-up / TM / HM / tutor / egg moves, where it is found, design
-notes, and images. Moves and abilities suggest the ones that already exist in the game while you type.
+Do not want to work out moves and numbers? Open **Let Claude fill in the rest** in the edit form,
+tick the box and describe how it should play. See [CLAUDE_FILL.md](CLAUDE_FILL.md).
+
+New moves and abilities, the type balance and changing dex numbers are under **More**.
 
 ## Changing the numbers (moving Pokemon, adding a slot between two)
 
-Press **Change numbers** above the grid. The page shows every slot as a list.
+Open **More > Change dex numbers**. The page shows every slot as a list.
 
 - **Move a Pokemon:** type the number it should get in its row and press **Move**. If that slot
   is empty it simply goes there. If another Pokemon sits there, the Pokemon in between move one
@@ -42,13 +44,13 @@ Press **Change numbers** above the grid. The page shows every slot as a list.
   The import remembers each sheet row and doc line per Pokemon (`data/sheet_snapshot.json`,
   `data/doc_snapshot.json`, keyed by species id), so a reorder does not make every row look changed.
 
-## Images
+## Pictures
 
-Open a Pokemon and scroll to **Images**. Choose one or more pictures - concept art, sketches,
-sprite drafts - add a caption if you like, and press **Upload**. PNG, JPG, WEBP and GIF work.
-Big pictures are shrunk automatically; small ones such as sprites are kept exactly as they are.
+Open a Pokemon and its **Pictures** tab. Choose one or more pictures - concept art, sketches -
+add a caption if you like, and press **Upload**. PNG, JPG, WEBP and GIF work. Big pictures are
+shrunk automatically. Sprites are made in the **Sprite** tab, not uploaded here.
 
-The first image is shown on the Pokemon's card and at the top of its page. Any image can be
+The approved DS sprite (or else the first picture) is shown on the Pokemon's card and at the top of its page. Any image can be
 removed again with its **Remove** button. Only upload art made by us.
 
 ## New moves and abilities

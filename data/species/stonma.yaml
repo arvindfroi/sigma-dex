@@ -65,6 +65,9 @@ design:
   concept:               # what is it? one or two sentences
   name_origin:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-02): evolution on the card: Stonma -> Megastonma; also on the card: MEGASTONMA: Rock type, species Conglomerate Pokémon, ability Mason's Power; entry: A behemoth form achieved by the convergence of many. Using ancient masonry techniques, countless Stonma units align and interlock perfectly to construct this stacked monument. While mimicking a forgotten golem, this colossal form is composed entirely of unified stone heads, each a silent, powerful component.."
+  wishes:                # for Claude: how it should play, move ideas
+  claude_fill: false     # true = Claude may fill in what is missing
+  filled_by_claude: []   # fields Claude filled in (people can change them)
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

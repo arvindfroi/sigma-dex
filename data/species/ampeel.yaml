@@ -68,6 +68,9 @@ design:
   concept:               # what is it? one or two sentences
   name_origin:
   notes: "From the Discord concept card (johnnes3204, 2026-05-02): evolution on the card: Evolves from Zapana at Lv. 26; also on the card: Volt Absorb is the hidden ability. Notable moves: Thunder Shock, Wild Charge, Aqua Jet, Discharge, Coil, Agility.."
+  wishes:                # for Claude: how it should play, move ideas
+  claude_fill: false     # true = Claude may fill in what is missing
+  filled_by_claude: []   # fields Claude filled in (people can change them)
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

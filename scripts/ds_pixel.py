@@ -78,15 +78,15 @@ def silhouette(sprite):
     return Image.fromarray(out)
 
 
-def on_canvas(sprite, path):
+def on_canvas(sprite, path, grid=GRID):
     """An 80x80 sprite on the 96 canvas, blown up to 1024 (what Qwen is shown)."""
-    canvas = Image.new("RGB", (GRID, GRID), "white")
-    canvas.paste(sprite, ((GRID - FRAME) // 2, (GRID - FRAME) // 2), sprite)
+    canvas = Image.new("RGB", (grid, grid), "white")
+    canvas.paste(sprite, ((grid - sprite.width) // 2, (grid - sprite.height) // 2), sprite)
     canvas.resize((1024, 1024), Image.NEAREST).save(path)
     return path
 
 
-def snap(path, colours=15, grid=GRID):
+def snap(path, colours=15, grid=GRID, crop=True):
     """Qwen's picture read on the draft's grid (grid x grid cells; GRID, or coarser for an icon): colours fitted first, then each
     cell takes its commonest colour; a cell is see-through when most of it is the white page
     connected to the border. Returns the creature cropped to its own size (RGBA)."""
@@ -114,6 +114,8 @@ def snap(path, colours=15, grid=GRID):
     out[solid, :3] = rgb[cells[solid]]
     out[solid, 3] = 255
     image = pixel_render.drop_specks(Image.fromarray(out))
+    if not crop:
+        return image
     box = image.getbbox()
     return image.crop(box) if box else image
 
@@ -314,7 +316,97 @@ def make_icon(art, folder, seeds=(5, 6, 7), side=ICON_SIDE, palettes=None, conce
     return best[1]
 
 
-def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7)):
+EDIT = ("<image1> is a Pokemon battle sprite: pixel art from Pokemon Diamond, Pearl and HeartGold on the Nintendo DS, on a coarse "
+        "grid of big square pixels. Change it: %s %sKeep everything else exactly as it is: the same creature, pose, size, place and "
+        "outline, the same colors, the same pixel size and grid, crisp square pixels, no anti-aliasing, no blur, a one-pixel dark "
+        "outline, flat shading. Plain white background, nothing else.")
+EDIT_AREA = ("<image2> shows the same sprite with a red frame around the part to change: change only what is inside the red "
+             "frame; everything outside it stays exactly the same. Do not draw the red frame. ")
+
+
+def limit_colours(sprite, most=15, keep=None):
+    """At most `most` colours: the least used colour is merged into its nearest (Lab) until it fits
+    (an edit can bring new colours; the frequent ones stay as they are). Colours in `keep` (the old
+    sprite's) are merged away last."""
+    keep = {tuple(int(v) for v in c) for c in (keep if keep is not None else [])}
+    a = np.array(sprite.convert("RGBA"))
+    solid = a[..., 3] > 0
+    while True:
+        colours, counts = np.unique(a[solid][:, :3], axis=0, return_counts=True)
+        if len(colours) <= most:
+            return Image.fromarray(a)
+        L = pixel_render.lab(colours.reshape(1, -1, 3).astype(np.uint8)).reshape(-1, 3)
+        weight = counts.astype(float) + np.array([1e9 if tuple(int(v) for v in c) in keep else 0 for c in colours])
+        rare = int(np.argmin(weight))
+        d = ((L - L[rare]) ** 2).sum(axis=1)
+        d[rare] = np.inf
+        into = colours[int(np.argmin(d))]
+        same = solid & (a[..., :3] == colours[rare]).all(axis=2)
+        a[same, :3] = into
+
+
+def area_cells(area, frame):
+    """The marked area (fractions x0, y0, x1, y1 of the frame) as a frame-sized mask."""
+    mask = np.zeros((frame, frame), bool)
+    x0, x1 = sorted((float(area["x0"]), float(area["x1"])))
+    y0, y1 = sorted((float(area["y0"]), float(area["y1"])))
+    c0, c1 = int(np.floor(np.clip(x0, 0, 1) * frame)), int(np.ceil(np.clip(x1, 0, 1) * frame))
+    r0, r1 = int(np.floor(np.clip(y0, 0, 1) * frame)), int(np.ceil(np.clip(y1, 0, 1) * frame))
+    mask[r0:max(r1, r0 + 1), c0:max(c1, c0 + 1)] = True
+    return mask
+
+
+def edit(sprite, change, folder, area=None, seeds=(11, 12), progress=None):
+    """A finished sprite changed as asked, by Qwen-Image-Edit working on the pixel art itself (not on the
+    artwork, so everything that was not asked for stays). With `area`, only the cells inside it are
+    taken from Qwen's picture; everything outside is the old sprite, pixel for pixel. The picture is
+    read back on the sprite's own grid. Returns the new sprite (same size as the old one)."""
+    folder = Path(folder)
+    folder.mkdir(parents=True, exist_ok=True)
+    sprite = sprite.convert("RGBA")
+    frame = sprite.width
+    grid = frame + max(4, frame // 5)                     # 80 -> 96 as for drawing; a little white page around it
+    pad = (grid - frame) // 2
+    shown = on_canvas(sprite, folder / "edit_shown.png", grid)
+    refs = [shown]
+    mask = None
+    if area:
+        mask = area_cells(area, frame)
+        marked = Image.open(shown).convert("RGB")
+        rows, cols = np.nonzero(mask)
+        cell = 1024 / grid
+        box = [(cols.min() + pad - 0.5) * cell, (rows.min() + pad - 0.5) * cell, (cols.max() + pad + 1.5) * cell, (rows.max() + pad + 1.5) * cell]
+        from PIL import ImageDraw
+        ImageDraw.Draw(marked).rectangle(box, outline=(230, 20, 20), width=max(3, round(cell / 3)))
+        marked.save(folder / "edit_marked.png")
+        refs.append(folder / "edit_marked.png")
+    change = " ".join(str(change).split()).rstrip(".") + "."
+    prompt = EDIT % (change, EDIT_AREA if area else "")
+    old = np.array(sprite)
+    tries = []
+    for n, seed in enumerate(seeds):
+        if progress:
+            progress("changing the sprite (%d of %d)" % (n + 1, len(seeds)))
+        picture = folder / ("edit_%d.png" % seed)
+        if not picture.exists():
+            comfy.generate(prompt, picture, refs, seed=seed, quiet=True)
+        new = np.array(snap(picture, grid=grid, crop=False))[pad:pad + frame, pad:pad + frame]
+        if mask is not None:
+            out = old.copy()
+            out[mask] = new[mask]
+            changed = (np.abs(out.astype(int) - old.astype(int)).sum(axis=2) > 30)[mask].mean()
+        else:
+            out = new
+            changed = 1.0
+        result = limit_colours(Image.fromarray(out), keep=np.unique(old[old[..., 3] > 0][:, :3], axis=0) if mask is not None else None)
+        p = sprite_quality.parts(result)
+        noise = p.get("noise", 1.0) if "empty" not in p else 1.0
+        # an edit that changed nothing in the marked area missed the point; otherwise the cleaner one wins
+        tries.append((-40 * noise - (5 if changed < 0.02 else 0), seed, result))
+    return max(tries, key=lambda t: t[0])[2]
+
+
+def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7), progress=None):
     """Front and back for one attempt's artwork (raw: {"front": art, "back": art}). Writes
     front.png, back.png and icon.png in `folder` and returns ({view: path}, front score)."""
     folder = Path(folder)
@@ -332,7 +424,9 @@ def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7)):
     guide_front = on_canvas(silhouette(Image.open(drafts["front"])), folder / "guide_front.png")
     guide_back = on_canvas(silhouette(Image.open(drafts["back"])), folder / "guide_back.png")
     fronts = []
-    for seed in seeds:
+    for n, seed in enumerate(seeds):
+        if progress:
+            progress("front sprite %d of %d" % (n + 1, len(seeds)))
         picture = folder / ("qwen_front_%d.png" % seed)
         if not picture.exists():
             comfy.generate(FRONT, picture, [raw["front"], guide_front], seed=seed, quiet=True)
@@ -342,7 +436,9 @@ def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7)):
     shown = on_canvas(front, folder / "front_shown.png")
     palette = pixel_render.palette_of(front)
     backs = []
-    for bseed in back_seeds:
+    for n, bseed in enumerate(back_seeds):
+        if progress:
+            progress("back sprite %d of %d" % (n + 1, len(back_seeds)))
         picture = folder / ("qwen_back_%d.png" % bseed)
         if not picture.exists():
             comfy.generate(BACK, picture, [shown, guide_back, raw["back"]], seed=bseed, quiet=True)
@@ -352,6 +448,8 @@ def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7)):
     files = {"front": folder / "front.png", "back": folder / "back.png", "icon": folder / "icon.png"}
     front.save(files["front"])
     back.save(files["back"])
+    if progress:
+        progress("menu icon")
     icon = make_icon(raw["front"], folder, side=ICON_SIDE, concept=raw.get("concept"), front=shown)
     icon.save(files["icon"])
     icon_frames(icon).save(folder / "icon_frames.png")

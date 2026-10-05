@@ -60,6 +60,17 @@ def main():
             sprite_info[sid] = {"src": "art/%s/sprite.png" % sid, "note": facts.get("note"), "back": "back" in facts,
                                 "drafts": [d.split(" ")[0] for d in facts.get("drafts", [])]}
 
+    # DS sprites approved in the studio (assets/sprites-ds/<pokemon>/, see sprites.auto_ds).
+    ds_sprites = {}
+    for sid in sorted(ids):
+        folder = ROOT / "assets" / "sprites-ds" / sid
+        for name in ("front", "back", "icon"):
+            if (folder / (name + ".png")).is_file():
+                target = art_dir / sid / ("ds-%s.png" % name)
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(folder / (name + ".png"), target)
+                ds_sprites.setdefault(sid, {})[name] = "art/%s/ds-%s.png" % (sid, name)
+
     prompts = yaml.safe_load((ROOT / "data" / "sprite_prompts.yaml").read_text(encoding="utf-8"))
     studio = {"style": " ".join(prompts["style"].split()),
               "looks": {sid: " ".join(entry["look"].split()) for sid, entry in (prompts.get("pokemon") or {}).items()}}
@@ -73,7 +84,7 @@ def main():
         "project": config.get("project", "Pokedex"), "dex_size": config.get("dex_size", 151),
         "species": entries, "types": dexlib.TYPES, "checks": dexlib.CHECK_LIST,
         "custom": {"move": engine["custom"]["moves"], "ability": engine["custom"]["abilities"]},
-        "images": images, "sprites": sprite_info, "studio": studio,
+        "images": images, "sprites": sprite_info, "ds_sprites": ds_sprites, "studio": studio,
         "type_shares": yaml.safe_load((ROOT / "data" / "engine" / "type_shares.yaml").read_text(encoding="utf-8")),
         "problems": report("doc_problems.json") + report("sheet_problems.json") + report("web_problems.json"),
         "web": dict(config.get("web_edits") or {}, cursor=int(cursor_path.read_text().strip() or 0) if cursor_path.exists() else 0),

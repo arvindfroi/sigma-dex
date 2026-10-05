@@ -420,7 +420,66 @@ def on_frame(sprite, frame):
     return canvas
 
 
+def run_ds(job, base, key, settings):
+    """The studio's jobs since 2026-10-05 (style "ds"): one DS sprite (80x80 front and back, 32x32 icon)
+    made with the approved pipeline (official-style artwork by Qwen, then scripts/ds_pixel.py), or a
+    change to an earlier version (mode "edit": Qwen changes the pixel sprite itself, the whole of it
+    or only a marked area). Hands in exactly one version."""
+    import ds_pixel
+    from PIL import Image
+    def progress(state):
+        try:
+            post(base, key, {"action": "progress", "job_id": job["id"], "state": ("drawing %s: %s" % (job["species_id"], state))[:120]})
+        except (RuntimeError, OSError):
+            pass                                   # only the website's progress line; the job goes on
+    seed = job["id"] * 100
+    with tempfile.TemporaryDirectory() as folder:
+        folder = Path(folder)
+        if job.get("mode") == "edit":
+            parent = job["parent"] or {}
+            views = {"both": ("front", "back")}.get(job.get("view"), (job.get("view") or "front",))
+            files, kept = {}, {}
+            for view in ("front", "back", "icon"):
+                if not parent.get(view):
+                    continue
+                if view not in views:
+                    kept[view + "_path"] = parent[view]
+                    continue
+                old = download(base, parent[view], folder / ("old_%s.png" % view))
+                progress("changing the %s" % view)
+                new = ds_pixel.edit(Image.open(old), job["notes"], folder / view, area=job.get("area"), seeds=(seed + 1, seed + 2),
+                                    progress=lambda state, view=view: progress("%s - %s" % (view, state)))
+                files[view] = folder / ("%s.png" % view)
+                new.save(files[view])
+            kept.update(raw_front_path=parent["raw_front"], raw_back_path=parent["raw_back"])
+            prompt = "change (%s%s): %s" % ("+".join(views), ", marked area" if job.get("area") else "", job["notes"])
+            post(base, key, dict({"action": "candidate", "job_id": job["id"], "seed": seed, "prompt": prompt, "gen": 4}, **kept), files)
+            return 1
+        refs = [download(base, path, folder / ("ref%d.png" % n)) for n, path in enumerate(job.get("refs") or [])]
+        if not refs:
+            raise RuntimeError("no pictures were chosen to draw from")
+        plan = recipes(dict(job, style="sprite-official", gen=4, refs=[str(r) for r in refs]), settings)
+        raw = {}
+        for view in ("front", "back"):
+            prompt, pictures = plan[view]
+            raw[view] = folder / ("%s_art.png" % view)
+            for extra in range(4 if view == "back" else 1):     # a back drawn from the front again is drawn again
+                progress("%s artwork" % view)
+                comfy.generate(prompt, raw[view], [raw["front"] if p == "@front" else Path(p) for p in pictures], seed=seed + 1000 * extra, quiet=True)
+                if view == "front" or sprite_quality.same_view(raw["front"], raw["back"]) <= 0.6:
+                    break
+        raw["concept"] = refs[0]
+        files, score = ds_pixel.make(raw, job["species_id"], folder / "sprite", seeds=(seed + 5, seed + 6, seed + 7),
+                                     back_seeds=(seed + 5, seed + 6, seed + 7), progress=progress)
+        prompt = "style: ds (approved DS pipeline), front score %.1f\n\nfront artwork: %s\n\nback artwork: %s" % (score, plan["front"][0], plan["back"][0])
+        post(base, key, {"action": "candidate", "job_id": job["id"], "seed": seed, "prompt": prompt, "gen": 4},
+             {"raw_front": raw["front"], "raw_back": raw["back"], "front": files["front"], "back": files["back"], "icon": files["icon"]})
+        return 1
+
+
 def run(job, base, key, settings):
+    if job.get("style") == "ds":
+        return run_ds(job, base, key, settings)
     style_version = hashlib.sha1(json.dumps([settings["style"], settings["illustration"], settings["poses"], settings["back"],
                                              settings["emerald_strength"], settings["redesign_front"], settings["redesign_back"], settings["cleanup"],
                                              settings["official_front"], settings["official_back"], settings["official_poses"]], sort_keys=True).encode()).hexdigest()[:10]

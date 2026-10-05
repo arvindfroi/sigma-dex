@@ -4,30 +4,48 @@ On every Pokemon's page on the website there is a **Sprite studio**: ask the AI 
 look at the attempts, comment on them, have them redone and approve one. Nobody needs
 anything but the website.
 
-## How to use it
+## How to use it (since 2026-10-05)
 
-1. Attach the Pokemon's concept art under **Images** (if it is not there yet).
-2. In the studio, tick the pictures the AI should draw from (the first two are ticked; the
-   clearest front view should be first) and press **Generate sprites**. It always draws two
-   versions (front, back and icon) in the Sigma sprite style; they appear by themselves after a
-   few minutes. Under **More choices** you can write the **look** (what must be big and clear on a
-   64-pixel sprite: "three chunky mountain peaks", not "seven detailed mountains") and pick
-   another pose.
-3. Judge the versions:
-   - Write **feedback** under a version ("bigger grin, the antennae are missing") and press
-     **New version with feedback**: two new versions are drawn from that one with the changes.
-   - **Click a spot** on a sprite to pin a comment there; pinned comments go into the next
-     new version too.
-   - **Reject** the ones that are not good enough, **Approve** the one that is.
-5. The approved one becomes the Pokemon's sprite within about 15 minutes. Approving another
-   one later replaces it.
+Open a Pokemon and press the **Sprite** tab.
 
-The **Sprites** tab lists everything that is waiting for a verdict.
+1. **Pick the pictures the AI should follow** - tap up to three of the Pokemon's pictures; the
+   first one matters most. (Add concept art under **Pictures** first if there is none.)
+2. **Make a sprite.** The request joins one line shared by everybody; the studio shows the line,
+   what the drawing PC is doing right now ("front sprite 2 of 3") and where your request is. One
+   sprite is drawn at a time: front and back (80x80) and the menu icon (32x32), in the DS style
+   ([the approved pipeline](SPRITE_STYLE.md), `scripts/ds_pixel.py`). A new sprite takes about
+   5 to 10 minutes.
+3. **Pick a version and make it perfect.** Every version is shown in a row; tap one to open it in
+   the editor:
+   - **Draw on it yourself**: pencil, eraser, fill, recolour (every pixel of one colour at once),
+     pick a colour, undo/redo, a pixel grid. The game allows 15 colours per picture; the editor
+     counts them. **Save my drawing** makes it a new version.
+   - **Ask the AI**: write what should change and choose front, back or both - or press
+     **Mark area**, drag a box, and only that part is changed (everything outside the box stays
+     exactly the same, pixel for pixel). Takes 1 to 2 minutes. The result is a new version.
+   - **Approve** the one you like (or **Reject**). The approved one becomes the Pokemon's DS
+     sprite within about 15 minutes (`assets/sprites-ds/<pokemon>/`, made by `scripts/sprites.py
+     auto` from the pictures captioned `[ds-front]`, `[ds-back]`, `[ds-icon]`).
+
+How the AI change works: Qwen-Image-Edit is shown the finished pixel sprite (blown up on its
+grid, plus a copy with a red frame for an area) and asked for the change; its picture is read back
+on the sprite's own grid (`ds_pixel.edit`). For an area, only the cells inside the box are taken.
+Two attempts are drawn and the cleaner one is kept. Colours are kept at 15 at most by merging the
+rarest new colour into its nearest.
+
+Versions drawn by hand are saved by the edge function `sprite-draw` (no key; it accepts only
+80x80 / 64x64 / 32x32 PNGs, at most 200 per hour). Older 64x64 attempts (GBA styles) are still
+listed under "older attempts".
+
+Database (migration `supabase/migrations/2026-10-05_studio_v2.sql`): `sprite_jobs.mode` (`new` or
+`edit`), `view`, `area`; `sprite_candidates.gen` (4 = DS), `kind` (`ai`, `edit`, `drawn`),
+`parent_id`, `note`, `editor`, `icon`; RPC `request_sprite_edit`. Edge functions are in
+`supabase/functions/`.
 
 ## The styles
 
-Since 2026-10-04 the website only asks for the Sigma sprite style; the worker still knows the
-others below (for scripts and old requests).
+Since 2026-10-05 the website only asks for DS sprites (style `ds`, above); the worker still knows the
+older GBA styles below (for scripts and old requests).
 
 - **Sigma sprite style (recommended, `sprite-official`, the default since 2026-10-03).** Qwen
   draws the concept art as official-style Pokemon artwork, and `scripts/pixel_render.py` builds

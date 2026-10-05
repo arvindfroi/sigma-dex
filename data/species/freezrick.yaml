@@ -68,6 +68,9 @@ design:
   concept:               # what is it? one or two sentences
   name_origin:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Height 2'11\", weight 132.3 lbs. Ice Body: gradually recovers HP in hail. Personality: cool and composed, fiercely loyal. Signature move Ice Egg (Ice, 80 BP, 100% accuracy).."
+  wishes:                # for Claude: how it should play, move ideas
+  claude_fill: false     # true = Claude may fill in what is missing
+  filled_by_claude: []   # fields Claude filled in (people can change them)
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

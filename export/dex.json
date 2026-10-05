@@ -166,7 +166,10 @@
       "design": {
         "concept": "Grass starter. A small creature with a leaf that slowly turns to steel as it evolves.",
         "name_origin": null,
-        "notes": "PROOF OF CONCEPT - every value in this file except name, type and evolution is a draft proposed by Claude on 2026-10-02. The Council should review and replace them."
+        "notes": "PROOF OF CONCEPT - every value in this file except name, type and evolution is a draft proposed by Claude on 2026-10-02. The Council should review and replace them.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/leafing/338.webp",
@@ -273,7 +276,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/leafsteel/434.webp",
@@ -386,7 +392,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/leafaxer/435.webp",
@@ -488,7 +497,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones."
+        "notes": "DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/waffy/336.webp",
@@ -580,7 +592,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/wealther/455.jpg",
@@ -690,7 +705,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/warrallier/454.jpg",
@@ -792,7 +810,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones."
+        "notes": "DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/torchbat/376.webp",
@@ -881,7 +902,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/heatbat/377.webp",
@@ -966,7 +990,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/blazterra/378.webp",
@@ -1040,7 +1067,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -; flavor 'Erobi flutters around fields and towns, spreading a sense of warmth wherever it goes.'."
+        "notes": "From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -; flavor 'Erobi flutters around fields and towns, spreading a sense of warmth wherever it goes.'.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/erobi/223.webp",
@@ -1114,7 +1144,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/harpie/247.webp",
@@ -1188,7 +1221,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -."
+        "notes": "From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/smeatherace/306.webp",
@@ -1262,7 +1298,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (Arvind Frøiland, 2026-05-02): also on the card: Notable moves: Crunch, Brutal Swing, Hurricane, Knock Off. Extra note: Its beak is so heavy that it must spread its wings wide to take off. It rarely flaps unless it needs to strike.."
+        "notes": "From the Discord concept card (Arvind Frøiland, 2026-05-02): also on the card: Notable moves: Crunch, Brutal Swing, Hurricane, Knock Off. Extra note: Its beak is so heavy that it must spread its wings wide to take off. It rarely flaps unless it needs to strike..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/bolthook/182.webp",
@@ -1335,7 +1374,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/wump/327.webp",
@@ -1409,7 +1451,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": null,
@@ -1483,7 +1528,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/florantula/226.webp",
@@ -1557,7 +1605,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/cowfin/211.webp",
@@ -1633,7 +1684,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/mooceon/268.webp",
@@ -1742,7 +1796,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/lapper/445.webp",
@@ -1823,7 +1880,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/brawleo/183.webp",
@@ -1897,7 +1957,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/sigmanian-sudowoodo/295.webp",
@@ -1976,7 +2039,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (BUST, 2026-05-07): also on the card: Height 4'0\", weight 92 lbs; Coolness 95, Speed 78, Chill Power 98, Style 97; signature move Freeze Flex."
+        "notes": "From the Discord concept card (BUST, 2026-05-07): also on the card: Height 4'0\", weight 92 lbs; Coolness 95, Speed 78, Chill Power 98, Style 97; signature move Freeze Flex.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/icy-freeze/250.webp",
@@ -2051,7 +2117,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Height 2'11\", weight 132.3 lbs. Ice Body: gradually recovers HP in hail. Personality: cool and composed, fiercely loyal. Signature move Ice Egg (Ice, 80 BP, 100% accuracy).."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Height 2'11\", weight 132.3 lbs. Ice Body: gradually recovers HP in hail. Personality: cool and composed, fiercely loyal. Signature move Ice Egg (Ice, 80 BP, 100% accuracy)..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/freezrick/227.webp",
@@ -2131,7 +2200,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-09-20): also on the card: Earth Eater is the hidden ability; poses Happy, Clumsy, Back view, Light attack."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-09-20): also on the card: Earth Eater is the hidden ability; poses Happy, Clumsy, Back view, Light attack.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/bulbtle/192.webp",
@@ -2205,7 +2277,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-09-20): also on the card: Earth Eater is the hidden ability; front/side/back views and four move panels (Lights up caves, Blinds enemies, Earth Eater, Electric Surge)."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-09-20): also on the card: Earth Eater is the hidden ability; front/side/back views and four move panels (Lights up caves, Blinds enemies, Earth Eater, Electric Surge).",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/bulbtoise/195.webp",
@@ -2291,7 +2366,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 1, male."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 1, male.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/wispole/324.webp",
@@ -2366,7 +2444,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": null,
@@ -2451,7 +2532,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/galfrogtom/231.webp",
@@ -2524,7 +2608,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Google Doc: Sigmanian Eiscue/eller eiscue evo (Ice/?)"
+        "notes": "From the Google Doc: Sigmanian Eiscue/eller eiscue evo (Ice/?)",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/eiscue/221.webp",
@@ -2597,7 +2684,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/rainbro/288.webp",
@@ -2671,7 +2761,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/autuman/174.webp",
@@ -2745,7 +2838,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Tinted Lens; height 6'03\", weight 165.3 lbs."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Tinted Lens; height 6'03\", weight 165.3 lbs.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/bugmight/186.webp",
@@ -2825,7 +2921,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-09-13): also on the card: Regenerator is hidden ability."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-09-13): also on the card: Regenerator is hidden ability.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/nukfae/280.webp",
@@ -2906,7 +3005,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-09-13): card name: Toxsiren; also on the card: Regenerator is hidden ability."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-09-13): card name: Toxsiren; also on the card: Regenerator is hidden ability.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/toxiren/319.webp",
@@ -2987,7 +3089,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-02): evolution on the card: Stonma -> Megastonma; also on the card: MEGASTONMA: Rock type, species Conglomerate Pokémon, ability Mason's Power; entry: A behemoth form achieved by the convergence of many. Using ancient masonry techniques, countless Stonma units align and interlock perfectly to construct this stacked monument. While mimicking a forgotten golem, this colossal form is composed entirely of unified stone heads, each a silent, powerful component.."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-02): evolution on the card: Stonma -> Megastonma; also on the card: MEGASTONMA: Rock type, species Conglomerate Pokémon, ability Mason's Power; entry: A behemoth form achieved by the convergence of many. Using ancient masonry techniques, countless Stonma units align and interlock perfectly to construct this stacked monument. While mimicking a forgotten golem, this colossal form is composed entirely of unified stone heads, each a silent, powerful component..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/stonma/379.png",
@@ -3070,7 +3175,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/sigmauler/299.webp",
@@ -3160,7 +3268,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-03)."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-03).",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/tinky/312.webp",
@@ -3252,7 +3363,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-03)."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-03).",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/motinky/272.webp",
@@ -3338,7 +3452,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-03): also on the card: Hidden Ability: Huge Power."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-03): also on the card: Hidden Ability: Huge Power.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/gortiki/234.webp",
@@ -3420,7 +3537,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-06): also on the card: Lv.50, male; Levitate is the Hidden Ability; Exp. Points 125000, To Next Lv. 7651."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-06): also on the card: Lv.50, male; Levitate is the Hidden Ability; Exp. Points 125000, To Next Lv. 7651.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/chebbi/200.webp",
@@ -3522,7 +3642,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-07): card name: Debatry; also on the card: Lv.50, male, Exp. Points 125000, To Next Lv. 7651; Hidden Ability Levitate."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-07): card name: Debatry; also on the card: Lv.50, male, Exp. Points 125000, To Next Lv. 7651; Hidden Ability Levitate.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/devampry/216.webp",
@@ -3596,7 +3719,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (**Joe**, 2026-05-15): evolution on the card: Battle Bond transformation: defeating an opponent with Battle Bond transforms it into its blue-red Battle Bond Form; also on the card: Normal form stats shown; Battle Bond Form stats HP 47, Atk 118, Def 66, SpA 150, SpD 80, Spe 138, total 599; Battle Bond is the hidden ability; signature moves Scalding Surf and Aqua Slash."
+        "notes": "From the Discord concept card (**Joe**, 2026-05-15): evolution on the card: Battle Bond transformation: defeating an opponent with Battle Bond transforms it into its blue-red Battle Bond Form; also on the card: Normal form stats shown; Battle Bond Form stats HP 47, Atk 118, Def 66, SpA 150, SpD 80, Spe 138, total 599; Battle Bond is the hidden ability; signature moves Scalding Surf and Aqua Slash.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/chillalit/203.webp",
@@ -3678,7 +3804,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (johnnes3204, 2026-05-02): evolution on the card: Zapana -> Ampeel -> Zapana (as printed, last stage appears to be a mislabel); also on the card: Lightning Rod is the hidden ability. Notable moves: Thunder Shock, Charge Beam, Aqua Jet, Thunder Wave, Bite, Agility. Catch rate 190, base exp 66, friendship 70.."
+        "notes": "From the Discord concept card (johnnes3204, 2026-05-02): evolution on the card: Zapana -> Ampeel -> Zapana (as printed, last stage appears to be a mislabel); also on the card: Lightning Rod is the hidden ability. Notable moves: Thunder Shock, Charge Beam, Aqua Jet, Thunder Wave, Bite, Agility. Catch rate 190, base exp 66, friendship 70..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/zapana/329.webp",
@@ -3754,7 +3883,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (johnnes3204, 2026-05-02): evolution on the card: Evolves from Zapana at Lv. 26; also on the card: Volt Absorb is the hidden ability. Notable moves: Thunder Shock, Wild Charge, Aqua Jet, Discharge, Coil, Agility.."
+        "notes": "From the Discord concept card (johnnes3204, 2026-05-02): evolution on the card: Evolves from Zapana at Lv. 26; also on the card: Volt Absorb is the hidden ability. Notable moves: Thunder Shock, Wild Charge, Aqua Jet, Discharge, Coil, Agility..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/ampeel/169.webp",
@@ -3828,7 +3960,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (Casse, 2026-10-01): card name: Tomadernader; also on the card: Pickle Armor: its sour coating deters any healing effects of any attack from opponents; Chlorophyll is hidden ability; signature move Onion Cyclone (Poison Physical, Power 85, Accuracy 100, 30% chance to poison); Head Smash 70 damage, 30 damage to itself; No. ???."
+        "notes": "From the Discord concept card (Casse, 2026-10-01): card name: Tomadernader; also on the card: Pickle Armor: its sour coating deters any healing effects of any attack from opponents; Chlorophyll is hidden ability; signature move Onion Cyclone (Poison Physical, Power 85, Accuracy 100, 30% chance to poison); Head Smash 70 damage, 30 damage to itself; No. ???.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/tomaterdander/317.webp",
@@ -3902,7 +4037,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (Casse, 2026-10-01): evolution on the card: Stage 1, evolves from Tomadernader; also on the card: XL and Deep fried: takes 20 less damage from any attack and opponents take 20 damage when using a melee attack on it; Chlorophyll is hidden ability; moves Leftover Vortex (Power 70, Acc 80) and Acidic Spit (Power 40, Acc 100, poisons); No. ???."
+        "notes": "From the Discord concept card (Casse, 2026-10-01): evolution on the card: Stage 1, evolves from Tomadernader; also on the card: XL and Deep fried: takes 20 less damage from any attack and opponents take 20 damage when using a melee attack on it; Chlorophyll is hidden ability; moves Leftover Vortex (Power 70, Acc 80) and Acidic Spit (Power 40, Acc 100, poisons); No. ???.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/crappy-meal/213.webp",
@@ -3976,7 +4114,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/beatld/177.webp",
@@ -4049,7 +4190,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/giga-circuit/359.webp",
@@ -4123,7 +4267,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/hippore/249.webp",
@@ -4197,7 +4344,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/docuphant/220.webp",
@@ -4271,7 +4421,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/razox/290.webp",
@@ -4345,7 +4498,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — DIODE FORM; also on the card: Habitat: abandoned facilities, ancient ruins, underground labs. Behavior: silent and watchful, flickers when sensing erratic or unstable energy. Cry: bzz... >>>> ...."
+        "notes": "From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — DIODE FORM; also on the card: Habitat: abandoned facilities, ancient ruins, underground labs. Behavior: silent and watchful, flickers when sensing erratic or unstable energy. Cry: bzz... >>>> ....",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/bulgarian-unown/198.webp",
@@ -4419,7 +4575,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Google Doc: unknighted (unknown thunder stone?)\nFrom the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT FORM; also on the card: Habitat: power plants, energy facilities, abandoned labs and ancient ruins. Behavior: maintains perfect energy circulation; disturbing the balance makes it disassemble and scatter. Cry: bzzztt-krrm...."
+        "notes": "From the Google Doc: unknighted (unknown thunder stone?)\nFrom the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT FORM; also on the card: Habitat: power plants, energy facilities, abandoned labs and ancient ruins. Behavior: maintains perfect energy circulation; disturbing the balance makes it disassemble and scatter. Cry: bzzztt-krrm....",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/united/322.webp",
@@ -4493,7 +4652,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (BUST, 2026-05-02): also on the card: Diver: Can't be hit by Flying-type moves in rain. Habitat: Swamps, Marshes. Flavor: It lies motionless for days, letting swamp grass grow over it. Those who know the marshes step carefully. Size comparison with a 1.2 m human silhouette.."
+        "notes": "From the Discord concept card (BUST, 2026-05-02): also on the card: Diver: Can't be hit by Flying-type moves in rain. Habitat: Swamps, Marshes. Flavor: It lies motionless for days, letting swamp grass grow over it. Those who know the marshes step carefully. Size comparison with a 1.2 m human silhouette..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/hairyen/242.webp",
@@ -4567,7 +4729,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (BUST, 2026-05-02): card name: Panzerion; also on the card: Length 3.2 m; Broken Swivel: can only attack the Pokemon directly in front of it.."
+        "notes": "From the Discord concept card (BUST, 2026-05-02): card name: Panzerion; also on the card: Length 3.2 m; Broken Swivel: can only attack the Pokemon directly in front of it..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/panzerien/284.webp",
@@ -4641,7 +4806,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (BUST, 2026-05-07): card name: Nucleoid; also on the card: It is composed of recycled alloys and unknown organic matter.."
+        "notes": "From the Discord concept card (BUST, 2026-05-07): card name: Nucleoid; also on the card: It is composed of recycled alloys and unknown organic matter..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/nucloid/279.webp",
@@ -4715,7 +4883,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (BUST, 2026-05-07): also on the card: Its shell is forged from reinforced alloys and unstable radioactive sludge.."
+        "notes": "From the Discord concept card (BUST, 2026-05-07): also on the card: Its shell is forged from reinforced alloys and unstable radioactive sludge..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/nuclobyl/278.webp",
@@ -4786,7 +4957,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": null,
@@ -4860,7 +5034,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/yanklet/328.webp",
@@ -4942,7 +5119,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: Lv. 24 -> Janenon; also on the card: Height 2'07\", weight 24.3 lbs; signature move Hex Burst (Fairy, Special, power 95, accuracy 100%, PP 15); role Trick Room Sweeper."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: Lv. 24 -> Janenon; also on the card: Height 2'07\", weight 24.3 lbs; signature move Hex Burst (Fairy, Special, power 95, accuracy 100%, PP 15); role Trick Room Sweeper.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/anjane/170.webp",
@@ -5035,7 +5215,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: ??? -> (Lv. 24) ??? -> (Lv. 48) Janenon; also on the card: Height 5'11\", weight 143 lbs; signature move Hex Burst; role Trick Room Sweeper."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: ??? -> (Lv. 24) ??? -> (Lv. 48) Janenon; also on the card: Height 5'11\", weight 143 lbs; signature move Hex Burst; role Trick Room Sweeper.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/janenon/258.webp",
@@ -5109,7 +5292,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/saucerl/394.webp",
@@ -5183,7 +5369,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": null,
@@ -5257,7 +5446,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/octopearl/393.webp",
@@ -5331,7 +5523,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01)."
+        "notes": "From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/cryoblade/357.webp",
@@ -5405,7 +5600,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/roostasaur/291.webp",
@@ -5479,7 +5677,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": null,
@@ -5561,7 +5762,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/leadling/452.png",
@@ -5642,7 +5846,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Sand Stream; height 8'06\", weight 908.3 lbs."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Sand Stream; height 8'06\", weight 908.3 lbs.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/blylem/180.webp",
@@ -5718,7 +5925,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-10-01): also on the card: Ice Scales is hidden ability; panels for Ice Shards, Frosty Breath, Venomous Tongue, Resting/Sleeping form and size comparison."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-10-01): also on the card: Ice Scales is hidden ability; panels for Ice Shards, Frosty Breath, Venomous Tongue, Resting/Sleeping form and size comparison.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/iglomodo/256.webp",
@@ -5791,7 +6001,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (BUST, 2026-05-03): also on the card: Smoked Up: This Pokemon faints after three turns in the field.."
+        "notes": "From the Discord concept card (BUST, 2026-05-03): also on the card: Smoked Up: This Pokemon faints after three turns in the field..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/ciggiti/210.webp",
@@ -5864,7 +6077,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (BUST, 2026-05-03): card name: CHURCHAR; evolution on the card: Evolved from CIGGITI; also on the card: Smoked Up: This Pokemon faints after three turns in the field.."
+        "notes": "From the Discord concept card (BUST, 2026-05-03): card name: CHURCHAR; evolution on the card: Evolved from CIGGITI; also on the card: Smoked Up: This Pokemon faints after three turns in the field..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/chuchar/209.webp",
@@ -5937,7 +6153,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (BUST, 2026-05-03): also on the card: Smoked Up: This Pokemon faints after three turns in the field.."
+        "notes": "From the Discord concept card (BUST, 2026-05-03): also on the card: Smoked Up: This Pokemon faints after three turns in the field..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/parahaunt/287.webp",
@@ -6011,7 +6230,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (#pokemon-goons, dr.grey8421, 2026-05-01)."
+        "notes": "From the Discord concept card (#pokemon-goons, dr.grey8421, 2026-05-01).",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/insectoid/361.webp",
@@ -6085,7 +6307,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (dr.grey8421, 2026-05-02): also on the card: Subtitle The Abyssal Requiem Pokémon; Soulforged Body is the hidden ability; signature move Requiem Breaker (Ghost/Steel, power 160, accuracy 100%, PP 5); also a lore blurb: Darkgonark is said to be the embodiment of ruin and rebirth.."
+        "notes": "From the Discord concept card (dr.grey8421, 2026-05-02): also on the card: Subtitle The Abyssal Requiem Pokémon; Soulforged Body is the hidden ability; signature move Requiem Breaker (Ghost/Steel, power 160, accuracy 100%, PP 5); also a lore blurb: Darkgonark is said to be the embodiment of ruin and rebirth..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/darkgonark/215.webp",
@@ -6159,7 +6384,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/verrith/456.jpg",
@@ -6236,7 +6464,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Sap Sipper (regular), Grim Neigh (hidden). Signature moves: Gabriel's Curse (Ghost, 85 BP, 100%), Haunted Slash (Ghost, 85 BP, 100%).."
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Sap Sipper (regular), Grim Neigh (hidden). Signature moves: Gabriel's Curse (Ghost, 85 BP, 100%), Haunted Slash (Ghost, 85 BP, 100%)..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/gravriel/240.webp",
@@ -6310,7 +6541,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": null,
@@ -6383,7 +6617,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/skiirtle/303.webp",
@@ -6457,7 +6694,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/mcskiirtle/264.webp",
@@ -6531,7 +6771,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/balleisk/395.webp",
@@ -6605,7 +6848,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": null,
@@ -6679,7 +6925,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": null,
@@ -6753,7 +7002,10 @@
       "design": {
         "concept": "Legendary concept: a giant fish carrying Bergen's seven mountains, Bryggen and the Ulriken tower on its back.",
         "name_origin": null,
-        "notes": "From Discord (#official-sigma-pokedex, Slothbaby, 29 Sep 2026, \"Legendary konsept\"): sketch and concept card. The card numbers it Nr. 1027; in our dex it is #99."
+        "notes": "From Discord (#official-sigma-pokedex, Slothbaby, 29 Sep 2026, \"Legendary konsept\"): sketch and concept card. The card numbers it Nr. 1027; in our dex it is #99.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/bergflabbser/4.png",
@@ -6827,7 +7079,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Google Doc: Maagamad/gullmire (Flying, Poison)\nFrom the Discord concept card (Arvind Frøiland, 2026-09-30): card name: Gullmire; also on the card: Weather Switch switches rain to drought and drought to rain, random Drizzle or Drought otherwise; Technician is the hidden ability; signature move Oily Arsenal (Drought Physical, Poison, BP 60x2; Rain Special, Poison, BP 40x3)."
+        "notes": "From the Google Doc: Maagamad/gullmire (Flying, Poison)\nFrom the Discord concept card (Arvind Frøiland, 2026-09-30): card name: Gullmire; also on the card: Weather Switch switches rain to drought and drought to rain, random Drizzle or Drought otherwise; Technician is the hidden ability; signature move Oily Arsenal (Drought Physical, Poison, BP 60x2; Rain Special, Poison, BP 40x3).",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/maagamad/263.webp",
@@ -6903,7 +7158,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/obsidog/461.webp",
@@ -6977,7 +7235,10 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
       },
       "assets": {
         "concept_art": "assets/concept-art/sandrema/293.webp",

@@ -106,5 +106,8 @@ encounters:
 | `design.concept` | What it is, in a sentence or two |
 | `design.name_origin` | Where the name comes from |
 | `design.notes` | Anything else |
+| `design.wishes` | Notes for Claude: how it should play, move ideas (see [CLAUDE_FILL.md](CLAUDE_FILL.md)) |
+| `design.claude_fill` | `true` = Claude may fill in what is still empty |
+| `design.filled_by_claude` | The fields Claude filled in, so people know what to review |
 | `assets.*` | Paths to files in this repo. See [ENGINE.md](ENGINE.md) for the exact sizes |
 | `engine.*` | Sprite positioning details, only relevant once sprites exist |

@@ -68,6 +68,9 @@ design:
   concept: "Legendary concept: a giant fish carrying Bergen's seven mountains, Bryggen and the Ulriken tower on its back."
   name_origin:
   notes: "From Discord (#official-sigma-pokedex, Slothbaby, 29 Sep 2026, \"Legendary konsept\"): sketch and concept card. The card numbers it Nr. 1027; in our dex it is #99."
+  wishes:                # for Claude: how it should play, move ideas
+  claude_fill: false     # true = Claude may fill in what is missing
+  filled_by_claude: []   # fields Claude filled in (people can change them)
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

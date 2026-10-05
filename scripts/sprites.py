@@ -522,7 +522,60 @@ def auto():
         except (SpriteError, OSError) as error:
             print("WARNING: sprites for %s could not be made: %s" % (sid, error))
     print("Sprites: %d Pokemon rebuilt from website pictures" % built)
+    auto_ds(manifest)
     return 0
+
+
+DS_SPRITES = ROOT / "assets" / "sprites-ds"
+DS_KINDS = {"ds-front": ("front.png", 80), "ds-back": ("back.png", 80), "ds-icon": ("icon.png", 32)}
+
+
+def auto_ds(manifest):
+    """DS sprites approved in the sprite studio (pictures captioned [ds-front], [ds-back], [ds-icon]):
+    already finished 80x80 / 32x32 pixel art, so they are copied as they are to assets/sprites-ds/<pokemon>/
+    (the Origin HeartGold export reads them there). A Pokemon whose approved version was withdrawn loses them."""
+    wanted = {}
+    for entry in manifest:                              # later approvals replace earlier ones
+        caption = (entry.get("caption") or "").strip().lower()
+        kind = next((k for k in DS_KINDS if caption.startswith("[%s]" % k)), None)
+        if kind and (ROOT / entry["file"]).exists():
+            wanted.setdefault(entry["species"], {})[kind] = (ROOT / entry["file"], entry.get("caption"))
+    changed = 0
+    for folder in sorted(DS_SPRITES.glob("*")) if DS_SPRITES.exists() else []:
+        if folder.is_dir() and folder.name not in wanted:
+            for f in folder.iterdir():
+                f.unlink()
+            folder.rmdir()
+            changed += 1
+    for sid, sources in sorted(wanted.items()):
+        folder = DS_SPRITES / sid
+        facts = {"sources": {}}
+        pictures = {}
+        try:
+            for kind, (path, caption) in sources.items():
+                name, side = DS_KINDS[kind]
+                image = Image.open(path).convert("RGBA")
+                if image.size != (side, side):
+                    raise SpriteError("%s is %dx%d, must be %dx%d" % (kind, image.width, image.height, side, side))
+                colours = len({p for p, a in zip(image.getdata(), image.getchannel("A").getdata()) if a})
+                if colours > COLORS:
+                    raise SpriteError("%s uses %d colours, the limit is %d" % (kind, colours, COLORS))
+                pictures[name] = image
+                facts["sources"][name] = caption
+        except (SpriteError, OSError) as error:
+            print("WARNING: DS sprites for %s could not be used: %s" % (sid, error))
+            continue
+        old = json.loads((folder / "sprite.json").read_text(encoding="utf-8")) if (folder / "sprite.json").exists() else None
+        if old == facts:
+            continue
+        folder.mkdir(parents=True, exist_ok=True)
+        for f in folder.iterdir():
+            f.unlink()
+        for name, image in pictures.items():
+            image.save(folder / name)
+        (folder / "sprite.json").write_text(json.dumps(facts, indent=2) + "\n", encoding="utf-8")
+        changed += 1
+    print("DS sprites: %d Pokemon updated from the studio" % changed)
 
 
 def main():

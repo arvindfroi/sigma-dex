@@ -194,6 +194,9 @@ def render_species(data):
     put(1, "concept", scalar(design.get("concept")), "what is it? one or two sentences")
     put(1, "name_origin", scalar(design.get("name_origin")))
     put(1, "notes", scalar(design.get("notes")))
+    put(1, "wishes", scalar(design.get("wishes")), "for Claude: how it should play, move ideas")
+    put(1, "claude_fill", scalar(bool(design.get("claude_fill"))), "true = Claude may fill in what is missing")
+    put_list(1, "filled_by_claude", design.get("filled_by_claude"), "fields Claude filled in (people can change them)")
     lines += ["", "# --- Assets (paths inside this repo, leave empty until the file exists) ---"]
     put(0, "assets")
     put(1, "concept_art", scalar(assets.get("concept_art")), "e.g. assets/concept-art/%s.png" % sid)
@@ -405,7 +408,7 @@ FIELDS = {
     "base_stats": tuple(STATS),
     "held_items": ("common", "rare"),
     "learnset": ("level_up", "tm_hm", "tutor", "egg"),
-    "design": ("concept", "name_origin", "notes"),
+    "design": ("concept", "name_origin", "notes", "wishes", "claude_fill", "filled_by_claude"),
     "assets": ("concept_art", "front_sprite", "front_anim", "back_sprite", "icon", "footprint", "shiny_palette", "cry"),
     "engine": ("no_flip", "elevation", "front_y_offset", "back_y_offset", "icon_palette", "safari_flee_rate"),
 }
