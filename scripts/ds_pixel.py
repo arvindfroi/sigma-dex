@@ -187,52 +187,53 @@ def icon_frames(icon):
     return sheet
 
 
-def despeckle(a):
-    """A lone pixel (none of its 4 neighbours has its colour, at least 3 of them solid) takes the
-    commonest neighbour colour; dark and very light pixels stay (eyes, mouths, glints). Twice."""
-    for _ in range(2):
-        solid = a[..., 3] > 0
-        key = a[..., 0].astype(int) * 65536 + a[..., 1].astype(int) * 256 + a[..., 2]
-        out = a.copy()
-        h, w = solid.shape
-        for y, x in zip(*np.nonzero(solid)):
-            lum = a[y, x, :3].astype(int) @ [299, 587, 114] / 1000
-            if lum < 70 or lum > 225:
-                continue
-            near = [(y + dy, x + dx) for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)) if 0 <= y + dy < h and 0 <= x + dx < w and solid[y + dy, x + dx]]
-            if len(near) >= 3 and all(key[q] != key[y, x] for q in near):
-                keys = [key[q] for q in near]
-                out[y, x] = a[near[keys.index(max(set(keys), key=keys.count))]]
-        a = out
-    return a
+ICON_OUTLINE = (64, 64, 64)       # HeartGold's menu icons have one dark grey outline colour (measured on its 493 icons)
 
 
-def icon_outline(a):
-    """A one-pixel dark outline just outside the silhouette, in a dark tone of the colour next to it,
-    darker toward the lower right: the games' menu icons all have one."""
+def icon_palettes(rom_files=Path.home() / "sigma-origin" / "x_spike_backup" / "files"):
+    """The DS's three shared icon palettes (16 colours each), read from the user's own ROM files when
+    they are on this computer (never stored in the repo); None elsewhere."""
+    path = Path(rom_files) / "data" / "pokeicon.narc"
+    if not path.exists():
+        return None
+    import struct
+    data = path.read_bytes()
+    count = struct.unpack_from("<I", data, 24)[0]
+    start, end = struct.unpack_from("<II", data, 28)
+    base = 16 + struct.unpack_from("<I", data, 20)[0]
+    base += struct.unpack_from("<I", data, base + 4)[0] + 8
+    nclr = data[base + start:base + end]
+    return [[((v & 31) << 3, ((v >> 5) & 31) << 3, ((v >> 10) & 31) << 3) for v in struct.unpack_from("<16H", nclr, 40 + 32 * k)] for k in range(3)]
+
+
+def in_icon_palette(a, palettes):
+    """The icon in the nearest of the three shared palettes (the game can show no other colours);
+    returns (pixels, palette number)."""
     solid = a[..., 3] > 0
-    out = a.copy()
-    h, w = solid.shape
-    for y in range(h):
-        for x in range(w):
-            if solid[y, x]:
-                continue
-            near = [(y + dy, x + dx) for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)) if 0 <= y + dy < h and 0 <= x + dx < w and solid[y + dy, x + dx]]
-            if near:
-                lower_right = any(q[0] < y or q[1] < x for q in near)
-                out[y, x, :3] = (a[near[0]][:3].astype(float) * (0.18 if lower_right else 0.35)).astype(np.uint8)
-                out[y, x, 3] = 255
-    return out
+    X = pixel_render.lab(a[..., :3].astype(np.uint8))[solid]
+    best = None
+    for k, P in enumerate(palettes):
+        choices = np.array(P[1:14], np.float32)                  # 0 is see-through, 14 and 15 the greys of the outlines
+        d = ((X[:, None] - pixel_render.lab(choices.astype(np.uint8).reshape(1, -1, 3)).reshape(-1, 3)[None]) ** 2).sum(axis=2)
+        if best is None or d.min(axis=1).sum() < best[0]:
+            best = (d.min(axis=1).sum(), k, choices[d.argmin(axis=1)])
+    a = a.copy()
+    a[solid, :3] = best[2].astype(np.uint8)
+    return a, best[1]
 
 
-def make_icon(art, folder, seeds=(5, 6), side=23):
-    """The menu icon (32x32), its own drawing. HeartGold's icons (measured locally: about 22x21
-    pixels, bottom on row 29, about 9 colours) are not the battle sprite made smaller: the pose is
-    rearranged into a compact, roughly square shape, seen from slightly above (almost isometric),
-    facing left, with a closed dark outline. Qwen draws that icon pose as an illustration
-    (ICON_ART); it is read on a grid where the creature is `side` cells (10 colours, each cell its
-    commonest colour), lone pixels go, and the outline is added. Chibi drawings and our renderer at
-    this size were both rejected (2026-10-05)."""
+def make_icon(art, folder, seeds=(5, 6), side=23, palettes="rom"):
+    """The menu icon (32x32), its own drawing. HeartGold's icons (measured locally on its 493:
+    about 22x21 pixels, bottom on row 29, about 9 colours, a one-colour dark grey outline, about a
+    fifth of the inside single detail pixels, all in one of three shared palettes) are not the
+    battle sprite made smaller: the pose is rearranged into a compact, roughly square shape, seen
+    from slightly above (almost isometric), facing left. Qwen draws that icon pose as an
+    illustration (ICON_ART); it is read on a grid where the creature is `side` cells, put in the
+    nearest shared palette (when the ROM's palettes are on this computer), and outlined in the
+    games' grey. Chibi drawings, our renderer at this size, despeckling (it took the detail pixels
+    the games keep) and outlines tinted by the colour next to them were all rejected (2026-10-05).
+    Returns the icon; its palette number is in icon.info["palette"] (None without the ROM)."""
+    palettes = icon_palettes() if palettes == "rom" else palettes
     best = None
     for seed in seeds:
         drawing = folder / ("icon_art_%d.png" % seed)
@@ -241,15 +242,25 @@ def make_icon(art, folder, seeds=(5, 6), side=23):
         rgb = pixel_render.load(str(drawing))
         x0, y0, x1, y1 = pixel_render.box_of(str(drawing))
         grid = max(24, round(side * max(rgb.shape[:2]) / max(x1 - x0, y1 - y0)))
-        icon = snap(drawing, colours=10, grid=grid)
+        icon = snap(drawing, colours=12, grid=grid)
         icon.thumbnail((30, 30), Image.NEAREST)
         canvas = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
         canvas.alpha_composite(icon, ((32 - icon.width) // 2, 29 - icon.height))
-        canvas = Image.fromarray(icon_outline(despeckle(np.array(canvas))))
+        a = np.array(canvas)
+        number = None
+        if palettes:
+            a, number = in_icon_palette(a, palettes)
+        solid = a[..., 3] > 0
+        pad = np.pad(solid, 1)
+        ring = ~solid & (pad[:-2, 1:-1] | pad[2:, 1:-1] | pad[1:-1, :-2] | pad[1:-1, 2:])
+        a[ring, :3] = palettes[number][15] if palettes else ICON_OUTLINE
+        a[ring, 3] = 255
+        canvas = Image.fromarray(a)
+        canvas.info["palette"] = number
         p = sprite_quality.parts(canvas)
         if "empty" in p:
             continue
-        score = -abs(max(p["height"], p["width"]) - (side + 2)) + (2 if p["eyes"] else 0) - 20 * p["noise"]
+        score = -abs(max(p["height"], p["width"]) - (side + 2)) + (2 if p["eyes"] else 0)
         if best is None or score > best[0]:
             best = (score, canvas)
     return best[1]
