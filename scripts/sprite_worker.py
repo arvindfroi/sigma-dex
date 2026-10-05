@@ -148,6 +148,9 @@ def recipes(job, settings):
             if view == "front":
                 others = "".join(" <image%d> shows the same creature." % (n + 2) for n in range(len(refs[1:3])))
                 pose = settings["official_poses"].get(job.get("pose") or "three-quarter", settings["official_poses"]["three-quarter"])
+                if job.get("gen") == 4:                   # the DS: the Pokemon's own pose (ds_pose), else one with attitude that fits its dex entry
+                    entry = settings.get("pokemon", {}).get(job["species_id"]) or {}
+                    pose = " ".join((entry.get("ds_pose") or "an expressive pose with attitude that fits what kind of Pokemon it is").split()).rstrip(".") + "."
                 text = settings["official_front" + GAMES[job.get("gen", 3)]["prompt"]].replace("{pose}", pose).replace("{character}", character(job["species_id"]))
                 signature = job.get("signature") or (settings.get("pokemon", {}).get(job["species_id"]) or {}).get("signature")
                 text = text.replace("{signature}", (" Its most important features must be big, bold and clearly readable even on a tiny sprite, "

@@ -8,7 +8,8 @@ a rough draft of the sprite next to the artwork: our renderer's sprite (scripts/
 blown up from a 96x96 canvas to 1024 (one sprite pixel = 10.7 pixels). Its picture is then read back
 on that same grid, so nothing is redrawn or resized afterwards:
 
-1. draft   our renderer's front and back (sprite_worker.ds_sprites) on the 96 canvas: size and place.
+1. draft   our renderer's front and back (sprite_worker.ds_sprites) on the 96 canvas, shown to Qwen
+           only as a grey silhouette: size, place and grid (shown the draft itself, Qwen copied its mess).
 2. front   Qwen draws the front from the artwork, laid out like the draft; a few seeds.
 3. snap    the picture read as 96x96 cells: 15 colours fitted over the creature (Lab k-means), each
            cell takes the colour most of it has, the white page goes; feet on the frame's bottom row.
@@ -40,18 +41,32 @@ STYLE = ("an official Pokemon battle sprite from Pokemon Diamond, Pearl, Platinu
          "on a coarse grid of big square pixels, each pixel a crisp square, no anti-aliasing, no blur, no dithering, a limited "
          "palette of at most 15 colors. A one-pixel dark outline around the creature, darker on the lower right; flat color "
          "areas with one shadow tone and small highlights, light from the upper left.")
-FRONT = ("Convert <image1> (the design) into %s It must be laid out like <image2>, a rough draft of the sprite at the right "
-         "size, place and pixel grid: the same size and place, the same pixel size, but cleaned up and drawn well. Keep the "
+FRONT = ("Convert <image1> (the design) into %s It must be laid out like <image2>, the sprite's grey silhouette at the right "
+         "size, place and pixel grid: the same size, place and outline, the same pixel size, drawn well inside it. Big "
+         "clean shapes, no noise, no single-pixel speckles. Keep the "
          "creature exactly as in <image1>: its design, colors, markings, pose and face. The face exactly as designed: the same eye "
          "shape and eye color, the same mouth and expression, drawn big and clear; do not add pupils, glints, teeth or details the "
          "design does not have. Hands, claws and small parts stay readable. Plain white background, nothing else.") % STYLE
 BACK = ("<image1> is an official Pokemon battle sprite from Pokemon Diamond, Pearl and HeartGold on the Nintendo DS. Draw the "
         "same creature's back sprite: the player's own Pokemon in a DS battle, seen from behind and a little from its left, "
         "looking over its shoulder toward the upper right, so we see its back, the back of its head and its tail, at most the "
-        "side of its face. Big and close, cut off flat by the bottom edge, laid out like <image2> (a rough draft of the back at "
-        "the right size, place and pixel grid). The same pixel art style as <image1>: the same pixel size, the same colors, a "
+        "side of its face. Seen fairly close, its upper body and head in view, cut off flat by the bottom edge, laid out like "
+        "<image2> (its grey silhouette at the right size, place and pixel grid). Big clean shapes, no noise. The same pixel art style as <image1>: the same pixel size, the same colors, a "
         "one-pixel dark outline, flat shading, no anti-aliasing. <image3> shows how its back looks: draw the markings and colors "
         "on its back as there. Plain white background, nothing else.")
+
+
+def silhouette(sprite):
+    """Only the draft's shape: light grey with a one-pixel dark edge. Shown the draft itself, Qwen
+    copied its messy inside (2026-10-05); the shape gives size, place and grid and nothing else."""
+    a = np.array(sprite.convert("RGBA"))
+    solid = a[..., 3] > 0
+    pad = np.pad(solid, 1)
+    edge = solid & ~(pad[:-2, 1:-1] & pad[2:, 1:-1] & pad[1:-1, :-2] & pad[1:-1, 2:])
+    out = np.zeros_like(a)
+    out[solid] = (214, 214, 214, 255)
+    out[edge] = (90, 90, 90, 255)
+    return Image.fromarray(out)
 
 
 def on_canvas(sprite, path):
@@ -151,7 +166,7 @@ def back_score(back, front):
     rows = np.nonzero(a.any(axis=1))[0]
     flat = a[rows.max()].sum() / max(1, a.any(axis=0).sum())
     eyes = sprite_quality.parts(back)["eyes"]
-    return round(2 * flat - abs(a.sum() - 2600) / 1000 - (4 if eyes >= 2 else 0), 2)
+    return round(2 * flat - abs(a.sum() - 2100) / 1000 - (4 if eyes >= 2 else 0), 2)
 
 
 def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7)):
@@ -161,9 +176,16 @@ def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7)):
     folder.mkdir(parents=True, exist_ok=True)
     k = sprite_worker.stage(species_id)
     target = sprite_worker.GAMES[4]["sizes"][k]
-    drafts = sprite_worker.ds_sprites(raw, species_id, folder / "draft_")
-    guide_front = on_canvas(Image.open(drafts["front"]).convert("RGBA"), folder / "guide_front.png")
-    guide_back = on_canvas(Image.open(drafts["back"]).convert("RGBA"), folder / "guide_back.png")
+    # the backs are drawn at about HeartGold's median size (more of the upper body seen): the bigger
+    # ones (68/77/80, 1.15x) were mostly one colour, a tail or a cape
+    saved = sprite_worker.GAMES[4]
+    sprite_worker.GAMES[4] = dict(saved, back_sizes=(56, 64, 70), back_areas=(1700, 2200, 2600))
+    try:
+        drafts = sprite_worker.ds_sprites(raw, species_id, folder / "draft_")
+    finally:
+        sprite_worker.GAMES[4] = saved
+    guide_front = on_canvas(silhouette(Image.open(drafts["front"])), folder / "guide_front.png")
+    guide_back = on_canvas(silhouette(Image.open(drafts["back"])), folder / "guide_back.png")
     fronts = []
     for seed in seeds:
         picture = folder / ("qwen_front_%d.png" % seed)
@@ -186,9 +208,11 @@ def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7)):
     front.save(files["front"])
     back.save(files["back"])
     # the icon: the chosen front picture read on a grid coarse enough for the creature to be 28 pixels
-    icon = snap(folder / ("qwen_front_%d.png" % seed), grid=max(24, round(GRID * 28 / max(front.getbbox()[2] - front.getbbox()[0], front.getbbox()[3] - front.getbbox()[1]))))
-    canvas = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
+    # (Qwen asked to draw a 32x32 icon drew it far too small, about 10 pixels, 2026-10-05)
+    box = front.getbbox()
+    icon = to_palette(snap(folder / ("qwen_front_%d.png" % seed), grid=max(24, round(GRID * 28 / max(box[2] - box[0], box[3] - box[1])))), palette)
     icon.thumbnail((32, 32), Image.NEAREST)
+    canvas = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
     canvas.alpha_composite(icon, ((32 - icon.width) // 2, 32 - icon.height))
     canvas.save(files["icon"])
     (folder / "picks.txt").write_text("front seeds %s -> %d; back seeds %s\n" % ([(f[1], f[0]) for f in fronts], seed, [(b[1], b[0]) for b in backs]))

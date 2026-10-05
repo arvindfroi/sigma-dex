@@ -133,15 +133,15 @@ official_front_gen4: >-
   HeartGold and SoulSilver, Ken Sugimori's Nintendo DS era style. The design is the group's and is
   copied exactly from the reference pictures: the same shapes and proportions, every part, marking
   and colour, the same face (eye shape and eye colour, mouth, expression); nothing is added,
-  removed or changed. Draw it the way it must look as a small game sprite: bold clean dark
+  removed or changed, and it has exactly as many arms, legs, wings, flippers, tails and eyes as in
+  the reference, no extra limbs. Draw it the way it must look as a small game sprite: bold clean dark
   outlines, large flat areas of color with one crisp shadow tone and a few small bright highlights,
   no gradients, no fine lines. Simplify detail instead of dropping it: a texture (scales, feathers,
   fur, leaves, muscles, wing veins) is shown by a few big clear shapes, not many small ones; the
   head, face, hands and other small parts drawn big and simple.{others} Its look: {look}.{signature}
-  {character} Pose: a calm, characteristic battle stance that shows what this Pokemon is and its
-  personality and shows off its signature features, the way the official battle sprites stand
-  (Bulbasaur, Typhlosion, Garchomp): grounded, confident, facing the opponent. Not waving, no
-  greeting gesture, no hand raised, not an action move or a dynamic action shot. Three-quarter view
+  {character} Pose: {pose} The pose shows its personality and character and shows off its signature
+  features, with attitude, as the official battle sprites do; not a greeting wave and not an attack
+  move. Three-quarter view
   turned toward the lower left, the whole body visible. Compose it for a square battle sprite: a
   compact silhouette about as tall as it is wide, with wings, capes, fins and long tails raised up
   behind the body or held close to it rather than spread out to the sides, so the creature can be
@@ -179,12 +179,16 @@ pokemon:
     seeds: {front: 21, back: 22}
   leafing:
     refs: [assets/concept-art/leafing/450.png, assets/concept-art/leafing/433.webp]
+    ds_pose: >-
+      calm and steady: standing on all four legs with its long neck raised and head turned toward the viewer, its leaf scales lifted a little along its back, its blade tail curled up behind it
     look: >-
       a green long-necked four-legged dinosaur covered in overlapping leaf scales, a single
       pointed leaf-shaped horn on its head pointing backwards, big friendly eyes, grey claws, and
       a long tail ending in a grey blade.
   waffy:
     refs: [assets/concept-art/waffy/451.jpg, assets/concept-art/waffy/336.webp]
+    ds_pose: >-
+      playful and curious: standing low on all four legs, body turned a little, head up with its bill tilted toward the viewer and its mouth open in a cheeky grin, its flat tail swung up behind it, ready to dart off
     look: >-
       a chubby blue platypus with a big yellow duck bill, big round eyes, an open happy mouth, a
       white belly, black clawed feet and a flat dark beaver tail.
@@ -196,6 +200,8 @@ pokemon:
       flame burning on the tip of its tail.
   autuman:
     refs: [assets/concept-art/autuman/174.webp, assets/concept-art/autuman/175.webp]
+    ds_pose: >-
+      stern and proud: standing firm with arms crossed or fists on its hips, chin up, frowning with determination, its maple leaf cape hanging around it
     look: >-
       a short yellow humanoid with a round head, a grumpy frowning face with angry eyebrows and
       pink blush, two leaf-shaped tufts sticking out of its head like pigtails, a grey bodysuit
@@ -204,6 +210,8 @@ pokemon:
     signature: a grumpy frowning face with angry eyebrows and a small frowning mouth, pink blush marks on both cheeks
   bugmight:
     refs: [assets/concept-art/bugmight/]
+    ds_pose: >-
+      a heroic superhero power stance: feet planted wide, fists clenched at its sides or on its hips, chest puffed out, head held high with its big confident grin, golden wings flared up behind it like a cape
     look: >-
       a muscular heroic bug-humanoid with a dark navy-blue body, a red chest with white and gold stripes, a yellow insect head with two long yellow antennae and two big glossy blue insect eyes without pupils, and big golden translucent insect wings
     signature: a huge wide toothy grin with white teeth, big round white eyes, a big head, long antennae
@@ -211,6 +219,8 @@ pokemon:
       two big glossy blue insect eyes without pupils, a huge wide toothy grin with white teeth, long yellow antennae
   chillalit:
     refs: [assets/concept-art/chillalit/206.webp, assets/concept-art/chillalit/207.webp]
+    ds_pose: >-
+      laid-back and cool: leaning back a little on its feet, its two flippers held loosely at its sides, head tilted, a relaxed confident smirk behind its sunglasses, its spiky hair standing tall
     look: >-
       a chubby navy-blue penguin with a white belly marked by a blue V, red stripes along its flippers and sides, spiky hair that is red on top and blue underneath, black sunglasses, a yellow beak and orange feet; on its back a blue swirl
     signature: black sunglasses, spiky flame hair, a cool confident smirk
@@ -218,6 +228,8 @@ pokemon:
       black sunglasses, spiky red-and-blue hair, the blue V on its white belly
   erobi:
     refs: [assets/concept-art/erobi/223.webp, assets/concept-art/erobi/397.webp]
+    ds_pose: >-
+      cheerful and friendly: perched upright on its thin legs, body leaning forward a little, its round smiley face turned to the viewer, wings slightly lifted as if about to flutter
     look: >-
       a small round bird whose head is a fluffy bright yellow ball with a simple smiley face: two small black oval eyes and one thin black curved smile line, no teeth; white feathered wings and body and thin orange legs
     signature: a big happy smile on a round sunny yellow face

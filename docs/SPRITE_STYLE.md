@@ -112,15 +112,21 @@ renderer is not random).
 `python scripts/sprite_batch.py NAME ... --gen 4` makes 80x80 DS sprites. Since 2026-10-05 the pixel
 art is drawn by Qwen-Image-Edit, not built by our renderer (`scripts/ds_pixel.py`):
 
-1. Qwen redraws the concept art as Diamond/Pearl-era official artwork that keeps the design
-   (`official_front_gen4`, `official_back_gen4` in `data/sprite_prompts.yaml`).
-2. Our renderer makes a rough sprite from it: only for its size, place and pixel grid.
-3. Qwen turns the artwork into a DS battle sprite, laid out like the rough sprite (three seeds).
+1. Qwen redraws the concept art as Diamond/Pearl-era official artwork that copies the design
+   exactly (same face, same number of limbs; `official_front_gen4`, `official_back_gen4` in
+   `data/sprite_prompts.yaml`), in a pose that shows its personality: the mon's own `ds_pose`, else
+   one that fits its dex entry (category and Pokedex text are put in the prompt). No waving: the
+   old generic "one arm raised" made every creature wave, and a pose that mentions a limb can make
+   Qwen add one (Chillalit got a third flipper).
+2. Our renderer makes a rough sprite from it: only its grey silhouette is used, for size, place and
+   pixel grid (shown the rough sprite itself, Qwen copied its mess).
+3. Qwen turns the artwork into a DS battle sprite inside that silhouette (three seeds).
 4. Its picture is read back on the rough sprite's grid (96x96 cells, 15 colours, each cell its
    commonest colour), so nothing is redrawn or resized; the best front is picked by size, eyes,
    noise and colours kept.
-5. The back is drawn by Qwen from the finished pixel front (same creature, same style), big and cut
-   off by the bottom edge, and given the front's colours.
+5. The back is drawn by Qwen from the finished pixel front (same creature, same style) and the back
+   artwork (for the markings on its back), at about HeartGold's median size, cut off by the bottom
+   edge, and given the front's colours. The 32x32 menu icon is read from the chosen front picture.
 
 Why: at the DS size our renderer's faces, hands and textures turned to specks, and the Pokemon
 sprite LoRAs either lost the design (they draw from text; given a picture they keep only its
