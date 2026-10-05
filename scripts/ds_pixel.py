@@ -47,12 +47,13 @@ FRONT = ("Convert <image1> (the design) into %s It must be laid out like <image2
          "creature exactly as in <image1>: its design, colors, markings, pose and face. The face exactly as designed: the same eye "
          "shape and eye color, the same mouth and expression, drawn big and clear; do not add pupils, glints, teeth or details the "
          "design does not have. Hands, claws and small parts stay readable. Plain white background, nothing else.") % STYLE
-ICON_ART = ("Redraw the creature from <image1> as its tiny party menu icon from Pokemon HeartGold, as a clean illustration: "
-            "a chibi version of it, the head about half of its height and drawn big, the body squashed and compact, short limbs, "
-            "the whole creature facing left (turned toward the left side of the picture, three-quarter view), standing. Keep its "
-            "design, colors and signature features, exaggerated and simplified so they read at 32 pixels: the face, the eyes, "
-            "the most recognisable parts; small details dropped. Bold dark outlines, flat colors, one shadow tone. It fills most "
-            "of the picture. Exactly one creature, plain white background, no text.")
+ICON_ART = ("Redraw the creature from <image1> in the pose and view of its tiny party menu icon in Pokemon HeartGold, as a "
+            "clean illustration. The same design and the same proportions as in <image1> (not chibi, not cuter, nothing added). The "
+            "pose is rearranged so the whole creature forms a compact, roughly square shape: wings, tails, arms and legs placed "
+            "around the body to fill a square, the way Beedrill's and Butterfree's menu icons spread their wings to the sides. Seen "
+            "from slightly above, in a three-quarter top-down view, almost isometric, the creature facing left toward the lower "
+            "left. Bold dark outlines, flat colors, one shadow tone, the face and signature features big and clear. It fills the "
+            "picture. Exactly one creature, plain white background, no text, no shadow.")
 BACK = ("<image1> is an official Pokemon battle sprite from Pokemon Diamond, Pearl and HeartGold on the Nintendo DS. Draw the "
         "same creature's back sprite: the player's own Pokemon in a DS battle, seen from behind and a little from its left, "
         "looking over its shoulder toward the upper right, so we see its back, the back of its head and its tail, at most the "
@@ -186,25 +187,69 @@ def icon_frames(icon):
     return sheet
 
 
-def make_icon(art, folder, seeds=(5, 6)):
-    """The menu icon (32x32), its own drawing: menu icons all face left and are squashed, the head
-    big, so it is not the battle sprite made smaller. Qwen draws a chibi icon illustration from the
-    artwork (ICON_ART); our renderer makes the 28-pixel icon from it (on such a small, flat drawing
-    it is clean; Qwen asked for the pixel icon itself drew it far too small or kept the guide's grey,
-    2026-10-05). The one closest to 28 pixels with a readable eye and little noise wins."""
+def despeckle(a):
+    """A lone pixel (none of its 4 neighbours has its colour, at least 3 of them solid) takes the
+    commonest neighbour colour; dark and very light pixels stay (eyes, mouths, glints). Twice."""
+    for _ in range(2):
+        solid = a[..., 3] > 0
+        key = a[..., 0].astype(int) * 65536 + a[..., 1].astype(int) * 256 + a[..., 2]
+        out = a.copy()
+        h, w = solid.shape
+        for y, x in zip(*np.nonzero(solid)):
+            lum = a[y, x, :3].astype(int) @ [299, 587, 114] / 1000
+            if lum < 70 or lum > 225:
+                continue
+            near = [(y + dy, x + dx) for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)) if 0 <= y + dy < h and 0 <= x + dx < w and solid[y + dy, x + dx]]
+            if len(near) >= 3 and all(key[q] != key[y, x] for q in near):
+                keys = [key[q] for q in near]
+                out[y, x] = a[near[keys.index(max(set(keys), key=keys.count))]]
+        a = out
+    return a
+
+
+def icon_outline(a):
+    """A one-pixel dark outline just outside the silhouette, in a dark tone of the colour next to it,
+    darker toward the lower right: the games' menu icons all have one."""
+    solid = a[..., 3] > 0
+    out = a.copy()
+    h, w = solid.shape
+    for y in range(h):
+        for x in range(w):
+            if solid[y, x]:
+                continue
+            near = [(y + dy, x + dx) for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)) if 0 <= y + dy < h and 0 <= x + dx < w and solid[y + dy, x + dx]]
+            if near:
+                lower_right = any(q[0] < y or q[1] < x for q in near)
+                out[y, x, :3] = (a[near[0]][:3].astype(float) * (0.18 if lower_right else 0.35)).astype(np.uint8)
+                out[y, x, 3] = 255
+    return out
+
+
+def make_icon(art, folder, seeds=(5, 6), side=23):
+    """The menu icon (32x32), its own drawing. HeartGold's icons (measured locally: about 22x21
+    pixels, bottom on row 29, about 9 colours) are not the battle sprite made smaller: the pose is
+    rearranged into a compact, roughly square shape, seen from slightly above (almost isometric),
+    facing left, with a closed dark outline. Qwen draws that icon pose as an illustration
+    (ICON_ART); it is read on a grid where the creature is `side` cells (10 colours, each cell its
+    commonest colour), lone pixels go, and the outline is added. Chibi drawings and our renderer at
+    this size were both rejected (2026-10-05)."""
     best = None
     for seed in seeds:
         drawing = folder / ("icon_art_%d.png" % seed)
         if not drawing.exists():
             comfy.generate(ICON_ART, drawing, [art], seed=seed, quiet=True)
-        with pixel_render.styled(**pixel_render.DS):
-            icon = pixel_render.render(str(drawing), size=28)
+        rgb = pixel_render.load(str(drawing))
+        x0, y0, x1, y1 = pixel_render.box_of(str(drawing))
+        grid = max(24, round(side * max(rgb.shape[:2]) / max(x1 - x0, y1 - y0)))
+        icon = snap(drawing, colours=10, grid=grid)
+        icon.thumbnail((30, 30), Image.NEAREST)
         canvas = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
-        canvas.alpha_composite(icon, ((32 - icon.width) // 2, 32 - 1 - icon.height))
+        canvas.alpha_composite(icon, ((32 - icon.width) // 2, 29 - icon.height))
+        canvas = Image.fromarray(icon_outline(despeckle(np.array(canvas))))
         p = sprite_quality.parts(canvas)
         if "empty" in p:
             continue
-        score = -abs(max(p["height"], p["width"]) - 28) + (2 if p["eyes"] else 0) - 20 * p["noise"]
+        score = -abs(max(p["height"], p["width"]) - (side + 2)) + (2 if p["eyes"] else 0) - 20 * p["noise"]
         if best is None or score > best[0]:
             best = (score, canvas)
     return best[1]
