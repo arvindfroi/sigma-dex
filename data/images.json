@@ -1769,5 +1769,26 @@
     "file": "assets/concept-art/obsidog/462.png",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 463,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/463.png",
+    "caption": "[ds-front] sprite #47",
+    "editor": null
+  },
+  {
+    "id": 464,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/464.png",
+    "caption": "[ds-back] sprite #47",
+    "editor": null
+  },
+  {
+    "id": 465,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/465.png",
+    "caption": "[ds-icon] sprite #47",
+    "editor": null
   }
 ]
