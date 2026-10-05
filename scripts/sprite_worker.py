@@ -102,6 +102,19 @@ def where(comment):
     return view, "About the %s area of the sprite: " % spot
 
 
+def character(species_id):
+    """What kind of Pokemon it is, from the dex (category, types, Pokedex entry): the DS artwork's pose
+    shows its personality from this, not a generic action (the generic "lively pose, one arm raised"
+    made every creature wave, 2026-10-05)."""
+    data = next((d for sid, _, d in dexlib.load_species()[0] if sid == species_id), {}) or {}
+    parts = []
+    if data.get("category"):
+        parts.append("It is the %s Pokemon (%s type)." % (data["category"], "/".join(data.get("types") or [])))
+    if data.get("description"):
+        parts.append("Its Pokedex entry: %s" % " ".join(str(data["description"]).split()))
+    return " ".join(parts)
+
+
 def recipes(job, settings):
     """For every view: the prompt and the reference pictures (as storage paths)."""
     two_step = job.get("style", "pixel") != "pixel"          # these styles start from a clean illustration
@@ -135,7 +148,7 @@ def recipes(job, settings):
             if view == "front":
                 others = "".join(" <image%d> shows the same creature." % (n + 2) for n in range(len(refs[1:3])))
                 pose = settings["official_poses"].get(job.get("pose") or "three-quarter", settings["official_poses"]["three-quarter"])
-                text = settings["official_front" + GAMES[job.get("gen", 3)]["prompt"]].replace("{pose}", pose)
+                text = settings["official_front" + GAMES[job.get("gen", 3)]["prompt"]].replace("{pose}", pose).replace("{character}", character(job["species_id"]))
                 signature = job.get("signature") or (settings.get("pokemon", {}).get(job["species_id"]) or {}).get("signature")
                 text = text.replace("{signature}", (" Its most important features must be big, bold and clearly readable even on a tiny sprite, "
                                                     "exaggerated if needed: %s." % signature.strip().rstrip(".")) if signature else "")

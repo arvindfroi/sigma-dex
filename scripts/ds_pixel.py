@@ -15,7 +15,8 @@ on that same grid, so nothing is redrawn or resized afterwards:
 4. pick    the front closest to its stage's size, with readable eyes, little single-pixel noise and
            the artwork's colours (sprite_quality).
 5. back    Qwen draws the back from the chosen pixel front (the same creature in the same style),
-           laid out like the back draft (big, cut off by the bottom edge); snapped the same way, cut
+           laid out like the back draft (big, cut off by the bottom edge), with the back artwork for the
+           markings on its back (Chillalit's swirl); snapped the same way, cut
            to the frame on the tail side, and given the front's colours.
 
 All pictures are made from our own concept art; no game sprites are shown to the model.
@@ -41,14 +42,16 @@ STYLE = ("an official Pokemon battle sprite from Pokemon Diamond, Pearl, Platinu
          "areas with one shadow tone and small highlights, light from the upper left.")
 FRONT = ("Convert <image1> (the design) into %s It must be laid out like <image2>, a rough draft of the sprite at the right "
          "size, place and pixel grid: the same size and place, the same pixel size, but cleaned up and drawn well. Keep the "
-         "creature exactly as in <image1>: its design, colors, pose, face and expression. Eyes are clear: a dark pupil with a "
-         "one-pixel white glint. Hands, claws and small parts stay readable. Plain white background, nothing else.") % STYLE
+         "creature exactly as in <image1>: its design, colors, markings, pose and face. The face exactly as designed: the same eye "
+         "shape and eye color, the same mouth and expression, drawn big and clear; do not add pupils, glints, teeth or details the "
+         "design does not have. Hands, claws and small parts stay readable. Plain white background, nothing else.") % STYLE
 BACK = ("<image1> is an official Pokemon battle sprite from Pokemon Diamond, Pearl and HeartGold on the Nintendo DS. Draw the "
         "same creature's back sprite: the player's own Pokemon in a DS battle, seen from behind and a little from its left, "
         "looking over its shoulder toward the upper right, so we see its back, the back of its head and its tail, at most the "
         "side of its face. Big and close, cut off flat by the bottom edge, laid out like <image2> (a rough draft of the back at "
         "the right size, place and pixel grid). The same pixel art style as <image1>: the same pixel size, the same colors, a "
-        "one-pixel dark outline, flat shading, no anti-aliasing. Plain white background, nothing else.")
+        "one-pixel dark outline, flat shading, no anti-aliasing. <image3> shows how its back looks: draw the markings and colors "
+        "on its back as there. Plain white background, nothing else.")
 
 
 def on_canvas(sprite, path):
@@ -175,7 +178,7 @@ def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7)):
     for bseed in back_seeds:
         picture = folder / ("qwen_back_%d.png" % bseed)
         if not picture.exists():
-            comfy.generate(BACK, picture, [shown, guide_back], seed=bseed, quiet=True)
+            comfy.generate(BACK, picture, [shown, guide_back, raw["back"]], seed=bseed, quiet=True)
         back = to_palette(back_frame(snap(picture)), palette)
         backs.append((back_score(back, front), bseed, back))
     back = max(backs, key=lambda b: b[0])[2]
