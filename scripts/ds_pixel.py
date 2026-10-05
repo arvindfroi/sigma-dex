@@ -47,6 +47,12 @@ FRONT = ("Convert <image1> (the design) into %s It must be laid out like <image2
          "creature exactly as in <image1>: its design, colors, markings, pose and face. The face exactly as designed: the same eye "
          "shape and eye color, the same mouth and expression, drawn big and clear; do not add pupils, glints, teeth or details the "
          "design does not have. Hands, claws and small parts stay readable. Plain white background, nothing else.") % STYLE
+ICON_ART = ("Redraw the creature from <image1> as its tiny party menu icon from Pokemon HeartGold, as a clean illustration: "
+            "a chibi version of it, the head about half of its height and drawn big, the body squashed and compact, short limbs, "
+            "the whole creature facing left (turned toward the left side of the picture, three-quarter view), standing. Keep its "
+            "design, colors and signature features, exaggerated and simplified so they read at 32 pixels: the face, the eyes, "
+            "the most recognisable parts; small details dropped. Bold dark outlines, flat colors, one shadow tone. It fills most "
+            "of the picture. Exactly one creature, plain white background, no text.")
 BACK = ("<image1> is an official Pokemon battle sprite from Pokemon Diamond, Pearl and HeartGold on the Nintendo DS. Draw the "
         "same creature's back sprite: the player's own Pokemon in a DS battle, seen from behind and a little from its left, "
         "looking over its shoulder toward the upper right, so we see its back, the back of its head and its tail, at most the "
@@ -169,6 +175,41 @@ def back_score(back, front):
     return round(2 * flat - abs(a.sum() - 2100) / 1000 - (4 if eyes >= 2 else 0), 2)
 
 
+def icon_frames(icon):
+    """The menu icon's two animation frames, 32x64: the second is the first one pixel higher (the hop
+    the party screen plays)."""
+    sheet = Image.new("RGBA", (32, 64), (0, 0, 0, 0))
+    sheet.alpha_composite(icon, (0, 0))
+    up = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
+    up.alpha_composite(icon.crop((0, 1, 32, 32)), (0, 0))
+    sheet.alpha_composite(up, (0, 32))
+    return sheet
+
+
+def make_icon(art, folder, seeds=(5, 6)):
+    """The menu icon (32x32), its own drawing: menu icons all face left and are squashed, the head
+    big, so it is not the battle sprite made smaller. Qwen draws a chibi icon illustration from the
+    artwork (ICON_ART); our renderer makes the 28-pixel icon from it (on such a small, flat drawing
+    it is clean; Qwen asked for the pixel icon itself drew it far too small or kept the guide's grey,
+    2026-10-05). The one closest to 28 pixels with a readable eye and little noise wins."""
+    best = None
+    for seed in seeds:
+        drawing = folder / ("icon_art_%d.png" % seed)
+        if not drawing.exists():
+            comfy.generate(ICON_ART, drawing, [art], seed=seed, quiet=True)
+        with pixel_render.styled(**pixel_render.DS):
+            icon = pixel_render.render(str(drawing), size=28)
+        canvas = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
+        canvas.alpha_composite(icon, ((32 - icon.width) // 2, 32 - 1 - icon.height))
+        p = sprite_quality.parts(canvas)
+        if "empty" in p:
+            continue
+        score = -abs(max(p["height"], p["width"]) - 28) + (2 if p["eyes"] else 0) - 20 * p["noise"]
+        if best is None or score > best[0]:
+            best = (score, canvas)
+    return best[1]
+
+
 def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7)):
     """Front and back for one attempt's artwork (raw: {"front": art, "back": art}). Writes
     front.png, back.png and icon.png in `folder` and returns ({view: path}, front score)."""
@@ -207,13 +248,8 @@ def make(raw, species_id, folder, seeds=(5, 6, 7), back_seeds=(5, 6, 7)):
     files = {"front": folder / "front.png", "back": folder / "back.png", "icon": folder / "icon.png"}
     front.save(files["front"])
     back.save(files["back"])
-    # the icon: the chosen front picture read on a grid coarse enough for the creature to be 28 pixels
-    # (Qwen asked to draw a 32x32 icon drew it far too small, about 10 pixels, 2026-10-05)
-    box = front.getbbox()
-    icon = to_palette(snap(folder / ("qwen_front_%d.png" % seed), grid=max(24, round(GRID * 28 / max(box[2] - box[0], box[3] - box[1])))), palette)
-    icon.thumbnail((32, 32), Image.NEAREST)
-    canvas = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
-    canvas.alpha_composite(icon, ((32 - icon.width) // 2, 32 - icon.height))
-    canvas.save(files["icon"])
+    icon = make_icon(raw["front"], folder)
+    icon.save(files["icon"])
+    icon_frames(icon).save(folder / "icon_frames.png")
     (folder / "picks.txt").write_text("front seeds %s -> %d; back seeds %s\n" % ([(f[1], f[0]) for f in fronts], seed, [(b[1], b[0]) for b in backs]))
     return files, score
