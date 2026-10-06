@@ -1790,5 +1790,26 @@
     "file": "assets/concept-art/waffy/465.png",
     "caption": "[ds-icon] sprite #47",
     "editor": null
+  },
+  {
+    "id": 466,
+    "species": "twemp",
+    "file": "assets/concept-art/twemp/466.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 467,
+    "species": "fleuroom",
+    "file": "assets/concept-art/fleuroom/467.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 468,
+    "species": "fleuroom",
+    "file": "assets/concept-art/fleuroom/468.png",
+    "caption": null,
+    "editor": null
   }
 ]

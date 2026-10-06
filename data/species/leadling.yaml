@@ -46,7 +46,7 @@ held_items:              # items wild ones can hold (optional)
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
 evolutions:
-  - into: blylem
+  - into: leadling-utvikling
     method: level
     level: 20
 

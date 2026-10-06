@@ -1,12 +1,12 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
-dex: 7
-name: Torchbat
+dex: 107
+name: Wisprake utvikling2
 
 credits:
-  designer: Emil Venge-Kvamme # who came up with it (Discord name)
+  designer: Michael      # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: [Fire]            # 1 or 2 types, e.g. [Grass, Steel]
+types: [Ghost, Dragon]   # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -17,19 +17,19 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Blaze
+  primary:
   secondary:             # optional
-  hidden: No Guard       # optional
+  hidden:                # optional
 
 base_stats:              # each 1-255
-  hp: 45
-  attack: 50
-  defense: 45
-  sp_attack: 60
-  sp_defense: 50
-  speed: 70
+  hp:
+  attack:
+  defense:
+  sp_attack:
+  sp_defense:
+  speed:
 
-ev_yield: {speed: 1}     # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -45,20 +45,17 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions:
-  - into: heatbat
-    method: level
-    level: 16
+evolutions: []
+# evolutions:
+#   - into: leafsteel    # file name of the target, without .yaml
+#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
+#     level: 16          # for method: level
+#     item:              # for method: item, e.g. Thunder Stone
+#     note:              # anything else worth knowing
 
 # --- Moves ---
 learnset:
-  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  level_up:
-    - {level: 1, move: Scratch}
-    - {level: 1, move: Growl}
-    - {level: 6, move: Ember}
-    - {level: 10, move: Supersonic}
-    - {level: 14, move: Flame Charge}
+  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
@@ -70,18 +67,18 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 design:
   concept:               # what is it? one or two sentences
   name_origin:
-  notes: DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.
+  notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: []   # fields Claude filled in (people can change them)
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art: "assets/concept-art/torchbat/376.webp"
-  front_sprite: "assets/sprites/torchbat/front.png"
-  front_anim: "assets/sprites/torchbat/anim_front.png"
-  back_sprite: "assets/sprites/torchbat/back.png"
-  icon: "assets/sprites/torchbat/icon.png"
+  concept_art:           # e.g. assets/concept-art/wisprake-utvikling2.png
+  front_sprite:          # front.png      64x64, 16 colors
+  front_anim:            # anim_front.png 64x128, two frames stacked
+  back_sprite:           # back.png       64x64, same 16 colors as the front
+  icon:                  # icon.png       32x64, two frames stacked
   footprint:             # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
@@ -90,7 +87,7 @@ assets:
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle
-  front_y_offset: 11     # pixels the front sprite is moved down
-  back_y_offset: 11      # pixels the back sprite is moved down
-  icon_palette: 5        # 0, 1 or 2 - which shared icon palette fits best
+  front_y_offset:        # pixels the front sprite is moved down
+  back_y_offset:         # pixels the back sprite is moved down
+  icon_palette:          # 0, 1 or 2 - which shared icon palette fits best
   safari_flee_rate: 0

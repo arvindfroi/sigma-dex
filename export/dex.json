@@ -751,12 +751,12 @@
         "hidden": "No Guard"
       },
       "base_stats": {
-        "hp": 40,
-        "attack": 55,
+        "hp": 45,
+        "attack": 50,
         "defense": 45,
         "sp_attack": 60,
-        "sp_defense": 45,
-        "speed": 75
+        "sp_defense": 50,
+        "speed": 70
       },
       "ev_yield": {
         "speed": 1
@@ -1457,7 +1457,7 @@
         "filled_by_claude": []
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/twemp/466.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -4140,6 +4140,157 @@
       "id": "beatld"
     },
     {
+      "dex": 51,
+      "name": "Fleuroom",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Poison",
+        "Fairy"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/fleuroom/467.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "fleuroom"
+    },
+    {
+      "dex": 52,
+      "name": "Fleuroom utvikling",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "fleuroom-utvikling"
+    },
+    {
       "dex": 53,
       "name": "Giga-Circuit",
       "credits": {
@@ -5081,7 +5232,7 @@
         "hidden": "Misty Surge"
       },
       "base_stats": {
-        "hp": 35,
+        "hp": 30,
         "attack": 37,
         "defense": 71,
         "sp_attack": 100,
@@ -5166,7 +5317,7 @@
         "hidden": "Misty Surge"
       },
       "base_stats": {
-        "hp": 51,
+        "hp": 46,
         "attack": 67,
         "defense": 100,
         "sp_attack": 167,
@@ -5747,7 +5898,7 @@
       },
       "evolutions": [
         {
-          "into": "blylem",
+          "into": "leadling-utvikling",
           "method": "level",
           "level": 20
         }
@@ -5786,6 +5937,89 @@
         "safari_flee_rate": 0
       },
       "id": "leadling"
+    },
+    {
+      "dex": 74,
+      "name": "Leadling Utvikling",
+      "credits": {
+        "designer": "Emil",
+        "artist": null
+      },
+      "types": [
+        "Rock",
+        "Poison"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "blylem",
+          "method": "level",
+          "level": 40
+        }
+      ],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "leadling-utvikling"
     },
     {
       "dex": 75,
@@ -5870,6 +6104,89 @@
         "safari_flee_rate": 0
       },
       "id": "blylem"
+    },
+    {
+      "dex": 76,
+      "name": "Iglomodo mindre utv",
+      "credits": {
+        "designer": "Emil",
+        "artist": null
+      },
+      "types": [
+        "Ice",
+        "Poison"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "iglomodo",
+          "method": "level",
+          "level": 30
+        }
+      ],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "iglomodo-mindre-utv"
     },
     {
       "dex": 77,
@@ -7126,11 +7443,11 @@
         "hidden": "Rough Skin"
       },
       "base_stats": {
-        "hp": 60,
-        "attack": 80,
-        "defense": 65,
-        "sp_attack": 35,
-        "sp_defense": 50,
+        "hp": 50,
+        "attack": 75,
+        "defense": 70,
+        "sp_attack": 40,
+        "sp_defense": 55,
         "speed": 50
       },
       "ev_yield": {
@@ -7147,7 +7464,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "obsidog-utvikling",
+          "method": "item",
+          "item": "Dusk Stone"
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -7182,6 +7505,315 @@
         "safari_flee_rate": 0
       },
       "id": "obsidog"
+    },
+    {
+      "dex": 104,
+      "name": "Obsidog utvikling",
+      "credits": {
+        "designer": "Emil",
+        "artist": null
+      },
+      "types": [
+        "Dark",
+        "Rock"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Strong Jaw",
+        "secondary": "Intimidate",
+        "hidden": "Rough Skin"
+      },
+      "base_stats": {
+        "hp": 80,
+        "attack": 128,
+        "defense": 110,
+        "sp_attack": 72,
+        "sp_defense": 90,
+        "speed": 75
+      },
+      "ev_yield": {
+        "attack": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "obsidog-utvikling"
+    },
+    {
+      "dex": 105,
+      "name": "Wisprake",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Ghost"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "wisprake"
+    },
+    {
+      "dex": 106,
+      "name": "Wisprake utvikling 1",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Ghost",
+        "Dragon"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "wisprake-utvikling-1"
+    },
+    {
+      "dex": 107,
+      "name": "Wisprake utvikling2",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Ghost",
+        "Dragon"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "wisprake-utvikling2"
     },
     {
       "dex": 151,

@@ -176,12 +176,12 @@ SINGLE_BATTLE_TEST("Sigma dex: Warrallier can use its first move in battle")
 TEST("Sigma dex: Torchbat has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_TORCHBAT];
-    EXPECT_EQ(info->baseHP, 40);
-    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseHP, 45);
+    EXPECT_EQ(info->baseAttack, 50);
     EXPECT_EQ(info->baseDefense, 45);
-    EXPECT_EQ(info->baseSpeed, 75);
+    EXPECT_EQ(info->baseSpeed, 70);
     EXPECT_EQ(info->baseSpAttack, 60);
-    EXPECT_EQ(info->baseSpDefense, 45);
+    EXPECT_EQ(info->baseSpDefense, 50);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
     EXPECT_EQ(info->types[1], TYPE_FIRE);
     EXPECT_EQ(info->abilities[0], ABILITY_BLAZE);
@@ -512,7 +512,7 @@ SINGLE_BATTLE_TEST("Sigma dex: Devampry can use its first move in battle")
 TEST("Sigma dex: Janenon has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_JANENON];
-    EXPECT_EQ(info->baseHP, 51);
+    EXPECT_EQ(info->baseHP, 46);
     EXPECT_EQ(info->baseAttack, 67);
     EXPECT_EQ(info->baseDefense, 100);
     EXPECT_EQ(info->baseSpeed, 25);

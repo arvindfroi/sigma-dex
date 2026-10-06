@@ -22,7 +22,7 @@ abilities:
   hidden: Misty Surge    # optional
 
 base_stats:              # each 1-255
-  hp: 51
+  hp: 46
   attack: 67
   defense: 100
   sp_attack: 167

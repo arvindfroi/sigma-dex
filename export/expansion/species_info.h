@@ -300,12 +300,12 @@
 
     [SPECIES_TORCHBAT] =
     {
-        .baseHP = 40,
-        .baseAttack = 55,
+        .baseHP = 45,
+        .baseAttack = 50,
         .baseDefense = 45,
-        .baseSpeed = 75,
+        .baseSpeed = 70,
         .baseSpAttack = 60,
-        .baseSpDefense = 45,
+        .baseSpDefense = 50,
         .types = MON_TYPES(TYPE_FIRE),
         .catchRate = 45,
         .expYield = 64,
@@ -898,7 +898,7 @@
 
     [SPECIES_JANENON] =
     {
-        .baseHP = 51,
+        .baseHP = 46,
         .baseAttack = 67,
         .baseDefense = 100,
         .baseSpeed = 25,

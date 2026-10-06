@@ -22,11 +22,11 @@ abilities:
   hidden: Rough Skin     # optional
 
 base_stats:              # each 1-255
-  hp: 60
-  attack: 80
-  defense: 65
-  sp_attack: 35
-  sp_defense: 50
+  hp: 50
+  attack: 75
+  defense: 70
+  sp_attack: 40
+  sp_defense: 55
   speed: 50
 
 ev_yield: {attack: 1}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
@@ -45,13 +45,10 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+evolutions:
+  - into: obsidog-utvikling
+    method: item
+    item: Dusk Stone
 
 # --- Moves ---
 learnset:
