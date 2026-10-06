@@ -39,6 +39,19 @@ A whole Pokemon from rough concept art, one approved step at a time:
 4. front + back -> follower sheet (`pkmn_follower_edit_v2`, queued: v1 saw only the front and had to
    guess the back and sides) and icon.
 
+## What to try next (research, 2026-10-06)
+
+1. A held-out test set of our own mons (never trained on), checkpoints every 250 steps, pick by the
+   test set, not the loss. A comparable public Qwen-Image 2.1 edit LoRA (same tool, rank 32, 3000
+   steps) was best at step 1500.
+2. Structured tags next to the fixed instruction (view, generation, format, body shape, colours;
+   never real Pokemon names), made by Qwen3-VL with a fixed word list and spot-checked.
+3. One LoRA for 1-3 optional inputs: train some pairs with an input left out (untested idea).
+4. Short A/B runs: LoKr vs LoRA, rank 16 vs 32, latents cached to disk.
+5. Other trainers (DiffSynth-Studio supports 2.1 edit training; musubi-tuner not confirmed for 2.1)
+   only if speed becomes the problem. Not now: NVFP4 training, another base model, image-to-3D
+   (Hunyuan3D 2.1 shape-only / mini and Pixal3D fit 16 GB, for later).
+
 ## Next ones (planned, same recipe)
 
 - back: front -> back (training, `pairs4`);
