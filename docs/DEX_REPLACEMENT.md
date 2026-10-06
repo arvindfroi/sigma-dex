@@ -54,6 +54,31 @@ Every species has its own cry; changing the pictures keeps the old cry. Options:
 - Event species: the Spiky-eared Pichu event, the Arceus event, Pokéwalker species.
 - Pokéwalker, Pal Park and GTS connect outside the game: ignored.
 
+### Slots our mons never take (unless on purpose)
+
+The game runs special code for these species numbers, so a mon put there would get it too:
+
+| Slot | Species | What the game does |
+|---|---|---|
+| 201 | Unown | 28 forms chosen at random; Ruins of Alph and the Unown Report |
+| 327 | Spinda | paints random spots on top of the sprite |
+| 351 | Castform | changes form with the weather |
+| 386 | Deoxys | 4 forms |
+| 412, 413 | Burmy, Wormadam | cloak forms from where they last battled |
+| 421 | Cherrim | changes form in sun |
+| 422, 423 | Shellos, Gastrodon | east and west sea forms |
+| 479 | Rotom | 6 appliance forms |
+| 487 | Giratina | Origin form with the Griseous Orb |
+| 492 | Shaymin | Sky form, turns back at night or when frozen |
+| 493 | Arceus | 17 type forms from plates |
+| 172 | Pichu | the Spiky-eared Pichu event |
+
+Origin also adds later species with forms (seasons, regional forms, Vivillon, Minior, ...); the
+export script must check each slot for forms before using it.
+
+In the training data the same species are trimmed to one picture each (one Unown, one Arceus, no
+Gigantamax), so they do not dominate what the LoRAs learn.
+
 ## 5. Choices for the group
 
 - Which slots our mons take (pure, mixed or post-Champion dex is not decided yet). The legendary
