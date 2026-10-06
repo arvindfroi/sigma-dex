@@ -29,9 +29,19 @@ follower) when it does not.
   `aitk_train*.ps1` (waits for a running studio job, pauses the sprite worker so the GPU is free,
   trains, starts the worker again), `aitk_out\` (results, copied to `ComfyUI\models\loras\`).
 
+## The family (agreed with Arvind, 2026-10-06)
+
+A whole Pokemon from rough concept art, one approved step at a time:
+
+1. sketch -> Ken Sugimori style artwork (Qwen prompt today, `official_front_gen4`); the group approves it;
+2. artwork -> DS front (`ds_pixel.make`, approved);
+3. front -> back (`pkmn_back_edit_v1`, training);
+4. front + back -> follower sheet (`pkmn_follower_edit_v2`, queued: v1 saw only the front and had to
+   guess the back and sides) and icon.
+
 ## Next ones (planned, same recipe)
 
-- back: front -> back (the pairs exist for the same 1400);
+- back: front -> back (training, `pairs4`);
 - front from a drawing: needs pairs of drawings and sprites first (Qwen drawing a Sugimori-style
   picture of each battle sprite, about a day of GPU time);
 - trainers (about 160 examples).
