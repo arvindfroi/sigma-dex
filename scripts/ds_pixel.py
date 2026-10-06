@@ -475,10 +475,11 @@ def follower_from_front(front, folder, seeds=(1, 2)):
     frames are the same creature. Returns (sheet, grid picture of 4 directions x 2 steps)."""
     ref = front_reference(front, folder / "follower_ref.png")
     tries = []
-    for seed in seeds:
-        picture = folder / ("lora_follower_%d.png" % seed)
+    # the size it was trained at (2:1 buckets of 640): at 1024x512 it drew a 6x3 grid instead of 4x2
+    for seed, size in [(seed, size) for seed in seeds for size in ((640, 320), (896, 448))]:
+        picture = folder / ("lora_follower_%d_%d.png" % (seed, size[0]))
         if not picture.exists():
-            comfy.generate(FOLLOWER_EDIT, picture, [ref], size=(1024, 512), seed=seed, quiet=True, lora=FOLLOWER_LORA)
+            comfy.generate(FOLLOWER_EDIT, picture, [ref], size=size, seed=seed, quiet=True, lora=FOLLOWER_LORA)
         grid = read_cells(picture, 128, 64)
         p = sprite_quality.parts(grid)
         if "empty" in p:
