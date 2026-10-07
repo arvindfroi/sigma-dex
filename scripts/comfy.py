@@ -52,15 +52,19 @@ def upload(path):
     return answer["name"]
 
 
-def workflow(prompt, references, width, height, steps, seed, prefix, lora=None, lora_strength=1.0):
-    """The node graph: load the model (with a LoRA of ours if given), read the prompt and references, sample, save."""
+def workflow(prompt, references, width, height, steps, seed, prefix, lora=None, lora_strength=1.0, ref_resolution=1024):
+    """The node graph: load the model (with a LoRA of ours if given), read the prompt and references, sample, save.
+
+    `ref_resolution` is the pixel budget the references are resized to (1024 by default); 0 keeps each at its own size
+    (multiple of 32). Our edit LoRAs were trained on 640 px pictures (one latent cell per sprite pixel), so they want 0;
+    the canvas should then match the first reference (ComfyUI's note: another size shifts the edit)."""
     graph = {
         "model": {"class_type": "UNETLoader", "inputs": {"unet_name": MODEL, "weight_dtype": "default"}},
         "cache": {"class_type": "QwenImage21Cache", "inputs": {"model": ["model", 0], "device": "auto", "dtype": "default"}},
         "clip": {"class_type": "CLIPLoader", "inputs": {"clip_name": TEXT_ENCODER, "type": "qwen_image", "device": "default"}},
         "vae": {"class_type": "VAELoader", "inputs": {"vae_name": VAE}},
         "text": {"class_type": "TextEncodeQwenImage21", "inputs": {
-            "clip": ["clip", 0], "vae": ["vae", 0], "prompt": prompt, "negative_prompt": "", "resolution": 1024}},
+            "clip": ["clip", 0], "vae": ["vae", 0], "prompt": prompt, "negative_prompt": "", "resolution": ref_resolution}},
         "canvas": {"class_type": "EmptyLatentImage", "inputs": {"width": width, "height": height, "batch_size": 1}},
         "sampler": {"class_type": "KSampler", "inputs": {
             "model": ["cache", 0], "positive": ["text", 0], "negative": ["text", 1], "latent_image": ["canvas", 0],
@@ -98,13 +102,14 @@ def run(graph):
     return data
 
 
-def generate(prompt, out, refs=(), size=(1024, 1024), steps=25, seed=None, transparent=False, quiet=False, lora=None, lora_strength=1.0):
+def generate(prompt, out, refs=(), size=(1024, 1024), steps=25, seed=None, transparent=False, quiet=False, lora=None, lora_strength=1.0,
+             ref_resolution=1024):
     """Make one picture and save it to `out`. Returns the seed that was used."""
     seed = int(time.time() * 1000) % (2 ** 31) if seed is None else seed
     if transparent:
         prompt = TRANSPARENT % prompt.strip()
     references = [upload(path) for path in refs]
-    graph = workflow(prompt, references, size[0], size[1], steps, seed, "sigma/" + Path(out).stem, lora, lora_strength)
+    graph = workflow(prompt, references, size[0], size[1], steps, seed, "sigma/" + Path(out).stem, lora, lora_strength, ref_resolution)
     started = time.time()
     data = run(graph)
     Path(out).parent.mkdir(parents=True, exist_ok=True)
