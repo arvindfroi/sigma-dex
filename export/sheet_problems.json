@@ -28,7 +28,19 @@
     "problem": "this row has no name, and number 76 may belong to another Pokemon now - write the name"
   },
   {
+    "row": "#84 ",
+    "problem": "this row has no name, and number 84 may belong to another Pokemon now - write the name"
+  },
+  {
     "row": "#86 ",
     "problem": "this row has no name, and number 86 may belong to another Pokemon now - write the name"
+  },
+  {
+    "row": "#89 ",
+    "problem": "this row has no name, and number 89 may belong to another Pokemon now - write the name"
+  },
+  {
+    "row": "#90 ",
+    "problem": "this row has no name, and number 90 may belong to another Pokemon now - write the name"
   }
 ]
