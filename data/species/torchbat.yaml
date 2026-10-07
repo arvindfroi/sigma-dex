@@ -3,7 +3,7 @@ dex: 7
 name: Torchbat
 
 credits:
-  designer: Emil Venge-Kvamme # who came up with it (Discord name)
+  designer: "Emil & Arvind" # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Fire]            # 1 or 2 types, e.g. [Grass, Steel]
@@ -77,7 +77,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art: "assets/concept-art/torchbat/376.webp"
+  concept_art: "assets/concept-art/torchbat/469.png"
   front_sprite: "assets/sprites/torchbat/front.png"
   front_anim: "assets/sprites/torchbat/anim_front.png"
   back_sprite: "assets/sprites/torchbat/back.png"

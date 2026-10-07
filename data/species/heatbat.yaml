@@ -3,10 +3,10 @@ dex: 8
 name: Heatbat
 
 credits:
-  designer: Emil Venge-Kvamme # who came up with it (Discord name)
+  designer: "Emil & Arvind" # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: [Fire, Flying]    # 1 or 2 types, e.g. [Grass, Steel]
+types: [Fire]            # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -22,12 +22,12 @@ abilities:
   hidden: No Guard       # optional
 
 base_stats:              # each 1-255
-  hp: 55
+  hp: 60
   attack: 65
-  defense: 55
+  defense: 60
   sp_attack: 85
-  sp_defense: 60
-  speed: 100
+  sp_defense: 65
+  speed: 85
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)

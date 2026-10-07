@@ -1204,13 +1204,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 376,
-    "species": "torchbat",
-    "file": "assets/concept-art/torchbat/376.webp",
-    "caption": "Concept art, cut out of the Torchbat line sheet that was uploaded on the website",
-    "editor": "Claude"
-  },
-  {
     "id": 377,
     "species": "heatbat",
     "file": "assets/concept-art/heatbat/377.webp",
@@ -1673,13 +1666,6 @@
     "editor": null
   },
   {
-    "id": 448,
-    "species": "torchbat",
-    "file": "assets/concept-art/torchbat/448.png",
-    "caption": null,
-    "editor": null
-  },
-  {
     "id": 449,
     "species": "heatbat",
     "file": "assets/concept-art/heatbat/449.png",
@@ -1809,6 +1795,20 @@
     "id": 468,
     "species": "fleuroom",
     "file": "assets/concept-art/fleuroom/468.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 469,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/469.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 470,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/470.png",
     "caption": null,
     "editor": null
   }

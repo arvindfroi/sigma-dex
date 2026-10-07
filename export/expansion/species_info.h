@@ -349,13 +349,13 @@
 
     [SPECIES_HEATBAT] =
     {
-        .baseHP = 55,
+        .baseHP = 60,
         .baseAttack = 65,
-        .baseDefense = 55,
-        .baseSpeed = 100,
+        .baseDefense = 60,
+        .baseSpeed = 85,
         .baseSpAttack = 85,
-        .baseSpDefense = 60,
-        .types = MON_TYPES(TYPE_FIRE, TYPE_FLYING),
+        .baseSpDefense = 65,
+        .types = MON_TYPES(TYPE_FIRE),
         .catchRate = 45,
         .expYield = 64,
         .genderRatio = PERCENT_FEMALE(50),
@@ -487,7 +487,7 @@
         .iconPalIndex = 0,
         .levelUpLearnset = sLapperLevelUpLearnset,
         .teachableLearnset = sLapperTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_BRAWLEO}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_BRAWLEO}),
         FOOTPRINT(QuestionMark)
     },
 

@@ -734,7 +734,7 @@
       "dex": 7,
       "name": "Torchbat",
       "credits": {
-        "designer": "Emil Venge-Kvamme",
+        "designer": "Emil & Arvind",
         "artist": null
       },
       "types": [
@@ -816,7 +816,7 @@
         "filled_by_claude": []
       },
       "assets": {
-        "concept_art": "assets/concept-art/torchbat/376.webp",
+        "concept_art": "assets/concept-art/torchbat/469.png",
         "front_sprite": "assets/sprites/torchbat/front.png",
         "front_anim": "assets/sprites/torchbat/anim_front.png",
         "back_sprite": "assets/sprites/torchbat/back.png",
@@ -839,12 +839,11 @@
       "dex": 8,
       "name": "Heatbat",
       "credits": {
-        "designer": "Emil Venge-Kvamme",
+        "designer": "Emil & Arvind",
         "artist": null
       },
       "types": [
-        "Fire",
-        "Flying"
+        "Fire"
       ],
       "category": null,
       "description": null,
@@ -857,12 +856,12 @@
         "hidden": "No Guard"
       },
       "base_stats": {
-        "hp": 55,
+        "hp": 60,
         "attack": 65,
-        "defense": 55,
+        "defense": 60,
         "sp_attack": 85,
-        "sp_defense": 60,
-        "speed": 100
+        "sp_defense": 65,
+        "speed": 85
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -931,7 +930,7 @@
       "dex": 9,
       "name": "Blazterra",
       "credits": {
-        "designer": "Emil Venge-Kvamme",
+        "designer": "Emil & Arvind",
         "artist": null
       },
       "types": [
@@ -1754,7 +1753,7 @@
         {
           "into": "brawleo",
           "method": "level",
-          "level": 28
+          "level": 25
         }
       ],
       "learnset": {

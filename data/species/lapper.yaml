@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions:
   - into: brawleo
     method: level
-    level: 28
+    level: 25
 
 # --- Moves ---
 learnset:

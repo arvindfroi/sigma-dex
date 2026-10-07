@@ -204,14 +204,14 @@ SINGLE_BATTLE_TEST("Sigma dex: Torchbat can use its first move in battle")
 TEST("Sigma dex: Heatbat has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_HEATBAT];
-    EXPECT_EQ(info->baseHP, 55);
+    EXPECT_EQ(info->baseHP, 60);
     EXPECT_EQ(info->baseAttack, 65);
-    EXPECT_EQ(info->baseDefense, 55);
-    EXPECT_EQ(info->baseSpeed, 100);
+    EXPECT_EQ(info->baseDefense, 60);
+    EXPECT_EQ(info->baseSpeed, 85);
     EXPECT_EQ(info->baseSpAttack, 85);
-    EXPECT_EQ(info->baseSpDefense, 60);
+    EXPECT_EQ(info->baseSpDefense, 65);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
-    EXPECT_EQ(info->types[1], TYPE_FLYING);
+    EXPECT_EQ(info->types[1], TYPE_FIRE);
     EXPECT_EQ(info->abilities[0], ABILITY_BLAZE);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_AIR_SLASH);
     EXPECT_EQ(GetSpeciesName(SPECIES_HEATBAT)[0], CHAR_H);
