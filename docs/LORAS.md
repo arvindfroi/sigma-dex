@@ -60,23 +60,56 @@ image to image: at denoise 0.6 nothing changes, at 0.85 the style is right but t
   the latent grid); train them at 1024.
 - **16 GB:** training against a quantised base with offloading is noisier than bf16 on a 48 GB card.
 
-## Plan for the RunPod session
+## What the tests showed (2026-10-07)
 
-Before it (on the Legion, free):
+- **Back v3** (front + official artwork in, species balanced to 3 entries with paired hue shifts, 20% without
+  artwork, lr 5e-5 cosine, EMA 0.99, 1500 steps) is clearly better than v2 on our own mons (Autuman, Bugmight,
+  Chillalit, Leafing, Nukfae, Waffy get real backs with their details) and no longer copies the front late in
+  training: the lower rate, decay and EMA fixed that. Without the artwork it is worse. Best at step 1000.
+- Not good enough yet (Arvind: "a couple I would use"): the framing depends on the seed (seed 2 is best for
+  almost all), the dark outline is often missing, shading is softer than the games', single-coloured designs
+  (Erobi, Sandrema) stay vague.
+- Real HGSS backs (300 measured): about 10 colours, 79% of the edge is a dark outline (ours 58%), about 36% of
+  the frame filled, and they end in a flat cut around row 71, not on the bottom row.
+- References at 640 px (as trained) or 1024 px: no clear difference; use 640.
 
-1. One test script for every LoRA: the 40 held-out species (with the real answer) and our mons with
-   concept art, 4 seeds, LoRA strength 0.7 / 0.85 / 1.0; agreed "good enough" per step.
-2. Data v3: near-duplicates dropped (one Gen 4 version per species unless they differ), the same hue
-   shift applied to both pictures of a pair as extra pairs (never flipped: fronts face left).
-3. Pilot for the artwork LoRA: Qwen redraws ~200 Pokemon as real-looking drawings (pencil, crayon, ink,
-   child's drawing), checked by hand before the full set is made.
-4. Captions: the fixed instruction plus structured tags (view, format, body shape, colours; never real
-   Pokemon names).
+## Plan for the RunPod session (agreed 2026-10-07)
 
-The session (RTX 6000 Ada 48 GB, bf16 without quantising, one script, no one watching; about 10 hours,
-about 8-12 dollars): the drawing variants, then one LoRA per step (a family, not one big LoRA):
-artwork, sprite -> artwork, artwork -> front, back v3, follower v3 (at 1024), icon v3. Each: lr 5e-5 with
-cosine decay, EMA, 2000 steps, saved every 250, then the test sheet.
+**Every LoRA takes "everything in":** any subset of the other pictures of a Pokemon as references (front sprite,
+official artwork, back, follower sheet, menu icon), named in the instruction ("image 1 is the front sprite,
+image 2 the artwork, ..."). In training each example picks the target and a random subset of the rest as
+inputs (sometimes only the front), so it learns to use whatever is there and to manage with little. Artwork
+and front are kept in most examples, the others in about half. One LoRA per output (not one for everything:
+80 px backs and 32 px icons in one LoRA tend to blur the tasks); merging them is a later step.
+
+| LoRA | Out | In (any subset) |
+|---|---|---|
+| back v4 | back sprite | front, artwork, follower sheet, icon |
+| follower v3 | follower sheet (trained at 1024, on the latent grid) | front, artwork, back, icon |
+| icon v3 | menu icon | front, artwork, follower sheet (its "down" frames look like an icon), back |
+| sprite -> artwork | Sugimori artwork | front, back |
+
+Order for our mons: front + artwork (as today) -> follower and icon -> back from everything.
+
+Recipe for all: data v3 (catalogue of 2344 unique fronts for 1025 species from DP/Pt/HGSS, BW fronts that fit
+80x80 unscaled, Smogon and hg-engine variants; near-duplicates dropped; every species weighted the same;
+paired hue shifts; 40 held-out species), lr 5e-5 cosine, EMA, about 1500 steps, saved every 250, bf16 without
+quantising on an RTX Pro 6000 96 GB (about $2/h), A/B of two settings per LoRA (e.g. rank 16 vs 32).
+
+Before the session (Legion, free): the data v3 builds for all four; tags (closed word list: body plan,
+material, features, pose; colours from pixels; PokeAPI shape/colour/Pokedex text as ground truth; tagged once
+per species from the artwork and copied to its sprites; never a Pokemon name); the test sheet script (held-out
+species + our mons, 3 seeds, best-of-3); one queue only.
+
+In the session: a 50-step smoke test (s/step, non-zero weights, exact price) before the rest; then the four
+LoRAs with A/B; test sheets; download; the pod stops itself. Spend limit $25. Arvind judges the sheets; the
+numbers only throw out broken results.
+
+In the pipeline afterwards: best of 3 in every step, chosen by framing (fill, flat cut, outline), the front's
+palette, stray pixels removed, a dark outline added where missing.
+
+Waits: the sketch -> Sugimori artwork LoRA (we have Qwen's artwork for now); first a test of Qwen with real
+Sugimori artworks as style references (running).
 
 ## Next ones (later)
 
