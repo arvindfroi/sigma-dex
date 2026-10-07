@@ -1317,8 +1317,8 @@
   },
   {
     "id": 393,
-    "species": "octopearl",
-    "file": "assets/concept-art/octopearl/393.webp",
+    "species": "abyssys",
+    "file": "assets/concept-art/abyssys/393.webp",
     "caption": "Picture from Discord, posted by Arvind Frøiland 2026-05-02 (probably",
     "editor": "Claude (from Discord)"
   },
@@ -1331,8 +1331,8 @@
   },
   {
     "id": 395,
-    "species": "balleisk",
-    "file": "assets/concept-art/balleisk/395.webp",
+    "species": "greation",
+    "file": "assets/concept-art/greation/395.webp",
     "caption": "Picture from Discord, posted by Arvind Frøiland 2026-05-02 (probably",
     "editor": "Claude (from Discord)"
   },
@@ -1809,6 +1809,132 @@
     "id": 470,
     "species": "torchbat",
     "file": "assets/concept-art/torchbat/470.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 472,
+    "species": "sabertann",
+    "file": "assets/concept-art/sabertann/472.webp",
+    "caption": "From Discord #official-sigma-pokedex, posted by SLOTHBABY on 2026-05-02. Shows: Sabertann (pirate lion).",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 473,
+    "species": "sabertann",
+    "file": "assets/concept-art/sabertann/473.webp",
+    "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-02. Shows: pirate dog ship.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 479,
+    "species": "sabertann",
+    "file": "assets/concept-art/sabertann/479.webp",
+    "caption": "From Discord #official-sigma-pokedex, posted by SLOTHBABY on 2026-05-02. Shows: Sabertann.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 480,
+    "species": "balleisk",
+    "file": "assets/concept-art/balleisk/480.webp",
+    "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-02.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 493,
+    "species": "ultragon",
+    "file": "assets/concept-art/ultragon/493.webp",
+    "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-02.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 505,
+    "species": "vires",
+    "file": "assets/concept-art/vires/505.webp",
+    "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-02. Maybe: Gentie.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 517,
+    "species": "flurina",
+    "file": "assets/concept-art/flurina/517.webp",
+    "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-07. Shows: Vires; Flurina.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 524,
+    "species": "dragem",
+    "file": "assets/concept-art/dragem/524.webp",
+    "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-08.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 525,
+    "species": "dragem",
+    "file": "assets/concept-art/dragem/525.webp",
+    "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-08. Maybe: Dragem.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 540,
+    "species": "sigmanian-sudowoodo",
+    "file": "assets/concept-art/sigmanian-sudowoodo/540.webp",
+    "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-15.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 544,
+    "species": "warrallier",
+    "file": "assets/concept-art/warrallier/544.webp",
+    "caption": "From Discord #kanteradet, posted by Ruben on 2026-05-01T20:58. Maybe: Warrallier.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 545,
+    "species": "warrallier",
+    "file": "assets/concept-art/warrallier/545.webp",
+    "caption": "From Discord #kanteradet, posted by Ruben on 2026-05-01T21:08. Maybe: Warrallier.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 547,
+    "species": "blazterra",
+    "file": "assets/concept-art/blazterra/547.webp",
+    "caption": "From Discord #kanteradet, posted by Ruben on 2026-05-01T21:14. Maybe: Blazterra.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 548,
+    "species": "blazterra",
+    "file": "assets/concept-art/blazterra/548.webp",
+    "caption": "From Discord #kanteradet, posted by Ruben on 2026-05-01T21:16. Maybe: Blazterra.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 549,
+    "species": "leafaxer",
+    "file": "assets/concept-art/leafaxer/549.webp",
+    "caption": "From Discord #kanteradet, posted by Ruben on 2026-05-01T21:54. Maybe: Leafaxer.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 556,
+    "species": "detecup",
+    "file": "assets/concept-art/detecup/556.webp",
+    "caption": "From Discord #kanteradet, posted by Ruben on 2026-05-01T22:51. Shows: Detecup.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 557,
+    "species": "detecup",
+    "file": "assets/concept-art/detecup/557.webp",
+    "caption": "From Discord #kanteradet, posted by Ruben on 2026-05-01T22:51. Shows: Detecup.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 573,
+    "species": "octopearl",
+    "file": "assets/concept-art/octopearl/573.webp",
     "caption": null,
     "editor": null
   }

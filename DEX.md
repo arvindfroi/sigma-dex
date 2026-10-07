@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**95 / 151** slots have a Pokemon - **0** are fully complete - average completeness **21%**.
+**99 / 151** slots have a Pokemon - **0** are fully complete - average completeness **21%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -76,7 +76,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 65 | [Anjane](data/species/anjane.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 320 | Janenon (Lv 42) | 28% |
 | 66 | [Janenon](data/species/janenon.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 490 |  | 31% |
 | 67 | [Saucerl](data/species/saucerl.yaml) | Psychic / Water |  |  |  | 7% |
-| 68 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water |  |  |  | 3% |
+| 68 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water |  |  |  | 7% |
 | 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water |  |  |  | 7% |
 | 70 | [Cryoblade](data/species/cryoblade.yaml) | Dark / Ice | Cold-hearted | 605 |  | 24% |
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
@@ -92,23 +92,23 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 81 | [Parahaunt](data/species/parahaunt.yaml) | Ghost | Smoked Up | 556 |  | 28% |
 | 82 | [Insectoid](data/species/insectoid.yaml) | Dark / Bug | Shadow Poise, Predator's Veil (H) | 580 |  | 24% |
 | 83 | [Darkgonark](data/species/darkgonark.yaml) | Ghost / Steel | Eternal Dirge, Soulforged Body | 550 |  | 28% |
-| 84 | *open slot* | | | | | |
+| 84 | [Detecup](data/species/detecup.yaml) | Normal |  |  |  | 14% |
 | 85 | *open slot* | | | | | |
 | 86 | [Verrith](data/species/verrith.yaml) | Ghost / Steel | Fog of war, Takes 1,5 extra crit damage (H) | 570 |  | 17% |
 | 87 | *open slot* | | | | | |
-| 88 | [Gravriel](data/species/gravriel.yaml) | Water / Ghost | Grim Neigh, Sap Sipper (H) | 580 |  | 34% |
-| 89 | *open slot* | | | | | |
-| 90 | *open slot* | | | | | |
-| 91 | [Dragem](data/species/dragem.yaml) | Dragon / Rock |  |  |  | 3% |
+| 88 | *open slot* | | | | | |
+| 89 | [Vires](data/species/vires.yaml) | Fairy |  |  |  | 14% |
+| 90 | [Flurina](data/species/flurina.yaml) |  |  |  |  | 10% |
+| 91 | [Dragem](data/species/dragem.yaml) | Dragon / Rock |  |  |  | 7% |
 | 92 | *open slot* | | | | | |
 | 93 | *open slot* | | | | | |
 | 94 | [Skiirtle](data/species/skiirtle.yaml) | Fire |  |  |  | 7% |
 | 95 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric |  |  |  | 7% |
-| 96 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug |  |  |  | 7% |
-| 97 | [Greation](data/species/greation.yaml) | Dragon / Bug |  |  |  | 3% |
-| 98 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug |  |  |  | 3% |
-| 99 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground | Drizzle | 680 |  | 48% |
-| 100 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician | 680 |  | 28% |
+| 96 | *open slot* | | | | | |
+| 97 | *open slot* | | | | | |
+| 98 | *open slot* | | | | | |
+| 99 | *open slot* | | | | | |
+| 100 | *open slot* | | | | | |
 | 101 | *open slot* | | | | | |
 | 102 | *open slot* | | | | | |
 | 103 | [Obsidog](data/species/obsidog.yaml) | Dark / Rock | Strong Jaw, Intimidate, Rough Skin (H) | 340 | Obsidog utvikling (Dusk Stone) | 21% |
@@ -151,12 +151,12 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 140 | *open slot* | | | | | |
 | 141 | *open slot* | | | | | |
 | 142 | *open slot* | | | | | |
-| 143 | *open slot* | | | | | |
-| 144 | *open slot* | | | | | |
-| 145 | *open slot* | | | | | |
-| 146 | *open slot* | | | | | |
-| 147 | *open slot* | | | | | |
+| 143 | [Sabertann](data/species/sabertann.yaml) | Dark / Water |  |  |  | 14% |
+| 144 | [Gravriel](data/species/gravriel.yaml) | Water / Ghost | Grim Neigh, Sap Sipper (H) | 580 |  | 34% |
+| 145 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug |  |  |  | 7% |
+| 146 | [Greation](data/species/greation.yaml) | Dragon / Bug |  |  |  | 7% |
+| 147 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug |  |  |  | 7% |
 | 148 | *open slot* | | | | | |
-| 149 | *open slot* | | | | | |
-| 150 | *open slot* | | | | | |
+| 149 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground | Drizzle | 680 |  | 48% |
+| 150 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician | 680 |  | 28% |
 | 151 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground |  | 600 |  | 14% |

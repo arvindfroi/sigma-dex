@@ -71,7 +71,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 65,anjane,Anjane,Dark,Fairy,Tangling Hair,Mega Launcher,Misty Surge,320,30,37,71,100,67,15,,,Drooping Hair,,,,1 sp_attack,,,,,,,,,,,,,,,,"Anjane's heavy hair droops down to the ground. It absorbs the curse-filled emotions of others and hangs motionless. When angered, the hair stiffens and sways, unleashing bursts of cursed energy. It's said that when it sways its hair, the sound is like the curse a thousand spirits let loose in a single moan.",,,"From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: Lv. 24 -> Janenon; also on the card: Height 2'07"", weight 24.3 lbs; signature move Hex Burst (Fairy, Special, power 95, accuracy 100%, PP 15); role Trick Room Sweeper.",Emil Venge-Kvamme,,28
 66,janenon,Janenon,Dark,Fairy,Tangling Hair,Mega Launcher,Misty Surge,490,46,67,100,167,85,25,Anjane,Lv 42,Cursed Cannon,,,,3 sp_attack,,,,,,,,,,,"Dark Pulse (evo), Dark Pulse (1), Moonblast (45), Aura Sphere (48)",,,,,"It's said that when it fires its cannon, the sound is like the curse a thousand spirits let loose in a single scream.",,,"From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: ??? -> (Lv. 24) ??? -> (Lv. 48) Janenon; also on the card: Height 5'11"", weight 143 lbs; signature move Hex Burst; role Trick Room Sweeper.",Emil Venge-Kvamme,,31
 67,saucerl,Saucerl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
-68,abyssys,Abyssys,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+68,abyssys,Abyssys,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 69,octopearl,Octopearl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 70,cryoblade,Cryoblade,Dark,Ice,Cold-hearted,,,605,90,140,100,95,110,70,,,Frozen Executioner,2.1,182,,,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",,,24
 71,roostasaur,Roostasaur,Dragon,Normal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
@@ -87,24 +87,23 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 81,parahaunt,Parahaunt,Ghost,,Smoked Up,,,556,20,76,50,110,90,210,,,Smoke,1,6.8,,,,,,,,,,,,,,,,,,"PARAHAUNT slips through the night like a drifting phantom, silently trailing smoke from its jeweled cigarette holder. It vanishes before anyone can react, leaving only a chill haze and the feeling of being watched.",,,"From the Discord concept card (BUST, 2026-05-03): also on the card: Smoked Up: This Pokemon faints after three turns in the field..",,,28
 82,insectoid,Insectoid,Dark,Bug,Shadow Poise,,Predator's Veil,580,70,130,85,60,95,140,,,Regal Mantis,2.3,68.7,,,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#pokemon-goons, dr.grey8421, 2026-05-01).",,,24
 83,darkgonark,Darkgonark,Ghost,Steel,Eternal Dirge,Soulforged Body,,550,80,130,60,80,60,140,,,Requiem,3.8,296.7,,,,,,,,,,,,,,,,,,"Legends claim that when Darkgonark's song ends, the universe will be remade in perfect, silent harmony.",,,"From the Discord concept card (dr.grey8421, 2026-05-02): also on the card: Subtitle The Abyssal Requiem Pokémon; Soulforged Body is the hidden ability; signature move Requiem Breaker (Ghost/Steel, power 160, accuracy 100%, PP 5); also a lore blurb: Darkgonark is said to be the embodiment of ruin and rebirth..",,,28
-84,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+84,detecup,Detecup,Normal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,A detective dog pokemon,,,Ruben,Ruben,14
 85,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 86,verrith,Verrith,Ghost,Steel,Fog of war,,"Takes 1,5 extra crit damage",570,120,110,125,75,95,45,,,,,,,,,,,,,,,,,,,,,,,,,,,Casper,,17
 87,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-88,gravriel,Gravriel,Water,Ghost,Grim Neigh,,Sap Sipper,580,81,151,84,151,84,29,,,Ghost Ship,2.1,78.6,,"1 attack, 1 sp_attack",,,,,,,,,,,,,,,,"Long ago, Gravriel was the first mate of a cruel pirate. After betrayal, he was cast into the ocean, left to rot with his ship. Now, he haunts the seabed, seeking those who dare to steal from the deep.",,,"From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Sap Sipper (regular), Grim Neigh (hidden). Signature moves: Gabriel's Curse (Ghost, 85 BP, 100%), Haunted Slash (Ghost, 85 BP, 100%)..",Emil Venge-Kvamme,,34
-89,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-90,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-91,dragem,Dragem,Dragon,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+88,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+89,vires,Vires,Fairy,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Small cute pokemon based on viruses. with transparent pink crystals.,,,Arvind,Arvind,14
+90,flurina,Flurina,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,A calm and compased cute  pokemon based of a virus. it has pink transparent crystals,,,Arvind,Arvind,10
+91,dragem,Dragem,Dragon,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 92,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 94,skiirtle,Skiirtle,Fire,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 95,mcskiirtle,McSkiirtle,Fire,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
-96,balleisk,Balleisk,Dragon,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
-97,greation,Greation,Dragon,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-98,ultragon,Ultragon,Dragon,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
-99,bergflabbser,Bergflabbser,Water,Ground,Drizzle,,,680,150,130,130,110,110,50,,,Fjellfisk,2.4,285,,,,,,,,,,,,,,,,,,"Bergflabbser is a rare Pokémon that dwells in the fjords of Bergen. The seven mountains on its back form a living ecosystem, and the Ulriken pillar serves as its guiding beacon. It summons rain with its Drizzle and moves silently through the deep, using its wide mouth to catch prey.","Legendary concept: a giant fish carrying Bergen's seven mountains, Bryggen and the Ulriken tower on its back.",,"From Discord (#official-sigma-pokedex, Slothbaby, 29 Sep 2026, ""Legendary konsept""): sketch and concept card. The card numbers it Nr. 1027; in our dex it is #99.",Emil Venge-Kvamme,,48
-100,maagamad,Maagamad,Flying,Poison,Weather Switch,Technician,,680,124,120,105,120,142,69,,,Weather Switch,1.9,82.4,,,,,,,,,,,,,,,,,,"It stores three swords made of gaseous matter within its body. The oily coating on its wings and tail lets it glide through any weather. It flips the weather at will, bringing balance to the skies above the sea.",,,"From the Google Doc: Maagamad/gullmire (Flying, Poison)
-From the Discord concept card (Arvind Frøiland, 2026-09-30): card name: Gullmire; also on the card: Weather Switch switches rain to drought and drought to rain, random Drizzle or Drought otherwise; Technician is the hidden ability; signature move Oily Arsenal (Drought Physical, Poison, BP 60x2; Rain Special, Poison, BP 40x3).",,,28
+96,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+97,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+98,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 101,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 102,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 103,obsidog,Obsidog,Dark,Rock,Strong Jaw,Intimidate,Rough Skin,340,50,75,70,40,55,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,21
@@ -147,12 +146,13 @@ From the Discord concept card (Arvind Frøiland, 2026-09-30): card name: Gullmir
 140,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 141,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 142,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-143,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-144,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-145,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-146,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-147,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+143,sabertann,Sabertann,Dark,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"A sabertooth pirate pokemon, who roams the 7 seas.",,,Emil,Emil,14
+144,gravriel,Gravriel,Water,Ghost,Grim Neigh,,Sap Sipper,580,81,151,84,151,84,29,,,Ghost Ship,2.1,78.6,,"1 attack, 1 sp_attack",,,,,,,,,,,,,,,,"Long ago, Gravriel was the first mate of a cruel pirate. After betrayal, he was cast into the ocean, left to rot with his ship. Now, he haunts the seabed, seeking those who dare to steal from the deep.",,,"From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Sap Sipper (regular), Grim Neigh (hidden). Signature moves: Gabriel's Curse (Ghost, 85 BP, 100%), Haunted Slash (Ghost, 85 BP, 100%)..",Emil Venge-Kvamme,,34
+145,balleisk,Balleisk,Dragon,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
+146,greation,Greation,Dragon,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
+147,ultragon,Ultragon,Dragon,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 148,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-149,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-150,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+149,bergflabbser,Bergflabbser,Water,Ground,Drizzle,,,680,150,130,130,110,110,50,,,Fjellfisk,2.4,285,,,,,,,,,,,,,,,,,,"Bergflabbser is a rare Pokémon that dwells in the fjords of Bergen. The seven mountains on its back form a living ecosystem, and the Ulriken pillar serves as its guiding beacon. It summons rain with its Drizzle and moves silently through the deep, using its wide mouth to catch prey.","Legendary concept: a giant fish carrying Bergen's seven mountains, Bryggen and the Ulriken tower on its back.",,"From Discord (#official-sigma-pokedex, Slothbaby, 29 Sep 2026, ""Legendary konsept""): sketch and concept card. The card numbers it Nr. 1027; in our dex it is #99.",Emil Venge-Kvamme,,48
+150,maagamad,Maagamad,Flying,Poison,Weather Switch,Technician,,680,124,120,105,120,142,69,,,Weather Switch,1.9,82.4,,,,,,,,,,,,,,,,,,"It stores three swords made of gaseous matter within its body. The oily coating on its wings and tail lets it glide through any weather. It flips the weather at will, bringing balance to the skies above the sea.",,,"From the Google Doc: Maagamad/gullmire (Flying, Poison)
+From the Discord concept card (Arvind Frøiland, 2026-09-30): card name: Gullmire; also on the card: Weather Switch switches rain to drought and drought to rain, random Drizzle or Drought otherwise; Technician is the hidden ability; signature move Oily Arsenal (Drought Physical, Poison, BP 60x2; Rain Special, Poison, BP 40x3).",,,28
 151,sandrema,Sandrema,Fairy,Ground,,,,600,100,100,100,100,100,100,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,14

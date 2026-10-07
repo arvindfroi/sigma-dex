@@ -5525,7 +5525,7 @@
         "filled_by_claude": []
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/abyssys/393.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -5602,7 +5602,7 @@
         "filled_by_claude": []
       },
       "assets": {
-        "concept_art": "assets/concept-art/octopearl/393.webp",
+        "concept_art": "assets/concept-art/octopearl/573.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -6649,6 +6649,82 @@
       "id": "darkgonark"
     },
     {
+      "dex": 84,
+      "name": "Detecup",
+      "credits": {
+        "designer": "Ruben",
+        "artist": "Ruben"
+      },
+      "types": [
+        "Normal"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "A detective dog pokemon",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/detecup/556.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "detecup"
+    },
+    {
       "dex": 86,
       "name": "Verrith",
       "credits": {
@@ -6726,38 +6802,34 @@
       "id": "verrith"
     },
     {
-      "dex": 88,
-      "name": "Gravriel",
+      "dex": 89,
+      "name": "Vires",
       "credits": {
-        "designer": "Emil Venge-Kvamme",
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
-        "Water",
-        "Ghost"
+        "Fairy"
       ],
-      "category": "Ghost Ship",
-      "description": "Long ago, Gravriel was the first mate of a cruel pirate. After betrayal, he was cast into the ocean, left to rot with his ship. Now, he haunts the seabed, seeking those who dare to steal from the deep.",
-      "height_m": 2.1,
-      "weight_kg": 78.6,
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Grim Neigh",
+        "primary": null,
         "secondary": null,
-        "hidden": "Sap Sipper"
+        "hidden": null
       },
       "base_stats": {
-        "hp": 81,
-        "attack": 151,
-        "defense": 84,
-        "sp_attack": 151,
-        "sp_defense": 84,
-        "speed": 29
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
       },
-      "ev_yield": {
-        "attack": 1,
-        "sp_attack": 1
-      },
+      "ev_yield": null,
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -6778,15 +6850,15 @@
       },
       "encounters": [],
       "design": {
-        "concept": null,
+        "concept": "Small cute pokemon based on viruses. with transparent pink crystals.",
         "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Sap Sipper (regular), Grim Neigh (hidden). Signature moves: Gabriel's Curse (Ghost, 85 BP, 100%), Haunted Slash (Ghost, 85 BP, 100%)..",
+        "notes": null,
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": []
       },
       "assets": {
-        "concept_art": "assets/concept-art/gravriel/240.webp",
+        "concept_art": "assets/concept-art/vires/505.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -6803,7 +6875,81 @@
         "icon_palette": null,
         "safari_flee_rate": 0
       },
-      "id": "gravriel"
+      "id": "vires"
+    },
+    {
+      "dex": 90,
+      "name": "Flurina",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "A calm and compased cute  pokemon based of a virus. it has pink transparent crystals",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/flurina/517.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "flurina"
     },
     {
       "dex": 91,
@@ -6863,7 +7009,7 @@
         "filled_by_claude": []
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/dragem/524.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -7034,391 +7180,6 @@
         "safari_flee_rate": 0
       },
       "id": "mcskiirtle"
-    },
-    {
-      "dex": 96,
-      "name": "Balleisk",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [
-        "Dragon",
-        "Bug"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": []
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/balleisk/395.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "balleisk"
-    },
-    {
-      "dex": 97,
-      "name": "Greation",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [
-        "Dragon",
-        "Bug"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": []
-      },
-      "assets": {
-        "concept_art": null,
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "greation"
-    },
-    {
-      "dex": 98,
-      "name": "Ultragon",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [
-        "Dragon",
-        "Bug"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": []
-      },
-      "assets": {
-        "concept_art": null,
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "ultragon"
-    },
-    {
-      "dex": 99,
-      "name": "Bergflabbser",
-      "credits": {
-        "designer": "Emil Venge-Kvamme",
-        "artist": null
-      },
-      "types": [
-        "Water",
-        "Ground"
-      ],
-      "category": "Fjellfisk",
-      "description": "Bergflabbser is a rare Pokémon that dwells in the fjords of Bergen. The seven mountains on its back form a living ecosystem, and the Ulriken pillar serves as its guiding beacon. It summons rain with its Drizzle and moves silently through the deep, using its wide mouth to catch prey.",
-      "height_m": 2.4,
-      "weight_kg": 285,
-      "body_color": null,
-      "abilities": {
-        "primary": "Drizzle",
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": 150,
-        "attack": 130,
-        "defense": 130,
-        "sp_attack": 110,
-        "sp_defense": 110,
-        "speed": 50
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": "Legendary concept: a giant fish carrying Bergen's seven mountains, Bryggen and the Ulriken tower on its back.",
-        "name_origin": null,
-        "notes": "From Discord (#official-sigma-pokedex, Slothbaby, 29 Sep 2026, \"Legendary konsept\"): sketch and concept card. The card numbers it Nr. 1027; in our dex it is #99.",
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": []
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/bergflabbser/4.png",
-        "front_sprite": "assets/sprites/bergflabbser/front.png",
-        "front_anim": "assets/sprites/bergflabbser/anim_front.png",
-        "back_sprite": "assets/sprites/bergflabbser/back.png",
-        "icon": "assets/sprites/bergflabbser/icon.png",
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": 8,
-        "back_y_offset": 10,
-        "icon_palette": 5,
-        "safari_flee_rate": 0
-      },
-      "id": "bergflabbser"
-    },
-    {
-      "dex": 100,
-      "name": "Maagamad",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [
-        "Flying",
-        "Poison"
-      ],
-      "category": "Weather Switch",
-      "description": "It stores three swords made of gaseous matter within its body. The oily coating on its wings and tail lets it glide through any weather. It flips the weather at will, bringing balance to the skies above the sea.",
-      "height_m": 1.9,
-      "weight_kg": 82.4,
-      "body_color": null,
-      "abilities": {
-        "primary": "Weather Switch",
-        "secondary": "Technician",
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": 124,
-        "attack": 120,
-        "defense": 105,
-        "sp_attack": 120,
-        "sp_defense": 142,
-        "speed": 69
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": "From the Google Doc: Maagamad/gullmire (Flying, Poison)\nFrom the Discord concept card (Arvind Frøiland, 2026-09-30): card name: Gullmire; also on the card: Weather Switch switches rain to drought and drought to rain, random Drizzle or Drought otherwise; Technician is the hidden ability; signature move Oily Arsenal (Drought Physical, Poison, BP 60x2; Rain Special, Poison, BP 40x3).",
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": []
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/maagamad/263.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "maagamad"
     },
     {
       "dex": 103,
@@ -7813,6 +7574,548 @@
         "safari_flee_rate": 0
       },
       "id": "wisprake-utvikling2"
+    },
+    {
+      "dex": 143,
+      "name": "Sabertann",
+      "credits": {
+        "designer": "Emil",
+        "artist": "Emil"
+      },
+      "types": [
+        "Dark",
+        "Water"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "A sabertooth pirate pokemon, who roams the 7 seas.",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/sabertann/472.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "sabertann"
+    },
+    {
+      "dex": 144,
+      "name": "Gravriel",
+      "credits": {
+        "designer": "Emil Venge-Kvamme",
+        "artist": null
+      },
+      "types": [
+        "Water",
+        "Ghost"
+      ],
+      "category": "Ghost Ship",
+      "description": "Long ago, Gravriel was the first mate of a cruel pirate. After betrayal, he was cast into the ocean, left to rot with his ship. Now, he haunts the seabed, seeking those who dare to steal from the deep.",
+      "height_m": 2.1,
+      "weight_kg": 78.6,
+      "body_color": null,
+      "abilities": {
+        "primary": "Grim Neigh",
+        "secondary": null,
+        "hidden": "Sap Sipper"
+      },
+      "base_stats": {
+        "hp": 81,
+        "attack": 151,
+        "defense": 84,
+        "sp_attack": 151,
+        "sp_defense": 84,
+        "speed": 29
+      },
+      "ev_yield": {
+        "attack": 1,
+        "sp_attack": 1
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Sap Sipper (regular), Grim Neigh (hidden). Signature moves: Gabriel's Curse (Ghost, 85 BP, 100%), Haunted Slash (Ghost, 85 BP, 100%)..",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/gravriel/240.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "gravriel"
+    },
+    {
+      "dex": 145,
+      "name": "Balleisk",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Dragon",
+        "Bug"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/balleisk/480.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "balleisk"
+    },
+    {
+      "dex": 146,
+      "name": "Greation",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Dragon",
+        "Bug"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/greation/395.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "greation"
+    },
+    {
+      "dex": 147,
+      "name": "Ultragon",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Dragon",
+        "Bug"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/ultragon/493.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "ultragon"
+    },
+    {
+      "dex": 149,
+      "name": "Bergflabbser",
+      "credits": {
+        "designer": "Emil Venge-Kvamme",
+        "artist": null
+      },
+      "types": [
+        "Water",
+        "Ground"
+      ],
+      "category": "Fjellfisk",
+      "description": "Bergflabbser is a rare Pokémon that dwells in the fjords of Bergen. The seven mountains on its back form a living ecosystem, and the Ulriken pillar serves as its guiding beacon. It summons rain with its Drizzle and moves silently through the deep, using its wide mouth to catch prey.",
+      "height_m": 2.4,
+      "weight_kg": 285,
+      "body_color": null,
+      "abilities": {
+        "primary": "Drizzle",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 150,
+        "attack": 130,
+        "defense": 130,
+        "sp_attack": 110,
+        "sp_defense": 110,
+        "speed": 50
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Legendary concept: a giant fish carrying Bergen's seven mountains, Bryggen and the Ulriken tower on its back.",
+        "name_origin": null,
+        "notes": "From Discord (#official-sigma-pokedex, Slothbaby, 29 Sep 2026, \"Legendary konsept\"): sketch and concept card. The card numbers it Nr. 1027; in our dex it is #99.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/bergflabbser/4.png",
+        "front_sprite": "assets/sprites/bergflabbser/front.png",
+        "front_anim": "assets/sprites/bergflabbser/anim_front.png",
+        "back_sprite": "assets/sprites/bergflabbser/back.png",
+        "icon": "assets/sprites/bergflabbser/icon.png",
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": 8,
+        "back_y_offset": 10,
+        "icon_palette": 5,
+        "safari_flee_rate": 0
+      },
+      "id": "bergflabbser"
+    },
+    {
+      "dex": 150,
+      "name": "Maagamad",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Flying",
+        "Poison"
+      ],
+      "category": "Weather Switch",
+      "description": "It stores three swords made of gaseous matter within its body. The oily coating on its wings and tail lets it glide through any weather. It flips the weather at will, bringing balance to the skies above the sea.",
+      "height_m": 1.9,
+      "weight_kg": 82.4,
+      "body_color": null,
+      "abilities": {
+        "primary": "Weather Switch",
+        "secondary": "Technician",
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 124,
+        "attack": 120,
+        "defense": 105,
+        "sp_attack": 120,
+        "sp_defense": 142,
+        "speed": 69
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": "From the Google Doc: Maagamad/gullmire (Flying, Poison)\nFrom the Discord concept card (Arvind Frøiland, 2026-09-30): card name: Gullmire; also on the card: Weather Switch switches rain to drought and drought to rain, random Drizzle or Drought otherwise; Technician is the hidden ability; signature move Oily Arsenal (Drought Physical, Poison, BP 60x2; Rain Special, Poison, BP 40x3).",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/maagamad/263.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "maagamad"
     },
     {
       "dex": 151,
