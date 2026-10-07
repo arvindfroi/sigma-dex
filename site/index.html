@@ -445,6 +445,35 @@ async function postForm(fn, fields) {
   return body;
 }
 
+// ---------- moving pictures between Pokemon (and the lost-and-found pile) ----------
+const LOST = "lost-and-found";
+function pokemonPicker(exclude, withLost) {
+  const others = DEX.species.filter(o => o.id !== exclude).sort((a, b) => String(a.data.name).localeCompare(String(b.data.name)))
+    .map(o => [o.id, o.data.name + " (#" + pad(o.data.dex) + ")"]);
+  return selectInput("", (withLost ? [[LOST, "Lost and found (not sure who it is)"]] : []).concat(others), "Who is it?");
+}
+async function moveImage(image, from, to) {
+  await postForm("species-image", {action: "move", id: image.id, species_id: to, key: remember.get("key"), editor: me()});
+  if (DEX.images[from]) DEX.images[from] = DEX.images[from].filter(i => i.id !== image.id);
+  if (to !== LOST) (DEX.images[to] ||= []).push(Object.assign({}, image));
+}
+// "Move" under a picture: pick the right Pokemon, press Move.
+function moveControl(image, from, done) {
+  const box = h("div", {class: "row", style: "margin-top:6px"});
+  const open = h("button", {type: "button", class: "small", onclick: () => {
+    const pick = pokemonPicker(from, from !== LOST), status = h("span", {class: "sub"});
+    const go = h("button", {type: "button", class: "small primary", onclick: async () => {
+      if (!pick.value) { status.textContent = "Choose who it is."; return; }
+      go.disabled = true; status.textContent = "Moving...";
+      try { await moveImage(image, from, pick.value); done(pick.value); }
+      catch (err) { status.textContent = err.message; go.disabled = false; }
+    }}, "Move");
+    box.replaceChildren(pick, go, h("button", {type: "button", class: "small", onclick: () => box.replaceChildren(open)}, "Cancel"), status);
+  }}, from === LOST ? "This is..." : "Wrong Pokemon? Move");
+  box.append(open);
+  return box;
+}
+
 function picturesTab(s, onChange) {
   const box = h("div", {});
   const files = h("input", {type: "file", accept: "image/png,image/jpeg,image/webp,image/gif", multiple: true});
@@ -456,7 +485,8 @@ function picturesTab(s, onChange) {
     box.replaceChildren(list.length ? h("div", {class: "gallery"}, list.map(image => h("figure", {},
       h("a", {href: image.src, target: "_blank", rel: "noopener"}, h("img", {src: image.src, alt: image.caption || "Picture of " + s.data.name, loading: "lazy"})),
       h("figcaption", {}, [image.caption, image.editor ? "by " + image.editor : null].filter(Boolean).join(" - ") || "", " ",
-        DEX.web.url ? h("button", {type: "button", class: "small", onclick: ev => sure(ev.currentTarget, "Really remove?", () => remove(image))}, "Remove") : null))))
+        DEX.web.url ? h("button", {type: "button", class: "small", onclick: ev => sure(ev.currentTarget, "Really remove?", () => remove(image))}, "Remove") : null),
+      DEX.web.url && Number.isInteger(image.id) ? moveControl(image, s.id, to => { status.textContent = "Moved to " + (to === LOST ? "Lost and found" : nameOf(to)) + "."; draw(); onChange && onChange(); render(); }) : null)))
       : h("div", {class: "empty"}, "No pictures yet. Add the concept art here - the sprite studio draws from it."));
   }
   async function remove(image) {
@@ -1305,6 +1335,38 @@ function renderSprites() {
   }).catch(err => waiting.replaceChildren(h("div", {class: "empty"}, err.message)));
 }
 
+// Pictures from the Discord that nobody has matched to a Pokemon yet.
+let lostCount = null;
+async function loadLost() {
+  const rows = await dbRead("species_images?species_id=eq." + LOST + "&removed=eq.false&order=id.asc&select=id,path,caption,editor");
+  lostCount = rows.length;
+  return rows.map(r => ({id: r.id, src: artUrl(r.path), caption: r.caption, editor: r.editor}));
+}
+function renderLost() {
+  const grid = document.getElementById("grid"), query = document.getElementById("search").value.trim().toLowerCase();
+  grid.replaceChildren(h("div", {style: "grid-column:1/-1"},
+    h("p", {class: "sub", style: "margin-top:0"}, "Pictures from the Discord that nobody has linked to a Pokemon yet - often because no name was written on the picture or in the message. ",
+      "Recognise one? Press ", h("b", {}, "This is..."), ", choose the Pokemon and press Move. If it is a Pokemon that is not in the dex yet, add it first (+ Add a Pokemon on the front page)."),
+    h("div", {class: "empty"}, "Loading...")));
+  if (!DEX.web.url) return;
+  loadLost().then(list => {
+    renderNav();
+    const shown = list.filter(i => !query || String(i.caption || "").toLowerCase().includes(query));
+    grid.lastChild.lastChild.replaceWith(shown.length ? h("div", {class: "gallery", style: "grid-template-columns:repeat(auto-fill,minmax(210px,1fr))"}, shown.map(image => {
+      const fig = h("figure", {},
+        h("a", {href: image.src, target: "_blank", rel: "noopener"}, h("img", {src: image.src, alt: image.caption || "picture", loading: "lazy", style: "height:180px"})),
+        h("figcaption", {}, image.caption || ""));
+      fig.append(moveControl(image, LOST, to => { fig.replaceChildren(h("div", {class: "ok", style: "padding:20px 6px"}, "Moved to " + nameOf(to) + ". Thanks!")); lostCount--; renderNav(); }),
+        h("button", {type: "button", class: "small", style: "margin-top:4px", title: "Not a Pokemon design (a meme, a screenshot...)",
+          onclick: ev => sure(ev.currentTarget, "Really remove?", async () => {
+            try { await postForm("species-image", {action: "remove", id: image.id, key: remember.get("key")}); fig.replaceChildren(h("div", {class: "sub", style: "padding:20px 6px"}, "Removed.")); lostCount--; renderNav(); }
+            catch (err) { fig.append(h("div", {class: "error"}, err.message)); }
+          })}, "Not a design - remove"));
+      return fig;
+    })) : h("div", {class: "empty"}, list.length ? "Nothing matches the search." : "Empty - every picture has found its Pokemon."));
+  }).catch(err => grid.lastChild.lastChild.replaceWith(h("div", {class: "empty"}, err.message)));
+}
+
 // How our type spread compares with the official games.
 function renderBalance() {
   const grid = document.getElementById("grid"), shares = DEX.type_shares.shares;
@@ -1409,18 +1471,18 @@ function renderReorder() {
 
 // ---------- the front page ----------
 let view = "species";
-const MORE = [["move", "New moves"], ["ability", "New abilities"], ["balance", "Type balance"], ["reorder", "Change dex numbers"]];
+const MORE = [["lost", "Lost and found"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Type balance"], ["reorder", "Change dex numbers"]];
 function renderNav() {
   const count = kind => DEX.custom[kind].length + undescribed(kind).length;
-  const label = id => id === "move" ? "New moves (" + count("move") + ")" : id === "ability" ? "New abilities (" + count("ability") + ")" : MORE.find(m => m[0] === id)[1];
+  const label = id => id === "lost" ? "Lost and found" + (lostCount !== null ? " (" + lostCount + ")" : "") : id === "move" ? "New moves (" + count("move") + ")" : id === "ability" ? "New abilities (" + count("ability") + ")" : MORE.find(m => m[0] === id)[1];
   const go = id => () => { view = id; if (id === "reorder") plan = {ops: [], layout: currentLayout(), error: ""}; else plan = null; render(); window.scrollTo(0, 0); };
   const inMore = MORE.some(m => m[0] === view);
   const more = h("details", {}, h("summary", {"aria-pressed": String(inMore), style: inMore ? "background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600" : ""}, inMore ? label(view) + " ▾" : "More ▾"),
-    h("div", {class: "menu"}, MORE.filter(([id]) => id !== "reorder" || DEX.web.url).map(([id]) => h("button", {type: "button", onclick: go(id)}, label(id)))));
+    h("div", {class: "menu"}, MORE.filter(([id]) => (id !== "reorder" && id !== "lost") || DEX.web.url).map(([id]) => h("button", {type: "button", onclick: go(id)}, label(id)))));
   document.getElementById("nav").replaceChildren(
     h("button", {type: "button", "aria-pressed": String(view === "species"), onclick: go("species")}, "Pokemon"),
     h("button", {type: "button", "aria-pressed": String(view === "sprites"), onclick: go("sprites")}, "Sprites"), more);
-  document.getElementById("tools").style.display = view === "species" || view === "move" || view === "ability" ? "" : "none";
+  document.getElementById("tools").style.display = ["species", "move", "ability", "lost"].includes(view) ? "" : "none";
   document.getElementById("type").style.display = view === "species" ? "" : "none";
   document.getElementById("show").style.display = view === "species" ? "" : "none";
 }
@@ -1432,6 +1494,7 @@ function render() {
   if (view === "reorder" && plan) return renderReorder();
   if (view === "balance") return renderBalance();
   if (view === "sprites") return renderSprites();
+  if (view === "lost") return renderLost();
   if (view === "move" || view === "ability") return renderCustom(view);
   const query = document.getElementById("search").value.trim().toLowerCase();
   const type = document.getElementById("type").value, mode = document.getElementById("show").value;
@@ -1492,11 +1555,17 @@ async function loadRecentEdits() {
     refreshLists(); render();
     // Pictures uploaded since this page was built, and ones removed since.
     const built = new Set(Object.values(DEX.images).flat().map(i => i.id));
+    const builtIn = new Map(Object.entries(DEX.images).flatMap(([sid, list]) => list.map(i => [i.id, sid])));
     const list = await fetch(DEX.web.url + "/rest/v1/species_images?select=id,species_id,path,caption,editor,removed&order=id.asc", {headers: {apikey: DEX.web.key}});
     if (list.ok) {
       for (const row of await list.json()) {
         if (row.removed) DEX.images[row.species_id] = allImages(row.species_id).filter(i => i.id !== row.id);
-        else if (!built.has(row.id)) (DEX.images[row.species_id] ||= []).push({id: row.id, src: DEX.web.url + "/storage/v1/object/public/art/" + row.path, caption: row.caption, editor: row.editor});
+        else if (builtIn.has(row.id) && builtIn.get(row.id) !== row.species_id) {         // moved to another Pokemon since the page was built
+          const from = builtIn.get(row.id), image = allImages(from).find(i => i.id === row.id);
+          DEX.images[from] = allImages(from).filter(i => i.id !== row.id);
+          if (image && row.species_id !== LOST) (DEX.images[row.species_id] ||= []).push(image);
+        }
+        else if (!built.has(row.id) && row.species_id !== LOST) (DEX.images[row.species_id] ||= []).push({id: row.id, src: DEX.web.url + "/storage/v1/object/public/art/" + row.path, caption: row.caption, editor: row.editor});
       }
       if (!document.getElementById("dialog").open) render();
     }
@@ -1520,6 +1589,7 @@ document.addEventListener("click", ev => { for (const d of document.querySelecto
 render();
 if (location.hash && byId.has(location.hash.slice(1))) openDetail(byId.get(location.hash.slice(1)));
 loadRecentEdits();
+if (DEX.web.url) loadLost().then(renderNav).catch(() => {});
 </script>
 </body>
 </html>

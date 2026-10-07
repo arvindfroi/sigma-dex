@@ -53,6 +53,24 @@ shrunk automatically. Sprites are made in the **Sprite** tab, not uploaded here.
 The approved DS sprite (or else the first picture) is shown on the Pokemon's card and at the top of its page. Any image can be
 removed again with its **Remove** button. Only upload art made by us.
 
+## Lost and found, and pictures on the wrong Pokemon
+
+**More > Lost and found** holds Discord pictures that nobody has linked to a Pokemon yet - mostly
+because no name was written on the picture or in its message (102 were put there on 2026-10-07
+from the Discord export; 34 pictures not suitable for a public site and one meme were left out).
+Each one says who posted it, when, any name written on it, and a guess where there was one.
+
+- Recognise one? Press **This is...**, choose the Pokemon, press **Move**. If it is a Pokemon that
+  is not in the dex yet, add it first (**+ Add a Pokemon**).
+- Not a design at all? **Not a design - remove**.
+- A picture on the wrong Pokemon: open that Pokemon's **Pictures** tab, press **Wrong Pokemon?
+  Move** under the picture and choose the right one - or "Lost and found" if you are not sure.
+
+Every move is logged in the database table `species_image_moves` (picture, from, to, who, when),
+so a wrong move can be undone by moving it back. The import (`scripts/import_images.py`) moves the
+repository's copy along; pictures in lost and found live only in the database (species id
+`lost-and-found`) until someone places them.
+
 ## New moves and abilities
 
 Moves and abilities that exist in the Pokemon games (846 moves, 319 abilities, up to

@@ -47,7 +47,7 @@ def main():
     files = {sid: (path, data) for sid, path, data in species}
     manifest = load_manifest()
     known = {entry["id"] for entry in manifest}
-    added = removed = 0
+    added = removed = moved = 0
 
     for row in rows:
         if row.get("removed"):
@@ -57,6 +57,20 @@ def main():
                 removed += 1
             continue
         sid, path = str(row.get("species_id")), str(row.get("path"))
+        # Moved on the website to another Pokemon (or to the lost-and-found pile, which is not a Pokemon
+        # and stays only in the database): the repository's copy follows it.
+        for entry in [e for e in manifest if e["id"] == row["id"] and e["species"] != sid]:
+            source = ROOT / entry["file"]
+            if sid in files and source.exists():
+                target = ART / sid / source.name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                source.replace(target)
+                entry.update(species=sid, file=str(target.relative_to(ROOT)), caption=row.get("caption"))
+            else:
+                source.unlink(missing_ok=True)
+                manifest.remove(entry)
+                known.discard(row["id"])
+            moved += 1
         extension = "." + path.rsplit(".", 1)[-1].lower() if "." in path else ""
         if row["id"] in known or sid not in files or extension not in SIGNATURES or dexlib.slugify(sid) != sid:
             continue  # an image for a Pokemon that is not in the repository yet waits until it is
@@ -91,7 +105,7 @@ def main():
         data["assets"]["concept_art"] = first
         dexlib.write_species(path, data)
 
-    print("Image import: %d added, %d removed, %d in the repository" % (added, removed, len(manifest)))
+    print("Image import: %d added, %d removed, %d moved, %d in the repository" % (added, removed, moved, len(manifest)))
     return 0
 
 
