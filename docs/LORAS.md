@@ -82,19 +82,28 @@ inputs (sometimes only the front), so it learns to use whatever is there and to 
 and front are kept in most examples, the others in about half. One LoRA per output (not one for everything:
 80 px backs and 32 px icons in one LoRA tend to blur the tasks); merging them is a later step.
 
+One RunPod round only, to finish the sprites (fronts are solved without a LoRA, icons work with icon v2):
+
 | LoRA | Out | In (any subset) |
 |---|---|---|
-| back v4 | back sprite | front, artwork, follower sheet, icon |
-| follower v3 | follower sheet (trained at 1024, on the latent grid) | front, artwork, back, icon |
-| icon v3 | menu icon | front, artwork, follower sheet (its "down" frames look like an icon), back |
-| sprite -> artwork | Sugimori artwork | front, back |
+| back v4 (A/B: which references / lr) | back sprite | front, artwork, follower sheet, icon (less often) |
+| follower v3 | follower sheet (trained at 1024, on the latent grid) | front, artwork, icon (less often) |
+| icon v3 | menu icon | front, artwork, follower sheet (its "down" frames look like an icon) |
+| sprite -> artwork | Sugimori artwork | only if money is left, else later |
 
-Order for our mons: front + artwork (as today) -> follower and icon -> back from everything.
+Front + artwork are in almost every example; the other references are extra help, often degraded (scaled
+down and up, colour jitter) or real LoRA outputs, because for our mons they are made by LoRAs, not real
+(otherwise it learns to copy their mistakes; independent review, 2026-10-07). ai-toolkit skips a missing
+control file per example, so the number of references can vary; the instruction names the images per example.
+Tests weight our own mons and the Smogon CAP fakemon (new designs with real sprites) over the held-out real
+species, which the base model already knows; single-seed results shown next to best-of-3.
+
+Order for our mons: front + artwork (as today) -> follower -> icon -> back from everything.
 
 Recipe for all: data v3 (catalogue of 2344 unique fronts for 1025 species from DP/Pt/HGSS, BW fronts that fit
 80x80 unscaled, Smogon and hg-engine variants; near-duplicates dropped; every species weighted the same;
 paired hue shifts; 40 held-out species), lr 5e-5 cosine, EMA, about 1500 steps, saved every 250, bf16 without
-quantising on an RTX Pro 6000 96 GB (about $2/h), A/B of two settings per LoRA (e.g. rank 16 vs 32).
+quantising on an RTX Pro 6000 96 GB (about $2/h). About 5-6 hours, about 12-16 dollars, schedule set from the smoke test with a 5-dollar reserve.
 
 Before the session (Legion, free): the data v3 builds for all four; tags (closed word list: body plan,
 material, features, pose; colours from pixels; PokeAPI shape/colour/Pokedex text as ground truth; tagged once
