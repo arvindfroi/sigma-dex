@@ -4270,7 +4270,7 @@
         "filled_by_claude": []
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/fleuroom-utvikling/576.jpg",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -4310,12 +4310,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 90,
+        "attack": 60,
+        "defense": 60,
+        "sp_attack": 130,
+        "sp_defense": 51,
+        "speed": 134
       },
       "ev_yield": null,
       "catch_rate": null,

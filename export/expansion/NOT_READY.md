@@ -39,7 +39,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Beatld** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Fleuroom** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Fleuroom utvikling** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
-- **Giga-Circuit** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Giga-Circuit** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Hippore** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Docuphant** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Razox** needs: base stats, an ability that exists in the game, a level-up move that exists in the game

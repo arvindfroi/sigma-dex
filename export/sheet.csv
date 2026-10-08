@@ -56,7 +56,7 @@ until the edge shines like metal.
 50,Beatld,Bug,Psychic,,,,=SUM(I52:N52),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 51,Fleuroom,Poison,Fairy,,,,=SUM(I53:N53),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,
 52,Fleuroom utvikling,,,,,,=SUM(I54:N54),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,
-53,Giga-Circuit,Electric,,,,,=SUM(I55:N55),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+53,Giga-Circuit,Electric,,,,,=SUM(I55:N55),90,60,60,130,51,134,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 54,Hippore,Steel,Rock,,,,=SUM(I56:N56),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 55,Docuphant,Ground,Dragon,,,,=SUM(I57:N57),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 56,Razox,Fairy,Ice,,,,=SUM(I58:N58),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

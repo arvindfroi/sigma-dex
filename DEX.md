@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**101 / 151** slots have a Pokemon - **0** are fully complete - average completeness **20%**.
+**101 / 151** slots have a Pokemon - **0** are fully complete - average completeness **21%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -60,8 +60,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 49 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass | XL and Deep fried, Chlorophyll | 560 |  | 28% |
 | 50 | [Beatld](data/species/beatld.yaml) | Bug / Psychic |  |  |  | 7% |
 | 51 | [Fleuroom](data/species/fleuroom.yaml) | Poison / Fairy |  |  |  | 10% |
-| 52 | [Fleuroom utvikling](data/species/fleuroom-utvikling.yaml) |  |  |  |  | 3% |
-| 53 | [Giga-Circuit](data/species/giga-circuit.yaml) | Electric |  |  |  | 7% |
+| 52 | [Fleuroom utvikling](data/species/fleuroom-utvikling.yaml) |  |  |  |  | 7% |
+| 53 | [Giga-Circuit](data/species/giga-circuit.yaml) | Electric |  | 525 |  | 10% |
 | 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock |  |  |  | 7% |
 | 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon |  |  |  | 7% |
 | 56 | [Razox](data/species/razox.yaml) | Fairy / Ice |  |  |  | 7% |

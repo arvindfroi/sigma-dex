@@ -16,7 +16,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | height | 29 / 101 |
 | Dex page | weight | 27 / 101 |
 | Dex page | body color | 1 / 101 |
-| Stats | base stats | 60 / 101 |
+| Stats | base stats | 61 / 101 |
 | Stats | ability | 56 / 101 |
 | Stats | EV yield | 31 / 101 |
 | Stats | catch rate | 1 / 101 |
@@ -30,7 +30,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Moves | TM/HM moves | 2 / 101 |
 | Location | encounters | 1 / 101 |
 | Design | concept | 8 / 101 |
-| Art | concept art | 91 / 101 |
+| Art | concept art | 92 / 101 |
 | Art | front sprite | 4 / 101 |
 | Art | front animation frame | 4 / 101 |
 | Art | back sprite | 4 / 101 |
@@ -534,7 +534,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #52 [Fleuroom utvikling](data/species/fleuroom-utvikling.yaml) - 3%
+### #52 [Fleuroom utvikling](data/species/fleuroom-utvikling.yaml) - 7%
 
 - **Identity:** types
 - **Dex page:** category, description, height, weight, body color
@@ -543,13 +543,13 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #53 [Giga-Circuit](data/species/giga-circuit.yaml) - 7%
+### #53 [Giga-Circuit](data/species/giga-circuit.yaml) - 10%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
