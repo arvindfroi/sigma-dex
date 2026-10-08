@@ -1937,5 +1937,19 @@
     "file": "assets/concept-art/octopearl/573.webp",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 574,
+    "species": "ambuger",
+    "file": "assets/concept-art/ambuger/574.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 575,
+    "species": "ambcoptr",
+    "file": "assets/concept-art/ambcoptr/575.png",
+    "caption": null,
+    "editor": null
   }
 ]

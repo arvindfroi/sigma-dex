@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 96 / 99 |
-| Identity | designer credit | 65 / 99 |
-| Dex page | category | 42 / 99 |
-| Dex page | description | 42 / 99 |
-| Dex page | height | 29 / 99 |
-| Dex page | weight | 27 / 99 |
-| Dex page | body color | 1 / 99 |
-| Stats | base stats | 60 / 99 |
-| Stats | ability | 56 / 99 |
-| Stats | EV yield | 31 / 99 |
-| Stats | catch rate | 1 / 99 |
-| Stats | base exp | 1 / 99 |
-| Stats | growth rate | 1 / 99 |
-| Stats | base friendship | 1 / 99 |
-| Breeding | gender | 1 / 99 |
-| Breeding | egg groups | 1 / 99 |
-| Breeding | egg cycles | 1 / 99 |
-| Moves | level-up moves | 20 / 99 |
-| Moves | TM/HM moves | 2 / 99 |
-| Location | encounters | 1 / 99 |
-| Design | concept | 6 / 99 |
-| Art | concept art | 89 / 99 |
-| Art | front sprite | 4 / 99 |
-| Art | front animation frame | 4 / 99 |
-| Art | back sprite | 4 / 99 |
-| Art | icon | 4 / 99 |
-| Art | footprint | 0 / 99 |
-| Art | shiny palette | 0 / 99 |
-| Art | cry | 0 / 99 |
+| Identity | types | 98 / 101 |
+| Identity | designer credit | 67 / 101 |
+| Dex page | category | 42 / 101 |
+| Dex page | description | 42 / 101 |
+| Dex page | height | 29 / 101 |
+| Dex page | weight | 27 / 101 |
+| Dex page | body color | 1 / 101 |
+| Stats | base stats | 60 / 101 |
+| Stats | ability | 56 / 101 |
+| Stats | EV yield | 31 / 101 |
+| Stats | catch rate | 1 / 101 |
+| Stats | base exp | 1 / 101 |
+| Stats | growth rate | 1 / 101 |
+| Stats | base friendship | 1 / 101 |
+| Breeding | gender | 1 / 101 |
+| Breeding | egg groups | 1 / 101 |
+| Breeding | egg cycles | 1 / 101 |
+| Moves | level-up moves | 20 / 101 |
+| Moves | TM/HM moves | 2 / 101 |
+| Location | encounters | 1 / 101 |
+| Design | concept | 8 / 101 |
+| Art | concept art | 91 / 101 |
+| Art | front sprite | 4 / 101 |
+| Art | front animation frame | 4 / 101 |
+| Art | back sprite | 4 / 101 |
+| Art | icon | 4 / 101 |
+| Art | footprint | 0 / 101 |
+| Art | shiny palette | 0 / 101 |
+| Art | cry | 0 / 101 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 1 / 99 |
-| DS back sprite 80x80 | 1 / 99 |
-| DS icon 32x32 | 1 / 99 |
+| DS front sprite 80x80 | 1 / 101 |
+| DS back sprite 80x80 | 1 / 101 |
+| DS icon 32x32 | 1 / 101 |
 
-## Open dex slots (52)
+## Open dex slots (50)
 
-#17, #18, #19, #78, #85, #87, #88, #92, #93, #96, #97, #98, #99, #100, #101, #102, #108, #109, #110, #111, #112, #113, #114, #115, #116, #117, #118, #119, #120, #121, #122, #123, #124, #125, #126, #127, #128, #129, #130, #131, #132, #133, #134, #135, #136, #137, #138, #139, #140, #141, #142, #148
+#17, #18, #19, #78, #85, #87, #88, #92, #93, #98, #99, #100, #101, #102, #108, #109, #110, #111, #112, #113, #114, #115, #116, #117, #118, #119, #120, #121, #122, #123, #124, #125, #126, #127, #128, #129, #130, #131, #132, #133, #134, #135, #136, #137, #138, #139, #140, #141, #142, #148
 
 ## Missing per Pokemon
 
@@ -933,6 +933,24 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #96 [ambuger](data/species/ambuger.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #97 [Ambrr](data/species/ambcoptr.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #103 [Obsidog](data/species/obsidog.yaml) - 21%

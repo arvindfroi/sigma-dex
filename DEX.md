@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**99 / 151** slots have a Pokemon - **0** are fully complete - average completeness **21%**.
+**101 / 151** slots have a Pokemon - **0** are fully complete - average completeness **20%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -104,8 +104,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 93 | *open slot* | | | | | |
 | 94 | [Skiirtle](data/species/skiirtle.yaml) | Fire |  |  |  | 7% |
 | 95 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric |  |  |  | 7% |
-| 96 | *open slot* | | | | | |
-| 97 | *open slot* | | | | | |
+| 96 | [ambuger](data/species/ambuger.yaml) | Rock / Bug |  |  | Ambrr (Lv 40) | 14% |
+| 97 | [Ambrr](data/species/ambcoptr.yaml) | Rock / Bug |  |  |  | 14% |
 | 98 | *open slot* | | | | | |
 | 99 | *open slot* | | | | | |
 | 100 | *open slot* | | | | | |
