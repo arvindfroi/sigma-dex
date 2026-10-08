@@ -36,6 +36,13 @@ Open Claude Code in this repository and say:
      same-type move early, the signature move of the line late. Only moves that exist in the game
      unless the designer asked for a new one (then describe it under New moves on the website).
    - **TM/HM**: only from the game's TM/HM list, what the body and type make sensible.
+   - About the lists (checked 2026-10-08): `data/engine/expansion.yaml` comes from the earlier
+     GBA target, but its moves and abilities are also in hg-engine, the base of Origin HeartGold
+     (only spellings differ, e.g. Vise Grip / ViceGrip). The TM/HM list is not the same: the file
+     has Emerald's 50 TMs and 8 HMs, HeartGold has 92 TMs and 8 HMs, and Origin HeartGold may have
+     changed them. Until Origin's list is read from the game, a TM move outside Emerald's list is
+     fine as long as the move exists (`validate.py` warns about it, which can be ignored for now);
+     the Origin export will check TMs against the real list.
    - **Egg moves** for first stages; **tutor** moves are optional.
    - Category, height, weight, body colour, catch rate, base exp, growth rate, friendship,
      gender, egg groups, egg cycles, EV yield: as official Pokemon of that kind and stage have.

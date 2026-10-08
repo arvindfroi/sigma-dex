@@ -114,6 +114,13 @@ def main():
     for sec, label, test in dexlib.CHECKS:
         count = sum(1 for _, _, d in species if test(d))
         lines.append("| %s | %s | %d / %d |" % (sec, label, count, len(species)))
+    # The Art rows above are the files of the earlier GBA target (assets/sprites/). Origin HeartGold reads the DS
+    # sprites approved in the sprite studio (assets/sprites-ds/); they are counted here but not in the percentages.
+    lines += ["", "DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):\n",
+              "| Item | Approved |", "|------|---------:|"]
+    for name, label in (("front", "DS front sprite 80x80"), ("back", "DS back sprite 80x80"), ("icon", "DS icon 32x32")):
+        count = sum(1 for sid, _, _ in species if (ROOT / "assets" / "sprites-ds" / sid / (name + ".png")).is_file())
+        lines.append("| %s | %d / %d |" % (label, count, len(species)))
     open_slots = [str(d) for d in range(1, dex_size + 1) if d not in by_dex]
     lines += ["", "## Open dex slots (%d)\n" % len(open_slots), ", ".join("#" + s for s in open_slots) or "None", "",
               "## Missing per Pokemon\n"]
