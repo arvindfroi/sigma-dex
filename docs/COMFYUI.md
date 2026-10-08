@@ -1,6 +1,6 @@
 # The image generator (ComfyUI)
 
-Sprites and concept art can be drawn by an image model running on a gaming PC. Set up on
+Sprites and concept art are drawn by an image model running on a gaming PC. Set up on
 2026-10-02 on Arvind's Lenovo Legion (RTX 5080 Laptop, 16 GB VRAM, Windows 11).
 
 ## What is installed
@@ -11,7 +11,13 @@ Sprites and concept art can be drawn by an image model running on a gaming PC. S
 | Qwen-Image-2.1, int8 version (7.3 GB) | `models\diffusion_models\qwen_image_2.1_int8_convrot.safetensors` |
 | Its text encoder, int8 (9.4 GB) | `models\text_encoders\qwen3vl_8b_int8_convrot.safetensors` |
 | Its VAE (0.7 GB) | `models\vae\qwen_image_2.1_vae_bf16.safetensors` |
+| Our edit LoRAs for Qwen-Image 2.1 (icon v2, follower v1, ...), trained on this PC; see [LORAS.md](LORAS.md) | `models\loras\pkmn_*_edit_*.safetensors` |
 
+The models below are no longer used for new sprites (the Sprite XL and Emerald styles are retired; see
+[STUDIO.md](STUDIO.md)). They were installed on 2026-10-02 for those styles.
+
+| What | Where on the PC |
+|---|---|
 | NoobAI-XL v1.1 (7.1 GB, Laxhar on Hugging Face), for the Pokemon sprite style | `models\checkpoints\NoobAI-XL-v1.1.safetensors` |
 | Pokemon Sprite XL PixelArt LoRA, Noob v1.0 and back&front (0.2 GB each, civitai.com/models/378602, needs a Civitai login to download) | `models\loras\pkspif_nb_v1-2.safetensors`, `pkspbf_nb_v1.safetensors` |
 | Illustrious-XL v1.0 (6.9 GB), for the dropped Emerald style | `models\checkpoints\Illustrious-XL-v1.0.safetensors` |
@@ -49,5 +55,10 @@ python scripts/comfy.py --prompt "a round brown fish monster" --out test.png --t
 ```
 
 `scripts/comfy.py` sends the job, waits and downloads the picture; `--ref picture.png` gives
-the model a reference (call it `<image1>` in the prompt). See [SPRITES.md](SPRITES.md) for
-how sprites are made from the results. If ComfyUI lives somewhere else, set `COMFY_URL`.
+the model a reference (call it `<image1>` in the prompt). In code, `comfy.generate` also takes
+`ref_resolution`: references are resized to about 1024 px by default, and 0 keeps each at its own size
+(our edit LoRAs were trained at 640 px). See [SPRITES.md](SPRITES.md) for how sprites are made from the
+results; the DS sprites of the website come from `scripts/ds_pixel.py`.
+
+The website's sprite studio does not need the tunnel: the worker (`scripts/sprite_worker.py`) runs on
+the PC itself and starts ComfyUI when there is work ([STUDIO.md](STUDIO.md)). If ComfyUI lives somewhere else, set `COMFY_URL`.

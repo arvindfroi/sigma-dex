@@ -1,9 +1,15 @@
 # The Sigma sprite style
 
-Every Sigma Pokemon's battle sprites are made the same way, so the whole dex has one look and
-anyone can make the next one. This page says what the standard is, how the sprites are made,
-and how a sprite is checked. In the sprite studio on the website this is the style
-"Sigma sprite style" (`sprite-official`), and it is the default.
+**The DS pipeline is the current one:** since 2026-10-05 the website's sprite studio only makes DS
+(Origin HeartGold, 80x80) sprites, drawn by Qwen-Image-Edit; it is described under
+[The DS (Origin HeartGold)](#the-ds-origin-heartgold) below. Everything above that section describes the
+earlier GBA style (64x64), built by our own renderer. It is no longer the default for new sprites,
+but the code and the test set are kept.
+
+The GBA style: every Sigma Pokemon's battle sprites were made the same way, so the whole dex has one
+look. This part says what the standard was, how the sprites were made, and how a sprite is checked. In the
+sprite studio it was the style "Sigma sprite style" (`sprite-official`), the default from 2026-10-03
+until the DS pipeline replaced it.
 
 ![The style on eight Pokemon](img/sprite_style_test.png)
 
@@ -135,7 +141,7 @@ filled the frame. Sizes were measured on HeartGold's own 493 sprites (locally, f
 nothing of them is in this repo, and no game sprite is ever shown to a model): fronts 68/74/78
 pixels (first/middle/final stage), feet on the bottom row (our height value is 0).
 
-The GBA path is unchanged (the test set below gives the same sprites).
+The GBA path (the renderer and the test set below) is unchanged but no longer used for new sprites.
 
 ## The test set
 
@@ -178,7 +184,7 @@ python scripts/sprites.py make waffy --front front.png --back back.png
   features that must be big and clear on the sprite, e.g. "a huge toothy grin" or "pink blush on
   both cheeks". The artwork then exaggerates them, as a spriter would; on a 64-pixel sprite a
   detail the artwork draws small cannot be saved later.
-- The pose choice in the studio, for creatures whose personality shows in a pose.
+- A `ds_pose` in `data/sprite_prompts.yaml` for creatures whose personality shows in a pose.
 
 ## Tried and dropped (2026-10-03)
 

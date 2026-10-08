@@ -24,8 +24,8 @@ Everything else is produced from those files automatically, every time something
 | `export/dex.csv` | The whole dex as a spreadsheet |
 | `export/sheet.csv` | The same, laid out for the Google Sheet people fill in |
 | `export/dex.json` | The whole dex as data, for tools |
-| `export/expansion/` | The Pokemon that are ready, written as game code, plus automated checks for them |
-| `game/` | Hand-written game code: new moves, new abilities and their tests (not generated) |
+| `export/expansion/` | The Pokemon that are ready, written as game code for the earlier GBA target (pokeemerald-expansion), plus automated checks for them |
+| `game/` | Hand-written game code for the GBA target: new moves, new abilities and their tests (not generated) |
 | `site/index.html` | The website: every Pokemon's page, stats at any level, warnings, what is missing |
 
 Never edit the generated files by hand - they get overwritten.
@@ -47,16 +47,24 @@ can be pulled out with [docs/DISCORD.md](docs/DISCORD.md).
 
 ## The game
 
-The plan is a ROM hack built on pokeemerald-expansion, the modernised version of Pokemon
-Emerald. [docs/ENGINE.md](docs/ENGINE.md)
-explains why, what it gives us, what limits it sets and what is still undecided.
+The main target is **Origin HeartGold**, a Nintendo DS hack built on hg-engine. Our Pokemon go in
+"in place": each one takes the species slot of a Pokemon it replaces, so everything that uses that
+species number (starters, gifts, wild encounters, trainers, the Pokedex) uses ours.
+[docs/DEX_REPLACEMENT.md](docs/DEX_REPLACEMENT.md) lists what that does not cover. The export that
+writes our Pokemon into Origin HeartGold is not in this repository yet.
+
+The earlier plan, a ROM hack on pokeemerald-expansion (Pokemon Emerald, GBA), is no longer the
+focus, but its export and tests are still in the repository. See [docs/ENGINE.md](docs/ENGINE.md) and
+[docs/BUILDING.md](docs/BUILDING.md).
 
 ## Sprites
 
-A picture becomes a game sprite (64x64, 15 colors) automatically: upload it on the website as
-a sprite picture, or let the image model on our PC draw one from the concept art. See
-[docs/STUDIO.md](docs/STUDIO.md), [docs/SPRITES.md](docs/SPRITES.md) and [docs/COMFYUI.md](docs/COMFYUI.md). The website's
-**Sprites** tab shows what exists.
+The website's sprite studio makes DS (Gen 4) sprites: 80x80 front and back and a 32x32 menu icon,
+drawn by an image model on our PC from the group's concept art. You can then draw on them in a
+pixel editor or ask the AI for changes. Approved sprites are stored in `assets/sprites-ds/`. See
+[docs/STUDIO.md](docs/STUDIO.md), [docs/SPRITE_STYLE.md](docs/SPRITE_STYLE.md),
+[docs/COMFYUI.md](docs/COMFYUI.md) and [docs/LORAS.md](docs/LORAS.md). The website's **Sprites** tab
+shows what exists.
 
 ## What is and is not in this repository
 

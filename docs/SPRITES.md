@@ -1,7 +1,28 @@
 # Sprites
 
-The game only accepts sprites in one exact format. A drawing, however good, has to be
-converted first. This is how that works here.
+Sprites are drawn for the DS (Origin HeartGold), the main target, and the older GBA format
+(pokeemerald-expansion) is kept below. This is how it works here.
+
+## The DS sprites (Origin HeartGold)
+
+| File | What | Rules |
+|---|---|---|
+| `front.png` | Front view (battle sprite) | 80x80, at most 15 colors + see-through |
+| `back.png` | Back view | 80x80, the **same** colors as the front |
+| `icon.png` | Party/PC menu icon | 32x32 |
+
+The website's sprite studio makes them, one version per request, from the group's concept art, and
+people edit and approve them there; see [STUDIO.md](STUDIO.md). The pipeline is `scripts/ds_pixel.py`
+(described in [SPRITE_STYLE.md](SPRITE_STYLE.md)). Approved ones are stored in
+`assets/sprites-ds/<pokemon>/` (made by `scripts/sprites.py auto`); the website shows them on the
+Pokemon's page and in the **Sprites** tab. The icon and the follower sheet (the small walking
+sprite, 8 frames) come from our edit LoRAs ([LORAS.md](LORAS.md)). Not made yet for any Pokemon: shiny
+colors, footprint and cry.
+
+## The GBA format (earlier target)
+
+The rest of this page is about the earlier GBA target. The game only accepts sprites in one exact
+format there. A drawing, however good, has to be converted first.
 
 ## What the game needs for each Pokemon
 
@@ -20,14 +41,17 @@ page and in the **Sprites** tab.
 
 The house style and its standard: [SPRITE_STYLE.md](SPRITE_STYLE.md).
 
-## Three ways to get sprites
+## Three ways to get GBA sprites
 
-**1. Upload a picture on the website.** On a Pokemon's page, under Images, choose what the
+The website no longer takes uploaded sprite pictures, and its studio only makes DS sprites; ways 1 and 2 are
+kept for old requests and scripts.
+
+**1. Upload a picture on the website (old).** On a Pokemon's page, under Images, choose what the
 picture is ("Sprite: front view", "Sprite: back view", ...) and upload it. Within about 15
 minutes it is converted. A finished 64x64 pixel sprite goes through untouched; a bigger
 drawing is shrunk and reduced to 15 colors.
 
-**2. Let the AI draw them.** `scripts/ai_sprites.py` asks an image model (Qwen-Image-2.1 in
+**2. Let the AI draw them (old).** `scripts/ai_sprites.py` asks an image model (Qwen-Image-2.1 in
 ComfyUI, see [COMFYUI.md](COMFYUI.md)) for a front and a back view in one fixed pixel-art
 style, using the Pokemon's concept art as reference, and converts the result. What the AI is
 told is in [`data/sprite_prompts.yaml`](../data/sprite_prompts.yaml): one `style` for the

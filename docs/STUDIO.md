@@ -14,7 +14,8 @@ Open a Pokemon and press the **Sprite** tab.
    what the drawing PC is doing right now ("front sprite 2 of 3") and where your request is. One
    sprite is drawn at a time: front and back (80x80) and the menu icon (32x32), in the DS style
    ([the approved pipeline](SPRITE_STYLE.md), `scripts/ds_pixel.py`). A new sprite takes about
-   5 to 10 minutes.
+   5 to 10 minutes. The menu icon comes from our icon edit LoRA ([LORAS.md](LORAS.md)). `ds_pixel.make` also draws a follower
+   walking sheet when the follower LoRA is on the PC, but the studio does not hand that in or show it yet.
 3. **Pick a version and make it perfect.** Every version is shown in a row; tap one to open it in
    the editor:
    - **Draw on it yourself**: pencil, eraser, fill, recolour (every pixel of one colour at once),
@@ -42,15 +43,17 @@ Database (migration `supabase/migrations/2026-10-05_studio_v2.sql`): `sprite_job
 `parent_id`, `note`, `editor`, `icon`; RPC `request_sprite_edit`. Edge functions are in
 `supabase/functions/`.
 
-## The styles
+## The styles (retired)
 
-Since 2026-10-05 the website only asks for DS sprites (style `ds`, above); the worker still knows the
-older GBA styles below (for scripts and old requests).
+Since 2026-10-05 the website only asks for DS sprites (style `ds`, above). The worker still knows the
+older GBA styles below, for scripts and old requests, but none of them is used for new sprites any more.
+The Sprite XL and Emerald styles need the models listed (as no longer used) in [COMFYUI.md](COMFYUI.md).
 
-- **Sigma sprite style (recommended, `sprite-official`, the default since 2026-10-03).** Qwen
+- **Sigma sprite style (`sprite-official`, GBA 64x64, the default 2026-10-03 to 2026-10-05).** Qwen
   draws the concept art as official-style Pokemon artwork, and `scripts/pixel_render.py` builds
   the sprite from it pixel by pixel; every attempt is checked against the sprite standard. What
-  the standard is and how it works: [SPRITE_STYLE.md](SPRITE_STYLE.md).
+  the standard is and how it works: [SPRITE_STYLE.md](SPRITE_STYLE.md). Its renderer still makes the rough draft
+  whose silhouette guides the DS pipeline.
 - **Redesigned with more character (`sprite-clean`).** Most
   concept art is a plain drawing without pose or expression, and shrinking it loses the face.
   So: (1) Qwen *redraws* the first reference picture with freedom - bigger head and eyes, a
@@ -58,8 +61,7 @@ older GBA styles below (for scripts and old requests).
   `data/sprite_prompts.yaml`; telling it to "keep the design exactly" makes it copy the
   reference instead); (2) that is shrunk to a rough sprite at official size, as below;
   (3) Qwen repaints the rough sprite at exactly its size and place (`cleanup`); (4) that is
-  snapped to the 64 grid. The pose choice does not apply to this style. Results vary a lot
-  between attempts, so ask for several and pick. Test on the starters (front and back, two
+  snapped to the 64 grid. Results vary a lot between attempts. Test on the starters (front and back, two
   attempts each):
   ![sprite-clean](img/sprite_clean_test.png)
   Tried and worse: a cleanup that is told to stay pixel art (cleaner but lifeless), and the
@@ -68,8 +70,7 @@ older GBA styles below (for scripts and old requests).
 - **Close to the concept art (`sprite-xl`).** Two steps: Qwen-Image-2.1 draws a clean
   illustration of the creature in the chosen pose from the concept art; then NoobAI-XL with
   the [Pokemon Sprite XL PixelArt LoRA](https://civitai.com/models/378602) repaints it as a
-  Pokemon sprite while a ControlNet holds its outlines in place. This is the one that looks
-  like a real Pokemon game.
+  Pokemon sprite while a ControlNet holds its outlines in place.
   The illustration is drawn in the angles the games use (front: three-quarter view turned
   left; back: over the shoulder, facing up and right), the creature is drawn at the size
   official sprites of its strength have (first stages about 40 pixels, final stages fill the
@@ -77,7 +78,7 @@ older GBA styles below (for scripts and old requests).
   flat at the bottom, as the games do. The attempts of one request alternate between two ways of finishing, because each
   wins on some creatures: **drawn** (the illustration is shrunk with a method that keeps thin
   outlines, eyes and claws alive - PixelOE) and **repainted** (the sprite LoRA repaints it and
-  the colors are then locked to the illustration). Ask for at least two attempts to see both.
+  the colors are then locked to the illustration).
   How freely it repaints is a trade-off (`denoise` and `control` in `SPRITE_XL`): more freedom
   looks more like Pokemon but drifts toward grey and invents things, less keeps the colors and
   the design. Set to 0.55 / 0.6 after this test on 2026-10-02 (d = denoise, c = control):
@@ -90,7 +91,7 @@ It only looked like Gen 3 when it was free to redesign the creature
 (![comparison](img/emerald_lora_test.png)). The worker still understands the styles
 `emerald-light` and `emerald-medium`, but the website no longer offers them.
 
-Both LoRAs were trained on official Pokemon sprites. Whether such models may be used is
+The Sprite XL and Emerald LoRAs were trained on official Pokemon sprites. Whether such models may be used is
 legally unsettled; Arvind decided to use them (2026-10-02).
 
 ## What is fixed and what is free
@@ -100,23 +101,22 @@ they belong to one game - without every Pokemon coming out the same.
 
 | Fixed (the same for every sprite) | Where |
 |---|---|
-| The style text: pixel grid, outline, shading, number of colors, lighting | `style` in `data/sprite_prompts.yaml` |
-| The poses to choose from, and how the back view is asked for | `poses` and `back` in the same file |
-| The sprite step: its model, LoRA and strengths | `SPRITE_XL` in `scripts/sprite_worker.py`, `restyle` in `scripts/comfy.py` |
-| The model, its settings (25 steps, 1024x1024) and the conversion to 64x64 / 15 colors | `scripts/comfy.py`, `scripts/sprites.py` |
-| The seed of each attempt: request number x 100 + attempt number | `scripts/sprite_worker.py` |
+| The DS style text and the prompts for the front, back and edits | `STYLE`, `FRONT`, `BACK` in `scripts/ds_pixel.py` |
+| The artwork prompts (Diamond/Pearl-era official artwork, front and back) | `official_front_gen4`, `official_back_gen4` in `data/sprite_prompts.yaml` |
+| The sizes per stage, the 96 grid and the 15 colours | `scripts/sprite_worker.py` (`GAMES`), `scripts/ds_pixel.py` |
+| The icon and follower LoRAs | `ICON_LORA`, `FOLLOWER_LORA` in `scripts/ds_pixel.py`, see [LORAS.md](LORAS.md) |
+| The model, its settings and the conversion | `scripts/comfy.py`, `scripts/sprites.py` |
+| The seeds of a request: request number x 100, plus 5, 6, 7 for the three fronts (+1, +2 for edits) | `scripts/sprite_worker.py`, `scripts/ds_pixel.py` |
 
 | Free (decided per Pokemon by people) | Where |
 |---|---|
-| The look | typed in the studio |
+| The look and the pose (`look`, `ds_pose`, `signature`) | `data/sprite_prompts.yaml` |
 | Which concept art the AI sees | ticked in the studio |
-| The pose and the style | chosen in the studio |
-| How many attempts to choose between | chosen in the studio |
-| What to change, on which spot | comments |
-| Which attempt wins | Approve |
+| What to change, and on which spot | "Ask the AI" and the marked area, or the pixel editor |
+| Which version wins | Approve |
 
-Every attempt stores its full prompt, seed and style version, so it can be reproduced. To
-change the style of the whole dex, change `style` in `data/sprite_prompts.yaml`: sprites
+Every version stores its prompt and seed, so it can be reproduced. To
+change the style of the whole dex, change the prompts above: sprites
 drawn after that use the new style; approved ones stay as they are until redone.
 
 ## How it works

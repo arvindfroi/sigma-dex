@@ -1,5 +1,9 @@
 # The game we build on
 
+**Update (2026-10):** the main target is now Origin HeartGold (Nintendo DS, built on hg-engine), where our
+Pokemon take existing species slots (see [DEX_REPLACEMENT.md](DEX_REPLACEMENT.md)). This page describes
+the earlier GBA target, pokeemerald-expansion. Its export and tests are still in the repository, but it is no longer the focus.
+
 ## The base: pokeemerald-expansion
 
 [`rh-hideout/pokeemerald-expansion`](https://github.com/rh-hideout/pokeemerald-expansion)

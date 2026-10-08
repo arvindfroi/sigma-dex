@@ -1,6 +1,9 @@
-# Building the game
+# Building the game (GBA target)
 
-The game is [pokeemerald-expansion](https://github.com/rh-hideout/pokeemerald-expansion)
+This page is about the earlier GBA target. The main target is now Origin HeartGold (Nintendo DS);
+see [DEX_REPLACEMENT.md](DEX_REPLACEMENT.md). Nothing here is needed for it.
+
+The GBA game is [pokeemerald-expansion](https://github.com/rh-hideout/pokeemerald-expansion)
 plus our Pokemon. Its source contains Nintendo's game data, so it lives in its own folder
 outside this repository and is never uploaded here.
 

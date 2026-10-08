@@ -30,8 +30,9 @@ If a Pokemon is renamed, change `name` inside the file and leave the file name a
 ## Art
 
 Put concept art in `assets/concept-art/` named after the species file (`leafing.png`), then
-set `concept_art: assets/concept-art/leafing.png` in the species file. Sprites go in
-`assets/sprites/<species>/`. Only upload art made by us.
+set `concept_art: assets/concept-art/leafing.png` in the species file. Sprites are made in the
+sprite studio on the website ([docs/STUDIO.md](docs/STUDIO.md)); approved DS sprites land in
+`assets/sprites-ds/<species>/` by themselves. Only upload art made by us.
 
 ## Rules of thumb
 

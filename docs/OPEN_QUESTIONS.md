@@ -6,7 +6,8 @@ species files are updated.
 
 ## Conflicts with the game engine
 
-The base is now pokeemerald-expansion (see [ENGINE.md](ENGINE.md)), which removed most of the
+These were checked against the earlier GBA target, pokeemerald-expansion (see
+[ENGINE.md](ENGINE.md)); the main target is now Origin HeartGold, so check them again against it. That base removed most of the
 earlier conflicts: Fairy type, hidden abilities, the physical/special split and 846 moves /
 319 abilities from generation 1-9 all exist. What is left:
 
@@ -46,11 +47,12 @@ earlier conflicts: Fairy type, hidden abilities, the physical/special split and 
 
 ## Project decisions
 
-13. **Native PC build or GBA ROM?** pokeemerald-expansion builds a GBA ROM, which runs on
-    any computer or phone in an emulator. A native PC program of it does not exist ready-made
-    (see [ENGINE.md](ENGINE.md)). The Pokemon data, moves, maps and scripts are the same
-    work either way, so this can be decided later.
-14. **Our 100 are added next to the existing Pokemon; they do not replace the Hoenn dex**
-    (decided 2026-10-02). This is what the game export already does.
+13. **Target game.** The main target is now Origin HeartGold (Nintendo DS, built on hg-engine). The
+    earlier GBA plan (pokeemerald-expansion, with a possible native PC build) is no longer the focus
+    (see [ENGINE.md](ENGINE.md)).
+14. **Our Pokemon replace existing ones in place** (changed when the target became Origin HeartGold; before that they were to be added
+    next to the Hoenn dex). Each takes the species slot of a Pokemon it replaces; see
+    [DEX_REPLACEMENT.md](DEX_REPLACEMENT.md). Still open: which slots they take (pure, mixed or
+    post-Champion dex).
 15. **Region name** - goes in `data/config.yaml`.
 16. **Leafing's values are a draft** made for the proof of concept. Review them.
