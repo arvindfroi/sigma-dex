@@ -51,7 +51,8 @@ The main target is **Origin HeartGold**, a Nintendo DS hack built on hg-engine. 
 "in place": each one takes the species slot of a Pokemon it replaces, so everything that uses that
 species number (starters, gifts, wild encounters, trainers, the Pokedex) uses ours.
 [docs/DEX_REPLACEMENT.md](docs/DEX_REPLACEMENT.md) lists what that does not cover. The export that
-writes our Pokemon into Origin HeartGold is not in this repository yet.
+writes our Pokemon into Origin HeartGold is not in this repository yet. Giving friends a physical
+copy on a DS flashcart (DSpico and others) is being considered: [docs/CARTRIDGE.md](docs/CARTRIDGE.md).
 
 The earlier plan, a ROM hack on pokeemerald-expansion (Pokemon Emerald, GBA), is no longer the
 focus, but its export and tests are still in the repository. See [docs/ENGINE.md](docs/ENGINE.md) and

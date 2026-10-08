@@ -109,8 +109,11 @@ covers adding a species including sprites and cry.
 
 ## Sharing the game legally
 
-- Hacks are shared as a **patch** (BPS/UPS) that players apply to their own Emerald ROM.
-  The patch contains only the differences, not Nintendo's game.
+- Hacks are shared as a **patch** (BPS/UPS/xdelta) that players apply to their own ROM (Emerald
+  for the GBA plan; HeartGold, plus Origin's own patches, for Origin HeartGold). The patch
+  contains only the differences, not Nintendo's game.
+- A finished game on a flashcart as a gift is a copied patched ROM: a grey area, so only a few
+  copies, never sold and never published. See [CARTRIDGE.md](CARTRIDGE.md).
 - A native PC program contains the game's graphics and sound, so it cannot simply be handed
   out. The Vita port solves this by shipping without assets and reading them from the
   player's own ROM at startup.

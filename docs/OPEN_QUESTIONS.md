@@ -49,7 +49,8 @@ earlier conflicts: Fairy type, hidden abilities, the physical/special split and 
 
 13. **Target game.** The main target is now Origin HeartGold (Nintendo DS, built on hg-engine). The
     earlier GBA plan (pokeemerald-expansion, with a possible native PC build) is no longer the focus
-    (see [ENGINE.md](ENGINE.md)).
+    (see [ENGINE.md](ENGINE.md)). Still open: how friends get to play it - a DS flashcart such as
+    the DSpico as a gift, or the patch only (see [CARTRIDGE.md](CARTRIDGE.md)).
 14. **Our Pokemon replace existing ones in place** (changed when the target became Origin HeartGold; before that they were to be added
     next to the Hoenn dex). Each takes the species slot of a Pokemon it replaces; see
     [DEX_REPLACEMENT.md](DEX_REPLACEMENT.md). Still open: which slots they take (pure, mixed or
