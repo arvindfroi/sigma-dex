@@ -120,24 +120,49 @@ palette, stray pixels removed, a dark outline added where missing.
 Waits: the sketch -> Sugimori artwork LoRA (we have Qwen's artwork for now); first a test of Qwen with real
 Sugimori artworks as style references (running).
 
+## Transparency: data v5 (2026-10-08)
+
+A big mistake, fixed before the RunPod round: data v4 and the DS pipeline put every picture on white and guessed the
+background back as "near white". 1542 of the 2172 real Gen 4 fronts have white pixels inside the creature (eye glints,
+white patches), so that guess eats light parts (it is also why Sandrema, a beige mon, failed). Qwen-Image 2.1's VAE is
+RGBA: an x8 sprite goes through it with not one alpha pixel wrong, and ai-toolkit trains it with
+`model_kwargs: {rgba: true}`. Data v5 keeps every picture's own transparency; the loss masks are the alpha, widened a
+little (the background keeps 0.3 of the weight, its clear alpha has to be learned too). A 200-step icon test on the
+Legion kept clean transparency and the white parts (Poliwag's tail, Poliwrath's gloves).
+
+Also in v5:
+- the main references (front sprite, artwork) are "dirty" in 30% of the examples, like the extra ones: for our mons
+  they are made by LoRAs, so the LoRAs must cope with slightly soft, slightly off pictures;
+- a style LoRA `art_style_v1`: the 968 official artworks alone, no reference picture, at 1024. It learns only what the
+  artwork style looks like; used on top of an edit with a concept drawing as reference, Qwen keeps the design and the
+  LoRA gives the rendering (the idea of OmniConsistency, NeurIPS 2025: learn the style apart from keeping the content).
+  Tested together with `art_v1` (sprites and HOME renders -> artwork) on the concept art of our 10 test mons.
+
+Using them: ComfyUI's LoadImage drops the alpha, so a reference goes through JoinImageWithAlpha; `ds_pixel` must be
+switched to transparent references and to reading the alpha (instead of "near white") before the new LoRAs are used.
+
 ## Running the RunPod round (prepared 2026-10-08)
 
-Everything is on the Legion in `D:\LocalAI\lora-train`: `v4.tar` (data v4, 2.1 GB, with loss masks), `v4cfg\*.yaml`
-(pod configs; `*_smoke.yaml` are the Legion test versions, all five trained without errors), `v4cfg\pod_setup.sh`,
-`v4cfg\pod_train.sh`, `runpodctl.exe`.
+Everything is on the Legion in `D:\LocalAI\lora-train`: `v5.tar` (data v5, 3.3 GB, RGBA with loss masks),
+`v5cfg\*.yaml` (pod configs; `*_smoke.yaml` are the Legion test versions), `v5cfg\pod_setup.sh`, `v5cfg\pod_train.sh`,
+`runpodctl.exe`.
 
 1. Pod: RTX Pro 6000 (96 GB), PyTorch image, about 150 GB container disk; spend limit 25 dollars.
-2. Send `v4.tar` and the `v4cfg` files from the Legion with `runpodctl send`, receive them in the pod under `/workspace`
-   (`/workspace/v4.tar`, `/workspace/cfg/`).
+2. Send `v5.tar` and the `v5cfg` files from the Legion with `runpodctl send`, receive them in the pod under `/workspace`
+   (`/workspace/v5.tar`, `/workspace/cfg/`).
 3. `bash /workspace/cfg/pod_setup.sh`: the same ai-toolkit as the Legion (commit ecee894), the bf16 model files from the
    Hugging Face hub (ai-toolkit would otherwise take the int8 ones), a 30-step smoke test with s/step and a weight check.
    Work out the price from s/step before going on.
-4. `bash /workspace/cfg/pod_train.sh` (back v4, follower v3, icon v3, artwork -> front A and B, 1500 steps each); each
-   LoRA is packed to `/workspace/results/pkmn_<name>.tar` when it ends, download them as they come.
+4. `bash /workspace/cfg/pod_train.sh` (art style, art, back v4, follower v3, icon v3, artwork -> front A and B, 1500
+   steps each); each LoRA is packed to `/workspace/results/pkmn_<name>.tar` when it ends, download them as they come.
 5. Stop (or terminate) the pod as soon as everything is downloaded. The test sheets are made on the Legion.
 
 ## Next ones (later)
 
-- one LoRA for all directions (after the family works);
+- one LoRA for all directions (agreed with Arvind 2026-10-08 for the round after this one): the same data, each example
+  gets a random subset of the species' pictures (art, front, back, icon, follower sheet, HOME render) as references
+  and the caption says which one to draw. People can start from whatever they have, a mistake can be fixed by
+  drawing a view again with the others as references, and one LoRA learns that every format is the same creature.
+  Compared directly with this round's single LoRAs;
 - trainers (about 160 examples in hg-engine);
 - image to 3D (Hunyuan3D 2.1 shape-only / mini and Pixal3D fit 16 GB).
