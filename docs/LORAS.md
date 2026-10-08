@@ -120,6 +120,22 @@ palette, stray pixels removed, a dark outline added where missing.
 Waits: the sketch -> Sugimori artwork LoRA (we have Qwen's artwork for now); first a test of Qwen with real
 Sugimori artworks as style references (running).
 
+## Running the RunPod round (prepared 2026-10-08)
+
+Everything is on the Legion in `D:\LocalAI\lora-train`: `v4.tar` (data v4, 2.1 GB, with loss masks), `v4cfg\*.yaml`
+(pod configs; `*_smoke.yaml` are the Legion test versions, all five trained without errors), `v4cfg\pod_setup.sh`,
+`v4cfg\pod_train.sh`, `runpodctl.exe`.
+
+1. Pod: RTX Pro 6000 (96 GB), PyTorch image, about 150 GB container disk; spend limit 25 dollars.
+2. Send `v4.tar` and the `v4cfg` files from the Legion with `runpodctl send`, receive them in the pod under `/workspace`
+   (`/workspace/v4.tar`, `/workspace/cfg/`).
+3. `bash /workspace/cfg/pod_setup.sh`: the same ai-toolkit as the Legion (commit ecee894), the bf16 model files from the
+   Hugging Face hub (ai-toolkit would otherwise take the int8 ones), a 30-step smoke test with s/step and a weight check.
+   Work out the price from s/step before going on.
+4. `bash /workspace/cfg/pod_train.sh` (back v4, follower v3, icon v3, artwork -> front A and B, 1500 steps each); each
+   LoRA is packed to `/workspace/results/pkmn_<name>.tar` when it ends, download them as they come.
+5. Stop (or terminate) the pod as soon as everything is downloaded. The test sheets are made on the Legion.
+
 ## Next ones (later)
 
 - one LoRA for all directions (after the family works);
