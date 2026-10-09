@@ -1,5 +1,13 @@
 [
   {
+    "row": "#17 ",
+    "problem": "this row has no name, and number 17 may belong to another Pokemon now - write the name"
+  },
+  {
+    "row": "#18 ",
+    "problem": "this row has no name, and number 18 may belong to another Pokemon now - write the name"
+  },
+  {
     "row": "#29 ",
     "problem": "this row has no name, and number 29 may belong to another Pokemon now - write the name"
   },
@@ -42,5 +50,9 @@
   {
     "row": "#90 ",
     "problem": "this row has no name, and number 90 may belong to another Pokemon now - write the name"
+  },
+  {
+    "row": "#92 ",
+    "problem": "this row has no name, and number 92 may belong to another Pokemon now - write the name"
   }
 ]
