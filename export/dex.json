@@ -1415,9 +1415,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Swarm",
         "secondary": null,
-        "hidden": null
+        "hidden": "Grassy Surge"
       },
       "base_stats": {
         "hp": null,
@@ -1492,9 +1492,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Swarm",
         "secondary": null,
-        "hidden": null
+        "hidden": "Grassy Surge"
       },
       "base_stats": {
         "hp": null,
@@ -1568,7 +1568,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Illusion",
         "secondary": null,
         "hidden": null
       },
@@ -1649,7 +1649,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Illusion",
         "secondary": null,
         "hidden": null
       },
@@ -1726,8 +1726,8 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
+        "primary": "Rain Dish",
+        "secondary": "Unaware",
         "hidden": null
       },
       "base_stats": {
@@ -1803,8 +1803,8 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
+        "primary": "Rain Dish",
+        "secondary": "Unaware",
         "hidden": null
       },
       "base_stats": {
@@ -8048,6 +8048,83 @@
         "safari_flee_rate": 0
       },
       "id": "wisprake-utvikling2"
+    },
+    {
+      "dex": 109,
+      "name": "Eivlax",
+      "credits": {
+        "designer": "Eiv",
+        "artist": null
+      },
+      "types": [
+        "Steel",
+        "Dragon"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": "Me",
+        "notes": "Hardcore badass",
+        "wishes": "Bulky tanky giant, slow but powerful, can learn flamethrower and thunderbolt, take inspiration from Tyranitar and Drudegon",
+        "claude_fill": true,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "eivomon"
     },
     {
       "dex": 110,

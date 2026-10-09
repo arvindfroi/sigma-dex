@@ -1,12 +1,12 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
-dex: 17
-name: Shadeem
+dex: 109
+name: Eivlax
 
 credits:
-  designer: Michael      # who came up with it (Discord name)
+  designer: Eiv          # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: [Normal]          # 1 or 2 types, e.g. [Grass, Steel]
+types: [Steel, Dragon]   # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -17,7 +17,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Illusion
+  primary:
   secondary:             # optional
   hidden:                # optional
 
@@ -61,22 +61,20 @@ learnset:
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
-# e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
-encounters:
-  - {location: In the slums}
+encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
 
 # --- Design ---
 design:
   concept:               # what is it? one or two sentences
-  name_origin:
-  notes:
-  wishes:                # for Claude: how it should play, move ideas
-  claude_fill: false     # true = Claude may fill in what is missing
+  name_origin: Me
+  notes: Hardcore badass
+  wishes: "Bulky tanky giant, slow but powerful, can learn flamethrower and thunderbolt, take inspiration from Tyranitar and Drudegon"
+  claude_fill: true      # true = Claude may fill in what is missing
   filled_by_claude: []   # fields Claude filled in (people can change them)
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art: "assets/concept-art/shadeem/582.webp"
+  concept_art:           # e.g. assets/concept-art/eivlax.png
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

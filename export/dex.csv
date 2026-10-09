@@ -17,13 +17,13 @@ until the edge shines like metal.
 12,smeatherace,Smeatherace,Normal,Flying,Unburden,,,495,67,109,60,72,102,85,,,Skyemoji Bird,1.7,28.4,,,,,,,,,,,,,,,,,,"Smeatherace rides high winds with silent grace, using the emoji-like marking on its chest to signal its flock from afar. When it drops what it carries, its body becomes startlingly light, letting it burst through the sky with incredible speed.",,,"From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -.",Magnus,,31
 13,bolthook,Bolthook,Dark,Flying,Strong Jaw,,,,,,,,,,,,Gaze,2,86,,,,,,,,,,,,,,,,,,"Bolthook waits in eerie stillness until prey comes into view. It then spreads its great wings to blot out the sun and strikes with its enormous beak in a single, thunderous blow. The echo of its beak can be heard for miles.",,,"From the Discord concept card (Arvind Frøiland, 2026-05-02): also on the card: Notable moves: Crunch, Brutal Swing, Hurricane, Knock Off. Extra note: Its beak is so heavy that it must spread its wings wide to take off. It rarely flaps unless it needs to strike..",,,24
 14,wump,Wump,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,10
-15,twemp,Twemp,Bug,Grass,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,10
-16,florantula,Florantula,Bug,Grass,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,10
-17,shadeem,Shadeem,Normal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,In the slums,,,,,Michael,,14
-18,shadrove,Shadrove,Normal,Dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,7
+15,twemp,Twemp,Bug,Grass,Swarm,,Grassy Surge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,14
+16,florantula,Florantula,Bug,Grass,Swarm,,Grassy Surge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,14
+17,shadeem,Shadeem,Normal,,Illusion,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,In the slums,,,,,Michael,,17
+18,shadrove,Shadrove,Normal,Dark,Illusion,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,10
 19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-20,cowfin,Cowfin,Normal,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,10
-21,mooceon,Mooceon,Normal,Water,,,,490,155,55,75,70,85,50,,,,,,,2 hp,,,,,,,,,,,,,,,,,,,,Arvind,,17
+20,cowfin,Cowfin,Normal,Water,Rain Dish,Unaware,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,14
+21,mooceon,Mooceon,Normal,Water,Rain Dish,Unaware,,490,155,55,75,70,85,50,,,,,,,2 hp,,,,,,,,,,,,,,,,,,,,Arvind,,21
 22,lapper,Lapper,Normal,Fighting,Scrappy,Fur Coat,Hustle,327,60,75,45,25,55,67,,,,,,,,,,,,,,,,,,"Tackle (1), Growl (1), Howl (8), Mud-Slap (12), Double Slap (16), Wake-Up Slap (20), Take Down (24)",,,,,,,,,Emil Venge-Kvamme,,21
 23,brawleo,Brawleo,Normal,Fighting,Scrappy,Fur Coat,Technician,485,80,110,67,45,80,103,Lapper,Lv 25,Guard Dog,,,,2 attack,,,,,,,,,,,Mach Punch (evo),,,,,It swings its ears like fists to slap the target. Its tough fur protects it while it fights.,,,"From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male.",Emil Venge-Kvamme,,31
 24,sigmanian-sudowoodo,Sigmanian Sudowoodo,Rock,Ground,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
@@ -112,7 +112,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 106,wisprake-utvikling-1,Wisprake utvikling 1,Ghost,Dragon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,7
 107,wisprake-utvikling2,Wisprake utvikling2,Ghost,Dragon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,7
 108,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-109,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+109,eivomon,Eivlax,Steel,Dragon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Me,Hardcore badass,Eiv,,7
 110,oraclet,Oraclet,Psychic,,Frisk,Forewarn,Magic Guard,,,,,,,,,,,0.6,6.8,purple,,,,,,,,,,,,,,,,,,,,,Johannes,,24
 111,oraclaw,Oraclaw,Psychic,Flying,Frisk,Forewarn,Magic Guard,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Johannes,,14
 112,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

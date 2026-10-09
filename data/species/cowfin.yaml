@@ -17,8 +17,8 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
+  primary: Rain Dish
+  secondary: Unaware     # optional
   hidden:                # optional
 
 base_stats:              # each 1-255

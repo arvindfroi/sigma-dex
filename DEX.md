@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**111 / 151** slots have a Pokemon - **0** are fully complete - average completeness **20%**.
+**112 / 151** slots have a Pokemon - **0** are fully complete - average completeness **20%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -23,13 +23,13 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 12 | [Smeatherace](data/species/smeatherace.yaml) | Normal / Flying | Unburden | 495 |  | 31% |
 | 13 | [Bolthook](data/species/bolthook.yaml) | Dark / Flying | Strong Jaw |  |  | 24% |
 | 14 | [Wump](data/species/wump.yaml) | Bug |  |  |  | 10% |
-| 15 | [Twemp](data/species/twemp.yaml) | Bug / Grass |  |  |  | 10% |
-| 16 | [Florantula](data/species/florantula.yaml) | Bug / Grass |  |  |  | 10% |
-| 17 | [Shadeem](data/species/shadeem.yaml) | Normal |  |  |  | 14% |
-| 18 | [Shadrove](data/species/shadrove.yaml) | Normal / Dark |  |  |  | 7% |
+| 15 | [Twemp](data/species/twemp.yaml) | Bug / Grass | Swarm, Grassy Surge (H) |  |  | 14% |
+| 16 | [Florantula](data/species/florantula.yaml) | Bug / Grass | Swarm, Grassy Surge (H) |  |  | 14% |
+| 17 | [Shadeem](data/species/shadeem.yaml) | Normal | Illusion |  |  | 17% |
+| 18 | [Shadrove](data/species/shadrove.yaml) | Normal / Dark | Illusion |  |  | 10% |
 | 19 | *open slot* | | | | | |
-| 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water |  |  |  | 10% |
-| 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water |  | 490 |  | 17% |
+| 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water | Rain Dish, Unaware |  |  | 14% |
+| 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water | Rain Dish, Unaware | 490 |  | 21% |
 | 22 | [Lapper](data/species/lapper.yaml) | Normal / Fighting | Scrappy, Fur Coat, Hustle (H) | 327 | Brawleo (Lv 25) | 21% |
 | 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 31% |
 | 24 | [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) | Rock / Ground |  |  |  | 7% |
@@ -117,7 +117,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 106 | [Wisprake utvikling 1](data/species/wisprake-utvikling-1.yaml) | Ghost / Dragon |  |  |  | 7% |
 | 107 | [Wisprake utvikling2](data/species/wisprake-utvikling2.yaml) | Ghost / Dragon |  |  |  | 7% |
 | 108 | *open slot* | | | | | |
-| 109 | *open slot* | | | | | |
+| 109 | [Eivlax](data/species/eivomon.yaml) | Steel / Dragon |  |  |  | 7% |
 | 110 | [Oraclet](data/species/oraclet.yaml) | Psychic | Frisk, Forewarn, Magic Guard (H) |  |  | 24% |
 | 111 | [Oraclaw](data/species/oraclaw.yaml) | Psychic / Flying | Frisk, Forewarn, Magic Guard (H) |  |  | 14% |
 | 112 | *open slot* | | | | | |
