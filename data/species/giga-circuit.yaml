@@ -3,7 +3,7 @@ dex: 53
 name: Giga-Circuit
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Ruben        # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Electric]        # 1 or 2 types, e.g. [Grass, Steel]

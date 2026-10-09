@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**101 / 151** slots have a Pokemon - **0** are fully complete - average completeness **21%**.
+**111 / 151** slots have a Pokemon - **0** are fully complete - average completeness **20%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -25,8 +25,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 14 | [Wump](data/species/wump.yaml) | Bug |  |  |  | 10% |
 | 15 | [Twemp](data/species/twemp.yaml) | Bug / Grass |  |  |  | 10% |
 | 16 | [Florantula](data/species/florantula.yaml) | Bug / Grass |  |  |  | 10% |
-| 17 | *open slot* | | | | | |
-| 18 | *open slot* | | | | | |
+| 17 | [Shadeem](data/species/shadeem.yaml) | Normal |  |  |  | 14% |
+| 18 | [Shadrove](data/species/shadrove.yaml) | Normal / Dark |  |  |  | 7% |
 | 19 | *open slot* | | | | | |
 | 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water |  |  |  | 10% |
 | 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water |  | 490 |  | 17% |
@@ -40,7 +40,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 29 | [Wispole](data/species/wispole.yaml) | Water | Swift Swim, Water Veil, Water Bubble (H) | 230 | Galfrogtom (Thunder Stone), Croakble (Lv 25) | 28% |
 | 30 | [Croakble](data/species/croakble.yaml) | Water | Swift Swim, Storm Drain, Water Bubble (H) | 504 |  | 17% |
 | 31 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Clear Body, Lightning Rod, Galvanize (H) | 504 |  | 31% |
-| 32 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice |  |  |  | 7% |
+| 32 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice | Moody |  |  | 10% |
 | 33 | [Rainbro](data/species/rainbro.yaml) | Stellar |  |  |  | 7% |
 | 34 | [Autuman](data/species/autuman.yaml) | Fighting / Grass | Justified, Guts, Wind Rider (H) |  |  | 14% |
 | 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Guts, Justified, Tinted Lens (H) | 500 |  | 31% |
@@ -53,15 +53,15 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire | Flash Fire, Dancer, Huge Power (H) | 530 |  | 31% |
 | 43 | [Chebbi](data/species/chebbi.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 360 | Devampry (Lv 32) | 24% |
 | 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark | Soundproof, Levitate, Punk Rock (H) | 503 |  | 28% |
-| 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water | Swift Swim, Battle Bond | 495 |  | 28% |
+| 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water | Swift Swim, Battle Bond | 495 |  | 31% |
 | 46 | [Zapana](data/species/zapana.yaml) | Water / Electric | Swift Swim, Static, Sap Sipper (H) | 280 | Ampeel (Lv 25) | 34% |
 | 47 | [Ampeel](data/species/ampeel.yaml) | Water / Electric | Swift Swim, Static, Sap Sipper (H) | 490 |  | 34% |
 | 48 | [Tomaterdander](data/species/tomaterdander.yaml) | Poison / Grass | Pickle Armor, Chlorophyll | 480 |  | 28% |
 | 49 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass | XL and Deep fried, Chlorophyll | 560 |  | 28% |
 | 50 | [Beatld](data/species/beatld.yaml) | Bug / Psychic |  |  |  | 7% |
-| 51 | [Fleuroom](data/species/fleuroom.yaml) | Poison / Fairy |  |  |  | 10% |
-| 52 | [Fleuroom utvikling](data/species/fleuroom-utvikling.yaml) |  |  |  |  | 7% |
-| 53 | [Giga-Circuit](data/species/giga-circuit.yaml) | Electric |  | 525 |  | 10% |
+| 51 | [Fleuroom](data/species/fleuroom.yaml) | Poison / Fairy | Effect Spore |  |  | 14% |
+| 52 | [Sporeshade](data/species/fleuroom-utvikling.yaml) | Fairy / Poison | Effect Spore |  |  | 14% |
+| 53 | [Giga-Circuit](data/species/giga-circuit.yaml) | Electric |  | 525 |  | 14% |
 | 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock |  |  |  | 7% |
 | 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon |  |  |  | 7% |
 | 56 | [Razox](data/species/razox.yaml) | Fairy / Ice |  |  |  | 7% |
@@ -86,7 +86,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 75 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 525 |  | 38% |
 | 76 | [Iglomodo mindre utv](data/species/iglomodo-mindre-utv.yaml) | Ice / Poison |  |  | Iglomodo (Lv 30) | 7% |
 | 77 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 530 |  | 34% |
-| 78 | *open slot* | | | | | |
+| 78 | [furamire](data/species/furamire.yaml) | Normal / Fairy |  |  |  | 7% |
 | 79 | [Ciggiti](data/species/ciggiti.yaml) | Ghost | Smoked Up | 310 |  | 28% |
 | 80 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 28% |
 | 81 | [Parahaunt](data/species/parahaunt.yaml) | Ghost | Smoked Up | 556 |  | 28% |
@@ -100,7 +100,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 89 | [Vires](data/species/vires.yaml) | Fairy |  |  |  | 14% |
 | 90 | [Flurina](data/species/flurina.yaml) |  |  |  |  | 10% |
 | 91 | [Dragem](data/species/dragem.yaml) | Dragon / Rock |  |  |  | 7% |
-| 92 | *open slot* | | | | | |
+| 92 | [Quimsy](data/species/quimsy.yaml) | Normal / Psychic |  |  |  | 10% |
 | 93 | *open slot* | | | | | |
 | 94 | [Skiirtle](data/species/skiirtle.yaml) | Fire |  |  |  | 7% |
 | 95 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric |  |  |  | 7% |
@@ -111,15 +111,15 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 100 | *open slot* | | | | | |
 | 101 | *open slot* | | | | | |
 | 102 | *open slot* | | | | | |
-| 103 | [Obsidog](data/species/obsidog.yaml) | Dark / Rock | Strong Jaw, Intimidate, Rough Skin (H) | 340 | Obsidog utvikling (Dusk Stone) | 21% |
-| 104 | [Obsidog utvikling](data/species/obsidog-utvikling.yaml) | Dark / Rock | Strong Jaw, Intimidate, Rough Skin (H) | 555 |  | 17% |
-| 105 | [Wisprake](data/species/wisprake.yaml) | Ghost |  |  |  | 7% |
+| 103 | [Obsidog](data/species/obsidog.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 340 | Obsidog utvikling (Dusk Stone) | 21% |
+| 104 | [Obsidog utvikling](data/species/obsidog-utvikling.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 555 |  | 17% |
+| 105 | [Wisprake](data/species/wisprake.yaml) | Ghost |  |  |  | 10% |
 | 106 | [Wisprake utvikling 1](data/species/wisprake-utvikling-1.yaml) | Ghost / Dragon |  |  |  | 7% |
 | 107 | [Wisprake utvikling2](data/species/wisprake-utvikling2.yaml) | Ghost / Dragon |  |  |  | 7% |
 | 108 | *open slot* | | | | | |
 | 109 | *open slot* | | | | | |
-| 110 | *open slot* | | | | | |
-| 111 | *open slot* | | | | | |
+| 110 | [Oraclet](data/species/oraclet.yaml) | Psychic | Frisk, Forewarn, Magic Guard (H) |  |  | 24% |
+| 111 | [Oraclaw](data/species/oraclaw.yaml) | Psychic / Flying | Frisk, Forewarn, Magic Guard (H) |  |  | 14% |
 | 112 | *open slot* | | | | | |
 | 113 | *open slot* | | | | | |
 | 114 | *open slot* | | | | | |
@@ -138,12 +138,12 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 127 | *open slot* | | | | | |
 | 128 | *open slot* | | | | | |
 | 129 | *open slot* | | | | | |
-| 130 | *open slot* | | | | | |
-| 131 | *open slot* | | | | | |
-| 132 | *open slot* | | | | | |
+| 130 | [Grincho](data/species/grincho.yaml) | Normal / Ghost |  |  |  | 10% |
+| 131 | [Grinsnare](data/species/grinsnare.yaml) | Normal / Ghost |  |  |  | 10% |
+| 132 | [Grinsmire](data/species/grinsmire.yaml) | Normal / Ghost |  |  |  | 7% |
 | 133 | *open slot* | | | | | |
 | 134 | *open slot* | | | | | |
-| 135 | *open slot* | | | | | |
+| 135 | [Riftbloom](data/species/riftbloom.yaml) | Ghost / Psychic |  |  |  | 10% |
 | 136 | *open slot* | | | | | |
 | 137 | *open slot* | | | | | |
 | 138 | *open slot* | | | | | |

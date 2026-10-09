@@ -17,7 +17,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Moody
   secondary:             # optional
   hidden:                # optional
 

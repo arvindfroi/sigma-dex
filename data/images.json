@@ -637,13 +637,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 258,
-    "species": "janenon",
-    "file": "assets/concept-art/janenon/258.webp",
-    "caption": "Concept card from Discord, posted by SLOTHBABY 2026-05-07",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 259,
     "species": "janenon",
     "file": "assets/concept-art/janenon/259.webp",
@@ -1785,13 +1778,6 @@
     "editor": null
   },
   {
-    "id": 467,
-    "species": "fleuroom",
-    "file": "assets/concept-art/fleuroom/467.png",
-    "caption": null,
-    "editor": null
-  },
-  {
     "id": 468,
     "species": "fleuroom",
     "file": "assets/concept-art/fleuroom/468.png",
@@ -1963,6 +1949,111 @@
     "id": 577,
     "species": "fleuroom-utvikling",
     "file": "assets/concept-art/fleuroom-utvikling/577.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 578,
+    "species": "oraclet",
+    "file": "assets/concept-art/oraclet/578.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 579,
+    "species": "oraclaw",
+    "file": "assets/concept-art/oraclaw/579.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 580,
+    "species": "oraclaw",
+    "file": "assets/concept-art/oraclaw/580.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 581,
+    "species": "oraclet",
+    "file": "assets/concept-art/oraclet/581.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 582,
+    "species": "shadeem",
+    "file": "assets/concept-art/shadeem/582.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 583,
+    "species": "shadrove",
+    "file": "assets/concept-art/shadrove/583.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 584,
+    "species": "oraclaw",
+    "file": "assets/concept-art/oraclaw/584.jpg",
+    "caption": null,
+    "editor": "johadelet"
+  },
+  {
+    "id": 585,
+    "species": "oraclet",
+    "file": "assets/concept-art/oraclet/585.jpg",
+    "caption": null,
+    "editor": "johadelet"
+  },
+  {
+    "id": 586,
+    "species": "grincho",
+    "file": "assets/concept-art/grincho/586.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 587,
+    "species": "grinsnare",
+    "file": "assets/concept-art/grinsnare/587.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 588,
+    "species": "grinsmire",
+    "file": "assets/concept-art/grinsmire/588.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 589,
+    "species": "quimsy",
+    "file": "assets/concept-art/quimsy/589.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 590,
+    "species": "riftbloom",
+    "file": "assets/concept-art/riftbloom/590.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 591,
+    "species": "wisprake",
+    "file": "assets/concept-art/wisprake/591.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 592,
+    "species": "furamire",
+    "file": "assets/concept-art/furamire/592.webp",
     "caption": null,
     "editor": null
   }
