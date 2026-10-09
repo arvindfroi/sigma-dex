@@ -2056,5 +2056,19 @@
     "file": "assets/concept-art/furamire/592.webp",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 593,
+    "species": "heatbat",
+    "file": "assets/concept-art/heatbat/593.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 594,
+    "species": "blazterra",
+    "file": "assets/concept-art/blazterra/594.png",
+    "caption": null,
+    "editor": null
   }
 ]

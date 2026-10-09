@@ -122,8 +122,8 @@ TEST("Sigma dex: Wealther has the data from its species file")
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WEALTHER];
     EXPECT_EQ(info->baseHP, 65);
     EXPECT_EQ(info->baseAttack, 85);
-    EXPECT_EQ(info->baseDefense, 60);
-    EXPECT_EQ(info->baseSpeed, 85);
+    EXPECT_EQ(info->baseDefense, 65);
+    EXPECT_EQ(info->baseSpeed, 80);
     EXPECT_EQ(info->baseSpAttack, 65);
     EXPECT_EQ(info->baseSpDefense, 60);
     EXPECT_EQ(info->types[0], TYPE_WATER);

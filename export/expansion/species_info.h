@@ -203,8 +203,8 @@
     {
         .baseHP = 65,
         .baseAttack = 85,
-        .baseDefense = 60,
-        .baseSpeed = 85,
+        .baseDefense = 65,
+        .baseSpeed = 80,
         .baseSpAttack = 65,
         .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_WATER, TYPE_DARK),

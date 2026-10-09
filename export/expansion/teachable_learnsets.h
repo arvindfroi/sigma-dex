@@ -6,6 +6,7 @@ static const u16 sLeafingTeachableLearnset[] = {
     MOVE_BULLET_SEED,
     MOVE_HIDDEN_POWER,
     MOVE_SUNNY_DAY,
+    MOVE_HYPER_BEAM,
     MOVE_PROTECT,
     MOVE_GIGA_DRAIN,
     MOVE_FRUSTRATION,
