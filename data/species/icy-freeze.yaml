@@ -17,9 +17,9 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Cold Flow
-  secondary:             # optional
-  hidden:                # optional
+  primary: Ice Body
+  secondary: Own Tempo   # optional
+  hidden: Slush Rush     # optional
 
 base_stats:              # each 1-255
   hp: 55

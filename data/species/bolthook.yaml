@@ -3,7 +3,7 @@ dex: 13
 name: Bolthook
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Arvind       # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Dark, Flying]    # 1 or 2 types, e.g. [Grass, Steel]
@@ -18,18 +18,18 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Strong Jaw
-  secondary:             # optional
-  hidden:                # optional
+  secondary: Intimidate  # optional
+  hidden: Pressure       # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 93
+  attack: 130
+  defense: 70
+  sp_attack: 65
+  sp_defense: 70
+  speed: 67
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {attack: 2}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating

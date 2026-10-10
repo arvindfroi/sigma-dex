@@ -92,6 +92,10 @@ static const u16 sBlazterraTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sFlorantulaTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sLapperTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
@@ -125,6 +129,10 @@ static const u16 sGortikiTeachableLearnset[] = {
 };
 
 static const u16 sDevampryTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sSporeshadeTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 

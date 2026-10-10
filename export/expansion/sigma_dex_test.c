@@ -257,6 +257,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Blazterra can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Florantula has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_FLORANTULA];
+    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseAttack, 105);
+    EXPECT_EQ(info->baseDefense, 115);
+    EXPECT_EQ(info->baseSpeed, 30);
+    EXPECT_EQ(info->baseSpAttack, 60);
+    EXPECT_EQ(info->baseSpDefense, 115);
+    EXPECT_EQ(info->types[0], TYPE_BUG);
+    EXPECT_EQ(info->types[1], TYPE_GRASS);
+    EXPECT_EQ(info->abilities[0], ABILITY_SWARM);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_STICKY_WEB);
+    EXPECT_EQ(GetSpeciesName(SPECIES_FLORANTULA)[0], CHAR_F);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Florantula can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_FLORANTULA) { Moves(MOVE_STICKY_WEB); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_STICKY_WEB); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_STICKY_WEB, player);
+    }
+}
+
 TEST("Sigma dex: Lapper has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_LAPPER];
@@ -506,6 +534,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Devampry can use its first move in battle")
         TURN { MOVE(player, MOVE_HYPER_VOICE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, player);
+    }
+}
+
+TEST("Sigma dex: Sporeshade has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SPORESHADE];
+    EXPECT_EQ(info->baseHP, 67);
+    EXPECT_EQ(info->baseAttack, 53);
+    EXPECT_EQ(info->baseDefense, 60);
+    EXPECT_EQ(info->baseSpeed, 70);
+    EXPECT_EQ(info->baseSpAttack, 130);
+    EXPECT_EQ(info->baseSpDefense, 80);
+    EXPECT_EQ(info->types[0], TYPE_FAIRY);
+    EXPECT_EQ(info->types[1], TYPE_POISON);
+    EXPECT_EQ(info->abilities[0], ABILITY_EFFECT_SPORE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SPORE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_SPORESHADE)[0], CHAR_S);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Sporeshade can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_SPORESHADE) { Moves(MOVE_SPORE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SPORE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SPORE, player);
     }
 }
 

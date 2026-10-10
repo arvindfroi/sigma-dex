@@ -3,7 +3,7 @@ dex: 78
 name: furamire
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Michael      # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Normal, Fairy]   # 1 or 2 types, e.g. [Grass, Steel]
@@ -17,17 +17,17 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
-  hidden:                # optional
+  primary: Cute Charm
+  secondary: Competitive # optional
+  hidden: Serene Grace   # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 69
+  attack: 53
+  defense: 67
+  sp_attack: 96
+  sp_defense: 90
+  speed: 105
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)

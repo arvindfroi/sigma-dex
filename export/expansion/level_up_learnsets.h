@@ -80,6 +80,16 @@ static const struct LevelUpMove sBlazterraLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sFlorantulaLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_STICKY_WEB),
+    LEVEL_UP_MOVE( 1, MOVE_LEECH_LIFE),
+    LEVEL_UP_MOVE( 1, MOVE_BUG_BITE),
+    LEVEL_UP_MOVE( 1, MOVE_SYNTHESIS),
+    LEVEL_UP_MOVE( 1, MOVE_GRASSY_GLIDE),
+    LEVEL_UP_MOVE( 1, MOVE_SEED_BOMB),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sLapperLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
@@ -138,6 +148,11 @@ static const struct LevelUpMove sDevampryLevelUpLearnset[] = {
     LEVEL_UP_MOVE(36, MOVE_NASTY_PLOT),
     LEVEL_UP_MOVE(40, MOVE_SNARL),
     LEVEL_UP_MOVE(60, MOVE_BOOMBURST),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sSporeshadeLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_SPORE),
     LEVEL_UP_END
 };
 

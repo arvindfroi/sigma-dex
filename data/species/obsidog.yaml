@@ -47,8 +47,8 @@ held_items:              # items wild ones can hold (optional)
 # --- Evolution: what THIS Pokemon evolves INTO ---
 evolutions:
   - into: obsidog-utvikling
-    method: item
-    item: Dusk Stone
+    method: other
+    note: Level 40 At Night
 
 # --- Moves ---
 learnset:

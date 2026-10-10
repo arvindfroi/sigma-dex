@@ -1250,7 +1250,7 @@
       "dex": 13,
       "name": "Bolthook",
       "credits": {
-        "designer": null,
+        "designer": "Arvind",
         "artist": null
       },
       "types": [
@@ -1264,18 +1264,20 @@
       "body_color": null,
       "abilities": {
         "primary": "Strong Jaw",
-        "secondary": null,
-        "hidden": null
+        "secondary": "Intimidate",
+        "hidden": "Pressure"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 93,
+        "attack": 130,
+        "defense": 70,
+        "sp_attack": 65,
+        "sp_defense": 70,
+        "speed": 67
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -1494,18 +1496,21 @@
       "body_color": null,
       "abilities": {
         "primary": "Swarm",
-        "secondary": null,
+        "secondary": "Leaf Guard",
         "hidden": "Grassy Surge"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 60,
+        "attack": 105,
+        "defense": 115,
+        "sp_attack": 60,
+        "sp_defense": 115,
+        "speed": 30
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1,
+        "sp_defense": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -1519,7 +1524,32 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Sticky Web"
+          },
+          {
+            "level": 1,
+            "move": "Leech Life"
+          },
+          {
+            "level": 1,
+            "move": "Bug Bite"
+          },
+          {
+            "level": 1,
+            "move": "Synthesis"
+          },
+          {
+            "level": 1,
+            "move": "Grassy Glide"
+          },
+          {
+            "level": 1,
+            "move": "Seed Bomb"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -1574,12 +1604,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 45,
+        "attack": 70,
+        "defense": 45,
+        "sp_attack": 60,
+        "sp_defense": 45,
+        "speed": 65
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -1593,7 +1623,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "shadrove",
+          "method": "item",
+          "item": "Dusk Stone"
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -1655,14 +1691,16 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 60,
+        "attack": 120,
+        "defense": 60,
+        "sp_attack": 100,
+        "sp_defense": 60,
+        "speed": 110
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -1728,8 +1766,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Rain Dish",
-        "secondary": "Unaware",
-        "hidden": null
+        "secondary": "Own Tempo",
+        "hidden": "Unaware"
       },
       "base_stats": {
         "hp": null,
@@ -1805,8 +1843,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Rain Dish",
-        "secondary": "Unaware",
-        "hidden": null
+        "secondary": "Own Tempo",
+        "hidden": "Unaware"
       },
       "base_stats": {
         "hp": 155,
@@ -2155,9 +2193,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Cold Flow",
-        "secondary": null,
-        "hidden": null
+        "primary": "Ice Body",
+        "secondary": "Own Tempo",
+        "hidden": "Slush Rush"
       },
       "base_stats": {
         "hp": 55,
@@ -2735,12 +2773,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 77,
+        "attack": 77,
+        "defense": 77,
+        "sp_attack": 77,
+        "sp_defense": 77,
+        "speed": 77
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -2888,14 +2926,16 @@
         "hidden": "Wind Rider"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 92,
+        "attack": 118,
+        "defense": 82,
+        "sp_attack": 51,
+        "sp_defense": 55,
+        "speed": 102
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -2960,8 +3000,8 @@
       "weight_kg": 75,
       "body_color": null,
       "abilities": {
-        "primary": "Guts",
-        "secondary": "Justified",
+        "primary": "Justified",
+        "secondary": "Guts",
         "hidden": "Tinted Lens"
       },
       "base_stats": {
@@ -2972,7 +3012,9 @@
         "sp_defense": 55,
         "speed": 82
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -4236,19 +4278,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Curious Medicine",
+        "secondary": "Tangled Feet",
+        "hidden": "Psychic Surge"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 55,
+        "attack": 55,
+        "defense": 55,
+        "sp_attack": 145,
+        "sp_defense": 55,
+        "speed": 55
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_attack": 3
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -4314,16 +4358,16 @@
       "body_color": null,
       "abilities": {
         "primary": "Effect Spore",
-        "secondary": null,
-        "hidden": null
+        "secondary": "Aroma Veil",
+        "hidden": "Magic Bounce"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 30,
+        "defense": 45,
+        "sp_attack": 70,
+        "sp_defense": 65,
+        "speed": 35
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -4337,7 +4381,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "fleuroom-utvikling",
+          "method": "item",
+          "item": "Shiny Stown"
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -4391,16 +4441,16 @@
       "body_color": null,
       "abilities": {
         "primary": "Effect Spore",
-        "secondary": null,
-        "hidden": null
+        "secondary": "Aroma Veil",
+        "hidden": "Magic Bounce"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 67,
+        "attack": 53,
+        "defense": 60,
+        "sp_attack": 130,
+        "sp_defense": 80,
+        "speed": 70
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -4416,7 +4466,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Spore"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -6431,7 +6486,7 @@
       "dex": 78,
       "name": "furamire",
       "credits": {
-        "designer": null,
+        "designer": "Michael",
         "artist": null
       },
       "types": [
@@ -6444,17 +6499,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Cute Charm",
+        "secondary": "Competitive",
+        "hidden": "Serene Grace"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 69,
+        "attack": 53,
+        "defense": 67,
+        "sp_attack": 96,
+        "sp_defense": 90,
+        "speed": 105
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -6902,9 +6957,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Pickup",
+        "secondary": "Keen Eye",
+        "hidden": "Download"
       },
       "base_stats": {
         "hp": null,
@@ -7193,8 +7248,8 @@
       "dex": 91,
       "name": "Dragem",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Dragon",
@@ -7206,19 +7261,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Sand Rush",
+        "secondary": "Rough Skin",
+        "hidden": "Sand Stream"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 88,
+        "attack": 120,
+        "defense": 90,
+        "sp_attack": 54,
+        "sp_defense": 90,
+        "speed": 58
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -7779,8 +7836,8 @@
       "evolutions": [
         {
           "into": "obsidog-utvikling",
-          "method": "item",
-          "item": "Dusk Stone"
+          "method": "other",
+          "note": "Level 40 At Night"
         }
       ],
       "learnset": {
@@ -8220,19 +8277,21 @@
       "weight_kg": 6.8,
       "body_color": "purple",
       "abilities": {
-        "primary": "Frisk",
+        "primary": "Anticipation",
         "secondary": "Forewarn",
         "hidden": "Magic Guard"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 55,
+        "defense": 60,
+        "sp_attack": 80,
+        "sp_defense": 70,
+        "speed": 40
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -8244,7 +8303,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "oraclaw",
+          "method": "level",
+          "level": 38
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -8297,19 +8362,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Frisk",
+        "primary": "Anticipation",
         "secondary": "Forewarn",
         "hidden": "Magic Guard"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 90,
+        "attack": 85,
+        "defense": 70,
+        "sp_attack": 110,
+        "sp_defense": 85,
+        "speed": 80
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -8356,6 +8423,168 @@
         "safari_flee_rate": 0
       },
       "id": "oraclaw"
+    },
+    {
+      "dex": 112,
+      "name": "Aluminimonk",
+      "credits": {
+        "designer": "Emil",
+        "artist": null
+      },
+      "types": [
+        "Psychic"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Shields Down",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 40,
+        "attack": 40,
+        "defense": 60,
+        "sp_attack": 40,
+        "sp_defense": 80,
+        "speed": 40
+      },
+      "ev_yield": {
+        "sp_defense": 1
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "alminimonk-utvikling",
+          "method": "level",
+          "level": 32
+        }
+      ],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/alminimonk/595.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "alminimonk"
+    },
+    {
+      "dex": 113,
+      "name": "Aluminimonk Utviklin",
+      "credits": {
+        "designer": "Emil",
+        "artist": null
+      },
+      "types": [
+        "Psychic"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Shields Down",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 60,
+        "attack": 50,
+        "defense": 100,
+        "sp_attack": 60,
+        "sp_defense": 110,
+        "speed": 60
+      },
+      "ev_yield": {
+        "sp_defense": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "alminimonk-utvikling"
     },
     {
       "dex": 130,
@@ -8826,8 +9055,8 @@
       "dex": 145,
       "name": "Balleisk",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Dragon",
@@ -8863,7 +9092,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "greation",
+          "method": "level",
+          "level": 30
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -8903,8 +9138,8 @@
       "dex": 146,
       "name": "Greation",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Dragon",
@@ -8940,7 +9175,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "ultragon",
+          "method": "level",
+          "level": 55
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -8980,8 +9221,8 @@
       "dex": 147,
       "name": "Ultragon",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Dragon",
@@ -8993,19 +9234,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Catch Master",
         "secondary": null,
-        "hidden": null
+        "hidden": "Shield Dust"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 88,
+        "attack": 128,
+        "defense": 80,
+        "sp_attack": 112,
+        "sp_defense": 80,
+        "speed": 112
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 3
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -9019,7 +9262,32 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Quiver Dance"
+          },
+          {
+            "level": 1,
+            "move": "Dragon Dance"
+          },
+          {
+            "level": 1,
+            "move": "Outrage"
+          },
+          {
+            "level": 1,
+            "move": "Bug Buzz"
+          },
+          {
+            "level": 1,
+            "move": "U-turn"
+          },
+          {
+            "level": 1,
+            "move": "Draco Meteor"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
