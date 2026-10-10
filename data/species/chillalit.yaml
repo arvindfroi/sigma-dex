@@ -18,8 +18,8 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Swift Swim
-  secondary: Battle Bond # optional
-  hidden:                # optional
+  secondary:             # optional
+  hidden: Battle Bond    # optional
 
 base_stats:              # each 1-255
   hp: 47

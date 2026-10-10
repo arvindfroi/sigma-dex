@@ -260,11 +260,11 @@ SINGLE_BATTLE_TEST("Sigma dex: Blazterra can use its first move in battle")
 TEST("Sigma dex: Florantula has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_FLORANTULA];
-    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseHP, 67);
     EXPECT_EQ(info->baseAttack, 105);
     EXPECT_EQ(info->baseDefense, 115);
     EXPECT_EQ(info->baseSpeed, 30);
-    EXPECT_EQ(info->baseSpAttack, 60);
+    EXPECT_EQ(info->baseSpAttack, 53);
     EXPECT_EQ(info->baseSpDefense, 115);
     EXPECT_EQ(info->types[0], TYPE_BUG);
     EXPECT_EQ(info->types[1], TYPE_GRASS);

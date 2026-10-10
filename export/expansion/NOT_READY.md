@@ -59,7 +59,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Roostasaur** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Bygon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Leadling** needs: a level-up move that exists in the game
-- **Leadling Utvikling** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
+- **Leadling Utvikling** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Iglomodo mindre utv** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
 - **Iglomodo** needs: a level-up move that exists in the game
 - **furamire** needs: a level-up move that exists in the game
@@ -70,12 +70,12 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Darkgonark** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Detecup** needs: base stats, a level-up move that exists in the game
 - **Verrith** needs: an ability that exists in the game, a level-up move that exists in the game
-- **Vires** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Flurina** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
+- **Vires** needs: base stats, a level-up move that exists in the game
+- **Flurina** needs: base stats, a valid type, a level-up move that exists in the game
 - **Dragem** needs: a level-up move that exists in the game
 - **Quimsy** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Skiirtle** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **McSkiirtle** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **McSkiirtle** needs: base stats, a level-up move that exists in the game
 - **ambuger** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Ambrr** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Tortoplasm** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
@@ -89,7 +89,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Oraclaw** needs: a level-up move that exists in the game
 - **Aluminimonk** needs: a level-up move that exists in the game
 - **Aluminimonk Utviklin** needs: a level-up move that exists in the game, a name of at most 12 letters
-- **Grincho** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Grincho** needs: base stats, a level-up move that exists in the game
 - **Grinsnare** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Grinsmire** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Riftbloom** needs: base stats, an ability that exists in the game, a level-up move that exists in the game

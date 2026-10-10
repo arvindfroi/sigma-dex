@@ -445,11 +445,11 @@
 
     [SPECIES_FLORANTULA] =
     {
-        .baseHP = 60,
+        .baseHP = 67,
         .baseAttack = 105,
         .baseDefense = 115,
         .baseSpeed = 30,
-        .baseSpAttack = 60,
+        .baseSpAttack = 53,
         .baseSpDefense = 115,
         .types = MON_TYPES(TYPE_BUG, TYPE_GRASS),
         .catchRate = 45,

@@ -1500,10 +1500,10 @@
         "hidden": "Grassy Surge"
       },
       "base_stats": {
-        "hp": 60,
+        "hp": 67,
         "attack": 105,
         "defense": 115,
-        "sp_attack": 60,
+        "sp_attack": 53,
         "sp_defense": 115,
         "speed": 30
       },
@@ -2927,11 +2927,11 @@
       },
       "base_stats": {
         "hp": 92,
-        "attack": 118,
+        "attack": 102,
         "defense": 82,
         "sp_attack": 51,
         "sp_defense": 55,
-        "speed": 102
+        "speed": 118
       },
       "ev_yield": {
         "attack": 2
@@ -3884,8 +3884,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Swift Swim",
-        "secondary": "Battle Bond",
-        "hidden": null
+        "secondary": null,
+        "hidden": "Battle Bond"
       },
       "base_stats": {
         "hp": 47,
@@ -6170,19 +6170,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Sturdy",
+        "secondary": "Toxic Debris",
+        "hidden": "Corrosion"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 60,
+        "attack": 50,
+        "defense": 80,
+        "sp_attack": 95,
+        "sp_defense": 100,
+        "speed": 15
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_defense": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -7110,7 +7112,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Mirror Armor",
         "secondary": null,
         "hidden": null
       },
@@ -7184,7 +7186,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Mirror Armor",
         "secondary": null,
         "hidden": null
       },
@@ -7493,7 +7495,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Speed Boost",
         "secondary": null,
         "hidden": null
       },
@@ -8603,7 +8605,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Unnerve",
         "secondary": null,
         "hidden": null
       },

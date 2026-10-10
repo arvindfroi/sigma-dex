@@ -22,10 +22,10 @@ abilities:
   hidden: Grassy Surge   # optional
 
 base_stats:              # each 1-255
-  hp: 60
+  hp: 67
   attack: 105
   defense: 115
-  sp_attack: 60
+  sp_attack: 53
   sp_defense: 115
   speed: 30
 

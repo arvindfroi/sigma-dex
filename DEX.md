@@ -53,7 +53,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire | Flash Fire, Dancer, Huge Power (H) | 530 |  | 31% |
 | 43 | [Chebbi](data/species/chebbi.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 360 | Devampry (Lv 32) | 24% |
 | 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark | Soundproof, Levitate, Punk Rock (H) | 503 |  | 28% |
-| 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water | Swift Swim, Battle Bond | 495 |  | 31% |
+| 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water | Swift Swim, Battle Bond (H) | 495 |  | 31% |
 | 46 | [Zapana](data/species/zapana.yaml) | Water / Electric | Swift Swim, Static, Sap Sipper (H) | 280 | Ampeel (Lv 25) | 34% |
 | 47 | [Ampeel](data/species/ampeel.yaml) | Water / Electric | Swift Swim, Static, Sap Sipper (H) | 490 |  | 34% |
 | 48 | [Tomaterdander](data/species/tomaterdander.yaml) | Poison / Grass | Pickle Armor, Chlorophyll | 480 |  | 28% |
@@ -82,7 +82,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
 | 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
 | 73 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 280 | Leadling Utvikling (Lv 20) | 21% |
-| 74 | [Leadling Utvikling](data/species/leadling-utvikling.yaml) | Rock / Poison |  |  | Blylem (Lv 40) | 7% |
+| 74 | [Leadling Utvikling](data/species/leadling-utvikling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 400 | Blylem (Lv 40) | 17% |
 | 75 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 525 |  | 38% |
 | 76 | [Iglomodo mindre utv](data/species/iglomodo-mindre-utv.yaml) | Ice / Poison |  |  | Iglomodo (Lv 30) | 7% |
 | 77 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 530 |  | 34% |
@@ -97,13 +97,13 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 86 | [Verrith](data/species/verrith.yaml) | Ghost / Steel | Fog of war, Takes 1,5 extra crit damage (H) | 570 |  | 17% |
 | 87 | *open slot* | | | | | |
 | 88 | *open slot* | | | | | |
-| 89 | [Vires](data/species/vires.yaml) | Fairy |  |  |  | 14% |
-| 90 | [Flurina](data/species/flurina.yaml) |  |  |  |  | 10% |
+| 89 | [Vires](data/species/vires.yaml) | Fairy | Mirror Armor |  |  | 17% |
+| 90 | [Flurina](data/species/flurina.yaml) |  | Mirror Armor |  |  | 14% |
 | 91 | [Dragem](data/species/dragem.yaml) | Dragon / Rock | Sand Rush, Rough Skin, Sand Stream (H) | 500 |  | 21% |
 | 92 | [Quimsy](data/species/quimsy.yaml) | Normal / Psychic |  |  |  | 10% |
 | 93 | *open slot* | | | | | |
 | 94 | [Skiirtle](data/species/skiirtle.yaml) | Fire |  |  |  | 7% |
-| 95 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric |  |  |  | 7% |
+| 95 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric | Speed Boost |  |  | 10% |
 | 96 | [ambuger](data/species/ambuger.yaml) | Rock / Bug |  |  | Ambrr (Lv 40) | 14% |
 | 97 | [Ambrr](data/species/ambcoptr.yaml) | Rock / Bug |  |  |  | 14% |
 | 98 | [Tortoplasm](data/species/tortoplasm.yaml) | Rock / Ghost |  |  |  | 7% |
@@ -138,7 +138,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 127 | *open slot* | | | | | |
 | 128 | *open slot* | | | | | |
 | 129 | *open slot* | | | | | |
-| 130 | [Grincho](data/species/grincho.yaml) | Normal / Ghost |  |  |  | 10% |
+| 130 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve |  |  | 14% |
 | 131 | [Grinsnare](data/species/grinsnare.yaml) | Normal / Ghost |  |  |  | 10% |
 | 132 | [Grinsmire](data/species/grinsmire.yaml) | Normal / Ghost |  |  |  | 7% |
 | 133 | *open slot* | | | | | |
