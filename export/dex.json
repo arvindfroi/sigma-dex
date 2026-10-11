@@ -7097,6 +7097,168 @@
       "id": "verrith"
     },
     {
+      "dex": 87,
+      "name": "Sigmanian Komala",
+      "credits": {
+        "designer": "Magnus",
+        "artist": "Magnus"
+      },
+      "types": [
+        "Normal"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Toxic Boost",
+        "secondary": "Poison Heal",
+        "hidden": "Drunken Rage"
+      },
+      "base_stats": {
+        "hp": 67,
+        "attack": 82,
+        "defense": 62,
+        "sp_attack": 46,
+        "sp_defense": 48,
+        "speed": 43
+      },
+      "ev_yield": {
+        "attack": 1
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "dahrugula",
+          "method": "level",
+          "level": 32
+        }
+      ],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "the drowsy toxin pokemon",
+        "name_origin": null,
+        "notes": null,
+        "wishes": "an early route pokemon, stats simmilar to pancham",
+        "claude_fill": true,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/sigmanian-komala/597.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "sigmanian-komala"
+    },
+    {
+      "dex": 88,
+      "name": "Dahrugula",
+      "credits": {
+        "designer": "Magnus",
+        "artist": "Magnus"
+      },
+      "types": [
+        "Normal"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Toxic Boost",
+        "secondary": "Poison Heal",
+        "hidden": "Drunken Rage"
+      },
+      "base_stats": {
+        "hp": 95,
+        "attack": 124,
+        "defense": 78,
+        "sp_attack": 69,
+        "sp_defense": 71,
+        "speed": 58
+      },
+      "ev_yield": {
+        "attack": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": "the name comes from dharuk gula, wich is the origin of the name koala. also sounds like drunk",
+        "notes": null,
+        "wishes": "its an evolution to number 87 sigmanian komala, stats are simmilar to snorlax and pangoro",
+        "claude_fill": true,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/dahrugula/598.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "dahrugula"
+    },
+    {
       "dex": 89,
       "name": "Vires",
       "credits": {
@@ -7585,9 +7747,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Shell Armor",
+        "secondary": "Overcoat",
+        "hidden": "Infiltrator"
       },
       "base_stats": {
         "hp": null,
@@ -7668,9 +7830,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Levitate",
+        "secondary": "Overcoat",
+        "hidden": "Infiltrator"
       },
       "base_stats": {
         "hp": 60,
@@ -8046,160 +8208,6 @@
         "safari_flee_rate": 0
       },
       "id": "wisprake"
-    },
-    {
-      "dex": 106,
-      "name": "Wisprake utvikling 1",
-      "credits": {
-        "designer": "Michael",
-        "artist": null
-      },
-      "types": [
-        "Ghost",
-        "Dragon"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": []
-      },
-      "assets": {
-        "concept_art": null,
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "wisprake-utvikling-1"
-    },
-    {
-      "dex": 107,
-      "name": "Wisprake utvikling2",
-      "credits": {
-        "designer": "Michael",
-        "artist": null
-      },
-      "types": [
-        "Ghost",
-        "Dragon"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": []
-      },
-      "assets": {
-        "concept_art": null,
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "wisprake-utvikling2"
     },
     {
       "dex": 109,

@@ -8,6 +8,16 @@ abilities:
   effect: 'Trigger: Passive. It activates when the player throws a Poké Ball at a wild Pokémon while the
     holder is on the field and not fainted. There is no activation message, but the ability pop-up shows
     on switch-in like other battle abilities.'
+- id: drunken-rage
+  name: Drunken Rage
+  description: Raises Attack by two stages upon entering battle, but become confused
+  effect: When a Pokémon with Drunken Rage enters battle, its Attack rises by two stages and it becomes
+    confused, as though it had been hit by Swagger. The effect triggers every time the Pokémon switches
+    in, so it can be reused by switching out and back in. Since the confusion is self-inflicted, each
+    turn while confused the Pokémon has a 33% chance of hurting itself instead of attacking, and the confusion
+    wears off after a few turns (or immediately upon switching out). The Attack boost, however, stays
+    until the Pokémon leaves the field or the stat is changed by another effect.
+  designer: Emil
 - id: toxic-voice
   name: Toxic Voice
   description: Sound-based moves become Poison type. They may also badly poison the t

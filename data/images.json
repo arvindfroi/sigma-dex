@@ -2070,5 +2070,47 @@
     "file": "assets/concept-art/alminimonk/596.jpg",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 597,
+    "species": "sigmanian-komala",
+    "file": "assets/concept-art/sigmanian-komala/597.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 598,
+    "species": "dahrugula",
+    "file": "assets/concept-art/dahrugula/598.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 599,
+    "species": "sigmanian-komala",
+    "file": "assets/concept-art/sigmanian-komala/599.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 600,
+    "species": "dahrugula",
+    "file": "assets/concept-art/dahrugula/600.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 601,
+    "species": "dahrugula",
+    "file": "assets/concept-art/dahrugula/601.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 602,
+    "species": "sigmanian-komala",
+    "file": "assets/concept-art/sigmanian-komala/602.png",
+    "caption": null,
+    "editor": null
   }
 ]

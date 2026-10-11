@@ -91,8 +91,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 84,Detecup,Normal,,Pickup,Keen Eye,Download,=SUM(I86:N86),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,A detective dog pokemon,,,Ruben,Ruben
 85,,,,,,,=SUM(I87:N87),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 86,Verrith,Ghost,Steel,Fog of war,,"Takes 1,5 extra crit damage",=SUM(I88:N88),120,110,125,75,95,45,,,,,,,,,,,,,,,,,,,,,,,,,,,Casper,
-87,,,,,,,=SUM(I89:N89),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-88,,,,,,,=SUM(I90:N90),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+87,Sigmanian Komala,Normal,,Toxic Boost,Poison Heal,Drunken Rage,=SUM(I89:N89),67,82,62,46,48,43,,,,,,,1 attack,,,,,,,,,,,,,,,,,the drowsy toxin pokemon,,,Magnus,Magnus
+88,Dahrugula,Normal,,Toxic Boost,Poison Heal,Drunken Rage,=SUM(I90:N90),95,124,78,69,71,58,Sigmanian Komala,Lv 32,,,,,2 attack,,,,,,,,,,,,,,,,,,"the name comes from dharuk gula, wich is the origin of the name koala. also sounds like drunk",,Magnus,Magnus
 89,Vires,Fairy,,Mirror Armor,,,=SUM(I91:N91),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Small cute pokemon based on viruses. with transparent pink crystals.,,,Arvind,Arvind
 90,Flurina,,,Mirror Armor,,,=SUM(I92:N92),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,A calm and compased cute  pokemon based of a virus. it has pink transparent crystals,,,Arvind,Arvind
 91,Dragem,Dragon,Rock,Sand Rush,Rough Skin,Sand Stream,=SUM(I93:N93),88,120,90,54,90,58,,,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind
@@ -100,8 +100,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 93,,,,,,,=SUM(I95:N95),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 94,Skiirtle,Fire,,Speed Boost,Reckless,Motor Drive,=SUM(I96:N96),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,
 95,McSkiirtle,Fire,Electric,Speed Boost,Reckless,Motor Drive,=SUM(I97:N97),60,100,100,55,100,70,,,,,,,,,,,,,,,,,,"Shell Smash (1), Flare Blitz (1), Volt Tackle (1)",,,,,,,,,,
-96,ambuger,Rock,Bug,,,,=SUM(I98:N98),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mosquito trapped in amber. fossil pokemon.,,,Arvind,Arvind
-97,Ambrr,Rock,Bug,,,,=SUM(I99:N99),60,90,100,45,75,125,ambuger,Lv 40,,,,,2 speed,,,,,,,,,,,,,,,,,Evolution of amburger. gains amber goggles and wings that rotate,,,Arvind,Arvind
+96,ambuger,Rock,Bug,Shell Armor,Overcoat,Infiltrator,=SUM(I98:N98),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mosquito trapped in amber. fossil pokemon.,,,Arvind,Arvind
+97,Ambrr,Rock,Bug,Levitate,Overcoat,Infiltrator,=SUM(I99:N99),60,90,100,45,75,125,ambuger,Lv 40,,,,,2 speed,,,,,,,,,,,,,,,,,Evolution of amburger. gains amber goggles and wings that rotate,,,Arvind,Arvind
 98,Tortoplasm,Rock,Ghost,,,,=SUM(I100:N100),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind
 99,,,,,,,=SUM(I101:N101),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 100,,,,,,,=SUM(I102:N102),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -110,8 +110,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 103,Obsidog,Dark,Rock,Moxie,Intimidate,Rough Skin,=SUM(I105:N105),50,75,70,40,55,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,
 104,Obsidog utvikling,Dark,Rock,Moxie,Intimidate,Rough Skin,=SUM(I106:N106),80,128,110,72,90,75,Obsidog,Other: Level 40 At Night,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Emil,
 105,Wisprake,Ghost,,,,,=SUM(I107:N107),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,
-106,Wisprake utvikling 1,Ghost,Dragon,,,,=SUM(I108:N108),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,
-107,Wisprake utvikling2,Ghost,Dragon,,,,=SUM(I109:N109),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,
+106,,,,,,,=SUM(I108:N108),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+107,,,,,,,=SUM(I109:N109),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 108,,,,,,,=SUM(I110:N110),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 109,Eivlax,Steel,Dragon,,,,=SUM(I111:N111),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Me,Hardcore badass,Eiv,
 110,Oraclet,Psychic,,Anticipation,Forewarn,Magic Guard,=SUM(I112:N112),50,55,60,80,70,40,,,,0.6,6.8,purple,1 sp_attack,,,,,,,,,,,,,,,,,,,,Johannes,

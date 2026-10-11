@@ -90,8 +90,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 84,detecup,Detecup,Normal,,Pickup,Keen Eye,Download,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,A detective dog pokemon,,,Ruben,Ruben,17
 85,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 86,verrith,Verrith,Ghost,Steel,Fog of war,,"Takes 1,5 extra crit damage",570,120,110,125,75,95,45,,,,,,,,,,,,,,,,,,,,,,,,,,,Casper,,17
-87,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-88,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+87,sigmanian-komala,Sigmanian Komala,Normal,,Toxic Boost,Poison Heal,Drunken Rage,348,67,82,62,46,48,43,,,,,,,1 attack,,,,,,,,,,,,,,,,,the drowsy toxin pokemon,,,Magnus,Magnus,24
+88,dahrugula,Dahrugula,Normal,,Toxic Boost,Poison Heal,Drunken Rage,495,95,124,78,69,71,58,Sigmanian Komala,Lv 32,,,,,2 attack,,,,,,,,,,,,,,,,,,"the name comes from dharuk gula, wich is the origin of the name koala. also sounds like drunk",,Magnus,Magnus,21
 89,vires,Vires,Fairy,,Mirror Armor,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Small cute pokemon based on viruses. with transparent pink crystals.,,,Arvind,Arvind,17
 90,flurina,Flurina,,,Mirror Armor,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,A calm and compased cute  pokemon based of a virus. it has pink transparent crystals,,,Arvind,Arvind,14
 91,dragem,Dragem,Dragon,Rock,Sand Rush,Rough Skin,Sand Stream,500,88,120,90,54,90,58,,,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
@@ -99,8 +99,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 94,skiirtle,Skiirtle,Fire,,Speed Boost,Reckless,Motor Drive,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,14
 95,mcskiirtle,McSkiirtle,Fire,Electric,Speed Boost,Reckless,Motor Drive,485,60,100,100,55,100,70,,,,,,,,,,,,,,,,,,"Shell Smash (1), Flare Blitz (1), Volt Tackle (1)",,,,,,,,,,,17
-96,ambuger,ambuger,Rock,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mosquito trapped in amber. fossil pokemon.,,,Arvind,Arvind,14
-97,ambcoptr,Ambrr,Rock,Bug,,,,495,60,90,100,45,75,125,ambuger,Lv 40,,,,,2 speed,,,,,,,,,,,,,,,,,Evolution of amburger. gains amber goggles and wings that rotate,,,Arvind,Arvind,21
+96,ambuger,ambuger,Rock,Bug,Shell Armor,Overcoat,Infiltrator,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mosquito trapped in amber. fossil pokemon.,,,Arvind,Arvind,17
+97,ambcoptr,Ambrr,Rock,Bug,Levitate,Overcoat,Infiltrator,495,60,90,100,45,75,125,ambuger,Lv 40,,,,,2 speed,,,,,,,,,,,,,,,,,Evolution of amburger. gains amber goggles and wings that rotate,,,Arvind,Arvind,24
 98,tortoplasm,Tortoplasm,Rock,Ghost,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,7
 99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -109,8 +109,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 103,obsidog,Obsidog,Dark,Rock,Moxie,Intimidate,Rough Skin,340,50,75,70,40,55,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,21
 104,obsidog-utvikling,Obsidog utvikling,Dark,Rock,Moxie,Intimidate,Rough Skin,555,80,128,110,72,90,75,Obsidog,Other: Level 40 At Night,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Emil,,17
 105,wisprake,Wisprake,Ghost,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,10
-106,wisprake-utvikling-1,Wisprake utvikling 1,Ghost,Dragon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,7
-107,wisprake-utvikling2,Wisprake utvikling2,Ghost,Dragon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,7
+106,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+107,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 108,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 109,eivomon,Eivlax,Steel,Dragon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Me,Hardcore badass,Eiv,,7
 110,oraclet,Oraclet,Psychic,,Anticipation,Forewarn,Magic Guard,355,50,55,60,80,70,40,,,,0.6,6.8,purple,1 sp_attack,,,,,,,,,,,,,,,,,,,,Johannes,,31

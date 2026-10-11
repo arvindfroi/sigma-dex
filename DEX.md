@@ -95,8 +95,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 84 | [Detecup](data/species/detecup.yaml) | Normal | Pickup, Keen Eye, Download (H) |  |  | 17% |
 | 85 | *open slot* | | | | | |
 | 86 | [Verrith](data/species/verrith.yaml) | Ghost / Steel | Fog of war, Takes 1,5 extra crit damage (H) | 570 |  | 17% |
-| 87 | *open slot* | | | | | |
-| 88 | *open slot* | | | | | |
+| 87 | [Sigmanian Komala](data/species/sigmanian-komala.yaml) | Normal | Toxic Boost, Poison Heal, Drunken Rage (H) | 348 | Dahrugula (Lv 32) | 24% |
+| 88 | [Dahrugula](data/species/dahrugula.yaml) | Normal | Toxic Boost, Poison Heal, Drunken Rage (H) | 495 |  | 21% |
 | 89 | [Vires](data/species/vires.yaml) | Fairy | Mirror Armor |  |  | 17% |
 | 90 | [Flurina](data/species/flurina.yaml) |  | Mirror Armor |  |  | 14% |
 | 91 | [Dragem](data/species/dragem.yaml) | Dragon / Rock | Sand Rush, Rough Skin, Sand Stream (H) | 500 |  | 21% |
@@ -104,8 +104,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 93 | *open slot* | | | | | |
 | 94 | [Skiirtle](data/species/skiirtle.yaml) | Fire | Speed Boost, Reckless, Motor Drive (H) |  |  | 14% |
 | 95 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric | Speed Boost, Reckless, Motor Drive (H) | 485 |  | 17% |
-| 96 | [ambuger](data/species/ambuger.yaml) | Rock / Bug |  |  | Ambrr (Lv 40) | 14% |
-| 97 | [Ambrr](data/species/ambcoptr.yaml) | Rock / Bug |  | 495 |  | 21% |
+| 96 | [ambuger](data/species/ambuger.yaml) | Rock / Bug | Shell Armor, Overcoat, Infiltrator (H) |  | Ambrr (Lv 40) | 17% |
+| 97 | [Ambrr](data/species/ambcoptr.yaml) | Rock / Bug | Levitate, Overcoat, Infiltrator (H) | 495 |  | 24% |
 | 98 | [Tortoplasm](data/species/tortoplasm.yaml) | Rock / Ghost |  |  |  | 7% |
 | 99 | *open slot* | | | | | |
 | 100 | *open slot* | | | | | |
@@ -114,8 +114,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 103 | [Obsidog](data/species/obsidog.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 340 | Obsidog utvikling (Other: Level 40 At Night) | 21% |
 | 104 | [Obsidog utvikling](data/species/obsidog-utvikling.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 555 |  | 17% |
 | 105 | [Wisprake](data/species/wisprake.yaml) | Ghost |  |  |  | 10% |
-| 106 | [Wisprake utvikling 1](data/species/wisprake-utvikling-1.yaml) | Ghost / Dragon |  |  |  | 7% |
-| 107 | [Wisprake utvikling2](data/species/wisprake-utvikling2.yaml) | Ghost / Dragon |  |  |  | 7% |
+| 106 | *open slot* | | | | | |
+| 107 | *open slot* | | | | | |
 | 108 | *open slot* | | | | | |
 | 109 | [Eivlax](data/species/eivomon.yaml) | Steel / Dragon |  |  |  | 7% |
 | 110 | [Oraclet](data/species/oraclet.yaml) | Psychic | Anticipation, Forewarn, Magic Guard (H) | 355 | Oraclaw (Lv 38) | 31% |

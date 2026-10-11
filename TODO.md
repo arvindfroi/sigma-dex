@@ -16,9 +16,9 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | height | 30 / 113 |
 | Dex page | weight | 28 / 113 |
 | Dex page | body color | 2 / 113 |
-| Stats | base stats | 82 / 113 |
-| Stats | ability | 82 / 113 |
-| Stats | EV yield | 47 / 113 |
+| Stats | base stats | 84 / 113 |
+| Stats | ability | 86 / 113 |
+| Stats | EV yield | 49 / 113 |
 | Stats | catch rate | 1 / 113 |
 | Stats | base exp | 1 / 113 |
 | Stats | growth rate | 1 / 113 |
@@ -29,8 +29,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Moves | level-up moves | 24 / 113 |
 | Moves | TM/HM moves | 2 / 113 |
 | Location | encounters | 2 / 113 |
-| Design | concept | 8 / 113 |
-| Art | concept art | 102 / 113 |
+| Design | concept | 9 / 113 |
+| Art | concept art | 104 / 113 |
 | Art | front sprite | 4 / 113 |
 | Art | front animation frame | 4 / 113 |
 | Art | back sprite | 4 / 113 |
@@ -49,7 +49,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 ## Open dex slots (38)
 
-#19, #85, #87, #88, #93, #99, #100, #101, #102, #108, #114, #115, #116, #117, #118, #119, #120, #121, #122, #123, #124, #125, #126, #127, #128, #129, #131, #132, #133, #134, #136, #137, #138, #139, #140, #141, #142, #148
+#19, #85, #93, #99, #100, #101, #102, #106, #107, #108, #114, #115, #116, #117, #118, #119, #120, #121, #122, #123, #124, #125, #126, #127, #128, #129, #131, #132, #133, #134, #136, #137, #138, #139, #140, #141, #142, #148
 
 ## Missing per Pokemon
 
@@ -909,6 +909,25 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
+### #87 [Sigmanian Komala](data/species/sigmanian-komala.yaml) - 24%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #88 [Dahrugula](data/species/dahrugula.yaml) - 21%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
 ### #89 [Vires](data/species/vires.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
@@ -969,19 +988,19 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #96 [ambuger](data/species/ambuger.yaml) - 14%
+### #96 [ambuger](data/species/ambuger.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #97 [Ambrr](data/species/ambcoptr.yaml) - 21%
+### #97 [Ambrr](data/species/ambcoptr.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** ability, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -1026,26 +1045,6 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #106 [Wisprake utvikling 1](data/species/wisprake-utvikling-1.yaml) - 7%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #107 [Wisprake utvikling2](data/species/wisprake-utvikling2.yaml) - 7%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #109 [Eivlax](data/species/eivomon.yaml) - 7%
 

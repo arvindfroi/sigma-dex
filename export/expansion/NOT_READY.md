@@ -70,19 +70,19 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Darkgonark** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Detecup** needs: base stats, a level-up move that exists in the game
 - **Verrith** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Sigmanian Komala** needs: a level-up move that exists in the game, a name of at most 12 letters
+- **Dahrugula** needs: a level-up move that exists in the game
 - **Vires** needs: base stats, a level-up move that exists in the game
 - **Flurina** needs: base stats, a valid type, a level-up move that exists in the game
 - **Dragem** needs: a level-up move that exists in the game
 - **Quimsy** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Skiirtle** needs: base stats, a level-up move that exists in the game
-- **ambuger** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Ambrr** needs: an ability that exists in the game, a level-up move that exists in the game
+- **ambuger** needs: base stats, a level-up move that exists in the game
+- **Ambrr** needs: a level-up move that exists in the game
 - **Tortoplasm** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Obsidog** needs: a level-up move that exists in the game
 - **Obsidog utvikling** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Wisprake** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Wisprake utvikling 1** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
-- **Wisprake utvikling2** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
 - **Eivlax** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Oraclet** needs: a level-up move that exists in the game
 - **Oraclaw** needs: a level-up move that exists in the game
