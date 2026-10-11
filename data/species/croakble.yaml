@@ -18,7 +18,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Swift Swim
-  secondary: Storm Drain # optional
+  secondary: Liquid Voice # optional
   hidden: Water Bubble   # optional
 
 base_stats:              # each 1-255

@@ -33,8 +33,8 @@ until the edge shines like metal.
 27,Bulbtle,Ground,Electric,Shell Armor,Earth Eater,Electric Surge,=SUM(I29:N29),40,33,55,50,90,12,,,Little Light,,,,,,,,,,,,,,,,,,,,"Its nose glows when it's excited, alert, or using its light. It uses that light to light up dark caves or to blind enemies.",,,"From the Discord concept card (SLOTHBABY, 2026-09-20): also on the card: Earth Eater is the hidden ability; poses Happy, Clumsy, Back view, Light attack.",Emil Venge-Kvamme,
 28,Bulbtoise,Ground,Electric,Shell Armor,Earth Eater,Electric Surge,=SUM(I30:N30),75,55,95,85,150,20,Bulbtle,Lv 28,Light Shell,,,,,,,,,,,,,,,,,,,,"Bulbtoise's shell is made of glass, which it fills with its own light. It uses this light to illuminate caves or to blind enemies in battle.",,,"From the Discord concept card (SLOTHBABY, 2026-09-20): also on the card: Earth Eater is the hidden ability; front/side/back views and four move panels (Lights up caves, Blinds enemies, Earth Eater, Electric Surge).",Emil Venge-Kvamme,
 29,Wispole,Water,,Swift Swim,Water Veil,Water Bubble,=SUM(I31:N31),30,25,20,40,35,80,,,Tadpole,,,,1 speed,,,,,,,,,,,,,,,,Boosts the Pokemon's Speed stat in rain.,,,"From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 1, male.",Emil Venge-Kvamme,
-30,Croakble,Water,,Swift Swim,Storm Drain,Water Bubble,=SUM(I32:N32),69,80,67,100,78,110,Wispole,Lv 25,,,,,2 speed,,,,,,,,,,,,,,,,,,,,Emil,
-31,Galfrogtom,Ghost,Electric,Clear Body,Lightning Rod,Galvanize,=SUM(I33:N33),59,89,49,139,49,119,Wispole,Thunder Stone,Ghost,,,,2 sp_attack,,,,,,,,,,,"Discharge (evo), Discharge (1)",,,,,May disable a move that deals damage to the Pokemon.,,,"From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male.",Emil Venge-Kvamme,
+30,Croakble,Water,,Swift Swim,Liquid Voice,Water Bubble,=SUM(I32:N32),69,80,67,100,78,110,Wispole,Lv 25,,,,,2 speed,,,,,,,,,,,,,,,,,,,,Emil,
+31,Galfrogtom,Ghost,Electric,Clear Body,Lightning Rod,Galvanize,=SUM(I33:N33),59,89,49,139,49,119,Wispole,Thunder Stone,Ghost,,,,2 sp_attack,,,,,,,,,,,"Discharge (evo), Discharge (1), Hyper Voice (1)",,,,,May disable a move that deals damage to the Pokemon.,,,"From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male.",Emil Venge-Kvamme,
 32,Sigmanian Eiscue,Ice,,Moody,,,=SUM(I34:N34),77,77,77,77,77,77,,,,,,,,,,,,,,,,,,,,,,,,,,From the Google Doc: Sigmanian Eiscue/eller eiscue evo (Ice/?),,
 33,Rainbro,Stellar,,,,,=SUM(I35:N35),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 34,Autuman,Fighting,Grass,Justified,Guts,Wind Rider,=SUM(I36:N36),92,102,82,51,55,118,,,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,
@@ -91,8 +91,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 84,Detecup,Normal,,Pickup,Keen Eye,Download,=SUM(I86:N86),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,A detective dog pokemon,,,Ruben,Ruben
 85,,,,,,,=SUM(I87:N87),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 86,Verrith,Ghost,Steel,Fog of war,,"Takes 1,5 extra crit damage",=SUM(I88:N88),120,110,125,75,95,45,,,,,,,,,,,,,,,,,,,,,,,,,,,Casper,
-87,Sigmanian Komala,Normal,,Toxic Boost,Poison Heal,Drunken Rage,=SUM(I89:N89),67,82,62,46,48,43,,,,,,,1 attack,,,,,,,,,,,,,,,,,the drowsy toxin pokemon,,,Magnus,Magnus
-88,Dahrugula,Normal,,Toxic Boost,Poison Heal,Drunken Rage,=SUM(I90:N90),95,124,78,69,71,58,Sigmanian Komala,Lv 32,,,,,2 attack,,,,,,,,,,,,,,,,,,"the name comes from dharuk gula, wich is the origin of the name koala. also sounds like drunk",,Magnus,Magnus
+87,Sigmanian Komala,Normal,,Drunken Rage,Poison Heal,Toxic Boost,=SUM(I89:N89),67,82,62,46,48,43,,,,,,,1 attack,,,,,,,,,,,,,,,,,the drowsy toxin pokemon,,,Magnus,Magnus
+88,Dahrugula,Normal,,Drunken Rage,Poison Heal,Toxic Boost,=SUM(I90:N90),95,124,78,69,71,58,Sigmanian Komala,Lv 32,,,,,2 attack,,,,,,,,,,,Facade (1),,,,,,,"the name comes from dharuk gula, wich is the origin of the name koala. also sounds like drunk",,Magnus,Magnus
 89,Vires,Fairy,,Mirror Armor,,,=SUM(I91:N91),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Small cute pokemon based on viruses. with transparent pink crystals.,,,Arvind,Arvind
 90,Flurina,,,Mirror Armor,,,=SUM(I92:N92),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,A calm and compased cute  pokemon based of a virus. it has pink transparent crystals,,,Arvind,Arvind
 91,Dragem,Dragon,Rock,Sand Rush,Rough Skin,Sand Stream,=SUM(I93:N93),88,120,90,54,90,58,,,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind
@@ -134,7 +134,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 127,,,,,,,=SUM(I129:N129),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 128,,,,,,,=SUM(I130:N130),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 129,,,,,,,=SUM(I131:N131),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-130,Grincho,Normal,Ghost,Unnerve,,,=SUM(I132:N132),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,
+130,Grincho,Normal,Ghost,Unnerve,Insomnia,Shadow Tag,=SUM(I132:N132),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,
 131,,,,,,,=SUM(I133:N133),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 132,,,,,,,=SUM(I134:N134),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 133,,,,,,,=SUM(I135:N135),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

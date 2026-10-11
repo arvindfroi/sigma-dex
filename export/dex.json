@@ -2603,7 +2603,7 @@
       "body_color": null,
       "abilities": {
         "primary": "Swift Swim",
-        "secondary": "Storm Drain",
+        "secondary": "Liquid Voice",
         "hidden": "Water Bubble"
       },
       "base_stats": {
@@ -2717,6 +2717,10 @@
           {
             "level": 1,
             "move": "Discharge"
+          },
+          {
+            "level": 1,
+            "move": "Hyper Voice"
           }
         ],
         "tm_hm": [],
@@ -7112,9 +7116,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Toxic Boost",
+        "primary": "Drunken Rage",
         "secondary": "Poison Heal",
-        "hidden": "Drunken Rage"
+        "hidden": "Toxic Boost"
       },
       "base_stats": {
         "hp": 67,
@@ -7196,9 +7200,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Toxic Boost",
+        "primary": "Drunken Rage",
         "secondary": "Poison Heal",
-        "hidden": "Drunken Rage"
+        "hidden": "Toxic Boost"
       },
       "base_stats": {
         "hp": 95,
@@ -7224,7 +7228,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Facade"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -8629,8 +8638,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Unnerve",
-        "secondary": null,
-        "hidden": null
+        "secondary": "Insomnia",
+        "hidden": "Shadow Tag"
       },
       "base_stats": {
         "hp": null,

@@ -109,6 +109,7 @@ static const struct LevelUpMove sBrawleoLevelUpLearnset[] = {
 static const struct LevelUpMove sGalfrogtomLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_DISCHARGE),
     LEVEL_UP_MOVE( 1, MOVE_DISCHARGE),
+    LEVEL_UP_MOVE( 1, MOVE_HYPER_VOICE),
     LEVEL_UP_END
 };
 

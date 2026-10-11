@@ -38,7 +38,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 27 | [Bulbtle](data/species/bulbtle.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 280 | Bulbtoise (Lv 28) | 24% |
 | 28 | [Bulbtoise](data/species/bulbtoise.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 480 |  | 24% |
 | 29 | [Wispole](data/species/wispole.yaml) | Water | Swift Swim, Water Veil, Water Bubble (H) | 230 | Galfrogtom (Thunder Stone), Croakble (Lv 25) | 28% |
-| 30 | [Croakble](data/species/croakble.yaml) | Water | Swift Swim, Storm Drain, Water Bubble (H) | 504 |  | 17% |
+| 30 | [Croakble](data/species/croakble.yaml) | Water | Swift Swim, Liquid Voice, Water Bubble (H) | 504 |  | 17% |
 | 31 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Clear Body, Lightning Rod, Galvanize (H) | 504 |  | 31% |
 | 32 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice | Moody | 462 |  | 14% |
 | 33 | [Rainbro](data/species/rainbro.yaml) | Stellar |  |  |  | 7% |
@@ -95,8 +95,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 84 | [Detecup](data/species/detecup.yaml) | Normal | Pickup, Keen Eye, Download (H) |  |  | 17% |
 | 85 | *open slot* | | | | | |
 | 86 | [Verrith](data/species/verrith.yaml) | Ghost / Steel | Fog of war, Takes 1,5 extra crit damage (H) | 570 |  | 17% |
-| 87 | [Sigmanian Komala](data/species/sigmanian-komala.yaml) | Normal | Toxic Boost, Poison Heal, Drunken Rage (H) | 348 | Dahrugula (Lv 32) | 24% |
-| 88 | [Dahrugula](data/species/dahrugula.yaml) | Normal | Toxic Boost, Poison Heal, Drunken Rage (H) | 495 |  | 21% |
+| 87 | [Sigmanian Komala](data/species/sigmanian-komala.yaml) | Normal | Drunken Rage, Poison Heal, Toxic Boost (H) | 348 | Dahrugula (Lv 32) | 24% |
+| 88 | [Dahrugula](data/species/dahrugula.yaml) | Normal | Drunken Rage, Poison Heal, Toxic Boost (H) | 495 |  | 24% |
 | 89 | [Vires](data/species/vires.yaml) | Fairy | Mirror Armor |  |  | 17% |
 | 90 | [Flurina](data/species/flurina.yaml) |  | Mirror Armor |  |  | 14% |
 | 91 | [Dragem](data/species/dragem.yaml) | Dragon / Rock | Sand Rush, Rough Skin, Sand Stream (H) | 500 |  | 21% |
@@ -138,7 +138,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 127 | *open slot* | | | | | |
 | 128 | *open slot* | | | | | |
 | 129 | *open slot* | | | | | |
-| 130 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve |  |  | 14% |
+| 130 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve, Insomnia, Shadow Tag (H) |  |  | 14% |
 | 131 | *open slot* | | | | | |
 | 132 | *open slot* | | | | | |
 | 133 | *open slot* | | | | | |

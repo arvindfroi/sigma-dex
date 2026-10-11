@@ -26,7 +26,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Breeding | gender | 1 / 113 |
 | Breeding | egg groups | 1 / 113 |
 | Breeding | egg cycles | 1 / 113 |
-| Moves | level-up moves | 24 / 113 |
+| Moves | level-up moves | 25 / 113 |
 | Moves | TM/HM moves | 2 / 113 |
 | Location | encounters | 2 / 113 |
 | Design | concept | 9 / 113 |
@@ -918,12 +918,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #88 [Dahrugula](data/species/dahrugula.yaml) - 21%
+### #88 [Dahrugula](data/species/dahrugula.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry

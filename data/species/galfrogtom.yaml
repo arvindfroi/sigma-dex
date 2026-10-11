@@ -59,6 +59,7 @@ learnset:
   level_up:
     - {level: 0, move: Discharge}
     - {level: 1, move: Discharge}
+    - {level: 1, move: Hyper Voice}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
