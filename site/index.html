@@ -824,8 +824,41 @@ function openEditor(s) {
     section("Where it is found", false, (d.encounters || []).length ? (d.encounters || []).length + " places" : null, encounters.el),
     section("Design notes", false, null,
       h("div", {class: "fields"}, field("Where the name comes from", f.origin, "wide"), field("Notes", f.notes, "wide"))),
+    isNew ? null : removalSection(s),
     h("div", {class: "savebar"}, error, save, h("button", {type: "button", onclick: cancel}, "Cancel"),
       h("span", {class: "sub"}, me() ? "Saved as " + me() : "Tip: write your name at the top of the page"))));
+}
+
+// Removing a Pokemon from the dex: its pictures go to Lost and found, then the removal is saved
+// (the import deletes its file within about 15 minutes; git and the edit log keep everything).
+function removalSection(s) {
+  const name = String(s.data.name || s.id);
+  const typed = h("input", {type: "text", placeholder: name, "aria-label": "Type the name to confirm", autocomplete: "off"});
+  const status = h("div", {class: "hint", role: "status"});
+  const go = h("button", {type: "button", disabled: true, style: "border-color:var(--bad);color:var(--bad);font-weight:600"}, "Remove " + name + " from the dex");
+  typed.addEventListener("input", () => { go.disabled = norm(typed.value) !== norm(name); });
+  const evolvesFrom = DEX.species.filter(o => o.evolutions.some(e => e.into === s.id)).map(o => o.data.name);
+  go.addEventListener("click", async () => {
+    go.disabled = true;
+    try {
+      const pictures = imagesOf(s.id).filter(i => Number.isInteger(i.id));
+      for (const [n, image] of pictures.entries()) {
+        status.textContent = "Moving picture " + (n + 1) + " of " + pictures.length + " to Lost and found...";
+        await moveImage(image, s.id, LOST);
+      }
+      status.textContent = "Removing...";
+      await saveEdit("species", s.id, {deleted: true, name});
+      DEX.species = DEX.species.filter(o => o !== s);
+      delete DEX.images[s.id];
+      DEX.species.forEach(derive); index(); closeDialog(); render();
+      document.getElementById("notice").prepend(h("div", {class: "notice info"}, name + " was removed from the dex" + (pictures.length ? "; its " + pictures.length + " picture(s) are in Lost and found." : ".")));
+    } catch (err) { status.textContent = err.message; go.disabled = false; }
+  });
+  return section("Remove this Pokemon from the dex", false, null,
+    h("div", {class: "hint"}, "For a Pokemon that was dropped, or added twice. Its pictures are moved to Lost and found (More > Lost and found), so nothing is lost and they can be given to another Pokemon. ",
+      evolvesFrom.length ? "It is also removed as the evolution of " + evolvesFrom.join(", ") + ". " : "",
+      "The removal is stored within about 15 minutes; Arvind can bring it back from the history if it was a mistake."),
+    field("Type its name to confirm", typed), h("div", {style: "margin-top:8px"}, go), status);
 }
 
 // ---------- new moves and abilities ----------
@@ -1540,6 +1573,12 @@ async function loadRecentEdits() {
       }
       if (row.kind === "reorder") {
         try { applyLayout(arrange(currentLayout(), Array.isArray(row.data.ops) ? row.data.ops : [])); } catch (e) { /* the import reports it */ }
+        continue;
+      }
+      if (row.data.deleted) {                       // removed from the dex on the website
+        DEX.species = DEX.species.filter(o => o.id !== row.species_id);
+        delete DEX.images[row.species_id];
+        DEX.species.forEach(derive); index();
         continue;
       }
       let entry = byId.get(row.species_id);

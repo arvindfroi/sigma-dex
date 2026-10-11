@@ -53,6 +53,17 @@ shrunk automatically. Sprites are made in the **Sprite** tab, not uploaded here.
 The approved DS sprite (or else the first picture) is shown on the Pokemon's card and at the top of its page. Any image can be
 removed again with its **Remove** button. Only upload art made by us.
 
+## Removing a Pokemon
+
+Open the Pokemon, press **Edit**, and open **Remove this Pokemon from the dex** at the bottom. Type
+its name to confirm and press the button. Its pictures are moved to **Lost and found** first (so
+they can be given to another Pokemon), then the removal is saved. Within about 15 minutes the
+import (`scripts/import_web.py`, `delete_species`) deletes its species file and sprite folders and
+drops evolutions of other Pokemon into it. A starter (`starters` in `data/config.yaml`) cannot be
+removed; the import reports it at the top of the front page. Nothing is truly gone: the file is
+in git history and the removal is a row in `species_edits` (data `{"deleted": true}`), so it can
+be restored. Its number becomes an open slot.
+
 ## Lost and found, and pictures on the wrong Pokemon
 
 **More > Lost and found** holds Discord pictures that nobody has linked to a Pokemon yet - mostly

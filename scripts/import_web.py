@@ -85,6 +85,39 @@ def known_fields_only(data):
     return cleaned
 
 
+def delete_species(sid, files, config):
+    """Remove a Pokemon from the dex (asked for on the website). Its species file, its sprite folders
+    and its sprite pictures go; evolutions of other Pokemon into it are dropped. Its concept art was
+    already moved to the lost-and-found pile by the website. Everything stays in git history and in
+    the database's edit log, so it can be brought back. Returns the number of files changed."""
+    if sid not in files:
+        return 0                                         # already gone (or never imported)
+    if sid in (config.get("starters") or []):
+        raise ValueError("it is one of the starters (data/config.yaml) - choose another starter first")
+    path, _ = files.pop(sid)
+    path.unlink()
+    changed = 1
+    for folder in (ROOT / "assets" / "sprites" / sid, ROOT / "assets" / "sprites-ds" / sid, ROOT / "assets" / "concept-art" / sid):
+        if folder.is_dir():
+            for f in folder.iterdir():
+                f.unlink()
+            folder.rmdir()
+    manifest_path = ROOT / "data" / "images.json"
+    if manifest_path.exists():
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        kept = [e for e in manifest if e["species"] != sid]
+        if len(kept) != len(manifest):
+            manifest_path.write_text(json.dumps(kept, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    for other, (other_path, data) in list(files.items()):
+        evolutions = [e for e in dexlib.listing(data.get("evolutions")) if not (isinstance(e, dict) and e.get("into") == sid)]
+        if len(evolutions) != len(dexlib.listing(data.get("evolutions"))):
+            data = dict(data, evolutions=evolutions)
+            dexlib.write_species(other_path, data)
+            files[other] = (other_path, data)
+            changed += 1
+    return changed
+
+
 def main():
     config = dexlib.load_config()
     cursor = read_cursor()
@@ -163,6 +196,13 @@ def main():
                 report = [entry for entry in report if entry.get("species") != "reorder"]
             except Exception as error:
                 report.append({"id": row.get("id"), "species": "reorder", "row": label, "problem": str(error)})
+            continue
+        if isinstance(row.get("data"), dict) and row["data"].get("deleted"):
+            try:
+                changed += delete_species(sid, files, config)
+                report = [entry for entry in report if entry.get("species") != sid]
+            except Exception as error:
+                report.append({"id": row.get("id"), "species": sid, "row": "removal of " + label, "problem": str(error)})
             continue
         try:
             if not isinstance(row.get("data"), dict) or dexlib.slugify(sid) != sid or not sid:

@@ -33,12 +33,35 @@ Swablu 69, Magikarp 69, Eevee 63, Totodile 58, Lapras 57, Clefairy 55, Manaphy 5
 
 ## 2. Pictures that are not the usual sprites
 
-- Title screen (HeartGold: Ho-Oh).
+- Title screen: a **3D model** of Ho-Oh with animations (`a/0/4/6` members 20-29; Origin only
+  changed the logo and backgrounds). Replacing it needs a 3D model; keeping Ho-Oh or hiding the
+  model behind a drawn background is far easier.
 - The intro (the professor shows a Pokémon).
 - Ruins of Alph sliding puzzles (Kabuto, Omanyte, Aerodactyl, Ho-Oh panels).
-- Big overworld figures in cutscenes (the legendaries in the towers and the Whirl Islands).
-- Static overworld Pokémon (Sudowoodo, Snorlax, Lapras, Gyarados) use the following-Pokémon
-  sprites, so they follow from the follower sprites of our mons.
+- Overworld Pokémon on the maps (checked 2026-10-08 in Origin's map data, `a/0/3/2`):
+  - **1544 objects use the normal follower sprite** of their species (the beasts in the Burned
+    Tower, the birds, Mewtwo, Dialga/Palkia/Giratina, the Regis, Celebi, Shaymin, Kimono Girl
+    Eeveelutions, Pokémon standing next to trainers, ...). They show our mon by themselves once it
+    has a follower sprite. Origin moved most story Pokémon over to these; vanilla HeartGold used
+    separate "static" copies.
+  - **73 objects still use a separate sprite file** that must be drawn on its own (or the slot left
+    alone): the Sudowoodo tree (Route 36), sleeping Snorlax (Route 12 + one cave), Lapras (11
+    places, Union Cave), the Red Gyarados (Lake of Rage), tailless Slowpoke (7), the big Ho-Oh
+    (Bell Tower roof) and big Lugia (Whirl Islands), the 5 Rotom appliances, and "static" copies of
+    Clefairy (Mt. Moon dance), Miltank (farm), Machoke, Ampharos (lighthouse), Aipom, Kyogre,
+    Jigglypuff, Abra, Dratini, Dodrio, Blissey, Diglett, Slowpoke, Slowbro, Psyduck, Poliwrath,
+    Meowth, Oddish, Machop, Farfetch'd and Zubat. Same format as follower sprites.
+- The Clear Bell / Lugia cutscenes (Origin keeps them in full): the bird is its own sprite,
+  `HOU_OBJ01` / `LUG_OBJ01` (`a/0/8/1` members 210/211): 7 frames of 64x64, seen from the front
+  while it flaps and lands, drawn to fill the whole frame (so it looks much bigger than the follower
+  sprite), and shown with a bigger display mode. The code lowers it from the sky, flaps it and plays
+  the cry from the species slot. The 3D models there are bells, leaves/waves and a light ring, not
+  Pokémon. So a new bird needs 7 new frames, no 3D work.
+- The opening movie (before the title) has its own animated Ho-Oh sprite (`a/2/6/2` members
+  23-30), which Origin did not change.
+- In Origin, Sudowoodo is not battled at all (it runs off after being watered), Ho-Oh is a gift
+  (level 95) and Lugia and Snorlax are battles. All of them take the species number from the script,
+  so the battle or gift becomes our mon by itself.
 - Pokédex footprints (16x16, one per species).
 - Shiny palettes.
 
@@ -85,3 +108,13 @@ Gigantamax), so they do not dominate what the LoRAs learn.
   and story Pokémon are where a mixed dex matters most: either a Sigma mon with a fitting role
   (a sea god for Lugia, three beasts for the beasts) or the real one kept until there is a design.
 - Who redraws the title screen, intro and Alph puzzles.
+- Our legendary trio fits Origin's own weather-trio story (checked 2026-10-08): Red Orb → Groudon
+  (lava pool under Mt. Moon), Blue Orb → Kyogre (Seafoam Islands, Reversal Cave), Jade Orb →
+  Rayquaza (Sky Pillar Peak, Four Island), the Embedded Tower, Prof. Oak telling the myth of
+  Rayquaza calming the other two, and Team Rocket stealing them. Bergflabbser (Water/Ground,
+  Drizzle) in slot 382, the drought one in 383 and Maagamad (Weather Switch) in 384 would take over
+  all of it. Still needed: the myth lines rewritten by hand, Weather Switch and Oily Arsenal
+  programmed (Origin has no source code), and a check that Primal Reversion / Mega Rayquaza cannot
+  trigger in those slots. This is part of Origin's late-game Team Rocket story (Saffron and the
+  Pokémon League taken over); Executive Ariana uses a level 100 Rayquaza with Delta Stream and
+  Dragon Ascent at the League, so her party must be edited to fit Maagamad.
