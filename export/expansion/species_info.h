@@ -656,7 +656,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_LIQUID_OOZE, ABILITY_CUTE_CHARM, ABILITY_PIXILATE },
+        .abilities = { ABILITY_LIQUID_OOZE, ABILITY_CUTE_CHARM, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Toxiren"),
         .cryId = CRY_NONE,

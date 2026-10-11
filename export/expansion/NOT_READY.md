@@ -4,7 +4,7 @@
 
 **23** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Florantula, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Sporeshade, Janenon, Blylem, McSkiirtle
 
-## Not exported yet (92)
+## Not exported yet (90)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -89,8 +89,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Aluminimonk** needs: a level-up move that exists in the game
 - **Aluminimonk Utviklin** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Grincho** needs: base stats, a level-up move that exists in the game
-- **Grinsnare** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Grinsmire** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Riftbloom** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Sabertann** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Gravriel** needs: a level-up move that exists in the game
@@ -103,5 +101,5 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 
 ## Left out of exported Pokemon
 
-Nothing.
+- Toxiren: ability 'Toxic Voice' is not in the game yet, left out
 

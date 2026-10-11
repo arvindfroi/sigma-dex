@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 113 / 115 |
-| Identity | designer credit | 87 / 115 |
-| Dex page | category | 42 / 115 |
-| Dex page | description | 42 / 115 |
-| Dex page | height | 30 / 115 |
-| Dex page | weight | 28 / 115 |
-| Dex page | body color | 2 / 115 |
-| Stats | base stats | 82 / 115 |
-| Stats | ability | 82 / 115 |
-| Stats | EV yield | 47 / 115 |
-| Stats | catch rate | 1 / 115 |
-| Stats | base exp | 1 / 115 |
-| Stats | growth rate | 1 / 115 |
-| Stats | base friendship | 1 / 115 |
-| Breeding | gender | 1 / 115 |
-| Breeding | egg groups | 1 / 115 |
-| Breeding | egg cycles | 1 / 115 |
-| Moves | level-up moves | 24 / 115 |
-| Moves | TM/HM moves | 2 / 115 |
-| Location | encounters | 2 / 115 |
-| Design | concept | 8 / 115 |
-| Art | concept art | 104 / 115 |
-| Art | front sprite | 4 / 115 |
-| Art | front animation frame | 4 / 115 |
-| Art | back sprite | 4 / 115 |
-| Art | icon | 4 / 115 |
-| Art | footprint | 0 / 115 |
-| Art | shiny palette | 0 / 115 |
-| Art | cry | 0 / 115 |
+| Identity | types | 111 / 113 |
+| Identity | designer credit | 86 / 113 |
+| Dex page | category | 42 / 113 |
+| Dex page | description | 42 / 113 |
+| Dex page | height | 30 / 113 |
+| Dex page | weight | 28 / 113 |
+| Dex page | body color | 2 / 113 |
+| Stats | base stats | 82 / 113 |
+| Stats | ability | 82 / 113 |
+| Stats | EV yield | 47 / 113 |
+| Stats | catch rate | 1 / 113 |
+| Stats | base exp | 1 / 113 |
+| Stats | growth rate | 1 / 113 |
+| Stats | base friendship | 1 / 113 |
+| Breeding | gender | 1 / 113 |
+| Breeding | egg groups | 1 / 113 |
+| Breeding | egg cycles | 1 / 113 |
+| Moves | level-up moves | 24 / 113 |
+| Moves | TM/HM moves | 2 / 113 |
+| Location | encounters | 2 / 113 |
+| Design | concept | 8 / 113 |
+| Art | concept art | 102 / 113 |
+| Art | front sprite | 4 / 113 |
+| Art | front animation frame | 4 / 113 |
+| Art | back sprite | 4 / 113 |
+| Art | icon | 4 / 113 |
+| Art | footprint | 0 / 113 |
+| Art | shiny palette | 0 / 113 |
+| Art | cry | 0 / 113 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 1 / 115 |
-| DS back sprite 80x80 | 1 / 115 |
-| DS icon 32x32 | 1 / 115 |
+| DS front sprite 80x80 | 1 / 113 |
+| DS back sprite 80x80 | 1 / 113 |
+| DS icon 32x32 | 1 / 113 |
 
-## Open dex slots (36)
+## Open dex slots (38)
 
-#19, #85, #87, #88, #93, #99, #100, #101, #102, #108, #114, #115, #116, #117, #118, #119, #120, #121, #122, #123, #124, #125, #126, #127, #128, #129, #133, #134, #136, #137, #138, #139, #140, #141, #142, #148
+#19, #85, #87, #88, #93, #99, #100, #101, #102, #108, #114, #115, #116, #117, #118, #119, #120, #121, #122, #123, #124, #125, #126, #127, #128, #129, #131, #132, #133, #134, #136, #137, #138, #139, #140, #141, #142, #148
 
 ## Missing per Pokemon
 
@@ -1101,27 +1101,6 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #131 [Grinsnare](data/species/grinsnare.yaml) - 10%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #132 [Grinsmire](data/species/grinsmire.yaml) - 7%
-
-- **Identity:** designer credit
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

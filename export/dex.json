@@ -2194,8 +2194,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Ice Body",
-        "secondary": "Own Tempo",
-        "hidden": "Slush Rush"
+        "secondary": "Slush Rush",
+        "hidden": "Oblivious"
       },
       "base_stats": {
         "hp": 55,
@@ -2276,8 +2276,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Ice Body",
-        "secondary": "Oblivious",
-        "hidden": "Slush Rush"
+        "secondary": "Slush Rush",
+        "hidden": "Oblivious"
       },
       "base_stats": {
         "hp": 80,
@@ -3164,7 +3164,7 @@
       "abilities": {
         "primary": "Liquid Ooze",
         "secondary": "Cute Charm",
-        "hidden": "Pixilate"
+        "hidden": "Toxic Voice"
       },
       "base_stats": {
         "hp": 94,
@@ -8679,160 +8679,6 @@
         "safari_flee_rate": 0
       },
       "id": "grincho"
-    },
-    {
-      "dex": 131,
-      "name": "Grinsnare",
-      "credits": {
-        "designer": "Michael",
-        "artist": null
-      },
-      "types": [
-        "Normal",
-        "Ghost"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": []
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/grinsnare/587.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "grinsnare"
-    },
-    {
-      "dex": 132,
-      "name": "Grinsmire",
-      "credits": {
-        "designer": null,
-        "artist": "Michael"
-      },
-      "types": [
-        "Normal",
-        "Ghost"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": []
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/grinsmire/588.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "grinsmire"
     },
     {
       "dex": 135,

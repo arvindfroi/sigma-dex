@@ -19,7 +19,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 abilities:
   primary: Liquid Ooze
   secondary: Cute Charm  # optional
-  hidden: Pixilate       # optional
+  hidden: Toxic Voice    # optional
 
 base_stats:              # each 1-255
   hp: 94

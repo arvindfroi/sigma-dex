@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**115 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
+**113 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -33,8 +33,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 22 | [Lapper](data/species/lapper.yaml) | Normal / Fighting | Scrappy, Fur Coat, Hustle (H) | 327 | Brawleo (Lv 25) | 21% |
 | 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 31% |
 | 24 | [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) | Rock / Ground |  |  |  | 7% |
-| 25 | [Icy Freeze](data/species/icy-freeze.yaml) | Ice | Ice Body, Own Tempo, Slush Rush (H) | 280 | Freezrick (Lv 25) | 24% |
-| 26 | [Freezrick](data/species/freezrick.yaml) | Ice | Ice Body, Oblivious, Slush Rush (H) | 420 |  | 28% |
+| 25 | [Icy Freeze](data/species/icy-freeze.yaml) | Ice | Ice Body, Slush Rush, Oblivious (H) | 280 | Freezrick (Lv 25) | 24% |
+| 26 | [Freezrick](data/species/freezrick.yaml) | Ice | Ice Body, Slush Rush, Oblivious (H) | 420 |  | 28% |
 | 27 | [Bulbtle](data/species/bulbtle.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 280 | Bulbtoise (Lv 28) | 24% |
 | 28 | [Bulbtoise](data/species/bulbtoise.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 480 |  | 24% |
 | 29 | [Wispole](data/species/wispole.yaml) | Water | Swift Swim, Water Veil, Water Bubble (H) | 230 | Galfrogtom (Thunder Stone), Croakble (Lv 25) | 28% |
@@ -45,7 +45,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 34 | [Autuman](data/species/autuman.yaml) | Fighting / Grass | Justified, Guts, Wind Rider (H) | 500 |  | 21% |
 | 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Justified, Guts, Tinted Lens (H) | 500 |  | 34% |
 | 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Sticky Hold (H) | 325 | Toxiren (Lv 38) | 31% |
-| 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Pixilate (H) | 500 |  | 38% |
+| 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Toxic Voice (H) | 500 |  | 38% |
 | 38 | [Stonma](data/species/stonma.yaml) | Rock | Sturdy, Rock Head, Solid Rock (H) | 330 | Sigmauler (Lv 38) | 28% |
 | 39 | [Sigmauler](data/species/sigmauler.yaml) | Rock / Fighting | Sturdy, Iron Fist, Solid Rock (H) | 510 |  | 21% |
 | 40 | [Tinky](data/species/tinky.yaml) | Grass | Heatproof, Dancer, Prankster (H) | 285 | Motinky (Lv 25) | 31% |
@@ -139,8 +139,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 128 | *open slot* | | | | | |
 | 129 | *open slot* | | | | | |
 | 130 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve |  |  | 14% |
-| 131 | [Grinsnare](data/species/grinsnare.yaml) | Normal / Ghost |  |  |  | 10% |
-| 132 | [Grinsmire](data/species/grinsmire.yaml) | Normal / Ghost |  |  |  | 7% |
+| 131 | *open slot* | | | | | |
+| 132 | *open slot* | | | | | |
 | 133 | *open slot* | | | | | |
 | 134 | *open slot* | | | | | |
 | 135 | [Riftbloom](data/species/riftbloom.yaml) | Ghost / Psychic |  |  |  | 10% |

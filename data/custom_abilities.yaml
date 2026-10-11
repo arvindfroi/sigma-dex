@@ -8,3 +8,15 @@ abilities:
   effect: 'Trigger: Passive. It activates when the player throws a Poké Ball at a wild Pokémon while the
     holder is on the field and not fainted. There is no activation message, but the ability pop-up shows
     on switch-in like other battle abilities.'
+- id: toxic-voice
+  name: Toxic Voice
+  description: Sound-based moves become Poison type. They may also badly poison the t
+  effect: 'Toxic Voice turns the user''s sound-based moves into Poison-type moves, and they receive the
+    usual same-type attack bonus (STAB). Any target hit by one of these moves has a chance of being badly
+    poisoned, with damage that grows worse each turn. Because the moves are still sound-based, they bypass
+    Substitute, and the type change applies to every sound move the user knows, such as Hyper Voice, Bug
+    Buzz, and Boomburst.
+
+    Poison type Pokémon also gain STAB from those moves.'
+  similar_to: Liquid Voice
+  designer: Emil

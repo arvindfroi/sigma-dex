@@ -18,8 +18,8 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Ice Body
-  secondary: Oblivious   # optional
-  hidden: Slush Rush     # optional
+  secondary: Slush Rush  # optional
+  hidden: Oblivious      # optional
 
 base_stats:              # each 1-255
   hp: 80
