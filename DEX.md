@@ -154,7 +154,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 143 | [Sabertann](data/species/sabertann.yaml) | Dark / Water |  |  |  | 14% |
 | 144 | [Gravriel](data/species/gravriel.yaml) | Water / Ghost | Grim Neigh, Sap Sipper (H) | 580 |  | 34% |
 | 145 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 300 | Greation (Lv 30) | 21% |
-| 146 | [Greation](data/species/greation.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 420 | Ultragon (Lv 55) | 21% |
+| 146 | [Greation](data/species/greation.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 422 | Ultragon (Lv 55) | 21% |
 | 147 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 600 |  | 24% |
 | 148 | *open slot* | | | | | |
 | 149 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground | Drizzle | 680 |  | 48% |

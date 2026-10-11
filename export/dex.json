@@ -9176,9 +9176,9 @@
       },
       "base_stats": {
         "hp": 62,
-        "attack": 83,
+        "attack": 90,
         "defense": 60,
-        "sp_attack": 75,
+        "sp_attack": 70,
         "sp_defense": 60,
         "speed": 80
       },
