@@ -169,3 +169,10 @@ static const struct LevelUpMove sBlylemLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sMcSkiirtleLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_SHELL_SMASH),
+    LEVEL_UP_MOVE( 1, MOVE_FLARE_BLITZ),
+    LEVEL_UP_MOVE( 1, MOVE_VOLT_TACKLE),
+    LEVEL_UP_END
+};
+

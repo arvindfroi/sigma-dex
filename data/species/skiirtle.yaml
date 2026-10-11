@@ -3,7 +3,7 @@ dex: 94
 name: Skiirtle
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Arvind       # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Fire]            # 1 or 2 types, e.g. [Grass, Steel]
@@ -17,9 +17,9 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
-  hidden:                # optional
+  primary: Speed Boost
+  secondary: Reckless    # optional
+  hidden: Motor Drive    # optional
 
 base_stats:              # each 1-255
   hp:

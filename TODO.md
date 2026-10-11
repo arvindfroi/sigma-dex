@@ -10,15 +10,15 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Area | Item | Filled in |
 |------|------|----------:|
 | Identity | types | 113 / 115 |
-| Identity | designer credit | 86 / 115 |
+| Identity | designer credit | 87 / 115 |
 | Dex page | category | 42 / 115 |
 | Dex page | description | 42 / 115 |
 | Dex page | height | 30 / 115 |
 | Dex page | weight | 28 / 115 |
 | Dex page | body color | 2 / 115 |
-| Stats | base stats | 78 / 115 |
-| Stats | ability | 79 / 115 |
-| Stats | EV yield | 44 / 115 |
+| Stats | base stats | 82 / 115 |
+| Stats | ability | 82 / 115 |
+| Stats | EV yield | 47 / 115 |
 | Stats | catch rate | 1 / 115 |
 | Stats | base exp | 1 / 115 |
 | Stats | growth rate | 1 / 115 |
@@ -26,7 +26,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Breeding | gender | 1 / 115 |
 | Breeding | egg groups | 1 / 115 |
 | Breeding | egg cycles | 1 / 115 |
-| Moves | level-up moves | 23 / 115 |
+| Moves | level-up moves | 24 / 115 |
 | Moves | TM/HM moves | 2 / 115 |
 | Location | encounters | 2 / 115 |
 | Design | concept | 8 / 115 |
@@ -948,24 +948,23 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #94 [Skiirtle](data/species/skiirtle.yaml) - 7%
+### #94 [Skiirtle](data/species/skiirtle.yaml) - 14%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #95 [McSkiirtle](data/species/mcskiirtle.yaml) - 10%
+### #95 [McSkiirtle](data/species/mcskiirtle.yaml) - 17%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -979,10 +978,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #97 [Ambrr](data/species/ambcoptr.yaml) - 14%
+### #97 [Ambrr](data/species/ambcoptr.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** ability, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -1158,20 +1157,20 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #145 [Balleisk](data/species/balleisk.yaml) - 10%
+### #145 [Balleisk](data/species/balleisk.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #146 [Greation](data/species/greation.yaml) - 10%
+### #146 [Greation](data/species/greation.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

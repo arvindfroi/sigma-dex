@@ -144,3 +144,7 @@ static const u16 sBlylemTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sMcSkiirtleTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+

@@ -1508,8 +1508,8 @@
         "speed": 30
       },
       "ev_yield": {
-        "defense": 1,
-        "sp_defense": 2
+        "defense": 2,
+        "sp_defense": 1
       },
       "catch_rate": null,
       "base_exp": null,
@@ -7406,7 +7406,7 @@
       "dex": 94,
       "name": "Skiirtle",
       "credits": {
-        "designer": null,
+        "designer": "Arvind",
         "artist": null
       },
       "types": [
@@ -7418,9 +7418,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Speed Boost",
+        "secondary": "Reckless",
+        "hidden": "Motor Drive"
       },
       "base_stats": {
         "hp": null,
@@ -7496,16 +7496,16 @@
       "body_color": null,
       "abilities": {
         "primary": "Speed Boost",
-        "secondary": null,
-        "hidden": null
+        "secondary": "Reckless",
+        "hidden": "Motor Drive"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 60,
+        "attack": 100,
+        "defense": 100,
+        "sp_attack": 55,
+        "sp_defense": 100,
+        "speed": 70
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -7521,7 +7521,20 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Shell Smash"
+          },
+          {
+            "level": 1,
+            "move": "Flare Blitz"
+          },
+          {
+            "level": 1,
+            "move": "Volt Tackle"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -7660,14 +7673,16 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 60,
+        "attack": 90,
+        "defense": 100,
+        "sp_attack": 45,
+        "sp_defense": 75,
+        "speed": 125
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -9070,19 +9085,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Catch Master",
         "secondary": null,
-        "hidden": null
+        "hidden": "Shield Dust"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 45,
+        "attack": 70,
+        "defense": 40,
+        "sp_attack": 55,
+        "sp_defense": 40,
+        "speed": 50
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -9153,19 +9170,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Catch Master",
         "secondary": null,
-        "hidden": null
+        "hidden": "Shield Dust"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 62,
+        "attack": 83,
+        "defense": 60,
+        "sp_attack": 75,
+        "sp_defense": 60,
+        "speed": 80
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,

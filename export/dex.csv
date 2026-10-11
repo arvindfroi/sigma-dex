@@ -18,7 +18,7 @@ until the edge shines like metal.
 13,bolthook,Bolthook,Dark,Flying,Strong Jaw,Intimidate,Pressure,495,93,130,70,65,70,67,,,Gaze,2,86,,2 attack,,,,,,,,,,,,,,,,"Bolthook waits in eerie stillness until prey comes into view. It then spreads its great wings to blot out the sun and strikes with its enormous beak in a single, thunderous blow. The echo of its beak can be heard for miles.",,,"From the Discord concept card (Arvind Frøiland, 2026-05-02): also on the card: Notable moves: Crunch, Brutal Swing, Hurricane, Knock Off. Extra note: Its beak is so heavy that it must spread its wings wide to take off. It rarely flaps unless it needs to strike..",Arvind,,34
 14,wump,Wump,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,10
 15,twemp,Twemp,Bug,Grass,Swarm,,Grassy Surge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,14
-16,florantula,Florantula,Bug,Grass,Swarm,Leaf Guard,Grassy Surge,485,67,105,115,53,115,30,,,,,,,"1 defense, 2 sp_defense",,,,,,,,,,,"Sticky Web (1), Leech Life (1), Bug Bite (1), Synthesis (1), Grassy Glide (1), Seed Bomb (1)",,,,,,,,,Arvind,,24
+16,florantula,Florantula,Bug,Grass,Swarm,Leaf Guard,Grassy Surge,485,67,105,115,53,115,30,,,,,,,"2 defense, 1 sp_defense",,,,,,,,,,,"Sticky Web (1), Leech Life (1), Bug Bite (1), Synthesis (1), Grassy Glide (1), Seed Bomb (1)",,,,,,,,,Arvind,,24
 17,shadeem,Shadeem,Normal,,Illusion,,,330,45,70,45,60,45,65,,,,,,,,,,,,,,,,,,,,,,In the slums,,,,,Michael,,21
 18,shadrove,Shadrove,Normal,Dark,Illusion,,,510,60,120,60,100,60,110,Shadeem,Dusk Stone,,,,,2 attack,,,,,,,,,,,,,,,,,,,,,Michael,17
 19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -97,10 +97,10 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 91,dragem,Dragem,Dragon,Rock,Sand Rush,Rough Skin,Sand Stream,500,88,120,90,54,90,58,,,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
 92,quimsy,Quimsy,Normal,Psychic,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,10
 93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-94,skiirtle,Skiirtle,Fire,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
-95,mcskiirtle,McSkiirtle,Fire,Electric,Speed Boost,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10
+94,skiirtle,Skiirtle,Fire,,Speed Boost,Reckless,Motor Drive,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,14
+95,mcskiirtle,McSkiirtle,Fire,Electric,Speed Boost,Reckless,Motor Drive,485,60,100,100,55,100,70,,,,,,,,,,,,,,,,,,"Shell Smash (1), Flare Blitz (1), Volt Tackle (1)",,,,,,,,,,,17
 96,ambuger,ambuger,Rock,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mosquito trapped in amber. fossil pokemon.,,,Arvind,Arvind,14
-97,ambcoptr,Ambrr,Rock,Bug,,,,,,,,,,,ambuger,Lv 40,,,,,,,,,,,,,,,,,,,,,,Evolution of amburger. gains amber goggles and wings that rotate,,,Arvind,Arvind,14
+97,ambcoptr,Ambrr,Rock,Bug,,,,495,60,90,100,45,75,125,ambuger,Lv 40,,,,,2 speed,,,,,,,,,,,,,,,,,Evolution of amburger. gains amber goggles and wings that rotate,,,Arvind,Arvind,21
 98,tortoplasm,Tortoplasm,Rock,Ghost,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,7
 99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -148,8 +148,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 142,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 143,sabertann,Sabertann,Dark,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"A sabertooth pirate pokemon, who roams the 7 seas.",,,Emil,Emil,14
 144,gravriel,Gravriel,Water,Ghost,Grim Neigh,,Sap Sipper,580,81,151,84,151,84,29,,,Ghost Ship,2.1,78.6,,"1 attack, 1 sp_attack",,,,,,,,,,,,,,,,"Long ago, Gravriel was the first mate of a cruel pirate. After betrayal, he was cast into the ocean, left to rot with his ship. Now, he haunts the seabed, seeking those who dare to steal from the deep.",,,"From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Sap Sipper (regular), Grim Neigh (hidden). Signature moves: Gabriel's Curse (Ghost, 85 BP, 100%), Haunted Slash (Ghost, 85 BP, 100%)..",Emil Venge-Kvamme,,34
-145,balleisk,Balleisk,Dragon,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,10
-146,greation,Greation,Dragon,Bug,,,,,,,,,,,Balleisk,Lv 30,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,10
+145,balleisk,Balleisk,Dragon,Bug,Catch Master,,Shield Dust,300,45,70,40,55,40,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
+146,greation,Greation,Dragon,Bug,Catch Master,,Shield Dust,420,62,83,60,75,60,80,Balleisk,Lv 30,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
 147,ultragon,Ultragon,Dragon,Bug,Catch Master,,Shield Dust,600,88,128,80,112,80,112,Greation,Lv 55,,,,,3 attack,,,,,,,,,,,"Quiver Dance (1), Dragon Dance (1), Outrage (1), Bug Buzz (1), U-turn (1), Draco Meteor (1)",,,,,,,,,Arvind,Arvind,24
 148,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 149,bergflabbser,Bergflabbser,Water,Ground,Drizzle,,,680,150,130,130,110,110,50,,,Fjellfisk,2.4,285,,,,,,,,,,,,,,,,,,"Bergflabbser is a rare Pokémon that dwells in the fjords of Bergen. The seven mountains on its back form a living ecosystem, and the Ulriken pillar serves as its guiding beacon. It summons rain with its Drizzle and moves silently through the deep, using its wide mouth to catch prey.","Legendary concept: a giant fish carrying Bergen's seven mountains, Bryggen and the Ulriken tower on its back.",,"From Discord (#official-sigma-pokedex, Slothbaby, 29 Sep 2026, ""Legendary konsept""): sketch and concept card. The card numbers it Nr. 1027; in our dex it is #99.",Emil Venge-Kvamme,,48

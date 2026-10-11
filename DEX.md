@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**115 / 151** slots have a Pokemon - **0** are fully complete - average completeness **21%**.
+**115 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -102,10 +102,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 91 | [Dragem](data/species/dragem.yaml) | Dragon / Rock | Sand Rush, Rough Skin, Sand Stream (H) | 500 |  | 21% |
 | 92 | [Quimsy](data/species/quimsy.yaml) | Normal / Psychic |  |  |  | 10% |
 | 93 | *open slot* | | | | | |
-| 94 | [Skiirtle](data/species/skiirtle.yaml) | Fire |  |  |  | 7% |
-| 95 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric | Speed Boost |  |  | 10% |
+| 94 | [Skiirtle](data/species/skiirtle.yaml) | Fire | Speed Boost, Reckless, Motor Drive (H) |  |  | 14% |
+| 95 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric | Speed Boost, Reckless, Motor Drive (H) | 485 |  | 17% |
 | 96 | [ambuger](data/species/ambuger.yaml) | Rock / Bug |  |  | Ambrr (Lv 40) | 14% |
-| 97 | [Ambrr](data/species/ambcoptr.yaml) | Rock / Bug |  |  |  | 14% |
+| 97 | [Ambrr](data/species/ambcoptr.yaml) | Rock / Bug |  | 495 |  | 21% |
 | 98 | [Tortoplasm](data/species/tortoplasm.yaml) | Rock / Ghost |  |  |  | 7% |
 | 99 | *open slot* | | | | | |
 | 100 | *open slot* | | | | | |
@@ -153,8 +153,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 142 | *open slot* | | | | | |
 | 143 | [Sabertann](data/species/sabertann.yaml) | Dark / Water |  |  |  | 14% |
 | 144 | [Gravriel](data/species/gravriel.yaml) | Water / Ghost | Grim Neigh, Sap Sipper (H) | 580 |  | 34% |
-| 145 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug |  |  | Greation (Lv 30) | 10% |
-| 146 | [Greation](data/species/greation.yaml) | Dragon / Bug |  |  | Ultragon (Lv 55) | 10% |
+| 145 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 300 | Greation (Lv 30) | 21% |
+| 146 | [Greation](data/species/greation.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 420 | Ultragon (Lv 55) | 21% |
 | 147 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 600 |  | 24% |
 | 148 | *open slot* | | | | | |
 | 149 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground | Drizzle | 680 |  | 48% |

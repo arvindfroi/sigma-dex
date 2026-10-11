@@ -621,3 +621,31 @@ SINGLE_BATTLE_TEST("Sigma dex: Blylem can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: McSkiirtle has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_MCSKIIRTLE];
+    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseAttack, 100);
+    EXPECT_EQ(info->baseDefense, 100);
+    EXPECT_EQ(info->baseSpeed, 70);
+    EXPECT_EQ(info->baseSpAttack, 55);
+    EXPECT_EQ(info->baseSpDefense, 100);
+    EXPECT_EQ(info->types[0], TYPE_FIRE);
+    EXPECT_EQ(info->types[1], TYPE_ELECTRIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_SPEED_BOOST);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SHELL_SMASH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_MCSKIIRTLE)[0], CHAR_M);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: McSkiirtle can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_MCSKIIRTLE) { Moves(MOVE_SHELL_SMASH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SHELL_SMASH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SHELL_SMASH, player);
+    }
+}
+

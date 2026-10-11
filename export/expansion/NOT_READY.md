@@ -2,9 +2,9 @@
 
 # Game export status
 
-**22** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Florantula, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Sporeshade, Janenon, Blylem
+**23** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Florantula, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Sporeshade, Janenon, Blylem, McSkiirtle
 
-## Not exported yet (93)
+## Not exported yet (92)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -74,10 +74,9 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Flurina** needs: base stats, a valid type, a level-up move that exists in the game
 - **Dragem** needs: a level-up move that exists in the game
 - **Quimsy** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Skiirtle** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **McSkiirtle** needs: base stats, a level-up move that exists in the game
+- **Skiirtle** needs: base stats, a level-up move that exists in the game
 - **ambuger** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Ambrr** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Ambrr** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Tortoplasm** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Obsidog** needs: a level-up move that exists in the game
 - **Obsidog utvikling** needs: a level-up move that exists in the game, a name of at most 12 letters
@@ -95,8 +94,8 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Riftbloom** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Sabertann** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Gravriel** needs: a level-up move that exists in the game
-- **Balleisk** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Greation** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Balleisk** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Greation** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Ultragon** needs: an ability that exists in the game
 - **Bergflabbser** needs: a level-up move that exists in the game
 - **Maagamad** needs: an ability that exists in the game, a level-up move that exists in the game
