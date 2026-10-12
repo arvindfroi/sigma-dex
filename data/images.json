@@ -910,20 +910,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 299,
-    "species": "sigmauler",
-    "file": "assets/concept-art/sigmauler/299.webp",
-    "caption": "Concept card with Stonma from Discord, posted by BUST 2026-05-02",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 301,
-    "species": "sigmauler",
-    "file": "assets/concept-art/sigmauler/301.webp",
-    "caption": "Sketch from Discord, posted by SLOTHBABY 2026-05-02 (matched from context)",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 303,
     "species": "skiirtle",
     "file": "assets/concept-art/skiirtle/303.webp",
@@ -1341,13 +1327,6 @@
     "species": "erobi",
     "file": "assets/concept-art/erobi/397.webp",
     "caption": "Picture from Discord, posted by BUST 2026-05-02 (probably",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 399,
-    "species": "sigmauler",
-    "file": "assets/concept-art/sigmauler/399.webp",
-    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-02 (Name written above the right creature)",
     "editor": "Claude (from Discord)"
   },
   {
@@ -2110,6 +2089,27 @@
     "id": 602,
     "species": "sigmanian-komala",
     "file": "assets/concept-art/sigmanian-komala/602.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 603,
+    "species": "slothbaby",
+    "file": "assets/concept-art/slothbaby/603.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 604,
+    "species": "slothbaby",
+    "file": "assets/concept-art/slothbaby/604.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 605,
+    "species": "sigmauler",
+    "file": "assets/concept-art/sigmauler/605.jpg",
     "caption": null,
     "editor": null
   }

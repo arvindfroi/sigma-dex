@@ -6,7 +6,7 @@ credits:
   designer: Arvind       # who came up with it (Discord name)
   artist: Arvind         # who drew the concept art
 
-types: []                # 1 or 2 types, e.g. [Grass, Steel]
+types: [Fairy]           # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters

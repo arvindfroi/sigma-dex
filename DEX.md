@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**113 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
+**115 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -42,7 +42,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 31 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Clear Body, Lightning Rod, Galvanize (H) | 504 |  | 31% |
 | 32 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice | Moody | 462 |  | 14% |
 | 33 | [Rainbro](data/species/rainbro.yaml) | Stellar |  |  |  | 7% |
-| 34 | [Autuman](data/species/autuman.yaml) | Fighting / Grass | Justified, Guts, Wind Rider (H) | 500 |  | 21% |
+| 34 | [Autuman](data/species/autuman.yaml) | Grass / Fighting | Justified, Guts, Wind Rider (H) | 500 |  | 21% |
 | 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Justified, Guts, Tinted Lens (H) | 500 |  | 34% |
 | 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Sticky Hold (H) | 325 | Toxiren (Lv 38) | 31% |
 | 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Toxic Voice (H) | 500 |  | 38% |
@@ -98,7 +98,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 87 | [Sigmanian Komala](data/species/sigmanian-komala.yaml) | Normal | Drunken Rage, Poison Heal, Toxic Boost (H) | 348 | Dahrugula (Lv 32) | 24% |
 | 88 | [Dahrugula](data/species/dahrugula.yaml) | Normal | Drunken Rage, Poison Heal, Toxic Boost (H) | 495 |  | 24% |
 | 89 | [Vires](data/species/vires.yaml) | Fairy | Mirror Armor |  |  | 17% |
-| 90 | [Flurina](data/species/flurina.yaml) |  | Mirror Armor |  |  | 14% |
+| 90 | [Flurina](data/species/flurina.yaml) | Fairy | Mirror Armor |  |  | 17% |
 | 91 | [Dragem](data/species/dragem.yaml) | Dragon / Rock | Sand Rush, Rough Skin, Sand Stream (H) | 500 |  | 21% |
 | 92 | [Quimsy](data/species/quimsy.yaml) | Normal / Psychic |  |  |  | 10% |
 | 93 | *open slot* | | | | | |
@@ -108,8 +108,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 97 | [Ambrr](data/species/ambcoptr.yaml) | Rock / Bug | Levitate, Overcoat, Infiltrator (H) | 495 |  | 24% |
 | 98 | [Tortoplasm](data/species/tortoplasm.yaml) | Rock / Ghost |  |  |  | 7% |
 | 99 | *open slot* | | | | | |
-| 100 | *open slot* | | | | | |
-| 101 | *open slot* | | | | | |
+| 100 | [Slothbaby](data/species/slothbaby.yaml) | Fire | Truant | 420 | Slothbaby utviklet (Lv 40) | 21% |
+| 101 | [Slothbaby utviklet](data/species/slothbaby-utviklet.yaml) | Fire / Fighting | Sloth Combat | 520 |  | 17% |
 | 102 | *open slot* | | | | | |
 | 103 | [Obsidog](data/species/obsidog.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 340 | Obsidog utvikling (Other: Level 40 At Night) | 21% |
 | 104 | [Obsidog utvikling](data/species/obsidog-utvikling.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 555 |  | 17% |

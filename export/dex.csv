@@ -36,7 +36,7 @@ until the edge shines like metal.
 31,galfrogtom,Galfrogtom,Ghost,Electric,Clear Body,Lightning Rod,Galvanize,504,59,89,49,139,49,119,Wispole,Thunder Stone,Ghost,,,,2 sp_attack,,,,,,,,,,,"Discharge (evo), Discharge (1), Hyper Voice (1)",,,,,May disable a move that deals damage to the Pokemon.,,,"From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male.",Emil Venge-Kvamme,,31
 32,eiscue,Sigmanian Eiscue,Ice,,Moody,,,462,77,77,77,77,77,77,,,,,,,,,,,,,,,,,,,,,,,,,,From the Google Doc: Sigmanian Eiscue/eller eiscue evo (Ice/?),,,14
 33,rainbro,Rainbro,Stellar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
-34,autuman,Autuman,Fighting,Grass,Justified,Guts,Wind Rider,500,92,102,82,51,55,118,,,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,,21
+34,autuman,Autuman,Grass,Fighting,Justified,Guts,Wind Rider,500,92,102,82,51,55,118,,,,,,,2 speed,,,,,,,,,,,,,,,,,,,,Arvind,,21
 35,bugmight,Bugmight,Bug,Fighting,Justified,Guts,Tinted Lens,500,102,118,92,51,55,82,,,Hero,1.9,75,,2 attack,,,,,,,,,,,,,,,,Bugmight fights for smiles and justice. It flares its wings like a cape to inspire its allies and crush evil with overwhelming might.,,,"From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Tinted Lens; height 6'03"", weight 165.3 lbs.",Emil Venge-Kvamme,,34
 36,nukfae,Nukfae,Poison,Fairy,Liquid Ooze,Cute Charm,Sticky Hold,325,67,30,38,76,92,22,,,Nuclear Sludge,1.2,32.5,,,,,,,,,,,,,,,,,,"Nukfae is made entirely of toxic nuclear waste. Its sweet appearance can be deceiving — it releases highly poisonous chemicals from its body and tentacles. The rainbow sheen on its sludge is a sign of concentrated radiation. It may look friendly, but it can be lethal if it gets too close.",,,"From the Discord concept card (SLOTHBABY, 2026-09-13): also on the card: Regenerator is hidden ability.",Emil Venge-Kvamme,,31
 37,toxiren,Toxiren,Poison,Fairy,Liquid Ooze,Cute Charm,Toxic Voice,500,94,52,69,110,140,35,Nukfae,Lv 38,Toxic Siren,2.4,68.7,,2 sp_defense,,,,,,,,,,,Hyper Voice (1),,,,,"Toxsiren is entirely transformed into toxic waste. Its tentacles are both alluring and deadly, releasing poisonous chemicals that can melt flesh and corrode the environment. Despite its dangerous nature, it possesses a haunting beauty that draws in prey and prey alike.",,,"From the Discord concept card (SLOTHBABY, 2026-09-13): card name: Toxsiren; also on the card: Regenerator is hidden ability.",Emil Venge-Kvamme,,38
@@ -93,7 +93,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 87,sigmanian-komala,Sigmanian Komala,Normal,,Drunken Rage,Poison Heal,Toxic Boost,348,67,82,62,46,48,43,,,,,,,1 attack,,,,,,,,,,,,,,,,,the drowsy toxin pokemon,,,Magnus,Magnus,24
 88,dahrugula,Dahrugula,Normal,,Drunken Rage,Poison Heal,Toxic Boost,495,95,124,78,69,71,58,Sigmanian Komala,Lv 32,,,,,2 attack,,,,,,,,,,,Facade (1),,,,,,,"the name comes from dharuk gula, wich is the origin of the name koala. also sounds like drunk",,Magnus,Magnus,24
 89,vires,Vires,Fairy,,Mirror Armor,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Small cute pokemon based on viruses. with transparent pink crystals.,,,Arvind,Arvind,17
-90,flurina,Flurina,,,Mirror Armor,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,A calm and compased cute  pokemon based of a virus. it has pink transparent crystals,,,Arvind,Arvind,14
+90,flurina,Flurina,Fairy,,Mirror Armor,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,A calm and compased cute  pokemon based of a virus. it has pink transparent crystals,,,Arvind,Arvind,17
 91,dragem,Dragem,Dragon,Rock,Sand Rush,Rough Skin,Sand Stream,500,88,120,90,54,90,58,,,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
 92,quimsy,Quimsy,Normal,Psychic,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,10
 93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -103,8 +103,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 97,ambcoptr,Ambrr,Rock,Bug,Levitate,Overcoat,Infiltrator,495,60,90,100,45,75,125,ambuger,Lv 40,,,,,2 speed,,,,,,,,,,,,,,,,,Evolution of amburger. gains amber goggles and wings that rotate,,,Arvind,Arvind,24
 98,tortoplasm,Tortoplasm,Rock,Ghost,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,7
 99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-101,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+100,slothbaby,Slothbaby,Fire,,Truant,,,420,90,105,50,40,50,85,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil,,21
+101,slothbaby-utviklet,Slothbaby utviklet,Fire,Fighting,Sloth Combat,,,520,110,136,67,50,67,90,Slothbaby,Lv 40,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Emil,,17
 102,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 103,obsidog,Obsidog,Dark,Rock,Moxie,Intimidate,Rough Skin,340,50,75,70,40,55,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,21
 104,obsidog-utvikling,Obsidog utvikling,Dark,Rock,Moxie,Intimidate,Rough Skin,555,80,128,110,72,90,75,Obsidog,Other: Level 40 At Night,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Emil,,17

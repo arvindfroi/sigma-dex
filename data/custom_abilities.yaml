@@ -18,6 +18,15 @@ abilities:
     wears off after a few turns (or immediately upon switching out). The Attack boost, however, stays
     until the Pokémon leaves the field or the stat is changed by another effect.
   designer: Emil
+- id: sloth-combat
+  name: Sloth Combat
+  description: Doubles the user's Attack stat while it is asleep.
+  effect: Sloth Combat doubles the Attack stat of a Pokémon while it is asleep, the same multiplier Huge
+    Power gives. The boost only applies while the sleep status is active, so it disappears as soon as
+    the Pokémon wakes up. Since a sleeping Pokémon can't normally attack, the ability is only useful with
+    moves that can be used during sleep, such as Sleep Talk and Snore, or if the Pokémon is put to sleep
+    by Rest, which guarantees a short nap.
+  designer: Emil
 - id: toxic-voice
   name: Toxic Voice
   description: Sound-based moves become Poison type. They may also badly poison the t
