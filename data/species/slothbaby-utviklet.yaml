@@ -22,12 +22,12 @@ abilities:
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp: 110
+  hp: 100
   attack: 136
   defense: 67
   sp_attack: 50
   sp_defense: 67
-  speed: 90
+  speed: 100
 
 ev_yield: {attack: 2}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -76,7 +76,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art: "assets/concept-art/slothbaby-utviklet/606.webp"
+  concept_art: "assets/concept-art/slothbaby-utviklet/611.png"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

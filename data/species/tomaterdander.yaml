@@ -3,7 +3,7 @@ dex: 48
 name: Tomaterdander
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Casper       # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Poison, Grass]   # 1 or 2 types, e.g. [Grass, Steel]

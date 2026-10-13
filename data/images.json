@@ -1652,13 +1652,6 @@
     "editor": null
   },
   {
-    "id": 451,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/451.jpg",
-    "caption": null,
-    "editor": null
-  },
-  {
     "id": 452,
     "species": "leadling",
     "file": "assets/concept-art/leadling/452.png",
@@ -1683,27 +1676,6 @@
     "id": 455,
     "species": "wealther",
     "file": "assets/concept-art/wealther/455.jpg",
-    "caption": null,
-    "editor": null
-  },
-  {
-    "id": 456,
-    "species": "verrith",
-    "file": "assets/concept-art/verrith/456.jpg",
-    "caption": null,
-    "editor": null
-  },
-  {
-    "id": 457,
-    "species": "verrith",
-    "file": "assets/concept-art/verrith/457.jpg",
-    "caption": null,
-    "editor": null
-  },
-  {
-    "id": 458,
-    "species": "verrith",
-    "file": "assets/concept-art/verrith/458.webp",
     "caption": null,
     "editor": null
   },
@@ -2114,30 +2086,51 @@
     "editor": null
   },
   {
-    "id": 606,
+    "id": 611,
     "species": "slothbaby-utviklet",
-    "file": "assets/concept-art/slothbaby-utviklet/606.webp",
+    "file": "assets/concept-art/slothbaby-utviklet/611.png",
     "caption": null,
     "editor": null
   },
   {
-    "id": 608,
+    "id": 612,
     "species": "slothbaby-utviklet",
-    "file": "assets/concept-art/slothbaby-utviklet/608.png",
+    "file": "assets/concept-art/slothbaby-utviklet/612.png",
     "caption": null,
     "editor": null
   },
   {
-    "id": 609,
+    "id": 613,
     "species": "slothbaby-utviklet",
-    "file": "assets/concept-art/slothbaby-utviklet/609.webp",
+    "file": "assets/concept-art/slothbaby-utviklet/613.png",
     "caption": null,
     "editor": null
   },
   {
-    "id": 610,
-    "species": "slothbaby-utviklet",
-    "file": "assets/concept-art/slothbaby-utviklet/610.webp",
+    "id": 614,
+    "species": "verrith",
+    "file": "assets/concept-art/verrith/614.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 615,
+    "species": "verrith",
+    "file": "assets/concept-art/verrith/615.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 616,
+    "species": "verrith",
+    "file": "assets/concept-art/verrith/616.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 617,
+    "species": "verrith",
+    "file": "assets/concept-art/verrith/617.jpg",
     "caption": null,
     "editor": null
   }

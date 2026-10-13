@@ -73,7 +73,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Sigmanian Komala** needs: an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
 - **Dahrugula** needs: an ability that exists in the game
 - **Vires** needs: base stats, a level-up move that exists in the game
-- **Flurina** needs: base stats, a level-up move that exists in the game
+- **Flurina** needs: a level-up move that exists in the game
 - **Dragem** needs: a level-up move that exists in the game
 - **Quimsy** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Skiirtle** needs: base stats, a level-up move that exists in the game

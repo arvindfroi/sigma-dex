@@ -10,15 +10,15 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Area | Item | Filled in |
 |------|------|----------:|
 | Identity | types | 114 / 115 |
-| Identity | designer credit | 88 / 115 |
+| Identity | designer credit | 90 / 115 |
 | Dex page | category | 42 / 115 |
 | Dex page | description | 42 / 115 |
 | Dex page | height | 30 / 115 |
 | Dex page | weight | 28 / 115 |
 | Dex page | body color | 2 / 115 |
-| Stats | base stats | 86 / 115 |
+| Stats | base stats | 87 / 115 |
 | Stats | ability | 88 / 115 |
-| Stats | EV yield | 51 / 115 |
+| Stats | EV yield | 53 / 115 |
 | Stats | catch rate | 1 / 115 |
 | Stats | base exp | 1 / 115 |
 | Stats | growth rate | 1 / 115 |
@@ -509,9 +509,8 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #48 [Tomaterdander](data/species/tomaterdander.yaml) - 28%
+### #48 [Tomaterdander](data/species/tomaterdander.yaml) - 31%
 
-- **Identity:** designer credit
 - **Dex page:** body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
@@ -520,9 +519,8 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #49 [Crappy Meal](data/species/crappy-meal.yaml) - 28%
+### #49 [Crappy Meal](data/species/crappy-meal.yaml) - 31%
 
-- **Identity:** designer credit
 - **Dex page:** body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
@@ -899,10 +897,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #86 [Verrith](data/species/verrith.yaml) - 17%
+### #86 [Verrith](data/species/verrith.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -937,10 +935,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #90 [Flurina](data/species/flurina.yaml) - 17%
+### #90 [Flurina](data/species/flurina.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

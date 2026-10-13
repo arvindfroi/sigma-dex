@@ -105,10 +105,10 @@
     [SPECIES_LEAFAXER] =
     {
         .baseHP = 90,
-        .baseAttack = 130,
+        .baseAttack = 133,
         .baseDefense = 100,
         .baseSpeed = 60,
-        .baseSpAttack = 70,
+        .baseSpAttack = 67,
         .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_GRASS, TYPE_STEEL),
         .catchRate = 45,
