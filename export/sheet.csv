@@ -106,7 +106,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 99,,,,,,,=SUM(I101:N101),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 100,Slothbaby,Fire,,Truant,,,=SUM(I102:N102),90,105,50,40,50,85,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil,
 101,Blazlothku,Fire,Fighting,Sloth Combat,,,=SUM(I103:N103),100,136,67,50,67,100,Slothbaby,Lv 40,,,,,2 attack,,,,,,,,,,,Close Combat (evo),,,,,,,,,Emil,
-102,,,,,,,=SUM(I104:N104),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+102,Terratyson,Ground,Fighting,Sand Rush,Sand Force,Iron Fist,=SUM(I104:N104),100,135,92,50,65,78,,,,,,,3 attack,,,,,,,,,,,,,,,,,,,,Emil,
 103,Obsidog,Dark,Rock,Moxie,Intimidate,Rough Skin,=SUM(I105:N105),50,75,70,40,55,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,
 104,Obsidog utvikling,Dark,Rock,Moxie,Intimidate,Rough Skin,=SUM(I106:N106),80,128,110,72,90,75,Obsidog,Other: Level 40 At Night,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Emil,
 105,Wisprake,Ghost,,,,,=SUM(I107:N107),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,

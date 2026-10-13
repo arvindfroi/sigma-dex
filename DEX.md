@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**115 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
+**116 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -110,7 +110,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 99 | *open slot* | | | | | |
 | 100 | [Slothbaby](data/species/slothbaby.yaml) | Fire | Truant | 420 | Blazlothku (Lv 40) | 21% |
 | 101 | [Blazlothku](data/species/slothbaby-utviklet.yaml) | Fire / Fighting | Sloth Combat | 520 |  | 24% |
-| 102 | *open slot* | | | | | |
+| 102 | [Terratyson](data/species/gaiafinn.yaml) | Ground / Fighting | Sand Rush, Sand Force, Iron Fist (H) | 520 |  | 21% |
 | 103 | [Obsidog](data/species/obsidog.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 340 | Obsidog utvikling (Other: Level 40 At Night) | 21% |
 | 104 | [Obsidog utvikling](data/species/obsidog-utvikling.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 555 |  | 17% |
 | 105 | [Wisprake](data/species/wisprake.yaml) | Ghost |  |  |  | 10% |
