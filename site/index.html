@@ -1528,27 +1528,28 @@ function renderLost() {
 
 // How our type spread compares with the official games.
 function renderBalance() {
-  const grid = document.getElementById("grid"), shares = DEX.type_shares.shares;
-  const typed = DEX.species.filter(s => (s.data.types || []).some(t => shares[t] !== undefined));
-  // Ours have two types more often than official Pokemon do, which would make every type look
-  // over-represented. So compare type slots with type slots: the gaps then add up to zero.
-  const slots = typed.reduce((sum, s) => sum + new Set(s.data.types.filter(t => shares[t] !== undefined)).size, 0);
+  // Measured against a full dex: how many of each type a 151-Pokemon dex would have if it followed
+  // the official games' spread (a Pokemon with two types counts for both), and how many we have now.
+  const grid = document.getElementById("grid"), shares = DEX.type_shares.shares, size = DEX.dex_size;
   const rows = DEX.types.map(type => {
-    const ours = typed.filter(s => s.data.types.includes(type)).length, normal = shares[type] / (1 + DEX.type_shares.dual_type_share) * slots;
-    return {type, ours, normal, gap: ours - normal, atFull: Math.round(shares[type] * DEX.dex_size)};
-  }).sort((a, b) => a.gap - b.gap);
-  const top = Math.max(...rows.map(r => Math.max(r.ours, r.normal)), 1);
-  const verdict = r => r.gap <= -1.5 ? [h("b", {style: "color:var(--warn)"}, "too few"), " - about " + Math.round(-r.gap) + " short"]
-    : r.gap >= 1.5 ? ["too many - about " + Math.round(r.gap) + " extra"] : ["about right"];
-  const dual = typed.filter(s => new Set(s.data.types).size === 2).length;
+    const ours = DEX.species.filter(s => (s.data.types || []).includes(type)).length, goal = Math.round((shares[type] || 0) * size);
+    return {type, ours, goal, left: goal - ours};
+  }).sort((a, b) => b.left - a.left || a.type.localeCompare(b.type));
+  const top = Math.max(...rows.map(r => Math.max(r.ours, r.goal)), 1);
+  const verdict = r => r.left > 0 ? [h("b", {style: "color:var(--warn)"}, r.left + " more"), " to go"]
+    : r.left < 0 ? [h("b", {}, -r.left + " over"), " the goal"] : [h("b", {style: "color:var(--good)"}, "goal reached")];
+  const typed = DEX.species.filter(s => (s.data.types || []).length).length;
+  const open = size - DEX.species.length, dual = DEX.species.filter(s => new Set(s.data.types || []).size === 2).length;
   grid.replaceChildren(h("div", {style: "grid-column:1/-1"},
-    h("p", {class: "sub", style: "margin-top:0"}, "How often each type appears in our dex, compared with the official games. The line on each bar is where it would normally be. Types at the top need new Pokemon the most."),
-    h("div", {class: "scroll"}, h("table", {class: "balance"}, h("tr", {}, h("th", {}, "Type"), h("th", {}, "Ours"), h("th", {}, "Normal"), h("th", {}, ""), h("th", {}, "")),
-      rows.map(r => h("tr", {}, h("td", {}, typeChip(r.type)), h("td", {}, h("b", {}, String(r.ours))), h("td", {}, r.normal.toFixed(1)),
-        h("td", {style: "width:40%"}, h("div", {class: "track"}, h("i", {style: "width:" + (100 * r.ours / top) + "%;background:" + TYPE_COLORS[r.type]}), h("b", {style: "left:" + (100 * r.normal / top) + "%"}))),
+    h("p", {class: "sub", style: "margin-top:0"}, "How many Pokemon of each type a full dex of " + size + " would have if it followed the official games, and how many we have. " +
+      "The line on each bar is the goal. Types at the top need new Pokemon the most."),
+    h("div", {class: "scroll"}, h("table", {class: "balance"}, h("tr", {}, h("th", {}, "Type"), h("th", {}, "Ours"), h("th", {}, "Goal of " + size), h("th", {}, ""), h("th", {}, "")),
+      rows.map(r => h("tr", {}, h("td", {}, typeChip(r.type)), h("td", {}, h("b", {}, String(r.ours))), h("td", {}, String(r.goal)),
+        h("td", {style: "width:40%"}, h("div", {class: "track"}, h("i", {style: "width:" + (100 * r.ours / top) + "%;background:" + TYPE_COLORS[r.type]}), h("b", {style: "left:" + (100 * r.goal / top) + "%"}))),
         h("td", {}, verdict(r)))))),
-    h("p", {class: "sub"}, dual + " of " + typed.length + " typed Pokemon have two types (" + Math.round(100 * dual / Math.max(typed.length, 1)) + "%; officially " + Math.round(100 * DEX.type_shares.dual_type_share) + "%). " +
-      "Compared with all " + DEX.type_shares.species_counted + " official Pokemon; a Pokemon with two types counts for both.")));
+    h("p", {class: "sub"}, DEX.species.length + " of " + size + " slots are filled (" + open + " open)" + (typed < DEX.species.length ? ", " + (DEX.species.length - typed) + " Pokemon have no type yet" : "") + ". " +
+      "A Pokemon with two types counts for both, so the goals add up to more than " + size + ": officially " + Math.round(100 * DEX.type_shares.dual_type_share) + "% have two types, " +
+      "ours " + Math.round(100 * dual / Math.max(typed, 1)) + "%. Based on all " + DEX.type_shares.species_counted + " official Pokemon.")));
 }
 
 // ---------- changing dex numbers ----------
