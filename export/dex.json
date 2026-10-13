@@ -9479,10 +9479,10 @@
       },
       "base_stats": {
         "hp": 124,
-        "attack": 120,
+        "attack": 140,
         "defense": 105,
         "sp_attack": 120,
-        "sp_defense": 142,
+        "sp_defense": 122,
         "speed": 69
       },
       "ev_yield": null,
