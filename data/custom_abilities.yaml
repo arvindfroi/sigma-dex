@@ -4,10 +4,11 @@
 abilities:
 - id: catch-master
   name: Catch Master
-  description: Weakens wild Pokémon's resistance to Poké Balls. Wild Pokémon that fac
+  description: Weakens wild Pokémon's resistance to Poké Balls
   effect: 'Trigger: Passive. It activates when the player throws a Poké Ball at a wild Pokémon while the
     holder is on the field and not fainted. There is no activation message, but the ability pop-up shows
     on switch-in like other battle abilities.'
+  designer: Emil
 - id: drunken-rage
   name: Drunken Rage
   description: Raises Attack by two stages upon entering battle, but become confused

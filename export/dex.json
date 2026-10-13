@@ -8066,7 +8066,7 @@
     },
     {
       "dex": 101,
-      "name": "Slothbaby utviklet",
+      "name": "Blazlothku",
       "credits": {
         "designer": "Emil",
         "artist": null
@@ -8109,7 +8109,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Close Combat"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -8124,7 +8129,7 @@
         "filled_by_claude": []
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/slothbaby-utviklet/606.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,

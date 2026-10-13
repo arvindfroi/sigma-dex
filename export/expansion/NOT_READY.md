@@ -81,7 +81,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Ambrr** needs: a level-up move that exists in the game
 - **Tortoplasm** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Slothbaby** needs: a level-up move that exists in the game
-- **Slothbaby utviklet** needs: an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
+- **Blazlothku** needs: an ability that exists in the game
 - **Obsidog** needs: a level-up move that exists in the game
 - **Obsidog utvikling** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Wisprake** needs: base stats, an ability that exists in the game, a level-up move that exists in the game

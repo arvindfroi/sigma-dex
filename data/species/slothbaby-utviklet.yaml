@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
 dex: 101
-name: Slothbaby utviklet
+name: Blazlothku
 
 credits:
   designer: Emil         # who came up with it (Discord name)
@@ -55,7 +55,9 @@ evolutions: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 0, move: Close Combat}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
@@ -74,7 +76,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/slothbaby-utviklet.png
+  concept_art: "assets/concept-art/slothbaby-utviklet/606.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

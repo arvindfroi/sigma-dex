@@ -108,8 +108,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 97 | [Ambrr](data/species/ambcoptr.yaml) | Rock / Bug | Levitate, Overcoat, Infiltrator (H) | 495 |  | 24% |
 | 98 | [Tortoplasm](data/species/tortoplasm.yaml) | Rock / Ghost |  |  |  | 7% |
 | 99 | *open slot* | | | | | |
-| 100 | [Slothbaby](data/species/slothbaby.yaml) | Fire | Truant | 420 | Slothbaby utviklet (Lv 40) | 21% |
-| 101 | [Slothbaby utviklet](data/species/slothbaby-utviklet.yaml) | Fire / Fighting | Sloth Combat | 520 |  | 17% |
+| 100 | [Slothbaby](data/species/slothbaby.yaml) | Fire | Truant | 420 | Blazlothku (Lv 40) | 21% |
+| 101 | [Blazlothku](data/species/slothbaby-utviklet.yaml) | Fire / Fighting | Sloth Combat | 520 |  | 24% |
 | 102 | *open slot* | | | | | |
 | 103 | [Obsidog](data/species/obsidog.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 340 | Obsidog utvikling (Other: Level 40 At Night) | 21% |
 | 104 | [Obsidog utvikling](data/species/obsidog-utvikling.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 555 |  | 17% |

@@ -26,11 +26,11 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Breeding | gender | 1 / 115 |
 | Breeding | egg groups | 1 / 115 |
 | Breeding | egg cycles | 1 / 115 |
-| Moves | level-up moves | 25 / 115 |
+| Moves | level-up moves | 26 / 115 |
 | Moves | TM/HM moves | 2 / 115 |
 | Location | encounters | 2 / 115 |
 | Design | concept | 9 / 115 |
-| Art | concept art | 105 / 115 |
+| Art | concept art | 106 / 115 |
 | Art | front sprite | 4 / 115 |
 | Art | front animation frame | 4 / 115 |
 | Art | back sprite | 4 / 115 |
@@ -1025,15 +1025,15 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #101 [Slothbaby utviklet](data/species/slothbaby-utviklet.yaml) - 17%
+### #101 [Blazlothku](data/species/slothbaby-utviklet.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #103 [Obsidog](data/species/obsidog.yaml) - 21%
 
