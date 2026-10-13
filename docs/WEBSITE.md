@@ -53,6 +53,23 @@ shrunk automatically. Sprites are made in the **Sprite** tab, not uploaded here.
 The approved DS sprite (or else the first picture) is shown on the Pokemon's card and at the top of its page. Any image can be
 removed again with its **Remove** button. Only upload art made by us.
 
+## The list and the builder (Showdown style)
+
+The front page shows the dex as a list like Pokemon Showdown's teambuilder: icon, number, name,
+types, abilities, hidden ability, the six base stats and the total. Click a column heading to sort
+by it (again to reverse); search, type and "show" filter it. **Cards** switches to the picture grid
+(the choice is remembered on the device).
+
+In **Edit**, every move and ability field works like Showdown's: tap it and a list of every move
+(type, category, power, accuracy, PP, effect) or ability (what it does) opens right under it.
+Type to filter, tap a column heading to sort, tap a type to show only that type, tap a row (or press
+Enter) to pick. New moves and abilities described on the website are in the lists too. A Pokemon's
+**Moves** tab shows its moves the same way.
+
+The move and ability details come from Pokemon Showdown's data (MIT licence,
+https://github.com/smogon/pokemon-showdown), saved in `data/engine/showdown.json` by
+`scripts/fetch_showdown_data.py` (run it again when the game's move list changes).
+
 ## Removing a Pokemon
 
 Open the Pokemon, press **Edit**, and open **Remove this Pokemon from the dex** at the bottom. Type

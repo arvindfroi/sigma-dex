@@ -212,6 +212,39 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; }
   .xclose { display: block; position: sticky; bottom: 14px; margin: 14px 0 -10px auto; min-width: 88px; z-index: 3; background: var(--panel); border-color: var(--accent); box-shadow: 0 2px 10px rgba(0,0,0,.3); font-weight: 600; }
   .balance { min-width: 560px; }
 }
+
+/* Showdown-style list and pickers */
+.dexlist { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; font-size: 14px; }
+.dexlist th { position: sticky; top: 0; background: var(--soft); text-align: left; padding: 6px 6px; cursor: pointer; user-select: none; white-space: nowrap; z-index: 1; }
+.dexlist th.num, .dexlist td.num { text-align: right; width: 38px; }
+.dexlist th[aria-sort] { color: var(--accent); }
+.dexlist td { padding: 4px 6px; border-top: 1px solid var(--line); vertical-align: middle; }
+.dexlist tr.mon { cursor: pointer; }
+.dexlist tr.mon:hover td { background: var(--soft); }
+.dexlist .ico { width: 40px; height: 40px; object-fit: contain; display: block; }
+.dexlist .ico.px { image-rendering: pixelated; }
+.dexlist .nm { font-weight: 600; white-space: nowrap; }
+.dexlist .ab { font-size: 13px; color: var(--muted); line-height: 1.25; }
+.dexlist .bst { font-weight: 700; }
+.dexlist .stat-lo { color: var(--bad); } .dexlist .stat-hi { color: var(--good); }
+.viewtoggle { display: flex; gap: 0; }
+.viewtoggle button { border-radius: 0; } .viewtoggle button:first-child { border-radius: 8px 0 0 8px; } .viewtoggle button:last-child { border-radius: 0 8px 8px 0; margin-left: -1px; }
+.viewtoggle button[aria-pressed=true] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.cat { font-size: 11px; font-weight: 700; border-radius: 4px; padding: 1px 5px; color: #fff; white-space: nowrap; }
+.cat.Physical { background: #c4492f; } .cat.Special { background: #4a63b8; } .cat.Status { background: #8a8a8a; }
+.picker { flex-basis: 100%; width: 100%; max-height: 340px; overflow: auto; border: 1px solid var(--accent); border-radius: 8px; background: var(--panel); margin: 2px 0 8px; box-shadow: 0 4px 16px rgba(0,0,0,.15); }
+.picker table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.picker th { position: sticky; top: 0; background: var(--soft); text-align: left; padding: 5px 6px; cursor: pointer; white-space: nowrap; z-index: 1; }
+.picker th[aria-sort] { color: var(--accent); }
+.picker td { padding: 4px 6px; border-top: 1px solid var(--line); vertical-align: top; }
+.picker tr.opt { cursor: pointer; } .picker tr.opt:hover td, .picker tr.opt.hot td { background: var(--soft); }
+.picker .nm { font-weight: 600; white-space: nowrap; }
+.picker .ds { color: var(--muted); }
+.picker .filters { display: flex; flex-wrap: wrap; gap: 3px; padding: 6px; border-bottom: 1px solid var(--line); position: sticky; left: 0; }
+.picker .filters button { padding: 1px 7px; font-size: 12px; min-height: 0; border-radius: 6px; }
+.picker .filters button[aria-pressed=true] { outline: 2px solid var(--text); }
+.movetable td { padding: 4px 6px; border-top: 1px solid var(--line); vertical-align: top; }
+.movetable .ds { color: var(--muted); font-size: 13px; }
 </style>
 </head>
 <body>
@@ -233,6 +266,7 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; }
     <option value="problems">Has warnings</option>
     <option value="open">Open slots</option>
   </select>
+  <div class="viewtoggle" id="layout" role="group" aria-label="Show as"></div>
 </div>
 <main>
   <div id="notice"></div>
@@ -572,13 +606,105 @@ function overviewTab(s) {
       : h("div", {class: "ok"}, "Everything is filled in."));
 }
 
+// ---------- move and ability details (Pokemon Showdown's data, MIT licence) ----------
+const SD = DEX.showdown || {moves: {}, abilities: {}};
+const SD_MOVES = new Map(Object.entries(SD.moves).map(([n, m]) => [norm(n), Object.assign({name: n}, m)]));
+function moveInfo(name) {
+  const known = SD_MOVES.get(norm(name));
+  if (known) return known;
+  const c = DEX.custom.move.find(x => norm(x.name) === norm(name));
+  if (c) return {name: c.name, type: c.type, category: c.category ? c.category[0].toUpperCase() + c.category.slice(1) : null, power: c.power, accuracy: c.accuracy, pp: c.pp, desc: c.effect || "", custom: true};
+  return {name, desc: "Not a move in the game yet - describe it under New moves.", unknown: true};
+}
+function abilityDesc(name) {
+  const key = Object.keys(SD.abilities).find(n => norm(n) === norm(name));
+  if (key) return SD.abilities[key];
+  const c = DEX.custom.ability.find(x => norm(x.name) === norm(name));
+  return c ? (c.effect || c.description || "New ability") : "";
+}
+const catBadge = cat => cat ? h("span", {class: "cat " + cat}, cat === "Physical" ? "Phys" : cat === "Special" ? "Spec" : "Status") : "";
+const dash = v => v === null || v === undefined || v === "" ? "\u2014" : String(v);
+
+// Showdown's teambuilder way of choosing: focus the field, a sortable list of every option opens
+// right under it, typing filters it, a click (or Enter) picks.
+let openPicker = null;
+document.addEventListener("pointerdown", ev => { if (openPicker && !openPicker.contains(ev.target)) openPicker.close(); });
+function pickerRows(kind) {
+  if (kind === "move") return Object.keys(SD.moves).map(moveInfo).concat(DEX.custom.move.filter(c => !SD_MOVES.has(norm(c.name))).map(c => moveInfo(c.name)));
+  return Object.entries(SD.abilities).map(([name, desc]) => ({name, desc}))
+    .concat(DEX.custom.ability.filter(c => !Object.keys(SD.abilities).some(n => norm(n) === norm(c.name))).map(c => ({name: c.name, desc: c.effect || "", custom: true})));
+}
+function attachPicker(input, kind) {
+  input.setAttribute("autocomplete", "off");
+  let panel = null, sort = null, dir = 1, type = "", hot = 0, shown = [];
+  const cols = kind === "move" ? [["name", "Move"], ["type", "Type"], ["category", "Cat"], ["power", "Pow"], ["accuracy", "Acc"], ["pp", "PP"], ["desc", "Effect"]] : [["name", "Ability"], ["desc", "What it does"]];
+  function choose(row) { input.value = row.name; input.dispatchEvent(new Event("change", {bubbles: true})); close(); }
+  function close() { if (panel) panel.remove(); panel = null; if (openPicker && openPicker.input === input) openPicker = null; }
+  function draw() {
+    if (!panel) return;
+    const q = input.value.trim().toLowerCase();
+    shown = pickerRows(kind).filter(r => (!type || r.type === type) && (!q || r.name.toLowerCase().includes(q) || (q.length > 2 && String(r.desc || "").toLowerCase().includes(q))));
+    // names that start with what was typed first, as Showdown does
+    shown.sort((a, b) => sort ? (((a[sort] ?? -1) > (b[sort] ?? -1) ? 1 : (a[sort] ?? -1) < (b[sort] ?? -1) ? -1 : 0) * dir)
+      : (q ? (b.name.toLowerCase().startsWith(q) - a.name.toLowerCase().startsWith(q)) || a.name.localeCompare(b.name) : a.name.localeCompare(b.name)));
+    hot = Math.min(hot, Math.max(0, shown.length - 1));
+    const head = h("tr", {}, cols.map(([k, label]) => h("th", {"aria-sort": sort === k ? (dir > 0 ? "ascending" : "descending") : null,
+      onpointerdown: ev => { ev.preventDefault(); if (sort === k) dir = -dir; else { sort = k; dir = ["power", "accuracy", "pp"].includes(k) ? -1 : 1; } draw(); }},
+      label + (sort === k ? (dir > 0 ? " \u25b4" : " \u25be") : ""))));
+    const body = shown.slice(0, 120).map((r, i) => h("tr", {class: "opt" + (i === hot ? " hot" : ""), onpointerdown: ev => { ev.preventDefault(); choose(r); }},
+      kind === "move" ? [h("td", {class: "nm"}, r.name, r.custom ? h("span", {class: "badge", style: "margin-left:4px"}, "new") : null), h("td", {}, r.type ? typeChip(r.type) : ""), h("td", {}, catBadge(r.category)),
+        h("td", {class: "num"}, dash(r.power)), h("td", {class: "num"}, dash(r.accuracy)), h("td", {class: "num"}, dash(r.pp)), h("td", {class: "ds"}, r.desc || "")]
+        : [h("td", {class: "nm"}, r.name, r.custom ? h("span", {class: "badge", style: "margin-left:4px"}, "new") : null), h("td", {class: "ds"}, r.desc || "")]));
+    panel.replaceChildren(
+      kind === "move" ? h("div", {class: "filters"}, h("button", {type: "button", "aria-pressed": String(!type), onpointerdown: ev => { ev.preventDefault(); type = ""; draw(); }}, "All types"),
+        DEX.types.map(t => h("button", {type: "button", class: "type", style: "background:" + TYPE_COLORS[t] + ";border-color:" + TYPE_COLORS[t], "aria-pressed": String(type === t),
+          onpointerdown: ev => { ev.preventDefault(); type = type === t ? "" : t; draw(); }}, t))) : null,
+      h("table", {}, h("thead", {}, head), h("tbody", {}, body)),
+      shown.length > 120 ? h("div", {class: "hint", style: "padding:6px"}, (shown.length - 120) + " more - type to narrow it down.") : !shown.length ? h("div", {class: "hint", style: "padding:6px"},
+        kind === "move" ? "No move with that name. A brand-new move can be typed in; describe it under More > New moves." : "No ability with that name. A brand-new one can be typed in; describe it under More > New abilities.") : null);
+  }
+  function open() {
+    if (panel) return;
+    if (openPicker) openPicker.close();
+    panel = h("div", {class: "picker"});
+    const anchor = input.closest(".row") || input.closest(".field") || input;
+    anchor.after(panel);
+    openPicker = {input, close, contains: el => panel && (panel.contains(el) || el === input)};
+    draw();
+  }
+  input.addEventListener("focus", open);
+  input.addEventListener("input", () => { hot = 0; if (!panel) open(); else draw(); });
+  input.addEventListener("keydown", ev => {
+    if (!panel) return;
+    if (ev.key === "Escape") close();
+    else if (ev.key === "ArrowDown" || ev.key === "ArrowUp") { ev.preventDefault(); hot = Math.max(0, Math.min(shown.length - 1, hot + (ev.key === "ArrowDown" ? 1 : -1))); draw(); }
+    else if (ev.key === "Enter" && shown[hot] && input.value.trim()) { ev.preventDefault(); choose(shown[hot]); }
+    else if (ev.key === "Tab") close();
+  });
+  return input;
+}
+const moveInput = (v, attrs) => attachPicker(textInput(v, Object.assign({placeholder: "move"}, attrs)), "move");
+const abilityInput = (v, attrs) => attachPicker(textInput(v, attrs), "ability");
+
+// A list of moves with their details, as Showdown shows a moveset.
+function moveTable(rows) {
+  return h("div", {class: "scroll"}, h("table", {class: "movetable"}, rows.map(([label, name]) => {
+    const m = moveInfo(name);
+    return h("tr", {}, label !== null ? h("td", {style: "width:84px;color:var(--muted);white-space:nowrap"}, label) : null,
+      h("td", {class: "nm", style: "font-weight:600;white-space:nowrap"}, name, m.unknown ? h("span", {class: "badge need", style: "margin-left:4px"}, "not in the game") : m.custom ? h("span", {class: "badge", style: "margin-left:4px"}, "new") : null),
+      h("td", {}, m.type ? typeChip(m.type) : ""), h("td", {}, catBadge(m.category)),
+      h("td", {class: "num", title: "Power"}, dash(m.power)), h("td", {class: "num", title: "Accuracy"}, m.accuracy ? m.accuracy + "%" : dash(m.accuracy)), h("td", {class: "num", title: "PP"}, dash(m.pp)),
+      h("td", {class: "ds"}, m.desc || ""));
+  })));
+}
+
 function movesTab(s) {
   const learn = s.data.learnset || {};
-  const list = items => filled(items) ? h("div", {class: "chips"}, items.map(m => h("span", {class: "chip"}, m))) : h("div", {class: "empty"}, "none yet");
+  const list = items => filled(items) ? moveTable(items.map(m => [null, m])) : h("div", {class: "empty"}, "none yet");
   const levelUp = (learn.level_up || []).slice().sort((a, b) => a.level - b.level);
   return h("div", {},
     h("h2", {}, "Learned by leveling up"),
-    levelUp.length ? h("table", {}, levelUp.map(m => h("tr", {}, h("td", {style: "width:80px;color:var(--muted)"}, m.level === 0 ? "On evolving" : "Lv " + m.level), h("td", {}, m.move)))) : h("div", {class: "empty"}, "none yet"),
+    levelUp.length ? moveTable(levelUp.map(m => [m.level === 0 ? "On evolving" : "Lv " + m.level, m.move])) : h("div", {class: "empty"}, "none yet"),
     h("h2", {}, "TM / HM"), list(learn.tm_hm), h("h2", {}, "Move tutor"), list(learn.tutor), h("h2", {}, "Egg moves"), list(learn.egg),
     h("h2", {}, "Try it at any level"), simulator(s));
 }
@@ -629,7 +755,7 @@ function rowList(columns, initial, addLabel) {
     box.append(row);
   }
   (initial || []).filter(v => v && typeof v === "object").forEach(add);
-  return {el: h("div", {}, box, h("button", {type: "button", class: "small", onclick: () => add()}, addLabel)), read: () => [...box.children].map(r => r.read())};
+  return {el: h("div", {}, box, h("button", {type: "button", class: "small", onclick: () => add()}, addLabel)), read: () => [...box.children].filter(r => r.read).map(r => r.read())};
 }
 function checkGrid(options, chosen) {
   const picked = new Set((chosen || []).map(norm));
@@ -680,8 +806,8 @@ function openEditor(s) {
     description: h("textarea", {rows: 3, maxlength: 400}, d.description || ""),
     height: numberInput(d.height_m, 0.1, 99, 0.1), weight: numberInput(d.weight_kg, 0.1, 999.9, 0.1),
     color: selectInput(d.body_color, L.body_colors, "not decided"),
-    ability1: textInput(abilities.primary, {list: "list-abilities"}), ability2: textInput(abilities.secondary, {list: "list-abilities"}),
-    hidden: textInput(abilities.hidden, {list: "list-abilities"}),
+    ability1: abilityInput(abilities.primary), ability2: abilityInput(abilities.secondary),
+    hidden: abilityInput(abilities.hidden),
     stats: Object.fromEntries(STATS.map(([k]) => [k, numberInput(stats[k], 1, 255)])),
     ev: Object.fromEntries(STATS.map(([k]) => [k, numberInput(ev[k] || "", 0, 3)])),
     catchRate: numberInput(d.catch_rate, 1, 255), baseExp: numberInput(d.base_exp, 1, 700),
@@ -708,13 +834,13 @@ function openEditor(s) {
     {key: "note", make: v => textInput(v, {placeholder: "note"})}], d.evolutions, "Add an evolution");
   const levelUp = rowList([
     {key: "level", number: true, make: v => numberInput(v, 1, 100, 1, {class: "tiny", placeholder: "level"})},
-    {key: "move", make: v => textInput(v, {list: "list-moves", placeholder: "move"})}],
+    {key: "move", make: v => moveInput(v)}],
     (learn.level_up || []).filter(m => m.level !== 0).sort((a, b) => a.level - b.level), "Add a level-up move");
-  const evoMoves = rowList([{key: "move", make: v => textInput(v, {list: "list-moves", placeholder: "move"})}],
+  const evoMoves = rowList([{key: "move", make: v => moveInput(v)}],
     (learn.level_up || []).filter(m => m.level === 0), "Add a move learned when evolving");
   const tmhm = checkGrid(L.tm_hm, learn.tm_hm);
-  const tutor = rowList([{key: "move", make: v => textInput(v, {list: "list-moves", placeholder: "move"})}], (learn.tutor || []).map(m => ({move: m})), "Add a tutor move");
-  const egg = rowList([{key: "move", make: v => textInput(v, {list: "list-moves", placeholder: "move"})}], (learn.egg || []).map(m => ({move: m})), "Add an egg move");
+  const tutor = rowList([{key: "move", make: v => moveInput(v)}], (learn.tutor || []).map(m => ({move: m})), "Add a tutor move");
+  const egg = rowList([{key: "move", make: v => moveInput(v)}], (learn.egg || []).map(m => ({move: m})), "Add an egg move");
   const encounters = rowList([
     {key: "location", make: v => textInput(v, {placeholder: "place, e.g. Route 1"})},
     {key: "method", make: v => textInput(v, {list: "list-methods", placeholder: "how"})},
@@ -886,7 +1012,7 @@ function openCustomEditor(kind, item) {
   const f = {
     name: textInput(item.name, {required: true, maxlength: isMove ? L.move_name_limit : L.ability_name_limit}),
     effect: h("textarea", {rows: 4, required: true, maxlength: 1500}, item.effect || ""),
-    similar: textInput(item.similar_to, {list: isMove ? "list-moves" : "list-abilities", maxlength: 60}),
+    similar: attachPicker(textInput(item.similar_to, {maxlength: 60}), isMove ? "move" : "ability"),
     notes: h("textarea", {rows: 2, maxlength: 1000}, item.notes || ""),
     designer: textInput(item.designer, {maxlength: 40}),
   };
@@ -1503,6 +1629,44 @@ function renderReorder() {
 }
 
 // ---------- the front page ----------
+// Showdown's teambuilder list: one row per Pokemon, every column sortable.
+let layout = remember.get("layout") || "list";
+let listSort = {key: "dex", dir: 1};
+const LIST_COLS = [["dex", "#"], ["name", "Name"], ["types", "Types"], ["abilities", "Abilities"], ["hidden", "Hidden"],
+  ...STATS.map(([k, label]) => [k, label.replace("Sp. Atk", "SpA").replace("Sp. Def", "SpD").replace("Attack", "Atk").replace("Defense", "Def").replace("Speed", "Spe")]), ["bst", "BST"]];
+function listValue(s, key) {
+  const d = s.data, st = d.base_stats || {}, ab = d.abilities || {};
+  if (key === "dex") return d.dex;
+  if (key === "name") return String(d.name || "").toLowerCase();
+  if (key === "types") return (d.types || []).join("/") || "~";
+  if (key === "abilities") return [ab.primary, ab.secondary].filter(filled).join("/").toLowerCase() || "~";
+  if (key === "hidden") return String(ab.hidden || "~").toLowerCase();
+  if (key === "bst") return s.bst ?? -1;
+  return Number.isInteger(st[key]) ? st[key] : -1;
+}
+function renderList(list) {
+  const {key, dir} = listSort;
+  list = list.slice().sort((a, b) => { const x = listValue(a, key), y = listValue(b, key); return (x > y ? 1 : x < y ? -1 : a.data.dex - b.data.dex) * dir; });
+  const head = h("tr", {}, h("th", {}, ""), LIST_COLS.map(([k, label]) => h("th", {class: STATS.some(([sk]) => sk === k) || k === "bst" ? "num" : null,
+    "aria-sort": key === k ? (dir > 0 ? "ascending" : "descending") : null, title: "Sort by " + label,
+    onclick: () => { listSort = key === k ? {key: k, dir: -dir} : {key: k, dir: STATS.some(([sk]) => sk === k) || k === "bst" ? -1 : 1}; render(); }},
+    label + (key === k ? (dir > 0 ? " \u25b4" : " \u25be") : ""))));
+  const stat = v => h("td", {class: "num" + (v >= 0 && v < 50 ? " stat-lo" : v >= 110 ? " stat-hi" : "")}, v >= 0 ? String(v) : "\u2014");
+  const rows = list.map(s => {
+    const d = s.data, ab = d.abilities || {}, ds = DEX.ds_sprites[s.id], pic = ds && ds.icon ? {src: ds.icon, pixel: true} : portrait(s);
+    return h("tr", {class: "mon", tabindex: "0", onclick: () => openDetail(s), onkeydown: ev => ev.key === "Enter" && openDetail(s)},
+      h("td", {}, pic ? h("img", {class: "ico" + (pic.pixel ? " px" : ""), src: pic.src, alt: "", loading: "lazy"}) : ""),
+      h("td", {class: "sub"}, pad(d.dex)),
+      h("td", {class: "nm"}, d.name, s.pending ? h("span", {class: "pending"}, " edited") : null, s.problems.length ? h("span", {class: "badge need", style: "margin-left:4px", title: "Has warnings"}, "!") : null),
+      h("td", {}, h("div", {class: "types"}, (d.types || []).map(typeChip))),
+      h("td", {class: "ab"}, [ab.primary, ab.secondary].filter(filled).join(" / ") || "\u2014"),
+      h("td", {class: "ab"}, ab.hidden || "\u2014"),
+      STATS.map(([k]) => stat(listValue(s, k))), h("td", {class: "num bst"}, s.bst !== null ? String(s.bst) : "\u2014"));
+  });
+  const grid = document.getElementById("grid");
+  grid.append(h("div", {class: "scroll", style: "grid-column:1/-1"}, h("table", {class: "dexlist"}, h("thead", {}, head), h("tbody", {}, rows))));
+}
+
 let view = "species";
 const MORE = [["lost", "Lost and found"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Type balance"], ["reorder", "Change dex numbers"]];
 function renderNav() {
@@ -1517,6 +1681,10 @@ function renderNav() {
     h("button", {type: "button", "aria-pressed": String(view === "sprites"), onclick: go("sprites")}, "Sprites"), more);
   document.getElementById("tools").style.display = ["species", "move", "ability", "lost"].includes(view) ? "" : "none";
   document.getElementById("type").style.display = view === "species" ? "" : "none";
+  const lay = document.getElementById("layout");
+  lay.style.display = view === "species" ? "" : "none";
+  lay.replaceChildren(...[["list", "List"], ["cards", "Cards"]].map(([id, label]) => h("button", {type: "button", "aria-pressed": String(layout === id),
+    onclick: () => { layout = id; remember.set("layout", id); render(); }}, label)));
   document.getElementById("show").style.display = view === "species" ? "" : "none";
 }
 
@@ -1540,10 +1708,11 @@ function render() {
     if (!open.length) grid.append(h("div", {class: "empty"}, "Every slot is taken."));
     return;
   }
-  for (const s of DEX.species.slice().sort((a, b) => a.data.dex - b.data.dex)) {
-    if ((mode === "todo" && s.complete === 100) || (mode === "problems" && !s.problems.length) || (mode === "playable" && s.gameNeeds.length)) continue;
-    if (type && !(s.data.types || []).includes(type)) continue;
-    if (query && !JSON.stringify(s.data).toLowerCase().includes(query)) continue;
+  const matching = DEX.species.slice().sort((a, b) => a.data.dex - b.data.dex).filter(s =>
+    !((mode === "todo" && s.complete === 100) || (mode === "problems" && !s.problems.length) || (mode === "playable" && s.gameNeeds.length))
+    && (!type || (s.data.types || []).includes(type)) && (!query || JSON.stringify(s.data).toLowerCase().includes(query)));
+  if (layout === "list" && matching.length) renderList(matching);
+  for (const s of layout === "list" ? [] : matching) {
     const pic = portrait(s);
     grid.append(h("button", {class: "card", onclick: () => openDetail(s)},
       h("div", {class: "pic"}, pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: "", loading: "lazy"}) : h("span", {class: "letter"}, (s.data.name || "?")[0])),
@@ -1552,7 +1721,7 @@ function render() {
       s.pending ? h("div", {class: "pending"}, "just edited") : null,
       h("div", {class: "meter", title: s.complete + "% filled in"}, h("i", {style: "width:" + s.complete + "%"}))));
   }
-  if (DEX.web.url && open.length && !query && !type && mode === "filled") grid.append(h("button", {class: "card open", onclick: () => openEditor({data: {dex: open[0]}})},
+  if (DEX.web.url && open.length && !query && !type && mode === "filled") grid.append(h("button", {class: "card open", style: layout === "list" ? "min-height:0;grid-column:1/-1" : null, onclick: () => openEditor({data: {dex: open[0]}})},
     h("div", {class: "name"}, "+ Add a Pokemon"), h("div", {class: "num"}, open.length + " open slots")));
   if (!grid.children.length) grid.append(h("div", {class: "empty"}, "Nothing matches."));
 }

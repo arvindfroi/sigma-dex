@@ -450,10 +450,340 @@ pictures), `v5cfg\pod_setup.sh`, `v5cfg\pod_train.sh`, `v5cfg\dash.py` + `dash.h
     By eye at 750 already real follower sprites (two frames, right size and direction, outline, colours; Waffy a blue bird
     with a yellow beak in all four directions); weak: Cyndaquil's back (up), Graveler's colours, Kadabra, Bronzor's thin
     side view. Far better than round 1's blobby whole sheets.
+  - **Style gap, measured at steps 750-2250** (`v6cfg\follower_style.py`, `follower_unfake.py`): real HGSS followers use
+    ~11 colours per frame, a dark edge on 95 % of the outline, ~195 px filled; ours 155-185 colours, 81-87 % dark edge,
+    198-252 px (1500 too big). unfake brings the colours to 10, yet they still look different: HGSS followers have their
+    OWN lighter palettes and simplified, rounder shapes, while the model shrinks the battle sprite (its darker colours
+    and inner detail). Arvind's evidence: **Jigglypuff from behind** (real: a round, flat, light-pink ball with almost no
+    inner lines; ours: a spiky outline from the battle sprite, darker pink, shading) and **Diglett** (real: small and
+    compact on a grey mound; ours: bigger on a brown mound, the front's colour). Partly unlearnable (Game Freak's per-
+    species follower palettes, e.g. Graveler beige as a follower, grey in battle), partly a learnable general style
+    (lighter, simpler, rounder) still improving at 0.6 passes. Jigglypuff and Diglett become fixed style canaries.
+    Next: higher LoRA strength for followers at use time, unfake / palette lock, and a real-vs-ours style reward (DPO).
+  - **Colour counting, corrected (Arvind: "very small differences count as much as big ones"):** counting unique RGB
+    values overstated the problem ~10x: near-identical shades are invisible. Now colours are merged when closer than a
+    delta-E in Lab (5 = just visible, 10 = clearly different; most-used first) and 1-pixel groups are dropped. Real HGSS
+    followers: 10 / 10 visible colours; ours at step 3000: 21 / 15 (raw RGB 173), improving from 24 / 16 at 750. Use the
+    perceptual count in every test from now on (`perceptual()` in `v6cfg\follower_style.py`).
+  - Follower step 3000 (0.8 passes): best so far by the judge (score 0.207, recog 0.27, good/aha/noise 11/8/1) and by
+    Arvind's eye; dark edge 90 % (real 95 %); a bit too big (242 vs 195 px; the box can steer size at use time).
+  - **Left/right in the real followers (`v6cfg\mirror_check.py`, Arvind's question):** Game Freak's (1-493) right
+    frames are the left frames mirrored for 460 of 481 species (96 %); the 20 exceptions are asymmetric designs (Kadabra's
+    spoon, Farfetch'd's leek, Krabby/Kingler's big claw, Cubone/Marowak's bone, Roselia's two flowers, Weezing, Staryu,
+    Croconaw, Sneasel, Magcargo). Fan-made (494+): 388 exact, 14 near, 115 own drawings. So: at use time draw left and
+    mirror it (consistent sides, half the work, budget for best-of-N), drawing right separately only for asymmetric
+    designs; next round train up / down / left only (~25 % less compute for the same result).
+  - **Why the box beats the references for Bronzor's side view:** half the training boxes were predicted, yet the
+    prediction is almost always close (1.6 px per side), so the model learns "follow the box"; the rare case where it is
+    far off (a 5 px thin disk seen from the side, box 17 px wide) is too rare to learn. Next round: some boxes wrong on
+    purpose (much too wide or narrow) and some examples with no box, so the references win when they disagree. At use
+    time: set the box by hand for unusual shapes.
+  - **"Why not just show it the answer?" (Arvind):** the answer as an input teaches copying (the answer is never there
+    for a new mon). The useful variant is a **stylist LoRA**: input = a rough draft (our model's own output on training
+    species, or the real sprite made worse: too many colours, scribbles, wrong lightness), target = the real sprite; it
+    learns to correct "our style" into Game Freak's, and at use time it gets our draft, which always exists. Candidate
+    for the next round, together with style tags (Game Freak vs fan-made: half the followers and ~40 % of icons and
+    backs are fan-made, so the model learns an average style) and a style reward.
+  - **End of the run (2026-10-11 23:45 JST, Arvind's choice):** stopped after checkpoint 5250 (1.4 passes) because he
+    wants to try style references and better references first; the back was not trained this round (its data stays
+    ready). Judge per checkpoint: 750 0.200, 1500 0.177, 2250 0.184, 3000 0.207, **3750 0.256** (recog 0.32), 4500
+    weaker by Arvind's eye. Stop order on the pod: kill the queue script first (else it starts the back), then the
+    training; tar the output (1.35 GB: 7 checkpoints x 152 MB + 192 pictures), download, check the size to the byte,
+    then terminate. Pod time ~7.6 h, about **12.50 $**. Results: Legion `pod2_out\pkmn_follower_v5`.
+  - **Lesson (Windows SSH again):** an ssh started inside an interactive SSH session on the Legion can hang even with
+    `-n` (a `stat` call hung twice); started as its own process (Invoke-CimMethod) it works, and `cmd /c ssh ...` works.
+    For the last critical steps fall back to the Mac, which never hung.
   - **Lesson (Windows SSH, cost an hour of blind monitoring):** `ssh.exe` started from a console-less process (Invoke-
     CimMethod) without `-n` waits for stdin forever: fetch2 and the live judge hung on their first `ssh ... cat`. Every
     scripted ssh on the Legion now runs `ssh -n -o BatchMode=yes -o StrictHostKeyChecking=no -o ServerAliveInterval=15`.
     Check a watcher's first round actually completes, not just that it started.
+- **Style references at use time, first try (2026-10-12, `v6cfg\style_tests.py`, results\style; Arvind: "show it many
+  other sprites in the right style ... then we could maybe skip the LoRA"):** a 4th reference with 12 Game Freak
+  followers in one grid. Plain Qwen 2.1 scored 0.01 (it drew a grid of mini sprites), LoRA 3750 + the sheet 0.205 vs
+  0.243 without (the LoRA never saw a 4th image), LoRA 4500 0.246. **The test broke Qwen's own rules**, found afterwards
+  in the official Qwen 2.1 edit prompt enhancer's system prompt (ComfyUI template `image_qwen_image_2_1_image_edit.json`,
+  copy in the session scratchpad) and the template notes: refer to images as `<image1>`... (we did); state each image's
+  role and what is taken from each; **describe every reference individually, never several as one group** (our grid
+  was one group); state requirements affirmatively (we wrote "never draw any of them"); no resolution or size in the
+  prompt (the enhancer always strips them, so "32x32 pixels" is noise); image_1 is the edit target and the output
+  follows its size; up to 10 references; **the negative prompt does nothing at cfg 1** (the official setting; raise cfg
+  to use one); official steps 40-50 (we use 25). So "plain Qwen cannot do it" is not proven yet.
+- **Style references the official way (2026-10-12, `v6cfg\style2_tests.py`, results\style2; then `style3_tests.py`):**
+  plain Qwen 2.1, 40 steps, official artwork -> HeartGold front, each reference its own picture (80x80 front, nearest x8
+  = 640), described one by one, affirmative wording, no sizes. First picture (Cyndaquil): the design alone + style words
+  gives the illustration pixelated (design kept, not Game Freak's look); with 5 named real fronts it **draws the
+  references instead of the design** (random refs: a mix of them; similar refs: Breloom, one of the five). Content
+  leaks from style references. Research (a web agent, links in the session notes): QwenStyle (arXiv 2601.06202) and
+  the Civitai/HF style-transfer LoRAs exist because the base edit model does not separate style from content by
+  itself; their training triplets are [style ref of a different subject, content ref, target]. Next tests: the same
+  without species names, and the **canvas swap** (SpriteForge's trick: `<image1>` = a real sprite of a similar
+  species, `<image2>` = the design, "replace the creature in `<image1>` with the one from `<image2>`, keep `<image1>`'s
+  pixel style", at 16x so the grid lines up with the VAE).
+- **Results of the style tests (2026-10-12, plain Qwen 2.1, no LoRA; sheets in results\style2..6, `peek.py` on the Mac):**
+  - Style references described one by one still **leak content**: with names it draws a reference (Breloom, Magby),
+    without names a hybrid (Lickitung with a platypus tail, Magmar-Kadabra). A blur-word negative at cfg 3 does not stop it.
+  - **Canvas swap** (`style3_tests.py`): the right creature every time (recog 0.74, DINO 0.74 on Cyndaquil / Jigglypuff /
+    Kadabra; "looks like the donor" 0.002), on the 16 px grid for Waffy and Jigglypuff; Cyndaquil got the donor Bagon's
+    helmet, Kadabra ignored the grid and stayed the artwork pixelated.
+  - **Arvind's "style of + the reference's NAME in the negative" (cfg 3)** (`style4_tests.py`): no leak at all (the
+    negative name works), but the result is the artwork pixelated.
+  - **Arvind's verdict: "far too close to the original art, as if it does not dare to try anything; they just get
+    pixelated; and the pixel size is wrong."** Measured (colour run lengths): our outputs had **1.5-3x too many pixels
+    across** (Cyndaquil style-of ~80x100 sprite px, real ~40x50; Jigglypuff swap ~55x58, real 36x39; Kadabra swap ~170x150,
+    real 60x72). An edit model is trained to keep its input, so with the design in charge it keeps the art's pose and
+    detail. Forcing the 16 px grid with SigmaPixelLock fixes the pixel size but not the "copy the drawing" habit, and a
+    palette taken from a design with a background (Waffy's blue snow) bleaches the colours (`style6_tests.py`).
+    Taking the pose from the real sprite was rejected by Arvind: the creature should stand as it wants; the problem is
+    that it keeps the rest of the drawing (lines, shading, small details).
+  - Conclusion: plain Qwen with references gives grid and size (canvas) but not Game Freak's way of redrawing; that is
+    what the LoRAs learn. Next: the free pipeline with the LoRAs we have (below).
+- **The free pipeline (night 2026-10-12; Arvind's goal: "without spending money, a relatively safe pipeline that gives
+  good results through the whole process; the existing LoRAs may be used").** All on the Legion, about 8 minutes per mon.
+  Scripts `v6cfg\pipe_v1.py`, `pipe_v2.py`, `pipe_finish.py`, `colour_rule.py`, `back_size.py`, `front_place.py`;
+  results in `results\pipe_v1`, `pipe_v2`, `pipe_final`. One design picture in, every sprite out:
+  1. **front**: plain Qwen 2.1 with the approved Oct 5 DS prompt (`ds_pixel.FRONT`): the design + a silhouette guide at
+     the stage's size (the canvas enforces size, place and grid), read on the 96 grid, best of 3 by
+     `ds_pixel.front_score`. One seed in three copies the grey guide as the creature; the score throws it out.
+  2. **back**: back v4 (front 8x + design), checkpoints 1000 / final x LoRA strength 1.0 / 0.75 x 2 seeds; the pick
+     wants the area real backs have (595 HeartGold sets: **back area = 0.584 x front area + 1633**, median error 11 %), a
+     flat cut, no face and no copy of the front; then lifted so the cut sits at row 71 (the real median). v1 (fixed
+     area target, one strength) drew them far too big.
+  3. **follower**: follower v5 step 3750 (front + sheet with our back and the design + the predicted box), down / up /
+     left x 2 seeds, best by box fit + the two frames agreeing; right = left mirrored.
+  4. **icon**: icon v6 A step 2000 at 0.75 (front + sheet with our back, our follower's down frames and the design + the
+     predicted box), best of 3 by box fit + likeness to the front.
+  5. **finish** (no drawing): the **game's colour rule**, learned on 468 artwork -> HeartGold front pairs (per quantile of
+     lightness and chroma): Game Freak's sprites are more saturated (chroma +10-20) with darker shadows and outline than
+     the artwork. On the held-out fronts it moved our colours 40 % closer to the real ones (chroma distance 18.5 -> 11.2,
+     lightness 9.1 -> 7.5). The front's old -> new colour table is applied to back, follower and icon (they are all
+     already in the front's palette), so a mon's sprites share one palette. Then the front is placed like real ones
+     (595 fronts: **bottom row = 0.491 x height + 39.6**, median 14 empty rows below; ours stood on the last row).
+  Every pick is a rule taken from real HeartGold data, so a bad seed loses instead of reaching the group.
+  **Numbers (8 held-out species from their official artwork, judge = classifier x DINOv2 vs the real sprite):**
+
+  | | front | back | follower | icon |
+  |---|---|---|---|---|
+  | v1 | 0.701 | 0.271 | 0.229 | 0.541 |
+  | v2 (back area rule, strength 0.75 candidates) | 0.701 | 0.257 | 0.257 | 0.520 |
+  | v2 + finish (colour rule, placement) | 0.664 | 0.260 | 0.236 | 0.599 |
+  | from the TRUE front (oracle) | - | 0.233 | 0.258 | 0.435 |
+
+  The front stage costs nothing downstream: back / follower / icon are as good from our front as from the real one. The
+  colour rule moves DINO up (closer to the real sprites) and the classifier a little down. The back LoRA is the weak link.
+  **Picking without truth (`select_study.py`, on v2's kept candidates):** "identity" = cosine of the classifier's 1025-way
+  probabilities, candidate vs our own front (the same creature recognised in both, whatever it is, so it works for a new
+  mon). Mean judge of the pick: back 0.27 by my rules -> **0.38 by identity** (best possible 0.41, average candidate 0.21);
+  follower 0.28 -> **0.31** (= best possible); icon: rules 0.54 (= best possible), identity 0.50, both 0.54. DINO to the
+  front alone picks badly (0.16 on backs). So identity is the picker, with a copy-of-the-front penalty kept for backs
+  (a copied front would look the most "identical"). Pipeline v3 = v2 + this picker + 12 back candidates + the finish built in.
+  **v3 (final sprites):** front 0.664, **back 0.320**, **follower 0.289**, **icon 0.588** (v1: 0.701 / 0.271 / 0.229 /
+  0.541). No back is a copy (DINO back vs own front 0.40-0.72; real pairs ~0.6-0.7). By eye: Waffy's back is now a real
+  over-the-shoulder back close to the approved one; followers look like the game's; Tentacool's back came out a flat sliver
+  and Kadabra (the artwork's busy pose kept by the front) stays the weakest. About 3 minutes per mon once the candidates
+  exist, 8 from scratch.
+  **Our own mons (`pipe_ours.py`, results\pipe_ours; one clean concept picture each, front size 68/74/78 from the dex):**
+  Erobi and Waffy good in every view; Autuman, Leafing, Stonma and Janenon good fronts, followers and icons, odd backs
+  (Leafing's a green lump, Stonma's a grey slab). **Torchbat failed at first**: its concept is a thin line drawing and all 4
+  seeds copied the grey guide as the creature, and the chain carried the grey through every view. Fix, now in the front
+  stage: a **safety gate** - if no front scores 2 or more, a second round with an almost-white guide (fill 246, edge 190),
+  and a `NEEDS_A_PERSON.txt` flag if that fails too. Torchbat's second round scored 6.8-7.9 and came out in colour, but a
+  rough sketch still gives a rough front (and weak back/icon): sketches should go through the family's step 1 (sketch ->
+  official-style artwork, approved by the group) before the chain.
+  **Weakest link: the back.** Fronts, followers and icons are dependable; backs are right for round, simple bodies and odd
+  for unusual shapes. Free next steps: more back candidates (identity pick scales with N), the Oct 5 plain-Qwen back
+  (ds_pixel.BACK) as extra candidates, back v3 1000 as another source. Paid only if those fail: back v5 at 16x (data ready).
+  **Back study (`back_study.py`, results\back_study):** 26 candidates per mon (back v4 1000/final x 1.0/0.75 x 5 seeds +
+  back v3 1000 x 1.0/0.75 x 3 seeds, v3 on white references as trained), identity pick: held-out backs **0.320 -> 0.416**
+  (best possible 0.498; Tentacool 0.00 -> 0.55 with its red eyes, Kadabra 0.13 -> 0.44, Diglett right size). v4 is the
+  better source on average (0.229 vs 0.201 per candidate) and gives the best candidate 7 of 8 times. On our own mons the
+  identity pick is noisier (the classifier has never seen them): Autuman's back got better, Waffy's and Erobi's worse than
+  v3's pick. So for a new mon the pipeline should show the group its **top 3 backs** to choose from, and decide the rest
+  (front, follower, icon) itself.
+- **Arvind on the free pipeline (2026-10-12 morning): "does not look good enough."** My reading: the front is the chain's
+  foundation and the one stage no LoRA has learned; plain Qwen gives the artwork pixelated, not a Game Freak redraw, and
+  every later stage inherits that (the numbers missed it; his eye and the style detector did not). **art -> front v6**
+  (`v6cfg\build_art2front_v6.py`, `audit_art2front.py`, `filter_art2front.py`, config `v6cfg\art2front_v6.yaml`, data
+  `data\v9\art2front`): round 1's never-trained art2front B idea (a style sheet of real sprites as a trained-in second
+  reference) rebuilt clean: Game Freak Gen 4 fronts only (DP / Pt / HGSS, species 1-493, base forms, held-out never),
+  near-duplicates dropped (884 left of 1435), style sheet = 6 real HGSS fronts of the most similar OTHER species (DINOv2
+  on the artwork, relatives left out). **The audit found wrong palettes in some DP / Pt sets** (Lickitung's DP and Pt
+  fronts are red-orange, the HGSS one pink): versions whose colours differ from the species' HGSS front were dropped (38),
+  plus the 5 % of pairs with the most recoloured modern artwork (32) and Spinda (the game paints its spots): 813 examples.
+  Training on the Legion: 640, rank 32, lr 5e-5 cosine, EMA, 1500 steps, 8.8 s/step (about 3.6 h). Stopped at step 1186
+  for Arvind to judge 500 / 750 / 1000 (`v6cfg\eval_art2front.py`, results\art2front_v6\eval.png): on the held-out species
+  the judge is the same as plain Qwen (step 750 0.696 vs 0.701) and the fronts come out far too big (no size guide: the
+  edit model keeps the artwork's layout, as in the style tests), still close to the artwork. On OUR mons it redraws more:
+  Torchbat became a creature instead of a traced line drawing, Janenon and Stonma kept their colours (plain Qwen turned
+  them grey), Waffy at 1000 turned into a new three-quarter pose. That fits Arvind's observation (Waffy took on the style
+  best): a creature the base model has never seen leans on the LoRA, a known one on the model's memory.
+- **Lesson (Legion memory):** the first start crashed while quantizing (0xC0000005) and PowerShell could not even start:
+  17 orphaned multiprocessing workers from earlier runs (parents dead since 6-11 October) held about 49 GB of committed
+  memory. `pod2\kill_orphans.ps1` kills only workers whose parent is gone (commit free 19 -> 48 GB). Run it before every
+  Legion training.
+- **"Too many references?" (Arvind, 2026-10-12: on RunPod, Waffy took on the style best).** Two explanations: the
+  references (artwork, HOME render, back, icon) carry detail and rendering the model copies, or the base model pulls the
+  real species towards how it remembers them (Waffy it has never seen). Test queued after the front eval
+  (`v6cfg\refs_test.py`): follower v5 and icon v6 A on the 8 held-out + Waffy with the sheet blank / artwork only / full,
+  same seeds and boxes. If fewer references look more like Game Freak, cut them in the chain.
+- **Sketch -> artwork by canvas swap? (2026-10-12, `v6cfg\sketch_test.py`, results\sketch_test; Arvind's idea):** 7 rough
+  sketches of ours, plain Qwen 2.1: the sketch alone + "redraw as official artwork" vs canvas swap (the most similar real
+  official artwork as `<image1>`) vs swap + the donor's name in the negative (cfg 3). **Neither redraws**: the edit model
+  keeps the sketch's lines and pose and only fills it in. Alone it guesses colours (Stonma and Nukfae came out red); with a
+  donor it takes the DONOR's colours (Stonma green like Ludicolo, Freezrick yellow like Plusle). DINOv2 picks poor donors
+  for line drawings (Geodude for Janenon). For line sketches the colours must come from words (the dex's `look` text the
+  Oct 3 `official_front_gen4` prompt uses) or from the group, not from a reference picture.
+- **Style detector (2026-10-11, `v6cfg\style_detector.py`, results\style\detector.json):** frozen DINOv2 + logistic
+  regression, trained and tested on different species, tells real HeartGold icons from our icon v6 A/Aps pictures **on
+  greyscale** with 94.3 % accuracy (AUC 0.991; 1008 real, 1720 ours, 968 species). So the gap is not only the palette:
+  the drawing itself (shapes, outline, shading) gives ours away. Its "looks real" probability can rank best-of-N.
+- **RunPod session 3 (2026-10-12; Arvind: "front LoRA at 16x with enough epochs; better tags; a size guide; keep it cheap
+  without losing quality"; then "the backs should get the same smart ideas").** Reviewed against every front/back lesson
+  first; changes from that review: the front size guide back to 1280 (same size as the target, the round-2 review; I had
+  shrunk it to 640 to save money), the style sheet blank in half the examples (Arvind's 10 Oct hybrid worry + his untested
+  "too many references"; compare with and without at use time) and 3 extra progress pictures without it, steps from the
+  evidence that our LoRAs peak around 1-1.5 passes (front 1800 = 2.2 passes, back ~1.8 passes, saves every 300).
+  **Back v6** replaces back v5 (`v6cfg\build_back_v6.py`, `data\v9\back6`): Game Freak Gen 4 backs AND hg-engine's
+  fan-made backs (Arvind: "keep them, they are made very well"), the DP/Pt palette check, the sheet = artwork + ONE overworld frame seen from behind (Arvind) and nothing else
+  (no HOME render: never exists for our mons; no icon: made after the back), the front dirty in 30 %, tags as front v7,
+  the 1280 box with the heavier flat-cut line.
+  - Pod `08cguk85555g3z`: RTX PRO 6000 Blackwell **Server Edition** (600 W; round 2's Max-Q was 300 W), Community,
+    1.69 $/h, started 15:02 JST. Upload 387 MB from the Legion checked to the byte; models fetched in parallel (6 min).
+    Front smoke: 0 errors, 0 OOM skips, 4 pictures, buckets 1280x1280 (813), weights moved, **5.6 s/step** (back 16x on the
+    Max-Q was 7.2). The back v5 smoke was stopped (back v6 replaces it). Front training started 15:40 JST.
+  - Lesson repeated: `pkill -f 'cfg/dash.py'` inside an ssh command that itself contains `cfg/dash.py` killed the
+    session (and the dashboard); kill by pid from `ps | grep '[p]attern'` instead. Then the same again with
+    `ps | grep '[c]fg/dash.py'` in a command that also STARTED `cfg/dash.py` (the regex matched the start command):
+    restarts now go through `cfg/restart_dash.sh` (pgrep on the exact command, from a script file).
+  - **Front v7 result (1800 steps, 3 h 25 min):** the progress pictures (WITH the similar-species style sheet, seed 42)
+    turned into **merges**: Waffy with a Charmander tail, Erobi a Togepi mix, Autuman drawing the whole sheet into the
+    picture, Leafing / Stonma hybrids, Tentacool with red balls; worse at 1200 than at 600 (Kadabra and Cyndaquil fine at
+    600, broken at 1200). Arvind: "it cannot take ONLY the style from the reference sheets". The loss went 0.081 -> ~0.06
+    in 150 steps and stayed flat: it rewards single denoising steps against the true sprite, so it never directly punishes
+    copying the sheet. **With a BLANK sheet and 3 seeds** (free test on the Legion, `v6cfg\eval_front_v7.py`) step 600 has
+    no merges: Cyndaquil, Houndour, Bronzor, Jigglypuff, Diglett look like real HGSS fronts at the right size; Erobi and
+    Autuman good in all seeds, Leafing / Stonma / Torchbat (a real creature for the first time) / Waffy good in one seed of
+    three. Seeds vary a lot, so best-of-N with a picker matters. The dashboard (sheet mode, one seed) was misleading.
+  - Research (agent, 12 Oct): references must not be able to carry a creature (fragments, shuffled), pick references
+    UNLIKE the target, effective batch 4-8, frequent checkpoints chosen on several seeds. **ai-toolkit's EMA has no
+    warm-up**: at decay 0.999 the step-600 weights are still 55 % the initial ones (0.999^600), so keep 0.99.
+  - **Front v7c = Arvind's PUZZLE** (`v6cfg\build_front_v7c.py`, `data\v9\front7c`): `<image2>` = this creature's OWN sprite
+    cut into 8x8 pieces, ~70 % kept, rotated / mirrored, scattered (colours, cel shading and pixel style, not the shape); in
+    half the examples cut from a DIRTIED sprite (colour shift, blocky, too many / too few colours), the way a new mon's
+    puzzle is cut from our draft front; two puzzles per example, blank in 15 %; effective batch 4, lr 1e-4, saves every 50.
+    Progress pictures use puzzles of the free pipeline's DRAFT fronts (honest), plus Cyndaquil / Kadabra with the real
+    answer's puzzle (the ceiling). Queued after back v6 (`cfg/run_queue3b.sh`). A mosaic of OTHER species' fragments
+    (v7b) was built first and dropped (Arvind: "it looks like random Pokemon in there").
+  - **Back v6** started 19:05 JST (caching 1115 new captions ~14 min, 13 step-0 pictures), 5.7 s/step, buckets
+    1280x1280 x 1115, 0 OOM; up to 3300 steps, Arvind stops it once it is saturated. **Step 0 vs 600** (sheet per mon:
+    front | sheet | picture | truth, made on the pod by `back_sheet.py`): at step 0 the base model only pastes the sheet
+    (follower frame + artwork side by side, small); at 600 it already draws big backs cut flat by the bottom edge (Haunter,
+    Tentacool, Leafing, Waffy the most convincing), but several still draw two things side by side (what is left of
+    pasting the sheet) or break into fragments. Arvind: "it learns much more than I thought, I see the direction".
+  - **Free post-processing of front v7** (`v6cfg\post_fv7.py`): unfake (dominant colour per 16 px cell, auto palette,
+    morph + jaggy clean-up) + loose pixels removed takes the colour count from 15-30 to 5-14 (real HGSS about 10) and
+    cleans outlines; some seeds drop too far (Janenon 4 colours) and dirt already in the picture stays, so the picker still
+    chooses the seed. Arvind: "hit or miss, but it will work; with the right tags and good reference pictures it will be
+    good".
+  - **Our mons' inputs were wrong** (found 12 Oct): (1) the stage tag was guessed from base stats and worded "a first-stage
+    Pokemon", a phrase the LoRA never saw (training says "... that evolves" / "a middle evolution" / "a fully evolved
+    Pokemon" / "a Pokemon that does not evolve"), and Erobi was called first stage though it does not evolve: tags now come
+    from `data\species\*.yaml` (who evolves into whom), heights where we have them (5 of 7 have none in the dex; Torchbat's
+    0.8 m is on its own sheet). (2) The artwork: Waffy's still had its snowy ground and background (removed with base
+    Qwen-Image 2.1 edit, transparent output, `v6cfg\refs_clean.py`), Erobi had a stray line under it that made its box
+    wrong, and Janenon and Torchbat were paint sketches although `assets\concept-art` holds far better pictures (Janenon on
+    its card 259, Torchbat's coloured sheet 469): cut out, background removed, largest blob kept, framed like the training
+    art (fit in 560 on 640). Arvind had said Janenon and Torchbat were bad "probably because of the art"; he was right.
+  - **Fine-tuning at use time** (`v6cfg\tune_front.py`, free, after the strength 0.75 test): new tags + new art + 40
+    sampling steps (Qwen's advice 40-50; we used 25) for our 7; the 8 Game Freak mons get only the 40 steps, so they show
+    that effect alone against the truth. Checkpoints 600 and 900, seeds 1-3, unfake + loose pixels. Then the same at
+    strength 0.75 (`TUNE_STRENGTH`), and `v6cfg\waffy_show.py` (Arvind: "one Pokemon, different seeds, variations and
+    pipelines"): Waffy, 600 / 900 x 1.0 / 0.75 x 8 seeds, raw and unfaked, next to the old runs and the group's front.
+    **Result at 600 (strength 1.0):** the reference art is what matters. Janenon now looks like the creature (the hair
+    cannon with the pink muzzle and the small purple body) instead of a scribble, Torchbat is a clean coloured sprite with
+    flame ears in all three seeds, Waffy has no snow; the 8 Game Freak mons (40 steps the only change) look the same as at
+    25 steps, so 25 steps is enough; the corrected tags changed nothing visible (Erobi, Autuman, Leafing as before).
+    **At 900 (strength 1.0) it is overtrained**: Kadabra in pieces, Autuman exploding into leaves, Janenon / Torchbat
+    messy, a Cyndaquil merge. **Best so far: step 600 at strength 0.75 with the new inputs** (Janenon and Torchbat good
+    in all three seeds, Waffy clean); seed 1 draws Leafing and Stonma tiny at every setting (a seed effect, the picker's
+    job). At 0.75 step 900 is as steady as 600 (the lower strength hides the overtraining).
+  - **Sampler knobs** (`v6cfg\sampler_grid.py`, front v7 600 at 1.0, Cyndaquil / Kadabra / Waffy / Torchbat / Janenon x
+    2 seeds; Legion seconds per 1280 picture): **8 steps** (28 s) breaks up (Kadabra in fragments), **12** (33 s) nearly
+    there, **16-20** (39-44 s) look like 25 (51 s): 16-20 is enough. **cfg 2.5 + a negative prompt** (95 s) is the one
+    knob that changes the look: bolder dark outlines, cleaner, more saturated colours (Cyndaquil, Torchbat, Janenon
+    closest to a real sprite), Kadabra in a different, more coherent pose. **euler_ancestral** (fresh noise every step,
+    the nearest thing to "temperature") gives more varied seeds, useful for best-of-N. dpmpp_2m, res_multistep, the beta
+    schedule and shift 1.5 / 3.1 / 6 change almost nothing.
+    Lesson: the first start waited 50 min for a line that was already in the log, because PowerShell's own redirection
+    (`*>>`, `Out-File`) writes UTF-16; a Python wait on a PowerShell log must decode by its BOM.
+  - **Strength 0.75** (`eval_front_v7_s075.py`, old inputs): far steadier, nearly all three seeds usable per mon (Erobi,
+    Autuman, Cyndaquil, Houndour, Bronzor good in all); the price is that it follows the drawing more (Kadabra in the
+    artwork's pose, not the HGSS one; Haunter greyer). 600 slightly cleaner than 900. Arvind: "a lot of good in that".
+  - **Back v6 at 1200 / 1800**: 1200 has big backs cut flat and almost no fragments, but Cyndaquil, Diglett and Kadabra
+    still drawn twice side by side; at 1800 only Diglett is double, Cyndaquil and Kadabra are one creature built like
+    the real back. Arvind's rule from this: **never two pictures inside one input** (the sheet's two panels are what it
+    pasted as two creatures). ai-toolkit takes a LIST as `control_path` (more than 3 references in training; the
+    progress pictures take at most 3), so the next back can get front, artwork and follower frame as separate images.
+  - **Front v7d = Arvind's REAL BACK idea, replaces v7c** (`v6cfg\build_front_v7d.py`, `data\v9\front7d`, queued on
+    the pod by `cfg/run_queue3c.sh` after back v6; `cfg/skip_front7c` set; Arvind: "we drop v7c"): `<image2>` = the
+    creature's own back from the same game as the target front (all 813 matched exactly). The back is a TRAINING aid
+    only (Arvind: "we have every sprite of the real mons, so it can learn to replicate the style; I hope it has
+    understood it when our fakemons are made, no catch-22"; "the dirty back has not helped us so far"): every example
+    twice, once with the clean real back, once with `<image2>` empty, which is how our mons are drawn. My first build
+    (dirtied backs, back v6's backs at use time) was dropped for that. Progress pictures: the 8 held-out and our 7 with
+    the new inputs and no back, + Cyndaquil / Kadabra with the real back. 400 steps at effective batch 4 (one pass);
+    no step-0 pictures (`skip_first_sample`: they only show the base model, ~8 min). Back v6 was stopped at 2409 (Arvind:
+    "2400 stagnates"; 1800 ~ 2400) and v7d started at once (23:43 JST).
+  - **Unattended end (Arvind asleep: "VERY IMPORTANT that you terminate the pod when training is done")**, three layers:
+    (1) the Legion (`pod3_src\fetch_v7d_flag.ps1`) waits for "all done 3", fetches the v7d archive (3 tries, size
+    checked), puts every checkpoint in ComfyUI as `fv7d_<step>`, checks back v6's fetch, then touches `cfg/fetched_ok`
+    on the pod; (2) the pod (`cfg/selfterm.sh`) waits for the end (or 10 min with no training process), then for
+    `fetched_ok` (up to 2 h) and terminates itself with `runpodctl remove pod $RUNPOD_POD_ID` using the container's own
+    key from `/proc/1/environ` (not in an ssh shell's environment; that key may not read pods, `get pod` says
+    Unauthorized); with no fetch confirmation it only STOPS the pod (GPU billing ends, files kept); (3) a watcher on the
+    Mac wakes me to check with get-pod and delete it myself if it is still there. **It worked**: v7d ended 02:59 JST,
+    the Legion had the archive (1.53 GB, size checked) and every checkpoint in ComfyUI at 03:02:30, and the pod was gone
+    (get-pod 404, list-pods empty) a minute later: `runpodctl remove pod` with the container's own key DOES terminate
+    the pod. Round 3 cost about 20 $ (12 h at 1.69 $/h).
+  - **Front v7d result** (progress pictures, one seed, `v6cfg\front_sheet_v7d.py`): with `<image2>` empty, as our mons
+    are drawn, **step 200 is the cleanest** (= 800 examples, near where front v7 peaked at 600); at 300 / 400 it grows
+    noisy (Erobi fuzzier, Autuman cluttered, Stonma falls apart, Tentacool worse). Janenon, Torchbat, Waffy, Leafing good
+    at 200. With the REAL back it clearly uses it: Kadabra at 300 takes the real sprite's pose and brown body,
+    Cyndaquil's colours come closer to the truth.
+  - **Front v7d vs v7, no back, strength 1.0, 3 seeds, all 15 mons** (`v6cfg\eval_v7d.py`): v7d at 150 / 200 / 250 is
+    far steadier than v7 600: the three seeds nearly agree for every mon and none breaks (v7 600's seed 2 broke Haunter,
+    Tentacool and Kadabra); 150 ~ 200 ~ 250. It keeps closer to the drawing's pose (Kadabra still in the artwork's pose,
+    not HGSS's). Whether that comes from the back or from the shorter training cannot be told apart from this; either
+    way v7d 200 at full strength is as steady as v7 600 at 0.75. Seed 1 still draws Leafing / Stonma tiny.
+  - **Torchbat, 6 ways x 8 seeds** (`v6cfg\show_mon.py torchbat`, Arvind: "make another one of a character"): every
+    way is a big step up from the sketch-based run. v7 600 at 0.75 and v7d 200 at 1.0: all 8 seeds faithful and alike;
+    **cfg 2.5 + negative prompt (at 0.75) gives the most sprite-like look** (bold dark outline, flat saturated colours)
+    in all 8 seeds, at twice the time (~90 s); at strength 1.0 with cfg 2.5 the poses wander (one dark broken seed);
+    euler_ancestral is softer and more varied. Candidate recipe: v7d 200 or v7 600 at 0.75, cfg 2.5 + negative,
+    16-20 steps, 4-8 seeds, unfake + loose pixels, then the picker.
+  - **The recipe on three new mons** (Arvind picked #069 Octopearl, #073 Leadling, #042 Gortiki; `v6cfg\refs_clean2.py`
+    then `v6cfg\show_new.py`, 20 steps, 8 seeds, ways A = v7d 200 at 1.0, B = v7 600 at 0.75 + cfg 2.5 + negative,
+    C = v7d 200 at 0.75 + cfg 2.5 + negative). Inputs: Gortiki cut from its card 234 by base Qwen (with torch and smoke),
+    Leadling from its pixel sheet 452 (no shadow, no pebbles), Octopearl only has a marker sketch (573): base Qwen with
+    the colours in words made it cleaner but kept the sketch's look. Results: **Leadling C 8 of 8 like real HGSS
+    sprites**; Octopearl recognisable in all 24, B the most sprite-like, its face still sketchy (the input); Gortiki (fire,
+    smoke, torch) varies most: B steadiest, v7d (A, C) draws it tiny in 2-3 seeds of 8, and one B seed drew the size
+    box as a black frame. So cfg 2.5 + negative wins on all three; the picker must reject tiny sprites (box fill),
+    drawn frames and fragments.
+  - **Reading a picture's style (Arvind's /describe question):** a battery-frog picture he showed looked like official
+    art; its prompt was not in his ChatGPT export (which keeps no image-tool prompts and ends 2026-07-08). Described by
+    eye instead: thin outlines in darker shades of each fill colour (not black), soft airbrushed cel shading with one
+    shadow tone, faint watercolour texture, a thin white glow round the silhouette, plain white background. As a style
+    prompt on Octopearl's sketch (`v6cfg\style_sugimori.py`) it softened the look but kept the sketch's shapes: an EDIT
+    model keeps its input. `v6cfg\sketch_methods.py` tests seven ways to loosen that on four sketches, three of which
+    have a finished picture made from them (Torchbat 470 -> 469, Janenon 262 -> card 259, Erobi 396 -> 397): edit,
+    blurred sketch, white canvas + sketch as reference, text only, img2img at 70 % noise, text + sketch "only as an
+    idea", the same with the sketch at 384 px.
+  - **Followers, measured on 481 real HGSS sheets** (`v6cfg\follower_frames.py`): the right-facing frames are the
+    mirrored left ones in 96 % of species, so "right" need not be trained; but the two walking frames of a direction
+    differ in ~19 % of pixels (legs move) and are never just a 1 px shift, so each direction still needs both: 6
+    pictures to make, not 8. Arvind's plan: one frame per output, the other frames of the same mon as separate inputs;
+    at use time make "down" first, then the rest one by one from the ones already made. Icon: no more training, improve
+    it for free.
 - **Towards "you cannot tell ours from the real ones"** (Arvind, 2026-10-10): in order of evidence: the right format
   (16x everywhere), the right information in (reference sheet, boxes), enough passes with the judge picking the
   checkpoint, clean data (real, no near-duplicates, right palettes), a **finishing step for every format** (as for
@@ -478,8 +808,183 @@ pictures), `v5cfg\pod_setup.sh`, `v5cfg\pod_train.sh`, `v5cfg\dash.py` + `dash.h
   down on rough line sketches (it never saw a sketch as input). The idea for the next round is synthetic sketches made
   from official artwork. Back v4 learned the format (pixels, outline, flat cut) but not the design.
 
+## Status 2026-10-13 (focus: in-game sprites that show OUR mons in the Gen 4 style)
+
+- **Front: good with a good input.** Recipe: front v7 600 at 0.75 or v7d 200, cfg 2.5 + negative, 16-20 steps, 4-8
+  seeds, unfake + loose pixels. Leadling 8/8, Torchbat, Janenon, Waffy, Erobi, Gortiki (B) good. To do: an automatic
+  picker (reject tiny sprites, drawn size boxes, fragments; pick the best of 8); size (the box is not always obeyed);
+  pose (it follows the drawing; real HGSS fronts stand in a three-quarter battle pose); the game format (at most 15
+  colours + transparent, ONE palette shared by front and back, a shiny palette; `scripts/ds_pixel.py` already maps the
+  back onto the front's palette).
+- **Back: back v6** (1800 / 2100 / 2400 on the Legion as `bv6_<step>`) learned big backs cut flat; Diglett still double,
+  Autuman messy; not yet run on our new fronts. Next training: front, artwork and follower frame as separate pictures.
+- **Follower:** untouched this round; first a free baseline of follower v5 on the new fronts, then follower v6 (3
+  directions x 2 frames, one frame per output, the other frames as inputs; paid).
+- **Icon:** good enough (Arvind); improve for free (post-processing, the front's palette).
+- **Input art:** finished art or a pixel render goes straight to the sprite recipe (Arvind: "the art step is only needed
+  for mons with an unfinished sketch"); cut-outs from cards and background removal work (base Qwen, transparent);
+  rough sketches -> Q1 (img2img 85 % + cfg 2.5 + negative + shape words); clear sketches -> being tested (keep the pose,
+  official lineart); an inventory of every mon's concept art is being made.
+- **Gap:** no new mon has gone the whole way (front -> back -> follower -> icon -> game files). Order proposed: front
+  picker, back v6 on the new fronts, shared palette / game format, one mon (Leadling) fully into the game, follower v6,
+  then DPO.
+- **The whole way, first time** (Arvind: "pick a random Pokemon and test"; drawn: Blazterra #009, Fire/Flying, the last
+  of the Torchbat line; `v6cfg\e2e_front.py` + `v6cfg\e2e_chain.py`, all free on the Legion, ~45 min): its sheet 378 cut
+  out by base Qwen -> 24 fronts (A / B / C x 8) -> **the cheap picker** (hard checks: box fill under 0.5, over 6 % loose
+  pixels, a drawn frame, over 24 colours; score = DINOv2 agreement with the other survivors + likeness to the artwork +
+  box fill - touching the edge; no training, seconds on the CPU): picked B 6, B 5, A 5, sensible, it marked down the odd
+  blue eye and the wings cut at the edge -> back v6 (1800 / 2100 / 2400 x 3 seeds; 2100 seed 3 picked): a real-looking
+  back, wings spread, cut flat -> follower v5 (weak: the up and down frames look alike) -> icon v6A (a messy blob) ->
+  front and back on ONE palette (8 colours) -> a mock battle screen that reads as Gen 4. Verdict: front and back are
+  close; follower and icon are the weak end (follower v6 is planned last; the icon to be improved for free).
+- **Arvind's review of the Blazterra chain:** B's fronts are superior (the picker's A5 at no. 3 was wrong), the black
+  outline is too thick, the icon is surprisingly bad ("the icons in the PC box on 6 Oct were good").
+  - **Icon:** the 6 Oct icons came from `pkmn_icon_edit_v2` with ONLY the approved battle front as input (8x on white) and
+    one plain instruction (`legion_test\run.py`); icon v6A takes back + follower frame + artwork, so a muddy follower
+    v5 frame made a muddy icon. `v6cfg\icon_edit_v2_test.py` reruns the 6 Oct way on the new fronts. Checked: the
+    6 Oct script (`legion_test\run.py`) on the same fronts today reproduces those icons pixel for pixel (0 pixels
+    different; LoRA file and ComfyUI unchanged), and on NEW fronts of the same mons (Erobi, Leafing, Stonma, Autuman,
+    Waffy) it gives icons as good as on 6 Oct. So the bad Blazterra icon was (1) MY choice in the chain: icon v6A with
+    the muddy follower frame in its sheet (copied from pipe_ours) instead of icon_edit_v2 with the front only, and (2) a
+    hard design (huge wings, fire, a torch) for 32x32; Gortiki and Octopearl are hard the same way. Use icon_edit_v2,
+    front only, in the chain. CORRECTION: the PC box Arvind loved (sent ~10 Oct) is the SEED 2 icons of that run
+    (`legion_test\*_icon_2_px.png`, pixel-matched 100 % on all 8); I first compared against seed 1, which is clearly
+    worse. Seeds matter a lot for icons (seed 2 was bigger and bolder for every mon, old and new fronts alike).
+  - **Icon knobs** (`v6cfg\icon_play.py`, icon_edit_v2, seeds 1-3; Blazterra, Leadling, Octopearl, Stonma, Leafing,
+    Autuman): strength 0.8 / 1.2, 15 / 40 steps, the artwork as `<image2>`, and a second edit on the result (50 % noise)
+    change little. **The canvas swap wins: start from the front shrunk to icon size (figure fitted in 28 px on the 32
+    grid, feet low, 16x on white), 70 % noise, the front as reference**: every part kept in all seeds (Leadling's
+    skull, boulders and feet; Blazterra's spread wings; Octopearl's cap, tentacles and tube; Autuman's whole body),
+    where the plain recipe lost limbs (Arvind: "Leadling seed 4 lacks arms and legs"; "Blazterra only seed 2, and it is
+    borderline"). Character consistency comes from the start picture, the icon style from the LoRA. Arvind: "it worked,
+    but the colours do not fit icons"; "they get so small". `v6cfg\icon_play2.py`: the start front shrunk to FILL the
+    cell (32 wide or 30 high, feet on the bottom row), 60 / 70 / 80 % noise: full-size icons with every part for all six
+    (Leadling, Stonma, Leafing, Autuman whole); 60-80 % differ little; colours stay the front's (darker, more shading than
+    real icons), still to solve. Arvind: "Autuman V0 seed 2 is a splendid example" (= the PC box icon).
+  - **Pose and size** (Arvind: "compare with Charizard"; "check Mega Charizard X / Y"): real fronts fill the frame:
+    Charizard 76x79, Mega X 80x80, Mega Y 80x80, Crobat 78x65, with wings raised and an upright body; real icons
+    32x25-29. Blazterra's front is 78x46 (wings spread flat as in its artwork) and its icon 30x19. Cause: the size box is
+    predicted from the ARTWORK's aspect ratio, so a flat drawing gets a flat box; Game Freak re-poses big creatures to
+    fill the square. `v6cfg\pose_size.py` tests a taller box (78x66, 78x78) and re-posing the artwork first. Lesson: my
+    first re-pose prompt named Charizard as the pose model and base Qwen drew Charizard: never name a real Pokemon in a
+    prompt that must keep our design. **Result:** a taller box (78x66, 78x78) changes nothing: with a flat artwork the
+    LoRA keeps the flat pose (73-79 x 40-46). Re-posing the artwork first by a plain base-Qwen edit with the pose in
+    words (P1: "wings raised high above its shoulders, half folded, standing upright, fits a square frame") gives upright,
+    compact fronts (43-46 x 58-61) that keep the design; "vision only" (P2) loses the design (it drew a Charizard-like
+    dragon with flame wings). So: re-pose flat drawings by edit, then set the box from the fill rule below.
+  - **Size follows height** (Arvind: "big mons naturally fill the frame, not all; check height and weight"; "look at how
+    much is background / transparent, not the dimensions"; `v6cfg\fill_stats.py`): fill = opaque share of the 80x80
+    frame, 493 HGSS fronts: median 0.21 (10-90 % 0.11-0.41); Spearman with height 0.85, with weight 0.78. Median fill by
+    height: under 0.5 m 0.12, 0.5-1 m 0.15, 1-1.5 m 0.25, 1.5-2.5 m 0.35, over 2.5 m 0.47; by stage: first 0.14, middle
+    0.22, last 0.29, single 0.25. Fullest: Giratina 0.62, Palkia, Ho-Oh, Charizard 0.58; Crobat only 0.23, Pidgeot 0.43.
+    Ours: Blazterra 0.26 (too little for a big last stage), Leadling 0.38 (FAR too much for a 0.5 m first stage: ~0.13),
+    Gortiki 0.42, Octopearl 0.35, Waffy (approved) 0.27. So the size box should be set from a target FILL by height
+    (stage when the dex has no height), not from the longest side by stage (68 / 74 / 78) nor the artwork's shape. The
+    frame is 80x80 in the game; any pose inside it is allowed.
+  - **Icon v7 on the Legion** (`v6cfg\build_icon_v7.py`, `pairs7`, `pod2\cfg\icon_v7_legion.yaml`,
+    `v6cfg\icon_v7_train.ps1`, queued 13 Oct 15:54 behind the pose test): icon v2's exact recipe (pairs2, 3000 steps,
+    lr 1e-4, rank 32) + one change: a second reference, the front shrunk to fill the icon cell at 16x, "only a guide
+    for its layout and size", blank in half of the 1400 examples. v2 stays the fallback; judge v7 against the PC box.
+  - **What real HGSS icons are** (`v6cfg\icon_stats.py`, 477 icons; Arvind: "teach the Pokemon icon style AND that it
+    looks good and uses the space; recognisable features + the icon style"): REDRAWN, not shrunk fronts (silhouette IoU
+    with the shrunk front median 0.41); fill a median 0.24 of the cell; small creatures are made relatively bigger than
+    in battle (0.19 under 0.5 m vs 0.12 for the front: chibi), 0.39 over 2.5 m; figure 18x18 (small) to 24x30 (huge);
+    feet on row 29 (room for the bob); icon fill follows the front's fill (Spearman 0.82), less the height (0.67).
+  - **Icon v7b** (`v6cfg\build_icon_v7b.py`, `pairs7b`, `pod2\cfg\icon_v7b_legion.yaml`, `v6cfg\icon_v7b_train.ps1`,
+    queued after v7): style from the real icon targets (v2's), features from the front AND the artwork (separate
+    pictures; artwork empty in 20 %), space from an icon box template (real box +-1 or predicted from the front's box,
+    50 / 50; fit in `data\v9\icon7b_boxfit.json`, mean height error 2.1 px). Use: best-of-8 with two cheap judges
+    (icon realness: real vs our icons on DINOv2, as the front picker; recognisability: classifier likeness to the front)
+    plus box fit; check that the picker chooses the PC box's seed 2 over seed 1 before trusting it.
+  - **Icon v7a result and v7c** (13 Oct evening): v7a's progress pictures were best at step 500 (big, icon-like, every
+    part kept); by 1000-1500 the icons shrank and lost parts. Arvind's review questions showed the design flaws: the
+    guide filled the cell while real icons fill ~0.24 (so the model learned to ignore it), RGB on white, no held-out
+    species, v2's learning rate copied untuned. v7a stopped at 2000. v7b was replaced before it started by **v7c**
+    (`v6cfg\build_icon_v7c.py`, `pairs7c`): RGBA (white page flood-filled away), front + artwork + a box as big as the
+    REAL icon (or predicted), icon masks, 41 held-out species left out (1358 examples), lr 5e-5, effective batch 4,
+    EMA 0.99, 500 steps, saves every 50. **Icon judge** (`v6cfg\icon_judge.py`): realness 0.854 held-out accuracy;
+    real icons: fill = 0.15 + 0.49 x front fill; it ranks the PC box's seed 2 above seed 1 for 6 of 8. Arvind: "why
+    test instead of training?": the v7a evaluation was stopped so v7c trains first (20:50); `v6cfg\icon_queue3.ps1`
+    finishes the v7a evaluation after v7c's (icon_eval skips what is drawn). Live page on the Legion:
+    `v6cfg\legion_dash.py` at 127.0.0.1:8890 (SSH tunnel from the Mac). Precision: the Legion trains on an 8-bit base
+    model with an 8-bit optimizer (the LoRA itself in bf16), as icon v2 did; quality cost expected small, speed ~5x
+    slower than the pod.
+  - **Colour LUTs** (Arvind: "make LUT files so the colours match how they shift from the Pokemon; Haunter's sprite was
+    much greyer than in the game"; `v6cfg\lut_build.py`, `results\lut\*.cube`): Game Freak's own colour shifts learned
+    from data, art -> front (official artwork vs HGSS front) and front -> icon (hg-engine's front vs icon): per species
+    the source colours (k-means, 10, by area) matched to the target palette by optimal transport; the shifts at the
+    source colours smoothed into a 3D Lab LUT (kernel sigma 12, no data -> no shift); fitted without the 40 held-out
+    species and checked on them; exported as standard 33^3 .cube files. **Result:** art -> front (468 species, 24922
+    colour pairs): held-out palette distance 21.5 -> 18.3 Delta E; moving OUR held-out fronts' palettes toward the LUT'd
+    artwork colours (`v6cfg\lut_eval.py`, optimal transport, 8 species x 3 seeds): 22.9 -> 21.0 (50 %) / 20.6 (100 %),
+    while moving toward the raw artwork colours makes it worse (23.8 / 25.7). Real but small, and it does not fix
+    Haunter: Game Freak drew Haunter much LIGHTER (lilac) than its dark artwork, and one LUT for all species averages
+    such choices away (it makes Haunter darker). front -> icon: the numbers improved (26.7 -> 20.7) but the pictures
+    look duller: hg-engine's icon PNGs carry one display palette while the game picks one of three shared palettes per
+    species, so the icon "truth" colours are unreliable; drop that LUT. Next: a LUT that also depends on how dark the
+    whole creature is (dark designs are lifted for the small screen), and the icon colours from the game's palette choice.
+  - **Picker v2** (`v6cfg\picker_v2.py`, CPU, minutes): logistic regression on DINOv2 features (colour + greyscale),
+    700 real Gen 4 fronts against 530 of our generated ones (many of real species, so it judges the drawing):
+    held-out accuracy 0.927. Mean P(real) per way: Blazterra B 0.53 / A 0.43 / C 0.44, Octopearl B 0.76, Gortiki B 0.58,
+    Leadling C 0.90 (B 0.86): it agrees with Arvind and with the eye. v1's flaw: two of three ways were the same LoRA
+    (v7d), so "typical" meant v7d's look, and nothing measured sprite-ness.
+  - **Outlines measured, not hand-fixed** (Arvind: "do not touch it, it should look like the real ones";
+    `v6cfg\outline_stats.py`, `v6cfg\outline_colour.py`): on 508 real fronts the outline pixel (darker than the one just
+    inside) is fully black 46 %, grey 9 %, a dimmed colour 44 % (Arvind: "lots of dimmed colour, rarely fully black, it
+    depends on the material"), a third as light as the colour inside (median 0.33), hue kept 78 %; yellow / green get
+    the most coloured outlines (53-55 %), purple / blue the darkest; dark on 60 % of the outside edge. Ours: B (cfg 2.5)
+    77 % fully black, ratio 0.02, dark on 94 % of the edge, thickness 2.63 vs 1.75 (too black, too thick, drawn all
+    round); A (cfg 1) 30 % black, ratio 0.33 (the right dimming) but too few black. So the LoRA DID learn the dimmed
+    outline (cfg 1 shows it); cfg 2.5 exaggerates it to black. unfake also makes outlines less black (0.66 -> 0.34).
+    A thinning post-step (`v6cfg\outline_fix.py`) works; colouring it from the palette changed too little to see. Next:
+    cfg 1.5 / 2.0 (`v6cfg\cfg_sweep.py`) to let the model's own outline land on the real numbers; for the next training
+    round, weight the outline pixels more in the loss (they are a few % of the picture, so MSE barely punishes them);
+    later the outline stats as part of a DPO reward.
+- **Concept-art inventory** (agent, all 297 pictures of the 115 species; `scratchpad\inventory\inventory.csv`): 19
+  finished art or pixel render (straight to sprites), 71 card / sheet (cut-out only), 13 clear sketches (P5 first),
+  Yanklet + 11 with no drawing. Decisions needed: two designs in one folder (Sigmauler, Sigmanian Sudowoodo, Icy
+  Freeze, Hairyen, Dragem), colours / face differ between pictures (Verrith, Erobi), card names that differ from the dex
+  (Wisprake / Wyrmshade, Grincho / Grinetch, Furamire / Furamie, Maagamad / Gullmire), Unknighted (four bodies in a
+  ring).
+
+## Follower v6 (data built 2026-10-13, for a pod run on Arvind's yes)
+
+Arvind's design: "one LoRA for all of the follower; two answers per direction, but not side by side (it gets confused by
+more than one creature per picture); front and back as inputs (consider the art) and the two other directions as inputs;
+that should teach the style, the colours, the size and the proportions"; "it is important that we LABEL the data well".
+`v6cfg\build_follower_v6.py` -> `data\v10\follower6` (942 species, the 40 held-out left out, 5652 examples; real HGSS
+followers + hg-engine's fan-made ones):
+- target: ONE 32x32 frame at 16x (512, RGBA, mask widened one cell) for down / up / left (right = mirrored left); both
+  walking steps are separate examples, the caption says "the first step" / "the second step"
+- inputs, one picture each, always the same seven slots, an absent one is a see-through picture and the caption says
+  "<imageN> is empty": 1 front 8x, 2 back 8x, 3 artwork (in 2878 = half; Arvind: "smart"), 4-5 a walking frame of each
+  of the two OTHER directions (each present 60 %), 6 the OTHER step of the same direction (present 50 %: "draw the other
+  step: the same picture with only the legs moved"; at use time step 2 is drawn from step 1 so the two always match),
+  7 a size box (real +-1 px or predicted from the front, 50 / 50)
+- tags as front v7; no dirtied inputs
+- trap found and fixed: in 254 of the 2795 other-step inputs the two steps are identical (no leg move), which would
+  teach copying: those inputs emptied and their captions changed
+- use: down first (front, back, art, box), then left with down, then up with both, then every step 2 from its step 1
+- ai-toolkit's progress pictures take only 3 references: `v6cfg\patch_ctrl8.py` adds ctrl_img_4..8 on the image AND the
+  prompt-embedding side (config_modules, BaseSDTrainProcess, SDTrainer, base_model, qwen_image_2); tested on copies
+- training needs the pod (seven references: the Legion would take 15+ h per pass); estimate 3-4 h, 5-8 $
+- **RunPod session 4** (Arvind: "start it; the cheapest pod that works well, speed and quality"): pod `6txhw3tk92ozp1`,
+  A100 SXM 80 GB, Community, 1.39 $/h (cheapest in stock with 80 GB and a CUDA >= 13 host; L40S / H200 hosts only had
+  CUDA 12), started 22:23 JST. The bf16 transformer is 14 GB and the text encoder 17.5 GB. `cfg/prep4.sh` installs while
+  the data uploads (lesson: `hf` comes with the requirements, so the model download must wait for pip). Upload 712 MB
+  from the Legion in ~4 min; 435 MB of it was the artwork copied into every example (next time: one per species).
+  Text-embedding cache OFF (seven references would make it ~100-200 GB). Smoke: 0 errors, 0 OOM, 4 pictures, weights
+  move, buckets 512x512 x 5652, 23.7 s per step of 4 examples, 42 GB VRAM. Steps set to 600 (2400 examples, ~0.4 pass,
+  ~4 h incl. pictures, ~6-7 $ in all), saves every 50, pictures every 100. End: `cfg/selfterm4.sh` (after
+  `pod3_src\fetch_pod4.ps1` on the Legion has the archive) + Arvind's eye on the pictures.
+
 ## Next ones (later)
 
+- **Fallback base model: FLUX.2 Klein 9B** (Comfy's style transfer handbook, March 2026: "a sweet spot for LoRA training",
+  fast, learns from moderate datasets; edit LoRAs on before/after pairs are its recommended path for niche styles, and a
+  style reference without a LoRA is "hit or miss" - what our tests found). Arvind (2026-10-12): Qwen 2.1 is better on
+  benchmarks and lighter, so stay on Qwen; try Klein only if everything else fails. Closed services (NanoBanana Pro for
+  restyling with likeness, Seedream 5.0-lite / Grok with a style reference) only as comparison points.
 - **first: judge the LoRAs properly** (agreed with Arvind 2026-10-09). Round 1 was judged on loss (says little about
   quality) and 3-4 progress pictures with one seed: too few to tell an improvement from a lucky seed. Before the next
   round: score every checkpoint automatically on all 40 held-out species with several seeds against the truth (shape:

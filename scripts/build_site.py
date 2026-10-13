@@ -79,12 +79,15 @@ def main():
         path = ROOT / "export" / name
         return json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
 
+    showdown_path = ROOT / "data" / "engine" / "showdown.json"
+    showdown = json.loads(showdown_path.read_text(encoding="utf-8")) if showdown_path.exists() else {"moves": {}, "abilities": {}}
+
     cursor_path = ROOT / "data" / "web_edits_cursor.txt"
     payload = {
         "project": config.get("project", "Pokedex"), "dex_size": config.get("dex_size", 151),
         "species": entries, "types": dexlib.TYPES, "checks": dexlib.CHECK_LIST,
         "custom": {"move": engine["custom"]["moves"], "ability": engine["custom"]["abilities"]},
-        "images": images, "sprites": sprite_info, "ds_sprites": ds_sprites, "studio": studio,
+        "images": images, "sprites": sprite_info, "ds_sprites": ds_sprites, "showdown": showdown, "studio": studio,
         "type_shares": yaml.safe_load((ROOT / "data" / "engine" / "type_shares.yaml").read_text(encoding="utf-8")),
         "problems": report("doc_problems.json") + report("sheet_problems.json") + report("web_problems.json"),
         "web": dict(config.get("web_edits") or {}, cursor=int(cursor_path.read_text().strip() or 0) if cursor_path.exists() else 0),
