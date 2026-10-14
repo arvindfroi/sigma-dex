@@ -23,9 +23,9 @@ abilities:
 
 base_stats:              # each 1-255
   hp: 92
-  attack: 102
+  attack: 108
   defense: 82
-  sp_attack: 51
+  sp_attack: 45
   sp_defense: 55
   speed: 118
 

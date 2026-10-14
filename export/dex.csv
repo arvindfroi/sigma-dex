@@ -16,8 +16,8 @@ until the edge shines like metal.
 11,harpie,Harpie,Normal,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Magnus,,10
 12,smeatherace,Smeatherace,Normal,Flying,Unburden,,,495,67,109,60,72,102,85,,,Skyemoji Bird,1.7,28.4,,,,,,,,,,,,,,,,,,"Smeatherace rides high winds with silent grace, using the emoji-like marking on its chest to signal its flock from afar. When it drops what it carries, its body becomes startlingly light, letting it burst through the sky with incredible speed.",,,"From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -.",Magnus,,31
 13,bolthook,Bolthook,Dark,Flying,Strong Jaw,Intimidate,Pressure,495,93,130,70,65,70,67,,,Gaze,2,86,,2 attack,,,,,,,,,,,,,,,,"Bolthook waits in eerie stillness until prey comes into view. It then spreads its great wings to blot out the sun and strikes with its enormous beak in a single, thunderous blow. The echo of its beak can be heard for miles.",,,"From the Discord concept card (Arvind Frøiland, 2026-05-02): also on the card: Notable moves: Crunch, Brutal Swing, Hurricane, Knock Off. Extra note: Its beak is so heavy that it must spread its wings wide to take off. It rarely flaps unless it needs to strike..",Arvind,,34
-14,wump,Wump,Bug,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,10
-15,twemp,Twemp,Bug,Grass,Swarm,,Grassy Surge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,14
+14,wump,Wump,Bug,,Swarm,Run Away,Unburden,300,35,60,45,40,45,75,,,,,,,1 speed,,,,,,,,,,,,,,,,,,,,Arvind,,21
+15,twemp,Twemp,Bug,Grass,Swarm,Leaf Guard,Grassy Surge,380,45,70,100,45,100,20,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,17
 16,florantula,Florantula,Bug,Grass,Swarm,Leaf Guard,Grassy Surge,485,67,105,115,53,115,30,,,,,,,"2 defense, 1 sp_defense",,,,,,,,,,,"Sticky Web (1), Leech Life (1), Bug Bite (1), Synthesis (1), Grassy Glide (1), Seed Bomb (1)",,,,,,,,,Arvind,,24
 17,shadeem,Shadeem,Normal,,Illusion,,,330,45,70,45,60,45,65,,,,,,,,,,,,,,,,,,,,,,In the slums,,,,,Michael,,21
 18,shadrove,Shadrove,Normal,Dark,Illusion,,,510,60,120,60,100,60,110,Shadeem,Dusk Stone,,,,,2 attack,,,,,,,,,,,,,,,,,,,,,Michael,17
@@ -35,9 +35,9 @@ until the edge shines like metal.
 30,croakble,Croakble,Water,,Swift Swim,Liquid Voice,Water Bubble,504,69,80,67,100,78,110,Wispole,Lv 25,,,,,2 speed,,,,,,,,,,,,,,,,,,,,Emil,,17
 31,galfrogtom,Galfrogtom,Ghost,Electric,Clear Body,Lightning Rod,Galvanize,504,59,89,49,139,49,119,Wispole,Thunder Stone,Ghost,,,,2 sp_attack,,,,,,,,,,,"Discharge (evo), Discharge (1), Hyper Voice (1)",,,,,May disable a move that deals damage to the Pokemon.,,,"From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male.",Emil Venge-Kvamme,,31
 32,eiscue,Sigmanian Eiscue,Ice,,Moody,,,462,77,77,77,77,77,77,,,,,,,,,,,,,,,,,,,,,,,,,,From the Google Doc: Sigmanian Eiscue/eller eiscue evo (Ice/?),,,14
-33,rainbro,Rainbro,Stellar,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
-34,autuman,Autuman,Grass,Fighting,Justified,Guts,Wind Rider,500,92,102,82,51,55,118,,,,,,,2 speed,,,,,,,,,,,,,,,,,,,,Arvind,,21
-35,bugmight,Bugmight,Bug,Fighting,Justified,Guts,Tinted Lens,500,102,118,92,51,55,82,,,Hero,1.9,75,,2 attack,,,,,,,,,,,,,,,,Bugmight fights for smiles and justice. It flares its wings like a cape to inspire its allies and crush evil with overwhelming might.,,,"From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Tinted Lens; height 6'03"", weight 165.3 lbs.",Emil Venge-Kvamme,,34
+33,rainbro,Rainbro,,,Punchable Face,,,490,67,90,58,90,70,115,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10
+34,autuman,Autuman,Grass,Fighting,Justified,Guts,Wind Rider,500,92,108,82,45,55,118,,,,,,,2 speed,,,,,,,,,,,,,,,,,,,,Arvind,,21
+35,bugmight,Bugmight,Bug,Fighting,Justified,Guts,Tinted Lens,500,108,118,92,45,55,82,,,Hero,1.9,75,,2 attack,,,,,,,,,,,,,,,,Bugmight fights for smiles and justice. It flares its wings like a cape to inspire its allies and crush evil with overwhelming might.,,,"From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Tinted Lens; height 6'03"", weight 165.3 lbs.",Emil Venge-Kvamme,,34
 36,nukfae,Nukfae,Poison,Fairy,Liquid Ooze,Cute Charm,Sticky Hold,325,67,30,38,76,92,22,,,Nuclear Sludge,1.2,32.5,,,,,,,,,,,,,,,,,,"Nukfae is made entirely of toxic nuclear waste. Its sweet appearance can be deceiving — it releases highly poisonous chemicals from its body and tentacles. The rainbow sheen on its sludge is a sign of concentrated radiation. It may look friendly, but it can be lethal if it gets too close.",,,"From the Discord concept card (SLOTHBABY, 2026-09-13): also on the card: Regenerator is hidden ability.",Emil Venge-Kvamme,,31
 37,toxiren,Toxiren,Poison,Fairy,Liquid Ooze,Cute Charm,Toxic Voice,500,94,52,69,110,140,35,Nukfae,Lv 38,Toxic Siren,2.4,68.7,,2 sp_defense,,,,,,,,,,,Hyper Voice (1),,,,,"Toxsiren is entirely transformed into toxic waste. Its tentacles are both alluring and deadly, releasing poisonous chemicals that can melt flesh and corrode the environment. Despite its dangerous nature, it possesses a haunting beauty that draws in prey and prey alike.",,,"From the Discord concept card (SLOTHBABY, 2026-09-13): card name: Toxsiren; also on the card: Regenerator is hidden ability.",Emil Venge-Kvamme,,38
 38,stonma,Stonma,Rock,,Sturdy,Rock Head,Solid Rock,330,67,67,111,25,50,10,,,Stone Head,,,,1 defense,,,,,,,,,,,,,,,,Can support immense weight on its head. Its thumbs-up form is a mystery of ancient masonry.,,,"From the Discord concept card (SLOTHBABY, 2026-05-02): evolution on the card: Stonma -> Megastonma; also on the card: MEGASTONMA: Rock type, species Conglomerate Pokémon, ability Mason's Power; entry: A behemoth form achieved by the convergence of many. Using ancient masonry techniques, countless Stonma units align and interlock perfectly to construct this stacked monument. While mimicking a forgotten golem, this colossal form is composed entirely of unified stone heads, each a silent, powerful component..",Emil Venge-Kvamme,,28
@@ -55,7 +55,7 @@ until the edge shines like metal.
 50,beatld,Beatld,Bug,Psychic,Curious Medicine,Tangled Feet,Psychic Surge,420,55,55,55,145,55,55,,,,,,,3 sp_attack,,,,,,,,,,,,,,,,,,,,,,17
 51,fleuroom,Fleuroom,Poison,Fairy,Effect Spore,Aroma Veil,Magic Bounce,295,50,30,45,70,65,35,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,17
 52,fleuroom-utvikling,Sporeshade,Fairy,Poison,Effect Spore,Aroma Veil,Magic Bounce,460,67,53,60,130,80,70,Fleuroom,Shiny Stown,,,,,,,,,,,,,,,,Spore (1),,,,,,,,,Michael,,21
-53,giga-circuit,Giga-Circuit,Electric,,,,,525,90,60,60,130,51,134,,,,,,,,,,,,,,,,,,,,,,,,,,,Ruben,,14
+53,giga-circuit,Giga-Circuit,Electric,,Motor Drive,Flare Boost,Transistor,500,92,60,60,145,51,92,,,,,,,3 sp_attack,,,,,,,,,,,,,,,,,,,,Ruben,,21
 54,hippore,Hippore,Steel,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 55,docuphant,Docuphant,Ground,Dragon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 56,razox,Razox,Fairy,Ice,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
@@ -64,8 +64,8 @@ until the edge shines like metal.
 From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT FORM; also on the card: Habitat: power plants, energy facilities, abandoned labs and ancient ruins. Behavior: maintains perfect energy circulation; disturbing the balance makes it disassemble and scatter. Cry: bzzztt-krrm....",,,24
 59,hairyen,Hairyen,Grass,Water,Diver,,,325,55,51,90,34,80,15,,,Ambush,0.6,,,,,,,,,,,,,,,,,,,"It hides in marshes beneath curtains of swamp grass. In heavy rain, it sinks low into the water, causing attacks from above to pass harmlessly by.",,,"From the Discord concept card (BUST, 2026-05-02): also on the card: Diver: Can't be hit by Flying-type moves in rain. Habitat: Swamps, Marshes. Flavor: It lies motionless for days, letting swamp grass grow over it. Those who know the marshes step carefully. Size comparison with a 1.2 m human silhouette..",Magnus,,28
 60,panzerien,Panzerien,Steel,Ground,Broken Swivel,,,540,70,100,130,110,100,30,,,Tank,1.6,,,,,,,,,,,,,,,,,,,A group of Hairyen has taken over an abandoned tank. They patched it up with swamp weeds and logs to keep moving. It can only fire at what's straight ahead.,,,"From the Discord concept card (BUST, 2026-05-02): card name: Panzerion; also on the card: Length 3.2 m; Broken Swivel: can only attack the Pokemon directly in front of it..",Magnus,,28
-61,nucloid,Nucloid,Poison,Steel,,,,301,20,40,78,40,60,63,,,Nano Waste,0.5,12.3,,,,,,,,,,,,,,,,,,"It stores unstable waste in its core. When alarmed, it releases toxic fumes and skitters away on cable-like legs.",,,"From the Discord concept card (BUST, 2026-05-07): card name: Nucleoid; also on the card: It is composed of recycled alloys and unknown organic matter..",Magnus,,28
-62,nuclobyl,Nuclobyl,Poison,Steel,,,,525,80,59,120,103,103,60,,,Hazard Core,1.7,188.4,,,,,,,,,,,,,,,,,,"Its core has grown dangerously unstable. It lumbers through wastelands, venting corrosive fumes while its reinforced body shields the toxin within.",,,"From the Discord concept card (BUST, 2026-05-07): also on the card: Its shell is forged from reinforced alloys and unstable radioactive sludge..",Magnus,,28
+61,nucloid,Nucloid,Poison,Steel,Innards Out,Poison Point,Filter,301,35,25,78,40,60,63,,,Nano Waste,0.5,12.3,,1 defense,,,,,,,,,,,,,,,,"It stores unstable waste in its core. When alarmed, it releases toxic fumes and skitters away on cable-like legs.",,,"From the Discord concept card (BUST, 2026-05-07): card name: Nucleoid; also on the card: It is composed of recycled alloys and unknown organic matter..",Magnus,,34
+62,nuclobyl,Nuclobyl,Poison,Steel,Innards Out,Poison Point,Filter,525,90,59,120,103,103,50,,,Hazard Core,1.7,188.4,,2 defense,,,,,,,,,,,,,,,,"Its core has grown dangerously unstable. It lumbers through wastelands, venting corrosive fumes while its reinforced body shields the toxin within.",,,"From the Discord concept card (BUST, 2026-05-07): also on the card: Its shell is forged from reinforced alloys and unstable radioactive sludge..",Magnus,,34
 63,gentie,Gentie,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
 64,yanklet,Yanklet,Steel,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 65,anjane,Anjane,Dark,Fairy,Tangling Hair,Mega Launcher,Misty Surge,320,30,37,71,100,67,15,,,Drooping Hair,,,,1 sp_attack,,,,,,,,,,,,,,,,"Anjane's heavy hair droops down to the ground. It absorbs the curse-filled emotions of others and hangs motionless. When angered, the hair stiffens and sways, unleashing bursts of cursed energy. It's said that when it sways its hair, the sound is like the curse a thousand spirits let loose in a single moan.",,,"From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: Lv. 24 -> Janenon; also on the card: Height 2'07"", weight 24.3 lbs; signature move Hex Burst (Fairy, Special, power 95, accuracy 100%, PP 15); role Trick Room Sweeper.",Emil Venge-Kvamme,,28
@@ -73,7 +73,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 67,saucerl,Saucerl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 68,abyssys,Abyssys,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 69,octopearl,Octopearl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
-70,cryoblade,Cryoblade,Dark,Ice,Cold-hearted,,,605,90,140,100,95,110,70,,,Frozen Executioner,2.1,182,,,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",,,24
+70,cryoblade,Cryoblade,Dark,Ice,Cold-hearted,Ice Body,Snow Warning,535,90,120,100,70,100,55,,,Frozen Executioner,2.1,182,,,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",,,24
 71,roostasaur,Roostasaur,Dragon,Normal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 72,bygon,Bygon,Ghost,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 73,leadling,Leadling,Rock,Poison,Sturdy,Toxic Debris,Corrosion,280,45,35,55,50,85,10,,,,,,,1 sp_defense,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,21
@@ -89,23 +89,23 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 83,darkgonark,Darkgonark,Ghost,Steel,Eternal Dirge,Soulforged Body,,550,80,130,60,80,60,140,,,Requiem,3.8,296.7,,,,,,,,,,,,,,,,,,"Legends claim that when Darkgonark's song ends, the universe will be remade in perfect, silent harmony.",,,"From the Discord concept card (dr.grey8421, 2026-05-02): also on the card: Subtitle The Abyssal Requiem Pokémon; Soulforged Body is the hidden ability; signature move Requiem Breaker (Ghost/Steel, power 160, accuracy 100%, PP 5); also a lore blurb: Darkgonark is said to be the embodiment of ruin and rebirth..",,,28
 84,detecup,Detecup,Normal,,Pickup,Keen Eye,Download,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,A detective dog pokemon,,,Ruben,Ruben,17
 85,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-86,verrith,Verrith,Ghost,Steel,Fog Of War,,Neutralizing Gas,555,90,125,130,125,55,30,,,,,,,3 defense,,,,,,,,,,,,,,,,,,,,Casper,,21
+86,verrith,Verrith,Ghost,Steel,Fog Of War,,Neutralizing Gas,555,95,125,130,120,55,30,,,,,,,3 defense,,,,,,,,,,,,,,,,,,,,Casper,,21
 87,sigmanian-komala,Sigmanian Komala,Normal,,Drunken Rage,Poison Heal,Toxic Boost,348,67,82,62,46,48,43,,,,,,,1 attack,,,,,,,,,,,,,,,,,the drowsy toxin pokemon,,,Magnus,Magnus,24
 88,dahrugula,Dahrugula,Normal,,Drunken Rage,Poison Heal,Toxic Boost,540,140,124,78,69,71,58,Sigmanian Komala,Lv 32,,,,,2 hp,,,,,,,,,,,Facade (1),,,,,,,"the name comes from dharuk gula, wich is the origin of the name koala. also sounds like drunk",,Magnus,Magnus,24
-89,vires,Vires,Fairy,,Mirror Armor,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Small cute pokemon based on viruses. with transparent pink crystals.,,,Arvind,Arvind,17
-90,flurina,Flurina,Fairy,,Mirror Armor,Symbiosis,Hospitality,490,85,50,110,95,90,60,,,,,,,2 defense,,,,,,,,,,,,,,,,,A calm and compased cute  pokemon based of a virus. it has pink transparent crystals,,,Arvind,Arvind,24
+89,vires,Vires,Fairy,,Mirror Armor,,,325,60,35,80,55,55,40,,,,,,,,,,,,,,,,,,,,,,,,Small cute pokemon based on viruses. with transparent pink crystals.,,,Arvind,Arvind,21
+90,flurina,Flurina,Fairy,,Mirror Armor,Symbiosis,Hospitality,490,80,50,115,95,90,60,,,,,,,2 defense,,,,,,,,,,,,,,,,,A calm and compased cute  pokemon based of a virus. it has pink transparent crystals,,,Arvind,Arvind,24
 91,dragem,Dragem,Dragon,Rock,Sand Rush,Rough Skin,Sand Stream,500,88,120,90,54,90,58,,,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
 92,quimsy,Quimsy,Normal,Psychic,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,10
 93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 94,skiirtle,Skiirtle,Fire,,Speed Boost,Reckless,Motor Drive,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,14
 95,mcskiirtle,McSkiirtle,Fire,Electric,Speed Boost,Reckless,Motor Drive,485,60,100,100,55,100,70,,,,,,,,,,,,,,,,,,"Shell Smash (1), Flare Blitz (1), Volt Tackle (1)",,,,,,,,,,,17
-96,ambuger,ambuger,Rock,Bug,Shell Armor,Overcoat,Infiltrator,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mosquito trapped in amber. fossil pokemon.,,,Arvind,Arvind,17
+96,ambuger,ambuger,Rock,Bug,Shell Armor,Overcoat,Infiltrator,350,45,50,100,30,75,50,,,,,,,,,,,,,,,,,,,,,,,,Mosquito trapped in amber. fossil pokemon.,,,Arvind,Arvind,21
 97,ambcoptr,Ambrr,Rock,Bug,Levitate,Overcoat,Infiltrator,495,60,90,100,45,75,125,ambuger,Lv 40,,,,,2 speed,,,,,,,,,,,,,,,,,Evolution of amburger. gains amber goggles and wings that rotate,,,Arvind,Arvind,24
 98,tortoplasm,Tortoplasm,Rock,Ghost,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,7
 99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 100,slothbaby,Slothbaby,Fire,,Truant,,,420,90,105,50,40,50,85,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil,,21
-101,slothbaby-utviklet,Blazlothku,Fire,Fighting,Sloth Combat,,,520,100,136,67,50,67,100,Slothbaby,Lv 40,,,,,2 attack,,,,,,,,,,,Close Combat (evo),,,,,,,,,Emil,,24
-102,gaiafinn,Terratyson,Ground,Fighting,Sand Rush,Sand Force,Iron Fist,520,100,135,92,50,65,78,,,,,,,3 attack,,,,,,,,,,,,,,,,,,,,Emil,,21
+101,slothbaby-utviklet,Blazlothku,Fire,Fighting,Sloth Combat,,,520,100,130,73,50,67,100,Slothbaby,Lv 40,,,,,2 attack,,,,,,,,,,,Close Combat (evo),,,,,,,,,Emil,,24
+102,gaiafinn,Terratyson,Ground,Fighting,Iron Fist,Sand Force,Sand Rush,520,102,136,95,50,67,70,,,,,,,3 attack,,,,,,,,,,,,,,,,,,,,Emil,,21
 103,obsidog,Obsidog,Dark,Rock,Moxie,Intimidate,Rough Skin,340,50,75,70,40,55,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,21
 104,obsidog-utvikling,Obsidog utvikling,Dark,Rock,Moxie,Intimidate,Rough Skin,555,80,128,110,72,90,75,Obsidog,Other: Level 40 At Night,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Emil,,17
 105,wisprake,Wisprake,Ghost,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,10
@@ -134,7 +134,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 128,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 129,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 130,grincho,Grincho,Normal,Ghost,Unnerve,Insomnia,Shadow Tag,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,14
-131,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+131,glac-p-e,Glacépée,Ice,Fighting,Long Reach,Parry Stance,Sniper,510,70,125,85,45,65,120,,,,,,,,,,,,,,,,,,,,,,,,,,,Emil,,14
 132,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 133,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 134,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

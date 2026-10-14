@@ -18,16 +18,16 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Cold-hearted
-  secondary:             # optional
-  hidden:                # optional
+  secondary: Ice Body    # optional
+  hidden: Snow Warning   # optional
 
 base_stats:              # each 1-255
   hp: 90
-  attack: 140
+  attack: 120
   defense: 100
-  sp_attack: 95
-  sp_defense: 110
-  speed: 70
+  sp_attack: 70
+  sp_defense: 100
+  speed: 55
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)

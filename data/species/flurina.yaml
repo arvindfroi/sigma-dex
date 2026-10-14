@@ -22,9 +22,9 @@ abilities:
   hidden: Hospitality    # optional
 
 base_stats:              # each 1-255
-  hp: 85
+  hp: 80
   attack: 50
-  defense: 110
+  defense: 115
   sp_attack: 95
   sp_defense: 90
   speed: 60
