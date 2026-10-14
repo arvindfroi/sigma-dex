@@ -1750,27 +1750,6 @@
     "editor": null
   },
   {
-    "id": 472,
-    "species": "sabertann",
-    "file": "assets/concept-art/sabertann/472.webp",
-    "caption": "From Discord #official-sigma-pokedex, posted by SLOTHBABY on 2026-05-02. Shows: Sabertann (pirate lion).",
-    "editor": "Discord sweep"
-  },
-  {
-    "id": 473,
-    "species": "sabertann",
-    "file": "assets/concept-art/sabertann/473.webp",
-    "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-02. Shows: pirate dog ship.",
-    "editor": "Discord sweep"
-  },
-  {
-    "id": 479,
-    "species": "sabertann",
-    "file": "assets/concept-art/sabertann/479.webp",
-    "caption": "From Discord #official-sigma-pokedex, posted by SLOTHBABY on 2026-05-02. Shows: Sabertann.",
-    "editor": "Discord sweep"
-  },
-  {
     "id": 480,
     "species": "balleisk",
     "file": "assets/concept-art/balleisk/480.webp",
@@ -2195,6 +2174,20 @@
     "species": "sabertann",
     "file": "assets/concept-art/sabertann/624.webp",
     "caption": "new design",
+    "editor": null
+  },
+  {
+    "id": 625,
+    "species": "rockedeer",
+    "file": "assets/concept-art/rockedeer/625.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 626,
+    "species": "everdark",
+    "file": "assets/concept-art/everdark/626.webp",
+    "caption": null,
     "editor": null
   }
 ]

@@ -2,7 +2,7 @@
 
 # Game export status
 
-**25** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Florantula, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle
+**26** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Florantula, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle, Everdark
 
 ## Not exported yet (97)
 
@@ -79,7 +79,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **ambuger** needs: a level-up move that exists in the game
 - **Ambrr** needs: a level-up move that exists in the game
 - **Tortoplasm** needs: base stats, a level-up move that exists in the game
-- **Tortoplasm utviklet** needs: base stats, a level-up move that exists in the game, a name of at most 12 letters
+- **Tortoplasm utviklet** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Slothbaby** needs: a level-up move that exists in the game
 - **Blazlothku** needs: an ability that exists in the game
 - **Terratyson** needs: a level-up move that exists in the game
@@ -96,7 +96,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Grincho** needs: base stats, a level-up move that exists in the game
 - **Glacépée** needs: a level-up move that exists in the game
 - **Riftbloom** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Sabertann** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Sabertann** needs: a level-up move that exists in the game
 - **Gravriel** needs: a level-up move that exists in the game
 - **Balleisk** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Greation** needs: an ability that exists in the game, a level-up move that exists in the game

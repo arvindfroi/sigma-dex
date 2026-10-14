@@ -73,7 +73,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 67,saucerl,Saucerl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 68,abyssys,Abyssys,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 69,octopearl,Octopearl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
-70,cryoblade,Cryoblade,Dark,Ice,Cold-hearted,Ice Body,Snow Warning,535,90,120,100,70,100,55,,,Frozen Executioner,2.1,182,,,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",,,24
+70,cryoblade,Cryoblade,Ice,,Cold-hearted,Ice Body,Snow Warning,535,90,120,100,70,100,55,,,Frozen Executioner,2.1,182,,,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",,,24
 71,roostasaur,Roostasaur,Dragon,Normal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 72,bygon,Bygon,Ghost,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
 73,leadling,Leadling,Rock,Poison,Sturdy,Toxic Debris,Corrosion,280,45,35,55,50,85,10,,,,,,,1 sp_defense,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,21
@@ -102,7 +102,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 96,ambuger,ambuger,Rock,Bug,Shell Armor,Overcoat,Infiltrator,350,45,50,100,30,75,50,,,,,,,,,,,,,,,,,,,,,,,,Mosquito trapped in amber. fossil pokemon.,,,Arvind,Arvind,21
 97,ambcoptr,Ambrr,Rock,Bug,Levitate,Overcoat,Infiltrator,495,60,90,100,45,75,125,ambuger,Lv 40,,,,,2 speed,,,,,,,,,,,,,,,,,Evolution of amburger. gains amber goggles and wings that rotate,,,Arvind,Arvind,24
 98,tortoplasm,Tortoplasm,Rock,Ghost,Cursed Body,Weak Armor,Perish Body,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,14
-99,tortoplasm-utviklet,Tortoplasm utviklet,Rock,Ghost,Cursed Body,Weak Armor,Perish Body,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,10
+99,tortoplasm-utviklet,Tortoplasm utviklet,Rock,Ghost,Cursed Body,Weak Armor,Perish Body,495,75,60,125,90,100,45,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,14
 100,slothbaby,Slothbaby,Fire,,Truant,,,420,90,105,50,40,50,85,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil,,21
 101,slothbaby-utviklet,Blazlothku,Fire,Fighting,Sloth Combat,,,520,100,130,73,50,67,100,Slothbaby,Lv 40,,,,,2 attack,,,,,,,,,,,Close Combat (evo),,,,,,,,,Emil,,24
 102,gaiafinn,Terratyson,Ground,Fighting,Iron Fist,Sand Force,Sand Rush,520,102,136,95,50,67,70,,,,,,,3 attack,,,,,,,,,,,,,,,,,,,,Emil,,21
@@ -135,7 +135,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 129,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 130,grincho,Grincho,Normal,Ghost,Unnerve,Insomnia,Shadow Tag,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,14
 131,glac-p-e,Glacépée,Ice,Fighting,Long Reach,Parry Stance,Sniper,510,70,125,85,45,65,120,,,,,,,,,,,,,,,,,,,,,,,,,,,Emil,,17
-132,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+132,everdark,Everdark,Dark,Psychic,Pressure,Telepathy,Dark Aura,535,70,95,70,125,70,105,,,,,,,2 sp_attack,,,,,,,,,,,"Nasty Plot (1), Dark Pulse (1), Psychic (1)",,,,,,,,,Ivar,,24
 133,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 134,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 135,riftbloom,Riftbloom,Ghost,Psychic,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,10
@@ -146,12 +146,12 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 140,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 141,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 142,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-143,sabertann,Sabertann,Dark,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"A sabertooth pirate pokemon, who roams the 7 seas.",,,Emil,Emil,14
+143,sabertann,Sabertann,Dark,Water,Good as Gold,,,580,115,140,80,85,80,80,,,,,,,3 attack,,,,,,,,,,,,,,,,,"A sabertooth pirate pokemon, who roams the 7 seas.",,,Emil,Emil,24
 144,gravriel,Gravriel,Water,Ghost,Grim Neigh,,Sap Sipper,580,81,151,84,151,84,29,,,Ghost Ship,2.1,78.6,,"1 attack, 1 sp_attack",,,,,,,,,,,,,,,,"Long ago, Gravriel was the first mate of a cruel pirate. After betrayal, he was cast into the ocean, left to rot with his ship. Now, he haunts the seabed, seeking those who dare to steal from the deep.",,,"From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Sap Sipper (regular), Grim Neigh (hidden). Signature moves: Gabriel's Curse (Ghost, 85 BP, 100%), Haunted Slash (Ghost, 85 BP, 100%)..",Emil Venge-Kvamme,,34
 145,balleisk,Balleisk,Dragon,Bug,Catch Master,,Shield Dust,300,45,70,40,55,40,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
 146,greation,Greation,Dragon,Bug,Catch Master,,Shield Dust,422,62,90,60,70,60,80,Balleisk,Lv 30,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
 147,ultragon,Ultragon,Dragon,Bug,Catch Master,,Shield Dust,600,88,128,80,112,80,112,Greation,Lv 55,,,,,3 attack,,,,,,,,,,,"Quiver Dance (1), Dragon Dance (1), Outrage (1), Bug Buzz (1), U-turn (1), Draco Meteor (1)",,,,,,,,,Arvind,Arvind,24
-148,rockedeer,Rockedeer,Fire,Psychic,Dazzling,,Levitate,580,80,90,70,130,70,140,,,,,,,3 speed,,,,,,,,,,,,,,,,,,,,Ruben,,17
+148,rockedeer,Rockedeer,Fire,Psychic,Dazzling,,Levitate,580,80,90,70,130,70,140,,,,,,,3 speed,,,,,,,,,,,,,,,,,,,,Ruben,,21
 149,bergflabbser,Bergflabbser,Water,Ground,Drizzle,,,680,150,130,130,110,110,50,,,Fjellfisk,2.4,285,,,,,,,,,,,,,,,,,,"Bergflabbser is a rare Pokémon that dwells in the fjords of Bergen. The seven mountains on its back form a living ecosystem, and the Ulriken pillar serves as its guiding beacon. It summons rain with its Drizzle and moves silently through the deep, using its wide mouth to catch prey.","Legendary concept: a giant fish carrying Bergen's seven mountains, Bryggen and the Ulriken tower on its back.",,"From Discord (#official-sigma-pokedex, Slothbaby, 29 Sep 2026, ""Legendary konsept""): sketch and concept card. The card numbers it Nr. 1027; in our dex it is #99.",Emil Venge-Kvamme,,48
 150,maagamad,Maagamad,Flying,Poison,Weather Switch,Technician,,680,124,140,105,120,122,69,,,Weather Switch,1.9,82.4,,,,,,,,,,,,,,,,,,"It stores three swords made of gaseous matter within its body. The oily coating on its wings and tail lets it glide through any weather. It flips the weather at will, bringing balance to the skies above the sea.",,,"From the Google Doc: Maagamad/gullmire (Flying, Poison)
 From the Discord concept card (Arvind Frøiland, 2026-09-30): card name: Gullmire; also on the card: Weather Switch switches rain to drought and drought to rain, random Drizzle or Drought otherwise; Technician is the hidden ability; signature move Oily Arsenal (Drought Physical, Poison, BP 60x2; Rain Special, Poison, BP 40x3).",,,28

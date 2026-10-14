@@ -74,7 +74,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 67,Saucerl,Psychic,Water,,,,=SUM(I69:N69),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 68,Abyssys,Psychic,Water,,,,=SUM(I70:N70),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 69,Octopearl,Psychic,Water,,,,=SUM(I71:N71),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-70,Cryoblade,Dark,Ice,Cold-hearted,Ice Body,Snow Warning,=SUM(I72:N72),90,120,100,70,100,55,,,Frozen Executioner,2.1,182,,,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",,
+70,Cryoblade,Ice,,Cold-hearted,Ice Body,Snow Warning,=SUM(I72:N72),90,120,100,70,100,55,,,Frozen Executioner,2.1,182,,,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",,
 71,Roostasaur,Dragon,Normal,,,,=SUM(I73:N73),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 72,Bygon,Ghost,Rock,,,,=SUM(I74:N74),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 73,Leadling,Rock,Poison,Sturdy,Toxic Debris,Corrosion,=SUM(I75:N75),45,35,55,50,85,10,,,,,,,1 sp_defense,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,
@@ -103,7 +103,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 96,ambuger,Rock,Bug,Shell Armor,Overcoat,Infiltrator,=SUM(I98:N98),45,50,100,30,75,50,,,,,,,,,,,,,,,,,,,,,,,,Mosquito trapped in amber. fossil pokemon.,,,Arvind,Arvind
 97,Ambrr,Rock,Bug,Levitate,Overcoat,Infiltrator,=SUM(I99:N99),60,90,100,45,75,125,ambuger,Lv 40,,,,,2 speed,,,,,,,,,,,,,,,,,Evolution of amburger. gains amber goggles and wings that rotate,,,Arvind,Arvind
 98,Tortoplasm,Rock,Ghost,Cursed Body,Weak Armor,Perish Body,=SUM(I100:N100),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind
-99,Tortoplasm utviklet,Rock,Ghost,Cursed Body,Weak Armor,Perish Body,=SUM(I101:N101),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,
+99,Tortoplasm utviklet,Rock,Ghost,Cursed Body,Weak Armor,Perish Body,=SUM(I101:N101),75,60,125,90,100,45,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,
 100,Slothbaby,Fire,,Truant,,,=SUM(I102:N102),90,105,50,40,50,85,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil,
 101,Blazlothku,Fire,Fighting,Sloth Combat,,,=SUM(I103:N103),100,130,73,50,67,100,Slothbaby,Lv 40,,,,,2 attack,,,,,,,,,,,Close Combat (evo),,,,,,,,,Emil,
 102,Terratyson,Ground,Fighting,Iron Fist,Sand Force,Sand Rush,=SUM(I104:N104),102,136,95,50,67,70,,,,,,,3 attack,,,,,,,,,,,,,,,,,,,,Emil,
@@ -136,7 +136,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 129,,,,,,,=SUM(I131:N131),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 130,Grincho,Normal,Ghost,Unnerve,Insomnia,Shadow Tag,=SUM(I132:N132),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,
 131,Glacépée,Ice,Fighting,Long Reach,Parry Stance,Sniper,=SUM(I133:N133),70,125,85,45,65,120,,,,,,,,,,,,,,,,,,,,,,,,,,,Emil,
-132,,,,,,,=SUM(I134:N134),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+132,Everdark,Dark,Psychic,Pressure,Telepathy,Dark Aura,=SUM(I134:N134),70,95,70,125,70,105,,,,,,,2 sp_attack,,,,,,,,,,,"Nasty Plot (1), Dark Pulse (1), Psychic (1)",,,,,,,,,Ivar,
 133,,,,,,,=SUM(I135:N135),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 134,,,,,,,=SUM(I136:N136),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 135,Riftbloom,Ghost,Psychic,,,,=SUM(I137:N137),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,
@@ -147,7 +147,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 140,,,,,,,=SUM(I142:N142),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 141,,,,,,,=SUM(I143:N143),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 142,,,,,,,=SUM(I144:N144),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-143,Sabertann,Dark,Water,,,,=SUM(I145:N145),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"A sabertooth pirate pokemon, who roams the 7 seas.",,,Emil,Emil
+143,Sabertann,Dark,Water,Good as Gold,,,=SUM(I145:N145),115,140,80,85,80,80,,,,,,,3 attack,,,,,,,,,,,,,,,,,"A sabertooth pirate pokemon, who roams the 7 seas.",,,Emil,Emil
 144,Gravriel,Water,Ghost,Grim Neigh,,Sap Sipper,=SUM(I146:N146),81,151,84,151,84,29,,,Ghost Ship,2.1,78.6,,"1 attack, 1 sp_attack",,,,,,,,,,,,,,,,"Long ago, Gravriel was the first mate of a cruel pirate. After betrayal, he was cast into the ocean, left to rot with his ship. Now, he haunts the seabed, seeking those who dare to steal from the deep.",,,"From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Sap Sipper (regular), Grim Neigh (hidden). Signature moves: Gabriel's Curse (Ghost, 85 BP, 100%), Haunted Slash (Ghost, 85 BP, 100%)..",Emil Venge-Kvamme,
 145,Balleisk,Dragon,Bug,Catch Master,,Shield Dust,=SUM(I147:N147),45,70,40,55,40,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind
 146,Greation,Dragon,Bug,Catch Master,,Shield Dust,=SUM(I148:N148),62,90,60,70,60,80,Balleisk,Lv 30,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind

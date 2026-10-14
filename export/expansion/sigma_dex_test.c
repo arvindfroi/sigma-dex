@@ -705,3 +705,31 @@ SINGLE_BATTLE_TEST("Sigma dex: McSkiirtle can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Everdark has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_EVERDARK];
+    EXPECT_EQ(info->baseHP, 70);
+    EXPECT_EQ(info->baseAttack, 95);
+    EXPECT_EQ(info->baseDefense, 70);
+    EXPECT_EQ(info->baseSpeed, 105);
+    EXPECT_EQ(info->baseSpAttack, 125);
+    EXPECT_EQ(info->baseSpDefense, 70);
+    EXPECT_EQ(info->types[0], TYPE_DARK);
+    EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_PRESSURE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_NASTY_PLOT);
+    EXPECT_EQ(GetSpeciesName(SPECIES_EVERDARK)[0], CHAR_E);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Everdark can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_EVERDARK) { Moves(MOVE_NASTY_PLOT); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_NASTY_PLOT); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_NASTY_PLOT, player);
+    }
+}
+
