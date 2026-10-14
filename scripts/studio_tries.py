@@ -35,9 +35,9 @@ DEFAULT_SECONDS = {"art": 75, "front": 100, "back": 55, "icon:pc": 8, "icon:canv
 LINE = (175, 175, 175, 255)
 
 ART = ("<image1> is a picture of a creature: a drawing, a character sheet with text and several views, or a scene. Draw the "
-       "same creature alone, ONE full-body view of it (the biggest or clearest one), with exactly the same design, pose, "
-       "colours, proportions and drawing style. Nothing else: no text, no labels, no badges, no other views, no other "
-       "creatures, no background.")
+       "same creature alone, as in its MAIN picture (the biggest one, the creature facing forward or in a three-quarter view), not "
+       "the small side, back or close-up views, with exactly the same design, pose, colours, proportions and drawing style; its "
+       "whole body. Nothing else: no text, no labels, no badges, no other views, no other creatures, no background.")
 FRONT = ("<image1> is its official artwork. <image2> is empty. <image3> is the template, only a guide that is never drawn: a box "
          "showing about where and how big this creature's front sprite is. {tags}Draw it as its own front battle sprite from "
          "Pokemon HeartGold (Gen 4): 80x80 pixel art in the games' three-quarter view, big flat areas with two or three tones per "
@@ -359,7 +359,7 @@ def try_icon(n, seed, folder, job, inputs):
         graph["sampler"]["inputs"]["latent_image"] = ["enc", 0]
         graph["sampler"]["inputs"]["denoise"] = 0.8
     raw = draw(folder / ("icon_raw_%d.png" % n), graph)
-    sprite = pixel_render.drop_specks(cells_median(raw))
+    sprite = ds_pixel.limit_colours(pixel_render.drop_specks(cells_median(raw)), 15)    # an icon has one 15-colour palette
     why = broken(sprite)
     image = folder / ("icon_%d.png" % n)
     sprite.save(image)

@@ -112,7 +112,7 @@ begin
     if not found then raise exception 'Choose a finished icon of the same Pokemon'; end if;
   end if;
   insert into public.sprite_candidates (job_id, species_id, seed, prompt, style_version, raw_front, raw_back, front, back, icon, gen, kind, note, editor)
-  values (f.job_id, f.species_id, f.seed,
+  values (f.job_id, f.species_id, coalesce(f.seed, 0),            -- a mirrored or drawn front has no seed
           format('put together from tries: front #%s (%s), back #%s (%s), icon %s', f.id, f.recipe, b.id, b.recipe, coalesce('#' || i.id || ' (' || i.recipe || ')', 'none')),
           'studio-v3', f.raw, b.raw, f.image, b.image, i.image, 4, 'ai', null, nullif(trim(p_editor), ''))
   returning id into new_id;
