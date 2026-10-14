@@ -89,7 +89,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 82,Insectoid,Dark,Bug,Shadow Poise,,Predator's Veil,=SUM(I84:N84),70,130,85,60,95,140,,,Regal Mantis,2.3,68.7,,,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#pokemon-goons, dr.grey8421, 2026-05-01).",,
 83,Darkgonark,Ghost,Steel,Eternal Dirge,Soulforged Body,,=SUM(I85:N85),80,130,60,80,60,140,,,Requiem,3.8,296.7,,,,,,,,,,,,,,,,,,"Legends claim that when Darkgonark's song ends, the universe will be remade in perfect, silent harmony.",,,"From the Discord concept card (dr.grey8421, 2026-05-02): also on the card: Subtitle The Abyssal Requiem Pokémon; Soulforged Body is the hidden ability; signature move Requiem Breaker (Ghost/Steel, power 160, accuracy 100%, PP 5); also a lore blurb: Darkgonark is said to be the embodiment of ruin and rebirth..",,
 84,Detecup,Normal,,Pickup,Keen Eye,Download,=SUM(I86:N86),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,A detective dog pokemon,,,Ruben,Ruben
-85,,,,,,,=SUM(I87:N87),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+85,Snownin,Ice,,Levitate,Inner Focus,Snow Warning,=SUM(I87:N87),60,95,40,135,40,110,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind
 86,Verrith,Ghost,Steel,Fog Of War,,Neutralizing Gas,=SUM(I88:N88),95,125,130,120,55,30,,,,,,,3 defense,,,,,,,,,,,,,,,,,,,,Casper,
 87,Sigmanian Komala,Normal,,Drunken Rage,Poison Heal,Toxic Boost,=SUM(I89:N89),67,82,62,46,48,43,,,,,,,1 attack,,,,,,,,,,,,,,,,,the drowsy toxin pokemon,,,Magnus,Magnus
 88,Dahrugula,Normal,,Drunken Rage,Poison Heal,Toxic Boost,=SUM(I90:N90),140,124,78,69,71,58,Sigmanian Komala,Lv 32,,,,,2 hp,,,,,,,,,,,Facade (1),,,,,,,"the name comes from dharuk gula, wich is the origin of the name koala. also sounds like drunk",,Magnus,Magnus
