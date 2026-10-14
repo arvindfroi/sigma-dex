@@ -29,14 +29,26 @@ abilities:
     like Aerial Ace or Swift, and moves with perfect accuracy are not affected. Fog of War can only trigger
     once per switch-in.
   designer: Casper & Emil
+- id: trash-talker
+  name: Heckler
+  description: On switch-in, lower the Special Attack of all adjacent opponents
+  effect: When this Pokémon enters battle, it hurls insults at the opposing side, lowering the Special
+    Attack of every adjacent opponent by one stage. It works exactly like Intimidate, but for Special
+    Attack. It triggers once per switch-in. Pokémon with Clear Body, White Smoke, Full Metal Body, Hyper
+    Cutter-style protections against stat drops, Mirror Armor, Oblivious, Own Tempo, Inner Focus, and
+    Scrappy-style immunity to Intimidate-like effects are not affected, and Contrary, Defiant, Competitive,
+    and Guard Dog react as they would to any stat drop. Substitute does not block it.
+  designer: Emil
 - id: parry-stance
   name: Parry Stance
-  description: The first contact move that hits this Pokémon is deflected
-  effect: When this Pokémon enters battle, it drops into a defensive stance. The first contact move that
-    hits it is knocked aside, blocking the damage. The attacker is thrown off balance and loses 1/8 of
-    its max HP, as if hit by Rocky Helmet. Parry Stance resets each time the Pokémon switches out and
-    back in. It does not activate against non-contact moves, status moves, or the later hits of multi-hit
-    moves.
+  description: The first hit the user takes each battle is parried, dealing no damage
+  effect: When this Pokémon enters battle, it holds a parry stance. The first damaging move that would
+    hit it is deflected completely, so it takes no damage. The stance then breaks and the Pokémon takes
+    1/8 of its max HP in recoil from the shock. Once broken, Parry Stance stays down for the rest of the
+    battle, even if the Pokémon switches out and back in. Like Disguise, it is bypassed by moves that
+    ignore abilities (Mold Breaker and similar), and it does not block status moves, Sheer Cold-style
+    effects that bypass it, or indirect damage like weather, poison, or hazards. Against multi-hit moves,
+    only the first hit is parried.
   designer: Emil
 - id: punchable-face
   name: Punchable Face

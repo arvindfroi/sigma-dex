@@ -950,11 +950,11 @@
       },
       "base_stats": {
         "hp": 70,
-        "attack": 85,
+        "attack": 80,
         "defense": 75,
-        "sp_attack": 105,
+        "sp_attack": 108,
         "sp_defense": 75,
-        "speed": 120
+        "speed": 122
       },
       "ev_yield": {
         "speed": 3
@@ -1268,12 +1268,12 @@
         "hidden": "Pressure"
       },
       "base_stats": {
-        "hp": 93,
-        "attack": 130,
+        "hp": 95,
+        "attack": 128,
         "defense": 70,
-        "sp_attack": 65,
+        "sp_attack": 60,
         "sp_defense": 70,
-        "speed": 67
+        "speed": 72
       },
       "ev_yield": {
         "attack": 2
@@ -1872,8 +1872,23 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Flip Turn"
+          },
+          {
+            "level": 1,
+            "move": "Wish"
+          },
+          {
+            "level": 1,
+            "move": "Scald"
+          }
+        ],
+        "tm_hm": [
+          "Focus Punch"
+        ],
         "tutor": [],
         "egg": []
       },
@@ -2285,9 +2300,9 @@
         "hp": 80,
         "attack": 110,
         "defense": 60,
-        "sp_attack": 30,
+        "sp_attack": 25,
         "sp_defense": 70,
-        "speed": 70
+        "speed": 75
       },
       "ev_yield": {
         "attack": 2
@@ -2683,7 +2698,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Clear Body",
+        "primary": "Cursed Body",
         "secondary": "Lightning Rod",
         "hidden": "Galvanize"
       },
@@ -3174,8 +3189,8 @@
         "hp": 94,
         "attack": 52,
         "defense": 69,
-        "sp_attack": 110,
-        "sp_defense": 140,
+        "sp_attack": 120,
+        "sp_defense": 130,
         "speed": 35
       },
       "ev_yield": {
@@ -4990,8 +5005,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Diver",
-        "secondary": null,
-        "hidden": null
+        "secondary": "Tangling Hair",
+        "hidden": "Rain Dish"
       },
       "base_stats": {
         "hp": 55,
@@ -5230,9 +5245,9 @@
         "hp": 90,
         "attack": 59,
         "defense": 120,
-        "sp_attack": 103,
+        "sp_attack": 108,
         "sp_defense": 103,
-        "speed": 50
+        "speed": 45
       },
       "ev_yield": {
         "defense": 2
@@ -7055,9 +7070,11 @@
         "defense": 40,
         "sp_attack": 135,
         "sp_defense": 40,
-        "speed": 110
+        "speed": 125
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -7071,7 +7088,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Aurora Veil"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -7086,7 +7108,7 @@
         "filled_by_claude": []
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/snownin/621.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -8006,9 +8028,86 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Cursed Body",
+        "secondary": "Weak Armor",
+        "hidden": "Perish Body"
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/tortoplasm/521.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "tortoplasm"
+    },
+    {
+      "dex": 99,
+      "name": "Tortoplasm utviklet",
+      "credits": {
+        "designer": "Arvind",
+        "artist": null
+      },
+      "types": [
+        "Rock",
+        "Ghost"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Cursed Body",
+        "secondary": "Weak Armor",
+        "hidden": "Perish Body"
       },
       "base_stats": {
         "hp": null,
@@ -8064,7 +8163,7 @@
         "icon_palette": null,
         "safari_flee_rate": 0
       },
-      "id": "tortoplasm"
+      "id": "tortoplasm-utviklet"
     },
     {
       "dex": 100,
@@ -8552,6 +8651,160 @@
         "safari_flee_rate": 0
       },
       "id": "wisprake"
+    },
+    {
+      "dex": 106,
+      "name": "Limulk",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Fighting"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "limulk"
+    },
+    {
+      "dex": 107,
+      "name": "Mortbulk",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Fighting"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Anger Point",
+        "secondary": "Heckler",
+        "hidden": "Mold Breaker"
+      },
+      "base_stats": {
+        "hp": 90,
+        "attack": 110,
+        "defense": 80,
+        "sp_attack": 40,
+        "sp_defense": 118,
+        "speed": 50
+      },
+      "ev_yield": {
+        "sp_defense": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "mortbulk"
     },
     {
       "dex": 109,
@@ -9090,7 +9343,7 @@
         "filled_by_claude": []
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/glac-p-e/622.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -9616,6 +9869,85 @@
         "safari_flee_rate": 0
       },
       "id": "ultragon"
+    },
+    {
+      "dex": 148,
+      "name": "Rockedeer",
+      "credits": {
+        "designer": "Ruben",
+        "artist": null
+      },
+      "types": [
+        "Fire",
+        "Psychic"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Dazzling",
+        "secondary": null,
+        "hidden": "Levitate"
+      },
+      "base_stats": {
+        "hp": 80,
+        "attack": 90,
+        "defense": 70,
+        "sp_attack": 130,
+        "sp_defense": 70,
+        "speed": 140
+      },
+      "ev_yield": {
+        "speed": 3
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": []
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "rockedeer"
     },
     {
       "dex": 149,

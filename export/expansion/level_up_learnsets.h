@@ -90,6 +90,13 @@ static const struct LevelUpMove sFlorantulaLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sMooceonLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_FLIP_TURN),
+    LEVEL_UP_MOVE( 1, MOVE_WISH),
+    LEVEL_UP_MOVE( 1, MOVE_SCALD),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sLapperLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
@@ -167,6 +174,11 @@ static const struct LevelUpMove sJanenonLevelUpLearnset[] = {
 
 static const struct LevelUpMove sBlylemLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_STEALTH_ROCK),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sSnowninLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_AURORA_VEIL),
     LEVEL_UP_END
 };
 

@@ -18,8 +18,8 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Diver
-  secondary:             # optional
-  hidden:                # optional
+  secondary: Tangling Hair # optional
+  hidden: Rain Dish      # optional
 
 base_stats:              # each 1-255
   hp: 55
