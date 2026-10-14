@@ -168,6 +168,34 @@ th { color: var(--muted); font-weight: 500; font-size: 12px; }
 .trio { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
 .trio figure { margin: 0; text-align: center; font-size: 12px; color: var(--muted); }
 .trio img { image-rendering: pixelated; background: var(--soft); border-radius: 8px; display: block; }
+/* studio v3: tries, picked by people */
+.trystage { border-top: 1px solid var(--line); margin-top: 14px; }
+.tryctl { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 4px 0 8px; font-size: 14px; }
+.tryctl .from { display: inline-flex; align-items: center; gap: 6px; background: var(--soft); border-radius: 8px; padding: 3px 8px; }
+.tryctl .from img { width: 36px; height: 36px; object-fit: contain; }
+.trygroup { margin: 6px 0 10px; }
+.tries { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.try { width: 132px; background: var(--panel); border: 2px solid var(--line); border-radius: 10px; padding: 6px; font-size: 12px; display: flex; flex-direction: column; gap: 4px; }
+.try.picked { border-color: var(--accent); }
+.try.current { box-shadow: 0 0 0 2px var(--accent); }
+.try.broken .trypic, .try.failed .trypic { opacity: .45; }
+.try.waiting { opacity: .7; }
+.trypic { margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 4px; border-radius: 6px;
+  background: repeating-conic-gradient(var(--soft) 0% 25%, var(--panel) 0% 50%) 50% / 16px 16px; }
+.trypic img { width: 100%; height: 100%; object-fit: contain; }
+img.px, .trypic img.px { image-rendering: pixelated; }
+.try .bar { height: 6px; border-radius: 3px; background: var(--soft); overflow: hidden; }
+.try .bar i { display: block; height: 100%; width: 0; background: var(--accent); transition: width 1s linear; }
+.tryfoot { color: var(--muted); min-height: 16px; }
+.tryfoot .warn { color: var(--warn); }
+.tryact { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+.tryact button { font-size: 12px; padding: 3px 8px; }
+.together { display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-start; }
+canvas.battle { width: 512px; max-width: 100%; image-rendering: pixelated; border-radius: 8px; border: 1px solid var(--line); }
+.drawbox { margin: 6px 0 10px; }
+canvas.drawpad { width: 480px; max-width: 100%; touch-action: none; cursor: crosshair; background: repeating-conic-gradient(var(--soft) 0% 25%, var(--panel) 0% 50%) 50% / 24px 24px; }
+canvas.drawpad.px { image-rendering: pixelated; }
+canvas.pcbox { width: 360px; max-width: 100%; image-rendering: pixelated; border-radius: 8px; border: 1px solid var(--line); display: block; margin-bottom: 6px; }
 
 /* type balance, reorder */
 .balance { width: 100%; max-width: 760px; }
@@ -1120,14 +1148,15 @@ const VIEW_NAMES = {front: "Front", back: "Back", icon: "Menu icon"};
 // The line of sprite requests from everyone, and the drawing PC's state.
 async function loadQueue() {
   const [jobs, worker] = await Promise.all([
-    dbRead("sprite_jobs?status=in.(queued,running)&order=id.asc&select=id,species_id,status,mode,editor"),
+    dbRead("sprite_jobs?status=in.(queued,running)&order=id.asc&select=id,species_id,status,mode,editor,stage,count"),
     dbRead("sprite_worker?select=seen_at,state")]);
   return {jobs, worker: worker[0], online: worker[0] && Date.now() - new Date(worker[0].seen_at).getTime() < 90000};
 }
 function queueBox(q, speciesId) {
   if (!q.jobs.length) return h("div", {class: "queue"}, q.online ? "The drawing PC is ready. Nothing is waiting." :
     h("span", {style: "color:var(--warn)"}, "The drawing PC is off right now. Requests wait in line until it is back."));
-  const label = j => nameOf(j.species_id) + (j.mode === "edit" ? " (a change)" : " (new sprite)") + (j.editor ? " - " + j.editor : "");
+  const label = j => (j.species_id === speciesId ? nameOf(j.species_id) : "Another Pokemon") + (j.mode === "tries" ? " (" + j.count + " " + (j.stage === "art" ? "drawing" : j.stage) + (j.count > 1 ? "s" : "") + ")"
+    : j.mode === "edit" ? " (a change)" : " (new sprite)") + (j.editor ? " - " + j.editor : "");
   return h("div", {class: "queue"},
     q.online ? null : h("div", {style: "color:var(--warn)"}, "The drawing PC is off right now. The line waits until it is back."),
     h("b", {}, "In line (" + q.jobs.length + ")"), h("span", {class: "sub"}, " - a new sprite takes about 5 to 10 minutes, a change 1 to 2."),
@@ -1142,6 +1171,320 @@ function versionLabel(c) {
   return "Drawn by the AI from the chosen pictures";
 }
 const STATUS_BADGE = {approved: ["done", "approved"], rejected: ["", "rejected"], superseded: ["", "replaced"], candidate: ["need", "new"]};
+
+// ---------- studio v3: step by step (2026-10-14) ----------
+// Every picture the drawing PC makes is a try, shown while it draws (with the time it should take) and kept with the
+// time it took. People pick; the machine only greys out plainly broken ones. Picked front + back + icon become a version.
+const TRY_STAGES = [
+  {id: "art", count: 4, what: "Cut the creature out",
+   hint: "The AI draws the creature alone from the chosen pictures: one clean, full-body drawing. Skip this if a chosen picture already is one."},
+  {id: "front", count: 8, what: "Front sprite",
+   hint: "Drawn from the picked drawing (or, if none is picked, from the first chosen picture). Pick the ones you like."},
+  {id: "back", count: 6, what: "Back sprite",
+   hint: "Drawn from the picked front, on its colours."},
+  {id: "icon", count: 8, what: "Menu icon",
+   hint: "Drawn from the picked front. Odd numbers the PC box way, even numbers keep the design closer to the front."}];
+const TRY_DEFAULT_SECONDS = {art: 75, front: 100, back: 55, icon: 8};
+const mmss = sec => Math.floor(Math.max(0, sec) / 60) + ":" + String(Math.floor(Math.max(0, sec) % 60)).padStart(2, "0");
+function secondsFor(timings, stage) {
+  const t = timings || {};
+  if (stage === "icon") return ((t["icon:pc"] || 8) + (t["icon:canvas"] || 8)) / 2;
+  return t[stage] || TRY_DEFAULT_SECONDS[stage] || 60;
+}
+
+const loadPicture = src => new Promise((ok, no) => {
+  const im = new Image(); im.crossOrigin = "anonymous";
+  im.onload = () => ok(im); im.onerror = () => no(new Error("the picture did not load")); im.src = src;
+});
+const TRY_SIDE = {art: 640, front: 80, back: 80, icon: 32};
+
+// Drawing on a try: new details or a changed design, right on top (Arvind, 2026-10-14). Saved as a new try of the same
+// step, which can be picked and drawn from. Sprites are edited pixel by pixel; the art drawing with bigger brushes.
+function drawPad(t, done) {
+  const side = TRY_SIDE[t.stage], art = t.stage === "art";
+  const cv = h("canvas", {width: side, height: side, class: "drawpad" + (art ? "" : " px")});
+  const cx = cv.getContext("2d", {willReadFrequently: true}); cx.imageSmoothingEnabled = false;
+  let tool = "pen", colour = "#303030", size = art ? 6 : 1, last = null;
+  const undo = [], redo = [], msg = h("span", {class: "sub"});
+  const swatches = h("div", {class: "swatches"}), toolsEl = h("div", {class: "toolbar"});
+  const colourIn = h("input", {type: "color", value: colour, "aria-label": "Colour", oninput: e => { colour = e.target.value; tool = tool === "erase" ? "pen" : tool; drawTools(); }});
+  const note = h("input", {type: "text", maxlength: 300, placeholder: "What did you change? (optional)", style: "flex:1;min-width:180px"});
+  const hex = p => "#" + [p[0], p[1], p[2]].map(v => v.toString(16).padStart(2, "0")).join("");
+  loadPicture(artUrl(t.image)).then(im => { cx.drawImage(im, 0, 0, side, side); fillSwatches(); })
+    .catch(err => { msg.textContent = "Could not load the picture: " + err.message; });
+  function fillSwatches() {
+    const d = cx.getImageData(0, 0, side, side).data, count = new Map();
+    for (let i = 0; i < d.length; i += 4) if (d[i + 3] > 127) { const k = hex(d.subarray(i, i + 3)); count.set(k, (count.get(k) || 0) + 1); }
+    swatches.replaceChildren(...[...count.entries()].sort((a, b) => b[1] - a[1]).slice(0, art ? 16 : 24).map(([c]) =>
+      h("button", {type: "button", class: "swatch", style: "background:" + c, title: c, "aria-pressed": String(c === colour),
+        onclick: () => { colour = c; colourIn.value = c; if (tool === "erase" || tool === "pick") tool = "pen"; drawTools(); }})), colourIn);
+  }
+  const snap = () => { undo.push(cx.getImageData(0, 0, side, side)); if (undo.length > 60) undo.shift(); redo.length = 0; };
+  const at = ev => { const r = cv.getBoundingClientRect(); return [Math.floor((ev.clientX - r.left) / r.width * side), Math.floor((ev.clientY - r.top) / r.height * side)]; };
+  function dab(x, y) {
+    const o = Math.floor(size / 2);
+    if (tool === "erase") cx.clearRect(x - o, y - o, size, size); else { cx.fillStyle = colour; cx.fillRect(x - o, y - o, size, size); }
+  }
+  function stroke([x0, y0], [x1, y1]) {
+    const n = Math.max(Math.abs(x1 - x0), Math.abs(y1 - y0), 1);
+    for (let i = 0; i <= n; i++) dab(Math.round(x0 + (x1 - x0) * i / n), Math.round(y0 + (y1 - y0) * i / n));
+  }
+  function flood(x, y) {
+    const img = cx.getImageData(0, 0, side, side), d = img.data, i0 = (y * side + x) * 4;
+    const from = [d[i0], d[i0 + 1], d[i0 + 2], d[i0 + 3]], to = [parseInt(colour.slice(1, 3), 16), parseInt(colour.slice(3, 5), 16), parseInt(colour.slice(5, 7), 16), 255];
+    if (from.every((v, k) => v === to[k])) return;
+    const stack = [[x, y]], same = i => d[i] === from[0] && d[i + 1] === from[1] && d[i + 2] === from[2] && d[i + 3] === from[3];
+    while (stack.length) {
+      const [px, py] = stack.pop();
+      if (px < 0 || py < 0 || px >= side || py >= side) continue;
+      const i = (py * side + px) * 4;
+      if (!same(i)) continue;
+      d.set(to, i); stack.push([px + 1, py], [px - 1, py], [px, py + 1], [px, py - 1]);
+    }
+    cx.putImageData(img, 0, 0);
+  }
+  cv.addEventListener("pointerdown", ev => {
+    ev.preventDefault(); cv.setPointerCapture(ev.pointerId);
+    const [x, y] = at(ev);
+    if (tool === "pick") { const p = cx.getImageData(x, y, 1, 1).data; if (p[3] > 127) { colour = hex(p); colourIn.value = colour; } tool = "pen"; drawTools(); return; }
+    snap();
+    if (tool === "fill") { flood(x, y); return; }
+    dab(x, y); last = [x, y];
+  });
+  cv.addEventListener("pointermove", ev => { if (!last) return; const p = at(ev); stroke(last, p); last = p; });
+  ["pointerup", "pointercancel", "pointerleave"].forEach(e => cv.addEventListener(e, () => { last = null; }));
+  function mirrorAll() {
+    snap();
+    const img = cx.getImageData(0, 0, side, side), out = cx.createImageData(side, side);
+    for (let y = 0; y < side; y++) for (let x = 0; x < side; x++) out.data.set(img.data.subarray((y * side + x) * 4, (y * side + x) * 4 + 4), (y * side + side - 1 - x) * 4);
+    cx.putImageData(out, 0, 0);
+  }
+  function drawTools() {
+    const tb = (id, label) => h("button", {type: "button", "aria-pressed": String(tool === id), onclick: () => { tool = id; drawTools(); }}, label);
+    const sizes = art ? [2, 4, 8, 16, 32] : [1, 2, 3];
+    toolsEl.replaceChildren(tb("pen", "Pencil"), tb("erase", "Eraser"), tb("fill", "Fill"), tb("pick", "Pick a colour"), h("span", {class: "sep"}),
+      h("label", {}, "Size ", h("select", {onchange: e => { size = Number(e.target.value); }}, sizes.map(n => h("option", {value: n, selected: n === size ? true : null}, String(n))))),
+      h("span", {class: "sep"}),
+      h("button", {type: "button", onclick: () => { if (undo.length) { redo.push(cx.getImageData(0, 0, side, side)); cx.putImageData(undo.pop(), 0, 0); } }}, "Undo"),
+      h("button", {type: "button", onclick: () => { if (redo.length) { undo.push(cx.getImageData(0, 0, side, side)); cx.putImageData(redo.pop(), 0, 0); } }}, "Redo"),
+      h("button", {type: "button", onclick: mirrorAll}, "Mirror"));
+    swatches.querySelectorAll(".swatch").forEach(b => b.setAttribute("aria-pressed", String(b.title === colour && tool !== "erase")));
+  }
+  drawTools();
+  const save = h("button", {type: "button", class: "primary", onclick: async () => {
+    if (!undo.length) { msg.textContent = "Nothing has been drawn yet."; return; }
+    save.disabled = true; msg.textContent = "Saving...";
+    try {
+      const file = await new Promise(ok => cv.toBlob(b => ok(new File([b], "image.png", {type: "image/png"})), "image/png"));
+      const row = await postForm("sprite-draw", {try: t.id, how: "drawn", image: file, editor: me(), note: note.value.trim()});
+      await done(row.id);
+    } catch (err) { msg.textContent = err.message; save.disabled = false; }
+  }}, "Save as a new picture");
+  return h("div", {class: "studio-ed drawbox"},
+    h("div", {class: "what"}, "Drawing on #" + t.id + (art ? " (the drawing)" : " (" + t.stage + ", " + side + "x" + side + ")")),
+    h("div", {class: "hint", style: "margin:0 0 6px"}, "Add details or change the design right on top. It is saved as a new picture of this step; the next steps can be made from it."),
+    toolsEl, swatches, h("div", {class: "canvaswrap"}, cv),
+    h("div", {class: "toolbar"}, note, save, h("button", {type: "button", onclick: () => done(null)}, "Close"), msg));
+}
+
+function triesStudio(s, chosenPictures, versionMade) {
+  let tries = [], line = [], worker = null, timer = null, ticker = null, pad = null;
+  const current = {};                                  // which picked try each step works from (the newest pick unless chosen)
+  const root = h("div", {}), status = h("div", {class: "hint", role: "status"});
+  const parts = {};
+
+  function picked(stage) {
+    const list = tries.filter(t => t.stage === stage && t.picked).sort((a, b) => String(b.picked_at).localeCompare(String(a.picked_at)));
+    return list.find(t => t.id === current[stage]) || list[0] || null;
+  }
+  function source(stage) {                             // what a new job of this step is drawn from
+    if (stage === "art") return null;
+    if (stage === "front") return picked("art");
+    return picked("front");
+  }
+  // Seconds of drawing before a job in the line starts: what the jobs ahead of it still have to draw.
+  function waitBefore(job) {
+    let total = 0;
+    for (const j of line) {
+      if (j.id === job.id) break;
+      const each = secondsFor(worker && worker.timings, j.stage || "front"), n = j.mode === "tries" ? (j.count || 1) : 6;
+      let left = n * each;
+      if (j.status === "running" && j.started_at) left -= (Date.now() - new Date(j.started_at).getTime()) / 1000;
+      total += Math.max(each, left);
+    }
+    return total;
+  }
+  async function ask(stage, count, from, button) {
+    const refs = stage === "art" || (stage === "front" && !from) ? chosenPictures() : [];
+    if ((stage === "art" || (stage === "front" && !from)) && !refs.length) { status.textContent = "Choose a picture in step 1 first."; return; }
+    button.disabled = true; status.textContent = "Adding it to the line...";
+    try {
+      await dbCall("request_tries", {p_species_id: s.id, p_stage: stage, p_count: count, p_from_try: from ? from.id : null, p_refs: refs,
+        p_prompt: null, p_recipe: null, p_editor: me()});
+      status.textContent = "Added. The pictures appear one by one as they are drawn; you can close this page meanwhile.";
+      await load();
+    } catch (err) { status.textContent = err.message; }
+    button.disabled = false;
+  }
+  async function pick(t, on) {
+    try {
+      await dbCall("pick_try", {p_try: t.id, p_picked: on, p_editor: me()});
+      t.picked = on; t.picked_at = new Date().toISOString();
+      if (on) current[t.stage] = t.id; else if (current[t.stage] === t.id) delete current[t.stage];
+      draw();
+    } catch (err) { status.textContent = err.message; }
+  }
+  async function useNew(id, stage, text) {             // a picture made on the website: picked and in use
+    await dbCall("pick_try", {p_try: id, p_picked: true, p_editor: me()}).catch(() => null);
+    current[stage] = id; status.textContent = text; await load();
+  }
+  async function mirror(t, button) {
+    button.disabled = true; status.textContent = "Mirroring #" + t.id + "...";
+    try {
+      const im = await loadPicture(artUrl(t.image)), side = TRY_SIDE[t.stage];
+      const c = h("canvas", {width: side, height: side}), x = c.getContext("2d");
+      x.imageSmoothingEnabled = false; x.translate(side, 0); x.scale(-1, 1); x.drawImage(im, 0, 0, side, side);
+      const file = await new Promise(ok => c.toBlob(b => ok(new File([b], "image.png", {type: "image/png"})), "image/png"));
+      const row = await postForm("sprite-draw", {try: t.id, how: "mirrored", image: file, editor: me()});
+      await useNew(row.id, t.stage, "Mirrored: #" + row.id + " is picked and in use.");
+    } catch (err) { status.textContent = err.message; }
+    button.disabled = false;
+  }
+  function openPad(t) {
+    pad = {t, el: drawPad(t, async id => { pad = null; if (id) await useNew(id, t.stage, "Saved: #" + id + " is picked and in use."); else draw(); })};
+    draw(); pad.el.scrollIntoView({block: "nearest", behavior: "smooth"});
+  }
+
+  // One picture: drawing (time so far / time it should take), waiting (when it should start), or done (its time).
+  function card(t) {
+    const side = t.stage === "icon" ? 96 : 120, pic = h("div", {class: "trypic", style: "width:" + side + "px;height:" + side + "px"});
+    const foot = h("div", {class: "tryfoot"});
+    if (t.waiting) {
+      pic.append(h("span", {class: "sub"}, "waiting"));
+      foot.append(t.eta > 0 ? "starts in about " + mmss(t.eta) : "next");
+      return h("div", {class: "try waiting"}, pic, foot);
+    }
+    if (t.status === "drawing") {
+      pic.append(h("span", {class: "spinner"}), h("span", {class: "sub"}, "drawing"));
+      const bar = h("div", {class: "bar"}, h("i", {})), time = h("span", {class: "elapsed"});
+      const el = h("div", {class: "try drawing", "data-start": t.started_at, "data-expected": t.expected_seconds || secondsFor(worker && worker.timings, t.stage)},
+        pic, bar, h("div", {class: "tryfoot"}, time));
+      tick(el);
+      return el;
+    }
+    if (t.image) pic.append(h("img", {src: artUrl(t.image), alt: t.stage + " try " + t.n, loading: "lazy", class: t.stage === "art" ? "" : "px"}));
+    else pic.append(h("span", {class: "sub"}, "no picture"));
+    const on = !!t.picked, isCurrent = picked(t.stage) && picked(t.stage).id === t.id;
+    const made = t.job_id === null ? (t.recipe === "mirrored" ? "mirrored" : "drawn") + (t.editor ? " by " + t.editor : "") + " from #" + t.parent_try : null;
+    foot.append(...[h("span", {}, "#" + t.id + (t.seconds ? " · " + mmss(t.seconds) : "")),
+      made ? h("div", {class: "sub"}, made + (t.note ? ": “" + t.note + "”" : "")) : null,
+      t.recipe && t.stage === "icon" ? h("span", {class: "sub"}, " " + (t.recipe === "pc" ? "PC box way" : "keeps the design")) : null,
+      t.status === "broken" ? h("div", {class: "warn"}, t.note || "broken") : null,
+      t.status === "failed" ? h("div", {class: "warn"}, "failed: " + (t.note || "")) : null].filter(Boolean));
+    const btn = t.status === "failed" ? null : h("button", {type: "button", class: on ? "primary" : "", "aria-pressed": String(on),
+      title: on ? "Picked. Press again to take the pick back." : "Pick this one",
+      onclick: () => pick(t, !on)}, on ? (isCurrent ? "✓ Picked, in use" : "✓ Picked") : "Pick");
+    const use = on && !isCurrent ? h("button", {type: "button", class: "link", onclick: () => { current[t.stage] = t.id; draw(); }}, "use this one") : null;
+    const more = t.status === "failed" || !t.image ? [] : [
+      h("button", {type: "button", title: "Mirror it (saved as a new picture)", onclick: e => mirror(t, e.currentTarget)}, "Mirror"),
+      h("button", {type: "button", title: "Draw on it: new details or a changed design (saved as a new picture)", onclick: () => openPad(t)}, "Draw")];
+    return h("div", {class: "try " + t.status + (on ? " picked" : "") + (isCurrent ? " current" : "")}, pic, foot, h("div", {class: "tryact"}, btn, use, ...more));
+  }
+  function tick(el) {
+    const start = new Date(el.dataset.start).getTime(), exp = Number(el.dataset.expected) || 60, done = (Date.now() - start) / 1000;
+    el.querySelector(".elapsed").textContent = mmss(done) + " of about " + mmss(exp) + (done > exp * 1.5 ? " (slower than usual)" : "");
+    el.querySelector(".bar i").style.width = Math.min(100, 100 * done / exp) + "%";
+  }
+
+  function stageBox(st, i) {
+    const from = source(st.id), count = h("select", {"aria-label": "How many"}, [2, 4, 6, 8, 12].map(n => h("option", {value: n, selected: n === st.count ? true : null}, String(n))));
+    const needs = st.id === "back" || st.id === "icon" ? (from ? null : "Pick a front first.") : null;
+    const go = h("button", {type: "button", class: "primary", disabled: needs ? true : null, onclick: () => ask(st.id, Number(count.value), from, go)}, "Make");
+    const fromBox = st.id === "art" ? null : h("span", {class: "from"}, "from ",
+      from ? [h("img", {src: artUrl(from.image), alt: "", class: from.stage === "art" ? "" : "px"}), "#" + from.id]
+           : st.id === "front" ? "the first chosen picture" : h("span", {class: "sub"}, "nothing yet"));
+    // the line: this step's jobs that wait or draw, with a card for every picture not started yet
+    const mine = line.filter(j => j.species_id === s.id && j.mode === "tries" && j.stage === st.id);
+    const byJob = new Map();
+    for (const t of tries.filter(t => t.stage === st.id && t.job_id !== null)) { if (!byJob.has(t.job_id)) byJob.set(t.job_id, []); byJob.get(t.job_id).push(t); }
+    const here = tries.filter(t => t.stage === st.id && t.job_id === null);
+    const jobIds = [...new Set([...mine.map(j => j.id), ...byJob.keys()])].sort((a, b) => b - a);
+    const groups = jobIds.map(id => {
+      const have = (byJob.get(id) || []).sort((a, b) => a.n - b.n), job = mine.find(j => j.id === id);
+      const wait = job ? waitBefore(job) : 0, each = secondsFor(worker && worker.timings, st.id);
+      const missing = job ? Math.max(0, (job.count || 0) - have.length) : 0;
+      const drawing = have.find(t => t.status === "drawing");      // the next one starts when the one drawing now is done
+      const left = drawing ? Math.max(0, (drawing.expected_seconds || each) - (Date.now() - new Date(drawing.started_at).getTime()) / 1000) : 0;
+      const cards = have.map(card).concat(Array.from({length: missing}, (_, k) => card({waiting: true, eta: job.status === "running" ? left + each * k : wait + each * k})));
+      const done = have.filter(t => t.seconds).reduce((a, t) => a + t.seconds, 0);
+      return h("div", {class: "trygroup"}, h("div", {class: "sub"}, "Request " + id + (job ? (job.status === "running" ? " - drawing" : " - in line") : "") +
+        (have.length ? " · " + have.filter(t => t.status !== "drawing").length + " of " + (job ? job.count : have.length) + " done" + (done ? ", " + mmss(done) + " of drawing" : "") : "")),
+        h("div", {class: "tries"}, cards));
+    });
+    if (here.length) groups.unshift(h("div", {class: "trygroup"}, h("div", {class: "sub"}, "Mirrored and drawn here"), h("div", {class: "tries"}, here.map(card))));
+    const shown = groups.slice(0, 3), older = groups.slice(3);
+    return h("section", {class: "trystage"},
+      h("div", {class: "step"}, h("b", {class: "n"}, String(i + 2)), h("div", {}, h("div", {class: "what"}, st.what), h("div", {class: "hint", style: "margin:0"}, st.hint))),
+      h("div", {class: "tryctl"}, fromBox, h("label", {}, "How many ", count), go, needs ? h("span", {class: "sub"}, needs) : null,
+        h("span", {class: "sub"}, "about " + mmss(secondsFor(worker && worker.timings, st.id)) + " each")),
+      pad && pad.t.stage === st.id ? pad.el : null,
+      shown.length ? shown : h("div", {class: "empty"}, "Nothing made in this step yet."),
+      older.length ? h("details", {}, h("summary", {class: "sub"}, older.length + " older requests"), older) : null);
+  }
+
+  // Put together: the picked front, back and icon, as they look in a battle and in the PC box.
+  function together() {
+    const f = picked("front"), b = picked("back"), ic = picked("icon");
+    const canvas = h("canvas", {width: 256, height: 192, class: "battle", "aria-label": "How it looks in a battle"});
+    const ctx = canvas.getContext("2d"); ctx.imageSmoothingEnabled = false;
+    const sky = ctx.createLinearGradient(0, 0, 0, 112); sky.addColorStop(0, "#b0d8f8"); sky.addColorStop(1, "#d8ecf8");
+    ctx.fillStyle = sky; ctx.fillRect(0, 0, 256, 112); ctx.fillStyle = "#c8e098"; ctx.fillRect(0, 112, 256, 80);
+    ctx.fillStyle = "#a8c870"; ctx.beginPath(); ctx.ellipse(192, 78, 56, 16, 0, 0, 7); ctx.fill(); ctx.beginPath(); ctx.ellipse(68, 170, 68, 20, 0, 0, 7); ctx.fill();
+    const put = (t, x, y) => { if (!t) return; const im = new Image(); im.crossOrigin = "anonymous"; im.onload = () => ctx.drawImage(im, x, y); im.src = artUrl(t.image); };
+    put(f, 152, 4); put(b, 24, 112);
+    const box = h("canvas", {width: 120, height: 48, class: "pcbox", "aria-label": "The icon in the PC box"});
+    const bx = box.getContext("2d"); bx.imageSmoothingEnabled = false; bx.fillStyle = "#e8f0d8"; bx.fillRect(0, 0, 120, 48);
+    if (ic) { const im = new Image(); im.crossOrigin = "anonymous"; im.onload = () => { bx.drawImage(im, 8, 8); bx.drawImage(im, 44, 8); bx.drawImage(im, 80, 7); }; im.src = artUrl(ic.image); }
+    const make = h("button", {type: "button", class: "primary", disabled: f && b ? null : true, onclick: async () => {
+      make.disabled = true; status.textContent = "Putting it together...";
+      try {
+        const id = await dbCall("assemble_sprite", {p_front: f.id, p_back: b.id, p_icon: ic ? ic.id : null, p_editor: me()});
+        status.textContent = "Done: version #" + id + " is below. Check it and approve it there.";
+        await versionMade(id);
+      } catch (err) { status.textContent = err.message; }
+      make.disabled = false;
+    }}, "Make a version from these");
+    const name = (t, what) => t ? what + " #" + t.id : h("span", {class: "sub"}, "no " + what + " picked");
+    return h("section", {class: "trystage"},
+      h("div", {class: "step"}, h("b", {class: "n"}, "6"), h("div", {}, h("div", {class: "what"}, "Put them together"),
+        h("div", {class: "hint", style: "margin:0"}, "The picked front, back and icon, as they look in a battle and in the PC box. Then make a version of them and approve it below."))),
+      h("div", {class: "together"}, canvas, h("div", {}, box, h("div", {class: "sub"}, name(f, "front"), " · ", name(b, "back"), " · ", name(ic, "icon")), make)));
+  }
+
+  function draw() {
+    root.replaceChildren(...TRY_STAGES.map(stageBox), together(), status);
+    clearInterval(ticker);
+    if (root.querySelector(".try.drawing")) ticker = setInterval(() => {
+      if (!root.isConnected) { clearInterval(ticker); return; }
+      root.querySelectorAll(".try.drawing").forEach(tick);
+    }, 1000);
+  }
+  async function load() {
+    if (!root.isConnected && timer !== null) return;
+    try {
+      [tries, line, worker] = await Promise.all([
+        dbRead("sprite_tries?species_id=eq." + s.id + "&order=id.desc&limit=300"),
+        dbRead("sprite_jobs?status=in.(queued,running)&order=id.asc&select=id,species_id,status,mode,stage,count,started_at"),
+        dbRead("sprite_worker?select=seen_at,state,timings").then(r => r[0] || null)]);
+    } catch (err) { status.textContent = err.message; return; }
+    draw();
+    clearTimeout(timer);
+    const busy = line.some(j => j.species_id === s.id && j.mode === "tries") || tries.some(t => t.status === "drawing");
+    timer = setTimeout(() => root.isConnected && load(), busy ? 4000 : 60000);
+  }
+  load();
+  return {el: root, load};
+}
 
 function studioTab(s) {
   const root = h("div", {});
@@ -1208,15 +1551,16 @@ function studioTab(s) {
     editorEl.replaceChildren(editor.el);
   }
   const approved = DEX.ds_sprites[s.id];
+  const steps = triesStudio(s, () => chosen, async id => { if (id) selected = id; await load(); });
   root.append(h("div", {},
     approved ? h("div", {}, h("h2", {}, "Its sprite now"), spriteTrio(approved, s.data.name)) : null,
     h("div", {class: "step"}, h("b", {class: "n"}, "1"), h("div", {}, h("div", {class: "what"}, "Pick the pictures the AI should follow"),
       h("div", {class: "hint", style: "margin:0"}, "Up to 3. The first one matters most - choose the clearest picture of the design."))),
     pictures.length ? inspo : h("div", {class: "empty"}, "No pictures yet. ", h("button", {type: "button", class: "link", onclick: () => openDetail(s, "pictures")}, "Add the concept art first.")),
-    h("div", {class: "step"}, h("b", {class: "n"}, "2"), h("div", {}, h("div", {class: "what"}, "Make a sprite"),
-      h("div", {class: "hint", style: "margin:0"}, "The AI draws one sprite at a time: front, back and menu icon, in the DS style."))),
-    h("div", {style: "display:flex;gap:10px;align-items:center;flex-wrap:wrap"}, make, status), queueEl,
-    h("div", {class: "step"}, h("b", {class: "n"}, "3"), h("div", {}, h("div", {class: "what"}, "Pick a version and make it perfect"),
+    steps.el, queueEl,
+    h("details", {class: "hint"}, h("summary", {}, "The old way: the AI makes a whole sprite in one go and picks for you"),
+      h("div", {style: "display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px"}, make, status)),
+    h("div", {class: "step"}, h("b", {class: "n"}, "7"), h("div", {}, h("div", {class: "what"}, "Pick a version and make it perfect"),
       h("div", {class: "hint", style: "margin:0"}, "Draw on it yourself, or tell the AI what to change - on the whole sprite or on an area you mark. Every change becomes a new version. Approve the one you like."))),
     versionsEl, editorEl));
   load();

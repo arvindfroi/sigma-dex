@@ -24,6 +24,39 @@ Deno.serve(async (req: Request) => {
   try {
     const form = await req.formData();
     const supabase = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
+
+    // Studio v3 (2026-10-14): a try mirrored or drawn on in the studio becomes a new try of the same step and Pokemon,
+    // which can be picked and drawn from like the others (Arvind: "you must be able to mirror; people should be able to
+    // draw new details right on top, to change their design along the way").
+    if (form.get("try") !== null) {
+      const tryId = Number(form.get("try"));
+      const { data: from } = await supabase.from("sprite_tries").select("id, species_id, stage, status, raw").eq("id", tryId).maybeSingle();
+      if (!from || !["done", "broken"].includes(from.status)) return reply(404, { message: "That picture does not exist" });
+      const since = new Date(Date.now() - 3600 * 1000).toISOString();
+      const { count } = await supabase.from("sprite_tries").select("id", { count: "exact", head: true }).is("job_id", null).gt("created_at", since);
+      if ((count ?? 0) >= 200) return reply(429, { message: "Too many drawings saved in the last hour, try again later" });
+      const file = form.get("image");
+      if (!(file instanceof File)) return reply(400, { message: "Nothing was drawn" });
+      const limit = from.stage === "art" ? 1536 * 1024 : MAX_BYTES;
+      if (file.size > limit) return reply(400, { message: "The picture is too large" });
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      const size = pngSize(bytes);
+      const want = { art: 640, front: 80, back: 80, icon: 32 }[from.stage as string];
+      if (!size || size[0] !== want || size[1] !== want) return reply(400, { message: "The picture has the wrong size" });
+      const how = String(form.get("how") ?? "") === "mirrored" ? "mirrored" : "drawn";
+      const path = `tries/${from.species_id}/${how}-${tryId}-${crypto.randomUUID().slice(0, 8)}.png`;
+      const { error: upError } = await supabase.storage.from("art").upload(path, bytes, { contentType: "image/png", cacheControl: "31536000" });
+      if (upError) return reply(500, { message: "The picture could not be stored" });
+      const editor = String(form.get("editor") ?? "").trim().slice(0, 40) || null;
+      const { data: row, error } = await supabase.from("sprite_tries").insert({
+        job_id: null, species_id: from.species_id, stage: from.stage, n: 1, status: "done", image: path, raw: from.raw,
+        recipe: how === "mirrored" ? "mirrored" : "drawn by hand", note: String(form.get("note") ?? "").trim().slice(0, 300) || null,
+        parent_try: tryId, editor, seconds: null, finished_at: new Date().toISOString(),
+      }).select("id").single();
+      if (error) return reply(500, { message: "The picture could not be saved" });
+      return reply(200, row);
+    }
+
     const parentId = Number(form.get("parent"));
     if (!Number.isInteger(parentId)) return reply(400, { message: "Which version was drawn on?" });
     const { data: parent } = await supabase.from("sprite_candidates").select("*").eq("id", parentId).maybeSingle();

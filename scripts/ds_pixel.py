@@ -217,7 +217,9 @@ def in_icon_palette(a, palettes):
     X = pixel_render.lab(a[..., :3].astype(np.uint8))[solid]
     best = None
     for k, P in enumerate(palettes):
-        choices = np.array(P[1:14], np.float32)                  # 0 is see-through, 14 and 15 the greys of the outlines
+        # 0 is see-through. 14 and 15 are the two dark greys: the outline, but real dark icons also fill their bodies
+        # with them (Umbreon, Houndoom, Absol); without them a dark body went to the nearest blue (2026-10-14, Obsidog)
+        choices = np.array(P[1:16], np.float32)
         d = ((X[:, None] - pixel_render.lab(choices.astype(np.uint8).reshape(1, -1, 3)).reshape(-1, 3)[None]) ** 2).sum(axis=2)
         if best is None or d.min(axis=1).sum() < best[0]:
             best = (d.min(axis=1).sum(), k, choices[d.argmin(axis=1)])

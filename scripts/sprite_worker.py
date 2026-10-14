@@ -478,6 +478,10 @@ def run_ds(job, base, key, settings):
 
 
 def run(job, base, key, settings):
+    if job.get("mode") == "tries":                 # studio v3: several pictures of one step, each handed in with its time
+        import studio_tries
+        with tempfile.TemporaryDirectory() as folder:
+            return studio_tries.run(job, base, key, post, download, Path(folder), log)
     if job.get("style") == "ds":
         return run_ds(job, base, key, settings)
     style_version = hashlib.sha1(json.dumps([settings["style"], settings["illustration"], settings["poses"], settings["back"],

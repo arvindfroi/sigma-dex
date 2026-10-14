@@ -850,6 +850,16 @@ pictures), `v5cfg\pod_setup.sh`, `v5cfg\pod_train.sh`, `v5cfg\dash.py` + `dash.h
     front only, in the chain. CORRECTION: the PC box Arvind loved (sent ~10 Oct) is the SEED 2 icons of that run
     (`legion_test\*_icon_2_px.png`, pixel-matched 100 % on all 8); I first compared against seed 1, which is clearly
     worse. Seeds matter a lot for icons (seed 2 was bigger and bolder for every mon, old and new fronts alike).
+    **The exact PC box recipe** (`legion_test\run.py` via `after.ps1`, 6 Oct; checked again 14 Oct when Arvind asked
+    whether a special prompt or extra steps were used): the approved front (`legion_test\fronts`) pasted on WHITE, 8x
+    nearest to 640, RGB; `comfy.generate` -> `comfy.workflow` with the default `ref_resolution=1024` (ComfyUI scales the
+    reference to ~1 MP, off the pixel grid: the 7 Oct commit made this optional for later LoRAs, but the PC box icons
+    were made WITH it); only the one-sentence prompt "Turn the Pokemon battle sprite in the reference image into its
+    party menu icon from Pokemon HeartGold: the same creature as a 32x32 pixel art icon, facing left, with a one-pixel
+    dark grey outline, on a white background."; 512x512, 25 steps, cfg 1, euler / simple, `pkmn_icon_edit_v2` at 1.0;
+    seeds 1 and 2, seed 2 picked; read at the cell centres (median of the middle 40 %, near-white = see-through). No
+    other post-processing: the box sheet (`compare\make2.py`) only pastes the 32x32 icons. `icon_eval.py`'s "v2" column
+    reproduces it pixel for pixel (all 8 mons identical), so v7c is compared against the real PC box recipe.
   - **Icon knobs** (`v6cfg\icon_play.py`, icon_edit_v2, seeds 1-3; Blazterra, Leadling, Octopearl, Stonma, Leafing,
     Autuman): strength 0.8 / 1.2, 15 / 40 steps, the artwork as `<image2>`, and a second edit on the result (50 % noise)
     change little. **The canvas swap wins: start from the front shrunk to icon size (figure fitted in 28 px on the 32
@@ -909,6 +919,38 @@ pictures), `v5cfg\pod_setup.sh`, `v5cfg\pod_train.sh`, `v5cfg\dash.py` + `dash.h
     `v6cfg\legion_dash.py` at 127.0.0.1:8890 (SSH tunnel from the Mac). Precision: the Legion trains on an 8-bit base
     model with an 8-bit optimizer (the LoRA itself in bf16), as icon v2 did; quality cost expected small, speed ~5x
     slower than the pod.
+  - **Icon v7c trained** (14 Oct 02:01, ~33 s/step on the Legion). The progress sheet had been empty all evening
+    (`icon_progress.py` looked only for .jpg; v7c writes .png): fixed. The pictures at 0-400: Leadling and Leafing clean
+    from 100, Stonma and Blazterra more icon-like over time, Octopearl loses its pink by 300-400, Autuman's cape gets
+    noisy at 400.
+  - **Box / no box / fill the cell, and direction** (`v6cfg\icon_tmpl_test.py`, final checkpoint, 12 mons x seeds 1-4,
+    `results\icon_tmpl\`; Arvind: "what if no template? or fitting the canvas more? and they must point the right way"):
+    - Real data: 79 % of the real HGSS icons face the same way as their front (837 of 1054 clear cases).
+    - A box as trained: mean fill 0.36, realness 0.48, likeness 0.36, 7 of 48 the other way.
+    - B no box: fill 0.42, realness 0.47, likeness 0.37, 6 of 48 the other way.
+    - C box filling the cell: fill 0.41, realness 0.45, likeness 0.35, 6 of 48 the other way.
+    - The box steers size only weakly: the seed decides more (seeds 2 and 4 are big and detailed in every variant,
+      1 and 3 small). Without the box the icons get slightly bigger, not worse. A wrong-way icon can simply be
+      mirrored; the check flags symmetric shapes (Nukfae) by mistake, so mirror only clear cases.
+    - `v6cfg\icon_queue4.ps1` replaced the end of icon_queue2: the test first, then the full v7c evaluation.
+  - **Reference size and the PC box conditions** (`v6cfg\icon_refres_test.py`, `results\icon_refres\`, 14 Oct; Arvind:
+    "test it asap!!"). v7c was trained with ai-toolkit's `match_target_res` (references scaled to the 512 x 512 target's
+    area), but icon_eval gave them to ComfyUI at their own size (resolution 0, the front at 640). Final v7c, 12 mons,
+    seeds 1-4 (realness / likeness / fill / wrong way of 48):
+    - v2, the PC box recipe: 0.50 / 0.34 / 0.29 / 7
+    - v7c resolution 0 (as first evaluated): 0.48 / 0.36 / 0.36 / 7
+    - v7c resolution 512 (as trained): 0.52 / 0.35 / 0.35 / 6
+    - v7c resolution 1024: 0.47 / 0.35 / 0.41 / 3; the biggest and most detailed by eye (faces, wings, Stonma's eye)
+    - v7c with exactly the PC box recipe (white, short prompt, 1024): 0.42 / **0.53** / 0.35 / **1**; the closest to
+      the front and the most alike between seeds, but paler colours and thin grey outlines
+    - Every v7c variant fills the cell more than v2. The full v7c evaluation (8 seeds, 4 checkpoints) runs at 1024
+      (`ICON_REF_RES=1024` in icon_eval.py, `results\icon_eval_v7c_r1024\`, `v6cfg\icon_queue7.ps1`).
+    - Lesson: give a LoRA its references at the size it was trained with; check the trainer's resize rule
+      (`match_target_res`) before writing the inference graph. A wrongly sized reference still "works", so it is easy
+      to miss.
+    - Lesson (again): never kill by a pattern that appears in the calling ssh command (`icon_queue5|icon_eval.py`
+      killed the session that was to start the next queue); and leave a watcher on every result, so a sheet that is
+      done at 03:22 is sent at 03:22 (this one waited until morning).
   - **Colour LUTs** (Arvind: "make LUT files so the colours match how they shift from the Pokemon; Haunter's sprite was
     much greyer than in the game"; `v6cfg\lut_build.py`, `results\lut\*.cube`): Game Freak's own colour shifts learned
     from data, art -> front (official artwork vs HGSS front) and front -> icon (hg-engine's front vs icon): per species
@@ -977,6 +1019,103 @@ followers + hg-engine's fan-made ones):
   move, buckets 512x512 x 5652, 23.7 s per step of 4 examples, 42 GB VRAM. Steps set to 600 (2400 examples, ~0.4 pass,
   ~4 h incl. pictures, ~6-7 $ in all), saves every 50, pictures every 100. End: `cfg/selfterm4.sh` (after
   `pod3_src\fetch_pod4.ps1` on the Legion has the archive) + Arvind's eye on the pictures.
+- **Label bug found at step 300 and fixed (2026-10-14).** The pictures at 200 and 300:
+  - Good: the sides were already close to the truth (Haunter, and Cyndaquil at 200), the colours held, and Haunter / Waffy
+    "down" looked like small walking frames.
+  - Bad: every "step 2 from step 1" drew TWO creatures side by side; Cyndaquil "left" at 300 copied the "down" frame it
+    was given; the box was drawn into the "down" pictures.
+  - Cause: ai-toolkit's `qwen_image_2.py` `_drop_repeats` drops any reference equal to the one before it (meant only for
+    the sampler handing `ctrl_img` over twice as `ctrl_img_1`). Two empty inputs in a row are equal, so they merged into
+    one and every later picture moved up a number. The prompt labels each picture `<imageN>` by position, so the
+    caption's "<image6> is its other step" / "<image7> is the template" named the wrong picture in **2309 of 5652
+    examples (41 %)** and in 8 of the 11 progress pictures.
+  - ComfyUI's `qwen_image21.py` drops nothing, so use time was always labelled right; only training was wrong.
+  - Fix: `v6cfg\patch_keep_empty.py` drops only the sampler's duplicate (the first two equal). Tested: seven references
+    with three empty in a row stay seven; the duplicate case still becomes one.
+  - The run was stopped at step 310 and resumed from the step-300 checkpoint and optimizer with the fix (same 600 steps,
+    same end time, no extra cost). Pictures after the resume are marked "rettet".
+  - Lesson: when a trainer takes several references, check how many actually reach the model and in what order (count
+    them in the encoded prompt), not just that the files exist. Icon v7c (front, art, box) cannot have two empties in a
+    row, so it is not affected.
+- **Step 400 (after the fix) and an audit of what the loss rewards (2026-10-14; Arvind: "it doesn't look good. Are the
+  tags and the prompt done properly? Are we rewarding it wrong?").**
+  - Step 400: the box is no longer drawn; Waffy and Blazterra "down" became real small followers. Still bad: "left with
+    down given" copies the down frame (Cyndaquil, now also Haunter; both drew a real side view at step 200), and every
+    "step 2 from step 1" draws the two pixel pictures it was given side by side.
+  - Captions and tags checked on random examples: every input named, direction, step, type, stage and height right.
+  - **Wrong reward 1, invisible colours:** the follower targets keep the sprite sheet's key colour under the
+    see-through pixels, 106 different ones (pink, yellow, green, blue...). ai-toolkit's RGBA path does not clear them
+    (`convert('RGBA')`, no premultiply) and the RGBA VAE encodes them, so on ~3/4 of the canvas the loss punishes the
+    model for not guessing a colour nobody sees. Likely also the grey patches around Cyndaquil at 400. The pixel-art
+    inputs carry the same key colours; the artwork has black. Icon v7c has black everywhere (constant): not affected.
+  - **Wrong reward 2, copying pays:** in half the examples the "other step" input is almost the answer, so copying a
+    pixel input is the cheapest way to a low loss; the model learns "copy a pixel input".
+  - Minor: the mask keeps weight 0.3 outside the creature (~37 % of the loss), so extra things drawn there are cheaper.
+  - End (14 Oct): trained to 600 (ended 04:01 JST), the Legion fetched the archive at 04:05 (2.09 GB, size checked;
+    12 checkpoints in ComfyUI as `fol6_50` ... `fol6_550`, `fol6_final`; 79 progress pictures in `pod4_out`), and the
+    pod terminated itself (RunPod: no pods left, `6txhw3tk92ozp1` not found). Steps 500-600 as predicted: "down" stays
+    good (Waffy, Blazterra), "left with down given" copies the down frame, "step 2" still draws two figures.
+  - Next round (bundle): clear the colour under transparency to one constant in every target and input; separate the
+    tasks ("draw a direction" never gets a near-copy input; "draw step 2" gets only step 1 + the front); a check sheet
+    of the seven pictures exactly as the model receives them (after the dataloader) before any run.
+
+## The whole pipeline on three new mons, timed (14 Oct)
+
+Arvind: "take 2 Pokemon from our dex and 1 random real one through the whole pipeline except the follower; how long does it
+take". Drawn at random: Obsidog (#103) and Wispole (#29) from the 77 untested mons with concept art, Metagross (#376) from
+the held-out species with real HGSS sprites (the first draw, #942 Maschiff, has none). `v6cfg\pipe3.py`, `results\pipe3\`:
+base-Qwen cut-out of the concept picture -> front v7 600 at 0.75, cfg 2.5 + negative, 8 seeds, unfake -> picker v2 ->
+outline thinned + coloured -> back v6 1800 / 2100 / 2400 x 3 seeds -> icon (PC box recipe, 8 seeds, icon judge) -> game
+format (15 colours, one palette for front and back, the icon in the game's icon palettes, 2 frames).
+- **Time on the Legion:** Obsidog 20.2 min, Wispole 25.2, Metagross 29.5 (fronts 18.8 + the rest 10.7; the run died once:
+  I killed the queue's PowerShell, which held the output redirection, so the Python child died at its next print -
+  start long runs detached through `cmd.exe /c ... > log` and never kill their parent). The front step is most of it and
+  got slower all afternoon (76 -> 104 -> 131-174 s per front: the laptop GPU warming up / memory after many model swaps);
+  back 48-58 s per try, icon 6 s, cut-out 75 s.
+- **Arvind:** Obsidog front seed 6 is best (picker v2 chose 2), icon s2 best (judge chose s8), the back (bv6_2400 s3) was
+  good; the icon in the game palette went blue and looked bad. Kept in `results\arvind_picks.json` as the pickers' answer
+  key. Metagross: the front is close to the real one; the back is the front's bulk from behind with the X copied onto it
+  (the real back is a different view); the icon is teal where the real one is purple-blue.
+- **Bug found:** `ds_pixel.in_icon_palette` left out the two dark greys (indexes 14, 15), which real dark icons use for
+  their bodies (Umbreon, Houndoom, Absol), so dark bodies went to the nearest blue. Fixed in the repo (14 Oct); the game
+  export (`sprites.make_icon`) already used all 15.
+- **Facing:** real fronts face the way their artwork faces in only 70 % of clear cases, so "same as the art" is a weak
+  rule; a classifier on DINOv2 patch features, real fronts against themselves mirrored (`v6cfg\front_facing_clf.py`,
+  `results\front_facing\clf.pt`), tells the real orientation 82 % of the time on held-out fronts: usable to mirror fronts
+  that clearly face the wrong way.
+- **Icon workshop** (`v6cfg\icon_recipe3.py`, `results\icon_recipe3\`; Arvind: "here and on Obsidog it was very bad; not as
+  good as in early October; we need something consistent"). 6 mons x 8 seeds; mean over the mons (consistency = DINOv2
+  similarity between the 8 seeds; likeness to the front by the classifier; realness by the icon judge):
+  - A the PC box recipe: 0.81 / 0.37 / 0.51. Still gives the PC box icons for the PC box mons (Autuman, Erobi, Waffy:
+    their typical seed is as good as the PC box one), but breaks on the new hard designs: Obsidog (almost black) a grey
+    blob, Metagross a crumpled lump without its legs. So the recipe is right; the new mons are harder than the 6 Oct ones.
+  - A + finishing (no loose pixels, inside in 7 colours, one 64-grey outline): 0.83 / 0.34 / 0.68
+  - B reference at 640: 0.80 / 0.36 / 0.51 (no different from A)
+  - C canvas swap 70 %: **0.89 / 0.60** / 0.39; C + finishing **0.91** / 0.57 / 0.51. Every seed keeps the whole design
+    (Obsidog a dark dog, Metagross with its four legs spread as in the real icon), so which seed is picked hardly
+    matters; but it looks more like a shrunk front than a drawn icon, and keeps the front's colours.
+  - Arvind: the pickers miss all the time (Metagross fronts 5, 7, maybe 1 are good enough; picker v2 chose 8): picking
+    goes to a page in the sprite studio where he chooses, with the time each picture takes shown.
+- **What a real follower sheet is** (`v6cfg\follower_mirror_stats.py`, 942 sheets): right = mirrored left in 87 %; step 2
+  differs from step 1 in a median 5 % of the cell (the legs), and is a plain mirror of step 1 in only 6-7 %. So the job is
+  three views of the same creature plus a small leg edit per view.
+
+## Follower, thought again (14 Oct)
+
+- **FLUX.2 Klein base 4B** (Apache-2.0; edits and generates in one model; Comfy-Org's split files, 16.2 GB, down in 3 min)
+  with **svntax-dev's 4-walk sprite sheet LoRA** as it is (`v6cfg\klein_test.py`, `results\klein_test\`; their workflow:
+  the character picture as reference at ~1 MP, their prompt, 512, 20 steps, euler, CFG 5): every mon became a little
+  HUMAN in the mon's colours (Obsidog a dark boy with horns, Metagross a teal boy, Wispole a green boy with a blue tail).
+  The author warns that non-human anatomy is bad. But the sheet is the point: four directions x three walking frames,
+  all the SAME character, clean pixels, ~35 s per sheet. So the recipe (the whole sheet in one picture at 4x, the
+  reference as the design) is worth training on our own data (940 HGSS follower sheets, 4 directions x 2 steps); Klein
+  4B is small enough for the Legion.
+- **Retro Diffusion** is out: its online models (RD Plus / Pro, FLUX-based) are closed, so no LoRA on top; the Aseprite
+  extension's local model is an older, different one.
+- **Rear-view drawing for the back** (`v6cfg\back_rear_test.py`, `results\back_rear\`): base Qwen draws the artwork from
+  behind, the front recipe pixelates it. Metagross: a real back (no X, no eyes; back v6 pasted the X onto it); Obsidog:
+  horns, collar and tail from behind; Wispole: the right side but an odd shape (a tadpole from straight behind is all
+  tail). Still to do: the back's framing (big, cut flat at the bottom). ~1.2 min for the drawing + ~80 s per back.
 
 ## Next ones (later)
 
