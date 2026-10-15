@@ -30,7 +30,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Moves | TM/HM moves | 3 / 123 |
 | Location | encounters | 2 / 123 |
 | Design | concept | 9 / 123 |
-| Art | concept art | 112 / 123 |
+| Art | concept art | 114 / 123 |
 | Art | front sprite | 4 / 123 |
 | Art | front animation frame | 4 / 123 |
 | Art | back sprite | 4 / 123 |
@@ -1092,7 +1092,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #106 [Limulk](data/species/limulk.yaml) - 7%
+### #106 [Limulk](data/species/limulk.yaml) - 10%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1100,9 +1100,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #107 [Mortbulk](data/species/mortbulk.yaml) - 17%
+### #107 [Mortbulk](data/species/mortbulk.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
@@ -1110,7 +1110,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #109 [Eivlax](data/species/eivomon.yaml) - 7%
 

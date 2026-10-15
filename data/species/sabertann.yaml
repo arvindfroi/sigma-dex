@@ -4,7 +4,7 @@ name: Sabertann
 
 credits:
   designer: Emil         # who came up with it (Discord name)
-  artist: Emil           # who drew the concept art
+  artist: "Emil & Arvind" # who drew the concept art
 
 types: [Dark, Water]     # 1 or 2 types, e.g. [Grass, Steel]
 
@@ -19,13 +19,13 @@ body_color:              # red blue yellow green black brown purple gray white p
 abilities:
   primary: Good as Gold
   secondary:             # optional
-  hidden:                # optional
+  hidden: Supreme Overlord # optional
 
 base_stats:              # each 1-255
-  hp: 115
+  hp: 110
   attack: 140
   defense: 80
-  sp_attack: 85
+  sp_attack: 90
   sp_defense: 80
   speed: 80
 

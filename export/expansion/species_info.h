@@ -251,11 +251,11 @@
 
     [SPECIES_WARRALLIER] =
     {
-        .baseHP = 80,
-        .baseAttack = 115,
+        .baseHP = 85,
+        .baseAttack = 120,
         .baseDefense = 75,
         .baseSpeed = 105,
-        .baseSpAttack = 80,
+        .baseSpAttack = 70,
         .baseSpDefense = 75,
         .types = MON_TYPES(TYPE_WATER, TYPE_DARK),
         .catchRate = 45,
@@ -1042,7 +1042,7 @@
 
     [SPECIES_JANENON] =
     {
-        .baseHP = 46,
+        .baseHP = 41,
         .baseAttack = 67,
         .baseDefense = 100,
         .baseSpeed = 25,
@@ -1252,7 +1252,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_PRESSURE, ABILITY_TELEPATHY, ABILITY_DARK_AURA },
+        .abilities = { ABILITY_PRESSURE, ABILITY_KEEN_EYE, ABILITY_DARK_AURA },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Everdark"),
         .cryId = CRY_NONE,

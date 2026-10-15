@@ -640,10 +640,10 @@
         "hidden": "Defiant"
       },
       "base_stats": {
-        "hp": 80,
-        "attack": 115,
+        "hp": 85,
+        "attack": 120,
         "defense": 75,
-        "sp_attack": 80,
+        "sp_attack": 70,
         "sp_defense": 75,
         "speed": 105
       },
@@ -4548,8 +4548,8 @@
         "hp": 92,
         "attack": 60,
         "defense": 60,
-        "sp_attack": 145,
-        "sp_defense": 51,
+        "sp_attack": 140,
+        "sp_defense": 56,
         "speed": 92
       },
       "ev_yield": {
@@ -5557,7 +5557,7 @@
         "hidden": "Misty Surge"
       },
       "base_stats": {
-        "hp": 46,
+        "hp": 41,
         "attack": 67,
         "defense": 100,
         "sp_attack": 167,
@@ -8708,7 +8708,7 @@
         "filled_by_claude": []
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/limulk/628.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -8786,7 +8786,7 @@
         "filled_by_claude": []
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/mortbulk/627.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -9379,7 +9379,7 @@
       "body_color": null,
       "abilities": {
         "primary": "Pressure",
-        "secondary": "Telepathy",
+        "secondary": "Keen Eye",
         "hidden": "Dark Aura"
       },
       "base_stats": {
@@ -9535,7 +9535,7 @@
       "name": "Sabertann",
       "credits": {
         "designer": "Emil",
-        "artist": "Emil"
+        "artist": "Emil & Arvind"
       },
       "types": [
         "Dark",
@@ -9549,13 +9549,13 @@
       "abilities": {
         "primary": "Good as Gold",
         "secondary": null,
-        "hidden": null
+        "hidden": "Supreme Overlord"
       },
       "base_stats": {
-        "hp": 115,
+        "hp": 110,
         "attack": 140,
         "defense": 80,
-        "sp_attack": 85,
+        "sp_attack": 90,
         "sp_defense": 80,
         "speed": 80
       },

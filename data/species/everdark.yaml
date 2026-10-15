@@ -18,7 +18,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Pressure
-  secondary: Telepathy   # optional
+  secondary: Keen Eye    # optional
   hidden: Dark Aura      # optional
 
 base_stats:              # each 1-255

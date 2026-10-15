@@ -74,7 +74,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 63 | [Gentie](data/species/gentie.yaml) |  |  |  |  | 0% |
 | 64 | [Yanklet](data/species/yanklet.yaml) | Steel / Flying |  |  |  | 7% |
 | 65 | [Anjane](data/species/anjane.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 320 | Janenon (Lv 42) | 28% |
-| 66 | [Janenon](data/species/janenon.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 490 |  | 31% |
+| 66 | [Janenon](data/species/janenon.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 485 |  | 31% |
 | 67 | [Saucerl](data/species/saucerl.yaml) | Psychic / Water |  |  |  | 7% |
 | 68 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water |  |  |  | 7% |
 | 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water |  |  |  | 7% |
@@ -114,8 +114,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 103 | [Obsidog](data/species/obsidog.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 340 | Obsidog utvikling (Other: Level 40 At Night) | 21% |
 | 104 | [Obsidog utvikling](data/species/obsidog-utvikling.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 555 |  | 17% |
 | 105 | [Wisprake](data/species/wisprake.yaml) | Ghost |  |  |  | 10% |
-| 106 | [Limulk](data/species/limulk.yaml) | Fighting |  |  |  | 7% |
-| 107 | [Mortbulk](data/species/mortbulk.yaml) | Fighting | Anger Point, Heckler, Mold Breaker (H) | 488 |  | 17% |
+| 106 | [Limulk](data/species/limulk.yaml) | Fighting |  |  |  | 10% |
+| 107 | [Mortbulk](data/species/mortbulk.yaml) | Fighting | Anger Point, Heckler, Mold Breaker (H) | 488 |  | 21% |
 | 108 | *open slot* | | | | | |
 | 109 | [Eivlax](data/species/eivomon.yaml) | Steel / Dragon |  |  |  | 7% |
 | 110 | [Oraclet](data/species/oraclet.yaml) | Psychic | Anticipation, Forewarn, Magic Guard (H) | 355 | Oraclaw (Lv 38) | 31% |
@@ -140,7 +140,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 129 | *open slot* | | | | | |
 | 130 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve, Insomnia, Shadow Tag (H) |  |  | 14% |
 | 131 | [Glacépée](data/species/glac-p-e.yaml) | Ice / Fighting | Long Reach, Parry Stance, Sniper (H) | 510 |  | 17% |
-| 132 | [Everdark](data/species/everdark.yaml) | Dark / Psychic | Pressure, Telepathy, Dark Aura (H) | 535 |  | 24% |
+| 132 | [Everdark](data/species/everdark.yaml) | Dark / Psychic | Pressure, Keen Eye, Dark Aura (H) | 535 |  | 24% |
 | 133 | *open slot* | | | | | |
 | 134 | *open slot* | | | | | |
 | 135 | [Riftbloom](data/species/riftbloom.yaml) | Ghost / Psychic |  |  |  | 10% |
@@ -151,7 +151,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 140 | *open slot* | | | | | |
 | 141 | *open slot* | | | | | |
 | 142 | *open slot* | | | | | |
-| 143 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold | 580 |  | 24% |
+| 143 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 580 |  | 24% |
 | 144 | [Gravriel](data/species/gravriel.yaml) | Water / Ghost | Grim Neigh, Sap Sipper (H) | 580 |  | 34% |
 | 145 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 300 | Greation (Lv 30) | 21% |
 | 146 | [Greation](data/species/greation.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 422 | Ultragon (Lv 55) | 21% |

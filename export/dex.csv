@@ -8,7 +8,7 @@ until the edge shines like metal.
 3,leafaxer,Leafaxer,Grass,Steel,Overgrow,,Sharpness,530,90,133,100,67,80,60,Leafsteel,Lv 36,,,,,3 attack,,,,,,,,,,,"Leaf Blade (evo), Leaf Blade (1), Iron Tail (40), X-Scissor (44), Night Slash (48), Wood Hammer (52), Stone Axe (56), Solar Blade (60), Behemoth Blade (64)",,,,,,,,,Emil Venge-Kvamme,,24
 4,waffy,Waffy,Water,,Torrent,,Defiant,320,55,65,50,45,50,55,,,,,,,1 attack,,,,,,,,,,,"Tackle (1), Growl (1), Water Gun (6), Bite (10), Aqua Jet (14)",,,,,,,,DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.,Emil Venge-Kvamme,,38
 5,wealther,Wealther,Water,Dark,Torrent,,Defiant,420,65,85,65,65,60,80,Waffy,Lv 16,,,,,"1 attack, 1 speed",,,,,,,,,,,"Hone Claws (evo), Feint Attack (1)",,,,,,,,,Emil Venge-Kvamme,,24
-6,warrallier,Warrallier,Water,Dark,Torrent,,Defiant,530,80,115,75,80,75,105,Wealther,Lv 36,,,,,"2 attack, 1 speed",,,,,,,,,,,"Flip Turn (evo), Flip Turn (1)","Focus Punch, Water Pulse, Toxic, Bulk Up, Hidden Power, Taunt, Ice Beam, Protect, Rain Dance, Frustration, Iron Tail, Brick Break, Double Team, Torment, Facade, Thief, Snatch, Cut, Surf, Strength, Rock Smash, Waterfall, Dive",,,,,,,,Emil Venge-Kvamme,,28
+6,warrallier,Warrallier,Water,Dark,Torrent,,Defiant,530,85,120,75,70,75,105,Wealther,Lv 36,,,,,"2 attack, 1 speed",,,,,,,,,,,"Flip Turn (evo), Flip Turn (1)","Focus Punch, Water Pulse, Toxic, Bulk Up, Hidden Power, Taunt, Ice Beam, Protect, Rain Dance, Frustration, Iron Tail, Brick Break, Double Team, Torment, Facade, Thief, Snatch, Cut, Surf, Strength, Rock Smash, Waterfall, Dive",,,,,,,,Emil Venge-Kvamme,,28
 7,torchbat,Torchbat,Fire,,Blaze,,No Guard,320,45,50,45,60,50,70,,,,,,,1 speed,,,,,,,,,,,"Scratch (1), Growl (1), Ember (6), Supersonic (10), Flame Charge (14)",,,,,,,,DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.,Emil & Arvind,,38
 8,heatbat,Heatbat,Fire,,Blaze,,No Guard,420,60,65,60,85,65,85,Torchbat,Lv 16,,,,,,,,,,,,,,,,"Air Slash (evo), Air Slash (1)",,,,,,,,,Emil & Arvind,,21
 9,blazterra,Blazterra,Fire,Flying,Blaze,,No Guard,530,70,80,75,108,75,122,Heatbat,Lv 36,,,,,3 speed,,,,,,,,,,,"Heat Wave (evo), Heat Wave (1)",,,,,,,,,Emil & Arvind,,24
@@ -55,7 +55,7 @@ until the edge shines like metal.
 50,beatld,Beatld,Bug,Psychic,Curious Medicine,Tangled Feet,Psychic Surge,420,55,55,55,145,55,55,,,,,,,3 sp_attack,,,,,,,,,,,,,,,,,,,,,,17
 51,fleuroom,Fleuroom,Poison,Fairy,Effect Spore,Aroma Veil,Magic Bounce,295,50,30,45,70,65,35,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,17
 52,fleuroom-utvikling,Sporeshade,Fairy,Poison,Effect Spore,Aroma Veil,Magic Bounce,460,67,53,60,130,80,70,Fleuroom,Shiny Stown,,,,,,,,,,,,,,,,Spore (1),,,,,,,,,Michael,,21
-53,giga-circuit,Giga-Circuit,Electric,,Motor Drive,Flare Boost,Transistor,500,92,60,60,145,51,92,,,,,,,3 sp_attack,,,,,,,,,,,,,,,,,,,,Ruben,,21
+53,giga-circuit,Giga-Circuit,Electric,,Motor Drive,Flare Boost,Transistor,500,92,60,60,140,56,92,,,,,,,3 sp_attack,,,,,,,,,,,,,,,,,,,,Ruben,,21
 54,hippore,Hippore,Steel,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 55,docuphant,Docuphant,Ground,Dragon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 56,razox,Razox,Fairy,Ice,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
@@ -69,7 +69,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 63,gentie,Gentie,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0
 64,yanklet,Yanklet,Steel,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 65,anjane,Anjane,Dark,Fairy,Tangling Hair,Mega Launcher,Misty Surge,320,30,37,71,100,67,15,,,Drooping Hair,,,,1 sp_attack,,,,,,,,,,,,,,,,"Anjane's heavy hair droops down to the ground. It absorbs the curse-filled emotions of others and hangs motionless. When angered, the hair stiffens and sways, unleashing bursts of cursed energy. It's said that when it sways its hair, the sound is like the curse a thousand spirits let loose in a single moan.",,,"From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: Lv. 24 -> Janenon; also on the card: Height 2'07"", weight 24.3 lbs; signature move Hex Burst (Fairy, Special, power 95, accuracy 100%, PP 15); role Trick Room Sweeper.",Emil Venge-Kvamme,,28
-66,janenon,Janenon,Dark,Fairy,Tangling Hair,Mega Launcher,Misty Surge,490,46,67,100,167,85,25,Anjane,Lv 42,Cursed Cannon,,,,3 sp_attack,,,,,,,,,,,"Dark Pulse (evo), Dark Pulse (1), Moonblast (45), Aura Sphere (48)",,,,,"It's said that when it fires its cannon, the sound is like the curse a thousand spirits let loose in a single scream.",,,"From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: ??? -> (Lv. 24) ??? -> (Lv. 48) Janenon; also on the card: Height 5'11"", weight 143 lbs; signature move Hex Burst; role Trick Room Sweeper.",Emil Venge-Kvamme,,31
+66,janenon,Janenon,Dark,Fairy,Tangling Hair,Mega Launcher,Misty Surge,485,41,67,100,167,85,25,Anjane,Lv 42,Cursed Cannon,,,,3 sp_attack,,,,,,,,,,,"Dark Pulse (evo), Dark Pulse (1), Moonblast (45), Aura Sphere (48)",,,,,"It's said that when it fires its cannon, the sound is like the curse a thousand spirits let loose in a single scream.",,,"From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: ??? -> (Lv. 24) ??? -> (Lv. 48) Janenon; also on the card: Height 5'11"", weight 143 lbs; signature move Hex Burst; role Trick Room Sweeper.",Emil Venge-Kvamme,,31
 67,saucerl,Saucerl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 68,abyssys,Abyssys,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 69,octopearl,Octopearl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
@@ -109,8 +109,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 103,obsidog,Obsidog,Dark,Rock,Moxie,Intimidate,Rough Skin,340,50,75,70,40,55,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,21
 104,obsidog-utvikling,Obsidog utvikling,Dark,Rock,Moxie,Intimidate,Rough Skin,555,80,128,110,72,90,75,Obsidog,Other: Level 40 At Night,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Emil,,17
 105,wisprake,Wisprake,Ghost,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,10
-106,limulk,Limulk,Fighting,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,7
-107,mortbulk,Mortbulk,Fighting,,Anger Point,Heckler,Mold Breaker,488,90,110,80,40,118,50,,,,,,,2 sp_defense,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,17
+106,limulk,Limulk,Fighting,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,10
+107,mortbulk,Mortbulk,Fighting,,Anger Point,Heckler,Mold Breaker,488,90,110,80,40,118,50,,,,,,,2 sp_defense,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
 108,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 109,eivomon,Eivlax,Steel,Dragon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Me,Hardcore badass,Eiv,,7
 110,oraclet,Oraclet,Psychic,,Anticipation,Forewarn,Magic Guard,355,50,55,60,80,70,40,,,,0.6,6.8,purple,1 sp_attack,,,,,,,,,,,,,,,,,,,,Johannes,,31
@@ -135,7 +135,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 129,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 130,grincho,Grincho,Normal,Ghost,Unnerve,Insomnia,Shadow Tag,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,14
 131,glac-p-e,Glacépée,Ice,Fighting,Long Reach,Parry Stance,Sniper,510,70,125,85,45,65,120,,,,,,,,,,,,,,,,,,,,,,,,,,,Emil,,17
-132,everdark,Everdark,Dark,Psychic,Pressure,Telepathy,Dark Aura,535,70,95,70,125,70,105,,,,,,,2 sp_attack,,,,,,,,,,,"Nasty Plot (1), Dark Pulse (1), Psychic (1)",,,,,,,,,Ivar,,24
+132,everdark,Everdark,Dark,Psychic,Pressure,Keen Eye,Dark Aura,535,70,95,70,125,70,105,,,,,,,2 sp_attack,,,,,,,,,,,"Nasty Plot (1), Dark Pulse (1), Psychic (1)",,,,,,,,,Ivar,,24
 133,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 134,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 135,riftbloom,Riftbloom,Ghost,Psychic,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,10
@@ -146,7 +146,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 140,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 141,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 142,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-143,sabertann,Sabertann,Dark,Water,Good as Gold,,,580,115,140,80,85,80,80,,,,,,,3 attack,,,,,,,,,,,,,,,,,"A sabertooth pirate pokemon, who roams the 7 seas.",,,Emil,Emil,24
+143,sabertann,Sabertann,Dark,Water,Good as Gold,,Supreme Overlord,580,110,140,80,90,80,80,,,,,,,3 attack,,,,,,,,,,,,,,,,,"A sabertooth pirate pokemon, who roams the 7 seas.",,,Emil,Emil & Arvind,24
 144,gravriel,Gravriel,Water,Ghost,Grim Neigh,,Sap Sipper,580,81,151,84,151,84,29,,,Ghost Ship,2.1,78.6,,"1 attack, 1 sp_attack",,,,,,,,,,,,,,,,"Long ago, Gravriel was the first mate of a cruel pirate. After betrayal, he was cast into the ocean, left to rot with his ship. Now, he haunts the seabed, seeking those who dare to steal from the deep.",,,"From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Sap Sipper (regular), Grim Neigh (hidden). Signature moves: Gabriel's Curse (Ghost, 85 BP, 100%), Haunted Slash (Ghost, 85 BP, 100%)..",Emil Venge-Kvamme,,34
 145,balleisk,Balleisk,Dragon,Bug,Catch Master,,Shield Dust,300,45,70,40,55,40,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
 146,greation,Greation,Dragon,Bug,Catch Master,,Shield Dust,422,62,90,60,70,60,80,Balleisk,Lv 30,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
