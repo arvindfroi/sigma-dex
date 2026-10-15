@@ -2210,5 +2210,33 @@
     "file": "assets/concept-art/balleisk/629.png",
     "caption": "pasted",
     "editor": null
+  },
+  {
+    "id": 630,
+    "species": "dahrugula",
+    "file": "assets/concept-art/dahrugula/630.png",
+    "caption": "[ds-front] sprite #54",
+    "editor": null
+  },
+  {
+    "id": 631,
+    "species": "dahrugula",
+    "file": "assets/concept-art/dahrugula/631.png",
+    "caption": "[ds-back] sprite #54",
+    "editor": null
+  },
+  {
+    "id": 632,
+    "species": "dahrugula",
+    "file": "assets/concept-art/dahrugula/632.png",
+    "caption": "[ds-icon] sprite #54",
+    "editor": null
+  },
+  {
+    "id": 633,
+    "species": "dahrugula",
+    "file": "assets/concept-art/dahrugula/633.png",
+    "caption": "[ds-follower] sprite #54",
+    "editor": null
   }
 ]
