@@ -52,12 +52,23 @@ def post(base, key, fields, files=None):
         body += ("--%s\r\nContent-Disposition: form-data; name=\"%s\"; filename=\"%s.png\"\r\nContent-Type: image/png\r\n\r\n" % (boundary, name, name)).encode()
         body += Path(path).read_bytes() + b"\r\n"
     body += ("--%s--\r\n" % boundary).encode()
-    request = urllib.request.Request(base + "/functions/v1/sprite-worker", body, {"Content-Type": "multipart/form-data; boundary=" + boundary})
-    try:
-        with urllib.request.urlopen(request, timeout=120) as response:
-            return json.loads(response.read())
-    except urllib.error.HTTPError as error:
-        raise RuntimeError("the server said %d: %s" % (error.code, error.read().decode("utf-8", "replace")[:300]))
+    # A passing hiccup on the server (a gateway timeout, 502/503/504, a dropped connection) is tried again, up to 4 times
+    # over about a minute: one of them failed a whole job of backs on 15 Oct. The calls are safe to repeat (try_start
+    # reuses the row of the same try).
+    for attempt in range(5):
+        request = urllib.request.Request(base + "/functions/v1/sprite-worker", body, {"Content-Type": "multipart/form-data; boundary=" + boundary})
+        try:
+            with urllib.request.urlopen(request, timeout=120) as response:
+                return json.loads(response.read())
+        except urllib.error.HTTPError as error:
+            text = error.read().decode("utf-8", "replace")[:300]
+            if attempt < 4 and (error.code in (502, 503, 504) or "Gateway Timeout" in text or "timeout" in text.lower()):
+                time.sleep(4 * (attempt + 1)); continue
+            raise RuntimeError("the server said %d: %s" % (error.code, text))
+        except (urllib.error.URLError, TimeoutError, ConnectionError):
+            if attempt < 4:
+                time.sleep(4 * (attempt + 1)); continue
+            raise
 
 
 def download(base, path, target):

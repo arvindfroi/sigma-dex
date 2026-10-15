@@ -2112,9 +2112,9 @@ function spriteStudio(s, startStep) {
         h("div", {class: "hint"}, "Tap one of each. The walking sprite is drawn as soon as you have picked a back."), eta,
         !backs.length && !icons.length && !busy ? h("button", {type: "button", class: "primary", onclick: () => goOn(f)}, "DRAW BACKS AND ICONS") : null,
         h("h4", {}, "BACK", newestPick(backs) ? h("span", {class: "tick"}, " \u2713") : null), tilesFor("back", backs),
-        !drawing("back", f) && backs.length ? h("div", {style: "margin-top:6px"}, more("DRAW " + howMany + " MORE BACKS", "back", f)) : null,
+        !drawing("back", f) && (backs.length || icons.length) ? h("div", {style: "margin-top:6px"}, more("DRAW " + howMany + (backs.length ? " MORE BACKS" : " BACKS"), "back", f)) : null,
         h("h4", {}, "ICON", newestPick(icons) ? h("span", {class: "tick"}, " \u2713") : null), tilesFor("icon", icons),
-        !drawing("icon", f) && icons.length ? h("div", {style: "margin-top:6px"}, more("DRAW " + howMany + " MORE ICONS", "icon", f)) : null,
+        !drawing("icon", f) && (icons.length || backs.length) ? h("div", {style: "margin-top:6px"}, more("DRAW " + howMany + (icons.length ? " MORE ICONS" : " ICONS"), "icon", f)) : null,
         h("div", {style: "margin-top:12px"}, bodyBox(false))];
     } else if (ph === "walk") {
       const walks = madeFrom("follower", f), back = newestPick(madeFrom("back", f));

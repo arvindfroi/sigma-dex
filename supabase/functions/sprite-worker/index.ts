@@ -61,11 +61,12 @@ Deno.serve(async (req: Request) => {
       const n = Number(form.get("n"));
       if (!Number.isInteger(n) || n < 1 || n > 16) return reply(400, { message: "Which try?" });
       const expected = Number(form.get("expected_seconds"));
-      const { data: row, error } = await supabase.from("sprite_tries").insert({
+      // upsert: the worker may send the same try_start again after a gateway timeout
+      const { data: row, error } = await supabase.from("sprite_tries").upsert({
         job_id: jobId, species_id: job.species_id, stage: job.stage, n, parent_try: job.from_try,
         seed: Number(form.get("seed")) || null, recipe: String(form.get("recipe") ?? "").slice(0, 60) || null,
         expected_seconds: Number.isFinite(expected) && expected > 0 ? expected : null,
-      }).select("id").single();
+      }, { onConflict: "job_id,n" }).select("id").single();
       if (error) return reply(500, { message: "The try could not be registered: " + error.message });
       return reply(200, row);
     }
