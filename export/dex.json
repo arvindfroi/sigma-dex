@@ -10397,8 +10397,15 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Gravirel’s Curse"
+          }
+        ],
+        "tm_hm": [
+          "Toxic"
+        ],
         "tutor": [],
         "egg": []
       },

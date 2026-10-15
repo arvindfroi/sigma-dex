@@ -1,4 +1,15 @@
 # New moves invented for this project (moves that do not exist in the game yet,
 # see data/engine/expansion.yaml for the 846 that do). Edit them on the website.
 # Each one has to be programmed into the game; 'implemented: true' marks the ones that are.
-moves: []
+moves:
+- id: gravirel-s-curse
+  name: Gravirel’s Curse
+  type: Ghost
+  category: special
+  power: 100
+  accuracy: 100
+  pp: 10
+  target: one opponent
+  effect: This move is super effective on Dark types.
+  similar_to: Freeze-Dry
+  designer: Emil
