@@ -1372,6 +1372,16 @@ v6 until a back v2 step is picked (`BACK_KLEIN`); then the back job first draws 
 - **Check before use** (`v6cfg\klein_comfy_check.py`, `results\klein_comfy\`): ComfyUI's graph on the training
   samples' own inputs and texts, 2 seeds, next to ai-toolkit's sample at the same step (follower 2000, icon 2500), and
   back v2 at steps 1000-3000 x 3 seeds per mon for Arvind's pick. Queued to run when back v2's training ends.
+- **Result (18:33): ComfyUI draws what ai-toolkit drew.** Follower 2000 and icon 2500: the same style, grid and
+  creature as the training samples on all five mons (Obsidog a dog on four legs, Wispole with its tail fin; Metagross
+  still the weakest icon, as in training). ~25-35 s for two pictures with the model loaded. The studio worker was
+  started again on main (5816aa2) with them.
+- **Back v2, steps side by side** (my review, Arvind picks): 1000-1500 often turn the face to the side (a three-quarter
+  front rather than a back); **2000** good on Obsidog, Wispole, Cyndaquil and Haunter but Metagross keeps the front's X
+  in 2 of 3; **2500** the X is gone on every seed, Cyndaquil and Wispole close to the real framing, Obsidog sometimes
+  shows its face; **3000** the most "from behind" (Obsidog's horns and spiked collar on all seeds) but often too big
+  and cut too much (Wispole and Haunter fill the frame, Cyndaquil seed 2 only the flame). My pick: 2500.
+  **Arvind: "ja ta 2500 du"** - back v2 step 2500 is the studio's back (`approved\\`, sha256 C8BC5E05...2B128DB5).
 
 ## Next ones (later)
 

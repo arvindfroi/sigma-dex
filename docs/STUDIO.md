@@ -31,8 +31,7 @@ is stressful". v4 has the site's two screens:
 
 What draws what (`scripts/studio_tries.py` on the PC): the cut-out with base Qwen-Image, the front with front v7, the
 icon with **Klein icon v1 (step 2500)**, the walking sprite with **Klein follower v3 (step 2000)** from the picked front
-and back, the back with back v6 until back v2 on Klein is chosen (`BACK_KLEIN`; it also draws the art from behind first,
-as image 3). Each result gets its kind's colour rule (`scripts/sprite_colours.py`). Database: migration
+and back, the back with **Klein back v2 (step 2500)**, which first draws the art from behind (base Qwen) as its image 3. Each result gets its kind's colour rule (`scripts/sprite_colours.py`). Database: migration
 `supabase/migrations/2026-10-15_studio_v4.sql` (stage `follower`, `sprite_jobs.with_try`, `sprite_candidates.follower`,
 `[ds-follower]` pictures -> `assets/sprites-ds/<pokemon>/follower.png`, 128x64). `sprite-draw` also takes a drawing on
 the sprite in use (`version` + `view`) and saves it as a new try.

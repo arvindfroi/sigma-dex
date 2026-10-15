@@ -9,8 +9,8 @@ drawing, with the time it should take), drawn, read as pixels and handed in with
     icon   the menu icon (32x32): Klein icon v1 at step 2500 (frame 1 of its two), in a HeartGold icon palette
     follower  the overworld walking sheet (128x64: up, down, left, right x 2 steps): Klein follower v3 at step 2000, from
            the picked front and back, halfway to the front's colours
-    back   on Klein back v2 (image 3 = a rear-view drawing of the art) once its step is chosen (BACK_KLEIN), on the front's
-           colours; until then back v6
+    back   the DS back (80x80): Klein back v2 at step 2500, image 3 = the art drawn from behind first (base Qwen), on the
+           front's colours
 
 Klein = FLUX.2 Klein base 4B with our LoRAs (docs/LORAS.md: "Follower, thought again", "Icon on Klein", "Back on Klein"),
 drawn as ai-toolkit trained and sampled them (comfy.klein). Their text is the training captions' text: the dex words plus,
@@ -41,11 +41,11 @@ BACK_LORAS = ["bv6_1800.safetensors", "bv6_2100.safetensors", "bv6_2400.safetens
 ICON_LORA = "pkmn_icon_edit_v2.safetensors"
 UNFAKE = os.environ.get("UNFAKE_EXE", r"D:\LocalAI\tools\pxvenv\Scripts\unfake.exe")
 TIMINGS = Path(os.environ.get("SIGMA_TIMINGS_FILE", dexlib.ROOT / ".studio-timings.json"))
-# Klein LoRAs approved by Arvind (15 Oct): follower v3 step 2000, icon v1 step 2500. BACK_KLEIN = back v2 once a step is
-# chosen (empty: the back stays on back v6). In ComfyUI\models\loras\ on the drawing PC only.
+# Klein LoRAs approved by Arvind (15 Oct): follower v3 step 2000, icon v1 step 2500, back v2 step 2500 ("ja ta 2500 du";
+# sha256 C8BC5E05...2B128DB5). In ComfyUI\models\loras\ on the drawing PC only.
 FOLLOWER_KLEIN = "pkmn_follower_klein_v3_000002000.safetensors"
 ICON_KLEIN = "pkmn_icon_klein_v1_000002500.safetensors"
-BACK_KLEIN = ""
+BACK_KLEIN = "pkmn_back_klein_v2_000002500.safetensors"
 DEFAULT_SECONDS = {"art": 75, "front": 100, "back": 55, "icon:pc": 8, "icon:canvas": 8, "icon": 30, "follower": 40, "back:klein": 30,
                    "rear": 70}   # measured on the Legion, 14 Oct (the Klein ones: a first guess until measured)
 LINE = (175, 175, 175, 255)
