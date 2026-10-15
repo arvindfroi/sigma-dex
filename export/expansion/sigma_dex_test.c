@@ -148,11 +148,11 @@ SINGLE_BATTLE_TEST("Sigma dex: Wealther can use its first move in battle")
 TEST("Sigma dex: Warrallier has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WARRALLIER];
-    EXPECT_EQ(info->baseHP, 80);
-    EXPECT_EQ(info->baseAttack, 115);
+    EXPECT_EQ(info->baseHP, 85);
+    EXPECT_EQ(info->baseAttack, 120);
     EXPECT_EQ(info->baseDefense, 75);
     EXPECT_EQ(info->baseSpeed, 105);
-    EXPECT_EQ(info->baseSpAttack, 80);
+    EXPECT_EQ(info->baseSpAttack, 70);
     EXPECT_EQ(info->baseSpDefense, 75);
     EXPECT_EQ(info->types[0], TYPE_WATER);
     EXPECT_EQ(info->types[1], TYPE_DARK);
@@ -233,10 +233,10 @@ TEST("Sigma dex: Blazterra has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BLAZTERRA];
     EXPECT_EQ(info->baseHP, 70);
-    EXPECT_EQ(info->baseAttack, 85);
+    EXPECT_EQ(info->baseAttack, 80);
     EXPECT_EQ(info->baseDefense, 75);
-    EXPECT_EQ(info->baseSpeed, 120);
-    EXPECT_EQ(info->baseSpAttack, 105);
+    EXPECT_EQ(info->baseSpeed, 122);
+    EXPECT_EQ(info->baseSpAttack, 108);
     EXPECT_EQ(info->baseSpDefense, 75);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
     EXPECT_EQ(info->types[1], TYPE_FLYING);
@@ -282,6 +282,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Florantula can use its first move in battle")
         TURN { MOVE(player, MOVE_STICKY_WEB); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STICKY_WEB, player);
+    }
+}
+
+TEST("Sigma dex: Mooceon has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_MOOCEON];
+    EXPECT_EQ(info->baseHP, 155);
+    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseDefense, 75);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 70);
+    EXPECT_EQ(info->baseSpDefense, 85);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_WATER);
+    EXPECT_EQ(info->abilities[0], ABILITY_RAIN_DISH);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FLIP_TURN);
+    EXPECT_EQ(GetSpeciesName(SPECIES_MOOCEON)[0], CHAR_M);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Mooceon can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_MOOCEON) { Moves(MOVE_FLIP_TURN); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_FLIP_TURN); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_FLIP_TURN, player);
     }
 }
 
@@ -352,7 +380,7 @@ TEST("Sigma dex: Galfrogtom has the data from its species file")
     EXPECT_EQ(info->baseSpDefense, 49);
     EXPECT_EQ(info->types[0], TYPE_GHOST);
     EXPECT_EQ(info->types[1], TYPE_ELECTRIC);
-    EXPECT_EQ(info->abilities[0], ABILITY_CLEAR_BODY);
+    EXPECT_EQ(info->abilities[0], ABILITY_CURSED_BODY);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_DISCHARGE);
     EXPECT_EQ(GetSpeciesName(SPECIES_GALFROGTOM)[0], CHAR_G);
 }
@@ -376,8 +404,8 @@ TEST("Sigma dex: Toxiren has the data from its species file")
     EXPECT_EQ(info->baseAttack, 52);
     EXPECT_EQ(info->baseDefense, 69);
     EXPECT_EQ(info->baseSpeed, 35);
-    EXPECT_EQ(info->baseSpAttack, 110);
-    EXPECT_EQ(info->baseSpDefense, 140);
+    EXPECT_EQ(info->baseSpAttack, 120);
+    EXPECT_EQ(info->baseSpDefense, 130);
     EXPECT_EQ(info->types[0], TYPE_POISON);
     EXPECT_EQ(info->types[1], TYPE_FAIRY);
     EXPECT_EQ(info->abilities[0], ABILITY_LIQUID_OOZE);
@@ -568,7 +596,7 @@ SINGLE_BATTLE_TEST("Sigma dex: Sporeshade can use its first move in battle")
 TEST("Sigma dex: Janenon has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_JANENON];
-    EXPECT_EQ(info->baseHP, 46);
+    EXPECT_EQ(info->baseHP, 41);
     EXPECT_EQ(info->baseAttack, 67);
     EXPECT_EQ(info->baseDefense, 100);
     EXPECT_EQ(info->baseSpeed, 25);
@@ -621,6 +649,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Blylem can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Snownin has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SNOWNIN];
+    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseAttack, 95);
+    EXPECT_EQ(info->baseDefense, 40);
+    EXPECT_EQ(info->baseSpeed, 125);
+    EXPECT_EQ(info->baseSpAttack, 135);
+    EXPECT_EQ(info->baseSpDefense, 40);
+    EXPECT_EQ(info->types[0], TYPE_ICE);
+    EXPECT_EQ(info->types[1], TYPE_ICE);
+    EXPECT_EQ(info->abilities[0], ABILITY_LEVITATE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_AURORA_VEIL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_SNOWNIN)[0], CHAR_S);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Snownin can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_SNOWNIN) { Moves(MOVE_AURORA_VEIL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_AURORA_VEIL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_AURORA_VEIL, player);
+    }
+}
+
 TEST("Sigma dex: McSkiirtle has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_MCSKIIRTLE];
@@ -646,6 +702,34 @@ SINGLE_BATTLE_TEST("Sigma dex: McSkiirtle can use its first move in battle")
         TURN { MOVE(player, MOVE_SHELL_SMASH); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SHELL_SMASH, player);
+    }
+}
+
+TEST("Sigma dex: Everdark has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_EVERDARK];
+    EXPECT_EQ(info->baseHP, 70);
+    EXPECT_EQ(info->baseAttack, 95);
+    EXPECT_EQ(info->baseDefense, 70);
+    EXPECT_EQ(info->baseSpeed, 105);
+    EXPECT_EQ(info->baseSpAttack, 125);
+    EXPECT_EQ(info->baseSpDefense, 70);
+    EXPECT_EQ(info->types[0], TYPE_DARK);
+    EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_PRESSURE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_NASTY_PLOT);
+    EXPECT_EQ(GetSpeciesName(SPECIES_EVERDARK)[0], CHAR_E);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Everdark can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_EVERDARK) { Moves(MOVE_NASTY_PLOT); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_NASTY_PLOT); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_NASTY_PLOT, player);
     }
 }
 

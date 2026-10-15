@@ -17,9 +17,9 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
-  hidden:                # optional
+  primary: Cursed Body
+  secondary: Weak Armor  # optional
+  hidden: Perish Body    # optional
 
 base_stats:              # each 1-255
   hp:
@@ -74,7 +74,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/tortoplasm.png
+  concept_art: "assets/concept-art/tortoplasm/521.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

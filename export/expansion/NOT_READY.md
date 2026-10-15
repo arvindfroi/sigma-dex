@@ -2,9 +2,9 @@
 
 # Game export status
 
-**23** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Florantula, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Sporeshade, Janenon, Blylem, McSkiirtle
+**26** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Florantula, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle, Everdark
 
-## Not exported yet (92)
+## Not exported yet (97)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -12,12 +12,11 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Harpie** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Smeatherace** needs: a level-up move that exists in the game
 - **Bolthook** needs: a level-up move that exists in the game
-- **Wump** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Twemp** needs: base stats, a level-up move that exists in the game
+- **Wump** needs: a level-up move that exists in the game
+- **Twemp** needs: a level-up move that exists in the game
 - **Shadeem** needs: a level-up move that exists in the game
 - **Shadrove** needs: a level-up move that exists in the game
 - **Cowfin** needs: base stats, a level-up move that exists in the game
-- **Mooceon** needs: a level-up move that exists in the game
 - **Sigmanian Sudowoodo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
 - **Icy Freeze** needs: a level-up move that exists in the game
 - **Freezrick** needs: a level-up move that exists in the game
@@ -26,7 +25,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Wispole** needs: a level-up move that exists in the game
 - **Croakble** needs: a level-up move that exists in the game
 - **Sigmanian Eiscue** needs: a level-up move that exists in the game, a name of at most 12 letters
-- **Rainbro** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
+- **Rainbro** needs: a valid type, an ability that exists in the game, a level-up move that exists in the game
 - **Autuman** needs: a level-up move that exists in the game
 - **Bugmight** needs: a level-up move that exists in the game
 - **Nukfae** needs: a level-up move that exists in the game
@@ -39,7 +38,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Crappy Meal** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Beatld** needs: a level-up move that exists in the game
 - **Fleuroom** needs: a level-up move that exists in the game
-- **Giga-Circuit** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Giga-Circuit** needs: a level-up move that exists in the game
 - **Hippore** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Docuphant** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Razox** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
@@ -47,8 +46,8 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Unknighted** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Hairyen** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Panzerien** needs: an ability that exists in the game, a level-up move that exists in the game
-- **Nucloid** needs: an ability that exists in the game, a level-up move that exists in the game
-- **Nuclobyl** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Nucloid** needs: a level-up move that exists in the game
+- **Nuclobyl** needs: a level-up move that exists in the game
 - **Gentie** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
 - **Yanklet** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Anjane** needs: a level-up move that exists in the game
@@ -72,31 +71,37 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Verrith** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Sigmanian Komala** needs: an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
 - **Dahrugula** needs: an ability that exists in the game
-- **Vires** needs: base stats, a level-up move that exists in the game
+- **Vires** needs: a level-up move that exists in the game
 - **Flurina** needs: a level-up move that exists in the game
 - **Dragem** needs: a level-up move that exists in the game
 - **Quimsy** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Skiirtle** needs: base stats, a level-up move that exists in the game
-- **ambuger** needs: base stats, a level-up move that exists in the game
+- **ambuger** needs: a level-up move that exists in the game
 - **Ambrr** needs: a level-up move that exists in the game
-- **Tortoplasm** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Tortoplasm** needs: base stats, a level-up move that exists in the game
+- **Tortoplasm utviklet** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Slothbaby** needs: a level-up move that exists in the game
 - **Blazlothku** needs: an ability that exists in the game
+- **Terratyson** needs: a level-up move that exists in the game
 - **Obsidog** needs: a level-up move that exists in the game
 - **Obsidog utvikling** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Wisprake** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Limulk** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Mortbulk** needs: a level-up move that exists in the game
 - **Eivlax** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Oraclet** needs: a level-up move that exists in the game
 - **Oraclaw** needs: a level-up move that exists in the game
 - **Aluminimonk** needs: a level-up move that exists in the game
 - **Aluminimonk Utviklin** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Grincho** needs: base stats, a level-up move that exists in the game
+- **Glacépée** needs: a level-up move that exists in the game
 - **Riftbloom** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Sabertann** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Sabertann** needs: a level-up move that exists in the game
 - **Gravriel** needs: a level-up move that exists in the game
 - **Balleisk** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Greation** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Ultragon** needs: an ability that exists in the game
+- **Rockedeer** needs: a level-up move that exists in the game
 - **Bergflabbser** needs: a level-up move that exists in the game
 - **Maagamad** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Sandrema** needs: an ability that exists in the game, a level-up move that exists in the game

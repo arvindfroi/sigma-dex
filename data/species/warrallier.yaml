@@ -22,10 +22,10 @@ abilities:
   hidden: Defiant        # optional
 
 base_stats:              # each 1-255
-  hp: 80
-  attack: 115
+  hp: 85
+  attack: 120
   defense: 75
-  sp_attack: 80
+  sp_attack: 70
   sp_defense: 75
   speed: 105
 

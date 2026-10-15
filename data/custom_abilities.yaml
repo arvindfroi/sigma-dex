@@ -29,6 +29,36 @@ abilities:
     like Aerial Ace or Swift, and moves with perfect accuracy are not affected. Fog of War can only trigger
     once per switch-in.
   designer: Casper & Emil
+- id: trash-talker
+  name: Heckler
+  description: On switch-in, lower the Special Attack of all adjacent opponents
+  effect: When this Pokémon enters battle, it hurls insults at the opposing side, lowering the Special
+    Attack of every adjacent opponent by one stage. It works exactly like Intimidate, but for Special
+    Attack. It triggers once per switch-in. Pokémon with Clear Body, White Smoke, Full Metal Body, Hyper
+    Cutter-style protections against stat drops, Mirror Armor, Oblivious, Own Tempo, Inner Focus, and
+    Scrappy-style immunity to Intimidate-like effects are not affected, and Contrary, Defiant, Competitive,
+    and Guard Dog react as they would to any stat drop. Substitute does not block it.
+  designer: Emil
+- id: parry-stance
+  name: Parry Stance
+  description: The first hit the user takes each battle is parried, dealing no damage
+  effect: When this Pokémon enters battle, it holds a parry stance. The first damaging move that would
+    hit it is deflected completely, so it takes no damage. The stance then breaks and the Pokémon takes
+    1/8 of its max HP in recoil from the shock. Once broken, Parry Stance stays down for the rest of the
+    battle, even if the Pokémon switches out and back in. Like Disguise, it is bypassed by moves that
+    ignore abilities (Mold Breaker and similar), and it does not block status moves, Sheer Cold-style
+    effects that bypass it, or indirect damage like weather, poison, or hazards. Against multi-hit moves,
+    only the first hit is parried.
+  designer: Emil
+- id: punchable-face
+  name: Punchable Face
+  description: On switch-in, taunts every other Pokémon on the field for 2 turns.
+  effect: 'When this Pokémon enters battle, its smug expression provokes every other Pokémon on the field,
+    opponents and its own allies alike. Affected Pokémon are Taunted for 2 turns and can only use damaging
+    moves. The holder is not affected and can use status moves normally. The effect otherwise works like
+    the move Taunt: switching a Pokémon out clears it, and Pokémon with Oblivious, Aroma Veil, or Own
+    Tempo are immune. It only triggers once per switch-in.'
+  designer: Emil
 - id: sloth-combat
   name: Sloth Combat
   description: Doubles the user's Attack stat while it is asleep.

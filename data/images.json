@@ -1750,27 +1750,6 @@
     "editor": null
   },
   {
-    "id": 472,
-    "species": "sabertann",
-    "file": "assets/concept-art/sabertann/472.webp",
-    "caption": "From Discord #official-sigma-pokedex, posted by SLOTHBABY on 2026-05-02. Shows: Sabertann (pirate lion).",
-    "editor": "Discord sweep"
-  },
-  {
-    "id": 473,
-    "species": "sabertann",
-    "file": "assets/concept-art/sabertann/473.webp",
-    "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-02. Shows: pirate dog ship.",
-    "editor": "Discord sweep"
-  },
-  {
-    "id": 479,
-    "species": "sabertann",
-    "file": "assets/concept-art/sabertann/479.webp",
-    "caption": "From Discord #official-sigma-pokedex, posted by SLOTHBABY on 2026-05-02. Shows: Sabertann.",
-    "editor": "Discord sweep"
-  },
-  {
     "id": 480,
     "species": "balleisk",
     "file": "assets/concept-art/balleisk/480.webp",
@@ -1796,6 +1775,20 @@
     "species": "flurina",
     "file": "assets/concept-art/flurina/517.webp",
     "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-07. Shows: Vires; Flurina.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 521,
+    "species": "tortoplasm",
+    "file": "assets/concept-art/tortoplasm/521.webp",
+    "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-07.",
+    "editor": "Discord sweep"
+  },
+  {
+    "id": 522,
+    "species": "tortoplasm",
+    "file": "assets/concept-art/tortoplasm/522.webp",
+    "caption": "From Discord #official-sigma-pokedex, posted by BUST on 2026-05-07.",
     "editor": "Discord sweep"
   },
   {
@@ -2131,6 +2124,83 @@
     "id": 617,
     "species": "verrith",
     "file": "assets/concept-art/verrith/617.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 618,
+    "species": "gaiafinn",
+    "file": "assets/concept-art/gaiafinn/618.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 619,
+    "species": "gaiafinn",
+    "file": "assets/concept-art/gaiafinn/619.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 620,
+    "species": "gaiafinn",
+    "file": "assets/concept-art/gaiafinn/620.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 621,
+    "species": "snownin",
+    "file": "assets/concept-art/snownin/621.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 622,
+    "species": "glac-p-e",
+    "file": "assets/concept-art/glac-p-e/622.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 623,
+    "species": "autuman",
+    "file": "assets/concept-art/autuman/623.png",
+    "caption": "shiny inspirert av piccolo",
+    "editor": null
+  },
+  {
+    "id": 624,
+    "species": "sabertann",
+    "file": "assets/concept-art/sabertann/624.webp",
+    "caption": "new design",
+    "editor": null
+  },
+  {
+    "id": 625,
+    "species": "rockedeer",
+    "file": "assets/concept-art/rockedeer/625.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 626,
+    "species": "everdark",
+    "file": "assets/concept-art/everdark/626.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 627,
+    "species": "mortbulk",
+    "file": "assets/concept-art/mortbulk/627.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 628,
+    "species": "limulk",
+    "file": "assets/concept-art/limulk/628.png",
     "caption": null,
     "editor": null
   }

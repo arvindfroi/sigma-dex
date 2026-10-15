@@ -96,6 +96,11 @@ static const u16 sFlorantulaTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sMooceonTeachableLearnset[] = {
+    MOVE_FOCUS_PUNCH,
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sLapperTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
@@ -144,7 +149,15 @@ static const u16 sBlylemTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sSnowninTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sMcSkiirtleTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sEverdarkTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
