@@ -4,51 +4,52 @@
 
 ## How to contribute
 
+The site looks like the DS games: every page has a **top screen** (what you look at) and a
+**bottom screen** (what you do). The menu tabs are **POKEDEX**, **REQUESTS**, **SPRITES**,
+**PROGRESS** and **MORE**. **AUTO / DAY / NIGHT** at the top follows the device's light or dark
+setting, or fixes one (remembered on the device).
+
 1. Write your name at the top of the page once; the site remembers it on your device.
-2. Tap a Pokemon. Its page has tabs: **Overview**, **Moves**, **Sprite** (the sprite studio,
-   see [STUDIO.md](STUDIO.md)), **Pictures** (concept art) and **More details**.
-3. Press **Edit**. Only "The basics" is open; the other sections (Pokedex page, abilities and
-   stats, moves, evolution, catching and breeding, where it is found, design notes) open when
-   tapped and show how much of them is filled in. Fill in what you know and **Save**.
-4. **+ Add a Pokemon** (the last card) adds a new one on the first open number; the number can be
+2. Point at a Pokemon in the list: the top screen shows it (sprite or art, types, Pokedex entry).
+   Tap it to open its page.
+3. A Pokemon's page is two screens. The top screen shows it on a platform (FRONT / BACK / ICON /
+   ART when it has them) and a dialog box. The bottom screen has coloured tabs: **INFO**,
+   **SKILLS** (abilities, base stats, damage taken), **MOVES**, **ART** (concept art),
+   **SPRITES** (the sprite studio, see [STUDIO.md](STUDIO.md)) and **MORE**. Pointing at an
+   ability (or tapping it) shows what it does in the dialog box.
+4. Press **EDIT**. The top screen stays and follows the changes; the bottom screen becomes the
+   form with the tabs BASICS, SKILLS, MOVES, POKEDEX and MORE. Base stats have a bar to drag, a
+   number to type and arrows for steps of 5, with the total and what it compares to. The box at the
+   bottom lists what changed ("Save the changes? ATTACK 65->80") and asks **YES** / **NO**.
+5. **+ ADD A POKEMON** (under the list) adds a new one on the first open number; the number can be
    changed in the form. Open slots are listed under the filter "Open slots".
 
-Do not want to work out moves and numbers? Open **Let Claude fill in the rest** in the edit form,
-tick the box and describe how it should play. See [CLAUDE_FILL.md](CLAUDE_FILL.md).
+Do not want to work out moves and numbers? In the edit form's BASICS tab, tick **Let Claude fill
+in what is missing** and describe how it should play. See [CLAUDE_FILL.md](CLAUDE_FILL.md).
 
-New moves and abilities, the type balance and changing dex numbers are under **More**.
+New moves and abilities, the type balance, Lost and found and changing dex numbers are under
+**MORE**.
 
-## Changing the numbers (moving Pokemon, adding a slot between two)
+## Progress and requests
 
-Open **More > Change dex numbers**. The page shows every slot as a list.
+**PROGRESS** shows how far the dex has come: designed, playable and sprites, eight badges (goals
+for the whole group: first 25, half the dex, the full dex, 50 playable, all playable, 10 sprites,
+all have stats, type balance), the types the dex needs most, the Pokemon that miss only one thing
+before they are playable, and the open slots. Everything is counted from the dex itself.
 
-- **Move a Pokemon:** type the number it should get in its row and press **Move**. If that slot
-  is empty it simply goes there. If another Pokemon sits there, the Pokemon in between move one
-  number up or down to make room, so numbers never repeat. **Up** and **Down** swap a Pokemon
-  with its neighbour. On a computer you can also drag a Pokemon onto another row.
-- **Add an empty slot between two Pokemon:** press **Add empty slot here** on the row that
-  should come after the new slot. That Pokemon and everything after it move down one number.
-  This needs the last slot (#151) to be empty; otherwise the page says so.
-- **Close a gap:** press **Remove empty slot** on an empty row; everything after it moves up one.
-- Changes are only a preview until you write your name and press **Save new order** (one save for
-  all your steps; **Undo last step** and **Cancel** are available before that). The import then
-  applies all of it or none of it, within about 15 minutes. Only the numbers change; nothing else
-  about a Pokemon is touched, and evolutions and starters keep working (they use names, not numbers).
-- If someone else changes numbers at the same time, steps are applied in the order they were saved.
-  Check the grid after saving; a step that no longer fits is listed in the box at the top.
-- After a reorder the Google Sheet and Google Doc still show the old numbers, and that is fine: both are
-  matched by the Pokemon's name, not its number, so an edit in an old row or line still lands on the right
-  Pokemon, and numbers typed there are ignored. Pasting the new `export/sheet.csv` over the sheet (and
-  renumbering the doc list) is optional tidying. What cannot be done there is adding a Pokemon on a number
-  that is taken now, or renaming one that was moved - those are reported in the box at the top; do them here.
-  The import remembers each sheet row and doc line per Pokemon (`data/sheet_snapshot.json`,
-  `data/doc_snapshot.json`, keyed by species id), so a reorder does not make every row look changed.
+**REQUESTS** is a board with four columns: WISHES, THE GAME NEEDS, BEING MADE and DONE. Anyone can
+add a wish (+ ADD A REQUEST) and move a card along with its arrows. The cards the team writes
+(what the story needs, from [STORY_ROLES.md](STORY_ROLES.md)) are in `data/requests.yaml`; cards
+added or moved on the website are rows of kind `request` in `species_edits` (the newest row of a
+card wins) and stay in the database: `scripts/import_web.py` skips them. Saving a card needs the
+migration `supabase/migrations/2026-10-15_requests.sql`.
 
 ## Pictures
 
-Open a Pokemon and its **Pictures** tab. Choose one or more pictures - concept art, sketches -
-add a caption if you like, and press **Upload**. PNG, JPG, WEBP and GIF work. Big pictures are
-shrunk automatically. Sprites are made in the **Sprite** tab, not uploaded here.
+Open a Pokemon. Copy a picture and **paste it anywhere on its page** (Ctrl+V, Cmd+V on a Mac), or
+drag it onto the box in the **ART** tab, or choose files there and press **Upload** (a caption is
+optional). PNG, JPG, WEBP and GIF work. Big pictures are shrunk automatically. Sprites are made in
+the **SPRITES** tab, not uploaded here.
 
 The approved DS sprite (or else the first picture) is shown on the Pokemon's card and at the top of its page. Any image can be
 removed again with its **Remove** button. Only upload art made by us.

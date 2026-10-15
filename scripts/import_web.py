@@ -176,6 +176,8 @@ def main():
             except Exception as error:
                 report.append({"id": row.get("id"), "species": row["kind"] + ":" + sid, "row": label, "problem": str(error)})
             continue
+        if row.get("kind") == "request":
+            continue   # a card on the website's request board: it lives in the database only
         if row.get("kind") == "reorder":
             # Several dex numbers change at once: all of it is applied, or none of it.
             label = "reorder (saved by %s)" % editor

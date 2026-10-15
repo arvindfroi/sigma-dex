@@ -162,9 +162,12 @@ def cells_median(path, n=32):
 
 
 def unfake(path, out):
-    """unfake (the pixel-art reader) on the front LoRA's 1280 picture -> 80x80; the cell middles when it is not installed."""
+    """unfake (the pixel-art reader) on the front LoRA's 1280 picture -> 80x80; the cell middles when it is not installed.
+    At most 15 colours, as a DS sprite (2026-10-15): --auto-colors gave dark designs 3-4 colours (Obsidog lost its eyes'
+    shine, the horns' highlights and the body's shading); real HeartGold fronts have 13 (median), and the front's palette
+    is the one the back and the follower take their colours from."""
     if Path(UNFAKE).exists() and not out.exists():
-        subprocess.run([UNFAKE, str(path), "-o", str(out), "-s", "16", "-m", "dominant", "--auto-colors", "--cleanup", "morph,jaggy"], capture_output=True)
+        subprocess.run([UNFAKE, str(path), "-o", str(out), "-s", "16", "-m", "dominant", "-c", "15", "--cleanup", "morph,jaggy"], capture_output=True)
     if not out.exists():
         return pixel_render.drop_specks(cells(path, 16, 80, 80))
     a = np.array(Image.open(out).convert("RGBA"))

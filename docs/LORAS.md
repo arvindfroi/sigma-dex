@@ -1110,12 +1110,252 @@ format (15 colours, one palette for front and back, the icon in the game's icon 
   all the SAME character, clean pixels, ~35 s per sheet. So the recipe (the whole sheet in one picture at 4x, the
   reference as the design) is worth training on our own data (940 HGSS follower sheets, 4 directions x 2 steps); Klein
   4B is small enough for the Legion.
+- **Follower on Klein, our own LoRA: pkmn_follower_klein_v1** (Arvind: "great"; `v6cfg\build_follower_klein.py`,
+  `data\v11\followerk`, `pod2\cfg\follower_klein_v1.yaml`, free on the Legion). 942 real HGSS follower sheets, the WHOLE
+  sheet as the target (4 columns up / down / left / right x 2 rows step 1 / step 2, 4x nearest -> 512 x 256, flat magenta
+  background: no hidden colours), the real front (4x on white) as the reference, the dex words; the 40 held-out species
+  left out. arch flux2_klein_4b (the local Comfy-Org transformer; Qwen3-4B from the hub), quantized, rank 32, lr 1e-4,
+  effective batch 2, 1500 steps: **2.75 s per step on the laptop GPU** (~70 min). By step 1000 (it was stopped at 1080 when
+  I killed its queue, then resumed from the 1000 checkpoint): Cyndaquil, Haunter and Metagross (never seen) come out as
+  real follower sheets - the flame burst from behind, the face from the front, the side views, all one creature, close to
+  their truth; Obsidog and Wispole as small consistent creatures in all four directions. **The first follower that
+  works**: drawing the sheet in one picture keeps the directions together, which one-frame-per-picture (v6) could not.
+- **Two ways without training, for comparison** (Arvind: "the ControlNet like on those pictures, NoobAI and the other
+  thing"; "Q1 for the followers, with a style reference"). Per direction a drawing of that side (artwork / rear-view /
+  profile by base Qwen) placed in the follower box:
+  - `v6cfg\follower_cn.py` (`results\follower_cn\`): NoobAI-XL + the Pokemon Sprite XL LoRA + ControlNet union
+    (lineart) + IP-Adapter, the studio's old Sprite XL recipe, at 0.55 / 0.6, 0.8 / 0.65 and 0.9 / 0.5: the design and the
+    direction hold (Obsidog's horns and collar from the side), but the tight setting is a grey shrunk drawing, the middle
+    one gets noisy backgrounds and paler colours, the free one overflows the cell.
+  - `v6cfg\follower_ws.py` (`results\follower_ws\`): base Qwen image-to-image at 75 / 85 % noise, cfg 2.5 + negative,
+    `<image2>` six real HGSS followers "only for the style": very steady between seeds, the design holds, but no dark
+    outline and muddy colours: a shrunk drawing, not a follower.
+  - Klein v1 is far ahead (the HGSS follower look, one creature over all directions): that is the way.
 - **Retro Diffusion** is out: its online models (RD Plus / Pro, FLUX-based) are closed, so no LoRA on top; the Aseprite
   extension's local model is an older, different one.
 - **Rear-view drawing for the back** (`v6cfg\back_rear_test.py`, `results\back_rear\`): base Qwen draws the artwork from
   behind, the front recipe pixelates it. Metagross: a real back (no X, no eyes; back v6 pasted the X onto it); Obsidog:
   horns, collar and tail from behind; Wispole: the right side but an odd shape (a tadpole from straight behind is all
   tail). Still to do: the back's framing (big, cut flat at the bottom). ~1.2 min for the drawing + ~80 s per back.
+- **Klein v1 went on to step 1750** (constant lr; Arvind: "train until it is saturated"; `results\pkmn_follower_klein_v1_progress.png`).
+  Cyndaquil's side views are good by 1750, and Haunter is darker and closer to its truth than at 1500 (only these two
+  were drawn at 1750). It was stopped there to make room for v2.
+- **Klein follower v2: the text also says the body shape and the look** (Arvind: "in Klein's tags and prompt, add the
+  Pokemon's shape (every Pokemon has one shape category) and the physical description; it is always in Biology"; "Klein is
+  80 % there, keep an eye on Klein"). `v6cfg\build_follower_klein_v2.py`, `data\v11\followerk2`, `follower_klein_v2.yaml`,
+  4000 steps, the rest as v1. Each caption adds "Its body shape: ..." (PokeAPI's 14 shapes in plain words: quadruped body,
+  body with fins, head and legs ...) and "Its look: ..." (the first paragraph of the species' Biology section on Bulbapedia,
+  fetched with the MediaWiki API at one request per second, the name replaced by "it", up to ~420 characters). Each part is
+  left out 15 % of the time so it also works without one. 942 examples, 780 with a look, 798 with a shape. Our mons get
+  both written by hand (Obsidog: quadruped + a short look; Wispole: fins + a short look); for the studio the dex would need
+  a "shape" and a "look" field.
+  - Known flaw: Bulbapedia writes "Pokémon" through a template that the text cleaner dropped, so some looks read "It is a
+    resembling four interlocking gears" or "a small, avian similar to a robin". Left as it is; fix in the cleaner
+    (`{{OBP|Pokémon|...}}` -> its text) next time.
+  - Started 18:20 after a queue mistake (queue14's wait passed before the data existed, which stopped v1 25 min early and
+    left the GPU idle for 17 min); queue15 replaced it and logs live.
+  - **v2 vs v1 at the same steps (250, 500; seed 42): the text helps a lot.** Obsidog goes from a black blob (v1) to a
+    sitting purple dog with horns, face and fangs, from behind and from the side (v2); Wispole gets its green head, yellow
+    eye and blue fin; Metagross is rounder with four legs instead of thin shards; Cyndaquil has its face and side views by
+    250. Haunter is still a blob at 500 (its face showed at 250).
+- **Klein follower v3: the back as a second reference, and how it moves** (Arvind: "you should put the back sprite in
+  too!"; "Pokemon like Obsidog don't walk; the prompt must say that they walk, fly or whatever they do").
+  `v6cfg\build_follower_klein_v3.py`, `data\v11\followerk3\{targets,control,control_back}`, `follower_klein_v3.yaml`
+  (two control folders; ai-toolkit's flux2 takes a list, the samples use ctrl_img_1 = front, ctrl_img_2 = back), 4000 steps.
+  - The back (4x on white, 320) next to the front: the "up" column is the creature from behind, which only the back
+    shows. The text says so: "the columns walk up (seen from behind, as in its back sprite), down (facing the viewer, as
+    in its front sprite)". In the studio the back is made before the follower, so it is always there.
+  - "How it moves: ..." from the PokeAPI shape, the ability Levitate (Showdown data) and the real sheet
+    (`v6cfg\follower_motion.py`, `results\follower_motion.json`: how high the figure stands above the cell's floor, and
+    whether the bottom third changes between the two steps, i.e. legs moving). Pixels alone could not tell walking from
+    floating (nearly every real follower changes shape between its steps), the three together could: Pidgey walks with
+    its wings folded, Pidgeotto flies, Gastly, Koffing and Weezing float, Rattata walks on four legs, Goldeen floats
+    "swimming with its fins". Over the 942: two legs 321, four legs 178, along the ground 115, floats 98, flies 74,
+    crawls 58, walks on its legs 32, slithers 31, two legs with wings folded 19, floats swimming 16. Left out 10 %.
+    Weak spot: the shape decides the legs, so Cyndaquil (PokeAPI: two legs, no tail) is "walks upright on two legs"
+    though its follower goes on all fours, and Klinklang "moves along the ground" though it floats. The samples use what a
+    designer would write (Cyndaquil and Metagross: four legs).
+  - Our mons: written by hand; Obsidog's look no longer says "sitting" (v2's did, and it sat in every frame), and it
+    "walks on four legs"; Wispole "floats in the air, swimming with its fins".
+  - The look text refetched with "Pokémon" kept (`fetch_bio2.py`, `data\bulbapedia_bio2`, the raw wikitext saved too).
+  - queue16: v2 was stopped after its next checkpoint and that step's pictures (step 1000), then v3 trains with a live log.
+  - The pictures are named one way everywhere (Arvind: "earlier your prompts referred to the pictures in different ways;
+    tidy"): "image 1" (the front) and "image 2" (the back), as BFL's FLUX guide does it ("refer to each by position: image
+    1, image 2"), in the order of the control folders and of ctrl_img_1 / ctrl_img_2: "... the Pokemon in image 1 and
+    image 2: image 1 is its front battle sprite, image 2 is its back battle sprite ... up (seen from behind, as in image
+    2), down (facing the viewer, as in image 1) ... with the colours of image 1 and image 2". FLUX.2 has no picture
+    tokens in the text (the pictures are separate tokens with their own position), so the words only work by the model's
+    habit and by what the LoRA learns; the same words everywhere make that easy. v3 was restarted for this at 19:28
+    (queue17; it had only drawn its step-0 pictures).
+- **The final comparison, overnight** (Arvind: "after this training we compare the best steps of each version; if we are
+  lucky we are done with the version we train now"). `v6cfg\eval_klein.py` (queue19, after v3 and after queue18 draws v1's
+  missing step-1750 pictures from its saved checkpoint): v1 1750, v2 1000 (it stopped there), v3 1000 (kept aside: the
+  clean comparison with v2 1000), 2000, 3000, 4000. 8 held-out real mons chosen to cover the ways of moving (Cyndaquil,
+  Haunter, Metagross, Houndour, Swablu, Tentacool, Kadabra, Bronzor, with their real sheets as the truth) + Obsidog and
+  Wispole, 2 seeds each, every version with its own kind of text and pictures. ai-toolkit draws them itself (the same
+  sampler as the progress pictures): the checkpoint in its own folder, steps = start_step = that step and
+  force_first_sample. `results\klein_eval\<mon>.png`: rows = checkpoints, 2 seeds + the truth.
+- **v3 by step 1250** (constant lr, 3.6 s per step): Obsidog walks on four legs from the side and stands from the front
+  and behind (v2 lay down); Metagross has its X from the front and red eyes from the side; Cyndaquil shows its face from
+  the front and the flame from behind; Haunter has its mouth and side spikes. Wispole swings: its front view showed the
+  face at 1000 but the tail fin again at 1250 (its back picture is mostly that fin).
+- **From Klein's sheet to the game's sprite: `scripts/klein_follower.py`** (on the Mac, no GPU): the 4x grid read back to
+  128 x 64 (phase by the least spread, the median of each cell's middle, so JPEG noise goes), magenta -> see-through,
+  the pinkish edge pixels the model blends with the magenta take the outline's colour, specks under 3 pixels dropped,
+  right = the left column mirrored, at most 15 colours. The colours are merged MOST ALIKE first (Lab):
+  `ds_pixel.limit_colours` merges the rarest first and took exactly the small distinct colours (Metagross's X became
+  cyan, Wispole's yellow eye cyan, Haunter's tongue gone). Also a walking GIF and a preview on grass.
+  Arvind on v3 at 1250 in the game: "looks really good; good enough that we get something good".
+
+## Icon on Klein (14 Oct)
+
+Arvind: "what's next? the icon, I guess; we can use the method we just used, since it learned so well". An icon is two
+32x32 animation frames, a small sheet like the follower's, so the same recipe: `v6cfg\build_icon_klein.py`,
+`data\v12\iconk`, `icon_klein_v1.yaml` (pkmn_icon_klein_v1, as follower v2: one control folder), 3000 steps, saves and
+pictures every 250.
+- target: the real party icon's two frames side by side (32x64 -> 64x32) on flat magenta, 8x -> 512 x 256; hg-engine's
+  `icon.png` files (index 0 = see-through; HeartGold's own for Gen 1-4, hg-engine's in the same style after). 968
+  examples, the 40 held-out species left out.
+- image 1: the front, 4x on white (in the studio the front is made before the icon).
+- text: the dex words + "Its body shape" + "Its look" (bio2), each left out 15 %, + "the icon's two animation frames
+  side by side ... as in image 1 but simpler, with the icon's few colours and a one-pixel dark outline; in the second
+  frame it moves a little".
+- queue20 starts it after the night's follower comparison (queue19); the dashboard follows it.
+- **Result (15 Oct, 00:11-02:51, 3000 steps, ~3.1 s per step): it works at the first try.** By 2000 every sample is a
+  real-looking icon: facing left, small, a dark outline, few colours, the two frames nearly the same. Cyndaquil (never
+  seen) is close to its real icon (flame, the pose; the body bluer than the real dark top); Haunter has its grin and
+  ears; Metagross its X and red eyes (smaller and paler than the real one); Obsidog a purple dog with horns; Wispole the
+  green tadpole with its see-through fin. Weak spot: the never-seen ones come out smaller than their real icons.
+- `scripts/klein_follower.py` `to_icon()`: the 8x picture -> the game's 32x64 icon (frame 1 over frame 2), the same
+  cleaning as the follower (grid read, magenta out, the fringe, colours merged most alike first).
+- The night's follower comparison failed at first (queue19): ai-toolkit resumes from the newest file in the job's folder
+  whose name starts with the job's name, and the eval's yaml was written there after the checkpoint, so it tried to load
+  the yaml as weights; then a name lookup broke. Fixed (the config and log in `aitk_eval\cfg`), rerun after the icon
+  training (queue21, from 03:02).
+- Follower v3 to 4000: Wispole's front view shows its face from 3750 (the fin only from behind), so the directions settle
+  with more training; the size of the sprites swings between checkpoints (small at 3500 and 4000).
+- **The comparison (15 Oct, 03:02-03:54; `results\klein_eval\`, overview `scratchpad oversikt.png`): v3 wins clearly.**
+  10 mons x 2 seeds, v1 1750 / v2 1000 / v3 1000, 2000, 3000, 4000.
+  - v1 and v2: most creatures sit or crouch in every direction (Obsidog, Houndour, Kadabra), side views are often the
+    front turned a little.
+  - v3: real side views that walk (Houndour and Obsidog on four legs, Kadabra and Cyndaquil), Bronzor is a thin disc
+    from the side as in its real sheet, Tentacool's tentacles, Wispole's face from the front and its fin from behind.
+  - v3 2000: the clearest shapes and the most detail, both seeds consistent. v3 3000: more detail but heavier and
+    lumpier for some (Obsidog, Haunter). v3 4000: smaller, closer to the real followers' size (Swablu, Kadabra,
+    Bronzor) and Wispole's face, but less detail.
+  - Still off for all: colours too saturated / too cyan against the real followers' muted palette (Metagross,
+    Houndour, Haunter), Metagross's legs too short.
+  - My pick: v3 2000 as the default, v3 4000 as the second try (smaller, as the game's); Arvind decides.
+  - **Arvind: "I liked 2000 best."** Approved: `approved\pkmn_follower_klein_v3_000002000.safetensors` (sha256
+    71E9195A...AD5B), recorded in `results\arvind_picks.json`. Recipe for it: image 1 = the front 4x on white, image 2 =
+    the back 4x on white, the v3 caption (dex words, shape, look, how it moves), 512 x 256, flowmatch 25 steps, guidance
+    4, then `scripts/klein_follower.py`.
+- Icon step comparison (`v6cfg\eval_icon.py`, `results\icon_eval\`): the same 10 mons x 2 seeds at 1000 / 1500 / 2000 /
+  2500 / 3000, the real icon as the truth (15 Oct, 10:08-11:10; ~30 s a picture, twice the night's speed).
+  Every step gives real-looking icons; the differences are size and colour. At 1000-1500 bigger and brighter (Metagross
+  cyan); from 2000 the model takes up the icon palettes' blue-purple tint, as in the real Metagross, Tentacool and
+  Bronzor icons. 2000 a little small (Houndour); 2500 the best balance (size and pose closest to the real ones: Houndour,
+  Haunter with its hands, Tentacool with tentacles and red eyes); 3000 close to 2500. My pick: 2500; Arvind decides.
+- **Arvind: "I agree; they look good enough."** Approved: `approved\pkmn_icon_klein_v1_000002500.safetensors` (sha256
+  9ABAD2E0...558A), in `results\arvind_picks.json`. Recipe: image 1 = the front 4x on white, the icon caption, 512 x 256,
+  flowmatch 25 steps, guidance 4, then `klein_follower.to_icon`.
+
+## Colours per kind of sprite (15 Oct)
+
+Arvind: "the different sprites use different colours for the same Pokemon, and so should we; my goal is to match the style
+of each sprite; we are already 90 % there". Measured first (`v6cfg\colour_study.py`, `results\colour_study.json/.png`; 456
+HeartGold species and 486 hg-engine ones with all four sprites):
+- **back = the front's palette, exactly**: the median back has 100 % of its pixels in the front's exact colours (all of
+  them in 385 of 456); the DS keeps one palette for both.
+- **follower = its own palette, close to the front's**: each follower colour is ~10 Lab from the nearest front colour, a
+  little darker (dL -1 to -2), the same hue and saturation; 12-13 colours.
+- **icon = one of six shared 16-colour palettes** (454, 228, 190, 77, 42 and 33 icons use them; a 7th is used once):
+  ~9 colours, 25-30 % less saturated than the front, the hue a few degrees off, often far from the front (Gyarados and
+  Garchomp purple).
+The fixer, `scripts/sprite_colours.py` (after `klein_follower.to_game / to_icon / to_back`): `back_colours` snaps every
+colour to the nearest front colour; `follower_colours` to the nearest of the front's colours and a darker shade (-12 L) of
+each; `icon_colours` picks the shared palette that fits best and snaps to it (nearest in Lab, per distinct colour, so small
+details keep their own colour where the palette has one). Test against the real sprites of the held-out mons (colour
+distance to the truth's palette, before -> after): backs Cyndaquil 5.3 -> 0.0, Haunter 9.4 -> 0.0, Metagross 17.5 -> 5.2;
+icons Houndour, Tentacool, Kadabra -> 0.0 (the right palette), Haunter 8.1 -> 3.8, Metagross 10.4 -> 7.6; followers
+Haunter 25.8 -> 16.5, Swablu 13.5 -> 4.3, Bronzor 15.6 -> 6.4, Houndour 8.5 -> 3.7, Tentacool 20.5 -> 12.5. So the front's
+palette decides the back's and the follower's: the front is where colour quality matters most.
+
+**Made certain (Arvind: "we should have something more certain and thorough; can any of the PokeAPI markers help?").**
+Each rule chosen by testing it the way it is used, on all real sprites (`v6cfg\palette_study.py`, `follower_rules.py`,
+`icon_rule_tune.py`): the real sprite drifted as Klein's colours drift, fixed, compared with the real one.
+- Followers have their own 16-colour palette per species (hg-engine `overworld.png` + `tsure_poke0/1.pal`: 1186
+  distinct palettes over 1535 files), not shared ones.
+- Back: snap to the front's colours. Drift 7.0 -> 0.8; the exact real back in 74 %. Kept.
+- Follower: snapping all the way to the front's colours made a nearly right follower WORSE (5.8 -> 9.5; real follower
+  colours sit ~10 from the front's). Of five rules, **halfway towards the nearest of the front's colours and two darker
+  shades (-8, -16 L)** is the safe one: 5.8 -> 6.1 when Klein is close, 10.6 -> 8.9 when it is off. On Klein v3 2000:
+  Haunter 25.8 -> 20.4, Swablu 13.5 -> 8.8, Bronzor 15.6 -> 10.4, Houndour 8.5 -> 5.4, Kadabra unchanged.
+- Icon: **the PokeAPI body colour is the marker that helps.** HeartGold uses only 3 icon palettes (hg-engine adds 3) and
+  picks them by body colour: green -> 3 in 46 of 49, purple -> 2 in 43 of 48, blue -> 1 in 68 of 86, red -> 1 in 39 of 44
+  (`ICON_ODDS`). On the real icons the body colour alone picks the right palette 71 % (HeartGold) / 48 % (hg-engine); the
+  front's colours alone 31 %. Tuned on the 80 real Klein icons of the 8 held-out mons: best fit alone 51 %; among the
+  palettes within 6 of the best fit, the body colour's odds (weight 20) -> 90 %. The guard keeps a clearly wrong fit out
+  (Bronzor, "green" in PokeAPI, went pink in palette 3). Step 2500, seed 1: 7 of 8 right (Cyndaquil got 1 for 3).
+  (A test with drifted real icons was too easy, 93 % by fit alone: Klein makes its own colours, not a shifted real palette.)
+- Our dex already has `body_color` (the same 10 values as PokeAPI), but only 2 of 115 species have it filled in.
+
+**In the sprite studio (Arvind: "looks fine, but maybe we should be able to play with it in the sprite studio?").** The
+same rules in the page (`site_template.html`: `toLab`/`fromLab`, `recolour`, `paletteFit`, `suggestIconPalette`,
+`followerPalette`, `colourPad`), so it reacts at once without the drawing PC. A **Colours** button on back and icon tries
+(next to Mirror and Draw) opens a panel with the picture now and with the colours:
+- back: the colours of the front in use, and "How far" (0-100 %, default 100: the game's rule).
+- icon: the body colour (from the dex, or chosen here), HeartGold's 3 palettes with the suggested one marked, hg-engine's
+  3 extra ones folded away, and "How far".
+- "Save as a new picture" -> a new try of the same step (`sprite-draw`, how "recoloured", recipe "recoloured", with a note
+  saying which palette / front and how far), picked and in use like a mirrored or drawn one.
+Tested locally on Obsidog's studio tries (not saved). The follower gets the same button when it is in the studio.
+
+**The front had too few colours.** The panel showed Obsidog's studio fronts with only 3 colours: unfake's
+`--auto-colors` picks 3-4 for dark designs (Obsidog 4, Metagross seed 7 10), losing the eyes' shine, the horns' highlights
+and the body's shading; real HeartGold fronts have 13 (median). `-c 15` keeps them (Obsidog 14, Wispole 15, Metagross 15;
+`results\unfake_colours.png`). Since the back and the follower take their colours from the front, this matters for all
+of them. `studio_tries.unfake` now uses `-c 15`.
+
+## Back on Klein (15 Oct)
+
+Arvind: "we have landed good followers and icons; what's left is the back, the front and sketch -> art, and there we have
+done a lot already". The back has been the weakest step (back v6 pasted the front's X onto Metagross's back; the framing,
+big and cut flat at the bottom, never held), so it goes first, with the recipe that learned so well:
+`v6cfg\build_back_klein.py`, `data\v12\backk\{targets,control,control_art}`, `back_klein_v1.yaml` (pkmn_back_klein_v1),
+3000 steps, 320 x 320.
+- target: the real HGSS back, the whole 80x80 frame (so the framing is learned), on flat magenta, 4x -> 320. 968 examples.
+- image 1: the front 4x on white; image 2: the official artwork on white (320), "for its design" (in the studio the art
+  and the front exist before the back).
+- text: the dex words + shape + look (each left out 15 %) + "seen from behind, as the player's Pokemon in battle, big and
+  low in the frame and cut off by the bottom edge, with the colours of image 1".
+- queue22, started 11:21 (5.8 s per step: two pictures in, 320 x 320).
+- **Back v2: a picture of the back as image 3** (Arvind: "but how does it know what is on the back? It must see
+  something. What if they get a back sprite from the 3D model or BW2's back? Only to show what is on the back, not to
+  copy the style"). `v6cfg\build_back_klein_v2.py`, `data\v12\backk2\...\control_hint`, `back_klein_v2.yaml`.
+  - Training: the Black/White back sprite (`pokeapi-sprites ... generation-v/black-white/back`), smoothed up to 300 px
+    and blurred a little on white, so it reads as a picture of the back and not as pixel art to copy; the caption: "image
+    3 shows what its back looks like, only for what is on its back (shapes, markings, colours), not for its style or
+    pose". Empty (plain white, "image 3 is empty") where there is none and 30 % of the others: 693 of 968 have one.
+  - At use time our mons have no BW back and no 3D model; what is on the back of a new design is known only to its
+    designer. So: the designer's own drawing of the back if there is one, else the rear-view drawing (base Qwen draws
+    the art from behind, `back_rear_test.py`, ~1.2 min). A 3D model made from the art would guess the back the same
+    way, so it adds time but no knowledge.
+  - The samples test both: Cyndaquil and Haunter with their BW backs, Metagross, Obsidog and Wispole with rear-view
+    drawings (the use-time case; Metagross's real back is known).
+  - v1 (without) runs to step 1000 as the baseline, then queue23 stops it and trains v2 for 3000 steps.
+- **Back v1 by step 1000 (13:15): the framing is learned** - big, low and cut flat by the bottom edge, as the real backs,
+  with no box template. Cyndaquil at 1000 is close to its real back (the flame on its back, the head turned); Haunter at
+  750 too (the eye, tongue and hand over its shoulder; at 1000 only the spiky back); Obsidog from behind with horns, ears
+  and tail; Wispole a big tadpole with its fin. Metagross shows why the back needs a picture of the back: at 750 it
+  pasted the front's X onto the back (back v6's fault again), at 1000 the dome without the X but not its real shape.
+  v2 (with image 3) started 13:15.
+- **Back v2 against v1 at 500 / 750 / 1000 (15:31): the picture of the back helps.** At 1000, Cyndaquil (its BW back as
+  image 3) is close to its real back (the big flame, the head turned), Haunter has its eye, tongue and hand over the
+  shoulder again (v1 at 1000 had only the spiky back), Obsidog has horns, the spiked collar and the tail from behind,
+  Wispole its fin from behind with the eye. Metagross (the rear-view drawing, no X, as image 3) still had the X on its
+  back at 500 and 750 and lost it by 1000. ~4.5-6.5 s per step; done around 19:00. The Legion dashboard (port 8890) now shows Klein v2:
+    step, time left, the whole loss curve and the progress sheet.
 
 ## Next ones (later)
 

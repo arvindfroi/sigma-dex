@@ -1,0 +1,88 @@
+# The request board on the website (REQUESTS). These cards are written by the team; cards added
+# on the website are stored in the database (species_edits, kind 'request') and win over these
+# when they have the same id. status: idea | needed | doing | done. area: pokemon | sprites | website | other.
+# The "needed" cards come from docs/STORY_ROLES.md, section 4 (the story's roles that no design fills yet).
+- id: req-story-electric-mascot
+  title: Electric mascot
+  text: Mono Electric, small. The player's first partner from the professor (the old mascot's slot).
+  area: pokemon
+  status: needed
+  order: 1
+- id: req-story-fish
+  title: A useless fish that evolves into something fearsome
+  text: Mono Water, evolving into Water/Dragon or Water/Dark. Needed for the red sea-serpent event at the Lake of Rage.
+  area: pokemon
+  status: needed
+  order: 2
+- id: req-story-rodent
+  title: Early rodent line (2 stages)
+  text: Mono Normal. Common on the first routes and in the rival's first team.
+  area: pokemon
+  status: needed
+  order: 3
+- id: req-story-psychic
+  title: Early Psychic line (3 stages)
+  text: Mono Psychic. The rival's and the Psychic gym leader's ace.
+  area: pokemon
+  status: needed
+  order: 4
+- id: req-story-rocket-cat
+  title: Team Rocket's cat (2 stages)
+  text: Mono Normal and cunning. It talks in the story.
+  area: pokemon
+  status: needed
+  order: 5
+- id: req-story-sleepy-giant
+  title: Sleepy giant
+  text: Mono Normal, one stage, very heavy. Blocks Route 12 until it is woken up.
+  area: pokemon
+  status: needed
+  order: 6
+- id: req-story-pirate-legendary
+  title: The third pirate legendary
+  text: Fire to match the others, or any type the trio still needs. Completes Sabertann and Gravriel.
+  area: pokemon
+  status: needed
+  order: 7
+- id: req-story-fighting
+  title: Mono Fighting line (2-3 stages)
+  text: For the Fighting gym leader, the Elite Four member and the fighter gifts.
+  area: pokemon
+  status: needed
+  order: 8
+- id: req-story-cave-bat
+  title: Cave bat
+  text: Poison/Flying or Dark/Flying. Lives in every cave.
+  area: pokemon
+  status: needed
+  order: 9
+- id: req-story-eevee
+  title: Sigmanian Eevee and nine evolutions
+  text: Fighting, Poison, Ground, Flying, Bug, Rock, Ghost, Dragon and Steel (Arvind's idea).
+  area: pokemon
+  status: needed
+  order: 10
+- id: req-story-pseudo
+  title: A Rock/Dark pseudo-legendary
+  text: Unless the Obsidog line takes the role.
+  area: pokemon
+  status: needed
+  order: 11
+- id: req-story-mythical
+  title: A second mythical
+  text: Whichever of the two mythical roles Sandrema does not take.
+  area: pokemon
+  status: needed
+  order: 12
+- id: req-story-cover-legendaries
+  title: Cover legendaries
+  text: One for the title screen and the Bell Tower, and one for the sea legend.
+  area: pokemon
+  status: needed
+  order: 13
+- id: req-site-ability-hover
+  title: See what an ability does by pointing at it or tapping it
+  text: Asked for on the Discord. Done in the new two-screen Pokemon page (SKILLS).
+  area: website
+  status: done
+  order: 1

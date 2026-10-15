@@ -27,7 +27,8 @@ Deno.serve(async (req: Request) => {
 
     // Studio v3 (2026-10-14): a try mirrored or drawn on in the studio becomes a new try of the same step and Pokemon,
     // which can be picked and drawn from like the others (Arvind: "you must be able to mirror; people should be able to
-    // draw new details right on top, to change their design along the way").
+    // draw new details right on top, to change their design along the way"). 2026-10-15: also recoloured (the back on
+    // the front's colours, the icon in an icon palette; "we should be able to play with it in the sprite studio").
     if (form.get("try") !== null) {
       const tryId = Number(form.get("try"));
       const { data: from } = await supabase.from("sprite_tries").select("id, species_id, stage, status, raw").eq("id", tryId).maybeSingle();
@@ -43,14 +44,15 @@ Deno.serve(async (req: Request) => {
       const size = pngSize(bytes);
       const want = { art: 640, front: 80, back: 80, icon: 32 }[from.stage as string];
       if (!size || size[0] !== want || size[1] !== want) return reply(400, { message: "The picture has the wrong size" });
-      const how = String(form.get("how") ?? "") === "mirrored" ? "mirrored" : "drawn";
+      const asked = String(form.get("how") ?? "");
+      const how = asked === "mirrored" || asked === "recoloured" ? asked : "drawn";
       const path = `tries/${from.species_id}/${how}-${tryId}-${crypto.randomUUID().slice(0, 8)}.png`;
       const { error: upError } = await supabase.storage.from("art").upload(path, bytes, { contentType: "image/png", cacheControl: "31536000" });
       if (upError) return reply(500, { message: "The picture could not be stored" });
       const editor = String(form.get("editor") ?? "").trim().slice(0, 40) || null;
       const { data: row, error } = await supabase.from("sprite_tries").insert({
         job_id: null, species_id: from.species_id, stage: from.stage, n: 1, status: "done", image: path, raw: from.raw,
-        recipe: how === "mirrored" ? "mirrored" : "drawn by hand", note: String(form.get("note") ?? "").trim().slice(0, 300) || null,
+        recipe: how === "drawn" ? "drawn by hand" : how, note: String(form.get("note") ?? "").trim().slice(0, 300) || null,
         parent_try: tryId, editor, seconds: null, finished_at: new Date().toISOString(),
       }).select("id").single();
       if (error) return reply(500, { message: "The picture could not be saved" });
