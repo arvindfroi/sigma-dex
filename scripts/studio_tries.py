@@ -462,6 +462,7 @@ def try_follower(n, seed, folder, job, inputs):
     words, _ = inputs["tags"]
     if not (folder / "k_front.png").exists():
         on_white(inputs["front"]).save(folder / "k_front.png")
+    if not (folder / "k_back.png").exists():
         on_white(inputs["back"]).save(folder / "k_back.png")
     raw = klein_draw(folder / ("follower_raw_%d.png" % n), SHEET_K.format(about=about(job, words)),
                      [folder / "k_front.png", folder / "k_back.png"], 512, 256, seed, FOLLOWER_KLEIN)
