@@ -4,7 +4,43 @@ On every Pokemon's page on the website there is a **Sprite studio**: ask the AI 
 look at the attempts, comment on them, have them redone and approve one. Nobody needs
 anything but the website.
 
-## How to use it (since 2026-10-05)
+## How to use it (studio v4, since 2026-10-15)
+
+Arvind about v3: "hard to take in, you have to scroll; lots of times, make it one total time; editing an existing sprite
+is stressful". v4 has the site's two screens:
+
+- **Top screen: the sprite set as it is now** - FRONT, BACK, ICON and WALK (the walking sprite that follows the player,
+  animated). Each shows the picked picture, or the one in the game now ("in the game"). **EDIT** under any of them opens
+  the editor on it, also on the sprite in use. The dialog box says what happens and how long it takes **in all**
+  ("Drawing 4 backs, then 4 icons. Ready in about 6 minutes (2 requests from others first)").
+- **Bottom screen: one step at a time** - 1 PICTURE, 2 FRONT, 3 BACK, 4 ICON, 5 WALK, SAVE. A step shows what it is
+  made from, **MAKE** with how many (and roughly how long), and the pictures as tiles: **tap a tile to use it** (it goes
+  into the set, marked IN USE). Pictures still being drawn are grey tiles; there are no times per picture.
+  - 1 PICTURE: choose the Pokemon's pictures (up to 3) and, for a messy sheet, **CUT OUT** the creature first.
+  - 3 BACK, 4 ICON, 5 WALK show **ABOUT ITS BODY** (body shape, how it moves, what it looks like): the Klein LoRAs
+    were trained with it, so the PC draws better with it. It is saved in the dex (`design.body_shape`, `movement`,
+    `look`; also in Edit > POKEDEX).
+  - SAVE: the picked front and back (icon and walk optional) in a battle, the menu and walking on grass, and "Make these
+    its sprite? **YES** / NO". YES puts them together (`assemble_sprite`) and approves them (`review_sprite`) in one go.
+    Earlier sprites are listed below with **USE IT AGAIN**.
+- **The editor** takes the bottom screen (the top stays): tools on the left (PEN, ERASE, FILL, SWAP = one colour into
+  another everywhere, PICK, MIRROR, UNDO, REDO, GRID), the picture in the middle as big as it fits, the colours on the
+  right with the 15-colour count and **GAME COLOURS** for that kind of sprite (the back: the front's colours; the icon:
+  palette 1/2/3 with the suggested one starred; the walking sprite: closer to the front). "Save as a new picture?
+  YES / NO". The saved picture is a new tile of that step, picked and in use; nothing is overwritten.
+
+What draws what (`scripts/studio_tries.py` on the PC): the cut-out with base Qwen-Image, the front with front v7, the
+icon with **Klein icon v1 (step 2500)**, the walking sprite with **Klein follower v3 (step 2000)** from the picked front
+and back, the back with back v6 until back v2 on Klein is chosen (`BACK_KLEIN`; it also draws the art from behind first,
+as image 3). Each result gets its kind's colour rule (`scripts/sprite_colours.py`). Database: migration
+`supabase/migrations/2026-10-15_studio_v4.sql` (stage `follower`, `sprite_jobs.with_try`, `sprite_candidates.follower`,
+`[ds-follower]` pictures -> `assets/sprites-ds/<pokemon>/follower.png`, 128x64). `sprite-draw` also takes a drawing on
+the sprite in use (`version` + `view`) and saves it as a new try.
+
+The older ways below (v2: one AI sprite at a time, versions, "Ask the AI") still work in the database but are no longer
+on the page.
+
+## How to use it (2026-10-05 to 2026-10-14)
 
 Open a Pokemon and press the **Sprite** tab.
 

@@ -102,6 +102,44 @@ def run(graph):
     return data
 
 
+KLEIN_MODEL = "flux-2-klein-base-4b.safetensors"
+KLEIN_TEXT_ENCODER = "qwen_3_4b.safetensors"
+KLEIN_VAE = "flux2-vae.safetensors"
+
+
+def klein(prompt, references, width, height, seed, prefix, lora=None, lora_strength=1.0, steps=25, cfg=4.0):
+    """FLUX.2 Klein base 4B (+ a LoRA), with the uploaded reference pictures as image 1, 2, ... as ai-toolkit trains and samples
+    them: each encoded at its own size (ai-toolkit only shrinks pictures above 1 MP) and added in order with ReferenceLatent;
+    euler, the Flux2 schedule, CFG 4, 25 steps, an empty negative (the settings of the training samples, docs/LORAS.md)."""
+    g = {"unet": {"class_type": "UNETLoader", "inputs": {"unet_name": KLEIN_MODEL, "weight_dtype": "default"}},
+         "clip": {"class_type": "CLIPLoader", "inputs": {"clip_name": KLEIN_TEXT_ENCODER, "type": "flux2", "device": "default"}},
+         "vae": {"class_type": "VAELoader", "inputs": {"vae_name": KLEIN_VAE}},
+         "pos": {"class_type": "CLIPTextEncode", "inputs": {"text": prompt, "clip": ["clip", 0]}},
+         "neg": {"class_type": "CLIPTextEncode", "inputs": {"text": "", "clip": ["clip", 0]}}}
+    model = ["unet", 0]
+    if lora:
+        g["lora"] = {"class_type": "LoraLoaderModelOnly", "inputs": {"model": model, "lora_name": lora, "strength_model": lora_strength}}
+        model = ["lora", 0]
+    pos, neg = ["pos", 0], ["neg", 0]
+    for k, name in enumerate(references, 1):
+        g["img%d" % k] = {"class_type": "LoadImage", "inputs": {"image": name}}
+        g["enc%d" % k] = {"class_type": "VAEEncode", "inputs": {"pixels": ["img%d" % k, 0], "vae": ["vae", 0]}}
+        g["rp%d" % k] = {"class_type": "ReferenceLatent", "inputs": {"conditioning": pos, "latent": ["enc%d" % k, 0]}}
+        g["rn%d" % k] = {"class_type": "ReferenceLatent", "inputs": {"conditioning": neg, "latent": ["enc%d" % k, 0]}}
+        pos, neg = ["rp%d" % k, 0], ["rn%d" % k, 0]
+    g.update({
+        "guider": {"class_type": "CFGGuider", "inputs": {"model": model, "positive": pos, "negative": neg, "cfg": cfg}},
+        "sched": {"class_type": "Flux2Scheduler", "inputs": {"steps": steps, "width": width, "height": height}},
+        "samp": {"class_type": "KSamplerSelect", "inputs": {"sampler_name": "euler"}},
+        "noise": {"class_type": "RandomNoise", "inputs": {"noise_seed": seed}},
+        "latent": {"class_type": "EmptyFlux2LatentImage", "inputs": {"width": width, "height": height, "batch_size": 1}},
+        "sca": {"class_type": "SamplerCustomAdvanced", "inputs": {"noise": ["noise", 0], "guider": ["guider", 0], "sampler": ["samp", 0],
+                                                                  "sigmas": ["sched", 0], "latent_image": ["latent", 0]}},
+        "dec": {"class_type": "VAEDecode", "inputs": {"samples": ["sca", 0], "vae": ["vae", 0]}},
+        "save": {"class_type": "SaveImage", "inputs": {"images": ["dec", 0], "filename_prefix": prefix}}})
+    return g
+
+
 def generate(prompt, out, refs=(), size=(1024, 1024), steps=25, seed=None, transparent=False, quiet=False, lora=None, lora_strength=1.0,
              ref_resolution=1024):
     """Make one picture and save it to `out`. Returns the seed that was used."""

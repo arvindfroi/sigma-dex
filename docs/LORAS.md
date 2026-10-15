@@ -1357,6 +1357,22 @@ big and cut flat at the bottom, never held), so it goes first, with the recipe t
   back at 500 and 750 and lost it by 1000. ~4.5-6.5 s per step; done around 19:00. The Legion dashboard (port 8890) now shows Klein v2:
     step, time left, the whole loss curve and the progress sheet.
 
+## Klein in the sprite studio (15 Oct)
+
+Arvind: "yes, wire follower, icon and back into the studio". The studio's worker (`scripts/studio_tries.py`) now draws
+the menu icon with **icon v1 at step 2500** and the walking sprite (follower) with **follower v3 at step 2000**, from
+the picked front (and, for the walking sprite, the picked back), through ComfyUI (`comfy.klein`): FLUX.2 Klein base 4B,
+the reference pictures as image 1, 2, 3 at their own size with ReferenceLatent (ai-toolkit only shrinks references above
+1 MP), euler, the Flux2 schedule, CFG 4, 25 steps, an empty negative - the settings of the training samples. The texts
+are the training captions; the website sends the body shape, look and how it moves (`design.body_shape / look /
+movement`, asked in the studio). The results get their kind's colour rule (`sprite_colours`): the icon frame 1 in a
+HeartGold icon palette (body colour odds), the walking sprite halfway to the front's colours. The back stays on back
+v6 until a back v2 step is picked (`BACK_KLEIN`); then the back job first draws the art from behind (base Qwen, as
+`back_rear_test.py`) as image 3.
+- **Check before use** (`v6cfg\klein_comfy_check.py`, `results\klein_comfy\`): ComfyUI's graph on the training
+  samples' own inputs and texts, 2 seeds, next to ai-toolkit's sample at the same step (follower 2000, icon 2500), and
+  back v2 at steps 1000-3000 x 3 seeds per mon for Arvind's pick. Queued to run when back v2's training ends.
+
 ## Next ones (later)
 
 - **Fallback base model: FLUX.2 Klein 9B** (Comfy's style transfer handbook, March 2026: "a sweet spot for LoRA training",

@@ -53,7 +53,7 @@ Deno.serve(async (req: Request) => {
 
     const jobId = Number(form.get("job_id"));
     if (!Number.isInteger(jobId)) return reply(400, { message: "Which job?" });
-    const { data: job } = await supabase.from("sprite_jobs").select("id, species_id, status, mode, notes, parent_candidate, editor, stage, from_try").eq("id", jobId).maybeSingle();
+    const { data: job } = await supabase.from("sprite_jobs").select("id, species_id, status, mode, notes, parent_candidate, editor, stage, from_try, recipe, ref_image_ids").eq("id", jobId).maybeSingle();
     if (!job || job.status !== "running") return reply(409, { message: "That job is not running" });
 
     // Studio v3: a try starts (the website shows it as drawing, with the time it should take) ...
@@ -103,6 +103,21 @@ Deno.serve(async (req: Request) => {
       const error = String(form.get("error") ?? "").trim().slice(0, 500) || null;
       await supabase.from("sprite_jobs").update({ status: error ? "failed" : "done", error, finished_at: new Date().toISOString() }).eq("id", jobId);
       await supabase.from("sprite_worker").update({ state: "idle", seen_at: new Date().toISOString() }).eq("id", 1);
+      // Studio v4's guided start (2026-10-15): a cut-out asked for as "then-front-N" goes straight on to N fronts from it
+      // (Arvind: "for a Pokemon without sprites we make most of the choices; we cut the pictures out automatically").
+      // The first good cut-out is picked for them; without one, the fronts are drawn from the chosen pictures.
+      const chain = /^then-front-([1-8])$/.exec(String(job.recipe ?? ""));
+      if (job.stage === "art" && chain) {
+        const { data: arts } = await supabase.from("sprite_tries").select("id, n, status").eq("job_id", jobId).in("status", ["done", "broken"]);
+        const art = (arts ?? []).sort((a, b) => (a.status === "done" ? 0 : 1) - (b.status === "done" ? 0 : 1) || a.n - b.n)[0];
+        if (art) await supabase.from("sprite_tries").update({ picked: true, picked_by: "the studio", picked_at: new Date().toISOString() }).eq("id", art.id);
+        if (art || (job.ref_image_ids ?? []).length) {
+          await supabase.from("sprite_jobs").insert({
+            species_id: job.species_id, look: job.species_id + " sprite", ref_image_ids: job.ref_image_ids ?? [], variations: 1, editor: job.editor,
+            pose: "three-quarter", style: "ds", mode: "tries", stage: "front", count: Number(chain[1]), from_try: art ? art.id : null,
+          });
+        }
+      }
       return reply(200, { id: jobId, status: error ? "failed" : "done" });
     }
 

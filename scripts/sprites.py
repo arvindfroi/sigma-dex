@@ -527,12 +527,13 @@ def auto():
 
 
 DS_SPRITES = ROOT / "assets" / "sprites-ds"
-DS_KINDS = {"ds-front": ("front.png", 80), "ds-back": ("back.png", 80), "ds-icon": ("icon.png", 32)}
+DS_KINDS = {"ds-front": ("front.png", (80, 80)), "ds-back": ("back.png", (80, 80)), "ds-icon": ("icon.png", (32, 32)),
+            "ds-follower": ("follower.png", (128, 64))}     # the walking sprite: up, down, left, right x 2 steps of 32x32
 
 
 def auto_ds(manifest):
-    """DS sprites approved in the sprite studio (pictures captioned [ds-front], [ds-back], [ds-icon]):
-    already finished 80x80 / 32x32 pixel art, so they are copied as they are to assets/sprites-ds/<pokemon>/
+    """DS sprites approved in the sprite studio (pictures captioned [ds-front], [ds-back], [ds-icon], [ds-follower]):
+    already finished 80x80 / 32x32 / 128x64 pixel art, so they are copied as they are to assets/sprites-ds/<pokemon>/
     (the Origin HeartGold export reads them there). A Pokemon whose approved version was withdrawn loses them."""
     wanted = {}
     for entry in manifest:                              # later approvals replace earlier ones
@@ -555,8 +556,8 @@ def auto_ds(manifest):
             for kind, (path, caption) in sources.items():
                 name, side = DS_KINDS[kind]
                 image = Image.open(path).convert("RGBA")
-                if image.size != (side, side):
-                    raise SpriteError("%s is %dx%d, must be %dx%d" % (kind, image.width, image.height, side, side))
+                if image.size != side:
+                    raise SpriteError("%s is %dx%d, must be %dx%d" % (kind, image.width, image.height, side[0], side[1]))
                 colours = len({p for p, a in zip(image.getdata(), image.getchannel("A").getdata()) if a})
                 if colours > COLORS:
                     raise SpriteError("%s uses %d colours, the limit is %d" % (kind, colours, COLORS))

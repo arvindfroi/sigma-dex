@@ -6,6 +6,8 @@ import { createClient } from "jsr:@supabase/supabase-js@2";
 
 const MAX_BYTES = 200 * 1024;
 const SIZES: Record<string, number[]> = { front: [64, 80], back: [64, 80], icon: [32] };
+// The size of a try's picture per step (studio v3/v4).
+const TRY_SIZE: Record<string, [number, number]> = { art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 32], follower: [128, 64] };
 const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "content-type, apikey, authorization" };
 
 function reply(status: number, body: unknown) {
@@ -42,8 +44,8 @@ Deno.serve(async (req: Request) => {
       if (file.size > limit) return reply(400, { message: "The picture is too large" });
       const bytes = new Uint8Array(await file.arrayBuffer());
       const size = pngSize(bytes);
-      const want = { art: 640, front: 80, back: 80, icon: 32 }[from.stage as string];
-      if (!size || size[0] !== want || size[1] !== want) return reply(400, { message: "The picture has the wrong size" });
+      const want = TRY_SIZE[from.stage as string];
+      if (!size || !want || size[0] !== want[0] || size[1] !== want[1]) return reply(400, { message: "The picture has the wrong size" });
       const asked = String(form.get("how") ?? "");
       const how = asked === "mirrored" || asked === "recoloured" ? asked : "drawn";
       const path = `tries/${from.species_id}/${how}-${tryId}-${crypto.randomUUID().slice(0, 8)}.png`;
@@ -54,6 +56,36 @@ Deno.serve(async (req: Request) => {
         job_id: null, species_id: from.species_id, stage: from.stage, n: 1, status: "done", image: path, raw: from.raw,
         recipe: how === "drawn" ? "drawn by hand" : how, note: String(form.get("note") ?? "").trim().slice(0, 300) || null,
         parent_try: tryId, editor, seconds: null, finished_at: new Date().toISOString(),
+      }).select("id").single();
+      if (error) return reply(500, { message: "The picture could not be saved" });
+      return reply(200, row);
+    }
+
+    // Studio v4 (2026-10-15): drawing on the sprite in use (an approved version) makes a new try of that step, picked like
+    // the others, so the studio has one way of working (Arvind: "editing an existing sprite is stressful").
+    if (form.get("version") !== null) {
+      const versionId = Number(form.get("version"));
+      const view = String(form.get("view") ?? "");
+      if (!["front", "back", "icon", "follower"].includes(view)) return reply(400, { message: "Which part was drawn on?" });
+      const { data: version } = await supabase.from("sprite_candidates").select("id, species_id, gen").eq("id", versionId).maybeSingle();
+      if (!version || version.gen !== 4) return reply(404, { message: "That sprite does not exist" });
+      const since = new Date(Date.now() - 3600 * 1000).toISOString();
+      const { count } = await supabase.from("sprite_tries").select("id", { count: "exact", head: true }).is("job_id", null).gt("created_at", since);
+      if ((count ?? 0) >= 200) return reply(429, { message: "Too many drawings saved in the last hour, try again later" });
+      const file = form.get("image");
+      if (!(file instanceof File)) return reply(400, { message: "Nothing was drawn" });
+      if (file.size > MAX_BYTES) return reply(400, { message: "The picture is too large" });
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      const size = pngSize(bytes), want = TRY_SIZE[view];
+      if (!size || size[0] !== want[0] || size[1] !== want[1]) return reply(400, { message: "The picture has the wrong size" });
+      const path = `tries/${version.species_id}/drawn-v${versionId}-${crypto.randomUUID().slice(0, 8)}.png`;
+      const { error: upError } = await supabase.storage.from("art").upload(path, bytes, { contentType: "image/png", cacheControl: "31536000" });
+      if (upError) return reply(500, { message: "The picture could not be stored" });
+      const editor = String(form.get("editor") ?? "").trim().slice(0, 40) || null;
+      const note = ("drawn on sprite #" + versionId + ". " + String(form.get("note") ?? "").trim()).trim().slice(0, 300);
+      const { data: row, error } = await supabase.from("sprite_tries").insert({
+        job_id: null, species_id: version.species_id, stage: view, n: 1, status: "done", image: path, recipe: "drawn by hand",
+        note, parent_try: null, editor, seconds: null, finished_at: new Date().toISOString(),
       }).select("id").single();
       if (error) return reply(500, { message: "The picture could not be saved" });
       return reply(200, row);

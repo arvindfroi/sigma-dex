@@ -6,7 +6,15 @@ drawing, with the time it should take), drawn, read as pixels and handed in with
     art    the creature cut out of a chosen picture by base Qwen-Image 2.1 (a clean 640 drawing, see-through)
     front  the DS front (80x80): front LoRA v7 600 at 0.75, cfg 2.5 + a negative prompt, 20 steps, then unfake
     back   the DS back (80x80) on the front's colours: back LoRA v6 (1800 / 2100 / 2400 in turn)
-    icon   the menu icon (32x32) with icon LoRA v2: the PC box recipe and the canvas swap, taking turns
+    icon   the menu icon (32x32): Klein icon v1 at step 2500 (frame 1 of its two), in a HeartGold icon palette
+    follower  the overworld walking sheet (128x64: up, down, left, right x 2 steps): Klein follower v3 at step 2000, from
+           the picked front and back, halfway to the front's colours
+    back   on Klein back v2 (image 3 = a rear-view drawing of the art) once its step is chosen (BACK_KLEIN), on the front's
+           colours; until then back v6
+
+Klein = FLUX.2 Klein base 4B with our LoRAs (docs/LORAS.md: "Follower, thought again", "Icon on Klein", "Back on Klein"),
+drawn as ai-toolkit trained and sampled them (comfy.klein). Their text is the training captions' text: the dex words plus,
+from the website, the body shape, its look and how it moves (job["prompt"], JSON).
 
 The recipes are the ones tested in docs/LORAS.md (the whole-pipeline test of 14 Oct, the icon workshops). The LoRA files
 are only on the drawing PC (they were trained on game sprites and never go in the repository); their names are below.
@@ -24,14 +32,22 @@ from PIL import Image, ImageDraw
 import comfy
 import dexlib
 import ds_pixel
+import klein_follower
 import pixel_render
+import sprite_colours
 
 FRONT_LORA, FRONT_STRENGTH, FRONT_CFG = "fv7_600.safetensors", 0.75, 2.5
 BACK_LORAS = ["bv6_1800.safetensors", "bv6_2100.safetensors", "bv6_2400.safetensors"]
 ICON_LORA = "pkmn_icon_edit_v2.safetensors"
 UNFAKE = os.environ.get("UNFAKE_EXE", r"D:\LocalAI\tools\pxvenv\Scripts\unfake.exe")
 TIMINGS = Path(os.environ.get("SIGMA_TIMINGS_FILE", dexlib.ROOT / ".studio-timings.json"))
-DEFAULT_SECONDS = {"art": 75, "front": 100, "back": 55, "icon:pc": 8, "icon:canvas": 8}   # measured on the Legion, 14 Oct
+# Klein LoRAs approved by Arvind (15 Oct): follower v3 step 2000, icon v1 step 2500. BACK_KLEIN = back v2 once a step is
+# chosen (empty: the back stays on back v6). In ComfyUI\models\loras\ on the drawing PC only.
+FOLLOWER_KLEIN = "pkmn_follower_klein_v3_000002000.safetensors"
+ICON_KLEIN = "pkmn_icon_klein_v1_000002500.safetensors"
+BACK_KLEIN = ""
+DEFAULT_SECONDS = {"art": 75, "front": 100, "back": 55, "icon:pc": 8, "icon:canvas": 8, "icon": 30, "follower": 40, "back:klein": 30,
+                   "rear": 70}   # measured on the Legion, 14 Oct (the Klein ones: a first guess until measured)
 LINE = (175, 175, 175, 255)
 
 ART = ("<image1> is a picture of a creature: a drawing, a character sheet with text and several views, or a scene. Draw the "
@@ -52,6 +68,44 @@ BACK = ("<image1> is the Pokemon's front battle sprite. <image2> is a reference 
         "80x80 pixel art with the same colors, a one-pixel dark outline, on a transparent background.")
 ICON = ("Turn the Pokemon battle sprite in the reference image into its party menu icon from Pokemon HeartGold: the same creature "
         "as a 32x32 pixel art icon, facing left, with a one-pixel dark grey outline, on a white background.")
+# Klein: the texts the LoRAs were trained with (build_follower_klein_v3.py, build_icon_klein.py, build_back_klein_v2.py on the PC)
+SHEET_K = ("Create the overworld walking sprite sheet from Pokemon HeartGold of the Pokemon in image 1 and image 2: image 1 is its "
+           "front battle sprite, image 2 is its back battle sprite. {about}The sheet is a grid of 2 rows by 4 columns of 32x32 pixel "
+           "art frames on a flat magenta background: the columns walk up (seen from behind, as in image 2), down (facing the viewer, "
+           "as in image 1), left and right; the top row is the first step and the bottom row the second step. The same creature in "
+           "every frame, with the colours of image 1 and image 2 and a one-pixel dark outline.")
+ICON_K = ("Create the party menu icon from Pokemon HeartGold of the Pokemon in image 1: image 1 is its front battle sprite. {about}"
+          "The picture shows the icon's two animation frames side by side, each a 32x32 pixel art frame on a flat magenta "
+          "background: the same small creature in both, as in image 1 but simpler, with the icon's few colours and a one-pixel "
+          "dark outline; in the second frame it moves a little.")
+BACK_K = ("Create the back battle sprite from Pokemon HeartGold of the Pokemon in image 1, image 2 and image 3: image 1 is its front "
+          "battle sprite, image 2 is its official artwork, for its design, {hint}{about}The picture is its 80x80 pixel art back "
+          "sprite on a flat magenta background: the same creature seen from behind, as the player's Pokemon in battle, big and low "
+          "in the frame and cut off by the bottom edge, with the colours of image 1 and a one-pixel dark outline.")
+BACK_HINT = "image 3 shows what its back looks like, only for what is on its back (shapes, markings, colours), not for its style or pose. "
+REAR = ("<image1> is the official artwork of a creature. Draw the same creature seen from behind, as in a Pokemon's back view in "
+        "battle: the camera is behind it and a little above, so we see its back, the back of its head and its tail, and its face is "
+        "turned away and hidden. Exactly the same design, colours, proportions and drawing style as the artwork. Nothing else: no "
+        "background, no text.")
+
+
+def about(job, words, move=True):
+    """The dex words, then what the website sends about its body (JSON {shape, look, move}), as in the training captions."""
+    try:
+        body = json.loads(job.get("prompt") or "{}")
+    except ValueError:
+        body = {"look": job.get("prompt")}
+    body = body if isinstance(body, dict) else {}
+    s = words
+    if body.get("shape"):
+        s += "Its body shape: %s. " % str(body["shape"]).strip().rstrip(".")
+    if body.get("look"):
+        s += "Its look: %s " % str(body["look"]).strip()
+    if move and body.get("move"):
+        s += "How it moves: %s " % str(body["move"]).strip()
+    return s
+
+
 # where and how big the back sprite is, from the front's height and width (fitted on the real HGSS backs: back v6's box)
 BACK_BOX = {"h": [0.6691373462851647, -0.1684466714078896, 34.8848780435225], "w": [-0.06479605707673408, 0.502819395442454, 45.97516911549472],
             "cx": [-0.0061761081279599166, 0.007810089409133081, 39.27945672744823], "bottom": [0.2051063369118864, -0.0403249530318881, 64.6804013672584]}
@@ -369,13 +423,109 @@ def try_icon(n, seed, folder, job, inputs):
     return ("broken" if why else "done", why, image, raw)
 
 
+def on_white(im, scale=4):
+    """a sprite (see-through) on white, `scale`x nearest: the LoRAs' image 1 / image 2"""
+    w = Image.new("RGB", im.size, "white")
+    w.paste(im, (0, 0), im)
+    return w.resize((im.width * scale, im.height * scale), Image.NEAREST)
+
+
+def fit_white(im, side=320, inner=300, smooth=False):
+    """a drawing fitted in `inner` px on a white square: the back LoRA's image 2 (the art) and image 3 (smoothed: the back)"""
+    im = im.convert("RGBA")
+    box = im.getbbox()
+    if box:
+        im = im.crop(box)
+    s = inner / max(im.size)
+    im = im.resize((max(1, round(im.width * s)), max(1, round(im.height * s))), Image.BICUBIC if smooth else Image.LANCZOS)
+    if smooth:
+        from PIL import ImageFilter
+        im = im.filter(ImageFilter.GaussianBlur(1.2))
+    w = Image.new("RGBA", (side, side), (255, 255, 255, 255))
+    w.alpha_composite(im, ((side - im.width) // 2, (side - im.height) // 2))
+    return w.convert("RGB")
+
+
+def klein_draw(out, prompt, refs, width, height, seed, lora):
+    out = Path(out)
+    if not out.exists():
+        out.write_bytes(comfy.run(comfy.klein(prompt, [up(r) for r in refs], width, height, seed, "sigma/studio_klein", lora)))
+    return out
+
+
+def too_small(sprite, least=40):
+    a = np.array(sprite.convert("RGBA"))
+    return "nothing drawn" if (a[..., 3] > 0).sum() < least else ""
+
+
+def try_follower(n, seed, folder, job, inputs):
+    words, _ = inputs["tags"]
+    if not (folder / "k_front.png").exists():
+        on_white(inputs["front"]).save(folder / "k_front.png")
+        on_white(inputs["back"]).save(folder / "k_back.png")
+    raw = klein_draw(folder / ("follower_raw_%d.png" % n), SHEET_K.format(about=about(job, words)),
+                     [folder / "k_front.png", folder / "k_back.png"], 512, 256, seed, FOLLOWER_KLEIN)
+    sheet = sprite_colours.follower_colours(klein_follower.to_game(raw), inputs["front"])
+    sheet = klein_follower.merge_alike(sheet.convert("RGBA"), 15)
+    why = too_small(sheet, 120)
+    image = folder / ("follower_%d.png" % n)
+    sheet.save(image)
+    return ("broken" if why else "done", why, image, raw)
+
+
+def try_icon_klein(n, seed, folder, job, inputs):
+    words, _ = inputs["tags"]
+    if not (folder / "k_front.png").exists():
+        on_white(inputs["front"]).save(folder / "k_front.png")
+    raw = klein_draw(folder / ("icon_raw_%d.png" % n), ICON_K.format(about=about(job, words, move=False)),
+                     [folder / "k_front.png"], 512, 256, seed, ICON_KLEIN)
+    frame = klein_follower.to_icon(raw).crop((0, 0, 32, 32))           # frame 1 (the game's second frame is made from it)
+    frame, _ = sprite_colours.icon_colours(frame, sprite_colours.HG_ICON_PALETTES, inputs.get("body_color"))
+    why = too_small(frame, 30)
+    image = folder / ("icon_%d.png" % n)
+    frame.save(image)
+    return ("broken" if why else "done", why, image, raw)
+
+
+def rear_drawing(folder, art_path, seed):
+    """base Qwen draws the art seen from behind (back_rear_test.py): what is on the back, for the back LoRA's image 3"""
+    out = folder / "rear.png"
+    if not out.exists():
+        raw = folder / "rear_raw.png"
+        comfy.generate(REAR, raw, [art_path], size=(1024, 1024), steps=40, seed=seed, quiet=True, transparent=True)
+        im, _ = largest_blob(Image.open(raw))
+        im.save(out)
+    return Image.open(out)
+
+
+def try_back_klein(n, seed, folder, job, inputs):
+    words, _ = inputs["tags"]
+    front = inputs["front"]
+    if not (folder / "k_front.png").exists():
+        on_white(front).save(folder / "k_front.png")
+        art = inputs.get("art")
+        if art is None:
+            raise RuntimeError("the back needs the art: pick a cut-out picture, or choose a picture")
+        framed(art).save(folder / "k_art640.png")
+        fit_white(art).save(folder / "k_art.png")
+        fit_white(rear_drawing(folder, folder / "k_art640.png", job["id"] * 100), smooth=True).save(folder / "k_hint.png")
+    raw = klein_draw(folder / ("back_raw_%d.png" % n), BACK_K.format(hint=BACK_HINT, about=about(job, words, move=False)),
+                     [folder / "k_front.png", folder / "k_art.png", folder / "k_hint.png"], 320, 320, seed, BACK_KLEIN)
+    sprite = sprite_colours.back_colours(klein_follower.to_back(raw), front)
+    why = too_small(sprite, 200)
+    image = folder / ("back_%d.png" % n)
+    sprite.save(image)
+    return ("broken" if why else "done", why, image, raw)
+
+
 def icon_recipe(job, n):
     if job.get("recipe") in ("pc", "canvas"):
         return job["recipe"]
     return "pc" if n % 2 else "canvas"                       # both, taking turns (Arvind picks between them)
 
 
-STAGES = {"art": try_art, "front": try_front, "back": try_back, "icon": try_icon}
+STAGES = {"art": try_art, "front": try_front, "back": try_back_klein if BACK_KLEIN else try_back, "icon": try_icon_klein,
+          "follower": try_follower}
 
 
 def recipe_name(job, n):
@@ -383,9 +533,13 @@ def recipe_name(job, n):
     if stage == "front":
         return "front v7 600 @%.2f cfg %.1f" % (FRONT_STRENGTH, FRONT_CFG)
     if stage == "back":
+        if BACK_KLEIN:
+            return Path(BACK_KLEIN).stem.replace("pkmn_", "").replace("_0000", " ")
         return BACK_LORAS[(n - 1) % len(BACK_LORAS)].replace(".safetensors", "")
     if stage == "icon":
-        return icon_recipe(job, n)
+        return "icon klein v1 2500"
+    if stage == "follower":
+        return "follower klein v3 2000"
     return "base Qwen cut-out"
 
 
@@ -433,16 +587,26 @@ def run(job, base, key, post, download, folder, log=print):
         inputs["art_path"] = folder / "art_in.png"
         framed(inputs["art"]).save(inputs["art_path"])
         inputs["art"] = Image.open(inputs["art_path"])
-    if stage in ("back", "icon"):
+    if stage in ("back", "icon", "follower"):
         inputs["front"] = Image.open(download(base, src["image"], folder / "from_front.png")).convert("RGBA")
         parent = src.get("parent") or {}
         if stage == "back" and parent.get("stage") == "art" and parent.get("image"):
             inputs["art"] = Image.open(download(base, parent["image"], folder / "from_art.png")).convert("RGBA")
+        elif stage == "back" and job.get("refs"):                # the front was drawn from a chosen picture directly
+            inputs["art"] = framed(Image.open(download(base, job["refs"][0], folder / "ref0.png")))
+    if stage == "follower":
+        other = job.get("with_try") or {}
+        if not other.get("image"):
+            raise RuntimeError("the walking sprite needs a back: pick one first")
+        inputs["back"] = Image.open(download(base, other["image"], folder / "with_back.png")).convert("RGBA")
+    if stage == "icon":
+        species = {sid: d for sid, _, d in dexlib.load_species()[0]}
+        inputs["body_color"] = (species.get(job["species_id"]) or {}).get("body_color")
     made = 0
     for n in range(1, count + 1):
         seed = seed0 + n
         name = recipe_name(job, n)
-        tkey = "icon:" + icon_recipe(job, n) if stage == "icon" else stage
+        tkey = "back:klein" if stage == "back" and BACK_KLEIN else stage
         row = post(base, key, {"action": "try_start", "job_id": job["id"], "n": n, "seed": seed, "recipe": name,
                                "expected_seconds": expected(timings, tkey)})
         post(base, key, {"action": "progress", "job_id": job["id"], "state": ("drawing %s: %s %d of %d" % (job["species_id"], stage, n, count))[:120]})

@@ -408,7 +408,7 @@ FIELDS = {
     "base_stats": tuple(STATS),
     "held_items": ("common", "rare"),
     "learnset": ("level_up", "tm_hm", "tutor", "egg"),
-    "design": ("concept", "name_origin", "notes", "wishes", "claude_fill", "filled_by_claude"),
+    "design": ("concept", "name_origin", "notes", "wishes", "claude_fill", "filled_by_claude", "body_shape", "look", "movement"),
     "assets": ("concept_art", "front_sprite", "front_anim", "back_sprite", "icon", "footprint", "shiny_palette", "cry"),
     "engine": ("no_flip", "elevation", "front_y_offset", "back_y_offset", "icon_palette", "safari_flee_rate"),
 }

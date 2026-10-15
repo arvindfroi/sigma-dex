@@ -64,7 +64,7 @@ def main():
     ds_sprites = {}
     for sid in sorted(ids):
         folder = ROOT / "assets" / "sprites-ds" / sid
-        for name in ("front", "back", "icon"):
+        for name in ("front", "back", "icon", "follower"):
             if (folder / (name + ".png")).is_file():
                 target = art_dir / sid / ("ds-%s.png" % name)
                 target.parent.mkdir(parents=True, exist_ok=True)
