@@ -2063,10 +2063,17 @@ function spriteStudio(s, startStep) {
       const fronts = st.tries.filter(t => t.stage === "front" && t.status !== "failed");
       const art = picked("art") || st.tries.filter(t => t.stage === "art" && t.status !== "failed")[0];
       const cutting = drawing("art") && !fronts.length;
-      body = [h("h2", {style: "margin-top:4px"}, cutting ? "Cutting out the picture..." : "Which front do you like best?"),
-        h("div", {class: "hint"}, cutting ? "Then the PC draws " + howMany + " front" + (howMany > 1 ? "s" : "") + " from it." : "Tap it. The back and the icon are drawn from the one you pick."),
-        eta, tilesFor("front", fronts),
-        !drawing("front") && !drawing("art") ? h("div", {class: "row", style: "margin-top:10px"}, fronts.length ? h("span", {class: "sub"}, "None of these?") : null,
+      // the cut-out is done but the fronts are not in line yet: the server starts them within a few seconds
+      const starting = !fronts.length && !drawing("art") && !drawing("front") && art && art.finished_at && Date.now() - new Date(art.finished_at).getTime() < 120000;
+      const waiting = cutting || starting || (drawing("front") && !fronts.some(t => t.image));
+      body = [h("h2", {style: "margin-top:4px"}, cutting ? "Cutting out the picture..." : waiting ? "Drawing the fronts..." : "Which front do you like best?"),
+        h("div", {class: "hint"}, cutting ? "Then the PC draws " + howMany + " front" + (howMany > 1 ? "s" : "") + " from it. They show up here one by one."
+          : waiting ? "They show up here one by one. Then tap the one you like best." : "Tap it. The back and the icon are drawn from the one you pick."),
+        eta || (starting ? h("div", {class: "eta"}, h("span", {class: "spinner"}), "Starting...") : null),
+        art && art.image ? h("div", {class: "row", style: "margin:4px 0"}, h("span", {class: "sub"}, "Cut out from your picture:"),
+          h("img", {src: artUrl(art.image), alt: "the cut-out", style: "width:64px;height:64px;object-fit:contain;background:var(--soft);border:2px solid var(--line)"})) : null,
+        tilesFor("front", fronts),
+        !drawing("front") && !drawing("art") && !starting ? h("div", {class: "row", style: "margin-top:10px"}, h("span", {class: "sub"}, fronts.length ? "None of these?" : "Nothing is being drawn."),
           more(fronts.length ? "DRAW " + howMany + " MORE" : "DRAW " + howMany + " FRONTS", "front", art || null), counter) : null];
     } else if (ph === "backicon") {
       const backs = madeFrom("back", f), icons = madeFrom("icon", f);
@@ -2120,7 +2127,10 @@ function spriteStudio(s, startStep) {
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; }
     draw(); st.busyMsg = "";
     clearTimeout(timer);
-    timer = setTimeout(() => { if (top.isConnected) load(); }, mine().length || st.tries.some(t => t.status === "drawing") ? 4000 : 60000);
+    // Often while something is drawn, and in the guided way also between two steps (the fronts start a moment after the
+    // cut-out is done, on the server): the page must never look as if nothing happens.
+    const busy = mine().length || st.tries.some(t => t.status === "drawing");
+    timer = setTimeout(() => { if (top.isConnected) load(); }, busy ? 4000 : st.loaded && guided() ? 6000 : 60000);
   }
 
   // The editor takes the bottom screen; the top screen stays. Saving makes a new picture of that step, picked and in use.
