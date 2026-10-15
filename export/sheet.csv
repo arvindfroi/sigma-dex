@@ -119,7 +119,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 112,Aluminimonk,Psychic,,Shields Down,,,=SUM(I114:N114),40,40,60,40,80,40,,,,,,,1 sp_defense,,,,,,,,,,,,,,,,,,,,Emil,
 113,Aluminimonk Utviklin,Psychic,,Shields Down,,,=SUM(I115:N115),60,50,100,60,110,60,Aluminimonk,Lv 32,,,,,2 sp_defense,,,,,,,,,,,,,,,,,,,,Emil,
 114,Zapitera Mindre utv,Electric,,,,,=SUM(I116:N116),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-115,Zapitera,Electric,Steel,Levitate,Magnet Pull,Stalwart,=SUM(I117:N117),65,65,80,110,65,120,Zapitera Mindre utv,Lv 35,,,,,,,,,,,,,,,,"Heat Laser Gaze (evo), Heat Laser Gaze (1)",,,,,,,,,Ruben & Emil,
+115,Zapitera,Electric,Steel,Levitate,Magnet Pull,Stalwart,=SUM(I117:N117),65,60,85,110,65,120,Zapitera Mindre utv,Lv 35,,,,,2 speed,,,,,,,,,,,"Heat Laser Gaze (evo), Heat Laser Gaze (1)",,,,,,,,,Ruben & Emil,
 116,Viridub,Grass,,Chlorophyll,,,=SUM(I118:N118),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Rebekka,Rebekka
 117,,,,,,,=SUM(I119:N119),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 118,,,,,,,=SUM(I120:N120),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

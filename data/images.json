@@ -2476,5 +2476,40 @@
     "file": "assets/concept-art/bugmight/703.webp",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 704,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/704.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 705,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/705.png",
+    "caption": "[ds-front] sprite #71",
+    "editor": null
+  },
+  {
+    "id": 706,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/706.png",
+    "caption": "[ds-back] sprite #71",
+    "editor": null
+  },
+  {
+    "id": 707,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/707.png",
+    "caption": "[ds-icon] sprite #71",
+    "editor": null
+  },
+  {
+    "id": 708,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/708.png",
+    "caption": "[ds-follower] sprite #71",
+    "editor": null
   }
 ]

@@ -18,7 +18,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | body color | 2 / 127 |
 | Stats | base stats | 101 / 127 |
 | Stats | ability | 105 / 127 |
-| Stats | EV yield | 64 / 127 |
+| Stats | EV yield | 65 / 127 |
 | Stats | catch rate | 1 / 127 |
 | Stats | base exp | 1 / 127 |
 | Stats | growth rate | 1 / 127 |
@@ -43,9 +43,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 7 / 127 |
-| DS back sprite 80x80 | 7 / 127 |
-| DS icon 32x32 | 7 / 127 |
+| DS front sprite 80x80 | 8 / 127 |
+| DS back sprite 80x80 | 8 / 127 |
+| DS icon 32x32 | 8 / 127 |
 
 ## Open dex slots (24)
 
@@ -1173,10 +1173,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #115 [Zapitera](data/species/zapitera.yaml) - 21%
+### #115 [Zapitera](data/species/zapitera.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** TM/HM moves
 - **Location:** encounters
