@@ -642,6 +642,8 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .trayoff { color: var(--warn); font-size: 13px; padding: 4px 2px; }
 .traynote { color: var(--muted); font-size: 12px; padding: 6px 2px 0; border-top: 2px dashed var(--line); }
 @media (max-width: 760px) { .tray { right: 8px; bottom: 8px; } }
+.skipcut { display: flex; gap: 8px; align-items: flex-start; margin-top: 10px; font-size: 14px; }
+.skipcut input { margin-top: 3px; }
 </style>
 </head>
 <body>
@@ -2026,6 +2028,7 @@ function spriteStudio(s, startStep) {
   const firstTime = () => !approved() && !(DEX.ds_sprites[s.id] || {}).front;
   const guided = () => firstTime() && remember.get("studio-full") !== "1";
   let howMany = Math.min(4, Math.max(1, Number(remember.get("studio-count")) || 3));
+  let skipCut = remember.get("skipcut-" + s.id) === "1";    // the cut-out is optional: a clean drawing goes straight to fronts
   const newestPick = list => list.filter(t => t.picked).sort((a, b) => String(b.picked_at).localeCompare(String(a.picked_at)))[0] || null;
   // A picture drawn on, mirrored or recoloured in the editor is a new try whose parent is the try it was made from (the
   // same step). It counts as that try: a back drawn on is still a back of this front, and a front drawn on keeps the backs,
@@ -2095,12 +2098,14 @@ function spriteStudio(s, startStep) {
               chosen = k >= 0 ? chosen.filter(id => id !== p.id) : chosen.concat(p.id).slice(-3); remember.set("refs-" + s.id, chosen.join(",")); draw(); }},
               h("img", {src: p.src, alt: p.caption || "picture"}), k >= 0 ? h("span", {class: "order"}, String(k + 1)) : null);
           })),
+          h("label", {class: "skipcut"}, h("input", {type: "checkbox", checked: skipCut ? true : null, onchange: ev => { skipCut = ev.target.checked; remember.set("skipcut-" + s.id, skipCut ? "1" : ""); draw(); }}),
+            "My picture is already a clean drawing of just " + s.data.name + " (no text, no other views): skip the cut-out and save about a minute."),
           h("div", {class: "hint", style: "margin-top:14px"}, "2. How many of each sprite should the PC draw for you to choose from?"), counter,
           h("div", {class: "hint", style: "margin-top:14px"}, "3. Start. The PC draws " + howMany + " front" + (howMany > 1 ? "s" : "") + "; you tap the one you like, then it draws the back and the icon, then the walking sprite. " +
-            "About " + Math.round(estimate(howMany) / 60) + " minutes of drawing in all, plus a few taps from you."),
+            "About " + Math.round((estimate(howMany) - (skipCut ? secondsFor(st.worker && st.worker.timings, "art") : 0)) / 60) + " minutes of drawing in all, plus a few taps from you."),
           h("button", {type: "button", class: "primary big", disabled: chosen.length ? null : true, onclick: async ev => {
             ev.currentTarget.disabled = true;
-            try { await ask("art", null, {p_count: 1, p_recipe: "then-front-" + howMany}); await load(); }
+            try { if (skipCut) await ask("front", null); else await ask("art", null, {p_count: 1, p_recipe: "then-front-" + howMany}); await load(); }
             catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; draw(); st.busyMsg = ""; }
           }}, "\u25b6 START")]
           : h("div", {class: "empty"}, "First add a picture of " + s.data.name + " in the ART tab (paste it with Ctrl+V / Cmd+V).")];
