@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**123 / 151** slots have a Pokemon - **0** are fully complete - average completeness **23%**.
+**127 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -32,7 +32,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water | Rain Dish, Own Tempo, Unaware (H) | 490 |  | 28% |
 | 22 | [Lapper](data/species/lapper.yaml) | Normal / Fighting | Scrappy, Fur Coat, Hustle (H) | 327 | Brawleo (Lv 25) | 21% |
 | 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 31% |
-| 24 | [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) | Rock / Ground |  |  |  | 7% |
+| 24 | [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) | Rock / Ground | Iron Barbs, Sand Veil, Sand Force (H) |  |  | 10% |
 | 25 | [Icy Freeze](data/species/icy-freeze.yaml) | Ice | Ice Body, Slush Rush, Oblivious (H) | 280 | Freezrick (Lv 25) | 24% |
 | 26 | [Freezrick](data/species/freezrick.yaml) | Ice | Ice Body, Slush Rush, Oblivious (H) | 420 |  | 28% |
 | 27 | [Bulbtle](data/species/bulbtle.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 280 | Bulbtoise (Lv 28) | 24% |
@@ -122,9 +122,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 111 | [Oraclaw](data/species/oraclaw.yaml) | Psychic / Flying | Anticipation, Forewarn, Magic Guard (H) | 520 |  | 21% |
 | 112 | [Aluminimonk](data/species/alminimonk.yaml) | Psychic | Shields Down | 300 | Aluminimonk Utviklin (Lv 32) | 21% |
 | 113 | [Aluminimonk Utviklin](data/species/alminimonk-utvikling.yaml) | Psychic | Shields Down | 440 |  | 17% |
-| 114 | *open slot* | | | | | |
-| 115 | *open slot* | | | | | |
-| 116 | *open slot* | | | | | |
+| 114 | [Zapitera Mindre utv](data/species/zapitera-mindre-utv.yaml) | Electric |  |  | Zapitera (Lv 35) | 3% |
+| 115 | [Zapitera](data/species/zapitera.yaml) | Electric / Steel | Levitate, Magnet Pull, Stalwart (H) | 505 |  | 21% |
+| 116 | [Viridub](data/species/viridub.yaml) | Grass | Chlorophyll |  |  | 14% |
 | 117 | *open slot* | | | | | |
 | 118 | *open slot* | | | | | |
 | 119 | *open slot* | | | | | |
@@ -150,7 +150,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 139 | *open slot* | | | | | |
 | 140 | *open slot* | | | | | |
 | 141 | *open slot* | | | | | |
-| 142 | *open slot* | | | | | |
+| 142 | [Moosus](data/species/moosus.yaml) | Flying / Fairy |  |  |  | 14% |
 | 143 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 580 |  | 24% |
 | 144 | [Gravriel](data/species/gravriel.yaml) | Water / Ghost | Grim Neigh, Sap Sipper (H) | 580 |  | 41% |
 | 145 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 300 | Greation (Lv 30) | 21% |

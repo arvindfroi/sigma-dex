@@ -9,6 +9,13 @@ abilities:
     holder is on the field and not fainted. There is no activation message, but the ability pop-up shows
     on switch-in like other battle abilities.'
   designer: Emil
+- id: cold-hearted
+  name: Cold-hearted
+  description: Raises the Attack of this Pokémon when Snowscape is active
+  effect: When this Pokémon enters battle during Snowscape, or when Snowscape begins while it is on the
+    field, its Attack rises by one stage. This happens once per Snowscape activation. If the snow ends
+    and a new one starts, it triggers again. The boost is a normal stat stage, so Intimidate, Haze, and
+    switching out remove it.
 - id: drunken-rage
   name: Drunken Rage
   description: Raises Attack by two stages upon entering battle, but become confused

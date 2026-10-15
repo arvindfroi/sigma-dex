@@ -13,3 +13,15 @@ moves:
   effect: This move is super effective on Dark types.
   similar_to: Freeze-Dry
   designer: Emil
+- id: heat-laser-gaze
+  name: Heat Laser Gaze
+  type: Steel
+  category: special
+  power: 70
+  accuracy: 100
+  pp: 20
+  target: one opponent
+  effect: Fires a heat laser from the eyes. Super effective against Steel types, and may burn the target.
+  effect_chance: 10
+  similar_to: Freeze-Dry
+  designer: Emil
