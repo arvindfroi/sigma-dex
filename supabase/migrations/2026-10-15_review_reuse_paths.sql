@@ -1,0 +1,5 @@
+-- 2026-10-15, applied: approving a version that shares a picture file with an earlier one (only the back changed, the
+-- same front file) failed with "duplicate key value violates unique constraint species_images_path_key". review_sprite
+-- now reuses that picture row (un-removed, new caption): its inserts end with
+--   on conflict (path) do update set removed = false, caption = excluded.caption, species_id = excluded.species_id, editor = excluded.editor
+-- (the full function is as in 2026-10-15_studio_v4.sql plus that clause on both inserts).
