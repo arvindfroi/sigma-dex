@@ -6,11 +6,11 @@ drawing, with the time it should take), drawn, read as pixels and handed in with
     art    the creature cut out of a chosen picture by base Qwen-Image 2.1 (a clean 640 drawing, see-through)
     front  the DS front (80x80): front LoRA v7 600 at 0.75, cfg 2.5 + a negative prompt, 20 steps, then unfake
     back   the DS back (80x80) on the front's colours: back LoRA v6 (1800 / 2100 / 2400 in turn)
-    icon   the menu icon (32x32): Klein icon v1 at step 2500 (frame 1 of its two), in a HeartGold icon palette
+    icon   the menu icon (32x32): Klein icon v1 at step 2500 (frame 1 of its two), in Klein's own colours
     follower  the overworld walking sheet (128x64: up, down, left, right x 2 steps): Klein follower v3 at step 2000, from
            the picked front and back, halfway to the front's colours
     back   the DS back (80x80): Klein back v2 at step 2500, image 3 = the art drawn from behind first (base Qwen), on the
-           front's colours
+           front's colours when the front has at least 8
 
 Klein = FLUX.2 Klein base 4B with our LoRAs (docs/LORAS.md: "Follower, thought again", "Icon on Klein", "Back on Klein"),
 drawn as ai-toolkit trained and sampled them (comfy.klein). Their text is the training captions' text: the dex words plus,
@@ -480,8 +480,9 @@ def try_icon_klein(n, seed, folder, job, inputs):
         on_white(inputs["front"]).save(folder / "k_front.png")
     raw = klein_draw(folder / ("icon_raw_%d.png" % n), ICON_K.format(about=about(job, words, move=False)),
                      [folder / "k_front.png"], 512, 256, seed, ICON_KLEIN)
-    frame = klein_follower.to_icon(raw).crop((0, 0, 32, 32))           # frame 1 (the game's second frame is made from it)
-    frame, _ = sprite_colours.icon_colours(frame, sprite_colours.HG_ICON_PALETTES, inputs.get("body_color"))
+    # frame 1 (the game's second frame is made from it), in Klein's own colours: snapping to an icon palette made the
+    # icons bluer or olive (Obsidog, 15 Oct; Arvind agreed); the palettes are a button in the studio's editor
+    frame = klein_follower.to_icon(raw).crop((0, 0, 32, 32))
     why = too_small(frame, 30)
     image = folder / ("icon_%d.png" % n)
     frame.save(image)
@@ -512,7 +513,9 @@ def try_back_klein(n, seed, folder, job, inputs):
         fit_white(rear_drawing(folder, folder / "k_art640.png", job["id"] * 100), smooth=True).save(folder / "k_hint.png")
     raw = klein_draw(folder / ("back_raw_%d.png" % n), BACK_K.format(hint=BACK_HINT, about=about(job, words, move=False)),
                      [folder / "k_front.png", folder / "k_art.png", folder / "k_hint.png"], 320, 320, seed, BACK_KLEIN)
-    sprite = sprite_colours.back_colours(klein_follower.to_back(raw), front)
+    sprite = klein_follower.to_back(raw)
+    if len(sprite_colours.colours(front)[0]) >= 8:     # the front's colours, as in the game - only from a real front: a
+        sprite = sprite_colours.back_colours(sprite, front)   # 3-colour test front flattened the back to 3 colours (15 Oct)
     why = too_small(sprite, 200)
     image = folder / ("back_%d.png" % n)
     sprite.save(image)

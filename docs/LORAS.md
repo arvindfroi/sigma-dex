@@ -1383,6 +1383,16 @@ v6 until a back v2 step is picked (`BACK_KLEIN`); then the back job first draws 
   and cut too much (Wispole and Haunter fill the frame, Cyndaquil seed 2 only the flame). My pick: 2500.
   **Arvind: "ja ta 2500 du"** - back v2 step 2500 is the studio's back (`approved\\`, sha256 C8BC5E05...2B128DB5).
 
+- **The first real test through the website was bad, and why** (Arvind: "the front was terrible; the colours are terrible
+  compared with before; was it the same pipeline?"). Not the pickers: the front was my own mirrored test front from
+  14 Oct (#7, from before unfake `-c 15`, 3 colours), still picked, and the colour rules flattened the back onto its 3
+  colours. Same code and seeds from Arvind's 14 Oct front (pipe3 seed 6, 15 colours), `v6cfg\e2e_front_check.py`,
+  `results\e2e_front\sheet.png`: backs with horns, collar and fangs, one of three a true back of the whole dog (two
+  still turn the face to the side: Obsidog stays a hard case, which is why several are drawn); the back colour rule
+  keeps the shading with a real front; the icon colour rule made icons bluer or olive; the walking sprites good either
+  way. ~3 minutes for 3 backs + 3 icons + 3 walking sprites (1 of them the rear-view drawing). Changed (Arvind agreed):
+  the icon keeps Klein's colours (palettes = a button in the editor), the back rule only from a front with 8+ colours.
+
 ## Next ones (later)
 
 - **Fallback base model: FLUX.2 Klein 9B** (Comfy's style transfer handbook, March 2026: "a sweet spot for LoRA training",

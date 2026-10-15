@@ -31,7 +31,7 @@ is stressful". v4 has the site's two screens:
 
 What draws what (`scripts/studio_tries.py` on the PC): the cut-out with base Qwen-Image, the front with front v7, the
 icon with **Klein icon v1 (step 2500)**, the walking sprite with **Klein follower v3 (step 2000)** from the picked front
-and back, the back with **Klein back v2 (step 2500)**, which first draws the art from behind (base Qwen) as its image 3. Each result gets its kind's colour rule (`scripts/sprite_colours.py`). Database: migration
+and back, the back with **Klein back v2 (step 2500)**, which first draws the art from behind (base Qwen) as its image 3. Colours (`scripts/sprite_colours.py`): the back takes the front's colours (as in the game) when the front has at least 8; the walking sprite is pulled halfway to the front's colours; the icon keeps Klein's own colours (the game's icon palettes are a button in the editor: snapping automatically made icons bluer or olive). Database: migration
 `supabase/migrations/2026-10-15_studio_v4.sql` (stage `follower`, `sprite_jobs.with_try`, `sprite_candidates.follower`,
 `[ds-follower]` pictures -> `assets/sprites-ds/<pokemon>/follower.png`, 128x64). `sprite-draw` also takes a drawing on
 the sprite in use (`version` + `view`) and saves it as a new try.
