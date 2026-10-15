@@ -504,8 +504,8 @@ def try_back_klein(n, seed, folder, job, inputs):
     if not (folder / "k_front.png").exists():
         on_white(front).save(folder / "k_front.png")
         art = inputs.get("art")
-        if art is None:
-            raise RuntimeError("the back needs the art: pick a cut-out picture, or choose a picture")
+        if art is None:                     # a mirrored or drawn front with no picture chosen: the front stands in for the art
+            art = front
         framed(art).save(folder / "k_art640.png")
         fit_white(art).save(folder / "k_art.png")
         fit_white(rear_drawing(folder, folder / "k_art640.png", job["id"] * 100), smooth=True).save(folder / "k_hint.png")
