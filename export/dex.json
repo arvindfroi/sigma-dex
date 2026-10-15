@@ -6342,17 +6342,19 @@
       "abilities": {
         "primary": "Cold-hearted",
         "secondary": "Ice Body",
-        "hidden": "Snow Warning"
+        "hidden": "Sheer Force"
       },
       "base_stats": {
         "hp": 95,
         "attack": 125,
         "defense": 100,
-        "sp_attack": 70,
+        "sp_attack": 60,
         "sp_defense": 85,
-        "speed": 60
+        "speed": 70
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -6388,7 +6390,7 @@
         "look": "It is an icy pale-blue creature with a spiky crown-shaped head, a gem on its forehead and a wide mouth full of sharp teeth. It has a big rectangular block torso with carved runes, long dark curved arms ending in ice claws, thick white legs with sharp claws, and a thin black tail with an arrow tip."
       },
       "assets": {
-        "concept_art": "assets/concept-art/cryoblade/357.webp",
+        "concept_art": "assets/concept-art/cryoblade/676.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,

@@ -1120,20 +1120,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 357,
-    "species": "cryoblade",
-    "file": "assets/concept-art/cryoblade/357.webp",
-    "caption": "Concept card from Discord (#kanteradet), posted by dr.grey8421 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 358,
-    "species": "cryoblade",
-    "file": "assets/concept-art/cryoblade/358.webp",
-    "caption": "Sketch from Discord (#kanteradet), posted by dr.grey8421 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 359,
     "species": "giga-circuit",
     "file": "assets/concept-art/giga-circuit/359.webp",
@@ -2321,6 +2307,48 @@
     "species": "twemp",
     "file": "assets/concept-art/twemp/671.png",
     "caption": "[ds-follower] sprite #66",
+    "editor": null
+  },
+  {
+    "id": 676,
+    "species": "cryoblade",
+    "file": "assets/concept-art/cryoblade/676.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 677,
+    "species": "cryoblade",
+    "file": "assets/concept-art/cryoblade/677.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 678,
+    "species": "florantula",
+    "file": "assets/concept-art/florantula/678.png",
+    "caption": "[ds-front] sprite #67",
+    "editor": null
+  },
+  {
+    "id": 679,
+    "species": "florantula",
+    "file": "assets/concept-art/florantula/679.png",
+    "caption": "[ds-back] sprite #67",
+    "editor": null
+  },
+  {
+    "id": 680,
+    "species": "florantula",
+    "file": "assets/concept-art/florantula/680.png",
+    "caption": "[ds-icon] sprite #67",
+    "editor": null
+  },
+  {
+    "id": 681,
+    "species": "florantula",
+    "file": "assets/concept-art/florantula/681.png",
+    "caption": "[ds-follower] sprite #67",
     "editor": null
   }
 ]

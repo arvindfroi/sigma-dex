@@ -74,7 +74,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 67,Saucerl,Psychic,Water,,,,=SUM(I69:N69),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 68,Abyssys,Psychic,Water,,,,=SUM(I70:N70),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 69,Octopearl,Psychic,Water,,,,=SUM(I71:N71),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-70,Cryoblade,Ice,,Cold-hearted,Ice Body,Snow Warning,=SUM(I72:N72),95,125,100,70,85,60,,,Frozen Executioner,2.1,182,,,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",,
+70,Cryoblade,Ice,,Cold-hearted,Ice Body,Sheer Force,=SUM(I72:N72),95,125,100,60,85,70,,,Frozen Executioner,2.1,182,,2 attack,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",,
 71,Roostasaur,Dragon,Normal,,,,=SUM(I73:N73),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 72,Bygon,Ghost,Rock,,,,=SUM(I74:N74),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 73,Leadling,Rock,Poison,Sturdy,Toxic Debris,Corrosion,=SUM(I75:N75),45,35,55,50,85,10,,,,,,,1 sp_defense,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,

@@ -18,7 +18,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | body color | 2 / 123 |
 | Stats | base stats | 100 / 123 |
 | Stats | ability | 102 / 123 |
-| Stats | EV yield | 63 / 123 |
+| Stats | EV yield | 64 / 123 |
 | Stats | catch rate | 1 / 123 |
 | Stats | base exp | 1 / 123 |
 | Stats | growth rate | 1 / 123 |
@@ -43,9 +43,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 5 / 123 |
-| DS back sprite 80x80 | 5 / 123 |
-| DS icon 32x32 | 5 / 123 |
+| DS front sprite 80x80 | 6 / 123 |
+| DS back sprite 80x80 | 6 / 123 |
+| DS icon 32x32 | 6 / 123 |
 
 ## Open dex slots (28)
 
@@ -739,11 +739,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #70 [Cryoblade](data/species/cryoblade.yaml) - 24%
+### #70 [Cryoblade](data/species/cryoblade.yaml) - 28%
 
 - **Identity:** designer credit
 - **Dex page:** description, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
