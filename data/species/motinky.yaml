@@ -70,7 +70,10 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-03)."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs with a tail
+  movement: It walks upright on two legs.
+  look: "It is a small monkey whose body is a brown wooden tiki-mask log with a grinning face with white teeth and a green mossy rim. It has smoke and moss on top, a grass skirt, brown monkey arms, legs and a curly tail, and holds a burning wooden torch."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

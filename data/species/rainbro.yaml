@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a small pixel-style creature with a pointed leaf-shaped head and a body that fades from green and blue through yellow and orange to pink and purple like a rainbow. It has black dot eyes, white cheeks, a smile, white fluffy arms crossed in front and white feet."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

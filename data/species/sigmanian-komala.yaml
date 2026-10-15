@@ -67,7 +67,10 @@ design:
   notes:
   wishes: "an early route pokemon, stats simmilar to pancham"
   claude_fill: true      # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
+  look: "It is a green koala-like creature with big rounded green ears with orange insides, a large dark grey oval nose, and X-shaped closed eyes. It sits hugging a cream bottle with a red band and white crosses, with dark round paw pads and a small white tail tuft."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

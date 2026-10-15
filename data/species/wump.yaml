@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It crawls along the ground on its many legs.
+  look: "It is a spider-like creature with a small cream-white skull-shaped head with big black eyes and tiny fangs, in the middle of a white rope-like spider web body. Eight long glossy green legs with black inner edges hold the web up."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

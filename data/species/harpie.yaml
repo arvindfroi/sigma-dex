@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a body with one pair of wings
+  movement: It walks on two legs with its wings folded.
+  look: "It is a small, round, white fluffy bird with a long feathered tail, dark thin legs with sharp claws, and a black lightning-bolt mark on its wing. Its face is a bright yellow sunflower head with a ring of petals, a smile and dark half-closed eyes."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

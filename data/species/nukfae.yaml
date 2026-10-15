@@ -67,7 +67,10 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-09-13): also on the card: Regenerator is hidden ability."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a head and a base # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It slithers along the ground.
+  look: "It is a smiling slime creature made of glossy lime-green sludge with rainbow oily swirls. It has a rounded face under a drooping hood-like head with two long floppy ear shapes, thin arms ending in curved tentacles with purple sucker spots, and a wide melting puddle-like base."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

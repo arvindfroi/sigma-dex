@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a blocky stone golem made of grey and rusty-brown rock plates, with a bell-shaped helmet head with two small spikes and a glowing teal diamond gem. One arm is a huge pointed blade, the other hand holds teal ghostly flames, and more teal gems and flames glow at its knees and joints."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

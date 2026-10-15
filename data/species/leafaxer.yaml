@@ -80,7 +80,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It crawls along the ground on its legs.
+  look: "It is a long, green dragon-like lizard covered in leaf-like scales, with grey steel plates along its belly and back and grey spikes down its spine. It has a steel crescent blade on its head and a long curled tail ending in a large grey axe blade, on four clawed legs."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

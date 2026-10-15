@@ -70,7 +70,10 @@ design:
   notes: "From the Discord concept card (**Joe**, 2026-05-15): evolution on the card: Battle Bond transformation: defeating an opponent with Battle Bond transforms it into its blue-red Battle Bond Form; also on the card: Normal form stats shown; Battle Bond Form stats HP 47, Atk 118, Def 66, SpA 150, SpD 80, Spe 138, total 599; Battle Bond is the hidden ability; signature moves Scalding Surf and Aqua Slash."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a chubby penguin with a black and white body, orange beak and feet, and dark sunglasses. A tall crest of orange and yellow flames burns on top of its head, and it stands on a surfboard made of blue water."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

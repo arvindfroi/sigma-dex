@@ -70,7 +70,10 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 1, male."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: "It floats in the air, swimming with its fins."
+  look: "It is a small tadpole-like creature with a dark green round head, a yellow eye and a wide mouth. It has a long tapering body with a translucent light blue tail fin along its back and a small stubby flipper on its side."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

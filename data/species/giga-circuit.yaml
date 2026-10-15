@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a tall, thin figure with a glass light bulb for a head with a flame burning inside it. Its body is a coiled blue spring, with thin jointed brown metal arms and legs and big round orange shoes. Yellow sparks of electricity crackle around it."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

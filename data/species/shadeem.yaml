@@ -69,7 +69,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a thin cream-coloured creature with a tall rounded head with one big eye and a wide toothy grin, and a small red beret on top. It has a small round body, long thin legs with three-toed feet, and long arms ending in long black claw-like fingers."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

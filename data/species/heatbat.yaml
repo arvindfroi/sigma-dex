@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs with a tail
+  movement: It walks upright on two legs.
+  look: "It is a slim, red-orange dragon-like creature with a long snout, two long ears tipped with flames, and a yellow oval on its chest. It has thin arms with large wings made of orange flames, clawed yellow-tipped feet and a long curved tail ending in a flame."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

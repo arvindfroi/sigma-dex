@@ -70,7 +70,10 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a body with one pair of wings
+  movement: "It flies, flapping its wings."
+  look: "It is a large white tern-like bird with long narrow wings that have black zigzag lines, a long pointed beak, and a forked feathered tail. A yellow patch on its throat and chest shows a black smiley-face marking."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

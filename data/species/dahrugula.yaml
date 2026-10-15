@@ -72,7 +72,10 @@ design:
   notes:
   wishes: "its an evolution to number 87 sigmanian komala, stats are simmilar to snorlax and pangoro"
   claude_fill: true      # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a round, chubby koala-like creature with green fur, large round green ears with peach inner parts, and a big dark brown nose. It has X-shaped closed eyes, a red band across its belly and paw pads on its feet. It carries a wooden barrel full of glowing orange liquid in each hand."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

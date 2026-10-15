@@ -73,7 +73,10 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-03): also on the card: Hidden Ability: Huge Power."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a brown gorilla-like creature with a wooden tiki-mask head with yellow triangle eyes and a burning flame on top, and a wide open fiery mouth with large white tusks. It has long brown arms, a green leaf skirt, a curled tail and holds a big wooden torch with a flame on top."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

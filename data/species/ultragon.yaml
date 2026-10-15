@@ -77,7 +77,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a body with two or more pairs of wings
+  movement: "It flies, flapping its wings."
+  look: "It is a dark navy-purple dragon with a long curved neck, a white belly, small gold horns and a hooked snout. It has two pairs of thin, translucent gold insect wings and gold spots on its body, and its long thin tail ends in a round ball striped navy and gold over white."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

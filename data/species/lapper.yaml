@@ -75,7 +75,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
+  look: "It is a shaggy dog-like creature with very long, thick dark-brown ears that cover its face and eyes, with only a pink tongue and nose showing. Its body is brown with cream and orange-speckled legs and chest, big cream paws and a short bushy tail with a cream tip."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
+  look: "It is a pink turtle with scaly skin, a brown plated shell and red sunglasses. Two red and black horn-like tubes stick up from its head and shell, and a big blaze of orange and yellow flame bursts from the back of its shell. It has four stubby legs with pale claws."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

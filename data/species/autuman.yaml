@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a slim humanoid creature with a round yellow head, two leaf-shaped ears like pigtails and an angry face. It has a grey tunic and trousers with a yellow belt, big yellow hands and feet, and a cape of red-orange maple leaves around its shoulders and back."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a body with one pair of wings
+  movement: "It flies, flapping its wings."
+  look: "It is a large bird of prey with white head and chest, a pointed feather crest and a yellow hooked beak. Its huge wings and long tail feathers are purple and lilac with golden eye-shaped markings, and it has yellow legs with black claws. A ring of pink sparkles floats above its head."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

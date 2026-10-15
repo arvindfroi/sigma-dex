@@ -70,7 +70,10 @@ design:
   notes: "From the Discord concept card (dr.grey8421, 2026-05-02): also on the card: Subtitle The Abyssal Requiem Pokémon; Soulforged Body is the hidden ability; signature move Requiem Breaker (Ghost/Steel, power 160, accuracy 100%, PP 5); also a lore blurb: Darkgonark is said to be the embodiment of ruin and rebirth.."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
+  look: "It is a tall, angular creature with a white-and-black ghostly flowing head with a single blue eye and a spiky jaw. It has a silver sphere-like torso, long segmented silver arms with ringed joints and clawed hands, and wide angular legs with round purple-lit joints and claws. Wispy white-purple smoke trails from its head."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

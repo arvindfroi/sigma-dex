@@ -70,7 +70,10 @@ design:
   notes: "From the Discord concept card (#pokemon-goons, dr.grey8421, 2026-05-01)."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a tall, slim mantis-like creature with a smooth white head with a purple eye and long gold antennae. It has a shiny black and white body, two pairs of arms ending in large gold and purple scythe blades, thin legs, and translucent purple wings on its back."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

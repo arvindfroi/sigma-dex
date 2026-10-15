@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It crawls along the ground on its legs.
+  look: "It is a small virus-like creature with a round pink head with big black eyes, sitting on a transparent pink crystal gem-shaped body. It has two thin curled pink arms and four long thin pink legs."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

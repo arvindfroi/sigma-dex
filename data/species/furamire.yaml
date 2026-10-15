@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a slim, tall brown furry humanoid creature with a tan chest, tan fluffy paws, and very long brown hair with cream and pink tips hanging down like long ears. It has a hair bun with a pink flower, small pointed ears, and big fluffy rounded feet."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

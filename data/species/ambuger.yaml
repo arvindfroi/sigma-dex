@@ -67,7 +67,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an insect body with a hard shell
+  movement: It crawls along the ground on its legs.
+  look: "It is a mosquito-like bug with a glossy orange amber-coloured rounded body, two small pale blue wings on its back, thin black legs, and big white eyes. A long green spiral-tipped proboscis curls out in front and a green stinger points backward."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

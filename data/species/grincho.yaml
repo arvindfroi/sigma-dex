@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs with a tail
+  movement: It walks upright on two legs.
+  look: "It is a tall, thin pale grey-white humanoid with very long thin arms and legs and large flat feet. It has a smooth rounded head with two small black dot eyes and a huge wide grin full of white teeth, and a thin tail."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

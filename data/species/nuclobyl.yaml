@@ -70,7 +70,10 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-07): also on the card: Its shell is forged from reinforced alloys and unstable radioactive sludge.."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a big, heavy robot-like creature with a grey metal domed head with two green glowing eyes. Its metal chest has a glowing green and yellow radiation symbol, and its huge arms are made of bundled black cables ending in spiked yellow and black striped cuffs, with green slime dripping from it."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a small, round, pale cream creature with a large egg-shaped head and no neck, wearing round glasses. It has a small maroon beret-like cap with a curled stalk on top, thin arms with pink fingertips, a round belly, and short legs."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

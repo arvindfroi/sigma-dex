@@ -67,7 +67,10 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-06): also on the card: Lv.50, male; Levitate is the Hidden Ability; Exp. Points 125000, To Next Lv. 7651."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs with a tail
+  movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
+  look: "It is a round, fuzzy purple-grey creature with a messy grey-brown mop of hair, big pointed ears and a wide toothy grin with green eyes. It has small dark bat wings on its sides, clawed hands and feet, and a thin tail ending in a black microphone."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

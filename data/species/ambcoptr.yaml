@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an insect body with a hard shell
+  movement: "It flies, flapping its wings."
+  look: "It is a beetle-like creature with a round orange shell, four thin pale-blue wings on its back and several thin green legs. It has a green curled spiral tail-like horn at the front with an orange tip, and a long green stalk ending in a flared orange cone at the rear."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

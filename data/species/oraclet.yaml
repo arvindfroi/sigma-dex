@@ -67,7 +67,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a small purple bird with a spiky crest, a sharp orange beak and a calm eye, emerging from a big cracked purple egg shell. The shell is covered in pale staring eyes, and the bird has long thin orange legs with big black claws."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

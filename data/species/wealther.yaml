@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs with a tail
+  movement: It walks upright on two legs.
+  look: "It is a platypus-like creature with deep blue fur, a black mask with a spiky crest and a yellow-orange duck bill. It has grey-black clawed hands and feet and a flat, scaled black-grey beaver-like tail, and it stands upright."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

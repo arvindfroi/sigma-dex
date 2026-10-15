@@ -74,7 +74,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a serpentine body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It slithers along the ground.
+  look: "It is a long, curved green dragon-like creature with a crest of leaves on its head and a back covered in grey steel plates. It has four short legs with grey claws and a long tail ending in a steel axe-blade."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

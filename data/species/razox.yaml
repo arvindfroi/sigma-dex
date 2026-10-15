@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
+  look: "It is a small buffalo-like creature with a pink body, a blue-grey furry mane on its head and back, and a round pink snout. Two clear ice-blue crystal wings stick out from its head like horns, with more ice shards on its back. It has four short pink legs."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs with a tail
+  movement: It walks upright on two legs.
+  look: "It is a white rooster-like bird standing upright, with a red comb, yellow beak and clawed feet. Its arms are raised wings with giant brown drumstick-shaped lumps with bones sticking out, and it has a long tapering lavender tail with red spikes along it. Flames burst from its drumsticks in flight."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a head and legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
+  look: "It is a round body shaped like a swim ring, with purple and white stripes around a pink centre where a worried face with two small eyes sits. It has two curved red arms with teal tips on its sides and two short red legs with teal tips below."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

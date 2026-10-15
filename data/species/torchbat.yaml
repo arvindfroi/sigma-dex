@@ -73,7 +73,10 @@ design:
   notes: DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a body with one pair of wings
+  movement: "It flies, flapping its wings."
+  look: "It is a small, round, red-orange creature with a cream belly patch, a cream pig-like snout with small fangs and big ears burning with flames. It has very long thin arms with white claws at the tips, small round feet and a long thin tail ending in a flame."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

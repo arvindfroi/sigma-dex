@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a round, blue, egg-shaped creature with a brown mop of hair, a brown moustache and pink spiral eyes on a small face. It has thin blue arms, jointed blue legs with small feet, a gold shoulder pad on each side, and a red circle with gold and purple stripes across its belly."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

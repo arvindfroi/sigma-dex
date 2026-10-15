@@ -67,7 +67,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a serpentine body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It crawls along the ground on its legs.
+  look: "It is a long blue lizard-like dragon with a heavy body, short clawed legs, and a long tail with a red stripe along its back and red spiky plates down the spine. It has a white horn on its snout, an angry eye and an open toothy mouth. A big ball with red and blue patches sits at the end of its tail."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

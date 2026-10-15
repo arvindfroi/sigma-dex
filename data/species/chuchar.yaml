@@ -70,7 +70,10 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-03): card name: CHURCHAR; evolution on the card: Evolved from CIGGITI; also on the card: Smoked Up: This Pokemon faints after three turns in the field.."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: only a head # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
+  look: It is a floating ball of black smoke with a grinning white-toothed face and purple-shaded eyes. It wears a black bowler hat with a purple band and holds a large brown lit cigar with a skull badge in its mouth. Wavy purple smoke curls drift around it.
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

@@ -70,7 +70,10 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-02): card name: Panzerion; also on the card: Length 3.2 m; Broken Swivel: can only attack the Pokemon directly in front of it.."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: several bodies joined together
+  movement: It crawls along the ground on its legs.
+  look: "It is an old tank covered in moss and swamp grass, with brown rusty armour, wooden log wheels on caterpillar tracks and a long cannon barrel on its turret. Small round brown creatures with sleepy eyes peek out of the turret and the hull, one with a leaf-like ear."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

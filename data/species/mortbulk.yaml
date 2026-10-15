@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a bulky dark green creature standing on two thin legs with small flat feet, with a huge muscular body and one giant arm raised high in a kick-like pose. It has a small head with an angry eye and a dark spiky green beard."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

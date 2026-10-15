@@ -70,7 +70,10 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-02): also on the card: Diver: Can't be hit by Flying-type moves in rain. Habitat: Swamps, Marshes. Flavor: It lies motionless for days, letting swamp grass grow over it. Those who know the marshes step carefully. Size comparison with a 1.2 m human silhouette.."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a head and a base # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It crawls along the ground on its legs.
+  look: "It is a low, round, dome-shaped creature with a brown cracked shell-like top, half sunk in water. Long curtains of green swamp grass hang over both sides, and two sleepy cream-coloured eyes peek out from the dark gap under the dome."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

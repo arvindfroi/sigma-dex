@@ -74,7 +74,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
+  look: "It is a large cow-like sea creature with pale blue skin marked with black fish-shaped spots, a pink snout, and pink-lined ears. It has flipper-like legs with black tips and a whale-like tail fluke instead of a normal tail."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

@@ -67,7 +67,10 @@ design:
   notes: "From the Discord concept card (johnnes3204, 2026-05-02): evolution on the card: Zapana -> Ampeel -> Zapana (as printed, last stage appears to be a mislabel); also on the card: Lightning Rod is the hidden ability. Notable moves: Thunder Shock, Charge Beam, Aqua Jet, Thunder Wave, Bite, Agility. Catch rate 190, base exp 66, friendship 70.."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: "It floats in the air, swimming with its fins."
+  look: "It is a small eel-like tadpole creature with a round white head and a long curved body that is pale yellow on top and white below. It has a large black eye with a gold ring, a wide open pink mouth, yellow lightning-bolt markings, a small dorsal fin and a leaf-shaped tail fin."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

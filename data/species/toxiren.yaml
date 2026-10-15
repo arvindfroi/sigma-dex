@@ -72,7 +72,10 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-09-13): card name: Toxsiren; also on the card: Regenerator is hidden ability."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It slithers along the ground.
+  look: "It is a slimy, translucent creature of glossy green-yellow goo with swirling rainbow pastel patches. It has a hooded head with long floppy lobes, a green face with pink eyes, two long tentacle-like arms with purple round spots, and a body that melts into a puddle at the base, dripping drops."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

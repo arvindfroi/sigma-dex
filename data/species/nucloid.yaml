@@ -70,7 +70,10 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-07): card name: Nucleoid; also on the card: It is composed of recycled alloys and unknown organic matter.."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It crawls along the ground on its many legs.
+  look: "It is a dark grey metal barrel-shaped creature with a domed top, a single glowing green eye and a yellow warning triangle. It has a window showing glowing green liquid in front, and eight black cable-like legs underneath, with green toxic drips and gas puffs around it."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

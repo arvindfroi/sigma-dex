@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It crawls along the ground on its legs.
+  look: "It is a long crocodile-like reptile in sandy yellow and brown with a narrow snout, a long ridged tail and short dark-clawed legs. Rocky green-grey stones are embedded in its back, and two thin brown stalks with stone tips rise from its back like antennae."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

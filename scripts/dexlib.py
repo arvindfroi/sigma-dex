@@ -197,6 +197,9 @@ def render_species(data):
     put(1, "wishes", scalar(design.get("wishes")), "for Claude: how it should play, move ideas")
     put(1, "claude_fill", scalar(bool(design.get("claude_fill"))), "true = Claude may fill in what is missing")
     put_list(1, "filled_by_claude", design.get("filled_by_claude"), "fields Claude filled in (people can change them)")
+    put(1, "body_shape", scalar(design.get("body_shape")), "for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)")
+    put(1, "movement", scalar(design.get("movement")), "e.g. It walks on four legs. / It floats in the air.")
+    put(1, "look", scalar(design.get("look")), "what it looks like, a few plain sentences: It is a ...")
     lines += ["", "# --- Assets (paths inside this repo, leave empty until the file exists) ---"]
     put(0, "assets")
     put(1, "concept_art", scalar(assets.get("concept_art")), "e.g. assets/concept-art/%s.png" % sid)

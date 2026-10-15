@@ -70,7 +70,10 @@ design:
   notes: "From Discord (#official-sigma-pokedex, Slothbaby, 29 Sep 2026, \"Legendary konsept\"): sketch and concept card. The card numbers it Nr. 1027; in our dex it is #99."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: "It floats in the air, swimming with its fins."
+  look: "It is a huge brown speckled anglerfish-like fish with a wide mouth full of white teeth, a pale belly, and big fan-shaped pectoral fins and tail fin. Its back carries a forested green mountain range with grey peaks, a row of colourful houses and a tall tower."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

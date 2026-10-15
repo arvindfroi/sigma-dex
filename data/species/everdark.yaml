@@ -74,7 +74,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs with a tail
+  movement: It walks upright on two legs.
+  look: "It is a slender upright dark maroon creature with red glowing vein lines and grey-lavender armour plates. Its head has a yellow slit eye and a crown of tube-like red-ringed tendrils; its hands have large curved grey claws with yellow eyes in the palms, and it has a long segmented scorpion-like tail ending in a claw."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

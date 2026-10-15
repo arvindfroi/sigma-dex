@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs with a tail
+  movement: It walks upright on two legs.
+  look: "It is a muscular, shark-like fighter with brown skin covered in black spots and a tan belly. It has a shark head with a dorsal fin, sharp teeth, big brown boxing gloves on its arms, strong clawed legs, and a shark tail fin."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

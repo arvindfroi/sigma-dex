@@ -67,7 +67,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
+  look: "It is a plump, sloth-like creature with fluffy orange fur, a cream face with brown eye patches, sleepy green-yellow eyes, a brown nose and two small fangs. It has a tall burning flame of yellow, orange and red on its head, long arms with long cream claws and a cream patch on its chest."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

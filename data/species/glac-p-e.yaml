@@ -70,7 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
+  look: "It is a tall, slim, smooth pale-blue humanoid figure with a black fencing mask with glowing blue eyes. It has crystal ice shoulder pads, ice crystal boots shaped like pointed cones, and a long thin ice sword in one hand."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

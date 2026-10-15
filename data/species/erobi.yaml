@@ -70,7 +70,10 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -; flavor 'Erobi flutters around fields and towns, spreading a sense of warmth wherever it goes.'."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement]
+  body_shape: an upright body on two legs with a tail
+  movement: "It flies, flapping its wings."
+  look: "It is a small, round, white bird with a bright yellow fluffy face marked with a black smiley face of two dot eyes and a curved smile. It has white wings with a small black lightning mark, a short white tail and thin black legs with claws."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
