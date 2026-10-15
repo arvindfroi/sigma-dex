@@ -2303,13 +2303,6 @@
     "editor": null
   },
   {
-    "id": 663,
-    "species": "twemp",
-    "file": "assets/concept-art/twemp/663.png",
-    "caption": "[ds-follower] sprite #64",
-    "editor": null
-  },
-  {
     "id": 665,
     "species": "twemp",
     "file": "assets/concept-art/twemp/665.png",
@@ -2321,6 +2314,13 @@
     "species": "twemp",
     "file": "assets/concept-art/twemp/666.png",
     "caption": "[ds-icon] sprite #64",
+    "editor": null
+  },
+  {
+    "id": 671,
+    "species": "twemp",
+    "file": "assets/concept-art/twemp/671.png",
+    "caption": "[ds-follower] sprite #66",
     "editor": null
   }
 ]

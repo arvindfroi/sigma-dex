@@ -6345,12 +6345,12 @@
         "hidden": "Snow Warning"
       },
       "base_stats": {
-        "hp": 90,
-        "attack": 120,
+        "hp": 95,
+        "attack": 125,
         "defense": 100,
         "sp_attack": 70,
-        "sp_defense": 100,
-        "speed": 55
+        "sp_defense": 85,
+        "speed": 60
       },
       "ev_yield": null,
       "catch_rate": null,
