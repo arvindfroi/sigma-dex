@@ -89,7 +89,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 83,darkgonark,Darkgonark,Ghost,Steel,Eternal Dirge,Soulforged Body,,550,80,130,60,80,60,140,,,Requiem,3.8,296.7,,,,,,,,,,,,,,,,,,"Legends claim that when Darkgonark's song ends, the universe will be remade in perfect, silent harmony.",,,"From the Discord concept card (dr.grey8421, 2026-05-02): also on the card: Subtitle The Abyssal Requiem Pokémon; Soulforged Body is the hidden ability; signature move Requiem Breaker (Ghost/Steel, power 160, accuracy 100%, PP 5); also a lore blurb: Darkgonark is said to be the embodiment of ruin and rebirth..",,,28
 84,detecup,Detecup,Normal,,Pickup,Keen Eye,Download,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,A detective dog pokemon,,,Ruben,Ruben,17
 85,snownin,Snownin,Ice,,Levitate,Inner Focus,Snow Warning,495,60,95,40,135,40,125,,,,,,,2 sp_attack,,,,,,,,,,,Aurora Veil (1),,,,,,,,,Arvind,Arvind,24
-86,verrith,Verrith,Ghost,Steel,Fog Of War,,Neutralizing Gas,555,95,125,130,120,55,30,,,,,,,3 defense,,,,,,,,,,,,,,,,,,,,Casper,,21
+86,verrith,Verrith,Ghost,Steel,Fog Of War,,Neutralizing Gas,555,85,125,130,120,55,40,,,,,,,3 defense,,,,,,,,,,,,,,,,,,,,Casper,,21
 87,sigmanian-komala,Sigmanian Komala,Normal,,Drunken Rage,Poison Heal,Toxic Boost,348,67,82,62,46,48,43,,,,,,,1 attack,,,,,,,,,,,,,,,,,the drowsy toxin pokemon,,,Magnus,Magnus,24
 88,dahrugula,Dahrugula,Normal,,Drunken Rage,Poison Heal,Toxic Boost,540,140,124,78,69,71,58,Sigmanian Komala,Lv 32,,,,,2 hp,,,,,,,,,,,Facade (1),,,,,,,"the name comes from dharuk gula, wich is the origin of the name koala. also sounds like drunk",,Magnus,Magnus,24
 89,vires,Vires,Fairy,,Mirror Armor,,,325,60,35,80,55,55,40,,,,,,,,,,,,,,,,,,,,,,,,Small cute pokemon based on viruses. with transparent pink crystals.,,,Arvind,Arvind,21
@@ -98,7 +98,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 92,quimsy,Quimsy,Normal,Psychic,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,10
 93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 94,skiirtle,Skiirtle,Fire,,Speed Boost,Reckless,Motor Drive,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,14
-95,mcskiirtle,McSkiirtle,Fire,Electric,Speed Boost,Reckless,Motor Drive,485,60,100,100,55,100,70,,,,,,,,,,,,,,,,,,"Shell Smash (1), Flare Blitz (1), Volt Tackle (1)",,,,,,,,,,,17
+95,mcskiirtle,McSkiirtle,Fire,Electric,Speed Boost,,Reckless,485,60,100,100,55,100,70,,,,,,,,,,,,,,,,,,"Shell Smash (1), Flare Blitz (1), Volt Tackle (1)",,,,,,,,,,,17
 96,ambuger,ambuger,Rock,Bug,Shell Armor,Overcoat,Infiltrator,350,45,50,100,30,75,50,,,,,,,,,,,,,,,,,,,,,,,,Mosquito trapped in amber. fossil pokemon.,,,Arvind,Arvind,21
 97,ambcoptr,Ambrr,Rock,Bug,Levitate,Overcoat,Infiltrator,495,60,90,100,45,75,125,ambuger,Lv 40,,,,,2 speed,,,,,,,,,,,,,,,,,Evolution of amburger. gains amber goggles and wings that rotate,,,Arvind,Arvind,24
 98,tortoplasm,Tortoplasm,Rock,Ghost,Cursed Body,Weak Armor,Perish Body,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,14
@@ -147,7 +147,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 141,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 142,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 143,sabertann,Sabertann,Dark,Water,Good as Gold,,Supreme Overlord,580,110,140,80,90,80,80,,,,,,,3 attack,,,,,,,,,,,,,,,,,"A sabertooth pirate pokemon, who roams the 7 seas.",,,Emil,Emil & Arvind,24
-144,gravriel,Gravriel,Water,Ghost,Grim Neigh,,Sap Sipper,580,81,151,84,151,84,29,,,Ghost Ship,2.1,78.6,,"1 attack, 1 sp_attack",,,,,,,,,,,,,,,,"Long ago, Gravriel was the first mate of a cruel pirate. After betrayal, he was cast into the ocean, left to rot with his ship. Now, he haunts the seabed, seeking those who dare to steal from the deep.",,,"From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Sap Sipper (regular), Grim Neigh (hidden). Signature moves: Gabriel's Curse (Ghost, 85 BP, 100%), Haunted Slash (Ghost, 85 BP, 100%)..",Emil Venge-Kvamme,,34
+144,gravriel,Gravriel,Water,Ghost,Grim Neigh,,Sap Sipper,580,84,151,84,151,84,26,,,Ghost Ship,2.1,78.6,,"1 attack, 1 sp_attack",,,,,,,,,,,,,,,,"Long ago, Gravriel was the first mate of a cruel pirate. After betrayal, he was cast into the ocean, left to rot with his ship. Now, he haunts the seabed, seeking those who dare to steal from the deep.",,,"From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Sap Sipper (regular), Grim Neigh (hidden). Signature moves: Gabriel's Curse (Ghost, 85 BP, 100%), Haunted Slash (Ghost, 85 BP, 100%)..",Emil Venge-Kvamme,,34
 145,balleisk,Balleisk,Dragon,Bug,Catch Master,,Shield Dust,300,45,70,40,55,40,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
 146,greation,Greation,Dragon,Bug,Catch Master,,Shield Dust,422,62,90,60,70,60,80,Balleisk,Lv 30,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
 147,ultragon,Ultragon,Dragon,Bug,Catch Master,,Shield Dust,600,88,128,80,112,80,112,Greation,Lv 55,,,,,3 attack,,,,,,,,,,,"Quiver Dance (1), Dragon Dance (1), Outrage (1), Bug Buzz (1), U-turn (1), Draco Meteor (1)",,,,,,,,,Arvind,Arvind,24

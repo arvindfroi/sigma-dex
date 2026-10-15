@@ -2238,5 +2238,61 @@
     "file": "assets/concept-art/dahrugula/633.png",
     "caption": "[ds-follower] sprite #54",
     "editor": null
+  },
+  {
+    "id": 634,
+    "species": "sigmanian-sudowoodo",
+    "file": "assets/concept-art/sigmanian-sudowoodo/634.png",
+    "caption": "[ds-front] sprite #55",
+    "editor": null
+  },
+  {
+    "id": 635,
+    "species": "sigmanian-sudowoodo",
+    "file": "assets/concept-art/sigmanian-sudowoodo/635.png",
+    "caption": "[ds-back] sprite #55",
+    "editor": null
+  },
+  {
+    "id": 636,
+    "species": "sigmanian-sudowoodo",
+    "file": "assets/concept-art/sigmanian-sudowoodo/636.png",
+    "caption": "[ds-icon] sprite #55",
+    "editor": null
+  },
+  {
+    "id": 637,
+    "species": "sigmanian-sudowoodo",
+    "file": "assets/concept-art/sigmanian-sudowoodo/637.png",
+    "caption": "[ds-follower] sprite #55",
+    "editor": null
+  },
+  {
+    "id": 638,
+    "species": "wump",
+    "file": "assets/concept-art/wump/638.png",
+    "caption": "[ds-front] sprite #59",
+    "editor": null
+  },
+  {
+    "id": 645,
+    "species": "wump",
+    "file": "assets/concept-art/wump/645.png",
+    "caption": "[ds-back] sprite #59",
+    "editor": null
+  },
+  {
+    "id": 646,
+    "species": "wump",
+    "file": "assets/concept-art/wump/646.png",
+    "caption": "[ds-icon] sprite #59",
+    "editor": null
+  },
+  {
+    "id": 647,
+    "species": "wump",
+    "file": "assets/concept-art/wump/647.png",
+    "caption": "[ds-follower] sprite #59",
+    "editor": null
   }
 ]

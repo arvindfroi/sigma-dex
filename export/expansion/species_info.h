@@ -1204,7 +1204,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_SPEED_BOOST, ABILITY_RECKLESS, ABILITY_MOTOR_DRIVE },
+        .abilities = { ABILITY_SPEED_BOOST, ABILITY_NONE, ABILITY_RECKLESS },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("McSkiirtle"),
         .cryId = CRY_NONE,

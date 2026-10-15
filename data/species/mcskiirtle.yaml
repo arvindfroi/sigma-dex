@@ -18,8 +18,8 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Speed Boost
-  secondary: Reckless    # optional
-  hidden: Motor Drive    # optional
+  secondary:             # optional
+  hidden: Reckless       # optional
 
 base_stats:              # each 1-255
   hp: 60

@@ -7148,12 +7148,12 @@
         "hidden": "Neutralizing Gas"
       },
       "base_stats": {
-        "hp": 95,
+        "hp": 85,
         "attack": 125,
         "defense": 130,
         "sp_attack": 120,
         "sp_defense": 55,
-        "speed": 30
+        "speed": 40
       },
       "ev_yield": {
         "defense": 3
@@ -7776,8 +7776,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Speed Boost",
-        "secondary": "Reckless",
-        "hidden": "Motor Drive"
+        "secondary": null,
+        "hidden": "Reckless"
       },
       "base_stats": {
         "hp": 60,
@@ -9631,12 +9631,12 @@
         "hidden": "Sap Sipper"
       },
       "base_stats": {
-        "hp": 81,
+        "hp": 84,
         "attack": 151,
         "defense": 84,
         "sp_attack": 151,
         "sp_defense": 84,
-        "speed": 29
+        "speed": 26
       },
       "ev_yield": {
         "attack": 1,
