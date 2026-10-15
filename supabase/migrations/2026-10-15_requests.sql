@@ -3,12 +3,13 @@
 -- moving a card to another column is one more row. scripts/import_web.py skips these rows: the
 -- board lives in the database only (cards written by the team are in data/requests.yaml).
 --
--- NOT applied yet (needs Arvind's yes). submit_edit (key check, 300 edits per hour) is unchanged
+-- Applied to the live database on 2026-10-15 (Arvind: "the request board does not work ... a done button or a bin"). submit_edit (key check, 300 edits per hour) is unchanged
 -- and inserts whatever kind it is given.
 --
 -- Row layout: kind = 'request', species_id = 'req-<words>-<time>',
 --   data = {"title": "...", "text": "...", "area": "pokemon|sprites|website|other",
---           "status": "idea|needed|doing|done", "by": "<name>"}
+--           "status": "idea|needed|doing|done", "by": "<name>", "deleted": true when binned}
+-- species_id is at most 40 characters (species_edits_species_id_check), so 'req-' + at most 36.
 
 alter table public.species_edits drop constraint species_edits_kind_check;
 alter table public.species_edits
@@ -17,7 +18,7 @@ alter table public.species_edits
 alter table public.species_edits
   add constraint species_edits_request_check check (
     kind <> 'request'
-    or (species_id ~ '^req-[a-z0-9-]{1,70}$'
+    or (species_id ~ '^req-[a-z0-9-]{1,36}$'
         and jsonb_typeof(data -> 'title') = 'string'
         and char_length(data ->> 'title') between 3 and 120
         and coalesce(char_length(data ->> 'text'), 0) <= 1000

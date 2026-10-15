@@ -36,6 +36,12 @@ and back, the back with **Klein back v2 (step 2500)**, which first draws the art
 `[ds-follower]` pictures -> `assets/sprites-ds/<pokemon>/follower.png`, 128x64). `sprite-draw` also takes a drawing on
 the sprite in use (`version` + `view`) and saves it as a new try.
 
+**The sprite tray** (bottom right of every page while something is drawn): the drawing line with everyone's requests,
+yours starred, how far each is ("2/4") and the time until it is done; and "N new pictures - PICK" for your Pokemon whose
+pictures finished since you last looked. A tap opens that Pokemon's SPRITES. On the SPRITES tab, **MINIMIZE** closes the
+page and leaves the tray (Arvind: "it feels a bit scary to leave it while it works"). Your requests are remembered on
+your device (`sigma-my-sprites`).
+
 The older ways below (v2: one AI sprite at a time, versions, "Ask the AI") still work in the database but are no longer
 on the page.
 

@@ -616,6 +616,32 @@ canvas.walker { image-rendering: pixelated; }
 .eta { display: flex; align-items: center; gap: 8px; background: var(--soft); border: 2px dashed var(--line); padding: 8px 10px; margin: 8px 0; font-family: var(--display); }
 button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .guided h4 .tick { color: var(--good); }
+
+.req .acts .trash { margin-left: auto; color: var(--bad); border-color: var(--bad); }
+
+/* the sprite tray */
+.tray { position: fixed; right: 14px; bottom: 14px; z-index: 50; width: min(360px, calc(100vw - 28px)); border-style: solid; border-width: 15px;
+  border-image: var(--box-sel) 5 fill / 15px stretch; padding: 0 2px 2px; box-shadow: 0 6px 18px rgba(20, 10, 50, .25); }
+.tray[hidden] { display: none; }
+.trayhead { width: 100%; display: flex; align-items: center; gap: 8px; border: 0; background: none; padding: 2px 2px; font-size: 15px; color: var(--pri); min-height: 0; }
+.trayhead:active { transform: none; }
+.trayhead .chev { margin-left: auto; color: var(--muted); }
+.traybody { display: flex; flex-direction: column; gap: 2px; margin-top: 6px; max-height: 46vh; overflow: auto; }
+.trayrow { display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; grid-template-areas: "i who when" "i what when"; gap: 0 8px; align-items: center;
+  text-align: left; border: 0; border-top: 2px dashed var(--line); background: none; padding: 5px 2px; font-family: var(--body); font-size: 14px; min-height: 0; }
+.trayrow:active { transform: none; }
+.trayrow:hover { background: var(--soft); }
+.trayrow > :first-child { grid-area: i; }
+.trayrow .who { grid-area: who; font-family: var(--display); }
+.trayrow .what { grid-area: what; color: var(--muted); font-size: 13px; }
+.trayrow .when { grid-area: when; font-family: var(--display); font-size: 13px; white-space: nowrap; }
+.trayrow.mine .who { color: var(--pink); }
+.trayrow.ready .when { color: var(--good); }
+.trayrow .dot { width: 8px; height: 8px; background: var(--edge2); display: inline-block; }
+.tray .tick { color: var(--good); font-family: var(--display); }
+.trayoff { color: var(--warn); font-size: 13px; padding: 4px 2px; }
+.traynote { color: var(--muted); font-size: 12px; padding: 6px 2px 0; border-top: 2px dashed var(--line); }
+@media (max-width: 760px) { .tray { right: 8px; bottom: 8px; } }
 </style>
 </head>
 <body>
@@ -997,7 +1023,9 @@ function openDetail(s, tab) {
   const pages = {info: infoPage, skills: skillsPage, moves: movesTab, pictures: s => picturesTab(s, null, top), more: moreTab};
   const bottom = h("section", {class: "screen bottom", "data-c": (tabs.find(t => t[0] === tab) || tabs[0])[2], "aria-label": "About " + d.name},
     h("div", {class: "screen-tabs", role: "tablist"}, tabs.map(([id, label, c]) => h("button", {type: "button", role: "tab", "data-c": c, "aria-selected": String(id === tab), onclick: () => openDetail(s, id)}, label)),
-      h("span", {class: "right"}, DEX.web.url ? h("button", {type: "button", class: "primary", onclick: () => openEditor(s)}, "EDIT") : null, h("button", {type: "button", onclick: closeDialog}, "CLOSE"))),
+      h("span", {class: "right"}, DEX.web.url ? h("button", {type: "button", class: "primary", onclick: () => openEditor(s)}, "EDIT") : null,
+        studio ? h("button", {type: "button", title: "Close this page; the box at the bottom right keeps showing the drawing", onclick: () => { closeDialog(); trayLoad(); }}, "\u2581 MINIMIZE")
+          : h("button", {type: "button", onclick: closeDialog}, "CLOSE"))),
     s.pending ? h("div", {class: "notice info", style: "margin:0 0 6px"}, "Saved" + (s.pending.editor ? " by " + s.pending.editor : "") + ". It is checked and stored within about 15 minutes.") : null,
     studio ? studio.bottom : h("div", {class: "page"}, pages[tab](s, top)));
   showDialog(h("div", {class: "ds" + (studio ? " studio" : "")}, studio ? studio.top : top.el, bottom));
@@ -1880,6 +1908,7 @@ function spriteStudio(s, startStep) {
     if ((stepId === "art" || (stepId === "front" && !from)) && !refs.length) { st.busyMsg = "Choose a picture in 1 PICTURE first."; draw(); st.busyMsg = ""; return; }
     const b = bodyOf(s), body = ["back", "icon", "follower"].includes(stepId) && (b.shape || b.look || b.move) ? JSON.stringify(b) : null;
     button.disabled = true;
+    noteMine(s.id);
     try {
       await dbCall("request_tries", {p_species_id: s.id, p_stage: stepId, p_count: count, p_from_try: from ? from.id : null, p_refs: refs,
         p_prompt: body, p_recipe: null, p_editor: me(), p_with_try: stepId === "follower" && picked("back") ? picked("back").id : null});
@@ -2009,6 +2038,7 @@ function spriteStudio(s, startStep) {
   const estimate = n => secondsFor(st.worker && st.worker.timings, "art") + n * ["front", "back", "icon", "follower"].reduce((a, k) => a + secondsFor(st.worker && st.worker.timings, k), 0);
   async function ask(stage, from, extra) {
     const b = bodyOf(s), body = ["back", "icon", "follower"].includes(stage) && (b.shape || b.look || b.move) ? JSON.stringify(b) : null;
+    noteMine(s.id);
     await dbCall("request_tries", Object.assign({p_species_id: s.id, p_stage: stage, p_count: howMany, p_from_try: from ? from.id : null,
       p_refs: stage === "art" || stage === "back" || (stage === "front" && !from) ? chosen : [], p_prompt: body, p_recipe: null, p_editor: me(), p_with_try: null}, extra || {}));
   }
@@ -2126,6 +2156,7 @@ function spriteStudio(s, startStep) {
       st.loaded = true;
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; }
     draw(); st.busyMsg = "";
+    noteMine(s.id, true);
     clearTimeout(timer);
     // Often while something is drawn, and in the guided way also between two steps (the fronts start a moment after the
     // cut-out is done, on the server): the page must never look as if nothing happens.
@@ -2154,6 +2185,7 @@ function spriteStudio(s, startStep) {
   }
 
   const bottomSlot = h("div", {class: "studio-bottom"}, steps, page);
+  noteMine(s.id, true);
   draw();
   load();
   return {top, bottom: bottomSlot};
@@ -2735,6 +2767,77 @@ function renderProgress() {
       const slot = Array.from({length: size}, (_, i) => i + 1).find(n => !bySlot.has(n)); openEditor({data: {dex: slot}}); }}, "+ Add a Pokemon") : null)));
 }
 
+
+// ---------- the sprite tray: the drawing line, always in view (Arvind, 15 Oct: "it would be cool to see a queue and minimize
+// windows while sprites are being built; it feels a bit scary to leave it while it works"). Bottom right of every page:
+// what the drawing PC does, everyone's requests in line with the time until each is done (yours marked), and the
+// Pokemon whose new pictures are ready to be picked. A tap opens that Pokemon's SPRITES.
+const tray = {open: remember.get("tray") !== "closed", jobs: [], tries: [], worker: null, ready: [], timer: null, el: null};
+function mySprites() { try { return JSON.parse(remember.get("my-sprites") || "{}"); } catch (e) { return {}; } }
+function noteMine(sid, seen) {                    // seen: the studio of this Pokemon was opened (its ready pictures are seen)
+  const m = mySprites();
+  if (seen) { if (m[sid]) m[sid].seen = Date.now(); } else m[sid] = {asked: Date.now(), seen: Date.now()};
+  remember.set("my-sprites", JSON.stringify(m));
+  if (!seen) trayLoad();
+}
+async function trayLoad() {
+  if (!DEX.web.url) return;
+  clearTimeout(tray.timer);
+  try {
+    const mine = mySprites(), recent = Object.entries(mine).filter(([, v]) => Date.now() - v.asked < 12 * 3600000).map(([k]) => k);
+    [tray.jobs, tray.worker] = await Promise.all([
+      dbRead("sprite_jobs?status=in.(queued,running)&order=id.asc&select=id,species_id,status,mode,stage,count,started_at"),
+      dbRead("sprite_worker?select=seen_at,state,timings").then(r => r[0] || null)]);
+    const ids = tray.jobs.map(j => j.id);
+    tray.tries = ids.length ? await dbRead("sprite_tries?job_id=in.(" + ids.join(",") + ")&select=job_id,status") : [];
+    // ready: my Pokemon with pictures finished after I last looked, and nothing of them still in line
+    tray.ready = [];
+    if (recent.length) {
+      const since = new Date(Math.min(...recent.map(k => mine[k].seen))).toISOString();
+      const done = await dbRead("sprite_tries?species_id=in.(" + recent.join(",") + ")&status=eq.done&finished_at=gt." + since + "&select=species_id,stage,finished_at");
+      for (const sid of recent) {
+        if (tray.jobs.some(j => j.species_id === sid)) continue;
+        const fresh = done.filter(d => d.species_id === sid && new Date(d.finished_at).getTime() > mine[sid].seen);
+        if (fresh.length) tray.ready.push({sid, n: fresh.length});
+      }
+    }
+  } catch (e) { /* the tray waits for the next round */ }
+  drawTray();
+  tray.timer = setTimeout(trayLoad, tray.jobs.length ? 8000 : 60000);
+}
+function drawTray() {
+  if (!tray.el) { tray.el = h("aside", {class: "tray", "aria-label": "Sprites being drawn"}); document.body.append(tray.el); }
+  const mine = mySprites(), timings = tray.worker && tray.worker.timings;
+  if (!tray.jobs.length && !tray.ready.length) { tray.el.hidden = true; return; }
+  tray.el.hidden = false;
+  const online = tray.worker && Date.now() - new Date(tray.worker.seen_at).getTime() < 90000;
+  const names = {art: "cut-out", front: "front", back: "back", icon: "icon", follower: "walking sprite"};
+  let total = 0;
+  const rows = tray.jobs.map(j => {
+    const n = j.count || 1, done = tray.tries.filter(x => x.job_id === j.id && x.status !== "drawing").length, each = secondsFor(timings, j.stage || "front");
+    total += Math.max(5, (n - done) * each);
+    const s = byId.get(j.species_id), who = s ? s.data.name : j.species_id, isMine = !!mine[j.species_id];
+    return h("button", {type: "button", class: "trayrow" + (isMine ? " mine" : ""), onclick: () => s && openDetail(s, "sprite")},
+      j.status === "running" ? h("span", {class: "spinner"}) : h("span", {class: "dot"}),
+      h("span", {class: "who"}, (isMine ? "\u2605 " : "") + who), h("span", {class: "what"}, n + " " + (names[j.stage] || j.stage || "sprite") + (n > 1 ? "s" : "")),
+      h("span", {class: "when"}, j.status === "running" ? done + "/" + n : "in line", " \u00b7 ", aboutMinutes(total).replace("about ", "~")));
+  });
+  const readyRows = tray.ready.map(r => {
+    const s = byId.get(r.sid);
+    return h("button", {type: "button", class: "trayrow ready", onclick: () => s && openDetail(s, "sprite")},
+      h("span", {class: "tick"}, "\u2713"), h("span", {class: "who"}, s ? s.data.name : r.sid), h("span", {class: "what"}, r.n + " new picture" + (r.n > 1 ? "s" : "")), h("span", {class: "when"}, "PICK \u25b6"));
+  });
+  const running = tray.jobs.find(j => j.status === "running");
+  const head = h("button", {type: "button", class: "trayhead", "aria-expanded": String(tray.open), onclick: () => { tray.open = !tray.open; remember.set("tray", tray.open ? "" : "closed"); drawTray(); }},
+    tray.jobs.length ? h("span", {class: "spinner"}) : h("span", {class: "tick"}, "\u2713"),
+    tray.jobs.length ? "DRAWING " + tray.jobs.length + " \u00b7 " + aboutMinutes(total).replace("about ", "~") : tray.ready.length + " READY TO PICK",
+    h("span", {class: "chev"}, tray.open ? "\u25bc" : "\u25b2"));
+  tray.el.replaceChildren(head, tray.open ? h("div", {class: "traybody"},
+    !online && tray.jobs.length ? h("div", {class: "trayoff"}, "The drawing PC is off. The line waits until it is back.") : null,
+    running && !tray.open ? null : null, readyRows, rows,
+    h("div", {class: "traynote"}, "You can leave the page: it keeps drawing. \u2605 = yours.")) : null);
+}
+
 // ---------- the request board ----------
 // Cards come from data/requests.yaml (what the story needs, written by the team) and from the
 // website (species_edits rows of kind 'request'; the newest row of a card wins).
@@ -2760,8 +2863,12 @@ function renderBoard() {
     const data = Object.assign({}, card, changes);
     delete data.id;
     status.textContent = "Saving...";
-    try { await saveEdit("request", card.id, data); Object.assign(card, changes); if (isNew) boardCards.push(card); renderBoard(); }
-    catch (err) { status.textContent = /check constraint|kind/i.test(err.message) ? "The board cannot save yet - Arvind has to switch it on first." : err.message; }
+    try {
+      await saveEdit("request", card.id, data); Object.assign(card, changes);
+      if (isNew) boardCards.push(card);
+      if (changes.deleted) boardCards = boardCards.filter(c => c !== card);
+      renderBoard();
+    } catch (err) { status.textContent = err.message; }
   };
   const columns = BOARD.map(([status, title, colour], col) => {
     const cards = boardCards.filter(c => (c.status || "idea") === status).sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
@@ -2777,7 +2884,10 @@ function renderBoard() {
         card.by ? h("div", {class: "meta"}, "from " + card.by) : null,
         DEX.web.url ? h("div", {class: "acts"},
           col > 0 ? h("button", {type: "button", class: "small", onclick: () => save(card, {status: BOARD[col - 1][0]}, note)}, "◀ " + BOARD[col - 1][1]) : null,
-          col < BOARD.length - 1 ? h("button", {type: "button", class: "small", onclick: () => save(card, {status: BOARD[col + 1][0]}, note)}, BOARD[col + 1][1] + " ▶") : null) : null,
+          col < BOARD.length - 1 ? h("button", {type: "button", class: "small", onclick: () => save(card, {status: BOARD[col + 1][0]}, note)}, BOARD[col + 1][1] + " ▶") : null,
+          status !== "done" ? h("button", {type: "button", class: "small good", title: "Done", onclick: () => save(card, {status: "done"}, note)}, "\u2713 DONE") : null,
+          h("button", {type: "button", class: "small trash", title: "Not relevant: remove it from the board",
+            onclick: ev => sure(ev.currentTarget, "REALLY?", () => save(card, {deleted: true}, note))}, "\ud83d\uddd1")) : null,
         note);
     }));
     if (!cards.length) body.append(h("div", {class: "empty"}, "Nothing here yet."));
@@ -2796,7 +2906,8 @@ function addRequest(save) {
       h("div", {class: "acts"}, h("button", {type: "button", class: "small primary", onclick: () => {
         const t = readText(title);
         if (!t || t.length < 3) { note.textContent = "Write what you would like first."; return; }
-        const card = {id: "req-" + slugify(t).slice(0, 40) + "-" + Date.now().toString(36), title: t, text: readText(text) || "", area: area.value, status: "idea", by: me() || null};
+        const words = slugify(t).slice(0, 24).replace(/-+$/, "") || "card";          // ids are at most 40 characters
+        const card = {id: "req-" + words + "-" + Date.now().toString(36), title: t, text: readText(text) || "", area: area.value, status: "idea", by: me() || null};
         save(card, {}, note, true);
       }}, "ADD"), h("button", {type: "button", class: "small", onclick: () => wrap.replaceChildren(open)}, "CANCEL")), note));
     title.focus();
@@ -2879,6 +2990,7 @@ render();
 if (location.hash && byId.has(location.hash.slice(1))) openDetail(byId.get(location.hash.slice(1)));
 loadRecentEdits();
 if (DEX.web.url) loadLost().then(renderNav).catch(() => {});
+trayLoad();
 </script>
 </body>
 </html>

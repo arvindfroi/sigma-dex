@@ -38,11 +38,11 @@ all have stats, type balance), the types the dex needs most, the Pokemon that mi
 before they are playable, and the open slots. Everything is counted from the dex itself.
 
 **REQUESTS** is a board with four columns: WISHES, THE GAME NEEDS, BEING MADE and DONE. Anyone can
-add a wish (+ ADD A REQUEST) and move a card along with its arrows. The cards the team writes
+add a wish (+ ADD A REQUEST), move a card along with its arrows, mark it **✓ DONE**, or bin it (🗑, tap twice) when it is not relevant. The cards the team writes
 (what the story needs, from [STORY_ROLES.md](STORY_ROLES.md)) are in `data/requests.yaml`; cards
 added or moved on the website are rows of kind `request` in `species_edits` (the newest row of a
-card wins) and stay in the database: `scripts/import_web.py` skips them. Saving a card needs the
-migration `supabase/migrations/2026-10-15_requests.sql`.
+card wins; a binned card is a row with `deleted`) and stay in the database: `scripts/import_web.py` skips them
+(migration `supabase/migrations/2026-10-15_requests.sql`, applied 2026-10-15).
 
 ## Pictures
 
