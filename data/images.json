@@ -2282,17 +2282,17 @@
     "editor": null
   },
   {
-    "id": 646,
-    "species": "wump",
-    "file": "assets/concept-art/wump/646.png",
-    "caption": "[ds-icon] sprite #59",
-    "editor": null
-  },
-  {
     "id": 647,
     "species": "wump",
     "file": "assets/concept-art/wump/647.png",
     "caption": "[ds-follower] sprite #59",
+    "editor": null
+  },
+  {
+    "id": 658,
+    "species": "wump",
+    "file": "assets/concept-art/wump/658.png",
+    "caption": "[ds-icon] sprite #62",
     "editor": null
   }
 ]

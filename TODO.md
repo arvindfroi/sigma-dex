@@ -26,8 +26,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Breeding | gender | 1 / 123 |
 | Breeding | egg groups | 1 / 123 |
 | Breeding | egg cycles | 1 / 123 |
-| Moves | level-up moves | 29 / 123 |
-| Moves | TM/HM moves | 3 / 123 |
+| Moves | level-up moves | 30 / 123 |
+| Moves | TM/HM moves | 4 / 123 |
 | Location | encounters | 2 / 123 |
 | Design | concept | 9 / 123 |
 | Art | concept art | 114 / 123 |
@@ -1211,12 +1211,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #144 [Gravriel](data/species/gravriel.yaml) - 34%
+### #144 [Gravriel](data/species/gravriel.yaml) - 41%
 
 - **Dex page:** body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
