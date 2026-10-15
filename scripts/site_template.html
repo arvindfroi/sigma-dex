@@ -1994,7 +1994,8 @@ function spriteStudio(s, startStep) {
       try {
         const id = await dbCall("assemble_sprite", {p_front: f.id, p_back: b.id, p_icon: ic ? ic.id : null, p_follower: w ? w.id : null, p_editor: me()});
         await dbCall("review_sprite", {p_key: remember.get("key"), p_candidate: id, p_status: "approved", p_editor: me()});
-        note.textContent = "Saved! It is " + s.data.name + "'s sprite now; the game files have it within about 15 minutes.";
+        useApproved(s.id, {front: f.image, back: b.image, icon: ic && ic.image, follower: w && w.image});
+        note.textContent = "Saved! It is " + s.data.name + "'s sprite now, on the website at once; the game files have it within about 15 minutes.";
         await load();
       } catch (err) { note.textContent = err.message; yes.disabled = false; }
     }}, "YES");
@@ -2012,7 +2013,7 @@ function spriteStudio(s, startStep) {
           h("div", {class: "tilenote"}, "#" + v.id + " · " + String(v.created_at || "").slice(0, 10)),
           v.status !== "approved" ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: async ev => {
             ev.currentTarget.disabled = true;
-            try { await dbCall("review_sprite", {p_key: remember.get("key"), p_candidate: v.id, p_status: "approved", p_editor: me()}); await load(); }
+            try { await dbCall("review_sprite", {p_key: remember.get("key"), p_candidate: v.id, p_status: "approved", p_editor: me()}); useApproved(s.id, v); await load(); }
             catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; draw(); st.busyMsg = ""; }
           }}, "USE IT AGAIN")) : null)))) : null);
   }
@@ -2930,6 +2931,28 @@ function addRequest(save) {
   return wrap;
 }
 
+// Sprites approved in the studio are shown at once, for everyone: the approved versions are read from the database and
+// laid over the built ones (the build copies them into the repo within about 15 minutes). Arvind, 16 Oct: "when I am done
+// with a Pokemon I want its icon on the website immediately".
+async function loadApprovedSprites() {
+  if (!DEX.web.url) return;
+  try {
+    const rows = await dbRead("sprite_candidates?status=eq.approved&gen=eq.4&select=species_id,front,back,icon,follower");
+    for (const r of rows) {
+      const ds = {};
+      for (const view of ["front", "back", "icon", "follower"]) if (r[view]) ds[view] = artUrl(r[view]);
+      if (ds.front) DEX.ds_sprites[r.species_id] = ds;
+    }
+    if (!document.getElementById("dialog").open) render();
+  } catch (e) { /* the built sprites are still shown */ }
+}
+function useApproved(sid, version) {                  // right after SAVE in the studio
+  const ds = {};
+  for (const view of ["front", "back", "icon", "follower"]) if (version[view]) ds[view] = artUrl(version[view]);
+  DEX.ds_sprites[sid] = ds;
+  render();
+}
+
 // Saves made on the website since this page was built are laid over the built data.
 async function loadRecentEdits() {
   if (!DEX.web.url) return;
@@ -3005,6 +3028,7 @@ if (location.hash && byId.has(location.hash.slice(1))) openDetail(byId.get(locat
 loadRecentEdits();
 if (DEX.web.url) loadLost().then(renderNav).catch(() => {});
 trayLoad();
+loadApprovedSprites();
 </script>
 </body>
 </html>
