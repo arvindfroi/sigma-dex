@@ -2026,8 +2026,22 @@ function spriteStudio(s, startStep) {
   const guided = () => firstTime() && remember.get("studio-full") !== "1";
   let howMany = Math.min(4, Math.max(1, Number(remember.get("studio-count")) || 3));
   const newestPick = list => list.filter(t => t.picked).sort((a, b) => String(b.picked_at).localeCompare(String(a.picked_at)))[0] || null;
-  const madeFrom = (stage, front) => st.tries.filter(t => t.stage === stage && front && t.parent_try === front.id && t.status !== "failed");
-  const drawing = (stage, from) => mine().some(j => j.stage === stage && (!from || j.from_try === from.id));
+  // A picture drawn on, mirrored or recoloured in the editor is a new try whose parent is the try it was made from (the
+  // same step). It counts as that try: a back drawn on is still a back of this front, and a front drawn on keeps the backs,
+  // icons and walking sprites of the front it came from (Arvind, 16 Oct: "when I edit a sprite it makes me pick again").
+  const tryMap = () => new Map(st.tries.map(x => [x.id, x]));
+  function origin(t0, m) { let x = t0; while (x.parent_try && m.get(x.parent_try) && m.get(x.parent_try).stage === x.stage) x = m.get(x.parent_try); return x; }
+  function family(front, m) {                      // the front and the fronts it was drawn from
+    const ids = new Set(); let x = front;
+    while (x) { ids.add(x.id); const p = x.parent_try && m.get(x.parent_try); x = p && p.stage === x.stage ? p : null; }
+    return ids;
+  }
+  const madeFrom = (stage, front) => {
+    if (!front) return [];
+    const m = tryMap(), fam = family(front, m);
+    return st.tries.filter(t => t.stage === stage && t.status !== "failed" && fam.has(origin(t, m).parent_try));
+  };
+  const drawing = (stage, from) => { const fam = from ? family(from, tryMap()) : null; return mine().some(j => j.stage === stage && (!fam || fam.has(j.from_try))); };
   function phase() {
     const f = picked("front");
     if (!f) return st.tries.some(t => t.stage === "front" || t.stage === "art") || drawing("art") || drawing("front") ? "front" : "start";
