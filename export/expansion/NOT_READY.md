@@ -2,9 +2,9 @@
 
 # Game export status
 
-**27** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Florantula, Tropistrich, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle, Everdark
+**28** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Florantula, Tropistrich, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle, DreadFang, Everdark
 
-## Not exported yet (106)
+## Not exported yet (111)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -99,10 +99,15 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Autuman** needs: a level-up move that exists in the game
 - **Bugmight** needs: a level-up move that exists in the game
 - **JAWIE** needs: base stats, a level-up move that exists in the game
-- **JAWBREAKER** needs: base stats, a level-up move that exists in the game
+- **JAWBREAKER** needs: a level-up move that exists in the game
+- **Dreadipede** needs: a level-up move that exists in the game
+- **Aquat** needs: base stats, a level-up move that exists in the game
+- **Aquway** needs: base stats, a level-up move that exists in the game
+- **Zyzzfu** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Grincho** needs: base stats, a level-up move that exists in the game
 - **Glacépée** needs: a level-up move that exists in the game
 - **Riftbloom** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Phantomb** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Phantail** needs: a level-up move that exists in the game
 - **Moosus** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Rockedeer** needs: a level-up move that exists in the game

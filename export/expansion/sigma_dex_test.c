@@ -733,6 +733,34 @@ SINGLE_BATTLE_TEST("Sigma dex: McSkiirtle can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: DreadFang has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DREADFANG];
+    EXPECT_EQ(info->baseHP, 85);
+    EXPECT_EQ(info->baseAttack, 135);
+    EXPECT_EQ(info->baseDefense, 105);
+    EXPECT_EQ(info->baseSpeed, 100);
+    EXPECT_EQ(info->baseSpAttack, 60);
+    EXPECT_EQ(info->baseSpDefense, 65);
+    EXPECT_EQ(info->types[0], TYPE_BUG);
+    EXPECT_EQ(info->types[1], TYPE_FLYING);
+    EXPECT_EQ(info->abilities[0], ABILITY_MOLD_BREAKER);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FELL_STINGER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_DREADFANG)[0], CHAR_D);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: DreadFang can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_DREADFANG) { Moves(MOVE_FELL_STINGER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_FELL_STINGER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_FELL_STINGER, player);
+    }
+}
+
 TEST("Sigma dex: Everdark has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_EVERDARK];

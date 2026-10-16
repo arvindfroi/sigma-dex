@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**133 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
+**139 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -131,12 +131,12 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 120 | [Autuman](data/species/autuman.yaml) | Grass / Fighting | Justified, Guts, Wind Rider (H) | 500 |  | 21% |
 | 121 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Justified, Guts, Tinted Lens (H) | 500 |  | 34% |
 | 122 | [JAWIE](data/species/jawie.yaml) | Fire / Dragon | Strong Jaw |  | JAWBREAKER (Lv 42) | 14% |
-| 123 | [JAWBREAKER](data/species/jawbreaker.yaml) | Fire / Dragon | Strong Jaw |  |  | 14% |
-| 124 | *open slot* | | | | | |
-| 125 | *open slot* | | | | | |
-| 126 | *open slot* | | | | | |
-| 127 | *open slot* | | | | | |
-| 128 | *open slot* | | | | | |
+| 123 | [JAWBREAKER](data/species/jawbreaker.yaml) | Fire / Dragon | Strong Jaw, Moxie (H) | 530 |  | 21% |
+| 124 | [Dreadipede](data/species/dreadipede.yaml) | Bug / Flying | Mold Breaker, Swarm, Aerilate (H) | 360 | DreadFang (Lv 59) | 21% |
+| 125 | [DreadFang](data/species/dreadfang.yaml) | Bug / Flying | Mold Breaker, Battle Armor, Strong Jaw (H) | 550 |  | 24% |
+| 126 | [Aquat](data/species/surfer.yaml) | Water / Ground | Swift Swim, Water Absorb |  |  | 14% |
+| 127 | [Aquway](data/species/subwaysurfer.yaml) | Water / Ground | Swift Swim, Water Absorb |  |  | 14% |
+| 128 | [Zyzzfu](data/species/zyzzfu.yaml) | Fighting / Electric |  |  |  | 10% |
 | 129 | *open slot* | | | | | |
 | 130 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve, Insomnia, Shadow Tag (H) |  |  | 14% |
 | 131 | [Glacépée](data/species/glac-p-e.yaml) | Ice / Fighting | Long Reach, Parry Stance, Sniper (H) | 510 |  | 17% |
@@ -148,8 +148,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 137 | *open slot* | | | | | |
 | 138 | *open slot* | | | | | |
 | 139 | *open slot* | | | | | |
-| 140 | *open slot* | | | | | |
-| 141 | [Phantail](data/species/sjef.yaml) | Ghost / Flying | Disguise, Magic Guard | 540 |  | 21% |
+| 140 | [Phantomb](data/species/phantomb.yaml) | Ghost / Flying |  |  | Phantail (Lv 62) | 10% |
+| 141 | [Phantail](data/species/sjef.yaml) | Ghost / Flying | Disguise | 540 |  | 24% |
 | 142 | [Moosus](data/species/moosus.yaml) | Flying / Fairy | Aurora Dancer, Regenerator (H) | 580 |  | 21% |
 | 143 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Dazzling, Levitate (H) | 580 |  | 21% |
 | 144 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 580 |  | 24% |

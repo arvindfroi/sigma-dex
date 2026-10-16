@@ -2672,5 +2672,89 @@
     "file": "assets/concept-art/jawbreaker/768.png",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 769,
+    "species": "dreadipede",
+    "file": "assets/concept-art/dreadipede/769.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 770,
+    "species": "dreadipede",
+    "file": "assets/concept-art/dreadipede/770.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 771,
+    "species": "dreadfang",
+    "file": "assets/concept-art/dreadfang/771.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 772,
+    "species": "dreadfang",
+    "file": "assets/concept-art/dreadfang/772.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 773,
+    "species": "surfer",
+    "file": "assets/concept-art/surfer/773.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 775,
+    "species": "surfer",
+    "file": "assets/concept-art/surfer/775.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 776,
+    "species": "subwaysurfer",
+    "file": "assets/concept-art/subwaysurfer/776.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 777,
+    "species": "subwaysurfer",
+    "file": "assets/concept-art/subwaysurfer/777.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 779,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/779.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 780,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/780.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 781,
+    "species": "phantomb",
+    "file": "assets/concept-art/phantomb/781.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 783,
+    "species": "phantomb",
+    "file": "assets/concept-art/phantomb/783.png",
+    "caption": null,
+    "editor": null
   }
 ]

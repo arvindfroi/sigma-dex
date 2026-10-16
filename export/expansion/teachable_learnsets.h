@@ -161,6 +161,10 @@ static const u16 sMcSkiirtleTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sDreadFangTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sEverdarkTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };

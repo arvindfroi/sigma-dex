@@ -194,6 +194,11 @@ static const struct LevelUpMove sMcSkiirtleLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sDreadFangLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_FELL_STINGER),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sEverdarkLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_NASTY_PLOT),
     LEVEL_UP_MOVE( 1, MOVE_DARK_PULSE),
