@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**127 / 151** slots have a Pokemon - **0** are fully complete - average completeness **23%**.
+**128 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -124,8 +124,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 113 | [Aluminimonk Utviklin](data/species/alminimonk-utvikling.yaml) | Psychic | Shields Down | 440 |  | 17% |
 | 114 | [Zapitera Mindre utv](data/species/zapitera-mindre-utv.yaml) | Electric |  |  | Zapitera (Lv 35) | 3% |
 | 115 | [Zapitera](data/species/zapitera.yaml) | Electric / Steel | Levitate, Magnet Pull, Stalwart (H) | 505 |  | 24% |
-| 116 | [Viridub](data/species/viridub.yaml) | Grass | Chlorophyll |  |  | 14% |
-| 117 | *open slot* | | | | | |
+| 116 | [Viridub](data/species/viridub.yaml) | Grass | Leaf Mane, Chlorophyll (H) | 369 |  | 21% |
+| 117 | [Viridub Utvikling](data/species/viridub-utvikling.yaml) | Grass | Leaf Mane, Chlorophyll (H) | 510 |  | 14% |
 | 118 | *open slot* | | | | | |
 | 119 | *open slot* | | | | | |
 | 120 | *open slot* | | | | | |

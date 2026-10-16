@@ -1750,20 +1750,6 @@
     "editor": "Discord sweep"
   },
   {
-    "id": 518,
-    "species": "viridub",
-    "file": "assets/concept-art/viridub/518.webp",
-    "caption": "From Discord #official-sigma-pokedex, posted by Ruben on 2026-05-07. Shows: Viridub; Verdian; Florion.",
-    "editor": "Discord sweep"
-  },
-  {
-    "id": 519,
-    "species": "viridub",
-    "file": "assets/concept-art/viridub/519.webp",
-    "caption": "From Discord #official-sigma-pokedex, posted by Ruben on 2026-05-07. Shows: Viridub.",
-    "editor": "Discord sweep"
-  },
-  {
     "id": 521,
     "species": "tortoplasm",
     "file": "assets/concept-art/tortoplasm/521.webp",
@@ -2510,6 +2496,20 @@
     "species": "leadling",
     "file": "assets/concept-art/leadling/708.png",
     "caption": "[ds-follower] sprite #71",
+    "editor": null
+  },
+  {
+    "id": 714,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/714.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 715,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/715.png",
+    "caption": null,
     "editor": null
   }
 ]

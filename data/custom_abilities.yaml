@@ -46,6 +46,15 @@ abilities:
     Scrappy-style immunity to Intimidate-like effects are not affected, and Contrary, Defiant, Competitive,
     and Guard Dog react as they would to any stat drop. Substitute does not block it.
   designer: Emil
+- id: leaf-mane
+  name: Leaf Mane
+  description: Raises the user’s Attack by one stage when harsh sunlight is active
+  effect: When this Pokémon enters battle during harsh sunlight, or when harsh sunlight begins while it
+    is on the field, its Attack rises by one stage. This happens once per sun activation. If the sun ends
+    and a new one starts, it triggers again. Sunny Day, Drought, and Desolate Land all count. The boost
+    is a normal stat stage, so Intimidate, Haze, and switching out remove it. It does not boost Special
+    Attack.
+  designer: Emil
 - id: parry-stance
   name: Parry Stance
   description: The first hit the user takes each battle is parried, dealing no damage
