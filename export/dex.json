@@ -6158,7 +6158,7 @@
       "dex": 70,
       "name": "Cryoblade",
       "credits": {
-        "designer": null,
+        "designer": "Ivar",
         "artist": null
       },
       "types": [
@@ -6322,6 +6322,86 @@
         "safari_flee_rate": 0
       },
       "id": "roostasaur"
+    },
+    {
+      "dex": 72,
+      "name": "Bygon",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Ghost",
+        "Rock"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "bygon"
     },
     {
       "dex": 73,
@@ -10345,6 +10425,172 @@
       "id": "bugmight"
     },
     {
+      "dex": 122,
+      "name": "JAWIE",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Fire",
+        "Dragon"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Strong Jaw",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "jawbreaker",
+          "method": "level",
+          "level": 42
+        }
+      ],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/jawie/765.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "jawie"
+    },
+    {
+      "dex": 123,
+      "name": "JAWBREAKER",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Fire",
+        "Dragon"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Strong Jaw",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/jawbreaker/767.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "jawbreaker"
+    },
+    {
       "dex": 130,
       "name": "Grincho",
       "credits": {
@@ -10707,6 +10953,86 @@
         "safari_flee_rate": 0
       },
       "id": "riftbloom"
+    },
+    {
+      "dex": 141,
+      "name": "Phantail",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Ghost",
+        "Flying"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Disguise",
+        "secondary": "Magic Guard",
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 55,
+        "attack": 125,
+        "defense": 55,
+        "sp_attack": 125,
+        "sp_defense": 55,
+        "speed": 125
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Hidden, mysterious, fast and phantasmal ghost-flying pokemon.",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/sjef/763.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "sjef"
     },
     {
       "dex": 142,

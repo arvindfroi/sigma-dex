@@ -2630,5 +2630,47 @@
     "file": "assets/concept-art/pipwi-utv/762.png",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 763,
+    "species": "sjef",
+    "file": "assets/concept-art/sjef/763.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 764,
+    "species": "sjef",
+    "file": "assets/concept-art/sjef/764.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 765,
+    "species": "jawie",
+    "file": "assets/concept-art/jawie/765.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 766,
+    "species": "jawie",
+    "file": "assets/concept-art/jawie/766.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 767,
+    "species": "jawbreaker",
+    "file": "assets/concept-art/jawbreaker/767.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 768,
+    "species": "jawbreaker",
+    "file": "assets/concept-art/jawbreaker/768.png",
+    "caption": null,
+    "editor": null
   }
 ]

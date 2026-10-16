@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**129 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
+**133 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -78,9 +78,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 67 | [Saucerl](data/species/saucerl.yaml) | Psychic / Water |  |  |  | 7% |
 | 68 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water |  |  |  | 7% |
 | 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water |  |  |  | 7% |
-| 70 | [Cryoblade](data/species/cryoblade.yaml) | Ice | Cold-hearted, Ice Body, Sheer Force (H) | 540 |  | 28% |
+| 70 | [Cryoblade](data/species/cryoblade.yaml) | Ice | Cold-hearted, Ice Body, Sheer Force (H) | 540 |  | 31% |
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
-| 72 | *open slot* | | | | | |
+| 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
 | 73 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 280 | Leadling Utvikling (Lv 20) | 21% |
 | 74 | [Leadling Utvikling](data/species/leadling-utvikling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 400 | Blylem (Lv 40) | 17% |
 | 75 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 525 |  | 38% |
@@ -130,8 +130,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 119 | [Shadrove](data/species/shadrove.yaml) | Normal / Dark | Illusion | 510 |  | 17% |
 | 120 | [Autuman](data/species/autuman.yaml) | Grass / Fighting | Justified, Guts, Wind Rider (H) | 500 |  | 21% |
 | 121 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Justified, Guts, Tinted Lens (H) | 500 |  | 34% |
-| 122 | *open slot* | | | | | |
-| 123 | *open slot* | | | | | |
+| 122 | [JAWIE](data/species/jawie.yaml) | Fire / Dragon | Strong Jaw |  | JAWBREAKER (Lv 42) | 14% |
+| 123 | [JAWBREAKER](data/species/jawbreaker.yaml) | Fire / Dragon | Strong Jaw |  |  | 14% |
 | 124 | *open slot* | | | | | |
 | 125 | *open slot* | | | | | |
 | 126 | *open slot* | | | | | |
@@ -149,7 +149,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 138 | *open slot* | | | | | |
 | 139 | *open slot* | | | | | |
 | 140 | *open slot* | | | | | |
-| 141 | *open slot* | | | | | |
+| 141 | [Phantail](data/species/sjef.yaml) | Ghost / Flying | Disguise, Magic Guard | 540 |  | 21% |
 | 142 | [Moosus](data/species/moosus.yaml) | Flying / Fairy | Aurora Dancer, Regenerator (H) | 580 |  | 21% |
 | 143 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Dazzling, Levitate (H) | 580 |  | 21% |
 | 144 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 580 |  | 24% |

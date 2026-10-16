@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 125 / 129 |
-| Identity | designer credit | 103 / 129 |
-| Dex page | category | 40 / 129 |
-| Dex page | description | 41 / 129 |
-| Dex page | height | 28 / 129 |
-| Dex page | weight | 26 / 129 |
-| Dex page | body color | 2 / 129 |
-| Stats | base stats | 105 / 129 |
-| Stats | ability | 108 / 129 |
-| Stats | EV yield | 70 / 129 |
-| Stats | catch rate | 1 / 129 |
-| Stats | base exp | 1 / 129 |
-| Stats | growth rate | 1 / 129 |
-| Stats | base friendship | 1 / 129 |
-| Breeding | gender | 1 / 129 |
-| Breeding | egg groups | 1 / 129 |
-| Breeding | egg cycles | 1 / 129 |
-| Moves | level-up moves | 33 / 129 |
-| Moves | TM/HM moves | 4 / 129 |
-| Location | encounters | 2 / 129 |
-| Design | concept | 10 / 129 |
-| Art | concept art | 117 / 129 |
-| Art | front sprite | 4 / 129 |
-| Art | front animation frame | 4 / 129 |
-| Art | back sprite | 4 / 129 |
-| Art | icon | 4 / 129 |
-| Art | footprint | 0 / 129 |
-| Art | shiny palette | 0 / 129 |
-| Art | cry | 0 / 129 |
+| Identity | types | 129 / 133 |
+| Identity | designer credit | 107 / 133 |
+| Dex page | category | 40 / 133 |
+| Dex page | description | 41 / 133 |
+| Dex page | height | 28 / 133 |
+| Dex page | weight | 26 / 133 |
+| Dex page | body color | 2 / 133 |
+| Stats | base stats | 106 / 133 |
+| Stats | ability | 111 / 133 |
+| Stats | EV yield | 70 / 133 |
+| Stats | catch rate | 1 / 133 |
+| Stats | base exp | 1 / 133 |
+| Stats | growth rate | 1 / 133 |
+| Stats | base friendship | 1 / 133 |
+| Breeding | gender | 1 / 133 |
+| Breeding | egg groups | 1 / 133 |
+| Breeding | egg cycles | 1 / 133 |
+| Moves | level-up moves | 33 / 133 |
+| Moves | TM/HM moves | 4 / 133 |
+| Location | encounters | 2 / 133 |
+| Design | concept | 11 / 133 |
+| Art | concept art | 120 / 133 |
+| Art | front sprite | 4 / 133 |
+| Art | front animation frame | 4 / 133 |
+| Art | back sprite | 4 / 133 |
+| Art | icon | 4 / 133 |
+| Art | footprint | 0 / 133 |
+| Art | shiny palette | 0 / 133 |
+| Art | cry | 0 / 133 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 12 / 129 |
-| DS back sprite 80x80 | 12 / 129 |
-| DS icon 32x32 | 12 / 129 |
+| DS front sprite 80x80 | 12 / 133 |
+| DS back sprite 80x80 | 12 / 133 |
+| DS icon 32x32 | 12 / 133 |
 
-## Open dex slots (22)
+## Open dex slots (18)
 
-#19, #34, #35, #72, #93, #108, #122, #123, #124, #125, #126, #127, #128, #129, #133, #134, #136, #137, #138, #139, #140, #141
+#19, #34, #35, #93, #108, #124, #125, #126, #127, #128, #129, #133, #134, #136, #137, #138, #139, #140
 
 ## Missing per Pokemon
 
@@ -719,9 +719,8 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #70 [Cryoblade](data/species/cryoblade.yaml) - 28%
+### #70 [Cryoblade](data/species/cryoblade.yaml) - 31%
 
-- **Identity:** designer credit
 - **Dex page:** description, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
@@ -740,6 +739,17 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #72 [Bygon](data/species/bygon.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #73 [Leadling](data/species/leadling.yaml) - 21%
 
@@ -1213,6 +1223,26 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
+### #122 [JAWIE](data/species/jawie.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #123 [JAWBREAKER](data/species/jawbreaker.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
 ### #130 [Grincho](data/species/grincho.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
@@ -1251,6 +1281,15 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #141 [Phantail](data/species/sjef.yaml) - 21%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #142 [Moosus](data/species/moosus.yaml) - 21%

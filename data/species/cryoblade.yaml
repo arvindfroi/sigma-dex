@@ -3,7 +3,7 @@ dex: 70
 name: Cryoblade
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Ivar         # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Ice]             # 1 or 2 types, e.g. [Grass, Steel]
