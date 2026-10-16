@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**127 / 151** slots have a Pokemon - **0** are fully complete - average completeness **23%**.
+**128 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -90,7 +90,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 79 | [Ciggiti](data/species/ciggiti.yaml) | Ghost | Smoked Up | 310 |  | 28% |
 | 80 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 28% |
 | 81 | [Parahaunt](data/species/parahaunt.yaml) | Ghost | Smoked Up | 556 |  | 28% |
-| 82 | *open slot* | | | | | |
+| 82 | [Insectoid](data/species/insectoid.yaml) |  |  |  |  | 0% |
 | 83 | [Darkgonark](data/species/darkgonark.yaml) | Ghost / Steel | Eternal Dirge, Soulforged Body | 550 |  | 28% |
 | 84 | [Detecup](data/species/detecup.yaml) | Normal | Pickup, Keen Eye, Download (H) |  |  | 17% |
 | 85 | [Snownin](data/species/snownin.yaml) | Ice | Levitate, Inner Focus, Snow Warning (H) | 495 |  | 24% |
