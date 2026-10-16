@@ -28,7 +28,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 17 | [Shadeem](data/species/shadeem.yaml) | Normal | Illusion | 330 | Shadrove (Dusk Stone) | 21% |
 | 18 | [Shadrove](data/species/shadrove.yaml) | Normal / Dark | Illusion | 510 |  | 17% |
 | 19 | *open slot* | | | | | |
-| 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water | Rain Dish, Own Tempo, Unaware (H) |  |  | 14% |
+| 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water | Rain Dish, Own Tempo, Unaware (H) |  | Mooceon (Lv 33) | 14% |
 | 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water | Rain Dish, Own Tempo, Unaware (H) | 490 |  | 28% |
 | 22 | [Lapper](data/species/lapper.yaml) | Normal / Fighting | Scrappy, Fur Coat, Hustle (H) | 327 | Brawleo (Lv 25) | 21% |
 | 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 31% |

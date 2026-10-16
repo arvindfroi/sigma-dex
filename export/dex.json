@@ -1917,7 +1917,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "mooceon",
+          "method": "level",
+          "level": 33
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
