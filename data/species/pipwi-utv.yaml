@@ -1,12 +1,12 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
-dex: 72
-name: Bygon
+dex: 18
+name: Tropistrich
 
 credits:
   designer:              # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: [Ghost, Rock]     # 1 or 2 types, e.g. [Grass, Steel]
+types: [Grass, Flying]   # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -17,19 +17,19 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
-  hidden:                # optional
+  primary: Early Bird
+  secondary: Harvest     # optional
+  hidden: Tough Claws    # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 80
+  attack: 100
+  defense: 75
+  sp_attack: 50
+  sp_defense: 70
+  speed: 120
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {speed: 2}     # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -55,7 +55,9 @@ evolutions: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 0, move: Trop Kick}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
@@ -71,10 +73,13 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: []   # fields Claude filled in (people can change them)
+  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement:              # e.g. It walks on four legs. / It floats in the air.
+  look:                  # what it looks like, a few plain sentences: It is a ...
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/bygon.png
+  concept_art: "assets/concept-art/pipwi-utv/761.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

@@ -2,6 +2,15 @@
 # see data/engine/expansion.yaml for the 319 that do). Edit them on the website.
 # Each one has to be programmed into the game; 'implemented: true' marks the ones that are.
 abilities:
+- id: aurora-dancer
+  name: Aurora Dancer
+  description: Ice-type moves raises the user’s Speed. Instead of hurting it
+  effect: 'When this Pokémon is hit by an Ice-type move, it takes no damage and its Speed rises by two
+    stages. Otherwise it works like Motor Drive: it only triggers from moves used by other Pokémon, not
+    from Snowscape, and it doesn''t block non-Ice or status moves. Mold Breaker and similar effects bypass
+    it.'
+  similar_to: Motor Drive
+  designer: Emil
 - id: catch-master
   name: Catch Master
   description: Weakens wild Pokémon's resistance to Poké Balls
@@ -55,6 +64,9 @@ abilities:
     is a normal stat stage, so Intimidate, Haze, and switching out remove it. It does not boost Special
     Attack.
   designer: Emil
+- id: lullaby
+  name: Lullaby
+  effect: any pokemon on the field that is asleep gets 1/16 of thier health restored every round
 - id: ol-no-reliable
   name: Ol' No Reliable
   description: Changes form when HP is above 25%

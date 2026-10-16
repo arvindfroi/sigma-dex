@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**127 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
+**129 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -25,10 +25,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 14 | [Wump](data/species/wump.yaml) | Bug | Swarm, Run Away, Unburden (H) | 300 |  | 21% |
 | 15 | [Twemp](data/species/twemp.yaml) | Bug / Grass | Swarm, Leaf Guard, Grassy Surge (H) | 380 |  | 17% |
 | 16 | [Florantula](data/species/florantula.yaml) | Bug / Grass | Swarm, Leaf Guard, Grassy Surge (H) | 485 |  | 24% |
-| 17 | [Shadeem](data/species/shadeem.yaml) | Normal | Illusion | 330 | Shadrove (Dusk Stone) | 21% |
-| 18 | [Shadrove](data/species/shadrove.yaml) | Normal / Dark | Illusion | 510 |  | 17% |
+| 17 | [Pipwi](data/species/pipwi.yaml) | Grass | Early Bird, Harvest, Grass Pelt (H) | 310 |  | 21% |
+| 18 | [Tropistrich](data/species/pipwi-utv.yaml) | Grass / Flying | Early Bird, Harvest, Tough Claws (H) | 495 |  | 21% |
 | 19 | *open slot* | | | | | |
-| 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water | Rain Dish, Own Tempo, Unaware (H) |  | Mooceon (Lv 33) | 14% |
+| 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water | Rain Dish, Own Tempo, Unaware (H) |  | Mooceon (Lv 33) | 17% |
 | 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water | Rain Dish, Own Tempo, Unaware (H) | 490 |  | 28% |
 | 22 | [Lapper](data/species/lapper.yaml) | Normal / Fighting | Scrappy, Fur Coat, Hustle (H) | 327 | Brawleo (Lv 25) | 21% |
 | 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 31% |
@@ -42,15 +42,15 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 31 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Cursed Body, Lightning Rod, Galvanize (H) | 504 |  | 31% |
 | 32 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice | Moody | 462 |  | 14% |
 | 33 | [Rainbro](data/species/rainbro.yaml) |  | Punchable Face | 490 |  | 10% |
-| 34 | [Autuman](data/species/autuman.yaml) | Grass / Fighting | Justified, Guts, Wind Rider (H) | 500 |  | 21% |
-| 35 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Justified, Guts, Tinted Lens (H) | 500 |  | 34% |
+| 34 | *open slot* | | | | | |
+| 35 | *open slot* | | | | | |
 | 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Sticky Hold (H) | 325 | Toxiren (Lv 38) | 31% |
 | 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Toxic Voice (H) | 500 |  | 38% |
 | 38 | [Stonma](data/species/stonma.yaml) | Rock | Sturdy, Rock Head, Solid Rock (H) | 330 | Sigmauler (Lv 38) | 28% |
 | 39 | [Sigmauler](data/species/sigmauler.yaml) | Rock / Fighting | Sturdy, Iron Fist, Solid Rock (H) | 510 |  | 21% |
 | 40 | [Tinky](data/species/tinky.yaml) | Grass | Heatproof, Dancer, Prankster (H) | 285 | Motinky (Lv 25) | 31% |
 | 41 | [Motinky](data/species/motinky.yaml) | Grass / Fire | Flash Fire, Dancer, Prankster (H) | 420 | Gortiki (Firestone) | 31% |
-| 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire | Flash Fire, Dancer, Huge Power (H) | 530 |  | 31% |
+| 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire | Flash Fire, Dancer, Huge Power (H) | 528 |  | 31% |
 | 43 | [Chebbi](data/species/chebbi.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 360 | Devampry (Lv 32) | 24% |
 | 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark | Soundproof, Levitate, Punk Rock (H) | 503 |  | 28% |
 | 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water | Swift Swim, Battle Bond (H) | 495 |  | 31% |
@@ -68,7 +68,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 57 | [Sigmanian Unown](data/species/bulgarian-unown.yaml) | Electric / Psychic |  | 336 |  | 24% |
 | 58 | [Unknighted](data/species/united.yaml) | Electric / Psychic |  | 425 |  | 24% |
 | 59 | [Hairyen](data/species/hairyen.yaml) | Grass / Water | Diver, Tangling Hair, Rain Dish (H) | 325 |  | 28% |
-| 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Broken Swivel, Ol' No Reliable | 620 |  | 31% |
+| 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Ol' No Reliable | 620 |  | 31% |
 | 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel | Innards Out, Poison Point, Filter (H) | 301 |  | 34% |
 | 62 | [Nuclobyl](data/species/nuclobyl.yaml) | Poison / Steel | Innards Out, Poison Point, Filter (H) | 525 |  | 34% |
 | 63 | [Gentie](data/species/gentie.yaml) |  |  |  |  | 0% |
@@ -80,7 +80,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water |  |  |  | 7% |
 | 70 | [Cryoblade](data/species/cryoblade.yaml) | Ice | Cold-hearted, Ice Body, Sheer Force (H) | 540 |  | 28% |
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
-| 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
+| 72 | *open slot* | | | | | |
 | 73 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 280 | Leadling Utvikling (Lv 20) | 21% |
 | 74 | [Leadling Utvikling](data/species/leadling-utvikling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 400 | Blylem (Lv 40) | 17% |
 | 75 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 525 |  | 38% |
@@ -91,15 +91,15 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 80 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 28% |
 | 81 | [Parahaunt](data/species/parahaunt.yaml) | Ghost | Smoked Up | 556 |  | 28% |
 | 82 | [Insectoid](data/species/insectoid.yaml) |  |  |  |  | 0% |
-| 83 | *open slot* | | | | | |
+| 83 | [Darkgonark](data/species/darkgonark.yaml) |  |  |  |  | 0% |
 | 84 | [Detecup](data/species/detecup.yaml) | Normal | Pickup, Keen Eye, Download (H) |  |  | 17% |
-| 85 | [Snownin](data/species/snownin.yaml) | Ice | Levitate, Inner Focus, Snow Warning (H) | 495 |  | 24% |
+| 85 | [Snownin](data/species/snownin.yaml) | Ice | Snow Warning, Snow Cloak, Levitate (H) | 495 |  | 24% |
 | 86 | [Verrith](data/species/verrith.yaml) | Ghost / Steel | Fog Of War, Neutralizing Gas (H) | 555 |  | 21% |
 | 87 | [Sigmanian Komala](data/species/sigmanian-komala.yaml) | Normal | Drunken Rage, Poison Heal, Toxic Boost (H) | 348 | Dahrugula (Lv 32) | 24% |
 | 88 | [Dahrugula](data/species/dahrugula.yaml) | Normal | Drunken Rage, Poison Heal, Toxic Boost (H) | 540 |  | 24% |
 | 89 | [Vires](data/species/vires.yaml) | Fairy | Mirror Armor | 325 |  | 21% |
 | 90 | [Flurina](data/species/flurina.yaml) | Fairy | Mirror Armor, Symbiosis, Hospitality (H) | 490 |  | 24% |
-| 91 | [Dragem](data/species/dragem.yaml) | Dragon / Rock | Sand Rush, Rough Skin, Sand Stream (H) | 500 |  | 21% |
+| 91 | [Dragem](data/species/dragem.yaml) | Dragon / Ground | Sand Stream, Rough Skin, Multiscale (H) | 500 |  | 21% |
 | 92 | [Quimsy](data/species/quimsy.yaml) | Normal / Psychic |  |  |  | 10% |
 | 93 | *open slot* | | | | | |
 | 94 | [Skiirtle](data/species/skiirtle.yaml) | Fire | Speed Boost, Reckless, Motor Drive (H) |  |  | 14% |
@@ -126,10 +126,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 115 | [Zapitera](data/species/zapitera.yaml) | Electric / Steel | Levitate, Magnet Pull, Stalwart (H) | 505 |  | 24% |
 | 116 | [Viridub](data/species/viridub.yaml) | Grass | Leaf Mane, Chlorophyll (H) | 369 |  | 21% |
 | 117 | [Viridub Utvikling](data/species/viridub-utvikling.yaml) | Grass | Leaf Mane, Chlorophyll (H) | 510 |  | 14% |
-| 118 | *open slot* | | | | | |
-| 119 | *open slot* | | | | | |
-| 120 | *open slot* | | | | | |
-| 121 | *open slot* | | | | | |
+| 118 | [Shadeem](data/species/shadeem.yaml) | Normal | Illusion | 330 | Shadrove (Dusk Stone) | 21% |
+| 119 | [Shadrove](data/species/shadrove.yaml) | Normal / Dark | Illusion | 510 |  | 17% |
+| 120 | [Autuman](data/species/autuman.yaml) | Grass / Fighting | Justified, Guts, Wind Rider (H) | 500 |  | 21% |
+| 121 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Justified, Guts, Tinted Lens (H) | 500 |  | 34% |
 | 122 | *open slot* | | | | | |
 | 123 | *open slot* | | | | | |
 | 124 | *open slot* | | | | | |
@@ -150,13 +150,13 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 139 | *open slot* | | | | | |
 | 140 | *open slot* | | | | | |
 | 141 | *open slot* | | | | | |
-| 142 | [Moosus](data/species/moosus.yaml) | Flying / Fairy |  |  |  | 14% |
-| 143 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 580 |  | 24% |
-| 144 | [Gravriel](data/species/gravriel.yaml) | Water / Ghost | Grim Neigh, Sap Sipper (H) | 580 |  | 41% |
-| 145 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 300 | Greation (Lv 30) | 21% |
-| 146 | [Greation](data/species/greation.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 422 | Ultragon (Lv 55) | 21% |
-| 147 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 600 |  | 24% |
-| 148 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Dazzling, Levitate (H) | 580 |  | 21% |
+| 142 | [Moosus](data/species/moosus.yaml) | Flying / Fairy | Aurora Dancer, Regenerator (H) | 580 |  | 21% |
+| 143 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Dazzling, Levitate (H) | 580 |  | 21% |
+| 144 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 580 |  | 24% |
+| 145 | [Gravriel](data/species/gravriel.yaml) | Water / Ghost | Grim Neigh, Sap Sipper (H) | 580 |  | 41% |
+| 146 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 300 | Greation (Lv 30) | 21% |
+| 147 | [Greation](data/species/greation.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 422 | Ultragon (Lv 55) | 21% |
+| 148 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 600 |  | 24% |
 | 149 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground | Drizzle | 680 |  | 48% |
 | 150 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician | 680 |  | 28% |
-| 151 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground |  | 600 |  | 14% |
+| 151 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground | Lullaby | 600 |  | 17% |

@@ -2595,5 +2595,40 @@
     "file": "assets/concept-art/leafing/755.png",
     "caption": "[ds-follower] sprite #81",
     "editor": null
+  },
+  {
+    "id": 756,
+    "species": "pipwi",
+    "file": "assets/concept-art/pipwi/756.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 757,
+    "species": "pipwi",
+    "file": "assets/concept-art/pipwi/757.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 758,
+    "species": "pipwi",
+    "file": "assets/concept-art/pipwi/758.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 761,
+    "species": "pipwi-utv",
+    "file": "assets/concept-art/pipwi-utv/761.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 762,
+    "species": "pipwi-utv",
+    "file": "assets/concept-art/pipwi-utv/762.png",
+    "caption": null,
+    "editor": null
   }
 ]

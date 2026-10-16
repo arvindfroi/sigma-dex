@@ -492,6 +492,54 @@
         FOOTPRINT(QuestionMark)
     },
 
+    [SPECIES_TROPISTRICH] =
+    {
+        .baseHP = 80,
+        .baseAttack = 100,
+        .baseDefense = 75,
+        .baseSpeed = 120,
+        .baseSpAttack = 50,
+        .baseSpDefense = 70,
+        .types = MON_TYPES(TYPE_GRASS, TYPE_FLYING),
+        .catchRate = 45,
+        .expYield = 64,
+        .evYield_Speed = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_EARLY_BIRD, ABILITY_HARVEST, ABILITY_TOUGH_CLAWS },
+        .bodyColor = BODY_COLOR_GRAY,
+        .speciesName = _("Tropistrich"),
+        .cryId = CRY_NONE,
+        .natDexNum = NATIONAL_DEX_TROPISTRICH,
+        .categoryName = _("Unknown"),
+        .height = 0,
+        .weight = 0,
+        .description = COMPOUND_STRING(
+            "This Pokemon has no Pokedex entry yet."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_CircledQuestionMark,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .backPic = gMonBackPic_CircledQuestionMark,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 7,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_CircledQuestionMark,
+        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
+        .iconSprite = gMonIcon_QuestionMark,
+        .iconPalIndex = 0,
+        .levelUpLearnset = sTropistrichLevelUpLearnset,
+        .teachableLearnset = sTropistrichTeachableLearnset,
+        FOOTPRINT(QuestionMark)
+    },
+
     [SPECIES_MOOCEON] =
     {
         .baseHP = 155,
@@ -892,12 +940,12 @@
 
     [SPECIES_GORTIKI] =
     {
-        .baseHP = 80,
+        .baseHP = 81,
         .baseAttack = 67,
         .baseDefense = 110,
         .baseSpeed = 72,
         .baseSpAttack = 108,
-        .baseSpDefense = 93,
+        .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_GRASS, TYPE_FIRE),
         .catchRate = 45,
         .expYield = 64,
@@ -1157,7 +1205,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_LEVITATE, ABILITY_INNER_FOCUS, ABILITY_SNOW_WARNING },
+        .abilities = { ABILITY_SNOW_WARNING, ABILITY_SNOW_CLOAK, ABILITY_LEVITATE },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Snownin"),
         .cryId = CRY_NONE,
