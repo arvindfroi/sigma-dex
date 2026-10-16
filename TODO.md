@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 125 / 128 |
-| Identity | designer credit | 102 / 128 |
-| Dex page | category | 41 / 128 |
-| Dex page | description | 42 / 128 |
-| Dex page | height | 29 / 128 |
-| Dex page | weight | 27 / 128 |
-| Dex page | body color | 2 / 128 |
-| Stats | base stats | 103 / 128 |
-| Stats | ability | 105 / 128 |
-| Stats | EV yield | 68 / 128 |
-| Stats | catch rate | 1 / 128 |
-| Stats | base exp | 1 / 128 |
-| Stats | growth rate | 1 / 128 |
-| Stats | base friendship | 1 / 128 |
-| Breeding | gender | 1 / 128 |
-| Breeding | egg groups | 1 / 128 |
-| Breeding | egg cycles | 1 / 128 |
-| Moves | level-up moves | 31 / 128 |
-| Moves | TM/HM moves | 4 / 128 |
-| Location | encounters | 2 / 128 |
-| Design | concept | 10 / 128 |
-| Art | concept art | 116 / 128 |
-| Art | front sprite | 4 / 128 |
-| Art | front animation frame | 4 / 128 |
-| Art | back sprite | 4 / 128 |
-| Art | icon | 4 / 128 |
-| Art | footprint | 0 / 128 |
-| Art | shiny palette | 0 / 128 |
-| Art | cry | 0 / 128 |
+| Identity | types | 124 / 127 |
+| Identity | designer credit | 102 / 127 |
+| Dex page | category | 40 / 127 |
+| Dex page | description | 41 / 127 |
+| Dex page | height | 28 / 127 |
+| Dex page | weight | 26 / 127 |
+| Dex page | body color | 2 / 127 |
+| Stats | base stats | 102 / 127 |
+| Stats | ability | 104 / 127 |
+| Stats | EV yield | 68 / 127 |
+| Stats | catch rate | 1 / 127 |
+| Stats | base exp | 1 / 127 |
+| Stats | growth rate | 1 / 127 |
+| Stats | base friendship | 1 / 127 |
+| Breeding | gender | 1 / 127 |
+| Breeding | egg groups | 1 / 127 |
+| Breeding | egg cycles | 1 / 127 |
+| Moves | level-up moves | 31 / 127 |
+| Moves | TM/HM moves | 4 / 127 |
+| Location | encounters | 2 / 127 |
+| Design | concept | 10 / 127 |
+| Art | concept art | 115 / 127 |
+| Art | front sprite | 4 / 127 |
+| Art | front animation frame | 4 / 127 |
+| Art | back sprite | 4 / 127 |
+| Art | icon | 4 / 127 |
+| Art | footprint | 0 / 127 |
+| Art | shiny palette | 0 / 127 |
+| Art | cry | 0 / 127 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 12 / 128 |
-| DS back sprite 80x80 | 12 / 128 |
-| DS icon 32x32 | 12 / 128 |
+| DS front sprite 80x80 | 12 / 127 |
+| DS back sprite 80x80 | 12 / 127 |
+| DS icon 32x32 | 12 / 127 |
 
-## Open dex slots (23)
+## Open dex slots (24)
 
-#19, #93, #108, #118, #119, #120, #121, #122, #123, #124, #125, #126, #127, #128, #129, #133, #134, #136, #137, #138, #139, #140, #141
+#19, #83, #93, #108, #118, #119, #120, #121, #122, #123, #124, #125, #126, #127, #128, #129, #133, #134, #136, #137, #138, #139, #140, #141
 
 ## Missing per Pokemon
 
@@ -874,17 +874,6 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #83 [Darkgonark](data/species/darkgonark.yaml) - 28%
-
-- **Identity:** designer credit
-- **Dex page:** body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #84 [Detecup](data/species/detecup.yaml) - 17%
 
