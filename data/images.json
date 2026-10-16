@@ -357,13 +357,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 218,
-    "species": "devampry",
-    "file": "assets/concept-art/devampry/218.webp",
-    "caption": "Line-up with Chebbi from Discord, posted by SLOTHBABY 2026-05-07",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 219,
     "species": "devampry",
     "file": "assets/concept-art/devampry/219.webp",
@@ -1421,13 +1414,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 415,
-    "species": "devampry",
-    "file": "assets/concept-art/devampry/415.webp",
-    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-07 (Labelled Devampry)",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 416,
     "species": "mooceon",
     "file": "assets/concept-art/mooceon/416.webp",
@@ -2198,13 +2184,6 @@
     "editor": null
   },
   {
-    "id": 630,
-    "species": "dahrugula",
-    "file": "assets/concept-art/dahrugula/630.png",
-    "caption": "[ds-front] sprite #54",
-    "editor": null
-  },
-  {
     "id": 631,
     "species": "dahrugula",
     "file": "assets/concept-art/dahrugula/631.png",
@@ -2349,6 +2328,188 @@
     "species": "florantula",
     "file": "assets/concept-art/florantula/681.png",
     "caption": "[ds-follower] sprite #67",
+    "editor": null
+  },
+  {
+    "id": 682,
+    "species": "dahrugula",
+    "file": "assets/concept-art/dahrugula/682.png",
+    "caption": "[ds-front] sprite #68",
+    "editor": null
+  },
+  {
+    "id": 686,
+    "species": "moosus",
+    "file": "assets/concept-art/moosus/686.png",
+    "caption": "pasted",
+    "editor": null
+  },
+  {
+    "id": 687,
+    "species": "zapitera",
+    "file": "assets/concept-art/zapitera/687.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 688,
+    "species": "zapitera",
+    "file": "assets/concept-art/zapitera/688.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 689,
+    "species": "stonma",
+    "file": "assets/concept-art/stonma/689.png",
+    "caption": "[ds-front] sprite #69",
+    "editor": null
+  },
+  {
+    "id": 690,
+    "species": "stonma",
+    "file": "assets/concept-art/stonma/690.png",
+    "caption": "[ds-back] sprite #69",
+    "editor": null
+  },
+  {
+    "id": 691,
+    "species": "stonma",
+    "file": "assets/concept-art/stonma/691.png",
+    "caption": "[ds-icon] sprite #69",
+    "editor": null
+  },
+  {
+    "id": 692,
+    "species": "stonma",
+    "file": "assets/concept-art/stonma/692.png",
+    "caption": "[ds-follower] sprite #69",
+    "editor": null
+  },
+  {
+    "id": 693,
+    "species": "brawleo",
+    "file": "assets/concept-art/brawleo/693.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 694,
+    "species": "devampry",
+    "file": "assets/concept-art/devampry/694.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 695,
+    "species": "devampry",
+    "file": "assets/concept-art/devampry/695.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 696,
+    "species": "sigmauler",
+    "file": "assets/concept-art/sigmauler/696.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 697,
+    "species": "galfrogtom",
+    "file": "assets/concept-art/galfrogtom/697.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 698,
+    "species": "tinky",
+    "file": "assets/concept-art/tinky/698.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 699,
+    "species": "motinky",
+    "file": "assets/concept-art/motinky/699.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 700,
+    "species": "gortiki",
+    "file": "assets/concept-art/gortiki/700.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 701,
+    "species": "sigmauler",
+    "file": "assets/concept-art/sigmauler/701.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 702,
+    "species": "bugmight",
+    "file": "assets/concept-art/bugmight/702.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 703,
+    "species": "bugmight",
+    "file": "assets/concept-art/bugmight/703.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 704,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/704.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 705,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/705.png",
+    "caption": "[ds-front] sprite #71",
+    "editor": null
+  },
+  {
+    "id": 706,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/706.png",
+    "caption": "[ds-back] sprite #71",
+    "editor": null
+  },
+  {
+    "id": 707,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/707.png",
+    "caption": "[ds-icon] sprite #71",
+    "editor": null
+  },
+  {
+    "id": 708,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/708.png",
+    "caption": "[ds-follower] sprite #71",
+    "editor": null
+  },
+  {
+    "id": 714,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/714.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 715,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/715.png",
+    "caption": null,
     "editor": null
   }
 ]

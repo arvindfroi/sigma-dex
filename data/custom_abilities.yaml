@@ -9,6 +9,13 @@ abilities:
     holder is on the field and not fainted. There is no activation message, but the ability pop-up shows
     on switch-in like other battle abilities.'
   designer: Emil
+- id: cold-hearted
+  name: Cold-hearted
+  description: Raises the Attack of this Pokémon when Snowscape is active
+  effect: When this Pokémon enters battle during Snowscape, or when Snowscape begins while it is on the
+    field, its Attack rises by one stage. This happens once per Snowscape activation. If the snow ends
+    and a new one starts, it triggers again. The boost is a normal stat stage, so Intimidate, Haze, and
+    switching out remove it.
 - id: drunken-rage
   name: Drunken Rage
   description: Raises Attack by two stages upon entering battle, but become confused
@@ -38,6 +45,15 @@ abilities:
     Cutter-style protections against stat drops, Mirror Armor, Oblivious, Own Tempo, Inner Focus, and
     Scrappy-style immunity to Intimidate-like effects are not affected, and Contrary, Defiant, Competitive,
     and Guard Dog react as they would to any stat drop. Substitute does not block it.
+  designer: Emil
+- id: leaf-mane
+  name: Leaf Mane
+  description: Raises the user’s Attack by one stage when harsh sunlight is active
+  effect: When this Pokémon enters battle during harsh sunlight, or when harsh sunlight begins while it
+    is on the field, its Attack rises by one stage. This happens once per sun activation. If the sun ends
+    and a new one starts, it triggers again. Sunny Day, Drought, and Desolate Land all count. The boost
+    is a normal stat stage, so Intimidate, Haze, and switching out remove it. It does not boost Special
+    Attack.
   designer: Emil
 - id: parry-stance
   name: Parry Stance
