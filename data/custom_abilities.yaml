@@ -55,6 +55,19 @@ abilities:
     is a normal stat stage, so Intimidate, Haze, and switching out remove it. It does not boost Special
     Attack.
   designer: Emil
+- id: ol-no-reliable
+  name: Ol' No Reliable
+  description: Changes form when HP is above 25%
+  effect: When this Pokémon enters battle at level 20 or higher with more than 25% of its max HP, it rolls
+    out of its tank and shifts into its battle form, Rolling Out Form. When its HP drops to 25% or below
+    at the end of a turn, it retreats into its tank and reverts to its base form. It then returns to the
+    battle form at the end of a turn if it has recovered above 25% HP, or when it switches back in with
+    enough HP. This works exactly like Schooling. Like Schooling, the form change cannot be suppressed
+    by a Pokémon other than the holder's own side, and the ability cannot be swapped away or copied by
+    Skill Swap, Role Play, Entrainment, or similar moves. Gastro Acid and Mold Breaker do not remove the
+    form.
+  similar_to: Schooling
+  designer: Emil
 - id: parry-stance
   name: Parry Stance
   description: The first hit the user takes each battle is parried, dealing no damage

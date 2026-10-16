@@ -4,7 +4,7 @@
 
 **26** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Florantula, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle, Everdark
 
-## Not exported yet (102)
+## Not exported yet (101)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -17,7 +17,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Shadeem** needs: a level-up move that exists in the game
 - **Shadrove** needs: a level-up move that exists in the game
 - **Cowfin** needs: base stats, a level-up move that exists in the game
-- **Sigmanian Sudowoodo** needs: base stats, a level-up move that exists in the game, a name of at most 12 letters
+- **Sigmanian Sudowoodo** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Icy Freeze** needs: a level-up move that exists in the game
 - **Freezrick** needs: a level-up move that exists in the game
 - **Bulbtle** needs: a level-up move that exists in the game
@@ -65,7 +65,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Ciggiti** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Chuchar** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Parahaunt** needs: an ability that exists in the game, a level-up move that exists in the game
-- **Insectoid** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Darkgonark** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Detecup** needs: base stats, a level-up move that exists in the game
 - **Verrith** needs: an ability that exists in the game, a level-up move that exists in the game

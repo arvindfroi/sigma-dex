@@ -2275,7 +2275,7 @@
       "dex": 24,
       "name": "Sigmanian Sudowoodo",
       "credits": {
-        "designer": null,
+        "designer": "Arvind",
         "artist": null
       },
       "types": [
@@ -2293,12 +2293,12 @@
         "hidden": "Sand Force"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 75,
+        "attack": 100,
+        "defense": 115,
+        "sp_attack": 25,
+        "sp_defense": 65,
+        "speed": 30
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -4703,7 +4703,7 @@
         "artist": null
       },
       "types": [
-        "Poison",
+        "Grass",
         "Fairy"
       ],
       "category": null,
@@ -4793,8 +4793,8 @@
         "artist": null
       },
       "types": [
-        "Fairy",
-        "Poison"
+        "Grass",
+        "Fairy"
       ],
       "category": null,
       "description": null,
@@ -4808,10 +4808,10 @@
       },
       "base_stats": {
         "hp": 67,
-        "attack": 53,
+        "attack": 50,
         "defense": 60,
         "sp_attack": 130,
-        "sp_defense": 80,
+        "sp_defense": 83,
         "speed": 70
       },
       "ev_yield": null,
@@ -5481,18 +5481,20 @@
       "body_color": null,
       "abilities": {
         "primary": "Broken Swivel",
-        "secondary": null,
+        "secondary": "Ol' No Reliable",
         "hidden": null
       },
       "base_stats": {
-        "hp": 70,
+        "hp": 45,
         "attack": 100,
-        "defense": 130,
-        "sp_attack": 110,
-        "sp_defense": 100,
+        "defense": 155,
+        "sp_attack": 135,
+        "sp_defense": 155,
         "speed": 30
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 3
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -7339,90 +7341,6 @@
         "safari_flee_rate": 0
       },
       "id": "parahaunt"
-    },
-    {
-      "dex": 82,
-      "name": "Insectoid",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [
-        "Dark",
-        "Bug"
-      ],
-      "category": "Regal Mantis",
-      "description": null,
-      "height_m": 2.3,
-      "weight_kg": 68.7,
-      "body_color": null,
-      "abilities": {
-        "primary": "Shadow Poise",
-        "secondary": null,
-        "hidden": "Predator's Veil"
-      },
-      "base_stats": {
-        "hp": 70,
-        "attack": 130,
-        "defense": 85,
-        "sp_attack": 60,
-        "sp_defense": 95,
-        "speed": 140
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": "From the Discord concept card (#pokemon-goons, dr.grey8421, 2026-05-01).",
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement"
-        ],
-        "body_shape": "an upright body on two legs without a tail",
-        "movement": "It walks upright on two legs.",
-        "look": "It is a tall, slim mantis-like creature with a smooth white head with a purple eye and long gold antennae. It has a shiny black and white body, two pairs of arms ending in large gold and purple scythe blades, thin legs, and translucent purple wings on its back."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/insectoid/361.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "insectoid"
     },
     {
       "dex": 83,
@@ -10149,9 +10067,9 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "The creature is a cute, quadrupedal Grass-type lion cub Pokémon with a warm golden-tan body and a leafy, nature-inspired design. It has a leaf for a tail and a leafy lions mane. On top of its head there is a sprout."
       },
       "assets": {
         "concept_art": "assets/concept-art/viridub/714.webp",
@@ -10439,20 +10357,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Pressure",
-        "secondary": "Keen Eye",
+        "primary": "Armor Tail",
+        "secondary": null,
         "hidden": "Dark Aura"
       },
       "base_stats": {
-        "hp": 70,
-        "attack": 95,
-        "defense": 70,
+        "hp": 60,
+        "attack": 125,
+        "defense": 75,
         "sp_attack": 125,
-        "sp_defense": 70,
-        "speed": 105
+        "sp_defense": 60,
+        "speed": 110
       },
       "ev_yield": {
-        "sp_attack": 2
+        "attack": 2,
+        "sp_attack": 1
       },
       "catch_rate": null,
       "base_exp": null,
@@ -10479,6 +10398,18 @@
           {
             "level": 1,
             "move": "Psychic"
+          },
+          {
+            "level": 1,
+            "move": "Swords Dance"
+          },
+          {
+            "level": 1,
+            "move": "Knock Off"
+          },
+          {
+            "level": 1,
+            "move": "Psycho Cut"
           }
         ],
         "tm_hm": [],
@@ -10490,8 +10421,8 @@
         "concept": null,
         "name_origin": null,
         "notes": null,
-        "wishes": null,
-        "claude_fill": false,
+        "wishes": "Its a fast frail mixed attacker. It gets both nasty plot and swords dance. When facing it, you are never sure if its running a physical, special or mixed set. Its move pool should be diverse, but mostly psychic and dark type moves",
+        "claude_fill": true,
         "filled_by_claude": [
           "body shape",
           "look",

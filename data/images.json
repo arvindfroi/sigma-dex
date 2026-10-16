@@ -1127,20 +1127,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 361,
-    "species": "insectoid",
-    "file": "assets/concept-art/insectoid/361.webp",
-    "caption": "Concept card from Discord (#pokemon-goons), posted by dr.grey8421 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 362,
-    "species": "insectoid",
-    "file": "assets/concept-art/insectoid/362.webp",
-    "caption": "Sketch from Discord (#pokemon-goons), posted by dr.grey8421 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 363,
     "species": "ampeel",
     "file": "assets/concept-art/ampeel/363.webp",
@@ -1670,27 +1656,6 @@
     "species": "obsidog",
     "file": "assets/concept-art/obsidog/462.png",
     "caption": null,
-    "editor": null
-  },
-  {
-    "id": 463,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/463.png",
-    "caption": "[ds-front] sprite #47",
-    "editor": null
-  },
-  {
-    "id": 464,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/464.png",
-    "caption": "[ds-back] sprite #47",
-    "editor": null
-  },
-  {
-    "id": 465,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/465.png",
-    "caption": "[ds-icon] sprite #47",
     "editor": null
   },
   {
@@ -2510,6 +2475,146 @@
     "species": "viridub",
     "file": "assets/concept-art/viridub/715.png",
     "caption": null,
+    "editor": null
+  },
+  {
+    "id": 716,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/716.png",
+    "caption": "[ds-front] sprite #75",
+    "editor": null
+  },
+  {
+    "id": 717,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/717.png",
+    "caption": "[ds-back] sprite #75",
+    "editor": null
+  },
+  {
+    "id": 718,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/718.png",
+    "caption": "[ds-icon] sprite #75",
+    "editor": null
+  },
+  {
+    "id": 719,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/719.png",
+    "caption": "[ds-follower] sprite #75",
+    "editor": null
+  },
+  {
+    "id": 732,
+    "species": "motinky",
+    "file": "assets/concept-art/motinky/732.png",
+    "caption": "[ds-front] sprite #77",
+    "editor": null
+  },
+  {
+    "id": 733,
+    "species": "motinky",
+    "file": "assets/concept-art/motinky/733.png",
+    "caption": "[ds-back] sprite #77",
+    "editor": null
+  },
+  {
+    "id": 734,
+    "species": "motinky",
+    "file": "assets/concept-art/motinky/734.png",
+    "caption": "[ds-icon] sprite #77",
+    "editor": null
+  },
+  {
+    "id": 735,
+    "species": "motinky",
+    "file": "assets/concept-art/motinky/735.png",
+    "caption": "[ds-follower] sprite #77",
+    "editor": null
+  },
+  {
+    "id": 740,
+    "species": "balleisk",
+    "file": "assets/concept-art/balleisk/740.png",
+    "caption": "[ds-front] sprite #79",
+    "editor": null
+  },
+  {
+    "id": 741,
+    "species": "balleisk",
+    "file": "assets/concept-art/balleisk/741.png",
+    "caption": "[ds-back] sprite #79",
+    "editor": null
+  },
+  {
+    "id": 742,
+    "species": "balleisk",
+    "file": "assets/concept-art/balleisk/742.png",
+    "caption": "[ds-icon] sprite #79",
+    "editor": null
+  },
+  {
+    "id": 743,
+    "species": "balleisk",
+    "file": "assets/concept-art/balleisk/743.png",
+    "caption": "[ds-follower] sprite #79",
+    "editor": null
+  },
+  {
+    "id": 748,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/748.png",
+    "caption": "[ds-front] sprite #80",
+    "editor": null
+  },
+  {
+    "id": 749,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/749.png",
+    "caption": "[ds-back] sprite #80",
+    "editor": null
+  },
+  {
+    "id": 750,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/750.png",
+    "caption": "[ds-icon] sprite #80",
+    "editor": null
+  },
+  {
+    "id": 751,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/751.png",
+    "caption": "[ds-follower] sprite #80",
+    "editor": null
+  },
+  {
+    "id": 752,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/752.png",
+    "caption": "[ds-front] sprite #81",
+    "editor": null
+  },
+  {
+    "id": 753,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/753.png",
+    "caption": "[ds-back] sprite #81",
+    "editor": null
+  },
+  {
+    "id": 754,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/754.png",
+    "caption": "[ds-icon] sprite #81",
+    "editor": null
+  },
+  {
+    "id": 755,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/755.png",
+    "caption": "[ds-follower] sprite #81",
     "editor": null
   }
 ]

@@ -569,13 +569,13 @@ TEST("Sigma dex: Sporeshade has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SPORESHADE];
     EXPECT_EQ(info->baseHP, 67);
-    EXPECT_EQ(info->baseAttack, 53);
+    EXPECT_EQ(info->baseAttack, 50);
     EXPECT_EQ(info->baseDefense, 60);
     EXPECT_EQ(info->baseSpeed, 70);
     EXPECT_EQ(info->baseSpAttack, 130);
-    EXPECT_EQ(info->baseSpDefense, 80);
-    EXPECT_EQ(info->types[0], TYPE_FAIRY);
-    EXPECT_EQ(info->types[1], TYPE_POISON);
+    EXPECT_EQ(info->baseSpDefense, 83);
+    EXPECT_EQ(info->types[0], TYPE_GRASS);
+    EXPECT_EQ(info->types[1], TYPE_FAIRY);
     EXPECT_EQ(info->abilities[0], ABILITY_EFFECT_SPORE);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SPORE);
     EXPECT_EQ(GetSpeciesName(SPECIES_SPORESHADE)[0], CHAR_S);
@@ -708,15 +708,15 @@ SINGLE_BATTLE_TEST("Sigma dex: McSkiirtle can use its first move in battle")
 TEST("Sigma dex: Everdark has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_EVERDARK];
-    EXPECT_EQ(info->baseHP, 70);
-    EXPECT_EQ(info->baseAttack, 95);
-    EXPECT_EQ(info->baseDefense, 70);
-    EXPECT_EQ(info->baseSpeed, 105);
+    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseAttack, 125);
+    EXPECT_EQ(info->baseDefense, 75);
+    EXPECT_EQ(info->baseSpeed, 110);
     EXPECT_EQ(info->baseSpAttack, 125);
-    EXPECT_EQ(info->baseSpDefense, 70);
+    EXPECT_EQ(info->baseSpDefense, 60);
     EXPECT_EQ(info->types[0], TYPE_DARK);
     EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
-    EXPECT_EQ(info->abilities[0], ABILITY_PRESSURE);
+    EXPECT_EQ(info->abilities[0], ABILITY_ARMOR_TAIL);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_NASTY_PLOT);
     EXPECT_EQ(GetSpeciesName(SPECIES_EVERDARK)[0], CHAR_E);
 }
