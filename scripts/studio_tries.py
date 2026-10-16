@@ -9,8 +9,8 @@ drawing, with the time it should take), drawn, read as pixels and handed in with
     icon   the menu icon (32x32): Klein icon v1 at step 2500 (frame 1 of its two), in Klein's own colours
     follower  the overworld walking sheet (128x64: up, down, left, right x 2 steps): Klein follower v3 at step 2000, from
            the picked front and back, halfway to the front's colours
-    back   the DS back (80x80): Klein back v2 at step 2500, image 3 = the art drawn from behind first (base Qwen), on the
-           front's colours when the front has at least 8
+    back   the DS back (80x80): Klein back v2 at step 2500, image 3 = the art drawn from behind first (base Qwen), in its
+           own colours (the shared game palette is made at export)
 
 Klein = FLUX.2 Klein base 4B with our LoRAs (docs/LORAS.md: "Follower, thought again", "Icon on Klein", "Back on Klein"),
 drawn as ai-toolkit trained and sampled them (comfy.klein). Their text is the training captions' text: the dex words plus,
@@ -513,9 +513,10 @@ def try_back_klein(n, seed, folder, job, inputs):
         fit_white(rear_drawing(folder, folder / "k_art640.png", job["id"] * 100), smooth=True).save(folder / "k_hint.png")
     raw = klein_draw(folder / ("back_raw_%d.png" % n), BACK_K.format(hint=BACK_HINT, about=about(job, words, move=False)),
                      [folder / "k_front.png", folder / "k_art.png", folder / "k_hint.png"], 320, 320, seed, BACK_KLEIN)
+    # Klein's own colours (up to 15): snapping to the front's colours merged shades and made the backs flat (Arvind, 16 Oct:
+    # "can't we just leave the shading"). The game's one palette for front and back is made at export, from both together;
+    # the front's colours stay a button in the studio's editor.
     sprite = klein_follower.to_back(raw)
-    if len(sprite_colours.colours(front)[0]) >= 8:     # the front's colours, as in the game - only from a real front: a
-        sprite = sprite_colours.back_colours(sprite, front)   # 3-colour test front flattened the back to 3 colours (15 Oct)
     why = too_small(sprite, 200)
     image = folder / ("back_%d.png" % n)
     sprite.save(image)
