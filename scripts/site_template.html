@@ -644,6 +644,11 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 @media (max-width: 760px) { .tray { right: 8px; bottom: 8px; } }
 .skipcut { display: flex; gap: 8px; align-items: flex-start; margin-top: 10px; font-size: 14px; }
 .skipcut input { margin-top: 3px; }
+.newpics { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 14px; }
+.newpics figure { margin: 0; display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.newpics img { width: 96px; height: 96px; object-fit: contain; background: var(--soft); border: 2px solid var(--line); }
+.linkish { text-decoration: underline; cursor: pointer; }
+.linkish input { display: none; }
 .notebox { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
 .notebox textarea { width: 100%; box-sizing: border-box; font: inherit; }
 </style>
@@ -1003,6 +1008,12 @@ function monTop(s) {
     setRest(fn) { rest = fn; top.rest(); },
     setName(n) { name.textContent = String(n || "New Pokemon").toUpperCase(); },
     setTypes(list) { types.replaceChildren(...list.map(typeChip)); },
+    setArt(src) {                                  // a new Pokemon's first picture, before it is saved
+      const i = views.findIndex(([v]) => v === "art");
+      if (i >= 0) views.splice(i, 1);
+      if (src) { views.push(["art", src]); view = view || "art"; } else if (view === "art") view = views.length ? views[0][0] : null;
+      drawStage();
+    },
   };
   drawStage(); top.rest();
   return top;
@@ -1102,7 +1113,13 @@ async function uploadPictures(s, files, caption, report) {
     (DEX.images[s.id] ||= []).push({id: row.id, src: DEX.web.url + "/storage/v1/object/public/art/" + row.path, caption: row.caption, editor: row.editor});
   }
 }
+let newPictureSink = null;        // the "new Pokemon" form, while it is open: pasted pictures wait there until it is saved
 document.addEventListener("paste", async ev => {
+  if (newPictureSink && newPictureSink.form.isConnected && document.getElementById("dialog").open) {
+    const files = [...((ev.clipboardData || {}).files || [])].filter(f => /^image\//.test(f.type));
+    if (files.length) { ev.preventDefault(); newPictureSink.add(files); }
+    return;
+  }
   if (!shown || !shown.s.id || !DEX.web.url || !document.getElementById("dialog").open) return;
   const files = [...((ev.clipboardData || {}).files || [])].filter(f => /^image\//.test(f.type));
   if (!files.length) return;
@@ -1418,13 +1435,40 @@ function openEditor(s) {
       const entry = isNew ? {id, problems: []} : s;
       entry.data = data; entry.pending = {editor: me()}; entry.problems = [];
       if (isNew) DEX.species.push(entry);
-      DEX.species.forEach(derive); index(); render(); openDetail(entry);
+      if (isNew && newPics.length) {                   // the pictures chosen before it had a name
+        try { await uploadPictures(entry, newPics, "", text => { save.textContent = text.toUpperCase(); }); }
+        catch (err) { DEX.species.forEach(derive); index(); render(); openDetail(entry, "pictures"); return; }
+      }
+      newPictureSink = null;
+      DEX.species.forEach(derive); index(); render(); openDetail(entry, isNew && newPics.length ? "pictures" : undefined);
     } catch (err) {
       error.textContent = err.message; drawAsk();
       save.disabled = false; save.textContent = "YES";
     }
   }
-  const cancel = () => isNew ? closeDialog() : openDetail(s);
+  const cancel = () => { newPictureSink = null; isNew ? closeDialog() : openDetail(s); };
+
+  // A new Pokemon can start with its pictures (Arvind, 17 Oct: "most people make the design before the name"): they are
+  // chosen, pasted or dropped here, shown at once, and uploaded the moment it is saved.
+  const newPics = [];
+  const picThumbs = h("div", {class: "newpics"});
+  function drawNewPics() {
+    const urls = newPics.map(file => URL.createObjectURL(file));
+    top.setArt(urls[0] || null);
+    picThumbs.replaceChildren(...newPics.map((file, i) => h("figure", {}, h("img", {src: urls[i], alt: file.name}),
+      h("button", {type: "button", class: "small", onclick: () => { newPics.splice(i, 1); drawNewPics(); drawAsk(); }}, "Remove"))));
+  }
+  const addNewPics = files => { newPics.push(...files.filter(f => /^image\//.test(f.type))); drawNewPics(); drawAsk(); };
+  let newPicsSection = null;
+  if (isNew && DEX.web.url) {
+    const chooser = h("input", {type: "file", accept: "image/png,image/jpeg,image/webp,image/gif", multiple: true, onchange: ev => { addNewPics([...ev.target.files]); ev.target.value = ""; }});
+    const drop = h("div", {class: "dropzone"}, h("b", {}, "PASTE OR DROP THE DESIGN"),
+      "Copy a picture and press Ctrl+V (Cmd+V on a Mac), drag it here, or ", h("label", {class: "linkish"}, "choose a file", chooser, ""), ". Concept art or a sketch, only art made by us.");
+    drop.addEventListener("dragover", ev => { ev.preventDefault(); drop.classList.add("over"); });
+    drop.addEventListener("dragleave", () => drop.classList.remove("over"));
+    drop.addEventListener("drop", ev => { ev.preventDefault(); drop.classList.remove("over"); addNewPics([...ev.dataTransfer.files]); });
+    newPicsSection = [h("h2", {}, "Pictures"), h("div", {class: "hint"}, "Start with the design if you have it. The pictures are saved together with the Pokemon."), drop, picThumbs];
+  }
 
   // The top screen stays and follows the form: name, types, and an explanation of what is pointed at.
   const top = monTop(isNew ? {data: d} : s);
@@ -1467,7 +1511,7 @@ function openEditor(s) {
   f.color.addEventListener("change", drawSwatches); drawSwatches();
 
   const pages = {
-    basics: [h("div", {class: "hint"}, "Fill in what you know and leave the rest empty. A half-finished Pokemon is fine."),
+    basics: [newPicsSection, h("div", {class: "hint"}, "Fill in what you know and leave the rest empty. A half-finished Pokemon is fine."),
       h("div", {class: "fields"}, isNew ? field("Number", f.slot) : null, field("Name (max " + L.name_limit + " letters)", f.name), field("Type", f.type1), field("Second type", f.type2),
         field("Designed by", f.designer), field("Art by", f.artist), field("What is it? (one or two sentences)", f.concept, "wide")),
       h("h2", {}, "Let Claude fill in the rest"),
@@ -1523,7 +1567,8 @@ function openEditor(s) {
         egg_cycles: "EGG CYCLES", held_items: "HELD ITEMS", evolutions: "EVOLUTION", learnset: "MOVES", encounters: "WHERE FOUND", design: "NOTES", dex: "NUMBER"};
       for (const [key, label] of Object.entries(names)) if (JSON.stringify(baseline[key]) !== JSON.stringify(now[key])) list.push(label);
     }
-    ask.replaceChildren(error.textContent ? error : "", list.length ? "Save the changes?\n" + list.join("   ") : isNew ? "Save this new Pokemon?" : "Nothing changed yet.",
+    ask.replaceChildren(error.textContent ? error : "", list.length ? "Save the changes?\n" + list.join("   ") + (newPics.length ? "   PICTURES " + newPics.length : "")
+      : isNew ? "Save this new Pokemon?" + (newPics.length ? "\nWith " + newPics.length + " picture" + (newPics.length > 1 ? "s" : "") + "." : "") : "Nothing changed yet.",
       h("div", {class: "who"}, me() ? "Saved as " + me() : "Tip: write your name at the top of the page"));
   }
   const form = h("form", {class: "ds", onsubmit: submit, oninput: () => { if (!queued) { queued = true; requestAnimationFrame(drawAsk); } },
@@ -1535,6 +1580,7 @@ function openEditor(s) {
     h("div", {class: "yesno"}, ask, h("div", {class: "menu", role: "group", "aria-label": "Save the changes?"}, save, h("button", {type: "button", onclick: cancel}, "NO"))));
   baseline = collect();
   drawAsk();
+  newPictureSink = isNew && DEX.web.url ? {form, add: addNewPics} : null;
   showDialog(form);
 }
 
