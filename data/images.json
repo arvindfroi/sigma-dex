@@ -2791,5 +2791,89 @@
     "file": "assets/concept-art/coatail/793.png",
     "caption": "pasted",
     "editor": null
+  },
+  {
+    "id": 794,
+    "species": "sigmanian-komala",
+    "file": "assets/concept-art/sigmanian-komala/794.png",
+    "caption": "[ds-front] sprite #85",
+    "editor": null
+  },
+  {
+    "id": 795,
+    "species": "sigmanian-komala",
+    "file": "assets/concept-art/sigmanian-komala/795.png",
+    "caption": "[ds-back] sprite #85",
+    "editor": null
+  },
+  {
+    "id": 796,
+    "species": "sigmanian-komala",
+    "file": "assets/concept-art/sigmanian-komala/796.png",
+    "caption": "[ds-icon] sprite #85",
+    "editor": null
+  },
+  {
+    "id": 797,
+    "species": "sigmanian-komala",
+    "file": "assets/concept-art/sigmanian-komala/797.png",
+    "caption": "[ds-follower] sprite #85",
+    "editor": null
+  },
+  {
+    "id": 802,
+    "species": "ambuger",
+    "file": "assets/concept-art/ambuger/802.png",
+    "caption": "[ds-front] sprite #88",
+    "editor": null
+  },
+  {
+    "id": 803,
+    "species": "ambuger",
+    "file": "assets/concept-art/ambuger/803.png",
+    "caption": "[ds-back] sprite #88",
+    "editor": null
+  },
+  {
+    "id": 805,
+    "species": "ambuger",
+    "file": "assets/concept-art/ambuger/805.png",
+    "caption": "[ds-follower] sprite #88",
+    "editor": null
+  },
+  {
+    "id": 812,
+    "species": "ambuger",
+    "file": "assets/concept-art/ambuger/812.png",
+    "caption": "[ds-icon] sprite #88",
+    "editor": null
+  },
+  {
+    "id": 814,
+    "species": "ambcoptr",
+    "file": "assets/concept-art/ambcoptr/814.png",
+    "caption": "[ds-front] sprite #90",
+    "editor": null
+  },
+  {
+    "id": 815,
+    "species": "ambcoptr",
+    "file": "assets/concept-art/ambcoptr/815.png",
+    "caption": "[ds-back] sprite #90",
+    "editor": null
+  },
+  {
+    "id": 816,
+    "species": "ambcoptr",
+    "file": "assets/concept-art/ambcoptr/816.png",
+    "caption": "[ds-icon] sprite #90",
+    "editor": null
+  },
+  {
+    "id": 817,
+    "species": "ambcoptr",
+    "file": "assets/concept-art/ambcoptr/817.png",
+    "caption": "[ds-follower] sprite #90",
+    "editor": null
   }
 ]
