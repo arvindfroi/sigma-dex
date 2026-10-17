@@ -22,12 +22,12 @@ abilities:
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp: 124
+  hp: 120
   attack: 140
-  defense: 105
-  sp_attack: 120
-  sp_defense: 122
-  speed: 69
+  defense: 100
+  sp_attack: 100
+  sp_defense: 120
+  speed: 100
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)

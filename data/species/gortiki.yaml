@@ -22,11 +22,11 @@ abilities:
   hidden: Huge Power     # optional
 
 base_stats:              # each 1-255
-  hp: 80
+  hp: 81
   attack: 67
   defense: 110
   sp_attack: 108
-  sp_defense: 93
+  sp_defense: 90
   speed: 72
 
 ev_yield: {defense: 2, sp_attack: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}

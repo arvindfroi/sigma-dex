@@ -336,13 +336,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 215,
-    "species": "darkgonark",
-    "file": "assets/concept-art/darkgonark/215.webp",
-    "caption": "Concept card from Discord, posted by dr.grey8421 2026-05-02",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 216,
     "species": "devampry",
     "file": "assets/concept-art/devampry/216.webp",
@@ -1127,31 +1120,10 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 361,
-    "species": "insectoid",
-    "file": "assets/concept-art/insectoid/361.webp",
-    "caption": "Concept card from Discord (#pokemon-goons), posted by dr.grey8421 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 362,
-    "species": "insectoid",
-    "file": "assets/concept-art/insectoid/362.webp",
-    "caption": "Sketch from Discord (#pokemon-goons), posted by dr.grey8421 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 363,
     "species": "ampeel",
     "file": "assets/concept-art/ampeel/363.webp",
     "caption": "Sketch from Discord (#pokemon-goons), posted by johnnes3204 2026-05-01",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 364,
-    "species": "darkgonark",
-    "file": "assets/concept-art/darkgonark/364.webp",
-    "caption": "Sketch from Discord (#pokemon-goons), posted by dr.grey8421 2026-05-02",
     "editor": "Claude (from Discord)"
   },
   {
@@ -1575,13 +1547,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 439,
-    "species": "darkgonark",
-    "file": "assets/concept-art/darkgonark/439.webp",
-    "caption": "Picture from Discord, posted by dr.grey8421 2026-05-02 (Name DARKGONARK written on the card.)",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 440,
     "species": "ampeel",
     "file": "assets/concept-art/ampeel/440.webp",
@@ -1670,27 +1635,6 @@
     "species": "obsidog",
     "file": "assets/concept-art/obsidog/462.png",
     "caption": null,
-    "editor": null
-  },
-  {
-    "id": 463,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/463.png",
-    "caption": "[ds-front] sprite #47",
-    "editor": null
-  },
-  {
-    "id": 464,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/464.png",
-    "caption": "[ds-back] sprite #47",
-    "editor": null
-  },
-  {
-    "id": 465,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/465.png",
-    "caption": "[ds-icon] sprite #47",
     "editor": null
   },
   {
@@ -1942,13 +1886,6 @@
     "id": 590,
     "species": "riftbloom",
     "file": "assets/concept-art/riftbloom/590.webp",
-    "caption": null,
-    "editor": null
-  },
-  {
-    "id": 591,
-    "species": "wisprake",
-    "file": "assets/concept-art/wisprake/591.webp",
     "caption": null,
     "editor": null
   },
@@ -2509,6 +2446,307 @@
     "id": 715,
     "species": "viridub",
     "file": "assets/concept-art/viridub/715.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 716,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/716.png",
+    "caption": "[ds-front] sprite #75",
+    "editor": null
+  },
+  {
+    "id": 717,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/717.png",
+    "caption": "[ds-back] sprite #75",
+    "editor": null
+  },
+  {
+    "id": 718,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/718.png",
+    "caption": "[ds-icon] sprite #75",
+    "editor": null
+  },
+  {
+    "id": 719,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/719.png",
+    "caption": "[ds-follower] sprite #75",
+    "editor": null
+  },
+  {
+    "id": 732,
+    "species": "motinky",
+    "file": "assets/concept-art/motinky/732.png",
+    "caption": "[ds-front] sprite #77",
+    "editor": null
+  },
+  {
+    "id": 733,
+    "species": "motinky",
+    "file": "assets/concept-art/motinky/733.png",
+    "caption": "[ds-back] sprite #77",
+    "editor": null
+  },
+  {
+    "id": 734,
+    "species": "motinky",
+    "file": "assets/concept-art/motinky/734.png",
+    "caption": "[ds-icon] sprite #77",
+    "editor": null
+  },
+  {
+    "id": 735,
+    "species": "motinky",
+    "file": "assets/concept-art/motinky/735.png",
+    "caption": "[ds-follower] sprite #77",
+    "editor": null
+  },
+  {
+    "id": 740,
+    "species": "balleisk",
+    "file": "assets/concept-art/balleisk/740.png",
+    "caption": "[ds-front] sprite #79",
+    "editor": null
+  },
+  {
+    "id": 741,
+    "species": "balleisk",
+    "file": "assets/concept-art/balleisk/741.png",
+    "caption": "[ds-back] sprite #79",
+    "editor": null
+  },
+  {
+    "id": 742,
+    "species": "balleisk",
+    "file": "assets/concept-art/balleisk/742.png",
+    "caption": "[ds-icon] sprite #79",
+    "editor": null
+  },
+  {
+    "id": 743,
+    "species": "balleisk",
+    "file": "assets/concept-art/balleisk/743.png",
+    "caption": "[ds-follower] sprite #79",
+    "editor": null
+  },
+  {
+    "id": 748,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/748.png",
+    "caption": "[ds-front] sprite #80",
+    "editor": null
+  },
+  {
+    "id": 749,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/749.png",
+    "caption": "[ds-back] sprite #80",
+    "editor": null
+  },
+  {
+    "id": 750,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/750.png",
+    "caption": "[ds-icon] sprite #80",
+    "editor": null
+  },
+  {
+    "id": 751,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/751.png",
+    "caption": "[ds-follower] sprite #80",
+    "editor": null
+  },
+  {
+    "id": 752,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/752.png",
+    "caption": "[ds-front] sprite #81",
+    "editor": null
+  },
+  {
+    "id": 753,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/753.png",
+    "caption": "[ds-back] sprite #81",
+    "editor": null
+  },
+  {
+    "id": 754,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/754.png",
+    "caption": "[ds-icon] sprite #81",
+    "editor": null
+  },
+  {
+    "id": 755,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/755.png",
+    "caption": "[ds-follower] sprite #81",
+    "editor": null
+  },
+  {
+    "id": 756,
+    "species": "pipwi",
+    "file": "assets/concept-art/pipwi/756.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 757,
+    "species": "pipwi",
+    "file": "assets/concept-art/pipwi/757.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 758,
+    "species": "pipwi",
+    "file": "assets/concept-art/pipwi/758.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 761,
+    "species": "pipwi-utv",
+    "file": "assets/concept-art/pipwi-utv/761.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 762,
+    "species": "pipwi-utv",
+    "file": "assets/concept-art/pipwi-utv/762.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 763,
+    "species": "sjef",
+    "file": "assets/concept-art/sjef/763.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 764,
+    "species": "sjef",
+    "file": "assets/concept-art/sjef/764.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 765,
+    "species": "jawie",
+    "file": "assets/concept-art/jawie/765.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 766,
+    "species": "jawie",
+    "file": "assets/concept-art/jawie/766.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 767,
+    "species": "jawbreaker",
+    "file": "assets/concept-art/jawbreaker/767.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 768,
+    "species": "jawbreaker",
+    "file": "assets/concept-art/jawbreaker/768.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 769,
+    "species": "dreadipede",
+    "file": "assets/concept-art/dreadipede/769.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 770,
+    "species": "dreadipede",
+    "file": "assets/concept-art/dreadipede/770.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 771,
+    "species": "dreadfang",
+    "file": "assets/concept-art/dreadfang/771.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 772,
+    "species": "dreadfang",
+    "file": "assets/concept-art/dreadfang/772.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 773,
+    "species": "surfer",
+    "file": "assets/concept-art/surfer/773.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 775,
+    "species": "surfer",
+    "file": "assets/concept-art/surfer/775.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 776,
+    "species": "subwaysurfer",
+    "file": "assets/concept-art/subwaysurfer/776.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 777,
+    "species": "subwaysurfer",
+    "file": "assets/concept-art/subwaysurfer/777.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 779,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/779.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 780,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/780.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 781,
+    "species": "phantomb",
+    "file": "assets/concept-art/phantomb/781.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 783,
+    "species": "phantomb",
+    "file": "assets/concept-art/phantomb/783.png",
     "caption": null,
     "editor": null
   }

@@ -1095,9 +1095,9 @@
       "weight_kg": 1.9,
       "body_color": null,
       "abilities": {
-        "primary": "Keen Eye",
-        "secondary": null,
-        "hidden": null
+        "primary": "Unburden",
+        "secondary": "Keen Eye",
+        "hidden": "Gale Wings"
       },
       "base_stats": {
         "hp": 44,
@@ -1179,9 +1179,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Unburden",
+        "secondary": "Keen Eye",
+        "hidden": "Gale Wings"
       },
       "base_stats": {
         "hp": null,
@@ -1264,8 +1264,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Unburden",
-        "secondary": null,
-        "hidden": null
+        "secondary": "Keen Eye",
+        "hidden": "Gale Wings"
       },
       "base_stats": {
         "hp": 67,
@@ -1699,13 +1699,13 @@
     },
     {
       "dex": 17,
-      "name": "Shadeem",
+      "name": "Pipwi",
       "credits": {
-        "designer": "Michael",
+        "designer": "Emil",
         "artist": null
       },
       "types": [
-        "Normal"
+        "Grass"
       ],
       "category": null,
       "description": null,
@@ -1713,114 +1713,20 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Illusion",
-        "secondary": null,
-        "hidden": null
+        "primary": "Early Bird",
+        "secondary": "Harvest",
+        "hidden": "Grass Pelt"
       },
       "base_stats": {
-        "hp": 45,
-        "attack": 70,
-        "defense": 45,
-        "sp_attack": 60,
-        "sp_defense": 45,
+        "hp": 50,
+        "attack": 60,
+        "defense": 55,
+        "sp_attack": 30,
+        "sp_defense": 50,
         "speed": 65
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [
-        {
-          "into": "shadrove",
-          "method": "item",
-          "item": "Dusk Stone"
-        }
-      ],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [
-        {
-          "location": "In the slums"
-        }
-      ],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement"
-        ],
-        "body_shape": "an upright body on two legs without a tail",
-        "movement": "It walks upright on two legs.",
-        "look": "It is a thin cream-coloured creature with a tall rounded head with one big eye and a wide toothy grin, and a small red beret on top. It has a small round body, long thin legs with three-toed feet, and long arms ending in long black claw-like fingers."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/shadeem/582.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "shadeem"
-    },
-    {
-      "dex": 18,
-      "name": "Shadrove",
-      "credits": {
-        "designer": null,
-        "artist": "Michael"
-      },
-      "types": [
-        "Normal",
-        "Dark"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": "Illusion",
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": 60,
-        "attack": 120,
-        "defense": 60,
-        "sp_attack": 100,
-        "sp_defense": 60,
-        "speed": 110
-      },
       "ev_yield": {
-        "attack": 2
+        "speed": 1
       },
       "catch_rate": null,
       "base_exp": null,
@@ -1847,17 +1753,13 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement"
-        ],
-        "body_shape": "an upright body on two legs without a tail",
-        "movement": "It walks upright on two legs.",
-        "look": "It is a tall, thin, pale cream creature with a single large yellow eye and a wide toothy grin, hidden under a cream hood with a red curled tip. It has very long thin arms ending in huge black hands with long red-tipped claws, thin legs with long toes, and dark red tattered cloth strips trailing behind."
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
       },
       "assets": {
-        "concept_art": "assets/concept-art/shadrove/583.webp",
+        "concept_art": "assets/concept-art/pipwi/756.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -1874,7 +1776,94 @@
         "icon_palette": null,
         "safari_flee_rate": 0
       },
-      "id": "shadrove"
+      "id": "pipwi"
+    },
+    {
+      "dex": 18,
+      "name": "Tropistrich",
+      "credits": {
+        "designer": "Emil",
+        "artist": null
+      },
+      "types": [
+        "Grass",
+        "Flying"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Early Bird",
+        "secondary": "Harvest",
+        "hidden": "Tough Claws"
+      },
+      "base_stats": {
+        "hp": 80,
+        "attack": 100,
+        "defense": 75,
+        "sp_attack": 50,
+        "sp_defense": 70,
+        "speed": 120
+      },
+      "ev_yield": {
+        "speed": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Trop Kick"
+          }
+        ],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/pipwi-utv/761.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "pipwi-utv"
     },
     {
       "dex": 20,
@@ -1917,9 +1906,20 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "mooceon",
+          "method": "level",
+          "level": 33
+        }
+      ],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Milk Drink"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -2275,7 +2275,7 @@
       "dex": 24,
       "name": "Sigmanian Sudowoodo",
       "credits": {
-        "designer": null,
+        "designer": "Arvind",
         "artist": null
       },
       "types": [
@@ -2293,12 +2293,12 @@
         "hidden": "Sand Force"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 75,
+        "attack": 100,
+        "defense": 115,
+        "sp_attack": 25,
+        "sp_defense": 65,
+        "speed": 30
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -3141,178 +3141,6 @@
       "id": "rainbro"
     },
     {
-      "dex": 34,
-      "name": "Autuman",
-      "credits": {
-        "designer": "Arvind",
-        "artist": null
-      },
-      "types": [
-        "Grass",
-        "Fighting"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": "Justified",
-        "secondary": "Guts",
-        "hidden": "Wind Rider"
-      },
-      "base_stats": {
-        "hp": 92,
-        "attack": 108,
-        "defense": 82,
-        "sp_attack": 45,
-        "sp_defense": 55,
-        "speed": 118
-      },
-      "ev_yield": {
-        "speed": 2
-      },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement"
-        ],
-        "body_shape": "an upright body on two legs without a tail",
-        "movement": "It walks upright on two legs.",
-        "look": "It is a slim humanoid creature with a round yellow head, two leaf-shaped ears like pigtails and an angry face. It has a grey tunic and trousers with a yellow belt, big yellow hands and feet, and a cape of red-orange maple leaves around its shoulders and back."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/autuman/174.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "autuman"
-    },
-    {
-      "dex": 35,
-      "name": "Bugmight",
-      "credits": {
-        "designer": "Emil Venge-Kvamme",
-        "artist": null
-      },
-      "types": [
-        "Bug",
-        "Fighting"
-      ],
-      "category": "Hero",
-      "description": "Bugmight fights for smiles and justice. It flares its wings like a cape to inspire its allies and crush evil with overwhelming might.",
-      "height_m": 1.9,
-      "weight_kg": 75,
-      "body_color": null,
-      "abilities": {
-        "primary": "Justified",
-        "secondary": "Guts",
-        "hidden": "Tinted Lens"
-      },
-      "base_stats": {
-        "hp": 108,
-        "attack": 118,
-        "defense": 92,
-        "sp_attack": 45,
-        "sp_defense": 55,
-        "speed": 82
-      },
-      "ev_yield": {
-        "attack": 2
-      },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Tinted Lens; height 6'03\", weight 165.3 lbs.",
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement"
-        ],
-        "body_shape": "a body with one pair of wings",
-        "movement": "It walks upright on two legs.",
-        "look": "It is a muscular, upright insect-like creature with a yellow head, big dark-blue eyes, a wide grin and two long yellow antennae. Its body is dark blue with red and white stripes and red abs, it has yellow fluffy forearms, yellow boots with pointed toes, and large translucent golden veined wings."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/bugmight/186.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "bugmight"
-    },
-    {
       "dex": 36,
       "name": "Nukfae",
       "credits": {
@@ -3901,11 +3729,11 @@
         "hidden": "Huge Power"
       },
       "base_stats": {
-        "hp": 80,
+        "hp": 81,
         "attack": 67,
         "defense": 110,
         "sp_attack": 108,
-        "sp_defense": 93,
+        "sp_defense": 90,
         "speed": 72
       },
       "ev_yield": {
@@ -4703,7 +4531,7 @@
         "artist": null
       },
       "types": [
-        "Poison",
+        "Grass",
         "Fairy"
       ],
       "category": null,
@@ -4793,8 +4621,8 @@
         "artist": null
       },
       "types": [
-        "Fairy",
-        "Poison"
+        "Grass",
+        "Fairy"
       ],
       "category": null,
       "description": null,
@@ -4808,10 +4636,10 @@
       },
       "base_stats": {
         "hp": 67,
-        "attack": 53,
+        "attack": 50,
         "defense": 60,
         "sp_attack": 130,
-        "sp_defense": 80,
+        "sp_defense": 83,
         "speed": 70
       },
       "ev_yield": null,
@@ -5401,11 +5229,11 @@
         "hidden": "Rain Dish"
       },
       "base_stats": {
-        "hp": 55,
+        "hp": 45,
         "attack": 51,
         "defense": 90,
         "sp_attack": 34,
-        "sp_defense": 80,
+        "sp_defense": 90,
         "speed": 15
       },
       "ev_yield": null,
@@ -5480,19 +5308,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Broken Swivel",
+        "primary": "Ol' No Reliable",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": 70,
+        "hp": 45,
         "attack": 100,
-        "defense": 130,
-        "sp_attack": 110,
-        "sp_defense": 100,
+        "defense": 155,
+        "sp_attack": 135,
+        "sp_defense": 155,
         "speed": 30
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 3
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -6328,7 +6158,7 @@
       "dex": 70,
       "name": "Cryoblade",
       "credits": {
-        "designer": null,
+        "designer": "Ivar",
         "artist": null
       },
       "types": [
@@ -6346,14 +6176,14 @@
       },
       "base_stats": {
         "hp": 95,
-        "attack": 120,
+        "attack": 130,
         "defense": 110,
-        "sp_attack": 55,
+        "sp_attack": 50,
         "sp_defense": 85,
         "speed": 70
       },
       "ev_yield": {
-        "attack": 2
+        "attack": 3
       },
       "catch_rate": null,
       "base_exp": null,
@@ -6492,83 +6322,6 @@
         "safari_flee_rate": 0
       },
       "id": "roostasaur"
-    },
-    {
-      "dex": 72,
-      "name": "Bygon",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [
-        "Ghost",
-        "Rock"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": []
-      },
-      "assets": {
-        "concept_art": null,
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "bygon"
     },
     {
       "dex": 73,
@@ -7347,27 +7100,24 @@
         "designer": null,
         "artist": null
       },
-      "types": [
-        "Dark",
-        "Bug"
-      ],
-      "category": "Regal Mantis",
+      "types": [],
+      "category": null,
       "description": null,
-      "height_m": 2.3,
-      "weight_kg": 68.7,
+      "height_m": null,
+      "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Shadow Poise",
+        "primary": null,
         "secondary": null,
-        "hidden": "Predator's Veil"
+        "hidden": null
       },
       "base_stats": {
-        "hp": 70,
-        "attack": 130,
-        "defense": 85,
-        "sp_attack": 60,
-        "sp_defense": 95,
-        "speed": 140
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -7392,20 +7142,16 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (#pokemon-goons, dr.grey8421, 2026-05-01).",
+        "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement"
-        ],
-        "body_shape": "an upright body on two legs without a tail",
-        "movement": "It walks upright on two legs.",
-        "look": "It is a tall, slim mantis-like creature with a smooth white head with a purple eye and long gold antennae. It has a shiny black and white body, two pairs of arms ending in large gold and purple scythe blades, thin legs, and translucent purple wings on its back."
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
       },
       "assets": {
-        "concept_art": "assets/concept-art/insectoid/361.webp",
+        "concept_art": null,
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -7431,27 +7177,24 @@
         "designer": null,
         "artist": null
       },
-      "types": [
-        "Ghost",
-        "Steel"
-      ],
-      "category": "Requiem",
-      "description": "Legends claim that when Darkgonark's song ends, the universe will be remade in perfect, silent harmony.",
-      "height_m": 3.8,
-      "weight_kg": 296.7,
+      "types": [],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Eternal Dirge",
-        "secondary": "Soulforged Body",
+        "primary": null,
+        "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": 80,
-        "attack": 130,
-        "defense": 60,
-        "sp_attack": 80,
-        "sp_defense": 60,
-        "speed": 140
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -7476,20 +7219,16 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": "From the Discord concept card (dr.grey8421, 2026-05-02): also on the card: Subtitle The Abyssal Requiem Pokémon; Soulforged Body is the hidden ability; signature move Requiem Breaker (Ghost/Steel, power 160, accuracy 100%, PP 5); also a lore blurb: Darkgonark is said to be the embodiment of ruin and rebirth..",
+        "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement"
-        ],
-        "body_shape": "an upright body on two legs without a tail",
-        "movement": "It floats in the air.",
-        "look": "It is a tall, angular creature with a white-and-black ghostly flowing head with a single blue eye and a spiky jaw. It has a silver sphere-like torso, long segmented silver arms with ringed joints and clawed hands, and wide angular legs with round purple-lit joints and claws. Wispy white-purple smoke trails from its head."
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
       },
       "assets": {
-        "concept_art": "assets/concept-art/darkgonark/215.webp",
+        "concept_art": null,
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -7607,9 +7346,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Levitate",
-        "secondary": "Inner Focus",
-        "hidden": "Snow Warning"
+        "primary": "Snow Warning",
+        "secondary": "Snow Cloak",
+        "hidden": "Levitate"
       },
       "base_stats": {
         "hp": 60,
@@ -8125,7 +7864,7 @@
       },
       "types": [
         "Dragon",
-        "Rock"
+        "Ground"
       ],
       "category": null,
       "description": null,
@@ -8133,9 +7872,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Sand Rush",
+        "primary": "Sand Stream",
         "secondary": "Rough Skin",
-        "hidden": "Sand Stream"
+        "hidden": "Multiscale"
       },
       "base_stats": {
         "hp": 88,
@@ -9243,89 +8982,6 @@
       "id": "obsidog-utvikling"
     },
     {
-      "dex": 105,
-      "name": "Wisprake",
-      "credits": {
-        "designer": "Michael",
-        "artist": null
-      },
-      "types": [
-        "Ghost"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement"
-        ],
-        "body_shape": "only a head",
-        "movement": "It floats in the air.",
-        "look": "It is a drifting round ball of magenta and dark-purple flames with two narrow pale-pink eyes with black outlines. Long ragged trails of fire in pink, purple and black stream behind it like a tail."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/wisprake/591.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "wisprake"
-    },
-    {
       "dex": 106,
       "name": "Limulk",
       "credits": {
@@ -9341,9 +8997,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Anger Point",
+        "secondary": "Heckler",
+        "hidden": "Mold Breaker"
       },
       "base_stats": {
         "hp": null,
@@ -10149,9 +9805,9 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "The creature is a cute, quadrupedal Grass-type lion cub Pokémon with a warm golden-tan body and a leafy, nature-inspired design. It has a leaf for a tail and a leafy lions mane. On top of its head there is a sprout."
       },
       "assets": {
         "concept_art": "assets/concept-art/viridub/714.webp",
@@ -10253,6 +9909,940 @@
         "safari_flee_rate": 0
       },
       "id": "viridub-utvikling"
+    },
+    {
+      "dex": 118,
+      "name": "Shadeem",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Normal"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Illusion",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 45,
+        "attack": 70,
+        "defense": 45,
+        "sp_attack": 60,
+        "sp_defense": 45,
+        "speed": 65
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "shadrove",
+          "method": "item",
+          "item": "Dusk Stone"
+        }
+      ],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [
+        {
+          "location": "In the slums"
+        }
+      ],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an upright body on two legs without a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a thin cream-coloured creature with a tall rounded head with one big eye and a wide toothy grin, and a small red beret on top. It has a small round body, long thin legs with three-toed feet, and long arms ending in long black claw-like fingers."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/shadeem/582.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "shadeem"
+    },
+    {
+      "dex": 119,
+      "name": "Shadrove",
+      "credits": {
+        "designer": null,
+        "artist": "Michael"
+      },
+      "types": [
+        "Normal",
+        "Dark"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Illusion",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 60,
+        "attack": 120,
+        "defense": 60,
+        "sp_attack": 100,
+        "sp_defense": 60,
+        "speed": 110
+      },
+      "ev_yield": {
+        "attack": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an upright body on two legs without a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a tall, thin, pale cream creature with a single large yellow eye and a wide toothy grin, hidden under a cream hood with a red curled tip. It has very long thin arms ending in huge black hands with long red-tipped claws, thin legs with long toes, and dark red tattered cloth strips trailing behind."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/shadrove/583.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "shadrove"
+    },
+    {
+      "dex": 120,
+      "name": "Autuman",
+      "credits": {
+        "designer": "Arvind",
+        "artist": null
+      },
+      "types": [
+        "Grass",
+        "Fighting"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Justified",
+        "secondary": "Guts",
+        "hidden": "Wind Rider"
+      },
+      "base_stats": {
+        "hp": 92,
+        "attack": 108,
+        "defense": 82,
+        "sp_attack": 45,
+        "sp_defense": 55,
+        "speed": 118
+      },
+      "ev_yield": {
+        "speed": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an upright body on two legs without a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a slim humanoid creature with a round yellow head, two leaf-shaped ears like pigtails and an angry face. It has a grey tunic and trousers with a yellow belt, big yellow hands and feet, and a cape of red-orange maple leaves around its shoulders and back."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/autuman/174.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "autuman"
+    },
+    {
+      "dex": 121,
+      "name": "Bugmight",
+      "credits": {
+        "designer": "Emil Venge-Kvamme",
+        "artist": null
+      },
+      "types": [
+        "Bug",
+        "Fighting"
+      ],
+      "category": "Hero",
+      "description": "Bugmight fights for smiles and justice. It flares its wings like a cape to inspire its allies and crush evil with overwhelming might.",
+      "height_m": 1.9,
+      "weight_kg": 75,
+      "body_color": null,
+      "abilities": {
+        "primary": "Justified",
+        "secondary": "Guts",
+        "hidden": "Tinted Lens"
+      },
+      "base_stats": {
+        "hp": 108,
+        "attack": 118,
+        "defense": 92,
+        "sp_attack": 45,
+        "sp_defense": 55,
+        "speed": 82
+      },
+      "ev_yield": {
+        "attack": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Tinted Lens; height 6'03\", weight 165.3 lbs.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a body with one pair of wings",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a muscular, upright insect-like creature with a yellow head, big dark-blue eyes, a wide grin and two long yellow antennae. Its body is dark blue with red and white stripes and red abs, it has yellow fluffy forearms, yellow boots with pointed toes, and large translucent golden veined wings."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/bugmight/186.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "bugmight"
+    },
+    {
+      "dex": 122,
+      "name": "JAWIE",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Fire",
+        "Dragon"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Flame Body",
+        "secondary": "Dragonize",
+        "hidden": "Moxie"
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "jawbreaker",
+          "method": "level",
+          "level": 42
+        }
+      ],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/jawie/765.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "jawie"
+    },
+    {
+      "dex": 123,
+      "name": "JAWBREAKER",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Fire",
+        "Dragon"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Flame Body",
+        "secondary": "Dragonize",
+        "hidden": "Moxie"
+      },
+      "base_stats": {
+        "hp": 110,
+        "attack": 125,
+        "defense": 82,
+        "sp_attack": 70,
+        "sp_defense": 67,
+        "speed": 71
+      },
+      "ev_yield": {
+        "attack": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/jawbreaker/767.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "jawbreaker"
+    },
+    {
+      "dex": 124,
+      "name": "Dreadipede",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Bug",
+        "Flying"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Mold Breaker",
+        "secondary": "Battle Armor",
+        "hidden": "Strong Jaw"
+      },
+      "base_stats": {
+        "hp": 55,
+        "attack": 85,
+        "defense": 65,
+        "sp_attack": 40,
+        "sp_defense": 55,
+        "speed": 60
+      },
+      "ev_yield": {
+        "attack": 1
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "dreadfang",
+          "method": "level",
+          "level": 59
+        }
+      ],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/dreadipede/769.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "dreadipede"
+    },
+    {
+      "dex": 125,
+      "name": "DreadFang",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Bug",
+        "Flying"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Mold Breaker",
+        "secondary": "Battle Armor",
+        "hidden": "Strong Jaw"
+      },
+      "base_stats": {
+        "hp": 85,
+        "attack": 135,
+        "defense": 105,
+        "sp_attack": 60,
+        "sp_defense": 65,
+        "speed": 100
+      },
+      "ev_yield": {
+        "attack": 3
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Fell Stinger"
+          }
+        ],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/dreadfang/771.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "dreadfang"
+    },
+    {
+      "dex": 126,
+      "name": "Aquat",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Water",
+        "Ground"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Swift Swim",
+        "secondary": "Water Absorb",
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/surfer/773.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "surfer"
+    },
+    {
+      "dex": 127,
+      "name": "Aquway",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Water",
+        "Ground"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Swift Swim",
+        "secondary": "Water Absorb",
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/subwaysurfer/776.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "subwaysurfer"
+    },
+    {
+      "dex": 128,
+      "name": "Zyzzfu",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Fighting",
+        "Electric"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Surge Surfer",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/zyzzfu/779.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "zyzzfu"
     },
     {
       "dex": 130,
@@ -10439,20 +11029,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Pressure",
-        "secondary": "Keen Eye",
+        "primary": "Armor Tail",
+        "secondary": null,
         "hidden": "Dark Aura"
       },
       "base_stats": {
-        "hp": 70,
-        "attack": 95,
-        "defense": 70,
+        "hp": 60,
+        "attack": 125,
+        "defense": 75,
         "sp_attack": 125,
-        "sp_defense": 70,
-        "speed": 105
+        "sp_defense": 60,
+        "speed": 110
       },
       "ev_yield": {
-        "sp_attack": 2
+        "attack": 2,
+        "sp_attack": 1
       },
       "catch_rate": null,
       "base_exp": null,
@@ -10479,6 +11070,18 @@
           {
             "level": 1,
             "move": "Psychic"
+          },
+          {
+            "level": 1,
+            "move": "Swords Dance"
+          },
+          {
+            "level": 1,
+            "move": "Knock Off"
+          },
+          {
+            "level": 1,
+            "move": "Psycho Cut"
           }
         ],
         "tm_hm": [],
@@ -10490,8 +11093,8 @@
         "concept": null,
         "name_origin": null,
         "notes": null,
-        "wishes": null,
-        "claude_fill": false,
+        "wishes": "Its a fast frail mixed attacker. It gets both nasty plot and swords dance. When facing it, you are never sure if its running a physical, special or mixed set. Its move pool should be diverse, but mostly psychic and dark type moves",
+        "claude_fill": true,
         "filled_by_claude": [
           "body shape",
           "look",
@@ -10606,6 +11209,174 @@
       "id": "riftbloom"
     },
     {
+      "dex": 140,
+      "name": "Phantomb",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Ghost",
+        "Flying"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Disguise",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "sjef",
+          "method": "level",
+          "level": 62
+        }
+      ],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/phantomb/781.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "phantomb"
+    },
+    {
+      "dex": 141,
+      "name": "Phantail",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Ghost",
+        "Flying"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Disguise",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 55,
+        "attack": 105,
+        "defense": 55,
+        "sp_attack": 125,
+        "sp_defense": 55,
+        "speed": 125
+      },
+      "ev_yield": {
+        "speed": 3
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Hidden, mysterious, fast and phantasmal ghost-flying pokemon.",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/sjef/763.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "sjef"
+    },
+    {
       "dex": 142,
       "name": "Moosus",
       "credits": {
@@ -10622,17 +11393,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Aurora Dancer",
         "secondary": null,
-        "hidden": null
+        "hidden": "Regenerator"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 130,
+        "attack": 110,
+        "defense": 100,
+        "sp_attack": 70,
+        "sp_defense": 100,
+        "speed": 70
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -10687,6 +11458,92 @@
     },
     {
       "dex": 143,
+      "name": "Rockedeer",
+      "credits": {
+        "designer": "Ruben",
+        "artist": null
+      },
+      "types": [
+        "Fire",
+        "Psychic"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Dazzling",
+        "secondary": null,
+        "hidden": "Levitate"
+      },
+      "base_stats": {
+        "hp": 80,
+        "attack": 90,
+        "defense": 70,
+        "sp_attack": 130,
+        "sp_defense": 70,
+        "speed": 140
+      },
+      "ev_yield": {
+        "speed": 3
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "It is a slender deer-like creature with a deep-blue body, a cream face, chest and belly, white and orange lightning-shaped markings, and a white ring on its chest. It has antlers carrying floating round blue discs with flame rings, flame bursts around its hooves and a short fluffy tail with an orange flame tip."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/rockedeer/625.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "rockedeer"
+    },
+    {
+      "dex": 144,
       "name": "Sabertann",
       "credits": {
         "designer": "Emil",
@@ -10707,11 +11564,11 @@
         "hidden": "Supreme Overlord"
       },
       "base_stats": {
-        "hp": 110,
+        "hp": 115,
         "attack": 140,
         "defense": 80,
         "sp_attack": 90,
-        "sp_defense": 80,
+        "sp_defense": 75,
         "speed": 80
       },
       "ev_yield": {
@@ -10772,7 +11629,7 @@
       "id": "sabertann"
     },
     {
-      "dex": 144,
+      "dex": 145,
       "name": "Gravriel",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -10866,7 +11723,7 @@
       "id": "gravriel"
     },
     {
-      "dex": 145,
+      "dex": 146,
       "name": "Balleisk",
       "credits": {
         "designer": "Arvind",
@@ -10958,7 +11815,7 @@
       "id": "balleisk"
     },
     {
-      "dex": 146,
+      "dex": 147,
       "name": "Greation",
       "credits": {
         "designer": "Arvind",
@@ -11050,7 +11907,7 @@
       "id": "greation"
     },
     {
-      "dex": 147,
+      "dex": 148,
       "name": "Ultragon",
       "credits": {
         "designer": "Arvind",
@@ -11161,92 +12018,6 @@
       "id": "ultragon"
     },
     {
-      "dex": 148,
-      "name": "Rockedeer",
-      "credits": {
-        "designer": "Ruben",
-        "artist": null
-      },
-      "types": [
-        "Fire",
-        "Psychic"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": "Dazzling",
-        "secondary": null,
-        "hidden": "Levitate"
-      },
-      "base_stats": {
-        "hp": 80,
-        "attack": 90,
-        "defense": 70,
-        "sp_attack": 130,
-        "sp_defense": 70,
-        "speed": 140
-      },
-      "ev_yield": {
-        "speed": 3
-      },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement"
-        ],
-        "body_shape": "a quadruped body",
-        "movement": "It walks on four legs.",
-        "look": "It is a slender deer-like creature with a deep-blue body, a cream face, chest and belly, white and orange lightning-shaped markings, and a white ring on its chest. It has antlers carrying floating round blue discs with flame rings, flame bursts around its hooves and a short fluffy tail with an orange flame tip."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/rockedeer/625.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "rockedeer"
-    },
-    {
       "dex": 149,
       "name": "Bergflabbser",
       "credits": {
@@ -11352,12 +12123,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": 124,
+        "hp": 120,
         "attack": 140,
-        "defense": 105,
-        "sp_attack": 120,
-        "sp_defense": 122,
-        "speed": 69
+        "defense": 100,
+        "sp_attack": 100,
+        "sp_defense": 120,
+        "speed": 100
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -11431,7 +12202,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Lullaby",
         "secondary": null,
         "hidden": null
       },

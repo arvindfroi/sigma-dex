@@ -285,6 +285,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Florantula can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Tropistrich has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_TROPISTRICH];
+    EXPECT_EQ(info->baseHP, 80);
+    EXPECT_EQ(info->baseAttack, 100);
+    EXPECT_EQ(info->baseDefense, 75);
+    EXPECT_EQ(info->baseSpeed, 120);
+    EXPECT_EQ(info->baseSpAttack, 50);
+    EXPECT_EQ(info->baseSpDefense, 70);
+    EXPECT_EQ(info->types[0], TYPE_GRASS);
+    EXPECT_EQ(info->types[1], TYPE_FLYING);
+    EXPECT_EQ(info->abilities[0], ABILITY_EARLY_BIRD);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_TROP_KICK);
+    EXPECT_EQ(GetSpeciesName(SPECIES_TROPISTRICH)[0], CHAR_T);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Tropistrich can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_TROPISTRICH) { Moves(MOVE_TROP_KICK); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_TROP_KICK); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_TROP_KICK, player);
+    }
+}
+
 TEST("Sigma dex: Mooceon has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_MOOCEON];
@@ -512,12 +540,12 @@ SINGLE_BATTLE_TEST("Sigma dex: Motinky can use its first move in battle")
 TEST("Sigma dex: Gortiki has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GORTIKI];
-    EXPECT_EQ(info->baseHP, 80);
+    EXPECT_EQ(info->baseHP, 81);
     EXPECT_EQ(info->baseAttack, 67);
     EXPECT_EQ(info->baseDefense, 110);
     EXPECT_EQ(info->baseSpeed, 72);
     EXPECT_EQ(info->baseSpAttack, 108);
-    EXPECT_EQ(info->baseSpDefense, 93);
+    EXPECT_EQ(info->baseSpDefense, 90);
     EXPECT_EQ(info->types[0], TYPE_GRASS);
     EXPECT_EQ(info->types[1], TYPE_FIRE);
     EXPECT_EQ(info->abilities[0], ABILITY_FLASH_FIRE);
@@ -569,13 +597,13 @@ TEST("Sigma dex: Sporeshade has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SPORESHADE];
     EXPECT_EQ(info->baseHP, 67);
-    EXPECT_EQ(info->baseAttack, 53);
+    EXPECT_EQ(info->baseAttack, 50);
     EXPECT_EQ(info->baseDefense, 60);
     EXPECT_EQ(info->baseSpeed, 70);
     EXPECT_EQ(info->baseSpAttack, 130);
-    EXPECT_EQ(info->baseSpDefense, 80);
-    EXPECT_EQ(info->types[0], TYPE_FAIRY);
-    EXPECT_EQ(info->types[1], TYPE_POISON);
+    EXPECT_EQ(info->baseSpDefense, 83);
+    EXPECT_EQ(info->types[0], TYPE_GRASS);
+    EXPECT_EQ(info->types[1], TYPE_FAIRY);
     EXPECT_EQ(info->abilities[0], ABILITY_EFFECT_SPORE);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SPORE);
     EXPECT_EQ(GetSpeciesName(SPECIES_SPORESHADE)[0], CHAR_S);
@@ -660,7 +688,7 @@ TEST("Sigma dex: Snownin has the data from its species file")
     EXPECT_EQ(info->baseSpDefense, 40);
     EXPECT_EQ(info->types[0], TYPE_ICE);
     EXPECT_EQ(info->types[1], TYPE_ICE);
-    EXPECT_EQ(info->abilities[0], ABILITY_LEVITATE);
+    EXPECT_EQ(info->abilities[0], ABILITY_SNOW_WARNING);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_AURORA_VEIL);
     EXPECT_EQ(GetSpeciesName(SPECIES_SNOWNIN)[0], CHAR_S);
 }
@@ -705,18 +733,46 @@ SINGLE_BATTLE_TEST("Sigma dex: McSkiirtle can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: DreadFang has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DREADFANG];
+    EXPECT_EQ(info->baseHP, 85);
+    EXPECT_EQ(info->baseAttack, 135);
+    EXPECT_EQ(info->baseDefense, 105);
+    EXPECT_EQ(info->baseSpeed, 100);
+    EXPECT_EQ(info->baseSpAttack, 60);
+    EXPECT_EQ(info->baseSpDefense, 65);
+    EXPECT_EQ(info->types[0], TYPE_BUG);
+    EXPECT_EQ(info->types[1], TYPE_FLYING);
+    EXPECT_EQ(info->abilities[0], ABILITY_MOLD_BREAKER);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FELL_STINGER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_DREADFANG)[0], CHAR_D);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: DreadFang can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_DREADFANG) { Moves(MOVE_FELL_STINGER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_FELL_STINGER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_FELL_STINGER, player);
+    }
+}
+
 TEST("Sigma dex: Everdark has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_EVERDARK];
-    EXPECT_EQ(info->baseHP, 70);
-    EXPECT_EQ(info->baseAttack, 95);
-    EXPECT_EQ(info->baseDefense, 70);
-    EXPECT_EQ(info->baseSpeed, 105);
+    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseAttack, 125);
+    EXPECT_EQ(info->baseDefense, 75);
+    EXPECT_EQ(info->baseSpeed, 110);
     EXPECT_EQ(info->baseSpAttack, 125);
-    EXPECT_EQ(info->baseSpDefense, 70);
+    EXPECT_EQ(info->baseSpDefense, 60);
     EXPECT_EQ(info->types[0], TYPE_DARK);
     EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
-    EXPECT_EQ(info->abilities[0], ABILITY_PRESSURE);
+    EXPECT_EQ(info->abilities[0], ABILITY_ARMOR_TAIL);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_NASTY_PLOT);
     EXPECT_EQ(GetSpeciesName(SPECIES_EVERDARK)[0], CHAR_E);
 }

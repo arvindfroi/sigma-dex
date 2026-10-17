@@ -90,6 +90,11 @@ static const struct LevelUpMove sFlorantulaLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sTropistrichLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 0, MOVE_TROP_KICK),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sMooceonLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_FLIP_TURN),
     LEVEL_UP_MOVE( 1, MOVE_WISH),
@@ -189,10 +194,18 @@ static const struct LevelUpMove sMcSkiirtleLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sDreadFangLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_FELL_STINGER),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sEverdarkLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_NASTY_PLOT),
     LEVEL_UP_MOVE( 1, MOVE_DARK_PULSE),
     LEVEL_UP_MOVE( 1, MOVE_PSYCHIC),
+    LEVEL_UP_MOVE( 1, MOVE_SWORDS_DANCE),
+    LEVEL_UP_MOVE( 1, MOVE_KNOCK_OFF),
+    LEVEL_UP_MOVE( 1, MOVE_PSYCHO_CUT),
     LEVEL_UP_END
 };
 

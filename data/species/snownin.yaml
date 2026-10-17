@@ -17,9 +17,9 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Levitate
-  secondary: Inner Focus # optional
-  hidden: Snow Warning   # optional
+  primary: Snow Warning
+  secondary: Snow Cloak  # optional
+  hidden: Levitate       # optional
 
 base_stats:              # each 1-255
   hp: 60

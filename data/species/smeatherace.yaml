@@ -18,8 +18,8 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Unburden
-  secondary:             # optional
-  hidden:                # optional
+  secondary: Keen Eye    # optional
+  hidden: Gale Wings     # optional
 
 base_stats:              # each 1-255
   hp: 67
