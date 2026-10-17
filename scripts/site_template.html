@@ -644,6 +644,8 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 @media (max-width: 760px) { .tray { right: 8px; bottom: 8px; } }
 .skipcut { display: flex; gap: 8px; align-items: flex-start; margin-top: 10px; font-size: 14px; }
 .skipcut input { margin-top: 3px; }
+.notebox { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
+.notebox textarea { width: 100%; box-sizing: border-box; font: inherit; }
 </style>
 </head>
 <body>
@@ -1742,7 +1744,7 @@ const STUDIO_STEPS = [
   {id: "save", n: "✓", label: "SAVE", c: "purple", what: "Put the picked pictures together and make them the sprite."}];
 const STEP_SIZE = {art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 32], follower: [128, 64]};
 const TRY_SIDE = {art: 640, front: 80, back: 80, icon: 32};                    // the square ones (the colour tools use it)
-const TRY_DEFAULT_SECONDS = {art: 75, front: 100, back: 55, icon: 30, follower: 40};
+const TRY_DEFAULT_SECONDS = {art: 75, "art:sketch": 25, "art:pose": 60, front: 100, back: 55, icon: 30, follower: 40};
 const mmss = sec => Math.floor(Math.max(0, sec) / 60) + ":" + String(Math.floor(Math.max(0, sec) % 60)).padStart(2, "0");
 const aboutMinutes = sec => sec < 90 ? "about a minute" : "about " + Math.round(sec / 60) + " minutes";
 function secondsFor(timings, stage) {
@@ -1816,7 +1818,7 @@ function spriteStudio(s, startStep) {
   function secondsLeft() {
     let total = 0, last = 0;
     for (const j of st.line) {
-      const each = secondsFor(st.worker && st.worker.timings, j.stage || "front"), n = j.mode === "tries" ? (j.count || 1) : 6;
+      const each = secondsFor(st.worker && st.worker.timings, j.stage === "art" && (j.recipe === "sketch" || j.recipe === "pose") ? "art:" + j.recipe : j.stage || "front"), n = j.mode === "tries" ? (j.count || 1) : 6;
       const done = st.tries.filter(t => t.job_id === j.id && t.status !== "drawing").length;
       let left = (n - done) * each;
       const drawing = st.tries.find(t => t.job_id === j.id && t.status === "drawing");
@@ -1904,16 +1906,16 @@ function spriteStudio(s, startStep) {
     return h("div", {}, box, h("datalist", {id: "list-moves-body"}, BODY_MOVES.map(m => h("option", {value: m}))));
   }
 
-  async function make(stepId, count, button) {
+  async function make(stepId, count, button, recipe) {
     const from = stepId === "front" ? picked("art") : stepId === "art" ? null : picked("front");
     const refs = stepId === "art" || stepId === "back" || (stepId === "front" && !from) ? chosen : [];
     if ((stepId === "art" || (stepId === "front" && !from)) && !refs.length) { st.busyMsg = "Choose a picture in 1 PICTURE first."; draw(); st.busyMsg = ""; return; }
-    const b = bodyOf(s), body = ["back", "icon", "follower"].includes(stepId) && (b.shape || b.look || b.move) ? JSON.stringify(b) : null;
+    const b = bodyOf(s), body = recipe === "sketch" ? sketchBody() : ["back", "icon", "follower"].includes(stepId) && (b.shape || b.look || b.move) ? JSON.stringify(b) : null;
     button.disabled = true;
     noteMine(s.id);
     try {
       await dbCall("request_tries", {p_species_id: s.id, p_stage: stepId, p_count: count, p_from_try: from ? from.id : null, p_refs: refs,
-        p_prompt: body, p_recipe: null, p_editor: me(), p_with_try: stepId === "follower" && picked("back") ? picked("back").id : null});
+        p_prompt: body, p_recipe: recipe || null, p_editor: me(), p_with_try: stepId === "follower" && picked("back") ? picked("back").id : null});
       await load();
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; draw(); st.busyMsg = ""; }
     button.disabled = false;
@@ -1926,6 +1928,20 @@ function spriteStudio(s, startStep) {
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; draw(); st.busyMsg = ""; }
   }
 
+  // What the person says about a sketch's design (optional, 17 Oct: "people should also be able to add a prompt that
+  // describes the sketch's design"): sent with sketch and new-pose drawings, after the dex's look.
+  const sketchNote = () => remember.get("sketchnote-" + s.id) || "";
+  const sketchBody = () => { const b = Object.assign({}, bodyOf(s)), n = sketchNote().trim(); if (n) b.note = n; return b.shape || b.look || b.move || b.note ? JSON.stringify(b) : null; };
+  const noteBox = () => h("label", {class: "notebox"}, h("span", {class: "sub"}, "Describe the design (optional): colours, parts, what the sketch does not show well"),
+    h("textarea", {rows: 2, maxlength: 400, placeholder: "e.g. its arm is made of the same stone; a faint carved swirl below it", oninput: ev => remember.set("sketchnote-" + s.id, ev.target.value)}, sketchNote()));
+  async function newPose(t) {
+    noteMine(s.id);
+    try {
+      await dbCall("request_tries", {p_species_id: s.id, p_stage: "art", p_count: guided() ? howMany : 2, p_from_try: t.id, p_refs: [],
+        p_prompt: sketchBody(), p_recipe: "pose", p_editor: me(), p_with_try: null});
+      await load();
+    } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; draw(); st.busyMsg = ""; }
+  }
   function tile(t) {
     const [w, hgt] = STEP_SIZE[t.stage] || [80, 80], zoom = t.stage === "art" ? 0.19 : t.stage === "icon" ? 3 : t.stage === "follower" ? 3 : 1.5;
     if (t.waiting || t.status === "drawing") return h("div", {class: "tile wait"}, h("div", {class: "tilepic"}, h("span", {class: "spinner"}), h("span", {class: "sub"}, t.waiting ? "in line" : "drawing")));
@@ -1937,7 +1953,9 @@ function spriteStudio(s, startStep) {
       h("button", {type: "button", class: "tilepic", disabled: !t.image, title: t.status === "broken" ? "The PC thinks this one is broken: " + (t.note || "") : inUse ? "In use" : "Use this one",
         onclick: () => !inUse && pick(t)}, pic, inUse ? h("span", {class: "tag"}, "IN USE") : null, t.status === "broken" ? h("span", {class: "warnmark"}, "!") : null),
       made ? h("div", {class: "tilenote"}, made) : null,
-      t.image && DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openPixelEditor(t.stage, {src: artUrl(t.image), tryRow: t})}, "EDIT")) : null);
+      t.image && DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openPixelEditor(t.stage, {src: artUrl(t.image), tryRow: t})}, "EDIT"),
+        t.stage === "art" && t.status !== "failed" ? h("button", {type: "button", class: "small", title: "Draw it in a new pose, with the same design",
+          onclick: ev => { ev.currentTarget.disabled = true; newPose(t); }}, "NEW POSE") : null) : null);
   }
   function tilesOf(stepId) {
     const waiting = [];
@@ -1958,9 +1976,13 @@ function spriteStudio(s, startStep) {
     const needs = ["back", "icon", "follower"].includes(stp.id) && !front ? "Pick a front first (2 FRONT)."
       : stp.id === "follower" && !back ? "Pick a back first (3 BACK)." : (stp.id === "art" || stp.id === "front") && !pictures.length ? "Add its concept art first (the ART tab)." : null;
     const count = h("select", {"aria-label": "How many"}, [1, 2, 3, 4, 6, 8].map(n => h("option", {value: n, selected: n === stp.count ? true : null}, String(n))));
-    const go = h("button", {type: "button", class: "primary", disabled: needs ? true : null, onclick: () => make(stp.id, Number(count.value), go)}, stp.id === "art" ? "CUT OUT" : "MAKE");
+    const how = stp.id === "art" ? h("select", {"aria-label": "What to do with the picture"},
+      h("option", {value: ""}, "cut the creature out"), h("option", {value: "sketch", selected: remember.get("artway-" + s.id) === "sketch" ? true : null}, "redraw a sketch as official art")) : null;
+    if (how) how.addEventListener("change", () => { remember.set("artway-" + s.id, how.value); draw(); });
+    const go = h("button", {type: "button", class: "primary", disabled: needs ? true : null, onclick: () => make(stp.id, Number(count.value), go, how ? how.value || null : null)},
+      stp.id === "art" ? (remember.get("artway-" + s.id) === "sketch" ? "REDRAW" : "CUT OUT") : "MAKE");
     const each = secondsFor(st.worker && st.worker.timings, stp.id);
-    const ctl = h("div", {class: "tryctl"}, go, count, h("span", {class: "sub"}, needs || "(" + aboutMinutes(each * Number(count.value)) + " for " + count.value + ")"),
+    const ctl = h("div", {class: "tryctl"}, go, how, count, h("span", {class: "sub"}, needs || "(" + aboutMinutes(each * Number(count.value)) + " for " + count.value + ")"),
       stp.id === "front" ? thumb(picked("art"), "from") : stp.id === "follower" ? [thumb(front, "from"), thumb(back, "+")] : stp.id !== "art" ? thumb(front, "from") : null);
     count.addEventListener("change", () => { ctl.querySelector(".sub").textContent = needs || "(" + aboutMinutes(each * Number(count.value)) + " for " + count.value + ")"; });
     const chooser = stp.id === "art" ? h("div", {class: "inspo"}, pictures.map(p => {
@@ -1972,6 +1994,7 @@ function spriteStudio(s, startStep) {
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, stp.what),
       chooser, chooser ? h("div", {class: "hint"}, "Up to 3; the first matters most. Is your picture already a clean drawing of just the creature? Then go straight to 2 FRONT.") : null,
+      stp.id === "art" && remember.get("artway-" + s.id) === "sketch" ? noteBox() : null,
       ["back", "icon", "follower"].includes(stp.id) ? bodyBox(true) : null,
       ctl, tilesOf(stp.id));
   }
@@ -2028,7 +2051,10 @@ function spriteStudio(s, startStep) {
   const firstTime = () => !approved() && !(DEX.ds_sprites[s.id] || {}).front;
   const guided = () => firstTime() && remember.get("studio-full") !== "1";
   let howMany = Math.min(4, Math.max(1, Number(remember.get("studio-count")) || 3));
-  let skipCut = remember.get("skipcut-" + s.id) === "1";    // the cut-out is optional: a clean drawing goes straight to fronts
+  // How the chosen picture is made ready (17 Oct): cut the creature out of it (default), use it as it is (a clean drawing),
+  // or redraw a rough sketch as official artwork first (Klein style v2; you pick one of the drawings, then the fronts follow).
+  let prep = remember.get("prep-" + s.id) || (remember.get("skipcut-" + s.id) === "1" ? "clean" : "cut");
+  const skipCutNow = () => prep === "clean";
   const newestPick = list => list.filter(t => t.picked).sort((a, b) => String(b.picked_at).localeCompare(String(a.picked_at)))[0] || null;
   // A picture drawn on, mirrored or recoloured in the editor is a new try whose parent is the try it was made from (the
   // same step). It counts as that try: a back drawn on is still a back of this front, and a front drawn on keeps the backs,
@@ -2055,7 +2081,8 @@ function spriteStudio(s, startStep) {
   }
   const estimate = n => secondsFor(st.worker && st.worker.timings, "art") + n * ["front", "back", "icon", "follower"].reduce((a, k) => a + secondsFor(st.worker && st.worker.timings, k), 0);
   async function ask(stage, from, extra) {
-    const b = bodyOf(s), body = ["back", "icon", "follower"].includes(stage) && (b.shape || b.look || b.move) ? JSON.stringify(b) : null;
+    const b = bodyOf(s), sk = extra && (extra.p_recipe === "sketch" || extra.p_recipe === "pose");
+    const body = sk ? sketchBody() : ["back", "icon", "follower"].includes(stage) && (b.shape || b.look || b.move) ? JSON.stringify(b) : null;
     noteMine(s.id);
     await dbCall("request_tries", Object.assign({p_species_id: s.id, p_stage: stage, p_count: howMany, p_from_try: from ? from.id : null,
       p_refs: stage === "art" || stage === "back" || (stage === "front" && !from) ? chosen : [], p_prompt: body, p_recipe: null, p_editor: me(), p_with_try: null}, extra || {}));
@@ -2064,6 +2091,7 @@ function spriteStudio(s, startStep) {
   async function goOn(t) {
     try {
       const f = picked("front");
+      if (t.stage === "art" && !st.tries.some(x => x.stage === "front" && x.parent_try === t.id) && !drawing("front", t)) await ask("front", t);
       if (t.stage === "front" && !madeFrom("back", t).length && !drawing("back", t)) { await ask("back", t); await ask("icon", t); }
       if (t.stage === "back" && f && !drawing("follower", f)) await ask("follower", f, {p_with_try: t.id});
       await load();
@@ -2098,21 +2126,45 @@ function spriteStudio(s, startStep) {
               chosen = k >= 0 ? chosen.filter(id => id !== p.id) : chosen.concat(p.id).slice(-3); remember.set("refs-" + s.id, chosen.join(",")); draw(); }},
               h("img", {src: p.src, alt: p.caption || "picture"}), k >= 0 ? h("span", {class: "order"}, String(k + 1)) : null);
           })),
-          h("label", {class: "skipcut"}, h("input", {type: "checkbox", checked: skipCut ? true : null, onchange: ev => { skipCut = ev.target.checked; remember.set("skipcut-" + s.id, skipCut ? "1" : ""); draw(); }}),
-            "My picture is already a clean drawing of just " + s.data.name + " (no text, no other views): skip the cut-out and save about a minute."),
+          h("div", {class: "hint", style: "margin-top:14px"}, "What kind of picture is it?"),
+          h("div", {class: "prep", role: "radiogroup"}, [
+            ["cut", "A finished drawing with other things on it (text, other views): the PC cuts " + s.data.name + " out."],
+            ["clean", "A clean finished drawing of just " + s.data.name + ": use it as it is (about a minute faster)."],
+            ["sketch", "A rough sketch: the PC first redraws it as official art, " + howMany + " to choose from. Then the fronts are drawn from the one you pick."]
+          ].map(([id, text]) => h("label", {class: "skipcut"}, h("input", {type: "radio", name: "prep-" + s.id, checked: prep === id ? true : null,
+            onchange: () => { prep = id; remember.set("prep-" + s.id, id); draw(); }}), text))),
+          prep === "sketch" ? noteBox() : null,
           h("div", {class: "hint", style: "margin-top:14px"}, "2. How many of each sprite should the PC draw for you to choose from?"), counter,
           h("div", {class: "hint", style: "margin-top:14px"}, "3. Start. The PC draws " + howMany + " front" + (howMany > 1 ? "s" : "") + "; you tap the one you like, then it draws the back and the icon, then the walking sprite. " +
-            "About " + Math.round((estimate(howMany) - (skipCut ? secondsFor(st.worker && st.worker.timings, "art") : 0)) / 60) + " minutes of drawing in all, plus a few taps from you."),
+            "About " + Math.round((estimate(howMany) - (skipCutNow() ? secondsFor(st.worker && st.worker.timings, "art") : 0)
+              + (prep === "sketch" ? howMany * secondsFor(st.worker && st.worker.timings, "art:sketch") : 0)) / 60) + " minutes of drawing in all, plus a few taps from you."),
           h("button", {type: "button", class: "primary big", disabled: chosen.length ? null : true, onclick: async ev => {
             ev.currentTarget.disabled = true;
-            try { if (skipCut) await ask("front", null); else await ask("art", null, {p_count: 1, p_recipe: "then-front-" + howMany}); await load(); }
+            try {
+              if (prep === "clean") await ask("front", null);
+              else if (prep === "sketch") await ask("art", null, {p_recipe: "sketch"});
+              else await ask("art", null, {p_count: 1, p_recipe: "then-front-" + howMany});
+              await load();
+            }
             catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; draw(); st.busyMsg = ""; }
           }}, "\u25b6 START")]
           : h("div", {class: "empty"}, "First add a picture of " + s.data.name + " in the ART tab (paste it with Ctrl+V / Cmd+V).")];
+    } else if (ph === "front" && st.tries.some(t => t.stage === "art" && t.recipe && t.recipe.startsWith("sketch")) && !picked("art")
+               && !st.tries.some(t => t.stage === "front")) {
+      const arts = st.tries.filter(t => t.stage === "art" && t.status !== "failed");
+      const busy = drawing("art");
+      body = [h("h2", {style: "margin-top:4px"}, busy && !arts.some(t => t.image) ? "Redrawing your sketch..." : "Which drawing do you like best?"),
+        h("div", {class: "hint"}, busy ? "The PC redraws your sketch as official art. They show up here one by one; tap the one you like best."
+          : "Tap it. The fronts are drawn from the one you pick. NEW POSE under a drawing draws it in other poses, with the same design."), eta,
+        tilesFor("art", arts),
+        !busy ? h("div", {class: "row", style: "margin-top:10px"}, h("span", {class: "sub"}, "None of these?"),
+          more("DRAW " + howMany + " MORE", "art", null, {p_recipe: "sketch"}), counter) : null,
+        h("div", {style: "margin-top:10px"}, noteBox())];
     } else if (ph === "front") {
       const fronts = st.tries.filter(t => t.stage === "front" && t.status !== "failed");
       const art = picked("art") || st.tries.filter(t => t.stage === "art" && t.status !== "failed")[0];
       const cutting = drawing("art") && !fronts.length;
+      const fromSketch = art && art.recipe && art.recipe.startsWith("sketch");
       // the cut-out is done but the fronts are not in line yet: the server starts them within a few seconds
       const starting = !fronts.length && !drawing("art") && !drawing("front") && art && art.finished_at && Date.now() - new Date(art.finished_at).getTime() < 120000;
       const waiting = cutting || starting || (drawing("front") && !fronts.some(t => t.image));
@@ -2120,7 +2172,7 @@ function spriteStudio(s, startStep) {
         h("div", {class: "hint"}, cutting ? "Then the PC draws " + howMany + " front" + (howMany > 1 ? "s" : "") + " from it. They show up here one by one."
           : waiting ? "They show up here one by one. Then tap the one you like best." : "Tap it. The back and the icon are drawn from the one you pick."),
         eta || (starting ? h("div", {class: "eta"}, h("span", {class: "spinner"}), "Starting...") : null),
-        art && art.image ? h("div", {class: "row", style: "margin:4px 0"}, h("span", {class: "sub"}, "Cut out from your picture:"),
+        art && art.image ? h("div", {class: "row", style: "margin:4px 0"}, h("span", {class: "sub"}, fromSketch ? "Drawn from your sketch:" : "Cut out from your picture:"),
           h("img", {src: artUrl(art.image), alt: "the cut-out", style: "width:64px;height:64px;object-fit:contain;background:var(--soft);border:2px solid var(--line)"})) : null,
         tilesFor("front", fronts),
         !drawing("front") && !drawing("art") && !starting ? h("div", {class: "row", style: "margin-top:10px"}, h("span", {class: "sub"}, fronts.length ? "None of these?" : "Nothing is being drawn."),

@@ -70,7 +70,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: only a head # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
-  look: "It is a tan stone head like a carved statue, with a heavy flat brow, a large pointed triangular nose, narrow dark eyes with small glowing yellow lights, and a block-like jaw. A small cream-coloured curved arm gives a thumbs up from its side, with an orange swirl mark."
+  look: "It is a tan stone head like a carved statue, with a heavy flat brow, a large pointed triangular nose, narrow dark eyes with small glowing yellow lights, and a block-like jaw. A small curved arm of the same tan stone gives a thumbs up from its side, and a faint swirl is carved into the stone below the arm."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

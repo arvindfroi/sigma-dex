@@ -189,3 +189,22 @@ To stop it: delete the Startup shortcut and end the `python` process running
 `sprite_worker.py` in Task Manager.
 
 Limits: 40 requests waiting at once, 120 requests and 300 comments per hour.
+
+## Sketch -> official art (17 Oct)
+
+The first step can now also redraw a rough sketch as official artwork before the fronts. In the guided start the
+person says what kind of picture it is: a finished drawing with other things on it (cut out, as before), a clean
+drawing of just the creature (used as it is), or **a rough sketch**: the PC draws N official-art versions (Klein style
+v2 at step 2500, `SKETCH_KLEIN` in `scripts/studio_tries.py`, art job with recipe `sketch`), the person taps one, and the
+fronts are drawn from it. In the full studio the PICTURE step has the same choice ("redraw a sketch as official art").
+The drawing is made at 512 on white from the sketch fitted in 482 px (image 1 and the start picture, 85 % redrawn), with "official pokemon artstyle. " + type, stage,
+height, body shape and look, then cut from its white background. About 25 s per drawing. See docs/LORAS.md (Sketch -> art).
+
+**NEW POSE** (17 Oct): every drawing in the PICTURE step has a NEW POSE button. It asks for an art job with recipe `pose`
+from that drawing: base Qwen-Image 2.1 draws the same creature in a new pose (action / turned the other way / about to
+jump, in turn), then style v2 (image 1 only) gives it the official look again, cut from white. About a minute each. In
+the guided flow the new poses appear among the sketch drawings; the one tapped is what the fronts are drawn from.
+**Describe the design**: with "rough sketch" chosen, a text box takes the person's own words about the design. They go
+to sketch and new-pose drawings as "Its design: ..." after the dex's look (JSON `note` in the job's prompt), so they
+can correct what the look text or the sketch gets wrong.
+

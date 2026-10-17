@@ -3,7 +3,9 @@
 A job of mode "tries" asks for N pictures of one stage; each is registered as it starts (so the website can show it
 drawing, with the time it should take), drawn, read as pixels and handed in with its time:
 
-    art    the creature cut out of a chosen picture by base Qwen-Image 2.1 (a clean 640 drawing, see-through)
+    art    the creature cut out of a chosen picture by base Qwen-Image 2.1 (a clean 640 drawing, see-through); or, with the
+           recipe "sketch", a rough sketch redrawn as official artwork: Klein style v2 at step 2500 (trained on pairs: another
+           style of a species -> its official artwork), the sketch as image 1 and as the start picture (85 % redrawn), "official pokemon artstyle. " + the dex words
     front  the DS front (80x80): front LoRA v7 600 at 0.75, cfg 2.5 + a negative prompt, 20 steps, then unfake
     back   the DS back (80x80) on the front's colours: back LoRA v6 (1800 / 2100 / 2400 in turn)
     icon   the menu icon (32x32): Klein icon v1 at step 2500 (frame 1 of its two), in Klein's own colours
@@ -46,7 +48,15 @@ TIMINGS = Path(os.environ.get("SIGMA_TIMINGS_FILE", dexlib.ROOT / ".studio-timin
 FOLLOWER_KLEIN = "pkmn_follower_klein_v3_000002000.safetensors"
 ICON_KLEIN = "pkmn_icon_klein_v1_000002500.safetensors"
 BACK_KLEIN = "pkmn_back_klein_v2_000002500.safetensors"
-DEFAULT_SECONDS = {"art": 75, "front": 100, "back": 55, "icon:pc": 8, "icon:canvas": 8, "icon": 30, "follower": 40, "back:klein": 30,
+# Sketch -> official artwork (16-17 Oct, Arvind on the step sweep: "a lot usable here, 2500 maybe best"; sha256 DBF17D1E...CE912609).
+SKETCH_KLEIN = "pkmn_style_klein_v2_000002500.safetensors"
+SKETCH_REDRAW = 0.85
+# "NEW POSE" (17 Oct, Arvind: "can it make a pose that does not copy the sketch, but keeps the design?"): style v2 copies
+# image 1's pose, so base Qwen-Image 2.1 turns the creature first and style v2 puts the official look back on.
+POSES = ["in a new dynamic action pose (not the pose of <image1>): moving, leaning forward, limbs in different positions",
+         "turned the other way: a three-quarter view facing the other side, in a relaxed new pose",
+         "in a new lively pose (not the pose of <image1>), as if about to jump or attack"]
+DEFAULT_SECONDS = {"art": 75, "art:sketch": 25, "art:pose": 60, "front": 100, "back": 55, "icon:pc": 8, "icon:canvas": 8, "icon": 30, "follower": 40, "back:klein": 30,
                    "rear": 70}   # measured on the Legion, 14 Oct (the Klein ones: a first guess until measured)
 LINE = (175, 175, 175, 255)
 
@@ -103,6 +113,8 @@ def about(job, words, move=True):
         s += "Its look: %s " % str(body["look"]).strip()
     if move and body.get("move"):
         s += "How it moves: %s " % str(body["move"]).strip()
+    if body.get("note"):                                         # the person's own words about a sketch's design
+        s += "Its design: %s " % str(body["note"]).strip()
     return s
 
 
@@ -324,7 +336,85 @@ def draw(out, graph):
 
 
 # ---------- the stages: each returns (status, note, image path, raw path)
+def white_out(im, level=236):
+    """a drawing on white -> see-through: the near-white area that touches the edge goes"""
+    import cv2
+    a = np.array(im.convert("RGBA"))
+    white = (a[..., :3].min(axis=2) >= level).astype(np.uint8)
+    n, lab = cv2.connectedComponents(white, connectivity=4)
+    edge = set(np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]]))) - {0}
+    clear = np.isin(lab, list(edge)) & (white > 0)
+    alpha = np.where(clear, 0, 255).astype(np.uint8)
+    a[..., 3] = cv2.GaussianBlur(alpha, (3, 3), 0)
+    return Image.fromarray(a)
+
+
+def try_art_sketch(n, seed, folder, job, inputs):
+    """a rough sketch -> official artwork (Klein style v2), then cut from its white background"""
+    sketch = folder / "sketch_in.png"
+    if not sketch.exists():
+        fit_white(Image.open(inputs["refs"][0]), 512, 482).save(sketch)
+    words = sketch_words(job, inputs)
+    # The sketch is image 1 AND the start picture, 85 % redrawn: a little closer to the sketch (where the arm, the marks
+    # are) than image 1 alone (Arvind, 17 Oct: "push it a tiny bit more towards the original sketch"; sketch_closer2.py).
+    raw = folder / ("art_raw_%d.png" % n)
+    if not raw.exists():
+        graph = comfy.klein("official pokemon artstyle. " + words, [up(sketch)], 512, 512, seed, "sigma/studio_sketch", SKETCH_KLEIN)
+        graph["split"] = {"class_type": "SplitSigmasDenoise", "inputs": {"sigmas": ["sched", 0], "denoise": SKETCH_REDRAW}}
+        graph["sca"]["inputs"]["sigmas"] = ["split", 1]
+        graph["sca"]["inputs"]["latent_image"] = ["enc1", 0]
+        raw.write_bytes(comfy.run(graph))
+    im, share = largest_blob(white_out(Image.open(raw)))
+    image = folder / ("art_%d.png" % n)
+    framed(im).save(image)
+    return ("broken", "loose bits (%.0f %% outside the creature)" % (100 - 100 * share), image, raw) if share < 0.9 else ("done", "", image, raw)
+
+
+def sketch_words(job, inputs):
+    """the dex words + body shape + look (+ the person's own words about the design), as style v2's captions"""
+    try:
+        body = json.loads(job.get("prompt") or "{}")
+    except ValueError:
+        body = {}
+    body = body if isinstance(body, dict) else {}
+    note = str(body.pop("note", "") or "").strip()
+    words = about(dict(job, prompt=json.dumps(body)), inputs["tags"][0], move=False)
+    if "Its look" not in words:                                  # nothing sent from the website: the dex's own words
+        species = {sid: d for sid, _, d in dexlib.load_species()[0]}
+        design = (species.get(job["species_id"]) or {}).get("design") or {}
+        if design.get("body_shape"):
+            words += "Its body shape: %s. " % str(design["body_shape"]).strip().rstrip(".")
+        words += str(design.get("look") or "") + " "
+    if note:                                                     # the person's own words last, so they can correct the look
+        words += "Its design: %s" % note
+    return words.strip()
+
+
+def try_art_pose(n, seed, folder, job, inputs):
+    """the picked drawing in a new pose: base Qwen turns it, style v2 (image 1 only) gives it the official look again"""
+    clean = folder / "pose_in.png"
+    if not clean.exists():
+        fit_white(inputs["art"], 1024, 940).save(clean)
+    words = sketch_words(job, inputs)
+    turned = folder / ("pose_qwen_%d.png" % n)
+    if not turned.exists():
+        comfy.generate("The same creature as in <image1>, with exactly the same design, body parts, markings and colours, %s. Official "
+                       "Pokemon artwork, its whole body, white background. %s" % (POSES[(n - 1) % len(POSES)], words),
+                       turned, [clean], size=(1024, 1024), steps=30, seed=seed, quiet=True)
+    small = folder / ("pose_small_%d.png" % n)
+    Image.open(turned).convert("RGB").resize((512, 512), Image.LANCZOS).save(small)
+    raw = klein_draw(folder / ("art_raw_%d.png" % n), "official pokemon artstyle. " + words, [small], 512, 512, seed, SKETCH_KLEIN)
+    im, share = largest_blob(white_out(Image.open(raw)))
+    image = folder / ("art_%d.png" % n)
+    framed(im).save(image)
+    return ("broken", "loose bits (%.0f %% outside the creature)" % (100 - 100 * share), image, raw) if share < 0.9 else ("done", "", image, raw)
+
+
 def try_art(n, seed, folder, job, inputs):
+    if job.get("recipe") == "sketch":
+        return try_art_sketch(n, seed, folder, job, inputs)
+    if job.get("recipe") == "pose":
+        return try_art_pose(n, seed, folder, job, inputs)
     raw = folder / ("art_raw_%d.png" % n)
     prompt = ART + ((" " + job["prompt"]) if job.get("prompt") else "")
     comfy.generate(prompt, raw, inputs["refs"][:3], size=(1024, 1024), steps=40, seed=seed, quiet=True, transparent=True)
@@ -545,7 +635,9 @@ def recipe_name(job, n):
         return "icon klein v1 2500"
     if stage == "follower":
         return "follower klein v3 2000"
-    return "base Qwen cut-out"
+    if job.get("recipe") == "pose":
+        return "sketch new pose (Qwen + style v2)"
+    return "sketch to art (style klein v2 2500)" if job.get("recipe") == "sketch" else "base Qwen cut-out"
 
 
 # ---------- timings: a recent average per stage, on this PC and on the website
@@ -576,7 +668,11 @@ def run(job, base, key, post, download, folder, log=print):
     timings = load_timings()
     inputs = {"tags": tags(job["species_id"])}
     src = job.get("from_try") or {}
-    if stage == "art" or (stage == "front" and not src):
+    if stage == "art" and job.get("recipe") == "pose":            # a new pose of a drawing made earlier
+        if not src.get("image"):
+            raise RuntimeError("pick the drawing to turn first")
+        inputs["art"] = Image.open(download(base, src["image"], folder / "from_art.png")).convert("RGBA")
+    elif stage == "art" or (stage == "front" and not src):
         inputs["refs"] = [download(base, p, folder / ("ref%d.png" % i)) for i, p in enumerate(job.get("refs") or [])]
         if not inputs["refs"]:
             raise RuntimeError("no picture was chosen")
@@ -611,7 +707,7 @@ def run(job, base, key, post, download, folder, log=print):
     for n in range(1, count + 1):
         seed = seed0 + n
         name = recipe_name(job, n)
-        tkey = "back:klein" if stage == "back" and BACK_KLEIN else stage
+        tkey = "back:klein" if stage == "back" and BACK_KLEIN else ("art:" + job["recipe"]) if stage == "art" and job.get("recipe") in ("sketch", "pose") else stage
         row = post(base, key, {"action": "try_start", "job_id": job["id"], "n": n, "seed": seed, "recipe": name,
                                "expected_seconds": expected(timings, tkey)})
         post(base, key, {"action": "progress", "job_id": job["id"], "state": ("drawing %s: %s %d of %d" % (job["species_id"], stage, n, count))[:120]})

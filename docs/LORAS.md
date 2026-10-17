@@ -1393,6 +1393,76 @@ v6 until a back v2 step is picked (`BACK_KLEIN`); then the back job first draws 
   way. ~3 minutes for 3 backs + 3 icons + 3 walking sprites (1 of them the rear-view drawing). Changed (Arvind agreed):
   the icon keeps Klein's colours (palettes = a button in the editor), the back rule only from a front with 8+ colours.
 
+## Sketch -> art (16 Oct)
+
+What was tried, in order (scripts in `v6cfg`, results in `results\<name>`):
+- **Prompt only** (`sketch_prompts.py`): Qwen 2.1 and Klein, "official Pokemon art style" + the dex's look; the edit
+  models only clean the sketch up. Arvind: none good.
+- **Canvas swap with the frog** (`sketch_canvas.py`, Galfrogtom 232 as the start picture): not good either.
+- **The Torchbat recipe found again** (`sketch_illustrious.py`, = way S3 of `sketch2art.py`, 13 Oct): Illustrious-XL
+  v1.0, img2img from the sketch at denoise 0.9, ControlNet union (scribble type) on Canny of the sketch blurred 5 px,
+  strength 0.5 for 60 % of 28 steps, euler ancestral, cfg 5.5, Danbooru tags ("ken sugimori, official art, pokemon
+  (creature)" + the mon's tags). Torchbat seed 3 reproduces Arvind's picture. Good on coloured sketches (Torchbat,
+  Octopearl), weak on pure line sketches (img2img starts from white: Nukfae, Stonma came out pale).
+- **Closer to the sketch** (`sketch_ill_closer.py`): denoise 0.9 -> 0.6, ControlNet 0.5 -> 0.9, cfg 5.5 -> 4.5. 0.75 /
+  0.7 / cfg 5 kept the design best (Torchbat, Octopearl, Janenon); Erobi needs the freedom (its sketch is a smiley).
+  Arvind: "not so good".
+- Why Gemini / ChatGPT manage it from a plain prompt: they have seen the official art; open models know the words
+  "official Pokemon art style" but little of the look. PokeAPI has about 1.3 modern official artworks per species
+  (1 538 incl. forms; shiny = same drawing; Gen 1-2 versions are another era).
+- **Synthetic sketch pairs** (`build_sketch_klein.py`: paint / marker / pencil / flat fakes of each artwork -> the artwork)
+  were built but not trained: Arvind did not believe in them.
+- **Styles on Klein v1** (`build_style_klein.py`, `style_klein_v1.yaml`, queue `style_queue1.ps1`; Arvind: "put in
+  everything we have on each Pokemon; same tags, only the style words differ"). Text-to-image LoRA, no control picture,
+  4 148 pictures of #1-1025: `official pokemon artstyle` (artwork 1:1 on 512), `3d render` (HOME), `front sprite
+  pixelart` / `back sprite pixelart` (Gen 4, else Gen 5; real sprites only, #1-649: PokeAPI's BW folder has made-up
+  downscaled ones after that), `menu icon pixelart` (Gen 4/5), `gen 1 watercolor artstyle` (Red/Green art). Caption:
+  "<style>. " + type/stage/height + body shape + the Bulbapedia look. Rank 32, lr 1e-4, 4000 steps at 512, 2.9 s/step
+  on the Legion (about 3.2 h). Samples: Torchbat and Octopearl by text in two styles, five sketches as ctrl_img_1.
+  At step 1250 the style word switches style cleanly (pixel art vs artwork) and Nukfae from text is good; the sketch
+  as a reference is followed weakly (the LoRA never saw one). Next: find the sweet spot (step, strength), and try it
+  with img2img from the sketch.
+- **Sweet spot** (`style_sweet.py`, `style_sweet2.py`, `style_twopass.py`; results\style_sweet*, style_twopass): the
+  sketch only as image 1 -> nice style, design lost (Torchbat grows wings); as image 1 + start picture at 85 % -> the
+  same; at 70-74 % -> the sketch with official shading. 78 and 82 % came out almost the same (the 25-step schedule
+  splits to the same count). Best: step 4000, 1.0, about 80 % (Stonma, Torchbat seed 2, Janenon seed 1, Octopearl seed
+  2), seeds differ a lot. Passes (70 % then 50-60 % then 50 %) change almost nothing after pass 1. Arvind: "not as good
+  as the frog" (Galfrogtom 232, from Discord, origin unknown). PokeAPI's artworks are nearly all the modern flat style
+  (the frog is painterly, Gen 3-4 like), but Arvind finds the modern styles fine too; the real gap is that ours keep the
+  sketch's amateur shapes, while the frog is a professional redraw. A style LoRA cannot learn "redraw this creature";
+  proposed v2: cross-style PAIRS (3D render / sprite / Gen 1 art of a species as image 1 -> its artwork), or Gemini /
+  ChatGPT for this one step.
+- **Styles v2, pairs** (`build_style_klein_v2.py`, `style_klein_v2.yaml`, `style_queue2.ps1`; Arvind: "start v2"): 2 474
+  pairs, image 1 = the same species as 3D render (1 025), front sprite (649), menu icon (649) or Gen 1 watercolour (151),
+  never the back; target = its official artwork; caption as v1. 3500 steps at 512. Samples: our sketches as image 1 only.
+  First start died at the text cache: **D: was full** (ai-toolkit's `_t_e_cache` folders of finished runs: about 290
+  GB). Deleted them all (they are rebuilt when a run is trained again); delete a run's cache when it ends.
+  Result (`style2_sweet.py`, results\style2_sweet; the sketch only as image 1, no start picture, cfg 4, 25 steps, 512):
+  **v2 redraws the creature** instead of shading the sketch or losing it: Torchbat keeps its long arms, pig nose and
+  flame ears; Janenon its hair cannon and the creature inside; Octopearl, Stonma (from a pure line sketch) and Nukfae
+  hold across steps and seeds; Erobi stays a smiley (its sketch is one). Arvind on the 1500 sheet: "looks good! getting
+  better". Steps 2000-3500 are close; 2500 looked the most even (3500 a little flatter and smaller).
+  **Arvind picked step 2500** (17 Oct: "a lot usable here, 2500 maybe best"): `approved\pkmn_style_klein_v2_000002500`,
+  sha256 DBF17D1EDF27852A81F7211EA89EC195C3F69AD4E59715FD300F7316CE912609; in the studio as the art step's `sketch` recipe
+  (docs/STUDIO.md). The stage check (`v6cfg\sketch_stage_check.py`, results\sketch_stage) cut Torchbat and Stonma
+  cleanly from white.
+  Arvind on Stonma (17 Oct): "the swirl and the arm miss; push it a tiny bit more towards the sketch and art". Two causes:
+  the dex look text (written by Claude) said a cream arm and an orange swirl, while the art has a stone arm and a faint
+  carved swirl (text corrected: the LoRA follows the words); and image 1 alone lets the layout drift. `sketch_closer2.py`
+  (A image 1, B/C also the start picture at 92/85 %, D LoRA 0.8): C keeps where the arm and the marks are and still looks
+  official; B ~ A; D changes little. **The studio uses C: the sketch as image 1 and start picture, 85 % redrawn**
+  (`SKETCH_REDRAW`).
+- **New pose, same design** (17 Oct; Arvind: "can it make a pose that does not copy the sketch fully but keeps the
+  design?"). Pose words on style v2 (`sketch_pose.py`): no effect, v2 copies image 1's pose (its pairs mostly share
+  the pose). Base Qwen-Image 2.1 edit from the clean drawing ("the same creature ... in a new dynamic action pose" /
+  "turned the other way, three-quarter facing right", 30 steps, 1024), then style v2 2500 with that as image 1
+  (`sketch_repose.py`, results\sketch_repose): **new poses that keep the design** (Torchbat's arms and ears, Janenon's
+  cannon and rider turned round, Octopearl turned, Stonma turned with the thumb on the other side); v2 mostly adds
+  cleaner lines and shading.
+  In the studio as NEW POSE (17 Oct; Arvind: "we can have it; people should also be able to add a prompt that
+  describes the sketch's design"): `try_art_pose` in `scripts/studio_tries.py`; check `v6cfg\pose_stage_check.py`
+  (results\pose_stage: Janenon in three new poses, cannon and rider kept).
+
 ## Next ones (later)
 
 - **Fallback base model: FLUX.2 Klein 9B** (Comfy's style transfer handbook, March 2026: "a sweet spot for LoRA training",
