@@ -18,7 +18,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Sturdy
-  secondary: Iron Fist   # optional
+  secondary: Rock Head   # optional
   hidden: Solid Rock     # optional
 
 base_stats:              # each 1-255

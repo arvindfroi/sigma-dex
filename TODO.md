@@ -16,9 +16,9 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | height | 28 / 140 |
 | Dex page | weight | 26 / 140 |
 | Dex page | body color | 2 / 140 |
-| Stats | base stats | 109 / 140 |
-| Stats | ability | 119 / 140 |
-| Stats | EV yield | 74 / 140 |
+| Stats | base stats | 113 / 140 |
+| Stats | ability | 121 / 140 |
+| Stats | EV yield | 76 / 140 |
 | Stats | catch rate | 1 / 140 |
 | Stats | base exp | 1 / 140 |
 | Stats | growth rate | 1 / 140 |
@@ -376,10 +376,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #35 [coatail](data/species/coatail.yaml) - 14%
+### #35 [coatail](data/species/coatail.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -566,11 +566,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #54 [Hippore](data/species/hippore.yaml) - 7%
+### #54 [Hippore](data/species/hippore.yaml) - 10%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -1270,30 +1270,30 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #126 [Aquat](data/species/surfer.yaml) - 14%
+### #126 [Aquat](data/species/surfer.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #127 [Aquway](data/species/subwaysurfer.yaml) - 14%
+### #127 [Aquway](data/species/subwaysurfer.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #128 [Zyzzfu](data/species/zyzzfu.yaml) - 14%
+### #128 [Zyzzfu](data/species/zyzzfu.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

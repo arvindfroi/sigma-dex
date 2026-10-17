@@ -3235,19 +3235,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Run Away",
+        "secondary": "Quick Feet",
+        "hidden": "Unburden"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 78,
+        "attack": 80,
+        "defense": 60,
+        "sp_attack": 50,
+        "sp_defense": 68,
+        "speed": 110
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -3588,7 +3590,7 @@
       "body_color": null,
       "abilities": {
         "primary": "Sturdy",
-        "secondary": "Iron Fist",
+        "secondary": "Rock Head",
         "hidden": "Solid Rock"
       },
       "base_stats": {
@@ -4183,7 +4185,7 @@
       "body_color": null,
       "abilities": {
         "primary": "Swift Swim",
-        "secondary": null,
+        "secondary": "Solar Power",
         "hidden": "Battle Bond"
       },
       "base_stats": {
@@ -4962,9 +4964,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Sturdy",
+        "secondary": "Stamina",
+        "hidden": "Sand Force"
       },
       "base_stats": {
         "hp": null,
@@ -6330,7 +6332,7 @@
       "abilities": {
         "primary": "Cold-hearted",
         "secondary": "Ice Body",
-        "hidden": "Sheer Force"
+        "hidden": "Refrigerate"
       },
       "base_stats": {
         "hp": 95,
@@ -8280,8 +8282,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Speed Boost",
-        "secondary": "Reckless",
-        "hidden": "Motor Drive"
+        "secondary": null,
+        "hidden": "Reckless"
       },
       "base_stats": {
         "hp": null,
@@ -10861,15 +10863,15 @@
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Water Absorb",
-        "hidden": null
+        "hidden": "Adaptability"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 65,
+        "defense": 35,
+        "sp_attack": 60,
+        "sp_defense": 35,
+        "speed": 85
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -10941,17 +10943,19 @@
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Water Absorb",
-        "hidden": null
+        "hidden": "Adaptability"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 80,
+        "attack": 105,
+        "defense": 55,
+        "sp_attack": 85,
+        "sp_defense": 55,
+        "speed": 115
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -11021,15 +11025,15 @@
       "abilities": {
         "primary": "Surge Surfer",
         "secondary": null,
-        "hidden": null
+        "hidden": "Unseen Fist"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 85,
+        "attack": 115,
+        "defense": 60,
+        "sp_attack": 110,
+        "sp_defense": 60,
+        "speed": 100
       },
       "ev_yield": null,
       "catch_rate": null,

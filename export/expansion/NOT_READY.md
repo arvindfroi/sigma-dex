@@ -26,7 +26,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Sigmanian Eiscue** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Rainbro** needs: a valid type, an ability that exists in the game, a level-up move that exists in the game
 - **blutie** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **coatail** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **coatail** needs: a level-up move that exists in the game
 - **Nukfae** needs: a level-up move that exists in the game
 - **Stonma** needs: a level-up move that exists in the game
 - **Chebbi** needs: a level-up move that exists in the game
@@ -38,7 +38,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Beatld** needs: a level-up move that exists in the game
 - **Fleuroom** needs: a level-up move that exists in the game
 - **Giga-Circuit** needs: a level-up move that exists in the game
-- **Hippore** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Hippore** needs: base stats, a level-up move that exists in the game
 - **Docuphant** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Razox** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Sigmanian Unown** needs: an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
@@ -102,9 +102,9 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **JAWIE** needs: base stats, a level-up move that exists in the game
 - **JAWBREAKER** needs: a level-up move that exists in the game
 - **Dreadipede** needs: a level-up move that exists in the game
-- **Aquat** needs: base stats, a level-up move that exists in the game
-- **Aquway** needs: base stats, a level-up move that exists in the game
-- **Zyzzfu** needs: base stats, a level-up move that exists in the game
+- **Aquat** needs: a level-up move that exists in the game
+- **Aquway** needs: a level-up move that exists in the game
+- **Zyzzfu** needs: a level-up move that exists in the game
 - **Grincho** needs: base stats, a level-up move that exists in the game
 - **Glacépée** needs: a level-up move that exists in the game
 - **Riftbloom** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
