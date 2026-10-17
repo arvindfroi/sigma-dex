@@ -17,9 +17,9 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Strong Jaw
-  secondary:             # optional
-  hidden:                # optional
+  primary: Flame Body
+  secondary: Dragonize   # optional
+  hidden: Moxie          # optional
 
 base_stats:              # each 1-255
   hp:

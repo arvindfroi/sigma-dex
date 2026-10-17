@@ -12,15 +12,15 @@ until the edge shines like metal.
 7,torchbat,Torchbat,Fire,,Blaze,,No Guard,320,45,50,45,60,50,70,,,,,,,1 speed,,,,,,,,,,,"Scratch (1), Growl (1), Ember (6), Supersonic (10), Flame Charge (14)",,,,,,,,DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.,Emil & Arvind,,38
 8,heatbat,Heatbat,Fire,,Blaze,,No Guard,420,60,65,60,85,65,85,Torchbat,Lv 16,,,,,,,,,,,,,,,,"Air Slash (evo), Air Slash (1)",,,,,,,,,Emil & Arvind,,21
 9,blazterra,Blazterra,Fire,Flying,Blaze,,No Guard,530,70,80,75,108,75,122,Heatbat,Lv 36,,,,,3 speed,,,,,,,,,,,"Heat Wave (evo), Heat Wave (1)",,,,,,,,,Emil & Arvind,,24
-10,erobi,Erobi,Normal,Flying,Keen Eye,,,280,44,45,39,44,64,44,,,Smiley Bird,0.4,1.9,,,,,,,,,,,,,,,,,,"Erobi is a cheerful regional bird Pokémon known for the bright yellow feathers covering its face. The black smiley markings on its face look as if they were drawn on with a marker, and they help it appear friendly to both people and Pokémon. Even when startled, Erobi keeps its painted smile, making it difficult to tell what it is really thinking.",,,"From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -; flavor 'Erobi flutters around fields and towns, spreading a sense of warmth wherever it goes.'.",Magnus,,31
-11,harpie,Harpie,Normal,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Magnus,,10
-12,smeatherace,Smeatherace,Normal,Flying,Unburden,,,495,67,109,60,72,102,85,,,Skyemoji Bird,1.7,28.4,,,,,,,,,,,,,,,,,,"Smeatherace rides high winds with silent grace, using the emoji-like marking on its chest to signal its flock from afar. When it drops what it carries, its body becomes startlingly light, letting it burst through the sky with incredible speed.",,,"From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -.",Magnus,,31
+10,erobi,Erobi,Normal,Flying,Unburden,Keen Eye,Gale Wings,280,44,45,39,44,64,44,,,Smiley Bird,0.4,1.9,,,,,,,,,,,,,,,,,,"Erobi is a cheerful regional bird Pokémon known for the bright yellow feathers covering its face. The black smiley markings on its face look as if they were drawn on with a marker, and they help it appear friendly to both people and Pokémon. Even when startled, Erobi keeps its painted smile, making it difficult to tell what it is really thinking.",,,"From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -; flavor 'Erobi flutters around fields and towns, spreading a sense of warmth wherever it goes.'.",Magnus,,31
+11,harpie,Harpie,Normal,Flying,Unburden,Keen Eye,Gale Wings,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Magnus,,14
+12,smeatherace,Smeatherace,Normal,Flying,Unburden,Keen Eye,Gale Wings,495,67,109,60,72,102,85,,,Skyemoji Bird,1.7,28.4,,,,,,,,,,,,,,,,,,"Smeatherace rides high winds with silent grace, using the emoji-like marking on its chest to signal its flock from afar. When it drops what it carries, its body becomes startlingly light, letting it burst through the sky with incredible speed.",,,"From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -.",Magnus,,31
 13,bolthook,Bolthook,Dark,Flying,Strong Jaw,Intimidate,Pressure,495,95,128,70,60,70,72,,,Gaze,2,86,,2 attack,,,,,,,,,,,,,,,,"Bolthook waits in eerie stillness until prey comes into view. It then spreads its great wings to blot out the sun and strikes with its enormous beak in a single, thunderous blow. The echo of its beak can be heard for miles.",,,"From the Discord concept card (Arvind Frøiland, 2026-05-02): also on the card: Notable moves: Crunch, Brutal Swing, Hurricane, Knock Off. Extra note: Its beak is so heavy that it must spread its wings wide to take off. It rarely flaps unless it needs to strike..",Arvind,,34
 14,wump,Wump,Bug,,Swarm,Run Away,Unburden,300,35,60,45,40,45,75,,,,,,,1 speed,,,,,,,,,,,,,,,,,,,,Arvind,,21
 15,twemp,Twemp,Bug,Grass,Swarm,Leaf Guard,Grassy Surge,380,45,70,100,45,100,20,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,17
 16,florantula,Florantula,Bug,Grass,Swarm,Leaf Guard,Grassy Surge,485,67,105,115,53,115,30,,,,,,,"2 defense, 1 sp_defense",,,,,,,,,,,"Sticky Web (1), Leech Life (1), Bug Bite (1), Synthesis (1), Grassy Glide (1), Seed Bomb (1)",,,,,,,,,Arvind,,24
 17,pipwi,Pipwi,Grass,,Early Bird,Harvest,Grass Pelt,310,50,60,55,30,50,65,,,,,,,1 speed,,,,,,,,,,,,,,,,,,,,Emil,,21
-18,pipwi-utv,Tropistrich,Grass,Flying,Early Bird,Harvest,Tough Claws,495,80,100,75,50,70,120,,,,,,,2 speed,,,,,,,,,,,Trop Kick (evo),,,,,,,,,,,21
+18,pipwi-utv,Tropistrich,Grass,Flying,Early Bird,Harvest,Tough Claws,495,80,100,75,50,70,120,,,,,,,2 speed,,,,,,,,,,,Trop Kick (evo),,,,,,,,,Emil,,24
 19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20,cowfin,Cowfin,Normal,Water,Rain Dish,Own Tempo,Unaware,,,,,,,,,,,,,,,,,,,,,,,,,Milk Drink (1),,,,,,,,,Arvind,,17
 21,mooceon,Mooceon,Normal,Water,Rain Dish,Own Tempo,Unaware,490,155,55,75,70,85,50,Cowfin,Lv 33,,,,,2 hp,,,,,,,,,,,"Flip Turn (1), Wish (1), Scald (1)",Focus Punch,,,,,,,,Arvind,,28
@@ -75,7 +75,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 69,octopearl,Octopearl,Psychic,Water,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
 70,cryoblade,Cryoblade,Ice,,Cold-hearted,Ice Body,Sheer Force,540,95,130,110,50,85,70,,,Frozen Executioner,2.1,182,,3 attack,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",Ivar,,31
 71,roostasaur,Roostasaur,Dragon,Normal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
-72,bygon,Bygon,Ghost,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+72,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 73,leadling,Leadling,Rock,Poison,Sturdy,Toxic Debris,Corrosion,280,45,35,55,50,85,10,,,,,,,1 sp_defense,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,21
 74,leadling-utvikling,Leadling Utvikling,Rock,Poison,Sturdy,Toxic Debris,Corrosion,400,60,50,80,95,100,15,Leadling,Lv 20,,,,,2 sp_defense,,,,,,,,,,,,,,,,,,,,Emil,,17
 75,blylem,Blylem,Rock,Poison,Sturdy,Toxic Debris,Corrosion,525,81,67,102,125,130,20,Leadling Utvikling,Lv 40,Lead Golem,2.6,412,,2 sp_defense,,,,,,,,,,,Stealth Rock (1),,,,,"Born from bones and lead, it rises in polluted lands. Its touch can corrode rock and rot even steel.",,,"From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Sand Stream; height 8'06"", weight 908.3 lbs.",Emil Venge-Kvamme,,38
@@ -108,8 +108,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 102,gaiafinn,Terratyson,Ground,Fighting,Iron Fist,Sand Force,Sand Rush,520,102,136,95,50,67,70,,,,,,,3 attack,,,,,,,,,,,,,,,,,,,,Emil,,21
 103,obsidog,Obsidog,Dark,Rock,Moxie,Intimidate,Rough Skin,340,50,75,70,40,55,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,21
 104,obsidog-utvikling,Obsidog utvikling,Dark,Rock,Moxie,Intimidate,Rough Skin,555,80,128,110,72,90,75,Obsidog,Other: Level 40 At Night,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Emil,,17
-105,wisprake,Wisprake,Ghost,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,10
-106,limulk,Limulk,Fighting,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,10
+105,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+106,limulk,Limulk,Fighting,,Anger Point,Heckler,Mold Breaker,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,14
 107,mortbulk,Mortbulk,Fighting,,Anger Point,Heckler,Mold Breaker,488,90,110,80,40,118,50,,,,,,,2 sp_defense,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
 108,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 109,eivomon,Eivlax,Steel,Dragon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Me,Hardcore badass,Eiv,,7
@@ -125,13 +125,13 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 119,shadrove,Shadrove,Normal,Dark,Illusion,,,510,60,120,60,100,60,110,Shadeem,Dusk Stone,,,,,2 attack,,,,,,,,,,,,,,,,,,,,,Michael,17
 120,autuman,Autuman,Grass,Fighting,Justified,Guts,Wind Rider,500,92,108,82,45,55,118,,,,,,,2 speed,,,,,,,,,,,,,,,,,,,,Arvind,,21
 121,bugmight,Bugmight,Bug,Fighting,Justified,Guts,Tinted Lens,500,108,118,92,45,55,82,,,Hero,1.9,75,,2 attack,,,,,,,,,,,,,,,,Bugmight fights for smiles and justice. It flares its wings like a cape to inspire its allies and crush evil with overwhelming might.,,,"From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Tinted Lens; height 6'03"", weight 165.3 lbs.",Emil Venge-Kvamme,,34
-122,jawie,JAWIE,Fire,Dragon,Strong Jaw,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ivar,,14
-123,jawbreaker,JAWBREAKER,Fire,Dragon,Strong Jaw,,Moxie,530,110,130,82,70,67,71,JAWIE,Lv 42,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Ivar,,21
-124,dreadipede,Dreadipede,Bug,Flying,Mold Breaker,Swarm,Aerilate,360,55,85,65,40,55,60,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Ivar,,21
+122,jawie,JAWIE,Fire,Dragon,Flame Body,Dragonize,Moxie,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ivar,,14
+123,jawbreaker,JAWBREAKER,Fire,Dragon,Flame Body,Dragonize,Moxie,525,110,125,82,70,67,71,JAWIE,Lv 42,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Ivar,,21
+124,dreadipede,Dreadipede,Bug,Flying,Mold Breaker,Battle Armor,Strong Jaw,360,55,85,65,40,55,60,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Ivar,,21
 125,dreadfang,DreadFang,Bug,Flying,Mold Breaker,Battle Armor,Strong Jaw,550,85,135,105,60,65,100,Dreadipede,Lv 59,,,,,3 attack,,,,,,,,,,,Fell Stinger (1),,,,,,,,,Ivar,,24
 126,surfer,Aquat,Water,Ground,Swift Swim,Water Absorb,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ivar,,14
 127,subwaysurfer,Aquway,Water,Ground,Swift Swim,Water Absorb,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ivar,,14
-128,zyzzfu,Zyzzfu,Fighting,Electric,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ivar,,10
+128,zyzzfu,Zyzzfu,Fighting,Electric,Surge Surfer,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ivar,,14
 129,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 130,grincho,Grincho,Normal,Ghost,Unnerve,Insomnia,Shadow Tag,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,14
 131,glac-p-e,Glacépée,Ice,Fighting,Long Reach,Parry Stance,Sniper,510,70,125,85,45,65,120,,,,,,,,,,,,,,,,,,,,,,,,,,,Emil,,17
@@ -143,8 +143,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 137,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 138,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 139,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-140,phantomb,Phantomb,Ghost,Flying,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ivar,,10
-141,sjef,Phantail,Ghost,Flying,Disguise,,,540,55,125,55,125,55,125,Phantomb,Lv 62,,,,,3 speed,,,,,,,,,,,,,,,,,"Hidden, mysterious, fast and phantasmal ghost-flying pokemon.",,,Ivar,,24
+140,phantomb,Phantomb,Ghost,Flying,Disguise,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ivar,,14
+141,sjef,Phantail,Ghost,Flying,Disguise,,,520,55,105,55,125,55,125,Phantomb,Lv 62,,,,,3 speed,,,,,,,,,,,,,,,,,"Hidden, mysterious, fast and phantasmal ghost-flying pokemon.",,,Ivar,,24
 142,moosus,Moosus,Flying,Fairy,Aurora Dancer,,Regenerator,580,130,110,100,70,100,70,,,,,,,,,,,,,,,,,,,,,,,,Legendary moose from old mythology. its altlers and fur glitters and shines like nordic light. once in a while it gallops in the sky it attracts many onlookers,,,arvind,,21
 143,rockedeer,Rockedeer,Fire,Psychic,Dazzling,,Levitate,580,80,90,70,130,70,140,,,,,,,3 speed,,,,,,,,,,,,,,,,,,,,Ruben,,21
 144,sabertann,Sabertann,Dark,Water,Good as Gold,,Supreme Overlord,580,115,140,80,90,75,80,,,,,,,3 attack,,,,,,,,,,,,,,,,,"A sabertooth pirate pokemon, who roams the 7 seas.",,,Emil,Emil & Arvind,24

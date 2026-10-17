@@ -3,7 +3,7 @@ dex: 18
 name: Tropistrich
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Emil         # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Grass, Flying]   # 1 or 2 types, e.g. [Grass, Steel]

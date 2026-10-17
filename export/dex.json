@@ -1095,9 +1095,9 @@
       "weight_kg": 1.9,
       "body_color": null,
       "abilities": {
-        "primary": "Keen Eye",
-        "secondary": null,
-        "hidden": null
+        "primary": "Unburden",
+        "secondary": "Keen Eye",
+        "hidden": "Gale Wings"
       },
       "base_stats": {
         "hp": 44,
@@ -1179,9 +1179,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Unburden",
+        "secondary": "Keen Eye",
+        "hidden": "Gale Wings"
       },
       "base_stats": {
         "hp": null,
@@ -1264,8 +1264,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Unburden",
-        "secondary": null,
-        "hidden": null
+        "secondary": "Keen Eye",
+        "hidden": "Gale Wings"
       },
       "base_stats": {
         "hp": 67,
@@ -1782,7 +1782,7 @@
       "dex": 18,
       "name": "Tropistrich",
       "credits": {
-        "designer": null,
+        "designer": "Emil",
         "artist": null
       },
       "types": [
@@ -6324,86 +6324,6 @@
       "id": "roostasaur"
     },
     {
-      "dex": 72,
-      "name": "Bygon",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [
-        "Ghost",
-        "Rock"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
-      },
-      "assets": {
-        "concept_art": null,
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "bygon"
-    },
-    {
       "dex": 73,
       "name": "Leadling",
       "credits": {
@@ -9062,89 +8982,6 @@
       "id": "obsidog-utvikling"
     },
     {
-      "dex": 105,
-      "name": "Wisprake",
-      "credits": {
-        "designer": "Michael",
-        "artist": null
-      },
-      "types": [
-        "Ghost"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement"
-        ],
-        "body_shape": "only a head",
-        "movement": "It floats in the air.",
-        "look": "It is a drifting round ball of magenta and dark-purple flames with two narrow pale-pink eyes with black outlines. Long ragged trails of fire in pink, purple and black stream behind it like a tail."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/wisprake/591.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "wisprake"
-    },
-    {
       "dex": 106,
       "name": "Limulk",
       "credits": {
@@ -9160,9 +8997,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Anger Point",
+        "secondary": "Heckler",
+        "hidden": "Mold Breaker"
       },
       "base_stats": {
         "hp": null,
@@ -10441,9 +10278,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Strong Jaw",
-        "secondary": null,
-        "hidden": null
+        "primary": "Flame Body",
+        "secondary": "Dragonize",
+        "hidden": "Moxie"
       },
       "base_stats": {
         "hp": null,
@@ -10527,13 +10364,13 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Strong Jaw",
-        "secondary": null,
+        "primary": "Flame Body",
+        "secondary": "Dragonize",
         "hidden": "Moxie"
       },
       "base_stats": {
         "hp": 110,
-        "attack": 130,
+        "attack": 125,
         "defense": 82,
         "sp_attack": 70,
         "sp_defense": 67,
@@ -10610,8 +10447,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Mold Breaker",
-        "secondary": "Swarm",
-        "hidden": "Aerilate"
+        "secondary": "Battle Armor",
+        "hidden": "Strong Jaw"
       },
       "base_stats": {
         "hp": 55,
@@ -10944,7 +10781,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Surge Surfer",
         "secondary": null,
         "hidden": null
       },
@@ -11388,7 +11225,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Disguise",
         "secondary": null,
         "hidden": null
       },
@@ -11480,7 +11317,7 @@
       },
       "base_stats": {
         "hp": 55,
-        "attack": 125,
+        "attack": 105,
         "defense": 55,
         "sp_attack": 125,
         "sp_defense": 55,
