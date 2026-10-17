@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 134 / 138 |
-| Identity | designer credit | 113 / 138 |
-| Dex page | category | 40 / 138 |
-| Dex page | description | 41 / 138 |
-| Dex page | height | 28 / 138 |
-| Dex page | weight | 26 / 138 |
-| Dex page | body color | 2 / 138 |
-| Stats | base stats | 109 / 138 |
-| Stats | ability | 119 / 138 |
-| Stats | EV yield | 74 / 138 |
-| Stats | catch rate | 1 / 138 |
-| Stats | base exp | 1 / 138 |
-| Stats | growth rate | 1 / 138 |
-| Stats | base friendship | 1 / 138 |
-| Breeding | gender | 1 / 138 |
-| Breeding | egg groups | 1 / 138 |
-| Breeding | egg cycles | 1 / 138 |
-| Moves | level-up moves | 34 / 138 |
-| Moves | TM/HM moves | 4 / 138 |
-| Location | encounters | 2 / 138 |
-| Design | concept | 11 / 138 |
-| Art | concept art | 125 / 138 |
-| Art | front sprite | 4 / 138 |
-| Art | front animation frame | 4 / 138 |
-| Art | back sprite | 4 / 138 |
-| Art | icon | 4 / 138 |
-| Art | footprint | 0 / 138 |
-| Art | shiny palette | 0 / 138 |
-| Art | cry | 0 / 138 |
+| Identity | types | 136 / 140 |
+| Identity | designer credit | 115 / 140 |
+| Dex page | category | 40 / 140 |
+| Dex page | description | 41 / 140 |
+| Dex page | height | 28 / 140 |
+| Dex page | weight | 26 / 140 |
+| Dex page | body color | 2 / 140 |
+| Stats | base stats | 109 / 140 |
+| Stats | ability | 119 / 140 |
+| Stats | EV yield | 74 / 140 |
+| Stats | catch rate | 1 / 140 |
+| Stats | base exp | 1 / 140 |
+| Stats | growth rate | 1 / 140 |
+| Stats | base friendship | 1 / 140 |
+| Breeding | gender | 1 / 140 |
+| Breeding | egg groups | 1 / 140 |
+| Breeding | egg cycles | 1 / 140 |
+| Moves | level-up moves | 34 / 140 |
+| Moves | TM/HM moves | 4 / 140 |
+| Location | encounters | 2 / 140 |
+| Design | concept | 13 / 140 |
+| Art | concept art | 127 / 140 |
+| Art | front sprite | 4 / 140 |
+| Art | front animation frame | 4 / 140 |
+| Art | back sprite | 4 / 140 |
+| Art | icon | 4 / 140 |
+| Art | footprint | 0 / 140 |
+| Art | shiny palette | 0 / 140 |
+| Art | cry | 0 / 140 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 12 / 138 |
-| DS back sprite 80x80 | 12 / 138 |
-| DS icon 32x32 | 12 / 138 |
+| DS front sprite 80x80 | 13 / 140 |
+| DS back sprite 80x80 | 13 / 140 |
+| DS icon 32x32 | 13 / 140 |
 
-## Open dex slots (13)
+## Open dex slots (11)
 
-#19, #34, #35, #93, #105, #108, #129, #133, #134, #136, #137, #138, #139
+#19, #93, #105, #108, #129, #133, #134, #136, #137, #138, #139
 
 ## Missing per Pokemon
 
@@ -365,6 +365,24 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #34 [blutie](data/species/coati.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #35 [coatail](data/species/coatail.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #36 [Nukfae](data/species/nukfae.yaml) - 31%

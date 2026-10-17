@@ -2749,5 +2749,47 @@
     "file": "assets/concept-art/phantomb/783.png",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 785,
+    "species": "rainbro",
+    "file": "assets/concept-art/rainbro/785.png",
+    "caption": "[ds-back] sprite #83",
+    "editor": null
+  },
+  {
+    "id": 788,
+    "species": "rainbro",
+    "file": "assets/concept-art/rainbro/788.png",
+    "caption": "[ds-front] sprite #83",
+    "editor": null
+  },
+  {
+    "id": 790,
+    "species": "rainbro",
+    "file": "assets/concept-art/rainbro/790.png",
+    "caption": "[ds-icon] sprite #83",
+    "editor": null
+  },
+  {
+    "id": 791,
+    "species": "rainbro",
+    "file": "assets/concept-art/rainbro/791.png",
+    "caption": "[ds-follower] sprite #83",
+    "editor": null
+  },
+  {
+    "id": 792,
+    "species": "coati",
+    "file": "assets/concept-art/coati/792.png",
+    "caption": "pasted",
+    "editor": null
+  },
+  {
+    "id": 793,
+    "species": "coatail",
+    "file": "assets/concept-art/coatail/793.png",
+    "caption": "pasted",
+    "editor": null
   }
 ]

@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**138 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
+**140 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -42,8 +42,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 31 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Cursed Body, Lightning Rod, Galvanize (H) | 504 |  | 31% |
 | 32 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice | Moody | 462 |  | 14% |
 | 33 | [Rainbro](data/species/rainbro.yaml) |  | Punchable Face | 490 |  | 10% |
-| 34 | *open slot* | | | | | |
-| 35 | *open slot* | | | | | |
+| 34 | [blutie](data/species/coati.yaml) | Normal |  |  |  | 14% |
+| 35 | [coatail](data/species/coatail.yaml) | Normal |  |  |  | 14% |
 | 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Sticky Hold (H) | 325 | Toxiren (Lv 38) | 31% |
 | 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Toxic Voice (H) | 500 |  | 38% |
 | 38 | [Stonma](data/species/stonma.yaml) | Rock | Sturdy, Rock Head, Solid Rock (H) | 330 | Sigmauler (Lv 38) | 28% |
