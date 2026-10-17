@@ -540,6 +540,54 @@
         FOOTPRINT(QuestionMark)
     },
 
+    [SPECIES_COWFIN] =
+    {
+        .baseHP = 95,
+        .baseAttack = 35,
+        .baseDefense = 50,
+        .baseSpeed = 30,
+        .baseSpAttack = 45,
+        .baseSpDefense = 60,
+        .types = MON_TYPES(TYPE_NORMAL, TYPE_WATER),
+        .catchRate = 45,
+        .expYield = 64,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_OWN_TEMPO, ABILITY_DRIZZLE, ABILITY_UNAWARE },
+        .bodyColor = BODY_COLOR_GRAY,
+        .speciesName = _("Cowfin"),
+        .cryId = CRY_NONE,
+        .natDexNum = NATIONAL_DEX_COWFIN,
+        .categoryName = _("Unknown"),
+        .height = 0,
+        .weight = 0,
+        .description = COMPOUND_STRING(
+            "This Pokemon has no Pokedex entry yet."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_CircledQuestionMark,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .backPic = gMonBackPic_CircledQuestionMark,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 7,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_CircledQuestionMark,
+        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
+        .iconSprite = gMonIcon_QuestionMark,
+        .iconPalIndex = 0,
+        .levelUpLearnset = sCowfinLevelUpLearnset,
+        .teachableLearnset = sCowfinTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 33, SPECIES_MOOCEON}),
+        FOOTPRINT(QuestionMark)
+    },
+
     [SPECIES_MOOCEON] =
     {
         .baseHP = 155,
@@ -557,7 +605,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_RAIN_DISH, ABILITY_OWN_TEMPO, ABILITY_UNAWARE },
+        .abilities = { ABILITY_OWN_TEMPO, ABILITY_DRIZZLE, ABILITY_UNAWARE },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Mooceon"),
         .cryId = CRY_NONE,
@@ -1041,6 +1089,57 @@
         FOOTPRINT(QuestionMark)
     },
 
+    [SPECIES_CHILLALIT] =
+    {
+        .baseHP = 47,
+        .baseAttack = 95,
+        .baseDefense = 57,
+        .baseSpeed = 119,
+        .baseSpAttack = 109,
+        .baseSpDefense = 68,
+        .types = MON_TYPES(TYPE_FIRE, TYPE_WATER),
+        .catchRate = 45,
+        .expYield = 64,
+        .evYield_Speed = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_SWIFT_SWIM, ABILITY_SOLAR_POWER, ABILITY_BATTLE_BOND },
+        .bodyColor = BODY_COLOR_GRAY,
+        .speciesName = _("Chillalit"),
+        .cryId = CRY_NONE,
+        .natDexNum = NATIONAL_DEX_CHILLALIT,
+        .categoryName = _("Flame Surf"),
+        .height = 11,
+        .weight = 265,
+        .description = COMPOUND_STRING(
+            "Chillalit is a laid-back Pokémon that\n"
+            "rides a surfboard made of fluid water.\n"
+            "It controls the shape and sharpness of\n"
+            "the board to outmaneuver opponents. Its\n"),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_CircledQuestionMark,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .backPic = gMonBackPic_CircledQuestionMark,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 7,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_CircledQuestionMark,
+        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
+        .iconSprite = gMonIcon_QuestionMark,
+        .iconPalIndex = 0,
+        .levelUpLearnset = sChillalitLevelUpLearnset,
+        .teachableLearnset = sChillalitTeachableLearnset,
+        FOOTPRINT(QuestionMark)
+    },
+
     [SPECIES_SPORESHADE] =
     {
         .baseHP = 67,
@@ -1333,11 +1432,11 @@
 
     [SPECIES_EVERDARK] =
     {
-        .baseHP = 60,
+        .baseHP = 65,
         .baseAttack = 125,
         .baseDefense = 75,
         .baseSpeed = 110,
-        .baseSpAttack = 125,
+        .baseSpAttack = 120,
         .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_DARK, TYPE_PSYCHIC),
         .catchRate = 45,

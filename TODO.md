@@ -16,9 +16,9 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | height | 28 / 140 |
 | Dex page | weight | 26 / 140 |
 | Dex page | body color | 2 / 140 |
-| Stats | base stats | 113 / 140 |
-| Stats | ability | 121 / 140 |
-| Stats | EV yield | 76 / 140 |
+| Stats | base stats | 117 / 140 |
+| Stats | ability | 123 / 140 |
+| Stats | EV yield | 77 / 140 |
 | Stats | catch rate | 1 / 140 |
 | Stats | base exp | 1 / 140 |
 | Stats | growth rate | 1 / 140 |
@@ -26,7 +26,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Breeding | gender | 1 / 140 |
 | Breeding | egg groups | 1 / 140 |
 | Breeding | egg cycles | 1 / 140 |
-| Moves | level-up moves | 34 / 140 |
+| Moves | level-up moves | 36 / 140 |
 | Moves | TM/HM moves | 4 / 140 |
 | Location | encounters | 2 / 140 |
 | Design | concept | 13 / 140 |
@@ -43,9 +43,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 16 / 140 |
-| DS back sprite 80x80 | 16 / 140 |
-| DS icon 32x32 | 16 / 140 |
+| DS front sprite 80x80 | 19 / 140 |
+| DS back sprite 80x80 | 19 / 140 |
+| DS icon 32x32 | 19 / 140 |
 
 ## Open dex slots (11)
 
@@ -226,10 +226,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #20 [Cowfin](data/species/cowfin.yaml) - 17%
+### #20 [Cowfin](data/species/cowfin.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** TM/HM moves
 - **Location:** encounters
@@ -367,10 +367,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #34 [blutie](data/species/coati.yaml) - 14%
+### #34 [blutie](data/species/coati.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -475,12 +475,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #45 [Chillalit](data/species/chillalit.yaml) - 31%
+### #45 [Chillalit](data/species/chillalit.yaml) - 38%
 
 - **Dex page:** body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -725,13 +725,13 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #69 [Octopearl](data/species/octopearl.yaml) - 7%
+### #69 [Octopearl](data/species/octopearl.yaml) - 17%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -969,10 +969,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #94 [Skiirtle](data/species/skiirtle.yaml) - 14%
+### #94 [Skiirtle](data/species/skiirtle.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

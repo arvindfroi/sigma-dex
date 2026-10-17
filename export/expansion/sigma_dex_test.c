@@ -313,6 +313,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Tropistrich can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Cowfin has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_COWFIN];
+    EXPECT_EQ(info->baseHP, 95);
+    EXPECT_EQ(info->baseAttack, 35);
+    EXPECT_EQ(info->baseDefense, 50);
+    EXPECT_EQ(info->baseSpeed, 30);
+    EXPECT_EQ(info->baseSpAttack, 45);
+    EXPECT_EQ(info->baseSpDefense, 60);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_WATER);
+    EXPECT_EQ(info->abilities[0], ABILITY_OWN_TEMPO);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_MILK_DRINK);
+    EXPECT_EQ(GetSpeciesName(SPECIES_COWFIN)[0], CHAR_C);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Cowfin can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_COWFIN) { Moves(MOVE_MILK_DRINK); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_MILK_DRINK); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_MILK_DRINK, player);
+    }
+}
+
 TEST("Sigma dex: Mooceon has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_MOOCEON];
@@ -324,7 +352,7 @@ TEST("Sigma dex: Mooceon has the data from its species file")
     EXPECT_EQ(info->baseSpDefense, 85);
     EXPECT_EQ(info->types[0], TYPE_NORMAL);
     EXPECT_EQ(info->types[1], TYPE_WATER);
-    EXPECT_EQ(info->abilities[0], ABILITY_RAIN_DISH);
+    EXPECT_EQ(info->abilities[0], ABILITY_OWN_TEMPO);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FLIP_TURN);
     EXPECT_EQ(GetSpeciesName(SPECIES_MOOCEON)[0], CHAR_M);
 }
@@ -593,6 +621,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Devampry can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Chillalit has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_CHILLALIT];
+    EXPECT_EQ(info->baseHP, 47);
+    EXPECT_EQ(info->baseAttack, 95);
+    EXPECT_EQ(info->baseDefense, 57);
+    EXPECT_EQ(info->baseSpeed, 119);
+    EXPECT_EQ(info->baseSpAttack, 109);
+    EXPECT_EQ(info->baseSpDefense, 68);
+    EXPECT_EQ(info->types[0], TYPE_FIRE);
+    EXPECT_EQ(info->types[1], TYPE_WATER);
+    EXPECT_EQ(info->abilities[0], ABILITY_SWIFT_SWIM);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_HYDRO_STEAM);
+    EXPECT_EQ(GetSpeciesName(SPECIES_CHILLALIT)[0], CHAR_C);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Chillalit can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_CHILLALIT) { Moves(MOVE_HYDRO_STEAM); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_HYDRO_STEAM); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_HYDRO_STEAM, player);
+    }
+}
+
 TEST("Sigma dex: Sporeshade has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SPORESHADE];
@@ -764,11 +820,11 @@ SINGLE_BATTLE_TEST("Sigma dex: DreadFang can use its first move in battle")
 TEST("Sigma dex: Everdark has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_EVERDARK];
-    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseHP, 65);
     EXPECT_EQ(info->baseAttack, 125);
     EXPECT_EQ(info->baseDefense, 75);
     EXPECT_EQ(info->baseSpeed, 110);
-    EXPECT_EQ(info->baseSpAttack, 125);
+    EXPECT_EQ(info->baseSpAttack, 120);
     EXPECT_EQ(info->baseSpDefense, 60);
     EXPECT_EQ(info->types[0], TYPE_DARK);
     EXPECT_EQ(info->types[1], TYPE_PSYCHIC);

@@ -1882,17 +1882,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Rain Dish",
-        "secondary": "Own Tempo",
+        "primary": "Own Tempo",
+        "secondary": "Drizzle",
         "hidden": "Unaware"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 95,
+        "attack": 35,
+        "defense": 50,
+        "sp_attack": 45,
+        "sp_defense": 60,
+        "speed": 30
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -1977,8 +1977,8 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Rain Dish",
-        "secondary": "Own Tempo",
+        "primary": "Own Tempo",
+        "secondary": "Drizzle",
         "hidden": "Unaware"
       },
       "base_stats": {
@@ -2821,9 +2821,9 @@
       },
       "base_stats": {
         "hp": 69,
-        "attack": 80,
+        "attack": 85,
         "defense": 67,
-        "sp_attack": 100,
+        "sp_attack": 95,
         "sp_defense": 78,
         "speed": 110
       },
@@ -2855,7 +2855,10 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": []
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
       },
       "assets": {
         "concept_art": null,
@@ -3156,17 +3159,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Run Away",
+        "secondary": "Quick Feet",
+        "hidden": "Unburden"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 38,
+        "attack": 40,
+        "defense": 41,
+        "sp_attack": 30,
+        "sp_defense": 41,
+        "speed": 65
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -4196,7 +4199,9 @@
         "sp_defense": 68,
         "speed": 119
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -4210,7 +4215,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Hydro Steam"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -4370,7 +4380,7 @@
         "defense": 50,
         "sp_attack": 95,
         "sp_defense": 50,
-        "speed": 125
+        "speed": 130
       },
       "ev_yield": {
         "speed": 2
@@ -6247,17 +6257,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Analytic",
+        "secondary": "Telepathy",
+        "hidden": "Prism Armor"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 53,
+        "defense": 142,
+        "sp_attack": 63,
+        "sp_defense": 152,
+        "speed": 35
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -6273,7 +6283,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Cosmic Shield"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -8286,12 +8301,12 @@
         "hidden": "Reckless"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 40,
+        "attack": 70,
+        "defense": 80,
+        "sp_attack": 30,
+        "sp_defense": 80,
+        "speed": 50
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -10693,9 +10708,9 @@
       "base_stats": {
         "hp": 55,
         "attack": 85,
-        "defense": 65,
+        "defense": 75,
         "sp_attack": 40,
-        "sp_defense": 55,
+        "sp_defense": 45,
         "speed": 60
       },
       "ev_yield": {
@@ -10947,9 +10962,9 @@
       },
       "base_stats": {
         "hp": 80,
-        "attack": 105,
+        "attack": 100,
         "defense": 55,
-        "sp_attack": 85,
+        "sp_attack": 90,
         "sp_defense": 55,
         "speed": 115
       },
@@ -11276,10 +11291,10 @@
         "hidden": "Dark Aura"
       },
       "base_stats": {
-        "hp": 60,
+        "hp": 65,
         "attack": 125,
         "defense": 75,
-        "sp_attack": 125,
+        "sp_attack": 120,
         "sp_defense": 60,
         "speed": 110
       },
@@ -12276,7 +12291,7 @@
       "weight_kg": 285,
       "body_color": null,
       "abilities": {
-        "primary": "Drizzle",
+        "primary": "Primordial Sea",
         "secondary": null,
         "hidden": null
       },
