@@ -105,7 +105,7 @@ static const u16 sCowfinTeachableLearnset[] = {
 };
 
 static const u16 sMooceonTeachableLearnset[] = {
-    MOVE_FOCUS_PUNCH,
+    MOVE_ROAR,
     MOVE_UNAVAILABLE,
 };
 

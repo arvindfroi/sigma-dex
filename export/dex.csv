@@ -23,7 +23,7 @@ until the edge shines like metal.
 18,pipwi-utv,Tropistrich,Grass,Flying,Early Bird,Harvest,Tough Claws,495,80,100,75,50,70,120,,,,,,,2 speed,,,,,,,,,,,Trop Kick (evo),,,,,,,,,Emil,,24
 19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 20,cowfin,Cowfin,Normal,Water,Own Tempo,Drizzle,Unaware,315,95,35,50,45,60,30,,,,,,,,,,,,,,,,,,Milk Drink (1),,,,,,,,,Arvind,,21
-21,mooceon,Mooceon,Normal,Water,Own Tempo,Drizzle,Unaware,490,155,55,75,70,85,50,Cowfin,Lv 33,,,,,2 hp,,,,,,,,,,,"Flip Turn (1), Wish (1), Scald (1)",Focus Punch,,,,,,,,Arvind,,28
+21,mooceon,Mooceon,Normal,Water,Own Tempo,Drizzle,Unaware,490,155,55,75,70,85,50,Cowfin,Lv 33,,,,,2 hp,,,,,,,,,,,"Milk Drink (evo), Flip Turn (1), Wish (1), Scald (1), Milk Drink (1), Sing (1), Hyper Voice (1), Baby-Doll Eyes (1), Ice Beam (1)",Roar,,,,,,,,Arvind,,28
 22,lapper,Lapper,Normal,Fighting,Scrappy,Fur Coat,Hustle,327,60,75,45,25,55,67,,,,,,,,,,,,,,,,,,"Tackle (1), Growl (1), Howl (8), Mud-Slap (12), Double Slap (16), Wake-Up Slap (20), Take Down (24)",,,,,,,,,Emil Venge-Kvamme,,21
 23,brawleo,Brawleo,Normal,Fighting,Scrappy,Fur Coat,Technician,485,80,110,67,45,80,103,Lapper,Lv 25,Guard Dog,,,,2 attack,,,,,,,,,,,Mach Punch (evo),,,,,It swings its ears like fists to slap the target. Its tough fur protects it while it fights.,,,"From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 50, male.",Emil Venge-Kvamme,,31
 24,sigmanian-sudowoodo,Sigmanian Sudowoodo,Rock,Ground,Iron Barbs,Sand Veil,Sand Force,410,75,100,115,25,65,30,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,17
@@ -75,7 +75,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 69,octopearl,Octopearl,Psychic,Water,Analytic,Telepathy,Prism Armor,495,50,53,142,63,152,35,,,,,,,,,,,,,,,,,,Cosmic Shield (evo),,,,,,,,,,,17
 70,cryoblade,Cryoblade,Ice,,Cold-hearted,Ice Body,Refrigerate,540,95,130,110,50,85,70,,,Frozen Executioner,2.1,182,,3 attack,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",Ivar,,31
 71,roostasaur,Roostasaur,Dragon,Normal,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,7
-72,bygon,Bygon,Ghost,Rock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3
+72,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 73,leadling,Leadling,Rock,Poison,Sturdy,Toxic Debris,Corrosion,280,45,35,55,50,85,10,,,,,,,1 sp_defense,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,,21
 74,leadling-utvikling,Leadling Utvikling,Rock,Poison,Sturdy,Toxic Debris,Corrosion,400,60,50,80,95,100,15,Leadling,Lv 20,,,,,2 sp_defense,,,,,,,,,,,,,,,,,,,,Emil,,17
 75,blylem,Blylem,Rock,Poison,Sturdy,Toxic Debris,Corrosion,525,81,67,102,125,130,20,Leadling Utvikling,Lv 40,Lead Golem,2.6,412,,2 sp_defense,,,,,,,,,,,Stealth Rock (1),,,,,"Born from bones and lead, it rises in polluted lands. Its touch can corrode rock and rot even steel.",,,"From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Sand Stream; height 8'06"", weight 908.3 lbs.",Emil Venge-Kvamme,,38
@@ -92,17 +92,17 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 86,verrith,Verrith,Ghost,Steel,Fog Of War,,Neutralizing Gas,555,85,125,130,120,55,40,,,,,,,3 defense,,,,,,,,,,,,,,,,,,,,Casper,,21
 87,sigmanian-komala,Sigmanian Komala,Normal,,Drunken Rage,Poison Heal,Toxic Boost,348,67,82,62,46,48,43,,,,,,,1 attack,,,,,,,,,,,,,,,,,the drowsy toxin pokemon,,,Magnus,Magnus,24
 88,dahrugula,Dahrugula,Normal,,Drunken Rage,Poison Heal,Toxic Boost,540,140,124,78,69,71,58,Sigmanian Komala,Lv 32,,,,,2 hp,,,,,,,,,,,Facade (1),,,,,,,"the name comes from dharuk gula, wich is the origin of the name koala. also sounds like drunk",,Magnus,Magnus,24
-89,vires,Vires,Fairy,,Mirror Armor,,,325,60,35,80,55,55,40,,,,,,,,,,,,,,,,,,,,,,,,Small cute pokemon based on viruses. with transparent pink crystals.,,,Arvind,Arvind,21
+89,vires,Vires,Fairy,,Mirror Armor,Symbiosis,Hospitality,325,60,35,80,55,55,40,,,,,,,,,,,,,,,,,,,,,,,,Small cute pokemon based on viruses. with transparent pink crystals.,,,Arvind,Arvind,21
 90,flurina,Flurina,Fairy,,Mirror Armor,Symbiosis,Hospitality,490,80,50,115,95,90,60,,,,,,,2 defense,,,,,,,,,,,,,,,,,A calm and compased cute  pokemon based of a virus. it has pink transparent crystals,,,Arvind,Arvind,24
-91,dragem,Dragem,Dragon,Ground,Sand Stream,Rough Skin,Multiscale,500,88,120,90,54,90,58,,,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
+91,dragem,Dragem,Dragon,Rock,Sand Stream,Rough Skin,Multiscale,515,90,122,100,55,90,58,,,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
 92,quimsy,Quimsy,Normal,Psychic,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,,10
 93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 94,skiirtle,Skiirtle,Fire,,Speed Boost,,Reckless,350,40,70,80,30,80,50,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,17
 95,mcskiirtle,McSkiirtle,Fire,Electric,Speed Boost,,Reckless,485,60,100,100,55,100,70,,,,,,,,,,,,,,,,,,"Shell Smash (1), Flare Blitz (1), Volt Tackle (1)",,,,,,,,,,,17
 96,ambuger,ambuger,Rock,Bug,Shell Armor,Overcoat,Infiltrator,350,45,50,100,30,75,50,,,,,,,,,,,,,,,,,,,,,,,,Mosquito trapped in amber. fossil pokemon.,,,Arvind,Arvind,21
 97,ambcoptr,Ambrr,Rock,Bug,Levitate,Overcoat,Infiltrator,495,60,90,100,45,75,125,ambuger,Lv 40,,,,,2 speed,,,,,,,,,,,,,,,,,Evolution of amburger. gains amber goggles and wings that rotate,,,Arvind,Arvind,24
-98,tortoplasm,Tortoplasm,Rock,Ghost,Cursed Body,Weak Armor,Perish Body,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,14
-99,tortoplasm-utviklet,Tortoplasm utviklet,Rock,Ghost,Cursed Body,Weak Armor,Perish Body,495,75,60,125,90,100,45,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,,14
+98,tortoplasm,Tortoplasm,Rock,Ghost,Cursed Body,Weak Armor,Perish Body,350,50,40,95,65,75,25,,,,,,,1 defense,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,21
+99,tortoplasm-utviklet,Tortoplasm utviklet,Rock,Ghost,Cursed Body,Weak Armor,Perish Body,495,75,60,125,90,100,45,,,,,,,2 defense,,,,,,,,,,,,,,,,,,,,Arvind,,17
 100,slothbaby,Slothbaby,Fire,,Truant,,,420,90,105,50,40,50,85,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil,,21
 101,slothbaby-utviklet,Blazlothku,Fire,Fighting,Sloth Combat,,,520,100,130,73,50,67,100,Slothbaby,Lv 40,,,,,2 attack,,,,,,,,,,,Close Combat (evo),,,,,,,,,Emil,,24
 102,gaiafinn,Terratyson,Ground,Fighting,Iron Fist,Sand Force,Sand Rush,520,102,136,95,50,67,70,,,,,,,3 attack,,,,,,,,,,,,,,,,,,,,Emil,,21

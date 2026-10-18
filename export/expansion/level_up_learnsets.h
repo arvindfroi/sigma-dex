@@ -101,9 +101,15 @@ static const struct LevelUpMove sCowfinLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sMooceonLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 0, MOVE_MILK_DRINK),
     LEVEL_UP_MOVE( 1, MOVE_FLIP_TURN),
     LEVEL_UP_MOVE( 1, MOVE_WISH),
     LEVEL_UP_MOVE( 1, MOVE_SCALD),
+    LEVEL_UP_MOVE( 1, MOVE_MILK_DRINK),
+    LEVEL_UP_MOVE( 1, MOVE_SING),
+    LEVEL_UP_MOVE( 1, MOVE_HYPER_VOICE),
+    LEVEL_UP_MOVE( 1, MOVE_BABY_DOLL_EYES),
+    LEVEL_UP_MOVE( 1, MOVE_ICE_BEAM),
     LEVEL_UP_END
 };
 

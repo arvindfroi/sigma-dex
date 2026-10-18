@@ -353,19 +353,19 @@ TEST("Sigma dex: Mooceon has the data from its species file")
     EXPECT_EQ(info->types[0], TYPE_NORMAL);
     EXPECT_EQ(info->types[1], TYPE_WATER);
     EXPECT_EQ(info->abilities[0], ABILITY_OWN_TEMPO);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FLIP_TURN);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_MILK_DRINK);
     EXPECT_EQ(GetSpeciesName(SPECIES_MOOCEON)[0], CHAR_M);
 }
 
 SINGLE_BATTLE_TEST("Sigma dex: Mooceon can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_MOOCEON) { Moves(MOVE_FLIP_TURN); }
+        PLAYER(SPECIES_MOOCEON) { Moves(MOVE_MILK_DRINK); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_FLIP_TURN); }
+        TURN { MOVE(player, MOVE_MILK_DRINK); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_FLIP_TURN, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_MILK_DRINK, player);
     }
 }
 
