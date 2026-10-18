@@ -2121,27 +2121,6 @@
     "editor": null
   },
   {
-    "id": 631,
-    "species": "dahrugula",
-    "file": "assets/concept-art/dahrugula/631.png",
-    "caption": "[ds-back] sprite #54",
-    "editor": null
-  },
-  {
-    "id": 632,
-    "species": "dahrugula",
-    "file": "assets/concept-art/dahrugula/632.png",
-    "caption": "[ds-icon] sprite #54",
-    "editor": null
-  },
-  {
-    "id": 633,
-    "species": "dahrugula",
-    "file": "assets/concept-art/dahrugula/633.png",
-    "caption": "[ds-follower] sprite #54",
-    "editor": null
-  },
-  {
     "id": 634,
     "species": "sigmanian-sudowoodo",
     "file": "assets/concept-art/sigmanian-sudowoodo/634.png",
@@ -2149,24 +2128,10 @@
     "editor": null
   },
   {
-    "id": 635,
-    "species": "sigmanian-sudowoodo",
-    "file": "assets/concept-art/sigmanian-sudowoodo/635.png",
-    "caption": "[ds-back] sprite #55",
-    "editor": null
-  },
-  {
     "id": 636,
     "species": "sigmanian-sudowoodo",
     "file": "assets/concept-art/sigmanian-sudowoodo/636.png",
     "caption": "[ds-icon] sprite #55",
-    "editor": null
-  },
-  {
-    "id": 637,
-    "species": "sigmanian-sudowoodo",
-    "file": "assets/concept-art/sigmanian-sudowoodo/637.png",
-    "caption": "[ds-follower] sprite #55",
     "editor": null
   },
   {
@@ -2254,13 +2219,6 @@
     "editor": null
   },
   {
-    "id": 680,
-    "species": "florantula",
-    "file": "assets/concept-art/florantula/680.png",
-    "caption": "[ds-icon] sprite #67",
-    "editor": null
-  },
-  {
     "id": 681,
     "species": "florantula",
     "file": "assets/concept-art/florantula/681.png",
@@ -2300,27 +2258,6 @@
     "species": "stonma",
     "file": "assets/concept-art/stonma/689.png",
     "caption": "[ds-front] sprite #69",
-    "editor": null
-  },
-  {
-    "id": 690,
-    "species": "stonma",
-    "file": "assets/concept-art/stonma/690.png",
-    "caption": "[ds-back] sprite #69",
-    "editor": null
-  },
-  {
-    "id": 691,
-    "species": "stonma",
-    "file": "assets/concept-art/stonma/691.png",
-    "caption": "[ds-icon] sprite #69",
-    "editor": null
-  },
-  {
-    "id": 692,
-    "species": "stonma",
-    "file": "assets/concept-art/stonma/692.png",
-    "caption": "[ds-follower] sprite #69",
     "editor": null
   },
   {
@@ -2415,27 +2352,6 @@
     "editor": null
   },
   {
-    "id": 706,
-    "species": "leadling",
-    "file": "assets/concept-art/leadling/706.png",
-    "caption": "[ds-back] sprite #71",
-    "editor": null
-  },
-  {
-    "id": 707,
-    "species": "leadling",
-    "file": "assets/concept-art/leadling/707.png",
-    "caption": "[ds-icon] sprite #71",
-    "editor": null
-  },
-  {
-    "id": 708,
-    "species": "leadling",
-    "file": "assets/concept-art/leadling/708.png",
-    "caption": "[ds-follower] sprite #71",
-    "editor": null
-  },
-  {
     "id": 714,
     "species": "viridub",
     "file": "assets/concept-art/viridub/714.webp",
@@ -2457,38 +2373,10 @@
     "editor": null
   },
   {
-    "id": 717,
-    "species": "viridub",
-    "file": "assets/concept-art/viridub/717.png",
-    "caption": "[ds-back] sprite #75",
-    "editor": null
-  },
-  {
-    "id": 718,
-    "species": "viridub",
-    "file": "assets/concept-art/viridub/718.png",
-    "caption": "[ds-icon] sprite #75",
-    "editor": null
-  },
-  {
-    "id": 719,
-    "species": "viridub",
-    "file": "assets/concept-art/viridub/719.png",
-    "caption": "[ds-follower] sprite #75",
-    "editor": null
-  },
-  {
     "id": 732,
     "species": "motinky",
     "file": "assets/concept-art/motinky/732.png",
     "caption": "[ds-front] sprite #77",
-    "editor": null
-  },
-  {
-    "id": 733,
-    "species": "motinky",
-    "file": "assets/concept-art/motinky/733.png",
-    "caption": "[ds-back] sprite #77",
     "editor": null
   },
   {
@@ -2513,24 +2401,10 @@
     "editor": null
   },
   {
-    "id": 741,
-    "species": "balleisk",
-    "file": "assets/concept-art/balleisk/741.png",
-    "caption": "[ds-back] sprite #79",
-    "editor": null
-  },
-  {
     "id": 742,
     "species": "balleisk",
     "file": "assets/concept-art/balleisk/742.png",
     "caption": "[ds-icon] sprite #79",
-    "editor": null
-  },
-  {
-    "id": 743,
-    "species": "balleisk",
-    "file": "assets/concept-art/balleisk/743.png",
-    "caption": "[ds-follower] sprite #79",
     "editor": null
   },
   {
@@ -2541,52 +2415,10 @@
     "editor": null
   },
   {
-    "id": 749,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/749.png",
-    "caption": "[ds-back] sprite #80",
-    "editor": null
-  },
-  {
-    "id": 750,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/750.png",
-    "caption": "[ds-icon] sprite #80",
-    "editor": null
-  },
-  {
-    "id": 751,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/751.png",
-    "caption": "[ds-follower] sprite #80",
-    "editor": null
-  },
-  {
     "id": 752,
     "species": "leafing",
     "file": "assets/concept-art/leafing/752.png",
     "caption": "[ds-front] sprite #81",
-    "editor": null
-  },
-  {
-    "id": 753,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/753.png",
-    "caption": "[ds-back] sprite #81",
-    "editor": null
-  },
-  {
-    "id": 754,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/754.png",
-    "caption": "[ds-icon] sprite #81",
-    "editor": null
-  },
-  {
-    "id": 755,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/755.png",
-    "caption": "[ds-follower] sprite #81",
     "editor": null
   },
   {
@@ -2751,13 +2583,6 @@
     "editor": null
   },
   {
-    "id": 785,
-    "species": "rainbro",
-    "file": "assets/concept-art/rainbro/785.png",
-    "caption": "[ds-back] sprite #83",
-    "editor": null
-  },
-  {
     "id": 788,
     "species": "rainbro",
     "file": "assets/concept-art/rainbro/788.png",
@@ -2807,24 +2632,10 @@
     "editor": null
   },
   {
-    "id": 796,
-    "species": "sigmanian-komala",
-    "file": "assets/concept-art/sigmanian-komala/796.png",
-    "caption": "[ds-icon] sprite #85",
-    "editor": null
-  },
-  {
     "id": 797,
     "species": "sigmanian-komala",
     "file": "assets/concept-art/sigmanian-komala/797.png",
     "caption": "[ds-follower] sprite #85",
-    "editor": null
-  },
-  {
-    "id": 803,
-    "species": "ambuger",
-    "file": "assets/concept-art/ambuger/803.png",
-    "caption": "[ds-back] sprite #88",
     "editor": null
   },
   {
@@ -2856,13 +2667,6 @@
     "editor": null
   },
   {
-    "id": 816,
-    "species": "ambcoptr",
-    "file": "assets/concept-art/ambcoptr/816.png",
-    "caption": "[ds-icon] sprite #90",
-    "editor": null
-  },
-  {
     "id": 817,
     "species": "ambcoptr",
     "file": "assets/concept-art/ambcoptr/817.png",
@@ -2874,27 +2678,6 @@
     "species": "bolthook",
     "file": "assets/concept-art/bolthook/822.png",
     "caption": "[ds-front] sprite #91",
-    "editor": null
-  },
-  {
-    "id": 823,
-    "species": "bolthook",
-    "file": "assets/concept-art/bolthook/823.png",
-    "caption": "[ds-back] sprite #91",
-    "editor": null
-  },
-  {
-    "id": 824,
-    "species": "bolthook",
-    "file": "assets/concept-art/bolthook/824.png",
-    "caption": "[ds-icon] sprite #91",
-    "editor": null
-  },
-  {
-    "id": 825,
-    "species": "bolthook",
-    "file": "assets/concept-art/bolthook/825.png",
-    "caption": "[ds-follower] sprite #91",
     "editor": null
   },
   {
@@ -2919,13 +2702,6 @@
     "editor": null
   },
   {
-    "id": 829,
-    "species": "cowfin",
-    "file": "assets/concept-art/cowfin/829.png",
-    "caption": "[ds-follower] sprite #92",
-    "editor": null
-  },
-  {
     "id": 830,
     "species": "mooceon",
     "file": "assets/concept-art/mooceon/830.png",
@@ -2944,13 +2720,6 @@
     "species": "mooceon",
     "file": "assets/concept-art/mooceon/833.png",
     "caption": "[ds-icon] sprite #94",
-    "editor": null
-  },
-  {
-    "id": 834,
-    "species": "mooceon",
-    "file": "assets/concept-art/mooceon/834.png",
-    "caption": "[ds-follower] sprite #94",
     "editor": null
   },
   {
@@ -2996,13 +2765,6 @@
     "editor": null
   },
   {
-    "id": 857,
-    "species": "coatail",
-    "file": "assets/concept-art/coatail/857.png",
-    "caption": "[ds-icon] sprite #100",
-    "editor": null
-  },
-  {
     "id": 858,
     "species": "coatail",
     "file": "assets/concept-art/coatail/858.png",
@@ -3031,20 +2793,6 @@
     "editor": null
   },
   {
-    "id": 865,
-    "species": "limulk",
-    "file": "assets/concept-art/limulk/865.png",
-    "caption": "[ds-icon] sprite #101",
-    "editor": null
-  },
-  {
-    "id": 866,
-    "species": "limulk",
-    "file": "assets/concept-art/limulk/866.png",
-    "caption": "[ds-follower] sprite #101",
-    "editor": null
-  },
-  {
     "id": 867,
     "species": "ambuger",
     "file": "assets/concept-art/ambuger/867.png",
@@ -3056,13 +2804,6 @@
     "species": "snownin",
     "file": "assets/concept-art/snownin/871.png",
     "caption": "[ds-front] sprite #103",
-    "editor": null
-  },
-  {
-    "id": 872,
-    "species": "snownin",
-    "file": "assets/concept-art/snownin/872.png",
-    "caption": "[ds-back] sprite #103",
     "editor": null
   },
   {
@@ -3078,5 +2819,264 @@
     "file": "assets/concept-art/snownin/874.png",
     "caption": "[ds-follower] sprite #103",
     "editor": null
+  },
+  {
+    "id": 881,
+    "species": "ambcoptr",
+    "file": "assets/concept-art/ambcoptr/881.png",
+    "caption": "[ds-icon] sprite #106",
+    "editor": "Arvind"
+  },
+  {
+    "id": 884,
+    "species": "ambuger",
+    "file": "assets/concept-art/ambuger/884.png",
+    "caption": "[ds-back] sprite #107",
+    "editor": "Arvind"
+  },
+  {
+    "id": 888,
+    "species": "balleisk",
+    "file": "assets/concept-art/balleisk/888.png",
+    "caption": "[ds-back] sprite #108",
+    "editor": "Arvind"
+  },
+  {
+    "id": 890,
+    "species": "balleisk",
+    "file": "assets/concept-art/balleisk/890.png",
+    "caption": "[ds-follower] sprite #108",
+    "editor": "Arvind"
+  },
+  {
+    "id": 892,
+    "species": "bolthook",
+    "file": "assets/concept-art/bolthook/892.png",
+    "caption": "[ds-back] sprite #109",
+    "editor": "Arvind"
+  },
+  {
+    "id": 893,
+    "species": "bolthook",
+    "file": "assets/concept-art/bolthook/893.png",
+    "caption": "[ds-icon] sprite #109",
+    "editor": "Arvind"
+  },
+  {
+    "id": 894,
+    "species": "bolthook",
+    "file": "assets/concept-art/bolthook/894.png",
+    "caption": "[ds-follower] sprite #109",
+    "editor": "Arvind"
+  },
+  {
+    "id": 897,
+    "species": "coatail",
+    "file": "assets/concept-art/coatail/897.png",
+    "caption": "[ds-icon] sprite #110",
+    "editor": "Arvind"
+  },
+  {
+    "id": 902,
+    "species": "cowfin",
+    "file": "assets/concept-art/cowfin/902.png",
+    "caption": "[ds-follower] sprite #111",
+    "editor": "Arvind"
+  },
+  {
+    "id": 904,
+    "species": "dahrugula",
+    "file": "assets/concept-art/dahrugula/904.png",
+    "caption": "[ds-back] sprite #112",
+    "editor": "Arvind"
+  },
+  {
+    "id": 905,
+    "species": "dahrugula",
+    "file": "assets/concept-art/dahrugula/905.png",
+    "caption": "[ds-icon] sprite #112",
+    "editor": "Arvind"
+  },
+  {
+    "id": 906,
+    "species": "dahrugula",
+    "file": "assets/concept-art/dahrugula/906.png",
+    "caption": "[ds-follower] sprite #112",
+    "editor": "Arvind"
+  },
+  {
+    "id": 909,
+    "species": "florantula",
+    "file": "assets/concept-art/florantula/909.png",
+    "caption": "[ds-icon] sprite #113",
+    "editor": "Arvind"
+  },
+  {
+    "id": 912,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/912.png",
+    "caption": "[ds-back] sprite #114",
+    "editor": "Arvind"
+  },
+  {
+    "id": 913,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/913.png",
+    "caption": "[ds-icon] sprite #114",
+    "editor": "Arvind"
+  },
+  {
+    "id": 914,
+    "species": "leadling",
+    "file": "assets/concept-art/leadling/914.png",
+    "caption": "[ds-follower] sprite #114",
+    "editor": "Arvind"
+  },
+  {
+    "id": 916,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/916.png",
+    "caption": "[ds-back] sprite #115",
+    "editor": "Arvind"
+  },
+  {
+    "id": 917,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/917.png",
+    "caption": "[ds-icon] sprite #115",
+    "editor": "Arvind"
+  },
+  {
+    "id": 918,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/918.png",
+    "caption": "[ds-follower] sprite #115",
+    "editor": "Arvind"
+  },
+  {
+    "id": 921,
+    "species": "limulk",
+    "file": "assets/concept-art/limulk/921.png",
+    "caption": "[ds-icon] sprite #116",
+    "editor": "Arvind"
+  },
+  {
+    "id": 922,
+    "species": "limulk",
+    "file": "assets/concept-art/limulk/922.png",
+    "caption": "[ds-follower] sprite #116",
+    "editor": "Arvind"
+  },
+  {
+    "id": 926,
+    "species": "mooceon",
+    "file": "assets/concept-art/mooceon/926.png",
+    "caption": "[ds-follower] sprite #117",
+    "editor": "Arvind"
+  },
+  {
+    "id": 928,
+    "species": "motinky",
+    "file": "assets/concept-art/motinky/928.png",
+    "caption": "[ds-back] sprite #118",
+    "editor": "Arvind"
+  },
+  {
+    "id": 932,
+    "species": "rainbro",
+    "file": "assets/concept-art/rainbro/932.png",
+    "caption": "[ds-back] sprite #119",
+    "editor": "Arvind"
+  },
+  {
+    "id": 937,
+    "species": "sigmanian-komala",
+    "file": "assets/concept-art/sigmanian-komala/937.png",
+    "caption": "[ds-icon] sprite #120",
+    "editor": "Arvind"
+  },
+  {
+    "id": 940,
+    "species": "sigmanian-sudowoodo",
+    "file": "assets/concept-art/sigmanian-sudowoodo/940.png",
+    "caption": "[ds-back] sprite #121",
+    "editor": "Arvind"
+  },
+  {
+    "id": 942,
+    "species": "sigmanian-sudowoodo",
+    "file": "assets/concept-art/sigmanian-sudowoodo/942.png",
+    "caption": "[ds-follower] sprite #121",
+    "editor": "Arvind"
+  },
+  {
+    "id": 944,
+    "species": "snownin",
+    "file": "assets/concept-art/snownin/944.png",
+    "caption": "[ds-back] sprite #122",
+    "editor": "Arvind"
+  },
+  {
+    "id": 948,
+    "species": "stonma",
+    "file": "assets/concept-art/stonma/948.png",
+    "caption": "[ds-back] sprite #123",
+    "editor": "Arvind"
+  },
+  {
+    "id": 949,
+    "species": "stonma",
+    "file": "assets/concept-art/stonma/949.png",
+    "caption": "[ds-icon] sprite #123",
+    "editor": "Arvind"
+  },
+  {
+    "id": 950,
+    "species": "stonma",
+    "file": "assets/concept-art/stonma/950.png",
+    "caption": "[ds-follower] sprite #123",
+    "editor": "Arvind"
+  },
+  {
+    "id": 952,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/952.png",
+    "caption": "[ds-back] sprite #124",
+    "editor": "Arvind"
+  },
+  {
+    "id": 953,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/953.png",
+    "caption": "[ds-icon] sprite #124",
+    "editor": "Arvind"
+  },
+  {
+    "id": 954,
+    "species": "viridub",
+    "file": "assets/concept-art/viridub/954.png",
+    "caption": "[ds-follower] sprite #124",
+    "editor": "Arvind"
+  },
+  {
+    "id": 956,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/956.png",
+    "caption": "[ds-back] sprite #125",
+    "editor": "Arvind"
+  },
+  {
+    "id": 957,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/957.png",
+    "caption": "[ds-icon] sprite #125",
+    "editor": "Arvind"
+  },
+  {
+    "id": 958,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/958.png",
+    "caption": "[ds-follower] sprite #125",
+    "editor": "Arvind"
   }
 ]
