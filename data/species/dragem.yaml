@@ -6,7 +6,7 @@ credits:
   designer: Arvind       # who came up with it (Discord name)
   artist: Arvind         # who drew the concept art
 
-types: [Dragon, Ground]  # 1 or 2 types, e.g. [Grass, Steel]
+types: [Dragon, Rock]    # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -22,10 +22,10 @@ abilities:
   hidden: Multiscale     # optional
 
 base_stats:              # each 1-255
-  hp: 88
-  attack: 120
-  defense: 90
-  sp_attack: 54
+  hp: 90
+  attack: 122
+  defense: 100
+  sp_attack: 55
   sp_defense: 90
   speed: 58
 

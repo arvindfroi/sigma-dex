@@ -2,6 +2,18 @@
 # see data/engine/expansion.yaml for the 846 that do). Edit them on the website.
 # Each one has to be programmed into the game; 'implemented: true' marks the ones that are.
 moves:
+- id: cosmic-shield
+  name: Cosmic Shield
+  type: Psychic
+  category: status
+  accuracy: 100
+  pp: 10
+  priority: 4
+  target: one opponent
+  effect: Protects the user from all moves this turn. If a special move would have hit, the attacker's
+    Special Attack falls by one stage.
+  similar_to: King’s Shield
+  designer: Emil
 - id: gravirel-s-curse
   name: Gravirel’s Curse
   type: Ghost

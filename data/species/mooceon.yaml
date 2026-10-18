@@ -17,8 +17,8 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Rain Dish
-  secondary: Own Tempo   # optional
+  primary: Own Tempo
+  secondary: Drizzle     # optional
   hidden: Unaware        # optional
 
 base_stats:              # each 1-255
@@ -57,10 +57,16 @@ evolutions: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Milk Drink}
     - {level: 1, move: Flip Turn}
     - {level: 1, move: Wish}
     - {level: 1, move: Scald}
-  tm_hm: [Focus Punch]   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+    - {level: 1, move: Milk Drink}
+    - {level: 1, move: Sing}
+    - {level: 1, move: Hyper Voice}
+    - {level: 1, move: Baby-Doll Eyes}
+    - {level: 1, move: Ice Beam}
+  tm_hm: [Roar]          # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
 

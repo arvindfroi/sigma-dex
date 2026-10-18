@@ -1882,17 +1882,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Rain Dish",
-        "secondary": "Own Tempo",
+        "primary": "Own Tempo",
+        "secondary": "Drizzle",
         "hidden": "Unaware"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 95,
+        "attack": 35,
+        "defense": 50,
+        "sp_attack": 45,
+        "sp_defense": 60,
+        "speed": 30
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -1977,8 +1977,8 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Rain Dish",
-        "secondary": "Own Tempo",
+        "primary": "Own Tempo",
+        "secondary": "Drizzle",
         "hidden": "Unaware"
       },
       "base_stats": {
@@ -2007,6 +2007,10 @@
       "learnset": {
         "level_up": [
           {
+            "level": 0,
+            "move": "Milk Drink"
+          },
+          {
             "level": 1,
             "move": "Flip Turn"
           },
@@ -2017,10 +2021,30 @@
           {
             "level": 1,
             "move": "Scald"
+          },
+          {
+            "level": 1,
+            "move": "Milk Drink"
+          },
+          {
+            "level": 1,
+            "move": "Sing"
+          },
+          {
+            "level": 1,
+            "move": "Hyper Voice"
+          },
+          {
+            "level": 1,
+            "move": "Baby-Doll Eyes"
+          },
+          {
+            "level": 1,
+            "move": "Ice Beam"
           }
         ],
         "tm_hm": [
-          "Focus Punch"
+          "Roar"
         ],
         "tutor": [],
         "egg": []
@@ -2821,9 +2845,9 @@
       },
       "base_stats": {
         "hp": 69,
-        "attack": 80,
+        "attack": 85,
         "defense": 67,
-        "sp_attack": 100,
+        "sp_attack": 95,
         "sp_defense": 78,
         "speed": 110
       },
@@ -2855,7 +2879,10 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": []
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
       },
       "assets": {
         "concept_art": null,
@@ -3139,6 +3166,166 @@
         "safari_flee_rate": 0
       },
       "id": "rainbro"
+    },
+    {
+      "dex": 34,
+      "name": "blutie",
+      "credits": {
+        "designer": "arvind",
+        "artist": "arvind"
+      },
+      "types": [
+        "Normal"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Run Away",
+        "secondary": "Quick Feet",
+        "hidden": "Unburden"
+      },
+      "base_stats": {
+        "hp": 38,
+        "attack": 40,
+        "defense": 41,
+        "sp_attack": 30,
+        "sp_defense": 41,
+        "speed": 65
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "a ble coati/rotent pokemon. found in early routes. it is very agile and feeds of farmers crops.",
+        "name_origin": null,
+        "notes": null,
+        "wishes": "weak but fast pokemon. like zigzagoon or ratata",
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": "A small rodent with a long tail. cute eyes"
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/coati/792.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "coati"
+    },
+    {
+      "dex": 35,
+      "name": "coatail",
+      "credits": {
+        "designer": "arvind",
+        "artist": "arvind"
+      },
+      "types": [
+        "Normal"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Run Away",
+        "secondary": "Quick Feet",
+        "hidden": "Unburden"
+      },
+      "base_stats": {
+        "hp": 78,
+        "attack": 80,
+        "defense": 60,
+        "sp_attack": 50,
+        "sp_defense": 68,
+        "speed": 110
+      },
+      "ev_yield": {
+        "speed": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "A rodent/coati pokemon. this pokemon uses stolen barry seeds to grow his own berries and widen his territory",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "A cute rodent with a long but rugged tail. its body is made of fur"
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/coatail/793.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "coatail"
     },
     {
       "dex": 36,
@@ -3430,7 +3617,7 @@
       "body_color": null,
       "abilities": {
         "primary": "Sturdy",
-        "secondary": "Iron Fist",
+        "secondary": "Rock Head",
         "hidden": "Solid Rock"
       },
       "base_stats": {
@@ -4025,7 +4212,7 @@
       "body_color": null,
       "abilities": {
         "primary": "Swift Swim",
-        "secondary": null,
+        "secondary": "Solar Power",
         "hidden": "Battle Bond"
       },
       "base_stats": {
@@ -4036,7 +4223,9 @@
         "sp_defense": 68,
         "speed": 119
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -4050,7 +4239,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Hydro Steam"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -4210,7 +4404,7 @@
         "defense": 50,
         "sp_attack": 95,
         "sp_defense": 50,
-        "speed": 125
+        "speed": 130
       },
       "ev_yield": {
         "speed": 2
@@ -4804,9 +4998,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Sturdy",
+        "secondary": "Stamina",
+        "hidden": "Sand Force"
       },
       "base_stats": {
         "hp": null,
@@ -6087,17 +6281,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Analytic",
+        "secondary": "Telepathy",
+        "hidden": "Prism Armor"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 53,
+        "defense": 142,
+        "sp_attack": 63,
+        "sp_defense": 152,
+        "speed": 35
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -6113,7 +6307,12 @@
       },
       "evolutions": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Cosmic Shield"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -6172,7 +6371,7 @@
       "abilities": {
         "primary": "Cold-hearted",
         "secondary": "Ice Body",
-        "hidden": "Sheer Force"
+        "hidden": "Refrigerate"
       },
       "base_stats": {
         "hp": 95,
@@ -7784,8 +7983,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Mirror Armor",
-        "secondary": null,
-        "hidden": null
+        "secondary": "Symbiosis",
+        "hidden": "Hospitality"
       },
       "base_stats": {
         "hp": 60,
@@ -7944,7 +8143,7 @@
       },
       "types": [
         "Dragon",
-        "Ground"
+        "Rock"
       ],
       "category": null,
       "description": null,
@@ -7957,10 +8156,10 @@
         "hidden": "Multiscale"
       },
       "base_stats": {
-        "hp": 88,
-        "attack": 120,
-        "defense": 90,
-        "sp_attack": 54,
+        "hp": 90,
+        "attack": 122,
+        "defense": 100,
+        "sp_attack": 55,
         "sp_defense": 90,
         "speed": 58
       },
@@ -8122,16 +8321,16 @@
       "body_color": null,
       "abilities": {
         "primary": "Speed Boost",
-        "secondary": "Reckless",
-        "hidden": "Motor Drive"
+        "secondary": null,
+        "hidden": "Reckless"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 40,
+        "attack": 70,
+        "defense": 80,
+        "sp_attack": 30,
+        "sp_defense": 80,
+        "speed": 50
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -8483,14 +8682,16 @@
         "hidden": "Perish Body"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 40,
+        "defense": 95,
+        "sp_attack": 65,
+        "sp_defense": 75,
+        "speed": 25
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -8574,7 +8775,9 @@
         "sp_defense": 100,
         "speed": 45
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -8600,7 +8803,10 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": []
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
       },
       "assets": {
         "concept_art": null,
@@ -10533,9 +10739,9 @@
       "base_stats": {
         "hp": 55,
         "attack": 85,
-        "defense": 65,
+        "defense": 75,
         "sp_attack": 40,
-        "sp_defense": 55,
+        "sp_defense": 45,
         "speed": 60
       },
       "ev_yield": {
@@ -10703,15 +10909,15 @@
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Water Absorb",
-        "hidden": null
+        "hidden": "Adaptability"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 65,
+        "defense": 35,
+        "sp_attack": 60,
+        "sp_defense": 35,
+        "speed": 85
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -10783,17 +10989,19 @@
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Water Absorb",
-        "hidden": null
+        "hidden": "Adaptability"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 80,
+        "attack": 100,
+        "defense": 55,
+        "sp_attack": 90,
+        "sp_defense": 55,
+        "speed": 115
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -10863,15 +11071,15 @@
       "abilities": {
         "primary": "Surge Surfer",
         "secondary": null,
-        "hidden": null
+        "hidden": "Unseen Fist"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 85,
+        "attack": 115,
+        "defense": 60,
+        "sp_attack": 110,
+        "sp_defense": 60,
+        "speed": 100
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -11114,10 +11322,10 @@
         "hidden": "Dark Aura"
       },
       "base_stats": {
-        "hp": 60,
+        "hp": 65,
         "attack": 125,
         "defense": 75,
-        "sp_attack": 125,
+        "sp_attack": 120,
         "sp_defense": 60,
         "speed": 110
       },
@@ -12114,7 +12322,7 @@
       "weight_kg": 285,
       "body_color": null,
       "abilities": {
-        "primary": "Drizzle",
+        "primary": "Primordial Sea",
         "secondary": null,
         "hidden": null
       },

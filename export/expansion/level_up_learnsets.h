@@ -95,10 +95,21 @@ static const struct LevelUpMove sTropistrichLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sCowfinLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_MILK_DRINK),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sMooceonLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 0, MOVE_MILK_DRINK),
     LEVEL_UP_MOVE( 1, MOVE_FLIP_TURN),
     LEVEL_UP_MOVE( 1, MOVE_WISH),
     LEVEL_UP_MOVE( 1, MOVE_SCALD),
+    LEVEL_UP_MOVE( 1, MOVE_MILK_DRINK),
+    LEVEL_UP_MOVE( 1, MOVE_SING),
+    LEVEL_UP_MOVE( 1, MOVE_HYPER_VOICE),
+    LEVEL_UP_MOVE( 1, MOVE_BABY_DOLL_EYES),
+    LEVEL_UP_MOVE( 1, MOVE_ICE_BEAM),
     LEVEL_UP_END
 };
 
@@ -161,6 +172,11 @@ static const struct LevelUpMove sDevampryLevelUpLearnset[] = {
     LEVEL_UP_MOVE(36, MOVE_NASTY_PLOT),
     LEVEL_UP_MOVE(40, MOVE_SNARL),
     LEVEL_UP_MOVE(60, MOVE_BOOMBURST),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sChillalitLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_HYDRO_STEAM),
     LEVEL_UP_END
 };
 

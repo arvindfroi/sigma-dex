@@ -17,17 +17,17 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Rain Dish
-  secondary: Own Tempo   # optional
+  primary: Own Tempo
+  secondary: Drizzle     # optional
   hidden: Unaware        # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 95
+  attack: 35
+  defense: 50
+  sp_attack: 45
+  sp_defense: 60
+  speed: 30
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
