@@ -2966,5 +2966,61 @@
     "file": "assets/concept-art/mooceon/835.png",
     "caption": "[ds-front] sprite #94",
     "editor": null
+  },
+  {
+    "id": 839,
+    "species": "coati",
+    "file": "assets/concept-art/coati/839.png",
+    "caption": "[ds-front] sprite #98",
+    "editor": null
+  },
+  {
+    "id": 841,
+    "species": "coati",
+    "file": "assets/concept-art/coati/841.png",
+    "caption": "[ds-icon] sprite #98",
+    "editor": null
+  },
+  {
+    "id": 842,
+    "species": "coati",
+    "file": "assets/concept-art/coati/842.png",
+    "caption": "[ds-follower] sprite #98",
+    "editor": null
+  },
+  {
+    "id": 848,
+    "species": "coati",
+    "file": "assets/concept-art/coati/848.png",
+    "caption": "[ds-back] sprite #98",
+    "editor": null
+  },
+  {
+    "id": 855,
+    "species": "coatail",
+    "file": "assets/concept-art/coatail/855.png",
+    "caption": "[ds-front] sprite #100",
+    "editor": null
+  },
+  {
+    "id": 857,
+    "species": "coatail",
+    "file": "assets/concept-art/coatail/857.png",
+    "caption": "[ds-icon] sprite #100",
+    "editor": null
+  },
+  {
+    "id": 858,
+    "species": "coatail",
+    "file": "assets/concept-art/coatail/858.png",
+    "caption": "[ds-follower] sprite #100",
+    "editor": null
+  },
+  {
+    "id": 860,
+    "species": "coatail",
+    "file": "assets/concept-art/coatail/860.png",
+    "caption": "[ds-back] sprite #100",
+    "editor": null
   }
 ]

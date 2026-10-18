@@ -3224,7 +3224,7 @@
         "filled_by_claude": [],
         "body_shape": null,
         "movement": null,
-        "look": null
+        "look": "A small rodent with a long tail. cute eyes"
       },
       "assets": {
         "concept_art": "assets/concept-art/coati/792.png",
@@ -3303,9 +3303,9 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "A cute rodent with a long but rugged tail. its body is made of fur"
       },
       "assets": {
         "concept_art": "assets/concept-art/coatail/793.png",

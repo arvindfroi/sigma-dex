@@ -73,7 +73,7 @@ design:
   filled_by_claude: []   # fields Claude filled in (people can change them)
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  look: A small rodent with a long tail. cute eyes
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
