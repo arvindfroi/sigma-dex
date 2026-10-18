@@ -1994,7 +1994,8 @@ function spriteStudio(s, startStep) {
     const inUse = picked(t.stage) && picked(t.stage).id === t.id;
     const pic = !t.image ? h("span", {class: "sub"}, "failed") : t.stage === "follower" ? walker(artUrl(t.image), 3)
       : h("img", {src: artUrl(t.image), alt: t.stage + " #" + t.id, loading: "lazy", class: t.stage === "art" ? "" : "px", style: "width:" + Math.round(w * zoom) + "px"});
-    const made = t.job_id === null ? (t.recipe === "mirrored" ? "mirrored" : t.recipe === "recoloured" ? "new colours" : "drawn") + (t.editor ? " by " + t.editor : "") : null;
+    const made = t.job_id === null ? (t.recipe === "mirrored" ? "mirrored" : t.recipe === "recoloured" ? "new colours" : "drawn") + (t.editor ? " by " + t.editor : "")
+      : t.recipe === "new colours" ? "new colours (18 Oct): the same picture, with more of its shading kept" : null;
     return h("div", {class: "tile" + (inUse ? " inuse" : "") + (t.status === "broken" || t.status === "failed" ? " broken" : "")},
       h("button", {type: "button", class: "tilepic", disabled: !t.image, title: t.status === "broken" ? "The PC thinks this one is broken: " + (t.note || "") : inUse ? "In use" : "Use this one",
         onclick: () => !inUse && pick(t)}, pic, inUse ? h("span", {class: "tag"}, "IN USE") : null, t.status === "broken" ? h("span", {class: "warnmark"}, "!") : null),
