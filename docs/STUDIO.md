@@ -208,3 +208,14 @@ the guided flow the new poses appear among the sketch drawings; the one tapped i
 to sketch and new-pose drawings as "Its design: ..." after the dex's look (JSON `note` in the job's prompt), so they
 can correct what the look text or the sketch gets wrong.
 
+## Colours: 15 without losing the shading (18 Oct)
+
+Arvind: "the backs still come out very flat ... the way we handle colours is not good enough". Klein draws 1000-2000
+colours; the old reduction to 15 (`merge_alike`) merged each colour into the more used of a close pair, so whole runs of
+shades collapsed into one flat colour (Sabertann's hull, Obsidog's body, Stonma drifting pink). `merge_alike` in
+`scripts/klein_follower.py` now does a quick greedy pass to 64, Ward merging to 15 (size-weighted, into weighted means),
+then k-means over every original colour in Lab: each final colour is the mean of its shades, so light, mid and dark
+tones stay apart. Used for backs, walking sprites and icons. Still 15 colours (the game's limit per front/back/walk
+palette). Still open: the walking sprite is pulled halfway to the front's colours first; icons must use one of the
+three shared icon palettes in the game (choose the best one per mon at export).
+

@@ -98,7 +98,50 @@ def drop_specks(a, least=3):
 
 
 def merge_alike(sheet, most=15):
-    """At most `most` colours: repeatedly merge the two closest colours (Lab), the less used into the more used."""
+    """At most `most` colours, keeping the shading (2026-10-18; Arvind: "the backs still come out very flat ... the way we
+    handle colours is not good enough"). The old way merged each colour into the more used of a close pair, so whole runs
+    of shades collapsed into one flat colour (Sabertann's hull, Limulk's body). Now: a quick greedy pass down to 64,
+    then Ward merging (the pair that costs least, size-weighted, into their weighted mean) down to `most`, then k-means
+    over every original colour (Lab, weighted by pixels): each final colour is the mean of its shades, so light, mid and
+    dark tones survive as separate colours."""
+    import pixel_render
+    a = np.array(sheet.convert("RGBA")); solid = a[..., 3] > 0
+    if not solid.any():
+        return Image.fromarray(a)
+    cols, inv, counts = np.unique(a[solid][:, :3], axis=0, return_inverse=True, return_counts=True)
+    if len(cols) <= most:
+        return Image.fromarray(a)
+    lab = pixel_render.lab(cols.reshape(1, -1, 3).astype(np.uint8)).reshape(-1, 3).astype(np.float64)
+    w = counts.astype(np.float64)
+    pre = np.array(merge_alike_greedy(sheet, min(64, len(cols))).convert("RGBA"))[solid][:, :3]
+    groups, ginv = np.unique(pre, axis=0, return_inverse=True)
+    ginv = ginv.ravel()
+    g_of = np.zeros(len(cols), np.int64); g_of[inv.ravel()] = ginv          # each original colour -> its group
+    k = len(groups); glab = np.zeros((k, 3)); gn = np.zeros(k)
+    np.add.at(glab, g_of, lab * w[:, None]); np.add.at(gn, g_of, w); glab /= gn[:, None]
+    alive = list(range(k))
+    while len(alive) > most:
+        L, N = glab[alive], gn[alive]
+        d = ((L[:, None] - L[None]) ** 2).sum(-1) * (N[:, None] * N[None]) / (N[:, None] + N[None]); np.fill_diagonal(d, np.inf)
+        i, j = np.unravel_index(np.argmin(d), d.shape); i, j = alive[i], alive[j]
+        t = gn[i] + gn[j]; glab[i] = (glab[i] * gn[i] + glab[j] * gn[j]) / t; gn[i] = t; alive.remove(j)
+    centres = glab[alive]
+    for _ in range(25):
+        label = ((lab[:, None] - centres[None]) ** 2).sum(-1).argmin(1)
+        for c in range(len(centres)):
+            m = label == c
+            if m.any(): centres[c] = (lab[m] * w[m, None]).sum(0) / w[m].sum()
+    rgb = np.zeros((len(centres), 3))
+    for c in range(len(centres)):
+        m = label == c
+        if m.any(): rgb[c] = (cols[m] * w[m, None]).sum(0) / w[m].sum()
+    flat = a[solid]; flat[:, :3] = np.clip(np.round(rgb[label[inv.ravel()]]), 0, 255).astype(np.uint8); a[solid] = flat
+    return Image.fromarray(a)
+
+
+def merge_alike_greedy(sheet, most=15):
+    """At most `most` colours: repeatedly merge the two closest colours (Lab), the less used into the more used (the
+    first pass of merge_alike; on its own it flattens shading)."""
     import pixel_render
     a = np.array(sheet.convert("RGBA")); solid = a[..., 3] > 0
     cols, inv, counts = np.unique(a[solid][:, :3], axis=0, return_inverse=True, return_counts=True)
