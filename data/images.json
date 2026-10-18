@@ -2821,13 +2821,6 @@
     "editor": null
   },
   {
-    "id": 802,
-    "species": "ambuger",
-    "file": "assets/concept-art/ambuger/802.png",
-    "caption": "[ds-front] sprite #88",
-    "editor": null
-  },
-  {
     "id": 803,
     "species": "ambuger",
     "file": "assets/concept-art/ambuger/803.png",
@@ -3021,6 +3014,69 @@
     "species": "coatail",
     "file": "assets/concept-art/coatail/860.png",
     "caption": "[ds-back] sprite #100",
+    "editor": null
+  },
+  {
+    "id": 863,
+    "species": "limulk",
+    "file": "assets/concept-art/limulk/863.png",
+    "caption": "[ds-front] sprite #101",
+    "editor": null
+  },
+  {
+    "id": 864,
+    "species": "limulk",
+    "file": "assets/concept-art/limulk/864.png",
+    "caption": "[ds-back] sprite #101",
+    "editor": null
+  },
+  {
+    "id": 865,
+    "species": "limulk",
+    "file": "assets/concept-art/limulk/865.png",
+    "caption": "[ds-icon] sprite #101",
+    "editor": null
+  },
+  {
+    "id": 866,
+    "species": "limulk",
+    "file": "assets/concept-art/limulk/866.png",
+    "caption": "[ds-follower] sprite #101",
+    "editor": null
+  },
+  {
+    "id": 867,
+    "species": "ambuger",
+    "file": "assets/concept-art/ambuger/867.png",
+    "caption": "[ds-front] sprite #102",
+    "editor": null
+  },
+  {
+    "id": 871,
+    "species": "snownin",
+    "file": "assets/concept-art/snownin/871.png",
+    "caption": "[ds-front] sprite #103",
+    "editor": null
+  },
+  {
+    "id": 872,
+    "species": "snownin",
+    "file": "assets/concept-art/snownin/872.png",
+    "caption": "[ds-back] sprite #103",
+    "editor": null
+  },
+  {
+    "id": 873,
+    "species": "snownin",
+    "file": "assets/concept-art/snownin/873.png",
+    "caption": "[ds-icon] sprite #103",
+    "editor": null
+  },
+  {
+    "id": 874,
+    "species": "snownin",
+    "file": "assets/concept-art/snownin/874.png",
+    "caption": "[ds-follower] sprite #103",
     "editor": null
   }
 ]
