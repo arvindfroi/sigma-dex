@@ -3106,5 +3106,33 @@
     "file": "assets/concept-art/sabertann/962.png",
     "caption": "[ds-follower] sprite #126",
     "editor": null
+  },
+  {
+    "id": 963,
+    "species": "tinky",
+    "file": "assets/concept-art/tinky/963.png",
+    "caption": "[ds-front] sprite #127",
+    "editor": null
+  },
+  {
+    "id": 964,
+    "species": "tinky",
+    "file": "assets/concept-art/tinky/964.png",
+    "caption": "[ds-back] sprite #127",
+    "editor": null
+  },
+  {
+    "id": 965,
+    "species": "tinky",
+    "file": "assets/concept-art/tinky/965.png",
+    "caption": "[ds-icon] sprite #127",
+    "editor": null
+  },
+  {
+    "id": 966,
+    "species": "tinky",
+    "file": "assets/concept-art/tinky/966.png",
+    "caption": "[ds-follower] sprite #127",
+    "editor": null
   }
 ]
