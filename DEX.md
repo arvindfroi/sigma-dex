@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**139 / 151** slots have a Pokemon - **0** are fully complete - average completeness **23%**.
+**140 / 151** slots have a Pokemon - **0** are fully complete - average completeness **23%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -80,7 +80,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 495 |  | 17% |
 | 70 | [Cryoblade](data/species/cryoblade.yaml) | Ice | Cold-hearted, Ice Body, Refrigerate (H) | 540 |  | 31% |
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
-| 72 | *open slot* | | | | | |
+| 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
 | 73 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 280 | Leadling Utvikling (Lv 20) | 21% |
 | 74 | [Leadling Utvikling](data/species/leadling-utvikling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 400 | Blylem (Lv 40) | 17% |
 | 75 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 525 |  | 38% |
