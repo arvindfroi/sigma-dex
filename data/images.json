@@ -3078,5 +3078,33 @@
     "file": "assets/concept-art/waffy/958.png",
     "caption": "[ds-follower] sprite #125",
     "editor": "Arvind"
+  },
+  {
+    "id": 959,
+    "species": "sabertann",
+    "file": "assets/concept-art/sabertann/959.png",
+    "caption": "[ds-front] sprite #126",
+    "editor": null
+  },
+  {
+    "id": 960,
+    "species": "sabertann",
+    "file": "assets/concept-art/sabertann/960.png",
+    "caption": "[ds-back] sprite #126",
+    "editor": null
+  },
+  {
+    "id": 961,
+    "species": "sabertann",
+    "file": "assets/concept-art/sabertann/961.png",
+    "caption": "[ds-icon] sprite #126",
+    "editor": null
+  },
+  {
+    "id": 962,
+    "species": "sabertann",
+    "file": "assets/concept-art/sabertann/962.png",
+    "caption": "[ds-follower] sprite #126",
+    "editor": null
   }
 ]
