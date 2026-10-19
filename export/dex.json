@@ -1866,6 +1866,111 @@
       "id": "pipwi-utv"
     },
     {
+      "dex": 19,
+      "name": "SlamQuake",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Ground",
+        "Steel"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Filter",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 120,
+        "attack": 55,
+        "defense": 120,
+        "sp_attack": 55,
+        "sp_defense": 100,
+        "speed": 50
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 15,
+            "move": "Roar"
+          },
+          {
+            "level": 23,
+            "move": "Protect"
+          },
+          {
+            "level": 25,
+            "move": "Body Press"
+          },
+          {
+            "level": 27,
+            "move": "Stealth Rock"
+          },
+          {
+            "level": 30,
+            "move": "Iron Defense"
+          },
+          {
+            "level": 33,
+            "move": "Heavy Slam"
+          }
+        ],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/slamquake/967.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "slamquake"
+    },
+    {
       "dex": 20,
       "name": "Cowfin",
       "credits": {

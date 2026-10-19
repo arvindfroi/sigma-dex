@@ -100,6 +100,10 @@ static const u16 sTropistrichTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sSlamQuakeTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sCowfinTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };

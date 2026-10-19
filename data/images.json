@@ -3134,5 +3134,19 @@
     "file": "assets/concept-art/tinky/966.png",
     "caption": "[ds-follower] sprite #127",
     "editor": null
+  },
+  {
+    "id": 967,
+    "species": "slamquake",
+    "file": "assets/concept-art/slamquake/967.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 968,
+    "species": "slamquake",
+    "file": "assets/concept-art/slamquake/968.png",
+    "caption": null,
+    "editor": null
   }
 ]
