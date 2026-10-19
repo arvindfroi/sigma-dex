@@ -16,8 +16,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | height | 28 / 140 |
 | Dex page | weight | 26 / 140 |
 | Dex page | body color | 2 / 140 |
-| Stats | base stats | 118 / 140 |
-| Stats | ability | 123 / 140 |
+| Stats | base stats | 119 / 140 |
+| Stats | ability | 125 / 140 |
 | Stats | EV yield | 79 / 140 |
 | Stats | catch rate | 1 / 140 |
 | Stats | base exp | 1 / 140 |
@@ -599,22 +599,22 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #57 [Sigmanian Unown](data/species/bulgarian-unown.yaml) - 24%
+### #57 [Sigmanian Unown](data/species/bulgarian-unown.yaml) - 28%
 
 - **Identity:** designer credit
 - **Dex page:** body color
-- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #58 [Unknighted](data/species/united.yaml) - 24%
+### #58 [Unknighted](data/species/united.yaml) - 28%
 
 - **Identity:** designer credit
 - **Dex page:** body color
-- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -1078,10 +1078,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #106 [Limulk](data/species/limulk.yaml) - 14%
+### #106 [Limulk](data/species/limulk.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

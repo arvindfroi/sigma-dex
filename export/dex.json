@@ -5250,7 +5250,7 @@
       "weight_kg": 5,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Battery",
         "secondary": null,
         "hidden": null
       },
@@ -5334,16 +5334,16 @@
       "weight_kg": 22.8,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Battery",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": 48,
-        "attack": 72,
-        "defense": 60,
-        "sp_attack": 72,
-        "sp_defense": 50,
+        "hp": 67,
+        "attack": 77,
+        "defense": 67,
+        "sp_attack": 77,
+        "sp_defense": 56,
         "speed": 123
       },
       "ev_yield": null,
@@ -5502,17 +5502,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Ol' No Reliable",
-        "secondary": null,
-        "hidden": null
+        "primary": "Bulletproof",
+        "secondary": "Shell Armor",
+        "hidden": "Steelworker"
       },
       "base_stats": {
-        "hp": 45,
-        "attack": 100,
-        "defense": 155,
-        "sp_attack": 135,
-        "sp_defense": 155,
-        "speed": 30
+        "hp": 67,
+        "attack": 50,
+        "defense": 150,
+        "sp_attack": 108,
+        "sp_defense": 140,
+        "speed": 25
       },
       "ev_yield": {
         "defense": 3
@@ -9285,15 +9285,15 @@
       "abilities": {
         "primary": "Anger Point",
         "secondary": "Heckler",
-        "hidden": "Mold Breaker"
+        "hidden": "Soundproof"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 67,
+        "attack": 85,
+        "defense": 55,
+        "sp_attack": 30,
+        "sp_defense": 90,
+        "speed": 42
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -9368,7 +9368,7 @@
       "abilities": {
         "primary": "Anger Point",
         "secondary": "Heckler",
-        "hidden": "Mold Breaker"
+        "hidden": "Soundproof"
       },
       "base_stats": {
         "hp": 90,
