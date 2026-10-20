@@ -2,7 +2,7 @@
 
 # Game export status
 
-**30** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Florantula, Tropistrich, Cowfin, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Chillalit, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle, DreadFang, Everdark
+**31** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Florantula, Tropistrich, SlamQuake, Cowfin, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Chillalit, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle, DreadFang, Everdark
 
 ## Not exported yet (110)
 
@@ -39,10 +39,10 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Hippore** needs: base stats, a level-up move that exists in the game
 - **Docuphant** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Razox** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Sigmanian Unown** needs: an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
-- **Unknighted** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Sigmanian Unown** needs: a level-up move that exists in the game, a name of at most 12 letters
+- **Unknighted** needs: a level-up move that exists in the game
 - **Hairyen** needs: an ability that exists in the game, a level-up move that exists in the game
-- **Panzerien** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Panzerien** needs: a level-up move that exists in the game
 - **Nucloid** needs: a level-up move that exists in the game
 - **Nuclobyl** needs: a level-up move that exists in the game
 - **Gentie** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
@@ -82,7 +82,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Terratyson** needs: a level-up move that exists in the game
 - **Obsidog** needs: a level-up move that exists in the game
 - **Obsidog utvikling** needs: a level-up move that exists in the game, a name of at most 12 letters
-- **Limulk** needs: base stats, a level-up move that exists in the game
+- **Limulk** needs: a level-up move that exists in the game
 - **Mortbulk** needs: a level-up move that exists in the game
 - **Eivlax** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Oraclet** needs: a level-up move that exists in the game

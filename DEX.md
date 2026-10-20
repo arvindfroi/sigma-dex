@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**140 / 151** slots have a Pokemon - **0** are fully complete - average completeness **23%**.
+**141 / 151** slots have a Pokemon - **0** are fully complete - average completeness **23%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -27,7 +27,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 16 | [Florantula](data/species/florantula.yaml) | Bug / Grass | Swarm, Leaf Guard, Grassy Surge (H) | 485 |  | 24% |
 | 17 | [Pipwi](data/species/pipwi.yaml) | Grass | Early Bird, Harvest, Grass Pelt (H) | 310 |  | 21% |
 | 18 | [Tropistrich](data/species/pipwi-utv.yaml) | Grass / Flying | Early Bird, Harvest, Tough Claws (H) | 495 |  | 24% |
-| 19 | *open slot* | | | | | |
+| 19 | [SlamQuake](data/species/slamquake.yaml) | Ground / Steel | Filter | 500 |  | 21% |
 | 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water | Own Tempo, Drizzle, Unaware (H) | 315 | Mooceon (Lv 33) | 21% |
 | 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water | Own Tempo, Drizzle, Unaware (H) | 490 |  | 28% |
 | 22 | [Lapper](data/species/lapper.yaml) | Normal / Fighting | Scrappy, Fur Coat, Hustle (H) | 327 | Brawleo (Lv 25) | 21% |
@@ -65,10 +65,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock | Sturdy, Stamina, Sand Force (H) |  |  | 10% |
 | 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon |  |  |  | 7% |
 | 56 | [Razox](data/species/razox.yaml) | Fairy / Ice |  |  |  | 7% |
-| 57 | [Sigmanian Unown](data/species/bulgarian-unown.yaml) | Electric / Psychic |  | 336 |  | 24% |
-| 58 | [Unknighted](data/species/united.yaml) | Electric / Psychic |  | 425 |  | 24% |
+| 57 | [Sigmanian Unown](data/species/bulgarian-unown.yaml) | Electric / Psychic | Battery | 336 |  | 28% |
+| 58 | [Unknighted](data/species/united.yaml) | Electric / Psychic | Battery | 467 |  | 28% |
 | 59 | [Hairyen](data/species/hairyen.yaml) | Grass / Water | Diver, Tangling Hair, Rain Dish (H) | 325 |  | 28% |
-| 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Ol' No Reliable | 620 |  | 31% |
+| 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Bulletproof, Shell Armor, Steelworker (H) | 540 |  | 31% |
 | 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel | Innards Out, Poison Point, Filter (H) | 301 |  | 34% |
 | 62 | [Nuclobyl](data/species/nuclobyl.yaml) | Poison / Steel | Innards Out, Poison Point, Filter (H) | 525 |  | 34% |
 | 63 | [Gentie](data/species/gentie.yaml) |  |  |  |  | 0% |
@@ -114,8 +114,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 103 | [Obsidog](data/species/obsidog.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 340 | Obsidog utvikling (Other: Level 40 At Night) | 21% |
 | 104 | [Obsidog utvikling](data/species/obsidog-utvikling.yaml) | Dark / Rock | Moxie, Intimidate, Rough Skin (H) | 555 |  | 17% |
 | 105 | *open slot* | | | | | |
-| 106 | [Limulk](data/species/limulk.yaml) | Fighting | Anger Point, Heckler, Mold Breaker (H) |  |  | 14% |
-| 107 | [Mortbulk](data/species/mortbulk.yaml) | Fighting | Anger Point, Heckler, Mold Breaker (H) | 488 |  | 21% |
+| 106 | [Limulk](data/species/limulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 369 |  | 17% |
+| 107 | [Mortbulk](data/species/mortbulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 488 |  | 21% |
 | 108 | *open slot* | | | | | |
 | 109 | [Eivlax](data/species/eivomon.yaml) | Steel / Dragon |  |  |  | 7% |
 | 110 | [Oraclet](data/species/oraclet.yaml) | Psychic | Anticipation, Forewarn, Magic Guard (H) | 355 | Oraclaw (Lv 38) | 31% |

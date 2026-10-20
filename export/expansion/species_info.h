@@ -540,6 +540,53 @@
         FOOTPRINT(QuestionMark)
     },
 
+    [SPECIES_SLAMQUAKE] =
+    {
+        .baseHP = 120,
+        .baseAttack = 55,
+        .baseDefense = 120,
+        .baseSpeed = 50,
+        .baseSpAttack = 55,
+        .baseSpDefense = 100,
+        .types = MON_TYPES(TYPE_GROUND, TYPE_STEEL),
+        .catchRate = 45,
+        .expYield = 64,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_FILTER, ABILITY_NONE, ABILITY_NONE },
+        .bodyColor = BODY_COLOR_GRAY,
+        .speciesName = _("SlamQuake"),
+        .cryId = CRY_NONE,
+        .natDexNum = NATIONAL_DEX_SLAMQUAKE,
+        .categoryName = _("Unknown"),
+        .height = 0,
+        .weight = 0,
+        .description = COMPOUND_STRING(
+            "This Pokemon has no Pokedex entry yet."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_CircledQuestionMark,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .backPic = gMonBackPic_CircledQuestionMark,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 7,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_CircledQuestionMark,
+        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
+        .iconSprite = gMonIcon_QuestionMark,
+        .iconPalIndex = 0,
+        .levelUpLearnset = sSlamQuakeLevelUpLearnset,
+        .teachableLearnset = sSlamQuakeTeachableLearnset,
+        FOOTPRINT(QuestionMark)
+    },
+
     [SPECIES_COWFIN] =
     {
         .baseHP = 95,

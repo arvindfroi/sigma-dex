@@ -17,17 +17,17 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Ol' No Reliable
-  secondary:             # optional
-  hidden:                # optional
+  primary: Bulletproof
+  secondary: Shell Armor # optional
+  hidden: Steelworker    # optional
 
 base_stats:              # each 1-255
-  hp: 45
-  attack: 100
-  defense: 155
-  sp_attack: 135
-  sp_defense: 155
-  speed: 30
+  hp: 67
+  attack: 50
+  defense: 150
+  sp_attack: 108
+  sp_defense: 140
+  speed: 25
 
 ev_yield: {defense: 3}   # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)

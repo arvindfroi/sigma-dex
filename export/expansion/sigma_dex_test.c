@@ -313,6 +313,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Tropistrich can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: SlamQuake has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SLAMQUAKE];
+    EXPECT_EQ(info->baseHP, 120);
+    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseDefense, 120);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 55);
+    EXPECT_EQ(info->baseSpDefense, 100);
+    EXPECT_EQ(info->types[0], TYPE_GROUND);
+    EXPECT_EQ(info->types[1], TYPE_STEEL);
+    EXPECT_EQ(info->abilities[0], ABILITY_FILTER);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ROAR);
+    EXPECT_EQ(GetSpeciesName(SPECIES_SLAMQUAKE)[0], CHAR_S);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: SlamQuake can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_SLAMQUAKE) { Moves(MOVE_ROAR); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ROAR); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ROAR, player);
+    }
+}
+
 TEST("Sigma dex: Cowfin has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_COWFIN];
