@@ -25,6 +25,28 @@ def check_species(sid, data, ids, engine, errors, warnings):
     for field in dexlib.unknown_fields(data):
         err("unknown field '%s' - probably a typo (all fields: docs/FIELDS.md)" % field)
 
+    forms = data.get("forms")
+    if forms not in (None, []):
+        if not isinstance(forms, list):
+            err("forms must be a list")
+        else:
+            seen = set()
+            for i, form in enumerate(forms):
+                if not isinstance(form, dict) or not str(form.get("name") or "").strip():
+                    err("form %d needs a name" % (i + 1)); continue
+                fname = str(form["name"]).strip()
+                if fname.lower() in seen:
+                    err("two forms are called '%s'" % fname)
+                seen.add(fname.lower())
+                if form.get("changes") not in (None, "looks", "battle"):
+                    err("form '%s': changes must be looks or battle" % fname)
+                for t in listing(form.get("types")):
+                    if t not in dexlib.TYPES:
+                        warn("form '%s': type '%s' is not a real type" % (fname, t))
+                for k, v in (form.get("base_stats") or {}).items():
+                    if k not in dexlib.STATS or not isinstance(v, int) or not 1 <= v <= 255:
+                        err("form '%s': base stat %s must be 1-255" % (fname, k))
+
     name = data.get("name")
     if not isinstance(name, str) or not name.strip():
         err("name is missing (if the name is a word like Yes/No/On, put it in quotes)")

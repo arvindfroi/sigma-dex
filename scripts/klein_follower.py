@@ -48,8 +48,18 @@ def read_grid(img, scale=4):
 
 
 def magenta_to_clear(rgb):
+    """The magenta background -> see-through. Only real magenta, and the pinkish fringe right next to it (2 pixels), is
+    background: the old rule took every pink with little green as background, so pink creatures got holes in their body
+    (Vires' head, Arvind 20 Oct: "big parts are missing")."""
     r, g, b = (rgb[..., i].astype(int) for i in range(3))
-    bg = (r > 150) & (b > 150) & (g < 110) & (np.abs(r - b) < 90)               # magenta and its pinkish fringe
+    strict = (r > 170) & (b > 170) & (g < 70) & (np.abs(r - b) < 70)            # the background itself
+    loose = (r > 150) & (b > 150) & (g < 110) & (np.abs(r - b) < 90)             # magenta and its pinkish fringe
+    near = strict.copy()
+    for _ in range(2):
+        grow = near.copy()
+        grow[1:] |= near[:-1]; grow[:-1] |= near[1:]; grow[:, 1:] |= near[:, :-1]; grow[:, :-1] |= near[:, 1:]
+        near = grow
+    bg = strict | (loose & near)
     a = np.dstack([rgb, np.where(bg, 0, 255).astype(np.uint8)])
     return a
 

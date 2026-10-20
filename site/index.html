@@ -317,7 +317,7 @@ button.chip[aria-pressed=true] { border-color: var(--gold); background: var(--so
 .try.broken .trypic, .try.failed .trypic { opacity: .45; }
 .try.waiting { opacity: .75; }
 .trypic { margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 4px;
-  background: repeating-conic-gradient(var(--soft) 0% 25%, var(--panel) 0% 50%) 50% / 16px 16px; }
+  background: repeating-conic-gradient(#eef1f6 0% 25%, #dde2ea 0% 50%) 50% / 16px 16px; }
 .trypic img { width: 100%; height: 100%; object-fit: contain; }
 .try .bar { height: 8px; background: #3a3450; box-shadow: 0 0 0 2px var(--panel); overflow: hidden; }
 .try .bar i { display: block; height: 100%; width: 0; background: var(--pink); transition: width 1s linear; }
@@ -328,7 +328,7 @@ button.chip[aria-pressed=true] { border-color: var(--gold); background: var(--so
 .together { display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-start; }
 canvas.battle { width: 512px; max-width: 100%; image-rendering: pixelated; border: 3px solid var(--edge); }
 .drawbox { margin: 6px 0 10px; }
-canvas.drawpad { width: 480px; max-width: 100%; touch-action: none; cursor: crosshair; background: repeating-conic-gradient(var(--soft) 0% 25%, var(--panel) 0% 50%) 50% / 24px 24px; }
+canvas.drawpad { width: 480px; max-width: 100%; touch-action: none; cursor: crosshair; background: repeating-conic-gradient(#eef1f6 0% 25%, #dde2ea 0% 50%) 50% / 24px 24px; }
 canvas.drawpad.px { image-rendering: pixelated; }
 canvas.pcbox { width: 360px; max-width: 100%; image-rendering: pixelated; border: 3px solid var(--edge); display: block; margin-bottom: 6px; }
 
@@ -537,7 +537,7 @@ nav > button[aria-pressed=true], nav details[open] > summary, nav summary[aria-p
 .setgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0; }
 .slot { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 0 2px 4px; }
 .slotpic { border: 0; width: 100%; min-height: 132px; display: flex; align-items: center; justify-content: center; padding: 4px;
-  background: repeating-conic-gradient(var(--soft) 0% 25%, var(--panel) 0% 50%) 50% / 16px 16px; }
+  background: repeating-conic-gradient(#eef1f6 0% 25%, #dde2ea 0% 50%) 50% / 16px 16px; }
 .slotpic:hover { background-color: var(--soft); }
 .slotpic:active { transform: none; }
 .slotempty { font-size: 30px; color: var(--edge2); font-family: var(--display); }
@@ -558,7 +558,7 @@ nav > button[aria-pressed=true], nav details[open] > summary, nav summary[aria-p
 .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(136px, 1fr)); gap: 10px; margin-top: 10px; }
 .tile { display: flex; flex-direction: column; gap: 4px; }
 .tilepic { position: relative; height: 136px; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 4px;
-  background: repeating-conic-gradient(var(--soft) 0% 25%, var(--panel) 0% 50%) 50% / 16px 16px; border: 3px solid var(--edge2); border-bottom-width: 3px; }
+  background: repeating-conic-gradient(#eef1f6 0% 25%, #dde2ea 0% 50%) 50% / 16px 16px; border: 3px solid var(--edge2); border-bottom-width: 3px; }
 button.tilepic:hover { border-color: var(--pri); }
 button.tilepic:active { transform: none; }
 .tilepic img { max-width: 100%; max-height: 124px; object-fit: contain; }
@@ -644,6 +644,8 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 @media (max-width: 760px) { .tray { right: 8px; bottom: 8px; } }
 .skipcut { display: flex; gap: 8px; align-items: flex-start; margin-top: 10px; font-size: 14px; }
 .skipcut input { margin-top: 3px; }
+.formcard { margin: 8px 0; }
+.formshow { margin: 8px 0; } .formshow h3 { margin: 0 0 4px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; } .formshow p { margin: 4px 0; }
 .newpics { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 14px; }
 .newpics figure { margin: 0; display: flex; flex-direction: column; gap: 4px; align-items: center; }
 .newpics img { width: 96px; height: 96px; object-fit: contain; background: var(--soft); border: 2px solid var(--line); }
@@ -1073,6 +1075,18 @@ function infoPage(s, top) {
       s.evolutions.length ? ["Evolves into ", ...s.evolutions.flatMap((e, i) => [i ? ", " : "", byId.has(e.into) ? link(byId.get(e.into), nameOf(e.into)) : e.into, " (" + e.how + ")"]), "."] : null,
       !from.length && !s.evolutions.length ? h("span", {class: "empty"}, "Does not evolve (or not decided yet).") : null),
     filled(design.concept) ? [h("h2", {}, "What it is"), h("p", {style: "margin:0"}, design.concept)] : null,
+    (d.forms || []).length ? [h("h2", {}, (d.forms.length === 1 ? "Another form" : d.forms.length + " other forms")), d.forms.map(fm => {
+      const ab = fm.abilities || {}, st = fm.base_stats || {};
+      const stats = STATS.filter(([k]) => Number.isInteger(st[k])).map(([k, label]) => label + " " + st[k]).join(", ");
+      return h("div", {class: "box formshow"},
+        h("h3", {}, fm.name, " ", (fm.types || []).map(typeChip)),
+        h("div", {class: "sub"}, fm.changes === "battle" ? "Its type, stats or ability change too." : "Only how it looks changes."),
+        filled(fm.how) ? h("p", {}, h("b", {}, "How it changes: "), fm.how) : null,
+        [ab.primary, ab.secondary, ab.hidden].some(filled) ? h("p", {}, h("b", {}, "Abilities: "), [ab.primary, ab.secondary, ab.hidden && ab.hidden + " (hidden)"].filter(filled).join(", ")) : null,
+        stats ? h("p", {}, h("b", {}, "Base stats: "), stats) : null,
+        filled(fm.look) ? h("p", {}, h("b", {}, "Looks: "), fm.look) : null,
+        filled(fm.notes) ? h("p", {class: "sub"}, fm.notes) : null);
+    })] : null,
     h("h2", {}, s.complete + "% filled in"),
     h("div", {class: "meter", style: "max-width:320px"}, h("i", {style: "width:" + s.complete + "%"})),
     s.missing.length ? h("details", {style: "margin-top:6px"}, h("summary", {class: "sub"}, s.missing.length + " things still missing"), h("ul", {class: "todo"}, s.missing.map(m => h("li", {}, m))))
@@ -1289,6 +1303,47 @@ function checkGrid(options, chosen) {
   const boxes = options.map(o => [o, h("input", {type: "checkbox", checked: picked.has(norm(o))})]);
   return {el: h("div", {class: "checks"}, boxes.map(([o, box]) => h("label", {}, box, o))), read: () => boxes.filter(([, box]) => box.checked).map(([o]) => o)};
 }
+// Other forms of a Pokemon (20 Oct; Arvind: some mons get different forms - only looks, type and stats too, or changing
+// during play; "we fill them in and describe it, then you fix it"). Each form keeps only what differs from the normal form.
+const FORM_CHANGES = [["looks", "Only how it looks"], ["battle", "Its type, stats or ability too"]];
+function formsEditor(initial) {
+  const box = h("div", {});
+  function add(fm) {
+    fm = fm || {};
+    const name = textInput(fm.name, {maxlength: 30, placeholder: "e.g. Winter form"});
+    const changes = selectInput(fm.changes || "looks", FORM_CHANGES);
+    const how = h("textarea", {rows: 2, maxlength: 500, placeholder: "How and when does it change? e.g. It turns white when it snows. / It is always this form in caves. / In battle, below half HP."}, fm.how || "");
+    const t1 = selectInput((fm.types || [])[0], DEX.types, "same as normal"), t2 = selectInput((fm.types || [])[1], DEX.types, "none");
+    const a1 = abilityInput((fm.abilities || {}).primary), a2 = abilityInput((fm.abilities || {}).secondary), ah = abilityInput((fm.abilities || {}).hidden);
+    const st = Object.fromEntries(STATS.map(([k]) => [k, numberInput((fm.base_stats || {})[k], 1, 255)]));
+    const look = h("textarea", {rows: 2, maxlength: 420, placeholder: "What it looks like in this form, in a few plain sentences."}, fm.look || "");
+    const notes = textInput(fm.notes, {maxlength: 300});
+    const battle = h("div", {},
+      h("div", {class: "hint"}, "Leave empty what is the same as the normal form."),
+      h("div", {class: "fields"}, field("Type", t1), field("Second type", t2), field("Ability", a1), field("Second ability", a2), field("Hidden ability", ah)),
+      h("div", {class: "fields narrow"}, STATS.map(([k, label]) => field(label, st[k]))));
+    const showBattle = () => { battle.hidden = changes.value !== "battle"; };
+    changes.addEventListener("change", showBattle); showBattle();
+    const card = h("div", {class: "box formcard"},
+      h("div", {class: "fields"}, field("Name of the form", name), field("What changes", changes), field("How and when it changes form", how, "wide")),
+      battle,
+      h("div", {class: "fields"}, field("What it looks like in this form", look, "wide"), field("Notes", notes, "wide")),
+      h("div", {class: "hint"}, "Pictures of this form: add them under PICTURES on its page and write the form's name in the caption."),
+      h("button", {type: "button", class: "small", onclick: () => card.remove()}, "Remove this form"));
+    card.read = () => {
+      const types = [t1.value, t2.value].filter((t, i, all) => t && all.indexOf(t) === i);
+      const battleToo = changes.value === "battle";
+      return clean({name: readText(name), changes: changes.value, how: readText(how),
+        types: battleToo ? types : [], abilities: battleToo ? {primary: readText(a1), secondary: readText(a2), hidden: readText(ah)} : {},
+        base_stats: battleToo ? Object.fromEntries(STATS.map(([k]) => [k, readNumber(st[k])])) : {}, look: readText(look), notes: readText(notes)});
+    };
+    box.append(card);
+  }
+  (initial || []).filter(v => v && typeof v === "object").forEach(add);
+  return {el: h("div", {}, box, h("button", {type: "button", class: "small", onclick: () => add()}, "+ Add a form")),
+    read: () => [...box.children].filter(c => c.read).map(c => c.read()).filter(fm => Object.keys(fm).some(k => k !== "changes"))};
+}
+
 // Remove everything empty so only real content is saved.
 function clean(value) {
   if (Array.isArray(value)) return value.map(clean).filter(filled);
@@ -1373,6 +1428,7 @@ function openEditor(s) {
     {key: "method", make: v => textInput(v, {list: "list-methods", placeholder: "how"})},
     {key: "levels", make: v => textInput(v === undefined || v === null ? "" : String(v), {class: "tiny", placeholder: "levels"})},
     {key: "rate", number: true, make: v => numberInput(v, 1, 100, 1, {class: "tiny", placeholder: "%"})}], d.encounters, "Add a place");
+  const formsEd = formsEditor(d.forms);
   const error = h("div", {class: "error", role: "alert"});
   const save = h("button", {type: "submit"}, "YES");
 
@@ -1396,6 +1452,7 @@ function openEditor(s) {
         if (ITEM_METHODS.includes(e.method)) evo.item = e.item;
         if (e.note) evo.note = e.note;
         return evo; }),
+      forms: formsEd.read(),
       learnset: {level_up: evoMoves.read().filter(m => m.move).map(m => ({level: 0, move: m.move})).concat(levelUp.read().filter(m => m.move).sort((a, b) => a.level - b.level)), tm_hm: tmhm.read(), tutor: tutor.read().map(m => m.move).filter(Boolean), egg: egg.read().map(m => m.move).filter(Boolean)},
       encounters: encounters.read().filter(e => e.location).map(e => Object.assign({}, e, {levels: /^\d+$/.test(e.levels || "") ? Number(e.levels) : e.levels})),
       design: Object.assign({}, design, {concept: readText(f.concept), name_origin: readText(f.origin), notes: readText(f.notes),
@@ -1419,6 +1476,9 @@ function openEditor(s) {
       if (e.method === "other" && !e.note) return "Describe how it evolves into " + nameOf(e.into) + " in the note.";
     }
     for (const m of data.learnset && data.learnset.level_up || []) if (!m.level && m.level !== 0) return "The level-up move " + m.move + " needs a level.";
+    const formNames = (data.forms || []).map(fm => norm(fm.name || ""));
+    if (formNames.some(n => !n)) return "Give each form a name (under MORE > Forms).";
+    if (new Set(formNames).size < formNames.length) return "Two forms have the same name.";
     return null;
   }
   async function submit(ev) {
@@ -1542,6 +1602,7 @@ function openEditor(s) {
         field("Held item, common", f.itemCommon), field("Held item, rare", f.itemRare)),
       h("h2", {}, "Where it is found"), encounters.el],
     more: [h("h2", {}, "Evolution"), h("div", {class: "hint"}, "What THIS Pokemon turns into. Where it comes from is set on the earlier Pokemon."), evolutions.el,
+      h("h2", {}, "Forms"), h("div", {class: "hint"}, "Other forms of this Pokemon, like a winter form or a form it changes into in battle. Only fill in what is different from its normal form, and describe how and when it changes - Claude sorts out how the game does it."), formsEd.el,
       h("h2", {}, "Design notes"), h("div", {class: "fields"}, field("Where the name comes from", f.origin, "wide"), field("Notes", f.notes, "wide")),
       isNew ? null : removalSection(s)],
   };
@@ -1564,7 +1625,7 @@ function openEditor(s) {
       for (const [k, label] of STATS) { const x = (baseline.base_stats || {})[k], y = (now.base_stats || {})[k]; if (x !== y) list.push(label.toUpperCase() + " " + (x ?? "-") + "\u2192" + (y ?? "-")); }
       const names = {name: "NAME", types: "TYPE", credits: "CREDITS", category: "CATEGORY", description: "POKEDEX ENTRY", height_m: "HEIGHT", weight_kg: "WEIGHT", body_color: "BODY COLOUR",
         abilities: "ABILITIES", ev_yield: "EVS", catch_rate: "CATCH RATE", base_exp: "EXP", growth_rate: "GROWTH", base_friendship: "FRIENDSHIP", gender: "GENDER", egg_groups: "EGG GROUPS",
-        egg_cycles: "EGG CYCLES", held_items: "HELD ITEMS", evolutions: "EVOLUTION", learnset: "MOVES", encounters: "WHERE FOUND", design: "NOTES", dex: "NUMBER"};
+        egg_cycles: "EGG CYCLES", held_items: "HELD ITEMS", evolutions: "EVOLUTION", forms: "FORMS", learnset: "MOVES", encounters: "WHERE FOUND", design: "NOTES", dex: "NUMBER"};
       for (const [key, label] of Object.entries(names)) if (JSON.stringify(baseline[key]) !== JSON.stringify(now[key])) list.push(label);
     }
     ask.replaceChildren(error.textContent ? error : "", list.length ? "Save the changes?\n" + list.join("   ") + (newPics.length ? "   PICTURES " + newPics.length : "")

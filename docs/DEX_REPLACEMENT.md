@@ -62,6 +62,15 @@ Swablu 69, Magikarp 69, Eevee 63, Totodile 58, Lapras 57, Clefairy 55, Manaphy 5
 - In Origin, Sudowoodo is not battled at all (it runs off after being watered), Ho-Oh is a gift
   (level 95) and Lugia and Snorlax are battles. All of them take the species number from the script,
   so the battle or gift becomes our mon by itself.
+- **MUST FIX before the export (Arvind, 2026-10-18): menu icons and their palettes.** In the game every icon uses
+  one of three shared 16-colour palettes (the same for all Pokémon); the studio's icons keep their own colours, so at
+  export each icon is mapped to the nearest colours of one palette, and a wrong palette looks bad (Leafing on Pikachu's
+  yellow palette came out olive and muddy in the 17 Oct test). The export must choose the best of the three palettes
+  per mon (the one that keeps its colours closest), map the icon to it with care (keep the outline and shading), and
+  write the choice into the palette table. Found on 17 Oct (`~/sigma-origin/lw/build_lw.py`): Origin reads
+  `data/pokeicon.narc` (two icons per species at 7+2s and 8+2s, 8x8 tiles, its own palettes in member 0); the palette
+  per species is a u8 table in `arm9.bin` at 0xFF7FC (needs a fresh boot to show, not a savestate). Better icons
+  could also come from letting people pick the palette in the studio and showing the icon in the game's colours there.
 - Pokédex footprints (16x16, one per species).
 - Shiny palettes.
 
@@ -74,6 +83,12 @@ Every species has its own cry; changing the pictures keeps the old cry. Options:
 
 - Species with forms: Unown (28), Rotom, Deoxys, Giratina, Shaymin, Arceus and Origin's later-gen
   forms. Simplest: our mons go into slots without forms or events.
+- **Our own forms (2026-10-20):** species files can now hold `forms` (docs/FIELDS.md): looks-only forms, forms with
+  their own types/stats/abilities, and forms that change during play, each with a plain `how`. At export each needs a
+  way in Origin: looks-only forms as extra sprites chosen by the game's form number; battle forms as their own species
+  entries in Origin's form table (Origin already has later-gen forms; how it stores them is not checked yet); forms that
+  switch by item, place, time or in battle need a trigger, possibly code (docs/ORIGIN_CUSTOM_CODE.md). To be worked out
+  per form when the first ones are filled in.
 - Event species: the Spiky-eared Pichu event, the Arceus event, Pokéwalker species.
 - Pokéwalker, Pal Park and GTS connect outside the game: ignored.
 

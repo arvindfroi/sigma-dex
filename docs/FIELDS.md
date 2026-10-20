@@ -66,6 +66,27 @@ evolutions:
 | `beauty` | `level` (the beauty value) | Like Feebas |
 | `other` | `note` | Anything else - needs new game code, describe it in `note` |
 
+## Forms
+
+`forms` lists other forms of the Pokemon (a winter form, a form it turns into in battle, a regional form). Each form
+holds only what differs from the normal form; on the website: Edit > MORE > Forms.
+
+```yaml
+forms:
+  - name: Steel form           # what the form is called
+    changes: battle            # looks = only its pictures | battle = its type, stats or ability too
+    how: When it holds a Metal Coat, its leaf turns to steel.   # how and when it changes, in plain words
+    types: [Grass, Steel]      # only if different
+    abilities: {primary: Sharpness}                          # only if different
+    base_stats: {defense: 85, speed: 30}                     # only the stats that differ
+    look: Its leaf is grey and shines like metal.            # what it looks like in this form
+    notes:                     # anything else
+```
+
+Pictures of a form go on the Pokemon's own page (PICTURES), with the form's name in the caption. How a form works in
+the game (its own species slot, a form table, or code that switches it) is worked out from `how` when it is exported:
+see docs/DEX_REPLACEMENT.md.
+
 ## Moves
 
 ```yaml

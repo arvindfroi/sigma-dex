@@ -180,6 +180,33 @@ def render_species(data):
             "#     item:              # for method: item, e.g. Thunder Stone",
             "#     note:              # anything else worth knowing",
         ]
+    lines += ["", "# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---"]
+    forms = [f for f in listing(data.get("forms")) if isinstance(f, dict)]
+    if forms:
+        put(0, "forms")
+        order = ("name", "changes", "how", "types", "abilities", "base_stats", "look", "notes")
+        for form in forms:
+            keys = [k for k in order if form.get(k) not in (None, "", [], {})] + [k for k in form if k not in order and form[k] not in (None, "", [], {})]
+            for i, key in enumerate(keys):
+                lead = "  %s %s:" % ("-" if i == 0 else " ", key)
+                value = form[key]
+                if key in ("abilities", "base_stats") and isinstance(value, dict):
+                    sub = [k for k in (("primary", "secondary", "hidden") if key == "abilities" else STATS) if value.get(k) not in (None, "")]
+                    lines.append(lead + " " + flow_map({k: value[k] for k in sub}, sub))
+                elif key == "types":
+                    lines.append(lead + " [" + ", ".join(scalar(v) for v in listing(value)) + "]")
+                else:
+                    lines.append(lead + " " + scalar(value))
+    else:
+        lines += [
+            "forms: []",
+            "# forms:",
+            "#   - name: Winter form    # what the form is called",
+            "#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too",
+            "#     how: It turns white when it snows.   # how and when it changes form",
+            "#     types: [Ice]         # only if they differ",
+            "#     look: It is white with ...           # what it looks like in this form",
+        ]
     lines += ["", "# --- Moves ---"]
     put(0, "learnset")
     put_block(1, "level_up", learnset.get("level_up"), ("level", "move"), "e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon")
@@ -405,7 +432,7 @@ FIELDS = {
     "dex": None, "name": None, "types": None, "category": None, "description": None, "height_m": None,
     "weight_kg": None, "body_color": None, "ev_yield": None, "catch_rate": None, "base_exp": None,
     "growth_rate": None, "base_friendship": None, "gender": None, "egg_groups": None, "egg_cycles": None,
-    "evolutions": None, "encounters": None,
+    "evolutions": None, "encounters": None, "forms": None,
     "credits": ("designer", "artist"),
     "abilities": ("primary", "secondary", "hidden"),
     "base_stats": tuple(STATS),

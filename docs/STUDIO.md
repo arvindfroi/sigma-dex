@@ -219,3 +219,9 @@ tones stay apart. Used for backs, walking sprites and icons. Still 15 colours (t
 palette). Still open: the walking sprite is pulled halfway to the front's colours first; icons must use one of the
 three shared icon palettes in the game (choose the best one per mon at export).
 
+**Holes in pink creatures (20 Oct).** Klein draws backs, walking sprites and icons on magenta; `magenta_to_clear` took
+every pink with little green as background, so pink and purple mons got holes (Vires' head, 206/107/153). Now only real
+magenta, and the pinkish fringe within 2 pixels of it, is background. Fronts (the Qwen front LoRA, its own alpha) were
+not affected; a scan of all approved sprites found only natural gaps (between legs, tails, sails). Studio tiles, the set
+and the editor now show sprites on a light checker in both themes (the dark one hid the black outline).
+
