@@ -3162,5 +3162,33 @@
     "file": "assets/concept-art/vires/972.png",
     "caption": "pasted",
     "editor": null
+  },
+  {
+    "id": 973,
+    "species": "vires",
+    "file": "assets/concept-art/vires/973.png",
+    "caption": "[ds-front] sprite #128",
+    "editor": null
+  },
+  {
+    "id": 974,
+    "species": "vires",
+    "file": "assets/concept-art/vires/974.png",
+    "caption": "[ds-back] sprite #128",
+    "editor": null
+  },
+  {
+    "id": 975,
+    "species": "vires",
+    "file": "assets/concept-art/vires/975.png",
+    "caption": "[ds-icon] sprite #128",
+    "editor": null
+  },
+  {
+    "id": 976,
+    "species": "vires",
+    "file": "assets/concept-art/vires/976.png",
+    "caption": "[ds-follower] sprite #128",
+    "editor": null
   }
 ]
