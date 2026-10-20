@@ -3190,5 +3190,33 @@
     "file": "assets/concept-art/vires/976.png",
     "caption": "[ds-follower] sprite #128",
     "editor": null
+  },
+  {
+    "id": 977,
+    "species": "seraphinnen",
+    "file": "assets/concept-art/seraphinnen/977.png",
+    "caption": null,
+    "editor": "BUST"
+  },
+  {
+    "id": 978,
+    "species": "seraphinnen",
+    "file": "assets/concept-art/seraphinnen/978.png",
+    "caption": null,
+    "editor": "BUST"
+  },
+  {
+    "id": 982,
+    "species": "diedo",
+    "file": "assets/concept-art/diedo/982.png",
+    "caption": "pasted",
+    "editor": "BUST"
+  },
+  {
+    "id": 983,
+    "species": "diedo",
+    "file": "assets/concept-art/diedo/983.png",
+    "caption": "pasted",
+    "editor": "BUST"
   }
 ]

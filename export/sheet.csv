@@ -137,8 +137,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 130,Grincho,Normal,Ghost,Unnerve,Insomnia,Shadow Tag,=SUM(I132:N132),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,
 131,Glacépée,Ice,Fighting,Long Reach,Parry Stance,Sniper,=SUM(I133:N133),70,125,85,45,65,120,,,,,,,,,,,,,,,,,,,,,,,,,,,Emil,
 132,Everdark,Dark,Psychic,Armor Tail,,Dark Aura,=SUM(I134:N134),65,125,75,120,60,110,,,,,,,"2 attack, 1 sp_attack",,,,,,,,,,,"Nasty Plot (1), Dark Pulse (1), Psychic (1), Swords Dance (1), Knock Off (1), Psycho Cut (1)",,,,,,,,,Ivar,
-133,,,,,,,=SUM(I135:N135),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-134,,,,,,,=SUM(I136:N136),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+133,Diedo,Flying,,,,,=SUM(I135:N135),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,a simple bird pokemon with a small halo,,,BUST,BUST
+134,Seraphinnen,Flying,,,,,=SUM(I136:N136),,,,,,,Diedo,Lv 20,,,,,,,,,,,,,,,,,,,,,,,,,BUST,BUST
 135,Riftbloom,Ghost,Psychic,,,,=SUM(I137:N137),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,
 136,,,,,,,=SUM(I138:N138),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 137,,,,,,,=SUM(I139:N139),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**141 / 151** slots have a Pokemon - **0** are fully complete - average completeness **23%**.
+**143 / 151** slots have a Pokemon - **0** are fully complete - average completeness **22%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -141,8 +141,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 130 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve, Insomnia, Shadow Tag (H) |  |  | 14% |
 | 131 | [Glacépée](data/species/glac-p-e.yaml) | Ice / Fighting | Long Reach, Parry Stance, Sniper (H) | 510 |  | 17% |
 | 132 | [Everdark](data/species/everdark.yaml) | Dark / Psychic | Armor Tail, Dark Aura (H) | 555 |  | 24% |
-| 133 | *open slot* | | | | | |
-| 134 | *open slot* | | | | | |
+| 133 | [Diedo](data/species/diedo.yaml) | Flying |  |  | Seraphinnen (Lv 20) | 14% |
+| 134 | [Seraphinnen](data/species/seraphinnen.yaml) | Flying |  |  |  | 10% |
 | 135 | [Riftbloom](data/species/riftbloom.yaml) | Ghost / Psychic |  |  |  | 10% |
 | 136 | *open slot* | | | | | |
 | 137 | *open slot* | | | | | |
