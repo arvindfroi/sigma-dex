@@ -1680,20 +1680,6 @@
     "editor": "Discord sweep"
   },
   {
-    "id": 505,
-    "species": "vires",
-    "file": "assets/concept-art/vires/505.webp",
-    "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-02. Maybe: Gentie.",
-    "editor": "Discord sweep"
-  },
-  {
-    "id": 517,
-    "species": "flurina",
-    "file": "assets/concept-art/flurina/517.webp",
-    "caption": "From Discord #official-sigma-pokedex, posted by Arvind Frøiland on 2026-05-07. Shows: Vires; Flurina.",
-    "editor": "Discord sweep"
-  },
-  {
     "id": 521,
     "species": "tortoplasm",
     "file": "assets/concept-art/tortoplasm/521.webp",
@@ -3147,6 +3133,34 @@
     "species": "slamquake",
     "file": "assets/concept-art/slamquake/968.png",
     "caption": null,
+    "editor": null
+  },
+  {
+    "id": 969,
+    "species": "vires",
+    "file": "assets/concept-art/vires/969.png",
+    "caption": "pasted",
+    "editor": null
+  },
+  {
+    "id": 970,
+    "species": "flurina",
+    "file": "assets/concept-art/flurina/970.webp",
+    "caption": "pasted",
+    "editor": null
+  },
+  {
+    "id": 971,
+    "species": "flurina",
+    "file": "assets/concept-art/flurina/971.webp",
+    "caption": "pasted",
+    "editor": null
+  },
+  {
+    "id": 972,
+    "species": "vires",
+    "file": "assets/concept-art/vires/972.png",
+    "caption": "pasted",
     "editor": null
   }
 ]
