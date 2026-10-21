@@ -16,9 +16,9 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | height | 28 / 143 |
 | Dex page | weight | 26 / 143 |
 | Dex page | body color | 2 / 143 |
-| Stats | base stats | 120 / 143 |
-| Stats | ability | 126 / 143 |
-| Stats | EV yield | 79 / 143 |
+| Stats | base stats | 121 / 143 |
+| Stats | ability | 127 / 143 |
+| Stats | EV yield | 81 / 143 |
 | Stats | catch rate | 1 / 143 |
 | Stats | base exp | 1 / 143 |
 | Stats | growth rate | 1 / 143 |
@@ -226,10 +226,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #19 [SlamQuake](data/species/slamquake.yaml) - 21%
+### #19 [SlamQuake](data/species/slamquake.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** TM/HM moves
 - **Location:** encounters
@@ -1349,10 +1349,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #134 [Seraphinnen](data/species/seraphinnen.yaml) - 10%
+### #134 [Seraphinnen](data/species/seraphinnen.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

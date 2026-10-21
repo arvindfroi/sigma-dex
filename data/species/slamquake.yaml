@@ -18,18 +18,18 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Filter
-  secondary:             # optional
+  secondary: Steam Engine # optional
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp: 120
-  attack: 55
+  hp: 90
+  attack: 100
   defense: 120
-  sp_attack: 55
+  sp_attack: 40
   sp_defense: 100
   speed: 50
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {defense: 2}   # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -52,6 +52,15 @@ evolutions: []
 #     level: 16          # for method: level
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:

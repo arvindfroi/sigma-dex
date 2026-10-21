@@ -316,11 +316,11 @@ SINGLE_BATTLE_TEST("Sigma dex: Tropistrich can use its first move in battle")
 TEST("Sigma dex: SlamQuake has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SLAMQUAKE];
-    EXPECT_EQ(info->baseHP, 120);
-    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseHP, 90);
+    EXPECT_EQ(info->baseAttack, 100);
     EXPECT_EQ(info->baseDefense, 120);
     EXPECT_EQ(info->baseSpeed, 50);
-    EXPECT_EQ(info->baseSpAttack, 55);
+    EXPECT_EQ(info->baseSpAttack, 40);
     EXPECT_EQ(info->baseSpDefense, 100);
     EXPECT_EQ(info->types[0], TYPE_GROUND);
     EXPECT_EQ(info->types[1], TYPE_STEEL);

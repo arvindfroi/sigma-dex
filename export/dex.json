@@ -1883,18 +1883,20 @@
       "body_color": null,
       "abilities": {
         "primary": "Filter",
-        "secondary": null,
+        "secondary": "Steam Engine",
         "hidden": null
       },
       "base_stats": {
-        "hp": 120,
-        "attack": 55,
+        "hp": 90,
+        "attack": 100,
         "defense": 120,
-        "sp_attack": 55,
+        "sp_attack": 40,
         "sp_defense": 100,
         "speed": 50
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -1907,6 +1909,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
@@ -11619,19 +11622,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Soul-Heart",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 95,
+        "attack": 60,
+        "defense": 79,
+        "sp_attack": 125,
+        "sp_defense": 100,
+        "speed": 81
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_defense": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,

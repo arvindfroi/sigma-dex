@@ -106,7 +106,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Grincho** needs: base stats, a level-up move that exists in the game
 - **Glacépée** needs: a level-up move that exists in the game
 - **Diedo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Seraphinnen** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Seraphinnen** needs: a level-up move that exists in the game
 - **Riftbloom** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Phantomb** needs: base stats, a level-up move that exists in the game
 - **Phantail** needs: a level-up move that exists in the game
