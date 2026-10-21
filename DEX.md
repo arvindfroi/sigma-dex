@@ -134,7 +134,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 123 | [JAWBREAKER](data/species/jawbreaker.yaml) | Fire / Dragon | Flame Body, Dragonize, Moxie (H) | 525 |  | 21% |
 | 124 | [Dreadipede](data/species/dreadipede.yaml) | Bug / Flying | Mold Breaker, Battle Armor, Strong Jaw (H) | 360 | DreadFang (Lv 59) | 21% |
 | 125 | [DreadFang](data/species/dreadfang.yaml) | Bug / Flying | Mold Breaker, Battle Armor, Strong Jaw (H) | 550 |  | 24% |
-| 126 | [Aquat](data/species/surfer.yaml) | Water / Ground | Swift Swim, Water Absorb, Adaptability (H) | 330 |  | 17% |
+| 126 | [Aquat](data/species/surfer.yaml) | Water | Swift Swim, Water Absorb, Adaptability (H) | 330 |  | 17% |
 | 127 | [Aquway](data/species/subwaysurfer.yaml) | Water / Ground | Swift Swim, Water Absorb, Adaptability (H) | 495 |  | 21% |
 | 128 | [Zyzzfu](data/species/zyzzfu.yaml) | Fighting / Electric | Surge Surfer, Unseen Fist (H) | 530 |  | 17% |
 | 129 | *open slot* | | | | | |

@@ -130,7 +130,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 123,JAWBREAKER,Fire,Dragon,Flame Body,Dragonize,Moxie,=SUM(I125:N125),110,125,82,70,67,71,JAWIE,Lv 42,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Ivar,
 124,Dreadipede,Bug,Flying,Mold Breaker,Battle Armor,Strong Jaw,=SUM(I126:N126),55,85,75,40,45,60,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Ivar,
 125,DreadFang,Bug,Flying,Mold Breaker,Battle Armor,Strong Jaw,=SUM(I127:N127),85,135,105,60,65,100,Dreadipede,Lv 59,,,,,3 attack,,,,,,,,,,,Fell Stinger (1),,,,,,,,,Ivar,
-126,Aquat,Water,Ground,Swift Swim,Water Absorb,Adaptability,=SUM(I128:N128),50,65,35,60,35,85,,,,,,,,,,,,,,,,,,,,,,,,,,,Ivar,
+126,Aquat,Water,,Swift Swim,Water Absorb,Adaptability,=SUM(I128:N128),50,65,35,60,35,85,,,,,,,,,,,,,,,,,,,,,,,,,,,Ivar,
 127,Aquway,Water,Ground,Swift Swim,Water Absorb,Adaptability,=SUM(I129:N129),80,100,55,90,55,115,,,,,,,2 speed,,,,,,,,,,,,,,,,,,,,Ivar,
 128,Zyzzfu,Fighting,Electric,Surge Surfer,,Unseen Fist,=SUM(I130:N130),85,115,60,110,60,100,,,,,,,,,,,,,,,,,,,,,,,,,,,Ivar,
 129,,,,,,,=SUM(I131:N131),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -11006,8 +11006,7 @@
         "artist": null
       },
       "types": [
-        "Water",
-        "Ground"
+        "Water"
       ],
       "category": null,
       "description": null,
@@ -11040,6 +11039,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
