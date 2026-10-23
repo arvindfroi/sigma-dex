@@ -9223,7 +9223,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Moxie",
+        "primary": "Guard Dog",
         "secondary": "Intimidate",
         "hidden": "Rough Skin"
       },
@@ -9256,6 +9256,7 @@
           "note": "Level 40 At Night"
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -9315,7 +9316,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Moxie",
+        "primary": "Guard Dog",
         "secondary": "Intimidate",
         "hidden": "Rough Skin"
       },
@@ -9342,6 +9343,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -9355,7 +9357,10 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": []
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
       },
       "assets": {
         "concept_art": null,

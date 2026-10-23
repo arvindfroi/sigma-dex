@@ -107,8 +107,8 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 100,Slothbaby,Fire,,Truant,,,=SUM(I102:N102),90,105,50,40,50,85,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil,
 101,Blazlothku,Fire,Fighting,Sloth Combat,,,=SUM(I103:N103),100,130,73,50,67,100,Slothbaby,Lv 40,,,,,2 attack,,,,,,,,,,,Close Combat (evo),,,,,,,,,Emil,
 102,Terratyson,Ground,Fighting,Iron Fist,Sand Force,Sand Rush,=SUM(I104:N104),102,136,95,50,67,70,,,,,,,3 attack,,,,,,,,,,,,,,,,,,,,Emil,
-103,Obsidog,Dark,Rock,Moxie,Intimidate,Rough Skin,=SUM(I105:N105),50,75,70,40,55,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,
-104,Obsidog utvikling,Dark,Rock,Moxie,Intimidate,Rough Skin,=SUM(I106:N106),80,128,110,72,90,75,Obsidog,Other: Level 40 At Night,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Emil,
+103,Obsidog,Dark,Rock,Guard Dog,Intimidate,Rough Skin,=SUM(I105:N105),50,75,70,40,55,50,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,
+104,Obsidog utvikling,Dark,Rock,Guard Dog,Intimidate,Rough Skin,=SUM(I106:N106),80,128,110,72,90,75,Obsidog,Other: Level 40 At Night,,,,,2 attack,,,,,,,,,,,,,,,,,,,,Emil,
 105,,,,,,,=SUM(I107:N107),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 106,Limulk,Fighting,,Anger Point,Heckler,Soundproof,=SUM(I108:N108),67,85,55,30,90,42,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind
 107,Mortbulk,Fighting,,Anger Point,Heckler,Soundproof,=SUM(I109:N109),90,110,80,40,118,50,,,,,,,2 sp_defense,,,,,,,,,,,,,,,,,,,,Arvind,Arvind
