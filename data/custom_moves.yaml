@@ -18,7 +18,7 @@ moves:
   name: Gravirel’s Curse
   type: Ghost
   category: special
-  power: 100
+  power: 90
   accuracy: 100
   pp: 10
   target: one opponent
@@ -36,4 +36,16 @@ moves:
   effect: Fires a heat laser from the eyes. Super effective against Steel types, and may burn the target.
   effect_chance: 10
   similar_to: Freeze-Dry
+  designer: Emil
+- id: soul-slash
+  name: Soul Slash
+  type: Ghost
+  category: physical
+  power: 90
+  accuracy: 100
+  pp: 10
+  target: one opponent
+  contact: true
+  effect: A sword strike that cuts into the soul. Heals the user for 50% of the damage dealt.
+  similar_to: Bitter Blade
   designer: Emil

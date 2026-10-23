@@ -17,9 +17,9 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Filter
+  primary: Battle Armor
   secondary: Steam Engine # optional
-  hidden:                # optional
+  hidden: Filter         # optional
 
 base_stats:              # each 1-255
   hp: 90

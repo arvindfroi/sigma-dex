@@ -557,7 +557,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_FILTER, ABILITY_STEAM_ENGINE, ABILITY_NONE },
+        .abilities = { ABILITY_BATTLE_ARMOR, ABILITY_STEAM_ENGINE, ABILITY_FILTER },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("SlamQuake"),
         .cryId = CRY_NONE,
@@ -983,11 +983,11 @@
 
     [SPECIES_MOTINKY] =
     {
-        .baseHP = 55,
+        .baseHP = 60,
         .baseAttack = 42,
         .baseDefense = 91,
         .baseSpeed = 72,
-        .baseSpAttack = 90,
+        .baseSpAttack = 85,
         .baseSpDefense = 70,
         .types = MON_TYPES(TYPE_GRASS, TYPE_FIRE),
         .catchRate = 45,
@@ -1432,10 +1432,10 @@
 
     [SPECIES_DREADFANG] =
     {
-        .baseHP = 85,
+        .baseHP = 100,
         .baseAttack = 135,
         .baseDefense = 105,
-        .baseSpeed = 100,
+        .baseSpeed = 85,
         .baseSpAttack = 60,
         .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_BUG, TYPE_FLYING),

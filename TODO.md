@@ -17,7 +17,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | weight | 26 / 143 |
 | Dex page | body color | 2 / 143 |
 | Stats | base stats | 121 / 143 |
-| Stats | ability | 127 / 143 |
+| Stats | ability | 128 / 143 |
 | Stats | EV yield | 81 / 143 |
 | Stats | catch rate | 1 / 143 |
 | Stats | base exp | 1 / 143 |
@@ -43,9 +43,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 29 / 143 |
-| DS back sprite 80x80 | 29 / 143 |
-| DS icon 32x32 | 29 / 143 |
+| DS front sprite 80x80 | 33 / 143 |
+| DS back sprite 80x80 | 33 / 143 |
+| DS icon 32x32 | 33 / 143 |
 
 ## Open dex slots (8)
 
@@ -1359,10 +1359,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #135 [Riftbloom](data/species/riftbloom.yaml) - 10%
+### #135 [Riftbloom](data/species/riftbloom.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
