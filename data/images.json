@@ -3246,5 +3246,61 @@
     "file": "assets/concept-art/beatld/987.png",
     "caption": "[ds-follower] sprite #129",
     "editor": null
+  },
+  {
+    "id": 988,
+    "species": "hippore",
+    "file": "assets/concept-art/hippore/988.png",
+    "caption": "[ds-front] sprite #131",
+    "editor": null
+  },
+  {
+    "id": 989,
+    "species": "hippore",
+    "file": "assets/concept-art/hippore/989.png",
+    "caption": "[ds-back] sprite #131",
+    "editor": null
+  },
+  {
+    "id": 990,
+    "species": "hippore",
+    "file": "assets/concept-art/hippore/990.png",
+    "caption": "[ds-icon] sprite #131",
+    "editor": null
+  },
+  {
+    "id": 991,
+    "species": "hippore",
+    "file": "assets/concept-art/hippore/991.png",
+    "caption": "[ds-follower] sprite #131",
+    "editor": null
+  },
+  {
+    "id": 996,
+    "species": "docuphant",
+    "file": "assets/concept-art/docuphant/996.png",
+    "caption": "[ds-front] sprite #133",
+    "editor": null
+  },
+  {
+    "id": 997,
+    "species": "docuphant",
+    "file": "assets/concept-art/docuphant/997.png",
+    "caption": "[ds-back] sprite #133",
+    "editor": null
+  },
+  {
+    "id": 998,
+    "species": "docuphant",
+    "file": "assets/concept-art/docuphant/998.png",
+    "caption": "[ds-icon] sprite #133",
+    "editor": null
+  },
+  {
+    "id": 999,
+    "species": "docuphant",
+    "file": "assets/concept-art/docuphant/999.png",
+    "caption": "[ds-follower] sprite #133",
+    "editor": null
   }
 ]
