@@ -3218,5 +3218,33 @@
     "file": "assets/concept-art/diedo/983.png",
     "caption": "pasted",
     "editor": "BUST"
+  },
+  {
+    "id": 984,
+    "species": "beatld",
+    "file": "assets/concept-art/beatld/984.png",
+    "caption": "[ds-front] sprite #129",
+    "editor": null
+  },
+  {
+    "id": 985,
+    "species": "beatld",
+    "file": "assets/concept-art/beatld/985.png",
+    "caption": "[ds-back] sprite #129",
+    "editor": null
+  },
+  {
+    "id": 986,
+    "species": "beatld",
+    "file": "assets/concept-art/beatld/986.png",
+    "caption": "[ds-icon] sprite #129",
+    "editor": null
+  },
+  {
+    "id": 987,
+    "species": "beatld",
+    "file": "assets/concept-art/beatld/987.png",
+    "caption": "[ds-follower] sprite #129",
+    "editor": null
   }
 ]
