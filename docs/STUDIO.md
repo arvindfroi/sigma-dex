@@ -231,3 +231,9 @@ shadow), and on white those parts turn pale for the sprite steps. `solid()` in `
 creature fully opaque (alpha >= 48) and drops soft grey ground shadows; used on new pictures and on any picture the
 sprite steps start from. The sprites themselves (fronts, backs, icons, walking sprites) were all clean.
 
+**Fronts too yellow / too small for long mons (24 Oct).** The front LoRA keeps the art's saturation on most mons but
+about doubles it on warm and pink ones (Dragem's sand -> bright yellow, Vires hot pink; checked on 11 mons, median 1.1x,
+Dragem 1.9x, Vires 2.7x). `match_saturation` scales the front's saturation back to the art's (75th percentile, x1.1)
+when it is 1.35x or more; hue and brightness stay. Creatures at least 1.8 times as wide as tall now use the full 80 px
+width for the front box (Dragem was 72x33).
+
