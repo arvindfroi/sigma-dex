@@ -1882,19 +1882,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Filter",
-        "secondary": null,
-        "hidden": null
+        "primary": "Battle Armor",
+        "secondary": "Steam Engine",
+        "hidden": "Filter"
       },
       "base_stats": {
-        "hp": 120,
-        "attack": 55,
+        "hp": 90,
+        "attack": 100,
         "defense": 120,
-        "sp_attack": 55,
+        "sp_attack": 40,
         "sp_defense": 100,
         "speed": 50
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -1907,6 +1909,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
@@ -3919,10 +3922,10 @@
         "hidden": "Prankster"
       },
       "base_stats": {
-        "hp": 55,
+        "hp": 60,
         "attack": 42,
         "defense": 91,
-        "sp_attack": 90,
+        "sp_attack": 85,
         "sp_defense": 70,
         "speed": 72
       },
@@ -3948,6 +3951,7 @@
           "item": "Firestone"
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
@@ -4044,6 +4048,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
@@ -5849,80 +5854,6 @@
       "id": "nuclobyl"
     },
     {
-      "dex": 63,
-      "name": "Gentie",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": []
-      },
-      "assets": {
-        "concept_art": null,
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "gentie"
-    },
-    {
       "dex": 64,
       "name": "Yanklet",
       "credits": {
@@ -6626,86 +6557,6 @@
         "safari_flee_rate": 0
       },
       "id": "roostasaur"
-    },
-    {
-      "dex": 72,
-      "name": "Bygon",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [
-        "Ghost",
-        "Rock"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
-      },
-      "assets": {
-        "concept_art": null,
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "bygon"
     },
     {
       "dex": 73,
@@ -8283,6 +8134,27 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [
+        {
+          "name": "Jade",
+          "changes": "battle",
+          "how": "Late into the game you get a key item that when used on dragem turns it into the jade form from the jaded form.",
+          "abilities": {
+            "primary": "Levitate",
+            "hidden": "Multiscale"
+          },
+          "base_stats": {
+            "hp": 90,
+            "attack": 107,
+            "defense": 85,
+            "sp_attack": 50,
+            "sp_defense": 75,
+            "speed": 108
+          },
+          "look": "it has huge wings and a nice clean body that glitters.",
+          "notes": "The is a photo added to pictures."
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -9218,7 +9090,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Moxie",
+        "primary": "Guard Dog",
         "secondary": "Intimidate",
         "hidden": "Rough Skin"
       },
@@ -9251,6 +9123,7 @@
           "note": "Level 40 At Night"
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -9310,7 +9183,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Moxie",
+        "primary": "Guard Dog",
         "secondary": "Intimidate",
         "hidden": "Rough Skin"
       },
@@ -9337,6 +9210,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -9350,7 +9224,10 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": []
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
       },
       "assets": {
         "concept_art": null,
@@ -10670,8 +10547,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Flame Body",
-        "secondary": "Dragonize",
-        "hidden": "Moxie"
+        "secondary": "Moxie",
+        "hidden": "Dragonize"
       },
       "base_stats": {
         "hp": null,
@@ -10700,6 +10577,7 @@
           "level": 42
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -10755,17 +10633,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Flame Body",
-        "secondary": "Dragonize",
-        "hidden": "Moxie"
+        "primary": "Drought",
+        "secondary": "Moxie",
+        "hidden": "Dragonize"
       },
       "base_stats": {
-        "hp": 110,
-        "attack": 125,
+        "hp": 105,
+        "attack": 120,
         "defense": 82,
-        "sp_attack": 70,
+        "sp_attack": 75,
         "sp_defense": 67,
-        "speed": 71
+        "speed": 76
       },
       "ev_yield": {
         "attack": 2
@@ -10782,6 +10660,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -10930,12 +10809,12 @@
         "hidden": "Strong Jaw"
       },
       "base_stats": {
-        "hp": 85,
+        "hp": 100,
         "attack": 135,
         "defense": 105,
         "sp_attack": 60,
         "sp_defense": 65,
-        "speed": 100
+        "speed": 85
       },
       "ev_yield": {
         "attack": 3
@@ -10952,6 +10831,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
@@ -11003,8 +10883,7 @@
         "artist": null
       },
       "types": [
-        "Water",
-        "Ground"
+        "Water"
       ],
       "category": null,
       "description": null,
@@ -11037,6 +10916,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -11518,15 +11398,14 @@
       "id": "everdark"
     },
     {
-      "dex": 135,
-      "name": "Riftbloom",
+      "dex": 133,
+      "name": "Diedo",
       "credits": {
-        "designer": "Michael",
-        "artist": null
+        "designer": "BUST",
+        "artist": "BUST"
       },
       "types": [
-        "Ghost",
-        "Psychic"
+        "Flying"
       ],
       "category": null,
       "description": null,
@@ -11558,7 +11437,177 @@
         "common": null,
         "rare": null
       },
+      "evolutions": [
+        {
+          "into": "seraphinnen",
+          "method": "level",
+          "level": 20
+        }
+      ],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "a simple bird pokemon with a small halo",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/diedo/982.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "diedo"
+    },
+    {
+      "dex": 134,
+      "name": "Seraphinnen",
+      "credits": {
+        "designer": "BUST",
+        "artist": "BUST"
+      },
+      "types": [
+        "Flying"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Soul-Heart",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 81,
+        "attack": 60,
+        "defense": 79,
+        "sp_attack": 125,
+        "sp_defense": 100,
+        "speed": 95
+      },
+      "ev_yield": {
+        "sp_defense": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
       "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/seraphinnen/977.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "seraphinnen"
+    },
+    {
+      "dex": 135,
+      "name": "Riftbloom",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Ghost",
+        "Psychic"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Prankster",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -12029,8 +12078,8 @@
         "artist": null
       },
       "types": [
-        "Water",
-        "Ghost"
+        "Ghost",
+        "Grass"
       ],
       "category": "Ghost Ship",
       "description": "Long ago, Gravriel was the first mate of a cruel pirate. After betrayal, he was cast into the ocean, left to rot with his ship. Now, he haunts the seabed, seeking those who dare to steal from the deep.",
@@ -12038,9 +12087,9 @@
       "weight_kg": 78.6,
       "body_color": null,
       "abilities": {
-        "primary": "Grim Neigh",
+        "primary": "Sword of Ruin",
         "secondary": null,
-        "hidden": "Sap Sipper"
+        "hidden": "Grim Neigh"
       },
       "base_stats": {
         "hp": 84,
@@ -12066,11 +12115,16 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
             "level": 1,
             "move": "Gravirel’s Curse"
+          },
+          {
+            "level": 1,
+            "move": "Soul Slash"
           }
         ],
         "tm_hm": [

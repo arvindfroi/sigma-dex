@@ -45,7 +45,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Panzerien** needs: a level-up move that exists in the game
 - **Nucloid** needs: a level-up move that exists in the game
 - **Nuclobyl** needs: a level-up move that exists in the game
-- **Gentie** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
 - **Yanklet** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Anjane** needs: a level-up move that exists in the game
 - **Saucerl** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
@@ -53,7 +52,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Octopearl** needs: a level-up move that exists in the game
 - **Cryoblade** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Roostasaur** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Bygon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Leadling** needs: a level-up move that exists in the game
 - **Leadling Utvikling** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Iglomodo mindre utv** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
@@ -105,7 +103,9 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Zyzzfu** needs: a level-up move that exists in the game
 - **Grincho** needs: base stats, a level-up move that exists in the game
 - **Glacépée** needs: a level-up move that exists in the game
-- **Riftbloom** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Diedo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Seraphinnen** needs: a level-up move that exists in the game
+- **Riftbloom** needs: base stats, a level-up move that exists in the game
 - **Phantomb** needs: base stats, a level-up move that exists in the game
 - **Phantail** needs: a level-up move that exists in the game
 - **Moosus** needs: an ability that exists in the game, a level-up move that exists in the game

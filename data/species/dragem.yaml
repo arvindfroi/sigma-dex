@@ -53,6 +53,16 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms:
+  - name: Jade
+    changes: battle
+    how: Late into the game you get a key item that when used on dragem turns it into the jade form from the jaded form.
+    abilities: {primary: Levitate, hidden: Multiscale}
+    base_stats: {hp: 90, attack: 107, defense: 85, sp_attack: 50, sp_defense: 75, speed: 108}
+    look: it has huge wings and a nice clean body that glitters.
+    notes: The is a photo added to pictures.
+
 # --- Moves ---
 learnset:
   level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon

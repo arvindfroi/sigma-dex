@@ -3162,5 +3162,257 @@
     "file": "assets/concept-art/vires/972.png",
     "caption": "pasted",
     "editor": null
+  },
+  {
+    "id": 973,
+    "species": "vires",
+    "file": "assets/concept-art/vires/973.png",
+    "caption": "[ds-front] sprite #128",
+    "editor": null
+  },
+  {
+    "id": 974,
+    "species": "vires",
+    "file": "assets/concept-art/vires/974.png",
+    "caption": "[ds-back] sprite #128",
+    "editor": null
+  },
+  {
+    "id": 975,
+    "species": "vires",
+    "file": "assets/concept-art/vires/975.png",
+    "caption": "[ds-icon] sprite #128",
+    "editor": null
+  },
+  {
+    "id": 976,
+    "species": "vires",
+    "file": "assets/concept-art/vires/976.png",
+    "caption": "[ds-follower] sprite #128",
+    "editor": null
+  },
+  {
+    "id": 977,
+    "species": "seraphinnen",
+    "file": "assets/concept-art/seraphinnen/977.png",
+    "caption": null,
+    "editor": "BUST"
+  },
+  {
+    "id": 978,
+    "species": "seraphinnen",
+    "file": "assets/concept-art/seraphinnen/978.png",
+    "caption": null,
+    "editor": "BUST"
+  },
+  {
+    "id": 982,
+    "species": "diedo",
+    "file": "assets/concept-art/diedo/982.png",
+    "caption": "pasted",
+    "editor": "BUST"
+  },
+  {
+    "id": 983,
+    "species": "diedo",
+    "file": "assets/concept-art/diedo/983.png",
+    "caption": "pasted",
+    "editor": "BUST"
+  },
+  {
+    "id": 984,
+    "species": "beatld",
+    "file": "assets/concept-art/beatld/984.png",
+    "caption": "[ds-front] sprite #129",
+    "editor": null
+  },
+  {
+    "id": 985,
+    "species": "beatld",
+    "file": "assets/concept-art/beatld/985.png",
+    "caption": "[ds-back] sprite #129",
+    "editor": null
+  },
+  {
+    "id": 986,
+    "species": "beatld",
+    "file": "assets/concept-art/beatld/986.png",
+    "caption": "[ds-icon] sprite #129",
+    "editor": null
+  },
+  {
+    "id": 987,
+    "species": "beatld",
+    "file": "assets/concept-art/beatld/987.png",
+    "caption": "[ds-follower] sprite #129",
+    "editor": null
+  },
+  {
+    "id": 988,
+    "species": "hippore",
+    "file": "assets/concept-art/hippore/988.png",
+    "caption": "[ds-front] sprite #131",
+    "editor": null
+  },
+  {
+    "id": 989,
+    "species": "hippore",
+    "file": "assets/concept-art/hippore/989.png",
+    "caption": "[ds-back] sprite #131",
+    "editor": null
+  },
+  {
+    "id": 990,
+    "species": "hippore",
+    "file": "assets/concept-art/hippore/990.png",
+    "caption": "[ds-icon] sprite #131",
+    "editor": null
+  },
+  {
+    "id": 991,
+    "species": "hippore",
+    "file": "assets/concept-art/hippore/991.png",
+    "caption": "[ds-follower] sprite #131",
+    "editor": null
+  },
+  {
+    "id": 996,
+    "species": "docuphant",
+    "file": "assets/concept-art/docuphant/996.png",
+    "caption": "[ds-front] sprite #133",
+    "editor": null
+  },
+  {
+    "id": 997,
+    "species": "docuphant",
+    "file": "assets/concept-art/docuphant/997.png",
+    "caption": "[ds-back] sprite #133",
+    "editor": null
+  },
+  {
+    "id": 998,
+    "species": "docuphant",
+    "file": "assets/concept-art/docuphant/998.png",
+    "caption": "[ds-icon] sprite #133",
+    "editor": null
+  },
+  {
+    "id": 999,
+    "species": "docuphant",
+    "file": "assets/concept-art/docuphant/999.png",
+    "caption": "[ds-follower] sprite #133",
+    "editor": null
+  },
+  {
+    "id": 1004,
+    "species": "razox",
+    "file": "assets/concept-art/razox/1004.png",
+    "caption": "[ds-front] sprite #134",
+    "editor": null
+  },
+  {
+    "id": 1005,
+    "species": "razox",
+    "file": "assets/concept-art/razox/1005.png",
+    "caption": "[ds-back] sprite #134",
+    "editor": null
+  },
+  {
+    "id": 1006,
+    "species": "razox",
+    "file": "assets/concept-art/razox/1006.png",
+    "caption": "[ds-icon] sprite #134",
+    "editor": null
+  },
+  {
+    "id": 1007,
+    "species": "razox",
+    "file": "assets/concept-art/razox/1007.png",
+    "caption": "[ds-follower] sprite #134",
+    "editor": null
+  },
+  {
+    "id": 1008,
+    "species": "saucerl",
+    "file": "assets/concept-art/saucerl/1008.png",
+    "caption": "[ds-front] sprite #135",
+    "editor": null
+  },
+  {
+    "id": 1009,
+    "species": "saucerl",
+    "file": "assets/concept-art/saucerl/1009.png",
+    "caption": "[ds-back] sprite #135",
+    "editor": null
+  },
+  {
+    "id": 1010,
+    "species": "saucerl",
+    "file": "assets/concept-art/saucerl/1010.png",
+    "caption": "[ds-icon] sprite #135",
+    "editor": null
+  },
+  {
+    "id": 1011,
+    "species": "saucerl",
+    "file": "assets/concept-art/saucerl/1011.png",
+    "caption": "[ds-follower] sprite #135",
+    "editor": null
+  },
+  {
+    "id": 1012,
+    "species": "abyssys",
+    "file": "assets/concept-art/abyssys/1012.png",
+    "caption": "[ds-front] sprite #136",
+    "editor": null
+  },
+  {
+    "id": 1013,
+    "species": "abyssys",
+    "file": "assets/concept-art/abyssys/1013.png",
+    "caption": "[ds-back] sprite #136",
+    "editor": null
+  },
+  {
+    "id": 1014,
+    "species": "abyssys",
+    "file": "assets/concept-art/abyssys/1014.png",
+    "caption": "[ds-icon] sprite #136",
+    "editor": null
+  },
+  {
+    "id": 1015,
+    "species": "abyssys",
+    "file": "assets/concept-art/abyssys/1015.png",
+    "caption": "[ds-follower] sprite #136",
+    "editor": null
+  },
+  {
+    "id": 1016,
+    "species": "octopearl",
+    "file": "assets/concept-art/octopearl/1016.png",
+    "caption": "[ds-front] sprite #138",
+    "editor": null
+  },
+  {
+    "id": 1017,
+    "species": "octopearl",
+    "file": "assets/concept-art/octopearl/1017.png",
+    "caption": "[ds-back] sprite #138",
+    "editor": null
+  },
+  {
+    "id": 1018,
+    "species": "octopearl",
+    "file": "assets/concept-art/octopearl/1018.png",
+    "caption": "[ds-icon] sprite #138",
+    "editor": null
+  },
+  {
+    "id": 1019,
+    "species": "octopearl",
+    "file": "assets/concept-art/octopearl/1019.png",
+    "caption": "[ds-follower] sprite #138",
+    "editor": null
   }
 ]

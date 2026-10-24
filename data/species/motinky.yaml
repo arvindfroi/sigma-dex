@@ -22,10 +22,10 @@ abilities:
   hidden: Prankster      # optional
 
 base_stats:              # each 1-255
-  hp: 55
+  hp: 60
   attack: 42
   defense: 91
-  sp_attack: 90
+  sp_attack: 85
   sp_defense: 70
   speed: 72
 
@@ -49,6 +49,15 @@ evolutions:
   - into: gortiki
     method: item
     item: Firestone
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:

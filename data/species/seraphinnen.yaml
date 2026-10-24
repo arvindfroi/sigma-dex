@@ -1,12 +1,12 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
-dex: 72
-name: Bygon
+dex: 134
+name: Seraphinnen
 
 credits:
-  designer:              # who came up with it (Discord name)
-  artist:                # who drew the concept art
+  designer: BUST         # who came up with it (Discord name)
+  artist: BUST           # who drew the concept art
 
-types: [Ghost, Rock]     # 1 or 2 types, e.g. [Grass, Steel]
+types: [Flying]          # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -17,19 +17,19 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Soul-Heart
   secondary:             # optional
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 81
+  attack: 60
+  defense: 79
+  sp_attack: 125
+  sp_defense: 100
+  speed: 95
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {sp_defense: 2} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -52,6 +52,15 @@ evolutions: []
 #     level: 16          # for method: level
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:
@@ -77,7 +86,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/bygon.png
+  concept_art: "assets/concept-art/seraphinnen/977.png"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

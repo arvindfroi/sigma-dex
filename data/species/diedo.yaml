@@ -1,12 +1,12 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
-dex: 63
-name: Gentie
+dex: 133
+name: Diedo
 
 credits:
-  designer:              # who came up with it (Discord name)
-  artist:                # who drew the concept art
+  designer: BUST         # who came up with it (Discord name)
+  artist: BUST           # who drew the concept art
 
-types: []                # 1 or 2 types, e.g. [Grass, Steel]
+types: [Flying]          # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -45,13 +45,19 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+evolutions:
+  - into: seraphinnen
+    method: level
+    level: 20
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:
@@ -65,16 +71,19 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 
 # --- Design ---
 design:
-  concept:               # what is it? one or two sentences
+  concept: a simple bird pokemon with a small halo
   name_origin:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: []   # fields Claude filled in (people can change them)
+  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement:              # e.g. It walks on four legs. / It floats in the air.
+  look:                  # what it looks like, a few plain sentences: It is a ...
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/gentie.png
+  concept_art: "assets/concept-art/diedo/982.png"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
