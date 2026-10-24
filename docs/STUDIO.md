@@ -225,3 +225,9 @@ magenta, and the pinkish fringe within 2 pixels of it, is background. Fronts (th
 not affected; a scan of all approved sprites found only natural gaps (between legs, tails, sails). Studio tiles, the set
 and the editor now show sprites on a light checker in both themes (the dark one hid the black outline).
 
+**Half-transparent pictures (24 Oct).** Qwen's cut-outs (and the sketch / new-pose drawings) came back partly
+see-through: all 27 recent cut-outs had half-transparent pixels, up to 83 % of the figure (Beatld's arms, Hippore's ground
+shadow), and on white those parts turn pale for the sprite steps. `solid()` in `scripts/studio_tries.py` makes the
+creature fully opaque (alpha >= 48) and drops soft grey ground shadows; used on new pictures and on any picture the
+sprite steps start from. The sprites themselves (fronts, backs, icons, walking sprites) were all clean.
+
