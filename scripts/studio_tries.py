@@ -193,10 +193,12 @@ def box_template(box, k=16, cut=False):
 def front_box(side, art):
     b = art.getbbox()
     aspect = (b[2] - b[0]) / max(1, b[3] - b[1])
-    if aspect >= 1.8:                     # long, flat creatures use the whole width (Dragem came out 72x33, 24 Oct)
-        side = 80
-    w, h = (side, max(4, round(side / aspect))) if aspect >= 1 else (max(4, round(side * aspect)), side)
-    w, h = min(w, 80), min(h, 80)
+    # The same area as a square creature of `side` gets, as far as the 80x80 frame allows (24 Oct; Arvind: "let them use
+    # as much room as they are allowed"): long or tall creatures are no longer squeezed to `side` on their long side
+    # (Dragem came out 72x33). Capped at 80 on the long side, keeping the shape.
+    w, h = side * aspect ** 0.5, side / aspect ** 0.5
+    k = min(1.0, 80 / max(w, h))
+    w, h = max(4, round(w * k)), max(4, round(h * k))
     bottom = min(79, max(h - 1, round(0.491 * h + 39.6)))
     x0 = min(max(0, round(39.5 - (w - 1) / 2)), 80 - w)
     return (x0, bottom - h + 1, x0 + w - 1, bottom)
@@ -461,7 +463,7 @@ def match_saturation(front, art, limit=1.35):
     hf,sf,vf=hsv_arr(f[...,:3]/255); ha,sa,va=hsv_arr(a[...,:3]/255)
     ms_f=np.percentile(sf[fo],75); ms_a=np.percentile(sa[ao],75)
     if ms_a <= 0 or ms_f/ms_a < limit: return front
-    k=ms_a/ms_f*1.1                      # a little stronger than the art: pixel art reads flatter
+    k=(ms_a/ms_f)**(1/3)                  # a third of the way back (log scale): the full way looked dull (Arvind, 24 Oct)
     out=f.copy(); out[...,:3]=np.clip(rgb_arr(hf,np.clip(sf*k,0,1),vf)*255,0,255).round()
     out[~fo]=f[~fo]; return Image.fromarray(out.astype(np.uint8))
 
