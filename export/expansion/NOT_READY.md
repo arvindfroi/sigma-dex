@@ -4,7 +4,7 @@
 
 **31** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Heatbat, Blazterra, Florantula, Tropistrich, SlamQuake, Cowfin, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Chillalit, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle, DreadFang, Everdark
 
-## Not exported yet (110)
+## Not exported yet (112)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -45,6 +45,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Panzerien** needs: a level-up move that exists in the game
 - **Nucloid** needs: a level-up move that exists in the game
 - **Nuclobyl** needs: a level-up move that exists in the game
+- **Gentie** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
 - **Yanklet** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Anjane** needs: a level-up move that exists in the game
 - **Saucerl** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
@@ -52,6 +53,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Octopearl** needs: a level-up move that exists in the game
 - **Cryoblade** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Roostasaur** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Bygon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Leadling** needs: a level-up move that exists in the game
 - **Leadling Utvikling** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Iglomodo mindre utv** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
