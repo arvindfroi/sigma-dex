@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 139 / 143 |
-| Identity | designer credit | 118 / 143 |
-| Dex page | category | 40 / 143 |
-| Dex page | description | 41 / 143 |
-| Dex page | height | 28 / 143 |
-| Dex page | weight | 26 / 143 |
-| Dex page | body color | 2 / 143 |
-| Stats | base stats | 121 / 143 |
-| Stats | ability | 128 / 143 |
-| Stats | EV yield | 81 / 143 |
-| Stats | catch rate | 1 / 143 |
-| Stats | base exp | 1 / 143 |
-| Stats | growth rate | 1 / 143 |
-| Stats | base friendship | 1 / 143 |
-| Breeding | gender | 1 / 143 |
-| Breeding | egg groups | 1 / 143 |
-| Breeding | egg cycles | 1 / 143 |
-| Moves | level-up moves | 37 / 143 |
-| Moves | TM/HM moves | 4 / 143 |
-| Location | encounters | 2 / 143 |
-| Design | concept | 14 / 143 |
-| Art | concept art | 130 / 143 |
-| Art | front sprite | 4 / 143 |
-| Art | front animation frame | 4 / 143 |
-| Art | back sprite | 4 / 143 |
-| Art | icon | 4 / 143 |
-| Art | footprint | 0 / 143 |
-| Art | shiny palette | 0 / 143 |
-| Art | cry | 0 / 143 |
+| Identity | types | 138 / 141 |
+| Identity | designer credit | 118 / 141 |
+| Dex page | category | 40 / 141 |
+| Dex page | description | 41 / 141 |
+| Dex page | height | 28 / 141 |
+| Dex page | weight | 26 / 141 |
+| Dex page | body color | 2 / 141 |
+| Stats | base stats | 121 / 141 |
+| Stats | ability | 128 / 141 |
+| Stats | EV yield | 81 / 141 |
+| Stats | catch rate | 1 / 141 |
+| Stats | base exp | 1 / 141 |
+| Stats | growth rate | 1 / 141 |
+| Stats | base friendship | 1 / 141 |
+| Breeding | gender | 1 / 141 |
+| Breeding | egg groups | 1 / 141 |
+| Breeding | egg cycles | 1 / 141 |
+| Moves | level-up moves | 37 / 141 |
+| Moves | TM/HM moves | 4 / 141 |
+| Location | encounters | 2 / 141 |
+| Design | concept | 14 / 141 |
+| Art | concept art | 130 / 141 |
+| Art | front sprite | 4 / 141 |
+| Art | front animation frame | 4 / 141 |
+| Art | back sprite | 4 / 141 |
+| Art | icon | 4 / 141 |
+| Art | footprint | 0 / 141 |
+| Art | shiny palette | 0 / 141 |
+| Art | cry | 0 / 141 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 33 / 143 |
-| DS back sprite 80x80 | 33 / 143 |
-| DS icon 32x32 | 33 / 143 |
+| DS front sprite 80x80 | 33 / 141 |
+| DS back sprite 80x80 | 33 / 141 |
+| DS icon 32x32 | 33 / 141 |
 
-## Open dex slots (8)
+## Open dex slots (10)
 
-#93, #105, #108, #129, #136, #137, #138, #139
+#63, #72, #93, #105, #108, #129, #136, #137, #138, #139
 
 ## Missing per Pokemon
 
@@ -671,17 +671,6 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #63 [Gentie](data/species/gentie.yaml) - 0%
-
-- **Identity:** types, designer credit
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
 ### #64 [Yanklet](data/species/yanklet.yaml) - 7%
 
 - **Identity:** designer credit
@@ -766,17 +755,6 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #72 [Bygon](data/species/bygon.yaml) - 3%
-
-- **Identity:** designer credit
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #73 [Leadling](data/species/leadling.yaml) - 21%
 
