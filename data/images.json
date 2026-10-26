@@ -3414,5 +3414,33 @@
     "file": "assets/concept-art/octopearl/1019.png",
     "caption": "[ds-follower] sprite #138",
     "editor": null
+  },
+  {
+    "id": 1024,
+    "species": "flurina",
+    "file": "assets/concept-art/flurina/1024.png",
+    "caption": "[ds-front] sprite #139",
+    "editor": null
+  },
+  {
+    "id": 1025,
+    "species": "flurina",
+    "file": "assets/concept-art/flurina/1025.png",
+    "caption": "[ds-back] sprite #139",
+    "editor": null
+  },
+  {
+    "id": 1026,
+    "species": "flurina",
+    "file": "assets/concept-art/flurina/1026.png",
+    "caption": "[ds-icon] sprite #139",
+    "editor": null
+  },
+  {
+    "id": 1027,
+    "species": "flurina",
+    "file": "assets/concept-art/flurina/1027.png",
+    "caption": "[ds-follower] sprite #139",
+    "editor": null
   }
 ]
