@@ -1400,13 +1400,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 418,
-    "species": "anjane",
-    "file": "assets/concept-art/anjane/418.webp",
-    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-07 (Labelled Anjane)",
-    "editor": "Claude (from Discord)"
-  },
-  {
     "id": 419,
     "species": "janenon",
     "file": "assets/concept-art/janenon/419.webp",
@@ -3441,6 +3434,13 @@
     "species": "flurina",
     "file": "assets/concept-art/flurina/1027.png",
     "caption": "[ds-follower] sprite #139",
+    "editor": null
+  },
+  {
+    "id": 1028,
+    "species": "anjane",
+    "file": "assets/concept-art/anjane/1028.jpg",
+    "caption": null,
     "editor": null
   }
 ]
