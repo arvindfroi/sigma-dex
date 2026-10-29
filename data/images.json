@@ -3442,5 +3442,61 @@
     "file": "assets/concept-art/anjane/1028.jpg",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 1029,
+    "species": "skiirtle",
+    "file": "assets/concept-art/skiirtle/1029.png",
+    "caption": "[ds-front] sprite #140",
+    "editor": null
+  },
+  {
+    "id": 1030,
+    "species": "skiirtle",
+    "file": "assets/concept-art/skiirtle/1030.png",
+    "caption": "[ds-back] sprite #140",
+    "editor": null
+  },
+  {
+    "id": 1031,
+    "species": "skiirtle",
+    "file": "assets/concept-art/skiirtle/1031.png",
+    "caption": "[ds-icon] sprite #140",
+    "editor": null
+  },
+  {
+    "id": 1032,
+    "species": "skiirtle",
+    "file": "assets/concept-art/skiirtle/1032.png",
+    "caption": "[ds-follower] sprite #140",
+    "editor": null
+  },
+  {
+    "id": 1033,
+    "species": "tortoplasm",
+    "file": "assets/concept-art/tortoplasm/1033.png",
+    "caption": "[ds-front] sprite #141",
+    "editor": null
+  },
+  {
+    "id": 1034,
+    "species": "tortoplasm",
+    "file": "assets/concept-art/tortoplasm/1034.png",
+    "caption": "[ds-back] sprite #141",
+    "editor": null
+  },
+  {
+    "id": 1035,
+    "species": "tortoplasm",
+    "file": "assets/concept-art/tortoplasm/1035.png",
+    "caption": "[ds-icon] sprite #141",
+    "editor": null
+  },
+  {
+    "id": 1036,
+    "species": "tortoplasm",
+    "file": "assets/concept-art/tortoplasm/1036.png",
+    "caption": "[ds-follower] sprite #141",
+    "editor": null
   }
 ]
