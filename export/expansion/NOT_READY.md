@@ -113,7 +113,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Moosus** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Rockedeer** needs: a level-up move that exists in the game
 - **Sabertann** needs: a level-up move that exists in the game
-- **Gravriel** needs: a level-up move that exists in the game
+- **Gravriel** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Balleisk** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Greation** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Ultragon** needs: an ability that exists in the game
@@ -123,5 +123,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 
 ## Left out of exported Pokemon
 
+- Sigmauler: move 'Rock Hammer' is not in the game yet, left out
 - Toxiren: ability 'Toxic Voice' is not in the game yet, left out
+- Warrallier: move 'Hidden Spur' is not in the game yet, left out
 

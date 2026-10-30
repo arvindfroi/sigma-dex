@@ -54,7 +54,6 @@ static const struct LevelUpMove sWealtherLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sWarrallierLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_FLIP_TURN),
     LEVEL_UP_MOVE( 1, MOVE_FLIP_TURN),
     LEVEL_UP_END
 };
@@ -152,7 +151,6 @@ static const struct LevelUpMove sToxirenLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sSigmaulerLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_HAMMER_ARM),
     LEVEL_UP_MOVE( 1, MOVE_HAMMER_ARM),
     LEVEL_UP_END
 };

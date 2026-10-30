@@ -47,15 +47,15 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Sticky Hold (H) | 325 | Toxiren (Lv 38) | 31% |
 | 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Toxic Voice (H) | 500 |  | 38% |
 | 38 | [Stonma](data/species/stonma.yaml) | Rock | Sturdy, Rock Head, Solid Rock (H) | 330 | Sigmauler (Lv 38) | 28% |
-| 39 | [Sigmauler](data/species/sigmauler.yaml) | Rock / Fighting | Sturdy, Rock Head, Solid Rock (H) | 510 |  | 21% |
+| 39 | [Sigmauler](data/species/sigmauler.yaml) | Rock / Fighting | Iron Fist, Rock Head, Solid Rock (H) | 510 |  | 21% |
 | 40 | [Tinky](data/species/tinky.yaml) | Grass | Heatproof, Dancer, Prankster (H) | 285 | Motinky (Lv 25) | 31% |
 | 41 | [Motinky](data/species/motinky.yaml) | Grass / Fire | Flash Fire, Dancer, Prankster (H) | 420 | Gortiki (Firestone) | 31% |
 | 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire | Flash Fire, Dancer, Huge Power (H) | 528 |  | 31% |
 | 43 | [Chebbi](data/species/chebbi.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 360 | Devampry (Lv 32) | 24% |
-| 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark | Soundproof, Levitate, Punk Rock (H) | 503 |  | 28% |
+| 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark | Soundproof, Levitate, Punk Rock (H) | 505 |  | 28% |
 | 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water | Swift Swim, Solar Power, Battle Bond (H) | 495 |  | 38% |
 | 46 | [Zapana](data/species/zapana.yaml) | Water / Electric | Swift Swim, Static, Sap Sipper (H) | 280 | Ampeel (Lv 25) | 34% |
-| 47 | [Ampeel](data/species/ampeel.yaml) | Water / Electric | Swift Swim, Static, Sap Sipper (H) | 495 |  | 34% |
+| 47 | [Ampeel](data/species/ampeel.yaml) | Water / Electric | Swift Swim, Static, Eelevate (H) | 495 |  | 34% |
 | 48 | [Tomaterdander](data/species/tomaterdander.yaml) | Poison / Grass | Pickle Armor, Chlorophyll | 480 |  | 31% |
 | 49 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass | XL and Deep fried, Chlorophyll | 560 |  | 31% |
 | 50 | [Beatld](data/species/beatld.yaml) | Bug / Psychic | Curious Medicine, Tangled Feet, Psychic Surge (H) | 420 |  | 17% |
@@ -142,7 +142,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 131 | [Glacépée](data/species/glac-p-e.yaml) | Ice / Fighting | Long Reach, Parry Stance, Sniper (H) | 510 |  | 17% |
 | 132 | [Everdark](data/species/everdark.yaml) | Dark / Psychic | Armor Tail, Dark Aura (H) | 555 |  | 24% |
 | 133 | [Diedo](data/species/diedo.yaml) | Flying |  |  | Seraphinnen (Lv 20) | 14% |
-| 134 | [Seraphinnen](data/species/seraphinnen.yaml) | Flying | Soul-Heart | 540 |  | 21% |
+| 134 | [Seraphinnen](data/species/seraphinnen.yaml) | Flying | Soul-Heart, Aerilate (H) | 540 |  | 21% |
 | 135 | [Riftbloom](data/species/riftbloom.yaml) | Ghost / Psychic | Prankster |  |  | 14% |
 | 136 | *open slot* | | | | | |
 | 137 | *open slot* | | | | | |
@@ -153,7 +153,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 142 | [Moosus](data/species/moosus.yaml) | Flying / Fairy | Aurora Dancer, Regenerator (H) | 580 |  | 21% |
 | 143 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Dazzling, Levitate (H) | 580 |  | 21% |
 | 144 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 580 |  | 24% |
-| 145 | [Gravriel](data/species/gravriel.yaml) | Ghost / Grass | Sword of Ruin, Grim Neigh (H) | 580 |  | 41% |
+| 145 | [Gravriel](data/species/gravriel.yaml) | Ghost / Grass | Sea Ghost Emperor | 580 |  | 41% |
 | 146 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 300 | Greation (Lv 30) | 21% |
 | 147 | [Greation](data/species/greation.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 422 | Ultragon (Lv 55) | 21% |
 | 148 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 600 |  | 24% |

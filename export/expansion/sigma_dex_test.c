@@ -520,7 +520,7 @@ TEST("Sigma dex: Sigmauler has the data from its species file")
     EXPECT_EQ(info->baseSpDefense, 67);
     EXPECT_EQ(info->types[0], TYPE_ROCK);
     EXPECT_EQ(info->types[1], TYPE_FIGHTING);
-    EXPECT_EQ(info->abilities[0], ABILITY_STURDY);
+    EXPECT_EQ(info->abilities[0], ABILITY_IRON_FIST);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_HAMMER_ARM);
     EXPECT_EQ(GetSpeciesName(SPECIES_SIGMAULER)[0], CHAR_S);
 }
@@ -624,7 +624,7 @@ SINGLE_BATTLE_TEST("Sigma dex: Gortiki can use its first move in battle")
 TEST("Sigma dex: Devampry has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DEVAMPRY];
-    EXPECT_EQ(info->baseHP, 82);
+    EXPECT_EQ(info->baseHP, 84);
     EXPECT_EQ(info->baseAttack, 75);
     EXPECT_EQ(info->baseDefense, 69);
     EXPECT_EQ(info->baseSpeed, 95);

@@ -17,9 +17,9 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Sword of Ruin
+  primary: Sea Ghost Emperor
   secondary:             # optional
-  hidden: Grim Neigh     # optional
+  hidden:                # optional
 
 base_stats:              # each 1-255
   hp: 84

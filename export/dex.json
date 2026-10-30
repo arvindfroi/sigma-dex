@@ -698,11 +698,12 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
             "level": 0,
-            "move": "Flip Turn"
+            "move": "Hidden Spur"
           },
           {
             "level": 1,
@@ -3375,11 +3376,11 @@
         "hidden": "Unburden"
       },
       "base_stats": {
-        "hp": 78,
-        "attack": 80,
-        "defense": 60,
+        "hp": 76,
+        "attack": 82,
+        "defense": 61,
         "sp_attack": 50,
-        "sp_defense": 68,
+        "sp_defense": 67,
         "speed": 110
       },
       "ev_yield": {
@@ -3397,6 +3398,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -3724,7 +3726,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Sturdy",
+        "primary": "Iron Fist",
         "secondary": "Rock Head",
         "hidden": "Solid Rock"
       },
@@ -3749,11 +3751,12 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
             "level": 0,
-            "move": "Hammer Arm"
+            "move": "Rock Hammer"
           },
           {
             "level": 1,
@@ -4214,7 +4217,7 @@
         "hidden": "Punk Rock"
       },
       "base_stats": {
-        "hp": 82,
+        "hp": 84,
         "attack": 75,
         "defense": 69,
         "sp_attack": 95,
@@ -4237,6 +4240,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
@@ -4506,7 +4510,7 @@
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Static",
-        "hidden": "Sap Sipper"
+        "hidden": "Eelevate"
       },
       "base_stats": {
         "hp": 75,
@@ -4531,6 +4535,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -9099,11 +9104,12 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
             "level": 0,
-            "move": "Close Combat"
+            "move": "Sleep Talk"
           }
         ],
         "tm_hm": [],
@@ -9190,6 +9196,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -11660,7 +11667,7 @@
       "abilities": {
         "primary": "Soul-Heart",
         "secondary": null,
-        "hidden": null
+        "hidden": "Aerilate"
       },
       "base_stats": {
         "hp": 81,
@@ -12246,9 +12253,9 @@
       "weight_kg": 78.6,
       "body_color": null,
       "abilities": {
-        "primary": "Sword of Ruin",
+        "primary": "Sea Ghost Emperor",
         "secondary": null,
-        "hidden": "Grim Neigh"
+        "hidden": null
       },
       "base_stats": {
         "hp": 84,

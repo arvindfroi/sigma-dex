@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "id": 769,
+    "species": "ability:sea-ghost-emperor",
+    "row": "new ability sea-ghost-emperor (saved by someone)",
+    "problem": "the name 'Sea Ghost Emperor' is 17 characters, the game fits at most 16"
+  }
+]

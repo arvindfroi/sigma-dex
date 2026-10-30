@@ -53,11 +53,20 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 0, move: Flip Turn}
+    - {level: 0, move: Hidden Spur}
     - {level: 1, move: Flip Turn}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Water Pulse, Toxic, Bulk Up, Hidden Power, Taunt, Ice Beam, Protect,

@@ -898,7 +898,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_STURDY, ABILITY_ROCK_HEAD, ABILITY_SOLID_ROCK },
+        .abilities = { ABILITY_IRON_FIST, ABILITY_ROCK_HEAD, ABILITY_SOLID_ROCK },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Sigmauler"),
         .cryId = CRY_NONE,
@@ -1088,7 +1088,7 @@
 
     [SPECIES_DEVAMPRY] =
     {
-        .baseHP = 82,
+        .baseHP = 84,
         .baseAttack = 75,
         .baseDefense = 69,
         .baseSpeed = 95,

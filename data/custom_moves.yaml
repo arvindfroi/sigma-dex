@@ -37,6 +37,18 @@ moves:
   effect_chance: 10
   similar_to: Freeze-Dry
   designer: Emil
+- id: rock-hammer
+  name: Rock Hammer
+  type: Rock
+  category: physical
+  power: 100
+  accuracy: 90
+  pp: 10
+  target: one opponent
+  effect: The user swings and hits with its strong, heavy rock fist. It lowers the user's Speed, however.
+    (100% chance)
+  similar_to: Hammer Arm
+  designer: Emil
 - id: soul-slash
   name: Soul Slash
   type: Ghost

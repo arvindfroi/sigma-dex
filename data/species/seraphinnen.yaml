@@ -19,7 +19,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 abilities:
   primary: Soul-Heart
   secondary:             # optional
-  hidden:                # optional
+  hidden: Aerilate       # optional
 
 base_stats:              # each 1-255
   hp: 81
