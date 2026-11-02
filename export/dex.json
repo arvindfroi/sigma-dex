@@ -933,6 +933,7 @@
           "level": 36
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
@@ -965,7 +966,7 @@
         "look": "It is a slim, red-orange dragon-like creature with a long snout, two long ears tipped with flames, and a yellow oval on its chest. It has thin arms with large wings made of orange flames, clawed yellow-tipped feet and a long curved tail ending in a flame."
       },
       "assets": {
-        "concept_art": "assets/concept-art/heatbat/377.webp",
+        "concept_art": "assets/concept-art/heatbat/1037.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -2955,9 +2956,9 @@
       },
       "base_stats": {
         "hp": 69,
-        "attack": 85,
+        "attack": 90,
         "defense": 67,
-        "sp_attack": 95,
+        "sp_attack": 90,
         "sp_defense": 78,
         "speed": 110
       },
@@ -2976,6 +2977,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -9357,10 +9359,10 @@
         "hidden": "Rough Skin"
       },
       "base_stats": {
-        "hp": 80,
+        "hp": 82,
         "attack": 128,
         "defense": 110,
-        "sp_attack": 72,
+        "sp_attack": 70,
         "sp_defense": 90,
         "speed": 75
       },
@@ -11929,9 +11931,9 @@
       "base_stats": {
         "hp": 55,
         "attack": 105,
-        "defense": 55,
-        "sp_attack": 125,
-        "sp_defense": 55,
+        "defense": 50,
+        "sp_attack": 115,
+        "sp_defense": 50,
         "speed": 125
       },
       "ev_yield": {
@@ -11949,6 +11951,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],

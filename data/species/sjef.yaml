@@ -24,9 +24,9 @@ abilities:
 base_stats:              # each 1-255
   hp: 55
   attack: 105
-  defense: 55
-  sp_attack: 125
-  sp_defense: 55
+  defense: 50
+  sp_attack: 115
+  sp_defense: 50
   speed: 125
 
 ev_yield: {speed: 3}     # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
@@ -52,6 +52,15 @@ evolutions: []
 #     level: 16          # for method: level
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:

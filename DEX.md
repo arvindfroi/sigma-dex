@@ -149,7 +149,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 138 | *open slot* | | | | | |
 | 139 | *open slot* | | | | | |
 | 140 | [Phantomb](data/species/phantomb.yaml) | Ghost / Flying | Disguise |  | Phantail (Lv 62) | 14% |
-| 141 | [Phantail](data/species/sjef.yaml) | Ghost / Flying | Disguise | 520 |  | 24% |
+| 141 | [Phantail](data/species/sjef.yaml) | Ghost / Flying | Disguise | 500 |  | 24% |
 | 142 | [Moosus](data/species/moosus.yaml) | Flying / Fairy | Aurora Dancer, Regenerator (H) | 580 |  | 21% |
 | 143 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Dazzling, Levitate (H) | 580 |  | 21% |
 | 144 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 580 |  | 24% |

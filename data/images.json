@@ -1134,13 +1134,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 377,
-    "species": "heatbat",
-    "file": "assets/concept-art/heatbat/377.webp",
-    "caption": "Concept art, cut out of the Torchbat line sheet that was uploaded on the website",
-    "editor": "Claude"
-  },
-  {
     "id": 378,
     "species": "blazterra",
     "file": "assets/concept-art/blazterra/378.webp",
@@ -1568,13 +1561,6 @@
     "editor": null
   },
   {
-    "id": 449,
-    "species": "heatbat",
-    "file": "assets/concept-art/heatbat/449.png",
-    "caption": null,
-    "editor": null
-  },
-  {
     "id": 450,
     "species": "leafing",
     "file": "assets/concept-art/leafing/450.png",
@@ -1872,13 +1858,6 @@
     "id": 592,
     "species": "furamire",
     "file": "assets/concept-art/furamire/592.webp",
-    "caption": null,
-    "editor": null
-  },
-  {
-    "id": 593,
-    "species": "heatbat",
-    "file": "assets/concept-art/heatbat/593.png",
     "caption": null,
     "editor": null
   },
@@ -3497,6 +3476,118 @@
     "species": "tortoplasm",
     "file": "assets/concept-art/tortoplasm/1036.png",
     "caption": "[ds-follower] sprite #141",
+    "editor": null
+  },
+  {
+    "id": 1037,
+    "species": "heatbat",
+    "file": "assets/concept-art/heatbat/1037.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1038,
+    "species": "wispole",
+    "file": "assets/concept-art/wispole/1038.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1039,
+    "species": "wispole",
+    "file": "assets/concept-art/wispole/1039.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1040,
+    "species": "wispole",
+    "file": "assets/concept-art/wispole/1040.png",
+    "caption": "[ds-front] sprite #144",
+    "editor": null
+  },
+  {
+    "id": 1041,
+    "species": "wispole",
+    "file": "assets/concept-art/wispole/1041.png",
+    "caption": "[ds-back] sprite #144",
+    "editor": null
+  },
+  {
+    "id": 1042,
+    "species": "wispole",
+    "file": "assets/concept-art/wispole/1042.png",
+    "caption": "[ds-icon] sprite #144",
+    "editor": null
+  },
+  {
+    "id": 1043,
+    "species": "wispole",
+    "file": "assets/concept-art/wispole/1043.png",
+    "caption": "[ds-follower] sprite #144",
+    "editor": null
+  },
+  {
+    "id": 1052,
+    "species": "bulbtle",
+    "file": "assets/concept-art/bulbtle/1052.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1053,
+    "species": "obsidog",
+    "file": "assets/concept-art/obsidog/1053.png",
+    "caption": "[ds-front] sprite #147",
+    "editor": null
+  },
+  {
+    "id": 1054,
+    "species": "obsidog",
+    "file": "assets/concept-art/obsidog/1054.png",
+    "caption": "[ds-back] sprite #147",
+    "editor": null
+  },
+  {
+    "id": 1055,
+    "species": "obsidog",
+    "file": "assets/concept-art/obsidog/1055.png",
+    "caption": "[ds-icon] sprite #147",
+    "editor": null
+  },
+  {
+    "id": 1056,
+    "species": "obsidog",
+    "file": "assets/concept-art/obsidog/1056.png",
+    "caption": "[ds-follower] sprite #147",
+    "editor": null
+  },
+  {
+    "id": 1065,
+    "species": "pipwi",
+    "file": "assets/concept-art/pipwi/1065.png",
+    "caption": "[ds-front] sprite #148",
+    "editor": null
+  },
+  {
+    "id": 1066,
+    "species": "pipwi",
+    "file": "assets/concept-art/pipwi/1066.png",
+    "caption": "[ds-back] sprite #148",
+    "editor": null
+  },
+  {
+    "id": 1067,
+    "species": "pipwi",
+    "file": "assets/concept-art/pipwi/1067.png",
+    "caption": "[ds-icon] sprite #148",
+    "editor": null
+  },
+  {
+    "id": 1068,
+    "species": "pipwi",
+    "file": "assets/concept-art/pipwi/1068.png",
+    "caption": "[ds-follower] sprite #148",
     "editor": null
   }
 ]

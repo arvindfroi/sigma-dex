@@ -22,10 +22,10 @@ abilities:
   hidden: Rough Skin     # optional
 
 base_stats:              # each 1-255
-  hp: 80
+  hp: 82
   attack: 128
   defense: 110
-  sp_attack: 72
+  sp_attack: 70
   sp_defense: 90
   speed: 75
 
