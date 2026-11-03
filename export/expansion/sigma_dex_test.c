@@ -848,12 +848,12 @@ SINGLE_BATTLE_TEST("Sigma dex: DreadFang can use its first move in battle")
 TEST("Sigma dex: Everdark has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_EVERDARK];
-    EXPECT_EQ(info->baseHP, 65);
+    EXPECT_EQ(info->baseHP, 70);
     EXPECT_EQ(info->baseAttack, 125);
-    EXPECT_EQ(info->baseDefense, 75);
-    EXPECT_EQ(info->baseSpeed, 110);
-    EXPECT_EQ(info->baseSpAttack, 120);
-    EXPECT_EQ(info->baseSpDefense, 60);
+    EXPECT_EQ(info->baseDefense, 85);
+    EXPECT_EQ(info->baseSpeed, 100);
+    EXPECT_EQ(info->baseSpAttack, 67);
+    EXPECT_EQ(info->baseSpDefense, 75);
     EXPECT_EQ(info->types[0], TYPE_DARK);
     EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
     EXPECT_EQ(info->abilities[0], ABILITY_ARMOR_TAIL);

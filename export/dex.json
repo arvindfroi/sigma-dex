@@ -2513,10 +2513,10 @@
         "hidden": "Oblivious"
       },
       "base_stats": {
-        "hp": 55,
+        "hp": 60,
         "attack": 65,
         "defense": 40,
-        "sp_attack": 20,
+        "sp_attack": 15,
         "sp_defense": 40,
         "speed": 60
       },
@@ -2539,6 +2539,7 @@
           "level": 25
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -2602,10 +2603,10 @@
         "hidden": "Oblivious"
       },
       "base_stats": {
-        "hp": 80,
+        "hp": 90,
         "attack": 110,
         "defense": 67,
-        "sp_attack": 25,
+        "sp_attack": 15,
         "sp_defense": 67,
         "speed": 71
       },
@@ -9787,10 +9788,10 @@
       },
       "base_stats": {
         "hp": 90,
-        "attack": 85,
+        "attack": 75,
         "defense": 70,
         "sp_attack": 110,
-        "sp_defense": 85,
+        "sp_defense": 100,
         "speed": 80
       },
       "ev_yield": {
@@ -9808,6 +9809,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -11486,16 +11488,15 @@
         "hidden": "Dark Aura"
       },
       "base_stats": {
-        "hp": 65,
+        "hp": 70,
         "attack": 125,
-        "defense": 75,
-        "sp_attack": 120,
-        "sp_defense": 60,
-        "speed": 110
+        "defense": 85,
+        "sp_attack": 67,
+        "sp_defense": 75,
+        "speed": 100
       },
       "ev_yield": {
-        "attack": 2,
-        "sp_attack": 1
+        "attack": 2
       },
       "catch_rate": null,
       "base_exp": null,
@@ -11509,6 +11510,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {

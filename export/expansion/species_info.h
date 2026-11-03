@@ -1480,17 +1480,16 @@
 
     [SPECIES_EVERDARK] =
     {
-        .baseHP = 65,
+        .baseHP = 70,
         .baseAttack = 125,
-        .baseDefense = 75,
-        .baseSpeed = 110,
-        .baseSpAttack = 120,
-        .baseSpDefense = 60,
+        .baseDefense = 85,
+        .baseSpeed = 100,
+        .baseSpAttack = 67,
+        .baseSpDefense = 75,
         .types = MON_TYPES(TYPE_DARK, TYPE_PSYCHIC),
         .catchRate = 45,
         .expYield = 64,
         .evYield_Attack = 2,
-        .evYield_SpAttack = 1,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,

@@ -22,10 +22,10 @@ abilities:
   hidden: Oblivious      # optional
 
 base_stats:              # each 1-255
-  hp: 80
+  hp: 90
   attack: 110
   defense: 67
-  sp_attack: 25
+  sp_attack: 15
   sp_defense: 67
   speed: 71
 
