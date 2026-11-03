@@ -3589,5 +3589,12 @@
     "file": "assets/concept-art/pipwi/1068.png",
     "caption": "[ds-follower] sprite #148",
     "editor": null
+  },
+  {
+    "id": 1069,
+    "species": "pipwi-utv",
+    "file": "assets/concept-art/pipwi-utv/1069.png",
+    "caption": null,
+    "editor": null
   }
 ]

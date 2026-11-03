@@ -16,9 +16,9 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | height | 28 / 143 |
 | Dex page | weight | 26 / 143 |
 | Dex page | body color | 2 / 143 |
-| Stats | base stats | 121 / 143 |
+| Stats | base stats | 122 / 143 |
 | Stats | ability | 128 / 143 |
-| Stats | EV yield | 81 / 143 |
+| Stats | EV yield | 82 / 143 |
 | Stats | catch rate | 1 / 143 |
 | Stats | base exp | 1 / 143 |
 | Stats | growth rate | 1 / 143 |
@@ -26,7 +26,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Breeding | gender | 1 / 143 |
 | Breeding | egg groups | 1 / 143 |
 | Breeding | egg cycles | 1 / 143 |
-| Moves | level-up moves | 37 / 143 |
+| Moves | level-up moves | 38 / 143 |
 | Moves | TM/HM moves | 4 / 143 |
 | Location | encounters | 2 / 143 |
 | Design | concept | 14 / 143 |
@@ -295,12 +295,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #26 [Freezrick](data/species/freezrick.yaml) - 28%
+### #26 [Freezrick](data/species/freezrick.yaml) - 31%
 
 - **Dex page:** height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -1369,10 +1369,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #140 [Phantomb](data/species/phantomb.yaml) - 14%
+### #140 [Phantomb](data/species/phantomb.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

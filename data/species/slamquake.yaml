@@ -6,7 +6,7 @@ credits:
   designer: Ivar         # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: [Ground, Steel]   # 1 or 2 types, e.g. [Grass, Steel]
+types: [Steel, Ground]   # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -17,7 +17,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Battle Armor
+  primary: Sand Force
   secondary: Steam Engine # optional
   hidden: Filter         # optional
 

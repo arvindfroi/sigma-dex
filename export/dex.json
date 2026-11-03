@@ -894,7 +894,8 @@
         "artist": null
       },
       "types": [
-        "Fire"
+        "Fire",
+        "Flying"
       ],
       "category": null,
       "description": null,
@@ -1270,10 +1271,10 @@
         "hidden": "Gale Wings"
       },
       "base_stats": {
-        "hp": 67,
+        "hp": 72,
         "attack": 109,
-        "defense": 60,
-        "sp_attack": 72,
+        "defense": 67,
+        "sp_attack": 60,
         "sp_defense": 102,
         "speed": 85
       },
@@ -1290,6 +1291,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -1876,8 +1878,8 @@
         "artist": null
       },
       "types": [
-        "Ground",
-        "Steel"
+        "Steel",
+        "Ground"
       ],
       "category": null,
       "description": null,
@@ -1885,7 +1887,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Battle Armor",
+        "primary": "Sand Force",
         "secondary": "Steam Engine",
         "hidden": "Filter"
       },
@@ -2602,10 +2604,10 @@
       "base_stats": {
         "hp": 80,
         "attack": 110,
-        "defense": 60,
+        "defense": 67,
         "sp_attack": 25,
-        "sp_defense": 70,
-        "speed": 75
+        "sp_defense": 67,
+        "speed": 71
       },
       "ev_yield": {
         "attack": 2
@@ -2622,8 +2624,14 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Ice Egg"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -11843,14 +11851,16 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 30,
+        "attack": 50,
+        "defense": 25,
+        "sp_attack": 65,
+        "sp_defense": 25,
+        "speed": 85
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -11869,6 +11879,7 @@
           "level": 62
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -12087,17 +12098,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Dazzling",
+        "primary": "Levitate",
         "secondary": null,
-        "hidden": "Levitate"
+        "hidden": null
       },
       "base_stats": {
-        "hp": 80,
+        "hp": 75,
         "attack": 90,
         "defense": 70,
         "sp_attack": 130,
-        "sp_defense": 70,
-        "speed": 140
+        "sp_defense": 80,
+        "speed": 135
       },
       "ev_yield": {
         "speed": 3
@@ -12114,6 +12125,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],

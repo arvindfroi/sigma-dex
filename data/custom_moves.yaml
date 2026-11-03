@@ -37,6 +37,22 @@ moves:
   effect_chance: 10
   similar_to: Freeze-Dry
   designer: Emil
+- id: ice-egg
+  name: Ice Egg
+  type: Ice
+  category: physical
+  power: 90
+  accuracy: 100
+  pp: 15
+  target: one opponent
+  effect: The user throws a freezing egg at the target. Used on an opponent, it deals normal Ice-type
+    physical damage. Used on an ally in doubles, it deals no damage and restores 50% of the ally's max
+    HP instead. It is a ball and bomb move, so Bulletproof makes the target immune to it when it is used
+    offensively. It makes no contact, and it can't heal an ally that is already at full HP. Like Pollen
+    Puff, it can't be used with Heal Block active, and it is blocked by Psychic Terrain if used on a grounded
+    ally's priority-boosted... no, that doesn't apply, so it works normally under all terrains.
+  similar_to: Pollen Puff
+  designer: Emil
 - id: rock-hammer
   name: Rock Hammer
   type: Rock

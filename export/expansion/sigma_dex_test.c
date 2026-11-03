@@ -211,7 +211,7 @@ TEST("Sigma dex: Heatbat has the data from its species file")
     EXPECT_EQ(info->baseSpAttack, 85);
     EXPECT_EQ(info->baseSpDefense, 65);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
-    EXPECT_EQ(info->types[1], TYPE_FIRE);
+    EXPECT_EQ(info->types[1], TYPE_FLYING);
     EXPECT_EQ(info->abilities[0], ABILITY_BLAZE);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_AIR_SLASH);
     EXPECT_EQ(GetSpeciesName(SPECIES_HEATBAT)[0], CHAR_H);
@@ -322,9 +322,9 @@ TEST("Sigma dex: SlamQuake has the data from its species file")
     EXPECT_EQ(info->baseSpeed, 50);
     EXPECT_EQ(info->baseSpAttack, 40);
     EXPECT_EQ(info->baseSpDefense, 100);
-    EXPECT_EQ(info->types[0], TYPE_GROUND);
-    EXPECT_EQ(info->types[1], TYPE_STEEL);
-    EXPECT_EQ(info->abilities[0], ABILITY_BATTLE_ARMOR);
+    EXPECT_EQ(info->types[0], TYPE_STEEL);
+    EXPECT_EQ(info->types[1], TYPE_GROUND);
+    EXPECT_EQ(info->abilities[0], ABILITY_SAND_FORCE);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ROAR);
     EXPECT_EQ(GetSpeciesName(SPECIES_SLAMQUAKE)[0], CHAR_S);
 }
