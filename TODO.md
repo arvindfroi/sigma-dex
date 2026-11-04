@@ -18,7 +18,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | body color | 2 / 143 |
 | Stats | base stats | 122 / 143 |
 | Stats | ability | 128 / 143 |
-| Stats | EV yield | 82 / 143 |
+| Stats | EV yield | 84 / 143 |
 | Stats | catch rate | 1 / 143 |
 | Stats | base exp | 1 / 143 |
 | Stats | growth rate | 1 / 143 |
@@ -29,7 +29,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Moves | level-up moves | 38 / 143 |
 | Moves | TM/HM moves | 4 / 143 |
 | Location | encounters | 2 / 143 |
-| Design | concept | 14 / 143 |
+| Design | concept | 15 / 143 |
 | Art | concept art | 130 / 143 |
 | Art | front sprite | 4 / 143 |
 | Art | front animation frame | 4 / 143 |
@@ -43,9 +43,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 39 / 143 |
-| DS back sprite 80x80 | 39 / 143 |
-| DS icon 32x32 | 39 / 143 |
+| DS front sprite 80x80 | 42 / 143 |
+| DS back sprite 80x80 | 42 / 143 |
+| DS icon 32x32 | 42 / 143 |
 
 ## Open dex slots (8)
 
@@ -285,7 +285,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #25 [Icy Freeze](data/species/icy-freeze.yaml) - 24%
+### #25 [Snobbit](data/species/icy-freeze.yaml) - 24%
 
 - **Dex page:** height, weight, body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
@@ -295,30 +295,29 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #26 [Freezrick](data/species/freezrick.yaml) - 31%
+### #26 [Freezrick](data/species/freezrick.yaml) - 34%
 
 - **Dex page:** height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** TM/HM moves
 - **Location:** encounters
-- **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #27 [Bulbtle](data/species/bulbtle.yaml) - 24%
+### #27 [Bulbtle](data/species/bulbtle.yaml) - 28%
 
 - **Dex page:** height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #28 [Bulbtoise](data/species/bulbtoise.yaml) - 24%
+### #28 [Bulbtoise](data/species/bulbtoise.yaml) - 28%
 
 - **Dex page:** height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

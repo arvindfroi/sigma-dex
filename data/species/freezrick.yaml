@@ -23,11 +23,11 @@ abilities:
 
 base_stats:              # each 1-255
   hp: 90
-  attack: 110
+  attack: 105
   defense: 67
   sp_attack: 15
   sp_defense: 67
-  speed: 71
+  speed: 76
 
 ev_yield: {attack: 2}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -76,7 +76,7 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 
 # --- Design ---
 design:
-  concept:               # what is it? one or two sentences
+  concept: Ice rabbit with blonde bowl cut
   name_origin:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Height 2'11\", weight 132.3 lbs. Ice Body: gradually recovers HP in hail. Personality: cool and composed, fiercely loyal. Signature move Ice Egg (Ice, 80 BP, 100% accuracy).."
   wishes:                # for Claude: how it should play, move ideas

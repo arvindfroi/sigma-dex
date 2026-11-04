@@ -33,10 +33,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 22 | [Lapper](data/species/lapper.yaml) | Normal / Fighting | Scrappy, Fur Coat, Hustle (H) | 327 | Brawleo (Lv 25) | 21% |
 | 23 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 31% |
 | 24 | [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) | Rock / Ground | Iron Barbs, Sand Veil, Sand Force (H) | 410 |  | 17% |
-| 25 | [Icy Freeze](data/species/icy-freeze.yaml) | Ice | Ice Body, Slush Rush, Oblivious (H) | 280 | Freezrick (Lv 25) | 24% |
-| 26 | [Freezrick](data/species/freezrick.yaml) | Ice | Ice Body, Slush Rush, Oblivious (H) | 420 |  | 31% |
-| 27 | [Bulbtle](data/species/bulbtle.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 280 | Bulbtoise (Lv 28) | 24% |
-| 28 | [Bulbtoise](data/species/bulbtoise.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 480 |  | 24% |
+| 25 | [Snobbit](data/species/icy-freeze.yaml) | Ice | Ice Body, Slush Rush, Oblivious (H) | 280 | Freezrick (Lv 25) | 24% |
+| 26 | [Freezrick](data/species/freezrick.yaml) | Ice | Ice Body, Slush Rush, Oblivious (H) | 420 |  | 34% |
+| 27 | [Bulbtle](data/species/bulbtle.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 280 | Bulbtoise (Lv 28) | 28% |
+| 28 | [Bulbtoise](data/species/bulbtoise.yaml) | Ground / Electric | Shell Armor, Earth Eater, Electric Surge (H) | 470 |  | 28% |
 | 29 | [Wispole](data/species/wispole.yaml) | Water | Swift Swim, Water Veil, Water Bubble (H) | 230 | Galfrogtom (Thunder Stone), Croakble (Lv 25) | 28% |
 | 30 | [Croakble](data/species/croakble.yaml) | Water | Swift Swim, Liquid Voice, Water Bubble (H) | 504 |  | 17% |
 | 31 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Cursed Body, Lightning Rod, Galvanize (H) | 504 |  | 31% |

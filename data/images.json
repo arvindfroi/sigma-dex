@@ -3603,5 +3603,96 @@
     "file": "assets/concept-art/freezrick/1070.png",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 1071,
+    "species": "icy-freeze",
+    "file": "assets/concept-art/icy-freeze/1071.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1072,
+    "species": "freezrick",
+    "file": "assets/concept-art/freezrick/1072.png",
+    "caption": "[ds-front] sprite #151",
+    "editor": null
+  },
+  {
+    "id": 1073,
+    "species": "freezrick",
+    "file": "assets/concept-art/freezrick/1073.png",
+    "caption": "[ds-back] sprite #151",
+    "editor": null
+  },
+  {
+    "id": 1074,
+    "species": "freezrick",
+    "file": "assets/concept-art/freezrick/1074.png",
+    "caption": "[ds-icon] sprite #151",
+    "editor": null
+  },
+  {
+    "id": 1075,
+    "species": "freezrick",
+    "file": "assets/concept-art/freezrick/1075.png",
+    "caption": "[ds-follower] sprite #151",
+    "editor": null
+  },
+  {
+    "id": 1084,
+    "species": "icy-freeze",
+    "file": "assets/concept-art/icy-freeze/1084.png",
+    "caption": "[ds-front] sprite #152",
+    "editor": null
+  },
+  {
+    "id": 1085,
+    "species": "icy-freeze",
+    "file": "assets/concept-art/icy-freeze/1085.png",
+    "caption": "[ds-back] sprite #152",
+    "editor": null
+  },
+  {
+    "id": 1086,
+    "species": "icy-freeze",
+    "file": "assets/concept-art/icy-freeze/1086.png",
+    "caption": "[ds-icon] sprite #152",
+    "editor": null
+  },
+  {
+    "id": 1087,
+    "species": "icy-freeze",
+    "file": "assets/concept-art/icy-freeze/1087.png",
+    "caption": "[ds-follower] sprite #152",
+    "editor": null
+  },
+  {
+    "id": 1088,
+    "species": "gortiki",
+    "file": "assets/concept-art/gortiki/1088.png",
+    "caption": "[ds-front] sprite #153",
+    "editor": null
+  },
+  {
+    "id": 1089,
+    "species": "gortiki",
+    "file": "assets/concept-art/gortiki/1089.png",
+    "caption": "[ds-back] sprite #153",
+    "editor": null
+  },
+  {
+    "id": 1090,
+    "species": "gortiki",
+    "file": "assets/concept-art/gortiki/1090.png",
+    "caption": "[ds-icon] sprite #153",
+    "editor": null
+  },
+  {
+    "id": 1091,
+    "species": "gortiki",
+    "file": "assets/concept-art/gortiki/1091.png",
+    "caption": "[ds-follower] sprite #153",
+    "editor": null
   }
 ]
