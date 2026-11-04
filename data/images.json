@@ -3694,5 +3694,33 @@
     "file": "assets/concept-art/gortiki/1091.png",
     "caption": "[ds-follower] sprite #153",
     "editor": null
+  },
+  {
+    "id": 1092,
+    "species": "slothbaby",
+    "file": "assets/concept-art/slothbaby/1092.png",
+    "caption": "[ds-front] sprite #154",
+    "editor": null
+  },
+  {
+    "id": 1093,
+    "species": "slothbaby",
+    "file": "assets/concept-art/slothbaby/1093.png",
+    "caption": "[ds-back] sprite #154",
+    "editor": null
+  },
+  {
+    "id": 1094,
+    "species": "slothbaby",
+    "file": "assets/concept-art/slothbaby/1094.png",
+    "caption": "[ds-icon] sprite #154",
+    "editor": null
+  },
+  {
+    "id": 1095,
+    "species": "slothbaby",
+    "file": "assets/concept-art/slothbaby/1095.png",
+    "caption": "[ds-follower] sprite #154",
+    "editor": null
   }
 ]
