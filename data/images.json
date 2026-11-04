@@ -3722,5 +3722,19 @@
     "file": "assets/concept-art/slothbaby/1095.png",
     "caption": "[ds-follower] sprite #154",
     "editor": null
+  },
+  {
+    "id": 1096,
+    "species": "sigmauler",
+    "file": "assets/concept-art/sigmauler/1096.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1097,
+    "species": "sigmauler",
+    "file": "assets/concept-art/sigmauler/1097.png",
+    "caption": null,
+    "editor": null
   }
 ]

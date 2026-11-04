@@ -69,7 +69,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 58 | [Unknighted](data/species/united.yaml) | Electric / Psychic | Battery | 467 |  | 28% |
 | 59 | [Hairyen](data/species/hairyen.yaml) | Grass / Water | Diver, Tangling Hair, Rain Dish (H) | 325 |  | 28% |
 | 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Bulletproof, Shell Armor, Steelworker (H) | 540 |  | 31% |
-| 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel | Innards Out, Poison Point, Run Away (H) | 301 |  | 34% |
+| 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel | Innards Out, Poison Point, Run Away (H) | 305 |  | 34% |
 | 62 | [Nuclobyl](data/species/nuclobyl.yaml) | Poison / Steel | Innards Out, Poison Point, Filter (H) | 525 |  | 34% |
 | 63 | [Gentie](data/species/gentie.yaml) |  |  |  |  | 0% |
 | 64 | [Yanklet](data/species/yanklet.yaml) | Steel / Flying |  |  |  | 7% |

@@ -5641,8 +5641,8 @@
         "hidden": "Steelworker"
       },
       "base_stats": {
-        "hp": 67,
-        "attack": 50,
+        "hp": 45,
+        "attack": 72,
         "defense": 150,
         "sp_attack": 108,
         "sp_defense": 140,
@@ -5663,6 +5663,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -5729,10 +5730,10 @@
       "base_stats": {
         "hp": 35,
         "attack": 25,
-        "defense": 78,
+        "defense": 60,
         "sp_attack": 40,
-        "sp_defense": 60,
-        "speed": 63
+        "sp_defense": 78,
+        "speed": 67
       },
       "ev_yield": {
         "defense": 1
@@ -5816,13 +5817,13 @@
       "base_stats": {
         "hp": 90,
         "attack": 59,
-        "defense": 120,
+        "defense": 103,
         "sp_attack": 108,
-        "sp_defense": 103,
+        "sp_defense": 120,
         "speed": 45
       },
       "ev_yield": {
-        "defense": 2
+        "sp_defense": 2
       },
       "catch_rate": null,
       "base_exp": null,
@@ -5836,6 +5837,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
