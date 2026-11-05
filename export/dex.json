@@ -9015,12 +9015,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": 90,
-        "attack": 105,
+        "hp": 85,
+        "attack": 115,
         "defense": 50,
-        "sp_attack": 40,
+        "sp_attack": 30,
         "sp_defense": 50,
-        "speed": 85
+        "speed": 90
       },
       "ev_yield": {
         "attack": 1
@@ -9043,6 +9043,7 @@
           "level": 40
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
