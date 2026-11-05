@@ -3474,8 +3474,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Liquid Ooze",
-        "secondary": "Cute Charm",
-        "hidden": "Sticky Hold"
+        "secondary": "Sticky Hold",
+        "hidden": "Regenerator"
       },
       "base_stats": {
         "hp": 67,
@@ -3504,6 +3504,7 @@
           "level": 38
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -3564,8 +3565,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Liquid Ooze",
-        "secondary": "Cute Charm",
-        "hidden": "Toxic Voice"
+        "secondary": "Toxic Voice",
+        "hidden": "Regenerator"
       },
       "base_stats": {
         "hp": 94,
@@ -3590,6 +3591,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {

@@ -44,8 +44,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 33 | [Rainbro](data/species/rainbro.yaml) |  | Punchable Face | 490 |  | 10% |
 | 34 | [blutie](data/species/coati.yaml) | Normal | Run Away, Quick Feet, Unburden (H) | 255 |  | 21% |
 | 35 | [coatail](data/species/coatail.yaml) | Normal | Run Away, Quick Feet, Unburden (H) | 446 |  | 24% |
-| 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Sticky Hold (H) | 325 | Toxiren (Lv 38) | 31% |
-| 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Cute Charm, Toxic Voice (H) | 500 |  | 38% |
+| 36 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Sticky Hold, Regenerator (H) | 325 | Toxiren (Lv 38) | 31% |
+| 37 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Toxic Voice, Regenerator (H) | 500 |  | 38% |
 | 38 | [Stonma](data/species/stonma.yaml) | Rock | Sturdy, Rock Head, Solid Rock (H) | 330 | Sigmauler (Lv 38) | 28% |
 | 39 | [Sigmauler](data/species/sigmauler.yaml) | Rock / Fighting | Iron Fist, Rock Head, Solid Rock (H) | 510 |  | 21% |
 | 40 | [Tinky](data/species/tinky.yaml) | Grass | Heatproof, Dancer, Prankster (H) | 285 | Motinky (Lv 25) | 31% |
