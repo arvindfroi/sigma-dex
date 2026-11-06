@@ -67,7 +67,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 56 | [Razox](data/species/razox.yaml) | Fairy / Ice |  |  |  | 7% |
 | 57 | [Sigmanian Unown](data/species/bulgarian-unown.yaml) | Electric / Psychic | Battery | 336 |  | 28% |
 | 58 | [Unknighted](data/species/united.yaml) | Electric / Psychic | Battery | 467 |  | 28% |
-| 59 | [Hairyen](data/species/hairyen.yaml) | Grass / Water | Diver, Tangling Hair, Rain Dish (H) | 325 |  | 28% |
+| 59 | [Hairyen](data/species/hairyen.yaml) | Grass / Water | Diver, Tangling Hair, Rain Dish (H) | 310 |  | 31% |
 | 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Bulletproof, Shell Armor, Steelworker (H) | 540 |  | 31% |
 | 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel | Innards Out, Poison Point, Run Away (H) | 305 |  | 34% |
 | 62 | [Nuclobyl](data/species/nuclobyl.yaml) | Poison / Steel | Innards Out, Poison Point, Filter (H) | 525 |  | 34% |
@@ -75,9 +75,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 64 | [Yanklet](data/species/yanklet.yaml) | Steel / Flying |  |  |  | 7% |
 | 65 | [Anjane](data/species/anjane.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 320 | Janenon (Lv 42) | 28% |
 | 66 | [Janenon](data/species/janenon.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 485 |  | 31% |
-| 67 | [Saucerl](data/species/saucerl.yaml) | Psychic / Water |  |  |  | 7% |
-| 68 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water |  |  |  | 7% |
-| 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 495 |  | 17% |
+| 67 | [Saucerl](data/species/saucerl.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 295 |  | 17% |
+| 68 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 395 |  | 17% |
+| 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 495 |  | 21% |
 | 70 | [Cryoblade](data/species/cryoblade.yaml) | Ice | Cold-hearted, Ice Body, Refrigerate (H) | 540 |  | 31% |
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
 | 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
@@ -91,8 +91,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 80 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 28% |
 | 81 | [Parahaunt](data/species/parahaunt.yaml) | Ghost | Smoked Up | 556 |  | 28% |
 | 82 | [Insectoid](data/species/insectoid.yaml) |  |  |  |  | 0% |
-| 83 | [Darkgonark](data/species/darkgonark.yaml) |  |  |  |  | 0% |
-| 84 | [Detecup](data/species/detecup.yaml) | Normal | Pickup, Keen Eye, Download (H) |  |  | 17% |
+| 83 | [puptive](data/species/darkgonark.yaml) | Normal | Pickup, Keen Eye, Download (H) | 317 |  | 14% |
+| 84 | [Detecup](data/species/detecup.yaml) | Normal | Pickup, Keen Eye, Download (H) | 462 |  | 24% |
 | 85 | [Snownin](data/species/snownin.yaml) | Ice | Snow Warning, Snow Cloak, Levitate (H) | 495 |  | 24% |
 | 86 | [Verrith](data/species/verrith.yaml) | Ghost / Steel | Fog Of War, Neutralizing Gas (H) | 555 |  | 21% |
 | 87 | [Sigmanian Komala](data/species/sigmanian-komala.yaml) | Normal | Drunken Rage, Poison Heal, Toxic Boost (H) | 348 | Dahrugula (Lv 32) | 24% |
@@ -142,13 +142,13 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 131 | [Glacépée](data/species/glac-p-e.yaml) | Ice / Fighting | Long Reach, Parry Stance, Sniper (H) | 510 |  | 17% |
 | 132 | [Everdark](data/species/everdark.yaml) | Dark / Psychic | Armor Tail, Dark Aura (H) | 522 |  | 24% |
 | 133 | [Diedo](data/species/diedo.yaml) | Flying |  |  | Seraphinnen (Lv 20) | 14% |
-| 134 | [Seraphinnen](data/species/seraphinnen.yaml) | Flying | Soul-Heart, Aerilate (H) | 540 |  | 21% |
+| 134 | [Seraphinnen](data/species/seraphinnen.yaml) | Flying | Soul-Heart, Mind's Eye, Aerilate (H) | 540 |  | 21% |
 | 135 | [Riftbloom](data/species/riftbloom.yaml) | Ghost / Psychic | Prankster |  |  | 14% |
 | 136 | *open slot* | | | | | |
 | 137 | *open slot* | | | | | |
 | 138 | *open slot* | | | | | |
 | 139 | *open slot* | | | | | |
-| 140 | [Phantomb](data/species/phantomb.yaml) | Ghost / Flying | Disguise | 280 | Phantail (Lv 62) | 21% |
+| 140 | [Phantomb](data/species/phantomb.yaml) | Ghost / Flying | Disguise | 285 | Phantail (Lv 62) | 21% |
 | 141 | [Phantail](data/species/sjef.yaml) | Ghost / Flying | Disguise | 500 |  | 24% |
 | 142 | [Moosus](data/species/moosus.yaml) | Flying / Fairy | Aurora Dancer, Regenerator (H) | 580 |  | 21% |
 | 143 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Levitate | 580 |  | 21% |

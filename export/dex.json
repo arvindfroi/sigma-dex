@@ -5560,13 +5560,15 @@
       },
       "base_stats": {
         "hp": 45,
-        "attack": 51,
+        "attack": 46,
         "defense": 90,
         "sp_attack": 34,
-        "sp_defense": 90,
+        "sp_defense": 80,
         "speed": 15
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -5579,6 +5581,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -5651,7 +5654,8 @@
         "speed": 25
       },
       "ev_yield": {
-        "defense": 3
+        "defense": 2,
+        "sp_defense": 1
       },
       "catch_rate": null,
       "base_exp": null,
@@ -6256,19 +6260,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Analytic",
+        "secondary": "Telepathy",
+        "hidden": "Prism Armor"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 20,
+        "attack": 28,
+        "defense": 92,
+        "sp_attack": 38,
+        "sp_defense": 97,
+        "speed": 20
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -6281,6 +6287,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -6340,19 +6347,22 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Analytic",
+        "secondary": "Telepathy",
+        "hidden": "Prism Armor"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 35,
+        "attack": 43,
+        "defense": 117,
+        "sp_attack": 48,
+        "sp_defense": 127,
+        "speed": 25
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1,
+        "sp_defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -6365,6 +6375,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -6436,7 +6447,10 @@
         "sp_defense": 152,
         "speed": 35
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1,
+        "sp_defense": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -6449,6 +6463,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
@@ -7595,31 +7610,35 @@
     },
     {
       "dex": 83,
-      "name": "Darkgonark",
+      "name": "puptive",
       "credits": {
         "designer": null,
         "artist": null
       },
-      "types": [],
+      "types": [
+        "Normal"
+      ],
       "category": null,
       "description": null,
       "height_m": null,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Pickup",
+        "secondary": "Keen Eye",
+        "hidden": "Download"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 42,
+        "attack": 62,
+        "defense": 42,
+        "sp_attack": 62,
+        "sp_defense": 42,
+        "speed": 67
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -7632,6 +7651,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -7691,14 +7711,17 @@
         "hidden": "Download"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 72,
+        "attack": 92,
+        "defense": 62,
+        "sp_attack": 92,
+        "sp_defense": 62,
+        "speed": 82
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 1,
+        "sp_attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -7711,6 +7734,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -11693,7 +11717,7 @@
       "body_color": null,
       "abilities": {
         "primary": "Soul-Heart",
-        "secondary": null,
+        "secondary": "Mind's Eye",
         "hidden": "Aerilate"
       },
       "base_stats": {
@@ -11705,7 +11729,7 @@
         "speed": 95
       },
       "ev_yield": {
-        "sp_defense": 2
+        "sp_attack": 3
       },
       "catch_rate": null,
       "base_exp": null,
@@ -11866,10 +11890,10 @@
       },
       "base_stats": {
         "hp": 30,
-        "attack": 50,
-        "defense": 25,
-        "sp_attack": 65,
-        "sp_defense": 25,
+        "attack": 55,
+        "defense": 30,
+        "sp_attack": 55,
+        "sp_defense": 30,
         "speed": 85
       },
       "ev_yield": {
@@ -11956,9 +11980,9 @@
       "base_stats": {
         "hp": 55,
         "attack": 105,
-        "defense": 50,
-        "sp_attack": 115,
-        "sp_defense": 50,
+        "defense": 55,
+        "sp_attack": 105,
+        "sp_defense": 55,
         "speed": 125
       },
       "ev_yield": {
@@ -12117,12 +12141,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": 75,
+        "hp": 80,
         "attack": 90,
         "defense": 70,
         "sp_attack": 130,
-        "sp_defense": 80,
-        "speed": 135
+        "sp_defense": 70,
+        "speed": 140
       },
       "ev_yield": {
         "speed": 3

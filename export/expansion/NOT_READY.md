@@ -48,8 +48,8 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Gentie** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
 - **Yanklet** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Anjane** needs: a level-up move that exists in the game
-- **Saucerl** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Abyssys** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Saucerl** needs: a level-up move that exists in the game
+- **Abyssys** needs: a level-up move that exists in the game
 - **Octopearl** needs: a level-up move that exists in the game
 - **Cryoblade** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Roostasaur** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
@@ -63,8 +63,8 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Chuchar** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Parahaunt** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Insectoid** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
-- **Darkgonark** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
-- **Detecup** needs: base stats, a level-up move that exists in the game
+- **puptive** needs: a level-up move that exists in the game
+- **Detecup** needs: a level-up move that exists in the game
 - **Verrith** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Sigmanian Komala** needs: an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
 - **Dahrugula** needs: an ability that exists in the game
