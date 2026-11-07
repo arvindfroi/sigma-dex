@@ -1,9 +1,9 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
 dex: 83
-name: puptive
+name: Detecub mindre evo
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Ruben        # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Normal]          # 1 or 2 types, e.g. [Grass, Steel]
@@ -45,13 +45,10 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+evolutions:
+  - into: detecup
+    method: level
+    level: 20
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
@@ -86,7 +83,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/puptive.png
+  concept_art:           # e.g. assets/concept-art/detecub-mindre-evo.png
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

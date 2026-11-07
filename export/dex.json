@@ -1873,114 +1873,6 @@
       "id": "pipwi-utv"
     },
     {
-      "dex": 19,
-      "name": "SlamQuake",
-      "credits": {
-        "designer": "Ivar",
-        "artist": null
-      },
-      "types": [
-        "Steel",
-        "Ground"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": "Sand Force",
-        "secondary": "Steam Engine",
-        "hidden": "Filter"
-      },
-      "base_stats": {
-        "hp": 90,
-        "attack": 100,
-        "defense": 120,
-        "sp_attack": 40,
-        "sp_defense": 100,
-        "speed": 50
-      },
-      "ev_yield": {
-        "defense": 2
-      },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 15,
-            "move": "Roar"
-          },
-          {
-            "level": 23,
-            "move": "Protect"
-          },
-          {
-            "level": 25,
-            "move": "Body Press"
-          },
-          {
-            "level": 27,
-            "move": "Stealth Rock"
-          },
-          {
-            "level": 30,
-            "move": "Iron Defense"
-          },
-          {
-            "level": 33,
-            "move": "Heavy Slam"
-          }
-        ],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/slamquake/967.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "slamquake"
-    },
-    {
       "dex": 20,
       "name": "Cowfin",
       "credits": {
@@ -6685,87 +6577,6 @@
       "id": "roostasaur"
     },
     {
-      "dex": 72,
-      "name": "Bygon",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [
-        "Ghost",
-        "Rock"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
-      },
-      "assets": {
-        "concept_art": null,
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "bygon"
-    },
-    {
       "dex": 73,
       "name": "Leadling",
       "credits": {
@@ -7537,12 +7348,15 @@
     },
     {
       "dex": 82,
-      "name": "Insectoid",
+      "name": "Goatjo",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Ruben",
+        "artist": "Ruben"
       },
-      "types": [],
+      "types": [
+        "Psychic",
+        "Dragon"
+      ],
       "category": null,
       "description": null,
       "height_m": null,
@@ -7574,6 +7388,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -7593,7 +7408,7 @@
         "look": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/goatjo/1111.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -7610,13 +7425,13 @@
         "icon_palette": null,
         "safari_flee_rate": 0
       },
-      "id": "insectoid"
+      "id": "goatjo"
     },
     {
       "dex": 83,
-      "name": "puptive",
+      "name": "Detecub mindre evo",
       "credits": {
-        "designer": null,
+        "designer": "Ruben",
         "artist": null
       },
       "types": [
@@ -7654,7 +7469,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "detecup",
+          "method": "level",
+          "level": 20
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -8497,6 +8318,87 @@
         "safari_flee_rate": 0
       },
       "id": "quimsy"
+    },
+    {
+      "dex": 93,
+      "name": "ROKU",
+      "credits": {
+        "designer": "Ruben",
+        "artist": "Ruben"
+      },
+      "types": [
+        "Ground",
+        "Psychic"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Roku is an acient pokemon. It paintet a smile on its face to hide the imence pain if feels greaving its long lost civilication.",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": true,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/roku/1099.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "roku"
     },
     {
       "dex": 94,
@@ -9470,6 +9372,114 @@
       "id": "obsidog-utvikling"
     },
     {
+      "dex": 105,
+      "name": "SlamQuake",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Steel",
+        "Ground"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Sand Force",
+        "secondary": "Steam Engine",
+        "hidden": "Filter"
+      },
+      "base_stats": {
+        "hp": 90,
+        "attack": 100,
+        "defense": 120,
+        "sp_attack": 40,
+        "sp_defense": 100,
+        "speed": 50
+      },
+      "ev_yield": {
+        "defense": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 15,
+            "move": "Roar"
+          },
+          {
+            "level": 23,
+            "move": "Protect"
+          },
+          {
+            "level": 25,
+            "move": "Body Press"
+          },
+          {
+            "level": 27,
+            "move": "Stealth Rock"
+          },
+          {
+            "level": 30,
+            "move": "Iron Defense"
+          },
+          {
+            "level": 33,
+            "move": "Heavy Slam"
+          }
+        ],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/slamquake/967.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "slamquake"
+    },
+    {
       "dex": 106,
       "name": "Limulk",
       "credits": {
@@ -9638,15 +9648,15 @@
       "id": "mortbulk"
     },
     {
-      "dex": 109,
-      "name": "Eivlax",
+      "dex": 108,
+      "name": "Phantomb",
       "credits": {
-        "designer": "Eiv",
+        "designer": "Ivar",
         "artist": null
       },
       "types": [
-        "Steel",
-        "Dragon"
+        "Ghost",
+        "Flying"
       ],
       "category": null,
       "description": null,
@@ -9654,19 +9664,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Disguise",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 30,
+        "attack": 55,
+        "defense": 30,
+        "sp_attack": 55,
+        "sp_defense": 30,
+        "speed": 85
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -9678,7 +9690,14 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "sjef",
+          "method": "level",
+          "level": 62
+        }
+      ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -9688,14 +9707,17 @@
       "encounters": [],
       "design": {
         "concept": null,
-        "name_origin": "Me",
-        "notes": "Hardcore badass",
-        "wishes": "Bulky tanky giant, slow but powerful, can learn flamethrower and thunderbolt, take inspiration from Tyranitar and Drudegon",
-        "claude_fill": true,
-        "filled_by_claude": []
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/phantomb/781.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -9712,7 +9734,90 @@
         "icon_palette": null,
         "safari_flee_rate": 0
       },
-      "id": "eivomon"
+      "id": "phantomb"
+    },
+    {
+      "dex": 109,
+      "name": "Phantail",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Ghost",
+        "Flying"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Disguise",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 55,
+        "attack": 105,
+        "defense": 55,
+        "sp_attack": 105,
+        "sp_defense": 55,
+        "speed": 125
+      },
+      "ev_yield": {
+        "speed": 3
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Hidden, mysterious, fast and phantasmal ghost-flying pokemon.",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/sjef/763.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "sjef"
     },
     {
       "dex": 110,
@@ -10063,13 +10168,13 @@
     },
     {
       "dex": 114,
-      "name": "Zapitera Mindre utv",
+      "name": "sparktera",
       "credits": {
-        "designer": null,
+        "designer": "Ruben",
         "artist": null
       },
       "types": [
-        "Electric"
+        "Steel"
       ],
       "category": null,
       "description": null,
@@ -10108,6 +10213,7 @@
           "level": 35
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -10127,7 +10233,7 @@
         "look": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/zapitera-mindre-utv/1105.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -11339,7 +11445,7 @@
       "id": "zyzzfu"
     },
     {
-      "dex": 130,
+      "dex": 129,
       "name": "Grincho",
       "credits": {
         "designer": "Michael",
@@ -11380,6 +11486,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -11423,6 +11530,86 @@
       "id": "grincho"
     },
     {
+      "dex": 130,
+      "name": "Sigmanian Charcadet",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Ice"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "glac-pee-mindre-evo"
+    },
+    {
       "dex": 131,
       "name": "Glacépée",
       "credits": {
@@ -11440,18 +11627,20 @@
       "body_color": null,
       "abilities": {
         "primary": "Long Reach",
-        "secondary": "Parry Stance",
+        "secondary": "Weak Armor",
         "hidden": "Sniper"
       },
       "base_stats": {
-        "hp": 70,
+        "hp": 80,
         "attack": 125,
         "defense": 85,
-        "sp_attack": 45,
-        "sp_defense": 65,
-        "speed": 120
+        "sp_attack": 60,
+        "sp_defense": 75,
+        "speed": 100
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -11464,6 +11653,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -11487,7 +11677,7 @@
         "look": "It is a tall, slim, smooth pale-blue humanoid figure with a black fencing mask with glowing blue eyes. It has crystal ice shoulder pads, ice crystal boots shaped like pointed cones, and a long thin ice sword in one hand."
       },
       "assets": {
-        "concept_art": "assets/concept-art/glac-p-e/622.png",
+        "concept_art": "assets/concept-art/glac-p-e/1109.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -11531,9 +11721,9 @@
         "hp": 70,
         "attack": 125,
         "defense": 85,
-        "sp_attack": 67,
-        "sp_defense": 75,
-        "speed": 100
+        "sp_attack": 65,
+        "sp_defense": 85,
+        "speed": 90
       },
       "ev_yield": {
         "attack": 2
@@ -11872,15 +12062,14 @@
       "id": "riftbloom"
     },
     {
-      "dex": 140,
-      "name": "Phantomb",
+      "dex": 137,
+      "name": "Strawboo",
       "credits": {
-        "designer": "Ivar",
+        "designer": "Ruben",
         "artist": null
       },
       "types": [
-        "Ghost",
-        "Flying"
+        "Water"
       ],
       "category": null,
       "description": null,
@@ -11888,110 +12077,19 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Disguise",
+        "primary": null,
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": 30,
-        "attack": 55,
-        "defense": 30,
-        "sp_attack": 55,
-        "sp_defense": 30,
-        "speed": 85
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
       },
-      "ev_yield": {
-        "speed": 1
-      },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [
-        {
-          "into": "sjef",
-          "method": "level",
-          "level": 62
-        }
-      ],
-      "forms": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/phantomb/781.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "phantomb"
-    },
-    {
-      "dex": 141,
-      "name": "Phantail",
-      "credits": {
-        "designer": "Ivar",
-        "artist": null
-      },
-      "types": [
-        "Ghost",
-        "Flying"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": "Disguise",
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": 55,
-        "attack": 105,
-        "defense": 55,
-        "sp_attack": 105,
-        "sp_defense": 55,
-        "speed": 125
-      },
-      "ev_yield": {
-        "speed": 3
-      },
+      "ev_yield": null,
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -12013,7 +12111,7 @@
       },
       "encounters": [],
       "design": {
-        "concept": "Hidden, mysterious, fast and phantasmal ghost-flying pokemon.",
+        "concept": null,
         "name_origin": null,
         "notes": null,
         "wishes": null,
@@ -12024,7 +12122,7 @@
         "look": null
       },
       "assets": {
-        "concept_art": "assets/concept-art/sjef/763.webp",
+        "concept_art": "assets/concept-art/strawboo/1103.jpg",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -12041,7 +12139,249 @@
         "icon_palette": null,
         "safari_flee_rate": 0
       },
-      "id": "sjef"
+      "id": "strawboo"
+    },
+    {
+      "dex": 138,
+      "name": "Wreckingboo",
+      "credits": {
+        "designer": "Ruben",
+        "artist": "Ruben"
+      },
+      "types": [
+        "Water"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Wrecking is the a pokemon. It lives on the surface of the water because it cant breathe under. Tries to lure its pray in with the smily face on its forhead",
+        "name_origin": null,
+        "notes": null,
+        "wishes": "Bulky Physical attacker.  Ability Rough skin.",
+        "claude_fill": true,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/wreckingboo/1098.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "wreckingboo"
+    },
+    {
+      "dex": 139,
+      "name": "Wreckingdrake",
+      "credits": {
+        "designer": "Ruben",
+        "artist": null
+      },
+      "types": [
+        "Water",
+        "Dragon"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/wreckingdrake/1101.jpg",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "wreckingdrake"
+    },
+    {
+      "dex": 141,
+      "name": "Felk",
+      "credits": {
+        "designer": "Ruben",
+        "artist": "Ruben"
+      },
+      "types": [
+        "Fairy",
+        "Flying"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/felk/1108.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "felk"
     },
     {
       "dex": 142,

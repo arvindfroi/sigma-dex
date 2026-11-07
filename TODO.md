@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 140 / 143 |
-| Identity | designer credit | 118 / 143 |
-| Dex page | category | 40 / 143 |
-| Dex page | description | 41 / 143 |
-| Dex page | height | 28 / 143 |
-| Dex page | weight | 26 / 143 |
-| Dex page | body color | 2 / 143 |
-| Stats | base stats | 126 / 143 |
-| Stats | ability | 131 / 143 |
-| Stats | EV yield | 91 / 143 |
-| Stats | catch rate | 1 / 143 |
-| Stats | base exp | 1 / 143 |
-| Stats | growth rate | 1 / 143 |
-| Stats | base friendship | 1 / 143 |
-| Breeding | gender | 1 / 143 |
-| Breeding | egg groups | 1 / 143 |
-| Breeding | egg cycles | 1 / 143 |
-| Moves | level-up moves | 38 / 143 |
-| Moves | TM/HM moves | 4 / 143 |
-| Location | encounters | 2 / 143 |
-| Design | concept | 15 / 143 |
-| Art | concept art | 130 / 143 |
-| Art | front sprite | 4 / 143 |
-| Art | front animation frame | 4 / 143 |
-| Art | back sprite | 4 / 143 |
-| Art | icon | 4 / 143 |
-| Art | footprint | 0 / 143 |
-| Art | shiny palette | 0 / 143 |
-| Art | cry | 0 / 143 |
+| Identity | types | 145 / 147 |
+| Identity | designer credit | 125 / 147 |
+| Dex page | category | 40 / 147 |
+| Dex page | description | 41 / 147 |
+| Dex page | height | 28 / 147 |
+| Dex page | weight | 26 / 147 |
+| Dex page | body color | 2 / 147 |
+| Stats | base stats | 126 / 147 |
+| Stats | ability | 131 / 147 |
+| Stats | EV yield | 92 / 147 |
+| Stats | catch rate | 1 / 147 |
+| Stats | base exp | 1 / 147 |
+| Stats | growth rate | 1 / 147 |
+| Stats | base friendship | 1 / 147 |
+| Breeding | gender | 1 / 147 |
+| Breeding | egg groups | 1 / 147 |
+| Breeding | egg cycles | 1 / 147 |
+| Moves | level-up moves | 38 / 147 |
+| Moves | TM/HM moves | 4 / 147 |
+| Location | encounters | 2 / 147 |
+| Design | concept | 17 / 147 |
+| Art | concept art | 137 / 147 |
+| Art | front sprite | 4 / 147 |
+| Art | front animation frame | 4 / 147 |
+| Art | back sprite | 4 / 147 |
+| Art | icon | 4 / 147 |
+| Art | footprint | 0 / 147 |
+| Art | shiny palette | 0 / 147 |
+| Art | cry | 0 / 147 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 43 / 143 |
-| DS back sprite 80x80 | 43 / 143 |
-| DS icon 32x32 | 43 / 143 |
+| DS front sprite 80x80 | 43 / 147 |
+| DS back sprite 80x80 | 43 / 147 |
+| DS icon 32x32 | 43 / 147 |
 
-## Open dex slots (8)
+## Open dex slots (4)
 
-#93, #105, #108, #129, #136, #137, #138, #139
+#19, #72, #136, #140
 
 ## Missing per Pokemon
 
@@ -217,16 +217,6 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #18 [Tropistrich](data/species/pipwi-utv.yaml) - 24%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #19 [SlamQuake](data/species/slamquake.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
@@ -766,17 +756,6 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #72 [Bygon](data/species/bygon.yaml) - 3%
-
-- **Identity:** designer credit
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
 ### #73 [Leadling](data/species/leadling.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
@@ -870,20 +849,18 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #82 [Insectoid](data/species/insectoid.yaml) - 0%
+### #82 [Goatjo](data/species/goatjo.yaml) - 10%
 
-- **Identity:** types, designer credit
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #83 [puptive](data/species/darkgonark.yaml) - 14%
+### #83 [Detecub mindre evo](data/species/darkgonark.yaml) - 17%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
@@ -976,6 +953,15 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #93 [ROKU](data/species/roku.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #94 [Skiirtle](data/species/skiirtle.yaml) - 17%
@@ -1087,6 +1073,16 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
+### #105 [SlamQuake](data/species/slamquake.yaml) - 24%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
 ### #106 [Limulk](data/species/limulk.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
@@ -1107,15 +1103,24 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #109 [Eivlax](data/species/eivomon.yaml) - 7%
+### #108 [Phantomb](data/species/phantomb.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #109 [Phantail](data/species/sjef.yaml) - 24%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #110 [Oraclet](data/species/oraclet.yaml) - 31%
 
@@ -1157,16 +1162,15 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #114 [Zapitera Mindre utv](data/species/zapitera-mindre-utv.yaml) - 3%
+### #114 [sparktera](data/species/zapitera-mindre-utv.yaml) - 10%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #115 [Zapitera](data/species/zapitera.yaml) - 24%
 
@@ -1309,7 +1313,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #130 [Grincho](data/species/grincho.yaml) - 14%
+### #129 [Grincho](data/species/grincho.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1319,10 +1323,21 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #131 [Glacépée](data/species/glac-p-e.yaml) - 17%
+### #130 [Sigmanian Charcadet](data/species/glac-pee-mindre-evo.yaml) - 3%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #131 [Glacépée](data/species/glac-p-e.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -1368,23 +1383,43 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #140 [Phantomb](data/species/phantomb.yaml) - 21%
+### #137 [Strawboo](data/species/strawboo.yaml) - 10%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #141 [Phantail](data/species/sjef.yaml) - 24%
+### #138 [Wreckingboo](data/species/wreckingboo.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #139 [Wreckingdrake](data/species/wreckingdrake.yaml) - 10%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #141 [Felk](data/species/felk.yaml) - 10%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #142 [Moosus](data/species/moosus.yaml) - 21%

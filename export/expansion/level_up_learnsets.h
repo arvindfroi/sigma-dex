@@ -94,16 +94,6 @@ static const struct LevelUpMove sTropistrichLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const struct LevelUpMove sSlamQuakeLevelUpLearnset[] = {
-    LEVEL_UP_MOVE(15, MOVE_ROAR),
-    LEVEL_UP_MOVE(23, MOVE_PROTECT),
-    LEVEL_UP_MOVE(25, MOVE_BODY_PRESS),
-    LEVEL_UP_MOVE(27, MOVE_STEALTH_ROCK),
-    LEVEL_UP_MOVE(30, MOVE_IRON_DEFENSE),
-    LEVEL_UP_MOVE(33, MOVE_HEAVY_SLAM),
-    LEVEL_UP_END
-};
-
 static const struct LevelUpMove sCowfinLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_MILK_DRINK),
     LEVEL_UP_END
@@ -215,6 +205,16 @@ static const struct LevelUpMove sMcSkiirtleLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_SHELL_SMASH),
     LEVEL_UP_MOVE( 1, MOVE_FLARE_BLITZ),
     LEVEL_UP_MOVE( 1, MOVE_VOLT_TACKLE),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sSlamQuakeLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(15, MOVE_ROAR),
+    LEVEL_UP_MOVE(23, MOVE_PROTECT),
+    LEVEL_UP_MOVE(25, MOVE_BODY_PRESS),
+    LEVEL_UP_MOVE(27, MOVE_STEALTH_ROCK),
+    LEVEL_UP_MOVE(30, MOVE_IRON_DEFENSE),
+    LEVEL_UP_MOVE(33, MOVE_HEAVY_SLAM),
     LEVEL_UP_END
 };
 

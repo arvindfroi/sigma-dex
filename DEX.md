@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**143 / 151** slots have a Pokemon - **0** are fully complete - average completeness **23%**.
+**147 / 151** slots have a Pokemon - **0** are fully complete - average completeness **23%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -27,7 +27,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 16 | [Florantula](data/species/florantula.yaml) | Bug / Grass | Swarm, Leaf Guard, Grassy Surge (H) | 485 |  | 24% |
 | 17 | [Pipwi](data/species/pipwi.yaml) | Grass | Early Bird, Harvest, Grass Pelt (H) | 300 |  | 21% |
 | 18 | [Tropistrich](data/species/pipwi-utv.yaml) | Grass / Flying | Early Bird, Harvest, Tough Claws (H) | 495 |  | 24% |
-| 19 | [SlamQuake](data/species/slamquake.yaml) | Steel / Ground | Sand Force, Steam Engine, Filter (H) | 500 |  | 24% |
+| 19 | *open slot* | | | | | |
 | 20 | [Cowfin](data/species/cowfin.yaml) | Normal / Water | Own Tempo, Drizzle, Unaware (H) | 315 | Mooceon (Lv 33) | 21% |
 | 21 | [Mooceon](data/species/mooceon.yaml) | Normal / Water | Own Tempo, Drizzle, Unaware (H) | 490 |  | 28% |
 | 22 | [Lapper](data/species/lapper.yaml) | Normal / Fighting | Scrappy, Fur Coat, Hustle (H) | 327 | Brawleo (Lv 25) | 21% |
@@ -80,7 +80,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 495 |  | 21% |
 | 70 | [Cryoblade](data/species/cryoblade.yaml) | Ice | Cold-hearted, Ice Body, Refrigerate (H) | 540 |  | 31% |
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
-| 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
+| 72 | *open slot* | | | | | |
 | 73 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 280 | Leadling Utvikling (Lv 20) | 21% |
 | 74 | [Leadling Utvikling](data/species/leadling-utvikling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 400 | Blylem (Lv 40) | 17% |
 | 75 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 525 |  | 38% |
@@ -90,8 +90,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 79 | [Ciggiti](data/species/ciggiti.yaml) | Ghost | Smoked Up | 310 |  | 28% |
 | 80 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 28% |
 | 81 | [Parahaunt](data/species/parahaunt.yaml) | Ghost | Smoked Up | 556 |  | 28% |
-| 82 | [Insectoid](data/species/insectoid.yaml) |  |  |  |  | 0% |
-| 83 | [puptive](data/species/darkgonark.yaml) | Normal | Pickup, Keen Eye, Download (H) | 317 |  | 14% |
+| 82 | [Goatjo](data/species/goatjo.yaml) | Psychic / Dragon |  |  |  | 10% |
+| 83 | [Detecub mindre evo](data/species/darkgonark.yaml) | Normal | Pickup, Keen Eye, Download (H) | 317 | Detecup (Lv 20) | 17% |
 | 84 | [Detecup](data/species/detecup.yaml) | Normal | Pickup, Keen Eye, Download (H) | 462 |  | 24% |
 | 85 | [Snownin](data/species/snownin.yaml) | Ice | Snow Warning, Snow Cloak, Levitate (H) | 495 |  | 24% |
 | 86 | [Verrith](data/species/verrith.yaml) | Ghost / Steel | Fog Of War, Neutralizing Gas (H) | 555 |  | 21% |
@@ -101,7 +101,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 90 | [Flurina](data/species/flurina.yaml) | Fairy | Mirror Armor, Symbiosis, Hospitality (H) | 490 |  | 24% |
 | 91 | [Dragem](data/species/dragem.yaml) | Dragon / Rock | Sand Stream, Rough Skin, Multiscale (H) | 515 |  | 21% |
 | 92 | [Quimsy](data/species/quimsy.yaml) | Normal / Psychic |  |  |  | 10% |
-| 93 | *open slot* | | | | | |
+| 93 | [ROKU](data/species/roku.yaml) | Ground / Psychic |  |  |  | 14% |
 | 94 | [Skiirtle](data/species/skiirtle.yaml) | Fire | Speed Boost, Reckless (H) | 350 |  | 17% |
 | 95 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric | Speed Boost, Reckless (H) | 485 |  | 17% |
 | 96 | [ambuger](data/species/ambuger.yaml) | Rock / Bug | Shell Armor, Overcoat, Infiltrator (H) | 350 | Ambrr (Lv 40) | 21% |
@@ -113,16 +113,16 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 102 | [Terratyson](data/species/gaiafinn.yaml) | Ground / Fighting | Iron Fist, Sand Force, Sand Rush (H) | 520 |  | 21% |
 | 103 | [Obsidog](data/species/obsidog.yaml) | Dark / Rock | Guard Dog, Intimidate, Rough Skin (H) | 340 | Obsidog utvikling (Other: Level 40 At Night) | 21% |
 | 104 | [Obsidog utvikling](data/species/obsidog-utvikling.yaml) | Dark / Rock | Guard Dog, Intimidate, Rough Skin (H) | 555 |  | 17% |
-| 105 | *open slot* | | | | | |
+| 105 | [SlamQuake](data/species/slamquake.yaml) | Steel / Ground | Sand Force, Steam Engine, Filter (H) | 500 |  | 24% |
 | 106 | [Limulk](data/species/limulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 369 |  | 17% |
 | 107 | [Mortbulk](data/species/mortbulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 488 |  | 21% |
-| 108 | *open slot* | | | | | |
-| 109 | [Eivlax](data/species/eivomon.yaml) | Steel / Dragon |  |  |  | 7% |
+| 108 | [Phantomb](data/species/phantomb.yaml) | Ghost / Flying | Disguise | 285 | Phantail (Lv 62) | 21% |
+| 109 | [Phantail](data/species/sjef.yaml) | Ghost / Flying | Disguise | 500 |  | 24% |
 | 110 | [Oraclet](data/species/oraclet.yaml) | Psychic | Anticipation, Forewarn, Magic Guard (H) | 355 | Oraclaw (Lv 38) | 31% |
 | 111 | [Oraclaw](data/species/oraclaw.yaml) | Psychic / Flying | Anticipation, Forewarn, Magic Guard (H) | 525 |  | 21% |
 | 112 | [Aluminimonk](data/species/alminimonk.yaml) | Psychic | Shields Down | 300 | Aluminimonk Utviklin (Lv 32) | 21% |
 | 113 | [Aluminimonk Utviklin](data/species/alminimonk-utvikling.yaml) | Psychic | Shields Down | 440 |  | 17% |
-| 114 | [Zapitera Mindre utv](data/species/zapitera-mindre-utv.yaml) | Electric |  |  | Zapitera (Lv 35) | 3% |
+| 114 | [sparktera](data/species/zapitera-mindre-utv.yaml) | Steel |  |  | Zapitera (Lv 35) | 10% |
 | 115 | [Zapitera](data/species/zapitera.yaml) | Electric / Steel | Levitate, Magnet Pull, Stalwart (H) | 505 |  | 24% |
 | 116 | [Viridub](data/species/viridub.yaml) | Grass | Leaf Mane, Chlorophyll (H) | 369 |  | 21% |
 | 117 | [Viridub Utvikling](data/species/viridub-utvikling.yaml) | Grass | Leaf Mane, Chlorophyll (H) | 510 |  | 14% |
@@ -137,19 +137,19 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 126 | [Aquat](data/species/surfer.yaml) | Water | Swift Swim, Water Absorb, Adaptability (H) | 330 |  | 17% |
 | 127 | [Aquway](data/species/subwaysurfer.yaml) | Water / Ground | Swift Swim, Water Absorb, Adaptability (H) | 495 |  | 21% |
 | 128 | [Zyzzfu](data/species/zyzzfu.yaml) | Fighting / Electric | Surge Surfer, Unseen Fist (H) | 530 |  | 17% |
-| 129 | *open slot* | | | | | |
-| 130 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve, Insomnia, Shadow Tag (H) |  |  | 14% |
-| 131 | [Glacépée](data/species/glac-p-e.yaml) | Ice / Fighting | Long Reach, Parry Stance, Sniper (H) | 510 |  | 17% |
-| 132 | [Everdark](data/species/everdark.yaml) | Dark / Psychic | Armor Tail, Dark Aura (H) | 522 |  | 24% |
+| 129 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve, Insomnia, Shadow Tag (H) |  |  | 14% |
+| 130 | [Sigmanian Charcadet](data/species/glac-pee-mindre-evo.yaml) | Ice |  |  |  | 3% |
+| 131 | [Glacépée](data/species/glac-p-e.yaml) | Ice / Fighting | Long Reach, Weak Armor, Sniper (H) | 525 |  | 21% |
+| 132 | [Everdark](data/species/everdark.yaml) | Dark / Psychic | Armor Tail, Dark Aura (H) | 520 |  | 24% |
 | 133 | [Diedo](data/species/diedo.yaml) | Flying |  |  | Seraphinnen (Lv 20) | 14% |
 | 134 | [Seraphinnen](data/species/seraphinnen.yaml) | Flying | Soul-Heart, Mind's Eye, Aerilate (H) | 540 |  | 21% |
 | 135 | [Riftbloom](data/species/riftbloom.yaml) | Ghost / Psychic | Prankster |  |  | 14% |
 | 136 | *open slot* | | | | | |
-| 137 | *open slot* | | | | | |
-| 138 | *open slot* | | | | | |
-| 139 | *open slot* | | | | | |
-| 140 | [Phantomb](data/species/phantomb.yaml) | Ghost / Flying | Disguise | 285 | Phantail (Lv 62) | 21% |
-| 141 | [Phantail](data/species/sjef.yaml) | Ghost / Flying | Disguise | 500 |  | 24% |
+| 137 | [Strawboo](data/species/strawboo.yaml) | Water |  |  |  | 10% |
+| 138 | [Wreckingboo](data/species/wreckingboo.yaml) | Water |  |  |  | 14% |
+| 139 | [Wreckingdrake](data/species/wreckingdrake.yaml) | Water / Dragon |  |  |  | 10% |
+| 140 | *open slot* | | | | | |
+| 141 | [Felk](data/species/felk.yaml) | Fairy / Flying |  |  |  | 10% |
 | 142 | [Moosus](data/species/moosus.yaml) | Flying / Fairy | Aurora Dancer, Regenerator (H) | 580 |  | 21% |
 | 143 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Levitate | 580 |  | 21% |
 | 144 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 580 |  | 24% |
