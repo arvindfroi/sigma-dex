@@ -8,10 +8,6 @@
     "problem": "this row has no name, and number 18 may belong to another Pokemon now - write the name"
   },
   {
-    "row": "#19 ",
-    "problem": "this row has no name, and number 19 may belong to another Pokemon now - write the name"
-  },
-  {
     "row": "#29 ",
     "problem": "this row has no name, and number 29 may belong to another Pokemon now - write the name"
   },
@@ -40,6 +36,10 @@
     "problem": "this row has no name, and number 76 may belong to another Pokemon now - write the name"
   },
   {
+    "row": "#82 Insectoid",
+    "problem": "'Insectoid' is not a known name and number 82 now belongs to Goatjo - the numbers on this list are out of date; add a new Pokemon on the website, or paste the current export/sheet.csv first"
+  },
+  {
     "row": "#84 ",
     "problem": "this row has no name, and number 84 may belong to another Pokemon now - write the name"
   },
@@ -66,5 +66,9 @@
   {
     "row": "#92 ",
     "problem": "this row has no name, and number 92 may belong to another Pokemon now - write the name"
+  },
+  {
+    "row": "#93 ",
+    "problem": "this row has no name, and number 93 may belong to another Pokemon now - write the name"
   }
 ]

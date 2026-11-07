@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**147 / 151** slots have a Pokemon - **0** are fully complete - average completeness **23%**.
+**148 / 151** slots have a Pokemon - **0** are fully complete - average completeness **23%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -19,7 +19,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 8 | [Heatbat](data/species/heatbat.yaml) | Fire / Flying | Blaze, No Guard (H) | 420 | Blazterra (Lv 36) | 21% |
 | 9 | [Blazterra](data/species/blazterra.yaml) | Fire / Flying | Blaze, No Guard (H) | 530 |  | 24% |
 | 10 | [Erobi](data/species/erobi.yaml) | Normal / Flying | Unburden, Keen Eye, Gale Wings (H) | 280 |  | 31% |
-| 11 | [Harpie](data/species/harpie.yaml) | Normal / Flying | Unburden, Keen Eye, Gale Wings (H) |  |  | 14% |
+| 11 | [Harpie](data/species/harpie.yaml) | Normal / Flying | Unburden, Keen Eye, Gale Wings (H) | 365 |  | 17% |
 | 12 | [Smeatherace](data/species/smeatherace.yaml) | Normal / Flying | Unburden, Keen Eye, Gale Wings (H) | 495 |  | 31% |
 | 13 | [Bolthook](data/species/bolthook.yaml) | Dark / Flying | Strong Jaw, Intimidate, Pressure (H) | 495 |  | 34% |
 | 14 | [Wump](data/species/wump.yaml) | Bug | Swarm, Run Away, Unburden (H) | 300 |  | 21% |
@@ -80,7 +80,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 495 |  | 21% |
 | 70 | [Cryoblade](data/species/cryoblade.yaml) | Ice | Cold-hearted, Ice Body, Refrigerate (H) | 540 |  | 31% |
 | 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal |  |  |  | 7% |
-| 72 | *open slot* | | | | | |
+| 72 | [Bygon](data/species/bygon.yaml) | Ghost / Rock |  |  |  | 3% |
 | 73 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 280 | Leadling Utvikling (Lv 20) | 21% |
 | 74 | [Leadling Utvikling](data/species/leadling-utvikling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 400 | Blylem (Lv 40) | 17% |
 | 75 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Corrosion (H) | 525 |  | 38% |
@@ -137,7 +137,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 126 | [Aquat](data/species/surfer.yaml) | Water | Swift Swim, Water Absorb, Adaptability (H) | 330 |  | 17% |
 | 127 | [Aquway](data/species/subwaysurfer.yaml) | Water / Ground | Swift Swim, Water Absorb, Adaptability (H) | 495 |  | 21% |
 | 128 | [Zyzzfu](data/species/zyzzfu.yaml) | Fighting / Electric | Surge Surfer, Unseen Fist (H) | 530 |  | 17% |
-| 129 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve, Insomnia, Shadow Tag (H) |  |  | 14% |
+| 129 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve, Prankster, Shadow Tag (H) | 415 |  | 21% |
 | 130 | [Sigmanian Charcadet](data/species/glac-pee-mindre-evo.yaml) | Ice |  |  |  | 3% |
 | 131 | [Glacépée](data/species/glac-p-e.yaml) | Ice / Fighting | Long Reach, Weak Armor, Sniper (H) | 525 |  | 21% |
 | 132 | [Everdark](data/species/everdark.yaml) | Dark / Psychic | Armor Tail, Dark Aura (H) | 520 |  | 24% |
