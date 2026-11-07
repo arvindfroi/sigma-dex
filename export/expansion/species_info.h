@@ -494,9 +494,9 @@
 
     [SPECIES_TROPISTRICH] =
     {
-        .baseHP = 80,
+        .baseHP = 82,
         .baseAttack = 100,
-        .baseDefense = 75,
+        .baseDefense = 73,
         .baseSpeed = 120,
         .baseSpAttack = 50,
         .baseSpDefense = 70,

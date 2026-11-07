@@ -1806,9 +1806,9 @@
         "hidden": "Tough Claws"
       },
       "base_stats": {
-        "hp": 80,
+        "hp": 82,
         "attack": 100,
-        "defense": 75,
+        "defense": 73,
         "sp_attack": 50,
         "sp_defense": 70,
         "speed": 120
@@ -1828,6 +1828,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
@@ -5479,10 +5480,12 @@
         "attack": 77,
         "defense": 67,
         "sp_attack": 77,
-        "sp_defense": 56,
-        "speed": 123
+        "sp_defense": 67,
+        "speed": 112
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -5495,6 +5498,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -10858,9 +10862,9 @@
         "hp": 105,
         "attack": 120,
         "defense": 82,
-        "sp_attack": 75,
+        "sp_attack": 76,
         "sp_defense": 67,
-        "speed": 76
+        "speed": 75
       },
       "ev_yield": {
         "attack": 2
