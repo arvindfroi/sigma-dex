@@ -152,18 +152,6 @@ def framed(im, side=640, inner=560):
     return out
 
 
-def solid(im, cut=48):
-    """Fully opaque wherever the picture has the creature at all (alpha >= cut), clear elsewhere. Qwen's cut-outs come back
-    partly see-through (24 Oct; Arvind: "some outputs come out partly transparent"): of the last 27 cut-outs all had
-    half-transparent pixels, up to 83 % of the figure (Beatld's arms, Hippore's ground shadow, Dragem's paint strokes),
-    and on white those parts turn pale for the sprite steps."""
-    a = np.array(im.convert("RGBA")); al = a[..., 3].astype(int); rgb = a[..., :3].astype(int)
-    sat = rgb.max(-1) - rgb.min(-1); luma = rgb @ np.array([30, 59, 11]) // 100
-    shadow = (al < 160) & (sat < 40) & (luma < 140)               # a soft grey ground shadow is not the creature
-    a[..., 3] = np.where((al >= 160) | ((al >= cut) & ~shadow), 255, 0).astype(np.uint8)
-    return Image.fromarray(a)
-
-
 def largest_blob(im):
     """The biggest connected part (a cut-out sometimes keeps bits of text or other views) and its share."""
     import cv2
@@ -193,12 +181,8 @@ def box_template(box, k=16, cut=False):
 def front_box(side, art):
     b = art.getbbox()
     aspect = (b[2] - b[0]) / max(1, b[3] - b[1])
-    # The same area as a square creature of `side` gets, as far as the 80x80 frame allows (24 Oct; Arvind: "let them use
-    # as much room as they are allowed"): long or tall creatures are no longer squeezed to `side` on their long side
-    # (Dragem came out 72x33). Capped at 80 on the long side, keeping the shape.
-    w, h = side * aspect ** 0.5, side / aspect ** 0.5
-    k = min(1.0, 80 / max(w, h))
-    w, h = max(4, round(w * k)), max(4, round(h * k))
+    w, h = (side, max(4, round(side / aspect))) if aspect >= 1 else (max(4, round(side * aspect)), side)
+    w, h = min(w, 80), min(h, 80)
     bottom = min(79, max(h - 1, round(0.491 * h + 39.6)))
     x0 = min(max(0, round(39.5 - (w - 1) / 2)), 80 - w)
     return (x0, bottom - h + 1, x0 + w - 1, bottom)
@@ -380,7 +364,7 @@ def try_art_sketch(n, seed, folder, job, inputs):
         graph["sca"]["inputs"]["sigmas"] = ["split", 1]
         graph["sca"]["inputs"]["latent_image"] = ["enc1", 0]
         raw.write_bytes(comfy.run(graph))
-    im, share = largest_blob(solid(white_out(Image.open(raw))))
+    im, share = largest_blob(white_out(Image.open(raw)))
     image = folder / ("art_%d.png" % n)
     framed(im).save(image)
     return ("broken", "loose bits (%.0f %% outside the creature)" % (100 - 100 * share), image, raw) if share < 0.9 else ("done", "", image, raw)
@@ -420,7 +404,7 @@ def try_art_pose(n, seed, folder, job, inputs):
     small = folder / ("pose_small_%d.png" % n)
     Image.open(turned).convert("RGB").resize((512, 512), Image.LANCZOS).save(small)
     raw = klein_draw(folder / ("art_raw_%d.png" % n), "official pokemon artstyle. " + words, [small], 512, 512, seed, SKETCH_KLEIN)
-    im, share = largest_blob(solid(white_out(Image.open(raw))))
+    im, share = largest_blob(white_out(Image.open(raw)))
     image = folder / ("art_%d.png" % n)
     framed(im).save(image)
     return ("broken", "loose bits (%.0f %% outside the creature)" % (100 - 100 * share), image, raw) if share < 0.9 else ("done", "", image, raw)
@@ -434,38 +418,10 @@ def try_art(n, seed, folder, job, inputs):
     raw = folder / ("art_raw_%d.png" % n)
     prompt = ART + ((" " + job["prompt"]) if job.get("prompt") else "")
     comfy.generate(prompt, raw, inputs["refs"][:3], size=(1024, 1024), steps=40, seed=seed, quiet=True, transparent=True)
-    im, share = largest_blob(solid(Image.open(raw)))
+    im, share = largest_blob(Image.open(raw))
     image = folder / ("art_%d.png" % n)
     framed(im).save(image)
     return ("broken", "loose bits (%.0f %% outside the creature)" % (100 - 100 * share), image, raw) if share < 0.9 else ("done", "", image, raw)
-
-
-def hsv_arr(rgb):
-    r,g,b=[rgb[...,i] for i in range(3)]; mx=rgb.max(-1); mn=rgb.min(-1); d=mx-mn
-    h=np.zeros_like(mx); m=d>0
-    rm=m&(mx==r); gm=m&(mx==g)&~rm; bm=m&~rm&~gm
-    h[rm]=((g-b)[rm]/d[rm])%6; h[gm]=(b-r)[gm]/d[gm]+2; h[bm]=(r-g)[bm]/d[bm]+4; h/=6
-    s=np.where(mx>0,d/np.maximum(mx,1e-6),0); return h,s,mx
-def rgb_arr(h,s,v):
-    i=np.floor(h*6).astype(int)%6; f=h*6-np.floor(h*6); p=v*(1-s); q=v*(1-f*s); t=v*(1-(1-f)*s)
-    out=np.zeros(h.shape+(3,)); 
-    for k,(a,b,c) in enumerate(((v,t,p),(q,v,p),(p,v,t),(p,q,v),(t,p,v),(v,p,q))):
-        m=i==k; out[m]=np.stack([a[m],b[m],c[m]],-1)
-    return out
-def match_saturation(front, art, limit=1.35):
-    """The front's colours brought back toward the art's when the front model made them much stronger (24 Oct; Arvind:
-    "why do the fronts come out so yellow"): on most mons the front keeps the art's saturation, but warm and pink ones
-    came out about twice as strong (Dragem's sand turned bright yellow, Vires hot pink). Hue and brightness stay; only
-    the saturation is scaled to the art's (75th percentile, a little stronger), and only when it is 1.35x or more."""
-    f=np.array(front.convert('RGBA')).astype(float); a=np.array(art.convert('RGBA')).astype(float)
-    fo=f[...,3]>0; ao=a[...,3]>200
-    if not fo.any() or not ao.any(): return front
-    hf,sf,vf=hsv_arr(f[...,:3]/255); ha,sa,va=hsv_arr(a[...,:3]/255)
-    ms_f=np.percentile(sf[fo],75); ms_a=np.percentile(sa[ao],75)
-    if ms_a <= 0 or ms_f/ms_a < limit: return front
-    k=(ms_a/ms_f)**(1/3)                  # a third of the way back (log scale): the full way looked dull (Arvind, 24 Oct)
-    out=f.copy(); out[...,:3]=np.clip(rgb_arr(hf,np.clip(sf*k,0,1),vf)*255,0,255).round()
-    out[~fo]=f[~fo]; return Image.fromarray(out.astype(np.uint8))
 
 
 def try_front(n, seed, folder, job, inputs):
@@ -483,7 +439,7 @@ def try_front(n, seed, folder, job, inputs):
     raw = draw(folder / ("front_raw_%d.png" % n), with_refs(graph, [inputs["art_path"], folder / "blank.png", template]))
     sprite = unfake(raw, folder / ("front_unfake_%d.png" % n))
     why = broken(sprite, box)
-    sprite = match_saturation(ds_pixel.limit_colours(thin_outline(sprite), 15), art)
+    sprite = ds_pixel.limit_colours(thin_outline(sprite), 15)
     image = folder / ("front_%d.png" % n)
     sprite.save(image)
     return ("broken" if why else "done", why, image, raw)
@@ -730,13 +686,13 @@ def run(job, base, key, post, download, folder, log=print):
                 inputs["art"] = Image.open(download(base, parent["image"], folder / "from_art.png")).convert("RGBA")
     if "art" in inputs:
         inputs["art_path"] = folder / "art_in.png"
-        framed(solid(inputs["art"])).save(inputs["art_path"])
+        framed(inputs["art"]).save(inputs["art_path"])
         inputs["art"] = Image.open(inputs["art_path"])
     if stage in ("back", "icon", "follower"):
         inputs["front"] = Image.open(download(base, src["image"], folder / "from_front.png")).convert("RGBA")
         parent = src.get("parent") or {}
         if stage == "back" and parent.get("stage") == "art" and parent.get("image"):
-            inputs["art"] = solid(Image.open(download(base, parent["image"], folder / "from_art.png")).convert("RGBA"))
+            inputs["art"] = Image.open(download(base, parent["image"], folder / "from_art.png")).convert("RGBA")
         elif stage == "back" and job.get("refs"):                # the front was drawn from a chosen picture directly
             inputs["art"] = framed(Image.open(download(base, job["refs"][0], folder / "ref0.png")))
     if stage == "follower":
