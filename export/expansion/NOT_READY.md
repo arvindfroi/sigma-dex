@@ -15,7 +15,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Wump** needs: a level-up move that exists in the game
 - **Twemp** needs: a level-up move that exists in the game
 - **Pipwi** needs: a level-up move that exists in the game
-- **Julius** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Julius** needs: a level-up move that exists in the game
 - **Sigmanian Sudowoodo** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Snobbit** needs: a level-up move that exists in the game
 - **Freezrick** needs: a level-up move that exists in the game

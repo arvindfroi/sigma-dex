@@ -3850,10 +3850,45 @@
     "editor": null
   },
   {
-    "id": 1124,
+    "id": 1126,
     "species": "julius",
-    "file": "assets/concept-art/julius/1124.png",
+    "file": "assets/concept-art/julius/1126.jpg",
     "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1127,
+    "species": "julius",
+    "file": "assets/concept-art/julius/1127.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1129,
+    "species": "julius",
+    "file": "assets/concept-art/julius/1129.png",
+    "caption": "[ds-back] sprite #166",
+    "editor": null
+  },
+  {
+    "id": 1130,
+    "species": "julius",
+    "file": "assets/concept-art/julius/1130.png",
+    "caption": "[ds-follower] sprite #166",
+    "editor": null
+  },
+  {
+    "id": 1136,
+    "species": "julius",
+    "file": "assets/concept-art/julius/1136.png",
+    "caption": "[ds-icon] sprite #166",
+    "editor": null
+  },
+  {
+    "id": 1162,
+    "species": "julius",
+    "file": "assets/concept-art/julius/1162.png",
+    "caption": "[ds-front] sprite #166",
     "editor": null
   }
 ]

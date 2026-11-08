@@ -16,8 +16,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | height | 52 / 149 |
 | Dex page | weight | 26 / 149 |
 | Dex page | body color | 2 / 149 |
-| Stats | base stats | 130 / 149 |
-| Stats | ability | 134 / 149 |
+| Stats | base stats | 131 / 149 |
+| Stats | ability | 135 / 149 |
 | Stats | EV yield | 96 / 149 |
 | Stats | catch rate | 1 / 149 |
 | Stats | base exp | 1 / 149 |
@@ -43,9 +43,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 44 / 149 |
-| DS back sprite 80x80 | 44 / 149 |
-| DS icon 32x32 | 44 / 149 |
+| DS front sprite 80x80 | 45 / 149 |
+| DS back sprite 80x80 | 45 / 149 |
+| DS icon 32x32 | 45 / 149 |
 
 ## Open dex slots (2)
 
@@ -226,10 +226,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #19 [Julius](data/species/julius.yaml) - 14%
+### #19 [Julius](data/species/julius.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
