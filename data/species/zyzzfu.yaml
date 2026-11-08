@@ -6,7 +6,7 @@ credits:
   designer: Ivar         # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: [Fighting, Electric] # 1 or 2 types, e.g. [Grass, Steel]
+types: [Electric, Fighting] # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -22,14 +22,14 @@ abilities:
   hidden: Unseen Fist    # optional
 
 base_stats:              # each 1-255
-  hp: 85
+  hp: 80
   attack: 115
   defense: 60
   sp_attack: 110
   sp_defense: 60
   speed: 100
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {attack: 2, sp_attack: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -53,6 +53,15 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
   level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
@@ -71,8 +80,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "an upright body on two legs with a tail"
-  movement: "It walks upright on two legs."
+  body_shape: an upright body on two legs with a tail
+  movement: It walks upright on two legs.
   look: "It is a slim white furry fighter with a long spiky white mane tipped yellow, an orange duck bill and a yellow eye. It has two arms with black mitten-like hands, yellow lightning-shaped tufts on its arms, shoulders and hips, a black mark down its belly, two legs with black feet, and a long thin white tail."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---

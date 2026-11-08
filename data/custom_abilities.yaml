@@ -81,6 +81,12 @@ abilities:
     form.
   similar_to: Schooling
   designer: Emil
+- id: ore-body
+  name: Ore Body
+  description: If Sandstorm is active, user heals 1/16 of its max HP each turn.
+  effect: Restores 1/16 of the holder's max HP at the end of each turn while a sandstorm is active.
+  similar_to: Ice Body
+  designer: Emil
 - id: parry-stance
   name: Parry Stance
   description: The first hit the user takes each battle is parried, dealing no damage

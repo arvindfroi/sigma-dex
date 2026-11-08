@@ -17,9 +17,9 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
-  hidden:                # optional
+  primary: Magician
+  secondary: Power Spot  # optional
+  hidden: Purifying Salt # optional
 
 base_stats:              # each 1-255
   hp:
@@ -80,8 +80,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: true      # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "an upright body on two legs without a tail"
-  movement: "It walks upright on two legs."
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
   look: "It is a stone guardian built from stacked flat orange rock slabs, with a small square orange head with a smiling face under a tall purple pointed hat. Purple-blue straps cross its chest and a belt with a bow sits at its waist. It has two arms and two legs of slabs, with a floating sword on one side and a floating spiked iron ball on the other, no hands holding them."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---

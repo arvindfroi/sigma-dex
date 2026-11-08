@@ -24,9 +24,9 @@ abilities:
 base_stats:              # each 1-255
   hp: 100
   attack: 130
-  defense: 73
-  sp_attack: 50
-  sp_defense: 67
+  defense: 74
+  sp_attack: 67
+  sp_defense: 69
   speed: 100
 
 ev_yield: {attack: 2}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}

@@ -22,10 +22,10 @@ abilities:
   hidden: Regenerator    # optional
 
 base_stats:              # each 1-255
-  hp: 94
-  attack: 52
+  hp: 96
+  attack: 60
   defense: 69
-  sp_attack: 120
+  sp_attack: 128
   sp_defense: 130
   speed: 35
 

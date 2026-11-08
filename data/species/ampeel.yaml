@@ -22,7 +22,7 @@ abilities:
   hidden: Eelevate       # optional
 
 base_stats:              # each 1-255
-  hp: 75
+  hp: 67
   attack: 95
   defense: 50
   sp_attack: 95

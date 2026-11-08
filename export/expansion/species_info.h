@@ -343,11 +343,11 @@
         .iconPalIndex = 5,
         .levelUpLearnset = sTorchbatLevelUpLearnset,
         .teachableLearnset = sTorchbatTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_HEATBAT}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_PRINCINDER}),
         FOOTPRINT(QuestionMark)
     },
 
-    [SPECIES_HEATBAT] =
+    [SPECIES_PRINCINDER] =
     {
         .baseHP = 60,
         .baseAttack = 65,
@@ -365,9 +365,9 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_NO_GUARD },
         .bodyColor = BODY_COLOR_GRAY,
-        .speciesName = _("Heatbat"),
+        .speciesName = _("Princinder"),
         .cryId = CRY_NONE,
-        .natDexNum = NATIONAL_DEX_HEATBAT,
+        .natDexNum = NATIONAL_DEX_PRINCINDER,
         .categoryName = _("Unknown"),
         .height = 0,
         .weight = 0,
@@ -389,20 +389,20 @@
         .shinyPalette = gMonShinyPalette_CircledQuestionMark,
         .iconSprite = gMonIcon_QuestionMark,
         .iconPalIndex = 0,
-        .levelUpLearnset = sHeatbatLevelUpLearnset,
-        .teachableLearnset = sHeatbatTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_BLAZTERRA}),
+        .levelUpLearnset = sPrincinderLevelUpLearnset,
+        .teachableLearnset = sPrincinderTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_MONARKHAN}),
         FOOTPRINT(QuestionMark)
     },
 
-    [SPECIES_BLAZTERRA] =
+    [SPECIES_MONARKHAN] =
     {
-        .baseHP = 70,
+        .baseHP = 76,
         .baseAttack = 80,
-        .baseDefense = 75,
+        .baseDefense = 72,
         .baseSpeed = 122,
         .baseSpAttack = 108,
-        .baseSpDefense = 75,
+        .baseSpDefense = 72,
         .types = MON_TYPES(TYPE_FIRE, TYPE_FLYING),
         .catchRate = 45,
         .expYield = 64,
@@ -414,9 +414,9 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_NO_GUARD },
         .bodyColor = BODY_COLOR_GRAY,
-        .speciesName = _("Blazterra"),
+        .speciesName = _("Monarkhan"),
         .cryId = CRY_NONE,
-        .natDexNum = NATIONAL_DEX_BLAZTERRA,
+        .natDexNum = NATIONAL_DEX_MONARKHAN,
         .categoryName = _("Unknown"),
         .height = 0,
         .weight = 0,
@@ -438,8 +438,8 @@
         .shinyPalette = gMonShinyPalette_CircledQuestionMark,
         .iconSprite = gMonIcon_QuestionMark,
         .iconPalIndex = 0,
-        .levelUpLearnset = sBlazterraLevelUpLearnset,
-        .teachableLearnset = sBlazterraTeachableLearnset,
+        .levelUpLearnset = sMonarkhanLevelUpLearnset,
+        .teachableLearnset = sMonarkhanTeachableLearnset,
         FOOTPRINT(QuestionMark)
     },
 
@@ -494,12 +494,12 @@
 
     [SPECIES_TROPISTRICH] =
     {
-        .baseHP = 82,
+        .baseHP = 78,
         .baseAttack = 100,
-        .baseDefense = 73,
+        .baseDefense = 67,
         .baseSpeed = 120,
-        .baseSpAttack = 50,
-        .baseSpDefense = 70,
+        .baseSpAttack = 40,
+        .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_GRASS, TYPE_FLYING),
         .catchRate = 45,
         .expYield = 64,
@@ -785,11 +785,11 @@
 
     [SPECIES_TOXIREN] =
     {
-        .baseHP = 94,
-        .baseAttack = 52,
+        .baseHP = 96,
+        .baseAttack = 60,
         .baseDefense = 69,
         .baseSpeed = 35,
-        .baseSpAttack = 120,
+        .baseSpAttack = 128,
         .baseSpDefense = 130,
         .types = MON_TYPES(TYPE_POISON, TYPE_FAIRY),
         .catchRate = 45,
@@ -1239,16 +1239,16 @@
 
     [SPECIES_BLYLEM] =
     {
-        .baseHP = 81,
-        .baseAttack = 67,
-        .baseDefense = 102,
-        .baseSpeed = 20,
-        .baseSpAttack = 125,
-        .baseSpDefense = 130,
+        .baseHP = 83,
+        .baseAttack = 60,
+        .baseDefense = 92,
+        .baseSpeed = 25,
+        .baseSpAttack = 115,
+        .baseSpDefense = 150,
         .types = MON_TYPES(TYPE_ROCK, TYPE_POISON),
         .catchRate = 45,
         .expYield = 64,
-        .evYield_SpDefense = 2,
+        .evYield_SpDefense = 3,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
@@ -1290,7 +1290,7 @@
     [SPECIES_SNOWNIN] =
     {
         .baseHP = 60,
-        .baseAttack = 95,
+        .baseAttack = 75,
         .baseDefense = 40,
         .baseSpeed = 125,
         .baseSpAttack = 135,
@@ -1401,7 +1401,7 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_SAND_FORCE, ABILITY_STEAM_ENGINE, ABILITY_FILTER },
         .bodyColor = BODY_COLOR_GRAY,
-        .speciesName = _("SlamQuake"),
+        .speciesName = _("Slamquake"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_SLAMQUAKE,
         .categoryName = _("Unknown"),
@@ -1425,8 +1425,8 @@
         .shinyPalette = gMonShinyPalette_CircledQuestionMark,
         .iconSprite = gMonIcon_QuestionMark,
         .iconPalIndex = 0,
-        .levelUpLearnset = sSlamQuakeLevelUpLearnset,
-        .teachableLearnset = sSlamQuakeTeachableLearnset,
+        .levelUpLearnset = sSlamquakeLevelUpLearnset,
+        .teachableLearnset = sSlamquakeTeachableLearnset,
         FOOTPRINT(QuestionMark)
     },
 
@@ -1449,7 +1449,7 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_MOLD_BREAKER, ABILITY_BATTLE_ARMOR, ABILITY_STRONG_JAW },
         .bodyColor = BODY_COLOR_GRAY,
-        .speciesName = _("DreadFang"),
+        .speciesName = _("Dreadfang"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_DREADFANG,
         .categoryName = _("Unknown"),
@@ -1473,8 +1473,8 @@
         .shinyPalette = gMonShinyPalette_CircledQuestionMark,
         .iconSprite = gMonIcon_QuestionMark,
         .iconPalIndex = 0,
-        .levelUpLearnset = sDreadFangLevelUpLearnset,
-        .teachableLearnset = sDreadFangTeachableLearnset,
+        .levelUpLearnset = sDreadfangLevelUpLearnset,
+        .teachableLearnset = sDreadfangTeachableLearnset,
         FOOTPRINT(QuestionMark)
     },
 

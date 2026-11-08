@@ -17,7 +17,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Aura Guard
   secondary:             # optional
   hidden:                # optional
 
@@ -80,8 +80,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "a quadruped body"
-  movement: "It walks on four legs."
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a goat-like creature with a long white and lilac shaggy mane and bushy tail, a pale face with a black band over its brow, a blue eye and a pink nose, and two long purple horns curving back. Its body and four legs are dark charcoal, with red and blue bands on the lower legs and black paws. A glowing purple orb floats at the tip of its tail."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---

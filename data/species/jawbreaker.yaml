@@ -22,7 +22,7 @@ abilities:
   hidden: Dragonize      # optional
 
 base_stats:              # each 1-255
-  hp: 105
+  hp: 95
   attack: 120
   defense: 82
   sp_attack: 76
@@ -80,8 +80,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "an upright body on two legs with a tail"
-  movement: "It walks upright on two legs."
+  body_shape: an upright body on two legs with a tail
+  movement: It walks upright on two legs.
   look: "It is a bright orange dragon-like lizard with a cream belly, red scale patches and two curved horns on its head. It has a long toothy mouth, long arms with large cream claws, a broken iron chain hanging from each wrist, two strong clawed legs and a long thick tail."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---

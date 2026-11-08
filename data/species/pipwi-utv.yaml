@@ -22,11 +22,11 @@ abilities:
   hidden: Tough Claws    # optional
 
 base_stats:              # each 1-255
-  hp: 82
+  hp: 78
   attack: 100
-  defense: 73
-  sp_attack: 50
-  sp_defense: 70
+  defense: 67
+  sp_attack: 40
+  sp_defense: 65
   speed: 120
 
 ev_yield: {speed: 2}     # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
@@ -82,8 +82,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "an upright body on two legs without a tail"
-  movement: "It walks upright on two legs."
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
   look: "It is a tall ostrich-like bird with a round fluffy brown body with a green leaf-shaped patch on its side, a long thin brown segmented neck and two long brown legs with pink feet and black claws. Its small brown fluffy head has a green kiwi-slice face, a long pale beak and a crown of long green leaves."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---

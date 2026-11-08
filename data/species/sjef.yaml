@@ -22,12 +22,12 @@ abilities:
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp: 55
+  hp: 50
   attack: 105
-  defense: 55
+  defense: 50
   sp_attack: 105
-  sp_defense: 55
-  speed: 125
+  sp_defense: 50
+  speed: 120
 
 ev_yield: {speed: 3}     # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -80,7 +80,7 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "a body with one pair of wings"
+  body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a ghost wrapped in a white hooded cloak with black and white striped markings, with an orange oval mask-like face with three red-lit eyes, a red triangle mark and a jagged mouth. Two wide cloak wings spread from its sides, it has two black clawed hands and a long striped tail."
 

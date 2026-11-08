@@ -1134,13 +1134,6 @@
     "editor": "Claude (from Discord)"
   },
   {
-    "id": 378,
-    "species": "blazterra",
-    "file": "assets/concept-art/blazterra/378.webp",
-    "caption": "Concept art, cut out of the Torchbat line sheet that was uploaded on the website",
-    "editor": "Claude"
-  },
-  {
     "id": 379,
     "species": "stonma",
     "file": "assets/concept-art/stonma/379.png",
@@ -1554,13 +1547,6 @@
     "editor": null
   },
   {
-    "id": 447,
-    "species": "blazterra",
-    "file": "assets/concept-art/blazterra/447.png",
-    "caption": null,
-    "editor": null
-  },
-  {
     "id": 450,
     "species": "leafing",
     "file": "assets/concept-art/leafing/450.png",
@@ -1708,20 +1694,6 @@
     "editor": "Discord sweep"
   },
   {
-    "id": 547,
-    "species": "blazterra",
-    "file": "assets/concept-art/blazterra/547.webp",
-    "caption": "From Discord #kanteradet, posted by Ruben on 2026-05-01T21:14. Maybe: Blazterra.",
-    "editor": "Discord sweep"
-  },
-  {
-    "id": 548,
-    "species": "blazterra",
-    "file": "assets/concept-art/blazterra/548.webp",
-    "caption": "From Discord #kanteradet, posted by Ruben on 2026-05-01T21:16. Maybe: Blazterra.",
-    "editor": "Discord sweep"
-  },
-  {
     "id": 549,
     "species": "leafaxer",
     "file": "assets/concept-art/leafaxer/549.webp",
@@ -1858,13 +1830,6 @@
     "id": 592,
     "species": "furamire",
     "file": "assets/concept-art/furamire/592.webp",
-    "caption": null,
-    "editor": null
-  },
-  {
-    "id": 594,
-    "species": "blazterra",
-    "file": "assets/concept-art/blazterra/594.png",
     "caption": null,
     "editor": null
   },
@@ -3185,13 +3150,6 @@
     "editor": "BUST"
   },
   {
-    "id": 984,
-    "species": "beatld",
-    "file": "assets/concept-art/beatld/984.png",
-    "caption": "[ds-front] sprite #129",
-    "editor": null
-  },
-  {
     "id": 985,
     "species": "beatld",
     "file": "assets/concept-art/beatld/985.png",
@@ -3861,6 +3819,34 @@
     "species": "moosus",
     "file": "assets/concept-art/moosus/1116.png",
     "caption": "[ds-follower] sprite #155",
+    "editor": null
+  },
+  {
+    "id": 1117,
+    "species": "blazterra",
+    "file": "assets/concept-art/blazterra/1117.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1118,
+    "species": "blazterra",
+    "file": "assets/concept-art/blazterra/1118.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1119,
+    "species": "blazterra",
+    "file": "assets/concept-art/blazterra/1119.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1120,
+    "species": "beatld",
+    "file": "assets/concept-art/beatld/1120.png",
+    "caption": "[ds-front] sprite #156",
     "editor": null
   }
 ]

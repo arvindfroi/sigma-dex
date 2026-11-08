@@ -84,11 +84,11 @@ static const u16 sTorchbatTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sHeatbatTeachableLearnset[] = {
+static const u16 sPrincinderTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sBlazterraTeachableLearnset[] = {
+static const u16 sMonarkhanTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
@@ -169,11 +169,11 @@ static const u16 sMcSkiirtleTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sSlamQuakeTeachableLearnset[] = {
+static const u16 sSlamquakeTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sDreadFangTeachableLearnset[] = {
+static const u16 sDreadfangTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 

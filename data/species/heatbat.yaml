@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
 dex: 8
-name: Heatbat
+name: Princinder
 
 credits:
   designer: "Emil & Arvind" # who came up with it (Discord name)
@@ -80,7 +80,7 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "a body with one pair of wings"
+  body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a round red-orange creature with a shaggy mop of dark navy hair covering its head and two thin arms carrying dark navy bat-like wings. It has a pale yellow zigzag-edged patch on its belly, two short legs and small orange flames floating around its head and body."
 

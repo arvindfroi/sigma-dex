@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
 dex: 125
-name: DreadFang
+name: Dreadfang
 
 credits:
   designer: Ivar         # who came up with it (Discord name)
@@ -82,7 +82,7 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "an insect body with a hard shell"
+  body_shape: an insect body with a hard shell
   movement: "It flies, flapping its wings."
   look: "It is a green scorpion-like creature with a long curved snake-like neck and head, a pale grey stripe down the neck, a yellow diamond on its forehead, a yellow eye and two curved dark fangs. It has four clear insect wings, six jointed green legs ending in dark brown claws, a black segmented abdomen and a long curved tail with a yellow diamond and a dark stinger."
 

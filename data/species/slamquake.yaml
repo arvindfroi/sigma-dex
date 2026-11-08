@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
 dex: 105
-name: SlamQuake
+name: Slamquake
 
 credits:
   designer: Ivar         # who came up with it (Discord name)
@@ -87,8 +87,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "an upright body on two legs with a tail"
-  movement: "It walks upright on two legs."
+  body_shape: an upright body on two legs with a tail
+  movement: It walks upright on two legs.
   look: "It is a knight-like creature in a silver helmet with a green leaf plume and an orange visor slit, a grey ribbed armour collar and shoulder plates, and an orange brick belly with a glowing furnace grate of three flame slots. It has brown arms and two clawed bird-like legs, a big sword on its back and a long thin brown tail with a flame at the tip."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
