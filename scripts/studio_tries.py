@@ -163,6 +163,59 @@ def solid(im, cut=48):
     return Image.fromarray(a)
 
 
+def defringe(im, level=215, band=14):
+    """Clear the white rim a cut-out keeps around the creature: near-white pixels reached from the see-through background
+    through near-white pixels only, at most `band` px deep (the dark outline stops it; white parts inside it stay)."""
+    import cv2
+    a = np.array(im.convert("RGBA"))
+    rgb = a[..., :3].astype(int)
+    white = ((rgb.min(-1) >= level) & (rgb.max(-1) - rgb.min(-1) < 30) & (a[..., 3] >= 16)).astype(np.uint8)
+    reach = (a[..., 3] < 16).astype(np.uint8)
+    k = np.ones((3, 3), np.uint8)
+    rim = np.zeros_like(white)
+    for _ in range(band):
+        grow = cv2.dilate(reach | rim, k) & white
+        if (grow == rim).all():
+            break
+        rim = grow
+    a[rim > 0, 3] = 0
+    return Image.fromarray(a)
+
+
+def keep_creature(im, near=0.06, touch=0.015, small=0.10, extra=0.30):
+    """The creature: its biggest connected part plus loose parts drawn apart from it - small ones (each at most 10 % of
+    the body: flames, sparks) up to 6 % of its size away, any size when they almost touch it (a fist, a wing) - but not
+    far or big pieces (text, other views, a second creature); with more than 6 or over 35 % extra it counts as a sheet. Returns the picture and the share of everything drawn kept."""
+    import cv2
+    a = np.array(im.convert("RGBA"))
+    m = (a[..., 3] >= 16).astype(np.uint8)
+    n, lab, st, _ = cv2.connectedComponentsWithStats(m, connectivity=8)
+    if n < 2:
+        return Image.fromarray(a), 0.0
+    main = 1 + int(np.argmax(st[1:, cv2.CC_STAT_AREA]))
+    body = float(st[main, cv2.CC_STAT_AREA])
+    diag = float(np.hypot(st[main, 2], st[main, 3]))
+    keep = lab == main
+    added, parts = 0.0, 0
+    for _ in range(2):                                   # parts near the body, then parts near those
+        dist = cv2.distanceTransform((~keep).astype(np.uint8), cv2.DIST_L2, 3)
+        for i in range(1, n):
+            area = float(st[i, cv2.CC_STAT_AREA])
+            part = lab == i
+            if i == main or keep[part].any() or area < 0.002 * body:
+                continue
+            d = dist[part].min()
+            if d <= max(6.0, touch * diag) or (area <= small * body and d <= max(24.0, near * diag) and added + area <= extra * body):
+                keep |= part
+                added += area
+                parts += 1
+    share = keep.sum() / max(1, m.sum())
+    if parts > 6 or added > 0.35 * body:                # many or big pieces: a card or a sheet, not one creature
+        share = body / max(1, m.sum())
+    a[~keep, 3] = 0
+    return Image.fromarray(a), float(share)
+
+
 def largest_blob(im):
     """The biggest connected part (a cut-out sometimes keeps bits of text or other views) and its share."""
     import cv2
@@ -375,7 +428,7 @@ def try_art_sketch(n, seed, folder, job, inputs):
         graph["sca"]["inputs"]["sigmas"] = ["split", 1]
         graph["sca"]["inputs"]["latent_image"] = ["enc1", 0]
         raw.write_bytes(comfy.run(graph))
-    im, share = largest_blob(solid(white_out(Image.open(raw))))
+    im, share = keep_creature(solid(defringe(white_out(Image.open(raw)))))
     image = folder / ("art_%d.png" % n)
     framed(im).save(image)
     return ("broken", "loose bits (%.0f %% outside the creature)" % (100 - 100 * share), image, raw) if share < 0.9 else ("done", "", image, raw)
@@ -415,7 +468,7 @@ def try_art_pose(n, seed, folder, job, inputs):
     small = folder / ("pose_small_%d.png" % n)
     Image.open(turned).convert("RGB").resize((512, 512), Image.LANCZOS).save(small)
     raw = klein_draw(folder / ("art_raw_%d.png" % n), "official pokemon artstyle. " + words, [small], 512, 512, seed, SKETCH_KLEIN)
-    im, share = largest_blob(solid(white_out(Image.open(raw))))
+    im, share = keep_creature(solid(defringe(white_out(Image.open(raw)))))
     image = folder / ("art_%d.png" % n)
     framed(im).save(image)
     return ("broken", "loose bits (%.0f %% outside the creature)" % (100 - 100 * share), image, raw) if share < 0.9 else ("done", "", image, raw)
@@ -429,7 +482,7 @@ def try_art(n, seed, folder, job, inputs):
     raw = folder / ("art_raw_%d.png" % n)
     prompt = ART + ((" " + job["prompt"]) if job.get("prompt") else "")
     comfy.generate(prompt, raw, inputs["refs"][:3], size=(1024, 1024), steps=40, seed=seed, quiet=True, transparent=True)
-    im, share = largest_blob(solid(Image.open(raw)))
+    im, share = keep_creature(solid(defringe(Image.open(raw))))
     image = folder / ("art_%d.png" % n)
     framed(im).save(image)
     return ("broken", "loose bits (%.0f %% outside the creature)" % (100 - 100 * share), image, raw) if share < 0.9 else ("done", "", image, raw)
