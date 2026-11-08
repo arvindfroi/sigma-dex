@@ -70,10 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  filled_by_claude: [body shape, look, movement]
+  body_shape: "an upright body on two legs with a tail"
+  movement: "It walks upright on two legs."
+  look: "It is a slim white furry fighter with a long spiky white mane tipped yellow, an orange duck bill and a yellow eye. It has two arms with black mitten-like hands, yellow lightning-shaped tufts on its arms, shoulders and hips, a black mark down its belly, two legs with black feet, and a long thin white tail."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

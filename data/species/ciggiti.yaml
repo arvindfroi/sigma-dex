@@ -45,7 +45,13 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
+evolutions:
+  - into: chuchar
+    method: other
+    note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+  - into: parahaunt
+    method: other
+    note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
 # evolutions:
 #   - into: leafsteel    # file name of the target, without .yaml
 #     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
@@ -71,7 +77,7 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: a head and arms # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  body_shape: "tentacles or many legs"
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a dark grey smoky ghost with a round head, angry narrow eyes and wispy tentacle-like tendrils hanging below. A long white cigarette with an orange tip and glowing ember sticks out of its face, trailing grey smoke."
 

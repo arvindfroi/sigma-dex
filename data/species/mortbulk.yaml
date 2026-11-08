@@ -73,7 +73,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
-  look: "It is a bulky dark green creature standing on two thin legs with small flat feet, with a huge muscular body and one giant arm raised high in a kick-like pose. It has a small head with an angry eye and a dark spiky green beard."
+  look: "It is a bulky dark green creature with a huge muscular body, a small head with an angry white eye and a dark spiky green beard. It stands on one thin leg and kicks its other, giant leg high in the air, and has a round fist at its side."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

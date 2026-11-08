@@ -73,7 +73,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
-  look: "It is an icy pale-blue creature with a spiky crown-shaped head, a gem on its forehead and a wide mouth full of sharp teeth. It has a big rectangular block torso with carved runes, long dark curved arms ending in ice claws, thick white legs with sharp claws, and a thin black tail with an arrow tip."
+  look: "It is a pale blue-white ice creature with a spiky crown-shaped head, a diamond gem on its forehead and a wide mouth full of sharp teeth. It has a big rectangular block torso with blue diamond crystals, two long arms with dark-blue bands ending in crab-like ice claws, large ice spikes on its shoulders, thick legs with dark-blue knees and sharp claws, and a thin blue tail with an arrow tip."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

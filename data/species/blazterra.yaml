@@ -76,7 +76,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
-  look: "It is a slender, bat-like dragon with red-orange scaly skin and a tan belly. It has huge fire-patterned orange wings with yellow claws at the tips, large pointed ears that end in flames, a yellow head crest, and a long thin tail ending in a flame."
+  look: "It is a slender, bat-like dragon with red-orange scaly skin and a tan belly. It has two huge fire-patterned orange wings with yellow claws at the tips, large pointed ears with flames on top, a yellow crest on its head, two clawed legs and a long thin pointed tail."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

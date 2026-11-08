@@ -73,7 +73,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
-  look: "It is a white rooster-like bird standing upright, with a red comb, yellow beak and clawed feet. Its arms are raised wings with giant brown drumstick-shaped lumps with bones sticking out, and it has a long tapering lavender tail with red spikes along it. Flames burst from its drumsticks in flight."
+  look: "It is a white rooster-like bird standing upright, with a red comb, yellow beak and yellow clawed feet. It has two raised bone arms, each coming out of a giant brown drumstick-shaped lump on its shoulder, lavender shading along its back and a long tapering lavender tail with red spikes. In flight it spreads feathered wings and flames burst from the drumsticks."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

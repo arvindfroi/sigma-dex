@@ -45,7 +45,10 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
+evolutions:
+  - into: flurina
+    method: other
+    note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
 # evolutions:
 #   - into: leafsteel    # file name of the target, without .yaml
 #     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
@@ -81,8 +84,8 @@ design:
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement: It crawls along the ground on its legs.
-  look: "It is a small virus-like creature with a round pink head with big black eyes, sitting on a transparent pink crystal gem-shaped body. It has two thin curled pink arms and four long thin pink legs."
+  movement: "It crawls along the ground on its many legs."
+  look: "It is a small pink virus-like creature with a long teardrop-shaped head with one big black eye and a tiny mouth, sitting on a transparent pink crystal body. It has six long thin pink legs."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

@@ -77,7 +77,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: an upright body on two legs without a tail
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
-  look: "It is a frog-like creature with long green legs and a translucent pale-blue glass-like upper body shaped like a capsule. A gold coil and wire are visible inside it, it has small round eyes, thin light-blue arms with spread fingers, and yellow sparks around it."
+  look: "It is a frog-like creature with two long green legs and a translucent pale-blue glass-like capsule body with a gold coil and wires inside. It has two thin light-blue arms with spread fingers, small round battery-like terminals marked plus and minus on its body, and yellow sparks around it."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

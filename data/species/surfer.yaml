@@ -45,7 +45,10 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
+evolutions:
+  - into: subwaysurfer
+    method: other
+    note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
 # evolutions:
 #   - into: leafsteel    # file name of the target, without .yaml
 #     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
@@ -79,10 +82,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  filled_by_claude: [body shape, look, movement]
+  body_shape: "an upright body on two legs with a tail"
+  movement: "It walks upright on two legs."
+  look: "It is a small orange cat-like creature with two pointed ears, blue eyes, brown cheek spots and a cream muzzle. It has a round blue ring around its neck, a yellow fluffy chest, two arms, two legs with yellow claws, and a long thin tail ending in a two-lobed orange and blue fin."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

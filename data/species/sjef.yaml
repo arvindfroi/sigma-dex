@@ -79,10 +79,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  filled_by_claude: [body shape, look, movement]
+  body_shape: "a body with one pair of wings"
+  movement: "It flies, flapping its wings."
+  look: "It is a ghost wrapped in a white hooded cloak with black and white striped markings, with an orange oval mask-like face with three red-lit eyes, a red triangle mark and a jagged mouth. Two wide cloak wings spread from its sides, it has two black clawed hands and a long striped tail."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

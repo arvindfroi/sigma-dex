@@ -11,7 +11,7 @@ types: [Ghost, Psychic]  # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
+height_m: 0.6            # e.g. 0.7
 weight_kg:               # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
@@ -82,7 +82,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: a head and a base # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
-  look: "It is a smooth cream-white round head on a long thin curved stalk like a hook, with closed smiling eyes and a small round open mouth. The stalk rises out of a flat swirling purple hole filled with stars, edged with black and pale green."
+  look: "It is a smooth cream-white round head on a long thin white curved stalk like a hook, with closed smiling eyes and a small round open mouth. The stalk rises out of a flat swirling purple hole filled with stars, edged with black and pale green."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

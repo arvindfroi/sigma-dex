@@ -45,7 +45,10 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
+evolutions:
+  - into: florantula
+    method: other
+    note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
 # evolutions:
 #   - into: leafsteel    # file name of the target, without .yaml
 #     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md

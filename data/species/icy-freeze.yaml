@@ -11,7 +11,7 @@ types: [Ice]             # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category: Frost Swagger  # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description: "Icy Freeze roams city streets with effortless swagger, chilling the air around him wherever he goes. When threatened, he unleashes a freezing glare and a burst of icy wind that can stop opponents in their tracks."
-height_m:                # e.g. 0.7
+height_m: 0.4            # e.g. 0.7
 weight_kg:               # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
@@ -77,9 +77,9 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: an upright body on two legs with a tail
+  body_shape: "an upright body on two legs without a tail"
   movement: It walks upright on two legs.
-  look: "It is a rabbit-like creature made of light blue faceted ice crystal, sitting upright with long crystal ears and big front teeth. It wears a bowl-shaped brown fur cap on its head, has large round paws, and a small pink nose."
+  look: "It is a rabbit-like creature made of light blue faceted ice crystal, sitting upright with two tall crystal ears and big white front teeth. It wears a bowl-shaped golden-brown fur cap on its head, has large round paws and a small pink nose."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

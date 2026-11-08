@@ -73,7 +73,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: a body with one pair of wings
   movement: It walks upright on two legs.
-  look: "It is a muscular, upright insect-like creature with a yellow head, big dark-blue eyes, a wide grin and two long yellow antennae. Its body is dark blue with red and white stripes and red abs, it has yellow fluffy forearms, yellow boots with pointed toes, and large translucent golden veined wings."
+  look: "It is a muscular, upright insect-like creature with a yellow head, big dark-blue eyes, a wide grin and two long yellow antennae. Its body is dark blue with red and white stripes and red abs, it has spiky yellow tufts on its forearms, a yellow belt, yellow boots with pointed toes, and large translucent golden veined wings."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

@@ -321,7 +321,7 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_TORCHBAT,
         .categoryName = _("Unknown"),
-        .height = 0,
+        .height = 8,
         .weight = 0,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
@@ -1162,7 +1162,7 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_SPORESHADE,
         .categoryName = _("Unknown"),
-        .height = 0,
+        .height = 11,
         .weight = 0,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
@@ -1210,7 +1210,7 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_JANENON,
         .categoryName = _("Cursed Canno"),
-        .height = 0,
+        .height = 18,
         .weight = 0,
         .description = COMPOUND_STRING(
             "It's said that when it fires its cannon,\n"

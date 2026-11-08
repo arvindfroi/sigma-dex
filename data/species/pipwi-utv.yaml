@@ -81,10 +81,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  filled_by_claude: [body shape, look, movement]
+  body_shape: "an upright body on two legs without a tail"
+  movement: "It walks upright on two legs."
+  look: "It is a tall ostrich-like bird with a round fluffy brown body with a green leaf-shaped patch on its side, a long thin brown segmented neck and two long brown legs with pink feet and black claws. Its small brown fluffy head has a green kiwi-slice face, a long pale beak and a crown of long green leaves."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

@@ -73,7 +73,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
-  look: "It is a small tan-beige creature with a tall rounded head that has one big eye with a pink-purple pupil, a smooth body and two short legs. Its thin arms stretch out wide and end in large swirling rainbow-coloured clouds instead of hands."
+  look: "It is a small tan-beige sand creature with a tall rounded head that has one big white eye with a swirling rainbow-coloured iris, a smooth body and two short legs. Its thin arms stretch out wide and end in large swirling rainbow-coloured clouds instead of hands."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

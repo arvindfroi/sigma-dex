@@ -11,7 +11,7 @@ types: [Fire, Psychic]   # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
+height_m: 1.9            # e.g. 0.7
 weight_kg:               # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
@@ -82,7 +82,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
-  look: "It is a slender deer-like creature with a deep-blue body, a cream face, chest and belly, white and orange lightning-shaped markings, and a white ring on its chest. It has antlers carrying floating round blue discs with flame rings, flame bursts around its hooves and a short fluffy tail with an orange flame tip."
+  look: "It is a slender deer-like creature with a deep-blue body, a cream face, chest and belly, white and orange lightning-shaped markings, and a white ring on its chest. It has antlers carrying four floating round dark-blue discs with flame rings, flame bursts around its hooves and a short tail trailing orange flame."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

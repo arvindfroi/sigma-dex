@@ -787,7 +787,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 0.8,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -963,9 +963,9 @@
           "look",
           "movement"
         ],
-        "body_shape": "an upright body on two legs with a tail",
-        "movement": "It walks upright on two legs.",
-        "look": "It is a slim, red-orange dragon-like creature with a long snout, two long ears tipped with flames, and a yellow oval on its chest. It has thin arms with large wings made of orange flames, clawed yellow-tipped feet and a long curved tail ending in a flame."
+        "body_shape": "a body with one pair of wings",
+        "movement": "It flies, flapping its wings.",
+        "look": "It is a round red-orange creature with a shaggy mop of dark navy hair covering its head and two thin arms carrying dark navy bat-like wings. It has a pale yellow zigzag-edged patch on its belly, two short legs and small orange flames floating around its head and body."
       },
       "assets": {
         "concept_art": "assets/concept-art/heatbat/1037.png",
@@ -1060,7 +1060,7 @@
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
-        "look": "It is a slender, bat-like dragon with red-orange scaly skin and a tan belly. It has huge fire-patterned orange wings with yellow claws at the tips, large pointed ears that end in flames, a yellow head crest, and a long thin tail ending in a flame."
+        "look": "It is a slender, bat-like dragon with red-orange scaly skin and a tan belly. It has two huge fire-patterned orange wings with yellow claws at the tips, large pointed ears with flames on top, a yellow crest on its head, two clawed legs and a long thin pointed tail."
       },
       "assets": {
         "concept_art": "assets/concept-art/blazterra/378.webp",
@@ -1123,7 +1123,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "harpie",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -1142,7 +1148,7 @@
           "look",
           "movement"
         ],
-        "body_shape": "an upright body on two legs with a tail",
+        "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
         "look": "It is a small, round, white bird with a bright yellow fluffy face marked with a black smiley face of two dot eyes and a curved smile. It has white wings with a small black lightning mark, a short white tail and thin black legs with claws."
       },
@@ -1179,7 +1185,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 0.8,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -1207,7 +1213,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "smeatherace",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -1229,7 +1241,7 @@
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It walks on two legs with its wings folded.",
-        "look": "It is a small, round, white fluffy bird with a long feathered tail, dark thin legs with sharp claws, and a black lightning-bolt mark on its wing. Its face is a bright yellow sunflower head with a ring of petals, a smile and dark half-closed eyes."
+        "look": "It is a small, round, white fluffy bird with a long feathered tail, dark thin legs with sharp claws, and a black lightning-bolt mark on its wing. Its face is a bright yellow sunflower head with a ring of petals, a smile and a black band across it where the eyes would be."
       },
       "assets": {
         "concept_art": "assets/concept-art/harpie/247.webp",
@@ -1464,7 +1476,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "twemp",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -1548,7 +1566,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "florantula",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -1745,7 +1769,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "pipwi-utv",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -1760,10 +1790,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an upright body on two legs without a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a small round brown kiwi bird with fluffy brown feathers, a green kiwi-slice face with a ring of dark seeds around one big round brown eye, and a long thin pale yellow beak. A fringe of green leaf-like feathers sits on its neck and back. It has two pink legs with black claws."
       },
       "assets": {
         "concept_art": "assets/concept-art/pipwi/756.webp",
@@ -1848,10 +1882,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an upright body on two legs without a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a tall ostrich-like bird with a round fluffy brown body with a green leaf-shaped patch on its side, a long thin brown segmented neck and two long brown legs with pink feet and black claws. Its small brown fluffy head has a green kiwi-slice face, a long pale beak and a crown of long green leaves."
       },
       "assets": {
         "concept_art": "assets/concept-art/pipwi-utv/761.webp",
@@ -2190,7 +2228,7 @@
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
-        "look": "It is a shaggy dog-like creature with very long, thick dark-brown ears that cover its face and eyes, with only a pink tongue and nose showing. Its body is brown with cream and orange-speckled legs and chest, big cream paws and a short bushy tail with a cream tip."
+        "look": "It is a shaggy dog-like creature with very long, thick dark-brown ears that cover its face and eyes, with only a pink tongue and a small dark nose showing. Its body is brown with cream and orange-speckled legs and chest, big cream paws and a short bushy tail with a cream tip."
       },
       "assets": {
         "concept_art": "assets/concept-art/lapper/445.webp",
@@ -2399,7 +2437,7 @@
       ],
       "category": "Frost Swagger",
       "description": "Icy Freeze roams city streets with effortless swagger, chilling the air around him wherever he goes. When threatened, he unleashes a freezing glare and a burst of icy wind that can stop opponents in their tracks.",
-      "height_m": null,
+      "height_m": 0.4,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -2453,9 +2491,9 @@
           "look",
           "movement"
         ],
-        "body_shape": "an upright body on two legs with a tail",
+        "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
-        "look": "It is a rabbit-like creature made of light blue faceted ice crystal, sitting upright with long crystal ears and big front teeth. It wears a bowl-shaped brown fur cap on its head, has large round paws, and a small pink nose."
+        "look": "It is a rabbit-like creature made of light blue faceted ice crystal, sitting upright with two tall crystal ears and big white front teeth. It wears a bowl-shaped golden-brown fur cap on its head, has large round paws and a small pink nose."
       },
       "assets": {
         "concept_art": "assets/concept-art/icy-freeze/250.webp",
@@ -2489,7 +2527,7 @@
       ],
       "category": "Ice Rabbit",
       "description": "Freezrick evolved by gaining more ice mass and perfecting control over its frigid aura. Its hair bangs, made of fine ice crystals, are so cold they conceal even its eyes.",
-      "height_m": null,
+      "height_m": 0.89,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -3003,7 +3041,7 @@
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It floats in the air.",
-        "look": "It is a frog-like creature with long green legs and a translucent pale-blue glass-like upper body shaped like a capsule. A gold coil and wire are visible inside it, it has small round eyes, thin light-blue arms with spread fingers, and yellow sparks around it."
+        "look": "It is a frog-like creature with two long green legs and a translucent pale-blue glass-like capsule body with a gold coil and wires inside. It has two thin light-blue arms with spread fingers, small round battery-like terminals marked plus and minus on its body, and yellow sparks around it."
       },
       "assets": {
         "concept_art": "assets/concept-art/galfrogtom/231.webp",
@@ -3167,7 +3205,7 @@
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
-        "look": "It is a small pixel-style creature with a pointed leaf-shaped head and a body that fades from green and blue through yellow and orange to pink and purple like a rainbow. It has black dot eyes, white cheeks, a smile, white fluffy arms crossed in front and white feet."
+        "look": "It is a small creature with a pointed leaf-shaped head and a body that fades from green and blue through yellow and orange to pink and purple like a rainbow. It has black dot eyes, white cheeks, a smile, white fluffy arms crossed in front and white feet."
       },
       "assets": {
         "concept_art": "assets/concept-art/rainbro/288.webp",
@@ -3229,7 +3267,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "coatail",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -3243,10 +3287,14 @@
         "notes": null,
         "wishes": "weak but fast pokemon. like zigzagoon or ratata",
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": "A small rodent with a long tail. cute eyes"
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "It is a small, low rodent-like creature with a pointed snout, one round ear, a round dark-ringed eye and short legs. Its body is blue-purple fading to white on the back, and a very long, thick white tail curls around behind it and sweeps forward under its belly."
       },
       "assets": {
         "concept_art": "assets/concept-art/coati/792.png",
@@ -3325,10 +3373,12 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "look"
+        ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
-        "look": "A cute rodent with a long but rugged tail. its body is made of fur"
+        "look": "It is a long, low, four-legged rodent-like creature with a pointed snout, one pointed ear and a small eye. Its body fades from blue on the legs to white on the back, with a ridge of jagged cream spikes along its back that runs into a long, thin, jagged cream tail curving upward."
       },
       "assets": {
         "concept_art": "assets/concept-art/coatail/793.png",
@@ -3602,7 +3652,7 @@
         ],
         "body_shape": "only a head",
         "movement": "It floats in the air.",
-        "look": "It is a tan stone head like a carved statue, with a heavy flat brow, a large pointed triangular nose, narrow dark eyes with small glowing yellow lights, and a block-like jaw. A small curved arm of the same tan stone gives a thumbs up from its side, and a faint swirl is carved into the stone below the arm."
+        "look": "It is a tan stone head like a carved statue, with a heavy flat brow, a large pointed triangular nose, narrow dark eyes with small glowing yellow lights, and a block-like jaw. A small curved pale cream arm with a hand gives a thumbs up from its side, and a faint orange swirl is carved into the stone below the arm."
       },
       "assets": {
         "concept_art": "assets/concept-art/stonma/379.png",
@@ -4534,7 +4584,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "crappy-meal",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -4760,7 +4816,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 0.4,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -4850,7 +4906,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 1.1,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -5304,7 +5360,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "united",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -5477,7 +5539,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "panzerien",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -5587,7 +5655,7 @@
         ],
         "body_shape": "several bodies joined together",
         "movement": "It crawls along the ground on its legs.",
-        "look": "It is an old tank covered in moss and swamp grass, with brown rusty armour, wooden log wheels on caterpillar tracks and a long cannon barrel on its turret. Small round brown creatures with sleepy eyes peek out of the turret and the hull, one with a leaf-like ear."
+        "look": "It is an old tank covered in moss and swamp grass, with brown rusty armour, six wheels on caterpillar tracks (two of them pale wooden log slices) and a long cannon barrel with a square end on its turret. Two small round creatures with sleepy eyes peek out from under grassy lids on the turret and the hull."
       },
       "assets": {
         "concept_art": "assets/concept-art/panzerien/284.webp",
@@ -5652,7 +5720,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "nuclobyl",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -5759,8 +5833,8 @@
           "look",
           "movement"
         ],
-        "body_shape": "an upright body on two legs without a tail",
-        "movement": "It walks upright on two legs.",
+        "body_shape": "a head and arms",
+        "movement": "It walks on its legs.",
         "look": "It is a big, heavy robot-like creature with a grey metal domed head with two green glowing eyes. Its metal chest has a glowing green and yellow radiation symbol, and its huge arms are made of bundled black cables ending in spiked yellow and black striped cuffs, with green slime dripping from it."
       },
       "assets": {
@@ -5923,7 +5997,7 @@
         ],
         "body_shape": "several bodies joined together",
         "movement": "It floats in the air.",
-        "look": "It is a group of three tall, grey metal slab-like towers joined side by side, with panel lines across the surface. Each tower has two glowing yellow vertical eye-like windows near the top. It looms in storm clouds."
+        "look": "It is a group of three tall, grey metal slab-like towers joined side by side, with panel lines across the surface. Each tower has two glowing yellow vertical eye-like windows near the top."
       },
       "assets": {
         "concept_art": "assets/concept-art/yanklet/328.webp",
@@ -5958,7 +6032,7 @@
       ],
       "category": "Drooping Hair",
       "description": "Anjane's heavy hair droops down to the ground. It absorbs the curse-filled emotions of others and hangs motionless. When angered, the hair stiffens and sways, unleashing bursts of cursed energy. It's said that when it sways its hair, the sound is like the curse a thousand spirits let loose in a single moan.",
-      "height_m": null,
+      "height_m": 0.8,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -6050,7 +6124,7 @@
       ],
       "category": "Cursed Cannon",
       "description": "It's said that when it fires its cannon, the sound is like the curse a thousand spirits let loose in a single scream.",
-      "height_m": null,
+      "height_m": 1.8,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -6116,8 +6190,8 @@
           "look",
           "movement"
         ],
-        "body_shape": "a head and a base",
-        "movement": "It slithers along the ground.",
+        "body_shape": "a head and legs",
+        "movement": "It walks on its legs.",
         "look": "It is a huge mass of dark navy, wavy hair that curls over a small purple creature with pointed ears sitting inside. The hair forms a long cannon-like tube with a glowing pink-white opening at the front, and two rounded dark lumps at the bottom serve as feet."
       },
       "assets": {
@@ -6386,7 +6460,7 @@
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It floats in the air.",
-        "look": "It is a round flower-like body with large purple petals around a bright magenta centre that holds a small face with two eyes and a jagged mouth. Teal tentacles with red curled tips hang below, and one long pale-pink frilly tube ends in a clawed hand."
+        "look": "It is a round flower-like body with six large purple petals around a bright magenta centre that holds a small face with two eyes and a jagged mouth. Four teal tentacles with red curled tips hang below, and one long pale-pink frilly tube with a white ring at its top ends in a teal clawed hand."
       },
       "assets": {
         "concept_art": "assets/concept-art/octopearl/573.webp",
@@ -6471,7 +6545,7 @@
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
-        "look": "It is an icy pale-blue creature with a spiky crown-shaped head, a gem on its forehead and a wide mouth full of sharp teeth. It has a big rectangular block torso with carved runes, long dark curved arms ending in ice claws, thick white legs with sharp claws, and a thin black tail with an arrow tip."
+        "look": "It is a pale blue-white ice creature with a spiky crown-shaped head, a diamond gem on its forehead and a wide mouth full of sharp teeth. It has a big rectangular block torso with blue diamond crystals, two long arms with dark-blue bands ending in crab-like ice claws, large ice spikes on its shoulders, thick legs with dark-blue knees and sharp claws, and a thin blue tail with an arrow tip."
       },
       "assets": {
         "concept_art": "assets/concept-art/cryoblade/676.png",
@@ -6555,7 +6629,7 @@
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
-        "look": "It is a white rooster-like bird standing upright, with a red comb, yellow beak and clawed feet. Its arms are raised wings with giant brown drumstick-shaped lumps with bones sticking out, and it has a long tapering lavender tail with red spikes along it. Flames burst from its drumsticks in flight."
+        "look": "It is a white rooster-like bird standing upright, with a red comb, yellow beak and yellow clawed feet. It has two raised bone arms, each coming out of a giant brown drumstick-shaped lump on its shoulder, lavender shading along its back and a long tapering lavender tail with red spikes. In flight it spreads feathered wings and flames burst from the drumsticks."
       },
       "assets": {
         "concept_art": "assets/concept-art/roostasaur/291.webp",
@@ -6671,7 +6745,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 0.5,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -6726,7 +6800,7 @@
           "look",
           "movement"
         ],
-        "body_shape": "a head and arms",
+        "body_shape": "a head and legs",
         "movement": "It walks on its legs.",
         "look": "It is a small round golem made of lumpy dark grey boulders, with a cream-white skull-shaped mask on its front that has two glowing purple teardrop eyes and a jagged mouth. It has round boulder feet and small rock chunks scattered around it."
       },
@@ -7108,7 +7182,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 1.6,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -7219,7 +7293,18 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "chuchar",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        },
+        {
+          "into": "parahaunt",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -7238,7 +7323,7 @@
           "look",
           "movement"
         ],
-        "body_shape": "a head and arms",
+        "body_shape": "tentacles or many legs",
         "movement": "It floats in the air.",
         "look": "It is a dark grey smoky ghost with a round head, angry narrow eyes and wispy tentacle-like tendrils hanging below. A long white cigarette with an orange tip and glowing ember sticks out of its face, trailing grey smoke."
       },
@@ -7484,10 +7569,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "It is a goat-like creature with a long white and lilac shaggy mane and bushy tail, a pale face with a black band over its brow, a blue eye and a pink nose, and two long purple horns curving back. Its body and four legs are dark charcoal, with red and blue bands on the lower legs and black paws. A glowing purple orb floats at the tip of its tail."
       },
       "assets": {
         "concept_art": "assets/concept-art/goatjo/1111.webp",
@@ -7838,7 +7927,7 @@
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
-        "look": "It is a blocky stone golem made of grey and rusty-brown rock plates, with a bell-shaped helmet head with two small spikes and a glowing teal diamond gem. One arm is a huge pointed blade, the other hand holds teal ghostly flames, and more teal gems and flames glow at its knees and joints."
+        "look": "It is a blocky stone golem made of grey and rusty-brown rock plates, with a bell-shaped helmet head with small spikes on top and a glowing teal diamond gem. One arm is a huge pointed blade, the other hand holds teal ghostly flames, and more teal gems glow on its knees and blade, with teal flames showing between its plates."
       },
       "assets": {
         "concept_art": "assets/concept-art/verrith/614.png",
@@ -8081,7 +8170,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "flurina",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -8102,8 +8197,8 @@
           "movement"
         ],
         "body_shape": "tentacles or many legs",
-        "movement": "It crawls along the ground on its legs.",
-        "look": "It is a small virus-like creature with a round pink head with big black eyes, sitting on a transparent pink crystal gem-shaped body. It has two thin curled pink arms and four long thin pink legs."
+        "movement": "It crawls along the ground on its many legs.",
+        "look": "It is a small pink virus-like creature with a long teardrop-shaped head with one big black eye and a tiny mouth, sitting on a transparent pink crystal body. It has six long thin pink legs."
       },
       "assets": {
         "concept_art": "assets/concept-art/vires/969.png",
@@ -8188,7 +8283,7 @@
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It crawls along the ground on its many legs.",
-        "look": "It is a pink creature with a faceted pink crystal body, long thin pink legs like a spider and two long thin curled arms. It has a small round pink head with one big eye and a tiny smile, or two dark eyes."
+        "look": "It is a pink creature with a faceted pink crystal gem body, a small round pink head with two big shiny black eyes in a heart-shaped pale patch and no mouth, two long thin curled pink arms and four long thin ribbon-like pink legs."
       },
       "assets": {
         "concept_art": "assets/concept-art/flurina/970.webp",
@@ -8330,7 +8425,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 0.7,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -8414,7 +8509,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 2.9,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -8457,10 +8552,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": true,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an upright body on two legs without a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a stone guardian built from stacked flat orange rock slabs, with a small square orange head with a smiling face under a tall purple pointed hat. Purple-blue straps cross its chest and a belt with a bow sits at its waist. It has two arms and two legs of slabs, with a floating sword on one side and a floating spiked iron ball on the other, no hands holding them."
       },
       "assets": {
         "concept_art": "assets/concept-art/roku/1099.webp",
@@ -8522,7 +8621,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "mcskiirtle",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -8543,7 +8648,7 @@
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
-        "look": "It is a pink turtle with scaly skin, a brown plated shell and red sunglasses. Two red and black horn-like tubes stick up from its head and shell, and a big blaze of orange and yellow flame bursts from the back of its shell. It has four stubby legs with pale claws."
+        "look": "It is a pink turtle with scaly skin, a brown plated shell and red sunglasses. Two red and black horn-like tubes stick up from the front of its shell, and a big blaze of orange and yellow flame bursts from the back of its shell. It has four stubby legs with pale claws."
       },
       "assets": {
         "concept_art": "assets/concept-art/skiirtle/303.webp",
@@ -8640,7 +8745,7 @@
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
-        "look": "It is a purple scaly turtle with a smooth snout and yellow sunglasses, and a glossy red segmented shell trimmed with chrome and yellow lightning bolts. It has four stubby clawed legs and flames and electric sparks streaming from the back of its shell."
+        "look": "It is a purple scaly turtle with a smooth snout and dark sunglasses with yellow frames, and a glossy red segmented shell trimmed with chrome and yellow lightning bolts. It has four stubby clawed legs and flames and electric sparks streaming from the back of its shell."
       },
       "assets": {
         "concept_art": "assets/concept-art/mcskiirtle/264.webp",
@@ -8730,7 +8835,7 @@
         ],
         "body_shape": "an insect body with a hard shell",
         "movement": "It crawls along the ground on its legs.",
-        "look": "It is a mosquito-like bug with a glossy orange amber-coloured rounded body, two small pale blue wings on its back, thin black legs, and big white eyes. A long green spiral-tipped proboscis curls out in front and a green stinger points backward."
+        "look": "It is a mosquito-like bug with a glossy orange amber-coloured rounded body, two small pale-blue wings on its back, thin black legs, and big white eyes with black pupils. A long green spiral-tipped proboscis curls out in front and a green stinger points backward."
       },
       "assets": {
         "concept_art": "assets/concept-art/ambuger/574.webp",
@@ -8816,7 +8921,7 @@
         ],
         "body_shape": "an insect body with a hard shell",
         "movement": "It flies, flapping its wings.",
-        "look": "It is a beetle-like creature with a round orange shell, four thin pale-blue wings on its back and several thin green legs. It has a green curled spiral tail-like horn at the front with an orange tip, and a long green stalk ending in a flared orange cone at the rear."
+        "look": "It is a beetle-like creature with a round orange shell, three thin pale-blue wings on its back and several thin green legs. A green curled spiral horn with an orange tip points forward at the front, and a long green stalk ending in a flared orange cone sticks out at the rear."
       },
       "assets": {
         "concept_art": "assets/concept-art/ambcoptr/575.png",
@@ -8881,7 +8986,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "tortoplasm-utviklet",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -9018,7 +9129,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 1.0,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -9536,10 +9647,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an upright body on two legs with a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a knight-like creature in a silver helmet with a green leaf plume and an orange visor slit, a grey ribbed armour collar and shoulder plates, and an orange brick belly with a glowing furnace grate of three flame slots. It has brown arms and two clawed bird-like legs, a big sword on its back and a long thin brown tail with a flame at the tip."
       },
       "assets": {
         "concept_art": "assets/concept-art/slamquake/967.webp",
@@ -9601,7 +9716,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "mortbulk",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -9707,7 +9828,7 @@
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
-        "look": "It is a bulky dark green creature standing on two thin legs with small flat feet, with a huge muscular body and one giant arm raised high in a kick-like pose. It has a small head with an angry eye and a dark spiky green beard."
+        "look": "It is a bulky dark green creature with a huge muscular body, a small head with an angry white eye and a dark spiky green beard. It stands on one thin leg and kicks its other, giant leg high in the air, and has a round fist at its side."
       },
       "assets": {
         "concept_art": "assets/concept-art/mortbulk/627.png",
@@ -9793,10 +9914,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a serpentine body",
+        "movement": "It floats in the air.",
+        "look": "It is a ghost with a white hood with black and white stripes and a long wavy striped tail that tapers to a point. Under the hood is an orange oval face with three black eyes with small red glowing pupils, a red triangle mark and a wide jagged mouth."
       },
       "assets": {
         "concept_art": "assets/concept-art/phantomb/781.webp",
@@ -9876,10 +10001,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a body with one pair of wings",
+        "movement": "It flies, flapping its wings.",
+        "look": "It is a ghost wrapped in a white hooded cloak with black and white striped markings, with an orange oval mask-like face with three red-lit eyes, a red triangle mark and a jagged mouth. Two wide cloak wings spread from its sides, it has two black clawed hands and a long striped tail."
       },
       "assets": {
         "concept_art": "assets/concept-art/sjef/763.webp",
@@ -10005,7 +10134,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 2.1,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -10091,7 +10220,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 0.4,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -10260,7 +10389,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 0.7,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -10309,10 +10438,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an upright body on two legs with a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a small dark grey bird with a blue and yellow feather crest, a white-grey VR headset over its eyes with a yellow lightning bolt, yellow earpieces, and an orange beak. It has a yellow zigzag mark on its chest, two small silver-white wings, a short blue and yellow tail, and two thin legs with yellow claws."
       },
       "assets": {
         "concept_art": "assets/concept-art/zapitera-mindre-utv/1105.png",
@@ -10347,7 +10480,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 1.5,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -10400,10 +10533,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a body with one pair of wings",
+        "movement": "It flies, flapping its wings.",
+        "look": "It is a robot-like bird with a dark navy body, a yellow belly, and a red lightning bolt on its chest. It has a dark visor over red eyes, a red-orange beak, a spiky blue and yellow crest, and two big blue and yellow wings with round yellow joints. It has two long legs with yellow claws and a long blue and yellow tail."
       },
       "assets": {
         "concept_art": "assets/concept-art/zapitera/687.png",
@@ -10467,7 +10604,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "viridub-utvikling",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -10481,10 +10624,12 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "look"
+        ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
-        "look": "The creature is a cute, quadrupedal Grass-type lion cub Pokémon with a warm golden-tan body and a leafy, nature-inspired design. It has a leaf for a tail and a leafy lions mane. On top of its head there is a sprout."
+        "look": "It is a cute golden-tan lion cub with a leafy green mane, round ears and green eyes. It has a leaf-shaped tail on a thin stem, small leaf marks on its body and a green sprout on top of its head."
       },
       "assets": {
         "concept_art": "assets/concept-art/viridub/714.webp",
@@ -10599,7 +10744,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 0.8,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -10658,7 +10803,7 @@
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
-        "look": "It is a thin cream-coloured creature with a tall rounded head with one big eye and a wide toothy grin, and a small red beret on top. It has a small round body, long thin legs with three-toed feet, and long arms ending in long black claw-like fingers."
+        "look": "It is a thin cream-coloured creature with a tall rounded head with one big pale yellow eye with a black slit pupil and a wide toothy grin, and a small red beret with a stalk on top. It has a small round body, long thin legs with long-toed feet, and long arms ending in long black claw-like fingers."
       },
       "assets": {
         "concept_art": "assets/concept-art/shadeem/582.webp",
@@ -10693,7 +10838,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 1.9,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -10744,7 +10889,7 @@
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
-        "look": "It is a tall, thin, pale cream creature with a single large yellow eye and a wide toothy grin, hidden under a cream hood with a red curled tip. It has very long thin arms ending in huge black hands with long red-tipped claws, thin legs with long toes, and dark red tattered cloth strips trailing behind."
+        "look": "It is a tall, thin, pale cream creature with a single large pale yellow eye and a wide toothy grin, hidden under a cream hood with a red curled tip. It has very long thin arms ending in huge black hands with long red-tipped claws, thin legs with long toes, and cream and dark red tattered cloth strips trailing behind."
       },
       "assets": {
         "concept_art": "assets/concept-art/shadrove/583.webp",
@@ -10916,7 +11061,7 @@
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It walks upright on two legs.",
-        "look": "It is a muscular, upright insect-like creature with a yellow head, big dark-blue eyes, a wide grin and two long yellow antennae. Its body is dark blue with red and white stripes and red abs, it has yellow fluffy forearms, yellow boots with pointed toes, and large translucent golden veined wings."
+        "look": "It is a muscular, upright insect-like creature with a yellow head, big dark-blue eyes, a wide grin and two long yellow antennae. Its body is dark blue with red and white stripes and red abs, it has spiky yellow tufts on its forearms, a yellow belt, yellow boots with pointed toes, and large translucent golden veined wings."
       },
       "assets": {
         "concept_art": "assets/concept-art/bugmight/186.webp",
@@ -11000,10 +11145,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an upright body on two legs with a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a plump orange dragon-like creature with two large curved horns, a wide toothy grin, orange eyes and a big round cream belly. It wears an iron chain around its neck and has two short arms with cream claws, two clawed feet and a short curled tail with red scale patches."
       },
       "assets": {
         "concept_art": "assets/concept-art/jawie/765.webp",
@@ -11083,10 +11232,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an upright body on two legs with a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a bright orange dragon-like lizard with a cream belly, red scale patches and two curved horns on its head. It has a long toothy mouth, long arms with large cream claws, a broken iron chain hanging from each wrist, two strong clawed legs and a long thick tail."
       },
       "assets": {
         "concept_art": "assets/concept-art/jawbreaker/767.webp",
@@ -11171,10 +11324,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an insect body with a hard shell",
+        "movement": "It crawls along the ground on its many legs.",
+        "look": "It is a small green scorpion-like bug with a rounded green shell, a yellow diamond mark on its head, a yellow eye, two dark brown front pincers and several thin dark brown legs. It has a few clear insect wings on its back and a long curved green tail with a yellow diamond and a dark brown stinger."
       },
       "assets": {
         "concept_art": "assets/concept-art/dreadipede/769.png",
@@ -11259,10 +11416,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an insect body with a hard shell",
+        "movement": "It flies, flapping its wings.",
+        "look": "It is a green scorpion-like creature with a long curved snake-like neck and head, a pale grey stripe down the neck, a yellow diamond on its forehead, a yellow eye and two curved dark fangs. It has four clear insect wings, six jointed green legs ending in dark brown claws, a black segmented abdomen and a long curved tail with a yellow diamond and a dark stinger."
       },
       "assets": {
         "concept_art": "assets/concept-art/dreadfang/771.webp",
@@ -11324,7 +11485,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "subwaysurfer",
+          "method": "other",
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -11339,10 +11506,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an upright body on two legs with a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a small orange cat-like creature with two pointed ears, blue eyes, brown cheek spots and a cream muzzle. It has a round blue ring around its neck, a yellow fluffy chest, two arms, two legs with yellow claws, and a long thin tail ending in a two-lobed orange and blue fin."
       },
       "assets": {
         "concept_art": "assets/concept-art/surfer/773.webp",
@@ -11421,10 +11592,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "It is an orange four-legged creature with two very long upright ears, brown spots, blue eyes and a cream belly. It has a big fluffy yellow mane on its chest, a large translucent blue water-like fin along its back, yellow webbed feet and a long thin tail ending in an orange and blue fin."
       },
       "assets": {
         "concept_art": "assets/concept-art/subwaysurfer/776.webp",
@@ -11501,10 +11676,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an upright body on two legs with a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a slim white furry fighter with a long spiky white mane tipped yellow, an orange duck bill and a yellow eye. It has two arms with black mitten-like hands, yellow lightning-shaped tufts on its arms, shoulders and hips, a black mark down its belly, two legs with black feet, and a long thin white tail."
       },
       "assets": {
         "concept_art": "assets/concept-art/zyzzfu/779.webp",
@@ -11539,7 +11718,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 1.9,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -11591,7 +11770,7 @@
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
-        "look": "It is a tall, thin pale grey-white humanoid with very long thin arms and legs and large flat feet. It has a smooth rounded head with two small black dot eyes and a huge wide grin full of white teeth, and a thin tail."
+        "look": "It is a tall, thin pale grey-white humanoid with very long thin arms and legs and large flat feet. It has a smooth rounded head with a small bump on top, two small black dot eyes and a huge wide grin full of white teeth, and a thin tail. It holds a small swirling dark purple orb in one hand."
       },
       "assets": {
         "concept_art": "assets/concept-art/grincho/586.webp",
@@ -11953,10 +12132,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a body with one pair of wings",
+        "movement": "It flies, flapping its wings.",
+        "look": "It is a small round grey and white bird with a pale belly, darker grey wings, a short dark pointed beak, one round black eye and thin black legs with three toes. A thin golden halo floats above its head."
       },
       "assets": {
         "concept_art": "assets/concept-art/diedo/982.png",
@@ -12035,10 +12218,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a body with two or more pairs of wings",
+        "movement": "It floats in the air.",
+        "look": "It is a floating golden ring with a row of small open eyes set around its rim, and a cream dove-shaped mark in the middle of the ring. Two pairs of white feathered wings, four in all, spread out from its sides, with a soft golden glow around it."
       },
       "assets": {
         "concept_art": "assets/concept-art/seraphinnen/977.png",
@@ -12073,7 +12260,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 0.6,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -12123,7 +12310,7 @@
         ],
         "body_shape": "a head and a base",
         "movement": "It floats in the air.",
-        "look": "It is a smooth cream-white round head on a long thin curved stalk like a hook, with closed smiling eyes and a small round open mouth. The stalk rises out of a flat swirling purple hole filled with stars, edged with black and pale green."
+        "look": "It is a smooth cream-white round head on a long thin white curved stalk like a hook, with closed smiling eyes and a small round open mouth. The stalk rises out of a flat swirling purple hole filled with stars, edged with black and pale green."
       },
       "assets": {
         "concept_art": "assets/concept-art/riftbloom/590.webp",
@@ -12157,7 +12344,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 0.4,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -12200,10 +12387,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a body with fins",
+        "movement": "It floats in the air, swimming with its fins.",
+        "look": "It is a small round dark red creature with a black zigzag crack down its middle, blue oval spots, and white spikes around its body. It has two mismatched eyes, one blue target-ringed and one tall blue oval, and a black mouth with a green tongue. Four pointed red fins stick out, two at the sides and two at the bottom, and a green stalk on top ends in a glowing yellow ball."
       },
       "assets": {
         "concept_art": "assets/concept-art/strawboo/1103.jpg",
@@ -12280,10 +12471,14 @@
         "notes": null,
         "wishes": "Bulky Physical attacker.  Ability Rough skin.",
         "claude_fill": true,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a body with fins",
+        "movement": "It floats in the air, swimming with its fins.",
+        "look": "It is a round spiky creature with a body split in a zigzag between dark blue-purple and crimson, ringed with white spikes. It has one red eye and one blue eye, a wide mouth full of sharp white teeth, and five small green clawed hands on its body. Two long crimson blue-spotted fins stick out from its sides, and a green stalk on top ends in a yellow smiley-faced lure."
       },
       "assets": {
         "concept_art": "assets/concept-art/wreckingboo/1098.webp",
@@ -12318,7 +12513,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 7.2,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -12361,10 +12556,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a body with fins",
+        "movement": "It floats in the air, swimming with its fins.",
+        "look": "It is a huge dark red shark-like sea beast with a purple dragon-like head, a red eye and a mouth of sharp white teeth. It has two big green fins at its sides, a green dorsal fin, glowing blue rings along its body, and a curved black stalk on its back ending in a yellow pyramid lure."
       },
       "assets": {
         "concept_art": "assets/concept-art/wreckingdrake/1101.jpg",
@@ -12442,10 +12641,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "It is a deer-like creature with a cream face and legs, a shaggy brown and cream mane, one blue eye and black hooves with brown leaf-like tufts above them. It has large pale antlers topped with green leaf shapes with golden rings floating around them, and a big wing of green, cream and brown leaf-feathers on its back."
       },
       "assets": {
         "concept_art": "assets/concept-art/felk/1108.webp",
@@ -12522,10 +12725,14 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "a quadruped body",
+        "movement": "It floats in the air.",
+        "look": "It is a moose with a brown head and long snout, and wide flat antlers that glow in aurora colours of purple, green and blue. Its body and long legs are white shaded with lilac and blue, with a small brown hump on its back and dark curled hooves."
       },
       "assets": {
         "concept_art": "assets/concept-art/moosus/686.png",
@@ -12560,7 +12767,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 1.9,
       "weight_kg": null,
       "body_color": null,
       "abilities": {
@@ -12612,7 +12819,7 @@
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
-        "look": "It is a slender deer-like creature with a deep-blue body, a cream face, chest and belly, white and orange lightning-shaped markings, and a white ring on its chest. It has antlers carrying floating round blue discs with flame rings, flame bursts around its hooves and a short fluffy tail with an orange flame tip."
+        "look": "It is a slender deer-like creature with a deep-blue body, a cream face, chest and belly, white and orange lightning-shaped markings, and a white ring on its chest. It has antlers carrying four floating round dark-blue discs with flame rings, flame bursts around its hooves and a short tail trailing orange flame."
       },
       "assets": {
         "concept_art": "assets/concept-art/rockedeer/625.webp",
@@ -12889,7 +13096,7 @@
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
-        "look": "It is a small, bright red dinosaur-like creature standing upright, with a big toothy open mouth, a hooked snout, small arms and a curved tail. A thin antenna with a small round tip sticks out from its head, and its belly is light grey. A thin cord runs from its tail to a red and white ball."
+        "look": "It is a small, bright red dinosaur-like creature standing upright, with a big toothy open mouth, a hooked snout, small arms and a curved tail. A thin antenna with a small round tip sticks out from its head and a black zigzag mark runs down its chest. A thin cord runs from its tail to a red and white ball."
       },
       "assets": {
         "concept_art": "assets/concept-art/balleisk/480.webp",
@@ -13344,7 +13551,7 @@
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
-        "look": "It is a small tan-beige creature with a tall rounded head that has one big eye with a pink-purple pupil, a smooth body and two short legs. Its thin arms stretch out wide and end in large swirling rainbow-coloured clouds instead of hands."
+        "look": "It is a small tan-beige sand creature with a tall rounded head that has one big white eye with a swirling rainbow-coloured iris, a smooth body and two short legs. Its thin arms stretch out wide and end in large swirling rainbow-coloured clouds instead of hands."
       },
       "assets": {
         "concept_art": "assets/concept-art/sandrema/293.webp",

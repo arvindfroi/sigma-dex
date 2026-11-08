@@ -11,7 +11,7 @@ types: [Dark, Fairy]     # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category: Drooping Hair  # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description: "Anjane's heavy hair droops down to the ground. It absorbs the curse-filled emotions of others and hangs motionless. When angered, the hair stiffens and sways, unleashing bursts of cursed energy. It's said that when it sways its hair, the sound is like the curse a thousand spirits let loose in a single moan."
-height_m:                # e.g. 0.7
+height_m: 0.8            # e.g. 0.7
 weight_kg:               # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 

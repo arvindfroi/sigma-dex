@@ -11,7 +11,7 @@ types: [Normal, Flying]  # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
+height_m: 0.8            # e.g. 0.7
 weight_kg:               # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
@@ -45,7 +45,10 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
+evolutions:
+  - into: smeatherace
+    method: other
+    note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
 # evolutions:
 #   - into: leafsteel    # file name of the target, without .yaml
 #     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
@@ -82,7 +85,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: a body with one pair of wings
   movement: It walks on two legs with its wings folded.
-  look: "It is a small, round, white fluffy bird with a long feathered tail, dark thin legs with sharp claws, and a black lightning-bolt mark on its wing. Its face is a bright yellow sunflower head with a ring of petals, a smile and dark half-closed eyes."
+  look: "It is a small, round, white fluffy bird with a long feathered tail, dark thin legs with sharp claws, and a black lightning-bolt mark on its wing. Its face is a bright yellow sunflower head with a ring of petals, a smile and a black band across it where the eyes would be."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

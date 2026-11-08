@@ -76,10 +76,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  filled_by_claude: [body shape, look, movement]
+  body_shape: "a body with one pair of wings"
+  movement: "It flies, flapping its wings."
+  look: "It is a small round grey and white bird with a pale belly, darker grey wings, a short dark pointed beak, one round black eye and thin black legs with three toes. A thin golden halo floats above its head."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

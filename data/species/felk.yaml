@@ -79,10 +79,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  filled_by_claude: [body shape, look, movement]
+  body_shape: "a quadruped body"
+  movement: "It walks on four legs."
+  look: "It is a deer-like creature with a cream face and legs, a shaggy brown and cream mane, one blue eye and black hooves with brown leaf-like tufts above them. It has large pale antlers topped with green leaf shapes with golden rings floating around them, and a big wing of green, cream and brown leaf-feathers on its back."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

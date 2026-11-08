@@ -82,7 +82,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: several bodies joined together
   movement: It crawls along the ground on its legs.
-  look: "It is an old tank covered in moss and swamp grass, with brown rusty armour, wooden log wheels on caterpillar tracks and a long cannon barrel on its turret. Small round brown creatures with sleepy eyes peek out of the turret and the hull, one with a leaf-like ear."
+  look: "It is an old tank covered in moss and swamp grass, with brown rusty armour, six wheels on caterpillar tracks (two of them pale wooden log slices) and a long cannon barrel with a square end on its turret. Two small round creatures with sleepy eyes peek out from under grassy lids on the turret and the hull."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

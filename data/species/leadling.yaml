@@ -11,7 +11,7 @@ types: [Rock, Poison]    # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
+height_m: 0.5            # e.g. 0.7
 weight_kg:               # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
@@ -68,7 +68,7 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: a head and arms # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  body_shape: "a head and legs"
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small round golem made of lumpy dark grey boulders, with a cream-white skull-shaped mask on its front that has two glowing purple teardrop eyes and a jagged mouth. It has round boulder feet and small rock chunks scattered around it."
 

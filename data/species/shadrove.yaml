@@ -11,7 +11,7 @@ types: [Normal, Dark]    # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
+height_m: 1.9            # e.g. 0.7
 weight_kg:               # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
@@ -73,7 +73,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
-  look: "It is a tall, thin, pale cream creature with a single large yellow eye and a wide toothy grin, hidden under a cream hood with a red curled tip. It has very long thin arms ending in huge black hands with long red-tipped claws, thin legs with long toes, and dark red tattered cloth strips trailing behind."
+  look: "It is a tall, thin, pale cream creature with a single large pale yellow eye and a wide toothy grin, hidden under a cream hood with a red curled tip. It has very long thin arms ending in huge black hands with long red-tipped claws, thin legs with long toes, and cream and dark red tattered cloth strips trailing behind."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

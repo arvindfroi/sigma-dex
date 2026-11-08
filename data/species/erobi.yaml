@@ -45,7 +45,10 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
+evolutions:
+  - into: harpie
+    method: other
+    note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
 # evolutions:
 #   - into: leafsteel    # file name of the target, without .yaml
 #     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
@@ -71,7 +74,7 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: an upright body on two legs with a tail
+  body_shape: "a body with one pair of wings"
   movement: "It flies, flapping its wings."
   look: "It is a small, round, white bird with a bright yellow fluffy face marked with a black smiley face of two dot eyes and a curved smile. It has white wings with a small black lightning mark, a short white tail and thin black legs with claws."
 

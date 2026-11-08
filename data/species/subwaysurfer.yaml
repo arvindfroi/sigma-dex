@@ -70,10 +70,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  filled_by_claude: [body shape, look, movement]
+  body_shape: "a quadruped body"
+  movement: "It walks on four legs."
+  look: "It is an orange four-legged creature with two very long upright ears, brown spots, blue eyes and a cream belly. It has a big fluffy yellow mane on its chest, a large translucent blue water-like fin along its back, yellow webbed feet and a long thin tail ending in an orange and blue fin."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

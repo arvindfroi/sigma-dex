@@ -79,10 +79,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  filled_by_claude: [body shape, look, movement]
+  body_shape: "a body with two or more pairs of wings"
+  movement: "It floats in the air."
+  look: "It is a floating golden ring with a row of small open eyes set around its rim, and a cream dove-shaped mark in the middle of the ring. Two pairs of white feathered wings, four in all, spread out from its sides, with a soft golden glow around it."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

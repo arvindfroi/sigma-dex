@@ -79,10 +79,10 @@ design:
   notes:
   wishes: Bulky Physical attacker.  Ability Rough skin.
   claude_fill: true      # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  filled_by_claude: [body shape, look, movement]
+  body_shape: "a body with fins"
+  movement: "It floats in the air, swimming with its fins."
+  look: "It is a round spiky creature with a body split in a zigzag between dark blue-purple and crimson, ringed with white spikes. It has one red eye and one blue eye, a wide mouth full of sharp white teeth, and five small green clawed hands on its body. Two long crimson blue-spotted fins stick out from its sides, and a green stalk on top ends in a yellow smiley-faced lure."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

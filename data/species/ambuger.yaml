@@ -70,7 +70,7 @@ design:
   filled_by_claude: [body shape, look, movement]
   body_shape: an insect body with a hard shell
   movement: It crawls along the ground on its legs.
-  look: "It is a mosquito-like bug with a glossy orange amber-coloured rounded body, two small pale blue wings on its back, thin black legs, and big white eyes. A long green spiral-tipped proboscis curls out in front and a green stinger points backward."
+  look: "It is a mosquito-like bug with a glossy orange amber-coloured rounded body, two small pale-blue wings on its back, thin black legs, and big white eyes with black pupils. A long green spiral-tipped proboscis curls out in front and a green stinger points backward."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

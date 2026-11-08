@@ -45,7 +45,10 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
+evolutions:
+  - into: viridub-utvikling
+    method: other
+    note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
 # evolutions:
 #   - into: leafsteel    # file name of the target, without .yaml
 #     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
@@ -70,10 +73,10 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  filled_by_claude: [look]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
-  look: "The creature is a cute, quadrupedal Grass-type lion cub Pokémon with a warm golden-tan body and a leafy, nature-inspired design. It has a leaf for a tail and a leafy lions mane. On top of its head there is a sprout."
+  look: "It is a cute golden-tan lion cub with a leafy green mane, round ears and green eyes. It has a leaf-shaped tail on a thin stem, small leaf marks on its body and a green sprout on top of its head."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
