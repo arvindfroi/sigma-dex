@@ -3834,5 +3834,33 @@
     "file": "assets/concept-art/glac-p-e/1112.jpg",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 1113,
+    "species": "moosus",
+    "file": "assets/concept-art/moosus/1113.png",
+    "caption": "[ds-front] sprite #155",
+    "editor": null
+  },
+  {
+    "id": 1114,
+    "species": "moosus",
+    "file": "assets/concept-art/moosus/1114.png",
+    "caption": "[ds-back] sprite #155",
+    "editor": null
+  },
+  {
+    "id": 1115,
+    "species": "moosus",
+    "file": "assets/concept-art/moosus/1115.png",
+    "caption": "[ds-icon] sprite #155",
+    "editor": null
+  },
+  {
+    "id": 1116,
+    "species": "moosus",
+    "file": "assets/concept-art/moosus/1116.png",
+    "caption": "[ds-follower] sprite #155",
+    "editor": null
   }
 ]
