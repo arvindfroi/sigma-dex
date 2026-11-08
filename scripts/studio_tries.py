@@ -152,6 +152,17 @@ def framed(im, side=640, inner=560):
     return out
 
 
+def solid(im, cut=48):
+    """Fully opaque wherever the picture has the creature at all (alpha >= cut), clear elsewhere. Qwen's cut-outs and the
+    Klein drawings come back partly see-through (24 Oct and again 8 Nov, Heatbat 6-16 % of the figure), and on white
+    those parts turn pale. Only for the art step's own pictures (8 Nov: the front step stays as before 24 Oct)."""
+    a = np.array(im.convert("RGBA")); al = a[..., 3].astype(int); rgb = a[..., :3].astype(int)
+    sat = rgb.max(-1) - rgb.min(-1); luma = rgb @ np.array([30, 59, 11]) // 100
+    shadow = (al < 160) & (sat < 40) & (luma < 140)               # a soft grey ground shadow is not the creature
+    a[..., 3] = np.where((al >= 160) | ((al >= cut) & ~shadow), 255, 0).astype(np.uint8)
+    return Image.fromarray(a)
+
+
 def largest_blob(im):
     """The biggest connected part (a cut-out sometimes keeps bits of text or other views) and its share."""
     import cv2
@@ -364,7 +375,7 @@ def try_art_sketch(n, seed, folder, job, inputs):
         graph["sca"]["inputs"]["sigmas"] = ["split", 1]
         graph["sca"]["inputs"]["latent_image"] = ["enc1", 0]
         raw.write_bytes(comfy.run(graph))
-    im, share = largest_blob(white_out(Image.open(raw)))
+    im, share = largest_blob(solid(white_out(Image.open(raw))))
     image = folder / ("art_%d.png" % n)
     framed(im).save(image)
     return ("broken", "loose bits (%.0f %% outside the creature)" % (100 - 100 * share), image, raw) if share < 0.9 else ("done", "", image, raw)
@@ -404,7 +415,7 @@ def try_art_pose(n, seed, folder, job, inputs):
     small = folder / ("pose_small_%d.png" % n)
     Image.open(turned).convert("RGB").resize((512, 512), Image.LANCZOS).save(small)
     raw = klein_draw(folder / ("art_raw_%d.png" % n), "official pokemon artstyle. " + words, [small], 512, 512, seed, SKETCH_KLEIN)
-    im, share = largest_blob(white_out(Image.open(raw)))
+    im, share = largest_blob(solid(white_out(Image.open(raw))))
     image = folder / ("art_%d.png" % n)
     framed(im).save(image)
     return ("broken", "loose bits (%.0f %% outside the creature)" % (100 - 100 * share), image, raw) if share < 0.9 else ("done", "", image, raw)
@@ -418,7 +429,7 @@ def try_art(n, seed, folder, job, inputs):
     raw = folder / ("art_raw_%d.png" % n)
     prompt = ART + ((" " + job["prompt"]) if job.get("prompt") else "")
     comfy.generate(prompt, raw, inputs["refs"][:3], size=(1024, 1024), steps=40, seed=seed, quiet=True, transparent=True)
-    im, share = largest_blob(Image.open(raw))
+    im, share = largest_blob(solid(Image.open(raw)))
     image = folder / ("art_%d.png" % n)
     framed(im).save(image)
     return ("broken", "loose bits (%.0f %% outside the creature)" % (100 - 100 * share), image, raw) if share < 0.9 else ("done", "", image, raw)
