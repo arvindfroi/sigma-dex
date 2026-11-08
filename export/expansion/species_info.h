@@ -1056,7 +1056,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_SOUNDPROOF, ABILITY_LEVITATE, ABILITY_PUNK_ROCK },
+        .abilities = { ABILITY_SOUNDPROOF, ABILITY_GLUTTONY, ABILITY_PUNK_ROCK },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Devampry"),
         .cryId = CRY_NONE,

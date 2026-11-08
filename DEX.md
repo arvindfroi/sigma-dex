@@ -52,7 +52,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 41 | [Motinky](data/species/motinky.yaml) | Grass / Fire | Flash Fire, Dancer, Prankster (H) | 420 | Gortiki (Firestone) | 31% |
 | 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire | Flash Fire, Dancer, Huge Power (H) | 528 |  | 31% |
 | 43 | [Chebbi](data/species/chebbi.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 360 | Devampry (Lv 32) | 24% |
-| 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark | Soundproof, Levitate, Punk Rock (H) | 505 |  | 28% |
+| 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 505 |  | 28% |
 | 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water | Swift Swim, Solar Power, Battle Bond (H) | 495 |  | 38% |
 | 46 | [Zapana](data/species/zapana.yaml) | Water / Electric | Swift Swim, Static, Sap Sipper (H) | 280 | Ampeel (Lv 25) | 34% |
 | 47 | [Ampeel](data/species/ampeel.yaml) | Water / Electric | Swift Swim, Static, Eelevate (H) | 495 |  | 34% |

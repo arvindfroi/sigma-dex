@@ -18,7 +18,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Soundproof
-  secondary: Levitate    # optional
+  secondary: Gluttony    # optional
   hidden: Punk Rock      # optional
 
 base_stats:              # each 1-255
