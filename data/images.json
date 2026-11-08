@@ -3848,5 +3848,12 @@
     "file": "assets/concept-art/beatld/1120.png",
     "caption": "[ds-front] sprite #156",
     "editor": null
+  },
+  {
+    "id": 1124,
+    "species": "julius",
+    "file": "assets/concept-art/julius/1124.png",
+    "caption": null,
+    "editor": null
   }
 ]
