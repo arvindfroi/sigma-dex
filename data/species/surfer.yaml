@@ -88,7 +88,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint:             # footprint.png  16x16, black and white
+  footprint: "hgss:37"
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

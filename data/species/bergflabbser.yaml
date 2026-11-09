@@ -82,7 +82,7 @@ assets:
   front_anim: "assets/sprites/bergflabbser/anim_front.png"
   back_sprite: "assets/sprites/bergflabbser/back.png"
   icon: "assets/sprites/bergflabbser/icon.png"
-  footprint:             # footprint.png  16x16, black and white
+  footprint: "hgss:382"
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

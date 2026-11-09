@@ -85,7 +85,7 @@ assets:
   front_anim: "assets/sprites/torchbat/anim_front.png"
   back_sprite: "assets/sprites/torchbat/back.png"
   icon: "assets/sprites/torchbat/icon.png"
-  footprint:             # footprint.png  16x16, black and white
+  footprint: "hgss:4"
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

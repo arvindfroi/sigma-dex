@@ -103,7 +103,7 @@ assets:
   front_anim: "assets/sprites/leafing/anim_front.png"
   back_sprite: "assets/sprites/leafing/back.png"
   icon: "assets/sprites/leafing/icon.png"
-  footprint:             # footprint.png  16x16, black and white
+  footprint: "hgss:1"
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
