@@ -1930,17 +1930,19 @@
       "abilities": {
         "primary": "Adaptability",
         "secondary": null,
-        "hidden": null
+        "hidden": "Gorilla Tactics"
       },
       "base_stats": {
-        "hp": 67,
-        "attack": 75,
+        "hp": 77,
+        "attack": 80,
         "defense": 69,
-        "sp_attack": 55,
-        "sp_defense": 55,
+        "sp_attack": 45,
+        "sp_defense": 50,
         "speed": 100
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,

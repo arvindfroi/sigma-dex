@@ -18,7 +18,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | body color | 2 / 149 |
 | Stats | base stats | 131 / 149 |
 | Stats | ability | 135 / 149 |
-| Stats | EV yield | 96 / 149 |
+| Stats | EV yield | 97 / 149 |
 | Stats | catch rate | 1 / 149 |
 | Stats | base exp | 1 / 149 |
 | Stats | growth rate | 1 / 149 |
@@ -226,10 +226,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #19 [Julius](data/species/julius.yaml) - 21%
+### #19 [Julius](data/species/julius.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

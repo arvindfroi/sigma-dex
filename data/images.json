@@ -3094,13 +3094,6 @@
     "editor": null
   },
   {
-    "id": 973,
-    "species": "vires",
-    "file": "assets/concept-art/vires/973.png",
-    "caption": "[ds-front] sprite #128",
-    "editor": null
-  },
-  {
     "id": 974,
     "species": "vires",
     "file": "assets/concept-art/vires/974.png",
@@ -3311,13 +3304,6 @@
     "editor": null
   },
   {
-    "id": 1016,
-    "species": "octopearl",
-    "file": "assets/concept-art/octopearl/1016.png",
-    "caption": "[ds-front] sprite #138",
-    "editor": null
-  },
-  {
     "id": 1017,
     "species": "octopearl",
     "file": "assets/concept-art/octopearl/1017.png",
@@ -3483,13 +3469,6 @@
     "species": "bulbtle",
     "file": "assets/concept-art/bulbtle/1052.png",
     "caption": null,
-    "editor": null
-  },
-  {
-    "id": 1053,
-    "species": "obsidog",
-    "file": "assets/concept-art/obsidog/1053.png",
-    "caption": "[ds-front] sprite #147",
     "editor": null
   },
   {
@@ -3885,10 +3864,31 @@
     "editor": null
   },
   {
-    "id": 1162,
+    "id": 1166,
     "species": "julius",
-    "file": "assets/concept-art/julius/1162.png",
-    "caption": "[ds-front] sprite #166",
+    "file": "assets/concept-art/julius/1166.png",
+    "caption": "[ds-front] sprite #167",
+    "editor": null
+  },
+  {
+    "id": 1170,
+    "species": "octopearl",
+    "file": "assets/concept-art/octopearl/1170.png",
+    "caption": "[ds-front] sprite #168",
+    "editor": null
+  },
+  {
+    "id": 1174,
+    "species": "vires",
+    "file": "assets/concept-art/vires/1174.png",
+    "caption": "[ds-front] sprite #169",
+    "editor": null
+  },
+  {
+    "id": 1178,
+    "species": "obsidog",
+    "file": "assets/concept-art/obsidog/1178.png",
+    "caption": "[ds-front] sprite #170",
     "editor": null
   }
 ]
