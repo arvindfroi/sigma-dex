@@ -185,7 +185,7 @@
         "front_anim": "assets/sprites/leafing/anim_front.png",
         "back_sprite": "assets/sprites/leafing/back.png",
         "icon": "assets/sprites/leafing/icon.png",
-        "footprint": null,
+        "footprint": "hgss:1",
         "shiny_palette": null,
         "cry": null
       },
@@ -302,7 +302,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:2",
         "shiny_palette": null,
         "cry": null
       },
@@ -425,7 +425,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:3",
         "shiny_palette": null,
         "cry": null
       },
@@ -537,7 +537,7 @@
         "front_anim": "assets/sprites/waffy/anim_front.png",
         "back_sprite": "assets/sprites/waffy/back.png",
         "icon": "assets/sprites/waffy/icon.png",
-        "footprint": null,
+        "footprint": "hgss:258",
         "shiny_palette": null,
         "cry": null
       },
@@ -639,7 +639,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:259",
         "shiny_palette": null,
         "cry": null
       },
@@ -759,7 +759,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:260",
         "shiny_palette": null,
         "cry": null
       },
@@ -871,7 +871,7 @@
         "front_anim": "assets/sprites/torchbat/anim_front.png",
         "back_sprite": "assets/sprites/torchbat/back.png",
         "icon": "assets/sprites/torchbat/icon.png",
-        "footprint": null,
+        "footprint": "hgss:4",
         "shiny_palette": null,
         "cry": null
       },
@@ -969,7 +969,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:5",
         "shiny_palette": null,
         "cry": null
       },
@@ -1064,7 +1064,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:6",
         "shiny_palette": null,
         "cry": null
       },
@@ -1148,7 +1148,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:16",
         "shiny_palette": null,
         "cry": null
       },
@@ -1232,7 +1232,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:17",
         "shiny_palette": null,
         "cry": null
       },
@@ -1316,7 +1316,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:18",
         "shiny_palette": null,
         "cry": null
       },
@@ -1402,7 +1402,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:430",
         "shiny_palette": null,
         "cry": null
       },
@@ -1487,7 +1487,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:167",
         "shiny_palette": null,
         "cry": null
       },
@@ -1571,7 +1571,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:69",
         "shiny_palette": null,
         "cry": null
       },
@@ -1683,7 +1683,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:168",
         "shiny_palette": null,
         "cry": null
       },
@@ -1764,7 +1764,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:84",
         "shiny_palette": null,
         "cry": null
       },
@@ -1851,7 +1851,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:85",
         "shiny_palette": null,
         "cry": null
       },
@@ -1959,7 +1959,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:68",
         "shiny_palette": null,
         "cry": null
       },
@@ -2054,7 +2054,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:241",
         "shiny_palette": null,
         "cry": null
       },
@@ -2179,7 +2179,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:128",
         "shiny_palette": null,
         "cry": null
       },
@@ -2298,7 +2298,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:58",
         "shiny_palette": null,
         "cry": null
       },
@@ -2389,7 +2389,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:59",
         "shiny_palette": null,
         "cry": null
       },
@@ -2473,7 +2473,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:185",
         "shiny_palette": null,
         "cry": null
       },
@@ -2562,7 +2562,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:427",
         "shiny_palette": null,
         "cry": null
       },
@@ -2647,7 +2647,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:428",
         "shiny_palette": null,
         "cry": null
       },
@@ -2737,7 +2737,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:387",
         "shiny_palette": null,
         "cry": null
       },
@@ -2821,7 +2821,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:388",
         "shiny_palette": null,
         "cry": null
       },
@@ -2917,7 +2917,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:60",
         "shiny_palette": null,
         "cry": null
       },
@@ -2998,7 +2998,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:62",
         "shiny_palette": null,
         "cry": null
       },
@@ -3097,7 +3097,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:61",
         "shiny_palette": null,
         "cry": null
       },
@@ -3180,7 +3180,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:393",
         "shiny_palette": null,
         "cry": null
       },
@@ -3261,7 +3261,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:280",
         "shiny_palette": null,
         "cry": null
       },
@@ -3340,7 +3340,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:161",
         "shiny_palette": null,
         "cry": null
       },
@@ -3421,7 +3421,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:162",
         "shiny_palette": null,
         "cry": null
       },
@@ -3511,7 +3511,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:422",
         "shiny_palette": null,
         "cry": null
       },
@@ -3602,7 +3602,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:423",
         "shiny_palette": null,
         "cry": null
       },
@@ -3693,7 +3693,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:74",
         "shiny_palette": null,
         "cry": null
       },
@@ -3786,7 +3786,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:76",
         "shiny_palette": null,
         "cry": null
       },
@@ -3886,7 +3886,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:390",
         "shiny_palette": null,
         "cry": null
       },
@@ -3989,7 +3989,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:391",
         "shiny_palette": null,
         "cry": null
       },
@@ -4086,7 +4086,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:392",
         "shiny_palette": null,
         "cry": null
       },
@@ -4178,7 +4178,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:207",
         "shiny_palette": null,
         "cry": null
       },
@@ -4290,7 +4290,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:472",
         "shiny_palette": null,
         "cry": null
       },
@@ -4381,7 +4381,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:394",
         "shiny_palette": null,
         "cry": null
       },
@@ -4473,7 +4473,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:265",
         "shiny_palette": null,
         "cry": null
       },
@@ -4559,7 +4559,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:290",
         "shiny_palette": null,
         "cry": null
       },
@@ -4643,7 +4643,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:108",
         "shiny_palette": null,
         "cry": null
       },
@@ -4727,7 +4727,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:463",
         "shiny_palette": null,
         "cry": null
       },
@@ -4813,7 +4813,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:122",
         "shiny_palette": null,
         "cry": null
       },
@@ -4903,7 +4903,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:285",
         "shiny_palette": null,
         "cry": null
       },
@@ -4992,7 +4992,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:286",
         "shiny_palette": null,
         "cry": null
       },
@@ -5077,7 +5077,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:125",
         "shiny_palette": null,
         "cry": null
       },
@@ -5161,7 +5161,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:111",
         "shiny_palette": null,
         "cry": null
       },
@@ -5245,7 +5245,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:232",
         "shiny_palette": null,
         "cry": null
       },
@@ -5329,7 +5329,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:473",
         "shiny_palette": null,
         "cry": null
       },
@@ -5413,7 +5413,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:81",
         "shiny_palette": null,
         "cry": null
       },
@@ -5497,7 +5497,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:82",
         "shiny_palette": null,
         "cry": null
       },
@@ -5581,7 +5581,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:114",
         "shiny_palette": null,
         "cry": null
       },
@@ -5667,7 +5667,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:411",
         "shiny_palette": null,
         "cry": null
       },
@@ -5753,7 +5753,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:345",
         "shiny_palette": null,
         "cry": null
       },
@@ -5839,7 +5839,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:377",
         "shiny_palette": null,
         "cry": null
       },
@@ -6001,7 +6001,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:351",
         "shiny_palette": null,
         "cry": null
       },
@@ -6093,7 +6093,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:106",
         "shiny_palette": null,
         "cry": null
       },
@@ -6196,7 +6196,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:40",
         "shiny_palette": null,
         "cry": null
       },
@@ -6280,7 +6280,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:224",
         "shiny_palette": null,
         "cry": null
       },
@@ -6364,7 +6364,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:138",
         "shiny_palette": null,
         "cry": null
       },
@@ -6453,7 +6453,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:139",
         "shiny_palette": null,
         "cry": null
       },
@@ -6538,7 +6538,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:460",
         "shiny_palette": null,
         "cry": null
       },
@@ -6622,7 +6622,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:257",
         "shiny_palette": null,
         "cry": null
       },
@@ -6703,7 +6703,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:442",
         "shiny_palette": null,
         "cry": null
       },
@@ -6795,7 +6795,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:304",
         "shiny_palette": null,
         "cry": null
       },
@@ -6880,7 +6880,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:305",
         "shiny_palette": null,
         "cry": null
       },
@@ -6971,7 +6971,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:306",
         "shiny_palette": null,
         "cry": null
       },
@@ -7054,7 +7054,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:159",
         "shiny_palette": null,
         "cry": null
       },
@@ -7140,7 +7140,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:160",
         "shiny_palette": null,
         "cry": null
       },
@@ -7224,7 +7224,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:77",
         "shiny_palette": null,
         "cry": null
       },
@@ -7307,7 +7307,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:92",
         "shiny_palette": null,
         "cry": null
       },
@@ -7390,7 +7390,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:93",
         "shiny_palette": null,
         "cry": null
       },
@@ -7473,7 +7473,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:200",
         "shiny_palette": null,
         "cry": null
       },
@@ -7550,7 +7550,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:123",
         "shiny_palette": null,
         "cry": null
       },
@@ -7627,7 +7627,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:149",
         "shiny_palette": null,
         "cry": null
       },
@@ -7710,7 +7710,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:447",
         "shiny_palette": null,
         "cry": null
       },
@@ -7800,7 +7800,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:478",
         "shiny_palette": null,
         "cry": null
       },
@@ -7886,7 +7886,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:67",
         "shiny_palette": null,
         "cry": null
       },
@@ -7977,7 +7977,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:216",
         "shiny_palette": null,
         "cry": null
       },
@@ -8067,7 +8067,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:217",
         "shiny_palette": null,
         "cry": null
       },
@@ -8150,7 +8150,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:46",
         "shiny_palette": null,
         "cry": null
       },
@@ -8235,7 +8235,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:47",
         "shiny_palette": null,
         "cry": null
       },
@@ -8342,7 +8342,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:158",
         "shiny_palette": null,
         "cry": null
       },
@@ -8426,7 +8426,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:63",
         "shiny_palette": null,
         "cry": null
       },
@@ -8509,7 +8509,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:7",
         "shiny_palette": null,
         "cry": null
       },
@@ -8606,7 +8606,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:9",
         "shiny_palette": null,
         "cry": null
       },
@@ -8696,7 +8696,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:193",
         "shiny_palette": null,
         "cry": null
       },
@@ -8782,7 +8782,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:469",
         "shiny_palette": null,
         "cry": null
       },
@@ -8868,7 +8868,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:98",
         "shiny_palette": null,
         "cry": null
       },
@@ -8950,7 +8950,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:99",
         "shiny_palette": null,
         "cry": null
       },
@@ -9041,7 +9041,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:287",
         "shiny_palette": null,
         "cry": null
       },
@@ -9132,7 +9132,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:288",
         "shiny_palette": null,
         "cry": null
       },
@@ -9218,7 +9218,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:444",
         "shiny_palette": null,
         "cry": null
       },
@@ -9311,7 +9311,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:228",
         "shiny_palette": null,
         "cry": null
       },
@@ -9394,7 +9394,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:229",
         "shiny_palette": null,
         "cry": null
       },
@@ -9477,7 +9477,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:296",
         "shiny_palette": null,
         "cry": null
       },
@@ -9562,7 +9562,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:297",
         "shiny_palette": null,
         "cry": null
       },
@@ -9639,7 +9639,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:143",
         "shiny_palette": null,
         "cry": null
       },
@@ -9730,7 +9730,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:396",
         "shiny_palette": null,
         "cry": null
       },
@@ -9816,7 +9816,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:397",
         "shiny_palette": null,
         "cry": null
       },
@@ -9907,7 +9907,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:307",
         "shiny_palette": null,
         "cry": null
       },
@@ -9985,7 +9985,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:308",
         "shiny_palette": null,
         "cry": null
       },
@@ -10070,7 +10070,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:276",
         "shiny_palette": null,
         "cry": null
       },
@@ -10161,7 +10161,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:277",
         "shiny_palette": null,
         "cry": null
       },
@@ -10242,7 +10242,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:403",
         "shiny_palette": null,
         "cry": null
       },
@@ -10323,7 +10323,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:404",
         "shiny_palette": null,
         "cry": null
       },
@@ -10416,7 +10416,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:64",
         "shiny_palette": null,
         "cry": null
       },
@@ -10502,7 +10502,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:65",
         "shiny_palette": null,
         "cry": null
       },
@@ -10588,7 +10588,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:274",
         "shiny_palette": null,
         "cry": null
       },
@@ -10674,7 +10674,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:214",
         "shiny_palette": null,
         "cry": null
       },
@@ -10761,7 +10761,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:408",
         "shiny_palette": null,
         "cry": null
       },
@@ -10844,7 +10844,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:409",
         "shiny_palette": null,
         "cry": null
       },
@@ -10932,7 +10932,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:451",
         "shiny_palette": null,
         "cry": null
       },
@@ -11020,7 +11020,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:452",
         "shiny_palette": null,
         "cry": null
       },
@@ -11100,7 +11100,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:37",
         "shiny_palette": null,
         "cry": null
       },
@@ -11182,7 +11182,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:38",
         "shiny_palette": null,
         "cry": null
       },
@@ -11262,7 +11262,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:448",
         "shiny_palette": null,
         "cry": null
       },
@@ -11346,7 +11346,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:302",
         "shiny_palette": null,
         "cry": null
       },
@@ -11430,7 +11430,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:475",
         "shiny_palette": null,
         "cry": null
       },
@@ -11542,7 +11542,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:461",
         "shiny_palette": null,
         "cry": null
       },
@@ -11628,7 +11628,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:176",
         "shiny_palette": null,
         "cry": null
       },
@@ -11710,7 +11710,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:468",
         "shiny_palette": null,
         "cry": null
       },
@@ -11795,7 +11795,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:425",
         "shiny_palette": null,
         "cry": null
       },
@@ -11881,7 +11881,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:353",
         "shiny_palette": null,
         "cry": null
       },
@@ -11963,7 +11963,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:354",
         "shiny_palette": null,
         "cry": null
       },
@@ -12043,7 +12043,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:234",
         "shiny_palette": null,
         "cry": null
       },
@@ -12129,7 +12129,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:78",
         "shiny_palette": null,
         "cry": null
       },
@@ -12215,7 +12215,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:221",
         "shiny_palette": null,
         "cry": null
       },
@@ -12314,7 +12314,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:355",
         "shiny_palette": null,
         "cry": null
       },
@@ -12406,7 +12406,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:371",
         "shiny_palette": null,
         "cry": null
       },
@@ -12498,7 +12498,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:372",
         "shiny_palette": null,
         "cry": null
       },
@@ -12609,7 +12609,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:373",
         "shiny_palette": null,
         "cry": null
       },
@@ -12693,7 +12693,7 @@
         "front_anim": "assets/sprites/bergflabbser/anim_front.png",
         "back_sprite": "assets/sprites/bergflabbser/back.png",
         "icon": "assets/sprites/bergflabbser/icon.png",
-        "footprint": null,
+        "footprint": "hgss:382",
         "shiny_palette": null,
         "cry": null
       },
@@ -12777,7 +12777,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:279",
         "shiny_palette": null,
         "cry": null
       },
@@ -12861,7 +12861,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:150",
         "shiny_palette": null,
         "cry": null
       },
