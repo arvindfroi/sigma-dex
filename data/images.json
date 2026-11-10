@@ -3890,5 +3890,47 @@
     "file": "assets/concept-art/obsidog/1178.png",
     "caption": "[ds-front] sprite #170",
     "editor": null
+  },
+  {
+    "id": 1182,
+    "species": "fleuroom",
+    "file": "assets/concept-art/fleuroom/1182.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1183,
+    "species": "fleuroom-utvikling",
+    "file": "assets/concept-art/fleuroom-utvikling/1183.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1184,
+    "species": "oraclaw",
+    "file": "assets/concept-art/oraclaw/1184.png",
+    "caption": "[ds-front] sprite #171",
+    "editor": null
+  },
+  {
+    "id": 1185,
+    "species": "oraclaw",
+    "file": "assets/concept-art/oraclaw/1185.png",
+    "caption": "[ds-back] sprite #171",
+    "editor": null
+  },
+  {
+    "id": 1186,
+    "species": "oraclaw",
+    "file": "assets/concept-art/oraclaw/1186.png",
+    "caption": "[ds-icon] sprite #171",
+    "editor": null
+  },
+  {
+    "id": 1187,
+    "species": "oraclaw",
+    "file": "assets/concept-art/oraclaw/1187.png",
+    "caption": "[ds-follower] sprite #171",
+    "editor": null
   }
 ]
