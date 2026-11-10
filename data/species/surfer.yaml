@@ -23,9 +23,9 @@ abilities:
 
 base_stats:              # each 1-255
   hp: 50
-  attack: 65
+  attack: 60
   defense: 35
-  sp_attack: 60
+  sp_attack: 65
   sp_defense: 35
   speed: 85
 
@@ -49,12 +49,6 @@ evolutions:
   - into: subwaysurfer
     method: other
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
@@ -83,8 +77,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "an upright body on two legs with a tail"
-  movement: "It walks upright on two legs."
+  body_shape: an upright body on two legs with a tail
+  movement: It walks upright on two legs.
   look: "It is a small orange cat-like creature with two pointed ears, blue eyes, brown cheek spots and a cream muzzle. It has a round blue ring around its neck, a yellow fluffy chest, two arms, two legs with yellow claws, and a long thin tail ending in a two-lobed orange and blue fin."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---

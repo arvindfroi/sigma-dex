@@ -26,8 +26,8 @@ base_stats:              # each 1-255
   attack: 67
   defense: 111
   sp_attack: 25
-  sp_defense: 50
-  speed: 10
+  sp_defense: 40
+  speed: 15
 
 ev_yield: {defense: 1}   # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -49,6 +49,15 @@ evolutions:
   - into: sigmauler
     method: level
     level: 38
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:

@@ -53,6 +53,18 @@ moves:
     ally's priority-boosted... no, that doesn't apply, so it works normally under all terrains.
   similar_to: Pollen Puff
   designer: Emil
+- id: poison-hug
+  name: Poison Hug
+  type: Poison
+  category: physical
+  power: 20
+  accuracy: 100
+  pp: 10
+  target: one opponent
+  contact: true
+  effect: user clings to the target with a toxic embrace, dealing light damage. The target is badly poisoned,
+    and both Pokémon can no longer switch out. The hold lasts until either Pokémon faints.
+  designer: Emil
 - id: rock-hammer
   name: Rock Hammer
   type: Rock

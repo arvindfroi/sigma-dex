@@ -1142,12 +1142,12 @@
 
     [SPECIES_SPORESHADE] =
     {
-        .baseHP = 67,
+        .baseHP = 65,
         .baseAttack = 50,
         .baseDefense = 60,
         .baseSpeed = 70,
         .baseSpAttack = 130,
-        .baseSpDefense = 83,
+        .baseSpDefense = 85,
         .types = MON_TYPES(TYPE_GRASS, TYPE_FAIRY),
         .catchRate = 45,
         .expYield = 64,

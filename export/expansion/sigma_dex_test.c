@@ -652,12 +652,12 @@ SINGLE_BATTLE_TEST("Sigma dex: Chillalit can use its first move in battle")
 TEST("Sigma dex: Sporeshade has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SPORESHADE];
-    EXPECT_EQ(info->baseHP, 67);
+    EXPECT_EQ(info->baseHP, 65);
     EXPECT_EQ(info->baseAttack, 50);
     EXPECT_EQ(info->baseDefense, 60);
     EXPECT_EQ(info->baseSpeed, 70);
     EXPECT_EQ(info->baseSpAttack, 130);
-    EXPECT_EQ(info->baseSpDefense, 83);
+    EXPECT_EQ(info->baseSpDefense, 85);
     EXPECT_EQ(info->types[0], TYPE_GRASS);
     EXPECT_EQ(info->types[1], TYPE_FAIRY);
     EXPECT_EQ(info->abilities[0], ABILITY_EFFECT_SPORE);

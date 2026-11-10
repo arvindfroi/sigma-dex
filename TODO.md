@@ -26,7 +26,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Breeding | gender | 1 / 149 |
 | Breeding | egg groups | 1 / 149 |
 | Breeding | egg cycles | 1 / 149 |
-| Moves | level-up moves | 38 / 149 |
+| Moves | level-up moves | 39 / 149 |
 | Moves | TM/HM moves | 4 / 149 |
 | Location | encounters | 2 / 149 |
 | Design | concept | 18 / 149 |
@@ -43,13 +43,13 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 47 / 149 |
-| DS back sprite 80x80 | 47 / 149 |
-| DS icon 32x32 | 47 / 149 |
+| DS front sprite 80x80 | 52 / 149 |
+| DS back sprite 80x80 | 52 / 149 |
+| DS icon 32x32 | 52 / 149 |
 
 ## Open dex slots (2)
 
-#136, #140
+#53, #140
 
 ## Missing per Pokemon
 
@@ -393,12 +393,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #36 [Nukfae](data/species/nukfae.yaml) - 31%
+### #36 [Nukfae](data/species/nukfae.yaml) - 34%
 
 - **Dex page:** body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -560,16 +560,6 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #53 [Giga-Circuit](data/species/giga-circuit.yaml) - 21%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -1397,6 +1387,16 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 - **Dex page:** category, description, weight, body color
 - **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #136 [Giga-Circuit](data/species/giga-circuit.yaml) - 21%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

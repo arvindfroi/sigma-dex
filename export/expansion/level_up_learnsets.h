@@ -136,6 +136,7 @@ static const struct LevelUpMove sGalfrogtomLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sToxirenLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 0, MOVE_HYPER_VOICE),
     LEVEL_UP_MOVE( 1, MOVE_HYPER_VOICE),
     LEVEL_UP_END
 };

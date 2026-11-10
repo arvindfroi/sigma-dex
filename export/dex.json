@@ -3533,7 +3533,12 @@
       ],
       "forms": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Poison Hug"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -3622,8 +3627,16 @@
       "learnset": {
         "level_up": [
           {
+            "level": 0,
+            "move": "Hyper Voice"
+          },
+          {
             "level": 1,
             "move": "Hyper Voice"
+          },
+          {
+            "level": 1,
+            "move": "Poison Hug"
           }
         ],
         "tm_hm": [],
@@ -3691,8 +3704,8 @@
         "attack": 67,
         "defense": 111,
         "sp_attack": 25,
-        "sp_defense": 50,
-        "speed": 10
+        "sp_defense": 40,
+        "speed": 15
       },
       "ev_yield": {
         "defense": 1
@@ -3715,6 +3728,7 @@
           "level": 38
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -4998,11 +5012,11 @@
         "hidden": "Magic Bounce"
       },
       "base_stats": {
-        "hp": 67,
+        "hp": 65,
         "attack": 50,
         "defense": 60,
         "sp_attack": 130,
-        "sp_defense": 83,
+        "sp_defense": 85,
         "speed": 70
       },
       "ev_yield": null,
@@ -5018,6 +5032,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
@@ -5064,91 +5079,6 @@
         "safari_flee_rate": 0
       },
       "id": "fleuroom-utvikling"
-    },
-    {
-      "dex": 53,
-      "name": "Giga-Circuit",
-      "credits": {
-        "designer": "Ruben",
-        "artist": null
-      },
-      "types": [
-        "Electric"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": "Motor Drive",
-        "secondary": "Flare Boost",
-        "hidden": "Transistor"
-      },
-      "base_stats": {
-        "hp": 92,
-        "attack": 60,
-        "defense": 60,
-        "sp_attack": 140,
-        "sp_defense": 56,
-        "speed": 92
-      },
-      "ev_yield": {
-        "sp_attack": 3
-      },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement"
-        ],
-        "body_shape": "an upright body on two legs without a tail",
-        "movement": "It walks upright on two legs.",
-        "look": "It is a tall, thin figure with a glass light bulb for a head with a flame burning inside it. Its body is a coiled blue spring, with thin jointed brown metal arms and legs and big round orange shoes. Yellow sparks of electricity crackle around it."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/giga-circuit/359.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "giga-circuit"
     },
     {
       "dex": 54,
@@ -11562,9 +11492,9 @@
       },
       "base_stats": {
         "hp": 50,
-        "attack": 65,
+        "attack": 60,
         "defense": 35,
-        "sp_attack": 60,
+        "sp_attack": 65,
         "sp_defense": 35,
         "speed": 85
       },
@@ -12431,6 +12361,92 @@
         "safari_flee_rate": 0
       },
       "id": "riftbloom"
+    },
+    {
+      "dex": 136,
+      "name": "Giga-Circuit",
+      "credits": {
+        "designer": "Ruben",
+        "artist": null
+      },
+      "types": [
+        "Electric"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Motor Drive",
+        "secondary": "Flare Boost",
+        "hidden": "Transistor"
+      },
+      "base_stats": {
+        "hp": 92,
+        "attack": 60,
+        "defense": 60,
+        "sp_attack": 140,
+        "sp_defense": 56,
+        "speed": 92
+      },
+      "ev_yield": {
+        "sp_attack": 3
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement"
+        ],
+        "body_shape": "an upright body on two legs without a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a tall, thin figure with a glass light bulb for a head with a flame burning inside it. Its body is a coiled blue spring, with thin jointed brown metal arms and legs and big round orange shoes. Yellow sparks of electricity crackle around it."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/giga-circuit/359.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "giga-circuit"
     },
     {
       "dex": 137,

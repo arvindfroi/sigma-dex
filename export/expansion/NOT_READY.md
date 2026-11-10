@@ -36,7 +36,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Crappy Meal** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Beatld** needs: a level-up move that exists in the game
 - **Fleuroom** needs: a level-up move that exists in the game
-- **Giga-Circuit** needs: a level-up move that exists in the game
 - **Hippore** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Docuphant** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Razox** needs: a level-up move that exists in the game
@@ -112,6 +111,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Diedo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Seraphinnen** needs: a level-up move that exists in the game
 - **Riftbloom** needs: base stats, a level-up move that exists in the game
+- **Giga-Circuit** needs: a level-up move that exists in the game
 - **Strawboo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Wreckingboo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Wreckingdrake** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
@@ -131,5 +131,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 
 - Sigmauler: move 'Rock Hammer' is not in the game yet, left out
 - Toxiren: ability 'Toxic Voice' is not in the game yet, left out
+- Toxiren: move 'Poison Hug' is not in the game yet, left out
 - Warrallier: move 'Hidden Spur' is not in the game yet, left out
 

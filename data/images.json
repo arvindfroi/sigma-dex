@@ -3967,5 +3967,145 @@
     "file": "assets/concept-art/fleuroom/1192.jpg",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 1193,
+    "species": "anjane",
+    "file": "assets/concept-art/anjane/1193.png",
+    "caption": "[ds-front] sprite #173",
+    "editor": null
+  },
+  {
+    "id": 1194,
+    "species": "anjane",
+    "file": "assets/concept-art/anjane/1194.png",
+    "caption": "[ds-back] sprite #173",
+    "editor": null
+  },
+  {
+    "id": 1195,
+    "species": "anjane",
+    "file": "assets/concept-art/anjane/1195.png",
+    "caption": "[ds-icon] sprite #173",
+    "editor": null
+  },
+  {
+    "id": 1196,
+    "species": "anjane",
+    "file": "assets/concept-art/anjane/1196.png",
+    "caption": "[ds-follower] sprite #173",
+    "editor": null
+  },
+  {
+    "id": 1197,
+    "species": "fleuroom",
+    "file": "assets/concept-art/fleuroom/1197.png",
+    "caption": "[ds-front] sprite #174",
+    "editor": null
+  },
+  {
+    "id": 1198,
+    "species": "fleuroom",
+    "file": "assets/concept-art/fleuroom/1198.png",
+    "caption": "[ds-back] sprite #174",
+    "editor": null
+  },
+  {
+    "id": 1199,
+    "species": "fleuroom",
+    "file": "assets/concept-art/fleuroom/1199.png",
+    "caption": "[ds-icon] sprite #174",
+    "editor": null
+  },
+  {
+    "id": 1200,
+    "species": "fleuroom",
+    "file": "assets/concept-art/fleuroom/1200.png",
+    "caption": "[ds-follower] sprite #174",
+    "editor": null
+  },
+  {
+    "id": 1201,
+    "species": "surfer",
+    "file": "assets/concept-art/surfer/1201.png",
+    "caption": "[ds-front] sprite #175",
+    "editor": null
+  },
+  {
+    "id": 1202,
+    "species": "surfer",
+    "file": "assets/concept-art/surfer/1202.png",
+    "caption": "[ds-back] sprite #175",
+    "editor": null
+  },
+  {
+    "id": 1203,
+    "species": "surfer",
+    "file": "assets/concept-art/surfer/1203.png",
+    "caption": "[ds-icon] sprite #175",
+    "editor": null
+  },
+  {
+    "id": 1204,
+    "species": "surfer",
+    "file": "assets/concept-art/surfer/1204.png",
+    "caption": "[ds-follower] sprite #175",
+    "editor": null
+  },
+  {
+    "id": 1205,
+    "species": "fleuroom-utvikling",
+    "file": "assets/concept-art/fleuroom-utvikling/1205.png",
+    "caption": "[ds-front] sprite #176",
+    "editor": null
+  },
+  {
+    "id": 1206,
+    "species": "fleuroom-utvikling",
+    "file": "assets/concept-art/fleuroom-utvikling/1206.png",
+    "caption": "[ds-back] sprite #176",
+    "editor": null
+  },
+  {
+    "id": 1207,
+    "species": "fleuroom-utvikling",
+    "file": "assets/concept-art/fleuroom-utvikling/1207.png",
+    "caption": "[ds-icon] sprite #176",
+    "editor": null
+  },
+  {
+    "id": 1208,
+    "species": "fleuroom-utvikling",
+    "file": "assets/concept-art/fleuroom-utvikling/1208.png",
+    "caption": "[ds-follower] sprite #176",
+    "editor": null
+  },
+  {
+    "id": 1209,
+    "species": "phantomb",
+    "file": "assets/concept-art/phantomb/1209.png",
+    "caption": "[ds-front] sprite #177",
+    "editor": null
+  },
+  {
+    "id": 1210,
+    "species": "phantomb",
+    "file": "assets/concept-art/phantomb/1210.png",
+    "caption": "[ds-back] sprite #177",
+    "editor": null
+  },
+  {
+    "id": 1211,
+    "species": "phantomb",
+    "file": "assets/concept-art/phantomb/1211.png",
+    "caption": "[ds-icon] sprite #177",
+    "editor": null
+  },
+  {
+    "id": 1212,
+    "species": "phantomb",
+    "file": "assets/concept-art/phantomb/1212.png",
+    "caption": "[ds-follower] sprite #177",
+    "editor": null
   }
 ]
