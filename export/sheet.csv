@@ -131,7 +131,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 124,Dreadipede,Bug,Flying,Mold Breaker,Battle Armor,Strong Jaw,=SUM(I126:N126),55,85,75,40,45,60,,,,,,,1 attack,,,,,,,,,,,,,,,,,,,,Ivar,
 125,Dreadfang,Bug,Flying,Mold Breaker,Battle Armor,Strong Jaw,=SUM(I127:N127),100,135,105,60,65,85,Dreadipede,Lv 59,,,,,3 attack,,,,,,,,,,,Fell Stinger (1),,,,,,,,,Ivar,
 126,Aquat,Water,,Swift Swim,Water Absorb,Adaptability,=SUM(I128:N128),50,65,35,60,35,85,,,,,,,,,,,,,,,,,,,,,,,,,,,Ivar,
-127,Aquway,Water,Ground,Swift Swim,Water Absorb,Adaptability,=SUM(I129:N129),80,100,55,90,55,115,Aquat,"Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.",,,,,2 speed,,,,,,,,,,,,,,,,,,,,Ivar,
+127,Aquway,Water,Ground,Swift Swim,Storm Drain,Adaptability,=SUM(I129:N129),80,90,55,100,55,115,Aquat,"Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.",,,,,2 speed,,,,,,,,,,,,,,,,,,,,Ivar,
 128,Zyzzfu,Electric,Fighting,Surge Surfer,,Unseen Fist,=SUM(I130:N130),80,115,60,110,60,100,,,,,,,"2 attack, 1 sp_attack",,,,,,,,,,,,,,,,,,,,Ivar,
 129,Grincho,Normal,Ghost,Unnerve,Prankster,Shadow Tag,=SUM(I131:N131),50,75,60,75,95,60,,,,1.9,,,2 sp_defense,,,,,,,,,,,,,,,,,,,,Michael,
 130,Sigmanian Charcadet,Ice,,,,,=SUM(I132:N132),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

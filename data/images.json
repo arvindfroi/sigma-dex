@@ -3932,5 +3932,40 @@
     "file": "assets/concept-art/oraclaw/1187.png",
     "caption": "[ds-follower] sprite #171",
     "editor": null
+  },
+  {
+    "id": 1188,
+    "species": "oraclet",
+    "file": "assets/concept-art/oraclet/1188.png",
+    "caption": "[ds-front] sprite #172",
+    "editor": null
+  },
+  {
+    "id": 1189,
+    "species": "oraclet",
+    "file": "assets/concept-art/oraclet/1189.png",
+    "caption": "[ds-back] sprite #172",
+    "editor": null
+  },
+  {
+    "id": 1190,
+    "species": "oraclet",
+    "file": "assets/concept-art/oraclet/1190.png",
+    "caption": "[ds-icon] sprite #172",
+    "editor": null
+  },
+  {
+    "id": 1191,
+    "species": "oraclet",
+    "file": "assets/concept-art/oraclet/1191.png",
+    "caption": "[ds-follower] sprite #172",
+    "editor": null
+  },
+  {
+    "id": 1192,
+    "species": "fleuroom",
+    "file": "assets/concept-art/fleuroom/1192.jpg",
+    "caption": null,
+    "editor": null
   }
 ]

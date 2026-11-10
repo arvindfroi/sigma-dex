@@ -11648,14 +11648,14 @@
       "body_color": null,
       "abilities": {
         "primary": "Swift Swim",
-        "secondary": "Water Absorb",
+        "secondary": "Storm Drain",
         "hidden": "Adaptability"
       },
       "base_stats": {
         "hp": 80,
-        "attack": 100,
+        "attack": 90,
         "defense": 55,
-        "sp_attack": 90,
+        "sp_attack": 100,
         "sp_defense": 55,
         "speed": 115
       },
@@ -11674,6 +11674,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
