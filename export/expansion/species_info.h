@@ -1091,12 +1091,12 @@
 
     [SPECIES_CHILLALIT] =
     {
-        .baseHP = 47,
+        .baseHP = 50,
         .baseAttack = 95,
-        .baseDefense = 57,
+        .baseDefense = 55,
         .baseSpeed = 119,
         .baseSpAttack = 109,
-        .baseSpDefense = 68,
+        .baseSpDefense = 67,
         .types = MON_TYPES(TYPE_FIRE, TYPE_WATER),
         .catchRate = 45,
         .expYield = 64,

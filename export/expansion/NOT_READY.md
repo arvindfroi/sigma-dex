@@ -129,6 +129,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 
 ## Left out of exported Pokemon
 
+- Chillalit: move 'Boiling Downpour' is not in the game yet, left out
 - Sigmauler: move 'Rock Hammer' is not in the game yet, left out
 - Toxiren: ability 'Toxic Voice' is not in the game yet, left out
 - Toxiren: move 'Poison Hug' is not in the game yet, left out

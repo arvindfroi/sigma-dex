@@ -126,7 +126,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 115 | [Zapitera](data/species/zapitera.yaml) | Electric / Steel | Levitate, Magnet Pull, Stalwart (H) | 505 |  | 28% |
 | 116 | [Viridub](data/species/viridub.yaml) | Grass | Leaf Mane, Chlorophyll (H) | 369 | Viridub Utvikling (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 21% |
 | 117 | [Viridub Utvikling](data/species/viridub-utvikling.yaml) | Grass | Leaf Mane, Chlorophyll (H) | 510 |  | 14% |
-| 118 | [Shadeem](data/species/shadeem.yaml) | Normal | Illusion | 330 | Shadrove (Dusk Stone) | 24% |
+| 118 | [Shadeem](data/species/shadeem.yaml) | Normal / Dark | Illusion | 330 | Shadrove (Dusk Stone) | 24% |
 | 119 | [Shadrove](data/species/shadrove.yaml) | Normal / Dark | Illusion | 510 |  | 21% |
 | 120 | [Autuman](data/species/autuman.yaml) | Grass / Fighting | Justified, Guts, Wind Rider (H) | 500 |  | 21% |
 | 121 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Justified, Guts, Tinted Lens (H) | 500 |  | 34% |

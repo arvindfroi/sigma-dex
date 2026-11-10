@@ -2,6 +2,17 @@
 # see data/engine/expansion.yaml for the 846 that do). Edit them on the website.
 # Each one has to be programmed into the game; 'implemented: true' marks the ones that are.
 moves:
+- id: boiling-downpour
+  name: Boiling Downpour
+  type: Fire
+  category: special
+  power: 80
+  accuracy: 100
+  pp: 15
+  target: one opponent
+  effect: Rain boosts its power instead of weakening it. Chance to Burn the target
+  effect_chance: 10
+  designer: Emil
 - id: cosmic-shield
   name: Cosmic Shield
   type: Psychic

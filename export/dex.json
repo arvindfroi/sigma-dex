@@ -4392,11 +4392,11 @@
         "hidden": "Battle Bond"
       },
       "base_stats": {
-        "hp": 47,
+        "hp": 50,
         "attack": 95,
-        "defense": 57,
+        "defense": 55,
         "sp_attack": 109,
-        "sp_defense": 68,
+        "sp_defense": 67,
         "speed": 119
       },
       "ev_yield": {
@@ -4414,11 +4414,16 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
             "level": 1,
             "move": "Hydro Steam"
+          },
+          {
+            "level": 1,
+            "move": "Boiling Downpour"
           }
         ],
         "tm_hm": [],
@@ -4922,10 +4927,10 @@
         "hidden": "Magic Bounce"
       },
       "base_stats": {
-        "hp": 50,
+        "hp": 45,
         "attack": 30,
         "defense": 45,
-        "sp_attack": 70,
+        "sp_attack": 75,
         "sp_defense": 65,
         "speed": 35
       },
@@ -4948,6 +4953,7 @@
           "item": "Shiny Stown"
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -5631,9 +5637,9 @@
       },
       "base_stats": {
         "hp": 45,
-        "attack": 72,
+        "attack": 75,
         "defense": 150,
-        "sp_attack": 108,
+        "sp_attack": 105,
         "sp_defense": 140,
         "speed": 25
       },
@@ -10764,7 +10770,8 @@
         "artist": null
       },
       "types": [
-        "Normal"
+        "Normal",
+        "Dark"
       ],
       "category": null,
       "description": null,
@@ -10803,6 +10810,7 @@
           "item": "Dusk Stone"
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -10893,6 +10901,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -10916,7 +10925,7 @@
         "look": "It is a tall, thin, pale cream creature with a single large pale yellow eye and a wide toothy grin, hidden under a cream hood with a red curled tip. It has very long thin arms ending in huge black hands with long red-tipped claws, thin legs with long toes, and cream and dark red tattered cloth strips trailing behind."
       },
       "assets": {
-        "concept_art": "assets/concept-art/shadrove/583.webp",
+        "concept_art": "assets/concept-art/shadrove/1229.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,

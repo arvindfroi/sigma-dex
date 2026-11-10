@@ -624,12 +624,12 @@ SINGLE_BATTLE_TEST("Sigma dex: Devampry can use its first move in battle")
 TEST("Sigma dex: Chillalit has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_CHILLALIT];
-    EXPECT_EQ(info->baseHP, 47);
+    EXPECT_EQ(info->baseHP, 50);
     EXPECT_EQ(info->baseAttack, 95);
-    EXPECT_EQ(info->baseDefense, 57);
+    EXPECT_EQ(info->baseDefense, 55);
     EXPECT_EQ(info->baseSpeed, 119);
     EXPECT_EQ(info->baseSpAttack, 109);
-    EXPECT_EQ(info->baseSpDefense, 68);
+    EXPECT_EQ(info->baseSpDefense, 67);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
     EXPECT_EQ(info->types[1], TYPE_WATER);
     EXPECT_EQ(info->abilities[0], ABILITY_SWIFT_SWIM);
