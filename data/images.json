@@ -4403,13 +4403,6 @@
     "editor": null
   },
   {
-    "id": 1349,
-    "species": "shadeem",
-    "file": "assets/concept-art/shadeem/1349.png",
-    "caption": "[ds-front] sprite #229",
-    "editor": null
-  },
-  {
     "id": 1357,
     "species": "zapitera",
     "file": "assets/concept-art/zapitera/1357.png",
@@ -4477,13 +4470,6 @@
     "species": "fleuroom",
     "file": "assets/concept-art/fleuroom/1373.png",
     "caption": "[ds-front] sprite #233",
-    "editor": null
-  },
-  {
-    "id": 1381,
-    "species": "riftbloom",
-    "file": "assets/concept-art/riftbloom/1381.png",
-    "caption": "[ds-front] sprite #220",
     "editor": null
   },
   {
@@ -4666,6 +4652,20 @@
     "species": "oraclaw",
     "file": "assets/concept-art/oraclaw/1465.png",
     "caption": "[ds-back] sprite #240",
+    "editor": null
+  },
+  {
+    "id": 1472,
+    "species": "shadeem",
+    "file": "assets/concept-art/shadeem/1472.png",
+    "caption": "[ds-front] sprite #242",
+    "editor": null
+  },
+  {
+    "id": 1480,
+    "species": "riftbloom",
+    "file": "assets/concept-art/riftbloom/1480.png",
+    "caption": "[ds-front] sprite #244",
     "editor": null
   }
 ]
