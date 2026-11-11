@@ -148,7 +148,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 137 | [Strawboo](data/species/strawboo.yaml) | Water |  |  |  | 14% |
 | 138 | [Wreckingboo](data/species/wreckingboo.yaml) | Water |  |  |  | 14% |
 | 139 | [Wreckingdrake](data/species/wreckingdrake.yaml) | Water / Dragon | Lightning Rod | 540 |  | 24% |
-| 140 | [Cloudjester](data/species/cloudjester.yaml) | Fairy / Flying |  |  |  | 7% |
+| 140 | [Cloudjester](data/species/cloudjester.yaml) | Fairy / Flying |  |  |  | 10% |
 | 141 | [Felk](data/species/felk.yaml) | Fairy / Flying |  |  |  | 10% |
 | 142 | [Moosus](data/species/moosus.yaml) | Flying / Fairy | Aurora Dancer, Regenerator (H) | 580 |  | 21% |
 | 143 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Levitate | 580 |  | 24% |

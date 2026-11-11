@@ -30,7 +30,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Moves | TM/HM moves | 4 / 150 |
 | Location | encounters | 2 / 150 |
 | Design | concept | 20 / 150 |
-| Art | concept art | 140 / 150 |
+| Art | concept art | 141 / 150 |
 | Art | front sprite | 4 / 150 |
 | Art | front animation frame | 4 / 150 |
 | Art | back sprite | 4 / 150 |
@@ -1427,7 +1427,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #140 [Cloudjester](data/species/cloudjester.yaml) - 7%
+### #140 [Cloudjester](data/species/cloudjester.yaml) - 10%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1435,7 +1435,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #141 [Felk](data/species/felk.yaml) - 10%
 
