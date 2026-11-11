@@ -45,7 +45,7 @@ Arvind (2026-11-11): "andre har jobbet mye med slike greier i det siste så om v
   them in https://github.com/lidor30/pokedaisy/discussions/643 (2026-11-11). Doing it ourselves in their app would be
   roughly 1-3 days (Android microphone permission, capture audio, feed it to melonDS' mic input, a setting and testing).
 
-- **VS portraits** (battle intro of gym leaders, rival, Elite Four, champion): `a/1/0/9`, one 64x64 close-up bust per character (4 files: palette, picture, cell, animation), drawn only for this effect, not cut from the battle sprite. 16 leaders (members 63-126), 5 Elite Four/champion (131-150, with name plates 47-54), the player boy/girl (207-214). Origin redrew several (Misty, Elite Four slots, the player). Each replaced character needs one.
+- **VS portraits** (battle intro of gym leaders, rival, Elite Four, champion): `a/1/0/9`, one 96x64 close-up bust per character, 16 colours (4 files: palette, picture, cell, animation, plus 3 for the banner background), drawn only for this effect, not cut from the battle sprite. 16 leaders (members 63-126), 5 Elite Four/champion (131-150, with name plates 47-54), the player boy/girl (207-214). Origin redrew several (Misty, Elite Four slots, the player). Each replaced character needs one.
 
 ## Origin's own problems to decide on (2026-11-12)
 
