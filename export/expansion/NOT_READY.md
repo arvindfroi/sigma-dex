@@ -2,9 +2,9 @@
 
 # Game export status
 
-**31** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Florantula, Cowfin, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Chillalit, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle, Slamquake, Dreadfang, Everdark, Santrock
+**33** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Florantula, Cowfin, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Chillalit, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle, Geronimok, Slamquake, Dreadfang, Everdark, Santrock, Cindreon
 
-## Not exported yet (122)
+## Not exported yet (126)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -33,8 +33,8 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Chebbi** needs: a level-up move that exists in the game
 - **Zapana** needs: a level-up move that exists in the game
 - **Ampeel** needs: a level-up move that exists in the game
-- **Tomaterdander** needs: an ability that exists in the game, a level-up move that exists in the game, a name of at most 10 letters
-- **Crappy Meal** needs: an ability that exists in the game, a level-up move that exists in the game, a name of at most 10 letters
+- **Tomaternader** needs: an ability that exists in the game, a name of at most 10 letters
+- **Crappy Meal** needs: an ability that exists in the game, a name of at most 10 letters
 - **Beatld** needs: a level-up move that exists in the game
 - **Fleuroom** needs: a level-up move that exists in the game
 - **Voraxia** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
@@ -55,7 +55,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Octopearl** needs: a level-up move that exists in the game
 - **Cryoblade** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Roostasaur** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Harambe** needs: a level-up move that exists in the game
+- **Gorambe** needs: a level-up move that exists in the game
 - **Leadling** needs: a level-up move that exists in the game
 - **Leadling Utvikling** needs: a level-up move that exists in the game, a name of at most 10 letters
 - **Iglomodo mindre utv** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 10 letters
@@ -84,7 +84,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Blazlothku** needs: an ability that exists in the game
 - **Terratyson** needs: a level-up move that exists in the game
 - **Obsidog** needs: a level-up move that exists in the game
-- **Obsidog utvikling** needs: a level-up move that exists in the game, a name of at most 10 letters
 - **Limulk** needs: a level-up move that exists in the game
 - **Mortbulk** needs: a level-up move that exists in the game
 - **Phantomb** needs: a level-up move that exists in the game
@@ -130,6 +129,11 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Maagamad** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Sandrema** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Apeshit** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **SOLIDEDGE** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Whaldrill0** needs: a level-up move that exists in the game
+- **Whaldrill** needs: a level-up move that exists in the game
+- **Whaldrill3** needs: a level-up move that exists in the game
+- **Custodix** needs: an ability that exists in the game, a level-up move that exists in the game
 
 ## Left out of exported Pokemon
 

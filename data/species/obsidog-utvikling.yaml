@@ -1,33 +1,33 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
 dex: 104
-name: Obsidog utvikling
+name: Geronimok
 
 credits:
-  designer: Emil Venge-Kvamme # who came up with it (Discord name)
-  artist:                # who drew the concept art
+  designer: Casper       # who came up with it (Discord name)
+  artist: Casper         # who drew the concept art
 
 types: [Dark, Rock]      # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
-body_color:              # red blue yellow green black brown purple gray white pink
+category: Rock imp       # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: Ambush predator looming in caverns and caves. Poisonous territorial rockcreature.
+height_m: 1.5            # e.g. 0.7
+weight_kg: 80            # e.g. 6.9
+body_color: black        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
   primary: Guard Dog
-  secondary: Intimidate  # optional
+  secondary: Dark Aura   # optional
   hidden: Rough Skin     # optional
 
 base_stats:              # each 1-255
-  hp: 82
-  attack: 128
+  hp: 92
+  attack: 133
   defense: 110
-  sp_attack: 70
+  sp_attack: 65
   sp_defense: 90
-  speed: 75
+  speed: 70
 
 ev_yield: {attack: 2}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -64,7 +64,13 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 0, move: Bite}
+    - {level: 0, move: Poison Fang}
+    - {level: 0, move: Poison Sting}
+    - {level: 0, move: Rock Tomb}
+    - {level: 30, move: Rock Wrecker}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
@@ -74,24 +80,24 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 
 # --- Design ---
 design:
-  concept:               # what is it? one or two sentences
+  concept: "Imp like creature who looms in caverns, using its long poisonous legs to navigate the dark."
   name_origin:
   notes:
   wishes:                # for Claude: how it should play, move ideas
-  claude_fill: false     # true = Claude may fill in what is missing
+  claude_fill: true      # true = Claude may fill in what is missing
   filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It crawls along the ground on its legs.
+  look: "Like a monstrous gargoyle with massive spiderlegs aiding its movement. It dark obsidian and rock body can take a beating, and its thick arms can snap and crush any opponent. Small hind legs."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/obsidog-utvikling.png
+  concept_art: "assets/concept-art/obsidog-utvikling/1568.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:229"
+  footprint: "hgss:229"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

@@ -47,14 +47,18 @@ held_items:              # items wild ones can hold (optional)
 # --- Evolution: what THIS Pokemon evolves INTO ---
 evolutions:
   - into: tortoplasm-utviklet
-    method: other
+    method: level
+    level: 40
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:
@@ -85,7 +89,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:98"
+  footprint: "hgss:98"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

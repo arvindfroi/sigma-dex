@@ -9,25 +9,29 @@ credits:
 types: [Fire, Rock]      # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
+category: Lion           # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: |           # the Pokedex entry text: max 4 lines of about 40 characters
+  Santrock stores the sun’s warmth in the stones covering its shoulders.
+  These stones keep it warm long after sunset.
+  The flame on its tail flickers brightly when it gets excited.
+  Still learning to control its fire, it sometimes sneezes out tiny embers.
 height_m: 0.8            # e.g. 0.7
-weight_kg: 35            # e.g. 6.9
+weight_kg: 40            # e.g. 6.9
 body_color: yellow       # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
-  primary: Desolate Land
+  primary: Blaze
   secondary:             # optional
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp: 150
-  attack: 110
-  defense: 110
-  sp_attack: 130
-  sp_defense: 130
-  speed: 50
+  hp: 45
+  attack: 55
+  defense: 55
+  sp_attack: 40
+  sp_defense: 40
+  speed: 35
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -66,9 +70,12 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Rock Polish}
+    - {level: 0, move: Scratch}
+    - {level: 0, move: Ember}
     - {level: 10, move: Fire Fang}
-  tm_hm: [Sandstorm]     # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: [Rock Blast, Ember] # moves a move tutor can teach it
+  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -76,19 +83,19 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 
 # --- Design ---
 design:
-  concept: "Lion ember cub pokemon, natural habitat in jegersberg krs, where it lies on the sunny rockformations atop the mountains. Playful when interacted with."
+  concept: Lion cub with a playful nature. Its ember tail grows fiercer if excited.
   name_origin:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  body_shape: a head and legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
+  look: "Santrock is a small, sand-colored lion cub with bright eyes and a spiky red-orange mane. A single rounded rock covers each shoulder, and its long, slender tail ends in a lively flame. It has large paws and small, pointed fangs."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art: "assets/concept-art/santrock/1536.webp"
+  concept_art: "assets/concept-art/santrock/1542.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

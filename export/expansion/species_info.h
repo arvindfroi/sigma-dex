@@ -1334,6 +1334,56 @@
         FOOTPRINT(QuestionMark)
     },
 
+    [SPECIES_GERONIMOK] =
+    {
+        .baseHP = 92,
+        .baseAttack = 133,
+        .baseDefense = 110,
+        .baseSpeed = 70,
+        .baseSpAttack = 65,
+        .baseSpDefense = 90,
+        .types = MON_TYPES(TYPE_DARK, TYPE_ROCK),
+        .catchRate = 45,
+        .expYield = 64,
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_GUARD_DOG, ABILITY_DARK_AURA, ABILITY_ROUGH_SKIN },
+        .bodyColor = BODY_COLOR_BLACK,
+        .speciesName = _("Geronimok"),
+        .cryId = CRY_NONE,
+        .natDexNum = NATIONAL_DEX_GERONIMOK,
+        .categoryName = _("Rock imp"),
+        .height = 15,
+        .weight = 800,
+        .description = COMPOUND_STRING(
+            "Ambush predator looming in caverns and\n"
+            "caves. Poisonous territorial\n"
+            "rockcreature."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_CircledQuestionMark,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .backPic = gMonBackPic_CircledQuestionMark,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 7,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_CircledQuestionMark,
+        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
+        .iconSprite = gMonIcon_QuestionMark,
+        .iconPalIndex = 0,
+        .levelUpLearnset = sGeronimokLevelUpLearnset,
+        .teachableLearnset = sGeronimokTeachableLearnset,
+        FOOTPRINT(QuestionMark)
+    },
+
     [SPECIES_SLAMQUAKE] =
     {
         .baseHP = 90,
@@ -1480,12 +1530,12 @@
 
     [SPECIES_SANTROCK] =
     {
-        .baseHP = 150,
-        .baseAttack = 110,
-        .baseDefense = 110,
-        .baseSpeed = 50,
-        .baseSpAttack = 130,
-        .baseSpDefense = 130,
+        .baseHP = 45,
+        .baseAttack = 55,
+        .baseDefense = 55,
+        .baseSpeed = 35,
+        .baseSpAttack = 40,
+        .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_FIRE, TYPE_ROCK),
         .catchRate = 45,
         .expYield = 64,
@@ -1494,16 +1544,19 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_DESOLATE_LAND, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Santrock"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_SANTROCK,
-        .categoryName = _("Unknown"),
+        .categoryName = _("Lion"),
         .height = 8,
-        .weight = 350,
+        .weight = 400,
         .description = COMPOUND_STRING(
-            "This Pokemon has no Pokedex entry yet."),
+            "Santrock stores the sun's warmth in the stones covering its shoulders.\n"
+            "These stones keep it warm long after sunset.\n"
+            "The flame on its tail flickers brightly when it gets excited.\n"
+            "Still learning to control its fire, it sometimes sneezes out tiny embers."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,
@@ -1522,6 +1575,56 @@
         .iconPalIndex = 0,
         .levelUpLearnset = sSantrockLevelUpLearnset,
         .teachableLearnset = sSantrockTeachableLearnset,
+        FOOTPRINT(QuestionMark)
+    },
+
+    [SPECIES_CINDREON] =
+    {
+        .baseHP = 65,
+        .baseAttack = 80,
+        .baseDefense = 85,
+        .baseSpeed = 45,
+        .baseSpAttack = 65,
+        .baseSpDefense = 50,
+        .types = MON_TYPES(TYPE_FIRE, TYPE_ROCK),
+        .catchRate = 45,
+        .expYield = 64,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL, EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_FLASH_FIRE, ABILITY_NONE, ABILITY_INTIMIDATE },
+        .bodyColor = BODY_COLOR_YELLOW,
+        .speciesName = _("Cindreon"),
+        .cryId = CRY_NONE,
+        .natDexNum = NATIONAL_DEX_CINDREON,
+        .categoryName = _("Lion"),
+        .height = 15,
+        .weight = 1000,
+        .description = COMPOUND_STRING(
+            "Heat builds deep within Cindreon's\n"
+            "stone-armored shoulders. When\n"
+            "threatened, it rises onto its hind legs\n"
+            "and releases twin streams of flame from\n"),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_CircledQuestionMark,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .backPic = gMonBackPic_CircledQuestionMark,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 7,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_CircledQuestionMark,
+        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
+        .iconSprite = gMonIcon_QuestionMark,
+        .iconPalIndex = 0,
+        .levelUpLearnset = sCindreonLevelUpLearnset,
+        .teachableLearnset = sCindreonTeachableLearnset,
         FOOTPRINT(QuestionMark)
     },
 

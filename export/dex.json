@@ -1773,7 +1773,8 @@
       "evolutions": [
         {
           "into": "pipwi-utv",
-          "method": "other",
+          "method": "level",
+          "level": 30,
           "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
@@ -2921,9 +2922,10 @@
         {
           "into": "croakble",
           "method": "level",
-          "level": 25
+          "level": 30
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -4651,10 +4653,10 @@
     },
     {
       "dex": 48,
-      "name": "Tomaterdander",
+      "name": "Tomaternader",
       "credits": {
         "designer": "Casper",
-        "artist": null
+        "artist": "Casper"
       },
       "types": [
         "Poison",
@@ -4668,7 +4670,7 @@
       "abilities": {
         "primary": "Pickle Armor",
         "secondary": "Chlorophyll",
-        "hidden": null
+        "hidden": "Defiant"
       },
       "base_stats": {
         "hp": 90,
@@ -4697,19 +4699,37 @@
           "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
+      "forms": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Mortal Spin"
+          },
+          {
+            "level": 0,
+            "move": "Acid Armor"
+          },
+          {
+            "level": 0,
+            "move": "poison"
+          },
+          {
+            "level": 15,
+            "move": "Head Smash"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
       },
       "encounters": [],
       "design": {
-        "concept": null,
+        "concept": "Burger with an attitude, consist of a burger with a massive and vengeful tomato in the center.",
         "name_origin": null,
         "notes": "From the Discord concept card (Casse, 2026-10-01): card name: Tomadernader; also on the card: Pickle Armor: its sour coating deters any healing effects of any attack from opponents; Chlorophyll is hidden ability; signature move Onion Cyclone (Poison Physical, Power 85, Accuracy 100, 30% chance to poison); Head Smash 70 damage, 30 damage to itself; No. ???.",
         "wishes": null,
-        "claude_fill": false,
+        "claude_fill": true,
         "filled_by_claude": [
           "body shape",
           "look",
@@ -4744,7 +4764,7 @@
       "name": "Crappy Meal",
       "credits": {
         "designer": "Casper",
-        "artist": null
+        "artist": "Casper"
       },
       "types": [
         "Poison",
@@ -4781,15 +4801,33 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Acid Spray"
+          },
+          {
+            "level": 0,
+            "move": "Growth"
+          },
+          {
+            "level": 0,
+            "move": "Attack Order"
+          },
+          {
+            "level": 30,
+            "move": "Absorb"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
       },
       "encounters": [],
       "design": {
-        "concept": null,
+        "concept": "An evolved version of the tomadernader, more pungent and dangerous than ever. Utilizes its cover as an everyday meal to fit in.",
         "name_origin": null,
         "notes": "From the Discord concept card (Casse, 2026-10-01): evolution on the card: Stage 1, evolves from Tomadernader; also on the card: XL and Deep fried: takes 20 less damage from any attack and opponents take 20 damage when using a melee attack on it; Chlorophyll is hidden ability; moves Leftover Vortex (Power 70, Acc 80) and Acidic Spit (Power 40, Acc 100, poisons); No. ???.",
         "wishes": null,
@@ -5652,7 +5690,8 @@
       "evolutions": [
         {
           "into": "panzerien",
-          "method": "other",
+          "method": "trade_item",
+          "item": "Metal Coat",
           "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
@@ -5833,7 +5872,8 @@
       "evolutions": [
         {
           "into": "nuclobyl",
-          "method": "other",
+          "method": "level",
+          "level": 40,
           "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
@@ -6013,8 +6053,8 @@
       "evolutions": [
         {
           "into": "yanklet",
-          "method": "level",
-          "level": 38
+          "method": "trade_item",
+          "item": "Metal Coat"
         },
         {
           "into": "harambe",
@@ -6794,7 +6834,7 @@
     },
     {
       "dex": 72,
-      "name": "Harambe",
+      "name": "Gorambe",
       "credits": {
         "designer": "Arvind",
         "artist": "Arvind"
@@ -7195,9 +7235,10 @@
         {
           "into": "iglomodo",
           "method": "level",
-          "level": 30
+          "level": 35
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -7211,7 +7252,10 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": []
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
       },
       "assets": {
         "concept_art": null,
@@ -9148,10 +9192,12 @@
       "evolutions": [
         {
           "into": "tortoplasm-utviklet",
-          "method": "other",
+          "method": "level",
+          "level": 40,
           "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -9593,7 +9639,8 @@
       "evolutions": [
         {
           "into": "obsidog-utvikling",
-          "method": "other",
+          "method": "item",
+          "item": "Dusk Stone",
           "note": "Level 40 At Night"
         }
       ],
@@ -9642,32 +9689,32 @@
     },
     {
       "dex": 104,
-      "name": "Obsidog utvikling",
+      "name": "Geronimok",
       "credits": {
-        "designer": "Emil Venge-Kvamme",
-        "artist": null
+        "designer": "Casper",
+        "artist": "Casper"
       },
       "types": [
         "Dark",
         "Rock"
       ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "category": "Rock imp",
+      "description": "Ambush predator looming in caverns and caves. Poisonous territorial rockcreature.",
+      "height_m": 1.5,
+      "weight_kg": 80,
+      "body_color": "black",
       "abilities": {
         "primary": "Guard Dog",
-        "secondary": "Intimidate",
+        "secondary": "Dark Aura",
         "hidden": "Rough Skin"
       },
       "base_stats": {
-        "hp": 82,
-        "attack": 128,
+        "hp": 92,
+        "attack": 133,
         "defense": 110,
-        "sp_attack": 70,
+        "sp_attack": 65,
         "sp_defense": 90,
-        "speed": 75
+        "speed": 70
       },
       "ev_yield": {
         "attack": 2
@@ -9686,25 +9733,46 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Bite"
+          },
+          {
+            "level": 0,
+            "move": "Poison Fang"
+          },
+          {
+            "level": 0,
+            "move": "Poison Sting"
+          },
+          {
+            "level": 0,
+            "move": "Rock Tomb"
+          },
+          {
+            "level": 30,
+            "move": "Rock Wrecker"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
       },
       "encounters": [],
       "design": {
-        "concept": null,
+        "concept": "Imp like creature who looms in caverns, using its long poisonous legs to navigate the dark.",
         "name_origin": null,
         "notes": null,
         "wishes": null,
-        "claude_fill": false,
+        "claude_fill": true,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "tentacles or many legs",
+        "movement": "It crawls along the ground on its legs.",
+        "look": "Like a monstrous gargoyle with massive spiderlegs aiding its movement. It dark obsidian and rock body can take a beating, and its thick arms can snap and crush any opponent. Small hind legs."
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/obsidog-utvikling/1568.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -10768,10 +10836,12 @@
       "evolutions": [
         {
           "into": "viridub-utvikling",
-          "method": "other",
+          "method": "item",
+          "item": "Leaf Stone",
           "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -11653,7 +11723,8 @@
       "evolutions": [
         {
           "into": "subwaysurfer",
-          "method": "other",
+          "method": "level",
+          "level": 25,
           "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
@@ -14004,6 +14075,338 @@
       "id": "apeshit"
     },
     {
+      "dex": 154,
+      "name": "SOLIDEDGE",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Bug",
+        "Psychic"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/solidedge/1571.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "solidedge"
+    },
+    {
+      "dex": 158,
+      "name": "Whaldrill0",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Ice",
+        "Ground"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Slush Rush",
+        "secondary": "Sand Rush",
+        "hidden": "Thick Fat"
+      },
+      "base_stats": {
+        "hp": 55,
+        "attack": 50,
+        "defense": 30,
+        "sp_attack": 25,
+        "sp_defense": 40,
+        "speed": 50
+      },
+      "ev_yield": {
+        "hp": 1
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "whaldrill0"
+    },
+    {
+      "dex": 159,
+      "name": "Whaldrill",
+      "credits": {
+        "designer": "Emil",
+        "artist": null
+      },
+      "types": [
+        "Ice",
+        "Ground"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Slush Rush",
+        "secondary": "Sand Rush",
+        "hidden": "Thick Fat"
+      },
+      "base_stats": {
+        "hp": 100,
+        "attack": 100,
+        "defense": 60,
+        "sp_attack": 50,
+        "sp_defense": 80,
+        "speed": 60
+      },
+      "ev_yield": {
+        "hp": 1,
+        "attack": 1
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/whaldrill/1569.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "whaldrill"
+    },
+    {
+      "dex": 160,
+      "name": "Whaldrill3",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Ice",
+        "Ground"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Slush Rush",
+        "secondary": "Sand Rush",
+        "hidden": "Thick Fat"
+      },
+      "base_stats": {
+        "hp": 125,
+        "attack": 125,
+        "defense": 70,
+        "sp_attack": 60,
+        "sp_defense": 90,
+        "speed": 60
+      },
+      "ev_yield": {
+        "hp": 2,
+        "attack": 1
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "whaldrill3"
+    },
+    {
       "dex": 198,
       "name": "Santrock",
       "credits": {
@@ -14014,23 +14417,23 @@
         "Fire",
         "Rock"
       ],
-      "category": null,
-      "description": null,
+      "category": "Lion",
+      "description": "Santrock stores the sun’s warmth in the stones covering its shoulders.\nThese stones keep it warm long after sunset.\nThe flame on its tail flickers brightly when it gets excited.\nStill learning to control its fire, it sometimes sneezes out tiny embers.\n",
       "height_m": 0.8,
-      "weight_kg": 35,
+      "weight_kg": 40,
       "body_color": "yellow",
       "abilities": {
-        "primary": "Desolate Land",
+        "primary": "Blaze",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": 150,
-        "attack": 110,
-        "defense": 110,
-        "sp_attack": 130,
-        "sp_defense": 130,
-        "speed": 50
+        "hp": 45,
+        "attack": 55,
+        "defense": 55,
+        "sp_attack": 40,
+        "sp_defense": 40,
+        "speed": 35
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -14049,33 +14452,40 @@
       "learnset": {
         "level_up": [
           {
+            "level": 0,
+            "move": "Rock Polish"
+          },
+          {
+            "level": 0,
+            "move": "Scratch"
+          },
+          {
+            "level": 0,
+            "move": "Ember"
+          },
+          {
             "level": 10,
             "move": "Fire Fang"
           }
         ],
-        "tm_hm": [
-          "Sandstorm"
-        ],
-        "tutor": [
-          "Rock Blast",
-          "Ember"
-        ],
+        "tm_hm": [],
+        "tutor": [],
         "egg": []
       },
       "encounters": [],
       "design": {
-        "concept": "Lion ember cub pokemon, natural habitat in jegersberg krs, where it lies on the sunny rockformations atop the mountains. Playful when interacted with.",
+        "concept": "Lion cub with a playful nature. Its ember tail grows fiercer if excited.",
         "name_origin": null,
         "notes": null,
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "a head and legs",
+        "movement": "It walks on four legs.",
+        "look": "Santrock is a small, sand-colored lion cub with bright eyes and a spiky red-orange mane. A single rounded rock covers each shoulder, and its long, slender tail ends in a lively flame. It has large paws and small, pointed fangs."
       },
       "assets": {
-        "concept_art": "assets/concept-art/santrock/1536.webp",
+        "concept_art": "assets/concept-art/santrock/1542.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -14093,6 +14503,184 @@
         "safari_flee_rate": 0
       },
       "id": "santrock"
+    },
+    {
+      "dex": 199,
+      "name": "Cindreon",
+      "credits": {
+        "designer": "Casper",
+        "artist": "Casper"
+      },
+      "types": [
+        "Fire",
+        "Rock"
+      ],
+      "category": "Lion",
+      "description": "Heat builds deep within Cindreon’s stone-armored shoulders. When threatened, it rises onto its hind legs and releases twin streams of flame from its kilns. The rocks along its back remain warm long after sunset. Master of fire and roasting unsuspecting prey. Freakishly sneaky.",
+      "height_m": 1.5,
+      "weight_kg": 100,
+      "body_color": "yellow",
+      "abilities": {
+        "primary": "Flash Fire",
+        "secondary": null,
+        "hidden": "Intimidate"
+      },
+      "base_stats": {
+        "hp": 65,
+        "attack": 80,
+        "defense": 85,
+        "sp_attack": 65,
+        "sp_defense": 50,
+        "speed": 45
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": "genderless",
+      "egg_groups": [
+        "mineral",
+        "undiscovered"
+      ],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Flamethrower"
+          },
+          {
+            "level": 0,
+            "move": "Rock Slide"
+          },
+          {
+            "level": 30,
+            "move": "Stone Edge"
+          }
+        ],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Cindreon is a Fire/Rock-type lion Pokémon that evolves from Santrock. Its rocky armor protects it in battle, while furnace-like openings in its shoulders unleash powerful streams of fire.",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "an upright body on two legs with a tail",
+        "movement": "It walks on four legs.",
+        "look": "Cindreon is a muscular, sand-gold lion with a short red-orange mane and a flame-tipped tail. Large rocky plates cover its shoulders, each with a glowing furnace opening. Smaller stones run along its back and protect its legs, giving it a rugged, armored appearance."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/cindreon/1544.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "cindreon"
+    },
+    {
+      "dex": 200,
+      "name": "Custodix",
+      "credits": {
+        "designer": "Casper",
+        "artist": "Casper"
+      },
+      "types": [
+        "Fire",
+        "Rock"
+      ],
+      "category": "Solar lion evolution",
+      "description": "Custodix guards the sunny shores of Kristiansand.\nIts celestial forehead symbol draws in sunlight and drives away storm clouds.\nThough fur conceals its eyes, it senses movement through warmth and vibrations in stone.\nDespite its divine stature, it is notoriously weak to pop-up religions and sand.\n",
+      "height_m": 2.2,
+      "weight_kg": 100,
+      "body_color": "yellow",
+      "abilities": {
+        "primary": null,
+        "secondary": "Clear Body",
+        "hidden": "Pressure"
+      },
+      "base_stats": {
+        "hp": 100,
+        "attack": 120,
+        "defense": 120,
+        "sp_attack": 130,
+        "sp_defense": 110,
+        "speed": 90
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Sovereign protector of the sunny coast of Kristiansand. Legendary solar lion.",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "an upright body on two legs with a tail",
+        "movement": "It walks on four legs.",
+        "look": "Custodix is a powerful golden lion with a majestic grey-white mane and two smooth fur tufts covering its eyes. A bright sun emblem marks its forehead, while dark rocky armor with glowing magma cracks protects its shoulders and legs. Its long tail ends in a grey-white tuft, and it can stand upright on its hind legs."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/custodix/1546.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "custodix"
     }
   ]
 }

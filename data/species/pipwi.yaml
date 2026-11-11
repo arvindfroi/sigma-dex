@@ -47,14 +47,9 @@ held_items:              # items wild ones can hold (optional)
 # --- Evolution: what THIS Pokemon evolves INTO ---
 evolutions:
   - into: pipwi-utv
-    method: other
+    method: level
+    level: 30
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
@@ -83,8 +78,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "an upright body on two legs without a tail"
-  movement: "It walks upright on two legs."
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
   look: "It is a small round brown kiwi bird with fluffy brown feathers, a green kiwi-slice face with a ring of dark seeds around one big round brown eye, and a long thin pale yellow beak. A fringe of green leaf-like feathers sits on its neck and back. It has two pink legs with black claws."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
@@ -94,7 +89,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:84"
+  footprint: "hgss:84"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

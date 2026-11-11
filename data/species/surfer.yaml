@@ -47,7 +47,8 @@ held_items:              # items wild ones can hold (optional)
 # --- Evolution: what THIS Pokemon evolves INTO ---
 evolutions:
   - into: subwaysurfer
-    method: other
+    method: level
+    level: 25
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
@@ -88,7 +89,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:37"
+  footprint: "hgss:37"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

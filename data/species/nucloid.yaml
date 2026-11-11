@@ -47,7 +47,8 @@ held_items:              # items wild ones can hold (optional)
 # --- Evolution: what THIS Pokemon evolves INTO ---
 evolutions:
   - into: nuclobyl
-    method: other
+    method: level
+    level: 40
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---

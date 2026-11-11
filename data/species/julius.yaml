@@ -47,8 +47,8 @@ held_items:              # items wild ones can hold (optional)
 # --- Evolution: what THIS Pokemon evolves INTO ---
 evolutions:
   - into: yanklet
-    method: level
-    level: 38
+    method: trade_item
+    item: Metal Coat
   - into: harambe
     method: friendship
 
