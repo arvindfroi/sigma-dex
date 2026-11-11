@@ -2891,6 +2891,10 @@ async function loadClaims() {
 }
 function renderCharacters() {
   const grid = document.getElementById("grid");
+  if (!CLAIMS_OPEN) {     // the whole page waits behind "work in progress" (Arvind, 2026-11-11)
+    grid.replaceChildren(h("div", {style: "grid-column:1/-1"}, h("div", {class: "notice info"}, h("b", {}, "Work in progress. "), "This page is being made. Come back later!")));
+    return;
+  }
   if (claims === null && DEX.web.url && !claimsError) {
     grid.replaceChildren(h("div", {class: "empty", style: "grid-column:1/-1"}, "Loading..."));
     loadClaims().catch(err => { claimsError = err.message; claims = new Map(); }).then(() => view === "chars" && renderCharacters());
@@ -3638,7 +3642,7 @@ const PAGE_HELP = {
   sprites: "SPRITES\nSprites are drawn on each Pokemon's page, under SPRITES. Here you see what is being drawn, what waits for someone to approve it, and what is done.",
   progress: "PROGRESS\nHow far the dex has come. Every badge is a goal for the whole group.",
   evo: "EVOLUTION LINES\nEvery evolution line as a tree. Tap an arrow to say how it evolves; red arrows are not decided yet.",
-  chars: "CHARACTERS\nThe trainers in the game we can replace with ourselves. Who they really are stays a surprise: you only see the role, the type and how often you meet them.",
+  chars: "CHARACTERS\nWork in progress. Come back later!",
   teams: "TEAMS\nBuild teams of six from our Pokemon, the way Showdown does it. Teams are kept in this browser; Share link sends one to a friend.",
   lost: "LOST AND FOUND\nPictures from the Discord that nobody has linked to a Pokemon yet. Recognise one? Press This is... and choose the Pokemon.",
   move: "NEW MOVES\nMoves our Pokemon use that are not in the game yet. Describe what they do, so they can be programmed.",

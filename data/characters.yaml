@@ -8,6 +8,8 @@
 # several times. Regions are left out too, so it is less obvious who is who.
 # Surprises stay hidden (Arvind, 2026-11-11): the group has not played this kind of hack, so nothing here says
 # who is a champion, a villain, the rival or a friend; those are 'Important trainer' with a code name.
+# The Elite Four and one of the two champions are left out (Arvind, 2026-11-11: he makes those himself); one
+# champion stays, hidden among the important trainers. The website shows the trainers in a random order.
 - id: gym-bug
   group: Gym leader
   type: Bug
@@ -102,42 +104,6 @@
   place: a city on the water; acts like a gym leader
   battles: 10
   levels: [6, 12, 15, 19, 20, 41, 65, 82, 87, 87]
-- id: league-1
-  group: Elite Four
-  type: Ice
-  place: a room at the League
-  battles: 2
-  levels: [89, 93]
-- id: league-2
-  group: Elite Four
-  type: Fighting
-  place: a room at the League
-  battles: 2
-  levels: [88, 92]
-- id: league-3
-  group: Elite Four
-  type: Ghost
-  place: a room at the League
-  battles: 1
-  levels: [90]
-- id: league-4
-  group: Elite Four
-  type: Ghost / Poison
-  place: a room at the League
-  battles: 1
-  levels: [94]
-- id: league-5
-  group: Elite Four
-  type: Flying / Dragon
-  place: a room at the League
-  battles: 1
-  levels: [90]
-- id: league-6
-  group: Elite Four
-  type: Flying / Dragon
-  place: a room at the League
-  battles: 1
-  levels: [95]
 - id: trainer-a
   group: Important trainer
   type: Fire
@@ -159,13 +125,6 @@
   battles: 7
   levels: [40, 45, 50, 72, 89, 90, 100]
   code: Trainer C
-- id: trainer-d
-  group: Important trainer
-  type: mixed
-  place: you meet them again and again
-  battles: 9
-  levels: [5, 9, 15, 24, 30, 35, 42, 55, 96]
-  code: Trainer D
 - id: trainer-e
   group: Important trainer
   type: Dark / Steel / Dragon
