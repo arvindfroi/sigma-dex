@@ -4445,13 +4445,6 @@
     "editor": null
   },
   {
-    "id": 1373,
-    "species": "fleuroom",
-    "file": "assets/concept-art/fleuroom/1373.png",
-    "caption": "[ds-front] sprite #233",
-    "editor": null
-  },
-  {
     "id": 1382,
     "species": "riftbloom",
     "file": "assets/concept-art/riftbloom/1382.png",
@@ -4702,5 +4695,40 @@
     "file": "assets/concept-art/maagamad/1500.png",
     "caption": "[ds-front] sprite #248",
     "editor": "Arvind"
+  },
+  {
+    "id": 1512,
+    "species": "erobi",
+    "file": "assets/concept-art/erobi/1512.png",
+    "caption": "[ds-front] sprite #252",
+    "editor": null
+  },
+  {
+    "id": 1513,
+    "species": "erobi",
+    "file": "assets/concept-art/erobi/1513.png",
+    "caption": "[ds-back] sprite #252",
+    "editor": null
+  },
+  {
+    "id": 1514,
+    "species": "erobi",
+    "file": "assets/concept-art/erobi/1514.png",
+    "caption": "[ds-icon] sprite #252",
+    "editor": null
+  },
+  {
+    "id": 1515,
+    "species": "erobi",
+    "file": "assets/concept-art/erobi/1515.png",
+    "caption": "[ds-follower] sprite #252",
+    "editor": null
+  },
+  {
+    "id": 1520,
+    "species": "fleuroom",
+    "file": "assets/concept-art/fleuroom/1520.png",
+    "caption": "[ds-front] sprite #253",
+    "editor": null
   }
 ]
