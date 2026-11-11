@@ -2611,27 +2611,6 @@
     "editor": null
   },
   {
-    "id": 832,
-    "species": "mooceon",
-    "file": "assets/concept-art/mooceon/832.png",
-    "caption": "[ds-back] sprite #94",
-    "editor": null
-  },
-  {
-    "id": 833,
-    "species": "mooceon",
-    "file": "assets/concept-art/mooceon/833.png",
-    "caption": "[ds-icon] sprite #94",
-    "editor": null
-  },
-  {
-    "id": 835,
-    "species": "mooceon",
-    "file": "assets/concept-art/mooceon/835.png",
-    "caption": "[ds-front] sprite #94",
-    "editor": null
-  },
-  {
     "id": 839,
     "species": "coati",
     "file": "assets/concept-art/coati/839.png",
@@ -4676,13 +4655,6 @@
     "editor": null
   },
   {
-    "id": 1488,
-    "species": "maagamad",
-    "file": "assets/concept-art/maagamad/1488.png",
-    "caption": "[ds-front] sprite #245",
-    "editor": null
-  },
-  {
     "id": 1489,
     "species": "maagamad",
     "file": "assets/concept-art/maagamad/1489.png",
@@ -4702,5 +4674,33 @@
     "file": "assets/concept-art/maagamad/1491.png",
     "caption": "[ds-follower] sprite #245",
     "editor": null
+  },
+  {
+    "id": 1496,
+    "species": "mooceon",
+    "file": "assets/concept-art/mooceon/1496.png",
+    "caption": "[ds-front] sprite #247",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1497,
+    "species": "mooceon",
+    "file": "assets/concept-art/mooceon/1497.png",
+    "caption": "[ds-back] sprite #247",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1498,
+    "species": "mooceon",
+    "file": "assets/concept-art/mooceon/1498.png",
+    "caption": "[ds-icon] sprite #247",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1500,
+    "species": "maagamad",
+    "file": "assets/concept-art/maagamad/1500.png",
+    "caption": "[ds-front] sprite #248",
+    "editor": "Arvind"
   }
 ]
