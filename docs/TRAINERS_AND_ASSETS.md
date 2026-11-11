@@ -1073,3 +1073,15 @@ Borderline (I): Hypno, Burmy, Skorupi, Larvitar, Venusaur, Blastoise could be ar
 **Incidental (502)**: e.g. Remoraid. What Remoraid does: it is one injured patient in the Route 32 Pokemon Center storm scene (9 text lines, a side quest "storm patients", before Route 33), a boy's fear of the sea in Olivine (side), a Water Spout tutor entry, 3 trainer teams, 4 wild tables and 1 follower object. No gift, no cutscene, no battle, no code. Remoraid is typical: **about half of the 1,025 species (502 + the 336 unused) are not part of the story at all**; they only fill wild tables and trainer teams, and any of our mons (or none) can sit there.
 
 What this means for the work: the 60 essentials plus about 25 of the optional ones (Snorlax, Lapras, Eevee line, Pichu/Cleffa/Igglybuff, Heatran ...) must be designed or chosen deliberately; the other ~500 slots can be filled by whichever of our mons suit the route's type and level, and the roughly 340 unused species can be left alone or reused as free slots (check section 8 for which are clean).
+
+### 12.12 The special map pictures, looked at (2026-11-11, rendered locally from Origin's `a/0/8/1`)
+
+- **Correction:** member 209 (`YADON`, "tailless Slowpoke") is **not a Slowpoke in Origin**: Origin redrew it as event props (a red pyramid, a crystal in a frame, a glass orb on a stand, purple crystals; 12 frames). So Slowpoke needs no special picture; the Slowpoke Well uses the normal follower.
+- Static Pikachu (68): 12 frames of 32x32 in follower style: the 8 walking frames plus extra poses for events.
+- Red Gyarados (183): 8 frames of 32x32, not a walking follower but Gyarados thrashing in the water (splash poses), shiny-red.
+- Sudowoodo tree (186): 6 frames of 32x32, the tree disguise shaking.
+- Lapras (228): 8 frames of 32x32, Lapras in the water facing each way (ferry).
+- Sleeping Snorlax (194): one big 64x64 picture.
+- Ho-Oh (210) and Lugia (211) cutscenes: 7 frames of 64x64 each, seen from the front, a wing-beat cycle (wings up, spread, down, folded) for the flying scenes.
+- Ruins of Alph panels (`a/1/7/2` members 4-7, identical in Origin and vanilla): four sliding puzzles of 16 pieces, carved stone pictures of Kabuto, Aerodactyl, Omanyte and Ho-Oh in sand colours (one shared palette).
+- Microphone: PokeDaisy's DS core answers "nothing there" for the microphone (`app/src/main/cpp/nds/pk_nds_platform.cpp`), so a Chatot-style recorded cry would not work there today.
