@@ -340,6 +340,18 @@ canvas.pcbox { width: 360px; max-width: 100%; image-rendering: pixelated; border
 .balance .track b { position: absolute; top: -5px; bottom: -5px; width: 3px; background: var(--ink); }
 .reorder .bar { border-style: solid; border-width: 15px; border-image: var(--box-sel) 5 fill / 15px stretch; padding: 0 4px; margin: 4px 0 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .reorder .bar .grow { flex: 1 1 200px; }
+.rgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 6px; }
+.rtile { position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; min-height: 104px; background: var(--panel); border: 2px solid var(--line); color: inherit; }
+.rtile img { width: 48px; height: 48px; object-fit: contain; }
+.rtile .letter { width: 48px; height: 48px; display: grid; place-items: center; font-family: var(--display); font-size: 22px; color: var(--muted); }
+.rtile .no { font-family: var(--display); font-size: 12px; color: var(--muted); }
+.rtile .nm { font-family: var(--display); font-size: 12px; text-align: center; overflow-wrap: anywhere; line-height: 1.15; }
+.rtile .was { font-size: 11px; color: var(--pink); }
+.rtile.open { border-style: dashed; color: var(--muted); }
+.rtile.moved { border-color: var(--pink); }
+.rtile.sel { outline: 3px solid var(--pri); background: var(--soft); }
+.rtile.target:hover, .rtile.over { outline: 3px solid var(--pink); }
+.rtile .gapx { position: absolute; top: 2px; right: 4px; font-size: 12px; color: var(--muted); cursor: pointer; }
 .rrow { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; background: var(--panel); border: 2px solid var(--line); padding: 5px 10px; margin-bottom: 4px; }
 .rrow.open { border-style: dashed; color: var(--muted); }
 .rrow.moved { border-color: var(--pink); }
@@ -641,6 +653,63 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .trayrow .dot { width: 8px; height: 8px; background: var(--edge2); display: inline-block; }
 .tray .tick { color: var(--good); font-family: var(--display); }
 .trayoff { color: var(--warn); font-size: 13px; padding: 4px 2px; }
+.qhead { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 6px 0; }
+.qhead .grow { flex: 1; }
+.qpc { font-family: var(--display); font-size: 14px; }
+.qpc.on { color: var(--good); } .qpc.off { color: var(--warn); }
+.qtable { width: 100%; border-collapse: collapse; font-size: 14px; }
+.qtable th { text-align: left; font-family: var(--display); font-weight: 400; color: var(--muted); padding: 4px 6px; border-bottom: 2px solid var(--line); }
+.qtable td { padding: 5px 6px; border-bottom: 1px dashed var(--line); vertical-align: middle; }
+.qtable tr.run td { background: var(--soft); }
+.qtable tr.mine .qmon { color: var(--pink); }
+.qtable .when { font-family: var(--display); white-space: nowrap; }
+.qtable .star { color: var(--pink); }
+.qmon { border: 0; background: none; padding: 0; min-height: 0; display: inline-flex; align-items: center; gap: 6px; font-family: var(--display); color: inherit; text-align: left; }
+.qmon .ico { width: 32px; height: 32px; }
+.qbar { height: 8px; background: var(--line); width: 120px; max-width: 100%; }
+.qbar i { display: block; height: 100%; background: var(--good); }
+.qpast { margin-top: 10px; } .qpast summary { cursor: pointer; font-family: var(--display); }
+.linkish { border: 0; background: none; padding: 0; min-height: 0; color: var(--pri); text-decoration: underline; font-size: 12px; }
+.teams { display: grid; gap: 10px; }
+.tbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.tbar .grow { flex: 1; }
+.tpanel { display: grid; gap: 6px; background: var(--panel); border: 2px solid var(--line); padding: 10px; }
+.tslots { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+.tslot { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; min-height: 92px; background: var(--panel); border: 2px solid var(--line); color: inherit; }
+.tslot[aria-selected="true"] { border-color: var(--pink); background: var(--soft); }
+.tslot.empty { border-style: dashed; background: none; }
+.tslot img { width: 48px; height: 48px; object-fit: contain; }
+.tslot .letter { width: 48px; height: 48px; display: grid; place-items: center; font-family: var(--display); font-size: 20px; color: var(--muted); }
+.tslot .nm { font-family: var(--display); font-size: 12px; text-align: center; overflow-wrap: anywhere; }
+.tslot .types { display: flex; gap: 2px; transform: scale(.8); }
+.tedit { display: grid; grid-template-columns: minmax(170px, 220px) minmax(220px, 1fr) minmax(280px, 1.3fr); gap: 14px; background: var(--panel); border: 2px solid var(--line); padding: 12px; align-items: start; }
+.tleft, .tmid, .tright { display: grid; gap: 6px; min-width: 0; }
+.tpic { width: 120px; height: 120px; object-fit: contain; justify-self: center; }
+.tpic.noart { display: grid; place-items: center; font-family: var(--display); font-size: 40px; color: var(--muted); background: var(--soft); }
+.trow { display: flex; gap: 8px; }
+.flabel { font-family: var(--display); font-size: 13px; color: var(--muted); margin-top: 4px; }
+.tmove { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; }
+.tmove input { flex: 1 1 140px; }
+.tmove .mv { display: inline-flex; gap: 4px; align-items: center; font-size: 13px; }
+.tstats { width: 100%; border-collapse: collapse; font-size: 14px; }
+.tstats th, .tstats td { padding: 3px 4px; }
+.tstats th { text-align: left; font-weight: 400; color: var(--muted); }
+.tstats th.up { color: var(--good); } .tstats th.down { color: var(--bad); }
+.tstats .track { width: 70px; height: 8px; background: var(--line); } .tstats .track i { display: block; height: 100%; }
+.tstats .evc { display: flex; gap: 4px; align-items: center; } .tstats .evc input[type=range] { width: 90px; }
+.tstats .tot { font-family: var(--display); }
+.treport h2 { margin: 12px 0 6px; }
+.tdef { border-collapse: collapse; font-size: 13px; }
+.tdef th, .tdef td { padding: 3px 6px; border-bottom: 1px dashed var(--line); text-align: center; }
+.tdef th:first-child { text-align: left; }
+.tdef .mx.weak, .tdef td.weak { color: var(--bad); font-weight: 700; } .tdef .mx.res { color: var(--good); } .tdef .mx.imm { color: var(--pri); font-weight: 700; }
+.tdef tr.hot { background: var(--soft); }
+.cov { display: inline-flex; align-items: center; gap: 2px; font-size: 13px; margin: 2px 6px 2px 0; }
+.cov.good { font-weight: 700; } .cov.bad { opacity: .6; }
+@media (max-width: 900px) { .tedit { grid-template-columns: 1fr; } .tslots { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.donebar { position: relative; display: inline-block; width: 64px; height: 14px; background: var(--line); vertical-align: middle; }
+.donebar i { position: absolute; inset: 0 auto 0 0; background: var(--good); opacity: .55; }
+.donebar b { position: relative; font-size: 11px; font-weight: 400; padding-left: 3px; }
 .traynote { color: var(--muted); font-size: 12px; padding: 6px 2px 0; border-top: 2px dashed var(--line); }
 @media (max-width: 760px) { .tray { right: 8px; bottom: 8px; } }
 .skipcut { display: flex; gap: 8px; align-items: flex-start; margin-top: 10px; font-size: 14px; }
@@ -674,6 +743,10 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
       <div class="tools" id="tools">
         <input type="search" id="search" placeholder="Search a name, move or ability" aria-label="Search">
         <select id="type" aria-label="Type"><option value="">Any type</option></select>
+        <select id="stage" aria-label="Evolution stage"><option value="">Any stage</option><option value="single">Does not evolve</option><option value="first">First stage</option><option value="middle">Middle stage</option><option value="final">Fully evolved</option></select>
+        <select id="designer" aria-label="Designer"><option value="">Any designer</option></select>
+        <select id="lacks" aria-label="Still missing"><option value="">Missing anything or nothing</option></select>
+        <select id="sort" aria-label="Sort by"><option value="dex">Sort: dex number</option><option value="name">Sort: name</option><option value="complete-1">Sort: most complete</option><option value="complete1">Sort: least complete</option><option value="bst-1">Sort: highest BST</option><option value="bst1">Sort: lowest BST</option><option value="types">Sort: type</option></select>
         <select id="show" aria-label="Show">
           <option value="filled">All Pokemon</option>
           <option value="todo">Needs work</option>
@@ -779,6 +852,14 @@ function derive(s) {
   s.gameNeeds = gameNeeds(s);
   return s;
 }
+
+// Where it stands in its evolution line, and who designed it (for the filters on the front page).
+function stageOf(s) {
+  const evolves = (s.data.evolutions || []).some(e => e && byId.has(e.into));
+  const prevo = DEX.species.some(o => (o.data.evolutions || []).some(e => e && e.into === s.id));
+  return !evolves && !prevo ? "single" : !prevo ? "first" : evolves ? "middle" : "final";
+}
+const designerOf = s => String(((s.data.credits || {}).designer) || "").trim();
 
 // What a Pokemon still needs before it can be put into the game (same rule as the game export).
 function gameNeeds(s) {
@@ -1176,16 +1257,17 @@ function pickerRows(kind) {
   return Object.entries(SD.abilities).map(([name, desc]) => ({name, desc}))
     .concat(DEX.custom.ability.filter(c => !Object.keys(SD.abilities).some(n => norm(n) === norm(c.name))).map(c => ({name: c.name, desc: c.effect || "", custom: true})));
 }
-function attachPicker(input, kind) {
+function attachPicker(input, kind, rowsFn) {          // rowsFn: a list of its own (the team builder) instead of every move / ability
   input.setAttribute("autocomplete", "off");
   let panel = null, sort = null, dir = 1, type = "", hot = 0, shown = [];
-  const cols = kind === "move" ? [["name", "Move"], ["type", "Type"], ["category", "Cat"], ["power", "Pow"], ["accuracy", "Acc"], ["pp", "PP"], ["desc", "Effect"]] : [["name", "Ability"], ["desc", "What it does"]];
+  const cols = kind === "move" ? [["name", "Move"], ["type", "Type"], ["category", "Cat"], ["power", "Pow"], ["accuracy", "Acc"], ["pp", "PP"], ["desc", "Effect"]]
+    : [["name", {item: "Item", species: "Pokemon"}[kind] || "Ability"], ["desc", kind === "species" ? "" : "What it does"]];
   function choose(row) { input.value = row.name; input.dispatchEvent(new Event("change", {bubbles: true})); close(); }
   function close() { if (panel) panel.remove(); panel = null; if (openPicker && openPicker.input === input) openPicker = null; }
   function draw() {
     if (!panel) return;
     const q = input.value.trim().toLowerCase();
-    shown = pickerRows(kind).filter(r => (!type || r.type === type) && (!q || r.name.toLowerCase().includes(q) || (q.length > 2 && String(r.desc || "").toLowerCase().includes(q))));
+    shown = (rowsFn ? rowsFn() : pickerRows(kind)).filter(r => (!type || r.type === type) && (!q || r.name.toLowerCase().includes(q) || (q.length > 2 && String(r.desc || "").toLowerCase().includes(q))));
     // names that start with what was typed first, as Showdown does
     shown.sort((a, b) => sort ? (((a[sort] ?? -1) > (b[sort] ?? -1) ? 1 : (a[sort] ?? -1) < (b[sort] ?? -1) ? -1 : 0) * dir)
       : (q ? (b.name.toLowerCase().startsWith(q) - a.name.toLowerCase().startsWith(q)) || a.name.localeCompare(b.name) : a.name.localeCompare(b.name)));
@@ -1203,7 +1285,7 @@ function attachPicker(input, kind) {
           onpointerdown: ev => { ev.preventDefault(); type = type === t ? "" : t; draw(); }}, t))) : null,
       h("table", {}, h("thead", {}, head), h("tbody", {}, body)),
       shown.length > 120 ? h("div", {class: "hint", style: "padding:6px"}, (shown.length - 120) + " more - type to narrow it down.") : !shown.length ? h("div", {class: "hint", style: "padding:6px"},
-        kind === "move" ? "No move with that name. A brand-new move can be typed in; describe it under More > New moves." : "No ability with that name. A brand-new one can be typed in; describe it under More > New abilities.") : null);
+        rowsFn ? "Nothing matches." : kind === "move" ? "No move with that name. A brand-new move can be typed in; describe it under More > New moves." : "No ability with that name. A brand-new one can be typed in; describe it under More > New abilities.") : null);
   }
   function open() {
     if (panel) return;
@@ -2591,14 +2673,14 @@ function renderSprites() {
   const waiting = h("div", {class: "grid", style: "grid-column:1/-1"}, h("div", {class: "empty"}, "Loading..."));
   grid.replaceChildren(
     h("p", {class: "sub", style: "grid-column:1/-1;margin:0"}, "Sprites are made on each Pokemon's page, under SPRITES: one step at a time (front, back, icon, walking sprite), tap the best picture of each, then SAVE."),
-    h("h2", {style: "grid-column:1/-1;margin:10px 0 0"}, "Being drawn"), queueEl,
+    h("h2", {style: "grid-column:1/-1;margin:10px 0 0"}, "The drawing line"), queueEl,
     h("h2", {style: "grid-column:1/-1;margin:10px 0 0"}, "Waiting for someone to approve"), waiting,
     h("h2", {style: "grid-column:1/-1;margin:10px 0 0"}, "Approved - " + have.length + " of " + DEX.species.length + " Pokemon"),
     ...(have.length ? have.map(s => h("button", {class: "card", type: "button", onclick: () => openDetail(s, "sprite")},
       h("div", {class: "pic"}, h("img", {class: "px", src: DEX.ds_sprites[s.id].front, alt: ""})), h("div", {class: "num"}, "#" + pad(s.data.dex)), h("div", {class: "name"}, s.data.name)))
       : [h("div", {class: "empty", style: "grid-column:1/-1"}, "None yet.")]));
   if (!DEX.web.url) return;
-  loadQueue().then(q => queueEl.replaceChildren(queueBox(q, null))).catch(err => queueEl.replaceChildren(h("div", {class: "empty"}, err.message)));
+  wholeQueue(queueEl);
   dbRead("sprite_candidates?status=eq.candidate&gen=eq.4&order=id.desc&limit=60").then(cands => {
     waiting.replaceChildren(...(cands.length ? cands.map(c => {
       const s = byId.get(c.species_id);
@@ -2607,6 +2689,87 @@ function renderSprites() {
         h("div", {class: "name"}, s ? s.data.name : c.species_id), h("div", {class: "line"}, "#" + c.id + " - " + versionLabel(c)));
     }) : [h("div", {class: "empty"}, "Nothing is waiting.")]));
   }).catch(err => waiting.replaceChildren(h("div", {class: "empty"}, err.message)));
+}
+
+// ---------- the whole drawing line (11 Nov 2026: "better view of the queue so all of it can be shown") ----------
+// Read only: it shows the same rows the drawing PC works through and never changes them. Every job with its place,
+// who asked, how far it is, when it starts and when it is done (from the PC's measured times), plus what was drawn last.
+const STAGE_WORDS = {art: "cut-out", front: "front", back: "back", icon: "icon", follower: "walking sprite"};
+const ago = t => { const m = Math.round((Date.now() - new Date(t).getTime()) / 60000); return m < 1 ? "just now" : m < 60 ? m + " min ago" : m < 1440 ? Math.round(m / 60) + " h ago" : Math.round(m / 1440) + " d ago"; };
+function jobTimes(jobs, tries, timings) {
+  let clock = 0;
+  return jobs.map(j => {
+    const n = j.count || 1, done = tries.filter(x => x.job_id === j.id && x.status !== "drawing").length;
+    const each = j.mode === "tries" ? secondsFor(timings, j.stage || "front") : j.mode === "edit" ? 90 : 420;
+    let left = Math.max(5, (n - done) * each);
+    if (j.status === "running" && j.started_at) left = Math.max(5, n * each - (Date.now() - new Date(j.started_at).getTime()) / 1000);
+    const start = clock;
+    clock += left;
+    return {job: j, n, done, start, end: clock};
+  });
+}
+let queueFilter = remember.get("queue-filter") || "all";
+function wholeQueue(el) {
+  let timer = null;
+  async function load() {
+    clearTimeout(timer);
+    if (!el.isConnected && el.dataset.drawn) return;              // the page was left: stop asking
+    try {
+      const [jobs, worker, history] = await Promise.all([
+        dbRead("sprite_jobs?status=in.(queued,running)&order=id.asc&select=id,species_id,status,mode,stage,count,editor,created_at,started_at"),
+        dbRead("sprite_worker?select=seen_at,state,timings").then(r => r[0] || null),
+        dbRead("sprite_jobs?status=in.(done,failed)&order=finished_at.desc.nullslast&limit=25&select=id,species_id,status,mode,stage,count,editor,started_at,finished_at,error")]);
+      const ids = jobs.map(j => j.id);
+      const tries = ids.length ? await dbRead("sprite_tries?job_id=in.(" + ids.join(",") + ")&select=job_id,status") : [];
+      draw(jobs, worker, history, tries);
+    } catch (err) { el.replaceChildren(h("div", {class: "empty"}, err.message)); }
+    el.dataset.drawn = "1";
+    if (el.isConnected) timer = setTimeout(load, 10000);
+  }
+  function draw(jobs, worker, history, tries) {
+    const online = worker && Date.now() - new Date(worker.seen_at).getTime() < 90000, mine = mySprites(), my = me();
+    const isMine = j => (my && j.editor === my) || (mine[j.species_id] && Date.now() - mine[j.species_id].asked < 12 * 3600000);
+    const times = jobTimes(jobs, tries, worker && worker.timings);
+    const shown = times.filter(t => queueFilter === "all" || isMine(t.job));
+    const total = times.length ? times[times.length - 1].end : 0;
+    const what = j => j.mode === "tries" ? (j.count || 1) + " " + (STAGE_WORDS[j.stage] || j.stage || "sprite") + ((j.count || 1) > 1 ? "s" : "") : j.mode === "edit" ? "a change" : "a new sprite";
+    const mon = sid => { const s = byId.get(sid), ds = DEX.ds_sprites[sid];
+      return h("button", {type: "button", class: "qmon", onclick: () => s && openDetail(s, "sprite")},
+        ds && ds.icon ? h("img", {class: "ico px", src: ds.icon, alt: ""}) : null, s ? s.data.name : sid); };
+    const filterBtn = (id, label) => h("button", {type: "button", class: "small", "aria-pressed": String(queueFilter === id),
+      onclick: () => { queueFilter = id; remember.set("queue-filter", id); draw(jobs, worker, history, tries); }}, label);
+    const rows = shown.map(t => {
+      const j = t.job, running = j.status === "running";
+      return h("tr", {class: (running ? "run" : "") + (isMine(j) ? " mine" : "")},
+        h("td", {class: "num"}, String(times.indexOf(t) + 1)),
+        h("td", {}, mon(j.species_id), isMine(j) ? h("span", {class: "star", title: "Yours"}, " ★") : null),
+        h("td", {}, what(j)),
+        h("td", {class: "sub"}, j.editor || "—", h("br"), ago(j.created_at)),
+        h("td", {}, running ? [h("div", {class: "qbar", role: "img", "aria-label": t.done + " of " + t.n + " done"}, h("i", {style: "width:" + Math.max(4, 100 * t.done / t.n) + "%"})),
+            h("div", {class: "sub"}, t.done + " of " + t.n + " done" + (online && worker.state && worker.state !== "idle" ? " · " + worker.state.replace(/^drawing [a-z0-9-]+: ?/, "") : ""))]
+          : h("span", {class: "sub"}, "starts in ~" + mmss(t.start))),
+        h("td", {class: "when"}, online ? "~" + mmss(t.end) : "waits for the PC"));
+    });
+    const past = history.map(j => h("tr", {class: j.status === "failed" ? "bad" : null},
+      h("td", {}, mon(j.species_id)), h("td", {}, what(j)), h("td", {class: "sub"}, j.editor || "—"),
+      h("td", {}, j.status === "failed" ? h("span", {style: "color:var(--bad)", title: j.error || ""}, "failed") : "done"),
+      h("td", {class: "sub"}, j.finished_at ? ago(j.finished_at) : "—"),
+      h("td", {class: "sub"}, j.started_at && j.finished_at ? mmss((new Date(j.finished_at) - new Date(j.started_at)) / 1000) : "—")));
+    el.replaceChildren(
+      h("div", {class: "qhead"},
+        h("span", {class: "qpc " + (online ? "on" : "off")}, online ? (worker.state && worker.state !== "idle" ? "PC: " + worker.state : "PC: ready") : "PC is off - the line waits until it is back"),
+        h("span", {class: "sub"}, jobs.length ? jobs.length + " in line · all done in ~" + mmss(total) : "Nothing in line."),
+        h("span", {class: "grow"}), filterBtn("all", "Everyone"), filterBtn("mine", "★ Mine")),
+      jobs.length ? (shown.length ? h("div", {class: "scroll"}, h("table", {class: "qtable"},
+        h("thead", {}, h("tr", {}, h("th", {}, "#"), h("th", {}, "Pokemon"), h("th", {}, "What"), h("th", {}, "Asked"), h("th", {}, "Now"), h("th", {}, "Done in"))),
+        h("tbody", {}, rows))) : h("div", {class: "empty"}, "None of yours are in line.")) : null,
+      history.length ? h("details", {class: "qpast"}, h("summary", {}, "Drawn last (" + history.length + ")"),
+        h("div", {class: "scroll"}, h("table", {class: "qtable"},
+          h("thead", {}, h("tr", {}, h("th", {}, "Pokemon"), h("th", {}, "What"), h("th", {}, "Asked by"), h("th", {}, ""), h("th", {}, "Finished"), h("th", {}, "Took"))),
+          h("tbody", {}, past)))) : null);
+  }
+  load();
+  return el;
 }
 
 // Pictures from the Discord that nobody has matched to a Pokemon yet.
@@ -2643,7 +2806,7 @@ function renderLost() {
 
 // How our type spread compares with the official games.
 function renderBalance() {
-  // Measured against a full dex: how many of each type a 151-Pokemon dex would have if it followed
+  // Measured against a full dex: how many of each type a dex of dex_size Pokemon would have if it followed
   // the official games' spread (a Pokemon with two types counts for both), and how many we have now.
   const grid = document.getElementById("grid"), shares = DEX.type_shares.shares, size = DEX.dex_size;
   const rows = DEX.types.map(type => {
@@ -2696,52 +2859,420 @@ function applyLayout(layout) {
   index();
 }
 
-let plan = null;   // {ops, layout, error} while the "Change numbers" screen is open
+let plan = null;   // {ops, layout, error, sel, lines, placing} while the "Change numbers" screen is open
+// 11 Nov 2026: a grid of every slot instead of a long list. Tap Pokemon to select several, then put them at a number
+// (typed, or "Pick the spot" and tap a slot; on a computer you can also drag). Evolution lines can move together.
+// It still saves the same move / insert / close steps as before (dexlib.change_layout applies them).
+function families() {                                   // id -> every id of its evolution line
+  const link = new Map(DEX.species.map(s => [s.id, new Set([s.id])]));
+  for (const s of DEX.species) for (const e of s.data.evolutions || []) {
+    if (!e || !link.has(e.into)) continue;
+    const all = new Set([...link.get(s.id), ...link.get(e.into)]);
+    for (const id of all) link.set(id, all);
+  }
+  return link;
+}
+// The steps that put `ids` (in this order) next to each other, the first one on `slot`. Moving one Pokemon shifts the
+// ones already placed when it came from above them, so the start is corrected and tried again until it lands right.
+function blockOnce(layout, ids, slot) {
+  let cur = layout.slice();
+  const ops = [];
+  const add = op => { cur = arrange(cur, [op]); ops.push(op); };
+  ids.forEach((id, i) => {
+    if (i === 0) { if (cur[slot - 1] !== id) add({op: "move", id, to: slot}); return; }
+    const pa = cur.indexOf(ids[i - 1]) + 1, next = pa + 1;
+    if (cur[next - 1] === id) return;
+    if (next > cur.length) throw new Error("There is no room after #" + pa + " for " + nameOf(id) + ". Pick an earlier number.");
+    add({op: "move", id, to: cur[next - 1] === null || cur.indexOf(id) + 1 > pa ? next : pa});
+  });
+  return {ops, cur};
+}
+function blockOps(layout, ids, slot) {
+  let aim = slot;
+  for (let attempt = 0; attempt < 8; attempt++) {
+    if (aim < 1 || aim > layout.length) break;
+    const {ops, cur} = blockOnce(layout, ids, aim);
+    const at = ids.map(id => cur.indexOf(id) + 1);
+    const together = at.every((p, i) => !i || p === at[i - 1] + 1);
+    if (together && at[0] === slot) return ops;
+    if (!together) break;
+    aim += slot - at[0];
+  }
+  throw new Error("They could not be put at #" + slot + " next to each other. Try another number.");
+}
 function renderReorder() {
-  const grid = document.getElementById("grid"), base = currentLayout();
-  const message = h("div", {class: "error", style: "flex-basis:100%"}, plan.error || "");
-  const step = op => {
-    try { plan.layout = arrange(plan.layout, [op]); plan.ops.push(op); plan.error = ""; } catch (err) { plan.error = err.message; }
+  const grid = document.getElementById("grid"), base = currentLayout(), fam = families();
+  plan.sel ||= []; if (plan.lines === undefined) plan.lines = true;
+  const step = ops => {
+    try { plan.layout = arrange(plan.layout, ops); plan.ops.push(...ops); plan.error = ""; } catch (err) { plan.error = err.message; }
     render();
   };
-  const undo = () => { plan.ops.pop(); plan.layout = arrange(base, plan.ops); plan.error = ""; render(); };
-  const save = h("button", {class: "primary", type: "button", disabled: !plan.ops.length}, plan.ops.length ? "Save new order (" + plan.ops.length + " step" + (plan.ops.length > 1 ? "s" : "") + ")" : "Save new order");
+  // the selected Pokemon (with their lines when that is on), in dex order as it is now
+  const chosen = () => {
+    const ids = new Set();
+    for (const id of plan.sel) for (const x of plan.lines ? fam.get(id) || [id] : [id]) ids.add(x);
+    return [...ids].filter(id => plan.layout.includes(id)).sort((a, b) => plan.layout.indexOf(a) - plan.layout.indexOf(b));
+  };
+  const putAt = slot => {
+    const ids = chosen();
+    if (!ids.length) return;
+    try { const ops = blockOps(plan.layout, ids, slot); plan.placing = false; plan.sel = []; if (ops.length) stepGroup(ops); else render(); }
+    catch (err) { plan.error = err.message; render(); }
+  };
+  const undo = () => { plan.ops = plan.ops.slice(0, plan.ops.length - (plan.groups || [1]).pop()); plan.layout = arrange(base, plan.ops); plan.error = ""; render(); };
+  const stepGroup = ops => { (plan.groups ||= []).push(ops.length); step(ops); };
+  const closeGaps = () => {                                   // every empty slot between Pokemon, from the back
+    const last = plan.layout.reduce((m, id, i) => id ? i : m, -1), ops = [];
+    for (let i = last; i >= 0; i--) if (plan.layout[i] === null) ops.push({op: "close", at: i + 1});
+    if (ops.length) stepGroup(ops);
+  };
+  const save = h("button", {class: "primary", type: "button", disabled: !plan.ops.length}, "Save new order");
   save.addEventListener("click", async () => {
     save.disabled = true; save.textContent = "Saving...";
-    try {
-      await saveEdit("reorder", "reorder", {ops: plan.ops});
-      applyLayout(plan.layout); plan = null; view = "species"; render();
-    } catch (err) { plan.error = err.message; render(); }
+    try { await saveEdit("reorder", "reorder", {ops: plan.ops}); applyLayout(plan.layout); plan = null; view = "species"; render(); }
+    catch (err) { plan.error = err.message; render(); }
   });
+  const to = h("input", {type: "number", min: 1, max: DEX.dex_size, placeholder: "#", "aria-label": "Put them at number"});
+  const ids = chosen(), moved = DEX.species.filter(s => plan.layout.indexOf(s.id) !== base.indexOf(s.id));
   const bar = h("div", {class: "bar"},
-    h("div", {class: "grow"}, h("b", {}, "Changing dex numbers"), h("div", {class: "sub"}, plan.ops.length ? plan.ops.length + " step(s) not saved yet." : "Nothing changed yet.")),
-    h("button", {type: "button", disabled: !plan.ops.length, onclick: undo}, "Undo last step"), save,
-    h("button", {type: "button", onclick: () => { plan = null; view = "species"; render(); }}, "Cancel"), message);
+    h("div", {class: "grow"}, h("b", {}, "Changing dex numbers"),
+      h("div", {class: "sub"}, ids.length ? ids.length + " selected" + (plan.lines && ids.length > plan.sel.length ? " (with their evolution lines)" : "") + ": " + ids.map(nameOf).join(", ")
+        : "Tap Pokemon to select them" + (matchMedia("(pointer: fine)").matches ? ", or drag one onto a slot" : "") + ".")),
+    h("label", {class: "sub", style: "display:flex;gap:4px;align-items:center"}, h("input", {type: "checkbox", checked: plan.lines ? "" : null, onchange: ev => { plan.lines = ev.target.checked; render(); }}), "Move evolution lines together"),
+    ids.length ? [to, h("button", {type: "button", onclick: () => to.value && putAt(Number(to.value))}, "Put at #"),
+      h("button", {type: "button", "aria-pressed": String(!!plan.placing), onclick: () => { plan.placing = !plan.placing; render(); }}, plan.placing ? "Tap a slot..." : "Pick the spot"),
+      h("button", {type: "button", onclick: () => { const first = plan.layout.indexOf(ids[0]) + 1; stepGroup([{op: "insert", at: first}]); }}, "Empty slot before"),
+      h("button", {type: "button", onclick: () => { plan.sel = []; plan.placing = false; render(); }}, "Clear selection")] : null,
+    h("button", {type: "button", onclick: closeGaps}, "Close all gaps"),
+    h("button", {type: "button", disabled: !plan.ops.length, onclick: undo}, "Undo"),
+    h("button", {type: "button", disabled: !plan.ops.length, onclick: () => { plan.ops = []; plan.groups = []; plan.layout = base.slice(); plan.error = ""; render(); }}, "Start over"),
+    save, h("button", {type: "button", onclick: () => { plan = null; view = "species"; render(); }}, "Cancel"),
+    plan.error ? h("div", {class: "error", style: "flex-basis:100%"}, plan.error) : null);
+  const changes = moved.length ? h("details", {class: "hint"}, h("summary", {}, moved.length + " Pokemon get a new number (not saved yet)"),
+    h("div", {class: "chips"}, moved.sort((a, b) => plan.layout.indexOf(a.id) - plan.layout.indexOf(b.id)).map(s =>
+      h("span", {class: "chip"}, s.data.name + " #" + pad(base.indexOf(s.id) + 1) + " → #" + pad(plan.layout.indexOf(s.id) + 1))))) : null;
   const help = h("details", {class: "hint"}, h("summary", {}, "How this works"),
-    "Pokemon keep everything except their number. To MOVE one, type the number it should get and press Move: if that slot is empty it just goes there; if another Pokemon is there, ",
-    "the Pokemon in between move up or down one number to make room. \"Up\" and \"Down\" swap with the neighbour. ",
-    "\"Add empty slot here\" puts a new empty slot at this number and moves this Pokemon and everything after it down one (the last slot, #" + DEX.dex_size + ", must be empty). ",
-    "\"Remove empty slot\" closes a gap. On a computer you can also drag a Pokemon onto another row. Nothing counts until you press Save; it is applied within about 15 minutes.");
-  const rows = plan.layout.map((id, i) => {
+    "Tap one or more Pokemon to select them (tap again to unselect). Then type a number and press Put at #, or press Pick the spot and tap a slot. ",
+    "They go there next to each other, in the order they have now; if the slot is taken, the Pokemon from there on move down one to make room. ",
+    "With \"Move evolution lines together\" on, selecting one Pokemon takes its whole line along. Close all gaps removes the empty slots between Pokemon. ",
+    "Nothing changes until you press Save; it is applied within about 15 minutes. Undo takes back the last change.");
+  const sel = new Set(ids);
+  const tiles = plan.layout.map((id, i) => {
     const n = i + 1, s = id && byId.get(id), was = s ? base.indexOf(id) + 1 : 0;
-    const to = h("input", {type: "number", min: 1, max: DEX.dex_size, placeholder: "#", "aria-label": "New number"});
-    const go = () => { if (to.value) step({op: "move", id, to: Number(to.value)}); };
-    const row = h("div", {class: "rrow" + (s ? "" : " open") + (s && was !== n ? " moved" : "")},
+    const pic = s && ((DEX.ds_sprites[id] || {}).icon ? {src: DEX.ds_sprites[id].icon, pixel: true} : portrait(s));
+    const tile = h("button", {type: "button", class: "rtile" + (s ? "" : " open") + (s && was !== n ? " moved" : "") + (sel.has(id) ? " sel" : "") + (plan.placing ? " target" : ""),
+      "aria-pressed": s ? String(sel.has(id)) : null, title: s ? (plan.placing ? "Put the selected here" : "Select " + s.data.name) : (plan.placing ? "Put the selected here" : "Open slot"),
+      draggable: s && matchMedia("(pointer: fine)").matches ? "true" : null,
+      onclick: () => {
+        if (plan.placing) return putAt(n);
+        if (!s) return;
+        plan.sel = plan.sel.includes(id) ? plan.sel.filter(x => x !== id) : plan.sel.concat(id);
+        render();
+      }},
       h("span", {class: "no"}, "#" + pad(n)),
-      s ? h("span", {class: "who", draggable: matchMedia("(pointer: fine)").matches ? "true" : null, title: "Drag onto another row to move it there"}, s.data.name || id, " ", s.data.types ? s.data.types.map(typeChip) : null) : h("span", {class: "who", style: "font-weight:400;cursor:default"}, "Open slot"),
-      s && was !== n ? h("span", {class: "sub"}, "was #" + pad(was)) : null,
-      s ? [h("button", {type: "button", class: "small", disabled: n === 1, onclick: () => step({op: "move", id, to: n - 1})}, "Up"),
-           h("button", {type: "button", class: "small", disabled: n === DEX.dex_size, onclick: () => step({op: "move", id, to: n + 1})}, "Down"),
-           to, h("button", {type: "button", class: "small", onclick: go}, "Move")] : null,
-      h("button", {type: "button", class: "small", onclick: () => step({op: "insert", at: n})}, "Add empty slot here"),
-      s ? null : h("button", {type: "button", class: "small", onclick: () => step({op: "close", at: n})}, "Remove empty slot"));
-    if (s) row.querySelector(".who").addEventListener("dragstart", ev => ev.dataTransfer.setData("text/plain", id));
-    row.addEventListener("dragover", ev => { ev.preventDefault(); row.classList.add("over"); });
-    row.addEventListener("dragleave", () => row.classList.remove("over"));
-    row.addEventListener("drop", ev => { ev.preventDefault(); const dragged = ev.dataTransfer.getData("text/plain"); if (plan.layout.includes(dragged)) step({op: "move", id: dragged, to: n}); else row.classList.remove("over"); });
-    return row;
+      s ? (pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: "", loading: "lazy"}) : h("span", {class: "letter"}, (s.data.name || "?")[0])) : h("span", {class: "letter"}, "·"),
+      h("span", {class: "nm"}, s ? s.data.name : "open"),
+      s && was !== n ? h("span", {class: "was"}, "was #" + pad(was)) : null);
+    if (s) tile.addEventListener("dragstart", ev => { ev.dataTransfer.setData("text/plain", id); if (!plan.sel.includes(id)) plan.sel = [id]; });
+    tile.addEventListener("dragover", ev => { ev.preventDefault(); tile.classList.add("over"); });
+    tile.addEventListener("dragleave", () => tile.classList.remove("over"));
+    tile.addEventListener("drop", ev => { ev.preventDefault(); if (plan.layout.includes(ev.dataTransfer.getData("text/plain"))) putAt(n); else tile.classList.remove("over"); });
+    if (!s && !plan.placing) tile.append(h("span", {class: "gapx", role: "button", tabindex: "0", title: "Remove this empty slot",
+      onclick: ev => { ev.stopPropagation(); stepGroup([{op: "close", at: n}]); }}, "✕"));
+    return tile;
   });
-  grid.replaceChildren(h("div", {class: "reorder", style: "grid-column:1/-1"}, bar, help, rows));
+  grid.replaceChildren(h("div", {class: "reorder", style: "grid-column:1/-1"}, bar, changes, help, h("div", {class: "rgrid"}, tiles)));
+}
+
+// ---------- team builder (11 Nov 2026: "team building, as close to Showdown as possible") ----------
+// Six Pokemon from our dex with item, ability, nature, EVs, IVs and four moves they can learn (their own and their
+// earlier stages' level-up, TM/HM, tutor and egg moves). Stats are worked out as in the game. Teams are kept in this
+// browser; Export / Import use Showdown's text format and Share makes a link that holds the whole team.
+const NATURES = {Hardy: [], Lonely: ["attack", "defense"], Brave: ["attack", "speed"], Adamant: ["attack", "sp_attack"], Naughty: ["attack", "sp_defense"],
+  Bold: ["defense", "attack"], Docile: [], Relaxed: ["defense", "speed"], Impish: ["defense", "sp_attack"], Lax: ["defense", "sp_defense"],
+  Timid: ["speed", "attack"], Hasty: ["speed", "defense"], Serious: [], Jolly: ["speed", "sp_attack"], Naive: ["speed", "sp_defense"],
+  Modest: ["sp_attack", "attack"], Mild: ["sp_attack", "defense"], Quiet: ["sp_attack", "speed"], Bashful: [], Rash: ["sp_attack", "sp_defense"],
+  Calm: ["sp_defense", "attack"], Gentle: ["sp_defense", "defense"], Sassy: ["sp_defense", "speed"], Careful: ["sp_defense", "sp_attack"], Quirky: []};
+const SHORT_STAT = {hp: "HP", attack: "Atk", defense: "Def", sp_attack: "SpA", sp_defense: "SpD", speed: "Spe"};
+const natureMult = (nature, k) => { const n = NATURES[nature] || []; return n[0] === k ? 1.1 : n[1] === k ? 0.9 : 1; };
+const natureLabel = n => (NATURES[n] || []).length ? n + " (+" + SHORT_STAT[NATURES[n][0]] + " -" + SHORT_STAT[NATURES[n][1]] + ")" : n;
+const allStats = v => Object.fromEntries(STATS.map(([k]) => [k, v]));
+const blankMon = () => ({species: "", nickname: "", level: 50, item: "", ability: "", nature: "Hardy", gender: "", shiny: false,
+  evs: allStats(0), ivs: allStats(31), moves: ["", "", "", ""]});
+const speciesByName = name => DEX.species.find(s => norm(s.data.name) === norm(name) || s.id === name);
+
+// The moves a Pokemon can have: its own learnset and every earlier stage's.
+function learnable(sid) {
+  const out = new Map(), seen = new Set();
+  const walk = id => {
+    if (seen.has(id) || !byId.has(id)) return;
+    seen.add(id);
+    const ls = byId.get(id).data.learnset || {}, as = id === sid ? "" : " as " + nameOf(id);
+    const add = (name, how) => { if (name && !out.has(norm(name))) out.set(norm(name), {name, how: how + as}); };
+    (ls.level_up || []).forEach(m => m && add(m.move, m.level ? "Lv " + m.level : "on evolving"));
+    (ls.tm_hm || []).forEach(m => add(m, "TM/HM"));
+    (ls.tutor || []).forEach(m => add(m, "tutor"));
+    (ls.egg || []).forEach(m => add(m, "egg"));
+    for (const s of DEX.species) if ((s.data.evolutions || []).some(e => e && e.into === id)) walk(s.id);
+  };
+  walk(sid);
+  return [...out.values()];
+}
+function monStat(m, k) {
+  const s = speciesByName(m.species), base = s && (s.data.base_stats || {})[k];
+  if (!Number.isInteger(base)) return null;
+  return calcStat(base, Math.max(1, Math.min(100, Number(m.level) || 50)), Number(m.ivs[k]) || 0, Number(m.evs[k]) || 0, natureMult(m.nature, k), k === "hp");
+}
+const monTypes = m => { const s = speciesByName(m.species); return s ? (s.data.types || []) : []; };
+
+// Showdown's text format
+function exportMon(m) {
+  const s = speciesByName(m.species), name = s ? s.data.name : m.species;
+  if (!name) return "";
+  const lines = [(m.nickname && m.nickname !== name ? m.nickname + " (" + name + ")" : name) + (m.gender ? " (" + m.gender + ")" : "") + (m.item ? " @ " + m.item : "")];
+  if (m.ability) lines.push("Ability: " + m.ability);
+  if (Number(m.level) !== 100) lines.push("Level: " + m.level);
+  if (m.shiny) lines.push("Shiny: Yes");
+  const evs = STATS.filter(([k]) => Number(m.evs[k])).map(([k]) => m.evs[k] + " " + SHORT_STAT[k]);
+  if (evs.length) lines.push("EVs: " + evs.join(" / "));
+  lines.push(m.nature + " Nature");
+  const ivs = STATS.filter(([k]) => Number(m.ivs[k]) !== 31).map(([k]) => m.ivs[k] + " " + SHORT_STAT[k]);
+  if (ivs.length) lines.push("IVs: " + ivs.join(" / "));
+  m.moves.filter(Boolean).forEach(mv => lines.push("- " + mv));
+  return lines.join("\n");
+}
+function importTeam(text) {
+  const mons = [], unknown = [];
+  for (const block of text.replace(/\r/g, "").split(/\n\s*\n/).map(b => b.trim()).filter(Boolean)) {
+    const lines = block.split("\n").map(l => l.trim()).filter(Boolean);
+    if (/^===/.test(lines[0])) lines.shift();
+    if (!lines.length) continue;
+    const m = blankMon();
+    m.level = 100;
+    let first = lines[0];
+    const at = first.lastIndexOf(" @ ");
+    if (at >= 0) { m.item = first.slice(at + 3).trim(); first = first.slice(0, at).trim(); }
+    const g = first.match(/\s\((M|F)\)$/);
+    if (g) { m.gender = g[1]; first = first.slice(0, g.index).trim(); }
+    const nick = first.match(/^(.*)\s\(([^()]+)\)$/);
+    let name = first;
+    if (nick) { m.nickname = nick[1].trim(); name = nick[2].trim(); }
+    const s = speciesByName(name);
+    m.species = s ? s.id : name;
+    if (!s) unknown.push(name);
+    const moves = [];
+    for (const line of lines.slice(1)) {
+      let x;
+      if (line.startsWith("- ")) moves.push(line.slice(2).trim());
+      else if ((x = line.match(/^Ability:\s*(.+)$/i))) m.ability = x[1].trim();
+      else if ((x = line.match(/^Level:\s*(\d+)/i))) m.level = Number(x[1]);
+      else if (/^Shiny:\s*Yes/i.test(line)) m.shiny = true;
+      else if ((x = line.match(/^(\w+) Nature$/i)) && NATURES[x[1][0].toUpperCase() + x[1].slice(1).toLowerCase()]) m.nature = x[1][0].toUpperCase() + x[1].slice(1).toLowerCase();
+      else if ((x = line.match(/^(EVs|IVs):\s*(.+)$/i))) {
+        for (const part of x[2].split("/")) {
+          const y = part.trim().match(/^(\d+)\s+(\w+)$/);
+          const k = y && Object.keys(SHORT_STAT).find(k => SHORT_STAT[k].toLowerCase() === y[2].toLowerCase());
+          if (k) m[x[1].toLowerCase()][k] = Math.min(x[1] === "EVs" ? 252 : 31, Number(y[1]));
+        }
+      }
+    }
+    m.moves = moves.concat(["", "", "", ""]).slice(0, 4);
+    mons.push(m);
+  }
+  return {mons: mons.slice(0, 6), unknown};
+}
+const shareCode = team => btoa(unescape(encodeURIComponent(JSON.stringify(team)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+const fromShareCode = code => JSON.parse(decodeURIComponent(escape(atob(code.replace(/-/g, "+").replace(/_/g, "/")))));
+
+function loadTeams() { try { const t = JSON.parse(remember.get("teams") || "[]"); return Array.isArray(t) ? t : []; } catch (e) { return []; } }
+const tb = {teams: loadTeams(), cur: Number(remember.get("team-cur")) || 0, slot: 0, panel: ""};
+function saveTeams() { remember.set("teams", JSON.stringify(tb.teams)); remember.set("team-cur", String(tb.cur)); }
+function currentTeam() {
+  if (!tb.teams.length) tb.teams.push({name: "Team 1", mons: []});
+  tb.cur = Math.max(0, Math.min(tb.cur, tb.teams.length - 1));
+  return tb.teams[tb.cur];
+}
+// A team shared by a link (#team=...) is added to this browser's teams.
+function takeSharedTeam() {
+  const m = location.hash.match(/^#team=([A-Za-z0-9_-]+)/);
+  if (!m) return false;
+  try {
+    const team = fromShareCode(m[1]);
+    if (team && Array.isArray(team.mons)) {
+      tb.teams.push({name: String(team.name || "Shared team").slice(0, 40), mons: team.mons.slice(0, 6).map(x => Object.assign(blankMon(), x))});
+      tb.cur = tb.teams.length - 1; tb.slot = 0; saveTeams();
+    }
+  } catch (e) { /* a broken link: nothing is added */ }
+  history.replaceState(null, "", location.pathname + location.search);
+  return true;
+}
+
+function renderTeams() {
+  const grid = document.getElementById("grid"), team = currentTeam(), redraw = () => { saveTeams(); renderTeams(); };
+  if (tb.slot > team.mons.length) tb.slot = team.mons.length;
+  const teamSelect = h("select", {"aria-label": "Team", onchange: ev => { tb.cur = Number(ev.target.value); tb.slot = 0; tb.panel = ""; redraw(); }},
+    tb.teams.map((t, i) => h("option", {value: i, selected: i === tb.cur ? "" : null}, t.name + " (" + t.mons.filter(m => m.species).length + ")")));
+  const nameBox = h("input", {type: "text", value: team.name, maxlength: 40, "aria-label": "Team name", style: "max-width:180px", onchange: ev => { team.name = ev.target.value.trim() || "Team"; redraw(); }});
+  const del = h("button", {type: "button"}, "Delete team");
+  del.addEventListener("click", () => sure(del, "Really delete?", () => { tb.teams.splice(tb.cur, 1); tb.cur = 0; tb.slot = 0; redraw(); }));
+  const panelBtn = (id, label) => h("button", {type: "button", "aria-pressed": String(tb.panel === id), onclick: () => { tb.panel = tb.panel === id ? "" : id; renderTeams(); }}, label);
+  const bar = h("div", {class: "tbar"}, teamSelect, nameBox,
+    h("button", {type: "button", onclick: () => { tb.teams.push({name: "Team " + (tb.teams.length + 1), mons: []}); tb.cur = tb.teams.length - 1; tb.slot = 0; redraw(); }}, "+ New team"),
+    h("button", {type: "button", onclick: () => { tb.teams.push(JSON.parse(JSON.stringify(Object.assign({}, team, {name: team.name + " copy"})))); tb.cur = tb.teams.length - 1; redraw(); }}, "Copy"),
+    del, h("span", {class: "grow"}), panelBtn("import", "Import"), panelBtn("export", "Export"), panelBtn("share", "Share link"));
+
+  let panel = null;
+  if (tb.panel === "export") {
+    const text = team.mons.map(exportMon).filter(Boolean).join("\n\n");
+    const area = h("textarea", {rows: 12, readonly: "", style: "width:100%;font-family:var(--mono, monospace)"}, text);
+    panel = h("div", {class: "tpanel"}, h("div", {class: "sub"}, "Showdown's text format. Copy it into Showdown or a chat."), area,
+      h("button", {type: "button", onclick: ev => { navigator.clipboard && navigator.clipboard.writeText(text).then(() => { ev.target.textContent = "Copied"; }); }}, "Copy"));
+  } else if (tb.panel === "import") {
+    const area = h("textarea", {rows: 12, style: "width:100%;font-family:var(--mono, monospace)", placeholder: "Paste a team in Showdown's text format"});
+    const msg = h("div", {class: "sub"});
+    panel = h("div", {class: "tpanel"}, h("div", {class: "sub"}, "Paste a team exported from Showdown or from here. It becomes a new team; Pokemon that are not in our dex are kept by name but have no stats."), area,
+      h("button", {type: "button", class: "primary", onclick: () => {
+        const {mons, unknown} = importTeam(area.value);
+        if (!mons.length) { msg.textContent = "No Pokemon found in that text."; return; }
+        tb.teams.push({name: "Imported team", mons}); tb.cur = tb.teams.length - 1; tb.slot = 0; tb.panel = "";
+        saveTeams(); renderTeams();
+        if (unknown.length) document.getElementById("notice").prepend(h("div", {class: "notice info"}, "Not in our dex: " + unknown.join(", ") + "."));
+      }}, "Import as new team"), msg);
+  } else if (tb.panel === "share") {
+    const link = location.origin + location.pathname + "#team=" + shareCode({name: team.name, mons: team.mons});
+    panel = h("div", {class: "tpanel"}, h("div", {class: "sub"}, "Anyone who opens this link gets a copy of the team in their own team list."),
+      h("input", {type: "text", readonly: "", value: link, style: "width:100%", onfocus: ev => ev.target.select()}),
+      h("button", {type: "button", onclick: ev => { navigator.clipboard && navigator.clipboard.writeText(link).then(() => { ev.target.textContent = "Copied"; }); }}, "Copy link"));
+  }
+
+  // the six slots
+  const tabs = h("div", {class: "tslots", role: "tablist"}, Array.from({length: 6}, (_, i) => {
+    const m = team.mons[i], s = m && speciesByName(m.species), ds = s && DEX.ds_sprites[s.id], pic = s && (ds && ds.icon ? {src: ds.icon, pixel: true} : portrait(s));
+    if (!m && i > team.mons.length) return h("div", {class: "tslot empty"});
+    return h("button", {type: "button", role: "tab", class: "tslot", "aria-selected": String(tb.slot === i), onclick: () => {
+        if (!m) { team.mons.push(blankMon()); }
+        tb.slot = i; redraw(); }},
+      m ? [pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: ""}) : h("span", {class: "letter"}, (m.species || "?")[0] || "?"),
+           h("span", {class: "nm"}, m.nickname || (s ? s.data.name : m.species) || "(empty)"), h("span", {class: "types"}, monTypes(m).map(typeChip))]
+        : h("span", {class: "nm"}, "+ Add"));
+  }));
+
+  const m = team.mons[tb.slot];
+  const editor = m ? monEditor(m, team, redraw) : h("div", {class: "empty"}, "Press + Add to put a Pokemon in the team.");
+  grid.replaceChildren(h("div", {class: "teams", style: "grid-column:1/-1"}, bar, panel, tabs, editor, teamReport(team)));
+}
+
+function monEditor(m, team, redraw) {
+  const s = speciesByName(m.species), d = s ? s.data : {}, ab = d.abilities || {};
+  const change = (fn, full) => ev => { fn(ev.target.value); saveTeams(); if (full) renderTeams(); else updateStats(); };
+  const speciesBox = attachPicker(textInput(s ? d.name : m.species, {placeholder: "Pokemon", "aria-label": "Pokemon"}), "species",
+    () => DEX.species.slice().sort((a, b) => a.data.dex - b.data.dex).map(x => ({name: x.data.name, desc: "#" + pad(x.data.dex) + "  " + (x.data.types || []).join("/") + (x.bst ? "  BST " + x.bst : "")})));
+  speciesBox.addEventListener("change", () => {
+    const x = speciesByName(speciesBox.value);
+    if (!x || (s && x.id === s.id)) return;
+    m.species = x.id; m.ability = (x.data.abilities || {}).primary || ""; m.moves = ["", "", "", ""];
+    redraw();
+  });
+  const abilities = [ab.primary, ab.secondary, ab.hidden].filter(filled);
+  if (s && !m.ability && abilities.length) m.ability = abilities[0];
+  const abilitySel = h("select", {"aria-label": "Ability", onchange: change(v => { m.ability = v; }, true)},
+    (abilities.length ? abilities : [m.ability || ""]).map(a => h("option", {value: a, selected: a === m.ability ? "" : null}, a + (a === ab.hidden ? " (hidden)" : ""))));
+  const itemBox = attachPicker(textInput(m.item, {placeholder: "Item", "aria-label": "Item"}), "item", () => Object.entries(SD.items || {}).map(([name, desc]) => ({name, desc})));
+  itemBox.addEventListener("change", () => { m.item = itemBox.value.trim(); saveTeams(); });
+  const natureSel = h("select", {"aria-label": "Nature", onchange: change(v => { m.nature = v; }, true)},
+    Object.keys(NATURES).map(n => h("option", {value: n, selected: n === m.nature ? "" : null}, natureLabel(n))));
+  const levelBox = numberInput(m.level, 1, 100, 1, {"aria-label": "Level", style: "width:70px"});
+  levelBox.addEventListener("input", change(v => { m.level = Math.max(1, Math.min(100, Number(v) || 1)); }));
+  const nickBox = textInput(m.nickname, {placeholder: "Nickname", "aria-label": "Nickname", maxlength: 12});
+  nickBox.addEventListener("change", () => { m.nickname = nickBox.value.trim(); redraw(); });
+
+  // moves: a sortable list of what it can learn, like Showdown's
+  const canLearn = s ? learnable(s.id) : [];
+  const learnRows = () => canLearn.map(x => Object.assign({}, moveInfo(x.name), {name: x.name, desc: x.how + " - " + (moveInfo(x.name).desc || "")}));
+  const moveBoxes = m.moves.map((mv, i) => {
+    const box = attachPicker(textInput(mv, {placeholder: "Move " + (i + 1), "aria-label": "Move " + (i + 1)}), "move", learnRows);
+    box.addEventListener("change", () => { m.moves[i] = box.value.trim(); saveTeams(); renderTeams(); });
+    const info = mv ? moveInfo(mv) : null;
+    const illegal = mv && s && !canLearn.some(x => norm(x.name) === norm(mv));
+    return h("div", {class: "tmove"}, box, info && !info.unknown ? h("span", {class: "mv"}, info.type ? typeChip(info.type) : null, catBadge(info.category), info.power ? " " + info.power : "") : null,
+      illegal ? h("span", {class: "badge need", title: "Not in its learnset"}, "can't learn") : null);
+  });
+
+  // stats: base, IV, EV, the result
+  const evLeft = h("span", {class: "sub"});
+  const statCells = {};
+  const rows = STATS.map(([k, label]) => {
+    const base = (d.base_stats || {})[k];
+    const iv = numberInput(m.ivs[k], 0, 31, 1, {"aria-label": label + " IV", style: "width:56px"});
+    const evNum = numberInput(m.evs[k], 0, 252, 4, {"aria-label": label + " EVs", style: "width:72px"});
+    const ev = h("input", {type: "range", min: 0, max: 252, step: 4, value: m.evs[k], "aria-label": label + " EVs slider"});
+    const setEv = v => {
+      const others = STATS.reduce((a, [o]) => a + (o === k ? 0 : Number(m.evs[o]) || 0), 0);
+      m.evs[k] = Math.max(0, Math.min(252, 510 - others, Math.round((Number(v) || 0) / 4) * 4));
+      ev.value = evNum.value = m.evs[k]; saveTeams(); updateStats();
+    };
+    ev.addEventListener("input", () => setEv(ev.value));
+    evNum.addEventListener("change", () => setEv(evNum.value));
+    iv.addEventListener("change", () => { m.ivs[k] = Math.max(0, Math.min(31, Number(iv.value) || 0)); iv.value = m.ivs[k]; saveTeams(); updateStats(); });
+    statCells[k] = h("td", {class: "num tot"});
+    const n = (NATURES[m.nature] || []);
+    return h("tr", {}, h("th", {class: n[0] === k ? "up" : n[1] === k ? "down" : null}, label), h("td", {class: "num"}, Number.isInteger(base) ? String(base) : "—"),
+      h("td", {}, h("div", {class: "track"}, h("i", {style: "width:" + Math.min(100, (base || 0) / 1.8) + "%;background:" + (base >= 110 ? "var(--good)" : base < 50 ? "var(--bad)" : "var(--pri)")}))),
+      h("td", {}, iv), h("td", {class: "evc"}, ev, evNum), statCells[k]);
+  });
+  function updateStats() {
+    for (const [k] of STATS) { const v = monStat(m, k); statCells[k].textContent = v === null ? "—" : String(v); }
+    const used = STATS.reduce((a, [k]) => a + (Number(m.evs[k]) || 0), 0);
+    evLeft.textContent = "EVs: " + used + " of 510 used, " + (510 - used) + " left";
+  }
+  const statsTable = h("table", {class: "tstats"}, h("thead", {}, h("tr", {}, h("th", {}, ""), h("th", {class: "num"}, "Base"), h("th", {}, ""), h("th", {}, "IV"), h("th", {}, "EVs"), h("th", {class: "num"}, "Stat"))), h("tbody", {}, rows));
+  updateStats();
+
+  const remove = h("button", {type: "button"}, "Remove from team");
+  remove.addEventListener("click", () => sure(remove, "Really remove?", () => { team.mons.splice(team.mons.indexOf(m), 1); tb.slot = Math.max(0, tb.slot - 1); redraw(); }));
+  const ds = s && DEX.ds_sprites[s.id], pic = s && (ds && ds.front ? {src: ds.front, pixel: true} : portrait(s));
+  return h("div", {class: "tedit"},
+    h("div", {class: "tleft"},
+      pic ? h("img", {class: "tpic" + (pic.pixel ? " px" : ""), src: pic.src, alt: ""}) : h("div", {class: "tpic noart"}, "?"),
+      s ? h("div", {class: "types"}, (d.types || []).map(typeChip)) : m.species ? h("div", {class: "badge need"}, "Not in our dex") : null,
+      field("Pokemon", speciesBox), field("Nickname", nickBox),
+      h("div", {class: "trow"}, field("Level", levelBox), field("Gender", h("select", {onchange: change(v => { m.gender = v; })}, [["", "—"], ["M", "Male"], ["F", "Female"]].map(([v, t]) => h("option", {value: v, selected: v === m.gender ? "" : null}, t))))),
+      h("label", {class: "sub", style: "display:flex;gap:6px;align-items:center"}, h("input", {type: "checkbox", checked: m.shiny ? "" : null, onchange: ev => { m.shiny = ev.target.checked; saveTeams(); }}), "Shiny"),
+      s ? h("button", {type: "button", class: "small", onclick: () => openDetail(s)}, "Open " + d.name + "'s page") : null, remove),
+    h("div", {class: "tmid"}, field("Item", itemBox), m.item && (SD.items || {})[m.item] ? h("div", {class: "sub"}, SD.items[m.item]) : null,
+      field("Ability", abilitySel), m.ability ? h("div", {class: "sub"}, abilityDesc(m.ability)) : null,
+      h("div", {class: "flabel"}, "Moves"), moveBoxes,
+      s && !canLearn.length ? h("div", {class: "sub"}, d.name + " has no moves in its learnset yet.") : null),
+    h("div", {class: "tright"}, field("Nature", natureSel), statsTable, evLeft));
+}
+
+// The team as a whole: what hits it hard, and what its attacking moves hit hard.
+function teamReport(team) {
+  const mons = team.mons.filter(m => monTypes(m).length);
+  if (!mons.length) return null;
+  const mult = (atk, types) => types.reduce((a, t) => a * (CHART[atk][t] ?? 1), 1);
+  const cell = x => h("td", {class: "mx " + (x === 0 ? "imm" : x > 1 ? "weak" : x < 1 ? "res" : "")}, x === 1 ? "" : x === 0 ? "0" : x === .5 ? "½" : x === .25 ? "¼" : x + "×");
+  const name = m => m.nickname || nameOf(m.species);
+  const defRows = DEX.types.map(t => {
+    const xs = mons.map(m => mult(t, monTypes(m))), weak = xs.filter(x => x > 1).length, res = xs.filter(x => x < 1).length;
+    return h("tr", {class: weak >= 3 && weak > res ? "hot" : null}, h("th", {}, typeChip(t)), xs.map(cell),
+      h("td", {class: "num " + (weak > res ? "weak" : "")}, String(weak)), h("td", {class: "num"}, String(res)));
+  });
+  const attackTypes = new Set();
+  for (const m of mons) for (const mv of m.moves) { const i = mv && moveInfo(mv); if (i && i.type && i.category && i.category !== "Status") attackTypes.add(i.type); }
+  const offRows = DEX.types.map(t => {
+    const best = [...attackTypes].reduce((b, a) => Math.max(b, CHART[a][t] ?? 1), attackTypes.size ? 0 : 1);
+    return {t, best};
+  });
+  const noSuper = offRows.filter(r => r.best <= 1).map(r => r.t);
+  return h("div", {class: "treport"},
+    h("h2", {}, "Weaknesses"),
+    h("div", {class: "scroll"}, h("table", {class: "tdef"}, h("thead", {}, h("tr", {}, h("th", {}, "Attack"), mons.map(m => h("th", {}, name(m))), h("th", {}, "Weak"), h("th", {}, "Resist"))), h("tbody", {}, defRows))),
+    h("p", {class: "sub"}, "Abilities like Levitate are not counted. A row is marked when three or more are weak to it and fewer resist it."),
+    h("h2", {}, "Coverage"),
+    attackTypes.size ? [h("div", {class: "types", style: "flex-wrap:wrap"}, offRows.map(r => h("span", {class: "cov " + (r.best > 1 ? "good" : r.best < 1 ? "bad" : "")}, typeChip(r.t), " " + (r.best > 1 ? "2×" : r.best === 0 ? "0" : r.best < 1 ? "½" : "1×")))),
+      h("p", {class: "sub"}, noSuper.length ? "Nothing in the team hits " + noSuper.join(", ") + " super-effectively." : "Every type is hit super-effectively by at least one move.")]
+      : h("p", {class: "sub"}, "Give the team attacking moves to see what they hit hard."));
 }
 
 // ---------- the front page ----------
@@ -2749,7 +3280,7 @@ function renderReorder() {
 let layout = remember.get("layout") || "list";
 let listSort = {key: "dex", dir: 1};
 const LIST_COLS = [["dex", "#"], ["name", "Name"], ["types", "Types"], ["abilities", "Abilities"], ["hidden", "Hidden"],
-  ...STATS.map(([k, label]) => [k, label.replace("Sp. Atk", "SpA").replace("Sp. Def", "SpD").replace("Attack", "Atk").replace("Defense", "Def").replace("Speed", "Spe")]), ["bst", "BST"]];
+  ...STATS.map(([k, label]) => [k, label.replace("Sp. Atk", "SpA").replace("Sp. Def", "SpD").replace("Attack", "Atk").replace("Defense", "Def").replace("Speed", "Spe")]), ["bst", "BST"], ["complete", "Done"]];
 function listValue(s, key) {
   const d = s.data, st = d.base_stats || {}, ab = d.abilities || {};
   if (key === "dex") return d.dex;
@@ -2758,14 +3289,15 @@ function listValue(s, key) {
   if (key === "abilities") return [ab.primary, ab.secondary].filter(filled).join("/").toLowerCase() || "~";
   if (key === "hidden") return String(ab.hidden || "~").toLowerCase();
   if (key === "bst") return s.bst ?? -1;
+  if (key === "complete") return s.complete;
   return Number.isInteger(st[key]) ? st[key] : -1;
 }
 function renderList(list) {
   const {key, dir} = listSort;
   list = list.slice().sort((a, b) => { const x = listValue(a, key), y = listValue(b, key); return (x > y ? 1 : x < y ? -1 : a.data.dex - b.data.dex) * dir; });
-  const head = h("tr", {}, h("th", {}, ""), LIST_COLS.map(([k, label]) => h("th", {class: STATS.some(([sk]) => sk === k) || k === "bst" ? "num" : null,
+  const head = h("tr", {}, h("th", {}, ""), LIST_COLS.map(([k, label]) => h("th", {class: STATS.some(([sk]) => sk === k) || k === "bst" || k === "complete" ? "num" : null,
     "aria-sort": key === k ? (dir > 0 ? "ascending" : "descending") : null, title: "Sort by " + label,
-    onclick: () => { listSort = key === k ? {key: k, dir: -dir} : {key: k, dir: STATS.some(([sk]) => sk === k) || k === "bst" ? -1 : 1}; render(); }},
+    onclick: () => { listSort = key === k ? {key: k, dir: -dir} : {key: k, dir: STATS.some(([sk]) => sk === k) || k === "bst" || k === "complete" ? -1 : 1}; document.getElementById("sort").value = ""; render(); }},
     label + (key === k ? (dir > 0 ? " \u25b4" : " \u25be") : ""))));
   const stat = v => h("td", {class: "num" + (v >= 0 && v < 50 ? " stat-lo" : v >= 110 ? " stat-hi" : "")}, v >= 0 ? String(v) : "\u2014");
   const rows = list.map(s => {
@@ -2777,7 +3309,8 @@ function renderList(list) {
       h("td", {}, h("div", {class: "types"}, (d.types || []).map(typeChip))),
       h("td", {class: "ab"}, [ab.primary, ab.secondary].filter(filled).join(" / ") || "\u2014"),
       h("td", {class: "ab"}, ab.hidden || "\u2014"),
-      STATS.map(([k]) => stat(listValue(s, k))), h("td", {class: "num bst"}, s.bst !== null ? String(s.bst) : "\u2014"));
+      STATS.map(([k]) => stat(listValue(s, k))), h("td", {class: "num bst"}, s.bst !== null ? String(s.bst) : "\u2014"),
+      h("td", {class: "num"}, h("span", {class: "donebar", title: s.complete + "% filled in" + (s.missing.length ? " - missing: " + s.missing.join(", ") : "")}, h("i", {style: "width:" + s.complete + "%"}), h("b", {}, s.complete + "%"))));
   });
   const grid = document.getElementById("grid");
   grid.append(h("div", {class: "scroll", style: "grid-column:1/-1"}, h("table", {class: "dexlist"}, h("thead", {}, head), h("tbody", {}, rows))));
@@ -2785,22 +3318,23 @@ function renderList(list) {
 
 // ---------- the page around it: menu tabs, the top screen, day and night ----------
 let view = "species";
-const MAIN_TABS = [["species", "POKEDEX", "purple"], ["board", "REQUESTS", "pink"], ["sprites", "SPRITES", "blue"], ["progress", "PROGRESS", "sky"]];
+const MAIN_TABS = [["species", "POKEDEX", "purple"], ["teams", "TEAMS", "pink"], ["board", "REQUESTS", "pink"], ["sprites", "SPRITES", "blue"], ["progress", "PROGRESS", "sky"]];
 const MORE = [["lost", "Lost and found"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Type balance"], ["reorder", "Change dex numbers"]];
-const WIDE_VIEWS = ["board", "progress"];
+const WIDE_VIEWS = ["board", "progress", "teams"];
 // What the top screen's dialog box says on each page.
 const PAGE_HELP = {
   species: "Welcome to the " + DEX.project + "!\nPoint at a Pokemon to see it up here. Tap it to open its page, change it or draw its sprites.",
   board: "REQUESTS\nWhat the game still needs, and what people wish for. Add your own idea, or move a card along when work starts or is done.",
   sprites: "SPRITES\nSprites are drawn on each Pokemon's page, under SPRITES. Here you see what is being drawn, what waits for someone to approve it, and what is done.",
   progress: "PROGRESS\nHow far the dex has come. Every badge is a goal for the whole group.",
+  teams: "TEAMS\nBuild teams of six from our Pokemon, the way Showdown does it. Teams are kept in this browser; Share link sends one to a friend.",
   lost: "LOST AND FOUND\nPictures from the Discord that nobody has linked to a Pokemon yet. Recognise one? Press This is... and choose the Pokemon.",
   move: "NEW MOVES\nMoves our Pokemon use that are not in the game yet. Describe what they do, so they can be programmed.",
   ability: "NEW ABILITIES\nAbilities our Pokemon use that are not in the game yet. Describe what they do, so they can be programmed.",
   balance: "TYPE BALANCE\nHow many Pokemon of each type a full dex would have, and how many we have. The types at the top need new Pokemon the most.",
   reorder: "DEX NUMBERS\nMove Pokemon to other numbers or make room between two. Nothing changes until you press Save.",
 };
-const VIEW_COLOUR = {species: "purple", board: "pink", sprites: "blue", progress: "sky", lost: "sky", move: "blue", ability: "pink", balance: "sky", reorder: "purple"};
+const VIEW_COLOUR = {teams: "pink", species: "purple", board: "pink", sprites: "blue", progress: "sky", lost: "sky", move: "blue", ability: "pink", balance: "sky", reorder: "purple"};
 
 function counts() {
   const playable = DEX.species.filter(s => !s.gameNeeds.length).length;
@@ -2858,7 +3392,7 @@ function renderNav() {
   document.getElementById("nav").replaceChildren(
     ...MAIN_TABS.filter(([id]) => id !== "sprites" || DEX.web.url).map(([id, text, c]) => h("button", {type: "button", "data-c": c, "aria-pressed": String(view === id), onclick: go(id)}, text)), more);
   document.getElementById("tools").style.display = ["species", "move", "ability", "lost"].includes(view) ? "" : "none";
-  document.getElementById("type").style.display = view === "species" ? "" : "none";
+  for (const id of ["type", "stage", "designer", "lacks", "sort"]) document.getElementById(id).style.display = view === "species" ? "" : "none";
   const lay = document.getElementById("layout");
   lay.style.display = view === "species" ? "" : "none";
   lay.replaceChildren(...[["list", "LIST"], ["cards", "CARDS"]].map(([id, text]) => h("button", {type: "button", "aria-pressed": String(layout === id),
@@ -2877,6 +3411,7 @@ function render() {
   document.getElementById("summary").textContent = c.designed + " of " + c.size + " Pokemon designed, " + c.playable + " playable. Tap one to see, change or draw it.";
   if (view === "reorder" && plan) return renderReorder();
   if (view === "balance") return renderBalance();
+  if (view === "teams") return renderTeams();
   if (view === "sprites") return renderSprites();
   if (view === "lost") return renderLost();
   if (view === "progress") return renderProgress();
@@ -2893,9 +3428,16 @@ function render() {
     if (!open.length) grid.append(h("div", {class: "empty"}, "Every slot is taken."));
     return;
   }
+  const stage = document.getElementById("stage").value, designer = document.getElementById("designer").value, lacks = document.getElementById("lacks").value;
   const matching = DEX.species.slice().sort((a, b) => a.data.dex - b.data.dex).filter(s =>
     !((mode === "todo" && s.complete === 100) || (mode === "problems" && !s.problems.length) || (mode === "playable" && s.gameNeeds.length))
-    && (!type || (s.data.types || []).includes(type)) && (!query || JSON.stringify(s.data).toLowerCase().includes(query)));
+    && (!type || (s.data.types || []).includes(type)) && (!query || JSON.stringify(s.data).toLowerCase().includes(query))
+    && (!stage || stageOf(s) === stage) && (!designer || designerOf(s) === designer)
+    && (!lacks || (lacks === "*sprite" ? !(DEX.ds_sprites[s.id] || {}).front : lacks === "*game" ? s.gameNeeds.length : s.missing.includes(lacks))));
+  if (layout !== "list") {
+    const {key, dir} = listSort;
+    matching.sort((a, b) => { const x = listValue(a, key), y = listValue(b, key); return (x > y ? 1 : x < y ? -1 : a.data.dex - b.data.dex) * dir; });
+  }
   if (layout === "list" && matching.length) renderList(matching);
   for (const s of layout === "list" ? [] : matching) {
     const pic = portrait(s);
@@ -3013,10 +3555,11 @@ function drawTray() {
     tray.jobs.length ? h("span", {class: "spinner"}) : h("span", {class: "tick"}, "\u2713"),
     tray.jobs.length ? "DRAWING " + tray.jobs.length + " \u00b7 " + aboutMinutes(total).replace("about ", "~") : tray.ready.length + " READY TO PICK",
     h("span", {class: "chev"}, tray.open ? "\u25bc" : "\u25b2"));
-  tray.el.replaceChildren(head, tray.open ? h("div", {class: "traybody"},
+  tray.el.replaceChildren(...[head, tray.open ? h("div", {class: "traybody"},
     !online && tray.jobs.length ? h("div", {class: "trayoff"}, "The drawing PC is off. The line waits until it is back.") : null,
     running && !tray.open ? null : null, readyRows, rows,
-    h("div", {class: "traynote"}, "You can leave the page: it keeps drawing. \u2605 = yours.")) : null);
+    h("div", {class: "traynote"}, "You can leave the page: it keeps drawing. \u2605 = yours. ",
+      h("button", {type: "button", class: "linkish", onclick: () => { view = "sprites"; plan = null; render(); window.scrollTo(0, 0); }}, "See the whole line \u25b6"))) : null].filter(Boolean));
 }
 
 // ---------- the request board ----------
@@ -3185,10 +3728,18 @@ refreshLists();
 document.getElementById("list-methods").append(...["grass", "cave", "surf", "fishing", "rock smash", "gift", "trade", "static"].map(m => h("option", {value: m})));
 if (DEX.problems.length) document.getElementById("notice").append(h("details", {class: "notice"}, h("summary", {}, h("b", {}, DEX.problems.length + " saved edit(s) could not be used"), " - tap to see why"),
   h("ul", {}, DEX.problems.map(p => h("li", {}, h("b", {}, p.row + ": "), p.problem)))));
-for (const id of ["search", "type", "show"]) document.getElementById(id).addEventListener("input", render);
+for (const id of ["search", "type", "show", "stage", "designer", "lacks"]) document.getElementById(id).addEventListener("input", render);
+document.getElementById("sort").addEventListener("input", ev => {
+  const v = ev.target.value, m = v.match(/^([a-z]+)(-?1)?$/);
+  if (m) { listSort = {key: m[1], dir: Number(m[2] || 1)}; render(); }
+});
+document.getElementById("designer").append(...[...new Set(DEX.species.map(designerOf).filter(Boolean))].sort((a, b) => a.localeCompare(b)).map(d => h("option", {value: d}, d)));
+document.getElementById("lacks").append(h("option", {value: "*game"}, "Not playable in the game yet"), h("option", {value: "*sprite"}, "No sprite yet"),
+  ...DEX.checks.filter(([section]) => section !== "Art").map(([, label]) => h("option", {value: label}, "Missing " + label)));
 document.getElementById("dialog").addEventListener("click", ev => { if (ev.target.id === "dialog" && !document.querySelector("#detail form")) closeDialog(); });
 document.getElementById("dialog").addEventListener("cancel", () => { shown = null; if (location.hash) history.replaceState(null, "", location.pathname + location.search); });
 document.addEventListener("click", ev => { for (const d of document.querySelectorAll("nav details[open]")) if (!d.contains(ev.target)) d.open = false; });
+if (takeSharedTeam()) view = "teams";
 render();
 if (location.hash && byId.has(location.hash.slice(1))) openDetail(byId.get(location.hash.slice(1)));
 loadRecentEdits();

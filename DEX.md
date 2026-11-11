@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**150 / 151** slots have a Pokemon - **0** are fully complete - average completeness **24%**.
+**150 / 254** slots have a Pokemon - **0** are fully complete - average completeness **24%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -160,3 +160,106 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 149 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground | Primordial Sea | 680 |  | 48% |
 | 150 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician | 680 |  | 28% |
 | 151 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground | Lullaby | 600 |  | 17% |
+| 152 | *open slot* | | | | | |
+| 153 | *open slot* | | | | | |
+| 154 | *open slot* | | | | | |
+| 155 | *open slot* | | | | | |
+| 156 | *open slot* | | | | | |
+| 157 | *open slot* | | | | | |
+| 158 | *open slot* | | | | | |
+| 159 | *open slot* | | | | | |
+| 160 | *open slot* | | | | | |
+| 161 | *open slot* | | | | | |
+| 162 | *open slot* | | | | | |
+| 163 | *open slot* | | | | | |
+| 164 | *open slot* | | | | | |
+| 165 | *open slot* | | | | | |
+| 166 | *open slot* | | | | | |
+| 167 | *open slot* | | | | | |
+| 168 | *open slot* | | | | | |
+| 169 | *open slot* | | | | | |
+| 170 | *open slot* | | | | | |
+| 171 | *open slot* | | | | | |
+| 172 | *open slot* | | | | | |
+| 173 | *open slot* | | | | | |
+| 174 | *open slot* | | | | | |
+| 175 | *open slot* | | | | | |
+| 176 | *open slot* | | | | | |
+| 177 | *open slot* | | | | | |
+| 178 | *open slot* | | | | | |
+| 179 | *open slot* | | | | | |
+| 180 | *open slot* | | | | | |
+| 181 | *open slot* | | | | | |
+| 182 | *open slot* | | | | | |
+| 183 | *open slot* | | | | | |
+| 184 | *open slot* | | | | | |
+| 185 | *open slot* | | | | | |
+| 186 | *open slot* | | | | | |
+| 187 | *open slot* | | | | | |
+| 188 | *open slot* | | | | | |
+| 189 | *open slot* | | | | | |
+| 190 | *open slot* | | | | | |
+| 191 | *open slot* | | | | | |
+| 192 | *open slot* | | | | | |
+| 193 | *open slot* | | | | | |
+| 194 | *open slot* | | | | | |
+| 195 | *open slot* | | | | | |
+| 196 | *open slot* | | | | | |
+| 197 | *open slot* | | | | | |
+| 198 | *open slot* | | | | | |
+| 199 | *open slot* | | | | | |
+| 200 | *open slot* | | | | | |
+| 201 | *open slot* | | | | | |
+| 202 | *open slot* | | | | | |
+| 203 | *open slot* | | | | | |
+| 204 | *open slot* | | | | | |
+| 205 | *open slot* | | | | | |
+| 206 | *open slot* | | | | | |
+| 207 | *open slot* | | | | | |
+| 208 | *open slot* | | | | | |
+| 209 | *open slot* | | | | | |
+| 210 | *open slot* | | | | | |
+| 211 | *open slot* | | | | | |
+| 212 | *open slot* | | | | | |
+| 213 | *open slot* | | | | | |
+| 214 | *open slot* | | | | | |
+| 215 | *open slot* | | | | | |
+| 216 | *open slot* | | | | | |
+| 217 | *open slot* | | | | | |
+| 218 | *open slot* | | | | | |
+| 219 | *open slot* | | | | | |
+| 220 | *open slot* | | | | | |
+| 221 | *open slot* | | | | | |
+| 222 | *open slot* | | | | | |
+| 223 | *open slot* | | | | | |
+| 224 | *open slot* | | | | | |
+| 225 | *open slot* | | | | | |
+| 226 | *open slot* | | | | | |
+| 227 | *open slot* | | | | | |
+| 228 | *open slot* | | | | | |
+| 229 | *open slot* | | | | | |
+| 230 | *open slot* | | | | | |
+| 231 | *open slot* | | | | | |
+| 232 | *open slot* | | | | | |
+| 233 | *open slot* | | | | | |
+| 234 | *open slot* | | | | | |
+| 235 | *open slot* | | | | | |
+| 236 | *open slot* | | | | | |
+| 237 | *open slot* | | | | | |
+| 238 | *open slot* | | | | | |
+| 239 | *open slot* | | | | | |
+| 240 | *open slot* | | | | | |
+| 241 | *open slot* | | | | | |
+| 242 | *open slot* | | | | | |
+| 243 | *open slot* | | | | | |
+| 244 | *open slot* | | | | | |
+| 245 | *open slot* | | | | | |
+| 246 | *open slot* | | | | | |
+| 247 | *open slot* | | | | | |
+| 248 | *open slot* | | | | | |
+| 249 | *open slot* | | | | | |
+| 250 | *open slot* | | | | | |
+| 251 | *open slot* | | | | | |
+| 252 | *open slot* | | | | | |
+| 253 | *open slot* | | | | | |
+| 254 | *open slot* | | | | | |

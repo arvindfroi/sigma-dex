@@ -4,7 +4,8 @@
     python scripts/fetch_showdown_data.py
 
 Writes data/engine/showdown.json: for every move and ability the game knows (data/engine/expansion.yaml),
-the type, category, power, accuracy, PP, priority and a one-line description, so the builder can show
+the type, category, power, accuracy, PP, priority and a one-line description, plus the held items up to Gen 5
+(for the team builder), so the builder can show
 them in a sortable list the way Showdown's teambuilder does. Run it again when the game's lists change.
 
 The data is Pokemon Showdown's (https://github.com/smogon/pokemon-showdown), MIT licence,
@@ -21,7 +22,10 @@ SOURCES = {
     "moves": "https://play.pokemonshowdown.com/data/moves.json",
     "move_text": "https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/text/moves.ts",
     "ability_text": "https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/text/abilities.ts",
+    "items": "https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/items.ts",
+    "item_text": "https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/text/items.ts",
 }
+ITEM_MAX_GEN = 5          # the game's battle engine is Black/White-like, so items up to Gen 5 (for the team builder)
 OUT = ROOT / "data" / "engine" / "showdown.json"
 
 
@@ -63,8 +67,17 @@ def main():
         if text is None:
             missing.append(name)
         out["abilities"][name] = text or ""
+    item_text = short_texts(fetch(SOURCES["item_text"]))
+    out["items"] = {}
+    for match in re.finditer(r"^\t([a-z0-9]+): \{(.*?)^\t\},", fetch(SOURCES["items"]), re.S | re.M):
+        body = match.group(2)
+        name = re.search(r'^\t\tname: "([^"]+)"', body, re.M)
+        gen = re.search(r"^\t\tgen: (\d+)", body, re.M)
+        odd = re.search(r'^\t\tisNonstandard: "([^"]+)"', body, re.M)
+        if name and gen and int(gen.group(1)) <= ITEM_MAX_GEN and not (odd and odd.group(1) != "Past"):
+            out["items"][name.group(1)] = item_text.get(match.group(1), "")
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8")
-    print("%d moves, %d abilities written to %s" % (len(out["moves"]), len(out["abilities"]), OUT.relative_to(ROOT)))
+    print("%d moves, %d abilities, %d items written to %s" % (len(out["moves"]), len(out["abilities"]), len(out["items"]), OUT.relative_to(ROOT)))
     if missing:
         print("Not found in Showdown's data: " + ", ".join(missing))
 

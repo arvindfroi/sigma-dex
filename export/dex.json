@@ -2,7 +2,7 @@
   "config": {
     "project": "Council of the Sigmas Pokedex",
     "region": null,
-    "dex_size": 151,
+    "dex_size": 254,
     "starters": [
       "leafing",
       "torchbat",
