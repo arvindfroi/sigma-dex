@@ -66,27 +66,33 @@ Mixed teams (no type): rival Blue, Green, Gold, Crystal, Yellow, Cynthia (traine
 The Battle Frontier brains (Palmer, Argenta, Thorton, Dahlia, Darach) have placeholder teams in the data (the facilities
 build their teams).
 
-## Code names on the website (test branch characters-teams)
+## Code names on the website
 
-Important trainers show only a code name so nothing is spoiled. The key (role id on the website -> who it is):
+Important trainers show only a code name and a random order, so nothing is spoiled. The key:
 
-- Maxie (executive, Fire) -> trainer-a
-- Petrel (executive) -> trainer-b
-- Archie (executive, Water) -> trainer-c
-- Marauder (executive) -> trainer-d
-- Giovanni (Rocket boss) -> trainer-e
-- Eusine -> trainer-f
-- Cyrus (executive) -> trainer-g
-- Archer (executive) -> trainer-h
-- Charon (executive) -> trainer-i
-- Gold (Johto trainer) -> trainer-j
-- Green -> trainer-k
-- Crystal -> trainer-l
-- Proton (executive) -> trainer-m
-- Yellow -> trainer-n
-- Ariana (executive) -> trainer-o
-- Lawrence (executive) -> trainer-p
-- Blue (rival) -> trainer-q
-- Steven (Hoenn champion + trainer) -> trainer-r
+- Trainer A: Petrel (executive)
+- Trainer B: Lawrence (executive, Flying)
+- Trainer C: Eusine
+- Trainer D: Ariana (executive)
+- Trainer E: Giovanni (Rocket boss)
+- Trainer F: Maxie (executive, Fire)
+- Trainer G: Gold
+- Trainer H: Koga (Elite Four)
+- Trainer I: Lance (Elite Four)
+- Trainer J: Green
+- Trainer K: Lorelei (Elite Four)
+- Trainer L: Charon (executive)
+- Trainer M: Steven (Hoenn champion, also a trainer you meet)
+- Trainer N: Agatha (Elite Four)
+- Trainer O: Archie (executive, Water)
+- Trainer P: Crystal
+- Trainer Q: Yellow
+- Trainer R: Bruno (Elite Four)
+- Trainer S: Marauder (executive)
+- Trainer T: Archer (executive)
+- Trainer U: Proton (executive)
+- Trainer V: Lorin (Elite Four)
+- Trainer W: Blue (rival)
+- Trainer X: Cyrus (executive)
 
-Left out of the website on purpose (Arvind makes them himself): the Elite Four and the Sinnoh champion (Cynthia).
+Left out on purpose (Arvind makes them himself): every champion but one (Cynthia is out, Steven stays).

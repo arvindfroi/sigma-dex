@@ -1998,10 +1998,10 @@ const STEP_SIZE = {art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 
 const TRY_SIDE = {art: 640, front: 80, back: 80, icon: 32};                    // the square ones (the colour tools use it)
 const TRY_DEFAULT_SECONDS = {art: 75, "art:sketch": 25, "art:pose": 60, front: 100, back: 55, icon: 30, follower: 40};
 const mmss = sec => Math.floor(Math.max(0, sec) / 60) + ":" + String(Math.floor(Math.max(0, sec) % 60)).padStart(2, "0");
-const aboutMinutes = sec => sec < 90 ? "about a minute" : "about " + Math.round(sec / 60) + " minutes";
+const aboutMinutes = sec => !(sec >= 90) ? "about a minute" : "about " + Math.round(sec / 60) + " minutes";
 function secondsFor(timings, stage) {
-  const t = timings || {};
-  return (stage === "back" && t["back:klein"]) || t[stage] || TRY_DEFAULT_SECONDS[stage] || 60;
+  const t = timings || {}, ok = v => typeof v === "number" && v > 5 ? v : 0;   // a bad timing from the PC (0 or below) is ignored
+  return ok(stage === "back" && t["back:klein"]) || ok(t[stage]) || TRY_DEFAULT_SECONDS[stage] || 60;
 }
 const loadPicture = src => new Promise((ok, no) => {
   const im = new Image(); im.crossOrigin = "anonymous";
@@ -2924,6 +2924,7 @@ function shuffledCharacters() {
   if (!charOrder) { charOrder = (DEX.characters || []).slice(); for (let i = charOrder.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [charOrder[i], charOrder[j]] = [charOrder[j], charOrder[i]]; } }
   return charOrder;
 }
+const roughBattles = n => n >= 8 ? "many battles" : n >= 3 ? "several battles" : n === 2 ? "a couple of battles" : "one battle";
 const charName = c => c.code || (c.group + " · " + c.type);
 const charPic = c => (trainerPics.get(c.id) || [])[0];
 function charTop(c) {
@@ -2954,22 +2955,33 @@ function openCharacter(c, tab) {
         h("div", {}, h("span", {}, "Type"), String(c.type || "")),
         h("div", {}, h("span", {}, "Surroundings"), c.place || "—"),
         c.rule ? h("div", {}, h("span", {}, "Rule"), c.rule) : null,
-        h("div", {}, h("span", {}, "Battles"), String(c.battles || 0) + " (each needs its own team)"),
+        h("div", {}, h("span", {}, "Battles"), isMine ? String(c.battles || 0) + " (each needs its own team)" : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
         h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) : "nobody yet")),
       CLAIMS_OPEN ? (!cl.by ? h("button", {type: "button", class: "primary", onclick: () => saveClaim(mine, {})}, "Claim this trainer")
         : isMine ? h("button", {type: "button", onclick: () => saveClaim("", {})}, "Give it back") : null)
         : h("div", {class: "notice info"}, "Claiming opens soon."));
   } else if (tab === "teams") {
     if (lib.teams === null && DEX.web.url && !lib.error && !lib.loading) { lib.loading = true; loadLibrary().catch(err => { lib.error = err.message; }).then(() => { lib.loading = false; openCharacter(c, "teams"); }); }
-    const myTeams = (lib.teams || []).filter(t => mine && person(t.by) === mine), levels = c.levels || [];
-    page = h("div", {},
-      h("div", {class: "sub"}, "One team per battle. Build as many teams as you like in TEAMS, share the ones you want with the group, and pick one here. Use our own Pokemon of this trainer's type" + (c.rule ? " and follow the rule: " + c.rule : "") + ". Every team stays behind a spoiler button."),
-      h("div", {class: "scroll"}, h("table", {class: "balance"}, Array.from({length: c.battles || 0}, (_, i) => {
-        const tid = (cl.slots || {})[i], t = (lib.teams || []).find(x => x.id === tid);
-        const pick = isMine ? h("select", {"aria-label": "Team for battle " + (i + 1), onchange: ev => { const slots = Object.assign({}, cl.slots || {}); if (ev.target.value) slots[i] = ev.target.value; else delete slots[i]; saveClaim(cl.by, slots); }},
-          h("option", {value: ""}, "choose one of your shared teams"), myTeams.map(x => h("option", {value: x.id, selected: x.id === tid ? "" : null}, x.name))) : null;
-        return h("tr", {}, h("td", {class: "num"}, "Battle " + (i + 1)), h("td", {class: "num"}, levels[i] ? "up to lv " + levels[i] : ""), h("td", {}, spoilerTeam(t)), h("td", {}, pick));
-      }))));
+    const myTeams = (lib.teams || []).filter(t => mine && person(t.by) === mine);
+    const plan = c.teams || [];
+    if (!isMine) {
+      // Others only see the chosen teams, each behind a spoiler button; levels and counts stay with the owner.
+      const chosen = Object.entries(cl.slots || {}).map(([i, tid]) => (lib.teams || []).find(x => x.id === tid)).filter(Boolean);
+      page = h("div", {}, h("div", {class: "sub"}, cl.by ? "The teams " + person(cl.by) + " has made for this trainer. Each one is behind a spoiler button." : "Nobody has claimed this trainer yet."),
+        chosen.length ? chosen.map(spoilerTeam) : h("div", {class: "sub"}, "No teams chosen yet."));
+    } else {
+      page = h("div", {},
+        h("div", {class: "sub"}, "One team per battle, lowest level first. Build as many teams as you like in TEAMS, share the ones you want with the group, and pick one here. The level and the number of Pokemon are suggestions from the original game. Use our own Pokemon of this trainer's type" + (c.rule ? " and follow the rule: " + c.rule : "") + ". Every team stays behind a spoiler button for the others."),
+        h("div", {class: "scroll"}, h("table", {class: "balance"}, plan.map((b, i) => {
+          const tid = (cl.slots || {})[i], t = (lib.teams || []).find(x => x.id === tid);
+          const pick = h("select", {"aria-label": "Team for battle " + (i + 1), onchange: ev => { const slots = Object.assign({}, cl.slots || {}); if (ev.target.value) slots[i] = ev.target.value; else delete slots[i]; saveClaim(cl.by, slots); }},
+            h("option", {value: ""}, "choose one of your shared teams"), myTeams.map(x => h("option", {value: x.id, selected: x.id === tid ? "" : null}, x.name)));
+          return h("tr", {}, h("td", {class: "num"}, "Battle " + (i + 1)),
+            h("td", {class: "sub"}, "up to lv " + b.lv + " \u00b7 " + b.size + " Pokemon" + (b.partner ? " \u00b7 may fight next to you" : "")),
+            h("td", {}, spoilerTeam(t), h("details", {class: "spoiler"}, h("summary", {}, "The original team in Origin (spoiler)"), h("div", {class: "sub"}, b.original))),
+            h("td", {}, pick));
+        }))));
+    }
   } else {
     const pics = trainerPics.get(c.id) || [];
     const upload = h("input", {type: "file", accept: "image/*", style: "max-width:240px"});
@@ -3012,7 +3024,7 @@ function renderCharacters() {
       h("div", {class: "charthumb"}, pic ? h("img", {src: pic.src, alt: ""}) : h("span", {class: "charsil"}, "?")),
       h("b", {}, charName(c)),
       h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
-      h("div", {class: "sub"}, (c.battles || 0) + " battle" + (c.battles === 1 ? "" : "s") + (c.rule ? " · gym rule" : "")),
+      h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "")),
       h("div", {class: "sub"}, cl.by ? ((isMine ? "★ " : "") + "claimed by " + person(cl.by)) : "free"));
   };
   grid.replaceChildren(h("div", {style: "grid-column:1/-1"},
@@ -3960,7 +3972,7 @@ function drawTray() {
     return h("button", {type: "button", class: "trayrow" + (isMine ? " mine" : ""), onclick: () => s && openDetail(s, "sprite")},
       j.status === "running" ? h("span", {class: "spinner"}) : h("span", {class: "dot"}),
       h("span", {class: "who"}, (isMine ? "\u2605 " : "") + who), h("span", {class: "what"}, n + " " + (names[j.stage] || j.stage || "sprite") + (n > 1 ? "s" : "")),
-      h("span", {class: "when"}, j.status === "running" ? done + "/" + n : "in line", " \u00b7 ", aboutMinutes(total).replace("about ", "~")));
+      h("span", {class: "when"}, j.status === "running" ? done + "/" + n : "in line", " \u00b7 ", online ? aboutMinutes(total).replace("about ", "~") : "waits for the PC"));
   });
   const readyRows = tray.ready.map(r => {
     const s = byId.get(r.sid);
@@ -3970,7 +3982,7 @@ function drawTray() {
   const running = tray.jobs.find(j => j.status === "running");
   const head = h("button", {type: "button", class: "trayhead", "aria-expanded": String(tray.open), onclick: () => { tray.open = !tray.open; remember.set("tray", tray.open ? "" : "closed"); drawTray(); }},
     tray.jobs.length ? h("span", {class: "spinner"}) : h("span", {class: "tick"}, "\u2713"),
-    tray.jobs.length ? "DRAWING " + tray.jobs.length + " \u00b7 " + aboutMinutes(total).replace("about ", "~") : tray.ready.length + " READY TO PICK",
+    tray.jobs.length ? "DRAWING " + tray.jobs.length + " \u00b7 " + (online ? aboutMinutes(total).replace("about ", "~") : "PC is off") : tray.ready.length + " READY TO PICK",
     h("span", {class: "chev"}, tray.open ? "\u25bc" : "\u25b2"));
   tray.el.replaceChildren(...[head, tray.open ? h("div", {class: "traybody"},
     !online && tray.jobs.length ? h("div", {class: "trayoff"}, "The drawing PC is off. The line waits until it is back.") : null,
