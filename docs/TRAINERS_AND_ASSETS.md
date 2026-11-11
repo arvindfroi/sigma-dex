@@ -415,7 +415,7 @@ Sources: the public pret decompilation (`pret/pokeheartgold`, cloned shallow), `
 
 - **V.** HG has **3 shared icon palettes** (16 colours each): `sPokemonPalNoBySpeciesAndForm` in decomp `src/pokemon_icon_idx.c` holds 0, 1 or 2 per species (268 / 121 / 155); loaders request 3 palettes from member 0 of `poke_icon` (`battle_arcade_game_board.c` 1336). Origin: `data/pokeicon.narc` member 0 is 552 bytes (a palette with 16 slots, only 3 are used); the per-species byte table is in arm9 at 0xFF7FC (values 0/1/2: 774/305/362 in the first 1441). hg-engine keeps the same 3 (`data/IconPaletteTable.c`; wiki: "0, 1, or 2").
 - **Adding palettes: not in hg-engine/Origin.** The 16-slot palette file has room, but the loaders pass a fixed count of 3 and the draw code adds fixed offsets (+1 main, +3 sub screen), so more palettes need an arm9/overlay patch.
-- **Design colours (I).** Within these limits: (1) quantise each icon to its best of the 3 existing palettes (what `scripts/sprite_colours.py` does); (2) since we replace the whole dex, we may **redefine the three shared palettes themselves** (e.g. one warm, one cool, one neutral made from our own colour clusters) as long as vanilla icons we keep still look acceptable; (3) only then consider a code patch for 6-8 palettes.
+- **Design colours (I).** Within these limits: (1) quantise each icon to its best of the 3 existing palettes (what `scripts/sprite_colours.py` does); (2) the three shared palettes themselves must stay as they are: every official Pokemon stays in the game (Black/White model, Arvind 2026-11-11), so redefining them would spoil their icons; (3) only if (1) loses too much of a design, consider a code patch for more palettes.
 
 ### 5.6 Trainer sprites and classes
 
