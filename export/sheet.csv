@@ -57,7 +57,7 @@ until the edge shines like metal.
 51,Fleuroom,Grass,Fairy,Effect Spore,Aroma Veil,Magic Bounce,=SUM(I53:N53),45,30,45,75,65,35,,,,0.4,,,,,,,,,,,,,,,,,,,,,,,Michael,
 52,Sporeshade,Grass,Fairy,Effect Spore,Aroma Veil,Magic Bounce,=SUM(I54:N54),65,50,60,130,85,70,Fleuroom,Shiny Stown,,1.1,,,,,,,,,,,,,,Spore (1),,,,,,,,,Michael,
 53,Voraxia,Dragon,Dark,,,,=SUM(I55:N55),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Legendary mythical pokemon,,,Michael,
-54,Hippore,Steel,Rock,Ore Body,Stamina,Sand Force,=SUM(I56:N56),105,90,125,55,95,30,,,,,,,2 defense,,,,,,,,,,,,,,,,,,,,,
+54,Hippore,Steel,Rock,Ore Body,Stamina,Sand Force,=SUM(I56:N56),95,90,125,55,105,30,,,,,,,2 defense,,,,,,,,,,,,,,,,,,,,,
 55,Docuphant,Ground,Dragon,,,,=SUM(I57:N57),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 56,Razox,Fairy,Ice,Snow Cloak,Thick Fat,Pixilate,=SUM(I58:N58),88,55,70,100,105,82,,,,,,,2 sp_defense,,,,,,,,,,,,,,,,,,,,,
 57,Sigmanian Unown,Electric,Psychic,Battery,,,=SUM(I59:N59),48,62,48,62,48,68,,,Circuit Symbol,0.5,5,,,,,,,,,,,,,,,,,,"This form of Unown appears in abandoned control panels and ancient circuit diagrams. It channels energy in one direction, quietly preventing dangerous surges.",,,"From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — DIODE FORM; also on the card: Habitat: abandoned facilities, ancient ruins, underground labs. Behavior: silent and watchful, flickers when sensing erratic or unstable energy. Cry: bzz... >>>> ....",,

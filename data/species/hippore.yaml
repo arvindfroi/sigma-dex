@@ -22,11 +22,11 @@ abilities:
   hidden: Sand Force     # optional
 
 base_stats:              # each 1-255
-  hp: 105
+  hp: 95
   attack: 90
   defense: 125
   sp_attack: 55
-  sp_defense: 95
+  sp_defense: 105
   speed: 30
 
 ev_yield: {defense: 2}   # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
@@ -91,7 +91,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:111"
+  footprint: "hgss:111"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
