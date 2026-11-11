@@ -535,3 +535,221 @@ Back pictures (`a/0/0/6`, 17 classes, the trainer seen from behind throwing the 
 **What this means for replacing important characters with our own:** we write all 5 files of a class, so a replacement can be a still picture even where the original was animated (1 frame, 1 cell, a 1-step animation, like the 97 still classes). Animated ones are a bonus: the extra frames can come from an edit model trained on the real trainer frame pairs (the same idea as the Pokemon frame-2 LoRA). File 4 must hold the same trainer (two frames, may be identical), scrambled. A new player character needs a back picture with 8 throw frames as well.
 
 **Kept for later (Arvind, 2026-11-11):** if we want many brand-new classes instead of replacing, a class 130+ needs the class tables moved and the code patched; possible, do it when the time comes.
+
+## 8. Which free slots are clean (2026-11-11)
+
+Question: of the 255 free base slots (section 6.2), which hold a species that is "dirty", meaning it has alternate forms in Origin, species-specific battle or menu code, or is used by a story script? Tags: **V** = verified in a file, **I** = inferred.
+
+**Result: 204 clean, 8 latent (usable with care), 43 dirty (18 with active code, 25 with form entries only).**
+
+### 8.1 Method and how far to trust it
+
+1. **Forms in Origin (V).** The 415 alternate-form records 1026-1440 (`~/sigma-origin/docs/pokemon_1026-1440.md`) were mapped to their base species by name; every base that is one of the 255 free species is listed below with its entry numbers. 43 free species are the base of at least one entry.
+2. **Code (V for stock hg-engine, I for Origin).** For each of the 255 species the stock `~/sigma-hgengine` source (`src`, `include`, `armips`, `data/battle_scripts`, `asm`, `hooks`; species written as `SPECIES_*`, found by name because hg-engine's numbers differ from Origin's) was searched for every reference outside data tables. Hits were read one by one. **Origin is not built from this source** (it is the JP ROM with its own Black/White-style battle code in overlay 14), so what hg-engine does is the best available picture of what such an engine does, not a fact about Origin's binary. Searching Origin's overlays for species numbers was tried and abandoned: the numbers occur as table data everywhere and give no signal.
+3. **Scripts and data (V).** (c) was checked three ways: the 1024 trainer parties in `a/0/5/6` (read directly: none of the 255 species is used), the gift/static-battle/trade tables in `trades_tutors.md` and the encounter, trainer and item docs searched for each of the 255 names (no hit except Hawlucha in a tutor's "can learn" list, which is not an acquisition). The docs count 770 of 1025 species as obtainable, which is exactly 1025 - 255, so the free list and the "obtainable" derivation agree (the memory note's 254 is one short). A script that builds a species from a variable would not show up in these tables (I).
+4. **Items that drive forms are not in the game (V).** `items.md` lists DNA Splicers, Reveal Glass, Prison Bottle, Zygarde Cube, Reins of Unity, Scroll of Dark, Mega Ring and Key Stone as existing but never given, and has no Rusted Sword/Shield, Drive, Memory, Nectar, Booster Energy, mask or Diancite at all. So most item-driven forms below cannot be triggered by a normal player even while the code is there.
+
+### 8.2 Dirty, active code (18)
+
+Species whose form or rules change by themselves in battle or through a menu item. Putting our own creature in the slot would make the engine try to change it into the entry's data. Avoid, or neutralise the entries and code first.
+
+| Slot | Species in the slot | Why it is dirty (source) |
+|---|---|---|
+| 641 | Tornadus | Therian form (entry 1185), Reveal Glass menu code (`CanUseRevealGlass`), cry per form. Reveal Glass is never given (V). (entries V, code V in hg-engine / I for Origin) |
+| 642 | Thundurus | Therian form (entry 1186), Reveal Glass menu code, cry per form. (entries V, code V in hg-engine / I for Origin) |
+| 645 | Landorus | Therian form (entry 1187), Reveal Glass menu code, cry per form. (entries V, code V in hg-engine / I for Origin) |
+| 646 | Kyurem | Fuses with Reshiram/Zekrom (DNA Splicers, `CanUseDNASplicersGrabSplicerPos`), 4 form entries 1188-1191, swaps Glaciate/Scary Face for Ice Burn/Freeze Shock or Fusion Flare/Bolt (`correct_zacian_zamazenta_kyurem_moves_for_form`), own cry per form. DNA Splicers is never given in Origin (V). (entries V, code V in hg-engine / I for Origin) |
+| 648 | Meloetta | Aria/Pirouette: entry 1193; switches form when it uses Relic Song (`BattleFormChangeCheck`, `ability.c`, `battle_script_commands.c`). (entries V, code V in hg-engine / I for Origin) |
+| 716 | Xerneas | Entry 1238; forced into Active Mode in every battle (`ChangeToBattleForm`, `BattleFormChangeCheck`, `battle_pokemon.c`). (entries V, code V in hg-engine / I for Origin) |
+| 718 | Zygarde | Entries 1239-1241 (10%, 50%, Complete); Power Construct form change at half HP (`BattleFormChangeCheck`); Zygarde Cube never given (V). (entries V, code V in hg-engine / I for Origin) |
+| 720 | Hoopa | Entry 1243 (Unbound); Hyperspace Fury can only be used by Hoopa and fails for Confined (`BattleController_BeforeMove`); Prison Bottle never given (V). (entries V, code V in hg-engine / I for Origin) |
+| 741 | Oricorio | 3 style forms (entries 1244-1246), nectar items change the form (`CanUseNectar`), cry per form. No nectar item found in Origin's item docs (V). (entries V, code V in hg-engine / I for Origin) |
+| 746 | Wishiwashi | Schooling: entry 1249; code switches School form in battle by species + HP (`BattleFormChangeCheck`), own cry. (entries V, code V in hg-engine / I for Origin) |
+| 773 | Silvally | 17 type forms (entries 1250-1266, none for ???); RKS System + memory item sets the form; item cannot be removed; Multi-Attack takes its type from it. Memory items not found in Origin (V). (entries V, code V in hg-engine / I for Origin) |
+| 774 | Minior | Shields Down: entries 1267-1273 (7 core colours); form and status-immunity code keyed on species (`BattleController_BeforeMove`). (entries V, code V in hg-engine / I for Origin) |
+| 875 | Eiscue | Ice Face: entry 1339 (Noice); species checks in damage calculation, switch-in and post-move code (4 places). (entries V, code V in hg-engine / I for Origin) |
+| 877 | Morpeko | Hunger Switch: entry 1341; end-of-turn form toggle (`ServerFieldConditionCheck`), Aura Wheel only works for Morpeko and takes its type from the form. (entries V, code V in hg-engine / I for Origin) |
+| 888 | Zacian | Crowned form (entry 1342) from Rusted Sword, Iron Head <-> Behemoth Blade swap, item lock (`ChangeToBattleForm`, `other_battle_calculators.c`). No Rusted Sword in Origin items (V). (entries V, code V in hg-engine / I for Origin) |
+| 889 | Zamazenta | Crowned form (entry 1343) from Rusted Shield, Iron Head <-> Behemoth Bash swap, item lock. (entries V, code V in hg-engine / I for Origin) |
+| 964 | Palafin | Zero to Hero: entry 1375; switches to Hero form on switch-out (`SwitchInAbilityCheck`, `btl_scr_cmd_125`). (entries V, code V in hg-engine / I for Origin) |
+| 1017 | Ogerpon | 11 mask/Tera forms (entries 1383-1393); masks lock the held item; Ivy Cudgel and Tera type code keyed on species (`CalcBaseDamage`, `effect_script_0309_IVY_CUDGEL`). No masks in Origin items (V). (entries V, code V in hg-engine / I for Origin) |
+
+### 8.3 Dirty, form entries only (25)
+
+Origin has form records with this species as base (V) but hg-engine has no active species code for them, or the forms are cosmetic, gender, regional or G-Max copies. Our creature could sit in the slot; the leftover entries (1026-1440) would just be unreachable orphans as long as nothing in Origin points at them (I: not tested in game). Cleaner choice: do not use these slots first.
+
+| Slot | Species in the slot | Why it is dirty |
+|---|---|---|
+| 618 | Stunfisk | Galarian Stunfisk entry 1184 (separate regional form, orphan data) |
+| 647 | Keldeo | Resolute form entry 1192; no species-specific code found in hg-engine |
+| 678 | Meowstic | Female form entry 1236 (gender form; hg-engine gives wild Meowstic a random gender form only when a disabled option is on) |
+| 719 | Diancie | Mega entry 1242; Mega Ring and Diancite are not obtainable (V); hg-engine also has a species mega table entry |
+| 800 | Necrozma | Dusk Mane, Dawn Wings and Ultra forms (entries 1275-1278); cry per form; fusion items not obtainable (V) |
+| 801 | Magearna | Original Color entry 1279 |
+| 809 | Melmetal | G-Max entry 1417 |
+| 812 | Rillaboom | G-Max entry 1418 |
+| 815 | Cinderace | G-Max entry 1419 |
+| 818 | Inteleon | G-Max entry 1420 |
+| 823 | Corvknight | G-Max entry 1421 |
+| 844 | Sandaconda | G-Max entry 1427 |
+| 845 | Cramorant | Gulp Missile: 2 forms (entries 1280-1281); form change is ability-driven; hg-engine has no species code for it, how Origin does it is unknown (I) |
+| 876 | Indeedee | Female form entry 1340 (gender form) |
+| 879 | Copperajah | G-Max entry 1434 |
+| 884 | Duraludon | G-Max entry 1435 |
+| 890 | Eternatus | Eternamax entry 1436 |
+| 892 | Urshifu | Rapid Strike entry 1344 plus two G-Max entries 1437-1438, cry code |
+| 898 | Calyrex | Ice/Shadow Rider forms (entries 1345-1346), cry per form; Reins of Unity never given (V) |
+| 905 | Enamorus | Therian form entry 1372, cry per form; Reveal Glass code only names the other three |
+| 916 | Oinkologne | Female form entry 1373 (gender form) |
+| 931 | Squawkably | 3 plumage forms (entries 1379-1381) |
+| 978 | Tatsugiri | Commander: 2 colour forms (entries 1377-1378); needs Dondozo in doubles; hg-engine has no code for it (I for Origin) |
+| 999 | Gimmighoul | Roaming form entry 1382 |
+| 1024 | Terapagos | Tera Shell / Teraform Zero: 2 forms (entries 1394-1395); hg-engine's Tera Shift is an empty stub, Tera Starstorm is checked by Tera state not species (I for Origin) |
+
+### 8.4 Latent (8): no Origin form entries, only code or partner rules
+
+| Slot | Species in the slot | Note |
+|---|---|---|
+| 643 | Reshiram | Reshiram: only the other half of Kyurem's DNA Splicers fusion; no forms of its own |
+| 644 | Zekrom | Zekrom: as Reshiram |
+| 649 | Genesect | Genesect: Drive forms, Techno Blast type and item lock exist in hg-engine code, but Origin has NO Genesect form entries (V) and no Drive items (V); dormant unless a Drive is given |
+| 668 | Pyroar | Pyroar: hg-engine gender-form and Z-A mega code (not in Origin: no entries, Mega Ring never given); the male/female sprites are a normal pokepic_m/pokepic_f pair |
+| 710 | Pumpkaboo | Pumpkaboo: size forms in hg-engine (random size and a cry quirk), no Origin entries (V); only inert code |
+| 711 | Gourgeist | Gourgeist: as Pumpkaboo |
+| 854 | Sinistea | Sinistea: Antique form code in hg-engine (inert, option off), no Origin entries (V) |
+| 855 | Poltegeist | Polteageist: as Sinistea |
+
+### 8.5 Clean slots (204)
+
+No form entry (V), no species-specific code found in hg-engine apart from the harmless lists below (V), not used by any trainer, gift, trade, static battle or encounter (V).
+
+494, 504, 505, 511, 512, 513, 514, 515, 516, 522, 523, 527, 528, 538, 539, 556, 557, 558, 561, 577, 578, 579, 582, 583, 584, 599, 600, 601, 605, 606, 615, 621, 626, 638, 639, 640, 667, 672, 673, 674, 675, 677, 682, 683, 684, 685, 686, 687, 696, 697, 701, 707, 717, 721, 764, 765, 766, 767, 768, 772, 776, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 802, 803, 804, 805, 806, 807, 808, 810, 811, 813, 814, 816, 817, 821, 822, 827, 828, 829, 830, 835, 836, 843, 852, 853, 862, 867, 870, 871, 874, 878, 880, 881, 882, 883, 891, 893, 894, 895, 896, 897, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 917, 918, 919, 920, 921, 922, 923, 926, 927, 932, 933, 934, 935, 936, 937, 938, 939, 940, 941, 942, 943, 944, 945, 948, 949, 950, 953, 954, 955, 956, 960, 961, 962, 963, 965, 966, 967, 968, 971, 972, 973, 974, 975, 976, 977, 980, 984, 985, 986, 987, 988, 989, 990, 991, 992, 993, 994, 995, 1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1014, 1015, 1016, 1018, 1020, 1021, 1022, 1023, 1025
+
+Names: 494 Victini, 504 Patrat, 505 Watchog, 511 Pansage, 512 Simisage, 513 Pansear, 514 Simisear, 515 Panpour, 516 Simipour, 522 Blitzle, 523 Zebstrika, 527 Woobat, 528 Swoobat, 538 Throh, 539 Sawk, 556 Maractus, 557 Dwebble, 558 Crustle, 561 Sigilyph, 577 Solosis, 578 Duosion, 579 Reuniclus, 582 Vanillite, 583 Vanillish, 584 Vanilluxe, 599 Klink, 600 Klang, 601 Klinklang, 605 Elgyem, 606 Beheeyem, 615 Cryogonal, 621 Druddigon, 626 Bouffalant, 638 Cobalion, 639 Terrakion, 640 Virizion, 667 Litleo, 672 Skiddo, 673 Gogoat, 674 Pancham, 675 Pangoro, 677 Espurr, 682 Spritzee, 683 Aromatisse, 684 Swirlix, 685 Slurpuff, 686 Inkay, 687 Malamar, 696 Tyrunt, 697 Tyrantrum, 701 Hawlucha, 707 Klefki, 717 Yveltal, 721 Volcanion, 764 Comfey, 765 Oranguru, 766 Passimian, 767 Wimpod, 768 Golisopod, 772 Type: Null, 776 Turtonator, 785 Tapu Koko, 786 Tapu Lele, 787 Tapu Bulu, 788 Tapu Fini, 789 Cosmog, 790 Cosmoem, 791 Solgaleo, 792 Lunala, 793 Nihilego, 794 Buzzwole, 795 Pheromosa, 796 Xurkitree, 797 Celesteela, 798 Kartana, 799 Guzzlord, 802 Marshadow, 803 Poipole, 804 Naganadel, 805 Stakataka, 806 Blacephaln, 807 Zeraora, 808 Meltan, 810 Grookey, 811 Thwackey, 813 Scorbunny, 814 Raboot, 816 Sobble, 817 Drizzile, 821 Rookidee, 822 Corvsquire, 827 Nickit, 828 Thievul, 829 Gossifleur, 830 Eldegoss, 835 Yamper, 836 Boltund, 843 Silicobra, 852 Clobbopus, 853 Grapploct, 862 Obstagoon, 867 Runerigus, 870 Falinks, 871 Pincurchin, 874 Stonjournr, 878 Cufant, 880 Dracozolt, 881 Arctozolt, 882 Dracovish, 883 Arctovish, 891 Kubfu, 893 Zarude, 894 Regieleki, 895 Regidrago, 896 Glastrier, 897 Spectrier, 906 Sprigatito, 907 Floragato, 908 Meowscrada, 909 Fuecoco, 910 Crocalor, 911 Skeledirge, 912 Quaxly, 913 Quaxwell, 914 Quaquaval, 915 Lechonk, 917 Tarountula, 918 Spidops, 919 Nymble, 920 Lokix, 921 Pawmi, 922 Pawmo, 923 Pawmot, 926 Fidough, 927 Dachsbun, 932 Nacli, 933 Naclstack, 934 Garganacl, 935 Charcadet, 936 Armarouge, 937 Ceruledge, 938 Tadbulb, 939 Bellibolt, 940 Wattrel, 941 Kilowattrl, 942 Maschiff, 943 Mabosstiff, 944 Shroodle, 945 Grafaiai, 948 Toedscool, 949 Toedscruel, 950 Klawf, 953 Rellor, 954 Rabsca, 955 Flittle, 956 Espathra, 960 Wiglett, 961 Wugtrio, 962 Bombirdier, 963 Finizen, 965 Varoom, 966 Revavroom, 967 Cyclizar, 968 Orthworm, 971 Greavard, 972 Houndstone, 973 Flamigo, 974 Cetoddle, 975 Cetitan, 976 Veluza, 977 Dondozo, 980 Clodsire, 984 Great Tusk, 985 ScreamTail, 986 BruteBonnt, 987 FluttrMane, 988 SlithrWing, 989 SandyShcks, 990 IronTreads, 991 IronBundle, 992 Iron Hands, 993 IronJuguls, 994 Iron Moth, 995 IronThorns, 1000 Gholdengo, 1001 Wo-Chien, 1002 Chien-Pao, 1003 Ting-Lu, 1004 Chi-Yu, 1005 RoarngMoon, 1006 IronValint, 1007 Koraidon, 1008 Miraidon, 1009 WalkngWake, 1010 IronLeaves, 1014 Okidogi, 1015 Munkidori, 1016 Fezndipiti, 1018 Archaludon, 1020 GougngFire, 1021 RagingBolt, 1022 IronBouldr, 1023 Iron Crown, 1025 Pecharunt
+
+**Harmless species lists inside the clean set (V in hg-engine, behaviour only):** the 11 Ultra Beasts (793, 794, 795, 796, 797, 798, 799, 803, 804, 805, 806) get the Beast Ball catch-rate rule (`CalculateBallShakes`, I for Origin); the paradox mons (984, 985, 986, 987, 988, 989, 990, 991, 992, 993, 994, 995, 1005, 1006, 1009, 1010, 1020, 1021, 1022, 1023) are the species allowed to hold Booster Energy, an item not in Origin (V); `IS_SPECIES_LEGENDARY` and the mythical macro in `include/pokemon.h` have no users. Five clean slots (687, 701, 768, 870, 807) have a Z-A mega entry in hg-engine's `mega.c`; Origin has no such forms and no Mega Ring item (V), so it is dead there.
+
+### 8.6 The guesses, confirmed or rejected
+
+| Guess | Verdict |
+|---|---|
+| Kyurem | **Confirmed** (fusion, 4 entries, move swaps). Reshiram 643 and Zekrom 644 are only its partners: latent, not dirty. |
+| Keldeo | **Confirmed as dirty, but weak**: Origin has a Resolute entry (1192), hg-engine has no code for it. |
+| Meloetta | **Confirmed** (Relic Song form switch, entry 1193). |
+| Genesect (646-649 group) | **Rejected as active**: Origin has no Genesect form entries and no Drive items; the hg-engine Drive code would only run if a Drive were held. Latent. |
+| Wishiwashi, Eiscue, Morpeko, Palafin | **Confirmed** (Schooling, Ice Face, Hunger Switch, Zero to Hero; all have entries and species checks). |
+| Zacian, Zamazenta | **Confirmed** (crowned forms, move swap, item lock; the Rusted items do not exist in Origin). |
+| Eternatus | **Confirmed, weak**: only an Eternamax entry (1436), no code. |
+| Urshifu | **Confirmed, weak**: 3 entries, cry code, no menu or battle code. |
+| Calyrex | **Confirmed, weak**: 2 rider entries; Reins of Unity is never given. |
+| Ogerpon | **Confirmed** (11 mask entries, Ivy Cudgel species check, item lock). |
+| Terapagos | **Confirmed, weak**: 2 entries; hg-engine's Tera Shift is an empty stub. |
+| Also dirty, not on the list | Xerneas (forced Active Mode), Zygarde, Hoopa, Silvally, Minior, Oricorio, the three Forces of Nature (Reveal Glass), Necrozma, Magearna, Diancie, Cramorant, Tatsugiri, Gimmighoul, Squawkably, Enamorus, the three gender-form species Meowstic/Indeedee/Oinkologne, Galarian Stunfisk and the 8 G-Max species. |
+
+### 8.7 Not verified
+
+- Nothing was run in the emulator. Whether Origin's own battle code really contains each form change above (Schooling, Ice Face, Hunger Switch, Zero to Hero, Shields Down, Gulp Missile, Commander) is inferred from the abilities and form entries being in its data (V) and from hg-engine; the overlay was not disassembled for species checks (I).
+- The 8 G-Max and Eternamax entries exist in Origin's data, but whether Origin has Dynamax at all was not checked; if not, those 9 are inert (I).
+- Which forms of our slot the engine would pick up if we left the old entries in place (and whether they could be deleted) was not tested. For a dirty slot the safe action is to overwrite the entries too, or just not use the slot.
+- Tutor "can learn" lists are species lists inside scripts (one tutor lists Hawlucha). They apply to every slot, clean or not: our creatures will not be on any tutor's list unless the scripts are edited.
+- Gender sprite pairs (`pokepic_m`/`pokepic_f`) were compared and are not a usable signal (the two NARCs differ for most species); no sprite-dimorphism check was done (I).
+
+## 9. Special assets beyond the per-species set (2026-11-11)
+
+Question (Arvind): do we know every picture or model in the game that shows one particular Pokemon or character outside the normal per-species set
+(front/back 2 frames, shiny palette, icon, follower, footprint, cry, dex data)? Method: every NARC of Origin (`~/sigma-origin/x_spike_backup/files`)
+was compared member by member with the vanilla US extract (`x_vanilla`; V), the NARC names and loaders were read in the pret decompilation (`src/`, `asm/`,
+`include/constants/mmodel.h`), and a few pictures were rendered locally to see what they show. Only numbers and file names are written here.
+Labels: **V** = verified in a file or in decompilation source, **I** = inferred, **U** = unknown. Caveat: Origin is built on the Japanese ROM and vanilla is US, so
+"changed" means the bytes differ from the US file; text banks and tables that Origin enlarged always differ. Member numbers of untouched NARCs match the decompilation (V).
+
+### 8.1 What Origin changed (V, from the member comparison)
+
+| NARC | What | Change |
+|---|---|---|
+| `a/0/4/6` titledemo | title screen | members 0-4 and 15 (logo and 2D backgrounds; two backgrounds shrank 30784 to 24640 bytes). **The Ho-Oh/Lugia 3D members 20-29 and the sparkle models 38-43 are untouched** |
+| `a/2/6/2` gs_opening | opening movie | members 1, 3, 4, 5, 13 (palettes, logo, one background). All sprite and 3D members untouched |
+| `a/1/2/0` intro | Prof. Oak's speech pictures | members 12-29 (the player boy/girl pictures, two palettes shrank 552 to 72 bytes). **Marill sprite members 53-66 untouched** |
+| `a/0/9/3` choose_starter_sub_res | starter selection, sub screen | members 6, 7, 11, 17, 20, 23: these are the player's head sprites (cap seen from above), not Pokemon. The 3D ball/table models (`a/0/8/2`) are untouched |
+| `a/0/8/1` mmodel (map-object sprites and models) | 78 of the first 863 members | almost all human NPCs, gym leaders, the player (recoloured/redrawn). **The only Pokemon-like object touched is `YADON` (member 209, the tailless Slowpoke)**; 161 `GSDSBOY`, 89 `BANZAIHERO`, 224 `JUPETTA` are people. Origin appends members 863-1733 (more followers) |
+| `a/0/0/6`, `a/0/5/8` | trainer back/front pictures | 44 of 85 and 132 of 645 members (section 7) |
+| `a/1/7/5` resdat | sprite resource id lists | members 30, 31, 79 only |
+| `a/0/7/4`, `a/2/1/4`, `a/1/3/3` | dex data, Giratina-form data, dex area data | enlarged to 1026 species (e.g. area data 3962 to 8210 members) |
+| `data/pokepic_m.narc`, `pokepic_f.narc`, `pokeicon.narc`, `pokemon_overworld_info.narc` | Origin's replacement for `a/0/0/4` (now a 1-byte stub), the icon NARC and the follower table | 11528 members (1441 x 8), 2890, 1026 (6 bytes each) |
+| `extra/intro_data.narc` (10 members), `a/2/6/5` (18) | Origin-only | a re-made intro with its own backgrounds, plus a clothes/dressing-room screen (one member shows a boutique interior). **No Pokemon found in them** (rendered; U for intro_data's cell/anim members) |
+| `extra/new_battle_bg.narc` (104), `battle/battle_graphics.narc` (51), `extra/ev_set.narc` (3) | Origin-only battle backgrounds and battle graphics | not checked for Pokemon (U) |
+
+Not changed by Origin (V, byte-identical): `a/1/7/4` demo/legend (Ho-Oh/Lugia cutscene models), `a/1/9/4` puzzle_gra (Ruins of Alph panels, `a/1/7/2`), `a/1/6/9` performance (Pokeathlon stats),
+`a/2/4/7-9` (Pokewalker app), `a/0/6/9` pokefoot (497 members: footprints only up to Gen 4), all of `a/1/4/x` Pokegear/radio/phone, the 28 Unown follower objects.
+
+### 8.2 Easy: picture swap in the formats we already write (follower-style sprite sheets, palette and tile data)
+
+| Asset | Where (V unless marked) | Shows | Origin | If our mon takes the role |
+|---|---|---|---|---|
+| **Follower sprites** of every species, also used for the 1544 map objects that show a story Pokemon (Burned Tower beasts, birds, Mewtwo, Dialga/Palkia, Regis, Celebi, Kimono Girl Eeveelutions) | `a/0/8/1` `MMODEL_FOLLOWER_MON_*` members 297-862 (then Origin's 863+), BTX0 4544 bytes | the species | untouched for species 1-493 | already covered by the follower pipeline; nothing extra |
+| **Separate static copies** (73 objects) | `a/0/8/1` members below 297 and Origin's extra ones (list in DEX_REPLACEMENT.md section 2) | Sudowoodo tree `USOKKY` (186), sleeping Snorlax `KABIGON` (194), Lapras `RAPURASU` (228), Red Gyarados `RGYARADOSU` (183), tailless Slowpoke `YADON` (209), 5 Rotom appliances (196-200), Pikachu `PIKACHU` (68), plus static Clefairy, Miltank, Ampharos, Kyogre etc. | only `YADON` | Same file type as followers (BTX0, 32x32 frames; `lw/btx.py` writes it). Rotom, Sudowoodo, Lapras, Gyarados have fewer frames (1128-4712 bytes): count frames first (U: exact frame order of the NPC format, see 1.3). 183/186/194/228 are single-frame or few-frame, the easiest of the legendary-like roles |
+| **Oak's Marill** | `a/1/2/0` members 59-66 (NCLR 59/63, NCGR 60/64, NCER 61/65, NANR 62/66); drawn as a 2D sprite with palette overrides 4 and 5 (`src/oaks_speech.c` states `APPEAR_MARILL`..`HIDE_MARILL`, `src/oaks_speech_obj.c`); rendered: Marill plus a Poke Ball in 3 poses, blue and red palette | Marill, hard-coded; `PlayCry(SPECIES_MARILL)` | untouched | Redraw member 64 (4528 bytes = 141 tiles, 4bpp) and keep the cell bank, or keep Marill (Origin keeps it). The cry follows the Marill slot, so a mon in slot 183 also changes the cry |
+| **Opening movie, scene 3 "Unown, Eusine, Silver silhouette"** | `a/2/6/2` members 65-72 (struct fields `silverSilhouetteSprite`, `eusineSprite`, `unownSprites[3]`, `include/intro_movie_internal.h`) | 3 Unown, characters | untouched | 2D sprite sheets; swap pictures only if Unown is replaced (Sigmanian Unown is planned) |
+| **Opening movie, scene 4 starters** | `a/2/6/2` members 81-96 (`starterSprites[3]`, hands, sparkles) | Chikorita, Cyndaquil, Totodile | untouched | 2D sprites; Origin never changed them, so the opening still shows the Johto starters. Replace only if wanted |
+| **Opening movie, scene 1 bird and sun** | `a/2/6/2` members 23-30 (`sunSprite`, `birdSprite`) | the bird is Ho-Oh in HG (I: not looked at as a picture) | untouched | one animated sprite, 2D |
+| **Ruins of Alph sliding puzzles** | `a/1/7/2` puzzle_gra (16 members); `alph_puzzle.c` takes `puzzleIndex + member 4` NCGR for panels | Kabuto, Omanyte, Aerodactyl, Ho-Oh panels (V from the code: 4 puzzles; which fossil is which: I) | untouched | 4 pictures 6x6 tiles; replace tile graphics, the rotation/position tables (`dAlphPuzzles`) are code |
+| **Dex and species search** | `a/0/7/4` zukan_data: per species `height`, `weight`, `body_style` (the body-type search icon), `scale`/`ypos` for the player and the mon in the size-comparison screen (`ov18_021E5C40.c`) | numbers, not pictures | enlarged to 1026 | numbers only (see section 5.2); the icons for body types are shared UI graphics in `a/0/6/8` (33 members changed by Origin: UI) |
+| **Wallpapers of the PC (box)** | constants in `include/constants/box_wallpaper.h`: bonus wallpapers Heart, Soul, Big Brother, **Pokeathlon, Trio, Spiky-eared Pichu ("Spiky Pika"), Kimono Girl, Revival** | art of fixed Pokemon (I: which ones show which) | not checked (U: NARC not found, belongs to the PC overlay) | decorative; do nothing or redraw |
+| **Mail graphics** | `mail.c` `sFormOverrides`: icons of Giratina Origin, Sky Shaymin and 5 Rotoms; mail designs Grass..Brick | form icons only | I: untouched | only matters for those slots |
+| **Pokewalker (Connect to Pokewalker app, overlay 112)** | loads NARCs `a/2/4/7`, `a/2/4/8` (540 members, each 384 bytes after LZ decompression), `a/2/4/9` (V: ids 0xF9-0xFB in `asm/overlay_112.s`); `a/2/2/8` has 533 palettes of 1072 bytes in the same 540 count (U who uses them) | I: one small (about 1-2 bit) walker picture per species slot up to Gen 4 plus forms; layout not decoded (a tile dump looked like two stacked figures) | untouched, so slots above 493 and our mons have none | per-mon file; extra slots needed for dex numbers above 540 (the count caps at 540). The cheapest fix is to leave it: the walker shows the slot's old picture. The course lists (27 courses, `pokewalker_courses.h`) hold species numbers (U where) |
+| **Pokeathlon** (overlays 96-99, assembly only) | NARCs `a/1/6/9` performance (554 x 20 bytes: per species stat ratings), `a/2/1/9`, `a/2/5/8` (100 x 8 bytes), plus `poke_icon` and `mmodel` (V: ids 169, 221, 260, 81, 20 in `asm/overlay_96.s`) | the player's Pokemon drawn from icon/follower sprites (I), event art is generic | untouched | stats table needs our species at their slots (20 bytes each; only up to species 553); art: I: no per-species pictures beyond icon and follower |
+| **Hall of Fame** | `register_hall_of_fame.c`: standard front sprite plus per-species animation table; **hard-coded position fix for Krabby and Kingler** (V lines 1535 and 1642) | the party | untouched | nothing, unless a mon takes Krabby's slot (then the offset applies to it) |
+| **Pokegear map, radio, phone** | `a/1/4/x` (3 map members changed: 70 members) | no species art (I) | map only | none |
+| **Trainer Card, ribbons, bag, shop** | `a/0/6/0` etc. | the player's trainer class picture; ribbons are generic icons (I) | trainer pics changed (section 7) | none |
+
+### 8.3 Harder: big sprites with several frames, or special code
+
+| Asset | Where | Notes |
+|---|---|---|
+| **Ho-Oh and Lugia in the cutscenes** (flying in over the Bell Tower and the Whirl Islands, level 95 gift) | `a/0/8/1` members 210 `HOU_OBJ01`, 211 `LUG_OBJ01`: BTX0 of 14700 bytes, 7 frames of 64x64, sit on a 64x64 plane model (`mmdl_m64x64`); `src/field/legend_cutscene_camera.c` `Task_BirdFinalApproach` sets species, flap delay and flap sound per game | both untouched. Origin keeps the full cutscene (V). The bells, leaves, waves, light ring are separate 3D models in `a/1/7/4` (110 members, e.g. members 34-35 are `NSBMD`/`NSBCA` used by `BirdFinalApproach`) and contain no Pokemon (I). **Needs 7 new 64x64 frames** from a new bird; the code picks species 249/250 and uses their cry, so the slot decides the cry. The map objects `obj_D17R0110_hou_obj01` and `obj_D40R0107_lug_obj01` stay |
+| **`TSURE_250`** (members 274, 275) | `a/0/8/1`, BMD0 model 17236 bytes with a 48x48 plane | named for species 250 (Ho-Oh): a 3D-plane Pokemon that follows or stands on the map; where it is placed: U |
+| **`SPPOKE4`** (269) | BMD0 on a 64x64 plane | "special Pokemon 4": U which |
+| **Embedded Tower Kyogre, Groudon, Rayquaza** | Origin events with the standard follower sprite or the static copies; scripts take the species number (V per DEX_REPLACEMENT.md and trades_tutors.md) | only a slot swap needed; Kyogre has a static copy (list above) |
+| **Opening movie scene 2 Ethan and Lyra**, scene 5 | `a/2/6/2` members 31-38, 73-80 | characters, not Pokemon (V from struct names) |
+| **Pokemon that change look with a form** (Unown 28 letters, Deoxys 4, Giratina 2, Shaymin 2, Rotom 6, Castform, Arceus 17) | `a/0/8/1` follower forms 501-528 (Unown), 716-719, 837-862 | each form is its own follower and its own front sprite set; code uses `SPECIES_` special cases in `pokedex.c`, `overlay_94.c`, `mail.c`, `follow_mon.c` (V) |
+| **Pokemon cries as special events** | `PlayCry(SPECIES_...)` at the title (`TITLE_SCREEN_SPECIES` = Ho-Oh in HG), Oak's Marill, Chatot cry (`sound_chatot.c`, a recorded user voice), Ho-Oh/Lugia final approach | the species slot decides which cry plays. The title cry is a compile-time constant (V, `src/title_screen.c` lines 36-38) |
+
+### 8.4 3D models (NSBMD/BMD0), a separate and harder category
+
+| Model | NARC and member | Shows | Origin |
+|---|---|---|---|
+| **Title screen Ho-Oh** (HG) | `a/0/4/6` members 25 (NSBMD), 26 (NSBCA bones), 27 (NSBTA texture scroll), 28 (NSBMA material anim), 29 (NSBTP texture swap); `TitleScreen_Load3DObjects` in `src/title_screen.c` lines 493 and 496 | Ho-Oh, 1009 polygons, 28 bones (STORY_ROLES.md section 5) | untouched |
+| **Title screen Lugia** (SS) | the same members 20-24; stays in the HG ROM but is unused (V: code branch on game version) | Lugia | untouched, unused |
+| **Title sparkles** | members 38-40 (HG) and 41-43 (SS) | an effect, not a Pokemon | untouched |
+| **Opening movie 3D** | `a/2/6/2` members 97-105: three map models of New Bark, Goldenrod and Ecruteak with `NSBCA`/`NSBTA` | maps | untouched |
+| **Starter selection** | `a/0/8/2` main_res members 00-07: table, turntable, balls, ball effect (`choose_starter_app.c`) | Poke Balls only. The starter Pokemon themselves are standard front sprites (`sSpecies` = Chikorita, Cyndaquil, Totodile) | untouched; Origin starts in Pallet and does not seem to use this screen (I) |
+| **Legend cutscenes** | `a/1/7/4` demo/legend (110 members) | bells, light, leaves/waves | untouched |
+| **Map 3D objects** | `a/0/4/0` (353 members, BMD0 on the map) | buildings, props | I: not Pokemon |
+| **Dynamic overworld planes** | `a/0/8/1` BMD0 entries 269, 274, 275, 277 | billboard planes for the 48/64 px Pokemon sprites (see 8.3) | untouched |
+
+So the only real 3D Pokemon is the title Ho-Oh (HG) / Lugia (SS). Replacing it is a Blender job: rigged low poly model of at most about 1,700 triangles (the DS draws at most about 2048 polygons a frame), bone animation, then convert to NSBMD/NSBCA (tool and format not tried here; U).
+Easy fallback: keep Ho-Oh and hide it behind a drawn background, or accept a re-themed title using only members 0-4 that Origin already replaced.
+
+### 8.5 Code, not pictures
+
+- Compile-time species: `TITLE_SCREEN_SPECIES` (cry), Oak's Marill cry, `sSpecies` of the starter screen, Chatot cry, Krabby/Kingler offset in Hall of Fame, `SPECIES_` cases for forms. Changing a *slot's* content changes all of them without code; changing *which* slot needs an overlay-14 style patch (docs/ORIGIN_CUSTOM_CODE.md).
+- Special static battles and gifts (Ho-Oh gift, Lugia, Snorlax, legendary quests in `~/sigma-origin/docs/trades_tutors.md`) take a species number from a script; the slot swap covers them (V, DEX_REPLACEMENT.md section 2).
+- Sudowoodo is not fought in Origin (it runs off after watering): only the tree picture and the script matter.
+
+### 8.6 Spriters Resource asset 27185
+
+Not identified. The site returns HTTP 403 to automated fetches (both the asset page and the game page) and a web search found no entry for the number; the game page only shows "40 assets". Arvind should open https://www.spriters-resource.com/ds_dsi/pokemonheartgoldsoulsilver/asset/27185/ and tell us the sheet name; the ROM-side inventory above does not depend on it. (U)
+
+### 8.7 Still unknown
+
+- Which NARC holds the PC box wallpapers, and which Pokemon the bonus ones show.
+- Where Pokewalker course species lists and the Pokewalker picture layout are; whether `a/2/2/8` belongs to the Pokewalker.
+- What `TSURE_250` and `SPPOKE4` are used for, and the exact frame layout of NPC-style sheets (needed for Snorlax/Lapras/Gyarados replacements).
+- Contents of Origin's `extra/intro_data.narc`, `extra/new_battle_bg.narc`, `battle/battle_graphics.narc` beyond "no Pokemon seen".
+- Whether Origin's Pokeathlon, Safari Zone, Bug-Catching Contest and Kimono Girl dance have any hard-coded species outside the NARCs listed (overlays 96-99 are assembly only).
+- Whether vanilla US and Origin's Japanese base differ in file layout for members that do not show up as changed (hash comparison cannot tell).
+
+## 10. Translation and native play (2026-11-11, web research)
+
+- **Scandinavian translations:** none found for any Gen 4 DS game or DS hack (Norwegian, Swedish or Danish), finished or in progress; official Pokemon games were never localised into Norwegian or Danish. Reddit and Discord could not be searched directly. The Origin EN translation repo's pipeline (JSON text banks, `msgtool.py`, `qa.py` width checks against the 216 px two-line box, `build.py` to ROM + xdelta, STYLE.md, AGENTS.md, AI first draft + human review) is reusable for a Norwegian translation; ask its maintainers about a downstream fork. Glyphs: the game's character table has Æ Ø Å æ ø å; still to check that the font draws them.
+- **Native play / recompilation:** pret/pokeheartgold is a work-in-progress disassembly (not fully C), builds matching US ROMs, active (last commit 2026-11-09). A Platinum SDL port exists (`arcanite24/pokeplatinum-portable`); no HeartGold PC port and no general DS static recompiler were found. Origin is JP HeartGold plus binary patches; a native Origin would need a HeartGold PC port first and then every Origin change (injected code, data, text) lifted onto the decomp. Assessment: months of expert work; emulator or the DS ROM stays the practical route, with the decomp as reference.
