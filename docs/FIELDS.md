@@ -8,7 +8,7 @@ decided yet - [TODO.md](../TODO.md) keeps track of what is missing.
 | Field | Meaning | Rules |
 |---|---|---|
 | `dex` | Slot in our regional dex | 1 to dex_size in data/config.yaml (254), unique |
-| `name` | Name | Max 12 characters in the game |
+| `name` | Name | Max 10 characters in the game (a new Pokemon cannot get a longer name on the website; older ones get a warning) |
 | `credits.designer`, `credits.artist` | Who made it | Discord names |
 | `types` | One or two types | `[Grass]` or `[Grass, Steel]` |
 

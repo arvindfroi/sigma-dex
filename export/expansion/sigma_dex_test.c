@@ -285,34 +285,6 @@ SINGLE_BATTLE_TEST("Sigma dex: Florantula can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: Tropistrich has the data from its species file")
-{
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_TROPISTRICH];
-    EXPECT_EQ(info->baseHP, 78);
-    EXPECT_EQ(info->baseAttack, 100);
-    EXPECT_EQ(info->baseDefense, 67);
-    EXPECT_EQ(info->baseSpeed, 120);
-    EXPECT_EQ(info->baseSpAttack, 40);
-    EXPECT_EQ(info->baseSpDefense, 65);
-    EXPECT_EQ(info->types[0], TYPE_GRASS);
-    EXPECT_EQ(info->types[1], TYPE_FLYING);
-    EXPECT_EQ(info->abilities[0], ABILITY_EARLY_BIRD);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_TROP_KICK);
-    EXPECT_EQ(GetSpeciesName(SPECIES_TROPISTRICH)[0], CHAR_T);
-}
-
-SINGLE_BATTLE_TEST("Sigma dex: Tropistrich can use its first move in battle")
-{
-    GIVEN {
-        PLAYER(SPECIES_TROPISTRICH) { Moves(MOVE_TROP_KICK); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_TROP_KICK); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_TROP_KICK, player);
-    }
-}
-
 TEST("Sigma dex: Cowfin has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_COWFIN];

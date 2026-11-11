@@ -1516,7 +1516,7 @@ function openEditor(s) {
   const openSlots = Array.from({length: DEX.dex_size}, (_, i) => i + 1).filter(n => !bySlot.has(n));
   const f = {
     slot: isNew ? selectInput(String(d.dex), openSlots.map(n => [String(n), "#" + pad(n)])) : null,
-    name: textInput(d.name, {required: true, maxlength: 20}),
+    name: textInput(d.name, {required: true, maxlength: isNew ? L.name_limit : Math.max(L.name_limit, String(d.name || "").length)}),
     type1: selectInput((d.types || [])[0], DEX.types, "not decided"), type2: selectInput((d.types || [])[1], DEX.types, "none"),
     designer: textInput(credits.designer, {maxlength: 40}), artist: textInput(credits.artist, {maxlength: 40}),
     category: textInput(d.category, {maxlength: 20}),

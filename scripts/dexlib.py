@@ -44,7 +44,7 @@ ITEM_METHODS = ("item", "trade_item")
 MAX_EVOLUTIONS = 5           # EVOS_PER_MON
 
 # Text limits in pokeemerald-expansion (include/constants/global.h, struct SpeciesInfo).
-NAME_LIMIT = 12              # POKEMON_NAME_LENGTH
+NAME_LIMIT = 10              # POKEMON_NAME_LENGTH in the HeartGold decomp; Origin abbreviates longer ones ("FluttrMane")
 CATEGORY_LIMIT = 12          # categoryName[13]
 MOVE_NAME_LIMIT = 16
 ABILITY_NAME_LIMIT = 16
