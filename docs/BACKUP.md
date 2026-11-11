@@ -12,7 +12,8 @@ Everything is kept in three places:
    - `db\<date>\<table>.json.gz`: every table of the database, one folder per day on which something changed
      (`state.json` remembers what the last run saw).
    - `files\...`: every picture the database points to (uploads, Lost and found, studio tries), downloaded once.
-   - `backup.log`: one line per night; a line with PROBLEMS means something was not copied.
+   - `backup.log`: one line per night with the free space left; a line with PROBLEMS means something was not copied
+     or that less than 3 GB is free. Below 1.5 GB free no new pictures are downloaded, so the disk never fills up.
 
 ## Restoring
 

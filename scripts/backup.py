@@ -19,6 +19,7 @@ import gzip
 import hashlib
 import json
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -34,6 +35,8 @@ TABLES = ["species_edits", "species_images", "species_image_moves", "sprite_jobs
           "sprite_candidates", "sprite_comments", "sprite_worker"]
 PICTURE = re.compile(r"^[A-Za-z0-9._-]+(/[A-Za-z0-9._-]+)+\.(png|webp|jpe?g|gif)$", re.I)
 PAGE = 1000
+WARN_FREE_GB = 3      # below this the log says PROBLEMS: the disk is nearly full
+STOP_FREE_GB = 1.5    # below this no new pictures are downloaded, so the backup never fills the disk
 
 
 def get(url, key, headers=None):
@@ -141,8 +144,11 @@ def main():
     else:
         lines.append("database unchanged")
 
+    free_gb = shutil.disk_usage(target).free / 1024 ** 3
+    if free_gb < WARN_FREE_GB:
+        problems.append("only %.1f GB free on the backup disk" % free_gb)
     new = failed = 0
-    for path in sorted(found):
+    for path in sorted(found) if free_gb >= STOP_FREE_GB else []:
         out = target / "files" / Path(*path.split("/"))
         if out.exists():
             continue
@@ -160,7 +166,9 @@ def main():
         part.write_bytes(data)
         part.replace(out)
         new += 1
-    lines.append("pictures: %d known, %d new, %d failed" % (len(found), new, failed))
+    lines.append("pictures: %d known, %d new, %d failed%s" % (len(found), new, failed,
+                 "" if free_gb >= STOP_FREE_GB else " (none downloaded: the disk is nearly full)"))
+    lines.append("%.1f GB free" % (shutil.disk_usage(target).free / 1024 ** 3))
     if not problems:
         state_file.write_text(json.dumps({"tables": dict(state.get("tables", {}), **sums), "last_run": day}, indent=1), encoding="utf-8")
     if failed:
