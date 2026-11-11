@@ -19,6 +19,12 @@ Arvind (2026-11-11): "andre har jobbet mye med slike greier i det siste så om v
 5. **Real time multiplayer.** Playing together live (seeing each other, trading, battling) beyond the DS's own
    wireless features. Others have recently done this for similar games; find out what exists and what it would take.
 
+6. **A Norwegian translation.** The English translation project of Origin
+   ([originheartgold/origin-heart-gold-EN-translation](https://github.com/originheartgold/origin-heart-gold-EN-translation),
+   Apache-2.0) keeps every text bank as JSON and has tools that extract, check (text box widths) and rebuild the text,
+   plus a style guide and AI-first-draft workflow. With those, all ~67,000 strings could be done in one go.
+   The game's character table has Æ Ø Å æ ø å (pret pokeheartgold `tools/msgenc/charmap.txt`); check the font draws them.
+
 ## Already planned for later
 
 - More trainer classes than the game's 129 (class 130+), if we want many new ones instead of replacing: needs the class tables moved and a code patch.
