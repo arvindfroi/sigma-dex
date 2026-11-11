@@ -4,6 +4,7 @@
 Errors (broken data) make the check fail. Warnings are things to look at but do not fail.
 Missing information is not an error - see TODO.md for what is still to be filled in.
 """
+import re
 import os
 import sys
 
@@ -199,6 +200,12 @@ def check_species(sid, data, ids, engine, errors, warnings):
         err("engine.no_flip must be true or false")
 
     for key, value in section(data, "assets").items():
+        # "hgss:<dex>" borrows an official HeartGold picture (e.g. a footprint), copied from the ROM at export time
+        borrowed = isinstance(value, str) and re.fullmatch(r"hgss:(\d+)", value)
+        if borrowed:
+            if key != "footprint" or not 1 <= int(borrowed.group(1)) <= 493:
+                err("assets.%s: '%s' - only a footprint can borrow an official one, by dex number 1-493" % (key, value))
+            continue
         if value is not None and not (isinstance(value, str) and (ROOT / value).is_file()):
             err("assets.%s points to '%s' which does not exist in the repo" % (key, value))
     folder = ROOT / "assets" / "sprites" / sid
