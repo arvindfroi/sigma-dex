@@ -4,7 +4,7 @@ name: Moosus
 
 credits:
   designer: Arvind       # who came up with it (Discord name)
-  artist:                # who drew the concept art
+  artist: Arvind         # who drew the concept art
 
 types: [Flying, Fairy]   # 1 or 2 types, e.g. [Grass, Steel]
 
@@ -53,6 +53,15 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
   level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
@@ -71,8 +80,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "a quadruped body"
-  movement: "It floats in the air."
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a moose with a brown head and long snout, and wide flat antlers that glow in aurora colours of purple, green and blue. Its body and long legs are white shaded with lilac and blue, with a small brown hump on its back and dark curled hooves."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---

@@ -47,14 +47,18 @@ held_items:              # items wild ones can hold (optional)
 # --- Evolution: what THIS Pokemon evolves INTO ---
 evolutions:
   - into: coatail
-    method: other
+    method: level
+    level: 15
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:
@@ -74,8 +78,8 @@ design:
   wishes: weak but fast pokemon. like zigzagoon or ratata
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "a quadruped body"
-  movement: "It walks on four legs."
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small, low rodent-like creature with a pointed snout, one round ear, a round dark-ringed eye and short legs. Its body is blue-purple fading to white on the back, and a very long, thick white tail curls around behind it and sweeps forward under its belly."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---

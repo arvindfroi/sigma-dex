@@ -4674,5 +4674,33 @@
     "file": "assets/concept-art/riftbloom/1480.png",
     "caption": "[ds-front] sprite #244",
     "editor": null
+  },
+  {
+    "id": 1488,
+    "species": "maagamad",
+    "file": "assets/concept-art/maagamad/1488.png",
+    "caption": "[ds-front] sprite #245",
+    "editor": null
+  },
+  {
+    "id": 1489,
+    "species": "maagamad",
+    "file": "assets/concept-art/maagamad/1489.png",
+    "caption": "[ds-back] sprite #245",
+    "editor": null
+  },
+  {
+    "id": 1490,
+    "species": "maagamad",
+    "file": "assets/concept-art/maagamad/1490.png",
+    "caption": "[ds-icon] sprite #245",
+    "editor": null
+  },
+  {
+    "id": 1491,
+    "species": "maagamad",
+    "file": "assets/concept-art/maagamad/1491.png",
+    "caption": "[ds-follower] sprite #245",
+    "editor": null
   }
 ]

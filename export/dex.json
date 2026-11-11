@@ -1732,7 +1732,7 @@
       "dex": 17,
       "name": "Pipwi",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -1824,7 +1824,7 @@
       "dex": 18,
       "name": "Tropistrich",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -2968,7 +2968,7 @@
       "dex": 30,
       "name": "Croakble",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -3313,8 +3313,8 @@
       "dex": 34,
       "name": "blutie",
       "credits": {
-        "designer": "arvind",
-        "artist": "arvind"
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Normal"
@@ -3352,10 +3352,12 @@
       "evolutions": [
         {
           "into": "coatail",
-          "method": "other",
+          "method": "level",
+          "level": 15,
           "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -3402,8 +3404,8 @@
       "dex": 35,
       "name": "coatail",
       "credits": {
-        "designer": "arvind",
-        "artist": "arvind"
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Normal"
@@ -4484,7 +4486,7 @@
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Static",
-        "hidden": "Sap Sipper"
+        "hidden": "Eelevate"
       },
       "base_stats": {
         "hp": 35,
@@ -6055,7 +6057,7 @@
       "dex": 64,
       "name": "Conqrilla",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -6376,7 +6378,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "abyssys",
+          "method": "level",
+          "level": 23
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -6464,7 +6472,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "octopearl",
+          "method": "item",
+          "item": "Moon stone"
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -6867,7 +6881,7 @@
       "dex": 74,
       "name": "Leadling Utvikling",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -7044,7 +7058,7 @@
       "dex": 76,
       "name": "Iglomodo mindre utv",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -9168,7 +9182,7 @@
       "dex": 100,
       "name": "Slothbaby",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -9260,7 +9274,7 @@
       "dex": 101,
       "name": "Blazlothku",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -9352,7 +9366,7 @@
       "dex": 102,
       "name": "Terratyson",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -9532,7 +9546,7 @@
       "dex": 104,
       "name": "Obsidog utvikling",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -10260,7 +10274,7 @@
       "dex": 112,
       "name": "Aluminimonk",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -10351,7 +10365,7 @@
       "dex": 113,
       "name": "Aluminimonk Utviklin",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -11934,7 +11948,7 @@
       "dex": 131,
       "name": "Glacépée",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": null
       },
       "types": [
@@ -12903,8 +12917,8 @@
       "dex": 142,
       "name": "Moosus",
       "credits": {
-        "designer": "arvind",
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Flying",
@@ -12941,6 +12955,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -13074,7 +13089,7 @@
       "dex": 144,
       "name": "Sabertann",
       "credits": {
-        "designer": "Emil",
+        "designer": "Emil Venge-Kvamme",
         "artist": "Emil & Arvind"
       },
       "types": [
