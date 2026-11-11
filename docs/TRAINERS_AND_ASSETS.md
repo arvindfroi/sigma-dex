@@ -827,17 +827,14 @@ Counts: 159 rows = 118 `WildBattle`, 37 `GiveMon`, 4 `GiveEgg`; 48 of the battle
 | Player starters (3) | Bulbasaur, Charmander, Pikachu (the choice) + Oak's intro Marill | Pallet Town (already known, section 9 and STORY_ROLES) | K |
 | Starter-dependent side gifts | Poliwag (Bulbasaur starters), Charmander/Meowth/Mankey/Pikachu "thief" events by starter, Light Ball / Charcoal | Pallet, Viridian, Route 2; one entry per starter (guide ch. 1) | K |
 | Early gifts | Eevee (Viridian Forest), Charmander (Pewter, Route 3), Bulbasaur and Growlithe (Route 5 shelter), Squirtle (Route 9), Horsea (Vermilion), Hitmonlee/Hitmonchan (Saffron dojo), Lapras (Silph, lv 70), Cubone, Bellsprout, Ralts, Doduo, Barboach, Dratini (Resort Zone), Torchic, Treecko egg | listed place by place in `trades_tutors.md` | K, S |
-| Main-story legendaries, Kanto | Zapdos (Power Plant, main), Regirock/Regice/Registeel (Rock Tunnel, lv 90 gifts, main), Mewtwo (Cinnabar lab fight, main; Indigo Plateau gift lv 95, side), Moltres (Cinnabar, main), Kyogre (Seafoam, main; Rocket catches it), Articuno (Seafoam, side), Latios/Latias (Secret Forest, main), Rayquaza (Sky Pillar, Rocket takes it, main), Mew (Mt. Moon chase main; Five Island gift side) | guide ch. 3, 5, 6 | K |
-| Johto story Pokemon | Slugma (Cherrygrove chain, main), Arceus (Ruins of Alph, Giovanni catches it, main), Entei (Ruins of Alph fights, main), Celebi (Ilex Forest, main), Salamence (Route 34, main), Sudowoodo (Route 36, main), Miltank (MooMoo Farm, main), red Gyarados (Lake of Rage, main), Chatot (Rocket HQ radio, main), Suicune (Ice Path trap, main), Raikou (Route 47 device, main), Dialga/Palkia (Rocket catches them, main), Giratina (Reversal Cave chase, main), Ho-Oh (stolen from Bell Tower, main), Teddiursa (S.S. Anne, main), Swinub (Ice Path, main), Kabuto (Alph chamber) | guide ch. 8-12 | J |
+| Legendaries, Kanto side (see 12.8 for the exact timing; corrected 2026-11-11) | Gifts before the final HoF: Regirock/Regice/Registeel (Rock Tunnel, round 1), Latios/Latias (Secret Forest, round 4), Mew (Five Island, pilgrimage), Mewtwo (Indigo Plateau, take it before the Elite Four). Story only, cannot be caught before the final HoF: Zapdos (trainer-style fight, no catch), Articuno (no Balls), Moltres, Kyogre, Rayquaza (Rocket takes it); Mewtwo in the Cinnabar lab (scripted) | guide ch. 3, 5, 6 | K / J |
+| Johto story Pokemon | Slugma (Cherrygrove, main), Arceus, Dialga, Palkia (Giovanni/Rocket catch them, main), Giratina (Reversal Cave chase), Entei (Alph, Molly), Suicune (Ice Path trap), Raikou (Route 47 device), Ho-Oh and Lugia (stolen by Rocket, fought trainer-style; main), Celebi (Forest of Time, catchable), Salamence (Route 34, catchable), Sudowoodo (Route 36 tree), Miltank (MooMoo Farm), red Gyarados (Lake of Rage, catchable), Chatot (Rocket HQ), Teddiursa (S.S. Anne), Swinub (Ice Path), Kabuto (Alph chamber) | guide ch. 8-12 | J |
 | Johto side gifts | Cyndaquil, Totodile, Chikorita (wild "challenger"), Chimchar, Shinx, Houndour, Tentacool, Shellos, Mareep/Slugma/Wooper egg (Violet, choose one), Heatran (Tuesdays), Uxie/Mesprit/Azelf (Lake of Rage, lv 90) | `trades_tutors.md` | J, S |
-| Post-game legends | Ho-Oh (Bell Tower gift/battle lv 95), Lugia (Whirl Islands lv 95), Jirachi, Burned Tower beasts (Entei, Suicune, Raikou), Suicune (Route 25), Groudon (Mt. Moon), Rayquaza (Sky Pillar), Deoxys (Six Island), Cresselia/Darkrai (Dream World), Dialga/Palkia/Giratina (after Lance's visit), Regigigas and Arceus (Sinjoh Ruins), Celebi time-travel event | guide ch. 10-12 and 33-34 titles say "after the final Hall of Fame" or "post-game" | P |
+| Post-game legends (catchable only after the final HoF) | Ho-Oh (Bell Tower, lv 95), Lugia (Whirl Islands, lv 95), Zapdos, Moltres, Articuno, Kyogre (Blue Orb), Groudon (Red Orb), Rayquaza (Jade Orb), Deoxys, Jirachi, Entei/Suicune/Raikou (after the Burned Tower scene), Dialga/Palkia/Giratina (after Lance's visit), Regigigas and Arceus (Sinjoh Ruins), Cresselia/Darkrai, Celebi time-travel event | guide ch. 2, 3, 5, 6, 9-12, 33-34: "after the final Hall of Fame" | P |
 | Safari Zone Gate challenge list | 48 battle rows, all level 10: Hoenn and Sinnoh species only (Absol ... Turtwig) | Safari Zone Gate | S |
 | Other | Manaphy egg (Alto Mare), Jirachi (Frontier Access), Shaymin (Ilex shrine), Kecleon, Onix form, Hypno, Mr. Mime (Route 21), Electrode x3 at Victory Road and Team Rocket HQ | various | S |
 
-So the story-critical ones that our dex must cover before the final Hall of Fame are: the 3 starters, about 14 legendary/mythical roles (Zapdos, Moltres, Articuno,
-Regis x3, Mewtwo, Mew, Kyogre, Rayquaza, Latios/Latias, Arceus, Celebi, Dialga/Palkia/Giratina, Raikou/Entei/Suicune, Ho-Oh, Lugia) plus about 15 "plot"
-Pokemon (Meowth, Persian, Slugma, Salamence, Sudowoodo, Miltank, Gyarados, Chatot, Teddiursa, Swinub, Snorlax, Lapras, Eevee, Pikachu, Marill, Dragonair).
-Ho-Oh and Lugia are only obtainable **after** the final Hall of Fame (V, guide titles), but appear in cutscenes and text earlier.
+In short (corrected 2026-11-11, see 12.8): before the final Hall of Fame the story **uses** the box legendaries (Rocket steals or captures them, you fight Zapdos, Articuno, Ho-Oh, Lugia, Suicune and others trainer-style) but you can only **keep** Regirock, Regice, Registeel, Latios, Latias, Mew, Mewtwo, Celebi, Shaymin, Uxie, Mesprit, Azelf, Heatran and Manaphy; the rest become catchable after the final Hall of Fame. Our dex must cover every one of them for the story, post-game or not (section 12.11).
 
 **In-game trades (13, V):** Butterfree/Raticate pair (S.S. Anne), Budew for Ditto, Goldeen for Feebas, Hoothoot for Pineco, Bagon for Torkoal, Shellder for
 Mudkip, Dragonair for Porygon2, Bonsly for Rhydon, Exeggutor for Skarmory, Beedrill for Onix, Dugtrio for Gyarados (loan), Pidgeot (loan, Viridian Forest).
@@ -972,9 +969,9 @@ not story and can wait: only 197 of its 1,441 strings name a species.
 
 ### 12.7 What we must do, by group (counts)
 
-1. **Legend roles (about 34 species with events, 11 with battle intros):** one of our mons per role, plus the intro table patch (11 entries), cutscene sprite
+1. **Legend roles (about 34 species with events, 21 of them essential, 11 with battle intros):** one of our mons per role, plus the intro table patch (11 entries), cutscene sprite
    (Ho-Oh, Lugia), title model, 13 follower sprites for the beasts/legends in about 25 map files. Post-game ones may keep official species.
-2. **Plot Pokemon (about 15):** Meowth/Persian, Slugma, Salamence, Sudowoodo, Miltank, Gyarados, Chatot, Teddiursa, Swinub, Snorlax, Lapras, Eevee line, Pikachu, Marill, Dragonair/Dratini.
+2. **Plot Pokemon (about 35 essential outside the legends, see 12.9 and 12.11):** Meowth/Persian, Gloom, Slugma, Salamence, Sudowoodo, Miltank, Gyarados/Magikarp, Chatot, Teddiursa, Swinub, Slowpoke, Dragonite/Dragonair, the rivals' starter lines, Alph fossils, Bugsy's four bugs, Marill, Pikachu. Snorlax, Lapras and the Eevee gift are side quests (optional).
 3. **Trainer teams:** all 1,023 team records, 3,891 slots, 495 species; plus the 32 pseudo-trainers.
 4. **Text:** 4,791 strings in 374 banks (main story), plus about 250 in phone/radio/TV/minigame banks; do it per species name with a script and a hand
    check of the 1,188 legend strings and the 820 plot strings.
@@ -985,3 +982,94 @@ not story and can wait: only 197 of its 1,441 strings name a species.
 **Still unknown (U):** which of the 1,537 follower objects are only reachable after the final Hall of Fame (map names are inferred); whether the Trainer House and the
 Marill/Rattata catching tutorial are reachable in Origin; the Pokewalker course lists; the Pokeathlon art; sprite id 1565 in Cerulean City; where the VS portraits
 are stored; exact overlay sites of the title cry and the Marill cry; what the other 31 `FOLLOWER_MON_STATIC` kinds (vanilla only) were replaced by.
+
+### 12.8 When is each legendary available in Origin's story? (corrected 2026-11-11; V from the quest guide, `msg/071` hint menu and `trades_tutors.md`)
+
+I had this partly backwards in 12.2 and in my first report: I treated "story role" as "obtainable". In Origin almost every box legend is **taken by Team Rocket in the story** and only becomes catchable after the **final** Hall of Fame (the one after Giovanni at League HQ; the first HoF, after Blue, is Kanto only). The guide's phrase "post-game" means after the final entry. Prof. Hale's hint menu (`msg/071`, 12 legend topics) is consistent: it only points to the places (Rock Tunnel God Pillars, Mt. Moon with the Red Orb, Seafoam with the Blue Orb, Sky Pillar with the Jade Orb, Ice Path for Dialga, Mt. Mortar for Palkia, Dark Cave world for Giratina, Burned Tower for the beasts, Whirl Islands and Bell Tower with a token and a dance, Lake of Rage on Wednesdays, "wait for Mewtwo", Five Island for Mew).
+
+| Legend | Story use before the final HoF (chapter) | You can keep it |
+|---|---|---|
+| Regirock, Regice, Registeel | Rock Tunnel quiz, Goh and Rocket Joy (League HQ round 1, ch. 3) | **before**, lv 90 gift (needs Wailord first slot, Relicanth sixth) |
+| Zapdos | Power Plant: lv 90 trainer-style fight, no catch (TM25 reward); Lawrence catches it (round 1) | **after final HoF** (wild lv 90) |
+| Moltres | Lawrence lures it at Cinnabar, Rocket catches it (round 1) | **after final HoF** (lava edge, wild lv 90) |
+| Articuno | Seafoam: lv 90 fight, no Balls; Rocket takes it in round 2 | **after final HoF** (wild lv 90) |
+| Kyogre | Archie summons it with Misty's Blue Orb and escapes (round 2, after the Silver Conference) | **after final HoF** (Blue Orb from Lance, wild lv 95) |
+| Groudon | Team Rocket Groudon story (Red Orb) | **after final HoF** (Mt. Moon altar, lv 95) |
+| Rayquaza | Four Island trial: Proton and Ariana catch it with the Jade Orb (pilgrimage) | **after final HoF** (Sky Pillar, lv 95) |
+| Latios, Latias | Secret Forest (round 4) | **before**, lv 80 gift |
+| Mew | Mt. Moon Rocket chase, Cinnabar lab logs | **before**, lv 90 (Five Island finale, pilgrimage) |
+| Mewtwo | Cinnabar lab scripted event (ch. 5); Indigo Plateau final chapter | **before**, lv 95 gift after Mewtwo breaks Palkia's barrier; missable, removed by the final HoF |
+| Celebi, Shaymin | Ilex Forest, Sammy, injured Celebi (round 3) | **before**, Forest of Time shrine, one each |
+| Uxie, Mesprit, Azelf | Lake of Rage trials (after Petrel scene) | **before**, lv 90 each |
+| Heatran, Manaphy (egg) | side quests (Tuesday lava pool; Alto Mare) | before |
+| Arceus | Giovanni catches it at Alph/Sinjoh (ch. 8) | **after final HoF** (Sinjoh Ruins, lv 95) |
+| Dialga, Palkia | Rocket catches both in the Distortion World (final chapter); Ice Path/Mt. Mortar spaces | **after Lance's visit** |
+| Giratina | Reversal Cave chase | **after Lance's visit** |
+| Entei, Suicune, Raikou | Alph with Molly (Entei), Cianwood with Eusine and Ice Path trap (Suicune), Route 47 device (Raikou) | **after final HoF** (Burned Tower scene first) |
+| Ho-Oh | Rainbow Wing, Morty and the Bell Tower: stolen by Rocket (round 4); lv 95 trainer-style fight comes with the post-game catch | **after final HoF** (Clear Bell from Morty, Satsuki) |
+| Lugia | Lawrence wakes it with the birds, you fight Rocket, Lawrence catches it (round 4) | **after final HoF** (Whirl Islands B3F lv 95, Silver Wing) |
+| Deoxys, Jirachi, Cresselia, Darkrai, Regigigas | Deoxys in the Six Island trial story; others not in the story | **after final HoF** |
+
+Consequence for Arvind's rule: our legends are needed **in the story before the final HoF** (cutscene sprites, battles, text, captured-by-Rocket scenes) for Zapdos, Moltres, Articuno, Kyogre, Groudon, Rayquaza, Arceus, Dialga, Palkia, Giratina, Entei, Raikou, Suicune, Ho-Oh and Lugia, and as **gifts you keep** for Regis, Latios/Latias, Mew, Mewtwo, Celebi, Shaymin, Uxie/Mesprit/Azelf. Origin's HeartGold-style "box legend caught before the League" does not exist; Ho-Oh and Lugia are the least obtainable of all (one battle each, post-game).
+
+### 12.9 The "plot" Pokemon checked one by one (V: guide text, EN banks and parsed objects)
+
+| Species | Real story role | Main or side | Sprites it needs |
+|---|---|---|---|
+| Meowth, Persian | Jessie and James's talking Meowth (Rocket trio, 110 text mentions); Persian statue password puzzle in the Celadon warehouse; Viridian Meowth thief (Charmander starters), Route 8 Persian quarrel | main + side | follower (Meowth 7, Persian 5 objects), 1 vanilla static Meowth; the statue is probably a map prop, not an object (I) |
+| Gloom | Celadon "stolen Gloom" chain (main, easy to get stuck) | main | follower (5); the 80 "Gloom" hits in text are partly the English word |
+| Slugma | Cherrygrove: Rhett's Slugma, a fight with three Slugma (pseudo-trainer record #745), Slugma egg gift | main | follower (4) |
+| Salamence | Route 34: Ruby and Sapphire's angry Salamence, lv 60 wild, catchable once | main | follower (2), battle sprite |
+| Sudowoodo | Route 36 "odd tree" blocks the road; Crystal waters it and it runs off, no fight (guide); an unmasked Sudowoodo already stands further west | main | **special**: tree object `USOKKY` (1) + `TREE` + Sudowoodo follower (4) |
+| Miltank | MooMoo Farm sick Miltank chain, leads to the Dream World (round 3); Whitney's ace | main | follower 16 + 5 static |
+| Chatot | Rocket HQ (radio-wave investigation, 8 text mentions, lv 10 static battle); also a recorded-voice cry code (`sound_chatot.c`) | main | follower (6); cry is special code |
+| Teddiursa | S.S. Anne party: the girl's Teddiursa needs Honey and salt, then goes missing | main | follower (6) |
+| Swinub | Ice Path cursed tunnel: the Swinub trainer, Durin Berries, Sacred Ash, Anti-Age Spray (needed in the final chapter) | main | follower (1) |
+| Gyarados, Magikarp | Misty's runaway Gyarados (Route 3, lv 65), red Gyarados at the Lake of Rage (lv 30, Lance catches one, Gold another), Magikarp evolves in the scene, Magikarp record script | main | **special**: `RGYARADOSU` (3) + follower (7) |
+| Pikachu | one of the three starters; Pikachu thief events; Viridian | main | **special**: `PIKACHU` object (2) + followers (17) + 2 vanilla static |
+| Marill | Oak's intro Pokemon, catching tutorial code, first PC mail icon; Violet runaway Marill (side) | main (code), side | 2D intro sprite (section 9) + followers (7) |
+| Dragonair, Dragonite | Secret Potion for the Warden's Dragonair (main); Lance's Dragonite at the Lake of Rage; Dratini gift (side) | main | follower (Dragonite 17, Dragonair 3) |
+| Snorlax | Route 12 roadblock, wake with Poke Flute, lv 35, catchable (and Five Island monk); not needed to progress | **side** | **special**: `KABIGON` sleeping (2) + 1 follower |
+| Lapras | Silph hostage Lapras (side), ferry/ride quests on the Sevii islands | **side** | **special**: `RAPURASU` (11) + 2 followers |
+| Eevee | Viridian Forest rescued Eevee (side); Blue's Umbreon, Kimono Girls' teams | side + teams | followers (Eevee 3, evolutions 21) |
+| Slowpoke | Slowpoke Well (chapter 19) and Azalea | main | follower 21 + **special** tailless `YADON` (7) + 1 static |
+
+So two of my first list were wrong in kind: Snorlax and Lapras are optional side quests, and the Eevee gift is optional. Only Sudowoodo, red Gyarados, Pikachu and Slowpoke (tailless) need a special object graphic; every other "plot" Pokemon is the normal follower sprite plus the battle sprite.
+
+### 12.10 The 34 special map objects, by name and graphic (V: `a/0/3/2` parsed; sprite ids from pret `sprites.h`; mmodel members from section 9)
+
+All are files in `a/0/8/1` (map-object models/sprites, BTX0 32x32 or 64x64 frames); they use fewer frames than a follower.
+
+| Name (sprite id) | Count | Where (map names approximate, I) | Graphic |
+|---|---|---|---|
+| `PIKACHU` (71) | 2 | Rock Tunnel, Route 44 | static Pikachu sprite, mmodel 68 |
+| `RGYARADOSU` (237) | 3 | Lake of Rage | red Gyarados, mmodel 183 |
+| `USOKKY` (381) | 1 | Route 36 | Sudowoodo disguised as a tree, mmodel 186 |
+| `RAPURASU` (390) | 11 | Alto Mare Waters, One to Four Island, Route 40, Route 47 | Lapras you can ride/see in water, mmodel 228 |
+| `KABIGON` (395) | 2 | Route 12, Five Island | sleeping Snorlax, mmodel 194 |
+| `ROTOMF`, `ROTOMS`, `ROTOMI`, `ROTOMW`, `ROTOMG` (409-413) | 5 (1 each) | Silph Co. Rotom's Room | the five appliance forms, mmodel 196-200 |
+| `YADON` (414) | 7 | Burned Tower, Frontier Access, Ice Path, Route 42, Route 47, Six Island | tailless Slowpoke; the only Pokemon sprite Origin redrew, mmodel 209 |
+| `HOU_OBJ01` (425) | 1 | Bell Tower | Ho-Oh cutscene plane, mmodel 210, 7 frames 64x64 |
+| `LUG_OBJ01` (426) | 2 | Whirl Islands | Lugia cutscene plane, mmodel 211, 7 frames 64x64 |
+
+Total 34. Plus sprite id 1565 (1 object, Cerulean City) that is outside vanilla's table (U), and generic `TREE` (2) and `ROCK` (25) props that look like Pokemon only in the Sudowoodo and Rock Smash events.
+
+### 12.11 Essential versus incidental species (Arvind: "historien inkluderer 500 arter men alle er ikke essensielle")
+
+Definitions (I; the line is mine, based on the data below): **Essential** = named in the main plot, given as a plot reward, scripted or in a cutscene, required to progress, in the code tables, or the rivals' signature lines. **Optional scripted** = a gift, trade or static battle or side quest title, but not needed. **Incidental** = only in random trainer teams or wild tables (or in one line of NPC text).
+
+Counts (V for the sets, I for the line between them): of 1,025 official species, **336 never appear anywhere** in Origin (no wild table, trainer team, gift or trade). **60 are essential**, **127 are optional scripted** (gift/trade/static battle rows or side-quest titles), and **502 are incidental** (only in trainer teams or wild tables). 494 species are in trainer teams and 523 in wild tables, but only 52 of the 60 essentials are in a trainer team and 26 in a wild table: 21 legends and 6 gift-only species never appear in either.
+
+**The 60 essential species:**
+- Player and Oak (4): Bulbasaur, Charmander, Pikachu, Marill.
+- Kanto plot (17): Meowth, Persian, Gloom, Gyarados, Magikarp, Teddiursa, Mew, Mewtwo, Kabuto, Slowpoke, Sudowoodo, Dragonite, Dragonair, Squirtle, Venusaur, Blastoise (rival Blue and Green), Hypno (Three Island pilgrimage).
+- Johto plot (18): Slugma, Salamence, Miltank, Chatot, Swinub, Unown, Celebi, Totodile, Cyndaquil, Chikorita (Silver, Gold, Crystal's lines), Ariados, Kricketune, Burmy, Skorupi (Bugsy's honey hunt), Aerodactyl, Omanyte (Alph panels with Kabuto and Ho-Oh), Tyranitar, Larvitar (Ariana's ace).
+- Legendary roles (21): Zapdos, Moltres, Articuno, Regirock, Regice, Registeel, Kyogre, Groudon, Rayquaza, Latios, Latias, Arceus, Dialga, Palkia, Giratina, Entei, Raikou, Suicune, Ho-Oh, Lugia, Deoxys.
+
+Borderline (I): Hypno, Burmy, Skorupi, Larvitar, Venusaur, Blastoise could be argued incidental; Snorlax, Lapras, Eevee, Shaymin, Uxie/Mesprit/Azelf, Heatran, Jirachi, Manaphy are optional (side quests) even though they have special objects or code.
+
+**Optional scripted (127)** includes every gift and trade species, the Sevii and Dream World legends, and the species named only in side-quest titles (Snorlax, Lapras, Eevee, Clefairy, Hitmonlee/chan, Pidgeot, Pidgey, Zubat, Rotom ...). They can follow the essential ones in order of effort.
+
+**Incidental (502)**: e.g. Remoraid. What Remoraid does: it is one injured patient in the Route 32 Pokemon Center storm scene (9 text lines, a side quest "storm patients", before Route 33), a boy's fear of the sea in Olivine (side), a Water Spout tutor entry, 3 trainer teams, 4 wild tables and 1 follower object. No gift, no cutscene, no battle, no code. Remoraid is typical: **about half of the 1,025 species (502 + the 336 unused) are not part of the story at all**; they only fill wild tables and trainer teams, and any of our mons (or none) can sit there.
+
+What this means for the work: the 60 essentials plus about 25 of the optional ones (Snorlax, Lapras, Eevee line, Pichu/Cleffa/Igglybuff, Heatran ...) must be designed or chosen deliberately; the other ~500 slots can be filled by whichever of our mons suit the route's type and level, and the roughly 340 unused species can be left alone or reused as free slots (check section 8 for which are clean).
