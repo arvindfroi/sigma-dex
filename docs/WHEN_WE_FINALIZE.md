@@ -47,6 +47,22 @@ Arvind (2026-11-11): "andre har jobbet mye med slike greier i det siste så om v
 
 - **VS portraits** (battle intro of gym leaders, rival, Elite Four, champion): `a/1/0/9`, one 64x64 close-up bust per character (4 files: palette, picture, cell, animation), drawn only for this effect, not cut from the battle sprite. 16 leaders (members 63-126), 5 Elite Four/champion (131-150, with name plates 47-54), the player boy/girl (207-214). Origin redrew several (Misty, Elite Four slots, the player). Each replaced character needs one.
 
+## Origin's own problems to decide on (2026-11-12)
+
+- **Still broken after the English patch rc8** (the rest of the loss-freezes and the double-battle cursor are fixed there):
+  the Goldenrod entry flag bug, the S.S. Anne party (their fix exists but is switched off), and a few unconfirmed crashes.
+  Most are one-flag or one-jump script fixes we can make ourselves.
+- **One-chance legendaries by design:** Lugia, Raikou, the lake trio, Dialga/Palkia, Giratina, Arceus (catching, beating or
+  fleeing hides them; only a loss lets you retry), plus order-dependent losses (Bruno's Pewter challenge, TM14 Blizzard,
+  the Azure Flute after the Hall of Fame). Our mons take these roles, so we decide whether they stay one-chance.
+- **Quests you can get stuck in** (Arvind: "det er jo ikke gøy hvis det skal være softlocked i oppdrag"): the S.S. Anne
+  honey and salt order, the Celadon stolen Gloom, the Route 7 bicycle, the Mahogany Rocket PC password, the Fan Club,
+  Route 3 Ralts. Fix with clearer hints and by removing the dead ends when we rewrite the story.
+- **QoL to add** (a typical update): nuzlocke mode, Move Deleter, PC anywhere, auto-run. Already there: Move Reminder,
+  EV allocator, Exp/Shiny/Catching charms, chain bonuses, level cap / items / Exp Share options and the Advanced trainer AI
+  (we use it). Origin has no wild Pokemon walking in the overworld (encounters in the grass as usual).
+- **Mega forms for our mons:** possible as a held-item form (like Charizardite, Steel Armor, Ninja Scroll).
+
 ## Already planned for later
 
 - More trainer classes than the game's 129 (class 130+), if we want many new ones instead of replacing: needs the class tables moved and a code patch.
