@@ -685,6 +685,10 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .libtext { white-space: pre-wrap; font-size: 12px; margin: 0; max-height: 260px; overflow: auto; }
 .libnote { border-left: 3px solid var(--line); padding-left: 6px; }
 .libadd { display: grid; gap: 4px; }
+.spoiler summary { cursor: pointer; color: var(--pri); }
+.clickrow { cursor: pointer; } .clickrow:hover td, .clickrow.open td { background: var(--panel2, rgba(128,128,255,.12)); }
+.charpics { display: flex; gap: 8px; flex-wrap: wrap; } .charpics img { max-height: 160px; max-width: 160px; object-fit: contain; border: 2px solid var(--line); }
+.chardetail h4 { margin: 10px 0 4px; }
 .tslots { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
 .tslot { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; min-height: 92px; background: var(--panel); border: 2px solid var(--line); color: inherit; }
 .tslot[aria-selected="true"] { border-color: var(--pink); background: var(--soft); }
@@ -2883,11 +2887,64 @@ function ourLines() {
 }
 // ---------- characters the group can claim (no names, no spoilers); claims are species_edits rows of kind 'claim' ----------
 const CLAIMS_OPEN = false;   // work in progress (Arvind, 2026-11-11): nobody claims yet
-let claims = null, claimsError = "";
+let claims = null, claimsError = "", charOpen = "";
+const trainerPics = new Map();     // role id -> [{id, src, caption, editor}] (species_images rows with species_id "trainer-<role>")
 async function loadClaims() {
-  const rows = await dbRead("species_edits?select=id,species_id,data,editor&kind=eq.claim&order=id.asc");
+  const [rows, pics] = await Promise.all([dbRead("species_edits?select=id,species_id,data,editor&kind=eq.claim&order=id.asc"),
+    dbRead("species_images?species_id=like.trainer-*&removed=eq.false&order=id.asc&select=id,species_id,path,caption,editor")]);
   claims = new Map();
-  for (const r of rows) claims.set(r.species_id.replace(/^claim-/, ""), (r.data && r.data.by) || "");
+  for (const r of rows) claims.set(r.species_id.replace(/^claim-/, ""), Object.assign({by: "", slots: {}}, r.data || {}));
+  trainerPics.clear();
+  for (const r of pics) { const id = r.species_id.replace(/^trainer-/, ""); if (!trainerPics.has(id)) trainerPics.set(id, []); trainerPics.get(id).push({id: r.id, src: artUrl(r.path), caption: r.caption, editor: r.editor}); }
+}
+const claimOf = id => (claims && claims.get(id)) || {by: "", slots: {}};
+// A team shown behind a spoiler button: the in-game teams are not secret, but nobody sees them by accident.
+function spoilerTeam(t) {
+  if (!t) return h("span", {class: "sub"}, "no team chosen yet");
+  const mons = (t.team && Array.isArray(t.team.mons) ? t.team.mons : importTeam(t.text || "").mons).slice(0, 6);
+  return h("details", {class: "spoiler"}, h("summary", {}, "Show the team (spoiler): " + t.name),
+    h("span", {class: "libmons"}, mons.map(m => { const s = speciesByName(m.species), ds = s && DEX.ds_sprites[s.id], pic = s && (ds && ds.icon ? {src: ds.icon, pixel: true} : portrait(s));
+      return pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: s.data.name, title: s.data.name}) : h("span", {class: "letter", title: m.species}, (m.species || "?")[0]); })),
+    h("pre", {class: "libtext"}, t.text || ""));
+}
+// Which role and battle a shared team is used for (so the group's team list can put it behind a spoiler too).
+function teamUse(teamId) {
+  for (const c of DEX.characters || []) { const cl = claimOf(c.id); for (const [i, tid] of Object.entries(cl.slots || {})) if (tid === teamId) return {c, battle: Number(i) + 1}; }
+  return null;
+}
+function renderCharacterDetail(c, status, saveClaim) {
+  const cl = claimOf(c.id), mine = person(me()), isMine = cl.by && mine && person(cl.by) === mine;
+  if (lib.teams === null && DEX.web.url && !lib.error && !lib.loading) { lib.loading = true; loadLibrary().catch(err => { lib.error = err.message; }).then(() => { lib.loading = false; if (view === "chars") renderCharacters(); }); }
+  const myTeams = (lib.teams || []).filter(t => mine && person(t.by) === mine);
+  const pics = trainerPics.get(c.id) || [];
+  const upload = h("input", {type: "file", accept: "image/*", style: "max-width:240px"});
+  upload.addEventListener("change", async () => {
+    const file = upload.files[0]; if (!file) return;
+    status.textContent = "Uploading...";
+    try { const row = await postForm("species-image", {key: remember.get("key"), species_id: "trainer-" + c.id, caption: "[trainer] " + (mine || ""), editor: me(), file: await prepareImage(file)});
+      if (!trainerPics.has(c.id)) trainerPics.set(c.id, []); trainerPics.get(c.id).push({id: row.id, src: artUrl(row.path), caption: row.caption, editor: row.editor});
+      status.textContent = ""; renderCharacters(); }
+    catch (err) { status.textContent = err.message; }
+  });
+  const levels = c.levels || [];
+  const battles = Array.from({length: c.battles || 0}, (_, i) => {
+    const tid = (cl.slots || {})[i], t = (lib.teams || []).find(x => x.id === tid);
+    const pick = isMine ? h("select", {"aria-label": "Team for battle " + (i + 1), onchange: ev => { const slots = Object.assign({}, cl.slots || {}); if (ev.target.value) slots[i] = ev.target.value; else delete slots[i]; saveClaim(c, cl.by, slots); }},
+      h("option", {value: ""}, "choose one of your shared teams"), myTeams.map(x => h("option", {value: x.id, selected: x.id === tid ? "" : null}, x.name))) : null;
+    return h("tr", {}, h("td", {class: "num"}, "Battle " + (i + 1)), h("td", {class: "num"}, levels[i] ? "up to lv " + levels[i] : ""), h("td", {}, spoilerTeam(t)), h("td", {}, pick));
+  });
+  return h("div", {class: "box chardetail"},
+    h("div", {class: "tbar"}, h("h3", {style: "margin:0"}, c.group + " · " + c.type), h("span", {class: "grow"}), h("button", {type: "button", onclick: () => { charOpen = ""; renderCharacters(); }}, "Close")),
+    h("div", {class: "sub"}, (c.place || "") + (c.rule ? " · rule: " + c.rule : "") + (c.note ? " · " + c.note : "")),
+    h("div", {}, cl.by ? ["Claimed by ", h("b", {}, person(cl.by))] : h("span", {class: "sub"}, "Nobody has claimed this role yet.")),
+    h("h4", {}, "Trainer picture"),
+    h("div", {class: "charpics"}, pics.length ? pics.map(pic => h("figure", {}, h("img", {src: pic.src, alt: "trainer picture"}), h("figcaption", {class: "sub"}, String(pic.caption || "").replace(/^\[trainer\]\s*/, ""))))
+      : h("span", {class: "sub"}, "No picture yet.")),
+    isMine ? h("div", {class: "sub"}, "Upload a drawing or a photo of yourself. It becomes your trainer sprite once the trainer model is ready. Pictures on this site are public: anyone with the link can see them, so a drawing may be nicer than a photo. ", upload,
+      " ", h("button", {type: "button", disabled: ""}, "Make my trainer sprite (soon)")) : null,
+    h("h4", {}, "Teams in the game (" + (c.battles || 0) + " battles)"),
+    h("div", {class: "sub"}, "Build as many teams as you like in TEAMS, share the ones you want with the group, and pick one here for each battle. Each team stays behind a spoiler button. Use our own Pokemon of the role's type" + (c.rule ? " and follow the rule (" + c.rule + ")" : "") + "."),
+    h("div", {class: "scroll"}, h("table", {class: "balance"}, battles)));
 }
 function renderCharacters() {
   const grid = document.getElementById("grid");
@@ -2897,28 +2954,34 @@ function renderCharacters() {
     return;
   }
   const status = h("div", {class: "hint", role: "status", style: "margin:0"}, claimsError);
-  const save = async (c, by) => {
+  const saveClaim = async (c, by, slots) => {
     if (!me()) { status.textContent = "Write your name at the top of the page first."; document.getElementById("me").focus(); return; }
     status.textContent = "Saving...";
-    try { await saveEdit("claim", "claim-" + c.id, {by, role: c.id}); claims.set(c.id, by); status.textContent = ""; renderCharacters(); }
+    const data = {by, role: c.id, slots: slots || {}};
+    try { await saveEdit("claim", "claim-" + c.id, data); claims.set(c.id, data); status.textContent = ""; renderCharacters(); }
     catch (err) { status.textContent = /check constraint/i.test(err.message) ? "Claiming is not switched on in the database yet." : err.message; }
   };
   const mine = person(me());
   const groups = [];
   for (const c of DEX.characters || []) { let g = groups.find(x => x.name === c.group); if (!g) groups.push(g = {name: c.group, rows: []}); g.rows.push(c); }
-  const taken = (DEX.characters || []).filter(c => (claims || new Map()).get(c.id)).length;
+  const open = (DEX.characters || []).find(c => c.id === charOpen);
   grid.replaceChildren(h("div", {style: "grid-column:1/-1"},
-    h("div", {class: "notice info"}, h("b", {}, "Work in progress. "), "This page is not ready yet: claiming is closed for now. Soon each role gets your own trainer picture and the teams you fight with."),
-    h("div", {class: "sub"}, (DEX.characters || []).length + " roles. Names are hidden on purpose; the type is the type of their team and their surroundings; battles = how many teams the role needs."), status,
+    CLAIMS_OPEN ? null : h("div", {class: "notice info"}, h("b", {}, "Work in progress. "), "This page is not ready yet: claiming is closed for now. Soon each role gets your own trainer picture and the teams you fight with."),
+    h("div", {class: "sub"}, (DEX.characters || []).length + " roles. Names are hidden on purpose; the type is the type of their team and their surroundings; battles = how many teams the role needs. Tap a role to open it."), status,
+    open ? renderCharacterDetail(open, status, saveClaim) : null,
     groups.map(g => h("div", {class: "box"}, h("h3", {}, g.name), h("div", {class: "scroll"}, h("table", {class: "balance"},
       h("tr", {}, h("th", {}, "Type"), h("th", {}, "Surroundings"), h("th", {}, "Rule / note"), h("th", {}, "Battles"), h("th", {}, "Claimed by"), h("th", {}, "")),
       g.rows.map(c => {
-        const by = (claims || new Map()).get(c.id) || "";
+        const cl = claimOf(c.id), by = cl.by || "";
         const isMine = by && mine && person(by) === mine;
-        const btn = CLAIMS_OPEN ? (!by ? h("button", {type: "button", class: "primary", onclick: () => save(c, mine)}, "Claim")
-          : isMine ? h("button", {type: "button", onclick: () => save(c, "")}, "Release") : null) : null;
-        return h("tr", {}, h("td", {}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t + " "))),
-          h("td", {}, c.place || ""), h("td", {class: "sub"}, c.rule || c.note || ""), h("td", {class: "num", title: (c.levels || []).length ? "highest level per team: " + c.levels.join(", ") : ""}, String(c.battles || "")), h("td", {}, by ? h("b", {}, (isMine ? "\u2605 " : "") + person(by)) : h("span", {class: "sub"}, "free")), h("td", {}, btn));
+        const filled = Object.keys(cl.slots || {}).length;
+        const btn = CLAIMS_OPEN ? (!by ? h("button", {type: "button", class: "primary", onclick: ev => { ev.stopPropagation(); saveClaim(c, mine, {}); }}, "Claim")
+          : isMine ? h("button", {type: "button", onclick: ev => { ev.stopPropagation(); saveClaim(c, "", {}); }}, "Release") : null) : null;
+        return h("tr", {class: "clickrow" + (c.id === charOpen ? " open" : ""), onclick: () => { charOpen = charOpen === c.id ? "" : c.id; renderCharacters(); }},
+          h("td", {}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t + " "))),
+          h("td", {}, c.place || ""), h("td", {class: "sub"}, c.rule || c.note || ""),
+          h("td", {class: "num", title: (c.levels || []).length ? "highest level per team: " + c.levels.join(", ") : ""}, (by ? filled + " / " : "") + String(c.battles || "")),
+          h("td", {}, by ? h("b", {}, (isMine ? "★ " : "") + person(by)) : h("span", {class: "sub"}, "free")), h("td", {}, btn));
       })))))));
 }
 
@@ -3348,8 +3411,10 @@ function teamLibrary(team) {
     const take = h("button", {type: "button", onclick: () => {
       tb.teams.push({name: String(t.name).slice(0, 40), mons: mons.map(x => Object.assign(blankMon(), JSON.parse(JSON.stringify(x))))});
       tb.cur = tb.teams.length - 1; tb.slot = 0; tb.panel = ""; saveTeams(); renderTeams(); }}, "Take a copy");
+    const use = claims ? teamUse(t.id) : null;
     const body = open ? h("div", {class: "libbody"},
-      h("pre", {class: "libtext"}, t.text || ""),
+      use ? h("div", {class: "sub"}, "Used in the game: " + use.c.group + " (" + use.c.type + "), battle " + use.battle + ".") : null,
+      use ? h("details", {class: "spoiler"}, h("summary", {}, "Show the team (spoiler)"), h("pre", {class: "libtext"}, t.text || "")) : h("pre", {class: "libtext"}, t.text || ""),
       h("div", {class: "libnotes"}, notes.length ? notes.map(n => h("div", {class: "libnote"}, h("b", {}, person(n.by) || "someone"), " ", h("span", {class: "sub"}, String(n.when || "").slice(0, 10)), h("div", {}, n.text)))
         : h("div", {class: "sub"}, "No comments yet.")),
       (() => {
@@ -3376,7 +3441,7 @@ function teamLibrary(team) {
     return h("article", {class: "libteam"},
       h("div", {class: "libhead", role: "button", tabindex: 0, onclick: () => { lib.open = open ? "" : t.id; renderTeams(); }},
         h("b", {}, t.name), h("span", {class: "sub"}, " by " + (person(t.by) || "someone") + " \u00b7 " + String(t.when || "").slice(0, 10) + (notes.length ? " \u00b7 " + notes.length + " comment" + (notes.length > 1 ? "s" : "") : "")),
-        icons, take), body);
+        claims && teamUse(t.id) ? h("span", {class: "sub"}, "\u2694 in the game (spoiler)") : icons, take), body);
   });
   box.append(h("div", {class: "sub"}, "Teams the group has shared. Open one to read it and comment; Take a copy puts it in your own list."),
     h("div", {}, shareBtn, " ", h("button", {type: "button", onclick: () => { lib.teams = null; renderTeams(); }}, "Refresh")), status,
