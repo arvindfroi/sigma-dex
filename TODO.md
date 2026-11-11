@@ -16,9 +16,9 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | height | 53 / 151 |
 | Dex page | weight | 27 / 151 |
 | Dex page | body color | 3 / 151 |
-| Stats | base stats | 136 / 151 |
-| Stats | ability | 138 / 151 |
-| Stats | EV yield | 101 / 151 |
+| Stats | base stats | 137 / 151 |
+| Stats | ability | 140 / 151 |
+| Stats | EV yield | 102 / 151 |
 | Stats | catch rate | 1 / 151 |
 | Stats | base exp | 1 / 151 |
 | Stats | growth rate | 1 / 151 |
@@ -960,10 +960,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #93 [ROKU](data/species/roku.yaml) - 21%
+### #93 [ROKU](data/species/roku.yaml) - 28%
 
 - **Dex page:** category, description, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -1427,10 +1427,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #140 [Cloudjester](data/species/cloudjester.yaml) - 14%
+### #140 [Cloudjester](data/species/cloudjester.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -1544,10 +1544,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #198 [Santrock](data/species/santrock.yaml) - 34%
+### #198 [Santrock](data/species/santrock.yaml) - 38%
 
 - **Dex page:** category, description
-- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry

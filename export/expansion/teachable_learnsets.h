@@ -177,3 +177,10 @@ static const u16 sEverdarkTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sSantrockTeachableLearnset[] = {
+    MOVE_SANDSTORM,
+    MOVE_ROCK_BLAST,
+    MOVE_EMBER,
+    MOVE_UNAVAILABLE,
+};
+

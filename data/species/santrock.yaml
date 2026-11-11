@@ -17,7 +17,7 @@ body_color: yellow       # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Desolate Land
   secondary:             # optional
   hidden:                # optional
 

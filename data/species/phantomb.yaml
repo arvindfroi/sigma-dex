@@ -27,7 +27,7 @@ base_stats:              # each 1-255
   defense: 30
   sp_attack: 55
   sp_defense: 30
-  speed: 85
+  speed: 80
 
 ev_yield: {speed: 1}     # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -77,8 +77,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "a serpentine body"
-  movement: "It floats in the air."
+  body_shape: a serpentine body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a ghost with a white hood with black and white stripes and a long wavy striped tail that tapers to a point. Under the hood is an orange oval face with three black eyes with small red glowing pupils, a red triangle mark and a wide jagged mouth."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
@@ -88,7 +88,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:353"
+  footprint: "hgss:353"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

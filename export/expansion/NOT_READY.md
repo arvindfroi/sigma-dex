@@ -2,9 +2,9 @@
 
 # Game export status
 
-**30** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Florantula, Cowfin, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Chillalit, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle, Slamquake, Dreadfang, Everdark
+**31** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Florantula, Cowfin, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Chillalit, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle, Slamquake, Dreadfang, Everdark, Santrock
 
-## Not exported yet (121)
+## Not exported yet (120)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -73,7 +73,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Flurina** needs: a level-up move that exists in the game
 - **Dragem** needs: a level-up move that exists in the game
 - **Quimsy** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **ROKU** needs: base stats, a level-up move that exists in the game
+- **ROKU** needs: a level-up move that exists in the game
 - **Skiirtle** needs: a level-up move that exists in the game
 - **ambuger** needs: a level-up move that exists in the game
 - **Ambrr** needs: a level-up move that exists in the game
@@ -116,7 +116,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Strawboo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Wreckingboo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 10 letters
 - **Wreckingdrake** needs: a level-up move that exists in the game, a name of at most 10 letters
-- **Cloudjester** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 10 letters
+- **Cloudjester** needs: base stats, a level-up move that exists in the game, a name of at most 10 letters
 - **Felk** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Moosus** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Rockedeer** needs: a level-up move that exists in the game
@@ -128,7 +128,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Bergflabbser** needs: a level-up move that exists in the game, a name of at most 10 letters
 - **Maagamad** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Sandrema** needs: an ability that exists in the game, a level-up move that exists in the game
-- **Santrock** needs: an ability that exists in the game
 
 ## Left out of exported Pokemon
 

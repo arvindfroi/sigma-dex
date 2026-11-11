@@ -71,7 +71,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Bulletproof, Shell Armor, Steelworker (H) | 540 |  | 34% |
 | 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel | Innards Out, Corrosion, Run Away (H) | 305 | Nuclobyl (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 38% |
 | 62 | [Nuclobyl](data/species/nuclobyl.yaml) | Poison / Steel | Innards Out, Corrosion, Filter (H) | 525 |  | 38% |
-| 63 | [Julius](data/species/julius.yaml) | Fighting | Sheer Force, Rocky Payload, Gorilla Tactics (H) | 405 | Conqrilla (Lv 38) | 24% |
+| 63 | [Julius](data/species/julius.yaml) | Fighting / Normal | Sheer Force, Rocky Payload, Gorilla Tactics (H) | 405 | Conqrilla (Lv 38) | 24% |
 | 64 | [Conqrilla](data/species/yanklet.yaml) | Fighting / Steel | Sheer Force, Rocky Payload, Gorilla Tactics (H) | 505 |  | 24% |
 | 65 | [Anjane](data/species/anjane.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 320 | Janenon (Lv 42) | 34% |
 | 66 | [Janenon](data/species/janenon.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 485 |  | 38% |
@@ -101,7 +101,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 90 | [Flurina](data/species/flurina.yaml) | Fairy | Mirror Armor, Symbiosis, Hospitality (H) | 490 |  | 28% |
 | 91 | [Dragem](data/species/dragem.yaml) | Dragon / Rock | Sand Stream, Rough Skin, Multiscale (H) | 515 |  | 24% |
 | 92 | [Quimsy](data/species/quimsy.yaml) | Normal / Psychic |  |  |  | 17% |
-| 93 | [ROKU](data/species/roku.yaml) | Ground / Psychic | Magician, Power Spot, Purifying Salt (H) |  |  | 21% |
+| 93 | [ROKU](data/species/roku.yaml) | Ground / Psychic | Magician, Power Spot, Purifying Salt (H) | 530 |  | 28% |
 | 94 | [Skiirtle](data/species/skiirtle.yaml) | Fire | Speed Boost, Reckless (H) | 350 | McSkiirtle (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 21% |
 | 95 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric | Speed Boost, Reckless (H) | 485 |  | 21% |
 | 96 | [ambuger](data/species/ambuger.yaml) | Rock / Bug | Shell Armor, Overcoat, Infiltrator (H) | 350 | Ambrr (Lv 40) | 24% |
@@ -116,7 +116,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 105 | [Slamquake](data/species/slamquake.yaml) | Steel / Ground | Sand Force, Steam Engine, Filter (H) | 500 |  | 28% |
 | 106 | [Limulk](data/species/limulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 369 | Mortbulk (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 21% |
 | 107 | [Mortbulk](data/species/mortbulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 490 |  | 24% |
-| 108 | [Phantomb](data/species/phantomb.yaml) | Ghost / Flying | Disguise | 285 | Phantail (Lv 62) | 24% |
+| 108 | [Phantomb](data/species/phantomb.yaml) | Ghost / Flying | Disguise | 280 | Phantail (Lv 62) | 24% |
 | 109 | [Phantail](data/species/sjef.yaml) | Ghost / Flying | Disguise | 480 |  | 28% |
 | 110 | [Oraclet](data/species/oraclet.yaml) | Psychic | Anticipation, Forewarn, Magic Guard (H) | 355 | Oraclaw (Lv 38) | 34% |
 | 111 | [Oraclaw](data/species/oraclaw.yaml) | Psychic / Flying | Anticipation, Forewarn, Magic Guard (H) | 525 |  | 28% |
@@ -148,7 +148,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 137 | [Strawboo](data/species/strawboo.yaml) | Water |  |  |  | 14% |
 | 138 | [Wreckingboo](data/species/wreckingboo.yaml) | Water |  |  |  | 14% |
 | 139 | [Wreckingdrake](data/species/wreckingdrake.yaml) | Water / Dragon | Lightning Rod | 540 |  | 24% |
-| 140 | [Cloudjester](data/species/cloudjester.yaml) | Fairy / Flying |  |  |  | 14% |
+| 140 | [Cloudjester](data/species/cloudjester.yaml) | Fairy / Flying | Prankster |  |  | 17% |
 | 141 | [Felk](data/species/felk.yaml) | Fairy / Flying |  |  |  | 10% |
 | 142 | [Moosus](data/species/moosus.yaml) | Flying / Fairy | Aurora Dancer, Regenerator (H) | 580 |  | 24% |
 | 143 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Levitate | 580 |  | 28% |
@@ -206,7 +206,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 195 | *open slot* | | | | | |
 | 196 | *open slot* | | | | | |
 | 197 | *open slot* | | | | | |
-| 198 | [Santrock](data/species/santrock.yaml) | Fire / Rock |  | 265 |  | 34% |
+| 198 | [Santrock](data/species/santrock.yaml) | Fire / Rock | Desolate Land | 265 |  | 38% |
 | 199 | *open slot* | | | | | |
 | 200 | *open slot* | | | | | |
 | 201 | *open slot* | | | | | |

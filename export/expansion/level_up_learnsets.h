@@ -229,3 +229,8 @@ static const struct LevelUpMove sEverdarkLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sSantrockLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(10, MOVE_FIRE_FANG),
+    LEVEL_UP_END
+};
+
