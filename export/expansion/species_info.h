@@ -536,7 +536,7 @@
         .iconPalIndex = 0,
         .levelUpLearnset = sCowfinLevelUpLearnset,
         .teachableLearnset = sCowfinTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 33, SPECIES_MOOCEON}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_MOOCEON}),
         FOOTPRINT(QuestionMark)
     },
 

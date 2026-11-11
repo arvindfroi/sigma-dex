@@ -2038,9 +2038,10 @@
         {
           "into": "mooceon",
           "method": "level",
-          "level": 33
+          "level": 30
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [
           {
@@ -2552,7 +2553,7 @@
         {
           "into": "freezrick",
           "method": "level",
-          "level": 25
+          "level": 28
         }
       ],
       "forms": [],
@@ -2736,7 +2737,7 @@
         {
           "into": "bulbtoise",
           "method": "level",
-          "level": 28
+          "level": 30
         }
       ],
       "forms": [],

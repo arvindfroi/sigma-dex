@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions:
   - into: freezrick
     method: level
-    level: 25
+    level: 28
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
@@ -77,7 +77,7 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "an upright body on two legs without a tail"
+  body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a rabbit-like creature made of light blue faceted ice crystal, sitting upright with two tall crystal ears and big white front teeth. It wears a bowl-shaped golden-brown fur cap on its head, has large round paws and a small pink nose."
 
@@ -88,7 +88,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:427"
+  footprint: "hgss:427"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
