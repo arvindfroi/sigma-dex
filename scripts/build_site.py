@@ -90,7 +90,7 @@ def main():
         "images": images, "sprites": sprite_info, "ds_sprites": ds_sprites, "showdown": showdown, "studio": studio,
         "type_shares": yaml.safe_load((ROOT / "data" / "engine" / "type_shares.yaml").read_text(encoding="utf-8")),
         "requests": yaml.safe_load((ROOT / "data" / "requests.yaml").read_text(encoding="utf-8")) if (ROOT / "data" / "requests.yaml").exists() else [],
-        "problems": report("doc_problems.json") + report("sheet_problems.json") + report("web_problems.json"),
+        "problems": report("web_problems.json"),
         "web": dict(config.get("web_edits") or {}, cursor=int(cursor_path.read_text().strip() or 0) if cursor_path.exists() else 0),
         "lists": {
             "moves": engine["engine_names"]["moves"], "abilities": engine["engine_names"]["abilities"],
