@@ -2999,6 +2999,14 @@ function arrange(layout, ops) {
   layout = layout.slice();
   const size = layout.length;
   for (const op of ops) {
+    if (op.op === "set") {                                  // the whole order at once (same checks as dexlib.set_layout)
+      const used = layout.slice(0, layout.reduce((m, id, i) => id ? i + 1 : m, 0));
+      if (op.from && JSON.stringify(op.from) !== JSON.stringify(used)) throw new Error("The dex changed while you were working. Close this and open Change dex numbers again.");
+      const ids = op.layout.filter(Boolean), had = layout.filter(Boolean);
+      if (new Set(ids).size !== ids.length || ids.length !== had.length || ids.some(id => !had.includes(id))) throw new Error("The new order does not hold exactly the Pokemon of the dex.");
+      layout = op.layout.concat(Array(size - op.layout.length).fill(null));
+      continue;
+    }
     const slot = op.to || op.at;
     if (!Number.isInteger(slot) || slot < 1 || slot > size) throw new Error("There is no slot #" + slot + ". Use a number from 1 to " + size + ".");
     if (op.op === "move") {
@@ -3050,25 +3058,9 @@ function makeBlocks(order, single) {
 }
 const usedLayout = layout => layout.slice(0, layout.reduce((m, id, i) => id ? i + 1 : m, 0));
 const planOrder = () => plan.blocks.flat();
-// The steps that turn the saved layout into `order` (null = an empty number), from #1 on.
-function layoutOps(base, order) {
-  let cur = base.slice();
-  const ops = [];
-  const add = op => { cur = arrange(cur, [op]); ops.push(op); };
-  for (let k = 1; k <= order.length; k++) {
-    if (order[k - 1] === null) { if (cur[k - 1] !== null) add({op: "insert", at: k}); continue; }
-    let guard = 0;
-    while (cur[k - 1] === null && guard++ < cur.length) add({op: "close", at: k});
-    if (cur[k - 1] !== order[k - 1]) add({op: "move", id: order[k - 1], to: k});
-  }
-  while (cur.slice(order.length).some(Boolean) && ops.length < 1000) add({op: "close", at: order.length + 1});
-  const want = order.concat(Array(base.length - order.length).fill(null));
-  if (cur.some((id, i) => id !== want[i])) throw new Error("The new order could not be worked out. Nothing was saved; please tell Arvind.");
-  return ops;
-}
 function openReorder() {
   const order = usedLayout(currentLayout());
-  plan = {blocks: makeBlocks(order, false), history: [], future: [], flash: null, single: false, error: "", confirm: false};
+  plan = {start: order, blocks: makeBlocks(order, false), history: [], future: [], flash: null, single: false, error: "", confirm: false};
 }
 function renderReorder() {
   const grid = document.getElementById("grid"), base = currentLayout(), wasAt = new Map(base.map((id, i) => [id, i + 1]).filter(([id]) => id));
@@ -3099,13 +3091,18 @@ function renderReorder() {
   const doSave = async btn => {
     btn.disabled = true; btn.textContent = "Saving...";
     try {
-      const ops = layoutOps(base, planOrder());
-      for (let i = 0; i < ops.length; i += 50) await saveEdit("reorder", "reorder", {ops: ops.slice(i, i + 50)});
-      applyLayout(arrange(base, ops)); plan = null; view = "species"; render();
+      // One step with the whole new order and the order it started from: the import uses all of it or none of it,
+      // and refuses it if the dex changed in between (dexlib.set_layout), so nothing can end up half moved.
+      if (JSON.stringify(usedLayout(currentLayout())) !== JSON.stringify(plan.start)) throw new Error("The dex changed while you were working (someone else saved). Close this and open Change dex numbers again; nothing was saved.");
+      const ops = [{op: "set", layout: planOrder(), from: plan.start}];
+      const result = arrange(base, ops);
+      if (JSON.stringify(usedLayout(result)) !== JSON.stringify(usedLayout(planOrder()))) throw new Error("The new order could not be checked. Nothing was saved.");
+      await saveEdit("reorder", "reorder", {ops});
+      applyLayout(result); plan = null; view = "species"; render();
       document.getElementById("notice").prepend(h("div", {class: "notice info"}, "The new dex order is saved."));
     } catch (err) { plan.error = err.message; plan.confirm = false; render(); }
   };
-  const save = h("button", {class: "primary", type: "button", disabled: !changed, onclick: () => { plan.confirm = true; render(); }}, "Save…");
+  const save = h("button", {class: "primary", type: "button", disabled: !changed, onclick: () => { plan.confirm = true; render(); }}, "Next ▶");
   const find = h("input", {type: "search", placeholder: "Find a Pokemon", "aria-label": "Find a Pokemon", style: "max-width:170px"});
   find.addEventListener("change", () => { const q = find.value.trim().toLowerCase(); const s = DEX.species.find(x => String(x.data.name).toLowerCase().startsWith(q)); if (s) { plan.flash = s.id; render(); } });
   const bar = h("div", {class: "bar rbar"},
@@ -3151,7 +3148,7 @@ function renderReorder() {
     return el;
   });
   const confirm = plan.confirm ? h("div", {class: "notice info rconfirm"},
-    h("b", {}, "Save this order?"), h("div", {}, moved.length ? moved.length + " Pokemon get a new number:" : "Only empty numbers change."),
+    h("b", {}, "Check the changes before saving"), h("div", {}, moved.length ? moved.length + " Pokemon get a new number:" : "Only empty numbers change."),
     h("div", {class: "chips"}, moved.sort((a, b) => now.get(a) - now.get(b)).map(id => h("span", {class: "chip"}, nameOf(id) + " #" + pad(wasAt.get(id)) + " → #" + pad(now.get(id))))),
     h("div", {class: "sub"}, "You can always change it again, and every old order is kept in the history."),
     (() => { const b = h("button", {type: "button", class: "primary"}, "Yes, save"); b.addEventListener("click", () => doSave(b)); return b; })(),
