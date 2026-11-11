@@ -512,3 +512,26 @@ Per item, for an existing species above 493 (take 504 Patrat as the example, V f
 - Which of the 1023 trainer records are actually reachable in the game (some may be dead slots that are safe to take).
 - In-game confirmation of the dex size screen and a Low Kick on a new slot (files say yes; not run).
 - The species -> cry-bank function in Origin's arm9 (only the bank loader was located).
+
+## 7. Trainer pictures, counted (2026-11-11, checked in Origin's `a/0/5/8` and the decompilation)
+
+Every class has **5 files** (`class * 5 + 0..4`, `sub_02070D3C` in `src/pokemon.c` of pret/pokeheartgold):
+
+| File | What it is | Used for |
+|---|---|---|
+| 0 NCGR | the picture tiles, one or more 80x80 frames | the animated trainer at the start of a battle |
+| 1 NCLR | palette (15 colours + transparent) | both pictures |
+| 2 NCER | cells (how the frames are cut) | the animated trainer |
+| 3 NANR | animation (which frame, how long) | the animated trainer |
+| 4 NCBR | the same trainer as a still "Pokemon style" picture: two 80x80 frames (160x80), scrambled like DP Pokemon sprites (`UnscanPokepic_DP`) | the battle's picture system (`PokepicManager`, opponent side) and the Hall of Fame (player) |
+
+Frames in file 0 (all 129 classes):
+- **97 classes: 1 still picture.**
+- **31 classes are animated**: 3 frames for most (gym leaders Falkner, Bugsy, Whitney, Morty, Pryce, Jasmine, Chuck, Clair, Erika, Koga, Sabrina, Blaine; Elite Four Lorelei, Lance, Bruno; Giovanni; Silver; Misty; Blue; Gold), 4 for Lt. Surge, 5 for Factory Head Thorton and Tower Tycoon Palmer, 6 for Hall Matron Argenta, 7 for Castle Valet Darach, 8 for class 123 (an Origin class with no name, used by the trainer "Mewtwo"), and **11 for Arcade Star Dahlia**, the most. The animations have 5 to 30 steps (Chuck's is the longest, 30).
+- **Class 21 (Pokefan, female) is the odd one:** its picture is 2880 bytes instead of 3200 (90 tiles, not 100). Vanilla HeartGold has exactly the same file, so it is the original game's quirk, not an Origin bug; it still shows fine.
+
+Back pictures (`a/0/0/6`, 17 classes, the trainer seen from behind throwing the Poke Ball at the start of a battle): the player (Ethan, Lyra, and a second Ethan/Lyra set), the rival, Lance, the tag-battle partners Cheryl, Riley, Buck, Mira and Marley (5 frames each), and Lucas, Dawn and Barry from DP and Platinum (for link battles). The player-type ones have 8 frames.
+
+**What this means for replacing important characters with our own:** we write all 5 files of a class, so a replacement can be a still picture even where the original was animated (1 frame, 1 cell, a 1-step animation, like the 97 still classes). Animated ones are a bonus: the extra frames can come from an edit model trained on the real trainer frame pairs (the same idea as the Pokemon frame-2 LoRA). File 4 must hold the same trainer (two frames, may be identical), scrambled. A new player character needs a back picture with 8 throw frames as well.
+
+**Kept for later (Arvind, 2026-11-11):** if we want many brand-new classes instead of replacing, a class 130+ needs the class tables moved and the code patched; possible, do it when the time comes.
