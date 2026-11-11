@@ -5803,7 +5803,7 @@
       "body_color": null,
       "abilities": {
         "primary": "Innards Out",
-        "secondary": "Poison Point",
+        "secondary": "Corrosion",
         "hidden": "Run Away"
       },
       "base_stats": {
@@ -5896,7 +5896,7 @@
       "body_color": null,
       "abilities": {
         "primary": "Innards Out",
-        "secondary": "Poison Point",
+        "secondary": "Corrosion",
         "hidden": "Filter"
       },
       "base_stats": {
@@ -6804,7 +6804,7 @@
       "abilities": {
         "primary": "Sturdy",
         "secondary": "Toxic Debris",
-        "hidden": "Corrosion"
+        "hidden": "Poison Point"
       },
       "base_stats": {
         "hp": 45,
@@ -6835,6 +6835,7 @@
           "level": 20
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -6981,7 +6982,7 @@
       "abilities": {
         "primary": "Sturdy",
         "secondary": "Toxic Debris",
-        "hidden": "Corrosion"
+        "hidden": "Poison Point"
       },
       "base_stats": {
         "hp": 83,

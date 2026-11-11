@@ -1206,7 +1206,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_STURDY, ABILITY_TOXIC_DEBRIS, ABILITY_CORROSION },
+        .abilities = { ABILITY_STURDY, ABILITY_TOXIC_DEBRIS, ABILITY_POISON_POINT },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Blylem"),
         .cryId = CRY_NONE,
