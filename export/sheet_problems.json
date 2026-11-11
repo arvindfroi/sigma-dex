@@ -24,6 +24,10 @@
     "problem": "this row has no name, and number 31 may belong to another Pokemon now - write the name"
   },
   {
+    "row": "#63 Gentie",
+    "problem": "'Gentie' is not a known name and number 63 now belongs to Julius - the numbers on this list are out of date; add a new Pokemon on the website, or paste the current export/sheet.csv first"
+  },
+  {
     "row": "#73 ",
     "problem": "this row has no name, and number 73 may belong to another Pokemon now - write the name"
   },

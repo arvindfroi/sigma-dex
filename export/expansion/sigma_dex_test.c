@@ -743,7 +743,7 @@ TEST("Sigma dex: Snownin has the data from its species file")
     EXPECT_EQ(info->baseSpAttack, 135);
     EXPECT_EQ(info->baseSpDefense, 40);
     EXPECT_EQ(info->types[0], TYPE_ICE);
-    EXPECT_EQ(info->types[1], TYPE_ICE);
+    EXPECT_EQ(info->types[1], TYPE_GHOST);
     EXPECT_EQ(info->abilities[0], ABILITY_SNOW_WARNING);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_AURORA_VEIL);
     EXPECT_EQ(GetSpeciesName(SPECIES_SNOWNIN)[0], CHAR_S);

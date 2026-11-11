@@ -1295,7 +1295,7 @@
         .baseSpeed = 125,
         .baseSpAttack = 135,
         .baseSpDefense = 40,
-        .types = MON_TYPES(TYPE_ICE),
+        .types = MON_TYPES(TYPE_ICE, TYPE_GHOST),
         .catchRate = 45,
         .expYield = 64,
         .evYield_SpAttack = 2,

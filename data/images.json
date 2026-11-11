@@ -3892,20 +3892,6 @@
     "editor": null
   },
   {
-    "id": 1184,
-    "species": "oraclaw",
-    "file": "assets/concept-art/oraclaw/1184.png",
-    "caption": "[ds-front] sprite #171",
-    "editor": null
-  },
-  {
-    "id": 1185,
-    "species": "oraclaw",
-    "file": "assets/concept-art/oraclaw/1185.png",
-    "caption": "[ds-back] sprite #171",
-    "editor": null
-  },
-  {
     "id": 1186,
     "species": "oraclaw",
     "file": "assets/concept-art/oraclaw/1186.png",
@@ -4666,6 +4652,20 @@
     "species": "verrith",
     "file": "assets/concept-art/verrith/1454.png",
     "caption": "[ds-follower] sprite #238",
+    "editor": null
+  },
+  {
+    "id": 1464,
+    "species": "oraclaw",
+    "file": "assets/concept-art/oraclaw/1464.png",
+    "caption": "[ds-front] sprite #240",
+    "editor": null
+  },
+  {
+    "id": 1465,
+    "species": "oraclaw",
+    "file": "assets/concept-art/oraclaw/1465.png",
+    "caption": "[ds-back] sprite #240",
     "editor": null
   }
 ]

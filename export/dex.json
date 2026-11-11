@@ -7907,7 +7907,8 @@
         "artist": "Arvind"
       },
       "types": [
-        "Ice"
+        "Ice",
+        "Ghost"
       ],
       "category": null,
       "description": null,

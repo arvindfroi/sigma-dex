@@ -4,5 +4,11 @@
     "species": "ability:sea-ghost-emperor",
     "row": "new ability sea-ghost-emperor (saved by someone)",
     "problem": "the name 'Sea Ghost Emperor' is 17 characters, the game fits at most 16"
+  },
+  {
+    "id": 988,
+    "species": "cloudjester",
+    "row": "cloudjester (saved by someone)",
+    "problem": "the name 'Cloudjester' is already used by another Pokemon"
   }
 ]
