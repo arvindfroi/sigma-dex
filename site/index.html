@@ -706,6 +706,7 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .rbar { position: sticky; top: 0; z-index: 5; background: var(--bg, #1b1630); }
 .rconfirm .chips { margin: 6px 0; }
 .rgap { border-style: dashed; opacity: .8; }
+.rsplit { padding: 0 4px; font-size: 11px; line-height: 1.2; opacity: .7; }
 
 .tslots { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
 .tslot { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; min-height: 92px; background: var(--panel); border: 2px solid var(--line); color: inherit; }
@@ -3085,6 +3086,9 @@ function renderReorder() {
   const redo = () => { if (!plan.future.length) return; plan.history.push(plan.blocks); plan.blocks = plan.future.pop(); plan.flash = null; render(); };
   const reset = () => { if (!plan.history.length) return; plan.history.push(plan.blocks); plan.future = []; plan.blocks = makeBlocks(usedLayout(base), plan.single); plan.flash = null; render(); };
   const removeGap = bi => { const blocks = plan.blocks.slice(); blocks.splice(bi, 1); commit(blocks, null); };
+  // A wrong line can be fixed here for the moving: split a block in two, or join a block to the one above it.
+  const splitAt = (bi, k) => { const blocks = plan.blocks.slice(), b = blocks[bi]; blocks.splice(bi, 1, b.slice(0, k), b.slice(k)); commit(blocks, b[k]); };
+  const joinUp = bi => { if (bi < 1 || plan.blocks[bi - 1][0] === null || plan.blocks[bi][0] === null) return; const blocks = plan.blocks.slice(); blocks.splice(bi - 1, 2, blocks[bi - 1].concat(blocks[bi])); commit(blocks, plan.blocks[bi][0]); };
   const toggleSingle = ev => { plan.single = ev.target.checked; plan.blocks = makeBlocks(planOrder(), plan.single); render(); };
   const gapsNow = order.filter(id => id === null).length, gapsBefore = usedLayout(base).filter(id => id === null).length;
   const changed = moved.length || gapsNow !== gapsBefore;
@@ -3115,7 +3119,7 @@ function renderReorder() {
     save, h("button", {type: "button", onclick: () => { plan = null; view = "species"; render(); }}, "Close"),
     plan.error ? h("div", {class: "error", style: "flex-basis:100%"}, plan.error) : null);
   const help = h("div", {class: "sub"}, "Evolution lines move as one block. Use ▲ ▼ to move a block one step, type a number to send it there, or drag ⠇ (also with a finger; the list scrolls when you reach the edge). " +
-    "Everything you move lights up and the page jumps to it. Empty numbers are shown as their own rows: move them like a block, or press ✕ to remove them. Saving shows every change first, and old orders are kept in the history.");
+    "Everything you move lights up and the page jumps to it. Empty numbers are shown as their own rows: move them like a block, or press ✕ to remove them. If a block is wrong, split it with ✂ or join it to the one above with ⤴ (the evolution line itself is fixed under MORE > Evolution lines). Next shows every change before anything is saved, and old orders are kept in the history.");
   let pos = 0;
   const rows = plan.blocks.map((b, bi) => {
     const start = pos + 1; pos += b.length;
@@ -3135,12 +3139,13 @@ function renderReorder() {
       h("div", {class: "rmembers"}, b.map((id, k) => {
         const s = byId.get(id), n = start + k, was = wasAt.get(id);
         const pic = s && ((DEX.ds_sprites[id] || {}).icon ? {src: DEX.ds_sprites[id].icon, pixel: true} : portrait(s));
-        return h("div", {class: "rmon"}, h("span", {class: "no"}, "#" + pad(n)),
+        return h("div", {class: "rmon"}, k > 0 ? h("button", {type: "button", class: "rsplit", title: "Split the block here (only for moving; the evolution line itself is fixed under MORE > Evolution lines)", onclick: () => splitAt(bi, k)}, "✂") : null, h("span", {class: "no"}, "#" + pad(n)),
           pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: "", loading: "lazy"}) : h("span", {class: "letter"}, (s.data.name || "?")[0]),
           h("span", {class: "nm"}, s.data.name), h("span", {class: "types"}, (s.data.types || []).map(typeChip)),
           was !== n ? h("span", {class: "was"}, "was #" + pad(was)) : null);
       })),
       h("div", {class: "ractions"},
+        h("button", {type: "button", title: "Join this block to the one above it (they then move together)", disabled: bi === 0 || plan.blocks[bi - 1][0] === null ? "" : null, onclick: () => joinUp(bi)}, "⤴"),
         h("button", {type: "button", title: "One step up", disabled: bi === 0 ? "" : null, onclick: () => moveBlock(bi, bi - 1)}, "▲"),
         h("button", {type: "button", title: "One step down", disabled: bi === plan.blocks.length - 1 ? "" : null, onclick: () => moveBlock(bi, bi + 1)}, "▼"),
         to));
