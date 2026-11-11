@@ -4821,5 +4821,40 @@
     "file": "assets/concept-art/santrock/1536.webp",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 1537,
+    "species": "harambe",
+    "file": "assets/concept-art/harambe/1537.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1538,
+    "species": "harambe",
+    "file": "assets/concept-art/harambe/1538.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1539,
+    "species": "apeshit",
+    "file": "assets/concept-art/apeshit/1539.png",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 1540,
+    "species": "apeshit",
+    "file": "assets/concept-art/apeshit/1540.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 1541,
+    "species": "apeshit",
+    "file": "assets/concept-art/apeshit/1541.png",
+    "caption": null,
+    "editor": "Arvind"
   }
 ]

@@ -316,12 +316,12 @@ SINGLE_BATTLE_TEST("Sigma dex: Cowfin can use its first move in battle")
 TEST("Sigma dex: Mooceon has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_MOOCEON];
-    EXPECT_EQ(info->baseHP, 155);
+    EXPECT_EQ(info->baseHP, 167);
     EXPECT_EQ(info->baseAttack, 55);
-    EXPECT_EQ(info->baseDefense, 75);
+    EXPECT_EQ(info->baseDefense, 70);
     EXPECT_EQ(info->baseSpeed, 50);
     EXPECT_EQ(info->baseSpAttack, 70);
-    EXPECT_EQ(info->baseSpDefense, 85);
+    EXPECT_EQ(info->baseSpDefense, 78);
     EXPECT_EQ(info->types[0], TYPE_NORMAL);
     EXPECT_EQ(info->types[1], TYPE_WATER);
     EXPECT_EQ(info->abilities[0], ABILITY_OWN_TEMPO);
@@ -848,12 +848,12 @@ SINGLE_BATTLE_TEST("Sigma dex: Everdark can use its first move in battle")
 TEST("Sigma dex: Santrock has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SANTROCK];
-    EXPECT_EQ(info->baseHP, 45);
-    EXPECT_EQ(info->baseAttack, 55);
-    EXPECT_EQ(info->baseDefense, 55);
-    EXPECT_EQ(info->baseSpeed, 30);
-    EXPECT_EQ(info->baseSpAttack, 40);
-    EXPECT_EQ(info->baseSpDefense, 40);
+    EXPECT_EQ(info->baseHP, 150);
+    EXPECT_EQ(info->baseAttack, 110);
+    EXPECT_EQ(info->baseDefense, 110);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 130);
+    EXPECT_EQ(info->baseSpDefense, 130);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
     EXPECT_EQ(info->types[1], TYPE_ROCK);
     EXPECT_EQ(info->abilities[0], ABILITY_DESOLATE_LAND);

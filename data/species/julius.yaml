@@ -49,6 +49,8 @@ evolutions:
   - into: yanklet
     method: level
     level: 38
+  - into: harambe
+    method: friendship
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []

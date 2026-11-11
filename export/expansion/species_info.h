@@ -542,12 +542,12 @@
 
     [SPECIES_MOOCEON] =
     {
-        .baseHP = 155,
+        .baseHP = 167,
         .baseAttack = 55,
-        .baseDefense = 75,
+        .baseDefense = 70,
         .baseSpeed = 50,
         .baseSpAttack = 70,
-        .baseSpDefense = 85,
+        .baseSpDefense = 78,
         .types = MON_TYPES(TYPE_NORMAL, TYPE_WATER),
         .catchRate = 45,
         .expYield = 64,
@@ -1480,12 +1480,12 @@
 
     [SPECIES_SANTROCK] =
     {
-        .baseHP = 45,
-        .baseAttack = 55,
-        .baseDefense = 55,
-        .baseSpeed = 30,
-        .baseSpAttack = 40,
-        .baseSpDefense = 40,
+        .baseHP = 150,
+        .baseAttack = 110,
+        .baseDefense = 110,
+        .baseSpeed = 50,
+        .baseSpAttack = 130,
+        .baseSpDefense = 130,
         .types = MON_TYPES(TYPE_FIRE, TYPE_ROCK),
         .catchRate = 45,
         .expYield = 64,

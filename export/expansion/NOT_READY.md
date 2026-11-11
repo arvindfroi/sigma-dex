@@ -4,7 +4,7 @@
 
 **31** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Florantula, Cowfin, Mooceon, Lapper, Brawleo, Galfrogtom, Toxiren, Sigmauler, Tinky, Motinky, Gortiki, Devampry, Chillalit, Sporeshade, Janenon, Blylem, Snownin, McSkiirtle, Slamquake, Dreadfang, Everdark, Santrock
 
-## Not exported yet (120)
+## Not exported yet (122)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -16,7 +16,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Twemp** needs: a level-up move that exists in the game
 - **Pipwi** needs: a level-up move that exists in the game
 - **Tropistrich** needs: a name of at most 10 letters
-- **Cloudgnome** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Cloudgnome** needs: base stats, a level-up move that exists in the game
 - **Sigmanian Sudowoodo** needs: a level-up move that exists in the game, a name of at most 10 letters
 - **Snobbit** needs: a level-up move that exists in the game
 - **Freezrick** needs: a level-up move that exists in the game
@@ -55,6 +55,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Octopearl** needs: a level-up move that exists in the game
 - **Cryoblade** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Roostasaur** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Harambe** needs: a level-up move that exists in the game
 - **Leadling** needs: a level-up move that exists in the game
 - **Leadling Utvikling** needs: a level-up move that exists in the game, a name of at most 10 letters
 - **Iglomodo mindre utv** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 10 letters
@@ -128,6 +129,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Bergflabbser** needs: a level-up move that exists in the game, a name of at most 10 letters
 - **Maagamad** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Sandrema** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Apeshit** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 
 ## Left out of exported Pokemon
 
