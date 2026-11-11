@@ -18,7 +18,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Innards Out
-  secondary: Poison Point # optional
+  secondary: Corrosion   # optional
   hidden: Filter         # optional
 
 base_stats:              # each 1-255
@@ -80,8 +80,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "a head and arms"
-  movement: "It walks on its legs."
+  body_shape: a head and arms # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a big, heavy robot-like creature with a grey metal domed head with two green glowing eyes. Its metal chest has a glowing green and yellow radiation symbol, and its huge arms are made of bundled black cables ending in spiked yellow and black striped cuffs, with green slime dripping from it."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
@@ -91,7 +91,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:377"
+  footprint: "hgss:377"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

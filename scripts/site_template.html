@@ -2892,7 +2892,8 @@ function ourLines() {
   return {lines, bst, strong, normal, mono: typed.filter(s => new Set(s.data.types).size === 1).length, typed: typed.length};
 }
 // ---------- characters the group can claim (no names, no spoilers); claims are species_edits rows of kind 'claim' ----------
-const CLAIMS_OPEN = false;   // work in progress (Arvind, 2026-11-11): nobody claims yet
+const CLAIMS_OPEN = false;
+const CHARS_PREVIEW = /[?&]chars-preview\b/.test(location.search);   // test view: add ?chars-preview to the address   // work in progress (Arvind, 2026-11-11): nobody claims yet
 let claims = null, claimsError = "", charOpen = "";
 const trainerPics = new Map();     // role id -> [{id, src, caption, editor}] (species_images rows with species_id "trainer-<role>")
 async function loadClaims() {
@@ -2917,6 +2918,11 @@ function spoilerTeam(t) {
 function teamUse(teamId) {
   for (const c of DEX.characters || []) { const cl = claimOf(c.id); for (const [i, tid] of Object.entries(cl.slots || {})) if (tid === teamId) return {c, battle: Number(i) + 1}; }
   return null;
+}
+let charOrder = null;          // a random order, made once per visit, so the list gives nothing away
+function shuffledCharacters() {
+  if (!charOrder) { charOrder = (DEX.characters || []).slice(); for (let i = charOrder.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [charOrder[i], charOrder[j]] = [charOrder[j], charOrder[i]]; } }
+  return charOrder;
 }
 const charName = c => c.code || (c.group + " · " + c.type);
 const charPic = c => (trainerPics.get(c.id) || [])[0];
@@ -2988,6 +2994,10 @@ function openCharacter(c, tab) {
 }
 function renderCharacters() {
   const grid = document.getElementById("grid");
+  if (!CLAIMS_OPEN && !CHARS_PREVIEW) {     // the whole page waits behind "work in progress" (Arvind, 2026-11-11)
+    grid.replaceChildren(h("div", {style: "grid-column:1/-1"}, h("div", {class: "notice info"}, h("b", {}, "Work in progress. "), "This page is being made. Come back later!")));
+    return;
+  }
   if (claims === null && DEX.web.url && !claimsError) {
     grid.replaceChildren(h("div", {class: "empty", style: "grid-column:1/-1"}, "Loading..."));
     loadClaims().catch(err => { claimsError = err.message; claims = new Map(); }).then(() => view === "chars" && renderCharacters());
@@ -2995,7 +3005,7 @@ function renderCharacters() {
   }
   const mine = person(me());
   const groups = [];
-  for (const c of DEX.characters || []) { let g = groups.find(x => x.name === c.group); if (!g) groups.push(g = {name: c.group, rows: []}); g.rows.push(c); }
+  for (const c of shuffledCharacters()) { let g = groups.find(x => x.name === c.group); if (!g) groups.push(g = {name: c.group, rows: []}); g.rows.push(c); }
   const card = c => {
     const cl = claimOf(c.id), pic = charPic(c), isMine = cl.by && mine && person(cl.by) === mine;
     return h("button", {type: "button", class: "card charcard", onclick: () => openCharacter(c)},
@@ -3724,13 +3734,14 @@ const MAIN_TABS = [["species", "POKEDEX", "purple"], ["teams", "TEAMS", "pink"],
 const MORE = [["lost", "Lost and found"], ["evo", "Evolution lines"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Balance"], ["chars", "Characters (work in progress)"], ["reorder", "Change dex numbers"]];
 const WIDE_VIEWS = ["board", "progress", "teams", "chars"];
 // What the top screen's dialog box says on each page.
+const CHARS_HELP = /[?&]chars-preview\b/.test(location.search) ? "CHARACTERS\nThe trainers in the game we can replace with ourselves. Who they really are stays a surprise: you only see the role, the type and how often you meet them." : "CHARACTERS\nWork in progress. Come back later!";
 const PAGE_HELP = {
   species: "Welcome to the " + DEX.project + "!\nPoint at a Pokemon to see it up here. Tap it to open its page, change it or draw its sprites.",
   board: "REQUESTS\nWhat the game still needs, and what people wish for. Add your own idea, or move a card along when work starts or is done.",
   sprites: "SPRITES\nSprites are drawn on each Pokemon's page, under SPRITES. Here you see what is being drawn, what waits for someone to approve it, and what is done.",
   progress: "PROGRESS\nHow far the dex has come. Every badge is a goal for the whole group.",
   evo: "EVOLUTION LINES\nEvery evolution line as a tree. Tap an arrow to say how it evolves; red arrows are not decided yet.",
-  chars: "CHARACTERS\nThe trainers in the game we can replace with ourselves. Who they really are stays a surprise: you only see the role, the type and how often you meet them.",
+  chars: CHARS_HELP,
   teams: "TEAMS\nBuild teams of six from our Pokemon, the way Showdown does it. Teams are kept in this browser; Share link sends one to a friend.",
   lost: "LOST AND FOUND\nPictures from the Discord that nobody has linked to a Pokemon yet. Recognise one? Press This is... and choose the Pokemon.",
   move: "NEW MOVES\nMoves our Pokemon use that are not in the game yet. Describe what they do, so they can be programmed.",

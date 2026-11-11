@@ -19,7 +19,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 abilities:
   primary: Sturdy
   secondary: Toxic Debris # optional
-  hidden: Corrosion      # optional
+  hidden: Poison Point   # optional
 
 base_stats:              # each 1-255
   hp: 83
@@ -93,7 +93,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:306"
+  footprint: "hgss:306"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

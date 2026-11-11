@@ -19,7 +19,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 abilities:
   primary: Sturdy
   secondary: Toxic Debris # optional
-  hidden: Corrosion      # optional
+  hidden: Poison Point   # optional
 
 base_stats:              # each 1-255
   hp: 45
@@ -50,6 +50,15 @@ evolutions:
     method: level
     level: 20
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
   level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
@@ -68,7 +77,7 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "a head and legs"
+  body_shape: a head and legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small round golem made of lumpy dark grey boulders, with a cream-white skull-shaped mask on its front that has two glowing purple teardrop eyes and a jagged mouth. It has round boulder feet and small rock chunks scattered around it."
 
@@ -79,7 +88,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:304"
+  footprint: "hgss:304"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
