@@ -54,7 +54,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Octopearl** needs: a level-up move that exists in the game
 - **Cryoblade** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Roostasaur** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Cloudjester** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Leadling** needs: a level-up move that exists in the game
 - **Leadling Utvikling** needs: a level-up move that exists in the game, a name of at most 12 letters
 - **Iglomodo mindre utv** needs: base stats, an ability that exists in the game, a level-up move that exists in the game, a name of at most 12 letters
@@ -116,6 +115,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Strawboo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Wreckingboo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Wreckingdrake** needs: a level-up move that exists in the game, a name of at most 12 letters
+- **Cloudjester** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Felk** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Moosus** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Rockedeer** needs: a level-up move that exists in the game

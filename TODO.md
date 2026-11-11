@@ -49,7 +49,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 ## Open dex slots (1)
 
-#140
+#72
 
 ## Missing per Pokemon
 
@@ -761,16 +761,6 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #72 [Cloudjester](data/species/bygon.yaml) - 7%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
 ### #73 [Leadling](data/species/leadling.yaml) - 24%
 
 - **Dex page:** category, description, weight, body color
@@ -1436,6 +1426,16 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #140 [Cloudjester](data/species/cloudjester.yaml) - 7%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #141 [Felk](data/species/felk.yaml) - 10%
 

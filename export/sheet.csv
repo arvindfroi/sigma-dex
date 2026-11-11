@@ -76,7 +76,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 69,Octopearl,Psychic,Water,Analytic,Telepathy,Prism Armor,=SUM(I71:N71),50,53,142,63,152,35,,,,,,,"1 defense, 2 sp_defense",,,,,,,,,,,Cosmic Shield (evo),,,,,,,,,,
 70,Cryoblade,Ice,,Cold-hearted,Ice Body,Refrigerate,=SUM(I72:N72),98,130,95,50,85,70,,,Frozen Executioner,2.1,182,,3 attack,,,,,,,,,,,,,,,,,,,"From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",Ivar,
 71,Roostasaur,Dragon,Normal,,,,=SUM(I73:N73),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-72,Cloudjester,Flying,Fairy,,,,=SUM(I74:N74),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,
+72,,,,,,,=SUM(I74:N74),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 73,Leadling,Rock,Poison,Sturdy,Toxic Debris,Corrosion,=SUM(I75:N75),45,35,55,50,85,10,,,,0.5,,,1 sp_defense,,,,,,,,,,,,,,,,,,,,Emil Venge-Kvamme,
 74,Leadling Utvikling,Rock,Poison,Sturdy,Toxic Debris,Corrosion,=SUM(I76:N76),60,50,80,95,100,15,Leadling,Lv 20,,,,,2 sp_defense,,,,,,,,,,,,,,,,,,,,Emil,
 75,Blylem,Rock,Poison,Sturdy,Toxic Debris,Corrosion,=SUM(I77:N77),83,60,92,115,150,25,Leadling Utvikling,Lv 40,Lead Golem,2.6,412,,3 sp_defense,,,,,,,,,,,Stealth Rock (1),,,,,"Born from bones and lead, it rises in polluted lands. Its touch can corrode rock and rot even steel.",,,"From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Sand Stream; height 8'06"", weight 908.3 lbs.",Emil Venge-Kvamme,
@@ -144,7 +144,7 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 137,Strawboo,Water,,,,,=SUM(I139:N139),,,,,,,,,,0.4,,,,,,,,,,,,,,,,,,,,,,,Ruben,
 138,Wreckingboo,Water,,,,,=SUM(I140:N140),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Wrecking is the a pokemon. It lives on the surface of the water because it cant breathe under. Tries to lure its pray in with the smily face on its forhead,,,Ruben,Ruben
 139,Wreckingdrake,Water,Dragon,Lightning Rod,,,=SUM(I141:N141),100,145,90,85,70,50,,,,7.2,,,3 attack,,,,,,,,,,,,,,,,,,,,Ruben,
-140,,,,,,,=SUM(I142:N142),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+140,Cloudjester,Fairy,Flying,,,,=SUM(I142:N142),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Michael,
 141,Felk,Fairy,Flying,,,,=SUM(I143:N143),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ruben,Ruben
 142,Moosus,Flying,Fairy,Aurora Dancer,,Regenerator,=SUM(I144:N144),130,110,100,70,100,70,,,,,,,,,,,,,,,,,,,,,,,,Legendary moose from old mythology. its altlers and fur glitters and shines like nordic light. once in a while it gallops in the sky it attracts many onlookers,,,arvind,
 143,Rockedeer,Fire,Psychic,Levitate,,,=SUM(I145:N145),80,90,70,130,70,140,,,,1.9,,,3 speed,,,,,,,,,,,,,,,,,,,,Ruben,

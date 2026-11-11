@@ -1,12 +1,12 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
-dex: 72
+dex: 140
 name: Cloudjester
 
 credits:
   designer: Michael      # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: [Flying, Fairy]   # 1 or 2 types, e.g. [Grass, Steel]
+types: [Fairy, Flying]   # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -78,7 +78,7 @@ design:
   name_origin:
   notes:
   wishes:                # for Claude: how it should play, move ideas
-  claude_fill: false     # true = Claude may fill in what is missing
+  claude_fill: true      # true = Claude may fill in what is missing
   filled_by_claude: []   # fields Claude filled in (people can change them)
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
