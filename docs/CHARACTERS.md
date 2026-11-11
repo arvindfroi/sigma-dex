@@ -73,25 +73,20 @@ Important trainers show only a code name so nothing is spoiled. The key (role id
 - Maxie (executive, Fire) -> trainer-a
 - Petrel (executive) -> trainer-b
 - Archie (executive, Water) -> trainer-c
-- Cynthia (Sinnoh champion + trainer) -> trainer-d
-- Marauder (executive) -> trainer-e
-- Giovanni (Rocket boss) -> trainer-f
-- Eusine -> trainer-g
-- Cyrus (executive) -> trainer-h
-- Archer (executive) -> trainer-i
-- Charon (executive) -> trainer-j
-- Gold (Johto trainer) -> trainer-k
-- Green -> trainer-l
-- Crystal -> trainer-m
-- Proton (executive) -> trainer-n
-- Yellow -> trainer-o
-- Ariana (executive) -> trainer-p
-- Lawrence (executive) -> trainer-q
-- Blue (rival) -> trainer-r
-- Steven (Hoenn champion + trainer) -> trainer-s
-- Lorelei -> league-1
-- Bruno -> league-2
-- Agatha -> league-3
-- Koga (Elite Four) -> league-4
-- Lance -> league-5
-- Lorin -> league-6
+- Marauder (executive) -> trainer-d
+- Giovanni (Rocket boss) -> trainer-e
+- Eusine -> trainer-f
+- Cyrus (executive) -> trainer-g
+- Archer (executive) -> trainer-h
+- Charon (executive) -> trainer-i
+- Gold (Johto trainer) -> trainer-j
+- Green -> trainer-k
+- Crystal -> trainer-l
+- Proton (executive) -> trainer-m
+- Yellow -> trainer-n
+- Ariana (executive) -> trainer-o
+- Lawrence (executive) -> trainer-p
+- Blue (rival) -> trainer-q
+- Steven (Hoenn champion + trainer) -> trainer-r
+
+Left out of the website on purpose (Arvind makes them himself): the Elite Four and the Sinnoh champion (Cynthia).

@@ -125,108 +125,108 @@
   battles: 7
   levels: [40, 45, 50, 72, 89, 90, 100]
   code: Trainer C
-- id: trainer-e
+- id: trainer-d
   group: Important trainer
   type: Dark / Steel / Dragon
   place: you meet them several times
   battles: 3
   levels: [90, 90, 100]
-  code: Trainer E
-- id: trainer-f
+  code: Trainer D
+- id: trainer-e
   group: Important trainer
   type: Ground / Poison
   place: you meet them again and again
   battles: 8
   levels: [100, 100, 100, 100, 100, 100, 100, 100]
-  code: Trainer F
-- id: trainer-g
+  code: Trainer E
+- id: trainer-f
   group: Important trainer
   type: Psychic / Flying / Ghost
   place: you meet them once, at an important moment
   battles: 1
   levels: [75]
-  code: Trainer G
-- id: trainer-h
+  code: Trainer F
+- id: trainer-g
   group: Important trainer
   type: Flying / Dark / Water
   place: you meet them several times
   battles: 4
   levels: [90, 90, 100, 100]
-  code: Trainer H
-- id: trainer-i
+  code: Trainer G
+- id: trainer-h
   group: Important trainer
   type: Fire / Flying / Dark
   place: you meet them several times
   battles: 3
   levels: [92, 95, 100]
-  code: Trainer I
-- id: trainer-j
+  code: Trainer H
+- id: trainer-i
   group: Important trainer
   type: Ghost
   place: you meet them several times
   battles: 4
   levels: [88, 88, 100, 100]
-  code: Trainer J
-- id: trainer-k
+  code: Trainer I
+- id: trainer-j
   group: Important trainer
   type: Water / Fire / Flying
   place: you meet them again and again
   battles: 11
   levels: [11, 14, 30, 34, 36, 37, 46, 61, 96, 97, 97]
-  code: Trainer K
-- id: trainer-l
+  code: Trainer J
+- id: trainer-k
   group: Important trainer
   type: Grass / Fairy / Normal
   place: you meet them again and again
   battles: 8
   levels: [8, 15, 20, 23, 27, 33, 42, 93]
-  code: Trainer L
-- id: trainer-m
+  code: Trainer K
+- id: trainer-l
   group: Important trainer
   type: Grass / Psychic / Ground
   place: you meet them again and again
   battles: 9
   levels: [24, 24, 25, 30, 45, 61, 81, 90, 95]
-  code: Trainer M
-- id: trainer-n
+  code: Trainer L
+- id: trainer-m
   group: Important trainer
   type: mixed
   place: you meet them several times
   battles: 3
   levels: [33, 87, 95]
-  code: Trainer N
-- id: trainer-o
+  code: Trainer M
+- id: trainer-n
   group: Important trainer
   type: Rock / Normal / Flying
   place: you meet them a couple of times
   battles: 2
   levels: [82, 92]
-  code: Trainer O
-- id: trainer-p
+  code: Trainer N
+- id: trainer-o
   group: Important trainer
   type: Rock / Ground
   place: you meet them several times
   battles: 5
   levels: [55, 75, 90, 90, 100]
-  code: Trainer P
-- id: trainer-q
+  code: Trainer O
+- id: trainer-p
   group: Important trainer
   type: Flying
   place: you meet them several times
   battles: 6
   levels: [50, 74, 88, 90, 95, 100]
-  code: Trainer Q
-- id: trainer-r
+  code: Trainer P
+- id: trainer-q
   group: Important trainer
   type: mixed
   place: you meet them again and again
   battles: 19
   levels: [5, 7, 12, 16, 19, 22, 24, 24, 28, 30, 34, 42, 50, 70, 76, 76, 93, 97, 97]
-  code: Trainer R
-- id: trainer-s
+  code: Trainer Q
+- id: trainer-r
   group: Important trainer
   type: mixed (Steel leaning)
   place: you meet them again and again
   battles: 9
   levels: [5, 12, 15, 20, 35, 42, 65, 83, 96]
-  code: Trainer S
+  code: Trainer R
