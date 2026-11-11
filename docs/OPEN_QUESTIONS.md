@@ -13,7 +13,8 @@ earlier conflicts: Fairy type, hidden abilities, the physical/special split and 
 
 1. **Rainbro is listed as "Stellar".** Stellar exists only as a Tera type, not as a type a
    Pokemon can have. What should it be?
-2. **Names longer than 12 characters:** Tomaterdander (13) - to be shortened later (decided 2026-10-02).
+2. **Names longer than 10 characters** (the real limit, found in the HeartGold decompilation on 2026-11-11):
+   23 names, e.g. Tomaterdander (13) - to be shortened when names are finalized; new Pokemon can not get longer names.
    The three Sigmanian ones are regional variants, which show the original's name in the game
    ("Sudowoodo"), so their length is not a problem.
 3. **New moves and abilities** (ones that do not exist in any official game) have to be
