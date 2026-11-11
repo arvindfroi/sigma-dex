@@ -753,3 +753,31 @@ Not identified. The site returns HTTP 403 to automated fetches (both the asset p
 
 - **Scandinavian translations:** none found for any Gen 4 DS game or DS hack (Norwegian, Swedish or Danish), finished or in progress; official Pokemon games were never localised into Norwegian or Danish. Reddit and Discord could not be searched directly. The Origin EN translation repo's pipeline (JSON text banks, `msgtool.py`, `qa.py` width checks against the 216 px two-line box, `build.py` to ROM + xdelta, STYLE.md, AGENTS.md, AI first draft + human review) is reusable for a Norwegian translation; ask its maintainers about a downstream fork. Glyphs: the game's character table has Æ Ø Å æ ø å; still to check that the font draws them.
 - **Native play / recompilation:** pret/pokeheartgold is a work-in-progress disassembly (not fully C), builds matching US ROMs, active (last commit 2026-11-09). A Platinum SDL port exists (`arcanite24/pokeplatinum-portable`); no HeartGold PC port and no general DS static recompiler were found. Origin is JP HeartGold plus binary patches; a native Origin would need a HeartGold PC port first and then every Origin change (injected code, data, text) lifted onto the decomp. Assessment: months of expert work; emulator or the DS ROM stays the practical route, with the decomp as reference.
+
+## 11. Our mons take the whole main story (Arvind, 2026-11-11)
+
+"Våres mons skal erstatte hele hoved historien ... når de snakker om lugia og hooh så gjelder det våres": every story role
+(starters, Oak's intro Pokemon, Ho-Oh and Lugia, the beasts, the weather trio, static encounters, the text that names them)
+goes to one of our mons; official species stay in the game and come back after the main story, like Black and White.
+So the special assets of section 9 are required work, not optional. Two more things found in the decompilation
+(pret `asm/unk_020517A4.s`, V):
+
+- **Legendary battle intros are keyed by species number** (`_020FC3B4`): Raikou, Entei, Suicune, Lugia, Ho-Oh,
+  Groudon, Kyogre, Rayquaza, Mewtwo, Latios and Latias each get a special encounter effect (and their music). For our
+  legendaries to get them, this small table in arm9 must be patched to our species numbers (a data patch; find the same
+  table in Origin's arm9 by its bytes).
+- **Important trainers get special battle intros and music by class** (`_020FC3CA` + `_020FC40A`): all 16 gym leaders,
+  the Elite Four, the Champion, the rival, the four Rocket executives, the Rocket boss, grunts, Kimono Girls and Red
+  (e.g. `SEQ_GS_VS_GYMREADER`). These are the "Trainer Vs." portraits (The Spriters Resource asset 27185 shows them:
+  close-up portraits of Ethan, Lyra, Silver, every leader, the Elite Four, Rocket, Giovanni and the Frontier Brains).
+  **Replacing an important character therefore also needs a VS portrait.** Where the portraits are stored is not yet
+  found (I: the encounter effect graphics loaded by this code).
+
+**Base patch:** we switch from EN v1.0.0-rc3 to the maintained English translation (v1.0.0-rc8 of 2026-10-13 or newer)
+and use its tools; offsets verified on the old base must be checked again after the switch.
+
+**Native play:** native HeartGold PC ports now exist: [elyro1/pokeheartgold_pc-port](https://github.com/elyro1/pokeheartgold_pc-port)
+(built from ctrl-cheeb-del's decompilation with libntr; vanilla US HeartGold/SoulSilver only, experimental) and
+[Gen2Recomped](https://github.com/UNDERdecoded/Gen2Recomped) (a hand-written rebuild that reads data from canonical dumps;
+HeartGold/SoulSilver plus a few GBC hacks). Neither runs Origin, which is a binary hack of the Japanese ROM: native Origin
+would need Origin's changes lifted onto the decompilation first (section 10).
