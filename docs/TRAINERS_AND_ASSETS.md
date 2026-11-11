@@ -781,3 +781,207 @@ and use its tools; offsets verified on the old base must be checked again after 
 [Gen2Recomped](https://github.com/UNDERdecoded/Gen2Recomped) (a hand-written rebuild that reads data from canonical dumps;
 HeartGold/SoulSilver plus a few GBC hacks). Neither runs Origin, which is a binary hack of the Japanese ROM: native Origin
 would need Origin's changes lifted onto the decompilation first (section 10).
+
+## 12. Every story tie to official species (2026-11-11)
+
+Question (Arvind): "noe annet enn det? sjekk gjennom spillet". Besides the Ho-Oh title model, the Ho-Oh/Lugia cutscenes, the starters, Oak's Marill, the
+beasts and the weather trio, what else in Origin HeartGold links the story to a particular species? Rule from section 11: our mons replace every story role;
+official species come back after the main story.
+
+Sources (all read locally, nothing copied into the repo except counts, ids and a few short phrases): Origin's player docs (`~/sigma-origin/docs`:
+`trades_tutors.md`, `encounters.md`, `trainers.md`), the extracted Origin ROM (`x_spike_backup`: `a/0/3/2` map events parsed by hand, `arm9.bin`, overlays),
+the English translation repo (`work/translate/banks/*.json`, 802 a027 banks plus 4 battle banks, `play_order.json`, `bank_maps.json`; `guide/` quest guide
+with 368 quest entries) and the pret decompilation (scripts, `src/`, `asm/`). Labels: **V** = verified in a file, **I** = inferred, **U** = unknown.
+
+**Which part of Origin is "the main story".** The guide's chapters 1-13 are Kanto up to the first Hall of Fame (Indigo Conference, Blue), 14-32 are Mt. Silver,
+Johto, the Rocket League-HQ chain, the island pilgrimage and the final Hall of Fame, and 33-34 are post-game (V, `guide/chapters/*.toml`, `kind = "story"` vs
+`"postgame"`). Quest entries are tagged main (96) or side (272); 147 of the 368 name a species in the title (24 main, 123 side). "Before first HoF" and
+"before final HoF" below follow these chapters.
+
+### 12.1 Summary: what must be replaced, in order of size
+
+| # | Tie | Size | Replace by | Effort |
+|---|---|---|---|---|
+| 1 | Trainer teams | 1,023 teams, 3,891 party slots, 495 different official species (458 of Gen 1-4, 37 later); Kanto-side maps 589 teams / 2,100 slots, Johto-side 419 / 1,749, 15 not placed (V, `trainers.md`) | party data (slot swap or re-pointing) | big but data only |
+| 2 | Story text that names a species | 4,791 of 24,434 main-story map-script strings (19.6 %), 6,332 mentions, 429 different species (V, EN banks) | text edit (names, per bank) | big, semi-automatic |
+| 3 | Wild encounter tables | 136 tables, 4,087 slot rows, 523 different species (V, `encounters.md`) | table data | medium |
+| 4 | Map objects that show a Pokemon | 1,619 objects in 489 map event files: 1,537 follower-sprite objects (417 different sprites), 48 static follower objects, 34 special objects (V, parsed) | sprite id or sprite picture | medium; most are covered by the follower pipeline |
+| 5 | Gifts, static battles, eggs, trades | 159 gift/battle/egg rows (118 battles, 37 gifts, 4 eggs), 13 trades, 32 "wild" fights built as trainer records (V) | script/trade data | medium |
+| 6 | Move tutors keyed by species | 89 tutor rows, 79 with a species list (5,209 entries in all), 6 single-species checks (V) | script lists | medium (balance, not story) |
+| 7 | Code keyed by species number | about 12 places that matter for the story (section 12.6) | data patches (some overlay-14-style) | small but each is a trap |
+| 8 | Special pictures/models | already in section 9 (title Ho-Oh model, Ho-Oh/Lugia plane objects, Marill 2D sprite, Alph puzzles, opening movie) | art | big art |
+| 9 | Pokegear phone, radio, TV, minigame text | 178 + 13 + 15 + 29 strings name a species (V) | text edit | small |
+
+New finds compared with sections 8 and 9 (not listed there before): the 32 wild-fights-as-trainers, the 1,537 follower-sprite map objects, Safari Zone owner
+test species, Trainer House team, the Magikarp record script, species-checking tutor lists, gym rules that depend on types or stats, "Pokemon League" map showing
+stolen legendaries, and the counts in 12.3 to 12.5.
+
+### 12.2 Pokemon given, traded, fought or scripted in the story (V from `trades_tutors.md`, quest guide, decomp scripts)
+
+Counts: 159 rows = 118 `WildBattle`, 37 `GiveMon`, 4 `GiveEgg`; 48 of the battles are the Safari Zone Gate challenge list (below), so 111 are real events.
+"Phase" = when it happens: **K** before the first Hall of Fame (Kanto), **J** between the first and final Hall of Fame (Johto and the Rocket chain),
+**P** after the final Hall of Fame, **S** side quest (any time before P).
+
+| Group | Who (Origin species) | Where / what | Phase |
+|---|---|---|---|
+| Player starters (3) | Bulbasaur, Charmander, Pikachu (the choice) + Oak's intro Marill | Pallet Town (already known, section 9 and STORY_ROLES) | K |
+| Starter-dependent side gifts | Poliwag (Bulbasaur starters), Charmander/Meowth/Mankey/Pikachu "thief" events by starter, Light Ball / Charcoal | Pallet, Viridian, Route 2; one entry per starter (guide ch. 1) | K |
+| Early gifts | Eevee (Viridian Forest), Charmander (Pewter, Route 3), Bulbasaur and Growlithe (Route 5 shelter), Squirtle (Route 9), Horsea (Vermilion), Hitmonlee/Hitmonchan (Saffron dojo), Lapras (Silph, lv 70), Cubone, Bellsprout, Ralts, Doduo, Barboach, Dratini (Resort Zone), Torchic, Treecko egg | listed place by place in `trades_tutors.md` | K, S |
+| Main-story legendaries, Kanto | Zapdos (Power Plant, main), Regirock/Regice/Registeel (Rock Tunnel, lv 90 gifts, main), Mewtwo (Cinnabar lab fight, main; Indigo Plateau gift lv 95, side), Moltres (Cinnabar, main), Kyogre (Seafoam, main; Rocket catches it), Articuno (Seafoam, side), Latios/Latias (Secret Forest, main), Rayquaza (Sky Pillar, Rocket takes it, main), Mew (Mt. Moon chase main; Five Island gift side) | guide ch. 3, 5, 6 | K |
+| Johto story Pokemon | Slugma (Cherrygrove chain, main), Arceus (Ruins of Alph, Giovanni catches it, main), Entei (Ruins of Alph fights, main), Celebi (Ilex Forest, main), Salamence (Route 34, main), Sudowoodo (Route 36, main), Miltank (MooMoo Farm, main), red Gyarados (Lake of Rage, main), Chatot (Rocket HQ radio, main), Suicune (Ice Path trap, main), Raikou (Route 47 device, main), Dialga/Palkia (Rocket catches them, main), Giratina (Reversal Cave chase, main), Ho-Oh (stolen from Bell Tower, main), Teddiursa (S.S. Anne, main), Swinub (Ice Path, main), Kabuto (Alph chamber) | guide ch. 8-12 | J |
+| Johto side gifts | Cyndaquil, Totodile, Chikorita (wild "challenger"), Chimchar, Shinx, Houndour, Tentacool, Shellos, Mareep/Slugma/Wooper egg (Violet, choose one), Heatran (Tuesdays), Uxie/Mesprit/Azelf (Lake of Rage, lv 90) | `trades_tutors.md` | J, S |
+| Post-game legends | Ho-Oh (Bell Tower gift/battle lv 95), Lugia (Whirl Islands lv 95), Jirachi, Burned Tower beasts (Entei, Suicune, Raikou), Suicune (Route 25), Groudon (Mt. Moon), Rayquaza (Sky Pillar), Deoxys (Six Island), Cresselia/Darkrai (Dream World), Dialga/Palkia/Giratina (after Lance's visit), Regigigas and Arceus (Sinjoh Ruins), Celebi time-travel event | guide ch. 10-12 and 33-34 titles say "after the final Hall of Fame" or "post-game" | P |
+| Safari Zone Gate challenge list | 48 battle rows, all level 10: Hoenn and Sinnoh species only (Absol ... Turtwig) | Safari Zone Gate | S |
+| Other | Manaphy egg (Alto Mare), Jirachi (Frontier Access), Shaymin (Ilex shrine), Kecleon, Onix form, Hypno, Mr. Mime (Route 21), Electrode x3 at Victory Road and Team Rocket HQ | various | S |
+
+So the story-critical ones that our dex must cover before the final Hall of Fame are: the 3 starters, about 14 legendary/mythical roles (Zapdos, Moltres, Articuno,
+Regis x3, Mewtwo, Mew, Kyogre, Rayquaza, Latios/Latias, Arceus, Celebi, Dialga/Palkia/Giratina, Raikou/Entei/Suicune, Ho-Oh, Lugia) plus about 15 "plot"
+Pokemon (Meowth, Persian, Slugma, Salamence, Sudowoodo, Miltank, Gyarados, Chatot, Teddiursa, Swinub, Snorlax, Lapras, Eevee, Pikachu, Marill, Dragonair).
+Ho-Oh and Lugia are only obtainable **after** the final Hall of Fame (V, guide titles), but appear in cutscenes and text earlier.
+
+**In-game trades (13, V):** Butterfree/Raticate pair (S.S. Anne), Budew for Ditto, Goldeen for Feebas, Hoothoot for Pineco, Bagon for Torkoal, Shellder for
+Mudkip, Dragonair for Porygon2, Bonsly for Rhydon, Exeggutor for Skarmory, Beedrill for Onix, Dugtrio for Gyarados (loan), Pidgeot (loan, Viridian Forest).
+Both sides of every trade are species numbers in `a/1/1/2`; the loans return a Pokemon to the NPC.
+
+**Vanilla script references (pret, V):** 81 of the 1,502 vanilla scripts mention a `SPECIES_` constant (78 different), among them the beasts' cries, the
+Dialga/Palkia/Giratina gifts (`D51R0201`), Rotom appliances, the three Egg gifts, Kyogre/Groudon/Rayquaza (`D52R010x`), the Lake of Rage Magikarp
+record (`T29`) and the Snorlax roadblock (`R11`, `R12`). Origin keeps these scripts and rewrites many; the species numbers in them are the only link.
+
+### 12.3 Pokemon seen as map objects or in cutscenes (V: `a/0/3/2` parsed, 6,731 objects in 489 zone files)
+
+Origin did not keep vanilla's 137 static follower objects (it has 48 of 25 kinds). Instead it places **1,537 follower-sprite objects** (sprite ids 428-976, the
+same table as pret's `SPRITE_FOLLOWER_MON_*`; 417 different sprites, in 277 map files) and 34 special objects. Map names below come from `bank_maps.json` and are
+approximate (I).
+
+| Role | Objects (V) | Notes |
+|---|---|---|
+| Ho-Oh `HOU_OBJ01` | 1 (Bell Tower) + a follower in the Pokemon League HQ map | the 64x64 cutscene plane; section 9 |
+| Lugia `LUG_OBJ01` | 2 (Whirl Islands) + a follower in the League HQ map | same |
+| Entei / Raikou / Suicune followers | 10 / 7 / 9 (Burned Tower, Ruins of Alph, Routes 25/27/30/42/47, Cherrygrove, Cianwood, Ice Path, New Bark, Victory Road) | the beasts are not only in the Burned Tower; each location needs the same replacement |
+| Celebi followers | 3 (Ilex Forest) | |
+| Mew followers | 8 (Mt. Moon, Route 1, Route 27, Five Island, Cinnabar) | Rocket's Mt. Moon story |
+| Mewtwo followers | 4 (Cerulean Cave, Cinnabar, Indigo Plateau, League HQ) | |
+| Kyogre / Groudon / Rayquaza followers | 3 / 2 / 2 (League HQ, Seafoam, Mt. Moon, Sky Pillar) | |
+| Dialga / Palkia / Giratina (+ Origin form) / Arceus | 3 / 7 / 2+3 / 3 | Sinjoh Ruins, League HQ, Radio Tower, Ritual Shrine, Victory Road |
+| Zapdos / Moltres / Articuno | 3 / 5 / 2 | Power Plant, Seafoam, Whirl Islands, League HQ |
+| Slowpoke (followers) + `YADON` | 21 followers (Azalea, Route 43, Slowpoke Well) + 7 tailless `YADON` (Burned Tower, Ice Path, Frontier Access, Route 42, Route 47, Six Island) | the tailless one is the only Pokemon object Origin redrew |
+| Lapras | 11 `RAPURASU` objects (Alto Mare, Sevii islands 1-4, Route 40, Route 47) + 2 followers | the Lapras "ride" boat quest |
+| Red Gyarados `RGYARADOSU` | 3 (Lake of Rage; vanilla had 1) | |
+| Snorlax `KABIGON` | 2 (Route 12, Five Island) + 1 follower on Route 32 | |
+| Sudowoodo tree `USOKKY` | 1 (Route 36) + `TREE` 2 | |
+| Rotom appliances (5) | 5 (Silph Co. Rotom's Room) | |
+| Eevee and its evolutions | Eevee 3, Vaporeon 2, Jolteon 2, Flareon 2, Espeon 1, Umbreon 1, Leafeon 5, Glaceon 3 | the "Kimono Girl Eeveelutions" are **not** objects: V, in vanilla and Origin they are trainer party Pokemon. Origin has 3 Kimono Girl teams (Sakura: Vaporeon..., Tamao x2: Umbreon...) in `trainers.md`; the Dance Theater has no Eeveelution object |
+| Pikachu `PIKACHU` / followers | 2 + 17 followers | |
+| Marill, Pichu, Clefairy, Miltank, Murkrow, Ampharos, Unown E/H/O/P/?/! | 7, 6, 4+6, 16+5, 3+3, 1+2, 6 | the Alph Unown are letter-form followers |
+| Electrode | 10 followers (Cianwood, Fuchsia, Indigo, Route 15, Rocket HQ) | the "item ball" Electrodes (Victory Road 1F, Power Plant) are scripted battles |
+| Dragonite | 17 followers | Lance, Lake of Rage, Mt. Silver, Radio Tower |
+| Mt. Silver Red | trainer, not an object | Origin has 8 "PKMN Trainer Red" teams used as a partner; the vanilla Mt. Silver fight (Pikachu, Espeon, Snorlax, Venusaur, Charizard, Blastoise) was not found as such (U), see 12.4 |
+
+Not Pokemon but looks like one in the sprite list: `MONSTARBALL` (item balls, 264 in vanilla). One object uses sprite id 1565, beyond vanilla's range (Cerulean City, U which).
+**Cutscenes (V, pret):** Ho-Oh and Lugia flying in (`legend_cutscene_camera.c`, overlay 2), Celebi and Spiky-eared Pichu events, Shaymin (`event_cutscene_shaymin.c`),
+Kimono Girls summoning the legendary, Rocket's Electrodes (Radio Tower and Power Plant scripts), the legendary-bird scripts (`D11R0105`, `D41R0105`: Articuno
+and Moltres), Kyogre/Groudon/Rayquaza in the Embedded Tower (`D52R010x`), the Latios/Latias roamers, Arceus (`D51R0301`) and the vanilla beasts (`D18R0102`).
+Origin-only events (guide): the League HQ chain makes Giovanni capture Arceus, Dialga, Palkia, Kyogre, Rayquaza, Zapdos, Moltres, Mewtwo, Ho-Oh and Lugia in
+turn; the League HQ map shows them as followers (I: from the object list). That whole chain is built from named species.
+
+### 12.4 Trainer teams (V, parsed `trainers.md`)
+
+- 1,023 team records (the whole of `a/0/5/5`), 3,891 party slots. Kanto-side maps 589 teams (2,100 slots, 461 species), Johto-side 419 (1,749 slots, 375 species),
+  15 not placed on any map. Union: 495 species, 458 of them Gen 1-4.
+- Named teams: Rival Blue 19 teams (Pidgey, Squirtle line, Venusaur, Umbreon ...), Gym Leaders 33 (14 Kanto + 19 Johto), Elite Four 8, Rocket bosses and executives
+  58 (Giovanni 8, Archie 7, Maxie 8, Petrel 6, Lawrence 6, Ariana 5, Cyrus 4, Charon 4, Archer 3, Proton 3, Marauder 3, 1 unnamed boss; 3 not placed),
+  Steven 8 and Cynthia 8 (plus 2 Champion records), Red 8 (a partner in multi battles, Viridian Forest to Victory Road; a separate Mt. Silver Red fight was not identified, U), Gold 11, Crystal 9, Green 8, Misty 10, Yellow 2, Eusine 1, Kimono Girls 3, Frontier-style heads 5.
+- **32 "wild" fights are stored as trainer records named after the Pokemon** (Ho-Oh, Lugia, Entei x2, Zapdos, Articuno, Mewtwo, Mew, Gyarados, Dragonite,
+  Rhydon, Tauros, Kangaskhan, Slugma, Beedrill, Squirtle, Weepinbell, Tangela ...). They are in the 1,023 and need the same treatment as the legend list.
+- Gym rules that fit only certain types or stats (guide, V): Falkner Flying only and at most 4 Pokemon, Jasmine three Pokemon with base Defense 130 or more,
+  Clair Dragon only, Bugsy "no type advantage", Whitney's Lopunny kid Normal types only, Chuck and Pryce double battles with a rule. Our mons must satisfy these
+  on the replaced slots: a type/stat check, not a species one.
+- Slot-swap effect (I, from DEX_REPLACEMENT): if every species number used in a team is a slot we fill, the teams change automatically. All 495 species are used,
+  so every slot that stays official in a main-story team must be re-pointed by hand. Teams only used after the final Hall of Fame can keep official species.
+- Trainer-class battle intros and music (section 11) are by class; Kimono Girls, Red and rival share them. VS portraits (asset 27185) are still not located.
+
+### 12.5 Story text that names a species (V, English banks counted with word-boundary regex; "Gloom" removed because it is also an English word)
+
+Counted on 802 a027 banks; 383 strings have no English yet (counts are a lower bound). 821 banks are classed in `play_order.json`.
+
+| Group (phase / category) | Banks | Strings | With a species name | Mentions | Different species |
+|---|---|---|---|---|---|
+| Kanto early (Pallet to Cerulean) | 43 | 3,878 | 612 | 791 | 147 |
+| Kanto mid (to Victory Road, Sevii excluded) | 115 | 6,441 | 1,162 | 1,451 | 232 |
+| Kanto league (Indigo, HQ final chapter) | 29 | 2,826 | 480 | 676 | 88 |
+| Johto (to the final Hall of Fame) | 187 | 11,289 | 2,537 | 3,414 | 316 |
+| **Main story total** | **374** | **24,434** | **4,791** | **6,332** | **429** |
+| Kanto side quests (Sevii, extras) | 19 | 1,997 | 519 | 725 | 107 |
+| Pokegear phone calls | 78 | 1,665 | 178 | 239 | 46 |
+| Pokegear radio/map, TV news | 15 + 11 | 332 + 358 | 13 + 15 | 23 + 28 | 11 + 10 |
+| Trainer battle text, Frontier trainer text | 1 + 2 | 1,717 + 1,866 | 39 + 4 | 45 + 4 | 30 + 3 |
+| Side minigames (Alph, Safari etc.) | 73 | 2,679 | 29 | 35 | 13 |
+| Walking-Pokemon reactions | 1 | 759 | 7 | 7 | 6 |
+| Common script text (starter-choice help, PC) | 12 | 940 | 12 | 12 | 9 |
+| Dex flavour (HG) | 1 | 1,441 | 197 | 209 | 172 |
+| Item / move / ability descriptions | 3 | 2,022 | 70 | 76 | ~45 |
+| Trainer names (the 32 "wild" records), place names (Diglett's Cave, Slowpoke Well, Rotom's Room) | 5 | 1,344 | 34 | 35 | |
+
+Of the 4,791 main-story strings: 1,188 name a legendary or mythical (Johto 804, league 210, Kanto 174), 625 name a starter or Eeveelution, 820 name one of the
+other plot Pokemon (Meowth, Slowpoke, Magikarp/Gyarados, Snorlax, Lapras, Unown, Marill, Miltank, Dragonite, Kabuto ...). The rest name ordinary NPC Pokemon.
+Most mentioned in the main story: Entei 248, Ho-Oh 217, Suicune 208, Meowth 110, Lugia 102, Mewtwo 101, Celebi 96, Gyarados 92, Raikou 92, Charmander 90, Venusaur 83,
+Arceus 83, Pikachu 78, Unown 75, Swablu 75, Slowpoke 74, Magikarp 71, Eevee 67, Mew 65. Only 3 species above 493 appear at all. Heaviest single banks:
+Mt. Silver (77 strings), Alto Mare/Route 42 side bank (73), the Indigo/League HQ bank (73), Ruins of Alph research center (70), Viridian Forest (68),
+Cherrygrove (67), Ecruteak (65). Map-script banks mix NPC dialogue, signposts and trainer lines; they cannot be split by type from the data (I). Dex flavour text is
+not story and can wait: only 197 of its 1,441 strings name a species.
+
+### 12.6 Systems and code tied to species
+
+| System | What ties it to species | Count / place | Replace? |
+|---|---|---|---|
+| **Wild tables** (V) | `a/0/3/7`, one table per map | 136 tables (Kanto 51, Mt. Silver and Cerulean Cave 14, Johto 65, Sevii/Safari/Alto 6), 4,087 rows, 523 species (343 of Gen 1-4); Unown tables 3, Slowpoke tables 9, Snorlax 1; legends are never wild | yes, all of it appears in the main story except Sinjoh, Sky Pillar and similar post-game maps |
+| **Bug-Catching Contest** (V) | 4 sets of 10 species with score tables (Caterpie/Weedle lines, Scyther, Pinsir, Wurmple, Kricketot ...) | 21 species in contest and headbutt tables | yes (data) |
+| **Safari Zone** (V + I) | area customiser; the "owner" tests need a Geodude then a Sandshrew (`ScrCmd_CheckSafariZoneChallengeCompleted` hard-codes both); vanilla default slots are Rattata/Magikarp lv 5 (`unk_02097268.c`) | 1 table + 48 gate battles | change the two test species if their slots become ours |
+| **Pokeathlon** (I) | per-species stat ratings `a/1/6/9` (554 x 20 bytes) | stats only up to species 553; no per-species art found | stats table entry per slot |
+| **Pokewalker** (U) | 27 courses (`pokewalker_courses.h`); per-species pictures up to 540 | species lists per course not found | leave |
+| **Radio** (I) | Pokemon Talk/Music/Poke Flute/Unown/Rocket/Mahogany signal; Unown station tied to Unown; Poke Flute wakes Snorlax; 13 radio and map strings name species (Slowpoke 5, Giratina 4, Gyarados 3, Unown 2 ...) | 12 stations | small text edit |
+| **Phone calls** (V) | 77 contact banks, 178 strings name a species (Clefairy 26, Farfetch'd 15, Unown 14, Pikachu 13, Magikarp 10 ...); `phone_scripts_generic.c` falls back to Rattata | | text edit |
+| **Day Care / eggs** (V code) | baby species come from the evolution table; `get_egg.c` special-cases Nidoran, Illumise/Volbeat, Manaphy, Ditto; 4 egg gifts (Treecko Cinnabar, Violet Mareep/Slugma/Wooper), Manaphy egg, Togepi egg in vanilla (`SetEggStats SPECIES_TOGEPI`) | | data |
+| **Move tutors** (V) | 89 tutor rows; 79 list species (5,209 entries), 6 check one species (Headbutt, Charge, Surf, Blast Burn, Frenzy Plant, Hydro Cannon), 2 event moves | | script lists by number; balance only |
+| **Ruins of Alph / Unown** (V) | 4 sliding puzzles (Kabuto, Omanyte, Aerodactyl, Ho-Oh panels), 28 Unown forms, `encounter_check.c` allows Unown by encounter generation, Unown tables | 28 form sprites | art, section 9 |
+| **Fossils** (V code) | `scrcmd_fossils.c`: Kabuto, Omanyte, Aerodactyl, Lileep, Anorith, Cranidos, Shieldon; Origin's Pewter errands name Anorith, Bastiodon, Relicanth | 7 | data |
+| **Trainer House** (V code, I in Origin) | `overlay_25.c` fixed party: Meganium, Typhlosion, Feraligatr (+ Sitrus Berry) | 3 | data |
+| **Catching tutorial / mail** (V code) | `battle_setup.c`: Marill lv 5 vs Rattata lv 2 with 20 Poke Balls; `overlay_36.c` Marill in the first PC mail | 2 | slot swap covers it; check Origin uses it (U) |
+| **Roamers** (V code) | `field_roamer.c`: Raikou/Entei (by starter) and Latias/Latios | 4 | Origin makes the beasts static (V, 12.2), so probably unused (I) |
+| **Magikarp record** (V) | Lake of Rage script `T29` uses `BufferRecordSize Magikarp` | 1 | slot swap |
+| **Species special cases in code** (V decomp) | Burmy, Shellos, Gastrodon, Wormadam, Pichu, Deoxys, Rotom, Giratina, Shaymin, Arceus, Unown (forms, dex, icons, mail); Chatot (recorded cry); Krabby/Kingler (Hall of Fame offset); Shedinja; Spinda; Hidden Power "no type" list (Magikarp, Ditto, Wobbuffet, Beldum, Caterpie ...); Light Ball / Thick Club / Stick / Soul Dew / Deep Sea items (battle code `overlay_12`: Pikachu, Cubone/Marowak, Farfetch'd, Latias/Latios, Clamperl, Ditto); Sinnoh rival starters (`sys_vars.c`: Turtwig/Chimchar/Piplup) | about 40 files | only matters if a story-relevant mon takes one of those slots; see section 8 |
+
+**Code tables keyed by species number:**
+
+1. **Legendary battle-intro table, Origin arm9 offset 0xF91CC (V, decoded here):** 11 entries of `species | (effect << 10)`: Raikou 243 (effect 22), Entei 244 (23),
+   Suicune 245 (24), Lugia 249 (26), Ho-Oh 250 (25), Groudon 383 / Kyogre 382 / Rayquaza 384 (27), Mewtwo 150 / Latios 381 / Latias 380 (28). Identical to
+   pret's `_020FC3B4`. The 22 bytes are followed at 0xF91E2 by the trainer-class intro table (32 entries `class | (id << 10)`: all 16 gym leaders, the Elite Four,
+   Champion, rival, Rocket executives and boss) and a second 32-entry table at 0xF9222 (V, read; meaning of the second one: I, music/effect pairs).
+2. **Title screen cry and model:** `TITLE_SCREEN_SPECIES` (Ho-Oh) in the `intro_title` overlay; the model members are in `a/0/4/6` (section 9). Candidate
+   instruction sites in Origin by immediate scan (I): overlay 41 offsets 0x536C/0x5370 (249 and 250 close together). Not confirmed.
+3. **Ho-Oh/Lugia final approach:** `legend_cutscene_camera.c` in overlay 2; Origin overlay 2 offsets 0xD992 and 0xD9A0 hold the 249 and 250 immediates close together (I).
+4. **Starters:** `choose_starter.c`/`choose_starter_app.c` (overlay 61) hold Chikorita, Cyndaquil, Totodile, but Origin's Oak script uses `SetVar` species numbers
+   in `a/0/1/2` (section 5 and STORY_ROLES). `GiveMon VAR_SPECIAL_x8004` in `T01R0301` takes the choice from the same variable.
+5. **Oak's Marill:** `oaks_speech.c` (overlay 53) `PlayCry(SPECIES_MARILL)`; an immediate scan of Origin's overlay 53 found no 183, so Origin may load it
+   from a table or a rebuilt intro (U). The 2D sprite (members 59-66 of `a/1/2/0`) is untouched.
+6. **Overlay 14 (battle) immediates:** species compares for 249/250 at 0x354C6/0x354CA (I: probably Lugia/Ho-Oh battle messages or abilities; not read).
+7. **Event scripts** (`a/0/1/2` in Origin, `scr_seq_*` in pret): `SetVar`, `Compare`, `WildBattle`, `GiveMon`, `PlayCry`, `LoadNPCTrade`; replaced by the slot swap.
+8. **NARC tables with one record per species:** `a/0/0/2` base stats, `a/0/3/3` learnsets, `a/0/3/4` evolutions, `a/0/7/4` dex data, `a/1/6/9` Pokeathlon stats,
+   `a/2/4/7-9` Pokewalker, follower table, footprints; covered by sections 5 and 8.
+9. **Trainer-class tables (not species):** battle intro/music by class, trainer pictures (section 7); needed for new boss characters only.
+
+### 12.7 What we must do, by group (counts)
+
+1. **Legend roles (about 34 species with events, 11 with battle intros):** one of our mons per role, plus the intro table patch (11 entries), cutscene sprite
+   (Ho-Oh, Lugia), title model, 13 follower sprites for the beasts/legends in about 25 map files. Post-game ones may keep official species.
+2. **Plot Pokemon (about 15):** Meowth/Persian, Slugma, Salamence, Sudowoodo, Miltank, Gyarados, Chatot, Teddiursa, Swinub, Snorlax, Lapras, Eevee line, Pikachu, Marill, Dragonair/Dratini.
+3. **Trainer teams:** all 1,023 team records, 3,891 slots, 495 species; plus the 32 pseudo-trainers.
+4. **Text:** 4,791 strings in 374 banks (main story), plus about 250 in phone/radio/TV/minigame banks; do it per species name with a script and a hand
+   check of the 1,188 legend strings and the 820 plot strings.
+5. **Wild tables:** 136 tables; decide first which official species stay as "guests" in the main story (none, by section 11).
+6. **Map objects:** 1,619 Pokemon objects; the 1,537 follower ones follow the sprite id, so they need no art beyond the follower pipeline; the 34 special objects need pictures.
+7. **Gifts, trades, tutors:** 159 + 13 + 89 rows; the tutor lists can stay by number.
+
+**Still unknown (U):** which of the 1,537 follower objects are only reachable after the final Hall of Fame (map names are inferred); whether the Trainer House and the
+Marill/Rattata catching tutorial are reachable in Origin; the Pokewalker course lists; the Pokeathlon art; sprite id 1565 in Cerulean City; where the VS portraits
+are stored; exact overlay sites of the title cry and the Marill cry; what the other 31 `FOLLOWER_MON_STATIC` kinds (vanilla only) were replaced by.
