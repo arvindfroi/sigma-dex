@@ -4730,5 +4730,89 @@
     "file": "assets/concept-art/fleuroom/1520.png",
     "caption": "[ds-front] sprite #253",
     "editor": null
+  },
+  {
+    "id": 1524,
+    "species": "chuchar",
+    "file": "assets/concept-art/chuchar/1524.png",
+    "caption": "[ds-front] sprite #254",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1525,
+    "species": "chuchar",
+    "file": "assets/concept-art/chuchar/1525.png",
+    "caption": "[ds-back] sprite #254",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1526,
+    "species": "chuchar",
+    "file": "assets/concept-art/chuchar/1526.png",
+    "caption": "[ds-icon] sprite #254",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1527,
+    "species": "chuchar",
+    "file": "assets/concept-art/chuchar/1527.png",
+    "caption": "[ds-follower] sprite #254",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1528,
+    "species": "harpie",
+    "file": "assets/concept-art/harpie/1528.png",
+    "caption": "[ds-front] sprite #255",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1529,
+    "species": "harpie",
+    "file": "assets/concept-art/harpie/1529.png",
+    "caption": "[ds-back] sprite #255",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1530,
+    "species": "harpie",
+    "file": "assets/concept-art/harpie/1530.png",
+    "caption": "[ds-icon] sprite #255",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1531,
+    "species": "harpie",
+    "file": "assets/concept-art/harpie/1531.png",
+    "caption": "[ds-follower] sprite #255",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1532,
+    "species": "shadrove",
+    "file": "assets/concept-art/shadrove/1532.png",
+    "caption": "[ds-front] sprite #256",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1533,
+    "species": "shadrove",
+    "file": "assets/concept-art/shadrove/1533.png",
+    "caption": "[ds-back] sprite #256",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1534,
+    "species": "shadrove",
+    "file": "assets/concept-art/shadrove/1534.png",
+    "caption": "[ds-icon] sprite #256",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1535,
+    "species": "shadrove",
+    "file": "assets/concept-art/shadrove/1535.png",
+    "caption": "[ds-follower] sprite #256",
+    "editor": "Arvind"
   }
 ]
