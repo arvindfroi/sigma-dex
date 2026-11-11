@@ -297,6 +297,24 @@ CUSTOM_HEADERS = {
 }
 
 
+
+# Pokemon removed on the website: species id -> name. The Google Sheet and the Google Doc still list them
+# until someone deletes the row or line, and without this list their imports would create them again.
+REMOVED = Path(__file__).resolve().parent.parent / "data" / "removed_species.json"
+
+
+def load_removed():
+    return json.loads(REMOVED.read_text(encoding="utf-8")) if REMOVED.exists() else {}
+
+
+def write_removed(removed):
+    REMOVED.write_text(json.dumps(removed, indent=1, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def removed_name(name, removed):
+    """The name of a removed Pokemon that `name` matches, or None."""
+    return next((old for old in removed.values() if norm(old) == norm(name)), None)
+
 def load_custom(kind):
     """The project's own moves or abilities (kind is 'moves' or 'abilities')."""
     with open(ROOT / "data" / ("custom_%s.yaml" % kind), encoding="utf-8") as handle:

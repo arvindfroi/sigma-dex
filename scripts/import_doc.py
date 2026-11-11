@@ -163,6 +163,10 @@ def main():
             report.append({"row": label, "problem": "another line of the doc is already about %s" % files[sid][2].get("name")})
             continue
         created = sid is None
+        if created and dexlib.removed_name(name, dexlib.load_removed()):
+            report.append({"row": label, "problem": "%s was removed on the website, so this line is not added again - "
+                           "delete the line in the doc (or add the Pokemon again on the website)" % name})
+            continue
         if created:
             sid = dexlib.slugify(name)
             if not sid or sid in ids:

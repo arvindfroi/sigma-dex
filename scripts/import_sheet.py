@@ -309,6 +309,10 @@ def main():
             if sid:
                 path, before = files[sid]
             else:
+                gone = dexlib.removed_name(row["name"], dexlib.load_removed())
+                if gone:
+                    raise CellError("%s was removed on the website, so this row is not added again - delete the row "
+                                    "in the sheet (or add the Pokemon again on the website)" % gone)
                 sid = dexlib.slugify(row["name"])
                 if not sid or sid in ids:
                     raise CellError("cannot create '%s': the name is empty or already used" % row["name"])

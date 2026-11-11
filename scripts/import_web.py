@@ -94,8 +94,11 @@ def delete_species(sid, files, config):
         return 0                                         # already gone (or never imported)
     if sid in (config.get("starters") or []):
         raise ValueError("it is one of the starters (data/config.yaml) - choose another starter first")
-    path, _ = files.pop(sid)
+    path, data = files.pop(sid)
     path.unlink()
+    removed = dexlib.load_removed()
+    removed[sid] = data.get("name") or sid
+    dexlib.write_removed(removed)
     changed = 1
     for folder in (ROOT / "assets" / "sprites" / sid, ROOT / "assets" / "sprites-ds" / sid, ROOT / "assets" / "concept-art" / sid):
         if folder.is_dir():
@@ -239,6 +242,11 @@ def main():
             if current is None or dexlib.prune(updated) != dexlib.prune(current):
                 dexlib.write_species(path, updated)
                 changed += 1
+            if current is None:                      # added again on the website: the sheet and doc may use it again
+                removed = dexlib.load_removed()
+                if sid in removed or dexlib.removed_name(updated.get("name"), removed):
+                    removed = {k: v for k, v in removed.items() if k != sid and norm(v) != norm(updated.get("name"))}
+                    dexlib.write_removed(removed)
             files[sid] = (path, updated)
             report = [entry for entry in report if entry.get("species") != sid]
         except Exception as error:  # one bad save must never stop the others
