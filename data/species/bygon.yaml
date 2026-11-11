@@ -1,12 +1,12 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
 dex: 72
-name: Bygon
+name: Cloudjester
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Michael      # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: [Ghost, Rock]     # 1 or 2 types, e.g. [Grass, Steel]
+types: [Flying, Fairy]   # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -86,7 +86,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/bygon.png
+  concept_art:           # e.g. assets/concept-art/cloudjester.png
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

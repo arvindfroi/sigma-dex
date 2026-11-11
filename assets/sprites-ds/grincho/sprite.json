@@ -1,0 +1,8 @@
+{
+  "sources": {
+    "front.png": "[ds-front] sprite #208",
+    "back.png": "[ds-back] sprite #208",
+    "icon.png": "[ds-icon] sprite #208",
+    "follower.png": "[ds-follower] sprite #208"
+  }
+}

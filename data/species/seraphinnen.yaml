@@ -3,7 +3,7 @@ dex: 134
 name: Seraphinnen
 
 credits:
-  designer: BUST         # who came up with it (Discord name)
+  designer: Magnus       # who came up with it (Discord name)
   artist: BUST           # who drew the concept art
 
 types: [Flying]          # 1 or 2 types, e.g. [Grass, Steel]
@@ -80,8 +80,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "a body with two or more pairs of wings"
-  movement: "It floats in the air."
+  body_shape: a body with two or more pairs of wings
+  movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a floating golden ring with a row of small open eyes set around its rim, and a cream dove-shaped mark in the middle of the ring. Two pairs of white feathered wings, four in all, spread out from its sides, with a soft golden glow around it."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
