@@ -41,6 +41,11 @@ jobs:
         run: python scripts/validate.py
       - name: Rebuild DEX.md, TODO.md, export/ and the website
         run: python scripts/build.py
+      - name: Tell Discord about Pokemon that reached 100 %
+        if: github.event_name != 'pull_request'
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python scripts/notify_discord.py
       - name: Save the changes
         if: github.event_name != 'pull_request'
         run: |

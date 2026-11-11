@@ -710,6 +710,28 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .donebar { position: relative; display: inline-block; width: 64px; height: 14px; background: var(--line); vertical-align: middle; }
 .donebar i { position: absolute; inset: 0 auto 0 0; background: var(--good); opacity: .55; }
 .donebar b { position: relative; font-size: 11px; font-weight: 400; padding-left: 3px; }
+.evopage { display: grid; gap: 10px; }
+.evoline { background: var(--panel); border: 2px solid var(--line); padding: 10px; overflow-x: auto; }
+.evosingles { display: flex; flex-wrap: wrap; gap: 8px; }
+.evonode { display: flex; align-items: center; gap: 0; }
+.evokids { display: flex; flex-direction: column; gap: 8px; }
+.evobranch { display: flex; align-items: center; flex-wrap: wrap; }
+.evobox { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.evomon { display: flex; flex-direction: column; align-items: center; gap: 2px; width: 104px; padding: 6px 4px; background: var(--soft); border: 2px solid var(--line); color: inherit; }
+.evomon img, .evomon .letter { width: 64px; height: 64px; object-fit: contain; }
+.evomon .letter { display: grid; place-items: center; font-family: var(--display); font-size: 24px; color: var(--muted); }
+.evomon .nm { font-family: var(--display); font-size: 12px; text-align: center; overflow-wrap: anywhere; }
+.evoadd { font-size: 11px; padding: 2px 6px; min-height: 0; }
+.evoarrow { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 0 8px; padding: 4px 6px; min-height: 0; max-width: 130px; background: none; border: 2px dashed transparent; color: var(--fg, inherit); font-size: 12px; }
+.evoarrow:hover { border-color: var(--line); }
+.evoarrow b { font-size: 22px; line-height: 1; color: var(--pri); }
+.evoarrow.undecided { color: var(--bad); } .evoarrow.undecided b { color: var(--bad); }
+.evoform { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 6px 10px; align-items: end; padding: 10px; margin: 0 0 10px; background: var(--panel); border: 2px solid var(--pink); }
+.evoform > b, .evoform > .row { grid-column: 1 / -1; }
+.evoform label[hidden] { display: none; }
+.balance-page { display: grid; gap: 12px; }
+.balbox { background: var(--panel); border: 2px solid var(--line); padding: 10px 12px; }
+.balbox h2 { margin: 0 0 6px; }
 .traynote { color: var(--muted); font-size: 12px; padding: 6px 2px 0; border-top: 2px dashed var(--line); }
 @media (max-width: 760px) { .tray { right: 8px; bottom: 8px; } }
 .skipcut { display: flex; gap: 8px; align-items: flex-start; margin-top: 10px; font-size: 14px; }
@@ -2805,29 +2827,73 @@ function renderLost() {
 }
 
 // How our type spread compares with the official games.
+// The balance page (11 Nov 2026): our dex next to the official games - evolution lines, single types, base stat
+// totals per stage, strong Pokemon and types. Official numbers: data/engine/official_balance.json and type_shares.yaml.
+let balanceGen = remember.get("balance-gen") || "all", balanceGoal = remember.get("balance-goal") || "ours";
+function ourLines() {
+  const hasPrevo = id => DEX.species.some(o => (o.data.evolutions || []).some(e => e && e.into === id));
+  const kids = s => (s.data.evolutions || []).filter(e => e && byId.has(e.into)).map(e => byId.get(e.into));
+  const depth = (s, seen = new Set()) => { if (seen.has(s.id)) return 0; seen.add(s.id); return 1 + Math.max(0, ...kids(s).map(k => depth(k, seen))); };
+  const members = (r, out = []) => { if (out.includes(r)) return out; out.push(r); kids(r).forEach(k => members(k, out)); return out; };
+  const legendary = s => (Number.isInteger(s.data.catch_rate) && s.data.catch_rate <= 5) || (s.bst !== null && s.bst >= 580);
+  const lines = {1: 0, 2: 0, 3: 0, legendary: 0}, bst = {first: [], middle: [], final: [], single: [], legendary: []};
+  let strong = 0, normal = 0;
+  for (const r of DEX.species.filter(s => !hasPrevo(s.id))) {
+    const all = members(r), stages = depth(r), legend = stages === 1 && legendary(r);
+    lines[legend ? "legendary" : Math.min(stages, 3)]++;
+    for (const s of all) {
+      if (s.bst === null) continue;
+      if (legend) { bst.legendary.push(s.bst); continue; }
+      normal++; strong += s.bst >= 540;
+      bst[stages === 1 ? "single" : s === r ? "first" : kids(s).length ? "middle" : "final"].push(s.bst);
+    }
+  }
+  const typed = DEX.species.filter(s => (s.data.types || []).length);
+  return {lines, bst, strong, normal, mono: typed.filter(s => new Set(s.data.types).size === 1).length, typed: typed.length};
+}
 function renderBalance() {
-  // Measured against a full dex: how many of each type a dex of dex_size Pokemon would have if it followed
-  // the official games' spread (a Pokemon with two types counts for both), and how many we have now.
-  const grid = document.getElementById("grid"), shares = DEX.type_shares.shares, size = DEX.dex_size;
+  const grid = document.getElementById("grid"), off = (DEX.official_balance || {gens: {}}).gens, o = off[balanceGen] || off.all;
+  const ours = ourLines(), pct = (a, b) => b ? Math.round(100 * a / b) : 0;
+  const genSel = h("select", {"aria-label": "Compare with", onchange: ev => { balanceGen = ev.target.value; remember.set("balance-gen", balanceGen); render(); }},
+    [["all", "all official games"], ...Array.from({length: 9}, (_, i) => [String(i + 1), "Generation " + (i + 1)])].map(([v, t]) => h("option", {value: v, selected: v === balanceGen ? "" : null}, t)));
+  const bar = (a, b, color) => h("div", {class: "track"}, h("i", {style: "width:" + Math.min(100, a) + "%;background:" + (color || "var(--pri)")}), b !== null ? h("b", {style: "left:" + Math.min(100, b) + "%"}) : null);
+  const totalLines = ["1", "2", "3", "legendary"].reduce((a, k) => a + ours.lines[k], 0), offLines = o ? ["1", "2", "3", "legendary"].reduce((a, k) => a + o.lines[k], 0) : 0;
+  const lineRows = [["1", "Does not evolve"], ["2", "Two stages"], ["3", "Three stages"], ["legendary", "Legendary or mythical"]].map(([k, label]) => {
+    const a = pct(ours.lines[k], totalLines), b = o ? pct(o.lines[k], offLines) : null, same = b === null ? 0 : Math.round(b * totalLines / 100) - ours.lines[k];
+    return h("tr", {}, h("td", {}, label), h("td", {class: "num"}, h("b", {}, String(ours.lines[k])), " (" + a + "%)"), h("td", {class: "num"}, b === null ? "—" : b + "%"),
+      h("td", {style: "width:35%"}, bar(a, b)), h("td", {class: "sub"}, same > 0 ? same + " fewer than the official share" : same < 0 ? -same + " more than the official share" : "same as official"));
+  });
+  const avg = v => v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : null;
+  const bstRows = [["first", "First stage"], ["middle", "Middle stage"], ["final", "Fully evolved"], ["single", "Does not evolve"], ["legendary", "Legendary"]].map(([k, label]) => {
+    const a = avg(ours.bst[k]), b = o && o.avg_bst[k];
+    return h("tr", {}, h("td", {}, label), h("td", {class: "num"}, a === null ? "—" : h("b", {}, String(a))), h("td", {class: "num"}, b ? String(b) : "—"),
+      h("td", {class: "sub"}, a === null || !b ? "" : Math.abs(a - b) < 15 ? "about the same" : (a > b ? (a - b) + " higher" : (b - a) + " lower")), h("td", {class: "sub"}, ours.bst[k].length + " with stats"));
+  });
+  // types: how many of each a dex like ours would have if it followed the official spread
+  const shares = DEX.type_shares.shares, base = balanceGoal === "full" ? DEX.dex_size : DEX.species.length;
   const rows = DEX.types.map(type => {
-    const ours = DEX.species.filter(s => (s.data.types || []).includes(type)).length, goal = Math.round((shares[type] || 0) * size);
-    return {type, ours, goal, left: goal - ours};
+    const n = DEX.species.filter(s => (s.data.types || []).includes(type)).length, goal = Math.round((shares[type] || 0) * base);
+    return {type, n, goal, left: goal - n};
   }).sort((a, b) => b.left - a.left || a.type.localeCompare(b.type));
-  const top = Math.max(...rows.map(r => Math.max(r.ours, r.goal)), 1);
-  const verdict = r => r.left > 0 ? [h("b", {style: "color:var(--warn)"}, r.left + " more"), " to go"]
-    : r.left < 0 ? [h("b", {}, -r.left + " over"), " the goal"] : [h("b", {style: "color:var(--good)"}, "goal reached")];
-  const typed = DEX.species.filter(s => (s.data.types || []).length).length;
-  const open = size - DEX.species.length, dual = DEX.species.filter(s => new Set(s.data.types || []).size === 2).length;
-  grid.replaceChildren(h("div", {style: "grid-column:1/-1"},
-    h("p", {class: "sub", style: "margin-top:0"}, "How many Pokemon of each type a full dex of " + size + " would have if it followed the official games, and how many we have. " +
-      "The line on each bar is the goal. Types at the top need new Pokemon the most."),
-    h("div", {class: "scroll"}, h("table", {class: "balance"}, h("tr", {}, h("th", {}, "Type"), h("th", {}, "Ours"), h("th", {}, "Goal of " + size), h("th", {}, ""), h("th", {}, "")),
-      rows.map(r => h("tr", {}, h("td", {}, typeChip(r.type)), h("td", {}, h("b", {}, String(r.ours))), h("td", {}, String(r.goal)),
-        h("td", {style: "width:40%"}, h("div", {class: "track"}, h("i", {style: "width:" + (100 * r.ours / top) + "%;background:" + TYPE_COLORS[r.type]}), h("b", {style: "left:" + (100 * r.goal / top) + "%"}))),
-        h("td", {}, verdict(r)))))),
-    h("p", {class: "sub"}, DEX.species.length + " of " + size + " slots are filled (" + open + " open)" + (typed < DEX.species.length ? ", " + (DEX.species.length - typed) + " Pokemon have no type yet" : "") + ". " +
-      "A Pokemon with two types counts for both, so the goals add up to more than " + size + ": officially " + Math.round(100 * DEX.type_shares.dual_type_share) + "% have two types, " +
-      "ours " + Math.round(100 * dual / Math.max(typed, 1)) + "%. Based on all " + DEX.type_shares.species_counted + " official Pokemon.")));
+  const top = Math.max(...rows.map(r => Math.max(r.n, r.goal)), 1);
+  const verdict = r => r.left > 0 ? [h("b", {style: "color:var(--warn)"}, r.left + " more"), " to go"] : r.left < 0 ? [h("b", {}, -r.left + " over"), " the goal"] : [h("b", {style: "color:var(--good)"}, "goal reached")];
+  const goalSel = h("select", {"aria-label": "Goal", onchange: ev => { balanceGoal = ev.target.value; remember.set("balance-goal", balanceGoal); render(); }},
+    [["ours", "the " + DEX.species.length + " we have"], ["full", "a full dex of " + DEX.dex_size]].map(([v, t]) => h("option", {value: v, selected: v === balanceGoal ? "" : null}, t)));
+  const box = (title, ...kids) => h("section", {class: "balbox"}, h("h2", {}, title), ...kids);
+  grid.replaceChildren(h("div", {class: "balance-page", style: "grid-column:1/-1"},
+    h("p", {class: "sub", style: "margin-top:0"}, "Our dex next to ", genSel, ". A line counts for the generation of its first Pokemon. Ours counts only the evolutions that are entered; a Pokemon that does not evolve, with catch rate 5 or less or a BST of 580 or more, counts as legendary."),
+    box("Evolution lines", h("div", {class: "scroll"}, h("table", {class: "balance"}, h("tr", {}, h("th", {}, ""), h("th", {}, "Ours"), h("th", {}, "Official"), h("th", {}, ""), h("th", {}, "")), lineRows)),
+      h("p", {class: "sub"}, "The line on each bar is the official share.")),
+    box("Single type", h("p", {}, h("b", {}, pct(ours.mono, ours.typed) + "%"), " of ours have one type (" + ours.mono + " of " + ours.typed + "); officially " + (o ? Math.round(100 * o.mono_share) : "?") + "%.",
+      o && pct(ours.mono, ours.typed) < 100 * o.mono_share - 5 ? " To match it, about " + Math.max(0, Math.round(o.mono_share * ours.typed) - ours.mono) + " more single-type Pokemon (new ones, or ones that drop their second type)." : "")),
+    box("Base stat totals", h("div", {class: "scroll"}, h("table", {class: "balance"}, h("tr", {}, h("th", {}, "Average BST"), h("th", {}, "Ours"), h("th", {}, "Official"), h("th", {}, ""), h("th", {}, "")), bstRows)),
+      h("p", {class: "sub"}, "Strong Pokemon (BST 540 or more, not legendary): ours " + pct(ours.strong, ours.normal) + "% (" + ours.strong + "), officially " + (o ? Math.round(100 * o.strong_share) : "?") + "%.")),
+    box("Types", h("p", {class: "sub", style: "margin-top:0"}, "How many of each type ", goalSel, " would have if it followed the official games. The line on each bar is the goal; types at the top need new Pokemon the most."),
+      h("div", {class: "scroll"}, h("table", {class: "balance"}, h("tr", {}, h("th", {}, "Type"), h("th", {}, "Ours"), h("th", {}, "Goal"), h("th", {}, ""), h("th", {}, "")),
+        rows.map(r => h("tr", {}, h("td", {}, typeChip(r.type)), h("td", {}, h("b", {}, String(r.n))), h("td", {}, String(r.goal)),
+          h("td", {style: "width:40%"}, h("div", {class: "track"}, h("i", {style: "width:" + (100 * r.n / top) + "%;background:" + TYPE_COLORS[r.type]}), h("b", {style: "left:" + (100 * r.goal / top) + "%"}))),
+          h("td", {}, verdict(r)))))),
+      h("p", {class: "sub"}, "A Pokemon with two types counts for both. Based on all " + DEX.type_shares.species_counted + " official Pokemon."))));
 }
 
 // ---------- changing dex numbers ----------
@@ -3275,6 +3341,94 @@ function teamReport(team) {
       : h("p", {class: "sub"}, "Give the team attacking moves to see what they hit hard."));
 }
 
+// ---------- evolution lines (11 Nov 2026) ----------
+// Every line as a tree. Tap an arrow to say how it evolves (or remove the link); "+ Evolves into" links a Pokemon
+// that does not evolve yet. A change is saved on the earlier Pokemon, like in its edit form ("What THIS Pokemon turns into").
+let evoFilter = remember.get("evo-filter") || "all", evoEdit = null;   // evoEdit: {from, into} of the arrow being changed, or {from, add: true}
+const evoUndecided = e => !e.method || e.method === "other";
+async function saveEvolutions(s, evolutions, status) {
+  const data = clean(Object.assign(JSON.parse(JSON.stringify(s.data)), {evolutions}));
+  status.textContent = "Saving...";
+  await saveEdit("species", s.id, Object.assign({}, data, {_base: s.data}));
+  s.data = data; s.pending = {editor: me()};
+  DEX.species.forEach(derive); index();
+  evoEdit = null; render();
+}
+function evoForm(s, e) {
+  const L = DEX.lists, isNew = !e;
+  e = e || {method: "level"};
+  const free = DEX.species.filter(o => o.id !== s.id && !DEX.species.some(p => (p.data.evolutions || []).some(x => x && x.into === o.id)))
+    .sort((a, b) => a.data.dex - b.data.dex);
+  const into = isNew ? selectInput("", free.map(o => [o.id, "#" + pad(o.data.dex) + " " + o.data.name]), "evolves into...") : null;
+  const method = selectInput(e.method || "other", L.evolution_methods.map(m => [m, METHOD_LABELS[m] || m]));
+  const level = numberInput(e.level, 1, 100, 1, {placeholder: "level", style: "width:80px"});
+  const item = textInput(e.item, {placeholder: "item, e.g. Moon Stone"});
+  const note = textInput(e.note, {placeholder: "note (optional)"});
+  const status = h("span", {class: "sub", role: "status"});
+  const show = () => { level.closest("label").hidden = !LEVEL_METHODS.includes(method.value); item.closest("label").hidden = !ITEM_METHODS.includes(method.value); };
+  method.addEventListener("input", show);
+  const save = h("button", {type: "button", class: "primary small", onclick: async () => {
+    const target = isNew ? into.value : e.into;
+    if (!target) { status.textContent = "Choose what it evolves into."; return; }
+    const evo = {into: target, method: method.value};
+    if (LEVEL_METHODS.includes(method.value)) { if (!level.value) { status.textContent = "Type the level."; return; } evo.level = Number(level.value); }
+    if (ITEM_METHODS.includes(method.value)) { if (!item.value.trim()) { status.textContent = "Type the item."; return; } evo.item = item.value.trim(); }
+    if (note.value.trim()) evo.note = note.value.trim();
+    const list = (s.data.evolutions || []).filter(x => x && typeof x === "object");
+    const next = isNew ? list.concat(evo) : list.map(x => x.into === e.into ? evo : x);
+    save.disabled = true;
+    try { await saveEvolutions(s, next, status); } catch (err) { status.textContent = err.message; save.disabled = false; }
+  }}, "SAVE");
+  const remove = isNew ? null : h("button", {type: "button", class: "small"}, "Remove this link");
+  if (remove) remove.addEventListener("click", () => sure(remove, "Really remove?", async () => {
+    try { await saveEvolutions(s, (s.data.evolutions || []).filter(x => x && x.into !== e.into), status); } catch (err) { status.textContent = err.message; }
+  }));
+  const box = h("div", {class: "evoform"}, h("b", {}, isNew ? s.data.name + " evolves into" : s.data.name + " → " + nameOf(e.into)),
+    into ? field("Into", into) : null, field("How", method), field("Level", level), field("Item", item), field("Note", note),
+    h("div", {class: "row"}, save, h("button", {type: "button", class: "small", onclick: () => { evoEdit = null; render(); }}, "CANCEL"), remove, status));
+  setTimeout(show);
+  return box;
+}
+function evoNode(s, seen) {
+  seen.add(s.id);
+  const ds = DEX.ds_sprites[s.id], pic = ds && ds.front ? {src: ds.front, pixel: true} : portrait(s);
+  const kids = (s.data.evolutions || []).filter(e => e && byId.has(e.into) && !seen.has(e.into));
+  const card = h("div", {class: "evobox"},
+    h("button", {type: "button", class: "evomon", onclick: () => openDetail(s)},
+      pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: "", loading: "lazy"}) : h("span", {class: "letter"}, (s.data.name || "?")[0]),
+      h("span", {class: "nm"}, s.data.name), h("span", {class: "sub"}, "#" + pad(s.data.dex))),
+    DEX.web.url ? h("button", {type: "button", class: "small evoadd", onclick: () => { evoEdit = {from: s.id, add: true}; render(); }}, "+ Evolves into") : null,
+    null);
+  return h("div", {class: "evonode"}, card, kids.length ? h("div", {class: "evokids"}, kids.map(e => {
+    return h("div", {class: "evobranch"},
+      h("button", {type: "button", class: "evoarrow" + (evoUndecided(e) ? " undecided" : ""), title: DEX.web.url ? "Change how it evolves" : null,
+        onclick: () => { if (DEX.web.url) { evoEdit = {from: s.id, into: e.into}; render(); } }},
+        h("span", {}, evoUndecided(e) ? "not decided" : evolutionText(e)), h("b", {}, "→")),
+      evoNode(byId.get(e.into), seen));
+  })) : null);
+}
+function renderEvolutions() {
+  const grid = document.getElementById("grid");
+  const hasPrevo = id => DEX.species.some(o => (o.data.evolutions || []).some(e => e && e.into === id));
+  const roots = DEX.species.filter(s => !hasPrevo(s.id) && (s.data.evolutions || []).some(e => e && byId.has(e.into))).sort((a, b) => a.data.dex - b.data.dex);
+  const lineOf = r => { const ids = [], walk = s => { if (ids.includes(s.id)) return; ids.push(s.id); for (const e of s.data.evolutions || []) if (e && byId.has(e.into)) walk(byId.get(e.into)); }; walk(r); return ids; };
+  const undecided = r => lineOf(r).some(id => (byId.get(id).data.evolutions || []).some(e => e && byId.has(e.into) && evoUndecided(e)));
+  const singles = DEX.species.filter(s => !hasPrevo(s.id) && !(s.data.evolutions || []).some(e => e && byId.has(e.into))).sort((a, b) => a.data.dex - b.data.dex);
+  const shown = evoFilter === "undecided" ? roots.filter(undecided) : evoFilter === "singles" ? [] : roots;
+  // the open form sits above the line it changes, so the tree keeps its shape
+  const formFor = ids => {
+    if (!evoEdit || !ids.includes(evoEdit.from)) return null;
+    const s = byId.get(evoEdit.from), e = evoEdit.add ? null : (s.data.evolutions || []).find(x => x && x.into === evoEdit.into);
+    return evoEdit.add || e ? evoForm(s, e) : null;
+  };
+  const btn = (id, label) => h("button", {type: "button", class: "small", "aria-pressed": String(evoFilter === id), onclick: () => { evoFilter = id; remember.set("evo-filter", id); render(); }}, label);
+  grid.replaceChildren(h("div", {class: "evopage", style: "grid-column:1/-1"},
+    h("div", {class: "qhead"}, btn("all", "All lines (" + roots.length + ")"), btn("undecided", "How it evolves not decided (" + roots.filter(undecided).length + ")"), btn("singles", "Does not evolve (" + singles.length + ")")),
+    h("p", {class: "sub"}, "Tap an arrow to say how it evolves. A red arrow is a link where that is not decided yet. \"+ Evolves into\" links a Pokemon that has no earlier stage. Saved changes are applied within about 15 minutes."),
+    evoFilter === "singles" ? [formFor(singles.map(s => s.id)), h("div", {class: "evosingles"}, singles.map(s => evoNode(s, new Set())))]
+      : shown.length ? shown.map(r => h("div", {class: "evoline"}, formFor(lineOf(r)), evoNode(r, new Set()))) : h("div", {class: "empty"}, "Nothing here.")));
+}
+
 // ---------- the front page ----------
 // Showdown's teambuilder list: one row per Pokemon, every column sortable.
 let layout = remember.get("layout") || "list";
@@ -3319,7 +3473,7 @@ function renderList(list) {
 // ---------- the page around it: menu tabs, the top screen, day and night ----------
 let view = "species";
 const MAIN_TABS = [["species", "POKEDEX", "purple"], ["teams", "TEAMS", "pink"], ["board", "REQUESTS", "pink"], ["sprites", "SPRITES", "blue"], ["progress", "PROGRESS", "sky"]];
-const MORE = [["lost", "Lost and found"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Type balance"], ["reorder", "Change dex numbers"]];
+const MORE = [["lost", "Lost and found"], ["evo", "Evolution lines"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Balance"], ["reorder", "Change dex numbers"]];
 const WIDE_VIEWS = ["board", "progress", "teams"];
 // What the top screen's dialog box says on each page.
 const PAGE_HELP = {
@@ -3327,14 +3481,15 @@ const PAGE_HELP = {
   board: "REQUESTS\nWhat the game still needs, and what people wish for. Add your own idea, or move a card along when work starts or is done.",
   sprites: "SPRITES\nSprites are drawn on each Pokemon's page, under SPRITES. Here you see what is being drawn, what waits for someone to approve it, and what is done.",
   progress: "PROGRESS\nHow far the dex has come. Every badge is a goal for the whole group.",
+  evo: "EVOLUTION LINES\nEvery evolution line as a tree. Tap an arrow to say how it evolves; red arrows are not decided yet.",
   teams: "TEAMS\nBuild teams of six from our Pokemon, the way Showdown does it. Teams are kept in this browser; Share link sends one to a friend.",
   lost: "LOST AND FOUND\nPictures from the Discord that nobody has linked to a Pokemon yet. Recognise one? Press This is... and choose the Pokemon.",
   move: "NEW MOVES\nMoves our Pokemon use that are not in the game yet. Describe what they do, so they can be programmed.",
   ability: "NEW ABILITIES\nAbilities our Pokemon use that are not in the game yet. Describe what they do, so they can be programmed.",
-  balance: "TYPE BALANCE\nHow many Pokemon of each type a full dex would have, and how many we have. The types at the top need new Pokemon the most.",
+  balance: "BALANCE\nOur dex next to the official games: evolution lines, single types, base stat totals and types.",
   reorder: "DEX NUMBERS\nMove Pokemon to other numbers or make room between two. Nothing changes until you press Save.",
 };
-const VIEW_COLOUR = {teams: "pink", species: "purple", board: "pink", sprites: "blue", progress: "sky", lost: "sky", move: "blue", ability: "pink", balance: "sky", reorder: "purple"};
+const VIEW_COLOUR = {evo: "blue", teams: "pink", species: "purple", board: "pink", sprites: "blue", progress: "sky", lost: "sky", move: "blue", ability: "pink", balance: "sky", reorder: "purple"};
 
 function counts() {
   const playable = DEX.species.filter(s => !s.gameNeeds.length).length;
@@ -3412,6 +3567,7 @@ function render() {
   if (view === "reorder" && plan) return renderReorder();
   if (view === "balance") return renderBalance();
   if (view === "teams") return renderTeams();
+  if (view === "evo") return renderEvolutions();
   if (view === "sprites") return renderSprites();
   if (view === "lost") return renderLost();
   if (view === "progress") return renderProgress();

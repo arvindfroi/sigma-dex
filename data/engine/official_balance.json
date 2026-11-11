@@ -1,0 +1,185 @@
+{
+ "gens": {
+  "1": {
+   "avg_bst": {
+    "final": 496,
+    "first": 310,
+    "legendary": 604,
+    "middle": 397,
+    "single": 470
+   },
+   "lines": {
+    "1": 6,
+    "2": 38,
+    "3": 29,
+    "legendary": 5
+   },
+   "mono_share": 0.574,
+   "species": 188,
+   "strong_share": 0.044
+  },
+  "2": {
+   "avg_bst": {
+    "final": 483,
+    "first": 320,
+    "legendary": 617,
+    "middle": 394,
+    "single": 411
+   },
+   "lines": {
+    "1": 7,
+    "2": 28,
+    "3": 10,
+    "legendary": 6
+   },
+   "mono_share": 0.446,
+   "species": 101,
+   "strong_share": 0.032
+  },
+  "3": {
+   "avg_bst": {
+    "final": 484,
+    "first": 288,
+    "legendary": 616,
+    "middle": 371,
+    "single": 428
+   },
+   "lines": {
+    "1": 18,
+    "2": 28,
+    "3": 17,
+    "legendary": 10
+   },
+   "mono_share": 0.496,
+   "species": 141,
+   "strong_share": 0.031
+  },
+  "4": {
+   "avg_bst": {
+    "final": 486,
+    "first": 301,
+    "legendary": 616,
+    "middle": 388,
+    "single": 439
+   },
+   "lines": {
+    "1": 5,
+    "2": 20,
+    "3": 6,
+    "legendary": 14
+   },
+   "mono_share": 0.513,
+   "species": 78,
+   "strong_share": 0.016
+  },
+  "5": {
+   "avg_bst": {
+    "final": 499,
+    "first": 313,
+    "legendary": 608,
+    "middle": 397,
+    "single": 473
+   },
+   "lines": {
+    "1": 13,
+    "2": 36,
+    "3": 20,
+    "legendary": 13
+   },
+   "mono_share": 0.516,
+   "species": 159,
+   "strong_share": 0.034
+  },
+  "6": {
+   "avg_bst": {
+    "final": 501,
+    "first": 313,
+    "legendary": 627,
+    "middle": 386,
+    "single": 475
+   },
+   "lines": {
+    "1": 5,
+    "2": 18,
+    "3": 8,
+    "legendary": 6
+   },
+   "mono_share": 0.423,
+   "species": 71,
+   "strong_share": 0.031
+  },
+  "7": {
+   "avg_bst": {
+    "final": 495,
+    "first": 302,
+    "legendary": 540,
+    "middle": 389,
+    "single": 500
+   },
+   "lines": {
+    "1": 23,
+    "2": 14,
+    "3": 7,
+    "legendary": 12
+   },
+   "mono_share": 0.375,
+   "species": 88,
+   "strong_share": 0.153
+  },
+  "8": {
+   "avg_bst": {
+    "final": 506,
+    "first": 282,
+    "legendary": 579,
+    "middle": 400,
+    "single": 477
+   },
+   "lines": {
+    "1": 11,
+    "2": 16,
+    "3": 10,
+    "legendary": 11
+   },
+   "mono_share": 0.563,
+   "species": 87,
+   "strong_share": 0.04
+  },
+  "9": {
+   "avg_bst": {
+    "final": 497,
+    "first": 288,
+    "legendary": 574,
+    "middle": 387,
+    "single": 547
+   },
+   "lines": {
+    "1": 29,
+    "2": 23,
+    "3": 8,
+    "legendary": 12
+   },
+   "mono_share": 0.375,
+   "species": 112,
+   "strong_share": 0.22
+  },
+  "all": {
+   "avg_bst": {
+    "final": 494,
+    "first": 304,
+    "legendary": 592,
+    "middle": 390,
+    "single": 485
+   },
+   "lines": {
+    "1": 117,
+    "2": 221,
+    "3": 115,
+    "legendary": 89
+   },
+   "mono_share": 0.487,
+   "species": 1025,
+   "strong_share": 0.063
+  }
+ },
+ "source": "Pokemon Showdown's pokedex (MIT licence), https://github.com/smogon/pokemon-showdown"
+}
