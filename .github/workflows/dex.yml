@@ -20,6 +20,8 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
+    outputs:
+      superseded: ${{ steps.save.outputs.superseded }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -47,20 +49,32 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python scripts/notify_discord.py
       - name: Save the changes
+        id: save
         if: github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data assets DEX.md TODO.md export site
-          git diff --cached --quiet || (git commit -m "Sync edits from the website" && git push)
+          git diff --cached --quiet && exit 0
+          git commit -m "Sync edits from the website"
+          git push && exit 0
+          # The push fails when someone pushed to main while this run worked. Then the run for that newer commit
+          # imports the same website edits and publishes the site, so this one stops without an error.
+          git fetch origin "$GITHUB_REF_NAME"
+          if [ "$(git rev-parse FETCH_HEAD)" != "$GITHUB_SHA" ]; then
+            echo "::notice::main moved on while this run worked; the run for the newer commit saves and publishes instead."
+            echo "superseded=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          exit 1
       - name: Package the website
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && steps.save.outputs.superseded != 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
   website:
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && needs.check.outputs.superseded != 'true'
     needs: check
     runs-on: ubuntu-latest
     environment:
