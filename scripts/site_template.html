@@ -689,6 +689,12 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .clickrow { cursor: pointer; } .clickrow:hover td, .clickrow.open td { background: var(--panel2, rgba(128,128,255,.12)); }
 .charpics { display: flex; gap: 8px; flex-wrap: wrap; } .charpics img { max-height: 160px; max-width: 160px; object-fit: contain; border: 2px solid var(--line); }
 .chardetail h4 { margin: 10px 0 4px; }
+.chargrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.charcard { align-items: center; text-align: center; }
+.charthumb { width: 96px; height: 96px; display: flex; align-items: center; justify-content: center; }
+.charthumb img, .charstage img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.charsil { font-size: 48px; opacity: .35; font-family: var(--pixel, monospace); }
+.charstage { height: 140px; display: flex; align-items: center; justify-content: center; }
 .tslots { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
 .tslot { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; min-height: 92px; background: var(--panel); border: 2px solid var(--line); color: inherit; }
 .tslot[aria-selected="true"] { border-color: var(--pink); background: var(--soft); }
@@ -2912,39 +2918,73 @@ function teamUse(teamId) {
   for (const c of DEX.characters || []) { const cl = claimOf(c.id); for (const [i, tid] of Object.entries(cl.slots || {})) if (tid === teamId) return {c, battle: Number(i) + 1}; }
   return null;
 }
-function renderCharacterDetail(c, status, saveClaim) {
+const charName = c => c.code || (c.group + " · " + c.type);
+const charPic = c => (trainerPics.get(c.id) || [])[0];
+function charTop(c) {
+  const pic = charPic(c), cl = claimOf(c.id);
+  return h("section", {class: "screen top", "aria-label": charName(c)},
+    h("div", {class: "namebar"}, h("div", {class: "frame no"}, c.group), h("div", {class: "frame"}, h("h3", {}, charName(c).toUpperCase())),
+      h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).filter(t => DEX.types.includes(t)).map(typeChip))),
+    h("div", {class: "stage"}, pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("div", {class: "noart"}, "NO PICTURE YET")),
+    h("div", {class: "dlg", role: "status"}, (cl.by ? "Claimed by " + person(cl.by) + ". " : "Nobody has claimed this trainer yet. ") + (c.place ? c.place.charAt(0).toUpperCase() + c.place.slice(1) + "." : "")));
+}
+const CHAR_TABS = [["info", "INFO", "purple"], ["teams", "TEAMS", "pink"], ["picture", "PICTURE", "blue"]];
+function openCharacter(c, tab) {
+  tab = tab || "info";
+  const status = h("div", {class: "hint", role: "status", style: "margin:0"});
   const cl = claimOf(c.id), mine = person(me()), isMine = cl.by && mine && person(cl.by) === mine;
-  if (lib.teams === null && DEX.web.url && !lib.error && !lib.loading) { lib.loading = true; loadLibrary().catch(err => { lib.error = err.message; }).then(() => { lib.loading = false; if (view === "chars") renderCharacters(); }); }
-  const myTeams = (lib.teams || []).filter(t => mine && person(t.by) === mine);
-  const pics = trainerPics.get(c.id) || [];
-  const upload = h("input", {type: "file", accept: "image/*", style: "max-width:240px"});
-  upload.addEventListener("change", async () => {
-    const file = upload.files[0]; if (!file) return;
-    status.textContent = "Uploading...";
-    try { const row = await postForm("species-image", {key: remember.get("key"), species_id: "trainer-" + c.id, caption: "[trainer] " + (mine || ""), editor: me(), file: await prepareImage(file)});
-      if (!trainerPics.has(c.id)) trainerPics.set(c.id, []); trainerPics.get(c.id).push({id: row.id, src: artUrl(row.path), caption: row.caption, editor: row.editor});
-      status.textContent = ""; renderCharacters(); }
-    catch (err) { status.textContent = err.message; }
-  });
-  const levels = c.levels || [];
-  const battles = Array.from({length: c.battles || 0}, (_, i) => {
-    const tid = (cl.slots || {})[i], t = (lib.teams || []).find(x => x.id === tid);
-    const pick = isMine ? h("select", {"aria-label": "Team for battle " + (i + 1), onchange: ev => { const slots = Object.assign({}, cl.slots || {}); if (ev.target.value) slots[i] = ev.target.value; else delete slots[i]; saveClaim(c, cl.by, slots); }},
-      h("option", {value: ""}, "choose one of your shared teams"), myTeams.map(x => h("option", {value: x.id, selected: x.id === tid ? "" : null}, x.name))) : null;
-    return h("tr", {}, h("td", {class: "num"}, "Battle " + (i + 1)), h("td", {class: "num"}, levels[i] ? "up to lv " + levels[i] : ""), h("td", {}, spoilerTeam(t)), h("td", {}, pick));
-  });
-  return h("div", {class: "box chardetail"},
-    h("div", {class: "tbar"}, h("h3", {style: "margin:0"}, c.group + " · " + c.type), h("span", {class: "grow"}), h("button", {type: "button", onclick: () => { charOpen = ""; renderCharacters(); }}, "Close")),
-    h("div", {class: "sub"}, (c.place || "") + (c.rule ? " · rule: " + c.rule : "") + (c.note ? " · " + c.note : "")),
-    h("div", {}, cl.by ? ["Claimed by ", h("b", {}, person(cl.by))] : h("span", {class: "sub"}, "Nobody has claimed this role yet.")),
-    h("h4", {}, "Trainer picture"),
-    h("div", {class: "charpics"}, pics.length ? pics.map(pic => h("figure", {}, h("img", {src: pic.src, alt: "trainer picture"}), h("figcaption", {class: "sub"}, String(pic.caption || "").replace(/^\[trainer\]\s*/, ""))))
-      : h("span", {class: "sub"}, "No picture yet.")),
-    isMine ? h("div", {class: "sub"}, "Upload a drawing or a photo of yourself. It becomes your trainer sprite once the trainer model is ready. Pictures on this site are public: anyone with the link can see them, so a drawing may be nicer than a photo. ", upload,
-      " ", h("button", {type: "button", disabled: ""}, "Make my trainer sprite (soon)")) : null,
-    h("h4", {}, "Teams in the game (" + (c.battles || 0) + " battles)"),
-    h("div", {class: "sub"}, "Build as many teams as you like in TEAMS, share the ones you want with the group, and pick one here for each battle. Each team stays behind a spoiler button. Use our own Pokemon of the role's type" + (c.rule ? " and follow the rule (" + c.rule + ")" : "") + "."),
-    h("div", {class: "scroll"}, h("table", {class: "balance"}, battles)));
+  const saveClaim = async (by, slots) => {
+    if (!me()) { status.textContent = "Write your name at the top of the page first."; return; }
+    status.textContent = "Saving...";
+    const data = {by, role: c.id, slots: slots || {}};
+    try { await saveEdit("claim", "claim-" + c.id, data); claims.set(c.id, data); openCharacter(c, tab); if (view === "chars") renderCharacters(); }
+    catch (err) { status.textContent = /check constraint/i.test(err.message) ? "Claiming is not switched on in the database yet." : err.message; }
+  };
+  let page;
+  if (tab === "info") {
+    page = h("div", {},
+      h("div", {class: "factrows"},
+        h("div", {}, h("span", {}, "Role"), c.group),
+        h("div", {}, h("span", {}, "Type"), String(c.type || "")),
+        h("div", {}, h("span", {}, "Surroundings"), c.place || "—"),
+        c.rule ? h("div", {}, h("span", {}, "Rule"), c.rule) : null,
+        h("div", {}, h("span", {}, "Battles"), String(c.battles || 0) + " (each needs its own team)"),
+        h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) : "nobody yet")),
+      CLAIMS_OPEN ? (!cl.by ? h("button", {type: "button", class: "primary", onclick: () => saveClaim(mine, {})}, "Claim this trainer")
+        : isMine ? h("button", {type: "button", onclick: () => saveClaim("", {})}, "Give it back") : null)
+        : h("div", {class: "notice info"}, "Claiming opens soon."));
+  } else if (tab === "teams") {
+    if (lib.teams === null && DEX.web.url && !lib.error && !lib.loading) { lib.loading = true; loadLibrary().catch(err => { lib.error = err.message; }).then(() => { lib.loading = false; openCharacter(c, "teams"); }); }
+    const myTeams = (lib.teams || []).filter(t => mine && person(t.by) === mine), levels = c.levels || [];
+    page = h("div", {},
+      h("div", {class: "sub"}, "One team per battle. Build as many teams as you like in TEAMS, share the ones you want with the group, and pick one here. Use our own Pokemon of this trainer's type" + (c.rule ? " and follow the rule: " + c.rule : "") + ". Every team stays behind a spoiler button."),
+      h("div", {class: "scroll"}, h("table", {class: "balance"}, Array.from({length: c.battles || 0}, (_, i) => {
+        const tid = (cl.slots || {})[i], t = (lib.teams || []).find(x => x.id === tid);
+        const pick = isMine ? h("select", {"aria-label": "Team for battle " + (i + 1), onchange: ev => { const slots = Object.assign({}, cl.slots || {}); if (ev.target.value) slots[i] = ev.target.value; else delete slots[i]; saveClaim(cl.by, slots); }},
+          h("option", {value: ""}, "choose one of your shared teams"), myTeams.map(x => h("option", {value: x.id, selected: x.id === tid ? "" : null}, x.name))) : null;
+        return h("tr", {}, h("td", {class: "num"}, "Battle " + (i + 1)), h("td", {class: "num"}, levels[i] ? "up to lv " + levels[i] : ""), h("td", {}, spoilerTeam(t)), h("td", {}, pick));
+      }))));
+  } else {
+    const pics = trainerPics.get(c.id) || [];
+    const upload = h("input", {type: "file", accept: "image/*", style: "max-width:240px"});
+    upload.addEventListener("change", async () => {
+      const file = upload.files[0]; if (!file) return;
+      status.textContent = "Uploading...";
+      try { const row = await postForm("species-image", {key: remember.get("key"), species_id: "trainer-" + c.id, caption: "[trainer] " + (mine || ""), editor: me(), file: await prepareImage(file)});
+        if (!trainerPics.has(c.id)) trainerPics.set(c.id, []); trainerPics.get(c.id).push({id: row.id, src: artUrl(row.path), caption: row.caption, editor: row.editor});
+        openCharacter(c, "picture"); if (view === "chars") renderCharacters(); }
+      catch (err) { status.textContent = err.message; }
+    });
+    page = h("div", {},
+      h("div", {class: "charpics"}, pics.length ? pics.map(pic => h("figure", {}, h("img", {src: pic.src, alt: "trainer picture"}))) : h("span", {class: "sub"}, "No picture yet.")),
+      isMine ? h("div", {class: "sub"}, "Upload a drawing or a photo of yourself. It becomes your trainer sprite in the trainer studio once the trainer model is ready. Pictures on this site are public, so a drawing may be nicer than a photo. ", upload) : h("div", {class: "sub"}, "The one who claims this trainer adds a picture here."),
+      h("button", {type: "button", disabled: ""}, "Trainer studio (coming when the trainer model is ready)"));
+  }
+  const bottom = h("section", {class: "screen bottom", "data-c": (CHAR_TABS.find(t => t[0] === tab) || CHAR_TABS[0])[2], "aria-label": charName(c)},
+    h("div", {class: "screen-tabs", role: "tablist"}, CHAR_TABS.map(([id, label, col]) => h("button", {type: "button", role: "tab", "data-c": col, "aria-selected": String(id === tab), onclick: () => openCharacter(c, id)}, label)),
+      h("span", {class: "right"}, h("button", {type: "button", onclick: closeDialog}, "CLOSE"))),
+    status, h("div", {class: "page"}, page));
+  showDialog(h("div", {class: "ds"}, charTop(c), bottom));
 }
 function renderCharacters() {
   const grid = document.getElementById("grid");
@@ -2953,36 +2993,23 @@ function renderCharacters() {
     loadClaims().catch(err => { claimsError = err.message; claims = new Map(); }).then(() => view === "chars" && renderCharacters());
     return;
   }
-  const status = h("div", {class: "hint", role: "status", style: "margin:0"}, claimsError);
-  const saveClaim = async (c, by, slots) => {
-    if (!me()) { status.textContent = "Write your name at the top of the page first."; document.getElementById("me").focus(); return; }
-    status.textContent = "Saving...";
-    const data = {by, role: c.id, slots: slots || {}};
-    try { await saveEdit("claim", "claim-" + c.id, data); claims.set(c.id, data); status.textContent = ""; renderCharacters(); }
-    catch (err) { status.textContent = /check constraint/i.test(err.message) ? "Claiming is not switched on in the database yet." : err.message; }
-  };
   const mine = person(me());
   const groups = [];
   for (const c of DEX.characters || []) { let g = groups.find(x => x.name === c.group); if (!g) groups.push(g = {name: c.group, rows: []}); g.rows.push(c); }
-  const open = (DEX.characters || []).find(c => c.id === charOpen);
+  const card = c => {
+    const cl = claimOf(c.id), pic = charPic(c), isMine = cl.by && mine && person(cl.by) === mine;
+    return h("button", {type: "button", class: "card charcard", onclick: () => openCharacter(c)},
+      h("div", {class: "charthumb"}, pic ? h("img", {src: pic.src, alt: ""}) : h("span", {class: "charsil"}, "?")),
+      h("b", {}, charName(c)),
+      h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
+      h("div", {class: "sub"}, (c.battles || 0) + " battle" + (c.battles === 1 ? "" : "s") + (c.rule ? " · gym rule" : "")),
+      h("div", {class: "sub"}, cl.by ? ((isMine ? "★ " : "") + "claimed by " + person(cl.by)) : "free"));
+  };
   grid.replaceChildren(h("div", {style: "grid-column:1/-1"},
-    CLAIMS_OPEN ? null : h("div", {class: "notice info"}, h("b", {}, "Work in progress. "), "This page is not ready yet: claiming is closed for now. Soon each role gets your own trainer picture and the teams you fight with."),
-    h("div", {class: "sub"}, (DEX.characters || []).length + " roles. Names are hidden on purpose; the type is the type of their team and their surroundings; battles = how many teams the role needs. Tap a role to open it."), status,
-    open ? renderCharacterDetail(open, status, saveClaim) : null,
-    groups.map(g => h("div", {class: "box"}, h("h3", {}, g.name), h("div", {class: "scroll"}, h("table", {class: "balance"},
-      h("tr", {}, h("th", {}, "Type"), h("th", {}, "Surroundings"), h("th", {}, "Rule / note"), h("th", {}, "Battles"), h("th", {}, "Claimed by"), h("th", {}, "")),
-      g.rows.map(c => {
-        const cl = claimOf(c.id), by = cl.by || "";
-        const isMine = by && mine && person(by) === mine;
-        const filled = Object.keys(cl.slots || {}).length;
-        const btn = CLAIMS_OPEN ? (!by ? h("button", {type: "button", class: "primary", onclick: ev => { ev.stopPropagation(); saveClaim(c, mine, {}); }}, "Claim")
-          : isMine ? h("button", {type: "button", onclick: ev => { ev.stopPropagation(); saveClaim(c, "", {}); }}, "Release") : null) : null;
-        return h("tr", {class: "clickrow" + (c.id === charOpen ? " open" : ""), onclick: () => { charOpen = charOpen === c.id ? "" : c.id; renderCharacters(); }},
-          h("td", {}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t + " "))),
-          h("td", {}, c.place || ""), h("td", {class: "sub"}, c.rule || c.note || ""),
-          h("td", {class: "num", title: (c.levels || []).length ? "highest level per team: " + c.levels.join(", ") : ""}, (by ? filled + " / " : "") + String(c.battles || "")),
-          h("td", {}, by ? h("b", {}, (isMine ? "★ " : "") + person(by)) : h("span", {class: "sub"}, "free")), h("td", {}, btn));
-      })))))));
+    CLAIMS_OPEN ? null : h("div", {class: "notice info"}, h("b", {}, "Work in progress. "), "Claiming is closed for now. Soon each trainer gets your own picture and the teams you fight with."),
+    h("div", {class: "sub"}, "The people you battle in the game. Who they really are stays a surprise; tap a trainer to see the type, how often you meet them and its teams."),
+    claimsError ? h("div", {class: "hint"}, claimsError) : null,
+    groups.map(g => h("div", {}, h("h3", {}, g.name + "s"), h("div", {class: "chargrid"}, g.rows.map(card))))));
 }
 
 function renderBalance() {
@@ -3703,7 +3730,7 @@ const PAGE_HELP = {
   sprites: "SPRITES\nSprites are drawn on each Pokemon's page, under SPRITES. Here you see what is being drawn, what waits for someone to approve it, and what is done.",
   progress: "PROGRESS\nHow far the dex has come. Every badge is a goal for the whole group.",
   evo: "EVOLUTION LINES\nEvery evolution line as a tree. Tap an arrow to say how it evolves; red arrows are not decided yet.",
-  chars: "CHARACTERS\nThe people in the game we can replace with ourselves. Names are hidden so nobody gets spoiled; you only see the role, the type and the surroundings. Write your name at the top and claim one.",
+  chars: "CHARACTERS\nThe trainers in the game we can replace with ourselves. Who they really are stays a surprise: you only see the role, the type and how often you meet them.",
   teams: "TEAMS\nBuild teams of six from our Pokemon, the way Showdown does it. Teams are kept in this browser; Share link sends one to a friend.",
   lost: "LOST AND FOUND\nPictures from the Discord that nobody has linked to a Pokemon yet. Recognise one? Press This is... and choose the Pokemon.",
   move: "NEW MOVES\nMoves our Pokemon use that are not in the game yet. Describe what they do, so they can be programmed.",

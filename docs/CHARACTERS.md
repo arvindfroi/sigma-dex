@@ -65,3 +65,33 @@ A character can be redrawn and renamed; its type follows whoever claims it (our 
 Mixed teams (no type): rival Blue, Green, Gold, Crystal, Yellow, Cynthia (trainer), Eusine, Copycat, the other elders.
 The Battle Frontier brains (Palmer, Argenta, Thorton, Dahlia, Darach) have placeholder teams in the data (the facilities
 build their teams).
+
+## Code names on the website (test branch characters-teams)
+
+Important trainers show only a code name so nothing is spoiled. The key (role id on the website -> who it is):
+
+- Maxie (executive, Fire) -> trainer-a
+- Petrel (executive) -> trainer-b
+- Archie (executive, Water) -> trainer-c
+- Cynthia (Sinnoh champion + trainer) -> trainer-d
+- Marauder (executive) -> trainer-e
+- Giovanni (Rocket boss) -> trainer-f
+- Eusine -> trainer-g
+- Cyrus (executive) -> trainer-h
+- Archer (executive) -> trainer-i
+- Charon (executive) -> trainer-j
+- Gold (Johto trainer) -> trainer-k
+- Green -> trainer-l
+- Crystal -> trainer-m
+- Proton (executive) -> trainer-n
+- Yellow -> trainer-o
+- Ariana (executive) -> trainer-p
+- Lawrence (executive) -> trainer-q
+- Blue (rival) -> trainer-r
+- Steven (Hoenn champion + trainer) -> trainer-s
+- Lorelei -> league-1
+- Bruno -> league-2
+- Agatha -> league-3
+- Koga (Elite Four) -> league-4
+- Lance -> league-5
+- Lorin -> league-6
