@@ -1,0 +1,40 @@
+# Characters in the game that the group can claim (replace with themselves).
+# Names are left out on purpose (no spoilers for those who have not played the game); the real names are in
+# docs/CHARACTERS.md. Shown on the website under MORE > Characters. Claims are saved on the website.
+# group: what kind of character; type: the type of their team and of their surroundings; rule: a gym rule.
+- {id: johto-gym-flying, group: Gym leader (Johto), type: Flying, place: "a gym high up, open to the wind", rule: "only Flying Pokemon may be used"}
+- {id: johto-gym-bug, group: Gym leader (Johto), type: Bug, place: "a gym full of plants and insects", rule: "no type advantage allowed"}
+- {id: johto-gym-normal, group: Gym leader (Johto), type: Normal, place: "a cheerful gym in a big city"}
+- {id: johto-gym-ghost, group: Gym leader (Johto), type: Ghost, place: "a dark, haunted gym"}
+- {id: johto-gym-ice, group: Gym leader (Johto), type: Ice, place: "a frozen gym with slippery ice"}
+- {id: johto-gym-steel, group: Gym leader (Johto), type: Steel, place: "a gym by the sea and a lighthouse", rule: "only Pokemon with base Defense 130 or more"}
+- {id: johto-gym-fighting, group: Gym leader (Johto), type: Fighting, place: "a training dojo by a waterfall"}
+- {id: johto-gym-dragon, group: Gym leader (Johto), type: Dragon, place: "a gym with lava and dragon statues", rule: "only Dragon Pokemon"}
+- {id: kanto-gym-electric, group: Gym leader (Kanto), type: Electric, place: "a gym with electric locks and traps"}
+- {id: kanto-gym-rock, group: Gym leader (Kanto), type: Rock, place: "a rocky gym in a mountain town"}
+- {id: kanto-gym-grass, group: Gym leader (Kanto), type: Grass, place: "a garden gym full of flowers"}
+- {id: kanto-gym-poison, group: Gym leader (Kanto), type: Poison, place: "a ninja gym with invisible walls"}
+- {id: kanto-gym-psychic, group: Gym leader (Kanto), type: Psychic, place: "a gym with teleport tiles"}
+- {id: kanto-gym-fire, group: Gym leader (Kanto), type: Fire, place: "a gym near a volcano"}
+- {id: kanto-water, group: Strong trainer (Kanto), type: Water, place: "a city on the water; acts like a gym leader"}
+- {id: e4-ice, group: Elite Four, type: Ice, place: "an icy room"}
+- {id: e4-fighting, group: Elite Four, type: Fighting, place: "a rocky arena"}
+- {id: e4-ghost, group: Elite Four, type: Ghost, place: "a dark room"}
+- {id: e4-ghost-poison, group: Elite Four, type: Ghost / Poison, place: "a room of shadows"}
+- {id: e4-dragon-flying-1, group: Elite Four, type: Flying / Dragon, place: "a room high in the sky"}
+- {id: e4-dragon-flying-2, group: Elite Four, type: Flying / Dragon, place: "a dragon room"}
+- {id: champion-1, group: Champion, type: mixed (Steel leaning), place: "neutral arena", note: "less important: neutral surroundings, mixed team"}
+- {id: champion-2, group: Champion, type: mixed, place: "neutral arena", note: "less important: neutral surroundings, mixed team"}
+- {id: villain-water, group: Villain (executive), type: Water, place: "the sea and storms"}
+- {id: villain-fire, group: Villain (executive), type: Fire, place: "volcanoes and lava"}
+- {id: villain-flying, group: Villain (executive), type: Flying, place: "the sky; collects legendary birds"}
+- {id: villain-ghost, group: Villain (executive), type: Ghost, place: "ruins and dark places"}
+- {id: villain-rock, group: Villain (executive), type: Rock / Ground, place: "caves and quarries"}
+- {id: villain-poison, group: Villain (executive), type: Poison / Dark, place: "hideouts"}
+- {id: villain-boss, group: Villain (boss), type: Ground / Poison, place: "the villains' headquarters"}
+- {id: villains-mixed, group: Villain (other executives, 4 of them), type: mixed, place: "hideouts"}
+- {id: elder-grass, group: Elder (side boss), type: Grass, place: "a sacred grove"}
+- {id: elder-ice, group: Elder (side boss), type: Ice, place: "a snowy shrine"}
+- {id: elder-dragon, group: Elder (side boss), type: Dragon, place: "a dragon shrine"}
+- {id: rival, group: Rival, type: mixed, place: "everywhere; battles you many times"}
+- {id: friends, group: Friends / other main characters (5 of them), type: mixed, place: "travel with you in the story"}

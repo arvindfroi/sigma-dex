@@ -2881,6 +2881,45 @@ function ourLines() {
   const typed = DEX.species.filter(s => (s.data.types || []).length);
   return {lines, bst, strong, normal, mono: typed.filter(s => new Set(s.data.types).size === 1).length, typed: typed.length};
 }
+// ---------- characters the group can claim (no names, no spoilers); claims are species_edits rows of kind 'claim' ----------
+let claims = null, claimsError = "";
+async function loadClaims() {
+  const rows = await dbRead("species_edits?select=id,species_id,data,editor&kind=eq.claim&order=id.asc");
+  claims = new Map();
+  for (const r of rows) claims.set(r.species_id.replace(/^claim-/, ""), (r.data && r.data.by) || "");
+}
+function renderCharacters() {
+  const grid = document.getElementById("grid");
+  if (claims === null && DEX.web.url && !claimsError) {
+    grid.replaceChildren(h("div", {class: "empty", style: "grid-column:1/-1"}, "Loading..."));
+    loadClaims().catch(err => { claimsError = err.message; claims = new Map(); }).then(() => view === "chars" && renderCharacters());
+    return;
+  }
+  const status = h("div", {class: "hint", role: "status", style: "margin:0"}, claimsError);
+  const save = async (c, by) => {
+    if (!me()) { status.textContent = "Write your name at the top of the page first."; document.getElementById("me").focus(); return; }
+    status.textContent = "Saving...";
+    try { await saveEdit("claim", "claim-" + c.id, {by, role: c.id}); claims.set(c.id, by); status.textContent = ""; renderCharacters(); }
+    catch (err) { status.textContent = /check constraint/i.test(err.message) ? "Claiming is not switched on in the database yet." : err.message; }
+  };
+  const mine = person(me());
+  const groups = [];
+  for (const c of DEX.characters || []) { let g = groups.find(x => x.name === c.group); if (!g) groups.push(g = {name: c.group, rows: []}); g.rows.push(c); }
+  const taken = (DEX.characters || []).filter(c => (claims || new Map()).get(c.id)).length;
+  grid.replaceChildren(h("div", {style: "grid-column:1/-1"},
+    h("div", {class: "sub"}, taken + " of " + (DEX.characters || []).length + " roles claimed. Names are hidden on purpose; the type is the type of their team and their surroundings."), status,
+    groups.map(g => h("div", {class: "box"}, h("h3", {}, g.name), h("div", {class: "scroll"}, h("table", {class: "balance"},
+      h("tr", {}, h("th", {}, "Type"), h("th", {}, "Surroundings"), h("th", {}, "Rule / note"), h("th", {}, "Claimed by"), h("th", {}, "")),
+      g.rows.map(c => {
+        const by = (claims || new Map()).get(c.id) || "";
+        const isMine = by && mine && person(by) === mine;
+        const btn = !by ? h("button", {type: "button", class: "primary", onclick: () => save(c, mine)}, "Claim")
+          : isMine ? h("button", {type: "button", onclick: () => save(c, "")}, "Release") : null;
+        return h("tr", {}, h("td", {}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t + " "))),
+          h("td", {}, c.place || ""), h("td", {class: "sub"}, c.rule || c.note || ""), h("td", {}, by ? h("b", {}, (isMine ? "\u2605 " : "") + person(by)) : h("span", {class: "sub"}, "free")), h("td", {}, btn));
+      })))))));
+}
+
 function renderBalance() {
   const grid = document.getElementById("grid"), off = (DEX.official_balance || {gens: {}}).gens, o = off[balanceGen] || off.all;
   const ours = ourLines(), pct = (a, b) => b ? Math.round(100 * a / b) : 0;
@@ -3588,8 +3627,8 @@ function renderList(list) {
 // ---------- the page around it: menu tabs, the top screen, day and night ----------
 let view = "species";
 const MAIN_TABS = [["species", "POKEDEX", "purple"], ["teams", "TEAMS", "pink"], ["board", "REQUESTS", "pink"], ["sprites", "SPRITES", "blue"], ["progress", "PROGRESS", "sky"]];
-const MORE = [["lost", "Lost and found"], ["evo", "Evolution lines"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Balance"], ["reorder", "Change dex numbers"]];
-const WIDE_VIEWS = ["board", "progress", "teams"];
+const MORE = [["lost", "Lost and found"], ["evo", "Evolution lines"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Balance"], ["chars", "Characters"], ["reorder", "Change dex numbers"]];
+const WIDE_VIEWS = ["board", "progress", "teams", "chars"];
 // What the top screen's dialog box says on each page.
 const PAGE_HELP = {
   species: "Welcome to the " + DEX.project + "!\nPoint at a Pokemon to see it up here. Tap it to open its page, change it or draw its sprites.",
@@ -3597,6 +3636,7 @@ const PAGE_HELP = {
   sprites: "SPRITES\nSprites are drawn on each Pokemon's page, under SPRITES. Here you see what is being drawn, what waits for someone to approve it, and what is done.",
   progress: "PROGRESS\nHow far the dex has come. Every badge is a goal for the whole group.",
   evo: "EVOLUTION LINES\nEvery evolution line as a tree. Tap an arrow to say how it evolves; red arrows are not decided yet.",
+  chars: "CHARACTERS\nThe people in the game we can replace with ourselves. Names are hidden so nobody gets spoiled; you only see the role, the type and the surroundings. Write your name at the top and claim one.",
   teams: "TEAMS\nBuild teams of six from our Pokemon, the way Showdown does it. Teams are kept in this browser; Share link sends one to a friend.",
   lost: "LOST AND FOUND\nPictures from the Discord that nobody has linked to a Pokemon yet. Recognise one? Press This is... and choose the Pokemon.",
   move: "NEW MOVES\nMoves our Pokemon use that are not in the game yet. Describe what they do, so they can be programmed.",
@@ -3681,6 +3721,7 @@ function render() {
   document.getElementById("summary").textContent = c.designed + " of " + c.size + " Pokemon designed, " + c.playable + " playable. Tap one to see, change or draw it.";
   if (view === "reorder" && plan) return renderReorder();
   if (view === "balance") return renderBalance();
+  if (view === "chars") return renderCharacters();
   if (view === "teams") return renderTeams();
   if (view === "evo") return renderEvolutions();
   if (view === "sprites") return renderSprites();
