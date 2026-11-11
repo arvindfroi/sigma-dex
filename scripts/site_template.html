@@ -2010,10 +2010,10 @@ const STEP_SIZE = {art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 
 const TRY_SIDE = {art: 640, front: 80, back: 80, icon: 32};                    // the square ones (the colour tools use it)
 const TRY_DEFAULT_SECONDS = {art: 75, "art:sketch": 25, "art:pose": 60, front: 100, back: 55, icon: 30, follower: 40};
 const mmss = sec => Math.floor(Math.max(0, sec) / 60) + ":" + String(Math.floor(Math.max(0, sec) % 60)).padStart(2, "0");
-const aboutMinutes = sec => sec < 90 ? "about a minute" : "about " + Math.round(sec / 60) + " minutes";
+const aboutMinutes = sec => !(sec >= 90) ? "about a minute" : "about " + Math.round(sec / 60) + " minutes";
 function secondsFor(timings, stage) {
-  const t = timings || {};
-  return (stage === "back" && t["back:klein"]) || t[stage] || TRY_DEFAULT_SECONDS[stage] || 60;
+  const t = timings || {}, ok = v => typeof v === "number" && v > 5 ? v : 0;   // a bad timing from the PC (0 or below) is ignored
+  return ok(stage === "back" && t["back:klein"]) || ok(t[stage]) || TRY_DEFAULT_SECONDS[stage] || 60;
 }
 const loadPicture = src => new Promise((ok, no) => {
   const im = new Image(); im.crossOrigin = "anonymous";
@@ -3928,7 +3928,7 @@ function drawTray() {
     return h("button", {type: "button", class: "trayrow" + (isMine ? " mine" : ""), onclick: () => s && openDetail(s, "sprite")},
       j.status === "running" ? h("span", {class: "spinner"}) : h("span", {class: "dot"}),
       h("span", {class: "who"}, (isMine ? "\u2605 " : "") + who), h("span", {class: "what"}, n + " " + (names[j.stage] || j.stage || "sprite") + (n > 1 ? "s" : "")),
-      h("span", {class: "when"}, j.status === "running" ? done + "/" + n : "in line", " \u00b7 ", aboutMinutes(total).replace("about ", "~")));
+      h("span", {class: "when"}, j.status === "running" ? done + "/" + n : "in line", " \u00b7 ", online ? aboutMinutes(total).replace("about ", "~") : "waits for the PC"));
   });
   const readyRows = tray.ready.map(r => {
     const s = byId.get(r.sid);
@@ -3938,7 +3938,7 @@ function drawTray() {
   const running = tray.jobs.find(j => j.status === "running");
   const head = h("button", {type: "button", class: "trayhead", "aria-expanded": String(tray.open), onclick: () => { tray.open = !tray.open; remember.set("tray", tray.open ? "" : "closed"); drawTray(); }},
     tray.jobs.length ? h("span", {class: "spinner"}) : h("span", {class: "tick"}, "\u2713"),
-    tray.jobs.length ? "DRAWING " + tray.jobs.length + " \u00b7 " + aboutMinutes(total).replace("about ", "~") : tray.ready.length + " READY TO PICK",
+    tray.jobs.length ? "DRAWING " + tray.jobs.length + " \u00b7 " + (online ? aboutMinutes(total).replace("about ", "~") : "PC is off") : tray.ready.length + " READY TO PICK",
     h("span", {class: "chev"}, tray.open ? "\u25bc" : "\u25b2"));
   tray.el.replaceChildren(...[head, tray.open ? h("div", {class: "traybody"},
     !online && tray.jobs.length ? h("div", {class: "trayoff"}, "The drawing PC is off. The line waits until it is back.") : null,

@@ -6897,7 +6897,7 @@
       "abilities": {
         "primary": "Sturdy",
         "secondary": "Toxic Debris",
-        "hidden": "Corrosion"
+        "hidden": "Poison Point"
       },
       "base_stats": {
         "hp": 60,
@@ -6928,6 +6928,7 @@
           "level": 40
         }
       ],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -6941,7 +6942,10 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": []
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
       },
       "assets": {
         "concept_art": null,
