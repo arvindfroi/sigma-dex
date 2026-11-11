@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**150 / 254** slots have a Pokemon - **0** are fully complete - average completeness **27%**.
+**151 / 254** slots have a Pokemon - **0** are fully complete - average completeness **27%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -206,7 +206,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 195 | *open slot* | | | | | |
 | 196 | *open slot* | | | | | |
 | 197 | *open slot* | | | | | |
-| 198 | *open slot* | | | | | |
+| 198 | [Santrock](data/species/santrock.yaml) | Fire / Rock |  | 265 |  | 34% |
 | 199 | *open slot* | | | | | |
 | 200 | *open slot* | | | | | |
 | 201 | *open slot* | | | | | |

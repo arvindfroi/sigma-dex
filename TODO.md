@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 149 / 150 |
-| Identity | designer credit | 130 / 150 |
-| Dex page | category | 40 / 150 |
-| Dex page | description | 41 / 150 |
-| Dex page | height | 52 / 150 |
-| Dex page | weight | 26 / 150 |
-| Dex page | body color | 2 / 150 |
-| Stats | base stats | 135 / 150 |
-| Stats | ability | 138 / 150 |
-| Stats | EV yield | 101 / 150 |
-| Stats | catch rate | 1 / 150 |
-| Stats | base exp | 1 / 150 |
-| Stats | growth rate | 1 / 150 |
-| Stats | base friendship | 1 / 150 |
-| Breeding | gender | 1 / 150 |
-| Breeding | egg groups | 1 / 150 |
-| Breeding | egg cycles | 1 / 150 |
-| Moves | level-up moves | 39 / 150 |
-| Moves | TM/HM moves | 4 / 150 |
-| Location | encounters | 2 / 150 |
-| Design | concept | 20 / 150 |
-| Art | concept art | 141 / 150 |
-| Art | front sprite | 4 / 150 |
-| Art | front animation frame | 4 / 150 |
-| Art | back sprite | 4 / 150 |
-| Art | icon | 4 / 150 |
-| Art | footprint | 142 / 150 |
-| Art | shiny palette | 0 / 150 |
-| Art | cry | 0 / 150 |
+| Identity | types | 150 / 151 |
+| Identity | designer credit | 131 / 151 |
+| Dex page | category | 40 / 151 |
+| Dex page | description | 41 / 151 |
+| Dex page | height | 53 / 151 |
+| Dex page | weight | 27 / 151 |
+| Dex page | body color | 3 / 151 |
+| Stats | base stats | 136 / 151 |
+| Stats | ability | 138 / 151 |
+| Stats | EV yield | 101 / 151 |
+| Stats | catch rate | 1 / 151 |
+| Stats | base exp | 1 / 151 |
+| Stats | growth rate | 1 / 151 |
+| Stats | base friendship | 1 / 151 |
+| Breeding | gender | 1 / 151 |
+| Breeding | egg groups | 1 / 151 |
+| Breeding | egg cycles | 1 / 151 |
+| Moves | level-up moves | 40 / 151 |
+| Moves | TM/HM moves | 5 / 151 |
+| Location | encounters | 2 / 151 |
+| Design | concept | 21 / 151 |
+| Art | concept art | 142 / 151 |
+| Art | front sprite | 4 / 151 |
+| Art | front animation frame | 4 / 151 |
+| Art | back sprite | 4 / 151 |
+| Art | icon | 4 / 151 |
+| Art | footprint | 142 / 151 |
+| Art | shiny palette | 0 / 151 |
+| Art | cry | 0 / 151 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 76 / 150 |
-| DS back sprite 80x80 | 76 / 150 |
-| DS icon 32x32 | 76 / 150 |
+| DS front sprite 80x80 | 76 / 151 |
+| DS back sprite 80x80 | 76 / 151 |
+| DS icon 32x32 | 76 / 151 |
 
-## Open dex slots (104)
+## Open dex slots (103)
 
-#72, #152, #153, #154, #155, #156, #157, #158, #159, #160, #161, #162, #163, #164, #165, #166, #167, #168, #169, #170, #171, #172, #173, #174, #175, #176, #177, #178, #179, #180, #181, #182, #183, #184, #185, #186, #187, #188, #189, #190, #191, #192, #193, #194, #195, #196, #197, #198, #199, #200, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #218, #219, #220, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232, #233, #234, #235, #236, #237, #238, #239, #240, #241, #242, #243, #244, #245, #246, #247, #248, #249, #250, #251, #252, #253, #254
+#72, #152, #153, #154, #155, #156, #157, #158, #159, #160, #161, #162, #163, #164, #165, #166, #167, #168, #169, #170, #171, #172, #173, #174, #175, #176, #177, #178, #179, #180, #181, #182, #183, #184, #185, #186, #187, #188, #189, #190, #191, #192, #193, #194, #195, #196, #197, #199, #200, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #218, #219, #220, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232, #233, #234, #235, #236, #237, #238, #239, #240, #241, #242, #243, #244, #245, #246, #247, #248, #249, #250, #251, #252, #253, #254
 
 ## Missing per Pokemon
 
@@ -1543,4 +1543,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+
+### #198 [Santrock](data/species/santrock.yaml) - 34%
+
+- **Dex page:** category, description
+- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 

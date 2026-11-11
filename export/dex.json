@@ -13817,6 +13817,97 @@
         "safari_flee_rate": 0
       },
       "id": "sandrema"
+    },
+    {
+      "dex": 198,
+      "name": "Santrock",
+      "credits": {
+        "designer": "Casper",
+        "artist": "Casper"
+      },
+      "types": [
+        "Fire",
+        "Rock"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": 0.8,
+      "weight_kg": 35,
+      "body_color": "yellow",
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 45,
+        "attack": 55,
+        "defense": 55,
+        "sp_attack": 40,
+        "sp_defense": 40,
+        "speed": 30
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 10,
+            "move": "Fire Fang"
+          }
+        ],
+        "tm_hm": [
+          "Sandstorm"
+        ],
+        "tutor": [
+          "Rock Blast",
+          "Ember"
+        ],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Lion ember cub pokemon, natural habitat in jegersberg krs, where it lies on the sunny rockformations atop the mountains. Playful when interacted with.",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/santrock/1536.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "santrock"
     }
   ]
 }

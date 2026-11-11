@@ -203,7 +203,7 @@ From the Discord concept card (Arvind Frøiland, 2026-09-30): card name: Gullmir
 195,,,,,,,=SUM(I197:N197),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 196,,,,,,,=SUM(I198:N198),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 197,,,,,,,=SUM(I199:N199),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-198,,,,,,,=SUM(I200:N200),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+198,Santrock,Fire,Rock,,,,=SUM(I200:N200),45,55,55,40,40,30,,,,0.8,35,yellow,,,,,,,,,,,,Fire Fang (10),Sandstorm,"Rock Blast, Ember",,,,"Lion ember cub pokemon, natural habitat in jegersberg krs, where it lies on the sunny rockformations atop the mountains. Playful when interacted with.",,,Casper,Casper
 199,,,,,,,=SUM(I201:N201),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 200,,,,,,,=SUM(I202:N202),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 201,,,,,,,=SUM(I203:N203),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

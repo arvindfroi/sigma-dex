@@ -4814,5 +4814,12 @@
     "file": "assets/concept-art/shadrove/1535.png",
     "caption": "[ds-follower] sprite #256",
     "editor": "Arvind"
+  },
+  {
+    "id": 1536,
+    "species": "santrock",
+    "file": "assets/concept-art/santrock/1536.webp",
+    "caption": null,
+    "editor": null
   }
 ]
