@@ -2,13 +2,15 @@
 
 Everything is kept in three places:
 
-1. **GitHub** (`arvindfroi/sigma-dex`): the full history of every species file, picture and sprite. `main` has a
-   rule that blocks force-pushes and deleting the branch, so history cannot be rewritten there.
+1. **GitHub** (`arvindfroi/sigma-dex`): the full history of every species file, picture and sprite. There is no
+   rule against force-pushes on GitHub (Arvind, 2026-11-11: not needed); the Legion's mirror below keeps every old
+   commit anyway.
 2. **The website's database** (Supabase): the edit log, uploaded pictures, the request board and the sprite studio.
 3. **The Legion, `D:\SigmaBackup`**, written every night at 04:17 by `scripts/backup.py` (Windows task
-   "Sigma dex backup"). It only ever adds:
+   "Sigma dex backup"). It only ever adds, and on a night when nothing changed it writes nothing but the log line:
    - `git\sigma-dex.git`: a mirror of GitHub whose reflogs never expire, so old commits survive even a force-push.
-   - `db\<date>\<table>.json.gz`: every table of the database, one folder per day.
+   - `db\<date>\<table>.json.gz`: every table of the database, one folder per day on which something changed
+     (`state.json` remembers what the last run saw).
    - `files\...`: every picture the database points to (uploads, Lost and found, studio tries), downloaded once.
    - `backup.log`: one line per night; a line with PROBLEMS means something was not copied.
 

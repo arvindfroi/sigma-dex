@@ -674,6 +674,17 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .tbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .tbar .grow { flex: 1; }
 .tpanel { display: grid; gap: 6px; background: var(--panel); border: 2px solid var(--line); padding: 10px; }
+.libgrid { display: grid; gap: 6px; }
+.libteam { border: 2px solid var(--line); padding: 6px 8px; }
+.libhead { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; cursor: pointer; }
+.libmons { display: flex; gap: 2px; margin-left: auto; }
+.libmons img { width: 32px; height: 32px; object-fit: contain; }
+.libmons img.px { image-rendering: pixelated; }
+.libmons .letter { width: 32px; text-align: center; }
+.libbody { display: grid; gap: 6px; margin-top: 6px; }
+.libtext { white-space: pre-wrap; font-size: 12px; margin: 0; max-height: 260px; overflow: auto; }
+.libnote { border-left: 3px solid var(--line); padding-left: 6px; }
+.libadd { display: grid; gap: 4px; }
 .tslots { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
 .tslot { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; min-height: 92px; background: var(--panel); border: 2px solid var(--line); color: inherit; }
 .tslot[aria-selected="true"] { border-color: var(--pink); background: var(--soft); }
@@ -882,6 +893,25 @@ function stageOf(s) {
   return !evolves && !prevo ? "single" : !prevo ? "first" : evolves ? "middle" : "final";
 }
 const designerOf = s => String(((s.data.credits || {}).designer) || "").trim();
+// The group's names, written one way: "arvind" counts as "Arvind" and "Emil" as "Emil Venge-Kvamme" when that is
+// the only full name starting with it. Credits like "Emil & Arvind" count for both people.
+const splitNames = text => String(text || "").split(/\s*(?:&|,|\+|\bog\b|\band\b)\s*/i).map(x => x.trim()).filter(Boolean);
+let personMap = new Map();
+function learnPeople(extra) {
+  const seen = new Map();
+  const add = n => { const k = n.toLowerCase(); const o = seen.get(k) || new Map(); o.set(n, (o.get(n) || 0) + 1); seen.set(k, o); };
+  DEX.species.forEach(s => ["designer", "artist"].forEach(k => splitNames((s.data.credits || {})[k]).forEach(add)));
+  (extra || []).forEach(n => splitNames(n).forEach(add));
+  const best = new Map([...seen].map(([k, o]) => [k, [...o].sort((a, b) => (/^[A-Z]/.test(b[0]) - /^[A-Z]/.test(a[0])) || b[1] - a[1])[0][0]]));
+  const full = [...best.values()].filter(n => /\s/.test(n));
+  personMap = new Map([...best].map(([k, n]) => {
+    const longer = /\s/.test(n) ? [] : full.filter(f => f.toLowerCase().startsWith(k + " "));
+    return [k, longer.length === 1 ? longer[0] : n];
+  }));
+}
+const person = n => personMap.get(String(n || "").trim().toLowerCase()) || String(n || "").trim();
+const people = () => [...new Set(personMap.values())].sort((a, b) => a.localeCompare(b));
+const designersOf = s => splitNames((s.data.credits || {}).designer).map(person);
 
 // What a Pokemon still needs before it can be put into the game (same rule as the game export).
 function gameNeeds(s) {
@@ -3185,7 +3215,7 @@ function renderTeams() {
   const bar = h("div", {class: "tbar"}, teamSelect, nameBox,
     h("button", {type: "button", onclick: () => { tb.teams.push({name: "Team " + (tb.teams.length + 1), mons: []}); tb.cur = tb.teams.length - 1; tb.slot = 0; redraw(); }}, "+ New team"),
     h("button", {type: "button", onclick: () => { tb.teams.push(JSON.parse(JSON.stringify(Object.assign({}, team, {name: team.name + " copy"})))); tb.cur = tb.teams.length - 1; redraw(); }}, "Copy"),
-    del, h("span", {class: "grow"}), panelBtn("import", "Import"), panelBtn("export", "Export"), panelBtn("share", "Share link"));
+    del, h("span", {class: "grow"}), panelBtn("import", "Import"), panelBtn("export", "Export"), panelBtn("share", "Share link"), panelBtn("library", "\u2605 Group's teams"));
 
   let panel = null;
   if (tb.panel === "export") {
@@ -3204,6 +3234,8 @@ function renderTeams() {
         saveTeams(); renderTeams();
         if (unknown.length) document.getElementById("notice").prepend(h("div", {class: "notice info"}, "Not in our dex: " + unknown.join(", ") + "."));
       }}, "Import as new team"), msg);
+  } else if (tb.panel === "library") {
+    panel = teamLibrary(team);
   } else if (tb.panel === "share") {
     const link = location.origin + location.pathname + "#team=" + shareCode({name: team.name, mons: team.mons});
     panel = h("div", {class: "tpanel"}, h("div", {class: "sub"}, "Anyone who opens this link gets a copy of the team in their own team list."),
@@ -3226,6 +3258,89 @@ function renderTeams() {
   const m = team.mons[tb.slot];
   const editor = m ? monEditor(m, team, redraw) : h("div", {class: "empty"}, "Press + Add to put a Pokemon in the team.");
   grid.replaceChildren(h("div", {class: "teams", style: "grid-column:1/-1"}, bar, panel, tabs, editor, teamReport(team)));
+}
+
+// ---------- the group's teams: shared in the database (species_edits rows of kind 'team' and 'teamnote') ----------
+const lib = {teams: null, notes: [], open: "", error: ""};
+async function loadLibrary() {
+  const rows = await dbRead("species_edits?select=id,kind,species_id,data,editor,created_at&kind=in.(team,teamnote)&order=id.asc");
+  const teams = new Map(), notes = [];
+  for (const r of rows) {
+    if (r.kind === "team") teams.set(r.species_id, Object.assign({id: r.species_id, first: (teams.get(r.species_id) || {}).first || r.created_at}, r.data, {when: r.created_at}));
+    else notes.push({team: r.species_id, text: r.data.text, by: r.data.by || r.editor, when: r.created_at});
+  }
+  lib.teams = [...teams.values()].filter(t => !t.deleted).sort((a, b) => String(b.when).localeCompare(String(a.when)));
+  lib.notes = notes;
+  learnPeople(lib.teams.map(t => t.by).concat(notes.map(n => n.by)));
+}
+function teamLibrary(team) {
+  const box = h("div", {class: "tpanel"});
+  if (!DEX.web.url) return h("div", {class: "tpanel"}, "The group's teams need the database, which this copy of the site does not have.");
+  if (lib.teams === null) {
+    box.append(h("div", {class: "sub"}, lib.error || "Loading the group's teams..."));
+    if (!lib.error) loadLibrary().catch(err => { lib.error = "Could not load the group's teams: " + err.message; lib.teams = null; })
+      .then(() => { if (tb.panel === "library") renderTeams(); });
+    return box;
+  }
+  const status = h("div", {class: "hint", role: "status", style: "margin:0"});
+  const filled = team.mons.filter(m => m.species);
+  const shareBtn = h("button", {type: "button", class: "primary", disabled: filled.length ? null : ""}, "Share \u201c" + team.name + "\u201d with the group");
+  shareBtn.addEventListener("click", async () => {
+    if (!me()) { status.textContent = "Write your name at the top of the page first, so the group knows whose team it is."; document.getElementById("me").focus(); return; }
+    const slug = team.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 20) || "team";
+    const id = "team-" + slug + "-" + Date.now().toString(36);
+    status.textContent = "Sharing...";
+    try {
+      await saveEdit("team", id, {name: team.name.slice(0, 60), by: person(me()), text: filled.map(exportMon).join("\n\n"), team: {name: team.name, mons: filled}});
+      lib.teams = null; lib.open = id; renderTeams();
+    } catch (err) { status.textContent = /check constraint/i.test(err.message) ? "Sharing teams is not switched on in the database yet." : err.message; }
+  });
+  const cards = lib.teams.map(t => {
+    const mons = (t.team && Array.isArray(t.team.mons) ? t.team.mons : importTeam(t.text || "").mons).slice(0, 6);
+    const notes = lib.notes.filter(n => n.team === t.id);
+    const open = lib.open === t.id;
+    const icons = h("span", {class: "libmons"}, mons.map(m => {
+      const s = speciesByName(m.species), ds = s && DEX.ds_sprites[s.id], pic = s && (ds && ds.icon ? {src: ds.icon, pixel: true} : portrait(s));
+      return pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: s.data.name, title: s.data.name}) : h("span", {class: "letter", title: m.species}, (m.species || "?")[0]);
+    }));
+    const note = h("div", {class: "hint", role: "status", style: "margin:0"});
+    const take = h("button", {type: "button", onclick: () => {
+      tb.teams.push({name: String(t.name).slice(0, 40), mons: mons.map(x => Object.assign(blankMon(), JSON.parse(JSON.stringify(x))))});
+      tb.cur = tb.teams.length - 1; tb.slot = 0; tb.panel = ""; saveTeams(); renderTeams(); }}, "Take a copy");
+    const body = open ? h("div", {class: "libbody"},
+      h("pre", {class: "libtext"}, t.text || ""),
+      h("div", {class: "libnotes"}, notes.length ? notes.map(n => h("div", {class: "libnote"}, h("b", {}, person(n.by) || "someone"), " ", h("span", {class: "sub"}, String(n.when || "").slice(0, 10)), h("div", {}, n.text)))
+        : h("div", {class: "sub"}, "No comments yet.")),
+      (() => {
+        const area = h("textarea", {rows: 2, maxlength: 1000, placeholder: "Write a comment", style: "width:100%"});
+        const send = h("button", {type: "button"}, "Comment");
+        send.addEventListener("click", async () => {
+          const text = area.value.trim();
+          if (!text) return;
+          if (!me()) { note.textContent = "Write your name at the top of the page first."; return; }
+          note.textContent = "Saving...";
+          try { await saveEdit("teamnote", t.id, {text, by: person(me())}); lib.notes.push({team: t.id, text, by: person(me()), when: new Date().toISOString()}); renderTeams(); }
+          catch (err) { note.textContent = err.message; }
+        });
+        return h("div", {class: "libadd"}, area, send);
+      })(),
+      person(t.by) && person(t.by) === person(me()) ? (() => {
+        const del = h("button", {type: "button"}, "Take it down");
+        del.addEventListener("click", () => sure(del, "Really take it down?", async () => {
+          try { await saveEdit("team", t.id, Object.assign({}, {name: t.name, by: t.by, text: t.text, team: t.team}, {deleted: true})); lib.teams = lib.teams.filter(x => x !== t); renderTeams(); }
+          catch (err) { note.textContent = err.message; }
+        }));
+        return del;
+      })() : null, note) : null;
+    return h("article", {class: "libteam"},
+      h("div", {class: "libhead", role: "button", tabindex: 0, onclick: () => { lib.open = open ? "" : t.id; renderTeams(); }},
+        h("b", {}, t.name), h("span", {class: "sub"}, " by " + (person(t.by) || "someone") + " \u00b7 " + String(t.when || "").slice(0, 10) + (notes.length ? " \u00b7 " + notes.length + " comment" + (notes.length > 1 ? "s" : "") : "")),
+        icons, take), body);
+  });
+  box.append(h("div", {class: "sub"}, "Teams the group has shared. Open one to read it and comment; Take a copy puts it in your own list."),
+    h("div", {}, shareBtn, " ", h("button", {type: "button", onclick: () => { lib.teams = null; renderTeams(); }}, "Refresh")), status,
+    cards.length ? h("div", {class: "libgrid"}, cards) : h("div", {class: "sub"}, "Nobody has shared a team yet."));
+  return box;
 }
 
 function monEditor(m, team, redraw) {
@@ -3588,7 +3703,7 @@ function render() {
   const matching = DEX.species.slice().sort((a, b) => a.data.dex - b.data.dex).filter(s =>
     !((mode === "todo" && s.complete === 100) || (mode === "problems" && !s.problems.length) || (mode === "playable" && s.gameNeeds.length))
     && (!type || (s.data.types || []).includes(type)) && (!query || JSON.stringify(s.data).toLowerCase().includes(query))
-    && (!stage || stageOf(s) === stage) && (!designer || designerOf(s) === designer)
+    && (!stage || stageOf(s) === stage) && (!designer || designersOf(s).includes(designer))
     && (!lacks || (lacks === "*sprite" ? !(DEX.ds_sprites[s.id] || {}).front : lacks === "*game" ? s.gameNeeds.length : s.missing.includes(lacks))));
   if (layout !== "list") {
     const {key, dir} = listSort;
@@ -3889,7 +4004,12 @@ document.getElementById("sort").addEventListener("input", ev => {
   const v = ev.target.value, m = v.match(/^([a-z]+)(-?1)?$/);
   if (m) { listSort = {key: m[1], dir: Number(m[2] || 1)}; render(); }
 });
-document.getElementById("designer").append(...[...new Set(DEX.species.map(designerOf).filter(Boolean))].sort((a, b) => a.localeCompare(b)).map(d => h("option", {value: d}, d)));
+learnPeople();
+document.getElementById("designer").append(...[...new Set(DEX.species.flatMap(designersOf))].sort((a, b) => a.localeCompare(b)).map(d => h("option", {value: d}, d)));
+// The name box suggests the group's names, so everyone writes theirs the same way; the browser remembers it.
+document.body.append(h("datalist", {id: "people"}, people().map(n => h("option", {value: n}))));
+meBox.setAttribute("list", "people");
+meBox.addEventListener("change", () => { const n = person(meBox.value); if (n && n !== meBox.value.trim()) { meBox.value = n; remember.set("editor", n); } });
 document.getElementById("lacks").append(h("option", {value: "*game"}, "Not playable in the game yet"), h("option", {value: "*sprite"}, "No sprite yet"),
   ...DEX.checks.filter(([section]) => section !== "Art").map(([, label]) => h("option", {value: label}, "Missing " + label)));
 document.getElementById("dialog").addEventListener("click", ev => { if (ev.target.id === "dialog" && !document.querySelector("#detail form")) closeDialog(); });

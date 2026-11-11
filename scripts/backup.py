@@ -3,17 +3,20 @@
 
     python scripts/backup.py D:\\SigmaBackup
 
-Runs every night on the Legion (Windows task "Sigma dex backup"). Three parts, none of which ever deletes anything:
+Runs every night on the Legion (Windows task "Sigma dex backup"). Nothing new is written when nothing changed since the
+last run (state.json remembers what the last run saw). Three parts, none of which ever deletes anything:
 - git/sigma-dex.git: a mirror of the GitHub repository. Every change of a branch is written to its reflog and the
   reflog never expires, so even a force-push or a deleted branch on GitHub cannot take old commits away from it.
 - db/<date>/<table>.json.gz: a full copy of every table of the website's database (the edit log, pictures,
-  request board, sprite studio jobs and tries) for that day. Old days are kept.
+  request board, shared teams, sprite studio jobs and tries), written only on a day when some table changed.
+  Old days are kept.
 - files/<path>: every picture the database points to in the "art" storage (uploads, Lost and found, studio tries).
   A picture is downloaded once; nothing here is overwritten or removed.
 A summary of each run is appended to backup.log. Restoring: docs/BACKUP.md.
 """
 import datetime
 import gzip
+import hashlib
 import json
 import re
 import subprocess
@@ -112,19 +115,31 @@ def main():
     except Exception as error:
         problems.append("git: %s" % getattr(error, "stderr", error))
 
-    found = set()
-    day_dir = target / "db" / day
-    day_dir.mkdir(parents=True, exist_ok=True)
+    state_file = target / "state.json"
+    try:
+        state = json.loads(state_file.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        state = {}
+    found, dumps, sums = set(), {}, {}
     for table in tables(base, key):
         try:
             rows = dump_table(base, key, table)
         except Exception as error:
             problems.append("table %s: %s" % (table, error))
             continue
-        with gzip.open(day_dir / (table + ".json.gz"), "wt", encoding="utf-8") as f:
-            json.dump(rows, f, ensure_ascii=False)
+        dumps[table] = json.dumps(rows, ensure_ascii=False, sort_keys=True)
+        sums[table] = hashlib.sha256(dumps[table].encode("utf-8")).hexdigest()
         pictures(rows, found)
-        lines.append("%s %d rows" % (table, len(rows)))
+    changed = sorted(t for t in sums if state.get("tables", {}).get(t) != sums[t])
+    if changed:
+        day_dir = target / "db" / day
+        day_dir.mkdir(parents=True, exist_ok=True)
+        for table, text in dumps.items():
+            with gzip.open(day_dir / (table + ".json.gz"), "wt", encoding="utf-8") as f:
+                f.write(text)
+        lines.append("database changed (%s), saved in db/%s" % (", ".join(changed), day))
+    else:
+        lines.append("database unchanged")
 
     new = failed = 0
     for path in sorted(found):
@@ -146,6 +161,8 @@ def main():
         part.replace(out)
         new += 1
     lines.append("pictures: %d known, %d new, %d failed" % (len(found), new, failed))
+    if not problems:
+        state_file.write_text(json.dumps({"tables": dict(state.get("tables", {}), **sums), "last_run": day}, indent=1), encoding="utf-8")
     if failed:
         problems.append("%d pictures could not be downloaded (tried again tomorrow)" % failed)
 

@@ -3,8 +3,8 @@ dex: 35
 name: coatail
 
 credits:
-  designer: arvind       # who came up with it (Discord name)
-  artist: arvind         # who drew the concept art
+  designer: Arvind       # who came up with it (Discord name)
+  artist: Arvind         # who drew the concept art
 
 types: [Normal]          # 1 or 2 types, e.g. [Grass, Steel]
 
