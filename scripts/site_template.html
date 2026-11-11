@@ -685,6 +685,28 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .libtext { white-space: pre-wrap; font-size: 12px; margin: 0; max-height: 260px; overflow: auto; }
 .libnote { border-left: 3px solid var(--line); padding-left: 6px; }
 .libadd { display: grid; gap: 4px; }
+.rlist { display: grid; gap: 6px; }
+.rblock { display: grid; grid-template-columns: 26px 1fr auto; gap: 6px; align-items: center; border: 2px solid var(--line); padding: 2px 6px; background: var(--panel); }
+.rmon .types .type { font-size: 10px; padding: 0 4px; }
+.rblock.moved { border-color: var(--pri); }
+.rblock.flash { animation: rflash 1.6s ease-out; border-color: var(--warn, #f5c542); }
+@keyframes rflash { from { background: rgba(245, 197, 66, .45); } to { background: var(--panel); } }
+.rblock.over { outline: 3px dashed var(--pri); }
+.rblock.rdragging { opacity: .35; }
+.rghost { position: fixed; z-index: 1000; pointer-events: none; opacity: .9; box-shadow: 0 6px 18px rgba(0,0,0,.5); }
+.rhandle { cursor: grab; font-size: 22px; text-align: center; user-select: none; }
+.rmembers { display: grid; gap: 2px; }
+.rmon { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.rmon .no { font-variant-numeric: tabular-nums; min-width: 38px; }
+.rmon img { width: 32px; height: 32px; object-fit: contain; } .rmon img.px { image-rendering: pixelated; }
+.rmon .was { font-size: 11px; color: var(--pri); }
+.ractions { display: flex; gap: 3px; align-items: center; }
+.ractions button { padding: 2px 8px; }
+.rto { width: 58px; }
+.rbar { position: sticky; top: 0; z-index: 5; background: var(--bg, #1b1630); }
+.rconfirm .chips { margin: 6px 0; }
+.rgap { border-style: dashed; opacity: .8; }
+
 .tslots { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
 .tslot { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; min-height: 92px; background: var(--panel); border: 2px solid var(--line); color: inherit; }
 .tslot[aria-selected="true"] { border-color: var(--pink); background: var(--soft); }
@@ -3000,10 +3022,12 @@ function applyLayout(layout) {
   index();
 }
 
-let plan = null;   // {ops, layout, error, sel, lines, placing} while the "Change numbers" screen is open
-// 11 Nov 2026: a grid of every slot instead of a long list. Tap Pokemon to select several, then put them at a number
-// (typed, or "Pick the spot" and tap a slot; on a computer you can also drag). Evolution lines can move together.
-// It still saves the same move / insert / close steps as before (dexlib.change_layout applies them).
+let plan = null;   // the "Change dex numbers" draft while that screen is open: {blocks, history, future, flash, single, error}
+// 11 Nov 2026 (second version, Arvind: "vanskelig å flytte rundt ... langt å dra ... forsto ikke hvor det hadde endet
+// opp ... skummelt"): the dex as one list, like a playlist. Evolution lines are blocks that move together. Move a block
+// with the arrows, by typing its new number, or by dragging the handle (mouse or finger; the list scrolls by itself).
+// Every move is highlighted and scrolled to; nothing is saved until Save, which first shows every number that changes.
+// The saved steps are the same move / close steps as before (dexlib.change_layout applies them), at most 50 per row.
 function families() {                                   // id -> every id of its evolution line
   const link = new Map(DEX.species.map(s => [s.id, new Set([s.id])]));
   for (const s of DEX.species) for (const e of s.data.evolutions || []) {
@@ -3013,116 +3037,159 @@ function families() {                                   // id -> every id of its
   }
   return link;
 }
-// The steps that put `ids` (in this order) next to each other, the first one on `slot`. Moving one Pokemon shifts the
-// ones already placed when it came from above them, so the start is corrected and tried again until it lands right.
-function blockOnce(layout, ids, slot) {
-  let cur = layout.slice();
+// Blocks: runs of neighbours from the same evolution line (or single Pokemon when "one by one" is on), in dex order.
+// Empty numbers between Pokemon are blocks too (a run of nulls), so nobody's chosen number is lost by accident.
+function makeBlocks(order, single) {
+  const fam = families(), blocks = [];
+  for (const id of order) {
+    const last = blocks[blocks.length - 1];
+    if (id === null) { if (last && last[0] === null) last.push(null); else blocks.push([null]); continue; }
+    if (!single && last && last[0] !== null && fam.get(last[0]) && fam.get(last[0]).has(id)) last.push(id); else blocks.push([id]);
+  }
+  return blocks;
+}
+const usedLayout = layout => layout.slice(0, layout.reduce((m, id, i) => id ? i + 1 : m, 0));
+const planOrder = () => plan.blocks.flat();
+// The steps that turn the saved layout into `order` (null = an empty number), from #1 on.
+function layoutOps(base, order) {
+  let cur = base.slice();
   const ops = [];
   const add = op => { cur = arrange(cur, [op]); ops.push(op); };
-  ids.forEach((id, i) => {
-    if (i === 0) { if (cur[slot - 1] !== id) add({op: "move", id, to: slot}); return; }
-    const pa = cur.indexOf(ids[i - 1]) + 1, next = pa + 1;
-    if (cur[next - 1] === id) return;
-    if (next > cur.length) throw new Error("There is no room after #" + pa + " for " + nameOf(id) + ". Pick an earlier number.");
-    add({op: "move", id, to: cur[next - 1] === null || cur.indexOf(id) + 1 > pa ? next : pa});
-  });
-  return {ops, cur};
-}
-function blockOps(layout, ids, slot) {
-  let aim = slot;
-  for (let attempt = 0; attempt < 8; attempt++) {
-    if (aim < 1 || aim > layout.length) break;
-    const {ops, cur} = blockOnce(layout, ids, aim);
-    const at = ids.map(id => cur.indexOf(id) + 1);
-    const together = at.every((p, i) => !i || p === at[i - 1] + 1);
-    if (together && at[0] === slot) return ops;
-    if (!together) break;
-    aim += slot - at[0];
+  for (let k = 1; k <= order.length; k++) {
+    if (order[k - 1] === null) { if (cur[k - 1] !== null) add({op: "insert", at: k}); continue; }
+    let guard = 0;
+    while (cur[k - 1] === null && guard++ < cur.length) add({op: "close", at: k});
+    if (cur[k - 1] !== order[k - 1]) add({op: "move", id: order[k - 1], to: k});
   }
-  throw new Error("They could not be put at #" + slot + " next to each other. Try another number.");
+  while (cur.slice(order.length).some(Boolean) && ops.length < 1000) add({op: "close", at: order.length + 1});
+  const want = order.concat(Array(base.length - order.length).fill(null));
+  if (cur.some((id, i) => id !== want[i])) throw new Error("The new order could not be worked out. Nothing was saved; please tell Arvind.");
+  return ops;
+}
+function openReorder() {
+  const order = usedLayout(currentLayout());
+  plan = {blocks: makeBlocks(order, false), history: [], future: [], flash: null, single: false, error: "", confirm: false};
 }
 function renderReorder() {
-  const grid = document.getElementById("grid"), base = currentLayout(), fam = families();
-  plan.sel ||= []; if (plan.lines === undefined) plan.lines = true;
-  const step = ops => {
-    try { plan.layout = arrange(plan.layout, ops); plan.ops.push(...ops); plan.error = ""; } catch (err) { plan.error = err.message; }
-    render();
+  const grid = document.getElementById("grid"), base = currentLayout(), wasAt = new Map(base.map((id, i) => [id, i + 1]).filter(([id]) => id));
+  const order = planOrder(), now = new Map(order.map((id, i) => [id, i + 1]).filter(([id]) => id));
+  const moved = order.filter(id => id && wasAt.get(id) !== now.get(id));
+  const commit = (blocks, flash) => { plan.history.push(plan.blocks); plan.future = []; plan.blocks = blocks; plan.flash = flash; plan.error = ""; render(); };
+  const moveBlock = (from, to) => {
+    if (to < 0 || to >= plan.blocks.length || to === from) return;
+    const blocks = plan.blocks.slice(), [b] = blocks.splice(from, 1);
+    blocks.splice(to, 0, b); commit(blocks, b[0]);
   };
-  // the selected Pokemon (with their lines when that is on), in dex order as it is now
-  const chosen = () => {
-    const ids = new Set();
-    for (const id of plan.sel) for (const x of plan.lines ? fam.get(id) || [id] : [id]) ids.add(x);
-    return [...ids].filter(id => plan.layout.includes(id)).sort((a, b) => plan.layout.indexOf(a) - plan.layout.indexOf(b));
+  const moveToNumber = (from, n) => {                    // put the block so its first Pokemon gets number n
+    const blocks = plan.blocks.slice(), [b] = blocks.splice(from, 1);
+    let best = 0, bestDist = Infinity, pos = 1;              // lines are not split, so take the block border nearest to n
+    for (let i = 0; i <= blocks.length; i++) {
+      if (Math.abs(pos - n) < bestDist) { best = i; bestDist = Math.abs(pos - n); }
+      if (i < blocks.length) pos += blocks[i].length;
+    }
+    blocks.splice(best, 0, b); commit(blocks, b[0]);
   };
-  const putAt = slot => {
-    const ids = chosen();
-    if (!ids.length) return;
-    try { const ops = blockOps(plan.layout, ids, slot); plan.placing = false; plan.sel = []; if (ops.length) stepGroup(ops); else render(); }
-    catch (err) { plan.error = err.message; render(); }
+  const undo = () => { if (!plan.history.length) return; plan.future.push(plan.blocks); plan.blocks = plan.history.pop(); plan.flash = null; render(); };
+  const redo = () => { if (!plan.future.length) return; plan.history.push(plan.blocks); plan.blocks = plan.future.pop(); plan.flash = null; render(); };
+  const reset = () => { if (!plan.history.length) return; plan.history.push(plan.blocks); plan.future = []; plan.blocks = makeBlocks(usedLayout(base), plan.single); plan.flash = null; render(); };
+  const removeGap = bi => { const blocks = plan.blocks.slice(); blocks.splice(bi, 1); commit(blocks, null); };
+  const toggleSingle = ev => { plan.single = ev.target.checked; plan.blocks = makeBlocks(planOrder(), plan.single); render(); };
+  const gapsNow = order.filter(id => id === null).length, gapsBefore = usedLayout(base).filter(id => id === null).length;
+  const changed = moved.length || gapsNow !== gapsBefore;
+  const doSave = async btn => {
+    btn.disabled = true; btn.textContent = "Saving...";
+    try {
+      const ops = layoutOps(base, planOrder());
+      for (let i = 0; i < ops.length; i += 50) await saveEdit("reorder", "reorder", {ops: ops.slice(i, i + 50)});
+      applyLayout(arrange(base, ops)); plan = null; view = "species"; render();
+      document.getElementById("notice").prepend(h("div", {class: "notice info"}, "The new dex order is saved."));
+    } catch (err) { plan.error = err.message; plan.confirm = false; render(); }
   };
-  const undo = () => { plan.ops = plan.ops.slice(0, plan.ops.length - (plan.groups || [1]).pop()); plan.layout = arrange(base, plan.ops); plan.error = ""; render(); };
-  const stepGroup = ops => { (plan.groups ||= []).push(ops.length); step(ops); };
-  const closeGaps = () => {                                   // every empty slot between Pokemon, from the back
-    const last = plan.layout.reduce((m, id, i) => id ? i : m, -1), ops = [];
-    for (let i = last; i >= 0; i--) if (plan.layout[i] === null) ops.push({op: "close", at: i + 1});
-    if (ops.length) stepGroup(ops);
-  };
-  const save = h("button", {class: "primary", type: "button", disabled: !plan.ops.length}, "Save new order");
-  save.addEventListener("click", async () => {
-    save.disabled = true; save.textContent = "Saving...";
-    try { await saveEdit("reorder", "reorder", {ops: plan.ops}); applyLayout(plan.layout); plan = null; view = "species"; render(); }
-    catch (err) { plan.error = err.message; render(); }
-  });
-  const to = h("input", {type: "number", min: 1, max: DEX.dex_size, placeholder: "#", "aria-label": "Put them at number"});
-  const ids = chosen(), moved = DEX.species.filter(s => plan.layout.indexOf(s.id) !== base.indexOf(s.id));
-  const bar = h("div", {class: "bar"},
-    h("div", {class: "grow"}, h("b", {}, "Changing dex numbers"),
-      h("div", {class: "sub"}, ids.length ? ids.length + " selected" + (plan.lines && ids.length > plan.sel.length ? " (with their evolution lines)" : "") + ": " + ids.map(nameOf).join(", ")
-        : "Tap Pokemon to select them" + (matchMedia("(pointer: fine)").matches ? ", or drag one onto a slot" : "") + ".")),
-    h("label", {class: "sub", style: "display:flex;gap:4px;align-items:center"}, h("input", {type: "checkbox", checked: plan.lines ? "" : null, onchange: ev => { plan.lines = ev.target.checked; render(); }}), "Move evolution lines together"),
-    ids.length ? [to, h("button", {type: "button", onclick: () => to.value && putAt(Number(to.value))}, "Put at #"),
-      h("button", {type: "button", "aria-pressed": String(!!plan.placing), onclick: () => { plan.placing = !plan.placing; render(); }}, plan.placing ? "Tap a slot..." : "Pick the spot"),
-      h("button", {type: "button", onclick: () => { const first = plan.layout.indexOf(ids[0]) + 1; stepGroup([{op: "insert", at: first}]); }}, "Empty slot before"),
-      h("button", {type: "button", onclick: () => { plan.sel = []; plan.placing = false; render(); }}, "Clear selection")] : null,
-    h("button", {type: "button", onclick: closeGaps}, "Close all gaps"),
-    h("button", {type: "button", disabled: !plan.ops.length, onclick: undo}, "Undo"),
-    h("button", {type: "button", disabled: !plan.ops.length, onclick: () => { plan.ops = []; plan.groups = []; plan.layout = base.slice(); plan.error = ""; render(); }}, "Start over"),
-    save, h("button", {type: "button", onclick: () => { plan = null; view = "species"; render(); }}, "Cancel"),
+  const save = h("button", {class: "primary", type: "button", disabled: !changed, onclick: () => { plan.confirm = true; render(); }}, "Save…");
+  const find = h("input", {type: "search", placeholder: "Find a Pokemon", "aria-label": "Find a Pokemon", style: "max-width:170px"});
+  find.addEventListener("change", () => { const q = find.value.trim().toLowerCase(); const s = DEX.species.find(x => String(x.data.name).toLowerCase().startsWith(q)); if (s) { plan.flash = s.id; render(); } });
+  const bar = h("div", {class: "bar rbar"},
+    h("div", {class: "grow"}, h("b", {}, "Draft"), h("span", {class: "sub"}, " · nothing changes until you save · " + (moved.length ? moved.length + " Pokemon get a new number" : changed ? "empty numbers changed" : "no changes yet"))),
+    find,
+    h("label", {class: "sub", style: "display:flex;gap:4px;align-items:center"}, h("input", {type: "checkbox", checked: plan.single ? "" : null, onchange: toggleSingle}), "one by one"),
+    h("button", {type: "button", disabled: !plan.history.length, onclick: undo}, "↶ Undo"),
+    h("button", {type: "button", disabled: !plan.future.length, onclick: redo}, "↷ Redo"),
+    h("button", {type: "button", disabled: !plan.history.length, onclick: reset}, "Start over"),
+    save, h("button", {type: "button", onclick: () => { plan = null; view = "species"; render(); }}, "Close"),
     plan.error ? h("div", {class: "error", style: "flex-basis:100%"}, plan.error) : null);
-  const changes = moved.length ? h("details", {class: "hint"}, h("summary", {}, moved.length + " Pokemon get a new number (not saved yet)"),
-    h("div", {class: "chips"}, moved.sort((a, b) => plan.layout.indexOf(a.id) - plan.layout.indexOf(b.id)).map(s =>
-      h("span", {class: "chip"}, s.data.name + " #" + pad(base.indexOf(s.id) + 1) + " → #" + pad(plan.layout.indexOf(s.id) + 1))))) : null;
-  const help = h("details", {class: "hint"}, h("summary", {}, "How this works"),
-    "Tap one or more Pokemon to select them (tap again to unselect). Then type a number and press Put at #, or press Pick the spot and tap a slot. ",
-    "They go there next to each other, in the order they have now; if the slot is taken, the Pokemon from there on move down one to make room. ",
-    "With \"Move evolution lines together\" on, selecting one Pokemon takes its whole line along. Close all gaps removes the empty slots between Pokemon. ",
-    "Nothing changes until you press Save; it is applied within about 15 minutes. Undo takes back the last change.");
-  const sel = new Set(ids);
-  const tiles = plan.layout.map((id, i) => {
-    const n = i + 1, s = id && byId.get(id), was = s ? base.indexOf(id) + 1 : 0;
-    const pic = s && ((DEX.ds_sprites[id] || {}).icon ? {src: DEX.ds_sprites[id].icon, pixel: true} : portrait(s));
-    const tile = h("button", {type: "button", class: "rtile" + (s ? "" : " open") + (s && was !== n ? " moved" : "") + (sel.has(id) ? " sel" : "") + (plan.placing ? " target" : ""),
-      "aria-pressed": s ? String(sel.has(id)) : null, title: s ? (plan.placing ? "Put the selected here" : "Select " + s.data.name) : (plan.placing ? "Put the selected here" : "Open slot"),
-      draggable: s && matchMedia("(pointer: fine)").matches ? "true" : null,
-      onclick: () => {
-        if (plan.placing) return putAt(n);
-        if (!s) return;
-        plan.sel = plan.sel.includes(id) ? plan.sel.filter(x => x !== id) : plan.sel.concat(id);
-        render();
-      }},
-      h("span", {class: "no"}, "#" + pad(n)),
-      s ? (pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: "", loading: "lazy"}) : h("span", {class: "letter"}, (s.data.name || "?")[0])) : h("span", {class: "letter"}, "·"),
-      h("span", {class: "nm"}, s ? s.data.name : "open"),
-      s && was !== n ? h("span", {class: "was"}, "was #" + pad(was)) : null);
-    if (s) tile.addEventListener("dragstart", ev => { ev.dataTransfer.setData("text/plain", id); if (!plan.sel.includes(id)) plan.sel = [id]; });
-    tile.addEventListener("dragover", ev => { ev.preventDefault(); tile.classList.add("over"); });
-    tile.addEventListener("dragleave", () => tile.classList.remove("over"));
-    tile.addEventListener("drop", ev => { ev.preventDefault(); if (plan.layout.includes(ev.dataTransfer.getData("text/plain"))) putAt(n); else tile.classList.remove("over"); });
-    if (!s && !plan.placing) tile.append(h("span", {class: "gapx", role: "button", tabindex: "0", title: "Remove this empty slot",
-      onclick: ev => { ev.stopPropagation(); stepGroup([{op: "close", at: n}]); }}, "✕"));
-    return tile;
+  const help = h("div", {class: "sub"}, "Evolution lines move as one block. Use ▲ ▼ to move a block one step, type a number to send it there, or drag ⠇ (also with a finger; the list scrolls when you reach the edge). " +
+    "Everything you move lights up and the page jumps to it. Empty numbers are shown as their own rows: move them like a block, or press ✕ to remove them. Saving shows every change first, and old orders are kept in the history.");
+  let pos = 0;
+  const rows = plan.blocks.map((b, bi) => {
+    const start = pos + 1; pos += b.length;
+    const hot = b.includes(plan.flash);
+    const to = h("input", {type: "number", min: 1, max: order.length, placeholder: "#", "aria-label": "New number", class: "rto"});
+    to.addEventListener("change", () => { const n = Number(to.value); if (n >= 1 && n <= order.length) moveToNumber(bi, n); });
+    const handle = h("span", {class: "rhandle", title: "Drag to move", "aria-hidden": "true"}, "⠇");
+    if (b[0] === null) {
+      const el = h("div", {class: "rblock rgap", "data-bi": bi}, handle,
+        h("div", {class: "sub"}, b.length === 1 ? "Empty number #" + pad(start) : b.length + " empty numbers (#" + pad(start) + "–#" + pad(start + b.length - 1) + ")"),
+        h("div", {class: "ractions"}, h("button", {type: "button", title: "Remove the empty numbers", onclick: () => removeGap(bi)}, "✕")));
+      dragBlock(handle, el, bi, moveBlock);
+      return el;
+    }
+    const el = h("div", {class: "rblock" + (hot ? " flash" : "") + (b.some(id => wasAt.get(id) !== now.get(id)) ? " moved" : ""), "data-bi": bi},
+      handle,
+      h("div", {class: "rmembers"}, b.map((id, k) => {
+        const s = byId.get(id), n = start + k, was = wasAt.get(id);
+        const pic = s && ((DEX.ds_sprites[id] || {}).icon ? {src: DEX.ds_sprites[id].icon, pixel: true} : portrait(s));
+        return h("div", {class: "rmon"}, h("span", {class: "no"}, "#" + pad(n)),
+          pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: "", loading: "lazy"}) : h("span", {class: "letter"}, (s.data.name || "?")[0]),
+          h("span", {class: "nm"}, s.data.name), h("span", {class: "types"}, (s.data.types || []).map(typeChip)),
+          was !== n ? h("span", {class: "was"}, "was #" + pad(was)) : null);
+      })),
+      h("div", {class: "ractions"},
+        h("button", {type: "button", title: "One step up", disabled: bi === 0 ? "" : null, onclick: () => moveBlock(bi, bi - 1)}, "▲"),
+        h("button", {type: "button", title: "One step down", disabled: bi === plan.blocks.length - 1 ? "" : null, onclick: () => moveBlock(bi, bi + 1)}, "▼"),
+        to));
+    dragBlock(handle, el, bi, moveBlock);
+    return el;
   });
-  grid.replaceChildren(h("div", {class: "reorder", style: "grid-column:1/-1"}, bar, changes, help, h("div", {class: "rgrid"}, tiles)));
+  const confirm = plan.confirm ? h("div", {class: "notice info rconfirm"},
+    h("b", {}, "Save this order?"), h("div", {}, moved.length ? moved.length + " Pokemon get a new number:" : "Only empty numbers change."),
+    h("div", {class: "chips"}, moved.sort((a, b) => now.get(a) - now.get(b)).map(id => h("span", {class: "chip"}, nameOf(id) + " #" + pad(wasAt.get(id)) + " → #" + pad(now.get(id))))),
+    h("div", {class: "sub"}, "You can always change it again, and every old order is kept in the history."),
+    (() => { const b = h("button", {type: "button", class: "primary"}, "Yes, save"); b.addEventListener("click", () => doSave(b)); return b; })(),
+    " ", h("button", {type: "button", onclick: () => { plan.confirm = false; render(); }}, "Back to the draft")) : null;
+  grid.replaceChildren(h("div", {class: "reorder", style: "grid-column:1/-1"}, bar, confirm, help, h("div", {class: "rlist"}, rows)));
+  if (plan.flash) { const el = grid.querySelector(".rblock.flash"); if (el) el.scrollIntoView({block: "center", behavior: "smooth"}); }
+}
+// Drag a block by its handle with mouse, pen or finger. The list scrolls by itself near the top or bottom of the screen.
+function dragBlock(handle, el, bi, moveBlock) {
+  handle.style.touchAction = "none";
+  handle.addEventListener("pointerdown", ev => {
+    ev.preventDefault();
+    const ghost = el.cloneNode(true); ghost.classList.add("rghost");
+    const rect = el.getBoundingClientRect();
+    ghost.style.width = rect.width + "px"; document.body.append(ghost);
+    el.classList.add("rdragging");
+    let target = bi, y = ev.clientY, timer = null;
+    const place = () => {
+      ghost.style.top = (y - 20) + "px"; ghost.style.left = rect.left + "px";
+      const under = document.elementsFromPoint(rect.left + 30, y).find(x => x.classList && x.classList.contains("rblock") && x !== ghost);
+      document.querySelectorAll(".rblock.over").forEach(x => x.classList.remove("over"));
+      if (under) { target = Number(under.dataset.bi); under.classList.add("over"); }
+    };
+    const scroll = () => {
+      const edge = 70, speed = y < edge ? -(edge - y) / 2 : y > innerHeight - edge ? (y - (innerHeight - edge)) / 2 : 0;
+      if (speed) { window.scrollBy(0, speed); place(); }
+      timer = requestAnimationFrame(scroll);
+    };
+    const move = e => { y = e.clientY; place(); };
+    const up = () => {
+      cancelAnimationFrame(timer); ghost.remove(); el.classList.remove("rdragging");
+      document.querySelectorAll(".rblock.over").forEach(x => x.classList.remove("over"));
+      removeEventListener("pointermove", move); removeEventListener("pointerup", up); removeEventListener("pointercancel", up);
+      if (target !== bi) moveBlock(bi, target);
+    };
+    addEventListener("pointermove", move); addEventListener("pointerup", up); addEventListener("pointercancel", up);
+    place(); timer = requestAnimationFrame(scroll);
+  });
 }
 
 // ---------- team builder (11 Nov 2026: "team building, as close to Showdown as possible") ----------
@@ -3634,7 +3701,7 @@ function renderList(list) {
 let view = "species";
 const MAIN_TABS = [["species", "POKEDEX", "purple"], ["teams", "TEAMS", "pink"], ["board", "REQUESTS", "pink"], ["sprites", "SPRITES", "blue"], ["progress", "PROGRESS", "sky"]];
 const MORE = [["lost", "Lost and found"], ["evo", "Evolution lines"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Balance"], ["chars", "Characters (work in progress)"], ["reorder", "Change dex numbers"]];
-const WIDE_VIEWS = ["board", "progress", "teams", "chars"];
+const WIDE_VIEWS = ["board", "progress", "teams", "chars", "reorder"];
 // What the top screen's dialog box says on each page.
 const PAGE_HELP = {
   species: "Welcome to the " + DEX.project + "!\nPoint at a Pokemon to see it up here. Tap it to open its page, change it or draw its sprites.",
@@ -3701,7 +3768,7 @@ function drawDayNight() {
 function renderNav() {
   const count = kind => DEX.custom[kind].length + undescribed(kind).length;
   const label = id => id === "lost" ? "Lost and found" + (lostCount !== null ? " (" + lostCount + ")" : "") : id === "move" ? "New moves (" + count("move") + ")" : id === "ability" ? "New abilities (" + count("ability") + ")" : MORE.find(m => m[0] === id)[1];
-  const go = id => () => { view = id; if (id === "reorder") plan = {ops: [], layout: currentLayout(), error: ""}; else plan = null; render(); window.scrollTo(0, 0); };
+  const go = id => () => { view = id; if (id === "reorder") openReorder(); else plan = null; render(); window.scrollTo(0, 0); };
   const inMore = MORE.some(m => m[0] === view);
   const more = h("details", {}, h("summary", {"aria-pressed": String(inMore)}, inMore ? label(view).toUpperCase() + " ▾" : "MORE ▾"),
     h("div", {class: "menu"}, MORE.filter(([id]) => (id !== "reorder" && id !== "lost") || DEX.web.url).map(([id]) => h("button", {type: "button", onclick: go(id)}, label(id)))));
