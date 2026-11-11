@@ -2,39 +2,270 @@
 # Names are left out on purpose (no spoilers for those who have not played the game); the real names are in
 # docs/CHARACTERS.md. Shown on the website under MORE > Characters. Claims are saved on the website.
 # group: what kind of character; type: the type of their team and of their surroundings; rule: a gym rule.
-- {id: johto-gym-flying, group: Gym leader (Johto), type: Flying, place: "a gym high up, open to the wind", rule: "only Flying Pokemon may be used"}
-- {id: johto-gym-bug, group: Gym leader (Johto), type: Bug, place: "a gym full of plants and insects", rule: "no type advantage allowed"}
-- {id: johto-gym-normal, group: Gym leader (Johto), type: Normal, place: "a cheerful gym in a big city"}
-- {id: johto-gym-ghost, group: Gym leader (Johto), type: Ghost, place: "a dark, haunted gym"}
-- {id: johto-gym-ice, group: Gym leader (Johto), type: Ice, place: "a frozen gym with slippery ice"}
-- {id: johto-gym-steel, group: Gym leader (Johto), type: Steel, place: "a gym by the sea and a lighthouse", rule: "only Pokemon with base Defense 130 or more"}
-- {id: johto-gym-fighting, group: Gym leader (Johto), type: Fighting, place: "a training dojo by a waterfall"}
-- {id: johto-gym-dragon, group: Gym leader (Johto), type: Dragon, place: "a gym with lava and dragon statues", rule: "only Dragon Pokemon"}
-- {id: kanto-gym-electric, group: Gym leader (Kanto), type: Electric, place: "a gym with electric locks and traps"}
-- {id: kanto-gym-rock, group: Gym leader (Kanto), type: Rock, place: "a rocky gym in a mountain town"}
-- {id: kanto-gym-grass, group: Gym leader (Kanto), type: Grass, place: "a garden gym full of flowers"}
-- {id: kanto-gym-poison, group: Gym leader (Kanto), type: Poison, place: "a ninja gym with invisible walls"}
-- {id: kanto-gym-psychic, group: Gym leader (Kanto), type: Psychic, place: "a gym with teleport tiles"}
-- {id: kanto-gym-fire, group: Gym leader (Kanto), type: Fire, place: "a gym near a volcano"}
-- {id: kanto-water, group: Strong trainer (Kanto), type: Water, place: "a city on the water; acts like a gym leader"}
-- {id: e4-ice, group: Elite Four, type: Ice, place: "an icy room"}
-- {id: e4-fighting, group: Elite Four, type: Fighting, place: "a rocky arena"}
-- {id: e4-ghost, group: Elite Four, type: Ghost, place: "a dark room"}
-- {id: e4-ghost-poison, group: Elite Four, type: Ghost / Poison, place: "a room of shadows"}
-- {id: e4-dragon-flying-1, group: Elite Four, type: Flying / Dragon, place: "a room high in the sky"}
-- {id: e4-dragon-flying-2, group: Elite Four, type: Flying / Dragon, place: "a dragon room"}
-- {id: champion-1, group: Champion, type: mixed (Steel leaning), place: "neutral arena", note: "less important: neutral surroundings, mixed team"}
-- {id: champion-2, group: Champion, type: mixed, place: "neutral arena", note: "less important: neutral surroundings, mixed team"}
-- {id: villain-water, group: Villain (executive), type: Water, place: "the sea and storms"}
-- {id: villain-fire, group: Villain (executive), type: Fire, place: "volcanoes and lava"}
-- {id: villain-flying, group: Villain (executive), type: Flying, place: "the sky; collects legendary birds"}
-- {id: villain-ghost, group: Villain (executive), type: Ghost, place: "ruins and dark places"}
-- {id: villain-rock, group: Villain (executive), type: Rock / Ground, place: "caves and quarries"}
-- {id: villain-poison, group: Villain (executive), type: Poison / Dark, place: "hideouts"}
-- {id: villain-boss, group: Villain (boss), type: Ground / Poison, place: "the villains' headquarters"}
-- {id: villains-mixed, group: Villain (other executives, 4 of them), type: mixed, place: "hideouts"}
-- {id: elder-grass, group: Elder (side boss), type: Grass, place: "a sacred grove"}
-- {id: elder-ice, group: Elder (side boss), type: Ice, place: "a snowy shrine"}
-- {id: elder-dragon, group: Elder (side boss), type: Dragon, place: "a dragon shrine"}
-- {id: rival, group: Rival, type: mixed, place: "everywhere; battles you many times"}
-- {id: friends, group: Friends / other main characters (5 of them), type: mixed, place: "travel with you in the story"}
+# battles: how many times this character fights the player in Origin (each needs its own team);
+# levels: the highest level in each of those teams, lowest first (from the ROM, docs/CHARACTERS.md has the names).
+- id: johto-gym-flying
+  group: Gym leader (Johto)
+  type: Flying
+  place: a gym high up, open to the wind
+  rule: only Flying Pokemon may be used
+  battles: 2
+  levels: [80, 87]
+- id: johto-gym-bug
+  group: Gym leader (Johto)
+  type: Bug
+  place: a gym full of plants and insects
+  rule: no type advantage allowed
+  battles: 2
+  levels: [80, 87]
+- id: johto-gym-normal
+  group: Gym leader (Johto)
+  type: Normal
+  place: a cheerful gym in a big city
+  battles: 2
+  levels: [88, 88]
+- id: johto-gym-ghost
+  group: Gym leader (Johto)
+  type: Ghost
+  place: a dark, haunted gym
+  battles: 2
+  levels: [80, 88]
+- id: johto-gym-ice
+  group: Gym leader (Johto)
+  type: Ice
+  place: a frozen gym with slippery ice
+  battles: 2
+  levels: [85, 90]
+- id: johto-gym-steel
+  group: Gym leader (Johto)
+  type: Steel
+  place: a gym by the sea and a lighthouse
+  rule: only Pokemon with base Defense 130 or more
+  battles: 2
+  levels: [80, 88]
+- id: johto-gym-fighting
+  group: Gym leader (Johto)
+  type: Fighting
+  place: a training dojo by a waterfall
+  battles: 2
+  levels: [80, 89]
+- id: johto-gym-dragon
+  group: Gym leader (Johto)
+  type: Dragon
+  place: a gym with lava and dragon statues
+  rule: only Dragon Pokemon
+  battles: 2
+  levels: [85, 90]
+- id: kanto-gym-electric
+  group: Gym leader (Kanto)
+  type: Electric
+  place: a gym with electric locks and traps
+  battles: 3
+  levels: [25, 25, 88]
+- id: kanto-gym-rock
+  group: Gym leader (Kanto)
+  type: Rock
+  place: a rocky gym in a mountain town
+  battles: 3
+  levels: [12, 82, 87]
+- id: kanto-gym-grass
+  group: Gym leader (Kanto)
+  type: Grass
+  place: a garden gym full of flowers
+  battles: 2
+  levels: [38, 88]
+- id: kanto-gym-poison
+  group: Gym leader (Kanto)
+  type: Poison
+  place: a ninja gym with invisible walls
+  battles: 4
+  levels: [46, 55, 80, 90]
+- id: kanto-gym-psychic
+  group: Gym leader (Kanto)
+  type: Psychic
+  place: a gym with teleport tiles
+  battles: 3
+  levels: [80, 90, 90]
+- id: kanto-gym-fire
+  group: Gym leader (Kanto)
+  type: Fire
+  place: a gym near a volcano
+  battles: 2
+  levels: [65, 89]
+- id: kanto-water
+  group: Strong trainer (Kanto)
+  type: Water
+  place: a city on the water; acts like a gym leader
+  battles: 10
+  levels: [6, 12, 15, 19, 20, 41, 65, 82, 87, 87]
+- id: e4-ice
+  group: Elite Four
+  type: Ice
+  place: an icy room
+  battles: 2
+  levels: [89, 93]
+- id: e4-fighting
+  group: Elite Four
+  type: Fighting
+  place: a rocky arena
+  battles: 2
+  levels: [88, 92]
+- id: e4-ghost
+  group: Elite Four
+  type: Ghost
+  place: a dark room
+  battles: 1
+  levels: [90]
+- id: e4-ghost-poison
+  group: Elite Four
+  type: Ghost / Poison
+  place: a room of shadows
+  battles: 1
+  levels: [94]
+  note: the same character as the Kanto Poison gym leader
+- id: e4-dragon-flying-1
+  group: Elite Four
+  type: Flying / Dragon
+  place: a room high in the sky
+  battles: 1
+  levels: [90]
+- id: e4-dragon-flying-2
+  group: Elite Four
+  type: Flying / Dragon
+  place: a dragon room
+  battles: 1
+  levels: [95]
+- id: champion-1
+  group: Champion
+  type: mixed (Steel leaning)
+  place: neutral arena
+  note: 'less important: neutral surroundings, mixed team'
+  battles: 9
+  levels: [5, 12, 15, 20, 35, 42, 65, 83, 96]
+- id: champion-2
+  group: Champion
+  type: mixed
+  place: neutral arena
+  note: 'less important: neutral surroundings, mixed team'
+  battles: 9
+  levels: [5, 9, 15, 24, 30, 35, 42, 55, 96]
+- id: villain-water
+  group: Villain (executive)
+  type: Water
+  place: the sea and storms
+  battles: 7
+  levels: [40, 45, 50, 72, 89, 90, 100]
+- id: villain-fire
+  group: Villain (executive)
+  type: Fire
+  place: volcanoes and lava
+  battles: 8
+  levels: [45, 45, 45, 50, 50, 74, 89, 100]
+- id: villain-flying
+  group: Villain (executive)
+  type: Flying
+  place: the sky; collects legendary birds
+  battles: 6
+  levels: [50, 74, 88, 90, 95, 100]
+- id: villain-ghost
+  group: Villain (executive)
+  type: Ghost
+  place: ruins and dark places
+  battles: 4
+  levels: [88, 88, 100, 100]
+- id: villain-rock
+  group: Villain (executive)
+  type: Rock / Ground
+  place: caves and quarries
+  battles: 5
+  levels: [55, 75, 90, 90, 100]
+- id: villain-poison
+  group: Villain (executive)
+  type: Poison / Dark
+  place: hideouts
+  battles: 6
+  levels: [24, 40, 50, 70, 87, 95]
+- id: villain-boss
+  group: Villain (boss)
+  type: Ground / Poison
+  place: the villains' headquarters
+  battles: 8
+  levels: [100, 100, 100, 100, 100, 100, 100, 100]
+- id: villain-mixed-1
+  group: Villain (executive)
+  type: Fire / Flying / Dark
+  place: hideouts and the old tower
+  battles: 3
+  levels: [92, 95, 100]
+- id: villain-mixed-2
+  group: Villain (executive)
+  type: mixed
+  place: hideouts and the radio
+  battles: 3
+  levels: [33, 87, 95]
+- id: villain-mixed-3
+  group: Villain (executive)
+  type: Flying / Dark / Water
+  place: a distant region's team
+  battles: 4
+  levels: [90, 90, 100, 100]
+- id: villain-mixed-4
+  group: Villain (executive)
+  type: Dark / Steel / Dragon
+  place: the shadows
+  battles: 3
+  levels: [90, 90, 100]
+- id: elder-grass
+  group: Elder (side boss)
+  type: Grass
+  place: a sacred grove
+  battles: 1
+  levels: [82]
+- id: elder-ice
+  group: Elder (side boss)
+  type: Ice
+  place: a snowy shrine
+  battles: 1
+  levels: [82]
+- id: elder-dragon
+  group: Elder (side boss)
+  type: Dragon
+  place: a dragon shrine
+  battles: 1
+  levels: [90]
+- id: rival
+  group: Rival
+  type: mixed
+  place: everywhere; battles you many times
+  battles: 19
+  levels: [5, 7, 12, 16, 19, 22, 24, 24, 28, 30, 34, 42, 50, 70, 76, 76, 93, 97, 97]
+- id: friend-1
+  group: Friend / main character
+  type: Grass / Fairy / Normal
+  place: travels with you; from the start town
+  battles: 8
+  levels: [8, 15, 20, 23, 27, 33, 42, 93]
+- id: friend-2
+  group: Friend / main character
+  type: Water / Fire / Flying
+  place: travels with you in Johto
+  battles: 11
+  levels: [11, 14, 30, 34, 36, 37, 46, 61, 96, 97, 97]
+- id: friend-3
+  group: Friend / main character
+  type: Grass / Psychic / Ground
+  place: travels with you in Johto
+  battles: 9
+  levels: [24, 24, 25, 30, 45, 61, 81, 90, 95]
+- id: friend-4
+  group: Friend / main character
+  type: Rock / Normal / Flying
+  place: a friend from the forest
+  battles: 2
+  levels: [82, 92]
+- id: friend-5
+  group: Friend / main character
+  type: Psychic / Flying / Ghost
+  place: chases legendary beasts
+  battles: 1
+  levels: [75]

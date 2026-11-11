@@ -2882,6 +2882,7 @@ function ourLines() {
   return {lines, bst, strong, normal, mono: typed.filter(s => new Set(s.data.types).size === 1).length, typed: typed.length};
 }
 // ---------- characters the group can claim (no names, no spoilers); claims are species_edits rows of kind 'claim' ----------
+const CLAIMS_OPEN = false;   // work in progress (Arvind, 2026-11-11): nobody claims yet
 let claims = null, claimsError = "";
 async function loadClaims() {
   const rows = await dbRead("species_edits?select=id,species_id,data,editor&kind=eq.claim&order=id.asc");
@@ -2907,16 +2908,17 @@ function renderCharacters() {
   for (const c of DEX.characters || []) { let g = groups.find(x => x.name === c.group); if (!g) groups.push(g = {name: c.group, rows: []}); g.rows.push(c); }
   const taken = (DEX.characters || []).filter(c => (claims || new Map()).get(c.id)).length;
   grid.replaceChildren(h("div", {style: "grid-column:1/-1"},
-    h("div", {class: "sub"}, taken + " of " + (DEX.characters || []).length + " roles claimed. Names are hidden on purpose; the type is the type of their team and their surroundings."), status,
+    h("div", {class: "notice info"}, h("b", {}, "Work in progress. "), "This page is not ready yet: claiming is closed for now. Soon each role gets your own trainer picture and the teams you fight with."),
+    h("div", {class: "sub"}, (DEX.characters || []).length + " roles. Names are hidden on purpose; the type is the type of their team and their surroundings; battles = how many teams the role needs."), status,
     groups.map(g => h("div", {class: "box"}, h("h3", {}, g.name), h("div", {class: "scroll"}, h("table", {class: "balance"},
-      h("tr", {}, h("th", {}, "Type"), h("th", {}, "Surroundings"), h("th", {}, "Rule / note"), h("th", {}, "Claimed by"), h("th", {}, "")),
+      h("tr", {}, h("th", {}, "Type"), h("th", {}, "Surroundings"), h("th", {}, "Rule / note"), h("th", {}, "Battles"), h("th", {}, "Claimed by"), h("th", {}, "")),
       g.rows.map(c => {
         const by = (claims || new Map()).get(c.id) || "";
         const isMine = by && mine && person(by) === mine;
-        const btn = !by ? h("button", {type: "button", class: "primary", onclick: () => save(c, mine)}, "Claim")
-          : isMine ? h("button", {type: "button", onclick: () => save(c, "")}, "Release") : null;
+        const btn = CLAIMS_OPEN ? (!by ? h("button", {type: "button", class: "primary", onclick: () => save(c, mine)}, "Claim")
+          : isMine ? h("button", {type: "button", onclick: () => save(c, "")}, "Release") : null) : null;
         return h("tr", {}, h("td", {}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t + " "))),
-          h("td", {}, c.place || ""), h("td", {class: "sub"}, c.rule || c.note || ""), h("td", {}, by ? h("b", {}, (isMine ? "\u2605 " : "") + person(by)) : h("span", {class: "sub"}, "free")), h("td", {}, btn));
+          h("td", {}, c.place || ""), h("td", {class: "sub"}, c.rule || c.note || ""), h("td", {class: "num", title: (c.levels || []).length ? "highest level per team: " + c.levels.join(", ") : ""}, String(c.battles || "")), h("td", {}, by ? h("b", {}, (isMine ? "\u2605 " : "") + person(by)) : h("span", {class: "sub"}, "free")), h("td", {}, btn));
       })))))));
 }
 
@@ -3627,7 +3629,7 @@ function renderList(list) {
 // ---------- the page around it: menu tabs, the top screen, day and night ----------
 let view = "species";
 const MAIN_TABS = [["species", "POKEDEX", "purple"], ["teams", "TEAMS", "pink"], ["board", "REQUESTS", "pink"], ["sprites", "SPRITES", "blue"], ["progress", "PROGRESS", "sky"]];
-const MORE = [["lost", "Lost and found"], ["evo", "Evolution lines"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Balance"], ["chars", "Characters"], ["reorder", "Change dex numbers"]];
+const MORE = [["lost", "Lost and found"], ["evo", "Evolution lines"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Balance"], ["chars", "Characters (work in progress)"], ["reorder", "Change dex numbers"]];
 const WIDE_VIEWS = ["board", "progress", "teams", "chars"];
 // What the top screen's dialog box says on each page.
 const PAGE_HELP = {
