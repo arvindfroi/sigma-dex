@@ -25,6 +25,26 @@ Arvind (2026-11-11): "andre har jobbet mye med slike greier i det siste så om v
    plus a style guide and AI-first-draft workflow. With those, all ~67,000 strings could be done in one go.
    The game's character table has Æ Ø Å æ ø å (pret pokeheartgold `tools/msgenc/charmap.txt`); check the font draws them.
 
+## Special pictures and story bits: Arvind's plan (2026-11-11)
+
+- **Pikachu-style static object** (12 frames): the extra frames are the follower with both feet planted. Either ignore
+  them, or keep follower generations where both feet happen to be planted and use those.
+- **Red Gyarados role:** the object is the same drawing as the normal Gyarados follower, recoloured (plus a little
+  water splash), so ours is our follower with a special palette.
+- **Sudowoodo's tree:** Claude redraws it as a cactus when the time comes, and in the game the characters remark that
+  a cactus here is out of place and lazy game design (a little fourth-wall joke).
+- **Lapras ferry:** Arvind draws a water variation of one of our existing mons and it goes through the follower pipeline.
+- **Sleeping Snorlax (one 64x64 picture):** a custom job for Claude.
+- **Ho-Oh and Lugia flying frames (7 x 64x64):** a special job, maybe with another image model. The descent scenes are
+  script commands (camera moves, Clear Bell animation, "bird final approach", Lugia's eye glimmer, waves/leaves effect;
+  pret `include/scrcmd.h`, `src/field/legend_cutscene_camera.c`, graphics in `files/demo/legend`): timing, camera, text
+  and the picture used are easy to change; colours and effect graphics are files we can edit; the motion itself is code
+  (a patch on Origin, plain C on the decompilation).
+- **Oak's intro Marill:** its own small animated sprite (`a/1/2/0`, 3 cells, a 24-step animation), not the follower.
+- **Chatot-style recorded cry:** remind Arvind when we get there. PokeDaisy has no microphone support yet; suggested to
+  them in https://github.com/lidor30/pokedaisy/discussions/643 (2026-11-11). Doing it ourselves in their app would be
+  roughly 1-3 days (Android microphone permission, capture audio, feed it to melonDS' mic input, a setting and testing).
+
 ## Already planned for later
 
 - More trainer classes than the game's 129 (class 130+), if we want many new ones instead of replacing: needs the class tables moved and a code patch.
