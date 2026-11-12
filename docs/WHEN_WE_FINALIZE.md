@@ -87,6 +87,16 @@ escapes, and becomes a boss. What Origin already has (msg banks, docs/trainers.m
   a "Pokemon" in James' team unless we give him his own trainer, which takes Jessie's or James' slot: at most two
   opponents per battle); real boss mechanics (several health bars, extra moves per turn) need new code; and ~17 text
   banks name Mewtwo.
+- Checked later the same day: Meowth (Jessie, James) and Mewtwo never share a scene, so the illusion holds. The game shows
+  Mewtwo's birth (bank 546: it wakes in Dr. Fuji's lab, talks by telepathy, Amber's clone story) and Giovanni says it went
+  berserk, killed the scientists and escaped (bank 599). In its multi battle at Indigo Plateau Mewtwo is the player's
+  partner (its own "trainer", team = itself, lv 95) against Cyrus and Charon. Armored Mewtwo is form 3 (Psychic/Steel,
+  hidden ability Berserk), made by holding Steel Armor (an item ball on Cinnabar Island); no trainer uses it, so a
+  "controlled by Persian" form of Meowthwo can work the same way (an item, or the form set in the trainer's team).
+  Boss tools Origin already uses: trainer lines in the middle of a battle (Giovanni's Mewtwo fight, bank 599),
+  battles in a row (Giovanni, then his Beedrill alone; the eight Silver Conference challengers), Giovanni and his copy as
+  two opponents at once, and Pokemon that go berserk out of battle (the Beedrill grooming scene, bank 492). No battle in
+  Origin has more than six Pokemon per trainer, several health bars or a stage that changes the rules.
 
 ## Already planned for later
 
