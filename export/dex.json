@@ -23814,7 +23814,7 @@
       },
       "base_stats": {
         "hp": 92,
-        "attack": 133,
+        "attack": 128,
         "defense": 110,
         "sp_attack": 65,
         "sp_defense": 90,
@@ -23966,6 +23966,7 @@
           "Double Team",
           "Sandstorm",
           "Rock Tomb",
+          "Torment",
           "Facade",
           "Secret Power",
           "Rest",
@@ -23983,17 +23984,16 @@
           "Dark Pulse",
           "Rock Slide",
           "Sleep Talk",
+          "Poison Jab",
           "Swagger",
           "Substitute",
           "Foul Play",
           "Bulldoze",
-          "Body Press",
-          "Strength",
-          "Rock Smash",
-          "Torment",
           "Play Rough",
           "Psychic Fangs",
-          "Poison Jab"
+          "Body Press",
+          "Strength",
+          "Rock Smash"
         ],
         "tutor": [
           "Ancient Power",
@@ -35295,12 +35295,12 @@
         "hidden": "Intimidate"
       },
       "base_stats": {
-        "hp": 90,
-        "attack": 90,
+        "hp": 95,
+        "attack": 88,
         "defense": 100,
         "sp_attack": 130,
-        "sp_defense": 90,
-        "speed": 100
+        "sp_defense": 85,
+        "speed": 102
       },
       "ev_yield": {
         "sp_attack": 3

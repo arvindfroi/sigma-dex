@@ -3806,7 +3806,7 @@
     [SPECIES_GERONIMOK] =
     {
         .baseHP = 92,
-        .baseAttack = 133,
+        .baseAttack = 128,
         .baseDefense = 110,
         .baseSpeed = 70,
         .baseSpAttack = 65,
@@ -5279,12 +5279,12 @@
 
     [SPECIES_CUSTODIX] =
     {
-        .baseHP = 90,
-        .baseAttack = 90,
+        .baseHP = 95,
+        .baseAttack = 88,
         .baseDefense = 100,
-        .baseSpeed = 100,
+        .baseSpeed = 102,
         .baseSpAttack = 130,
-        .baseSpDefense = 90,
+        .baseSpDefense = 85,
         .types = MON_TYPES(TYPE_FIRE, TYPE_ROCK),
         .catchRate = 45,
         .expYield = 270,
