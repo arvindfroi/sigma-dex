@@ -70,53 +70,33 @@ learnset:
     - {level: 1, move: Fiery Dance}
     - {level: 1, move: Absorb}
     - {level: 1, move: Ember}
-    - {level: 1, move: Leaf Blade}
-    - {level: 1, move: Mega Drain}
-    - {level: 1, move: Fire Spin}
     - {level: 1, move: Growl}
+    - {level: 1, move: Growth}
+    - {level: 1, move: Leaf Blade}
+    - {level: 1, move: Sweet Scent}
+    - {level: 1, move: Tackle}
     - {level: 1, move: Leer}
     - {level: 1, move: Smog}
-    - {level: 1, move: Tackle}
-    - {level: 9, move: Stun Spore}
+    - {level: 1, move: Mimic}
+    - {level: 8, move: Mega Drain}
+    - {level: 12, move: Fire Spin}
     - {level: 12, move: Razor Leaf}
-    - {level: 12, move: Growth}
-    - {level: 14, move: Howl}
-    - {level: 17, move: Incinerate}
-    - {level: 19, move: Encore}
-    - {level: 20, move: Flame Wheel}
-    - {level: 20, move: Follow Me}
-    - {level: 22, move: Slam}
-    - {level: 22, move: Synthesis}
-    - {level: 23, move: Mimic}
-    - {level: 24, move: Will-O-Wisp}
-    - {level: 25, move: Giga Drain}
-    - {level: 25, move: Magical Leaf}
-    - {level: 26, move: Leech Seed}
-    - {level: 27, move: Fire Fang}
-    - {level: 28, move: Sweet Scent}
-    - {level: 30, move: Flame Charge}
-    - {level: 32, move: Fire Punch}
-    - {level: 32, move: Seed Bomb}
-    - {level: 32, move: Smokescreen}
-    - {level: 36, move: Lava Plume}
-    - {level: 40, move: Energy Ball}
-    - {level: 40, move: Inferno}
-    - {level: 42, move: Sunny Day}
-    - {level: 46, move: Fake Out}
-    - {level: 50, move: Hammer Arm}
-    - {level: 52, move: Pain Split}
-    - {level: 54, move: Power Whip}
-    - {level: 54, move: Solar Beam}
-    - {level: 55, move: Wood Hammer}
-    - {level: 57, move: Leaf Storm}
-    - {level: 58, move: Overheat}
+    - {level: 13, move: Leech Seed}
+    - {level: 16, move: Vine Whip}
+    - {level: 22, move: Leaf Tornado}
+    - {level: 28, move: Petal Blizzard}
+    - {level: 32, move: Synthesis}
+    - {level: 35, move: Flame Charge}
+    - {level: 48, move: Heat Wave}
+    - {level: 50, move: Power Whip}
+    - {level: 56, move: Overheat}
+    - {level: 60, move: Solar Beam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Giga Drain,
-          Safeguard, Frustration, Solar Beam, Earthquake, Return, Double Team, Flamethrower,
-          Fire Blast, Facade, Secret Power, Rest, Attract, Overheat, Energy Ball, Endure,
+  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen, Protect,
+          Giga Drain, Safeguard, Solar Beam, Return, Psychic, Double Team, Flamethrower,
+          Fire Blast, Facade, Rest, Attract, Thief, Overheat, Energy Ball, Endure,
           Will-O-Wisp, Giga Impact, Flash, Swords Dance, Sleep Talk, Grass Knot, Swagger,
-          Substitute, Flame Charge, Grassy Terrain, Mystical Fire, Scorching Sands, Taunt,
-          Thief, Captivate, Natural Gift]
+          Substitute, Flame Charge, Bulldoze, Play Rough, Mystical Fire]
   # moves a move tutor can teach it
   tutor: [Body Slam, Curse, Fire Fang, Fire Punch, Flare Blitz, Heat Wave, Leaf Storm,
           Magical Leaf, Seed Bomb, Solar Blade, Synthesis, Charm]

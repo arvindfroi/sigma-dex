@@ -99,17 +99,17 @@ learnset:
     - {level: 44, move: Body Slam}
     - {level: 47, move: Heal Pulse}
     - {level: 50, move: Moonblast}
-    - {level: 51, move: Double-Edge}
+    - {level: 54, move: Wide Guard}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
-          Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball, Double Team,
-          Reflect, Facade, Secret Power, Rest, Attract, Skill Swap, Fling, Endure,
-          Giga Impact, Flash, Psych Up, Sleep Talk, Grass Knot, Swagger, Substitute,
-          Psyshock, Draining Kiss, Misty Terrain, Play Rough, Focus Punch, Bulk Up, Taunt,
-          Iron Tail, Thunderbolt, Earthquake, Dig, Brick Break, Rock Tomb, Thief, Overheat,
-          Focus Blast, Drain Punch, Payback, Stone Edge, Captivate, Rock Slide,
-          Natural Gift, Poison Jab, U-turn, Low Sweep, Bulldoze, Strength, Rock Smash,
-          Rock Climb]
+  tm_hm: [Focus Punch, Calm Mind, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt,
+          Hyper Beam, Light Screen, Protect, Rain Dance, Safeguard, Frustration, Iron Tail,
+          Thunderbolt, Earthquake, Return, Dig, Psychic, Shadow Ball, Brick Break,
+          Double Team, Reflect, Rock Tomb, Facade, Secret Power, Rest, Attract, Thief,
+          Skill Swap, Overheat, Focus Blast, Fling, Endure, Drain Punch, Payback,
+          Giga Impact, Flash, Stone Edge, Psych Up, Captivate, Rock Slide, Sleep Talk,
+          Natural Gift, Poison Jab, Grass Knot, Swagger, U-turn, Substitute, Trick Room,
+          Psyshock, Low Sweep, Bulldoze, Draining Kiss, Misty Terrain, Play Rough, Coaching,
+          Strength, Rock Smash, Rock Climb]
   # moves a move tutor can teach it
   tutor: [Body Slam, Charm, Curse, Dazzling Gleam, Heal Bell, Icy Wind, Poltergeist,
           Close Combat, Counter, Endeavor, Fire Punch, Ice Punch, Power-Up Punch, Seed Bomb,

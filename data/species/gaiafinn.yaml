@@ -68,24 +68,20 @@ learnset:
   level_up:
     - {level: 1, move: Leer}
     - {level: 1, move: Low Kick}
-    - {level: 1, move: Pound}
+    - {level: 1, move: Sand Tomb}
     - {level: 1, move: Tackle}
-    - {level: 8, move: Rock Smash}
+    - {level: 5, move: Rock Smash}
     - {level: 8, move: Bite}
     - {level: 10, move: Focus Energy}
-    - {level: 16, move: Bulldoze}
-    - {level: 24, move: Slam}
+    - {level: 20, move: Scary Face}
     - {level: 25, move: Bulk Up}
-    - {level: 26, move: Stomping Tantrum}
-    - {level: 27, move: Brick Break}
-    - {level: 28, move: Scary Face}
-    - {level: 36, move: Dynamic Punch}
-    - {level: 36, move: Sand Tomb}
+    - {level: 32, move: Crunch}
     - {level: 42, move: Hammer Arm}
-    - {level: 42, move: Crunch}
-    - {level: 47, move: Earthquake}
+    - {level: 44, move: Dynamic Punch}
+    - {level: 48, move: Earthquake}
     - {level: 50, move: Close Combat}
-    - {level: 55, move: Jaw Lock}
+    - {level: 52, move: Headlong Rush}
+    - {level: 54, move: Superpower}
     - {level: 60, move: Focus Punch}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,

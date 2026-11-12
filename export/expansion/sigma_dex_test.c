@@ -1753,19 +1753,19 @@ TEST("Sigma dex: Detecup has the data from its species file")
     EXPECT_EQ(info->types[0], TYPE_NORMAL);
     EXPECT_EQ(info->types[1], TYPE_NORMAL);
     EXPECT_EQ(info->abilities[0], ABILITY_PICKUP);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LOCK_ON);
     EXPECT_EQ(GetSpeciesName(SPECIES_DETECUP)[0], CHAR_D);
 }
 
 SINGLE_BATTLE_TEST("Sigma dex: Detecup can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_DETECUP) { Moves(MOVE_GROWL); }
+        PLAYER(SPECIES_DETECUP) { Moves(MOVE_LOCK_ON); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_GROWL); }
+        TURN { MOVE(player, MOVE_LOCK_ON); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LOCK_ON, player);
     }
 }
 
@@ -2705,19 +2705,19 @@ TEST("Sigma dex: Glacépée has the data from its species file")
     EXPECT_EQ(info->types[0], TYPE_ICE);
     EXPECT_EQ(info->types[1], TYPE_FIGHTING);
     EXPECT_EQ(info->abilities[0], ABILITY_LONG_REACH);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ICE_SHARD);
     EXPECT_EQ(GetSpeciesName(SPECIES_GLAC_P_E)[0], CHAR_G);
 }
 
 SINGLE_BATTLE_TEST("Sigma dex: Glacépée can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_GLAC_P_E) { Moves(MOVE_GROWL); }
+        PLAYER(SPECIES_GLAC_P_E) { Moves(MOVE_ICE_SHARD); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_GROWL); }
+        TURN { MOVE(player, MOVE_ICE_SHARD); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ICE_SHARD, player);
     }
 }
 

@@ -92,22 +92,23 @@ learnset:
     - {level: 40, move: Slash}
     - {level: 43, move: Zen Headbutt}
     - {level: 46, move: Safeguard}
-    - {level: 50, move: Take Down}
-    - {level: 51, move: Focus Energy}
+    - {level: 50, move: Dragon Dance}
+    - {level: 51, move: Quiver Dance}
     - {level: 53, move: Rain Dance}
     - {level: 57, move: Dragon Rush}
     - {level: 60, move: Flamethrower}
     - {level: 61, move: Dragon Claw}
     - {level: 62, move: First Impression}
+    - {level: 64, move: Draco Meteor}
     - {level: 75, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Dragon Claw, Roar, Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect,
-          Rain Dance, Frustration, Iron Tail, Earthquake, Return, Brick Break, Double Team,
-          Flamethrower, Fire Blast, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest,
-          Attract, Steel Wing, Roost, Endure, Dragon Pulse, Shadow Claw, Giga Impact,
-          Stone Edge, Captivate, Rock Slide, X-Scissor, Sleep Talk, Natural Gift, Swagger,
-          U-turn, Substitute, Struggle Bug, Bulldoze, Brutal Swing, Dual Wingbeat, Cut, Fly,
-          Strength, Rock Smash, Dig, Poison Jab, Lunge, Silver Wind]
+          Rain Dance, Frustration, Iron Tail, Earthquake, Return, Dig, Brick Break,
+          Double Team, Flamethrower, Fire Blast, Rock Tomb, Aerial Ace, Facade,
+          Secret Power, Rest, Attract, Steel Wing, Roost, Endure, Dragon Pulse, Silver Wind,
+          Shadow Claw, Giga Impact, Stone Edge, Captivate, Rock Slide, X-Scissor,
+          Sleep Talk, Natural Gift, Poison Jab, Swagger, U-turn, Substitute, Struggle Bug,
+          Bulldoze, Lunge, Brutal Swing, Dual Wingbeat, Cut, Fly, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Air Slash, Body Slam, Bug Bite, Draco Meteor, Dragon Dance, Fire Fang, Iron Head,
           Outrage, Thunder Fang, Zen Headbutt]

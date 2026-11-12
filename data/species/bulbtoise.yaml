@@ -87,20 +87,19 @@ learnset:
     - {level: 33, move: Curse}
     - {level: 35, move: Drill Run}
     - {level: 38, move: Dig}
-    - {level: 40, move: Muddy Water}
+    - {level: 40, move: Earth Power}
     - {level: 41, move: Thunderbolt}
     - {level: 45, move: Discharge}
     - {level: 50, move: Flail}
-    - {level: 50, move: Thunder}
-    - {level: 70, move: Shore Up}
+    - {level: 54, move: Thunder}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
           Frustration, Thunderbolt, Thunder, Earthquake, Return, Dig, Double Team,
           Shock Wave, Sludge Bomb, Sandstorm, Rock Tomb, Facade, Secret Power, Rest,
           Attract, Charge Beam, Endure, Giga Impact, Flash, Stone Edge, Thunder Wave,
-          Stealth Rock, Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Bulldoze,
-          Electroweb, Eerie Impulse, Electric Terrain, High Horsepower, Captivate,
-          Flash Cannon]
+          Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger,
+          Substitute, Flash Cannon, Bulldoze, Electroweb, Eerie Impulse, Electric Terrain,
+          High Horsepower]
   # moves a move tutor can teach it
   tutor: [Body Slam, Curse, Earth Power, Endeavor, Volt Switch]
   egg: []                # only needed for the first stage of an evolution line

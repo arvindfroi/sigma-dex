@@ -92,17 +92,17 @@ learnset:
     - {level: 42, move: Crunch}
     - {level: 43, move: Dark Pulse}
     - {level: 43, move: Torment}
-    - {level: 43, move: Body Slam}
     - {level: 48, move: Sucker Punch}
     - {level: 48, move: Foul Play}
     - {level: 52, move: Double-Edge}
     - {level: 60, move: Boomburst}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
-          Frustration, Return, Shadow Ball, Double Team, Aerial Ace, Torment, Facade,
-          Secret Power, Rest, Attract, Thief, Fling, Endure, Embargo, Payback, Giga Impact,
-          Dark Pulse, Sleep Talk, Natural Gift, Swagger, Substitute, Foul Play, Solar Beam,
-          Dig, Captivate, Cut, Strength, Rock Smash, Roost, Focus Blast, Thunderbolt]
+          Frustration, Solar Beam, Iron Tail, Thunderbolt, Return, Dig, Shadow Ball,
+          Double Team, Aerial Ace, Torment, Facade, Secret Power, Rest, Attract, Thief,
+          Roost, Focus Blast, Fling, Endure, Embargo, Payback, Giga Impact, Captivate,
+          Dark Pulse, Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Foul Play,
+          Dual Wingbeat, Cut, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Endeavor, Hyper Voice, Nasty Plot, Snarl, Super Fang, Zen Headbutt,
           Air Slash]

@@ -6,7 +6,7 @@ credits:
   designer: Emil Venge-Kvamme # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: [Psychic]         # 1 or 2 types, e.g. [Grass, Steel]
+types: [Psychic, Fighting] # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -95,9 +95,9 @@ learnset:
           Protect, Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball,
           Brick Break, Double Team, Reflect, Torment, Facade, Secret Power, Rest, Attract,
           Thief, Skill Swap, Focus Blast, Energy Ball, Fling, Charge Beam, Endure,
-          Drain Punch, Recycle, Giga Impact, Flash, Thunder Wave, Psych Up, Sleep Talk,
-          Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock,
-          Psychic Terrain, Body Press, Expanding Force, Rock Slide, Foul Play]
+          Drain Punch, Recycle, Giga Impact, Flash, Thunder Wave, Psych Up, Rock Slide,
+          Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock,
+          Foul Play, Psychic Terrain, Body Press, Expanding Force]
   # moves a move tutor can teach it
   tutor: [Body Slam, Dazzling Gleam, Fire Punch, Heal Bell, Nasty Plot, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line

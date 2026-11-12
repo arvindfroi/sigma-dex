@@ -83,16 +83,17 @@ learnset:
     - {level: 48, move: Air Slash}
     - {level: 48, move: Shadow Ball}
     - {level: 49, move: Night Shade}
-    - {level: 55, move: Agility}
+    - {level: 55, move: Nasty Plot}
     - {level: 66, move: Shadow Claw}
     - {level: 67, move: Tailwind}
-    - {level: 82, move: Hurricane}
+    - {level: 70, move: Hurricane}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
-          Frustration, Return, Psychic, Shadow Ball, Double Team, Aerial Ace, Facade,
-          Secret Power, Rest, Attract, Thief, Steel Wing, Roost, Endure, Will-O-Wisp,
-          Shadow Claw, Giga Impact, Psych Up, Captivate, Sleep Talk, Natural Gift, Swagger,
-          U-turn, Substitute, Dual Wingbeat, Fly, Trick Room, Foul Play]
+          Frustration, Return, Psychic, Shadow Ball, Double Team, Aerial Ace, Torment,
+          Facade, Secret Power, Rest, Attract, Thief, Steel Wing, Snatch, Roost, Endure,
+          Will-O-Wisp, Shadow Claw, Payback, Giga Impact, Swords Dance, Psych Up, Captivate,
+          Dark Pulse, Sleep Talk, Natural Gift, Dream Eater, Swagger, U-turn, Substitute,
+          Trick Room, Foul Play, Dual Wingbeat, Fly]
   # moves a move tutor can teach it
   tutor: [Air Slash, Brave Bird, Curse, Hurricane, Poltergeist, Sky Attack, Heat Wave]
   egg: []                # only needed for the first stage of an evolution line

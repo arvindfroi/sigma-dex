@@ -66,6 +66,7 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Rest}
     - {level: 0, move: Sleep Talk}
     - {level: 1, move: Ember}
     - {level: 1, move: Leer}
@@ -94,17 +95,18 @@ learnset:
     - {level: 53, move: Reversal}
     - {level: 56, move: Close Combat}
     - {level: 60, move: Flare Blitz}
-    - {level: 63, move: Superpower}
+    - {level: 62, move: Superpower}
     - {level: 64, move: Wild Charge}
     - {level: 69, move: Fire Blast}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Roar, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
-          Rain Dance, Frustration, Solar Beam, Earthquake, Return, Dig, Brick Break,
-          Double Team, Flamethrower, Fire Blast, Rock Tomb, Facade, Secret Power, Rest,
-          Attract, Thief, Overheat, Focus Blast, Fling, Endure, Will-O-Wisp, Shadow Claw,
-          Giga Impact, Stone Edge, Swords Dance, Rock Slide, Sleep Talk, Poison Jab,
-          Swagger, Substitute, Flame Charge, Low Sweep, Bulldoze, Coaching, Strength,
-          Rock Smash]
+  tm_hm: [Focus Punch, Roar, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam,
+          Protect, Rain Dance, Frustration, Solar Beam, Earthquake, Return, Dig,
+          Brick Break, Double Team, Flamethrower, Fire Blast, Rock Tomb, Facade,
+          Secret Power, Rest, Attract, Thief, Overheat, Focus Blast, Fling, Endure,
+          Drain Punch, Will-O-Wisp, Shadow Claw, Payback, Giga Impact, Stone Edge,
+          Swords Dance, Stealth Rock, Rock Slide, Sleep Talk, Poison Jab, Swagger, U-turn,
+          Substitute, Flame Charge, Low Sweep, Foul Play, Bulldoze, Play Rough,
+          High Horsepower, Body Press, Coaching, Triple Axel, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Close Combat, Endeavor, Fire Fang, Flare Blitz, Heat Wave, Iron Head,
           Zen Headbutt, Fire Punch, Outrage]

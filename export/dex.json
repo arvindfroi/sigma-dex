@@ -6329,7 +6329,7 @@
           },
           {
             "level": 40,
-            "move": "Muddy Water"
+            "move": "Earth Power"
           },
           {
             "level": 41,
@@ -6344,12 +6344,8 @@
             "move": "Flail"
           },
           {
-            "level": 50,
+            "level": 54,
             "move": "Thunder"
-          },
-          {
-            "level": 70,
-            "move": "Shore Up"
           }
         ],
         "tm_hm": [
@@ -6382,18 +6378,18 @@
           "Stone Edge",
           "Thunder Wave",
           "Stealth Rock",
+          "Captivate",
           "Rock Slide",
           "Sleep Talk",
           "Natural Gift",
           "Swagger",
           "Substitute",
+          "Flash Cannon",
           "Bulldoze",
           "Electroweb",
           "Eerie Impulse",
           "Electric Terrain",
-          "High Horsepower",
-          "Captivate",
-          "Flash Cannon"
+          "High Horsepower"
         ],
         "tutor": [
           "Body Slam",
@@ -8243,6 +8239,10 @@
           },
           {
             "level": 1,
+            "move": "Copycat"
+          },
+          {
+            "level": 1,
             "move": "Disarming Voice"
           },
           {
@@ -8251,55 +8251,71 @@
           },
           {
             "level": 1,
-            "move": "Fairy Wind"
+            "move": "Helping Hand"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 1,
+            "move": "Take Down"
+          },
+          {
+            "level": 1,
+            "move": "Pound"
           },
           {
             "level": 1,
             "move": "Smog"
           },
           {
-            "level": 5,
-            "move": "Sand Attack"
+            "level": 3,
+            "move": "Sweet Kiss"
+          },
+          {
+            "level": 7,
+            "move": "Acid"
           },
           {
             "level": 8,
-            "move": "Acid Spray"
+            "move": "Clear Smog"
           },
           {
             "level": 8,
             "move": "Wrap"
           },
           {
-            "level": 9,
-            "move": "Acid"
+            "level": 10,
+            "move": "Sweet Scent"
           },
           {
             "level": 15,
             "move": "Baby-Doll Eyes"
           },
           {
-            "level": 20,
-            "move": "Swift"
-          },
-          {
-            "level": 23,
-            "move": "Sludge"
-          },
-          {
-            "level": 25,
-            "move": "Light Screen"
-          },
-          {
-            "level": 28,
-            "move": "Venoshock"
-          },
-          {
-            "level": 30,
+            "level": 15,
             "move": "Draining Kiss"
           },
           {
-            "level": 34,
-            "move": "Encore"
+            "level": 18,
+            "move": "Tail Whip"
+          },
+          {
+            "level": 19,
+            "move": "Moonlight"
+          },
+          {
+            "level": 23,
+            "move": "Safeguard"
+          },
+          {
+            "level": 25,
+            "move": "Acid Spray"
+          },
+          {
+            "level": 32,
+            "move": "Sludge Bomb"
           },
           {
             "level": 35,
@@ -8307,46 +8323,26 @@
           },
           {
             "level": 37,
-            "move": "Toxic"
+            "move": "Play Rough"
           },
           {
-            "level": 40,
-            "move": "Skill Swap"
-          },
-          {
-            "level": 41,
-            "move": "Alluring Voice"
+            "level": 39,
+            "move": "Dazzling Gleam"
           },
           {
             "level": 42,
             "move": "Recover"
           },
           {
-            "level": 42,
-            "move": "Echoed Voice"
-          },
-          {
-            "level": 43,
-            "move": "Acid Armor"
-          },
-          {
-            "level": 43,
-            "move": "Sludge Bomb"
-          },
-          {
-            "level": 50,
+            "level": 46,
             "move": "Moonblast"
           },
           {
-            "level": 60,
-            "move": "Dazzling Gleam"
-          },
-          {
-            "level": 64,
+            "level": 50,
             "move": "Sludge Wave"
           },
           {
-            "level": 71,
+            "level": 55,
             "move": "Belch"
           }
         ],
@@ -8360,7 +8356,6 @@
           "Protect",
           "Rain Dance",
           "Safeguard",
-          "Frustration",
           "Return",
           "Psychic",
           "Shadow Ball",
@@ -8368,31 +8363,27 @@
           "Reflect",
           "Sludge Bomb",
           "Facade",
-          "Secret Power",
           "Rest",
           "Attract",
-          "Skill Swap",
+          "Thief",
           "Focus Blast",
           "Endure",
           "Giga Impact",
           "Flash",
-          "Thunder Wave",
           "Psych Up",
-          "Captivate",
           "Sleep Talk",
-          "Natural Gift",
           "Poison Jab",
           "Swagger",
           "Substitute",
+          "Trick Room",
           "Psyshock",
           "Venoshock",
-          "Acid Spray",
+          "Clear Smog",
+          "Scald",
           "Draining Kiss",
-          "Misty Terrain",
           "Play Rough",
           "Mystical Fire",
-          "Giga Drain",
-          "Energy Ball"
+          "Baby-Doll Eyes"
         ],
         "tutor": [
           "Body Slam",
@@ -8700,27 +8691,27 @@
           },
           {
             "level": 1,
-            "move": "Rock Throw"
+            "move": "Harden"
           },
           {
             "level": 1,
-            "move": "Rollout"
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Rock Throw"
           },
           {
             "level": 1,
             "move": "Tackle"
           },
           {
-            "level": 1,
-            "move": "Harden"
+            "level": 5,
+            "move": "Rollout"
           },
           {
-            "level": 8,
-            "move": "Rock Smash"
-          },
-          {
-            "level": 12,
-            "move": "Roar"
+            "level": 6,
+            "move": "Sandstorm"
           },
           {
             "level": 13,
@@ -8735,61 +8726,56 @@
             "move": "Rock Tomb"
           },
           {
-            "level": 24,
-            "move": "Headbutt"
+            "level": 20,
+            "move": "Power Gem"
           },
           {
-            "level": 25,
-            "move": "Bulk Up"
+            "level": 24,
+            "move": "Slam"
+          },
+          {
+            "level": 30,
+            "move": "Rock Blast"
           },
           {
             "level": 30,
             "move": "Iron Defense"
           },
           {
-            "level": 31,
-            "move": "Take Down"
-          },
-          {
             "level": 32,
             "move": "Rock Slide"
           },
           {
-            "level": 34,
-            "move": "Rock Blast"
+            "level": 36,
+            "move": "Dynamic Punch"
+          },
+          {
+            "level": 36,
+            "move": "Low Kick"
           },
           {
             "level": 38,
             "move": "Stealth Rock"
           },
           {
-            "level": 40,
-            "move": "Dynamic Punch"
-          },
-          {
-            "level": 42,
-            "move": "Brick Break"
-          },
-          {
             "level": 44,
             "move": "Double-Edge"
           },
           {
-            "level": 44,
-            "move": "Heavy Slam"
-          },
-          {
             "level": 48,
-            "move": "Head Smash"
+            "move": "Stone Edge"
           },
           {
-            "level": 54,
-            "move": "Stone Edge"
+            "level": 52,
+            "move": "Earthquake"
+          },
+          {
+            "level": 56,
+            "move": "Head Smash"
           }
         ],
         "tm_hm": [
           "Focus Punch",
-          "Toxic",
           "Bulk Up",
           "Hidden Power",
           "Sunny Day",
@@ -8797,18 +8783,16 @@
           "Hyper Beam",
           "Protect",
           "Rain Dance",
-          "Frustration",
           "Earthquake",
           "Return",
           "Dig",
           "Brick Break",
           "Double Team",
+          "Sandstorm",
           "Rock Tomb",
           "Facade",
-          "Secret Power",
           "Rest",
           "Attract",
-          "Thief",
           "Focus Blast",
           "Fling",
           "Endure",
@@ -8819,18 +8803,15 @@
           "Stealth Rock",
           "Rock Slide",
           "Sleep Talk",
-          "Natural Gift",
           "Swagger",
           "Substitute",
           "Heavy Slam",
           "Low Sweep",
           "Bulldoze",
-          "High Horsepower",
           "Body Press",
           "Meteor Beam",
           "Strength",
-          "Rock Smash",
-          "Captivate"
+          "Rock Smash"
         ],
         "tutor": [
           "Ancient Power",
@@ -9410,19 +9391,23 @@
           },
           {
             "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Growth"
+          },
+          {
+            "level": 1,
             "move": "Leaf Blade"
           },
           {
             "level": 1,
-            "move": "Mega Drain"
+            "move": "Sweet Scent"
           },
           {
             "level": 1,
-            "move": "Fire Spin"
-          },
-          {
-            "level": 1,
-            "move": "Growl"
+            "move": "Tackle"
           },
           {
             "level": 1,
@@ -9434,161 +9419,81 @@
           },
           {
             "level": 1,
-            "move": "Tackle"
+            "move": "Mimic"
           },
           {
-            "level": 9,
-            "move": "Stun Spore"
+            "level": 8,
+            "move": "Mega Drain"
+          },
+          {
+            "level": 12,
+            "move": "Fire Spin"
           },
           {
             "level": 12,
             "move": "Razor Leaf"
           },
           {
-            "level": 12,
-            "move": "Growth"
-          },
-          {
-            "level": 14,
-            "move": "Howl"
-          },
-          {
-            "level": 17,
-            "move": "Incinerate"
-          },
-          {
-            "level": 19,
-            "move": "Encore"
-          },
-          {
-            "level": 20,
-            "move": "Flame Wheel"
-          },
-          {
-            "level": 20,
-            "move": "Follow Me"
-          },
-          {
-            "level": 22,
-            "move": "Slam"
-          },
-          {
-            "level": 22,
-            "move": "Synthesis"
-          },
-          {
-            "level": 23,
-            "move": "Mimic"
-          },
-          {
-            "level": 24,
-            "move": "Will-O-Wisp"
-          },
-          {
-            "level": 25,
-            "move": "Giga Drain"
-          },
-          {
-            "level": 25,
-            "move": "Magical Leaf"
-          },
-          {
-            "level": 26,
+            "level": 13,
             "move": "Leech Seed"
           },
           {
-            "level": 27,
-            "move": "Fire Fang"
+            "level": 16,
+            "move": "Vine Whip"
+          },
+          {
+            "level": 22,
+            "move": "Leaf Tornado"
           },
           {
             "level": 28,
-            "move": "Sweet Scent"
+            "move": "Petal Blizzard"
           },
           {
-            "level": 30,
+            "level": 32,
+            "move": "Synthesis"
+          },
+          {
+            "level": 35,
             "move": "Flame Charge"
           },
           {
-            "level": 32,
-            "move": "Fire Punch"
-          },
-          {
-            "level": 32,
-            "move": "Seed Bomb"
-          },
-          {
-            "level": 32,
-            "move": "Smokescreen"
-          },
-          {
-            "level": 36,
-            "move": "Lava Plume"
-          },
-          {
-            "level": 40,
-            "move": "Energy Ball"
-          },
-          {
-            "level": 40,
-            "move": "Inferno"
-          },
-          {
-            "level": 42,
-            "move": "Sunny Day"
-          },
-          {
-            "level": 46,
-            "move": "Fake Out"
+            "level": 48,
+            "move": "Heat Wave"
           },
           {
             "level": 50,
-            "move": "Hammer Arm"
-          },
-          {
-            "level": 52,
-            "move": "Pain Split"
-          },
-          {
-            "level": 54,
             "move": "Power Whip"
           },
           {
-            "level": 54,
-            "move": "Solar Beam"
-          },
-          {
-            "level": 55,
-            "move": "Wood Hammer"
-          },
-          {
-            "level": 57,
-            "move": "Leaf Storm"
-          },
-          {
-            "level": 58,
+            "level": 56,
             "move": "Overheat"
+          },
+          {
+            "level": 60,
+            "move": "Solar Beam"
           }
         ],
         "tm_hm": [
-          "Toxic",
           "Bullet Seed",
           "Hidden Power",
           "Sunny Day",
+          "Taunt",
           "Hyper Beam",
+          "Light Screen",
           "Protect",
           "Giga Drain",
           "Safeguard",
-          "Frustration",
           "Solar Beam",
-          "Earthquake",
           "Return",
+          "Psychic",
           "Double Team",
           "Flamethrower",
           "Fire Blast",
           "Facade",
-          "Secret Power",
           "Rest",
           "Attract",
+          "Thief",
           "Overheat",
           "Energy Ball",
           "Endure",
@@ -9601,13 +9506,9 @@
           "Swagger",
           "Substitute",
           "Flame Charge",
-          "Grassy Terrain",
-          "Mystical Fire",
-          "Scorching Sands",
-          "Taunt",
-          "Thief",
-          "Captivate",
-          "Natural Gift"
+          "Bulldoze",
+          "Play Rough",
+          "Mystical Fire"
         ],
         "tutor": [
           "Body Slam",
@@ -10040,10 +9941,6 @@
             "move": "Torment"
           },
           {
-            "level": 43,
-            "move": "Body Slam"
-          },
-          {
             "level": 48,
             "move": "Sucker Punch"
           },
@@ -10070,7 +9967,11 @@
           "Protect",
           "Rain Dance",
           "Frustration",
+          "Solar Beam",
+          "Iron Tail",
+          "Thunderbolt",
           "Return",
+          "Dig",
           "Shadow Ball",
           "Double Team",
           "Aerial Ace",
@@ -10080,26 +9981,25 @@
           "Rest",
           "Attract",
           "Thief",
+          "Roost",
+          "Focus Blast",
           "Fling",
           "Endure",
           "Embargo",
           "Payback",
           "Giga Impact",
+          "Captivate",
           "Dark Pulse",
           "Sleep Talk",
           "Natural Gift",
           "Swagger",
+          "U-turn",
           "Substitute",
           "Foul Play",
-          "Solar Beam",
-          "Dig",
-          "Captivate",
+          "Dual Wingbeat",
           "Cut",
           "Strength",
-          "Rock Smash",
-          "Roost",
-          "Focus Blast",
-          "Thunderbolt"
+          "Rock Smash"
         ],
         "tutor": [
           "Body Slam",
@@ -13821,6 +13721,14 @@
             "move": "Lock-On"
           },
           {
+            "level": 56,
+            "move": "Flash Cannon"
+          },
+          {
+            "level": 60,
+            "move": "Steel Beam"
+          },
+          {
             "level": 64,
             "move": "Belch"
           }
@@ -13833,7 +13741,10 @@
           "Protect",
           "Rain Dance",
           "Frustration",
+          "Iron Tail",
+          "Thunderbolt",
           "Return",
+          "Shadow Ball",
           "Double Team",
           "Sludge Bomb",
           "Sandstorm",
@@ -13841,8 +13752,11 @@
           "Secret Power",
           "Rest",
           "Attract",
+          "Thief",
           "Endure",
+          "Payback",
           "Giga Impact",
+          "Thunder Wave",
           "Gyro Ball",
           "Stealth Rock",
           "Captivate",
@@ -13854,13 +13768,7 @@
           "Flash Cannon",
           "Venoshock",
           "Heavy Slam",
-          "Acid Spray",
-          "Iron Tail",
-          "Thief",
-          "Payback",
-          "Thunder Wave",
-          "Thunderbolt",
-          "Shadow Ball"
+          "Acid Spray"
         ],
         "tutor": [
           "Body Slam",
@@ -14273,10 +14181,6 @@
             "move": "Iron Head"
           },
           {
-            "level": 41,
-            "move": "Iron Tail"
-          },
-          {
             "level": 42,
             "move": "Hammer Arm"
           },
@@ -14286,15 +14190,19 @@
           },
           {
             "level": 44,
-            "move": "Body Slam"
+            "move": "Stone Edge"
           },
           {
             "level": 50,
-            "move": "Close Combat"
+            "move": "Double-Edge"
           },
           {
-            "level": 51,
-            "move": "Double-Edge"
+            "level": 54,
+            "move": "Superpower"
+          },
+          {
+            "level": 60,
+            "move": "Steel Roller"
           }
         ],
         "tm_hm": [
@@ -14307,6 +14215,8 @@
           "Protect",
           "Rain Dance",
           "Frustration",
+          "Iron Tail",
+          "Thunderbolt",
           "Earthquake",
           "Return",
           "Dig",
@@ -14318,6 +14228,7 @@
           "Rest",
           "Attract",
           "Thief",
+          "Overheat",
           "Focus Blast",
           "Fling",
           "Endure",
@@ -14326,10 +14237,13 @@
           "Stone Edge",
           "Gyro Ball",
           "Swords Dance",
+          "Captivate",
           "Rock Slide",
           "Sleep Talk",
+          "Natural Gift",
           "Poison Jab",
           "Swagger",
+          "U-turn",
           "Substitute",
           "Flash Cannon",
           "Heavy Slam",
@@ -14338,12 +14252,6 @@
           "Coaching",
           "Strength",
           "Rock Smash",
-          "Iron Tail",
-          "Thunderbolt",
-          "Overheat",
-          "Captivate",
-          "Natural Gift",
-          "U-turn",
           "Rock Climb"
         ],
         "tutor": [
@@ -16033,66 +15941,68 @@
             "move": "Moonblast"
           },
           {
-            "level": 51,
-            "move": "Double-Edge"
+            "level": 54,
+            "move": "Wide Guard"
           }
         ],
         "tm_hm": [
+          "Focus Punch",
           "Calm Mind",
           "Toxic",
+          "Bulk Up",
           "Hidden Power",
           "Sunny Day",
+          "Taunt",
           "Hyper Beam",
           "Light Screen",
           "Protect",
           "Rain Dance",
           "Safeguard",
           "Frustration",
+          "Iron Tail",
+          "Thunderbolt",
+          "Earthquake",
           "Return",
+          "Dig",
           "Psychic",
           "Shadow Ball",
+          "Brick Break",
           "Double Team",
           "Reflect",
+          "Rock Tomb",
           "Facade",
           "Secret Power",
           "Rest",
           "Attract",
+          "Thief",
           "Skill Swap",
+          "Overheat",
+          "Focus Blast",
           "Fling",
           "Endure",
+          "Drain Punch",
+          "Payback",
           "Giga Impact",
           "Flash",
+          "Stone Edge",
           "Psych Up",
+          "Captivate",
+          "Rock Slide",
           "Sleep Talk",
+          "Natural Gift",
+          "Poison Jab",
           "Grass Knot",
           "Swagger",
+          "U-turn",
           "Substitute",
+          "Trick Room",
           "Psyshock",
+          "Low Sweep",
+          "Bulldoze",
           "Draining Kiss",
           "Misty Terrain",
           "Play Rough",
-          "Focus Punch",
-          "Bulk Up",
-          "Taunt",
-          "Iron Tail",
-          "Thunderbolt",
-          "Earthquake",
-          "Dig",
-          "Brick Break",
-          "Rock Tomb",
-          "Thief",
-          "Overheat",
-          "Focus Blast",
-          "Drain Punch",
-          "Payback",
-          "Stone Edge",
-          "Captivate",
-          "Rock Slide",
-          "Natural Gift",
-          "Poison Jab",
-          "U-turn",
-          "Low Sweep",
-          "Bulldoze",
+          "Coaching",
           "Strength",
           "Rock Smash",
           "Rock Climb"
@@ -16666,39 +16576,35 @@
           },
           {
             "level": 1,
-            "move": "Smack Down"
-          },
-          {
-            "level": 1,
-            "move": "Acid"
-          },
-          {
-            "level": 1,
-            "move": "Rollout"
-          },
-          {
-            "level": 1,
             "move": "Tackle"
           },
           {
-            "level": 8,
-            "move": "Acid Spray"
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Bone Rush"
+          },
+          {
+            "level": 4,
+            "move": "Acid"
           },
           {
             "level": 10,
-            "move": "Poison Gas"
+            "move": "Rollout"
+          },
+          {
+            "level": 10,
+            "move": "Smack Down"
+          },
+          {
+            "level": 11,
+            "move": "Acid Spray"
           },
           {
             "level": 14,
             "move": "Poison Powder"
-          },
-          {
-            "level": 16,
-            "move": "Ancient Power"
-          },
-          {
-            "level": 16,
-            "move": "Toxic Spikes"
           },
           {
             "level": 17,
@@ -16706,51 +16612,39 @@
           },
           {
             "level": 20,
-            "move": "Rock Slide"
+            "move": "Ancient Power"
           },
           {
-            "level": 25,
+            "level": 20,
             "move": "Iron Defense"
           },
           {
-            "level": 28,
-            "move": "Bone Rush"
+            "level": 25,
+            "move": "Venoshock"
           },
           {
-            "level": 29,
-            "move": "Toxic"
+            "level": 25,
+            "move": "Rock Slide"
           },
           {
             "level": 30,
             "move": "Sandstorm"
           },
           {
+            "level": 34,
+            "move": "Rock Blast"
+          },
+          {
             "level": 36,
             "move": "Power Gem"
           },
           {
-            "level": 42,
-            "move": "Corrosive Gas"
-          },
-          {
-            "level": 43,
-            "move": "Lock-On"
-          },
-          {
-            "level": 44,
-            "move": "Venoshock"
+            "level": 40,
+            "move": "Toxic"
           },
           {
             "level": 44,
             "move": "Smokescreen"
-          },
-          {
-            "level": 46,
-            "move": "Sludge Bomb"
-          },
-          {
-            "level": 49,
-            "move": "Acid Armor"
           },
           {
             "level": 54,
@@ -16761,50 +16655,42 @@
             "move": "Sludge Wave"
           },
           {
-            "level": 61,
-            "move": "Belch"
+            "level": 60,
+            "move": "Meteor Beam"
           }
         ],
         "tm_hm": [
           "Toxic",
           "Hidden Power",
           "Sunny Day",
-          "Ice Beam",
-          "Blizzard",
           "Hyper Beam",
+          "Protect",
           "Rain Dance",
-          "Frustration",
           "Earthquake",
           "Return",
+          "Dig",
           "Double Team",
           "Sludge Bomb",
           "Sandstorm",
           "Rock Tomb",
           "Facade",
-          "Secret Power",
           "Rest",
           "Attract",
+          "Endure",
           "Giga Impact",
           "Rock Polish",
           "Stone Edge",
           "Stealth Rock",
-          "Captivate",
           "Rock Slide",
           "Sleep Talk",
-          "Natural Gift",
           "Poison Jab",
           "Swagger",
           "Substitute",
           "Venoshock",
-          "Acid Spray",
-          "Bulldoze",
-          "Body Press",
-          "Meteor Beam",
-          "Rock Smash",
-          "Flash",
           "Heavy Slam",
-          "Dig",
-          "Thief"
+          "Bulldoze",
+          "Meteor Beam",
+          "Rock Smash"
         ],
         "tutor": [
           "Ancient Power",
@@ -17061,8 +16947,20 @@
             "move": "Gunk Shot"
           },
           {
+            "level": 45,
+            "move": "Ice Spinner"
+          },
+          {
             "level": 49,
             "move": "Superpower"
+          },
+          {
+            "level": 54,
+            "move": "Gunk Shot"
+          },
+          {
+            "level": 60,
+            "move": "Baneful Bunker"
           },
           {
             "level": 64,
@@ -18487,6 +18385,10 @@
       "learnset": {
         "level_up": [
           {
+            "level": 0,
+            "move": "Lock-On"
+          },
+          {
             "level": 1,
             "move": "Growl"
           },
@@ -18635,9 +18537,9 @@
           "Swagger",
           "U-turn",
           "Substitute",
+          "Psychic Fangs",
           "Cut",
-          "Strength",
-          "Psychic Fangs"
+          "Strength"
         ],
         "tutor": [
           "Body Slam",
@@ -19050,6 +18952,10 @@
           {
             "level": 46,
             "move": "Sacred Sword"
+          },
+          {
+            "level": 50,
+            "move": "Shell Smash"
           }
         ],
         "tm_hm": [
@@ -19074,6 +18980,7 @@
           "Attract",
           "Thief",
           "Endure",
+          "Will-O-Wisp",
           "Shadow Claw",
           "Giga Impact",
           "Stone Edge",
@@ -19087,11 +18994,11 @@
           "Flash Cannon",
           "Heavy Slam",
           "Bulldoze",
-          "Body Press",
-          "Rock Smash",
           "Smart Strike",
-          "Will-O-Wisp",
-          "Cut"
+          "Body Press",
+          "Cut",
+          "Strength",
+          "Rock Smash"
         ],
         "tutor": [
           "Body Slam",
@@ -20131,12 +20038,24 @@
             "move": "Crunch"
           },
           {
-            "level": 41,
+            "level": 45,
             "move": "Dragon Rush"
+          },
+          {
+            "level": 50,
+            "move": "Dragon Dance"
           },
           {
             "level": 54,
             "move": "Stone Edge"
+          },
+          {
+            "level": 58,
+            "move": "Outrage"
+          },
+          {
+            "level": 62,
+            "move": "Stealth Rock"
           },
           {
             "level": 66,
@@ -22119,6 +22038,10 @@
         "level_up": [
           {
             "level": 0,
+            "move": "Rest"
+          },
+          {
+            "level": 0,
             "move": "Sleep Talk"
           },
           {
@@ -22230,7 +22153,7 @@
             "move": "Flare Blitz"
           },
           {
-            "level": 63,
+            "level": 62,
             "move": "Superpower"
           },
           {
@@ -22243,6 +22166,7 @@
           }
         ],
         "tm_hm": [
+          "Focus Punch",
           "Roar",
           "Toxic",
           "Bulk Up",
@@ -22271,20 +22195,29 @@
           "Focus Blast",
           "Fling",
           "Endure",
+          "Drain Punch",
           "Will-O-Wisp",
           "Shadow Claw",
+          "Payback",
           "Giga Impact",
           "Stone Edge",
           "Swords Dance",
+          "Stealth Rock",
           "Rock Slide",
           "Sleep Talk",
           "Poison Jab",
           "Swagger",
+          "U-turn",
           "Substitute",
           "Flame Charge",
           "Low Sweep",
+          "Foul Play",
           "Bulldoze",
+          "Play Rough",
+          "High Horsepower",
+          "Body Press",
           "Coaching",
+          "Triple Axel",
           "Strength",
           "Rock Smash"
         ],
@@ -22398,14 +22331,14 @@
           },
           {
             "level": 1,
-            "move": "Pound"
+            "move": "Sand Tomb"
           },
           {
             "level": 1,
             "move": "Tackle"
           },
           {
-            "level": 8,
+            "level": 5,
             "move": "Rock Smash"
           },
           {
@@ -22417,47 +22350,27 @@
             "move": "Focus Energy"
           },
           {
-            "level": 16,
-            "move": "Bulldoze"
-          },
-          {
-            "level": 24,
-            "move": "Slam"
+            "level": 20,
+            "move": "Scary Face"
           },
           {
             "level": 25,
             "move": "Bulk Up"
           },
           {
-            "level": 26,
-            "move": "Stomping Tantrum"
-          },
-          {
-            "level": 27,
-            "move": "Brick Break"
-          },
-          {
-            "level": 28,
-            "move": "Scary Face"
-          },
-          {
-            "level": 36,
-            "move": "Dynamic Punch"
-          },
-          {
-            "level": 36,
-            "move": "Sand Tomb"
+            "level": 32,
+            "move": "Crunch"
           },
           {
             "level": 42,
             "move": "Hammer Arm"
           },
           {
-            "level": 42,
-            "move": "Crunch"
+            "level": 44,
+            "move": "Dynamic Punch"
           },
           {
-            "level": 47,
+            "level": 48,
             "move": "Earthquake"
           },
           {
@@ -22465,8 +22378,12 @@
             "move": "Close Combat"
           },
           {
-            "level": 55,
-            "move": "Jaw Lock"
+            "level": 52,
+            "move": "Headlong Rush"
+          },
+          {
+            "level": 54,
+            "move": "Superpower"
           },
           {
             "level": 60,
@@ -23191,8 +23108,16 @@
             "move": "Dig"
           },
           {
-            "level": 44,
+            "level": 48,
             "move": "Earthquake"
+          },
+          {
+            "level": 54,
+            "move": "Heat Crash"
+          },
+          {
+            "level": 58,
+            "move": "Gyro Ball"
           }
         ],
         "tm_hm": [
@@ -23219,6 +23144,7 @@
           "Giga Impact",
           "Stone Edge",
           "Gyro Ball",
+          "Swords Dance",
           "Stealth Rock",
           "Captivate",
           "Rock Slide",
@@ -23228,12 +23154,12 @@
           "Substitute",
           "Flash Cannon",
           "Heavy Slam",
+          "Flame Charge",
           "Bulldoze",
           "High Horsepower",
           "Body Press",
           "Strength",
-          "Rock Smash",
-          "Flame Charge"
+          "Rock Smash"
         ],
         "tutor": [
           "Body Slam",
@@ -24066,7 +23992,7 @@
           },
           {
             "level": 55,
-            "move": "Agility"
+            "move": "Nasty Plot"
           },
           {
             "level": 66,
@@ -24077,7 +24003,7 @@
             "move": "Tailwind"
           },
           {
-            "level": 82,
+            "level": 70,
             "move": "Hurricane"
           }
         ],
@@ -24095,28 +24021,34 @@
           "Shadow Ball",
           "Double Team",
           "Aerial Ace",
+          "Torment",
           "Facade",
           "Secret Power",
           "Rest",
           "Attract",
           "Thief",
           "Steel Wing",
+          "Snatch",
           "Roost",
           "Endure",
           "Will-O-Wisp",
           "Shadow Claw",
+          "Payback",
           "Giga Impact",
+          "Swords Dance",
           "Psych Up",
           "Captivate",
+          "Dark Pulse",
           "Sleep Talk",
           "Natural Gift",
+          "Dream Eater",
           "Swagger",
           "U-turn",
           "Substitute",
-          "Dual Wingbeat",
-          "Fly",
           "Trick Room",
-          "Foul Play"
+          "Foul Play",
+          "Dual Wingbeat",
+          "Fly"
         ],
         "tutor": [
           "Air Slash",
@@ -24865,7 +24797,8 @@
         "artist": null
       },
       "types": [
-        "Psychic"
+        "Psychic",
+        "Fighting"
       ],
       "category": null,
       "description": null,
@@ -25036,6 +24969,7 @@
           "Flash",
           "Thunder Wave",
           "Psych Up",
+          "Rock Slide",
           "Sleep Talk",
           "Natural Gift",
           "Grass Knot",
@@ -25043,11 +24977,10 @@
           "Substitute",
           "Trick Room",
           "Psyshock",
+          "Foul Play",
           "Psychic Terrain",
           "Body Press",
-          "Expanding Force",
-          "Rock Slide",
-          "Foul Play"
+          "Expanding Force"
         ],
         "tutor": [
           "Body Slam",
@@ -26163,7 +26096,7 @@
           },
           {
             "level": 40,
-            "move": "Body Slam"
+            "move": "Hyper Voice"
           },
           {
             "level": 41,
@@ -26176,6 +26109,10 @@
           {
             "level": 48,
             "move": "Nasty Plot"
+          },
+          {
+            "level": 54,
+            "move": "Giga Impact"
           }
         ],
         "tm_hm": [
@@ -26189,6 +26126,7 @@
           "Frustration",
           "Return",
           "Dig",
+          "Shadow Ball",
           "Brick Break",
           "Double Team",
           "Aerial Ace",
@@ -26205,6 +26143,7 @@
           "Payback",
           "Giga Impact",
           "Swords Dance",
+          "Captivate",
           "Dark Pulse",
           "Sleep Talk",
           "Natural Gift",
@@ -26212,12 +26151,10 @@
           "U-turn",
           "Substitute",
           "Foul Play",
+          "Play Rough",
           "Cut",
           "Strength",
-          "Rock Smash",
-          "Shadow Ball",
-          "Captivate",
-          "Play Rough"
+          "Rock Smash"
         ],
         "tutor": [
           "Body Slam",
@@ -26377,7 +26314,7 @@
           },
           {
             "level": 46,
-            "move": "Swords Dance"
+            "move": "Tailwind"
           },
           {
             "level": 50,
@@ -27792,7 +27729,7 @@
           },
           {
             "level": 39,
-            "move": "Mud Bomb"
+            "move": "Muddy Water"
           },
           {
             "level": 40,
@@ -27808,7 +27745,11 @@
           },
           {
             "level": 47,
-            "move": "Rain Dance"
+            "move": "Earth Power"
+          },
+          {
+            "level": 50,
+            "move": "Wave Crash"
           },
           {
             "level": 56,
@@ -27836,6 +27777,7 @@
           "Secret Power",
           "Rest",
           "Attract",
+          "Thief",
           "Brine",
           "Fling",
           "Endure",
@@ -27855,8 +27797,7 @@
           "Strength",
           "Whirlpool",
           "Rock Smash",
-          "Waterfall",
-          "Thief"
+          "Waterfall"
         ],
         "tutor": [
           "Aqua Tail",
@@ -28499,10 +28440,6 @@
         "level_up": [
           {
             "level": 1,
-            "move": "Growl"
-          },
-          {
-            "level": 1,
             "move": "Ice Shard"
           },
           {
@@ -28511,59 +28448,55 @@
           },
           {
             "level": 1,
-            "move": "Quick Attack"
+            "move": "Powder Snow"
           },
           {
             "level": 1,
-            "move": "Slash"
+            "move": "Rock Smash"
           },
           {
             "level": 1,
             "move": "Tackle"
           },
           {
-            "level": 5,
-            "move": "Double Kick"
+            "level": 1,
+            "move": "Taunt"
           },
           {
-            "level": 8,
-            "move": "Rock Smash"
-          },
-          {
-            "level": 12,
-            "move": "Detect"
-          },
-          {
-            "level": 15,
+            "level": 10,
             "move": "Focus Energy"
-          },
-          {
-            "level": 16,
-            "move": "Endure"
           },
           {
             "level": 19,
             "move": "Feint"
           },
           {
-            "level": 24,
-            "move": "Ice Fang"
+            "level": 21,
+            "move": "Slash"
+          },
+          {
+            "level": 22,
+            "move": "Power-Up Punch"
           },
           {
             "level": 25,
-            "move": "Brick Break"
-          },
-          {
-            "level": 28,
-            "move": "Protect"
-          },
-          {
-            "level": 29,
-            "move": "Agility"
+            "move": "Dynamic Punch"
           },
           {
             "level": 32,
-            "move": "Quick Guard"
+            "move": "Brick Break"
+          },
+          {
+            "level": 32,
+            "move": "Ice Fang"
+          },
+          {
+            "level": 33,
+            "move": "Reversal"
+          },
+          {
+            "level": 36,
+            "move": "Agility"
           },
           {
             "level": 37,
@@ -28571,32 +28504,23 @@
           },
           {
             "level": 40,
-            "move": "Swords Dance"
-          },
-          {
-            "level": 41,
-            "move": "Hammer Arm"
-          },
-          {
-            "level": 44,
-            "move": "Wide Guard"
-          },
-          {
-            "level": 44,
             "move": "Sacred Sword"
           },
           {
-            "level": 49,
-            "move": "Leaf Blade"
+            "level": 42,
+            "move": "Iron Defense"
           },
           {
-            "level": 50,
+            "level": 49,
+            "move": "Ice Spinner"
+          },
+          {
+            "level": 52,
             "move": "Close Combat"
           }
         ],
         "tm_hm": [
           "Focus Punch",
-          "Toxic",
           "Hail",
           "Bulk Up",
           "Hidden Power",
@@ -28607,16 +28531,13 @@
           "Hyper Beam",
           "Protect",
           "Rain Dance",
-          "Frustration",
           "Earthquake",
           "Return",
           "Dig",
           "Brick Break",
           "Double Team",
           "Rock Tomb",
-          "Aerial Ace",
           "Facade",
-          "Secret Power",
           "Rest",
           "Attract",
           "Thief",
@@ -28624,20 +28545,22 @@
           "Fling",
           "Endure",
           "Drain Punch",
+          "Payback",
           "Giga Impact",
           "Stone Edge",
           "Avalanche",
           "Swords Dance",
           "Rock Slide",
+          "X-Scissor",
           "Sleep Talk",
+          "Poison Jab",
           "Swagger",
           "Substitute",
           "Low Sweep",
           "Bulldoze",
-          "Body Press",
+          "Lunge",
+          "Brutal Swing",
           "Coaching",
-          "Triple Axel",
-          "Strength",
           "Rock Smash"
         ],
         "tutor": [
@@ -31639,11 +31562,11 @@
           },
           {
             "level": 50,
-            "move": "Take Down"
+            "move": "Dragon Dance"
           },
           {
             "level": 51,
-            "move": "Focus Energy"
+            "move": "Quiver Dance"
           },
           {
             "level": 53,
@@ -31666,6 +31589,10 @@
             "move": "First Impression"
           },
           {
+            "level": 64,
+            "move": "Draco Meteor"
+          },
+          {
             "level": 75,
             "move": "Double-Edge"
           }
@@ -31683,6 +31610,7 @@
           "Iron Tail",
           "Earthquake",
           "Return",
+          "Dig",
           "Brick Break",
           "Double Team",
           "Flamethrower",
@@ -31697,6 +31625,7 @@
           "Roost",
           "Endure",
           "Dragon Pulse",
+          "Silver Wind",
           "Shadow Claw",
           "Giga Impact",
           "Stone Edge",
@@ -31705,21 +31634,19 @@
           "X-Scissor",
           "Sleep Talk",
           "Natural Gift",
+          "Poison Jab",
           "Swagger",
           "U-turn",
           "Substitute",
           "Struggle Bug",
           "Bulldoze",
+          "Lunge",
           "Brutal Swing",
           "Dual Wingbeat",
           "Cut",
           "Fly",
           "Strength",
-          "Rock Smash",
-          "Dig",
-          "Poison Jab",
-          "Lunge",
-          "Silver Wind"
+          "Rock Smash"
         ],
         "tutor": [
           "Air Slash",

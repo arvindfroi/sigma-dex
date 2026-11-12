@@ -88,13 +88,15 @@ learnset:
     - {level: 46, move: Metal Sound}
     - {level: 46, move: Gunk Shot}
     - {level: 50, move: Lock-On}
+    - {level: 56, move: Flash Cannon}
+    - {level: 60, move: Steel Beam}
     - {level: 64, move: Belch}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
-          Return, Double Team, Sludge Bomb, Sandstorm, Facade, Secret Power, Rest, Attract,
-          Endure, Giga Impact, Gyro Ball, Stealth Rock, Captivate, Sleep Talk, Natural Gift,
-          Poison Jab, Swagger, Substitute, Flash Cannon, Venoshock, Heavy Slam, Acid Spray,
-          Iron Tail, Thief, Payback, Thunder Wave, Thunderbolt, Shadow Ball]
+          Iron Tail, Thunderbolt, Return, Shadow Ball, Double Team, Sludge Bomb, Sandstorm,
+          Facade, Secret Power, Rest, Attract, Thief, Endure, Payback, Giga Impact,
+          Thunder Wave, Gyro Ball, Stealth Rock, Captivate, Sleep Talk, Natural Gift,
+          Poison Jab, Swagger, Substitute, Flash Cannon, Venoshock, Heavy Slam, Acid Spray]
   # moves a move tutor can teach it
   tutor: [Body Slam, Curse, Iron Head, Metal Claw, Earth Power]
   egg: []                # only needed for the first stage of an evolution line

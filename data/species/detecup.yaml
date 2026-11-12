@@ -66,6 +66,7 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Lock-On}
     - {level: 1, move: Growl}
     - {level: 1, move: Hyper Voice}
     - {level: 1, move: Leer}
@@ -100,7 +101,7 @@ learnset:
           Solar Beam, Iron Tail, Thunderbolt, Thunder, Return, Dig, Shadow Ball,
           Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Endure,
           Shadow Claw, Giga Impact, Thunder Wave, Captivate, Sleep Talk, Natural Gift,
-          Swagger, U-turn, Substitute, Cut, Strength, Psychic Fangs]
+          Swagger, U-turn, Substitute, Psychic Fangs, Cut, Strength]
   # moves a move tutor can teach it
   tutor: [Body Slam, Endeavor, Hyper Voice, Seed Bomb, Super Fang, Zen Headbutt, Charm]
   egg: []                # only needed for the first stage of an evolution line
