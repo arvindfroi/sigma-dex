@@ -63,6 +63,7 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Growl}
     - {level: 1, move: Sweet Scent}
     - {level: 1, move: Tackle}
     - {level: 3, move: Play Nice}
@@ -71,17 +72,20 @@ learnset:
     - {level: 12, move: Draining Kiss}
     - {level: 15, move: Fake Tears}
     - {level: 18, move: Round}
-    - {level: 27, move: Energy Ball}
+    - {level: 30, move: Charm}
     - {level: 30, move: Wish}
     - {level: 33, move: Moonblast}
     - {level: 36, move: Cotton Guard}
     - {level: 39, move: Endeavor}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance, Safeguard,
-          Thunderbolt, Return, Psychic, Facade, Rest, Attract, Thief, Energy Ball, Endure,
-          Sleep Talk, Substitute, Draining Kiss, Play Rough, Toxic]
-  tutor: [Dazzling Gleam, Power Gem] # moves a move tutor can teach it
-  egg: [After You, Yawn, Sticky Web] # only needed for the first stage of an evolution line
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance,
+          Safeguard, Frustration, Return, Psychic, Double Team, Facade, Secret Power, Rest,
+          Attract, Thief, Energy Ball, Endure, Flash, Psych Up, Sleep Talk, Swagger,
+          Substitute, Draining Kiss, Misty Terrain, Play Rough]
+  # moves a move tutor can teach it
+  tutor: [Charm, Dazzling Gleam, Endeavor, Heal Bell, Power Gem]
+  # only needed for the first stage of an evolution line
+  egg: [Copycat, After You, Yawn, Sticky Web]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

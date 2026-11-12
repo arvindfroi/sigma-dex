@@ -66,37 +66,35 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 0, move: Slash}
     - {level: 1, move: Fell Stinger}
-    - {level: 1, move: Confuse Ray}
-    - {level: 1, move: Gust}
-    - {level: 1, move: Poison Sting}
-    - {level: 1, move: Struggle Bug}
-    - {level: 1, move: Sweet Scent}
+    - {level: 1, move: False Swipe}
+    - {level: 1, move: Leer}
     - {level: 1, move: Tackle}
     - {level: 4, move: Fury Cutter}
+    - {level: 5, move: Poison Sting}
     - {level: 10, move: Withdraw}
     - {level: 12, move: Wing Attack}
-    - {level: 15, move: Aromatic Mist}
-    - {level: 15, move: Leer}
-    - {level: 29, move: Bug Bite}
-    - {level: 31, move: Fury Swipes}
+    - {level: 23, move: U-turn}
+    - {level: 24, move: Bug Bite}
+    - {level: 31, move: Scary Face}
     - {level: 32, move: Crunch}
-    - {level: 44, move: Screech}
-    - {level: 47, move: Aromatherapy}
-    - {level: 47, move: Scary Face}
-    - {level: 49, move: Agility}
-    - {level: 50, move: Swords Dance}
-    - {level: 61, move: Power Gem}
-    - {level: 65, move: Toxic}
-    - {level: 66, move: X-Scissor}
+    - {level: 40, move: Focus Energy}
+    - {level: 40, move: X-Scissor}
+    - {level: 40, move: Take Down}
+    - {level: 44, move: Swords Dance}
+    - {level: 53, move: Agility}
+    - {level: 55, move: Slash}
+    - {level: 63, move: Absorb}
+    - {level: 80, move: Screech}
+    - {level: 89, move: First Impression}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Return, Double Team,
-          Aerial Ace, Facade, Rest, Attract, Thief, Roost, Fling, Endure, Giga Impact,
-          Flash, X-Scissor, Sleep Talk, Swagger, U-turn, Substitute, Venoshock,
-          Struggle Bug, Dual Wingbeat, Cut, Fly, Steel Wing, Psychic Fangs, Poison Jab]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
+          Giga Drain, Frustration, Return, Double Team, Aerial Ace, Facade, Secret Power,
+          Rest, Attract, Thief, Roost, Endure, Giga Impact, Swords Dance, Captivate,
+          X-Scissor, Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Struggle Bug,
+          Lunge, Dual Wingbeat, Cut, Fly, Steel Wing, Psychic Fangs, Poison Jab]
   # moves a move tutor can teach it
-  tutor: [Air Slash, Bug Bite, Pollen Puff, Brave Bird, Sky Attack, Fire Fang]
+  tutor: [Air Slash, Bug Bite, Hurricane, Sky Attack, Brave Bird, Heat Wave, Fire Fang]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

@@ -66,32 +66,35 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Focus Energy}
+    - {level: 1, move: Growth}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Sunny Day}
     - {level: 1, move: Water Gun}
-    - {level: 5, move: Leer}
     - {level: 6, move: Bite}
-    - {level: 10, move: Knock Off}
     - {level: 10, move: Payback}
     - {level: 10, move: Withdraw}
+    - {level: 14, move: Aqua Jet}
     - {level: 15, move: Stomp}
-    - {level: 20, move: Razor Shell}
     - {level: 20, move: Taunt}
     - {level: 22, move: Ice Fang}
-    - {level: 30, move: Crunch}
     - {level: 30, move: Scary Face}
-    - {level: 35, move: Night Slash}
+    - {level: 32, move: Aqua Ring}
     - {level: 40, move: Throat Chop}
-    - {level: 49, move: Sucker Punch}
-    - {level: 55, move: Foul Play}
-    - {level: 56, move: Swords Dance}
-    - {level: 65, move: Thrash}
-    - {level: 70, move: Giga Impact}
+    - {level: 42, move: Crunch}
+    - {level: 45, move: Night Slash}
+    - {level: 49, move: Jaw Lock}
+    - {level: 54, move: Thrash}
+    - {level: 55, move: Sucker Punch}
+    - {level: 60, move: Foul Play}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard, Hyper Beam,
-          Protect, Rain Dance, Return, Brick Break, Double Team, Rock Tomb, Facade, Rest,
-          Thief, Fling, Endure, Payback, Giga Impact, Dark Pulse, Rock Slide, Sleep Talk,
-          Swagger, Substitute, Foul Play, Scald, Bulldoze, Brutal Swing, Liquidation, Surf,
-          Whirlpool, Waterfall]
-  tutor: [Snarl]         # moves a move tutor can teach it
+  tm_hm: [Water Pulse, Toxic, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard,
+          Hyper Beam, Protect, Rain Dance, Frustration, Return, Brick Break, Double Team,
+          Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Thief, Fling, Endure, Payback,
+          Giga Impact, Dark Pulse, Rock Slide, Sleep Talk, Swagger, Substitute, Foul Play,
+          Scald, Liquidation, Surf, Whirlpool, Waterfall]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Icy Wind, Snarl, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

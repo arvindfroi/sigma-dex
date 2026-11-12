@@ -66,33 +66,35 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Defense Curl}
+    - {level: 1, move: Flail}
+    - {level: 1, move: Rock Polish}
     - {level: 1, move: Rock Throw}
     - {level: 1, move: Tackle}
-    - {level: 6, move: Harden}
-    - {level: 6, move: Rock Polish}
     - {level: 10, move: Rollout}
     - {level: 12, move: Mimic}
-    - {level: 16, move: Smack Down}
+    - {level: 15, move: Bulldoze}
+    - {level: 18, move: Smack Down}
     - {level: 20, move: Rock Tomb}
-    - {level: 22, move: Bulldoze}
-    - {level: 24, move: Sandstorm}
-    - {level: 24, move: Spikes}
+    - {level: 23, move: Spikes}
     - {level: 30, move: Stealth Rock}
     - {level: 32, move: Rock Slide}
     - {level: 34, move: Rock Blast}
+    - {level: 40, move: Counter}
     - {level: 40, move: Earthquake}
     - {level: 40, move: Wood Hammer}
+    - {level: 48, move: Head Smash}
+    - {level: 48, move: Stone Edge}
     - {level: 50, move: Double-Edge}
-    - {level: 50, move: Stone Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Earthquake, Return, Dig,
-          Brick Break, Double Team, Sandstorm, Rock Tomb, Facade, Rest, Attract, Fling,
-          Endure, Giga Impact, Rock Polish, Stone Edge, Stealth Rock, Rock Slide,
-          Sleep Talk, Swagger, Substitute, Bulldoze, High Horsepower, Body Press,
-          Meteor Beam, Strength, Rock Smash]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
+          Earthquake, Return, Dig, Brick Break, Double Team, Sandstorm, Rock Tomb, Facade,
+          Secret Power, Rest, Attract, Fling, Endure, Giga Impact, Rock Polish, Stone Edge,
+          Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger,
+          Substitute, Bulldoze, High Horsepower, Body Press, Meteor Beam, Strength,
+          Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Body Slam, Curse, Earth Power]
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Endeavor, Iron Head, Power Gem,
+          Power-Up Punch]
   # only needed for the first stage of an evolution line
   egg: [Ancient Power, Curse, Mud-Slap, Mud Shot]
 

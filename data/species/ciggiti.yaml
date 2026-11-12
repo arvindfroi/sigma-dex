@@ -69,7 +69,6 @@ learnset:
     - {level: 1, move: Astonish}
     - {level: 1, move: Confuse Ray}
     - {level: 1, move: Lick}
-    - {level: 1, move: Shadow Sneak}
     - {level: 4, move: Hypnosis}
     - {level: 6, move: Smog}
     - {level: 10, move: Smokescreen}
@@ -81,15 +80,17 @@ learnset:
     - {level: 32, move: Pain Split}
     - {level: 32, move: Sucker Punch}
     - {level: 36, move: Dark Pulse}
-    - {level: 40, move: Shadow Ball}
+    - {level: 41, move: Shadow Ball}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Giga Drain, Return, Psychic,
-          Shadow Ball, Double Team, Facade, Rest, Attract, Thief, Skill Swap, Energy Ball,
-          Endure, Will-O-Wisp, Payback, Psych Up, Dark Pulse, Sleep Talk, Swagger,
-          Substitute, Trick Room, Foul Play]
-  tutor: [Curse, Icy Wind, Poltergeist] # moves a move tutor can teach it
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Giga Drain,
+          Frustration, Thunderbolt, Thunder, Return, Psychic, Shadow Ball, Double Team,
+          Torment, Facade, Secret Power, Rest, Attract, Thief, Skill Swap, Energy Ball,
+          Endure, Will-O-Wisp, Embargo, Payback, Psych Up, Captivate, Dark Pulse,
+          Sleep Talk, Natural Gift, Swagger, Substitute, Trick Room, Foul Play]
+  # moves a move tutor can teach it
+  tutor: [Curse, Icy Wind, Nasty Plot, Poltergeist]
   # only needed for the first stage of an evolution line
-  egg: [Disable, Haze, Clear Smog, Grudge, Scary Face, Reflect Type]
+  egg: [Disable, Ominous Wind, Imprison, Haze, Clear Smog, Grudge, Ally Switch]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

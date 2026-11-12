@@ -65,29 +65,30 @@ learnset:
   level_up:
     - {level: 1, move: Scratch}
     - {level: 1, move: Growl}
-    - {level: 1, move: Leer}
     - {level: 6, move: Ember}
-    - {level: 7, move: Smokescreen}
+    - {level: 8, move: Smokescreen}
     - {level: 10, move: Supersonic}
-    - {level: 13, move: Fury Swipes}
+    - {level: 12, move: Fury Swipes}
     - {level: 14, move: Flame Charge}
     - {level: 17, move: Incinerate}
     - {level: 18, move: Wing Attack}
     - {level: 19, move: Lava Plume}
-    - {level: 19, move: Slash}
+    - {level: 20, move: Slash}
     - {level: 28, move: Scary Face}
+    - {level: 30, move: Flamethrower}
     - {level: 32, move: Fire Spin}
-    - {level: 32, move: Flamethrower}
     - {level: 36, move: Inferno}
     - {level: 40, move: Fire Blast}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Protect, Iron Tail, Return, Dig, Double Team,
-          Flamethrower, Fire Blast, Facade, Rest, Attract, Overheat, Endure, Will-O-Wisp,
-          Sleep Talk, Swagger, Substitute, Flame Charge, Cut, Rock Smash, Fly]
+  tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Protect, Frustration, Return, Dig,
+          Double Team, Flamethrower, Fire Blast, Facade, Secret Power, Rest, Attract,
+          Overheat, Endure, Will-O-Wisp, Shadow Claw, Captivate, Sleep Talk, Natural Gift,
+          Swagger, Substitute, Flame Charge, Cut, Rock Smash, Fly]
   # moves a move tutor can teach it
-  tutor: [Fire Fang, Fire Punch, Flame Wheel, Flare Blitz, Heat Wave]
+  tutor: [Body Slam, Fire Fang, Fire Punch, Flare Blitz, Heat Wave]
   # only needed for the first stage of an evolution line
-  egg: [Flare Blitz, Fire Punch, Counter, Double Kick, Fake Out, Covet]
+  egg: [Heat Wave, Flare Blitz, Counter, Crunch, Fire Punch, Focus Punch, Fake Out,
+        Double Kick]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

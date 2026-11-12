@@ -69,10 +69,13 @@ learnset:
     - {level: 1, move: Ancient Power}
     - {level: 1, move: Gust}
     - {level: 1, move: Scary Face}
-    - {level: 1, move: Weather Ball}
     - {level: 1, move: Whirlwind}
+    - {level: 6, move: Bite}
+    - {level: 9, move: Life Dew}
     - {level: 18, move: Safeguard}
-    - {level: 22, move: Wing Attack}
+    - {level: 20, move: Cross Poison}
+    - {level: 21, move: Wing Attack}
+    - {level: 29, move: Hone Claws}
     - {level: 35, move: Drill Peck}
     - {level: 35, move: Double Hit}
     - {level: 36, move: Extrasensory}
@@ -84,10 +87,13 @@ learnset:
     - {level: 72, move: Brave Bird}
     - {level: 85, move: Hyper Beam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Return, Double Team,
-          Sludge Bomb, Aerial Ace, Facade, Rest, Steel Wing, Roost, Endure, Giga Impact,
-          Sleep Talk, Poison Jab, Swagger, Substitute, Venoshock, Dual Wingbeat, Fly, Surf]
-  tutor: [Sky Attack, Night Slash] # moves a move tutor can teach it
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
+          Return, Double Team, Sludge Bomb, Aerial Ace, Facade, Secret Power, Rest,
+          Steel Wing, Roost, Endure, Giga Impact, Sleep Talk, Natural Gift, Poison Jab,
+          Swagger, U-turn, Substitute, Venoshock, Acid Spray, Dual Wingbeat, Fly, Surf]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Body Slam, Brave Bird, Heat Wave, Hurricane, Iron Head, Sky Attack,
+          Zen Headbutt, Weather Ball, Night Slash]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

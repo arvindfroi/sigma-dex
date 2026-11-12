@@ -66,6 +66,8 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
     - {level: 1, move: Powder Snow}
     - {level: 1, move: Tackle}
     - {level: 6, move: Mist}
@@ -75,21 +77,21 @@ learnset:
     - {level: 20, move: Pay Day}
     - {level: 24, move: Headbutt}
     - {level: 30, move: Amnesia}
-    - {level: 30, move: Avalanche}
+    - {level: 30, move: Ice Fang}
     - {level: 36, move: Freeze-Dry}
-    - {level: 42, move: Hail}
+    - {level: 42, move: Snowscape}
     - {level: 48, move: Aurora Veil}
-    - {level: 48, move: Ice Beam}
     - {level: 54, move: Surf}
     - {level: 60, move: Blizzard}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect, Rain Dance, Return,
-          Reflect, Facade, Rest, Attract, Endure, Giga Impact, Avalanche, Sleep Talk,
-          Substitute, Surf]
+  tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect,
+          Rain Dance, Frustration, Return, Double Team, Reflect, Facade, Secret Power, Rest,
+          Attract, Endure, Giga Impact, Avalanche, Sleep Talk, Swagger, Substitute, Surf]
   # moves a move tutor can teach it
-  tutor: [Ice Shard, Icicle Spear, Icy Wind]
+  tutor: [Body Slam, Ice Fang, Ice Punch, Icicle Spear, Icy Wind, Iron Head, Weather Ball,
+          Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Icicle Crash, Double-Edge, Soak, Head Smash]
+  egg: [Icicle Crash, Double-Edge, Frost Breath]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

@@ -65,28 +65,27 @@ learnset:
   level_up:
     - {level: 1, move: Ember}
     - {level: 1, move: Growl}
-    - {level: 1, move: Quick Attack}
     - {level: 1, move: Tackle}
     - {level: 9, move: Bite}
     - {level: 12, move: Double Kick}
-    - {level: 14, move: Fire Fang}
     - {level: 15, move: Snore}
     - {level: 20, move: Flame Charge}
-    - {level: 21, move: Flame Wheel}
     - {level: 25, move: Slash}
     - {level: 26, move: Agility}
     - {level: 34, move: Headbutt}
     - {level: 41, move: Take Down}
+    - {level: 46, move: Flamethrower}
+    - {level: 49, move: Thrash}
     - {level: 53, move: Double-Edge}
     - {level: 55, move: Flare Blitz}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Taunt, Protect, Return, Double Team, Flamethrower,
-          Fire Blast, Facade, Rest, Attract, Overheat, Endure, Will-O-Wisp, Sleep Talk,
-          Swagger, Substitute, Flame Charge]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Protect, Frustration, Return, Dig,
+          Double Team, Flamethrower, Fire Blast, Facade, Secret Power, Rest, Attract,
+          Overheat, Endure, Will-O-Wisp, Sleep Talk, Swagger, Substitute, Flame Charge]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Fire Fang, Flare Blitz, Heat Wave]
+  tutor: [Body Slam, Fire Fang, Fire Punch, Flare Blitz, Heat Wave]
   # only needed for the first stage of an evolution line
-  egg: [Heat Wave, Thrash, Burn Up, Yawn, Low Kick]
+  egg: [Heat Wave, Burn Up, Yawn, Fire Punch, Morning Sun, Focus Punch, Low Kick]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

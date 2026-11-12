@@ -69,38 +69,39 @@ learnset:
     - {level: 0, move: Trop Kick}
     - {level: 1, move: Dual Wingbeat}
     - {level: 1, move: Growl}
-    - {level: 1, move: Leer}
     - {level: 1, move: Peck}
     - {level: 1, move: Sand Attack}
     - {level: 1, move: Tackle}
     - {level: 1, move: Leafage}
     - {level: 1, move: Scratch}
-    - {level: 10, move: Razor Leaf}
-    - {level: 13, move: Bullet Seed}
-    - {level: 14, move: Bite}
-    - {level: 15, move: Air Cutter}
-    - {level: 15, move: Wing Attack}
+    - {level: 13, move: Razor Leaf}
+    - {level: 14, move: Bullet Seed}
+    - {level: 15, move: Pluck}
     - {level: 16, move: Leech Seed}
-    - {level: 17, move: Pluck}
     - {level: 18, move: Growth}
-    - {level: 18, move: Slash}
-    - {level: 21, move: Acrobatics}
+    - {level: 19, move: Acrobatics}
     - {level: 22, move: Aerial Ace}
     - {level: 25, move: Mega Drain}
-    - {level: 29, move: Seed Bomb}
-    - {level: 34, move: Absorb}
-    - {level: 35, move: Bounce}
-    - {level: 36, move: Agility}
-    - {level: 40, move: Swords Dance}
-    - {level: 55, move: Brave Bird}
+    - {level: 27, move: Agility}
+    - {level: 27, move: Wing Attack}
+    - {level: 28, move: Seed Bomb}
+    - {level: 40, move: Fly}
+    - {level: 42, move: Absorb}
+    - {level: 43, move: Energy Ball}
+    - {level: 44, move: Leaf Blade}
+    - {level: 45, move: Swords Dance}
+    - {level: 49, move: Brave Bird}
+    - {level: 49, move: Power Whip}
+    - {level: 60, move: Slash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Giga Drain,
-          Solar Beam, Return, Double Team, Aerial Ace, Facade, Rest, Attract, Thief,
-          Steel Wing, Roost, Energy Ball, Endure, Giga Impact, Swords Dance, Sleep Talk,
-          Grass Knot, Swagger, Pluck, U-turn, Substitute, Dual Wingbeat, Fly]
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
+          Giga Drain, Frustration, Solar Beam, Return, Double Team, Aerial Ace, Facade,
+          Secret Power, Rest, Attract, Thief, Steel Wing, Roost, Energy Ball, Endure,
+          Giga Impact, Swords Dance, Captivate, Sleep Talk, Natural Gift, Grass Knot,
+          Swagger, Pluck, U-turn, Substitute, Grassy Terrain, Fly, Flash]
   # moves a move tutor can teach it
-  tutor: [Air Slash, Brave Bird, Leaf Storm, Magical Leaf, Seed Bomb, Sky Attack,
-          Leech Seed, Mega Drain, Synthesis]
+  tutor: [Air Slash, Brave Bird, Endeavor, Hurricane, Leaf Storm, Magical Leaf, Seed Bomb,
+          Sky Attack, Synthesis, Body Slam]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

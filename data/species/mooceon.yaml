@@ -75,31 +75,34 @@ learnset:
     - {level: 1, move: Hyper Voice}
     - {level: 1, move: Baby-Doll Eyes}
     - {level: 1, move: Ice Beam}
-    - {level: 1, move: Astonish}
-    - {level: 1, move: Growl}
-    - {level: 1, move: Noble Roar}
-    - {level: 1, move: Soak}
-    - {level: 1, move: Splash}
     - {level: 1, move: Water Gun}
     - {level: 1, move: Defense Curl}
-    - {level: 1, move: Tail Whip}
-    - {level: 4, move: Tackle}
-    - {level: 5, move: Rollout}
+    - {level: 1, move: Tackle}
+    - {level: 3, move: Growl}
+    - {level: 6, move: Rollout}
     - {level: 11, move: Mist}
+    - {level: 12, move: Disable}
     - {level: 14, move: Water Pulse}
+    - {level: 15, move: Charm}
     - {level: 16, move: Heavy Slam}
-    - {level: 17, move: Yawn}
     - {level: 20, move: Whirlpool}
-    - {level: 20, move: Bubble Beam}
-    - {level: 25, move: Charm}
+    - {level: 23, move: Muddy Water}
+    - {level: 25, move: Bounce}
+    - {level: 27, move: Flail}
+    - {level: 28, move: Yawn}
+    - {level: 34, move: Amnesia}
+    - {level: 38, move: Rain Dance}
+    - {level: 39, move: Hydro Pump}
+    - {level: 50, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Roar, Water Pulse, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Hyper Beam,
-          Protect, Rain Dance, Earthquake, Return, Double Team, Rock Tomb, Facade, Rest,
-          Attract, Brine, Endure, Giga Impact, Sleep Talk, Swagger, Substitute, Scald,
-          Bulldoze, Liquidation, Surf, Strength, Whirlpool, Rock Smash, Waterfall,
-          Frustration, Iron Tail, Thief]
+  tm_hm: [Roar, Water Pulse, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard,
+          Hyper Beam, Protect, Rain Dance, Frustration, Earthquake, Return, Dig,
+          Shadow Ball, Double Team, Rock Tomb, Facade, Secret Power, Rest, Attract, Thief,
+          Brine, Endure, Giga Impact, Captivate, Sleep Talk, Natural Gift, Swagger,
+          Substitute, Scald, Bulldoze, Liquidation, Surf, Strength, Whirlpool, Rock Smash,
+          Waterfall]
   # moves a move tutor can teach it
-  tutor: [Aqua Tail, Body Slam, Curse, Hyper Voice, Icy Wind, Weather Ball, Zen Headbutt]
+  tutor: [Aqua Tail, Body Slam, Endeavor, Hyper Voice, Icy Wind, Weather Ball, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

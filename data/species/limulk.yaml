@@ -66,28 +66,30 @@ learnset:
     - {level: 1, move: Focus Energy}
     - {level: 1, move: Leer}
     - {level: 1, move: Low Kick}
-    - {level: 1, move: Tackle}
     - {level: 4, move: Arm Thrust}
-    - {level: 15, move: Detect}
+    - {level: 5, move: Rock Smash}
+    - {level: 8, move: Taunt}
     - {level: 16, move: Low Sweep}
-    - {level: 24, move: Vital Throw}
+    - {level: 22, move: Brick Break}
     - {level: 25, move: Bulk Up}
     - {level: 28, move: Scary Face}
-    - {level: 31, move: Seismic Toss}
-    - {level: 36, move: Dynamic Punch}
+    - {level: 28, move: Vital Throw}
     - {level: 40, move: Close Combat}
     - {level: 40, move: Reversal}
-    - {level: 48, move: Focus Punch}
+    - {level: 40, move: Seismic Toss}
+    - {level: 45, move: Dynamic Punch}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Focus Punch, Bulk Up, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance,
-          Earthquake, Return, Dig, Brick Break, Double Team, Rock Tomb, Facade, Rest,
-          Attract, Focus Blast, Fling, Endure, Drain Punch, Payback, Stone Edge, Rock Slide,
-          Sleep Talk, Poison Jab, Swagger, Substitute, Low Sweep, Bulldoze, Coaching,
-          Rock Smash]
+  tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance,
+          Frustration, Earthquake, Return, Dig, Brick Break, Double Team, Rock Tomb, Facade,
+          Secret Power, Rest, Attract, Thief, Focus Blast, Fling, Endure, Drain Punch,
+          Payback, Stone Edge, Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute,
+          Low Sweep, Bulldoze, Coaching, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Close Combat, Counter, Fire Punch, Ice Punch, Power-Up Punch, Thunder Punch]
+  tutor: [Body Slam, Close Combat, Counter, Endeavor, Fire Punch, Ice Punch, Power-Up Punch,
+          Thunder Punch, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Power-Up Punch, Quick Guard, Cross Chop, Storm Throw, Superpower]
+  egg: [Power-Up Punch, Quick Guard, Wide Guard, Smelling Salts, Revenge, Storm Throw,
+        Wake-Up Slap, Cross Chop]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

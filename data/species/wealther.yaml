@@ -65,30 +65,35 @@ learnset:
   level_up:
     - {level: 0, move: Hone Claws}
     - {level: 1, move: Feint Attack}
-    - {level: 1, move: Growl}
     - {level: 1, move: Leer}
-    - {level: 1, move: Pound}
     - {level: 1, move: Scratch}
     - {level: 1, move: Water Gun}
+    - {level: 1, move: Growl}
     - {level: 1, move: Tackle}
     - {level: 4, move: Peck}
+    - {level: 7, move: Work Up}
     - {level: 10, move: Bite}
-    - {level: 11, move: Focus Energy}
+    - {level: 11, move: Torment}
     - {level: 12, move: Protect}
-    - {level: 13, move: Aqua Jet}
-    - {level: 14, move: Scary Face}
+    - {level: 13, move: Scary Face}
+    - {level: 14, move: Aqua Jet}
+    - {level: 20, move: Double Hit}
+    - {level: 32, move: Focus Energy}
+    - {level: 33, move: Slash}
+    - {level: 33, move: Aqua Tail}
     - {level: 36, move: Crunch}
-    - {level: 42, move: Agility}
-    - {level: 44, move: Liquidation}
-    - {level: 53, move: Wave Crash}
+    - {level: 43, move: Liquidation}
+    - {level: 43, move: Thrash}
+    - {level: 56, move: Wave Crash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Hail, Hidden Power, Taunt, Ice Beam, Blizzard, Protect, Rain Dance,
-          Return, Dig, Double Team, Rock Tomb, Torment, Facade, Rest, Attract, Thief, Fling,
-          Endure, Payback, Dark Pulse, Sleep Talk, Grass Knot, Swagger, Substitute,
-          Low Sweep, Foul Play, Scald, Surf, Whirlpool, Rock Smash, Waterfall, Brine,
-          Liquidation]
+  tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Taunt, Ice Beam, Blizzard, Protect,
+          Rain Dance, Frustration, Return, Dig, Brick Break, Double Team, Rock Tomb,
+          Aerial Ace, Torment, Facade, Secret Power, Rest, Attract, Thief, Fling, Endure,
+          Shadow Claw, Payback, Captivate, Dark Pulse, Sleep Talk, Natural Gift, Grass Knot,
+          Swagger, Substitute, Low Sweep, Foul Play, Scald, Liquidation, Cut, Surf,
+          Strength, Whirlpool, Rock Smash, Waterfall, Brine, Flip Turn]
   # moves a move tutor can teach it
-  tutor: [Aqua Jet, Aqua Tail, Icy Wind, Snarl]
+  tutor: [Aqua Tail, Body Slam, Icy Wind, Power-Up Punch, Snarl]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

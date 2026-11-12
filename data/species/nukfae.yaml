@@ -66,26 +66,28 @@ learnset:
     - {level: 1, move: Poison Hug}
     - {level: 1, move: Growl}
     - {level: 1, move: Pound}
-    - {level: 1, move: Smog}
     - {level: 1, move: Tackle}
-    - {level: 3, move: Sweet Kiss}
-    - {level: 7, move: Acid}
-    - {level: 8, move: Clear Smog}
     - {level: 8, move: Wrap}
+    - {level: 9, move: Acid}
     - {level: 10, move: Sweet Scent}
-    - {level: 12, move: Draining Kiss}
-    - {level: 30, move: Charm}
-    - {level: 32, move: Sludge Wave}
-    - {level: 37, move: Play Rough}
-    - {level: 41, move: Toxic}
-    - {level: 44, move: Moonblast}
+    - {level: 20, move: Charm}
+    - {level: 20, move: Encore}
+    - {level: 34, move: Play Rough}
+    - {level: 37, move: Toxic}
+    - {level: 40, move: Sludge Bomb}
     - {level: 45, move: Misty Terrain}
+    - {level: 45, move: Moonblast}
+    - {level: 49, move: Sludge Wave}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Safeguard, Return,
-          Double Team, Sludge Bomb, Facade, Rest, Attract, Thief, Endure, Sleep Talk,
-          Poison Jab, Swagger, Substitute, Venoshock, Draining Kiss, Play Rough]
-  tutor: [Dazzling Gleam] # moves a move tutor can teach it
-  egg: [Curse, Haze, Gunk Shot] # only needed for the first stage of an evolution line
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance, Giga Drain,
+          Safeguard, Frustration, Return, Double Team, Sludge Bomb, Facade, Secret Power,
+          Rest, Attract, Thief, Energy Ball, Endure, Flash, Captivate, Sleep Talk,
+          Natural Gift, Poison Jab, Swagger, Substitute, Venoshock, Acid Spray,
+          Draining Kiss, Play Rough]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Charm, Dazzling Gleam, Endeavor]
+  # only needed for the first stage of an evolution line
+  egg: [Clear Smog, Smog, Curse, Haze, Gunk Shot]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

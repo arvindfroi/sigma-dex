@@ -66,34 +66,36 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Crunch}
     - {level: 1, move: Growl}
+    - {level: 1, move: Ice Fang}
     - {level: 1, move: Quick Attack}
-    - {level: 1, move: Tackle}
+    - {level: 1, move: Throat Chop}
     - {level: 1, move: Water Gun}
-    - {level: 1, move: Hypnosis}
-    - {level: 7, move: Pound}
-    - {level: 8, move: Tail Whip}
+    - {level: 9, move: Supersonic}
     - {level: 12, move: Water Pulse}
-    - {level: 14, move: Aqua Jet}
     - {level: 14, move: Mud Shot}
     - {level: 21, move: Bite}
     - {level: 22, move: Bubble Beam}
     - {level: 24, move: Swift}
+    - {level: 28, move: Aqua Jet}
+    - {level: 28, move: Soak}
     - {level: 29, move: Rain Dance}
+    - {level: 34, move: Agility}
     - {level: 34, move: Echoed Voice}
-    - {level: 40, move: Agility}
-    - {level: 45, move: Waterfall}
-    - {level: 50, move: Aqua Tail}
-    - {level: 52, move: Liquidation}
-    - {level: 61, move: Hydro Pump}
+    - {level: 39, move: Whirlpool}
+    - {level: 40, move: Aqua Ring}
+    - {level: 44, move: Crunch}
+    - {level: 46, move: Liquidation}
+    - {level: 47, move: Surf}
+    - {level: 57, move: Hydro Pump}
+    - {level: 62, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect,
-          Rain Dance, Return, Double Team, Facade, Rest, Attract, Brine, Endure,
-          Giga Impact, Sleep Talk, Swagger, Substitute, Scald, Liquidation, Flip Turn, Surf,
-          Whirlpool, Waterfall]
+  tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect,
+          Rain Dance, Frustration, Return, Double Team, Facade, Secret Power, Rest, Attract,
+          Brine, Endure, Giga Impact, Captivate, Sleep Talk, Natural Gift, Swagger,
+          Substitute, Scald, Liquidation, Flip Turn, Surf, Whirlpool, Waterfall, Thief]
   # moves a move tutor can teach it
-  tutor: [Aqua Jet, Aqua Tail, Icy Wind, Hyper Voice]
+  tutor: [Aqua Tail, Body Slam, Icy Wind, Hyper Voice]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

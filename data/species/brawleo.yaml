@@ -68,38 +68,40 @@ learnset:
   level_up:
     - {level: 0, move: Mach Punch}
     - {level: 1, move: Baby-Doll Eyes}
-    - {level: 1, move: Feint}
     - {level: 1, move: Focus Energy}
-    - {level: 1, move: Helping Hand}
+    - {level: 1, move: Growl}
     - {level: 1, move: Leer}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Growl}
-    - {level: 5, move: Quick Attack}
     - {level: 5, move: Sand Attack}
+    - {level: 6, move: Work Up}
     - {level: 8, move: Howl}
-    - {level: 10, move: Fake Out}
     - {level: 12, move: Mud-Slap}
-    - {level: 13, move: Bite}
+    - {level: 13, move: Double Kick}
+    - {level: 16, move: Headbutt}
     - {level: 16, move: Double Slap}
     - {level: 18, move: Fury Swipes}
-    - {level: 20, move: Double Kick}
+    - {level: 19, move: Bite}
+    - {level: 19, move: Retaliate}
     - {level: 20, move: Wake-Up Slap}
-    - {level: 24, move: Charm}
-    - {level: 24, move: Headbutt}
-    - {level: 29, move: Take Down}
-    - {level: 36, move: Agility}
+    - {level: 21, move: Feint}
+    - {level: 25, move: Charm}
+    - {level: 29, move: Flail}
+    - {level: 31, move: Take Down}
+    - {level: 32, move: Agility}
+    - {level: 32, move: Play Rough}
+    - {level: 39, move: Helping Hand}
     - {level: 41, move: Close Combat}
-    - {level: 45, move: Reversal}
-    - {level: 53, move: Double-Edge}
-    - {level: 62, move: Triple Kick}
+    - {level: 47, move: Reversal}
+    - {level: 52, move: Last Resort}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
-          Frustration, Iron Tail, Return, Dig, Shadow Ball, Brick Break, Double Team,
-          Rock Tomb, Facade, Rest, Attract, Thief, Focus Blast, Fling, Endure, Payback,
-          Giga Impact, Rock Slide, Sleep Talk, Swagger, Substitute, Low Sweep, Cut,
-          Strength, Rock Smash]
+  tm_hm: [Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
+          Frustration, Return, Dig, Shadow Ball, Brick Break, Double Team, Rock Tomb,
+          Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Focus Blast, Fling,
+          Endure, Giga Impact, Stone Edge, Captivate, Rock Slide, Sleep Talk, Natural Gift,
+          Poison Jab, Swagger, Substitute, Low Sweep, Bulldoze, Cut, Strength, Rock Smash,
+          Payback]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Close Combat, Counter, Endeavor, Fake Out, Hyper Voice, Charm]
+  tutor: [Body Slam, Close Combat, Endeavor, Hyper Voice, Zen Headbutt, Charm]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

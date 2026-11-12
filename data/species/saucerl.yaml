@@ -67,26 +67,28 @@ learnset:
     - {level: 1, move: Tackle}
     - {level: 4, move: Water Gun}
     - {level: 8, move: Withdraw}
+    - {level: 10, move: Psybeam}
     - {level: 12, move: Aqua Ring}
-    - {level: 14, move: Psybeam}
+    - {level: 13, move: Rapid Spin}
     - {level: 17, move: Bite}
+    - {level: 17, move: Hypnosis}
     - {level: 22, move: Water Pulse}
     - {level: 25, move: Protect}
-    - {level: 28, move: Rain Dance}
     - {level: 31, move: Muddy Water}
+    - {level: 35, move: Future Sight}
     - {level: 37, move: Iron Defense}
-    - {level: 39, move: Psychic}
     - {level: 40, move: Hydro Pump}
-    - {level: 46, move: Future Sight}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Calm Mind, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard,
-          Light Screen, Protect, Rain Dance, Safeguard, Return, Psychic, Shadow Ball,
-          Double Team, Reflect, Facade, Rest, Attract, Skill Swap, Brine, Endure,
-          Sleep Talk, Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Scald,
-          Expanding Force, Surf, Whirlpool, Waterfall]
+  tm_hm: [Water Pulse, Calm Mind, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard,
+          Light Screen, Protect, Rain Dance, Safeguard, Frustration, Return, Psychic,
+          Shadow Ball, Double Team, Reflect, Rock Tomb, Facade, Secret Power, Rest, Attract,
+          Thief, Skill Swap, Brine, Endure, Flash, Thunder Wave, Psych Up, Captivate,
+          Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock,
+          Scald, Liquidation, Expanding Force, Flip Turn, Surf, Whirlpool, Waterfall]
   # moves a move tutor can teach it
-  tutor: [Aqua Tail, Icy Wind, Zen Headbutt]
-  egg: [Mirror Coat, Flail] # only needed for the first stage of an evolution line
+  tutor: [Aqua Tail, Body Slam, Icy Wind, Zen Headbutt]
+  # only needed for the first stage of an evolution line
+  egg: [Mirror Coat, Aqua Jet, Haze, Zen Headbutt, Flail, Synchronoise, Aqua Tail]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

@@ -66,30 +66,32 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Disarming Voice}
+    - {level: 1, move: Disable}
+    - {level: 1, move: Fairy Wind}
     - {level: 1, move: Leer}
     - {level: 1, move: Quick Attack}
     - {level: 1, move: Sand Attack}
-    - {level: 10, move: Fairy Wind}
-    - {level: 15, move: Mud Shot}
-    - {level: 20, move: Dig}
-    - {level: 20, move: Draining Kiss}
+    - {level: 7, move: Howl}
+    - {level: 14, move: Bulldoze}
     - {level: 24, move: Sand Tomb}
     - {level: 25, move: Iron Defense}
-    - {level: 25, move: Swords Dance}
-    - {level: 40, move: Dazzling Gleam}
-    - {level: 45, move: Stomping Tantrum}
-    - {level: 54, move: High Horsepower}
-    - {level: 65, move: Earthquake}
+    - {level: 35, move: Stomping Tantrum}
+    - {level: 40, move: Earth Power}
+    - {level: 40, move: Misty Terrain}
+    - {level: 42, move: Hammer Arm}
+    - {level: 42, move: Knock Off}
+    - {level: 49, move: Earthquake}
+    - {level: 63, move: Play Rough}
     - {level: 65, move: Moonblast}
-    - {level: 85, move: Giga Impact}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
-          Safeguard, Earthquake, Return, Dig, Psychic, Reflect, Sandstorm, Rock Tomb,
-          Facade, Rest, Endure, Giga Impact, Stone Edge, Stealth Rock, Rock Slide,
-          Sleep Talk, Grass Knot, Substitute, Bulldoze, Draining Kiss, Play Rough,
-          High Horsepower]
-  tutor: [Dazzling Gleam, Earth Power] # moves a move tutor can teach it
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
+          Protect, Rain Dance, Frustration, Thunderbolt, Earthquake, Return, Dig, Psychic,
+          Double Team, Reflect, Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Fling,
+          Endure, Giga Impact, Stone Edge, Thunder Wave, Stealth Rock, Psych Up, Rock Slide,
+          Sleep Talk, Grass Knot, Swagger, Substitute, Bulldoze, Draining Kiss,
+          Misty Terrain, Play Rough, High Horsepower]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Dazzling Gleam, Earth Power, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

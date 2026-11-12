@@ -67,31 +67,35 @@ learnset:
     - {level: 1, move: Air Slash}
     - {level: 1, move: Ember}
     - {level: 1, move: Growl}
-    - {level: 1, move: Gust}
     - {level: 1, move: Peck}
     - {level: 1, move: Quick Attack}
     - {level: 1, move: Scratch}
-    - {level: 1, move: Leer}
-    - {level: 7, move: Smokescreen}
-    - {level: 9, move: Flame Charge}
-    - {level: 10, move: Supersonic}
-    - {level: 13, move: Fury Swipes}
+    - {level: 8, move: Smokescreen}
+    - {level: 12, move: Gust}
+    - {level: 12, move: Fury Swipes}
+    - {level: 14, move: Supersonic}
+    - {level: 18, move: Air Cutter}
+    - {level: 20, move: Incinerate}
     - {level: 20, move: Wing Attack}
-    - {level: 26, move: Fire Spin}
-    - {level: 27, move: Air Cutter}
+    - {level: 22, move: Acrobatics}
+    - {level: 22, move: Lava Plume}
+    - {level: 23, move: Slash}
     - {level: 29, move: Agility}
+    - {level: 31, move: Flame Charge}
+    - {level: 31, move: Scary Face}
+    - {level: 35, move: Fire Spin}
     - {level: 41, move: Flamethrower}
-    - {level: 44, move: Tailwind}
-    - {level: 50, move: Roost}
+    - {level: 46, move: Roost}
     - {level: 54, move: Fire Blast}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Taunt, Protect, Return, Double Team, Flamethrower,
-          Fire Blast, Aerial Ace, Facade, Rest, Attract, Thief, Steel Wing, Overheat, Roost,
-          Endure, Will-O-Wisp, Sleep Talk, Swagger, Pluck, U-turn, Substitute, Flame Charge,
-          Dual Wingbeat, Fly, Iron Tail, Dig, Cut, Rock Smash]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration, Return,
+          Double Team, Flamethrower, Fire Blast, Aerial Ace, Facade, Secret Power, Rest,
+          Attract, Thief, Steel Wing, Overheat, Roost, Endure, Will-O-Wisp, Captivate,
+          Sleep Talk, Natural Gift, Swagger, Pluck, U-turn, Substitute, Flame Charge,
+          Dual Wingbeat, Fly, Roar, Dig, Shadow Claw, Cut, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Air Slash, Brave Bird, Fire Punch, Flare Blitz, Heat Wave, Hurricane, Sky Attack,
-          Fire Fang, Flame Wheel]
+  tutor: [Air Slash, Body Slam, Brave Bird, Fire Fang, Fire Punch, Flare Blitz, Heat Wave,
+          Hurricane, Sky Attack]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

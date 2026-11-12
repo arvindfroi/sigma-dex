@@ -67,35 +67,40 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Bulldoze}
+    - {level: 1, move: Growl}
     - {level: 1, move: Mud-Slap}
     - {level: 1, move: Tackle}
     - {level: 1, move: Thunder Shock}
     - {level: 1, move: Water Gun}
-    - {level: 1, move: Tail Whip}
     - {level: 5, move: Endure}
     - {level: 8, move: Rapid Spin}
     - {level: 10, move: Mud Shot}
+    - {level: 10, move: Withdraw}
     - {level: 12, move: Bite}
     - {level: 15, move: Revenge}
     - {level: 15, move: Headbutt}
     - {level: 17, move: Slash}
     - {level: 20, move: Charge}
-    - {level: 24, move: Earth Power}
     - {level: 25, move: Sucker Punch}
+    - {level: 26, move: Dig}
     - {level: 30, move: Electric Terrain}
+    - {level: 30, move: Charm}
     - {level: 35, move: Bounce}
     - {level: 37, move: Drill Run}
+    - {level: 38, move: Crunch}
     - {level: 40, move: Muddy Water}
+    - {level: 41, move: Earthquake}
     - {level: 45, move: Discharge}
-    - {level: 48, move: High Horsepower}
     - {level: 50, move: Flail}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Hyper Beam, Light Screen, Protect, Rain Dance, Thunderbolt, Thunder,
-          Earthquake, Return, Dig, Double Team, Shock Wave, Sandstorm, Rock Tomb, Facade,
-          Rest, Attract, Charge Beam, Endure, Giga Impact, Stone Edge, Thunder Wave,
-          Stealth Rock, Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze, Electroweb,
-          Sunny Day, Scorching Sands, Flash]
-  tutor: [Earth Power]   # moves a move tutor can teach it
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
+          Frustration, Thunderbolt, Thunder, Earthquake, Return, Dig, Double Team,
+          Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Attract, Charge Beam, Endure,
+          Giga Impact, Flash, Stone Edge, Thunder Wave, Stealth Rock, Rock Slide,
+          Sleep Talk, Natural Gift, Swagger, Substitute, Bulldoze, Electroweb,
+          Eerie Impulse, Electric Terrain, High Horsepower, Strength, Rock Smash, Captivate]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Curse, Earth Power, Endeavor, Volt Switch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

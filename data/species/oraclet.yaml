@@ -65,30 +65,33 @@ learnset:
   level_up:
     - {level: 1, move: Confusion}
     - {level: 1, move: Growl}
+    - {level: 1, move: Play Nice}
     - {level: 3, move: Peck}
     - {level: 6, move: Imprison}
     - {level: 10, move: Withdraw}
     - {level: 11, move: Teleport}
-    - {level: 16, move: Charm}
     - {level: 16, move: Psybeam}
     - {level: 21, move: Slash}
-    - {level: 24, move: Reflect}
+    - {level: 24, move: Psyshock}
     - {level: 24, move: Confuse Ray}
     - {level: 25, move: Recover}
     - {level: 27, move: Headbutt}
-    - {level: 30, move: Psyshock}
+    - {level: 28, move: Ally Switch}
     - {level: 41, move: Calm Mind}
-    - {level: 46, move: Psychic}
-    - {level: 50, move: Future Sight}
+    - {level: 42, move: Psychic}
+    - {level: 49, move: Future Sight}
     - {level: 52, move: Wonder Room}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance, Safeguard,
-          Return, Psychic, Shadow Ball, Reflect, Rock Tomb, Facade, Rest, Attract, Thief,
-          Skill Swap, Energy Ball, Endure, Thunder Wave, Rock Slide, Sleep Talk, Substitute,
-          Trick Room, Psyshock, Expanding Force]
-  tutor: [Zen Headbutt]  # moves a move tutor can teach it
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance,
+          Safeguard, Frustration, Return, Psychic, Shadow Ball, Double Team, Reflect,
+          Rock Tomb, Facade, Secret Power, Rest, Attract, Thief, Skill Swap, Energy Ball,
+          Charge Beam, Endure, Flash, Thunder Wave, Psych Up, Rock Slide, Sleep Talk,
+          Swagger, Substitute, Trick Room, Psyshock, Psychic Terrain, Expanding Force]
+  # moves a move tutor can teach it
+  tutor: [Charm, Dazzling Gleam, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Astonish, Mirror Coat, Zen Headbutt, Disable]
+  egg: [Barrier, Guard Swap, Astonish, Mirror Coat, Zen Headbutt, Nasty Plot, Disable,
+        Psycho Cut, Synchronoise, Helping Hand]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

@@ -67,27 +67,29 @@ learnset:
     - {level: 1, move: Growl}
     - {level: 1, move: Leer}
     - {level: 5, move: Sand Attack}
+    - {level: 6, move: Work Up}
     - {level: 8, move: Howl}
     - {level: 12, move: Mud-Slap}
     - {level: 13, move: Bite}
+    - {level: 15, move: Baby-Doll Eyes}
     - {level: 16, move: Double Slap}
-    - {level: 18, move: Baby-Doll Eyes}
+    - {level: 19, move: Retaliate}
     - {level: 20, move: Wake-Up Slap}
     - {level: 24, move: Take Down}
+    - {level: 25, move: Charm}
+    - {level: 26, move: Flail}
     - {level: 29, move: Play Rough}
-    - {level: 33, move: Crunch}
-    - {level: 35, move: Helping Hand}
-    - {level: 42, move: Double-Edge}
-    - {level: 44, move: Reversal}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Bulk Up, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration, Return,
-          Dig, Shadow Ball, Brick Break, Double Team, Rock Tomb, Facade, Rest, Attract,
-          Thief, Focus Blast, Fling, Endure, Payback, Rock Slide, Sleep Talk, Swagger,
-          Substitute, Low Sweep, Strength, Rock Smash]
+  tm_hm: [Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration,
+          Return, Dig, Shadow Ball, Brick Break, Double Team, Rock Tomb, Aerial Ace, Facade,
+          Secret Power, Rest, Attract, Thief, Focus Blast, Fling, Endure, Payback,
+          Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Low Sweep, Strength,
+          Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Charm, Close Combat, Counter, Endeavor, Hyper Voice]
+  tutor: [Body Slam, Charm, Close Combat, Endeavor, Hyper Voice, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Counter, Covet, Flail, Revenge, Stomp, Force Palm, Uproar]
+  egg: [Counter, Smelling Salts, Covet, Fake Out, Revenge, Force Palm, Uproar, Endeavor,
+        Stomp, Mega Kick]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

@@ -68,29 +68,32 @@ learnset:
   level_up:
     - {level: 1, move: Confusion}
     - {level: 1, move: Leer}
+    - {level: 1, move: Psycho Cut}
+    - {level: 1, move: Safeguard}
     - {level: 5, move: Helping Hand}
+    - {level: 7, move: Swift}
     - {level: 21, move: Psybeam}
-    - {level: 25, move: Agility}
     - {level: 25, move: Lava Plume}
     - {level: 28, move: Imprison}
     - {level: 35, move: Extrasensory}
-    - {level: 40, move: Zen Headbutt}
+    - {level: 40, move: Agility}
     - {level: 42, move: Nasty Plot}
-    - {level: 45, move: Psycho Cut}
+    - {level: 42, move: Zen Headbutt}
     - {level: 49, move: Psychic}
     - {level: 56, move: Uproar}
-    - {level: 60, move: Recover}
+    - {level: 61, move: Recover}
     - {level: 63, move: Future Sight}
-    - {level: 75, move: Psycho Shift}
+    - {level: 75, move: Overheat}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen, Protect,
-          Rain Dance, Safeguard, Solar Beam, Thunderbolt, Thunder, Return, Psychic,
-          Shadow Ball, Double Team, Reflect, Flamethrower, Fire Blast, Facade, Rest,
-          Skill Swap, Overheat, Energy Ball, Fling, Endure, Will-O-Wisp, Giga Impact, Flash,
-          Thunder Wave, Psych Up, Sleep Talk, Grass Knot, Swagger, Substitute, Trick Room,
-          Psyshock, Mystical Fire, Expanding Force, Flame Charge]
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
+          Protect, Rain Dance, Safeguard, Frustration, Solar Beam, Thunderbolt, Thunder,
+          Return, Psychic, Shadow Ball, Double Team, Reflect, Flamethrower, Fire Blast,
+          Facade, Secret Power, Rest, Skill Swap, Overheat, Energy Ball, Fling, Charge Beam,
+          Endure, Will-O-Wisp, Giga Impact, Flash, Thunder Wave, Psych Up, Sleep Talk,
+          Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Flame Charge,
+          Expanding Force]
   # moves a move tutor can teach it
-  tutor: [Flare Blitz, Heat Wave, Zen Headbutt]
+  tutor: [Body Slam, Flare Blitz, Heat Wave, Nasty Plot, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

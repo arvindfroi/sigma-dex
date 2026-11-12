@@ -66,34 +66,34 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Icicle Crash}
+    - {level: 1, move: Fury Swipes}
     - {level: 1, move: Growl}
-    - {level: 1, move: Ice Shard}
     - {level: 1, move: Leer}
-    - {level: 1, move: Poison Sting}
     - {level: 1, move: Powder Snow}
     - {level: 1, move: Tackle}
     - {level: 9, move: Icy Wind}
-    - {level: 16, move: Bite}
     - {level: 17, move: Ice Fang}
-    - {level: 19, move: Take Down}
+    - {level: 20, move: Bite}
     - {level: 23, move: Flail}
-    - {level: 24, move: Poison Jab}
     - {level: 26, move: Poison Fang}
+    - {level: 29, move: Toxic}
+    - {level: 32, move: Poison Jab}
     - {level: 34, move: Screech}
-    - {level: 38, move: Crunch}
+    - {level: 39, move: Crunch}
     - {level: 39, move: Slash}
     - {level: 39, move: Withdraw}
-    - {level: 40, move: Freeze-Dry}
-    - {level: 46, move: Blizzard}
+    - {level: 40, move: Blizzard}
     - {level: 49, move: Belch}
-    - {level: 70, move: Icicle Crash}
+    - {level: 64, move: Haze}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hail, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard, Hyper Beam,
-          Protect, Rain Dance, Return, Double Team, Sludge Bomb, Rock Tomb, Facade, Rest,
-          Attract, Thief, Endure, Giga Impact, Avalanche, Rock Slide, Sleep Talk,
-          Poison Jab, Swagger, Substitute, Venoshock, Bulldoze]
+          Protect, Rain Dance, Frustration, Earthquake, Return, Double Team, Sludge Bomb,
+          Facade, Secret Power, Rest, Attract, Thief, Endure, Giga Impact, Avalanche,
+          Captivate, Sleep Talk, Natural Gift, Poison Jab, Swagger, Substitute, Venoshock,
+          Acid Spray, Bulldoze]
   # moves a move tutor can teach it
-  tutor: [Ice Fang, Icicle Spear, Icy Wind]
+  tutor: [Body Slam, Curse, Ice Fang, Icicle Spear, Icy Wind]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

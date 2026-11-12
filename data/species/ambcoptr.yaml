@@ -67,7 +67,6 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Fury Cutter}
-    - {level: 1, move: Harden}
     - {level: 1, move: Leer}
     - {level: 1, move: Sand Attack}
     - {level: 1, move: Smack Down}
@@ -75,26 +74,30 @@ learnset:
     - {level: 5, move: Withdraw}
     - {level: 14, move: Leech Life}
     - {level: 16, move: Bug Bite}
-    - {level: 16, move: Rock Tomb}
+    - {level: 19, move: Rock Throw}
     - {level: 19, move: Flail}
+    - {level: 21, move: Rock Tomb}
+    - {level: 28, move: Focus Energy}
+    - {level: 32, move: Agility}
     - {level: 33, move: Stealth Rock}
-    - {level: 34, move: Agility}
-    - {level: 36, move: Rock Blast}
     - {level: 36, move: Rock Slide}
+    - {level: 38, move: Rock Blast}
+    - {level: 40, move: X-Scissor}
     - {level: 44, move: Swords Dance}
-    - {level: 44, move: X-Scissor}
     - {level: 44, move: Horn Attack}
     - {level: 50, move: Rock Polish}
     - {level: 56, move: Bug Buzz}
-    - {level: 69, move: Stone Edge}
+    - {level: 62, move: Stone Edge}
+    - {level: 75, move: Body Slam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Earthquake, Return, Dig,
-          Double Team, Sandstorm, Rock Tomb, Facade, Rest, Attract, Thief, Endure,
-          Giga Impact, Rock Polish, Stone Edge, Swords Dance, Stealth Rock, Rock Slide,
-          X-Scissor, Sleep Talk, Swagger, U-turn, Substitute, Struggle Bug, Bulldoze,
-          Meteor Beam, Solar Beam]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
+          Earthquake, Return, Dig, Double Team, Sandstorm, Rock Tomb, Aerial Ace, Facade,
+          Secret Power, Rest, Attract, Thief, Endure, Giga Impact, Rock Polish, Stone Edge,
+          Swords Dance, Stealth Rock, Captivate, Rock Slide, X-Scissor, Sleep Talk,
+          Natural Gift, Swagger, U-turn, Substitute, Struggle Bug, Bulldoze, Lunge,
+          Strength, Rock Smash, Solar Beam]
   # moves a move tutor can teach it
-  tutor: [Bug Bite, Ancient Power, Earth Power]
+  tutor: [Ancient Power, Body Slam, Bug Bite, Earth Power]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

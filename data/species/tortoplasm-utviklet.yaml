@@ -67,31 +67,34 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Astonish}
-    - {level: 1, move: Disable}
     - {level: 1, move: Harden}
+    - {level: 1, move: Night Shade}
     - {level: 1, move: Protect}
     - {level: 1, move: Tackle}
+    - {level: 1, move: Wide Guard}
     - {level: 1, move: Rollout}
-    - {level: 10, move: Smack Down}
+    - {level: 10, move: Rock Throw}
     - {level: 10, move: Withdraw}
-    - {level: 16, move: Night Shade}
     - {level: 20, move: Ancient Power}
-    - {level: 25, move: Hex}
-    - {level: 25, move: Iron Defense}
+    - {level: 20, move: Smack Down}
+    - {level: 28, move: Hex}
     - {level: 31, move: Rock Slide}
-    - {level: 35, move: Shadow Ball}
-    - {level: 38, move: Curse}
+    - {level: 35, move: Iron Defense}
     - {level: 38, move: Rock Blast}
-    - {level: 40, move: Power Gem}
-    - {level: 40, move: Stone Edge}
-    - {level: 50, move: Grudge}
+    - {level: 44, move: Curse}
+    - {level: 45, move: Power Gem}
+    - {level: 45, move: Sandstorm}
+    - {level: 49, move: Shadow Ball}
+    - {level: 54, move: Stone Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Earthquake,
-          Return, Dig, Psychic, Shadow Ball, Double Team, Sandstorm, Rock Tomb, Facade,
-          Rest, Attract, Thief, Endure, Will-O-Wisp, Giga Impact, Rock Polish, Stone Edge,
-          Stealth Rock, Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze, Meteor Beam]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
+          Earthquake, Return, Dig, Psychic, Shadow Ball, Double Team, Sandstorm, Rock Tomb,
+          Facade, Secret Power, Rest, Attract, Endure, Will-O-Wisp, Shadow Claw,
+          Giga Impact, Rock Polish, Stone Edge, Stealth Rock, Rock Slide, Sleep Talk,
+          Natural Gift, Swagger, Substitute, Bulldoze, Strength, Rock Smash, Thief,
+          Captivate]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Earth Power, Poltergeist, Curse]
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Iron Head, Poltergeist, Power Gem]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

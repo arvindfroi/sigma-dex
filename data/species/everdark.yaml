@@ -72,27 +72,29 @@ learnset:
     - {level: 1, move: Swords Dance}
     - {level: 1, move: Knock Off}
     - {level: 1, move: Psycho Cut}
-    - {level: 1, move: Future Sight}
-    - {level: 1, move: Hypnosis}
     - {level: 1, move: Leer}
-    - {level: 1, move: Tackle}
+    - {level: 10, move: Hone Claws}
+    - {level: 12, move: Feint}
     - {level: 20, move: Scary Face}
     - {level: 20, move: Taunt}
     - {level: 21, move: Slash}
-    - {level: 28, move: Focus Energy}
+    - {level: 28, move: Protect}
+    - {level: 35, move: Focus Energy}
     - {level: 40, move: Sucker Punch}
+    - {level: 47, move: Superpower}
     - {level: 50, move: Foul Play}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen, Protect,
-          Rain Dance, Return, Psychic, Shadow Ball, Double Team, Reflect, Rock Tomb,
-          Torment, Facade, Rest, Attract, Thief, Fling, Endure, Payback, Giga Impact,
-          Swords Dance, Psych Up, Dark Pulse, Rock Slide, Sleep Talk, Swagger, Substitute,
-          Trick Room, Psyshock, Foul Play, Brutal Swing, Psychic Fangs, Expanding Force,
-          Shadow Claw]
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
+          Protect, Rain Dance, Frustration, Return, Psychic, Shadow Ball, Brick Break,
+          Double Team, Reflect, Rock Tomb, Aerial Ace, Torment, Facade, Secret Power, Rest,
+          Attract, Thief, Skill Swap, Fling, Endure, Shadow Claw, Payback, Giga Impact,
+          Flash, Thunder Wave, Swords Dance, Psych Up, Dark Pulse, Rock Slide, Sleep Talk,
+          Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Foul Play,
+          Brutal Swing, Psychic Fangs, Expanding Force, Cut, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Extrasensory, Night Slash, Snarl, Zen Headbutt]
+  tutor: [Body Slam, Nasty Plot, Snarl, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Zen Headbutt, Power Trip, Mirror Coat, Feint]
+  egg: [Feint Attack, Punishment, Zen Headbutt, Assurance, Power Trip]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

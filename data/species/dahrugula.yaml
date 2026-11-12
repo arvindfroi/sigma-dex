@@ -69,41 +69,44 @@ learnset:
     - {level: 1, move: Facade}
     - {level: 1, move: Defense Curl}
     - {level: 1, move: Flail}
-    - {level: 1, move: Lick}
     - {level: 1, move: Stockpile}
     - {level: 1, move: Swallow}
     - {level: 1, move: Tackle}
     - {level: 1, move: Leer}
-    - {level: 5, move: Baby-Doll Eyes}
-    - {level: 8, move: Fury Swipes}
+    - {level: 1, move: Scratch}
+    - {level: 6, move: Spit Up}
     - {level: 12, move: Yawn}
     - {level: 12, move: Covet}
     - {level: 16, move: Bite}
+    - {level: 16, move: Sand Attack}
     - {level: 20, move: Rest}
+    - {level: 20, move: Sleep Talk}
     - {level: 20, move: Snore}
     - {level: 20, move: Work Up}
+    - {level: 23, move: Slash}
     - {level: 24, move: Crunch}
-    - {level: 28, move: Headbutt}
-    - {level: 31, move: Slash}
-    - {level: 31, move: Take Down}
+    - {level: 31, move: Play Rough}
     - {level: 32, move: Heavy Slam}
+    - {level: 32, move: Take Down}
     - {level: 36, move: Amnesia}
     - {level: 40, move: High Horsepower}
-    - {level: 42, move: Screech}
     - {level: 44, move: Hammer Arm}
+    - {level: 46, move: Thrash}
     - {level: 52, move: Belch}
-    - {level: 52, move: Last Resort}
+    - {level: 55, move: Double-Edge}
     - {level: 56, move: Giga Impact}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Focus Punch, Water Pulse, Hidden Power, Sunny Day, Ice Beam, Blizzard, Hyper Beam,
-          Protect, Rain Dance, Frustration, Solar Beam, Thunderbolt, Thunder, Earthquake,
-          Return, Shadow Ball, Brick Break, Double Team, Shock Wave, Flamethrower,
-          Rock Tomb, Facade, Rest, Attract, Focus Blast, Fling, Endure, Giga Impact,
-          Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze, Surf, Strength, Rock Smash,
-          Rock Climb, Dig, Thief, Toxic]
+  tm_hm: [Focus Punch, Water Pulse, Toxic, Hidden Power, Sunny Day, Ice Beam, Blizzard,
+          Hyper Beam, Protect, Rain Dance, Frustration, Solar Beam, Thunderbolt, Thunder,
+          Earthquake, Return, Dig, Shadow Ball, Brick Break, Double Team, Shock Wave,
+          Flamethrower, Sandstorm, Fire Blast, Rock Tomb, Facade, Secret Power, Rest,
+          Attract, Thief, Focus Blast, Fling, Endure, Giga Impact, Captivate, Rock Slide,
+          Sleep Talk, Natural Gift, Swagger, Substitute, Bulldoze, High Horsepower,
+          Body Press, Surf, Strength, Rock Smash, Rock Climb, Aerial Ace, Cut]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Charm, Curse, Endeavor, Fire Punch, Hyper Voice, Ice Punch, Icy Wind,
-          Iron Head, Seed Bomb, Thunder Punch, Yawn, Zen Headbutt]
+  tutor: [Body Slam, Charm, Counter, Curse, Endeavor, Fire Punch, Hyper Voice, Ice Punch,
+          Icy Wind, Iron Head, Outrage, Power-Up Punch, Seed Bomb, Thunder Punch,
+          Zen Headbutt, Super Fang]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

@@ -64,28 +64,28 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Astonish}
-    - {level: 1, move: Bite}
     - {level: 1, move: Echoed Voice}
-    - {level: 1, move: Howl}
-    - {level: 1, move: Leer}
-    - {level: 1, move: Pound}
     - {level: 1, move: Tackle}
-    - {level: 15, move: Rest}
-    - {level: 15, move: Sleep Talk}
-    - {level: 22, move: Swift}
+    - {level: 8, move: Rollout}
+    - {level: 9, move: Payback}
+    - {level: 20, move: Rest}
+    - {level: 22, move: Round}
     - {level: 25, move: Roar}
+    - {level: 28, move: Yawn}
     - {level: 30, move: Supersonic}
     - {level: 35, move: Uproar}
     - {level: 42, move: Screech}
+    - {level: 49, move: Double-Edge}
     - {level: 49, move: Hyper Voice}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration, Return,
-          Shadow Ball, Double Team, Torment, Facade, Rest, Attract, Thief, Fling, Endure,
-          Payback, Dark Pulse, Sleep Talk, Swagger, Substitute, Foul Play, Strength]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration,
+          Solar Beam, Return, Dig, Shadow Ball, Double Team, Torment, Facade, Secret Power,
+          Rest, Attract, Thief, Fling, Endure, Payback, Captivate, Dark Pulse, Sleep Talk,
+          Natural Gift, Swagger, Substitute, Foul Play, Cut, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Endeavor, Hyper Voice, Snarl]
+  tutor: [Body Slam, Endeavor, Hyper Voice, Nasty Plot, Snarl, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Snore, Last Resort, Double-Edge, Sucker Punch, Take Down, Body Slam]
+  egg: [Snore, Last Resort, Pursuit, Endeavor, Body Slam, Take Down, Smelling Salts, Thrash]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

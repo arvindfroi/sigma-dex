@@ -65,29 +65,31 @@ learnset:
   level_up:
     - {level: 1, move: Leer}
     - {level: 1, move: Peck}
-    - {level: 1, move: Tackle}
     - {level: 4, move: Fury Cutter}
     - {level: 5, move: Poison Sting}
     - {level: 10, move: Withdraw}
     - {level: 12, move: Wing Attack}
-    - {level: 29, move: Bug Bite}
+    - {level: 23, move: U-turn}
+    - {level: 24, move: Bug Bite}
+    - {level: 28, move: Scary Face}
     - {level: 32, move: Crunch}
+    - {level: 34, move: Screech}
     - {level: 34, move: Slash}
-    - {level: 44, move: Screech}
-    - {level: 47, move: Scary Face}
-    - {level: 49, move: Agility}
-    - {level: 55, move: Swords Dance}
-    - {level: 61, move: X-Scissor}
-    - {level: 67, move: Take Down}
+    - {level: 40, move: Take Down}
+    - {level: 40, move: X-Scissor}
+    - {level: 44, move: Agility}
+    - {level: 44, move: Swords Dance}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Protect, Rain Dance, Return, Double Team, Aerial Ace,
-          Facade, Rest, Attract, Thief, Steel Wing, Roost, Endure, X-Scissor, Sleep Talk,
-          Swagger, Pluck, U-turn, Substitute, Struggle Bug, Dual Wingbeat, Fly,
-          Psychic Fangs, Poison Jab]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return,
+          Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Steel Wing,
+          Roost, Endure, Captivate, X-Scissor, Sleep Talk, Natural Gift, Swagger, Pluck,
+          U-turn, Substitute, Struggle Bug, Lunge, Dual Wingbeat, Fly, Psychic Fangs,
+          Poison Jab]
   # moves a move tutor can teach it
-  tutor: [Air Slash, Brave Bird, Bug Bite, Sky Attack, Fire Fang]
+  tutor: [Air Slash, Brave Bird, Bug Bite, Heat Wave, Sky Attack, Fire Fang]
   # only needed for the first stage of an evolution line
-  egg: [Counter, Night Slash, Lunge, Knock Off]
+  egg: [Silver Wind, Counter, Night Slash, Defog, Razor Wind, Bug Buzz, Signal Beam,
+        Twineedle, Knock Off, Pin Missile]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

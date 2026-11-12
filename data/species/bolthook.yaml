@@ -66,32 +66,32 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Hone Claws}
     - {level: 1, move: Leer}
     - {level: 1, move: Peck}
     - {level: 1, move: Tackle}
     - {level: 1, move: Wing Attack}
-    - {level: 5, move: Bite}
+    - {level: 7, move: Thief}
+    - {level: 8, move: Bite}
     - {level: 15, move: Focus Energy}
-    - {level: 16, move: Assurance}
-    - {level: 16, move: Scary Face}
-    - {level: 20, move: Pluck}
+    - {level: 20, move: Scary Face}
     - {level: 20, move: Taunt}
-    - {level: 24, move: Night Slash}
-    - {level: 24, move: Sucker Punch}
-    - {level: 24, move: Torment}
     - {level: 27, move: Payback}
-    - {level: 31, move: Knock Off}
+    - {level: 30, move: Knock Off}
+    - {level: 30, move: Night Slash}
+    - {level: 30, move: Sucker Punch}
     - {level: 35, move: Crunch}
-    - {level: 44, move: Swords Dance}
+    - {level: 45, move: Swords Dance}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance, Return,
-          Double Team, Rock Tomb, Aerial Ace, Facade, Rest, Attract, Thief, Fling, Endure,
-          Payback, Giga Impact, Dark Pulse, Sleep Talk, Swagger, Pluck, U-turn, Substitute,
-          Foul Play, Dual Wingbeat, Fly, Brutal Swing, Psychic Fangs]
-  tutor: [Sky Attack, Snarl, Hurricane] # moves a move tutor can teach it
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
+          Frustration, Return, Double Team, Rock Tomb, Aerial Ace, Torment, Facade,
+          Secret Power, Rest, Attract, Thief, Roost, Fling, Endure, Payback, Giga Impact,
+          Dark Pulse, Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Foul Play,
+          Dual Wingbeat, Fly, Brutal Swing, Psychic Fangs]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Body Slam, Brave Bird, Endeavor, Heat Wave, Hurricane, Nasty Plot,
+          Sky Attack, Snarl]
   # only needed for the first stage of an evolution line
-  egg: [Sky Attack, Power Trip, Feint, Air Cutter, Roost]
+  egg: [Sky Attack, Assurance, Power Trip, Feint Attack, Pursuit]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

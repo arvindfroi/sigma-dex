@@ -65,27 +65,28 @@ learnset:
   level_up:
     - {level: 1, move: Fury Cutter}
     - {level: 1, move: Sand Attack}
-    - {level: 1, move: Tackle}
     - {level: 5, move: Withdraw}
     - {level: 9, move: Smack Down}
     - {level: 14, move: Bug Bite}
     - {level: 14, move: Leech Life}
     - {level: 19, move: Flail}
+    - {level: 21, move: Rock Tomb}
     - {level: 28, move: Rock Slide}
     - {level: 33, move: Stealth Rock}
     - {level: 38, move: Rock Blast}
     - {level: 42, move: X-Scissor}
     - {level: 46, move: Rock Polish}
-    - {level: 54, move: Rock Wrecker}
+    - {level: 54, move: Stone Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Protect, Earthquake, Return, Dig, Double Team, Sandstorm,
-          Rock Tomb, Facade, Rest, Attract, Endure, Rock Polish, Stone Edge, Stealth Rock,
-          Rock Slide, X-Scissor, Sleep Talk, Swagger, Substitute, Struggle Bug, Bulldoze,
-          Meteor Beam]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Earthquake,
+          Return, Dig, Double Team, Sandstorm, Rock Tomb, Facade, Secret Power, Rest,
+          Attract, Endure, Rock Polish, Stone Edge, Stealth Rock, Rock Slide, X-Scissor,
+          Sleep Talk, Swagger, Substitute, Struggle Bug, Bulldoze, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Bug Bite, Earth Power]
+  tutor: [Ancient Power, Body Slam, Bug Bite, Earth Power]
   # only needed for the first stage of an evolution line
-  egg: [Curse, Wide Guard, Counter, Knock Off, Night Slash, Rollout]
+  egg: [Curse, Wide Guard, Counter, Knock Off, Night Slash, Spikes, Head Smash,
+        Iron Defense, Rollout]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

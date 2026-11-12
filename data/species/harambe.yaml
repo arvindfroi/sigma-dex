@@ -67,41 +67,51 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Astonish}
-    - {level: 1, move: Defense Curl}
+    - {level: 1, move: Charm}
     - {level: 1, move: Disarming Voice}
     - {level: 1, move: Growl}
-    - {level: 1, move: Misty Terrain}
-    - {level: 1, move: Moonblast}
-    - {level: 1, move: Shadow Ball}
+    - {level: 1, move: Shadow Sneak}
     - {level: 1, move: Tackle}
     - {level: 1, move: Covet}
     - {level: 1, move: Focus Energy}
     - {level: 1, move: Leer}
-    - {level: 1, move: Low Kick}
     - {level: 1, move: Scratch}
-    - {level: 12, move: Fairy Wind}
+    - {level: 6, move: Fury Swipes}
+    - {level: 8, move: Low Kick}
+    - {level: 12, move: Baby-Doll Eyes}
+    - {level: 13, move: Rock Throw}
     - {level: 15, move: Draining Kiss}
-    - {level: 16, move: Charm}
-    - {level: 20, move: Moonlight}
-    - {level: 20, move: Sing}
-    - {level: 21, move: Sweet Kiss}
-    - {level: 23, move: Life Dew}
-    - {level: 32, move: Shadow Sneak}
-    - {level: 34, move: Sweet Scent}
+    - {level: 15, move: Cross Chop}
+    - {level: 17, move: Assurance}
+    - {level: 18, move: Shadow Punch}
+    - {level: 20, move: Thrash}
+    - {level: 25, move: Hex}
+    - {level: 25, move: Rock Smash}
+    - {level: 29, move: Close Combat}
+    - {level: 30, move: Recover}
+    - {level: 34, move: Screech}
+    - {level: 37, move: Misty Terrain}
+    - {level: 38, move: Curse}
+    - {level: 38, move: Stomping Tantrum}
     - {level: 42, move: Play Rough}
+    - {level: 42, move: Shadow Ball}
+    - {level: 43, move: Dazzling Gleam}
+    - {level: 50, move: Moonblast}
+    - {level: 51, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
-          Safeguard, Solar Beam, Return, Psychic, Shadow Ball, Double Team, Reflect, Facade,
-          Rest, Attract, Fling, Endure, Giga Impact, Sleep Talk, Grass Knot, Swagger,
-          Substitute, Draining Kiss, Play Rough, Focus Punch, Bulk Up, Taunt, Frustration,
-          Iron Tail, Thunderbolt, Thunder, Earthquake, Dig, Brick Break, Rock Tomb,
-          Aerial Ace, Thief, Overheat, Focus Blast, Drain Punch, Payback, Stone Edge,
-          Rock Slide, Poison Jab, U-turn, Low Sweep, Bulldoze, Strength, Rock Smash,
-          Rock Climb]
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
+          Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball, Double Team,
+          Reflect, Facade, Secret Power, Rest, Attract, Thief, Skill Swap, Fling, Endure,
+          Giga Impact, Flash, Psych Up, Sleep Talk, Grass Knot, Swagger, Substitute,
+          Draining Kiss, Misty Terrain, Play Rough, Focus Punch, Bulk Up, Taunt, Iron Tail,
+          Thunderbolt, Thunder, Earthquake, Dig, Brick Break, Rock Tomb, Aerial Ace,
+          Overheat, Focus Blast, Drain Punch, Shadow Claw, Payback, Stone Edge, Captivate,
+          Rock Slide, Natural Gift, Poison Jab, U-turn, Low Sweep, Bulldoze, Strength,
+          Rock Smash, Rock Climb]
   # moves a move tutor can teach it
-  tutor: [Charm, Dazzling Gleam, Flail, Moonblast, Close Combat, Counter, Endeavor,
-          Fire Punch, Hyper Voice, Ice Punch, Mach Punch, Night Slash, Power-Up Punch,
-          Seed Bomb, Thunder Punch]
+  tutor: [Body Slam, Charm, Dazzling Gleam, Icy Wind, Poltergeist, Close Combat, Counter,
+          Curse, Endeavor, Fire Punch, Hyper Voice, Ice Punch, Power-Up Punch, Seed Bomb,
+          Thunder Punch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

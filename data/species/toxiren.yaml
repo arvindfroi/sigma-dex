@@ -70,40 +70,41 @@ learnset:
     - {level: 1, move: Hyper Voice}
     - {level: 1, move: Poison Hug}
     - {level: 1, move: Charm}
-    - {level: 1, move: Copycat}
     - {level: 1, move: Disarming Voice}
     - {level: 1, move: Growl}
-    - {level: 1, move: Helping Hand}
-    - {level: 1, move: Tackle}
-    - {level: 1, move: Take Down}
     - {level: 1, move: Pound}
-    - {level: 1, move: Smog}
-    - {level: 3, move: Sweet Kiss}
-    - {level: 7, move: Acid}
-    - {level: 8, move: Clear Smog}
+    - {level: 1, move: Tackle}
+    - {level: 5, move: Sand Attack}
     - {level: 8, move: Wrap}
+    - {level: 9, move: Acid}
+    - {level: 10, move: Quick Attack}
     - {level: 10, move: Sweet Scent}
     - {level: 15, move: Baby-Doll Eyes}
-    - {level: 15, move: Draining Kiss}
-    - {level: 18, move: Tail Whip}
-    - {level: 19, move: Moonlight}
-    - {level: 23, move: Safeguard}
-    - {level: 25, move: Acid Spray}
-    - {level: 32, move: Sludge Wave}
+    - {level: 20, move: Swift}
+    - {level: 23, move: Sludge}
+    - {level: 25, move: Light Screen}
+    - {level: 28, move: Venoshock}
+    - {level: 30, move: Draining Kiss}
+    - {level: 34, move: Encore}
     - {level: 35, move: Misty Terrain}
-    - {level: 37, move: Play Rough}
-    - {level: 39, move: Dazzling Gleam}
-    - {level: 42, move: Moonblast}
+    - {level: 37, move: Toxic}
+    - {level: 40, move: Skill Swap}
     - {level: 42, move: Echoed Voice}
-    - {level: 50, move: Belch}
+    - {level: 43, move: Sludge Bomb}
+    - {level: 50, move: Moonblast}
+    - {level: 50, move: Play Rough}
+    - {level: 52, move: Sludge Wave}
     - {level: 55, move: Last Resort}
+    - {level: 60, move: Dazzling Gleam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
-          Safeguard, Return, Psychic, Shadow Ball, Double Team, Reflect, Sludge Bomb,
-          Facade, Rest, Attract, Endure, Giga Impact, Psych Up, Sleep Talk, Poison Jab,
-          Swagger, Substitute, Venoshock, Draining Kiss, Play Rough, Toxic, Thief]
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
+          Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball, Double Team,
+          Reflect, Sludge Bomb, Facade, Secret Power, Rest, Attract, Thief, Skill Swap,
+          Endure, Giga Impact, Flash, Psych Up, Captivate, Sleep Talk, Natural Gift,
+          Poison Jab, Swagger, Substitute, Psyshock, Venoshock, Acid Spray, Draining Kiss,
+          Misty Terrain, Play Rough, Giga Drain, Energy Ball]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Charm, Dazzling Gleam, Flail, Hyper Voice, Moonblast]
+  tutor: [Body Slam, Charm, Dazzling Gleam, Heal Bell, Hyper Voice, Endeavor]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

@@ -68,35 +68,37 @@ learnset:
   level_up:
     - {level: 1, move: Acid}
     - {level: 1, move: Growl}
+    - {level: 1, move: Poison Jab}
+    - {level: 1, move: Poison Sting}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Tail Whip}
     - {level: 1, move: Tri Attack}
     - {level: 1, move: Poison Gas}
-    - {level: 1, move: Pound}
-    - {level: 6, move: Smog}
-    - {level: 9, move: Acid Spray}
-    - {level: 16, move: Sludge}
-    - {level: 19, move: Take Down}
-    - {level: 20, move: Flash Cannon}
-    - {level: 22, move: Metal Claw}
-    - {level: 23, move: Toxic Spikes}
-    - {level: 25, move: Iron Defense}
-    - {level: 27, move: Venoshock}
-    - {level: 27, move: Screech}
-    - {level: 40, move: Sludge Wave}
-    - {level: 42, move: Gunk Shot}
-    - {level: 42, move: Toxic}
+    - {level: 4, move: Smog}
+    - {level: 16, move: Gyro Ball}
+    - {level: 17, move: Toxic Spikes}
+    - {level: 20, move: Take Down}
+    - {level: 20, move: Sludge}
+    - {level: 22, move: Venoshock}
+    - {level: 23, move: Stockpile}
+    - {level: 24, move: Screech}
+    - {level: 26, move: Acid Spray}
+    - {level: 28, move: Flash Cannon}
+    - {level: 30, move: Sludge Bomb}
+    - {level: 35, move: Iron Defense}
+    - {level: 37, move: Toxic}
+    - {level: 40, move: Iron Head}
     - {level: 44, move: Withdraw}
     - {level: 46, move: Metal Sound}
-    - {level: 51, move: Sludge Bomb}
-    - {level: 58, move: Lock-On}
-    - {level: 63, move: Belch}
+    - {level: 46, move: Gunk Shot}
+    - {level: 50, move: Lock-On}
+    - {level: 64, move: Belch}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Return,
-          Double Team, Sludge Bomb, Rock Tomb, Facade, Rest, Attract, Endure, Giga Impact,
-          Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute, Flash Cannon, Venoshock,
-          Heavy Slam, Bulldoze, Thief, Payback, Gyro Ball]
-  tutor: [Iron Head]     # moves a move tutor can teach it
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
+          Return, Double Team, Sludge Bomb, Sandstorm, Facade, Secret Power, Rest, Attract,
+          Thief, Endure, Giga Impact, Gyro Ball, Captivate, Rock Slide, Sleep Talk,
+          Natural Gift, Poison Jab, Swagger, Substitute, Flash Cannon, Venoshock,
+          Heavy Slam, Acid Spray, Rock Smash, Payback]
+  tutor: [Body Slam, Iron Head] # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

@@ -68,35 +68,39 @@ learnset:
   level_up:
     - {level: 0, move: Cosmic Shield}
     - {level: 1, move: Confusion}
+    - {level: 1, move: Extrasensory}
     - {level: 1, move: Growl}
-    - {level: 1, move: Pound}
     - {level: 1, move: Tackle}
     - {level: 1, move: Water Gun}
     - {level: 1, move: Withdraw}
-    - {level: 7, move: Protect}
+    - {level: 12, move: Bite}
     - {level: 12, move: Aqua Ring}
-    - {level: 14, move: Psybeam}
-    - {level: 15, move: Bubble Beam}
-    - {level: 17, move: Bite}
-    - {level: 18, move: Water Pulse}
+    - {level: 13, move: Rapid Spin}
+    - {level: 15, move: Psybeam}
+    - {level: 15, move: Water Pulse}
     - {level: 20, move: Hypnosis}
     - {level: 20, move: Wrap}
     - {level: 21, move: Headbutt}
-    - {level: 24, move: Zen Headbutt}
-    - {level: 30, move: Hydro Pump}
-    - {level: 35, move: Iron Defense}
+    - {level: 25, move: Bubble Beam}
+    - {level: 26, move: Protect}
+    - {level: 30, move: Surf}
+    - {level: 32, move: Muddy Water}
     - {level: 40, move: Psychic}
-    - {level: 41, move: Rain Dance}
+    - {level: 42, move: Rain Dance}
+    - {level: 43, move: Iron Defense}
+    - {level: 49, move: Hydro Pump}
     - {level: 56, move: Future Sight}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Calm Mind, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard,
-          Hyper Beam, Light Screen, Protect, Rain Dance, Safeguard, Return, Psychic,
-          Shadow Ball, Double Team, Reflect, Facade, Rest, Attract, Skill Swap, Energy Ball,
-          Brine, Fling, Endure, Giga Impact, Thunder Wave, Psych Up, Sleep Talk, Grass Knot,
-          Swagger, Substitute, Trick Room, Psyshock, Scald, Liquidation, Expanding Force,
-          Surf, Whirlpool, Waterfall, Rock Tomb, Strength, Rock Smash]
+  tm_hm: [Water Pulse, Calm Mind, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard,
+          Hyper Beam, Light Screen, Protect, Rain Dance, Safeguard, Frustration, Return,
+          Psychic, Shadow Ball, Double Team, Reflect, Rock Tomb, Facade, Secret Power, Rest,
+          Attract, Skill Swap, Energy Ball, Brine, Fling, Endure, Giga Impact, Flash,
+          Thunder Wave, Psych Up, Captivate, Rock Slide, Sleep Talk, Natural Gift,
+          Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Scald, Psychic Terrain,
+          Liquidation, Expanding Force, Surf, Whirlpool, Waterfall, Brick Break, Flip Turn,
+          Strength, Rock Smash, Thief]
   # moves a move tutor can teach it
-  tutor: [Aqua Tail, Icy Wind, Zen Headbutt, Aqua Jet, Body Slam]
+  tutor: [Aqua Tail, Body Slam, Icy Wind, Zen Headbutt, Charm]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

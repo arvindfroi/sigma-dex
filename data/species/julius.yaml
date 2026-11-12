@@ -68,32 +68,31 @@ learnset:
     - {level: 1, move: Covet}
     - {level: 1, move: Focus Energy}
     - {level: 1, move: Leer}
-    - {level: 1, move: Low Kick}
     - {level: 1, move: Scratch}
     - {level: 3, move: Fury Swipes}
-    - {level: 5, move: Mud-Slap}
-    - {level: 7, move: Seismic Toss}
-    - {level: 8, move: Retaliate}
+    - {level: 5, move: Low Kick}
+    - {level: 8, move: Seismic Toss}
     - {level: 10, move: Rock Throw}
     - {level: 12, move: Cross Chop}
     - {level: 14, move: Assurance}
-    - {level: 17, move: Skull Bash}
+    - {level: 17, move: Thrash}
     - {level: 22, move: Rock Smash}
     - {level: 26, move: Close Combat}
     - {level: 31, move: Screech}
-    - {level: 33, move: Thrash}
     - {level: 35, move: Stomping Tantrum}
     - {level: 40, move: Outrage}
+    - {level: 48, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Focus Punch, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
+  tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
           Rain Dance, Frustration, Iron Tail, Thunderbolt, Thunder, Earthquake, Return, Dig,
-          Brick Break, Double Team, Rock Tomb, Aerial Ace, Facade, Rest, Attract, Thief,
-          Overheat, Focus Blast, Fling, Endure, Drain Punch, Payback, Giga Impact,
-          Stone Edge, Rock Slide, Sleep Talk, Poison Jab, Swagger, U-turn, Substitute,
-          Low Sweep, Bulldoze, Strength, Rock Smash, Rock Climb]
+          Brick Break, Double Team, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest,
+          Attract, Thief, Overheat, Focus Blast, Fling, Endure, Drain Punch, Shadow Claw,
+          Payback, Giga Impact, Stone Edge, Captivate, Rock Slide, Sleep Talk, Natural Gift,
+          Poison Jab, Swagger, U-turn, Substitute, Low Sweep, Bulldoze, Strength,
+          Rock Smash, Rock Climb]
   # moves a move tutor can teach it
-  tutor: [Close Combat, Counter, Endeavor, Fire Punch, Hyper Voice, Ice Punch, Mach Punch,
-          Night Slash, Outrage, Power-Up Punch, Seed Bomb, Thunder Punch]
+  tutor: [Body Slam, Close Combat, Counter, Curse, Endeavor, Fire Punch, Hyper Voice,
+          Ice Punch, Outrage, Power-Up Punch, Seed Bomb, Thunder Punch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

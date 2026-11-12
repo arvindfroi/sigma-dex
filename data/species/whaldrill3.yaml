@@ -66,34 +66,34 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 0, move: Double Hit}
     - {level: 1, move: Ancient Power}
     - {level: 1, move: Flail}
     - {level: 1, move: Ice Fang}
     - {level: 1, move: Mud-Slap}
     - {level: 1, move: Powder Snow}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Leer}
+    - {level: 12, move: Sand Tomb}
     - {level: 15, move: Ice Shard}
+    - {level: 15, move: Freeze-Dry}
     - {level: 20, move: Mist}
     - {level: 25, move: Endure}
+    - {level: 27, move: Bite}
     - {level: 30, move: Icy Wind}
     - {level: 37, move: Amnesia}
     - {level: 44, move: Take Down}
     - {level: 51, move: Earthquake}
     - {level: 58, move: Blizzard}
     - {level: 65, move: Thrash}
-    - {level: 70, move: Avalanche}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Roar, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect, Rain Dance,
-          Earthquake, Return, Dig, Brick Break, Double Team, Sandstorm, Rock Tomb, Facade,
-          Rest, Attract, Endure, Giga Impact, Stone Edge, Avalanche, Stealth Rock,
-          Rock Slide, Sleep Talk, Swagger, Substitute, Heavy Slam, Bulldoze,
-          High Horsepower, Body Press, Strength, Rock Smash, Light Screen, Reflect,
-          Scorching Sands]
+  tm_hm: [Roar, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Hyper Beam,
+          Protect, Rain Dance, Frustration, Earthquake, Return, Dig, Double Team, Sandstorm,
+          Rock Tomb, Facade, Secret Power, Rest, Attract, Endure, Giga Impact, Stone Edge,
+          Avalanche, Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger,
+          Substitute, Heavy Slam, Bulldoze, High Horsepower, Body Press, Strength,
+          Rock Smash, Light Screen, Reflect]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Curse, Earth Power, Ice Fang, Ice Shard, Icicle Spear, Icy Wind,
-          Iron Head, Ancient Power, Endeavor]
+  tutor: [Body Slam, Charm, Curse, Earth Power, Endeavor, Ice Fang, Ice Punch, Icicle Spear,
+          Icy Wind, Iron Head, Ancient Power, Haze]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

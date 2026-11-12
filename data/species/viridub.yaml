@@ -68,24 +68,25 @@ learnset:
     - {level: 1, move: Leafage}
     - {level: 1, move: Scratch}
     - {level: 7, move: Bite}
-    - {level: 9, move: Growth}
     - {level: 12, move: Razor Leaf}
     - {level: 13, move: Vine Whip}
     - {level: 15, move: Leech Seed}
     - {level: 19, move: Screech}
     - {level: 22, move: Seed Bomb}
     - {level: 30, move: Slam}
-    - {level: 32, move: Petal Blizzard}
     - {level: 36, move: Leaf Blade}
-    - {level: 48, move: Endeavor}
+    - {level: 42, move: Endeavor}
+    - {level: 42, move: Wood Hammer}
+    - {level: 46, move: Power Whip}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Protect, Giga Drain, Solar Beam, Return,
-          Double Team, Facade, Rest, Attract, Energy Ball, Endure, Swords Dance, Sleep Talk,
-          Grass Knot, Swagger, Substitute]
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Protect, Giga Drain, Frustration,
+          Solar Beam, Return, Double Team, Facade, Secret Power, Rest, Attract, Energy Ball,
+          Endure, Flash, Swords Dance, Sleep Talk, Grass Knot, Swagger, Substitute,
+          Grassy Terrain]
   # moves a move tutor can teach it
-  tutor: [Leaf Storm, Leech Seed, Magical Leaf, Seed Bomb, Synthesis]
+  tutor: [Body Slam, Endeavor, Leaf Storm, Magical Leaf, Seed Bomb, Synthesis]
   # only needed for the first stage of an evolution line
-  egg: [Worry Seed, Magical Leaf, Grassy Terrain]
+  egg: [Worry Seed, Magical Leaf, Leaf Storm, Grass Whistle, Synthesis, Nature Power]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

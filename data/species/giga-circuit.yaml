@@ -67,32 +67,32 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Growl}
-    - {level: 1, move: Nuzzle}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Tail Whip}
     - {level: 1, move: Thunder Shock}
     - {level: 1, move: Thunder Wave}
     - {level: 7, move: Quick Attack}
     - {level: 10, move: Ember}
+    - {level: 16, move: Charge}
     - {level: 16, move: Shock Wave}
-    - {level: 16, move: Swift}
-    - {level: 17, move: Charge}
     - {level: 19, move: Electro Ball}
+    - {level: 20, move: Charge Beam}
     - {level: 30, move: Volt Switch}
     - {level: 30, move: Bounce}
     - {level: 36, move: Discharge}
     - {level: 37, move: Agility}
     - {level: 47, move: Thunderbolt}
-    - {level: 49, move: Thunder}
-    - {level: 50, move: Zap Cannon}
+    - {level: 50, move: Thunder}
+    - {level: 60, move: Electric Terrain}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Hyper Beam, Light Screen, Protect, Rain Dance, Iron Tail,
-          Thunderbolt, Thunder, Return, Double Team, Shock Wave, Facade, Rest, Attract,
-          Charge Beam, Endure, Giga Impact, Thunder Wave, Sleep Talk, Swagger, Substitute,
-          Electroweb, Eerie Impulse, Electric Terrain, Nuzzle, Flash]
-  tutor: [Thunder Punch, Volt Switch] # moves a move tutor can teach it
+  tm_hm: [Toxic, Hidden Power, Hyper Beam, Light Screen, Protect, Rain Dance, Frustration,
+          Iron Tail, Thunderbolt, Thunder, Return, Double Team, Shock Wave, Facade,
+          Secret Power, Rest, Attract, Charge Beam, Endure, Giga Impact, Flash,
+          Thunder Wave, Sleep Talk, Swagger, Substitute, Electroweb, Eerie Impulse,
+          Electric Terrain]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Thunder Fang, Thunder Punch, Volt Switch]
   # only needed for the first stage of an evolution line
-  egg: [Tearful Look, Fake Tears, Covet, Wish, Sing]
+  egg: [Tearful Look, Fake Tears, Wish, Sing, Lucky Chant]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

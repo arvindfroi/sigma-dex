@@ -66,30 +66,32 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Growl}
     - {level: 1, move: Growth}
-    - {level: 1, move: Pound}
-    - {level: 1, move: Quick Attack}
     - {level: 1, move: Tackle}
     - {level: 1, move: Wrap}
+    - {level: 1, move: Pound}
     - {level: 6, move: Helping Hand}
-    - {level: 9, move: Charm}
     - {level: 9, move: Draining Kiss}
-    - {level: 12, move: Flower Shield}
+    - {level: 12, move: Charm}
     - {level: 15, move: Magical Leaf}
+    - {level: 18, move: Synthesis}
+    - {level: 24, move: Grass Knot}
     - {level: 27, move: Sweet Kiss}
-    - {level: 35, move: Hyper Voice}
-    - {level: 36, move: Aromatherapy}
+    - {level: 33, move: Petal Blizzard}
     - {level: 39, move: Moonblast}
     - {level: 42, move: Sweet Scent}
-    - {level: 47, move: Double-Edge}
+    - {level: 45, move: Petal Dance}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
-          Safeguard, Frustration, Solar Beam, Return, Shadow Ball, Double Team, Facade,
-          Rest, Attract, Thief, Energy Ball, Fling, Endure, Giga Impact, Sleep Talk,
-          Grass Knot, Swagger, U-turn, Substitute, Draining Kiss, Play Rough]
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
+          Protect, Rain Dance, Safeguard, Frustration, Solar Beam, Return, Psychic,
+          Double Team, Facade, Secret Power, Rest, Attract, Thief, Energy Ball, Fling,
+          Endure, Giga Impact, Thunder Wave, Psych Up, Sleep Talk, Natural Gift, Grass Knot,
+          Swagger, U-turn, Substitute, Draining Kiss, Play Rough]
   # moves a move tutor can teach it
-  tutor: [Dazzling Gleam, Flail, Hyper Voice]
-  egg: [Fake Out, After You] # only needed for the first stage of an evolution line
+  tutor: [Body Slam, Charm, Dazzling Gleam, Endeavor, Hyper Voice, Magical Leaf]
+  # only needed for the first stage of an evolution line
+  egg: [Lucky Chant, Fake Out, After You, Endeavor, Double-Edge]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

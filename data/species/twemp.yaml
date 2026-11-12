@@ -63,27 +63,36 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 0, move: Protect}
-    - {level: 1, move: Absorb}
     - {level: 1, move: Bug Bite}
     - {level: 1, move: Razor Leaf}
     - {level: 1, move: String Shot}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Pin Missile}
-    - {level: 7, move: Struggle Bug}
+    - {level: 1, move: Fury Cutter}
+    - {level: 1, move: Leer}
+    - {level: 12, move: Synthesis}
     - {level: 12, move: Scary Face}
+    - {level: 20, move: Headbutt}
+    - {level: 20, move: Pin Missile}
+    - {level: 22, move: Struggle Bug}
+    - {level: 26, move: Leech Seed}
+    - {level: 27, move: Acrobatics}
+    - {level: 29, move: Endure}
     - {level: 31, move: Sticky Web}
-    - {level: 36, move: Seed Bomb}
-    - {level: 43, move: Aromatherapy}
-    - {level: 44, move: X-Scissor}
+    - {level: 32, move: Agility}
+    - {level: 33, move: Screech}
+    - {level: 36, move: First Impression}
+    - {level: 40, move: X-Scissor}
+    - {level: 42, move: Horn Leech}
+    - {level: 43, move: Flail}
+    - {level: 51, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Toxic, Bullet Seed, Hidden Power, Sunny Day, Light Screen, Protect,
-          Giga Drain, Safeguard, Frustration, Solar Beam, Return, Double Team, Facade, Rest,
-          Attract, Energy Ball, Endure, Payback, Sleep Talk, Grass Knot, Swagger,
-          Substitute, Struggle Bug, Electroweb, Cut, Dig, Thief, X-Scissor, Poison Jab,
-          Grassy Terrain]
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance,
+          Giga Drain, Safeguard, Frustration, Solar Beam, Return, Double Team, Facade,
+          Secret Power, Rest, Attract, Energy Ball, Endure, Flash, X-Scissor, Sleep Talk,
+          Grass Knot, Swagger, Substitute, Struggle Bug, Grassy Terrain, Lunge, Cut, Thief,
+          Poison Jab]
   # moves a move tutor can teach it
-  tutor: [Bug Bite, Charm, Leaf Storm, Magical Leaf, Seed Bomb, Synthesis]
+  tutor: [Body Slam, Bug Bite, Charm, Leaf Storm, Magical Leaf, Seed Bomb, Synthesis]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

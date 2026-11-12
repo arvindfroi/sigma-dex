@@ -63,30 +63,32 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Confusion}
     - {level: 1, move: Play Nice}
     - {level: 1, move: Pound}
-    - {level: 5, move: Confusion}
+    - {level: 4, move: Hypnosis}
     - {level: 5, move: Meditate}
     - {level: 6, move: Disable}
-    - {level: 9, move: Hypnosis}
     - {level: 12, move: Imprison}
+    - {level: 14, move: Psybeam}
     - {level: 16, move: Headbutt}
-    - {level: 19, move: Psybeam}
     - {level: 21, move: Poison Gas}
     - {level: 27, move: Extrasensory}
-    - {level: 32, move: Psyshock}
-    - {level: 35, move: Mind Reader}
-    - {level: 48, move: Psychic}
-    - {level: 56, move: Future Sight}
-    - {level: 59, move: Nasty Plot}
+    - {level: 27, move: Psyshock}
+    - {level: 43, move: Psychic}
+    - {level: 47, move: Nasty Plot}
+    - {level: 52, move: Future Sight}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance, Safeguard,
-          Return, Psychic, Shadow Ball, Double Team, Reflect, Facade, Rest, Attract, Thief,
-          Skill Swap, Endure, Recycle, Flash, Thunder Wave, Psych Up, Rock Slide,
-          Sleep Talk, Grass Knot, Swagger, Substitute, Trick Room, Psyshock,
-          Expanding Force]
-  tutor: [Zen Headbutt]  # moves a move tutor can teach it
-  egg: [Psycho Cut, Mirror Coat] # only needed for the first stage of an evolution line
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance,
+          Safeguard, Frustration, Return, Psychic, Shadow Ball, Double Team, Reflect,
+          Torment, Facade, Secret Power, Rest, Attract, Thief, Skill Swap, Charge Beam,
+          Endure, Recycle, Flash, Thunder Wave, Psych Up, Rock Slide, Sleep Talk,
+          Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock,
+          Psychic Terrain, Expanding Force]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Dazzling Gleam, Nasty Plot, Zen Headbutt]
+  # only needed for the first stage of an evolution line
+  egg: [Psycho Cut, Mirror Coat, Barrier, Zen Headbutt, Guard Swap, Synchronoise]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

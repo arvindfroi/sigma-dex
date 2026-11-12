@@ -64,33 +64,33 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Astonish}
-    - {level: 1, move: Harden}
     - {level: 1, move: Rollout}
     - {level: 1, move: Tackle}
-    - {level: 4, move: Protect}
+    - {level: 3, move: Protect}
+    - {level: 10, move: Rock Throw}
+    - {level: 10, move: Smack Down}
     - {level: 10, move: Withdraw}
-    - {level: 13, move: Smack Down}
     - {level: 21, move: Ancient Power}
     - {level: 22, move: Hex}
+    - {level: 25, move: Power Gem}
+    - {level: 26, move: Rock Slide}
     - {level: 28, move: Night Shade}
-    - {level: 31, move: Power Gem}
-    - {level: 35, move: Rock Slide}
-    - {level: 38, move: Iron Defense}
-    - {level: 42, move: Curse}
+    - {level: 32, move: Curse}
+    - {level: 36, move: Iron Defense}
+    - {level: 39, move: Shadow Ball}
     - {level: 42, move: Sandstorm}
     - {level: 45, move: Rock Blast}
-    - {level: 46, move: Shadow Ball}
-    - {level: 55, move: Stone Edge}
+    - {level: 45, move: Stone Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Protect, Rain Dance, Earthquake, Return, Dig, Psychic,
-          Shadow Ball, Double Team, Sandstorm, Rock Tomb, Facade, Rest, Attract, Thief,
-          Endure, Rock Polish, Stone Edge, Stealth Rock, Rock Slide, Sleep Talk, Swagger,
-          Substitute, Bulldoze, Meteor Beam]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Earthquake,
+          Return, Dig, Psychic, Shadow Ball, Double Team, Sandstorm, Rock Tomb, Facade,
+          Secret Power, Rest, Attract, Thief, Endure, Rock Polish, Stone Edge, Stealth Rock,
+          Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Bulldoze,
+          Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Curse, Earth Power, Poltergeist]
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Poltergeist]
   # only needed for the first stage of an evolution line
-  egg: [Rock Throw, Shadow Sneak, Knock Off, Head Smash, Wide Guard]
+  egg: [Head Smash, Shadow Sneak, Knock Off, Disable]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

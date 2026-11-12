@@ -73,19 +73,19 @@ learnset:
     - {level: 20, move: Moonlight}
     - {level: 25, move: Strength Sap}
     - {level: 28, move: Giga Drain}
-    - {level: 30, move: Energy Ball}
     - {level: 32, move: Dazzling Gleam}
-    - {level: 33, move: Aromatherapy}
+    - {level: 33, move: Synthesis}
     - {level: 40, move: Moonblast}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Light Screen, Protect, Giga Drain,
-          Safeguard, Solar Beam, Return, Sludge Bomb, Facade, Rest, Attract, Energy Ball,
-          Endure, Thunder Wave, Sleep Talk, Grass Knot, Substitute, Draining Kiss]
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Light Screen, Protect, Giga Drain,
+          Safeguard, Frustration, Solar Beam, Return, Double Team, Sludge Bomb, Facade,
+          Secret Power, Rest, Attract, Energy Ball, Endure, Flash, Thunder Wave, Sleep Talk,
+          Grass Knot, Swagger, Substitute, Draining Kiss, Grassy Terrain]
   # moves a move tutor can teach it
-  tutor: [Dazzling Gleam, Leaf Storm, Magical Leaf, Mega Drain, Pollen Puff, Seed Bomb,
+  tutor: [Charm, Dazzling Gleam, Leaf Storm, Magical Leaf, Pollen Puff, Seed Bomb,
           Synthesis]
   # only needed for the first stage of an evolution line
-  egg: [Leech Seed, Seed Bomb, Magical Leaf, Leaf Storm]
+  egg: [Leech Seed, Amnesia, Stun Spore, Seed Bomb, Worry Seed, Leaf Storm, Razor Leaf]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

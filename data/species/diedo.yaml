@@ -4,7 +4,7 @@ name: Diedo
 
 credits:
   designer: Magnus       # who came up with it (Discord name)
-  artist: Magnus           # who drew the concept art
+  artist: Magnus         # who drew the concept art
 
 types: [Flying]          # 1 or 2 types, e.g. [Grass, Steel]
 
@@ -64,28 +64,29 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Growl}
-    - {level: 1, move: Leer}
     - {level: 1, move: Peck}
     - {level: 1, move: Tackle}
-    - {level: 3, move: Gust}
-    - {level: 6, move: Supersonic}
-    - {level: 10, move: Wing Attack}
+    - {level: 2, move: Gust}
+    - {level: 4, move: Supersonic}
     - {level: 12, move: Air Cutter}
-    - {level: 16, move: Aerial Ace}
+    - {level: 15, move: Aerial Ace}
+    - {level: 18, move: Roost}
+    - {level: 21, move: Tailwind}
+    - {level: 24, move: Hurricane}
     - {level: 25, move: Wish}
     - {level: 27, move: Agility}
-    - {level: 30, move: Air Slash}
-    - {level: 34, move: Roost}
+    - {level: 30, move: Drill Peck}
+    - {level: 31, move: Air Slash}
     - {level: 38, move: Brave Bird}
-    - {level: 39, move: Tailwind}
-    - {level: 42, move: Hurricane}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Protect, Rain Dance, Return, Double Team, Aerial Ace,
-          Facade, Rest, Attract, Thief, Steel Wing, Roost, Endure, Sleep Talk, Swagger,
-          Pluck, U-turn, Substitute, Dual Wingbeat, Fly]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return,
+          Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Steel Wing,
+          Roost, Endure, Captivate, Sleep Talk, Natural Gift, Swagger, Pluck, U-turn,
+          Substitute, Dual Wingbeat, Fly]
   # moves a move tutor can teach it
   tutor: [Air Slash, Brave Bird, Heat Wave, Hurricane, Sky Attack]
-  egg: [Defog, Feather Dance] # only needed for the first stage of an evolution line
+  # only needed for the first stage of an evolution line
+  egg: [Defog, Wing Attack, Feint Attack, Razor Wind, Feather Dance]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

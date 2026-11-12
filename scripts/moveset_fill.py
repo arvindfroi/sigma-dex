@@ -970,6 +970,8 @@ class Proposer:
         memo, type_count = {}, Counter()
         score, levels, why = Counter(), defaultdict(list), {}
         counts = []
+        start = o_enter if (sp["parent"] and o_enter) else 1
+        donor_bands, donor_n = Counter(), 0.0
         for w, name in self.weighted_donors(sid):
             o = self.ref.all[name]
             d_enter = (o.get("evolves_from") or {}).get("level")
@@ -1000,31 +1002,52 @@ class Proposer:
                 n += 1
                 score[new] += w
                 levels[new].append((level, w))
+                donor_bands[self._band(level, start)] += w
+                donor_n += w
             counts.append((len(o["level_up"]), w))
         want = round(sum(c * w for c, w in counts))
         want = max(10, min(24, want))
         own = set(sp["types"]) | {"Normal"} | set(self.preferred_types(sid))
 
-        def enough(mv, sc):       # moves outside its own types need more of the similar Pokemon to agree
+        def enough(mv, sc, band):  # moves outside its own types need more of the similar Pokemon to agree
+            if band >= 2:          # late moves differ more between Pokemon, so each gets fewer votes
+                return sc >= (0.02 if self.M[mv]["type"] in own else 0.10)
             return sc >= (0.04 if self.M[mv]["type"] in own else 0.15)
-        chosen = [mv for mv, sc in score.most_common() if enough(mv, sc)][:want]
-        entries = []
-        lv1 = 0
-        for mv in chosen:
+
+        def median_level(mv):
             pts = sorted(levels[mv])
             if sp["parent"] and pts and pts[0][0] <= 1:
                 later = [(l, w) for l, w in pts if l > 1]
-                if lv1 >= 6 and later:         # at most 6 moves at level 1; others at their own level
+                if later and sum(w for l, w in pts if l <= 1) < sum(w for l, w in later):
                     pts = later
-                elif sum(w for l, w in pts if l <= 1) >= sum(w for l, w in later):
-                    lv1 += 1
-            half, acc, lvl = sum(w for l, w in pts) / 2, 0.0, pts[-1][0]
+            half, acc = sum(w for l, w in pts) / 2, 0.0
             for l, w in pts:
                 acc += w
                 if acc >= half:
-                    lvl = l
-                    break
-            entries.append({"level": lvl, "move": mv})
+                    return l
+            return pts[-1][0]
+        # Spread the moves over the levels like the official ones do: start, before evolving, right after, middle, late
+        own_lv1 = sum(1 for e in sp["learnset"]["level_up"] if isinstance(e, dict) and e.get("level") in (0, 1))
+        quota = {b: round(donor_bands[b] / (donor_n or 1) * want) for b in range(5)}
+        quota[0] = min(quota[0], max(1, (6 if sp["parent"] else 4) - own_lv1))
+        by_band = defaultdict(list)
+        lvl_of = {}
+        for mv, sc in score.most_common():
+            lvl_of[mv] = median_level(mv)
+            band = self._band(lvl_of[mv], start)
+            if enough(mv, sc, band):
+                by_band[band].append(mv)
+        chosen, spare = [], []
+        for band in range(5):
+            chosen += by_band[band][:quota[band]]
+            spare += [(score[mv], mv) for mv in by_band[band][quota[band]:] if band > 0]
+        for sc, mv in sorted(spare, reverse=True):
+            if len(chosen) >= want:
+                break
+            chosen.append(mv)
+        entries = []
+        for mv in chosen:
+            entries.append({"level": lvl_of[mv], "move": mv})
             if mv not in reasons_line:
                 share = round(score[mv] * 100)
                 reasons_line[mv] = why.get(mv) or "learned by similar official Pokemon (%d%% of the weight)" % share
@@ -1035,6 +1058,18 @@ class Proposer:
         self._ensure_types(sid, entries, side, memo, reasons_line, self.ref.all[top])
         inspired = [(n, round(w * 100)) for w, n in self.weighted_donors(sid)[:8]]
         return entries, inspired
+
+    @staticmethod
+    def _band(level, start):
+        if level <= 1:
+            return 0
+        if level <= start:
+            return 1
+        if level <= start + 12:
+            return 2
+        if level <= start + 25:
+            return 3
+        return 4
 
     def _ensure_types(self, sid, entries, side, memo, reasons, donor):
         """Each of our types gets level-up attacks: swap coverage/Normal attacks for moves of a missing type."""
@@ -1721,12 +1756,17 @@ class Proposer:
             if par and par in results:
                 limit = evo_level(self.ours, sid) or self._evo_used.get(sid) or 1
                 for e in results[par]["learnset"]["level_up"]:
-                    if e["move"] not in have and e["level"] != 0 and e["level"] <= limit:
-                        have.add(e["move"])
-                        lu.append({"level": 1 if e["level"] > (evo_level(self.ours, sid) or 99) else e["level"],
-                                   "move": e["move"], "_new": True})
-                        added["level_up"].append({"level": lu[-1]["level"], "move": e["move"]})
-                        reasons[e["move"]] = "learned by %s before it evolves" % self.ours[par]["name"]
+                    if e["move"] in have or e["level"] == 0 or not isinstance(e.get("level"), int):
+                        continue
+                    later = e["level"] > limit
+                    if later and self._same_job(e["move"], [x for x in lu if isinstance(x, dict)], e["level"]):
+                        continue
+                    have.add(e["move"])
+                    lv = min(100, e["level"] + 3) if later else e["level"]   # learned a bit later after evolving
+                    lu.append({"level": lv, "move": e["move"], "_new": True})
+                    added["level_up"].append({"level": lv, "move": e["move"]})
+                    reasons[e["move"]] = "learned by %s %s" % (self.ours[par]["name"], "too, a bit later" if later
+                                                               else "before it evolves")
             lu.sort(key=lambda e: (e["level"], e["move"]))
             learnset = {"level_up": lu, "tm_hm": list(existing["tm_hm"]), "tutor": list(existing["tutor"]),
                         "egg": list(existing["egg"])}
@@ -1812,6 +1852,15 @@ class Proposer:
                              self.ours[sp["parent"]]["name"])
             for e in learnset["level_up"]:
                 e.pop("_new", None)
+            levels = sorted({e["level"] for e in learnset["level_up"] if isinstance(e.get("level"), int)
+                             and e["level"] > 1})
+            enter = evo_level(self.ours, sid) if sp["parent"] else None
+            if enter and not [lv for lv in levels if lv > enter]:
+                flags.append("Learns no new level-up moves after it evolves (level %d)" % enter)
+            gaps = [(b - a, a, b) for a, b in zip([1] + levels, levels) if a < 50]
+            if gaps and max(gaps)[0] > 16:
+                g = max(gaps)
+                flags.append("Long gap with no new level-up moves: level %d to %d" % (g[1], g[2]))
             res = {
                 "name": sp["name"], "dex": sp["dex"], "types": sp["types"], "stage": sp["stage"],
                 "line": [self.ours[x]["name"] for x in members], "root": root,
@@ -1915,7 +1964,7 @@ def cmd_propose(args):
     use_data_dir(args.data)
     data = moveset_data.load()
     ref = Reference(data)
-    ours = load_ours()
+    ours = load_ours(exclude_claude=args.fresh)
     lines = build_lines(ours)
     prop = Proposer(ours, lines, ref)
     roots = list(lines)
@@ -1932,6 +1981,7 @@ def cmd_propose(args):
     except Exception:
         commit = ""
     out["data_dir"], out["data_commit"] = str(DATA_DIR), commit
+    out["fresh"] = bool(args.fresh)
     for root in roots:
         out["species"].update(prop.propose_line(root))
     OUT_DIR.mkdir(exist_ok=True)
@@ -2028,6 +2078,7 @@ def cmd_apply(args):
         raise SystemExit("Say which: --only a,b or --all (only after the group approved them)")
     changed = []
     claude_moves = load_claude_moves()
+    fresh = out.get("fresh")
     for sid in targets:
         r = out["species"].get(sid)
         if not r or r.get("skipped"):
@@ -2036,6 +2087,14 @@ def cmd_apply(args):
         path = dexlib.SPECIES_DIR / (sid + ".yaml")
         data = yaml.safe_load(path.read_text(encoding="utf-8"))
         ls = data.setdefault("learnset", {})
+        if fresh:        # a new proposal replaces what Claude added before; the group's own moves stay
+            cm = claude_moves.get(sid, {})
+            lu_moves = {m for lv, m in cm.get("level_up", [])}
+            ls["level_up"] = [e for e in (ls.get("level_up") or []) if not (isinstance(e, dict) and
+                                                                             e.get("move") in lu_moves)]
+            for k in KEYS[1:]:
+                ls[k] = [m for m in (ls.get(k) or []) if m not in set(cm.get(k, []))]
+            claude_moves[sid] = {}
         filled = []
         for key, label in (("level_up", "level-up moves"), ("tm_hm", "TM/HM moves"), ("tutor", "tutor moves"),
                            ("egg", "egg moves")):
@@ -2082,6 +2141,8 @@ def main():
     p = sub.add_parser("propose")
     p.add_argument("species", nargs="*")
     p.add_argument("--data", help="data folder to read (default: this checkout's data/), e.g. a worktree of main")
+    p.add_argument("--fresh", action="store_true", help="a new proposal for the part Claude added before "
+                   "(data/claude_moves.json); apply then replaces that part")
     p.set_defaults(func=cmd_propose)
     p = sub.add_parser("suggest")
     p.add_argument("--data", help="data folder to read (default: this checkout's data/)")

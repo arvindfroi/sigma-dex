@@ -73,27 +73,29 @@ learnset:
     - {level: 1, move: Rock Tomb}
     - {level: 1, move: Tackle}
     - {level: 6, move: Bite}
-    - {level: 9, move: Smack Down}
     - {level: 10, move: Fire Fang}
+    - {level: 11, move: Smack Down}
+    - {level: 12, move: Incinerate}
     - {level: 12, move: Roar}
     - {level: 16, move: Headbutt}
     - {level: 20, move: Protect}
     - {level: 30, move: Stone Edge}
     - {level: 40, move: Take Down}
-    - {level: 52, move: Flame Wheel}
+    - {level: 47, move: Flame Wheel}
     - {level: 52, move: Rock Blast}
     - {level: 58, move: Iron Defense}
     - {level: 70, move: Double-Edge}
     - {level: 76, move: Fire Spin}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Protect, Rain Dance, Iron Tail, Earthquake, Return, Dig,
-          Double Team, Flamethrower, Sandstorm, Fire Blast, Rock Tomb, Facade, Rest,
-          Attract, Overheat, Endure, Will-O-Wisp, Rock Polish, Stone Edge, Stealth Rock,
-          Rock Slide, Sleep Talk, Swagger, Substitute, Heavy Slam, Flame Charge, Bulldoze,
-          Body Press, Meteor Beam, Strength, Rock Smash, Roar]
+  tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Iron Tail,
+          Earthquake, Return, Dig, Double Team, Flamethrower, Sandstorm, Fire Blast,
+          Rock Tomb, Facade, Secret Power, Rest, Attract, Overheat, Endure, Will-O-Wisp,
+          Rock Polish, Stone Edge, Stealth Rock, Captivate, Rock Slide, Sleep Talk,
+          Natural Gift, Swagger, Substitute, Heavy Slam, Flame Charge, Bulldoze,
+          High Horsepower, Body Press, Meteor Beam, Strength, Rock Smash, Aerial Ace]
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Curse, Earth Power, Endeavor, Fire Punch, Flare Blitz,
-          Heat Wave, Iron Head]
+          Heat Wave, Iron Head, Power Gem, Fire Fang]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

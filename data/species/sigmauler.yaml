@@ -68,36 +68,36 @@ learnset:
   level_up:
     - {level: 0, move: Rock Hammer}
     - {level: 1, move: Hammer Arm}
-    - {level: 1, move: Harden}
-    - {level: 1, move: Leer}
     - {level: 1, move: Rock Throw}
+    - {level: 1, move: Rollout}
     - {level: 1, move: Tackle}
-    - {level: 5, move: Rollout}
-    - {level: 6, move: Sandstorm}
+    - {level: 1, move: Harden}
+    - {level: 11, move: Mud Shot}
     - {level: 13, move: Rock Polish}
     - {level: 18, move: Smack Down}
+    - {level: 20, move: Ancient Power}
     - {level: 20, move: Rock Tomb}
-    - {level: 20, move: Power Gem}
-    - {level: 24, move: Slam}
-    - {level: 30, move: Rock Blast}
+    - {level: 24, move: Headbutt}
     - {level: 30, move: Iron Defense}
     - {level: 32, move: Rock Slide}
-    - {level: 36, move: Dynamic Punch}
+    - {level: 32, move: Stealth Rock}
+    - {level: 34, move: Rock Blast}
     - {level: 36, move: Low Kick}
-    - {level: 38, move: Stealth Rock}
+    - {level: 40, move: Dynamic Punch}
     - {level: 44, move: Double-Edge}
-    - {level: 48, move: Head Smash}
-    - {level: 48, move: Stone Edge}
+    - {level: 44, move: Heavy Slam}
+    - {level: 54, move: Stone Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Focus Punch, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
-          Rain Dance, Earthquake, Return, Dig, Brick Break, Double Team, Sandstorm,
-          Rock Tomb, Facade, Rest, Attract, Focus Blast, Fling, Endure, Drain Punch,
-          Giga Impact, Rock Polish, Stone Edge, Stealth Rock, Rock Slide, Sleep Talk,
-          Swagger, Substitute, Low Sweep, Bulldoze, Body Press, Meteor Beam, Strength,
-          Rock Smash, Heavy Slam]
+  tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
+          Rain Dance, Frustration, Earthquake, Return, Dig, Brick Break, Double Team,
+          Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Attract, Thief, Focus Blast,
+          Fling, Endure, Drain Punch, Giga Impact, Rock Polish, Stone Edge, Stealth Rock,
+          Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Low Sweep, Bulldoze,
+          High Horsepower, Body Press, Meteor Beam, Strength, Rock Smash, Captivate]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Close Combat, Curse, Earth Power, Fire Punch, Thunder Punch,
-          Ancient Power]
+  tutor: [Ancient Power, Body Slam, Close Combat, Counter, Curse, Earth Power, Endeavor,
+          Fire Punch, Ice Punch, Iron Head, Power Gem, Power-Up Punch, Thunder Punch,
+          Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

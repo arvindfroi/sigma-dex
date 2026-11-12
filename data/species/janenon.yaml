@@ -68,34 +68,36 @@ learnset:
   level_up:
     - {level: 0, move: Dark Pulse}
     - {level: 1, move: Dark Pulse}
+    - {level: 1, move: Charm}
     - {level: 1, move: Disarming Voice}
     - {level: 1, move: Growl}
-    - {level: 1, move: Knock Off}
-    - {level: 1, move: Snarl}
-    - {level: 1, move: Sweet Scent}
     - {level: 1, move: Tackle}
     - {level: 1, move: Power Trip}
-    - {level: 8, move: Fairy Wind}
-    - {level: 14, move: Bite}
-    - {level: 15, move: Aromatherapy}
+    - {level: 10, move: Sweet Scent}
+    - {level: 13, move: Moonlight}
     - {level: 15, move: Draining Kiss}
-    - {level: 19, move: Moonlight}
+    - {level: 17, move: Fairy Wind}
     - {level: 20, move: Hex}
-    - {level: 24, move: Sucker Punch}
-    - {level: 28, move: Charm}
-    - {level: 30, move: Dazzling Gleam}
+    - {level: 22, move: Knock Off}
+    - {level: 34, move: Bite}
+    - {level: 35, move: Dazzling Gleam}
+    - {level: 35, move: Misty Terrain}
     - {level: 40, move: Nasty Plot}
+    - {level: 40, move: Sucker Punch}
+    - {level: 40, move: Recover}
     - {level: 45, move: Moonblast}
+    - {level: 47, move: Assurance}
     - {level: 48, move: Aura Sphere}
-    - {level: 50, move: Play Rough}
+    - {level: 49, move: Play Rough}
+    - {level: 68, move: Foul Play}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen, Protect,
-          Rain Dance, Safeguard, Return, Psychic, Shadow Ball, Double Team, Facade, Rest,
-          Attract, Thief, Fling, Endure, Payback, Giga Impact, Dark Pulse, Sleep Talk,
-          Swagger, Substitute, Foul Play, Draining Kiss, Play Rough, Trick Room,
-          Misty Terrain]
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
+          Protect, Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball,
+          Double Team, Reflect, Facade, Secret Power, Rest, Attract, Thief, Energy Ball,
+          Fling, Endure, Payback, Giga Impact, Psych Up, Dark Pulse, Sleep Talk, Swagger,
+          Substitute, Foul Play, Draining Kiss, Misty Terrain, Play Rough, Trick Room]
   # moves a move tutor can teach it
-  tutor: [Dazzling Gleam, Moonblast, Snarl, Hyper Voice, Curse]
+  tutor: [Body Slam, Charm, Dazzling Gleam, Nasty Plot, Snarl, Hyper Voice, Curse]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

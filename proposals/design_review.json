@@ -102,12 +102,14 @@
   },
   "drop": [
    "Slash",
-   "Solar Beam"
+   "Solar Beam",
+   "Rototiller"
   ],
   "why": {
    "Leech Life": "Mosquito-like bug with a proboscis",
    "Slash": "Mosquito with thin legs, no claws or blades",
-   "Solar Beam": "Mosquito trapped in amber fossil; no plant or sunlight concept"
+   "Solar Beam": "Mosquito trapped in amber fossil; no plant or sunlight concept",
+   "Rototiller": "mosquito trapped in amber, not a digger"
   },
   "note": "Mosquito in amber fits; blood-sucking move added."
  },
@@ -209,8 +211,14 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
-  "why": {},
+  "drop": [
+   "Silver Wind",
+   "X-Scissor"
+  ],
+  "why": {
+   "Silver Wind": "egg-shaped creature with no wings",
+   "X-Scissor": "no claws or blades; thin arms and legs only"
+  },
   "note": "Cute psychic bug moves fit the design."
  },
  "bergflabbser": {
@@ -291,7 +299,9 @@
    "Giga Drain",
    "Solar Beam",
    "Cut",
-   "Synthesis"
+   "Synthesis",
+   "Leaf Storm",
+   "Magical Leaf"
   ],
   "why": {
    "Growth": "golem of boulders and bones, plant-copy move",
@@ -305,7 +315,9 @@
    "Giga Drain": "rock and bone lead golem, no plant or fairy link",
    "Solar Beam": "rock and bone lead golem, no plant or fairy link",
    "Cut": "rock and bone lead golem, no plant or fairy link",
-   "Synthesis": "a bone-and-lead golem from polluted lands does not photosynthesise"
+   "Synthesis": "a bone-and-lead golem from polluted lands does not photosynthesise",
+   "Leaf Storm": "Rock-and-bone golem, no plant theme",
+   "Magical Leaf": "Rock-and-bone golem, no plant theme"
   },
   "note": "Plant/fairy moves removed; bones and smoke added."
  },
@@ -336,7 +348,8 @@
    "Water Pulse",
    "Blizzard",
    "Ice Beam",
-   "Mirror Coat"
+   "Mirror Coat",
+   "Swords Dance"
   ],
   "why": {
    "Splash": "A shaggy dog, not a bouncing fish-like mon",
@@ -347,7 +360,8 @@
    "Water Pulse": "Plain guard dog with no elemental body or beam attacks in its design",
    "Blizzard": "Plain guard dog with no elemental body or beam attacks in its design",
    "Ice Beam": "Plain guard dog with no elemental body or beam attacks in its design",
-   "Mirror Coat": "Fur-and-ears brawler, nothing psychic or reflective in the design"
+   "Mirror Coat": "Fur-and-ears brawler, nothing psychic or reflective in the design",
+   "Swords Dance": "A spaniel whose ears swing like fists; no swords or dancing in the design"
   },
   "note": "Dog line with plausible Normal/Fighting moves; dropped fish/elemental leftovers from the bunny model."
  },
@@ -652,9 +666,12 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Roost"
+  ],
   "why": {
-   "Bite": "lion fangs, line consistent"
+   "Bite": "lion fangs, line consistent",
+   "Roost": "wingless lion"
   },
   "note": "Fits."
  },
@@ -725,11 +742,14 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Rollout"
+  ],
   "why": {
    "Supersonic": "voice shatters glass",
    "Screech": "voice shatters glass",
-   "Uproar": "chaos it brings"
+   "Uproar": "chaos it brings",
+   "Rollout": "bat-like mic-tail performer, nothing about rolling"
   },
   "note": "Sound moves added for the glass-shattering voice."
  },
@@ -1039,7 +1059,8 @@
    "Brine",
    "Scald",
    "Whirlpool",
-   "Aqua Tail"
+   "Aqua Tail",
+   "Thunder Fang"
   ],
   "why": {
    "Ice Fang": "Glass capsule battery body, no fangs",
@@ -1055,7 +1076,8 @@
    "Whirlpool": "Ghost/Electric battery frog",
    "Charge": "Battery terminals marked plus and minus, yellow sparks",
    "Disable": "Dex: May disable a move that deals damage to the Pokemon",
-   "Aqua Tail": "glass capsule frog with no tail described"
+   "Aqua Tail": "glass capsule frog with no tail described",
+   "Thunder Fang": "frog-like glass capsule body with no fangs or mouth described"
   },
   "note": "Ghost/electric kit now fits; leftover biting and water moves removed."
  },
@@ -1077,13 +1099,15 @@
   },
   "drop": [
    "Charm",
-   "Play Nice"
+   "Play Nice",
+   "Bite"
   ],
   "why": {
    "Charm": "Bulb-headed crackling figure, not cute",
    "Play Nice": "Bulb-headed crackling figure, not cute",
    "Ember": "Flame burning inside its glass bulb head",
-   "Bounce": "Body is a coiled spring"
+   "Bounce": "Body is a coiled spring",
+   "Bite": "light bulb head with no mouth"
   },
   "note": "No change; moves fit the design acceptably."
  },
@@ -1143,9 +1167,12 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Poison Powder"
+  ],
   "why": {
-   "Mimic": "Evolution of a dancer that 'mimicks moves it observes'"
+   "Mimic": "Evolution of a dancer that 'mimicks moves it observes'",
+   "Poison Powder": "fiery tiki gorilla with nothing powdery or spore-like"
   },
   "note": "Fiery tribal gorilla moves fit; added copying move."
  },
@@ -1187,9 +1214,12 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Aerial Ace"
+  ],
   "why": {
-   "Bug Bite": "line consistent with Balleisk"
+   "Bug Bite": "line consistent with Balleisk",
+   "Aerial Ace": "Long blue dragon with short legs and no wings, crawls along the ground"
   },
   "note": "Fits."
  },
@@ -1234,11 +1264,13 @@
    "egg": []
   },
   "drop": [
-   "Pin Missile"
+   "Pin Missile",
+   "Swords Dance"
   ],
   "why": {
    "Pin Missile": "Shell-dome and swamp grass, no spines or needles",
-   "Mud Shot": "'hides in marshes' sunk in the swamp water"
+   "Mud Shot": "'hides in marshes' sunk in the swamp water",
+   "Swords Dance": "A low dome with swamp-grass curtains, no arms or blades"
   },
   "note": "Swamp ambusher; removed spiky pin move, added mud move."
  },
@@ -1615,7 +1647,9 @@
    "Wing Attack",
    "Pluck",
    "Dual Wingbeat",
-   "Feather Dance"
+   "Feather Dance",
+   "Bite",
+   "Crunch"
   ],
   "why": {
    "Drill Peck": "Moose with no beak or wings",
@@ -1627,7 +1661,9 @@
    "Horn Attack": "Wide flat antlers",
    "Aurora Beam": "Antlers glow in aurora colours",
    "Aurora Veil": "Glitters like nordic light",
-   "Megahorn": "Large antlers, legendary moose"
+   "Megahorn": "Large antlers, legendary moose",
+   "Bite": "herbivorous moose with a snout, no fangs",
+   "Crunch": "herbivorous moose with a snout, no fangs"
   },
   "note": "Moose with aurora antlers; bird-only moves removed, antler and aurora moves added."
  },
@@ -1712,10 +1748,13 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Iron Tail"
+  ],
   "why": {
    "Smog": "releases toxic fumes when alarmed",
-   "Toxic Spikes": "stores unstable waste, waste core"
+   "Toxic Spikes": "stores unstable waste, waste core",
+   "Iron Tail": "Barrel body on cable-like legs, no tail mentioned"
   },
   "note": "Toxic fumes and waste hazards added."
  },
@@ -1735,10 +1774,15 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Cross Poison",
+   "Poison Tail"
+  ],
   "why": {
    "Acid": "releases highly poisonous chemicals from its body",
-   "Wrap": "curved tentacle arms"
+   "Wrap": "curved tentacle arms",
+   "Cross Poison": "slime made of sludge, no blades or claws",
+   "Poison Tail": "melting puddle base, no tail"
   },
   "note": "Poison sludge fits; added Acid and Wrap."
  },
@@ -1873,14 +1917,26 @@
   "drop": [
    "Meteor Mash",
    "Pin Missile",
-   "Petal Dance"
+   "Petal Dance",
+   "Bind",
+   "Crunch",
+   "Fire Fang",
+   "Thunder Fang",
+   "Leech Seed",
+   "Crabhammer"
   ],
   "why": {
    "Meteor Mash": "A tank with a cannon, no fists",
    "Pin Missile": "No spines on this old tank",
    "Petal Dance": "A rusty tank, not a dancing flower",
    "Mud Shot": "Swamp-covered tank, a mud shell from the cannon",
-   "Rollout": "'six wheels on caterpillar tracks'"
+   "Rollout": "'six wheels on caterpillar tracks'",
+   "Bind": "a tank with wheels and a cannon, no limbs",
+   "Crunch": "a tank has no jaws",
+   "Fire Fang": "a tank has no fangs",
+   "Thunder Fang": "a tank has no fangs",
+   "Leech Seed": "tank body, no seed flavour",
+   "Crabhammer": "no claws; tank hull"
   },
   "note": "Tank line; removed punch/spine/petal moves, added cannon-mud and tracks moves."
  },
@@ -1980,11 +2036,15 @@
   },
   "drop": [
    "Ice Fang",
-   "Sky Attack"
+   "Sky Attack",
+   "Metal Claw",
+   "Dragon Claw"
   ],
   "why": {
    "Ice Fang": "small leaf-headed rainbow creature with a smile, no fangs or flying fury",
-   "Sky Attack": "small leaf-headed rainbow creature with a smile, no fangs or flying fury"
+   "Sky Attack": "small leaf-headed rainbow creature with a smile, no fangs or flying fury",
+   "Metal Claw": "Only 'white fluffy arms' and white feet, no claws",
+   "Dragon Claw": "Only 'white fluffy arms' and white feet, no claws"
   },
   "note": "Mostly fine; fang and Sky Attack flavour removed."
  },
@@ -2104,13 +2164,17 @@
   },
   "drop": [
    "Slash",
-   "Brick Break"
+   "Brick Break",
+   "Bite",
+   "Crunch"
   ],
   "why": {
    "Slash": "thin arms ending in rainbow clouds, no claws",
    "Sand Attack": "tan sand creature",
    "Sand Tomb": "sand creature",
-   "Brick Break": "arms end in swirling clouds instead of hands"
+   "Brick Break": "arms end in swirling clouds instead of hands",
+   "Bite": "Design has one big eye and no mouth mentioned",
+   "Crunch": "Design has one big eye and no mouth mentioned"
   },
   "note": "Clawless; Slash removed, sand moves added."
  },
@@ -2280,13 +2344,15 @@
   "drop": [
    "Bite",
    "Crunch",
-   "Poison Jab"
+   "Poison Jab",
+   "Defense Curl"
   ],
   "why": {
    "Bite": "Golem of stone blocks, no jaws mentioned",
    "Crunch": "Golem of stone blocks, no jaws mentioned",
    "Heavy Slam": "Huge golem of stacked stone blocks",
-   "Poison Jab": "stone-block golem with no poison theme"
+   "Poison Jab": "stone-block golem with no poison theme",
+   "Defense Curl": "A huge stone-block golem cannot curl up"
   },
   "note": "Golem with fists fits; biting moves dropped."
  },
@@ -2446,10 +2512,15 @@
    ],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Defense Curl",
+   "Rock Climb"
+  ],
   "why": {
    "Heavy Slam": "Can support immense weight on its head",
-   "Headbutt": "It is only a stone head"
+   "Headbutt": "It is only a stone head",
+   "Defense Curl": "'only a head' of stone, cannot curl up",
+   "Rock Climb": "floating stone head with no legs to climb"
   },
   "note": "Stone head kit fits; head and weight moves added."
  },
@@ -2582,10 +2653,13 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Magical Leaf"
+  ],
   "why": {
    "Acid": "poisonous chemicals that corrode",
-   "Wrap": "long tentacle-like arms"
+   "Wrap": "long tentacle-like arms",
+   "Magical Leaf": "Made of toxic goo with tentacle arms, no leaves"
   },
   "note": "Line consistent with Nukfae."
  },
@@ -2640,12 +2714,18 @@
   "drop": [
    "Tail Whip",
    "Bite",
-   "Scratch"
+   "Scratch",
+   "Thunder Fang",
+   "Thunder Punch",
+   "Grass Knot"
   ],
   "why": {
    "Tail Whip": "Four floating shapes joined by wires, no tail",
    "Bite": "Four glossy shapes with one eye each joined by wires; no mouth or teeth",
-   "Scratch": "Floating geometric shapes with no claws or limbs"
+   "Scratch": "Floating geometric shapes with no claws or limbs",
+   "Thunder Fang": "four black shapes with one eye each, no mouths",
+   "Thunder Punch": "separate shapes with no arms",
+   "Grass Knot": "floating shapes with no legs"
   },
   "note": "Fits."
  },
@@ -2913,7 +2993,8 @@
    "Focus Punch",
    "Drain Punch",
    "Outrage",
-   "Meteor Mash"
+   "Meteor Mash",
+   "Shadow Claw"
   ],
   "why": {
    "Fury Swipes": "Three floating metal towers, no limbs to swipe",
@@ -2931,7 +3012,8 @@
    "Outrage": "Dragon rampage clashes with a floating metal tower group",
    "Gyro Ball": "Heavy slab towers of metal",
    "Iron Defense": "Grey metal slab towers",
-   "Meteor Mash": "a punch, and it is three limbless metal towers"
+   "Meteor Mash": "a punch, and it is three limbless metal towers",
+   "Shadow Claw": "Three grey metal slab towers, no claws"
   },
   "note": "Limb moves removed for a limbless tower group."
  },
@@ -2947,9 +3029,12 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Thief"
+  ],
   "why": {
-   "Wrap": "eel-like long curved body"
+   "Wrap": "eel-like long curved body",
+   "Thief": "eel-like tadpole with no hands"
   },
   "note": "Eel pool is fine."
  },
@@ -2973,14 +3058,18 @@
    "egg": []
   },
   "drop": [
-   "Rollout"
+   "Rollout",
+   "Thunder Punch",
+   "Thunder Fang"
   ],
   "why": {
    "Rollout": "Robot bird, not a rolling shape",
    "Peck": "Red-orange beak",
    "Wing Attack": "Two big wings, flies",
    "Steel Wing": "Robot wings with round joints",
-   "Fly": "It flies, flapping its wings"
+   "Fly": "It flies, flapping its wings",
+   "Thunder Punch": "robot bird with wings, no arms or fists",
+   "Thunder Fang": "robot bird with a beak, no fangs"
   },
   "note": "Robot bird fits; wing and beak moves added."
  },

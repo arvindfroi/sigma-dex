@@ -66,34 +66,34 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Freeze-Dry}
+    - {level: 1, move: Growl}
     - {level: 1, move: Leer}
     - {level: 1, move: Powder Snow}
     - {level: 1, move: Tackle}
-    - {level: 15, move: Ice Shard}
-    - {level: 18, move: Icy Wind}
-    - {level: 20, move: Protect}
-    - {level: 22, move: Avalanche}
-    - {level: 24, move: Ice Fang}
-    - {level: 25, move: Icicle Crash}
-    - {level: 28, move: Bite}
+    - {level: 7, move: Protect}
+    - {level: 12, move: Ice Shard}
+    - {level: 12, move: Icy Wind}
+    - {level: 18, move: Ice Fang}
+    - {level: 21, move: Bite}
+    - {level: 24, move: Flail}
+    - {level: 27, move: Avalanche}
     - {level: 28, move: Crush Claw}
+    - {level: 30, move: Snowscape}
     - {level: 32, move: Slash}
+    - {level: 33, move: Crunch}
     - {level: 36, move: Take Down}
-    - {level: 42, move: Iron Defense}
-    - {level: 47, move: Hail}
+    - {level: 42, move: Freeze-Dry}
     - {level: 50, move: Ice Hammer}
-    - {level: 54, move: Headbutt}
-    - {level: 56, move: Crunch}
-    - {level: 58, move: Blizzard}
+    - {level: 53, move: Blizzard}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect, Rain Dance,
-          Earthquake, Return, Double Team, Rock Tomb, Facade, Rest, Attract, Endure,
-          Giga Impact, Avalanche, Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze,
+  tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect,
+          Rain Dance, Frustration, Earthquake, Return, Double Team, Rock Tomb, Facade,
+          Secret Power, Rest, Attract, Endure, Giga Impact, Stone Edge, Avalanche,
+          Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze, Body Press, Rock Smash,
           Heavy Slam]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Ice Fang, Ice Punch, Ice Shard, Icicle Spear, Icy Wind, Iron Head]
-  egg: [Double-Edge]     # only needed for the first stage of an evolution line
+  tutor: [Body Slam, Curse, Ice Fang, Ice Punch, Icicle Spear, Icy Wind, Iron Head]
+  egg: [Icicle Crash]    # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

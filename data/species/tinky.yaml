@@ -66,28 +66,27 @@ learnset:
     - {level: 1, move: Absorb}
     - {level: 1, move: Growl}
     - {level: 1, move: Tackle}
-    - {level: 6, move: Stun Spore}
     - {level: 9, move: Growth}
     - {level: 10, move: Razor Leaf}
     - {level: 14, move: Mega Drain}
-    - {level: 16, move: Encore}
-    - {level: 17, move: Poison Powder}
-    - {level: 19, move: Synthesis}
-    - {level: 22, move: Magical Leaf}
-    - {level: 25, move: Sweet Scent}
-    - {level: 26, move: Leech Seed}
-    - {level: 30, move: Giga Drain}
+    - {level: 14, move: Poison Powder}
+    - {level: 18, move: Encore}
+    - {level: 21, move: Synthesis}
+    - {level: 24, move: Magical Leaf}
+    - {level: 27, move: Leech Seed}
+    - {level: 32, move: Giga Drain}
     - {level: 36, move: Energy Ball}
-    - {level: 46, move: Aromatherapy}
+    - {level: 43, move: Body Slam}
+    - {level: 48, move: Leaf Storm}
     - {level: 48, move: Solar Beam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Protect, Giga Drain, Safeguard, Solar Beam,
-          Return, Double Team, Facade, Rest, Attract, Energy Ball, Endure, Flash,
-          Swords Dance, Sleep Talk, Grass Knot, Swagger, Substitute, Thunder Wave]
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Protect, Giga Drain, Safeguard,
+          Frustration, Solar Beam, Return, Double Team, Facade, Secret Power, Rest, Attract,
+          Energy Ball, Endure, Flash, Swords Dance, Captivate, Sleep Talk, Natural Gift,
+          Grass Knot, Swagger, Substitute, Grassy Terrain, Cut, Thunder Wave]
   # moves a move tutor can teach it
-  tutor: [Leaf Storm, Leech Seed, Magical Leaf, Mega Drain, Seed Bomb, Synthesis]
-  # only needed for the first stage of an evolution line
-  egg: [Leaf Storm, Worry Seed, Seed Bomb, Ingrain]
+  tutor: [Body Slam, Charm, Leaf Storm, Magical Leaf, Seed Bomb, Synthesis]
+  egg: [Worry Seed, Ingrain] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

@@ -67,33 +67,32 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Charm}
-    - {level: 1, move: Disarming Voice}
     - {level: 1, move: Growl}
-    - {level: 1, move: Ice Shard}
-    - {level: 1, move: Sweet Kiss}
+    - {level: 1, move: Helping Hand}
     - {level: 1, move: Tackle}
-    - {level: 6, move: Helping Hand}
+    - {level: 10, move: Quick Attack}
     - {level: 10, move: Stomp}
-    - {level: 13, move: Encore}
+    - {level: 12, move: Icy Wind}
     - {level: 15, move: Draining Kiss}
-    - {level: 15, move: Icy Wind}
-    - {level: 19, move: Moonlight}
+    - {level: 16, move: Mist}
     - {level: 21, move: Horn Attack}
-    - {level: 23, move: Safeguard}
-    - {level: 33, move: Dazzling Gleam}
+    - {level: 24, move: Aurora Beam}
     - {level: 35, move: Misty Terrain}
-    - {level: 39, move: Play Rough}
+    - {level: 36, move: Freeze-Dry}
     - {level: 40, move: Light Screen}
-    - {level: 42, move: Moonblast}
+    - {level: 44, move: Recover}
     - {level: 45, move: Blizzard}
+    - {level: 49, move: Moonblast}
+    - {level: 55, move: Last Resort}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Hyper Beam,
-          Light Screen, Protect, Rain Dance, Safeguard, Solar Beam, Return, Psychic,
-          Shadow Ball, Double Team, Reflect, Facade, Rest, Attract, Endure, Giga Impact,
-          Avalanche, Sleep Talk, Swagger, Substitute, Draining Kiss, Play Rough]
+  tm_hm: [Calm Mind, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Hyper Beam,
+          Light Screen, Protect, Rain Dance, Safeguard, Frustration, Return, Psychic,
+          Shadow Ball, Double Team, Reflect, Facade, Secret Power, Rest, Attract, Fling,
+          Endure, Giga Impact, Avalanche, Psych Up, Sleep Talk, Grass Knot, Swagger,
+          Substitute, Draining Kiss, Misty Terrain, Play Rough]
   # moves a move tutor can teach it
-  tutor: [Charm, Dazzling Gleam, Icy Wind, Moonblast]
-  egg: []                # only needed for the first stage of an evolution line
+  tutor: [Body Slam, Charm, Dazzling Gleam, Icicle Spear, Icy Wind, Magical Leaf]
+  egg: [Frost Breath, Aurora Veil] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -106,7 +105,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small buffalo-like creature with a pink body, a blue-grey furry mane on its head and back, and a round pink snout. Two clear ice-blue crystal wings stick out from its head like horns, with more ice shards on its back. It has four short pink legs."

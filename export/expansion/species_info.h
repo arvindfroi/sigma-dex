@@ -1948,6 +1948,7 @@
         .iconPalIndex = 0,
         .levelUpLearnset = sChillalitLevelUpLearnset,
         .teachableLearnset = sChillalitTeachableLearnset,
+        .eggMoveLearnset = sChillalitEggMoveLearnset,
         FOOTPRINT(QuestionMark)
     },
 
@@ -2245,6 +2246,7 @@
         .iconPalIndex = 0,
         .levelUpLearnset = sRazoxLevelUpLearnset,
         .teachableLearnset = sRazoxTeachableLearnset,
+        .eggMoveLearnset = sRazoxEggMoveLearnset,
         FOOTPRINT(QuestionMark)
     },
 
@@ -2600,6 +2602,7 @@
         .iconPalIndex = 0,
         .levelUpLearnset = sAnjaneLevelUpLearnset,
         .teachableLearnset = sAnjaneTeachableLearnset,
+        .eggMoveLearnset = sAnjaneEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 42, SPECIES_JANENON}),
         FOOTPRINT(QuestionMark)
     },
@@ -3340,6 +3343,7 @@
         .iconPalIndex = 0,
         .levelUpLearnset = sDragemLevelUpLearnset,
         .teachableLearnset = sDragemTeachableLearnset,
+        .eggMoveLearnset = sDragemEggMoveLearnset,
         FOOTPRINT(QuestionMark)
     },
 

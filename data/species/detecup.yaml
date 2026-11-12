@@ -72,28 +72,29 @@ learnset:
     - {level: 1, move: Sand Attack}
     - {level: 1, move: Scratch}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Baby-Doll Eyes}
     - {level: 1, move: Odor Sleuth}
-    - {level: 6, move: Tail Whip}
-    - {level: 12, move: Bite}
-    - {level: 12, move: Stomp}
-    - {level: 14, move: Taunt}
     - {level: 15, move: Headbutt}
-    - {level: 17, move: Assurance}
+    - {level: 16, move: Bite}
     - {level: 18, move: Fury Swipes}
-    - {level: 20, move: Tri Attack}
-    - {level: 23, move: Take Down}
-    - {level: 25, move: Screech}
-    - {level: 27, move: Agility}
-    - {level: 28, move: Slash}
-    - {level: 37, move: Roost}
+    - {level: 19, move: Slash}
+    - {level: 19, move: Round}
+    - {level: 20, move: Swift}
+    - {level: 21, move: Take Down}
+    - {level: 22, move: Charm}
+    - {level: 24, move: Uproar}
+    - {level: 29, move: Agility}
+    - {level: 35, move: Play Rough}
     - {level: 39, move: Nasty Plot}
+    - {level: 40, move: Hyper Voice}
+    - {level: 45, move: Tri Attack}
+    - {level: 50, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration, Iron Tail,
-          Thunderbolt, Thunder, Return, Dig, Shadow Ball, Double Team, Shock Wave, Facade,
-          Rest, Attract, Thief, Endure, Giga Impact, Sleep Talk, Swagger, U-turn,
-          Substitute, Strength, Aerial Ace, Cut]
-  tutor: [Endeavor, Hyper Voice, Flail] # moves a move tutor can teach it
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
+          Thunderbolt, Thunder, Return, Dig, Shadow Ball, Double Team, Aerial Ace, Facade,
+          Secret Power, Rest, Attract, Thief, Endure, Giga Impact, Thunder Wave, Captivate,
+          Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Cut, Strength, Iron Tail]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Endeavor, Hyper Voice, Super Fang, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

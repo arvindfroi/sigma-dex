@@ -66,24 +66,27 @@ learnset:
     - {level: 1, move: Leer}
     - {level: 1, move: Tackle}
     - {level: 10, move: Breaking Swipe}
-    - {level: 11, move: Bite}
-    - {level: 15, move: Bug Bite}
+    - {level: 12, move: Bite}
     - {level: 15, move: Dragon Tail}
-    - {level: 18, move: Focus Energy}
     - {level: 20, move: Scary Face}
     - {level: 25, move: Slam}
-    - {level: 27, move: Crunch}
-    - {level: 35, move: Dragon Claw}
+    - {level: 26, move: Focus Energy}
+    - {level: 28, move: Dragon Claw}
+    - {level: 35, move: Dragon Rush}
+    - {level: 38, move: Crunch}
     - {level: 50, move: Dragon Dance}
-    - {level: 55, move: Outrage}
+    - {level: 50, move: Outrage}
+    - {level: 60, move: Hyper Beam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Dragon Claw, Hidden Power, Sunny Day, Protect, Rain Dance, Iron Tail, Return, Dig,
-          Double Team, Rock Tomb, Facade, Rest, Attract, Endure, Dragon Pulse, X-Scissor,
-          Sleep Talk, Swagger, Substitute]
+  tm_hm: [Dragon Claw, Roar, Toxic, Hidden Power, Sunny Day, Protect, Rain Dance,
+          Frustration, Iron Tail, Return, Dig, Double Team, Rock Tomb, Aerial Ace, Facade,
+          Secret Power, Rest, Attract, Endure, Dragon Pulse, Captivate, X-Scissor,
+          Sleep Talk, Natural Gift, Swagger, Substitute, Struggle Bug, Lunge]
   # moves a move tutor can teach it
-  tutor: [Bug Bite, Draco Meteor, Outrage]
+  tutor: [Body Slam, Bug Bite, Draco Meteor, Iron Head, Outrage]
   # only needed for the first stage of an evolution line
-  egg: [Dragon Rush, Dragon Breath, Twister, Counter, Lunge, First Impression, Fury Cutter]
+  egg: [Dragon Breath, Twister, Bug Bite, Counter, Signal Beam, Dragon Rage,
+        First Impression, Pin Missile, Bug Buzz, Fire Fang]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

@@ -73,10 +73,10 @@ learnset:
     - {level: 0, move: Rock Polish}
     - {level: 0, move: Scratch}
     - {level: 0, move: Ember}
-    - {level: 1, move: Harden}
     - {level: 6, move: Bite}
     - {level: 8, move: Rock Tomb}
     - {level: 10, move: Fire Fang}
+    - {level: 11, move: Smack Down}
     - {level: 12, move: Roar}
     - {level: 16, move: Headbutt}
     - {level: 20, move: Protect}
@@ -89,16 +89,18 @@ learnset:
     - {level: 56, move: Double-Edge}
     - {level: 60, move: Fire Spin}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Roar, Hidden Power, Sunny Day, Protect, Rain Dance, Iron Tail, Earthquake, Return,
-          Dig, Double Team, Flamethrower, Sandstorm, Fire Blast, Rock Tomb, Facade, Rest,
-          Attract, Overheat, Endure, Will-O-Wisp, Rock Polish, Stone Edge, Stealth Rock,
-          Rock Slide, Sleep Talk, Swagger, Substitute, Flame Charge, Bulldoze, Meteor Beam,
+  tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Iron Tail,
+          Earthquake, Return, Dig, Double Team, Flamethrower, Sandstorm, Fire Blast,
+          Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract, Overheat, Endure,
+          Will-O-Wisp, Rock Polish, Stone Edge, Stealth Rock, Captivate, Rock Slide,
+          Sleep Talk, Natural Gift, Swagger, Substitute, Heavy Slam, Flame Charge, Bulldoze,
           Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Curse, Earth Power, Endeavor, Flare Blitz, Heat Wave, Iron Head]
+  tutor: [Ancient Power, Body Slam, Earth Power, Endeavor, Fire Fang, Flare Blitz,
+          Heat Wave, Iron Head]
   # only needed for the first stage of an evolution line
-  egg: [Curse, Head Smash, Screech, Reversal, Body Slam, Stomp, Iron Head, Heat Wave,
-        Endeavor]
+  egg: [Curse, Head Smash, Body Slam, Reversal, Screech, Stomp, Iron Head, Endeavor,
+        Flare Blitz, Smelling Salts]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

@@ -72,28 +72,40 @@ learnset:
     - {level: 1, move: Synthesis}
     - {level: 1, move: Grassy Glide}
     - {level: 1, move: Seed Bomb}
-    - {level: 1, move: Absorb}
-    - {level: 1, move: Poison Powder}
-    - {level: 1, move: Scratch}
+    - {level: 1, move: Growth}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Razor Leaf}
     - {level: 1, move: String Shot}
-    - {level: 1, move: Stun Spore}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Pin Missile}
-    - {level: 1, move: Scary Face}
-    - {level: 10, move: Razor Leaf}
+    - {level: 11, move: Feint}
+    - {level: 15, move: Scary Face}
     - {level: 17, move: Fury Cutter}
-    - {level: 20, move: Headbutt}
-    - {level: 29, move: Slash}
-    - {level: 33, move: Growth}
-    - {level: 44, move: Horn Leech}
+    - {level: 22, move: Struggle Bug}
+    - {level: 23, move: Pin Missile}
+    - {level: 25, move: Headbutt}
+    - {level: 27, move: Slash}
+    - {level: 29, move: Leech Seed}
+    - {level: 30, move: Acrobatics}
+    - {level: 32, move: Endure}
+    - {level: 35, move: Agility}
+    - {level: 36, move: First Impression}
+    - {level: 36, move: Screech}
+    - {level: 39, move: X-Scissor}
+    - {level: 43, move: Flail}
+    - {level: 45, move: Horn Leech}
+    - {level: 46, move: Swords Dance}
+    - {level: 50, move: Power Whip}
+    - {level: 54, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Giga Drain, Safeguard,
-          Solar Beam, Return, Double Team, Aerial Ace, Facade, Rest, Attract, Thief,
-          Energy Ball, Endure, Giga Impact, Swords Dance, X-Scissor, Sleep Talk, Grass Knot,
-          Swagger, U-turn, Substitute, Struggle Bug, Calm Mind, Toxic, Light Screen,
-          Frustration, Payback, Electroweb, Cut, Dig, Poison Jab]
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
+          Giga Drain, Safeguard, Frustration, Solar Beam, Return, Double Team, Aerial Ace,
+          Facade, Secret Power, Rest, Attract, Energy Ball, Endure, Giga Impact, Flash,
+          Swords Dance, Captivate, X-Scissor, Sleep Talk, Natural Gift, Grass Knot, Swagger,
+          U-turn, Substitute, Struggle Bug, Grassy Terrain, Lunge, Cut, Light Screen, Thief,
+          Poison Jab]
   # moves a move tutor can teach it
-  tutor: [Bug Bite, Leaf Storm, Magical Leaf, Seed Bomb, Synthesis, Charm]
+  tutor: [Body Slam, Bug Bite, Leaf Storm, Magical Leaf, Pollen Puff, Seed Bomb,
+          Solar Blade, Synthesis, Charm]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

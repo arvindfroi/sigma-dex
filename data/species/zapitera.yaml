@@ -69,14 +69,12 @@ learnset:
     - {level: 0, move: Heat Laser Gaze}
     - {level: 1, move: Heat Laser Gaze}
     - {level: 1, move: Electric Terrain}
-    - {level: 1, move: Supersonic}
     - {level: 1, move: Tackle}
     - {level: 1, move: Thunder Shock}
     - {level: 1, move: Thunder Wave}
     - {level: 1, move: Peck}
-    - {level: 5, move: Charge}
     - {level: 10, move: Quick Attack}
-    - {level: 12, move: Electro Ball}
+    - {level: 14, move: Electro Ball}
     - {level: 16, move: Gyro Ball}
     - {level: 20, move: Shock Wave}
     - {level: 24, move: Screech}
@@ -86,16 +84,19 @@ learnset:
     - {level: 39, move: Slash}
     - {level: 40, move: Discharge}
     - {level: 46, move: Metal Sound}
+    - {level: 51, move: Charge}
     - {level: 52, move: Light Screen}
     - {level: 58, move: Lock-On}
     - {level: 64, move: Zap Cannon}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance, Iron Tail,
-          Thunderbolt, Thunder, Return, Double Team, Shock Wave, Facade, Rest, Attract,
-          Charge Beam, Endure, Giga Impact, Flash, Thunder Wave, Gyro Ball, Sleep Talk,
-          Swagger, Substitute, Flash Cannon, Heavy Slam, Electroweb, Electric Terrain,
-          Steel Wing, Fly]
-  tutor: [Iron Head, Volt Switch] # moves a move tutor can teach it
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
+          Frustration, Iron Tail, Thunderbolt, Thunder, Return, Double Team, Shock Wave,
+          Sandstorm, Facade, Secret Power, Rest, Attract, Charge Beam, Endure, Giga Impact,
+          Flash, Thunder Wave, Gyro Ball, Sleep Talk, Natural Gift, Swagger, Substitute,
+          Flash Cannon, Heavy Slam, Electroweb, Eerie Impulse, Electric Terrain, Steel Wing,
+          Fly]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Iron Head, Volt Switch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

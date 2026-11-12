@@ -70,31 +70,32 @@ learnset:
     - {level: 1, move: Leer}
     - {level: 1, move: Razor Leaf}
     - {level: 1, move: Tackle}
-    - {level: 5, move: Double Kick}
     - {level: 5, move: Rock Smash}
-    - {level: 9, move: Detect}
     - {level: 10, move: Focus Energy}
-    - {level: 19, move: Feint}
+    - {level: 25, move: Bulk Up}
     - {level: 25, move: Counter}
     - {level: 25, move: Endure}
-    - {level: 32, move: Bulk Up}
-    - {level: 32, move: Taunt}
+    - {level: 28, move: Slam}
+    - {level: 31, move: Synthesis}
+    - {level: 35, move: Brick Break}
     - {level: 38, move: Leaf Tornado}
-    - {level: 39, move: Brick Break}
     - {level: 46, move: Swords Dance}
     - {level: 50, move: Close Combat}
+    - {level: 50, move: Power Whip}
     - {level: 50, move: Reversal}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Focus Punch, Bulk Up, Bullet Seed, Hidden Power, Sunny Day, Taunt, Hyper Beam,
-          Protect, Rain Dance, Giga Drain, Solar Beam, Return, Dig, Brick Break,
-          Double Team, Rock Tomb, Facade, Rest, Attract, Focus Blast, Energy Ball, Fling,
-          Endure, Drain Punch, Payback, Giga Impact, Stone Edge, Swords Dance, Rock Slide,
-          Sleep Talk, Poison Jab, Grass Knot, Swagger, Substitute, Low Sweep, Coaching,
-          Rock Smash]
+  tm_hm: [Focus Punch, Toxic, Bulk Up, Bullet Seed, Hidden Power, Sunny Day, Taunt,
+          Hyper Beam, Protect, Rain Dance, Giga Drain, Frustration, Solar Beam, Earthquake,
+          Return, Dig, Brick Break, Double Team, Rock Tomb, Aerial Ace, Facade,
+          Secret Power, Rest, Attract, Thief, Focus Blast, Energy Ball, Fling, Endure,
+          Drain Punch, Payback, Giga Impact, Stone Edge, Swords Dance, Rock Slide,
+          Sleep Talk, Poison Jab, Grass Knot, Swagger, Substitute, Low Sweep, Bulldoze,
+          Grassy Terrain, Coaching, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Close Combat, Leaf Storm, Magical Leaf, Seed Bomb]
+  tutor: [Body Slam, Close Combat, Endeavor, Leaf Storm, Magical Leaf, Power-Up Punch,
+          Seed Bomb, Synthesis, Thunder Punch, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Quick Guard, Seismic Toss, Revenge, Vital Throw, Cross Chop, Flail]
+  egg: [Seismic Toss, Feint, Quick Guard, Revenge, Vital Throw]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

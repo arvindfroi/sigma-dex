@@ -66,34 +66,35 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Ice Shard}
+    - {level: 1, move: Growl}
     - {level: 1, move: Leer}
-    - {level: 1, move: Powder Snow}
     - {level: 1, move: Rock Smash}
+    - {level: 1, move: Slash}
     - {level: 1, move: Tackle}
     - {level: 1, move: Taunt}
-    - {level: 10, move: Focus Energy}
+    - {level: 5, move: Double Kick}
+    - {level: 12, move: Detect}
+    - {level: 15, move: Focus Energy}
+    - {level: 16, move: Endure}
     - {level: 19, move: Feint}
-    - {level: 21, move: Slash}
-    - {level: 22, move: Power-Up Punch}
-    - {level: 25, move: Dynamic Punch}
-    - {level: 32, move: Brick Break}
-    - {level: 32, move: Ice Fang}
-    - {level: 33, move: Reversal}
-    - {level: 36, move: Agility}
-    - {level: 37, move: Icicle Crash}
+    - {level: 30, move: Brick Break}
+    - {level: 32, move: Quick Guard}
+    - {level: 38, move: Counter}
+    - {level: 40, move: Reversal}
+    - {level: 40, move: Swords Dance}
     - {level: 40, move: Sacred Sword}
-    - {level: 42, move: Iron Defense}
-    - {level: 49, move: Close Combat}
+    - {level: 44, move: Wide Guard}
+    - {level: 50, move: Close Combat}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Focus Punch, Hail, Bulk Up, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard,
-          Hyper Beam, Protect, Rain Dance, Earthquake, Return, Dig, Brick Break,
-          Double Team, Rock Tomb, Facade, Rest, Attract, Thief, Focus Blast, Fling, Endure,
-          Drain Punch, Payback, Giga Impact, Stone Edge, Avalanche, Swords Dance,
-          Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute, Low Sweep, Bulldoze,
-          Coaching, Rock Smash]
+  tm_hm: [Focus Punch, Toxic, Hail, Bulk Up, Hidden Power, Sunny Day, Taunt, Ice Beam,
+          Blizzard, Hyper Beam, Protect, Rain Dance, Frustration, Earthquake, Return, Dig,
+          Brick Break, Double Team, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest,
+          Attract, Thief, Focus Blast, Fling, Endure, Drain Punch, Giga Impact, Stone Edge,
+          Avalanche, Swords Dance, Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute,
+          Low Sweep, Bulldoze, Body Press, Coaching, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Close Combat, Ice Punch, Icicle Spear, Icy Wind, Power-Up Punch, Thunder Punch]
+  tutor: [Body Slam, Close Combat, Endeavor, Ice Fang, Ice Punch, Icicle Spear, Icy Wind,
+          Power-Up Punch, Thunder Punch, Zen Headbutt, Ice Shard]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

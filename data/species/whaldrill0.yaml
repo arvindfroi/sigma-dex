@@ -66,13 +66,13 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Leer}
     - {level: 1, move: Mud-Slap}
     - {level: 1, move: Tackle}
     - {level: 5, move: Powder Snow}
     - {level: 10, move: Flail}
     - {level: 15, move: Ice Shard}
     - {level: 20, move: Mist}
+    - {level: 24, move: Bite}
     - {level: 25, move: Endure}
     - {level: 30, move: Icy Wind}
     - {level: 35, move: Amnesia}
@@ -80,15 +80,17 @@ learnset:
     - {level: 45, move: Earthquake}
     - {level: 50, move: Blizzard}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Roar, Hail, Hidden Power, Ice Beam, Blizzard, Light Screen, Protect, Rain Dance,
-          Earthquake, Return, Dig, Double Team, Reflect, Sandstorm, Rock Tomb, Facade, Rest,
-          Attract, Endure, Avalanche, Stealth Rock, Rock Slide, Sleep Talk, Swagger,
-          Substitute, Bulldoze, Scorching Sands, Strength, Rock Smash]
+  tm_hm: [Roar, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Light Screen,
+          Protect, Rain Dance, Frustration, Earthquake, Return, Dig, Double Team, Reflect,
+          Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Attract, Endure, Stone Edge,
+          Avalanche, Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger,
+          Substitute, Bulldoze, High Horsepower, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Endeavor, Ice Shard, Icicle Spear,
-          Icy Wind]
+  tutor: [Ancient Power, Body Slam, Charm, Curse, Earth Power, Endeavor, Ice Fang,
+          Icicle Spear, Icy Wind]
   # only needed for the first stage of an evolution line
-  egg: [Icicle Crash, Mud Shot, Icicle Spear, Freeze-Dry, Curse]
+  egg: [Icicle Crash, Mud Shot, Icicle Spear, Curse, Body Slam, Double-Edge, Earth Power,
+        Mud Bomb]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

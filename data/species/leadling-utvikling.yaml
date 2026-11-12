@@ -64,30 +64,34 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Growl}
-    - {level: 1, move: Harden}
     - {level: 1, move: Rock Blast}
     - {level: 1, move: Tackle}
+    - {level: 1, move: Acid}
     - {level: 1, move: Rollout}
     - {level: 1, move: Bone Rush}
-    - {level: 4, move: Acid}
-    - {level: 8, move: Smack Down}
-    - {level: 10, move: Rock Throw}
-    - {level: 10, move: Smog}
+    - {level: 5, move: Rock Throw}
     - {level: 11, move: Acid Spray}
     - {level: 11, move: Rock Polish}
-    - {level: 12, move: Ancient Power}
     - {level: 14, move: Poison Powder}
-    - {level: 25, move: Rock Slide}
+    - {level: 15, move: Smack Down}
+    - {level: 16, move: Ancient Power}
+    - {level: 19, move: Venoshock}
+    - {level: 26, move: Rock Slide}
+    - {level: 29, move: Toxic}
     - {level: 30, move: Power Gem}
-    - {level: 40, move: Toxic}
+    - {level: 32, move: Stealth Rock}
+    - {level: 45, move: Stone Edge}
     - {level: 51, move: Sludge Wave}
+    - {level: 58, move: Belch}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Earthquake, Return, Dig,
-          Double Team, Sludge Bomb, Sandstorm, Rock Tomb, Facade, Rest, Attract, Endure,
-          Rock Polish, Stone Edge, Stealth Rock, Rock Slide, Sleep Talk, Poison Jab,
-          Swagger, Substitute, Venoshock, Bulldoze, Meteor Beam, Rock Smash]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Earthquake,
+          Return, Dig, Double Team, Sludge Bomb, Sandstorm, Rock Tomb, Facade, Secret Power,
+          Rest, Attract, Endure, Flash, Stone Edge, Stealth Rock, Captivate, Rock Slide,
+          Sleep Talk, Natural Gift, Poison Jab, Swagger, Substitute, Venoshock, Heavy Slam,
+          Acid Spray, Bulldoze, Body Press, Rock Smash, Thief, Rock Polish]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Body Slam, Curse]
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Iron Head, Leaf Storm, Magical Leaf,
+          Power Gem]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

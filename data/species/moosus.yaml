@@ -66,29 +66,30 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Focus Energy}
     - {level: 1, move: Gust}
     - {level: 1, move: Leer}
     - {level: 1, move: Tackle}
     - {level: 9, move: Horn Attack}
     - {level: 12, move: Ancient Power}
-    - {level: 15, move: Stomp}
+    - {level: 12, move: Disarming Voice}
+    - {level: 18, move: Stomp}
     - {level: 25, move: Whirlwind}
     - {level: 30, move: Taunt}
     - {level: 33, move: Aurora Beam}
-    - {level: 35, move: Scary Face}
-    - {level: 36, move: Air Slash}
+    - {level: 40, move: Roost}
     - {level: 48, move: Iron Defense}
-    - {level: 50, move: Roost}
     - {level: 54, move: Thrash}
-    - {level: 60, move: Dazzling Gleam}
-    - {level: 65, move: Double-Edge}
-    - {level: 80, move: Sky Attack}
+    - {level: 60, move: Moonblast}
+    - {level: 63, move: Brave Bird}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
-          Safeguard, Return, Double Team, Aerial Ace, Facade, Rest, Attract, Endure,
-          Giga Impact, Sleep Talk, Swagger, Substitute, Draining Kiss, Play Rough, Fly,
-          Stone Edge, Aurora Veil]
-  tutor: [Dazzling Gleam, Megahorn] # moves a move tutor can teach it
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
+          Rain Dance, Frustration, Return, Double Team, Reflect, Aerial Ace, Facade,
+          Secret Power, Rest, Endure, Giga Impact, Psych Up, Sleep Talk, Swagger,
+          Substitute, Draining Kiss, Play Rough, Fly, Aurora Veil]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Body Slam, Dazzling Gleam, Hurricane, Sky Attack, Zen Headbutt,
+          Megahorn]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

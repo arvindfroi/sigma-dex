@@ -71,25 +71,27 @@ learnset:
     - {level: 1, move: Leer}
     - {level: 1, move: Rock Throw}
     - {level: 1, move: Tackle}
-    - {level: 4, move: Smack Down}
-    - {level: 13, move: Bite}
-    - {level: 16, move: Ancient Power}
+    - {level: 5, move: Bite}
+    - {level: 10, move: Dragon Tail}
     - {level: 20, move: Scary Face}
+    - {level: 24, move: Stomp}
     - {level: 25, move: Slash}
-    - {level: 25, move: Stomp}
     - {level: 30, move: Dragon Claw}
-    - {level: 30, move: Rock Blast}
     - {level: 30, move: Rock Slide}
-    - {level: 33, move: Crunch}
-    - {level: 36, move: Take Down}
+    - {level: 30, move: Stealth Rock}
+    - {level: 34, move: Rock Blast}
+    - {level: 40, move: Crunch}
     - {level: 54, move: Stone Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Dragon Claw, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Iron Tail,
-          Earthquake, Return, Dig, Brick Break, Double Team, Sandstorm, Rock Tomb, Facade,
-          Rest, Attract, Endure, Dragon Pulse, Giga Impact, Rock Polish, Stone Edge,
-          Stealth Rock, Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze, Meteor Beam]
-  tutor: [Earth Power, Outrage] # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  tm_hm: [Dragon Claw, Roar, Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect,
+          Rain Dance, Frustration, Iron Tail, Earthquake, Return, Dig, Double Team,
+          Sandstorm, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract, Endure,
+          Dragon Pulse, Giga Impact, Rock Polish, Stone Edge, Stealth Rock, Rock Slide,
+          Sleep Talk, Swagger, Substitute, Bulldoze, Strength, Rock Smash]
+  # moves a move tutor can teach it
+  tutor: [Ancient Power, Body Slam, Draco Meteor, Earth Power, Iron Head, Outrage,
+          Power Gem]
+  egg: [Ancient Power, Head Smash] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -102,7 +104,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its legs.
   look: "It is a long crocodile-like reptile in sandy yellow and brown with a narrow snout, a long ridged tail and short dark-clawed legs. Rocky green-grey stones are embedded in its back, and two thin brown stalks with stone tips rise from its back like antennae."

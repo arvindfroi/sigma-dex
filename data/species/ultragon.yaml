@@ -66,46 +66,48 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 0, move: Dragon Claw}
     - {level: 1, move: Quiver Dance}
     - {level: 1, move: Dragon Dance}
     - {level: 1, move: Outrage}
     - {level: 1, move: Bug Buzz}
     - {level: 1, move: U-turn}
     - {level: 1, move: Draco Meteor}
-    - {level: 1, move: Bite}
-    - {level: 1, move: Breaking Swipe}
     - {level: 1, move: Dragon Tail}
-    - {level: 1, move: Ember}
+    - {level: 1, move: Dragon Claw}
     - {level: 1, move: Leer}
-    - {level: 1, move: Protect}
     - {level: 1, move: Tackle}
     - {level: 1, move: Thunder Wave}
     - {level: 1, move: Wrap}
-    - {level: 15, move: Bug Bite}
+    - {level: 10, move: Breaking Swipe}
+    - {level: 12, move: Bite}
     - {level: 16, move: Headbutt}
     - {level: 22, move: Agility}
     - {level: 22, move: Scary Face}
     - {level: 25, move: Slam}
     - {level: 27, move: Crunch}
+    - {level: 28, move: Double Hit}
     - {level: 33, move: Aqua Tail}
-    - {level: 34, move: Dual Chop}
     - {level: 34, move: Horn Attack}
-    - {level: 34, move: Pin Missile}
     - {level: 43, move: Zen Headbutt}
     - {level: 44, move: Dragon Pulse}
     - {level: 46, move: Safeguard}
+    - {level: 50, move: Take Down}
     - {level: 51, move: Focus Energy}
     - {level: 53, move: Rain Dance}
+    - {level: 57, move: Dragon Rush}
+    - {level: 60, move: Flamethrower}
+    - {level: 77, move: Hyper Beam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Dragon Claw, Roar, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
-          Iron Tail, Earthquake, Return, Brick Break, Double Team, Flamethrower, Fire Blast,
-          Rock Tomb, Aerial Ace, Facade, Rest, Attract, Steel Wing, Roost, Endure,
-          Dragon Pulse, Shadow Claw, Giga Impact, Stone Edge, Rock Slide, Sleep Talk,
-          Swagger, U-turn, Substitute, Struggle Bug, Bulldoze, Brutal Swing, Dual Wingbeat,
-          Cut, Fly, Strength, Rock Smash, Light Screen, Dig, X-Scissor, Silver Wind]
+  tm_hm: [Dragon Claw, Roar, Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect,
+          Rain Dance, Frustration, Iron Tail, Earthquake, Return, Brick Break, Double Team,
+          Flamethrower, Fire Blast, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest,
+          Attract, Steel Wing, Roost, Endure, Dragon Pulse, Shadow Claw, Giga Impact,
+          Stone Edge, Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger, U-turn,
+          Substitute, Struggle Bug, Bulldoze, Brutal Swing, Cut, Fly, Strength, Rock Smash,
+          X-Scissor, Dig, Lunge, Silver Wind]
   # moves a move tutor can teach it
-  tutor: [Aqua Tail, Bug Bite, Draco Meteor, Dragon Dance, Dragon Rush, Outrage, Air Slash]
+  tutor: [Air Slash, Aqua Tail, Body Slam, Bug Bite, Draco Meteor, Dragon Dance, Fire Fang,
+          Heat Wave, Hyper Voice, Iron Head, Outrage, Thunder Fang, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

@@ -67,29 +67,30 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Ancient Power}
+    - {level: 1, move: Mud Shot}
     - {level: 1, move: Scary Face}
     - {level: 1, move: Water Gun}
+    - {level: 7, move: Water Pulse}
     - {level: 12, move: Whirlpool}
     - {level: 12, move: Bite}
     - {level: 20, move: Bulldoze}
     - {level: 30, move: Taunt}
-    - {level: 33, move: Fishious Rend}
+    - {level: 33, move: Crabhammer}
     - {level: 35, move: Thrash}
     - {level: 36, move: Hammer Arm}
-    - {level: 39, move: Earth Power}
     - {level: 45, move: Crunch}
     - {level: 49, move: Earthquake}
-    - {level: 50, move: Mud-Slap}
     - {level: 62, move: Rain Dance}
-    - {level: 72, move: Hydro Pump}
+    - {level: 72, move: Wave Crash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Hyper Beam,
-          Protect, Rain Dance, Earthquake, Return, Dig, Double Team, Sandstorm, Rock Tomb,
-          Facade, Rest, Brine, Endure, Giga Impact, Stone Edge, Stealth Rock, Rock Slide,
-          Sleep Talk, Swagger, Substitute, Scald, Bulldoze, High Horsepower, Liquidation,
-          Surf, Whirlpool, Waterfall, Thunder, Heavy Slam, Flash]
+  tm_hm: [Water Pulse, Roar, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard,
+          Hyper Beam, Protect, Rain Dance, Frustration, Earthquake, Return, Dig,
+          Double Team, Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Brine, Endure,
+          Giga Impact, Stone Edge, Stealth Rock, Rock Slide, Sleep Talk, Natural Gift,
+          Swagger, Substitute, Heavy Slam, Scald, Bulldoze, High Horsepower, Liquidation,
+          Body Press, Surf, Strength, Whirlpool, Waterfall, Thunder, Flash]
   # moves a move tutor can teach it
-  tutor: [Aqua Tail, Earth Power, Icy Wind]
+  tutor: [Aqua Tail, Body Slam, Earth Power, Icy Wind, Iron Head, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

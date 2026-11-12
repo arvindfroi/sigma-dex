@@ -66,28 +66,30 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Aqua Jet}
+    - {level: 1, move: Growl}
     - {level: 1, move: Leer}
     - {level: 1, move: Tackle}
     - {level: 1, move: Water Gun}
-    - {level: 13, move: Bite}
-    - {level: 15, move: Focus Energy}
-    - {level: 15, move: Scary Face}
-    - {level: 20, move: Agility}
-    - {level: 24, move: Flail}
+    - {level: 1, move: Whirlpool}
+    - {level: 12, move: Protect}
+    - {level: 16, move: Bite}
+    - {level: 18, move: Focus Energy}
+    - {level: 18, move: Razor Shell}
     - {level: 32, move: Crunch}
-    - {level: 46, move: Aqua Tail}
-    - {level: 50, move: Screech}
+    - {level: 40, move: Aqua Tail}
     - {level: 53, move: Rain Dance}
-    - {level: 58, move: Thrash}
     - {level: 63, move: Crabhammer}
+    - {level: 65, move: Wave Crash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Roar, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Hyper Beam,
-          Protect, Rain Dance, Iron Tail, Earthquake, Return, Double Team, Rock Tomb,
-          Facade, Rest, Attract, Brine, Fling, Endure, Dragon Pulse, Giga Impact,
-          Rock Slide, Sleep Talk, Swagger, Substitute, Scald, Bulldoze, Liquidation, Surf,
-          Strength, Whirlpool, Rock Smash, Waterfall, Flash]
+  tm_hm: [Water Pulse, Roar, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard,
+          Hyper Beam, Protect, Rain Dance, Frustration, Earthquake, Return, Double Team,
+          Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract, Brine, Fling, Endure,
+          Dragon Pulse, Giga Impact, Captivate, Rock Slide, Sleep Talk, Natural Gift,
+          Swagger, Substitute, Scald, Bulldoze, Liquidation, Flip Turn, Surf, Strength,
+          Whirlpool, Rock Smash, Waterfall, Flash]
   # moves a move tutor can teach it
-  tutor: [Aqua Jet, Aqua Tail, Draco Meteor, Dragon Dance, Dragon Rush, Icy Wind, Outrage]
+  tutor: [Aqua Tail, Body Slam, Draco Meteor, Icy Wind, Iron Head, Outrage]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

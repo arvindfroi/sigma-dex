@@ -70,29 +70,30 @@ learnset:
     - {level: 1, move: Leer}
     - {level: 1, move: Night Slash}
     - {level: 1, move: Quick Attack}
-    - {level: 1, move: Sand Attack}
     - {level: 1, move: Scratch}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Double Hit}
-    - {level: 8, move: Hone Claws}
+    - {level: 12, move: Fury Swipes}
     - {level: 16, move: Bite}
     - {level: 16, move: Scary Face}
-    - {level: 18, move: Fury Swipes}
-    - {level: 19, move: Assurance}
+    - {level: 16, move: Torment}
     - {level: 20, move: Taunt}
-    - {level: 24, move: Slash}
-    - {level: 25, move: Screech}
-    - {level: 28, move: Take Down}
-    - {level: 32, move: Agility}
-    - {level: 34, move: Crunch}
-    - {level: 34, move: Sucker Punch}
+    - {level: 21, move: Assurance}
+    - {level: 24, move: Knock Off}
+    - {level: 28, move: Hone Claws}
+    - {level: 33, move: Slash}
+    - {level: 34, move: Agility}
+    - {level: 36, move: Take Down}
+    - {level: 46, move: Crunch}
+    - {level: 48, move: Nasty Plot}
+    - {level: 58, move: Foul Play}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance, Frustration,
-          Return, Dig, Shadow Ball, Double Team, Facade, Rest, Attract, Thief, Fling,
-          Endure, Payback, Giga Impact, Dark Pulse, Sleep Talk, Swagger, Substitute,
-          Foul Play, Strength, Iron Tail, Torment, U-turn, Shadow Claw]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
+          Frustration, Return, Dig, Shadow Ball, Brick Break, Double Team, Aerial Ace,
+          Torment, Facade, Secret Power, Rest, Attract, Thief, Fling, Endure, Payback,
+          Giga Impact, Dark Pulse, Sleep Talk, Natural Gift, Swagger, U-turn, Substitute,
+          Foul Play, Cut, Strength, Rock Smash, Captivate, Shadow Claw]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Hyper Voice, Snarl, Endeavor]
+  tutor: [Body Slam, Endeavor, Hyper Voice, Nasty Plot, Snarl, Super Fang]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

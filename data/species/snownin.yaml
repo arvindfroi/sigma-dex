@@ -69,35 +69,35 @@ learnset:
     - {level: 1, move: Aurora Veil}
     - {level: 1, move: Astonish}
     - {level: 1, move: Bite}
-    - {level: 1, move: Crunch}
-    - {level: 1, move: Headbutt}
-    - {level: 1, move: Hex}
-    - {level: 1, move: Ice Fang}
-    - {level: 1, move: Leer}
     - {level: 1, move: Powder Snow}
-    - {level: 1, move: Protect}
+    - {level: 12, move: Mist}
     - {level: 15, move: Ice Shard}
     - {level: 16, move: Spite}
+    - {level: 20, move: Curse}
     - {level: 20, move: Draining Kiss}
+    - {level: 24, move: Hex}
     - {level: 25, move: Icy Wind}
     - {level: 30, move: Aurora Beam}
     - {level: 30, move: Night Shade}
     - {level: 35, move: Confuse Ray}
-    - {level: 40, move: Hail}
+    - {level: 36, move: Freeze-Dry}
+    - {level: 40, move: Snowscape}
+    - {level: 44, move: Ice Beam}
     - {level: 47, move: Will-O-Wisp}
     - {level: 61, move: Shadow Ball}
     - {level: 68, move: Blizzard}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Hail, Hidden Power, Taunt, Ice Beam, Blizzard, Hyper Beam,
-          Light Screen, Protect, Rain Dance, Safeguard, Thunderbolt, Thunder, Return,
-          Psychic, Shadow Ball, Double Team, Reflect, Shock Wave, Torment, Facade, Rest,
-          Attract, Fling, Endure, Will-O-Wisp, Payback, Giga Impact, Flash, Avalanche,
-          Thunder Wave, Psych Up, Sleep Talk, Swagger, Substitute, Aurora Veil, Triple Axel,
-          Calm Mind]
+  tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Taunt, Ice Beam, Blizzard, Hyper Beam,
+          Light Screen, Protect, Rain Dance, Safeguard, Frustration, Thunderbolt, Thunder,
+          Return, Psychic, Shadow Ball, Double Team, Reflect, Torment, Facade, Secret Power,
+          Rest, Attract, Snatch, Fling, Endure, Will-O-Wisp, Embargo, Payback, Giga Impact,
+          Flash, Avalanche, Thunder Wave, Psych Up, Captivate, Sleep Talk, Natural Gift,
+          Swagger, Substitute, Aurora Veil, Triple Axel, Calm Mind]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Haze, Ice Fang, Ice Shard, Icicle Spear, Icy Wind, Poltergeist,
+  tutor: [Body Slam, Charm, Curse, Haze, Ice Fang, Icicle Spear, Icy Wind, Poltergeist,
           Weather Ball]
-  egg: [Shadow Sneak]    # only needed for the first stage of an evolution line
+  # only needed for the first stage of an evolution line
+  egg: [Frost Breath, Shadow Sneak, Icicle Crash]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

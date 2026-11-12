@@ -66,28 +66,27 @@ learnset:
     - {level: 1, move: Milk Drink}
     - {level: 1, move: Defense Curl}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Tail Whip}
-    - {level: 2, move: Growl}
-    - {level: 5, move: Rollout}
-    - {level: 5, move: Water Gun}
+    - {level: 1, move: Water Gun}
+    - {level: 3, move: Growl}
+    - {level: 6, move: Rollout}
+    - {level: 12, move: Disable}
+    - {level: 15, move: Charm}
     - {level: 15, move: Water Pulse}
-    - {level: 17, move: Yawn}
-    - {level: 20, move: Bubble Beam}
-    - {level: 25, move: Charm}
-    - {level: 27, move: Hyper Voice}
+    - {level: 28, move: Yawn}
+    - {level: 34, move: Hyper Voice}
+    - {level: 35, move: Rain Dance}
     - {level: 39, move: Hydro Pump}
-    - {level: 39, move: Rain Dance}
-    - {level: 45, move: Double-Edge}
+    - {level: 47, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Protect,
-          Rain Dance, Frustration, Iron Tail, Return, Double Team, Facade, Rest, Attract,
-          Thief, Brine, Endure, Sleep Talk, Swagger, Substitute, Scald, Surf, Strength,
-          Whirlpool, Waterfall]
+  tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Protect,
+          Rain Dance, Frustration, Return, Dig, Double Team, Facade, Secret Power, Rest,
+          Attract, Thief, Brine, Endure, Captivate, Sleep Talk, Natural Gift, Swagger,
+          Substitute, Scald, Liquidation, Surf, Strength, Whirlpool, Waterfall]
   # moves a move tutor can teach it
-  tutor: [Aqua Tail, Body Slam, Hyper Voice, Icy Wind, Weather Ball]
+  tutor: [Aqua Tail, Body Slam, Endeavor, Hyper Voice, Icy Wind, Zen Headbutt, Weather Ball]
   # only needed for the first stage of an evolution line
-  egg: [Spit Up, Snore, Last Resort, Flail, Curse, Body Slam, Thrash, Aqua Tail, Covet,
-        Aqua Jet]
+  egg: [Spit Up, Snore, Last Resort, Body Slam, Curse, Trump Card, Endeavor, Aqua Jet,
+        Aqua Tail, Smelling Salts]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

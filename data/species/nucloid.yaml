@@ -65,26 +65,27 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Poison Gas}
-    - {level: 1, move: Pound}
     - {level: 1, move: Tackle}
-    - {level: 6, move: Acid}
-    - {level: 6, move: Smog}
-    - {level: 9, move: Acid Spray}
-    - {level: 23, move: Toxic Spikes}
+    - {level: 4, move: Acid}
+    - {level: 4, move: Smog}
+    - {level: 7, move: Acid Spray}
+    - {level: 17, move: Toxic Spikes}
+    - {level: 20, move: Sludge}
+    - {level: 23, move: Stockpile}
     - {level: 27, move: Screech}
+    - {level: 27, move: Take Down}
     - {level: 28, move: Flash Cannon}
+    - {level: 30, move: Sludge Bomb}
     - {level: 31, move: Venoshock}
-    - {level: 37, move: Take Down}
-    - {level: 41, move: Sludge Bomb}
-    - {level: 44, move: Toxic}
-    - {level: 47, move: Belch}
-    - {level: 53, move: Gunk Shot}
+    - {level: 33, move: Toxic}
+    - {level: 43, move: Gunk Shot}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Return, Double Team,
-          Sludge Bomb, Facade, Rest, Attract, Thief, Endure, Payback, Gyro Ball, Sleep Talk,
-          Poison Jab, Swagger, Substitute, Flash Cannon, Venoshock]
-  tutor: []              # moves a move tutor can teach it
-  egg: [Haze, Poison Tail, Curse] # only needed for the first stage of an evolution line
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return,
+          Double Team, Sludge Bomb, Facade, Secret Power, Rest, Attract, Thief, Endure,
+          Payback, Gyro Ball, Captivate, Sleep Talk, Natural Gift, Poison Jab, Swagger,
+          Substitute, Flash Cannon, Venoshock, Acid Spray]
+  tutor: [Body Slam, Iron Head] # moves a move tutor can teach it
+  egg: [Haze, Curse, Clear Smog] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -97,7 +98,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", egg moves]
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", egg moves,
+                     tutor moves]
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its many legs.
   look: "It is a dark grey metal barrel-shaped creature with a domed top, a single glowing green eye and a yellow warning triangle. It has a window showing glowing green liquid in front, and eight black cable-like legs underneath, with green toxic drips and gas puffs around it."

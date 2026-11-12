@@ -63,29 +63,31 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Double Hit}
-    - {level: 1, move: Growl}
     - {level: 1, move: Leer}
     - {level: 1, move: Scratch}
-    - {level: 1, move: Tackle}
+    - {level: 5, move: Quick Attack}
     - {level: 8, move: Hone Claws}
     - {level: 12, move: Fury Swipes}
-    - {level: 15, move: Assurance}
     - {level: 16, move: Bite}
     - {level: 16, move: Scary Face}
-    - {level: 20, move: Taunt}
+    - {level: 16, move: Torment}
     - {level: 20, move: Slash}
-    - {level: 28, move: Take Down}
+    - {level: 21, move: Assurance}
     - {level: 32, move: Agility}
-    - {level: 34, move: Crunch}
+    - {level: 33, move: Take Down}
+    - {level: 37, move: Crunch}
+    - {level: 44, move: Nasty Plot}
+    - {level: 48, move: Foul Play}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration, Iron Tail,
-          Return, Dig, Double Team, Torment, Facade, Rest, Attract, Thief, Fling, Endure,
-          Payback, Dark Pulse, Sleep Talk, Swagger, U-turn, Substitute, Foul Play,
-          Shadow Claw]
-  tutor: [Endeavor, Hyper Voice, Snarl] # moves a move tutor can teach it
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration, Return,
+          Dig, Shadow Ball, Double Team, Aerial Ace, Torment, Facade, Secret Power, Rest,
+          Attract, Thief, Fling, Endure, Payback, Captivate, Dark Pulse, Sleep Talk,
+          Natural Gift, Swagger, U-turn, Substitute, Foul Play, Cut, Shadow Claw]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Endeavor, Hyper Voice, Nasty Plot, Snarl, Super Fang]
   # only needed for the first stage of an evolution line
-  egg: [Flail, Double-Edge, Uproar, Thrash, Counter, Endeavor]
+  egg: [Pursuit, Sucker Punch, Flail, Double-Edge, Feint Attack, Last Resort, Uproar,
+        Punishment, Covet, Counter]
 
 # --- Where it is found ---
 # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

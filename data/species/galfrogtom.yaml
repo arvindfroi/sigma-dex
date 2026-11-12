@@ -71,28 +71,38 @@ learnset:
     - {level: 1, move: Hyper Voice}
     - {level: 1, move: Growl}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Thunder Shock}
     - {level: 1, move: Thunder Wave}
-    - {level: 1, move: Hypnosis}
-    - {level: 4, move: Charge}
-    - {level: 4, move: Leer}
-    - {level: 7, move: Quick Attack}
-    - {level: 15, move: Shock Wave}
-    - {level: 24, move: Hex}
+    - {level: 9, move: Supersonic}
+    - {level: 12, move: Quick Attack}
+    - {level: 14, move: Mud Shot}
+    - {level: 16, move: Shock Wave}
+    - {level: 20, move: Parabolic Charge}
+    - {level: 21, move: Water Pulse}
+    - {level: 22, move: Bubble Beam}
     - {level: 24, move: Screech}
-    - {level: 28, move: Volt Switch}
+    - {level: 24, move: Volt Switch}
     - {level: 28, move: Disable}
-    - {level: 37, move: Agility}
-    - {level: 42, move: Shadow Ball}
-    - {level: 50, move: Thunder}
+    - {level: 30, move: Roar}
+    - {level: 30, move: Soak}
+    - {level: 32, move: Rain Dance}
+    - {level: 40, move: Aqua Ring}
+    - {level: 42, move: Agility}
+    - {level: 42, move: Charge}
+    - {level: 47, move: Surf}
+    - {level: 48, move: Thunderbolt}
+    - {level: 51, move: Hydro Pump}
+    - {level: 54, move: Thunder}
+    - {level: 60, move: Electric Terrain}
+    - {level: 62, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
-          Thunderbolt, Thunder, Return, Psychic, Shadow Ball, Double Team, Shock Wave,
-          Facade, Rest, Attract, Thief, Charge Beam, Endure, Will-O-Wisp, Giga Impact,
-          Thunder Wave, Sleep Talk, Swagger, Substitute, Electroweb, Eerie Impulse,
-          Water Pulse, Hail, Ice Beam, Blizzard, Surf]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
+          Frustration, Thunderbolt, Thunder, Return, Psychic, Shadow Ball, Double Team,
+          Shock Wave, Facade, Secret Power, Rest, Attract, Thief, Charge Beam, Endure,
+          Giga Impact, Flash, Thunder Wave, Sleep Talk, Natural Gift, Swagger, Substitute,
+          Electroweb, Eerie Impulse, Electric Terrain, Water Pulse, Hail, Ice Beam,
+          Blizzard, Captivate, Surf]
   # moves a move tutor can teach it
-  tutor: [Curse, Poltergeist, Volt Switch, Icy Wind]
+  tutor: [Body Slam, Curse, Hyper Voice, Poltergeist, Thunder Punch, Volt Switch, Icy Wind]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

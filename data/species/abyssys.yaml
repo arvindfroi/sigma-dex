@@ -64,28 +64,31 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Confusion}
-    - {level: 1, move: Growl}
     - {level: 1, move: Tackle}
     - {level: 1, move: Water Gun}
     - {level: 1, move: Withdraw}
+    - {level: 9, move: Psybeam}
     - {level: 12, move: Aqua Ring}
-    - {level: 14, move: Psybeam}
+    - {level: 13, move: Rapid Spin}
     - {level: 17, move: Bite}
+    - {level: 17, move: Hypnosis}
     - {level: 22, move: Water Pulse}
     - {level: 26, move: Protect}
     - {level: 29, move: Rain Dance}
     - {level: 32, move: Muddy Water}
     - {level: 40, move: Iron Defense}
-    - {level: 40, move: Psychic}
     - {level: 45, move: Hydro Pump}
+    - {level: 52, move: Future Sight}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Calm Mind, Hail, Hidden Power, Ice Beam, Blizzard, Light Screen,
-          Protect, Rain Dance, Safeguard, Return, Psychic, Shadow Ball, Double Team,
-          Reflect, Rock Tomb, Facade, Rest, Attract, Skill Swap, Brine, Fling, Endure,
-          Thunder Wave, Sleep Talk, Grass Knot, Swagger, Substitute, Trick Room, Psyshock,
-          Scald, Expanding Force, Surf, Whirlpool, Waterfall, Sunny Day]
+  tm_hm: [Water Pulse, Calm Mind, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard,
+          Light Screen, Protect, Rain Dance, Safeguard, Frustration, Return, Psychic,
+          Shadow Ball, Double Team, Reflect, Rock Tomb, Facade, Secret Power, Rest, Attract,
+          Skill Swap, Brine, Fling, Endure, Flash, Thunder Wave, Psych Up, Captivate,
+          Rock Slide, Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute, Trick Room,
+          Psyshock, Scald, Psychic Terrain, Liquidation, Expanding Force, Flip Turn, Surf,
+          Whirlpool, Waterfall, Thief]
   # moves a move tutor can teach it
-  tutor: [Aqua Jet, Aqua Tail, Body Slam, Icy Wind, Zen Headbutt]
+  tutor: [Aqua Tail, Body Slam, Charm, Icy Wind, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

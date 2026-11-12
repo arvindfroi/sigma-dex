@@ -72,25 +72,25 @@ learnset:
     - {level: 1, move: Confuse Ray}
     - {level: 1, move: Growth}
     - {level: 1, move: Ingrain}
-    - {level: 1, move: Sweet Scent}
     - {level: 1, move: Tackle}
     - {level: 12, move: Mega Drain}
-    - {level: 15, move: Stun Spore}
+    - {level: 16, move: Synthesis}
     - {level: 16, move: Sleep Powder}
+    - {level: 20, move: Magical Leaf}
     - {level: 20, move: Moonlight}
     - {level: 27, move: Strength Sap}
     - {level: 32, move: Giga Drain}
     - {level: 38, move: Dazzling Gleam}
-    - {level: 41, move: Energy Ball}
     - {level: 50, move: Moonblast}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
-          Rain Dance, Giga Drain, Safeguard, Solar Beam, Return, Sludge Bomb, Facade, Rest,
-          Attract, Energy Ball, Endure, Drain Punch, Giga Impact, Thunder Wave, Sleep Talk,
-          Grass Knot, Substitute, Draining Kiss, Play Rough]
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
+          Rain Dance, Giga Drain, Safeguard, Frustration, Solar Beam, Return, Double Team,
+          Sludge Bomb, Facade, Rest, Attract, Energy Ball, Charge Beam, Endure, Drain Punch,
+          Giga Impact, Thunder Wave, Sleep Talk, Grass Knot, Swagger, Substitute,
+          Draining Kiss, Grassy Terrain, Play Rough, Secret Power, Flash]
   # moves a move tutor can teach it
-  tutor: [Dazzling Gleam, Leaf Storm, Magical Leaf, Mega Drain, Pollen Puff, Seed Bomb,
-          Weather Ball, Synthesis]
+  tutor: [Dazzling Gleam, Leaf Storm, Magical Leaf, Pollen Puff, Seed Bomb, Synthesis,
+          Weather Ball, Charm]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

@@ -70,35 +70,36 @@ learnset:
     - {level: 0, move: Poison Fang}
     - {level: 0, move: Poison Sting}
     - {level: 0, move: Rock Tomb}
-    - {level: 1, move: Harden}
-    - {level: 1, move: Ice Fang}
     - {level: 1, move: Leer}
     - {level: 1, move: Tackle}
     - {level: 7, move: Snarl}
-    - {level: 9, move: Rock Throw}
     - {level: 10, move: Hone Claws}
-    - {level: 12, move: Smack Down}
     - {level: 14, move: Horn Attack}
-    - {level: 15, move: Protect}
-    - {level: 16, move: Ancient Power}
-    - {level: 16, move: Scary Face}
     - {level: 18, move: Roar}
-    - {level: 21, move: Headbutt}
-    - {level: 24, move: Rock Slide}
-    - {level: 24, move: Slash}
+    - {level: 18, move: Smack Down}
+    - {level: 20, move: Scary Face}
+    - {level: 22, move: Headbutt}
+    - {level: 25, move: Slash}
     - {level: 26, move: Payback}
-    - {level: 27, move: Iron Defense}
+    - {level: 28, move: Rock Slide}
     - {level: 30, move: Rock Wrecker}
+    - {level: 32, move: Rock Blast}
     - {level: 33, move: Crunch}
-    - {level: 48, move: Stone Edge}
+    - {level: 33, move: Iron Defense}
+    - {level: 42, move: Thrash}
+    - {level: 42, move: Reversal}
+    - {level: 46, move: Jaw Lock}
+    - {level: 52, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance, Earthquake,
-          Return, Dig, Brick Break, Double Team, Sandstorm, Rock Tomb, Facade, Rest,
-          Attract, Thief, Fling, Endure, Payback, Giga Impact, Rock Polish, Stone Edge,
-          Stealth Rock, Dark Pulse, Rock Slide, Sleep Talk, Swagger, Substitute, Foul Play,
-          Bulldoze, Meteor Beam, Roar, Poison Jab, Toxic, Rock Smash]
+  tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
+          Frustration, Earthquake, Return, Dig, Brick Break, Double Team, Sandstorm,
+          Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Fling, Endure,
+          Payback, Giga Impact, Rock Polish, Stone Edge, Stealth Rock, Dark Pulse,
+          Rock Slide, Sleep Talk, Swagger, Substitute, Foul Play, Bulldoze, Strength,
+          Rock Smash, Torment, Play Rough, Poison Jab]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Body Slam, Earth Power, Snarl]
+  tutor: [Ancient Power, Body Slam, Earth Power, Iron Head, Power Gem, Snarl, Endeavor,
+          Fire Fang, Ice Fang, Thunder Fang]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

@@ -67,44 +67,47 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 0, move: Hidden Spur}
-    - {level: 0, move: Slash}
+    - {level: 0, move: Aqua Jet}
     - {level: 1, move: Flip Turn}
-    - {level: 1, move: Megahorn}
-    - {level: 1, move: Tackle}
-    - {level: 1, move: Tail Whip}
-    - {level: 1, move: Water Gun}
-    - {level: 1, move: Water Sport}
-    - {level: 1, move: Feint Attack}
     - {level: 1, move: Growl}
+    - {level: 1, move: Night Slash}
+    - {level: 1, move: Water Gun}
+    - {level: 1, move: Feint Attack}
     - {level: 1, move: Leer}
-    - {level: 1, move: Pound}
     - {level: 1, move: Scratch}
+    - {level: 1, move: Tackle}
     - {level: 4, move: Peck}
-    - {level: 10, move: Bite}
+    - {level: 7, move: Work Up}
+    - {level: 10, move: Lick}
+    - {level: 11, move: Torment}
     - {level: 12, move: Protect}
-    - {level: 13, move: Focus Energy}
-    - {level: 14, move: Scary Face}
-    - {level: 21, move: Fury Cutter}
-    - {level: 25, move: Aqua Cutter}
-    - {level: 29, move: Revenge}
-    - {level: 34, move: Aqua Jet}
-    - {level: 36, move: Knock Off}
-    - {level: 39, move: Encore}
-    - {level: 40, move: Crunch}
-    - {level: 42, move: Sucker Punch}
-    - {level: 46, move: Aqua Tail}
-    - {level: 51, move: Retaliate}
-    - {level: 58, move: Swords Dance}
-    - {level: 63, move: Crabhammer}
+    - {level: 15, move: Bite}
+    - {level: 16, move: Scary Face}
+    - {level: 19, move: Smokescreen}
+    - {level: 20, move: Double Hit}
+    - {level: 23, move: Shadow Sneak}
+    - {level: 28, move: Spikes}
+    - {level: 32, move: Focus Energy}
+    - {level: 33, move: Aerial Ace}
+    - {level: 33, move: Aqua Tail}
+    - {level: 33, move: Slash}
+    - {level: 38, move: Crunch}
+    - {level: 42, move: Substitute}
+    - {level: 46, move: Thrash}
+    - {level: 49, move: Extrasensory}
+    - {level: 51, move: Liquidation}
+    - {level: 68, move: Wave Crash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Water Pulse, Toxic, Bulk Up, Hidden Power, Taunt, Ice Beam, Protect,
           Rain Dance, Frustration, Iron Tail, Brick Break, Double Team, Torment, Facade,
-          Thief, Snatch, Cut, Surf, Strength, Rock Smash, Waterfall, Dive, Hail, Blizzard,
-          Hyper Beam, Return, Aerial Ace, Rest, Attract, Brine, Fling, Endure, Payback,
-          Giga Impact, Swords Dance, Dark Pulse, Sleep Talk, Swagger, Substitute, Foul Play,
-          Scald, Liquidation, Whirlpool, Dig, Rock Tomb, Grass Knot, Low Sweep]
+          Thief, Snatch, Cut, Surf, Strength, Rock Smash, Waterfall, Dive, Hail, Sunny Day,
+          Blizzard, Hyper Beam, Return, Dig, Rock Tomb, Aerial Ace, Secret Power, Rest,
+          Attract, Brine, Fling, Endure, Payback, Giga Impact, Swords Dance, Dark Pulse,
+          Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Low Sweep, Foul Play,
+          Scald, Brutal Swing, Liquidation, Flip Turn, Whirlpool, Shadow Claw, Captivate,
+          Grass Knot]
   # moves a move tutor can teach it
-  tutor: [Aqua Jet, Aqua Tail, Body Slam, Icy Wind, Snarl]
+  tutor: [Aqua Tail, Body Slam, Hydro Cannon, Icy Wind, Snarl, Power-Up Punch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

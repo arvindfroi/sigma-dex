@@ -69,41 +69,44 @@ learnset:
     - {level: 0, move: Leaf Blade}
     - {level: 1, move: Leaf Blade}
     - {level: 1, move: Growl}
-    - {level: 1, move: Leafage}
-    - {level: 1, move: Leer}
-    - {level: 1, move: Metal Claw}
     - {level: 1, move: Razor Leaf}
     - {level: 1, move: Scratch}
     - {level: 1, move: Tackle}
+    - {level: 1, move: Absorb}
+    - {level: 1, move: Leer}
+    - {level: 6, move: Leafage}
     - {level: 10, move: Fury Cutter}
-    - {level: 11, move: Bite}
-    - {level: 11, move: Growth}
+    - {level: 12, move: Scary Face}
+    - {level: 15, move: Bite}
     - {level: 15, move: Curse}
-    - {level: 16, move: Vine Whip}
+    - {level: 19, move: Metal Claw}
     - {level: 20, move: Leech Seed}
-    - {level: 22, move: Iron Head}
+    - {level: 20, move: Screech}
     - {level: 24, move: Sharpen}
-    - {level: 28, move: Slash}
-    - {level: 28, move: Take Down}
-    - {level: 29, move: Mega Drain}
-    - {level: 32, move: Synthesis}
+    - {level: 28, move: Mega Drain}
+    - {level: 29, move: Take Down}
+    - {level: 35, move: Slash}
+    - {level: 39, move: Synthesis}
     - {level: 40, move: Iron Tail}
+    - {level: 41, move: Iron Defense}
     - {level: 44, move: X-Scissor}
     - {level: 48, move: Night Slash}
+    - {level: 51, move: Swords Dance}
     - {level: 52, move: Wood Hammer}
     - {level: 56, move: Stone Axe}
     - {level: 60, move: Solar Blade}
     - {level: 64, move: Behemoth Blade}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Giga Drain, Safeguard,
-          Solar Beam, Earthquake, Return, Brick Break, Double Team, Rock Tomb, Facade, Rest,
-          Attract, Energy Ball, Endure, Giga Impact, Swords Dance, Rock Slide, Sleep Talk,
-          Grass Knot, Swagger, Substitute, Flash Cannon, Heavy Slam, Bulldoze, Rain Dance,
-          Iron Tail, Reflect, Shadow Claw, Gyro Ball, Stealth Rock, Cut, Strength,
-          Rock Smash, Light Screen, Frustration, Flash]
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
+          Giga Drain, Frustration, Solar Beam, Earthquake, Return, Brick Break, Double Team,
+          Sandstorm, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract,
+          Energy Ball, Fling, Endure, Giga Impact, Flash, Swords Dance, Rock Slide,
+          Sleep Talk, Grass Knot, Swagger, Substitute, Flash Cannon, Heavy Slam, Bulldoze,
+          Grassy Terrain, Body Press, Cut, Strength, Rock Smash, Reflect, Shadow Claw,
+          Gyro Ball, Stealth Rock, Captivate, Natural Gift, Light Screen, Safeguard]
   # moves a move tutor can teach it
-  tutor: [Iron Head, Leaf Storm, Magical Leaf, Metal Claw, Seed Bomb, Synthesis, Body Slam,
-          Leech Seed, Curse, Mega Drain]
+  tutor: [Body Slam, Frenzy Plant, Iron Head, Leaf Storm, Magical Leaf, Metal Claw,
+          Seed Bomb, Solar Blade, Synthesis, Curse, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

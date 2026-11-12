@@ -63,27 +63,29 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Baby-Doll Eyes}
     - {level: 1, move: Growl}
     - {level: 1, move: Tackle}
     - {level: 3, move: Leer}
     - {level: 3, move: Scratch}
-    - {level: 4, move: Sand Attack}
     - {level: 8, move: Quick Attack}
-    - {level: 12, move: Bite}
-    - {level: 16, move: Fury Swipes}
-    - {level: 20, move: Tri Attack}
-    - {level: 22, move: Take Down}
-    - {level: 24, move: Charm}
+    - {level: 13, move: Fury Swipes}
+    - {level: 16, move: Charm}
+    - {level: 19, move: Round}
+    - {level: 20, move: Swift}
+    - {level: 21, move: Uproar}
     - {level: 27, move: Agility}
     - {level: 32, move: Play Rough}
+    - {level: 33, move: Nasty Plot}
+    - {level: 37, move: Hyper Voice}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Iron Tail, Thunderbolt,
-          Return, Dig, Shadow Ball, Double Team, Aerial Ace, Facade, Rest, Attract, Thief,
-          Endure, Sleep Talk, Swagger, U-turn, Substitute, Cut]
-  tutor: [Endeavor, Flail, Hyper Voice] # moves a move tutor can teach it
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Iron Tail,
+          Thunderbolt, Return, Dig, Shadow Ball, Double Team, Aerial Ace, Facade,
+          Secret Power, Rest, Attract, Thief, Endure, Captivate, Sleep Talk, Natural Gift,
+          Swagger, U-turn, Substitute, Cut]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Endeavor, Hyper Voice, Super Fang]
   # only needed for the first stage of an evolution line
-  egg: [Flail, Last Resort, Covet, Uproar, Fake Out, Feint, Endeavor]
+  egg: [Flail, Last Resort, Covet, Fake Out, Fake Tears, Endeavor, Rage, Feint, Thrash]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

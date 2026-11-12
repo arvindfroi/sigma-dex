@@ -69,35 +69,33 @@ learnset:
     - {level: 0, move: Acid Spray}
     - {level: 0, move: Growth}
     - {level: 0, move: Attack Order}
-    - {level: 1, move: Astonish}
     - {level: 1, move: Stun Spore}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Harden}
     - {level: 12, move: Leech Seed}
     - {level: 15, move: Head Smash}
-    - {level: 16, move: Synthesis}
-    - {level: 16, move: Cross Poison}
-    - {level: 20, move: Sweet Scent}
+    - {level: 16, move: Razor Leaf}
+    - {level: 18, move: Cross Poison}
+    - {level: 20, move: Bullet Seed}
+    - {level: 20, move: Synthesis}
+    - {level: 24, move: Sweet Scent}
     - {level: 29, move: Slash}
     - {level: 30, move: Absorb}
     - {level: 32, move: Ingrain}
+    - {level: 32, move: Poison Jab}
     - {level: 33, move: Mega Drain}
-    - {level: 33, move: Razor Leaf}
-    - {level: 33, move: Seed Bomb}
     - {level: 33, move: Horn Leech}
     - {level: 33, move: Pin Missile}
+    - {level: 36, move: Sleep Powder}
     - {level: 36, move: Toxic}
-    - {level: 40, move: Gunk Shot}
-    - {level: 40, move: Leaf Blade}
-    - {level: 40, move: Slam}
     - {level: 48, move: Power Whip}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
-          Giga Drain, Solar Beam, Return, Double Team, Sludge Bomb, Facade, Rest, Attract,
-          Thief, Energy Ball, Endure, Payback, Giga Impact, Swords Dance, Sleep Talk,
-          Poison Jab, Grass Knot, Swagger, Substitute, Venoshock]
+          Giga Drain, Frustration, Solar Beam, Return, Double Team, Sludge Bomb, Facade,
+          Secret Power, Rest, Attract, Thief, Energy Ball, Endure, Payback, Giga Impact,
+          Flash, Swords Dance, Captivate, Sleep Talk, Natural Gift, Poison Jab, Grass Knot,
+          Swagger, Substitute, Venoshock, Acid Spray, Grassy Terrain]
   # moves a move tutor can teach it
-  tutor: [Leaf Storm, Magical Leaf, Mega Drain, Seed Bomb, Synthesis, Leech Seed]
+  tutor: [Body Slam, Leaf Storm, Magical Leaf, Seed Bomb, Solar Blade, Synthesis]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

@@ -64,30 +64,29 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Ember}
-    - {level: 1, move: Growl}
-    - {level: 1, move: Leer}
     - {level: 1, move: Tackle}
     - {level: 1, move: Tail Whip}
+    - {level: 4, move: Taunt}
+    - {level: 8, move: Quick Attack}
     - {level: 10, move: Bite}
     - {level: 10, move: Withdraw}
-    - {level: 15, move: Flame Charge}
     - {level: 15, move: Horn Attack}
     - {level: 16, move: Fire Fang}
-    - {level: 18, move: Protect}
     - {level: 21, move: Slash}
     - {level: 24, move: Headbutt}
     - {level: 25, move: Flame Wheel}
     - {level: 35, move: Fire Spin}
-    - {level: 36, move: Take Down}
-    - {level: 43, move: Flare Blitz}
+    - {level: 40, move: Flare Blitz}
+    - {level: 41, move: Take Down}
     - {level: 46, move: Fire Lash}
+    - {level: 52, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Hidden Power, Sunny Day, Protect, Iron Tail, Return, Dig, Double Team,
-          Flamethrower, Fire Blast, Facade, Rest, Attract, Overheat, Endure, Will-O-Wisp,
-          Sleep Talk, Swagger, Substitute, Flame Charge]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Frustration, Return, Dig, Double Team,
+          Flamethrower, Fire Blast, Facade, Secret Power, Rest, Attract, Overheat, Endure,
+          Will-O-Wisp, Sleep Talk, Swagger, Substitute, Flame Charge, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Flare Blitz, Heat Wave]
-  egg: [Heat Wave, Yawn] # only needed for the first stage of an evolution line
+  tutor: [Body Slam, Fire Fang, Flare Blitz, Heat Wave, Zen Headbutt]
+  egg: [Heat Wave, Yawn, Thrash] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

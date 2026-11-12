@@ -66,32 +66,35 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Arm Thrust}
+    - {level: 1, move: Fury Cutter}
     - {level: 1, move: Leer}
     - {level: 1, move: Tackle}
-    - {level: 5, move: Fury Attack}
     - {level: 10, move: Endure}
     - {level: 10, move: Focus Energy}
     - {level: 12, move: Helping Hand}
     - {level: 15, move: Aerial Ace}
     - {level: 25, move: Counter}
-    - {level: 30, move: Arm Thrust}
-    - {level: 35, move: Pin Missile}
+    - {level: 30, move: Brick Break}
+    - {level: 34, move: Pin Missile}
     - {level: 40, move: Throat Chop}
     - {level: 45, move: Thrash}
-    - {level: 50, move: Reversal}
     - {level: 50, move: Swords Dance}
     - {level: 55, move: Megahorn}
     - {level: 60, move: Close Combat}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Focus Punch, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
-          Rain Dance, Earthquake, Return, Dig, Brick Break, Double Team, Rock Tomb,
-          Aerial Ace, Facade, Rest, Attract, Thief, Focus Blast, Fling, Endure, Drain Punch,
-          Payback, Giga Impact, Stone Edge, Swords Dance, Rock Slide, X-Scissor, Sleep Talk,
-          Poison Jab, Swagger, U-turn, Substitute, Low Sweep, Struggle Bug, Bulldoze,
-          Coaching, Strength, Rock Smash, Silver Wind]
-  tutor: [Bug Bite, Close Combat] # moves a move tutor can teach it
+  tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
+          Rain Dance, Frustration, Earthquake, Return, Dig, Brick Break, Double Team,
+          Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Focus Blast,
+          Fling, Endure, Drain Punch, Giga Impact, Stone Edge, Swords Dance, Captivate,
+          Rock Slide, X-Scissor, Sleep Talk, Natural Gift, Poison Jab, Swagger, U-turn,
+          Substitute, Low Sweep, Struggle Bug, Bulldoze, Lunge, Coaching, Strength,
+          Rock Smash, Silver Wind]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Bug Bite, Close Combat, Counter, Endeavor, Power-Up Punch,
+          Thunder Punch]
   # only needed for the first stage of an evolution line
-  egg: [Seismic Toss, Feint, Flail, Revenge, Rock Blast]
+  egg: [Seismic Toss, Feint, Flail, Revenge, False Swipe]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

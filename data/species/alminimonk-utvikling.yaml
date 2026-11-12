@@ -66,35 +66,36 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Teeter Dance}
     - {level: 1, move: Confusion}
+    - {level: 1, move: Disable}
     - {level: 1, move: Growl}
     - {level: 1, move: Pound}
-    - {level: 1, move: Stored Power}
     - {level: 1, move: Tackle}
     - {level: 1, move: Play Nice}
     - {level: 5, move: Meditate}
-    - {level: 6, move: Disable}
-    - {level: 12, move: Imprison}
-    - {level: 14, move: Psybeam}
-    - {level: 16, move: Light Screen}
+    - {level: 13, move: Yawn}
     - {level: 16, move: Headbutt}
-    - {level: 17, move: Charm}
-    - {level: 18, move: Confuse Ray}
+    - {level: 17, move: Psybeam}
     - {level: 19, move: Hypnosis}
+    - {level: 19, move: Imprison}
     - {level: 21, move: Poison Gas}
-    - {level: 22, move: Extrasensory}
-    - {level: 26, move: Zen Headbutt}
-    - {level: 28, move: Calm Mind}
-    - {level: 42, move: Psyshock}
-    - {level: 45, move: Psychic}
+    - {level: 24, move: Extrasensory}
+    - {level: 26, move: Psyshock}
+    - {level: 37, move: Calm Mind}
+    - {level: 37, move: Safeguard}
+    - {level: 48, move: Psychic}
     - {level: 50, move: Future Sight}
+    - {level: 50, move: Nasty Plot}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
-          Safeguard, Return, Psychic, Shadow Ball, Double Team, Reflect, Facade, Rest,
-          Attract, Skill Swap, Energy Ball, Fling, Endure, Giga Impact, Flash, Thunder Wave,
-          Psych Up, Sleep Talk, Grass Knot, Swagger, Substitute, Trick Room, Psyshock,
-          Expanding Force, Thief, Recycle, Rock Slide]
-  tutor: [Zen Headbutt]  # moves a move tutor can teach it
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
+          Protect, Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball,
+          Double Team, Reflect, Torment, Facade, Secret Power, Rest, Attract, Thief,
+          Skill Swap, Energy Ball, Fling, Charge Beam, Endure, Recycle, Giga Impact, Flash,
+          Thunder Wave, Psych Up, Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute,
+          Trick Room, Psyshock, Psychic Terrain, Expanding Force, Rock Slide]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Dazzling Gleam, Nasty Plot, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

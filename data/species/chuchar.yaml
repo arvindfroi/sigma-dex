@@ -72,25 +72,29 @@ learnset:
     - {level: 1, move: Night Shade}
     - {level: 1, move: Pain Split}
     - {level: 1, move: Shadow Sneak}
-    - {level: 8, move: Smog}
+    - {level: 7, move: Hypnosis}
+    - {level: 9, move: Smog}
+    - {level: 12, move: Payback}
     - {level: 13, move: Smokescreen}
-    - {level: 16, move: Spite}
-    - {level: 16, move: Will-O-Wisp}
     - {level: 18, move: Protect}
-    - {level: 21, move: Hex}
-    - {level: 26, move: Curse}
-    - {level: 36, move: Shadow Ball}
-    - {level: 36, move: Sucker Punch}
+    - {level: 19, move: Spite}
+    - {level: 24, move: Hex}
+    - {level: 24, move: Sucker Punch}
+    - {level: 36, move: Curse}
+    - {level: 36, move: Giga Drain}
+    - {level: 39, move: Dark Pulse}
     - {level: 42, move: Nasty Plot}
-    - {level: 46, move: Imprison}
-    - {level: 48, move: Phantom Force}
+    - {level: 48, move: Shadow Ball}
+    - {level: 49, move: Power Gem}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
-          Return, Psychic, Shadow Ball, Facade, Rest, Attract, Thief, Energy Ball, Endure,
-          Will-O-Wisp, Shadow Claw, Payback, Giga Impact, Dark Pulse, Sleep Talk,
-          Substitute, Trick Room, Giga Drain, Double Team, Skill Swap, Psych Up, Swagger,
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
+          Frustration, Return, Psychic, Shadow Ball, Double Team, Facade, Secret Power,
+          Rest, Attract, Thief, Energy Ball, Endure, Will-O-Wisp, Embargo, Payback,
+          Giga Impact, Psych Up, Dark Pulse, Sleep Talk, Swagger, Substitute, Trick Room,
+          Giga Drain, Thunderbolt, Thunder, Torment, Skill Swap, Captivate, Natural Gift,
           Foul Play]
-  tutor: [Curse, Poltergeist, Icy Wind] # moves a move tutor can teach it
+  # moves a move tutor can teach it
+  tutor: [Curse, Nasty Plot, Poltergeist, Icy Wind]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

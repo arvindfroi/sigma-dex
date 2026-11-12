@@ -70,30 +70,32 @@ learnset:
     - {level: 1, move: Leer}
     - {level: 1, move: Quick Attack}
     - {level: 1, move: Thunder Shock}
-    - {level: 1, move: Wild Charge}
-    - {level: 4, move: Charge}
     - {level: 6, move: Peck}
-    - {level: 12, move: Nuzzle}
-    - {level: 12, move: Swift}
-    - {level: 16, move: Shock Wave}
+    - {level: 8, move: Charge}
+    - {level: 9, move: Detect}
+    - {level: 15, move: Focus Energy}
+    - {level: 19, move: Bite}
     - {level: 20, move: Thunder Wave}
+    - {level: 21, move: Feint}
     - {level: 23, move: Spark}
-    - {level: 24, move: Screech}
-    - {level: 36, move: Discharge}
-    - {level: 40, move: Low Kick}
-    - {level: 42, move: Agility}
-    - {level: 44, move: Close Combat}
+    - {level: 33, move: Slam}
+    - {level: 40, move: Discharge}
+    - {level: 45, move: Agility}
+    - {level: 47, move: Wild Charge}
+    - {level: 50, move: Close Combat}
     - {level: 58, move: Thunder}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Focus Punch, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
-          Protect, Rain Dance, Iron Tail, Thunderbolt, Thunder, Earthquake, Return, Dig,
-          Brick Break, Double Team, Shock Wave, Rock Tomb, Facade, Rest, Attract, Thief,
-          Focus Blast, Fling, Charge Beam, Endure, Drain Punch, Giga Impact, Thunder Wave,
-          Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute, Low Sweep, Bulldoze,
-          Electroweb, Electric Terrain, Coaching, Rock Smash]
+  tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
+          Rain Dance, Frustration, Thunderbolt, Thunder, Return, Dig, Brick Break,
+          Double Team, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief,
+          Focus Blast, Fling, Charge Beam, Endure, Drain Punch, Giga Impact, Stone Edge,
+          Thunder Wave, Swords Dance, Rock Slide, Sleep Talk, Poison Jab, Swagger,
+          Substitute, Low Sweep, Bulldoze, Electroweb, Eerie Impulse, Electric Terrain,
+          Coaching, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Close Combat, Thunder Punch, Volt Switch]
-  egg: [Quick Guard, Counter, Feint] # only needed for the first stage of an evolution line
+  tutor: [Body Slam, Close Combat, Endeavor, Fire Punch, Power-Up Punch, Thunder Fang,
+          Thunder Punch, Volt Switch]
+  egg: [Quick Guard]     # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

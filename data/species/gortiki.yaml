@@ -69,35 +69,51 @@ learnset:
     - {level: 0, move: Fiery Dance}
     - {level: 1, move: Fiery Dance}
     - {level: 1, move: Absorb}
-    - {level: 1, move: Ember}
-    - {level: 1, move: Growl}
     - {level: 1, move: Growth}
-    - {level: 1, move: Leaf Blade}
     - {level: 1, move: Sweet Scent}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Leer}
+    - {level: 1, move: Ember}
+    - {level: 1, move: Fire Spin}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Mega Drain}
     - {level: 1, move: Smog}
-    - {level: 1, move: Mimic}
-    - {level: 8, move: Mega Drain}
-    - {level: 12, move: Fire Spin}
     - {level: 12, move: Razor Leaf}
-    - {level: 13, move: Leech Seed}
-    - {level: 16, move: Vine Whip}
-    - {level: 22, move: Leaf Tornado}
-    - {level: 28, move: Petal Blizzard}
-    - {level: 32, move: Synthesis}
-    - {level: 35, move: Flame Charge}
-    - {level: 48, move: Heat Wave}
-    - {level: 50, move: Power Whip}
+    - {level: 13, move: Incinerate}
+    - {level: 20, move: Flame Wheel}
+    - {level: 21, move: Encore}
+    - {level: 22, move: Slam}
+    - {level: 23, move: Mimic}
+    - {level: 24, move: Flame Charge}
+    - {level: 24, move: Will-O-Wisp}
+    - {level: 25, move: Lava Plume}
+    - {level: 26, move: Leech Seed}
+    - {level: 27, move: Fire Punch}
+    - {level: 27, move: Inferno}
+    - {level: 27, move: Magical Leaf}
+    - {level: 28, move: Synthesis}
+    - {level: 29, move: Seed Bomb}
+    - {level: 29, move: Giga Drain}
+    - {level: 32, move: Smokescreen}
+    - {level: 33, move: Imprison}
+    - {level: 39, move: Pain Split}
+    - {level: 40, move: Energy Ball}
+    - {level: 44, move: Horn Leech}
+    - {level: 45, move: Overheat}
+    - {level: 49, move: Body Slam}
+    - {level: 54, move: Power Whip}
+    - {level: 54, move: Leaf Storm}
+    - {level: 54, move: Solar Beam}
+    - {level: 57, move: Flare Blitz}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
-          Giga Drain, Safeguard, Solar Beam, Return, Double Team, Flamethrower, Fire Blast,
-          Facade, Rest, Attract, Overheat, Energy Ball, Endure, Will-O-Wisp, Giga Impact,
-          Swords Dance, Sleep Talk, Grass Knot, Swagger, Substitute, Flame Charge,
-          Mystical Fire, Taunt, Psychic, Thief, Flash]
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Giga Drain,
+          Safeguard, Frustration, Solar Beam, Return, Double Team, Flamethrower, Fire Blast,
+          Facade, Secret Power, Rest, Attract, Overheat, Energy Ball, Endure, Will-O-Wisp,
+          Giga Impact, Flash, Swords Dance, Sleep Talk, Grass Knot, Swagger, Substitute,
+          Flame Charge, Grassy Terrain, Taunt, Thief, Captivate, Natural Gift, Cut,
+          Earthquake]
   # moves a move tutor can teach it
-  tutor: [Flare Blitz, Heat Wave, Leaf Storm, Magical Leaf, Mega Drain, Seed Bomb,
-          Synthesis, Curse, Fire Punch, Leech Seed]
+  tutor: [Body Slam, Curse, Flare Blitz, Heat Wave, Leaf Storm, Magical Leaf, Seed Bomb,
+          Solar Blade, Synthesis, Fire Fang, Fire Punch, Charm]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
