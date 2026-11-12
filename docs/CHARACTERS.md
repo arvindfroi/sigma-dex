@@ -79,7 +79,7 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer G: Gold
 - Trainer H: Koga (Elite Four)
 - Trainer I: Lance (Elite Four)
-- Trainer J: Green
+- Trainer J: Green (a girl player meets Red instead: the same teams and lines, so it is one role)
 - Trainer K: Lorelei (Elite Four)
 - Trainer L: Charon (executive)
 - Trainer M: Agatha (Elite Four)
