@@ -14,3 +14,4 @@ tests/sprite_style/sheet.png
 # Generated moveset proposals and review page (rebuilt by scripts/moveset_fill.py / moveset_review.py)
 proposals/movesets.json
 proposals/review.html
+proposals/species_fill.json
