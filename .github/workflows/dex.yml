@@ -41,7 +41,7 @@ jobs:
         run: python scripts/sprites.py auto
       - name: Moveset suggestions for the website's edit form (docs/MOVESETS.md)
         if: github.event_name != 'pull_request'
-        run: python scripts/moveset_fill.py suggest
+        run: python scripts/moveset_fill.py suggest && python scripts/species_fill.py suggest
       - name: Check the species files
         run: python scripts/validate.py
       - name: Rebuild DEX.md, TODO.md, export/ and the website

@@ -1501,6 +1501,42 @@ function checkGrid(options, chosen) {
 // change what they want"). scripts/moveset_fill.py suggest writes site/moveset_suggestions.json on every sync: for each
 // Pokemon "fill" (what its moves lack) and "fresh" (a new proposal for the part Claude added before; the designers'
 // own moves stay). Nothing is saved until YES. How it decides: docs/MOVESETS.md.
+// The numbers nobody wants to think about (12 Nov 2026; Arvind): scripts/species_fill.py suggest writes
+// site/species_suggestions.json on every sync; this button fills only the EMPTY fields, like Game Freak would.
+let SPECIES_SUGGESTIONS = null;
+function numbersPanel(s, f) {
+  const box = h("div", {class: "suggest"});
+  const go = h("button", {type: "button", class: "small"}, "Fill in the empty ones for me");
+  const out = h("div", {class: "hint"});
+  box.append(h("div", {class: "hint"}, "Body color, EV yield, catch rate, exp, growth, friendship, gender, egg groups and egg cycles, the way Game Freak does it for Pokemon like this one. Only empty fields are filled; change anything before you press YES."), go, out);
+  go.onclick = async () => {
+    go.disabled = true; go.textContent = "Loading...";
+    if (!SPECIES_SUGGESTIONS) SPECIES_SUGGESTIONS = fetch("species_suggestions.json", {cache: "no-cache"}).then(r => r.ok ? r.json() : null).catch(() => null);
+    const all = await SPECIES_SUGGESTIONS;
+    const sg = all && all.species && s.id && all.species[s.id];
+    go.textContent = "Fill in the empty ones for me"; go.disabled = false;
+    if (!sg) { out.textContent = "No suggestion yet: save this Pokemon first; it is ready within 15 minutes."; return; }
+    if (sg.skipped) { out.textContent = sg.skipped.includes("base stats") ? "It needs its base stats (and types) first; save them, and the suggestion is ready within 15 minutes." : "No suggestion: " + sg.skipped; return; }
+    const done = [];
+    const put = (el, value, label, why) => { if (el && !String(el.value || "").trim() && value !== null && value !== undefined) { el.value = String(value); el.dispatchEvent(new Event("input", {bubbles: true})); el.dispatchEvent(new Event("change", {bubbles: true})); done.push(h("li", {title: why || ""}, label + ": " + String(value).replace("_", " ") + (why ? " (" + why + ")" : ""))); } };
+    const [color, colorWhy] = sg.body_color || [];
+    put(f.color, color, "Body color", colorWhy);
+    const [ev, evWhy] = sg.ev_yield || [];
+    if (ev && STATS.every(([k]) => !String(f.ev[k].value || "").trim())) {
+      for (const [k, v] of Object.entries(ev)) f.ev[k].value = String(v);
+      done.push(h("li", {}, "EV yield: " + Object.entries(ev).map(([k, v]) => v + " " + ((STATS.find(x => x[0] === k) || [0, k])[1])).join(", ") + " (" + evWhy + ")"));
+    }
+    for (const [key, el, label] of [["catch_rate", f.catchRate, "Catch rate"], ["base_exp", f.baseExp, "Exp given"], ["growth_rate", f.growth, "Growth rate"],
+        ["base_friendship", f.friendship, "Friendship"], ["gender", f.gender, "Gender"], ["egg_cycles", f.eggCycles, "Egg cycles"]]) {
+      const [v, why] = sg[key] || [];
+      put(el, v, label, why);
+    }
+    const [groups, groupsWhy] = sg.egg_groups || [];
+    if (groups && !f.egg1.value && !f.egg2.value) { put(f.egg1, groups[0], "Egg group", groupsWhy); if (groups[1]) put(f.egg2, groups[1], "Second egg group", ""); }
+    out.replaceChildren(done.length ? h("div", {}, "Filled in (check them, then press YES):", h("ul", {}, done)) : "Everything here is already filled in.");
+  };
+  return box;
+}
 let SUGGESTIONS = null;
 async function loadSuggestions() {
   if (!SUGGESTIONS) SUGGESTIONS = fetch("moveset_suggestions.json", {cache: "no-cache"}).then(r => r.ok ? r.json() : null).catch(() => null);
@@ -1702,6 +1738,7 @@ function openEditor(s) {
   const tutor = rowList([{key: "move", make: v => moveInput(v)}], (learn.tutor || []).map(m => ({move: m})), "Add a tutor move");
   const egg = rowList([{key: "move", make: v => moveInput(v)}], (learn.egg || []).map(m => ({move: m})), "Add an egg move");
   const suggest = suggestionPanel(s, {levelUp, evoMoves, tmhm, tutor, egg});
+  const numbers = numbersPanel(s, f);
   const encounters = rowList([
     {key: "location", make: v => textInput(v, {placeholder: "place, e.g. Route 1"})},
     {key: "method", make: v => textInput(v, {list: "list-methods", placeholder: "how"})},
@@ -1875,7 +1912,7 @@ function openEditor(s) {
       h("div", {class: "hint"}, "The sprite studio's drawing PC uses this for the back, the icon and the walking sprite."),
       h("div", {class: "fields"}, field("Body shape", f.bodyShape), field("How it moves", f.movement), field("What it looks like (a few sentences)", f.look, "wide")),
       h("datalist", {id: "list-moves-body"}, BODY_MOVES.map(m => h("option", {value: m}))),
-      h("h2", {}, "Catching, breeding and items"),
+      h("h2", {}, "Catching, breeding and items"), numbers,
       h("div", {class: "fields"}, field("Catch rate (3 hard - 255 easy)", f.catchRate), field("Exp given (e.g. 64)", f.baseExp), field("Growth rate", f.growth), field("Starting friendship (70 normal)", f.friendship),
         field("Gender", f.gender), field("Egg group", f.egg1), field("Second egg group", f.egg2), field("Egg cycles (20 normal)", f.eggCycles),
         field("Held item, common", f.itemCommon), field("Held item, rare", f.itemRare)),
