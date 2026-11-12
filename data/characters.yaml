@@ -295,3 +295,33 @@
   levels: [95]
   teams:
   - {lv: 95, size: 6, partner: true, original: 'Dragonite 95, Salamence 95, Aerodactyl 95, Gyarados 95, Charizard 95, Altaria 95'}
+- id: trainer-w
+  group: Important trainer
+  type: Mixed
+  place: you meet them again and again
+  code: Trainer W
+  battles: 6
+  levels: [18, 19, 60, 62, 90, 95]
+  teams:
+  - {lv: 18, size: 5, partner: false, original: 'Croconaw 18, Sneasel 18, Magnemite 17, Gastly 17, Larvitar 17'}
+  - {lv: 19, size: 5, partner: true, original: 'Croconaw 19, Sneasel 19, Larvitar 18, Magnemite 18, Gastly 18'}
+  - {lv: 60, size: 3, partner: true, original: 'Feraligatr 60 (or Meganium / Typhlosion, after your starter), Crobat 58, Gengar 56'}
+  - {lv: 62, size: 6, partner: true, original: 'Feraligatr 62, Weavile 62, Tyranitar 61, Ursaring 61, Magnezone 61, Gengar 61'}
+  - {lv: 90, size: 6, partner: true, original: 'Feraligatr 90, Magnezone 90, Weavile 90, Ursaluna 90, Gengar 90, Tyranitar 90'}
+  - {lv: 95, size: 3, partner: true, original: 'Entei 95, Honchkrow 90, Mismagius 90'}
+- id: trainer-x
+  group: Important trainer
+  type: Mixed
+  place: you meet them again and again
+  code: Trainer X
+  battles: 8
+  levels: [46, 77, 80, 85, 85, 85, 85, 100]
+  teams:
+  - {lv: 46, size: 6, partner: false, original: 'Ambipom 45, Alakazam 46, Heracross 45, Azumarill 46, Dragonair 45, Swellow 46'}
+  - {lv: 77, size: 6, partner: false, original: 'Altaria 76, Scizor 77, Kangaskhan 76, Dragonite 77, Wormadam 76, Cloyster 77'}
+  - {lv: 80, size: 6, partner: false, original: 'Dragonite 80, Lucario 80, Charizard 80, Sceptile 80, Infernape 80, Pikachu 80'}
+  - {lv: 85, size: 6, partner: false, original: 'Machamp 84, Rhyperior 85, Magnezone 84, Hariyama 85, Blaziken 84, Bastiodon 85'}
+  - {lv: 85, size: 6, partner: false, original: 'Manectric 84, Slowbro 85, Dugtrio 84, Scizor 85, Slaking 84, Tangrowth 85'}
+  - {lv: 85, size: 6, partner: false, original: 'Pidgeot 85, Starmie 85, Wigglytuff 85, Garchomp 85, Metagross 85, Pikachu 85'}
+  - {lv: 85, size: 6, partner: true, original: 'Pinsir 84, Cloyster 85, Misdreavus 84, Dragonite 85, Magmortar 84, Aggron 85'}
+  - {lv: 100, size: 6, partner: true, original: 'Arceus 100, Dialga 100, Palkia 100, Giratina 100, Ho-Oh 100, Lugia 100'}

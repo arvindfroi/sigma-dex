@@ -92,6 +92,8 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer T: Proton (executive)
 - Trainer U: Lorin (Elite Four)
 - Trainer V: Cyrus (executive)
+- Trainer W: Silver (added 2026-11-12)
+- Trainer X: Goh, the One-Ball Man (added 2026-11-12)
 
 Left out on purpose (Arvind makes them himself): every champion (Steven, Cynthia) and the main rival (Blue).
 The villains (codes A, B, D, E, F, L, N, R, S, T, V) were taken off the website on 2026-11-12 (Arvind); their codes are kept
