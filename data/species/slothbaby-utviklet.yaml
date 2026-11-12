@@ -67,8 +67,39 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 0, move: Sleep Talk}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Ember}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Quick Attack}
+    - {level: 1, move: Scratch}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Taunt}
+    - {level: 6, move: Growl}
+    - {level: 12, move: Double Kick}
+    - {level: 14, move: Fire Fang}
+    - {level: 15, move: Snore}
+    - {level: 17, move: Flame Charge}
+    - {level: 21, move: Flame Wheel}
+    - {level: 25, move: Bite}
+    - {level: 25, move: Detect}
+    - {level: 25, move: Slash}
+    - {level: 26, move: Agility}
+    - {level: 29, move: Feint}
+    - {level: 31, move: Take Down}
+    - {level: 34, move: Headbutt}
+    - {level: 40, move: Reversal}
+    - {level: 44, move: Close Combat}
+    - {level: 46, move: Fire Spin}
+    - {level: 47, move: Fire Lash}
+    - {level: 49, move: Flare Blitz}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
+          Solar Beam, Earthquake, Return, Dig, Brick Break, Double Team, Flamethrower,
+          Fire Blast, Rock Tomb, Facade, Rest, Attract, Overheat, Focus Blast, Fling,
+          Endure, Will-O-Wisp, Giga Impact, Stone Edge, Swords Dance, Rock Slide,
+          Sleep Talk, Poison Jab, Swagger, Substitute, Flame Charge, Low Sweep, Bulldoze,
+          Coaching, Strength, Rock Smash]
+  # moves a move tutor can teach it
+  tutor: [Close Combat, Counter, Flare Blitz, Heat Wave, Body Slam, Fire Fang]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -81,7 +112,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a big orange sloth-like creature with long shaggy orange fur and a tall mane of red and yellow flame-like spikes. It has very long arms with huge cream claws and yellow bands on its wrists and waist, a small grumpy face, and a bushy flame-patterned tail."
@@ -93,7 +125,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:288"
+  footprint: "hgss:288"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

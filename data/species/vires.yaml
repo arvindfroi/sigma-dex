@@ -49,12 +49,6 @@ evolutions:
   - into: flurina
     method: other
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
@@ -67,10 +61,27 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Sweet Scent}
+    - {level: 1, move: Tackle}
+    - {level: 3, move: Play Nice}
+    - {level: 6, move: Fairy Wind}
+    - {level: 9, move: Aromatherapy}
+    - {level: 12, move: Draining Kiss}
+    - {level: 15, move: Fake Tears}
+    - {level: 18, move: Round}
+    - {level: 27, move: Energy Ball}
+    - {level: 30, move: Wish}
+    - {level: 33, move: Moonblast}
+    - {level: 36, move: Cotton Guard}
+    - {level: 39, move: Endeavor}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance, Safeguard,
+          Thunderbolt, Return, Psychic, Facade, Rest, Attract, Thief, Energy Ball, Endure,
+          Sleep Talk, Substitute, Draining Kiss, Play Rough, Toxic]
+  tutor: [Dazzling Gleam, Power Gem] # moves a move tutor can teach it
+  egg: [After You, Yawn, Sticky Web] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -82,9 +93,11 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement: "It crawls along the ground on its many legs."
+  movement: It crawls along the ground on its many legs.
   look: "It is a small pink virus-like creature with a long teardrop-shaped head with one big black eye and a tiny mouth, sitting on a transparent pink crystal body. It has six long thin pink legs."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
@@ -94,7 +107,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:46"
+  footprint: "hgss:46"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

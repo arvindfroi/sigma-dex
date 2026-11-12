@@ -4,7 +4,7 @@ name: Crappy Meal
 
 credits:
   designer: Casper       # who came up with it (Discord name)
-  artist:                # who drew the concept art
+  artist: Casper         # who drew the concept art
 
 types: [Poison, Grass]   # 1 or 2 types, e.g. [Grass, Steel]
 
@@ -53,11 +53,51 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 0, move: Acid Spray}
+    - {level: 0, move: Growth}
+    - {level: 0, move: Attack Order}
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Stun Spore}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Harden}
+    - {level: 12, move: Leech Seed}
+    - {level: 15, move: Head Smash}
+    - {level: 16, move: Synthesis}
+    - {level: 16, move: Cross Poison}
+    - {level: 20, move: Sweet Scent}
+    - {level: 29, move: Slash}
+    - {level: 30, move: Absorb}
+    - {level: 32, move: Ingrain}
+    - {level: 33, move: Mega Drain}
+    - {level: 33, move: Razor Leaf}
+    - {level: 33, move: Seed Bomb}
+    - {level: 33, move: Horn Leech}
+    - {level: 33, move: Pin Missile}
+    - {level: 36, move: Toxic}
+    - {level: 40, move: Gunk Shot}
+    - {level: 40, move: Leaf Blade}
+    - {level: 40, move: Slam}
+    - {level: 48, move: Power Whip}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
+          Giga Drain, Solar Beam, Return, Double Team, Sludge Bomb, Facade, Rest, Attract,
+          Thief, Energy Ball, Endure, Payback, Giga Impact, Swords Dance, Sleep Talk,
+          Poison Jab, Grass Knot, Swagger, Substitute, Venoshock]
+  # moves a move tutor can teach it
+  tutor: [Leaf Storm, Magical Leaf, Mega Drain, Seed Bomb, Synthesis, Leech Seed]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -65,12 +105,13 @@ encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4,
 
 # --- Design ---
 design:
-  concept:               # what is it? one or two sentences
+  concept: "An evolved version of the tomadernader, more pungent and dangerous than ever. Utilizes its cover as an everyday meal to fit in."
   name_origin:
   notes: "From the Discord concept card (Casse, 2026-10-01): evolution on the card: Stage 1, evolves from Tomadernader; also on the card: XL and Deep fried: takes 20 less damage from any attack and opponents take 20 damage when using a melee attack on it; Chlorophyll is hidden ability; moves Leftover Vortex (Power 70, Acc 80) and Acidic Spit (Power 40, Acc 100, poisons); No. ???."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its legs.
   look: "It is a wide hamburger-shaped creature with a sesame bun on top and a bun at the bottom, two meat patties, pickles and cheese in between. It has angry green pickle eyes, two curved purple onion tusks, many spiky french fries sticking out of its back, and dripping red ketchup and purple goo."
@@ -82,7 +123,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:463"
+  footprint: "hgss:463"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

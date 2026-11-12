@@ -64,9 +64,34 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Crunch}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Quick Attack}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Water Gun}
+    - {level: 7, move: Tail Whip}
+    - {level: 10, move: Water Pulse}
+    - {level: 12, move: Aqua Jet}
+    - {level: 17, move: Bite}
+    - {level: 20, move: Swift}
+    - {level: 20, move: Bubble Beam}
+    - {level: 20, move: Slash}
+    - {level: 28, move: Double Hit}
+    - {level: 34, move: Whirlpool}
+    - {level: 35, move: Agility}
+    - {level: 40, move: Waterfall}
+    - {level: 45, move: Aqua Tail}
+    - {level: 56, move: Hydro Pump}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect,
+          Rain Dance, Earthquake, Return, Dig, Brick Break, Double Team, Sandstorm,
+          Rock Tomb, Facade, Rest, Attract, Brine, Endure, Giga Impact, Stone Edge,
+          Rock Slide, Sleep Talk, Swagger, Substitute, Scald, Bulldoze, Liquidation, Surf,
+          Whirlpool, Rock Smash, Waterfall]
+  # moves a move tutor can teach it
+  tutor: [Aqua Jet, Aqua Tail, Earth Power, Icy Wind]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +104,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is an orange four-legged creature with two very long upright ears, brown spots, blue eyes and a cream belly. It has a big fluffy yellow mane on its chest, a large translucent blue water-like fin along its back, yellow webbed feet and a long thin tail ending in an orange and blue fin."
@@ -91,7 +117,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:38"
+  footprint: "hgss:38"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

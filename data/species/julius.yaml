@@ -6,7 +6,7 @@ credits:
   designer: "Thomas & Ragna" # who came up with it (Discord name)
   artist: "Thomas & Ragna" # who drew the concept art
 
-types: [Fighting]        # 1 or 2 types, e.g. [Grass, Steel]
+types: [Fighting, Normal] # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -47,8 +47,10 @@ held_items:              # items wild ones can hold (optional)
 # --- Evolution: what THIS Pokemon evolves INTO ---
 evolutions:
   - into: yanklet
-    method: level
-    level: 38
+    method: trade_item
+    item: Metal Coat
+  - into: harambe
+    method: friendship
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
@@ -61,9 +63,37 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Covet}
+    - {level: 1, move: Focus Energy}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Low Kick}
+    - {level: 1, move: Scratch}
+    - {level: 3, move: Fury Swipes}
+    - {level: 5, move: Mud-Slap}
+    - {level: 7, move: Seismic Toss}
+    - {level: 8, move: Retaliate}
+    - {level: 10, move: Rock Throw}
+    - {level: 12, move: Cross Chop}
+    - {level: 14, move: Assurance}
+    - {level: 17, move: Skull Bash}
+    - {level: 22, move: Rock Smash}
+    - {level: 26, move: Close Combat}
+    - {level: 31, move: Screech}
+    - {level: 33, move: Thrash}
+    - {level: 35, move: Stomping Tantrum}
+    - {level: 40, move: Outrage}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Focus Punch, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
+          Rain Dance, Frustration, Iron Tail, Thunderbolt, Thunder, Earthquake, Return, Dig,
+          Brick Break, Double Team, Rock Tomb, Aerial Ace, Facade, Rest, Attract, Thief,
+          Overheat, Focus Blast, Fling, Endure, Drain Punch, Payback, Giga Impact,
+          Stone Edge, Rock Slide, Sleep Talk, Poison Jab, Swagger, U-turn, Substitute,
+          Low Sweep, Bulldoze, Strength, Rock Smash, Rock Climb]
+  # moves a move tutor can teach it
+  tutor: [Close Combat, Counter, Endeavor, Fire Punch, Hyper Voice, Ice Punch, Mach Punch,
+          Night Slash, Outrage, Power-Up Punch, Seed Bomb, Thunder Punch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -76,7 +106,8 @@ design:
   notes:
   wishes: This pokemon can have fighting moves where it throws bottles at the foe. It can learn mostly fighting moves
   claude_fill: true      # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs without a tail
   movement: Like a Chimpanzee # e.g. It walks on four legs. / It floats in the air.
   look: Its a black aggresive Chimpanzee # what it looks like, a few plain sentences: It is a ...

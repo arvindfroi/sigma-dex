@@ -1085,3 +1085,204 @@ What this means for the work: the 60 essentials plus about 25 of the optional on
 - Ho-Oh (210) and Lugia (211) cutscenes: 7 frames of 64x64 each, seen from the front, a wing-beat cycle (wings up, spread, down, folded) for the flying scenes.
 - Ruins of Alph panels (`a/1/7/2` members 4-7, identical in Origin and vanilla): four sliding puzzles of 16 pieces, carved stone pictures of Kabuto, Aerodactyl, Omanyte and Ho-Oh in sand colours (one shared palette).
 - Microphone: PokeDaisy's DS core answers "nothing there" for the microphone (`app/src/main/cpp/nds/pk_nds_platform.cpp`), so a Chatot-style recorded cry would not work there today.
+
+## 13. Export readiness (2026-11-12)
+
+Goal: close the unknowns that block putting our dex, story Pokemon and trainers into Origin HeartGold, and say how hard each
+part is. (V) = read in a file or decoded in this session; (I) = inferred. Evidence: Origin ROM `~/sigma-origin/x_spike_backup`
+(v4.0.3 + EN rc3), vanilla US `x_vanilla`, the decompilation (`dec/cc`), the EN repo (`origin-en/work/tools`, esp.
+`docs/romdata.py`, `scriptinsert.py`, `narcpatch.py`, `msgtool.py`), hg-engine docs. Throwaway decoders (not in the repo, no game
+data copied): scratchpad `a081.py`, `owtab.py`, `mapspr.py`. Nothing in the ROM was modified.
+
+### 13.1 Overworld NPC and trainer sprites (`a/0/8/1`, 1,734 members)
+
+**How a map object picks its picture (V, decomp `src/map_object.c`, `src/field/map_object_models.c`, `map_object_render.c` + Origin `ov001`):**
+
+1. A map object (`a/0/3/2`, 32-byte record, `sprite` = u16 at +2, `script` u16 at +10) holds a **sprite id**. Ids 101-117 are *variable*
+   sprites: the engine reads game variable `VAR_OBJ_GFX_BASE + (id-101)` instead (84 of the 6,731 objects use them; id 101 alone 71).
+2. The sprite id is looked up in a **6-byte table `{u16 spriteId, u16 a/0/8/1 member, u16 flags}`**, terminated by 0xFFFF
+   (same struct as hg-engine's `gOWTagToFileNum`). In Origin it is in **overlay 1 (`arm9_overlays/ov001.bin`), file offset
+   0x21A18-0x2444E: 1,801 entries**, sprite ids 0-1950 plus 8192 (camera focus); 1,703 distinct members. The bytes right after it
+   (0xFFFF, 0, pointers) are other data: **there is no free room to add entries without moving the table** (I: repoint, as hg-engine does).
+3. `flags`: bits 0-4 effect flags (shadow/reflection/grass), bits 5-9 **draw-callback type** (20 kinds: 0 NPC, 1 unanimated,
+   2 looping, 3 player walking, 4 cycling, 5 HM/save, 6 watering, 7 surfing, 8 fishing, 9 ladder, 10 heal, 11 Poketch,
+   12 PC woman, 13 legendary bird, 15 model object, 16 large follower, 17 follower, 18 apricorn tree, 19 apricorn shake),
+   bits 10-15 **billboard info** (table of 24 used 8-byte entries at ov001 0x21888: plane model member 266-279 + frame-sequence
+   member 280-296). Members 266-296 are not in the sprite table: they are the shared plane models and animation sequences.
+4. Counts by kind in Origin: 182 plain NPC entries (draw 0, billboard 0), 1,451 follower sheets (draw 17), 69 large follower sheets (draw 16, 64x64),
+   the rest are player and special objects.
+5. A trainer's overworld picture is just the object's sprite id. It is **independent of the trainer class** (class = battle picture in
+   `a/0/5/8`). 75 members are used by the 85 distinct sprite ids on trainer objects, and 72 of those members are shared with non-trainer NPCs.
+6. A trainer on the map is an object whose `script` is **3000 + trainer index** (V: 376 objects with 3000-4023, 316 distinct trainers,
+   index into `a/0/5/5` / `a/0/5/6`; the +3000 rule is pret's convention (I) and fits all counts). Script-started fights use `TrainerBattle`.
+
+**Frame layout of a standard NPC sheet (V: sequence member 280 + texture table of member 2, rendered and looked at):**
+a BTX0 with one 4bpp 16-colour palette and **12 distinct 32x32 frames stacked top to bottom (32x384, 6,144 bytes of pixels)**, but 16 texture
+names that point at them (names sort as `x.1, x.10 .. x.16, x.2 .. x.9`, which is the texture index order). The animation
+(billboard sequence 0, 16 keyframes of 4 ticks) plays *stand, step A, stand, step B*:
+
+| Frames (image index) | Facing |
+|---|---|
+| 0 stand, 7 step A, 8 step B | north (back view) |
+| 9 stand, 10, 11 | south (front view) |
+| 2 stand, 1 step A, 3 step B | west |
+| 4 stand, 5, 6 | east |
+
+So the stacked order is N0, W-A, W0, W-B, E0, E-A, E-B, N-A, N-B, S0, S-A, S-B. Standing still shows the stand frame only; walking cycles
+stand/A/stand/B. Our follower encoder (`~/sigma-origin/lw/btx.py`) already overwrites pixels and palette inside an existing member
+and assumes 32-wide frames stacked vertically, so **it works unchanged on NPC sheets** (it needs a template member of the same size).
+Size classes seen: 177 of the 266 hg-engine NPC sheets are 12-frame; others are 1 frame (21), 2-8 frames, a few 64x64 and 800-pixel-tall ones.
+
+**Player and special sheets (V for the sequences, I for names):**
+- Player walk/run (draw 3, e.g. sprite 0 = member 69): **24 frames**, 32 texture names. Walking: N 0/9/20, S 21/22/23, W 2/1/3, E 4/5/6;
+  running: N 7/8/10, S 11/12/13, W 14/15/16, E 17/18/19 (each triple = stand, A, B). Sprite ids 97, 238, 239, 295, 296 use the same layout
+  (other player characters/outfits).
+- Cycling (draw 4): 22 frames (member 71, 98). Fishing: 16 frames. Watering: 5. HM/saving/Surf: 4 each. Surf mount, Poketch, heal machine: 6-16 frames.
+  Frame orders for these come from sequence members 282-296 (texture index lists decoded; direction assignment not checked picture by picture).
+- Followers: 8 frames (32x32), large followers 8 frames of 64x64 (already solved, sections 5 and 9).
+
+**What a new trainer overworld sprite needs.**
+Easy route (I, same trick as the species swap): pick an existing NPC sprite id we do not need, overwrite its `a/0/8/1` member with
+12 frames in the order above and a 16-colour palette (index 0 transparent; keep 12 frames and the 6,760-byte member size). No code
+change, nothing else moves. Hard route: a new sprite id needs a new row in the ov001 table (repoint) and, for odd frame counts, a new sequence.
+With about 180 plain NPC entries to overwrite, the easy route covers every trainer and NPC we need to re-skin.
+Round trip of the whole NARC with the EN repo's `msgtool.Narc` is byte-identical (V, `a/0/8/1`, `a/0/1/2`, `a/0/3/2`, `a/0/3/7`, `a/0/5/6`, `a/2/4/8`).
+Correction to 1.3: the NPC frame order is no longer unknown.
+
+### 13.2 Maps and event scripts
+
+- **Event scripts (`a/0/1/2`, 966 members, 1.49 MB):** the EN repo decodes them. `romdata.disasm` + `script_cmds.json` (843 commands,
+  operand sizes, jump targets) disassembles every member (V: all 966 decode; GiveMon x46, WildBattle x118, LoadNPCTrade x11,
+  TrainerBattle x850, SetVar x4,745). `scriptdump.py` prints a member with the English text. **There is no assembler** for Origin's
+  script format. What exists for writing: `narcpatch.py` (`[[narc_bytes]]`: byte patch with `expect`/`new`/member SHA-1, size unchanged)
+  and `scriptinsert.py` (insert whole commands before a command and relocate every relative offset, refuses when unsure). Both are tested
+  (`test_script_insert.py`, `test_narcpatch.py`) and used by shipped fixes. The decomp's script macros (`asm/macros/script.inc`, 855 commands) share
+  Origin's command ids (500 names equal; the rest differ only in naming, the EN table uses `ScrCmd_NNN` placeholders), but the decomp
+  assembler needs the MWCC toolchain and does not know Origin-only commands, so it is not a practical route (I). hg-engine scripts
+  are source for its own build and cannot be applied to Origin's binary.
+- **Read-only proof (V): the starter gift.** Oak's lab member 738 (5,550 bytes, 27 entries): at offset 1930 `SetVar 0x8004, 1` (bytes
+  `29 00 04 80 01 00`), at 1936 `SetVar 0x8006, 3`, later `GiveMon 0x8004, level 5, item 0, 0, 0, 0x800C` (op 137, bytes
+  `89 00 04 80 05 00 ...`) preceded by `BufferSpeciesName 1, 0x8004`. The other two starters set 0x8004 to 25 and 4 the same way. So
+  **to change a gift species you change the u16 immediate of the `SetVar`** (or the `GiveMon` operand), a 2-byte patch. Level, item and the result var are the other operands.
+- **Where the species numbers sit (V):** `GiveMon` 46 (6 take the species from a variable set earlier in the same member), `WildBattle`
+  118 (operands `species, level-or-level-variable, flag`: species is an immediate, the second operand is 65290 in the samples seen), `LoadNPCTrade` 11 (operand = index into
+  `a/1/1/2`: 13 records of 84 bytes `give species, 6 IVs, ability, OT id, PID, item, gender, ask species`, so a trade species is
+  a 4-byte field in that NARC, no script change). `PlayCry` x2,756 and `SetVar`s that feed cries/names are species too (section 12).
+- **Trainer reference in a script:** `TrainerBattle` (operand sizes 2,2,1,1; trainer index first, I) and `GoToIfTrainerDefeated`
+  take the trainer index as an immediate (I); a map-placed trainer needs no script edit: its object `script` field is 3000 + index (13.1).
+- **Map events (`a/0/3/2`, 489 members, one per zone, 274,920 bytes):** layout decoded by `romdata.parse_events` (V, used for the whole
+  guide): `u32 n`, n x 20-byte BG events, `u32 n`, n x 32-byte objects (id, sprite, movement, type, flag, script, facing, ..., x, z),
+  `u32 n`, n x 12-byte warps, `u32 n`, n x 16-byte coord events. Fields are fixed size, so editing a sprite id or script id is a 2-byte
+  `narc_bytes` patch; adding an object grows the member (counts are prefixed), so the member must be rebuilt (the Narc packer round-trips).
+  There is no event *writer* yet: it is the inverse of `parse_events`, about 40 lines (S). No tool edits map geometry (`a/0/6/5` matrices,
+  models): not needed for the swap, only for new areas.
+
+### 13.3 Wild encounter tables (`a/0/3/7`)
+
+(V, `romdata.parse_encounter` on all records.) **149 members of 196 (0xC4) bytes**, one per encounter id; maps point to them through the map
+header (136 of them used, 4,087 rows, see 12). The format is vanilla HGSS's:
+
+| Offset | Size | Field |
+|---|---|---|
+| 0x00 | 6 x u8 | rates: grass, surf, rock smash, old rod, good rod, super rod (+2 pad) |
+| 0x08 | 12 x u8 | grass levels, one per slot (slot chances 20/20/10/10/10/10/5/5/4/4/1/1) |
+| 0x14 / 0x2C / 0x44 | 12 x u16 each | grass species, **morning / day / night** |
+| 0x5C / 0x60 | 2 x u16 each | Hoenn sound / Sinnoh sound radio replacements |
+| 0x64 | 5 x {u8 min, u8 max, u16 species} | surf (60/30/5/4/1) |
+| 0x78 | 2 x same | rock smash (80/20) |
+| 0x80 / 0x94 / 0xA8 | 5 x same each | old / good / super rod (40/30/15/10/5) |
+| 0xBC | 4 x u16 | swarms: grass, surf, fishing at night, fishing |
+
+Every species field is `form << 11 | species` (24 of 6,195 filled fields use a form; species ids go to 1,013; 525 distinct). 118 records have a grass rate,
+74 surf, 73 each rod, 10 rock smash. **Script-free rewrite:** edit the records in place (same size) and repack: 66 species fields plus 12 level bytes
+per record; each field is a byte patch or a whole-member replace. A small Python tool (parse -> change -> pack, about 60 lines) is enough (S). Unown, Slowpoke and
+Snorlax tables are normal records; legends are never wild. The headbutt tree and Bug-Catching Contest tables live elsewhere (`romdata.parse_headbutt`, `parse_bug_contest`).
+
+### 13.4 Trainer party record (`a/0/5/6`, 28 bytes per Pokemon) and trainer data (`a/0/5/5`, 20 bytes)
+
+(V: 1,024 members, 3,891 Pokemon, every member size = 28 x count; EN repo's `parse_trpoke` agrees; compared with the decomp
+`include/trainer_data.h` and hg-engine's `TrainerPokemonData` doc.)
+
+| Offset | Size | Field | Notes |
+|---|---|---|---|
+| 0 | u8 | difficulty (IV scale) | IV = value x 31 / 255 for every stat; 150 (1,762 mons), 250, 200, 100, 50, 10, 0. The loader then overwrites the HP IV with 10/20/31 by level (<=40, <80, else) (V EN repo, arm9 0x020728E0) |
+| 1 | u8 | gender/ability override | vanilla meaning: bits 0-3 force gender (1 male, 2 female), bits 4-7 force ability slot (1/2). Seen: 0 (3,069 mons), **0x20** (821: ability slot 2), 3 (1 mon). Origin also has an explicit ability (bytes 4-5) |
+| 2 | u8 | **form** | 0 for 3,870 mons; 1-5 for 21 (the EN loader applies it, arm9 0x02072822). Differs from vanilla, where the form is in the top bits of the species |
+| 3 | u8 | **nature** | 0xFF = none/random (2,731 mons), else 0-24 (3, 15, 10, 5, 13, 8, 23 seen). Not in vanilla |
+| 4-5 | u16 | explicit ability id | |
+| 6-7 | u16 | level | |
+| 8-9 | u16 | species (form in top bits also accepted: `split_species`) | |
+| 10-11 | u16 | held item | |
+| 12-19 | 4 x u16 | moves (0 = fill with default level-up moves) | |
+| 20-25 | 6 x u8 | **EVs** (0-255 each) | 1,161 mons have EVs, e.g. 252/252/0/0/6/0 patterns. Stored in loader order HP/Atk/Def/Spe/SpA/SpD (the hack's loader gives the bytes to fields 13-18; hg-engine stores `evnums` in the same 6 slots); the EN repo reads the order out of the code (`trainer_ev_order`) |
+| 26-27 | u16 | **ball seal / capsule** | the last field of vanilla's record too (`capsule`); 0 for 3,888 of 3,891 mons; 1 for two mons and 0x0300 for one (trainers 165, 635, 636: the stray values sit in records whose bytes look like data-entry slips, I) |
+
+Not present: shiny flag, ball, status, custom stats, nickname. hg-engine's optional flag-driven fields (`additionalflags`, `shinylock`, ...)
+are **not in Origin's fixed 28-byte layout** (V: no flag byte; trainer-data byte 0 is only 0-3, items and moves present). Origin
+trainer data (`a/0/5/5`): byte 0 type (3 for 963 trainers = items+moves, 0 for 54, 1 for 5, 2 for 2), bytes 1-2 trainer class (125 classes used, max 128), byte 3 count,
+4 x u16 items, u32 AI flags, u32 battle type (V from `parse_trdata`). **A party edit is a pure data edit** (rewrite the member, keep size = 28 x count,
+update the count byte in `a/0/5/5`).
+
+### 13.5 Text (`msgtool`)
+
+- `msgtool.py` handles any message bank: `unpack`, `extract` (NARC -> one JSON per bank, readable text with `{VAR:..}` tags),
+  `insert` (JSON banks -> rebuilt ROM), `roundtrip` (asserts byte-identical NARC), `glyph` (ASCII render of a font glyph). It is
+  layout-preserving (keeps the BTNF, 0xFF padding) and handles the 9-bit compressed name strings (`stored_name_text`). It needs the Python package `ndspy`
+  (not installed on this Mac; pip install; the repo's `pyproject.toml` lists it). 67,078 strings are already English in the rc3 ROM, so every bank is open to rewriting
+  (species 0237, items 0222, moves 0750, abilities 0720, types 0735, natures 0034, locations 0279, trainer names 719/731 classes; see `text_metrics.md`).
+- **Limits (V, `work/notes/text_metrics.md`, `font_widths.json`):** line width = sum of glyph advances (no letter spacing), line height 16 px; dialogue
+  and battle box 216 px, 2 lines per view (signpost with map graphic 160 px); species names 10 chars max in vanilla layout, items/moves/abilities 12, locations 16, nature 7; battle buffers
+  54-60 px for species/nickname, 36-42 px for player/trainer names. `qa.py check` gates width and `wrap` breaks lines.
+- **Æ Ø Å (V):** the charmap has them (`å 0184, æ 0185, ø 0197, Å 0164, Æ 0165, Ø 0177`). The game's fonts do not all draw them:
+  menu font (0) and special font (2): all six present; **message font (1, dialogue and battle text): Å å present, Æ Ø æ ø have zero width (blank)**; font 4 (other UI):
+  Å Æ Ø æ ø blank. The vanilla US fonts have all six (widths 10/6/6 and 11/7/7). The EN repo already restores glyphs with a `[[font]]` fix
+  (`font-glyphs`: copies bitmap + width byte of chosen codes from the USA ROM into `a/0/1/6` fonts 0/1/2/4), so Norwegian letters are a one-line extension of an existing mechanism (S); free-hand redraw is only needed for ð þ.
+- **Rebuilding the ROM:** the EN repo builds CN ROM -> English via `build.py` (xdelta + armips + narcpatch stages). Our own route (V, files exist: `origin_sigma.nds`,
+  `roundtrip.nds`, `origin_hg_en.nds`) is unpack -> change files -> repack with `~/sigma-hgengine/tools/dsrom`. Caveat (V): `msgtool.Narc` does not round-trip `a/1/0/9`
+  (it drops 99 trailing bytes after the file data and changes the NARC size field); use hg-engine's `tools/narcpy.py` or `nitroarc` for that one.
+
+### 13.6 Battle-intro VS portraits (`a/1/0/9`, 242 members)
+
+(V: decomp `encounter_effect_leaders.c`, `encounter_effect_rocket.c`, member sizes and cell data decoded.) Each gym leader entry is
+`spriteMembers = {palette, picture, cell bank, animation bank}` and `bgMembers = {screen, tiles, palette}`, e.g. leader at 87-90 with background 38-40, 95-98 with 20-22, 107-110 with 29-31.
+There are **29 four-member bust groups**: 22 at members 63, 67, ... 147 (16 gym leaders in 63-126, Elite Four and champion in 127-150, 4 apart),
+players boy/girl at 207 and 211 (the Elite Four intro hard-codes them), five Rocket executives at 222-238.
+- Picture: NCGR **3,120 bytes = 48-byte header + 3,072 bytes, 4bpp, 96 tiles** (V, all 22 leader/E4 busts). The cell bank (111 bytes, one cell) places two OBJs: a 64x64 at x=-52 and a
+  32x64 at x=+12, so the bust is **96 wide x 64 tall, not 64x64 as section "VS portraits" in `WHEN_WE_FINALIZE.md` says**.
+- Palette: NCLR, 552 bytes (256-entry layout) for 19 of 22 leaders, 72 bytes (16 entries) for the two players, 548 for one; **the bust uses 16 colours (row 0)**; some palettes also fill rows 14/15 (effect/flash colours, I).
+- Cell banks: 7 variants (111/107/123/142 bytes), the animation bank is identical across the leaders. A new portrait of the same size reuses them unchanged.
+- Backgrounds are separate (NSCR 2,084 + NCGR 2,624 + NCLR 552), one per leader, optional to redraw.
+- **Producing a new portrait:** a 96x64 indexed picture (16 colours, index 0 transparent) -> tile order of the existing NCGR (4bpp linear, OBJ 1D mapping: the first 64x64 block, then the 32x64 block)
+  -> replace members N+1 (and N for the palette); no code change. Our LoRA gives full bodies, so a close-up bust is a new drawing task (needs a generator pass or hand drawing).
+
+### 13.7 Pokewalker and other per-species data not yet decoded
+
+- **Pokewalker (V, decomp `src/application/pokewalker/*.c`):** `a/2/4/8` (540 members, LZ10-compressed 0x180-byte = 384-byte icons, indexed by `icon naix - 7`),
+  `a/2/5/6` (664 members, the 0x600-byte = 96x64 2bpp big pictures, indexed by species/form/gender; Burmy/Wormadam/Shellos/Gastrodon/Cherrim/Arceus/Castform/Deoxys offsets are hard-coded) and
+  `a/2/4/7`, `a/2/4/9` (UI, event log) are all **byte-identical to the vanilla US files** (V: `cmp`). `a/2/2/8` (540 members) is also identical to vanilla: 7 header
+  members (palette, cells, anims) then 533 icon-sized 4bpp pictures of 1,072 bytes; no source references it (owner unknown, I: legacy icon sheet). The icons and pictures are sent to the **physical Pokewalker over infrared** (`pokewalker_upload.c`), so the whole app needs
+  real hardware; Origin never touched it. Decision (I): leave it alone. Our mons above the old dex get no Pokewalker picture, which only matters on real hardware.
+- Other per-species data still undecoded: only things we already know the place of: the 52-byte species records and the Origin pokedex/icon/follower lookup tables
+  (`pokemon_overworld_info`, new `pokeicon` NARC; sections 5 and 9), footprints (done), cries (section 5.1). Nothing new was found in `a/2/x`.
+
+### 13.8 Export readiness table
+
+Effort: S = a day or less with tools in hand, M = a few days, L = weeks or open-ended. "GPU" = needs the Legion for image generation.
+
+| Part | Tool we have | What is missing | Effort | Legion GPU |
+|---|---|---|---|---|
+| Base ROM build (unpack, edit files, repack, run in melonDS) | `msgtool`, `narcpatch`, `scriptinsert`, `~/sigma-hgengine/tools/dsrom`, `lw/` encoders, py-desmume harness | `ndspy` install; one packer that round-trips every NARC (`a/1/0/9` needs another) | S | no |
+| Dex, base stats, names, evolutions, learnsets | Origin record decoders + our sheet pipeline (sections 5-8) | final data, slot choice (section 8) | M | no |
+| Front/back/icon/follower sprites per mon | LoRA chain, `lw/btx.py`, converters | the last approved sprite sets | L | yes |
+| Story gifts, statics, trades (46 + 118 + 11 + 6 variable) | `romdata.disasm`, `narcpatch`, `a/1/1/2` trade record | a list "old species -> our species" per script (section 12) and one patch file; Origin's SetVar/GiveMon immediates proven | M | no |
+| Map-placed trainers and NPC re-skin | `parse_events`, table at ov001 0x21A18 | event writer (inverse of parse), ov001 table edit only if new sprite ids are needed | S-M | no |
+| NPC/trainer overworld sheets (12 frames, 4 directions) | `lw/btx.py` (works as is), layout known (13.1) | the art: ~100-180 sheets for the cast (N/S/W/E x stand + 2 steps) | L (art) / S (format) | yes |
+| Player sheets (walk+run 24, cycle 22, fish 16, surf/HM/save, ...) | frame orders for walk/run decoded | art, the other layouts' direction check | M-L | yes |
+| Trainer teams and data | full 28-byte record decoded (13.4), `a/0/5/5` decoded | the teams themselves (our balancing), write tool | S (tool) / M (design) | no |
+| Trainer class battle pictures (`a/0/5/8`) | format known (section 1.3) | art; in-place class replacement unproven | L | yes |
+| Wild tables | record decoded (13.3), EN guide tables | write tool (parse -> change -> pack), our encounter design | S | no |
+| Text: names, dex entries, story, trainers | `msgtool` all banks, `qa.py` width gate | text writing; Æ Ø glyph restore for font 1 and 4 via `[[font]]` | M | no |
+| VS portraits (22 busts, backgrounds optional) | format decoded (13.6), cell/anim banks reusable | art, 96x64, 16 colours; Elite Four/champion/Rocket extra | M-L | yes |
+| Custom abilities, moves, evolutions | overlay-14 patch route, Weather Switch PoC (`ORIGIN_CUSTOM_CODE.md`) | each new ability is hand-written Thumb code, no source | L | no |
+| New quests, new maps, overworld wild mons | `scriptinsert` (insert commands), `a/0/3/2` decoded | script assembler, map editor, spawn code (open ideas in `WHEN_WE_FINALIZE.md`) | L | no |
+| Pokewalker | none needed | needs real IR hardware; vanilla files untouched | leave | no |

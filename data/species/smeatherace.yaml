@@ -64,9 +64,37 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 0, move: Sky Attack}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Peck}
+    - {level: 1, move: Quick Attack}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Tail Whip}
+    - {level: 6, move: Echoed Voice}
+    - {level: 13, move: Supersonic}
+    - {level: 13, move: Wing Attack}
+    - {level: 16, move: Pluck}
+    - {level: 21, move: Aerial Ace}
+    - {level: 21, move: Roost}
+    - {level: 22, move: Slash}
+    - {level: 24, move: Fury Attack}
+    - {level: 30, move: Screech}
+    - {level: 33, move: Agility}
+    - {level: 34, move: Drill Peck}
+    - {level: 42, move: Air Slash}
+    - {level: 44, move: Feather Dance}
+    - {level: 44, move: Acrobatics}
+    - {level: 50, move: Take Down}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration, Return,
+          Double Team, Aerial Ace, Facade, Rest, Attract, Thief, Steel Wing, Roost, Endure,
+          Giga Impact, Sleep Talk, Swagger, Pluck, U-turn, Substitute, Dual Wingbeat, Fly]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Brave Bird, Endeavor, Heat Wave, Hurricane, Hyper Voice, Sky Attack,
+          Charm]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +107,8 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a large white tern-like bird with long narrow wings that have black zigzag lines, a long pointed beak, and a forked feathered tail. A yellow patch on its throat and chest shows a black smiley-face marking."
@@ -91,7 +120,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:18"
+  footprint: "hgss:18"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

@@ -64,9 +64,33 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Confusion}
+    - {level: 1, move: Leer}
+    - {level: 5, move: Helping Hand}
+    - {level: 21, move: Psybeam}
+    - {level: 25, move: Agility}
+    - {level: 25, move: Lava Plume}
+    - {level: 28, move: Imprison}
+    - {level: 35, move: Extrasensory}
+    - {level: 40, move: Zen Headbutt}
+    - {level: 42, move: Nasty Plot}
+    - {level: 45, move: Psycho Cut}
+    - {level: 49, move: Psychic}
+    - {level: 56, move: Uproar}
+    - {level: 60, move: Recover}
+    - {level: 63, move: Future Sight}
+    - {level: 75, move: Psycho Shift}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen, Protect,
+          Rain Dance, Safeguard, Solar Beam, Thunderbolt, Thunder, Return, Psychic,
+          Shadow Ball, Double Team, Reflect, Flamethrower, Fire Blast, Facade, Rest,
+          Skill Swap, Overheat, Energy Ball, Fling, Endure, Will-O-Wisp, Giga Impact, Flash,
+          Thunder Wave, Psych Up, Sleep Talk, Grass Knot, Swagger, Substitute, Trick Room,
+          Psyshock, Mystical Fire, Expanding Force, Flame Charge]
+  # moves a move tutor can teach it
+  tutor: [Flare Blitz, Heat Wave, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +103,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a slender deer-like creature with a deep-blue body, a cream face, chest and belly, white and orange lightning-shaped markings, and a white ring on its chest. It has antlers carrying four floating round dark-blue discs with flame rings, flame bursts around its hooves and a short tail trailing orange flame."
@@ -91,7 +116,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:78"
+  footprint: "hgss:78"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

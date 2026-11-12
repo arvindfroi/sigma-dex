@@ -50,18 +50,44 @@ evolutions:
     method: level
     level: 16
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Scratch}
     - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
     - {level: 6, move: Ember}
+    - {level: 7, move: Smokescreen}
     - {level: 10, move: Supersonic}
+    - {level: 13, move: Fury Swipes}
     - {level: 14, move: Flame Charge}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+    - {level: 17, move: Incinerate}
+    - {level: 18, move: Wing Attack}
+    - {level: 19, move: Lava Plume}
+    - {level: 19, move: Slash}
+    - {level: 28, move: Scary Face}
+    - {level: 32, move: Fire Spin}
+    - {level: 32, move: Flamethrower}
+    - {level: 36, move: Inferno}
+    - {level: 40, move: Fire Blast}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Protect, Iron Tail, Return, Dig, Double Team,
+          Flamethrower, Fire Blast, Facade, Rest, Attract, Overheat, Endure, Will-O-Wisp,
+          Sleep Talk, Swagger, Substitute, Flame Charge, Cut, Rock Smash, Fly]
+  # moves a move tutor can teach it
+  tutor: [Fire Fang, Fire Punch, Flame Wheel, Flare Blitz, Heat Wave]
+  # only needed for the first stage of an evolution line
+  egg: [Flare Blitz, Fire Punch, Counter, Double Kick, Fake Out, Covet]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -73,7 +99,9 @@ design:
   notes: DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a small, round, red-orange creature with a cream belly patch, a cream pig-like snout with small fangs and big ears burning with flames. It has very long thin arms with white claws at the tips, small round feet and a long thin tail ending in a flame."
@@ -85,7 +113,7 @@ assets:
   front_anim: "assets/sprites/torchbat/anim_front.png"
   back_sprite: "assets/sprites/torchbat/back.png"
   icon: "assets/sprites/torchbat/icon.png"
-  footprint: "hgss:4"
+  footprint: "hgss:4"    # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

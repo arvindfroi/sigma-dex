@@ -64,9 +64,34 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Leer}
+    - {level: 1, move: Rock Smash}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Covet}
+    - {level: 1, move: Scratch}
+    - {level: 5, move: Focus Energy}
+    - {level: 20, move: Scary Face}
+    - {level: 25, move: Bulk Up}
+    - {level: 30, move: Iron Head}
+    - {level: 32, move: Iron Defense}
+    - {level: 36, move: Hammer Arm}
+    - {level: 40, move: Dynamic Punch}
+    - {level: 40, move: Reversal}
+    - {level: 48, move: Swords Dance}
+    - {level: 49, move: Close Combat}
+    - {level: 54, move: Superpower}
+    - {level: 56, move: Double-Edge}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
+          Earthquake, Return, Dig, Brick Break, Rock Tomb, Facade, Rest, Attract,
+          Focus Blast, Fling, Endure, Payback, Giga Impact, Stone Edge, Rock Slide,
+          Sleep Talk, Poison Jab, Swagger, Substitute, Flash Cannon, Heavy Slam, Bulldoze,
+          Coaching, Rock Smash, Frustration, Iron Tail, Thunderbolt, Thunder, Double Team,
+          Aerial Ace, Thief, Overheat, U-turn, Strength, Rock Climb, Gyro Ball]
+  # moves a move tutor can teach it
+  tutor: [Close Combat, Iron Head, Counter, Endeavor, Hyper Voice, Night Slash, Seed Bomb]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +104,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: several bodies joined together
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a group of three tall, grey metal slab-like towers joined side by side, with panel lines across the surface. Each tower has two glowing yellow vertical eye-like windows near the top."
@@ -91,7 +117,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:351"
+  footprint: "hgss:351"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

@@ -51,14 +51,40 @@ evolutions:
     item: Thunder Stone
   - into: croakble
     method: level
-    level: 25
+    level: 30
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Hypnosis}
+    - {level: 1, move: Water Gun}
+    - {level: 7, move: Pound}
+    - {level: 14, move: Aqua Jet}
+    - {level: 14, move: Mud Shot}
+    - {level: 21, move: Water Pulse}
+    - {level: 22, move: Bubble Beam}
+    - {level: 29, move: Rain Dance}
+    - {level: 35, move: Body Slam}
+    - {level: 41, move: Earth Power}
+    - {level: 48, move: Hydro Pump}
+    - {level: 59, move: Double-Edge}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Hail, Hidden Power, Ice Beam, Blizzard, Protect, Rain Dance, Return,
+          Double Team, Facade, Rest, Attract, Brine, Endure, Sleep Talk, Swagger,
+          Substitute, Scald, Liquidation, Surf, Whirlpool, Waterfall]
+  tutor: [Aqua Tail, Icy Wind] # moves a move tutor can teach it
+  egg: [Mist, Haze, Muddy Water] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -70,7 +96,9 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-08): also on the card: Lv. 1, male."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: "It floats in the air, swimming with its fins."
   look: "It is a small tadpole-like creature with a dark green round head, a yellow eye and a wide mouth. It has a long tapering body with a translucent light blue tail fin along its back and a small stubby flipper on its side."
@@ -82,7 +110,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:60"
+  footprint: "hgss:60"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

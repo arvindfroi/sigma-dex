@@ -68,8 +68,29 @@ learnset:
   level_up:
     - {level: 1, move: Hydro Steam}
     - {level: 1, move: Boiling Downpour}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Ember}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Quick Attack}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Tail Whip}
+    - {level: 1, move: Water Gun}
+    - {level: 6, move: Flame Charge}
+    - {level: 12, move: Aqua Jet}
+    - {level: 12, move: Bite}
+    - {level: 13, move: Water Pulse}
+    - {level: 34, move: Crunch}
+    - {level: 35, move: Fire Spin}
+    - {level: 36, move: Agility}
+    - {level: 40, move: Flamethrower}
+    - {level: 56, move: Hydro Pump}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard, Hyper Beam,
+          Protect, Rain Dance, Solar Beam, Return, Double Team, Flamethrower, Fire Blast,
+          Facade, Rest, Attract, Overheat, Brine, Endure, Will-O-Wisp, Giga Impact,
+          Sleep Talk, Swagger, Substitute, Scald, Liquidation, Surf, Whirlpool, Waterfall]
+  # moves a move tutor can teach it
+  tutor: [Aqua Tail, Flare Blitz, Heat Wave, Icy Wind]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -82,7 +103,8 @@ design:
   notes: "From the Discord concept card (**Joe**, 2026-05-15): evolution on the card: Battle Bond transformation: defeating an opponent with Battle Bond transforms it into its blue-red Battle Bond Form; also on the card: Normal form stats shown; Battle Bond Form stats HP 47, Atk 118, Def 66, SpA 150, SpD 80, Spe 138, total 599; Battle Bond is the hidden ability; signature moves Scalding Surf and Aqua Slash."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a chubby penguin with a black and white body, orange beak and feet, and dark sunglasses. A tall crest of orange and yellow flames burns on top of its head, and it stands on a surfboard made of blue water."
@@ -94,7 +116,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:394"
+  footprint: "hgss:394"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

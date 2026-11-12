@@ -22,12 +22,12 @@ abilities:
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp: 100
-  attack: 145
+  hp: 105
+  attack: 140
   defense: 90
-  sp_attack: 85
-  sp_defense: 70
-  speed: 50
+  sp_attack: 95
+  sp_defense: 65
+  speed: 45
 
 ev_yield: {attack: 3}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -64,9 +64,30 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Leer}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Water Gun}
+    - {level: 13, move: Bite}
+    - {level: 15, move: Focus Energy}
+    - {level: 15, move: Scary Face}
+    - {level: 20, move: Agility}
+    - {level: 24, move: Flail}
+    - {level: 32, move: Crunch}
+    - {level: 46, move: Aqua Tail}
+    - {level: 50, move: Screech}
+    - {level: 53, move: Rain Dance}
+    - {level: 58, move: Thrash}
+    - {level: 63, move: Crabhammer}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Roar, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Hyper Beam,
+          Protect, Rain Dance, Iron Tail, Earthquake, Return, Double Team, Rock Tomb,
+          Facade, Rest, Attract, Brine, Fling, Endure, Dragon Pulse, Giga Impact,
+          Rock Slide, Sleep Talk, Swagger, Substitute, Scald, Bulldoze, Liquidation, Surf,
+          Strength, Whirlpool, Rock Smash, Waterfall, Flash]
+  # moves a move tutor can teach it
+  tutor: [Aqua Jet, Aqua Tail, Draco Meteor, Dragon Dance, Dragon Rush, Icy Wind, Outrage]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +100,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: "It floats in the air, swimming with its fins."
   look: "It is a huge dark red shark-like sea beast with a purple dragon-like head, a red eye and a mouth of sharp white teeth. It has two big green fins at its sides, a green dorsal fin, glowing blue rings along its body, and a curved black stalk on its back ending in a yellow pyramid lure."

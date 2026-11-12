@@ -157,19 +157,19 @@ TEST("Sigma dex: Warrallier has the data from its species file")
     EXPECT_EQ(info->types[0], TYPE_WATER);
     EXPECT_EQ(info->types[1], TYPE_DARK);
     EXPECT_EQ(info->abilities[0], ABILITY_TORRENT);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FLIP_TURN);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SLASH);
     EXPECT_EQ(GetSpeciesName(SPECIES_WARRALLIER)[0], CHAR_W);
 }
 
 SINGLE_BATTLE_TEST("Sigma dex: Warrallier can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_WARRALLIER) { Moves(MOVE_FLIP_TURN); }
+        PLAYER(SPECIES_WARRALLIER) { Moves(MOVE_SLASH); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_FLIP_TURN); }
+        TURN { MOVE(player, MOVE_SLASH); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_FLIP_TURN, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SLASH, player);
     }
 }
 
@@ -257,6 +257,146 @@ SINGLE_BATTLE_TEST("Sigma dex: Monarkhan can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Erobi has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_EROBI];
+    EXPECT_EQ(info->baseHP, 44);
+    EXPECT_EQ(info->baseAttack, 45);
+    EXPECT_EQ(info->baseDefense, 39);
+    EXPECT_EQ(info->baseSpeed, 44);
+    EXPECT_EQ(info->baseSpAttack, 44);
+    EXPECT_EQ(info->baseSpDefense, 64);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_FLYING);
+    EXPECT_EQ(info->abilities[0], ABILITY_UNBURDEN);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_EROBI)[0], CHAR_E);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Erobi can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_EROBI) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: Harpie has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_HARPIE];
+    EXPECT_EQ(info->baseHP, 56);
+    EXPECT_EQ(info->baseAttack, 67);
+    EXPECT_EQ(info->baseDefense, 52);
+    EXPECT_EQ(info->baseSpeed, 62);
+    EXPECT_EQ(info->baseSpAttack, 52);
+    EXPECT_EQ(info->baseSpDefense, 76);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_FLYING);
+    EXPECT_EQ(info->abilities[0], ABILITY_UNBURDEN);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_HARPIE)[0], CHAR_H);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Harpie can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_HARPIE) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: Bolthook has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BOLTHOOK];
+    EXPECT_EQ(info->baseHP, 95);
+    EXPECT_EQ(info->baseAttack, 128);
+    EXPECT_EQ(info->baseDefense, 70);
+    EXPECT_EQ(info->baseSpeed, 72);
+    EXPECT_EQ(info->baseSpAttack, 60);
+    EXPECT_EQ(info->baseSpDefense, 70);
+    EXPECT_EQ(info->types[0], TYPE_DARK);
+    EXPECT_EQ(info->types[1], TYPE_FLYING);
+    EXPECT_EQ(info->abilities[0], ABILITY_STRONG_JAW);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_HONE_CLAWS);
+    EXPECT_EQ(GetSpeciesName(SPECIES_BOLTHOOK)[0], CHAR_B);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Bolthook can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_BOLTHOOK) { Moves(MOVE_HONE_CLAWS); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_HONE_CLAWS); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_HONE_CLAWS, player);
+    }
+}
+
+TEST("Sigma dex: Wump has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WUMP];
+    EXPECT_EQ(info->baseHP, 35);
+    EXPECT_EQ(info->baseAttack, 60);
+    EXPECT_EQ(info->baseDefense, 45);
+    EXPECT_EQ(info->baseSpeed, 75);
+    EXPECT_EQ(info->baseSpAttack, 40);
+    EXPECT_EQ(info->baseSpDefense, 45);
+    EXPECT_EQ(info->types[0], TYPE_BUG);
+    EXPECT_EQ(info->types[1], TYPE_BUG);
+    EXPECT_EQ(info->abilities[0], ABILITY_SWARM);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_PIN_MISSILE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_WUMP)[0], CHAR_W);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Wump can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_WUMP) { Moves(MOVE_PIN_MISSILE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_PIN_MISSILE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_PIN_MISSILE, player);
+    }
+}
+
+TEST("Sigma dex: Twemp has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_TWEMP];
+    EXPECT_EQ(info->baseHP, 45);
+    EXPECT_EQ(info->baseAttack, 70);
+    EXPECT_EQ(info->baseDefense, 100);
+    EXPECT_EQ(info->baseSpeed, 20);
+    EXPECT_EQ(info->baseSpAttack, 45);
+    EXPECT_EQ(info->baseSpDefense, 100);
+    EXPECT_EQ(info->types[0], TYPE_BUG);
+    EXPECT_EQ(info->types[1], TYPE_GRASS);
+    EXPECT_EQ(info->abilities[0], ABILITY_SWARM);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_PROTECT);
+    EXPECT_EQ(GetSpeciesName(SPECIES_TWEMP)[0], CHAR_T);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Twemp can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_TWEMP) { Moves(MOVE_PROTECT); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_PROTECT); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_PROTECT, player);
+    }
+}
+
 TEST("Sigma dex: Florantula has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_FLORANTULA];
@@ -282,6 +422,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Florantula can use its first move in battle")
         TURN { MOVE(player, MOVE_STICKY_WEB); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STICKY_WEB, player);
+    }
+}
+
+TEST("Sigma dex: Pipwi has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_PIPWI];
+    EXPECT_EQ(info->baseHP, 55);
+    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseDefense, 50);
+    EXPECT_EQ(info->baseSpeed, 65);
+    EXPECT_EQ(info->baseSpAttack, 30);
+    EXPECT_EQ(info->baseSpDefense, 45);
+    EXPECT_EQ(info->types[0], TYPE_GRASS);
+    EXPECT_EQ(info->types[1], TYPE_GRASS);
+    EXPECT_EQ(info->abilities[0], ABILITY_EARLY_BIRD);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_PIPWI)[0], CHAR_P);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Pipwi can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_PIPWI) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
     }
 }
 
@@ -316,12 +484,12 @@ SINGLE_BATTLE_TEST("Sigma dex: Cowfin can use its first move in battle")
 TEST("Sigma dex: Mooceon has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_MOOCEON];
-    EXPECT_EQ(info->baseHP, 155);
+    EXPECT_EQ(info->baseHP, 167);
     EXPECT_EQ(info->baseAttack, 55);
-    EXPECT_EQ(info->baseDefense, 75);
+    EXPECT_EQ(info->baseDefense, 70);
     EXPECT_EQ(info->baseSpeed, 50);
     EXPECT_EQ(info->baseSpAttack, 70);
-    EXPECT_EQ(info->baseSpDefense, 85);
+    EXPECT_EQ(info->baseSpDefense, 78);
     EXPECT_EQ(info->types[0], TYPE_NORMAL);
     EXPECT_EQ(info->types[1], TYPE_WATER);
     EXPECT_EQ(info->abilities[0], ABILITY_OWN_TEMPO);
@@ -397,6 +565,174 @@ SINGLE_BATTLE_TEST("Sigma dex: Brawleo can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Snobbit has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SNOBBIT];
+    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseAttack, 65);
+    EXPECT_EQ(info->baseDefense, 40);
+    EXPECT_EQ(info->baseSpeed, 60);
+    EXPECT_EQ(info->baseSpAttack, 15);
+    EXPECT_EQ(info->baseSpDefense, 40);
+    EXPECT_EQ(info->types[0], TYPE_ICE);
+    EXPECT_EQ(info->types[1], TYPE_ICE);
+    EXPECT_EQ(info->abilities[0], ABILITY_ICE_BODY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_SNOBBIT)[0], CHAR_S);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Snobbit can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_SNOBBIT) { Moves(MOVE_LEER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_LEER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, player);
+    }
+}
+
+TEST("Sigma dex: Freezrick has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_FREEZRICK];
+    EXPECT_EQ(info->baseHP, 90);
+    EXPECT_EQ(info->baseAttack, 105);
+    EXPECT_EQ(info->baseDefense, 67);
+    EXPECT_EQ(info->baseSpeed, 76);
+    EXPECT_EQ(info->baseSpAttack, 15);
+    EXPECT_EQ(info->baseSpDefense, 67);
+    EXPECT_EQ(info->types[0], TYPE_ICE);
+    EXPECT_EQ(info->types[1], TYPE_ICE);
+    EXPECT_EQ(info->abilities[0], ABILITY_ICE_BODY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ICE_FANG);
+    EXPECT_EQ(GetSpeciesName(SPECIES_FREEZRICK)[0], CHAR_F);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Freezrick can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_FREEZRICK) { Moves(MOVE_ICE_FANG); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ICE_FANG); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ICE_FANG, player);
+    }
+}
+
+TEST("Sigma dex: Bulbtle has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BULBTLE];
+    EXPECT_EQ(info->baseHP, 40);
+    EXPECT_EQ(info->baseAttack, 33);
+    EXPECT_EQ(info->baseDefense, 55);
+    EXPECT_EQ(info->baseSpeed, 12);
+    EXPECT_EQ(info->baseSpAttack, 50);
+    EXPECT_EQ(info->baseSpDefense, 90);
+    EXPECT_EQ(info->types[0], TYPE_GROUND);
+    EXPECT_EQ(info->types[1], TYPE_ELECTRIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_SHELL_ARMOR);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_MUD_SLAP);
+    EXPECT_EQ(GetSpeciesName(SPECIES_BULBTLE)[0], CHAR_B);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Bulbtle can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_BULBTLE) { Moves(MOVE_MUD_SLAP); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_MUD_SLAP); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_MUD_SLAP, player);
+    }
+}
+
+TEST("Sigma dex: Bulbtoise has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BULBTOISE];
+    EXPECT_EQ(info->baseHP, 70);
+    EXPECT_EQ(info->baseAttack, 67);
+    EXPECT_EQ(info->baseDefense, 88);
+    EXPECT_EQ(info->baseSpeed, 20);
+    EXPECT_EQ(info->baseSpAttack, 85);
+    EXPECT_EQ(info->baseSpDefense, 140);
+    EXPECT_EQ(info->types[0], TYPE_GROUND);
+    EXPECT_EQ(info->types[1], TYPE_ELECTRIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_SHELL_ARMOR);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_BULLDOZE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_BULBTOISE)[0], CHAR_B);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Bulbtoise can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_BULBTOISE) { Moves(MOVE_BULLDOZE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_BULLDOZE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_BULLDOZE, player);
+    }
+}
+
+TEST("Sigma dex: Wispole has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WISPOLE];
+    EXPECT_EQ(info->baseHP, 30);
+    EXPECT_EQ(info->baseAttack, 25);
+    EXPECT_EQ(info->baseDefense, 20);
+    EXPECT_EQ(info->baseSpeed, 80);
+    EXPECT_EQ(info->baseSpAttack, 40);
+    EXPECT_EQ(info->baseSpDefense, 35);
+    EXPECT_EQ(info->types[0], TYPE_WATER);
+    EXPECT_EQ(info->types[1], TYPE_WATER);
+    EXPECT_EQ(info->abilities[0], ABILITY_SWIFT_SWIM);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_WISPOLE)[0], CHAR_W);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Wispole can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_WISPOLE) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: Croakble has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_CROAKBLE];
+    EXPECT_EQ(info->baseHP, 69);
+    EXPECT_EQ(info->baseAttack, 90);
+    EXPECT_EQ(info->baseDefense, 67);
+    EXPECT_EQ(info->baseSpeed, 110);
+    EXPECT_EQ(info->baseSpAttack, 90);
+    EXPECT_EQ(info->baseSpDefense, 78);
+    EXPECT_EQ(info->types[0], TYPE_WATER);
+    EXPECT_EQ(info->types[1], TYPE_WATER);
+    EXPECT_EQ(info->abilities[0], ABILITY_SWIFT_SWIM);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CRUNCH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_CROAKBLE)[0], CHAR_C);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Croakble can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_CROAKBLE) { Moves(MOVE_CRUNCH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CRUNCH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CRUNCH, player);
+    }
+}
+
 TEST("Sigma dex: Galfrogtom has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GALFROGTOM];
@@ -425,6 +761,90 @@ SINGLE_BATTLE_TEST("Sigma dex: Galfrogtom can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: blutie has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BLUTIE];
+    EXPECT_EQ(info->baseHP, 38);
+    EXPECT_EQ(info->baseAttack, 40);
+    EXPECT_EQ(info->baseDefense, 41);
+    EXPECT_EQ(info->baseSpeed, 65);
+    EXPECT_EQ(info->baseSpAttack, 30);
+    EXPECT_EQ(info->baseSpDefense, 41);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_NORMAL);
+    EXPECT_EQ(info->abilities[0], ABILITY_RUN_AWAY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_BLUTIE)[0], CHAR_B);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: blutie can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_BLUTIE) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: coatail has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_COATAIL];
+    EXPECT_EQ(info->baseHP, 76);
+    EXPECT_EQ(info->baseAttack, 82);
+    EXPECT_EQ(info->baseDefense, 61);
+    EXPECT_EQ(info->baseSpeed, 110);
+    EXPECT_EQ(info->baseSpAttack, 50);
+    EXPECT_EQ(info->baseSpDefense, 67);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_NORMAL);
+    EXPECT_EQ(info->abilities[0], ABILITY_RUN_AWAY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_AGILITY);
+    EXPECT_EQ(GetSpeciesName(SPECIES_COATAIL)[0], CHAR_C);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: coatail can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_COATAIL) { Moves(MOVE_AGILITY); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_AGILITY); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_AGILITY, player);
+    }
+}
+
+TEST("Sigma dex: Nukfae has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_NUKFAE];
+    EXPECT_EQ(info->baseHP, 67);
+    EXPECT_EQ(info->baseAttack, 30);
+    EXPECT_EQ(info->baseDefense, 38);
+    EXPECT_EQ(info->baseSpeed, 22);
+    EXPECT_EQ(info->baseSpAttack, 76);
+    EXPECT_EQ(info->baseSpDefense, 92);
+    EXPECT_EQ(info->types[0], TYPE_POISON);
+    EXPECT_EQ(info->types[1], TYPE_FAIRY);
+    EXPECT_EQ(info->abilities[0], ABILITY_LIQUID_OOZE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_NUKFAE)[0], CHAR_N);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Nukfae can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_NUKFAE) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
 TEST("Sigma dex: Toxiren has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_TOXIREN];
@@ -450,6 +870,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Toxiren can use its first move in battle")
         TURN { MOVE(player, MOVE_HYPER_VOICE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, player);
+    }
+}
+
+TEST("Sigma dex: Stonma has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_STONMA];
+    EXPECT_EQ(info->baseHP, 67);
+    EXPECT_EQ(info->baseAttack, 67);
+    EXPECT_EQ(info->baseDefense, 111);
+    EXPECT_EQ(info->baseSpeed, 15);
+    EXPECT_EQ(info->baseSpAttack, 25);
+    EXPECT_EQ(info->baseSpDefense, 40);
+    EXPECT_EQ(info->types[0], TYPE_ROCK);
+    EXPECT_EQ(info->types[1], TYPE_ROCK);
+    EXPECT_EQ(info->abilities[0], ABILITY_STURDY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_TACKLE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_STONMA)[0], CHAR_S);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Stonma can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_STONMA) { Moves(MOVE_TACKLE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_TACKLE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_TACKLE, player);
     }
 }
 
@@ -565,6 +1013,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Gortiki can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Chebbi has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_CHEBBI];
+    EXPECT_EQ(info->baseHP, 70);
+    EXPECT_EQ(info->baseAttack, 60);
+    EXPECT_EQ(info->baseDefense, 55);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 70);
+    EXPECT_EQ(info->baseSpDefense, 55);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_DARK);
+    EXPECT_EQ(info->abilities[0], ABILITY_SOUNDPROOF);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ASTONISH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_CHEBBI)[0], CHAR_C);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Chebbi can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_CHEBBI) { Moves(MOVE_ASTONISH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ASTONISH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ASTONISH, player);
+    }
+}
+
 TEST("Sigma dex: Devampry has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DEVAMPRY];
@@ -621,6 +1097,118 @@ SINGLE_BATTLE_TEST("Sigma dex: Chillalit can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Zapana has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ZAPANA];
+    EXPECT_EQ(info->baseHP, 35);
+    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseDefense, 25);
+    EXPECT_EQ(info->baseSpeed, 87);
+    EXPECT_EQ(info->baseSpAttack, 55);
+    EXPECT_EQ(info->baseSpDefense, 30);
+    EXPECT_EQ(info->types[0], TYPE_WATER);
+    EXPECT_EQ(info->types[1], TYPE_ELECTRIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_SWIFT_SWIM);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_ZAPANA)[0], CHAR_Z);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Zapana can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_ZAPANA) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: Ampeel has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_AMPEEL];
+    EXPECT_EQ(info->baseHP, 67);
+    EXPECT_EQ(info->baseAttack, 95);
+    EXPECT_EQ(info->baseDefense, 50);
+    EXPECT_EQ(info->baseSpeed, 130);
+    EXPECT_EQ(info->baseSpAttack, 95);
+    EXPECT_EQ(info->baseSpDefense, 50);
+    EXPECT_EQ(info->types[0], TYPE_WATER);
+    EXPECT_EQ(info->types[1], TYPE_ELECTRIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_SWIFT_SWIM);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_AMPEEL)[0], CHAR_A);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Ampeel can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_AMPEEL) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: Beatld has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BEATLD];
+    EXPECT_EQ(info->baseHP, 55);
+    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseDefense, 55);
+    EXPECT_EQ(info->baseSpeed, 55);
+    EXPECT_EQ(info->baseSpAttack, 145);
+    EXPECT_EQ(info->baseSpDefense, 55);
+    EXPECT_EQ(info->types[0], TYPE_BUG);
+    EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_CURIOUS_MEDICINE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_BUG_BITE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_BEATLD)[0], CHAR_B);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Beatld can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_BEATLD) { Moves(MOVE_BUG_BITE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_BUG_BITE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_BUG_BITE, player);
+    }
+}
+
+TEST("Sigma dex: Fleuroom has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_FLEUROOM];
+    EXPECT_EQ(info->baseHP, 45);
+    EXPECT_EQ(info->baseAttack, 30);
+    EXPECT_EQ(info->baseDefense, 45);
+    EXPECT_EQ(info->baseSpeed, 35);
+    EXPECT_EQ(info->baseSpAttack, 75);
+    EXPECT_EQ(info->baseSpDefense, 65);
+    EXPECT_EQ(info->types[0], TYPE_GRASS);
+    EXPECT_EQ(info->types[1], TYPE_FAIRY);
+    EXPECT_EQ(info->abilities[0], ABILITY_EFFECT_SPORE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ABSORB);
+    EXPECT_EQ(GetSpeciesName(SPECIES_FLEUROOM)[0], CHAR_F);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Fleuroom can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_FLEUROOM) { Moves(MOVE_ABSORB); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ABSORB); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ABSORB, player);
+    }
+}
+
 TEST("Sigma dex: Sporeshade has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SPORESHADE];
@@ -646,6 +1234,230 @@ SINGLE_BATTLE_TEST("Sigma dex: Sporeshade can use its first move in battle")
         TURN { MOVE(player, MOVE_SPORE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPORE, player);
+    }
+}
+
+TEST("Sigma dex: Razox has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_RAZOX];
+    EXPECT_EQ(info->baseHP, 88);
+    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseDefense, 70);
+    EXPECT_EQ(info->baseSpeed, 82);
+    EXPECT_EQ(info->baseSpAttack, 100);
+    EXPECT_EQ(info->baseSpDefense, 105);
+    EXPECT_EQ(info->types[0], TYPE_FAIRY);
+    EXPECT_EQ(info->types[1], TYPE_ICE);
+    EXPECT_EQ(info->abilities[0], ABILITY_SNOW_CLOAK);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CHARM);
+    EXPECT_EQ(GetSpeciesName(SPECIES_RAZOX)[0], CHAR_R);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Razox can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_RAZOX) { Moves(MOVE_CHARM); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CHARM); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CHARM, player);
+    }
+}
+
+TEST("Sigma dex: Unknighted has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_UNKNIGHTED];
+    EXPECT_EQ(info->baseHP, 67);
+    EXPECT_EQ(info->baseAttack, 77);
+    EXPECT_EQ(info->baseDefense, 67);
+    EXPECT_EQ(info->baseSpeed, 112);
+    EXPECT_EQ(info->baseSpAttack, 77);
+    EXPECT_EQ(info->baseSpDefense, 67);
+    EXPECT_EQ(info->types[0], TYPE_ELECTRIC);
+    EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_BATTERY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_UNKNIGHTED)[0], CHAR_U);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Unknighted can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_UNKNIGHTED) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: Panzerien has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_PANZERIEN];
+    EXPECT_EQ(info->baseHP, 45);
+    EXPECT_EQ(info->baseAttack, 80);
+    EXPECT_EQ(info->baseDefense, 150);
+    EXPECT_EQ(info->baseSpeed, 25);
+    EXPECT_EQ(info->baseSpAttack, 100);
+    EXPECT_EQ(info->baseSpDefense, 140);
+    EXPECT_EQ(info->types[0], TYPE_STEEL);
+    EXPECT_EQ(info->types[1], TYPE_GROUND);
+    EXPECT_EQ(info->abilities[0], ABILITY_BULLETPROOF);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_HARDEN);
+    EXPECT_EQ(GetSpeciesName(SPECIES_PANZERIEN)[0], CHAR_P);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Panzerien can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_PANZERIEN) { Moves(MOVE_HARDEN); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_HARDEN); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_HARDEN, player);
+    }
+}
+
+TEST("Sigma dex: Nucloid has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_NUCLOID];
+    EXPECT_EQ(info->baseHP, 35);
+    EXPECT_EQ(info->baseAttack, 25);
+    EXPECT_EQ(info->baseDefense, 60);
+    EXPECT_EQ(info->baseSpeed, 67);
+    EXPECT_EQ(info->baseSpAttack, 40);
+    EXPECT_EQ(info->baseSpDefense, 78);
+    EXPECT_EQ(info->types[0], TYPE_POISON);
+    EXPECT_EQ(info->types[1], TYPE_STEEL);
+    EXPECT_EQ(info->abilities[0], ABILITY_INNARDS_OUT);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_POISON_GAS);
+    EXPECT_EQ(GetSpeciesName(SPECIES_NUCLOID)[0], CHAR_N);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Nucloid can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_NUCLOID) { Moves(MOVE_POISON_GAS); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_POISON_GAS); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_POISON_GAS, player);
+    }
+}
+
+TEST("Sigma dex: Nuclobyl has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_NUCLOBYL];
+    EXPECT_EQ(info->baseHP, 90);
+    EXPECT_EQ(info->baseAttack, 59);
+    EXPECT_EQ(info->baseDefense, 103);
+    EXPECT_EQ(info->baseSpeed, 45);
+    EXPECT_EQ(info->baseSpAttack, 108);
+    EXPECT_EQ(info->baseSpDefense, 120);
+    EXPECT_EQ(info->types[0], TYPE_POISON);
+    EXPECT_EQ(info->types[1], TYPE_STEEL);
+    EXPECT_EQ(info->abilities[0], ABILITY_INNARDS_OUT);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ACID);
+    EXPECT_EQ(GetSpeciesName(SPECIES_NUCLOBYL)[0], CHAR_N);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Nuclobyl can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_NUCLOBYL) { Moves(MOVE_ACID); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ACID); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ACID, player);
+    }
+}
+
+TEST("Sigma dex: Julius has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_JULIUS];
+    EXPECT_EQ(info->baseHP, 85);
+    EXPECT_EQ(info->baseAttack, 95);
+    EXPECT_EQ(info->baseDefense, 75);
+    EXPECT_EQ(info->baseSpeed, 80);
+    EXPECT_EQ(info->baseSpAttack, 30);
+    EXPECT_EQ(info->baseSpDefense, 40);
+    EXPECT_EQ(info->types[0], TYPE_FIGHTING);
+    EXPECT_EQ(info->types[1], TYPE_NORMAL);
+    EXPECT_EQ(info->abilities[0], ABILITY_SHEER_FORCE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_COVET);
+    EXPECT_EQ(GetSpeciesName(SPECIES_JULIUS)[0], CHAR_J);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Julius can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_JULIUS) { Moves(MOVE_COVET); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_COVET); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_COVET, player);
+    }
+}
+
+TEST("Sigma dex: Conqrilla has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_CONQRILLA];
+    EXPECT_EQ(info->baseHP, 105);
+    EXPECT_EQ(info->baseAttack, 140);
+    EXPECT_EQ(info->baseDefense, 95);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 48);
+    EXPECT_EQ(info->baseSpDefense, 67);
+    EXPECT_EQ(info->types[0], TYPE_FIGHTING);
+    EXPECT_EQ(info->types[1], TYPE_STEEL);
+    EXPECT_EQ(info->abilities[0], ABILITY_SHEER_FORCE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_CONQRILLA)[0], CHAR_C);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Conqrilla can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_CONQRILLA) { Moves(MOVE_LEER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_LEER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, player);
+    }
+}
+
+TEST("Sigma dex: Anjane has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ANJANE];
+    EXPECT_EQ(info->baseHP, 30);
+    EXPECT_EQ(info->baseAttack, 37);
+    EXPECT_EQ(info->baseDefense, 71);
+    EXPECT_EQ(info->baseSpeed, 15);
+    EXPECT_EQ(info->baseSpAttack, 100);
+    EXPECT_EQ(info->baseSpDefense, 67);
+    EXPECT_EQ(info->types[0], TYPE_DARK);
+    EXPECT_EQ(info->types[1], TYPE_FAIRY);
+    EXPECT_EQ(info->abilities[0], ABILITY_TANGLING_HAIR);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_DISARMING_VOICE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_ANJANE)[0], CHAR_A);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Anjane can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_ANJANE) { Moves(MOVE_DISARMING_VOICE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_DISARMING_VOICE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DISARMING_VOICE, player);
     }
 }
 
@@ -677,6 +1489,146 @@ SINGLE_BATTLE_TEST("Sigma dex: Janenon can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Saucerl has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SAUCERL];
+    EXPECT_EQ(info->baseHP, 20);
+    EXPECT_EQ(info->baseAttack, 28);
+    EXPECT_EQ(info->baseDefense, 92);
+    EXPECT_EQ(info->baseSpeed, 20);
+    EXPECT_EQ(info->baseSpAttack, 38);
+    EXPECT_EQ(info->baseSpDefense, 97);
+    EXPECT_EQ(info->types[0], TYPE_PSYCHIC);
+    EXPECT_EQ(info->types[1], TYPE_WATER);
+    EXPECT_EQ(info->abilities[0], ABILITY_ANALYTIC);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CONFUSION);
+    EXPECT_EQ(GetSpeciesName(SPECIES_SAUCERL)[0], CHAR_S);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Saucerl can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_SAUCERL) { Moves(MOVE_CONFUSION); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CONFUSION); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSION, player);
+    }
+}
+
+TEST("Sigma dex: Abyssys has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ABYSSYS];
+    EXPECT_EQ(info->baseHP, 35);
+    EXPECT_EQ(info->baseAttack, 43);
+    EXPECT_EQ(info->baseDefense, 117);
+    EXPECT_EQ(info->baseSpeed, 25);
+    EXPECT_EQ(info->baseSpAttack, 48);
+    EXPECT_EQ(info->baseSpDefense, 127);
+    EXPECT_EQ(info->types[0], TYPE_PSYCHIC);
+    EXPECT_EQ(info->types[1], TYPE_WATER);
+    EXPECT_EQ(info->abilities[0], ABILITY_ANALYTIC);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CONFUSION);
+    EXPECT_EQ(GetSpeciesName(SPECIES_ABYSSYS)[0], CHAR_A);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Abyssys can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_ABYSSYS) { Moves(MOVE_CONFUSION); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CONFUSION); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSION, player);
+    }
+}
+
+TEST("Sigma dex: Octopearl has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_OCTOPEARL];
+    EXPECT_EQ(info->baseHP, 50);
+    EXPECT_EQ(info->baseAttack, 53);
+    EXPECT_EQ(info->baseDefense, 142);
+    EXPECT_EQ(info->baseSpeed, 35);
+    EXPECT_EQ(info->baseSpAttack, 63);
+    EXPECT_EQ(info->baseSpDefense, 152);
+    EXPECT_EQ(info->types[0], TYPE_PSYCHIC);
+    EXPECT_EQ(info->types[1], TYPE_WATER);
+    EXPECT_EQ(info->abilities[0], ABILITY_ANALYTIC);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CONFUSION);
+    EXPECT_EQ(GetSpeciesName(SPECIES_OCTOPEARL)[0], CHAR_O);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Octopearl can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_OCTOPEARL) { Moves(MOVE_CONFUSION); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CONFUSION); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSION, player);
+    }
+}
+
+TEST("Sigma dex: Gorambe has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GORAMBE];
+    EXPECT_EQ(info->baseHP, 105);
+    EXPECT_EQ(info->baseAttack, 65);
+    EXPECT_EQ(info->baseDefense, 80);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 95);
+    EXPECT_EQ(info->baseSpDefense, 110);
+    EXPECT_EQ(info->types[0], TYPE_GHOST);
+    EXPECT_EQ(info->types[1], TYPE_FAIRY);
+    EXPECT_EQ(info->abilities[0], ABILITY_CLEAR_BODY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ASTONISH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_GORAMBE)[0], CHAR_G);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Gorambe can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_GORAMBE) { Moves(MOVE_ASTONISH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ASTONISH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ASTONISH, player);
+    }
+}
+
+TEST("Sigma dex: Leadling has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_LEADLING];
+    EXPECT_EQ(info->baseHP, 45);
+    EXPECT_EQ(info->baseAttack, 35);
+    EXPECT_EQ(info->baseDefense, 55);
+    EXPECT_EQ(info->baseSpeed, 10);
+    EXPECT_EQ(info->baseSpAttack, 50);
+    EXPECT_EQ(info->baseSpDefense, 85);
+    EXPECT_EQ(info->types[0], TYPE_ROCK);
+    EXPECT_EQ(info->types[1], TYPE_POISON);
+    EXPECT_EQ(info->abilities[0], ABILITY_STURDY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ROLLOUT);
+    EXPECT_EQ(GetSpeciesName(SPECIES_LEADLING)[0], CHAR_L);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Leadling can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_LEADLING) { Moves(MOVE_ROLLOUT); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ROLLOUT); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ROLLOUT, player);
+    }
+}
+
 TEST("Sigma dex: Blylem has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BLYLEM];
@@ -689,19 +1641,131 @@ TEST("Sigma dex: Blylem has the data from its species file")
     EXPECT_EQ(info->types[0], TYPE_ROCK);
     EXPECT_EQ(info->types[1], TYPE_POISON);
     EXPECT_EQ(info->abilities[0], ABILITY_STURDY);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_STEALTH_ROCK);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SMOG);
     EXPECT_EQ(GetSpeciesName(SPECIES_BLYLEM)[0], CHAR_B);
 }
 
 SINGLE_BATTLE_TEST("Sigma dex: Blylem can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_BLYLEM) { Moves(MOVE_STEALTH_ROCK); }
+        PLAYER(SPECIES_BLYLEM) { Moves(MOVE_SMOG); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_STEALTH_ROCK); }
+        TURN { MOVE(player, MOVE_SMOG); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_STEALTH_ROCK, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SMOG, player);
+    }
+}
+
+TEST("Sigma dex: Iglomodo has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_IGLOMODO];
+    EXPECT_EQ(info->baseHP, 85);
+    EXPECT_EQ(info->baseAttack, 125);
+    EXPECT_EQ(info->baseDefense, 70);
+    EXPECT_EQ(info->baseSpeed, 65);
+    EXPECT_EQ(info->baseSpAttack, 85);
+    EXPECT_EQ(info->baseSpDefense, 100);
+    EXPECT_EQ(info->types[0], TYPE_ICE);
+    EXPECT_EQ(info->types[1], TYPE_POISON);
+    EXPECT_EQ(info->abilities[0], ABILITY_ICE_BODY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_IGLOMODO)[0], CHAR_I);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Iglomodo can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_IGLOMODO) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: furamire has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_FURAMIRE];
+    EXPECT_EQ(info->baseHP, 69);
+    EXPECT_EQ(info->baseAttack, 50);
+    EXPECT_EQ(info->baseDefense, 67);
+    EXPECT_EQ(info->baseSpeed, 106);
+    EXPECT_EQ(info->baseSpAttack, 98);
+    EXPECT_EQ(info->baseSpDefense, 90);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_FAIRY);
+    EXPECT_EQ(info->abilities[0], ABILITY_CUTE_CHARM);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWTH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_FURAMIRE)[0], CHAR_F);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: furamire can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_FURAMIRE) { Moves(MOVE_GROWTH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWTH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWTH, player);
+    }
+}
+
+TEST("Sigma dex: Goatjo has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GOATJO];
+    EXPECT_EQ(info->baseHP, 1);
+    EXPECT_EQ(info->baseAttack, 100);
+    EXPECT_EQ(info->baseDefense, 67);
+    EXPECT_EQ(info->baseSpeed, 100);
+    EXPECT_EQ(info->baseSpAttack, 100);
+    EXPECT_EQ(info->baseSpDefense, 67);
+    EXPECT_EQ(info->types[0], TYPE_PSYCHIC);
+    EXPECT_EQ(info->types[1], TYPE_DRAGON);
+    EXPECT_EQ(info->abilities[0], ABILITY_WONDER_GUARD);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CONFUSION);
+    EXPECT_EQ(GetSpeciesName(SPECIES_GOATJO)[0], CHAR_G);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Goatjo can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_GOATJO) { Moves(MOVE_CONFUSION); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CONFUSION); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSION, player);
+    }
+}
+
+TEST("Sigma dex: Detecup has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DETECUP];
+    EXPECT_EQ(info->baseHP, 72);
+    EXPECT_EQ(info->baseAttack, 92);
+    EXPECT_EQ(info->baseDefense, 62);
+    EXPECT_EQ(info->baseSpeed, 82);
+    EXPECT_EQ(info->baseSpAttack, 92);
+    EXPECT_EQ(info->baseSpDefense, 62);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_NORMAL);
+    EXPECT_EQ(info->abilities[0], ABILITY_PICKUP);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_DETECUP)[0], CHAR_D);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Detecup can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_DETECUP) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
     }
 }
 
@@ -733,6 +1797,146 @@ SINGLE_BATTLE_TEST("Sigma dex: Snownin can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Vires has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_VIRES];
+    EXPECT_EQ(info->baseHP, 50);
+    EXPECT_EQ(info->baseAttack, 35);
+    EXPECT_EQ(info->baseDefense, 80);
+    EXPECT_EQ(info->baseSpeed, 40);
+    EXPECT_EQ(info->baseSpAttack, 55);
+    EXPECT_EQ(info->baseSpDefense, 55);
+    EXPECT_EQ(info->types[0], TYPE_FAIRY);
+    EXPECT_EQ(info->types[1], TYPE_FAIRY);
+    EXPECT_EQ(info->abilities[0], ABILITY_MIRROR_ARMOR);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SWEET_SCENT);
+    EXPECT_EQ(GetSpeciesName(SPECIES_VIRES)[0], CHAR_V);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Vires can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_VIRES) { Moves(MOVE_SWEET_SCENT); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SWEET_SCENT); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SWEET_SCENT, player);
+    }
+}
+
+TEST("Sigma dex: Flurina has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_FLURINA];
+    EXPECT_EQ(info->baseHP, 80);
+    EXPECT_EQ(info->baseAttack, 50);
+    EXPECT_EQ(info->baseDefense, 115);
+    EXPECT_EQ(info->baseSpeed, 60);
+    EXPECT_EQ(info->baseSpAttack, 95);
+    EXPECT_EQ(info->baseSpDefense, 90);
+    EXPECT_EQ(info->types[0], TYPE_FAIRY);
+    EXPECT_EQ(info->types[1], TYPE_FAIRY);
+    EXPECT_EQ(info->abilities[0], ABILITY_MIRROR_ARMOR);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CHARM);
+    EXPECT_EQ(GetSpeciesName(SPECIES_FLURINA)[0], CHAR_F);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Flurina can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_FLURINA) { Moves(MOVE_CHARM); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CHARM); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CHARM, player);
+    }
+}
+
+TEST("Sigma dex: Dragem has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DRAGEM];
+    EXPECT_EQ(info->baseHP, 90);
+    EXPECT_EQ(info->baseAttack, 122);
+    EXPECT_EQ(info->baseDefense, 100);
+    EXPECT_EQ(info->baseSpeed, 58);
+    EXPECT_EQ(info->baseSpAttack, 55);
+    EXPECT_EQ(info->baseSpDefense, 90);
+    EXPECT_EQ(info->types[0], TYPE_DRAGON);
+    EXPECT_EQ(info->types[1], TYPE_ROCK);
+    EXPECT_EQ(info->abilities[0], ABILITY_SAND_STREAM);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_HARDEN);
+    EXPECT_EQ(GetSpeciesName(SPECIES_DRAGEM)[0], CHAR_D);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Dragem can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_DRAGEM) { Moves(MOVE_HARDEN); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_HARDEN); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_HARDEN, player);
+    }
+}
+
+TEST("Sigma dex: ROKU has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ROKU];
+    EXPECT_EQ(info->baseHP, 100);
+    EXPECT_EQ(info->baseAttack, 100);
+    EXPECT_EQ(info->baseDefense, 90);
+    EXPECT_EQ(info->baseSpeed, 35);
+    EXPECT_EQ(info->baseSpAttack, 75);
+    EXPECT_EQ(info->baseSpDefense, 130);
+    EXPECT_EQ(info->types[0], TYPE_GROUND);
+    EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_MAGICIAN);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CONFUSION);
+    EXPECT_EQ(GetSpeciesName(SPECIES_ROKU)[0], CHAR_R);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: ROKU can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_ROKU) { Moves(MOVE_CONFUSION); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CONFUSION); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSION, player);
+    }
+}
+
+TEST("Sigma dex: Skiirtle has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SKIIRTLE];
+    EXPECT_EQ(info->baseHP, 40);
+    EXPECT_EQ(info->baseAttack, 70);
+    EXPECT_EQ(info->baseDefense, 80);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 30);
+    EXPECT_EQ(info->baseSpDefense, 80);
+    EXPECT_EQ(info->types[0], TYPE_FIRE);
+    EXPECT_EQ(info->types[1], TYPE_FIRE);
+    EXPECT_EQ(info->abilities[0], ABILITY_SPEED_BOOST);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_EMBER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_SKIIRTLE)[0], CHAR_S);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Skiirtle can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_SKIIRTLE) { Moves(MOVE_EMBER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_EMBER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, player);
+    }
+}
+
 TEST("Sigma dex: McSkiirtle has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_MCSKIIRTLE];
@@ -761,6 +1965,202 @@ SINGLE_BATTLE_TEST("Sigma dex: McSkiirtle can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: ambuger has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_AMBUGER];
+    EXPECT_EQ(info->baseHP, 45);
+    EXPECT_EQ(info->baseAttack, 50);
+    EXPECT_EQ(info->baseDefense, 100);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 30);
+    EXPECT_EQ(info->baseSpDefense, 75);
+    EXPECT_EQ(info->types[0], TYPE_ROCK);
+    EXPECT_EQ(info->types[1], TYPE_BUG);
+    EXPECT_EQ(info->abilities[0], ABILITY_SHELL_ARMOR);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FURY_CUTTER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_AMBUGER)[0], CHAR_A);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: ambuger can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_AMBUGER) { Moves(MOVE_FURY_CUTTER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_FURY_CUTTER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_FURY_CUTTER, player);
+    }
+}
+
+TEST("Sigma dex: Ambrr has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_AMBRR];
+    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseAttack, 90);
+    EXPECT_EQ(info->baseDefense, 100);
+    EXPECT_EQ(info->baseSpeed, 125);
+    EXPECT_EQ(info->baseSpAttack, 45);
+    EXPECT_EQ(info->baseSpDefense, 75);
+    EXPECT_EQ(info->types[0], TYPE_ROCK);
+    EXPECT_EQ(info->types[1], TYPE_BUG);
+    EXPECT_EQ(info->abilities[0], ABILITY_LEVITATE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FURY_CUTTER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_AMBRR)[0], CHAR_A);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Ambrr can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_AMBRR) { Moves(MOVE_FURY_CUTTER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_FURY_CUTTER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_FURY_CUTTER, player);
+    }
+}
+
+TEST("Sigma dex: Tortoplasm has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_TORTOPLASM];
+    EXPECT_EQ(info->baseHP, 50);
+    EXPECT_EQ(info->baseAttack, 40);
+    EXPECT_EQ(info->baseDefense, 95);
+    EXPECT_EQ(info->baseSpeed, 25);
+    EXPECT_EQ(info->baseSpAttack, 65);
+    EXPECT_EQ(info->baseSpDefense, 75);
+    EXPECT_EQ(info->types[0], TYPE_ROCK);
+    EXPECT_EQ(info->types[1], TYPE_GHOST);
+    EXPECT_EQ(info->abilities[0], ABILITY_CURSED_BODY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ASTONISH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_TORTOPLASM)[0], CHAR_T);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Tortoplasm can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_TORTOPLASM) { Moves(MOVE_ASTONISH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ASTONISH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ASTONISH, player);
+    }
+}
+
+TEST("Sigma dex: Slothbaby has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SLOTHBABY];
+    EXPECT_EQ(info->baseHP, 85);
+    EXPECT_EQ(info->baseAttack, 115);
+    EXPECT_EQ(info->baseDefense, 50);
+    EXPECT_EQ(info->baseSpeed, 90);
+    EXPECT_EQ(info->baseSpAttack, 30);
+    EXPECT_EQ(info->baseSpDefense, 50);
+    EXPECT_EQ(info->types[0], TYPE_FIRE);
+    EXPECT_EQ(info->types[1], TYPE_FIRE);
+    EXPECT_EQ(info->abilities[0], ABILITY_TRUANT);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_EMBER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_SLOTHBABY)[0], CHAR_S);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Slothbaby can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_SLOTHBABY) { Moves(MOVE_EMBER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_EMBER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, player);
+    }
+}
+
+TEST("Sigma dex: Terratyson has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_TERRATYSON];
+    EXPECT_EQ(info->baseHP, 110);
+    EXPECT_EQ(info->baseAttack, 130);
+    EXPECT_EQ(info->baseDefense, 81);
+    EXPECT_EQ(info->baseSpeed, 67);
+    EXPECT_EQ(info->baseSpAttack, 50);
+    EXPECT_EQ(info->baseSpDefense, 70);
+    EXPECT_EQ(info->types[0], TYPE_GROUND);
+    EXPECT_EQ(info->types[1], TYPE_FIGHTING);
+    EXPECT_EQ(info->abilities[0], ABILITY_IRON_FIST);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_TERRATYSON)[0], CHAR_T);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Terratyson can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_TERRATYSON) { Moves(MOVE_LEER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_LEER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, player);
+    }
+}
+
+TEST("Sigma dex: Obsidog has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_OBSIDOG];
+    EXPECT_EQ(info->baseHP, 50);
+    EXPECT_EQ(info->baseAttack, 75);
+    EXPECT_EQ(info->baseDefense, 70);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 40);
+    EXPECT_EQ(info->baseSpDefense, 55);
+    EXPECT_EQ(info->types[0], TYPE_DARK);
+    EXPECT_EQ(info->types[1], TYPE_ROCK);
+    EXPECT_EQ(info->abilities[0], ABILITY_GUARD_DOG);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_OBSIDOG)[0], CHAR_O);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Obsidog can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_OBSIDOG) { Moves(MOVE_LEER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_LEER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, player);
+    }
+}
+
+TEST("Sigma dex: Geronimok has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GERONIMOK];
+    EXPECT_EQ(info->baseHP, 92);
+    EXPECT_EQ(info->baseAttack, 133);
+    EXPECT_EQ(info->baseDefense, 110);
+    EXPECT_EQ(info->baseSpeed, 70);
+    EXPECT_EQ(info->baseSpAttack, 65);
+    EXPECT_EQ(info->baseSpDefense, 90);
+    EXPECT_EQ(info->types[0], TYPE_DARK);
+    EXPECT_EQ(info->types[1], TYPE_ROCK);
+    EXPECT_EQ(info->abilities[0], ABILITY_GUARD_DOG);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_BITE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_GERONIMOK)[0], CHAR_G);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Geronimok can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_GERONIMOK) { Moves(MOVE_BITE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_BITE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_BITE, player);
+    }
+}
+
 TEST("Sigma dex: Slamquake has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SLAMQUAKE];
@@ -773,19 +2173,383 @@ TEST("Sigma dex: Slamquake has the data from its species file")
     EXPECT_EQ(info->types[0], TYPE_STEEL);
     EXPECT_EQ(info->types[1], TYPE_GROUND);
     EXPECT_EQ(info->abilities[0], ABILITY_SAND_FORCE);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ROAR);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_HARDEN);
     EXPECT_EQ(GetSpeciesName(SPECIES_SLAMQUAKE)[0], CHAR_S);
 }
 
 SINGLE_BATTLE_TEST("Sigma dex: Slamquake can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_SLAMQUAKE) { Moves(MOVE_ROAR); }
+        PLAYER(SPECIES_SLAMQUAKE) { Moves(MOVE_HARDEN); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_ROAR); }
+        TURN { MOVE(player, MOVE_HARDEN); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_ROAR, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_HARDEN, player);
+    }
+}
+
+TEST("Sigma dex: Limulk has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_LIMULK];
+    EXPECT_EQ(info->baseHP, 67);
+    EXPECT_EQ(info->baseAttack, 85);
+    EXPECT_EQ(info->baseDefense, 55);
+    EXPECT_EQ(info->baseSpeed, 42);
+    EXPECT_EQ(info->baseSpAttack, 30);
+    EXPECT_EQ(info->baseSpDefense, 90);
+    EXPECT_EQ(info->types[0], TYPE_FIGHTING);
+    EXPECT_EQ(info->types[1], TYPE_FIGHTING);
+    EXPECT_EQ(info->abilities[0], ABILITY_ANGER_POINT);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FOCUS_ENERGY);
+    EXPECT_EQ(GetSpeciesName(SPECIES_LIMULK)[0], CHAR_L);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Limulk can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_LIMULK) { Moves(MOVE_FOCUS_ENERGY); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_FOCUS_ENERGY); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_ENERGY, player);
+    }
+}
+
+TEST("Sigma dex: Mortbulk has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_MORTBULK];
+    EXPECT_EQ(info->baseHP, 92);
+    EXPECT_EQ(info->baseAttack, 110);
+    EXPECT_EQ(info->baseDefense, 80);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 40);
+    EXPECT_EQ(info->baseSpDefense, 118);
+    EXPECT_EQ(info->types[0], TYPE_FIGHTING);
+    EXPECT_EQ(info->types[1], TYPE_FIGHTING);
+    EXPECT_EQ(info->abilities[0], ABILITY_ANGER_POINT);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FAKE_OUT);
+    EXPECT_EQ(GetSpeciesName(SPECIES_MORTBULK)[0], CHAR_M);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Mortbulk can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_MORTBULK) { Moves(MOVE_FAKE_OUT); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_FAKE_OUT); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, player);
+    }
+}
+
+TEST("Sigma dex: Phantomb has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_PHANTOMB];
+    EXPECT_EQ(info->baseHP, 30);
+    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseDefense, 30);
+    EXPECT_EQ(info->baseSpeed, 80);
+    EXPECT_EQ(info->baseSpAttack, 55);
+    EXPECT_EQ(info->baseSpDefense, 30);
+    EXPECT_EQ(info->types[0], TYPE_GHOST);
+    EXPECT_EQ(info->types[1], TYPE_FLYING);
+    EXPECT_EQ(info->abilities[0], ABILITY_DISGUISE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ASTONISH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_PHANTOMB)[0], CHAR_P);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Phantomb can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_PHANTOMB) { Moves(MOVE_ASTONISH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ASTONISH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ASTONISH, player);
+    }
+}
+
+TEST("Sigma dex: Phantail has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_PHANTAIL];
+    EXPECT_EQ(info->baseHP, 50);
+    EXPECT_EQ(info->baseAttack, 105);
+    EXPECT_EQ(info->baseDefense, 50);
+    EXPECT_EQ(info->baseSpeed, 120);
+    EXPECT_EQ(info->baseSpAttack, 105);
+    EXPECT_EQ(info->baseSpDefense, 50);
+    EXPECT_EQ(info->types[0], TYPE_GHOST);
+    EXPECT_EQ(info->types[1], TYPE_FLYING);
+    EXPECT_EQ(info->abilities[0], ABILITY_DISGUISE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ASTONISH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_PHANTAIL)[0], CHAR_P);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Phantail can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_PHANTAIL) { Moves(MOVE_ASTONISH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ASTONISH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ASTONISH, player);
+    }
+}
+
+TEST("Sigma dex: Oraclet has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ORACLET];
+    EXPECT_EQ(info->baseHP, 50);
+    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseDefense, 60);
+    EXPECT_EQ(info->baseSpeed, 40);
+    EXPECT_EQ(info->baseSpAttack, 80);
+    EXPECT_EQ(info->baseSpDefense, 70);
+    EXPECT_EQ(info->types[0], TYPE_PSYCHIC);
+    EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_ANTICIPATION);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CONFUSION);
+    EXPECT_EQ(GetSpeciesName(SPECIES_ORACLET)[0], CHAR_O);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Oraclet can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_ORACLET) { Moves(MOVE_CONFUSION); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CONFUSION); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSION, player);
+    }
+}
+
+TEST("Sigma dex: Oraclaw has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ORACLAW];
+    EXPECT_EQ(info->baseHP, 90);
+    EXPECT_EQ(info->baseAttack, 75);
+    EXPECT_EQ(info->baseDefense, 70);
+    EXPECT_EQ(info->baseSpeed, 80);
+    EXPECT_EQ(info->baseSpAttack, 110);
+    EXPECT_EQ(info->baseSpDefense, 100);
+    EXPECT_EQ(info->types[0], TYPE_PSYCHIC);
+    EXPECT_EQ(info->types[1], TYPE_FLYING);
+    EXPECT_EQ(info->abilities[0], ABILITY_ANTICIPATION);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_AIR_SLASH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_ORACLAW)[0], CHAR_O);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Oraclaw can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_ORACLAW) { Moves(MOVE_AIR_SLASH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_AIR_SLASH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_AIR_SLASH, player);
+    }
+}
+
+TEST("Sigma dex: Zapitera has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ZAPITERA];
+    EXPECT_EQ(info->baseHP, 67);
+    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseDefense, 85);
+    EXPECT_EQ(info->baseSpeed, 118);
+    EXPECT_EQ(info->baseSpAttack, 110);
+    EXPECT_EQ(info->baseSpDefense, 70);
+    EXPECT_EQ(info->types[0], TYPE_ELECTRIC);
+    EXPECT_EQ(info->types[1], TYPE_STEEL);
+    EXPECT_EQ(info->abilities[0], ABILITY_LEVITATE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ELECTRIC_TERRAIN);
+    EXPECT_EQ(GetSpeciesName(SPECIES_ZAPITERA)[0], CHAR_Z);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Zapitera can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_ZAPITERA) { Moves(MOVE_ELECTRIC_TERRAIN); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ELECTRIC_TERRAIN); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRIC_TERRAIN, player);
+    }
+}
+
+TEST("Sigma dex: Shadeem has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SHADEEM];
+    EXPECT_EQ(info->baseHP, 45);
+    EXPECT_EQ(info->baseAttack, 70);
+    EXPECT_EQ(info->baseDefense, 45);
+    EXPECT_EQ(info->baseSpeed, 65);
+    EXPECT_EQ(info->baseSpAttack, 60);
+    EXPECT_EQ(info->baseSpDefense, 45);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_DARK);
+    EXPECT_EQ(info->abilities[0], ABILITY_ILLUSION);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_DOUBLE_HIT);
+    EXPECT_EQ(GetSpeciesName(SPECIES_SHADEEM)[0], CHAR_S);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Shadeem can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_SHADEEM) { Moves(MOVE_DOUBLE_HIT); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_DOUBLE_HIT); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_HIT, player);
+    }
+}
+
+TEST("Sigma dex: Shadrove has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SHADROVE];
+    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseAttack, 120);
+    EXPECT_EQ(info->baseDefense, 60);
+    EXPECT_EQ(info->baseSpeed, 110);
+    EXPECT_EQ(info->baseSpAttack, 100);
+    EXPECT_EQ(info->baseSpDefense, 60);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_DARK);
+    EXPECT_EQ(info->abilities[0], ABILITY_ILLUSION);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_SHADROVE)[0], CHAR_S);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Shadrove can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_SHADROVE) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: Autuman has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_AUTUMAN];
+    EXPECT_EQ(info->baseHP, 82);
+    EXPECT_EQ(info->baseAttack, 108);
+    EXPECT_EQ(info->baseDefense, 92);
+    EXPECT_EQ(info->baseSpeed, 118);
+    EXPECT_EQ(info->baseSpAttack, 45);
+    EXPECT_EQ(info->baseSpDefense, 55);
+    EXPECT_EQ(info->types[0], TYPE_GRASS);
+    EXPECT_EQ(info->types[1], TYPE_FIGHTING);
+    EXPECT_EQ(info->abilities[0], ABILITY_JUSTIFIED);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_AUTUMAN)[0], CHAR_A);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Autuman can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_AUTUMAN) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: Bugmight has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BUGMIGHT];
+    EXPECT_EQ(info->baseHP, 108);
+    EXPECT_EQ(info->baseAttack, 118);
+    EXPECT_EQ(info->baseDefense, 92);
+    EXPECT_EQ(info->baseSpeed, 82);
+    EXPECT_EQ(info->baseSpAttack, 45);
+    EXPECT_EQ(info->baseSpDefense, 55);
+    EXPECT_EQ(info->types[0], TYPE_BUG);
+    EXPECT_EQ(info->types[1], TYPE_FIGHTING);
+    EXPECT_EQ(info->abilities[0], ABILITY_JUSTIFIED);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_BUGMIGHT)[0], CHAR_B);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Bugmight can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_BUGMIGHT) { Moves(MOVE_LEER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_LEER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, player);
+    }
+}
+
+TEST("Sigma dex: JAWBREAKER has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_JAWBREAKER];
+    EXPECT_EQ(info->baseHP, 95);
+    EXPECT_EQ(info->baseAttack, 120);
+    EXPECT_EQ(info->baseDefense, 82);
+    EXPECT_EQ(info->baseSpeed, 75);
+    EXPECT_EQ(info->baseSpAttack, 76);
+    EXPECT_EQ(info->baseSpDefense, 67);
+    EXPECT_EQ(info->types[0], TYPE_FIRE);
+    EXPECT_EQ(info->types[1], TYPE_DRAGON);
+    EXPECT_EQ(info->abilities[0], ABILITY_DROUGHT);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_EMBER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_JAWBREAKER)[0], CHAR_J);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: JAWBREAKER can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_JAWBREAKER) { Moves(MOVE_EMBER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_EMBER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, player);
+    }
+}
+
+TEST("Sigma dex: Dreadipede has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DREADIPEDE];
+    EXPECT_EQ(info->baseHP, 55);
+    EXPECT_EQ(info->baseAttack, 85);
+    EXPECT_EQ(info->baseDefense, 75);
+    EXPECT_EQ(info->baseSpeed, 60);
+    EXPECT_EQ(info->baseSpAttack, 40);
+    EXPECT_EQ(info->baseSpDefense, 45);
+    EXPECT_EQ(info->types[0], TYPE_BUG);
+    EXPECT_EQ(info->types[1], TYPE_FLYING);
+    EXPECT_EQ(info->abilities[0], ABILITY_MOLD_BREAKER);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_DREADIPEDE)[0], CHAR_D);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Dreadipede can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_DREADIPEDE) { Moves(MOVE_LEER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_LEER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, player);
     }
 }
 
@@ -801,19 +2565,159 @@ TEST("Sigma dex: Dreadfang has the data from its species file")
     EXPECT_EQ(info->types[0], TYPE_BUG);
     EXPECT_EQ(info->types[1], TYPE_FLYING);
     EXPECT_EQ(info->abilities[0], ABILITY_MOLD_BREAKER);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FELL_STINGER);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SLASH);
     EXPECT_EQ(GetSpeciesName(SPECIES_DREADFANG)[0], CHAR_D);
 }
 
 SINGLE_BATTLE_TEST("Sigma dex: Dreadfang can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_DREADFANG) { Moves(MOVE_FELL_STINGER); }
+        PLAYER(SPECIES_DREADFANG) { Moves(MOVE_SLASH); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_FELL_STINGER); }
+        TURN { MOVE(player, MOVE_SLASH); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_FELL_STINGER, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SLASH, player);
+    }
+}
+
+TEST("Sigma dex: Aquat has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_AQUAT];
+    EXPECT_EQ(info->baseHP, 50);
+    EXPECT_EQ(info->baseAttack, 60);
+    EXPECT_EQ(info->baseDefense, 35);
+    EXPECT_EQ(info->baseSpeed, 85);
+    EXPECT_EQ(info->baseSpAttack, 65);
+    EXPECT_EQ(info->baseSpDefense, 35);
+    EXPECT_EQ(info->types[0], TYPE_WATER);
+    EXPECT_EQ(info->types[1], TYPE_WATER);
+    EXPECT_EQ(info->abilities[0], ABILITY_SWIFT_SWIM);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_AQUAT)[0], CHAR_A);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Aquat can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_AQUAT) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: Aquway has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_AQUWAY];
+    EXPECT_EQ(info->baseHP, 80);
+    EXPECT_EQ(info->baseAttack, 90);
+    EXPECT_EQ(info->baseDefense, 55);
+    EXPECT_EQ(info->baseSpeed, 115);
+    EXPECT_EQ(info->baseSpAttack, 100);
+    EXPECT_EQ(info->baseSpDefense, 55);
+    EXPECT_EQ(info->types[0], TYPE_WATER);
+    EXPECT_EQ(info->types[1], TYPE_GROUND);
+    EXPECT_EQ(info->abilities[0], ABILITY_SWIFT_SWIM);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CRUNCH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_AQUWAY)[0], CHAR_A);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Aquway can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_AQUWAY) { Moves(MOVE_CRUNCH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CRUNCH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CRUNCH, player);
+    }
+}
+
+TEST("Sigma dex: Zyzzfu has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ZYZZFU];
+    EXPECT_EQ(info->baseHP, 80);
+    EXPECT_EQ(info->baseAttack, 115);
+    EXPECT_EQ(info->baseDefense, 60);
+    EXPECT_EQ(info->baseSpeed, 100);
+    EXPECT_EQ(info->baseSpAttack, 110);
+    EXPECT_EQ(info->baseSpDefense, 60);
+    EXPECT_EQ(info->types[0], TYPE_ELECTRIC);
+    EXPECT_EQ(info->types[1], TYPE_FIGHTING);
+    EXPECT_EQ(info->abilities[0], ABILITY_SURGE_SURFER);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_ZYZZFU)[0], CHAR_Z);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Zyzzfu can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_ZYZZFU) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: Grincho has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GRINCHO];
+    EXPECT_EQ(info->baseHP, 50);
+    EXPECT_EQ(info->baseAttack, 85);
+    EXPECT_EQ(info->baseDefense, 60);
+    EXPECT_EQ(info->baseSpeed, 65);
+    EXPECT_EQ(info->baseSpAttack, 60);
+    EXPECT_EQ(info->baseSpDefense, 95);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_GHOST);
+    EXPECT_EQ(info->abilities[0], ABILITY_UNNERVE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ASTONISH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_GRINCHO)[0], CHAR_G);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Grincho can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_GRINCHO) { Moves(MOVE_ASTONISH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ASTONISH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ASTONISH, player);
+    }
+}
+
+TEST("Sigma dex: Glacépée has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GLAC_P_E];
+    EXPECT_EQ(info->baseHP, 80);
+    EXPECT_EQ(info->baseAttack, 125);
+    EXPECT_EQ(info->baseDefense, 85);
+    EXPECT_EQ(info->baseSpeed, 100);
+    EXPECT_EQ(info->baseSpAttack, 60);
+    EXPECT_EQ(info->baseSpDefense, 75);
+    EXPECT_EQ(info->types[0], TYPE_ICE);
+    EXPECT_EQ(info->types[1], TYPE_FIGHTING);
+    EXPECT_EQ(info->abilities[0], ABILITY_LONG_REACH);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ICE_SHARD);
+    EXPECT_EQ(GetSpeciesName(SPECIES_GLAC_P_E)[0], CHAR_G);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Glacépée can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_GLAC_P_E) { Moves(MOVE_ICE_SHARD); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ICE_SHARD); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ICE_SHARD, player);
     }
 }
 
@@ -842,6 +2746,258 @@ SINGLE_BATTLE_TEST("Sigma dex: Everdark can use its first move in battle")
         TURN { MOVE(player, MOVE_NASTY_PLOT); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_NASTY_PLOT, player);
+    }
+}
+
+TEST("Sigma dex: Diedo has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DIEDO];
+    EXPECT_EQ(info->baseHP, 20);
+    EXPECT_EQ(info->baseAttack, 10);
+    EXPECT_EQ(info->baseDefense, 20);
+    EXPECT_EQ(info->baseSpeed, 80);
+    EXPECT_EQ(info->baseSpAttack, 15);
+    EXPECT_EQ(info->baseSpDefense, 55);
+    EXPECT_EQ(info->types[0], TYPE_FLYING);
+    EXPECT_EQ(info->types[1], TYPE_FLYING);
+    EXPECT_EQ(info->abilities[0], ABILITY_MINDS_EYE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_DIEDO)[0], CHAR_D);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Diedo can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_DIEDO) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: Rockedeer has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ROCKEDEER];
+    EXPECT_EQ(info->baseHP, 80);
+    EXPECT_EQ(info->baseAttack, 90);
+    EXPECT_EQ(info->baseDefense, 70);
+    EXPECT_EQ(info->baseSpeed, 140);
+    EXPECT_EQ(info->baseSpAttack, 130);
+    EXPECT_EQ(info->baseSpDefense, 70);
+    EXPECT_EQ(info->types[0], TYPE_FIRE);
+    EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_LEVITATE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CONFUSION);
+    EXPECT_EQ(GetSpeciesName(SPECIES_ROCKEDEER)[0], CHAR_R);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Rockedeer can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_ROCKEDEER) { Moves(MOVE_CONFUSION); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CONFUSION); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSION, player);
+    }
+}
+
+TEST("Sigma dex: Sabertann has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SABERTANN];
+    EXPECT_EQ(info->baseHP, 115);
+    EXPECT_EQ(info->baseAttack, 140);
+    EXPECT_EQ(info->baseDefense, 80);
+    EXPECT_EQ(info->baseSpeed, 75);
+    EXPECT_EQ(info->baseSpAttack, 90);
+    EXPECT_EQ(info->baseSpDefense, 80);
+    EXPECT_EQ(info->types[0], TYPE_DARK);
+    EXPECT_EQ(info->types[1], TYPE_WATER);
+    EXPECT_EQ(info->abilities[0], ABILITY_GOOD_AS_GOLD);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_WATER_GUN);
+    EXPECT_EQ(GetSpeciesName(SPECIES_SABERTANN)[0], CHAR_S);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Sabertann can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_SABERTANN) { Moves(MOVE_WATER_GUN); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_WATER_GUN); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_WATER_GUN, player);
+    }
+}
+
+TEST("Sigma dex: Whaldrill0 has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WHALDRILL0];
+    EXPECT_EQ(info->baseHP, 55);
+    EXPECT_EQ(info->baseAttack, 50);
+    EXPECT_EQ(info->baseDefense, 30);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 25);
+    EXPECT_EQ(info->baseSpDefense, 40);
+    EXPECT_EQ(info->types[0], TYPE_ICE);
+    EXPECT_EQ(info->types[1], TYPE_GROUND);
+    EXPECT_EQ(info->abilities[0], ABILITY_SLUSH_RUSH);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_WHALDRILL0)[0], CHAR_W);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Whaldrill0 can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_WHALDRILL0) { Moves(MOVE_LEER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_LEER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, player);
+    }
+}
+
+TEST("Sigma dex: Whaldrill has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WHALDRILL];
+    EXPECT_EQ(info->baseHP, 100);
+    EXPECT_EQ(info->baseAttack, 100);
+    EXPECT_EQ(info->baseDefense, 60);
+    EXPECT_EQ(info->baseSpeed, 60);
+    EXPECT_EQ(info->baseSpAttack, 50);
+    EXPECT_EQ(info->baseSpDefense, 80);
+    EXPECT_EQ(info->types[0], TYPE_ICE);
+    EXPECT_EQ(info->types[1], TYPE_GROUND);
+    EXPECT_EQ(info->abilities[0], ABILITY_SLUSH_RUSH);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ICE_FANG);
+    EXPECT_EQ(GetSpeciesName(SPECIES_WHALDRILL)[0], CHAR_W);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Whaldrill can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_WHALDRILL) { Moves(MOVE_ICE_FANG); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ICE_FANG); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ICE_FANG, player);
+    }
+}
+
+TEST("Sigma dex: Whaldrill3 has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WHALDRILL3];
+    EXPECT_EQ(info->baseHP, 125);
+    EXPECT_EQ(info->baseAttack, 125);
+    EXPECT_EQ(info->baseDefense, 70);
+    EXPECT_EQ(info->baseSpeed, 60);
+    EXPECT_EQ(info->baseSpAttack, 60);
+    EXPECT_EQ(info->baseSpDefense, 90);
+    EXPECT_EQ(info->types[0], TYPE_ICE);
+    EXPECT_EQ(info->types[1], TYPE_GROUND);
+    EXPECT_EQ(info->abilities[0], ABILITY_SLUSH_RUSH);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_DOUBLE_HIT);
+    EXPECT_EQ(GetSpeciesName(SPECIES_WHALDRILL3)[0], CHAR_W);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Whaldrill3 can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_WHALDRILL3) { Moves(MOVE_DOUBLE_HIT); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_DOUBLE_HIT); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_HIT, player);
+    }
+}
+
+TEST("Sigma dex: Santrock has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SANTROCK];
+    EXPECT_EQ(info->baseHP, 45);
+    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseDefense, 55);
+    EXPECT_EQ(info->baseSpeed, 35);
+    EXPECT_EQ(info->baseSpAttack, 40);
+    EXPECT_EQ(info->baseSpDefense, 40);
+    EXPECT_EQ(info->types[0], TYPE_FIRE);
+    EXPECT_EQ(info->types[1], TYPE_ROCK);
+    EXPECT_EQ(info->abilities[0], ABILITY_BLAZE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ROCK_POLISH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_SANTROCK)[0], CHAR_S);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Santrock can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_SANTROCK) { Moves(MOVE_ROCK_POLISH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ROCK_POLISH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ROCK_POLISH, player);
+    }
+}
+
+TEST("Sigma dex: Cindreon has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_CINDREON];
+    EXPECT_EQ(info->baseHP, 65);
+    EXPECT_EQ(info->baseAttack, 80);
+    EXPECT_EQ(info->baseDefense, 85);
+    EXPECT_EQ(info->baseSpeed, 45);
+    EXPECT_EQ(info->baseSpAttack, 65);
+    EXPECT_EQ(info->baseSpDefense, 50);
+    EXPECT_EQ(info->types[0], TYPE_FIRE);
+    EXPECT_EQ(info->types[1], TYPE_ROCK);
+    EXPECT_EQ(info->abilities[0], ABILITY_FLASH_FIRE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FLAMETHROWER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_CINDREON)[0], CHAR_C);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Cindreon can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_CINDREON) { Moves(MOVE_FLAMETHROWER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_FLAMETHROWER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_FLAMETHROWER, player);
+    }
+}
+
+TEST("Sigma dex: Custodix has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_CUSTODIX];
+    EXPECT_EQ(info->baseHP, 100);
+    EXPECT_EQ(info->baseAttack, 120);
+    EXPECT_EQ(info->baseDefense, 120);
+    EXPECT_EQ(info->baseSpeed, 90);
+    EXPECT_EQ(info->baseSpAttack, 130);
+    EXPECT_EQ(info->baseSpDefense, 110);
+    EXPECT_EQ(info->types[0], TYPE_FIRE);
+    EXPECT_EQ(info->types[1], TYPE_ROCK);
+    EXPECT_EQ(info->abilities[0], ABILITY_FIRE_MANE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_EMBER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_CUSTODIX)[0], CHAR_C);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Custodix can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_CUSTODIX) { Moves(MOVE_EMBER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_EMBER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, player);
     }
 }
 

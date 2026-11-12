@@ -105,7 +105,7 @@ learnset:
   evolving"); in the Google Sheet write it as `Slash (evo)`.
 - `level_up`, `tutor` and `egg` may use any move in the game (generation 1-9). `egg` is only
   needed for the first stage of a line.
-- `tm_hm` may only use the game's TMs and HMs.
+- `tm_hm` may only use the game's TMs and HMs (Origin HeartGold's list: `data/engine/origin.yaml`).
 - All existing names are listed in [`data/engine/expansion.yaml`](../data/engine/expansion.yaml).
 - A move or ability that is not in that list is a **new** one. It gets a warning and has to be
   programmed into the game, so describe exactly what it does.

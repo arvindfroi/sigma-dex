@@ -67,9 +67,41 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 0, move: Heat Wave}
+    - {level: 0, move: Air Slash}
     - {level: 1, move: Heat Wave}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Dragon Claw}
+    - {level: 1, move: Ember}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Scratch}
+    - {level: 1, move: Smokescreen}
+    - {level: 1, move: Gust}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Quick Attack}
+    - {level: 10, move: Supersonic}
+    - {level: 12, move: Dragon Breath}
+    - {level: 13, move: Fury Swipes}
+    - {level: 19, move: Incinerate}
+    - {level: 20, move: Wing Attack}
+    - {level: 24, move: Slash}
+    - {level: 29, move: Agility}
+    - {level: 30, move: Flamethrower}
+    - {level: 35, move: Flame Charge}
+    - {level: 39, move: Air Cutter}
+    - {level: 39, move: Scary Face}
+    - {level: 46, move: Fire Spin}
+    - {level: 48, move: Tailwind}
+    - {level: 54, move: Inferno}
+    - {level: 62, move: Fire Blast}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Roar, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Solar Beam,
+          Iron Tail, Return, Double Team, Flamethrower, Fire Blast, Aerial Ace, Facade,
+          Rest, Attract, Thief, Steel Wing, Overheat, Roost, Focus Blast, Fling, Endure,
+          Will-O-Wisp, Giga Impact, Sleep Talk, Swagger, U-turn, Substitute, Flame Charge,
+          Bulldoze, Mystical Fire, Dual Wingbeat, Scorching Sands, Fly, Strength,
+          Rock Smash, Taunt, Dig, Cut]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Brave Bird, Fire Fang, Fire Punch, Flame Wheel, Flare Blitz, Heat Wave,
+          Hurricane, Sky Attack]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -82,7 +114,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a slender, bat-like dragon with red-orange scaly skin and a tan belly. It has two huge fire-patterned orange wings with yellow claws at the tips, large pointed ears with flames on top, a yellow crest on its head, two clawed legs and a long thin pointed tail."
@@ -94,7 +127,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:6"
+  footprint: "hgss:6"    # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

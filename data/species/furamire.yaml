@@ -64,10 +64,32 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growth}
+    - {level: 1, move: Pound}
+    - {level: 1, move: Quick Attack}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Wrap}
+    - {level: 6, move: Helping Hand}
+    - {level: 9, move: Charm}
+    - {level: 9, move: Draining Kiss}
+    - {level: 12, move: Flower Shield}
+    - {level: 15, move: Magical Leaf}
+    - {level: 27, move: Sweet Kiss}
+    - {level: 35, move: Hyper Voice}
+    - {level: 36, move: Aromatherapy}
+    - {level: 39, move: Moonblast}
+    - {level: 42, move: Sweet Scent}
+    - {level: 47, move: Double-Edge}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
+          Safeguard, Frustration, Solar Beam, Return, Shadow Ball, Double Team, Facade,
+          Rest, Attract, Thief, Energy Ball, Fling, Endure, Giga Impact, Sleep Talk,
+          Grass Knot, Swagger, U-turn, Substitute, Draining Kiss, Play Rough]
+  # moves a move tutor can teach it
+  tutor: [Dazzling Gleam, Flail, Hyper Voice]
+  egg: [Fake Out, After You] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -79,7 +101,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a slim, tall brown furry humanoid creature with a tan chest, tan fluffy paws, and very long brown hair with cream and pink tips hanging down like long ears. It has a hair bun with a pink flower, small pointed ears, and big fluffy rounded feet."
@@ -91,7 +115,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:77"
+  footprint: "hgss:77"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

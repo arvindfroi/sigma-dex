@@ -47,7 +47,8 @@ held_items:              # items wild ones can hold (optional)
 # --- Evolution: what THIS Pokemon evolves INTO ---
 evolutions:
   - into: subwaysurfer
-    method: other
+    method: level
+    level: 25
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
@@ -61,10 +62,29 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Tackle}
+    - {level: 2, move: Water Gun}
+    - {level: 7, move: Tail Whip}
+    - {level: 11, move: Quick Attack}
+    - {level: 17, move: Bite}
+    - {level: 18, move: Water Pulse}
+    - {level: 20, move: Aqua Jet}
+    - {level: 20, move: Bubble Beam}
+    - {level: 20, move: Slash}
+    - {level: 32, move: Soak}
+    - {level: 34, move: Muddy Water}
+    - {level: 37, move: Surf}
+    - {level: 40, move: Agility}
+    - {level: 44, move: Hydro Pump}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Hail, Hidden Power, Ice Beam, Blizzard, Protect, Rain Dance, Return,
+          Double Team, Facade, Rest, Attract, Brine, Endure, Sleep Talk, Swagger,
+          Substitute, Scald, Liquidation, Surf, Whirlpool, Waterfall]
+  tutor: [Aqua Jet, Aqua Tail, Icy Wind] # moves a move tutor can teach it
+  egg: [Aqua Ring, Haze, Octazooka] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -76,7 +96,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a small orange cat-like creature with two pointed ears, blue eyes, brown cheek spots and a cream muzzle. It has a round blue ring around its neck, a yellow fluffy chest, two arms, two legs with yellow claws, and a long thin tail ending in a two-lobed orange and blue fin."
@@ -88,7 +110,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:37"
+  footprint: "hgss:37"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

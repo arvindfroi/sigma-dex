@@ -53,6 +53,15 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
@@ -60,8 +69,36 @@ learnset:
     - {level: 1, move: Shell Smash}
     - {level: 1, move: Flare Blitz}
     - {level: 1, move: Volt Tackle}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Ember}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Smog}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Tail Whip}
+    - {level: 1, move: Leer}
+    - {level: 8, move: Protect}
+    - {level: 10, move: Withdraw}
+    - {level: 12, move: Bite}
+    - {level: 15, move: Flame Charge}
+    - {level: 15, move: Horn Attack}
+    - {level: 20, move: Fire Fang}
+    - {level: 20, move: Flame Wheel}
+    - {level: 20, move: Headbutt}
+    - {level: 21, move: Slash}
+    - {level: 28, move: Crunch}
+    - {level: 30, move: Scary Face}
+    - {level: 32, move: Body Slam}
+    - {level: 33, move: Iron Defense}
+    - {level: 35, move: Fire Spin}
+    - {level: 44, move: Curse}
+    - {level: 57, move: Double-Edge}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Solar Beam, Iron Tail,
+          Thunderbolt, Thunder, Earthquake, Return, Double Team, Flamethrower, Fire Blast,
+          Rock Tomb, Facade, Rest, Attract, Overheat, Endure, Will-O-Wisp, Giga Impact,
+          Stone Edge, Thunder Wave, Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze,
+          Scorching Sands, Strength, Dig, Flame Charge]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Fire Fang, Flare Blitz, Heat Wave]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -74,7 +111,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a purple scaly turtle with a smooth snout and dark sunglasses with yellow frames, and a glossy red segmented shell trimmed with chrome and yellow lightning bolts. It has four stubby clawed legs and flames and electric sparks streaming from the back of its shell."
@@ -86,7 +124,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:9"
+  footprint: "hgss:9"    # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

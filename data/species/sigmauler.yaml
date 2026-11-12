@@ -68,8 +68,36 @@ learnset:
   level_up:
     - {level: 0, move: Rock Hammer}
     - {level: 1, move: Hammer Arm}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Harden}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Rock Throw}
+    - {level: 1, move: Tackle}
+    - {level: 5, move: Rollout}
+    - {level: 6, move: Sandstorm}
+    - {level: 13, move: Rock Polish}
+    - {level: 18, move: Smack Down}
+    - {level: 20, move: Rock Tomb}
+    - {level: 20, move: Power Gem}
+    - {level: 24, move: Slam}
+    - {level: 30, move: Rock Blast}
+    - {level: 30, move: Iron Defense}
+    - {level: 32, move: Rock Slide}
+    - {level: 36, move: Dynamic Punch}
+    - {level: 36, move: Low Kick}
+    - {level: 38, move: Stealth Rock}
+    - {level: 44, move: Double-Edge}
+    - {level: 48, move: Head Smash}
+    - {level: 48, move: Stone Edge}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Focus Punch, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
+          Rain Dance, Earthquake, Return, Dig, Brick Break, Double Team, Sandstorm,
+          Rock Tomb, Facade, Rest, Attract, Focus Blast, Fling, Endure, Drain Punch,
+          Giga Impact, Rock Polish, Stone Edge, Stealth Rock, Rock Slide, Sleep Talk,
+          Swagger, Substitute, Low Sweep, Bulldoze, Body Press, Meteor Beam, Strength,
+          Rock Smash, Heavy Slam]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Close Combat, Curse, Earth Power, Fire Punch, Thunder Punch,
+          Ancient Power]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -82,7 +110,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a huge golem made of tan stone blocks, each carved like a stone face with a heavy brow. It has a big stone head with a glowing yellow eye, broad shoulders, thick arms ending in large stone fists made of many faces, moss patches and orange swirl carvings."
@@ -94,7 +123,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:76"
+  footprint: "hgss:76"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

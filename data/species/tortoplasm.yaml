@@ -47,21 +47,50 @@ held_items:              # items wild ones can hold (optional)
 # --- Evolution: what THIS Pokemon evolves INTO ---
 evolutions:
   - into: tortoplasm-utviklet
-    method: other
+    method: level
+    level: 40
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Harden}
+    - {level: 1, move: Rollout}
+    - {level: 1, move: Tackle}
+    - {level: 4, move: Protect}
+    - {level: 10, move: Withdraw}
+    - {level: 13, move: Smack Down}
+    - {level: 21, move: Ancient Power}
+    - {level: 22, move: Hex}
+    - {level: 28, move: Night Shade}
+    - {level: 31, move: Power Gem}
+    - {level: 35, move: Rock Slide}
+    - {level: 38, move: Iron Defense}
+    - {level: 42, move: Curse}
+    - {level: 42, move: Sandstorm}
+    - {level: 45, move: Rock Blast}
+    - {level: 46, move: Shadow Ball}
+    - {level: 55, move: Stone Edge}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Protect, Rain Dance, Earthquake, Return, Dig, Psychic,
+          Shadow Ball, Double Team, Sandstorm, Rock Tomb, Facade, Rest, Attract, Thief,
+          Endure, Rock Polish, Stone Edge, Stealth Rock, Rock Slide, Sleep Talk, Swagger,
+          Substitute, Bulldoze, Meteor Beam]
+  # moves a move tutor can teach it
+  tutor: [Ancient Power, Curse, Earth Power, Poltergeist]
+  # only needed for the first stage of an evolution line
+  egg: [Rock Throw, Shadow Sneak, Knock Off, Head Smash, Wide Guard]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -73,7 +102,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a turtle with a big dark charcoal-grey rock-like shell marked with pale cracks and small angular holes, a cream underside, and a translucent light blue ghostly head, neck and four flipper-like legs."
@@ -85,7 +116,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:98"
+  footprint: "hgss:98"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

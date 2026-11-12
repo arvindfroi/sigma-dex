@@ -65,8 +65,41 @@ learnset:
   level_up:
     - {level: 0, move: Fire Spin}
     - {level: 1, move: Fire Spin}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Ember}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Mega Drain}
+    - {level: 1, move: Smog}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Tackle}
+    - {level: 6, move: Stun Spore}
+    - {level: 9, move: Growth}
+    - {level: 10, move: Razor Leaf}
+    - {level: 11, move: Howl}
+    - {level: 14, move: Incinerate}
+    - {level: 16, move: Encore}
+    - {level: 17, move: Poison Powder}
+    - {level: 18, move: Will-O-Wisp}
+    - {level: 19, move: Synthesis}
+    - {level: 20, move: Mimic}
+    - {level: 22, move: Flame Charge}
+    - {level: 22, move: Magical Leaf}
+    - {level: 25, move: Absorb}
+    - {level: 25, move: Sweet Scent}
+    - {level: 29, move: Smokescreen}
+    - {level: 33, move: Lava Plume}
+    - {level: 37, move: Inferno}
+    - {level: 41, move: Flamethrower}
+    - {level: 43, move: Imprison}
+    - {level: 49, move: Pain Split}
+    - {level: 55, move: Overheat}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Taunt, Protect, Giga Drain, Safeguard,
+          Solar Beam, Return, Psychic, Double Team, Flamethrower, Fire Blast, Facade, Rest,
+          Attract, Thief, Overheat, Energy Ball, Endure, Will-O-Wisp, Sleep Talk,
+          Grass Knot, Swagger, Substitute, Flame Charge, Mystical Fire, Flash, Swords Dance]
+  # moves a move tutor can teach it
+  tutor: [Curse, Fire Punch, Flare Blitz, Heat Wave, Leaf Storm, Magical Leaf, Seed Bomb,
+          Leech Seed, Mega Drain, Synthesis]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +112,8 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-03)."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a small monkey whose body is a brown wooden tiki-mask log with a grinning face with white teeth and a green mossy rim. It has smoke and moss on top, a grass skirt, brown monkey arms, legs and a curly tail, and holds a burning wooden torch."
@@ -91,7 +125,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:391"
+  footprint: "hgss:391"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

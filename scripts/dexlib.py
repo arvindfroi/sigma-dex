@@ -374,6 +374,11 @@ def load_engine():
     with open(ENGINE_PATH, encoding="utf-8") as handle:
         engine = yaml.safe_load(handle)
     custom = {kind: load_custom(kind) for kind in ("moves", "abilities")}
+    origin_path = ROOT / "data" / "engine" / "origin.yaml"
+    if origin_path.exists():         # Origin HeartGold's TMs/HMs replace the old GBA list (2026-11-12)
+        with open(origin_path, encoding="utf-8") as handle:
+            origin = yaml.safe_load(handle)
+        engine["tms"], engine["hms"] = origin["tms"], origin["hms"]
     return {
         "moves": {norm(m) for m in engine["moves"]} | {norm(e["name"]) for e in custom["moves"]},
         "abilities": {norm(a) for a in engine["abilities"]} | {norm(e["name"]) for e in custom["abilities"]},
@@ -550,6 +555,10 @@ def change_layout(layout, ops):
                                            makes the Pokemon in between shift one slot to make room.
       {"op": "insert", "at": N}           a new empty slot N; everything from N on moves down one (the last slot must be empty).
       {"op": "close", "at": N}            removes the empty slot N; everything after it moves up one.
+      {"op": "set", "layout": [...], "from": [...]}
+                                           the whole new order at once (ids and None, from slot 1). "from" is the
+                                           order the person started from: if the dex has changed since then, nothing
+                                           happens. The new order must hold exactly the same Pokemon, each once.
     Returns a new list of the same length. Raises ValueError, and then nothing is changed.
     """
     layout = list(layout)
@@ -559,6 +568,9 @@ def change_layout(layout, ops):
     for op in ops:
         if not isinstance(op, dict):
             raise ValueError("a reorder step is not an object")
+        if op.get("op") == "set":
+            layout = set_layout(layout, op.get("layout"), op.get("from"))
+            continue
         kind, slot = op.get("op"), op.get("to", op.get("at"))
         if not isinstance(slot, int) or isinstance(slot, bool) or not 1 <= slot <= size:
             raise ValueError("slot %r is outside the dex (1-%d)" % (slot, size))
@@ -583,6 +595,24 @@ def change_layout(layout, ops):
         else:
             raise ValueError("unknown reorder step %r" % kind)
     return layout
+
+
+def set_layout(layout, new, start):
+    """The "set" reorder step: see change_layout. Checks everything before changing anything."""
+    size = len(layout)
+    if not isinstance(new, list) or len(new) > size or any(x is not None and not isinstance(x, str) for x in new):
+        raise ValueError("the new order is not a list of Pokemon")
+    used = len(layout)
+    while used and layout[used - 1] is None:
+        used -= 1
+    if start is not None and list(start) != layout[:used]:
+        raise ValueError("the dex changed while this new order was being made, so it was not used; open Change dex numbers again")
+    ids = [x for x in new if x is not None]
+    if len(ids) != len(set(ids)):
+        raise ValueError("a Pokemon is twice in the new order")
+    if set(ids) != {x for x in layout if x is not None}:
+        raise ValueError("the new order does not hold exactly the Pokemon of the dex")
+    return list(new) + [None] * (size - len(new))
 
 
 def section(data, key):

@@ -67,8 +67,36 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 0, move: Cosmic Shield}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Confusion}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Pound}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Water Gun}
+    - {level: 1, move: Withdraw}
+    - {level: 7, move: Protect}
+    - {level: 12, move: Aqua Ring}
+    - {level: 14, move: Psybeam}
+    - {level: 15, move: Bubble Beam}
+    - {level: 17, move: Bite}
+    - {level: 18, move: Water Pulse}
+    - {level: 20, move: Hypnosis}
+    - {level: 20, move: Wrap}
+    - {level: 21, move: Headbutt}
+    - {level: 24, move: Zen Headbutt}
+    - {level: 30, move: Hydro Pump}
+    - {level: 35, move: Iron Defense}
+    - {level: 40, move: Psychic}
+    - {level: 41, move: Rain Dance}
+    - {level: 56, move: Future Sight}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Calm Mind, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard,
+          Hyper Beam, Light Screen, Protect, Rain Dance, Safeguard, Return, Psychic,
+          Shadow Ball, Double Team, Reflect, Facade, Rest, Attract, Skill Swap, Energy Ball,
+          Brine, Fling, Endure, Giga Impact, Thunder Wave, Psych Up, Sleep Talk, Grass Knot,
+          Swagger, Substitute, Trick Room, Psyshock, Scald, Liquidation, Expanding Force,
+          Surf, Whirlpool, Waterfall, Rock Tomb, Strength, Rock Smash]
+  # moves a move tutor can teach it
+  tutor: [Aqua Tail, Icy Wind, Zen Headbutt, Aqua Jet, Body Slam]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -81,7 +109,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a round flower-like body with six large purple petals around a bright magenta centre that holds a small face with two eyes and a jagged mouth. Four teal tentacles with red curled tips hang below, and one long pale-pink frilly tube with a white ring at its top ends in a teal clawed hand."
@@ -93,7 +122,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:139"
+  footprint: "hgss:139"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

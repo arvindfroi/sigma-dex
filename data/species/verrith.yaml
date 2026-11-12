@@ -53,12 +53,44 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Harden}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Metal Claw}
+    - {level: 1, move: Tackle}
+    - {level: 7, move: Night Shade}
+    - {level: 20, move: Protect}
+    - {level: 25, move: Hex}
+    - {level: 30, move: Metal Sound}
+    - {level: 36, move: Curse}
+    - {level: 36, move: Heavy Slam}
+    - {level: 36, move: Iron Defense}
+    - {level: 36, move: Shadow Ball}
+    - {level: 38, move: Iron Head}
+    - {level: 40, move: Flash Cannon}
+    - {level: 60, move: Metal Burst}
+    - {level: 64, move: Skull Bash}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Earthquake, Return,
+          Psychic, Shadow Ball, Brick Break, Rock Tomb, Facade, Rest, Attract, Thief,
+          Endure, Shadow Claw, Payback, Giga Impact, Gyro Ball, Stealth Rock, Rock Slide,
+          Sleep Talk, Substitute, Flash Cannon, Heavy Slam, Bulldoze, Will-O-Wisp, Cut]
+  # moves a move tutor can teach it
+  tutor: [Iron Head, Metal Claw, Poltergeist]
+  egg: [Shadow Sneak]    # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -70,7 +102,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a blocky stone golem made of grey and rusty-brown rock plates, with a bell-shaped helmet head with small spikes on top and a glowing teal diamond gem. One arm is a huge pointed blade, the other hand holds teal ghostly flames, and more teal gems glow on its knees and blade, with teal flames showing between its plates."
@@ -82,7 +116,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:67"
+  footprint: "hgss:67"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

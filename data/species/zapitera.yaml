@@ -68,8 +68,34 @@ learnset:
   level_up:
     - {level: 0, move: Heat Laser Gaze}
     - {level: 1, move: Heat Laser Gaze}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Electric Terrain}
+    - {level: 1, move: Supersonic}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Thunder Shock}
+    - {level: 1, move: Thunder Wave}
+    - {level: 1, move: Peck}
+    - {level: 5, move: Charge}
+    - {level: 10, move: Quick Attack}
+    - {level: 12, move: Electro Ball}
+    - {level: 16, move: Gyro Ball}
+    - {level: 20, move: Shock Wave}
+    - {level: 24, move: Screech}
+    - {level: 28, move: Magnet Rise}
+    - {level: 30, move: Wing Attack}
+    - {level: 34, move: Flash Cannon}
+    - {level: 39, move: Slash}
+    - {level: 40, move: Discharge}
+    - {level: 46, move: Metal Sound}
+    - {level: 52, move: Light Screen}
+    - {level: 58, move: Lock-On}
+    - {level: 64, move: Zap Cannon}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance, Iron Tail,
+          Thunderbolt, Thunder, Return, Double Team, Shock Wave, Facade, Rest, Attract,
+          Charge Beam, Endure, Giga Impact, Flash, Thunder Wave, Gyro Ball, Sleep Talk,
+          Swagger, Substitute, Flash Cannon, Heavy Slam, Electroweb, Electric Terrain,
+          Steel Wing, Fly]
+  tutor: [Iron Head, Volt Switch] # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -82,7 +108,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a robot-like bird with a dark navy body, a yellow belly, and a red lightning bolt on its chest. It has a dark visor over red eyes, a red-orange beak, a spiky blue and yellow crest, and two big blue and yellow wings with round yellow joints. It has two long legs with yellow claws and a long blue and yellow tail."
@@ -94,7 +121,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:277"
+  footprint: "hgss:277"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

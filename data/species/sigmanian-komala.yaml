@@ -50,12 +50,40 @@ evolutions:
     method: level
     level: 32
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Leer}
+    - {level: 1, move: Tackle}
+    - {level: 5, move: Baby-Doll Eyes}
+    - {level: 8, move: Fury Swipes}
+    - {level: 9, move: Bite}
+    - {level: 12, move: Covet}
+    - {level: 20, move: Work Up}
+    - {level: 28, move: Headbutt}
+    - {level: 31, move: Slash}
+    - {level: 31, move: Take Down}
+    - {level: 33, move: Crunch}
+    - {level: 40, move: Double-Edge}
+    - {level: 45, move: Rest}
+    - {level: 52, move: Thrash}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return, Dig,
+          Double Team, Facade, Rest, Attract, Thief, Fling, Endure, Sleep Talk, Swagger,
+          Substitute, Toxic]
+  tutor: [Body Slam, Hyper Voice, Yawn] # moves a move tutor can teach it
+  # only needed for the first stage of an evolution line
+  egg: [Uproar, Stomp, Endeavor, Fake Out, Quick Attack]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -67,7 +95,9 @@ design:
   notes:
   wishes: "an early route pokemon, stats simmilar to pancham"
   claude_fill: true      # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a green koala-like creature with big rounded green ears with orange insides, a large dark grey oval nose, and X-shaped closed eyes. It sits hugging a cream bottle with a red band and white crosses, with dark round paw pads and a small white tail tuft."
@@ -79,7 +109,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:216"
+  footprint: "hgss:216"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

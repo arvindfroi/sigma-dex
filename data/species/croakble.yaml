@@ -64,9 +64,36 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Crunch}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Quick Attack}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Water Gun}
+    - {level: 1, move: Hypnosis}
+    - {level: 7, move: Pound}
+    - {level: 8, move: Tail Whip}
+    - {level: 12, move: Water Pulse}
+    - {level: 14, move: Aqua Jet}
+    - {level: 14, move: Mud Shot}
+    - {level: 21, move: Bite}
+    - {level: 22, move: Bubble Beam}
+    - {level: 24, move: Swift}
+    - {level: 29, move: Rain Dance}
+    - {level: 34, move: Echoed Voice}
+    - {level: 40, move: Agility}
+    - {level: 45, move: Waterfall}
+    - {level: 50, move: Aqua Tail}
+    - {level: 52, move: Liquidation}
+    - {level: 61, move: Hydro Pump}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect,
+          Rain Dance, Return, Double Team, Facade, Rest, Attract, Brine, Endure,
+          Giga Impact, Sleep Talk, Swagger, Substitute, Scald, Liquidation, Flip Turn, Surf,
+          Whirlpool, Waterfall]
+  # moves a move tutor can teach it
+  tutor: [Aqua Jet, Aqua Tail, Icy Wind, Hyper Voice]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +106,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves]
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...
@@ -91,7 +119,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:62"
+  footprint: "hgss:62"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

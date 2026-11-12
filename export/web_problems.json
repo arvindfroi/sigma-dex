@@ -4,5 +4,11 @@
     "species": "ability:sea-ghost-emperor",
     "row": "new ability sea-ghost-emperor (saved by someone)",
     "problem": "the name 'Sea Ghost Emperor' is 17 characters, the game fits at most 16"
+  },
+  {
+    "id": 1067,
+    "species": "ability:xl-and-deep-fried",
+    "row": "new ability xl-and-deep-fried (saved by Casper)",
+    "problem": "the name 'XL and Deep fried' is 17 characters, the game fits at most 16"
   }
 ]

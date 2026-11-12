@@ -11,6 +11,16 @@ abilities:
     it.'
   similar_to: Motor Drive
   designer: Emil
+- id: bringer-of-light
+  name: Bringer of light
+  description: Brings forth harsh sunlight, disallows further weatherchange
+  effect: 'At the start of battle, pops immediately before any moves can be made.
+
+    Works in doubles, and powers up its own moves with celestial energy (plus 20 dmg).
+
+
+    Disallows any further change in weather condition for the rest of the battle.'
+  similar_to: Drought
 - id: catch-master
   name: Catch Master
   description: Weakens wild Pokémon's resistance to Poké Balls
@@ -64,6 +74,16 @@ abilities:
     is a normal stat stage, so Intimidate, Haze, and switching out remove it. It does not boost Special
     Attack.
   designer: Emil
+- id: leftover-vortex
+  name: Leftover Vortex
+  description: Spins with it's body, hurling hurt all around
+  effect: 'Spins with its spiky body and cutting fangs, creating a vortex of discarded lettuce, sauce
+    and vicious cuts. Will hit its partner if in a doublefight.
+
+
+    Does 70 dmg
+
+    80 accuracy'
 - id: lullaby
   name: Lullaby
   effect: any pokemon on the field that is asleep gets 1/8 of thier health restored every round
@@ -98,6 +118,12 @@ abilities:
     effects that bypass it, or indirect damage like weather, poison, or hazards. Against multi-hit moves,
     only the first hit is parried.
   designer: Emil
+- id: pickle-armor
+  name: Pickle Armor
+  description: It's sour coating deters any healing effects of any attack by opponent
+  effect: 'It''s sour coating deters any healing effects of any attack by opponent
+
+    Opponent cannot heal from attacking this pokemon'
 - id: punchable-face
   name: Punchable Face
   description: On switch-in, taunts every other Pokémon on the field for 2 turns.

@@ -64,9 +64,36 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Quick Attack}
+    - {level: 1, move: Sand Attack}
+    - {level: 1, move: Scratch}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Baby-Doll Eyes}
+    - {level: 1, move: Odor Sleuth}
+    - {level: 6, move: Tail Whip}
+    - {level: 12, move: Bite}
+    - {level: 12, move: Stomp}
+    - {level: 14, move: Taunt}
+    - {level: 15, move: Headbutt}
+    - {level: 17, move: Assurance}
+    - {level: 18, move: Fury Swipes}
+    - {level: 20, move: Tri Attack}
+    - {level: 23, move: Take Down}
+    - {level: 25, move: Screech}
+    - {level: 27, move: Agility}
+    - {level: 28, move: Slash}
+    - {level: 37, move: Roost}
+    - {level: 39, move: Nasty Plot}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration, Iron Tail,
+          Thunderbolt, Thunder, Return, Dig, Shadow Ball, Double Team, Shock Wave, Facade,
+          Rest, Attract, Thief, Endure, Giga Impact, Sleep Talk, Swagger, U-turn,
+          Substitute, Strength, Aerial Ace, Cut]
+  tutor: [Endeavor, Hyper Voice, Flail] # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +106,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a chubby tan dog-like creature standing upright, with one long black floppy ear and one upright tan ear, a black patch over one blue eye, a cream belly and a short black-tipped tail. It has pink claws and wears a brown checked deerstalker cap, plaid coat with bone buttons and a red tie, holding a magnifying glass."
@@ -91,7 +119,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:447"
+  footprint: "hgss:447"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

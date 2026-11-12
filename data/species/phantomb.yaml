@@ -27,7 +27,7 @@ base_stats:              # each 1-255
   defense: 30
   sp_attack: 55
   sp_defense: 30
-  speed: 85
+  speed: 80
 
 ev_yield: {speed: 1}     # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -61,10 +61,30 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Growl}
+    - {level: 4, move: Leer}
+    - {level: 11, move: Quick Attack}
+    - {level: 15, move: Confuse Ray}
+    - {level: 24, move: Acrobatics}
+    - {level: 30, move: Gust}
+    - {level: 35, move: Air Cutter}
+    - {level: 43, move: Hex}
+    - {level: 49, move: Shadow Ball}
+    - {level: 59, move: Wing Attack}
+    - {level: 67, move: Air Slash}
+    - {level: 69, move: Agility}
+    - {level: 74, move: Roost}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Protect, Rain Dance, Return, Psychic, Shadow Ball,
+          Double Team, Aerial Ace, Facade, Rest, Attract, Thief, Roost, Endure, Sleep Talk,
+          Swagger, U-turn, Substitute, Fly]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Brave Bird, Poltergeist, Sky Attack]
+  # only needed for the first stage of an evolution line
+  egg: [Sky Attack, Brave Bird, Shadow Sneak, Feather Dance, Disable, Hurricane]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -76,9 +96,11 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
-  body_shape: "a serpentine body"
-  movement: "It floats in the air."
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
+  body_shape: a serpentine body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a ghost with a white hood with black and white stripes and a long wavy striped tail that tapers to a point. Under the hood is an orange oval face with three black eyes with small red glowing pupils, a red triangle mark and a wide jagged mouth."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
@@ -88,7 +110,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:353"
+  footprint: "hgss:353"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

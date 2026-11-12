@@ -67,8 +67,30 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 0, move: Ice Egg}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Ice Fang}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Powder Snow}
+    - {level: 1, move: Tackle}
+    - {level: 6, move: Growl}
+    - {level: 12, move: Ice Shard}
+    - {level: 15, move: Rest}
+    - {level: 16, move: Icy Wind}
+    - {level: 20, move: Bite}
+    - {level: 22, move: Take Down}
+    - {level: 25, move: Flail}
+    - {level: 27, move: Avalanche}
+    - {level: 32, move: Slash}
+    - {level: 40, move: Amnesia}
+    - {level: 44, move: Icicle Crash}
+    - {level: 47, move: Crunch}
+    - {level: 49, move: Double-Edge}
+    - {level: 53, move: Blizzard}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect, Rain Dance,
+          Earthquake, Return, Double Team, Facade, Rest, Attract, Endure, Giga Impact,
+          Avalanche, Sleep Talk, Swagger, Substitute, Bulldoze, Dig, Swords Dance]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Ice Fang, Ice Shard, Icicle Spear, Icy Wind]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -81,7 +103,8 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-02): also on the card: Height 2'11\", weight 132.3 lbs. Ice Body: gradually recovers HP in hail. Personality: cool and composed, fiercely loyal. Signature move Ice Egg (Ice, 80 BP, 100% accuracy).."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a big, round, rabbit-like creature made of light-blue faceted ice crystal. It has two tall crystal ears, a thick tan bowl-cut fringe covering its eyes, a purple nose, a smile with two white buck teeth, and black claws on its hands and feet."
@@ -93,7 +116,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:428"
+  footprint: "hgss:428"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

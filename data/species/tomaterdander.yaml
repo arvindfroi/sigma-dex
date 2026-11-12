@@ -1,10 +1,10 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
 dex: 48
-name: Tomaterdander
+name: Tomaternader
 
 credits:
   designer: Casper       # who came up with it (Discord name)
-  artist:                # who drew the concept art
+  artist: Casper         # who drew the concept art
 
 types: [Poison, Grass]   # 1 or 2 types, e.g. [Grass, Steel]
 
@@ -19,7 +19,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 abilities:
   primary: Pickle Armor
   secondary: Chlorophyll # optional
-  hidden:                # optional
+  hidden: Defiant        # optional
 
 base_stats:              # each 1-255
   hp: 90
@@ -49,31 +49,60 @@ evolutions:
   - into: crappy-meal
     method: other
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 0, move: Mortal Spin}
+    - {level: 0, move: Acid Armor}
+    - {level: 0, move: poison}
+    - {level: 1, move: Absorb}
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Harden}
+    - {level: 1, move: Tackle}
+    - {level: 8, move: Stun Spore}
+    - {level: 9, move: Growth}
+    - {level: 13, move: Razor Leaf}
+    - {level: 15, move: Head Smash}
+    - {level: 16, move: Cross Poison}
+    - {level: 16, move: Leech Seed}
+    - {level: 16, move: Mega Drain}
+    - {level: 24, move: Synthesis}
+    - {level: 28, move: Horn Leech}
+    - {level: 29, move: Slash}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Protect, Rain Dance, Giga Drain,
+          Solar Beam, Return, Double Team, Sludge Bomb, Facade, Rest, Attract, Thief,
+          Energy Ball, Endure, Payback, Sleep Talk, Poison Jab, Grass Knot, Swagger,
+          Substitute, Venoshock]
+  # moves a move tutor can teach it
+  tutor: [Leaf Storm, Leech Seed, Magical Leaf, Mega Drain, Seed Bomb, Synthesis]
+  # only needed for the first stage of an evolution line
+  egg: [Worry Seed, Acid Spray, Grassy Terrain, Curse, Magical Leaf, Leaf Storm]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
 
 # --- Design ---
 design:
-  concept:               # what is it? one or two sentences
+  concept: "Burger with an attitude, consist of a burger with a massive and vengeful tomato in the center."
   name_origin:
   notes: "From the Discord concept card (Casse, 2026-10-01): card name: Tomadernader; also on the card: Pickle Armor: its sour coating deters any healing effects of any attack from opponents; Chlorophyll is hidden ability; signature move Onion Cyclone (Poison Physical, Power 85, Accuracy 100, 30% chance to poison); Head Smash 70 damage, 30 damage to itself; No. ???."
   wishes:                # for Claude: how it should play, move ideas
-  claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  claude_fill: true      # true = Claude may fill in what is missing
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a head and arms # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its legs.
   look: "It is a living hamburger with a sesame seed bun on top, lettuce, a red tomato face with angry yellow eyes, pickles, and melted yellow cheese dripping down. Two large curved purple onion rings stick out from the sides like claws."
@@ -85,7 +114,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:108"
+  footprint: "hgss:108"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

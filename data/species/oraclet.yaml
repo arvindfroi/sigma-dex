@@ -50,12 +50,45 @@ evolutions:
     method: level
     level: 38
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Confusion}
+    - {level: 1, move: Growl}
+    - {level: 3, move: Peck}
+    - {level: 6, move: Imprison}
+    - {level: 10, move: Withdraw}
+    - {level: 11, move: Teleport}
+    - {level: 16, move: Charm}
+    - {level: 16, move: Psybeam}
+    - {level: 21, move: Slash}
+    - {level: 24, move: Reflect}
+    - {level: 24, move: Confuse Ray}
+    - {level: 25, move: Recover}
+    - {level: 27, move: Headbutt}
+    - {level: 30, move: Psyshock}
+    - {level: 41, move: Calm Mind}
+    - {level: 46, move: Psychic}
+    - {level: 50, move: Future Sight}
+    - {level: 52, move: Wonder Room}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance, Safeguard,
+          Return, Psychic, Shadow Ball, Reflect, Rock Tomb, Facade, Rest, Attract, Thief,
+          Skill Swap, Energy Ball, Endure, Thunder Wave, Rock Slide, Sleep Talk, Substitute,
+          Trick Room, Psyshock, Expanding Force]
+  tutor: [Zen Headbutt]  # moves a move tutor can teach it
+  # only needed for the first stage of an evolution line
+  egg: [Astonish, Mirror Coat, Zen Headbutt, Disable]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -67,7 +100,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a small purple bird with a spiky crest, a sharp orange beak and a calm eye, emerging from a big cracked purple egg shell. The shell is covered in pale staring eyes, and the bird has long thin orange legs with big black claws."
@@ -79,7 +114,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:396"
+  footprint: "hgss:396"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

@@ -68,6 +68,25 @@ learnset:
   level_up:
     - {level: 0, move: Leaf Blade}
     - {level: 1, move: Leaf Blade}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leafage}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Metal Claw}
+    - {level: 1, move: Razor Leaf}
+    - {level: 1, move: Scratch}
+    - {level: 1, move: Tackle}
+    - {level: 10, move: Fury Cutter}
+    - {level: 11, move: Bite}
+    - {level: 11, move: Growth}
+    - {level: 15, move: Curse}
+    - {level: 16, move: Vine Whip}
+    - {level: 20, move: Leech Seed}
+    - {level: 22, move: Iron Head}
+    - {level: 24, move: Sharpen}
+    - {level: 28, move: Slash}
+    - {level: 28, move: Take Down}
+    - {level: 29, move: Mega Drain}
+    - {level: 32, move: Synthesis}
     - {level: 40, move: Iron Tail}
     - {level: 44, move: X-Scissor}
     - {level: 48, move: Night Slash}
@@ -75,8 +94,16 @@ learnset:
     - {level: 56, move: Stone Axe}
     - {level: 60, move: Solar Blade}
     - {level: 64, move: Behemoth Blade}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Giga Drain, Safeguard,
+          Solar Beam, Earthquake, Return, Brick Break, Double Team, Rock Tomb, Facade, Rest,
+          Attract, Energy Ball, Endure, Giga Impact, Swords Dance, Rock Slide, Sleep Talk,
+          Grass Knot, Swagger, Substitute, Flash Cannon, Heavy Slam, Bulldoze, Rain Dance,
+          Iron Tail, Reflect, Shadow Claw, Gyro Ball, Stealth Rock, Cut, Strength,
+          Rock Smash, Light Screen, Frustration, Flash]
+  # moves a move tutor can teach it
+  tutor: [Iron Head, Leaf Storm, Magical Leaf, Metal Claw, Seed Bomb, Synthesis, Body Slam,
+          Leech Seed, Curse, Mega Drain]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -89,7 +116,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its legs.
   look: "It is a long, green dragon-like lizard covered in leaf-like scales, with grey steel plates along its belly and back and grey spikes down its spine. It has a steel crescent blade on its head and a long curled tail ending in a large grey axe blade, on four clawed legs."
@@ -101,7 +129,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:3"
+  footprint: "hgss:3"    # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

@@ -22,14 +22,14 @@ abilities:
   hidden: Purifying Salt # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 100
+  attack: 100
+  defense: 90
+  sp_attack: 75
+  sp_defense: 130
+  speed: 35
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {sp_defense: 3} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -64,9 +64,35 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Confusion}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Harden}
+    - {level: 1, move: Hypnosis}
+    - {level: 1, move: Mud-Slap}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Teleport}
+    - {level: 6, move: Rapid Spin}
+    - {level: 9, move: Yawn}
+    - {level: 12, move: Imprison}
+    - {level: 15, move: Psycho Cut}
+    - {level: 27, move: Amnesia}
+    - {level: 27, move: Zen Headbutt}
+    - {level: 35, move: Iron Defense}
+    - {level: 36, move: Extrasensory}
+    - {level: 40, move: Earthquake}
+    - {level: 43, move: Sandstorm}
+    - {level: 48, move: Future Sight}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
+          Safeguard, Earthquake, Return, Dig, Psychic, Shadow Ball, Double Team, Reflect,
+          Sandstorm, Rock Tomb, Facade, Rest, Attract, Skill Swap, Endure, Giga Impact,
+          Stone Edge, Stealth Rock, Psych Up, Rock Slide, Sleep Talk, Grass Knot, Swagger,
+          Substitute, Trick Room, Psyshock, Bulldoze, High Horsepower, Expanding Force,
+          Scorching Sands, Strength, Rock Smash, Gyro Ball]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Earth Power, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +105,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: true      # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a stone guardian built from stacked flat orange rock slabs, with a small square orange head with a smiling face under a tall purple pointed hat. Purple-blue straps cross its chest and a belt with a bow sits at its waist. It has two arms and two legs of slabs, with a floating sword on one side and a floating spiked iron ball on the other, no hands holding them."

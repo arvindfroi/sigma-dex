@@ -64,9 +64,33 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Air Slash}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Gust}
+    - {level: 1, move: Supersonic}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Wish}
+    - {level: 10, move: Quick Attack}
+    - {level: 11, move: Air Cutter}
+    - {level: 12, move: Wing Attack}
+    - {level: 14, move: Dual Wingbeat}
+    - {level: 16, move: Aerial Ace}
+    - {level: 19, move: Safeguard}
+    - {level: 19, move: Whirlwind}
+    - {level: 30, move: Screech}
+    - {level: 34, move: Roost}
+    - {level: 41, move: Tailwind}
+    - {level: 42, move: Sky Attack}
+    - {level: 46, move: Hurricane}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Return, Psychic,
+          Double Team, Aerial Ace, Facade, Rest, Attract, Thief, Steel Wing, Roost, Endure,
+          Giga Impact, Sleep Talk, Swagger, Pluck, U-turn, Substitute, Dual Wingbeat, Fly]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Hurricane, Sky Attack, Brave Bird, Heat Wave]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +103,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a body with two or more pairs of wings
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a floating golden ring with a row of small open eyes set around its rim, and a cream dove-shaped mark in the middle of the ring. Two pairs of white feathered wings, four in all, spread out from its sides, with a soft golden glow around it."
@@ -91,7 +116,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:468"
+  footprint: "hgss:468"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

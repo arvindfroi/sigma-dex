@@ -61,10 +61,31 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Absorb}
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Tackle}
+    - {level: 4, move: Confuse Ray}
+    - {level: 8, move: Ingrain}
+    - {level: 12, move: Mega Drain}
+    - {level: 16, move: Sleep Powder}
+    - {level: 20, move: Moonlight}
+    - {level: 25, move: Strength Sap}
+    - {level: 28, move: Giga Drain}
+    - {level: 30, move: Energy Ball}
+    - {level: 32, move: Dazzling Gleam}
+    - {level: 33, move: Aromatherapy}
+    - {level: 40, move: Moonblast}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Light Screen, Protect, Giga Drain,
+          Safeguard, Solar Beam, Return, Sludge Bomb, Facade, Rest, Attract, Energy Ball,
+          Endure, Thunder Wave, Sleep Talk, Grass Knot, Substitute, Draining Kiss]
+  # moves a move tutor can teach it
+  tutor: [Dazzling Gleam, Leaf Storm, Magical Leaf, Mega Drain, Pollen Puff, Seed Bomb,
+          Synthesis]
+  # only needed for the first stage of an evolution line
+  egg: [Leech Seed, Seed Bomb, Magical Leaf, Leaf Storm]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -76,7 +97,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a small pale yellow rounded body with two stubby legs and small arms, big black oval eyes and a small round mouth. A big orange mushroom cap with cream spots and dark pores covers its head, decorated with pink flowers and green vines."
@@ -88,7 +111,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:285"
+  footprint: "hgss:285"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

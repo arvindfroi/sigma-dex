@@ -66,9 +66,37 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Slash}
     - {level: 1, move: Fell Stinger}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Confuse Ray}
+    - {level: 1, move: Gust}
+    - {level: 1, move: Poison Sting}
+    - {level: 1, move: Struggle Bug}
+    - {level: 1, move: Sweet Scent}
+    - {level: 1, move: Tackle}
+    - {level: 4, move: Fury Cutter}
+    - {level: 10, move: Withdraw}
+    - {level: 12, move: Wing Attack}
+    - {level: 15, move: Aromatic Mist}
+    - {level: 15, move: Leer}
+    - {level: 29, move: Bug Bite}
+    - {level: 31, move: Fury Swipes}
+    - {level: 32, move: Crunch}
+    - {level: 44, move: Screech}
+    - {level: 47, move: Aromatherapy}
+    - {level: 47, move: Scary Face}
+    - {level: 49, move: Agility}
+    - {level: 50, move: Swords Dance}
+    - {level: 61, move: Power Gem}
+    - {level: 65, move: Toxic}
+    - {level: 66, move: X-Scissor}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Return, Double Team,
+          Aerial Ace, Facade, Rest, Attract, Thief, Roost, Fling, Endure, Giga Impact,
+          Flash, X-Scissor, Sleep Talk, Swagger, U-turn, Substitute, Venoshock,
+          Struggle Bug, Dual Wingbeat, Cut, Fly, Steel Wing, Psychic Fangs, Poison Jab]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Bug Bite, Pollen Puff, Brave Bird, Sky Attack, Fire Fang]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -81,7 +109,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an insect body with a hard shell
   movement: "It flies, flapping its wings."
   look: "It is a green scorpion-like creature with a long curved snake-like neck and head, a pale grey stripe down the neck, a yellow diamond on its forehead, a yellow eye and two curved dark fangs. It has four clear insect wings, six jointed green legs ending in dark brown claws, a black segmented abdomen and a long curved tail with a yellow diamond and a dark stinger."
@@ -93,7 +122,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:452"
+  footprint: "hgss:452"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

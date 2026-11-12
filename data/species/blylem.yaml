@@ -66,9 +66,38 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Smog}
     - {level: 1, move: Stealth Rock}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Harden}
+    - {level: 1, move: Rock Throw}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Bone Rush}
+    - {level: 4, move: Acid}
+    - {level: 10, move: Rollout}
+    - {level: 10, move: Smack Down}
+    - {level: 11, move: Acid Spray}
+    - {level: 14, move: Poison Powder}
+    - {level: 17, move: Rock Polish}
+    - {level: 20, move: Ancient Power}
+    - {level: 20, move: Iron Defense}
+    - {level: 25, move: Venoshock}
+    - {level: 25, move: Rock Slide}
+    - {level: 30, move: Sandstorm}
+    - {level: 34, move: Rock Blast}
+    - {level: 36, move: Power Gem}
+    - {level: 40, move: Toxic}
+    - {level: 44, move: Smokescreen}
+    - {level: 54, move: Stone Edge}
+    - {level: 55, move: Sludge Wave}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Earthquake,
+          Return, Dig, Double Team, Sludge Bomb, Sandstorm, Rock Tomb, Facade, Rest,
+          Attract, Endure, Giga Impact, Rock Polish, Stone Edge, Stealth Rock, Rock Slide,
+          Sleep Talk, Poison Jab, Swagger, Substitute, Venoshock, Bulldoze, Meteor Beam,
+          Rock Smash, Heavy Slam]
+  # moves a move tutor can teach it
+  tutor: [Ancient Power, Earth Power, Power Gem, Body Slam, Curse]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -81,7 +110,8 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-10): also on the card: Hidden Ability: Sand Stream; height 8'06\", weight 908.3 lbs."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a large golem with a body of grey pebbly rock covered in cream-coloured bones, ribs and spikes. It has a bone skull for a head with glowing purple eyes, and its fists are bone-rimmed cannon-like holes leaking purple smoke."

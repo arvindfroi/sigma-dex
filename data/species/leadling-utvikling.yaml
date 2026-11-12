@@ -61,9 +61,33 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Harden}
+    - {level: 1, move: Rock Blast}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Rollout}
+    - {level: 1, move: Bone Rush}
+    - {level: 4, move: Acid}
+    - {level: 8, move: Smack Down}
+    - {level: 10, move: Rock Throw}
+    - {level: 10, move: Smog}
+    - {level: 11, move: Acid Spray}
+    - {level: 11, move: Rock Polish}
+    - {level: 12, move: Ancient Power}
+    - {level: 14, move: Poison Powder}
+    - {level: 25, move: Rock Slide}
+    - {level: 30, move: Power Gem}
+    - {level: 40, move: Toxic}
+    - {level: 51, move: Sludge Wave}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Earthquake, Return, Dig,
+          Double Team, Sludge Bomb, Sandstorm, Rock Tomb, Facade, Rest, Attract, Endure,
+          Rock Polish, Stone Edge, Stealth Rock, Rock Slide, Sleep Talk, Poison Jab,
+          Swagger, Substitute, Venoshock, Bulldoze, Meteor Beam, Rock Smash]
+  # moves a move tutor can teach it
+  tutor: [Ancient Power, Body Slam, Curse]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -76,7 +100,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves]
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...

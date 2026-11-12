@@ -49,19 +49,40 @@ evolutions:
   - into: united
     method: other
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Thunder Shock}
+    - {level: 7, move: Quick Attack}
+    - {level: 8, move: Charge}
+    - {level: 15, move: Thunder Wave}
+    - {level: 23, move: Volt Switch}
+    - {level: 32, move: Agility}
+    - {level: 34, move: Discharge}
+    - {level: 40, move: Thunderbolt}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance,
+          Thunderbolt, Thunder, Return, Psychic, Shadow Ball, Double Team, Reflect,
+          Shock Wave, Facade, Rest, Attract, Thief, Skill Swap, Charge Beam, Endure,
+          Thunder Wave, Sleep Talk, Swagger, Substitute, Trick Room, Psyshock, Electroweb,
+          Expanding Force]
+  tutor: [Volt Switch, Zen Headbutt] # moves a move tutor can teach it
+  # only needed for the first stage of an evolution line
+  egg: [Thunder Fang, Zen Headbutt, Future Sight, Mirror Coat, Spark]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -73,7 +94,9 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — DIODE FORM; also on the card: Habitat: abandoned facilities, ancient ruins, underground labs. Behavior: silent and watchful, flickers when sensing erratic or unstable energy. Cry: bzz... >>>> ...."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: only a head # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a glossy black body shaped like a triangle pointing right, with a bar at its tip and short thin lines sticking out of both sides, like a diode symbol. A single large white eyeball with a black pupil sits in the middle, and a yellow electric glow surrounds it."
@@ -85,7 +108,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:81"
+  footprint: "hgss:81"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

@@ -4816,9 +4816,226 @@
     "editor": "Arvind"
   },
   {
-    "id": 1536,
+    "id": 1537,
+    "species": "harambe",
+    "file": "assets/concept-art/harambe/1537.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1538,
+    "species": "harambe",
+    "file": "assets/concept-art/harambe/1538.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1539,
+    "species": "apeshit",
+    "file": "assets/concept-art/apeshit/1539.png",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 1540,
+    "species": "apeshit",
+    "file": "assets/concept-art/apeshit/1540.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 1541,
+    "species": "apeshit",
+    "file": "assets/concept-art/apeshit/1541.png",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 1542,
     "species": "santrock",
-    "file": "assets/concept-art/santrock/1536.webp",
+    "file": "assets/concept-art/santrock/1542.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1543,
+    "species": "santrock",
+    "file": "assets/concept-art/santrock/1543.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1544,
+    "species": "cindreon",
+    "file": "assets/concept-art/cindreon/1544.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1545,
+    "species": "cindreon",
+    "file": "assets/concept-art/cindreon/1545.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1546,
+    "species": "custodix",
+    "file": "assets/concept-art/custodix/1546.webp",
+    "caption": null,
+    "editor": "Casper"
+  },
+  {
+    "id": 1547,
+    "species": "custodix",
+    "file": "assets/concept-art/custodix/1547.webp",
+    "caption": null,
+    "editor": "Casper"
+  },
+  {
+    "id": 1548,
+    "species": "santrock",
+    "file": "assets/concept-art/santrock/1548.png",
+    "caption": "[ds-front] sprite #258",
+    "editor": "Casper"
+  },
+  {
+    "id": 1549,
+    "species": "santrock",
+    "file": "assets/concept-art/santrock/1549.png",
+    "caption": "[ds-back] sprite #258",
+    "editor": "Casper"
+  },
+  {
+    "id": 1550,
+    "species": "santrock",
+    "file": "assets/concept-art/santrock/1550.png",
+    "caption": "[ds-icon] sprite #258",
+    "editor": "Casper"
+  },
+  {
+    "id": 1551,
+    "species": "santrock",
+    "file": "assets/concept-art/santrock/1551.png",
+    "caption": "[ds-follower] sprite #258",
+    "editor": "Casper"
+  },
+  {
+    "id": 1556,
+    "species": "cindreon",
+    "file": "assets/concept-art/cindreon/1556.png",
+    "caption": "[ds-front] sprite #259",
+    "editor": "Casper"
+  },
+  {
+    "id": 1557,
+    "species": "cindreon",
+    "file": "assets/concept-art/cindreon/1557.png",
+    "caption": "[ds-back] sprite #259",
+    "editor": "Casper"
+  },
+  {
+    "id": 1558,
+    "species": "cindreon",
+    "file": "assets/concept-art/cindreon/1558.png",
+    "caption": "[ds-icon] sprite #259",
+    "editor": "Casper"
+  },
+  {
+    "id": 1559,
+    "species": "cindreon",
+    "file": "assets/concept-art/cindreon/1559.png",
+    "caption": "[ds-follower] sprite #259",
+    "editor": "Casper"
+  },
+  {
+    "id": 1560,
+    "species": "custodix",
+    "file": "assets/concept-art/custodix/1560.png",
+    "caption": "[ds-front] sprite #260",
+    "editor": "Casper"
+  },
+  {
+    "id": 1561,
+    "species": "custodix",
+    "file": "assets/concept-art/custodix/1561.png",
+    "caption": "[ds-back] sprite #260",
+    "editor": "Casper"
+  },
+  {
+    "id": 1562,
+    "species": "custodix",
+    "file": "assets/concept-art/custodix/1562.png",
+    "caption": "[ds-icon] sprite #260",
+    "editor": "Casper"
+  },
+  {
+    "id": 1563,
+    "species": "custodix",
+    "file": "assets/concept-art/custodix/1563.png",
+    "caption": "[ds-follower] sprite #260",
+    "editor": "Casper"
+  },
+  {
+    "id": 1564,
+    "species": "tomaterdander",
+    "file": "assets/concept-art/tomaterdander/1564.png",
+    "caption": "[ds-front] sprite #261",
+    "editor": "Casper"
+  },
+  {
+    "id": 1565,
+    "species": "tomaterdander",
+    "file": "assets/concept-art/tomaterdander/1565.png",
+    "caption": "[ds-back] sprite #261",
+    "editor": "Casper"
+  },
+  {
+    "id": 1566,
+    "species": "tomaterdander",
+    "file": "assets/concept-art/tomaterdander/1566.png",
+    "caption": "[ds-icon] sprite #261",
+    "editor": "Casper"
+  },
+  {
+    "id": 1567,
+    "species": "tomaterdander",
+    "file": "assets/concept-art/tomaterdander/1567.png",
+    "caption": "[ds-follower] sprite #261",
+    "editor": "Casper"
+  },
+  {
+    "id": 1568,
+    "species": "obsidog-utvikling",
+    "file": "assets/concept-art/obsidog-utvikling/1568.webp",
+    "caption": null,
+    "editor": "Casper"
+  },
+  {
+    "id": 1569,
+    "species": "whaldrill",
+    "file": "assets/concept-art/whaldrill/1569.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1570,
+    "species": "whaldrill",
+    "file": "assets/concept-art/whaldrill/1570.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1571,
+    "species": "solidedge",
+    "file": "assets/concept-art/solidedge/1571.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 1572,
+    "species": "solidedge",
+    "file": "assets/concept-art/solidedge/1572.png",
     "caption": null,
     "editor": null
   }

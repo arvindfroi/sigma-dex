@@ -64,9 +64,36 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Ice Shard}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Powder Snow}
+    - {level: 1, move: Rock Smash}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Taunt}
+    - {level: 10, move: Focus Energy}
+    - {level: 19, move: Feint}
+    - {level: 21, move: Slash}
+    - {level: 22, move: Power-Up Punch}
+    - {level: 25, move: Dynamic Punch}
+    - {level: 32, move: Brick Break}
+    - {level: 32, move: Ice Fang}
+    - {level: 33, move: Reversal}
+    - {level: 36, move: Agility}
+    - {level: 37, move: Icicle Crash}
+    - {level: 40, move: Sacred Sword}
+    - {level: 42, move: Iron Defense}
+    - {level: 49, move: Close Combat}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Focus Punch, Hail, Bulk Up, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard,
+          Hyper Beam, Protect, Rain Dance, Earthquake, Return, Dig, Brick Break,
+          Double Team, Rock Tomb, Facade, Rest, Attract, Thief, Focus Blast, Fling, Endure,
+          Drain Punch, Payback, Giga Impact, Stone Edge, Avalanche, Swords Dance,
+          Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute, Low Sweep, Bulldoze,
+          Coaching, Rock Smash]
+  # moves a move tutor can teach it
+  tutor: [Close Combat, Ice Punch, Icicle Spear, Icy Wind, Power-Up Punch, Thunder Punch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +106,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a tall, slim, smooth pale-blue humanoid figure with a black fencing mask with glowing blue eyes. It has crystal ice shoulder pads, ice crystal boots shaped like pointed cones, and a long thin ice sword in one hand."
@@ -91,7 +119,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:475"
+  footprint: "hgss:475"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

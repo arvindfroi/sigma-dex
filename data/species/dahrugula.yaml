@@ -53,13 +53,57 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Facade}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Defense Curl}
+    - {level: 1, move: Flail}
+    - {level: 1, move: Lick}
+    - {level: 1, move: Stockpile}
+    - {level: 1, move: Swallow}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Leer}
+    - {level: 5, move: Baby-Doll Eyes}
+    - {level: 8, move: Fury Swipes}
+    - {level: 12, move: Yawn}
+    - {level: 12, move: Covet}
+    - {level: 16, move: Bite}
+    - {level: 20, move: Rest}
+    - {level: 20, move: Snore}
+    - {level: 20, move: Work Up}
+    - {level: 24, move: Crunch}
+    - {level: 28, move: Headbutt}
+    - {level: 31, move: Slash}
+    - {level: 31, move: Take Down}
+    - {level: 32, move: Heavy Slam}
+    - {level: 36, move: Amnesia}
+    - {level: 40, move: High Horsepower}
+    - {level: 42, move: Screech}
+    - {level: 44, move: Hammer Arm}
+    - {level: 52, move: Belch}
+    - {level: 52, move: Last Resort}
+    - {level: 56, move: Giga Impact}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Focus Punch, Water Pulse, Hidden Power, Sunny Day, Ice Beam, Blizzard, Hyper Beam,
+          Protect, Rain Dance, Frustration, Solar Beam, Thunderbolt, Thunder, Earthquake,
+          Return, Shadow Ball, Brick Break, Double Team, Shock Wave, Flamethrower,
+          Rock Tomb, Facade, Rest, Attract, Focus Blast, Fling, Endure, Giga Impact,
+          Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze, Surf, Strength, Rock Smash,
+          Rock Climb, Dig, Thief, Toxic]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Charm, Curse, Endeavor, Fire Punch, Hyper Voice, Ice Punch, Icy Wind,
+          Iron Head, Seed Bomb, Thunder Punch, Yawn, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -72,7 +116,8 @@ design:
   notes:
   wishes: "its an evolution to number 87 sigmanian komala, stats are simmilar to snorlax and pangoro"
   claude_fill: true      # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a round, chubby koala-like creature with green fur, large round green ears with peach inner parts, and a big dark brown nose. It has X-shaped closed eyes, a red band across its belly and paw pads on its feet. It carries a wooden barrel full of glowing orange liquid in each hand."
@@ -84,7 +129,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:217"
+  footprint: "hgss:217"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

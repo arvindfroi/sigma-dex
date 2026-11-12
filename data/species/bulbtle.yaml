@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions:
   - into: bulbtoise
     method: level
-    level: 28
+    level: 30
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
@@ -61,10 +61,30 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Mud-Slap}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Tail Whip}
+    - {level: 1, move: Thunder Shock}
+    - {level: 8, move: Rapid Spin}
+    - {level: 10, move: Mud Shot}
+    - {level: 12, move: Bite}
+    - {level: 15, move: Headbutt}
+    - {level: 17, move: Slash}
+    - {level: 18, move: Bulldoze}
+    - {level: 30, move: Charge}
+    - {level: 33, move: Dig}
+    - {level: 34, move: Drill Run}
+    - {level: 35, move: Crunch}
+    - {level: 38, move: Discharge}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance, Thunderbolt, Thunder,
+          Earthquake, Return, Dig, Double Team, Sandstorm, Rock Tomb, Facade, Rest, Attract,
+          Charge Beam, Endure, Thunder Wave, Stealth Rock, Rock Slide, Sleep Talk, Swagger,
+          Substitute, Bulldoze, Scorching Sands, Electric Terrain, Flash]
+  tutor: [Earth Power]   # moves a move tutor can teach it
+  egg: [Sand Tomb, Curse] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -76,7 +96,9 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-09-20): also on the card: Earth Eater is the hidden ability; poses Happy, Clumsy, Back view, Light attack."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small tan turtle with a yellow miner's helmet with a lamp on its head, a glowing yellow bulb on its nose, and a translucent glowing yellow dome shell. It has four stubby brown legs with white claws and a grey drill-shaped tail."
@@ -88,7 +110,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:387"
+  footprint: "hgss:387"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
