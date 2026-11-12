@@ -147,9 +147,12 @@ shirt and red scarf, psychic energy in his hand).
 - **Forms after the story:** Meowthwo joins in the harness form; a held key item (working name "Deactivation Key")
   switches it to the unleashed form, the same way Steel Armor makes Armored Mewtwo in Origin (a held-item form). The
   harness form does not have to be Steel type like Armored Mewtwo.
-- **Past lv 100:** the game stops at lv 100 (EXP tables, stat math and screens all assume it). A real lv 120 needs code
-  changes in several places, so the simple way is lv 100 with boosted stats (the boss rule above, or very high EVs/IVs)
-  and the story saying he is past every limit.
+- **Past lv 100, only in that one fight (Arvind):** the game stops at lv 100 (EXP tables, stat math and screens all
+  assume it), but an exception for the boss alone may work: a trainer's mon gets its level from the battle data and
+  never levels up, so setting the boss to e.g. lv 120 might just work. To test in the emulator: stats, the "Lv120" text,
+  the EXP the player gets, and whether Origin's engine clamps it. When he joins you he is set to lv 100, since a player's
+  mon above 100 would break the EXP tables. If the test fails: lv 100 with the PokeRogue-style boss rule, which gives the
+  same feel.
 - **Post-game restaurant:** Origin's Island Restaurant (Alto Mare islands, the trio as waiters, you choose to arrest them
   or ask Meowth's help with the Lucky Meowth God) becomes a **fast food place**. Meowth works there and
   explains why he disappeared: the real Meowth (no. 52) never died, he quit and took a fast food job. Origin's own line "You're a
