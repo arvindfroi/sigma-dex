@@ -374,6 +374,11 @@ def load_engine():
     with open(ENGINE_PATH, encoding="utf-8") as handle:
         engine = yaml.safe_load(handle)
     custom = {kind: load_custom(kind) for kind in ("moves", "abilities")}
+    origin_path = ROOT / "data" / "engine" / "origin.yaml"
+    if origin_path.exists():         # Origin HeartGold's TMs/HMs replace the old GBA list (2026-11-12)
+        with open(origin_path, encoding="utf-8") as handle:
+            origin = yaml.safe_load(handle)
+        engine["tms"], engine["hms"] = origin["tms"], origin["hms"]
     return {
         "moves": {norm(m) for m in engine["moves"]} | {norm(e["name"]) for e in custom["moves"]},
         "abilities": {norm(a) for a in engine["abilities"]} | {norm(e["name"]) for e in custom["abilities"]},

@@ -179,7 +179,7 @@ def check_species(sid, data, ids, engine, errors, warnings):
             if not isinstance(move, str):
                 err("learnset.%s entry %r must be a move name" % (key, move))
             elif key == "tm_hm" and dexlib.norm(move) not in engine["tm_hm"]:
-                warn("'%s' is not one of the game's TMs/HMs (list: data/engine/expansion.yaml)" % move)
+                warn("'%s' is not one of Origin HeartGold's TMs/HMs (list: data/engine/origin.yaml)" % move)
             elif key != "tm_hm" and dexlib.norm(move) not in engine["moves"]:
                 warn("%s move '%s' does not exist in the game yet - check the spelling; if it is a new move it has to be programmed" % (key, move))
 

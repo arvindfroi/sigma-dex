@@ -1458,6 +1458,9 @@ function rowList(columns, initial, addLabel) {
 }
 function checkGrid(options, chosen) {
   const picked = new Set((chosen || []).map(norm));
+  // a chosen move that is not in the list stays (ticked, at the end), so saving never drops it
+  const known = new Set(options.map(norm));
+  options = options.concat((chosen || []).filter(c => c && !known.has(norm(c))));
   const boxes = options.map(o => [o, h("input", {type: "checkbox", checked: picked.has(norm(o))})]);
   return {el: h("div", {class: "checks"}, boxes.map(([o, box]) => h("label", {}, box, o))), read: () => boxes.filter(([, box]) => box.checked).map(([o]) => o)};
 }
