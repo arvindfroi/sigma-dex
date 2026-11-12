@@ -1137,19 +1137,19 @@ TEST("Sigma dex: Ampeel has the data from its species file")
     EXPECT_EQ(info->types[0], TYPE_WATER);
     EXPECT_EQ(info->types[1], TYPE_ELECTRIC);
     EXPECT_EQ(info->abilities[0], ABILITY_SWIFT_SWIM);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FILLET_AWAY);
     EXPECT_EQ(GetSpeciesName(SPECIES_AMPEEL)[0], CHAR_A);
 }
 
 SINGLE_BATTLE_TEST("Sigma dex: Ampeel can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_AMPEEL) { Moves(MOVE_GROWL); }
+        PLAYER(SPECIES_AMPEEL) { Moves(MOVE_FILLET_AWAY); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_GROWL); }
+        TURN { MOVE(player, MOVE_FILLET_AWAY); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_FILLET_AWAY, player);
     }
 }
 

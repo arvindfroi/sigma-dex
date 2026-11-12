@@ -66,6 +66,7 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Fillet Away}
     - {level: 1, move: Growl}
     - {level: 1, move: Quick Attack}
     - {level: 1, move: Tackle}
@@ -75,22 +76,22 @@ learnset:
     - {level: 8, move: Supersonic}
     - {level: 8, move: Wrap}
     - {level: 10, move: Thunder Shock}
+    - {level: 12, move: Aqua Jet}
+    - {level: 12, move: Bite}
     - {level: 12, move: Mud Shot}
-    - {level: 14, move: Water Pulse}
-    - {level: 17, move: Bite}
+    - {level: 19, move: Water Pulse}
     - {level: 20, move: Spark}
     - {level: 20, move: Swift}
     - {level: 20, move: Bubble Beam}
-    - {level: 23, move: Aqua Jet}
+    - {level: 22, move: Charge}
+    - {level: 24, move: Flail}
+    - {level: 30, move: Flip Turn}
+    - {level: 34, move: Crunch}
     - {level: 35, move: Discharge}
     - {level: 36, move: Agility}
-    - {level: 38, move: Brine}
-    - {level: 41, move: Charge}
-    - {level: 41, move: Liquidation}
-    - {level: 46, move: Coil}
-    - {level: 47, move: Rain Dance}
+    - {level: 45, move: Coil}
+    - {level: 47, move: Wild Charge}
     - {level: 56, move: Hydro Pump}
-    - {level: 58, move: Wild Charge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam,
           Light Screen, Protect, Rain Dance, Frustration, Thunderbolt, Thunder, Return,

@@ -8807,6 +8807,10 @@
           },
           {
             "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
             "move": "Mega Drain"
           },
           {
@@ -8815,15 +8819,15 @@
           },
           {
             "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
             "move": "Tackle"
           },
           {
-            "level": 1,
-            "move": "Absorb"
-          },
-          {
-            "level": 1,
-            "move": "Growl"
+            "level": 6,
+            "move": "Stun Spore"
           },
           {
             "level": 9,
@@ -8831,95 +8835,82 @@
           },
           {
             "level": 10,
-            "move": "Incinerate"
-          },
-          {
-            "level": 10,
             "move": "Razor Leaf"
           },
           {
-            "level": 12,
-            "move": "Will-O-Wisp"
+            "level": 11,
+            "move": "Howl"
           },
           {
             "level": 14,
-            "move": "Poison Powder"
+            "move": "Incinerate"
+          },
+          {
+            "level": 16,
+            "move": "Encore"
+          },
+          {
+            "level": 17,
+            "move": "Follow Me"
           },
           {
             "level": 18,
-            "move": "Encore"
+            "move": "Will-O-Wisp"
+          },
+          {
+            "level": 19,
+            "move": "Synthesis"
           },
           {
             "level": 20,
             "move": "Mimic"
           },
           {
-            "level": 21,
-            "move": "Synthesis"
+            "level": 22,
+            "move": "Flame Charge"
           },
           {
             "level": 22,
-            "move": "Lava Plume"
-          },
-          {
-            "level": 24,
-            "move": "Inferno"
-          },
-          {
-            "level": 24,
             "move": "Magical Leaf"
           },
           {
-            "level": 26,
-            "move": "Giga Drain"
+            "level": 25,
+            "move": "Absorb"
+          },
+          {
+            "level": 25,
+            "move": "Sweet Scent"
           },
           {
             "level": 29,
             "move": "Smokescreen"
           },
           {
-            "level": 30,
-            "move": "Imprison"
+            "level": 33,
+            "move": "Lava Plume"
           },
           {
-            "level": 30,
-            "move": "Leech Seed"
+            "level": 37,
+            "move": "Inferno"
           },
           {
-            "level": 36,
-            "move": "Pain Split"
-          },
-          {
-            "level": 39,
-            "move": "Energy Ball"
-          },
-          {
-            "level": 40,
+            "level": 41,
             "move": "Flamethrower"
           },
           {
-            "level": 42,
+            "level": 43,
+            "move": "Fake Out"
+          },
+          {
+            "level": 49,
+            "move": "Pain Split"
+          },
+          {
+            "level": 55,
             "move": "Overheat"
-          },
-          {
-            "level": 46,
-            "move": "Body Slam"
-          },
-          {
-            "level": 51,
-            "move": "Leaf Storm"
-          },
-          {
-            "level": 51,
-            "move": "Solar Beam"
-          },
-          {
-            "level": 54,
-            "move": "Flare Blitz"
           }
         ],
         "tm_hm": [
-          "Toxic",
           "Bullet Seed",
           "Hidden Power",
           "Sunny Day",
@@ -8927,14 +8918,13 @@
           "Protect",
           "Giga Drain",
           "Safeguard",
-          "Frustration",
           "Solar Beam",
           "Return",
+          "Psychic",
           "Double Team",
           "Flamethrower",
           "Fire Blast",
           "Facade",
-          "Secret Power",
           "Rest",
           "Attract",
           "Thief",
@@ -8943,16 +8933,13 @@
           "Endure",
           "Will-O-Wisp",
           "Flash",
+          "Swords Dance",
           "Sleep Talk",
           "Grass Knot",
           "Swagger",
           "Substitute",
           "Flame Charge",
-          "Grassy Terrain",
-          "Swords Dance",
-          "Captivate",
-          "Natural Gift",
-          "Cut"
+          "Mystical Fire"
         ],
         "tutor": [
           "Body Slam",
@@ -10209,6 +10196,10 @@
       "learnset": {
         "level_up": [
           {
+            "level": 0,
+            "move": "Fillet Away"
+          },
+          {
             "level": 1,
             "move": "Growl"
           },
@@ -10246,15 +10237,19 @@
           },
           {
             "level": 12,
+            "move": "Aqua Jet"
+          },
+          {
+            "level": 12,
+            "move": "Bite"
+          },
+          {
+            "level": 12,
             "move": "Mud Shot"
           },
           {
-            "level": 14,
+            "level": 19,
             "move": "Water Pulse"
-          },
-          {
-            "level": 17,
-            "move": "Bite"
           },
           {
             "level": 20,
@@ -10269,8 +10264,20 @@
             "move": "Bubble Beam"
           },
           {
-            "level": 23,
-            "move": "Aqua Jet"
+            "level": 22,
+            "move": "Charge"
+          },
+          {
+            "level": 24,
+            "move": "Flail"
+          },
+          {
+            "level": 30,
+            "move": "Flip Turn"
+          },
+          {
+            "level": 34,
+            "move": "Crunch"
           },
           {
             "level": 35,
@@ -10281,32 +10288,16 @@
             "move": "Agility"
           },
           {
-            "level": 38,
-            "move": "Brine"
-          },
-          {
-            "level": 41,
-            "move": "Charge"
-          },
-          {
-            "level": 41,
-            "move": "Liquidation"
-          },
-          {
-            "level": 46,
+            "level": 45,
             "move": "Coil"
           },
           {
             "level": 47,
-            "move": "Rain Dance"
+            "move": "Wild Charge"
           },
           {
             "level": 56,
             "move": "Hydro Pump"
-          },
-          {
-            "level": 58,
-            "move": "Wild Charge"
           }
         ],
         "tm_hm": [
