@@ -29186,8 +29186,8 @@
       "dex": 150,
       "name": "Maagamad",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Flying",
@@ -29332,7 +29332,7 @@
         "concept": null,
         "name_origin": null,
         "notes": "From the Google Doc: Maagamad/gullmire (Flying, Poison)\nFrom the Discord concept card (Arvind Frøiland, 2026-09-30): card name: Gullmire; also on the card: Weather Switch switches rain to drought and drought to rain, random Drizzle or Drought otherwise; Technician is the hidden ability; signature move Oily Arsenal (Drought Physical, Poison, BP 60x2; Rain Special, Poison, BP 40x3).",
-        "wishes": null,
+        "wishes": "Mixed attacker that makes use of technician.",
         "claude_fill": false,
         "filled_by_claude": [
           "body shape",
@@ -29558,7 +29558,7 @@
     },
     {
       "dex": 152,
-      "name": "Apeshit",
+      "name": "Apeshii",
       "credits": {
         "designer": "Arvind",
         "artist": "Arvind"
@@ -30757,9 +30757,9 @@
       "weight_kg": 100,
       "body_color": "yellow",
       "abilities": {
-        "primary": null,
-        "secondary": "Clear Body",
-        "hidden": "Pressure"
+        "primary": "Fire Mane",
+        "secondary": "Drought",
+        "hidden": "Intimidate"
       },
       "base_stats": {
         "hp": 100,

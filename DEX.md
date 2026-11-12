@@ -158,9 +158,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 147 | [Greation](data/species/greation.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 422 | Ultragon (Lv 55) | 31% |
 | 148 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 600 |  | 31% |
 | 149 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground | Primordial Sea | 680 |  | 59% |
-| 150 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician | 680 |  | 38% |
+| 150 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician | 680 |  | 41% |
 | 151 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground | Lullaby | 600 |  | 28% |
-| 152 | [Apeshit](data/species/apeshit.yaml) | Normal / Fighting |  |  | Julius (Lv 15) | 14% |
+| 152 | [Apeshii](data/species/apeshit.yaml) | Normal / Fighting |  |  | Julius (Lv 15) | 14% |
 | 153 | *open slot* | | | | | |
 | 154 | [SOLIDEDGE](data/species/solidedge.yaml) | Bug / Psychic |  |  |  | 10% |
 | 155 | *open slot* | | | | | |
@@ -208,7 +208,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 197 | *open slot* | | | | | |
 | 198 | [Santrock](data/species/santrock.yaml) | Fire / Rock | Blaze | 270 |  | 45% |
 | 199 | [Cindreon](data/species/cindreon.yaml) | Fire / Rock | Flash Fire, Intimidate (H) | 390 |  | 52% |
-| 200 | [Custodix](data/species/custodix.yaml) | Fire / Rock | Clear Body, Pressure (H) | 670 |  | 41% |
+| 200 | [Custodix](data/species/custodix.yaml) | Fire / Rock | Fire Mane, Drought, Intimidate (H) | 670 |  | 45% |
 | 201 | *open slot* | | | | | |
 | 202 | *open slot* | | | | | |
 | 203 | *open slot* | | | | | |

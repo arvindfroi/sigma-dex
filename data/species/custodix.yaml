@@ -21,9 +21,9 @@ body_color: yellow       # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary: Clear Body  # optional
-  hidden: Pressure       # optional
+  primary: Fire Mane
+  secondary: Drought     # optional
+  hidden: Intimidate     # optional
 
 base_stats:              # each 1-255
   hp: 100

@@ -10,14 +10,14 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Area | Item | Filled in |
 |------|------|----------:|
 | Identity | types | 158 / 159 |
-| Identity | designer credit | 137 / 159 |
+| Identity | designer credit | 138 / 159 |
 | Dex page | category | 44 / 159 |
 | Dex page | description | 45 / 159 |
 | Dex page | height | 56 / 159 |
 | Dex page | weight | 30 / 159 |
 | Dex page | body color | 6 / 159 |
 | Stats | base stats | 143 / 159 |
-| Stats | ability | 146 / 159 |
+| Stats | ability | 147 / 159 |
 | Stats | EV yield | 106 / 159 |
 | Stats | catch rate | 1 / 159 |
 | Stats | base exp | 1 / 159 |
@@ -1398,9 +1398,8 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** shiny palette, cry
 
-### #150 [Maagamad](data/species/maagamad.yaml) - 38%
+### #150 [Maagamad](data/species/maagamad.yaml) - 41%
 
-- **Identity:** designer credit
 - **Dex page:** body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
@@ -1417,7 +1416,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #152 [Apeshit](data/species/apeshit.yaml) - 14%
+### #152 [Apeshii](data/species/apeshit.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1479,9 +1478,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #200 [Custodix](data/species/custodix.yaml) - 41%
+### #200 [Custodix](data/species/custodix.yaml) - 45%
 
-- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry

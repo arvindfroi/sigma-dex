@@ -5249,3 +5249,53 @@
         FOOTPRINT(QuestionMark)
     },
 
+    [SPECIES_CUSTODIX] =
+    {
+        .baseHP = 100,
+        .baseAttack = 120,
+        .baseDefense = 120,
+        .baseSpeed = 90,
+        .baseSpAttack = 130,
+        .baseSpDefense = 110,
+        .types = MON_TYPES(TYPE_FIRE, TYPE_ROCK),
+        .catchRate = 45,
+        .expYield = 64,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_FIRE_MANE, ABILITY_DROUGHT, ABILITY_INTIMIDATE },
+        .bodyColor = BODY_COLOR_YELLOW,
+        .speciesName = _("Custodix"),
+        .cryId = CRY_NONE,
+        .natDexNum = NATIONAL_DEX_CUSTODIX,
+        .categoryName = _("Solar lion e"),
+        .height = 22,
+        .weight = 1000,
+        .description = COMPOUND_STRING(
+            "Custodix guards the sunny shores of Kristiansand.\n"
+            "Its celestial forehead symbol draws in sunlight and drives away storm clouds.\n"
+            "Though fur conceals its eyes, it senses movement through warmth and vibrations in stone.\n"
+            "Despite its divine stature, it is notoriously weak to pop-up religions and sand."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_CircledQuestionMark,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .backPic = gMonBackPic_CircledQuestionMark,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 7,
+        .backAnimId = BACK_ANIM_NONE,
+        .palette = gMonPalette_CircledQuestionMark,
+        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
+        .iconSprite = gMonIcon_QuestionMark,
+        .iconPalIndex = 0,
+        .levelUpLearnset = sCustodixLevelUpLearnset,
+        .teachableLearnset = sCustodixTeachableLearnset,
+        FOOTPRINT(QuestionMark)
+    },
+
