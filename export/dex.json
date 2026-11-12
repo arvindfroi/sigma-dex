@@ -283,8 +283,8 @@
       "base_friendship": 70,
       "gender": 87.5,
       "egg_groups": [
-        "grass",
-        "monster"
+        "field",
+        "grass"
       ],
       "egg_cycles": 20,
       "held_items": {
@@ -475,8 +475,8 @@
           "growth rate",
           "base friendship",
           "gender",
-          "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "egg groups"
         ],
         "body_shape": "a serpentine body",
         "movement": "It slithers along the ground.",
@@ -540,8 +540,8 @@
       "base_friendship": 70,
       "gender": 87.5,
       "egg_groups": [
-        "grass",
-        "monster"
+        "field",
+        "grass"
       ],
       "egg_cycles": 20,
       "held_items": {
@@ -762,8 +762,8 @@
           "growth rate",
           "base friendship",
           "gender",
-          "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "egg groups"
         ],
         "body_shape": "a quadruped body",
         "movement": "It crawls along the ground on its legs.",
@@ -18903,13 +18903,10 @@
           "Aerial Ace",
           "Facade",
           "Secret Power",
-          "Rest",
           "Attract",
           "Thief",
-          "Skill Swap",
           "Focus Blast",
           "Energy Ball",
-          "Endure",
           "Dragon Pulse",
           "Giga Impact",
           "Flash",
@@ -18918,7 +18915,6 @@
           "Sleep Talk",
           "Grass Knot",
           "Swagger",
-          "Substitute",
           "Trick Room",
           "Psyshock",
           "Psychic Terrain",
@@ -34820,9 +34816,10 @@
       "base_friendship": 35,
       "gender": "genderless",
       "egg_groups": [
+        "mineral",
         "undiscovered"
       ],
-      "egg_cycles": 120,
+      "egg_cycles": 40,
       "held_items": {
         "common": null,
         "rare": null
@@ -35001,9 +34998,9 @@
           "base exp",
           "growth rate",
           "base friendship",
+          "egg cycles",
           "gender",
-          "egg groups",
-          "egg cycles"
+          "egg groups"
         ],
         "body_shape": "a head and legs",
         "movement": "It walks on four legs.",
@@ -35070,7 +35067,7 @@
         "mineral",
         "undiscovered"
       ],
-      "egg_cycles": 120,
+      "egg_cycles": 40,
       "held_items": {
         "common": null,
         "rare": null
@@ -35308,15 +35305,16 @@
       "ev_yield": {
         "sp_attack": 3
       },
-      "catch_rate": 3,
-      "base_exp": 302,
+      "catch_rate": 45,
+      "base_exp": 270,
       "growth_rate": "slow",
-      "base_friendship": 0,
+      "base_friendship": 70,
       "gender": "genderless",
       "egg_groups": [
+        "mineral",
         "undiscovered"
       ],
-      "egg_cycles": 120,
+      "egg_cycles": 40,
       "held_items": {
         "common": null,
         "rare": null
@@ -35541,9 +35539,9 @@
           "base exp",
           "growth rate",
           "base friendship",
+          "egg cycles",
           "gender",
-          "egg groups",
-          "egg cycles"
+          "egg groups"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks on four legs.",

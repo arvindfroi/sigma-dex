@@ -1426,6 +1426,17 @@ function attachPicker(input, kind, rowsFn) {          // rowsFn: a list of its o
 }
 const moveInput = (v, attrs) => attachPicker(textInput(v, Object.assign({placeholder: "move"}, attrs)), "move");
 const abilityInput = (v, attrs) => attachPicker(textInput(v, attrs), "ability");
+// Wonder Guard: like Shedinja its base HP is always 1 (scripts/dex_rules.py does the same on every sync).
+function wonderGuardHp(abilityEls, hpEl) {
+  const sync = () => {
+    const on = abilityEls.some(el => norm(readText(el) || "") === "wonderguard");
+    if (on) hpEl.value = 1;
+    hpEl.readOnly = on;
+    hpEl.title = on ? "Wonder Guard: its base HP is always 1, like Shedinja" : "";
+  };
+  abilityEls.forEach(el => { el.addEventListener("input", sync); el.addEventListener("change", sync); });
+  sync();
+}
 
 // A list of moves with their details, as Showdown shows a moveset.
 function moveTable(rows) {
@@ -1646,6 +1657,7 @@ function formsEditor(initial) {
     const t1 = selectInput((fm.types || [])[0], DEX.types, "same as normal"), t2 = selectInput((fm.types || [])[1], DEX.types, "none");
     const a1 = abilityInput((fm.abilities || {}).primary), a2 = abilityInput((fm.abilities || {}).secondary), ah = abilityInput((fm.abilities || {}).hidden);
     const st = Object.fromEntries(STATS.map(([k]) => [k, numberInput((fm.base_stats || {})[k], 1, 255)]));
+    wonderGuardHp([a1, a2, ah], st.hp);
     const look = h("textarea", {rows: 2, maxlength: 420, placeholder: "What it looks like in this form, in a few plain sentences."}, fm.look || "");
     const notes = textInput(fm.notes, {maxlength: 300});
     const battle = h("div", {},
@@ -1737,6 +1749,7 @@ function openEditor(s) {
     claudeFill: h("input", {type: "checkbox", checked: !!design.claude_fill}),
     wishes: h("textarea", {rows: 3, maxlength: 1000, placeholder: "E.g. a slow, bulky tank that walls physical attackers. Should learn Rock Slide and something with mud. Hidden ability: something about sleep."}, design.wishes || ""),
   };
+  wonderGuardHp([f.ability1, f.ability2, f.hidden], f.stats.hp);
   const others = DEX.species.filter(o => o.id !== s.id).sort((a, b) => a.data.dex - b.data.dex).map(o => [o.id, "#" + o.data.dex + " " + o.data.name]);
   const evolutions = rowList([
     {key: "into", make: v => selectInput(v, others, "evolves into...")},

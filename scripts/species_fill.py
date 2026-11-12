@@ -399,6 +399,19 @@ class Filler:
     def top_names(self, sid):
         return ", ".join(n for w, n, f in self.donors(sid)[:3])
 
+    LINE_FIELDS = ("growth_rate", "gender", "egg_groups", "egg_cycles")
+
+    def people_line_value(self, sid, field):
+        """Fields the whole line shares follow what a person chose for another Pokemon of the line."""
+        if field not in self.LINE_FIELDS:
+            return None
+        for x in self.members(sid):
+            data = self.ours[x]["data"]
+            if x != sid and not is_empty(data, field) and \
+                    LABELS[field] not in ((data.get("design") or {}).get("filled_by_claude") or []):
+                return data[field], "the same as %s (chosen by people; the whole line shares it)" % self.ours[x]["name"]
+        return None
+
     def propose(self, sid):
         sp = self.ours[sid]
         if not sp["types"]:
@@ -408,7 +421,7 @@ class Filler:
         fl = self.flags(sid)
         out = {}
         for field in FIELDS:
-            value, why = getattr(self, field)(sid, fl)
+            value, why = self.people_line_value(sid, field) or getattr(self, field)(sid, fl)
             out[field] = {"value": value, "why": why}
         out["_inspired"] = [(n, round(w * 100)) for w, n, f in self.donors(sid)[:6]]
         return out

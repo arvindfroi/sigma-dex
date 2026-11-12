@@ -16,6 +16,11 @@ suggestions are remade on every sync (every 15 minutes), so after new stats or a
 
 ## How it decides
 
+**Legendary or not** comes from `data/legendaries.yaml` (legendary, mythical, undecided = ordinary until decided).
+A Pokemon not listed there counts as legendary when it does not evolve and has a BST of 570 or more, or when its
+concept says "legendary". **The whole line shares** growth rate, gender, egg groups and egg cycles; when a person
+chose one of those for one Pokemon of the line, the others get the same.
+
 Every species is compared with every official Pokemon, exactly like the moveset tool (`docs/MOVESETS.md`): stats,
 types, stage, line length, evolution levels, words in its look, the designers' wishes, its archetype. Each value is
 the weighted choice of the most similar ones, plus Game Freak's fixed habits:

@@ -37,7 +37,7 @@ base_friendship: 70      # 70 is the standard value
 
 # --- Breeding ---
 gender: 87.5             # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: [grass, monster] # 1 or 2, e.g. [field, grass]
+egg_groups: [field, grass] # 1 or 2, e.g. [field, grass]
 egg_cycles: 20           # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
@@ -112,7 +112,7 @@ design:
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
-                     egg groups, egg cycles]
+                     egg cycles, egg groups]
   body_shape: a serpentine body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It slithers along the ground.
   look: "It is a long, curved green dragon-like creature with a crest of leaves on its head and a back covered in grey steel plates. It has four short legs with grey claws and a long tail ending in a steel axe-blade."

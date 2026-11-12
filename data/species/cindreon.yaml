@@ -38,7 +38,7 @@ base_friendship: 35      # 70 is the standard value
 # --- Breeding ---
 gender: genderless       # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
 egg_groups: [mineral, undiscovered] # 1 or 2, e.g. [field, grass]
-egg_cycles: 120          # hatch time, 20 is typical
+egg_cycles: 40           # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:

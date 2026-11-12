@@ -27,6 +27,13 @@ decided yet - [TODO.md](../TODO.md) keeps track of what is missing.
 |---|---|---|
 | `abilities.primary` / `secondary` | Abilities | Use abilities that already exist in the game where possible |
 | `abilities.hidden` | Hidden ability | Optional |
+
+**Fixed rules** (`scripts/dex_rules.py`, applied on every sync): a Pokemon with **Wonder Guard** always has base HP 1, like Shedinja (the website locks the HP box). Abilities that do not fit (Disguise or Shields Down without a form, Moody, Shadow Tag, Wonder Guard with few weaknesses) show as warnings: `python scripts/dex_rules.py check`.
+
+**Legendary or not**: `data/legendaries.yaml` lists our legendaries, mythicals, trios and the undecided ones. The tools that fill in numbers and moves follow it.
+
+| Field | Meaning | Rules and guidance |
+|---|---|---|
 | `base_stats` | HP, Attack, Defense, Sp. Attack, Sp. Defense, Speed | Each 1-255. Typical totals: first stage 300-320, middle 400-420, fully evolved 480-540, legendary 580-680 |
 | `ev_yield` | EVs given when defeated | `{attack: 1}`. 1 point for a first stage, 2 for a middle stage, 3 for a final stage |
 | `catch_rate` | How easy it is to catch | 3 legendary, 45 starters and rare, 120-190 uncommon, 255 very common |

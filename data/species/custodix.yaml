@@ -34,15 +34,15 @@ base_stats:              # each 1-255
   speed: 100
 
 ev_yield: {sp_attack: 3} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate: 3            # 3 (legendary) to 255 (very easy)
-base_exp: 302            # exp yield when defeated, e.g. 64
+catch_rate: 45           # 3 (legendary) to 255 (very easy)
+base_exp: 270            # exp yield when defeated, e.g. 64
 growth_rate: slow        # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship: 0       # 70 is the standard value
+base_friendship: 70      # 70 is the standard value
 
 # --- Breeding ---
 gender: genderless       # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: [undiscovered] # 1 or 2, e.g. [field, grass]
-egg_cycles: 120          # hatch time, 20 is typical
+egg_groups: [mineral, undiscovered] # 1 or 2, e.g. [field, grass]
+egg_cycles: 40           # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -129,7 +129,7 @@ design:
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
   filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, EV yield, catch rate,
-                     base exp, growth rate, base friendship, gender, egg groups, egg cycles]
+                     base exp, growth rate, base friendship, egg cycles, gender, egg groups]
   body_shape: an upright body on two legs with a tail
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "Custodix is a powerful golden lion with a majestic grey-white mane and two smooth fur tufts covering its eyes. A bright sun emblem marks its forehead, while dark rocky armor with glowing magma cracks protects its shoulders and legs. Its long tail ends in a grey-white tuft, and it can stand upright on its hind legs."

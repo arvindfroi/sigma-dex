@@ -36,6 +36,7 @@ from collections import Counter, defaultdict
 
 import yaml
 
+import dex_rules
 import dexlib
 import moveset_data
 import moveset_pick as mp
@@ -637,6 +638,9 @@ class Proposer:
 
     # -------------------------------------------------------------- profiles
     def legendary(self, sp):
+        listed = dex_rules.legendary_status(sp.get("id"))       # data/legendaries.yaml decides when it says
+        if listed:
+            return listed != "ordinary"
         bst = sum(sp["stats"].values()) if sp["stats"] else 0
         txt = sp["text"].lower()
         return (sp["line_length"] == 1 and (bst >= 570 or "legendar" in txt)) or ("legendary" in txt and bst >= 540)
@@ -863,6 +867,8 @@ class Proposer:
         if not m:
             return True
         if "punch" in m["flags"] and self.armless(sid):
+            return False
+        if dex_rules.useless_move(self.ours[sid]["abilities"], move, m):   # Wonder Guard (1 HP): no Rest, Substitute ...
             return False
         return True
 

@@ -89,10 +89,10 @@ learnset:
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Dragon Claw, Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen,
           Protect, Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball,
-          Double Team, Reflect, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief,
-          Skill Swap, Focus Blast, Energy Ball, Endure, Dragon Pulse, Giga Impact, Flash,
-          Thunder Wave, Psych Up, Sleep Talk, Grass Knot, Swagger, Substitute, Trick Room,
-          Psyshock, Psychic Terrain, Expanding Force]
+          Double Team, Reflect, Aerial Ace, Facade, Secret Power, Attract, Thief,
+          Focus Blast, Energy Ball, Dragon Pulse, Giga Impact, Flash, Thunder Wave,
+          Psych Up, Sleep Talk, Grass Knot, Swagger, Trick Room, Psyshock, Psychic Terrain,
+          Expanding Force]
   # moves a move tutor can teach it
   tutor: [Body Slam, Draco Meteor, Dragon Dance, Iron Head, Outrage, Zen Headbutt, Headbutt]
   # only needed for the first stage of an evolution line

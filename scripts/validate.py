@@ -9,6 +9,7 @@ import os
 import sys
 
 import dexlib
+import dex_rules
 from dexlib import ROOT, section, listing
 
 
@@ -76,6 +77,9 @@ def check_species(sid, data, ids, engine, errors, warnings):
         if slot in ("primary", "secondary", "hidden") and ability is not None and dexlib.norm(ability) not in engine["abilities"]:
             warn("ability '%s' does not exist in the game yet - check the spelling; if it is a new ability it has to be programmed" % ability)
 
+    for message in dex_rules.check(data):       # abilities that do not fit (docs/FIELDS.md, scripts/dex_rules.py)
+        (err if "base HP must be 1" in message else warn)(message)
+
     types = data.get("types")
     if types is not None and not isinstance(types, list):
         err("types must be a list like [Grass, Steel]")
@@ -135,6 +139,9 @@ def check_species(sid, data, ids, engine, errors, warnings):
         for group in egg_groups:
             if group not in dexlib.EGG_GROUPS:
                 err("egg group %r is not valid (valid: %s)" % (group, ", ".join(dexlib.EGG_GROUPS)))
+        if "undiscovered" in egg_groups and len(egg_groups) > 1:
+            warn("undiscovered means it cannot breed, so it is never paired with another egg group (%s)"
+                 % ", ".join(egg_groups))
 
     evolutions = data.get("evolutions")
     if evolutions is not None and not isinstance(evolutions, list):

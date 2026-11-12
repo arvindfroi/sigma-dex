@@ -89,7 +89,8 @@ stats, types, abilities or notes, a new suggestion is ready within 15 minutes.
 6. **Designers' moves.** Moves named in `design.wishes`, "Notable moves:" and similar in `design.notes`, and new
    moves from `data/custom_moves.yaml` that the card names, are added (TM moves as TMs, others in level-up).
    Signature moves from cards that are not in the game yet are listed as "describe them under New moves".
-7. **Abilities and look.** Moves that make an ability work are added if they fit: Strong Jaw -> bite moves,
+7. **Abilities and look.** Moves that cannot work are never added: with Wonder Guard (1 HP) no Rest, Substitute,
+   Endure, healing, recoil moves or Skill Swap (`scripts/dex_rules.py`). Moves that make an ability work are added if they fit: Strong Jaw -> bite moves,
    Iron Fist -> punches, Sharpness -> slicing moves, Technician -> weak multi-hit moves of its own types,
    Drought/Chlorophyll/Leaf Mane -> Sunny Day and Solar Beam, Drizzle/Swift Swim -> Rain Dance, Snow Warning and
    Cold-hearted -> Hail, Weather Switch -> Rain Dance + Sunny Day + Weather Ball, surges -> their terrain,

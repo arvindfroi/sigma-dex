@@ -39,6 +39,9 @@ jobs:
       - name: Make sprites from pictures uploaded as sprite pictures
         if: github.event_name != 'pull_request'
         run: python scripts/sprites.py auto
+      - name: Fixed game rules (Wonder Guard -> base HP 1; scripts/dex_rules.py)
+        if: github.event_name != 'pull_request'
+        run: python scripts/dex_rules.py fix
       - name: Moveset suggestions for the website's edit form (docs/MOVESETS.md)
         if: github.event_name != 'pull_request'
         run: python scripts/moveset_fill.py suggest && python scripts/species_fill.py suggest

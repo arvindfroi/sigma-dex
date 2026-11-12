@@ -7135,7 +7135,7 @@
   ]
  },
  "goatjo": {
-  "_hash": "e1655ccd9261",
+  "_hash": "cc455806f529",
   "egg": [
    "Extrasensory",
    "Stored Power",
@@ -7243,13 +7243,10 @@
    "Aerial Ace",
    "Facade",
    "Secret Power",
-   "Rest",
    "Attract",
    "Thief",
-   "Skill Swap",
    "Focus Blast",
    "Energy Ball",
-   "Endure",
    "Dragon Pulse",
    "Giga Impact",
    "Flash",
@@ -7258,7 +7255,6 @@
    "Sleep Talk",
    "Grass Knot",
    "Swagger",
-   "Substitute",
    "Trick Room",
    "Psyshock",
    "Psychic Terrain",

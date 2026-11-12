@@ -1,0 +1,15 @@
+# Which of our Pokemon are legendary or mythical (file names, without .yaml).
+# The tools that fill in numbers and moves (scripts/species_fill.py, scripts/moveset_fill.py) follow this list.
+# A Pokemon that is not listed here is judged from its stats and its design text ("legendary" in the concept).
+# Earlier stages of a legendary (like Cosmog) count as part of a legendary line.
+
+legendary: [bergflabbser, maagamad, sabertann, gravriel, rockedeer, moosus, felk]
+mythical: [sandrema]
+
+# Groups that belong together (they get matching numbers).
+trios:
+  - [rockedeer, moosus, felk]
+  - [sabertann, gravriel]          # the pirate trio; the third is not made yet
+
+# Not decided yet: treated as ordinary Pokemon until they are moved to legendary or mythical above.
+undecided: [santrock, cindreon, custodix]   # the Custodix line
