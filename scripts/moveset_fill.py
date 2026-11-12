@@ -245,6 +245,18 @@ def load_claude_moves():
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
 
 
+def learnset_hash(data):
+    import hashlib
+    ls = data.get("learnset") or {}
+    return hashlib.sha1(json.dumps({k: ls.get(k) or [] for k in KEYS}, sort_keys=True).encode()).hexdigest()[:12]
+
+
+def group_edited(sid, data, claude):
+    """True when someone changed its moves after Claude last applied (then Claude's moves count as theirs)."""
+    rec = claude.get(sid) or {}
+    return bool(rec.get("_hash")) and rec["_hash"] != learnset_hash(data)
+
+
 def load_ours(exclude_claude=False):
     """Our species. exclude_claude=True leaves out the moves Claude added earlier (data/claude_moves.json), so a
     new proposal can replace them while the designers' own moves stay."""
@@ -252,7 +264,7 @@ def load_ours(exclude_claude=False):
     claude = load_claude_moves() if exclude_claude else {}
     out = {}
     for sid, path, data in species:
-        if sid in claude:
+        if sid in claude and not group_edited(sid, data, claude):
             data = json.loads(json.dumps(data))
             ls, cm = data.setdefault("learnset", {}), claude[sid]
             lu_moves = {m for lv, m in cm.get("level_up", [])}
@@ -836,8 +848,9 @@ class Proposer:
         if m["power"] > cap:
             p = min(p, cap)
         for cat in cats:
-            cands = [(abs(self.M[mv]["power"] - p) + (0 if cnt >= 6 else 8) + (6 if self.M[mv]["recharge"] or
-                                                                                 self.M[mv]["charge"] else 0)
+            # the move official Pokemon of that type learn most often wins near ties, so votes add up
+            cands = [(abs(self.M[mv]["power"] - p) - 0.5 * min(cnt, 30) + (6 if self.M[mv]["recharge"] or
+                                                                            self.M[mv]["charge"] else 0)
                       + (40 if self.M[mv]["power"] > cap else 0), -cnt, mv)
                      for mv, cnt in pool.get(cat, {}).items()
                      if mv not in used and self.M[mv]["power"] > 1 and mv not in NEVER_ADD
@@ -847,6 +860,58 @@ class Proposer:
                 if cands[0][0] <= 35:
                     return cands[0][2]
         return None
+
+    # (lowest power, highest power, lowest accuracy, level, label): a strong step is a reliable 85-100 move like
+    # Leaf Blade, Flamethrower or Crunch; a 120-power nuke with 85 % accuracy (Power Whip) does not count as one
+    LADDER = [(35, 60, 70, 8, "a weak"), (65, 80, 85, 24, "a middle"), (85, 100, 90, 40, "a strong, reliable")]
+
+    def attack_sides(self, sid):
+        st = self.profile(sid)["stats"]
+        ab = self.ours[sid]["data"].get("abilities") or {}
+        huge = 2 if {ab.get("primary"), ab.get("secondary")} & {"Huge Power", "Pure Power"} else 1
+        a, sa = st["attack"] * huge, st["sp_attack"]
+        if huge == 1 and ab.get("hidden") in ("Huge Power", "Pure Power"):
+            return ["Physical", "Special"]          # only with its hidden ability is it a physical attacker
+        return ["Physical"] if a > sa + 15 else ["Special"] if sa > a + 15 else ["Physical", "Special"]
+
+    def stab_ladder(self, sid, entries, reasons):
+        """Game Freak almost always gives each own type a weak, a middle and a strong move on the side the
+        Pokemon attacks with, by level-up. Fill a missing step with the move official Pokemon of that type learn
+        most (Autuman: Razor Leaf -> Seed Bomb -> Leaf Blade)."""
+        sp = self.ours[sid]
+        own = [e for e in sp["learnset"]["level_up"] if isinstance(e, dict) and self.M.get(e.get("move"))]
+        have = {e["move"] for e in entries} | {e["move"] for e in own}
+        levels = {e["level"] for e in entries + own if isinstance(e.get("level"), int)}
+        enter = evo_level(self.ours, sid) if sp["parent"] else None
+        sides = self.attack_sides(sid)
+        for t in sp["types"]:
+            if t not in self.ref.type_pool:
+                continue
+            for cat in sides:
+                if len(sides) == 2 and not any(self.M[m]["type"] == t and self.M[m]["category"] == cat
+                                               for m in have if self.M.get(m)):
+                    continue          # a mixed attacker needs the ladder only on the side it already uses
+                for lo, hi, acc, lvl, label in self.LADDER:
+                    if any(self.M.get(m) and self.M[m]["type"] == t and self.M[m]["category"] == cat
+                           and lo <= self.M[m]["power"] <= hi and self.M[m]["accuracy"] >= acc for m in have):
+                        continue
+                    cands = sorted(((cnt, mv) for mv, cnt in self.ref.type_pool[t].get(cat, {}).items()
+                                    if lo <= self.M[mv]["power"] <= hi and mv not in have and mv not in NEVER_ADD
+                                    and not self.M[mv]["charge"] and not self.M[mv]["recharge"]
+                                    and not self.M[mv]["self_ko"] and self.M[mv]["accuracy"] >= acc
+                                    and self.body_ok(sid, mv)), reverse=True)
+                    if not cands:
+                        continue
+                    mv = cands[0][1]
+                    lv = lvl if not enter or lvl > enter or lo < 65 else enter + 4
+                    while lv in levels:
+                        lv += 1
+                    entries.append({"level": lv, "move": mv})
+                    levels.add(lv)
+                    have.add(mv)
+                    reasons[mv] = "%s %s %s move by level-up (%d official %s Pokemon learn it)" % (
+                        label, t, cat.lower(), cands[0][0], t)
+        entries.sort(key=lambda e: (e["level"], e["move"]))
 
     def translate_status(self, move, our_types, used):
         group = next((g for g, s in STATUS_GROUP.items() if move in s), None)
@@ -1056,6 +1121,7 @@ class Proposer:
         entries.sort(key=lambda e: (e["level"], e["move"]))
         top = self.weighted_donors(sid)[0][1]
         self._ensure_types(sid, entries, side, memo, reasons_line, self.ref.all[top])
+        self.stab_ladder(sid, entries, reasons_line)
         inspired = [(n, round(w * 100)) for w, n in self.weighted_donors(sid)[:8]]
         return entries, inspired
 
@@ -1162,6 +1228,9 @@ class Proposer:
         kind = "final" if sp["final"] else ("base" if sp["stage"] == 0 else "mid")
         tot_w = 0.0
         p_donor = Counter()
+        sides = self.attack_sides(sid) if sp["stats"] else []
+        stab = [t for t in sp["types"] if t in moveset_data.TYPES]
+        resisted = [d for d in moveset_data.TYPES if stab and max(moveset_data.effectiveness(t, [d]) for t in stab) < 1]
         pop = self.weighted_donors(sid) if sp["stats"] else [(math.exp(sc - donors[0][0]), n) for sc, n in donors]
         if key == "egg":
             pop = [(w, n) for w, n in pop if self.ref.all[n]["stage"] == 0] or pop
@@ -1183,6 +1252,10 @@ class Proposer:
                 score += 0.15
             if m["type"] in self.preferred_types(sid) and m["category"] != "Status":
                 score += 0.2
+            if key in ("tm_hm", "tutor") and m["category"] in sides and m["power"] >= 70 and \
+                    m["type"] not in sp["types"] and (pd >= 0.08 or pt >= 0.08) and \
+                    any(moveset_data.effectiveness(m["type"], [d]) >= 2 for d in resisted):
+                score += 0.15     # hits what its own types cannot
             if m["category"] != "Status" and m["type"] not in sp["types"] and m["type"] != "Normal" and pt < 0.08 \
                     and pd < 0.5:
                 score -= 0.15
@@ -1618,28 +1691,43 @@ class Proposer:
                     mv = c.most_common(1)[0][0]
                     self._add(sid, learnset, added, mv, reasons, "role: setup move for an attacker (%d of %d similar "
                               "official Pokemon have it)" % (c[mv], len(donor_pools)), prefer_tm=True)
-        if "attacker" in role or "wallbreaker" in role:
-            cover = {self.M[mv]["type"] for mv in pool if self.M.get(mv) and self.M[mv]["power"] >= 70
-                     and self.M[mv]["category"] != "Status" and self.M[mv]["type"] not in sp["types"]}
-            if len(cover) < 2:
-                c = Counter()
-                for p in donor_pools:
-                    for mv in p:
-                        m = self.M.get(mv)
-                        if m and m["category"] == (side if info["side"] != "mixed" else m["category"]) \
-                                and m["power"] >= 70 and m["type"] not in sp["types"] and m["type"] not in cover \
-                                and mv not in NEVER_ADD and not m["recharge"] and not m["self_ko"] \
-                                and (mv in self.ref.tms or mv in self.ref.tutor_where):
-                            c[mv] += 1
-                for mv, n in c.most_common():
-                    if len(cover) >= 2:
-                        break
-                    if self.M[mv]["type"] in cover or n < 2:
-                        continue
-                    if self._add(sid, learnset, added, mv, reasons, "role: coverage for an attacker (%d of %d similar "
-                                 "official Pokemon have it)" % (n, len(donor_pools)), prefer_tm=True):
-                        cover.add(self.M[mv]["type"])
-            pool = set(self.full_pool(sid, learnset))
+        # Coverage like official Pokemon of its kind: attackers about 4 other types, others about 3.
+        target = 4 if ("attacker" in role or "wallbreaker" in role) else 3
+        sides = self.attack_sides(sid)
+        def strong_cover(pool_):
+            return {self.M[mv]["type"] for mv in pool_ if self.M.get(mv) and self.M[mv]["power"] >= 70
+                    and self.M[mv]["category"] in sides and self.M[mv]["type"] not in sp["types"]
+                    and not self.M[mv]["recharge"] and not self.M[mv]["charge"]}
+        cover = strong_cover(pool)
+        if len(cover) < target:
+            stab = [t for t in sp["types"] if t in moveset_data.TYPES]
+            weight = Counter()
+            for w, n in self.weighted_donors(sid):
+                o = self.ref.all[n]
+                for mv in set(mv for lv, mv in o["level_up"]) | set(o["tm_hm"]) | set(o["tutor"]):
+                    m = self.M.get(mv)
+                    if m and m["category"] in sides and m["power"] >= 70 and m["type"] not in sp["types"] \
+                            and mv not in NEVER_ADD and not m["recharge"] and not m["charge"] and not m["self_ko"] \
+                            and (mv in self.ref.tms or mv in self.ref.tutor_where) and self.body_ok(sid, mv):
+                        weight[mv] += w
+
+            def gain(mv):          # how many types it hits super effectively that nothing it has does
+                t = self.M[mv]["type"]
+                have = [x for x in stab] + list(cover)
+                return sum(1 for d in moveset_data.TYPES if moveset_data.effectiveness(t, [d]) >= 2
+                           and all(moveset_data.effectiveness(x, [d]) < 2 for x in have))
+            for _ in range(target - len(cover)):
+                cands = [(weight[mv] * (1 + gain(mv)), mv) for mv in weight
+                         if self.M[mv]["type"] not in cover and weight[mv] >= 0.08]
+                if not cands:
+                    break
+                sc, mv = max(cands)
+                if self._add(sid, learnset, added, mv, reasons, "role: coverage (%d%% of the similar official "
+                             "Pokemon learn it)" % round(weight[mv] * 100), prefer_tm=True):
+                    cover.add(self.M[mv]["type"])
+                else:
+                    weight.pop(mv, None)
+        pool = set(self.full_pool(sid, learnset))
         if "wall" in role or "support" in role:
             if not any(r in pool for r in mp.RECOVERY):
                 c = Counter(r for p in donor_pools for r in mp.RECOVERY if r in p)
@@ -2028,7 +2116,7 @@ def cmd_suggest(args):
     for sid, r in sorted(fill.items()):
         cur = ours[sid]["learnset"]
         have = {k: {(e.get("move") if isinstance(e, dict) else e) for e in cur[k]} for k in KEYS}
-        cm = claude.get(sid, {})
+        cm = {} if group_edited(sid, ours[sid]["data"], claude) else claude.get(sid, {})
         still = {"level_up": [m for lv, m in cm.get("level_up", []) if m in have["level_up"]]}
         for k in KEYS[1:]:
             still[k] = [m for m in cm.get(k, []) if m in have[k]]
@@ -2087,7 +2175,10 @@ def cmd_apply(args):
         path = dexlib.SPECIES_DIR / (sid + ".yaml")
         data = yaml.safe_load(path.read_text(encoding="utf-8"))
         ls = data.setdefault("learnset", {})
-        if fresh:        # a new proposal replaces what Claude added before; the group's own moves stay
+        if fresh and group_edited(sid, data, claude_moves):
+            print("keep %s: its moves were changed on the website, so only gaps are filled" % sid)
+            claude_moves[sid] = {}          # what Claude added before now counts as the group's
+        elif fresh:      # a new proposal replaces what Claude added before; the group's own moves stay
             cm = claude_moves.get(sid, {})
             lu_moves = {m for lv, m in cm.get("level_up", [])}
             ls["level_up"] = [e for e in (ls.get("level_up") or []) if not (isinstance(e, dict) and
@@ -2120,6 +2211,7 @@ def cmd_apply(args):
             dexlib.write_species(path, data)
             changed.append(sid)
             rec = claude_moves.setdefault(sid, {})
+            rec["_hash"] = learnset_hash(yaml.safe_load(path.read_text(encoding="utf-8")))
             for key in KEYS:
                 for x in r["added"][key]:
                     item = [x["level"], x["move"]] if key == "level_up" else x

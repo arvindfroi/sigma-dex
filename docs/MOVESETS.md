@@ -69,7 +69,12 @@ stats, types, abilities or notes, a new suggestion is ready within 15 minutes.
    levels; the strongest moves are taken, as many as such Pokemon usually have, spread over the levels the way
    they spread them (start, before evolving, right after, middle, late), so a Pokemon keeps learning moves after
    it evolves. An evolved form also gets what its earlier stage learns after the evolution level, a bit later.
-   The proposal flags a Pokemon that learns nothing after evolving or has a long gap without new moves. Moves outside our own types need
+   The proposal flags a Pokemon that learns nothing after evolving or has a long gap without new moves.
+   **Same-type ladder:** like Game Freak, each own type gets a weak (35-60), a middle (65-80) and a strong,
+   reliable (85-100 power, 90 %+ accuracy) move by level-up on the side the Pokemon attacks with; a missing step
+   is filled with the move official Pokemon of that type learn most (Autuman: Razor Leaf, Slam, Leaf Blade, and
+   Power Whip as its big move). When translating a model's move, the commonly learned move of our type wins near
+   ties, so the votes add up instead of splitting over many similar moves. Moves outside our own types need
    more agreement (15 % of the weight). Type-flavoured status moves are swapped (Sleep Powder -> our type's sleep
    move, Sunny Day -> our weather) or dropped; other species' signature moves are never copied; each of our types
    gets level-up attacks; at most six moves at level 1 for evolved forms; an evolved form keeps what its earlier
@@ -99,11 +104,14 @@ stats, types, abilities or notes, a new suggestion is ready within 15 minutes.
    and writes `proposals/design_review.json`: moves to leave out because they clash with the design, a few moves
    the design asks for, and a one-line note. `propose` applies it on every run (only to added moves, names and
    TM/tutor lists checked), then the balance checks below run again. Update it when designs change.
-9. **Role.** From the final stage's stats (offence, bulk, speed, physical or special, Huge Power counted) and
+9. **Coverage.** TMs and tutors that hit what its own types cannot score higher, and every final form gets
+   coverage like official Pokemon of its kind: about 4 strong moves of other types for attackers, 3 for others,
+   chosen from what the similar official Pokemon learn, preferring the types that add most.
+10. **Role.** From the final stage's stats (offence, bulk, speed, physical or special, Huge Power counted) and
    role words in wishes/notes: fast/bulky/Trick Room attacker, wallbreaker, wall, support. If the role misses
    its tools and similar official Pokemon have them, they are added: a strong move (75+ power) of each own type,
    a setup move for attackers, recovery for walls, Trick Room only if the notes say so or similar Pokemon have it.
-10. **Not broken.** Combos are checked against official Pokemon with about the same total (within 50) and attack
+11. **Not broken.** Combos are checked against official Pokemon with about the same total (within 50) and attack
    (within 20). If none of them has the combo, an added move is taken out again ("Not added: ..."); if the
    combo came from the designers, it is flagged ("Check ..."). Checked: same-type priority + setup on a strong
    attacker, Speed Boost + setup, Huge Power + priority, recovery + setup on a bulky Pokemon, rare moves (Shell

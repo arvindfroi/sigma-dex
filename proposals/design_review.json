@@ -79,12 +79,16 @@
    "egg": []
   },
   "drop": [
-   "Slash"
+   "Slash",
+   "Close Combat",
+   "False Swipe"
   ],
   "why": {
    "Leech Life": "Line keeps the mosquito move",
    "Bug Buzz": "Wings that rotate like a helicopter",
-   "Slash": "Beetle-like with thin legs, no claws"
+   "Slash": "Beetle-like with thin legs, no claws",
+   "Close Combat": "beetle with thin legs and no fists",
+   "False Swipe": "no blade or claws, only a horn and legs"
   },
   "note": "Fits."
  },
@@ -129,10 +133,15 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Brick Break",
+   "Razor Shell"
+  ],
   "why": {
    "Wrap": "long slender serpentine body",
-   "Discharge": "card notable move; releases stored electricity in bursts"
+   "Discharge": "card notable move; releases stored electricity in bursts",
+   "Brick Break": "slender eel-like, no arms",
+   "Razor Shell": "eel with no shell"
   },
   "note": "Fits; added Wrap and Discharge."
  },
@@ -489,12 +498,14 @@
    "egg": []
   },
   "drop": [
-   "Swords Dance"
+   "Swords Dance",
+   "Razor Shell"
   ],
   "why": {
    "Surf": "Rides a surfboard made of water",
    "Swords Dance": "Penguin surfer with flippers; role is mixed special/fast, not a dancer",
-   "Aqua Jet": "Surfboard of fluid water outmaneuvers opponents"
+   "Aqua Jet": "Surfboard of fluid water outmaneuvers opponents",
+   "Razor Shell": "penguin on a water surfboard, no shell"
   },
   "note": "No change; moves fit the design acceptably."
  },
@@ -595,8 +606,12 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
-  "why": {},
+  "drop": [
+   "Slash"
+  ],
+  "why": {
+   "Slash": "cow-like with hooves, no claws"
+  },
   "note": "Cow with water/normal kit fits."
  },
  "crappy-meal": {
@@ -611,9 +626,12 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Brick Break"
+  ],
   "why": {
-   "Pin Missile": "Many spiky french fries sticking out of its back, bristle when threatened"
+   "Pin Missile": "Many spiky french fries sticking out of its back, bristle when threatened",
+   "Brick Break": "hamburger with no arms"
   },
   "note": "Fits; fry spikes expressed."
  },
@@ -686,10 +704,13 @@
    ],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Iron Tail"
+  ],
   "why": {
    "Toxic": "Carries barrels of glowing liquid; drowsy toxin line",
-   "Yawn": "Drowsy toxin line"
+   "Yawn": "Drowsy toxin line",
+   "Iron Tail": "no tail in the design"
   },
   "note": "Fits."
  },
@@ -1168,11 +1189,15 @@
    "egg": []
   },
   "drop": [
-   "Poison Powder"
+   "Poison Powder",
+   "Dazzling Gleam",
+   "Shadow Ball"
   ],
   "why": {
    "Mimic": "Evolution of a dancer that 'mimicks moves it observes'",
-   "Poison Powder": "fiery tiki gorilla with nothing powdery or spore-like"
+   "Poison Powder": "fiery tiki gorilla with nothing powdery or spore-like",
+   "Dazzling Gleam": "fiery tiki-mask gorilla, no fairy light theme",
+   "Shadow Ball": "fiery jungle tribe leader, ghost orb clashes"
   },
   "note": "Fiery tribal gorilla moves fit; added copying move."
  },
@@ -1215,11 +1240,13 @@
    "egg": []
   },
   "drop": [
-   "Aerial Ace"
+   "Aerial Ace",
+   "Brick Break"
   ],
   "why": {
    "Bug Bite": "line consistent with Balleisk",
-   "Aerial Ace": "Long blue dragon with short legs and no wings, crawls along the ground"
+   "Aerial Ace": "Long blue dragon with short legs and no wings, crawls along the ground",
+   "Brick Break": "heavy lizard-like dragon with short legs, no hands"
   },
   "note": "Fits."
  },
@@ -1298,9 +1325,12 @@
    ],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Brick Break"
+  ],
   "why": {
-   "Charm": "Smiley markings 'help it appear friendly to both people and Pokemon'"
+   "Charm": "Smiley markings 'help it appear friendly to both people and Pokemon'",
+   "Brick Break": "small bird with wings and thin legs, no arms"
   },
   "note": "Bird moves fit; added a friendly-face move for the smiley marking."
  },
@@ -1362,12 +1392,14 @@
   },
   "drop": [
    "Charm",
-   "Play Nice"
+   "Play Nice",
+   "Brick Break"
   ],
   "why": {
    "Charm": "Predator croc hunting prey, not cute",
    "Play Nice": "Predator croc hunting prey",
-   "Poison Fang": "Venomous tongue immobilizes prey"
+   "Poison Fang": "Venomous tongue immobilizes prey",
+   "Brick Break": "crocodile-like, no hands"
   },
   "note": "No change; moves fit the design acceptably."
  },
@@ -1456,13 +1488,19 @@
   },
   "drop": [
    "Growth",
-   "Sweet Scent"
+   "Sweet Scent",
+   "Giga Drain",
+   "Seed Bomb",
+   "Solar Beam"
   ],
   "why": {
    "Growth": "golem of boulders and bones, plant-copy move",
    "Sweet Scent": "golem of boulders and bones, plant-copy move",
    "Smog": "polluted lands, purple smoke",
-   "Bone Rush": "golem covered in bones and ribs"
+   "Bone Rush": "golem covered in bones and ribs",
+   "Giga Drain": "boulder golem with skull mask, not plant-like",
+   "Seed Bomb": "boulder golem, no seeds",
+   "Solar Beam": "lumpy rock golem, no sun theme"
   },
   "note": "Plant-copy moves swapped for smoke and bone moves."
  },
@@ -1585,13 +1623,17 @@
    "egg": []
   },
   "drop": [
-   "Calm Mind"
+   "Calm Mind",
+   "Brick Break",
+   "Poison Fang"
   ],
   "why": {
    "Calm Mind": "Physical fast attacker with three swords, no psychic theme",
    "Night Slash": "'stores three swords' on its back",
    "Hurricane": "'glide through any weather', flips the weather",
-   "Surf": "Seagull 'above the sea', anchor mark"
+   "Surf": "Seagull 'above the sea', anchor mark",
+   "Brick Break": "seagull-like bird, no arms",
+   "Poison Fang": "seagull with orange beak, no fangs"
   },
   "note": "Swordbearing gull; removed psychic setup, added sword/weather/sea moves."
  },
@@ -1617,8 +1659,14 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
-  "why": {},
+  "drop": [
+   "Slash",
+   "Razor Shell"
+  ],
+  "why": {
+   "Slash": "cow-like with hooves and flippers, no claws",
+   "Razor Shell": "sea cow with no shell"
+  },
   "note": "Fits."
  },
  "moosus": {
@@ -1649,7 +1697,8 @@
    "Dual Wingbeat",
    "Feather Dance",
    "Bite",
-   "Crunch"
+   "Crunch",
+   "Brick Break"
   ],
   "why": {
    "Drill Peck": "Moose with no beak or wings",
@@ -1663,7 +1712,8 @@
    "Aurora Veil": "Glitters like nordic light",
    "Megahorn": "Large antlers, legendary moose",
    "Bite": "herbivorous moose with a snout, no fangs",
-   "Crunch": "herbivorous moose with a snout, no fangs"
+   "Crunch": "herbivorous moose with a snout, no fangs",
+   "Brick Break": "moose with hooves, no hands"
   },
   "note": "Moose with aurora antlers; bird-only moves removed, antler and aurora moves added."
  },
@@ -1725,10 +1775,15 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Poison Fang",
+   "Sweet Scent"
+  ],
   "why": {
    "Smog": "venting corrosive fumes",
-   "Toxic Spikes": "hazard core of waste"
+   "Toxic Spikes": "hazard core of waste",
+   "Poison Fang": "metal robot with no mouth or fangs",
+   "Sweet Scent": "cute scent clashes with a toxic waste robot"
   },
   "note": "Toxic fumes and waste hazards added."
  },
@@ -1749,12 +1804,14 @@
    "egg": []
   },
   "drop": [
-   "Iron Tail"
+   "Iron Tail",
+   "Poison Fang"
   ],
   "why": {
    "Smog": "releases toxic fumes when alarmed",
    "Toxic Spikes": "stores unstable waste, waste core",
-   "Iron Tail": "Barrel body on cable-like legs, no tail mentioned"
+   "Iron Tail": "Barrel body on cable-like legs, no tail mentioned",
+   "Poison Fang": "metal barrel with one eye and cable legs, no mouth or fangs"
   },
   "note": "Toxic fumes and waste hazards added."
  },
@@ -1923,7 +1980,8 @@
    "Fire Fang",
    "Thunder Fang",
    "Leech Seed",
-   "Crabhammer"
+   "Crabhammer",
+   "Leaf Blade"
   ],
   "why": {
    "Meteor Mash": "A tank with a cannon, no fists",
@@ -1936,7 +1994,8 @@
    "Fire Fang": "a tank has no fangs",
    "Thunder Fang": "a tank has no fangs",
    "Leech Seed": "tank body, no seed flavour",
-   "Crabhammer": "no claws; tank hull"
+   "Crabhammer": "no claws; tank hull",
+   "Leaf Blade": "an old tank with no blade-like limb"
   },
   "note": "Tank line; removed punch/spine/petal moves, added cannon-mud and tracks moves."
  },
@@ -1982,7 +2041,8 @@
    "Dual Wingbeat",
    "Steel Wing",
    "Pluck",
-   "Drill Peck"
+   "Drill Peck",
+   "Shadow Claw"
   ],
   "why": {
    "Peck": "hooded serpentine ghost with no wings or beak",
@@ -1991,7 +2051,8 @@
    "Pluck": "hooded serpentine ghost with no wings or beak",
    "Drill Peck": "no beak",
    "Astonish": "ghost with three glowing eyes",
-   "Confuse Ray": "mysterious hidden ghost"
+   "Confuse Ray": "mysterious hidden ghost",
+   "Shadow Claw": "hooded ghost with a tapering tail, no arms or claws"
   },
   "note": "Wing and beak moves removed from the wingless hooded ghost; ghost moves added."
  },
@@ -2297,10 +2358,13 @@
    ],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Iron Tail"
+  ],
   "why": {
    "Toxic": "The drowsy toxin pokemon hugging a bottle",
-   "Yawn": "The drowsy toxin pokemon"
+   "Yawn": "The drowsy toxin pokemon",
+   "Iron Tail": "only a small white tail tuft"
   },
   "note": "Normal brawler fits; drowsy toxin flavor added."
  },
@@ -2370,12 +2434,14 @@
   },
   "drop": [
    "Peck",
-   "Pluck"
+   "Pluck",
+   "Drill Peck"
   ],
   "why": {
    "Peck": "ghost with a mask face, no beak",
    "Pluck": "ghost with a mask face, no beak",
-   "Confuse Ray": "hidden, mysterious phantasmal"
+   "Confuse Ray": "hidden, mysterious phantasmal",
+   "Drill Peck": "cloaked ghost with a mask face, no beak"
   },
   "note": "Beak moves removed; ghost status move added."
  },
@@ -2469,9 +2535,14 @@
    ],
    "egg": []
   },
-  "drop": [],
+  "drop": [
+   "Brick Break",
+   "Close Combat"
+  ],
   "why": {
-   "Charm": "Smiley markings 'help it appear friendly to both people and Pokemon'"
+   "Charm": "Smiley markings 'help it appear friendly to both people and Pokemon'",
+   "Brick Break": "tern-like bird with wings, no arms",
+   "Close Combat": "tern-like bird with long narrow wings, no arms"
   },
   "note": "Bird moves fit; added a friendly-face move for the smiley marking."
  },
@@ -2531,8 +2602,12 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
-  "why": {},
+  "drop": [
+   "Razor Shell"
+  ],
+  "why": {
+   "Razor Shell": "cat-like, no shell"
+  },
   "note": "Fits the design; no change needed."
  },
  "surfer": {
@@ -2542,8 +2617,12 @@
    "tutor": [],
    "egg": []
   },
-  "drop": [],
-  "why": {},
+  "drop": [
+   "Razor Shell"
+  ],
+  "why": {
+   "Razor Shell": "cat-like, no shell"
+  },
   "note": "Fits the design; no change needed."
  },
  "tinky": {
@@ -2717,7 +2796,8 @@
    "Scratch",
    "Thunder Fang",
    "Thunder Punch",
-   "Grass Knot"
+   "Grass Knot",
+   "Iron Tail"
   ],
   "why": {
    "Tail Whip": "Four floating shapes joined by wires, no tail",
@@ -2725,7 +2805,8 @@
    "Scratch": "Floating geometric shapes with no claws or limbs",
    "Thunder Fang": "four black shapes with one eye each, no mouths",
    "Thunder Punch": "separate shapes with no arms",
-   "Grass Knot": "floating shapes with no legs"
+   "Grass Knot": "floating shapes with no legs",
+   "Iron Tail": "four separate black shapes, no tail"
   },
   "note": "Fits."
  },
