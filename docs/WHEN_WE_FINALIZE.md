@@ -104,18 +104,31 @@ Arvind's sketches: [the controlled form](img/meowthwo_sketch_controlled.webp) (t
 Persian's ghostly shape and red gem behind him) and [the costume](img/meowthwo_sketch_costume.png) (Meowth suit, Rocket
 shirt and red scarf, psychic energy in his hand).
 
-- **Meowth "dies" early.** The Meowth in the first battles (Viridian Forest, Route 4) is the real one, the trio's third
-  member who talks and acts like in the series. After the first battles he is gone, only implied (Jessie and James change
-  the subject when asked). From then on the trio uses a **stand-in**: some dude in a cheap Meowth suit (comic: wrong
-  colours, cannot do the voice). In battle he can still be the "Pokemon" in James' team; the cheapest way is the costume
-  species' own battle sprite with other colours (a palette form, like a shiny), so no new drawing is needed.
-- **Rocket reports as hints (Arvind liked this, write them):** Origin already has Rocket reports you can read ("Keep
-  reading?", bank 572). We add a few about "test subject 52" (Meowth's dex number), spread over the game so the reveal
-  is built up. Drafts, game text in English:
-  1. "Subject 52 arrived today. Uncooperative. Talks back. Bit two of our staff."
-  2. "Psychic response in subject 52 is rising. It keeps asking for its friends."
-  3. "The armour holds subject 52 in place. Persian's link is the only thing it obeys."
-  4. "Subject 52 no longer answers to its old name. We are calling the result M2-52."
+- **Meowth "dies" early.** The Meowth in the first one or two battles (Viridian Forest, Route 4) is the real Pokemon,
+  no. 52, the trio's talking Meowth like in the series. After that he is gone, his death only implied (Jessie and James
+  change the subject when asked). Next time the trio has **a dude dressed as Meowth** instead. Everyone thinks he is a
+  gag, but he turns out to play a big role in the story.
+- **The dude (Arvind):** an early teen / young adult who only does the job for the money. A bit hippie, aloof, does not
+  care and takes nothing seriously, like a summer temp at a theme park: "I'm just tryna do my job". A bit out of place in
+  this world. He is **added as his own Pokemon** (our own dex entry, working name "Furry Meowth" or a normal name), so
+  he battles in James' team like a real mon.
+- **What happens to him:** to earn extra money he signs up for Team Rocket's experiments, based on what happened to Bill
+  (a human turned into a Pokemon). He becomes powerful, so they put him in the armour and use Giovanni's Persian to
+  control him.
+- **Rocket reports as hints (Arvind liked this):** Origin already has Rocket reports you can read ("Keep reading?", bank
+  572). We add a few about "subject 52" (a nod to Meowth's dex number), spread over the game so the reveal is built up.
+  Drafts, game text in English:
+  1. "New volunteer for the Bill transfer test: the part-timer in the Meowth suit. Signed without reading. Asked about
+     overtime pay."
+  2. "Transfer partly successful. Subject 52 shows psychic readings. Subject says this is 'kind of a lot, man'."
+  3. "Subject 52 is too strong to hold. Only the armour and Persian's link keep it under control."
+  4. "Subject 52 no longer answers to its old name. We are calling the result Meowthwo."
+- **Awakened attitude (Arvind):** once awakened he is stoic and cool like Mewtwo, maybe like Genji from Overwatch; a bit
+  Dr. Manhattan, but he still does odd jobs from online ads.
+- **How you get him:** in Origin you never catch Mewtwo. In Cerulean Cave you destroy the Master Ball Giovanni controls it
+  with ("Catching a Pokemon depends on a Trainer and a Pokemon accepting each other", bank 599), and later at Indigo
+  Plateau Mewtwo joins your party as a gift ("Add Mewtwo to your party?", bank 608). This fits Meowthwo: break Persian's
+  hold, and he joins you because he chooses to.
 - **Then the reveal: Meowthwo.** Origin's Rocket reports you can read ("Keep reading?", bank 572) can foreshadow it
   (a test subject numbered 52, Meowth's dex number). Meowthwo takes Mewtwo's whole role: the birth scene in the lab
   (bank 546: Dr. Fuji, Blaine, Green/Red, an explosion; it is overworld sprites plus text, so the text is an easy rewrite
@@ -133,12 +146,14 @@ shirt and red scarf, psychic energy in his hand).
   switches it to the unleashed form, the same way Steel Armor makes Armored Mewtwo in Origin (a held-item form).
 - **Post-game restaurant:** Origin's Island Restaurant (Alto Mare islands, the trio as waiters, you choose to arrest them
   or ask Meowth's help with the Lucky Meowth God) becomes a **fast food place**. Meowth works there and
-  explains where he went. It is the **real** Meowth who ends up there (not the stand-in). Origin's own line "You're a
+  explains why he disappeared: the real Meowth (no. 52) never died, he quit and took a fast food job. Origin's own line "You're a
   Pokemon, aren't you? You're free" turns into a joke.
 - **Boss health in segments (later, new code):** like PokeRogue's bosses, the health bar is split into parts, one hit can
   never pass a part line (a stronger Sturdy, so no one-shot), and each broken part can raise its stats. **Not an
   ability** (Arvind): it is a boss rule the battle script turns on before the fight, so the mon keeps its normal ability.
-  The damage cap and stat raise use the same kind of code patch as our Weather Switch test; a drawn segmented bar needs
+  The damage cap and stat raise use the same kind of code patch as our Weather Switch test. Note: the decompiled code
+  is the normal HeartGold, not Origin; Origin's battle engine (overlay 14) is new code that no decomp covers, so battle
+  changes are still patches into the binary (doable, as Weather Switch showed). Map and script changes are easier; a drawn segmented bar needs
   battle screen code, so a first version shows a message per broken part.
 - **Facts checked:** Giovanni's final in Origin is three battles in a row: Giovanni alone (Arceus, Dialga and 4 more),
   then a double battle against Giovanni and his past copy at once (you alone against both, the copy has Mewtwo), then
