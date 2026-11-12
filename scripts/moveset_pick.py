@@ -278,7 +278,7 @@ def pick(mon, level=100, pool=(), M=None, role=None, wishes="", n=4, battle="sin
         M = moveset_data.load()["moves"]
     info = detect_role(mon, wishes) if role is None else {"role": role}
     kind = _role_kind(info["role"])
-    pool = [p for p in dict.fromkeys(pool) if p in M]
+    pool = sorted(p for p in dict.fromkeys(pool) if p in M)     # sorted: the same set always gives the same pick
     if not pool:
         return {"moves": [], "role": info["role"], "why": {}}
     vals = {p: attack_value(mon, p, M) for p in pool}

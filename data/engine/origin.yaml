@@ -1,7 +1,8 @@
-# Origin HeartGold (the game we build on): its TMs, HMs and move tutors.
+# Origin HeartGold (the game we build on): its TMs, HMs, move tutors and the moves it changed.
 # Read from the game's player docs (made by the English patch team) on 2026-11-12 by scripts/moveset_data.py.
-# TM/HM lists are what the website's TM boxes and scripts/validate.py check; tutors are spread over the map,
-# each teaching one move at one place for a price (who may learn it is decided in that tutor's script).
+# The website's TM boxes and scripts/validate.py use the TM/HM lists. Tutors are spread over the map, each
+# teaching one move at one place for a price (who may learn it is decided in that tutor's own script).
+# move_changes: how Origin's moves differ from the official games (type, category, power, accuracy).
 tms:
   - "Focus Punch"
   - "Dragon Claw"
@@ -143,88 +144,143 @@ hms:
   - "Waterfall"
   - "Rock Climb"
 tutors:
-  - {move: "Air Slash", where: "Route 18", payment: "free"}
-  - {move: "Ancient Power", where: "Ruins of Alph", payment: "Rare Bone ×1"}
-  - {move: "Aqua Jet", where: "Cerulean City", payment: "free"}
-  - {move: "Aqua Tail", where: "Cerulean City (map 427)", payment: "free"}
-  - {move: "Aura Sphere", where: "Ecruteak City (map 83)", payment: "free"}
-  - {move: "Baton Pass", where: "New Bark Town", payment: "Level Ball ×1"}
-  - {move: "Belly Drum", where: "Goldenrod City", payment: "free"}
-  - {move: "Blast Burn", where: "Islander’s House (map 364)", payment: "free"}
-  - {move: "Body Slam", where: "Route 12", payment: "free"}
-  - {move: "Brave Bird", where: "Resort Zone (map 534)", payment: "free"}
-  - {move: "Bug Bite", where: "Route 2 (map 420)", payment: "Repeat Ball ×1"}
-  - {move: "Bullet Punch", where: "Route 6", payment: "Fast Ball ×1"}
-  - {move: "Charge", where: "Saffron City (map 398)", payment: "₽10000"}
-  - {move: "Charm", where: "National Park", payment: "Nugget ×1"}
-  - {move: "Close Combat", where: "Cianwood City", payment: "Rare Candy ×3"}
-  - {move: "Counter", where: "Saffron City (map 398)", payment: "₽10000"}
-  - {move: "Curse", where: "Lavender Town (map 155)", payment: "free"}
-  - {move: "Dazzling Gleam", where: "Route 15", payment: "Moon Ball ×1"}
-  - {move: "Draco Meteor", where: "Blackthorn City (map 291)", payment: "free"}
-  - {move: "Dragon Dance", where: "Blackthorn City (map 141)", payment: "free"}
-  - {move: "Dragon Rush", where: "Dragon’s Den (map 288)", payment: "MysteryStone ×1"}
-  - {move: "Earth Power", where: "Route 46", payment: "Cherish Ball ×1"}
-  - {move: "Endeavor", where: "Olivine City", payment: "Heavy Ball ×1"}
-  - {move: "Eruption", where: "Burned Tower", payment: "free"}
-  - {move: "Extrasensory", where: "Saffron City (map 404)", payment: "free"}
-  - {move: "Extreme Speed", where: "Goldenrod City", payment: "Lemonade ×1"}
-  - {move: "Fake Out", where: "Celadon City", payment: "Fluffy Tail ×1"}
-  - {move: "Fire Fang", where: "Mt. Moon (map 107)", payment: "Dusk Ball ×1"}
-  - {move: "Fire Punch", where: "Saffron City", payment: "free"}
-  - {move: "Flail", where: "Blackthorn City (map 291)", payment: "free"}
-  - {move: "Flame Wheel", where: "Route 13", payment: "free"}
-  - {move: "Flare Blitz", where: "Resort Zone (map 534)", payment: "Fast Ball ×1"}
-  - {move: "Frenzy Plant", where: "Islander’s House (map 364)", payment: "free"}
-  - {move: "Grass Whistle", where: "Islander’s House (map 205)", payment: "Rare Candy ×1"}
-  - {move: "Haze", where: "Mahogany Town (map 140)", payment: "free"}
-  - {move: "Headbutt", where: "Route 25", payment: "free"}
-  - {move: "Heal Bell", where: "Cianwood City (map 139)", payment: "free"}
-  - {move: "Heat Wave", where: "Cinnabar Island", payment: "Level Ball ×1"}
-  - {move: "High Jump Kick", where: "Route 4", payment: "free"}
-  - {move: "Hurricane", where: "Route 32", payment: "free"}
-  - {move: "Hydro Cannon", where: "Islander’s House (map 364)", payment: "free"}
-  - {move: "Hyper Voice", where: "Goldenrod City", payment: "Love Ball ×1"}
-  - {move: "Ice Fang", where: "Cerulean City (map 429)", payment: "Moon Ball ×1"}
-  - {move: "Ice Punch", where: "Celadon City (map 393)", payment: "Friend Ball ×1"}
-  - {move: "Ice Shard", where: "Seafoam Islands (map 467)", payment: "free"}
-  - {move: "Icicle Spear", where: "Ice Path (map 120)", payment: "free"}
-  - {move: "Icy Wind", where: "Route 20", payment: "Aspear Berry ×1"}
-  - {move: "Iron Head", where: "Route 21", payment: "Nest Ball ×1"}
-  - {move: "Leaf Storm", where: "Ilex Forest (map 117)", payment: "Leaf Stone ×1"}
-  - {move: "Leech Seed", where: "Cherrygrove City (map 69)", payment: "Friend Ball ×1"}
-  - {move: "Lunar Dance", where: "Blackthorn City", payment: "Haban Berry ×1"}
-  - {move: "Mach Punch", where: "Route 3 (map 511)", payment: "free"}
-  - {move: "Magical Leaf", where: "Route 5 (map 517)", payment: "free"}
-  - {move: "Mega Drain", where: "Viridian Forest", payment: "Honey ×1"}
-  - {move: "Megahorn", where: "Azalea Town (map 136)", payment: "free"}
-  - {move: "Metal Burst", where: "Olivine City (map 138)", payment: "free"}
-  - {move: "Metal Claw", where: "Pewter City", payment: "Level Ball ×1"}
-  - {move: "Meteor Mash", where: "Route 28 (map 510)", payment: "Lure Ball ×1"}
-  - {move: "Moonblast", where: "Mt. Moon", payment: "Moon Stone ×1"}
-  - {move: "Nasty Plot", where: "Celadon City (map 418)", payment: "free"}
-  - {move: "Night Slash", where: "Lavender Town (map 438)", payment: "Heavy Ball ×1"}
-  - {move: "Octazooka", where: "Route 14", payment: "Dive Ball ×1"}
-  - {move: "Outrage", where: "Route 45", payment: "free"}
-  - {move: "Pollen Puff", where: "Rock Tunnel (map 342)", payment: "Dusk Ball ×1"}
-  - {move: "Poltergeist", where: "Ecruteak City (map 80)", payment: "free"}
-  - {move: "Power Gem", where: "Cliff Cave", payment: "Moon Ball ×1"}
-  - {move: "Power-Up Punch", where: "Route 4", payment: "free"}
-  - {move: "Quiver Dance", where: "Route 2", payment: "Fast Ball ×1"}
-  - {move: "Seed Bomb", where: "Celadon City (map 395)", payment: "free"}
-  - {move: "Shell Smash", where: "Violet City", payment: "free"}
-  - {move: "Sky Attack", where: "Violet City (map 135)", payment: "free"}
-  - {move: "Snarl", where: "Route 13", payment: "free"}
-  - {move: "Solar Blade", where: "Azalea Town (map 164)", payment: "free"}
-  - {move: "Super Fang", where: "Viridian City", payment: "Lure Ball ×1"}
-  - {move: "Surf", where: "Route 19", payment: "free"}
-  - {move: "Synthesis", where: "Cherrygrove City (map 70)", payment: "TM75 Swords Dance ×1"}
-  - {move: "Thunder Fang", where: "Vermilion City", payment: "Love Ball ×1"}
-  - {move: "Thunder Punch", where: "Route 13", payment: "free"}
-  - {move: "Tri Attack", where: "Six Island", payment: "Lure Ball ×1"}
-  - {move: "Volt Switch", where: "Saffron City (map 398)", payment: "₽10000"}
-  - {move: "Volt Tackle", where: "Ecruteak City (map 84)", payment: "Moomoo Milk ×10"}
-  - {move: "Water Spout", where: "Mahogany Town", payment: "Red Scale ×1"}
-  - {move: "Weather Ball", where: "Route 25", payment: "free"}
-  - {move: "Yawn", where: "Route 18", payment: "free"}
-  - {move: "Zen Headbutt", where: "Saffron City", payment: "Colbur Berry ×1"}
+  - {move: "Air Slash", where: "Route 18", payment: "free", species: 71, only_some: false}
+  - {move: "Ancient Power", where: "Ruins of Alph", payment: "Rare Bone ×1", species: 93, only_some: false}
+  - {move: "Aqua Jet", where: "Cerulean City", payment: "free", species: 48, only_some: false}
+  - {move: "Aqua Tail", where: "Cerulean City (map 427)", payment: "free", species: 100, only_some: false}
+  - {move: "Aura Sphere", where: "Ecruteak City (map 83)", payment: "free", species: 19, only_some: false}
+  - {move: "Baton Pass", where: "New Bark Town", payment: "Level Ball ×1", species: 105, only_some: false}
+  - {move: "Belly Drum", where: "Goldenrod City", payment: "free", species: 37, only_some: false}
+  - {move: "Blast Burn", where: "Islander’s House (map 364)", payment: "free", species: 1, only_some: true}
+  - {move: "Body Slam", where: "Route 12", payment: "free", species: 246, only_some: false}
+  - {move: "Brave Bird", where: "Resort Zone (map 534)", payment: "free", species: 36, only_some: false}
+  - {move: "Bug Bite", where: "Route 2 (map 420)", payment: "Repeat Ball ×1", species: 73, only_some: false}
+  - {move: "Bullet Punch", where: "Route 6", payment: "Fast Ball ×1", species: 18, only_some: false}
+  - {move: "Charge", where: "Saffron City (map 398)", payment: "₽10000", species: 1, only_some: true}
+  - {move: "Charm", where: "National Park", payment: "Nugget ×1", species: 137, only_some: false}
+  - {move: "Close Combat", where: "Cianwood City", payment: "Rare Candy ×3", species: 68, only_some: false}
+  - {move: "Counter", where: "Saffron City (map 398)", payment: "₽10000", species: 106, only_some: false}
+  - {move: "Curse", where: "Lavender Town (map 155)", payment: "free", species: 178, only_some: false}
+  - {move: "Dazzling Gleam", where: "Route 15", payment: "Moon Ball ×1", species: 107, only_some: false}
+  - {move: "Draco Meteor", where: "Blackthorn City (map 291)", payment: "free", species: 46, only_some: false}
+  - {move: "Dragon Dance", where: "Blackthorn City (map 141)", payment: "free", species: 54, only_some: false}
+  - {move: "Dragon Rush", where: "Dragon’s Den (map 288)", payment: "MysteryStone ×1", species: 21, only_some: false}
+  - {move: "Earth Power", where: "Route 46", payment: "Cherish Ball ×1", species: 125, only_some: false}
+  - {move: "Endeavor", where: "Olivine City", payment: "Heavy Ball ×1", species: 142, only_some: false}
+  - {move: "Eruption", where: "Burned Tower", payment: "free", species: 7, only_some: false}
+  - {move: "Extrasensory", where: "Saffron City (map 404)", payment: "free", species: 39, only_some: false}
+  - {move: "Extreme Speed", where: "Goldenrod City", payment: "Lemonade ×1", species: 11, only_some: false}
+  - {move: "Fake Out", where: "Celadon City", payment: "Fluffy Tail ×1", species: 59, only_some: false}
+  - {move: "Fire Fang", where: "Mt. Moon (map 107)", payment: "Dusk Ball ×1", species: 60, only_some: false}
+  - {move: "Fire Punch", where: "Saffron City", payment: "free", species: 134, only_some: false}
+  - {move: "Flail", where: "Blackthorn City (map 291)", payment: "free", species: 82, only_some: false}
+  - {move: "Flame Wheel", where: "Route 13", payment: "free", species: 16, only_some: false}
+  - {move: "Flare Blitz", where: "Resort Zone (map 534)", payment: "Fast Ball ×1", species: 49, only_some: false}
+  - {move: "Frenzy Plant", where: "Islander’s House (map 364)", payment: "free", species: 1, only_some: true}
+  - {move: "Grass Whistle", where: "Islander’s House (map 205)", payment: "Rare Candy ×1", species: 27, only_some: false}
+  - {move: "Haze", where: "Mahogany Town (map 140)", payment: "free", species: 76, only_some: false}
+  - {move: "Headbutt", where: "Route 25", payment: "free", species: 1, only_some: true}
+  - {move: "Heal Bell", where: "Cianwood City (map 139)", payment: "free", species: 48, only_some: false}
+  - {move: "Heat Wave", where: "Cinnabar Island", payment: "Level Ball ×1", species: 99, only_some: false}
+  - {move: "High Jump Kick", where: "Route 4", payment: "free", species: 13, only_some: false}
+  - {move: "Hurricane", where: "Route 32", payment: "free", species: 41, only_some: false}
+  - {move: "Hydro Cannon", where: "Islander’s House (map 364)", payment: "free", species: 1, only_some: true}
+  - {move: "Hyper Voice", where: "Goldenrod City", payment: "Love Ball ×1", species: 135, only_some: false}
+  - {move: "Ice Fang", where: "Cerulean City (map 429)", payment: "Moon Ball ×1", species: 55, only_some: false}
+  - {move: "Ice Punch", where: "Celadon City (map 393)", payment: "Friend Ball ×1", species: 146, only_some: false}
+  - {move: "Ice Shard", where: "Seafoam Islands (map 467)", payment: "free", species: 22, only_some: false}
+  - {move: "Icicle Spear", where: "Ice Path (map 120)", payment: "free", species: 24, only_some: false}
+  - {move: "Icy Wind", where: "Route 20", payment: "Aspear Berry ×1", species: 242, only_some: false}
+  - {move: "Iron Head", where: "Route 21", payment: "Nest Ball ×1", species: 108, only_some: false}
+  - {move: "Leaf Storm", where: "Ilex Forest (map 117)", payment: "Leaf Stone ×1", species: 65, only_some: false}
+  - {move: "Leech Seed", where: "Cherrygrove City (map 69)", payment: "Friend Ball ×1", species: 65, only_some: false}
+  - {move: "Lunar Dance", where: "Blackthorn City", payment: "Haban Berry ×1", species: 34, only_some: false}
+  - {move: "Mach Punch", where: "Route 3 (map 511)", payment: "free", species: 13, only_some: false}
+  - {move: "Magical Leaf", where: "Route 5 (map 517)", payment: "free", species: 79, only_some: false}
+  - {move: "Mega Drain", where: "Viridian Forest", payment: "Honey ×1", species: 49, only_some: false}
+  - {move: "Megahorn", where: "Azalea Town (map 136)", payment: "free", species: 24, only_some: false}
+  - {move: "Metal Burst", where: "Olivine City (map 138)", payment: "free", species: 16, only_some: false}
+  - {move: "Metal Claw", where: "Pewter City", payment: "Level Ball ×1", species: 65, only_some: false}
+  - {move: "Meteor Mash", where: "Route 28 (map 510)", payment: "Lure Ball ×1", species: 6, only_some: false}
+  - {move: "Moonblast", where: "Mt. Moon", payment: "Moon Stone ×1", species: 35, only_some: false}
+  - {move: "Nasty Plot", where: "Celadon City (map 418)", payment: "free", species: 87, only_some: false}
+  - {move: "Night Slash", where: "Lavender Town (map 438)", payment: "Heavy Ball ×1", species: 55, only_some: false}
+  - {move: "Octazooka", where: "Route 14", payment: "Dive Ball ×1", species: 16, only_some: false}
+  - {move: "Outrage", where: "Route 45", payment: "free", species: 93, only_some: false}
+  - {move: "Pollen Puff", where: "Rock Tunnel (map 342)", payment: "Dusk Ball ×1", species: 30, only_some: false}
+  - {move: "Poltergeist", where: "Ecruteak City (map 80)", payment: "free", species: 31, only_some: false}
+  - {move: "Power Gem", where: "Cliff Cave", payment: "Moon Ball ×1", species: 30, only_some: false}
+  - {move: "Power-Up Punch", where: "Route 4", payment: "free", species: 24, only_some: false}
+  - {move: "Quiver Dance", where: "Route 2", payment: "Fast Ball ×1", species: 21, only_some: false}
+  - {move: "Seed Bomb", where: "Celadon City (map 395)", payment: "free", species: 130, only_some: false}
+  - {move: "Shell Smash", where: "Violet City", payment: "free", species: 21, only_some: false}
+  - {move: "Sky Attack", where: "Violet City (map 135)", payment: "free", species: 54, only_some: false}
+  - {move: "Snarl", where: "Route 13", payment: "free", species: 69, only_some: false}
+  - {move: "Solar Blade", where: "Azalea Town (map 164)", payment: "free", species: 31, only_some: false}
+  - {move: "Super Fang", where: "Viridian City", payment: "Lure Ball ×1", species: 52, only_some: false}
+  - {move: "Surf", where: "Route 19", payment: "free", species: 1, only_some: true}
+  - {move: "Synthesis", where: "Cherrygrove City (map 70)", payment: "TM75 Swords Dance ×1", species: 74, only_some: false}
+  - {move: "Thunder Fang", where: "Vermilion City", payment: "Love Ball ×1", species: 47, only_some: false}
+  - {move: "Thunder Punch", where: "Route 13", payment: "free", species: 159, only_some: false}
+  - {move: "Tri Attack", where: "Six Island", payment: "Lure Ball ×1", species: 22, only_some: false}
+  - {move: "Volt Switch", where: "Saffron City (map 398)", payment: "₽10000", species: 42, only_some: false}
+  - {move: "Volt Tackle", where: "Ecruteak City (map 84)", payment: "Moomoo Milk ×10", species: 3, only_some: false}
+  - {move: "Water Spout", where: "Mahogany Town", payment: "Red Scale ×1", species: 11, only_some: false}
+  - {move: "Weather Ball", where: "Route 25", payment: "free", species: 120, only_some: false}
+  - {move: "Yawn", where: "Route 18", payment: "free", species: 58, only_some: false}
+  - {move: "Zen Headbutt", where: "Saffron City", payment: "Colbur Berry ×1", species: 155, only_some: false}
+move_changes:
+  "Aqua Tail": {"power": 95, "accuracy": 100}
+  "Arm Thrust": {"power": 20}
+  "Attack Order": {"power": 120}
+  "Avalanche": {"power": 75, "accuracy": 90}
+  "Blast Burn": {"category": "Physical", "power": 100, "accuracy": 100}
+  "Blaze Kick": {"accuracy": 100}
+  "Bloom Doom": {"category": "Special"}
+  "Bone Rush": {"type": "Rock", "accuracy": 100}
+  "Bounce": {"power": 80, "accuracy": 100}
+  "Comet Punch": {"type": "Fighting", "power": 25, "accuracy": 100}
+  "Cross Chop": {"accuracy": 100}
+  "Dark Void": {"accuracy": 70}
+  "Dizzy Punch": {"type": "Fighting", "power": 95}
+  "Double Slap": {"power": 20, "accuracy": 90}
+  "Dragon Breath": {"power": 75}
+  "Dragon Rush": {"accuracy": 100}
+  "Extrasensory": {"power": 95}
+  "Flame Wheel": {"power": 80}
+  "Frenzy Plant": {"power": 90, "accuracy": 100}
+  "Fury Cutter": {"accuracy": 100}
+  "Grass Whistle": {"accuracy": 50}
+  "Gunk Shot": {"accuracy": 90}
+  "Head Smash": {"power": 120, "accuracy": 95}
+  "Hydro Cannon": {"power": 100, "accuracy": 100}
+  "Hydro Pump": {"accuracy": 90}
+  "Hydro Vortex": {"category": "Special"}
+  "Iron Tail": {"power": 90, "accuracy": 90}
+  "Kinesis": {"accuracy": 100}
+  "Magma Storm": {"accuracy": 100}
+  "Megahorn": {"accuracy": 100}
+  "Metal Claw": {"power": 60, "accuracy": 100}
+  "Meteor Mash": {"power": 100, "accuracy": 95}
+  "Needle Arm": {"power": 100}
+  "Octazooka": {"power": 95, "accuracy": 100}
+  "Pay Day": {"power": 60}
+  "Petal Dance": {"power": 100}
+  "Play Rough": {"accuracy": 100}
+  "Poison Tail": {"power": 80}
+  "Power Whip": {"accuracy": 90}
+  "Razor Wind": {"type": "Flying", "category": "Physical", "power": 90}
+  "Rock Smash": {"power": 60}
+  "Rock Wrecker": {"power": 100, "accuracy": 100}
+  "Seed Flare": {"power": 100, "accuracy": 100}
+  "Skull Bash": {"type": "Steel", "power": 120}
+  "Sky Attack": {"power": 90}
+  "Sky Uppercut": {"power": 100, "accuracy": 100}
+  "Slam": {"type": "Grass", "power": 70, "accuracy": 100}
+  "Spike Cannon": {"type": "Water"}
+  "Steel Wing": {"power": 85, "accuracy": 95}
+  "Submission": {"power": 100, "accuracy": 100}
+  "Triple Kick": {"power": 20}
+  "Twister": {"power": 75}
+  "Volt Tackle": {"power": 100}
+  "Whirlpool": {"power": 40, "accuracy": 90}

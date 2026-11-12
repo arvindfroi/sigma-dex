@@ -22,7 +22,7 @@ from dexlib import ROOT, norm
 DOCS = Path(os.environ.get("SIGMA_ORIGIN_DOCS", Path.home() / "sigma-origin" / "docs"))
 CACHE = ROOT / ".cache" / "movesets"
 SHOWDOWN_URL = "https://play.pokemonshowdown.com/data/moves.json"
-CACHE_VERSION = 3
+CACHE_VERSION = 4
 
 TYPES = ["Normal", "Fire", "Water", "Grass", "Electric", "Ice", "Fighting", "Poison", "Ground", "Flying",
          "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"]
@@ -283,8 +283,141 @@ def _annotate(species):
         sp["baby"] = "Undiscovered" in sp.get("egg_groups", []) and not sp["final"]
 
 
+SHOWDOWN = {"pokedex": "https://play.pokemonshowdown.com/data/pokedex.json",
+            "learnsets": "https://play.pokemonshowdown.com/data/learnsets.json"}
+STAT_MAP = {"hp": "hp", "atk": "attack", "def": "defense", "spa": "sp_attack", "spd": "sp_defense", "spe": "speed"}
+
+
+def _fetch_json(name, url):
+    path = CACHE / ("showdown_%s.json" % name)
+    if not path.exists():
+        CACHE.mkdir(parents=True, exist_ok=True)
+        req = urllib.request.Request(url, headers={"User-Agent": "sigma-dex"})
+        with urllib.request.urlopen(req, timeout=120) as response:
+            path.write_bytes(response.read())
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _move_entry(entry, changes):
+    flags = entry.get("flags") or {}
+    m = {
+        "id": entry.get("num"), "abbr": entry["name"], "type": entry["type"], "category": entry["category"],
+        "power": entry.get("basePower") or 0, "variable_power": False,
+        "accuracy": 101 if entry.get("accuracy") is True else (entry.get("accuracy") or 100), "pp": entry.get("pp") or 0,
+        "tm": None, "priority": entry.get("priority", 0), "flags": sorted(k for k, v in flags.items() if v),
+        "boosts": entry.get("boosts") if entry.get("target") in ("self", "adjacentAllyOrSelf", "allies") else None,
+        "foe_boosts": entry.get("boosts") if entry.get("target") not in ("self", "adjacentAllyOrSelf", "allies") else None,
+        "self_boosts": (entry.get("self") or {}).get("boosts"),
+        "heal": bool(entry.get("heal")) or entry.get("id") in ("rest", "roost", "synthesis", "moonlight", "morningsun",
+                                                               "shoreup", "strengthsap"),
+        "drain": bool(entry.get("drain")),
+        "recoil": bool(entry.get("recoil") or entry.get("mindBlownRecoil") or entry.get("hasCrashDamage")),
+        "status": entry.get("status"), "volatile": entry.get("volatileStatus"),
+        "secondary": bool(entry.get("secondary") or entry.get("secondaries")), "switch": bool(entry.get("selfSwitch")),
+        "side": entry.get("sideCondition"), "weather": entry.get("weather"), "terrain": entry.get("terrain"),
+        "pseudo": entry.get("pseudoWeather"), "multihit": entry.get("multihit"), "self_ko": bool(entry.get("selfdestruct")),
+        "recharge": "recharge" in flags, "charge": "charge" in flags, "ohko": bool(entry.get("ohko")),
+        "target": entry.get("target"),
+    }
+    if entry.get("category") != "Status" and not entry.get("basePower"):
+        m["variable_power"], m["power"] = True, 1
+    for key, value in (changes.get(entry["name"]) or {}).items():      # Origin HeartGold's own numbers
+        m[key] = value
+    return m
+
+
+def _load_showdown(origin):
+    """The official games' data from Pokemon Showdown (MIT) + Origin's TMs, tutors and changed moves."""
+    showdown = _showdown_moves()
+    changes = origin.get("move_changes") or {}
+    moves = {}
+    for key, e in showdown.items():
+        if e.get("isZ") or e.get("isMax") or not (0 < (e.get("num") or 0) < 1000) or \
+                e.get("isNonstandard") in ("CAP", "LGPE", "Custom"):
+            continue
+        moves[e["name"]] = _move_entry(e, changes)
+    tm_names = [m for m in origin["tms"]] + [m for m in origin["hms"]]
+    tms = [{"tm": ("TM%02d" % (i + 1)) if i < len(origin["tms"]) else ("HM%02d" % (i - len(origin["tms"]) + 1)),
+            "move": m} for i, m in enumerate(tm_names)]
+    for t in tms:
+        if t["move"] in moves:
+            moves[t["move"]]["tm"] = t["tm"]
+    tutors = {}
+    for t in origin.get("tutors") or []:
+        tutors.setdefault(t["move"], []).append({"where": t["where"], "payment": t["payment"],
+                                                 "species": t.get("species"), "restricted": bool(t.get("only_some"))})
+    dex = _fetch_json("pokedex", SHOWDOWN["pokedex"])
+    learn = _fetch_json("learnsets", SHOWDOWN["learnsets"])
+    id_to_name = {k: v["name"] for k, v in showdown.items()}
+    species = {}
+    for key, e in dex.items():
+        if e.get("forme") or e.get("baseSpecies") or not (0 < e.get("num", 0) <= 1025):
+            continue
+        ls = (learn.get(key) or {}).get("learnset") or {}
+        gens = [int(src[0]) for srcs in ls.values() for src in srcs if src[1:2] == "L"]
+        latest = str(max(gens)) if gens else None
+        level_up, tm, tutor, egg = [], set(), set(), set()
+        for mid, srcs in ls.items():
+            name = id_to_name.get(mid)
+            if not name or name not in moves:
+                continue
+            for src in srcs:
+                if latest and src.startswith(latest + "L"):
+                    level_up.append([int(src[2:]), name])
+                elif src[1:2] == "M":
+                    tm.add(name)
+                elif src[1:2] == "T":
+                    tutor.add(name)
+                elif src[1:2] == "E":
+                    egg.add(name)
+        level_up.sort()
+        ab = e.get("abilities") or {}
+        tags = e.get("tags") or []
+        evos = []
+        for ev in e.get("evos") or []:
+            target = dex.get(re.sub(r"[^a-z0-9]", "", ev.lower())) or {}
+            evos.append({"name": ev, "level": target.get("evoLevel"), "how": target.get("evoType") or "level"})
+        species[e["name"]] = {
+            "num": e["num"], "name": e["name"], "types": e["types"],
+            "abilities": [ab[k] for k in ("0", "1") if ab.get(k)], "hidden": ab.get("H") or "",
+            "stats": {STAT_MAP[k]: v for k, v in e["baseStats"].items()},
+            "catch_rate": 3 if any("Legendary" in t or "Mythical" in t for t in tags) else 45,
+            "egg_groups": e.get("eggGroups") or [], "genderless": e.get("gender") == "N",
+            "evolves_from": {"name": e["prevo"], "level": e.get("evoLevel"), "how": e.get("evoType") or "level"}
+            if e.get("prevo") else None,
+            "evolves_into": evos, "obtainable": True,
+            "level_up": level_up, "tm_hm": sorted(tm), "tutor": sorted(tutor | {m for m in tm if m not in tm_names
+                                                                                 and m in tutors}),
+            "egg": sorted(egg), "legendary_tag": any("Legendary" in t or "Mythical" in t for t in tags),
+        }
+    return moves, tms, tutors, species
+
+
 def load():
-    """Everything as one dict: moves, tms, tutors, species. Fast after the first run (cached)."""
+    """Everything as one dict: moves, tms, tutors, species. Fast after the first run (cached).
+
+    The official Pokemon's data comes from Pokemon Showdown (works anywhere, also on GitHub); Origin HeartGold's
+    TMs, tutors and changed moves from data/engine/origin.yaml. SIGMA_MOVESET_SOURCE=origin reads Origin's own
+    player docs instead (only on a machine that has them)."""
+    origin_file = ROOT / "data" / "engine" / "origin.yaml"
+    if os.environ.get("SIGMA_MOVESET_SOURCE", "showdown") != "origin" and origin_file.exists():
+        import yaml
+        stamp = [CACHE_VERSION, "showdown", int(origin_file.stat().st_mtime)]
+        cache_file = CACHE / "showdown_reference.json"
+        if cache_file.exists():
+            cached = json.loads(cache_file.read_text(encoding="utf-8"))
+            if cached.get("stamp") == stamp:
+                return cached
+        origin = yaml.safe_load(origin_file.read_text(encoding="utf-8"))
+        moves, tms, tutors, species = _load_showdown(origin)
+        _annotate(species)
+        for sp in species.values():
+            sp["legendary"] = bool(sp.pop("legendary_tag") or sp["legendary"])
+        data = {"stamp": stamp, "moves": moves, "abbr": {}, "tms": tms, "tutors": tutors, "species": species,
+                "unmatched": [], "source": "showdown"}
+        CACHE.mkdir(parents=True, exist_ok=True)
+        cache_file.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        return data
     if not (DOCS / "moves.md").exists():
         raise SystemExit("Origin HeartGold docs not found in %s (set SIGMA_ORIGIN_DOCS)" % DOCS)
     sources = [DOCS / "moves.md", DOCS / "trades_tutors.md"] + sorted(DOCS.glob("pokemon_*.md"))

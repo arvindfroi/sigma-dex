@@ -1,0 +1,16573 @@
+{
+ "abyssys": {
+  "level_up": [
+   [
+    1,
+    "Confusion"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    1,
+    "Withdraw"
+   ],
+   [
+    12,
+    "Aqua Ring"
+   ],
+   [
+    14,
+    "Psybeam"
+   ],
+   [
+    17,
+    "Bite"
+   ],
+   [
+    22,
+    "Water Pulse"
+   ],
+   [
+    26,
+    "Protect"
+   ],
+   [
+    29,
+    "Rain Dance"
+   ],
+   [
+    32,
+    "Muddy Water"
+   ],
+   [
+    40,
+    "Iron Defense"
+   ],
+   [
+    40,
+    "Psychic"
+   ],
+   [
+    45,
+    "Hydro Pump"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Calm Mind",
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Skill Swap",
+   "Brine",
+   "Fling",
+   "Endure",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Scald",
+   "Expanding Force",
+   "Surf",
+   "Whirlpool",
+   "Waterfall",
+   "Sunny Day"
+  ],
+  "tutor": [
+   "Aqua Jet",
+   "Aqua Tail",
+   "Body Slam",
+   "Icy Wind",
+   "Zen Headbutt"
+  ]
+ },
+ "alminimonk": {
+  "egg": [
+   "Psycho Cut",
+   "Mirror Coat"
+  ],
+  "level_up": [
+   [
+    1,
+    "Play Nice"
+   ],
+   [
+    1,
+    "Pound"
+   ],
+   [
+    5,
+    "Confusion"
+   ],
+   [
+    5,
+    "Meditate"
+   ],
+   [
+    6,
+    "Disable"
+   ],
+   [
+    9,
+    "Hypnosis"
+   ],
+   [
+    12,
+    "Imprison"
+   ],
+   [
+    16,
+    "Headbutt"
+   ],
+   [
+    19,
+    "Psybeam"
+   ],
+   [
+    21,
+    "Poison Gas"
+   ],
+   [
+    27,
+    "Extrasensory"
+   ],
+   [
+    32,
+    "Psyshock"
+   ],
+   [
+    35,
+    "Mind Reader"
+   ],
+   [
+    48,
+    "Psychic"
+   ],
+   [
+    56,
+    "Future Sight"
+   ],
+   [
+    59,
+    "Nasty Plot"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Skill Swap",
+   "Endure",
+   "Recycle",
+   "Flash",
+   "Thunder Wave",
+   "Psych Up",
+   "Rock Slide",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Expanding Force"
+  ],
+  "tutor": [
+   "Zen Headbutt"
+  ]
+ },
+ "alminimonk-utvikling": {
+  "level_up": [
+   [
+    1,
+    "Confusion"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Pound"
+   ],
+   [
+    1,
+    "Stored Power"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Play Nice"
+   ],
+   [
+    5,
+    "Meditate"
+   ],
+   [
+    6,
+    "Disable"
+   ],
+   [
+    12,
+    "Imprison"
+   ],
+   [
+    14,
+    "Psybeam"
+   ],
+   [
+    16,
+    "Light Screen"
+   ],
+   [
+    16,
+    "Headbutt"
+   ],
+   [
+    17,
+    "Charm"
+   ],
+   [
+    18,
+    "Confuse Ray"
+   ],
+   [
+    19,
+    "Hypnosis"
+   ],
+   [
+    21,
+    "Poison Gas"
+   ],
+   [
+    22,
+    "Extrasensory"
+   ],
+   [
+    26,
+    "Zen Headbutt"
+   ],
+   [
+    28,
+    "Calm Mind"
+   ],
+   [
+    42,
+    "Psyshock"
+   ],
+   [
+    45,
+    "Psychic"
+   ],
+   [
+    50,
+    "Future Sight"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Skill Swap",
+   "Energy Ball",
+   "Fling",
+   "Endure",
+   "Giga Impact",
+   "Flash",
+   "Thunder Wave",
+   "Psych Up",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Expanding Force",
+   "Thief",
+   "Recycle",
+   "Rock Slide"
+  ],
+  "tutor": [
+   "Zen Headbutt"
+  ]
+ },
+ "ambcoptr": {
+  "level_up": [
+   [
+    1,
+    "Fury Cutter"
+   ],
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Sand Attack"
+   ],
+   [
+    1,
+    "Smack Down"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    5,
+    "Withdraw"
+   ],
+   [
+    14,
+    "Leech Life"
+   ],
+   [
+    16,
+    "Bug Bite"
+   ],
+   [
+    16,
+    "Rock Tomb"
+   ],
+   [
+    19,
+    "Flail"
+   ],
+   [
+    33,
+    "Stealth Rock"
+   ],
+   [
+    34,
+    "Agility"
+   ],
+   [
+    36,
+    "Rock Blast"
+   ],
+   [
+    36,
+    "Rock Slide"
+   ],
+   [
+    44,
+    "Swords Dance"
+   ],
+   [
+    44,
+    "X-Scissor"
+   ],
+   [
+    44,
+    "Horn Attack"
+   ],
+   [
+    50,
+    "Rock Polish"
+   ],
+   [
+    56,
+    "Bug Buzz"
+   ],
+   [
+    69,
+    "Stone Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "Giga Impact",
+   "Rock Polish",
+   "Stone Edge",
+   "Swords Dance",
+   "Stealth Rock",
+   "Rock Slide",
+   "X-Scissor",
+   "Sleep Talk",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Struggle Bug",
+   "Bulldoze",
+   "Meteor Beam",
+   "Solar Beam"
+  ],
+  "tutor": [
+   "Bug Bite",
+   "Ancient Power",
+   "Earth Power"
+  ]
+ },
+ "ambuger": {
+  "egg": [
+   "Curse",
+   "Wide Guard",
+   "Counter",
+   "Knock Off",
+   "Night Slash",
+   "Rollout"
+  ],
+  "level_up": [
+   [
+    1,
+    "Fury Cutter"
+   ],
+   [
+    1,
+    "Sand Attack"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    5,
+    "Withdraw"
+   ],
+   [
+    9,
+    "Smack Down"
+   ],
+   [
+    14,
+    "Bug Bite"
+   ],
+   [
+    14,
+    "Leech Life"
+   ],
+   [
+    19,
+    "Flail"
+   ],
+   [
+    28,
+    "Rock Slide"
+   ],
+   [
+    33,
+    "Stealth Rock"
+   ],
+   [
+    38,
+    "Rock Blast"
+   ],
+   [
+    42,
+    "X-Scissor"
+   ],
+   [
+    46,
+    "Rock Polish"
+   ],
+   [
+    54,
+    "Rock Wrecker"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "X-Scissor",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Struggle Bug",
+   "Bulldoze",
+   "Meteor Beam"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Bug Bite",
+   "Earth Power"
+  ]
+ },
+ "ampeel": {
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    1,
+    "Thunder Wave"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    8,
+    "Supersonic"
+   ],
+   [
+    8,
+    "Wrap"
+   ],
+   [
+    10,
+    "Thunder Shock"
+   ],
+   [
+    12,
+    "Aqua Jet"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    12,
+    "Mud Shot"
+   ],
+   [
+    19,
+    "Water Pulse"
+   ],
+   [
+    20,
+    "Spark"
+   ],
+   [
+    20,
+    "Swift"
+   ],
+   [
+    20,
+    "Bubble Beam"
+   ],
+   [
+    22,
+    "Charge"
+   ],
+   [
+    24,
+    "Flail"
+   ],
+   [
+    34,
+    "Crunch"
+   ],
+   [
+    35,
+    "Discharge"
+   ],
+   [
+    36,
+    "Agility"
+   ],
+   [
+    45,
+    "Coil"
+   ],
+   [
+    47,
+    "Wild Charge"
+   ],
+   [
+    56,
+    "Hydro Pump"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Double Team",
+   "Shock Wave",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Brine",
+   "Charge Beam",
+   "Endure",
+   "Giga Impact",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Electroweb",
+   "Liquidation",
+   "Surf",
+   "Whirlpool",
+   "Waterfall"
+  ],
+  "tutor": [
+   "Aqua Jet",
+   "Aqua Tail",
+   "Icy Wind",
+   "Volt Switch"
+  ]
+ },
+ "anjane": {
+  "level_up": [
+   [
+    1,
+    "Disarming Voice"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Power Trip"
+   ],
+   [
+    1,
+    "Sweet Scent"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    12,
+    "Aromatherapy"
+   ],
+   [
+    12,
+    "Draining Kiss"
+   ],
+   [
+    12,
+    "Fairy Wind"
+   ],
+   [
+    13,
+    "Moonlight"
+   ],
+   [
+    20,
+    "Hex"
+   ],
+   [
+    28,
+    "Charm"
+   ],
+   [
+    46,
+    "Dark Pulse"
+   ],
+   [
+    49,
+    "Moonblast"
+   ],
+   [
+    50,
+    "Dazzling Gleam"
+   ],
+   [
+    52,
+    "Foul Play"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Return",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "Payback",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Foul Play",
+   "Draining Kiss",
+   "Play Rough",
+   "Trick Room",
+   "Water Pulse",
+   "Misty Terrain"
+  ],
+  "tutor": [
+   "Dazzling Gleam",
+   "Snarl",
+   "Curse"
+  ]
+ },
+ "autuman": {
+  "egg": [
+   "Quick Guard",
+   "Seismic Toss",
+   "Revenge",
+   "Vital Throw",
+   "Cross Chop",
+   "Flail"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Razor Leaf"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    5,
+    "Double Kick"
+   ],
+   [
+    5,
+    "Rock Smash"
+   ],
+   [
+    9,
+    "Detect"
+   ],
+   [
+    10,
+    "Focus Energy"
+   ],
+   [
+    19,
+    "Feint"
+   ],
+   [
+    25,
+    "Counter"
+   ],
+   [
+    25,
+    "Endure"
+   ],
+   [
+    32,
+    "Bulk Up"
+   ],
+   [
+    32,
+    "Taunt"
+   ],
+   [
+    38,
+    "Leaf Tornado"
+   ],
+   [
+    39,
+    "Brick Break"
+   ],
+   [
+    46,
+    "Swords Dance"
+   ],
+   [
+    50,
+    "Close Combat"
+   ],
+   [
+    50,
+    "Reversal"
+   ]
+  ],
+  "tm_hm": [
+   "Focus Punch",
+   "Bulk Up",
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Giga Drain",
+   "Solar Beam",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Focus Blast",
+   "Energy Ball",
+   "Fling",
+   "Endure",
+   "Drain Punch",
+   "Payback",
+   "Giga Impact",
+   "Stone Edge",
+   "Swords Dance",
+   "Rock Slide",
+   "Sleep Talk",
+   "Poison Jab",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Low Sweep",
+   "Coaching",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Close Combat",
+   "Leaf Storm",
+   "Magical Leaf",
+   "Seed Bomb"
+  ]
+ },
+ "balleisk": {
+  "egg": [
+   "Dragon Rush",
+   "Dragon Breath",
+   "Twister",
+   "Counter",
+   "Lunge",
+   "First Impression",
+   "Fury Cutter"
+  ],
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    10,
+    "Breaking Swipe"
+   ],
+   [
+    11,
+    "Bite"
+   ],
+   [
+    15,
+    "Bug Bite"
+   ],
+   [
+    15,
+    "Dragon Tail"
+   ],
+   [
+    18,
+    "Focus Energy"
+   ],
+   [
+    20,
+    "Scary Face"
+   ],
+   [
+    25,
+    "Slam"
+   ],
+   [
+    27,
+    "Crunch"
+   ],
+   [
+    35,
+    "Dragon Claw"
+   ],
+   [
+    50,
+    "Dragon Dance"
+   ],
+   [
+    55,
+    "Outrage"
+   ]
+  ],
+  "tm_hm": [
+   "Dragon Claw",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Iron Tail",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Dragon Pulse",
+   "X-Scissor",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute"
+  ],
+  "tutor": [
+   "Bug Bite",
+   "Draco Meteor",
+   "Outrage"
+  ]
+ },
+ "beatld": {
+  "egg": [
+   "Lunge"
+  ],
+  "level_up": [
+   [
+    1,
+    "Bug Bite"
+   ],
+   [
+    1,
+    "Confusion"
+   ],
+   [
+    1,
+    "Protect"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    12,
+    "Quick Attack"
+   ],
+   [
+    12,
+    "String Shot"
+   ],
+   [
+    15,
+    "Struggle Bug"
+   ],
+   [
+    17,
+    "Infestation"
+   ],
+   [
+    17,
+    "Psybeam"
+   ],
+   [
+    26,
+    "Encore"
+   ],
+   [
+    29,
+    "Zen Headbutt"
+   ],
+   [
+    30,
+    "Extrasensory"
+   ],
+   [
+    33,
+    "Psyshock"
+   ],
+   [
+    34,
+    "Roost"
+   ],
+   [
+    36,
+    "Helping Hand"
+   ],
+   [
+    37,
+    "Calm Mind"
+   ],
+   [
+    40,
+    "Bug Buzz"
+   ],
+   [
+    41,
+    "Psychic"
+   ],
+   [
+    45,
+    "Future Sight"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Giga Drain",
+   "Safeguard",
+   "Solar Beam",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Skill Swap",
+   "Energy Ball",
+   "Endure",
+   "Giga Impact",
+   "Flash",
+   "Thunder Wave",
+   "Psych Up",
+   "Sleep Talk",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Struggle Bug",
+   "Expanding Force"
+  ],
+  "tutor": [
+   "Bug Bite",
+   "Zen Headbutt"
+  ]
+ },
+ "bergflabbser": {
+  "level_up": [
+   [
+    1,
+    "Ancient Power"
+   ],
+   [
+    1,
+    "Scary Face"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    12,
+    "Whirlpool"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    20,
+    "Bulldoze"
+   ],
+   [
+    30,
+    "Taunt"
+   ],
+   [
+    33,
+    "Fishious Rend"
+   ],
+   [
+    35,
+    "Thrash"
+   ],
+   [
+    36,
+    "Hammer Arm"
+   ],
+   [
+    39,
+    "Earth Power"
+   ],
+   [
+    45,
+    "Crunch"
+   ],
+   [
+    49,
+    "Earthquake"
+   ],
+   [
+    50,
+    "Mud-Slap"
+   ],
+   [
+    62,
+    "Rain Dance"
+   ],
+   [
+    72,
+    "Hydro Pump"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hail",
+   "Hidden Power",
+   "Sunny Day",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Brine",
+   "Endure",
+   "Giga Impact",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Bulldoze",
+   "High Horsepower",
+   "Liquidation",
+   "Surf",
+   "Whirlpool",
+   "Waterfall",
+   "Thunder",
+   "Heavy Slam",
+   "Flash"
+  ],
+  "tutor": [
+   "Aqua Tail",
+   "Earth Power",
+   "Icy Wind"
+  ]
+ },
+ "blazterra": {
+  "level_up": [
+   [
+    0,
+    "Air Slash"
+   ],
+   [
+    1,
+    "Dragon Claw"
+   ],
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    1,
+    "Smokescreen"
+   ],
+   [
+    1,
+    "Gust"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    10,
+    "Supersonic"
+   ],
+   [
+    12,
+    "Dragon Breath"
+   ],
+   [
+    13,
+    "Fury Swipes"
+   ],
+   [
+    19,
+    "Incinerate"
+   ],
+   [
+    20,
+    "Wing Attack"
+   ],
+   [
+    24,
+    "Slash"
+   ],
+   [
+    29,
+    "Agility"
+   ],
+   [
+    30,
+    "Flamethrower"
+   ],
+   [
+    35,
+    "Flame Charge"
+   ],
+   [
+    39,
+    "Air Cutter"
+   ],
+   [
+    39,
+    "Scary Face"
+   ],
+   [
+    46,
+    "Fire Spin"
+   ],
+   [
+    48,
+    "Tailwind"
+   ],
+   [
+    54,
+    "Inferno"
+   ],
+   [
+    62,
+    "Fire Blast"
+   ]
+  ],
+  "tm_hm": [
+   "Roar",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Solar Beam",
+   "Iron Tail",
+   "Return",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Steel Wing",
+   "Overheat",
+   "Roost",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Will-O-Wisp",
+   "Giga Impact",
+   "Sleep Talk",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Flame Charge",
+   "Bulldoze",
+   "Mystical Fire",
+   "Dual Wingbeat",
+   "Scorching Sands",
+   "Fly",
+   "Strength",
+   "Rock Smash",
+   "Taunt",
+   "Dig",
+   "Cut"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Brave Bird",
+   "Fire Fang",
+   "Fire Punch",
+   "Flame Wheel",
+   "Flare Blitz",
+   "Heat Wave",
+   "Hurricane",
+   "Sky Attack"
+  ]
+ },
+ "blylem": {
+  "level_up": [
+   [
+    0,
+    "Smog"
+   ],
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Rock Throw"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Bone Rush"
+   ],
+   [
+    4,
+    "Acid"
+   ],
+   [
+    10,
+    "Rollout"
+   ],
+   [
+    10,
+    "Smack Down"
+   ],
+   [
+    11,
+    "Acid Spray"
+   ],
+   [
+    14,
+    "Poison Powder"
+   ],
+   [
+    17,
+    "Rock Polish"
+   ],
+   [
+    20,
+    "Ancient Power"
+   ],
+   [
+    20,
+    "Iron Defense"
+   ],
+   [
+    25,
+    "Venoshock"
+   ],
+   [
+    25,
+    "Rock Slide"
+   ],
+   [
+    30,
+    "Sandstorm"
+   ],
+   [
+    34,
+    "Rock Blast"
+   ],
+   [
+    36,
+    "Power Gem"
+   ],
+   [
+    40,
+    "Toxic"
+   ],
+   [
+    44,
+    "Smokescreen"
+   ],
+   [
+    54,
+    "Stone Edge"
+   ],
+   [
+    55,
+    "Sludge Wave"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Sludge Bomb",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Venoshock",
+   "Bulldoze",
+   "Meteor Beam",
+   "Rock Smash",
+   "Heavy Slam"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Earth Power",
+   "Power Gem",
+   "Body Slam",
+   "Curse"
+  ]
+ },
+ "bolthook": {
+  "egg": [
+   "Sky Attack",
+   "Power Trip",
+   "Feint",
+   "Air Cutter",
+   "Roost"
+  ],
+  "level_up": [
+   [
+    1,
+    "Hone Claws"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Peck"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Wing Attack"
+   ],
+   [
+    5,
+    "Bite"
+   ],
+   [
+    15,
+    "Focus Energy"
+   ],
+   [
+    16,
+    "Assurance"
+   ],
+   [
+    16,
+    "Scary Face"
+   ],
+   [
+    20,
+    "Pluck"
+   ],
+   [
+    20,
+    "Taunt"
+   ],
+   [
+    24,
+    "Night Slash"
+   ],
+   [
+    24,
+    "Sucker Punch"
+   ],
+   [
+    24,
+    "Torment"
+   ],
+   [
+    27,
+    "Payback"
+   ],
+   [
+    31,
+    "Knock Off"
+   ],
+   [
+    35,
+    "Crunch"
+   ],
+   [
+    44,
+    "Swords Dance"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Double Team",
+   "Rock Tomb",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Giga Impact",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Swagger",
+   "Pluck",
+   "U-turn",
+   "Substitute",
+   "Foul Play",
+   "Dual Wingbeat",
+   "Fly",
+   "Brutal Swing",
+   "Psychic Fangs"
+  ],
+  "tutor": [
+   "Sky Attack",
+   "Snarl",
+   "Hurricane"
+  ]
+ },
+ "brawleo": {
+  "level_up": [
+   [
+    1,
+    "Baby-Doll Eyes"
+   ],
+   [
+    1,
+    "Feint"
+   ],
+   [
+    1,
+    "Focus Energy"
+   ],
+   [
+    1,
+    "Helping Hand"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    5,
+    "Quick Attack"
+   ],
+   [
+    5,
+    "Sand Attack"
+   ],
+   [
+    8,
+    "Howl"
+   ],
+   [
+    10,
+    "Fake Out"
+   ],
+   [
+    12,
+    "Mud-Slap"
+   ],
+   [
+    13,
+    "Bite"
+   ],
+   [
+    16,
+    "Double Slap"
+   ],
+   [
+    18,
+    "Fury Swipes"
+   ],
+   [
+    20,
+    "Double Kick"
+   ],
+   [
+    20,
+    "Wake-Up Slap"
+   ],
+   [
+    24,
+    "Charm"
+   ],
+   [
+    24,
+    "Headbutt"
+   ],
+   [
+    29,
+    "Take Down"
+   ],
+   [
+    36,
+    "Agility"
+   ],
+   [
+    41,
+    "Close Combat"
+   ],
+   [
+    45,
+    "Reversal"
+   ],
+   [
+    53,
+    "Double-Edge"
+   ],
+   [
+    62,
+    "Triple Kick"
+   ]
+  ],
+  "tm_hm": [
+   "Bulk Up",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Iron Tail",
+   "Return",
+   "Dig",
+   "Shadow Ball",
+   "Brick Break",
+   "Double Team",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Giga Impact",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Low Sweep",
+   "Cut",
+   "Strength",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Close Combat",
+   "Counter",
+   "Endeavor",
+   "Fake Out",
+   "Hyper Voice",
+   "Charm"
+  ]
+ },
+ "bugmight": {
+  "egg": [
+   "Seismic Toss",
+   "Feint",
+   "Flail",
+   "Revenge",
+   "Rock Blast"
+  ],
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    5,
+    "Fury Attack"
+   ],
+   [
+    10,
+    "Endure"
+   ],
+   [
+    10,
+    "Focus Energy"
+   ],
+   [
+    12,
+    "Helping Hand"
+   ],
+   [
+    15,
+    "Aerial Ace"
+   ],
+   [
+    25,
+    "Counter"
+   ],
+   [
+    30,
+    "Arm Thrust"
+   ],
+   [
+    35,
+    "Pin Missile"
+   ],
+   [
+    40,
+    "Throat Chop"
+   ],
+   [
+    45,
+    "Thrash"
+   ],
+   [
+    50,
+    "Reversal"
+   ],
+   [
+    50,
+    "Swords Dance"
+   ],
+   [
+    55,
+    "Megahorn"
+   ],
+   [
+    60,
+    "Close Combat"
+   ]
+  ],
+  "tm_hm": [
+   "Focus Punch",
+   "Bulk Up",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Rock Tomb",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Drain Punch",
+   "Payback",
+   "Giga Impact",
+   "Stone Edge",
+   "Swords Dance",
+   "Rock Slide",
+   "X-Scissor",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Low Sweep",
+   "Struggle Bug",
+   "Bulldoze",
+   "Coaching",
+   "Strength",
+   "Rock Smash",
+   "Silver Wind"
+  ],
+  "tutor": [
+   "Bug Bite",
+   "Close Combat"
+  ]
+ },
+ "bulbtle": {
+  "egg": [
+   "Sand Tomb",
+   "Curse"
+  ],
+  "level_up": [
+   [
+    1,
+    "Mud-Slap"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    1,
+    "Thunder Shock"
+   ],
+   [
+    8,
+    "Rapid Spin"
+   ],
+   [
+    10,
+    "Mud Shot"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    15,
+    "Headbutt"
+   ],
+   [
+    17,
+    "Slash"
+   ],
+   [
+    18,
+    "Bulldoze"
+   ],
+   [
+    30,
+    "Charge"
+   ],
+   [
+    33,
+    "Dig"
+   ],
+   [
+    34,
+    "Drill Run"
+   ],
+   [
+    35,
+    "Crunch"
+   ],
+   [
+    38,
+    "Discharge"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Thunderbolt",
+   "Thunder",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Charge Beam",
+   "Endure",
+   "Thunder Wave",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "Scorching Sands",
+   "Electric Terrain",
+   "Flash"
+  ],
+  "tutor": [
+   "Earth Power"
+  ]
+ },
+ "bulbtoise": {
+  "level_up": [
+   [
+    1,
+    "Bulldoze"
+   ],
+   [
+    1,
+    "Mud-Slap"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Thunder Shock"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    5,
+    "Endure"
+   ],
+   [
+    8,
+    "Rapid Spin"
+   ],
+   [
+    10,
+    "Mud Shot"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    15,
+    "Revenge"
+   ],
+   [
+    15,
+    "Headbutt"
+   ],
+   [
+    17,
+    "Slash"
+   ],
+   [
+    20,
+    "Charge"
+   ],
+   [
+    24,
+    "Earth Power"
+   ],
+   [
+    25,
+    "Sucker Punch"
+   ],
+   [
+    30,
+    "Electric Terrain"
+   ],
+   [
+    35,
+    "Bounce"
+   ],
+   [
+    37,
+    "Drill Run"
+   ],
+   [
+    40,
+    "Muddy Water"
+   ],
+   [
+    45,
+    "Discharge"
+   ],
+   [
+    48,
+    "High Horsepower"
+   ],
+   [
+    50,
+    "Flail"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Thunderbolt",
+   "Thunder",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Shock Wave",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Charge Beam",
+   "Endure",
+   "Giga Impact",
+   "Stone Edge",
+   "Thunder Wave",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "Electroweb",
+   "Sunny Day",
+   "Scorching Sands",
+   "Flash"
+  ],
+  "tutor": [
+   "Earth Power"
+  ]
+ },
+ "bulgarian-unown": {
+  "egg": [
+   "Thunder Fang",
+   "Zen Headbutt",
+   "Future Sight",
+   "Mirror Coat",
+   "Spark"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Thunder Shock"
+   ],
+   [
+    7,
+    "Quick Attack"
+   ],
+   [
+    8,
+    "Charge"
+   ],
+   [
+    15,
+    "Thunder Wave"
+   ],
+   [
+    23,
+    "Volt Switch"
+   ],
+   [
+    32,
+    "Agility"
+   ],
+   [
+    34,
+    "Discharge"
+   ],
+   [
+    40,
+    "Thunderbolt"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Shock Wave",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Skill Swap",
+   "Charge Beam",
+   "Endure",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Electroweb",
+   "Expanding Force"
+  ],
+  "tutor": [
+   "Volt Switch",
+   "Zen Headbutt"
+  ]
+ },
+ "chebbi": {
+  "egg": [
+   "Snore",
+   "Last Resort",
+   "Double-Edge",
+   "Sucker Punch",
+   "Take Down",
+   "Body Slam"
+  ],
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Bite"
+   ],
+   [
+    1,
+    "Echoed Voice"
+   ],
+   [
+    1,
+    "Howl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Pound"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    15,
+    "Rest"
+   ],
+   [
+    15,
+    "Sleep Talk"
+   ],
+   [
+    22,
+    "Swift"
+   ],
+   [
+    25,
+    "Roar"
+   ],
+   [
+    30,
+    "Supersonic"
+   ],
+   [
+    35,
+    "Uproar"
+   ],
+   [
+    42,
+    "Screech"
+   ],
+   [
+    49,
+    "Hyper Voice"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Return",
+   "Shadow Ball",
+   "Double Team",
+   "Torment",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Foul Play",
+   "Strength"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Endeavor",
+   "Hyper Voice",
+   "Snarl"
+  ]
+ },
+ "chillalit": {
+  "level_up": [
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    6,
+    "Flame Charge"
+   ],
+   [
+    12,
+    "Aqua Jet"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    13,
+    "Water Pulse"
+   ],
+   [
+    34,
+    "Crunch"
+   ],
+   [
+    35,
+    "Fire Spin"
+   ],
+   [
+    36,
+    "Agility"
+   ],
+   [
+    40,
+    "Flamethrower"
+   ],
+   [
+    56,
+    "Hydro Pump"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Solar Beam",
+   "Return",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Overheat",
+   "Brine",
+   "Endure",
+   "Will-O-Wisp",
+   "Giga Impact",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Liquidation",
+   "Surf",
+   "Whirlpool",
+   "Waterfall"
+  ],
+  "tutor": [
+   "Aqua Tail",
+   "Flare Blitz",
+   "Heat Wave",
+   "Icy Wind"
+  ]
+ },
+ "chuchar": {
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Confuse Ray"
+   ],
+   [
+    1,
+    "Lick"
+   ],
+   [
+    1,
+    "Night Shade"
+   ],
+   [
+    1,
+    "Pain Split"
+   ],
+   [
+    1,
+    "Shadow Sneak"
+   ],
+   [
+    8,
+    "Smog"
+   ],
+   [
+    13,
+    "Smokescreen"
+   ],
+   [
+    16,
+    "Spite"
+   ],
+   [
+    16,
+    "Will-O-Wisp"
+   ],
+   [
+    18,
+    "Protect"
+   ],
+   [
+    21,
+    "Hex"
+   ],
+   [
+    26,
+    "Curse"
+   ],
+   [
+    36,
+    "Shadow Ball"
+   ],
+   [
+    36,
+    "Sucker Punch"
+   ],
+   [
+    42,
+    "Nasty Plot"
+   ],
+   [
+    46,
+    "Imprison"
+   ],
+   [
+    48,
+    "Phantom Force"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Energy Ball",
+   "Endure",
+   "Will-O-Wisp",
+   "Shadow Claw",
+   "Payback",
+   "Giga Impact",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Substitute",
+   "Trick Room",
+   "Giga Drain",
+   "Double Team",
+   "Skill Swap",
+   "Psych Up",
+   "Swagger",
+   "Foul Play"
+  ],
+  "tutor": [
+   "Curse",
+   "Poltergeist",
+   "Icy Wind"
+  ]
+ },
+ "ciggiti": {
+  "egg": [
+   "Disable",
+   "Haze",
+   "Clear Smog",
+   "Grudge",
+   "Scary Face",
+   "Reflect Type"
+  ],
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Confuse Ray"
+   ],
+   [
+    1,
+    "Lick"
+   ],
+   [
+    1,
+    "Shadow Sneak"
+   ],
+   [
+    4,
+    "Hypnosis"
+   ],
+   [
+    6,
+    "Smog"
+   ],
+   [
+    10,
+    "Smokescreen"
+   ],
+   [
+    12,
+    "Payback"
+   ],
+   [
+    16,
+    "Spite"
+   ],
+   [
+    20,
+    "Curse"
+   ],
+   [
+    24,
+    "Hex"
+   ],
+   [
+    28,
+    "Night Shade"
+   ],
+   [
+    32,
+    "Pain Split"
+   ],
+   [
+    32,
+    "Sucker Punch"
+   ],
+   [
+    36,
+    "Dark Pulse"
+   ],
+   [
+    40,
+    "Shadow Ball"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Protect",
+   "Rain Dance",
+   "Giga Drain",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Skill Swap",
+   "Energy Ball",
+   "Endure",
+   "Will-O-Wisp",
+   "Payback",
+   "Psych Up",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Foul Play"
+  ],
+  "tutor": [
+   "Curse",
+   "Icy Wind",
+   "Poltergeist"
+  ]
+ },
+ "cindreon": {
+  "level_up": [
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Rock Tomb"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    6,
+    "Bite"
+   ],
+   [
+    9,
+    "Smack Down"
+   ],
+   [
+    10,
+    "Fire Fang"
+   ],
+   [
+    12,
+    "Roar"
+   ],
+   [
+    16,
+    "Headbutt"
+   ],
+   [
+    20,
+    "Protect"
+   ],
+   [
+    40,
+    "Take Down"
+   ],
+   [
+    52,
+    "Flame Wheel"
+   ],
+   [
+    52,
+    "Rock Blast"
+   ],
+   [
+    58,
+    "Iron Defense"
+   ],
+   [
+    70,
+    "Double-Edge"
+   ],
+   [
+    76,
+    "Fire Spin"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Iron Tail",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Flamethrower",
+   "Sandstorm",
+   "Fire Blast",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Overheat",
+   "Endure",
+   "Will-O-Wisp",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Heavy Slam",
+   "Flame Charge",
+   "Bulldoze",
+   "Body Press",
+   "Meteor Beam",
+   "Strength",
+   "Rock Smash",
+   "Roar"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Body Slam",
+   "Curse",
+   "Earth Power",
+   "Endeavor",
+   "Fire Punch",
+   "Flare Blitz",
+   "Heat Wave",
+   "Iron Head"
+  ]
+ },
+ "coatail": {
+  "level_up": [
+   [
+    0,
+    "Agility"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    5,
+    "Sand Attack"
+   ],
+   [
+    7,
+    "Covet"
+   ],
+   [
+    9,
+    "Baby-Doll Eyes"
+   ],
+   [
+    9,
+    "Headbutt"
+   ],
+   [
+    14,
+    "Fury Swipes"
+   ],
+   [
+    14,
+    "Pin Missile"
+   ],
+   [
+    17,
+    "Helping Hand"
+   ],
+   [
+    21,
+    "Follow Me"
+   ],
+   [
+    23,
+    "Take Down"
+   ],
+   [
+    28,
+    "Slam"
+   ],
+   [
+    32,
+    "Rest"
+   ],
+   [
+    36,
+    "Sucker Punch"
+   ],
+   [
+    43,
+    "Double-Edge"
+   ],
+   [
+    50,
+    "Reversal"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hidden Power",
+   "Sunny Day",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Iron Tail",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Dig",
+   "Shadow Ball",
+   "Double Team",
+   "Shock Wave",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Fling",
+   "Endure",
+   "Shadow Claw",
+   "Giga Impact",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Cut",
+   "Strength",
+   "Rock Smash",
+   "Charge Beam",
+   "Baby-Doll Eyes",
+   "Bullet Seed"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Charm",
+   "Flail",
+   "Hyper Voice",
+   "Super Fang",
+   "Endeavor",
+   "Icy Wind",
+   "Seed Bomb"
+  ]
+ },
+ "coati": {
+  "egg": [
+   "Tickle",
+   "Simple Beam",
+   "Last Resort",
+   "Uproar",
+   "Revenge"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    2,
+    "Sand Attack"
+   ],
+   [
+    3,
+    "Quick Attack"
+   ],
+   [
+    5,
+    "Tail Whip"
+   ],
+   [
+    7,
+    "Covet"
+   ],
+   [
+    9,
+    "Headbutt"
+   ],
+   [
+    11,
+    "Baby-Doll Eyes"
+   ],
+   [
+    14,
+    "Pin Missile"
+   ],
+   [
+    16,
+    "Rest"
+   ],
+   [
+    19,
+    "Take Down"
+   ],
+   [
+    23,
+    "Super Fang"
+   ],
+   [
+    25,
+    "Flail"
+   ],
+   [
+    31,
+    "Double-Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hidden Power",
+   "Sunny Day",
+   "Ice Beam",
+   "Blizzard",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Iron Tail",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Dig",
+   "Shadow Ball",
+   "Double Team",
+   "Shock Wave",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Fling",
+   "Charge Beam",
+   "Endure",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Baby-Doll Eyes",
+   "Cut",
+   "Rock Smash",
+   "Bullet Seed"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Charm",
+   "Endeavor",
+   "Hyper Voice",
+   "Icy Wind",
+   "Seed Bomb",
+   "Super Fang"
+  ]
+ },
+ "cowfin": {
+  "egg": [
+   "Spit Up",
+   "Snore",
+   "Last Resort",
+   "Flail",
+   "Curse",
+   "Body Slam",
+   "Thrash",
+   "Aqua Tail",
+   "Covet",
+   "Aqua Jet"
+  ],
+  "level_up": [
+   [
+    1,
+    "Defense Curl"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    2,
+    "Growl"
+   ],
+   [
+    5,
+    "Rollout"
+   ],
+   [
+    5,
+    "Water Gun"
+   ],
+   [
+    15,
+    "Water Pulse"
+   ],
+   [
+    17,
+    "Yawn"
+   ],
+   [
+    20,
+    "Bubble Beam"
+   ],
+   [
+    25,
+    "Charm"
+   ],
+   [
+    27,
+    "Hyper Voice"
+   ],
+   [
+    39,
+    "Hydro Pump"
+   ],
+   [
+    39,
+    "Rain Dance"
+   ],
+   [
+    45,
+    "Double-Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hail",
+   "Hidden Power",
+   "Sunny Day",
+   "Ice Beam",
+   "Blizzard",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Iron Tail",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Brine",
+   "Endure",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Surf",
+   "Strength",
+   "Whirlpool",
+   "Waterfall"
+  ],
+  "tutor": [
+   "Aqua Tail",
+   "Body Slam",
+   "Hyper Voice",
+   "Icy Wind",
+   "Weather Ball"
+  ]
+ },
+ "crappy-meal": {
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Stun Spore"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Harden"
+   ],
+   [
+    12,
+    "Leech Seed"
+   ],
+   [
+    15,
+    "Head Smash"
+   ],
+   [
+    16,
+    "Synthesis"
+   ],
+   [
+    16,
+    "Cross Poison"
+   ],
+   [
+    20,
+    "Sweet Scent"
+   ],
+   [
+    29,
+    "Slash"
+   ],
+   [
+    32,
+    "Ingrain"
+   ],
+   [
+    33,
+    "Mega Drain"
+   ],
+   [
+    33,
+    "Razor Leaf"
+   ],
+   [
+    33,
+    "Seed Bomb"
+   ],
+   [
+    33,
+    "Horn Leech"
+   ],
+   [
+    33,
+    "Pin Missile"
+   ],
+   [
+    36,
+    "Toxic"
+   ],
+   [
+    40,
+    "Gunk Shot"
+   ],
+   [
+    40,
+    "Leaf Blade"
+   ],
+   [
+    40,
+    "Slam"
+   ],
+   [
+    48,
+    "Power Whip"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Giga Drain",
+   "Solar Beam",
+   "Return",
+   "Double Team",
+   "Sludge Bomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Energy Ball",
+   "Endure",
+   "Payback",
+   "Giga Impact",
+   "Swords Dance",
+   "Sleep Talk",
+   "Poison Jab",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Venoshock"
+  ],
+  "tutor": [
+   "Leaf Storm",
+   "Magical Leaf",
+   "Mega Drain",
+   "Seed Bomb",
+   "Synthesis",
+   "Leech Seed"
+  ]
+ },
+ "croakble": {
+  "level_up": [
+   [
+    1,
+    "Crunch"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    1,
+    "Hypnosis"
+   ],
+   [
+    7,
+    "Pound"
+   ],
+   [
+    8,
+    "Tail Whip"
+   ],
+   [
+    12,
+    "Water Pulse"
+   ],
+   [
+    14,
+    "Aqua Jet"
+   ],
+   [
+    14,
+    "Mud Shot"
+   ],
+   [
+    21,
+    "Bite"
+   ],
+   [
+    22,
+    "Bubble Beam"
+   ],
+   [
+    24,
+    "Swift"
+   ],
+   [
+    29,
+    "Rain Dance"
+   ],
+   [
+    34,
+    "Echoed Voice"
+   ],
+   [
+    40,
+    "Agility"
+   ],
+   [
+    45,
+    "Waterfall"
+   ],
+   [
+    50,
+    "Aqua Tail"
+   ],
+   [
+    52,
+    "Liquidation"
+   ],
+   [
+    61,
+    "Hydro Pump"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Brine",
+   "Endure",
+   "Giga Impact",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Liquidation",
+   "Flip Turn",
+   "Surf",
+   "Whirlpool",
+   "Waterfall"
+  ],
+  "tutor": [
+   "Aqua Jet",
+   "Aqua Tail",
+   "Icy Wind",
+   "Hyper Voice"
+  ]
+ },
+ "cryoblade": {
+  "egg": [
+   "Double-Edge"
+  ],
+  "level_up": [
+   [
+    1,
+    "Freeze-Dry"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Powder Snow"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    15,
+    "Ice Shard"
+   ],
+   [
+    18,
+    "Icy Wind"
+   ],
+   [
+    20,
+    "Protect"
+   ],
+   [
+    22,
+    "Avalanche"
+   ],
+   [
+    24,
+    "Ice Fang"
+   ],
+   [
+    25,
+    "Icicle Crash"
+   ],
+   [
+    28,
+    "Bite"
+   ],
+   [
+    28,
+    "Crush Claw"
+   ],
+   [
+    32,
+    "Slash"
+   ],
+   [
+    36,
+    "Take Down"
+   ],
+   [
+    42,
+    "Iron Defense"
+   ],
+   [
+    47,
+    "Hail"
+   ],
+   [
+    50,
+    "Ice Hammer"
+   ],
+   [
+    54,
+    "Headbutt"
+   ],
+   [
+    56,
+    "Crunch"
+   ],
+   [
+    58,
+    "Blizzard"
+   ]
+  ],
+  "tm_hm": [
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Double Team",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Avalanche",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "Heavy Slam"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Ice Fang",
+   "Ice Punch",
+   "Ice Shard",
+   "Icicle Spear",
+   "Icy Wind",
+   "Iron Head"
+  ]
+ },
+ "custodix": {
+  "level_up": [
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Fire Fang"
+   ],
+   [
+    1,
+    "Fire Spin"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Rock Throw"
+   ],
+   [
+    1,
+    "Rollout"
+   ],
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Rock Tomb"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    6,
+    "Bite"
+   ],
+   [
+    8,
+    "Slash"
+   ],
+   [
+    9,
+    "Smack Down"
+   ],
+   [
+    12,
+    "Ancient Power"
+   ],
+   [
+    12,
+    "Roar"
+   ],
+   [
+    16,
+    "Crunch"
+   ],
+   [
+    16,
+    "Headbutt"
+   ],
+   [
+    20,
+    "Protect"
+   ],
+   [
+    24,
+    "Scary Face"
+   ],
+   [
+    30,
+    "Incinerate"
+   ],
+   [
+    30,
+    "Stone Edge"
+   ],
+   [
+    40,
+    "Take Down"
+   ],
+   [
+    42,
+    "Lava Plume"
+   ],
+   [
+    49,
+    "Rock Slide"
+   ],
+   [
+    66,
+    "Power Gem"
+   ],
+   [
+    72,
+    "Fire Blast"
+   ],
+   [
+    80,
+    "Burn Up"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Solar Beam",
+   "Earthquake",
+   "Return",
+   "Double Team",
+   "Flamethrower",
+   "Sandstorm",
+   "Fire Blast",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Overheat",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Will-O-Wisp",
+   "Giga Impact",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "Mystical Fire",
+   "Body Press",
+   "Meteor Beam",
+   "Scorching Sands",
+   "Iron Tail",
+   "Dig",
+   "Attract",
+   "Rock Polish",
+   "Heavy Slam",
+   "Flame Charge",
+   "Strength",
+   "Rock Smash",
+   "Roar"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Earth Power",
+   "Flare Blitz",
+   "Heat Wave",
+   "Body Slam",
+   "Curse",
+   "Endeavor",
+   "Fire Punch",
+   "Iron Head"
+  ]
+ },
+ "dahrugula": {
+  "level_up": [
+   [
+    1,
+    "Defense Curl"
+   ],
+   [
+    1,
+    "Flail"
+   ],
+   [
+    1,
+    "Lick"
+   ],
+   [
+    1,
+    "Stockpile"
+   ],
+   [
+    1,
+    "Swallow"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    5,
+    "Baby-Doll Eyes"
+   ],
+   [
+    8,
+    "Fury Swipes"
+   ],
+   [
+    12,
+    "Yawn"
+   ],
+   [
+    12,
+    "Covet"
+   ],
+   [
+    16,
+    "Bite"
+   ],
+   [
+    20,
+    "Rest"
+   ],
+   [
+    20,
+    "Snore"
+   ],
+   [
+    20,
+    "Work Up"
+   ],
+   [
+    24,
+    "Crunch"
+   ],
+   [
+    28,
+    "Headbutt"
+   ],
+   [
+    31,
+    "Slash"
+   ],
+   [
+    31,
+    "Take Down"
+   ],
+   [
+    32,
+    "Heavy Slam"
+   ],
+   [
+    36,
+    "Amnesia"
+   ],
+   [
+    40,
+    "High Horsepower"
+   ],
+   [
+    42,
+    "Screech"
+   ],
+   [
+    44,
+    "Hammer Arm"
+   ],
+   [
+    52,
+    "Belch"
+   ],
+   [
+    52,
+    "Last Resort"
+   ],
+   [
+    56,
+    "Giga Impact"
+   ]
+  ],
+  "tm_hm": [
+   "Focus Punch",
+   "Water Pulse",
+   "Hidden Power",
+   "Sunny Day",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Solar Beam",
+   "Thunderbolt",
+   "Thunder",
+   "Earthquake",
+   "Return",
+   "Shadow Ball",
+   "Brick Break",
+   "Double Team",
+   "Shock Wave",
+   "Flamethrower",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Giga Impact",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "Surf",
+   "Strength",
+   "Rock Smash",
+   "Rock Climb",
+   "Dig",
+   "Thief",
+   "Toxic"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Charm",
+   "Curse",
+   "Endeavor",
+   "Fire Punch",
+   "Hyper Voice",
+   "Ice Punch",
+   "Icy Wind",
+   "Iron Head",
+   "Seed Bomb",
+   "Thunder Punch",
+   "Yawn",
+   "Zen Headbutt"
+  ]
+ },
+ "darkgonark": {
+  "egg": [
+   "Flail",
+   "Last Resort",
+   "Covet",
+   "Uproar",
+   "Fake Out",
+   "Feint",
+   "Endeavor"
+  ],
+  "level_up": [
+   [
+    1,
+    "Baby-Doll Eyes"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    3,
+    "Leer"
+   ],
+   [
+    3,
+    "Scratch"
+   ],
+   [
+    4,
+    "Sand Attack"
+   ],
+   [
+    8,
+    "Quick Attack"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    16,
+    "Fury Swipes"
+   ],
+   [
+    20,
+    "Tri Attack"
+   ],
+   [
+    22,
+    "Take Down"
+   ],
+   [
+    24,
+    "Charm"
+   ],
+   [
+    27,
+    "Agility"
+   ],
+   [
+    32,
+    "Play Rough"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Iron Tail",
+   "Thunderbolt",
+   "Return",
+   "Dig",
+   "Shadow Ball",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "Sleep Talk",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Cut"
+  ],
+  "tutor": [
+   "Endeavor",
+   "Flail",
+   "Hyper Voice"
+  ]
+ },
+ "detecup": {
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Sand Attack"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Baby-Doll Eyes"
+   ],
+   [
+    1,
+    "Odor Sleuth"
+   ],
+   [
+    6,
+    "Tail Whip"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    12,
+    "Stomp"
+   ],
+   [
+    14,
+    "Taunt"
+   ],
+   [
+    15,
+    "Headbutt"
+   ],
+   [
+    17,
+    "Assurance"
+   ],
+   [
+    18,
+    "Fury Swipes"
+   ],
+   [
+    20,
+    "Tri Attack"
+   ],
+   [
+    23,
+    "Take Down"
+   ],
+   [
+    25,
+    "Screech"
+   ],
+   [
+    27,
+    "Agility"
+   ],
+   [
+    28,
+    "Slash"
+   ],
+   [
+    37,
+    "Roost"
+   ],
+   [
+    39,
+    "Nasty Plot"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Iron Tail",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Dig",
+   "Shadow Ball",
+   "Double Team",
+   "Shock Wave",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "Giga Impact",
+   "Sleep Talk",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Strength",
+   "Aerial Ace",
+   "Cut"
+  ],
+  "tutor": [
+   "Endeavor",
+   "Hyper Voice",
+   "Flail"
+  ]
+ },
+ "devampry": {
+  "level_up": [
+   [
+    0,
+    "Dark Pulse"
+   ],
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Echoed Voice"
+   ],
+   [
+    1,
+    "Fire Fang"
+   ],
+   [
+    1,
+    "Howl"
+   ],
+   [
+    1,
+    "Pound"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Thunder Fang"
+   ],
+   [
+    1,
+    "Bite"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    12,
+    "Rest"
+   ],
+   [
+    15,
+    "Sleep Talk"
+   ],
+   [
+    18,
+    "Swift"
+   ],
+   [
+    23,
+    "Roar"
+   ],
+   [
+    29,
+    "Supersonic"
+   ],
+   [
+    37,
+    "Uproar"
+   ],
+   [
+    46,
+    "Screech"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Shadow Ball",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Giga Impact",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Foul Play",
+   "Strength",
+   "Frustration",
+   "Torment",
+   "Solar Beam"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Endeavor",
+   "Hyper Voice",
+   "Snarl"
+  ]
+ },
+ "diedo": {
+  "egg": [
+   "Defog",
+   "Feather Dance"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Peck"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    3,
+    "Gust"
+   ],
+   [
+    6,
+    "Supersonic"
+   ],
+   [
+    10,
+    "Wing Attack"
+   ],
+   [
+    12,
+    "Air Cutter"
+   ],
+   [
+    16,
+    "Aerial Ace"
+   ],
+   [
+    25,
+    "Wish"
+   ],
+   [
+    27,
+    "Agility"
+   ],
+   [
+    30,
+    "Air Slash"
+   ],
+   [
+    34,
+    "Roost"
+   ],
+   [
+    38,
+    "Brave Bird"
+   ],
+   [
+    39,
+    "Tailwind"
+   ],
+   [
+    42,
+    "Hurricane"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Steel Wing",
+   "Roost",
+   "Endure",
+   "Sleep Talk",
+   "Swagger",
+   "Pluck",
+   "U-turn",
+   "Substitute",
+   "Dual Wingbeat",
+   "Fly"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Brave Bird",
+   "Heat Wave",
+   "Hurricane",
+   "Sky Attack"
+  ]
+ },
+ "dragem": {
+  "level_up": [
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Rock Throw"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    4,
+    "Smack Down"
+   ],
+   [
+    13,
+    "Bite"
+   ],
+   [
+    16,
+    "Ancient Power"
+   ],
+   [
+    20,
+    "Scary Face"
+   ],
+   [
+    25,
+    "Slash"
+   ],
+   [
+    25,
+    "Stomp"
+   ],
+   [
+    30,
+    "Dragon Claw"
+   ],
+   [
+    30,
+    "Rock Blast"
+   ],
+   [
+    30,
+    "Rock Slide"
+   ],
+   [
+    33,
+    "Crunch"
+   ],
+   [
+    36,
+    "Take Down"
+   ],
+   [
+    54,
+    "Stone Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Dragon Claw",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Iron Tail",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Dragon Pulse",
+   "Giga Impact",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "Meteor Beam"
+  ],
+  "tutor": [
+   "Earth Power",
+   "Outrage"
+  ]
+ },
+ "dreadfang": {
+  "level_up": [
+   [
+    0,
+    "Slash"
+   ],
+   [
+    1,
+    "Confuse Ray"
+   ],
+   [
+    1,
+    "Gust"
+   ],
+   [
+    1,
+    "Poison Sting"
+   ],
+   [
+    1,
+    "Struggle Bug"
+   ],
+   [
+    1,
+    "Sweet Scent"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    4,
+    "Fury Cutter"
+   ],
+   [
+    10,
+    "Withdraw"
+   ],
+   [
+    12,
+    "Wing Attack"
+   ],
+   [
+    15,
+    "Aromatic Mist"
+   ],
+   [
+    15,
+    "Leer"
+   ],
+   [
+    29,
+    "Bug Bite"
+   ],
+   [
+    31,
+    "Fury Swipes"
+   ],
+   [
+    32,
+    "Crunch"
+   ],
+   [
+    44,
+    "Screech"
+   ],
+   [
+    47,
+    "Aromatherapy"
+   ],
+   [
+    47,
+    "Scary Face"
+   ],
+   [
+    49,
+    "Agility"
+   ],
+   [
+    50,
+    "Swords Dance"
+   ],
+   [
+    61,
+    "Power Gem"
+   ],
+   [
+    65,
+    "Toxic"
+   ],
+   [
+    66,
+    "X-Scissor"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Roost",
+   "Fling",
+   "Endure",
+   "Giga Impact",
+   "Flash",
+   "X-Scissor",
+   "Sleep Talk",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Venoshock",
+   "Struggle Bug",
+   "Dual Wingbeat",
+   "Cut",
+   "Fly",
+   "Steel Wing",
+   "Psychic Fangs",
+   "Poison Jab"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Bug Bite",
+   "Pollen Puff",
+   "Brave Bird",
+   "Sky Attack",
+   "Fire Fang"
+  ]
+ },
+ "dreadipede": {
+  "egg": [
+   "Counter",
+   "Night Slash",
+   "Lunge",
+   "Knock Off"
+  ],
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Peck"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    4,
+    "Fury Cutter"
+   ],
+   [
+    5,
+    "Poison Sting"
+   ],
+   [
+    10,
+    "Withdraw"
+   ],
+   [
+    12,
+    "Wing Attack"
+   ],
+   [
+    29,
+    "Bug Bite"
+   ],
+   [
+    32,
+    "Crunch"
+   ],
+   [
+    34,
+    "Slash"
+   ],
+   [
+    44,
+    "Screech"
+   ],
+   [
+    47,
+    "Scary Face"
+   ],
+   [
+    49,
+    "Agility"
+   ],
+   [
+    55,
+    "Swords Dance"
+   ],
+   [
+    61,
+    "X-Scissor"
+   ],
+   [
+    67,
+    "Take Down"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Steel Wing",
+   "Roost",
+   "Endure",
+   "X-Scissor",
+   "Sleep Talk",
+   "Swagger",
+   "Pluck",
+   "U-turn",
+   "Substitute",
+   "Struggle Bug",
+   "Dual Wingbeat",
+   "Fly",
+   "Psychic Fangs",
+   "Poison Jab"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Brave Bird",
+   "Bug Bite",
+   "Sky Attack",
+   "Fire Fang"
+  ]
+ },
+ "eiscue": {
+  "egg": [
+   "Icicle Crash",
+   "Double-Edge",
+   "Soak",
+   "Head Smash"
+  ],
+  "level_up": [
+   [
+    1,
+    "Powder Snow"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    6,
+    "Mist"
+   ],
+   [
+    12,
+    "Weather Ball"
+   ],
+   [
+    15,
+    "Ice Shard"
+   ],
+   [
+    18,
+    "Icy Wind"
+   ],
+   [
+    20,
+    "Pay Day"
+   ],
+   [
+    24,
+    "Headbutt"
+   ],
+   [
+    30,
+    "Amnesia"
+   ],
+   [
+    30,
+    "Avalanche"
+   ],
+   [
+    36,
+    "Freeze-Dry"
+   ],
+   [
+    42,
+    "Hail"
+   ],
+   [
+    48,
+    "Aurora Veil"
+   ],
+   [
+    48,
+    "Ice Beam"
+   ],
+   [
+    54,
+    "Surf"
+   ],
+   [
+    60,
+    "Blizzard"
+   ]
+  ],
+  "tm_hm": [
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Reflect",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Avalanche",
+   "Sleep Talk",
+   "Substitute",
+   "Surf"
+  ],
+  "tutor": [
+   "Ice Shard",
+   "Icicle Spear",
+   "Icy Wind"
+  ]
+ },
+ "erobi": {
+  "egg": [
+   "Uproar",
+   "Flail",
+   "Double-Edge",
+   "Covet",
+   "Hurricane",
+   "Last Resort"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Peck"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    6,
+    "Echoed Voice"
+   ],
+   [
+    10,
+    "Quick Attack"
+   ],
+   [
+    13,
+    "Wing Attack"
+   ],
+   [
+    17,
+    "Slash"
+   ],
+   [
+    24,
+    "Take Down"
+   ],
+   [
+    24,
+    "Acrobatics"
+   ],
+   [
+    27,
+    "Body Slam"
+   ],
+   [
+    28,
+    "Aerial Ace"
+   ],
+   [
+    29,
+    "Agility"
+   ],
+   [
+    30,
+    "Roost"
+   ],
+   [
+    33,
+    "Drill Peck"
+   ],
+   [
+    43,
+    "Brave Bird"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Return",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Steel Wing",
+   "Roost",
+   "Endure",
+   "Sleep Talk",
+   "Swagger",
+   "Pluck",
+   "U-turn",
+   "Substitute",
+   "Dual Wingbeat",
+   "Fly"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Brave Bird",
+   "Heat Wave",
+   "Hurricane",
+   "Hyper Voice",
+   "Sky Attack",
+   "Charm"
+  ]
+ },
+ "everdark": {
+  "egg": [
+   "Zen Headbutt",
+   "Power Trip",
+   "Mirror Coat",
+   "Feint"
+  ],
+  "level_up": [
+   [
+    1,
+    "Future Sight"
+   ],
+   [
+    1,
+    "Hypnosis"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    20,
+    "Scary Face"
+   ],
+   [
+    20,
+    "Taunt"
+   ],
+   [
+    21,
+    "Slash"
+   ],
+   [
+    28,
+    "Focus Energy"
+   ],
+   [
+    40,
+    "Sucker Punch"
+   ],
+   [
+    50,
+    "Foul Play"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Rock Tomb",
+   "Torment",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Giga Impact",
+   "Swords Dance",
+   "Psych Up",
+   "Dark Pulse",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Foul Play",
+   "Brutal Swing",
+   "Psychic Fangs",
+   "Expanding Force",
+   "Shadow Claw"
+  ],
+  "tutor": [
+   "Extrasensory",
+   "Night Slash",
+   "Snarl",
+   "Zen Headbutt"
+  ]
+ },
+ "fleuroom": {
+  "egg": [
+   "Leech Seed",
+   "Seed Bomb",
+   "Magical Leaf",
+   "Leaf Storm"
+  ],
+  "level_up": [
+   [
+    1,
+    "Absorb"
+   ],
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    4,
+    "Confuse Ray"
+   ],
+   [
+    8,
+    "Ingrain"
+   ],
+   [
+    12,
+    "Mega Drain"
+   ],
+   [
+    16,
+    "Sleep Powder"
+   ],
+   [
+    20,
+    "Moonlight"
+   ],
+   [
+    25,
+    "Strength Sap"
+   ],
+   [
+    28,
+    "Giga Drain"
+   ],
+   [
+    30,
+    "Energy Ball"
+   ],
+   [
+    32,
+    "Dazzling Gleam"
+   ],
+   [
+    33,
+    "Aromatherapy"
+   ],
+   [
+    40,
+    "Moonblast"
+   ]
+  ],
+  "tm_hm": [
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Light Screen",
+   "Protect",
+   "Giga Drain",
+   "Safeguard",
+   "Solar Beam",
+   "Return",
+   "Sludge Bomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Energy Ball",
+   "Endure",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Grass Knot",
+   "Substitute",
+   "Draining Kiss"
+  ],
+  "tutor": [
+   "Dazzling Gleam",
+   "Leaf Storm",
+   "Magical Leaf",
+   "Mega Drain",
+   "Pollen Puff",
+   "Seed Bomb",
+   "Synthesis"
+  ]
+ },
+ "fleuroom-utvikling": {
+  "level_up": [
+   [
+    1,
+    "Absorb"
+   ],
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Confuse Ray"
+   ],
+   [
+    1,
+    "Growth"
+   ],
+   [
+    1,
+    "Ingrain"
+   ],
+   [
+    1,
+    "Sweet Scent"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    12,
+    "Mega Drain"
+   ],
+   [
+    15,
+    "Stun Spore"
+   ],
+   [
+    16,
+    "Sleep Powder"
+   ],
+   [
+    20,
+    "Moonlight"
+   ],
+   [
+    27,
+    "Strength Sap"
+   ],
+   [
+    32,
+    "Giga Drain"
+   ],
+   [
+    38,
+    "Dazzling Gleam"
+   ],
+   [
+    41,
+    "Energy Ball"
+   ],
+   [
+    50,
+    "Moonblast"
+   ]
+  ],
+  "tm_hm": [
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Giga Drain",
+   "Safeguard",
+   "Solar Beam",
+   "Return",
+   "Sludge Bomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Energy Ball",
+   "Endure",
+   "Drain Punch",
+   "Giga Impact",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Grass Knot",
+   "Substitute",
+   "Draining Kiss",
+   "Play Rough"
+  ],
+  "tutor": [
+   "Dazzling Gleam",
+   "Leaf Storm",
+   "Magical Leaf",
+   "Mega Drain",
+   "Pollen Puff",
+   "Seed Bomb",
+   "Weather Ball",
+   "Synthesis"
+  ]
+ },
+ "florantula": {
+  "level_up": [
+   [
+    1,
+    "Absorb"
+   ],
+   [
+    1,
+    "Poison Powder"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    1,
+    "String Shot"
+   ],
+   [
+    1,
+    "Stun Spore"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Pin Missile"
+   ],
+   [
+    1,
+    "Scary Face"
+   ],
+   [
+    10,
+    "Razor Leaf"
+   ],
+   [
+    17,
+    "Fury Cutter"
+   ],
+   [
+    20,
+    "Headbutt"
+   ],
+   [
+    29,
+    "Slash"
+   ],
+   [
+    33,
+    "Growth"
+   ],
+   [
+    44,
+    "Horn Leech"
+   ]
+  ],
+  "tm_hm": [
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Giga Drain",
+   "Safeguard",
+   "Solar Beam",
+   "Return",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Energy Ball",
+   "Endure",
+   "Giga Impact",
+   "Swords Dance",
+   "X-Scissor",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Struggle Bug",
+   "Calm Mind",
+   "Toxic",
+   "Light Screen",
+   "Frustration",
+   "Payback",
+   "Electroweb",
+   "Cut",
+   "Dig",
+   "Poison Jab"
+  ],
+  "tutor": [
+   "Bug Bite",
+   "Leaf Storm",
+   "Magical Leaf",
+   "Seed Bomb",
+   "Synthesis",
+   "Charm"
+  ]
+ },
+ "flurina": {
+  "level_up": [
+   [
+    1,
+    "Charm"
+   ],
+   [
+    1,
+    "Copycat"
+   ],
+   [
+    1,
+    "Disarming Voice"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Sweet Scent"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    3,
+    "Play Nice"
+   ],
+   [
+    6,
+    "Fairy Wind"
+   ],
+   [
+    12,
+    "Aromatherapy"
+   ],
+   [
+    12,
+    "Draining Kiss"
+   ],
+   [
+    15,
+    "Fake Tears"
+   ],
+   [
+    18,
+    "Round"
+   ],
+   [
+    20,
+    "Moonlight"
+   ],
+   [
+    24,
+    "Life Dew"
+   ],
+   [
+    30,
+    "Wish"
+   ],
+   [
+    33,
+    "Moonblast"
+   ],
+   [
+    35,
+    "Misty Terrain"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Energy Ball",
+   "Endure",
+   "Giga Impact",
+   "Sleep Talk",
+   "Substitute",
+   "Draining Kiss",
+   "Play Rough",
+   "Thunderbolt",
+   "Thief",
+   "Toxic"
+  ],
+  "tutor": [
+   "Dazzling Gleam",
+   "Flail",
+   "Moonblast",
+   "Power Gem"
+  ]
+ },
+ "freezrick": {
+  "level_up": [
+   [
+    1,
+    "Ice Fang"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Powder Snow"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    6,
+    "Growl"
+   ],
+   [
+    12,
+    "Ice Shard"
+   ],
+   [
+    15,
+    "Rest"
+   ],
+   [
+    16,
+    "Icy Wind"
+   ],
+   [
+    20,
+    "Bite"
+   ],
+   [
+    22,
+    "Take Down"
+   ],
+   [
+    25,
+    "Flail"
+   ],
+   [
+    27,
+    "Avalanche"
+   ],
+   [
+    32,
+    "Slash"
+   ],
+   [
+    40,
+    "Amnesia"
+   ],
+   [
+    44,
+    "Icicle Crash"
+   ],
+   [
+    47,
+    "Crunch"
+   ],
+   [
+    49,
+    "Double-Edge"
+   ],
+   [
+    53,
+    "Blizzard"
+   ]
+  ],
+  "tm_hm": [
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Avalanche",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "Dig",
+   "Swords Dance"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Ice Fang",
+   "Ice Shard",
+   "Icicle Spear",
+   "Icy Wind"
+  ]
+ },
+ "furamire": {
+  "egg": [
+   "Fake Out",
+   "After You"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growth"
+   ],
+   [
+    1,
+    "Pound"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Wrap"
+   ],
+   [
+    6,
+    "Helping Hand"
+   ],
+   [
+    9,
+    "Charm"
+   ],
+   [
+    9,
+    "Draining Kiss"
+   ],
+   [
+    12,
+    "Flower Shield"
+   ],
+   [
+    15,
+    "Magical Leaf"
+   ],
+   [
+    27,
+    "Sweet Kiss"
+   ],
+   [
+    35,
+    "Hyper Voice"
+   ],
+   [
+    36,
+    "Aromatherapy"
+   ],
+   [
+    39,
+    "Moonblast"
+   ],
+   [
+    42,
+    "Sweet Scent"
+   ],
+   [
+    47,
+    "Double-Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Frustration",
+   "Solar Beam",
+   "Return",
+   "Shadow Ball",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Energy Ball",
+   "Fling",
+   "Endure",
+   "Giga Impact",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Draining Kiss",
+   "Play Rough"
+  ],
+  "tutor": [
+   "Dazzling Gleam",
+   "Flail",
+   "Hyper Voice"
+  ]
+ },
+ "gaiafinn": {
+  "egg": [
+   "Counter",
+   "Seismic Toss",
+   "Quick Guard",
+   "Feint",
+   "Vital Throw",
+   "Revenge"
+  ],
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Low Kick"
+   ],
+   [
+    1,
+    "Sand Tomb"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    5,
+    "Rock Smash"
+   ],
+   [
+    8,
+    "Bite"
+   ],
+   [
+    10,
+    "Focus Energy"
+   ],
+   [
+    20,
+    "Scary Face"
+   ],
+   [
+    25,
+    "Bulk Up"
+   ],
+   [
+    32,
+    "Crunch"
+   ],
+   [
+    42,
+    "Hammer Arm"
+   ],
+   [
+    44,
+    "Dynamic Punch"
+   ],
+   [
+    48,
+    "Earthquake"
+   ],
+   [
+    50,
+    "Close Combat"
+   ],
+   [
+    50,
+    "Double-Edge"
+   ],
+   [
+    50,
+    "Reversal"
+   ],
+   [
+    54,
+    "Superpower"
+   ],
+   [
+    60,
+    "Focus Punch"
+   ]
+  ],
+  "tm_hm": [
+   "Focus Punch",
+   "Bulk Up",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Drain Punch",
+   "Payback",
+   "Giga Impact",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Low Sweep",
+   "Bulldoze",
+   "High Horsepower",
+   "Coaching",
+   "Strength",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Close Combat",
+   "Counter",
+   "Earth Power",
+   "Thunder Punch",
+   "Mach Punch"
+  ]
+ },
+ "galfrogtom": {
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Thunder Shock"
+   ],
+   [
+    1,
+    "Thunder Wave"
+   ],
+   [
+    1,
+    "Hypnosis"
+   ],
+   [
+    4,
+    "Charge"
+   ],
+   [
+    4,
+    "Leer"
+   ],
+   [
+    7,
+    "Quick Attack"
+   ],
+   [
+    15,
+    "Shock Wave"
+   ],
+   [
+    24,
+    "Hex"
+   ],
+   [
+    24,
+    "Screech"
+   ],
+   [
+    28,
+    "Volt Switch"
+   ],
+   [
+    28,
+    "Disable"
+   ],
+   [
+    37,
+    "Agility"
+   ],
+   [
+    42,
+    "Shadow Ball"
+   ],
+   [
+    50,
+    "Thunder"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Shock Wave",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Charge Beam",
+   "Endure",
+   "Will-O-Wisp",
+   "Giga Impact",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Electroweb",
+   "Eerie Impulse",
+   "Water Pulse",
+   "Hail",
+   "Ice Beam",
+   "Blizzard",
+   "Surf"
+  ],
+  "tutor": [
+   "Curse",
+   "Poltergeist",
+   "Volt Switch",
+   "Icy Wind"
+  ]
+ },
+ "giga-circuit": {
+  "egg": [
+   "Tearful Look",
+   "Fake Tears",
+   "Covet",
+   "Wish",
+   "Sing"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Nuzzle"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    1,
+    "Thunder Shock"
+   ],
+   [
+    1,
+    "Thunder Wave"
+   ],
+   [
+    7,
+    "Quick Attack"
+   ],
+   [
+    10,
+    "Ember"
+   ],
+   [
+    16,
+    "Shock Wave"
+   ],
+   [
+    16,
+    "Swift"
+   ],
+   [
+    17,
+    "Charge"
+   ],
+   [
+    19,
+    "Electro Ball"
+   ],
+   [
+    30,
+    "Volt Switch"
+   ],
+   [
+    30,
+    "Bounce"
+   ],
+   [
+    36,
+    "Discharge"
+   ],
+   [
+    37,
+    "Agility"
+   ],
+   [
+    47,
+    "Thunderbolt"
+   ],
+   [
+    49,
+    "Thunder"
+   ],
+   [
+    50,
+    "Zap Cannon"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Iron Tail",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Double Team",
+   "Shock Wave",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Charge Beam",
+   "Endure",
+   "Giga Impact",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Electroweb",
+   "Eerie Impulse",
+   "Electric Terrain",
+   "Nuzzle",
+   "Flash"
+  ],
+  "tutor": [
+   "Thunder Punch",
+   "Volt Switch"
+  ]
+ },
+ "glac-p-e": {
+  "level_up": [
+   [
+    1,
+    "Ice Shard"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Powder Snow"
+   ],
+   [
+    1,
+    "Rock Smash"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Taunt"
+   ],
+   [
+    10,
+    "Focus Energy"
+   ],
+   [
+    19,
+    "Feint"
+   ],
+   [
+    21,
+    "Slash"
+   ],
+   [
+    22,
+    "Power-Up Punch"
+   ],
+   [
+    25,
+    "Dynamic Punch"
+   ],
+   [
+    32,
+    "Brick Break"
+   ],
+   [
+    32,
+    "Ice Fang"
+   ],
+   [
+    33,
+    "Reversal"
+   ],
+   [
+    36,
+    "Agility"
+   ],
+   [
+    37,
+    "Icicle Crash"
+   ],
+   [
+    40,
+    "Sacred Sword"
+   ],
+   [
+    42,
+    "Iron Defense"
+   ],
+   [
+    49,
+    "Close Combat"
+   ]
+  ],
+  "tm_hm": [
+   "Focus Punch",
+   "Hail",
+   "Bulk Up",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Drain Punch",
+   "Payback",
+   "Giga Impact",
+   "Stone Edge",
+   "Avalanche",
+   "Swords Dance",
+   "Rock Slide",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Low Sweep",
+   "Bulldoze",
+   "Coaching",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Close Combat",
+   "Ice Punch",
+   "Icicle Spear",
+   "Icy Wind",
+   "Power-Up Punch",
+   "Thunder Punch"
+  ]
+ },
+ "goatjo": {
+  "egg": [
+   "Extrasensory"
+  ],
+  "level_up": [
+   [
+    1,
+    "Confusion"
+   ],
+   [
+    1,
+    "Dual Chop"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    10,
+    "Helping Hand"
+   ],
+   [
+    10,
+    "Quick Attack"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    18,
+    "Psybeam"
+   ],
+   [
+    18,
+    "Horn Attack"
+   ],
+   [
+    36,
+    "Screech"
+   ],
+   [
+    37,
+    "Agility"
+   ],
+   [
+    39,
+    "Dragon Claw"
+   ],
+   [
+    40,
+    "Calm Mind"
+   ],
+   [
+    40,
+    "Psychic"
+   ],
+   [
+    44,
+    "Dragon Pulse"
+   ],
+   [
+    44,
+    "Dragon Rush"
+   ],
+   [
+    50,
+    "Future Sight"
+   ]
+  ],
+  "tm_hm": [
+   "Dragon Claw",
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Iron Tail",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Energy Ball",
+   "Endure",
+   "Dragon Pulse",
+   "Giga Impact",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Expanding Force"
+  ],
+  "tutor": [
+   "Draco Meteor",
+   "Outrage",
+   "Zen Headbutt",
+   "Headbutt"
+  ]
+ },
+ "gortiki": {
+  "level_up": [
+   [
+    1,
+    "Absorb"
+   ],
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Growth"
+   ],
+   [
+    1,
+    "Leaf Blade"
+   ],
+   [
+    1,
+    "Sweet Scent"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Smog"
+   ],
+   [
+    1,
+    "Mimic"
+   ],
+   [
+    8,
+    "Mega Drain"
+   ],
+   [
+    12,
+    "Fire Spin"
+   ],
+   [
+    12,
+    "Razor Leaf"
+   ],
+   [
+    13,
+    "Leech Seed"
+   ],
+   [
+    16,
+    "Vine Whip"
+   ],
+   [
+    22,
+    "Leaf Tornado"
+   ],
+   [
+    28,
+    "Petal Blizzard"
+   ],
+   [
+    32,
+    "Synthesis"
+   ],
+   [
+    35,
+    "Flame Charge"
+   ],
+   [
+    48,
+    "Heat Wave"
+   ],
+   [
+    50,
+    "Power Whip"
+   ]
+  ],
+  "tm_hm": [
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Giga Drain",
+   "Safeguard",
+   "Solar Beam",
+   "Return",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Overheat",
+   "Energy Ball",
+   "Endure",
+   "Will-O-Wisp",
+   "Giga Impact",
+   "Swords Dance",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Flame Charge",
+   "Mystical Fire",
+   "Taunt",
+   "Psychic",
+   "Thief",
+   "Flash"
+  ],
+  "tutor": [
+   "Flare Blitz",
+   "Heat Wave",
+   "Leaf Storm",
+   "Magical Leaf",
+   "Mega Drain",
+   "Seed Bomb",
+   "Synthesis",
+   "Curse",
+   "Fire Punch",
+   "Leech Seed"
+  ]
+ },
+ "gravriel": {
+  "level_up": [
+   [
+    1,
+    "Absorb"
+   ],
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Shadow Sneak"
+   ],
+   [
+    5,
+    "Leer"
+   ],
+   [
+    10,
+    "Hex"
+   ],
+   [
+    16,
+    "Synthesis"
+   ],
+   [
+    19,
+    "Leaf Tornado"
+   ],
+   [
+    19,
+    "Leech Seed"
+   ],
+   [
+    20,
+    "Mega Drain"
+   ],
+   [
+    30,
+    "Magical Leaf"
+   ],
+   [
+    30,
+    "Slash"
+   ],
+   [
+    35,
+    "Phantom Force"
+   ],
+   [
+    35,
+    "Scary Face"
+   ],
+   [
+    46,
+    "Shadow Claw"
+   ],
+   [
+    55,
+    "Shadow Ball"
+   ],
+   [
+    63,
+    "Leaf Storm"
+   ],
+   [
+    68,
+    "Nasty Plot"
+   ],
+   [
+    75,
+    "Energy Ball"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Giga Drain",
+   "Safeguard",
+   "Solar Beam",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Brick Break",
+   "Double Team",
+   "Reflect",
+   "Facade",
+   "Rest",
+   "Thief",
+   "Focus Blast",
+   "Energy Ball",
+   "Fling",
+   "Endure",
+   "Shadow Claw",
+   "Giga Impact",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Trick Room"
+  ],
+  "tutor": [
+   "Leaf Storm",
+   "Seed Bomb",
+   "Night Slash"
+  ]
+ },
+ "greation": {
+  "level_up": [
+   [
+    1,
+    "Bite"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Thunder Wave"
+   ],
+   [
+    1,
+    "Wrap"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    8,
+    "Dragon Claw"
+   ],
+   [
+    10,
+    "Breaking Swipe"
+   ],
+   [
+    15,
+    "Dragon Tail"
+   ],
+   [
+    15,
+    "Bug Bite"
+   ],
+   [
+    18,
+    "Focus Energy"
+   ],
+   [
+    19,
+    "Crunch"
+   ],
+   [
+    20,
+    "Agility"
+   ],
+   [
+    20,
+    "Scary Face"
+   ],
+   [
+    25,
+    "Slam"
+   ],
+   [
+    33,
+    "Aqua Tail"
+   ],
+   [
+    34,
+    "Horn Attack"
+   ],
+   [
+    34,
+    "Pin Missile"
+   ],
+   [
+    46,
+    "Safeguard"
+   ],
+   [
+    53,
+    "Rain Dance"
+   ],
+   [
+    60,
+    "Dragon Dance"
+   ],
+   [
+    67,
+    "Outrage"
+   ],
+   [
+    74,
+    "Hyper Beam"
+   ]
+  ],
+  "tm_hm": [
+   "Dragon Claw",
+   "Hidden Power",
+   "Sunny Day",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Iron Tail",
+   "Return",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Dragon Pulse",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Dig",
+   "Rock Tomb",
+   "X-Scissor"
+  ],
+  "tutor": [
+   "Bug Bite",
+   "Draco Meteor",
+   "Dragon Dance",
+   "Outrage"
+  ]
+ },
+ "grincho": {
+  "egg": [
+   "Fake Out",
+   "Double-Edge",
+   "Feint",
+   "Trick",
+   "Stomp",
+   "Endeavor",
+   "Recover"
+  ],
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    6,
+    "Bite"
+   ],
+   [
+    7,
+    "Shadow Sneak"
+   ],
+   [
+    12,
+    "Scary Face"
+   ],
+   [
+    13,
+    "Fury Swipes"
+   ],
+   [
+    16,
+    "Disable"
+   ],
+   [
+    23,
+    "Encore"
+   ],
+   [
+    25,
+    "Slash"
+   ],
+   [
+    29,
+    "Hex"
+   ],
+   [
+    30,
+    "Detect"
+   ],
+   [
+    33,
+    "Shadow Claw"
+   ],
+   [
+    35,
+    "Take Down"
+   ],
+   [
+    38,
+    "Screech"
+   ],
+   [
+    40,
+    "Sucker Punch"
+   ],
+   [
+    44,
+    "Phantom Force"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Shadow Ball",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Fling",
+   "Endure",
+   "Shadow Claw",
+   "Payback",
+   "Giga Impact",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Strength",
+   "Thunder Wave"
+  ],
+  "tutor": [
+   "Hyper Voice",
+   "Poltergeist"
+  ]
+ },
+ "hairyen": {
+  "egg": [
+   "Leech Seed",
+   "Bubble Beam",
+   "Seed Bomb",
+   "Leaf Storm",
+   "Worry Seed"
+  ],
+  "level_up": [
+   [
+    1,
+    "Absorb"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    3,
+    "Water Gun"
+   ],
+   [
+    4,
+    "Withdraw"
+   ],
+   [
+    6,
+    "Razor Leaf"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    12,
+    "Mega Drain"
+   ],
+   [
+    12,
+    "Mud Shot"
+   ],
+   [
+    18,
+    "Protect"
+   ],
+   [
+    24,
+    "Synthesis"
+   ],
+   [
+    28,
+    "Horn Leech"
+   ],
+   [
+    30,
+    "Razor Shell"
+   ],
+   [
+    35,
+    "Iron Defense"
+   ],
+   [
+    48,
+    "Crabhammer"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hail",
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Ice Beam",
+   "Blizzard",
+   "Protect",
+   "Rain Dance",
+   "Giga Drain",
+   "Solar Beam",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Energy Ball",
+   "Brine",
+   "Endure",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Surf",
+   "Whirlpool",
+   "Waterfall"
+  ],
+  "tutor": [
+   "Aqua Tail",
+   "Icy Wind",
+   "Leaf Storm",
+   "Magical Leaf",
+   "Mega Drain",
+   "Seed Bomb",
+   "Synthesis",
+   "Yawn"
+  ]
+ },
+ "harambe": {
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Defense Curl"
+   ],
+   [
+    1,
+    "Disarming Voice"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Misty Terrain"
+   ],
+   [
+    1,
+    "Moonblast"
+   ],
+   [
+    1,
+    "Shadow Ball"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Covet"
+   ],
+   [
+    1,
+    "Focus Energy"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Low Kick"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    12,
+    "Fairy Wind"
+   ],
+   [
+    15,
+    "Draining Kiss"
+   ],
+   [
+    16,
+    "Charm"
+   ],
+   [
+    20,
+    "Moonlight"
+   ],
+   [
+    20,
+    "Sing"
+   ],
+   [
+    21,
+    "Sweet Kiss"
+   ],
+   [
+    23,
+    "Life Dew"
+   ],
+   [
+    32,
+    "Shadow Sneak"
+   ],
+   [
+    34,
+    "Sweet Scent"
+   ],
+   [
+    42,
+    "Play Rough"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Solar Beam",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Fling",
+   "Endure",
+   "Giga Impact",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Draining Kiss",
+   "Play Rough",
+   "Focus Punch",
+   "Bulk Up",
+   "Taunt",
+   "Frustration",
+   "Iron Tail",
+   "Thunderbolt",
+   "Thunder",
+   "Earthquake",
+   "Dig",
+   "Brick Break",
+   "Rock Tomb",
+   "Aerial Ace",
+   "Thief",
+   "Overheat",
+   "Focus Blast",
+   "Drain Punch",
+   "Payback",
+   "Stone Edge",
+   "Rock Slide",
+   "Poison Jab",
+   "U-turn",
+   "Low Sweep",
+   "Bulldoze",
+   "Strength",
+   "Rock Smash",
+   "Rock Climb"
+  ],
+  "tutor": [
+   "Charm",
+   "Dazzling Gleam",
+   "Flail",
+   "Moonblast",
+   "Close Combat",
+   "Counter",
+   "Endeavor",
+   "Fire Punch",
+   "Hyper Voice",
+   "Ice Punch",
+   "Mach Punch",
+   "Night Slash",
+   "Power-Up Punch",
+   "Seed Bomb",
+   "Thunder Punch"
+  ]
+ },
+ "harpie": {
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Peck"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    5,
+    "Quick Attack"
+   ],
+   [
+    6,
+    "Echoed Voice"
+   ],
+   [
+    13,
+    "Wing Attack"
+   ],
+   [
+    16,
+    "Pluck"
+   ],
+   [
+    21,
+    "Roost"
+   ],
+   [
+    22,
+    "Slash"
+   ],
+   [
+    24,
+    "Fury Attack"
+   ],
+   [
+    28,
+    "Aerial Ace"
+   ],
+   [
+    32,
+    "Agility"
+   ],
+   [
+    32,
+    "Drill Peck"
+   ],
+   [
+    32,
+    "Acrobatics"
+   ],
+   [
+    37,
+    "Take Down"
+   ],
+   [
+    40,
+    "Feather Dance"
+   ],
+   [
+    50,
+    "Bounce"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Return",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Steel Wing",
+   "Roost",
+   "Endure",
+   "Sleep Talk",
+   "Swagger",
+   "Pluck",
+   "U-turn",
+   "Substitute",
+   "Dual Wingbeat",
+   "Fly"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Brave Bird",
+   "Endeavor",
+   "Heat Wave",
+   "Hyper Voice",
+   "Sky Attack",
+   "Hurricane",
+   "Charm"
+  ]
+ },
+ "heatbat": {
+  "level_up": [
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Gust"
+   ],
+   [
+    1,
+    "Peck"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    7,
+    "Smokescreen"
+   ],
+   [
+    9,
+    "Flame Charge"
+   ],
+   [
+    10,
+    "Supersonic"
+   ],
+   [
+    13,
+    "Fury Swipes"
+   ],
+   [
+    20,
+    "Wing Attack"
+   ],
+   [
+    26,
+    "Fire Spin"
+   ],
+   [
+    27,
+    "Air Cutter"
+   ],
+   [
+    29,
+    "Agility"
+   ],
+   [
+    41,
+    "Flamethrower"
+   ],
+   [
+    44,
+    "Tailwind"
+   ],
+   [
+    50,
+    "Roost"
+   ],
+   [
+    54,
+    "Fire Blast"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Protect",
+   "Return",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Steel Wing",
+   "Overheat",
+   "Roost",
+   "Endure",
+   "Will-O-Wisp",
+   "Sleep Talk",
+   "Swagger",
+   "Pluck",
+   "U-turn",
+   "Substitute",
+   "Flame Charge",
+   "Dual Wingbeat",
+   "Fly",
+   "Iron Tail",
+   "Dig",
+   "Cut",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Brave Bird",
+   "Fire Punch",
+   "Flare Blitz",
+   "Heat Wave",
+   "Hurricane",
+   "Sky Attack",
+   "Fire Fang",
+   "Flame Wheel"
+  ]
+ },
+ "hippore": {
+  "egg": [
+   "Skull Bash",
+   "Curse",
+   "Mud-Slap"
+  ],
+  "level_up": [
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Rock Throw"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    7,
+    "Protect"
+   ],
+   [
+    10,
+    "Smack Down"
+   ],
+   [
+    10,
+    "Withdraw"
+   ],
+   [
+    12,
+    "Metal Claw"
+   ],
+   [
+    16,
+    "Rock Tomb"
+   ],
+   [
+    20,
+    "Crunch"
+   ],
+   [
+    24,
+    "Rock Slide"
+   ],
+   [
+    26,
+    "Take Down"
+   ],
+   [
+    28,
+    "Iron Defense"
+   ],
+   [
+    33,
+    "Metal Sound"
+   ],
+   [
+    36,
+    "Iron Head"
+   ],
+   [
+    36,
+    "Rock Blast"
+   ],
+   [
+    44,
+    "Heavy Slam"
+   ],
+   [
+    50,
+    "Double-Edge"
+   ],
+   [
+    54,
+    "Stone Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Iron Tail",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Rock Polish",
+   "Stone Edge",
+   "Gyro Ball",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flash Cannon",
+   "Heavy Slam",
+   "Bulldoze",
+   "Body Press",
+   "Meteor Beam",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Earth Power",
+   "Iron Head"
+  ]
+ },
+ "icy-freeze": {
+  "egg": [
+   "Icicle Spear",
+   "Freeze-Dry",
+   "Yawn",
+   "Ice Punch"
+  ],
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Powder Snow"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    6,
+    "Growl"
+   ],
+   [
+    11,
+    "Icy Wind"
+   ],
+   [
+    12,
+    "Ice Shard"
+   ],
+   [
+    18,
+    "Flail"
+   ],
+   [
+    20,
+    "Bite"
+   ],
+   [
+    23,
+    "Ice Fang"
+   ],
+   [
+    34,
+    "Take Down"
+   ],
+   [
+    37,
+    "Crunch"
+   ],
+   [
+    40,
+    "Amnesia"
+   ],
+   [
+    45,
+    "Blizzard"
+   ],
+   [
+    49,
+    "Double-Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Dig",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Avalanche",
+   "Sleep Talk",
+   "Substitute"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Ice Fang",
+   "Ice Shard",
+   "Icicle Spear",
+   "Icy Wind"
+  ]
+ },
+ "iglomodo": {
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Ice Shard"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Poison Sting"
+   ],
+   [
+    1,
+    "Powder Snow"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    9,
+    "Icy Wind"
+   ],
+   [
+    16,
+    "Bite"
+   ],
+   [
+    17,
+    "Ice Fang"
+   ],
+   [
+    19,
+    "Take Down"
+   ],
+   [
+    23,
+    "Flail"
+   ],
+   [
+    24,
+    "Poison Jab"
+   ],
+   [
+    26,
+    "Poison Fang"
+   ],
+   [
+    34,
+    "Screech"
+   ],
+   [
+    38,
+    "Crunch"
+   ],
+   [
+    39,
+    "Slash"
+   ],
+   [
+    39,
+    "Withdraw"
+   ],
+   [
+    40,
+    "Freeze-Dry"
+   ],
+   [
+    46,
+    "Blizzard"
+   ],
+   [
+    49,
+    "Belch"
+   ],
+   [
+    70,
+    "Icicle Crash"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Hail",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Double Team",
+   "Sludge Bomb",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "Giga Impact",
+   "Avalanche",
+   "Rock Slide",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Venoshock",
+   "Bulldoze"
+  ],
+  "tutor": [
+   "Ice Fang",
+   "Icicle Spear",
+   "Icy Wind"
+  ]
+ },
+ "janenon": {
+  "level_up": [
+   [
+    1,
+    "Disarming Voice"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Knock Off"
+   ],
+   [
+    1,
+    "Snarl"
+   ],
+   [
+    1,
+    "Sweet Scent"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Power Trip"
+   ],
+   [
+    8,
+    "Fairy Wind"
+   ],
+   [
+    14,
+    "Bite"
+   ],
+   [
+    15,
+    "Aromatherapy"
+   ],
+   [
+    15,
+    "Draining Kiss"
+   ],
+   [
+    19,
+    "Moonlight"
+   ],
+   [
+    20,
+    "Hex"
+   ],
+   [
+    24,
+    "Sucker Punch"
+   ],
+   [
+    28,
+    "Charm"
+   ],
+   [
+    30,
+    "Dazzling Gleam"
+   ],
+   [
+    40,
+    "Nasty Plot"
+   ],
+   [
+    50,
+    "Play Rough"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Giga Impact",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Foul Play",
+   "Draining Kiss",
+   "Play Rough",
+   "Trick Room",
+   "Misty Terrain"
+  ],
+  "tutor": [
+   "Dazzling Gleam",
+   "Moonblast",
+   "Snarl",
+   "Hyper Voice",
+   "Curse"
+  ]
+ },
+ "jawbreaker": {
+  "level_up": [
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Roar"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    4,
+    "Bite"
+   ],
+   [
+    12,
+    "Dragon Tail"
+   ],
+   [
+    14,
+    "Fire Fang"
+   ],
+   [
+    21,
+    "Scary Face"
+   ],
+   [
+    26,
+    "Stomp"
+   ],
+   [
+    29,
+    "Headbutt"
+   ],
+   [
+    29,
+    "Slash"
+   ],
+   [
+    33,
+    "Take Down"
+   ],
+   [
+    34,
+    "Dragon Claw"
+   ],
+   [
+    35,
+    "Crunch"
+   ],
+   [
+    45,
+    "Flamethrower"
+   ],
+   [
+    46,
+    "Horn Attack"
+   ],
+   [
+    51,
+    "Flare Blitz"
+   ],
+   [
+    57,
+    "Thrash"
+   ]
+  ],
+  "tm_hm": [
+   "Dragon Claw",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Solar Beam",
+   "Iron Tail",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Overheat",
+   "Fling",
+   "Endure",
+   "Dragon Pulse",
+   "Will-O-Wisp",
+   "Giga Impact",
+   "Stone Edge",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze"
+  ],
+  "tutor": [
+   "Draco Meteor",
+   "Fire Fang",
+   "Flare Blitz",
+   "Heat Wave",
+   "Outrage"
+  ]
+ },
+ "julius": {
+  "level_up": [
+   [
+    1,
+    "Covet"
+   ],
+   [
+    1,
+    "Focus Energy"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Low Kick"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    3,
+    "Fury Swipes"
+   ],
+   [
+    5,
+    "Mud-Slap"
+   ],
+   [
+    7,
+    "Seismic Toss"
+   ],
+   [
+    8,
+    "Retaliate"
+   ],
+   [
+    10,
+    "Rock Throw"
+   ],
+   [
+    12,
+    "Cross Chop"
+   ],
+   [
+    14,
+    "Assurance"
+   ],
+   [
+    17,
+    "Skull Bash"
+   ],
+   [
+    22,
+    "Rock Smash"
+   ],
+   [
+    26,
+    "Close Combat"
+   ],
+   [
+    31,
+    "Screech"
+   ],
+   [
+    33,
+    "Thrash"
+   ],
+   [
+    35,
+    "Stomping Tantrum"
+   ],
+   [
+    40,
+    "Outrage"
+   ]
+  ],
+  "tm_hm": [
+   "Focus Punch",
+   "Bulk Up",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Iron Tail",
+   "Thunderbolt",
+   "Thunder",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Rock Tomb",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Overheat",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Drain Punch",
+   "Payback",
+   "Giga Impact",
+   "Stone Edge",
+   "Rock Slide",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Low Sweep",
+   "Bulldoze",
+   "Strength",
+   "Rock Smash",
+   "Rock Climb"
+  ],
+  "tutor": [
+   "Close Combat",
+   "Counter",
+   "Endeavor",
+   "Fire Punch",
+   "Hyper Voice",
+   "Ice Punch",
+   "Mach Punch",
+   "Night Slash",
+   "Outrage",
+   "Power-Up Punch",
+   "Seed Bomb",
+   "Thunder Punch"
+  ]
+ },
+ "lapper": {
+  "egg": [
+   "Counter",
+   "Covet",
+   "Flail",
+   "Revenge",
+   "Stomp",
+   "Force Palm",
+   "Uproar"
+  ],
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    5,
+    "Sand Attack"
+   ],
+   [
+    13,
+    "Bite"
+   ],
+   [
+    18,
+    "Baby-Doll Eyes"
+   ],
+   [
+    29,
+    "Play Rough"
+   ],
+   [
+    33,
+    "Crunch"
+   ],
+   [
+    35,
+    "Helping Hand"
+   ],
+   [
+    42,
+    "Double-Edge"
+   ],
+   [
+    44,
+    "Reversal"
+   ]
+  ],
+  "tm_hm": [
+   "Bulk Up",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Return",
+   "Dig",
+   "Shadow Ball",
+   "Brick Break",
+   "Double Team",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Low Sweep",
+   "Strength",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Charm",
+   "Close Combat",
+   "Counter",
+   "Endeavor",
+   "Hyper Voice"
+  ]
+ },
+ "leadling": {
+  "egg": [
+   "Curse",
+   "Head Smash",
+   "Haze"
+  ],
+  "level_up": [
+   [
+    1,
+    "Rollout"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    3,
+    "Harden"
+   ],
+   [
+    4,
+    "Acid"
+   ],
+   [
+    5,
+    "Rock Throw"
+   ],
+   [
+    10,
+    "Acid Spray"
+   ],
+   [
+    10,
+    "Smog"
+   ],
+   [
+    11,
+    "Rock Polish"
+   ],
+   [
+    11,
+    "Smack Down"
+   ],
+   [
+    19,
+    "Ancient Power"
+   ],
+   [
+    20,
+    "Rock Slide"
+   ],
+   [
+    25,
+    "Bone Rush"
+   ],
+   [
+    28,
+    "Rock Blast"
+   ],
+   [
+    29,
+    "Stealth Rock"
+   ],
+   [
+    37,
+    "Stone Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Sludge Bomb",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Venoshock",
+   "Bulldoze",
+   "Meteor Beam"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Curse"
+  ]
+ },
+ "leadling-utvikling": {
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Rock Blast"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Rollout"
+   ],
+   [
+    1,
+    "Bone Rush"
+   ],
+   [
+    4,
+    "Acid"
+   ],
+   [
+    8,
+    "Smack Down"
+   ],
+   [
+    10,
+    "Rock Throw"
+   ],
+   [
+    10,
+    "Smog"
+   ],
+   [
+    11,
+    "Acid Spray"
+   ],
+   [
+    11,
+    "Rock Polish"
+   ],
+   [
+    12,
+    "Ancient Power"
+   ],
+   [
+    14,
+    "Poison Powder"
+   ],
+   [
+    25,
+    "Rock Slide"
+   ],
+   [
+    30,
+    "Power Gem"
+   ],
+   [
+    40,
+    "Toxic"
+   ],
+   [
+    51,
+    "Sludge Wave"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Sludge Bomb",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Venoshock",
+   "Bulldoze",
+   "Meteor Beam",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Body Slam",
+   "Curse"
+  ]
+ },
+ "leafaxer": {
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leafage"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Metal Claw"
+   ],
+   [
+    1,
+    "Razor Leaf"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    10,
+    "Fury Cutter"
+   ],
+   [
+    11,
+    "Bite"
+   ],
+   [
+    11,
+    "Growth"
+   ],
+   [
+    15,
+    "Curse"
+   ],
+   [
+    16,
+    "Vine Whip"
+   ],
+   [
+    20,
+    "Leech Seed"
+   ],
+   [
+    22,
+    "Iron Head"
+   ],
+   [
+    24,
+    "Sharpen"
+   ],
+   [
+    28,
+    "Slash"
+   ],
+   [
+    28,
+    "Take Down"
+   ],
+   [
+    29,
+    "Mega Drain"
+   ],
+   [
+    32,
+    "Synthesis"
+   ]
+  ],
+  "tm_hm": [
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Giga Drain",
+   "Safeguard",
+   "Solar Beam",
+   "Earthquake",
+   "Return",
+   "Brick Break",
+   "Double Team",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Energy Ball",
+   "Endure",
+   "Giga Impact",
+   "Swords Dance",
+   "Rock Slide",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Flash Cannon",
+   "Heavy Slam",
+   "Bulldoze",
+   "Rain Dance",
+   "Iron Tail",
+   "Reflect",
+   "Shadow Claw",
+   "Gyro Ball",
+   "Stealth Rock",
+   "Cut",
+   "Strength",
+   "Rock Smash",
+   "Light Screen",
+   "Frustration",
+   "Flash"
+  ],
+  "tutor": [
+   "Iron Head",
+   "Leaf Storm",
+   "Magical Leaf",
+   "Metal Claw",
+   "Seed Bomb",
+   "Synthesis",
+   "Body Slam",
+   "Leech Seed",
+   "Curse",
+   "Mega Drain"
+  ]
+ },
+ "leafing": {
+  "egg": [
+   "Worry Seed",
+   "Grassy Terrain",
+   "Seed Bomb",
+   "Tickle",
+   "Amnesia",
+   "Magical Leaf",
+   "Leaf Storm",
+   "Body Slam",
+   "Double-Edge"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    9,
+    "Growth"
+   ],
+   [
+    15,
+    "Curse"
+   ]
+  ],
+  "tm_hm": [
+   "Light Screen",
+   "Safeguard",
+   "Reflect",
+   "Energy Ball",
+   "Endure",
+   "Swords Dance",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute"
+  ],
+  "tutor": [
+   "Curse",
+   "Leaf Storm",
+   "Leech Seed",
+   "Magical Leaf",
+   "Mega Drain",
+   "Seed Bomb",
+   "Synthesis",
+   "Night Slash"
+  ]
+ },
+ "leafsteel": {
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    5,
+    "Leafage"
+   ],
+   [
+    9,
+    "Growth"
+   ],
+   [
+    10,
+    "Fury Cutter"
+   ],
+   [
+    12,
+    "Razor Leaf"
+   ],
+   [
+    15,
+    "Curse"
+   ],
+   [
+    22,
+    "Iron Head"
+   ],
+   [
+    22,
+    "Bite"
+   ],
+   [
+    29,
+    "Mega Drain"
+   ],
+   [
+    34,
+    "Leech Seed"
+   ],
+   [
+    39,
+    "Iron Defense"
+   ],
+   [
+    39,
+    "Leaf Blade"
+   ]
+  ],
+  "tm_hm": [
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Giga Drain",
+   "Solar Beam",
+   "Iron Tail",
+   "Return",
+   "Brick Break",
+   "Double Team",
+   "Reflect",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Energy Ball",
+   "Endure",
+   "Shadow Claw",
+   "Gyro Ball",
+   "Swords Dance",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Flash Cannon",
+   "Cut",
+   "Strength",
+   "Rock Smash",
+   "Light Screen",
+   "Safeguard",
+   "Frustration",
+   "Flash"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Iron Head",
+   "Leaf Storm",
+   "Leech Seed",
+   "Magical Leaf",
+   "Metal Claw",
+   "Seed Bomb",
+   "Synthesis",
+   "Curse",
+   "Mega Drain",
+   "Night Slash"
+  ]
+ },
+ "limulk": {
+  "egg": [
+   "Power-Up Punch",
+   "Quick Guard",
+   "Cross Chop",
+   "Storm Throw",
+   "Superpower"
+  ],
+  "level_up": [
+   [
+    1,
+    "Focus Energy"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Low Kick"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    4,
+    "Arm Thrust"
+   ],
+   [
+    15,
+    "Detect"
+   ],
+   [
+    16,
+    "Low Sweep"
+   ],
+   [
+    24,
+    "Vital Throw"
+   ],
+   [
+    25,
+    "Bulk Up"
+   ],
+   [
+    28,
+    "Scary Face"
+   ],
+   [
+    31,
+    "Seismic Toss"
+   ],
+   [
+    36,
+    "Dynamic Punch"
+   ],
+   [
+    40,
+    "Close Combat"
+   ],
+   [
+    40,
+    "Reversal"
+   ],
+   [
+    48,
+    "Focus Punch"
+   ]
+  ],
+  "tm_hm": [
+   "Focus Punch",
+   "Bulk Up",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Drain Punch",
+   "Payback",
+   "Stone Edge",
+   "Rock Slide",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Low Sweep",
+   "Bulldoze",
+   "Coaching",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Close Combat",
+   "Counter",
+   "Fire Punch",
+   "Ice Punch",
+   "Power-Up Punch",
+   "Thunder Punch"
+  ]
+ },
+ "maagamad": {
+  "level_up": [
+   [
+    1,
+    "Ancient Power"
+   ],
+   [
+    1,
+    "Gust"
+   ],
+   [
+    1,
+    "Scary Face"
+   ],
+   [
+    1,
+    "Weather Ball"
+   ],
+   [
+    1,
+    "Whirlwind"
+   ],
+   [
+    18,
+    "Safeguard"
+   ],
+   [
+    22,
+    "Wing Attack"
+   ],
+   [
+    35,
+    "Drill Peck"
+   ],
+   [
+    35,
+    "Double Hit"
+   ],
+   [
+    36,
+    "Extrasensory"
+   ],
+   [
+    40,
+    "Crunch"
+   ],
+   [
+    45,
+    "Recover"
+   ],
+   [
+    54,
+    "Sky Attack"
+   ],
+   [
+    66,
+    "Hammer Arm"
+   ],
+   [
+    70,
+    "Hurricane"
+   ],
+   [
+    72,
+    "Brave Bird"
+   ],
+   [
+    85,
+    "Hyper Beam"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Double Team",
+   "Sludge Bomb",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Steel Wing",
+   "Roost",
+   "Endure",
+   "Giga Impact",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Venoshock",
+   "Dual Wingbeat",
+   "Fly",
+   "Surf"
+  ],
+  "tutor": [
+   "Sky Attack",
+   "Night Slash"
+  ]
+ },
+ "mcskiirtle": {
+  "level_up": [
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Smog"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    8,
+    "Protect"
+   ],
+   [
+    10,
+    "Withdraw"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    15,
+    "Flame Charge"
+   ],
+   [
+    15,
+    "Horn Attack"
+   ],
+   [
+    20,
+    "Fire Fang"
+   ],
+   [
+    20,
+    "Flame Wheel"
+   ],
+   [
+    20,
+    "Headbutt"
+   ],
+   [
+    21,
+    "Slash"
+   ],
+   [
+    28,
+    "Crunch"
+   ],
+   [
+    30,
+    "Scary Face"
+   ],
+   [
+    32,
+    "Body Slam"
+   ],
+   [
+    33,
+    "Iron Defense"
+   ],
+   [
+    35,
+    "Fire Spin"
+   ],
+   [
+    44,
+    "Curse"
+   ],
+   [
+    57,
+    "Double-Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Solar Beam",
+   "Iron Tail",
+   "Thunderbolt",
+   "Thunder",
+   "Earthquake",
+   "Return",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Overheat",
+   "Endure",
+   "Will-O-Wisp",
+   "Giga Impact",
+   "Stone Edge",
+   "Thunder Wave",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "Scorching Sands",
+   "Strength",
+   "Dig",
+   "Flame Charge"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Fire Fang",
+   "Flare Blitz",
+   "Heat Wave"
+  ]
+ },
+ "mooceon": {
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Noble Roar"
+   ],
+   [
+    1,
+    "Soak"
+   ],
+   [
+    1,
+    "Splash"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    1,
+    "Defense Curl"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    4,
+    "Tackle"
+   ],
+   [
+    5,
+    "Rollout"
+   ],
+   [
+    11,
+    "Mist"
+   ],
+   [
+    14,
+    "Water Pulse"
+   ],
+   [
+    16,
+    "Heavy Slam"
+   ],
+   [
+    17,
+    "Yawn"
+   ],
+   [
+    20,
+    "Whirlpool"
+   ],
+   [
+    20,
+    "Bubble Beam"
+   ],
+   [
+    25,
+    "Charm"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hail",
+   "Hidden Power",
+   "Sunny Day",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Double Team",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Brine",
+   "Endure",
+   "Giga Impact",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Bulldoze",
+   "Liquidation",
+   "Surf",
+   "Strength",
+   "Whirlpool",
+   "Rock Smash",
+   "Waterfall",
+   "Frustration",
+   "Iron Tail",
+   "Thief"
+  ],
+  "tutor": [
+   "Aqua Tail",
+   "Body Slam",
+   "Curse",
+   "Hyper Voice",
+   "Icy Wind",
+   "Weather Ball",
+   "Zen Headbutt"
+  ]
+ },
+ "moosus": {
+  "level_up": [
+   [
+    1,
+    "Gust"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    9,
+    "Horn Attack"
+   ],
+   [
+    12,
+    "Ancient Power"
+   ],
+   [
+    15,
+    "Stomp"
+   ],
+   [
+    25,
+    "Whirlwind"
+   ],
+   [
+    30,
+    "Taunt"
+   ],
+   [
+    33,
+    "Aurora Beam"
+   ],
+   [
+    35,
+    "Scary Face"
+   ],
+   [
+    36,
+    "Air Slash"
+   ],
+   [
+    48,
+    "Iron Defense"
+   ],
+   [
+    50,
+    "Roost"
+   ],
+   [
+    54,
+    "Thrash"
+   ],
+   [
+    60,
+    "Dazzling Gleam"
+   ],
+   [
+    65,
+    "Double-Edge"
+   ],
+   [
+    80,
+    "Sky Attack"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Return",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Draining Kiss",
+   "Play Rough",
+   "Fly",
+   "Stone Edge",
+   "Aurora Veil"
+  ],
+  "tutor": [
+   "Dazzling Gleam",
+   "Megahorn"
+  ]
+ },
+ "mortbulk": {
+  "level_up": [
+   [
+    1,
+    "Fake Out"
+   ],
+   [
+    1,
+    "Feint"
+   ],
+   [
+    1,
+    "Focus Energy"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Rock Smash"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Low Kick"
+   ],
+   [
+    9,
+    "Helping Hand"
+   ],
+   [
+    15,
+    "Detect"
+   ],
+   [
+    16,
+    "Revenge"
+   ],
+   [
+    20,
+    "Brick Break"
+   ],
+   [
+    21,
+    "Wide Guard"
+   ],
+   [
+    25,
+    "Bulk Up"
+   ],
+   [
+    28,
+    "Agility"
+   ],
+   [
+    38,
+    "Mega Kick"
+   ],
+   [
+    39,
+    "Close Combat"
+   ],
+   [
+    40,
+    "Counter"
+   ],
+   [
+    40,
+    "Reversal"
+   ],
+   [
+    42,
+    "Endure"
+   ]
+  ],
+  "tm_hm": [
+   "Focus Punch",
+   "Bulk Up",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Drain Punch",
+   "Payback",
+   "Giga Impact",
+   "Stone Edge",
+   "Rock Slide",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Low Sweep",
+   "Bulldoze",
+   "Coaching",
+   "Strength",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Close Combat",
+   "Counter",
+   "Thunder Punch",
+   "Fire Punch",
+   "Ice Punch",
+   "Power-Up Punch",
+   "High Jump Kick"
+  ]
+ },
+ "motinky": {
+  "level_up": [
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Mega Drain"
+   ],
+   [
+    1,
+    "Smog"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    6,
+    "Stun Spore"
+   ],
+   [
+    9,
+    "Growth"
+   ],
+   [
+    10,
+    "Razor Leaf"
+   ],
+   [
+    11,
+    "Howl"
+   ],
+   [
+    14,
+    "Incinerate"
+   ],
+   [
+    16,
+    "Encore"
+   ],
+   [
+    17,
+    "Poison Powder"
+   ],
+   [
+    18,
+    "Will-O-Wisp"
+   ],
+   [
+    19,
+    "Synthesis"
+   ],
+   [
+    20,
+    "Mimic"
+   ],
+   [
+    22,
+    "Flame Charge"
+   ],
+   [
+    22,
+    "Magical Leaf"
+   ],
+   [
+    25,
+    "Absorb"
+   ],
+   [
+    25,
+    "Sweet Scent"
+   ],
+   [
+    29,
+    "Smokescreen"
+   ],
+   [
+    33,
+    "Lava Plume"
+   ],
+   [
+    37,
+    "Inferno"
+   ],
+   [
+    41,
+    "Flamethrower"
+   ],
+   [
+    43,
+    "Imprison"
+   ],
+   [
+    49,
+    "Pain Split"
+   ],
+   [
+    55,
+    "Overheat"
+   ]
+  ],
+  "tm_hm": [
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Protect",
+   "Giga Drain",
+   "Safeguard",
+   "Solar Beam",
+   "Return",
+   "Psychic",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Overheat",
+   "Energy Ball",
+   "Endure",
+   "Will-O-Wisp",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Flame Charge",
+   "Mystical Fire",
+   "Flash",
+   "Swords Dance"
+  ],
+  "tutor": [
+   "Curse",
+   "Fire Punch",
+   "Flare Blitz",
+   "Heat Wave",
+   "Leaf Storm",
+   "Magical Leaf",
+   "Seed Bomb",
+   "Leech Seed",
+   "Mega Drain",
+   "Synthesis"
+  ]
+ },
+ "nuclobyl": {
+  "level_up": [
+   [
+    1,
+    "Acid"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    1,
+    "Tri Attack"
+   ],
+   [
+    1,
+    "Poison Gas"
+   ],
+   [
+    1,
+    "Pound"
+   ],
+   [
+    6,
+    "Smog"
+   ],
+   [
+    9,
+    "Acid Spray"
+   ],
+   [
+    16,
+    "Sludge"
+   ],
+   [
+    19,
+    "Take Down"
+   ],
+   [
+    20,
+    "Flash Cannon"
+   ],
+   [
+    22,
+    "Metal Claw"
+   ],
+   [
+    23,
+    "Toxic Spikes"
+   ],
+   [
+    25,
+    "Iron Defense"
+   ],
+   [
+    27,
+    "Venoshock"
+   ],
+   [
+    27,
+    "Screech"
+   ],
+   [
+    40,
+    "Sludge Wave"
+   ],
+   [
+    42,
+    "Gunk Shot"
+   ],
+   [
+    42,
+    "Toxic"
+   ],
+   [
+    44,
+    "Withdraw"
+   ],
+   [
+    46,
+    "Metal Sound"
+   ],
+   [
+    51,
+    "Sludge Bomb"
+   ],
+   [
+    58,
+    "Lock-On"
+   ],
+   [
+    63,
+    "Belch"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Double Team",
+   "Sludge Bomb",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Rock Slide",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Flash Cannon",
+   "Venoshock",
+   "Heavy Slam",
+   "Bulldoze",
+   "Thief",
+   "Payback",
+   "Gyro Ball"
+  ],
+  "tutor": [
+   "Iron Head"
+  ]
+ },
+ "nucloid": {
+  "egg": [
+   "Haze",
+   "Poison Tail",
+   "Curse"
+  ],
+  "level_up": [
+   [
+    1,
+    "Poison Gas"
+   ],
+   [
+    1,
+    "Pound"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    6,
+    "Acid"
+   ],
+   [
+    6,
+    "Smog"
+   ],
+   [
+    9,
+    "Acid Spray"
+   ],
+   [
+    23,
+    "Toxic Spikes"
+   ],
+   [
+    27,
+    "Screech"
+   ],
+   [
+    28,
+    "Flash Cannon"
+   ],
+   [
+    31,
+    "Venoshock"
+   ],
+   [
+    37,
+    "Take Down"
+   ],
+   [
+    41,
+    "Sludge Bomb"
+   ],
+   [
+    44,
+    "Toxic"
+   ],
+   [
+    47,
+    "Belch"
+   ],
+   [
+    53,
+    "Gunk Shot"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Double Team",
+   "Sludge Bomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "Payback",
+   "Gyro Ball",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Flash Cannon",
+   "Venoshock"
+  ]
+ },
+ "nukfae": {
+  "egg": [
+   "Curse",
+   "Haze",
+   "Gunk Shot"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Pound"
+   ],
+   [
+    1,
+    "Smog"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    3,
+    "Sweet Kiss"
+   ],
+   [
+    7,
+    "Acid"
+   ],
+   [
+    8,
+    "Clear Smog"
+   ],
+   [
+    8,
+    "Wrap"
+   ],
+   [
+    10,
+    "Sweet Scent"
+   ],
+   [
+    12,
+    "Draining Kiss"
+   ],
+   [
+    30,
+    "Charm"
+   ],
+   [
+    32,
+    "Sludge Wave"
+   ],
+   [
+    37,
+    "Play Rough"
+   ],
+   [
+    41,
+    "Toxic"
+   ],
+   [
+    44,
+    "Moonblast"
+   ],
+   [
+    45,
+    "Misty Terrain"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Return",
+   "Double Team",
+   "Sludge Bomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Venoshock",
+   "Draining Kiss",
+   "Play Rough"
+  ],
+  "tutor": [
+   "Dazzling Gleam"
+  ]
+ },
+ "obsidog": {
+  "egg": [
+   "Curse",
+   "Play Rough",
+   "Knock Off",
+   "Sucker Punch",
+   "Endeavor"
+  ],
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Scary Face"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    4,
+    "Lick"
+   ],
+   [
+    7,
+    "Snarl"
+   ],
+   [
+    9,
+    "Rock Throw"
+   ],
+   [
+    10,
+    "Hone Claws"
+   ],
+   [
+    14,
+    "Bite"
+   ],
+   [
+    14,
+    "Horn Attack"
+   ],
+   [
+    18,
+    "Roar"
+   ],
+   [
+    20,
+    "Slash"
+   ],
+   [
+    22,
+    "Headbutt"
+   ],
+   [
+    26,
+    "Payback"
+   ],
+   [
+    28,
+    "Rock Slide"
+   ],
+   [
+    31,
+    "Crunch"
+   ],
+   [
+    39,
+    "Reversal"
+   ],
+   [
+    43,
+    "Throat Chop"
+   ],
+   [
+    49,
+    "Double-Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Roar",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "Payback",
+   "Stone Edge",
+   "Stealth Rock",
+   "Dark Pulse",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Foul Play",
+   "Bulldoze",
+   "Meteor Beam"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Snarl"
+  ]
+ },
+ "obsidog-utvikling": {
+  "level_up": [
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Ice Fang"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    7,
+    "Snarl"
+   ],
+   [
+    9,
+    "Rock Throw"
+   ],
+   [
+    10,
+    "Hone Claws"
+   ],
+   [
+    12,
+    "Smack Down"
+   ],
+   [
+    14,
+    "Horn Attack"
+   ],
+   [
+    15,
+    "Protect"
+   ],
+   [
+    16,
+    "Ancient Power"
+   ],
+   [
+    16,
+    "Scary Face"
+   ],
+   [
+    18,
+    "Roar"
+   ],
+   [
+    21,
+    "Headbutt"
+   ],
+   [
+    24,
+    "Rock Slide"
+   ],
+   [
+    24,
+    "Slash"
+   ],
+   [
+    26,
+    "Payback"
+   ],
+   [
+    27,
+    "Iron Defense"
+   ],
+   [
+    33,
+    "Crunch"
+   ],
+   [
+    48,
+    "Stone Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Giga Impact",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Dark Pulse",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Foul Play",
+   "Bulldoze",
+   "Meteor Beam",
+   "Roar",
+   "Poison Jab",
+   "Toxic",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Body Slam",
+   "Earth Power",
+   "Snarl"
+  ]
+ },
+ "octopearl": {
+  "level_up": [
+   [
+    1,
+    "Confusion"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Pound"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    1,
+    "Withdraw"
+   ],
+   [
+    7,
+    "Protect"
+   ],
+   [
+    12,
+    "Aqua Ring"
+   ],
+   [
+    14,
+    "Psybeam"
+   ],
+   [
+    15,
+    "Bubble Beam"
+   ],
+   [
+    17,
+    "Bite"
+   ],
+   [
+    18,
+    "Water Pulse"
+   ],
+   [
+    20,
+    "Hypnosis"
+   ],
+   [
+    20,
+    "Wrap"
+   ],
+   [
+    21,
+    "Headbutt"
+   ],
+   [
+    24,
+    "Zen Headbutt"
+   ],
+   [
+    30,
+    "Hydro Pump"
+   ],
+   [
+    35,
+    "Iron Defense"
+   ],
+   [
+    40,
+    "Psychic"
+   ],
+   [
+    41,
+    "Rain Dance"
+   ],
+   [
+    56,
+    "Future Sight"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Calm Mind",
+   "Hail",
+   "Hidden Power",
+   "Sunny Day",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Skill Swap",
+   "Energy Ball",
+   "Brine",
+   "Fling",
+   "Endure",
+   "Giga Impact",
+   "Thunder Wave",
+   "Psych Up",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Scald",
+   "Liquidation",
+   "Expanding Force",
+   "Surf",
+   "Whirlpool",
+   "Waterfall",
+   "Rock Tomb",
+   "Strength",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Aqua Tail",
+   "Icy Wind",
+   "Zen Headbutt",
+   "Aqua Jet",
+   "Body Slam"
+  ]
+ },
+ "oraclaw": {
+  "level_up": [
+   [
+    1,
+    "Air Slash"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Peck"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tailwind"
+   ],
+   [
+    1,
+    "Teleport"
+   ],
+   [
+    5,
+    "Confusion"
+   ],
+   [
+    6,
+    "Imprison"
+   ],
+   [
+    10,
+    "Withdraw"
+   ],
+   [
+    16,
+    "Charm"
+   ],
+   [
+    18,
+    "Psybeam"
+   ],
+   [
+    21,
+    "Slash"
+   ],
+   [
+    22,
+    "Reflect"
+   ],
+   [
+    24,
+    "Confuse Ray"
+   ],
+   [
+    25,
+    "Recover"
+   ],
+   [
+    27,
+    "Headbutt"
+   ],
+   [
+    28,
+    "Psycho Shift"
+   ],
+   [
+    31,
+    "Psyshock"
+   ],
+   [
+    42,
+    "Wing Attack"
+   ],
+   [
+    46,
+    "Take Down"
+   ],
+   [
+    50,
+    "Psychic"
+   ],
+   [
+    51,
+    "Uproar"
+   ],
+   [
+    56,
+    "Roost"
+   ],
+   [
+    66,
+    "Hypnosis"
+   ],
+   [
+    68,
+    "Future Sight"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Steel Wing",
+   "Skill Swap",
+   "Roost",
+   "Energy Ball",
+   "Endure",
+   "Giga Impact",
+   "Flash",
+   "Thunder Wave",
+   "Psych Up",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Pluck",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Expanding Force",
+   "Dual Wingbeat",
+   "Fly",
+   "Rock Tomb",
+   "Rock Slide"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Hurricane",
+   "Sky Attack",
+   "Zen Headbutt"
+  ]
+ },
+ "oraclet": {
+  "egg": [
+   "Astonish",
+   "Mirror Coat",
+   "Zen Headbutt",
+   "Disable"
+  ],
+  "level_up": [
+   [
+    1,
+    "Confusion"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    3,
+    "Peck"
+   ],
+   [
+    6,
+    "Imprison"
+   ],
+   [
+    10,
+    "Withdraw"
+   ],
+   [
+    11,
+    "Teleport"
+   ],
+   [
+    16,
+    "Charm"
+   ],
+   [
+    16,
+    "Psybeam"
+   ],
+   [
+    21,
+    "Slash"
+   ],
+   [
+    24,
+    "Reflect"
+   ],
+   [
+    24,
+    "Confuse Ray"
+   ],
+   [
+    25,
+    "Recover"
+   ],
+   [
+    27,
+    "Headbutt"
+   ],
+   [
+    30,
+    "Psyshock"
+   ],
+   [
+    41,
+    "Calm Mind"
+   ],
+   [
+    46,
+    "Psychic"
+   ],
+   [
+    50,
+    "Future Sight"
+   ],
+   [
+    52,
+    "Wonder Room"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Reflect",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Skill Swap",
+   "Energy Ball",
+   "Endure",
+   "Thunder Wave",
+   "Rock Slide",
+   "Sleep Talk",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Expanding Force"
+  ],
+  "tutor": [
+   "Zen Headbutt"
+  ]
+ },
+ "panzerien": {
+  "level_up": [
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Metal Claw"
+   ],
+   [
+    1,
+    "Protect"
+   ],
+   [
+    1,
+    "Sand Attack"
+   ],
+   [
+    1,
+    "Sand Tomb"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Absorb"
+   ],
+   [
+    3,
+    "Water Gun"
+   ],
+   [
+    4,
+    "Withdraw"
+   ],
+   [
+    6,
+    "Razor Leaf"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    12,
+    "Mega Drain"
+   ],
+   [
+    12,
+    "Mud Shot"
+   ],
+   [
+    15,
+    "Take Down"
+   ],
+   [
+    19,
+    "Mud-Slap"
+   ],
+   [
+    20,
+    "Rollout"
+   ],
+   [
+    22,
+    "Bulldoze"
+   ],
+   [
+    22,
+    "Flash Cannon"
+   ],
+   [
+    24,
+    "Synthesis"
+   ],
+   [
+    28,
+    "Earth Power"
+   ],
+   [
+    28,
+    "Iron Defense"
+   ],
+   [
+    28,
+    "Horn Leech"
+   ],
+   [
+    30,
+    "Razor Shell"
+   ],
+   [
+    32,
+    "Heavy Slam"
+   ],
+   [
+    35,
+    "Metal Sound"
+   ],
+   [
+    35,
+    "Sandstorm"
+   ],
+   [
+    36,
+    "Iron Tail"
+   ],
+   [
+    42,
+    "Dig"
+   ],
+   [
+    50,
+    "Skull Bash"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Iron Tail",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Stone Edge",
+   "Gyro Ball",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flash Cannon",
+   "Heavy Slam",
+   "Bulldoze",
+   "High Horsepower",
+   "Body Press",
+   "Strength",
+   "Rock Smash",
+   "Water Pulse",
+   "Hail",
+   "Bullet Seed",
+   "Ice Beam",
+   "Blizzard",
+   "Giga Drain",
+   "Solar Beam",
+   "Energy Ball",
+   "Brine",
+   "Grass Knot",
+   "Scald",
+   "Surf",
+   "Whirlpool",
+   "Waterfall"
+  ],
+  "tutor": [
+   "Earth Power",
+   "Iron Head",
+   "Aqua Tail",
+   "Icy Wind",
+   "Leaf Storm",
+   "Magical Leaf",
+   "Mega Drain",
+   "Seed Bomb",
+   "Synthesis",
+   "Yawn"
+  ]
+ },
+ "parahaunt": {
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Confuse Ray"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Magical Leaf"
+   ],
+   [
+    1,
+    "Mystical Fire"
+   ],
+   [
+    1,
+    "Phantom Force"
+   ],
+   [
+    1,
+    "Power Gem"
+   ],
+   [
+    1,
+    "Spite"
+   ],
+   [
+    1,
+    "Lick"
+   ],
+   [
+    1,
+    "Smog"
+   ],
+   [
+    12,
+    "Payback"
+   ],
+   [
+    12,
+    "Shadow Sneak"
+   ],
+   [
+    12,
+    "Smokescreen"
+   ],
+   [
+    20,
+    "Curse"
+   ],
+   [
+    23,
+    "Hex"
+   ],
+   [
+    30,
+    "Night Shade"
+   ],
+   [
+    36,
+    "Sucker Punch"
+   ],
+   [
+    42,
+    "Shadow Ball"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Torment",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Skill Swap",
+   "Energy Ball",
+   "Endure",
+   "Will-O-Wisp",
+   "Shadow Claw",
+   "Payback",
+   "Giga Impact",
+   "Psych Up",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Foul Play",
+   "Giga Drain"
+  ],
+  "tutor": [
+   "Curse",
+   "Icy Wind",
+   "Poltergeist"
+  ]
+ },
+ "phantomb": {
+  "egg": [
+   "Sky Attack",
+   "Brave Bird",
+   "Shadow Sneak",
+   "Feather Dance",
+   "Disable",
+   "Hurricane"
+  ],
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    4,
+    "Leer"
+   ],
+   [
+    11,
+    "Quick Attack"
+   ],
+   [
+    15,
+    "Confuse Ray"
+   ],
+   [
+    24,
+    "Acrobatics"
+   ],
+   [
+    30,
+    "Gust"
+   ],
+   [
+    35,
+    "Air Cutter"
+   ],
+   [
+    43,
+    "Hex"
+   ],
+   [
+    49,
+    "Shadow Ball"
+   ],
+   [
+    59,
+    "Wing Attack"
+   ],
+   [
+    67,
+    "Air Slash"
+   ],
+   [
+    69,
+    "Agility"
+   ],
+   [
+    74,
+    "Roost"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Roost",
+   "Endure",
+   "Sleep Talk",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Fly"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Brave Bird",
+   "Poltergeist",
+   "Sky Attack"
+  ]
+ },
+ "pipwi": {
+  "egg": [
+   "Worry Seed",
+   "Magical Leaf",
+   "Leaf Storm",
+   "Grassy Terrain",
+   "Nature Power",
+   "Tickle",
+   "Petal Blizzard"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leafage"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    3,
+    "Peck"
+   ],
+   [
+    5,
+    "Absorb"
+   ],
+   [
+    13,
+    "Razor Leaf"
+   ],
+   [
+    14,
+    "Bite"
+   ],
+   [
+    16,
+    "Leech Seed"
+   ],
+   [
+    18,
+    "Growth"
+   ],
+   [
+    18,
+    "Slash"
+   ],
+   [
+    25,
+    "Mega Drain"
+   ],
+   [
+    29,
+    "Seed Bomb"
+   ],
+   [
+    50,
+    "Endeavor"
+   ],
+   [
+    52,
+    "Power Whip"
+   ]
+  ],
+  "tm_hm": [
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Giga Drain",
+   "Solar Beam",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Energy Ball",
+   "Endure",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute"
+  ],
+  "tutor": [
+   "Leaf Storm",
+   "Leech Seed",
+   "Magical Leaf",
+   "Mega Drain",
+   "Seed Bomb",
+   "Synthesis"
+  ]
+ },
+ "pipwi-utv": {
+  "level_up": [
+   [
+    1,
+    "Dual Wingbeat"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Peck"
+   ],
+   [
+    1,
+    "Sand Attack"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Leafage"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    10,
+    "Razor Leaf"
+   ],
+   [
+    13,
+    "Bullet Seed"
+   ],
+   [
+    14,
+    "Bite"
+   ],
+   [
+    15,
+    "Air Cutter"
+   ],
+   [
+    15,
+    "Wing Attack"
+   ],
+   [
+    16,
+    "Leech Seed"
+   ],
+   [
+    17,
+    "Pluck"
+   ],
+   [
+    18,
+    "Growth"
+   ],
+   [
+    18,
+    "Slash"
+   ],
+   [
+    21,
+    "Acrobatics"
+   ],
+   [
+    22,
+    "Aerial Ace"
+   ],
+   [
+    25,
+    "Mega Drain"
+   ],
+   [
+    29,
+    "Seed Bomb"
+   ],
+   [
+    34,
+    "Absorb"
+   ],
+   [
+    35,
+    "Bounce"
+   ],
+   [
+    36,
+    "Agility"
+   ],
+   [
+    40,
+    "Swords Dance"
+   ],
+   [
+    55,
+    "Brave Bird"
+   ]
+  ],
+  "tm_hm": [
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Giga Drain",
+   "Solar Beam",
+   "Return",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Steel Wing",
+   "Roost",
+   "Energy Ball",
+   "Endure",
+   "Giga Impact",
+   "Swords Dance",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Pluck",
+   "U-turn",
+   "Substitute",
+   "Dual Wingbeat",
+   "Fly"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Brave Bird",
+   "Leaf Storm",
+   "Magical Leaf",
+   "Seed Bomb",
+   "Sky Attack",
+   "Leech Seed",
+   "Mega Drain",
+   "Synthesis"
+  ]
+ },
+ "rainbro": {
+  "level_up": [
+   [
+    1,
+    "Aqua Jet"
+   ],
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Poison Sting"
+   ],
+   [
+    1,
+    "Power Trip"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    1,
+    "Thunder Wave"
+   ],
+   [
+    4,
+    "Helping Hand"
+   ],
+   [
+    10,
+    "Encore"
+   ],
+   [
+    16,
+    "Vine Whip"
+   ],
+   [
+    20,
+    "Spark"
+   ],
+   [
+    25,
+    "Charm"
+   ],
+   [
+    28,
+    "Charge"
+   ],
+   [
+    34,
+    "Icicle Crash"
+   ],
+   [
+    36,
+    "Agility"
+   ],
+   [
+    36,
+    "Rollout"
+   ],
+   [
+    40,
+    "Nasty Plot"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "Giga Impact",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute"
+  ]
+ },
+ "razox": {
+  "level_up": [
+   [
+    1,
+    "Charm"
+   ],
+   [
+    1,
+    "Disarming Voice"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Ice Shard"
+   ],
+   [
+    1,
+    "Sweet Kiss"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    6,
+    "Helping Hand"
+   ],
+   [
+    10,
+    "Stomp"
+   ],
+   [
+    13,
+    "Encore"
+   ],
+   [
+    15,
+    "Draining Kiss"
+   ],
+   [
+    15,
+    "Icy Wind"
+   ],
+   [
+    19,
+    "Moonlight"
+   ],
+   [
+    21,
+    "Horn Attack"
+   ],
+   [
+    23,
+    "Safeguard"
+   ],
+   [
+    33,
+    "Dazzling Gleam"
+   ],
+   [
+    35,
+    "Misty Terrain"
+   ],
+   [
+    39,
+    "Play Rough"
+   ],
+   [
+    40,
+    "Light Screen"
+   ],
+   [
+    42,
+    "Moonblast"
+   ],
+   [
+    45,
+    "Blizzard"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hail",
+   "Hidden Power",
+   "Sunny Day",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Solar Beam",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Avalanche",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Draining Kiss",
+   "Play Rough"
+  ],
+  "tutor": [
+   "Charm",
+   "Dazzling Gleam",
+   "Icy Wind",
+   "Moonblast"
+  ]
+ },
+ "rockedeer": {
+  "level_up": [
+   [
+    1,
+    "Confusion"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    5,
+    "Helping Hand"
+   ],
+   [
+    21,
+    "Psybeam"
+   ],
+   [
+    25,
+    "Agility"
+   ],
+   [
+    25,
+    "Lava Plume"
+   ],
+   [
+    28,
+    "Imprison"
+   ],
+   [
+    35,
+    "Extrasensory"
+   ],
+   [
+    40,
+    "Zen Headbutt"
+   ],
+   [
+    42,
+    "Nasty Plot"
+   ],
+   [
+    45,
+    "Psycho Cut"
+   ],
+   [
+    49,
+    "Psychic"
+   ],
+   [
+    56,
+    "Uproar"
+   ],
+   [
+    60,
+    "Recover"
+   ],
+   [
+    63,
+    "Future Sight"
+   ],
+   [
+    75,
+    "Psycho Shift"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Solar Beam",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Flamethrower",
+   "Fire Blast",
+   "Facade",
+   "Rest",
+   "Skill Swap",
+   "Overheat",
+   "Energy Ball",
+   "Fling",
+   "Endure",
+   "Will-O-Wisp",
+   "Giga Impact",
+   "Flash",
+   "Thunder Wave",
+   "Psych Up",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Mystical Fire",
+   "Expanding Force",
+   "Flame Charge"
+  ],
+  "tutor": [
+   "Flare Blitz",
+   "Heat Wave",
+   "Zen Headbutt"
+  ]
+ },
+ "roku": {
+  "level_up": [
+   [
+    1,
+    "Confusion"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Hypnosis"
+   ],
+   [
+    1,
+    "Mud-Slap"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Teleport"
+   ],
+   [
+    6,
+    "Rapid Spin"
+   ],
+   [
+    9,
+    "Yawn"
+   ],
+   [
+    12,
+    "Imprison"
+   ],
+   [
+    15,
+    "Psycho Cut"
+   ],
+   [
+    27,
+    "Amnesia"
+   ],
+   [
+    27,
+    "Zen Headbutt"
+   ],
+   [
+    35,
+    "Iron Defense"
+   ],
+   [
+    36,
+    "Extrasensory"
+   ],
+   [
+    40,
+    "Earthquake"
+   ],
+   [
+    43,
+    "Sandstorm"
+   ],
+   [
+    48,
+    "Future Sight"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Skill Swap",
+   "Endure",
+   "Giga Impact",
+   "Stone Edge",
+   "Stealth Rock",
+   "Psych Up",
+   "Rock Slide",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Bulldoze",
+   "High Horsepower",
+   "Expanding Force",
+   "Scorching Sands",
+   "Strength",
+   "Rock Smash",
+   "Gyro Ball"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Earth Power",
+   "Zen Headbutt"
+  ]
+ },
+ "sabertann": {
+  "level_up": [
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    5,
+    "Leer"
+   ],
+   [
+    6,
+    "Bite"
+   ],
+   [
+    10,
+    "Knock Off"
+   ],
+   [
+    10,
+    "Payback"
+   ],
+   [
+    10,
+    "Withdraw"
+   ],
+   [
+    15,
+    "Stomp"
+   ],
+   [
+    20,
+    "Razor Shell"
+   ],
+   [
+    20,
+    "Taunt"
+   ],
+   [
+    22,
+    "Ice Fang"
+   ],
+   [
+    30,
+    "Crunch"
+   ],
+   [
+    30,
+    "Scary Face"
+   ],
+   [
+    35,
+    "Night Slash"
+   ],
+   [
+    40,
+    "Throat Chop"
+   ],
+   [
+    49,
+    "Sucker Punch"
+   ],
+   [
+    55,
+    "Foul Play"
+   ],
+   [
+    56,
+    "Swords Dance"
+   ],
+   [
+    65,
+    "Thrash"
+   ],
+   [
+    70,
+    "Giga Impact"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Brick Break",
+   "Double Team",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Thief",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Giga Impact",
+   "Dark Pulse",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Foul Play",
+   "Scald",
+   "Bulldoze",
+   "Brutal Swing",
+   "Liquidation",
+   "Surf",
+   "Whirlpool",
+   "Waterfall"
+  ],
+  "tutor": [
+   "Snarl"
+  ]
+ },
+ "sandrema": {
+  "level_up": [
+   [
+    1,
+    "Disarming Voice"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Sand Attack"
+   ],
+   [
+    10,
+    "Fairy Wind"
+   ],
+   [
+    15,
+    "Mud Shot"
+   ],
+   [
+    20,
+    "Dig"
+   ],
+   [
+    20,
+    "Draining Kiss"
+   ],
+   [
+    24,
+    "Sand Tomb"
+   ],
+   [
+    25,
+    "Iron Defense"
+   ],
+   [
+    25,
+    "Swords Dance"
+   ],
+   [
+    40,
+    "Dazzling Gleam"
+   ],
+   [
+    45,
+    "Stomping Tantrum"
+   ],
+   [
+    54,
+    "High Horsepower"
+   ],
+   [
+    65,
+    "Earthquake"
+   ],
+   [
+    65,
+    "Moonblast"
+   ],
+   [
+    85,
+    "Giga Impact"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Psychic",
+   "Reflect",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Endure",
+   "Giga Impact",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Grass Knot",
+   "Substitute",
+   "Bulldoze",
+   "Draining Kiss",
+   "Play Rough",
+   "High Horsepower"
+  ],
+  "tutor": [
+   "Dazzling Gleam",
+   "Earth Power"
+  ]
+ },
+ "santrock": {
+  "egg": [
+   "Curse",
+   "Head Smash",
+   "Screech",
+   "Reversal",
+   "Body Slam",
+   "Stomp",
+   "Iron Head",
+   "Heat Wave",
+   "Endeavor"
+  ],
+  "level_up": [
+   [
+    1,
+    "Harden"
+   ],
+   [
+    6,
+    "Bite"
+   ],
+   [
+    8,
+    "Rock Tomb"
+   ],
+   [
+    12,
+    "Roar"
+   ],
+   [
+    16,
+    "Headbutt"
+   ],
+   [
+    20,
+    "Protect"
+   ],
+   [
+    24,
+    "Rock Slide"
+   ],
+   [
+    28,
+    "Stone Edge"
+   ],
+   [
+    36,
+    "Take Down"
+   ],
+   [
+    44,
+    "Flame Wheel"
+   ],
+   [
+    48,
+    "Iron Defense"
+   ],
+   [
+    52,
+    "Rock Blast"
+   ],
+   [
+    56,
+    "Double-Edge"
+   ],
+   [
+    60,
+    "Fire Spin"
+   ]
+  ],
+  "tm_hm": [
+   "Roar",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Iron Tail",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Flamethrower",
+   "Sandstorm",
+   "Fire Blast",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Overheat",
+   "Endure",
+   "Will-O-Wisp",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flame Charge",
+   "Bulldoze",
+   "Meteor Beam",
+   "Strength",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Curse",
+   "Earth Power",
+   "Endeavor",
+   "Flare Blitz",
+   "Heat Wave",
+   "Iron Head"
+  ]
+ },
+ "saucerl": {
+  "egg": [
+   "Mirror Coat",
+   "Flail"
+  ],
+  "level_up": [
+   [
+    1,
+    "Confusion"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    4,
+    "Water Gun"
+   ],
+   [
+    8,
+    "Withdraw"
+   ],
+   [
+    12,
+    "Aqua Ring"
+   ],
+   [
+    14,
+    "Psybeam"
+   ],
+   [
+    17,
+    "Bite"
+   ],
+   [
+    22,
+    "Water Pulse"
+   ],
+   [
+    25,
+    "Protect"
+   ],
+   [
+    28,
+    "Rain Dance"
+   ],
+   [
+    31,
+    "Muddy Water"
+   ],
+   [
+    37,
+    "Iron Defense"
+   ],
+   [
+    39,
+    "Psychic"
+   ],
+   [
+    40,
+    "Hydro Pump"
+   ],
+   [
+    46,
+    "Future Sight"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Calm Mind",
+   "Hail",
+   "Hidden Power",
+   "Sunny Day",
+   "Ice Beam",
+   "Blizzard",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Skill Swap",
+   "Brine",
+   "Endure",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Scald",
+   "Expanding Force",
+   "Surf",
+   "Whirlpool",
+   "Waterfall"
+  ],
+  "tutor": [
+   "Aqua Tail",
+   "Icy Wind",
+   "Zen Headbutt"
+  ]
+ },
+ "seraphinnen": {
+  "level_up": [
+   [
+    1,
+    "Air Slash"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Gust"
+   ],
+   [
+    1,
+    "Supersonic"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Wish"
+   ],
+   [
+    10,
+    "Quick Attack"
+   ],
+   [
+    11,
+    "Air Cutter"
+   ],
+   [
+    12,
+    "Wing Attack"
+   ],
+   [
+    14,
+    "Dual Wingbeat"
+   ],
+   [
+    16,
+    "Aerial Ace"
+   ],
+   [
+    19,
+    "Safeguard"
+   ],
+   [
+    19,
+    "Whirlwind"
+   ],
+   [
+    30,
+    "Screech"
+   ],
+   [
+    34,
+    "Roost"
+   ],
+   [
+    41,
+    "Tailwind"
+   ],
+   [
+    42,
+    "Sky Attack"
+   ],
+   [
+    46,
+    "Hurricane"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Psychic",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Steel Wing",
+   "Roost",
+   "Endure",
+   "Giga Impact",
+   "Sleep Talk",
+   "Swagger",
+   "Pluck",
+   "U-turn",
+   "Substitute",
+   "Dual Wingbeat",
+   "Fly"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Hurricane",
+   "Sky Attack",
+   "Brave Bird",
+   "Heat Wave"
+  ]
+ },
+ "shadeem": {
+  "egg": [
+   "Flail",
+   "Double-Edge",
+   "Uproar",
+   "Thrash",
+   "Counter",
+   "Endeavor"
+  ],
+  "level_up": [
+   [
+    1,
+    "Double Hit"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    8,
+    "Hone Claws"
+   ],
+   [
+    12,
+    "Fury Swipes"
+   ],
+   [
+    15,
+    "Assurance"
+   ],
+   [
+    16,
+    "Bite"
+   ],
+   [
+    16,
+    "Scary Face"
+   ],
+   [
+    20,
+    "Taunt"
+   ],
+   [
+    20,
+    "Slash"
+   ],
+   [
+    28,
+    "Take Down"
+   ],
+   [
+    32,
+    "Agility"
+   ],
+   [
+    34,
+    "Crunch"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Iron Tail",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Torment",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Foul Play",
+   "Shadow Claw"
+  ],
+  "tutor": [
+   "Endeavor",
+   "Hyper Voice",
+   "Snarl"
+  ]
+ },
+ "shadrove": {
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Night Slash"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Sand Attack"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Double Hit"
+   ],
+   [
+    8,
+    "Hone Claws"
+   ],
+   [
+    16,
+    "Bite"
+   ],
+   [
+    16,
+    "Scary Face"
+   ],
+   [
+    18,
+    "Fury Swipes"
+   ],
+   [
+    19,
+    "Assurance"
+   ],
+   [
+    20,
+    "Taunt"
+   ],
+   [
+    24,
+    "Slash"
+   ],
+   [
+    25,
+    "Screech"
+   ],
+   [
+    28,
+    "Take Down"
+   ],
+   [
+    32,
+    "Agility"
+   ],
+   [
+    34,
+    "Crunch"
+   ],
+   [
+    34,
+    "Sucker Punch"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Return",
+   "Dig",
+   "Shadow Ball",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Giga Impact",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Foul Play",
+   "Strength",
+   "Iron Tail",
+   "Torment",
+   "U-turn",
+   "Shadow Claw"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Hyper Voice",
+   "Snarl",
+   "Endeavor"
+  ]
+ },
+ "sigmanian-komala": {
+  "egg": [
+   "Uproar",
+   "Stomp",
+   "Endeavor",
+   "Fake Out",
+   "Quick Attack"
+  ],
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    5,
+    "Baby-Doll Eyes"
+   ],
+   [
+    8,
+    "Fury Swipes"
+   ],
+   [
+    9,
+    "Bite"
+   ],
+   [
+    12,
+    "Covet"
+   ],
+   [
+    20,
+    "Work Up"
+   ],
+   [
+    28,
+    "Headbutt"
+   ],
+   [
+    31,
+    "Slash"
+   ],
+   [
+    31,
+    "Take Down"
+   ],
+   [
+    33,
+    "Crunch"
+   ],
+   [
+    40,
+    "Double-Edge"
+   ],
+   [
+    45,
+    "Rest"
+   ],
+   [
+    52,
+    "Thrash"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Fling",
+   "Endure",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Toxic"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Hyper Voice",
+   "Yawn"
+  ]
+ },
+ "sigmanian-sudowoodo": {
+  "egg": [
+   "Ancient Power",
+   "Curse",
+   "Mud-Slap",
+   "Mud Shot"
+  ],
+  "level_up": [
+   [
+    1,
+    "Defense Curl"
+   ],
+   [
+    1,
+    "Rock Throw"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    6,
+    "Harden"
+   ],
+   [
+    6,
+    "Rock Polish"
+   ],
+   [
+    10,
+    "Rollout"
+   ],
+   [
+    12,
+    "Mimic"
+   ],
+   [
+    16,
+    "Smack Down"
+   ],
+   [
+    20,
+    "Rock Tomb"
+   ],
+   [
+    22,
+    "Bulldoze"
+   ],
+   [
+    24,
+    "Sandstorm"
+   ],
+   [
+    24,
+    "Spikes"
+   ],
+   [
+    30,
+    "Stealth Rock"
+   ],
+   [
+    32,
+    "Rock Slide"
+   ],
+   [
+    34,
+    "Rock Blast"
+   ],
+   [
+    40,
+    "Earthquake"
+   ],
+   [
+    40,
+    "Wood Hammer"
+   ],
+   [
+    50,
+    "Double-Edge"
+   ],
+   [
+    50,
+    "Stone Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Fling",
+   "Endure",
+   "Giga Impact",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "High Horsepower",
+   "Body Press",
+   "Meteor Beam",
+   "Strength",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Body Slam",
+   "Curse",
+   "Earth Power"
+  ]
+ },
+ "sigmauler": {
+  "level_up": [
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Rock Throw"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    5,
+    "Rollout"
+   ],
+   [
+    6,
+    "Sandstorm"
+   ],
+   [
+    13,
+    "Rock Polish"
+   ],
+   [
+    18,
+    "Smack Down"
+   ],
+   [
+    20,
+    "Rock Tomb"
+   ],
+   [
+    20,
+    "Power Gem"
+   ],
+   [
+    24,
+    "Slam"
+   ],
+   [
+    30,
+    "Rock Blast"
+   ],
+   [
+    30,
+    "Iron Defense"
+   ],
+   [
+    32,
+    "Rock Slide"
+   ],
+   [
+    36,
+    "Dynamic Punch"
+   ],
+   [
+    36,
+    "Low Kick"
+   ],
+   [
+    38,
+    "Stealth Rock"
+   ],
+   [
+    44,
+    "Double-Edge"
+   ],
+   [
+    48,
+    "Head Smash"
+   ],
+   [
+    48,
+    "Stone Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Focus Punch",
+   "Bulk Up",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Drain Punch",
+   "Giga Impact",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Low Sweep",
+   "Bulldoze",
+   "Body Press",
+   "Meteor Beam",
+   "Strength",
+   "Rock Smash",
+   "Heavy Slam"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Close Combat",
+   "Curse",
+   "Earth Power",
+   "Fire Punch",
+   "Thunder Punch",
+   "Ancient Power"
+  ]
+ },
+ "sjef": {
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Gust"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    15,
+    "Confuse Ray"
+   ],
+   [
+    24,
+    "Hex"
+   ],
+   [
+    24,
+    "Acrobatics"
+   ],
+   [
+    33,
+    "Wing Attack"
+   ],
+   [
+    35,
+    "Air Slash"
+   ],
+   [
+    35,
+    "Air Cutter"
+   ],
+   [
+    42,
+    "Bite"
+   ],
+   [
+    46,
+    "Aerial Ace"
+   ],
+   [
+    48,
+    "Shadow Ball"
+   ],
+   [
+    59,
+    "Agility"
+   ],
+   [
+    59,
+    "Roost"
+   ],
+   [
+    81,
+    "Shadow Punch"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Steel Wing",
+   "Roost",
+   "Endure",
+   "Will-O-Wisp",
+   "Shadow Claw",
+   "Payback",
+   "Giga Impact",
+   "Sleep Talk",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Dual Wingbeat",
+   "Fly"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Poltergeist",
+   "Sky Attack",
+   "Brave Bird"
+  ]
+ },
+ "skiirtle": {
+  "egg": [
+   "Heat Wave",
+   "Yawn"
+  ],
+  "level_up": [
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    10,
+    "Bite"
+   ],
+   [
+    10,
+    "Withdraw"
+   ],
+   [
+    15,
+    "Flame Charge"
+   ],
+   [
+    15,
+    "Horn Attack"
+   ],
+   [
+    16,
+    "Fire Fang"
+   ],
+   [
+    18,
+    "Protect"
+   ],
+   [
+    21,
+    "Slash"
+   ],
+   [
+    24,
+    "Headbutt"
+   ],
+   [
+    25,
+    "Flame Wheel"
+   ],
+   [
+    35,
+    "Fire Spin"
+   ],
+   [
+    36,
+    "Take Down"
+   ],
+   [
+    43,
+    "Flare Blitz"
+   ],
+   [
+    46,
+    "Fire Lash"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Iron Tail",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Overheat",
+   "Endure",
+   "Will-O-Wisp",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flame Charge"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Flare Blitz",
+   "Heat Wave"
+  ]
+ },
+ "slamquake": {
+  "egg": [
+   "Curse",
+   "Guard Swap",
+   "Night Slash",
+   "Whirlwind",
+   "Feint"
+  ],
+  "level_up": [
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Metal Claw"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    4,
+    "Sand Attack"
+   ],
+   [
+    6,
+    "Ember"
+   ],
+   [
+    16,
+    "Bulldoze"
+   ],
+   [
+    24,
+    "Slash"
+   ],
+   [
+    26,
+    "Take Down"
+   ],
+   [
+    31,
+    "Dig"
+   ],
+   [
+    32,
+    "Autotomize"
+   ],
+   [
+    34,
+    "Iron Head"
+   ],
+   [
+    35,
+    "Metal Sound"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Iron Tail",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Stone Edge",
+   "Gyro Ball",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flash Cannon",
+   "Heavy Slam",
+   "Bulldoze",
+   "High Horsepower",
+   "Body Press",
+   "Strength",
+   "Rock Smash",
+   "Flame Charge"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Curse",
+   "Earth Power",
+   "Iron Head",
+   "Metal Claw"
+  ]
+ },
+ "slothbaby": {
+  "egg": [
+   "Heat Wave",
+   "Thrash",
+   "Burn Up",
+   "Yawn",
+   "Low Kick"
+  ],
+  "level_up": [
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    9,
+    "Bite"
+   ],
+   [
+    12,
+    "Double Kick"
+   ],
+   [
+    14,
+    "Fire Fang"
+   ],
+   [
+    15,
+    "Snore"
+   ],
+   [
+    20,
+    "Flame Charge"
+   ],
+   [
+    21,
+    "Flame Wheel"
+   ],
+   [
+    25,
+    "Slash"
+   ],
+   [
+    26,
+    "Agility"
+   ],
+   [
+    34,
+    "Headbutt"
+   ],
+   [
+    41,
+    "Take Down"
+   ],
+   [
+    53,
+    "Double-Edge"
+   ],
+   [
+    55,
+    "Flare Blitz"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Protect",
+   "Return",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Overheat",
+   "Endure",
+   "Will-O-Wisp",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flame Charge"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Fire Fang",
+   "Flare Blitz",
+   "Heat Wave"
+  ]
+ },
+ "slothbaby-utviklet": {
+  "level_up": [
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Taunt"
+   ],
+   [
+    6,
+    "Growl"
+   ],
+   [
+    12,
+    "Double Kick"
+   ],
+   [
+    14,
+    "Fire Fang"
+   ],
+   [
+    15,
+    "Snore"
+   ],
+   [
+    17,
+    "Flame Charge"
+   ],
+   [
+    21,
+    "Flame Wheel"
+   ],
+   [
+    25,
+    "Bite"
+   ],
+   [
+    25,
+    "Detect"
+   ],
+   [
+    25,
+    "Slash"
+   ],
+   [
+    26,
+    "Agility"
+   ],
+   [
+    29,
+    "Feint"
+   ],
+   [
+    31,
+    "Take Down"
+   ],
+   [
+    34,
+    "Headbutt"
+   ],
+   [
+    40,
+    "Reversal"
+   ],
+   [
+    44,
+    "Close Combat"
+   ],
+   [
+    46,
+    "Fire Spin"
+   ],
+   [
+    47,
+    "Fire Lash"
+   ],
+   [
+    49,
+    "Flare Blitz"
+   ]
+  ],
+  "tm_hm": [
+   "Bulk Up",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Solar Beam",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Overheat",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Will-O-Wisp",
+   "Giga Impact",
+   "Stone Edge",
+   "Swords Dance",
+   "Rock Slide",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Flame Charge",
+   "Low Sweep",
+   "Bulldoze",
+   "Coaching",
+   "Strength",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Close Combat",
+   "Counter",
+   "Flare Blitz",
+   "Heat Wave",
+   "Body Slam",
+   "Fire Fang"
+  ]
+ },
+ "smeatherace": {
+  "level_up": [
+   [
+    0,
+    "Sky Attack"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Peck"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    6,
+    "Echoed Voice"
+   ],
+   [
+    13,
+    "Supersonic"
+   ],
+   [
+    13,
+    "Wing Attack"
+   ],
+   [
+    16,
+    "Pluck"
+   ],
+   [
+    21,
+    "Aerial Ace"
+   ],
+   [
+    21,
+    "Roost"
+   ],
+   [
+    22,
+    "Slash"
+   ],
+   [
+    24,
+    "Fury Attack"
+   ],
+   [
+    30,
+    "Screech"
+   ],
+   [
+    33,
+    "Agility"
+   ],
+   [
+    34,
+    "Drill Peck"
+   ],
+   [
+    42,
+    "Air Slash"
+   ],
+   [
+    44,
+    "Feather Dance"
+   ],
+   [
+    44,
+    "Acrobatics"
+   ],
+   [
+    50,
+    "Take Down"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Return",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Steel Wing",
+   "Roost",
+   "Endure",
+   "Giga Impact",
+   "Sleep Talk",
+   "Swagger",
+   "Pluck",
+   "U-turn",
+   "Substitute",
+   "Dual Wingbeat",
+   "Fly"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Brave Bird",
+   "Endeavor",
+   "Heat Wave",
+   "Hurricane",
+   "Hyper Voice",
+   "Sky Attack",
+   "Charm"
+  ]
+ },
+ "snownin": {
+  "egg": [
+   "Shadow Sneak"
+  ],
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Bite"
+   ],
+   [
+    1,
+    "Crunch"
+   ],
+   [
+    1,
+    "Headbutt"
+   ],
+   [
+    1,
+    "Hex"
+   ],
+   [
+    1,
+    "Ice Fang"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Powder Snow"
+   ],
+   [
+    1,
+    "Protect"
+   ],
+   [
+    15,
+    "Ice Shard"
+   ],
+   [
+    16,
+    "Spite"
+   ],
+   [
+    20,
+    "Draining Kiss"
+   ],
+   [
+    25,
+    "Icy Wind"
+   ],
+   [
+    30,
+    "Aurora Beam"
+   ],
+   [
+    30,
+    "Night Shade"
+   ],
+   [
+    35,
+    "Confuse Ray"
+   ],
+   [
+    40,
+    "Hail"
+   ],
+   [
+    47,
+    "Will-O-Wisp"
+   ],
+   [
+    61,
+    "Shadow Ball"
+   ],
+   [
+    68,
+    "Blizzard"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hail",
+   "Hidden Power",
+   "Taunt",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Shock Wave",
+   "Torment",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Fling",
+   "Endure",
+   "Will-O-Wisp",
+   "Payback",
+   "Giga Impact",
+   "Flash",
+   "Avalanche",
+   "Thunder Wave",
+   "Psych Up",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Aurora Veil",
+   "Triple Axel",
+   "Calm Mind"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Haze",
+   "Ice Fang",
+   "Ice Shard",
+   "Icicle Spear",
+   "Icy Wind",
+   "Poltergeist",
+   "Weather Ball"
+  ]
+ },
+ "stonma": {
+  "egg": [
+   "Curse",
+   "Wide Guard",
+   "Ancient Power",
+   "Flail",
+   "Knock Off"
+  ],
+  "level_up": [
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    6,
+    "Harden"
+   ],
+   [
+    6,
+    "Sandstorm"
+   ],
+   [
+    9,
+    "Rock Polish"
+   ],
+   [
+    15,
+    "Rollout"
+   ],
+   [
+    16,
+    "Rock Throw"
+   ],
+   [
+    18,
+    "Smack Down"
+   ],
+   [
+    20,
+    "Power Gem"
+   ],
+   [
+    22,
+    "Rock Tomb"
+   ],
+   [
+    30,
+    "Iron Defense"
+   ],
+   [
+    30,
+    "Rock Slide"
+   ],
+   [
+    36,
+    "Rock Blast"
+   ],
+   [
+    38,
+    "Stealth Rock"
+   ],
+   [
+    47,
+    "Stone Edge"
+   ],
+   [
+    53,
+    "Double-Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "Meteor Beam",
+   "Rock Smash",
+   "Heavy Slam"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Curse",
+   "Earth Power",
+   "Headbutt"
+  ]
+ },
+ "subwaysurfer": {
+  "level_up": [
+   [
+    1,
+    "Crunch"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    7,
+    "Tail Whip"
+   ],
+   [
+    10,
+    "Water Pulse"
+   ],
+   [
+    12,
+    "Aqua Jet"
+   ],
+   [
+    17,
+    "Bite"
+   ],
+   [
+    20,
+    "Swift"
+   ],
+   [
+    20,
+    "Bubble Beam"
+   ],
+   [
+    20,
+    "Slash"
+   ],
+   [
+    28,
+    "Double Hit"
+   ],
+   [
+    34,
+    "Whirlpool"
+   ],
+   [
+    35,
+    "Agility"
+   ],
+   [
+    40,
+    "Waterfall"
+   ],
+   [
+    45,
+    "Aqua Tail"
+   ],
+   [
+    56,
+    "Hydro Pump"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Brine",
+   "Endure",
+   "Giga Impact",
+   "Stone Edge",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Bulldoze",
+   "Liquidation",
+   "Surf",
+   "Whirlpool",
+   "Rock Smash",
+   "Waterfall"
+  ],
+  "tutor": [
+   "Aqua Jet",
+   "Aqua Tail",
+   "Earth Power",
+   "Icy Wind"
+  ]
+ },
+ "surfer": {
+  "egg": [
+   "Aqua Ring",
+   "Haze",
+   "Octazooka"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    2,
+    "Water Gun"
+   ],
+   [
+    7,
+    "Tail Whip"
+   ],
+   [
+    11,
+    "Quick Attack"
+   ],
+   [
+    17,
+    "Bite"
+   ],
+   [
+    18,
+    "Water Pulse"
+   ],
+   [
+    20,
+    "Aqua Jet"
+   ],
+   [
+    20,
+    "Bubble Beam"
+   ],
+   [
+    20,
+    "Slash"
+   ],
+   [
+    32,
+    "Soak"
+   ],
+   [
+    34,
+    "Muddy Water"
+   ],
+   [
+    37,
+    "Surf"
+   ],
+   [
+    40,
+    "Agility"
+   ],
+   [
+    44,
+    "Hydro Pump"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Brine",
+   "Endure",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Liquidation",
+   "Surf",
+   "Whirlpool",
+   "Waterfall"
+  ],
+  "tutor": [
+   "Aqua Jet",
+   "Aqua Tail",
+   "Icy Wind"
+  ]
+ },
+ "tinky": {
+  "egg": [
+   "Leaf Storm",
+   "Worry Seed",
+   "Seed Bomb",
+   "Ingrain"
+  ],
+  "level_up": [
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    6,
+    "Stun Spore"
+   ],
+   [
+    9,
+    "Growth"
+   ],
+   [
+    10,
+    "Razor Leaf"
+   ],
+   [
+    14,
+    "Mega Drain"
+   ],
+   [
+    16,
+    "Encore"
+   ],
+   [
+    17,
+    "Poison Powder"
+   ],
+   [
+    19,
+    "Synthesis"
+   ],
+   [
+    22,
+    "Magical Leaf"
+   ],
+   [
+    25,
+    "Sweet Scent"
+   ],
+   [
+    26,
+    "Leech Seed"
+   ],
+   [
+    30,
+    "Giga Drain"
+   ],
+   [
+    36,
+    "Energy Ball"
+   ],
+   [
+    46,
+    "Aromatherapy"
+   ],
+   [
+    48,
+    "Solar Beam"
+   ]
+  ],
+  "tm_hm": [
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Giga Drain",
+   "Safeguard",
+   "Solar Beam",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Energy Ball",
+   "Endure",
+   "Flash",
+   "Swords Dance",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Thunder Wave"
+  ],
+  "tutor": [
+   "Leaf Storm",
+   "Leech Seed",
+   "Magical Leaf",
+   "Mega Drain",
+   "Seed Bomb",
+   "Synthesis"
+  ]
+ },
+ "tomaterdander": {
+  "egg": [
+   "Worry Seed",
+   "Acid Spray",
+   "Grassy Terrain",
+   "Curse",
+   "Magical Leaf",
+   "Leaf Storm"
+  ],
+  "level_up": [
+   [
+    1,
+    "Absorb"
+   ],
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    8,
+    "Stun Spore"
+   ],
+   [
+    9,
+    "Growth"
+   ],
+   [
+    13,
+    "Razor Leaf"
+   ],
+   [
+    16,
+    "Cross Poison"
+   ],
+   [
+    16,
+    "Leech Seed"
+   ],
+   [
+    16,
+    "Mega Drain"
+   ],
+   [
+    24,
+    "Synthesis"
+   ],
+   [
+    28,
+    "Horn Leech"
+   ],
+   [
+    29,
+    "Slash"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Giga Drain",
+   "Solar Beam",
+   "Return",
+   "Double Team",
+   "Sludge Bomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Energy Ball",
+   "Endure",
+   "Payback",
+   "Sleep Talk",
+   "Poison Jab",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Venoshock"
+  ],
+  "tutor": [
+   "Leaf Storm",
+   "Leech Seed",
+   "Magical Leaf",
+   "Mega Drain",
+   "Seed Bomb",
+   "Synthesis"
+  ]
+ },
+ "torchbat": {
+  "egg": [
+   "Flare Blitz",
+   "Fire Punch",
+   "Counter",
+   "Double Kick",
+   "Fake Out",
+   "Covet"
+  ],
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    7,
+    "Smokescreen"
+   ],
+   [
+    13,
+    "Fury Swipes"
+   ],
+   [
+    17,
+    "Incinerate"
+   ],
+   [
+    18,
+    "Wing Attack"
+   ],
+   [
+    19,
+    "Lava Plume"
+   ],
+   [
+    19,
+    "Slash"
+   ],
+   [
+    28,
+    "Scary Face"
+   ],
+   [
+    32,
+    "Fire Spin"
+   ],
+   [
+    32,
+    "Flamethrower"
+   ],
+   [
+    36,
+    "Inferno"
+   ],
+   [
+    40,
+    "Fire Blast"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Iron Tail",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Overheat",
+   "Endure",
+   "Will-O-Wisp",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flame Charge",
+   "Cut",
+   "Rock Smash",
+   "Fly"
+  ],
+  "tutor": [
+   "Fire Fang",
+   "Fire Punch",
+   "Flame Wheel",
+   "Flare Blitz",
+   "Heat Wave"
+  ]
+ },
+ "tortoplasm": {
+  "egg": [
+   "Rock Throw",
+   "Shadow Sneak",
+   "Knock Off",
+   "Head Smash",
+   "Wide Guard"
+  ],
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Rollout"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    4,
+    "Protect"
+   ],
+   [
+    10,
+    "Withdraw"
+   ],
+   [
+    13,
+    "Smack Down"
+   ],
+   [
+    21,
+    "Ancient Power"
+   ],
+   [
+    22,
+    "Hex"
+   ],
+   [
+    28,
+    "Night Shade"
+   ],
+   [
+    31,
+    "Power Gem"
+   ],
+   [
+    35,
+    "Rock Slide"
+   ],
+   [
+    38,
+    "Iron Defense"
+   ],
+   [
+    42,
+    "Curse"
+   ],
+   [
+    42,
+    "Sandstorm"
+   ],
+   [
+    45,
+    "Rock Blast"
+   ],
+   [
+    46,
+    "Shadow Ball"
+   ],
+   [
+    55,
+    "Stone Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "Meteor Beam"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Curse",
+   "Earth Power",
+   "Poltergeist"
+  ]
+ },
+ "tortoplasm-utviklet": {
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Disable"
+   ],
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Protect"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Rollout"
+   ],
+   [
+    10,
+    "Smack Down"
+   ],
+   [
+    10,
+    "Withdraw"
+   ],
+   [
+    16,
+    "Night Shade"
+   ],
+   [
+    20,
+    "Ancient Power"
+   ],
+   [
+    25,
+    "Hex"
+   ],
+   [
+    25,
+    "Iron Defense"
+   ],
+   [
+    31,
+    "Rock Slide"
+   ],
+   [
+    35,
+    "Shadow Ball"
+   ],
+   [
+    38,
+    "Curse"
+   ],
+   [
+    38,
+    "Rock Blast"
+   ],
+   [
+    40,
+    "Power Gem"
+   ],
+   [
+    40,
+    "Stone Edge"
+   ],
+   [
+    50,
+    "Grudge"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "Will-O-Wisp",
+   "Giga Impact",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "Meteor Beam"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Earth Power",
+   "Poltergeist",
+   "Curse"
+  ]
+ },
+ "toxiren": {
+  "level_up": [
+   [
+    1,
+    "Charm"
+   ],
+   [
+    1,
+    "Copycat"
+   ],
+   [
+    1,
+    "Disarming Voice"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Helping Hand"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Take Down"
+   ],
+   [
+    1,
+    "Pound"
+   ],
+   [
+    1,
+    "Smog"
+   ],
+   [
+    3,
+    "Sweet Kiss"
+   ],
+   [
+    7,
+    "Acid"
+   ],
+   [
+    8,
+    "Clear Smog"
+   ],
+   [
+    8,
+    "Wrap"
+   ],
+   [
+    10,
+    "Sweet Scent"
+   ],
+   [
+    15,
+    "Baby-Doll Eyes"
+   ],
+   [
+    15,
+    "Draining Kiss"
+   ],
+   [
+    18,
+    "Tail Whip"
+   ],
+   [
+    19,
+    "Moonlight"
+   ],
+   [
+    23,
+    "Safeguard"
+   ],
+   [
+    25,
+    "Acid Spray"
+   ],
+   [
+    32,
+    "Sludge Wave"
+   ],
+   [
+    35,
+    "Misty Terrain"
+   ],
+   [
+    37,
+    "Play Rough"
+   ],
+   [
+    39,
+    "Dazzling Gleam"
+   ],
+   [
+    42,
+    "Moonblast"
+   ],
+   [
+    42,
+    "Echoed Voice"
+   ],
+   [
+    50,
+    "Belch"
+   ],
+   [
+    55,
+    "Last Resort"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Sludge Bomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Psych Up",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Venoshock",
+   "Draining Kiss",
+   "Play Rough",
+   "Toxic",
+   "Thief"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Charm",
+   "Dazzling Gleam",
+   "Flail",
+   "Hyper Voice",
+   "Moonblast"
+  ]
+ },
+ "twemp": {
+  "level_up": [
+   [
+    0,
+    "Protect"
+   ],
+   [
+    1,
+    "Absorb"
+   ],
+   [
+    1,
+    "Bug Bite"
+   ],
+   [
+    1,
+    "Razor Leaf"
+   ],
+   [
+    1,
+    "String Shot"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Pin Missile"
+   ],
+   [
+    7,
+    "Struggle Bug"
+   ],
+   [
+    12,
+    "Scary Face"
+   ],
+   [
+    31,
+    "Sticky Web"
+   ],
+   [
+    36,
+    "Seed Bomb"
+   ],
+   [
+    43,
+    "Aromatherapy"
+   ],
+   [
+    44,
+    "X-Scissor"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Toxic",
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Light Screen",
+   "Protect",
+   "Giga Drain",
+   "Safeguard",
+   "Frustration",
+   "Solar Beam",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Energy Ball",
+   "Endure",
+   "Payback",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Struggle Bug",
+   "Electroweb",
+   "Cut",
+   "Dig",
+   "Thief",
+   "X-Scissor",
+   "Poison Jab",
+   "Grassy Terrain"
+  ],
+  "tutor": [
+   "Bug Bite",
+   "Charm",
+   "Leaf Storm",
+   "Magical Leaf",
+   "Seed Bomb",
+   "Synthesis"
+  ]
+ },
+ "ultragon": {
+  "level_up": [
+   [
+    0,
+    "Dragon Claw"
+   ],
+   [
+    1,
+    "Bite"
+   ],
+   [
+    1,
+    "Breaking Swipe"
+   ],
+   [
+    1,
+    "Dragon Tail"
+   ],
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Protect"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Thunder Wave"
+   ],
+   [
+    1,
+    "Wrap"
+   ],
+   [
+    15,
+    "Bug Bite"
+   ],
+   [
+    16,
+    "Headbutt"
+   ],
+   [
+    22,
+    "Agility"
+   ],
+   [
+    22,
+    "Scary Face"
+   ],
+   [
+    25,
+    "Slam"
+   ],
+   [
+    27,
+    "Crunch"
+   ],
+   [
+    33,
+    "Aqua Tail"
+   ],
+   [
+    34,
+    "Dual Chop"
+   ],
+   [
+    34,
+    "Horn Attack"
+   ],
+   [
+    34,
+    "Pin Missile"
+   ],
+   [
+    43,
+    "Zen Headbutt"
+   ],
+   [
+    44,
+    "Dragon Pulse"
+   ],
+   [
+    46,
+    "Safeguard"
+   ],
+   [
+    51,
+    "Focus Energy"
+   ],
+   [
+    53,
+    "Rain Dance"
+   ]
+  ],
+  "tm_hm": [
+   "Dragon Claw",
+   "Roar",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Iron Tail",
+   "Earthquake",
+   "Return",
+   "Brick Break",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Rock Tomb",
+   "Aerial Ace",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Steel Wing",
+   "Roost",
+   "Endure",
+   "Dragon Pulse",
+   "Shadow Claw",
+   "Giga Impact",
+   "Stone Edge",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Struggle Bug",
+   "Bulldoze",
+   "Brutal Swing",
+   "Dual Wingbeat",
+   "Cut",
+   "Fly",
+   "Strength",
+   "Rock Smash",
+   "Light Screen",
+   "Dig",
+   "X-Scissor",
+   "Silver Wind"
+  ],
+  "tutor": [
+   "Aqua Tail",
+   "Bug Bite",
+   "Draco Meteor",
+   "Dragon Dance",
+   "Dragon Rush",
+   "Outrage",
+   "Air Slash"
+  ]
+ },
+ "united": {
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Nuzzle"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Thunder Wave"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    4,
+    "Thunder Shock"
+   ],
+   [
+    7,
+    "Quick Attack"
+   ],
+   [
+    15,
+    "Shock Wave"
+   ],
+   [
+    19,
+    "Electro Ball"
+   ],
+   [
+    20,
+    "Charge"
+   ],
+   [
+    20,
+    "Charm"
+   ],
+   [
+    20,
+    "Swift"
+   ],
+   [
+    23,
+    "Volt Switch"
+   ],
+   [
+    36,
+    "Agility"
+   ],
+   [
+    39,
+    "Discharge"
+   ],
+   [
+    48,
+    "Thunderbolt"
+   ],
+   [
+    50,
+    "Thunder"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Shock Wave",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Charge Beam",
+   "Endure",
+   "Giga Impact",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Electroweb",
+   "Eerie Impulse",
+   "Expanding Force",
+   "Skill Swap"
+  ],
+  "tutor": [
+   "Volt Switch",
+   "Zen Headbutt"
+  ]
+ },
+ "verrith": {
+  "egg": [
+   "Shadow Sneak"
+  ],
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Metal Claw"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    7,
+    "Night Shade"
+   ],
+   [
+    20,
+    "Protect"
+   ],
+   [
+    25,
+    "Hex"
+   ],
+   [
+    30,
+    "Metal Sound"
+   ],
+   [
+    36,
+    "Curse"
+   ],
+   [
+    36,
+    "Heavy Slam"
+   ],
+   [
+    36,
+    "Iron Defense"
+   ],
+   [
+    36,
+    "Shadow Ball"
+   ],
+   [
+    38,
+    "Iron Head"
+   ],
+   [
+    40,
+    "Flash Cannon"
+   ],
+   [
+    60,
+    "Metal Burst"
+   ],
+   [
+    64,
+    "Skull Bash"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Brick Break",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "Shadow Claw",
+   "Payback",
+   "Giga Impact",
+   "Gyro Ball",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Substitute",
+   "Flash Cannon",
+   "Heavy Slam",
+   "Bulldoze",
+   "Will-O-Wisp",
+   "Cut"
+  ],
+  "tutor": [
+   "Iron Head",
+   "Metal Claw",
+   "Poltergeist"
+  ]
+ },
+ "vires": {
+  "egg": [
+   "After You",
+   "Yawn",
+   "Sticky Web"
+  ],
+  "level_up": [
+   [
+    1,
+    "Sweet Scent"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    3,
+    "Play Nice"
+   ],
+   [
+    6,
+    "Fairy Wind"
+   ],
+   [
+    9,
+    "Aromatherapy"
+   ],
+   [
+    12,
+    "Draining Kiss"
+   ],
+   [
+    15,
+    "Fake Tears"
+   ],
+   [
+    18,
+    "Round"
+   ],
+   [
+    27,
+    "Energy Ball"
+   ],
+   [
+    30,
+    "Wish"
+   ],
+   [
+    33,
+    "Moonblast"
+   ],
+   [
+    36,
+    "Cotton Guard"
+   ],
+   [
+    39,
+    "Endeavor"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Hidden Power",
+   "Sunny Day",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Thunderbolt",
+   "Return",
+   "Psychic",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Energy Ball",
+   "Endure",
+   "Sleep Talk",
+   "Substitute",
+   "Draining Kiss",
+   "Play Rough",
+   "Toxic"
+  ],
+  "tutor": [
+   "Dazzling Gleam",
+   "Power Gem"
+  ]
+ },
+ "viridub": {
+  "egg": [
+   "Worry Seed",
+   "Magical Leaf",
+   "Grassy Terrain"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leafage"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    7,
+    "Bite"
+   ],
+   [
+    9,
+    "Growth"
+   ],
+   [
+    12,
+    "Razor Leaf"
+   ],
+   [
+    13,
+    "Vine Whip"
+   ],
+   [
+    15,
+    "Leech Seed"
+   ],
+   [
+    19,
+    "Screech"
+   ],
+   [
+    22,
+    "Seed Bomb"
+   ],
+   [
+    30,
+    "Slam"
+   ],
+   [
+    32,
+    "Petal Blizzard"
+   ],
+   [
+    36,
+    "Leaf Blade"
+   ],
+   [
+    48,
+    "Endeavor"
+   ]
+  ],
+  "tm_hm": [
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Giga Drain",
+   "Solar Beam",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Energy Ball",
+   "Endure",
+   "Swords Dance",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute"
+  ],
+  "tutor": [
+   "Leaf Storm",
+   "Leech Seed",
+   "Magical Leaf",
+   "Seed Bomb",
+   "Synthesis"
+  ]
+ },
+ "viridub-utvikling": {
+  "level_up": [
+   [
+    1,
+    "Absorb"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Growth"
+   ],
+   [
+    1,
+    "Solar Beam"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Leafage"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    5,
+    "Sand Attack"
+   ],
+   [
+    7,
+    "Bite"
+   ],
+   [
+    12,
+    "Mega Drain"
+   ],
+   [
+    12,
+    "Razor Leaf"
+   ],
+   [
+    13,
+    "Leech Seed"
+   ],
+   [
+    13,
+    "Vine Whip"
+   ],
+   [
+    19,
+    "Screech"
+   ],
+   [
+    21,
+    "Slam"
+   ],
+   [
+    30,
+    "Seed Bomb"
+   ],
+   [
+    30,
+    "Synthesis"
+   ],
+   [
+    35,
+    "Petal Blizzard"
+   ],
+   [
+    35,
+    "Sunny Day"
+   ],
+   [
+    40,
+    "Horn Leech"
+   ],
+   [
+    44,
+    "Leaf Blade"
+   ],
+   [
+    46,
+    "Wood Hammer"
+   ],
+   [
+    52,
+    "Leaf Storm"
+   ]
+  ],
+  "tm_hm": [
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Giga Drain",
+   "Safeguard",
+   "Solar Beam",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Energy Ball",
+   "Endure",
+   "Giga Impact",
+   "Swords Dance",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Brick Break"
+  ],
+  "tutor": [
+   "Leaf Storm",
+   "Magical Leaf",
+   "Mega Drain",
+   "Seed Bomb",
+   "Solar Blade",
+   "Synthesis",
+   "Leech Seed"
+  ]
+ },
+ "waffy": {
+  "egg": [
+   "Hydro Pump",
+   "Ancient Power",
+   "Bubble Beam",
+   "Muddy Water"
+  ],
+  "level_up": [
+   [
+    4,
+    "Peck"
+   ],
+   [
+    12,
+    "Protect"
+   ],
+   [
+    17,
+    "Double Hit"
+   ],
+   [
+    19,
+    "Slash"
+   ],
+   [
+    28,
+    "Focus Energy"
+   ],
+   [
+    30,
+    "Aqua Tail"
+   ],
+   [
+    33,
+    "Screech"
+   ],
+   [
+    35,
+    "Liquidation"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Brine",
+   "Endure",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Liquidation",
+   "Surf",
+   "Whirlpool",
+   "Waterfall"
+  ],
+  "tutor": [
+   "Aqua Jet",
+   "Aqua Tail",
+   "Icy Wind"
+  ]
+ },
+ "warrallier": {
+  "level_up": [
+   [
+    0,
+    "Slash"
+   ],
+   [
+    1,
+    "Megahorn"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Tail Whip"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    1,
+    "Water Sport"
+   ],
+   [
+    1,
+    "Feint Attack"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Pound"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    4,
+    "Peck"
+   ],
+   [
+    10,
+    "Bite"
+   ],
+   [
+    12,
+    "Protect"
+   ],
+   [
+    13,
+    "Focus Energy"
+   ],
+   [
+    14,
+    "Scary Face"
+   ],
+   [
+    21,
+    "Fury Cutter"
+   ],
+   [
+    25,
+    "Aqua Cutter"
+   ],
+   [
+    29,
+    "Revenge"
+   ],
+   [
+    34,
+    "Aqua Jet"
+   ],
+   [
+    36,
+    "Knock Off"
+   ],
+   [
+    39,
+    "Encore"
+   ],
+   [
+    40,
+    "Crunch"
+   ],
+   [
+    42,
+    "Sucker Punch"
+   ],
+   [
+    46,
+    "Aqua Tail"
+   ],
+   [
+    51,
+    "Retaliate"
+   ],
+   [
+    58,
+    "Swords Dance"
+   ],
+   [
+    63,
+    "Crabhammer"
+   ]
+  ],
+  "tm_hm": [
+   "Hail",
+   "Blizzard",
+   "Hyper Beam",
+   "Return",
+   "Aerial Ace",
+   "Rest",
+   "Attract",
+   "Brine",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Giga Impact",
+   "Swords Dance",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Foul Play",
+   "Scald",
+   "Liquidation",
+   "Whirlpool",
+   "Dig",
+   "Rock Tomb",
+   "Grass Knot",
+   "Low Sweep"
+  ],
+  "tutor": [
+   "Aqua Jet",
+   "Aqua Tail",
+   "Body Slam",
+   "Icy Wind",
+   "Snarl"
+  ]
+ },
+ "wealther": {
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Pound"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    4,
+    "Peck"
+   ],
+   [
+    10,
+    "Bite"
+   ],
+   [
+    11,
+    "Focus Energy"
+   ],
+   [
+    12,
+    "Protect"
+   ],
+   [
+    13,
+    "Aqua Jet"
+   ],
+   [
+    14,
+    "Scary Face"
+   ],
+   [
+    36,
+    "Crunch"
+   ],
+   [
+    42,
+    "Agility"
+   ],
+   [
+    44,
+    "Liquidation"
+   ],
+   [
+    53,
+    "Wave Crash"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hail",
+   "Hidden Power",
+   "Taunt",
+   "Ice Beam",
+   "Blizzard",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Rock Tomb",
+   "Torment",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Low Sweep",
+   "Foul Play",
+   "Scald",
+   "Surf",
+   "Whirlpool",
+   "Rock Smash",
+   "Waterfall",
+   "Brine",
+   "Liquidation"
+  ],
+  "tutor": [
+   "Aqua Jet",
+   "Aqua Tail",
+   "Icy Wind",
+   "Snarl"
+  ]
+ },
+ "whaldrill": {
+  "level_up": [
+   [
+    0,
+    "Ice Fang"
+   ],
+   [
+    1,
+    "Ancient Power"
+   ],
+   [
+    1,
+    "Flail"
+   ],
+   [
+    1,
+    "Mud-Slap"
+   ],
+   [
+    1,
+    "Powder Snow"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    6,
+    "Growl"
+   ],
+   [
+    15,
+    "Ice Shard"
+   ],
+   [
+    20,
+    "Mist"
+   ],
+   [
+    25,
+    "Endure"
+   ],
+   [
+    30,
+    "Icy Wind"
+   ],
+   [
+    37,
+    "Amnesia"
+   ],
+   [
+    44,
+    "Take Down"
+   ],
+   [
+    51,
+    "Earthquake"
+   ],
+   [
+    58,
+    "Blizzard"
+   ],
+   [
+    65,
+    "Thrash"
+   ]
+  ],
+  "tm_hm": [
+   "Roar",
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Reflect",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Stone Edge",
+   "Avalanche",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "High Horsepower",
+   "Strength",
+   "Rock Smash",
+   "Scorching Sands"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Body Slam",
+   "Curse",
+   "Earth Power",
+   "Endeavor",
+   "Ice Fang",
+   "Ice Shard",
+   "Icicle Spear",
+   "Icy Wind"
+  ]
+ },
+ "whaldrill0": {
+  "egg": [
+   "Icicle Crash",
+   "Mud Shot",
+   "Icicle Spear",
+   "Freeze-Dry",
+   "Curse"
+  ],
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Mud-Slap"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    5,
+    "Powder Snow"
+   ],
+   [
+    10,
+    "Flail"
+   ],
+   [
+    15,
+    "Ice Shard"
+   ],
+   [
+    20,
+    "Mist"
+   ],
+   [
+    25,
+    "Endure"
+   ],
+   [
+    30,
+    "Icy Wind"
+   ],
+   [
+    35,
+    "Amnesia"
+   ],
+   [
+    40,
+    "Take Down"
+   ],
+   [
+    45,
+    "Earthquake"
+   ],
+   [
+    50,
+    "Blizzard"
+   ]
+  ],
+  "tm_hm": [
+   "Roar",
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Reflect",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Avalanche",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "Scorching Sands",
+   "Strength",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Ancient Power",
+   "Body Slam",
+   "Curse",
+   "Earth Power",
+   "Endeavor",
+   "Ice Shard",
+   "Icicle Spear",
+   "Icy Wind"
+  ]
+ },
+ "whaldrill3": {
+  "level_up": [
+   [
+    0,
+    "Double Hit"
+   ],
+   [
+    1,
+    "Ancient Power"
+   ],
+   [
+    1,
+    "Flail"
+   ],
+   [
+    1,
+    "Ice Fang"
+   ],
+   [
+    1,
+    "Mud-Slap"
+   ],
+   [
+    1,
+    "Powder Snow"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    15,
+    "Ice Shard"
+   ],
+   [
+    20,
+    "Mist"
+   ],
+   [
+    25,
+    "Endure"
+   ],
+   [
+    30,
+    "Icy Wind"
+   ],
+   [
+    37,
+    "Amnesia"
+   ],
+   [
+    44,
+    "Take Down"
+   ],
+   [
+    51,
+    "Earthquake"
+   ],
+   [
+    58,
+    "Blizzard"
+   ],
+   [
+    65,
+    "Thrash"
+   ],
+   [
+    70,
+    "Avalanche"
+   ]
+  ],
+  "tm_hm": [
+   "Roar",
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Stone Edge",
+   "Avalanche",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Heavy Slam",
+   "Bulldoze",
+   "High Horsepower",
+   "Body Press",
+   "Strength",
+   "Rock Smash",
+   "Light Screen",
+   "Reflect",
+   "Scorching Sands"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Curse",
+   "Earth Power",
+   "Ice Fang",
+   "Ice Shard",
+   "Icicle Spear",
+   "Icy Wind",
+   "Iron Head",
+   "Ancient Power",
+   "Endeavor"
+  ]
+ },
+ "wispole": {
+  "egg": [
+   "Mist",
+   "Haze",
+   "Muddy Water"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Hypnosis"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    7,
+    "Pound"
+   ],
+   [
+    14,
+    "Aqua Jet"
+   ],
+   [
+    14,
+    "Mud Shot"
+   ],
+   [
+    21,
+    "Water Pulse"
+   ],
+   [
+    22,
+    "Bubble Beam"
+   ],
+   [
+    29,
+    "Rain Dance"
+   ],
+   [
+    35,
+    "Body Slam"
+   ],
+   [
+    41,
+    "Earth Power"
+   ],
+   [
+    48,
+    "Hydro Pump"
+   ],
+   [
+    59,
+    "Double-Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Protect",
+   "Rain Dance",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Brine",
+   "Endure",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Liquidation",
+   "Surf",
+   "Whirlpool",
+   "Waterfall"
+  ],
+  "tutor": [
+   "Aqua Tail",
+   "Icy Wind"
+  ]
+ },
+ "wreckingdrake": {
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    13,
+    "Bite"
+   ],
+   [
+    15,
+    "Focus Energy"
+   ],
+   [
+    15,
+    "Scary Face"
+   ],
+   [
+    20,
+    "Agility"
+   ],
+   [
+    24,
+    "Flail"
+   ],
+   [
+    32,
+    "Crunch"
+   ],
+   [
+    46,
+    "Aqua Tail"
+   ],
+   [
+    50,
+    "Screech"
+   ],
+   [
+    53,
+    "Rain Dance"
+   ],
+   [
+    58,
+    "Thrash"
+   ],
+   [
+    63,
+    "Crabhammer"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Roar",
+   "Hail",
+   "Hidden Power",
+   "Sunny Day",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Iron Tail",
+   "Earthquake",
+   "Return",
+   "Double Team",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Brine",
+   "Fling",
+   "Endure",
+   "Dragon Pulse",
+   "Giga Impact",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Bulldoze",
+   "Liquidation",
+   "Surf",
+   "Strength",
+   "Whirlpool",
+   "Rock Smash",
+   "Waterfall",
+   "Flash"
+  ],
+  "tutor": [
+   "Aqua Jet",
+   "Aqua Tail",
+   "Draco Meteor",
+   "Dragon Dance",
+   "Dragon Rush",
+   "Icy Wind",
+   "Outrage"
+  ]
+ },
+ "wump": {
+  "egg": [
+   "Lunge",
+   "Night Slash",
+   "Megahorn",
+   "Counter"
+  ],
+  "level_up": [
+   [
+    1,
+    "Pin Missile"
+   ],
+   [
+    1,
+    "String Shot"
+   ],
+   [
+    5,
+    "Absorb"
+   ],
+   [
+    10,
+    "Bug Bite"
+   ],
+   [
+    12,
+    "Scary Face"
+   ],
+   [
+    22,
+    "Fury Swipes"
+   ],
+   [
+    26,
+    "Sucker Punch"
+   ],
+   [
+    29,
+    "Leech Life"
+   ],
+   [
+    30,
+    "Screech"
+   ],
+   [
+    33,
+    "Agility"
+   ],
+   [
+    40,
+    "Psychic"
+   ],
+   [
+    43,
+    "X-Scissor"
+   ],
+   [
+    44,
+    "First Impression"
+   ],
+   [
+    47,
+    "U-turn"
+   ],
+   [
+    50,
+    "Sticky Web"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Giga Drain",
+   "Return",
+   "Dig",
+   "Double Team",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "X-Scissor",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Struggle Bug"
+  ],
+  "tutor": [
+   "Bug Bite"
+  ]
+ },
+ "yanklet": {
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Rock Smash"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Covet"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    5,
+    "Focus Energy"
+   ],
+   [
+    20,
+    "Scary Face"
+   ],
+   [
+    25,
+    "Bulk Up"
+   ],
+   [
+    30,
+    "Iron Head"
+   ],
+   [
+    32,
+    "Iron Defense"
+   ],
+   [
+    36,
+    "Hammer Arm"
+   ],
+   [
+    40,
+    "Dynamic Punch"
+   ],
+   [
+    40,
+    "Reversal"
+   ],
+   [
+    48,
+    "Swords Dance"
+   ],
+   [
+    49,
+    "Close Combat"
+   ],
+   [
+    54,
+    "Superpower"
+   ],
+   [
+    56,
+    "Double-Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Bulk Up",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Giga Impact",
+   "Stone Edge",
+   "Rock Slide",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Flash Cannon",
+   "Heavy Slam",
+   "Bulldoze",
+   "Coaching",
+   "Rock Smash",
+   "Frustration",
+   "Iron Tail",
+   "Thunderbolt",
+   "Thunder",
+   "Double Team",
+   "Aerial Ace",
+   "Thief",
+   "Overheat",
+   "U-turn",
+   "Strength",
+   "Rock Climb",
+   "Gyro Ball"
+  ],
+  "tutor": [
+   "Close Combat",
+   "Iron Head",
+   "Counter",
+   "Endeavor",
+   "Hyper Voice",
+   "Night Slash",
+   "Seed Bomb"
+  ]
+ },
+ "zapana": {
+  "egg": [
+   "Aqua Tail",
+   "Mist",
+   "Thunder Fang",
+   "Muddy Water",
+   "Electro Ball"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    8,
+    "Quick Attack"
+   ],
+   [
+    8,
+    "Supersonic"
+   ],
+   [
+    8,
+    "Wrap"
+   ],
+   [
+    10,
+    "Thunder Shock"
+   ],
+   [
+    12,
+    "Mud Shot"
+   ],
+   [
+    17,
+    "Bite"
+   ],
+   [
+    19,
+    "Water Pulse"
+   ],
+   [
+    20,
+    "Bubble Beam"
+   ],
+   [
+    24,
+    "Flail"
+   ],
+   [
+    31,
+    "Agility"
+   ],
+   [
+    44,
+    "Rain Dance"
+   ],
+   [
+    45,
+    "Hydro Pump"
+   ],
+   [
+    54,
+    "Double-Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Protect",
+   "Rain Dance",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Double Team",
+   "Shock Wave",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Brine",
+   "Charge Beam",
+   "Endure",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Surf",
+   "Whirlpool",
+   "Waterfall"
+  ],
+  "tutor": [
+   "Icy Wind",
+   "Volt Switch",
+   "Aqua Jet"
+  ]
+ },
+ "zapitera": {
+  "level_up": [
+   [
+    1,
+    "Electric Terrain"
+   ],
+   [
+    1,
+    "Supersonic"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Thunder Shock"
+   ],
+   [
+    1,
+    "Thunder Wave"
+   ],
+   [
+    1,
+    "Peck"
+   ],
+   [
+    5,
+    "Charge"
+   ],
+   [
+    10,
+    "Quick Attack"
+   ],
+   [
+    12,
+    "Electro Ball"
+   ],
+   [
+    16,
+    "Gyro Ball"
+   ],
+   [
+    20,
+    "Shock Wave"
+   ],
+   [
+    24,
+    "Screech"
+   ],
+   [
+    28,
+    "Magnet Rise"
+   ],
+   [
+    30,
+    "Wing Attack"
+   ],
+   [
+    34,
+    "Flash Cannon"
+   ],
+   [
+    39,
+    "Slash"
+   ],
+   [
+    40,
+    "Discharge"
+   ],
+   [
+    46,
+    "Metal Sound"
+   ],
+   [
+    52,
+    "Light Screen"
+   ],
+   [
+    58,
+    "Lock-On"
+   ],
+   [
+    64,
+    "Zap Cannon"
+   ]
+  ],
+  "tm_hm": [
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Iron Tail",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Double Team",
+   "Shock Wave",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Charge Beam",
+   "Endure",
+   "Giga Impact",
+   "Flash",
+   "Thunder Wave",
+   "Gyro Ball",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flash Cannon",
+   "Heavy Slam",
+   "Electroweb",
+   "Electric Terrain",
+   "Steel Wing",
+   "Fly"
+  ],
+  "tutor": [
+   "Iron Head",
+   "Volt Switch"
+  ]
+ },
+ "zyzzfu": {
+  "egg": [
+   "Quick Guard",
+   "Counter",
+   "Feint"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Thunder Shock"
+   ],
+   [
+    1,
+    "Wild Charge"
+   ],
+   [
+    4,
+    "Charge"
+   ],
+   [
+    6,
+    "Peck"
+   ],
+   [
+    12,
+    "Nuzzle"
+   ],
+   [
+    12,
+    "Swift"
+   ],
+   [
+    16,
+    "Shock Wave"
+   ],
+   [
+    20,
+    "Thunder Wave"
+   ],
+   [
+    23,
+    "Spark"
+   ],
+   [
+    24,
+    "Screech"
+   ],
+   [
+    36,
+    "Discharge"
+   ],
+   [
+    40,
+    "Low Kick"
+   ],
+   [
+    42,
+    "Agility"
+   ],
+   [
+    44,
+    "Close Combat"
+   ],
+   [
+    58,
+    "Thunder"
+   ]
+  ],
+  "tm_hm": [
+   "Focus Punch",
+   "Bulk Up",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Iron Tail",
+   "Thunderbolt",
+   "Thunder",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Shock Wave",
+   "Rock Tomb",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Focus Blast",
+   "Fling",
+   "Charge Beam",
+   "Endure",
+   "Drain Punch",
+   "Giga Impact",
+   "Thunder Wave",
+   "Rock Slide",
+   "Sleep Talk",
+   "Poison Jab",
+   "Swagger",
+   "Substitute",
+   "Low Sweep",
+   "Bulldoze",
+   "Electroweb",
+   "Electric Terrain",
+   "Coaching",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Close Combat",
+   "Thunder Punch",
+   "Volt Switch"
+  ]
+ }
+}

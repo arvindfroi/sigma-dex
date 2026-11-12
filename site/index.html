@@ -238,6 +238,7 @@ button.chip[aria-pressed=true] { border-color: var(--gold); background: var(--so
 .row { display: flex; gap: 6px; margin-bottom: 6px; align-items: center; flex-wrap: wrap; }
 .row > input, .row > select { flex: 1 1 90px; }
 .row > .tiny { flex: 0 1 80px; }
+.suggest { border: 2px dashed var(--line, #9b8bc4); border-radius: 8px; padding: 8px 10px; margin-bottom: 10px; }
 .checks { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 2px 10px; }
 .checks label { display: flex; gap: 6px; align-items: center; font-size: 14px; }
 .section { border-top: 3px dashed var(--line); margin: 6px 0; }
@@ -1454,7 +1455,8 @@ function rowList(columns, initial, addLabel) {
     box.append(row);
   }
   (initial || []).filter(v => v && typeof v === "object").forEach(add);
-  return {el: h("div", {}, box, h("button", {type: "button", class: "small", onclick: () => add()}, addLabel)), read: () => [...box.children].filter(r => r.read).map(r => r.read())};
+  return {el: h("div", {}, box, h("button", {type: "button", class: "small", onclick: () => add()}, addLabel)), read: () => [...box.children].filter(r => r.read).map(r => r.read()),
+    add, removeWhere: test => [...box.children].filter(r => r.read && test(r.read())).forEach(r => r.remove())};
 }
 function checkGrid(options, chosen) {
   const picked = new Set((chosen || []).map(norm));
@@ -1462,7 +1464,96 @@ function checkGrid(options, chosen) {
   const known = new Set(options.map(norm));
   options = options.concat((chosen || []).filter(c => c && !known.has(norm(c))));
   const boxes = options.map(o => [o, h("input", {type: "checkbox", checked: picked.has(norm(o))})]);
-  return {el: h("div", {class: "checks"}, boxes.map(([o, box]) => h("label", {}, box, o))), read: () => boxes.filter(([, box]) => box.checked).map(([o]) => o)};
+  const el = h("div", {class: "checks"}, boxes.map(([o, box]) => h("label", {}, box, o)));
+  function set(move, on) {
+    let hit = boxes.find(([o]) => norm(o) === norm(move));
+    if (!hit && on) { hit = [move, h("input", {type: "checkbox"})]; boxes.push(hit); el.append(h("label", {}, hit[1], move)); }
+    if (hit) hit[1].checked = on;
+  }
+  return {el, set, read: () => boxes.filter(([, box]) => box.checked).map(([o]) => o)};
+}
+// Moveset suggestions (12 Nov 2026; Arvind: "people should be able to generate new movesets whenever they want and
+// change what they want"). scripts/moveset_fill.py suggest writes site/moveset_suggestions.json on every sync: for each
+// Pokemon "fill" (what its moves lack) and "fresh" (a new proposal for the part Claude added before; the designers'
+// own moves stay). Nothing is saved until YES. How it decides: docs/MOVESETS.md.
+let SUGGESTIONS = null;
+async function loadSuggestions() {
+  if (!SUGGESTIONS) SUGGESTIONS = fetch("moveset_suggestions.json", {cache: "no-cache"}).then(r => r.ok ? r.json() : null).catch(() => null);
+  return SUGGESTIONS;
+}
+function suggestionPanel(s, ed) {
+  const box = h("div", {class: "suggest"});
+  const start = h("button", {type: "button", class: "small"}, "Moveset suggestions");
+  box.append(h("div", {class: "hint"}, "Let the dex suggest moves from similar official Pokemon, its abilities, its look and its role. You choose what to keep; nothing is saved until you press YES."), start);
+  start.onclick = async () => {
+    start.disabled = true; start.textContent = "Loading...";
+    const all = await loadSuggestions();
+    start.remove();
+    const sg = all && all.species && all.species[s.id];
+    if (!s.id || !sg) { box.append(h("div", {class: "hint"}, s.id ? "No suggestion yet: save this Pokemon first, suggestions are made within 15 minutes." : "Save the new Pokemon first; suggestions are made within 15 minutes after that.")); return; }
+    if (sg.skipped) { box.append(h("div", {class: "hint"}, sg.skipped.includes("base stats") ? "It needs its base stats (and types) first. Save them, and the suggestion is ready within 15 minutes." : "No suggestion: " + sg.skipped)); return; }
+    const info = h("div", {class: "hint"},
+      (sg.role ? "Role: " + sg.role + ". " : "") + (sg.inspired && sg.inspired.length ? "Inspired by " + sg.inspired.slice(0, 6).map(([n, p]) => n + " " + p + "%").join(", ") + ". " : "") +
+      "Made " + (all.generated || "") + (s.pending ? " (your last save is not in it yet; it comes within 15 minutes)" : "") + ".");
+    const area = h("div", {});
+    const tabFill = h("button", {type: "button", class: "small"}, "Fill gaps"), tabFresh = h("button", {type: "button", class: "small"}, "New proposal");
+    box.append(info, h("div", {style: "display:flex;gap:8px;flex-wrap:wrap;margin:6px 0"}, tabFill, tabFresh), area);
+    const LABELS = {level_up: "Level-up", tm_hm: "TM/HM", tutor: "Tutor", egg: "Egg"};
+    function list(part) {
+      const picks = [];
+      const groups = Object.keys(LABELS).map(k => {
+        const items = (part[k] || []);
+        if (!items.length) return null;
+        return h("div", {}, h("h4", {}, LABELS[k] + " (" + items.length + ")"), h("div", {class: "checks"}, items.map(it => {
+          const lv = k === "level_up" ? it[0] : null, mv = k === "level_up" ? it[1] : it[0], why = k === "level_up" ? it[2] : it[1];
+          const cb = h("input", {type: "checkbox", checked: true});
+          picks.push({key: k, level: lv, move: mv, cb});
+          return h("label", {title: why || ""}, cb, (lv === null ? "" : lv === 0 ? "Evo " : "Lv" + lv + " ") + mv);
+        })));
+      }).filter(Boolean);
+      return {el: groups.length ? h("div", {}, groups) : h("div", {class: "hint"}, "Nothing to add."), picks};
+    }
+    function addPicks(picks) {
+      let n = 0;
+      for (const p of picks) {
+        if (!p.cb.checked) continue;
+        n++;
+        if (p.key === "level_up" && p.level === 0) ed.evoMoves.add({move: p.move});
+        else if (p.key === "level_up") ed.levelUp.add({level: p.level, move: p.move});
+        else if (p.key === "tm_hm") ed.tmhm.set(p.move, true);
+        else ed[p.key].add({move: p.move});
+      }
+      return n;
+    }
+    function showFill() {
+      const l = list(sg.fill || {});
+      const done = h("span", {class: "hint"});
+      const go = h("button", {type: "button", class: "small"}, "Add the ticked moves to the form");
+      go.onclick = () => { const n = addPicks(l.picks); done.textContent = n + " moves added below. Check them, then press YES to save."; go.disabled = true; };
+      area.replaceChildren(h("div", {class: "hint"}, "Moves it does not have yet. Hover a move to see why it is suggested."), l.el, go, " ", done);
+    }
+    function showFresh() {
+      const l = list(sg.fresh || {});
+      const claude = sg.claude || {};
+      const count = Object.values(claude).reduce((a, b) => a + b.length, 0);
+      const done = h("span", {class: "hint"});
+      const go = h("button", {type: "button", class: "small"}, "Replace Claude's moves with this");
+      go.onclick = () => {
+        const lu = new Set((claude.level_up || []).map(norm)), tu = new Set((claude.tutor || []).map(norm)), eg = new Set((claude.egg || []).map(norm));
+        ed.levelUp.removeWhere(r => lu.has(norm(r.move || ""))); ed.evoMoves.removeWhere(r => lu.has(norm(r.move || "")));
+        (claude.tm_hm || []).forEach(m => ed.tmhm.set(m, false));
+        ed.tutor.removeWhere(r => tu.has(norm(r.move || ""))); ed.egg.removeWhere(r => eg.has(norm(r.move || "")));
+        const n = addPicks(l.picks);
+        done.textContent = count + " of Claude's earlier moves taken out, " + n + " new ones added below. Your own moves stayed. Check them, then press YES to save.";
+        go.disabled = true;
+      };
+      area.replaceChildren(h("div", {class: "hint"}, "A new proposal for the part Claude filled in before (" + count + " moves). The moves your group wrote yourselves stay." +
+        (sg.fresh_example && sg.fresh_example.length ? " Example set: " + sg.fresh_example.join(" / ") + "." : "")), l.el, go, " ", done);
+    }
+    tabFill.onclick = showFill; tabFresh.onclick = showFresh;
+    showFill();
+  };
+  return box;
 }
 // Other forms of a Pokemon (20 Oct; Arvind: some mons get different forms - only looks, type and stats too, or changing
 // during play; "we fill them in and describe it, then you fix it"). Each form keeps only what differs from the normal form.
@@ -1584,6 +1675,7 @@ function openEditor(s) {
   const tmhm = checkGrid(L.tm_hm, learn.tm_hm);
   const tutor = rowList([{key: "move", make: v => moveInput(v)}], (learn.tutor || []).map(m => ({move: m})), "Add a tutor move");
   const egg = rowList([{key: "move", make: v => moveInput(v)}], (learn.egg || []).map(m => ({move: m})), "Add an egg move");
+  const suggest = suggestionPanel(s, {levelUp, evoMoves, tmhm, tutor, egg});
   const encounters = rowList([
     {key: "location", make: v => textInput(v, {placeholder: "place, e.g. Route 1"})},
     {key: "method", make: v => textInput(v, {list: "list-methods", placeholder: "how"})},
@@ -1744,7 +1836,7 @@ function openEditor(s) {
       h("h2", {}, "Base stats"), h("div", {class: "hint"}, "Drag a bar, type a number (1-255) or use the arrows."), sliders,
       h("h4", {}, "EVs given when defeated (0-3, at most 3 in total)"),
       h("div", {class: "fields narrow"}, STATS.map(([k, label]) => field(label, f.ev[k])))],
-    moves: [h("div", {class: "hint"}, "Start typing to pick from the moves that exist in the game. A brand-new move can be typed in too; describe it under More > New moves."),
+    moves: [suggest, h("div", {class: "hint"}, "Start typing to pick from the moves that exist in the game. A brand-new move can be typed in too; describe it under More > New moves."),
       h("h2", {}, "Learned by leveling up"), levelUp.el,
       h("h4", {}, "Learned when it evolves into this Pokemon"), evoMoves.el,
       h("h4", {}, "TM and HM moves"), tmhm.el,

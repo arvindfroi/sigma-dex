@@ -240,10 +240,26 @@ def _num(v):
 
 # --------------------------------------------------------------------------------------------- our species
 
-def load_ours():
+def load_claude_moves():
+    path = DATA_DIR / "claude_moves.json"
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+
+
+def load_ours(exclude_claude=False):
+    """Our species. exclude_claude=True leaves out the moves Claude added earlier (data/claude_moves.json), so a
+    new proposal can replace them while the designers' own moves stay."""
     species, problems = dexlib.load_species()
+    claude = load_claude_moves() if exclude_claude else {}
     out = {}
     for sid, path, data in species:
+        if sid in claude:
+            data = json.loads(json.dumps(data))
+            ls, cm = data.setdefault("learnset", {}), claude[sid]
+            lu_moves = {m for lv, m in cm.get("level_up", [])}
+            ls["level_up"] = [e for e in (ls.get("level_up") or []) if not (isinstance(e, dict) and e.get("move") in
+                                                                         lu_moves)]
+            for k in ("tm_hm", "tutor", "egg"):
+                ls[k] = [m for m in (ls.get(k) or []) if m not in set(cm.get(k, []))]
         stats = data.get("base_stats") or {}
         st = {k: _num(stats.get(k)) for k in STATS}
         ab = data.get("abilities") or {}
@@ -1927,6 +1943,70 @@ def cmd_propose(args):
         OUT_JSON.relative_to(ROOT), OUT_MD.relative_to(ROOT)))
 
 
+SUGGESTIONS = ROOT / "site" / "moveset_suggestions.json"
+
+
+def cmd_suggest(args):
+    """Fresh suggestions for every species, for the website's "Moveset suggestions" button (site/...json).
+    "fill" = what the current moves lack; "fresh" = a new proposal for the part Claude added before (the
+    designers' own moves stay). The file only changes when a suggestion changes."""
+    use_data_dir(args.data)
+    data = moveset_data.load()
+    ref = Reference(data)
+
+    def run(exclude):
+        ours = load_ours(exclude_claude=exclude)
+        lines = build_lines(ours)
+        prop = Proposer(ours, lines, ref)
+        res = {}
+        for root in lines:
+            res.update(prop.propose_line(root))
+        return res, ours
+    fill, ours = run(False)
+    fresh, _ = run(True)
+    claude = load_claude_moves()
+
+    def compact(r):
+        why = r.get("reasons") or {}
+        a = r["added"]
+        out = {"level_up": [[e["level"], e["move"], why.get(e["move"], "")] for e in
+                            sorted(a["level_up"], key=lambda e: (e["level"], e["move"]))]}
+        for k in KEYS[1:]:
+            out[k] = [[m, why.get(m, "")] for m in a[k]]
+        return out
+    species = {}
+    for sid, r in sorted(fill.items()):
+        cur = ours[sid]["learnset"]
+        have = {k: {(e.get("move") if isinstance(e, dict) else e) for e in cur[k]} for k in KEYS}
+        cm = claude.get(sid, {})
+        still = {"level_up": [m for lv, m in cm.get("level_up", []) if m in have["level_up"]]}
+        for k in KEYS[1:]:
+            still[k] = [m for m in cm.get(k, []) if m in have[k]]
+        entry = {"name": r["name"], "skipped": r.get("skipped"), "role": r.get("role"),
+                 "example": r.get("example_set") or [], "inspired": (r.get("models") or {}).get("inspired") or [],
+                 "flags": r.get("flags") or [], "claude": still}
+        if not r.get("skipped"):
+            entry["fill"] = compact(r)
+            fr = fresh.get(sid)
+            if fr and not fr.get("skipped"):
+                entry["fresh"] = compact(fr)
+                entry["fresh_example"] = fr.get("example_set") or []
+        species[sid] = entry
+    body = {"species": species}
+    old = None
+    if SUGGESTIONS.exists():
+        try:
+            old = json.loads(SUGGESTIONS.read_text(encoding="utf-8"))
+        except Exception:
+            old = None
+    if old and old.get("species") == json.loads(json.dumps(species, ensure_ascii=False)):
+        print("moveset suggestions unchanged")
+        return
+    body["generated"] = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+    SUGGESTIONS.write_text(json.dumps(body, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
+    print("moveset suggestions for %d species -> %s" % (len(species), SUGGESTIONS.relative_to(ROOT)))
+
+
 def cmd_show(args):
     out = json.loads(OUT_JSON.read_text(encoding="utf-8"))
     for sid in args.species:
@@ -1947,6 +2027,7 @@ def cmd_apply(args):
     else:
         raise SystemExit("Say which: --only a,b or --all (only after the group approved them)")
     changed = []
+    claude_moves = load_claude_moves()
     for sid in targets:
         r = out["species"].get(sid)
         if not r or r.get("skipped"):
@@ -1979,16 +2060,32 @@ def cmd_apply(args):
             design["filled_by_claude"] = fb
             dexlib.write_species(path, data)
             changed.append(sid)
+            rec = claude_moves.setdefault(sid, {})
+            for key in KEYS:
+                for x in r["added"][key]:
+                    item = [x["level"], x["move"]] if key == "level_up" else x
+                    if item not in rec.setdefault(key, []):
+                        rec[key].append(item)
+    (DATA_DIR / "claude_moves.json").write_text(json.dumps(claude_moves, ensure_ascii=False, indent=1, sort_keys=True)
+                                                + "\n", encoding="utf-8")
     print("updated %d species files: %s" % (len(changed), ", ".join(changed)))
 
 
 def main():
+    # Same input, same output: Python shuffles the order of sets between runs unless PYTHONHASHSEED is fixed.
+    import os
+    if os.environ.get("PYTHONHASHSEED") != "0":
+        os.environ["PYTHONHASHSEED"] = "0"
+        os.execv(sys.executable, [sys.executable] + sys.argv)
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("propose")
     p.add_argument("species", nargs="*")
     p.add_argument("--data", help="data folder to read (default: this checkout's data/), e.g. a worktree of main")
     p.set_defaults(func=cmd_propose)
+    p = sub.add_parser("suggest")
+    p.add_argument("--data", help="data folder to read (default: this checkout's data/)")
+    p.set_defaults(func=cmd_suggest)
     p = sub.add_parser("show")
     p.add_argument("species", nargs="+")
     p.set_defaults(func=cmd_show)

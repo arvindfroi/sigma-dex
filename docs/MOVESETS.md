@@ -20,16 +20,28 @@ Outputs: `proposals/movesets.json` (everything, with reasons), `proposals/MOVESE
 `proposals/review.html` (the review page; published as an artifact so the group can mark each line OK or
 "needs changes"). Rerun `propose` whenever species change: it starts again from the current files.
 
+## On the website (anyone, any time)
+
+Edit a Pokemon > MOVES > **Moveset suggestions**. Two choices:
+- **Fill gaps**: moves it does not have yet, all ticked; untick what you do not want, then "Add the ticked moves
+  to the form". Hover a move to see why it is suggested.
+- **New proposal**: a fresh proposal for the part Claude filled in before (listed in `data/claude_moves.json`);
+  "Replace Claude's moves with this" takes those out and adds the new ones. The moves your group wrote stay.
+Nothing is saved until you press YES, and everything can still be changed by hand. The suggestions are remade on
+every sync (`moveset_fill.py suggest` in `.github/workflows/dex.yml`, every 15 minutes), so after you save new
+stats, types, abilities or notes, a new suggestion is ready within 15 minutes.
+
 ## Where the facts come from
 
-- **Origin HeartGold's own data**: the player docs in `~/sigma-origin/docs` (generated from the ROM by the
-  English patch team). They give every official species' types, stats, abilities, evolutions and its level-up,
-  TM/HM, tutor and egg moves, the move table (Origin changed some moves, e.g. Slam is Grass there), the 130 TMs +
-  8 HMs, and the 85 tutor moves with where they are taught and for what.
+- **The official games' Pokemon** (types, stats, abilities, evolutions, egg groups, level-up / TM / tutor / egg
+  moves) from Pokemon Showdown's public data (MIT), fetched when it runs, so it works anywhere, also on GitHub.
+- **Origin HeartGold** in `data/engine/origin.yaml`: its 130 TMs + 8 HMs, its 85 move tutors (place and price)
+  and the moves it changed (e.g. Slam is Grass there). Read from the game's player docs (made by the English
+  patch team). `SIGMA_MOVESET_SOURCE=origin` uses those docs directly (`~/sigma-origin/docs`, only on Arvind's Mac).
 - **Pokemon Showdown's moves.json** (MIT) for what a move does: setup boosts, recovery, priority, pivoting,
   punch/sound/slicing flags.
-- Both are parsed into `.cache/movesets/` (gitignored). No Nintendo data goes into the repo; only our own
-  species' move lists do.
+- Both are cached in `.cache/movesets/` (gitignored). The repo keeps only our own species' moves and Origin's
+  TM/tutor lists.
 
 ## Steps
 
