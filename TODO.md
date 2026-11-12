@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 159 / 160 |
-| Identity | designer credit | 139 / 160 |
-| Dex page | category | 44 / 160 |
-| Dex page | description | 45 / 160 |
-| Dex page | height | 56 / 160 |
-| Dex page | weight | 30 / 160 |
-| Dex page | body color | 143 / 160 |
-| Stats | base stats | 143 / 160 |
-| Stats | ability | 147 / 160 |
-| Stats | EV yield | 143 / 160 |
-| Stats | catch rate | 143 / 160 |
-| Stats | base exp | 143 / 160 |
-| Stats | growth rate | 143 / 160 |
-| Stats | base friendship | 143 / 160 |
-| Breeding | gender | 143 / 160 |
-| Breeding | egg groups | 143 / 160 |
-| Breeding | egg cycles | 143 / 160 |
-| Moves | level-up moves | 143 / 160 |
-| Moves | TM/HM moves | 143 / 160 |
-| Location | encounters | 2 / 160 |
-| Design | concept | 27 / 160 |
-| Art | concept art | 150 / 160 |
-| Art | front sprite | 4 / 160 |
-| Art | front animation frame | 4 / 160 |
-| Art | back sprite | 4 / 160 |
-| Art | icon | 4 / 160 |
-| Art | footprint | 142 / 160 |
-| Art | shiny palette | 0 / 160 |
-| Art | cry | 0 / 160 |
+| Identity | types | 160 / 161 |
+| Identity | designer credit | 140 / 161 |
+| Dex page | category | 44 / 161 |
+| Dex page | description | 45 / 161 |
+| Dex page | height | 56 / 161 |
+| Dex page | weight | 30 / 161 |
+| Dex page | body color | 143 / 161 |
+| Stats | base stats | 144 / 161 |
+| Stats | ability | 147 / 161 |
+| Stats | EV yield | 143 / 161 |
+| Stats | catch rate | 143 / 161 |
+| Stats | base exp | 143 / 161 |
+| Stats | growth rate | 143 / 161 |
+| Stats | base friendship | 143 / 161 |
+| Breeding | gender | 143 / 161 |
+| Breeding | egg groups | 143 / 161 |
+| Breeding | egg cycles | 143 / 161 |
+| Moves | level-up moves | 143 / 161 |
+| Moves | TM/HM moves | 143 / 161 |
+| Location | encounters | 2 / 161 |
+| Design | concept | 28 / 161 |
+| Art | concept art | 151 / 161 |
+| Art | front sprite | 4 / 161 |
+| Art | front animation frame | 4 / 161 |
+| Art | back sprite | 4 / 161 |
+| Art | icon | 4 / 161 |
+| Art | footprint | 142 / 161 |
+| Art | shiny palette | 0 / 161 |
+| Art | cry | 0 / 161 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 80 / 160 |
-| DS back sprite 80x80 | 80 / 160 |
-| DS icon 32x32 | 80 / 160 |
+| DS front sprite 80x80 | 80 / 161 |
+| DS back sprite 80x80 | 80 / 161 |
+| DS icon 32x32 | 80 / 161 |
 
-## Open dex slots (94)
+## Open dex slots (93)
 
-#153, #155, #156, #157, #161, #163, #164, #165, #166, #167, #168, #169, #170, #171, #172, #173, #174, #175, #176, #177, #178, #179, #180, #181, #182, #183, #184, #185, #186, #187, #188, #189, #190, #191, #192, #193, #194, #195, #196, #197, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #218, #219, #220, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232, #233, #234, #235, #236, #237, #238, #239, #240, #241, #242, #243, #244, #245, #246, #247, #248, #249, #250, #251, #252, #253, #254
+#153, #155, #156, #157, #161, #163, #164, #165, #166, #167, #168, #169, #170, #171, #172, #173, #174, #175, #176, #177, #178, #179, #180, #181, #182, #183, #184, #185, #186, #187, #188, #189, #190, #191, #192, #193, #194, #195, #196, #197, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #218, #219, #220, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232, #233, #234, #235, #236, #237, #238, #239, #240, #241, #242, #243, #244, #245, #246, #247, #248, #249, #251, #252, #253, #254
 
 ## Missing per Pokemon
 
@@ -1185,6 +1185,15 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 ### #200 [Custodix](data/species/custodix.yaml) - 72%
 
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #250 [Meowthwo](data/species/meowthwo.yaml) - 17%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 

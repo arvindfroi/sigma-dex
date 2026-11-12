@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**160 / 254** slots have a Pokemon - **0** are fully complete - average completeness **58%**.
+**161 / 254** slots have a Pokemon - **0** are fully complete - average completeness **57%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -258,7 +258,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 247 | *open slot* | | | | | |
 | 248 | *open slot* | | | | | |
 | 249 | *open slot* | | | | | |
-| 250 | *open slot* | | | | | |
+| 250 | [Meowthwo](data/species/meowthwo.yaml) | Normal |  | 290 |  | 17% |
 | 251 | *open slot* | | | | | |
 | 252 | *open slot* | | | | | |
 | 253 | *open slot* | | | | | |

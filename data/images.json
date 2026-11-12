@@ -4977,13 +4977,6 @@
     "editor": "Casper"
   },
   {
-    "id": 1564,
-    "species": "tomaterdander",
-    "file": "assets/concept-art/tomaterdander/1564.png",
-    "caption": "[ds-front] sprite #261",
-    "editor": "Casper"
-  },
-  {
     "id": 1565,
     "species": "tomaterdander",
     "file": "assets/concept-art/tomaterdander/1565.png",
@@ -5052,5 +5045,19 @@
     "file": "assets/concept-art/raymon/1574.png",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 1575,
+    "species": "tomaterdander",
+    "file": "assets/concept-art/tomaterdander/1575.png",
+    "caption": "[ds-front] sprite #262",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1579,
+    "species": "meowthwo",
+    "file": "assets/concept-art/meowthwo/1579.webp",
+    "caption": null,
+    "editor": "Arvind"
   }
 ]
