@@ -70,27 +70,28 @@ learnset:
     - {level: 1, move: Absorb}
     - {level: 1, move: Astonish}
     - {level: 1, move: Confuse Ray}
+    - {level: 1, move: Growth}
     - {level: 1, move: Ingrain}
-    - {level: 1, move: Stun Spore}
+    - {level: 1, move: Sweet Scent}
     - {level: 1, move: Tackle}
-    - {level: 8, move: Fairy Wind}
-    - {level: 10, move: Aromatherapy}
     - {level: 12, move: Mega Drain}
+    - {level: 15, move: Stun Spore}
     - {level: 16, move: Sleep Powder}
-    - {level: 20, move: Magical Leaf}
     - {level: 20, move: Moonlight}
     - {level: 27, move: Strength Sap}
     - {level: 32, move: Giga Drain}
     - {level: 38, move: Dazzling Gleam}
-    - {level: 40, move: Energy Ball}
-    - {level: 48, move: Solar Beam}
+    - {level: 41, move: Energy Ball}
     - {level: 50, move: Moonblast}
+    - {level: 56, move: Spore}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
-          Rain Dance, Giga Drain, Safeguard, Frustration, Solar Beam, Return, Psychic,
-          Double Team, Sludge Bomb, Facade, Rest, Attract, Energy Ball, Charge Beam, Endure,
-          Drain Punch, Giga Impact, Thunder Wave, Sleep Talk, Grass Knot, Swagger,
-          Substitute, Psyshock, Draining Kiss, Grassy Terrain, Flash, Shadow Ball]
+  tm_hm: [Calm Mind, Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Light Screen,
+          Protect, Rain Dance, Giga Drain, Safeguard, Solar Beam, Thunderbolt, Return,
+          Psychic, Shadow Ball, Double Team, Sludge Bomb, Facade, Secret Power, Rest,
+          Attract, Skill Swap, Focus Blast, Energy Ball, Endure, Drain Punch, Will-O-Wisp,
+          Giga Impact, Thunder Wave, Psych Up, Sleep Talk, Natural Gift, Grass Knot,
+          Substitute, Psyshock, Draining Kiss, Grassy Terrain, Misty Terrain, Play Rough,
+          Mystical Fire, Psychic Terrain]
   # moves a move tutor can teach it
   tutor: [Dazzling Gleam, Leaf Storm, Magical Leaf, Pollen Puff, Seed Bomb, Synthesis,
           Weather Ball, Charm]

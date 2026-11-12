@@ -2453,19 +2453,19 @@ TEST("Sigma dex: Autuman has the data from its species file")
     EXPECT_EQ(info->types[0], TYPE_GRASS);
     EXPECT_EQ(info->types[1], TYPE_FIGHTING);
     EXPECT_EQ(info->abilities[0], ABILITY_JUSTIFIED);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
     EXPECT_EQ(GetSpeciesName(SPECIES_AUTUMAN)[0], CHAR_A);
 }
 
 SINGLE_BATTLE_TEST("Sigma dex: Autuman can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_AUTUMAN) { Moves(MOVE_LEER); }
+        PLAYER(SPECIES_AUTUMAN) { Moves(MOVE_GROWL); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_LEER); }
+        TURN { MOVE(player, MOVE_GROWL); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
     }
 }
 
@@ -2481,19 +2481,19 @@ TEST("Sigma dex: Bugmight has the data from its species file")
     EXPECT_EQ(info->types[0], TYPE_BUG);
     EXPECT_EQ(info->types[1], TYPE_FIGHTING);
     EXPECT_EQ(info->abilities[0], ABILITY_JUSTIFIED);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ARM_THRUST);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);
     EXPECT_EQ(GetSpeciesName(SPECIES_BUGMIGHT)[0], CHAR_B);
 }
 
 SINGLE_BATTLE_TEST("Sigma dex: Bugmight can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_BUGMIGHT) { Moves(MOVE_ARM_THRUST); }
+        PLAYER(SPECIES_BUGMIGHT) { Moves(MOVE_LEER); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_ARM_THRUST); }
+        TURN { MOVE(player, MOVE_LEER); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_ARM_THRUST, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, player);
     }
 }
 

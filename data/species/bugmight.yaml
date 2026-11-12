@@ -66,40 +66,33 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Arm Thrust}
     - {level: 1, move: Leer}
-    - {level: 1, move: Low Kick}
     - {level: 1, move: Tackle}
-    - {level: 8, move: Bug Bite}
-    - {level: 9, move: Rock Smash}
+    - {level: 5, move: Fury Attack}
     - {level: 10, move: Endure}
     - {level: 10, move: Focus Energy}
     - {level: 12, move: Helping Hand}
     - {level: 15, move: Aerial Ace}
-    - {level: 24, move: X-Scissor}
-    - {level: 25, move: Bulk Up}
     - {level: 25, move: Counter}
-    - {level: 30, move: Brick Break}
-    - {level: 34, move: Pin Missile}
-    - {level: 40, move: First Impression}
-    - {level: 41, move: Hammer Arm}
+    - {level: 30, move: Arm Thrust}
+    - {level: 35, move: Pin Missile}
+    - {level: 40, move: Throat Chop}
     - {level: 45, move: Thrash}
     - {level: 50, move: Reversal}
     - {level: 50, move: Swords Dance}
     - {level: 55, move: Megahorn}
-    - {level: 60, move: Close Combat}
-    - {level: 62, move: Leech Life}
+    - {level: 60, move: Hammer Arm}
+    - {level: 64, move: Close Combat}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
-          Rain Dance, Frustration, Earthquake, Return, Dig, Brick Break, Double Team,
-          Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Focus Blast,
-          Fling, Endure, Drain Punch, Shadow Claw, Giga Impact, Stone Edge, Swords Dance,
-          Captivate, Rock Slide, X-Scissor, Sleep Talk, Natural Gift, Poison Jab, Swagger,
-          U-turn, Substitute, Low Sweep, Struggle Bug, Bulldoze, High Horsepower, Lunge,
-          Body Press, Coaching, Strength, Rock Smash, Roost, Silver Wind]
+  tm_hm: [Focus Punch, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
+          Rain Dance, Earthquake, Return, Dig, Brick Break, Double Team, Rock Tomb,
+          Aerial Ace, Facade, Rest, Attract, Thief, Steel Wing, Focus Blast, Fling, Endure,
+          Drain Punch, Silver Wind, Payback, Giga Impact, Stone Edge, Swords Dance,
+          Rock Slide, X-Scissor, Sleep Talk, Poison Jab, Swagger, U-turn, Substitute,
+          Heavy Slam, Low Sweep, Struggle Bug, Bulldoze, Lunge, Brutal Swing, Body Press,
+          Coaching, Dual Wingbeat, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Bug Bite, Close Combat, Counter, Endeavor, Fire Punch, Ice Punch,
-          Iron Head, Megahorn, Power-Up Punch, Thunder Punch, Zen Headbutt, Mach Punch]
+  tutor: [Bug Bite, Bulk Up, Knock Off, Leech Life]
   # only needed for the first stage of an evolution line
   egg: [Flail, Seismic Toss, Feint, Revenge, Double-Edge]
 

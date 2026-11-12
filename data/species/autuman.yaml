@@ -66,33 +66,33 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Growl}
     - {level: 1, move: Leer}
     - {level: 1, move: Razor Leaf}
     - {level: 1, move: Tackle}
+    - {level: 5, move: Double Kick}
     - {level: 5, move: Rock Smash}
+    - {level: 9, move: Detect}
     - {level: 10, move: Focus Energy}
     - {level: 19, move: Feint}
-    - {level: 25, move: Counter}
-    - {level: 25, move: Endure}
-    - {level: 28, move: Slam}
-    - {level: 35, move: Brick Break}
-    - {level: 36, move: Leaf Blade}
+    - {level: 23, move: Counter}
+    - {level: 25, move: Acrobatics}
+    - {level: 32, move: Bulk Up}
+    - {level: 32, move: Grassy Glide}
     - {level: 38, move: Leaf Tornado}
-    - {level: 40, move: Hammer Arm}
-    - {level: 40, move: Sucker Punch}
-    - {level: 40, move: Acrobatics}
+    - {level: 39, move: Brick Break}
     - {level: 46, move: Swords Dance}
-    - {level: 50, move: Close Combat}
-    - {level: 50, move: Power Whip}
-    - {level: 55, move: Wood Hammer}
+    - {level: 50, move: Leaf Blade}
+    - {level: 54, move: Close Combat}
+    - {level: 60, move: Solar Blade}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Focus Punch, Toxic, Bulk Up, Bullet Seed, Hidden Power, Sunny Day, Taunt,
-          Hyper Beam, Protect, Rain Dance, Giga Drain, Frustration, Solar Beam, Earthquake,
-          Return, Dig, Brick Break, Double Team, Rock Tomb, Aerial Ace, Facade,
-          Secret Power, Rest, Attract, Thief, Focus Blast, Energy Ball, Fling, Endure,
-          Drain Punch, Payback, Giga Impact, Stone Edge, Swords Dance, Rock Slide,
-          Sleep Talk, Poison Jab, Grass Knot, Swagger, Substitute, Low Sweep, Bulldoze,
-          Grassy Terrain, Coaching, Strength, Rock Smash]
+  tm_hm: [Focus Punch, Bulk Up, Bullet Seed, Hidden Power, Sunny Day, Taunt, Hyper Beam,
+          Protect, Rain Dance, Giga Drain, Solar Beam, Return, Dig, Brick Break,
+          Double Team, Rock Tomb, Aerial Ace, Facade, Rest, Attract, Steel Wing,
+          Focus Blast, Energy Ball, False Swipe, Fling, Endure, Drain Punch, Payback,
+          Recycle, Giga Impact, Stone Edge, Swords Dance, Rock Slide, Sleep Talk,
+          Poison Jab, Grass Knot, Swagger, U-turn, Substitute, Low Sweep, Body Press,
+          Coaching, Triple Axel, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Close Combat, Endeavor, Ice Punch, Leaf Storm, Magical Leaf,
           Power-Up Punch, Seed Bomb, Solar Blade, Synthesis, Thunder Punch, Zen Headbutt]
