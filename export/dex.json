@@ -9926,6 +9926,10 @@
           {
             "level": 60,
             "move": "Solar Beam"
+          },
+          {
+            "level": 64,
+            "move": "Weather Ball"
           }
         ],
         "tm_hm": [

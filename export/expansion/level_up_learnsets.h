@@ -936,6 +936,7 @@ static const struct LevelUpMove sGortikiLevelUpLearnset[] = {
     LEVEL_UP_MOVE(50, MOVE_POWER_WHIP),
     LEVEL_UP_MOVE(56, MOVE_OVERHEAT),
     LEVEL_UP_MOVE(60, MOVE_SOLAR_BEAM),
+    LEVEL_UP_MOVE(64, MOVE_WEATHER_BALL),
     LEVEL_UP_END
 };
 
