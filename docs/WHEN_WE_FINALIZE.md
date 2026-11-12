@@ -98,6 +98,38 @@ escapes, and becomes a boss. What Origin already has (msg banks, docs/trainers.m
   two opponents at once, and Pokemon that go berserk out of battle (the Beedrill grooming scene, bank 492). No battle in
   Origin has more than six Pokemon per trainer, several health bars or a stage that changes the rules.
 
+### Meowth plan, round 2 (Arvind, 2026-11-12 evening)
+
+Arvind's sketches: [the controlled form](img/meowthwo_sketch_controlled.webp) (the costumed man in armour with wires,
+Persian's ghostly shape and red gem behind him) and [the costume](img/meowthwo_sketch_costume.png) (Meowth suit, Rocket
+shirt and red scarf, psychic energy in his hand).
+
+- **Meowth "dies" early.** He is in the trio at the start (Viridian Forest, Route 4), then after the first battles he is
+  gone, only implied. From then on the trio uses a **stand-in** in a cheap Meowth suit (comic: wrong colours, cannot do
+  the voice). The stand-in can stay a "Pokemon" in James' team, as a recoloured form of the costume species.
+- **Then the reveal: Meowthwo.** Origin's Rocket reports you can read ("Keep reading?", bank 572) can foreshadow it
+  (a test subject numbered 52, Meowth's dex number). Meowthwo takes Mewtwo's whole role: the birth scene in the lab
+  (bank 546: Dr. Fuji, Blaine, Green/Red, an explosion; it is overworld sprites plus text, so the text is an easy rewrite
+  and the actors need script work), Giovanni's weapon, going berserk and escaping (bank 599), fighting next to the
+  player at Indigo Plateau.
+- **Boss in two phases:** phase 1 the armoured form controlled by Giovanni's Persian (Giovanni talks during the
+  battle), a scene where the armour cracks and Persian loses its hold, phase 2 the unleashed form with a legendary intro
+  and its own music. A surprise and a real challenge.
+- **Forms after the story:** Meowthwo is caught in the armoured form; a held key item (working name "Deactivation Key")
+  switches it to the unleashed form, the same way Steel Armor makes Armored Mewtwo in Origin (a held-item form).
+- **Post-game restaurant:** Origin's Island Restaurant (Alto Mare islands, the trio as waiters, you choose to arrest them
+  or ask Meowth's help with the Lucky Meowth God) becomes a **fast food place**. Meowth, human again, works there and
+  explains where he went. Origin's own line "You're a Pokemon, aren't you? You're free" turns into a joke.
+- **Boss health in segments (later, new code):** like PokeRogue's bosses, the health bar is split into parts, one hit can
+  never pass a part line (a stronger Sturdy, so no one-shot), and each broken part can raise its stats. The damage cap
+  and stat raise fit the new-ability patch we already have (Weather Switch); a drawn segmented bar needs battle screen
+  code, so a first version shows a message per broken part.
+- **Facts checked:** Giovanni's final in Origin is three battles in a row: Giovanni alone (Arceus, Dialga and 4 more),
+  then a double battle against Giovanni and his past copy at once (you alone against both, the copy has Mewtwo), then
+  his very first Pokemon, Beedrill, alone (lv 100, "one last stand"). The berserk Beedrill in Celadon is a different,
+  unrelated scene (a groomer's Rocket product). Only one battle in Origin changes with the player's starter: Silver in
+  Dragon's Den, where only his ace changes (Meganium, Typhlosion or Feraligatr; Crobat and Gengar stay).
+
 ## Already planned for later
 
 - More trainer classes than the game's 129 (class 130+), if we want many new ones instead of replacing: needs the class tables moved and a code patch.

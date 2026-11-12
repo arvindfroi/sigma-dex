@@ -83,9 +83,9 @@ Pikachu story and the wild Viridian Forest Pikachu to the Water starter.)
 
 | Origin Pokémon | Where it matters | Our candidate | Status |
 |---|---|---|---|
-| Meowth / Persian (52-53) | Team Rocket's **talking Meowth** (Jessie and James's trio); text 200 | — | **new**: a cat-like, mono Normal Rocket sidekick (mono Normal is a gap) |
+| Meowth / Persian (52-53) | Team Rocket's **talking Meowth** (Jessie and James's trio); text 200 | — | **new**: a cat-like, mono Normal Rocket sidekick (mono Normal is a gap). Arvind 2026-11-12: Meowth is a man in a costume who becomes **Meowthwo** (takes Mewtwo's role), see WHEN_WE_FINALIZE.md |
 | Mew (151) | Team Rocket closes Mt. Moon to catch it (early Kanto story); gift on Five Island; text 95 | Sandrema (mythic, Fairy/Ground) | partly: Sandrema could be "the Mew" or "the Celebi", not both |
-| Mewtwo (150) | Gift at Indigo Plateau; Giovanni's ace; text 85 | Cryoblade (Dark/Ice, 605, "Frozen Executioner") | partly: as Team Rocket's lab-made weapon. Otherwise **new** |
+| Mewtwo (150) | Gift at Indigo Plateau; Giovanni's ace; text 85 | Cryoblade (Dark/Ice, 605, "Frozen Executioner") | partly: as Team Rocket's lab-made weapon. Otherwise **new**. Arvind 2026-11-12: **Meowthwo** takes this role |
 | Slowpoke / Slowbro / Slowking (79, 80, 199) | Slowpoke Well, Team Rocket cutting tails; 21 Slowpoke figures in Azalea; text 82 | Saucerl → Abyssys / Octopearl (Psychic/Water) | partly: same types, but the designers must accept the "slow, tail gets cut" story |
 | Magikarp / Gyarados (129-130) | Red Gyarados at Lake of Rage; Lance, Clair, Cyrus; text 69 + 99 | — | **new**: a useless fish that turns fearsome (Magikarp-like is a gap) |
 | Snorlax (143) | Blocks Route 12, battle at level 35 | — | **new**: a big sleepy road-blocker, mono Normal (gap). Needs its own sleeping map figure |
