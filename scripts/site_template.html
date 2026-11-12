@@ -696,6 +696,11 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .charthumb img, .charstage img { max-width: 100%; max-height: 100%; object-fit: contain; }
 .charsil { font-size: 48px; opacity: .35; font-family: var(--pixel, monospace); }
 .charstage { height: 140px; display: flex; align-items: center; justify-content: center; }
+.storyline { display: flex; align-items: center; gap: 6px; padding: 3px 0; border-bottom: 1px solid var(--line); }
+.storyteam { display: grid; gap: 4px; }
+.storymon { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
+.storymon img { width: 32px; height: 32px; object-fit: contain; } .storymon img.px { image-rendering: pixelated; }
+.storymon .sub:last-child { flex-basis: 100%; }
 .rlist { display: grid; gap: 6px; }
 .rblock { display: grid; grid-template-columns: 26px 1fr auto; gap: 6px; align-items: center; border: 2px solid var(--line); padding: 2px 6px; background: var(--panel); }
 .rmon .types .type { font-size: 10px; padding: 0 4px; }
@@ -3042,6 +3047,71 @@ function shuffledCharacters() {
   if (!charOrder) { charOrder = (DEX.characters || []).slice(); for (let i = charOrder.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [charOrder[i], charOrder[j]] = [charOrder[j], charOrder[i]]; } }
   return charOrder;
 }
+// ---------- the smart story team (Arvind, 2026-11-12): one ranked team of evolution lines that grows over all battles ----------
+// The owner picks up to 6 lines by their LAST evolution (so split evolutions are clear) and ranks them: no. 1 is the star,
+// there from the first battle. For every battle the team is worked out: as many Pokemon as the original battle had (the
+// top-ranked lines first; multi battles have fewer), the levels spread like the original team's (the star highest), each
+// line at the stage it would have at that level, and the 4 moves scripts/moveset_pick.py picks at that level
+// (DEX.story_moves, worked out at build time). A shared team picked for a battle overrides it.
+function storyChain(finalId) {                       // base -> ... -> final, following evolutions backwards
+  const chain = [finalId];
+  for (let guard = 0; guard < 5; guard++) {
+    const prev = DEX.species.find(o => (o.data.evolutions || []).some(e => e && e.into === chain[0]));
+    if (!prev) break;
+    chain.unshift(prev.id);
+  }
+  return chain;
+}
+function stageAt(chain, level) {                     // the stage a trainer's Pokemon has at this level
+  let at = chain[0], when = 0;
+  for (let i = 0; i + 1 < chain.length; i++) {
+    const s = byId.get(chain[i]), e = ((s && s.data.evolutions) || []).find(x => x && x.into === chain[i + 1]) || {};
+    const need = e.method === "level" && Number.isInteger(e.level) ? e.level : Math.max(when + 12, i === 0 ? 22 : 36);
+    if (level < need) break;
+    at = chain[i + 1]; when = need;
+  }
+  return at;
+}
+function storyMoves(sid, level) {
+  const picks = (DEX.story_moves || {})[sid] || [];
+  let best = null;
+  for (const p of picks) if (p[0] <= level) best = p;
+  return best ? {moves: best[1], role: best[2]} : {moves: [], role: ""};
+}
+function storyTeam(c, story, i) {
+  const b = (c.teams || [])[i];
+  if (!b || !story || !(story.lines || []).length) return [];
+  const levels = String(b.original || "").split(",").map(x => Number((x.trim().match(/(\d+)$/) || [])[1])).filter(Boolean).sort((x, y) => y - x);
+  const n = Math.min(b.size || levels.length || 1, story.lines.length);
+  return story.lines.slice(0, n).map((finalId, k) => {
+    const level = levels[k] || b.lv, sid = stageAt(storyChain(finalId), level), s = byId.get(sid);
+    const ab = (s && s.data.abilities) || {};
+    return {species: sid, level, ability: ab.primary || "", ...storyMoves(sid, level)};
+  });
+}
+function storyTeamText(team) {
+  return team.map(m => nameOf(m.species) + "\nAbility: " + (m.ability || "-") + "\nLevel: " + m.level + "\n" + m.moves.map(x => "- " + x).join("\n")).join("\n\n");
+}
+function storyTeamView(team) {
+  return h("div", {class: "storyteam"}, team.map(m => {
+    const s = byId.get(m.species), ds = s && DEX.ds_sprites[m.species], pic = s && (ds && ds.icon ? {src: ds.icon, pixel: true} : portrait(s));
+    return h("div", {class: "storymon"}, pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: ""}) : null,
+      h("b", {}, nameOf(m.species)), h("span", {class: "sub"}, " lv " + m.level + (m.ability ? " · " + m.ability : "")),
+      h("div", {class: "sub"}, m.moves.length ? m.moves.join(", ") : "no moves yet (comes when its moves are filled in)"));
+  }));
+}
+function storyLinePicker(story, onChange) {
+  const finals = DEX.species.filter(s => !(s.data.evolutions || []).some(e => e && byId.has(e.into)));
+  const box = attachPicker(textInput("", {placeholder: "Add a line: type its last evolution", "aria-label": "Add an evolution line"}), "species",
+    () => finals.map(x => ({name: x.data.name, desc: storyChain(x.id).map(nameOf).join(" → ") + "  " + (x.data.types || []).join("/")})));
+  box.addEventListener("change", () => {
+    const x = speciesByName(box.value);
+    if (!x || story.lines.includes(x.id) || story.lines.length >= 6) return;
+    onChange(story.lines.concat(x.id));
+  });
+  return box;
+}
+
 const roughBattles = n => n >= 8 ? "many battles" : n >= 3 ? "several battles" : n === 2 ? "a couple of battles" : "one battle";
 const charName = c => c.code || (c.group + " · " + c.type);
 const charPic = c => (trainerPics.get(c.id) || [])[0];
@@ -3058,24 +3128,33 @@ function openCharacter(c, tab) {
   tab = tab || "info";
   const status = h("div", {class: "hint", role: "status", style: "margin:0"});
   const cl = claimOf(c.id), mine = person(me()), isMine = cl.by && mine && person(cl.by) === mine;
-  const saveClaim = async (by, slots) => {
+  const saveClaim = async (by, slots, story) => {
     if (!me()) { status.textContent = "Write your name at the top of the page first."; return; }
     status.textContent = "Saving...";
-    const data = {by, role: c.id, slots: slots || {}};
+    const data = Object.assign({}, cl, {by, role: c.id, slots: slots || {}, story: story || cl.story || {lines: []}});
+    if (!by) { data.slots = {}; data.story = {lines: []}; data.name = ""; }
     try { await saveEdit("claim", "claim-" + c.id, data); claims.set(c.id, data); openCharacter(c, tab); if (view === "chars") renderCharacters(); }
     catch (err) { status.textContent = /check constraint/i.test(err.message) ? "Claiming is not switched on in the database yet." : err.message; }
   };
   let page;
   if (tab === "info") {
-    page = h("div", {},
+    // Onboarding for the owner: 1 a name, 2 a picture, 3 the story team (Arvind, 2026-11-12)
+    const nameBox = isMine ? h("input", {type: "text", maxlength: 10, value: cl.name || "", placeholder: "Trainer name (max 10)", "aria-label": "Trainer name", style: "max-width:180px"}) : null;
+    if (nameBox) nameBox.addEventListener("change", () => { cl.name = nameBox.value.trim(); saveClaim(cl.by, cl.slots, cl.story); });
+    const steps = isMine ? h("div", {class: "box"}, h("h3", {style: "margin-top:0"}, "Make this trainer yours"),
+      h("div", {class: "storyline"}, h("span", {class: "badge" + (cl.name ? " done" : "")}, "1"), "Give your trainer a name: ", nameBox),
+      h("div", {class: "storyline"}, h("span", {class: "badge" + ((trainerPics.get(c.id) || []).length ? " done" : "")}, "2"), "Add a picture or drawing under ", h("button", {type: "button", class: "linkish", onclick: () => openCharacter(c, "picture")}, "PICTURE")),
+      h("div", {class: "storyline"}, h("span", {class: "badge" + (((cl.story || {}).lines || []).length ? " done" : "")}, "3"), "Build your story team under ", h("button", {type: "button", class: "linkish", onclick: () => openCharacter(c, "teams")}, "TEAMS"))) : null;
+    page = h("div", {}, steps,
       h("div", {class: "factrows"},
         h("div", {}, h("span", {}, "Role"), c.group),
         h("div", {}, h("span", {}, "Type"), String(c.type || "")),
         h("div", {}, h("span", {}, "Surroundings"), c.place || "—"),
         c.rule ? h("div", {}, h("span", {}, "Rule"), c.rule) : null,
         h("div", {}, h("span", {}, "Battles"), isMine ? String(c.battles || 0) + " (each needs its own team)" : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
-        h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) : "nobody yet")),
-      CLAIMS_OPEN ? (!cl.by ? h("button", {type: "button", class: "primary", onclick: () => saveClaim(mine, {})}, "Claim this trainer")
+        h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (cl.name ? " (as " + cl.name + ")" : "") : "nobody yet")),
+      CLAIMS_OPEN ? (!cl.by ? h("div", {}, h("div", {class: "sub"}, "Claiming means: you become this trainer in the game. You give it a name, a picture and your own teams for its " + roughBattles(c.battles || 0) + ". You can give it back any time."),
+          h("button", {type: "button", class: "primary", onclick: () => saveClaim(mine, {})}, "Claim this trainer"))
         : isMine ? h("button", {type: "button", onclick: () => saveClaim("", {})}, "Give it back") : null)
         : h("div", {class: "notice info"}, "Claiming opens soon."));
   } else if (tab === "teams") {
@@ -3088,16 +3167,33 @@ function openCharacter(c, tab) {
       page = h("div", {}, h("div", {class: "sub"}, cl.by ? "The teams " + person(cl.by) + " has made for this trainer. Each one is behind a spoiler button." : "Nobody has claimed this trainer yet."),
         chosen.length ? chosen.map(spoilerTeam) : h("div", {class: "sub"}, "No teams chosen yet."));
     } else {
-      page = h("div", {},
-        h("div", {class: "sub"}, "One team per battle, lowest level first. Build as many teams as you like in TEAMS, share the ones you want with the group, and pick one here. The level and the number of Pokemon are suggestions from the original game. Use our own Pokemon of this trainer's type" + (c.rule ? " and follow the rule: " + c.rule : "") + ". Every team stays behind a spoiler button for the others."),
+      const story = Object.assign({lines: []}, cl.story || {});
+      const saveStory = lines => saveClaim(cl.by, cl.slots, Object.assign({}, story, {lines}));
+      const lineRows = story.lines.map((id, k) => h("div", {class: "storyline"},
+        h("span", {class: "badge" + (k === 0 ? " done" : "")}, k === 0 ? "\u2605 star" : "#" + (k + 1)),
+        h("b", {}, storyChain(id).map(nameOf).join(" \u2192 ")),
+        h("span", {class: "grow"}),
+        h("button", {type: "button", title: "Higher", disabled: k === 0 ? "" : null, onclick: () => { const l = story.lines.slice(); [l[k - 1], l[k]] = [l[k], l[k - 1]]; saveStory(l); }}, "\u25b2"),
+        h("button", {type: "button", title: "Lower", disabled: k === story.lines.length - 1 ? "" : null, onclick: () => { const l = story.lines.slice(); [l[k + 1], l[k]] = [l[k], l[k + 1]]; saveStory(l); }}, "\u25bc"),
+        h("button", {type: "button", title: "Remove", onclick: () => saveStory(story.lines.filter(x => x !== id))}, "\u2715")));
+      const builder = h("div", {class: "box"}, h("h3", {style: "margin-top:0"}, "Your story team"),
+        h("div", {class: "sub"}, "Pick up to 6 evolution lines by their last evolution and rank them. No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage and with sensible moves for the level."),
+        lineRows.length ? lineRows : h("div", {class: "sub"}, "No lines yet."), story.lines.length < 6 ? storyLinePicker(story, saveStory) : null);
+      page = h("div", {}, builder,
+        h("h3", {}, "Every battle"),
+        h("div", {class: "sub"}, "Worked out from your story team. Pick one of your shared teams on a battle to use that instead. The others only see your teams behind spoiler buttons."),
         h("div", {class: "scroll"}, h("table", {class: "balance"}, plan.map((b, i) => {
-          const tid = (cl.slots || {})[i], t = (lib.teams || []).find(x => x.id === tid);
-          const pick = h("select", {"aria-label": "Team for battle " + (i + 1), onchange: ev => { const slots = Object.assign({}, cl.slots || {}); if (ev.target.value) slots[i] = ev.target.value; else delete slots[i]; saveClaim(cl.by, slots); }},
-            h("option", {value: ""}, "choose one of your shared teams"), myTeams.map(x => h("option", {value: x.id, selected: x.id === tid ? "" : null}, x.name)));
+          const tid = (cl.slots || {})[i], t = (lib.teams || []).find(x => x.id === tid), gen = storyTeam(c, story, i);
+          const pick = h("select", {"aria-label": "Team for battle " + (i + 1), onchange: ev => { const slots = Object.assign({}, cl.slots || {}); if (ev.target.value) slots[i] = ev.target.value; else delete slots[i]; saveClaim(cl.by, slots, cl.story); }},
+            h("option", {value: ""}, "the story team (worked out)"), myTeams.map(x => h("option", {value: x.id, selected: x.id === tid ? "" : null}, x.name)));
+          const copy = gen.length && !t ? h("button", {type: "button", title: "Put this team in TEAMS to change it, then share it and pick it here", onclick: () => {
+            tb.teams.push({name: (charName(c) + " battle " + (i + 1)).slice(0, 40), mons: gen.map(m => Object.assign(blankMon(), {species: m.species, level: m.level, ability: m.ability, moves: m.moves.concat(["", "", "", ""]).slice(0, 4)}))});
+            saveTeams(); status.textContent = "Copied to TEAMS as \u201c" + tb.teams[tb.teams.length - 1].name + "\u201d."; }}, "Copy to TEAMS") : null;
           return h("tr", {}, h("td", {class: "num"}, "Battle " + (i + 1)),
             h("td", {class: "sub"}, "up to lv " + b.lv + " \u00b7 " + b.size + " Pokemon" + (b.partner ? " \u00b7 may fight next to you" : "")),
-            h("td", {}, spoilerTeam(t), h("details", {class: "spoiler"}, h("summary", {}, "The original team in Origin (spoiler)"), h("div", {class: "sub"}, b.original))),
-            h("td", {}, pick));
+            h("td", {}, t ? spoilerTeam(t) : gen.length ? storyTeamView(gen) : h("span", {class: "sub"}, "add lines to your story team"),
+              h("details", {class: "spoiler"}, h("summary", {}, "The original team in Origin (spoiler)"), h("div", {class: "sub"}, b.original))),
+            h("td", {}, pick, copy));
         }))));
     }
   } else {
@@ -3140,7 +3236,7 @@ function renderCharacters() {
     const cl = claimOf(c.id), pic = charPic(c), isMine = cl.by && mine && person(cl.by) === mine;
     return h("button", {type: "button", class: "card charcard", onclick: () => openCharacter(c)},
       h("div", {class: "charthumb"}, pic ? h("img", {src: pic.src, alt: ""}) : h("span", {class: "charsil"}, "?")),
-      h("b", {}, charName(c)),
+      h("b", {}, charName(c)), cl.name ? h("div", {}, "\u201c" + cl.name + "\u201d") : null,
       h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
       h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "")),
       h("div", {class: "sub"}, cl.by ? ((isMine ? "★ " : "") + "claimed by " + person(cl.by)) : "free"));

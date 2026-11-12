@@ -10,6 +10,7 @@ import yaml
 
 import dexlib
 import validate
+import story_moves
 from dexlib import ROOT
 
 SITE = ROOT / "site"
@@ -89,6 +90,7 @@ def main():
         "custom": {"move": engine["custom"]["moves"], "ability": engine["custom"]["abilities"]},
         "images": images, "sprites": sprite_info, "ds_sprites": ds_sprites, "showdown": showdown, "studio": studio,
         "type_shares": yaml.safe_load((ROOT / "data" / "engine" / "type_shares.yaml").read_text(encoding="utf-8")),
+        "story_moves": story_moves.build()[0],
         "characters": yaml.safe_load((ROOT / "data" / "characters.yaml").read_text(encoding="utf-8")) if (ROOT / "data" / "characters.yaml").exists() else [],
         "official_balance": json.loads((ROOT / "data" / "engine" / "official_balance.json").read_text(encoding="utf-8")) if (ROOT / "data" / "engine" / "official_balance.json").exists() else {"gens": {}},
         "requests": yaml.safe_load((ROOT / "data" / "requests.yaml").read_text(encoding="utf-8")) if (ROOT / "data" / "requests.yaml").exists() else [],
