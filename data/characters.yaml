@@ -12,7 +12,7 @@
 # champion stays, hidden among the important trainers. The website shows the trainers in a random order.
 # teams: one per battle, lowest level first: lv = highest level, size = number of Pokemon, partner = a multi battle
 # (they may fight next to you), original = Origin's own team (shown only to the one who claims the trainer).
-# The Elite Four are among the important trainers; every champion but one is left out (Arvind makes those).
+# The Elite Four are among the important trainers; every champion and the main rival are left out (Arvind makes those himself, 2026-11-12).
 - id: gym-bug
   group: Gym leader
   type: Bug
@@ -324,37 +324,20 @@
   - {lv: 100, size: 3, partner: true, original: 'Giratina 100, Rapidash 95, Rotom 95'}
 - id: trainer-m
   group: Important trainer
-  type: mixed (Steel leaning)
-  place: you meet them again and again
-  battles: 9
-  levels: [5, 12, 15, 20, 35, 42, 65, 83, 96]
-  code: Trainer M
-  teams:
-  - {lv: 5, size: 3, partner: false, original: 'Beldum 5, Aron 5, Tinkatink 5'}
-  - {lv: 12, size: 3, partner: false, original: 'Beldum 12, Baltoy 11, Aron 12'}
-  - {lv: 15, size: 4, partner: true, original: 'Beldum 15, Aron 14, Baltoy 12, Anorith 13'}
-  - {lv: 20, size: 4, partner: false, original: 'Metang 20, Aron 15, Baltoy 16, Anorith 17'}
-  - {lv: 35, size: 5, partner: false, original: 'Metang 35, Lairon 34, Claydol 34, Armaldo 34, Cradily 34'}
-  - {lv: 42, size: 6, partner: true, original: 'Metang 42, Aggron 42, Claydol 40, Armaldo 40, Cradily 40, Skarmory 40'}
-  - {lv: 65, size: 6, partner: false, original: 'Metagross 55, Aggron 54, Claydol 53, Armaldo 65, Cradily 54, Skarmory 53'}
-  - {lv: 83, size: 6, partner: false, original: 'Skarmory 82, Aggron 83, Claydol 82, Armaldo 82, Cradily 83, Metagross 83'}
-  - {lv: 96, size: 6, partner: true, original: 'Metagross 96, Skarmory 95, Aggron 96, Claydol 95, Cradily 96, Armaldo 95'}
-- id: trainer-n
-  group: Important trainer
   type: Ghost
   place: you meet them once, at an important moment
-  code: Trainer N
+  code: Trainer M
   battles: 1
   levels: [90]
   teams:
   - {lv: 90, size: 6, partner: true, original: 'Arbok 90, Gengar 90, Sableye 89, Spiritomb 89, Dusknoir 90, Mismagius 89'}
-- id: trainer-o
+- id: trainer-n
   group: Important trainer
   type: Water
   place: you meet them several times
   battles: 7
   levels: [40, 45, 50, 72, 89, 90, 100]
-  code: Trainer O
+  code: Trainer N
   teams:
   - {lv: 40, size: 1, partner: false, original: Crawdaunt 40}
   - {lv: 45, size: 3, partner: false, original: 'Walrein 44, Whiscash 43, Kingdra 45'}
@@ -363,13 +346,13 @@
   - {lv: 89, size: 6, partner: true, original: 'Pelipper 88, Kingdra 89, Seismitoad 89, Kabutops 89, Forretress 88, Crawdaunt 88'}
   - {lv: 90, size: 6, partner: false, original: 'Politoed 89, Sharpedo 90, Walrein 89, Kingdra 90, Kabutops 88, Crawdaunt 89'}
   - {lv: 100, size: 6, partner: true, original: 'Kyogre 100, Scizor 95, Kingdra 95, Kabutops 95, Pelipper 95, Forretress 95'}
-- id: trainer-p
+- id: trainer-o
   group: Important trainer
   type: Grass / Psychic / Ground
   place: you meet them again and again
   battles: 9
   levels: [24, 24, 25, 30, 45, 61, 81, 90, 95]
-  code: Trainer P
+  code: Trainer O
   teams:
   - {lv: 24, size: 4, partner: true, original: 'Chikorita 10, Parasect 24, Cubone 9, Natu 9'}
   - {lv: 24, size: 5, partner: false, original: 'Chikorita 11, Parasect 24, Cubone 10, Natu 10, Smoochum 10'}
@@ -380,102 +363,75 @@
   - {lv: 81, size: 6, partner: false, original: 'Meganium 81, Jynx 80, Hitmonchan 81, Xatu 80, Parasect 81, Marowak 80'}
   - {lv: 90, size: 6, partner: true, original: 'Meganium 90, Parasect 90, Jynx 89, Hitmonchan 89, Marowak 89, Xatu 90'}
   - {lv: 95, size: 3, partner: true, original: 'Suicune 95, Jynx 89, Marowak 89'}
-- id: trainer-q
+- id: trainer-p
   group: Important trainer
   type: Rock / Normal / Flying
   place: you meet them a couple of times
   battles: 2
   levels: [82, 92]
-  code: Trainer Q
+  code: Trainer P
   teams:
   - {lv: 82, size: 6, partner: false, original: 'Golem 81, Dodrio 82, Omastar 81, Butterfree 82, Pikachu 81, Raticate 82'}
   - {lv: 92, size: 6, partner: true, original: 'Pikachu 92, Omastar 91, Raticate 92, Butterfree 91, Dodrio 92, Golem 91'}
-- id: trainer-r
+- id: trainer-q
   group: Important trainer
   type: Fighting
   place: you meet them a couple of times
-  code: Trainer R
+  code: Trainer Q
   battles: 2
   levels: [88, 92]
   teams:
   - {lv: 88, size: 6, partner: true, original: 'Hitmontop 87, Machamp 87, Steelix 88, Hitmonlee 88, Hitmonchan 87, Infernape 88'}
   - {lv: 92, size: 6, partner: true, original: 'Hitmontop 91, Steelix 92, Machamp 91, Heracross 91, Infernape 92, Lucario 92'}
-- id: trainer-s
+- id: trainer-r
   group: Important trainer
   type: Dark / Steel / Dragon
   place: you meet them several times
   battles: 3
   levels: [90, 90, 100]
-  code: Trainer S
+  code: Trainer R
   teams:
   - {lv: 90, size: 6, partner: true, original: 'Tyranitar 90, Sandslash 89, Scizor 90, Weavile 90, Steelix 89, Gastrodon 89'}
   - {lv: 90, size: 6, partner: false, original: 'Scizor 89, Weavile 90, Tyranitar 90, Salamence 90, Steelix 89, Gyarados 89'}
   - {lv: 100, size: 6, partner: false, original: 'Deoxys 100, Deoxys 100, Deoxys 100, Weavile 95, Salamence 95, Tyranitar 95'}
-- id: trainer-t
+- id: trainer-s
   group: Important trainer
   type: Fire / Flying / Dark
   place: you meet them several times
   battles: 3
   levels: [92, 95, 100]
-  code: Trainer T
+  code: Trainer S
   teams:
   - {lv: 92, size: 6, partner: false, original: 'Houndoom 92, Salamence 92, Gyarados 92, Lucario 91, Forretress 91, Hypno 91'}
   - {lv: 95, size: 6, partner: true, original: 'Ho-Oh 95, Torkoal 91, Houndoom 92, Electrode 92, Shiftry 92, Muk 91'}
   - {lv: 100, size: 6, partner: true, original: 'Ho-Oh 100, Regigigas 100, Houndoom 99, Kangaskhan 99, Swampert 99, Salamence 99'}
-- id: trainer-u
+- id: trainer-t
   group: Important trainer
   type: mixed
   place: you meet them several times
   battles: 3
   levels: [33, 87, 95]
-  code: Trainer U
+  code: Trainer T
   teams:
   - {lv: 33, size: 2, partner: false, original: 'Golbat 28, Weezing 33'}
   - {lv: 87, size: 6, partner: false, original: 'Electivire 87, Wobbuffet 86, Sableye 86, Annihilape 86, Swalot 87, Rampardos 87'}
   - {lv: 95, size: 6, partner: false, original: 'Moltres 95, Rampardos 95, Wobbuffet 95, Slowking 95, Mawile 95, Infernape 95'}
-- id: trainer-v
+- id: trainer-u
   group: Important trainer
   type: Flying / Dragon
   place: you meet them once, at an important moment
-  code: Trainer V
+  code: Trainer U
   battles: 1
   levels: [95]
   teams:
   - {lv: 95, size: 6, partner: true, original: 'Dragonite 95, Salamence 95, Aerodactyl 95, Gyarados 95, Charizard 95, Altaria 95'}
-- id: trainer-w
-  group: Important trainer
-  type: mixed
-  place: you meet them again and again
-  battles: 19
-  levels: [5, 7, 12, 16, 19, 22, 24, 24, 28, 30, 34, 42, 50, 70, 76, 76, 93, 97, 97]
-  code: Trainer W
-  teams:
-  - {lv: 5, size: 1, partner: false, original: Squirtle 5}
-  - {lv: 7, size: 3, partner: false, original: 'Rattata 4, Pidgey 5, Squirtle 7'}
-  - {lv: 12, size: 4, partner: false, original: 'Rattata 11, Squirtle 12, Pidgey 11, Rhyhorn 10'}
-  - {lv: 16, size: 4, partner: true, original: 'Wartortle 16, Pidgey 15, Rhyhorn 13, Rattata 14'}
-  - {lv: 19, size: 5, partner: false, original: 'Wartortle 19, Rattata 18, Pidgeotto 18, Eevee 10, Abra 10'}
-  - {lv: 22, size: 1, partner: false, original: Wartortle 22}
-  - {lv: 24, size: 5, partner: true, original: 'Exeggutor 22, Wartortle 24, Raticate 23, Eevee 20, Rhyhorn 22'}
-  - {lv: 24, size: 4, partner: true, original: 'Wartortle 24, Raticate 23, Pidgeotto 23, Rhyhorn 22'}
-  - {lv: 28, size: 4, partner: false, original: 'Kadabra 25, Wartortle 28, Raticate 26, Pidgeotto 27'}
-  - {lv: 30, size: 6, partner: false, original: 'Wartortle 30, Kadabra 28, Pidgeotto 29, Umbreon 28, Rhyhorn 28, Exeggutor 29'}
-  - {lv: 34, size: 6, partner: true, original: 'Wartortle 34, Kadabra 32, Pidgeotto 33, Umbreon 32, Rhyhorn 32, Exeggutor 32'}
-  - {lv: 42, size: 6, partner: true, original: 'Blastoise 42, Pidgeot 41, Alakazam 40, Arcanine 40, Rhydon 42, Umbreon 40'}
-  - {lv: 50, size: 4, partner: false, original: 'Blastoise 50, Rhydon 49, Umbreon 48, Arcanine 48'}
-  - {lv: 70, size: 6, partner: true, original: 'Blastoise 70, Pidgeot 69, Rhydon 68, Arcanine 68, Alakazam 69, Umbreon 67'}
-  - {lv: 76, size: 4, partner: false, original: 'Pidgeot 75, Rhydon 74, Alakazam 74, Blastoise 76'}
-  - {lv: 76, size: 5, partner: true, original: 'Blastoise 76, Pidgeot 75, Exeggutor 74, Alakazam 74, Rhydon 74'}
-  - {lv: 93, size: 6, partner: true, original: 'Umbreon 91, Arcanine 91, Rhydon 92, Alakazam 91, Blastoise 93, Pidgeot 92'}
-  - {lv: 97, size: 6, partner: false, original: 'Blastoise 97, Arcanine 96, Pidgeot 97, Exeggutor 96, Rhydon 97, Alakazam 96'}
-  - {lv: 97, size: 6, partner: true, original: 'Umbreon 96, Pidgeot 97, Blastoise 97, Rhydon 96, Alakazam 97, Arcanine 96'}
-- id: trainer-x
+- id: trainer-v
   group: Important trainer
   type: Flying / Dark / Water
   place: you meet them several times
   battles: 4
   levels: [90, 90, 100, 100]
-  code: Trainer X
+  code: Trainer V
   teams:
   - {lv: 90, size: 6, partner: false, original: 'Murkrow 89, Weavile 90, Gyarados 90, Crobat 90, Weezing 89, Aggron 89'}
   - {lv: 90, size: 6, partner: true, original: 'Crobat 89, Weavile 90, Gyarados 90, Honchkrow 90, Luxray 89, Gastrodon 89'}

@@ -82,17 +82,15 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer J: Green
 - Trainer K: Lorelei (Elite Four)
 - Trainer L: Charon (executive)
-- Trainer M: Steven (Hoenn champion, also a trainer you meet)
-- Trainer N: Agatha (Elite Four)
-- Trainer O: Archie (executive, Water)
-- Trainer P: Crystal
-- Trainer Q: Yellow
-- Trainer R: Bruno (Elite Four)
-- Trainer S: Marauder (executive)
-- Trainer T: Archer (executive)
-- Trainer U: Proton (executive)
-- Trainer V: Lorin (Elite Four)
-- Trainer W: Blue (rival)
-- Trainer X: Cyrus (executive)
+- Trainer M: Agatha (Elite Four)
+- Trainer N: Archie (executive, Water)
+- Trainer O: Crystal
+- Trainer P: Yellow
+- Trainer Q: Bruno (Elite Four)
+- Trainer R: Marauder (executive)
+- Trainer S: Archer (executive)
+- Trainer T: Proton (executive)
+- Trainer U: Lorin (Elite Four)
+- Trainer V: Cyrus (executive)
 
-Left out on purpose (Arvind makes them himself): every champion but one (Cynthia is out, Steven stays).
+Left out on purpose (Arvind makes them himself): every champion (Steven, Cynthia) and the main rival (Blue).
