@@ -3015,7 +3015,7 @@ function ourLines() {
   return {lines, bst, strong, normal, mono: typed.filter(s => new Set(s.data.types).size === 1).length, typed: typed.length};
 }
 // ---------- characters the group can claim (no names, no spoilers); claims are species_edits rows of kind 'claim' ----------
-const CLAIMS_OPEN = false;
+const CLAIMS_OPEN = true;     // opened 2026-11-12 (Arvind: when the smart team builder is done)
 const CHARS_PREVIEW = /[?&]chars-preview\b/.test(location.search);   // test view: add ?chars-preview to the address   // work in progress (Arvind, 2026-11-11): nobody claims yet
 let claims = null, claimsError = "", charOpen = "";
 const trainerPics = new Map();     // role id -> [{id, src, caption, editor}] (species_images rows with species_id "trainer-<role>")
@@ -4003,10 +4003,10 @@ function renderList(list) {
 // ---------- the page around it: menu tabs, the top screen, day and night ----------
 let view = "species";
 const MAIN_TABS = [["species", "POKEDEX", "purple"], ["teams", "TEAMS", "pink"], ["board", "REQUESTS", "pink"], ["sprites", "SPRITES", "blue"], ["progress", "PROGRESS", "sky"]];
-const MORE = [["lost", "Lost and found"], ["evo", "Evolution lines"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Balance"], ["chars", "Characters (work in progress)"], ["reorder", "Change dex numbers"]];
+const MORE = [["lost", "Lost and found"], ["evo", "Evolution lines"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Balance"], ["chars", "Characters"], ["reorder", "Change dex numbers"]];
 const WIDE_VIEWS = ["board", "progress", "teams", "chars", "reorder"];
 // What the top screen's dialog box says on each page.
-const CHARS_HELP = /[?&]chars-preview\b/.test(location.search) ? "CHARACTERS\nThe trainers in the game we can replace with ourselves. Who they really are stays a surprise: you only see the role, the type and how often you meet them." : "CHARACTERS\nWork in progress. Come back later!";
+const CHARS_HELP = CLAIMS_OPEN || /[?&]chars-preview\b/.test(location.search) ? "CHARACTERS\nThe trainers in the game we can replace with ourselves. Who they really are stays a surprise: you only see the role, the type and how often you meet them." : "CHARACTERS\nWork in progress. Come back later!";
 const PAGE_HELP = {
   species: "Welcome to the " + DEX.project + "!\nPoint at a Pokemon to see it up here. Tap it to open its page, change it or draw its sprites.",
   board: "REQUESTS\nWhat the game still needs, and what people wish for. Add your own idea, or move a card along when work starts or is done.",
