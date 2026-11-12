@@ -104,31 +104,51 @@ Arvind's sketches: [the controlled form](img/meowthwo_sketch_controlled.webp) (t
 Persian's ghostly shape and red gem behind him) and [the costume](img/meowthwo_sketch_costume.png) (Meowth suit, Rocket
 shirt and red scarf, psychic energy in his hand).
 
-- **Meowth "dies" early.** He is in the trio at the start (Viridian Forest, Route 4), then after the first battles he is
-  gone, only implied. From then on the trio uses a **stand-in** in a cheap Meowth suit (comic: wrong colours, cannot do
-  the voice). The stand-in can stay a "Pokemon" in James' team, as a recoloured form of the costume species.
+- **Meowth "dies" early.** The Meowth in the first battles (Viridian Forest, Route 4) is the real one, the trio's third
+  member who talks and acts like in the series. After the first battles he is gone, only implied (Jessie and James change
+  the subject when asked). From then on the trio uses a **stand-in**: some dude in a cheap Meowth suit (comic: wrong
+  colours, cannot do the voice). In battle he can still be the "Pokemon" in James' team; the cheapest way is the costume
+  species' own battle sprite with other colours (a palette form, like a shiny), so no new drawing is needed.
+- **Rocket reports as hints (Arvind liked this, write them):** Origin already has Rocket reports you can read ("Keep
+  reading?", bank 572). We add a few about "test subject 52" (Meowth's dex number), spread over the game so the reveal
+  is built up. Drafts, game text in English:
+  1. "Subject 52 arrived today. Uncooperative. Talks back. Bit two of our staff."
+  2. "Psychic response in subject 52 is rising. It keeps asking for its friends."
+  3. "The armour holds subject 52 in place. Persian's link is the only thing it obeys."
+  4. "Subject 52 no longer answers to its old name. We are calling the result M2-52."
 - **Then the reveal: Meowthwo.** Origin's Rocket reports you can read ("Keep reading?", bank 572) can foreshadow it
   (a test subject numbered 52, Meowth's dex number). Meowthwo takes Mewtwo's whole role: the birth scene in the lab
   (bank 546: Dr. Fuji, Blaine, Green/Red, an explosion; it is overworld sprites plus text, so the text is an easy rewrite
   and the actors need script work), Giovanni's weapon, going berserk and escaping (bank 599), fighting next to the
   player at Indigo Plateau.
+- **Mewtwo's overworld figure is its follower sprite.** Every scene where Mewtwo stands on the map uses the normal
+  Mewtwo follower sprite: the lab birth scene (event file 68, with Red, Blaine, Rocket staff and the emergency doors),
+  Indigo Plateau with Palkia and Giratina (82), the Giovanni scene (214) and the final at the Pokemon League (277, next
+  to Giovanni, Arceus, Dialga and Beedrill). So if Meowthwo takes Mewtwo's dex slot, all four scenes show Meowthwo
+  without script work.
 - **Boss in two phases:** phase 1 the armoured form controlled by Giovanni's Persian (Giovanni talks during the
   battle), a scene where the armour cracks and Persian loses its hold, phase 2 the unleashed form with a legendary intro
   and its own music. A surprise and a real challenge.
 - **Forms after the story:** Meowthwo is caught in the armoured form; a held key item (working name "Deactivation Key")
   switches it to the unleashed form, the same way Steel Armor makes Armored Mewtwo in Origin (a held-item form).
 - **Post-game restaurant:** Origin's Island Restaurant (Alto Mare islands, the trio as waiters, you choose to arrest them
-  or ask Meowth's help with the Lucky Meowth God) becomes a **fast food place**. Meowth, human again, works there and
-  explains where he went. Origin's own line "You're a Pokemon, aren't you? You're free" turns into a joke.
+  or ask Meowth's help with the Lucky Meowth God) becomes a **fast food place**. Meowth works there and
+  explains where he went. It is the **real** Meowth who ends up there (not the stand-in). Origin's own line "You're a
+  Pokemon, aren't you? You're free" turns into a joke.
 - **Boss health in segments (later, new code):** like PokeRogue's bosses, the health bar is split into parts, one hit can
-  never pass a part line (a stronger Sturdy, so no one-shot), and each broken part can raise its stats. The damage cap
-  and stat raise fit the new-ability patch we already have (Weather Switch); a drawn segmented bar needs battle screen
-  code, so a first version shows a message per broken part.
+  never pass a part line (a stronger Sturdy, so no one-shot), and each broken part can raise its stats. **Not an
+  ability** (Arvind): it is a boss rule the battle script turns on before the fight, so the mon keeps its normal ability.
+  The damage cap and stat raise use the same kind of code patch as our Weather Switch test; a drawn segmented bar needs
+  battle screen code, so a first version shows a message per broken part.
 - **Facts checked:** Giovanni's final in Origin is three battles in a row: Giovanni alone (Arceus, Dialga and 4 more),
   then a double battle against Giovanni and his past copy at once (you alone against both, the copy has Mewtwo), then
   his very first Pokemon, Beedrill, alone (lv 100, "one last stand"). The berserk Beedrill in Celadon is a different,
   unrelated scene (a groomer's Rocket product). Only one battle in Origin changes with the player's starter: Silver in
-  Dragon's Den, where only his ace changes (Meganium, Typhlosion or Feraligatr; Crobat and Gengar stay).
+  Dragon's Den, where only his ace changes (Meganium, Typhlosion or Feraligatr; Crobat and Gengar stay). Arvind: keep
+  the note on that battle, no slot system for now.
+- **Giovanni's final, maybe rewritten (Arvind):** build it more around Meowthwo. Present and past Giovanni can stay;
+  the past one could be the one with Persian (the Persian that controls Meowthwo). Beedrill's "last stand" is his first
+  Pokemon; we have plenty of our own mons to pick from for that role and for the Celadon Beedrill. Decide later.
 
 ## Already planned for later
 
