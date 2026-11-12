@@ -164,6 +164,19 @@ Not built yet. The plan, using the same method as Weather Switch:
 - An entry in the move list (`0x02251C90`) for the new move id. The id itself: a new one (921 or
   higher), see [New ids, not reused ones](#new-ids-not-reused-ones).
 
+## Code our Pokemon need (besides new abilities and moves)
+
+- **1 HP for Wonder Guard (Goatjo).** The dex sets base HP 1 for every Pokemon with Wonder Guard
+  (`scripts/dex_rules.py`), but base HP 1 alone is not enough: the game gives "always 1 HP" only to Shedinja, by
+  its species number, in the function that works out a Pokemon's stats (in the decomp: `CalcMonLevelAndStats`,
+  `if (species == SPECIES_SHEDINJA) maxHp = 1`). Without a patch Goatjo would have about 60 HP at level 50. The
+  patch: give max HP 1 to every species whose base HP is 1 (only Shedinja and ours have that).
+- **Form-change abilities.** The game changes form only for the original Pokemon: Disguise (Mimikyu), Shields
+  Down (Minior), Battle Bond (Greninja). Ours keep these abilities (Arvind, 2026-11-12): Phantomb and Phantail
+  (Disguise), Aluminimonk and its evolution (Shields Down), Chillalit (Battle Bond). Each needs its battle form in
+  the dex (Forms, with pictures) and the species checks extended to our species. `dex_rules.py check` warns until
+  the form is in the dex.
+
 ## Names and descriptions (text)
 
 All in the text archive `a/0/2/7`, encoded with hg-engine's `tools/msgenc -e -k 0` and `charmap.txt`

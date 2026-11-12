@@ -979,6 +979,7 @@ function gameNeeds(s) {
 }
 
 function calcStat(base, level, iv, ev, nature, isHp) {
+  if (isHp && Number(base) === 1) return 1;        // Wonder Guard: 1 HP at every level, like Shedinja
   const core = Math.floor((2 * base + iv + Math.floor(ev / 4)) * level / 100);
   return isHp ? core + level + 10 : Math.floor((core + 5) * nature);
 }

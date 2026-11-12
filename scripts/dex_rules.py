@@ -37,6 +37,8 @@ FORM_ABILITIES = {"Disguise": "Mimikyu", "Shields Down": "Minior", "Battle Bond"
                   "RKS System": "Silvally", "Commander": "Tatsugiri"}
 # Abilities so strong that official competitive play bans them.
 BANNED_SINGLES = {"Moody", "Shadow Tag", "Arena Trap"}
+# Checked and accepted by the group (species id, ability): no warning for these.
+ACCEPTED = {("eiscue", "Moody"), ("grincho", "Shadow Tag")}
 
 
 _LEGENDARIES = None
@@ -102,7 +104,7 @@ def _learnset_moves(data):
     return list(dict.fromkeys(out))
 
 
-def check(data, moves=None):
+def check(data, moves=None, sid=None):
     """Warnings for one species. moves: {name: move data} (moveset_data.load()["moves"]) for the move checks."""
     out = []
     abil = abilities(data)
@@ -125,10 +127,12 @@ def check(data, moves=None):
         if bad:
             out.append("has Wonder Guard (1 HP), so these moves do nothing or knock it out: %s" % ", ".join(bad))
     for a in abil:
-        if a in FORM_ABILITIES:
-            out.append("%s changes %s's form in the game; for our Pokemon it needs its own form and new code, or "
-                       "a different ability" % (a, FORM_ABILITIES[a]))
-        if a in BANNED_SINGLES:
+        battle_forms = [f for f in data.get("forms") or [] if isinstance(f, dict) and f.get("name")]
+        if a in FORM_ABILITIES and not battle_forms:
+            out.append("%s changes %s's form in battle: add the form it changes into (Forms on the "
+                       "website); the game also needs new code for it (docs/ORIGIN_CUSTOM_CODE.md)"
+                       % (a, FORM_ABILITIES[a]))
+        if a in BANNED_SINGLES and (sid, a) not in ACCEPTED:
             out.append("%s is banned in official competitive play - check that it is not too strong here" % a)
     if stats.get("attack") and stats.get("sp_attack"):
         for a in abil:
@@ -159,7 +163,7 @@ def main():
         except Exception:
             moves = {}
         for sid, path, data in species:
-            for w in check(data, moves):
+            for w in check(data, moves, sid):
                 print("%s (%s): %s" % (data.get("name") or sid, sid, w))
     else:
         sys.exit(__doc__)

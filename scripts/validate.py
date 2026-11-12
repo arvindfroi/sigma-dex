@@ -77,7 +77,7 @@ def check_species(sid, data, ids, engine, errors, warnings):
         if slot in ("primary", "secondary", "hidden") and ability is not None and dexlib.norm(ability) not in engine["abilities"]:
             warn("ability '%s' does not exist in the game yet - check the spelling; if it is a new ability it has to be programmed" % ability)
 
-    for message in dex_rules.check(data):       # abilities that do not fit (docs/FIELDS.md, scripts/dex_rules.py)
+    for message in dex_rules.check(data, sid=sid):       # abilities that do not fit (docs/FIELDS.md, scripts/dex_rules.py)
         (err if "base HP must be 1" in message else warn)(message)
 
     types = data.get("types")
