@@ -94,3 +94,5 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer V: Cyrus (executive)
 
 Left out on purpose (Arvind makes them himself): every champion (Steven, Cynthia) and the main rival (Blue).
+The villains (codes A, B, D, E, F, L, N, R, S, T, V) were taken off the website on 2026-11-12 (Arvind); their codes are kept
+here so the remaining letters keep their meaning.

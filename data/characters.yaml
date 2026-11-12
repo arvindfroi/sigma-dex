@@ -13,6 +13,7 @@
 # teams: one per battle, lowest level first: lv = highest level, size = number of Pokemon, partner = a multi battle
 # (they may fight next to you), original = Origin's own team (shown only to the one who claims the trainer).
 # The Elite Four are among the important trainers; every champion and the main rival are left out (Arvind makes those himself, 2026-11-12).
+# The villains (Rocket, Magma, Aqua and Galactic: codes A, B, D, E, F, L, N, R, S, T, V) are left out too (Arvind, 2026-11-12).
 - id: gym-bug
   group: Gym leader
   type: Bug
@@ -165,34 +166,6 @@
   - {lv: 82, size: 6, partner: false, original: 'Starmie 82, Seaking 81, Kingdra 82, Quagsire 81, Golduck 82, Togekiss 81'}
   - {lv: 87, size: 6, partner: true, original: 'Politoed 86, Golduck 87, Lapras 87, Lanturn 86, Starmie 87, Milotic 86'}
   - {lv: 87, size: 6, partner: true, original: 'Starmie 87, Kingdra 87, Golduck 86, Quagsire 86, Gyarados 87, Seaking 86'}
-- id: trainer-a
-  group: Important trainer
-  type: Poison / Dark
-  place: you meet them several times
-  battles: 6
-  levels: [24, 40, 50, 70, 87, 95]
-  code: Trainer A
-  teams:
-  - {lv: 24, size: 3, partner: false, original: 'Zubat 22, Raticate 24, Koffing 22'}
-  - {lv: 40, size: 1, partner: true, original: Nidoking 40}
-  - {lv: 50, size: 3, partner: true, original: 'Nidoking 50, Slaking 50, Absol 50'}
-  - {lv: 70, size: 6, partner: false, original: 'Nidoking 70, Exploud 70, Dusclops 70, Absol 70, Gliscor 70, Muk 70'}
-  - {lv: 87, size: 6, partner: true, original: 'Nidoking 87, Exploud 87, Slaking 86, Toxicroak 86, Skuntank 86, Muk 87'}
-  - {lv: 95, size: 6, partner: true, original: 'Zapdos 95, Murkrow 95, Exploud 95, Nidoking 95, Dusknoir 95, Donphan 95'}
-- id: trainer-b
-  group: Important trainer
-  type: Flying
-  place: you meet them several times
-  battles: 6
-  levels: [50, 74, 88, 90, 95, 100]
-  code: Trainer B
-  teams:
-  - {lv: 50, size: 3, partner: true, original: 'Aerodactyl 50, Honchkrow 50, Drifblim 50'}
-  - {lv: 74, size: 6, partner: false, original: 'Aerodactyl 74, Staraptor 74, Salamence 74, Pidgeot 73, Charizard 73, Skarmory 73'}
-  - {lv: 88, size: 6, partner: true, original: 'Skarmory 87, Aerodactyl 88, Salamence 87, Sirfetch’d 88, Noivern 87, Braviary 88'}
-  - {lv: 90, size: 6, partner: true, original: 'Moltres 90, Zapdos 90, Pidgeot 88, Aerodactyl 88, Staraptor 88, Noctowl 87'}
-  - {lv: 95, size: 6, partner: false, original: 'Zapdos 95, Moltres 95, Articuno 95, Aerodactyl 88, Pidgeot 88, Swellow 88'}
-  - {lv: 100, size: 6, partner: true, original: 'Lugia 100, Torterra 95, Glalie 95, Pidgeot 95, Swellow 95, Aerodactyl 95'}
 - id: trainer-c
   group: Important trainer
   type: Psychic / Flying / Ghost
@@ -202,51 +175,6 @@
   code: Trainer C
   teams:
   - {lv: 75, size: 6, partner: true, original: 'Noctowl 75, Drifblim 75, Electrode 75, Hypno 75, Vaporeon 75, Cacturne 75'}
-- id: trainer-d
-  group: Important trainer
-  type: Rock / Ground
-  place: you meet them several times
-  battles: 5
-  levels: [55, 75, 90, 90, 100]
-  code: Trainer D
-  teams:
-  - {lv: 55, size: 2, partner: true, original: 'Tyranitar 55, Nidoqueen 50'}
-  - {lv: 75, size: 6, partner: false, original: 'Tyranitar 75, Hippowdon 75, Rhyperior 75, Scizor 74, Magnezone 74, Gliscor 74'}
-  - {lv: 90, size: 6, partner: true, original: 'Tyranitar 90, Hippowdon 90, Rhyperior 90, Scizor 90, Nidoqueen 90, Aggron 90'}
-  - {lv: 90, size: 1, partner: false, original: Entei 90}
-  - {lv: 100, size: 6, partner: false, original: 'Rayquaza 100, Tyranitar 98, Marowak 97, Garchomp 97, Cacturne 96, Magnezone 96'}
-- id: trainer-e
-  group: Important trainer
-  type: Ground / Poison
-  place: you meet them again and again
-  battles: 8
-  levels: [100, 100, 100, 100, 100, 100, 100, 100]
-  code: Trainer E
-  teams:
-  - {lv: 100, size: 6, partner: false, original: 'Arceus 100, Dialga 100, Nidoking 100, Empoleon 100, Venusaur 100, Beedrill 100'}
-  - {lv: 100, size: 6, partner: true, original: 'Dialga 100, Arceus 100, Nidoking 100, Empoleon 100, Venusaur 100, Beedrill 100'}
-  - {lv: 100, size: 6, partner: false, original: 'Mewtwo 100, Rhydon 100, Tyranitar 100, Arcanine 100, Forretress 100, Aerodactyl 100'}
-  - {lv: 100, size: 1, partner: false, original: Beedrill 100}
-  - {lv: 100, size: 6, partner: true, original: 'Mewtwo 100, Tyranitar 100, Nidoking 100, Rhydon 100, Nidoqueen 100, Aerodactyl 100'}
-  - {lv: 100, size: 4, partner: true, original: 'Arceus 100, Golem 100, Garchomp 100, Gliscor 100'}
-  - {lv: 100, size: 3, partner: false, original: 'Tyranitar 100, Garchomp 100, Nidoking 100'}
-  - {lv: 100, size: 4, partner: true, original: 'Nidoqueen 100, Nidoking 100, Rapidash 100, Electivire 100'}
-- id: trainer-f
-  group: Important trainer
-  type: Fire
-  place: you meet them again and again
-  battles: 8
-  levels: [45, 45, 45, 50, 50, 74, 89, 100]
-  code: Trainer F
-  teams:
-  - {lv: 45, size: 1, partner: false, original: Mightyena 45}
-  - {lv: 45, size: 1, partner: true, original: Magmortar 45}
-  - {lv: 45, size: 1, partner: true, original: Camerupt 45}
-  - {lv: 50, size: 3, partner: true, original: 'Ninetales 50, Blaziken 50, Torkoal 50'}
-  - {lv: 50, size: 6, partner: false, original: 'Ninetales 50, Camerupt 50, Torkoal 50, Blaziken 50, Magmortar 50, Magcargo 50'}
-  - {lv: 74, size: 3, partner: true, original: 'Torkoal 73, Arcanine 74, Magmortar 74'}
-  - {lv: 89, size: 6, partner: true, original: 'Torkoal 88, Venusaur 88, Arcanine 89, Magmortar 89, Ninetales 88, Blaziken 89'}
-  - {lv: 100, size: 6, partner: false, original: 'Torkoal 95, Venusaur 95, Camerupt 95, Blaziken 95, Donphan 95, Groudon 100'}
 - id: trainer-g
   group: Important trainer
   type: Water / Fire / Flying
@@ -310,18 +238,6 @@
   teams:
   - {lv: 89, size: 6, partner: true, original: 'Abomasnow 88, Jynx 89, Cloyster 89, Baxcalibur 89, Froslass 88, Glalie 88'}
   - {lv: 93, size: 6, partner: true, original: 'Abomasnow 92, Glaceon 92, Jynx 93, Baxcalibur 93, Cloyster 92, Slowbro 93'}
-- id: trainer-l
-  group: Important trainer
-  type: Ghost
-  place: you meet them several times
-  battles: 4
-  levels: [88, 88, 100, 100]
-  code: Trainer L
-  teams:
-  - {lv: 88, size: 6, partner: true, original: 'Muk 87, Drapion 88, Gengar 87, Dragalge 88, Rotom 87, Banette 88'}
-  - {lv: 88, size: 6, partner: false, original: 'Dragonite 88, Feraligatr 87, Dusclops 87, Magnezone 88, Cloyster 88, Coalossal 87'}
-  - {lv: 100, size: 6, partner: false, original: 'Giratina 100, Rotom 95, Seismitoad 95, Darmanitan 95, Dusclops 95, Haxorus 95'}
-  - {lv: 100, size: 3, partner: true, original: 'Giratina 100, Rapidash 95, Rotom 95'}
 - id: trainer-m
   group: Important trainer
   type: Ghost
@@ -331,21 +247,6 @@
   levels: [90]
   teams:
   - {lv: 90, size: 6, partner: true, original: 'Arbok 90, Gengar 90, Sableye 89, Spiritomb 89, Dusknoir 90, Mismagius 89'}
-- id: trainer-n
-  group: Important trainer
-  type: Water
-  place: you meet them several times
-  battles: 7
-  levels: [40, 45, 50, 72, 89, 90, 100]
-  code: Trainer N
-  teams:
-  - {lv: 40, size: 1, partner: false, original: Crawdaunt 40}
-  - {lv: 45, size: 3, partner: false, original: 'Walrein 44, Whiscash 43, Kingdra 45'}
-  - {lv: 50, size: 3, partner: true, original: 'Walrein 50, Sharpedo 50, Crawdaunt 50'}
-  - {lv: 72, size: 6, partner: false, original: 'Pelipper 72, Politoed 72, Kingdra 72, Kabutops 71, Forretress 71, Scizor 70'}
-  - {lv: 89, size: 6, partner: true, original: 'Pelipper 88, Kingdra 89, Seismitoad 89, Kabutops 89, Forretress 88, Crawdaunt 88'}
-  - {lv: 90, size: 6, partner: false, original: 'Politoed 89, Sharpedo 90, Walrein 89, Kingdra 90, Kabutops 88, Crawdaunt 89'}
-  - {lv: 100, size: 6, partner: true, original: 'Kyogre 100, Scizor 95, Kingdra 95, Kabutops 95, Pelipper 95, Forretress 95'}
 - id: trainer-o
   group: Important trainer
   type: Grass / Psychic / Ground
@@ -383,39 +284,6 @@
   teams:
   - {lv: 88, size: 6, partner: true, original: 'Hitmontop 87, Machamp 87, Steelix 88, Hitmonlee 88, Hitmonchan 87, Infernape 88'}
   - {lv: 92, size: 6, partner: true, original: 'Hitmontop 91, Steelix 92, Machamp 91, Heracross 91, Infernape 92, Lucario 92'}
-- id: trainer-r
-  group: Important trainer
-  type: Dark / Steel / Dragon
-  place: you meet them several times
-  battles: 3
-  levels: [90, 90, 100]
-  code: Trainer R
-  teams:
-  - {lv: 90, size: 6, partner: true, original: 'Tyranitar 90, Sandslash 89, Scizor 90, Weavile 90, Steelix 89, Gastrodon 89'}
-  - {lv: 90, size: 6, partner: false, original: 'Scizor 89, Weavile 90, Tyranitar 90, Salamence 90, Steelix 89, Gyarados 89'}
-  - {lv: 100, size: 6, partner: false, original: 'Deoxys 100, Deoxys 100, Deoxys 100, Weavile 95, Salamence 95, Tyranitar 95'}
-- id: trainer-s
-  group: Important trainer
-  type: Fire / Flying / Dark
-  place: you meet them several times
-  battles: 3
-  levels: [92, 95, 100]
-  code: Trainer S
-  teams:
-  - {lv: 92, size: 6, partner: false, original: 'Houndoom 92, Salamence 92, Gyarados 92, Lucario 91, Forretress 91, Hypno 91'}
-  - {lv: 95, size: 6, partner: true, original: 'Ho-Oh 95, Torkoal 91, Houndoom 92, Electrode 92, Shiftry 92, Muk 91'}
-  - {lv: 100, size: 6, partner: true, original: 'Ho-Oh 100, Regigigas 100, Houndoom 99, Kangaskhan 99, Swampert 99, Salamence 99'}
-- id: trainer-t
-  group: Important trainer
-  type: mixed
-  place: you meet them several times
-  battles: 3
-  levels: [33, 87, 95]
-  code: Trainer T
-  teams:
-  - {lv: 33, size: 2, partner: false, original: 'Golbat 28, Weezing 33'}
-  - {lv: 87, size: 6, partner: false, original: 'Electivire 87, Wobbuffet 86, Sableye 86, Annihilape 86, Swalot 87, Rampardos 87'}
-  - {lv: 95, size: 6, partner: false, original: 'Moltres 95, Rampardos 95, Wobbuffet 95, Slowking 95, Mawile 95, Infernape 95'}
 - id: trainer-u
   group: Important trainer
   type: Flying / Dragon
@@ -425,15 +293,3 @@
   levels: [95]
   teams:
   - {lv: 95, size: 6, partner: true, original: 'Dragonite 95, Salamence 95, Aerodactyl 95, Gyarados 95, Charizard 95, Altaria 95'}
-- id: trainer-v
-  group: Important trainer
-  type: Flying / Dark / Water
-  place: you meet them several times
-  battles: 4
-  levels: [90, 90, 100, 100]
-  code: Trainer V
-  teams:
-  - {lv: 90, size: 6, partner: false, original: 'Murkrow 89, Weavile 90, Gyarados 90, Crobat 90, Weezing 89, Aggron 89'}
-  - {lv: 90, size: 6, partner: true, original: 'Crobat 89, Weavile 90, Gyarados 90, Honchkrow 90, Luxray 89, Gastrodon 89'}
-  - {lv: 100, size: 6, partner: true, original: 'Palkia 100, Magnezone 95, Hydreigon 95, Gyarados 95, Porygon-Z 95, Crobat 95'}
-  - {lv: 100, size: 3, partner: true, original: 'Palkia 100, Crobat 95, Luxray 95'}
