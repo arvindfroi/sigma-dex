@@ -252,6 +252,13 @@ button.chip[aria-pressed=true] { border-color: var(--gold); background: var(--so
 .savebar .ask { font-family: var(--display); }
 .badge { font-size: 12px; padding: 0 7px; border: 2px solid var(--edge2); color: var(--muted); white-space: nowrap; font-family: var(--display); }
 .badge.done { color: var(--good); border-color: var(--good); }
+.badge.avail { color: var(--good); border-color: var(--good); }
+.badge.taken { color: var(--muted); border-color: var(--edge2); }
+.badge.mine { color: #f5c542; border-color: #f5c542; }
+.charcard.avail { outline: 3px solid var(--good); outline-offset: -9px; }
+.charcard.taken { opacity: .6; }
+.charcard .badge { font-size: 13px; white-space: normal; max-width: 100%; }
+.charcard.mine { outline: 3px solid #f5c542; outline-offset: -9px; }
 .badge.need { color: var(--warn); border-color: var(--warn); }
 .badge.ai { color: var(--blue); border-color: var(--blue); }
 .card .line { color: var(--muted); font-size: 13px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
@@ -3121,7 +3128,7 @@ function charTop(c) {
     h("div", {class: "namebar"}, h("div", {class: "frame no"}, c.group), h("div", {class: "frame"}, h("h3", {}, charName(c).toUpperCase())),
       h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).filter(t => DEX.types.includes(t)).map(typeChip))),
     h("div", {class: "stage"}, pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("div", {class: "noart"}, "NO PICTURE YET")),
-    h("div", {class: "dlg", role: "status"}, (cl.by ? "Claimed by " + person(cl.by) + ". " : "Nobody has claimed this trainer yet. ") + (c.place ? c.place.charAt(0).toUpperCase() + c.place.slice(1) + "." : "")));
+    h("div", {class: "dlg", role: "status"}, (cl.by ? "Claimed by " + person(cl.by) + ". " : "Available: nobody has claimed this trainer yet. ") + (c.place ? c.place.charAt(0).toUpperCase() + c.place.slice(1) + "." : "")));
 }
 const CHAR_TABS = [["info", "INFO", "purple"], ["teams", "TEAMS", "pink"], ["picture", "PICTURE", "blue"]];
 function openCharacter(c, tab) {
@@ -3152,7 +3159,7 @@ function openCharacter(c, tab) {
         h("div", {}, h("span", {}, "Surroundings"), c.place || "—"),
         c.rule ? h("div", {}, h("span", {}, "Rule"), c.rule) : null,
         h("div", {}, h("span", {}, "Battles"), isMine ? String(c.battles || 0) + " (each needs its own team)" : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
-        h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (cl.name ? " (as " + cl.name + ")" : "") : "nobody yet")),
+        h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (cl.name ? " (as " + cl.name + ")" : "") : h("span", {class: "badge avail"}, "available"))),
       CLAIMS_OPEN ? (!cl.by ? h("div", {}, h("div", {class: "sub"}, "Claiming means: you become this trainer in the game. You give it a name, a picture and your own teams for its " + roughBattles(c.battles || 0) + ". You can give it back any time."),
           h("button", {type: "button", class: "primary", onclick: () => saveClaim(mine, {})}, "Claim this trainer"))
         : isMine ? h("button", {type: "button", onclick: () => saveClaim("", {})}, "Give it back") : null)
@@ -3234,12 +3241,13 @@ function renderCharacters() {
   for (const c of shuffledCharacters()) { let g = groups.find(x => x.name === c.group); if (!g) groups.push(g = {name: c.group, rows: []}); g.rows.push(c); }
   const card = c => {
     const cl = claimOf(c.id), pic = charPic(c), isMine = cl.by && mine && person(cl.by) === mine;
-    return h("button", {type: "button", class: "card charcard", onclick: () => openCharacter(c)},
+    return h("button", {type: "button", class: "card charcard " + (cl.by ? (isMine ? "mine" : "taken") : "avail"), onclick: () => openCharacter(c)},
       h("div", {class: "charthumb"}, pic ? h("img", {src: pic.src, alt: ""}) : h("span", {class: "charsil"}, "?")),
       h("b", {}, charName(c)), cl.name ? h("div", {}, "\u201c" + cl.name + "\u201d") : null,
       h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
       h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "")),
-      h("div", {class: "sub"}, cl.by ? ((isMine ? "★ " : "") + "claimed by " + person(cl.by)) : "free"));
+      cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "taken by " + person(cl.by))
+        : h("span", {class: "badge avail"}, "available"));
   };
   grid.replaceChildren(h("div", {style: "grid-column:1/-1"},
     CLAIMS_OPEN ? null : h("div", {class: "notice info"}, h("b", {}, "Work in progress. "), "Claiming is closed for now. Soon each trainer gets your own picture and the teams you fight with."),
