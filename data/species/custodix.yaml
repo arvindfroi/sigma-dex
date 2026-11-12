@@ -26,12 +26,12 @@ abilities:
   hidden: Intimidate     # optional
 
 base_stats:              # each 1-255
-  hp: 100
-  attack: 120
-  defense: 120
+  hp: 90
+  attack: 90
+  defense: 100
   sp_attack: 130
-  sp_defense: 110
-  speed: 90
+  sp_defense: 90
+  speed: 100
 
 ev_yield: {sp_attack: 3} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate: 3            # 3 (legendary) to 255 (very easy)
@@ -105,13 +105,13 @@ learnset:
     - {level: 84, move: Overheat}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
-          Rain Dance, Frustration, Solar Beam, Earthquake, Return, Double Team,
-          Flamethrower, Sandstorm, Fire Blast, Rock Tomb, Facade, Secret Power, Rest,
-          Overheat, Focus Blast, Fling, Endure, Will-O-Wisp, Giga Impact, Rock Polish,
-          Stone Edge, Stealth Rock, Rock Slide, Sleep Talk, Natural Gift, Swagger,
-          Substitute, Flash Cannon, Flame Charge, Bulldoze, Mystical Fire, Body Press,
-          Meteor Beam, Scorching Sands, Strength, Rock Smash, Iron Tail, Dig, Attract,
-          Shadow Claw, Captivate, Heavy Slam, High Horsepower]
+          Rain Dance, Frustration, Solar Beam, Iron Tail, Earthquake, Return, Dig,
+          Double Team, Flamethrower, Sandstorm, Fire Blast, Rock Tomb, Facade, Secret Power,
+          Rest, Attract, Overheat, Focus Blast, Fling, Endure, Will-O-Wisp, Shadow Claw,
+          Giga Impact, Rock Polish, Stone Edge, Stealth Rock, Captivate, Rock Slide,
+          Sleep Talk, Natural Gift, Swagger, Substitute, Flash Cannon, Heavy Slam,
+          Flame Charge, Bulldoze, Mystical Fire, High Horsepower, Body Press, Meteor Beam,
+          Scorching Sands, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Earth Power, Fire Fang, Fire Punch, Flare Blitz,
           Heat Wave, Iron Head, Power Gem, Curse, Endeavor]

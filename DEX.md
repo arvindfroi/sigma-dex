@@ -50,7 +50,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 39 | [Sigmauler](data/species/sigmauler.yaml) | Rock / Fighting | Iron Fist, Rock Head, Solid Rock (H) | 510 |  | 59% |
 | 40 | [Tinky](data/species/tinky.yaml) | Grass | Heatproof, Dancer, Prankster (H) | 285 | Motinky (Lv 25) | 66% |
 | 41 | [Motinky](data/species/motinky.yaml) | Grass / Fire | Flash Fire, Dancer, Prankster (H) | 420 | Gortiki (Firestone) | 66% |
-| 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire | Flash Fire, Dancer, Huge Power (H) | 528 |  | 66% |
+| 42 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire | Flash Fire, Dancer, Huge Power (H) | 520 |  | 66% |
 | 43 | [Chebbi](data/species/chebbi.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 360 | Devampry (Lv 32) | 62% |
 | 44 | [Devampry](data/species/devampry.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 505 |  | 62% |
 | 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water | Swift Swim, Solar Power, Battle Bond (H) | 495 |  | 72% |
@@ -208,7 +208,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 197 | *open slot* | | | | | |
 | 198 | [Santrock](data/species/santrock.yaml) | Fire / Rock | Blaze | 270 |  | 72% |
 | 199 | [Cindreon](data/species/cindreon.yaml) | Fire / Rock | Flash Fire, Intimidate (H) | 390 |  | 72% |
-| 200 | [Custodix](data/species/custodix.yaml) | Fire / Rock | Fire Mane, Drought, Intimidate (H) | 670 |  | 72% |
+| 200 | [Custodix](data/species/custodix.yaml) | Fire / Rock | Fire Mane, Drought, Intimidate (H) | 600 |  | 72% |
 | 201 | *open slot* | | | | | |
 | 202 | *open slot* | | | | | |
 | 203 | *open slot* | | | | | |

@@ -1764,7 +1764,7 @@
         .baseDefense = 110,
         .baseSpeed = 72,
         .baseSpAttack = 108,
-        .baseSpDefense = 90,
+        .baseSpDefense = 82,
         .types = MON_TYPES(TYPE_GRASS, TYPE_FIRE),
         .catchRate = 45,
         .expYield = 238,
@@ -5279,12 +5279,12 @@
 
     [SPECIES_CUSTODIX] =
     {
-        .baseHP = 100,
-        .baseAttack = 120,
-        .baseDefense = 120,
-        .baseSpeed = 90,
+        .baseHP = 90,
+        .baseAttack = 90,
+        .baseDefense = 100,
+        .baseSpeed = 100,
         .baseSpAttack = 130,
-        .baseSpDefense = 110,
+        .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_FIRE, TYPE_ROCK),
         .catchRate = 3,
         .expYield = 302,

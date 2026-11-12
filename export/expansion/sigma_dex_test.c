@@ -993,7 +993,7 @@ TEST("Sigma dex: Gortiki has the data from its species file")
     EXPECT_EQ(info->baseDefense, 110);
     EXPECT_EQ(info->baseSpeed, 72);
     EXPECT_EQ(info->baseSpAttack, 108);
-    EXPECT_EQ(info->baseSpDefense, 90);
+    EXPECT_EQ(info->baseSpDefense, 82);
     EXPECT_EQ(info->types[0], TYPE_GRASS);
     EXPECT_EQ(info->types[1], TYPE_FIRE);
     EXPECT_EQ(info->abilities[0], ABILITY_FLASH_FIRE);
@@ -2976,12 +2976,12 @@ SINGLE_BATTLE_TEST("Sigma dex: Cindreon can use its first move in battle")
 TEST("Sigma dex: Custodix has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_CUSTODIX];
-    EXPECT_EQ(info->baseHP, 100);
-    EXPECT_EQ(info->baseAttack, 120);
-    EXPECT_EQ(info->baseDefense, 120);
-    EXPECT_EQ(info->baseSpeed, 90);
+    EXPECT_EQ(info->baseHP, 90);
+    EXPECT_EQ(info->baseAttack, 90);
+    EXPECT_EQ(info->baseDefense, 100);
+    EXPECT_EQ(info->baseSpeed, 100);
     EXPECT_EQ(info->baseSpAttack, 130);
-    EXPECT_EQ(info->baseSpDefense, 110);
+    EXPECT_EQ(info->baseSpDefense, 90);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
     EXPECT_EQ(info->types[1], TYPE_ROCK);
     EXPECT_EQ(info->abilities[0], ABILITY_FIRE_MANE);
