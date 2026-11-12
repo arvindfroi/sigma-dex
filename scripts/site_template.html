@@ -448,6 +448,8 @@ canvas.pcbox { width: 360px; max-width: 100%; image-rendering: pixelated; border
 .picker tr.opt { cursor: pointer; } .picker tr.opt:hover td, .picker tr.opt.hot td { background: var(--soft); }
 .picker .nm { font-family: var(--display); white-space: nowrap; }
 .picker .ds { color: var(--muted); }
+.picker.wide { position: absolute; z-index: 40; margin: 0; box-shadow: 0 6px 18px rgba(20, 10, 50, .3); }
+.picker .why { color: var(--pri); font-weight: normal; }
 .picker .filters { display: flex; flex-wrap: wrap; gap: 3px; padding: 6px; border-bottom: 2px dashed var(--line); position: sticky; left: 0; }
 .picker .filters button { padding: 1px 7px; font-size: 12px; min-height: 0; border-width: 2px; }
 .movetable td { padding: 4px 6px; border-top: 2px dashed var(--line); vertical-align: top; }
@@ -1364,16 +1366,23 @@ function attachPicker(input, kind, rowsFn) {          // rowsFn: a list of its o
   input.setAttribute("autocomplete", "off");
   let panel = null, sort = null, dir = 1, type = "", hot = 0, shown = [];
   const cols = kind === "move" ? [["name", "Move"], ["type", "Type"], ["category", "Cat"], ["power", "Pow"], ["accuracy", "Acc"], ["pp", "PP"], ["desc", "Effect"]]
-    : [["name", {item: "Item", species: "Pokemon"}[kind] || "Ability"], ["desc", kind === "species" ? "" : "What it does"]];
+    : [["name", {item: "Item", species: "Pokemon"}[kind] || "Ability"], ["desc", kind === "species" ? "Types, abilities, stats" : "What it does"]];
   function choose(row) { input.value = row.name; input.dispatchEvent(new Event("change", {bubbles: true})); close(); }
   function close() { if (panel) panel.remove(); panel = null; if (openPicker && openPicker.input === input) openPicker = null; }
   function draw() {
     if (!panel) return;
     const q = input.value.trim().toLowerCase();
-    shown = (rowsFn ? rowsFn() : pickerRows(kind)).filter(r => (!type || r.type === type) && (!q || r.name.toLowerCase().includes(q) || (q.length > 2 && String(r.desc || "").toLowerCase().includes(q))));
-    // names that start with what was typed first, as Showdown does
+    // rows may carry 'find': [label, value] pairs (type, ability, move...) so typing one of those finds the row, as in Showdown
+    const why = r => {
+      if (!r.find || !q || q.length < 3 || r.name.toLowerCase().includes(q)) return null;
+      return r.find.find(([, v]) => String(v).toLowerCase() === q) || r.find.find(([, v]) => String(v).toLowerCase().includes(q)) || null;
+    };
+    shown = (rowsFn ? rowsFn() : pickerRows(kind)).map(r => r.find ? Object.assign({}, r, {why: why(r)}) : r)
+      .filter(r => (!type || r.type === type) && (!q || r.name.toLowerCase().includes(q) || r.why || (q.length > 2 && String(r.desc || "").toLowerCase().includes(q))));
+    // names that start with what was typed first, then other names, then exact type/ability/move hits, as Showdown does
+    const rank = r => { const n = r.name.toLowerCase(); return n.startsWith(q) ? 0 : n.includes(q) ? 1 : r.why && String(r.why[1]).toLowerCase() === q ? 2 : 3; };
     shown.sort((a, b) => sort ? (((a[sort] ?? -1) > (b[sort] ?? -1) ? 1 : (a[sort] ?? -1) < (b[sort] ?? -1) ? -1 : 0) * dir)
-      : (q ? (b.name.toLowerCase().startsWith(q) - a.name.toLowerCase().startsWith(q)) || a.name.localeCompare(b.name) : a.name.localeCompare(b.name)));
+      : (q ? rank(a) - rank(b) || (a.order ?? 0) - (b.order ?? 0) || a.name.localeCompare(b.name) : (a.order ?? 0) - (b.order ?? 0) || a.name.localeCompare(b.name)));
     hot = Math.min(hot, Math.max(0, shown.length - 1));
     const head = h("tr", {}, cols.map(([k, label]) => h("th", {"aria-sort": sort === k ? (dir > 0 ? "ascending" : "descending") : null,
       onpointerdown: ev => { ev.preventDefault(); if (sort === k) dir = -dir; else { sort = k; dir = ["power", "accuracy", "pp"].includes(k) ? -1 : 1; } draw(); }},
@@ -1381,21 +1390,26 @@ function attachPicker(input, kind, rowsFn) {          // rowsFn: a list of its o
     const body = shown.slice(0, 120).map((r, i) => h("tr", {class: "opt" + (i === hot ? " hot" : ""), onpointerdown: ev => { ev.preventDefault(); choose(r); }},
       kind === "move" ? [h("td", {class: "nm"}, r.name, r.custom ? h("span", {class: "badge", style: "margin-left:4px"}, "new") : null), h("td", {}, r.type ? typeChip(r.type) : ""), h("td", {}, catBadge(r.category)),
         h("td", {class: "num"}, dash(r.power)), h("td", {class: "num"}, dash(r.accuracy)), h("td", {class: "num"}, dash(r.pp)), h("td", {class: "ds"}, r.desc || "")]
-        : [h("td", {class: "nm"}, r.name, r.custom ? h("span", {class: "badge", style: "margin-left:4px"}, "new") : null), h("td", {class: "ds"}, r.desc || "")]));
-    panel.replaceChildren(
+        : [h("td", {class: "nm"}, r.name, r.custom ? h("span", {class: "badge", style: "margin-left:4px"}, "new") : null),
+          h("td", {class: "ds"}, r.desc || "", r.why ? h("b", {class: "why"}, "  \u00b7 " + r.why[0] + ": " + r.why[1]) : null)]));
+    panel.replaceChildren(...[
       kind === "move" ? h("div", {class: "filters"}, h("button", {type: "button", "aria-pressed": String(!type), onpointerdown: ev => { ev.preventDefault(); type = ""; draw(); }}, "All types"),
         DEX.types.map(t => h("button", {type: "button", class: "type", style: "background:" + TYPE_COLORS[t] + ";border-color:" + TYPE_COLORS[t], "aria-pressed": String(type === t),
           onpointerdown: ev => { ev.preventDefault(); type = type === t ? "" : t; draw(); }}, t))) : null,
       h("table", {}, h("thead", {}, head), h("tbody", {}, body)),
       shown.length > 120 ? h("div", {class: "hint", style: "padding:6px"}, (shown.length - 120) + " more - type to narrow it down.") : !shown.length ? h("div", {class: "hint", style: "padding:6px"},
-        rowsFn ? "Nothing matches." : kind === "move" ? "No move with that name. A brand-new move can be typed in; describe it under More > New moves." : "No ability with that name. A brand-new one can be typed in; describe it under More > New abilities.") : null);
+        rowsFn ? "Nothing matches." : kind === "move" ? "No move with that name. A brand-new move can be typed in; describe it under More > New moves." : "No ability with that name. A brand-new one can be typed in; describe it under More > New abilities.") : null].filter(Boolean));
   }
   function open() {
     if (panel) return;
     if (openPicker) openPicker.close();
-    panel = h("div", {class: "picker"});
+    panel = h("div", {class: "picker" + (kind === "species" ? " wide" : "")});
     const anchor = input.closest(".row") || input.closest(".field") || input;
-    anchor.after(panel);
+    if (kind === "species") {        // wider than its column: float it over the page under the box, as a drop-down
+      const r = input.getBoundingClientRect(), w = Math.min(640, innerWidth - 16);
+      Object.assign(panel.style, {width: w + "px", left: Math.max(8, Math.min(r.left, innerWidth - w - 8)) + scrollX + "px", top: r.bottom + scrollY + 2 + "px"});
+      document.body.append(panel);
+    } else anchor.after(panel);
     openPicker = {input, close, contains: el => panel && (panel.contains(el) || el === input)};
     draw();
   }
@@ -3813,8 +3827,16 @@ function teamLibrary(team) {
 function monEditor(m, team, redraw) {
   const s = speciesByName(m.species), d = s ? s.data : {}, ab = d.abilities || {};
   const change = (fn, full) => ev => { fn(ev.target.value); saveTeams(); if (full) renderTeams(); else updateStats(); };
-  const speciesBox = attachPicker(textInput(s ? d.name : m.species, {placeholder: "Pokemon", "aria-label": "Pokemon"}), "species",
-    () => DEX.species.slice().sort((a, b) => a.data.dex - b.data.dex).map(x => ({name: x.data.name, desc: "#" + pad(x.data.dex) + "  " + (x.data.types || []).join("/") + (x.bst ? "  BST " + x.bst : "")})));
+  // search by name, or by type, ability, move, egg group or category, as in Showdown (worked out once per editor)
+  let speciesRows = null;
+  const speciesBox = attachPicker(textInput(s ? d.name : m.species, {placeholder: "Pokemon, type, ability or move", "aria-label": "Pokemon"}), "species",
+    () => speciesRows || (speciesRows = DEX.species.map(x => {
+      const xd = x.data, xa = xd.abilities || {}, abs = [xa.primary, xa.secondary, xa.hidden].filter(filled);
+      return {name: xd.name, order: xd.dex,
+        desc: "#" + pad(xd.dex) + "  " + (xd.types || []).join("/") + (abs.length ? "  " + abs.join(" / ") : "") + (x.bst ? "  BST " + x.bst : ""),
+        find: [...(xd.types || []).map(v => ["type", v]), ...abs.map(v => ["ability", v]), ...learnable(x.id).map(v => ["move", v.name]),
+          ...(xd.egg_groups || []).map(v => ["egg group", String(v).replaceAll("_", " ").replace(/^./, c => c.toUpperCase())]), ...(filled(xd.category) ? [["category", xd.category]] : [])]};
+    })));
   speciesBox.addEventListener("change", () => {
     const x = speciesByName(speciesBox.value);
     if (!x || (s && x.id === s.id)) return;
