@@ -55,6 +55,8 @@ Arvind (2026-11-11): "andre har jobbet mye med slike greier i det siste så om v
 - **One-chance legendaries by design:** Lugia, Raikou, the lake trio, Dialga/Palkia, Giratina, Arceus (catching, beating or
   fleeing hides them; only a loss lets you retry), plus order-dependent losses (Bruno's Pewter challenge, TM14 Blizzard,
   the Azure Flute after the Hall of Fame). Our mons take these roles, so we decide whether they stay one-chance.
+  Arvind (2026-11-12) leans to the middle way: one chance, but with a clear warning before, and a second chance after
+  the Hall of Fame.
 - **Quests you can get stuck in** (Arvind: "det er jo ikke gøy hvis det skal være softlocked i oppdrag"): the S.S. Anne
   honey and salt order, the Celadon stolen Gloom, the Route 7 bicycle, the Mahogany Rocket PC password, the Fan Club,
   Route 3 Ralts. Fix with clearer hints and by removing the dead ends when we rewrite the story.
