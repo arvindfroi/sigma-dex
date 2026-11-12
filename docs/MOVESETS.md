@@ -12,6 +12,7 @@ git fetch && git worktree add --detach /tmp/sigma-main origin/main      # or any
 .venv/bin/python scripts/moveset_fill.py propose --data /tmp/sigma-main/data   # all lines, about 15 seconds
 .venv/bin/python scripts/moveset_review.py                # review page -> proposals/review.html
 .venv/bin/python scripts/moveset_fill.py show leafaxer    # one proposal with its reasons
+.venv/bin/python scripts/moveset_fill.py propose --fresh  # new proposal for the part Claude added before; apply replaces it
 .venv/bin/python scripts/moveset_fill.py apply --data /tmp/sigma-main/data --only leafing,leafsteel   # after approval
 .venv/bin/python scripts/moveset_pick.py leafaxer 40      # best 4 moves at level 40 (for trainers)
 ```
@@ -65,7 +66,10 @@ stats, types, abilities or notes, a new suggestion is ready within 15 minutes.
 4. **Level-up.** Every weighted official Pokemon votes with its level-up list: its levels are moved to our
    evolution levels, and its moves of a type we do not have are swapped for a move of our type at about the same
    power, on our physical/special side. Each move gets the sum of the votes and the weighted middle of their
-   levels; the strongest moves are taken, as many as such Pokemon usually have. Moves outside our own types need
+   levels; the strongest moves are taken, as many as such Pokemon usually have, spread over the levels the way
+   they spread them (start, before evolving, right after, middle, late), so a Pokemon keeps learning moves after
+   it evolves. An evolved form also gets what its earlier stage learns after the evolution level, a bit later.
+   The proposal flags a Pokemon that learns nothing after evolving or has a long gap without new moves. Moves outside our own types need
    more agreement (15 % of the weight). Type-flavoured status moves are swapped (Sleep Powder -> our type's sleep
    move, Sunny Day -> our weather) or dropped; other species' signature moves are never copied; each of our types
    gets level-up attacks; at most six moves at level 1 for evolved forms; an evolved form keeps what its earlier
