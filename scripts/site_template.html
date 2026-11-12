@@ -3189,6 +3189,10 @@ function storyLinePicker(story, onChange) {
   return box;
 }
 
+function sideCount(c) {
+  const n = side => (c.teams || []).filter(b => (b.side || "against") === side).length;
+  return [n("against") + " against you", n("with") + " next to you", n("both") ? n("both") + " both ways" : ""].filter(Boolean).join(", ");
+}
 const roughBattles = n => n >= 8 ? "many battles" : n >= 3 ? "several battles" : n === 2 ? "a couple of battles" : "one battle";
 const charName = c => c.code || (c.group + " · " + c.type);
 const charPic = c => (trainerPics.get(c.id) || [])[0];
@@ -3229,7 +3233,7 @@ function openCharacter(c, tab) {
         c.about ? h("div", {}, h("span", {}, "Story"), c.about.charAt(0).toUpperCase() + c.about.slice(1)) : null,
         h("div", {}, h("span", {}, "Surroundings"), c.place || "—"),
         c.rule ? h("div", {}, h("span", {}, "Rule"), c.rule) : null,
-        h("div", {}, h("span", {}, "Battles"), isMine ? String(c.battles || 0) + " (each needs its own team)" : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
+        h("div", {}, h("span", {}, "Battles"), isMine ? String(c.battles || 0) + " (each needs its own team): " + sideCount(c) : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
         h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (cl.name ? " (as " + cl.name + ")" : "") : h("span", {class: "badge avail"}, "available"))),
       CLAIMS_OPEN ? (!cl.by ? h("div", {}, h("div", {class: "sub"}, "Claiming means: you become this trainer in the game. You give it a name, a picture and your own teams for its " + roughBattles(c.battles || 0) + ". You can give it back any time."),
           h("button", {type: "button", class: "primary", onclick: () => saveClaim(mine, {})}, "Claim this trainer"))
@@ -3268,7 +3272,8 @@ function openCharacter(c, tab) {
             tb.teams.push({name: (charName(c) + " battle " + (i + 1)).slice(0, 40), mons: gen.map(m => Object.assign(blankMon(), {species: m.species, level: m.level, ability: m.ability, moves: m.moves.concat(["", "", "", ""]).slice(0, 4)}))});
             saveTeams(); status.textContent = "Copied to TEAMS as \u201c" + tb.teams[tb.teams.length - 1].name + "\u201d."; }}, "Copy to TEAMS") : null;
           return h("tr", {}, h("td", {class: "num"}, "Battle " + (i + 1)),
-            h("td", {class: "sub"}, "up to lv " + b.lv + " \u00b7 " + b.size + " Pokemon" + (b.partner ? " \u00b7 may fight next to you" : "")),
+            h("td", {class: "sub"}, "up to lv " + b.lv + " \u00b7 " + b.size + " Pokemon" + " \u00b7 " + (b.side === "with" ? "fights next to you" : b.side === "both" ? "against you, and next to you in another battle" : "against you"),
+              b.note ? h("div", {class: "sub"}, h("b", {}, "Note: "), b.note) : null),
             h("td", {}, t ? spoilerTeam(t) : gen.length ? storyTeamView(gen) : h("span", {class: "sub"}, "add lines to your story team"),
               h("details", {class: "spoiler"}, h("summary", {}, "The original team in Origin (spoiler)"), h("div", {class: "sub"}, b.original))),
             h("td", {}, pick, copy));
