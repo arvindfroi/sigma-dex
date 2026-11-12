@@ -3125,12 +3125,15 @@ function storyLinePicker(story, onChange) {
 
 const roughBattles = n => n >= 8 ? "many battles" : n >= 3 ? "several battles" : n === 2 ? "a couple of battles" : "one battle";
 const charName = c => c.code || (c.group + " · " + c.type);
+// A Mixed team has no type; 'often' lists the types its Pokemon have most often (a hint, not a rule).
+const oftenTypes = c => String(c.often || "").split("/").map(t => t.trim()).filter(t => DEX.types.includes(t));
+const charTypeText = c => c.often ? "Mixed (often " + oftenTypes(c).join(", ") + ")" : String(c.type || "");
 const charPic = c => (trainerPics.get(c.id) || [])[0];
 function charTop(c) {
   const pic = charPic(c), cl = claimOf(c.id);
   return h("section", {class: "screen top", "aria-label": charName(c)},
     h("div", {class: "namebar"}, h("div", {class: "frame no"}, c.group), h("div", {class: "frame"}, h("h3", {}, charName(c).toUpperCase())),
-      h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).filter(t => DEX.types.includes(t)).map(typeChip))),
+      h("div", {class: "types"}, c.often ? h("span", {class: "sub"}, "MIXED") : String(c.type || "").split("/").map(t => t.trim()).filter(t => DEX.types.includes(t)).map(typeChip))),
     h("div", {class: "stage"}, pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("div", {class: "noart"}, "NO PICTURE YET")),
     h("div", {class: "dlg", role: "status"}, (cl.by ? "Claimed by " + person(cl.by) + ". " : "Available: nobody has claimed this trainer yet. ") + (c.place ? c.place.charAt(0).toUpperCase() + c.place.slice(1) + "." : "")));
 }
@@ -3159,7 +3162,7 @@ function openCharacter(c, tab) {
     page = h("div", {}, steps,
       h("div", {class: "factrows"},
         h("div", {}, h("span", {}, "Role"), c.group),
-        h("div", {}, h("span", {}, "Type"), String(c.type || "")),
+        h("div", {}, h("span", {}, "Type"), charTypeText(c)),
         h("div", {}, h("span", {}, "Surroundings"), c.place || "—"),
         c.rule ? h("div", {}, h("span", {}, "Rule"), c.rule) : null,
         h("div", {}, h("span", {}, "Battles"), isMine ? String(c.battles || 0) + " (each needs its own team)" : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
@@ -3248,7 +3251,7 @@ function renderCharacters() {
     return h("button", {type: "button", class: "card charcard " + (cl.by ? (isMine ? "mine" : "taken") : "avail"), onclick: () => openCharacter(c)},
       h("div", {class: "charthumb"}, pic ? h("img", {src: pic.src, alt: ""}) : h("span", {class: "charsil"}, "?")),
       h("b", {}, charName(c)), cl.name ? h("div", {}, "\u201c" + cl.name + "\u201d") : null,
-      h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
+      h("div", {class: "types"}, c.often ? [h("span", {class: "sub"}, "Mixed, often"), ...oftenTypes(c).map(typeChip)] : String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
       h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "")),
       cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "taken by " + person(cl.by))
         : h("span", {class: "badge avail"}, "available"));
@@ -3734,7 +3737,7 @@ function teamLibrary(team) {
       tb.cur = tb.teams.length - 1; tb.slot = 0; tb.panel = ""; saveTeams(); renderTeams(); }}, "Take a copy");
     const use = claims ? teamUse(t.id) : null;
     const body = open ? h("div", {class: "libbody"},
-      use ? h("div", {class: "sub"}, "Used in the game: " + use.c.group + " (" + use.c.type + "), battle " + use.battle + ".") : null,
+      use ? h("div", {class: "sub"}, "Used in the game: " + use.c.group + " (" + charTypeText(use.c) + "), battle " + use.battle + ".") : null,
       use ? h("details", {class: "spoiler"}, h("summary", {}, "Show the team (spoiler)"), h("pre", {class: "libtext"}, t.text || "")) : h("pre", {class: "libtext"}, t.text || ""),
       h("div", {class: "libnotes"}, notes.length ? notes.map(n => h("div", {class: "libnote"}, h("b", {}, person(n.by) || "someone"), " ", h("span", {class: "sub"}, String(n.when || "").slice(0, 10)), h("div", {}, n.text)))
         : h("div", {class: "sub"}, "No comments yet.")),

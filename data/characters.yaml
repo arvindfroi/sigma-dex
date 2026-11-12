@@ -2,6 +2,7 @@
 # Names are left out on purpose (no spoilers for those who have not played the game); the real names are in
 # docs/CHARACTERS.md. Shown on the website under MORE > Characters. Claims are saved on the website.
 # group: what kind of character; type: the type of their team and of their surroundings; rule: a gym rule.
+# often: for a Mixed team, the three types its Pokemon have most often (counted from all its teams; not a rule).
 # battles: how many times this character fights the player in Origin (each needs its own team);
 # levels: the highest level in each of those teams, lowest first (from the ROM, docs/CHARACTERS.md has the names).
 # Only the roles that matter are listed (Arvind, 2026-11-11): gym leaders, the Elite Four and trainers you meet and fight
@@ -168,7 +169,8 @@
   - {lv: 87, size: 6, partner: true, original: 'Starmie 87, Kingdra 87, Golduck 86, Quagsire 86, Gyarados 87, Seaking 86'}
 - id: trainer-c
   group: Important trainer
-  type: Psychic / Flying / Ghost
+  type: Mixed
+  often: Psychic / Flying / Ghost
   place: you meet them once, at an important moment
   battles: 1
   levels: [75]
@@ -177,7 +179,8 @@
   - {lv: 75, size: 6, partner: true, original: 'Noctowl 75, Drifblim 75, Electrode 75, Hypno 75, Vaporeon 75, Cacturne 75'}
 - id: trainer-g
   group: Important trainer
-  type: Water / Fire / Flying
+  type: Mixed
+  often: Water / Fire / Flying
   place: you meet them again and again
   battles: 11
   levels: [11, 14, 30, 34, 36, 37, 46, 61, 96, 97, 97]
@@ -214,7 +217,8 @@
   - {lv: 90, size: 6, partner: true, original: 'Gyarados 90, Salamence 90, Charizard 90, Aerodactyl 90, Dragonite 90, Kingdra 90'}
 - id: trainer-j
   group: Important trainer
-  type: Grass / Fairy / Normal
+  type: Mixed
+  often: Grass / Fairy / Normal
   place: you meet them again and again
   battles: 8
   levels: [8, 15, 20, 23, 27, 33, 42, 93]
@@ -249,7 +253,8 @@
   - {lv: 90, size: 6, partner: true, original: 'Arbok 90, Gengar 90, Sableye 89, Spiritomb 89, Dusknoir 90, Mismagius 89'}
 - id: trainer-o
   group: Important trainer
-  type: Grass / Psychic / Ground
+  type: Mixed
+  often: Grass / Psychic / Ground
   place: you meet them again and again
   battles: 9
   levels: [24, 24, 25, 30, 45, 61, 81, 90, 95]
@@ -266,7 +271,8 @@
   - {lv: 95, size: 3, partner: true, original: 'Suicune 95, Jynx 89, Marowak 89'}
 - id: trainer-p
   group: Important trainer
-  type: Rock / Normal / Flying
+  type: Mixed
+  often: Rock / Normal / Flying
   place: you meet them a couple of times
   battles: 2
   levels: [82, 92]
