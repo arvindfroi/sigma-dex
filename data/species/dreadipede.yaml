@@ -66,30 +66,30 @@ learnset:
     - {level: 1, move: Leer}
     - {level: 1, move: Peck}
     - {level: 4, move: Fury Cutter}
-    - {level: 5, move: Poison Sting}
+    - {level: 10, move: Poison Sting}
     - {level: 10, move: Withdraw}
     - {level: 12, move: Wing Attack}
-    - {level: 23, move: U-turn}
+    - {level: 17, move: Bite}
     - {level: 24, move: Bug Bite}
-    - {level: 28, move: Scary Face}
-    - {level: 32, move: Crunch}
     - {level: 34, move: Screech}
     - {level: 34, move: Slash}
-    - {level: 40, move: Take Down}
     - {level: 40, move: X-Scissor}
+    - {level: 41, move: First Impression}
     - {level: 44, move: Agility}
     - {level: 44, move: Swords Dance}
+    - {level: 48, move: Crunch}
+    - {level: 67, move: Brave Bird}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return,
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return, Dig,
           Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Steel Wing,
-          Roost, Endure, Captivate, X-Scissor, Sleep Talk, Natural Gift, Swagger, Pluck,
-          U-turn, Substitute, Struggle Bug, Lunge, Dual Wingbeat, Fly, Psychic Fangs,
-          Poison Jab]
+          Roost, Endure, Captivate, X-Scissor, Sleep Talk, Natural Gift, Poison Jab,
+          Swagger, Pluck, U-turn, Substitute, Struggle Bug, Lunge, Dual Wingbeat, Fly,
+          Rock Smash, Psychic Fangs]
   # moves a move tutor can teach it
-  tutor: [Air Slash, Brave Bird, Bug Bite, Heat Wave, Sky Attack, Fire Fang]
+  tutor: [Air Slash, Brave Bird, Bug Bite, Sky Attack]
   # only needed for the first stage of an evolution line
-  egg: [Silver Wind, Counter, Night Slash, Defog, Razor Wind, Bug Buzz, Signal Beam,
-        Twineedle, Knock Off, Pin Missile]
+  egg: [Night Slash, Defog, Pin Missile, Counter, Razor Wind, Twineedle, Knock Off,
+        Cross Poison, Megahorn, Feint Attack]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

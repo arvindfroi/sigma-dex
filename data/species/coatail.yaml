@@ -66,36 +66,42 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Agility}
     - {level: 0, move: Slash}
     - {level: 1, move: Baby-Doll Eyes}
-    - {level: 1, move: Growl}
-    - {level: 1, move: Sand Attack}
-    - {level: 1, move: Tackle}
+    - {level: 1, move: Quick Attack}
+    - {level: 1, move: Switcheroo}
     - {level: 1, move: Tail Whip}
-    - {level: 3, move: Quick Attack}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Tackle}
+    - {level: 2, move: Sand Attack}
     - {level: 7, move: Covet}
     - {level: 9, move: Headbutt}
+    - {level: 10, move: Scratch}
     - {level: 11, move: Hone Claws}
     - {level: 14, move: Fury Swipes}
+    - {level: 14, move: Assurance}
     - {level: 14, move: Pin Missile}
+    - {level: 17, move: Helping Hand}
     - {level: 18, move: Rest}
-    - {level: 23, move: Take Down}
+    - {level: 21, move: Follow Me}
+    - {level: 22, move: Take Down}
     - {level: 23, move: Acrobatics}
-    - {level: 26, move: Super Fang}
-    - {level: 33, move: Flail}
+    - {level: 28, move: Slam}
+    - {level: 28, move: Flail}
     - {level: 36, move: Sucker Punch}
+    - {level: 40, move: Body Slam}
     - {level: 43, move: Double-Edge}
-    - {level: 56, move: Body Slam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Toxic, Hidden Power, Sunny Day, Ice Beam, Blizzard, Hyper Beam,
-          Protect, Rain Dance, Frustration, Iron Tail, Thunderbolt, Thunder, Return, Dig,
-          Shadow Ball, Double Team, Shock Wave, Facade, Secret Power, Rest, Attract, Thief,
-          Fling, Endure, Shadow Claw, Giga Impact, Thunder Wave, Captivate, Sleep Talk,
-          Natural Gift, Grass Knot, Swagger, U-turn, Substitute, Play Rough, Cut, Strength,
-          Rock Smash, Charge Beam, Bullet Seed]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration,
+          Iron Tail, Thunderbolt, Thunder, Return, Dig, Shadow Ball, Brick Break,
+          Double Team, Facade, Secret Power, Rest, Attract, Thief, Fling, Endure,
+          Shadow Claw, Giga Impact, Thunder Wave, Captivate, Sleep Talk, Natural Gift,
+          Grass Knot, Swagger, U-turn, Substitute, Play Rough, Cut, Strength, Rock Smash,
+          Blizzard, Shock Wave, Surf, Swords Dance, Bullet Seed]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Charm, Endeavor, Hyper Voice, Seed Bomb, Super Fang, Zen Headbutt,
-          Icy Wind]
+  tutor: [Aqua Tail, Body Slam, Charm, Endeavor, Hyper Voice, Seed Bomb, Super Fang,
+          Zen Headbutt, Icy Wind]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

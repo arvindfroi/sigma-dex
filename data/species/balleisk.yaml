@@ -64,29 +64,33 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Leer}
+    - {level: 1, move: Scratch}
     - {level: 1, move: Tackle}
-    - {level: 10, move: Breaking Swipe}
+    - {level: 5, move: Dragon Tail}
+    - {level: 10, move: Fury Cutter}
     - {level: 12, move: Bite}
-    - {level: 15, move: Dragon Tail}
+    - {level: 15, move: Bug Bite}
     - {level: 20, move: Scary Face}
-    - {level: 25, move: Slam}
+    - {level: 24, move: X-Scissor}
     - {level: 26, move: Focus Energy}
     - {level: 28, move: Dragon Claw}
+    - {level: 31, move: Aqua Tail}
     - {level: 35, move: Dragon Rush}
     - {level: 38, move: Crunch}
-    - {level: 50, move: Dragon Dance}
+    - {level: 40, move: Take Down}
+    - {level: 41, move: First Impression}
     - {level: 50, move: Outrage}
-    - {level: 60, move: Hyper Beam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Dragon Claw, Roar, Toxic, Hidden Power, Sunny Day, Protect, Rain Dance,
-          Frustration, Iron Tail, Return, Dig, Double Team, Rock Tomb, Aerial Ace, Facade,
-          Secret Power, Rest, Attract, Endure, Dragon Pulse, Captivate, X-Scissor,
-          Sleep Talk, Natural Gift, Swagger, Substitute, Struggle Bug, Lunge]
+          Frustration, Iron Tail, Return, Dig, Brick Break, Double Team, Flamethrower,
+          Fire Blast, Rock Tomb, Facade, Secret Power, Rest, Attract, Endure, Dragon Pulse,
+          Captivate, X-Scissor, Sleep Talk, Natural Gift, Poison Jab, Swagger, Substitute,
+          Struggle Bug, Lunge]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Bug Bite, Draco Meteor, Iron Head, Outrage]
+  tutor: [Aqua Tail, Body Slam, Bug Bite, Draco Meteor, Fire Fang, Iron Head, Outrage]
   # only needed for the first stage of an evolution line
-  egg: [Dragon Breath, Twister, Bug Bite, Counter, Signal Beam, Dragon Rage,
-        First Impression, Pin Missile, Bug Buzz, Fire Fang]
+  egg: [Dragon Breath, Twister, Fire Fang, Counter, Signal Beam, Thunder Fang, Dragon Rage,
+        Pin Missile, Bug Buzz, Body Slam]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

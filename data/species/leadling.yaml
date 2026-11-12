@@ -63,30 +63,35 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Acid}
+    - {level: 1, move: Harden}
     - {level: 1, move: Rollout}
     - {level: 1, move: Tackle}
-    - {level: 5, move: Rock Throw}
+    - {level: 3, move: Acid}
+    - {level: 9, move: Rock Throw}
+    - {level: 10, move: Smog}
+    - {level: 10, move: Poison Gas}
     - {level: 11, move: Rock Polish}
     - {level: 11, move: Smack Down}
+    - {level: 16, move: Toxic Spikes}
+    - {level: 17, move: Venoshock}
     - {level: 19, move: Ancient Power}
-    - {level: 19, move: Venoshock}
-    - {level: 23, move: Rock Slide}
-    - {level: 23, move: Toxic}
+    - {level: 20, move: Rock Slide}
+    - {level: 23, move: Power Gem}
     - {level: 25, move: Bone Rush}
     - {level: 28, move: Rock Blast}
     - {level: 29, move: Stealth Rock}
     - {level: 37, move: Stone Edge}
+    - {level: 40, move: Sludge Bomb}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return, Dig,
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Rain Dance, Frustration, Earthquake, Return, Dig,
           Double Team, Sludge Bomb, Sandstorm, Rock Tomb, Facade, Secret Power, Rest,
-          Attract, Thief, Endure, Rock Polish, Stone Edge, Stealth Rock, Captivate,
-          Rock Slide, Sleep Talk, Natural Gift, Poison Jab, Swagger, Substitute, Venoshock,
-          Acid Spray, Bulldoze, Rock Smash]
+          Attract, Thief, Rock Polish, Stone Edge, Stealth Rock, Captivate, Rock Slide,
+          Sleep Talk, Natural Gift, Poison Jab, Swagger, Substitute, Venoshock, Acid Spray,
+          Bulldoze, Meteor Beam, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Body Slam, Curse, Earth Power]
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Power Gem]
   # only needed for the first stage of an evolution line
-  egg: [Curse, Head Smash, Haze, Clear Smog, Smog]
+  egg: [Curse, Head Smash, Clear Smog, Sludge, Haze]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

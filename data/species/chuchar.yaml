@@ -68,31 +68,30 @@ learnset:
   level_up:
     - {level: 1, move: Astonish}
     - {level: 1, move: Confuse Ray}
-    - {level: 1, move: Lick}
     - {level: 1, move: Night Shade}
     - {level: 1, move: Pain Split}
-    - {level: 1, move: Shadow Sneak}
+    - {level: 1, move: Smog}
+    - {level: 1, move: Spite}
+    - {level: 1, move: Growl}
     - {level: 7, move: Hypnosis}
-    - {level: 9, move: Smog}
-    - {level: 12, move: Payback}
     - {level: 13, move: Smokescreen}
+    - {level: 15, move: Payback}
+    - {level: 16, move: Will-O-Wisp}
     - {level: 18, move: Protect}
-    - {level: 19, move: Spite}
     - {level: 24, move: Hex}
     - {level: 24, move: Sucker Punch}
     - {level: 36, move: Curse}
-    - {level: 36, move: Giga Drain}
-    - {level: 39, move: Dark Pulse}
+    - {level: 42, move: Dark Pulse}
     - {level: 42, move: Nasty Plot}
     - {level: 48, move: Shadow Ball}
     - {level: 49, move: Power Gem}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
-          Frustration, Return, Psychic, Shadow Ball, Double Team, Facade, Secret Power,
-          Rest, Attract, Thief, Energy Ball, Endure, Will-O-Wisp, Embargo, Payback,
-          Giga Impact, Psych Up, Dark Pulse, Sleep Talk, Swagger, Substitute, Trick Room,
-          Giga Drain, Thunderbolt, Thunder, Torment, Skill Swap, Captivate, Natural Gift,
-          Foul Play]
+          Frustration, Solar Beam, Return, Psychic, Shadow Ball, Double Team, Facade, Rest,
+          Attract, Thief, Energy Ball, Endure, Will-O-Wisp, Embargo, Payback, Giga Impact,
+          Thunder Wave, Psych Up, Dark Pulse, Sleep Talk, Swagger, Substitute, Trick Room,
+          Giga Drain, Thunderbolt, Thunder, Torment, Secret Power, Skill Swap, Snatch,
+          Captivate, Natural Gift, Foul Play, Sludge Bomb]
   # moves a move tutor can teach it
   tutor: [Curse, Nasty Plot, Poltergeist, Icy Wind]
   egg: []                # only needed for the first stage of an evolution line

@@ -66,7 +66,7 @@ learnset:
     - {level: 1, move: Harden}
     - {level: 1, move: Tackle}
     - {level: 9, move: Rock Polish}
-    - {level: 11, move: Mud Shot}
+    - {level: 12, move: Roar}
     - {level: 16, move: Rock Throw}
     - {level: 16, move: Rock Tomb}
     - {level: 18, move: Smack Down}
@@ -79,13 +79,14 @@ learnset:
     - {level: 53, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Frustration, Earthquake, Return, Dig,
-          Double Team, Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Attract, Endure,
-          Rock Polish, Stone Edge, Stealth Rock, Captivate, Rock Slide, Sleep Talk,
-          Natural Gift, Swagger, Substitute, Bulldoze, Strength, Rock Smash, Heavy Slam]
+          Brick Break, Double Team, Sandstorm, Rock Tomb, Facade, Secret Power, Rest,
+          Attract, Endure, Rock Polish, Stone Edge, Stealth Rock, Captivate, Rock Slide,
+          Sleep Talk, Natural Gift, Swagger, Substitute, Bulldoze, High Horsepower,
+          Body Press, Strength, Rock Smash, Heavy Slam]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Iron Head, Power Gem]
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Iron Head, Power Gem, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Curse, Wide Guard, Head Smash, Flail, Power Gem, Knock Off]
+  egg: [Curse, Wide Guard, Flail, Ancient Power, Power Gem, Knock Off]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

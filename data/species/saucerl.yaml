@@ -67,17 +67,21 @@ learnset:
     - {level: 1, move: Tackle}
     - {level: 4, move: Water Gun}
     - {level: 8, move: Withdraw}
+    - {level: 10, move: Aqua Jet}
     - {level: 10, move: Psybeam}
     - {level: 12, move: Aqua Ring}
-    - {level: 13, move: Rapid Spin}
-    - {level: 17, move: Bite}
+    - {level: 14, move: Psyshock}
     - {level: 17, move: Hypnosis}
     - {level: 22, move: Water Pulse}
+    - {level: 24, move: Razor Shell}
     - {level: 25, move: Protect}
-    - {level: 31, move: Muddy Water}
+    - {level: 26, move: Bubble Beam}
+    - {level: 27, move: Psychic}
     - {level: 35, move: Future Sight}
     - {level: 37, move: Iron Defense}
     - {level: 40, move: Hydro Pump}
+    - {level: 41, move: Aqua Tail}
+    - {level: 42, move: Surf}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Water Pulse, Calm Mind, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard,
           Light Screen, Protect, Rain Dance, Safeguard, Frustration, Return, Psychic,
@@ -88,7 +92,7 @@ learnset:
   # moves a move tutor can teach it
   tutor: [Aqua Tail, Body Slam, Icy Wind, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Mirror Coat, Aqua Jet, Haze, Zen Headbutt, Flail, Synchronoise, Aqua Tail]
+  egg: [Mirror Coat, Zen Headbutt, Synchronoise, Crabhammer, Barrier, Haze, Flail]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

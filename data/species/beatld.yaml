@@ -67,32 +67,33 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Confusion}
-    - {level: 1, move: Growl}
     - {level: 1, move: Safeguard}
+    - {level: 1, move: Stored Power}
     - {level: 1, move: Tackle}
-    - {level: 7, move: Struggle Bug}
-    - {level: 8, move: Infestation}
     - {level: 9, move: Hypnosis}
+    - {level: 10, move: Reflect}
     - {level: 15, move: Stun Spore}
     - {level: 16, move: Psybeam}
-    - {level: 24, move: Take Down}
+    - {level: 20, move: Psyshock}
+    - {level: 24, move: Light Screen}
+    - {level: 29, move: Extrasensory}
     - {level: 35, move: Bug Buzz}
     - {level: 35, move: Expanding Force}
     - {level: 37, move: Roost}
+    - {level: 39, move: Heal Pulse}
     - {level: 40, move: Calm Mind}
-    - {level: 40, move: Power Swap}
     - {level: 44, move: Psychic}
     - {level: 45, move: Future Sight}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
           Rain Dance, Giga Drain, Safeguard, Frustration, Solar Beam, Return, Psychic,
-          Shadow Ball, Double Team, Reflect, Aerial Ace, Facade, Secret Power, Rest,
-          Attract, Thief, Skill Swap, Energy Ball, Endure, Giga Impact, Flash, Thunder Wave,
+          Shadow Ball, Double Team, Reflect, Facade, Secret Power, Rest, Attract, Thief,
+          Skill Swap, Focus Blast, Energy Ball, Endure, Giga Impact, Flash, Thunder Wave,
           Psych Up, Sleep Talk, Natural Gift, Grass Knot, Swagger, U-turn, Substitute,
-          Trick Room, Psyshock, Struggle Bug, Psychic Terrain, Lunge, Expanding Force]
+          Trick Room, Psyshock, Struggle Bug, Psychic Terrain, Expanding Force]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Bug Bite, Dazzling Gleam, Zen Headbutt]
-  egg: [Extrasensory]    # only needed for the first stage of an evolution line
+  tutor: [Bug Bite, Dazzling Gleam, Zen Headbutt]
+  egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

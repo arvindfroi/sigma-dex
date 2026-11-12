@@ -66,31 +66,33 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Astonish}
     - {level: 1, move: Growl}
-    - {level: 1, move: Leer}
+    - {level: 1, move: Gust}
+    - {level: 1, move: Phantom Force}
     - {level: 1, move: Quick Attack}
     - {level: 1, move: Wing Attack}
-    - {level: 15, move: Confuse Ray}
-    - {level: 20, move: Lick}
+    - {level: 1, move: Astonish}
+    - {level: 8, move: Shadow Sneak}
+    - {level: 10, move: Spite}
     - {level: 24, move: Hex}
-    - {level: 24, move: Acrobatics}
-    - {level: 36, move: Gust}
+    - {level: 26, move: Air Cutter}
+    - {level: 33, move: Acrobatics}
+    - {level: 35, move: Confuse Ray}
     - {level: 42, move: Roost}
     - {level: 46, move: Aerial Ace}
     - {level: 48, move: Air Slash}
     - {level: 48, move: Shadow Ball}
     - {level: 49, move: Night Shade}
     - {level: 55, move: Agility}
+    - {level: 66, move: Shadow Claw}
     - {level: 67, move: Tailwind}
-    - {level: 74, move: Brave Bird}
     - {level: 82, move: Hurricane}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
           Frustration, Return, Psychic, Shadow Ball, Double Team, Aerial Ace, Facade,
-          Secret Power, Rest, Attract, Thief, Steel Wing, Roost, Endure, Giga Impact,
-          Psych Up, Captivate, Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Fly,
-          Trick Room, Dual Wingbeat]
+          Secret Power, Rest, Attract, Thief, Steel Wing, Roost, Endure, Will-O-Wisp,
+          Shadow Claw, Giga Impact, Psych Up, Captivate, Sleep Talk, Natural Gift, Swagger,
+          U-turn, Substitute, Dual Wingbeat, Fly, Trick Room, Foul Play]
   # moves a move tutor can teach it
   tutor: [Air Slash, Brave Bird, Curse, Hurricane, Poltergeist, Sky Attack, Heat Wave]
   egg: []                # only needed for the first stage of an evolution line

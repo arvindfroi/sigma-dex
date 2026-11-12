@@ -68,34 +68,36 @@ learnset:
   level_up:
     - {level: 1, move: Fury Cutter}
     - {level: 1, move: Leer}
+    - {level: 1, move: Quick Attack}
     - {level: 1, move: Sand Attack}
     - {level: 1, move: Smack Down}
     - {level: 1, move: Tackle}
     - {level: 5, move: Withdraw}
-    - {level: 14, move: Leech Life}
+    - {level: 10, move: Rock Throw}
+    - {level: 10, move: Harden}
     - {level: 16, move: Bug Bite}
-    - {level: 19, move: Rock Throw}
-    - {level: 19, move: Flail}
-    - {level: 21, move: Rock Tomb}
-    - {level: 28, move: Focus Energy}
+    - {level: 20, move: Rock Tomb}
+    - {level: 29, move: Rock Slide}
     - {level: 32, move: Agility}
     - {level: 33, move: Stealth Rock}
-    - {level: 36, move: Rock Slide}
     - {level: 38, move: Rock Blast}
     - {level: 40, move: X-Scissor}
     - {level: 44, move: Swords Dance}
+    - {level: 44, move: Pin Missile}
     - {level: 44, move: Horn Attack}
+    - {level: 45, move: First Impression}
+    - {level: 46, move: Leech Life}
     - {level: 50, move: Rock Polish}
     - {level: 56, move: Bug Buzz}
     - {level: 62, move: Stone Edge}
     - {level: 75, move: Body Slam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
-          Earthquake, Return, Dig, Double Team, Sandstorm, Rock Tomb, Aerial Ace, Facade,
-          Secret Power, Rest, Attract, Thief, Endure, Giga Impact, Rock Polish, Stone Edge,
-          Swords Dance, Stealth Rock, Captivate, Rock Slide, X-Scissor, Sleep Talk,
-          Natural Gift, Swagger, U-turn, Substitute, Struggle Bug, Bulldoze, Lunge,
-          Strength, Rock Smash, Solar Beam]
+          Earthquake, Return, Dig, Brick Break, Double Team, Sandstorm, Rock Tomb,
+          Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Endure, Giga Impact,
+          Rock Polish, Stone Edge, Swords Dance, Stealth Rock, Captivate, Rock Slide,
+          X-Scissor, Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Struggle Bug,
+          Bulldoze, Lunge, Body Press, Strength, Rock Smash, Roost]
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Bug Bite, Earth Power]
   egg: []                # only needed for the first stage of an evolution line

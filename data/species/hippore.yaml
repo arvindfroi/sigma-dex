@@ -67,33 +67,35 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Harden}
+    - {level: 1, move: Leer}
     - {level: 1, move: Metal Claw}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Wide Guard}
-    - {level: 7, move: Protect}
     - {level: 10, move: Withdraw}
     - {level: 12, move: Smack Down}
     - {level: 16, move: Rock Tomb}
     - {level: 24, move: Rock Slide}
+    - {level: 25, move: Rest}
     - {level: 26, move: Take Down}
     - {level: 28, move: Iron Defense}
     - {level: 28, move: Iron Head}
     - {level: 28, move: Rock Blast}
-    - {level: 30, move: Metal Sound}
+    - {level: 32, move: Stealth Rock}
+    - {level: 40, move: Iron Tail}
     - {level: 45, move: Stone Edge}
     - {level: 50, move: Double-Edge}
     - {level: 58, move: Heavy Slam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
-          Iron Tail, Earthquake, Return, Dig, Double Team, Sandstorm, Rock Tomb, Facade,
-          Secret Power, Rest, Attract, Endure, Giga Impact, Rock Polish, Stone Edge,
-          Gyro Ball, Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger,
-          Substitute, Flash Cannon, Heavy Slam, Bulldoze, Body Press, Meteor Beam, Strength,
-          Rock Smash]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Rain Dance, Frustration, Iron Tail,
+          Earthquake, Return, Dig, Brick Break, Double Team, Rock Tomb, Facade,
+          Secret Power, Rest, Attract, Giga Impact, Rock Polish, Stone Edge, Gyro Ball,
+          Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger,
+          Substitute, Flash Cannon, Heavy Slam, Bulldoze, High Horsepower, Body Press,
+          Meteor Beam, Strength, Rock Smash, Sandstorm]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Body Slam, Earth Power, Iron Head, Power Gem]
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Iron Head, Metal Claw, Power Gem,
+          Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Skull Bash, Curse, Head Smash, Mud-Slap]
+  egg: [Skull Bash, Curse, Head Smash, Amnesia, Rollout, Rock Throw, Defense Curl]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

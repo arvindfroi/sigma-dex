@@ -70,38 +70,41 @@ learnset:
     - {level: 1, move: Flare Blitz}
     - {level: 1, move: Volt Tackle}
     - {level: 1, move: Ember}
-    - {level: 1, move: Smog}
+    - {level: 1, move: Leer}
     - {level: 1, move: Tackle}
     - {level: 1, move: Tail Whip}
     - {level: 4, move: Withdraw}
     - {level: 4, move: Taunt}
     - {level: 8, move: Rapid Spin}
-    - {level: 8, move: Quick Attack}
     - {level: 15, move: Bite}
     - {level: 15, move: Horn Attack}
-    - {level: 16, move: Clear Smog}
     - {level: 20, move: Flame Wheel}
     - {level: 21, move: Slash}
+    - {level: 22, move: Headbutt}
     - {level: 24, move: Protect}
-    - {level: 24, move: Headbutt}
     - {level: 25, move: Fire Fang}
+    - {level: 26, move: Spark}
+    - {level: 28, move: Flame Charge}
     - {level: 32, move: Body Slam}
-    - {level: 35, move: Fire Spin}
     - {level: 36, move: Iron Defense}
+    - {level: 42, move: Heat Crash}
     - {level: 44, move: Curse}
     - {level: 44, move: Take Down}
+    - {level: 50, move: Zing Zap}
+    - {level: 51, move: Skull Bash}
     - {level: 52, move: Amnesia}
     - {level: 55, move: Double-Edge}
-    - {level: 64, move: Overheat}
+    - {level: 57, move: Wild Charge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
-          Solar Beam, Thunderbolt, Thunder, Earthquake, Return, Double Team, Flamethrower,
-          Fire Blast, Rock Tomb, Facade, Secret Power, Rest, Attract, Overheat, Charge Beam,
-          Endure, Will-O-Wisp, Giga Impact, Stone Edge, Thunder Wave, Rock Slide,
-          Sleep Talk, Swagger, Substitute, Flame Charge, Bulldoze, Electroweb, Strength,
-          Rock Smash, Dig]
+          Thunderbolt, Thunder, Earthquake, Return, Double Team, Flamethrower, Fire Blast,
+          Rock Tomb, Facade, Secret Power, Rest, Attract, Overheat, Charge Beam, Endure,
+          Will-O-Wisp, Giga Impact, Stone Edge, Thunder Wave, Rock Slide, Sleep Talk,
+          Swagger, Substitute, Flame Charge, Bulldoze, Electroweb, Body Press, Strength,
+          Rock Smash, Iron Tail, Dig]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Fire Fang, Flare Blitz, Heat Wave, Volt Switch, Zen Headbutt]
+  tutor: [Body Slam, Curse, Fire Fang, Flare Blitz, Heat Wave, Iron Head, Thunder Fang,
+          Volt Switch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

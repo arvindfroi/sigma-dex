@@ -67,34 +67,42 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Growl}
+    - {level: 1, move: Hyper Voice}
     - {level: 1, move: Leer}
     - {level: 1, move: Quick Attack}
     - {level: 1, move: Sand Attack}
-    - {level: 1, move: Scratch}
     - {level: 1, move: Tackle}
     - {level: 1, move: Odor Sleuth}
+    - {level: 3, move: Scratch}
+    - {level: 8, move: Echoed Voice}
     - {level: 15, move: Headbutt}
     - {level: 16, move: Bite}
+    - {level: 16, move: Charm}
     - {level: 18, move: Fury Swipes}
     - {level: 19, move: Slash}
     - {level: 19, move: Round}
-    - {level: 20, move: Swift}
-    - {level: 21, move: Take Down}
-    - {level: 22, move: Charm}
-    - {level: 24, move: Uproar}
+    - {level: 23, move: Scary Face}
+    - {level: 24, move: Tri Attack}
+    - {level: 24, move: Super Fang}
+    - {level: 24, move: Foresight}
+    - {level: 24, move: Work Up}
+    - {level: 26, move: Sucker Punch}
+    - {level: 27, move: Crunch}
+    - {level: 27, move: Take Down}
     - {level: 29, move: Agility}
     - {level: 35, move: Play Rough}
+    - {level: 36, move: Hyper Fang}
     - {level: 39, move: Nasty Plot}
-    - {level: 40, move: Hyper Voice}
-    - {level: 45, move: Tri Attack}
+    - {level: 40, move: Body Slam}
     - {level: 50, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
-          Thunderbolt, Thunder, Return, Dig, Shadow Ball, Double Team, Aerial Ace, Facade,
-          Secret Power, Rest, Attract, Thief, Endure, Giga Impact, Thunder Wave, Captivate,
-          Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Cut, Strength, Iron Tail]
+          Solar Beam, Iron Tail, Thunderbolt, Thunder, Return, Dig, Shadow Ball,
+          Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Endure,
+          Shadow Claw, Giga Impact, Thunder Wave, Captivate, Sleep Talk, Natural Gift,
+          Swagger, U-turn, Substitute, Cut, Strength, Psychic Fangs]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Endeavor, Hyper Voice, Super Fang, Zen Headbutt]
+  tutor: [Body Slam, Endeavor, Hyper Voice, Seed Bomb, Super Fang, Zen Headbutt, Charm]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

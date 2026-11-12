@@ -72,26 +72,28 @@ learnset:
     - {level: 1, move: Wing Attack}
     - {level: 7, move: Thief}
     - {level: 8, move: Bite}
-    - {level: 15, move: Focus Energy}
+    - {level: 16, move: Whirlwind}
+    - {level: 20, move: Pluck}
     - {level: 20, move: Scary Face}
-    - {level: 20, move: Taunt}
+    - {level: 24, move: Drill Peck}
     - {level: 27, move: Payback}
     - {level: 30, move: Knock Off}
-    - {level: 30, move: Night Slash}
     - {level: 30, move: Sucker Punch}
+    - {level: 31, move: Roost}
     - {level: 35, move: Crunch}
-    - {level: 45, move: Swords Dance}
+    - {level: 40, move: Foul Play}
+    - {level: 50, move: Brave Bird}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
           Frustration, Return, Double Team, Rock Tomb, Aerial Ace, Torment, Facade,
-          Secret Power, Rest, Attract, Thief, Roost, Fling, Endure, Payback, Giga Impact,
-          Dark Pulse, Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Foul Play,
-          Dual Wingbeat, Fly, Brutal Swing, Psychic Fangs]
+          Secret Power, Rest, Attract, Thief, Steel Wing, Roost, Fling, Endure, Payback,
+          Giga Impact, Dark Pulse, Sleep Talk, Natural Gift, Swagger, Pluck, U-turn,
+          Substitute, Foul Play, Brutal Swing, Dual Wingbeat, Fly, Psychic Fangs]
   # moves a move tutor can teach it
   tutor: [Air Slash, Body Slam, Brave Bird, Endeavor, Heat Wave, Hurricane, Nasty Plot,
-          Sky Attack, Snarl]
+          Sky Attack, Snarl, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Sky Attack, Assurance, Power Trip, Feint Attack, Pursuit]
+  egg: [Sky Attack, Assurance, Power Trip, Feint Attack, Night Slash]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

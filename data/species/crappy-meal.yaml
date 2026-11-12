@@ -69,33 +69,41 @@ learnset:
     - {level: 0, move: Acid Spray}
     - {level: 0, move: Growth}
     - {level: 0, move: Attack Order}
-    - {level: 1, move: Stun Spore}
+    - {level: 1, move: Razor Leaf}
     - {level: 1, move: Tackle}
+    - {level: 8, move: Poison Fang}
+    - {level: 8, move: Stun Spore}
     - {level: 12, move: Leech Seed}
     - {level: 15, move: Head Smash}
-    - {level: 16, move: Razor Leaf}
     - {level: 18, move: Cross Poison}
     - {level: 20, move: Bullet Seed}
     - {level: 20, move: Synthesis}
+    - {level: 22, move: Poison Sting}
     - {level: 24, move: Sweet Scent}
     - {level: 29, move: Slash}
     - {level: 30, move: Absorb}
     - {level: 32, move: Ingrain}
     - {level: 32, move: Poison Jab}
+    - {level: 32, move: Seed Bomb}
     - {level: 33, move: Mega Drain}
-    - {level: 33, move: Horn Leech}
+    - {level: 33, move: Vine Whip}
+    - {level: 33, move: Toxic Spikes}
     - {level: 33, move: Pin Missile}
-    - {level: 36, move: Sleep Powder}
     - {level: 36, move: Toxic}
+    - {level: 40, move: Gunk Shot}
+    - {level: 41, move: Leaf Blade}
     - {level: 48, move: Power Whip}
+    - {level: 63, move: Spiky Shield}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
-          Giga Drain, Frustration, Solar Beam, Return, Double Team, Sludge Bomb, Facade,
-          Secret Power, Rest, Attract, Thief, Energy Ball, Endure, Payback, Giga Impact,
-          Flash, Swords Dance, Captivate, Sleep Talk, Natural Gift, Poison Jab, Grass Knot,
-          Swagger, Substitute, Venoshock, Acid Spray, Grassy Terrain]
+          Giga Drain, Frustration, Solar Beam, Earthquake, Return, Dig, Double Team,
+          Sludge Bomb, Facade, Secret Power, Rest, Attract, Thief, Energy Ball, Endure,
+          Payback, Giga Impact, Flash, Swords Dance, Captivate, Sleep Talk, Natural Gift,
+          Poison Jab, Grass Knot, Swagger, Substitute, Venoshock, Acid Spray,
+          Grassy Terrain, Body Press]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Leaf Storm, Magical Leaf, Seed Bomb, Solar Blade, Synthesis]
+  tutor: [Body Slam, Curse, Leaf Storm, Magical Leaf, Seed Bomb, Solar Blade, Synthesis,
+          Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

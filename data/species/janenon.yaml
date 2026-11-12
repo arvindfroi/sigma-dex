@@ -71,31 +71,29 @@ learnset:
     - {level: 1, move: Charm}
     - {level: 1, move: Disarming Voice}
     - {level: 1, move: Growl}
-    - {level: 1, move: Tackle}
-    - {level: 1, move: Power Trip}
+    - {level: 1, move: Heal Pulse}
+    - {level: 6, move: Confuse Ray}
+    - {level: 8, move: Snarl}
     - {level: 10, move: Sweet Scent}
-    - {level: 13, move: Moonlight}
     - {level: 15, move: Draining Kiss}
+    - {level: 15, move: Fake Tears}
     - {level: 17, move: Fairy Wind}
-    - {level: 20, move: Hex}
-    - {level: 22, move: Knock Off}
-    - {level: 34, move: Bite}
+    - {level: 17, move: Hex}
+    - {level: 20, move: Protect}
+    - {level: 24, move: Sucker Punch}
     - {level: 35, move: Dazzling Gleam}
     - {level: 35, move: Misty Terrain}
     - {level: 40, move: Nasty Plot}
-    - {level: 40, move: Sucker Punch}
     - {level: 40, move: Recover}
     - {level: 45, move: Moonblast}
-    - {level: 47, move: Assurance}
     - {level: 48, move: Aura Sphere}
-    - {level: 49, move: Play Rough}
-    - {level: 68, move: Foul Play}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
           Protect, Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball,
           Double Team, Reflect, Facade, Secret Power, Rest, Attract, Thief, Energy Ball,
           Fling, Endure, Payback, Giga Impact, Psych Up, Dark Pulse, Sleep Talk, Swagger,
-          Substitute, Foul Play, Draining Kiss, Misty Terrain, Play Rough, Trick Room]
+          Substitute, Trick Room, Psyshock, Foul Play, Draining Kiss, Misty Terrain,
+          Play Rough, Solar Beam, Flash Cannon]
   # moves a move tutor can teach it
   tutor: [Body Slam, Charm, Dazzling Gleam, Nasty Plot, Snarl, Hyper Voice, Curse]
   egg: []                # only needed for the first stage of an evolution line

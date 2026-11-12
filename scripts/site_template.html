@@ -1518,6 +1518,7 @@ function suggestionPanel(s, ed) {
     if (!s.id || !sg) { box.append(h("div", {class: "hint"}, s.id ? "No suggestion yet: save this Pokemon first, suggestions are made within 15 minutes." : "Save the new Pokemon first; suggestions are made within 15 minutes after that.")); return; }
     if (sg.skipped) { box.append(h("div", {class: "hint"}, sg.skipped.includes("base stats") ? "It needs its base stats (and types) first. Save them, and the suggestion is ready within 15 minutes." : "No suggestion: " + sg.skipped)); return; }
     const info = h("div", {class: "hint"},
+      (sg.archetype ? "Archetype: " + sg.archetype + (sg.themes && sg.themes.length ? " (" + sg.themes.join(", ") + ")" : "") + ". " : "") +
       (sg.role ? "Role: " + sg.role + ". " : "") + (sg.inspired && sg.inspired.length ? "Inspired by " + sg.inspired.slice(0, 6).map(([n, p]) => n + " " + p + "%").join(", ") + ". " : "") +
       "Made " + (all.generated || "") + (s.pending ? " (your last save is not in it yet; it comes within 15 minutes)" : "") + ".");
     const area = h("div", {});

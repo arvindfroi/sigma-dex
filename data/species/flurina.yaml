@@ -66,6 +66,7 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Aromatic Mist}
     - {level: 1, move: Disarming Voice}
     - {level: 1, move: Fairy Wind}
     - {level: 1, move: Growl}
@@ -80,18 +81,18 @@ learnset:
     - {level: 21, move: Round}
     - {level: 30, move: Wish}
     - {level: 35, move: Dazzling Gleam}
+    - {level: 36, move: Cotton Guard}
     - {level: 36, move: Moonblast}
     - {level: 37, move: Misty Terrain}
-    - {level: 39, move: Endeavor}
-    - {level: 39, move: Cotton Guard}
+    - {level: 42, move: Endeavor}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
-          Rain Dance, Safeguard, Frustration, Return, Psychic, Double Team, Reflect, Facade,
-          Secret Power, Rest, Attract, Energy Ball, Endure, Giga Impact, Flash, Psych Up,
-          Sleep Talk, Swagger, Substitute, Psyshock, Draining Kiss, Misty Terrain,
-          Play Rough, Thief]
+          Rain Dance, Safeguard, Frustration, Solar Beam, Return, Psychic, Double Team,
+          Reflect, Facade, Secret Power, Rest, Attract, Energy Ball, Endure, Giga Impact,
+          Flash, Thunder Wave, Psych Up, Sleep Talk, Swagger, Substitute, Psyshock,
+          Draining Kiss, Misty Terrain, Play Rough, Flamethrower]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Charm, Dazzling Gleam, Endeavor, Heal Bell, Power Gem]
+  tutor: [Charm, Dazzling Gleam, Endeavor, Heal Bell, Power Gem]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

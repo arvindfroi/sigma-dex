@@ -67,7 +67,8 @@ learnset:
     - {level: 1, move: Tackle}
     - {level: 1, move: Tail Whip}
     - {level: 4, move: Taunt}
-    - {level: 8, move: Quick Attack}
+    - {level: 8, move: Rapid Spin}
+    - {level: 9, move: Flame Charge}
     - {level: 10, move: Bite}
     - {level: 10, move: Withdraw}
     - {level: 15, move: Horn Attack}
@@ -75,18 +76,21 @@ learnset:
     - {level: 21, move: Slash}
     - {level: 24, move: Headbutt}
     - {level: 25, move: Flame Wheel}
-    - {level: 35, move: Fire Spin}
+    - {level: 33, move: Iron Defense}
     - {level: 40, move: Flare Blitz}
     - {level: 41, move: Take Down}
     - {level: 46, move: Fire Lash}
+    - {level: 48, move: Skull Bash}
     - {level: 52, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Frustration, Return, Dig, Double Team,
-          Flamethrower, Fire Blast, Facade, Secret Power, Rest, Attract, Overheat, Endure,
-          Will-O-Wisp, Sleep Talk, Swagger, Substitute, Flame Charge, Rock Smash]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Frustration, Iron Tail, Return, Dig,
+          Double Team, Flamethrower, Fire Blast, Facade, Secret Power, Rest, Attract,
+          Overheat, Endure, Will-O-Wisp, Rock Slide, Sleep Talk, Swagger, Substitute,
+          Flame Charge, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Fire Fang, Flare Blitz, Heat Wave, Zen Headbutt]
-  egg: [Heat Wave, Yawn, Thrash] # only needed for the first stage of an evolution line
+  tutor: [Body Slam, Curse, Fire Fang, Flare Blitz, Heat Wave]
+  # only needed for the first stage of an evolution line
+  egg: [Heat Wave, Fire Spin, Rollout, Yawn, Thrash]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

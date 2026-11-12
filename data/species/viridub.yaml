@@ -64,18 +64,18 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Growl}
     - {level: 1, move: Leafage}
+    - {level: 1, move: Leer}
     - {level: 1, move: Scratch}
     - {level: 7, move: Bite}
     - {level: 12, move: Razor Leaf}
     - {level: 13, move: Vine Whip}
     - {level: 15, move: Leech Seed}
-    - {level: 19, move: Screech}
+    - {level: 15, move: Quick Attack}
     - {level: 22, move: Seed Bomb}
     - {level: 30, move: Slam}
+    - {level: 33, move: Slash}
     - {level: 36, move: Leaf Blade}
-    - {level: 42, move: Endeavor}
     - {level: 42, move: Wood Hammer}
     - {level: 46, move: Power Whip}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
@@ -84,9 +84,9 @@ learnset:
           Endure, Flash, Swords Dance, Sleep Talk, Grass Knot, Swagger, Substitute,
           Grassy Terrain]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Endeavor, Leaf Storm, Magical Leaf, Seed Bomb, Synthesis]
+  tutor: [Body Slam, Endeavor, Leaf Storm, Magical Leaf, Seed Bomb, Solar Blade, Synthesis]
   # only needed for the first stage of an evolution line
-  egg: [Worry Seed, Magical Leaf, Leaf Storm, Grass Whistle, Synthesis, Nature Power]
+  egg: [Worry Seed, Magical Leaf, Leaf Storm, Fake Out, Nature Power]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

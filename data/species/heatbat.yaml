@@ -67,35 +67,35 @@ learnset:
     - {level: 1, move: Air Slash}
     - {level: 1, move: Ember}
     - {level: 1, move: Growl}
-    - {level: 1, move: Peck}
     - {level: 1, move: Quick Attack}
     - {level: 1, move: Scratch}
-    - {level: 8, move: Smokescreen}
+    - {level: 10, move: Supersonic}
     - {level: 12, move: Gust}
     - {level: 12, move: Fury Swipes}
-    - {level: 14, move: Supersonic}
+    - {level: 14, move: Flame Charge}
+    - {level: 15, move: Wing Attack}
     - {level: 18, move: Air Cutter}
-    - {level: 20, move: Incinerate}
-    - {level: 20, move: Wing Attack}
-    - {level: 22, move: Acrobatics}
-    - {level: 22, move: Lava Plume}
+    - {level: 19, move: Incinerate}
     - {level: 23, move: Slash}
+    - {level: 24, move: Lava Plume}
+    - {level: 27, move: Fire Fang}
     - {level: 29, move: Agility}
-    - {level: 31, move: Flame Charge}
     - {level: 31, move: Scary Face}
     - {level: 35, move: Fire Spin}
     - {level: 41, move: Flamethrower}
+    - {level: 44, move: Tailwind}
     - {level: 46, move: Roost}
     - {level: 54, move: Fire Blast}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration, Return,
-          Double Team, Flamethrower, Fire Blast, Aerial Ace, Facade, Secret Power, Rest,
-          Attract, Thief, Steel Wing, Overheat, Roost, Endure, Will-O-Wisp, Captivate,
-          Sleep Talk, Natural Gift, Swagger, Pluck, U-turn, Substitute, Flame Charge,
-          Dual Wingbeat, Fly, Roar, Dig, Shadow Claw, Cut, Rock Smash]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration,
+          Solar Beam, Return, Double Team, Flamethrower, Fire Blast, Aerial Ace, Facade,
+          Secret Power, Rest, Attract, Thief, Steel Wing, Overheat, Roost, Endure,
+          Will-O-Wisp, Captivate, Sleep Talk, Natural Gift, Swagger, U-turn, Substitute,
+          Flame Charge, Dual Wingbeat, Fly, Dragon Claw, Roar, Iron Tail, Shadow Claw,
+          Rock Slide, Cut, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Air Slash, Body Slam, Brave Bird, Fire Fang, Fire Punch, Flare Blitz, Heat Wave,
-          Hurricane, Sky Attack]
+  tutor: [Air Slash, Brave Bird, Fire Fang, Fire Punch, Flare Blitz, Heat Wave, Hurricane,
+          Sky Attack, Body Slam, Outrage, Thunder Punch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

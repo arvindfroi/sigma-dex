@@ -67,7 +67,7 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 0, move: Ice Egg}
-    - {level: 1, move: Endure}
+    - {level: 1, move: Fury Swipes}
     - {level: 1, move: Growl}
     - {level: 1, move: Leer}
     - {level: 1, move: Powder Snow}
@@ -75,26 +75,29 @@ learnset:
     - {level: 9, move: Icy Wind}
     - {level: 12, move: Ice Shard}
     - {level: 15, move: Ice Fang}
-    - {level: 17, move: Rest}
+    - {level: 15, move: Rest}
+    - {level: 15, move: Aurora Beam}
+    - {level: 16, move: Slash}
     - {level: 19, move: Bite}
+    - {level: 23, move: Snowscape}
     - {level: 25, move: Flail}
     - {level: 25, move: Take Down}
     - {level: 27, move: Avalanche}
-    - {level: 32, move: Slash}
     - {level: 36, move: Body Slam}
     - {level: 40, move: Amnesia}
-    - {level: 40, move: Crunch}
     - {level: 44, move: Icicle Crash}
-    - {level: 52, move: Double-Edge}
-    - {level: 53, move: Blizzard}
+    - {level: 48, move: Blizzard}
+    - {level: 49, move: Double-Edge}
     - {level: 54, move: Screech}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect,
-          Rain Dance, Frustration, Earthquake, Return, Double Team, Facade, Secret Power,
-          Rest, Attract, Endure, Giga Impact, Avalanche, Sleep Talk, Swagger, Substitute,
-          Bulldoze, Body Press, Rock Smash, Dig, Rock Tomb, Strength]
+  tm_hm: [Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect, Rain Dance,
+          Frustration, Earthquake, Return, Dig, Brick Break, Double Team, Facade,
+          Secret Power, Rest, Attract, Endure, Giga Impact, Stone Edge, Avalanche,
+          Rock Slide, Sleep Talk, Swagger, Substitute, Heavy Slam, Bulldoze, Liquidation,
+          Body Press, Rock Smash, Rock Tomb, Strength]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Charm, Curse, Ice Fang, Ice Punch, Icicle Spear, Icy Wind]
+  tutor: [Body Slam, Charm, Close Combat, Curse, Ice Fang, Ice Punch, Icicle Spear,
+          Icy Wind, Iron Head]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

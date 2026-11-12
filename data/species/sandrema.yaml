@@ -67,31 +67,35 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Disable}
-    - {level: 1, move: Fairy Wind}
     - {level: 1, move: Leer}
     - {level: 1, move: Quick Attack}
+    - {level: 1, move: Sand Tomb}
     - {level: 1, move: Sand Attack}
     - {level: 7, move: Howl}
-    - {level: 14, move: Bulldoze}
-    - {level: 24, move: Sand Tomb}
+    - {level: 7, move: Hypnosis}
+    - {level: 14, move: Mud Shot}
+    - {level: 17, move: Mud-Slap}
+    - {level: 24, move: Sing}
     - {level: 25, move: Iron Defense}
-    - {level: 35, move: Stomping Tantrum}
-    - {level: 40, move: Earth Power}
+    - {level: 26, move: Sleep Powder}
+    - {level: 28, move: Fairy Wind}
+    - {level: 30, move: Wish}
+    - {level: 35, move: Dazzling Gleam}
     - {level: 40, move: Misty Terrain}
-    - {level: 42, move: Hammer Arm}
-    - {level: 42, move: Knock Off}
+    - {level: 42, move: Earth Power}
+    - {level: 45, move: Extrasensory}
     - {level: 49, move: Earthquake}
     - {level: 63, move: Play Rough}
     - {level: 65, move: Moonblast}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
-          Protect, Rain Dance, Frustration, Thunderbolt, Earthquake, Return, Dig, Psychic,
-          Double Team, Reflect, Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Fling,
-          Endure, Giga Impact, Stone Edge, Thunder Wave, Stealth Rock, Psych Up, Rock Slide,
-          Sleep Talk, Grass Knot, Swagger, Substitute, Bulldoze, Draining Kiss,
-          Misty Terrain, Play Rough, High Horsepower]
+          Protect, Rain Dance, Safeguard, Frustration, Thunderbolt, Earthquake, Return, Dig,
+          Psychic, Double Team, Reflect, Sandstorm, Rock Tomb, Facade, Secret Power, Rest,
+          Fling, Endure, Giga Impact, Stone Edge, Thunder Wave, Stealth Rock, Psych Up,
+          Rock Slide, Sleep Talk, Grass Knot, Swagger, Substitute, Psyshock, Bulldoze,
+          Draining Kiss, Misty Terrain, Play Rough, High Horsepower]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Dazzling Gleam, Earth Power, Zen Headbutt]
+  tutor: [Body Slam, Dazzling Gleam, Earth Power, Zen Headbutt, Heal Bell]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

@@ -70,12 +70,14 @@ learnset:
     - {level: 1, move: Water Gun}
     - {level: 8, move: Quick Attack}
     - {level: 9, move: Supersonic}
-    - {level: 14, move: Mud Shot}
+    - {level: 14, move: Aqua Jet}
+    - {level: 18, move: Bubble}
     - {level: 21, move: Water Pulse}
     - {level: 22, move: Bubble Beam}
-    - {level: 27, move: Soak}
+    - {level: 24, move: Razor Shell}
     - {level: 29, move: Rain Dance}
-    - {level: 37, move: Aqua Ring}
+    - {level: 31, move: Agility}
+    - {level: 31, move: Aqua Tail}
     - {level: 44, move: Surf}
     - {level: 48, move: Hydro Pump}
     - {level: 59, move: Double-Edge}
@@ -83,10 +85,10 @@ learnset:
   tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Protect, Rain Dance,
           Frustration, Return, Double Team, Facade, Secret Power, Rest, Attract, Thief,
           Brine, Endure, Captivate, Sleep Talk, Natural Gift, Swagger, Substitute, Scald,
-          Liquidation, Surf, Whirlpool, Waterfall]
+          Liquidation, Flip Turn, Surf, Whirlpool, Waterfall]
   tutor: [Aqua Tail, Icy Wind] # moves a move tutor can teach it
   # only needed for the first stage of an evolution line
-  egg: [Muddy Water, Aqua Tail, Mist, Haze, Mud Sport, Refresh]
+  egg: [Muddy Water, Mist, Haze, Mud Sport, Refresh, Aqua Ring, Mud Shot]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

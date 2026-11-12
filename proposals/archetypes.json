@@ -1,0 +1,4146 @@
+{
+ "abyssys": {
+  "archetype": "eyestalk drifter",
+  "role": "Special wall",
+  "themes": [
+   "mind",
+   "swimming",
+   "tank",
+   "light"
+  ],
+  "fits": [
+   "Psychic",
+   "Surf",
+   "Calm Mind",
+   "Light Screen",
+   "Reflect",
+   "Rest",
+   "Recover",
+   "Scald"
+  ],
+  "avoid": [
+   "biting",
+   "punching",
+   "kicking"
+  ],
+  "why": "A tube-like floating body with a stalk ending in one large purple eye, 117 Defense and 127 Sp. Def."
+ },
+ "alminimonk": {
+  "archetype": "foil-hat meditator",
+  "role": "Special wall",
+  "themes": [
+   "mind",
+   "tank",
+   "support",
+   "status"
+  ],
+  "fits": [
+   "Confusion",
+   "Calm Mind",
+   "Light Screen",
+   "Reflect",
+   "Meditate",
+   "Barrier",
+   "Psybeam",
+   "Recover"
+  ],
+  "avoid": [
+   "biting",
+   "tail",
+   "kicking"
+  ],
+  "why": "A small round monk meditating in a crumpled silver-foil hat."
+ },
+ "alminimonk-utvikling": {
+  "archetype": "foil-hat sage",
+  "role": "Special wall",
+  "themes": [
+   "mind",
+   "tank",
+   "support",
+   "status"
+  ],
+  "fits": [
+   "Psychic",
+   "Calm Mind",
+   "Light Screen",
+   "Reflect",
+   "Recover",
+   "Psyshock",
+   "Cosmic Power",
+   "Heal Pulse"
+  ],
+  "avoid": [
+   "biting",
+   "tail",
+   "kicking"
+  ],
+  "why": "The evolved meditating monk with 110 Sp. Def and a tall foil hat."
+ },
+ "ambcoptr": {
+  "archetype": "amber helicopter beetle",
+  "role": "Fast physical attacker",
+  "themes": [
+   "stone",
+   "wings",
+   "speed",
+   "horns",
+   "draining"
+  ],
+  "fits": [
+   "Rock Slide",
+   "X-Scissor",
+   "Leech Life",
+   "Rock Polish",
+   "Pin Missile",
+   "U-turn",
+   "Stone Edge",
+   "Roost"
+  ],
+  "avoid": [
+   "punching",
+   "freezing"
+  ],
+  "why": "A beetle with rotating amber wings and a spiral horn, 125 Speed and 90 Attack."
+ },
+ "ambuger": {
+  "archetype": "amber mosquito",
+  "role": "Physical wall",
+  "themes": [
+   "stone",
+   "tank",
+   "draining",
+   "tackling"
+  ],
+  "fits": [
+   "Rock Throw",
+   "Fury Cutter",
+   "Leech Life",
+   "Harden",
+   "Rock Polish",
+   "Rock Tomb",
+   "Sandstorm"
+  ],
+  "avoid": [
+   "punching",
+   "freezing"
+  ],
+  "why": "A mosquito trapped in glossy amber with a spiral proboscis."
+ },
+ "ampeel": {
+  "archetype": "live-wire eel",
+  "role": "Mixed attacker",
+  "themes": [
+   "electric",
+   "swimming",
+   "speed",
+   "biting"
+  ],
+  "fits": [
+   "Wild Charge",
+   "Aqua Jet",
+   "Discharge",
+   "Coil",
+   "Agility",
+   "Volt Switch",
+   "Waterfall",
+   "Surf",
+   "Thunderbolt"
+  ],
+  "avoid": [
+   "punching",
+   "kicking",
+   "wings",
+   "claws"
+  ],
+  "why": "Aggressive eel with 130 Speed and 95/95 attacks."
+ },
+ "anjane": {
+  "archetype": "cursed hair doll",
+  "role": "Special trick Room attacker",
+  "themes": [
+   "curses",
+   "mind",
+   "beams",
+   "tank"
+  ],
+  "fits": [
+   "Hex",
+   "Dark Pulse",
+   "Disarming Voice",
+   "Fairy Wind",
+   "Spite",
+   "Curse",
+   "Trick Room",
+   "Misty Terrain"
+  ],
+  "avoid": [
+   "punching",
+   "kicking",
+   "wings",
+   "biting"
+  ],
+  "why": "Doll hidden under droopy hair, 100 Sp. Atk and 15 Speed, a Trick Room sweeper."
+ },
+ "apeshit": {
+  "archetype": "bottle-throwing cub",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "throwing",
+   "tackling",
+   "punching"
+  ],
+  "fits": [
+   "Scratch",
+   "Tackle",
+   "Rock Throw",
+   "Fling",
+   "Karate Chop",
+   "Low Kick"
+  ],
+  "avoid": [
+   "beams",
+   "wings"
+  ],
+  "why": "A baby chimpanzee in a sweater and diaper; a weak physical attacker."
+ },
+ "autuman": {
+  "archetype": "maple-cape ninja",
+  "role": "Fast physical attacker",
+  "themes": [
+   "kicking",
+   "wind",
+   "speed",
+   "plant",
+   "punching"
+  ],
+  "fits": [
+   "Close Combat",
+   "Leaf Blade",
+   "Swords Dance",
+   "Sucker Punch",
+   "Wood Hammer",
+   "Brick Break",
+   "Aerial Ace",
+   "Acrobatics"
+  ],
+  "avoid": [
+   "swimming",
+   "flames"
+  ],
+  "why": "A slim leaf-caped fighter, angry-faced, 118 Speed and 108 Attack."
+ },
+ "balleisk": {
+  "archetype": "ball-tailed lizard",
+  "role": "Fast physical attacker",
+  "themes": [
+   "tail",
+   "biting",
+   "throwing",
+   "tackling"
+  ],
+  "fits": [
+   "Bite",
+   "Scratch",
+   "Dragon Breath",
+   "Bug Bite",
+   "Fury Cutter",
+   "Tackle",
+   "Twister"
+  ],
+  "avoid": [
+   "wings",
+   "freezing"
+  ],
+  "why": "A small red dinosaur with a corded ball on its tail and Catch Master."
+ },
+ "beatld": {
+  "archetype": "mustached psychic egg",
+  "role": "Special wallbreaker",
+  "themes": [
+   "mind",
+   "support",
+   "status",
+   "trickster"
+  ],
+  "fits": [
+   "Psychic",
+   "Psyshock",
+   "Bug Buzz",
+   "Calm Mind",
+   "Heal Pulse",
+   "Psychic Terrain",
+   "Energy Ball",
+   "Reflect"
+  ],
+  "avoid": [
+   "biting",
+   "tail"
+  ],
+  "why": "A round egg-shaped oddity with spiral eyes and 145 Sp. Atk but ordinary bulk."
+ },
+ "bergflabbser": {
+  "archetype": "fjord fish giant",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "swimming",
+   "weather",
+   "tank",
+   "biting",
+   "digging"
+  ],
+  "fits": [
+   "Waterfall",
+   "Earthquake",
+   "Muddy Water",
+   "Surf",
+   "Rain Dance",
+   "Earth Power",
+   "Crunch",
+   "Liquidation",
+   "Rest"
+  ],
+  "avoid": [
+   "wings",
+   "flames",
+   "wind",
+   "punching"
+  ],
+  "why": "Giant fish carrying Bergen's mountains on its back with 150 HP."
+ },
+ "blazterra": {
+  "archetype": "fire-wing dragonbat",
+  "role": "Fast special attacker",
+  "themes": [
+   "flames",
+   "wings",
+   "claws",
+   "speed",
+   "wind"
+  ],
+  "fits": [
+   "Flamethrower",
+   "Air Slash",
+   "Heat Wave",
+   "Roost",
+   "Tailwind",
+   "Flame Charge",
+   "Dragon Pulse",
+   "Acrobatics",
+   "Fire Blast"
+  ],
+  "avoid": [
+   "swimming",
+   "digging",
+   "freezing"
+  ],
+  "why": "Slender bat-dragon with huge fire-patterned wings and 122 Speed."
+ },
+ "blylem": {
+  "archetype": "bone-cannon lead golem",
+  "role": "Special bulky attacker",
+  "themes": [
+   "poison",
+   "stone",
+   "tank",
+   "throwing"
+  ],
+  "fits": [
+   "Sludge Bomb",
+   "Power Gem",
+   "Sludge Wave",
+   "Corrosive Gas",
+   "Toxic Spikes",
+   "Stealth Rock",
+   "Toxic",
+   "Ancient Power",
+   "Sandstorm"
+  ],
+  "avoid": [
+   "wings",
+   "speed",
+   "swimming",
+   "kicking"
+  ],
+  "why": "Lead golem of bones whose cannon fists leak purple smoke, 150 Sp. Def."
+ },
+ "bolthook": {
+  "archetype": "heavy-beak raptor",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "biting",
+   "wings",
+   "wind",
+   "headbutting"
+  ],
+  "fits": [
+   "Crunch",
+   "Brutal Swing",
+   "Hurricane",
+   "Knock Off",
+   "Brave Bird",
+   "Roost",
+   "Pluck",
+   "Dark Pulse"
+  ],
+  "avoid": [
+   "punching",
+   "swimming"
+  ],
+  "why": "A great bird that blots out the sun and strikes with an enormous beak in one thunderous blow."
+ },
+ "brawleo": {
+  "archetype": "ear-slapping guard dog",
+  "role": "Fast physical attacker",
+  "themes": [
+   "punching",
+   "tackling",
+   "tank",
+   "biting"
+  ],
+  "fits": [
+   "Mach Punch",
+   "Drain Punch",
+   "Close Combat",
+   "Body Slam",
+   "Fake Out",
+   "Bulk Up",
+   "Crunch",
+   "Return"
+  ],
+  "avoid": [
+   "wings",
+   "beams"
+  ],
+  "why": "It swings its long ears like fists and has tough fur."
+ },
+ "bugmight": {
+  "archetype": "bug hero",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "punching",
+   "kicking",
+   "wings",
+   "berserker",
+   "tank"
+  ],
+  "fits": [
+   "Close Combat",
+   "X-Scissor",
+   "Brick Break",
+   "Bulk Up",
+   "Drain Punch",
+   "Leech Life",
+   "Mach Punch",
+   "Megahorn",
+   "Roost"
+  ],
+  "avoid": [
+   "swimming",
+   "curses"
+  ],
+  "why": "A muscular insect hero fighting for justice with Guts and 118 Attack."
+ },
+ "bulbtle": {
+  "archetype": "lamp-lit cave turtle",
+  "role": "Special wall",
+  "themes": [
+   "light",
+   "electric",
+   "digging",
+   "tank"
+  ],
+  "fits": [
+   "Thunder Shock",
+   "Mud-Slap",
+   "Flash",
+   "Withdraw",
+   "Spark",
+   "Dig",
+   "Charge",
+   "Thunder Wave"
+  ],
+  "avoid": [
+   "wings",
+   "flames"
+  ],
+  "why": "A small miner turtle whose glowing nose bulb lights caves or blinds enemies."
+ },
+ "bulbtoise": {
+  "archetype": "lamp-lit cave tortoise",
+  "role": "Special wall",
+  "themes": [
+   "light",
+   "electric",
+   "digging",
+   "tank",
+   "support"
+  ],
+  "fits": [
+   "Flash Cannon",
+   "Discharge",
+   "Earth Power",
+   "Thunder Wave",
+   "Flash",
+   "Shore Up",
+   "Rest",
+   "Volt Switch"
+  ],
+  "avoid": [
+   "wings",
+   "flames"
+  ],
+  "why": "A stocky tortoise with a glass shell full of light and a drill tail, 140 Sp. Def."
+ },
+ "bulgarian-unown": {
+  "archetype": "diode symbol",
+  "role": "Fast special attacker",
+  "themes": [
+   "electric",
+   "mind",
+   "beams",
+   "support"
+  ],
+  "fits": [
+   "Thunder Shock",
+   "Psybeam",
+   "Charge Beam",
+   "Confusion",
+   "Thunder Wave",
+   "Charge",
+   "Hidden Power",
+   "Shock Wave"
+  ],
+  "avoid": [
+   "biting",
+   "punching",
+   "kicking",
+   "claws",
+   "tail"
+  ],
+  "why": "Diode-shaped Unown with one eye that channels energy one way."
+ },
+ "chebbi": {
+  "archetype": "garage punk imp",
+  "role": "Fast special attacker",
+  "themes": [
+   "sound",
+   "trickster",
+   "claws",
+   "wings"
+  ],
+  "fits": [
+   "Hyper Voice",
+   "Screech",
+   "Supersonic",
+   "Bite",
+   "Uproar",
+   "Snarl",
+   "Torment",
+   "Taunt"
+  ],
+  "avoid": [
+   "freezing",
+   "stone"
+  ],
+  "why": "A loud fuzzy punk with a microphone tail that lives for stage chaos."
+ },
+ "chillalit": {
+  "archetype": "surfing flame penguin",
+  "role": "Fast special attacker",
+  "themes": [
+   "swimming",
+   "flames",
+   "speed",
+   "beams"
+  ],
+  "fits": [
+   "Scald",
+   "Flamethrower",
+   "Surf",
+   "Hydro Pump",
+   "Aqua Jet",
+   "Ice Beam",
+   "Sunny Day",
+   "Rain Dance",
+   "Aqua Cutter"
+  ],
+  "avoid": [
+   "digging",
+   "stone"
+  ],
+  "why": "A penguin surfing on a board of water with flames on its head and 119 Speed."
+ },
+ "chuchar": {
+  "archetype": "cigar smoke gangster",
+  "role": "Special wallbreaker",
+  "themes": [
+   "curses",
+   "trickster",
+   "status",
+   "beams"
+  ],
+  "fits": [
+   "Shadow Ball",
+   "Hex",
+   "Will-O-Wisp",
+   "Nasty Plot",
+   "Smog",
+   "Sludge Bomb",
+   "Dark Pulse",
+   "Confuse Ray",
+   "Smokescreen"
+  ],
+  "avoid": [
+   "biting",
+   "kicking",
+   "punching"
+  ],
+  "why": "A grinning smoke ball in a bowler hat with a lit cigar, 170 SpA and 120 Speed."
+ },
+ "ciggiti": {
+  "archetype": "chain-smoking smoke wisp",
+  "role": "Fast special attacker",
+  "themes": [
+   "curses",
+   "trickster",
+   "speed",
+   "status"
+  ],
+  "fits": [
+   "Smog",
+   "Shadow Ball",
+   "Will-O-Wisp",
+   "Confuse Ray",
+   "Hex",
+   "Smokescreen",
+   "Astonish",
+   "Memento"
+  ],
+  "avoid": [
+   "biting",
+   "kicking",
+   "punching"
+  ],
+  "why": "A smoky ghost with a cigarette that faints after three turns, so it is a fast glass cannon."
+ },
+ "cindreon": {
+  "archetype": "furnace-shoulder lion",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "flames",
+   "stone",
+   "claws",
+   "biting",
+   "tank"
+  ],
+  "fits": [
+   "Flamethrower",
+   "Rock Slide",
+   "Fire Fang",
+   "Flame Charge",
+   "Crunch",
+   "Rock Tomb",
+   "Stealth Rock",
+   "Will-O-Wisp"
+  ],
+  "avoid": [
+   "freezing",
+   "wings"
+  ],
+  "why": "A muscular lion whose rocky shoulder furnaces release twin flame streams."
+ },
+ "cloudgnome": {
+  "archetype": "cloud prankster",
+  "role": "Fast support",
+  "themes": [
+   "trickster",
+   "status",
+   "wind",
+   "support"
+  ],
+  "fits": [
+   "Fake Out",
+   "Charm",
+   "Confuse Ray",
+   "Swagger",
+   "Helping Hand",
+   "Moonblast",
+   "Tailwind",
+   "Encore"
+  ],
+  "avoid": [
+   "biting",
+   "punching"
+  ],
+  "why": "A mythical gnome on a cloud with Prankster."
+ },
+ "cloudjester": {
+  "archetype": "cloud prankster",
+  "role": "Support",
+  "themes": [
+   "trickster",
+   "wind",
+   "status",
+   "support"
+  ],
+  "fits": [
+   "Fake Out",
+   "Tailwind",
+   "Thunder Wave",
+   "Charm",
+   "Encore",
+   "Fairy Wind",
+   "Taunt",
+   "Disarming Voice",
+   "Gust"
+  ],
+  "avoid": [
+   "digging",
+   "biting",
+   "punching"
+  ],
+  "why": "A Prankster fairy-flying trickster of the sky."
+ },
+ "coatail": {
+  "archetype": "berry-farm coati",
+  "role": "Fast physical attacker",
+  "themes": [
+   "speed",
+   "tail",
+   "trickster",
+   "plant"
+  ],
+  "fits": [
+   "Quick Attack",
+   "Thief",
+   "Swords Dance",
+   "Slash",
+   "Pursuit",
+   "Bullet Seed",
+   "Double-Edge",
+   "Fake Out"
+  ],
+  "avoid": [
+   "flames",
+   "beams"
+  ],
+  "why": "A fast coati using stolen berry seeds to grow its own berries and widen its territory."
+ },
+ "coati": {
+  "archetype": "zigzag crop thief",
+  "role": "Fast physical attacker",
+  "themes": [
+   "speed",
+   "tail",
+   "trickster",
+   "tackling"
+  ],
+  "fits": [
+   "Quick Attack",
+   "Tackle",
+   "Tail Whip",
+   "Sand Attack",
+   "Scratch",
+   "Pursuit",
+   "Covet",
+   "Thief"
+  ],
+  "avoid": [
+   "flames",
+   "beams"
+  ],
+  "why": "A weak but fast coati like Zigzagoon that raids farmers' crops."
+ },
+ "cowfin": {
+  "archetype": "dairy sea cow",
+  "role": "Physical wall",
+  "themes": [
+   "tank",
+   "swimming",
+   "healing",
+   "support"
+  ],
+  "fits": [
+   "Tackle",
+   "Water Gun",
+   "Milk Drink",
+   "Body Slam",
+   "Rest",
+   "Sleep Talk",
+   "Heal Bell",
+   "Rain Dance"
+  ],
+  "avoid": [
+   "slicing",
+   "wings"
+  ],
+  "why": "A small spotted cow with a whale-like future and 95 HP but weak offense."
+ },
+ "crappy-meal": {
+  "archetype": "deep-fried junk brute",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "poison",
+   "claws",
+   "plant",
+   "tank"
+  ],
+  "fits": [
+   "Gunk Shot",
+   "Poison Jab",
+   "Power Whip",
+   "Seed Bomb",
+   "Toxic Spikes",
+   "Spiky Shield",
+   "Swords Dance",
+   "Sludge Bomb"
+  ],
+  "avoid": [
+   "wings",
+   "freezing",
+   "kicking"
+  ],
+  "why": "A wide double-patty burger with onion tusks and bristling french fries, 120 Attack and 110 HP."
+ },
+ "croakble": {
+  "archetype": "rain-song frog",
+  "role": "Fast special attacker",
+  "themes": [
+   "swimming",
+   "sound",
+   "weather",
+   "speed"
+  ],
+  "fits": [
+   "Hydro Pump",
+   "Surf",
+   "Hyper Voice",
+   "Rain Dance",
+   "Ice Beam",
+   "Aqua Jet",
+   "Water Pulse",
+   "Alluring Voice"
+  ],
+  "avoid": [
+   "digging",
+   "stone"
+  ],
+  "why": "Its Liquid Voice ability and swift swim make it a rain-fed sound caster."
+ },
+ "cryoblade": {
+  "archetype": "frozen executioner",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "freezing",
+   "claws",
+   "biting",
+   "slicing",
+   "tank"
+  ],
+  "fits": [
+   "Icicle Crash",
+   "Ice Shard",
+   "Ice Fang",
+   "Crunch",
+   "Icicle Spear",
+   "Avalanche",
+   "Swords Dance",
+   "Close Combat"
+  ],
+  "avoid": [
+   "wind",
+   "electric"
+  ],
+  "why": "A crowned ice brute with crab-like claws, titled the Frozen Executioner."
+ },
+ "custodix": {
+  "archetype": "solar lion sovereign",
+  "role": "Special bulky attacker",
+  "themes": [
+   "flames",
+   "stone",
+   "weather",
+   "light",
+   "tank"
+  ],
+  "fits": [
+   "Flamethrower",
+   "Solar Beam",
+   "Sunny Day",
+   "Power Gem",
+   "Earth Power",
+   "Flare Blitz",
+   "Stone Edge",
+   "Morning Sun"
+  ],
+  "avoid": [
+   "freezing",
+   "wings"
+  ],
+  "why": "A golden solar lion with a sun emblem and Drought that guards the sunny coast."
+ },
+ "dahrugula": {
+  "archetype": "barrel-brawler koala",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "berserker",
+   "throwing",
+   "tackling",
+   "poison",
+   "punching"
+  ],
+  "fits": [
+   "Body Slam",
+   "Facade",
+   "Return",
+   "Belly Drum",
+   "Thrash",
+   "Drain Punch",
+   "Hammer Arm",
+   "Belch",
+   "Rest",
+   "Swagger"
+  ],
+  "avoid": [
+   "wings",
+   "wind",
+   "light",
+   "speed"
+  ],
+  "why": "Chubby koala with a barrel in each hand, 140 HP and 124 Attack like Snorlax."
+ },
+ "darkgonark": {
+  "archetype": "sniffing pup",
+  "role": "Mixed attacker",
+  "themes": [
+   "speed",
+   "biting",
+   "tackling",
+   "mind"
+  ],
+  "fits": [
+   "Tackle",
+   "Bite",
+   "Quick Attack",
+   "Fake Tears",
+   "Charm",
+   "Return",
+   "Hyper Voice"
+  ],
+  "avoid": [
+   "flames",
+   "freezing"
+  ],
+  "why": "A small plain pup with Pickup and Download."
+ },
+ "detecup": {
+  "archetype": "detective hound",
+  "role": "Mixed attacker",
+  "themes": [
+   "speed",
+   "mind",
+   "biting",
+   "tackling"
+  ],
+  "fits": [
+   "Crunch",
+   "Hyper Voice",
+   "Return",
+   "Scary Face",
+   "Quick Attack",
+   "Foresight",
+   "Work Up",
+   "Psychic Fangs"
+  ],
+  "avoid": [
+   "flames",
+   "freezing"
+  ],
+  "why": "A chubby detective dog with checked coat, balanced 92 Attack and 92 Sp. Attack."
+ },
+ "devampry": {
+  "archetype": "bat rocker",
+  "role": "Fast special attacker",
+  "themes": [
+   "sound",
+   "trickster",
+   "wings",
+   "biting"
+  ],
+  "fits": [
+   "Hyper Voice",
+   "Boomburst",
+   "Dark Pulse",
+   "Snarl",
+   "Taunt",
+   "Roost",
+   "Crunch",
+   "Air Slash"
+  ],
+  "avoid": [
+   "freezing",
+   "stone"
+  ],
+  "why": "A bat-like rocker whose voice shatters glass and shakes hearts."
+ },
+ "diedo": {
+  "archetype": "haloed sparrow",
+  "role": "Fast special attacker",
+  "themes": [
+   "wings",
+   "mind",
+   "speed"
+  ],
+  "fits": [
+   "Peck",
+   "Gust",
+   "Wing Attack",
+   "Fly",
+   "Roost",
+   "Quick Attack",
+   "Confusion"
+  ],
+  "avoid": [
+   "digging",
+   "biting",
+   "punching"
+  ],
+  "why": "A small round bird with a golden halo and Mind's Eye."
+ },
+ "docuphant": {
+  "archetype": "newspaper elephant",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "tackling",
+   "digging",
+   "stone",
+   "headbutting"
+  ],
+  "fits": [
+   "Stomp",
+   "Earthquake",
+   "Dragon Claw",
+   "Body Slam",
+   "Dig",
+   "Bulldoze",
+   "Dragon Tail",
+   "Rock Slide"
+  ],
+  "avoid": [
+   "wings",
+   "flames"
+  ],
+  "why": "A small stocky elephant with a newspaper roof and a paper-tube trunk."
+ },
+ "dragem": {
+  "archetype": "sandy rock croc",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "stone",
+   "digging",
+   "tank",
+   "biting",
+   "tail"
+  ],
+  "fits": [
+   "Dragon Claw",
+   "Rock Slide",
+   "Earthquake",
+   "Sandstorm",
+   "Stone Edge",
+   "Dragon Tail",
+   "Crunch",
+   "Dragon Dance"
+  ],
+  "avoid": [
+   "flames",
+   "wings",
+   "sound"
+  ],
+  "why": "A crocodile-like reptile with stones in its back and a sandstorm ability."
+ },
+ "dreadfang": {
+  "archetype": "fanged scorpion-snake",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "biting",
+   "claws",
+   "wings",
+   "poison",
+   "tank"
+  ],
+  "fits": [
+   "Crunch",
+   "X-Scissor",
+   "Poison Fang",
+   "Brave Bird",
+   "Roost",
+   "Swords Dance",
+   "U-turn",
+   "Earthquake"
+  ],
+  "avoid": [
+   "punching",
+   "freezing"
+  ],
+  "why": "A green scorpion with a long snake neck, curved fangs and 135 Attack, 100 HP."
+ },
+ "dreadipede": {
+  "archetype": "baby scorpion bug",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "claws",
+   "biting",
+   "wings",
+   "poison"
+  ],
+  "fits": [
+   "Fury Cutter",
+   "Bug Bite",
+   "Pin Missile",
+   "Poison Sting",
+   "Rock Smash",
+   "Crunch",
+   "Defog"
+  ],
+  "avoid": [
+   "punching",
+   "freezing"
+  ],
+  "why": "A small green scorpion with pincers, a few wings and strong Jaw."
+ },
+ "eiscue": {
+  "archetype": "slot-machine penguin",
+  "role": "Mixed attacker",
+  "themes": [
+   "freezing",
+   "trickster",
+   "headbutting",
+   "status"
+  ],
+  "fits": [
+   "Ice Shard",
+   "Icicle Spear",
+   "Ice Beam",
+   "Triple Axel",
+   "Freeze-Dry",
+   "Pay Day",
+   "Present",
+   "Swagger",
+   "Snowscape"
+  ],
+  "avoid": [
+   "flames",
+   "plant",
+   "digging"
+  ],
+  "why": "Penguin wearing a slot-machine ice block, with flat 77 stats and Moody."
+ },
+ "erobi": {
+  "archetype": "smiley songbird",
+  "role": "Fast physical attacker",
+  "themes": [
+   "wings",
+   "speed",
+   "tackling",
+   "wind"
+  ],
+  "fits": [
+   "Peck",
+   "Gust",
+   "Quick Attack",
+   "Wing Attack",
+   "Roost",
+   "Tailwind"
+  ],
+  "avoid": [
+   "punching",
+   "biting",
+   "curses"
+  ],
+  "why": "A small round white bird with a smiley face and a lightning mark on its wings."
+ },
+ "everdark": {
+  "archetype": "shadow clawed stalker",
+  "role": "Mixed attacker",
+  "themes": [
+   "claws",
+   "mind",
+   "setup",
+   "curses",
+   "slicing"
+  ],
+  "fits": [
+   "Psycho Cut",
+   "Night Slash",
+   "Dark Pulse",
+   "Psychic",
+   "Nasty Plot",
+   "Swords Dance",
+   "Shadow Claw",
+   "Knock Off"
+  ],
+  "avoid": [
+   "swimming",
+   "freezing"
+  ],
+  "why": "A fast frail mixed attacker with Nasty Plot and Swords Dance and big claws with eyes."
+ },
+ "felk": {
+  "archetype": "leaf-winged antler deer",
+  "role": "Support",
+  "themes": [
+   "horns",
+   "wings",
+   "plant",
+   "support",
+   "healing"
+  ],
+  "fits": [
+   "Fairy Wind",
+   "Moonblast",
+   "Aromatherapy",
+   "Giga Drain",
+   "Tailwind",
+   "Roost",
+   "Magical Leaf",
+   "Heal Pulse",
+   "Dazzling Gleam"
+  ],
+  "avoid": [
+   "digging",
+   "biting"
+  ],
+  "why": "A deer with leaf-feather wings and antlers wreathed in golden rings."
+ },
+ "fleuroom": {
+  "archetype": "mushroom sprite",
+  "role": "Support",
+  "themes": [
+   "plant",
+   "status",
+   "healing",
+   "support"
+  ],
+  "fits": [
+   "Spore",
+   "Stun Spore",
+   "Absorb",
+   "Mega Drain",
+   "Aromatherapy",
+   "Magical Leaf",
+   "Leech Seed"
+  ],
+  "avoid": [
+   "kicking",
+   "biting",
+   "claws"
+  ],
+  "why": "A small mushroom-capped fairy with Effect Spore and Aroma Veil."
+ },
+ "fleuroom-utvikling": {
+  "archetype": "mushroom sage",
+  "role": "Special wallbreaker",
+  "themes": [
+   "plant",
+   "status",
+   "healing",
+   "support",
+   "mind"
+  ],
+  "fits": [
+   "Spore",
+   "Moonblast",
+   "Giga Drain",
+   "Aromatherapy",
+   "Strength Sap",
+   "Dazzling Gleam",
+   "Energy Ball",
+   "Pollen Puff",
+   "Leech Seed"
+  ],
+  "avoid": [
+   "kicking",
+   "biting",
+   "claws"
+  ],
+  "why": "A robed mushroom mage with a lily staff and 130 SpA with Magic Bounce."
+ },
+ "florantula": {
+  "archetype": "flower-backed stone spider",
+  "role": "Physical wall",
+  "themes": [
+   "plant",
+   "tank",
+   "status",
+   "poison"
+  ],
+  "fits": [
+   "Leech Seed",
+   "Synthesis",
+   "Power Whip",
+   "X-Scissor",
+   "Spider Web",
+   "Giga Drain",
+   "Bug Bite",
+   "Sleep Powder"
+  ],
+  "avoid": [
+   "wings",
+   "swimming"
+  ],
+  "why": "A grey stone spider with a giant flower on its back, 115 Def/SpD and 105 Attack with Grassy Surge."
+ },
+ "flurina": {
+  "archetype": "calm crystal virus",
+  "role": "Special wall",
+  "themes": [
+   "status",
+   "support",
+   "light",
+   "tank",
+   "healing"
+  ],
+  "fits": [
+   "Moonblast",
+   "Light Screen",
+   "Reflect",
+   "Wish",
+   "Draining Kiss",
+   "Toxic",
+   "Calm Mind",
+   "Dazzling Gleam"
+  ],
+  "avoid": [
+   "biting",
+   "punching",
+   "kicking"
+  ],
+  "why": "A calm crystal creature with no mouth, 115 Defense and 95 Sp. Attack."
+ },
+ "freezrick": {
+  "archetype": "ice bowl-cut bruiser",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "freezing",
+   "claws",
+   "tackling",
+   "weather"
+  ],
+  "fits": [
+   "Icicle Crash",
+   "Ice Shard",
+   "Icicle Spear",
+   "Ice Punch",
+   "Close Combat",
+   "Hail",
+   "Avalanche",
+   "Slash"
+  ],
+  "avoid": [
+   "flames",
+   "poison"
+  ],
+  "why": "A big round ice rabbit with 105 Attack and claws, whose Ice Body and Slush Rush favour hail."
+ },
+ "furamire": {
+  "archetype": "long-haired fairy",
+  "role": "Fast special attacker",
+  "themes": [
+   "support",
+   "mind",
+   "healing",
+   "speed"
+  ],
+  "fits": [
+   "Moonblast",
+   "Dazzling Gleam",
+   "Draining Kiss",
+   "Hyper Voice",
+   "Charm",
+   "Calm Mind",
+   "Wish",
+   "Baby-Doll Eyes"
+  ],
+  "avoid": [
+   "biting",
+   "slicing",
+   "poison"
+  ],
+  "why": "A slim fluffy humanoid with a flower bun, charming and fast with 98 Sp. Atk."
+ },
+ "gaiafinn": {
+  "archetype": "shark boxer",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "punching",
+   "biting",
+   "digging",
+   "tank"
+  ],
+  "fits": [
+   "Drain Punch",
+   "Mach Punch",
+   "Bulk Up",
+   "Close Combat",
+   "Earthquake",
+   "Crunch",
+   "Ice Punch",
+   "Jaw Lock",
+   "Dynamic Punch"
+  ],
+  "avoid": [
+   "wings",
+   "flames",
+   "wind",
+   "sound"
+  ],
+  "why": "Muscular shark in boxing gloves with 130 Attack and Iron Fist."
+ },
+ "galfrogtom": {
+  "archetype": "glass capsule battery ghost",
+  "role": "Fast special attacker",
+  "themes": [
+   "electric",
+   "curses",
+   "speed",
+   "beams"
+  ],
+  "fits": [
+   "Thunderbolt",
+   "Shadow Ball",
+   "Volt Switch",
+   "Thunder Wave",
+   "Hex",
+   "Discharge",
+   "Nasty Plot",
+   "Eerie Impulse"
+  ],
+  "avoid": [
+   "biting",
+   "digging"
+  ],
+  "why": "A glass frog full of coils and battery terminals with 139 SpA and 119 Speed."
+ },
+ "giga-circuit": {
+  "archetype": "lightbulb spark",
+  "role": "Fast special attacker",
+  "themes": [
+   "electric",
+   "flames",
+   "speed",
+   "setup"
+  ],
+  "fits": [
+   "Thunderbolt",
+   "Volt Switch",
+   "Discharge",
+   "Flamethrower",
+   "Nasty Plot",
+   "Overheat",
+   "Charge",
+   "Electro Ball"
+  ],
+  "avoid": [
+   "biting",
+   "punching",
+   "kicking"
+  ],
+  "why": "A bulb-headed figure with a flame inside, a spring body, 140 Sp. Attack."
+ },
+ "glac-p-e": {
+  "archetype": "ice fencer",
+  "role": "Fast physical attacker",
+  "themes": [
+   "slicing",
+   "freezing",
+   "kicking",
+   "speed"
+  ],
+  "fits": [
+   "Icicle Crash",
+   "Sacred Sword",
+   "Close Combat",
+   "Ice Shard",
+   "Swords Dance",
+   "Leaf Blade",
+   "Ice Punch",
+   "Aerial Ace"
+  ],
+  "avoid": [
+   "flames",
+   "poison"
+  ],
+  "why": "A slim ice figure with a fencing mask and a long thin ice sword, 125 Attack and 100 Speed."
+ },
+ "glac-pee-mindre-evo": {
+  "archetype": "ice cadet",
+  "role": "Fast physical attacker",
+  "themes": [
+   "slicing",
+   "freezing",
+   "speed"
+  ],
+  "fits": [
+   "Ice Shard",
+   "Powder Snow",
+   "Aqua Jet",
+   "Quick Attack",
+   "Sacred Sword"
+  ],
+  "avoid": [
+   "flames",
+   "poison"
+  ],
+  "why": "The small form of the ice fencer."
+ },
+ "goatjo": {
+  "archetype": "psychic ram",
+  "role": "Mixed attacker",
+  "themes": [
+   "horns",
+   "mind",
+   "headbutting",
+   "speed"
+  ],
+  "fits": [
+   "Zen Headbutt",
+   "Psycho Cut",
+   "Psychic",
+   "Dragon Pulse",
+   "Dragon Rush",
+   "Extrasensory",
+   "Calm Mind",
+   "Dragon Dance",
+   "Protect"
+  ],
+  "avoid": [
+   "swimming",
+   "flames",
+   "digging"
+  ],
+  "why": "Horned goat with 1 HP, Wonder Guard and balanced 100 attacks and speed."
+ },
+ "gortiki": {
+  "archetype": "tiki chieftain",
+  "role": "Mixed attacker",
+  "themes": [
+   "flames",
+   "dance",
+   "plant",
+   "punching",
+   "tank"
+  ],
+  "fits": [
+   "Flare Blitz",
+   "Fire Punch",
+   "Hammer Arm",
+   "Wood Hammer",
+   "Energy Ball",
+   "Flamethrower",
+   "Swords Dance",
+   "Leaf Storm"
+  ],
+  "avoid": [
+   "freezing",
+   "wings"
+  ],
+  "why": "A gorilla with a wooden tiki head and flame on top that leads its tribe with intense dances."
+ },
+ "gravriel": {
+  "archetype": "ghost pirate mate",
+  "role": "Mixed attacker",
+  "themes": [
+   "slicing",
+   "curses",
+   "plant",
+   "berserker",
+   "setup"
+  ],
+  "fits": [
+   "Shadow Claw",
+   "Phantom Force",
+   "Leaf Blade",
+   "Shadow Ball",
+   "Wood Hammer",
+   "Hex",
+   "Swords Dance",
+   "Nasty Plot"
+  ],
+  "avoid": [
+   "flames",
+   "electric"
+  ],
+  "why": "A drowned pirate first mate with a rusty cutlass, 151 Attack and 151 Sp. Atk but very slow."
+ },
+ "greation": {
+  "archetype": "ball-tailed horned dragon",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "tail",
+   "horns",
+   "biting",
+   "throwing",
+   "tackling"
+  ],
+  "fits": [
+   "Dragon Claw",
+   "Dragon Tail",
+   "Bite",
+   "X-Scissor",
+   "Dragon Breath",
+   "Iron Tail",
+   "Headbutt",
+   "Dragon Dance",
+   "Twister"
+  ],
+  "avoid": [
+   "freezing",
+   "swimming"
+  ],
+  "why": "A long, heavy blue dragon with a white horn and a big ball on its tail."
+ },
+ "grincho": {
+  "archetype": "grinning prankster",
+  "role": "Support",
+  "themes": [
+   "trickster",
+   "status",
+   "curses",
+   "support"
+  ],
+  "fits": [
+   "Taunt",
+   "Thunder Wave",
+   "Will-O-Wisp",
+   "Shadow Sneak",
+   "Foul Play",
+   "Knock Off",
+   "Disable",
+   "Mean Look",
+   "Swagger"
+  ],
+  "avoid": [
+   "wings",
+   "swimming",
+   "flames",
+   "plant"
+  ],
+  "why": "Tall grinning humanoid with Prankster and Shadow Tag."
+ },
+ "hairyen": {
+  "archetype": "swamp dome ambusher",
+  "role": "Special wall",
+  "themes": [
+   "swimming",
+   "plant",
+   "tank",
+   "status"
+  ],
+  "fits": [
+   "Absorb",
+   "Mud-Slap",
+   "Rain Dance",
+   "Leech Seed",
+   "Withdraw",
+   "Mega Drain",
+   "Surf",
+   "Giga Drain"
+  ],
+  "avoid": [
+   "wings",
+   "speed",
+   "punching"
+  ],
+  "why": "A low dome half sunk in swamp water behind curtains of swamp grass."
+ },
+ "harambe": {
+  "archetype": "gentle ghost guardian",
+  "role": "Special wall",
+  "themes": [
+   "curses",
+   "support",
+   "mind",
+   "tank",
+   "healing"
+  ],
+  "fits": [
+   "Shadow Ball",
+   "Moonblast",
+   "Wish",
+   "Calm Mind",
+   "Protect",
+   "Heal Pulse",
+   "Draining Kiss",
+   "Hex",
+   "Helping Hand"
+  ],
+  "avoid": [
+   "biting",
+   "claws"
+  ],
+  "why": "A Ghost/Fairy with Friend Guard and Telepathy, 110 SpD and 105 HP."
+ },
+ "harpie": {
+  "archetype": "sunflower skirmisher",
+  "role": "Fast physical attacker",
+  "themes": [
+   "wings",
+   "speed",
+   "tackling",
+   "wind",
+   "claws"
+  ],
+  "fits": [
+   "Wing Attack",
+   "Quick Attack",
+   "Aerial Ace",
+   "Roost",
+   "Tailwind",
+   "Return",
+   "Brave Bird"
+  ],
+  "avoid": [
+   "punching",
+   "biting",
+   "curses"
+  ],
+  "why": "A walking fluffy bird with a sunflower face and sharp-clawed legs."
+ },
+ "heatbat": {
+  "archetype": "flame bat",
+  "role": "Fast special attacker",
+  "themes": [
+   "flames",
+   "wings",
+   "claws",
+   "speed"
+  ],
+  "fits": [
+   "Ember",
+   "Wing Attack",
+   "Air Slash",
+   "Flame Charge",
+   "Flamethrower",
+   "Will-O-Wisp",
+   "Roost",
+   "Agility"
+  ],
+  "avoid": [
+   "swimming",
+   "digging",
+   "freezing"
+  ],
+  "why": "Navy-winged bat circled by small flames, fast and special-leaning."
+ },
+ "hippore": {
+  "archetype": "ore-shell hippo",
+  "role": "Physical wall",
+  "themes": [
+   "tank",
+   "stone",
+   "metal",
+   "tackling",
+   "headbutting"
+  ],
+  "fits": [
+   "Iron Defense",
+   "Stealth Rock",
+   "Rock Slide",
+   "Iron Head",
+   "Body Press",
+   "Earthquake",
+   "Rest",
+   "Stone Edge"
+  ],
+  "avoid": [
+   "wings",
+   "speed",
+   "wind"
+  ],
+  "why": "A grey hippo with a cracked stone-plate shell, 125 Defense and 30 Speed."
+ },
+ "icy-freeze": {
+  "archetype": "icy street swagger",
+  "role": "Fast physical attacker",
+  "themes": [
+   "freezing",
+   "claws",
+   "punching",
+   "tackling"
+  ],
+  "fits": [
+   "Icy Wind",
+   "Ice Shard",
+   "Powder Snow",
+   "Aurora Beam",
+   "Headbutt",
+   "Slash",
+   "Hail"
+  ],
+  "avoid": [
+   "flames",
+   "poison"
+  ],
+  "why": "A rabbit of light blue ice crystal that walks with swagger and freezes the air around it."
+ },
+ "iglomodo": {
+  "archetype": "igloo-back croc",
+  "role": "Mixed attacker",
+  "themes": [
+   "freezing",
+   "poison",
+   "biting",
+   "tail",
+   "tank"
+  ],
+  "fits": [
+   "Icicle Crash",
+   "Ice Fang",
+   "Poison Fang",
+   "Crunch",
+   "Sludge Bomb",
+   "Blizzard",
+   "Toxic",
+   "Hail",
+   "Ice Shard"
+  ],
+  "avoid": [
+   "flames",
+   "wings",
+   "punching"
+  ],
+  "why": "An ice crocodile with an igloo back that hunts with frost breath and a venomous tongue."
+ },
+ "iglomodo-mindre-utv": {
+  "archetype": "ice-block lizard",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "freezing",
+   "poison",
+   "biting",
+   "tail"
+  ],
+  "fits": [
+   "Powder Snow",
+   "Ice Fang",
+   "Bite",
+   "Poison Fang",
+   "Ice Shard",
+   "Icy Wind",
+   "Hail"
+  ],
+  "avoid": [
+   "flames",
+   "wings"
+  ],
+  "why": "A baby of the ice crocodile with a toothy snout and venom."
+ },
+ "janenon": {
+  "archetype": "cursed cannon",
+  "role": "Special trick Room attacker",
+  "themes": [
+   "curses",
+   "mind",
+   "beams",
+   "tank"
+  ],
+  "fits": [
+   "Hex",
+   "Moonblast",
+   "Dark Pulse",
+   "Aura Sphere",
+   "Flash Cannon",
+   "Trick Room",
+   "Misty Terrain",
+   "Dazzling Gleam",
+   "Mean Look"
+  ],
+  "avoid": [
+   "punching",
+   "kicking",
+   "wings",
+   "biting"
+  ],
+  "why": "Hair shaped like a cannon firing curses, 167 Sp. Atk and 25 Speed."
+ },
+ "jawbreaker": {
+  "archetype": "chain-breaker dragon",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "biting",
+   "flames",
+   "horns",
+   "berserker",
+   "weather"
+  ],
+  "fits": [
+   "Flare Blitz",
+   "Dragon Claw",
+   "Crunch",
+   "Fire Fang",
+   "Jaw Lock",
+   "Dragon Dance",
+   "Outrage",
+   "Sunny Day",
+   "Swords Dance"
+  ],
+  "avoid": [
+   "swimming",
+   "wind",
+   "freezing"
+  ],
+  "why": "Dragon that broke its chains, 120 Attack and Drought."
+ },
+ "jawie": {
+  "archetype": "chain-bound dragon",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "biting",
+   "flames",
+   "horns",
+   "berserker",
+   "weather"
+  ],
+  "fits": [
+   "Ember",
+   "Bite",
+   "Fire Fang",
+   "Dragon Breath",
+   "Headbutt",
+   "Horn Attack",
+   "Flame Wheel",
+   "Scary Face"
+  ],
+  "avoid": [
+   "swimming",
+   "wind",
+   "freezing"
+  ],
+  "why": "Plump dragon with big horns, toothy grin and an iron chain."
+ },
+ "julius": {
+  "archetype": "bottle-throwing hooligan",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "throwing",
+   "punching",
+   "kicking",
+   "berserker"
+  ],
+  "fits": [
+   "Close Combat",
+   "Brick Break",
+   "Rock Slide",
+   "Rock Throw",
+   "Fling",
+   "Drain Punch",
+   "Low Kick",
+   "Stone Edge",
+   "Bulk Up"
+  ],
+  "avoid": [
+   "beams",
+   "wings"
+  ],
+  "why": "An aggressive chimp that throws bottles with mostly fighting moves and Sheer Force."
+ },
+ "lapper": {
+  "archetype": "floppy-eared pup",
+  "role": "Fast physical attacker",
+  "themes": [
+   "punching",
+   "tackling",
+   "headbutting"
+  ],
+  "fits": [
+   "Mach Punch",
+   "Tackle",
+   "Bite",
+   "Quick Attack",
+   "Karate Chop",
+   "Headbutt"
+  ],
+  "avoid": [
+   "wings",
+   "beams"
+  ],
+  "why": "A shaggy dog with big floppy ears hiding its face."
+ },
+ "leadling": {
+  "archetype": "lead rock skull",
+  "role": "Special bulky attacker",
+  "themes": [
+   "poison",
+   "stone",
+   "tank",
+   "throwing"
+  ],
+  "fits": [
+   "Rock Throw",
+   "Rock Tomb",
+   "Acid",
+   "Smog",
+   "Toxic Spikes",
+   "Stealth Rock",
+   "Poison Gas",
+   "Harden"
+  ],
+  "avoid": [
+   "wings",
+   "speed",
+   "swimming",
+   "kicking"
+  ],
+  "why": "Boulder golem with skull mask and 85 Sp. Def."
+ },
+ "leadling-utvikling": {
+  "archetype": "lead rock golem",
+  "role": "Special bulky attacker",
+  "themes": [
+   "poison",
+   "stone",
+   "tank",
+   "throwing"
+  ],
+  "fits": [
+   "Rock Tomb",
+   "Power Gem",
+   "Sludge",
+   "Venoshock",
+   "Toxic Spikes",
+   "Stealth Rock",
+   "Ancient Power",
+   "Acid Armor",
+   "Toxic"
+  ],
+  "avoid": [
+   "wings",
+   "speed",
+   "swimming",
+   "kicking"
+  ],
+  "why": "Growing lead golem with 100 Sp. Def and 95 Sp. Atk."
+ },
+ "leafaxer": {
+  "archetype": "axe-tail blade dragon",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "slicing",
+   "plant",
+   "metal",
+   "tail",
+   "setup"
+  ],
+  "fits": [
+   "Leaf Blade",
+   "Swords Dance",
+   "Night Slash",
+   "Iron Head",
+   "Iron Tail",
+   "Wood Hammer",
+   "Synthesis",
+   "X-Scissor"
+  ],
+  "avoid": [
+   "flames",
+   "sound"
+  ],
+  "why": "A steel crescent blade on its head and a huge axe-blade tail with 130 Attack."
+ },
+ "leafing": {
+  "archetype": "leaf blade sprout",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "plant",
+   "slicing",
+   "tail",
+   "draining"
+  ],
+  "fits": [
+   "Tackle",
+   "Vine Whip",
+   "Razor Leaf",
+   "Leech Seed",
+   "Growth",
+   "Cut",
+   "Synthesis",
+   "Slash"
+  ],
+  "avoid": [
+   "flames",
+   "sound"
+  ],
+  "why": "A small grass sprout whose head leaf and tail blade harden toward steel."
+ },
+ "leafsteel": {
+  "archetype": "steel leaf blade",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "plant",
+   "slicing",
+   "metal",
+   "tail"
+  ],
+  "fits": [
+   "Razor Leaf",
+   "Leaf Blade",
+   "Metal Claw",
+   "Slash",
+   "Swords Dance",
+   "Synthesis",
+   "Iron Head",
+   "Leech Seed"
+  ],
+  "avoid": [
+   "flames",
+   "sound"
+  ],
+  "why": "A serpentine grass-steel dragon with plates on its back and an axe-blade tail."
+ },
+ "limulk": {
+  "archetype": "angry green brawler",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "punching",
+   "kicking",
+   "berserker",
+   "tank"
+  ],
+  "fits": [
+   "Mach Punch",
+   "Karate Chop",
+   "Brick Break",
+   "Bulk Up",
+   "Rock Smash",
+   "Low Kick",
+   "Hammer Arm",
+   "Rage"
+  ],
+  "avoid": [
+   "wings",
+   "beams"
+  ],
+  "why": "A shaggy green creature with big round fists and Anger Point."
+ },
+ "maagamad": {
+  "archetype": "gas-sword gull",
+  "role": "Mixed attacker",
+  "themes": [
+   "wings",
+   "poison",
+   "slicing",
+   "weather",
+   "wind"
+  ],
+  "fits": [
+   "Air Slash",
+   "Sludge Bomb",
+   "Hurricane",
+   "Poison Jab",
+   "Brave Bird",
+   "Sunny Day",
+   "Rain Dance",
+   "Roost"
+  ],
+  "avoid": [
+   "punching",
+   "freezing"
+  ],
+  "why": "A big plump seagull with three swords of gas and Weather Switch, wished as a Mixed attacker with Technician."
+ },
+ "mcskiirtle": {
+  "archetype": "chrome-shell turtle",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "flames",
+   "tank",
+   "headbutting",
+   "tackling",
+   "electric"
+  ],
+  "fits": [
+   "Flare Blitz",
+   "Wild Charge",
+   "Volt Switch",
+   "Flame Charge",
+   "Iron Defense",
+   "Rapid Spin",
+   "Heat Crash",
+   "Spark",
+   "Zing Zap"
+  ],
+  "avoid": [
+   "wings",
+   "sound",
+   "mind",
+   "plant"
+  ],
+  "why": "Purple turtle with chrome shell and lightning bolts, 100 Atk/Def/Sp. Def."
+ },
+ "mooceon": {
+  "archetype": "whale-cow tank",
+  "role": "Physical wall",
+  "themes": [
+   "tank",
+   "swimming",
+   "healing",
+   "weather",
+   "support"
+  ],
+  "fits": [
+   "Milk Drink",
+   "Surf",
+   "Body Slam",
+   "Rain Dance",
+   "Heal Bell",
+   "Rest",
+   "Waterfall",
+   "Wish"
+  ],
+  "avoid": [
+   "slicing",
+   "wings"
+  ],
+  "why": "A large cow-like sea creature with a whale fluke and 167 HP that mends itself and the team."
+ },
+ "moosus": {
+  "archetype": "aurora moose",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "horns",
+   "wings",
+   "light",
+   "healing",
+   "tank"
+  ],
+  "fits": [
+   "Moonblast",
+   "Play Rough",
+   "Brave Bird",
+   "Aurora Beam",
+   "Aurora Veil",
+   "Roost",
+   "Dazzling Gleam",
+   "Dual Wingbeat",
+   "Calm Mind"
+  ],
+  "avoid": [
+   "biting",
+   "swimming"
+  ],
+  "why": "A legendary moose with glittering aurora antlers that gallops in the sky, bulky with 130 HP and Regenerator."
+ },
+ "mortbulk": {
+  "archetype": "one-legged kick bruiser",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "kicking",
+   "punching",
+   "tank",
+   "berserker"
+  ],
+  "fits": [
+   "High Jump Kick",
+   "Close Combat",
+   "Rolling Kick",
+   "Mega Kick",
+   "Bulk Up",
+   "Hammer Arm",
+   "Drain Punch",
+   "Rest",
+   "Rock Smash"
+  ],
+  "avoid": [
+   "wings",
+   "beams"
+  ],
+  "why": "A bulky bearded brute that kicks its giant leg high, with 118 SpD and 110 Attack."
+ },
+ "motinky": {
+  "archetype": "fire-dancing tiki monkey",
+  "role": "Special wallbreaker",
+  "themes": [
+   "flames",
+   "dance",
+   "plant",
+   "trickster"
+  ],
+  "fits": [
+   "Fire Spin",
+   "Flamethrower",
+   "Ember",
+   "Energy Ball",
+   "Leaf Storm",
+   "Quiver Dance",
+   "Mimic",
+   "Giga Drain"
+  ],
+  "avoid": [
+   "biting",
+   "freezing"
+  ],
+  "why": "A wooden-mask monkey that performs fire dances with a burning staff."
+ },
+ "nuclobyl": {
+  "archetype": "hazard-core golem",
+  "role": "Special bulky attacker",
+  "themes": [
+   "poison",
+   "metal",
+   "hazards",
+   "tank",
+   "punching"
+  ],
+  "fits": [
+   "Sludge Bomb",
+   "Flash Cannon",
+   "Toxic Spikes",
+   "Toxic",
+   "Gunk Shot",
+   "Iron Defense",
+   "Venoshock",
+   "Corrosive Gas"
+  ],
+  "avoid": [
+   "wings",
+   "kicking"
+  ],
+  "why": "A heavy robot with an unstable radioactive core and cable arms with spiked cuffs."
+ },
+ "nucloid": {
+  "archetype": "barrel waste crawler",
+  "role": "Special wall",
+  "themes": [
+   "poison",
+   "metal",
+   "hazards",
+   "status"
+  ],
+  "fits": [
+   "Acid",
+   "Toxic",
+   "Toxic Spikes",
+   "Smog",
+   "Sludge",
+   "Iron Defense",
+   "Gunk Shot",
+   "Acid Spray"
+  ],
+  "avoid": [
+   "wings",
+   "punching"
+  ],
+  "why": "A barrel of nano waste that releases toxic fumes and skitters away on cable legs."
+ },
+ "nukfae": {
+  "archetype": "toxic sludge sprite",
+  "role": "Special wall",
+  "themes": [
+   "poison",
+   "healing",
+   "tank",
+   "status"
+  ],
+  "fits": [
+   "Sludge",
+   "Acid Armor",
+   "Recover",
+   "Toxic",
+   "Draining Kiss",
+   "Venoshock",
+   "Sludge Bomb",
+   "Baby-Doll Eyes"
+  ],
+  "avoid": [
+   "kicking",
+   "punching",
+   "wings"
+  ],
+  "why": "A smiling puddle of nuclear waste with Regenerator and bulky special stats."
+ },
+ "obsidog": {
+  "archetype": "volcanic glass pup",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "stone",
+   "biting",
+   "horns",
+   "tank"
+  ],
+  "fits": [
+   "Bite",
+   "Rock Throw",
+   "Crunch",
+   "Rock Slide",
+   "Stealth Rock",
+   "Rock Tomb"
+  ],
+  "avoid": [
+   "wings",
+   "freezing"
+  ],
+  "why": "A stocky dog of dark volcanic glass with tusks and a spiked collar."
+ },
+ "obsidog-utvikling": {
+  "archetype": "obsidian cave imp",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "claws",
+   "stone",
+   "poison",
+   "curses",
+   "tank"
+  ],
+  "fits": [
+   "Stone Edge",
+   "Crunch",
+   "Poison Jab",
+   "Rock Slide",
+   "Knock Off",
+   "Stealth Rock",
+   "Swords Dance",
+   "Earthquake"
+  ],
+  "avoid": [
+   "wings",
+   "freezing"
+  ],
+  "why": "A gargoyle-like obsidian imp with spider legs, 133 Attack and crushing arms."
+ },
+ "octopearl": {
+  "archetype": "pearl flower mind",
+  "role": "Special wall",
+  "themes": [
+   "mind",
+   "swimming",
+   "tank",
+   "support"
+  ],
+  "fits": [
+   "Psychic",
+   "Surf",
+   "Calm Mind",
+   "Recover",
+   "Light Screen",
+   "Reflect",
+   "Scald",
+   "Hydro Pump"
+  ],
+  "avoid": [
+   "biting",
+   "punching",
+   "kicking"
+  ],
+  "why": "A flower-like body with petals and tentacles, 142 Defense and 152 Sp. Def."
+ },
+ "oraclaw": {
+  "archetype": "eye-wing oracle",
+  "role": "Special wallbreaker",
+  "themes": [
+   "mind",
+   "wings",
+   "wind",
+   "status",
+   "tank"
+  ],
+  "fits": [
+   "Psychic",
+   "Air Slash",
+   "Calm Mind",
+   "Roost",
+   "Future Sight",
+   "Hurricane",
+   "Psyshock",
+   "Shadow Ball"
+  ],
+  "avoid": [
+   "punching",
+   "biting",
+   "kicking"
+  ],
+  "why": "A large bird of prey with golden eye-markings on its wings, 110 Sp. Attack and Magic Guard."
+ },
+ "oraclet": {
+  "archetype": "egg-shell seer",
+  "role": "Special bulky attacker",
+  "themes": [
+   "mind",
+   "wings",
+   "status",
+   "tank"
+  ],
+  "fits": [
+   "Confusion",
+   "Peck",
+   "Calm Mind",
+   "Foresight",
+   "Psybeam",
+   "Light Screen",
+   "Roost"
+  ],
+  "avoid": [
+   "punching",
+   "biting",
+   "kicking"
+  ],
+  "why": "A small bird emerging from a cracked purple egg covered in staring eyes."
+ },
+ "panzerien": {
+  "archetype": "swamp tank crew",
+  "role": "Special wall",
+  "themes": [
+   "metal",
+   "stone",
+   "tank",
+   "hazards"
+  ],
+  "fits": [
+   "Flash Cannon",
+   "Iron Defense",
+   "Rain Dance",
+   "Stealth Rock",
+   "Earthquake",
+   "Iron Head",
+   "Rest",
+   "Gyro Ball"
+  ],
+  "avoid": [
+   "wings",
+   "biting",
+   "kicking"
+  ],
+  "why": "An old mossy tank with a long cannon and 150 Defense, 140 Sp. Def, 25 Speed."
+ },
+ "parahaunt": {
+  "archetype": "phantom smoke sweeper",
+  "role": "Fast special attacker",
+  "themes": [
+   "curses",
+   "trickster",
+   "speed",
+   "status"
+  ],
+  "fits": [
+   "Shadow Ball",
+   "Hex",
+   "Will-O-Wisp",
+   "Nasty Plot",
+   "Smog",
+   "Dark Pulse",
+   "Shadow Sneak",
+   "Confuse Ray",
+   "Agility"
+  ],
+  "avoid": [
+   "biting",
+   "kicking",
+   "punching"
+  ],
+  "why": "A fedora-wearing smoke phantom that slips through the night with 210 Speed."
+ },
+ "phantomb": {
+  "archetype": "hooded phantom",
+  "role": "Mixed attacker",
+  "themes": [
+   "trickster",
+   "wings",
+   "curses",
+   "speed"
+  ],
+  "fits": [
+   "Astonish",
+   "Night Shade",
+   "Gust",
+   "Confuse Ray",
+   "Shadow Sneak",
+   "Will-O-Wisp",
+   "Disable",
+   "Spite"
+  ],
+  "avoid": [
+   "punching",
+   "kicking",
+   "digging",
+   "swimming"
+  ],
+  "why": "Hooded ghost with a masked face and a long striped tail."
+ },
+ "pipwi": {
+  "archetype": "kiwi bird",
+  "role": "Fast physical attacker",
+  "themes": [
+   "plant",
+   "wings",
+   "kicking",
+   "speed"
+  ],
+  "fits": [
+   "Peck",
+   "Vine Whip",
+   "Quick Attack",
+   "Leafage",
+   "Growth",
+   "Razor Leaf",
+   "Double Kick"
+  ],
+  "avoid": [
+   "swimming",
+   "flames",
+   "punching",
+   "digging"
+  ],
+  "why": "Small round kiwi bird with leaf feathers and a long beak."
+ },
+ "pipwi-utv": {
+  "archetype": "ostrich sprinter",
+  "role": "Fast physical attacker",
+  "themes": [
+   "plant",
+   "wings",
+   "kicking",
+   "speed"
+  ],
+  "fits": [
+   "Peck",
+   "Drill Peck",
+   "Trop Kick",
+   "Jump Kick",
+   "Leaf Blade",
+   "Aerial Ace",
+   "Swords Dance",
+   "Brave Bird",
+   "Roost"
+  ],
+  "avoid": [
+   "swimming",
+   "flames",
+   "punching",
+   "digging"
+  ],
+  "why": "Tall long-legged ostrich with 120 Speed and 100 Attack."
+ },
+ "quimsy": {
+  "archetype": "bespectacled egg scholar",
+  "role": "Support",
+  "themes": [
+   "mind",
+   "support",
+   "status"
+  ],
+  "fits": [
+   "Confusion",
+   "Psychic",
+   "Calm Mind",
+   "Light Screen",
+   "Reflect",
+   "Helping Hand",
+   "Teleport",
+   "Pound"
+  ],
+  "avoid": [
+   "biting",
+   "claws",
+   "slicing"
+  ],
+  "why": "A small egg-headed creature in round glasses and a beret."
+ },
+ "rainbro": {
+  "archetype": "rainbow wild-card",
+  "role": "Mixed attacker",
+  "themes": [
+   "speed",
+   "trickster",
+   "light",
+   "dance"
+  ],
+  "fits": [
+   "Dazzling Gleam",
+   "Aurora Beam",
+   "Swift",
+   "Quick Attack",
+   "Psyshock",
+   "Calm Mind",
+   "Fake Out",
+   "Rock Slide"
+  ],
+  "avoid": [
+   "biting",
+   "tail"
+  ],
+  "why": "A fast rainbow-coloured leaf creature with crossed arms and the Punchable Face ability."
+ },
+ "raymon": {
+  "archetype": "unfinished normal critter",
+  "role": "Mixed attacker",
+  "themes": [
+   "tackling",
+   "speed"
+  ],
+  "fits": [
+   "Tackle",
+   "Quick Attack",
+   "Return",
+   "Hyper Voice",
+   "Swift",
+   "Double-Edge"
+  ],
+  "avoid": [
+   "flames"
+  ],
+  "why": "A plain Normal species with no design details yet."
+ },
+ "razox": {
+  "archetype": "ice-winged bison",
+  "role": "Special bulky attacker",
+  "themes": [
+   "freezing",
+   "tank",
+   "tackling",
+   "horns"
+  ],
+  "fits": [
+   "Ice Beam",
+   "Moonblast",
+   "Hyper Voice",
+   "Blizzard",
+   "Aurora Veil",
+   "Icy Wind",
+   "Snowscape",
+   "Freeze-Dry",
+   "Dazzling Gleam"
+  ],
+  "avoid": [
+   "swimming",
+   "digging"
+  ],
+  "why": "A pink buffalo with ice crystal horn-wings, bulky special stats and Pixilate."
+ },
+ "riftbloom": {
+  "archetype": "portal stalk",
+  "role": "Support",
+  "themes": [
+   "trickster",
+   "mind",
+   "status",
+   "curses"
+  ],
+  "fits": [
+   "Teleport",
+   "Confuse Ray",
+   "Hex",
+   "Disable",
+   "Trick",
+   "Taunt",
+   "Ally Switch",
+   "Psychic",
+   "Shadow Sneak"
+  ],
+  "avoid": [
+   "punching",
+   "kicking",
+   "biting",
+   "claws",
+   "tail"
+  ],
+  "why": "Smiling head on a hook stalk rising from a swirling star hole, with Prankster."
+ },
+ "rockedeer": {
+  "archetype": "blazing stag",
+  "role": "Fast special attacker",
+  "themes": [
+   "flames",
+   "mind",
+   "speed",
+   "headbutting"
+  ],
+  "fits": [
+   "Flamethrower",
+   "Psychic",
+   "Extrasensory",
+   "Flame Charge",
+   "Nasty Plot",
+   "Heat Wave",
+   "Psyshock",
+   "Lava Plume",
+   "Agility"
+  ],
+  "avoid": [
+   "swimming",
+   "biting",
+   "punching"
+  ],
+  "why": "Slender stag with floating flame discs, 130 Sp. Atk and 140 Speed."
+ },
+ "roku": {
+  "archetype": "smiling stone guardian",
+  "role": "Special wall",
+  "themes": [
+   "stone",
+   "mind",
+   "digging",
+   "support",
+   "tank"
+  ],
+  "fits": [
+   "Earth Power",
+   "Psychic",
+   "Stealth Rock",
+   "Rock Slide",
+   "Calm Mind",
+   "Reflect",
+   "Rest",
+   "Sandstorm",
+   "Stone Edge"
+  ],
+  "avoid": [
+   "wings",
+   "swimming",
+   "biting"
+  ],
+  "why": "An ancient stone guardian with a painted smile, floating sword and iron ball, 130 SpD and Purifying Salt."
+ },
+ "roostasaur": {
+  "archetype": "drumstick dragon rooster",
+  "role": "Mixed attacker",
+  "themes": [
+   "wings",
+   "flames",
+   "claws",
+   "berserker"
+  ],
+  "fits": [
+   "Fire Blast",
+   "Flamethrower",
+   "Dragon Claw",
+   "Dragon Rush",
+   "Wing Attack",
+   "Fly",
+   "Dragon Dance",
+   "Roost",
+   "Peck"
+  ],
+  "avoid": [
+   "swimming",
+   "digging"
+  ],
+  "why": "A rooster with giant drumstick shoulders that burst into flames in flight."
+ },
+ "sabertann": {
+  "archetype": "pirate walrus",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "biting",
+   "swimming",
+   "curses",
+   "tank",
+   "throwing"
+  ],
+  "fits": [
+   "Crunch",
+   "Waterfall",
+   "Knock Off",
+   "Ice Fang",
+   "Swords Dance",
+   "Liquidation",
+   "Ice Spinner",
+   "Play Rough"
+  ],
+  "avoid": [
+   "wings",
+   "flames"
+  ],
+  "why": "A heavy black walrus with long tusks and a pirate hat, 140 Attack and 115 HP."
+ },
+ "sandrema": {
+  "archetype": "rainbow sand dreamer",
+  "role": "Support",
+  "themes": [
+   "status",
+   "digging",
+   "support",
+   "mind"
+  ],
+  "fits": [
+   "Sing",
+   "Sleep Powder",
+   "Mud-Slap",
+   "Dazzling Gleam",
+   "Moonblast",
+   "Earth Power",
+   "Heal Bell",
+   "Wish"
+  ],
+  "avoid": [
+   "biting",
+   "kicking"
+  ],
+  "why": "A sand creature with a swirling rainbow eye and cloud hands, balanced 100s and the ability Lullaby."
+ },
+ "santrock": {
+  "archetype": "ember lion cub",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "flames",
+   "stone",
+   "claws",
+   "biting"
+  ],
+  "fits": [
+   "Ember",
+   "Scratch",
+   "Bite",
+   "Rock Throw",
+   "Fire Fang",
+   "Tackle",
+   "Smokescreen",
+   "Rock Tomb"
+  ],
+  "avoid": [
+   "freezing",
+   "wings"
+  ],
+  "why": "A playful sand-coloured lion cub with shoulder stones and a flaming tail."
+ },
+ "saucerl": {
+  "archetype": "worried ring floater",
+  "role": "Support",
+  "themes": [
+   "mind",
+   "swimming",
+   "tank",
+   "status"
+  ],
+  "fits": [
+   "Water Gun",
+   "Confusion",
+   "Withdraw",
+   "Calm Mind",
+   "Light Screen",
+   "Rest",
+   "Psybeam"
+  ],
+  "avoid": [
+   "biting",
+   "punching",
+   "wings"
+  ],
+  "why": "A round swim-ring body with a worried face and very low attack stats."
+ },
+ "seraphinnen": {
+  "archetype": "angelic wing ring",
+  "role": "Special wallbreaker",
+  "themes": [
+   "wings",
+   "mind",
+   "light",
+   "healing",
+   "wind"
+  ],
+  "fits": [
+   "Hurricane",
+   "Air Slash",
+   "Psychic",
+   "Roost",
+   "Calm Mind",
+   "Esper Wing",
+   "Heal Pulse",
+   "Extrasensory",
+   "Dazzling Gleam"
+  ],
+  "avoid": [
+   "digging",
+   "kicking",
+   "punching",
+   "biting"
+  ],
+  "why": "A floating golden ring of eyes with four wings, 125 SpA, Soul-Heart and Aerilate."
+ },
+ "shadeem": {
+  "archetype": "grinning beret mimic",
+  "role": "Fast physical attacker",
+  "themes": [
+   "trickster",
+   "claws"
+  ],
+  "fits": [
+   "Fake Out",
+   "Feint",
+   "Knock Off",
+   "Shadow Sneak",
+   "Hone Claws",
+   "Night Slash",
+   "Scary Face"
+  ],
+  "avoid": [
+   "flames",
+   "freezing"
+  ],
+  "why": "A thin one-eyed creature with a toothy grin and a beret, with Illusion."
+ },
+ "shadrove": {
+  "archetype": "hooded claw trickster",
+  "role": "Fast physical attacker",
+  "themes": [
+   "trickster",
+   "claws",
+   "slicing",
+   "curses"
+  ],
+  "fits": [
+   "Night Slash",
+   "Knock Off",
+   "Sucker Punch",
+   "Shadow Claw",
+   "Swords Dance",
+   "Play Rough",
+   "Shadow Sneak",
+   "Taunt"
+  ],
+  "avoid": [
+   "flames",
+   "freezing"
+  ],
+  "why": "A tall hooded one-eyed creature with huge black clawed hands, 120 Attack and 110 Speed."
+ },
+ "sigmanian-komala": {
+  "archetype": "drunk koala",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "berserker",
+   "throwing",
+   "tackling",
+   "poison"
+  ],
+  "fits": [
+   "Rage",
+   "Swagger",
+   "Slam",
+   "Facade",
+   "Take Down",
+   "Yawn",
+   "Belch",
+   "Sleep Talk",
+   "Rest"
+  ],
+  "avoid": [
+   "wings",
+   "wind",
+   "light",
+   "speed"
+  ],
+  "why": "Drowsy koala hugging a bottle with Drunken Rage."
+ },
+ "sigmanian-sudowoodo": {
+  "archetype": "spiky stump",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "stone",
+   "plant",
+   "tank",
+   "punching"
+  ],
+  "fits": [
+   "Rock Slide",
+   "Stone Edge",
+   "Wood Hammer",
+   "Earthquake",
+   "Stealth Rock",
+   "Rock Tomb",
+   "Barb Barrage",
+   "Sucker Punch",
+   "Curse"
+  ],
+  "avoid": [
+   "wings",
+   "flames",
+   "wind",
+   "swimming"
+  ],
+  "why": "Tree-stump rock creature covered in green spikes with 115 Defense."
+ },
+ "sigmauler": {
+  "archetype": "stone-fist golem",
+  "role": "Physical wall",
+  "themes": [
+   "punching",
+   "stone",
+   "tank",
+   "berserker"
+  ],
+  "fits": [
+   "Mach Punch",
+   "Drain Punch",
+   "Bulk Up",
+   "Rock Slide",
+   "Stone Edge",
+   "Close Combat",
+   "Hammer Arm",
+   "Heavy Slam",
+   "Focus Punch"
+  ],
+  "avoid": [
+   "wings",
+   "flames",
+   "wind",
+   "swimming"
+  ],
+  "why": "Golem of stone faces with huge fists, 167 Defense and Iron Fist."
+ },
+ "sjef": {
+  "archetype": "phantasmal flier",
+  "role": "Mixed attacker",
+  "themes": [
+   "trickster",
+   "wings",
+   "curses",
+   "speed"
+  ],
+  "fits": [
+   "Shadow Ball",
+   "Shadow Claw",
+   "Phantom Force",
+   "Hex",
+   "Air Slash",
+   "Aerial Ace",
+   "Roost",
+   "Will-O-Wisp",
+   "Shadow Sneak"
+  ],
+  "avoid": [
+   "punching",
+   "kicking",
+   "digging",
+   "swimming"
+  ],
+  "why": "Hidden, mysterious, fast and phantasmal ghost-flying pokemon."
+ },
+ "skiirtle": {
+  "archetype": "sunglasses turtle",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "flames",
+   "tank",
+   "headbutting",
+   "tackling"
+  ],
+  "fits": [
+   "Ember",
+   "Flame Wheel",
+   "Withdraw",
+   "Headbutt",
+   "Rapid Spin",
+   "Flame Charge",
+   "Iron Defense",
+   "Skull Bash"
+  ],
+  "avoid": [
+   "wings",
+   "sound",
+   "mind",
+   "plant"
+  ],
+  "why": "Pink turtle with sunglasses and a flaming shell, Speed Boost."
+ },
+ "slamquake": {
+  "archetype": "steam-forge knight",
+  "role": "Physical wall",
+  "themes": [
+   "metal",
+   "digging",
+   "flames",
+   "tank",
+   "throwing"
+  ],
+  "fits": [
+   "Iron Head",
+   "Earthquake",
+   "Heavy Slam",
+   "Stealth Rock",
+   "Iron Defense",
+   "Heat Crash",
+   "Rock Slide",
+   "Bulldoze"
+  ],
+  "avoid": [
+   "wings",
+   "sound"
+  ],
+  "why": "A knight in silver armour with a furnace belly and 120 Defense."
+ },
+ "slothbaby": {
+  "archetype": "sleepy flame sloth",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "claws",
+   "flames",
+   "berserker",
+   "tackling"
+  ],
+  "fits": [
+   "Scratch",
+   "Ember",
+   "Slash",
+   "Fire Punch",
+   "Flame Charge",
+   "Yawn",
+   "Flamethrower",
+   "Rest"
+  ],
+  "avoid": [
+   "wings",
+   "swimming"
+  ],
+  "why": "A plump sloth with a flame on its head and long claws, 115 Attack with Truant."
+ },
+ "slothbaby-utviklet": {
+  "archetype": "blazing claw sloth",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "claws",
+   "flames",
+   "punching",
+   "berserker",
+   "kicking"
+  ],
+  "fits": [
+   "Flare Blitz",
+   "Close Combat",
+   "Drain Punch",
+   "Slash",
+   "Fire Punch",
+   "Bulk Up",
+   "Swords Dance",
+   "Superpower",
+   "Wild Charge"
+  ],
+  "avoid": [
+   "wings",
+   "swimming"
+  ],
+  "why": "A huge flame-maned sloth with enormous cream claws and 130 Attack."
+ },
+ "smeatherace": {
+  "archetype": "tern raider",
+  "role": "Fast physical attacker",
+  "themes": [
+   "wings",
+   "speed",
+   "wind",
+   "tackling",
+   "claws"
+  ],
+  "fits": [
+   "Brave Bird",
+   "Aerial Ace",
+   "Return",
+   "Roost",
+   "Tailwind",
+   "U-turn",
+   "Feather Dance",
+   "Hurricane"
+  ],
+  "avoid": [
+   "punching",
+   "biting",
+   "curses"
+  ],
+  "why": "A tern-like bird with long narrow zigzag wings and 109 Attack, 85 Speed."
+ },
+ "snownin": {
+  "archetype": "snow-cloak wraith",
+  "role": "Fast special attacker",
+  "themes": [
+   "freezing",
+   "weather",
+   "curses",
+   "trickster"
+  ],
+  "fits": [
+   "Blizzard",
+   "Shadow Ball",
+   "Ice Beam",
+   "Hex",
+   "Will-O-Wisp",
+   "Icy Wind",
+   "Nasty Plot",
+   "Frost Breath"
+  ],
+  "avoid": [
+   "punching",
+   "kicking",
+   "digging"
+  ],
+  "why": "A ghost in a snow-mound cloak and straw hat, glass-cannon speed and Sp. Atk."
+ },
+ "solidedge": {
+  "archetype": "psychic blade bug",
+  "role": "Mixed attacker",
+  "themes": [
+   "slicing",
+   "mind",
+   "speed"
+  ],
+  "fits": [
+   "Psycho Cut",
+   "X-Scissor",
+   "Psyblade",
+   "Bug Bite",
+   "Leech Life",
+   "Struggle Bug",
+   "Confusion",
+   "Swords Dance"
+  ],
+  "avoid": [
+   "swimming",
+   "digging"
+  ],
+  "why": "Only types are known: a Bug/Psychic edge-themed creature."
+ },
+ "stonma": {
+  "archetype": "stone head",
+  "role": "Physical wall",
+  "themes": [
+   "stone",
+   "tank",
+   "headbutting"
+  ],
+  "fits": [
+   "Rock Throw",
+   "Rock Tomb",
+   "Headbutt",
+   "Harden",
+   "Iron Defense",
+   "Stealth Rock",
+   "Rock Slide",
+   "Rest"
+  ],
+  "avoid": [
+   "kicking",
+   "tail",
+   "wings",
+   "biting",
+   "claws"
+  ],
+  "why": "A floating carved stone head with 111 Defense and 15 Speed."
+ },
+ "strawboo": {
+  "archetype": "spiky lure fish",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "swimming",
+   "poison",
+   "biting",
+   "light"
+  ],
+  "fits": [
+   "Water Gun",
+   "Bite",
+   "Bubble",
+   "Aqua Ring",
+   "Supersonic",
+   "Flash",
+   "Spike Cannon",
+   "Rain Dance"
+  ],
+  "avoid": [
+   "punching",
+   "kicking",
+   "wings"
+  ],
+  "why": "A small round spiky fish floating with a glowing yellow lure on a stalk."
+ },
+ "subwaysurfer": {
+  "archetype": "tunnel wave cat",
+  "role": "Fast special attacker",
+  "themes": [
+   "swimming",
+   "digging",
+   "speed",
+   "tail"
+  ],
+  "fits": [
+   "Surf",
+   "Earth Power",
+   "Hydro Pump",
+   "Aqua Jet",
+   "Mud Shot",
+   "Scald",
+   "Rain Dance",
+   "Mud Bomb"
+  ],
+  "avoid": [
+   "stone",
+   "metal"
+  ],
+  "why": "A water-finned cat with a fluffy mane, 115 Speed and 100 Sp. Atk."
+ },
+ "surfer": {
+  "archetype": "wave-riding cat",
+  "role": "Fast special attacker",
+  "themes": [
+   "swimming",
+   "speed",
+   "tackling",
+   "tail"
+  ],
+  "fits": [
+   "Water Gun",
+   "Surf",
+   "Aqua Jet",
+   "Quick Attack",
+   "Water Pulse",
+   "Bubble Beam",
+   "Scald",
+   "Rain Dance"
+  ],
+  "avoid": [
+   "stone",
+   "metal"
+  ],
+  "why": "A small orange cat-like creature that rides waves."
+ },
+ "tinky": {
+  "archetype": "wooden tiki sprout",
+  "role": "Support",
+  "themes": [
+   "plant",
+   "dance",
+   "trickster",
+   "tank"
+  ],
+  "fits": [
+   "Absorb",
+   "Leech Seed",
+   "Growth",
+   "Mimic",
+   "Swords Dance",
+   "Bullet Seed",
+   "Rock Slide"
+  ],
+  "avoid": [
+   "flames",
+   "wings"
+  ],
+  "why": "A small plank-wood stump face with a mossy rim that grips its wooden mask."
+ },
+ "tomaterdander": {
+  "archetype": "vengeful burger",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "poison",
+   "claws",
+   "plant",
+   "tank"
+  ],
+  "fits": [
+   "Poison Jab",
+   "Power Whip",
+   "Seed Bomb",
+   "Sludge Bomb",
+   "Leech Seed",
+   "Toxic",
+   "Swords Dance",
+   "Gunk Shot"
+  ],
+  "avoid": [
+   "wings",
+   "freezing",
+   "kicking"
+  ],
+  "why": "A hamburger with an angry tomato face and onion-ring claws."
+ },
+ "torchbat": {
+  "archetype": "ember bat",
+  "role": "Fast special attacker",
+  "themes": [
+   "flames",
+   "wings",
+   "claws",
+   "speed"
+  ],
+  "fits": [
+   "Ember",
+   "Gust",
+   "Scratch",
+   "Wing Attack",
+   "Fire Fang",
+   "Flame Wheel",
+   "Quick Attack"
+  ],
+  "avoid": [
+   "swimming",
+   "digging",
+   "freezing"
+  ],
+  "why": "Round red bat with burning ears and a flame-tipped tail."
+ },
+ "tortoplasm": {
+  "archetype": "haunted rock turtle",
+  "role": "Special wall",
+  "themes": [
+   "curses",
+   "stone",
+   "tank",
+   "status"
+  ],
+  "fits": [
+   "Rock Throw",
+   "Shadow Ball",
+   "Curse",
+   "Hex",
+   "Confuse Ray",
+   "Ancient Power",
+   "Will-O-Wisp",
+   "Rest"
+  ],
+  "avoid": [
+   "wings",
+   "punching",
+   "electric"
+  ],
+  "why": "A turtle with a cracked rock shell and a translucent ghostly head."
+ },
+ "tortoplasm-utviklet": {
+  "archetype": "cursed rock tortoise",
+  "role": "Special wall",
+  "themes": [
+   "curses",
+   "stone",
+   "tank",
+   "status"
+  ],
+  "fits": [
+   "Shadow Ball",
+   "Power Gem",
+   "Curse",
+   "Hex",
+   "Destiny Bond",
+   "Stealth Rock",
+   "Will-O-Wisp",
+   "Rest"
+  ],
+  "avoid": [
+   "wings",
+   "punching",
+   "electric"
+  ],
+  "why": "The evolved ghost-shelled turtle with 125 Defense and Perish Body."
+ },
+ "toxiren": {
+  "archetype": "toxic siren",
+  "role": "Special wallbreaker",
+  "themes": [
+   "poison",
+   "sound",
+   "healing",
+   "tank",
+   "status"
+  ],
+  "fits": [
+   "Sludge Bomb",
+   "Moonblast",
+   "Recover",
+   "Toxic",
+   "Alluring Voice",
+   "Hyper Voice",
+   "Acid Armor",
+   "Venoshock",
+   "Sludge Wave"
+  ],
+  "avoid": [
+   "kicking",
+   "punching",
+   "wings"
+  ],
+  "why": "Its tentacles are alluring and deadly; 128 SpA, 130 SpD, Toxic Voice and Regenerator."
+ },
+ "twemp": {
+  "archetype": "fairy-light web bulb",
+  "role": "Special wall",
+  "themes": [
+   "plant",
+   "status",
+   "support",
+   "tank"
+  ],
+  "fits": [
+   "Leech Seed",
+   "Synthesis",
+   "Sleep Powder",
+   "Grassy Terrain",
+   "Spider Web",
+   "Giga Drain",
+   "Stun Spore",
+   "Struggle Bug"
+  ],
+  "avoid": [
+   "kicking",
+   "punching",
+   "biting"
+  ],
+  "why": "A floating stalk with a bulb-lit spider-web crown; 100 Def/SpD and Grassy Surge point to a terrain tank."
+ },
+ "ultragon": {
+  "archetype": "ball-tail winged dragon",
+  "role": "Mixed attacker",
+  "themes": [
+   "wings",
+   "tail",
+   "throwing",
+   "speed",
+   "berserker"
+  ],
+  "fits": [
+   "Dragon Claw",
+   "Dragon Dance",
+   "Draco Meteor",
+   "Dragon Pulse",
+   "Bug Buzz",
+   "X-Scissor",
+   "Fly",
+   "Dual Wingbeat",
+   "Outrage"
+  ],
+  "avoid": [
+   "freezing",
+   "swimming"
+  ],
+  "why": "A navy dragon with gold insect wings and a ball-tipped tail, 128 Atk, 112 SpA and 112 Speed."
+ },
+ "united": {
+  "archetype": "closed circuit",
+  "role": "Fast special attacker",
+  "themes": [
+   "electric",
+   "mind",
+   "beams",
+   "support"
+  ],
+  "fits": [
+   "Thunderbolt",
+   "Psychic",
+   "Volt Switch",
+   "Electro Ball",
+   "Discharge",
+   "Magnetic Flux",
+   "Calm Mind",
+   "Magnet Rise",
+   "Eerie Impulse"
+  ],
+  "avoid": [
+   "biting",
+   "punching",
+   "kicking",
+   "claws",
+   "tail"
+  ],
+  "why": "Four Unown joined in a looped circuit with 112 Speed."
+ },
+ "verrith": {
+  "archetype": "haunted blade golem",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "slicing",
+   "metal",
+   "curses",
+   "stone",
+   "tank"
+  ],
+  "fits": [
+   "Shadow Claw",
+   "Iron Head",
+   "Sacred Sword",
+   "Shadow Sneak",
+   "Flash Cannon",
+   "Swords Dance",
+   "Stone Edge",
+   "Hex",
+   "Smart Strike"
+  ],
+  "avoid": [
+   "wings",
+   "swimming",
+   "biting"
+  ],
+  "why": "A stone golem with a huge blade arm and teal ghost flames, bulky and hard-hitting."
+ },
+ "vires": {
+  "archetype": "crystal virus",
+  "role": "Special wall",
+  "themes": [
+   "status",
+   "poison",
+   "tank",
+   "light"
+  ],
+  "fits": [
+   "Charm",
+   "Light Screen",
+   "Reflect",
+   "Disarming Voice",
+   "Toxic",
+   "Draining Kiss",
+   "Wish"
+  ],
+  "avoid": [
+   "biting",
+   "punching",
+   "kicking"
+  ],
+  "why": "A small pink virus on a transparent crystal body with Mirror Armor."
+ },
+ "viridub": {
+  "archetype": "leaf cub",
+  "role": "Fast physical attacker",
+  "themes": [
+   "plant",
+   "claws",
+   "biting",
+   "speed"
+  ],
+  "fits": [
+   "Vine Whip",
+   "Leafage",
+   "Razor Leaf",
+   "Bite",
+   "Quick Attack",
+   "Scratch",
+   "Synthesis"
+  ],
+  "avoid": [
+   "swimming",
+   "wings",
+   "sound"
+  ],
+  "why": "Golden lion cub with a leafy mane and Chlorophyll."
+ },
+ "viridub-utvikling": {
+  "archetype": "leaf lion",
+  "role": "Fast physical attacker",
+  "themes": [
+   "plant",
+   "claws",
+   "biting",
+   "speed"
+  ],
+  "fits": [
+   "Leaf Blade",
+   "Grassy Glide",
+   "Crunch",
+   "Slash",
+   "Swords Dance",
+   "Seed Bomb",
+   "Synthesis",
+   "Wild Charge",
+   "Wood Hammer"
+  ],
+  "avoid": [
+   "swimming",
+   "wings",
+   "sound"
+  ],
+  "why": "Leaf-maned lion with 112 Attack and 106 Speed."
+ },
+ "voraxia": {
+  "archetype": "voracious dragon",
+  "role": "Mixed attacker",
+  "themes": [
+   "biting",
+   "claws",
+   "berserker",
+   "curses"
+  ],
+  "fits": [
+   "Crunch",
+   "Dragon Claw",
+   "Dragon Pulse",
+   "Dark Pulse",
+   "Night Slash",
+   "Dragon Dance",
+   "Dragon Breath",
+   "Taunt"
+  ],
+  "avoid": [],
+  "why": "Dragon/Dark mythical legend; name suggests a voracious predator."
+ },
+ "waffy": {
+  "archetype": "duckbill pup",
+  "role": "Fast physical attacker",
+  "themes": [
+   "swimming",
+   "claws",
+   "tail",
+   "tackling"
+  ],
+  "fits": [
+   "Water Gun",
+   "Aqua Jet",
+   "Scratch",
+   "Bite",
+   "Tail Whip",
+   "Quick Attack"
+  ],
+  "avoid": [
+   "flames",
+   "wind"
+  ],
+  "why": "A small platypus with webbed black claws and a flat beaver tail."
+ },
+ "warrallier": {
+  "archetype": "brawling river outlaw",
+  "role": "Fast physical attacker",
+  "themes": [
+   "swimming",
+   "claws",
+   "punching",
+   "tail",
+   "berserker"
+  ],
+  "fits": [
+   "Liquidation",
+   "Waterfall",
+   "Aqua Jet",
+   "Sucker Punch",
+   "Knock Off",
+   "Night Slash",
+   "Swords Dance",
+   "Aqua Tail"
+  ],
+  "avoid": [
+   "flames",
+   "freezing"
+  ],
+  "why": "Clenched fists, heel spurs and Defiant with 120 Attack make a fierce Water/Dark physical sweeper."
+ },
+ "wealther": {
+  "archetype": "masked river bandit",
+  "role": "Fast physical attacker",
+  "themes": [
+   "swimming",
+   "claws",
+   "trickster",
+   "biting",
+   "tail"
+  ],
+  "fits": [
+   "Aqua Jet",
+   "Waterfall",
+   "Night Slash",
+   "Crunch",
+   "Aqua Tail",
+   "Feint Attack",
+   "Knock Off"
+  ],
+  "avoid": [
+   "flames",
+   "freezing"
+  ],
+  "why": "A masked, clawed platypus that stands upright and hits fast on the Water/Dark side."
+ },
+ "whaldrill": {
+  "archetype": "drill whale",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "freezing",
+   "digging",
+   "horns",
+   "tackling"
+  ],
+  "fits": [
+   "Icicle Spear",
+   "Dig",
+   "Drill Run",
+   "Ice Fang",
+   "Bulldoze",
+   "Avalanche",
+   "Ice Shard",
+   "Rock Slide"
+  ],
+  "avoid": [
+   "wings",
+   "flames",
+   "sound"
+  ],
+  "why": "Mid-stage drill whale with 100 HP and 100 Attack."
+ },
+ "whaldrill0": {
+  "archetype": "drill whale calf",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "freezing",
+   "digging",
+   "horns",
+   "tackling"
+  ],
+  "fits": [
+   "Powder Snow",
+   "Mud-Slap",
+   "Ice Shard",
+   "Dig",
+   "Rollout",
+   "Tackle"
+  ],
+  "avoid": [
+   "wings",
+   "flames",
+   "sound"
+  ],
+  "why": "Ice/Ground whale line growing into a drilling bruiser."
+ },
+ "whaldrill3": {
+  "archetype": "drill whale titan",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "freezing",
+   "digging",
+   "horns",
+   "tackling"
+  ],
+  "fits": [
+   "Earthquake",
+   "Icicle Crash",
+   "Drill Run",
+   "Avalanche",
+   "Ice Spinner",
+   "Ice Fang",
+   "Body Slam",
+   "Rock Slide",
+   "Bulldoze"
+  ],
+  "avoid": [
+   "wings",
+   "flames",
+   "sound"
+  ],
+  "why": "Final drill whale with 125 HP and 125 Attack."
+ },
+ "wispole": {
+  "archetype": "rain tadpole",
+  "role": "Fast special attacker",
+  "themes": [
+   "swimming",
+   "speed",
+   "weather"
+  ],
+  "fits": [
+   "Water Gun",
+   "Bubble",
+   "Rain Dance",
+   "Aqua Jet",
+   "Water Pulse",
+   "Bubble Beam"
+  ],
+  "avoid": [
+   "punching",
+   "kicking",
+   "biting"
+  ],
+  "why": "A tadpole with a fin tail and a Speed boost in rain."
+ },
+ "wreckingboo": {
+  "archetype": "smiley lure spikeball",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "swimming",
+   "biting",
+   "claws",
+   "light"
+  ],
+  "fits": [
+   "Waterfall",
+   "Crunch",
+   "Spikes",
+   "Aqua Tail",
+   "Toxic Spikes",
+   "Bite",
+   "Rain Dance",
+   "Liquidation"
+  ],
+  "avoid": [
+   "wings",
+   "kicking"
+  ],
+  "why": "The wish says bulky physical attacker with Rough Skin; it lures prey with its smiley face."
+ },
+ "wreckingdrake": {
+  "archetype": "lure-stalk sea dragon",
+  "role": "Physical bulky attacker",
+  "themes": [
+   "swimming",
+   "biting",
+   "light",
+   "tank"
+  ],
+  "fits": [
+   "Waterfall",
+   "Crunch",
+   "Dragon Claw",
+   "Dragon Dance",
+   "Aqua Tail",
+   "Liquidation",
+   "Spikes",
+   "Outrage"
+  ],
+  "avoid": [
+   "wings",
+   "kicking"
+  ],
+  "why": "A huge dark red shark-like beast with a dragon head and a lure stalk, 140 Attack and slow."
+ },
+ "wump": {
+  "archetype": "web-bound spiderling",
+  "role": "Fast physical attacker",
+  "themes": [
+   "tackling",
+   "status",
+   "trickster",
+   "speed"
+  ],
+  "fits": [
+   "String Shot",
+   "Bug Bite",
+   "Spider Web",
+   "Struggle Bug",
+   "Quick Attack",
+   "Tackle"
+  ],
+  "avoid": [
+   "punching",
+   "horns"
+  ],
+  "why": "A small spider with a rope-web body and tiny fangs."
+ },
+ "yanklet": {
+  "archetype": "steel tower trio",
+  "role": "Physical wallbreaker",
+  "themes": [
+   "metal",
+   "punching",
+   "tank",
+   "tackling"
+  ],
+  "fits": [
+   "Heavy Slam",
+   "Close Combat",
+   "Iron Head",
+   "Meteor Mash",
+   "Rock Slide",
+   "Bulk Up",
+   "Iron Defense",
+   "Gyro Ball",
+   "Bullet Punch"
+  ],
+  "avoid": [
+   "wings",
+   "swimming",
+   "biting"
+  ],
+  "why": "Three joined metal slabs with 140 Attack and 105 HP and Rocky Payload."
+ },
+ "zapana": {
+  "archetype": "tadpole eel",
+  "role": "Fast special attacker",
+  "themes": [
+   "electric",
+   "swimming",
+   "speed",
+   "biting"
+  ],
+  "fits": [
+   "Thunder Shock",
+   "Water Gun",
+   "Aqua Jet",
+   "Thunder Wave",
+   "Bite",
+   "Agility",
+   "Charge Beam"
+  ],
+  "avoid": [
+   "punching",
+   "kicking",
+   "wings",
+   "claws"
+  ],
+  "why": "Small eel stunning prey with small shocks in the water."
+ },
+ "zapitera": {
+  "archetype": "robot thunder bird",
+  "role": "Fast special attacker",
+  "themes": [
+   "electric",
+   "metal",
+   "wings",
+   "speed",
+   "beams"
+  ],
+  "fits": [
+   "Thunderbolt",
+   "Flash Cannon",
+   "Volt Switch",
+   "Steel Wing",
+   "Discharge",
+   "Roost",
+   "Hurricane",
+   "Magnet Rise",
+   "Agility"
+  ],
+  "avoid": [
+   "digging",
+   "biting"
+  ],
+  "why": "A robot-like bird with a red lightning chest, 110 SpA and 118 Speed."
+ },
+ "zapitera-mindre-utv": {
+  "archetype": "VR headset chick",
+  "role": "Fast special attacker",
+  "themes": [
+   "electric",
+   "metal",
+   "wings",
+   "speed"
+  ],
+  "fits": [
+   "Thunder Shock",
+   "Peck",
+   "Metal Sound",
+   "Charge",
+   "Steel Wing",
+   "Spark",
+   "Quick Attack"
+  ],
+  "avoid": [
+   "digging",
+   "biting"
+  ],
+  "why": "A small steel bird wearing a VR headset with a lightning bolt."
+ },
+ "zyzzfu": {
+  "archetype": "lightning duck fighter",
+  "role": "Mixed attacker",
+  "themes": [
+   "punching",
+   "kicking",
+   "electric",
+   "speed",
+   "berserker"
+  ],
+  "fits": [
+   "Thunder Punch",
+   "Wild Charge",
+   "Close Combat",
+   "Aura Sphere",
+   "Volt Switch",
+   "Drain Punch",
+   "Thunderbolt",
+   "Mach Punch",
+   "Nasty Plot"
+  ],
+  "avoid": [
+   "wings",
+   "swimming"
+  ],
+  "why": "A white furry fighter with lightning tufts and Unseen Fist, 115 Atk, 110 SpA and 100 Speed."
+ }
+}

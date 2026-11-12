@@ -69,17 +69,21 @@ learnset:
     - {level: 1, move: Hydro Steam}
     - {level: 1, move: Boiling Downpour}
     - {level: 1, move: Ember}
-    - {level: 1, move: Growl}
+    - {level: 1, move: Quick Attack}
     - {level: 6, move: Whirlpool}
     - {level: 12, move: Aqua Jet}
-    - {level: 16, move: Bite}
+    - {level: 13, move: Incinerate}
+    - {level: 13, move: Water Pulse}
+    - {level: 15, move: Flame Charge}
     - {level: 20, move: Flame Wheel}
     - {level: 22, move: Fire Fang}
-    - {level: 27, move: Soak}
+    - {level: 24, move: Lava Plume}
+    - {level: 26, move: Aqua Cutter}
     - {level: 29, move: Agility}
-    - {level: 32, move: Crunch}
     - {level: 35, move: Fire Spin}
     - {level: 40, move: Flamethrower}
+    - {level: 41, move: Aqua Tail}
+    - {level: 42, move: Surf}
     - {level: 54, move: Inferno}
     - {level: 56, move: Flare Blitz}
     - {level: 57, move: Hydro Pump}
@@ -88,11 +92,11 @@ learnset:
           Hyper Beam, Protect, Rain Dance, Frustration, Solar Beam, Return, Double Team,
           Flamethrower, Fire Blast, Facade, Secret Power, Rest, Attract, Overheat, Brine,
           Endure, Will-O-Wisp, Giga Impact, Captivate, Sleep Talk, Natural Gift, Swagger,
-          Substitute, Flame Charge, Scald, Liquidation, Flip Turn, Surf, Strength,
-          Whirlpool, Rock Smash, Waterfall]
+          Substitute, Flame Charge, Scald, Mystical Fire, Liquidation, Flip Turn, Surf,
+          Strength, Whirlpool, Rock Smash, Waterfall, Brick Break, Scorching Sands]
   # moves a move tutor can teach it
   tutor: [Aqua Tail, Body Slam, Fire Fang, Fire Punch, Flare Blitz, Heat Wave, Icy Wind]
-  egg: [Muddy Water, Bubble Beam] # only needed for the first stage of an evolution line
+  egg: [Bubble Beam]     # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

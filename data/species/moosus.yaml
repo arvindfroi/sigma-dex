@@ -67,29 +67,31 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Focus Energy}
-    - {level: 1, move: Gust}
+    - {level: 1, move: Harden}
     - {level: 1, move: Leer}
     - {level: 1, move: Tackle}
+    - {level: 8, move: Howl}
     - {level: 9, move: Horn Attack}
-    - {level: 12, move: Ancient Power}
-    - {level: 12, move: Disarming Voice}
+    - {level: 10, move: Disable}
     - {level: 18, move: Stomp}
-    - {level: 25, move: Whirlwind}
     - {level: 30, move: Taunt}
-    - {level: 33, move: Aurora Beam}
+    - {level: 31, move: Aurora Beam}
+    - {level: 40, move: Play Rough}
     - {level: 40, move: Roost}
     - {level: 48, move: Iron Defense}
     - {level: 54, move: Thrash}
     - {level: 60, move: Moonblast}
-    - {level: 63, move: Brave Bird}
+    - {level: 70, move: Megahorn}
+    - {level: 70, move: Sky Attack}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
-          Rain Dance, Frustration, Return, Double Team, Reflect, Aerial Ace, Facade,
-          Secret Power, Rest, Endure, Giga Impact, Psych Up, Sleep Talk, Swagger,
-          Substitute, Draining Kiss, Play Rough, Fly, Aurora Veil]
+          Rain Dance, Frustration, Earthquake, Return, Double Team, Reflect, Aerial Ace,
+          Facade, Secret Power, Rest, Steel Wing, Roost, Endure, Giga Impact, Psych Up,
+          Sleep Talk, Swagger, Substitute, Draining Kiss, Play Rough, Body Press, Fly,
+          Aurora Veil]
   # moves a move tutor can teach it
-  tutor: [Air Slash, Body Slam, Dazzling Gleam, Hurricane, Sky Attack, Zen Headbutt,
-          Megahorn]
+  tutor: [Air Slash, Body Slam, Brave Bird, Dazzling Gleam, Hurricane, Sky Attack,
+          Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

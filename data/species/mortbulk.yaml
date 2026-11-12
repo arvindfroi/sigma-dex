@@ -66,38 +66,38 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Fake Out}
-    - {level: 1, move: Feint}
     - {level: 1, move: Focus Energy}
     - {level: 1, move: Leer}
-    - {level: 1, move: Tackle}
     - {level: 1, move: Low Kick}
+    - {level: 1, move: Rock Smash}
+    - {level: 1, move: Tackle}
     - {level: 4, move: Double Kick}
-    - {level: 8, move: Rock Smash}
     - {level: 11, move: Taunt}
     - {level: 12, move: Circle Throw}
     - {level: 15, move: Detect}
     - {level: 22, move: Brick Break}
     - {level: 25, move: Bulk Up}
+    - {level: 26, move: Rage}
     - {level: 31, move: Scary Face}
-    - {level: 38, move: Mega Kick}
+    - {level: 37, move: Dynamic Punch}
     - {level: 39, move: Close Combat}
-    - {level: 40, move: Counter}
+    - {level: 39, move: Rolling Kick}
     - {level: 40, move: Reversal}
+    - {level: 41, move: Hammer Arm}
     - {level: 42, move: Endure}
     - {level: 44, move: Focus Punch}
-    - {level: 48, move: Dynamic Punch}
+    - {level: 48, move: Mega Kick}
     - {level: 54, move: Superpower}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
-          Rain Dance, Frustration, Earthquake, Return, Dig, Brick Break, Double Team,
-          Rock Tomb, Facade, Secret Power, Rest, Attract, Thief, Focus Blast, Fling, Endure,
-          Drain Punch, Payback, Giga Impact, Stone Edge, Swords Dance, Rock Slide,
-          Sleep Talk, Poison Jab, Swagger, Substitute, Low Sweep, Bulldoze, Coaching,
+  tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance,
+          Frustration, Earthquake, Return, Dig, Brick Break, Double Team, Rock Tomb, Facade,
+          Secret Power, Rest, Attract, Thief, Focus Blast, Fling, Endure, Drain Punch,
+          Payback, Giga Impact, Stone Edge, Swords Dance, Rock Slide, Sleep Talk,
+          Poison Jab, Swagger, Substitute, Low Sweep, Bulldoze, Body Press, Coaching,
           Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Close Combat, Counter, Endeavor, Fire Punch, Ice Punch, Power-Up Punch,
-          Thunder Punch, Zen Headbutt, High Jump Kick]
+  tutor: [Body Slam, Close Combat, Counter, Endeavor, Fire Punch, Ice Punch, Iron Head,
+          Power-Up Punch, Thunder Punch, Zen Headbutt, High Jump Kick]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

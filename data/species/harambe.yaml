@@ -66,29 +66,29 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Astonish}
     - {level: 1, move: Charm}
+    - {level: 1, move: Defense Curl}
     - {level: 1, move: Disarming Voice}
     - {level: 1, move: Growl}
+    - {level: 1, move: Life Dew}
     - {level: 1, move: Shadow Sneak}
-    - {level: 1, move: Tackle}
     - {level: 1, move: Covet}
     - {level: 1, move: Focus Energy}
     - {level: 1, move: Leer}
-    - {level: 1, move: Scratch}
-    - {level: 6, move: Fury Swipes}
     - {level: 8, move: Low Kick}
     - {level: 12, move: Baby-Doll Eyes}
-    - {level: 13, move: Rock Throw}
     - {level: 15, move: Draining Kiss}
     - {level: 15, move: Cross Chop}
     - {level: 17, move: Assurance}
-    - {level: 18, move: Shadow Punch}
     - {level: 20, move: Thrash}
+    - {level: 20, move: Helping Hand}
+    - {level: 22, move: Rock Throw}
     - {level: 25, move: Hex}
     - {level: 25, move: Rock Smash}
     - {level: 29, move: Close Combat}
+    - {level: 30, move: Light Screen}
     - {level: 30, move: Recover}
+    - {level: 33, move: Wish}
     - {level: 34, move: Screech}
     - {level: 37, move: Misty Terrain}
     - {level: 38, move: Curse}
@@ -96,21 +96,23 @@ learnset:
     - {level: 42, move: Play Rough}
     - {level: 42, move: Shadow Ball}
     - {level: 43, move: Dazzling Gleam}
+    - {level: 44, move: Body Slam}
+    - {level: 47, move: Heal Pulse}
     - {level: 50, move: Moonblast}
     - {level: 51, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
           Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball, Double Team,
-          Reflect, Facade, Secret Power, Rest, Attract, Thief, Skill Swap, Fling, Endure,
+          Reflect, Facade, Secret Power, Rest, Attract, Skill Swap, Fling, Endure,
           Giga Impact, Flash, Psych Up, Sleep Talk, Grass Knot, Swagger, Substitute,
-          Draining Kiss, Misty Terrain, Play Rough, Focus Punch, Bulk Up, Taunt, Iron Tail,
-          Thunderbolt, Thunder, Earthquake, Dig, Brick Break, Rock Tomb, Aerial Ace,
-          Overheat, Focus Blast, Drain Punch, Shadow Claw, Payback, Stone Edge, Captivate,
-          Rock Slide, Natural Gift, Poison Jab, U-turn, Low Sweep, Bulldoze, Strength,
-          Rock Smash, Rock Climb]
+          Psyshock, Draining Kiss, Misty Terrain, Play Rough, Focus Punch, Bulk Up, Taunt,
+          Iron Tail, Thunderbolt, Earthquake, Dig, Brick Break, Rock Tomb, Thief, Overheat,
+          Focus Blast, Drain Punch, Payback, Stone Edge, Captivate, Rock Slide,
+          Natural Gift, Poison Jab, U-turn, Low Sweep, Bulldoze, Strength, Rock Smash,
+          Rock Climb]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Charm, Dazzling Gleam, Icy Wind, Poltergeist, Close Combat, Counter,
-          Curse, Endeavor, Fire Punch, Hyper Voice, Ice Punch, Power-Up Punch, Seed Bomb,
+  tutor: [Body Slam, Charm, Curse, Dazzling Gleam, Heal Bell, Icy Wind, Poltergeist,
+          Close Combat, Counter, Endeavor, Fire Punch, Ice Punch, Power-Up Punch, Seed Bomb,
           Thunder Punch]
   egg: []                # only needed for the first stage of an evolution line
 

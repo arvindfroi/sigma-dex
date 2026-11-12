@@ -68,34 +68,38 @@ learnset:
   level_up:
     - {level: 0, move: Flamethrower}
     - {level: 0, move: Rock Slide}
-    - {level: 1, move: Ember}
+    - {level: 1, move: Flame Charge}
     - {level: 1, move: Harden}
     - {level: 1, move: Rock Tomb}
     - {level: 1, move: Tackle}
-    - {level: 6, move: Bite}
     - {level: 10, move: Fire Fang}
-    - {level: 11, move: Smack Down}
+    - {level: 10, move: Bite}
+    - {level: 10, move: Smokescreen}
     - {level: 12, move: Incinerate}
     - {level: 12, move: Roar}
+    - {level: 16, move: Smack Down}
     - {level: 16, move: Headbutt}
     - {level: 20, move: Protect}
+    - {level: 25, move: Lava Plume}
     - {level: 30, move: Stone Edge}
-    - {level: 40, move: Take Down}
-    - {level: 47, move: Flame Wheel}
+    - {level: 32, move: Crunch}
+    - {level: 35, move: Stealth Rock}
+    - {level: 39, move: Take Down}
+    - {level: 52, move: Flame Wheel}
     - {level: 52, move: Rock Blast}
     - {level: 58, move: Iron Defense}
-    - {level: 70, move: Double-Edge}
+    - {level: 59, move: Double-Edge}
     - {level: 76, move: Fire Spin}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Iron Tail,
           Earthquake, Return, Dig, Double Team, Flamethrower, Sandstorm, Fire Blast,
           Rock Tomb, Facade, Secret Power, Rest, Attract, Overheat, Endure, Will-O-Wisp,
-          Rock Polish, Stone Edge, Stealth Rock, Captivate, Rock Slide, Sleep Talk,
-          Natural Gift, Swagger, Substitute, Heavy Slam, Flame Charge, Bulldoze,
-          High Horsepower, Body Press, Meteor Beam, Strength, Rock Smash, Aerial Ace]
+          Shadow Claw, Rock Polish, Stone Edge, Stealth Rock, Captivate, Rock Slide,
+          Sleep Talk, Natural Gift, Swagger, Substitute, Heavy Slam, Flame Charge, Bulldoze,
+          High Horsepower, Body Press, Meteor Beam, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Endeavor, Fire Punch, Flare Blitz,
-          Heat Wave, Iron Head, Power Gem, Fire Fang]
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Endeavor, Fire Fang, Fire Punch,
+          Flare Blitz, Heat Wave, Iron Head, Power Gem]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

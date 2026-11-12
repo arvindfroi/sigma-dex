@@ -70,26 +70,26 @@ learnset:
     - {level: 1, move: Dual Wingbeat}
     - {level: 1, move: Growl}
     - {level: 1, move: Peck}
-    - {level: 1, move: Sand Attack}
+    - {level: 1, move: Razor Leaf}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Leafage}
     - {level: 1, move: Scratch}
-    - {level: 13, move: Razor Leaf}
+    - {level: 10, move: Vine Whip}
+    - {level: 10, move: Quick Attack}
+    - {level: 11, move: Double Kick}
     - {level: 14, move: Bullet Seed}
-    - {level: 15, move: Pluck}
     - {level: 16, move: Leech Seed}
+    - {level: 18, move: Wing Attack}
     - {level: 18, move: Growth}
-    - {level: 19, move: Acrobatics}
     - {level: 22, move: Aerial Ace}
-    - {level: 25, move: Mega Drain}
+    - {level: 24, move: Horn Leech}
+    - {level: 25, move: Leaf Blade}
     - {level: 27, move: Agility}
-    - {level: 27, move: Wing Attack}
     - {level: 28, move: Seed Bomb}
-    - {level: 40, move: Fly}
-    - {level: 42, move: Absorb}
-    - {level: 43, move: Energy Ball}
-    - {level: 44, move: Leaf Blade}
+    - {level: 40, move: Jump Kick}
+    - {level: 42, move: Leafage}
+    - {level: 42, move: Drill Peck}
     - {level: 45, move: Swords Dance}
+    - {level: 46, move: Roost}
     - {level: 49, move: Brave Bird}
     - {level: 49, move: Power Whip}
     - {level: 60, move: Slash}
@@ -98,10 +98,10 @@ learnset:
           Giga Drain, Frustration, Solar Beam, Return, Double Team, Aerial Ace, Facade,
           Secret Power, Rest, Attract, Thief, Steel Wing, Roost, Energy Ball, Endure,
           Giga Impact, Swords Dance, Captivate, Sleep Talk, Natural Gift, Grass Knot,
-          Swagger, Pluck, U-turn, Substitute, Grassy Terrain, Fly, Flash]
+          Swagger, Pluck, U-turn, Substitute, Grassy Terrain, Dual Wingbeat, Fly, Flash]
   # moves a move tutor can teach it
   tutor: [Air Slash, Brave Bird, Endeavor, Hurricane, Leaf Storm, Magical Leaf, Seed Bomb,
-          Sky Attack, Synthesis, Body Slam]
+          Sky Attack, Solar Blade, Synthesis, Body Slam]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

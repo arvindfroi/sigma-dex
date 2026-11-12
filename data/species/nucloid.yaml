@@ -71,21 +71,23 @@ learnset:
     - {level: 7, move: Acid Spray}
     - {level: 17, move: Toxic Spikes}
     - {level: 20, move: Sludge}
-    - {level: 23, move: Stockpile}
-    - {level: 27, move: Screech}
-    - {level: 27, move: Take Down}
+    - {level: 24, move: Poison Jab}
     - {level: 28, move: Flash Cannon}
     - {level: 30, move: Sludge Bomb}
     - {level: 31, move: Venoshock}
     - {level: 33, move: Toxic}
+    - {level: 35, move: Iron Defense}
+    - {level: 37, move: Belch}
     - {level: 43, move: Gunk Shot}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return,
           Double Team, Sludge Bomb, Facade, Secret Power, Rest, Attract, Thief, Endure,
-          Payback, Gyro Ball, Captivate, Sleep Talk, Natural Gift, Poison Jab, Swagger,
-          Substitute, Flash Cannon, Venoshock, Acid Spray]
-  tutor: [Body Slam, Iron Head] # moves a move tutor can teach it
-  egg: [Haze, Curse, Clear Smog] # only needed for the first stage of an evolution line
+          Payback, Thunder Wave, Gyro Ball, Stealth Rock, Captivate, Sleep Talk,
+          Natural Gift, Poison Jab, Swagger, Substitute, Flash Cannon, Venoshock,
+          Heavy Slam, Acid Spray]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Iron Head, Metal Claw]
+  egg: [Clear Smog, Haze, Curse] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

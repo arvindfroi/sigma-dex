@@ -63,33 +63,36 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Growl}
+    - {level: 1, move: Peck}
     - {level: 1, move: Tackle}
     - {level: 6, move: Echoed Voice}
     - {level: 10, move: Quick Attack}
     - {level: 12, move: Fury Attack}
-    - {level: 15, move: Defog}
     - {level: 16, move: Covet}
-    - {level: 17, move: Slash}
     - {level: 22, move: Acrobatics}
     - {level: 24, move: Safeguard}
+    - {level: 25, move: Aerial Ace}
+    - {level: 26, move: Slash}
+    - {level: 26, move: Tailwind}
     - {level: 27, move: Body Slam}
     - {level: 27, move: Drill Peck}
+    - {level: 28, move: Tri Attack}
     - {level: 29, move: Agility}
     - {level: 29, move: Take Down}
     - {level: 30, move: Roost}
-    - {level: 33, move: Moonblast}
+    - {level: 32, move: Wing Attack}
+    - {level: 40, move: Hyper Voice}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return,
-          Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Steel Wing,
-          Roost, Endure, Captivate, Sleep Talk, Natural Gift, Swagger, Pluck, U-turn,
-          Substitute, Dual Wingbeat, Fly]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Solar Beam,
+          Return, Dig, Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief,
+          Steel Wing, Roost, Endure, Captivate, Sleep Talk, Natural Gift, Swagger, Pluck,
+          U-turn, Substitute, Dual Wingbeat, Fly]
   # moves a move tutor can teach it
   tutor: [Air Slash, Body Slam, Brave Bird, Endeavor, Heat Wave, Hurricane, Hyper Voice,
-          Sky Attack, Charm]
+          Seed Bomb, Sky Attack, Charm]
   # only needed for the first stage of an evolution line
-  egg: [Sky Attack, Uproar, Brave Bird, Wing Attack, Flail, Double-Edge, Hurricane, Rage,
-        Tailwind, Mirror Move]
+  egg: [Defog, Double-Edge, Hurricane, Air Cutter, Gust, Feint, Uproar, Flail, Rage,
+        Mirror Move]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

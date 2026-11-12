@@ -2101,7 +2101,6 @@
         .iconPalIndex = 0,
         .levelUpLearnset = sBeatldLevelUpLearnset,
         .teachableLearnset = sBeatldTeachableLearnset,
-        .eggMoveLearnset = sBeatldEggMoveLearnset,
         FOOTPRINT(QuestionMark)
     },
 

@@ -63,29 +63,34 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Astonish}
     - {level: 1, move: Echoed Voice}
+    - {level: 1, move: Howl}
     - {level: 1, move: Tackle}
-    - {level: 8, move: Rollout}
+    - {level: 5, move: Fury Swipes}
     - {level: 9, move: Payback}
+    - {level: 12, move: Bite}
     - {level: 20, move: Rest}
     - {level: 22, move: Round}
+    - {level: 24, move: Slash}
     - {level: 25, move: Roar}
-    - {level: 28, move: Yawn}
+    - {level: 26, move: Tri Attack}
+    - {level: 27, move: Sucker Punch}
     - {level: 30, move: Supersonic}
     - {level: 35, move: Uproar}
+    - {level: 40, move: Body Slam}
     - {level: 42, move: Screech}
+    - {level: 45, move: Foul Play}
     - {level: 49, move: Double-Edge}
     - {level: 49, move: Hyper Voice}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration,
+  tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration,
           Solar Beam, Return, Dig, Shadow Ball, Double Team, Torment, Facade, Secret Power,
           Rest, Attract, Thief, Fling, Endure, Payback, Captivate, Dark Pulse, Sleep Talk,
           Natural Gift, Swagger, Substitute, Foul Play, Cut, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Endeavor, Hyper Voice, Nasty Plot, Snarl, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Snore, Last Resort, Pursuit, Endeavor, Body Slam, Take Down, Smelling Salts, Thrash]
+  egg: [Snore, Feint Attack, Covet, Night Slash, Last Resort, Fake Out, Pursuit, Endeavor]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

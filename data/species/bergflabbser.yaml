@@ -67,30 +67,31 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Ancient Power}
-    - {level: 1, move: Mud Shot}
+    - {level: 1, move: Sand Tomb}
     - {level: 1, move: Scary Face}
     - {level: 1, move: Water Gun}
-    - {level: 7, move: Water Pulse}
-    - {level: 12, move: Whirlpool}
+    - {level: 10, move: Aqua Jet}
+    - {level: 12, move: Water Pulse}
     - {level: 12, move: Bite}
     - {level: 20, move: Bulldoze}
-    - {level: 30, move: Taunt}
-    - {level: 33, move: Crabhammer}
-    - {level: 35, move: Thrash}
-    - {level: 36, move: Hammer Arm}
-    - {level: 45, move: Crunch}
+    - {level: 24, move: Razor Shell}
+    - {level: 33, move: Liquidation}
+    - {level: 39, move: Earth Power}
+    - {level: 42, move: Crunch}
     - {level: 49, move: Earthquake}
+    - {level: 54, move: Rest}
     - {level: 62, move: Rain Dance}
+    - {level: 65, move: Muddy Water}
     - {level: 72, move: Wave Crash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Roar, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard,
-          Hyper Beam, Protect, Rain Dance, Frustration, Earthquake, Return, Dig,
-          Double Team, Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Brine, Endure,
-          Giga Impact, Stone Edge, Stealth Rock, Rock Slide, Sleep Talk, Natural Gift,
-          Swagger, Substitute, Heavy Slam, Scald, Bulldoze, High Horsepower, Liquidation,
-          Body Press, Surf, Strength, Whirlpool, Waterfall, Thunder, Flash]
+  tm_hm: [Water Pulse, Roar, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Hyper Beam,
+          Protect, Rain Dance, Frustration, Earthquake, Return, Dig, Double Team, Rock Tomb,
+          Facade, Secret Power, Rest, Endure, Giga Impact, Stone Edge, Stealth Rock,
+          Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Heavy Slam, Scald,
+          Bulldoze, High Horsepower, Liquidation, Body Press, Flip Turn, Surf, Strength,
+          Whirlpool, Waterfall, Thunder, Flash]
   # moves a move tutor can teach it
-  tutor: [Aqua Tail, Body Slam, Earth Power, Icy Wind, Iron Head, Zen Headbutt]
+  tutor: [Aqua Tail, Body Slam, Curse, Earth Power, Iron Head, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

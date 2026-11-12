@@ -70,44 +70,46 @@ learnset:
     - {level: 0, move: Aqua Jet}
     - {level: 1, move: Flip Turn}
     - {level: 1, move: Growl}
-    - {level: 1, move: Night Slash}
-    - {level: 1, move: Water Gun}
-    - {level: 1, move: Feint Attack}
     - {level: 1, move: Leer}
+    - {level: 1, move: Night Slash}
+    - {level: 1, move: Feint Attack}
     - {level: 1, move: Scratch}
     - {level: 1, move: Tackle}
     - {level: 4, move: Peck}
+    - {level: 6, move: Water Gun}
     - {level: 7, move: Work Up}
     - {level: 10, move: Lick}
+    - {level: 10, move: Quick Attack}
+    - {level: 10, move: Tail Whip}
     - {level: 11, move: Torment}
     - {level: 12, move: Protect}
+    - {level: 14, move: Aqua Cutter}
     - {level: 15, move: Bite}
     - {level: 16, move: Scary Face}
-    - {level: 19, move: Smokescreen}
     - {level: 20, move: Double Hit}
-    - {level: 23, move: Shadow Sneak}
+    - {level: 21, move: Sucker Punch}
+    - {level: 27, move: Knock Off}
     - {level: 28, move: Spikes}
-    - {level: 32, move: Focus Energy}
+    - {level: 31, move: Focus Energy}
     - {level: 33, move: Aerial Ace}
-    - {level: 33, move: Aqua Tail}
     - {level: 33, move: Slash}
     - {level: 38, move: Crunch}
-    - {level: 42, move: Substitute}
-    - {level: 46, move: Thrash}
-    - {level: 49, move: Extrasensory}
+    - {level: 40, move: Foul Play}
+    - {level: 48, move: Thrash}
     - {level: 51, move: Liquidation}
-    - {level: 68, move: Wave Crash}
+    - {level: 58, move: Wave Crash}
+    - {level: 68, move: Aqua Tail}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Water Pulse, Toxic, Bulk Up, Hidden Power, Taunt, Ice Beam, Protect,
           Rain Dance, Frustration, Iron Tail, Brick Break, Double Team, Torment, Facade,
           Thief, Snatch, Cut, Surf, Strength, Rock Smash, Waterfall, Dive, Hail, Sunny Day,
-          Blizzard, Hyper Beam, Return, Dig, Rock Tomb, Aerial Ace, Secret Power, Rest,
-          Attract, Brine, Fling, Endure, Payback, Giga Impact, Swords Dance, Dark Pulse,
+          Hyper Beam, Return, Dig, Rock Tomb, Aerial Ace, Secret Power, Rest, Attract,
+          Fling, Endure, Shadow Claw, Payback, Giga Impact, Swords Dance, Dark Pulse,
           Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Low Sweep, Foul Play,
-          Scald, Brutal Swing, Liquidation, Flip Turn, Whirlpool, Shadow Claw, Captivate,
+          Scald, Brutal Swing, Liquidation, Flip Turn, Whirlpool, Embargo, Captivate,
           Grass Knot]
   # moves a move tutor can teach it
-  tutor: [Aqua Tail, Body Slam, Hydro Cannon, Icy Wind, Snarl, Power-Up Punch]
+  tutor: [Aqua Tail, Body Slam, Endeavor, Hydro Cannon, Power-Up Punch, Snarl]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

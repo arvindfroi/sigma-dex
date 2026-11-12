@@ -72,28 +72,27 @@ learnset:
     - {level: 1, move: Tackle}
     - {level: 7, move: Protect}
     - {level: 12, move: Ice Shard}
-    - {level: 12, move: Icy Wind}
     - {level: 18, move: Ice Fang}
     - {level: 21, move: Bite}
+    - {level: 21, move: Slash}
     - {level: 24, move: Flail}
     - {level: 27, move: Avalanche}
+    - {level: 27, move: Iron Defense}
     - {level: 28, move: Crush Claw}
-    - {level: 30, move: Snowscape}
-    - {level: 32, move: Slash}
     - {level: 33, move: Crunch}
     - {level: 36, move: Take Down}
-    - {level: 42, move: Freeze-Dry}
+    - {level: 37, move: Amnesia}
     - {level: 50, move: Ice Hammer}
-    - {level: 53, move: Blizzard}
+    - {level: 51, move: Icicle Crash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect,
-          Rain Dance, Frustration, Earthquake, Return, Double Team, Rock Tomb, Facade,
+  tm_hm: [Toxic, Hail, Hidden Power, Ice Beam, Hyper Beam, Protect, Rain Dance, Frustration,
+          Earthquake, Return, Dig, Brick Break, Double Team, Rock Tomb, Facade,
           Secret Power, Rest, Attract, Endure, Giga Impact, Stone Edge, Avalanche,
-          Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze, Body Press, Rock Smash,
-          Heavy Slam]
+          Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze, Liquidation, Body Press,
+          Rock Smash, Swords Dance, Heavy Slam]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Curse, Ice Fang, Ice Punch, Icicle Spear, Icy Wind, Iron Head]
-  egg: [Icicle Crash]    # only needed for the first stage of an evolution line
+  tutor: [Body Slam, Close Combat, Curse, Ice Fang, Ice Punch, Icicle Spear, Iron Head]
+  egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

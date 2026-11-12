@@ -67,38 +67,40 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Growl}
-    - {level: 1, move: Leer}
-    - {level: 1, move: Peck}
     - {level: 1, move: Quick Attack}
+    - {level: 1, move: Sky Attack}
     - {level: 1, move: Tackle}
+    - {level: 1, move: Wing Attack}
+    - {level: 1, move: Peck}
     - {level: 6, move: Echoed Voice}
     - {level: 13, move: Supersonic}
     - {level: 16, move: Pluck}
-    - {level: 18, move: Defog}
     - {level: 19, move: Covet}
-    - {level: 22, move: Slash}
     - {level: 23, move: Whirlwind}
     - {level: 24, move: Fury Attack}
+    - {level: 25, move: Slash}
+    - {level: 26, move: Drill Peck}
     - {level: 27, move: Safeguard}
     - {level: 28, move: Aerial Ace}
-    - {level: 32, move: Screech}
-    - {level: 33, move: Body Slam}
-    - {level: 35, move: Drill Peck}
+    - {level: 34, move: Tri Attack}
     - {level: 36, move: Agility}
     - {level: 36, move: Roost}
     - {level: 38, move: Take Down}
-    - {level: 39, move: Moonblast}
+    - {level: 40, move: Body Slam}
     - {level: 40, move: Acrobatics}
     - {level: 44, move: Feather Dance}
-    - {level: 50, move: Bounce}
+    - {level: 44, move: Tailwind}
+    - {level: 46, move: Hyper Voice}
+    - {level: 49, move: Brave Bird}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
-          Return, Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief,
+          Return, Dig, Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief,
           Steel Wing, Roost, Endure, Giga Impact, Captivate, Sleep Talk, Natural Gift,
-          Swagger, Pluck, U-turn, Substitute, Dual Wingbeat, Fly, Strength]
+          Swagger, Pluck, U-turn, Substitute, Dual Wingbeat, Fly, Strength, Solar Beam,
+          Swords Dance]
   # moves a move tutor can teach it
   tutor: [Air Slash, Body Slam, Brave Bird, Endeavor, Heat Wave, Hurricane, Hyper Voice,
-          Sky Attack, Charm]
+          Seed Bomb, Sky Attack, Charm]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

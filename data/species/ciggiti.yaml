@@ -68,9 +68,9 @@ learnset:
   level_up:
     - {level: 1, move: Astonish}
     - {level: 1, move: Confuse Ray}
-    - {level: 1, move: Lick}
+    - {level: 1, move: Growl}
     - {level: 4, move: Hypnosis}
-    - {level: 6, move: Smog}
+    - {level: 10, move: Smog}
     - {level: 10, move: Smokescreen}
     - {level: 12, move: Payback}
     - {level: 16, move: Spite}
@@ -84,13 +84,14 @@ learnset:
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Giga Drain,
           Frustration, Thunderbolt, Thunder, Return, Psychic, Shadow Ball, Double Team,
-          Torment, Facade, Secret Power, Rest, Attract, Thief, Skill Swap, Energy Ball,
-          Endure, Will-O-Wisp, Embargo, Payback, Psych Up, Captivate, Dark Pulse,
-          Sleep Talk, Natural Gift, Swagger, Substitute, Trick Room, Foul Play]
+          Torment, Facade, Secret Power, Rest, Attract, Thief, Skill Swap, Snatch,
+          Energy Ball, Endure, Will-O-Wisp, Embargo, Payback, Psych Up, Captivate,
+          Dark Pulse, Sleep Talk, Natural Gift, Swagger, Substitute, Trick Room, Foul Play]
   # moves a move tutor can teach it
   tutor: [Curse, Icy Wind, Nasty Plot, Poltergeist]
   # only needed for the first stage of an evolution line
-  egg: [Disable, Ominous Wind, Imprison, Haze, Clear Smog, Grudge, Ally Switch]
+  egg: [Disable, Shadow Sneak, Ominous Wind, Grudge, Ally Switch, Imprison, Haze,
+        Clear Smog]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

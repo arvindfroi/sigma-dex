@@ -67,26 +67,25 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Growl}
-    - {level: 1, move: Ice Fang}
     - {level: 1, move: Quick Attack}
+    - {level: 1, move: Surf}
     - {level: 1, move: Throat Chop}
     - {level: 1, move: Water Gun}
     - {level: 9, move: Supersonic}
     - {level: 12, move: Water Pulse}
-    - {level: 14, move: Mud Shot}
+    - {level: 18, move: Bubble}
     - {level: 21, move: Bite}
-    - {level: 22, move: Bubble Beam}
-    - {level: 24, move: Swift}
     - {level: 28, move: Aqua Jet}
     - {level: 28, move: Soak}
     - {level: 29, move: Rain Dance}
     - {level: 34, move: Agility}
     - {level: 34, move: Echoed Voice}
+    - {level: 35, move: Razor Shell}
+    - {level: 36, move: Bubble Beam}
     - {level: 39, move: Whirlpool}
-    - {level: 40, move: Aqua Ring}
-    - {level: 44, move: Crunch}
+    - {level: 40, move: Alluring Voice}
     - {level: 46, move: Liquidation}
-    - {level: 47, move: Surf}
+    - {level: 48, move: Aqua Tail}
     - {level: 57, move: Hydro Pump}
     - {level: 62, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
@@ -95,7 +94,7 @@ learnset:
           Brine, Endure, Giga Impact, Captivate, Sleep Talk, Natural Gift, Swagger,
           Substitute, Scald, Liquidation, Flip Turn, Surf, Whirlpool, Waterfall, Thief]
   # moves a move tutor can teach it
-  tutor: [Aqua Tail, Body Slam, Icy Wind, Hyper Voice]
+  tutor: [Aqua Tail, Body Slam, Ice Punch, Icy Wind, Hyper Voice]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

@@ -99,19 +99,27 @@ stats, types, abilities or notes, a new suggestion is ready within 15 minutes.
    a shell -> Withdraw; a weight of 150 kg or more gives Heavy Slam to a bulky or Steel Pokemon. Wishes like
    "mostly fighting moves" make that type count more everywhere. An ability named in the wishes but missing from
    the file is flagged.
-8. **Design review.** A script cannot judge whether "a little lamp turtle that blinds enemies" should learn Flash,
+8. **Archetype.** Two kinds, both used. *Stat archetype*: what its stats and types make it (a fast physical
+   Grass/Bug): attacks on the side it does not use get much less weight (0.45-0.6 of a vote, and lower TM/tutor
+   scores) when attack and sp. attack are 25+ apart, so it learns Leaf Blade and X-Scissor rather than Energy Ball;
+   fast attackers get a priority or pivot move like similar official Pokemon. *Design archetype*
+   (`proposals/archetypes.json`, written by Claude from every design field: "shark boxer", "lamp-lit cave
+   tortoise"): its themes (punching, biting, sound, light ...) count 1.6x in the votes and in TM/tutor scores, a
+   few moves that show it are added, themes that clash with its body are left out, and its role is used unless the
+   designers' wishes say otherwise. Run the archetype pass again (ask Claude) for new species.
+9. **Design review.** A script cannot judge whether "a little lamp turtle that blinds enemies" should learn Flash,
    so Claude reads each design (look, concept, dex entry, category, notes, wishes, body, size) next to the proposal
    and writes `proposals/design_review.json`: moves to leave out because they clash with the design, a few moves
    the design asks for, and a one-line note. `propose` applies it on every run (only to added moves, names and
    TM/tutor lists checked), then the balance checks below run again. Update it when designs change.
-9. **Coverage.** TMs and tutors that hit what its own types cannot score higher, and every final form gets
+10. **Coverage.** TMs and tutors that hit what its own types cannot score higher, and every final form gets
    coverage like official Pokemon of its kind: about 4 strong moves of other types for attackers, 3 for others,
    chosen from what the similar official Pokemon learn, preferring the types that add most.
-10. **Role.** From the final stage's stats (offence, bulk, speed, physical or special, Huge Power counted) and
+11. **Role.** From the final stage's stats (offence, bulk, speed, physical or special, Huge Power counted) and
    role words in wishes/notes: fast/bulky/Trick Room attacker, wallbreaker, wall, support. If the role misses
    its tools and similar official Pokemon have them, they are added: a strong move (75+ power) of each own type,
    a setup move for attackers, recovery for walls, Trick Room only if the notes say so or similar Pokemon have it.
-11. **Not broken.** Combos are checked against official Pokemon with about the same total (within 50) and attack
+12. **Not broken.** Combos are checked against official Pokemon with about the same total (within 50) and attack
    (within 20). If none of them has the combo, an added move is taken out again ("Not added: ..."); if the
    combo came from the designers, it is flagged ("Check ..."). Checked: same-type priority + setup on a strong
    attacker, Speed Boost + setup, Huge Power + priority, recovery + setup on a bulky Pokemon, rare moves (Shell

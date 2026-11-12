@@ -68,28 +68,28 @@ learnset:
   level_up:
     - {level: 0, move: Leaf Blade}
     - {level: 1, move: Leaf Blade}
-    - {level: 1, move: Growl}
+    - {level: 1, move: Leafage}
     - {level: 1, move: Razor Leaf}
-    - {level: 1, move: Scratch}
     - {level: 1, move: Tackle}
     - {level: 1, move: Absorb}
     - {level: 1, move: Leer}
-    - {level: 6, move: Leafage}
+    - {level: 1, move: Vine Whip}
+    - {level: 8, move: Metal Claw}
     - {level: 10, move: Fury Cutter}
     - {level: 12, move: Scary Face}
     - {level: 15, move: Bite}
     - {level: 15, move: Curse}
-    - {level: 19, move: Metal Claw}
     - {level: 20, move: Leech Seed}
-    - {level: 20, move: Screech}
     - {level: 24, move: Sharpen}
+    - {level: 25, move: Iron Head}
     - {level: 28, move: Mega Drain}
-    - {level: 29, move: Take Down}
+    - {level: 28, move: Take Down}
+    - {level: 31, move: Slam}
     - {level: 35, move: Slash}
     - {level: 39, move: Synthesis}
     - {level: 40, move: Iron Tail}
-    - {level: 41, move: Iron Defense}
     - {level: 44, move: X-Scissor}
+    - {level: 45, move: Iron Defense}
     - {level: 48, move: Night Slash}
     - {level: 51, move: Swords Dance}
     - {level: 52, move: Wood Hammer}
@@ -98,12 +98,13 @@ learnset:
     - {level: 64, move: Behemoth Blade}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
-          Giga Drain, Frustration, Solar Beam, Earthquake, Return, Brick Break, Double Team,
-          Sandstorm, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract,
-          Energy Ball, Fling, Endure, Giga Impact, Flash, Swords Dance, Rock Slide,
-          Sleep Talk, Grass Knot, Swagger, Substitute, Flash Cannon, Heavy Slam, Bulldoze,
-          Grassy Terrain, Body Press, Cut, Strength, Rock Smash, Reflect, Shadow Claw,
-          Gyro Ball, Stealth Rock, Captivate, Natural Gift, Light Screen, Safeguard]
+          Giga Drain, Frustration, Solar Beam, Iron Tail, Earthquake, Return, Dig,
+          Brick Break, Double Team, Sandstorm, Rock Tomb, Aerial Ace, Facade, Secret Power,
+          Rest, Attract, Energy Ball, Fling, Endure, Giga Impact, Flash, Stone Edge,
+          Gyro Ball, Swords Dance, Rock Slide, Sleep Talk, Grass Knot, Swagger, Substitute,
+          Flash Cannon, Heavy Slam, Bulldoze, Grassy Terrain, High Horsepower, Body Press,
+          Cut, Strength, Rock Smash, Reflect, Shadow Claw, Stealth Rock, Captivate,
+          Natural Gift, Light Screen, Safeguard]
   # moves a move tutor can teach it
   tutor: [Body Slam, Frenzy Plant, Iron Head, Leaf Storm, Magical Leaf, Metal Claw,
           Seed Bomb, Solar Blade, Synthesis, Curse, Zen Headbutt]

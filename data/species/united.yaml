@@ -66,30 +66,36 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Confusion}
     - {level: 1, move: Growl}
+    - {level: 1, move: Nuzzle}
     - {level: 1, move: Tackle}
     - {level: 1, move: Thunder Shock}
     - {level: 1, move: Thunder Wave}
     - {level: 1, move: Leer}
     - {level: 10, move: Quick Attack}
-    - {level: 15, move: Shock Wave}
-    - {level: 20, move: Swift}
+    - {level: 16, move: Shock Wave}
+    - {level: 20, move: Parabolic Charge}
+    - {level: 20, move: Psybeam}
     - {level: 22, move: Electro Ball}
-    - {level: 22, move: Volt Switch}
-    - {level: 28, move: Charm}
+    - {level: 24, move: Spark}
+    - {level: 30, move: Volt Switch}
     - {level: 36, move: Agility}
+    - {level: 37, move: Magnet Rise}
     - {level: 40, move: Discharge}
     - {level: 41, move: Charge}
     - {level: 41, move: Psychic}
+    - {level: 42, move: Wild Charge}
     - {level: 47, move: Thunder}
     - {level: 48, move: Thunderbolt}
+    - {level: 52, move: Magnetic Flux}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
-          Rain Dance, Frustration, Thunderbolt, Thunder, Return, Psychic, Shadow Ball,
-          Double Team, Reflect, Shock Wave, Facade, Secret Power, Rest, Attract, Thief,
-          Skill Swap, Charge Beam, Endure, Giga Impact, Flash, Thunder Wave, Psych Up,
-          Sleep Talk, Natural Gift, Swagger, Substitute, Trick Room, Psyshock, Electroweb,
-          Eerie Impulse, Electric Terrain, Expanding Force]
+          Rain Dance, Safeguard, Frustration, Thunderbolt, Thunder, Return, Psychic,
+          Shadow Ball, Double Team, Reflect, Shock Wave, Facade, Secret Power, Rest,
+          Attract, Thief, Skill Swap, Charge Beam, Endure, Giga Impact, Flash, Thunder Wave,
+          Psych Up, Sleep Talk, Natural Gift, Swagger, Substitute, Trick Room, Psyshock,
+          Electroweb, Eerie Impulse, Electric Terrain, Expanding Force, U-turn]
   # moves a move tutor can teach it
   tutor: [Body Slam, Volt Switch, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line

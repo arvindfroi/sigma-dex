@@ -68,22 +68,22 @@ learnset:
   level_up:
     - {level: 1, move: Confusion}
     - {level: 1, move: Growl}
+    - {level: 1, move: Harden}
     - {level: 1, move: Hypnosis}
     - {level: 1, move: Mud-Slap}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Teleport}
     - {level: 9, move: Yawn}
     - {level: 12, move: Bulldoze}
     - {level: 15, move: Psycho Cut}
     - {level: 18, move: Stomping Tantrum}
-    - {level: 21, move: Headbutt}
     - {level: 21, move: Imprison}
+    - {level: 27, move: Amnesia}
     - {level: 28, move: Zen Headbutt}
+    - {level: 35, move: Calm Mind}
     - {level: 38, move: Iron Defense}
     - {level: 40, move: Earthquake}
-    - {level: 42, move: Extrasensory}
+    - {level: 42, move: Psyshock}
     - {level: 43, move: Sandstorm}
-    - {level: 56, move: Future Sight}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
           Rain Dance, Safeguard, Frustration, Earthquake, Return, Dig, Psychic, Shadow Ball,

@@ -69,23 +69,25 @@ learnset:
     - {level: 9, move: Icy Wind}
     - {level: 12, move: Ice Shard}
     - {level: 15, move: Rest}
+    - {level: 15, move: Aurora Beam}
+    - {level: 17, move: Slash}
     - {level: 18, move: Flail}
     - {level: 19, move: Bite}
     - {level: 23, move: Ice Fang}
+    - {level: 27, move: Avalanche}
     - {level: 27, move: Take Down}
-    - {level: 37, move: Crunch}
-    - {level: 40, move: Amnesia}
+    - {level: 44, move: Icicle Crash}
     - {level: 45, move: Blizzard}
     - {level: 49, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Protect, Rain Dance,
-          Frustration, Return, Dig, Double Team, Rock Tomb, Facade, Secret Power, Rest,
-          Attract, Endure, Avalanche, Sleep Talk, Swagger, Substitute, Bulldoze, Strength,
-          Rock Smash]
+  tm_hm: [Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Protect, Rain Dance, Frustration,
+          Earthquake, Return, Dig, Double Team, Rock Tomb, Facade, Secret Power, Rest,
+          Attract, Endure, Avalanche, Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze,
+          Body Press, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Curse, Ice Fang, Icicle Spear, Icy Wind]
+  tutor: [Body Slam, Curse, Ice Fang, Ice Punch, Icicle Spear, Icy Wind, Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Icicle Spear, Freeze-Dry, Ice Punch, Yawn]
+  egg: [Icicle Spear, Ice Punch, Freeze-Dry, Yawn, Rollout]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

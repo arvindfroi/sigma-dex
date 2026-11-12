@@ -72,13 +72,16 @@ learnset:
     - {level: 1, move: Tackle}
     - {level: 6, move: Mist}
     - {level: 12, move: Weather Ball}
+    - {level: 12, move: Pay Day}
     - {level: 15, move: Ice Shard}
     - {level: 18, move: Icy Wind}
-    - {level: 20, move: Pay Day}
     - {level: 24, move: Headbutt}
     - {level: 30, move: Amnesia}
     - {level: 30, move: Ice Fang}
     - {level: 36, move: Freeze-Dry}
+    - {level: 36, move: Present}
+    - {level: 40, move: Icicle Crash}
+    - {level: 41, move: Ice Beam}
     - {level: 42, move: Snowscape}
     - {level: 48, move: Aurora Veil}
     - {level: 54, move: Surf}
@@ -86,12 +89,12 @@ learnset:
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect,
           Rain Dance, Frustration, Return, Double Team, Reflect, Facade, Secret Power, Rest,
-          Attract, Endure, Giga Impact, Avalanche, Sleep Talk, Swagger, Substitute, Surf]
+          Attract, Endure, Giga Impact, Avalanche, Sleep Talk, Swagger, Substitute,
+          Liquidation, Triple Axel, Surf, Waterfall]
   # moves a move tutor can teach it
   tutor: [Body Slam, Ice Fang, Ice Punch, Icicle Spear, Icy Wind, Iron Head, Weather Ball,
-          Zen Headbutt]
-  # only needed for the first stage of an evolution line
-  egg: [Icicle Crash, Double-Edge, Frost Breath]
+          Zen Headbutt, Curse]
+  egg: [Double-Edge, Frost Breath] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

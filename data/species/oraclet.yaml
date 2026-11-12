@@ -65,33 +65,33 @@ learnset:
   level_up:
     - {level: 1, move: Confusion}
     - {level: 1, move: Growl}
-    - {level: 1, move: Play Nice}
-    - {level: 3, move: Peck}
+    - {level: 1, move: Protect}
+    - {level: 4, move: Hypnosis}
     - {level: 6, move: Imprison}
+    - {level: 10, move: Peck}
+    - {level: 10, move: Foresight}
     - {level: 10, move: Withdraw}
-    - {level: 11, move: Teleport}
     - {level: 16, move: Psybeam}
     - {level: 21, move: Slash}
+    - {level: 24, move: Light Screen}
     - {level: 24, move: Psyshock}
-    - {level: 24, move: Confuse Ray}
-    - {level: 25, move: Recover}
-    - {level: 27, move: Headbutt}
     - {level: 28, move: Ally Switch}
     - {level: 41, move: Calm Mind}
     - {level: 42, move: Psychic}
+    - {level: 43, move: Skill Swap}
     - {level: 49, move: Future Sight}
     - {level: 52, move: Wonder Room}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance,
           Safeguard, Frustration, Return, Psychic, Shadow Ball, Double Team, Reflect,
-          Rock Tomb, Facade, Secret Power, Rest, Attract, Thief, Skill Swap, Energy Ball,
-          Charge Beam, Endure, Flash, Thunder Wave, Psych Up, Rock Slide, Sleep Talk,
-          Swagger, Substitute, Trick Room, Psyshock, Psychic Terrain, Expanding Force]
+          Facade, Secret Power, Rest, Attract, Skill Swap, Energy Ball, Charge Beam, Endure,
+          Flash, Thunder Wave, Psych Up, Dark Pulse, Sleep Talk, Swagger, Substitute,
+          Trick Room, Psyshock, Psychic Terrain, Expanding Force, Roost]
   # moves a move tutor can teach it
   tutor: [Charm, Dazzling Gleam, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Barrier, Guard Swap, Astonish, Mirror Coat, Zen Headbutt, Nasty Plot, Disable,
-        Psycho Cut, Synchronoise, Helping Hand]
+  egg: [Barrier, Mirror Coat, Synchronoise, Guard Swap, Cosmic Power, Zen Headbutt,
+        Nasty Plot, Power Swap, Disable, Confuse Ray]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

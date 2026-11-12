@@ -70,41 +70,41 @@ learnset:
     - {level: 1, move: Confusion}
     - {level: 1, move: Copycat}
     - {level: 1, move: Growl}
-    - {level: 1, move: Tackle}
-    - {level: 1, move: Take Down}
-    - {level: 1, move: Play Nice}
-    - {level: 3, move: Peck}
+    - {level: 1, move: Gust}
+    - {level: 1, move: Stored Power}
+    - {level: 1, move: Protect}
     - {level: 6, move: Imprison}
-    - {level: 10, move: Quick Attack}
+    - {level: 10, move: Peck}
+    - {level: 10, move: Foresight}
     - {level: 10, move: Withdraw}
     - {level: 11, move: Hypnosis}
-    - {level: 11, move: Teleport}
+    - {level: 15, move: Air Cutter}
     - {level: 20, move: Psybeam}
     - {level: 21, move: Slash}
-    - {level: 24, move: Confuse Ray}
-    - {level: 25, move: Recover}
-    - {level: 27, move: Headbutt}
+    - {level: 24, move: Light Screen}
     - {level: 28, move: Ally Switch}
     - {level: 33, move: Psyshock}
     - {level: 35, move: Air Slash}
-    - {level: 35, move: Power Swap}
-    - {level: 36, move: Light Screen}
     - {level: 36, move: Reflect}
     - {level: 42, move: Wing Attack}
     - {level: 43, move: Calm Mind}
     - {level: 44, move: Psychic}
+    - {level: 45, move: Tailwind}
+    - {level: 46, move: Skill Swap}
     - {level: 53, move: Future Sight}
+    - {level: 55, move: Hurricane}
     - {level: 55, move: Wonder Room}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
           Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball, Double Team,
           Reflect, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Skill Swap,
-          Roost, Energy Ball, Charge Beam, Endure, Giga Impact, Flash, Thunder Wave,
-          Psych Up, Captivate, Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute,
-          Trick Room, Psyshock, Psychic Terrain, Expanding Force, Fly, Rock Tomb,
-          Rock Slide]
+          Roost, Focus Blast, Energy Ball, Charge Beam, Endure, Giga Impact, Flash,
+          Thunder Wave, Psych Up, Captivate, Sleep Talk, Natural Gift, Grass Knot, Swagger,
+          Substitute, Trick Room, Psyshock, Psychic Terrain, Expanding Force, Fly,
+          Dark Pulse]
   # moves a move tutor can teach it
-  tutor: [Air Slash, Body Slam, Dazzling Gleam, Hurricane, Sky Attack, Zen Headbutt, Charm]
+  tutor: [Air Slash, Body Slam, Dazzling Gleam, Heat Wave, Hurricane, Icy Wind, Sky Attack,
+          Zen Headbutt, Charm]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

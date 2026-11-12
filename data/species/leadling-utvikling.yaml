@@ -63,35 +63,37 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Growl}
-    - {level: 1, move: Rock Blast}
-    - {level: 1, move: Tackle}
     - {level: 1, move: Acid}
+    - {level: 1, move: Harden}
+    - {level: 1, move: Smack Down}
     - {level: 1, move: Rollout}
-    - {level: 1, move: Bone Rush}
-    - {level: 5, move: Rock Throw}
+    - {level: 1, move: Tackle}
+    - {level: 10, move: Smog}
+    - {level: 10, move: Poison Gas}
     - {level: 11, move: Acid Spray}
     - {level: 11, move: Rock Polish}
     - {level: 14, move: Poison Powder}
-    - {level: 15, move: Smack Down}
+    - {level: 15, move: Rock Throw}
     - {level: 16, move: Ancient Power}
-    - {level: 19, move: Venoshock}
-    - {level: 26, move: Rock Slide}
+    - {level: 16, move: Toxic Spikes}
+    - {level: 20, move: Rock Slide}
+    - {level: 24, move: Venoshock}
+    - {level: 28, move: Bone Rush}
     - {level: 29, move: Toxic}
     - {level: 30, move: Power Gem}
-    - {level: 32, move: Stealth Rock}
+    - {level: 33, move: Acid Armor}
+    - {level: 43, move: Sludge Bomb}
     - {level: 45, move: Stone Edge}
     - {level: 51, move: Sludge Wave}
     - {level: 58, move: Belch}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Earthquake,
-          Return, Dig, Double Team, Sludge Bomb, Sandstorm, Rock Tomb, Facade, Secret Power,
-          Rest, Attract, Endure, Flash, Stone Edge, Stealth Rock, Captivate, Rock Slide,
-          Sleep Talk, Natural Gift, Poison Jab, Swagger, Substitute, Venoshock, Heavy Slam,
-          Acid Spray, Bulldoze, Body Press, Rock Smash, Thief, Rock Polish]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Rain Dance, Frustration, Return, Double Team,
+          Sludge Bomb, Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Attract, Flash,
+          Stone Edge, Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift,
+          Poison Jab, Swagger, Substitute, Venoshock, Heavy Slam, Acid Spray, Bulldoze,
+          Body Press, Meteor Beam, Earthquake, Dig, Thief, Rock Polish, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Iron Head, Leaf Storm, Magical Leaf,
-          Power Gem]
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Leaf Storm, Magical Leaf, Power Gem]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

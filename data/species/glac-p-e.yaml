@@ -67,34 +67,39 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Growl}
+    - {level: 1, move: Ice Shard}
     - {level: 1, move: Leer}
-    - {level: 1, move: Rock Smash}
+    - {level: 1, move: Quick Attack}
     - {level: 1, move: Slash}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Taunt}
     - {level: 5, move: Double Kick}
+    - {level: 8, move: Rock Smash}
     - {level: 12, move: Detect}
     - {level: 15, move: Focus Energy}
     - {level: 16, move: Endure}
     - {level: 19, move: Feint}
-    - {level: 30, move: Brick Break}
+    - {level: 24, move: Ice Fang}
+    - {level: 25, move: Brick Break}
+    - {level: 28, move: Protect}
+    - {level: 29, move: Agility}
     - {level: 32, move: Quick Guard}
-    - {level: 38, move: Counter}
-    - {level: 40, move: Reversal}
+    - {level: 37, move: Icicle Crash}
     - {level: 40, move: Swords Dance}
-    - {level: 40, move: Sacred Sword}
+    - {level: 41, move: Hammer Arm}
     - {level: 44, move: Wide Guard}
+    - {level: 44, move: Sacred Sword}
+    - {level: 49, move: Leaf Blade}
     - {level: 50, move: Close Combat}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Toxic, Hail, Bulk Up, Hidden Power, Sunny Day, Taunt, Ice Beam,
           Blizzard, Hyper Beam, Protect, Rain Dance, Frustration, Earthquake, Return, Dig,
           Brick Break, Double Team, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest,
           Attract, Thief, Focus Blast, Fling, Endure, Drain Punch, Giga Impact, Stone Edge,
-          Avalanche, Swords Dance, Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute,
-          Low Sweep, Bulldoze, Body Press, Coaching, Strength, Rock Smash]
+          Avalanche, Swords Dance, Rock Slide, Sleep Talk, Swagger, Substitute, Low Sweep,
+          Bulldoze, Body Press, Coaching, Triple Axel, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Close Combat, Endeavor, Ice Fang, Ice Punch, Icicle Spear, Icy Wind,
-          Power-Up Punch, Thunder Punch, Zen Headbutt, Ice Shard]
+          Power-Up Punch, Thunder Punch, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

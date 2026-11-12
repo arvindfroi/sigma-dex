@@ -66,32 +66,35 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Echoed Voice}
     - {level: 1, move: Growl}
     - {level: 1, move: Growth}
-    - {level: 1, move: Tackle}
-    - {level: 1, move: Wrap}
+    - {level: 1, move: Tail Whip}
     - {level: 1, move: Pound}
     - {level: 6, move: Helping Hand}
     - {level: 9, move: Draining Kiss}
     - {level: 12, move: Charm}
     - {level: 15, move: Magical Leaf}
     - {level: 18, move: Synthesis}
-    - {level: 24, move: Grass Knot}
+    - {level: 24, move: Tri Attack}
+    - {level: 25, move: Dazzling Gleam}
     - {level: 27, move: Sweet Kiss}
-    - {level: 33, move: Petal Blizzard}
+    - {level: 31, move: Wish}
+    - {level: 35, move: Hyper Voice}
     - {level: 39, move: Moonblast}
     - {level: 42, move: Sweet Scent}
     - {level: 45, move: Petal Dance}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
           Protect, Rain Dance, Safeguard, Frustration, Solar Beam, Return, Psychic,
-          Double Team, Facade, Secret Power, Rest, Attract, Thief, Energy Ball, Fling,
-          Endure, Giga Impact, Thunder Wave, Psych Up, Sleep Talk, Natural Gift, Grass Knot,
-          Swagger, U-turn, Substitute, Draining Kiss, Play Rough]
+          Double Team, Reflect, Facade, Secret Power, Rest, Attract, Thief, Energy Ball,
+          Fling, Endure, Giga Impact, Thunder Wave, Psych Up, Sleep Talk, Natural Gift,
+          Grass Knot, Swagger, U-turn, Substitute, Psyshock, Draining Kiss, Play Rough,
+          Baby-Doll Eyes, Shadow Ball, Mystical Fire]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Charm, Dazzling Gleam, Endeavor, Hyper Voice, Magical Leaf]
+  tutor: [Body Slam, Charm, Dazzling Gleam, Endeavor, Heal Bell, Hyper Voice, Magical Leaf]
   # only needed for the first stage of an evolution line
-  egg: [Lucky Chant, Fake Out, After You, Endeavor, Double-Edge]
+  egg: [Lucky Chant, Fake Out, After You, Endeavor]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

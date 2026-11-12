@@ -74,27 +74,24 @@ learnset:
     - {level: 1, move: Psycho Cut}
     - {level: 1, move: Leer}
     - {level: 10, move: Hone Claws}
-    - {level: 12, move: Feint}
-    - {level: 20, move: Scary Face}
+    - {level: 18, move: Aerial Ace}
     - {level: 20, move: Taunt}
     - {level: 21, move: Slash}
-    - {level: 28, move: Protect}
-    - {level: 35, move: Focus Energy}
-    - {level: 40, move: Sucker Punch}
-    - {level: 47, move: Superpower}
-    - {level: 50, move: Foul Play}
+    - {level: 30, move: Fury Swipes}
+    - {level: 32, move: Agility}
+    - {level: 37, move: Foul Play}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
           Protect, Rain Dance, Frustration, Return, Psychic, Shadow Ball, Brick Break,
           Double Team, Reflect, Rock Tomb, Aerial Ace, Torment, Facade, Secret Power, Rest,
           Attract, Thief, Skill Swap, Fling, Endure, Shadow Claw, Payback, Giga Impact,
-          Flash, Thunder Wave, Swords Dance, Psych Up, Dark Pulse, Rock Slide, Sleep Talk,
-          Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Foul Play,
-          Brutal Swing, Psychic Fangs, Expanding Force, Cut, Rock Smash]
+          Flash, Thunder Wave, Swords Dance, Psych Up, Dark Pulse, Rock Slide, X-Scissor,
+          Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock,
+          Foul Play, Brutal Swing, Psychic Fangs, Expanding Force, Cut, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Nasty Plot, Snarl, Zen Headbutt]
+  tutor: [Body Slam, Close Combat, Nasty Plot, Snarl, Zen Headbutt, Night Slash]
   # only needed for the first stage of an evolution line
-  egg: [Feint Attack, Punishment, Zen Headbutt, Assurance, Power Trip]
+  egg: [Sucker Punch, Feint Attack, Punishment, Mirror Coat, Power Trip]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

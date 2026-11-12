@@ -66,29 +66,31 @@ learnset:
     - {level: 1, move: Growl}
     - {level: 1, move: Water Gun}
     - {level: 8, move: Quick Attack}
-    - {level: 8, move: Supersonic}
     - {level: 8, move: Wrap}
+    - {level: 9, move: Aqua Jet}
     - {level: 10, move: Thunder Shock}
-    - {level: 12, move: Mud Shot}
-    - {level: 14, move: Water Pulse}
+    - {level: 11, move: Thunder Wave}
     - {level: 19, move: Bite}
     - {level: 20, move: Bubble Beam}
+    - {level: 20, move: Volt Switch}
+    - {level: 24, move: Razor Shell}
     - {level: 30, move: Agility}
     - {level: 31, move: Discharge}
-    - {level: 35, move: Brine}
+    - {level: 39, move: Surf}
+    - {level: 40, move: Aqua Tail}
+    - {level: 41, move: Thunderbolt}
     - {level: 44, move: Hydro Pump}
     - {level: 44, move: Rain Dance}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Protect, Rain Dance,
-          Frustration, Thunderbolt, Thunder, Return, Double Team, Facade, Secret Power,
-          Rest, Attract, Brine, Charge Beam, Endure, Flash, Thunder Wave, Captivate,
-          Sleep Talk, Natural Gift, Swagger, Substitute, Scald, Electroweb, Eerie Impulse,
-          Liquidation, Surf, Whirlpool, Waterfall]
+          Frustration, Thunderbolt, Thunder, Return, Double Team, Shock Wave, Facade,
+          Secret Power, Rest, Attract, Brine, Charge Beam, Endure, Flash, Thunder Wave,
+          Captivate, Sleep Talk, Natural Gift, Swagger, Substitute, Scald, Electroweb,
+          Eerie Impulse, Liquidation, Flip Turn, Surf, Whirlpool, Waterfall]
   # moves a move tutor can teach it
-  tutor: [Icy Wind, Volt Switch, Aqua Jet]
+  tutor: [Aqua Tail, Icy Wind, Thunder Fang, Volt Switch]
   # only needed for the first stage of an evolution line
-  egg: [Shock Wave, Muddy Water, Aqua Tail, Thunder Fang, Mist, Mud Sport, Electro Ball,
-        Haze]
+  egg: [Thunder Fang, Muddy Water, Mist, Mud Sport, Fire Fang, Ice Fang, Haze]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

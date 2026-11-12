@@ -69,15 +69,18 @@ learnset:
     - {level: 4, move: Arm Thrust}
     - {level: 5, move: Rock Smash}
     - {level: 8, move: Taunt}
-    - {level: 16, move: Low Sweep}
+    - {level: 15, move: Detect}
     - {level: 22, move: Brick Break}
+    - {level: 23, move: Rage}
     - {level: 25, move: Bulk Up}
     - {level: 28, move: Scary Face}
-    - {level: 28, move: Vital Throw}
+    - {level: 29, move: Karate Chop}
     - {level: 40, move: Close Combat}
     - {level: 40, move: Reversal}
-    - {level: 40, move: Seismic Toss}
+    - {level: 41, move: Hammer Arm}
     - {level: 45, move: Dynamic Punch}
+    - {level: 45, move: Superpower}
+    - {level: 48, move: Focus Punch}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance,
           Frustration, Earthquake, Return, Dig, Brick Break, Double Team, Rock Tomb, Facade,
@@ -85,11 +88,11 @@ learnset:
           Payback, Stone Edge, Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute,
           Low Sweep, Bulldoze, Coaching, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Close Combat, Counter, Endeavor, Fire Punch, Ice Punch, Power-Up Punch,
-          Thunder Punch, Zen Headbutt]
+  tutor: [Body Slam, Close Combat, Counter, Endeavor, Fire Punch, Ice Punch, Iron Head,
+          Power-Up Punch, Thunder Punch, Zen Headbutt, Mach Punch]
   # only needed for the first stage of an evolution line
-  egg: [Power-Up Punch, Quick Guard, Wide Guard, Smelling Salts, Revenge, Storm Throw,
-        Wake-Up Slap, Cross Chop]
+  egg: [Counter, Power-Up Punch, Seismic Toss, Thunder Punch, Ice Punch, Quick Guard,
+        Bullet Punch, Amnesia]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

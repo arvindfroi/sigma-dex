@@ -63,29 +63,31 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Growl}
     - {level: 1, move: Astonish}
+    - {level: 1, move: Growl}
+    - {level: 8, move: Shadow Sneak}
+    - {level: 10, move: Spite}
     - {level: 11, move: Quick Attack}
-    - {level: 15, move: Confuse Ray}
-    - {level: 20, move: Lick}
-    - {level: 24, move: Acrobatics}
+    - {level: 14, move: Confuse Ray}
+    - {level: 26, move: Air Cutter}
+    - {level: 33, move: Acrobatics}
     - {level: 35, move: Hex}
     - {level: 36, move: Gust}
     - {level: 48, move: Shadow Ball}
     - {level: 49, move: Night Shade}
     - {level: 54, move: Air Slash}
     - {level: 67, move: Agility}
-    - {level: 74, move: Roost}
     - {level: 80, move: Hurricane}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return, Psychic,
-          Shadow Ball, Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief,
-          Roost, Endure, Psych Up, Captivate, Sleep Talk, Natural Gift, Swagger, U-turn,
-          Substitute, Trick Room, Fly]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration, Return,
+          Psychic, Shadow Ball, Double Team, Aerial Ace, Facade, Secret Power, Rest,
+          Attract, Thief, Roost, Endure, Will-O-Wisp, Psych Up, Captivate, Sleep Talk,
+          Natural Gift, Swagger, U-turn, Substitute, Trick Room, Foul Play, Fly]
   # moves a move tutor can teach it
   tutor: [Air Slash, Brave Bird, Curse, Heat Wave, Hurricane, Poltergeist, Sky Attack]
   # only needed for the first stage of an evolution line
-  egg: [Shadow Sneak, Defog, Ominous Wind, Feint Attack, Disable]
+  egg: [Feint Attack, Disable, Defog, Ally Switch, Knock Off, Ominous Wind, Curse, Grudge,
+        Sucker Punch]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

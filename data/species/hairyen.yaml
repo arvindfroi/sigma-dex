@@ -64,32 +64,36 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Absorb}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Water Gun}
+    - {level: 4, move: Withdraw}
     - {level: 6, move: Razor Leaf}
-    - {level: 10, move: Withdraw}
-    - {level: 12, move: Bite}
+    - {level: 10, move: Mud-Slap}
     - {level: 12, move: Mega Drain}
     - {level: 12, move: Mud Shot}
-    - {level: 18, move: Protect}
+    - {level: 15, move: Aqua Cutter}
     - {level: 23, move: Leech Seed}
-    - {level: 24, move: Synthesis}
-    - {level: 30, move: Razor Shell}
+    - {level: 24, move: Giga Drain}
+    - {level: 25, move: Rain Dance}
+    - {level: 30, move: Curse}
     - {level: 32, move: Seed Bomb}
     - {level: 35, move: Horn Leech}
     - {level: 35, move: Iron Defense}
+    - {level: 40, move: Leaf Blade}
+    - {level: 41, move: Energy Ball}
     - {level: 48, move: Crabhammer}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Water Pulse, Toxic, Hail, Bullet Seed, Hidden Power, Sunny Day, Ice Beam,
-          Blizzard, Protect, Rain Dance, Giga Drain, Frustration, Solar Beam, Return,
-          Double Team, Facade, Secret Power, Rest, Attract, Energy Ball, Brine, Endure,
-          Flash, Captivate, Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute,
-          Scald, Grassy Terrain, Liquidation, Surf, Whirlpool, Waterfall]
+          Blizzard, Rain Dance, Giga Drain, Frustration, Solar Beam, Return, Double Team,
+          Sludge Bomb, Facade, Secret Power, Rest, Attract, Energy Ball, Brine, Flash,
+          Captivate, Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute, Scald,
+          Grassy Terrain, Liquidation, Surf, Whirlpool, Waterfall]
   # moves a move tutor can teach it
   tutor: [Aqua Tail, Body Slam, Icy Wind, Leaf Storm, Magical Leaf, Seed Bomb, Synthesis,
           Yawn]
   # only needed for the first stage of an evolution line
-  egg: [Worry Seed, Leaf Storm, Bubble Beam, Hydro Pump, Magical Leaf, Aqua Tail]
+  egg: [Leaf Storm, Magical Leaf, Aqua Tail, Slam, Worry Seed, Vine Whip, Grass Whistle,
+        Bubble Beam, Stockpile]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

@@ -66,36 +66,37 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Absorb}
-    - {level: 1, move: Charm}
-    - {level: 1, move: Growl}
-    - {level: 1, move: Growth}
-    - {level: 1, move: Razor Leaf}
-    - {level: 1, move: Tackle}
+    - {level: 1, move: Bite}
+    - {level: 1, move: Helping Hand}
     - {level: 1, move: Leafage}
+    - {level: 1, move: Razor Leaf}
     - {level: 1, move: Scratch}
-    - {level: 5, move: Sand Attack}
-    - {level: 7, move: Bite}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Leer}
     - {level: 10, move: Quick Attack}
     - {level: 12, move: Mega Drain}
     - {level: 13, move: Vine Whip}
+    - {level: 16, move: Bullet Seed}
     - {level: 16, move: Leech Seed}
-    - {level: 19, move: Screech}
-    - {level: 20, move: Seed Bomb}
     - {level: 25, move: Slam}
     - {level: 28, move: Petal Blizzard}
-    - {level: 40, move: Horn Leech}
+    - {level: 30, move: Synthesis}
+    - {level: 33, move: Slash}
+    - {level: 40, move: Seed Bomb}
+    - {level: 40, move: Grassy Glide}
+    - {level: 42, move: Crunch}
     - {level: 44, move: Power Whip}
-    - {level: 45, move: Endeavor}
     - {level: 48, move: Wood Hammer}
     - {level: 50, move: Leaf Blade}
+    - {level: 60, move: Wild Charge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
-          Giga Drain, Frustration, Solar Beam, Return, Double Team, Facade, Secret Power,
-          Rest, Attract, Energy Ball, Endure, Giga Impact, Flash, Swords Dance, Sleep Talk,
-          Grass Knot, Swagger, Substitute, Grassy Terrain, Dig]
+          Giga Drain, Frustration, Solar Beam, Return, Dig, Brick Break, Double Team,
+          Facade, Secret Power, Rest, Attract, Energy Ball, Endure, Giga Impact, Flash,
+          Swords Dance, Sleep Talk, Grass Knot, Swagger, U-turn, Substitute, Grassy Terrain]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Endeavor, Leaf Storm, Magical Leaf, Seed Bomb, Solar Blade, Synthesis]
+  tutor: [Body Slam, Endeavor, Leaf Storm, Magical Leaf, Seed Bomb, Solar Blade, Synthesis,
+          Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

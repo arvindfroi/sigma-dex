@@ -69,25 +69,29 @@ learnset:
     - {level: 0, move: Cosmic Shield}
     - {level: 1, move: Confusion}
     - {level: 1, move: Extrasensory}
-    - {level: 1, move: Growl}
     - {level: 1, move: Tackle}
     - {level: 1, move: Water Gun}
     - {level: 1, move: Withdraw}
-    - {level: 12, move: Bite}
+    - {level: 9, move: Yawn}
+    - {level: 10, move: Aqua Jet}
     - {level: 12, move: Aqua Ring}
     - {level: 13, move: Rapid Spin}
+    - {level: 14, move: Psyshock}
     - {level: 15, move: Psybeam}
-    - {level: 15, move: Water Pulse}
     - {level: 20, move: Hypnosis}
+    - {level: 20, move: Protect}
     - {level: 20, move: Wrap}
-    - {level: 21, move: Headbutt}
-    - {level: 25, move: Bubble Beam}
-    - {level: 26, move: Protect}
+    - {level: 22, move: Water Pulse}
+    - {level: 24, move: Bubble Beam}
+    - {level: 27, move: Razor Shell}
+    - {level: 28, move: Recover}
     - {level: 30, move: Surf}
     - {level: 32, move: Muddy Water}
     - {level: 40, move: Psychic}
     - {level: 42, move: Rain Dance}
     - {level: 43, move: Iron Defense}
+    - {level: 44, move: Calm Mind}
+    - {level: 47, move: Aqua Tail}
     - {level: 49, move: Hydro Pump}
     - {level: 56, move: Future Sight}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
@@ -97,10 +101,10 @@ learnset:
           Attract, Skill Swap, Energy Ball, Brine, Fling, Endure, Giga Impact, Flash,
           Thunder Wave, Psych Up, Captivate, Rock Slide, Sleep Talk, Natural Gift,
           Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Scald, Psychic Terrain,
-          Liquidation, Expanding Force, Surf, Whirlpool, Waterfall, Brick Break, Flip Turn,
-          Strength, Rock Smash, Thief]
+          Liquidation, Expanding Force, Flip Turn, Surf, Whirlpool, Waterfall, Brick Break,
+          Charge Beam, Strength, Rock Smash, Thief]
   # moves a move tutor can teach it
-  tutor: [Aqua Tail, Body Slam, Icy Wind, Zen Headbutt, Charm]
+  tutor: [Aqua Tail, Body Slam, Icy Wind, Zen Headbutt, Charm, Dazzling Gleam]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

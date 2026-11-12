@@ -64,31 +64,33 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Confusion}
-    - {level: 1, move: Play Nice}
     - {level: 1, move: Pound}
+    - {level: 1, move: Stored Power}
+    - {level: 4, move: Confuse Ray}
     - {level: 4, move: Hypnosis}
-    - {level: 5, move: Meditate}
-    - {level: 6, move: Disable}
     - {level: 12, move: Imprison}
     - {level: 14, move: Psybeam}
     - {level: 16, move: Headbutt}
     - {level: 21, move: Poison Gas}
+    - {level: 24, move: Meditate}
+    - {level: 25, move: Recover}
     - {level: 27, move: Extrasensory}
     - {level: 27, move: Psyshock}
+    - {level: 35, move: Calm Mind}
     - {level: 43, move: Psychic}
-    - {level: 47, move: Nasty Plot}
     - {level: 52, move: Future Sight}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance,
           Safeguard, Frustration, Return, Psychic, Shadow Ball, Double Team, Reflect,
           Torment, Facade, Secret Power, Rest, Attract, Thief, Skill Swap, Charge Beam,
           Endure, Recycle, Flash, Thunder Wave, Psych Up, Rock Slide, Sleep Talk,
-          Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock,
+          Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Foul Play,
           Psychic Terrain, Expanding Force]
   # moves a move tutor can teach it
   tutor: [Body Slam, Dazzling Gleam, Nasty Plot, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Psycho Cut, Mirror Coat, Barrier, Zen Headbutt, Guard Swap, Synchronoise]
+  egg: [Psycho Cut, Mirror Coat, Barrier, Zen Headbutt, Synchronoise, Guard Swap,
+        Helping Hand]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

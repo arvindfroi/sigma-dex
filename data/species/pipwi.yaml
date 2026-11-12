@@ -67,27 +67,29 @@ learnset:
     - {level: 1, move: Leafage}
     - {level: 1, move: Scratch}
     - {level: 1, move: Tackle}
-    - {level: 3, move: Peck}
-    - {level: 4, move: Absorb}
+    - {level: 10, move: Vine Whip}
+    - {level: 10, move: Peck}
+    - {level: 10, move: Quick Attack}
+    - {level: 11, move: Double Kick}
     - {level: 13, move: Razor Leaf}
     - {level: 16, move: Leech Seed}
     - {level: 18, move: Growth}
     - {level: 18, move: Slash}
-    - {level: 25, move: Mega Drain}
+    - {level: 24, move: Horn Leech}
     - {level: 28, move: Seed Bomb}
-    - {level: 40, move: Energy Ball}
     - {level: 41, move: Leaf Blade}
     - {level: 46, move: Power Whip}
+    - {level: 46, move: Wood Hammer}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Protect, Giga Drain, Frustration,
           Solar Beam, Return, Double Team, Facade, Secret Power, Rest, Attract, Energy Ball,
           Endure, Flash, Swords Dance, Sleep Talk, Grass Knot, Swagger, Substitute,
           Grassy Terrain]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Endeavor, Leaf Storm, Magical Leaf, Seed Bomb, Synthesis]
+  tutor: [Body Slam, Endeavor, Leaf Storm, Magical Leaf, Seed Bomb, Solar Blade, Synthesis]
   # only needed for the first stage of an evolution line
-  egg: [Worry Seed, Magical Leaf, Leaf Storm, Grass Whistle, Synthesis, Nature Power,
-        Petal Blizzard, Tickle]
+  egg: [Worry Seed, Magical Leaf, Petal Blizzard, Leaf Storm, Grass Whistle, Synthesis,
+        Fake Out, Nature Power, Tickle]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

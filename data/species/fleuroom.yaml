@@ -68,24 +68,29 @@ learnset:
     - {level: 1, move: Tackle}
     - {level: 4, move: Confuse Ray}
     - {level: 8, move: Ingrain}
+    - {level: 9, move: Fairy Wind}
+    - {level: 10, move: Stun Spore}
+    - {level: 10, move: Aromatherapy}
     - {level: 12, move: Mega Drain}
     - {level: 16, move: Sleep Powder}
     - {level: 20, move: Moonlight}
     - {level: 25, move: Strength Sap}
     - {level: 28, move: Giga Drain}
     - {level: 32, move: Dazzling Gleam}
-    - {level: 33, move: Synthesis}
     - {level: 40, move: Moonblast}
+    - {level: 41, move: Energy Ball}
+    - {level: 45, move: Solar Beam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Light Screen, Protect, Giga Drain,
           Safeguard, Frustration, Solar Beam, Return, Double Team, Sludge Bomb, Facade,
-          Secret Power, Rest, Attract, Energy Ball, Endure, Flash, Thunder Wave, Sleep Talk,
-          Grass Knot, Swagger, Substitute, Draining Kiss, Grassy Terrain]
+          Rest, Attract, Energy Ball, Endure, Flash, Thunder Wave, Sleep Talk, Grass Knot,
+          Swagger, Substitute, Draining Kiss, Grassy Terrain]
   # moves a move tutor can teach it
   tutor: [Charm, Dazzling Gleam, Leaf Storm, Magical Leaf, Pollen Puff, Seed Bomb,
           Synthesis]
   # only needed for the first stage of an evolution line
-  egg: [Leech Seed, Amnesia, Stun Spore, Seed Bomb, Worry Seed, Leaf Storm, Razor Leaf]
+  egg: [Leech Seed, Growth, Amnesia, Leaf Storm, Grass Whistle, Seed Bomb, Worry Seed,
+        Razor Leaf]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

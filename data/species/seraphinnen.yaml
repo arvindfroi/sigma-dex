@@ -69,28 +69,34 @@ learnset:
     - {level: 1, move: Air Slash}
     - {level: 1, move: Growl}
     - {level: 1, move: Gust}
-    - {level: 1, move: Quick Attack}
     - {level: 1, move: Supersonic}
-    - {level: 1, move: Tackle}
     - {level: 1, move: Wish}
+    - {level: 1, move: Tackle}
+    - {level: 6, move: Quick Attack}
+    - {level: 10, move: Confusion}
     - {level: 12, move: Whirlwind}
     - {level: 15, move: Air Cutter}
-    - {level: 15, move: Aerial Ace}
+    - {level: 16, move: Wing Attack}
     - {level: 17, move: Screech}
     - {level: 19, move: Roost}
     - {level: 23, move: Tailwind}
     - {level: 28, move: Hurricane}
     - {level: 31, move: Agility}
+    - {level: 36, move: Giga Drain}
     - {level: 37, move: Safeguard}
-    - {level: 42, move: Sky Attack}
-    - {level: 46, move: Brave Bird}
+    - {level: 41, move: Brave Bird}
+    - {level: 43, move: Esper Wing}
+    - {level: 46, move: Fly}
+    - {level: 50, move: Heal Pulse}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
-          Solar Beam, Return, Shadow Ball, Double Team, Aerial Ace, Facade, Secret Power,
-          Rest, Attract, Thief, Steel Wing, Roost, Endure, Giga Impact, Psych Up, Captivate,
-          Sleep Talk, Natural Gift, Swagger, Pluck, U-turn, Substitute, Dual Wingbeat, Fly]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Giga Drain,
+          Frustration, Solar Beam, Return, Psychic, Shadow Ball, Double Team, Aerial Ace,
+          Facade, Secret Power, Rest, Attract, Thief, Steel Wing, Roost, Endure,
+          Giga Impact, Flash, Psych Up, Captivate, Sleep Talk, Natural Gift, Swagger,
+          U-turn, Substitute, Dual Wingbeat, Fly, Pluck, Calm Mind]
   # moves a move tutor can teach it
-  tutor: [Air Slash, Body Slam, Brave Bird, Heat Wave, Hurricane, Sky Attack]
+  tutor: [Air Slash, Brave Bird, Heat Wave, Hurricane, Icy Wind, Sky Attack, Extrasensory,
+          Dazzling Gleam]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

@@ -71,35 +71,41 @@ learnset:
     - {level: 1, move: Parting Shot}
     - {level: 1, move: Echoed Voice}
     - {level: 1, move: Growl}
+    - {level: 1, move: Tail Whip}
+    - {level: 1, move: Howl}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Astonish}
+    - {level: 5, move: Fury Swipes}
     - {level: 9, move: Payback}
-    - {level: 12, move: Swift}
-    - {level: 18, move: Fury Swipes}
     - {level: 20, move: Rest}
     - {level: 21, move: Bite}
+    - {level: 21, move: Taunt}
+    - {level: 24, move: Slash}
     - {level: 25, move: Roar}
     - {level: 27, move: Assurance}
-    - {level: 28, move: Yawn}
+    - {level: 27, move: Screech}
     - {level: 30, move: Supersonic}
     - {level: 35, move: Uproar}
     - {level: 36, move: Nasty Plot}
-    - {level: 37, move: Agility}
+    - {level: 37, move: Tri Attack}
     - {level: 38, move: Round}
     - {level: 40, move: Snarl}
+    - {level: 42, move: Crunch}
+    - {level: 43, move: Dark Pulse}
     - {level: 43, move: Torment}
-    - {level: 45, move: Screech}
+    - {level: 43, move: Body Slam}
     - {level: 48, move: Sucker Punch}
+    - {level: 48, move: Foul Play}
     - {level: 52, move: Double-Edge}
     - {level: 60, move: Boomburst}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
-          Frustration, Return, Dig, Shadow Ball, Double Team, Aerial Ace, Torment, Facade,
-          Secret Power, Rest, Attract, Thief, Fling, Endure, Payback, Giga Impact,
-          Dark Pulse, Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Foul Play, Cut,
-          Strength, Solar Beam, Captivate, Rock Smash]
+  tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
+          Frustration, Return, Shadow Ball, Double Team, Aerial Ace, Torment, Facade,
+          Secret Power, Rest, Attract, Thief, Fling, Endure, Embargo, Payback, Giga Impact,
+          Dark Pulse, Sleep Talk, Natural Gift, Swagger, Substitute, Foul Play, Solar Beam,
+          Dig, Captivate, Cut, Strength, Rock Smash, Roost, Focus Blast, Thunderbolt]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Endeavor, Hyper Voice, Nasty Plot, Snarl, Zen Headbutt]
+  tutor: [Body Slam, Endeavor, Hyper Voice, Nasty Plot, Snarl, Super Fang, Zen Headbutt,
+          Air Slash]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

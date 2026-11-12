@@ -66,27 +66,32 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Ancient Power}
+    - {level: 0, move: Double Hit}
     - {level: 1, move: Flail}
     - {level: 1, move: Ice Fang}
     - {level: 1, move: Mud-Slap}
     - {level: 1, move: Powder Snow}
     - {level: 1, move: Tackle}
-    - {level: 12, move: Sand Tomb}
+    - {level: 12, move: Bulldoze}
+    - {level: 13, move: Rollout}
     - {level: 15, move: Ice Shard}
     - {level: 15, move: Freeze-Dry}
     - {level: 20, move: Mist}
+    - {level: 24, move: Stomping Tantrum}
     - {level: 25, move: Endure}
-    - {level: 27, move: Bite}
     - {level: 30, move: Icy Wind}
+    - {level: 35, move: Dig}
+    - {level: 35, move: Drill Run}
     - {level: 37, move: Amnesia}
+    - {level: 40, move: Icicle Crash}
     - {level: 44, move: Take Down}
     - {level: 51, move: Earthquake}
+    - {level: 57, move: Ice Spinner}
     - {level: 58, move: Blizzard}
     - {level: 65, move: Thrash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Roar, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Hyper Beam,
-          Protect, Rain Dance, Frustration, Earthquake, Return, Dig, Double Team, Sandstorm,
+  tm_hm: [Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Hyper Beam, Protect,
+          Rain Dance, Frustration, Earthquake, Return, Dig, Double Team, Sandstorm,
           Rock Tomb, Facade, Secret Power, Rest, Attract, Endure, Giga Impact, Stone Edge,
           Avalanche, Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger,
           Substitute, Heavy Slam, Bulldoze, High Horsepower, Body Press, Strength,

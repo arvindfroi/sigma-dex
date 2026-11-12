@@ -66,39 +66,41 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Bulldoze}
-    - {level: 1, move: Growl}
+    - {level: 1, move: Charge Beam}
+    - {level: 1, move: Earth Power}
     - {level: 1, move: Mud-Slap}
     - {level: 1, move: Tackle}
     - {level: 1, move: Thunder Shock}
     - {level: 1, move: Water Gun}
     - {level: 5, move: Endure}
-    - {level: 8, move: Rapid Spin}
+    - {level: 7, move: Thunder Wave}
     - {level: 10, move: Mud Shot}
     - {level: 10, move: Withdraw}
-    - {level: 12, move: Bite}
-    - {level: 15, move: Revenge}
-    - {level: 15, move: Headbutt}
+    - {level: 11, move: Protect}
+    - {level: 13, move: Parabolic Charge}
+    - {level: 15, move: Spark}
     - {level: 17, move: Slash}
+    - {level: 18, move: Bulldoze}
     - {level: 20, move: Charge}
-    - {level: 25, move: Sucker Punch}
-    - {level: 26, move: Dig}
+    - {level: 29, move: Iron Defense}
     - {level: 30, move: Electric Terrain}
-    - {level: 30, move: Charm}
-    - {level: 35, move: Bounce}
-    - {level: 37, move: Drill Run}
-    - {level: 38, move: Crunch}
+    - {level: 33, move: Curse}
+    - {level: 35, move: Drill Run}
+    - {level: 38, move: Dig}
     - {level: 40, move: Muddy Water}
-    - {level: 41, move: Earthquake}
+    - {level: 41, move: Thunderbolt}
     - {level: 45, move: Discharge}
     - {level: 50, move: Flail}
+    - {level: 50, move: Thunder}
+    - {level: 70, move: Shore Up}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
           Frustration, Thunderbolt, Thunder, Earthquake, Return, Dig, Double Team,
-          Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Attract, Charge Beam, Endure,
-          Giga Impact, Flash, Stone Edge, Thunder Wave, Stealth Rock, Rock Slide,
-          Sleep Talk, Natural Gift, Swagger, Substitute, Bulldoze, Electroweb,
-          Eerie Impulse, Electric Terrain, High Horsepower, Strength, Rock Smash, Captivate]
+          Shock Wave, Sludge Bomb, Sandstorm, Rock Tomb, Facade, Secret Power, Rest,
+          Attract, Charge Beam, Endure, Giga Impact, Flash, Stone Edge, Thunder Wave,
+          Stealth Rock, Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Bulldoze,
+          Electroweb, Eerie Impulse, Electric Terrain, High Horsepower, Captivate,
+          Flash Cannon]
   # moves a move tutor can teach it
   tutor: [Body Slam, Curse, Earth Power, Endeavor, Volt Switch]
   egg: []                # only needed for the first stage of an evolution line

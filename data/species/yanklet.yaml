@@ -69,7 +69,6 @@ learnset:
     - {level: 1, move: Leer}
     - {level: 1, move: Pound}
     - {level: 1, move: Rock Smash}
-    - {level: 1, move: Rock Throw}
     - {level: 1, move: Tackle}
     - {level: 1, move: Covet}
     - {level: 1, move: Scratch}
@@ -79,27 +78,31 @@ learnset:
     - {level: 20, move: Rock Slide}
     - {level: 20, move: Thrash}
     - {level: 22, move: Bulk Up}
+    - {level: 22, move: Rock Throw}
     - {level: 24, move: Slam}
+    - {level: 25, move: Brick Break}
     - {level: 28, move: Scary Face}
-    - {level: 29, move: Close Combat}
     - {level: 34, move: Screech}
     - {level: 36, move: Dynamic Punch}
     - {level: 38, move: Stomping Tantrum}
+    - {level: 40, move: Iron Head}
+    - {level: 41, move: Iron Tail}
     - {level: 42, move: Hammer Arm}
     - {level: 42, move: Iron Defense}
+    - {level: 44, move: Body Slam}
+    - {level: 50, move: Close Combat}
     - {level: 51, move: Double-Edge}
-    - {level: 54, move: Superpower}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
-          Frustration, Earthquake, Return, Dig, Brick Break, Double Team, Rock Tomb,
-          Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Focus Blast, Fling,
-          Endure, Payback, Giga Impact, Stone Edge, Swords Dance, Rock Slide, Sleep Talk,
+          Frustration, Earthquake, Return, Dig, Brick Break, Double Team, Rock Tomb, Facade,
+          Secret Power, Rest, Attract, Thief, Focus Blast, Fling, Endure, Payback,
+          Giga Impact, Stone Edge, Gyro Ball, Swords Dance, Rock Slide, Sleep Talk,
           Poison Jab, Swagger, Substitute, Flash Cannon, Heavy Slam, Bulldoze, Body Press,
-          Coaching, Strength, Rock Smash, Iron Tail, Thunderbolt, Thunder, Overheat,
-          Captivate, Natural Gift, U-turn, Rock Climb, Gyro Ball]
+          Coaching, Strength, Rock Smash, Iron Tail, Thunderbolt, Overheat, Captivate,
+          Natural Gift, U-turn, Rock Climb]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Close Combat, Iron Head, Counter, Curse, Endeavor, Hyper Voice,
-          Seed Bomb]
+  tutor: [Body Slam, Close Combat, Curse, Iron Head, Counter, Endeavor, Seed Bomb,
+          Bullet Punch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

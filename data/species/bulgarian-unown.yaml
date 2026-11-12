@@ -66,10 +66,13 @@ learnset:
     - {level: 1, move: Growl}
     - {level: 1, move: Leer}
     - {level: 1, move: Thunder Shock}
+    - {level: 5, move: Confusion}
     - {level: 6, move: Quick Attack}
     - {level: 8, move: Charge}
     - {level: 15, move: Thunder Wave}
-    - {level: 22, move: Volt Switch}
+    - {level: 16, move: Shock Wave}
+    - {level: 22, move: Parabolic Charge}
+    - {level: 24, move: Psybeam}
     - {level: 32, move: Agility}
     - {level: 34, move: Discharge}
     - {level: 40, move: Psychic}
@@ -77,14 +80,14 @@ learnset:
     - {level: 44, move: Thunder}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance,
-          Frustration, Thunderbolt, Thunder, Return, Psychic, Shadow Ball, Double Team,
-          Reflect, Shock Wave, Facade, Secret Power, Rest, Attract, Thief, Skill Swap,
-          Charge Beam, Endure, Flash, Thunder Wave, Psych Up, Sleep Talk, Natural Gift,
-          Swagger, Substitute, Trick Room, Psyshock, Electroweb, Eerie Impulse,
-          Electric Terrain, Expanding Force]
+          Safeguard, Frustration, Thunderbolt, Thunder, Return, Psychic, Shadow Ball,
+          Double Team, Reflect, Shock Wave, Facade, Secret Power, Rest, Attract, Thief,
+          Skill Swap, Charge Beam, Endure, Flash, Thunder Wave, Psych Up, Sleep Talk,
+          Natural Gift, Swagger, Substitute, Trick Room, Psyshock, Electroweb,
+          Eerie Impulse, Electric Terrain, Expanding Force]
   tutor: [Volt Switch, Zen Headbutt] # moves a move tutor can teach it
   # only needed for the first stage of an evolution line
-  egg: [Thunder Fang, Synchronoise, Zen Headbutt, Future Sight, Mirror Coat, Spark,
+  egg: [Synchronoise, Zen Headbutt, Future Sight, Mirror Coat, Simple Beam, Helping Hand,
         Ally Switch]
 
 # --- Where it is found ---

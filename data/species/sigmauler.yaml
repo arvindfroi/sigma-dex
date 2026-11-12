@@ -72,32 +72,35 @@ learnset:
     - {level: 1, move: Rollout}
     - {level: 1, move: Tackle}
     - {level: 1, move: Harden}
-    - {level: 11, move: Mud Shot}
+    - {level: 8, move: Rock Smash}
+    - {level: 12, move: Roar}
     - {level: 13, move: Rock Polish}
     - {level: 18, move: Smack Down}
-    - {level: 20, move: Ancient Power}
     - {level: 20, move: Rock Tomb}
     - {level: 24, move: Headbutt}
+    - {level: 25, move: Bulk Up}
     - {level: 30, move: Iron Defense}
+    - {level: 31, move: Take Down}
     - {level: 32, move: Rock Slide}
-    - {level: 32, move: Stealth Rock}
     - {level: 34, move: Rock Blast}
-    - {level: 36, move: Low Kick}
+    - {level: 38, move: Stealth Rock}
     - {level: 40, move: Dynamic Punch}
+    - {level: 42, move: Brick Break}
     - {level: 44, move: Double-Edge}
     - {level: 44, move: Heavy Slam}
+    - {level: 48, move: Head Smash}
     - {level: 54, move: Stone Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
           Rain Dance, Frustration, Earthquake, Return, Dig, Brick Break, Double Team,
-          Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Attract, Thief, Focus Blast,
-          Fling, Endure, Drain Punch, Giga Impact, Rock Polish, Stone Edge, Stealth Rock,
-          Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Low Sweep, Bulldoze,
+          Rock Tomb, Facade, Secret Power, Rest, Attract, Thief, Focus Blast, Fling, Endure,
+          Drain Punch, Giga Impact, Rock Polish, Stone Edge, Stealth Rock, Rock Slide,
+          Sleep Talk, Natural Gift, Swagger, Substitute, Heavy Slam, Low Sweep, Bulldoze,
           High Horsepower, Body Press, Meteor Beam, Strength, Rock Smash, Captivate]
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Close Combat, Counter, Curse, Earth Power, Endeavor,
-          Fire Punch, Ice Punch, Iron Head, Power Gem, Power-Up Punch, Thunder Punch,
-          Zen Headbutt]
+          Ice Punch, Iron Head, Power Gem, Power-Up Punch, Thunder Punch, Zen Headbutt,
+          Mach Punch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

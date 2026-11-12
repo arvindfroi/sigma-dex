@@ -67,30 +67,34 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Harden}
+    - {level: 1, move: Protect}
+    - {level: 1, move: Rock Polish}
+    - {level: 1, move: Rock Throw}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Water Gun}
+    - {level: 1, move: Absorb}
+    - {level: 4, move: Withdraw}
     - {level: 6, move: Razor Leaf}
     - {level: 8, move: Autotomize}
-    - {level: 10, move: Withdraw}
-    - {level: 12, move: Bite}
+    - {level: 9, move: Mud Shot}
+    - {level: 10, move: Mud-Slap}
     - {level: 12, move: Mega Drain}
-    - {level: 12, move: Mud Shot}
+    - {level: 15, move: Aqua Cutter}
     - {level: 16, move: Curse}
-    - {level: 18, move: Protect}
-    - {level: 20, move: Rock Slide}
+    - {level: 16, move: Gyro Ball}
     - {level: 20, move: Rollout}
     - {level: 24, move: Screech}
-    - {level: 24, move: Synthesis}
-    - {level: 28, move: Sand Tomb}
-    - {level: 30, move: Razor Shell}
+    - {level: 24, move: Giga Drain}
+    - {level: 25, move: Rain Dance}
+    - {level: 32, move: Stealth Rock}
     - {level: 32, move: Seed Bomb}
+    - {level: 34, move: Heavy Slam}
     - {level: 35, move: Horn Leech}
-    - {level: 36, move: Slam}
     - {level: 38, move: Iron Defense}
+    - {level: 40, move: Metal Sound}
     - {level: 40, move: Sandstorm}
     - {level: 44, move: Earth Power}
+    - {level: 44, move: Energy Ball}
     - {level: 48, move: Flash Cannon}
-    - {level: 56, move: Double-Edge}
     - {level: 60, move: Magnet Rise}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
@@ -99,11 +103,11 @@ learnset:
           Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger,
           Substitute, Flash Cannon, Heavy Slam, Bulldoze, High Horsepower, Body Press,
           Strength, Rock Smash, Water Pulse, Hail, Bullet Seed, Ice Beam, Blizzard,
-          Giga Drain, Solar Beam, Energy Ball, Brine, Flash, Swords Dance, Grass Knot,
-          Scald, Grassy Terrain, Liquidation, Surf, Whirlpool, Waterfall]
+          Giga Drain, Solar Beam, Sludge Bomb, Energy Ball, Brine, Flash, Swords Dance,
+          Grass Knot, Scald, Grassy Terrain, Liquidation, Surf, Whirlpool, Waterfall]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Earth Power, Iron Head, Aqua Tail, Icy Wind, Leaf Storm, Magical Leaf,
-          Seed Bomb, Synthesis, Yawn]
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Iron Head, Aqua Tail, Icy Wind,
+          Leaf Storm, Magical Leaf, Seed Bomb, Synthesis, Yawn]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

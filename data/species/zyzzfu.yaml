@@ -66,35 +66,39 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Growl}
     - {level: 1, move: Leer}
+    - {level: 1, move: Nuzzle}
     - {level: 1, move: Quick Attack}
     - {level: 1, move: Thunder Shock}
     - {level: 6, move: Peck}
     - {level: 8, move: Charge}
     - {level: 9, move: Detect}
-    - {level: 15, move: Focus Energy}
+    - {level: 10, move: Rock Smash}
+    - {level: 18, move: Low Kick}
     - {level: 19, move: Bite}
     - {level: 20, move: Thunder Wave}
     - {level: 21, move: Feint}
     - {level: 23, move: Spark}
-    - {level: 33, move: Slam}
+    - {level: 24, move: Brick Break}
     - {level: 40, move: Discharge}
+    - {level: 41, move: Thunderbolt}
+    - {level: 42, move: Hammer Arm}
     - {level: 45, move: Agility}
     - {level: 47, move: Wild Charge}
     - {level: 50, move: Close Combat}
+    - {level: 56, move: Superpower}
     - {level: 58, move: Thunder}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
           Rain Dance, Frustration, Thunderbolt, Thunder, Return, Dig, Brick Break,
-          Double Team, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief,
+          Double Team, Shock Wave, Rock Tomb, Facade, Secret Power, Rest, Attract, Thief,
           Focus Blast, Fling, Charge Beam, Endure, Drain Punch, Giga Impact, Stone Edge,
           Thunder Wave, Swords Dance, Rock Slide, Sleep Talk, Poison Jab, Swagger,
           Substitute, Low Sweep, Bulldoze, Electroweb, Eerie Impulse, Electric Terrain,
           Coaching, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Close Combat, Endeavor, Fire Punch, Power-Up Punch, Thunder Fang,
-          Thunder Punch, Volt Switch]
+  tutor: [Aura Sphere, Body Slam, Close Combat, Endeavor, Fire Punch, Ice Punch,
+          Power-Up Punch, Thunder Fang, Thunder Punch, Volt Switch, Mach Punch, Nasty Plot]
   egg: [Quick Guard]     # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

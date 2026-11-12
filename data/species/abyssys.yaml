@@ -68,27 +68,33 @@ learnset:
     - {level: 1, move: Water Gun}
     - {level: 1, move: Withdraw}
     - {level: 9, move: Psybeam}
+    - {level: 10, move: Aqua Jet}
     - {level: 12, move: Aqua Ring}
     - {level: 13, move: Rapid Spin}
-    - {level: 17, move: Bite}
+    - {level: 14, move: Psyshock}
     - {level: 17, move: Hypnosis}
     - {level: 22, move: Water Pulse}
+    - {level: 24, move: Bubble Beam}
     - {level: 26, move: Protect}
-    - {level: 29, move: Rain Dance}
+    - {level: 27, move: Razor Shell}
     - {level: 32, move: Muddy Water}
+    - {level: 33, move: Recover}
+    - {level: 36, move: Psychic}
     - {level: 40, move: Iron Defense}
+    - {level: 41, move: Surf}
+    - {level: 44, move: Aqua Tail}
     - {level: 45, move: Hydro Pump}
     - {level: 52, move: Future Sight}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Water Pulse, Calm Mind, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard,
           Light Screen, Protect, Rain Dance, Safeguard, Frustration, Return, Psychic,
           Shadow Ball, Double Team, Reflect, Rock Tomb, Facade, Secret Power, Rest, Attract,
-          Skill Swap, Brine, Fling, Endure, Flash, Thunder Wave, Psych Up, Captivate,
-          Rock Slide, Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute, Trick Room,
-          Psyshock, Scald, Psychic Terrain, Liquidation, Expanding Force, Flip Turn, Surf,
-          Whirlpool, Waterfall, Thief]
+          Skill Swap, Brine, Fling, Charge Beam, Endure, Flash, Thunder Wave, Psych Up,
+          Captivate, Rock Slide, Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute,
+          Trick Room, Psyshock, Scald, Psychic Terrain, Liquidation, Expanding Force,
+          Flip Turn, Surf, Whirlpool, Waterfall, Thief]
   # moves a move tutor can teach it
-  tutor: [Aqua Tail, Body Slam, Charm, Icy Wind, Zen Headbutt]
+  tutor: [Aqua Tail, Body Slam, Charm, Dazzling Gleam, Icy Wind, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

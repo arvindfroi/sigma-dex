@@ -70,31 +70,36 @@ learnset:
     - {level: 1, move: Low Kick}
     - {level: 1, move: Pound}
     - {level: 1, move: Tackle}
+    - {level: 8, move: Rock Smash}
     - {level: 8, move: Bite}
     - {level: 10, move: Focus Energy}
-    - {level: 20, move: Rock Slide}
+    - {level: 16, move: Bulldoze}
     - {level: 24, move: Slam}
     - {level: 25, move: Bulk Up}
+    - {level: 26, move: Stomping Tantrum}
+    - {level: 27, move: Brick Break}
     - {level: 28, move: Scary Face}
-    - {level: 32, move: Crunch}
     - {level: 36, move: Dynamic Punch}
     - {level: 36, move: Sand Tomb}
     - {level: 42, move: Hammer Arm}
+    - {level: 42, move: Crunch}
     - {level: 47, move: Earthquake}
-    - {level: 54, move: Superpower}
+    - {level: 50, move: Close Combat}
+    - {level: 55, move: Jaw Lock}
     - {level: 60, move: Focus Punch}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
           Rain Dance, Frustration, Earthquake, Return, Dig, Brick Break, Double Team,
-          Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Attract, Thief, Focus Blast,
-          Fling, Endure, Drain Punch, Payback, Giga Impact, Stone Edge, Stealth Rock,
-          Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute, Low Sweep, Bulldoze,
-          High Horsepower, Body Press, Coaching, Strength, Rock Smash]
+          Rock Tomb, Facade, Secret Power, Rest, Attract, Thief, Focus Blast, Fling, Endure,
+          Drain Punch, Payback, Giga Impact, Stone Edge, Stealth Rock, Rock Slide,
+          Sleep Talk, Poison Jab, Swagger, Substitute, Low Sweep, Bulldoze, High Horsepower,
+          Body Press, Coaching, Strength, Rock Smash, Sandstorm]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Close Combat, Curse, Earth Power, Fire Punch, Ice Punch, Iron Head,
-          Power-Up Punch, Thunder Punch]
+  tutor: [Body Slam, Close Combat, Curse, Earth Power, Ice Punch, Iron Head, Power-Up Punch,
+          Thunder Punch, Mach Punch]
   # only needed for the first stage of an evolution line
-  egg: [Seismic Toss, Counter, Vital Throw, Revenge, Feint, Quick Guard]
+  egg: [Seismic Toss, Counter, Power-Up Punch, Vital Throw, Revenge, Feint, Quick Guard,
+        Harden]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

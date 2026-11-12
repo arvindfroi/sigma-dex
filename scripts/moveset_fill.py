@@ -225,6 +225,72 @@ FLAVOUR = [
 ]
 FLAVOUR_ANY_TYPE = {"Flash", "Withdraw", "Fling", "Smokescreen"}
 
+ARCHETYPES = OUT_DIR / "archetypes.json"        # what kind of fighter each one is (read from all its design fields)
+TYPE_THEMES = {"flames": "Fire", "freezing": "Ice", "electric": "Electric", "plant": "Grass", "stone": "Rock",
+               "metal": "Steel", "mind": "Psychic", "poison": "Poison"}
+
+
+def move_themes(name, m):
+    """The archetype themes a move expresses (punching, biting, sound ...)."""
+    t, f, n = set(), set(m.get("flags") or []), name
+    if "punch" in f: t.add("punching")
+    if re.search(r"Kick|Stomp|Jump Kick", n): t.add("kicking")
+    if "bite" in f or "Fang" in n: t.add("biting")
+    if "slicing" in f or re.search(r"Slash|Cut|Blade", n): t.add("slicing")
+    if re.search(r"Claw|Scratch|Fury Swipes|Slash", n): t.add("claws")
+    if re.search(r"Horn|Drill|Megahorn|Smart Strike|Fury Attack", n): t.add("horns")
+    if "sound" in f: t.add("sound")
+    if "pulse" in f or re.search(r"Beam|Laser|Cannon|Ray\b", n): t.add("beams")
+    if re.search(r"Wing|Air Slash|Brave Bird|^Fly$|Aerial Ace|Gust|Hurricane|Acrobatics|Air Cutter|Sky Attack", n):
+        t.add("wings")
+    if n in ("Tackle", "Body Slam", "Double-Edge", "Take Down", "Giga Impact", "Head Smash", "Wild Charge",
+             "Flare Blitz", "Wave Crash", "Head Charge", "Rollout", "Steel Roller", "Heavy Slam", "Body Press"):
+        t.add("tackling")
+    if "Head" in n: t.add("headbutting")
+    if "Tail" in n: t.add("tail")
+    if m.get("priority", 0) > 0 or m.get("switch") or n in ("Agility", "Rapid Spin", "Quick Attack", "Tailwind"):
+        t.add("speed")
+    if n in ("Taunt", "Encore", "Trick", "Switcheroo", "Fake Out", "Parting Shot", "Foul Play", "Sucker Punch", "Feint",
+             "Torment", "Disable", "Spite", "Knock Off", "Thief", "Covet", "Fake Tears", "Confide", "Snatch", "Embargo",
+             "Feint Attack", "Assurance", "Pay Day", "Teeter Dance", "Lash Out"):
+        t.add("trickster")
+    if m.get("status") or n in ("Confuse Ray", "Supersonic", "Swagger", "Glare", "Yawn"): t.add("status")
+    if m.get("heal") or m.get("drain") or n in ("Wish", "Heal Bell", "Aromatherapy", "Life Dew", "Heal Pulse"):
+        t.add("healing")
+    if m.get("drain"): t.add("draining")
+    if n in ("Light Screen", "Reflect", "Helping Hand", "Follow Me", "Tailwind", "Safeguard", "Aurora Veil",
+             "Heal Bell", "Wish", "Rage Powder", "Wide Guard", "Quick Guard", "Coaching", "Aromatic Mist"):
+        t.add("support")
+    b = m.get("boosts") or {}
+    if b and m.get("target") in ("self", "adjacentAllyOrSelf", "allies") and any(v > 0 for v in b.values()):
+        t.add("setup")
+        if set(k for k, v in b.items() if v > 0) <= {"def", "spd"}: t.add("tank")
+    if n in ("Body Press", "Protect", "Detect", "Curse", "Withdraw", "Stockpile", "Iron Defense", "Amnesia"):
+        t.add("tank")
+    if m.get("weather"): t.add("weather")
+    if m.get("side") in ("stealthrock", "spikes", "toxicspikes", "stickyweb"): t.add("hazards")
+    if m.get("recoil") or n in ("Thrash", "Outrage", "Rage", "Petal Dance", "Close Combat", "Superpower", "Rage Fist",
+                                 "Raging Fury", "Frustration", "Reversal", "Flail", "Endeavor"):
+        t.add("berserker")
+    if m["type"] == "Ghost" and (m["category"] == "Status" or n in ("Hex", "Night Shade", "Shadow Sneak")) or \
+            n in ("Curse", "Destiny Bond", "Grudge", "Spite", "Perish Song", "Nightmare"):
+        t.add("curses")
+    if "dance" in f: t.add("dance")
+    if m.get("multihit"): t.add("multihit")
+    if re.search(r"Throw|Toss|Fling|Rock Blast|Bone", n): t.add("throwing")
+    if n in ("Flash", "Dazzling Gleam", "Solar Beam", "Light Screen", "Moonblast", "Signal Beam", "Luster Purge",
+             "Prismatic Laser", "Flash Cannon", "Mirror Shot", "Power Gem", "Charge Beam", "Tail Glow", "Aurora Beam",
+             "Morning Sun", "Moonlight", "Solar Blade"):
+        t.add("light")
+    if re.search(r"^Dig$|Drill|Mud|Sand Tomb|Bulldoze|Earthquake|Stomping Tantrum|High Horsepower", n):
+        t.add("digging")
+    if m["type"] == "Water" and (m["category"] == "Physical" or n in ("Surf", "Dive", "Whirlpool")): t.add("swimming")
+    if "wind" in f: t.add("wind")
+    for theme, ty in TYPE_THEMES.items():
+        if m["type"] == ty and m["category"] != "Status": t.add(theme)
+    return t
+
+
 # Types the species files cannot hold yet. Arvind 2026-11-12: Rainbro is Stellar (no weaknesses or strengths).
 # Stellar here = no same-type bonus, moves spread over many types (a rainbow); Origin has no such type yet.
 TYPE_OVERRIDES = {"rainbro": ["Stellar"]}
@@ -254,7 +320,7 @@ def learnset_hash(data):
 def group_edited(sid, data, claude):
     """True when someone changed its moves after Claude last applied (then Claude's moves count as theirs)."""
     rec = claude.get(sid) or {}
-    return bool(rec.get("_hash")) and rec["_hash"] != learnset_hash(data)
+    return bool(rec.get("_group")) or (bool(rec.get("_hash")) and rec["_hash"] != learnset_hash(data))
 
 
 def load_ours(exclude_claude=False):
@@ -532,6 +598,10 @@ class Proposer:
         self._evo_used = {}
         self._line_model = {}
         self._cur_level = 0
+        try:
+            self.archetypes = json.loads(ARCHETYPES.read_text(encoding="utf-8"))
+        except Exception:
+            self.archetypes = {}
         self._skipped = {}
         try:
             self.ref_abilities = sorted(json.loads((ROOT / "data" / "engine" / "showdown.json").read_text(
@@ -592,6 +662,9 @@ class Proposer:
         mon = {"name": sp["name"], "types": sp["types"], "stats": stats, "abilities": sp["abilities"]}
         role_text = " ".join(str(sp["design"].get(k) or "") for k in ("wishes", "notes", "concept"))
         info = mp.detect_role(mon, self._role_words(role_text))
+        a_role = (self.archetypes.get(sid) or {}).get("role")
+        if a_role and not sp["design"].get("wishes"):     # the designers' own words still win
+            info = dict(info, role=a_role)
         sp["_profile"] = dict(mon, estimated=estimated, info=info)
         return sp["_profile"]
 
@@ -670,6 +743,34 @@ class Proposer:
                 if t in moveset_data.TYPES and t not in out:
                     out.append(t)
         return out
+
+    def arch(self, sid):
+        return self.archetypes.get(sid) or {}
+
+    def side_factor(self, sid, mv):
+        """A Pokemon that clearly attacks on one side (attack and sp. attack 25+ apart) gets few moves of the other
+        side, like official ones (a fast physical Grass/Bug learns Leaf Blade and X-Scissor, not Energy Ball)."""
+        m = self.M.get(mv)
+        if not m or m["category"] == "Status" or m["power"] <= 1:
+            return 1.0
+        sides = self.attack_sides(sid)
+        if len(sides) == 2 or m["category"] in sides:
+            return 1.0
+        st = self.profile(sid)["stats"]
+        gap = abs(st["attack"] - st["sp_attack"])
+        return 0.6 if gap < 40 else 0.45
+
+    def theme_factor(self, sid, mv):
+        """Vote weight for a move: more when it shows its archetype, much less when it clashes with its body."""
+        a = self.arch(sid)
+        if not a or mv not in self.M:
+            return 1.0
+        th = move_themes(mv, self.M[mv])
+        if th & set(a.get("avoid") or []):
+            return 0.3
+        if mv in (a.get("fits") or []):
+            return 2.0
+        return 1.6 if th & set(a.get("themes") or []) else 1.0
 
     def named_models(self, sid):
         """Official Pokemon the designers name in wishes/notes/concept ("like Zigzagoon or Ratata")."""
@@ -1065,7 +1166,7 @@ class Proposer:
                     continue
                 seen.add(new)
                 n += 1
-                score[new] += w
+                score[new] += w * self.theme_factor(sid, new) * self.side_factor(sid, new)
                 levels[new].append((level, w))
                 donor_bands[self._band(level, start)] += w
                 donor_n += w
@@ -1252,6 +1353,13 @@ class Proposer:
                 score += 0.15
             if m["type"] in self.preferred_types(sid) and m["category"] != "Status":
                 score += 0.2
+            if self.side_factor(sid, mv) < 1:
+                score -= 0.12        # attacks with the stat it does not use
+            tf = self.theme_factor(sid, mv)
+            if tf > 1.5:
+                score += 0.12        # shows its archetype
+            elif tf < 1:
+                score -= 0.3         # clashes with its body or concept
             if key in ("tm_hm", "tutor") and m["category"] in sides and m["power"] >= 70 and \
                     m["type"] not in sp["types"] and (pd >= 0.08 or pt >= 0.08) and \
                     any(moveset_data.effectiveness(m["type"], [d]) >= 2 for d in resisted):
@@ -1592,6 +1700,30 @@ class Proposer:
                     reasons[mv] = text
         return d.get("note")
 
+    def archetype_tools(self, sid, learnset, added, reasons, flags):
+        """Moves that show what kind of fighter it is (proposals/archetypes.json), and none that clash with it."""
+        a = self.arch(sid)
+        if not a:
+            return
+        avoid = set(a.get("avoid") or [])
+        for mv in list(added["tm_hm"]) + list(added["tutor"]) + list(added["egg"]) + [e["move"] for e in added["level_up"]]:
+            if self.M.get(mv) and move_themes(mv, self.M[mv]) & avoid:
+                for key in KEYS:
+                    if key == "level_up":
+                        added[key] = [e for e in added[key] if e["move"] != mv]
+                        learnset[key] = [e for e in learnset[key] if not (e["move"] == mv and e.get("_new"))]
+                    elif mv in added[key]:
+                        added[key].remove(mv)
+                        learnset[key] = [x for x in learnset[key] if x != mv]
+        pool = set(self.full_pool(sid, learnset))
+        n = 0
+        for mv in a.get("fits") or []:
+            if n >= 6 or mv in pool or mv not in self.M or mv in NEVER_ADD or not self.body_ok(sid, mv):
+                continue
+            if self._add(sid, learnset, added, mv, reasons, "fits its archetype (%s)" % a.get("archetype", ""),
+                         prefer_tm=True):
+                n += 1
+
     def ability_tools(self, sid, learnset, added, reasons, donors):
         """Moves that make its abilities work (Strong Jaw -> bite moves, Drought -> Sunny Day/Solar Beam ...)."""
         sp = self.ours[sid]
@@ -1728,6 +1860,26 @@ class Proposer:
                 else:
                     weight.pop(mv, None)
         pool = set(self.full_pool(sid, learnset))
+        st = prof["stats"]
+        fast = info.get("fast") or st["speed"] >= 95
+        if fast and "trick room" not in role:
+            quick = [mv for mv in pool if self.M.get(mv) and (self.M[mv]["switch"] or (self.M[mv]["priority"] > 0
+                     and self.M[mv]["power"] >= 30 and self.M[mv]["category"] in sides))]
+            if not quick:
+                weight = Counter()
+                for w, n in self.weighted_donors(sid):
+                    o = self.ref.all[n]
+                    for mv in set(mv for lv, mv in o["level_up"]) | set(o["tm_hm"]) | set(o["tutor"]):
+                        m = self.M.get(mv)
+                        if m and (m["switch"] or (m["priority"] > 0 and m["power"] >= 30 and m["category"] in sides)) \
+                                and mv not in NEVER_ADD and mv not in ("Fake Out", "First Impression"):
+                            weight[mv] += w * (1.5 if m["type"] in sp["types"] else 1)
+                for mv, wt in weight.most_common(3):
+                    if wt >= 0.12 and self._add(sid, learnset, added, mv, reasons, "role: a fast %s gets a priority "
+                                                "or pivot move (%d%% of similar official Pokemon)" % (
+                                                    info["role"].lower(), round(wt * 100)), prefer_tm=True):
+                        break
+            pool = set(self.full_pool(sid, learnset))
         if "wall" in role or "support" in role:
             if not any(r in pool for r in mp.RECOVERY):
                 c = Counter(r for p in donor_pools for r in mp.RECOVERY if r in p)
@@ -1907,6 +2059,7 @@ class Proposer:
             if wanted:
                 flags.append("New move(s) from the concept card not in the game yet: %s - describe them under "
                              "New moves on the website to add them" % ", ".join(wanted))
+            self.archetype_tools(sid, learnset, added, reasons, flags)
             self.ability_tools(sid, learnset, added, reasons, donors)
             self.flavour_moves(sid, learnset, added, reasons, donors)
             if sp["final"]:
@@ -1966,6 +2119,8 @@ class Proposer:
                 "reasons": {mv: reasons[mv] for mv in reasons if self._in_added(added, mv)},
                 "tutor_places": {mv: [{"where": p["where"], "payment": p["payment"]}
                                       for p in self.ref.tutor_where.get(mv, [])] for mv in learnset["tutor"]},
+                "archetype": self.arch(sid).get("archetype"), "archetype_why": self.arch(sid).get("why"),
+                "themes": self.arch(sid).get("themes") or [],
                 "flags": flags, "claude_fill": bool(sp["design"].get("claude_fill")), "design_note": design_note,
                 "skipped_for_own_moves": self._skipped.get(sid, []),
                 "wishes": sp["design"].get("wishes"),
@@ -2121,6 +2276,7 @@ def cmd_suggest(args):
         for k in KEYS[1:]:
             still[k] = [m for m in cm.get(k, []) if m in have[k]]
         entry = {"name": r["name"], "skipped": r.get("skipped"), "role": r.get("role"),
+                 "archetype": r.get("archetype"), "themes": r.get("themes") or [],
                  "example": r.get("example_set") or [], "inspired": (r.get("models") or {}).get("inspired") or [],
                  "flags": r.get("flags") or [], "claude": still}
         if not r.get("skipped"):
@@ -2175,10 +2331,13 @@ def cmd_apply(args):
         path = dexlib.SPECIES_DIR / (sid + ".yaml")
         data = yaml.safe_load(path.read_text(encoding="utf-8"))
         ls = data.setdefault("learnset", {})
-        if fresh and group_edited(sid, data, claude_moves):
-            print("keep %s: its moves were changed on the website, so only gaps are filled" % sid)
-            claude_moves[sid] = {}          # what Claude added before now counts as the group's
-        elif fresh:      # a new proposal replaces what Claude added before; the group's own moves stay
+        if group_edited(sid, data, claude_moves) or (claude_moves.get(sid) or {}).get("_group"):
+            # the group changed its moves on the website: theirs now; Claude adds nothing (they may have removed
+            # moves on purpose). They can still use the website's Moveset suggestions button.
+            print("keep %s: its moves were changed on the website" % sid)
+            claude_moves[sid] = {"_group": True}
+            continue
+        if fresh:      # a new proposal replaces what Claude added before; the group's own moves stay
             cm = claude_moves.get(sid, {})
             lu_moves = {m for lv, m in cm.get("level_up", [])}
             ls["level_up"] = [e for e in (ls.get("level_up") or []) if not (isinstance(e, dict) and

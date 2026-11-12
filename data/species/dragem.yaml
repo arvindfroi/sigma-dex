@@ -73,25 +73,27 @@ learnset:
     - {level: 1, move: Tackle}
     - {level: 5, move: Bite}
     - {level: 10, move: Dragon Tail}
+    - {level: 20, move: Rock Tomb}
     - {level: 20, move: Scary Face}
-    - {level: 24, move: Stomp}
     - {level: 25, move: Slash}
     - {level: 30, move: Dragon Claw}
     - {level: 30, move: Rock Slide}
-    - {level: 30, move: Stealth Rock}
     - {level: 34, move: Rock Blast}
     - {level: 40, move: Crunch}
+    - {level: 41, move: Dragon Rush}
     - {level: 54, move: Stone Edge}
+    - {level: 66, move: Head Smash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Dragon Claw, Roar, Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect,
-          Rain Dance, Frustration, Iron Tail, Earthquake, Return, Dig, Double Team,
-          Sandstorm, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract, Endure,
-          Dragon Pulse, Giga Impact, Rock Polish, Stone Edge, Stealth Rock, Rock Slide,
-          Sleep Talk, Swagger, Substitute, Bulldoze, Strength, Rock Smash]
+  tm_hm: [Dragon Claw, Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
+          Frustration, Iron Tail, Earthquake, Return, Dig, Brick Break, Double Team,
+          Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Attract, Endure, Dragon Pulse,
+          Giga Impact, Rock Polish, Stone Edge, Stealth Rock, Rock Slide, Sleep Talk,
+          Swagger, Substitute, Bulldoze, High Horsepower, Body Press, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Body Slam, Draco Meteor, Earth Power, Iron Head, Outrage,
-          Power Gem]
-  egg: [Ancient Power, Head Smash] # only needed for the first stage of an evolution line
+  tutor: [Ancient Power, Aqua Tail, Body Slam, Draco Meteor, Dragon Dance, Earth Power,
+          Iron Head, Outrage, Power Gem, Thunder Fang]
+  # only needed for the first stage of an evolution line
+  egg: [Rollout, Curse, Ancient Power, Amnesia]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

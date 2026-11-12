@@ -66,22 +66,22 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Ally Switch}
     - {level: 1, move: Confusion}
+    - {level: 1, move: Ember}
     - {level: 1, move: Leer}
-    - {level: 1, move: Psycho Cut}
-    - {level: 1, move: Safeguard}
     - {level: 5, move: Helping Hand}
     - {level: 7, move: Swift}
     - {level: 21, move: Psybeam}
     - {level: 25, move: Lava Plume}
-    - {level: 28, move: Imprison}
+    - {level: 25, move: Psyshock}
+    - {level: 30, move: Incinerate}
     - {level: 35, move: Extrasensory}
     - {level: 40, move: Agility}
     - {level: 42, move: Nasty Plot}
-    - {level: 42, move: Zen Headbutt}
+    - {level: 45, move: Flamethrower}
+    - {level: 45, move: Inferno}
     - {level: 49, move: Psychic}
-    - {level: 56, move: Uproar}
-    - {level: 61, move: Recover}
     - {level: 63, move: Future Sight}
     - {level: 75, move: Overheat}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
@@ -91,7 +91,7 @@ learnset:
           Facade, Secret Power, Rest, Skill Swap, Overheat, Energy Ball, Fling, Charge Beam,
           Endure, Will-O-Wisp, Giga Impact, Flash, Thunder Wave, Psych Up, Sleep Talk,
           Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Flame Charge,
-          Expanding Force]
+          Mystical Fire, Expanding Force, Focus Blast, U-turn]
   # moves a move tutor can teach it
   tutor: [Body Slam, Flare Blitz, Heat Wave, Nasty Plot, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line

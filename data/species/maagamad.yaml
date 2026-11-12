@@ -70,27 +70,26 @@ learnset:
     - {level: 1, move: Gust}
     - {level: 1, move: Scary Face}
     - {level: 1, move: Whirlwind}
-    - {level: 6, move: Bite}
-    - {level: 9, move: Life Dew}
-    - {level: 18, move: Safeguard}
+    - {level: 10, move: Wing Attack}
     - {level: 20, move: Cross Poison}
-    - {level: 21, move: Wing Attack}
+    - {level: 25, move: Tailwind}
     - {level: 29, move: Hone Claws}
+    - {level: 30, move: Roost}
     - {level: 35, move: Drill Peck}
     - {level: 35, move: Double Hit}
-    - {level: 36, move: Extrasensory}
     - {level: 40, move: Crunch}
     - {level: 45, move: Recover}
     - {level: 54, move: Sky Attack}
-    - {level: 66, move: Hammer Arm}
-    - {level: 70, move: Hurricane}
+    - {level: 60, move: Fly}
     - {level: 72, move: Brave Bird}
-    - {level: 85, move: Hyper Beam}
+    - {level: 75, move: Poison Jab}
+    - {level: 99, move: Gunk Shot}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
-          Return, Double Team, Sludge Bomb, Aerial Ace, Facade, Secret Power, Rest,
-          Steel Wing, Roost, Endure, Giga Impact, Sleep Talk, Natural Gift, Poison Jab,
-          Swagger, U-turn, Substitute, Venoshock, Acid Spray, Dual Wingbeat, Fly, Surf]
+          Earthquake, Return, Double Team, Sludge Bomb, Sandstorm, Aerial Ace, Facade,
+          Secret Power, Rest, Steel Wing, Roost, Endure, Giga Impact, Sleep Talk,
+          Natural Gift, Poison Jab, Swagger, U-turn, Substitute, Venoshock, Acid Spray,
+          Dual Wingbeat, Fly, Surf]
   # moves a move tutor can teach it
   tutor: [Air Slash, Body Slam, Brave Bird, Heat Wave, Hurricane, Iron Head, Sky Attack,
           Zen Headbutt, Weather Ball, Night Slash]

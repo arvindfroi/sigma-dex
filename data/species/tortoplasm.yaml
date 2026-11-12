@@ -64,33 +64,32 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Rollout}
+    - {level: 1, move: Harden}
     - {level: 1, move: Tackle}
     - {level: 3, move: Protect}
     - {level: 10, move: Rock Throw}
-    - {level: 10, move: Smack Down}
     - {level: 10, move: Withdraw}
+    - {level: 13, move: Confuse Ray}
+    - {level: 15, move: Rock Blast}
+    - {level: 20, move: Hex}
     - {level: 21, move: Ancient Power}
-    - {level: 22, move: Hex}
     - {level: 25, move: Power Gem}
-    - {level: 26, move: Rock Slide}
     - {level: 28, move: Night Shade}
     - {level: 32, move: Curse}
     - {level: 36, move: Iron Defense}
     - {level: 39, move: Shadow Ball}
     - {level: 42, move: Sandstorm}
-    - {level: 45, move: Rock Blast}
     - {level: 45, move: Stone Edge}
+    - {level: 52, move: Head Smash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Earthquake,
-          Return, Dig, Psychic, Shadow Ball, Double Team, Sandstorm, Rock Tomb, Facade,
-          Secret Power, Rest, Attract, Thief, Endure, Rock Polish, Stone Edge, Stealth Rock,
-          Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Bulldoze,
-          Strength, Rock Smash]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return, Psychic,
+          Shadow Ball, Double Team, Sandstorm, Rock Tomb, Facade, Secret Power, Rest,
+          Attract, Endure, Will-O-Wisp, Rock Polish, Stone Edge, Stealth Rock, Captivate,
+          Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Bulldoze, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Poltergeist]
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Poltergeist, Power Gem]
   # only needed for the first stage of an evolution line
-  egg: [Head Smash, Shadow Sneak, Knock Off, Disable]
+  egg: [Rollout, Shadow Sneak, Wide Guard, Disable, Grudge, Acid Armor]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

@@ -75,29 +75,29 @@ learnset:
     - {level: 15, move: Roar}
     - {level: 16, move: Bulldoze}
     - {level: 16, move: Curse}
+    - {level: 20, move: Rock Slide}
     - {level: 22, move: Slash}
     - {level: 23, move: Protect}
-    - {level: 24, move: Screech}
     - {level: 25, move: Body Press}
     - {level: 27, move: Stealth Rock}
+    - {level: 28, move: Sand Tomb}
     - {level: 30, move: Iron Defense}
     - {level: 33, move: Heavy Slam}
     - {level: 36, move: Metal Claw}
     - {level: 36, move: Iron Head}
-    - {level: 36, move: Slam}
-    - {level: 40, move: Sandstorm}
+    - {level: 43, move: Heat Crash}
     - {level: 44, move: Dig}
+    - {level: 44, move: Earthquake}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
-          Frustration, Iron Tail, Earthquake, Return, Dig, Double Team, Sandstorm,
-          Rock Tomb, Facade, Secret Power, Rest, Attract, Endure, Giga Impact, Stone Edge,
-          Gyro Ball, Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger,
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
+          Iron Tail, Earthquake, Return, Dig, Double Team, Sandstorm, Rock Tomb, Facade,
+          Secret Power, Rest, Attract, Fling, Endure, Giga Impact, Stone Edge, Gyro Ball,
+          Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger,
           Substitute, Flash Cannon, Heavy Slam, Bulldoze, High Horsepower, Body Press,
           Strength, Rock Smash, Flame Charge]
   # moves a move tutor can teach it
   tutor: [Body Slam, Curse, Earth Power, Iron Head, Metal Claw]
-  # only needed for the first stage of an evolution line
-  egg: [Metal Burst, Earth Power, Skull Bash]
+  egg: [Metal Burst, Skull Bash] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

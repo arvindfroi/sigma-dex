@@ -64,28 +64,30 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Disarming Voice}
-    - {level: 1, move: Power Trip}
-    - {level: 1, move: Tackle}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Protect}
+    - {level: 6, move: Confuse Ray}
+    - {level: 8, move: Snarl}
     - {level: 10, move: Sweet Scent}
     - {level: 12, move: Fairy Wind}
-    - {level: 13, move: Moonlight}
+    - {level: 15, move: Fake Tears}
+    - {level: 17, move: Hex}
     - {level: 20, move: Charm}
-    - {level: 20, move: Hex}
-    - {level: 26, move: Bite}
     - {level: 40, move: Recover}
     - {level: 43, move: Dark Pulse}
-    - {level: 44, move: Assurance}
     - {level: 45, move: Misty Terrain}
+    - {level: 46, move: Nasty Plot}
     - {level: 50, move: Dazzling Gleam}
     - {level: 58, move: Moonblast}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Light Screen, Protect, Rain Dance,
-          Safeguard, Frustration, Return, Double Team, Facade, Secret Power, Rest, Attract,
-          Thief, Energy Ball, Fling, Endure, Payback, Dark Pulse, Sleep Talk, Swagger,
-          Substitute, Foul Play, Draining Kiss, Play Rough, Trick Room, Water Pulse]
+          Safeguard, Frustration, Solar Beam, Return, Psychic, Double Team, Facade,
+          Secret Power, Rest, Attract, Thief, Energy Ball, Fling, Endure, Dark Pulse,
+          Sleep Talk, Swagger, Substitute, Foul Play, Draining Kiss, Misty Terrain,
+          Trick Room, Water Pulse]
   # moves a move tutor can teach it
   tutor: [Charm, Dazzling Gleam, Nasty Plot, Snarl, Curse]
-  egg: [Pursuit, Feint Attack] # only needed for the first stage of an evolution line
+  egg: [Spite]           # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

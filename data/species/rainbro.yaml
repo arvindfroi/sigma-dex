@@ -69,21 +69,28 @@ learnset:
     - {level: 1, move: Aqua Jet}
     - {level: 1, move: Growl}
     - {level: 1, move: Ice Shard}
-    - {level: 1, move: Tail Whip}
+    - {level: 1, move: Leer}
+    - {level: 4, move: Helping Hand}
     - {level: 10, move: Encore}
-    - {level: 12, move: Nuzzle}
+    - {level: 12, move: Quick Attack}
     - {level: 20, move: Charge}
+    - {level: 20, move: Taunt}
+    - {level: 20, move: Swift}
     - {level: 25, move: Charm}
+    - {level: 26, move: Aurora Beam}
     - {level: 32, move: Play Rough}
     - {level: 34, move: Agility}
     - {level: 36, move: Fire Spin}
     - {level: 40, move: Nasty Plot}
-    - {level: 52, move: Head Smash}
+    - {level: 49, move: Foul Play}
+    - {level: 54, move: First Impression}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
-          Frustration, Return, Double Team, Facade, Secret Power, Rest, Attract, Thief,
-          Endure, Giga Impact, Sleep Talk, Swagger, Substitute]
-  tutor: [Body Slam, Endeavor] # moves a move tutor can teach it
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen, Protect,
+          Rain Dance, Frustration, Return, Double Team, Facade, Secret Power, Rest, Attract,
+          Thief, Endure, Giga Impact, Sleep Talk, Swagger, U-turn, Substitute, Psyshock,
+          Calm Mind]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Endeavor, Dazzling Gleam]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

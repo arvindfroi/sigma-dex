@@ -69,6 +69,9 @@ learnset:
     - {level: 6, move: Water Gun}
     - {level: 7, move: Work Up}
     - {level: 10, move: Bite}
+    - {level: 10, move: Scratch}
+    - {level: 10, move: Tail Whip}
+    - {level: 10, move: Quick Attack}
     - {level: 12, move: Protect}
     - {level: 14, move: Aqua Jet}
     - {level: 17, move: Double Hit}
@@ -79,13 +82,13 @@ learnset:
     - {level: 35, move: Liquidation}
     - {level: 39, move: Wave Crash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Protect, Rain Dance,
-          Frustration, Return, Dig, Double Team, Facade, Secret Power, Rest, Attract, Brine,
+  tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Protect, Rain Dance,
+          Frustration, Return, Dig, Double Team, Facade, Secret Power, Rest, Attract,
           Endure, Captivate, Sleep Talk, Natural Gift, Swagger, Substitute, Scald,
           Liquidation, Flip Turn, Surf, Whirlpool, Waterfall]
-  tutor: [Aqua Tail, Body Slam, Icy Wind]
+  tutor: [Aqua Tail, Body Slam] # moves a move tutor can teach it
   # only needed for the first stage of an evolution line
-  egg: [Hydro Pump, Counter, Ancient Power, Mud Sport, Muddy Water, Bubble Beam, Mud-Slap]
+  egg: [Double-Edge, Counter, Mud Sport]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

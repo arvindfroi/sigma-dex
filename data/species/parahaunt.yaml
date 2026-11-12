@@ -66,24 +66,24 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Astonish}
+    - {level: 1, move: Confuse Ray}
     - {level: 1, move: Growl}
     - {level: 1, move: Magical Leaf}
-    - {level: 1, move: Phantom Force}
+    - {level: 1, move: Mystical Fire}
     - {level: 1, move: Power Gem}
     - {level: 1, move: Spite}
-    - {level: 1, move: Confuse Ray}
-    - {level: 1, move: Lick}
+    - {level: 1, move: Astonish}
     - {level: 7, move: Hypnosis}
-    - {level: 9, move: Smog}
     - {level: 12, move: Payback}
+    - {level: 13, move: Smog}
     - {level: 13, move: Smokescreen}
     - {level: 20, move: Curse}
     - {level: 24, move: Hex}
     - {level: 30, move: Night Shade}
     - {level: 35, move: Pain Split}
-    - {level: 36, move: Sucker Punch}
-    - {level: 39, move: Dark Pulse}
+    - {level: 35, move: Sucker Punch}
+    - {level: 41, move: Agility}
+    - {level: 42, move: Dark Pulse}
     - {level: 48, move: Shadow Ball}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,

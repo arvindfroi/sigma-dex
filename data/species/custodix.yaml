@@ -71,41 +71,47 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Ember}
+    - {level: 1, move: Fire Fang}
     - {level: 1, move: Fire Spin}
-    - {level: 1, move: Leer}
-    - {level: 1, move: Rock Blast}
+    - {level: 1, move: Rollout}
     - {level: 1, move: Harden}
     - {level: 1, move: Rock Tomb}
     - {level: 1, move: Tackle}
     - {level: 6, move: Smack Down}
-    - {level: 6, move: Bite}
     - {level: 8, move: Slash}
-    - {level: 10, move: Fire Fang}
+    - {level: 9, move: Flame Charge}
+    - {level: 10, move: Bite}
+    - {level: 10, move: Smokescreen}
     - {level: 12, move: Roar}
     - {level: 16, move: Ancient Power}
-    - {level: 16, move: Crunch}
     - {level: 16, move: Headbutt}
     - {level: 20, move: Protect}
     - {level: 24, move: Incinerate}
-    - {level: 30, move: Flame Wheel}
+    - {level: 30, move: Rock Slide}
     - {level: 30, move: Scary Face}
     - {level: 30, move: Stone Edge}
-    - {level: 42, move: Rock Slide}
+    - {level: 32, move: Flamethrower}
+    - {level: 32, move: Crunch}
+    - {level: 35, move: Stealth Rock}
+    - {level: 39, move: Take Down}
+    - {level: 39, move: Morning Sun}
     - {level: 48, move: Lava Plume}
-    - {level: 54, move: Take Down}
+    - {level: 55, move: Rock Blast}
+    - {level: 60, move: Heat Wave}
     - {level: 61, move: Iron Defense}
+    - {level: 62, move: Double-Edge}
+    - {level: 64, move: Fire Blast}
     - {level: 66, move: Power Gem}
-    - {level: 73, move: Double-Edge}
-    - {level: 77, move: Heat Wave}
     - {level: 84, move: Overheat}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
-          Frustration, Solar Beam, Earthquake, Return, Double Team, Flamethrower, Sandstorm,
-          Fire Blast, Rock Tomb, Facade, Secret Power, Rest, Overheat, Focus Blast, Fling,
-          Endure, Will-O-Wisp, Giga Impact, Rock Polish, Stone Edge, Stealth Rock,
-          Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Flame Charge, Bulldoze,
-          Body Press, Scorching Sands, Strength, Rock Smash, Iron Tail, Dig, Attract,
-          Captivate, Heavy Slam, High Horsepower, Meteor Beam, Aerial Ace]
+  tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
+          Rain Dance, Frustration, Solar Beam, Earthquake, Return, Double Team,
+          Flamethrower, Sandstorm, Fire Blast, Rock Tomb, Facade, Secret Power, Rest,
+          Overheat, Focus Blast, Fling, Endure, Will-O-Wisp, Giga Impact, Rock Polish,
+          Stone Edge, Stealth Rock, Rock Slide, Sleep Talk, Natural Gift, Swagger,
+          Substitute, Flash Cannon, Flame Charge, Bulldoze, Mystical Fire, Body Press,
+          Meteor Beam, Scorching Sands, Strength, Rock Smash, Iron Tail, Dig, Attract,
+          Shadow Claw, Captivate, Heavy Slam, High Horsepower]
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Earth Power, Fire Fang, Fire Punch, Flare Blitz,
           Heat Wave, Iron Head, Power Gem, Curse, Endeavor]

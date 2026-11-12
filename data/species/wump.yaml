@@ -64,8 +64,9 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Fury Cutter}
-    - {level: 1, move: Leer}
+    - {level: 1, move: Tackle}
     - {level: 8, move: Endure}
+    - {level: 10, move: Quick Attack}
     - {level: 12, move: Bug Bite}
     - {level: 12, move: String Shot}
     - {level: 12, move: Scary Face}
@@ -73,19 +74,18 @@ learnset:
     - {level: 20, move: Pin Missile}
     - {level: 24, move: Flail}
     - {level: 24, move: Acrobatics}
+    - {level: 28, move: Sucker Punch}
     - {level: 29, move: Agility}
-    - {level: 30, move: Screech}
     - {level: 37, move: X-Scissor}
     - {level: 44, move: First Impression}
     - {level: 48, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Giga Drain, Frustration,
-          Return, Double Team, Facade, Secret Power, Rest, Attract, Thief, Endure,
-          X-Scissor, Sleep Talk, Poison Jab, Swagger, Substitute, Struggle Bug, Lunge]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return, Dig,
+          Double Team, Facade, Secret Power, Rest, Attract, Thief, Endure, X-Scissor,
+          Sleep Talk, Poison Jab, Swagger, U-turn, Substitute, Struggle Bug, Lunge]
   tutor: [Bug Bite]      # moves a move tutor can teach it
   # only needed for the first stage of an evolution line
-  egg: [Pursuit, Counter, Silver Wind, Feint Attack, Twineedle, Megahorn, Infestation,
-        Signal Beam]
+  egg: [Feint Attack, Pursuit, Knock Off, Counter, Twineedle, Disable, Screech, Night Slash]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

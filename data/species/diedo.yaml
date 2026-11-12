@@ -68,25 +68,27 @@ learnset:
     - {level: 1, move: Tackle}
     - {level: 2, move: Gust}
     - {level: 4, move: Supersonic}
+    - {level: 6, move: Quick Attack}
+    - {level: 10, move: Confusion}
     - {level: 12, move: Air Cutter}
-    - {level: 15, move: Aerial Ace}
+    - {level: 16, move: Wing Attack}
     - {level: 18, move: Roost}
     - {level: 21, move: Tailwind}
     - {level: 24, move: Hurricane}
     - {level: 25, move: Wish}
     - {level: 27, move: Agility}
-    - {level: 30, move: Drill Peck}
     - {level: 31, move: Air Slash}
+    - {level: 37, move: Fly}
     - {level: 38, move: Brave Bird}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return,
-          Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief, Steel Wing,
-          Roost, Endure, Captivate, Sleep Talk, Natural Gift, Swagger, Pluck, U-turn,
-          Substitute, Dual Wingbeat, Fly]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Solar Beam,
+          Return, Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief,
+          Steel Wing, Roost, Endure, Captivate, Sleep Talk, Natural Gift, Swagger, Pluck,
+          U-turn, Substitute, Dual Wingbeat, Fly]
   # moves a move tutor can teach it
   tutor: [Air Slash, Brave Bird, Heat Wave, Hurricane, Sky Attack]
   # only needed for the first stage of an evolution line
-  egg: [Defog, Wing Attack, Feint Attack, Razor Wind, Feather Dance]
+  egg: [Sky Attack, Defog, Feint Attack, Razor Wind, Feather Dance, Helping Hand]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

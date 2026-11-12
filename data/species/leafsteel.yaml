@@ -66,8 +66,8 @@ learnset:
     - {level: 0, move: Slash}
     - {level: 1, move: Slash}
     - {level: 1, move: Absorb}
-    - {level: 1, move: Growl}
     - {level: 1, move: Tackle}
+    - {level: 1, move: Vine Whip}
     - {level: 1, move: Leer}
     - {level: 6, move: Leafage}
     - {level: 10, move: Fury Cutter}
@@ -75,26 +75,28 @@ learnset:
     - {level: 12, move: Scary Face}
     - {level: 15, move: Curse}
     - {level: 19, move: Metal Claw}
-    - {level: 22, move: Bite}
+    - {level: 21, move: Iron Head}
     - {level: 24, move: Sharpen}
     - {level: 28, move: Take Down}
     - {level: 28, move: Mega Drain}
     - {level: 32, move: Synthesis}
     - {level: 34, move: Leech Seed}
     - {level: 38, move: Iron Defense}
-    - {level: 43, move: Leaf Blade}
-    - {level: 46, move: Crunch}
+    - {level: 40, move: Leaf Blade}
+    - {level: 42, move: Iron Tail}
     - {level: 48, move: Swords Dance}
+    - {level: 51, move: Seed Bomb}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Protect, Rain Dance, Giga Drain,
-          Frustration, Solar Beam, Return, Brick Break, Double Team, Reflect, Rock Tomb,
-          Aerial Ace, Facade, Secret Power, Rest, Attract, Energy Ball, Endure, Shadow Claw,
-          Flash, Gyro Ball, Swords Dance, Stealth Rock, Captivate, Rock Slide, Sleep Talk,
-          Natural Gift, Grass Knot, Swagger, Substitute, Flash Cannon, Heavy Slam,
-          Grassy Terrain, Cut, Strength, Rock Smash, Light Screen, Safeguard]
+          Frustration, Solar Beam, Iron Tail, Return, Dig, Brick Break, Double Team,
+          Reflect, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract, Energy Ball,
+          Endure, Shadow Claw, Flash, Stone Edge, Gyro Ball, Swords Dance, Stealth Rock,
+          Captivate, Rock Slide, Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute,
+          Flash Cannon, Heavy Slam, Grassy Terrain, Cut, Strength, Rock Smash, Light Screen,
+          Safeguard]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Iron Head, Leaf Storm, Magical Leaf, Metal Claw, Seed Bomb, Synthesis,
-          Curse, Zen Headbutt, Night Slash]
+  tutor: [Body Slam, Iron Head, Leaf Storm, Magical Leaf, Metal Claw, Seed Bomb,
+          Solar Blade, Synthesis, Curse, Zen Headbutt, Night Slash]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

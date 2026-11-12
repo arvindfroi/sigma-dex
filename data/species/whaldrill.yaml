@@ -71,27 +71,31 @@ learnset:
     - {level: 1, move: Mud-Slap}
     - {level: 1, move: Powder Snow}
     - {level: 1, move: Tackle}
+    - {level: 8, move: Bulldoze}
+    - {level: 10, move: Rollout}
     - {level: 12, move: Freeze-Dry}
     - {level: 15, move: Ice Shard}
     - {level: 20, move: Mist}
-    - {level: 24, move: Bite}
+    - {level: 24, move: Stomping Tantrum}
     - {level: 25, move: Endure}
     - {level: 30, move: Icy Wind}
+    - {level: 32, move: Dig}
+    - {level: 32, move: Drill Run}
     - {level: 37, move: Amnesia}
+    - {level: 40, move: Icicle Crash}
     - {level: 44, move: Take Down}
     - {level: 51, move: Earthquake}
     - {level: 58, move: Blizzard}
     - {level: 65, move: Thrash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Roar, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Light Screen,
-          Protect, Rain Dance, Frustration, Earthquake, Return, Dig, Double Team, Reflect,
-          Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Attract, Endure, Giga Impact,
-          Stone Edge, Avalanche, Stealth Rock, Captivate, Rock Slide, Sleep Talk,
-          Natural Gift, Swagger, Substitute, Bulldoze, High Horsepower, Strength,
-          Rock Smash, Sunny Day]
+  tm_hm: [Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Light Screen, Protect,
+          Rain Dance, Frustration, Earthquake, Return, Dig, Double Team, Reflect, Sandstorm,
+          Rock Tomb, Facade, Secret Power, Rest, Attract, Endure, Giga Impact, Stone Edge,
+          Avalanche, Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger,
+          Substitute, Bulldoze, High Horsepower, Strength, Rock Smash, Sunny Day]
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Charm, Curse, Earth Power, Endeavor, Haze, Ice Fang,
-          Icicle Spear, Icy Wind]
+          Ice Punch, Icicle Spear, Icy Wind]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

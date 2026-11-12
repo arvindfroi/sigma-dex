@@ -66,35 +66,37 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 1, move: Focus Energy}
     - {level: 1, move: Growth}
     - {level: 1, move: Leer}
+    - {level: 1, move: Spite}
     - {level: 1, move: Sunny Day}
     - {level: 1, move: Water Gun}
     - {level: 6, move: Bite}
-    - {level: 10, move: Payback}
+    - {level: 10, move: Knock Off}
     - {level: 10, move: Withdraw}
     - {level: 14, move: Aqua Jet}
     - {level: 15, move: Stomp}
     - {level: 20, move: Taunt}
-    - {level: 22, move: Ice Fang}
+    - {level: 24, move: Razor Shell}
     - {level: 30, move: Scary Face}
-    - {level: 32, move: Aqua Ring}
     - {level: 40, move: Throat Chop}
+    - {level: 41, move: Aqua Tail}
     - {level: 42, move: Crunch}
     - {level: 45, move: Night Slash}
     - {level: 49, move: Jaw Lock}
     - {level: 54, move: Thrash}
     - {level: 55, move: Sucker Punch}
+    - {level: 56, move: Swords Dance}
     - {level: 60, move: Foul Play}
+    - {level: 62, move: Ice Spinner}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Water Pulse, Toxic, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard,
-          Hyper Beam, Protect, Rain Dance, Frustration, Return, Brick Break, Double Team,
-          Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Thief, Fling, Endure, Payback,
-          Giga Impact, Dark Pulse, Rock Slide, Sleep Talk, Swagger, Substitute, Foul Play,
-          Scald, Liquidation, Surf, Whirlpool, Waterfall]
+  tm_hm: [Water Pulse, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
+          Rain Dance, Frustration, Return, Brick Break, Double Team, Rock Tomb, Facade,
+          Secret Power, Rest, Thief, Fling, Endure, Payback, Giga Impact, Swords Dance,
+          Dark Pulse, Rock Slide, Sleep Talk, Swagger, Substitute, Foul Play, Liquidation,
+          Body Press, Flip Turn, Surf, Whirlpool, Waterfall, Play Rough]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Icy Wind, Snarl, Zen Headbutt]
+  tutor: [Aqua Tail, Body Slam, Snarl, Zen Headbutt, Ice Fang]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

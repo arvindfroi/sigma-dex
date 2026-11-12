@@ -65,29 +65,32 @@ learnset:
   level_up:
     - {level: 1, move: Leer}
     - {level: 1, move: Scratch}
-    - {level: 5, move: Quick Attack}
+    - {level: 8, move: Focus Energy}
     - {level: 8, move: Hone Claws}
+    - {level: 10, move: Shadow Sneak}
     - {level: 12, move: Fury Swipes}
-    - {level: 16, move: Bite}
     - {level: 16, move: Scary Face}
     - {level: 16, move: Torment}
-    - {level: 20, move: Slash}
+    - {level: 20, move: Taunt}
     - {level: 21, move: Assurance}
+    - {level: 21, move: Knock Off}
+    - {level: 24, move: Slash}
     - {level: 32, move: Agility}
-    - {level: 33, move: Take Down}
     - {level: 37, move: Crunch}
+    - {level: 38, move: Sucker Punch}
+    - {level: 40, move: Body Slam}
     - {level: 44, move: Nasty Plot}
     - {level: 48, move: Foul Play}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration, Return,
           Dig, Shadow Ball, Double Team, Aerial Ace, Torment, Facade, Secret Power, Rest,
-          Attract, Thief, Fling, Endure, Payback, Captivate, Dark Pulse, Sleep Talk,
-          Natural Gift, Swagger, U-turn, Substitute, Foul Play, Cut, Shadow Claw]
+          Attract, Thief, Fling, Endure, Embargo, Shadow Claw, Payback, Captivate,
+          Dark Pulse, Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Foul Play, Cut]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Endeavor, Hyper Voice, Nasty Plot, Snarl, Super Fang]
+  tutor: [Body Slam, Endeavor, Hyper Voice, Nasty Plot, Snarl, Super Fang, Night Slash]
   # only needed for the first stage of an evolution line
-  egg: [Pursuit, Sucker Punch, Flail, Double-Edge, Feint Attack, Last Resort, Uproar,
-        Punishment, Covet, Counter]
+  egg: [Feint Attack, Covet, Pursuit, Feint, Fake Out, Flail, Pay Day, Double-Edge,
+        Last Resort, Uproar]
 
 # --- Where it is found ---
 # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

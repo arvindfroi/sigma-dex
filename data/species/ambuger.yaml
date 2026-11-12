@@ -64,29 +64,32 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Fury Cutter}
-    - {level: 1, move: Sand Attack}
+    - {level: 1, move: Tackle}
     - {level: 5, move: Withdraw}
     - {level: 9, move: Smack Down}
+    - {level: 10, move: Rock Throw}
+    - {level: 10, move: Harden}
     - {level: 14, move: Bug Bite}
-    - {level: 14, move: Leech Life}
-    - {level: 19, move: Flail}
     - {level: 21, move: Rock Tomb}
     - {level: 28, move: Rock Slide}
     - {level: 33, move: Stealth Rock}
     - {level: 38, move: Rock Blast}
+    - {level: 40, move: First Impression}
     - {level: 42, move: X-Scissor}
+    - {level: 43, move: Leech Life}
     - {level: 46, move: Rock Polish}
     - {level: 54, move: Stone Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Earthquake,
           Return, Dig, Double Team, Sandstorm, Rock Tomb, Facade, Secret Power, Rest,
           Attract, Endure, Rock Polish, Stone Edge, Stealth Rock, Rock Slide, X-Scissor,
-          Sleep Talk, Swagger, Substitute, Struggle Bug, Bulldoze, Strength, Rock Smash]
+          Sleep Talk, Swagger, Substitute, Struggle Bug, Bulldoze, Body Press, Strength,
+          Rock Smash]
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Bug Bite, Earth Power]
   # only needed for the first stage of an evolution line
-  egg: [Curse, Wide Guard, Counter, Knock Off, Night Slash, Spikes, Head Smash,
-        Iron Defense, Rollout]
+  egg: [Curse, Head Smash, Iron Defense, Rollout, Wide Guard, Counter, Knock Off,
+        Night Slash, Double-Edge, Spikes]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

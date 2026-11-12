@@ -67,32 +67,36 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Confusion}
-    - {level: 1, move: Growl}
     - {level: 1, move: Leer}
     - {level: 1, move: Tackle}
+    - {level: 1, move: Teleport}
     - {level: 5, move: Bite}
+    - {level: 8, move: Dragon Tail}
     - {level: 12, move: Helping Hand}
-    - {level: 15, move: Dragon Tail}
+    - {level: 16, move: Protect}
     - {level: 18, move: Psybeam}
+    - {level: 18, move: Psycho Cut}
     - {level: 18, move: Horn Attack}
-    - {level: 20, move: Dragon Breath}
-    - {level: 30, move: Agility}
-    - {level: 36, move: Light Screen}
+    - {level: 24, move: Dragon Claw}
+    - {level: 25, move: Dragon Breath}
     - {level: 40, move: Calm Mind}
     - {level: 40, move: Dragon Pulse}
     - {level: 40, move: Psychic}
+    - {level: 42, move: Dragon Dance}
+    - {level: 44, move: Zen Headbutt}
     - {level: 50, move: Future Sight}
-    - {level: 50, move: Outrage}
+    - {level: 54, move: Dragon Rush}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Dragon Claw, Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen,
           Protect, Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball,
           Double Team, Reflect, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief,
-          Skill Swap, Energy Ball, Endure, Dragon Pulse, Giga Impact, Flash, Thunder Wave,
-          Psych Up, Sleep Talk, Grass Knot, Swagger, Substitute, Trick Room, Psyshock,
-          Psychic Terrain, Expanding Force]
+          Skill Swap, Focus Blast, Energy Ball, Endure, Dragon Pulse, Giga Impact, Flash,
+          Thunder Wave, Psych Up, Sleep Talk, Grass Knot, Swagger, Substitute, Trick Room,
+          Psyshock, Psychic Terrain, Expanding Force]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Draco Meteor, Outrage, Zen Headbutt, Headbutt]
-  egg: [Extrasensory, Stored Power] # only needed for the first stage of an evolution line
+  tutor: [Body Slam, Draco Meteor, Dragon Dance, Iron Head, Outrage, Zen Headbutt, Headbutt]
+  # only needed for the first stage of an evolution line
+  egg: [Extrasensory, Stored Power, Fake Out]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

@@ -63,34 +63,39 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Bite}
     - {level: 1, move: Dragon Claw}
     - {level: 1, move: Leer}
-    - {level: 1, move: Thunder Wave}
     - {level: 1, move: Wrap}
+    - {level: 1, move: Scratch}
     - {level: 1, move: Tackle}
-    - {level: 10, move: Breaking Swipe}
-    - {level: 12, move: Bite}
+    - {level: 8, move: Bug Bite}
+    - {level: 10, move: Fury Cutter}
     - {level: 15, move: Dragon Tail}
     - {level: 20, move: Agility}
     - {level: 20, move: Scary Face}
+    - {level: 25, move: Crunch}
     - {level: 25, move: Slam}
     - {level: 26, move: Focus Energy}
-    - {level: 33, move: Aqua Tail}
+    - {level: 34, move: X-Scissor}
     - {level: 34, move: Horn Attack}
     - {level: 39, move: Dragon Rush}
-    - {level: 41, move: Crunch}
+    - {level: 40, move: Slash}
+    - {level: 41, move: First Impression}
+    - {level: 43, move: Take Down}
     - {level: 53, move: Rain Dance}
     - {level: 60, move: Dragon Dance}
     - {level: 67, move: Outrage}
-    - {level: 74, move: Hyper Beam}
+    - {level: 72, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Dragon Claw, Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
-          Frustration, Iron Tail, Return, Double Team, Flamethrower, Fire Blast, Facade,
-          Secret Power, Rest, Attract, Endure, Dragon Pulse, Giga Impact, Captivate,
-          X-Scissor, Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Struggle Bug,
-          Roar, Dig, Rock Tomb, Lunge]
+  tm_hm: [Dragon Claw, Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration,
+          Iron Tail, Return, Dig, Double Team, Facade, Secret Power, Rest, Attract, Endure,
+          Dragon Pulse, Giga Impact, Captivate, X-Scissor, Sleep Talk, Natural Gift,
+          Swagger, U-turn, Substitute, Struggle Bug, Roar, Flamethrower, Fire Blast,
+          Rock Tomb, Poison Jab, Lunge]
   # moves a move tutor can teach it
-  tutor: [Aqua Tail, Body Slam, Bug Bite, Draco Meteor, Dragon Dance, Iron Head, Outrage]
+  tutor: [Body Slam, Bug Bite, Draco Meteor, Dragon Dance, Iron Head, Outrage, Fire Fang,
+          Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
