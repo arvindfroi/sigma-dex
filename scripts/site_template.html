@@ -686,7 +686,7 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .libteam { border: 2px solid var(--line); padding: 6px 8px; }
 .libhead { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; cursor: pointer; }
 .libmons { display: flex; gap: 2px; margin-left: auto; }
-.libmons img { width: 32px; height: 32px; object-fit: contain; }
+.libmons img { width: 56px; height: 56px; object-fit: contain; }
 .libmons img.px { image-rendering: pixelated; }
 .libmons .letter { width: 32px; text-align: center; }
 .libbody { display: grid; gap: 6px; margin-top: 6px; }
@@ -706,7 +706,7 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .storyline { display: flex; align-items: center; gap: 6px; padding: 3px 0; border-bottom: 1px solid var(--line); }
 .storyteam { display: grid; gap: 4px; }
 .storymon { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
-.storymon img { width: 32px; height: 32px; object-fit: contain; } .storymon img.px { image-rendering: pixelated; }
+.storymon img { width: 64px; height: 64px; object-fit: contain; } .storymon img.px { image-rendering: pixelated; }
 .storymon .sub:last-child { flex-basis: 100%; }
 .rlist { display: grid; gap: 6px; }
 .rblock { display: grid; grid-template-columns: 26px 1fr auto; gap: 6px; align-items: center; border: 2px solid var(--line); padding: 2px 6px; background: var(--panel); }
@@ -735,8 +735,9 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .tslot { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; min-height: 92px; background: var(--panel); border: 2px solid var(--line); color: inherit; }
 .tslot[aria-selected="true"] { border-color: var(--pink); background: var(--soft); }
 .tslot.empty { border-style: dashed; background: none; }
-.tslot img { width: 48px; height: 48px; object-fit: contain; }
-.tslot .letter { width: 48px; height: 48px; display: grid; place-items: center; font-family: var(--display); font-size: 20px; color: var(--muted); }
+.tslot img { width: 80px; height: 80px; object-fit: contain; }
+.tslot img.px { image-rendering: pixelated; }
+.tslot .letter { width: 80px; height: 80px; display: grid; place-items: center; font-family: var(--display); font-size: 20px; color: var(--muted); }
 .tslot .nm { font-family: var(--display); font-size: 12px; text-align: center; overflow-wrap: anywhere; }
 .tslot .types { display: flex; gap: 2px; transform: scale(.8); }
 .tedit { display: grid; grid-template-columns: minmax(170px, 220px) minmax(220px, 1fr) minmax(280px, 1.3fr); gap: 14px; background: var(--panel); border: 2px solid var(--line); padding: 12px; align-items: start; }
@@ -3042,7 +3043,7 @@ function spoilerTeam(t) {
   if (!t) return h("span", {class: "sub"}, "no team chosen yet");
   const mons = (t.team && Array.isArray(t.team.mons) ? t.team.mons : importTeam(t.text || "").mons).slice(0, 6);
   return h("details", {class: "spoiler"}, h("summary", {}, "Show the team (spoiler): " + t.name),
-    h("span", {class: "libmons"}, mons.map(m => { const s = speciesByName(m.species), ds = s && DEX.ds_sprites[s.id], pic = s && (ds && ds.icon ? {src: ds.icon, pixel: true} : portrait(s));
+    h("span", {class: "libmons"}, mons.map(m => { const s = speciesByName(m.species), ds = s && DEX.ds_sprites[s.id], pic = s && (portrait(s));
       return pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: s.data.name, title: s.data.name}) : h("span", {class: "letter", title: m.species}, (m.species || "?")[0]); })),
     h("pre", {class: "libtext"}, t.text || ""));
 }
@@ -3103,7 +3104,7 @@ function storyTeamText(team) {
 }
 function storyTeamView(team) {
   return h("div", {class: "storyteam"}, team.map(m => {
-    const s = byId.get(m.species), ds = s && DEX.ds_sprites[m.species], pic = s && (ds && ds.icon ? {src: ds.icon, pixel: true} : portrait(s));
+    const s = byId.get(m.species), ds = s && DEX.ds_sprites[m.species], pic = s && (portrait(s));
     return h("div", {class: "storymon"}, pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: ""}) : null,
       h("b", {}, nameOf(m.species)), h("span", {class: "sub"}, " lv " + m.level + (m.ability ? " · " + m.ability : "")),
       h("div", {class: "sub"}, m.moves.length ? m.moves.join(", ") : "no moves yet (comes when its moves are filled in)"));
@@ -3668,7 +3669,7 @@ function renderTeams() {
 
   // the six slots
   const tabs = h("div", {class: "tslots", role: "tablist"}, Array.from({length: 6}, (_, i) => {
-    const m = team.mons[i], s = m && speciesByName(m.species), ds = s && DEX.ds_sprites[s.id], pic = s && (ds && ds.icon ? {src: ds.icon, pixel: true} : portrait(s));
+    const m = team.mons[i], s = m && speciesByName(m.species), ds = s && DEX.ds_sprites[s.id], pic = s && (portrait(s));
     if (!m && i > team.mons.length) return h("div", {class: "tslot empty"});
     return h("button", {type: "button", role: "tab", class: "tslot", "aria-selected": String(tb.slot === i), onclick: () => {
         if (!m) { team.mons.push(blankMon()); }
@@ -3723,7 +3724,7 @@ function teamLibrary(team) {
     const notes = lib.notes.filter(n => n.team === t.id);
     const open = lib.open === t.id;
     const icons = h("span", {class: "libmons"}, mons.map(m => {
-      const s = speciesByName(m.species), ds = s && DEX.ds_sprites[s.id], pic = s && (ds && ds.icon ? {src: ds.icon, pixel: true} : portrait(s));
+      const s = speciesByName(m.species), ds = s && DEX.ds_sprites[s.id], pic = s && (portrait(s));
       return pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: s.data.name, title: s.data.name}) : h("span", {class: "letter", title: m.species}, (m.species || "?")[0]);
     }));
     const note = h("div", {class: "hint", role: "status", style: "margin:0"});
