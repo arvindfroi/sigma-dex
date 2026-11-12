@@ -13,7 +13,7 @@ category: Tadpole        # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description: Boosts the Pokemon's Speed stat in rain.
 height_m:                # e.g. 0.7
 weight_kg:               # e.g. 6.9
-body_color: blue         # red blue yellow green black brown purple gray white pink
+body_color: green        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:

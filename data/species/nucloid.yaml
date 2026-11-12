@@ -13,7 +13,7 @@ category: Nano Waste     # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description: "It stores unstable waste in its core. When alarmed, it releases toxic fumes and skitters away on cable-like legs."
 height_m: 0.5            # e.g. 0.7
 weight_kg: 12.3          # e.g. 6.9
-body_color: gray         # red blue yellow green black brown purple gray white pink
+body_color: black        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:

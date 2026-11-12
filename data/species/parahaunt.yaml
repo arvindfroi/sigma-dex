@@ -13,7 +13,7 @@ category: Smoke          # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description: "PARAHAUNT slips through the night like a drifting phantom, silently trailing smoke from its jeweled cigarette holder. It vanishes before anyone can react, leaving only a chill haze and the feeling of being watched."
 height_m: 1              # e.g. 0.7
 weight_kg: 6.8           # e.g. 6.9
-body_color: gray         # red blue yellow green black brown purple gray white pink
+body_color: black        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:

@@ -329,6 +329,12 @@ class Filler:
         """Game Freak's body colour is the colour of most of its body: colours that describe the body count most,
         colours of small parts (eyes, snout, spots, claws, a helmet) count little."""
         sp = self.ours[sid]
+        try:      # Claude looked at the sprites where text and picture disagreed (proposals/body_color_visual.json)
+            visual = json.loads((ROOT / "proposals" / "body_color_visual.json").read_text(encoding="utf-8"))
+        except Exception:
+            visual = {}
+        if sid in visual:
+            return visual[sid], "the colour of most of its body in its sprite"
         look = str(sp["design"].get("look") or "")
         def first_color(text):
             found = []

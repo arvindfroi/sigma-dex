@@ -13,7 +13,7 @@ category: Hazard Core    # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description: "Its core has grown dangerously unstable. It lumbers through wastelands, venting corrosive fumes while its reinforced body shields the toxin within."
 height_m: 1.7            # e.g. 0.7
 weight_kg: 188.4         # e.g. 6.9
-body_color: gray         # red blue yellow green black brown purple gray white pink
+body_color: black        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:

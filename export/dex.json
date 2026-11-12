@@ -3071,7 +3071,7 @@
       "description": "Bolthook waits in eerie stillness until prey comes into view. It then spreads its great wings to blot out the sun and strikes with its enormous beak in a single, thunderous blow. The echo of its beak can be heard for miles.",
       "height_m": 2,
       "weight_kg": 86,
-      "body_color": "gray",
+      "body_color": "black",
       "abilities": {
         "primary": "Strong Jaw",
         "secondary": "Intimidate",
@@ -3294,7 +3294,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": "white",
+      "body_color": "gray",
       "abilities": {
         "primary": "Swarm",
         "secondary": "Run Away",
@@ -3757,7 +3757,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": "gray",
+      "body_color": "green",
       "abilities": {
         "primary": "Swarm",
         "secondary": "Leaf Guard",
@@ -6755,7 +6755,7 @@
       "description": "Boosts the Pokemon's Speed stat in rain.",
       "height_m": null,
       "weight_kg": null,
-      "body_color": "blue",
+      "body_color": "green",
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Water Veil",
@@ -7677,7 +7677,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": "green",
+      "body_color": "white",
       "abilities": {
         "primary": "Punchable Face",
         "secondary": null,
@@ -7879,7 +7879,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": "blue",
+      "body_color": "white",
       "abilities": {
         "primary": "Run Away",
         "secondary": "Quick Feet",
@@ -11022,7 +11022,7 @@
       "description": "Ampeel generates electricity by flexing its slender body at high speed. It stores massive amounts of electric energy within its muscles and releases it in blinding bursts. It's extremely aggressive and will attack anything that enters its territory without hesitation.",
       "height_m": 0.9,
       "weight_kg": 22,
-      "body_color": "white",
+      "body_color": "yellow",
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Static",
@@ -11274,7 +11274,7 @@
       "description": "An urban plain-sight stealth specialist, often found hiding in bins and picnic leftovers. Its leafy eyes reveal its mood.",
       "height_m": 0.8,
       "weight_kg": 24.5,
-      "body_color": "yellow",
+      "body_color": "red",
       "abilities": {
         "primary": "Pickle Armor",
         "secondary": "Chlorophyll",
@@ -11990,7 +11990,7 @@
       "description": null,
       "height_m": 0.4,
       "weight_kg": null,
-      "body_color": "yellow",
+      "body_color": "red",
       "abilities": {
         "primary": "Effect Spore",
         "secondary": "Aroma Veil",
@@ -12211,7 +12211,7 @@
       "description": null,
       "height_m": 1.1,
       "weight_kg": null,
-      "body_color": "white",
+      "body_color": "pink",
       "abilities": {
         "primary": "Effect Spore",
         "secondary": "Aroma Veil",
@@ -14046,7 +14046,7 @@
       "description": "It stores unstable waste in its core. When alarmed, it releases toxic fumes and skitters away on cable-like legs.",
       "height_m": 0.5,
       "weight_kg": 12.3,
-      "body_color": "gray",
+      "body_color": "black",
       "abilities": {
         "primary": "Innards Out",
         "secondary": "Corrosion",
@@ -14253,7 +14253,7 @@
       "description": "Its core has grown dangerously unstable. It lumbers through wastelands, venting corrosive fumes while its reinforced body shields the toxin within.",
       "height_m": 1.7,
       "weight_kg": 188.4,
-      "body_color": "gray",
+      "body_color": "black",
       "abilities": {
         "primary": "Innards Out",
         "secondary": "Corrosion",
@@ -15003,7 +15003,7 @@
       "description": "Anjane's heavy hair droops down to the ground. It absorbs the curse-filled emotions of others and hangs motionless. When angered, the hair stiffens and sways, unleashing bursts of cursed energy. It's said that when it sways its hair, the sound is like the curse a thousand spirits let loose in a single moan.",
       "height_m": 0.8,
       "weight_kg": null,
-      "body_color": "purple",
+      "body_color": "black",
       "abilities": {
         "primary": "Tangling Hair",
         "secondary": "Mega Launcher",
@@ -15447,7 +15447,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": "red",
+      "body_color": "purple",
       "abilities": {
         "primary": "Analytic",
         "secondary": "Telepathy",
@@ -15691,7 +15691,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": "purple",
+      "body_color": "white",
       "abilities": {
         "primary": "Analytic",
         "secondary": "Telepathy",
@@ -18539,7 +18539,7 @@
       "description": "PARAHAUNT slips through the night like a drifting phantom, silently trailing smoke from its jeweled cigarette holder. It vanishes before anyone can react, leaving only a chill haze and the feeling of being watched.",
       "height_m": 1,
       "weight_kg": 6.8,
-      "body_color": "gray",
+      "body_color": "black",
       "abilities": {
         "primary": "Smoked Up",
         "secondary": null,
@@ -19733,7 +19733,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": "gray",
+      "body_color": "brown",
       "abilities": {
         "primary": "Fog Of War",
         "secondary": null,
@@ -23573,7 +23573,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": "purple",
+      "body_color": "black",
       "abilities": {
         "primary": "Guard Dog",
         "secondary": "Intimidate",
@@ -25477,7 +25477,7 @@
       "description": null,
       "height_m": 2.1,
       "weight_kg": null,
-      "body_color": "yellow",
+      "body_color": "purple",
       "abilities": {
         "primary": "Anticipation",
         "secondary": "Forewarn",
@@ -27208,7 +27208,7 @@
       "description": null,
       "height_m": 1.9,
       "weight_kg": null,
-      "body_color": "white",
+      "body_color": "brown",
       "abilities": {
         "primary": "Illusion",
         "secondary": null,
@@ -29416,7 +29416,7 @@
       "description": null,
       "height_m": 1.9,
       "weight_kg": null,
-      "body_color": "gray",
+      "body_color": "white",
       "abilities": {
         "primary": "Unnerve",
         "secondary": "Prankster",
@@ -30185,7 +30185,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": "gray",
+      "body_color": "white",
       "abilities": {
         "primary": "Mind's Eye",
         "secondary": null,

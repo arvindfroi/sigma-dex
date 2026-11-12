@@ -13,7 +13,7 @@ category: Toxic Burger   # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description: "An urban plain-sight stealth specialist, often found hiding in bins and picnic leftovers. Its leafy eyes reveal its mood."
 height_m: 0.8            # e.g. 0.7
 weight_kg: 24.5          # e.g. 6.9
-body_color: yellow       # red blue yellow green black brown purple gray white pink
+body_color: red          # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:

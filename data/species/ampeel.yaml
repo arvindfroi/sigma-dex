@@ -13,7 +13,7 @@ category: Eel            # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description: Ampeel generates electricity by flexing its slender body at high speed. It stores massive amounts of electric energy within its muscles and releases it in blinding bursts. It's extremely aggressive and will attack anything that enters its territory without hesitation.
 height_m: 0.9            # e.g. 0.7
 weight_kg: 22            # e.g. 6.9
-body_color: white        # red blue yellow green black brown purple gray white pink
+body_color: yellow       # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:

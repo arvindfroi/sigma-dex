@@ -13,7 +13,7 @@ category: Gaze           # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description: "Bolthook waits in eerie stillness until prey comes into view. It then spreads its great wings to blot out the sun and strikes with its enormous beak in a single, thunderous blow. The echo of its beak can be heard for miles."
 height_m: 2              # e.g. 0.7
 weight_kg: 86            # e.g. 6.9
-body_color: gray         # red blue yellow green black brown purple gray white pink
+body_color: black        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:

@@ -30,7 +30,7 @@ the weighted choice of the most similar ones, plus Game Freak's fixed habits:
 | Gender | the same for the whole line, as its models; starters 87.5 % male; "always female/male" in the design wins; legendary lines like legendaries (mostly genderless) |
 | Egg groups | the same for the whole line: its models' groups plus what it is (a turtle -> Monster, a cow -> Field, an insect -> Bug, a fish -> Water 2, a humanoid -> Human-Like, a rock or robot -> Mineral, a ghost or smoke -> Amorphous); legendary lines Undiscovered |
 | Egg cycles | the same for the whole line, snapped to the games' values; starters 20, strong three-stage lines 40, legendaries 120 |
-| Body color | the colour of its body in the look text ("a small tan turtle" -> brown, "deep blue fur" -> blue); colours of small parts (eyes, snout, spots, a helmet) do not count |
+| Body color | the colour of its body in the look text ("a small tan turtle" -> brown, "deep blue fur" -> blue); colours of small parts (eyes, snout, spots, a helmet) do not count. Checked against the sprites: where text and sprite disagreed, Claude looked at the sprite and chose (`proposals/body_color_visual.json`, 24 species) |
 
 Not filled: **where it is found** (encounters). That depends on Origin HeartGold's maps and the story plan
 (`docs/STORY_ROLES.md`), so it is decided there.
