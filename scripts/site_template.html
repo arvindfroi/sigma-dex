@@ -648,6 +648,7 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .trayhead:active { transform: none; }
 .trayhead .chev { margin-left: auto; color: var(--muted); }
 .traybody { display: flex; flex-direction: column; gap: 2px; margin-top: 6px; max-height: 46vh; overflow: auto; }
+.traybody > * { flex-shrink: 0; }
 .trayrow { display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; grid-template-areas: "i who when" "i what when"; gap: 0 8px; align-items: center;
   text-align: left; border: 0; border-top: 2px dashed var(--line); background: none; padding: 5px 2px; font-family: var(--body); font-size: 14px; min-height: 0; }
 .trayrow:active { transform: none; }
@@ -1352,7 +1353,8 @@ const dash = v => v === null || v === undefined || v === "" ? "\u2014" : String(
 // Showdown's teambuilder way of choosing: focus the field, a sortable list of every option opens
 // right under it, typing filters it, a click (or Enter) picks.
 let openPicker = null;
-document.addEventListener("pointerdown", ev => { if (openPicker && !openPicker.contains(ev.target)) openPicker.close(); });
+// composedPath is fixed when the click starts, so a button the picker redraws away (type filter, sort) still counts as inside
+document.addEventListener("pointerdown", ev => { if (openPicker && !ev.composedPath().some(el => el instanceof Node && openPicker.contains(el))) openPicker.close(); });
 function pickerRows(kind) {
   if (kind === "move") return Object.keys(SD.moves).map(moveInfo).concat(DEX.custom.move.filter(c => !SD_MOVES.has(norm(c.name))).map(c => moveInfo(c.name)));
   return Object.entries(SD.abilities).map(([name, desc]) => ({name, desc}))
@@ -3162,15 +3164,12 @@ function storyLinePicker(story, onChange) {
 
 const roughBattles = n => n >= 8 ? "many battles" : n >= 3 ? "several battles" : n === 2 ? "a couple of battles" : "one battle";
 const charName = c => c.code || (c.group + " · " + c.type);
-// A Mixed team has no type; 'often' lists the types its Pokemon have most often (a hint, not a rule).
-const oftenTypes = c => String(c.often || "").split("/").map(t => t.trim()).filter(t => DEX.types.includes(t));
-const charTypeText = c => c.often ? "Mixed (often " + oftenTypes(c).join(", ") + ")" : String(c.type || "");
 const charPic = c => (trainerPics.get(c.id) || [])[0];
 function charTop(c) {
   const pic = charPic(c), cl = claimOf(c.id);
   return h("section", {class: "screen top", "aria-label": charName(c)},
     h("div", {class: "namebar"}, h("div", {class: "frame no"}, c.group), h("div", {class: "frame"}, h("h3", {}, charName(c).toUpperCase())),
-      h("div", {class: "types"}, c.often ? h("span", {class: "sub"}, "MIXED") : String(c.type || "").split("/").map(t => t.trim()).filter(t => DEX.types.includes(t)).map(typeChip))),
+      h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).filter(t => DEX.types.includes(t)).map(typeChip))),
     h("div", {class: "stage"}, pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("div", {class: "noart"}, "NO PICTURE YET")),
     h("div", {class: "dlg", role: "status"}, (cl.by ? "Claimed by " + person(cl.by) + ". " : "Available: nobody has claimed this trainer yet. ") + (c.place ? c.place.charAt(0).toUpperCase() + c.place.slice(1) + "." : "")));
 }
@@ -3199,7 +3198,8 @@ function openCharacter(c, tab) {
     page = h("div", {}, steps,
       h("div", {class: "factrows"},
         h("div", {}, h("span", {}, "Role"), c.group),
-        h("div", {}, h("span", {}, "Type"), charTypeText(c)),
+        h("div", {}, h("span", {}, "Type"), String(c.type || "")),
+        c.about ? h("div", {}, h("span", {}, "Story"), c.about.charAt(0).toUpperCase() + c.about.slice(1)) : null,
         h("div", {}, h("span", {}, "Surroundings"), c.place || "—"),
         c.rule ? h("div", {}, h("span", {}, "Rule"), c.rule) : null,
         h("div", {}, h("span", {}, "Battles"), isMine ? String(c.battles || 0) + " (each needs its own team)" : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
@@ -3288,7 +3288,7 @@ function renderCharacters() {
     return h("button", {type: "button", class: "card charcard " + (cl.by ? (isMine ? "mine" : "taken") : "avail"), onclick: () => openCharacter(c)},
       h("div", {class: "charthumb"}, pic ? h("img", {src: pic.src, alt: ""}) : h("span", {class: "charsil"}, "?")),
       h("b", {}, charName(c)), cl.name ? h("div", {}, "\u201c" + cl.name + "\u201d") : null,
-      h("div", {class: "types"}, c.often ? [h("span", {class: "sub"}, "Mixed, often"), ...oftenTypes(c).map(typeChip)] : String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
+      h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
       h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "")),
       cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "taken by " + person(cl.by))
         : h("span", {class: "badge avail"}, "available"));
@@ -3774,7 +3774,7 @@ function teamLibrary(team) {
       tb.cur = tb.teams.length - 1; tb.slot = 0; tb.panel = ""; saveTeams(); renderTeams(); }}, "Take a copy");
     const use = claims ? teamUse(t.id) : null;
     const body = open ? h("div", {class: "libbody"},
-      use ? h("div", {class: "sub"}, "Used in the game: " + use.c.group + " (" + charTypeText(use.c) + "), battle " + use.battle + ".") : null,
+      use ? h("div", {class: "sub"}, "Used in the game: " + use.c.group + " (" + use.c.type + "), battle " + use.battle + ".") : null,
       use ? h("details", {class: "spoiler"}, h("summary", {}, "Show the team (spoiler)"), h("pre", {class: "libtext"}, t.text || "")) : h("pre", {class: "libtext"}, t.text || ""),
       h("div", {class: "libnotes"}, notes.length ? notes.map(n => h("div", {class: "libnote"}, h("b", {}, person(n.by) || "someone"), " ", h("span", {class: "sub"}, String(n.when || "").slice(0, 10)), h("div", {}, n.text)))
         : h("div", {class: "sub"}, "No comments yet.")),
