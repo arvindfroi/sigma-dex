@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**159 / 254** slots have a Pokemon - **0** are fully complete - average completeness **33%**.
+**160 / 254** slots have a Pokemon - **0** are fully complete - average completeness **32%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -170,7 +170,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 159 | [Whaldrill](data/species/whaldrill.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 450 |  | 28% |
 | 160 | [Whaldrill3](data/species/whaldrill3.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 530 |  | 21% |
 | 161 | *open slot* | | | | | |
-| 162 | *open slot* | | | | | |
+| 162 | [Raymon](data/species/raymon.yaml) | Normal |  |  |  | 10% |
 | 163 | *open slot* | | | | | |
 | 164 | *open slot* | | | | | |
 | 165 | *open slot* | | | | | |
