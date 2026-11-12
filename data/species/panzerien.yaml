@@ -13,7 +13,7 @@ category: Tank           # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description: A group of Hairyen has taken over an abandoned tank. They patched it up with swamp weeds and logs to keep moving. It can only fire at what's straight ahead.
 height_m: 1.6            # e.g. 0.7
 weight_kg:               # e.g. 6.9
-body_color:              # red blue yellow green black brown purple gray white pink
+body_color: brown        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
@@ -30,15 +30,15 @@ base_stats:              # each 1-255
   speed: 25
 
 ev_yield: {defense: 2, sp_defense: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+catch_rate: 45           # 3 (legendary) to 255 (very easy)
+base_exp: 189            # exp yield when defeated, e.g. 64
+growth_rate: medium_fast # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 70      # 70 is the standard value
 
 # --- Breeding ---
-gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: []           # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+gender: 50               # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: [mineral, field] # 1 or 2, e.g. [field, grass]
+egg_cycles: 20           # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -121,7 +121,9 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     body color, catch rate, base exp, growth rate, base friendship, gender,
+                     egg groups, egg cycles]
   body_shape: several bodies joined together
   movement: It crawls along the ground on its legs.
   look: "It is an old tank covered in moss and swamp grass, with brown rusty armour, six wheels on caterpillar tracks (two of them pale wooden log slices) and a long cannon barrel with a square end on its turret. Two small round creatures with sleepy eyes peek out from under grassy lids on the turret and the hull."

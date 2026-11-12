@@ -13,7 +13,7 @@ category: Weather Switch # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description: "It stores three swords made of gaseous matter within its body. The oily coating on its wings and tail lets it glide through any weather. It flips the weather at will, bringing balance to the skies above the sea."
 height_m: 1.9            # e.g. 0.7
 weight_kg: 82.4          # e.g. 6.9
-body_color:              # red blue yellow green black brown purple gray white pink
+body_color: white        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
@@ -29,16 +29,16 @@ base_stats:              # each 1-255
   sp_defense: 120
   speed: 100
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+ev_yield: {attack: 3}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+catch_rate: 3            # 3 (legendary) to 255 (very easy)
+base_exp: 306            # exp yield when defeated, e.g. 64
+growth_rate: slow        # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 0       # 70 is the standard value
 
 # --- Breeding ---
-gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: []           # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+gender: genderless       # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: [undiscovered] # 1 or 2, e.g. [field, grass]
+egg_cycles: 120          # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -106,7 +106,9 @@ design:
   wishes: Mixed attacker that makes use of technician.
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     body color, EV yield, catch rate, base exp, growth rate,
+                     base friendship, gender, egg groups, egg cycles]
   body_shape: an upright body on two legs with a tail
   movement: It walks on two legs with its wings folded.
   look: "It is a big, plump seagull-like bird with a white body and head, an orange beak and orange webbed feet. It has dark wings with a green and purple oily sheen, a grey sash across its chest holding three sheathed green-crossguard swords on its back, and a small anchor mark on one wing."

@@ -39,6 +39,8 @@ Open Claude Code in this repository and say:
      it proposes level-up, TM/HM, tutor and egg moves from similar official Pokemon, and `apply` adds them
      after the group approved.
    - **TM/HM**: only from the game's TM/HM list, what the body and type make sensible.
+   - **Body color, EV yield, catch rate, exp, growth, friendship, gender, egg groups, egg cycles**: run
+     `scripts/species_fill.py` (see [SPECIES_FILL.md](SPECIES_FILL.md)); it fills only empty fields.
    - TM/HM lists: Origin HeartGold's 130 TMs and 8 HMs are in `data/engine/origin.yaml` (read from the game's docs
      2026-11-12), with its move tutors; the website's TM boxes and `validate.py` use that list.
    - **Egg moves** for first stages; **tutor** moves are optional.

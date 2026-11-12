@@ -29,16 +29,16 @@ base_stats:              # each 1-255
   sp_defense: 50
   speed: 45
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+ev_yield: {defense: 2}   # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+catch_rate: 45           # 3 (legendary) to 255 (very easy)
+base_exp: 137            # exp yield when defeated, e.g. 64
+growth_rate: slow        # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 35      # 70 is the standard value
 
 # --- Breeding ---
 gender: genderless       # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
 egg_groups: [mineral, undiscovered] # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+egg_cycles: 120          # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -113,7 +113,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves]
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, EV yield, catch rate,
+                     base exp, growth rate, base friendship, egg cycles]
   body_shape: an upright body on two legs with a tail
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "Cindreon is a muscular, sand-gold lion with a short red-orange mane and a flame-tipped tail. Large rocky plates cover its shoulders, each with a glowing furnace opening. Smaller stones run along its back and protect its legs, giving it a rugged, armored appearance."

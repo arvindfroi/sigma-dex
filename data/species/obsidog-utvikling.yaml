@@ -30,15 +30,15 @@ base_stats:              # each 1-255
   speed: 70
 
 ev_yield: {attack: 2}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+catch_rate: 45           # 3 (legendary) to 255 (very easy)
+base_exp: 196            # exp yield when defeated, e.g. 64
+growth_rate: medium_fast # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 70      # 70 is the standard value
 
 # --- Breeding ---
-gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: []           # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+gender: 50               # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: [field]      # 1 or 2, e.g. [field, grass]
+egg_cycles: 20           # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -116,7 +116,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: true      # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves]
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, catch rate, base exp,
+                     growth rate, base friendship, gender, egg groups, egg cycles]
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its legs.
   look: "Like a monstrous gargoyle with massive spiderlegs aiding its movement. It dark obsidian and rock body can take a beating, and its thick arms can snap and crush any opponent. Small hind legs."

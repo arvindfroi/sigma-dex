@@ -13,7 +13,7 @@ category: Nano Waste     # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description: "It stores unstable waste in its core. When alarmed, it releases toxic fumes and skitters away on cable-like legs."
 height_m: 0.5            # e.g. 0.7
 weight_kg: 12.3          # e.g. 6.9
-body_color:              # red blue yellow green black brown purple gray white pink
+body_color: gray         # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
@@ -30,15 +30,15 @@ base_stats:              # each 1-255
   speed: 67
 
 ev_yield: {defense: 1}   # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+catch_rate: 190          # 3 (legendary) to 255 (very easy)
+base_exp: 61             # exp yield when defeated, e.g. 64
+growth_rate: medium_fast # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 70      # 70 is the standard value
 
 # --- Breeding ---
-gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: []           # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+gender: 50               # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: [mineral]    # 1 or 2, e.g. [field, grass]
+egg_cycles: 20           # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -101,7 +101,8 @@ design:
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", egg moves,
-                     tutor moves]
+                     tutor moves, body color, catch rate, base exp, growth rate,
+                     base friendship, gender, egg groups, egg cycles]
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its many legs.
   look: "It is a dark grey metal barrel-shaped creature with a domed top, a single glowing green eye and a yellow warning triangle. It has a window showing glowing green liquid in front, and eight black cable-like legs underneath, with green toxic drips and gas puffs around it."

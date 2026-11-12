@@ -13,7 +13,7 @@ category: Circuit Symbol # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description: "This form of Unown appears in abandoned control panels and ancient circuit diagrams. It channels energy in one direction, quietly preventing dangerous surges."
 height_m: 0.5            # e.g. 0.7
 weight_kg: 5             # e.g. 6.9
-body_color:              # red blue yellow green black brown purple gray white pink
+body_color: black        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
@@ -29,16 +29,16 @@ base_stats:              # each 1-255
   sp_defense: 48
   speed: 68
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+ev_yield: {speed: 1}     # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+catch_rate: 190          # 3 (legendary) to 255 (very easy)
+base_exp: 67             # exp yield when defeated, e.g. 64
+growth_rate: medium_fast # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 70      # 70 is the standard value
 
 # --- Breeding ---
-gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: []           # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+gender: 50               # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: [field]      # 1 or 2, e.g. [field, grass]
+egg_cycles: 20           # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -102,7 +102,8 @@ design:
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
-                     egg moves]
+                     egg moves, body color, EV yield, catch rate, base exp, growth rate,
+                     base friendship, gender, egg groups, egg cycles]
   body_shape: only a head # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a glossy black body shaped like a triangle pointing right, with a bar at its tip and short thin lines sticking out of both sides, like a diode symbol. A single large white eyeball with a black pupil sits in the middle, and a yellow electric glow surrounds it."

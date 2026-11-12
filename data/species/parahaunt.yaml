@@ -13,7 +13,7 @@ category: Smoke          # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description: "PARAHAUNT slips through the night like a drifting phantom, silently trailing smoke from its jeweled cigarette holder. It vanishes before anyone can react, leaving only a chill haze and the feeling of being watched."
 height_m: 1              # e.g. 0.7
 weight_kg: 6.8           # e.g. 6.9
-body_color:              # red blue yellow green black brown purple gray white pink
+body_color: gray         # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
@@ -29,16 +29,16 @@ base_stats:              # each 1-255
   sp_defense: 90
   speed: 210
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+ev_yield: {speed: 2}     # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+catch_rate: 45           # 3 (legendary) to 255 (very easy)
+base_exp: 194            # exp yield when defeated, e.g. 64
+growth_rate: fast        # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 35      # 70 is the standard value
 
 # --- Breeding ---
-gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: []           # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+gender: 50               # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: [amorphous]  # 1 or 2, e.g. [field, grass]
+egg_cycles: 20           # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -107,7 +107,9 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     body color, EV yield, catch rate, base exp, growth rate,
+                     base friendship, gender, egg groups, egg cycles]
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a grey smoky ghost with a long draping body of wavy tentacle-like wisps, wearing a dark grey fedora with a jewelled purple band and a purple-glowing eye. It holds a long jewelled cigarette holder in its mouth with a glowing red tip, trailing curls of grey smoke."

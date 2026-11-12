@@ -13,7 +13,7 @@ category: Nuclear Sludge # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description: "Nukfae is made entirely of toxic nuclear waste. Its sweet appearance can be deceiving — it releases highly poisonous chemicals from its body and tentacles. The rainbow sheen on its sludge is a sign of concentrated radiation. It may look friendly, but it can be lethal if it gets too close."
 height_m: 1.2            # e.g. 0.7
 weight_kg: 32.5          # e.g. 6.9
-body_color:              # red blue yellow green black brown purple gray white pink
+body_color: green        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
@@ -29,16 +29,16 @@ base_stats:              # each 1-255
   sp_defense: 92
   speed: 22
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+ev_yield: {sp_defense: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+catch_rate: 190          # 3 (legendary) to 255 (very easy)
+base_exp: 65             # exp yield when defeated, e.g. 64
+growth_rate: medium_fast # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 70      # 70 is the standard value
 
 # --- Breeding ---
-gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: []           # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+gender: 50               # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: [fairy]      # 1 or 2, e.g. [field, grass]
+egg_cycles: 20           # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -103,7 +103,8 @@ design:
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
-                     egg moves]
+                     egg moves, body color, EV yield, catch rate, base exp, growth rate,
+                     base friendship, gender, egg groups, egg cycles]
   body_shape: a head and a base # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It slithers along the ground.
   look: "It is a smiling slime creature made of glossy lime-green sludge with rainbow oily swirls. It has a rounded face under a drooping hood-like head with two long floppy ear shapes, thin arms ending in curved tentacles with purple sucker spots, and a wide melting puddle-like base."

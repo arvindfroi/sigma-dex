@@ -13,7 +13,7 @@ category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
 height_m:                # e.g. 0.7
 weight_kg:               # e.g. 6.9
-body_color:              # red blue yellow green black brown purple gray white pink
+body_color: red          # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
@@ -30,15 +30,15 @@ base_stats:              # each 1-255
   speed: 122
 
 ev_yield: {speed: 3}     # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+catch_rate: 45           # 3 (legendary) to 255 (very easy)
+base_exp: 238            # exp yield when defeated, e.g. 64
+growth_rate: medium_slow # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 70      # 70 is the standard value
 
 # --- Breeding ---
-gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: []           # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+gender: 87.5             # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: [field, dragon] # 1 or 2, e.g. [field, grass]
+egg_cycles: 20           # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -119,7 +119,9 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     body color, catch rate, base exp, growth rate, base friendship, gender,
+                     egg groups, egg cycles]
   body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a slender, bat-like dragon with red-orange scaly skin and a tan belly. It has two huge fire-patterned orange wings with yellow claws at the tips, large pointed ears with flames on top, a yellow crest on its head, two clawed legs and a long thin pointed tail."

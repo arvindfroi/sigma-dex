@@ -33,16 +33,16 @@ base_stats:              # each 1-255
   sp_defense: 40
   speed: 35
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+ev_yield: {attack: 1}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+catch_rate: 45           # 3 (legendary) to 255 (very easy)
+base_exp: 54             # exp yield when defeated, e.g. 64
+growth_rate: slow        # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 35      # 70 is the standard value
 
 # --- Breeding ---
-gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: []           # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+gender: genderless       # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: [undiscovered] # 1 or 2, e.g. [field, grass]
+egg_cycles: 120          # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -117,7 +117,9 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, egg moves]
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, egg moves, EV yield,
+                     catch rate, base exp, growth rate, base friendship, gender, egg groups,
+                     egg cycles]
   body_shape: a head and legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "Santrock is a small, sand-colored lion cub with bright eyes and a spiky red-orange mane. A single rounded rock covers each shoulder, and its long, slender tail ends in a lively flame. It has large paws and small, pointed fangs."

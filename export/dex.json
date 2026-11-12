@@ -260,7 +260,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "green",
       "abilities": {
         "primary": "Overgrow",
         "secondary": null,
@@ -277,13 +277,16 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 147,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 87.5,
+      "egg_groups": [
+        "grass",
+        "monster"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -465,7 +468,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a serpentine body",
         "movement": "It slithers along the ground.",
@@ -506,7 +517,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "green",
       "abilities": {
         "primary": "Overgrow",
         "secondary": null,
@@ -523,13 +534,16 @@
       "ev_yield": {
         "attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 238,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 87.5,
+      "egg_groups": [
+        "grass",
+        "monster"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -741,7 +755,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It crawls along the ground on its legs.",
@@ -781,7 +803,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Torrent",
         "secondary": null,
@@ -798,13 +820,16 @@
       "ev_yield": {
         "attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 64,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 87.5,
+      "egg_groups": [
+        "water_1",
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -945,7 +970,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -986,7 +1019,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Torrent",
         "secondary": null,
@@ -1004,13 +1037,16 @@
         "attack": 1,
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 147,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 87.5,
+      "egg_groups": [
+        "water_1",
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -1194,7 +1230,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -1235,7 +1279,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Torrent",
         "secondary": null,
@@ -1253,13 +1297,16 @@
         "attack": 2,
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 239,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 87.5,
+      "egg_groups": [
+        "water_1",
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -1481,7 +1528,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -1521,7 +1576,7 @@
       "description": null,
       "height_m": 0.8,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Blaze",
         "secondary": null,
@@ -1538,13 +1593,16 @@
       "ev_yield": {
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 64,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 87.5,
+      "egg_groups": [
+        "field",
+        "dragon"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -1702,7 +1760,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -1743,7 +1809,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Blaze",
         "secondary": null,
@@ -1757,14 +1823,20 @@
         "sp_defense": 65,
         "speed": 85
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "sp_attack": 1,
+        "speed": 1
+      },
+      "catch_rate": 45,
+      "base_exp": 147,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 87.5,
+      "egg_groups": [
+        "field",
+        "dragon"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -1941,7 +2013,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -1982,7 +2063,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Blaze",
         "secondary": null,
@@ -1999,13 +2080,16 @@
       "ev_yield": {
         "speed": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 238,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 87.5,
+      "egg_groups": [
+        "field",
+        "dragon"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -2209,7 +2293,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -2250,7 +2342,7 @@
       "description": "Erobi is a cheerful regional bird Pokémon known for the bright yellow feathers covering its face. The black smiley markings on its face look as if they were drawn on with a marker, and they help it appear friendly to both people and Pokémon. Even when startled, Erobi keeps its painted smile, making it difficult to tell what it is really thinking.",
       "height_m": 0.4,
       "weight_kg": 1.9,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Unburden",
         "secondary": "Keen Eye",
@@ -2264,14 +2356,18 @@
         "sp_defense": 64,
         "speed": 44
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "sp_defense": 1
+      },
+      "catch_rate": 255,
+      "base_exp": 56,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "flying"
+      ],
+      "egg_cycles": 15,
       "held_items": {
         "common": null,
         "rare": null
@@ -2432,7 +2528,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -2473,7 +2578,7 @@
       "description": null,
       "height_m": 0.8,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Unburden",
         "secondary": "Keen Eye",
@@ -2487,14 +2592,18 @@
         "sp_defense": 76,
         "speed": 62
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "sp_defense": 2
+      },
+      "catch_rate": 120,
+      "base_exp": 127,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "flying"
+      ],
+      "egg_cycles": 15,
       "held_items": {
         "common": null,
         "rare": null
@@ -2661,7 +2770,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It walks on two legs with its wings folded.",
@@ -2702,7 +2820,7 @@
       "description": "Smeatherace rides high winds with silent grace, using the emoji-like marking on its chest to signal its flock from afar. When it drops what it carries, its body becomes startlingly light, letting it burst through the sky with incredible speed.",
       "height_m": 1.7,
       "weight_kg": 28.4,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Unburden",
         "secondary": "Keen Eye",
@@ -2716,14 +2834,19 @@
         "sp_defense": 102,
         "speed": 85
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "attack": 2,
+        "sp_defense": 1
+      },
+      "catch_rate": 45,
+      "base_exp": 222,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "flying"
+      ],
+      "egg_cycles": 15,
       "held_items": {
         "common": null,
         "rare": null
@@ -2898,7 +3021,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -2939,7 +3071,7 @@
       "description": "Bolthook waits in eerie stillness until prey comes into view. It then spreads its great wings to blot out the sun and strikes with its enormous beak in a single, thunderous blow. The echo of its beak can be heard for miles.",
       "height_m": 2,
       "weight_kg": 86,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Strong Jaw",
         "secondary": "Intimidate",
@@ -2956,13 +3088,15 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 174,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "flying"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -3112,7 +3246,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It walks on two legs with its wings folded.",
@@ -3152,7 +3294,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Swarm",
         "secondary": "Run Away",
@@ -3169,13 +3311,15 @@
       "ev_yield": {
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 60,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "bug"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -3308,7 +3452,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It crawls along the ground on its many legs.",
@@ -3349,7 +3501,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Swarm",
         "secondary": "Leaf Guard",
@@ -3363,14 +3515,19 @@
         "sp_defense": 100,
         "speed": 20
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "defense": 1,
+        "sp_defense": 1
+      },
+      "catch_rate": 120,
+      "base_exp": 133,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "bug"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -3550,7 +3707,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a head and a base",
         "movement": "It floats in the air.",
@@ -3591,7 +3757,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Swarm",
         "secondary": "Leaf Guard",
@@ -3609,13 +3775,15 @@
         "defense": 2,
         "sp_defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 170,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "bug"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -3803,7 +3971,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It crawls along the ground on its many legs.",
@@ -3843,7 +4019,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Early Bird",
         "secondary": "Harvest",
@@ -3860,13 +4036,16 @@
       "ev_yield": {
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 120,
+      "base_exp": 60,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "grass",
+        "flying"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -4007,7 +4186,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -4048,7 +4235,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Early Bird",
         "secondary": "Harvest",
@@ -4065,13 +4252,16 @@
       "ev_yield": {
         "speed": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 165,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "grass",
+        "flying"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -4255,7 +4445,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -4377,7 +4575,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Own Tempo",
         "secondary": "Drizzle",
@@ -4391,14 +4589,19 @@
         "sp_defense": 60,
         "speed": 30
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "hp": 1
+      },
+      "catch_rate": 190,
+      "base_exp": 63,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field",
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -4558,7 +4761,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -4599,7 +4811,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Own Tempo",
         "secondary": "Drizzle",
@@ -4616,13 +4828,16 @@
       "ev_yield": {
         "hp": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 172,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field",
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -4829,7 +5044,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -4870,7 +5093,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Scrappy",
         "secondary": "Fur Coat",
@@ -4884,14 +5107,18 @@
         "sp_defense": 55,
         "speed": 67
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "attack": 1
+      },
+      "catch_rate": 190,
+      "base_exp": 65,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 15,
       "held_items": {
         "common": null,
         "rare": null
@@ -5054,7 +5281,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -5095,7 +5331,7 @@
       "description": "It swings its ears like fists to slap the target. Its tough fur protects it while it fights.",
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "black",
       "abilities": {
         "primary": "Scrappy",
         "secondary": "Fur Coat",
@@ -5112,13 +5348,15 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 170,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 15,
       "held_items": {
         "common": null,
         "rare": null
@@ -5305,7 +5543,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -5346,7 +5592,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "yellow",
       "abilities": {
         "primary": "Iron Barbs",
         "secondary": "Sand Veil",
@@ -5360,14 +5606,18 @@
         "sp_defense": 65,
         "speed": 30
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "defense": 2
+      },
+      "catch_rate": 60,
+      "base_exp": 144,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -5526,7 +5776,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -5566,7 +5825,7 @@
       "description": "Icy Freeze roams city streets with effortless swagger, chilling the air around him wherever he goes. When threatened, he unleashes a freezing glare and a burst of icy wind that can stop opponents in their tracks.",
       "height_m": 0.4,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Ice Body",
         "secondary": "Slush Rush",
@@ -5580,14 +5839,18 @@
         "sp_defense": 40,
         "speed": 60
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "attack": 1
+      },
+      "catch_rate": 190,
+      "base_exp": 56,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -5727,7 +5990,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -5767,7 +6039,7 @@
       "description": "Freezrick evolved by gaining more ice mass and perfecting control over its frigid aura. Its hair bangs, made of fine ice crystals, are so cold they conceal even its eyes.",
       "height_m": 0.89,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Ice Body",
         "secondary": "Slush Rush",
@@ -5784,13 +6056,15 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 147,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -5953,7 +6227,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -5994,7 +6276,7 @@
       "description": "Its nose glows when it's excited, alert, or using its light. It uses that light to light up dark caves or to blind enemies.",
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Shell Armor",
         "secondary": "Earth Eater",
@@ -6011,13 +6293,15 @@
       "ev_yield": {
         "sp_defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 56,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "monster"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -6170,7 +6454,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -6211,7 +6503,7 @@
       "description": "Bulbtoise's shell is made of glass, which it fills with its own light. It uses this light to illuminate caves or to blind enemies in battle.",
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Shell Armor",
         "secondary": "Earth Eater",
@@ -6228,13 +6520,15 @@
       "ev_yield": {
         "sp_defense": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 75,
+      "base_exp": 165,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "monster"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -6413,7 +6707,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -6453,7 +6755,7 @@
       "description": "Boosts the Pokemon's Speed stat in rain.",
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Water Veil",
@@ -6470,13 +6772,15 @@
       "ev_yield": {
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 200,
+      "base_exp": 46,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -6616,7 +6920,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with fins",
         "movement": "It floats in the air, swimming with its fins.",
@@ -6656,7 +6968,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Liquid Voice",
@@ -6673,13 +6985,15 @@
       "ev_yield": {
         "speed": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 176,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -6829,7 +7143,15 @@
         "filled_by_claude": [
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": null,
         "movement": null,
@@ -6870,7 +7192,7 @@
       "description": "May disable a move that deals damage to the Pokemon.",
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "green",
       "abilities": {
         "primary": "Cursed Body",
         "secondary": "Lightning Rod",
@@ -6887,13 +7209,15 @@
       "ev_yield": {
         "sp_attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 177,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -7082,7 +7406,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It floats in the air.",
@@ -7122,7 +7454,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "black",
       "abilities": {
         "primary": "Moody",
         "secondary": null,
@@ -7136,14 +7468,20 @@
         "sp_defense": 77,
         "speed": 77
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "hp": 1,
+        "attack": 1
+      },
+      "catch_rate": 60,
+      "base_exp": 162,
+      "growth_rate": "slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_1",
+        "mineral"
+      ],
+      "egg_cycles": 25,
       "held_items": {
         "common": null,
         "rare": null
@@ -7292,7 +7630,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -7330,7 +7677,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "green",
       "abilities": {
         "primary": "Punchable Face",
         "secondary": null,
@@ -7344,14 +7691,18 @@
         "sp_defense": 70,
         "speed": 115
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "speed": 2
+      },
+      "catch_rate": 60,
+      "base_exp": 172,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -7479,7 +7830,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -7519,7 +7879,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Run Away",
         "secondary": "Quick Feet",
@@ -7533,14 +7893,18 @@
         "sp_defense": 41,
         "speed": 65
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "speed": 1
+      },
+      "catch_rate": 255,
+      "base_exp": 60,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 15,
       "held_items": {
         "common": null,
         "rare": null
@@ -7697,7 +8061,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -7737,7 +8110,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Run Away",
         "secondary": "Quick Feet",
@@ -7754,13 +8127,15 @@
       "ev_yield": {
         "speed": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 90,
+      "base_exp": 156,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 15,
       "held_items": {
         "common": null,
         "rare": null
@@ -7941,7 +8316,15 @@
           "look",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -7982,7 +8365,7 @@
       "description": "Nukfae is made entirely of toxic nuclear waste. Its sweet appearance can be deceiving — it releases highly poisonous chemicals from its body and tentacles. The rainbow sheen on its sludge is a sign of concentrated radiation. It may look friendly, but it can be lethal if it gets too close.",
       "height_m": 1.2,
       "weight_kg": 32.5,
-      "body_color": null,
+      "body_color": "green",
       "abilities": {
         "primary": "Liquid Ooze",
         "secondary": "Sticky Hold",
@@ -7996,14 +8379,18 @@
         "sp_defense": 92,
         "speed": 22
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "sp_defense": 1
+      },
+      "catch_rate": 190,
+      "base_exp": 65,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "fairy"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -8148,7 +8535,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a head and a base",
         "movement": "It slithers along the ground.",
@@ -8189,7 +8585,7 @@
       "description": "Toxsiren is entirely transformed into toxic waste. Its tentacles are both alluring and deadly, releasing poisonous chemicals that can melt flesh and corrode the environment. Despite its dangerous nature, it possesses a haunting beauty that draws in prey and prey alike.",
       "height_m": 2.4,
       "weight_kg": 68.7,
-      "body_color": null,
+      "body_color": "green",
       "abilities": {
         "primary": "Liquid Ooze",
         "secondary": "Toxic Voice",
@@ -8206,13 +8602,15 @@
       "ev_yield": {
         "sp_defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 182,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "fairy"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -8409,7 +8807,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It slithers along the ground.",
@@ -8449,7 +8855,7 @@
       "description": "Can support immense weight on its head. Its thumbs-up form is a mystery of ancient masonry.",
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Sturdy",
         "secondary": "Rock Head",
@@ -8466,13 +8872,15 @@
       "ev_yield": {
         "defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 120,
+      "base_exp": 65,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -8610,7 +9018,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "only a head",
         "movement": "It floats in the air.",
@@ -8651,7 +9067,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Iron Fist",
         "secondary": "Rock Head",
@@ -8665,14 +9081,18 @@
         "sp_defense": 67,
         "speed": 21
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "defense": 2
+      },
+      "catch_rate": 45,
+      "base_exp": 179,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -8844,7 +9264,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -8884,7 +9313,7 @@
       "description": "A very small Pokémon. It struggles to form its first masks, its hands constantly gripping and shaping the raw wood face it wears. The unique green moss that forms around its mouth and in its wood grain provides its natural nutrition. It is much less active than its evolution.",
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Heatproof",
         "secondary": "Dancer",
@@ -8901,13 +9330,16 @@
       "ev_yield": {
         "defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 75,
+      "base_exp": 57,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "grass",
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -9043,7 +9475,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks on its legs.",
@@ -9084,7 +9524,7 @@
       "description": "A Pokémon that performs intricate fire dances, mimicking moves it observes. The flames on its staff are said to burn hotter with the complexity of its routines. While its tail now trails only smoke, it uses it to create smokescreens.",
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Flash Fire",
         "secondary": "Dancer",
@@ -9102,13 +9542,16 @@
         "defense": 1,
         "sp_attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 90,
+      "base_exp": 147,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "grass",
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -9299,7 +9742,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -9340,7 +9791,7 @@
       "description": "A powerful Pokémon that leads its tribe with fiery passion. Gortiki’s burning torch can incinerate thick trees in an instant. It performs intense dances to inspire allies and intimidate foes. When its flames die down, it retreats to the jungle to meditate and rekindle its inner fire.",
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Flash Fire",
         "secondary": "Dancer",
@@ -9358,13 +9809,16 @@
         "defense": 2,
         "sp_attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 238,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "grass",
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -9539,7 +9993,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -9580,7 +10042,7 @@
       "description": "It’s loud, it’s fuzzy, and it doesn’t care who hears it. Chebbi lives for the stage—and the chaos it brings.",
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "purple",
       "abilities": {
         "primary": "Soundproof",
         "secondary": "Gluttony",
@@ -9597,13 +10059,15 @@
       "ev_yield": {
         "sp_attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 120,
+      "base_exp": 72,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -9762,7 +10226,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks on its legs.",
@@ -9803,7 +10275,7 @@
       "description": "Its voice can shatter glass— and shake hearts. Debatry won't just be heard, it'll be remembered.",
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Soundproof",
         "secondary": "Gluttony",
@@ -9821,13 +10293,15 @@
         "sp_attack": 1,
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 177,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -10026,7 +10500,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -10067,7 +10549,7 @@
       "description": "Chillalit is a laid-back Pokémon that rides a surfboard made of fluid water. It controls the shape and sharpness of the board to outmaneuver opponents. Its flames never burn it—or its board.",
       "height_m": 1.1,
       "weight_kg": 26.5,
-      "body_color": null,
+      "body_color": "black",
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Solar Power",
@@ -10084,13 +10566,15 @@
       "ev_yield": {
         "speed": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 173,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -10255,7 +10739,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -10296,7 +10788,7 @@
       "description": "Zapana stores electricity in special cells along its body. It practices by discharging small shocks in the water to stun prey. It grows stronger as it learns to control its power.",
       "height_m": 0.5,
       "weight_kg": 5,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Static",
@@ -10313,13 +10805,15 @@
       "ev_yield": {
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 57,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -10475,7 +10969,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with fins",
         "movement": "It floats in the air, swimming with its fins.",
@@ -10516,7 +11018,7 @@
       "description": "Ampeel generates electricity by flexing its slender body at high speed. It stores massive amounts of electric energy within its muscles and releases it in blinding bursts. It's extremely aggressive and will attack anything that enters its territory without hesitation.",
       "height_m": 0.9,
       "weight_kg": 22,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Static",
@@ -10533,13 +11035,15 @@
       "ev_yield": {
         "speed": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 170,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -10717,7 +11221,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a serpentine body",
         "movement": "It slithers along the ground.",
@@ -10758,7 +11270,7 @@
       "description": "An urban plain-sight stealth specialist, often found hiding in bins and picnic leftovers. Its leafy eyes reveal its mood.",
       "height_m": 0.8,
       "weight_kg": 24.5,
-      "body_color": null,
+      "body_color": "yellow",
       "abilities": {
         "primary": "Pickle Armor",
         "secondary": "Chlorophyll",
@@ -10772,14 +11284,18 @@
         "sp_defense": 80,
         "speed": 45
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "attack": 1
+      },
+      "catch_rate": 120,
+      "base_exp": 96,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "grass"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -10939,7 +11455,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a head and arms",
         "movement": "It crawls along the ground on its legs.",
@@ -10980,7 +11505,7 @@
       "description": "It hides among discarded takeaway meals. The fries on its bun bristle when threatened, while its leafy eyes reveal its mood.",
       "height_m": 1.1,
       "weight_kg": 42,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "XL and Deep fried",
         "secondary": "Chlorophyll",
@@ -10994,14 +11519,18 @@
         "sp_defense": 90,
         "speed": 55
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "attack": 2
+      },
+      "catch_rate": 60,
+      "base_exp": 196,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "grass"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -11187,7 +11716,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It crawls along the ground on its legs.",
@@ -11228,7 +11766,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Curious Medicine",
         "secondary": "Tangled Feet",
@@ -11245,13 +11783,15 @@
       "ev_yield": {
         "sp_attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 147,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "bug"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -11397,7 +11937,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -11438,7 +11986,7 @@
       "description": null,
       "height_m": 0.4,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "yellow",
       "abilities": {
         "primary": "Effect Spore",
         "secondary": "Aroma Veil",
@@ -11452,14 +12000,18 @@
         "sp_defense": 65,
         "speed": 35
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "sp_attack": 1
+      },
+      "catch_rate": 190,
+      "base_exp": 59,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "grass"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -11605,7 +12157,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -11646,7 +12207,7 @@
       "description": null,
       "height_m": 1.1,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Effect Spore",
         "secondary": "Aroma Veil",
@@ -11660,14 +12221,18 @@
         "sp_defense": 85,
         "speed": 70
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "sp_attack": 2
+      },
+      "catch_rate": 75,
+      "base_exp": 161,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "grass"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -11818,7 +12383,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -11940,7 +12514,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Ore Body",
         "secondary": "Stamina",
@@ -11957,13 +12531,15 @@
       "ev_yield": {
         "defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 175,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 25,
       "held_items": {
         "common": null,
         "rare": null
@@ -12118,7 +12694,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -12243,7 +12827,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "pink",
       "abilities": {
         "primary": "Snow Cloak",
         "secondary": "Thick Fat",
@@ -12260,13 +12844,15 @@
       "ev_yield": {
         "sp_defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 175,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -12421,7 +13007,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -12462,7 +13056,7 @@
       "description": "This form of Unown appears in abandoned control panels and ancient circuit diagrams. It channels energy in one direction, quietly preventing dangerous surges.",
       "height_m": 0.5,
       "weight_kg": 5,
-      "body_color": null,
+      "body_color": "black",
       "abilities": {
         "primary": "Battery",
         "secondary": null,
@@ -12476,14 +13070,18 @@
         "sp_defense": 48,
         "speed": 68
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "speed": 1
+      },
+      "catch_rate": 190,
+      "base_exp": 67,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -12627,7 +13225,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "only a head",
         "movement": "It floats in the air.",
@@ -12668,7 +13275,7 @@
       "description": "When four Unown attune to compatible energies, they form a closed circuit. Their connection stabilizes energy flow and prevents dissipation, allowing power to cycle endlessly within their loop. They appear where strong currents convene.",
       "height_m": 1.4,
       "weight_kg": 22.8,
-      "body_color": null,
+      "body_color": "black",
       "abilities": {
         "primary": "Battery",
         "secondary": null,
@@ -12685,13 +13292,15 @@
       "ev_yield": {
         "speed": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 75,
+      "base_exp": 164,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -12856,7 +13465,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "several bodies joined together",
         "movement": "It floats in the air.",
@@ -12897,7 +13514,7 @@
       "description": "It hides in marshes beneath curtains of swamp grass. In heavy rain, it sinks low into the water, causing attacks from above to pass harmlessly by.",
       "height_m": 0.6,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Diver",
         "secondary": "Tangling Hair",
@@ -12914,13 +13531,16 @@
       "ev_yield": {
         "defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 62,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral",
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -13081,7 +13701,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a head and a base",
         "movement": "It crawls along the ground on its legs.",
@@ -13122,7 +13750,7 @@
       "description": "A group of Hairyen has taken over an abandoned tank. They patched it up with swamp weeds and logs to keep moving. It can only fire at what's straight ahead.",
       "height_m": 1.6,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Bulletproof",
         "secondary": "Shell Armor",
@@ -13140,13 +13768,16 @@
         "defense": 2,
         "sp_defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 189,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral",
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -13362,7 +13993,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "several bodies joined together",
         "movement": "It crawls along the ground on its legs.",
@@ -13403,7 +14042,7 @@
       "description": "It stores unstable waste in its core. When alarmed, it releases toxic fumes and skitters away on cable-like legs.",
       "height_m": 0.5,
       "weight_kg": 12.3,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Innards Out",
         "secondary": "Corrosion",
@@ -13420,13 +14059,15 @@
       "ev_yield": {
         "defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 61,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -13559,7 +14200,15 @@
           "level-up moves",
           "TM/HM moves",
           "egg moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It crawls along the ground on its many legs.",
@@ -13600,7 +14249,7 @@
       "description": "Its core has grown dangerously unstable. It lumbers through wastelands, venting corrosive fumes while its reinforced body shields the toxin within.",
       "height_m": 1.7,
       "weight_kg": 188.4,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Innards Out",
         "secondary": "Corrosion",
@@ -13617,13 +14266,15 @@
       "ev_yield": {
         "sp_defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 184,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -13792,7 +14443,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a head and arms",
         "movement": "It walks on its legs.",
@@ -13833,7 +14492,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "black",
       "abilities": {
         "primary": "Sheer Force",
         "secondary": "Rocky Payload",
@@ -13850,13 +14509,15 @@
       "ev_yield": {
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 75,
+      "base_exp": 142,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -14027,7 +14688,15 @@
         "filled_by_claude": [
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "Like a Chimpanzee",
@@ -14068,7 +14737,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Sheer Force",
         "secondary": "Rocky Payload",
@@ -14085,13 +14754,15 @@
       "ev_yield": {
         "attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 227,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -14279,7 +14950,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "several bodies joined together",
         "movement": "It floats in the air.",
@@ -14320,7 +14999,7 @@
       "description": "Anjane's heavy hair droops down to the ground. It absorbs the curse-filled emotions of others and hangs motionless. When angered, the hair stiffens and sways, unleashing bursts of cursed energy. It's said that when it sways its hair, the sound is like the curse a thousand spirits let loose in a single moan.",
       "height_m": 0.8,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "purple",
       "abilities": {
         "primary": "Tangling Hair",
         "secondary": "Mega Launcher",
@@ -14337,13 +15016,15 @@
       "ev_yield": {
         "sp_attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 64,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "fairy"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -14480,7 +15161,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a head and legs",
         "movement": "It walks on its legs.",
@@ -14521,7 +15210,7 @@
       "description": "It's said that when it fires its cannon, the sound is like the curse a thousand spirits let loose in a single scream.",
       "height_m": 1.8,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Tangling Hair",
         "secondary": "Mega Launcher",
@@ -14538,13 +15227,15 @@
       "ev_yield": {
         "sp_attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 170,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "fairy"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -14703,7 +15394,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a head and legs",
         "movement": "It walks on its legs.",
@@ -14744,7 +15443,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Analytic",
         "secondary": "Telepathy",
@@ -14761,13 +15460,16 @@
       "ev_yield": {
         "sp_defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 59,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_3",
+        "grass"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -14936,7 +15638,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a head and legs",
         "movement": "It walks on its legs.",
@@ -14977,7 +15687,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "purple",
       "abilities": {
         "primary": "Analytic",
         "secondary": "Telepathy",
@@ -14995,13 +15705,16 @@
         "defense": 1,
         "sp_defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 75,
+      "base_exp": 138,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_3",
+        "grass"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -15179,7 +15892,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a serpentine body",
         "movement": "It floats in the air.",
@@ -15220,7 +15941,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "pink",
       "abilities": {
         "primary": "Analytic",
         "secondary": "Telepathy",
@@ -15238,13 +15959,16 @@
         "defense": 1,
         "sp_defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 174,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_3",
+        "grass"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -15446,7 +16170,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It floats in the air.",
@@ -15486,7 +16218,7 @@
       "description": null,
       "height_m": 2.1,
       "weight_kg": 182,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Cold-hearted",
         "secondary": "Ice Body",
@@ -15503,13 +16235,15 @@
       "ev_yield": {
         "attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 185,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_3"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -15650,7 +16384,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -15775,7 +16517,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "pink",
       "abilities": {
         "primary": "Clear Body",
         "secondary": "Telepathy",
@@ -15793,13 +16535,15 @@
         "hp": 1,
         "sp_defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 227,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -16036,7 +16780,15 @@
         "filled_by_claude": [
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": null,
         "movement": null,
@@ -16077,7 +16829,7 @@
       "description": null,
       "height_m": 0.5,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Sturdy",
         "secondary": "Toxic Debris",
@@ -16094,13 +16846,15 @@
       "ev_yield": {
         "sp_defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 56,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -16255,7 +17009,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a head and legs",
         "movement": "It walks on its legs.",
@@ -16296,7 +17058,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Sturdy",
         "secondary": "Toxic Debris",
@@ -16313,13 +17075,15 @@
       "ev_yield": {
         "sp_defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 100,
+      "base_exp": 140,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -16485,7 +17249,15 @@
         "filled_by_claude": [
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": null,
         "movement": null,
@@ -16526,7 +17298,7 @@
       "description": "Born from bones and lead, it rises in polluted lands. Its touch can corrode rock and rot even steel.",
       "height_m": 2.6,
       "weight_kg": 412,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Sturdy",
         "secondary": "Toxic Debris",
@@ -16543,13 +17315,15 @@
       "ev_yield": {
         "sp_defense": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 236,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -16714,7 +17488,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -16842,7 +17624,7 @@
       "description": "It hunts in frozen wetlands and icy rivers, using its frost breath and venomous tongue to immobilize prey. When it feels safe or needs to conserve energy, it curls its body into an iglo, using its own icy scales as a protective shell.",
       "height_m": 2.5,
       "weight_kg": 280,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Ice Body",
         "secondary": "Merciless",
@@ -16859,13 +17641,15 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 186,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -17025,7 +17809,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -17066,7 +17858,7 @@
       "description": null,
       "height_m": 1.6,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Cute Charm",
         "secondary": "Competitive",
@@ -17080,14 +17872,18 @@
         "sp_defense": 90,
         "speed": 106
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "speed": 2
+      },
+      "catch_rate": 60,
+      "base_exp": 168,
+      "growth_rate": "fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "grass"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -17240,7 +18036,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -17280,7 +18085,7 @@
       "description": "Ciggiti is always puffing on a cigarette it found. Its smoke clouds its mind and body, and it can barely hold itself together. It’s said to enjoy the feeling—right before it fades away.",
       "height_m": 0.7,
       "weight_kg": 4.2,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Smoked Up",
         "secondary": null,
@@ -17294,14 +18099,18 @@
         "sp_defense": 30,
         "speed": 100
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "sp_attack": 1
+      },
+      "catch_rate": 120,
+      "base_exp": 62,
+      "growth_rate": "fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "amorphous"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -17452,7 +18261,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It floats in the air.",
@@ -17492,7 +18310,7 @@
       "description": "CHURCHAR evolved from CIGGITI after its smoke condensed into a wicked, scheming spirit. It lurks in dim alleys and abandoned halls, grinning through thick haze as its cursed cigar burns ever brighter.",
       "height_m": 1.2,
       "weight_kg": 9.6,
-      "body_color": null,
+      "body_color": "black",
       "abilities": {
         "primary": "Smoked Up",
         "secondary": null,
@@ -17506,14 +18324,18 @@
         "sp_defense": 64,
         "speed": 120
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "sp_attack": 2
+      },
+      "catch_rate": 45,
+      "base_exp": 201,
+      "growth_rate": "fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "amorphous"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -17664,7 +18486,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "only a head",
         "movement": "It floats in the air.",
@@ -17704,7 +18535,7 @@
       "description": "PARAHAUNT slips through the night like a drifting phantom, silently trailing smoke from its jeweled cigarette holder. It vanishes before anyone can react, leaving only a chill haze and the feeling of being watched.",
       "height_m": 1,
       "weight_kg": 6.8,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Smoked Up",
         "secondary": null,
@@ -17718,14 +18549,18 @@
         "sp_defense": 90,
         "speed": 210
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "speed": 2
+      },
+      "catch_rate": 45,
+      "base_exp": 194,
+      "growth_rate": "fast",
+      "base_friendship": 35,
+      "gender": 50,
+      "egg_groups": [
+        "amorphous"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -17877,7 +18712,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It floats in the air.",
@@ -17918,7 +18762,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "black",
       "abilities": {
         "primary": "Wonder Guard",
         "secondary": null,
@@ -17937,13 +18781,15 @@
         "sp_attack": 1,
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 152,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -18103,7 +18949,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -18143,7 +18997,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Pickup",
         "secondary": "Keen Eye",
@@ -18160,13 +19014,15 @@
       "ev_yield": {
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 63,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -18311,7 +19167,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": null,
         "movement": null,
@@ -18351,7 +19215,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Pickup",
         "secondary": "Keen Eye",
@@ -18369,13 +19233,15 @@
         "attack": 1,
         "sp_attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 162,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -18565,7 +19431,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -18606,7 +19480,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Snow Warning",
         "secondary": "Snow Cloak",
@@ -18623,13 +19497,15 @@
       "ev_yield": {
         "sp_attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 75,
+      "base_exp": 166,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "amorphous"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -18804,7 +19680,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a head and a base",
         "movement": "It floats in the air.",
@@ -18845,7 +19729,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Fog Of War",
         "secondary": null,
@@ -18862,13 +19746,15 @@
       "ev_yield": {
         "defense": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 195,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 25,
       "held_items": {
         "common": null,
         "rare": null
@@ -19026,7 +19912,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -19066,7 +19960,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "green",
       "abilities": {
         "primary": "Drunken Rage",
         "secondary": "Poison Heal",
@@ -19083,13 +19977,15 @@
       "ev_yield": {
         "attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 70,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -19230,7 +20126,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks on its legs.",
@@ -19270,7 +20174,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "green",
       "abilities": {
         "primary": "Drunken Rage",
         "secondary": "Poison Heal",
@@ -19287,13 +20191,15 @@
       "ev_yield": {
         "hp": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 25,
+      "base_exp": 189,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -19491,7 +20397,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -19531,7 +20445,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "pink",
       "abilities": {
         "primary": "Mirror Armor",
         "secondary": "Symbiosis",
@@ -19545,14 +20459,18 @@
         "sp_defense": 55,
         "speed": 40
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "defense": 1
+      },
+      "catch_rate": 200,
+      "base_exp": 63,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "fairy"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -19686,7 +20604,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It crawls along the ground on its many legs.",
@@ -19726,7 +20653,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "pink",
       "abilities": {
         "primary": "Mirror Armor",
         "secondary": "Symbiosis",
@@ -19743,13 +20670,15 @@
       "ev_yield": {
         "defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 90,
+      "base_exp": 172,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "fairy"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -19892,7 +20821,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It crawls along the ground on its many legs.",
@@ -19933,7 +20870,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "yellow",
       "abilities": {
         "primary": "Sand Stream",
         "secondary": "Rough Skin",
@@ -19950,13 +20887,16 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 181,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "monster",
+        "mineral"
+      ],
+      "egg_cycles": 30,
       "held_items": {
         "common": null,
         "rare": null
@@ -20132,7 +21072,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It crawls along the ground on its legs.",
@@ -20257,7 +21205,7 @@
       "description": null,
       "height_m": 2.9,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Magician",
         "secondary": "Power Spot",
@@ -20274,13 +21222,15 @@
       "ev_yield": {
         "sp_defense": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 75,
+      "base_exp": 186,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -20434,7 +21384,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -20474,7 +21432,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "pink",
       "abilities": {
         "primary": "Speed Boost",
         "secondary": null,
@@ -20488,14 +21446,18 @@
         "sp_defense": 80,
         "speed": 50
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "defense": 1
+      },
+      "catch_rate": 120,
+      "base_exp": 70,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -20642,7 +21604,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -20683,7 +21654,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "purple",
       "abilities": {
         "primary": "Speed Boost",
         "secondary": null,
@@ -20697,14 +21668,19 @@
         "sp_defense": 100,
         "speed": 70
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "attack": 1,
+        "defense": 1
+      },
+      "catch_rate": 60,
+      "base_exp": 170,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -20895,7 +21871,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -20936,7 +21921,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Shell Armor",
         "secondary": "Overcoat",
@@ -20950,14 +21935,18 @@
         "sp_defense": 75,
         "speed": 50
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "defense": 1
+      },
+      "catch_rate": 190,
+      "base_exp": 70,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "bug"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -21102,7 +22091,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an insect body with a hard shell",
         "movement": "It crawls along the ground on its legs.",
@@ -21143,7 +22141,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Levitate",
         "secondary": "Overcoat",
@@ -21160,13 +22158,15 @@
       "ev_yield": {
         "speed": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 173,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "bug"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -21340,7 +22340,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an insect body with a hard shell",
         "movement": "It flies, flapping its wings.",
@@ -21381,7 +22389,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "black",
       "abilities": {
         "primary": "Cursed Body",
         "secondary": "Weak Armor",
@@ -21398,13 +22406,15 @@
       "ev_yield": {
         "defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 75,
+      "base_exp": 70,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 25,
       "held_items": {
         "common": null,
         "rare": null
@@ -21551,7 +22561,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -21592,7 +22610,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Cursed Body",
         "secondary": "Weak Armor",
@@ -21609,13 +22627,15 @@
       "ev_yield": {
         "defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 173,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 25,
       "held_items": {
         "common": null,
         "rare": null
@@ -21761,7 +22781,15 @@
         "filled_by_claude": [
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": null,
         "movement": null,
@@ -21801,7 +22829,7 @@
       "description": null,
       "height_m": 1,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Truant",
         "secondary": null,
@@ -21818,13 +22846,15 @@
       "ev_yield": {
         "attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 84,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -21963,7 +22993,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks on its legs.",
@@ -22004,7 +23042,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Sloth Combat",
         "secondary": null,
@@ -22021,13 +23059,15 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 190,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -22248,7 +23288,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -22289,7 +23337,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Iron Fist",
         "secondary": "Sand Force",
@@ -22306,13 +23354,15 @@
       "ev_yield": {
         "attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 178,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "human_like"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -22470,7 +23520,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -22511,7 +23569,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "purple",
       "abilities": {
         "primary": "Guard Dog",
         "secondary": "Intimidate",
@@ -22528,13 +23586,15 @@
       "ev_yield": {
         "attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 150,
+      "base_exp": 68,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -22697,7 +23757,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -22755,13 +23823,15 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 196,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -22950,7 +24020,14 @@
         "filled_by_claude": [
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It crawls along the ground on its legs.",
@@ -22991,7 +24068,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Sand Force",
         "secondary": "Steam Engine",
@@ -23008,13 +24085,15 @@
       "ev_yield": {
         "defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 175,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -23187,7 +24266,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -23227,7 +24314,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "green",
       "abilities": {
         "primary": "Anger Point",
         "secondary": "Heckler",
@@ -23241,14 +24328,18 @@
         "sp_defense": 90,
         "speed": 42
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "sp_defense": 1
+      },
+      "catch_rate": 180,
+      "base_exp": 74,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -23412,7 +24503,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -23452,7 +24552,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "green",
       "abilities": {
         "primary": "Anger Point",
         "secondary": "Heckler",
@@ -23469,13 +24569,15 @@
       "ev_yield": {
         "sp_defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 172,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -23642,7 +24744,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -23683,7 +24793,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Disguise",
         "secondary": null,
@@ -23700,13 +24810,15 @@
       "ev_yield": {
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 56,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "amorphous"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -23849,7 +24961,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a serpentine body",
         "movement": "It floats in the air.",
@@ -23890,7 +25010,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Disguise",
         "secondary": null,
@@ -23907,13 +25027,15 @@
       "ev_yield": {
         "speed": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 168,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "amorphous"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -24074,7 +25196,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -24131,13 +25261,15 @@
       "ev_yield": {
         "sp_attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 71,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "flying"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -24293,7 +25425,14 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -24334,7 +25473,7 @@
       "description": null,
       "height_m": 2.1,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "yellow",
       "abilities": {
         "primary": "Anticipation",
         "secondary": "Forewarn",
@@ -24351,13 +25490,15 @@
       "ev_yield": {
         "sp_attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 184,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "flying"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -24550,7 +25691,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -24590,7 +25739,7 @@
       "description": null,
       "height_m": 0.4,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Shields Down",
         "secondary": null,
@@ -24607,13 +25756,15 @@
       "ev_yield": {
         "sp_defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 60,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "human_like"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -24763,7 +25914,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -24804,7 +25963,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Shields Down",
         "secondary": null,
@@ -24821,13 +25980,15 @@
       "ev_yield": {
         "sp_defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 75,
+      "base_exp": 154,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "human_like"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -25002,7 +26163,15 @@
         "filled_by_claude": [
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": null,
         "movement": null,
@@ -25133,7 +26302,7 @@
       "description": null,
       "height_m": 1.5,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Levitate",
         "secondary": "Magnet Pull",
@@ -25150,13 +26319,15 @@
       "ev_yield": {
         "speed": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 177,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": "genderless",
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -25317,7 +26488,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -25357,7 +26536,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "yellow",
       "abilities": {
         "primary": "Leaf Mane",
         "secondary": null,
@@ -25374,13 +26553,16 @@
       "ev_yield": {
         "attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 120,
+      "base_exp": 74,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field",
+        "grass"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -25507,7 +26689,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -25547,7 +26737,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "green",
       "abilities": {
         "primary": "Leaf Mane",
         "secondary": null,
@@ -25564,13 +26754,16 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 179,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field",
+        "grass"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -25725,7 +26918,15 @@
         "filled_by_claude": [
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": null,
         "movement": null,
@@ -25766,7 +26967,7 @@
       "description": null,
       "height_m": 0.8,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Illusion",
         "secondary": null,
@@ -25780,14 +26981,18 @@
         "sp_defense": 45,
         "speed": 65
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "attack": 1
+      },
+      "catch_rate": 190,
+      "base_exp": 66,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -25949,7 +27154,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -25990,7 +27204,7 @@
       "description": null,
       "height_m": 1.9,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Illusion",
         "secondary": null,
@@ -26007,13 +27221,15 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 179,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -26179,7 +27395,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -26220,7 +27444,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Justified",
         "secondary": "Guts",
@@ -26237,13 +27461,15 @@
       "ev_yield": {
         "speed": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 175,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -26413,7 +27639,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -26454,7 +27688,7 @@
       "description": "Bugmight fights for smiles and justice. It flares its wings like a cape to inspire its allies and crush evil with overwhelming might.",
       "height_m": 1.9,
       "weight_kg": 75,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Justified",
         "secondary": "Guts",
@@ -26471,13 +27705,15 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 175,
+      "growth_rate": "slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "bug"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -26632,7 +27868,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It walks upright on two legs.",
@@ -26764,7 +28008,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Drought",
         "secondary": "Moxie",
@@ -26781,13 +28025,15 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 181,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "dragon"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -26947,7 +28193,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -26988,7 +28242,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "green",
       "abilities": {
         "primary": "Mold Breaker",
         "secondary": "Battle Armor",
@@ -27005,13 +28259,15 @@
       "ev_yield": {
         "attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 120,
+      "base_exp": 72,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "bug"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -27159,7 +28415,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an insect body with a hard shell",
         "movement": "It crawls along the ground on its many legs.",
@@ -27200,7 +28464,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "green",
       "abilities": {
         "primary": "Mold Breaker",
         "secondary": "Battle Armor",
@@ -27217,13 +28481,15 @@
       "ev_yield": {
         "attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 193,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "bug"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -27384,7 +28650,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an insect body with a hard shell",
         "movement": "It flies, flapping its wings.",
@@ -27424,7 +28698,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Water Absorb",
@@ -27438,14 +28712,19 @@
         "sp_defense": 35,
         "speed": 85
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "speed": 1
+      },
+      "catch_rate": 190,
+      "base_exp": 66,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field",
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -27582,7 +28861,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -27623,7 +28911,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Swift Swim",
         "secondary": "Storm Drain",
@@ -27640,13 +28928,16 @@
       "ev_yield": {
         "speed": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 75,
+      "base_exp": 173,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field",
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -27820,7 +29111,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -27861,7 +29160,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Surge Surfer",
         "secondary": null,
@@ -27879,13 +29178,15 @@
         "attack": 2,
         "sp_attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 184,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -28062,7 +29363,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -28103,7 +29412,7 @@
       "description": null,
       "height_m": 1.9,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Unnerve",
         "secondary": "Prankster",
@@ -28120,13 +29429,15 @@
       "ev_yield": {
         "sp_defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 145,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -28285,7 +29596,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -28406,7 +29725,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Long Reach",
         "secondary": "Weak Armor",
@@ -28423,13 +29742,15 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 184,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "human_like"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -28590,7 +29911,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -28631,7 +29960,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Armor Tail",
         "secondary": null,
@@ -28648,13 +29977,15 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 182,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "amorphous"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -28802,7 +30133,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -28842,7 +30181,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "gray",
       "abilities": {
         "primary": "Mind's Eye",
         "secondary": null,
@@ -28859,13 +30198,16 @@
       "ev_yield": {
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 40,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "flying",
+        "fairy"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -29008,7 +30350,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -29048,7 +30398,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "yellow",
       "abilities": {
         "primary": "Soul-Heart",
         "secondary": "Mind's Eye",
@@ -29065,13 +30415,16 @@
       "ev_yield": {
         "sp_attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 189,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "flying",
+        "fairy"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -29231,7 +30584,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with two or more pairs of wings",
         "movement": "It floats in the air.",
@@ -29356,7 +30717,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Motor Drive",
         "secondary": "Flare Boost",
@@ -29373,13 +30734,15 @@
       "ev_yield": {
         "sp_attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 175,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -29526,7 +30889,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -29735,7 +31106,7 @@
       "description": null,
       "height_m": 7.2,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Lightning Rod",
         "secondary": null,
@@ -29752,13 +31123,16 @@
       "ev_yield": {
         "attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 243,
+      "growth_rate": "slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "dragon",
+        "water_2"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -29902,7 +31276,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with fins",
         "movement": "It floats in the air, swimming with its fins.",
@@ -30109,7 +31491,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Aurora Dancer",
         "secondary": null,
@@ -30123,14 +31505,18 @@
         "sp_defense": 100,
         "speed": 70
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "hp": 3
+      },
+      "catch_rate": 3,
+      "base_exp": 262,
+      "growth_rate": "slow",
+      "base_friendship": 0,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -30264,7 +31650,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It floats in the air.",
@@ -30305,7 +31700,7 @@
       "description": null,
       "height_m": 1.9,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Levitate",
         "secondary": null,
@@ -30322,13 +31717,15 @@
       "ev_yield": {
         "speed": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 3,
+      "base_exp": 261,
+      "growth_rate": "slow",
+      "base_friendship": 0,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -30481,7 +31878,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -30522,7 +31927,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "black",
       "abilities": {
         "primary": "Good as Gold",
         "secondary": null,
@@ -30539,13 +31944,15 @@
       "ev_yield": {
         "attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 3,
+      "base_exp": 262,
+      "growth_rate": "slow",
+      "base_friendship": 0,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -30706,7 +32113,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -30747,7 +32162,7 @@
       "description": "Long ago, Gravriel was the first mate of a cruel pirate. After betrayal, he was cast into the ocean, left to rot with his ship. Now, he haunts the seabed, seeking those who dare to steal from the deep.",
       "height_m": 2.1,
       "weight_kg": 78.6,
-      "body_color": null,
+      "body_color": "black",
       "abilities": {
         "primary": "Sea Ghost Emperor",
         "secondary": null,
@@ -30765,13 +32180,15 @@
         "attack": 1,
         "sp_attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 3,
+      "base_exp": 261,
+      "growth_rate": "slow",
+      "base_friendship": 0,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -30931,7 +32348,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It floats in the air.",
@@ -30972,7 +32397,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Catch Master",
         "secondary": null,
@@ -30989,13 +32414,16 @@
       "ev_yield": {
         "attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 60,
+      "growth_rate": "slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "dragon",
+        "bug"
+      ],
+      "egg_cycles": 40,
       "held_items": {
         "common": null,
         "rare": null
@@ -31148,7 +32576,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -31189,7 +32625,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Catch Master",
         "secondary": null,
@@ -31206,13 +32642,16 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 148,
+      "growth_rate": "slow",
+      "base_friendship": 35,
+      "gender": 50,
+      "egg_groups": [
+        "dragon",
+        "bug"
+      ],
+      "egg_cycles": 40,
       "held_items": {
         "common": null,
         "rare": null
@@ -31383,7 +32822,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a serpentine body",
         "movement": "It crawls along the ground on its legs.",
@@ -31424,7 +32871,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "blue",
       "abilities": {
         "primary": "Catch Master",
         "secondary": null,
@@ -31441,13 +32888,16 @@
       "ev_yield": {
         "attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 270,
+      "growth_rate": "slow",
+      "base_friendship": 35,
+      "gender": 50,
+      "egg_groups": [
+        "dragon",
+        "bug"
+      ],
+      "egg_cycles": 40,
       "held_items": {
         "common": null,
         "rare": null
@@ -31675,7 +33125,15 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with two or more pairs of wings",
         "movement": "It flies, flapping its wings.",
@@ -31716,7 +33174,7 @@
       "description": "Bergflabbser is a rare Pokémon that dwells in the fjords of Bergen. The seven mountains on its back form a living ecosystem, and the Ulriken pillar serves as its guiding beacon. It summons rain with its Drizzle and moves silently through the deep, using its wide mouth to catch prey.",
       "height_m": 2.4,
       "weight_kg": 285,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Primordial Sea",
         "secondary": null,
@@ -31730,14 +33188,18 @@
         "sp_defense": 110,
         "speed": 50
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "hp": 3
+      },
+      "catch_rate": 3,
+      "base_exp": 306,
+      "growth_rate": "slow",
+      "base_friendship": 0,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -31881,7 +33343,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a body with fins",
         "movement": "It floats in the air, swimming with its fins.",
@@ -31922,7 +33393,7 @@
       "description": "It stores three swords made of gaseous matter within its body. The oily coating on its wings and tail lets it glide through any weather. It flips the weather at will, bringing balance to the skies above the sea.",
       "height_m": 1.9,
       "weight_kg": 82.4,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Weather Switch",
         "secondary": "Technician",
@@ -31936,14 +33407,18 @@
         "sp_defense": 120,
         "speed": 100
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "attack": 3
+      },
+      "catch_rate": 3,
+      "base_exp": 306,
+      "growth_rate": "slow",
+      "base_friendship": 0,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -32085,7 +33560,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks on two legs with its wings folded.",
@@ -32126,7 +33610,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Lullaby",
         "secondary": null,
@@ -32140,14 +33624,19 @@
         "sp_defense": 100,
         "speed": 100
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "hp": 2,
+        "attack": 1
+      },
+      "catch_rate": 3,
+      "base_exp": 270,
+      "growth_rate": "slow",
+      "base_friendship": 0,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -32306,7 +33795,16 @@
           "movement",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -32515,7 +34013,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Slush Rush",
         "secondary": "Sand Rush",
@@ -32532,13 +34030,15 @@
       "ev_yield": {
         "hp": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 225,
+      "base_exp": 50,
+      "growth_rate": "slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -32687,7 +34187,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": null,
         "movement": null,
@@ -32728,7 +34236,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Slush Rush",
         "secondary": "Sand Rush",
@@ -32746,13 +34254,15 @@
         "hp": 1,
         "attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 75,
+      "base_exp": 158,
+      "growth_rate": "slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -32910,7 +34420,15 @@
         "filled_by_claude": [
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": null,
         "movement": null,
@@ -32951,7 +34469,7 @@
       "description": null,
       "height_m": null,
       "weight_kg": null,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Slush Rush",
         "secondary": "Sand Rush",
@@ -32969,13 +34487,15 @@
         "hp": 2,
         "attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 239,
+      "growth_rate": "slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -33144,7 +34664,15 @@
         "filled_by_claude": [
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": null,
         "movement": null,
@@ -33279,14 +34807,18 @@
         "sp_defense": 40,
         "speed": 35
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "attack": 1
+      },
+      "catch_rate": 45,
+      "base_exp": 54,
+      "growth_rate": "slow",
+      "base_friendship": 35,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -33459,7 +34991,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "a head and legs",
         "movement": "It walks on four legs.",
@@ -33514,17 +35054,19 @@
         "sp_defense": 50,
         "speed": 45
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
+      "ev_yield": {
+        "defense": 2
+      },
+      "catch_rate": 45,
+      "base_exp": 137,
+      "growth_rate": "slow",
+      "base_friendship": 35,
       "gender": "genderless",
       "egg_groups": [
         "mineral",
         "undiscovered"
       ],
-      "egg_cycles": null,
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -33698,7 +35240,13 @@
         "filled_by_claude": [
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks on four legs.",
@@ -33753,14 +35301,18 @@
         "sp_defense": 110,
         "speed": 90
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "sp_attack": 3
+      },
+      "catch_rate": 3,
+      "base_exp": 302,
+      "growth_rate": "slow",
+      "base_friendship": 0,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -33979,7 +35531,15 @@
         "filled_by_claude": [
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks on four legs.",
