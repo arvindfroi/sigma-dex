@@ -100,7 +100,7 @@ escapes, and becomes a boss. What Origin already has (msg banks, docs/trainers.m
 
 ### Meowth plan, round 2 (Arvind, 2026-11-12 evening)
 
-Arvind's sketches: [the controlled form](img/meowthwo_sketch_controlled.webp) (the costumed man in armour with wires,
+Arvind's sketches: [the controlled form](img/meowthwo_sketch_controlled.webp) (the costumed man in the EXP harness with wires,
 Persian's ghostly shape and red gem behind him) and [the costume](img/meowthwo_sketch_costume.png) (Meowth suit, Rocket
 shirt and red scarf, psychic energy in his hand).
 
@@ -113,22 +113,24 @@ shirt and red scarf, psychic energy in his hand).
   this world. He is **added as his own Pokemon** (our own dex entry, working name "Furry Meowth" or a normal name), so
   he battles in James' team like a real mon.
 - **What happens to him:** to earn extra money he signs up for Team Rocket's experiments, based on what happened to Bill
-  (a human turned into a Pokemon). He becomes powerful, so they put him in the armour and use Giovanni's Persian to
-  control him.
+  (a human turned into a Pokemon). **No armour (Arvind):** what he wears in the sketch is a special **EXP Share
+  harness** that steals EXP instead of sharing it. That is what juices him up, maybe past lv 100, and Giovanni's Persian
+  keeps him in check and under Team Rocket's control.
 - **Rocket reports as hints (Arvind liked this):** Origin already has Rocket reports you can read ("Keep reading?", bank
   572). We add a few about "subject 52" (a nod to Meowth's dex number), spread over the game so the reveal is built up.
   Drafts, game text in English:
   1. "New volunteer for the Bill transfer test: the part-timer in the Meowth suit. Signed without reading. Asked about
      overtime pay."
   2. "Transfer partly successful. Subject 52 shows psychic readings. Subject says this is 'kind of a lot, man'."
-  3. "Subject 52 is too strong to hold. Only the armour and Persian's link keep it under control."
+  3. "The EXP harness works too well. Subject 52 is past every limit. Only Persian's link keeps it under control."
   4. "Subject 52 no longer answers to its old name. We are calling the result Meowthwo."
 - **Awakened attitude (Arvind):** once awakened he is stoic and cool like Mewtwo, maybe like Genji from Overwatch; a bit
   Dr. Manhattan, but he still does odd jobs from online ads.
 - **How you get him:** in Origin you never catch Mewtwo. In Cerulean Cave you destroy the Master Ball Giovanni controls it
   with ("Catching a Pokemon depends on a Trainer and a Pokemon accepting each other", bank 599), and later at Indigo
   Plateau Mewtwo joins your party as a gift ("Add Mewtwo to your party?", bank 608). This fits Meowthwo: break Persian's
-  hold, and he joins you because he chooses to.
+  hold, and he joins you because he chooses to. **Arvind's gag version:** we pay him to work for us ("I'm just tryna do my
+  job"): the game asks for money before he joins (easy, the script language has money check and pay commands).
 - **Then the reveal: Meowthwo.** Origin's Rocket reports you can read ("Keep reading?", bank 572) can foreshadow it
   (a test subject numbered 52, Meowth's dex number). Meowthwo takes Mewtwo's whole role: the birth scene in the lab
   (bank 546: Dr. Fuji, Blaine, Green/Red, an explosion; it is overworld sprites plus text, so the text is an easy rewrite
@@ -139,11 +141,15 @@ shirt and red scarf, psychic energy in his hand).
   Indigo Plateau with Palkia and Giratina (82), the Giovanni scene (214) and the final at the Pokemon League (277, next
   to Giovanni, Arceus, Dialga and Beedrill). So if Meowthwo takes Mewtwo's dex slot, all four scenes show Meowthwo
   without script work.
-- **Boss in two phases:** phase 1 the armoured form controlled by Giovanni's Persian (Giovanni talks during the
-  battle), a scene where the armour cracks and Persian loses its hold, phase 2 the unleashed form with a legendary intro
+- **Boss in two phases:** phase 1 the harness form controlled by Giovanni's Persian (Giovanni talks during the
+  battle), a scene where the harness breaks and Persian loses its hold, phase 2 the unleashed form with a legendary intro
   and its own music. A surprise and a real challenge.
-- **Forms after the story:** Meowthwo is caught in the armoured form; a held key item (working name "Deactivation Key")
-  switches it to the unleashed form, the same way Steel Armor makes Armored Mewtwo in Origin (a held-item form).
+- **Forms after the story:** Meowthwo joins in the harness form; a held key item (working name "Deactivation Key")
+  switches it to the unleashed form, the same way Steel Armor makes Armored Mewtwo in Origin (a held-item form). The
+  harness form does not have to be Steel type like Armored Mewtwo.
+- **Past lv 100:** the game stops at lv 100 (EXP tables, stat math and screens all assume it). A real lv 120 needs code
+  changes in several places, so the simple way is lv 100 with boosted stats (the boss rule above, or very high EVs/IVs)
+  and the story saying he is past every limit.
 - **Post-game restaurant:** Origin's Island Restaurant (Alto Mare islands, the trio as waiters, you choose to arrest them
   or ask Meowth's help with the Lucky Meowth God) becomes a **fast food place**. Meowth works there and
   explains why he disappeared: the real Meowth (no. 52) never died, he quit and took a fast food job. Origin's own line "You're a
