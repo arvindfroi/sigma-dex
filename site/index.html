@@ -3181,11 +3181,11 @@ function openCharacter(c, tab) {
         lineRows.length ? lineRows : h("div", {class: "sub"}, "No lines yet."), story.lines.length < 6 ? storyLinePicker(story, saveStory) : null);
       page = h("div", {}, builder,
         h("h3", {}, "Every battle"),
-        h("div", {class: "sub"}, "Worked out from your story team. Pick one of your shared teams on a battle to use that instead. The others only see your teams behind spoiler buttons."),
+        h("div", {class: "sub"}, "Auto: the website makes each battle's team from your story team (how many Pokemon, levels, stages and moves). To use your own team in a battle instead, pick one of your shared teams in its menu. The others only see your teams behind spoiler buttons."),
         h("div", {class: "scroll"}, h("table", {class: "balance"}, plan.map((b, i) => {
           const tid = (cl.slots || {})[i], t = (lib.teams || []).find(x => x.id === tid), gen = storyTeam(c, story, i);
           const pick = h("select", {"aria-label": "Team for battle " + (i + 1), onchange: ev => { const slots = Object.assign({}, cl.slots || {}); if (ev.target.value) slots[i] = ev.target.value; else delete slots[i]; saveClaim(cl.by, slots, cl.story); }},
-            h("option", {value: ""}, "the story team (worked out)"), myTeams.map(x => h("option", {value: x.id, selected: x.id === tid ? "" : null}, x.name)));
+            h("option", {value: ""}, "Auto: made from your story team"), myTeams.map(x => h("option", {value: x.id, selected: x.id === tid ? "" : null}, x.name)));
           const copy = gen.length && !t ? h("button", {type: "button", title: "Put this team in TEAMS to change it, then share it and pick it here", onclick: () => {
             tb.teams.push({name: (charName(c) + " battle " + (i + 1)).slice(0, 40), mons: gen.map(m => Object.assign(blankMon(), {species: m.species, level: m.level, ability: m.ability, moves: m.moves.concat(["", "", "", ""]).slice(0, 4)}))});
             saveTeams(); status.textContent = "Copied to TEAMS as \u201c" + tb.teams[tb.teams.length - 1].name + "\u201d."; }}, "Copy to TEAMS") : null;
