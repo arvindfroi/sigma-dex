@@ -955,7 +955,9 @@ function learnPeople(extra) {
     return [k, longer.length === 1 ? longer[0] : n];
   }));
 }
-const person = n => personMap.get(String(n || "").trim().toLowerCase()) || String(n || "").trim();
+// The same person under another name (Arvind, 2026-11-12): BUST is Magnus, johadelet is Johannes.
+const PERSON_ALIASES = {bust: "Magnus", johadelet: "Johannes"};
+const person = n => { const k = String(n || "").trim().toLowerCase(); return personMap.get((PERSON_ALIASES[k] || "").toLowerCase()) || PERSON_ALIASES[k] || personMap.get(k) || String(n || "").trim(); };
 const people = () => [...new Set(personMap.values())].sort((a, b) => a.localeCompare(b));
 const designersOf = s => splitNames((s.data.credits || {}).designer).map(person);
 

@@ -4,7 +4,7 @@ name: Diedo
 
 credits:
   designer: Magnus       # who came up with it (Discord name)
-  artist: BUST           # who drew the concept art
+  artist: Magnus           # who drew the concept art
 
 types: [Flying]          # 1 or 2 types, e.g. [Grass, Steel]
 
