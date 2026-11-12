@@ -64,10 +64,36 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Quick Attack}
+    - {level: 1, move: Thunder Shock}
+    - {level: 1, move: Wild Charge}
+    - {level: 4, move: Charge}
+    - {level: 6, move: Peck}
+    - {level: 12, move: Nuzzle}
+    - {level: 12, move: Swift}
+    - {level: 16, move: Shock Wave}
+    - {level: 20, move: Thunder Wave}
+    - {level: 23, move: Spark}
+    - {level: 24, move: Screech}
+    - {level: 36, move: Discharge}
+    - {level: 40, move: Low Kick}
+    - {level: 42, move: Agility}
+    - {level: 44, move: Close Combat}
+    - {level: 58, move: Thunder}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Focus Punch, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
+          Protect, Rain Dance, Iron Tail, Thunderbolt, Thunder, Earthquake, Return, Dig,
+          Brick Break, Double Team, Shock Wave, Rock Tomb, Facade, Rest, Attract, Thief,
+          Focus Blast, Fling, Charge Beam, Endure, Drain Punch, Giga Impact, Thunder Wave,
+          Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute, Low Sweep, Bulldoze,
+          Electroweb, Electric Terrain, Coaching, Rock Smash]
+  # moves a move tutor can teach it
+  tutor: [Close Combat, Thunder Punch, Volt Switch]
+  egg: [Quick Guard, Counter, Feint] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -79,7 +105,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a slim white furry fighter with a long spiky white mane tipped yellow, an orange duck bill and a yellow eye. It has two arms with black mitten-like hands, yellow lightning-shaped tufts on its arms, shoulders and hips, a black mark down its belly, two legs with black feet, and a long thin white tail."
@@ -91,7 +119,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:448"
+  footprint: "hgss:448"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

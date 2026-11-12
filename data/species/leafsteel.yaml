@@ -50,18 +50,48 @@ evolutions:
     method: level
     level: 36
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 0, move: Slash}
     - {level: 1, move: Slash}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Leer}
+    - {level: 5, move: Leafage}
+    - {level: 9, move: Growth}
+    - {level: 10, move: Fury Cutter}
+    - {level: 12, move: Razor Leaf}
+    - {level: 15, move: Curse}
     - {level: 19, move: Metal Claw}
+    - {level: 22, move: Iron Head}
+    - {level: 22, move: Bite}
     - {level: 24, move: Sharpen}
     - {level: 28, move: Take Down}
+    - {level: 29, move: Mega Drain}
     - {level: 32, move: Synthesis}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 34, move: Leech Seed}
+    - {level: 39, move: Iron Defense}
+    - {level: 39, move: Leaf Blade}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Protect, Rain Dance, Giga Drain, Solar Beam,
+          Iron Tail, Return, Brick Break, Double Team, Reflect, Rock Tomb, Facade, Rest,
+          Attract, Energy Ball, Endure, Shadow Claw, Gyro Ball, Swords Dance, Stealth Rock,
+          Rock Slide, Sleep Talk, Grass Knot, Swagger, Substitute, Flash Cannon, Cut,
+          Strength, Rock Smash, Light Screen, Safeguard, Frustration, Flash]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Iron Head, Leaf Storm, Leech Seed, Magical Leaf, Metal Claw, Seed Bomb,
+          Synthesis, Curse, Mega Drain, Night Slash]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -74,7 +104,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a serpentine body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It slithers along the ground.
   look: "It is a long, curved green dragon-like creature with a crest of leaves on its head and a back covered in grey steel plates. It has four short legs with grey claws and a long tail ending in a steel axe-blade."
@@ -86,7 +117,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:2"
+  footprint: "hgss:2"    # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

@@ -53,12 +53,46 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Bug Bite}
+    - {level: 1, move: Confusion}
+    - {level: 1, move: Protect}
+    - {level: 1, move: Tackle}
+    - {level: 12, move: Quick Attack}
+    - {level: 12, move: String Shot}
+    - {level: 15, move: Struggle Bug}
+    - {level: 17, move: Infestation}
+    - {level: 17, move: Psybeam}
+    - {level: 26, move: Encore}
+    - {level: 29, move: Zen Headbutt}
+    - {level: 30, move: Extrasensory}
+    - {level: 33, move: Psyshock}
+    - {level: 34, move: Roost}
+    - {level: 36, move: Helping Hand}
+    - {level: 37, move: Calm Mind}
+    - {level: 40, move: Bug Buzz}
+    - {level: 41, move: Psychic}
+    - {level: 45, move: Future Sight}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
+          Giga Drain, Safeguard, Solar Beam, Return, Psychic, Shadow Ball, Double Team,
+          Reflect, Aerial Ace, Facade, Rest, Attract, Thief, Skill Swap, Energy Ball,
+          Endure, Giga Impact, Flash, Thunder Wave, Psych Up, Sleep Talk, Swagger, U-turn,
+          Substitute, Trick Room, Psyshock, Struggle Bug, Expanding Force]
+  tutor: [Bug Bite, Zen Headbutt] # moves a move tutor can teach it
+  egg: [Lunge]           # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -70,7 +104,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a round, blue, egg-shaped creature with a brown mop of hair, a brown moustache and pink spiral eyes on a small face. It has thin blue arms, jointed blue legs with small feet, a gold shoulder pad on each side, and a red circle with gold and purple stripes across its belly."
@@ -82,7 +118,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:122"
+  footprint: "hgss:122"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

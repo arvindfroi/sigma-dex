@@ -1,0 +1,379 @@
+<title>Sigma moveset-forslag</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a dex-like two-pane tool. Line list on the left (top on phones), the chosen line on the right:
+   one column per stage, new moves marked, reasons on tap, a review bar at the bottom of the line. */
+:root {
+  --bg: #f6f4fb; --panel: #ffffff; --ink: #221d33; --muted: #6b6482; --line: #dcd6ea;
+  --accent: #8a3fd1; --accent-2: #d14f9a; --blue: #2f6fd6; --new: #e9f8ee; --new-ink: #17663a;
+  --warn: #fff4dd; --warn-ink: #8a5a00; --bad: #fde8ea; --bad-ink: #a02a3a; --chip: #f0edf7;
+  --f-display: "Pixelify Sans", "Trebuchet MS", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #16131f; --panel: #1f1b2b; --ink: #ece8f6; --muted: #a59dbd; --line: #362f4a;
+  --accent: #b77cf0; --accent-2: #ee7fbd; --blue: #79a7f2; --new: #143423; --new-ink: #8fe0b0;
+  --warn: #3a2d10; --warn-ink: #f2cf7f; --bad: #3d1820; --bad-ink: #f3a0ad; --chip: #2a2539; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #16131f; --panel: #1f1b2b; --ink: #ece8f6; --muted: #a59dbd; --line: #362f4a;
+  --accent: #b77cf0; --accent-2: #ee7fbd; --blue: #79a7f2; --new: #143423; --new-ink: #8fe0b0;
+  --warn: #3a2d10; --warn-ink: #f2cf7f; --bad: #3d1820; --bad-ink: #f3a0ad; --chip: #2a2539; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--f-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 18px 40px; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 700; text-wrap: balance; margin: 0 }
+h1 { font-size: 28px; letter-spacing: .5px; color: var(--accent) }
+h2 { font-size: 22px }
+h3 { font-size: 17px }
+.top { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; max-width: 1400px; margin: 0 auto 14px }
+.top p { margin: 0; color: var(--muted); max-width: 70ch }
+.counts { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--muted) }
+.counts b { color: var(--ink); font-variant-numeric: tabular-nums }
+.wrap { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 18px; max-width: 1400px; margin: 0 auto }
+@media (max-width: 860px) { .wrap { grid-template-columns: minmax(0, 1fr) } }
+.side { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px;
+  align-self: start; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 10px); max-height: calc(100vh - 30px); display: flex; flex-direction: column; gap: 8px }
+@media (max-width: 860px) { .side { position: static; max-height: 340px } }
+.side input[type=search] { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 7px; background: var(--bg); color: var(--ink); font: inherit }
+.filters { display: flex; flex-wrap: wrap; gap: 6px }
+.filters button, .vote button, .tabs button { font: 500 13px var(--f-body); border: 1px solid var(--line); background: var(--chip); color: var(--ink);
+  border-radius: 999px; padding: 4px 10px; cursor: pointer }
+.filters button[aria-pressed=true] { background: var(--accent); border-color: var(--accent); color: #fff }
+.list { overflow: auto; display: flex; flex-direction: column; gap: 2px; min-height: 0 }
+.list a { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 6px; align-items: center; padding: 6px 8px; border-radius: 6px;
+  color: var(--ink); text-decoration: none; font-size: 14px }
+.list a:hover { background: var(--chip) }
+.list a[aria-current=true] { background: var(--accent); color: #fff }
+.list .no { font: 12px var(--f-mono); color: inherit; opacity: .7 }
+.list .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--line) }
+.dot.ok { background: #2e9d5b } .dot.change { background: #d4455a } .dot.flag { background: #e0a020 }
+main { min-width: 0; display: flex; flex-direction: column; gap: 14px }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; min-width: 0 }
+.head { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline }
+.head .chain { color: var(--muted); font-size: 14px }
+.stages { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; align-items: start }
+.stage { border: 1px solid var(--line); border-radius: 9px; padding: 12px; display: flex; flex-direction: column; gap: 10px; min-width: 0 }
+.stage .meta { font-size: 13px; color: var(--muted) }
+.role { display: inline-block; background: var(--accent-2); color: #fff; border-radius: 6px; padding: 1px 8px; font: 600 13px var(--f-body) }
+.types { display: inline-flex; gap: 4px }
+.t { font: 600 11px var(--f-body); text-transform: uppercase; letter-spacing: .6px; padding: 1px 6px; border-radius: 4px; color: #fff }
+.stats { font: 12px var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums }
+.sec h4 { margin: 0 0 4px; font: 600 12px var(--f-body); text-transform: uppercase; letter-spacing: .8px; color: var(--muted) }
+.sec h4 span { text-transform: none; letter-spacing: 0; font-weight: 400 }
+table.lu { width: 100%; border-collapse: collapse; font-size: 13.5px }
+table.lu td { padding: 2px 4px; border-bottom: 1px solid var(--line); vertical-align: top }
+table.lu td.lv { font: 12px var(--f-mono); color: var(--muted); width: 38px; font-variant-numeric: tabular-nums }
+table.lu td.mv { overflow-wrap: anywhere }
+tr.new td, .chip.new { background: var(--new) }
+tr.new td.mv, .chip.new { color: var(--new-ink) }
+.chips { display: flex; flex-wrap: wrap; gap: 4px }
+.chip { font-size: 12.5px; padding: 1px 7px; border-radius: 5px; background: var(--chip); border: 1px solid transparent; cursor: default }
+.chip.new { border-color: color-mix(in srgb, var(--new-ink) 35%, transparent) }
+.mv[data-why], .chip[data-why] { cursor: help }
+.tag { font: 11px var(--f-mono); color: var(--muted); margin-left: 4px }
+.newmark { font: 600 10px var(--f-body); color: var(--new-ink); margin-left: 4px; text-transform: uppercase; letter-spacing: .5px }
+.flags { display: flex; flex-direction: column; gap: 6px }
+.flag { background: var(--warn); color: var(--warn-ink); border-radius: 7px; padding: 6px 9px; font-size: 13px }
+.flag.strong { background: var(--bad); color: var(--bad-ink) }
+.ex { font-size: 13.5px } .ex b { font-weight: 600 }
+.wish { font-size: 13px; background: var(--chip); border-radius: 7px; padding: 6px 9px }
+.why { position: fixed; z-index: 30; max-width: min(360px, calc(100vw - 32px)); background: var(--ink); color: var(--panel); font-size: 13px;
+  padding: 8px 10px; border-radius: 7px; pointer-events: none; box-shadow: 0 6px 20px rgba(0,0,0,.25) }
+.vote { display: flex; flex-direction: column; gap: 8px; border-top: 1px dashed var(--line); padding-top: 12px }
+.vote .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
+.vote button.ok[aria-pressed=true] { background: #2e9d5b; border-color: #2e9d5b; color: #fff }
+.vote button.change[aria-pressed=true] { background: #d4455a; border-color: #d4455a; color: #fff }
+.vote textarea { width: 100%; min-height: 60px; font: inherit; padding: 8px; border-radius: 7px; border: 1px solid var(--line); background: var(--bg); color: var(--ink) }
+.vote .save { background: var(--accent); color: #fff; border-color: var(--accent) }
+.others { display: flex; flex-direction: column; gap: 4px; font-size: 13.5px }
+.others .o b { font-weight: 600 }
+.muted { color: var(--muted); font-size: 13px }
+.howto { font-size: 14px } .howto summary { cursor: pointer; font-weight: 600 }
+.howto ol { margin: 8px 0 0; padding-left: 20px } .howto li { margin-bottom: 4px }
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important } }
+</style>
+
+<div class="top">
+  <h1>Moveset-forslag</h1>
+  <p>Forslag til level-up, TM, tutor og egg moves for alle linjene, laget fra like offisielle Pokémon i Origin HeartGold. Ingenting er lagt inn i dexen ennå. <span style="color:var(--new-ink);font-weight:600">Grønt</span> = nytt forslag, resten står allerede i filen. Trykk på et move for å se hvorfor.</p>
+  <div class="counts" id="counts"></div>
+</div>
+<div class="wrap">
+  <aside class="side" aria-label="Linjer">
+    <input type="search" id="q" placeholder="Søk etter navn eller move" aria-label="Søk">
+    <div class="filters" id="filters">
+      <button data-f="all" aria-pressed="true">Alle</button>
+      <button data-f="flag" aria-pressed="false">Har merknader</button>
+      <button data-f="fill" aria-pressed="false">Designer ba om det</button>
+      <button data-f="open" aria-pressed="false">Ikke vurdert av meg</button>
+    </div>
+    <nav class="list" id="list"></nav>
+  </aside>
+  <main id="main">
+    <div class="card howto">
+      <details open>
+        <summary>Slik vurderer du</summary>
+        <ol>
+          <li>Velg en linje til venstre. Hver kolonne er ett stadium.</li>
+          <li>Se på rollen, eksempelsettet og merknadene i gult. Trykk på et grønt move for å se hvorfor det er foreslått, og hvor tutoren står.</li>
+          <li>Trykk <b>Ser bra ut</b> eller <b>Må endres</b> nederst, og skriv gjerne hva som bør endres. Alle i gruppa ser svarene.</li>
+          <li>Ingenting legges inn før Arvind sier ja. Moves som allerede står i filene blir aldri fjernet.</li>
+        </ol>
+      </details>
+    </div>
+    <div id="line"></div>
+  </main>
+</div>
+<div class="why" id="why" hidden></div>
+
+<script>
+const DATA = /*__DATA__*/null;
+const TYPE_COLORS = {Normal:"#8d8a74",Fire:"#e2662f",Water:"#3f7fe0",Grass:"#4f9e3a",Electric:"#c99a00",Ice:"#3aa7b8",
+  Fighting:"#b23a2e",Poison:"#9145a8",Ground:"#b0843c",Flying:"#7a86d8",Psychic:"#e04a7b",Bug:"#88a020",Rock:"#9c8a46",
+  Ghost:"#62508f",Dragon:"#5a3fd6",Dark:"#5b4a40",Steel:"#7f8da0",Fairy:"#d46aa8",Stellar:"#4a7fc1"};
+const S = DATA.species, LINES = DATA.lines;
+let current = null, filter = "all", query = "";
+let db = null, user = null, myId = null, isOwner = false, ownerId = null;
+let votes = {};          // userId -> {lines:{root:{v,note,at}}}
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function typeChip(t) { return `<span class="t" style="background:${TYPE_COLORS[t]||"#777"}">${esc(t)}</span>`; }
+function moveInfo(mv) {
+  const m = DATA.moves[mv]; if (!m) return "";
+  const cat = {P:"fysisk",S:"spesial",S2:""}[m[1]] || "status";
+  return `${m[0]}, ${cat}${m[2] ? ", " + m[2] + " power" : ""}${m[3] ? ", " + m[3] + "% treff" : ""}${m[4] ? ", " + m[4] : ""}`;
+}
+function whyText(sp, mv, isNew) {
+  let t = moveInfo(mv);
+  if (isNew && sp.why[mv]) t += "\nForslag: " + sp.why[mv];
+  else if (!isNew) t += "\nStår allerede i filen.";
+  if (DATA.tutors[mv]) t += "\nTutor: " + DATA.tutors[mv];
+  return t;
+}
+function lineFlags(root) { return LINES[root].some(sid => (S[sid].flags || []).length); }
+function lineText(root) {
+  return LINES[root].map(sid => {
+    const s = S[sid]; return [s.name, ...(s.lu||[]).map(x => x[1]), ...(s.tm||[]).map(x=>x[0]), ...(s.tutor||[]).map(x=>x[0]), ...(s.egg||[]).map(x=>x[0])].join(" ");
+  }).join(" ").toLowerCase();
+}
+function myVerdict(root) { return myId && votes[myId] && votes[myId].lines && votes[myId].lines[root]; }
+function lineStatus(root) {
+  const vs = Object.values(votes).map(d => d.lines && d.lines[root]).filter(Boolean);
+  if (vs.some(v => v.v === "change")) return "change";
+  if (vs.some(v => v.v === "ok")) return "ok";
+  return lineFlags(root) ? "flag" : "";
+}
+
+function renderCounts() {
+  const n = DATA.order.length;
+  const added = Object.values(S).reduce((a, s) => a + Object.values(s.adds || {}).reduce((x, y) => x + y, 0), 0);
+  const ok = DATA.order.filter(r => lineStatus(r) === "ok").length;
+  const ch = DATA.order.filter(r => lineStatus(r) === "change").length;
+  const owner = ownerId && votes[ownerId] ? Object.values(votes[ownerId].lines || {}).filter(v => v.v === "ok").length : 0;
+  document.getElementById("counts").innerHTML =
+    `<span><b>${n}</b> linjer</span><span><b>${added}</b> foreslåtte moves</span><span><b>${ok}</b> sett OK</span>` +
+    `<span><b>${ch}</b> må endres</span><span><b>${owner}</b> godkjent av Arvind</span><span>laget ${esc(DATA.generated)}</span>`;
+}
+
+function renderList() {
+  const el = document.getElementById("list");
+  const rows = DATA.order.filter(root => {
+    if (query && !lineText(root).includes(query)) return false;
+    if (filter === "flag") return lineFlags(root);
+    if (filter === "fill") return LINES[root].some(sid => S[sid].fill);
+    if (filter === "open") return !myVerdict(root);
+    return true;
+  });
+  el.innerHTML = rows.map(root => {
+    const first = S[LINES[root][0]];
+    const names = LINES[root].map(sid => S[sid].name).join(" › ");
+    return `<a href="#${esc(root)}" data-root="${esc(root)}" aria-current="${root === current}">
+      <span class="no">#${esc(first.dex ?? "?")}</span><span class="nm" title="${esc(names)}">${esc(names)}</span>
+      <span class="dot ${lineStatus(root)}" title="${({ok:"sett OK",change:"må endres",flag:"har merknader"})[lineStatus(root)]||"ikke vurdert"}"></span></a>`;
+  }).join("") || `<p class="muted">Ingen linjer passer.</p>`;
+}
+
+function chips(sp, list) {
+  if (!list.length) return `<span class="muted">ingen</span>`;
+  return `<div class="chips">` + list.map(([mv, isNew]) =>
+    `<span class="chip${isNew ? " new" : ""}" tabindex="0" data-why="${esc(whyText(sp, mv, isNew))}">${esc(mv)}</span>`).join("") + `</div>`;
+}
+
+function renderStage(sid) {
+  const sp = S[sid];
+  if (sp.skipped) return `<div class="stage"><h3>${esc(sp.name)}</h3><div class="flag">${/base stats/.test(sp.skipped) ? "Venter på base stats: moves foreslås når statsene er lagt inn." : "Hoppet over: " + esc(sp.skipped)}</div></div>`;
+  const st = sp.stats ? ["hp","attack","defense","sp_attack","sp_defense","speed"].map(k => sp.stats[k]).join(" / ") : "";
+  const bst = sp.stats ? Object.values(sp.stats).reduce((a,b)=>a+b,0) : 0;
+  const evo = sp.from ? `Utvikles fra ${esc(sp.from)}${sp.at ? " på level " + sp.at : ""}` : "Første stadium";
+  const lu = sp.lu.map(([lv, mv, isNew]) => `<tr class="${isNew ? "new" : ""}"><td class="lv">${lv === 0 ? "Evo" : lv}</td>
+    <td class="mv" tabindex="0" data-why="${esc(whyText(sp, mv, isNew))}">${esc(mv)}${isNew ? '<span class="newmark">ny</span>' : ""}<span class="tag">${esc((DATA.moves[mv]||[""])[0])}</span></td></tr>`).join("");
+  const flags = (sp.flags || []).map(f => `<div class="flag${/^Strong|Weak/.test(f) ? " strong" : ""}">${esc(translateFlag(f))}</div>`).join("");
+  return `<div class="stage">
+    <div><h3>${esc(sp.name)} <span class="types">${sp.types.map(typeChip).join("")}</span></h3>
+      <div class="meta">${evo}.${(sp.inspired||[]).length ? " Inspirert av: " + sp.inspired.map(([n, p]) => `<b>${esc(n)}</b> ${p} %`).join(", ") : " Modell: <b>" + esc(sp.model_stage || "?") + "</b>"}</div>
+      ${st ? `<div class="stats" title="HP / Atk / Def / SpA / SpD / Spe">${st} = ${bst}${sp.est ? " (gjettet)" : ""}</div>` : ""}
+      ${!(sp.inspired||[]).length && sp.similar.length ? `<div class="meta">Ligner også: ${esc(sp.similar.join(", "))}</div>` : ""}
+    </div>
+    ${sp.final && sp.role ? `<div><span class="role">${esc(roleNo(sp.role))}</span></div>` : ""}
+    ${sp.example.length ? `<div class="ex">Eksempelsett: <b>${sp.example.map(esc).join(" / ")}</b></div>` : ""}
+    ${sp.wishes ? `<div class="wish"><b>Ønske fra designer:</b> ${esc(sp.wishes)}</div>` : ""}
+    ${sp.design_note ? `<div class="meta"><b>Design:</b> ${esc(sp.design_note)}</div>` : ""}
+    ${(sp.skipped_own||[]).length ? `<div class="meta"><b>Ikke lagt til fordi deres egne moves gjør samme jobb:</b> ${esc(sp.skipped_own.map(x => x.replace(/ does the same job as your own /, " (som ") + ")").join(", "))}</div>` : ""}
+    ${flags ? `<div class="flags">${flags}</div>` : ""}
+    <div class="sec"><h4>Level-up <span>(${sp.had.level_up||0} fra før, ${sp.adds.level_up} nye)</span></h4><table class="lu">${lu}</table></div>
+    <div class="sec"><h4>TM/HM <span>(${sp.had.tm_hm||0} fra før, ${sp.adds.tm_hm} nye)</span></h4>${chips(sp, sp.tm)}</div>
+    <div class="sec"><h4>Tutor <span>(${sp.had.tutor||0} fra før, ${sp.adds.tutor} nye)</span></h4>${chips(sp, sp.tutor)}</div>
+    <div class="sec"><h4>Egg <span>(${sp.had.egg||0} fra før, ${sp.adds.egg} nye)</span></h4>${sp.stage === 0 ? chips(sp, sp.egg) : '<span class="muted">bare for første stadium</span>'}</div>
+  </div>`;
+}
+
+const ROLE_NO = [["Physical", "Fysisk"], ["Special", "Spesial"], ["Mixed", "Blandet"], ["fast attacker", "rask angriper"],
+  ["bulky attacker", "tåler mye og slår hardt"], ["wallbreaker", "wallbreaker"], ["trick Room attacker", "Trick Room-angriper"],
+  ["Fast support", "Rask support"], ["Support", "Support"], ["wall", "wall"], ["Mixed attacker", "Blandet angriper"]];
+function roleNo(r) { let t = r; for (const [a, b] of ROLE_NO) t = t.replace(a, b); return "Rolle: " + t; }
+function translateFlag(f) {
+  return f.replace(/^Not added: (.+?) \((.+)\)$/, "Ikke lagt til: $1 ($2)")
+    .replace(/^Left out for the design: (.+?) \((.+)\)$/, "Tatt ut fordi det ikke passer designet: $1 ($2)")
+    .replace(/^Already in the file but not a TM\/HM in Origin HG: /, "Står i filen, men er ikke TM/HM i Origin HG: ")
+    .replace(/^Already in the file but no Origin HG tutor teaches it: /, "Står i filen som tutor, men ingen tutor i Origin HG lærer bort: ")
+    .replace(/^It has no base stats yet: the role and moves use guessed stats/, "Har ingen base stats ennå: rolle og moves bruker gjettede stats")
+    .replace(/^Evolves from (.+)\? Not written in the files; guessed from the dex order/, "Utvikles fra $1? Står ikke i filene, gjettet fra dex-rekkefølgen")
+    .replace(/^New move\(s\) from the concept card not in the game yet: (.+) - describe them under New moves on the website to add them/, "Nye moves fra konseptkortet som ikke finnes i spillet ennå: $1. Beskriv dem under New moves på nettsiden, så kan de legges til")
+    .replace(/^(\d+) of its own moves are all at level 1 \((.+)\): fine as ideas, but you may want to spread them over the levels/, "$1 av egne moves står på level 1 ($2). Greit som ideer, men dere vil kanskje spre dem utover levels")
+    .replace(/^Strong: its example set hits harder than every official Pokemon of about the same total .*/, "Sterk: eksempelsettet slår hardere enn alle offisielle Pokémon med omtrent samme total. Se gjennom før dere godkjenner.")
+    .replace(/^Weak for an attacker: its best set is in the bottom (\d+)% of official Pokemon of about the same total/, "Svak for en angriper: beste sett er blant de $1 % svakeste offisielle med omtrent samme total")
+    .replace(/^Check \(designers' own moves\/abilities\): (.+) - no official Pokemon of about this strength has that/, "Sjekk (designernes egne moves/abilities): $1. Ingen offisiell Pokémon på dette nivået har det")
+    .replace(/^Check: (.+) is banned in most competitive rules/, "Sjekk: $1 er bannet i de fleste competitive-regler")
+    .replace(/^The wishes name the ability (.+), but it is not one of its abilities yet/, "Ønskene nevner abilityen $1, men den står ikke blant abilityene ennå")
+    .replace(/^Has a battle form \((.+)\): check that the moves also fit that form/, "Har en kampform ($1): sjekk at moves passer for den formen også")
+    .replace(/^Stellar: no same-type bonus.*/, "Stellar: ingen STAB, så moves er spredt over mange typer. Origin HG har ikke Stellar-typen ennå (den gamle ???-plassen brukes av Fairy), så eksporten trenger ny kode for den, og nettsidens typeliste har den ikke.")
+    .replace(/^Check: weather setter \+ weather speed ability on one Pokemon.*/, "Sjekk: vær-setter og vær-speed-ability på samme Pokémon");
+}
+
+function renderVote(root) {
+  const mine = myVerdict(root) || {};
+  const others = Object.entries(votes).filter(([id, d]) => d.lines && d.lines[root] && id !== myId);
+  const canWrite = !!db && !!myId;
+  return `<div class="vote" id="vote">
+    <h3>Hva synes du om denne linjen?</h3>
+    ${canWrite ? `<div class="row">
+      <button class="ok" id="v-ok" aria-pressed="${mine.v === "ok"}">Ser bra ut</button>
+      <button class="change" id="v-change" aria-pressed="${mine.v === "change"}">Må endres</button>
+      <span class="muted" id="v-state">${mine.at ? "Lagret" : ""}</span></div>
+      <textarea id="v-note" placeholder="Hva bør endres? (valgfritt)">${esc(mine.note || "")}</textarea>
+      <div class="row"><button class="save" id="v-save">Lagre kommentar</button>${isOwner ? '<span class="muted">Ditt «Ser bra ut» teller som godkjent for å legges inn.</span>' : ""}</div>`
+      : `<p class="muted">${db ? "Logg inn på claude.ai for å si hva du synes." : "Svar kan bare lagres når siden er åpnet på claude.ai."}</p>`}
+    <div class="others" id="others">${others.length ? others.map(([id, d]) => {
+      const v = d.lines[root];
+      return `<div class="o" data-uid="${esc(id)}"><b class="who">${id === ownerId ? "Arvind" : "Noen"}</b>: ${v.v === "ok" ? "ser bra ut" : "må endres"}${v.note ? " – " + esc(v.note) : ""}</div>`;
+    }).join("") : '<span class="muted">Ingen andre har sagt noe ennå.</span>'}</div>
+  </div>`;
+}
+
+async function fillNames() {
+  if (!user) return;
+  const els = [...document.querySelectorAll("#others .o")];
+  const ids = els.map(e => e.dataset.uid);
+  if (!ids.length) return;
+  try {
+    const ps = await user.profiles(ids);
+    els.forEach(e => { const p = ps[e.dataset.uid]; const w = e.querySelector(".who");
+      const nm = (p && p.name) || (e.dataset.uid === ownerId ? "Arvind" : "Noen"); w.textContent = nm + (e.dataset.uid === ownerId ? " (eier)" : ""); });
+  } catch (e) {}
+}
+
+function renderLine() {
+  const el = document.getElementById("line");
+  if (!current || !LINES[current]) { el.innerHTML = ""; return; }
+  const members = LINES[current];
+  const names = members.map(sid => S[sid].name).join(" › ");
+  el.innerHTML = `<div class="card"><div class="head"><h2>${esc(names)}</h2>
+    <span class="chain">${members.some(sid => S[sid].fill) ? "Designer har bedt Claude fylle inn. " : ""}${members.length} stadium${members.length > 1 ? "er" : ""}</span></div></div>
+    <div class="stages">${members.map(renderStage).join("")}</div>
+    <div class="card">${renderVote(current)}</div>`;
+  wireVote();
+  fillNames();
+}
+
+async function saveVote(patch) {
+  if (!db || !myId) return;
+  const state = document.getElementById("v-state");
+  const prev = (votes[myId] && votes[myId].lines) || {};
+  const line = Object.assign({}, prev[current] || {}, patch, {at: new Date().toISOString()});
+  const lines = Object.assign({}, prev, {[current]: line});
+  state.textContent = "Lagrer …";
+  try {
+    if (isOwner && !ownerId) { await db.doc("meta/owner").set({id: myId}); ownerId = myId; }
+    await db.doc("votes/" + myId).set({lines});
+    votes[myId] = {lines};
+    state.textContent = "Lagret";
+    renderList(); renderCounts();
+  } catch (e) {
+    state.textContent = e && e.code === "permission_denied" ? "Du kan bare se, ikke lagre (be Arvind om tilgang)." : "Kunne ikke lagre. Prøv igjen.";
+  }
+}
+
+function wireVote() {
+  const ok = document.getElementById("v-ok"); if (!ok) return;
+  ok.onclick = () => { saveVote({v: "ok", note: document.getElementById("v-note").value.trim()}); ok.setAttribute("aria-pressed", "true"); document.getElementById("v-change").setAttribute("aria-pressed", "false"); };
+  const ch = document.getElementById("v-change");
+  ch.onclick = () => { saveVote({v: "change", note: document.getElementById("v-note").value.trim()}); ch.setAttribute("aria-pressed", "true"); ok.setAttribute("aria-pressed", "false"); document.getElementById("v-note").focus(); };
+  document.getElementById("v-save").onclick = () => {
+    const mine = myVerdict(current) || {};
+    saveVote({v: mine.v || "change", note: document.getElementById("v-note").value.trim()});
+  };
+}
+
+function route() {
+  const h = decodeURIComponent(location.hash.slice(1));
+  current = LINES[h] ? h : (current && LINES[current] ? current : DATA.order[0]);
+  renderList(); renderLine();
+}
+
+// reasons on hover / tap
+const tip = document.getElementById("why");
+function showTip(target) {
+  tip.textContent = target.dataset.why; tip.hidden = false;
+  const r = target.getBoundingClientRect();
+  const x = Math.min(r.left, window.innerWidth - tip.offsetWidth - 16);
+  let y = r.bottom + 6; if (y + tip.offsetHeight > window.innerHeight - 8) y = r.top - tip.offsetHeight - 6;
+  tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px"; tip.style.whiteSpace = "pre-line";
+}
+document.addEventListener("mouseover", e => { const t = e.target.closest("[data-why]"); if (t) showTip(t); else tip.hidden = true; });
+document.addEventListener("focusin", e => { const t = e.target.closest("[data-why]"); if (t) showTip(t); });
+document.addEventListener("click", e => { const t = e.target.closest("[data-why]"); if (t) showTip(t); else if (!e.target.closest(".why")) tip.hidden = true; });
+document.addEventListener("scroll", () => { tip.hidden = true; }, true);
+
+document.getElementById("q").addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); renderList(); });
+document.getElementById("filters").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return; filter = b.dataset.f;
+  document.querySelectorAll("#filters button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); renderList();
+});
+window.addEventListener("hashchange", route);
+route(); renderCounts();
+
+(async () => {
+  if (!window.claude || !window.claude.use) return;
+  try {
+    [db, user] = await Promise.all([window.claude.use("db"), window.claude.use("user")]);
+    if (user) { isOwner = await user.isOwner(); try { myId = await user.id(); } catch (e) { myId = null; } }
+    if (!db) { renderLine(); return; }
+    let loaded = false;
+    const timer = setTimeout(() => { if (!loaded) renderLine(); }, 10000);
+    db.doc("meta/owner").onSnapshot(s => { const d = s.exists ? s.data() : null; ownerId = d && d.id || ownerId; renderCounts(); }, () => {});
+    db.collection("votes").onSnapshot(snap => {
+      loaded = true; clearTimeout(timer);
+      const next = {}; snap.docs.forEach(d => { next[d.id] = d.data(); }); votes = next;
+      renderList(); renderCounts();
+      const typing = document.activeElement && document.activeElement.id === "v-note";
+      if (!typing) renderLine();
+    }, () => { loaded = true; clearTimeout(timer); renderLine(); });
+  } catch (e) { renderLine(); }
+})();
+</script>

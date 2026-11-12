@@ -61,10 +61,29 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Leer}
+    - {level: 1, move: Powder Snow}
+    - {level: 1, move: Tackle}
+    - {level: 6, move: Growl}
+    - {level: 11, move: Icy Wind}
+    - {level: 12, move: Ice Shard}
+    - {level: 18, move: Flail}
+    - {level: 20, move: Bite}
+    - {level: 23, move: Ice Fang}
+    - {level: 34, move: Take Down}
+    - {level: 37, move: Crunch}
+    - {level: 40, move: Amnesia}
+    - {level: 45, move: Blizzard}
+    - {level: 49, move: Double-Edge}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hail, Hidden Power, Ice Beam, Blizzard, Protect, Rain Dance, Return, Dig, Facade,
+          Rest, Attract, Endure, Avalanche, Sleep Talk, Substitute]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Ice Fang, Ice Shard, Icicle Spear, Icy Wind]
+  # only needed for the first stage of an evolution line
+  egg: [Icicle Spear, Freeze-Dry, Yawn, Ice Punch]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -76,7 +95,9 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-07): also on the card: Height 4'0\", weight 92 lbs; Coolness 95, Speed 78, Chill Power 98, Style 97; signature move Freeze Flex."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a rabbit-like creature made of light blue faceted ice crystal, sitting upright with two tall crystal ears and big white front teeth. It wears a bowl-shaped golden-brown fur cap on its head, has large round paws and a small pink nose."

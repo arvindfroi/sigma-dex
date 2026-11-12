@@ -67,8 +67,40 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 0, move: Trop Kick}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Dual Wingbeat}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Peck}
+    - {level: 1, move: Sand Attack}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Leafage}
+    - {level: 1, move: Scratch}
+    - {level: 10, move: Razor Leaf}
+    - {level: 13, move: Bullet Seed}
+    - {level: 14, move: Bite}
+    - {level: 15, move: Air Cutter}
+    - {level: 15, move: Wing Attack}
+    - {level: 16, move: Leech Seed}
+    - {level: 17, move: Pluck}
+    - {level: 18, move: Growth}
+    - {level: 18, move: Slash}
+    - {level: 21, move: Acrobatics}
+    - {level: 22, move: Aerial Ace}
+    - {level: 25, move: Mega Drain}
+    - {level: 29, move: Seed Bomb}
+    - {level: 34, move: Absorb}
+    - {level: 35, move: Bounce}
+    - {level: 36, move: Agility}
+    - {level: 40, move: Swords Dance}
+    - {level: 55, move: Brave Bird}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Giga Drain,
+          Solar Beam, Return, Double Team, Aerial Ace, Facade, Rest, Attract, Thief,
+          Steel Wing, Roost, Energy Ball, Endure, Giga Impact, Swords Dance, Sleep Talk,
+          Grass Knot, Swagger, Pluck, U-turn, Substitute, Dual Wingbeat, Fly]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Brave Bird, Leaf Storm, Magical Leaf, Seed Bomb, Sky Attack,
+          Leech Seed, Mega Drain, Synthesis]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -81,7 +113,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a tall ostrich-like bird with a round fluffy brown body with a green leaf-shaped patch on its side, a long thin brown segmented neck and two long brown legs with pink feet and black claws. Its small brown fluffy head has a green kiwi-slice face, a long pale beak and a crown of long green leaves."
@@ -93,7 +126,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:85"
+  footprint: "hgss:85"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

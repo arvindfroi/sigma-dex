@@ -53,11 +53,50 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Absorb}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Growth}
+    - {level: 1, move: Solar Beam}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Leafage}
+    - {level: 1, move: Scratch}
+    - {level: 5, move: Sand Attack}
+    - {level: 7, move: Bite}
+    - {level: 12, move: Mega Drain}
+    - {level: 12, move: Razor Leaf}
+    - {level: 13, move: Leech Seed}
+    - {level: 13, move: Vine Whip}
+    - {level: 19, move: Screech}
+    - {level: 21, move: Slam}
+    - {level: 30, move: Seed Bomb}
+    - {level: 30, move: Synthesis}
+    - {level: 35, move: Petal Blizzard}
+    - {level: 35, move: Sunny Day}
+    - {level: 40, move: Horn Leech}
+    - {level: 44, move: Leaf Blade}
+    - {level: 46, move: Wood Hammer}
+    - {level: 52, move: Leaf Storm}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Giga Drain, Safeguard,
+          Solar Beam, Return, Double Team, Facade, Rest, Attract, Energy Ball, Endure,
+          Giga Impact, Swords Dance, Sleep Talk, Grass Knot, Swagger, Substitute,
+          Brick Break]
+  # moves a move tutor can teach it
+  tutor: [Leaf Storm, Magical Leaf, Mega Drain, Seed Bomb, Solar Blade, Synthesis,
+          Leech Seed]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -70,7 +109,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves]
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...
@@ -82,7 +122,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:404"
+  footprint: "hgss:404"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

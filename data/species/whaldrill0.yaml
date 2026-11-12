@@ -64,10 +64,31 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Leer}
+    - {level: 1, move: Mud-Slap}
+    - {level: 1, move: Tackle}
+    - {level: 5, move: Powder Snow}
+    - {level: 10, move: Flail}
+    - {level: 15, move: Ice Shard}
+    - {level: 20, move: Mist}
+    - {level: 25, move: Endure}
+    - {level: 30, move: Icy Wind}
+    - {level: 35, move: Amnesia}
+    - {level: 40, move: Take Down}
+    - {level: 45, move: Earthquake}
+    - {level: 50, move: Blizzard}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Roar, Hail, Hidden Power, Ice Beam, Blizzard, Light Screen, Protect, Rain Dance,
+          Earthquake, Return, Dig, Double Team, Reflect, Sandstorm, Rock Tomb, Facade, Rest,
+          Attract, Endure, Avalanche, Stealth Rock, Rock Slide, Sleep Talk, Swagger,
+          Substitute, Bulldoze, Scorching Sands, Strength, Rock Smash]
+  # moves a move tutor can teach it
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Endeavor, Ice Shard, Icicle Spear,
+          Icy Wind]
+  # only needed for the first stage of an evolution line
+  egg: [Icicle Crash, Mud Shot, Icicle Spear, Freeze-Dry, Curse]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -79,7 +100,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, egg moves]
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...

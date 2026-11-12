@@ -67,13 +67,35 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 0, move: Hyper Voice}
+    - {level: 0, move: Dark Pulse}
     - {level: 1, move: Hyper Voice}
     - {level: 1, move: Parting Shot}
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Echoed Voice}
+    - {level: 1, move: Fire Fang}
+    - {level: 1, move: Howl}
+    - {level: 1, move: Pound}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Thunder Fang}
+    - {level: 1, move: Bite}
+    - {level: 1, move: Leer}
+    - {level: 12, move: Rest}
+    - {level: 15, move: Sleep Talk}
+    - {level: 18, move: Swift}
+    - {level: 23, move: Roar}
+    - {level: 29, move: Supersonic}
     - {level: 36, move: Nasty Plot}
+    - {level: 37, move: Uproar}
     - {level: 40, move: Snarl}
+    - {level: 46, move: Screech}
     - {level: 60, move: Boomburst}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance, Return,
+          Shadow Ball, Double Team, Facade, Rest, Attract, Thief, Fling, Endure, Payback,
+          Giga Impact, Dark Pulse, Sleep Talk, Swagger, Substitute, Foul Play, Strength,
+          Frustration, Torment, Solar Beam]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Endeavor, Hyper Voice, Snarl]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -86,7 +108,8 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-07): card name: Debatry; also on the card: Lv.50, male, Exp. Points 125000, To Next Lv. 7651; Hidden Ability Levitate."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a small bat-like creature with shaggy grey-brown fur, a messy mop of hair covering one green eye, and large round ears. It has dark purple bat wings, dark clawed hands and feet, a toothy grin, and a long tail ending in a black microphone-shaped tip."
@@ -98,7 +121,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:472"
+  footprint: "hgss:472"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

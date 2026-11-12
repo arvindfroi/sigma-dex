@@ -66,10 +66,29 @@ learnset:
     - {level: 0, move: Mortal Spin}
     - {level: 0, move: Acid Armor}
     - {level: 0, move: poison}
+    - {level: 1, move: Absorb}
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Harden}
+    - {level: 1, move: Tackle}
+    - {level: 8, move: Stun Spore}
+    - {level: 9, move: Growth}
+    - {level: 13, move: Razor Leaf}
     - {level: 15, move: Head Smash}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+    - {level: 16, move: Cross Poison}
+    - {level: 16, move: Leech Seed}
+    - {level: 16, move: Mega Drain}
+    - {level: 24, move: Synthesis}
+    - {level: 28, move: Horn Leech}
+    - {level: 29, move: Slash}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Protect, Rain Dance, Giga Drain,
+          Solar Beam, Return, Double Team, Sludge Bomb, Facade, Rest, Attract, Thief,
+          Energy Ball, Endure, Payback, Sleep Talk, Poison Jab, Grass Knot, Swagger,
+          Substitute, Venoshock]
+  # moves a move tutor can teach it
+  tutor: [Leaf Storm, Leech Seed, Magical Leaf, Mega Drain, Seed Bomb, Synthesis]
+  # only needed for the first stage of an evolution line
+  egg: [Worry Seed, Acid Spray, Grassy Terrain, Curse, Magical Leaf, Leaf Storm]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -81,7 +100,9 @@ design:
   notes: "From the Discord concept card (Casse, 2026-10-01): card name: Tomadernader; also on the card: Pickle Armor: its sour coating deters any healing effects of any attack from opponents; Chlorophyll is hidden ability; signature move Onion Cyclone (Poison Physical, Power 85, Accuracy 100, 30% chance to poison); Head Smash 70 damage, 30 damage to itself; No. ???."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: true      # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a head and arms # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its legs.
   look: "It is a living hamburger with a sesame seed bun on top, lettuce, a red tomato face with angry yellow eyes, pickles, and melted yellow cheese dripping down. Two large curved purple onion rings stick out from the sides like claws."

@@ -64,9 +64,34 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 0, move: Ice Fang}
+    - {level: 1, move: Ancient Power}
+    - {level: 1, move: Flail}
+    - {level: 1, move: Mud-Slap}
+    - {level: 1, move: Powder Snow}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Leer}
+    - {level: 6, move: Growl}
+    - {level: 15, move: Ice Shard}
+    - {level: 20, move: Mist}
+    - {level: 25, move: Endure}
+    - {level: 30, move: Icy Wind}
+    - {level: 37, move: Amnesia}
+    - {level: 44, move: Take Down}
+    - {level: 51, move: Earthquake}
+    - {level: 58, move: Blizzard}
+    - {level: 65, move: Thrash}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Roar, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Light Screen, Protect,
+          Rain Dance, Earthquake, Return, Dig, Double Team, Reflect, Sandstorm, Rock Tomb,
+          Facade, Rest, Attract, Endure, Giga Impact, Stone Edge, Avalanche, Stealth Rock,
+          Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze, High Horsepower, Strength,
+          Rock Smash, Scorching Sands]
+  # moves a move tutor can teach it
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Endeavor, Ice Fang, Ice Shard,
+          Icicle Spear, Icy Wind]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +104,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves]
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...

@@ -49,19 +49,45 @@ evolutions:
   - into: mortbulk
     method: other
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Focus Energy}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Low Kick}
+    - {level: 1, move: Tackle}
+    - {level: 4, move: Arm Thrust}
+    - {level: 15, move: Detect}
+    - {level: 16, move: Low Sweep}
+    - {level: 24, move: Vital Throw}
+    - {level: 25, move: Bulk Up}
+    - {level: 28, move: Scary Face}
+    - {level: 31, move: Seismic Toss}
+    - {level: 36, move: Dynamic Punch}
+    - {level: 40, move: Close Combat}
+    - {level: 40, move: Reversal}
+    - {level: 48, move: Focus Punch}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Focus Punch, Bulk Up, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance,
+          Earthquake, Return, Dig, Brick Break, Double Team, Rock Tomb, Facade, Rest,
+          Attract, Focus Blast, Fling, Endure, Drain Punch, Payback, Stone Edge, Rock Slide,
+          Sleep Talk, Poison Jab, Swagger, Substitute, Low Sweep, Bulldoze, Coaching,
+          Rock Smash]
+  # moves a move tutor can teach it
+  tutor: [Close Combat, Counter, Fire Punch, Ice Punch, Power-Up Punch, Thunder Punch]
+  # only needed for the first stage of an evolution line
+  egg: [Power-Up Punch, Quick Guard, Cross Chop, Storm Throw, Superpower]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -73,7 +99,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a round, shaggy green creature covered in spiky fuzzy fur, with angry pink eyes and a moustache-like tuft on its face. It has two big round green fists on thin arms and two short legs with rounded feet."
@@ -85,7 +113,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:296"
+  footprint: "hgss:296"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

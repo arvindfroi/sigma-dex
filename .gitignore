@@ -8,3 +8,9 @@ poc/
 .worker-key
 .discord-token
 tests/sprite_style/sheet.png
+
+# Parsed game facts for the moveset tools (Origin data, never commit)
+.cache/
+# Generated moveset proposals and review page (rebuilt by scripts/moveset_fill.py / moveset_review.py)
+proposals/movesets.json
+proposals/review.html

@@ -64,10 +64,37 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Razor Leaf}
+    - {level: 1, move: Tackle}
+    - {level: 5, move: Double Kick}
+    - {level: 5, move: Rock Smash}
+    - {level: 9, move: Detect}
+    - {level: 10, move: Focus Energy}
+    - {level: 19, move: Feint}
+    - {level: 25, move: Counter}
+    - {level: 25, move: Endure}
+    - {level: 32, move: Bulk Up}
+    - {level: 32, move: Taunt}
+    - {level: 38, move: Leaf Tornado}
+    - {level: 39, move: Brick Break}
+    - {level: 46, move: Swords Dance}
+    - {level: 50, move: Close Combat}
+    - {level: 50, move: Reversal}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Focus Punch, Bulk Up, Bullet Seed, Hidden Power, Sunny Day, Taunt, Hyper Beam,
+          Protect, Rain Dance, Giga Drain, Solar Beam, Return, Dig, Brick Break,
+          Double Team, Rock Tomb, Facade, Rest, Attract, Focus Blast, Energy Ball, Fling,
+          Endure, Drain Punch, Payback, Giga Impact, Stone Edge, Swords Dance, Rock Slide,
+          Sleep Talk, Poison Jab, Grass Knot, Swagger, Substitute, Low Sweep, Coaching,
+          Rock Smash]
+  # moves a move tutor can teach it
+  tutor: [Close Combat, Leaf Storm, Magical Leaf, Seed Bomb]
+  # only needed for the first stage of an evolution line
+  egg: [Quick Guard, Seismic Toss, Revenge, Vital Throw, Cross Chop, Flail]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -79,7 +106,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a slim humanoid creature with a round yellow head, two leaf-shaped ears like pigtails and an angry face. It has a grey tunic and trousers with a yellow belt, big yellow hands and feet, and a cape of red-orange maple leaves around its shoulders and back."
@@ -91,7 +120,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:274"
+  footprint: "hgss:274"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

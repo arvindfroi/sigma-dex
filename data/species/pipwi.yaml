@@ -62,10 +62,32 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leafage}
+    - {level: 1, move: Scratch}
+    - {level: 1, move: Tackle}
+    - {level: 3, move: Peck}
+    - {level: 5, move: Absorb}
+    - {level: 13, move: Razor Leaf}
+    - {level: 14, move: Bite}
+    - {level: 16, move: Leech Seed}
+    - {level: 18, move: Growth}
+    - {level: 18, move: Slash}
+    - {level: 25, move: Mega Drain}
+    - {level: 29, move: Seed Bomb}
+    - {level: 50, move: Endeavor}
+    - {level: 52, move: Power Whip}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Protect, Giga Drain, Solar Beam, Return,
+          Double Team, Facade, Rest, Attract, Energy Ball, Endure, Sleep Talk, Grass Knot,
+          Swagger, Substitute]
+  # moves a move tutor can teach it
+  tutor: [Leaf Storm, Leech Seed, Magical Leaf, Mega Drain, Seed Bomb, Synthesis]
+  # only needed for the first stage of an evolution line
+  egg: [Worry Seed, Magical Leaf, Leaf Storm, Grassy Terrain, Nature Power, Tickle,
+        Petal Blizzard]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -77,7 +99,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a small round brown kiwi bird with fluffy brown feathers, a green kiwi-slice face with a ring of dark seeds around one big round brown eye, and a long thin pale yellow beak. A fringe of green leaf-like feathers sits on its neck and back. It has two pink legs with black claws."

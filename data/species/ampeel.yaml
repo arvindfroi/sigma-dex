@@ -64,9 +64,40 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Quick Attack}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Tail Whip}
+    - {level: 1, move: Thunder Wave}
+    - {level: 1, move: Water Gun}
+    - {level: 8, move: Supersonic}
+    - {level: 8, move: Wrap}
+    - {level: 10, move: Thunder Shock}
+    - {level: 12, move: Aqua Jet}
+    - {level: 12, move: Bite}
+    - {level: 12, move: Mud Shot}
+    - {level: 19, move: Water Pulse}
+    - {level: 20, move: Spark}
+    - {level: 20, move: Swift}
+    - {level: 20, move: Bubble Beam}
+    - {level: 22, move: Charge}
+    - {level: 24, move: Flail}
+    - {level: 34, move: Crunch}
+    - {level: 35, move: Discharge}
+    - {level: 36, move: Agility}
+    - {level: 45, move: Coil}
+    - {level: 47, move: Wild Charge}
+    - {level: 56, move: Hydro Pump}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Light Screen,
+          Protect, Rain Dance, Thunderbolt, Thunder, Return, Double Team, Shock Wave,
+          Facade, Rest, Attract, Brine, Charge Beam, Endure, Giga Impact, Thunder Wave,
+          Sleep Talk, Swagger, Substitute, Scald, Electroweb, Liquidation, Surf, Whirlpool,
+          Waterfall]
+  # moves a move tutor can teach it
+  tutor: [Aqua Jet, Aqua Tail, Icy Wind, Volt Switch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +110,8 @@ design:
   notes: "From the Discord concept card (johnnes3204, 2026-05-02): evolution on the card: Evolves from Zapana at Lv. 26; also on the card: Volt Absorb is the hidden ability. Notable moves: Thunder Shock, Wild Charge, Aqua Jet, Discharge, Coil, Agility.."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a serpentine body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It slithers along the ground.
   look: "It is a long, slender eel-like creature with a cream-white head and upper body that turns golden yellow toward a pointed, tapering tail. It has a smooth body bent into a hook shape, a small black eye, an open mouth, and yellow lightning-bolt markings on its head."
@@ -91,7 +123,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:290"
+  footprint: "hgss:290"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

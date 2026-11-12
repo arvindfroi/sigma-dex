@@ -53,11 +53,43 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Charm}
+    - {level: 1, move: Copycat}
+    - {level: 1, move: Disarming Voice}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Sweet Scent}
+    - {level: 1, move: Tackle}
+    - {level: 3, move: Play Nice}
+    - {level: 6, move: Fairy Wind}
+    - {level: 12, move: Aromatherapy}
+    - {level: 12, move: Draining Kiss}
+    - {level: 15, move: Fake Tears}
+    - {level: 18, move: Round}
+    - {level: 20, move: Moonlight}
+    - {level: 24, move: Life Dew}
+    - {level: 30, move: Wish}
+    - {level: 33, move: Moonblast}
+    - {level: 35, move: Misty Terrain}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
+          Safeguard, Return, Psychic, Shadow Ball, Facade, Rest, Attract, Energy Ball,
+          Endure, Giga Impact, Sleep Talk, Substitute, Draining Kiss, Play Rough,
+          Thunderbolt, Thief, Toxic]
+  # moves a move tutor can teach it
+  tutor: [Dazzling Gleam, Flail, Moonblast, Power Gem]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -70,7 +102,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its many legs.
   look: "It is a pink creature with a faceted pink crystal gem body, a small round pink head with two big shiny black eyes in a heart-shaped pale patch and no mouth, two long thin curled pink arms and four long thin ribbon-like pink legs."
@@ -82,7 +115,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:47"
+  footprint: "hgss:47"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

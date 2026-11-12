@@ -64,9 +64,34 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Water Gun}
+    - {level: 5, move: Leer}
+    - {level: 6, move: Bite}
+    - {level: 10, move: Knock Off}
+    - {level: 10, move: Payback}
+    - {level: 10, move: Withdraw}
+    - {level: 15, move: Stomp}
+    - {level: 20, move: Razor Shell}
+    - {level: 20, move: Taunt}
+    - {level: 22, move: Ice Fang}
+    - {level: 30, move: Crunch}
+    - {level: 30, move: Scary Face}
+    - {level: 35, move: Night Slash}
+    - {level: 40, move: Throat Chop}
+    - {level: 49, move: Sucker Punch}
+    - {level: 55, move: Foul Play}
+    - {level: 56, move: Swords Dance}
+    - {level: 65, move: Thrash}
+    - {level: 70, move: Giga Impact}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard, Hyper Beam,
+          Protect, Rain Dance, Return, Brick Break, Double Team, Rock Tomb, Facade, Rest,
+          Thief, Fling, Endure, Payback, Giga Impact, Dark Pulse, Rock Slide, Sleep Talk,
+          Swagger, Substitute, Foul Play, Scald, Bulldoze, Brutal Swing, Liquidation, Surf,
+          Whirlpool, Waterfall]
+  tutor: [Snarl]         # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +104,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a heavy, black walrus-like creature with long white tusks, gold-tinted paws, and big clawed feet. It wears a black pirate hat with a gold skull mark and carries a red boat-shaped shell on its back with a mast and white sails showing a gold skull and crossbones, plus a gold tail fin."
@@ -91,7 +117,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:221"
+  footprint: "hgss:221"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

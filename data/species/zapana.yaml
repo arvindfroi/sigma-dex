@@ -61,10 +61,32 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Water Gun}
+    - {level: 8, move: Quick Attack}
+    - {level: 8, move: Supersonic}
+    - {level: 8, move: Wrap}
+    - {level: 10, move: Thunder Shock}
+    - {level: 12, move: Mud Shot}
+    - {level: 17, move: Bite}
+    - {level: 19, move: Water Pulse}
+    - {level: 20, move: Bubble Beam}
+    - {level: 24, move: Flail}
+    - {level: 31, move: Agility}
+    - {level: 44, move: Rain Dance}
+    - {level: 45, move: Hydro Pump}
+    - {level: 54, move: Double-Edge}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Hail, Hidden Power, Ice Beam, Blizzard, Protect, Rain Dance,
+          Thunderbolt, Thunder, Return, Double Team, Shock Wave, Facade, Rest, Attract,
+          Brine, Charge Beam, Endure, Thunder Wave, Sleep Talk, Swagger, Substitute, Scald,
+          Surf, Whirlpool, Waterfall]
+  # moves a move tutor can teach it
+  tutor: [Icy Wind, Volt Switch, Aqua Jet]
+  # only needed for the first stage of an evolution line
+  egg: [Aqua Tail, Mist, Thunder Fang, Muddy Water, Electro Ball]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -76,7 +98,9 @@ design:
   notes: "From the Discord concept card (johnnes3204, 2026-05-02): evolution on the card: Zapana -> Ampeel -> Zapana (as printed, last stage appears to be a mislabel); also on the card: Lightning Rod is the hidden ability. Notable moves: Thunder Shock, Charge Beam, Aqua Jet, Thunder Wave, Bite, Agility. Catch rate 190, base exp 66, friendship 70.."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: "It floats in the air, swimming with its fins."
   look: "It is a small eel-like tadpole creature with a round white head and a long curved body that is pale yellow on top and white below. It has a large black eye with a gold ring, a wide open pink mouth, yellow lightning-bolt markings, a small dorsal fin and a leaf-shaped tail fin."
@@ -88,7 +112,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:265"
+  footprint: "hgss:265"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

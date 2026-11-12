@@ -53,12 +53,43 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Powder Snow}
+    - {level: 1, move: Tackle}
+    - {level: 6, move: Mist}
+    - {level: 12, move: Weather Ball}
+    - {level: 15, move: Ice Shard}
+    - {level: 18, move: Icy Wind}
+    - {level: 20, move: Pay Day}
+    - {level: 24, move: Headbutt}
+    - {level: 30, move: Amnesia}
+    - {level: 30, move: Avalanche}
+    - {level: 36, move: Freeze-Dry}
+    - {level: 42, move: Hail}
+    - {level: 48, move: Aurora Veil}
+    - {level: 48, move: Ice Beam}
+    - {level: 54, move: Surf}
+    - {level: 60, move: Blizzard}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect, Rain Dance, Return,
+          Reflect, Facade, Rest, Attract, Endure, Giga Impact, Avalanche, Sleep Talk,
+          Substitute, Surf]
+  # moves a move tutor can teach it
+  tutor: [Ice Shard, Icicle Spear, Icy Wind]
+  # only needed for the first stage of an evolution line
+  egg: [Icicle Crash, Double-Edge, Soak, Head Smash]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -70,7 +101,9 @@ design:
   notes: "From the Google Doc: Sigmanian Eiscue/eller eiscue evo (Ice/?)"
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a small black penguin with a white oval belly, thin orange legs and white-tipped flippers. On its head sits a big light blue block of ice shaped like a slot machine, with three windows showing glowing yellow lucky sevens and a small propeller-like fin on the side."
@@ -82,7 +115,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:393"
+  footprint: "hgss:393"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

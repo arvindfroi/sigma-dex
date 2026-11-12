@@ -64,10 +64,34 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Confusion}
+    - {level: 1, move: Dual Chop}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
+    - {level: 10, move: Helping Hand}
+    - {level: 10, move: Quick Attack}
+    - {level: 12, move: Bite}
+    - {level: 18, move: Psybeam}
+    - {level: 18, move: Horn Attack}
+    - {level: 36, move: Screech}
+    - {level: 37, move: Agility}
+    - {level: 39, move: Dragon Claw}
+    - {level: 40, move: Calm Mind}
+    - {level: 40, move: Psychic}
+    - {level: 44, move: Dragon Pulse}
+    - {level: 44, move: Dragon Rush}
+    - {level: 50, move: Future Sight}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Dragon Claw, Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Light Screen,
+          Protect, Rain Dance, Safeguard, Iron Tail, Return, Psychic, Shadow Ball,
+          Double Team, Reflect, Facade, Rest, Attract, Energy Ball, Endure, Dragon Pulse,
+          Giga Impact, Thunder Wave, Sleep Talk, Grass Knot, Swagger, Substitute,
+          Trick Room, Psyshock, Expanding Force]
+  # moves a move tutor can teach it
+  tutor: [Draco Meteor, Outrage, Zen Headbutt, Headbutt]
+  egg: [Extrasensory]    # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -79,7 +103,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a goat-like creature with a long white and lilac shaggy mane and bushy tail, a pale face with a black band over its brow, a blue eye and a pink nose, and two long purple horns curving back. Its body and four legs are dark charcoal, with red and blue bands on the lower legs and black paws. A glowing purple orb floats at the tip of its tail."

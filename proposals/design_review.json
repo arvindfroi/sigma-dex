@@ -1,0 +1,3005 @@
+{
+ "abyssys": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Aqua Ring"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Pound",
+   "Brick Break",
+   "Strength",
+   "Rock Smash"
+  ],
+  "why": {
+   "Pound": "Tube body with no limbs",
+   "Brick Break": "Tube body with no arms",
+   "Strength": "Tube body with no arms",
+   "Rock Smash": "Tube body with no arms",
+   "Aqua Ring": "Line keeps the swim-ring move from Saucerl"
+  },
+  "note": "Tube-like body; limb moves removed."
+ },
+ "alminimonk": {
+  "add": {
+   "level_up": [
+    {
+     "level": 5,
+     "move": "Meditate"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Meditate": "sits cross-legged like a monk"
+  },
+  "note": "Psychic pool fits."
+ },
+ "alminimonk-utvikling": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Meditate"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Meditate": "line consistent with monk"
+  },
+  "note": "Line consistent."
+ },
+ "ambcoptr": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Leech Life"
+    },
+    {
+     "level": 56,
+     "move": "Bug Buzz"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Slash"
+  ],
+  "why": {
+   "Leech Life": "Line keeps the mosquito move",
+   "Bug Buzz": "Wings that rotate like a helicopter",
+   "Slash": "Beetle-like with thin legs, no claws"
+  },
+  "note": "Fits."
+ },
+ "ambuger": {
+  "add": {
+   "level_up": [
+    {
+     "level": 14,
+     "move": "Leech Life"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Slash",
+   "Solar Beam"
+  ],
+  "why": {
+   "Leech Life": "Mosquito-like bug with a proboscis",
+   "Slash": "Mosquito with thin legs, no claws or blades",
+   "Solar Beam": "Mosquito trapped in amber fossil; no plant or sunlight concept"
+  },
+  "note": "Mosquito in amber fits; blood-sucking move added."
+ },
+ "ampeel": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Wrap"
+    },
+    {
+     "level": 48,
+     "move": "Discharge"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Wrap": "long slender serpentine body",
+   "Discharge": "card notable move; releases stored electricity in bursts"
+  },
+  "note": "Fits; added Wrap and Discharge."
+ },
+ "anjane": {
+  "add": {
+   "level_up": [
+    {
+     "level": 20,
+     "move": "Hex"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [
+    "Curse"
+   ],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Hex": "cursed energy bursts; signature Hex Burst",
+   "Curse": "absorbs curse-filled emotions"
+  },
+  "note": "Curse flavour added."
+ },
+ "autuman": {
+  "add": {
+   "level_up": [
+    {
+     "level": 29,
+     "move": "Razor Leaf"
+    },
+    {
+     "level": 38,
+     "move": "Leaf Tornado"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Vine Whip"
+  ],
+  "why": {
+   "Vine Whip": "Cape of maple leaves, no vines",
+   "Razor Leaf": "Cape of red-orange maple leaves",
+   "Leaf Tornado": "Cape of maple leaves"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "balleisk": {
+  "add": {
+   "level_up": [
+    {
+     "level": 8,
+     "move": "Bug Bite"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Wrap"
+  ],
+  "why": {
+   "Bug Bite": "antenna and Bug type; toothy mouth",
+   "Wrap": "upright dino, not serpentine"
+  },
+  "note": "Bug part gets a bug move."
+ },
+ "beatld": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Cute psychic bug moves fit the design."
+ },
+ "bergflabbser": {
+  "add": {
+   "level_up": [
+    {
+     "level": 12,
+     "move": "Bite"
+    },
+    {
+     "level": 45,
+     "move": "Crunch"
+    }
+   ],
+   "tm_hm": [
+    "Flash"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Stomp",
+   "Stomping Tantrum",
+   "Brick Break",
+   "Rock Smash"
+  ],
+  "why": {
+   "Stomp": "Giant fish with fins, no legs",
+   "Stomping Tantrum": "Giant fish with fins, no legs",
+   "Brick Break": "Fish without arms",
+   "Rock Smash": "Fish without arms",
+   "Bite": "Wide mouth full of white teeth",
+   "Crunch": "Wide mouth full of white teeth",
+   "Flash": "Ulriken tower serves as its guiding beacon"
+  },
+  "note": "Fjord fish fits; leg and arm moves removed, mouth and beacon moves added."
+ },
+ "blazterra": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Peck",
+   "Pluck"
+  ],
+  "why": {
+   "Peck": "bat-like dragon, no beak described",
+   "Pluck": "bat-like dragon, no beak described"
+  },
+  "note": "Bat-like dragon: fits as is."
+ },
+ "blylem": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Smog"
+    },
+    {
+     "level": 1,
+     "move": "Bone Rush"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Growth",
+   "Sweet Scent",
+   "Seed Bomb",
+   "Dazzling Gleam",
+   "Energy Ball",
+   "Grass Knot",
+   "Giga Drain",
+   "Solar Beam",
+   "Cut",
+   "Synthesis"
+  ],
+  "why": {
+   "Growth": "golem of boulders and bones, plant-copy move",
+   "Sweet Scent": "golem of boulders and bones, plant-copy move",
+   "Smog": "polluted lands, purple smoke",
+   "Bone Rush": "golem covered in bones and ribs",
+   "Seed Bomb": "rock and bone lead golem, no plant or fairy link",
+   "Dazzling Gleam": "rock and bone lead golem, no plant or fairy link",
+   "Energy Ball": "rock and bone lead golem, no plant or fairy link",
+   "Grass Knot": "rock and bone lead golem, no plant or fairy link",
+   "Giga Drain": "rock and bone lead golem, no plant or fairy link",
+   "Solar Beam": "rock and bone lead golem, no plant or fairy link",
+   "Cut": "rock and bone lead golem, no plant or fairy link",
+   "Synthesis": "a bone-and-lead golem from polluted lands does not photosynthesise"
+  },
+  "note": "Plant/fairy moves removed; bones and smoke added."
+ },
+ "bolthook": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Fits the design; no change needed."
+ },
+ "brawleo": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Splash",
+   "Thunderbolt",
+   "Thunder",
+   "Shock Wave",
+   "Solar Beam",
+   "Water Pulse",
+   "Blizzard",
+   "Ice Beam",
+   "Mirror Coat"
+  ],
+  "why": {
+   "Splash": "A shaggy dog, not a bouncing fish-like mon",
+   "Thunderbolt": "Plain guard dog with no elemental body or beam attacks in its design",
+   "Thunder": "Plain guard dog with no elemental body or beam attacks in its design",
+   "Shock Wave": "Plain guard dog with no elemental body or beam attacks in its design",
+   "Solar Beam": "Plain guard dog with no elemental body or beam attacks in its design",
+   "Water Pulse": "Plain guard dog with no elemental body or beam attacks in its design",
+   "Blizzard": "Plain guard dog with no elemental body or beam attacks in its design",
+   "Ice Beam": "Plain guard dog with no elemental body or beam attacks in its design",
+   "Mirror Coat": "Fur-and-ears brawler, nothing psychic or reflective in the design"
+  },
+  "note": "Dog line with plausible Normal/Fighting moves; dropped fish/elemental leftovers from the bunny model."
+ },
+ "bugmight": {
+  "add": {
+   "level_up": [
+    {
+     "level": 12,
+     "move": "Helping Hand"
+    }
+   ],
+   "tm_hm": [
+    "Silver Wind"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Horn Attack"
+  ],
+  "why": {
+   "Helping Hand": "inspires its allies",
+   "Silver Wind": "large golden wings flared",
+   "Horn Attack": "antennae only, no horn"
+  },
+  "note": "Hero bug fits."
+ },
+ "bulbtle": {
+  "add": {
+   "level_up": [
+    {
+     "level": 10,
+     "move": "Flash"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Flash": "uses its light to blind enemies; card move Light attack"
+  },
+  "note": "Add Flash for the glowing nose."
+ },
+ "bulbtoise": {
+  "add": {
+   "level_up": [
+    {
+     "level": 10,
+     "move": "Flash"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Flash": "glass shell light used to blind enemies"
+  },
+  "note": "Add Flash for the light shell."
+ },
+ "bulgarian-unown": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Tail Whip",
+   "Thrash",
+   "Scratch",
+   "Bite"
+  ],
+  "why": {
+   "Tail Whip": "Only a head, a diode shape with no tail",
+   "Thrash": "Silent head-only circuit symbol, no limbs to thrash",
+   "Scratch": "only a head/eye, no claws",
+   "Bite": "only a single eyeball, no mouth"
+  },
+  "note": "Circuit symbol fits after removing limb moves."
+ },
+ "chebbi": {
+  "add": {
+   "level_up": [
+    {
+     "level": 8,
+     "move": "Supersonic"
+    },
+    {
+     "level": 12,
+     "move": "Screech"
+    },
+    {
+     "level": 30,
+     "move": "Uproar"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Supersonic": "loud microphone tail, lives for the stage",
+   "Screech": "loud, doesn't care who hears it",
+   "Uproar": "chaos it brings"
+  },
+  "note": "Sound moves added for the loud singer concept."
+ },
+ "chillalit": {
+  "add": {
+   "level_up": [
+    {
+     "level": 33,
+     "move": "Surf"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [
+    "Aqua Jet"
+   ],
+   "egg": []
+  },
+  "drop": [
+   "Swords Dance"
+  ],
+  "why": {
+   "Surf": "Rides a surfboard made of water",
+   "Swords Dance": "Penguin surfer with flippers; role is mixed special/fast, not a dancer",
+   "Aqua Jet": "Surfboard of fluid water outmaneuvers opponents"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "chuchar": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Smog"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Dazzling Gleam"
+  ],
+  "why": {
+   "Smog": "Floating ball of black smoke with a lit cigar",
+   "Dazzling Gleam": "Cute fairy light clashes with a scheming smoke spirit"
+  },
+  "note": "Fits."
+ },
+ "ciggiti": {
+  "add": {
+   "level_up": [
+    {
+     "level": 6,
+     "move": "Smog"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Dazzling Gleam"
+  ],
+  "why": {
+   "Smog": "Trails smoke from a cigarette",
+   "Dazzling Gleam": "Cute fairy light clashes with a grey smoke ghost"
+  },
+  "note": "Smoke ghost fits; Smog added."
+ },
+ "cindreon": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Bite"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Bite": "lion fangs, line consistent"
+  },
+  "note": "Fits."
+ },
+ "coatail": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Bullet Seed"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Bullet Seed": "Uses stolen berry seeds to grow berries"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "coati": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Bullet Seed"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Bullet Seed": "Crop-thief rodent; seed flavour for the line"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "cowfin": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Cow with water/normal kit fits."
+ },
+ "crappy-meal": {
+  "add": {
+   "level_up": [
+    {
+     "level": 33,
+     "move": "Pin Missile"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Pin Missile": "Many spiky french fries sticking out of its back, bristle when threatened"
+  },
+  "note": "Fits; fry spikes expressed."
+ },
+ "croakble": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "No design text; left as is."
+ },
+ "cryoblade": {
+  "add": {
+   "level_up": [
+    {
+     "level": 28,
+     "move": "Crush Claw"
+    },
+    {
+     "level": 50,
+     "move": "Ice Hammer"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Surf"
+  ],
+  "why": {
+   "Surf": "Pure ice creature with no water theme",
+   "Crush Claw": "'two long arms ... ending in crab-like ice claws'",
+   "Ice Hammer": "Large block torso and heavy ice arms; 'Frozen Executioner'"
+  },
+  "note": "Ice executioner; removed the water move, added claw and hammer-like ice attacks."
+ },
+ "custodix": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Bite"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Bite": "lion fangs, line consistent"
+  },
+  "note": "Fits."
+ },
+ "dahrugula": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Toxic"
+   ],
+   "tutor": [
+    "Yawn"
+   ],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Toxic": "Carries barrels of glowing liquid; drowsy toxin line",
+   "Yawn": "Drowsy toxin line"
+  },
+  "note": "Fits."
+ },
+ "darkgonark": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Fits the design; no change needed."
+ },
+ "detecup": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Odor Sleuth"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Odor Sleuth": "detective dog with magnifying glass"
+  },
+  "note": "Detective dog got a sleuthing move."
+ },
+ "devampry": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Supersonic"
+    },
+    {
+     "level": 1,
+     "move": "Screech"
+    },
+    {
+     "level": 1,
+     "move": "Uproar"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Supersonic": "voice shatters glass",
+   "Screech": "voice shatters glass",
+   "Uproar": "chaos it brings"
+  },
+  "note": "Sound moves added for the glass-shattering voice."
+ },
+ "diedo": {
+  "add": {
+   "level_up": [
+    {
+     "level": 25,
+     "move": "Wish"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Super Fang",
+   "Bite",
+   "Absorb"
+  ],
+  "why": {
+   "Super Fang": "small halo bird, no fangs or draining",
+   "Bite": "small halo bird, no fangs or draining",
+   "Absorb": "small halo bird, no fangs or draining",
+   "Wish": "small golden halo"
+  },
+  "note": "Fangs removed, halo wish added."
+ },
+ "dragem": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Fits the design; no change needed."
+ },
+ "dreadfang": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Poison Sting"
+    }
+   ],
+   "tm_hm": [
+    "Poison Jab"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Drill Peck",
+   "Pluck",
+   "Peck",
+   "Megahorn"
+  ],
+  "why": {
+   "Drill Peck": "Insect with pincers and fangs, no beak",
+   "Pluck": "Insect with pincers and fangs, no beak",
+   "Poison Jab": "'long curved tail with a ... dark brown stinger'",
+   "Poison Sting": "Scorpion-like tail with a stinger",
+   "Peck": "fanged scorpion-like, no beak",
+   "Megahorn": "no horn described"
+  },
+  "note": "Scorpion-bug moves; removed beak moves, added stinger moves."
+ },
+ "dreadipede": {
+  "add": {
+   "level_up": [
+    {
+     "level": 5,
+     "move": "Poison Sting"
+    }
+   ],
+   "tm_hm": [
+    "Poison Jab"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Drill Peck"
+  ],
+  "why": {
+   "Drill Peck": "Insect with pincers and fangs, no beak",
+   "Poison Jab": "'long curved tail with a ... dark brown stinger'",
+   "Poison Sting": "Scorpion-like tail with a stinger"
+  },
+  "note": "Scorpion-bug moves; removed beak moves, added stinger moves."
+ },
+ "eiscue": {
+  "add": {
+   "level_up": [
+    {
+     "level": 20,
+     "move": "Pay Day"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Pay Day": "Head is a slot machine showing lucky sevens"
+  },
+  "note": "Ice penguin moves fit; added a slot-machine money move."
+ },
+ "erobi": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [
+    "Charm"
+   ],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Charm": "Smiley markings 'help it appear friendly to both people and Pokemon'"
+  },
+  "note": "Bird moves fit; added a friendly-face move for the smiley marking."
+ },
+ "everdark": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Shadow Claw"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Icy Wind"
+  ],
+  "why": {
+   "Icy Wind": "Wishes: pool 'mostly psychic and dark type'",
+   "Shadow Claw": "'large curved grey claws' and dark theme"
+  },
+  "note": "Dark/Psychic mixed claws-and-tail attacker; moves fit the wishes."
+ },
+ "fleuroom": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Fits the design; no change needed."
+ },
+ "fleuroom-utvikling": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Swords Dance"
+  ],
+  "why": {
+   "Swords Dance": "robed staff-wielding mushroom caster, not a physical dancer"
+  },
+  "note": "Fits; Swords Dance removed for the robed caster."
+ },
+ "florantula": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Scary Face"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Scary Face": "Skull-shaped head with fangs and big black eyes"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "flurina": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Toxic"
+   ],
+   "tutor": [
+    "Power Gem"
+   ],
+   "egg": []
+  },
+  "drop": [
+   "String Shot",
+   "Cotton Spore",
+   "Sticky Web",
+   "Sweet Kiss"
+  ],
+  "why": {
+   "String Shot": "Pink virus on crystal legs, no silk",
+   "Cotton Spore": "Crystal body, no cotton or spores",
+   "Toxic": "'based on viruses'",
+   "Power Gem": "'transparent pink crystals'",
+   "Sticky Web": "Crystal virus with no web-spinning in the design",
+   "Sweet Kiss": "no mouth"
+  },
+  "note": "Virus-like crystal fairy; removed web/string/cotton spore, added virus/crystal moves."
+ },
+ "freezrick": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Icy Wind"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Icy Wind": "Line keeps the icy wind from the dex entry"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "furamire": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Pound"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Vine Whip",
+   "Leech Seed",
+   "Grassy Terrain"
+  ],
+  "why": {
+   "Pound": "fluffy paws",
+   "Vine Whip": "no vines, furry humanoid",
+   "Leech Seed": "no plant body",
+   "Grassy Terrain": "only a hair flower, not a grass creature"
+  },
+  "note": "Comfey plant moves trimmed for a furry Normal/Fairy."
+ },
+ "gaiafinn": {
+  "add": {
+   "level_up": [
+    {
+     "level": 8,
+     "move": "Bite"
+    },
+    {
+     "level": 32,
+     "move": "Crunch"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Bite": "Shark head with sharp teeth",
+   "Crunch": "Shark head with sharp teeth"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "galfrogtom": {
+  "add": {
+   "level_up": [
+    {
+     "level": 12,
+     "move": "Charge"
+    },
+    {
+     "level": 28,
+     "move": "Disable"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Ice Fang",
+   "Crunch",
+   "Bite",
+   "Tail Whip",
+   "Water Gun",
+   "Aqua Jet",
+   "Waterfall",
+   "Liquidation",
+   "Brine",
+   "Scald",
+   "Whirlpool",
+   "Aqua Tail"
+  ],
+  "why": {
+   "Ice Fang": "Glass capsule battery body, no fangs",
+   "Crunch": "Glass capsule battery body, no jaws",
+   "Bite": "Capsule body with no mouth described",
+   "Tail Whip": "Upright on two legs without a tail",
+   "Water Gun": "Now Ghost/Electric glass battery",
+   "Aqua Jet": "Now Ghost/Electric glass battery",
+   "Waterfall": "Ghost/Electric battery frog",
+   "Liquidation": "Ghost/Electric battery frog",
+   "Brine": "Ghost/Electric battery frog",
+   "Scald": "Ghost/Electric battery frog",
+   "Whirlpool": "Ghost/Electric battery frog",
+   "Charge": "Battery terminals marked plus and minus, yellow sparks",
+   "Disable": "Dex: May disable a move that deals damage to the Pokemon",
+   "Aqua Tail": "glass capsule frog with no tail described"
+  },
+  "note": "Ghost/electric kit now fits; leftover biting and water moves removed."
+ },
+ "giga-circuit": {
+  "add": {
+   "level_up": [
+    {
+     "level": 10,
+     "move": "Ember"
+    },
+    {
+     "level": 30,
+     "move": "Bounce"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Charm",
+   "Play Nice"
+  ],
+  "why": {
+   "Charm": "Bulb-headed crackling figure, not cute",
+   "Play Nice": "Bulb-headed crackling figure, not cute",
+   "Ember": "Flame burning inside its glass bulb head",
+   "Bounce": "Body is a coiled spring"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "glac-p-e": {
+  "add": {
+   "level_up": [
+    {
+     "level": 40,
+     "move": "Sacred Sword"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [
+    "Ice Shard"
+   ],
+   "egg": []
+  },
+  "drop": [
+   "Bubble Beam"
+  ],
+  "why": {
+   "Bubble Beam": "Ice fencer with no water link",
+   "Ice Shard": "Long thin ice sword and ice crystals",
+   "Sacred Sword": "Fencing figure with a long thin sword"
+  },
+  "note": "Ice fencer fits; sword move added."
+ },
+ "goatjo": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [
+    "Headbutt"
+   ],
+   "egg": []
+  },
+  "drop": [
+   "Play Nice",
+   "Aromatherapy"
+  ],
+  "why": {
+   "Play Nice": "Horned goat with a Wonder Guard, a fast mixed attacker, not a friendly support",
+   "Aromatherapy": "No healing or herb theme in the design",
+   "Headbutt": "Two long curving horns"
+  },
+  "note": "Psychic/Dragon goat; removed cute support leftovers from the Indeedee model."
+ },
+ "gortiki": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Mimic"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Mimic": "Evolution of a dancer that 'mimicks moves it observes'"
+  },
+  "note": "Fiery tribal gorilla moves fit; added copying move."
+ },
+ "gravriel": {
+  "add": {
+   "level_up": [
+    {
+     "level": 30,
+     "move": "Slash"
+    },
+    {
+     "level": 24,
+     "move": "Hex"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [
+    "Night Slash"
+   ],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Slash": "Holds a rusty cutlass",
+   "Hex": "Cursed pirate ghost",
+   "Night Slash": "Cutlass-wielding pirate"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "greation": {
+  "add": {
+   "level_up": [
+    {
+     "level": 8,
+     "move": "Bug Bite"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Bug Bite": "line consistent with Balleisk"
+  },
+  "note": "Fits."
+ },
+ "grincho": {
+  "add": {
+   "level_up": [
+    {
+     "level": 12,
+     "move": "Scary Face"
+    },
+    {
+     "level": 29,
+     "move": "Hex"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Psybeam",
+   "Ancient Power"
+  ],
+  "why": {
+   "Scary Face": "huge wide grin full of teeth",
+   "Hex": "ghostly orb in hand",
+   "Psybeam": "no psychic theme",
+   "Ancient Power": "no rock theme"
+  },
+  "note": "Grinning ghost fits."
+ },
+ "hairyen": {
+  "add": {
+   "level_up": [
+    {
+     "level": 12,
+     "move": "Mud Shot"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Pin Missile"
+  ],
+  "why": {
+   "Pin Missile": "Shell-dome and swamp grass, no spines or needles",
+   "Mud Shot": "'hides in marshes' sunk in the swamp water"
+  },
+  "note": "Swamp ambusher; removed spiky pin move, added mud move."
+ },
+ "harambe": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Outrage"
+  ],
+  "why": {
+   "Outrage": "Dragon rampage does not fit a Ghost/Fairy"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "harpie": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [
+    "Charm"
+   ],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Charm": "Smiley markings 'help it appear friendly to both people and Pokemon'"
+  },
+  "note": "Bird moves fit; added a friendly-face move for the smiley marking."
+ },
+ "heatbat": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Dragon Breath"
+  ],
+  "why": {
+   "Dragon Breath": "Bat-winged flame creature, no dragon traits"
+  },
+  "note": "Fits well."
+ },
+ "hippore": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "No change; moves fit the design acceptably."
+ },
+ "icy-freeze": {
+  "add": {
+   "level_up": [
+    {
+     "level": 18,
+     "move": "Icy Wind"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Icy Wind": "Dex: unleashes a burst of icy wind when threatened"
+  },
+  "note": "Ice kit fits; icy wind from the dex entry added."
+ },
+ "iglomodo": {
+  "add": {
+   "level_up": [
+    {
+     "level": 26,
+     "move": "Poison Fang"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Charm",
+   "Play Nice"
+  ],
+  "why": {
+   "Charm": "Predator croc hunting prey, not cute",
+   "Play Nice": "Predator croc hunting prey",
+   "Poison Fang": "Venomous tongue immobilizes prey"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "janenon": {
+  "add": {
+   "level_up": [
+    {
+     "level": 20,
+     "move": "Hex"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [
+    "Curse"
+   ],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Hex": "curse a thousand spirits let loose",
+   "Curse": "cursed cannon"
+  },
+  "note": "Line consistent with Anjane."
+ },
+ "jawbreaker": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Fits."
+ },
+ "julius": {
+  "add": {
+   "level_up": [
+    {
+     "level": 10,
+     "move": "Rock Throw"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Rock Throw": "Wishes: throws bottles at the foe"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "lapper": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Splash",
+   "Thunderbolt"
+  ],
+  "why": {
+   "Splash": "A shaggy dog, not a bouncing fish-like mon",
+   "Thunderbolt": "Plain guard dog with no elemental body or beam attacks in its design"
+  },
+  "note": "Dog line with plausible Normal/Fighting moves; dropped fish/elemental leftovers from the bunny model."
+ },
+ "leadling": {
+  "add": {
+   "level_up": [
+    {
+     "level": 10,
+     "move": "Smog"
+    },
+    {
+     "level": 25,
+     "move": "Bone Rush"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Growth",
+   "Sweet Scent"
+  ],
+  "why": {
+   "Growth": "golem of boulders and bones, plant-copy move",
+   "Sweet Scent": "golem of boulders and bones, plant-copy move",
+   "Smog": "polluted lands, purple smoke",
+   "Bone Rush": "golem covered in bones and ribs"
+  },
+  "note": "Plant-copy moves swapped for smoke and bone moves."
+ },
+ "leadling-utvikling": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Smog"
+    },
+    {
+     "level": 1,
+     "move": "Bone Rush"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Growth",
+   "Sweet Scent",
+   "Seed Bomb",
+   "Dazzling Gleam",
+   "Energy Ball",
+   "Grass Knot",
+   "Giga Drain",
+   "Solar Beam",
+   "Cut",
+   "Synthesis"
+  ],
+  "why": {
+   "Growth": "golem of boulders and bones, plant-copy move",
+   "Sweet Scent": "golem of boulders and bones, plant-copy move",
+   "Smog": "polluted lands, purple smoke",
+   "Bone Rush": "golem covered in bones and ribs",
+   "Seed Bomb": "rock and bone lead golem, no plant or fairy link",
+   "Dazzling Gleam": "rock and bone lead golem, no plant or fairy link",
+   "Energy Ball": "rock and bone lead golem, no plant or fairy link",
+   "Grass Knot": "rock and bone lead golem, no plant or fairy link",
+   "Giga Drain": "rock and bone lead golem, no plant or fairy link",
+   "Solar Beam": "rock and bone lead golem, no plant or fairy link",
+   "Cut": "rock and bone lead golem, no plant or fairy link",
+   "Synthesis": "a bone-and-lead golem from polluted lands does not photosynthesise"
+  },
+  "note": "Plant/fairy moves removed; bones and smoke added."
+ },
+ "leafaxer": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Withdraw"
+  ],
+  "why": {
+   "Withdraw": "Grass lizard with leaves and blade tail, no shell to withdraw into"
+  },
+  "note": "Leaf and blade moves fit; shell moves removed."
+ },
+ "leafing": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Withdraw",
+   "Bite"
+  ],
+  "why": {
+   "Withdraw": "Grass lizard with leaves and blade tail, no shell to withdraw into",
+   "Bite": "Design is leaf-and-claw, not a biter"
+  },
+  "note": "Leaf and blade moves fit; shell moves removed."
+ },
+ "leafsteel": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Withdraw"
+  ],
+  "why": {
+   "Withdraw": "Grass lizard with leaves and blade tail, no shell to withdraw into"
+  },
+  "note": "Leaf and blade moves fit; shell moves removed."
+ },
+ "limulk": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Bind"
+  ],
+  "why": {
+   "Bind": "Two round green fists on thin arms, no tentacles/coils"
+  },
+  "note": "Angry fighter; removed tentacle-style binding."
+ },
+ "maagamad": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Surf"
+   ],
+   "tutor": [
+    "Night Slash",
+    "Hurricane"
+   ],
+   "egg": []
+  },
+  "drop": [
+   "Calm Mind"
+  ],
+  "why": {
+   "Calm Mind": "Physical fast attacker with three swords, no psychic theme",
+   "Night Slash": "'stores three swords' on its back",
+   "Hurricane": "'glide through any weather', flips the weather",
+   "Surf": "Seagull 'above the sea', anchor mark"
+  },
+  "note": "Swordbearing gull; removed psychic setup, added sword/weather/sea moves."
+ },
+ "mcskiirtle": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Fire Lash"
+  ],
+  "why": {
+   "Fire Lash": "turtle with stubby legs, no whip or tail lash"
+  },
+  "note": "Fits well."
+ },
+ "mooceon": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Fits."
+ },
+ "moosus": {
+  "add": {
+   "level_up": [
+    {
+     "level": 9,
+     "move": "Horn Attack"
+    },
+    {
+     "level": 33,
+     "move": "Aurora Beam"
+    }
+   ],
+   "tm_hm": [
+    "Aurora Veil"
+   ],
+   "tutor": [
+    "Megahorn"
+   ],
+   "egg": []
+  },
+  "drop": [
+   "Drill Peck",
+   "Peck",
+   "Wing Attack",
+   "Pluck",
+   "Dual Wingbeat",
+   "Feather Dance"
+  ],
+  "why": {
+   "Drill Peck": "Moose with no beak or wings",
+   "Peck": "Moose with no beak or wings",
+   "Wing Attack": "Moose with no wings",
+   "Pluck": "Moose with no beak",
+   "Dual Wingbeat": "Moose with no wings",
+   "Feather Dance": "Moose with no feathers",
+   "Horn Attack": "Wide flat antlers",
+   "Aurora Beam": "Antlers glow in aurora colours",
+   "Aurora Veil": "Glitters like nordic light",
+   "Megahorn": "Large antlers, legendary moose"
+  },
+  "note": "Moose with aurora antlers; bird-only moves removed, antler and aurora moves added."
+ },
+ "mortbulk": {
+  "add": {
+   "level_up": [
+    {
+     "level": 38,
+     "move": "Mega Kick"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [
+    "High Jump Kick"
+   ],
+   "egg": []
+  },
+  "drop": [
+   "Bind"
+  ],
+  "why": {
+   "Bind": "Standing on one leg, no tentacles or coils",
+   "High Jump Kick": "'kicks its other, giant leg high in the air'",
+   "Mega Kick": "'kicks its other, giant leg high in the air'"
+  },
+  "note": "Kicking fighter; removed Bind, added kick moves."
+ },
+ "motinky": {
+  "add": {
+   "level_up": [
+    {
+     "level": 20,
+     "move": "Mimic"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Mimic": "'mimicking moves it observes'"
+  },
+  "note": "Fire dance and smoke moves fit; added copying move."
+ },
+ "nuclobyl": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Smog"
+    },
+    {
+     "level": 1,
+     "move": "Toxic Spikes"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Smog": "venting corrosive fumes",
+   "Toxic Spikes": "hazard core of waste"
+  },
+  "note": "Toxic fumes and waste hazards added."
+ },
+ "nucloid": {
+  "add": {
+   "level_up": [
+    {
+     "level": 5,
+     "move": "Smog"
+    },
+    {
+     "level": 16,
+     "move": "Toxic Spikes"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Smog": "releases toxic fumes when alarmed",
+   "Toxic Spikes": "stores unstable waste, waste core"
+  },
+  "note": "Toxic fumes and waste hazards added."
+ },
+ "nukfae": {
+  "add": {
+   "level_up": [
+    {
+     "level": 4,
+     "move": "Acid"
+    },
+    {
+     "level": 8,
+     "move": "Wrap"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Acid": "releases highly poisonous chemicals from its body",
+   "Wrap": "curved tentacle arms"
+  },
+  "note": "Poison sludge fits; added Acid and Wrap."
+ },
+ "obsidog": {
+  "add": {
+   "level_up": [
+    {
+     "level": 9,
+     "move": "Rock Throw"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Rock Throw": "made of volcanic glass and rock"
+  },
+  "note": "Fits."
+ },
+ "obsidog-utvikling": {
+  "add": {
+   "level_up": [
+    {
+     "level": 9,
+     "move": "Rock Throw"
+    }
+   ],
+   "tm_hm": [
+    "Poison Jab",
+    "Toxic",
+    "Rock Smash"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Lick",
+   "Surf"
+  ],
+  "why": {
+   "Rock Throw": "rock body",
+   "Poison Jab": "long poisonous legs",
+   "Toxic": "poisonous territorial",
+   "Rock Smash": "thick arms snap and crush",
+   "Lick": "gargoyle imp, not a dog",
+   "Surf": "cave ambusher, no water"
+  },
+  "note": "Spider-legged gargoyle gets poison and crush moves."
+ },
+ "octopearl": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Aqua Ring"
+    },
+    {
+     "level": 20,
+     "move": "Wrap"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Aqua Ring": "Line keeps the swim-ring move from Saucerl",
+   "Wrap": "Four tentacles and a long frilly tube with a clawed hand"
+  },
+  "note": "Fits; tentacle move added."
+ },
+ "oraclaw": {
+  "add": {
+   "level_up": [
+    {
+     "level": 24,
+     "move": "Confuse Ray"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Confuse Ray": "Line keeps the staring-eyes move"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "oraclet": {
+  "add": {
+   "level_up": [
+    {
+     "level": 3,
+     "move": "Peck"
+    },
+    {
+     "level": 24,
+     "move": "Confuse Ray"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Peck": "Small bird with sharp orange beak",
+   "Confuse Ray": "Shell covered in staring eyes"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "panzerien": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Mud Shot"
+    },
+    {
+     "level": 20,
+     "move": "Rollout"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Meteor Mash",
+   "Pin Missile",
+   "Petal Dance"
+  ],
+  "why": {
+   "Meteor Mash": "A tank with a cannon, no fists",
+   "Pin Missile": "No spines on this old tank",
+   "Petal Dance": "A rusty tank, not a dancing flower",
+   "Mud Shot": "Swamp-covered tank, a mud shell from the cannon",
+   "Rollout": "'six wheels on caterpillar tracks'"
+  },
+  "note": "Tank line; removed punch/spine/petal moves, added cannon-mud and tracks moves."
+ },
+ "parahaunt": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Smog"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Dazzling Gleam"
+  ],
+  "why": {
+   "Smog": "Silent smoke phantom with a cigarette holder",
+   "Dazzling Gleam": "Cute fairy light clashes with a drifting chill-haze phantom"
+  },
+  "note": "Fits."
+ },
+ "phantomb": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Astonish"
+    },
+    {
+     "level": 15,
+     "move": "Confuse Ray"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Peck",
+   "Dual Wingbeat",
+   "Steel Wing",
+   "Pluck",
+   "Drill Peck"
+  ],
+  "why": {
+   "Peck": "hooded serpentine ghost with no wings or beak",
+   "Dual Wingbeat": "hooded serpentine ghost with no wings or beak",
+   "Steel Wing": "hooded serpentine ghost with no wings or beak",
+   "Pluck": "hooded serpentine ghost with no wings or beak",
+   "Drill Peck": "no beak",
+   "Astonish": "ghost with three glowing eyes",
+   "Confuse Ray": "mysterious hidden ghost"
+  },
+  "note": "Wing and beak moves removed from the wingless hooded ghost; ghost moves added."
+ },
+ "pipwi": {
+  "add": {
+   "level_up": [
+    {
+     "level": 3,
+     "move": "Peck"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Slam"
+  ],
+  "why": {
+   "Peck": "long thin pale yellow beak",
+   "Slam": "design says upright body without a tail"
+  },
+  "note": "Good grass bird pool."
+ },
+ "pipwi-utv": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Fits ostrich bird well."
+ },
+ "rainbro": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Ice Fang",
+   "Sky Attack"
+  ],
+  "why": {
+   "Ice Fang": "small leaf-headed rainbow creature with a smile, no fangs or flying fury",
+   "Sky Attack": "small leaf-headed rainbow creature with a smile, no fangs or flying fury"
+  },
+  "note": "Mostly fine; fang and Sky Attack flavour removed."
+ },
+ "razox": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Tackle"
+    },
+    {
+     "level": 10,
+     "move": "Stomp"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Bind",
+   "Slash",
+   "Acid Armor"
+  ],
+  "why": {
+   "Tackle": "quadruped buffalo needs a basic charge",
+   "Stomp": "four short legs, buffalo",
+   "Bind": "no tentacles or coils (Cryogonal copy)",
+   "Slash": "no claws, hoofed buffalo",
+   "Acid Armor": "crystal and fur body, not gel"
+  },
+  "note": "Cryogonal-copied moves trimmed to a buffalo."
+ },
+ "rockedeer": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Flame Charge"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Flame Charge": "'flame bursts around its hooves'"
+  },
+  "note": "Fire/Psychic deer; added hoof flame move."
+ },
+ "roku": {
+  "add": {
+   "level_up": [
+    {
+     "level": 33,
+     "move": "Psycho Cut"
+    }
+   ],
+   "tm_hm": [
+    "Gyro Ball"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Psycho Cut": "Floating sword beside it",
+   "Gyro Ball": "Floating spiked iron ball"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "sabertann": {
+  "add": {
+   "level_up": [
+    {
+     "level": 22,
+     "move": "Ice Fang"
+    },
+    {
+     "level": 1,
+     "move": "Water Gun"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Swallow",
+   "Stockpile",
+   "Gastro Acid",
+   "Wide Guard"
+  ],
+  "why": {
+   "Swallow": "pirate walrus, Guzzlord copy flavour",
+   "Stockpile": "pirate walrus, Guzzlord copy flavour",
+   "Gastro Acid": "pirate walrus, Guzzlord copy flavour",
+   "Wide Guard": "pirate walrus, Guzzlord copy flavour",
+   "Ice Fang": "long white tusks",
+   "Water Gun": "sea-roaming pirate"
+  },
+  "note": "Guzzlord-style moves removed; tusk and water moves added."
+ },
+ "sandrema": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Sand Attack"
+    },
+    {
+     "level": 24,
+     "move": "Sand Tomb"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Slash",
+   "Brick Break"
+  ],
+  "why": {
+   "Slash": "thin arms ending in rainbow clouds, no claws",
+   "Sand Attack": "tan sand creature",
+   "Sand Tomb": "sand creature",
+   "Brick Break": "arms end in swirling clouds instead of hands"
+  },
+  "note": "Clawless; Slash removed, sand moves added."
+ },
+ "santrock": {
+  "add": {
+   "level_up": [
+    {
+     "level": 6,
+     "move": "Bite"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Bite": "small pointed fangs"
+  },
+  "note": "Fits."
+ },
+ "saucerl": {
+  "add": {
+   "level_up": [
+    {
+     "level": 12,
+     "move": "Aqua Ring"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Aqua Ring": "Body shaped like a swim ring"
+  },
+  "note": "Fits; swim-ring move added."
+ },
+ "seraphinnen": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Wish"
+    }
+   ],
+   "tm_hm": [
+    "Safeguard"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Super Fang",
+   "Bite",
+   "Absorb",
+   "Peck",
+   "Drill Peck"
+  ],
+  "why": {
+   "Super Fang": "floating golden ring with eyes, no beak or fangs",
+   "Bite": "floating golden ring with eyes, no beak or fangs",
+   "Absorb": "floating golden ring with eyes, no beak or fangs",
+   "Peck": "floating golden ring with eyes, no beak or fangs",
+   "Drill Peck": "floating golden ring with eyes, no beak or fangs",
+   "Wish": "holy golden ring with halo glow",
+   "Safeguard": "holy golden halo guardian"
+  },
+  "note": "Beak/fang moves removed from the ring being; holy moves added."
+ },
+ "shadeem": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Shadow Claw"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Ice Fang",
+   "Poison Fang"
+  ],
+  "why": {
+   "Ice Fang": "creature has a toothy grin but no icy or venomous concept",
+   "Poison Fang": "creature has a toothy grin but no icy or venomous concept",
+   "Shadow Claw": "long black claw-like fingers"
+  },
+  "note": "Elemental fangs removed; claw move added."
+ },
+ "shadrove": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Shadow Claw"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Ice Fang",
+   "Poison Fang"
+  ],
+  "why": {
+   "Ice Fang": "creature has a toothy grin but no icy or venomous concept",
+   "Poison Fang": "creature has a toothy grin but no icy or venomous concept",
+   "Shadow Claw": "long black claw-like fingers"
+  },
+  "note": "Elemental fangs removed; claw move added."
+ },
+ "sigmanian-komala": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Toxic"
+   ],
+   "tutor": [
+    "Yawn"
+   ],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Toxic": "The drowsy toxin pokemon hugging a bottle",
+   "Yawn": "The drowsy toxin pokemon"
+  },
+  "note": "Normal brawler fits; drowsy toxin flavor added."
+ },
+ "sigmanian-sudowoodo": {
+  "add": {
+   "level_up": [
+    {
+     "level": 40,
+     "move": "Wood Hammer"
+    },
+    {
+     "level": 12,
+     "move": "Mimic"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "X-Scissor",
+   "Vise Grip"
+  ],
+  "why": {
+   "Wood Hammer": "tree-stump creature with branches on its head",
+   "Mimic": "stump that mimics a tree",
+   "X-Scissor": "stump with two bent arms, no pincers or blades",
+   "Vise Grip": "stump with two bent arms, no pincers or blades"
+  },
+  "note": "Stump theme now has Wood Hammer and Mimic; pincer/blade moves removed."
+ },
+ "sigmauler": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Heavy Slam"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Bite",
+   "Crunch",
+   "Poison Jab"
+  ],
+  "why": {
+   "Bite": "Golem of stone blocks, no jaws mentioned",
+   "Crunch": "Golem of stone blocks, no jaws mentioned",
+   "Heavy Slam": "Huge golem of stacked stone blocks",
+   "Poison Jab": "stone-block golem with no poison theme"
+  },
+  "note": "Golem with fists fits; biting moves dropped."
+ },
+ "sjef": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Confuse Ray"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Peck",
+   "Pluck"
+  ],
+  "why": {
+   "Peck": "ghost with a mask face, no beak",
+   "Pluck": "ghost with a mask face, no beak",
+   "Confuse Ray": "hidden, mysterious phantasmal"
+  },
+  "note": "Beak moves removed; ghost status move added."
+ },
+ "skiirtle": {
+  "add": {
+   "level_up": [
+    {
+     "level": 10,
+     "move": "Withdraw"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Hypnosis",
+   "Extrasensory"
+  ],
+  "why": {
+   "Withdraw": "turtle with shell",
+   "Hypnosis": "no sleep or psychic theme (Darumaka egg)",
+   "Extrasensory": "no psychic theme"
+  },
+  "note": "Fire turtle; psychic egg moves dropped."
+ },
+ "slamquake": {
+  "add": {
+   "level_up": [
+    {
+     "level": 6,
+     "move": "Ember"
+    },
+    {
+     "level": 22,
+     "move": "Slash"
+    }
+   ],
+   "tm_hm": [
+    "Flame Charge"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Steel Wing"
+  ],
+  "why": {
+   "Steel Wing": "Knight with no wings",
+   "Ember": "Furnace grate belly and flame-tipped tail",
+   "Flame Charge": "Furnace belly and flame-tipped tail",
+   "Slash": "Carries a big sword on its back"
+  },
+  "note": "Knight fits; fire and sword flavor added, wing move dropped."
+ },
+ "slothbaby": {
+  "add": {
+   "level_up": [
+    {
+     "level": 15,
+     "move": "Snore"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Snore": "sleepy sloth, sleepy eyes"
+  },
+  "note": "Fine; Snore added for the sleepy look."
+ },
+ "slothbaby-utviklet": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Fits the design; no change needed."
+ },
+ "smeatherace": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [
+    "Charm"
+   ],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Charm": "Smiley markings 'help it appear friendly to both people and Pokemon'"
+  },
+  "note": "Bird moves fit; added a friendly-face move for the smiley marking."
+ },
+ "snownin": {
+  "add": {
+   "level_up": [
+    {
+     "level": 8,
+     "move": "Astonish"
+    },
+    {
+     "level": 30,
+     "move": "Night Shade"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Teeter Dance"
+  ],
+  "why": {
+   "Astonish": "Ghost-like cloak with a shadowed face",
+   "Night Shade": "Ghost with dark shadowed face",
+   "Teeter Dance": "Solitary ghost; dance move copied from a penguin"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "stonma": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Heavy Slam"
+   ],
+   "tutor": [
+    "Headbutt"
+   ],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Heavy Slam": "Can support immense weight on its head",
+   "Headbutt": "It is only a stone head"
+  },
+  "note": "Stone head kit fits; head and weight moves added."
+ },
+ "subwaysurfer": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Fits the design; no change needed."
+ },
+ "surfer": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Fits the design; no change needed."
+ },
+ "tinky": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Smog"
+  ],
+  "why": {
+   "Smog": "Dex entry/look has no smoke on this small wood-stump stage (smoke appears on its evolution)"
+  },
+  "note": "Grass tiki moves fit; smoke move removed from the stump stage."
+ },
+ "tomaterdander": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Fits existing signature moves."
+ },
+ "torchbat": {
+  "add": {
+   "level_up": [
+    {
+     "level": 18,
+     "move": "Wing Attack"
+    }
+   ],
+   "tm_hm": [
+    "Fly"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Dragon Breath"
+  ],
+  "why": {
+   "Dragon Breath": "Look describes a pig-snouted flame bat, not a dragon",
+   "Wing Attack": "Body has wings and it flies, flapping its wings",
+   "Fly": "It flies, flapping its wings"
+  },
+  "note": "Fire kit fits; wing moves added for the flying body."
+ },
+ "tortoplasm": {
+  "add": {
+   "level_up": [
+    {
+     "level": 22,
+     "move": "Hex"
+    },
+    {
+     "level": 28,
+     "move": "Night Shade"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Hex": "'translucent light blue ghostly head, neck and flipper legs'",
+   "Night Shade": "Ghostly translucent body parts"
+  },
+  "note": "Rock/Ghost turtle; added ghost moves for the translucent ghostly head."
+ },
+ "tortoplasm-utviklet": {
+  "add": {
+   "level_up": [
+    {
+     "level": 28,
+     "move": "Night Shade"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Night Shade": "Line consistency with Tortoplasm"
+  },
+  "note": "Evolved rock/ghost turtle already has Hex; added Night Shade for line consistency."
+ },
+ "toxiren": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Acid"
+    },
+    {
+     "level": 1,
+     "move": "Wrap"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Acid": "poisonous chemicals that corrode",
+   "Wrap": "long tentacle-like arms"
+  },
+  "note": "Line consistent with Nukfae."
+ },
+ "twemp": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Scary Face"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Scary Face": "Skull-shaped head with fangs and big black eyes"
+  },
+  "note": "No change; moves fit the design acceptably."
+ },
+ "ultragon": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Silver Wind"
+   ],
+   "tutor": [
+    "Air Slash"
+   ],
+   "egg": []
+  },
+  "drop": [
+   "Fire Punch",
+   "Thunder Punch"
+  ],
+  "why": {
+   "Silver Wind": "thin translucent gold insect wings",
+   "Air Slash": "two pairs of insect wings",
+   "Fire Punch": "no arms in the look",
+   "Thunder Punch": "no arms in the look"
+  },
+  "note": "Winged dragon; punches dropped."
+ },
+ "united": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Tail Whip",
+   "Bite",
+   "Scratch"
+  ],
+  "why": {
+   "Tail Whip": "Four floating shapes joined by wires, no tail",
+   "Bite": "Four glossy shapes with one eye each joined by wires; no mouth or teeth",
+   "Scratch": "Floating geometric shapes with no claws or limbs"
+  },
+  "note": "Fits."
+ },
+ "verrith": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Will-O-Wisp",
+    "Cut"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Wrap",
+   "Whirlpool"
+  ],
+  "why": {
+   "Will-O-Wisp": "holds teal ghostly flames",
+   "Cut": "one arm is a huge pointed blade",
+   "Wrap": "no chain or tentacles (Dhelmise copy)",
+   "Whirlpool": "no water theme"
+  },
+  "note": "Dhelmise water and chain moves removed."
+ },
+ "vires": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [
+    "Toxic"
+   ],
+   "tutor": [
+    "Power Gem"
+   ],
+   "egg": []
+  },
+  "drop": [
+   "String Shot",
+   "Cotton Spore"
+  ],
+  "why": {
+   "String Shot": "Pink virus on crystal legs, no silk",
+   "Cotton Spore": "Crystal body, no cotton or spores",
+   "Toxic": "'based on viruses'",
+   "Power Gem": "'transparent pink crystals'"
+  },
+  "note": "Virus-like crystal fairy; removed string and cotton moves, added virus/crystal moves."
+ },
+ "viridub": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Lion cub grass moves fit; no clear gaps."
+ },
+ "viridub-utvikling": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Evolved form has no design text; moves left as proposed."
+ },
+ "waffy": {
+  "add": {
+   "level_up": [
+    {
+     "level": 4,
+     "move": "Peck"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Razor Shell",
+   "Crabhammer"
+  ],
+  "why": {
+   "Peck": "big yellow duck bill",
+   "Razor Shell": "no shell or scalchop in the look",
+   "Crabhammer": "no crab claw; webbed claws"
+  },
+  "note": "Duck-billed clawed platypus; shell and crab moves removed."
+ },
+ "warrallier": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Peck"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Razor Shell"
+  ],
+  "why": {
+   "Peck": "wide grey duck bill",
+   "Razor Shell": "no shell in the look"
+  },
+  "note": "Fits mostly."
+ },
+ "wealther": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Peck"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Razor Shell"
+  ],
+  "why": {
+   "Peck": "yellow-orange duck bill",
+   "Razor Shell": "no shell in the look"
+  },
+  "note": "Fits mostly."
+ },
+ "whaldrill": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "No change; moves fit the design acceptably."
+ },
+ "whaldrill0": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "No change; moves fit the design acceptably."
+ },
+ "whaldrill3": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "No change; moves fit the design acceptably."
+ },
+ "wispole": {
+  "add": {
+   "level_up": [],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {},
+  "note": "Tadpole speed/water kit fits."
+ },
+ "wreckingdrake": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Bite"
+    },
+    {
+     "level": 36,
+     "move": "Crunch"
+    }
+   ],
+   "tm_hm": [
+    "Flash"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Scratch",
+   "Slash",
+   "Low Kick",
+   "Superpower",
+   "Dragon Claw",
+   "Brick Break"
+  ],
+  "why": {
+   "Bite": "mouth of sharp white teeth",
+   "Crunch": "shark teeth",
+   "Flash": "glowing yellow lure and blue rings",
+   "Scratch": "finned shark, no hands",
+   "Slash": "no claws",
+   "Low Kick": "no legs",
+   "Superpower": "no arms",
+   "Dragon Claw": "no claws",
+   "Brick Break": "no hands"
+  },
+  "note": "Shark-beast limb moves removed."
+ },
+ "wump": {
+  "add": {
+   "level_up": [
+    {
+     "level": 12,
+     "move": "Scary Face"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Solar Beam"
+  ],
+  "why": {
+   "Scary Face": "Skull-shaped head with fangs and big black eyes",
+   "Solar Beam": "Bug-only skull-headed rope spider; no plant or sunlight concept in design"
+  },
+  "note": "Spider and web moves fit; skull face adds Scary Face."
+ },
+ "yanklet": {
+  "add": {
+   "level_up": [
+    {
+     "level": 20,
+     "move": "Iron Defense"
+    }
+   ],
+   "tm_hm": [
+    "Gyro Ball"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Fury Swipes",
+   "Metal Claw",
+   "Force Palm",
+   "Low Kick",
+   "Low Sweep",
+   "Mach Punch",
+   "Fire Punch",
+   "Ice Punch",
+   "Thunder Punch",
+   "Power-Up Punch",
+   "Focus Punch",
+   "Drain Punch",
+   "Outrage",
+   "Meteor Mash"
+  ],
+  "why": {
+   "Fury Swipes": "Three floating metal towers, no limbs to swipe",
+   "Metal Claw": "No claws; slab towers",
+   "Force Palm": "No hands",
+   "Low Kick": "No legs; floating slabs",
+   "Low Sweep": "No legs",
+   "Mach Punch": "No arms",
+   "Fire Punch": "No arms",
+   "Ice Punch": "No arms",
+   "Thunder Punch": "No arms",
+   "Power-Up Punch": "No arms",
+   "Focus Punch": "No arms",
+   "Drain Punch": "No arms",
+   "Outrage": "Dragon rampage clashes with a floating metal tower group",
+   "Gyro Ball": "Heavy slab towers of metal",
+   "Iron Defense": "Grey metal slab towers",
+   "Meteor Mash": "a punch, and it is three limbless metal towers"
+  },
+  "note": "Limb moves removed for a limbless tower group."
+ },
+ "zapana": {
+  "add": {
+   "level_up": [
+    {
+     "level": 8,
+     "move": "Wrap"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Wrap": "eel-like long curved body"
+  },
+  "note": "Eel pool is fine."
+ },
+ "zapitera": {
+  "add": {
+   "level_up": [
+    {
+     "level": 1,
+     "move": "Peck"
+    },
+    {
+     "level": 30,
+     "move": "Wing Attack"
+    }
+   ],
+   "tm_hm": [
+    "Steel Wing",
+    "Fly"
+   ],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [
+   "Rollout"
+  ],
+  "why": {
+   "Rollout": "Robot bird, not a rolling shape",
+   "Peck": "Red-orange beak",
+   "Wing Attack": "Two big wings, flies",
+   "Steel Wing": "Robot wings with round joints",
+   "Fly": "It flies, flapping its wings"
+  },
+  "note": "Robot bird fits; wing and beak moves added."
+ },
+ "zyzzfu": {
+  "add": {
+   "level_up": [
+    {
+     "level": 6,
+     "move": "Peck"
+    }
+   ],
+   "tm_hm": [],
+   "tutor": [],
+   "egg": []
+  },
+  "drop": [],
+  "why": {
+   "Peck": "Orange duck bill"
+  },
+  "note": "No change; moves fit the design acceptably."
+ }
+}

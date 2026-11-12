@@ -64,9 +64,30 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Milk Drink}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+    - {level: 1, move: Defense Curl}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Tail Whip}
+    - {level: 2, move: Growl}
+    - {level: 5, move: Rollout}
+    - {level: 5, move: Water Gun}
+    - {level: 15, move: Water Pulse}
+    - {level: 17, move: Yawn}
+    - {level: 20, move: Bubble Beam}
+    - {level: 25, move: Charm}
+    - {level: 27, move: Hyper Voice}
+    - {level: 39, move: Hydro Pump}
+    - {level: 39, move: Rain Dance}
+    - {level: 45, move: Double-Edge}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Protect,
+          Rain Dance, Frustration, Iron Tail, Return, Double Team, Facade, Rest, Attract,
+          Thief, Brine, Endure, Sleep Talk, Swagger, Substitute, Scald, Surf, Strength,
+          Whirlpool, Waterfall]
+  # moves a move tutor can teach it
+  tutor: [Aqua Tail, Body Slam, Hyper Voice, Icy Wind, Weather Ball]
+  # only needed for the first stage of an evolution line
+  egg: [Spit Up, Snore, Last Resort, Flail, Curse, Body Slam, Thrash, Aqua Tail, Covet,
+        Aqua Jet]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -78,7 +99,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small cow-like creature with white fur and black spots, a large pink snout, and big floppy pink-lined ears with black tips. It has short legs with black hooves and a thin tail ending in a black tuft."

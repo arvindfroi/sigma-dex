@@ -49,12 +49,6 @@ evolutions:
   - into: smeatherace
     method: other
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
@@ -67,9 +61,34 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Peck}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Tail Whip}
+    - {level: 5, move: Quick Attack}
+    - {level: 6, move: Echoed Voice}
+    - {level: 13, move: Wing Attack}
+    - {level: 16, move: Pluck}
+    - {level: 21, move: Roost}
+    - {level: 22, move: Slash}
+    - {level: 24, move: Fury Attack}
+    - {level: 28, move: Aerial Ace}
+    - {level: 32, move: Agility}
+    - {level: 32, move: Drill Peck}
+    - {level: 32, move: Acrobatics}
+    - {level: 37, move: Take Down}
+    - {level: 40, move: Feather Dance}
+    - {level: 50, move: Bounce}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return, Double Team,
+          Aerial Ace, Facade, Rest, Attract, Thief, Steel Wing, Roost, Endure, Sleep Talk,
+          Swagger, Pluck, U-turn, Substitute, Dual Wingbeat, Fly]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Brave Bird, Endeavor, Heat Wave, Hyper Voice, Sky Attack, Hurricane,
+          Charm]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -82,7 +101,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a body with one pair of wings
   movement: It walks on two legs with its wings folded.
   look: "It is a small, round, white fluffy bird with a long feathered tail, dark thin legs with sharp claws, and a black lightning-bolt mark on its wing. Its face is a bright yellow sunflower head with a ring of petals, a smile and a black band across it where the eyes would be."
@@ -94,7 +114,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:17"
+  footprint: "hgss:17"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

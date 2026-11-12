@@ -64,9 +64,28 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Poison Hug}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+    - {level: 1, move: Growl}
+    - {level: 1, move: Pound}
+    - {level: 1, move: Smog}
+    - {level: 1, move: Tackle}
+    - {level: 3, move: Sweet Kiss}
+    - {level: 7, move: Acid}
+    - {level: 8, move: Clear Smog}
+    - {level: 8, move: Wrap}
+    - {level: 10, move: Sweet Scent}
+    - {level: 12, move: Draining Kiss}
+    - {level: 30, move: Charm}
+    - {level: 32, move: Sludge Wave}
+    - {level: 37, move: Play Rough}
+    - {level: 41, move: Toxic}
+    - {level: 44, move: Moonblast}
+    - {level: 45, move: Misty Terrain}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Safeguard, Return,
+          Double Team, Sludge Bomb, Facade, Rest, Attract, Thief, Endure, Sleep Talk,
+          Poison Jab, Swagger, Substitute, Venoshock, Draining Kiss, Play Rough]
+  tutor: [Dazzling Gleam] # moves a move tutor can teach it
+  egg: [Curse, Haze, Gunk Shot] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -78,7 +97,9 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-09-13): also on the card: Regenerator is hidden ability."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a head and a base # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It slithers along the ground.
   look: "It is a smiling slime creature made of glossy lime-green sludge with rainbow oily swirls. It has a rounded face under a drooping hood-like head with two long floppy ear shapes, thin arms ending in curved tentacles with purple sucker spots, and a wide melting puddle-like base."
@@ -90,7 +111,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:422"
+  footprint: "hgss:422"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

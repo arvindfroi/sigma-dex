@@ -49,19 +49,44 @@ evolutions:
   - into: harpie
     method: other
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Peck}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Tail Whip}
+    - {level: 6, move: Echoed Voice}
+    - {level: 10, move: Quick Attack}
+    - {level: 13, move: Wing Attack}
+    - {level: 17, move: Slash}
+    - {level: 24, move: Take Down}
+    - {level: 24, move: Acrobatics}
+    - {level: 27, move: Body Slam}
+    - {level: 28, move: Aerial Ace}
+    - {level: 29, move: Agility}
+    - {level: 30, move: Roost}
+    - {level: 33, move: Drill Peck}
+    - {level: 43, move: Brave Bird}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Return, Double Team,
+          Aerial Ace, Facade, Rest, Attract, Thief, Steel Wing, Roost, Endure, Sleep Talk,
+          Swagger, Pluck, U-turn, Substitute, Dual Wingbeat, Fly]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Brave Bird, Heat Wave, Hurricane, Hyper Voice, Sky Attack, Charm]
+  # only needed for the first stage of an evolution line
+  egg: [Uproar, Flail, Double-Edge, Covet, Hurricane, Last Resort]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -73,8 +98,10 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-02): also on the card: Gender ratio -; flavor 'Erobi flutters around fields and towns, spreading a sense of warmth wherever it goes.'."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
-  body_shape: "a body with one pair of wings"
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
+  body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a small, round, white bird with a bright yellow fluffy face marked with a black smiley face of two dot eyes and a curved smile. It has white wings with a small black lightning mark, a short white tail and thin black legs with claws."
 
@@ -85,7 +112,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:16"
+  footprint: "hgss:16"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

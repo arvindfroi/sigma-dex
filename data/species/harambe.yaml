@@ -64,9 +64,44 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Defense Curl}
+    - {level: 1, move: Disarming Voice}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Misty Terrain}
+    - {level: 1, move: Moonblast}
+    - {level: 1, move: Shadow Ball}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Covet}
+    - {level: 1, move: Focus Energy}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Low Kick}
+    - {level: 1, move: Scratch}
+    - {level: 12, move: Fairy Wind}
+    - {level: 15, move: Draining Kiss}
+    - {level: 16, move: Charm}
+    - {level: 20, move: Moonlight}
+    - {level: 20, move: Sing}
+    - {level: 21, move: Sweet Kiss}
+    - {level: 23, move: Life Dew}
+    - {level: 32, move: Shadow Sneak}
+    - {level: 34, move: Sweet Scent}
+    - {level: 42, move: Play Rough}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
+          Safeguard, Solar Beam, Return, Psychic, Shadow Ball, Double Team, Reflect, Facade,
+          Rest, Attract, Fling, Endure, Giga Impact, Sleep Talk, Grass Knot, Swagger,
+          Substitute, Draining Kiss, Play Rough, Focus Punch, Bulk Up, Taunt, Frustration,
+          Iron Tail, Thunderbolt, Thunder, Earthquake, Dig, Brick Break, Rock Tomb,
+          Aerial Ace, Thief, Overheat, Focus Blast, Drain Punch, Payback, Stone Edge,
+          Rock Slide, Poison Jab, U-turn, Low Sweep, Bulldoze, Strength, Rock Smash,
+          Rock Climb]
+  # moves a move tutor can teach it
+  tutor: [Charm, Dazzling Gleam, Flail, Moonblast, Close Combat, Counter, Endeavor,
+          Fire Punch, Hyper Voice, Ice Punch, Mach Punch, Night Slash, Power-Up Punch,
+          Seed Bomb, Thunder Punch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +114,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves]
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...

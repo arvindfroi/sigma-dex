@@ -61,10 +61,30 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Growl}
+    - {level: 4, move: Leer}
+    - {level: 11, move: Quick Attack}
+    - {level: 15, move: Confuse Ray}
+    - {level: 24, move: Acrobatics}
+    - {level: 30, move: Gust}
+    - {level: 35, move: Air Cutter}
+    - {level: 43, move: Hex}
+    - {level: 49, move: Shadow Ball}
+    - {level: 59, move: Wing Attack}
+    - {level: 67, move: Air Slash}
+    - {level: 69, move: Agility}
+    - {level: 74, move: Roost}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Protect, Rain Dance, Return, Psychic, Shadow Ball,
+          Double Team, Aerial Ace, Facade, Rest, Attract, Thief, Roost, Endure, Sleep Talk,
+          Swagger, U-turn, Substitute, Fly]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Brave Bird, Poltergeist, Sky Attack]
+  # only needed for the first stage of an evolution line
+  egg: [Sky Attack, Brave Bird, Shadow Sneak, Feather Dance, Disable, Hurricane]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -76,7 +96,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a serpentine body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a ghost with a white hood with black and white stripes and a long wavy striped tail that tapers to a point. Under the hood is an orange oval face with three black eyes with small red glowing pupils, a red triangle mark and a wide jagged mouth."

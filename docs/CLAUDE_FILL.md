@@ -35,6 +35,9 @@ Open Claude Code in this repository and say:
    - **Level-up moves**: 12-20 moves, levels like the official games (1, 4, 7, 10 ... ~50), a
      same-type move early, the signature move of the line late. Only moves that exist in the game
      unless the designer asked for a new one (then describe it under New moves on the website).
+   - **Movesets for whole lines**: run `scripts/moveset_fill.py propose` first (see [MOVESETS.md](MOVESETS.md));
+     it proposes level-up, TM/HM, tutor and egg moves from similar official Pokemon, and `apply` adds them
+     after the group approved.
    - **TM/HM**: only from the game's TM/HM list, what the body and type make sensible.
    - About the lists (checked 2026-10-08): `data/engine/expansion.yaml` comes from the earlier
      GBA target, but its moves and abilities are also in hg-engine, the base of Origin HeartGold

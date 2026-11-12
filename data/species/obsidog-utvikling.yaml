@@ -70,9 +70,35 @@ learnset:
     - {level: 0, move: Poison Fang}
     - {level: 0, move: Poison Sting}
     - {level: 0, move: Rock Tomb}
+    - {level: 1, move: Harden}
+    - {level: 1, move: Ice Fang}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Tackle}
+    - {level: 7, move: Snarl}
+    - {level: 9, move: Rock Throw}
+    - {level: 10, move: Hone Claws}
+    - {level: 12, move: Smack Down}
+    - {level: 14, move: Horn Attack}
+    - {level: 15, move: Protect}
+    - {level: 16, move: Ancient Power}
+    - {level: 16, move: Scary Face}
+    - {level: 18, move: Roar}
+    - {level: 21, move: Headbutt}
+    - {level: 24, move: Rock Slide}
+    - {level: 24, move: Slash}
+    - {level: 26, move: Payback}
+    - {level: 27, move: Iron Defense}
     - {level: 30, move: Rock Wrecker}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 33, move: Crunch}
+    - {level: 48, move: Stone Edge}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance, Earthquake,
+          Return, Dig, Brick Break, Double Team, Sandstorm, Rock Tomb, Facade, Rest,
+          Attract, Thief, Fling, Endure, Payback, Giga Impact, Rock Polish, Stone Edge,
+          Stealth Rock, Dark Pulse, Rock Slide, Sleep Talk, Swagger, Substitute, Foul Play,
+          Bulldoze, Meteor Beam, Roar, Poison Jab, Toxic, Rock Smash]
+  # moves a move tutor can teach it
+  tutor: [Ancient Power, Body Slam, Earth Power, Snarl]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -85,7 +111,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: true      # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves]
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its legs.
   look: "Like a monstrous gargoyle with massive spiderlegs aiding its movement. It dark obsidian and rock body can take a beating, and its thick arms can snap and crush any opponent. Small hind legs."

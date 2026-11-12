@@ -53,12 +53,45 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Hone Claws}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Peck}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Wing Attack}
+    - {level: 5, move: Bite}
+    - {level: 15, move: Focus Energy}
+    - {level: 16, move: Assurance}
+    - {level: 16, move: Scary Face}
+    - {level: 20, move: Pluck}
+    - {level: 20, move: Taunt}
+    - {level: 24, move: Night Slash}
+    - {level: 24, move: Sucker Punch}
+    - {level: 24, move: Torment}
+    - {level: 27, move: Payback}
+    - {level: 31, move: Knock Off}
+    - {level: 35, move: Crunch}
+    - {level: 44, move: Swords Dance}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance, Return,
+          Double Team, Rock Tomb, Aerial Ace, Facade, Rest, Attract, Thief, Fling, Endure,
+          Payback, Giga Impact, Dark Pulse, Sleep Talk, Swagger, Pluck, U-turn, Substitute,
+          Foul Play, Dual Wingbeat, Fly, Brutal Swing, Psychic Fangs]
+  tutor: [Sky Attack, Snarl, Hurricane] # moves a move tutor can teach it
+  # only needed for the first stage of an evolution line
+  egg: [Sky Attack, Power Trip, Feint, Air Cutter, Roost]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -70,7 +103,9 @@ design:
   notes: "From the Discord concept card (Arvind Frøiland, 2026-05-02): also on the card: Notable moves: Crunch, Brutal Swing, Hurricane, Knock Off. Extra note: Its beak is so heavy that it must spread its wings wide to take off. It rarely flaps unless it needs to strike.."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a body with one pair of wings
   movement: It walks on two legs with its wings folded.
   look: "It is a large bird with slate-blue and grey feathers, a spiky crest and yellow eyes. It has an enormous cream-coloured hooked beak with a dark tip and a purple mouth, long dark clawed legs, and big wings with purple diamond markings."
@@ -82,7 +117,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:430"
+  footprint: "hgss:430"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

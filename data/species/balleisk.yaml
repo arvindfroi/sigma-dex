@@ -50,12 +50,40 @@ evolutions:
     method: level
     level: 30
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Leer}
+    - {level: 1, move: Tackle}
+    - {level: 10, move: Breaking Swipe}
+    - {level: 11, move: Bite}
+    - {level: 15, move: Bug Bite}
+    - {level: 15, move: Dragon Tail}
+    - {level: 18, move: Focus Energy}
+    - {level: 20, move: Scary Face}
+    - {level: 25, move: Slam}
+    - {level: 27, move: Crunch}
+    - {level: 35, move: Dragon Claw}
+    - {level: 50, move: Dragon Dance}
+    - {level: 55, move: Outrage}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Dragon Claw, Hidden Power, Sunny Day, Protect, Rain Dance, Iron Tail, Return, Dig,
+          Double Team, Rock Tomb, Facade, Rest, Attract, Endure, Dragon Pulse, X-Scissor,
+          Sleep Talk, Swagger, Substitute]
+  # moves a move tutor can teach it
+  tutor: [Bug Bite, Draco Meteor, Outrage]
+  # only needed for the first stage of an evolution line
+  egg: [Dragon Rush, Dragon Breath, Twister, Counter, Lunge, First Impression, Fury Cutter]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -67,7 +95,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a small, bright red dinosaur-like creature standing upright, with a big toothy open mouth, a hooked snout, small arms and a curved tail. A thin antenna with a small round tip sticks out from its head and a black zigzag mark runs down its chest. A thin cord runs from its tail to a red and white ball."
@@ -79,7 +109,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:371"
+  footprint: "hgss:371"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

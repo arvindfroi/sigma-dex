@@ -53,11 +53,41 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Ancient Power}
+    - {level: 1, move: Gust}
+    - {level: 1, move: Scary Face}
+    - {level: 1, move: Weather Ball}
+    - {level: 1, move: Whirlwind}
+    - {level: 18, move: Safeguard}
+    - {level: 22, move: Wing Attack}
+    - {level: 35, move: Drill Peck}
+    - {level: 35, move: Double Hit}
+    - {level: 36, move: Extrasensory}
+    - {level: 40, move: Crunch}
+    - {level: 45, move: Recover}
+    - {level: 54, move: Sky Attack}
+    - {level: 66, move: Hammer Arm}
+    - {level: 70, move: Hurricane}
+    - {level: 72, move: Brave Bird}
+    - {level: 85, move: Hyper Beam}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Return, Double Team,
+          Sludge Bomb, Aerial Ace, Facade, Rest, Steel Wing, Roost, Endure, Giga Impact,
+          Sleep Talk, Poison Jab, Swagger, Substitute, Venoshock, Dual Wingbeat, Fly, Surf]
+  tutor: [Sky Attack, Night Slash] # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -70,7 +100,8 @@ design:
   notes: "From the Google Doc: Maagamad/gullmire (Flying, Poison)\nFrom the Discord concept card (Arvind Frøiland, 2026-09-30): card name: Gullmire; also on the card: Weather Switch switches rain to drought and drought to rain, random Drizzle or Drought otherwise; Technician is the hidden ability; signature move Oily Arsenal (Drought Physical, Poison, BP 60x2; Rain Special, Poison, BP 40x3)."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks on two legs with its wings folded.
   look: "It is a big, plump seagull-like bird with a white body and head, an orange beak and orange webbed feet. It has dark wings with a green and purple oily sheen, a grey sash across its chest holding three sheathed green-crossguard swords on its back, and a small anchor mark on one wing."
@@ -82,7 +113,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:279"
+  footprint: "hgss:279"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

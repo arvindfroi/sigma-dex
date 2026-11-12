@@ -64,9 +64,48 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Harden}
+    - {level: 1, move: Metal Claw}
+    - {level: 1, move: Protect}
+    - {level: 1, move: Sand Attack}
+    - {level: 1, move: Sand Tomb}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Absorb}
+    - {level: 3, move: Water Gun}
+    - {level: 4, move: Withdraw}
+    - {level: 6, move: Razor Leaf}
+    - {level: 12, move: Bite}
+    - {level: 12, move: Mega Drain}
+    - {level: 12, move: Mud Shot}
+    - {level: 15, move: Take Down}
+    - {level: 19, move: Mud-Slap}
+    - {level: 20, move: Rollout}
+    - {level: 22, move: Bulldoze}
+    - {level: 22, move: Flash Cannon}
+    - {level: 24, move: Synthesis}
+    - {level: 28, move: Earth Power}
+    - {level: 28, move: Iron Defense}
+    - {level: 28, move: Horn Leech}
+    - {level: 30, move: Razor Shell}
+    - {level: 32, move: Heavy Slam}
+    - {level: 35, move: Metal Sound}
+    - {level: 35, move: Sandstorm}
+    - {level: 36, move: Iron Tail}
+    - {level: 42, move: Dig}
+    - {level: 50, move: Skull Bash}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Iron Tail, Earthquake,
+          Return, Dig, Double Team, Sandstorm, Rock Tomb, Facade, Rest, Attract, Endure,
+          Giga Impact, Stone Edge, Gyro Ball, Stealth Rock, Rock Slide, Sleep Talk, Swagger,
+          Substitute, Flash Cannon, Heavy Slam, Bulldoze, High Horsepower, Body Press,
+          Strength, Rock Smash, Water Pulse, Hail, Bullet Seed, Ice Beam, Blizzard,
+          Giga Drain, Solar Beam, Energy Ball, Brine, Grass Knot, Scald, Surf, Whirlpool,
+          Waterfall]
+  # moves a move tutor can teach it
+  tutor: [Earth Power, Iron Head, Aqua Tail, Icy Wind, Leaf Storm, Magical Leaf, Mega Drain,
+          Seed Bomb, Synthesis, Yawn]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +118,8 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-02): card name: Panzerion; also on the card: Length 3.2 m; Broken Swivel: can only attack the Pokemon directly in front of it.."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: several bodies joined together
   movement: It crawls along the ground on its legs.
   look: "It is an old tank covered in moss and swamp grass, with brown rusty armour, six wheels on caterpillar tracks (two of them pale wooden log slices) and a long cannon barrel with a square end on its turret. Two small round creatures with sleepy eyes peek out from under grassy lids on the turret and the hull."

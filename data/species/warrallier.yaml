@@ -67,12 +67,44 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 0, move: Hidden Spur}
+    - {level: 0, move: Slash}
     - {level: 1, move: Flip Turn}
+    - {level: 1, move: Megahorn}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Tail Whip}
+    - {level: 1, move: Water Gun}
+    - {level: 1, move: Water Sport}
+    - {level: 1, move: Feint Attack}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Pound}
+    - {level: 1, move: Scratch}
+    - {level: 4, move: Peck}
+    - {level: 10, move: Bite}
+    - {level: 12, move: Protect}
+    - {level: 13, move: Focus Energy}
+    - {level: 14, move: Scary Face}
+    - {level: 21, move: Fury Cutter}
+    - {level: 25, move: Aqua Cutter}
+    - {level: 29, move: Revenge}
+    - {level: 34, move: Aqua Jet}
+    - {level: 36, move: Knock Off}
+    - {level: 39, move: Encore}
+    - {level: 40, move: Crunch}
+    - {level: 42, move: Sucker Punch}
+    - {level: 46, move: Aqua Tail}
+    - {level: 51, move: Retaliate}
+    - {level: 58, move: Swords Dance}
+    - {level: 63, move: Crabhammer}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Water Pulse, Toxic, Bulk Up, Hidden Power, Taunt, Ice Beam, Protect,
           Rain Dance, Frustration, Iron Tail, Brick Break, Double Team, Torment, Facade,
-          Thief, Snatch, Cut, Surf, Strength, Rock Smash, Waterfall, Dive]
-  tutor: []              # moves a move tutor can teach it
+          Thief, Snatch, Cut, Surf, Strength, Rock Smash, Waterfall, Dive, Hail, Blizzard,
+          Hyper Beam, Return, Aerial Ace, Rest, Attract, Brine, Fling, Endure, Payback,
+          Giga Impact, Swords Dance, Dark Pulse, Sleep Talk, Swagger, Substitute, Foul Play,
+          Scald, Liquidation, Whirlpool, Dig, Rock Tomb, Grass Knot, Low Sweep]
+  # moves a move tutor can teach it
+  tutor: [Aqua Jet, Aqua Tail, Body Slam, Icy Wind, Snarl]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -85,7 +117,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a platypus-like creature with deep blue fur, a black chest stripe and a wide grey duck bill. It has black spiky crest feathers, a yellow eye, black clenched fists, black clawed feet with purple spurs on the heels and a flat black cross-hatched beaver tail."
@@ -97,7 +130,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:260"
+  footprint: "hgss:260"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

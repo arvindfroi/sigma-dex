@@ -64,10 +64,36 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Freeze-Dry}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Powder Snow}
+    - {level: 1, move: Tackle}
+    - {level: 15, move: Ice Shard}
+    - {level: 18, move: Icy Wind}
+    - {level: 20, move: Protect}
+    - {level: 22, move: Avalanche}
+    - {level: 24, move: Ice Fang}
+    - {level: 25, move: Icicle Crash}
+    - {level: 28, move: Bite}
+    - {level: 28, move: Crush Claw}
+    - {level: 32, move: Slash}
+    - {level: 36, move: Take Down}
+    - {level: 42, move: Iron Defense}
+    - {level: 47, move: Hail}
+    - {level: 50, move: Ice Hammer}
+    - {level: 54, move: Headbutt}
+    - {level: 56, move: Crunch}
+    - {level: 58, move: Blizzard}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam, Protect, Rain Dance,
+          Earthquake, Return, Double Team, Rock Tomb, Facade, Rest, Attract, Endure,
+          Giga Impact, Avalanche, Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze,
+          Heavy Slam]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Ice Fang, Ice Punch, Ice Shard, Icicle Spear, Icy Wind, Iron Head]
+  egg: [Double-Edge]     # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -79,7 +105,9 @@ design:
   notes: "From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01)."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a pale blue-white ice creature with a spiky crown-shaped head, a diamond gem on its forehead and a wide mouth full of sharp teeth. It has a big rectangular block torso with blue diamond crystals, two long arms with dark-blue bands ending in crab-like ice claws, large ice spikes on its shoulders, thick legs with dark-blue knees and sharp claws, and a thin blue tail with an arrow tip."
@@ -91,7 +119,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:460"
+  footprint: "hgss:460"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

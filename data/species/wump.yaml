@@ -49,19 +49,42 @@ evolutions:
   - into: twemp
     method: other
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Pin Missile}
+    - {level: 1, move: String Shot}
+    - {level: 5, move: Absorb}
+    - {level: 10, move: Bug Bite}
+    - {level: 12, move: Scary Face}
+    - {level: 22, move: Fury Swipes}
+    - {level: 26, move: Sucker Punch}
+    - {level: 29, move: Leech Life}
+    - {level: 30, move: Screech}
+    - {level: 33, move: Agility}
+    - {level: 40, move: Psychic}
+    - {level: 43, move: X-Scissor}
+    - {level: 44, move: First Impression}
+    - {level: 47, move: U-turn}
+    - {level: 50, move: Sticky Web}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Protect, Giga Drain, Return, Dig, Double Team, Facade,
+          Rest, Attract, Thief, Endure, X-Scissor, Sleep Talk, Poison Jab, Swagger,
+          Substitute, Struggle Bug]
+  tutor: [Bug Bite]      # moves a move tutor can teach it
+  # only needed for the first stage of an evolution line
+  egg: [Lunge, Night Slash, Megahorn, Counter]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -73,7 +96,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its many legs.
   look: "It is a spider-like creature with a small cream-white skull-shaped head with big black eyes and tiny fangs, in the middle of a white rope-like spider web body. Eight long glossy green legs with black inner edges hold the web up."
@@ -85,7 +110,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:167"
+  footprint: "hgss:167"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

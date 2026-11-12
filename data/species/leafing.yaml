@@ -54,15 +54,27 @@ evolutions:
     method: level
     level: 16
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Tackle}
     - {level: 1, move: Leer}
+    - {level: 1, move: Growl}
     - {level: 6, move: Leafage}
+    - {level: 9, move: Growth}
     - {level: 10, move: Fury Cutter}
     - {level: 14, move: Razor Leaf}
+    - {level: 15, move: Curse}
     - {level: 20, move: Metal Claw}
     - {level: 25, move: Mega Drain}
     - {level: 30, move: Slash}
@@ -72,12 +84,16 @@ learnset:
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Dragon Claw, Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect,
           Giga Drain, Frustration, Solar Beam, Iron Tail, Return, Double Team, Aerial Ace,
-          Facade, Secret Power, Rest, Attract, Cut, Strength, Flash, Rock Smash]
+          Facade, Secret Power, Rest, Attract, Cut, Strength, Flash, Rock Smash,
+          Light Screen, Safeguard, Reflect, Energy Ball, Endure, Swords Dance, Sleep Talk,
+          Grass Knot, Swagger, Substitute]
   # moves a move tutor can teach it
   tutor: [Swords Dance, Body Slam, Double-Edge, Mimic, Substitute, Snore, Endure, Mud-Slap,
-          Swagger, Sleep Talk, Fury Cutter]
+          Swagger, Sleep Talk, Fury Cutter, Curse, Leaf Storm, Leech Seed, Magical Leaf,
+          Mega Drain, Seed Bomb, Synthesis, Night Slash]
   # only needed for the first stage of an evolution line
-  egg: [Leech Seed, Synthesis, Grass Whistle, Metal Sound]
+  egg: [Leech Seed, Synthesis, Grass Whistle, Metal Sound, Worry Seed, Grassy Terrain,
+        Seed Bomb, Tickle, Amnesia, Magical Leaf, Leaf Storm, Body Slam, Double-Edge]
 
 # --- Where it is found ---
 # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -91,7 +107,9 @@ design:
   notes: "PROOF OF CONCEPT - every value in this file except name, type and evolution is a draft proposed by Claude on 2026-10-02. The Council should review and replace them."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small green long-necked creature with a rounded body covered in overlapping green leaves, four short legs with white claws, and a curved tail ending in a grey blade. It has a smiling face with big brown eyes and a single leaf standing up on its head."
@@ -103,7 +121,7 @@ assets:
   front_anim: "assets/sprites/leafing/anim_front.png"
   back_sprite: "assets/sprites/leafing/back.png"
   icon: "assets/sprites/leafing/icon.png"
-  footprint: "hgss:1"
+  footprint: "hgss:1"    # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

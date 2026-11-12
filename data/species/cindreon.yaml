@@ -68,9 +68,32 @@ learnset:
   level_up:
     - {level: 0, move: Flamethrower}
     - {level: 0, move: Rock Slide}
+    - {level: 1, move: Ember}
+    - {level: 1, move: Harden}
+    - {level: 1, move: Rock Tomb}
+    - {level: 1, move: Tackle}
+    - {level: 6, move: Bite}
+    - {level: 9, move: Smack Down}
+    - {level: 10, move: Fire Fang}
+    - {level: 12, move: Roar}
+    - {level: 16, move: Headbutt}
+    - {level: 20, move: Protect}
     - {level: 30, move: Stone Edge}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 40, move: Take Down}
+    - {level: 52, move: Flame Wheel}
+    - {level: 52, move: Rock Blast}
+    - {level: 58, move: Iron Defense}
+    - {level: 70, move: Double-Edge}
+    - {level: 76, move: Fire Spin}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Protect, Rain Dance, Iron Tail, Earthquake, Return, Dig,
+          Double Team, Flamethrower, Sandstorm, Fire Blast, Rock Tomb, Facade, Rest,
+          Attract, Overheat, Endure, Will-O-Wisp, Rock Polish, Stone Edge, Stealth Rock,
+          Rock Slide, Sleep Talk, Swagger, Substitute, Heavy Slam, Flame Charge, Bulldoze,
+          Body Press, Meteor Beam, Strength, Rock Smash, Roar]
+  # moves a move tutor can teach it
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Endeavor, Fire Punch, Flare Blitz,
+          Heat Wave, Iron Head]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -83,7 +106,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "Cindreon is a muscular, sand-gold lion with a short red-orange mane and a flame-tipped tail. Large rocky plates cover its shoulders, each with a glowing furnace opening. Smaller stones run along its back and protect its legs, giving it a rugged, armored appearance."

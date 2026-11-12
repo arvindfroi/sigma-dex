@@ -50,15 +50,44 @@ evolutions:
     method: level
     level: 25
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Absorb}
     - {level: 1, move: Growl}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+    - {level: 1, move: Tackle}
+    - {level: 6, move: Stun Spore}
+    - {level: 9, move: Growth}
+    - {level: 10, move: Razor Leaf}
+    - {level: 14, move: Mega Drain}
+    - {level: 16, move: Encore}
+    - {level: 17, move: Poison Powder}
+    - {level: 19, move: Synthesis}
+    - {level: 22, move: Magical Leaf}
+    - {level: 25, move: Sweet Scent}
+    - {level: 26, move: Leech Seed}
+    - {level: 30, move: Giga Drain}
+    - {level: 36, move: Energy Ball}
+    - {level: 46, move: Aromatherapy}
+    - {level: 48, move: Solar Beam}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Protect, Giga Drain, Safeguard, Solar Beam,
+          Return, Double Team, Facade, Rest, Attract, Energy Ball, Endure, Flash,
+          Swords Dance, Sleep Talk, Grass Knot, Swagger, Substitute, Thunder Wave]
+  # moves a move tutor can teach it
+  tutor: [Leaf Storm, Leech Seed, Magical Leaf, Mega Drain, Seed Bomb, Synthesis]
+  # only needed for the first stage of an evolution line
+  egg: [Leaf Storm, Worry Seed, Seed Bomb, Ingrain]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -70,7 +99,9 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-03)."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small brown creature with a body like a plank-wood stump or barrel, with a big open mouth rimmed in green moss, with white teeth and a red tongue. It has small brown hands holding the sides of its wooden face, short feet, a long thin tail and a green leafy sprout on top."
@@ -82,7 +113,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:390"
+  footprint: "hgss:390"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

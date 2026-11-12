@@ -64,10 +64,36 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Scratch}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Tail Whip}
+    - {level: 6, move: Bite}
+    - {level: 7, move: Shadow Sneak}
+    - {level: 12, move: Scary Face}
+    - {level: 13, move: Fury Swipes}
+    - {level: 16, move: Disable}
+    - {level: 23, move: Encore}
+    - {level: 25, move: Slash}
+    - {level: 29, move: Hex}
+    - {level: 30, move: Detect}
+    - {level: 33, move: Shadow Claw}
+    - {level: 35, move: Take Down}
+    - {level: 38, move: Screech}
+    - {level: 40, move: Sucker Punch}
+    - {level: 44, move: Phantom Force}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
+          Thunderbolt, Thunder, Return, Shadow Ball, Double Team, Facade, Rest, Attract,
+          Thief, Fling, Endure, Shadow Claw, Payback, Giga Impact, Sleep Talk, Swagger,
+          Substitute, Strength, Thunder Wave]
+  tutor: [Hyper Voice, Poltergeist] # moves a move tutor can teach it
+  # only needed for the first stage of an evolution line
+  egg: [Fake Out, Double-Edge, Feint, Trick, Stomp, Endeavor, Recover]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -79,7 +105,9 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a tall, thin pale grey-white humanoid with very long thin arms and legs and large flat feet. It has a smooth rounded head with a small bump on top, two small black dot eyes and a huge wide grin full of white teeth, and a thin tail. It holds a small swirling dark purple orb in one hand."

@@ -68,9 +68,44 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Ember}
+    - {level: 1, move: Fire Fang}
+    - {level: 1, move: Fire Spin}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Rock Throw}
+    - {level: 1, move: Rollout}
+    - {level: 1, move: Harden}
+    - {level: 1, move: Rock Tomb}
+    - {level: 1, move: Tackle}
+    - {level: 6, move: Bite}
+    - {level: 8, move: Slash}
+    - {level: 9, move: Smack Down}
+    - {level: 12, move: Ancient Power}
+    - {level: 12, move: Roar}
+    - {level: 16, move: Crunch}
+    - {level: 16, move: Headbutt}
+    - {level: 20, move: Protect}
+    - {level: 24, move: Scary Face}
+    - {level: 30, move: Incinerate}
+    - {level: 30, move: Stone Edge}
+    - {level: 40, move: Take Down}
+    - {level: 42, move: Lava Plume}
+    - {level: 49, move: Rock Slide}
+    - {level: 66, move: Power Gem}
+    - {level: 72, move: Fire Blast}
+    - {level: 80, move: Burn Up}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Safeguard, Solar Beam,
+          Earthquake, Return, Double Team, Flamethrower, Sandstorm, Fire Blast, Rock Tomb,
+          Facade, Rest, Overheat, Focus Blast, Fling, Endure, Will-O-Wisp, Giga Impact,
+          Stone Edge, Stealth Rock, Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze,
+          Mystical Fire, Body Press, Meteor Beam, Scorching Sands, Iron Tail, Dig, Attract,
+          Rock Polish, Heavy Slam, Flame Charge, Strength, Rock Smash, Roar]
+  # moves a move tutor can teach it
+  tutor: [Ancient Power, Earth Power, Flare Blitz, Heat Wave, Body Slam, Curse, Endeavor,
+          Fire Punch, Iron Head]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -83,7 +118,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: []   # fields Claude filled in (people can change them)
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "Custodix is a powerful golden lion with a majestic grey-white mane and two smooth fur tufts covering its eyes. A bright sun emblem marks its forehead, while dark rocky armor with glowing magma cracks protects its shoulders and legs. Its long tail ends in a grey-white tuft, and it can stand upright on its hind legs."

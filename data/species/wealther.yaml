@@ -50,14 +50,45 @@ evolutions:
     method: level
     level: 36
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 0, move: Hone Claws}
     - {level: 1, move: Feint Attack}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Pound}
+    - {level: 1, move: Scratch}
+    - {level: 1, move: Water Gun}
+    - {level: 1, move: Tackle}
+    - {level: 4, move: Peck}
+    - {level: 10, move: Bite}
+    - {level: 11, move: Focus Energy}
+    - {level: 12, move: Protect}
+    - {level: 13, move: Aqua Jet}
+    - {level: 14, move: Scary Face}
+    - {level: 36, move: Crunch}
+    - {level: 42, move: Agility}
+    - {level: 44, move: Liquidation}
+    - {level: 53, move: Wave Crash}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Hail, Hidden Power, Taunt, Ice Beam, Blizzard, Protect, Rain Dance,
+          Return, Dig, Double Team, Rock Tomb, Torment, Facade, Rest, Attract, Thief, Fling,
+          Endure, Payback, Dark Pulse, Sleep Talk, Grass Knot, Swagger, Substitute,
+          Low Sweep, Foul Play, Scald, Surf, Whirlpool, Rock Smash, Waterfall, Brine,
+          Liquidation]
+  # moves a move tutor can teach it
+  tutor: [Aqua Jet, Aqua Tail, Icy Wind, Snarl]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -70,7 +101,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a platypus-like creature with deep blue fur, a black mask with a spiky crest and a yellow-orange duck bill. It has grey-black clawed hands and feet and a flat, scaled black-grey beaver-like tail, and it stands upright."
@@ -82,7 +114,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:259"
+  footprint: "hgss:259"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

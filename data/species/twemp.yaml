@@ -49,18 +49,41 @@ evolutions:
   - into: florantula
     method: other
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 0, move: Protect}
+    - {level: 1, move: Absorb}
+    - {level: 1, move: Bug Bite}
+    - {level: 1, move: Razor Leaf}
+    - {level: 1, move: String Shot}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Pin Missile}
+    - {level: 7, move: Struggle Bug}
+    - {level: 12, move: Scary Face}
+    - {level: 31, move: Sticky Web}
+    - {level: 36, move: Seed Bomb}
+    - {level: 43, move: Aromatherapy}
+    - {level: 44, move: X-Scissor}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Toxic, Bullet Seed, Hidden Power, Sunny Day, Light Screen, Protect,
+          Giga Drain, Safeguard, Frustration, Solar Beam, Return, Double Team, Facade, Rest,
+          Attract, Energy Ball, Endure, Payback, Sleep Talk, Grass Knot, Swagger,
+          Substitute, Struggle Bug, Electroweb, Cut, Dig, Thief, X-Scissor, Poison Jab,
+          Grassy Terrain]
+  # moves a move tutor can teach it
+  tutor: [Bug Bite, Charm, Leaf Storm, Magical Leaf, Seed Bomb, Synthesis]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -73,7 +96,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a head and a base # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a plant-like creature with a thin grey stalk on a small webbed base, topped by a round green star-shaped crown filled with a white spider web. A small white cat-like face sits in the web, and big colourful bulbs (red, orange, yellow, green, blue, purple) ring the crown like holiday lights."
@@ -85,7 +109,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:69"
+  footprint: "hgss:69"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

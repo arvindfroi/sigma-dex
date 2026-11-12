@@ -62,10 +62,32 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Absorb}
+    - {level: 1, move: Tackle}
+    - {level: 3, move: Water Gun}
+    - {level: 4, move: Withdraw}
+    - {level: 6, move: Razor Leaf}
+    - {level: 12, move: Bite}
+    - {level: 12, move: Mega Drain}
+    - {level: 12, move: Mud Shot}
+    - {level: 18, move: Protect}
+    - {level: 24, move: Synthesis}
+    - {level: 28, move: Horn Leech}
+    - {level: 30, move: Razor Shell}
+    - {level: 35, move: Iron Defense}
+    - {level: 48, move: Crabhammer}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Hail, Bullet Seed, Hidden Power, Sunny Day, Ice Beam, Blizzard,
+          Protect, Rain Dance, Giga Drain, Solar Beam, Return, Double Team, Facade, Rest,
+          Attract, Energy Ball, Brine, Endure, Sleep Talk, Grass Knot, Swagger, Substitute,
+          Scald, Surf, Whirlpool, Waterfall]
+  # moves a move tutor can teach it
+  tutor: [Aqua Tail, Icy Wind, Leaf Storm, Magical Leaf, Mega Drain, Seed Bomb, Synthesis,
+          Yawn]
+  # only needed for the first stage of an evolution line
+  egg: [Leech Seed, Bubble Beam, Seed Bomb, Leaf Storm, Worry Seed]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -77,7 +99,9 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-02): also on the card: Diver: Can't be hit by Flying-type moves in rain. Habitat: Swamps, Marshes. Flavor: It lies motionless for days, letting swamp grass grow over it. Those who know the marshes step carefully. Size comparison with a 1.2 m human silhouette.."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a head and a base # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its legs.
   look: "It is a low, round, dome-shaped creature with a brown cracked shell-like top, half sunk in water. Long curtains of green swamp grass hang over both sides, and two sleepy cream-coloured eyes peek out from the dark gap under the dome."

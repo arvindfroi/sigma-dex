@@ -50,18 +50,39 @@ evolutions:
     method: level
     level: 16
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Tackle}
     - {level: 1, move: Growl}
+    - {level: 4, move: Peck}
     - {level: 6, move: Water Gun}
     - {level: 10, move: Bite}
+    - {level: 12, move: Protect}
     - {level: 14, move: Aqua Jet}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+    - {level: 17, move: Double Hit}
+    - {level: 19, move: Slash}
+    - {level: 28, move: Focus Energy}
+    - {level: 30, move: Aqua Tail}
+    - {level: 33, move: Screech}
+    - {level: 35, move: Liquidation}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Hail, Hidden Power, Ice Beam, Blizzard, Protect, Rain Dance, Return,
+          Double Team, Facade, Rest, Attract, Brine, Endure, Sleep Talk, Swagger,
+          Substitute, Scald, Liquidation, Surf, Whirlpool, Waterfall]
+  tutor: [Aqua Jet, Aqua Tail, Icy Wind] # moves a move tutor can teach it
+  # only needed for the first stage of an evolution line
+  egg: [Hydro Pump, Ancient Power, Bubble Beam, Muddy Water]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -73,7 +94,9 @@ design:
   notes: DRAFT level-up moves added by Claude on 2026-10-03 so the starter can be tested in the game - replace them with the real ones.
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small platypus-like creature with deep blue feathers, a small tuft on its head, a big yellow duck bill, and a white round belly. It has short legs with black webbed claws and a flat black beaver-like tail with a grid pattern."
@@ -85,7 +108,7 @@ assets:
   front_anim: "assets/sprites/waffy/anim_front.png"
   back_sprite: "assets/sprites/waffy/back.png"
   icon: "assets/sprites/waffy/icon.png" # icon.png       32x64, two frames stacked
-  footprint: "hgss:258"
+  footprint: "hgss:258"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

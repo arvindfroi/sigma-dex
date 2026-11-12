@@ -50,12 +50,42 @@ evolutions:
     method: level
     level: 32
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Bite}
+    - {level: 1, move: Echoed Voice}
+    - {level: 1, move: Howl}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Pound}
+    - {level: 1, move: Tackle}
+    - {level: 15, move: Rest}
+    - {level: 15, move: Sleep Talk}
+    - {level: 22, move: Swift}
+    - {level: 25, move: Roar}
+    - {level: 30, move: Supersonic}
+    - {level: 35, move: Uproar}
+    - {level: 42, move: Screech}
+    - {level: 49, move: Hyper Voice}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration, Return,
+          Shadow Ball, Double Team, Torment, Facade, Rest, Attract, Thief, Fling, Endure,
+          Payback, Dark Pulse, Sleep Talk, Swagger, Substitute, Foul Play, Strength]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Endeavor, Hyper Voice, Snarl]
+  # only needed for the first stage of an evolution line
+  egg: [Snore, Last Resort, Double-Edge, Sucker Punch, Take Down, Body Slam]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -67,7 +97,9 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-06): also on the card: Lv.50, male; Levitate is the Hidden Ability; Exp. Points 125000, To Next Lv. 7651."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
   body_shape: an upright body on two legs with a tail
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a round, fuzzy purple-grey creature with a messy grey-brown mop of hair, big pointed ears and a wide toothy grin with green eyes. It has small dark bat wings on its sides, clawed hands and feet, and a thin tail ending in a black microphone."
@@ -79,7 +111,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:207"
+  footprint: "hgss:207"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

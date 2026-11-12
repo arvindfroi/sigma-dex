@@ -53,11 +53,44 @@ evolutions: []
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
 
+# --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
+forms: []
+# forms:
+#   - name: Winter form    # what the form is called
+#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
+#     how: It turns white when it snows.   # how and when it changes form
+#     types: [Ice]         # only if they differ
+#     look: It is white with ...           # what it looks like in this form
+
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Confuse Ray}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Magical Leaf}
+    - {level: 1, move: Mystical Fire}
+    - {level: 1, move: Phantom Force}
+    - {level: 1, move: Power Gem}
+    - {level: 1, move: Spite}
+    - {level: 1, move: Lick}
+    - {level: 1, move: Smog}
+    - {level: 12, move: Payback}
+    - {level: 12, move: Shadow Sneak}
+    - {level: 12, move: Smokescreen}
+    - {level: 20, move: Curse}
+    - {level: 23, move: Hex}
+    - {level: 30, move: Night Shade}
+    - {level: 36, move: Sucker Punch}
+    - {level: 42, move: Shadow Ball}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
+          Thunderbolt, Thunder, Return, Psychic, Shadow Ball, Double Team, Torment, Facade,
+          Rest, Attract, Thief, Skill Swap, Energy Ball, Endure, Will-O-Wisp, Shadow Claw,
+          Payback, Giga Impact, Psych Up, Dark Pulse, Sleep Talk, Swagger, Substitute,
+          Trick Room, Foul Play, Giga Drain]
+  tutor: [Curse, Icy Wind, Poltergeist] # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -70,7 +103,8 @@ design:
   notes: "From the Discord concept card (BUST, 2026-05-03): also on the card: Smoked Up: This Pokemon faints after three turns in the field.."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a grey smoky ghost with a long draping body of wavy tentacle-like wisps, wearing a dark grey fedora with a jewelled purple band and a purple-glowing eye. It holds a long jewelled cigarette holder in its mouth with a glowing red tip, trailing curls of grey smoke."
@@ -82,7 +116,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:200"
+  footprint: "hgss:200"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

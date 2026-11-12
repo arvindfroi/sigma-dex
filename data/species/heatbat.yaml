@@ -65,8 +65,33 @@ learnset:
   level_up:
     - {level: 0, move: Air Slash}
     - {level: 1, move: Air Slash}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Ember}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Gust}
+    - {level: 1, move: Peck}
+    - {level: 1, move: Quick Attack}
+    - {level: 1, move: Scratch}
+    - {level: 1, move: Leer}
+    - {level: 7, move: Smokescreen}
+    - {level: 9, move: Flame Charge}
+    - {level: 10, move: Supersonic}
+    - {level: 13, move: Fury Swipes}
+    - {level: 20, move: Wing Attack}
+    - {level: 26, move: Fire Spin}
+    - {level: 27, move: Air Cutter}
+    - {level: 29, move: Agility}
+    - {level: 41, move: Flamethrower}
+    - {level: 44, move: Tailwind}
+    - {level: 50, move: Roost}
+    - {level: 54, move: Fire Blast}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Taunt, Protect, Return, Double Team, Flamethrower,
+          Fire Blast, Aerial Ace, Facade, Rest, Attract, Thief, Steel Wing, Overheat, Roost,
+          Endure, Will-O-Wisp, Sleep Talk, Swagger, Pluck, U-turn, Substitute, Flame Charge,
+          Dual Wingbeat, Fly, Iron Tail, Dig, Cut, Rock Smash]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Brave Bird, Fire Punch, Flare Blitz, Heat Wave, Hurricane, Sky Attack,
+          Fire Fang, Flame Wheel]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +104,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a round red-orange creature with a shaggy mop of dark navy hair covering its head and two thin arms carrying dark navy bat-like wings. It has a pale yellow zigzag-edged patch on its belly, two short legs and small orange flames floating around its head and body."
@@ -91,7 +117,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:5"
+  footprint: "hgss:5"    # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

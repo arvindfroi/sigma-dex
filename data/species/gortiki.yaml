@@ -68,8 +68,36 @@ learnset:
   level_up:
     - {level: 0, move: Fiery Dance}
     - {level: 1, move: Fiery Dance}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 1, move: Absorb}
+    - {level: 1, move: Ember}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Growth}
+    - {level: 1, move: Leaf Blade}
+    - {level: 1, move: Sweet Scent}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Smog}
+    - {level: 1, move: Mimic}
+    - {level: 8, move: Mega Drain}
+    - {level: 12, move: Fire Spin}
+    - {level: 12, move: Razor Leaf}
+    - {level: 13, move: Leech Seed}
+    - {level: 16, move: Vine Whip}
+    - {level: 22, move: Leaf Tornado}
+    - {level: 28, move: Petal Blizzard}
+    - {level: 32, move: Synthesis}
+    - {level: 35, move: Flame Charge}
+    - {level: 48, move: Heat Wave}
+    - {level: 50, move: Power Whip}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
+          Giga Drain, Safeguard, Solar Beam, Return, Double Team, Flamethrower, Fire Blast,
+          Facade, Rest, Attract, Overheat, Energy Ball, Endure, Will-O-Wisp, Giga Impact,
+          Swords Dance, Sleep Talk, Grass Knot, Swagger, Substitute, Flame Charge,
+          Mystical Fire, Taunt, Psychic, Thief, Flash]
+  # moves a move tutor can teach it
+  tutor: [Flare Blitz, Heat Wave, Leaf Storm, Magical Leaf, Mega Drain, Seed Bomb,
+          Synthesis, Curse, Fire Punch, Leech Seed]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -82,7 +110,8 @@ design:
   notes: "From the Discord concept card (SLOTHBABY, 2026-05-03): also on the card: Hidden Ability: Huge Power."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a brown gorilla-like creature with a wooden tiki-mask head with yellow triangle eyes and a burning flame on top, and a wide open fiery mouth with large white tusks. It has long brown arms, a green leaf skirt, a curled tail and holds a big wooden torch with a flame on top."
@@ -94,7 +123,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:392"
+  footprint: "hgss:392"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

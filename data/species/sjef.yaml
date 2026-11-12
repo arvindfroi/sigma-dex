@@ -64,9 +64,32 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Astonish}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Gust}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Quick Attack}
+    - {level: 15, move: Confuse Ray}
+    - {level: 24, move: Hex}
+    - {level: 24, move: Acrobatics}
+    - {level: 33, move: Wing Attack}
+    - {level: 35, move: Air Slash}
+    - {level: 35, move: Air Cutter}
+    - {level: 42, move: Bite}
+    - {level: 46, move: Aerial Ace}
+    - {level: 48, move: Shadow Ball}
+    - {level: 59, move: Agility}
+    - {level: 59, move: Roost}
+    - {level: 81, move: Shadow Punch}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance, Return, Psychic,
+          Shadow Ball, Double Team, Aerial Ace, Facade, Rest, Attract, Thief, Steel Wing,
+          Roost, Endure, Will-O-Wisp, Shadow Claw, Payback, Giga Impact, Sleep Talk,
+          Swagger, U-turn, Substitute, Dual Wingbeat, Fly]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Poltergeist, Sky Attack, Brave Bird]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +102,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a ghost wrapped in a white hooded cloak with black and white striped markings, with an orange oval mask-like face with three red-lit eyes, a red triangle mark and a jagged mouth. Two wide cloak wings spread from its sides, it has two black clawed hands and a long striped tail."
@@ -91,7 +115,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:354"
+  footprint: "hgss:354"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

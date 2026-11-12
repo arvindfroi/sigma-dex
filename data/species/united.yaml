@@ -64,9 +64,32 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Nuzzle}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Thunder Wave}
+    - {level: 1, move: Leer}
+    - {level: 4, move: Thunder Shock}
+    - {level: 7, move: Quick Attack}
+    - {level: 15, move: Shock Wave}
+    - {level: 19, move: Electro Ball}
+    - {level: 20, move: Charge}
+    - {level: 20, move: Charm}
+    - {level: 20, move: Swift}
+    - {level: 23, move: Volt Switch}
+    - {level: 36, move: Agility}
+    - {level: 39, move: Discharge}
+    - {level: 48, move: Thunderbolt}
+    - {level: 50, move: Thunder}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
+          Thunderbolt, Thunder, Return, Psychic, Shadow Ball, Double Team, Reflect,
+          Shock Wave, Facade, Rest, Attract, Thief, Charge Beam, Endure, Giga Impact,
+          Thunder Wave, Sleep Talk, Swagger, Substitute, Trick Room, Psyshock, Electroweb,
+          Eerie Impulse, Expanding Force, Skill Swap]
+  tutor: [Volt Switch, Zen Headbutt] # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -79,7 +102,8 @@ design:
   notes: "From the Google Doc: unknighted (unknown thunder stone?)\nFrom the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT FORM; also on the card: Habitat: power plants, energy facilities, abandoned labs and ancient ruins. Behavior: maintains perfect energy circulation; disturbing the balance makes it disassemble and scatter. Cry: bzzztt-krrm...."
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves]
   body_shape: several bodies joined together
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is four separate black glossy shapes, each with one big white eye, joined in a square loop by glowing yellow wires. The shapes are a triangle with a bar, a coil, a round disc with plus and minus signs, and an H-shaped bar, all crackling with yellow electricity."
@@ -91,7 +115,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:82"
+  footprint: "hgss:82"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
