@@ -65,6 +65,29 @@ Arvind (2026-11-11): "andre har jobbet mye med slike greier i det siste så om v
   (we use it). Origin has no wild Pokemon walking in the overworld (encounters in the grass as usual).
 - **Mega forms for our mons:** possible as a held-item form (like Charizardite, Steel Armor, Ninja Scroll).
 
+## Meowth story idea (Arvind, 2026-11-12)
+
+Meowth is a real person in a Meowth costume (comic relief); later Team Rocket experiments on him and he becomes a
+human/Pokemon hybrid ("Meowthwo"), used as a weapon that Giovanni's Persian controls; it goes too far, he runs amok or
+escapes, and becomes a boss. What Origin already has (msg banks, docs/trainers.md):
+- Meowth talks in ~110 lines over 24 text banks (441, 585, 582, 313 most), always next to Jessie and James. He is not a
+  trainer: he is a Pokemon in James' team (lv 5-25) in every one of their ~12 battles, which are tag battles (Jessie and
+  James each have their own team, side by side; you often have a partner too).
+- Mewtwo's arc is almost this story: Team Rocket made it, Giovanni used it as his weapon (Cerulean Cave, lv 100 in his
+  team), it hurt the player and left its energy in their body (Sabrina, Misty, Brock scenes), it comes back in the
+  final fight against Giovanni (a copy from the past made with Arceus and Dialga), and Mewtwo even fights as its own
+  "trainer" in a multi battle at Indigo Plateau (#1013). Since our mons take every story role, Meowthwo can take
+  Mewtwo's role. Rocket's "enhancement experiments" on Pokemon and on people, Persian statues with glowing eyes (the
+  Mahogany base) and Giovanni's Persian (bank 441) are there too.
+- Possible with what the game has: text (easy), a Pokemon fighting as a trainer (done in Origin), battles chained in a
+  script (Giovanni then his Beedrill), a legendary intro and music keyed by species id (table in arm9, patch to our id),
+  a fleeing/roaming encounter (the roamer system, keyed by species), a catch after the boss.
+- Hard parts: Meowth still travels with Jessie and James after the main story (hospital, Island Restaurant scenes), so
+  those scenes need a new reason or he comes back; a costumed person needs new overworld and battle pictures (and stays
+  a "Pokemon" in James' team unless we give him his own trainer, which takes Jessie's or James' slot: at most two
+  opponents per battle); real boss mechanics (several health bars, extra moves per turn) need new code; and ~17 text
+  banks name Mewtwo.
+
 ## Already planned for later
 
 - More trainer classes than the game's 129 (class 130+), if we want many new ones instead of replacing: needs the class tables moved and a code patch.
