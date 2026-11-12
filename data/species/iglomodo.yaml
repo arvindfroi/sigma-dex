@@ -85,10 +85,10 @@ learnset:
     - {level: 40, move: Blizzard}
     - {level: 42, move: Gunk Shot}
     - {level: 45, move: Ice Spinner}
-    - {level: 49, move: Superpower}
+    - {level: 49, move: Ice Hammer}
     - {level: 54, move: Gunk Shot}
     - {level: 60, move: Baneful Bunker}
-    - {level: 64, move: Haze}
+    - {level: 64, move: Shell Smash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hail, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard, Hyper Beam,
           Protect, Rain Dance, Frustration, Earthquake, Return, Dig, Double Team,

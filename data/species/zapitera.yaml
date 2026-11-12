@@ -6,7 +6,7 @@ credits:
   designer: "Ruben & Emil" # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: [Electric, Steel] # 1 or 2 types, e.g. [Grass, Steel]
+types: [Steel, Electric] # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -84,17 +84,18 @@ learnset:
     - {level: 40, move: Discharge}
     - {level: 45, move: Agility}
     - {level: 50, move: Thunder}
-    - {level: 51, move: Charge}
     - {level: 52, move: Light Screen}
     - {level: 57, move: Thunderbolt}
-    - {level: 64, move: Zap Cannon}
+    - {level: 60, move: Brave Bird}
+    - {level: 62, move: Steel Beam}
+    - {level: 67, move: Zap Cannon}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
-          Frustration, Iron Tail, Thunderbolt, Thunder, Return, Double Team, Shock Wave,
-          Sandstorm, Facade, Secret Power, Rest, Attract, Charge Beam, Endure, Giga Impact,
-          Flash, Thunder Wave, Gyro Ball, Sleep Talk, Natural Gift, Swagger, Substitute,
-          Flash Cannon, Heavy Slam, Electroweb, Eerie Impulse, Electric Terrain, Steel Wing,
-          Roost, Shadow Ball, Focus Blast, Psychic, Fly]
+          Frustration, Iron Tail, Thunderbolt, Thunder, Return, Psychic, Shadow Ball,
+          Double Team, Shock Wave, Sandstorm, Facade, Secret Power, Rest, Attract,
+          Steel Wing, Roost, Focus Blast, Charge Beam, Endure, Giga Impact, Flash,
+          Thunder Wave, Gyro Ball, Sleep Talk, Natural Gift, Swagger, Substitute,
+          Flash Cannon, Heavy Slam, Electroweb, Eerie Impulse, Electric Terrain, Fly]
   # moves a move tutor can teach it
   tutor: [Body Slam, Iron Head, Volt Switch, Hurricane]
   egg: []                # only needed for the first stage of an evolution line

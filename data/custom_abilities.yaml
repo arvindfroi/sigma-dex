@@ -55,6 +55,17 @@ abilities:
     like Aerial Ace or Swift, and moves with perfect accuracy are not affected. Fog of War can only trigger
     once per switch-in.
   designer: Casper & Emil
+- id: glowing-lure
+  name: Glowing Lure
+  description: If user is hit by a contact move, its next move is a guaranteed crit
+  effect: A glowing lure flares when an attacker gets too close. After this Pokémon is hit by a contact
+    move, its next damaging move is guaranteed to land a critical hit. The effect lasts until the holder
+    uses a damaging move, or until it switches out. Multiple contact hits don't stack, and the boost is
+    used up by a single move. If the holder is hit by a contact move and then uses a status move, the
+    boost stays ready. Like other guaranteed-crit effects, it ignores the target's Defense boosts and
+    the holder's own Attack drops. Battle Armor, Shell Armor, and Lucky Chant still block the crit. Mold
+    Breaker does not affect it, since the trigger is the holder being hit.
+  designer: Emil
 - id: trash-talker
   name: Heckler
   description: On switch-in, lower the Special Attack of all adjacent opponents

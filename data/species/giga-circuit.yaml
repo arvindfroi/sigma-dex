@@ -67,7 +67,6 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Growl}
-    - {level: 1, move: Tail Whip}
     - {level: 1, move: Thunder Shock}
     - {level: 1, move: Thunder Wave}
     - {level: 4, move: Helping Hand}
@@ -78,19 +77,20 @@ learnset:
     - {level: 19, move: Electro Ball}
     - {level: 20, move: Spark}
     - {level: 24, move: Parabolic Charge}
-    - {level: 30, move: Bounce}
+    - {level: 30, move: Autotomize}
     - {level: 36, move: Discharge}
     - {level: 37, move: Agility}
     - {level: 40, move: Volt Switch}
     - {level: 47, move: Thunderbolt}
     - {level: 50, move: Thunder}
-    - {level: 50, move: Zap Cannon}
+    - {level: 56, move: Overheat}
+    - {level: 62, move: Zap Cannon}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Hyper Beam, Light Screen, Protect, Rain Dance, Frustration,
-          Thunderbolt, Thunder, Return, Double Team, Shock Wave, Facade, Secret Power, Rest,
-          Attract, Charge Beam, Endure, Giga Impact, Flash, Thunder Wave, Sleep Talk,
-          Swagger, Substitute, Electroweb, Eerie Impulse, Electric Terrain, Flamethrower,
-          Overheat, Focus Blast, Surf]
+          Thunderbolt, Thunder, Return, Double Team, Shock Wave, Flamethrower, Facade,
+          Secret Power, Rest, Attract, Overheat, Focus Blast, Charge Beam, Endure,
+          Giga Impact, Flash, Thunder Wave, Sleep Talk, Swagger, Substitute, Electroweb,
+          Eerie Impulse, Electric Terrain, Surf]
   # moves a move tutor can teach it
   tutor: [Body Slam, Volt Switch, Nasty Plot, Dazzling Gleam]
   # only needed for the first stage of an evolution line

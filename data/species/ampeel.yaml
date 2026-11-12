@@ -89,16 +89,20 @@ learnset:
     - {level: 34, move: Crunch}
     - {level: 35, move: Discharge}
     - {level: 36, move: Agility}
+    - {level: 42, move: Volt Switch}
     - {level: 45, move: Coil}
     - {level: 47, move: Wild Charge}
+    - {level: 52, move: Thunder}
     - {level: 56, move: Hydro Pump}
+    - {level: 60, move: Supercell Slam}
+    - {level: 64, move: Wave Crash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Hyper Beam,
           Light Screen, Protect, Rain Dance, Frustration, Thunderbolt, Thunder, Return,
-          Double Team, Facade, Secret Power, Rest, Attract, Brine, Charge Beam, Endure,
-          Giga Impact, Thunder Wave, Sleep Talk, Natural Gift, Swagger, Substitute, Scald,
-          Electroweb, Eerie Impulse, Electric Terrain, Liquidation, Flip Turn, Surf,
-          Whirlpool, Waterfall, Thief, Flash, Captivate]
+          Double Team, Facade, Secret Power, Rest, Attract, Thief, Brine, Charge Beam,
+          Endure, Giga Impact, Flash, Thunder Wave, Captivate, Sleep Talk, Natural Gift,
+          Swagger, Substitute, Scald, Electroweb, Eerie Impulse, Electric Terrain,
+          Liquidation, Flip Turn, Surf, Whirlpool, Waterfall]
   # moves a move tutor can teach it
   tutor: [Aqua Tail, Body Slam, Icy Wind, Thunder Fang, Volt Switch]
   egg: []                # only needed for the first stage of an evolution line

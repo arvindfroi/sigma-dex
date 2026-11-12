@@ -19,7 +19,7 @@ body_color: white        # red blue yellow green black brown purple gray white p
 abilities:
   primary: Aurora Dancer
   secondary:             # optional
-  hidden: Regenerator    # optional
+  hidden:                # optional
 
 base_stats:              # each 1-255
   hp: 130
@@ -77,18 +77,19 @@ learnset:
     - {level: 30, move: Taunt}
     - {level: 31, move: Aurora Beam}
     - {level: 40, move: Play Rough}
-    - {level: 40, move: Roost}
-    - {level: 48, move: Iron Defense}
+    - {level: 44, move: Recover}
+    - {level: 48, move: Swords Dance}
     - {level: 54, move: Thrash}
     - {level: 60, move: Moonblast}
-    - {level: 70, move: Megahorn}
+    - {level: 64, move: Megahorn}
+    - {level: 68, move: Horn Leech}
     - {level: 70, move: Sky Attack}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
           Rain Dance, Frustration, Earthquake, Return, Double Team, Reflect, Aerial Ace,
           Facade, Secret Power, Rest, Steel Wing, Roost, Endure, Giga Impact, Psych Up,
-          Sleep Talk, Swagger, Substitute, Draining Kiss, Play Rough, Body Press, Fly,
-          Aurora Veil]
+          Sleep Talk, Swagger, Substitute, Draining Kiss, Play Rough, Aurora Veil,
+          Body Press, Fly]
   # moves a move tutor can teach it
   tutor: [Air Slash, Body Slam, Brave Bird, Dazzling Gleam, Hurricane, Sky Attack,
           Zen Headbutt]

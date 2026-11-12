@@ -81,15 +81,18 @@ learnset:
     - {level: 28, move: Crush Claw}
     - {level: 33, move: Crunch}
     - {level: 36, move: Take Down}
-    - {level: 37, move: Amnesia}
+    - {level: 37, move: Scary Face}
+    - {level: 42, move: Ice Beam}
+    - {level: 48, move: Swords Dance}
     - {level: 50, move: Ice Hammer}
     - {level: 51, move: Icicle Crash}
+    - {level: 55, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hail, Hidden Power, Ice Beam, Hyper Beam, Protect, Rain Dance, Frustration,
           Earthquake, Return, Dig, Brick Break, Double Team, Rock Tomb, Facade,
           Secret Power, Rest, Attract, Endure, Giga Impact, Stone Edge, Avalanche,
-          Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze, Liquidation, Body Press,
-          Rock Smash, Swords Dance, Heavy Slam]
+          Swords Dance, Rock Slide, Sleep Talk, Swagger, Substitute, Heavy Slam, Bulldoze,
+          Liquidation, Body Press, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Close Combat, Curse, Ice Fang, Ice Punch, Icicle Spear, Iron Head]
   egg: []                # only needed for the first stage of an evolution line

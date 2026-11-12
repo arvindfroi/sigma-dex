@@ -6,7 +6,7 @@ credits:
   designer: Ruben        # who came up with it (Discord name)
   artist:                # who drew the concept art
 
-types: [Steel]           # 1 or 2 types, e.g. [Grass, Steel]
+types: [Steel, Electric] # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -17,17 +17,17 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
-  hidden:                # optional
+  primary: Volt Absorb
+  secondary: Magnet Pull # optional
+  hidden: Stalwart       # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 40
+  attack: 35
+  defense: 55
+  sp_attack: 65
+  sp_defense: 40
+  speed: 70
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -77,8 +77,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: [body shape, look, movement]
-  body_shape: "an upright body on two legs with a tail"
-  movement: "It walks upright on two legs."
+  body_shape: an upright body on two legs with a tail
+  movement: It walks upright on two legs.
   look: "It is a small dark grey bird with a blue and yellow feather crest, a white-grey VR headset over its eyes with a yellow lightning bolt, yellow earpieces, and an orange beak. It has a yellow zigzag mark on its chest, two small silver-white wings, a short blue and yellow tail, and two thin legs with yellow claws."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
@@ -88,7 +88,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:276"
+  footprint: "hgss:276"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

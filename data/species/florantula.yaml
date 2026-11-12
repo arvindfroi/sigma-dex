@@ -80,27 +80,25 @@ learnset:
     - {level: 15, move: String Shot}
     - {level: 17, move: Fury Cutter}
     - {level: 19, move: Sleep Powder}
-    - {level: 23, move: Pin Missile}
-    - {level: 25, move: Headbutt}
-    - {level: 25, move: Struggle Bug}
+    - {level: 22, move: Pin Missile}
+    - {level: 25, move: Scary Face}
     - {level: 26, move: Leech Seed}
     - {level: 27, move: Slash}
     - {level: 32, move: Endure}
     - {level: 34, move: Sucker Punch}
-    - {level: 35, move: Agility}
     - {level: 36, move: First Impression}
     - {level: 39, move: X-Scissor}
     - {level: 43, move: Flail}
     - {level: 46, move: Swords Dance}
-    - {level: 50, move: Power Whip}
-    - {level: 54, move: Double-Edge}
+    - {level: 50, move: Grassy Glide}
+    - {level: 54, move: Power Whip}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
-          Giga Drain, Safeguard, Frustration, Solar Beam, Return, Brick Break, Double Team,
-          Facade, Secret Power, Rest, Attract, Energy Ball, Endure, Giga Impact, Flash,
-          Swords Dance, Captivate, X-Scissor, Sleep Talk, Natural Gift, Poison Jab,
-          Grass Knot, Swagger, U-turn, Substitute, Struggle Bug, Grassy Terrain, Lunge, Cut,
-          Light Screen, Dig, Thief]
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
+          Rain Dance, Giga Drain, Safeguard, Frustration, Solar Beam, Return, Dig,
+          Brick Break, Double Team, Facade, Secret Power, Rest, Attract, Thief, Energy Ball,
+          False Swipe, Endure, Giga Impact, Flash, Swords Dance, Captivate, X-Scissor,
+          Sleep Talk, Natural Gift, Poison Jab, Grass Knot, Swagger, U-turn, Substitute,
+          Struggle Bug, Electroweb, Sticky Web, Grassy Terrain, Lunge, Body Press, Cut]
   # moves a move tutor can teach it
   tutor: [Body Slam, Bug Bite, Leaf Storm, Magical Leaf, Seed Bomb, Solar Blade, Synthesis,
           Charm]

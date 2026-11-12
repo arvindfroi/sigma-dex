@@ -95,13 +95,15 @@ learnset:
     - {level: 52, move: Amnesia}
     - {level: 55, move: Double-Edge}
     - {level: 57, move: Wild Charge}
+    - {level: 60, move: Flare Blitz}
+    - {level: 67, move: Volt Tackle}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
-          Thunderbolt, Thunder, Earthquake, Return, Double Team, Flamethrower, Fire Blast,
-          Rock Tomb, Facade, Secret Power, Rest, Attract, Overheat, Charge Beam, Endure,
-          Will-O-Wisp, Giga Impact, Stone Edge, Thunder Wave, Rock Slide, Sleep Talk,
-          Swagger, Substitute, Flame Charge, Bulldoze, Electroweb, Body Press, Strength,
-          Rock Smash, Iron Tail, Dig]
+          Iron Tail, Thunderbolt, Thunder, Earthquake, Return, Dig, Double Team,
+          Flamethrower, Fire Blast, Rock Tomb, Facade, Secret Power, Rest, Attract,
+          Overheat, Charge Beam, Endure, Will-O-Wisp, Giga Impact, Stone Edge, Thunder Wave,
+          Rock Slide, Sleep Talk, Swagger, Substitute, Flame Charge, Bulldoze, Electroweb,
+          Body Press, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Curse, Fire Fang, Flare Blitz, Heat Wave, Iron Head, Thunder Fang,
           Volt Switch]

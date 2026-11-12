@@ -98,8 +98,9 @@ learnset:
           Double Team, Rock Tomb, Facade, Secret Power, Rest, Attract, Thief, Overheat,
           Focus Blast, Fling, Endure, Payback, Giga Impact, Stone Edge, Gyro Ball,
           Swords Dance, Captivate, Rock Slide, Sleep Talk, Natural Gift, Poison Jab,
-          Swagger, U-turn, Substitute, Flash Cannon, Heavy Slam, Bulldoze, Body Press,
-          Coaching, Strength, Rock Smash, Rock Climb]
+          Swagger, U-turn, Substitute, Flash Cannon, Heavy Slam, Low Sweep, Bulldoze,
+          Play Rough, High Horsepower, Brutal Swing, Body Press, Coaching, Strength,
+          Rock Smash, Rock Climb]
   # moves a move tutor can teach it
   tutor: [Body Slam, Close Combat, Curse, Iron Head, Counter, Endeavor, Seed Bomb,
           Bullet Punch]

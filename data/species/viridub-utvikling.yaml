@@ -18,7 +18,7 @@ body_color: green        # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Leaf Mane
-  secondary:             # optional
+  secondary: Grass Pelt  # optional
   hidden: Chlorophyll    # optional
 
 base_stats:              # each 1-255

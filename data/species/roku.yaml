@@ -84,14 +84,17 @@ learnset:
     - {level: 40, move: Earthquake}
     - {level: 42, move: Psyshock}
     - {level: 43, move: Sandstorm}
+    - {level: 48, move: Earth Power}
+    - {level: 52, move: Headlong Rush}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
           Rain Dance, Safeguard, Frustration, Earthquake, Return, Dig, Psychic, Shadow Ball,
           Double Team, Reflect, Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Attract,
           Skill Swap, Fling, Endure, Giga Impact, Flash, Stone Edge, Thunder Wave,
-          Stealth Rock, Psych Up, Captivate, Rock Slide, Sleep Talk, Natural Gift,
-          Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Bulldoze, High Horsepower,
-          Psychic Terrain, Body Press, Expanding Force, Strength, Rock Smash, Gyro Ball]
+          Gyro Ball, Stealth Rock, Psych Up, Captivate, Rock Slide, Sleep Talk,
+          Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Bulldoze,
+          High Horsepower, Psychic Terrain, Body Press, Expanding Force, Strength,
+          Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Curse, Earth Power, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line

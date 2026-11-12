@@ -74,21 +74,22 @@ learnset:
     - {level: 8, move: Bite}
     - {level: 16, move: Whirlwind}
     - {level: 20, move: Pluck}
-    - {level: 20, move: Scary Face}
-    - {level: 24, move: Drill Peck}
+    - {level: 24, move: Scary Face}
     - {level: 27, move: Payback}
     - {level: 30, move: Knock Off}
     - {level: 30, move: Sucker Punch}
     - {level: 31, move: Roost}
     - {level: 35, move: Crunch}
     - {level: 40, move: Foul Play}
+    - {level: 44, move: Drill Peck}
     - {level: 50, move: Brave Bird}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
+  tm_hm: [Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
           Frustration, Return, Double Team, Rock Tomb, Aerial Ace, Torment, Facade,
-          Secret Power, Rest, Attract, Thief, Steel Wing, Roost, Fling, Endure, Payback,
-          Giga Impact, Dark Pulse, Sleep Talk, Natural Gift, Swagger, Pluck, U-turn,
-          Substitute, Foul Play, Brutal Swing, Dual Wingbeat, Fly, Psychic Fangs]
+          Secret Power, Rest, Attract, Thief, Steel Wing, Snatch, Roost, Fling, Endure,
+          Embargo, Payback, Giga Impact, Swords Dance, Dark Pulse, Sleep Talk, Natural Gift,
+          Swagger, Pluck, U-turn, Substitute, Foul Play, Play Rough, Brutal Swing,
+          Psychic Fangs, Dual Wingbeat, Fly, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Air Slash, Body Slam, Brave Bird, Endeavor, Heat Wave, Hurricane, Nasty Plot,
           Sky Attack, Snarl, Zen Headbutt]

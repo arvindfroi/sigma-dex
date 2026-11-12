@@ -17,19 +17,19 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Beast Boost
   secondary:             # optional
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 79
+  attack: 128
+  defense: 79
+  sp_attack: 128
+  sp_defense: 79
+  speed: 107
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {attack: 1, sp_attack: 2} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -64,7 +64,9 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 48, move: Coil}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line

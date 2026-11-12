@@ -549,7 +549,23 @@
         "rare": null
       },
       "evolutions": [],
-      "forms": [],
+      "forms": [
+        {
+          "name": "Mega Leafaxer",
+          "changes": "battle",
+          "abilities": {
+            "primary": "Sharpness"
+          },
+          "base_stats": {
+            "hp": 90,
+            "attack": 160,
+            "defense": 145,
+            "sp_attack": 70,
+            "sp_defense": 125,
+            "speed": 40
+          }
+        }
+      ],
       "learnset": {
         "level_up": [
           {
@@ -679,9 +695,11 @@
           "Hidden Power",
           "Sunny Day",
           "Hyper Beam",
+          "Light Screen",
           "Protect",
           "Rain Dance",
           "Giga Drain",
+          "Safeguard",
           "Frustration",
           "Solar Beam",
           "Iron Tail",
@@ -690,6 +708,7 @@
           "Dig",
           "Brick Break",
           "Double Team",
+          "Reflect",
           "Sandstorm",
           "Rock Tomb",
           "Aerial Ace",
@@ -700,13 +719,17 @@
           "Energy Ball",
           "Fling",
           "Endure",
+          "Shadow Claw",
           "Giga Impact",
           "Flash",
           "Stone Edge",
           "Gyro Ball",
           "Swords Dance",
+          "Stealth Rock",
+          "Captivate",
           "Rock Slide",
           "Sleep Talk",
+          "Natural Gift",
           "Grass Knot",
           "Swagger",
           "Substitute",
@@ -715,17 +738,12 @@
           "Bulldoze",
           "Grassy Terrain",
           "High Horsepower",
+          "Brutal Swing",
           "Body Press",
           "Cut",
           "Strength",
           "Rock Smash",
-          "Reflect",
-          "Shadow Claw",
-          "Stealth Rock",
-          "Captivate",
-          "Natural Gift",
-          "Light Screen",
-          "Safeguard"
+          "Rock Climb"
         ],
         "tutor": [
           "Body Slam",
@@ -738,7 +756,10 @@
           "Solar Blade",
           "Synthesis",
           "Curse",
-          "Zen Headbutt"
+          "Zen Headbutt",
+          "Psycho Cut",
+          "Sacred Sword",
+          "Spiky Shield"
         ],
         "egg": []
       },
@@ -1312,16 +1333,28 @@
         "rare": null
       },
       "evolutions": [],
-      "forms": [],
+      "forms": [
+        {
+          "name": "Mega Warrallier",
+          "changes": "battle",
+          "abilities": {
+            "primary": "Adaptability"
+          },
+          "base_stats": {
+            "hp": 85,
+            "attack": 145,
+            "defense": 95,
+            "sp_attack": 70,
+            "sp_defense": 95,
+            "speed": 130
+          }
+        }
+      ],
       "learnset": {
         "level_up": [
           {
             "level": 0,
             "move": "Hidden Spur"
-          },
-          {
-            "level": 0,
-            "move": "Aqua Jet"
           },
           {
             "level": 1,
@@ -1400,15 +1433,7 @@
             "move": "Double Hit"
           },
           {
-            "level": 21,
-            "move": "Sucker Punch"
-          },
-          {
-            "level": 27,
-            "move": "Knock Off"
-          },
-          {
-            "level": 28,
+            "level": 25,
             "move": "Spikes"
           },
           {
@@ -1420,16 +1445,20 @@
             "move": "Aerial Ace"
           },
           {
-            "level": 33,
+            "level": 35,
             "move": "Slash"
           },
           {
             "level": 38,
-            "move": "Crunch"
+            "move": "Aqua Cutter"
           },
           {
-            "level": 40,
-            "move": "Foul Play"
+            "level": 42,
+            "move": "Knock Off"
+          },
+          {
+            "level": 44,
+            "move": "Aqua Tail"
           },
           {
             "level": 48,
@@ -1440,70 +1469,84 @@
             "move": "Liquidation"
           },
           {
-            "level": 58,
-            "move": "Wave Crash"
+            "level": 54,
+            "move": "Sucker Punch"
           },
           {
-            "level": 68,
-            "move": "Aqua Tail"
+            "level": 58,
+            "move": "Wave Crash"
           }
         ],
         "tm_hm": [
           "Focus Punch",
           "Water Pulse",
           "Toxic",
+          "Hail",
           "Bulk Up",
           "Hidden Power",
+          "Sunny Day",
           "Taunt",
           "Ice Beam",
+          "Hyper Beam",
           "Protect",
           "Rain Dance",
           "Frustration",
           "Iron Tail",
-          "Brick Break",
-          "Double Team",
-          "Torment",
-          "Facade",
-          "Thief",
-          "Snatch",
-          "Cut",
-          "Surf",
-          "Strength",
-          "Rock Smash",
-          "Waterfall",
-          "Dive",
-          "Hail",
-          "Sunny Day",
-          "Hyper Beam",
           "Return",
           "Dig",
+          "Brick Break",
+          "Double Team",
           "Rock Tomb",
           "Aerial Ace",
+          "Torment",
+          "Facade",
           "Secret Power",
           "Rest",
           "Attract",
+          "Thief",
+          "Snatch",
+          "False Swipe",
           "Fling",
           "Endure",
+          "Drain Punch",
+          "Embargo",
           "Shadow Claw",
           "Payback",
           "Giga Impact",
+          "Stone Edge",
           "Swords Dance",
+          "Psych Up",
+          "Captivate",
           "Dark Pulse",
           "Rock Slide",
+          "X-Scissor",
           "Sleep Talk",
           "Natural Gift",
+          "Poison Jab",
+          "Grass Knot",
           "Swagger",
+          "Pluck",
+          "U-turn",
           "Substitute",
           "Low Sweep",
           "Foul Play",
           "Scald",
+          "Play Rough",
+          "Lunge",
+          "Smart Strike",
           "Brutal Swing",
+          "Aurora Veil",
           "Liquidation",
+          "Coaching",
           "Flip Turn",
+          "Triple Axel",
+          "Cut",
+          "Surf",
+          "Strength",
           "Whirlpool",
-          "Embargo",
-          "Captivate",
-          "Grass Knot"
+          "Rock Smash",
+          "Waterfall",
+          "Dive"
         ],
         "tutor": [
           "Aqua Tail",
@@ -1511,7 +1554,16 @@
           "Endeavor",
           "Hydro Cannon",
           "Power-Up Punch",
-          "Snarl"
+          "Snarl",
+          "Close Combat",
+          "Aqua Cutter",
+          "Aqua Jet",
+          "Assurance",
+          "Ceaseless Edge",
+          "Bulk Up",
+          "Acrobatics",
+          "Agility",
+          "Axe Kick"
         ],
         "egg": []
       },
@@ -1819,9 +1871,9 @@
         "hp": 60,
         "attack": 65,
         "defense": 60,
-        "sp_attack": 85,
+        "sp_attack": 80,
         "sp_defense": 65,
-        "speed": 85
+        "speed": 90
       },
       "ev_yield": {
         "sp_attack": 1,
@@ -1945,6 +1997,8 @@
           }
         ],
         "tm_hm": [
+          "Dragon Claw",
+          "Roar",
           "Toxic",
           "Hidden Power",
           "Sunny Day",
@@ -1953,6 +2007,7 @@
           "Rain Dance",
           "Frustration",
           "Solar Beam",
+          "Iron Tail",
           "Return",
           "Double Team",
           "Flamethrower",
@@ -1968,7 +2023,9 @@
           "Roost",
           "Endure",
           "Will-O-Wisp",
+          "Shadow Claw",
           "Captivate",
+          "Rock Slide",
           "Sleep Talk",
           "Natural Gift",
           "Swagger",
@@ -1976,13 +2033,8 @@
           "Substitute",
           "Flame Charge",
           "Dual Wingbeat",
-          "Fly",
-          "Dragon Claw",
-          "Roar",
-          "Iron Tail",
-          "Shadow Claw",
-          "Rock Slide",
           "Cut",
+          "Fly",
           "Rock Smash"
         ],
         "tutor": [
@@ -2095,7 +2147,23 @@
         "rare": null
       },
       "evolutions": [],
-      "forms": [],
+      "forms": [
+        {
+          "name": "Mega Monarkhan",
+          "changes": "battle",
+          "abilities": {
+            "primary": "No Guard"
+          },
+          "base_stats": {
+            "hp": 76,
+            "attack": 85,
+            "defense": 82,
+            "sp_attack": 138,
+            "sp_defense": 82,
+            "speed": 167
+          }
+        }
+      ],
       "learnset": {
         "level_up": [
           {
@@ -2216,6 +2284,7 @@
           }
         ],
         "tm_hm": [
+          "Dragon Claw",
           "Roar",
           "Toxic",
           "Hidden Power",
@@ -2226,7 +2295,9 @@
           "Rain Dance",
           "Frustration",
           "Solar Beam",
+          "Iron Tail",
           "Return",
+          "Shadow Ball",
           "Double Team",
           "Flamethrower",
           "Fire Blast",
@@ -2235,15 +2306,19 @@
           "Secret Power",
           "Rest",
           "Attract",
+          "Thief",
           "Steel Wing",
           "Overheat",
           "Roost",
           "Focus Blast",
           "Fling",
           "Endure",
+          "Dragon Pulse",
           "Will-O-Wisp",
+          "Shadow Claw",
           "Giga Impact",
           "Captivate",
+          "Rock Slide",
           "Sleep Talk",
           "Natural Gift",
           "Swagger",
@@ -2253,16 +2328,9 @@
           "Mystical Fire",
           "Dual Wingbeat",
           "Scorching Sands",
-          "Fly",
-          "Thief",
-          "Dragon Claw",
-          "Iron Tail",
-          "Shadow Claw",
-          "Rock Slide",
           "Cut",
-          "Rock Smash",
-          "Dragon Pulse",
-          "Shadow Ball"
+          "Fly",
+          "Rock Smash"
         ],
         "tutor": [
           "Air Slash",
@@ -2275,8 +2343,8 @@
           "Heat Wave",
           "Hurricane",
           "Sky Attack",
-          "Outrage",
-          "Thunder Punch"
+          "Defog",
+          "Dragon Cheer"
         ],
         "egg": []
       },
@@ -3138,12 +3206,8 @@
             "move": "Pluck"
           },
           {
-            "level": 20,
-            "move": "Scary Face"
-          },
-          {
             "level": 24,
-            "move": "Drill Peck"
+            "move": "Scary Face"
           },
           {
             "level": 27,
@@ -3170,12 +3234,17 @@
             "move": "Foul Play"
           },
           {
+            "level": 44,
+            "move": "Drill Peck"
+          },
+          {
             "level": 50,
             "move": "Brave Bird"
           }
         ],
         "tm_hm": [
           "Toxic",
+          "Bulk Up",
           "Hidden Power",
           "Sunny Day",
           "Taunt",
@@ -3194,11 +3263,14 @@
           "Attract",
           "Thief",
           "Steel Wing",
+          "Snatch",
           "Roost",
           "Fling",
           "Endure",
+          "Embargo",
           "Payback",
           "Giga Impact",
+          "Swords Dance",
           "Dark Pulse",
           "Sleep Talk",
           "Natural Gift",
@@ -3207,10 +3279,13 @@
           "U-turn",
           "Substitute",
           "Foul Play",
+          "Play Rough",
           "Brutal Swing",
+          "Psychic Fangs",
           "Dual Wingbeat",
           "Fly",
-          "Psychic Fangs"
+          "Strength",
+          "Rock Smash"
         ],
         "tutor": [
           "Air Slash",
@@ -3849,16 +3924,12 @@
             "move": "Sleep Powder"
           },
           {
-            "level": 23,
+            "level": 22,
             "move": "Pin Missile"
           },
           {
             "level": 25,
-            "move": "Headbutt"
-          },
-          {
-            "level": 25,
-            "move": "Struggle Bug"
+            "move": "Scary Face"
           },
           {
             "level": 26,
@@ -3875,10 +3946,6 @@
           {
             "level": 34,
             "move": "Sucker Punch"
-          },
-          {
-            "level": 35,
-            "move": "Agility"
           },
           {
             "level": 36,
@@ -3898,11 +3965,11 @@
           },
           {
             "level": 50,
-            "move": "Power Whip"
+            "move": "Grassy Glide"
           },
           {
             "level": 54,
-            "move": "Double-Edge"
+            "move": "Power Whip"
           }
         ],
         "tm_hm": [
@@ -3911,6 +3978,7 @@
           "Hidden Power",
           "Sunny Day",
           "Hyper Beam",
+          "Light Screen",
           "Protect",
           "Rain Dance",
           "Giga Drain",
@@ -3918,13 +3986,16 @@
           "Frustration",
           "Solar Beam",
           "Return",
+          "Dig",
           "Brick Break",
           "Double Team",
           "Facade",
           "Secret Power",
           "Rest",
           "Attract",
+          "Thief",
           "Energy Ball",
+          "False Swipe",
           "Endure",
           "Giga Impact",
           "Flash",
@@ -3939,12 +4010,12 @@
           "U-turn",
           "Substitute",
           "Struggle Bug",
+          "Electroweb",
+          "Sticky Web",
           "Grassy Terrain",
           "Lunge",
-          "Cut",
-          "Light Screen",
-          "Dig",
-          "Thief"
+          "Body Press",
+          "Cut"
         ],
         "tutor": [
           "Body Slam",
@@ -4501,14 +4572,16 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 38,
+        "attack": 23,
+        "defense": 30,
+        "sp_attack": 55,
+        "sp_defense": 60,
+        "speed": 72
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -8685,7 +8758,7 @@
           },
           {
             "level": 10,
-            "move": "Sweet Scent"
+            "move": "Charm"
           },
           {
             "level": 15,
@@ -8697,7 +8770,7 @@
           },
           {
             "level": 18,
-            "move": "Tail Whip"
+            "move": "Attract"
           },
           {
             "level": 19,
@@ -9597,6 +9670,10 @@
           {
             "level": 1,
             "move": "Tackle"
+          },
+          {
+            "level": 1,
+            "move": "Parting Shot"
           },
           {
             "level": 6,
@@ -11149,6 +11226,10 @@
             "move": "Agility"
           },
           {
+            "level": 42,
+            "move": "Volt Switch"
+          },
+          {
             "level": 45,
             "move": "Coil"
           },
@@ -11157,8 +11238,20 @@
             "move": "Wild Charge"
           },
           {
+            "level": 52,
+            "move": "Thunder"
+          },
+          {
             "level": 56,
             "move": "Hydro Pump"
+          },
+          {
+            "level": 60,
+            "move": "Supercell Slam"
+          },
+          {
+            "level": 64,
+            "move": "Wave Crash"
           }
         ],
         "tm_hm": [
@@ -11181,11 +11274,14 @@
           "Secret Power",
           "Rest",
           "Attract",
+          "Thief",
           "Brine",
           "Charge Beam",
           "Endure",
           "Giga Impact",
+          "Flash",
           "Thunder Wave",
+          "Captivate",
           "Sleep Talk",
           "Natural Gift",
           "Swagger",
@@ -11198,10 +11294,7 @@
           "Flip Turn",
           "Surf",
           "Whirlpool",
-          "Waterfall",
-          "Thief",
-          "Flash",
-          "Captivate"
+          "Waterfall"
         ],
         "tutor": [
           "Aqua Tail",
@@ -12526,10 +12619,10 @@
       },
       "base_stats": {
         "hp": 95,
-        "attack": 90,
+        "attack": 95,
         "defense": 125,
         "sp_attack": 55,
-        "sp_defense": 105,
+        "sp_defense": 100,
         "speed": 30
       },
       "ev_yield": {
@@ -12638,6 +12731,7 @@
           "Dig",
           "Brick Break",
           "Double Team",
+          "Sandstorm",
           "Rock Tomb",
           "Facade",
           "Secret Power",
@@ -12661,8 +12755,7 @@
           "Body Press",
           "Meteor Beam",
           "Strength",
-          "Rock Smash",
-          "Sandstorm"
+          "Rock Smash"
         ],
         "tutor": [
           "Ancient Power",
@@ -12750,18 +12843,20 @@
       "body_color": null,
       "abilities": {
         "primary": null,
-        "secondary": null,
+        "secondary": "Thick Fat",
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 115,
+        "attack": 90,
+        "defense": 70,
+        "sp_attack": 70,
+        "sp_defense": 85,
+        "speed": 70
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "hp": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -12774,6 +12869,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -13756,16 +13852,16 @@
       "weight_kg": null,
       "body_color": "brown",
       "abilities": {
-        "primary": "Bulletproof",
-        "secondary": "Shell Armor",
-        "hidden": "Steelworker"
+        "primary": "Broken Swivel",
+        "secondary": null,
+        "hidden": null
       },
       "base_stats": {
         "hp": 45,
-        "attack": 80,
-        "defense": 150,
-        "sp_attack": 100,
-        "sp_defense": 140,
+        "attack": 90,
+        "defense": 167,
+        "sp_attack": 106,
+        "sp_defense": 167,
         "speed": 25
       },
       "ev_yield": {
@@ -13812,15 +13908,15 @@
           },
           {
             "level": 1,
-            "move": "Absorb"
+            "move": "Snipe Shot"
+          },
+          {
+            "level": 1,
+            "move": "Mirror Shot"
           },
           {
             "level": 4,
             "move": "Withdraw"
-          },
-          {
-            "level": 6,
-            "move": "Razor Leaf"
           },
           {
             "level": 8,
@@ -13833,14 +13929,6 @@
           {
             "level": 10,
             "move": "Mud-Slap"
-          },
-          {
-            "level": 12,
-            "move": "Mega Drain"
-          },
-          {
-            "level": 15,
-            "move": "Aqua Cutter"
           },
           {
             "level": 16,
@@ -13860,11 +13948,7 @@
           },
           {
             "level": 24,
-            "move": "Giga Drain"
-          },
-          {
-            "level": 25,
-            "move": "Rain Dance"
+            "move": "Autotomize"
           },
           {
             "level": 32,
@@ -13879,10 +13963,6 @@
             "move": "Heavy Slam"
           },
           {
-            "level": 35,
-            "move": "Horn Leech"
-          },
-          {
             "level": 38,
             "move": "Iron Defense"
           },
@@ -13891,81 +13971,88 @@
             "move": "Metal Sound"
           },
           {
-            "level": 40,
-            "move": "Sandstorm"
-          },
-          {
             "level": 44,
             "move": "Earth Power"
-          },
-          {
-            "level": 44,
-            "move": "Energy Ball"
           },
           {
             "level": 48,
             "move": "Flash Cannon"
           },
           {
+            "level": 52,
+            "move": "Steel Roller"
+          },
+          {
+            "level": 56,
+            "move": "Shell Smash"
+          },
+          {
             "level": 60,
-            "move": "Magnet Rise"
+            "move": "Steel Beam"
+          },
+          {
+            "level": 64,
+            "move": "Electro Shot"
+          },
+          {
+            "level": 69,
+            "move": "Zap Cannon"
           }
         ],
         "tm_hm": [
-          "Toxic",
+          "Water Pulse",
+          "Hail",
+          "Bullet Seed",
           "Hidden Power",
           "Sunny Day",
+          "Ice Beam",
+          "Blizzard",
           "Hyper Beam",
           "Protect",
           "Rain Dance",
+          "Giga Drain",
           "Frustration",
+          "Solar Beam",
           "Iron Tail",
           "Earthquake",
           "Return",
           "Dig",
           "Double Team",
+          "Sludge Bomb",
           "Sandstorm",
           "Rock Tomb",
           "Facade",
           "Secret Power",
           "Rest",
           "Attract",
+          "Energy Ball",
+          "Brine",
           "Endure",
           "Giga Impact",
+          "Flash",
           "Stone Edge",
           "Gyro Ball",
+          "Swords Dance",
           "Stealth Rock",
           "Captivate",
           "Rock Slide",
           "Sleep Talk",
           "Natural Gift",
+          "Grass Knot",
           "Swagger",
           "Substitute",
           "Flash Cannon",
           "Heavy Slam",
-          "Bulldoze",
-          "High Horsepower",
-          "Body Press",
-          "Strength",
-          "Rock Smash",
-          "Water Pulse",
-          "Hail",
-          "Bullet Seed",
-          "Ice Beam",
-          "Blizzard",
-          "Giga Drain",
-          "Solar Beam",
-          "Sludge Bomb",
-          "Energy Ball",
-          "Brine",
-          "Flash",
-          "Swords Dance",
-          "Grass Knot",
           "Scald",
+          "Bulldoze",
           "Grassy Terrain",
+          "High Horsepower",
           "Liquidation",
+          "Body Press",
           "Surf",
+          "Strength",
           "Whirlpool",
+          "Rock Smash",
           "Waterfall"
         ],
         "tutor": [
@@ -14922,7 +15009,11 @@
           "Substitute",
           "Flash Cannon",
           "Heavy Slam",
+          "Low Sweep",
           "Bulldoze",
+          "Play Rough",
+          "High Horsepower",
+          "Brutal Swing",
           "Body Press",
           "Coaching",
           "Strength",
@@ -16318,7 +16409,15 @@
           },
           {
             "level": 37,
-            "move": "Amnesia"
+            "move": "Scary Face"
+          },
+          {
+            "level": 42,
+            "move": "Ice Beam"
+          },
+          {
+            "level": 48,
+            "move": "Swords Dance"
           },
           {
             "level": 50,
@@ -16327,6 +16426,10 @@
           {
             "level": 51,
             "move": "Icicle Crash"
+          },
+          {
+            "level": 55,
+            "move": "Double-Edge"
           }
         ],
         "tm_hm": [
@@ -16352,16 +16455,16 @@
           "Giga Impact",
           "Stone Edge",
           "Avalanche",
+          "Swords Dance",
           "Rock Slide",
           "Sleep Talk",
           "Swagger",
           "Substitute",
+          "Heavy Slam",
           "Bulldoze",
           "Liquidation",
           "Body Press",
-          "Rock Smash",
-          "Swords Dance",
-          "Heavy Slam"
+          "Rock Smash"
         ],
         "tutor": [
           "Body Slam",
@@ -16439,19 +16542,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Big Pecks",
+        "secondary": "Super Luck",
+        "hidden": "Hustle"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 85,
+        "attack": 120,
+        "defense": 75,
+        "sp_attack": 60,
+        "sp_defense": 65,
+        "speed": 100
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -16464,6 +16569,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -17543,19 +17649,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Ice Body",
+        "secondary": "Merciless",
+        "hidden": "Ice Scales"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 75,
+        "defense": 50,
+        "sp_attack": 55,
+        "sp_defense": 70,
+        "speed": 40
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -17740,7 +17848,7 @@
           },
           {
             "level": 49,
-            "move": "Superpower"
+            "move": "Ice Hammer"
           },
           {
             "level": 54,
@@ -17752,7 +17860,7 @@
           },
           {
             "level": 64,
-            "move": "Haze"
+            "move": "Shell Smash"
           }
         ],
         "tm_hm": [
@@ -19591,11 +19699,15 @@
             "move": "Will-O-Wisp"
           },
           {
-            "level": 61,
+            "level": 50,
             "move": "Shadow Ball"
           },
           {
-            "level": 68,
+            "level": 54,
+            "move": "Aurora Veil"
+          },
+          {
+            "level": 60,
             "move": "Blizzard"
           }
         ],
@@ -19627,6 +19739,8 @@
           "Rest",
           "Attract",
           "Snatch",
+          "Focus Blast",
+          "Energy Ball",
           "Fling",
           "Endure",
           "Will-O-Wisp",
@@ -19643,9 +19757,7 @@
           "Swagger",
           "Substitute",
           "Aurora Veil",
-          "Triple Axel",
-          "Focus Blast",
-          "Energy Ball"
+          "Triple Axel"
         ],
         "tutor": [
           "Body Slam",
@@ -21123,19 +21235,22 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Nerd out",
         "secondary": null,
-        "hidden": null
+        "hidden": "Download"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 45,
+        "defense": 50,
+        "sp_attack": 100,
+        "sp_defense": 100,
+        "speed": 70
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_attack": 1,
+        "sp_defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -21148,6 +21263,7 @@
         "rare": null
       },
       "evolutions": [],
+      "forms": [],
       "learnset": {
         "level_up": [],
         "tm_hm": [],
@@ -21310,6 +21426,14 @@
           {
             "level": 43,
             "move": "Sandstorm"
+          },
+          {
+            "level": 48,
+            "move": "Earth Power"
+          },
+          {
+            "level": 52,
+            "move": "Headlong Rush"
           }
         ],
         "tm_hm": [
@@ -21343,6 +21467,7 @@
           "Flash",
           "Stone Edge",
           "Thunder Wave",
+          "Gyro Ball",
           "Stealth Rock",
           "Psych Up",
           "Captivate",
@@ -21360,8 +21485,7 @@
           "Body Press",
           "Expanding Force",
           "Strength",
-          "Rock Smash",
-          "Gyro Ball"
+          "Rock Smash"
         ],
         "tutor": [
           "Body Slam",
@@ -21804,6 +21928,14 @@
           {
             "level": 57,
             "move": "Wild Charge"
+          },
+          {
+            "level": 60,
+            "move": "Flare Blitz"
+          },
+          {
+            "level": 67,
+            "move": "Volt Tackle"
           }
         ],
         "tm_hm": [
@@ -21814,10 +21946,12 @@
           "Protect",
           "Rain Dance",
           "Frustration",
+          "Iron Tail",
           "Thunderbolt",
           "Thunder",
           "Earthquake",
           "Return",
+          "Dig",
           "Double Team",
           "Flamethrower",
           "Fire Blast",
@@ -21842,9 +21976,7 @@
           "Electroweb",
           "Body Press",
           "Strength",
-          "Rock Smash",
-          "Iron Tail",
-          "Dig"
+          "Rock Smash"
         ],
         "tutor": [
           "Body Slam",
@@ -22220,15 +22352,19 @@
             "move": "Rock Tomb"
           },
           {
+            "level": 25,
+            "move": "Sticky Web"
+          },
+          {
             "level": 29,
             "move": "Rock Slide"
           },
           {
             "level": 32,
-            "move": "Agility"
+            "move": "Rock Polish"
           },
           {
-            "level": 33,
+            "level": 34,
             "move": "Stealth Rock"
           },
           {
@@ -22236,32 +22372,28 @@
             "move": "Rock Blast"
           },
           {
-            "level": 40,
+            "level": 42,
             "move": "X-Scissor"
           },
           {
             "level": 44,
-            "move": "Swords Dance"
-          },
-          {
-            "level": 44,
-            "move": "Pin Missile"
-          },
-          {
-            "level": 44,
-            "move": "Horn Attack"
-          },
-          {
-            "level": 45,
-            "move": "First Impression"
+            "move": "Lock-On"
           },
           {
             "level": 46,
-            "move": "Leech Life"
+            "move": "Pin Missile"
+          },
+          {
+            "level": 48,
+            "move": "First Impression"
           },
           {
             "level": 50,
-            "move": "Rock Polish"
+            "move": "Leech Life"
+          },
+          {
+            "level": 52,
+            "move": "Shell Smash"
           },
           {
             "level": 56,
@@ -22270,10 +22402,6 @@
           {
             "level": 62,
             "move": "Stone Edge"
-          },
-          {
-            "level": 75,
-            "move": "Body Slam"
           }
         ],
         "tm_hm": [
@@ -22284,6 +22412,7 @@
           "Protect",
           "Rain Dance",
           "Frustration",
+          "Iron Tail",
           "Earthquake",
           "Return",
           "Dig",
@@ -22297,7 +22426,10 @@
           "Rest",
           "Attract",
           "Thief",
+          "Steel Wing",
+          "Roost",
           "Endure",
+          "Silver Wind",
           "Giga Impact",
           "Rock Polish",
           "Stone Edge",
@@ -22313,11 +22445,16 @@
           "Substitute",
           "Struggle Bug",
           "Bulldoze",
+          "Electroweb",
+          "Sticky Web",
           "Lunge",
+          "Smart Strike",
           "Body Press",
+          "Meteor Beam",
+          "Dual Wingbeat",
+          "Fly",
           "Strength",
-          "Rock Smash",
-          "Roost"
+          "Rock Smash"
         ],
         "tutor": [
           "Ancient Power",
@@ -23161,10 +23298,6 @@
             "move": "Bounce"
           },
           {
-            "level": 43,
-            "move": "Upper Hand"
-          },
-          {
             "level": 44,
             "move": "Brick Break"
           },
@@ -23175,6 +23308,10 @@
           {
             "level": 46,
             "move": "Cross Chop"
+          },
+          {
+            "level": 50,
+            "move": "High Jump Kick"
           },
           {
             "level": 52,
@@ -24184,7 +24321,7 @@
           },
           {
             "level": 44,
-            "move": "Dig"
+            "move": "Shell Smash"
           },
           {
             "level": 48,
@@ -26205,7 +26342,8 @@
         "artist": null
       },
       "types": [
-        "Steel"
+        "Steel",
+        "Electric"
       ],
       "category": null,
       "description": null,
@@ -26213,17 +26351,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Volt Absorb",
+        "secondary": "Magnet Pull",
+        "hidden": "Stalwart"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 40,
+        "attack": 35,
+        "defense": 55,
+        "sp_attack": 65,
+        "sp_defense": 40,
+        "speed": 70
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -26295,8 +26433,8 @@
         "artist": null
       },
       "types": [
-        "Electric",
-        "Steel"
+        "Steel",
+        "Electric"
       ],
       "category": null,
       "description": null,
@@ -26409,10 +26547,6 @@
             "move": "Thunder"
           },
           {
-            "level": 51,
-            "move": "Charge"
-          },
-          {
             "level": 52,
             "move": "Light Screen"
           },
@@ -26421,7 +26555,15 @@
             "move": "Thunderbolt"
           },
           {
-            "level": 64,
+            "level": 60,
+            "move": "Brave Bird"
+          },
+          {
+            "level": 62,
+            "move": "Steel Beam"
+          },
+          {
+            "level": 67,
             "move": "Zap Cannon"
           }
         ],
@@ -26438,6 +26580,8 @@
           "Thunderbolt",
           "Thunder",
           "Return",
+          "Psychic",
+          "Shadow Ball",
           "Double Team",
           "Shock Wave",
           "Sandstorm",
@@ -26445,6 +26589,9 @@
           "Secret Power",
           "Rest",
           "Attract",
+          "Steel Wing",
+          "Roost",
+          "Focus Blast",
           "Charge Beam",
           "Endure",
           "Giga Impact",
@@ -26460,11 +26607,6 @@
           "Electroweb",
           "Eerie Impulse",
           "Electric Terrain",
-          "Steel Wing",
-          "Roost",
-          "Shadow Ball",
-          "Focus Blast",
-          "Psychic",
           "Fly"
         ],
         "tutor": [
@@ -26539,7 +26681,7 @@
       "body_color": "yellow",
       "abilities": {
         "primary": "Leaf Mane",
-        "secondary": null,
+        "secondary": "Grass Pelt",
         "hidden": "Chlorophyll"
       },
       "base_stats": {
@@ -26740,7 +26882,7 @@
       "body_color": "green",
       "abilities": {
         "primary": "Leaf Mane",
-        "secondary": null,
+        "secondary": "Grass Pelt",
         "hidden": "Chlorophyll"
       },
       "base_stats": {
@@ -28563,8 +28705,16 @@
             "move": "Crunch"
           },
           {
+            "level": 52,
+            "move": "Dual Wingbeat"
+          },
+          {
             "level": 55,
             "move": "Slash"
+          },
+          {
+            "level": 58,
+            "move": "First Impression"
           },
           {
             "level": 62,
@@ -28573,18 +28723,6 @@
           {
             "level": 63,
             "move": "Poison Fang"
-          },
-          {
-            "level": 70,
-            "move": "Brave Bird"
-          },
-          {
-            "level": 80,
-            "move": "Screech"
-          },
-          {
-            "level": 89,
-            "move": "First Impression"
           }
         ],
         "tm_hm": [
@@ -28622,11 +28760,11 @@
           "Substitute",
           "Struggle Bug",
           "Lunge",
+          "Psychic Fangs",
           "Dual Wingbeat",
           "Cut",
           "Fly",
-          "Rock Smash",
-          "Psychic Fangs"
+          "Rock Smash"
         ],
         "tutor": [
           "Air Slash",
@@ -29646,19 +29784,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Weak Armor",
         "secondary": null,
-        "hidden": null
+        "hidden": "Ice Body"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 40,
+        "attack": 50,
+        "defense": 40,
+        "sp_attack": 50,
+        "sp_defense": 40,
+        "speed": 35
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -30637,17 +30777,19 @@
       "abilities": {
         "primary": "Prankster",
         "secondary": null,
-        "hidden": null
+        "hidden": "Shadow Tag"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 10,
+        "attack": 25,
+        "defense": 25,
+        "sp_attack": 55,
+        "sp_defense": 45,
+        "speed": 105
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -30757,10 +30899,6 @@
           },
           {
             "level": 1,
-            "move": "Tail Whip"
-          },
-          {
-            "level": 1,
             "move": "Thunder Shock"
           },
           {
@@ -30801,7 +30939,7 @@
           },
           {
             "level": 30,
-            "move": "Bounce"
+            "move": "Autotomize"
           },
           {
             "level": 36,
@@ -30824,7 +30962,11 @@
             "move": "Thunder"
           },
           {
-            "level": 50,
+            "level": 56,
+            "move": "Overheat"
+          },
+          {
+            "level": 62,
             "move": "Zap Cannon"
           }
         ],
@@ -30841,10 +30983,13 @@
           "Return",
           "Double Team",
           "Shock Wave",
+          "Flamethrower",
           "Facade",
           "Secret Power",
           "Rest",
           "Attract",
+          "Overheat",
+          "Focus Blast",
           "Charge Beam",
           "Endure",
           "Giga Impact",
@@ -30856,9 +31001,6 @@
           "Electroweb",
           "Eerie Impulse",
           "Electric Terrain",
-          "Flamethrower",
-          "Overheat",
-          "Focus Blast",
           "Surf"
         ],
         "tutor": [
@@ -30939,19 +31081,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Lightning Rod",
+        "secondary": "Glowing Lure",
+        "hidden": "Marvel Scale"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 40,
+        "attack": 53,
+        "defense": 67,
+        "sp_attack": 25,
+        "sp_defense": 35,
+        "speed": 20
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -30963,7 +31107,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "wreckingboo",
+          "method": "level",
+          "level": 30
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -31023,19 +31173,22 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Lightning Rod",
+        "secondary": "Glowing Lure",
+        "hidden": "Marvel Scale"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 55,
+        "attack": 75,
+        "defense": 90,
+        "sp_attack": 40,
+        "sp_defense": 55,
+        "speed": 25
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 1,
+        "defense": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -31047,7 +31200,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "wreckingdrake",
+          "method": "trade_item",
+          "item": "Dragon Scale"
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -31109,16 +31268,16 @@
       "body_color": "red",
       "abilities": {
         "primary": "Lightning Rod",
-        "secondary": null,
-        "hidden": null
+        "secondary": "Glowing Lure",
+        "hidden": "Marvel Scale"
       },
       "base_stats": {
         "hp": 105,
         "attack": 140,
-        "defense": 90,
-        "sp_attack": 95,
+        "defense": 100,
+        "sp_attack": 90,
         "sp_defense": 65,
-        "speed": 45
+        "speed": 40
       },
       "ev_yield": {
         "attack": 3
@@ -31235,6 +31394,7 @@
           "Endure",
           "Dragon Pulse",
           "Giga Impact",
+          "Flash",
           "Captivate",
           "Rock Slide",
           "Sleep Talk",
@@ -31250,8 +31410,7 @@
           "Strength",
           "Whirlpool",
           "Rock Smash",
-          "Waterfall",
-          "Flash"
+          "Waterfall"
         ],
         "tutor": [
           "Aqua Tail",
@@ -31332,14 +31491,16 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 65,
+        "attack": 55,
+        "defense": 60,
+        "sp_attack": 87,
+        "sp_defense": 90,
+        "speed": 121
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -31495,7 +31656,7 @@
       "abilities": {
         "primary": "Aurora Dancer",
         "secondary": null,
-        "hidden": "Regenerator"
+        "hidden": null
       },
       "base_stats": {
         "hp": 130,
@@ -31570,12 +31731,12 @@
             "move": "Play Rough"
           },
           {
-            "level": 40,
-            "move": "Roost"
+            "level": 44,
+            "move": "Recover"
           },
           {
             "level": 48,
-            "move": "Iron Defense"
+            "move": "Swords Dance"
           },
           {
             "level": 54,
@@ -31586,8 +31747,12 @@
             "move": "Moonblast"
           },
           {
-            "level": 70,
+            "level": 64,
             "move": "Megahorn"
+          },
+          {
+            "level": 68,
+            "move": "Horn Leech"
           },
           {
             "level": 70,
@@ -31622,9 +31787,9 @@
           "Substitute",
           "Draining Kiss",
           "Play Rough",
+          "Aurora Veil",
           "Body Press",
-          "Fly",
-          "Aurora Veil"
+          "Fly"
         ],
         "tutor": [
           "Air Slash",
@@ -31934,12 +32099,12 @@
         "hidden": "Supreme Overlord"
       },
       "base_stats": {
-        "hp": 115,
-        "attack": 140,
-        "defense": 80,
-        "sp_attack": 90,
-        "sp_defense": 80,
-        "speed": 75
+        "hp": 120,
+        "attack": 150,
+        "defense": 100,
+        "sp_attack": 120,
+        "sp_defense": 100,
+        "speed": 90
       },
       "ev_yield": {
         "attack": 3
@@ -32083,13 +32248,13 @@
           "Swagger",
           "Substitute",
           "Foul Play",
+          "Play Rough",
           "Liquidation",
           "Body Press",
           "Flip Turn",
           "Surf",
           "Whirlpool",
-          "Waterfall",
-          "Play Rough"
+          "Waterfall"
         ],
         "tutor": [
           "Aqua Tail",
@@ -32169,12 +32334,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": 84,
-        "attack": 151,
-        "defense": 84,
-        "sp_attack": 151,
-        "sp_defense": 84,
-        "speed": 26
+        "hp": 89,
+        "attack": 181,
+        "defense": 104,
+        "sp_attack": 181,
+        "sp_defense": 104,
+        "speed": 21
       },
       "ev_yield": {
         "attack": 1,
@@ -32278,13 +32443,17 @@
             "move": "Nasty Plot"
           },
           {
+            "level": 72,
+            "move": "Poltergeist"
+          },
+          {
             "level": 85,
             "move": "Hex"
           }
         ],
         "tm_hm": [
-          "Toxic",
           "Calm Mind",
+          "Toxic",
           "Bullet Seed",
           "Hidden Power",
           "Sunny Day",
@@ -32299,6 +32468,7 @@
           "Return",
           "Psychic",
           "Shadow Ball",
+          "Brick Break",
           "Double Team",
           "Aerial Ace",
           "Facade",
@@ -32312,13 +32482,12 @@
           "Giga Impact",
           "Swords Dance",
           "Psych Up",
+          "Rock Slide",
           "Sleep Talk",
           "Grass Knot",
           "Swagger",
           "Substitute",
-          "Grassy Terrain",
-          "Brick Break",
-          "Rock Slide"
+          "Grassy Terrain"
         ],
         "tutor": [
           "Body Slam",
@@ -33396,8 +33565,8 @@
       "body_color": "white",
       "abilities": {
         "primary": "Weather Switch",
-        "secondary": "Technician",
-        "hidden": null
+        "secondary": null,
+        "hidden": "Technician"
       },
       "base_stats": {
         "hp": 120,
@@ -33706,6 +33875,10 @@
             "move": "Dazzling Gleam"
           },
           {
+            "level": 38,
+            "move": "Dream Eater"
+          },
+          {
             "level": 40,
             "move": "Misty Terrain"
           },
@@ -33852,12 +34025,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 60,
+        "attack": 65,
+        "defense": 55,
+        "sp_attack": 20,
+        "sp_defense": 30,
+        "speed": 60
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -33934,19 +34107,22 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Beast Boost",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 79,
+        "attack": 128,
+        "defense": 79,
+        "sp_attack": 128,
+        "sp_defense": 79,
+        "speed": 107
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 1,
+        "sp_attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -33961,7 +34137,12 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 48,
+            "move": "Coil"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []

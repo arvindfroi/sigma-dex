@@ -81,6 +81,7 @@ learnset:
     - {level: 28, move: Fairy Wind}
     - {level: 30, move: Wish}
     - {level: 35, move: Dazzling Gleam}
+    - {level: 38, move: Dream Eater}
     - {level: 40, move: Misty Terrain}
     - {level: 42, move: Earth Power}
     - {level: 45, move: Extrasensory}

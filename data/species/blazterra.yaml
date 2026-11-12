@@ -54,13 +54,11 @@ evolutions: []
 #     note:              # anything else worth knowing
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
-forms: []
-# forms:
-#   - name: Winter form    # what the form is called
-#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
-#     how: It turns white when it snows.   # how and when it changes form
-#     types: [Ice]         # only if they differ
-#     look: It is white with ...           # what it looks like in this form
+forms:
+  - name: Mega Monarkhan
+    changes: battle
+    abilities: {primary: No Guard}
+    base_stats: {hp: 76, attack: 85, defense: 82, sp_attack: 138, sp_defense: 82, speed: 167}
 
 # --- Moves ---
 learnset:
@@ -96,16 +94,16 @@ learnset:
     - {level: 66, move: Roost}
     - {level: 75, move: Hurricane}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
-          Frustration, Solar Beam, Return, Double Team, Flamethrower, Fire Blast,
-          Aerial Ace, Facade, Secret Power, Rest, Attract, Steel Wing, Overheat, Roost,
-          Focus Blast, Fling, Endure, Will-O-Wisp, Giga Impact, Captivate, Sleep Talk,
+  tm_hm: [Dragon Claw, Roar, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
+          Rain Dance, Frustration, Solar Beam, Iron Tail, Return, Shadow Ball, Double Team,
+          Flamethrower, Fire Blast, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief,
+          Steel Wing, Overheat, Roost, Focus Blast, Fling, Endure, Dragon Pulse,
+          Will-O-Wisp, Shadow Claw, Giga Impact, Captivate, Rock Slide, Sleep Talk,
           Natural Gift, Swagger, U-turn, Substitute, Flame Charge, Mystical Fire,
-          Dual Wingbeat, Scorching Sands, Fly, Thief, Dragon Claw, Iron Tail, Shadow Claw,
-          Rock Slide, Cut, Rock Smash, Dragon Pulse, Shadow Ball]
+          Dual Wingbeat, Scorching Sands, Cut, Fly, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Air Slash, Blast Burn, Body Slam, Brave Bird, Fire Fang, Fire Punch, Flare Blitz,
-          Heat Wave, Hurricane, Sky Attack, Outrage, Thunder Punch]
+          Heat Wave, Hurricane, Sky Attack, Defog, Dragon Cheer]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

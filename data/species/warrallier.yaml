@@ -54,20 +54,17 @@ evolutions: []
 #     note:              # anything else worth knowing
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
-forms: []
-# forms:
-#   - name: Winter form    # what the form is called
-#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
-#     how: It turns white when it snows.   # how and when it changes form
-#     types: [Ice]         # only if they differ
-#     look: It is white with ...           # what it looks like in this form
+forms:
+  - name: Mega Warrallier
+    changes: battle
+    abilities: {primary: Adaptability}
+    base_stats: {hp: 85, attack: 145, defense: 95, sp_attack: 70, sp_defense: 95, speed: 130}
 
 # --- Moves ---
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 0, move: Hidden Spur}
-    - {level: 0, move: Aqua Jet}
     - {level: 1, move: Flip Turn}
     - {level: 1, move: Growl}
     - {level: 1, move: Leer}
@@ -87,29 +84,32 @@ learnset:
     - {level: 15, move: Bite}
     - {level: 16, move: Scary Face}
     - {level: 20, move: Double Hit}
-    - {level: 21, move: Sucker Punch}
-    - {level: 27, move: Knock Off}
-    - {level: 28, move: Spikes}
+    - {level: 25, move: Spikes}
     - {level: 31, move: Focus Energy}
     - {level: 33, move: Aerial Ace}
-    - {level: 33, move: Slash}
-    - {level: 38, move: Crunch}
-    - {level: 40, move: Foul Play}
+    - {level: 35, move: Slash}
+    - {level: 38, move: Aqua Cutter}
+    - {level: 42, move: Knock Off}
+    - {level: 44, move: Aqua Tail}
     - {level: 48, move: Thrash}
     - {level: 51, move: Liquidation}
+    - {level: 54, move: Sucker Punch}
     - {level: 58, move: Wave Crash}
-    - {level: 68, move: Aqua Tail}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Focus Punch, Water Pulse, Toxic, Bulk Up, Hidden Power, Taunt, Ice Beam, Protect,
-          Rain Dance, Frustration, Iron Tail, Brick Break, Double Team, Torment, Facade,
-          Thief, Snatch, Cut, Surf, Strength, Rock Smash, Waterfall, Dive, Hail, Sunny Day,
-          Hyper Beam, Return, Dig, Rock Tomb, Aerial Ace, Secret Power, Rest, Attract,
-          Fling, Endure, Shadow Claw, Payback, Giga Impact, Swords Dance, Dark Pulse,
-          Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Low Sweep, Foul Play,
-          Scald, Brutal Swing, Liquidation, Flip Turn, Whirlpool, Embargo, Captivate,
-          Grass Knot]
+  tm_hm: [Focus Punch, Water Pulse, Toxic, Hail, Bulk Up, Hidden Power, Sunny Day, Taunt,
+          Ice Beam, Hyper Beam, Protect, Rain Dance, Frustration, Iron Tail, Return, Dig,
+          Brick Break, Double Team, Rock Tomb, Aerial Ace, Torment, Facade, Secret Power,
+          Rest, Attract, Thief, Snatch, False Swipe, Fling, Endure, Drain Punch, Embargo,
+          Shadow Claw, Payback, Giga Impact, Stone Edge, Swords Dance, Psych Up, Captivate,
+          Dark Pulse, Rock Slide, X-Scissor, Sleep Talk, Natural Gift, Poison Jab,
+          Grass Knot, Swagger, Pluck, U-turn, Substitute, Low Sweep, Foul Play, Scald,
+          Play Rough, Lunge, Smart Strike, Brutal Swing, Aurora Veil, Liquidation, Coaching,
+          Flip Turn, Triple Axel, Cut, Surf, Strength, Whirlpool, Rock Smash, Waterfall,
+          Dive]
   # moves a move tutor can teach it
-  tutor: [Aqua Tail, Body Slam, Endeavor, Hydro Cannon, Power-Up Punch, Snarl]
+  tutor: [Aqua Tail, Body Slam, Endeavor, Hydro Cannon, Power-Up Punch, Snarl, Close Combat,
+          Aqua Cutter, Aqua Jet, Assurance, Ceaseless Edge, Bulk Up, Acrobatics, Agility,
+          Axe Kick]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

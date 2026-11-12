@@ -82,10 +82,10 @@ learnset:
     - {level: 7, move: Acid}
     - {level: 8, move: Clear Smog}
     - {level: 8, move: Wrap}
-    - {level: 10, move: Sweet Scent}
+    - {level: 10, move: Charm}
     - {level: 15, move: Baby-Doll Eyes}
     - {level: 15, move: Draining Kiss}
-    - {level: 18, move: Tail Whip}
+    - {level: 18, move: Attract}
     - {level: 19, move: Moonlight}
     - {level: 23, move: Safeguard}
     - {level: 25, move: Acid Spray}

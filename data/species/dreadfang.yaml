@@ -82,19 +82,18 @@ learnset:
     - {level: 44, move: Swords Dance}
     - {level: 44, move: Agility}
     - {level: 48, move: Crunch}
+    - {level: 52, move: Dual Wingbeat}
     - {level: 55, move: Slash}
+    - {level: 58, move: First Impression}
     - {level: 62, move: Roost}
     - {level: 63, move: Poison Fang}
-    - {level: 70, move: Brave Bird}
-    - {level: 80, move: Screech}
-    - {level: 89, move: First Impression}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
           Frustration, Earthquake, Return, Dig, Brick Break, Double Team, Aerial Ace,
           Facade, Secret Power, Rest, Attract, Thief, Steel Wing, Roost, Endure,
           Giga Impact, Swords Dance, Captivate, X-Scissor, Sleep Talk, Natural Gift,
-          Poison Jab, Swagger, U-turn, Substitute, Struggle Bug, Lunge, Dual Wingbeat, Cut,
-          Fly, Rock Smash, Psychic Fangs]
+          Poison Jab, Swagger, U-turn, Substitute, Struggle Bug, Lunge, Psychic Fangs,
+          Dual Wingbeat, Cut, Fly, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Air Slash, Brave Bird, Bug Bite, Hurricane, Sky Attack]
   egg: []                # only needed for the first stage of an evolution line
