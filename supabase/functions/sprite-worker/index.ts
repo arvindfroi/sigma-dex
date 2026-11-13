@@ -7,6 +7,8 @@ import { createClient } from "jsr:@supabase/supabase-js@2";
 const MAX_BYTES = 3 * 1024 * 1024;
 const FILES = ["raw_front", "raw_back", "front", "back", "preview", "icon"];
 const NEEDED = ["front", "back"];
+// Days an unpicked try keeps its raw picture in the storage (prune_raws). Picking a try never needs its raw.
+const RAW_DAYS = 1;
 
 function reply(status: number, body: unknown) {
   return new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
@@ -41,6 +43,28 @@ Deno.serve(async (req: Request) => {
         removed += gone?.length ?? 0;
       }
       return reply(200, { orphans: paths.length, removed });
+    }
+
+    // Housekeeping (2026-11-13): raws of tries nobody picked leave the storage once the Legion's backup holds them
+    // (the free plan holds 1.1 GB and raws were 1.9 GB of it; the website never shows a raw). The backup sends
+    // `have` = {path: bytes} of the raws it holds; of the raws raw_prune_candidates allows, only those held at the
+    // same size are removed. The path stays in sprite_tries, the picture stays in D:\SigmaBackup\files\<path>.
+    if (action === "prune_raws") {
+      let have: Record<string, number>;
+      try { have = JSON.parse(String(form.get("have") ?? "{}")); } catch (_e) { return reply(400, { message: "have is not JSON" }); }
+      const { data, error } = await supabase.rpc("raw_prune_candidates", { p_days: RAW_DAYS });
+      if (error) return reply(500, { message: error.message });
+      const rows = (data ?? []) as { path: string; bytes: number }[];
+      const safe = rows.filter((r) => typeof have[r.path] === "number" && have[r.path] === Number(r.bytes));
+      let removed = 0, bytes = 0;
+      for (let i = 0; i < safe.length; i += 100) {
+        const batch = safe.slice(i, i + 100);
+        const { data: gone, error: removeError } = await supabase.storage.from("art").remove(batch.map((r) => r.path));
+        if (removeError) return reply(500, { message: removeError.message, removed, bytes });
+        const goneNames = new Set((gone ?? []).map((g: { name: string }) => g.name));
+        for (const r of batch) if (goneNames.has(r.path)) { removed += 1; bytes += Number(r.bytes); }
+      }
+      return reply(200, { allowed: rows.length, backed_up: safe.length, removed, bytes, days: RAW_DAYS });
     }
 
     // Seconds per try by stage, measured by the worker: the website shows how long things take (studio v3).

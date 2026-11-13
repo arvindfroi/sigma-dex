@@ -12,12 +12,15 @@ last run (state.json remembers what the last run saw). Three parts, none of whic
   Old days are kept.
 - files/<path>: every picture the database points to in the "art" storage (uploads, Lost and found, studio tries).
   A picture is downloaded once; nothing here is overwritten or removed.
+Then the raws of unpicked studio tries that are safely here are removed from the website storage (prune_raws): the
+free plan holds 1.1 GB, so this backup is where those raws live. Only that ever deletes, and only on the website.
 A summary of each run is appended to backup.log. Restoring: docs/BACKUP.md.
 """
 import datetime
 import gzip
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -103,6 +106,29 @@ def backup_git(target):
     return git("rev-parse", "refs/heads/main", cwd=mirror).strip()[:7]
 
 
+def prune_raws(base, target):
+    """Raws of unpicked studio tries leave the website storage once they are here (2026-11-13: the free plan holds
+    1.1 GB and raws were 1.9 GB of 2.2). Sends every raw this backup holds with its size to the sprite-worker
+    function, which removes only those it allows (unpicked, older than a day) and finds here at the same size. Needs
+    the worker key (SIGMA_WORKER_KEY_FILE, as the sprite worker); without it nothing is removed."""
+    key_file = Path(os.environ.get("SIGMA_WORKER_KEY_FILE", r"D:\LocalAI\sigma-worker\worker.key"))
+    if not key_file.exists():
+        return "raws not pruned (no worker key at %s)" % key_file
+    files = target / "files"
+    have = {"/".join(p.relative_to(files).parts): p.stat().st_size for p in (files / "tries").rglob("*-raw.png")}
+    body = urllib.parse.urlencode({"action": "prune_raws", "key": key_file.read_text(encoding="utf-8").strip(),
+                                   "have": json.dumps(have)}).encode()
+    request = urllib.request.Request(base + "/functions/v1/sprite-worker", body,
+                                     {"Content-Type": "application/x-www-form-urlencoded", "User-Agent": "sigma-dex-backup"})
+    try:
+        with urllib.request.urlopen(request, timeout=300) as response:
+            result = json.loads(response.read())
+    except urllib.error.HTTPError as error:
+        raise RuntimeError("the website said %s: %s" % (error.code, error.read()[:200].decode("utf-8", "replace")))
+    return "raws moved off the website storage: %d (%.0f MB; %d allowed, %d held here)" % (
+        result.get("removed", 0), result.get("bytes", 0) / 1024 ** 2, result.get("allowed", 0), result.get("backed_up", 0))
+
+
 def main():
     if len(sys.argv) < 2:
         sys.exit(__doc__)
@@ -168,6 +194,12 @@ def main():
         new += 1
     lines.append("pictures: %d known, %d new, %d failed%s" % (len(found), new, failed,
                  "" if free_gb >= STOP_FREE_GB else " (none downloaded: the disk is nearly full)"))
+    try:
+        pruned = prune_raws(base, target)
+        if pruned:
+            lines.append(pruned)
+    except Exception as error:
+        problems.append("raws: %s" % error)
     lines.append("%.1f GB free" % (shutil.disk_usage(target).free / 1024 ** 3))
     if not problems:
         state_file.write_text(json.dumps({"tables": dict(state.get("tables", {}), **sums), "last_run": day}, indent=1), encoding="utf-8")
