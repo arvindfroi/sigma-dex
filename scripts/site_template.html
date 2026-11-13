@@ -3223,10 +3223,14 @@ function openCharacter(c, tab) {
     // Onboarding for the owner: 1 a name, 2 a picture, 3 the story team (Arvind, 2026-11-12)
     const nameBox = isMine ? h("input", {type: "text", maxlength: 10, value: cl.name || "", placeholder: "Trainer name (max 10)", "aria-label": "Trainer name", style: "max-width:180px"}) : null;
     if (nameBox) nameBox.addEventListener("change", () => { cl.name = nameBox.value.trim(); saveClaim(cl.by, cl.slots, cl.story); });
+    // Step 1 is who you are (Discord name); claiming without a name starts the onboarding there (Arvind, 2026-11-13)
+    const restSteps = live => [
+      h("div", {class: "storyline"}, h("span", {class: "badge" + (live && cl.name ? " done" : "")}, "2"), "Give your trainer a name", live ? ": " : "", live ? nameBox : null),
+      h("div", {class: "storyline"}, h("span", {class: "badge" + (live && (trainerPics.get(c.id) || []).length ? " done" : "")}, "3"), "Add a picture or drawing under ", live ? h("button", {type: "button", class: "linkish", onclick: () => openCharacter(c, "picture")}, "PICTURE") : "PICTURE"),
+      h("div", {class: "storyline"}, h("span", {class: "badge" + (live && ((cl.story || {}).lines || []).length ? " done" : "")}, "4"), "Build your story team under ", live ? h("button", {type: "button", class: "linkish", onclick: () => openCharacter(c, "teams")}, "TEAMS") : "TEAMS")];
     const steps = isMine ? h("div", {class: "box"}, h("h3", {style: "margin-top:0"}, "Make this trainer yours"),
-      h("div", {class: "storyline"}, h("span", {class: "badge" + (cl.name ? " done" : "")}, "1"), "Give your trainer a name: ", nameBox),
-      h("div", {class: "storyline"}, h("span", {class: "badge" + ((trainerPics.get(c.id) || []).length ? " done" : "")}, "2"), "Add a picture or drawing under ", h("button", {type: "button", class: "linkish", onclick: () => openCharacter(c, "picture")}, "PICTURE")),
-      h("div", {class: "storyline"}, h("span", {class: "badge" + (((cl.story || {}).lines || []).length ? " done" : "")}, "3"), "Build your story team under ", h("button", {type: "button", class: "linkish", onclick: () => openCharacter(c, "teams")}, "TEAMS"))) : null;
+      h("div", {class: "storyline"}, h("span", {class: "badge done"}, "1"), "You: " + person(cl.by)),
+      restSteps(true)) : null;
     page = h("div", {}, steps,
       h("div", {class: "factrows"},
         h("div", {}, h("span", {}, "Role"), c.group),
@@ -3237,21 +3241,27 @@ function openCharacter(c, tab) {
         h("div", {}, h("span", {}, "Battles"), isMine ? String(c.battles || 0) + " (each needs its own team): " + sideCount(c) : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
         h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (cl.name ? " (as " + cl.name + ")" : "") : h("span", {class: "badge avail"}, "available"))),
       CLAIMS_OPEN ? (!cl.by ? (() => {
-          // No name yet: ask for it right here, not only at the top of the page behind this window (the button seemed dead, 2026-11-13)
-          const claimNote = h("div", {class: "hint", role: "status", style: "margin:6px 0 0"});
-          const nameAsk = me() ? null : h("input", {type: "text", maxlength: 40, placeholder: "Your Discord name", autocomplete: "nickname", "aria-label": "Your Discord name", style: "max-width:220px;margin-right:6px"});
-          const claim = () => {
-            if (nameAsk) {
-              const n = nameAsk.value.trim();
-              if (!n) { claimNote.textContent = "Write your Discord name first, so the group knows who claimed it."; nameAsk.focus(); return; }
-              const box = document.getElementById("me"); box.value = n; remember.set("editor", n);
-            }
-            claimNote.textContent = "Saving...";
-            saveClaim(person(me()), {}).then(() => { if (status.textContent && status.textContent !== "Saving...") claimNote.textContent = status.textContent; });
+          const area = h("div", {});
+          const intro = h("div", {class: "sub"}, "Claiming means: you become this trainer in the game. You give it a name, a picture and your own teams for its " + roughBattles(c.battles || 0) + ". You can give it back any time.");
+          const claimNow = note => { note.textContent = "Saving..."; saveClaim(person(me()), {}).then(() => { if (status.textContent && status.textContent !== "Saving...") note.textContent = status.textContent; }); };
+          const askName = () => {     // no name yet: the onboarding starts with who you are, and the site remembers it
+            const note = h("div", {class: "hint", role: "status", style: "margin:6px 0 0"});
+            const box = h("input", {type: "text", maxlength: 40, placeholder: "Your Discord name", autocomplete: "nickname", "aria-label": "Your Discord name", style: "max-width:200px"});
+            const go = () => {
+              const n = box.value.trim();
+              if (!n) { note.textContent = "Write your Discord name, so the group knows who this trainer is."; box.focus(); return; }
+              const top = document.getElementById("me"); top.value = n; remember.set("editor", n);
+              claimNow(note);
+            };
+            box.addEventListener("keydown", ev => { if (ev.key === "Enter") go(); });
+            area.replaceChildren(h("div", {class: "box"}, h("h3", {style: "margin-top:0"}, "Make this trainer yours"),
+              h("div", {class: "storyline"}, h("span", {class: "badge"}, "1"), "Who are you? ", box, " ", h("button", {type: "button", class: "primary", onclick: go}, "Claim")),
+              note, restSteps(false)));
+            box.focus();
           };
-          if (nameAsk) nameAsk.addEventListener("keydown", ev => { if (ev.key === "Enter") claim(); });
-          return h("div", {}, h("div", {class: "sub"}, "Claiming means: you become this trainer in the game. You give it a name, a picture and your own teams for its " + roughBattles(c.battles || 0) + ". You can give it back any time."),
-            nameAsk, h("button", {type: "button", class: "primary", onclick: claim}, "Claim this trainer"), claimNote);
+          const note = h("div", {class: "hint", role: "status", style: "margin:6px 0 0"});
+          area.replaceChildren(intro, h("button", {type: "button", class: "primary", onclick: () => me() ? claimNow(note) : askName()}, "Claim this trainer"), note);
+          return area;
         })()
         : isMine ? h("button", {type: "button", onclick: () => saveClaim("", {})}, "Give it back") : null)
         : h("div", {class: "notice info"}, "Claiming opens soon."));
