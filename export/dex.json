@@ -1343,10 +1343,10 @@
           "base_stats": {
             "hp": 85,
             "attack": 145,
-            "defense": 95,
+            "defense": 90,
             "sp_attack": 70,
-            "sp_defense": 95,
-            "speed": 130
+            "sp_defense": 90,
+            "speed": 140
           }
         }
       ],
@@ -11377,12 +11377,12 @@
         "hidden": "Defiant"
       },
       "base_stats": {
-        "hp": 90,
-        "attack": 105,
-        "defense": 95,
-        "sp_attack": 65,
-        "sp_defense": 80,
-        "speed": 45
+        "hp": 80,
+        "attack": 85,
+        "defense": 75,
+        "sp_attack": 50,
+        "sp_defense": 70,
+        "speed": 40
       },
       "ev_yield": {
         "attack": 1
@@ -11413,14 +11413,6 @@
           {
             "level": 0,
             "move": "Mortal Spin"
-          },
-          {
-            "level": 0,
-            "move": "Acid Armor"
-          },
-          {
-            "level": 0,
-            "move": "poison"
           },
           {
             "level": 1,
@@ -11607,17 +11599,17 @@
       "weight_kg": 42,
       "body_color": "red",
       "abilities": {
-        "primary": "XL and Deep fried",
+        "primary": "Pickle Armor",
         "secondary": "Chlorophyll",
-        "hidden": null
+        "hidden": "Defiant"
       },
       "base_stats": {
-        "hp": 110,
-        "attack": 120,
-        "defense": 110,
-        "sp_attack": 75,
-        "sp_defense": 90,
-        "speed": 55
+        "hp": 95,
+        "attack": 110,
+        "defense": 95,
+        "sp_attack": 65,
+        "sp_defense": 85,
+        "speed": 50
       },
       "ev_yield": {
         "attack": 2
@@ -13865,9 +13857,9 @@
       },
       "base_stats": {
         "hp": 45,
-        "attack": 120,
+        "attack": 121,
         "defense": 167,
-        "sp_attack": 143,
+        "sp_attack": 142,
         "sp_defense": 167,
         "speed": 25
       },
@@ -13954,11 +13946,11 @@
             "move": "Screech"
           },
           {
-            "level": 24,
+            "level": 28,
             "move": "Autotomize"
           },
           {
-            "level": 32,
+            "level": 30,
             "move": "Stealth Rock"
           },
           {

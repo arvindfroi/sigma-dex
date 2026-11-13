@@ -56,8 +56,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 45 | [Chillalit](data/species/chillalit.yaml) | Fire / Water | Swift Swim, Solar Power, Battle Bond (H) | 495 |  | 72% |
 | 46 | [Zapana](data/species/zapana.yaml) | Water / Electric | Swift Swim, Static, Eelevate (H) | 287 | Ampeel (Lv 25) | 72% |
 | 47 | [Ampeel](data/species/ampeel.yaml) | Water / Electric | Swift Swim, Static, Eelevate (H) | 487 |  | 72% |
-| 48 | [Tomaternader](data/species/tomaterdander.yaml) | Poison / Grass | Pickle Armor, Chlorophyll, Defiant (H) | 480 | Crappy Meal (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 76% |
-| 49 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass | XL and Deep fried, Chlorophyll | 560 |  | 76% |
+| 48 | [Tomaternader](data/species/tomaterdander.yaml) | Poison / Grass | Pickle Armor, Chlorophyll, Defiant (H) | 400 | Crappy Meal (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 76% |
+| 49 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass | Pickle Armor, Chlorophyll, Defiant (H) | 500 |  | 76% |
 | 50 | [Beatld](data/species/beatld.yaml) | Bug / Psychic | Curious Medicine, Tangled Feet, Psychic Surge (H) | 420 |  | 55% |
 | 51 | [Fleuroom](data/species/fleuroom.yaml) | Grass / Fairy | Effect Spore, Aroma Veil, Magic Bounce (H) | 295 | Sporeshade (Shiny Stown) | 62% |
 | 52 | [Sporeshade](data/species/fleuroom-utvikling.yaml) | Grass / Fairy | Effect Spore, Aroma Veil, Magic Bounce (H) | 460 |  | 62% |

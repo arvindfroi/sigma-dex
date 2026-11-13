@@ -131,7 +131,7 @@ abilities:
   designer: Emil
 - id: pickle-armor
   name: Pickle Armor
-  description: It's sour coating deters any healing effects of any attack by opponent
+  description: Opponents can’t heal
   effect: 'It''s sour coating deters any healing effects of any attack by opponent
 
     Opponent cannot heal from attacking this pokemon'

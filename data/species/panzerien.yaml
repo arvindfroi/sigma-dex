@@ -23,9 +23,9 @@ abilities:
 
 base_stats:              # each 1-255
   hp: 45
-  attack: 120
+  attack: 121
   defense: 167
-  sp_attack: 143
+  sp_attack: 142
   sp_defense: 167
   speed: 25
 
@@ -81,8 +81,8 @@ learnset:
     - {level: 16, move: Gyro Ball}
     - {level: 20, move: Rollout}
     - {level: 24, move: Screech}
-    - {level: 24, move: Autotomize}
-    - {level: 32, move: Stealth Rock}
+    - {level: 28, move: Autotomize}
+    - {level: 30, move: Stealth Rock}
     - {level: 32, move: Seed Bomb}
     - {level: 34, move: Heavy Slam}
     - {level: 38, move: Iron Defense}

@@ -58,7 +58,7 @@ forms:
   - name: Mega Warrallier
     changes: battle
     abilities: {primary: Adaptability}
-    base_stats: {hp: 85, attack: 145, defense: 95, sp_attack: 70, sp_defense: 95, speed: 130}
+    base_stats: {hp: 85, attack: 145, defense: 90, sp_attack: 70, sp_defense: 90, speed: 140}
 
 # --- Moves ---
 learnset:
