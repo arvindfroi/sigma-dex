@@ -3236,8 +3236,23 @@ function openCharacter(c, tab) {
         c.rule ? h("div", {}, h("span", {}, "Rule"), c.rule) : null,
         h("div", {}, h("span", {}, "Battles"), isMine ? String(c.battles || 0) + " (each needs its own team): " + sideCount(c) : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
         h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (cl.name ? " (as " + cl.name + ")" : "") : h("span", {class: "badge avail"}, "available"))),
-      CLAIMS_OPEN ? (!cl.by ? h("div", {}, h("div", {class: "sub"}, "Claiming means: you become this trainer in the game. You give it a name, a picture and your own teams for its " + roughBattles(c.battles || 0) + ". You can give it back any time."),
-          h("button", {type: "button", class: "primary", onclick: () => saveClaim(mine, {})}, "Claim this trainer"))
+      CLAIMS_OPEN ? (!cl.by ? (() => {
+          // No name yet: ask for it right here, not only at the top of the page behind this window (the button seemed dead, 2026-11-13)
+          const claimNote = h("div", {class: "hint", role: "status", style: "margin:6px 0 0"});
+          const nameAsk = me() ? null : h("input", {type: "text", maxlength: 40, placeholder: "Your Discord name", autocomplete: "nickname", "aria-label": "Your Discord name", style: "max-width:220px;margin-right:6px"});
+          const claim = () => {
+            if (nameAsk) {
+              const n = nameAsk.value.trim();
+              if (!n) { claimNote.textContent = "Write your Discord name first, so the group knows who claimed it."; nameAsk.focus(); return; }
+              const box = document.getElementById("me"); box.value = n; remember.set("editor", n);
+            }
+            claimNote.textContent = "Saving...";
+            saveClaim(person(me()), {}).then(() => { if (status.textContent && status.textContent !== "Saving...") claimNote.textContent = status.textContent; });
+          };
+          if (nameAsk) nameAsk.addEventListener("keydown", ev => { if (ev.key === "Enter") claim(); });
+          return h("div", {}, h("div", {class: "sub"}, "Claiming means: you become this trainer in the game. You give it a name, a picture and your own teams for its " + roughBattles(c.battles || 0) + ". You can give it back any time."),
+            nameAsk, h("button", {type: "button", class: "primary", onclick: claim}, "Claim this trainer"), claimNote);
+        })()
         : isMine ? h("button", {type: "button", onclick: () => saveClaim("", {})}, "Give it back") : null)
         : h("div", {class: "notice info"}, "Claiming opens soon."));
   } else if (tab === "teams") {
