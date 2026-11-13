@@ -36,6 +36,17 @@ moves:
   effect: This move is super effective on Dark types.
   similar_to: Freeze-Dry
   designer: Emil
+- id: gun
+  name: GUN!?
+  type: Steel
+  category: special
+  power: 250
+  accuracy: 90
+  pp: 1
+  target: one opponent
+  effect: A desperate last-ditch shot. Always lands a critical hit, but only usable once per battle and
+    only when the user is at 50% HP or less.
+  designer: Emil
 - id: heat-laser-gaze
   name: Heat Laser Gaze
   type: Steel

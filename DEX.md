@@ -68,7 +68,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 57 | [Sigmanian Unown](data/species/bulgarian-unown.yaml) | Electric / Psychic | Battery | 336 | Unknighted (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 69% |
 | 58 | [Unknighted](data/species/united.yaml) | Electric / Psychic | Battery | 467 |  | 69% |
 | 59 | [Hairyen](data/species/hairyen.yaml) | Grass / Water | Diver, Tangling Hair, Rain Dish (H) | 310 | Panzerien (Trade holding Metal Coat) | 69% |
-| 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Broken Swivel | 600 |  | 69% |
+| 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Broken Swivel | 667 |  | 69% |
 | 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel | Innards Out, Corrosion, Run Away (H) | 305 | Nuclobyl (Lv 40) | 72% |
 | 62 | [Nuclobyl](data/species/nuclobyl.yaml) | Poison / Steel | Innards Out, Corrosion, Filter (H) | 525 |  | 72% |
 | 63 | [Julius](data/species/julius.yaml) | Fighting / Normal | Sheer Force, Rocky Payload, Gorilla Tactics (H) | 405 | Conqrilla (Trade holding Metal Coat), Gorambe (Friendship) | 59% |
@@ -112,7 +112,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 101 | [Blazlothku](data/species/slothbaby-utviklet.yaml) | Fire / Fighting | Sloth Combat | 540 |  | 59% |
 | 102 | [Terratyson](data/species/gaiafinn.yaml) | Ground / Fighting | Iron Fist, Sand Force, Sand Rush (H) | 508 |  | 59% |
 | 103 | [Obsidog](data/species/obsidog.yaml) | Dark / Rock | Guard Dog, Intimidate, Rough Skin (H) | 340 | Geronimok (Dusk Stone) | 59% |
-| 104 | [Geronimok](data/species/obsidog-utvikling.yaml) | Dark / Rock | Guard Dog, Dark Aura, Rough Skin (H) | 555 |  | 76% |
+| 104 | [Geronimok](data/species/obsidog-utvikling.yaml) | Dark / Rock | Guard Dog, Intimidate, Rough Skin (H) | 555 |  | 76% |
 | 105 | [Slamquake](data/species/slamquake.yaml) | Steel / Ground | Sand Force, Steam Engine, Flash Fire (H) | 500 |  | 62% |
 | 106 | [Limulk](data/species/limulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 369 | Mortbulk (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 59% |
 | 107 | [Mortbulk](data/species/mortbulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 490 |  | 59% |
@@ -166,7 +166,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 155 | *open slot* | | | | | |
 | 156 | *open slot* | | | | | |
 | 157 | *open slot* | | | | | |
-| 158 | [Whaldrill0](data/species/whaldrill0.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 250 |  | 48% |
+| 158 | [Whaldrill0](data/species/whaldrill0.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 250 | Narburr (Lv 25) | 48% |
 | 159 | [Narburr](data/species/whaldrill.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 450 | Whaldrill (Lv 45) | 55% |
 | 160 | [Whaldrill](data/species/whaldrill3.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 530 |  | 55% |
 | 161 | *open slot* | | | | | |
@@ -258,7 +258,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 247 | *open slot* | | | | | |
 | 248 | *open slot* | | | | | |
 | 249 | *open slot* | | | | | |
-| 250 | [Meowthwo](data/species/meowthwo.yaml) | Normal |  | 290 |  | 17% |
+| 250 | [Meowthwo](data/species/meowthwo.yaml) | Normal | Third Amendment | 300 |  | 28% |
 | 251 | *open slot* | | | | | |
 | 252 | *open slot* | | | | | |
 | 253 | *open slot* | | | | | |

@@ -153,6 +153,10 @@ abilities:
     moves that can be used during sleep, such as Sleep Talk and Snore, or if the Pokémon is put to sleep
     by Rest, which guarantees a short nap.
   designer: Emil
+- id: third-amendment
+  name: Third Amendment
+  description: When hp is below half the user changes forms
+  effect: When hp is below half the user changes forms
 - id: toxic-voice
   name: Toxic Voice
   description: Sound-based moves become Poison type. They may also badly poison the t

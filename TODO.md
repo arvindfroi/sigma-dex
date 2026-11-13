@@ -17,7 +17,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | weight | 31 / 161 |
 | Dex page | body color | 143 / 161 |
 | Stats | base stats | 157 / 161 |
-| Stats | ability | 155 / 161 |
+| Stats | ability | 156 / 161 |
 | Stats | EV yield | 154 / 161 |
 | Stats | catch rate | 143 / 161 |
 | Stats | base exp | 143 / 161 |
@@ -26,8 +26,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Breeding | gender | 143 / 161 |
 | Breeding | egg groups | 143 / 161 |
 | Breeding | egg cycles | 143 / 161 |
-| Moves | level-up moves | 145 / 161 |
-| Moves | TM/HM moves | 144 / 161 |
+| Moves | level-up moves | 146 / 161 |
+| Moves | TM/HM moves | 145 / 161 |
 | Location | encounters | 2 / 161 |
 | Design | concept | 28 / 161 |
 | Art | concept art | 152 / 161 |
@@ -43,8 +43,8 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 80 / 161 |
-| DS back sprite 80x80 | 80 / 161 |
+| DS front sprite 80x80 | 78 / 161 |
+| DS back sprite 80x80 | 79 / 161 |
 | DS icon 32x32 | 80 / 161 |
 
 ## Open dex slots (93)
@@ -1186,12 +1186,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #250 [Meowthwo](data/species/meowthwo.yaml) - 17%
+### #250 [Meowthwo](data/species/meowthwo.yaml) - 28%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 

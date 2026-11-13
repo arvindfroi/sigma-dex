@@ -13865,9 +13865,9 @@
       },
       "base_stats": {
         "hp": 45,
-        "attack": 90,
+        "attack": 120,
         "defense": 167,
-        "sp_attack": 106,
+        "sp_attack": 143,
         "sp_defense": 167,
         "speed": 25
       },
@@ -23966,7 +23966,7 @@
       "body_color": "black",
       "abilities": {
         "primary": "Guard Dog",
-        "secondary": "Dark Aura",
+        "secondary": "Intimidate",
         "hidden": "Rough Skin"
       },
       "base_stats": {
@@ -34452,7 +34452,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "whaldrill",
+          "method": "level",
+          "level": 25
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [
@@ -35722,12 +35728,12 @@
         "hidden": "Intimidate"
       },
       "base_stats": {
-        "hp": 95,
-        "attack": 88,
+        "hp": 90,
+        "attack": 85,
         "defense": 100,
         "sp_attack": 130,
-        "sp_defense": 85,
-        "speed": 102
+        "sp_defense": 90,
+        "speed": 105
       },
       "ev_yield": {
         "sp_attack": 3
@@ -36010,7 +36016,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Third Amendment",
         "secondary": null,
         "hidden": null
       },
@@ -36020,7 +36026,7 @@
         "defense": 45,
         "sp_attack": 20,
         "sp_defense": 45,
-        "speed": 40
+        "speed": 50
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -36035,12 +36041,127 @@
         "rare": null
       },
       "evolutions": [],
-      "forms": [],
+      "forms": [
+        {
+          "name": "Third Amendment",
+          "changes": "looks"
+        }
+      ],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Mega Punch"
+          },
+          {
+            "level": 1,
+            "move": "Mega Kick"
+          },
+          {
+            "level": 1,
+            "move": "Double Kick"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 1,
+            "move": "GUN!?"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 5,
+            "move": "Wake-Up Slap"
+          },
+          {
+            "level": 8,
+            "move": "Sand Attack"
+          },
+          {
+            "level": 12,
+            "move": "Bite"
+          },
+          {
+            "level": 16,
+            "move": "Double Hit"
+          },
+          {
+            "level": 20,
+            "move": "Double Kick"
+          },
+          {
+            "level": 24,
+            "move": "Headbutt"
+          },
+          {
+            "level": 26,
+            "move": "Flail"
+          },
+          {
+            "level": 27,
+            "move": "Rest"
+          },
+          {
+            "level": 27,
+            "move": "Yawn"
+          },
+          {
+            "level": 28,
+            "move": "Take Down"
+          },
+          {
+            "level": 32,
+            "move": "Body Slam"
+          },
+          {
+            "level": 36,
+            "move": "Thief"
+          },
+          {
+            "level": 40,
+            "move": "Mega Punch"
+          },
+          {
+            "level": 45,
+            "move": "Mega Kick"
+          },
+          {
+            "level": 50,
+            "move": "High Jump Kick"
+          }
+        ],
+        "tm_hm": [
+          "Focus Punch",
+          "Protect",
+          "Frustration",
+          "Return",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Snatch",
+          "Fling",
+          "Endure",
+          "Recycle",
+          "Sleep Talk"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Follow Me",
+          "Milk Drink"
+        ],
+        "egg": [
+          "Stomp",
+          "Trump Card",
+          "Fake Out"
+        ]
       },
       "encounters": [],
       "design": {

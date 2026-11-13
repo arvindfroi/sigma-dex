@@ -17,7 +17,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Third Amendment
   secondary:             # optional
   hidden:                # optional
 
@@ -27,7 +27,7 @@ base_stats:              # each 1-255
   defense: 45
   sp_attack: 20
   sp_defense: 45
-  speed: 40
+  speed: 50
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -54,20 +54,42 @@ evolutions: []
 #     note:              # anything else worth knowing
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
-forms: []
-# forms:
-#   - name: Winter form    # what the form is called
-#     changes: looks       # looks = only its pictures | battle = its type, stats or ability too
-#     how: It turns white when it snows.   # how and when it changes form
-#     types: [Ice]         # only if they differ
-#     look: It is white with ...           # what it looks like in this form
+forms:
+  - name: Third Amendment
+    changes: looks
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Mega Punch}
+    - {level: 1, move: Mega Kick}
+    - {level: 1, move: Double Kick}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: "GUN!?"}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Tackle}
+    - {level: 5, move: Wake-Up Slap}
+    - {level: 8, move: Sand Attack}
+    - {level: 12, move: Bite}
+    - {level: 16, move: Double Hit}
+    - {level: 20, move: Double Kick}
+    - {level: 24, move: Headbutt}
+    - {level: 26, move: Flail}
+    - {level: 27, move: Rest}
+    - {level: 27, move: Yawn}
+    - {level: 28, move: Take Down}
+    - {level: 32, move: Body Slam}
+    - {level: 36, move: Thief}
+    - {level: 40, move: Mega Punch}
+    - {level: 45, move: Mega Kick}
+    - {level: 50, move: High Jump Kick}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Focus Punch, Protect, Frustration, Return, Rest, Attract, Thief, Snatch, Fling,
+          Endure, Recycle, Sleep Talk]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Follow Me, Milk Drink]
+  egg: [Stomp, Trump Card, Fake Out] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

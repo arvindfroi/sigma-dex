@@ -3885,13 +3885,6 @@
     "editor": null
   },
   {
-    "id": 1189,
-    "species": "oraclet",
-    "file": "assets/concept-art/oraclet/1189.png",
-    "caption": "[ds-back] sprite #172",
-    "editor": null
-  },
-  {
     "id": 1190,
     "species": "oraclet",
     "file": "assets/concept-art/oraclet/1190.png",
@@ -3973,13 +3966,6 @@
     "species": "fleuroom-utvikling",
     "file": "assets/concept-art/fleuroom-utvikling/1208.png",
     "caption": "[ds-follower] sprite #176",
-    "editor": null
-  },
-  {
-    "id": 1209,
-    "species": "phantomb",
-    "file": "assets/concept-art/phantomb/1209.png",
-    "caption": "[ds-front] sprite #177",
     "editor": null
   },
   {
@@ -4267,13 +4253,6 @@
     "species": "ampeel",
     "file": "assets/concept-art/ampeel/1295.png",
     "caption": "[ds-front] sprite #200",
-    "editor": null
-  },
-  {
-    "id": 1311,
-    "species": "oraclet",
-    "file": "assets/concept-art/oraclet/1311.png",
-    "caption": "[ds-front] sprite #202",
     "editor": null
   },
   {
@@ -4949,24 +4928,10 @@
     "editor": "Casper"
   },
   {
-    "id": 1560,
-    "species": "custodix",
-    "file": "assets/concept-art/custodix/1560.png",
-    "caption": "[ds-front] sprite #260",
-    "editor": "Casper"
-  },
-  {
     "id": 1561,
     "species": "custodix",
     "file": "assets/concept-art/custodix/1561.png",
     "caption": "[ds-back] sprite #260",
-    "editor": "Casper"
-  },
-  {
-    "id": 1562,
-    "species": "custodix",
-    "file": "assets/concept-art/custodix/1562.png",
-    "caption": "[ds-icon] sprite #260",
     "editor": "Casper"
   },
   {
@@ -5066,5 +5031,19 @@
     "file": "assets/concept-art/whaldrill3/1580.webp",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 1581,
+    "species": "custodix",
+    "file": "assets/concept-art/custodix/1581.png",
+    "caption": "[ds-front] sprite #263",
+    "editor": "Emil"
+  },
+  {
+    "id": 1583,
+    "species": "custodix",
+    "file": "assets/concept-art/custodix/1583.png",
+    "caption": "[ds-icon] sprite #263",
+    "editor": "Emil"
   }
 ]

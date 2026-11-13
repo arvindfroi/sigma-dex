@@ -3768,7 +3768,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_GUARD_DOG, ABILITY_DARK_AURA, ABILITY_ROUGH_SKIN },
+        .abilities = { ABILITY_GUARD_DOG, ABILITY_INTIMIDATE, ABILITY_ROUGH_SKIN },
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Geronimok"),
         .cryId = CRY_NONE,
@@ -5070,6 +5070,7 @@
         .levelUpLearnset = sWhaldrill0LevelUpLearnset,
         .teachableLearnset = sWhaldrill0TeachableLearnset,
         .eggMoveLearnset = sWhaldrill0EggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_NARBURR}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -5277,12 +5278,12 @@
 
     [SPECIES_CUSTODIX] =
     {
-        .baseHP = 95,
-        .baseAttack = 88,
+        .baseHP = 90,
+        .baseAttack = 85,
         .baseDefense = 100,
-        .baseSpeed = 102,
+        .baseSpeed = 105,
         .baseSpAttack = 130,
-        .baseSpDefense = 85,
+        .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_FIRE, TYPE_ROCK),
         .catchRate = 45,
         .expYield = 270,

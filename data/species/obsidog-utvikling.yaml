@@ -18,7 +18,7 @@ body_color: black        # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Guard Dog
-  secondary: Dark Aura   # optional
+  secondary: Intimidate  # optional
   hidden: Rough Skin     # optional
 
 base_stats:              # each 1-255
