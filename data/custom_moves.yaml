@@ -59,6 +59,19 @@ moves:
   effect_chance: 10
   similar_to: Freeze-Dry
   designer: Emil
+- id: hidden-spur
+  name: Hidden Spur
+  type: Dark
+  category: physical
+  power: 70
+  accuracy: 100
+  pp: 10
+  target: one opponent
+  contact: true
+  effect: A sneaky heel kick with a hidden spur. Always lands a critical hit and has a 30% chance to badly
+    poison.
+  effect_chance: 30
+  designer: Emil
 - id: ice-egg
   name: Ice Egg
   type: Ice

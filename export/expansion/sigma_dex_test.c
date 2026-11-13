@@ -148,11 +148,11 @@ SINGLE_BATTLE_TEST("Sigma dex: Wealther can use its first move in battle")
 TEST("Sigma dex: Warrallier has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WARRALLIER];
-    EXPECT_EQ(info->baseHP, 85);
+    EXPECT_EQ(info->baseHP, 80);
     EXPECT_EQ(info->baseAttack, 120);
     EXPECT_EQ(info->baseDefense, 75);
-    EXPECT_EQ(info->baseSpeed, 105);
-    EXPECT_EQ(info->baseSpAttack, 70);
+    EXPECT_EQ(info->baseSpeed, 108);
+    EXPECT_EQ(info->baseSpAttack, 72);
     EXPECT_EQ(info->baseSpDefense, 75);
     EXPECT_EQ(info->types[0], TYPE_WATER);
     EXPECT_EQ(info->types[1], TYPE_DARK);

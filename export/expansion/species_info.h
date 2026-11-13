@@ -252,11 +252,11 @@
 
     [SPECIES_WARRALLIER] =
     {
-        .baseHP = 85,
+        .baseHP = 80,
         .baseAttack = 120,
         .baseDefense = 75,
-        .baseSpeed = 105,
-        .baseSpAttack = 70,
+        .baseSpeed = 108,
+        .baseSpAttack = 72,
         .baseSpDefense = 75,
         .types = MON_TYPES(TYPE_WATER, TYPE_DARK),
         .catchRate = 45,

@@ -559,9 +559,9 @@
           "base_stats": {
             "hp": 90,
             "attack": 160,
-            "defense": 145,
-            "sp_attack": 70,
-            "sp_defense": 125,
+            "defense": 140,
+            "sp_attack": 80,
+            "sp_defense": 120,
             "speed": 40
           }
         }
@@ -1307,12 +1307,12 @@
         "hidden": "Defiant"
       },
       "base_stats": {
-        "hp": 85,
+        "hp": 80,
         "attack": 120,
         "defense": 75,
-        "sp_attack": 70,
+        "sp_attack": 72,
         "sp_defense": 75,
-        "speed": 105
+        "speed": 108
       },
       "ev_yield": {
         "attack": 2,
@@ -1341,12 +1341,12 @@
             "primary": "Adaptability"
           },
           "base_stats": {
-            "hp": 85,
+            "hp": 80,
             "attack": 145,
             "defense": 90,
-            "sp_attack": 70,
+            "sp_attack": 82,
             "sp_defense": 90,
-            "speed": 140
+            "speed": 133
           }
         }
       ],

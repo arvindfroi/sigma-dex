@@ -22,12 +22,12 @@ abilities:
   hidden: Defiant        # optional
 
 base_stats:              # each 1-255
-  hp: 85
+  hp: 80
   attack: 120
   defense: 75
-  sp_attack: 70
+  sp_attack: 72
   sp_defense: 75
-  speed: 105
+  speed: 108
 
 ev_yield: {attack: 2, speed: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate: 45           # 3 (legendary) to 255 (very easy)
@@ -58,7 +58,7 @@ forms:
   - name: Mega Warrallier
     changes: battle
     abilities: {primary: Adaptability}
-    base_stats: {hp: 85, attack: 145, defense: 90, sp_attack: 70, sp_defense: 90, speed: 140}
+    base_stats: {hp: 80, attack: 145, defense: 90, sp_attack: 82, sp_defense: 90, speed: 133}
 
 # --- Moves ---
 learnset:
