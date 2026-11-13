@@ -2817,19 +2817,19 @@ TEST("Sigma dex: SOLIDEDGE has the data from its species file")
     EXPECT_EQ(info->types[0], TYPE_BUG);
     EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
     EXPECT_EQ(info->abilities[0], ABILITY_BEAST_BOOST);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_COIL);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CONFUSION);
     EXPECT_EQ(GetSpeciesName(SPECIES_SOLIDEDGE)[0], CHAR_S);
 }
 
 SINGLE_BATTLE_TEST("Sigma dex: SOLIDEDGE can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_SOLIDEDGE) { Moves(MOVE_COIL); }
+        PLAYER(SPECIES_SOLIDEDGE) { Moves(MOVE_CONFUSION); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_COIL); }
+        TURN { MOVE(player, MOVE_CONFUSION); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_COIL, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSION, player);
     }
 }
 

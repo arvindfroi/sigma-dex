@@ -66,9 +66,40 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 1, move: Confusion}
+    - {level: 1, move: Fury Cutter}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Psycho Cut}
+    - {level: 7, move: Swift}
+    - {level: 13, move: Teleport}
+    - {level: 21, move: Psybeam}
+    - {level: 24, move: X-Scissor}
+    - {level: 25, move: Psyshock}
+    - {level: 25, move: Stored Power}
+    - {level: 35, move: Extrasensory}
+    - {level: 37, move: Protect}
+    - {level: 40, move: Agility}
+    - {level: 41, move: First Impression}
     - {level: 48, move: Coil}
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+    - {level: 49, move: Psychic}
+    - {level: 49, move: Zen Headbutt}
+    - {level: 55, move: Iron Defense}
+    - {level: 56, move: Psyblade}
+    - {level: 61, move: Recover}
+    - {level: 61, move: Zap Cannon}
+    - {level: 67, move: Future Sight}
+    - {level: 73, move: Mirror Coat}
+    - {level: 75, move: Leech Life}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
+          Protect, Rain Dance, Safeguard, Frustration, Solar Beam, Thunderbolt, Thunder,
+          Return, Psychic, Shadow Ball, Brick Break, Double Team, Reflect, Aerial Ace,
+          Facade, Secret Power, Rest, Skill Swap, Focus Blast, Energy Ball, Fling,
+          Charge Beam, Endure, Drain Punch, Giga Impact, Flash, Thunder Wave, Swords Dance,
+          Psych Up, X-Scissor, Sleep Talk, Grass Knot, Swagger, U-turn, Substitute,
+          Trick Room, Psyshock, Struggle Bug, Expanding Force]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Bug Bite, Fire Punch, Nasty Plot, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

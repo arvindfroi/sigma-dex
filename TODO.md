@@ -27,7 +27,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Breeding | egg groups | 143 / 161 |
 | Breeding | egg cycles | 143 / 161 |
 | Moves | level-up moves | 145 / 161 |
-| Moves | TM/HM moves | 143 / 161 |
+| Moves | TM/HM moves | 144 / 161 |
 | Location | encounters | 2 / 161 |
 | Design | concept | 28 / 161 |
 | Art | concept art | 152 / 161 |
@@ -1130,12 +1130,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #154 [SOLIDEDGE](data/species/solidedge.yaml) - 24%
+### #154 [SOLIDEDGE](data/species/solidedge.yaml) - 28%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry

@@ -162,7 +162,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 151 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground | Lullaby | 600 |  | 59% |
 | 152 | [Apeshii](data/species/apeshit.yaml) | Normal / Fighting |  | 290 | Julius (Lv 15) | 17% |
 | 153 | *open slot* | | | | | |
-| 154 | [SOLIDEDGE](data/species/solidedge.yaml) | Bug / Psychic | Beast Boost | 600 |  | 24% |
+| 154 | [SOLIDEDGE](data/species/solidedge.yaml) | Bug / Psychic | Beast Boost | 600 |  | 28% |
 | 155 | *open slot* | | | | | |
 | 156 | *open slot* | | | | | |
 | 157 | *open slot* | | | | | |
