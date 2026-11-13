@@ -81,11 +81,12 @@ learnset:
     - {level: 35, move: Leaf Blade}
     - {level: 35, move: Phantom Force}
     - {level: 45, move: Shadow Ball}
-    - {level: 46, move: Shadow Claw}
+    - {level: 45, move: Swords Dance}
+    - {level: 50, move: Nasty Plot}
     - {level: 56, move: Energy Ball}
     - {level: 61, move: Wood Hammer}
     - {level: 65, move: Solar Beam}
-    - {level: 68, move: Nasty Plot}
+    - {level: 68, move: Solar Blade}
     - {level: 72, move: Poltergeist}
     - {level: 85, move: Hex}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
@@ -93,10 +94,12 @@ learnset:
           Protect, Rain Dance, Giga Drain, Safeguard, Frustration, Solar Beam, Return,
           Psychic, Shadow Ball, Brick Break, Double Team, Aerial Ace, Facade, Secret Power,
           Rest, Thief, Energy Ball, Fling, Endure, Shadow Claw, Giga Impact, Swords Dance,
-          Psych Up, Rock Slide, Sleep Talk, Grass Knot, Swagger, Substitute, Grassy Terrain]
+          Psych Up, Rock Slide, Sleep Talk, Grass Knot, Swagger, Substitute, Grassy Terrain,
+          Flip Turn, Cut, Surf, Waterfall]
   # moves a move tutor can teach it
   tutor: [Body Slam, Curse, Leaf Storm, Magical Leaf, Nasty Plot, Poltergeist, Seed Bomb,
-          Solar Blade, Synthesis, Zen Headbutt, Night Slash]
+          Solar Blade, Synthesis, Zen Headbutt, Night Slash, Liquidation, Aqua Cutter,
+          Last Respects, Fishious Rend, Wave Crash]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

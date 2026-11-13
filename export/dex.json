@@ -32493,8 +32493,12 @@
             "move": "Shadow Ball"
           },
           {
-            "level": 46,
-            "move": "Shadow Claw"
+            "level": 45,
+            "move": "Swords Dance"
+          },
+          {
+            "level": 50,
+            "move": "Nasty Plot"
           },
           {
             "level": 56,
@@ -32510,7 +32514,7 @@
           },
           {
             "level": 68,
-            "move": "Nasty Plot"
+            "move": "Solar Blade"
           },
           {
             "level": 72,
@@ -32557,7 +32561,11 @@
           "Grass Knot",
           "Swagger",
           "Substitute",
-          "Grassy Terrain"
+          "Grassy Terrain",
+          "Flip Turn",
+          "Cut",
+          "Surf",
+          "Waterfall"
         ],
         "tutor": [
           "Body Slam",
@@ -32570,7 +32578,12 @@
           "Solar Blade",
           "Synthesis",
           "Zen Headbutt",
-          "Night Slash"
+          "Night Slash",
+          "Liquidation",
+          "Aqua Cutter",
+          "Last Respects",
+          "Fishious Rend",
+          "Wave Crash"
         ],
         "egg": []
       },
