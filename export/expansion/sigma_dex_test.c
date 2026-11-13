@@ -2304,10 +2304,10 @@ SINGLE_BATTLE_TEST("Sigma dex: Oraclet can use its first move in battle")
 TEST("Sigma dex: Oraclaw has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ORACLAW];
-    EXPECT_EQ(info->baseHP, 90);
+    EXPECT_EQ(info->baseHP, 80);
     EXPECT_EQ(info->baseAttack, 75);
     EXPECT_EQ(info->baseDefense, 70);
-    EXPECT_EQ(info->baseSpeed, 80);
+    EXPECT_EQ(info->baseSpeed, 90);
     EXPECT_EQ(info->baseSpAttack, 110);
     EXPECT_EQ(info->baseSpDefense, 100);
     EXPECT_EQ(info->types[0], TYPE_PSYCHIC);
@@ -2585,10 +2585,10 @@ TEST("Sigma dex: Aquway has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_AQUWAY];
     EXPECT_EQ(info->baseHP, 80);
-    EXPECT_EQ(info->baseAttack, 90);
+    EXPECT_EQ(info->baseAttack, 100);
     EXPECT_EQ(info->baseDefense, 55);
     EXPECT_EQ(info->baseSpeed, 115);
-    EXPECT_EQ(info->baseSpAttack, 100);
+    EXPECT_EQ(info->baseSpAttack, 90);
     EXPECT_EQ(info->baseSpDefense, 55);
     EXPECT_EQ(info->types[0], TYPE_WATER);
     EXPECT_EQ(info->types[1], TYPE_GROUND);
@@ -2861,26 +2861,26 @@ SINGLE_BATTLE_TEST("Sigma dex: Whaldrill0 can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: Whaldrill has the data from its species file")
+TEST("Sigma dex: Narburr has the data from its species file")
 {
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WHALDRILL];
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_NARBURR];
     EXPECT_EQ(info->baseHP, 100);
     EXPECT_EQ(info->baseAttack, 100);
-    EXPECT_EQ(info->baseDefense, 60);
+    EXPECT_EQ(info->baseDefense, 75);
     EXPECT_EQ(info->baseSpeed, 60);
     EXPECT_EQ(info->baseSpAttack, 50);
-    EXPECT_EQ(info->baseSpDefense, 80);
+    EXPECT_EQ(info->baseSpDefense, 65);
     EXPECT_EQ(info->types[0], TYPE_ICE);
     EXPECT_EQ(info->types[1], TYPE_GROUND);
     EXPECT_EQ(info->abilities[0], ABILITY_SLUSH_RUSH);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ICE_FANG);
-    EXPECT_EQ(GetSpeciesName(SPECIES_WHALDRILL)[0], CHAR_W);
+    EXPECT_EQ(GetSpeciesName(SPECIES_NARBURR)[0], CHAR_N);
 }
 
-SINGLE_BATTLE_TEST("Sigma dex: Whaldrill can use its first move in battle")
+SINGLE_BATTLE_TEST("Sigma dex: Narburr can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_WHALDRILL) { Moves(MOVE_ICE_FANG); }
+        PLAYER(SPECIES_NARBURR) { Moves(MOVE_ICE_FANG); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN { MOVE(player, MOVE_ICE_FANG); }
@@ -2889,26 +2889,26 @@ SINGLE_BATTLE_TEST("Sigma dex: Whaldrill can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: Whaldrill3 has the data from its species file")
+TEST("Sigma dex: Whaldrill has the data from its species file")
 {
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WHALDRILL3];
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WHALDRILL];
     EXPECT_EQ(info->baseHP, 125);
     EXPECT_EQ(info->baseAttack, 125);
-    EXPECT_EQ(info->baseDefense, 70);
-    EXPECT_EQ(info->baseSpeed, 60);
+    EXPECT_EQ(info->baseDefense, 95);
+    EXPECT_EQ(info->baseSpeed, 45);
     EXPECT_EQ(info->baseSpAttack, 60);
-    EXPECT_EQ(info->baseSpDefense, 90);
+    EXPECT_EQ(info->baseSpDefense, 80);
     EXPECT_EQ(info->types[0], TYPE_ICE);
     EXPECT_EQ(info->types[1], TYPE_GROUND);
     EXPECT_EQ(info->abilities[0], ABILITY_SLUSH_RUSH);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_DOUBLE_HIT);
-    EXPECT_EQ(GetSpeciesName(SPECIES_WHALDRILL3)[0], CHAR_W);
+    EXPECT_EQ(GetSpeciesName(SPECIES_WHALDRILL)[0], CHAR_W);
 }
 
-SINGLE_BATTLE_TEST("Sigma dex: Whaldrill3 can use its first move in battle")
+SINGLE_BATTLE_TEST("Sigma dex: Whaldrill can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_WHALDRILL3) { Moves(MOVE_DOUBLE_HIT); }
+        PLAYER(SPECIES_WHALDRILL) { Moves(MOVE_DOUBLE_HIT); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN { MOVE(player, MOVE_DOUBLE_HIT); }

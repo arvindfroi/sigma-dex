@@ -2547,7 +2547,7 @@ static const struct LevelUpMove sWhaldrill0LevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const struct LevelUpMove sWhaldrillLevelUpLearnset[] = {
+static const struct LevelUpMove sNarburrLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_ICE_FANG),
     LEVEL_UP_MOVE( 1, MOVE_FLAIL),
     LEVEL_UP_MOVE( 1, MOVE_MUD_SLAP),
@@ -2572,7 +2572,7 @@ static const struct LevelUpMove sWhaldrillLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const struct LevelUpMove sWhaldrill3LevelUpLearnset[] = {
+static const struct LevelUpMove sWhaldrillLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_DOUBLE_HIT),
     LEVEL_UP_MOVE( 1, MOVE_FLAIL),
     LEVEL_UP_MOVE( 1, MOVE_ICE_FANG),
@@ -2591,10 +2591,11 @@ static const struct LevelUpMove sWhaldrill3LevelUpLearnset[] = {
     LEVEL_UP_MOVE(35, MOVE_DRILL_RUN),
     LEVEL_UP_MOVE(37, MOVE_AMNESIA),
     LEVEL_UP_MOVE(40, MOVE_ICICLE_CRASH),
-    LEVEL_UP_MOVE(44, MOVE_TAKE_DOWN),
+    LEVEL_UP_MOVE(44, MOVE_BODY_SLAM),
     LEVEL_UP_MOVE(51, MOVE_EARTHQUAKE),
-    LEVEL_UP_MOVE(57, MOVE_ICE_SPINNER),
+    LEVEL_UP_MOVE(54, MOVE_ICE_SPINNER),
     LEVEL_UP_MOVE(58, MOVE_BLIZZARD),
+    LEVEL_UP_MOVE(62, MOVE_HEADLONG_RUSH),
     LEVEL_UP_MOVE(65, MOVE_THRASH),
     LEVEL_UP_END
 };

@@ -10,11 +10,11 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Area | Item | Filled in |
 |------|------|----------:|
 | Identity | types | 160 / 161 |
-| Identity | designer credit | 140 / 161 |
+| Identity | designer credit | 141 / 161 |
 | Dex page | category | 44 / 161 |
 | Dex page | description | 45 / 161 |
 | Dex page | height | 56 / 161 |
-| Dex page | weight | 30 / 161 |
+| Dex page | weight | 31 / 161 |
 | Dex page | body color | 143 / 161 |
 | Stats | base stats | 157 / 161 |
 | Stats | ability | 155 / 161 |
@@ -26,11 +26,11 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Breeding | gender | 143 / 161 |
 | Breeding | egg groups | 143 / 161 |
 | Breeding | egg cycles | 143 / 161 |
-| Moves | level-up moves | 144 / 161 |
+| Moves | level-up moves | 145 / 161 |
 | Moves | TM/HM moves | 143 / 161 |
 | Location | encounters | 2 / 161 |
 | Design | concept | 28 / 161 |
-| Art | concept art | 151 / 161 |
+| Art | concept art | 152 / 161 |
 | Art | front sprite | 4 / 161 |
 | Art | front animation frame | 4 / 161 |
 | Art | back sprite | 4 / 161 |
@@ -776,9 +776,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #105 [Slamquake](data/species/slamquake.yaml) - 59%
+### #105 [Slamquake](data/species/slamquake.yaml) - 62%
 
-- **Dex page:** category, description, height, weight
+- **Dex page:** category, description, height
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
@@ -1037,12 +1037,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #140 [Cloudjester](data/species/cloudjester.yaml) - 24%
+### #140 [Cloudjester](data/species/cloudjester.yaml) - 28%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
@@ -1148,20 +1148,19 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #159 [Whaldrill](data/species/whaldrill.yaml) - 55%
+### #159 [Narburr](data/species/whaldrill.yaml) - 55%
 
 - **Dex page:** category, description, height, weight
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #160 [Whaldrill3](data/species/whaldrill3.yaml) - 48%
+### #160 [Whaldrill](data/species/whaldrill3.yaml) - 55%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, height, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #162 [Raymon](data/species/raymon.yaml) - 10%
 

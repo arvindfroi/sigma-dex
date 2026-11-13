@@ -89,12 +89,12 @@ learnset:
           Protect, Rain Dance, Giga Drain, Safeguard, Solar Beam, Thunderbolt, Return,
           Psychic, Shadow Ball, Double Team, Sludge Bomb, Facade, Secret Power, Rest,
           Attract, Skill Swap, Focus Blast, Energy Ball, Endure, Drain Punch, Will-O-Wisp,
-          Giga Impact, Thunder Wave, Psych Up, Sleep Talk, Natural Gift, Grass Knot,
-          Substitute, Psyshock, Draining Kiss, Grassy Terrain, Misty Terrain, Play Rough,
-          Mystical Fire, Psychic Terrain]
+          Giga Impact, Thunder Wave, Psych Up, Dark Pulse, Sleep Talk, Natural Gift,
+          Dream Eater, Grass Knot, Substitute, Psyshock, Draining Kiss, Grassy Terrain,
+          Misty Terrain, Play Rough, Mystical Fire, Psychic Terrain, Expanding Force]
   # moves a move tutor can teach it
   tutor: [Dazzling Gleam, Leaf Storm, Magical Leaf, Pollen Puff, Seed Bomb, Synthesis,
-          Weather Ball, Charm]
+          Weather Ball, Charm, Nasty Plot]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

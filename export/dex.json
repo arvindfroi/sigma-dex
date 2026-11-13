@@ -6029,6 +6029,7 @@
           "Substitute",
           "Bulldoze",
           "Body Press",
+          "Triple Axel",
           "Strength",
           "Rock Smash"
         ],
@@ -6039,7 +6040,9 @@
           "Ice Punch",
           "Icicle Spear",
           "Icy Wind",
-          "Headbutt"
+          "Headbutt",
+          "Fake Out",
+          "Follow Me"
         ],
         "egg": [
           "Icicle Spear",
@@ -12443,8 +12446,10 @@
           "Giga Impact",
           "Thunder Wave",
           "Psych Up",
+          "Dark Pulse",
           "Sleep Talk",
           "Natural Gift",
+          "Dream Eater",
           "Grass Knot",
           "Substitute",
           "Psyshock",
@@ -12453,7 +12458,8 @@
           "Misty Terrain",
           "Play Rough",
           "Mystical Fire",
-          "Psychic Terrain"
+          "Psychic Terrain",
+          "Expanding Force"
         ],
         "tutor": [
           "Dazzling Gleam",
@@ -12463,7 +12469,8 @@
           "Seed Bomb",
           "Synthesis",
           "Weather Ball",
-          "Charm"
+          "Charm",
+          "Nasty Plot"
         ],
         "egg": []
       },
@@ -17864,6 +17871,7 @@
           }
         ],
         "tm_hm": [
+          "Dragon Claw",
           "Toxic",
           "Hail",
           "Hidden Power",
@@ -17886,8 +17894,10 @@
           "Attract",
           "Thief",
           "Endure",
+          "Dragon Pulse",
           "Giga Impact",
           "Avalanche",
+          "Swords Dance",
           "Captivate",
           "Sleep Talk",
           "Natural Gift",
@@ -17895,16 +17905,26 @@
           "Swagger",
           "Substitute",
           "Venoshock",
+          "Heavy Slam",
           "Acid Spray",
           "Bulldoze",
-          "Body Press"
+          "Psychic Fangs",
+          "Body Press",
+          "Triple Axel"
         ],
         "tutor": [
           "Body Slam",
           "Curse",
           "Ice Fang",
           "Icicle Spear",
-          "Icy Wind"
+          "Icy Wind",
+          "Iron Defense",
+          "Dragon Dance",
+          "Outrage",
+          "Breaking Swipe",
+          "Gyro Ball",
+          "Jaw Lock",
+          "Mortal Spin"
         ],
         "egg": []
       },
@@ -24204,12 +24224,12 @@
       "category": null,
       "description": null,
       "height_m": null,
-      "weight_kg": null,
+      "weight_kg": 316,
       "body_color": "gray",
       "abilities": {
         "primary": "Sand Force",
         "secondary": "Steam Engine",
-        "hidden": "Filter"
+        "hidden": "Flash Fire"
       },
       "base_stats": {
         "hp": 90,
@@ -24338,6 +24358,7 @@
         ],
         "tm_hm": [
           "Toxic",
+          "Bulk Up",
           "Hidden Power",
           "Sunny Day",
           "Hyper Beam",
@@ -24355,9 +24376,12 @@
           "Secret Power",
           "Rest",
           "Attract",
+          "False Swipe",
           "Fling",
           "Endure",
+          "Will-O-Wisp",
           "Giga Impact",
+          "Rock Polish",
           "Stone Edge",
           "Gyro Ball",
           "Swords Dance",
@@ -24373,16 +24397,25 @@
           "Flame Charge",
           "Bulldoze",
           "High Horsepower",
+          "Smart Strike",
+          "Brutal Swing",
           "Body Press",
+          "Scorching Sands",
+          "Cut",
           "Strength",
-          "Rock Smash"
+          "Rock Smash",
+          "Rock Climb"
         ],
         "tutor": [
           "Body Slam",
           "Curse",
           "Earth Power",
           "Iron Head",
-          "Metal Claw"
+          "Metal Claw",
+          "Sacred Sword",
+          "Night Slash",
+          "Fury Cutter",
+          "Psycho Cut"
         ],
         "egg": [
           "Metal Burst",
@@ -25617,12 +25650,12 @@
         "hidden": "Magic Guard"
       },
       "base_stats": {
-        "hp": 90,
+        "hp": 80,
         "attack": 75,
         "defense": 70,
         "sp_attack": 110,
         "sp_defense": 100,
-        "speed": 80
+        "speed": 90
       },
       "ev_yield": {
         "sp_attack": 2
@@ -25790,17 +25823,21 @@
           "Thunder Wave",
           "Psych Up",
           "Captivate",
+          "Dark Pulse",
           "Sleep Talk",
           "Natural Gift",
+          "Dream Eater",
           "Grass Knot",
           "Swagger",
+          "Pluck",
+          "U-turn",
           "Substitute",
           "Trick Room",
           "Psyshock",
           "Psychic Terrain",
           "Expanding Force",
-          "Fly",
-          "Dark Pulse"
+          "Dual Wingbeat",
+          "Fly"
         ],
         "tutor": [
           "Air Slash",
@@ -25811,7 +25848,9 @@
           "Icy Wind",
           "Sky Attack",
           "Zen Headbutt",
-          "Charm"
+          "Charm",
+          "Defog",
+          "Psychic Noise"
         ],
         "egg": []
       },
@@ -29057,9 +29096,9 @@
       },
       "base_stats": {
         "hp": 80,
-        "attack": 90,
+        "attack": 100,
         "defense": 55,
-        "sp_attack": 100,
+        "sp_attack": 90,
         "sp_defense": 55,
         "speed": 115
       },
@@ -30630,8 +30669,8 @@
             "move": "Tailwind"
           },
           {
-            "level": 28,
-            "move": "Hurricane"
+            "level": 26,
+            "move": "Hyper Voice"
           },
           {
             "level": 31,
@@ -30659,10 +30698,27 @@
           },
           {
             "level": 50,
-            "move": "Heal Pulse"
+            "move": "Hurricane"
+          },
+          {
+            "level": 54,
+            "move": "Relic Song"
+          },
+          {
+            "level": 58,
+            "move": "Hyper Beam"
+          },
+          {
+            "level": 62,
+            "move": "Bleakwind Storm"
+          },
+          {
+            "level": 67,
+            "move": "Aeroblast"
           }
         ],
         "tm_hm": [
+          "Calm Mind",
           "Toxic",
           "Hidden Power",
           "Sunny Day",
@@ -30672,6 +30728,8 @@
           "Giga Drain",
           "Frustration",
           "Solar Beam",
+          "Thunderbolt",
+          "Thunder",
           "Return",
           "Psychic",
           "Shadow Ball",
@@ -30684,6 +30742,8 @@
           "Thief",
           "Steel Wing",
           "Roost",
+          "Focus Blast",
+          "Energy Ball",
           "Endure",
           "Giga Impact",
           "Flash",
@@ -30692,12 +30752,15 @@
           "Sleep Talk",
           "Natural Gift",
           "Swagger",
+          "Pluck",
           "U-turn",
           "Substitute",
+          "Trick Room",
+          "Psyshock",
+          "Misty Terrain",
+          "Psychic Terrain",
           "Dual Wingbeat",
-          "Fly",
-          "Pluck",
-          "Calm Mind"
+          "Fly"
         ],
         "tutor": [
           "Air Slash",
@@ -30707,7 +30770,9 @@
           "Icy Wind",
           "Sky Attack",
           "Extrasensory",
-          "Dazzling Gleam"
+          "Dazzling Gleam",
+          "Moonblast",
+          "Calm Mind"
         ],
         "egg": []
       },
@@ -31515,7 +31580,12 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Tailwind"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -34404,7 +34474,7 @@
     },
     {
       "dex": 159,
-      "name": "Whaldrill",
+      "name": "Narburr",
       "credits": {
         "designer": "Emil",
         "artist": null
@@ -34426,9 +34496,9 @@
       "base_stats": {
         "hp": 100,
         "attack": 100,
-        "defense": 60,
+        "defense": 75,
         "sp_attack": 50,
-        "sp_defense": 80,
+        "sp_defense": 65,
         "speed": 60
       },
       "ev_yield": {
@@ -34448,7 +34518,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "whaldrill3",
+          "method": "level",
+          "level": 45
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [
@@ -34541,6 +34617,7 @@
           "Toxic",
           "Hail",
           "Hidden Power",
+          "Sunny Day",
           "Ice Beam",
           "Blizzard",
           "Hyper Beam",
@@ -34563,6 +34640,7 @@
           "Giga Impact",
           "Stone Edge",
           "Avalanche",
+          "Swords Dance",
           "Stealth Rock",
           "Captivate",
           "Rock Slide",
@@ -34573,8 +34651,7 @@
           "Bulldoze",
           "High Horsepower",
           "Strength",
-          "Rock Smash",
-          "Sunny Day"
+          "Rock Smash"
         ],
         "tutor": [
           "Ancient Power",
@@ -34637,9 +34714,9 @@
     },
     {
       "dex": 160,
-      "name": "Whaldrill3",
+      "name": "Whaldrill",
       "credits": {
-        "designer": null,
+        "designer": "Emil",
         "artist": null
       },
       "types": [
@@ -34659,10 +34736,10 @@
       "base_stats": {
         "hp": 125,
         "attack": 125,
-        "defense": 70,
+        "defense": 95,
         "sp_attack": 60,
-        "sp_defense": 90,
-        "speed": 60
+        "sp_defense": 80,
+        "speed": 45
       },
       "ev_yield": {
         "hp": 2,
@@ -34759,19 +34836,23 @@
           },
           {
             "level": 44,
-            "move": "Take Down"
+            "move": "Body Slam"
           },
           {
             "level": 51,
             "move": "Earthquake"
           },
           {
-            "level": 57,
+            "level": 54,
             "move": "Ice Spinner"
           },
           {
             "level": 58,
             "move": "Blizzard"
+          },
+          {
+            "level": 62,
+            "move": "Headlong Rush"
           },
           {
             "level": 65,
@@ -34786,6 +34867,7 @@
           "Ice Beam",
           "Blizzard",
           "Hyper Beam",
+          "Light Screen",
           "Protect",
           "Rain Dance",
           "Frustration",
@@ -34793,6 +34875,7 @@
           "Return",
           "Dig",
           "Double Team",
+          "Reflect",
           "Sandstorm",
           "Rock Tomb",
           "Facade",
@@ -34803,6 +34886,7 @@
           "Giga Impact",
           "Stone Edge",
           "Avalanche",
+          "Swords Dance",
           "Stealth Rock",
           "Captivate",
           "Rock Slide",
@@ -34812,12 +34896,15 @@
           "Substitute",
           "Heavy Slam",
           "Bulldoze",
+          "Play Rough",
           "High Horsepower",
+          "Liquidation",
           "Body Press",
+          "Flip Turn",
+          "Surf",
           "Strength",
           "Rock Smash",
-          "Light Screen",
-          "Reflect"
+          "Waterfall"
         ],
         "tutor": [
           "Body Slam",
@@ -34831,7 +34918,8 @@
           "Icy Wind",
           "Iron Head",
           "Ancient Power",
-          "Haze"
+          "Haze",
+          "Dive"
         ],
         "egg": []
       },
@@ -34860,7 +34948,7 @@
         "look": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/whaldrill3/1580.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,

@@ -2,7 +2,7 @@
 
 # Game export status
 
-**107** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, blutie, coatail, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Gorambe, Leadling, Blylem, Iglomodo, furamire, Goatjo, Detecup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, McSkiirtle, ambuger, Ambrr, Tortoplasm, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, JAWBREAKER, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Glacépée, Everdark, Diedo, Rockedeer, Sabertann, SOLIDEDGE, Whaldrill0, Whaldrill, Whaldrill3, Santrock, Cindreon, Custodix
+**107** Pokemon are written as game code: Leafing, Leafsteel, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, blutie, coatail, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Gorambe, Leadling, Blylem, Iglomodo, furamire, Goatjo, Detecup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, McSkiirtle, ambuger, Ambrr, Tortoplasm, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, JAWBREAKER, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Glacépée, Everdark, Diedo, Rockedeer, Sabertann, SOLIDEDGE, Whaldrill0, Narburr, Whaldrill, Santrock, Cindreon, Custodix
 
 ## Not exported yet (54)
 
@@ -49,7 +49,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Strawboo** needs: a level-up move that exists in the game
 - **Wreckingboo** needs: a level-up move that exists in the game, a name of at most 10 letters
 - **Wreckingdrake** needs: a name of at most 10 letters
-- **Cloudjester** needs: a level-up move that exists in the game, a name of at most 10 letters
+- **Cloudjester** needs: a name of at most 10 letters
 - **Felk** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Moosus** needs: an ability that exists in the game
 - **Gravriel** needs: an ability that exists in the game

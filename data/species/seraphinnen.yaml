@@ -80,23 +80,28 @@ learnset:
     - {level: 17, move: Screech}
     - {level: 19, move: Roost}
     - {level: 23, move: Tailwind}
-    - {level: 28, move: Hurricane}
+    - {level: 26, move: Hyper Voice}
     - {level: 31, move: Agility}
     - {level: 36, move: Giga Drain}
     - {level: 37, move: Safeguard}
     - {level: 41, move: Brave Bird}
     - {level: 43, move: Esper Wing}
     - {level: 46, move: Fly}
-    - {level: 50, move: Heal Pulse}
+    - {level: 50, move: Hurricane}
+    - {level: 54, move: Relic Song}
+    - {level: 58, move: Hyper Beam}
+    - {level: 62, move: Bleakwind Storm}
+    - {level: 67, move: Aeroblast}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Giga Drain,
-          Frustration, Solar Beam, Return, Psychic, Shadow Ball, Double Team, Aerial Ace,
-          Facade, Secret Power, Rest, Attract, Thief, Steel Wing, Roost, Endure,
-          Giga Impact, Flash, Psych Up, Captivate, Sleep Talk, Natural Gift, Swagger,
-          U-turn, Substitute, Dual Wingbeat, Fly, Pluck, Calm Mind]
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
+          Giga Drain, Frustration, Solar Beam, Thunderbolt, Thunder, Return, Psychic,
+          Shadow Ball, Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief,
+          Steel Wing, Roost, Focus Blast, Energy Ball, Endure, Giga Impact, Flash, Psych Up,
+          Captivate, Sleep Talk, Natural Gift, Swagger, Pluck, U-turn, Substitute,
+          Trick Room, Psyshock, Misty Terrain, Psychic Terrain, Dual Wingbeat, Fly]
   # moves a move tutor can teach it
   tutor: [Air Slash, Brave Bird, Heat Wave, Hurricane, Icy Wind, Sky Attack, Extrasensory,
-          Dazzling Gleam]
+          Dazzling Gleam, Moonblast, Calm Mind]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

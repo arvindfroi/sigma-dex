@@ -83,9 +83,10 @@ learnset:
   tm_hm: [Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Protect, Rain Dance, Frustration,
           Earthquake, Return, Dig, Double Team, Rock Tomb, Facade, Secret Power, Rest,
           Attract, Endure, Avalanche, Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze,
-          Body Press, Strength, Rock Smash]
+          Body Press, Triple Axel, Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Curse, Ice Fang, Ice Punch, Icicle Spear, Icy Wind, Headbutt]
+  tutor: [Body Slam, Curse, Ice Fang, Ice Punch, Icicle Spear, Icy Wind, Headbutt, Fake Out,
+          Follow Me]
   # only needed for the first stage of an evolution line
   egg: [Icicle Spear, Ice Punch, Freeze-Dry, Yawn, Rollout]
 

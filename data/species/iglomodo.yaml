@@ -90,13 +90,15 @@ learnset:
     - {level: 60, move: Baneful Bunker}
     - {level: 64, move: Shell Smash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hail, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard, Hyper Beam,
-          Protect, Rain Dance, Frustration, Earthquake, Return, Dig, Double Team,
-          Sludge Bomb, Facade, Secret Power, Rest, Attract, Thief, Endure, Giga Impact,
-          Avalanche, Captivate, Sleep Talk, Natural Gift, Poison Jab, Swagger, Substitute,
-          Venoshock, Acid Spray, Bulldoze, Body Press]
+  tm_hm: [Dragon Claw, Toxic, Hail, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard,
+          Hyper Beam, Protect, Rain Dance, Frustration, Earthquake, Return, Dig,
+          Double Team, Sludge Bomb, Facade, Secret Power, Rest, Attract, Thief, Endure,
+          Dragon Pulse, Giga Impact, Avalanche, Swords Dance, Captivate, Sleep Talk,
+          Natural Gift, Poison Jab, Swagger, Substitute, Venoshock, Heavy Slam, Acid Spray,
+          Bulldoze, Psychic Fangs, Body Press, Triple Axel]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Curse, Ice Fang, Icicle Spear, Icy Wind]
+  tutor: [Body Slam, Curse, Ice Fang, Icicle Spear, Icy Wind, Iron Defense, Dragon Dance,
+          Outrage, Breaking Swipe, Gyro Ball, Jaw Lock, Mortal Spin]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

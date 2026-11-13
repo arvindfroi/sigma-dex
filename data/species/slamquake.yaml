@@ -12,14 +12,14 @@ types: [Steel, Ground]   # 1 or 2 types, e.g. [Grass, Steel]
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
 height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+weight_kg: 316           # e.g. 6.9
 body_color: gray         # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
   primary: Sand Force
   secondary: Steam Engine # optional
-  hidden: Filter         # optional
+  hidden: Flash Fire     # optional
 
 base_stats:              # each 1-255
   hp: 90
@@ -91,14 +91,17 @@ learnset:
     - {level: 54, move: Heat Crash}
     - {level: 58, move: Gyro Ball}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
-          Iron Tail, Earthquake, Return, Dig, Double Team, Sandstorm, Rock Tomb, Facade,
-          Secret Power, Rest, Attract, Fling, Endure, Giga Impact, Stone Edge, Gyro Ball,
-          Swords Dance, Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift,
-          Swagger, Substitute, Flash Cannon, Heavy Slam, Flame Charge, Bulldoze,
-          High Horsepower, Body Press, Strength, Rock Smash]
+  tm_hm: [Toxic, Bulk Up, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
+          Frustration, Iron Tail, Earthquake, Return, Dig, Double Team, Sandstorm,
+          Rock Tomb, Facade, Secret Power, Rest, Attract, False Swipe, Fling, Endure,
+          Will-O-Wisp, Giga Impact, Rock Polish, Stone Edge, Gyro Ball, Swords Dance,
+          Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift, Swagger,
+          Substitute, Flash Cannon, Heavy Slam, Flame Charge, Bulldoze, High Horsepower,
+          Smart Strike, Brutal Swing, Body Press, Scorching Sands, Cut, Strength,
+          Rock Smash, Rock Climb]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Curse, Earth Power, Iron Head, Metal Claw]
+  tutor: [Body Slam, Curse, Earth Power, Iron Head, Metal Claw, Sacred Sword, Night Slash,
+          Fury Cutter, Psycho Cut]
   egg: [Metal Burst, Skull Bash] # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
