@@ -833,6 +833,8 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .shsw { display: inline-flex; flex-direction: column; border: 1px solid var(--edge); }
 .shsw i { display: block; width: 14px; height: 10px; }
 .shsliders { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2px 12px; margin-top: 4px; }
+.shgroup.locked { opacity: .75; }
+.shgroup.locked .shsw i { width: 10px; }
 .shslider { display: flex; align-items: center; gap: 6px; font-size: 13px; }
 .shslider span { width: 62px; color: var(--muted); }
 .shslider input { flex: 1; min-width: 0; }
@@ -841,6 +843,10 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .crywave { width: min(100%, 420px); height: 105px; background: #2a2350; border: 3px solid #241c3c; box-shadow: 0 0 0 2px #c9c0dc; }
 .cryplay { position: absolute; right: 8px; bottom: 26px; font-size: 22px; width: 52px; height: 52px; border-radius: 50%; }
 .crytries .chip { cursor: pointer; }
+.crysliders { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4px 18px; margin-bottom: 6px; }
+.crysliders .shslider input { min-width: 90px; }
+.crysliders .shslider span:first-child { width: 78px; }
+.crysliders .shslider .sub { width: 64px; text-align: right; }
 </style>
 </head>
 <body>
@@ -2289,6 +2295,7 @@ function walker(src, scale) {
 //
 //   CryEngine.suggest(mon, facts, rng)  -> a recipe with its reasons (what CREATE / RETRY on the website show)
 //   CryEngine.render(recipe, sources)   -> Float32Array, mono, 13379 Hz (the rate of HeartGold's cries)
+//   CryEngine.knobsOf(recipe) / tweak(recipe, knobs) -> the website's sliders (pitch, length, glide, ...) and back
 //   sources = {<dex>: {data: Float32Array, rate: Number}}  - the official cries the recipe names
 (function (root) {
   "use strict";
@@ -2573,7 +2580,27 @@ function walker(src, scale) {
   const round = v => Math.round(v * 100) / 100;
   const clampSemi = v => round(clamp(v, -12, 7));        // above +7 the bending would add grit at the game's rate
 
-  const api = {VERSION, OUT_RATE, MAX_LEN, rng, render, suggest, resample};
+  // ---------- the sliders on the website (15 Nov 2026) ----------
+  // Arvind: "bare en retry knapp og en som endrer pitch og slik". A try's settings as slider values, and back:
+  // pitch is steps up or down from the try (all voices together), the rest are the recipe's own values.
+  function knobsOf(recipe) {
+    return {pitch: 0, stretch: recipe.stretch || 1, sweep: recipe.sweep || 0, tone: recipe.tone || 0, drive: recipe.drive || 0,
+      vib: recipe.vib ? recipe.vib.depth : 0, echo: recipe.echo ? recipe.echo.gain : 0, ring: recipe.ring ? recipe.ring.mix : 0};
+  }
+  function tweak(recipe, k) {
+    const out = JSON.parse(JSON.stringify(recipe));
+    out.layers.forEach(l => { l.semi = clampSemi((l.semi || 0) + (k.pitch || 0)); });
+    out.stretch = round(clamp(k.stretch, 0.7, 1.4));
+    out.sweep = round(clamp(k.sweep, -6, 6));
+    out.tone = round(clamp(k.tone, -1, 1));
+    out.drive = round(clamp(k.drive, 0, 1));
+    out.vib = k.vib > 0 ? {rate: recipe.vib ? recipe.vib.rate : 6, depth: round(clamp(k.vib, 0, 1))} : null;
+    out.echo = k.echo > 0 ? {ms: recipe.echo ? recipe.echo.ms : 100, gain: round(clamp(k.echo, 0, 0.6))} : null;
+    out.ring = k.ring > 0 ? {hz: recipe.ring ? recipe.ring.hz : 70, mix: round(clamp(k.ring, 0, 0.6))} : null;
+    return out;
+  }
+
+  const api = {VERSION, OUT_RATE, MAX_LEN, rng, render, suggest, resample, knobsOf, tweak};
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.CryEngine = api;
 })(typeof window !== "undefined" ? window : globalThis);
@@ -2653,7 +2680,8 @@ function paintCanvas(p, map, canvas) {
   return canvas;
 }
 // The groups: every saturated colour joins the family of the biggest colour within 28 degrees of hue (its shades),
-// then greys, whites and the near-black outline, which stay as they are unless someone moves them.
+// then greys, whites and the near-black outline. Whites stay unless someone moves them. The outline always stays
+// (Arvind, 15 Nov 2026: "endre outline skal de nok ikke på shiny"), like in official shinies.
 function shinyGroups(colours) {
   const total = colours.reduce((a, c) => a + c.count, 0) || 1;
   const lines = [], whites = [], greys = [], families = [];
@@ -2667,7 +2695,7 @@ function shinyGroups(colours) {
   const make = (role, list, keep) => {
     const sorted = list.slice().sort((a, b) => a.hsl[2] - b.hsl[2]), main = list.slice().sort((a, b) => b.count - a.count)[0];
     const count = list.reduce((a, c) => a + c.count, 0);
-    const name = role === "lines" ? "outline and darkest" : role === "whites" ? "whites" : role === "greys" ? "greys" : hueName(main.hsl);
+    const name = role === "lines" ? "outline" : role === "whites" ? "whites" : role === "greys" ? "greys" : hueName(main.hsl);
     return {role, name, colours: sorted, main: main.hex, count, share: count / total, keep};
   };
   const groups = families.map(f => make("colour", f.colours, false)).sort((a, b) => b.count - a.count);
@@ -2675,14 +2703,15 @@ function shinyGroups(colours) {
   for (const g of groups) { seen[g.name] = (seen[g.name] || 0) + 1; if (seen[g.name] > 1) g.name += " " + seen[g.name]; }
   if (greys.length) groups.push(make("greys", greys, false));
   if (whites.length) groups.push(make("whites", whites, true));
-  if (lines.length) groups.push(make("lines", lines, true));
+  if (lines.length) groups.push(Object.assign(make("lines", lines, true), {locked: true}));
   groups.forEach((g, i) => { g.id = i; });
   return groups;
 }
 // The whole map from the groups' sliders. Two colours that were different stay different after rounding.
 function shinyMap(groups, adj) {
-  const map = {}, used = new Map();
-  for (const g of groups) for (const c of g.colours) {
+  const map = {}, used = new Map(), order = groups.filter(g => g.locked).concat(groups.filter(g => !g.locked));
+  for (const g of order) for (const c of g.colours) {
+    if (g.locked) { used.set(c.hex, c.hex); map[c.hex] = c.hex; continue; }   // the outline never changes
     let v = g.keep && !adj[g.id] ? c.hex : shiftColour(c.hex, adj[g.id]);
     for (let tries = 0; used.has(v) && used.get(v) !== c.hex && tries < 6; tries++) {
       const [r, gg, b] = rgbOf(v), up = (toHsl([r, gg, b])[2] < 0.5 ? 8 : -8);
@@ -2706,7 +2735,7 @@ function followerMap(colours, groups, adj) {
       group = role === "colour" ? groups.filter(g => g.role === "colour").sort((a, b) => hueGap(toHsl(rgbOf(a.main))[0], hue) - hueGap(toHsl(rgbOf(b.main))[0], hue))[0]
         : groups.find(g => g.role === role);
     }
-    map[c.hex] = group && !(group.keep && !adj[group.id]) ? shiftColour(c.hex, adj[group.id]) : c.hex;
+    map[c.hex] = group && !group.locked && !(group.keep && !adj[group.id]) ? shiftColour(c.hex, adj[group.id]) : c.hex;
   }
   return map;
 }
@@ -2727,7 +2756,7 @@ function suggestShiny(groups, ctx, seed) {
   const line = (ctx.line || []).filter(k => k.map && Object.keys(k.map).length);
   if (line.length && (ctx.first || r.chance(0.3))) {
     const k = line[0];
-    for (const g of groups) {
+    for (const g of groups.filter(x => !x.locked)) {
       let best = null, gap = 1e9;
       for (const from of Object.keys(k.map)) { const d = rgbGap(g.main, from); if (d < gap) { gap = d; best = from; } }
       if (best && gap < 90 && k.map[best] !== best) adj[g.id] = sliderFrom(best, k.map[best]);
@@ -2842,6 +2871,12 @@ function shinyMaker(s) {
     if (st.pics.follower) walkSource = paintCanvas(st.pics.follower, m.follower, walkSource || document.createElement("canvas"));
   }
   function groupRow(g) {
+    if (g.locked) {
+      const row = h("div", {class: "shgroup locked"}, h("div", {class: "shhead"}, h("span", {class: "shstrip"}, g.colours.map(c => h("span", {class: "shsw", title: c.hex}, h("i", {style: "background:" + c.hex})))),
+        h("b", {}, g.name), h("span", {class: "sub"}, "always stays, like in official shinies")));
+      explains(row, {say: (t, x) => say.replaceChildren(h("span", {class: "say-title"}, t + "\n"), x), rest() {}}, "OUTLINE", "The outline and the darkest lines. A shiny keeps them, so the drawing stays the same.");
+      return row;
+    }
     const a = () => st.adj[g.id] || {hue: 0, sat: 0, light: 0};
     const set = (k, v) => { st.adj[g.id] = Object.assign({}, a(), {[k]: v}); if (g.keep) { g.keep = false; keep.checked = false; } paint(); swatches(); };
     const els = {};
@@ -2867,7 +2902,7 @@ function shinyMaker(s) {
       h("div", {class: "shsliders"}, slider("hue", -180, 180, 1, "Colour"), slider("sat", -1, 1, 0.05, "Strength"), slider("light", -0.6, 0.6, 0.05, "Light")));
     swatches();
     explains(row, {say: (t, x) => say.replaceChildren(h("span", {class: "say-title"}, t + "\n"), x), rest() {}}, g.name.toUpperCase(),
-      g.role === "lines" ? "The outline and the darkest shades. Official shinies almost always keep them." : g.role === "whites" ? "Whites and the lightest colours, often the eyes and shine. Usually kept."
+      g.role === "whites" ? "Whites and the lightest colours, often the eyes and shine. Usually kept."
         : g.role === "greys" ? "Grey parts. Move Strength up to tint them." : "One colour with its shades (" + g.colours.length + "). Colour turns all of them together, so the shading stays right.");
     return row;
   }
@@ -2905,14 +2940,14 @@ function shinyMaker(s) {
         fam.length ? h("span", {class: "sub"}, "Its line: " + fam.map(x => x.s.data.name).join(", ") + " already " + (fam.length > 1 ? "have" : "has") + " a shiny, so CREATE starts from that.") : null),
       st.why.length ? h("div", {class: "notice info"}, h("b", {}, "This try: "), st.why.join(". ") + ".") : null,
       h("h2", {}, "Colours"),
-      h("p", {class: "sub", style: "margin:0 0 6px"}, "Each row is one colour with its shades. Colour turns them, Strength makes them stronger or greyer, Light lighter or darker. Or tap the colour box on the right and pick the new colour directly."),
+      h("p", {class: "sub", style: "margin:0 0 6px"}, "Each row is one colour with its shades. Colour turns them, Strength makes them stronger or greyer, Light lighter or darker. Or tap the colour box on the right and pick the new colour directly. The outline always stays."),
       st.groups.map(groupRow),
       h("div", {style: "display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px"}, save, note),
       h("p", {class: "sub"}, "Only the colours change: the shiny is the same drawing, like in the real games. The party icon has no shiny in HeartGold.")));
   }
   function loadSaved(saved) {
     st.adj = {};
-    for (const g of st.groups) {
+    for (const g of st.groups.filter(x => !x.locked)) {
       const was = (saved.sliders || []).find(x => (x.colours || []).includes(g.main));
       if (was && was.adj) { st.adj[g.id] = Object.assign({}, was.adj); g.keep = false; }
       else if (saved.map && saved.map[g.main] && saved.map[g.main] !== g.main) { st.adj[g.id] = sliderFrom(g.main, saved.map[g.main]); g.keep = false; }
@@ -2940,7 +2975,8 @@ function shinyMaker(s) {
 // creator". Each try starts from the cries of official Pokemon that are like this one (body plan, types, egg groups,
 // size, stage, legendary, its footprint), then bends them: pitch, a second voice, wobble, echo, buzz ... chosen by its
 // types and size, with random amounts. A line keeps its sound: an evolution starts from its relative's saved cry, lower
-// and slower. The engine is scripts/cry_engine.js (the game export runs the same code on HeartGold's own cries).
+// and slower. 15 Nov: the page no longer says which official cries a try starts from ("de trenger ikke å vite
+// inspirasjonen"); instead each try has sliders (pitch, length, glide, brightness, wobble, echo, rough, buzz). The engine is scripts/cry_engine.js (the game export runs the same code on HeartGold's own cries).
 // The website plays the official cries from PokeAPI's public archive (github.com/PokeAPI/cries). docs/CRIES.md.
 const CRY_URLS = n => ["https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/legacy/" + n + ".ogg",
   "https://cdn.jsdelivr.net/gh/PokeAPI/cries@main/cries/pokemon/legacy/" + n + ".ogg"];
@@ -2954,7 +2990,7 @@ function officialCry(n) {
       for (const url of CRY_URLS(n)) {
         try { const r = await fetch(url); if (r.ok) { bytes = await r.arrayBuffer(); break; } } catch (e) { /* the next address */ }
       }
-      if (!bytes) throw new Error("The cry of #" + n + " could not be loaded.");
+      if (!bytes) throw new Error("A sound could not be loaded. Check the connection and press again.");
       try {
         const buf = await new Promise((ok, no) => { const q = cryAudio().decodeAudioData(bytes.slice(0), ok, no); if (q && q.then) q.then(ok, no); });
         const data = new Float32Array(buf.length);
@@ -3020,16 +3056,26 @@ function cryFacts(s) {
     footprint: fp ? Number(fp[1]) : 0, myIndex: mine ? mine.depth : 0, used,
     line: fam.filter(x => x.s !== s && DEX.cries[x.s.id]).map(x => ({index: x.depth, name: x.s.data.name, recipe: DEX.cries[x.s.id]}))};
 }
-const officialName = n => ((DEX.official_species || []).find(o => o.n === n) || {}).name || "#" + n;
+// The sliders under a try (15 Nov 2026). Each shows its value in words; moving one makes the try again and plays it.
+const CRY_KNOBS = [
+  ["pitch", "Pitch", -8, 8, 0.5, v => v === 0 ? "as made" : (v > 0 ? "+" : "") + v + " steps"],
+  ["stretch", "Length", 0.7, 1.4, 0.05, v => v === 1 ? "normal" : v < 1 ? "shorter" : "longer"],
+  ["sweep", "Glide", -6, 6, 0.5, v => v === 0 ? "none" : v > 0 ? "goes up" : "goes down"],
+  ["tone", "Brightness", -1, 1, 0.05, v => Math.abs(v) < 0.05 ? "normal" : v > 0 ? "brighter" : "darker"],
+  ["vib", "Wobble", 0, 1, 0.05, v => v ? "on" : "off"],
+  ["echo", "Echo", 0, 0.6, 0.02, v => v ? "on" : "off"],
+  ["drive", "Rough", 0, 1, 0.05, v => v ? "on" : "off"],
+  ["ring", "Buzz", 0, 0.6, 0.02, v => v ? "on" : "off"]];
 
 function cryMaker(s) {
   const d = s.data;
   const top = h("section", {class: "screen top", "aria-label": "Cry of " + d.name});
   const page = h("div", {class: "page"});
-  const say = h("div", {class: "dlg", role: "status"}, "Press CREATE: it makes a cry from official cries of Pokemon like this one.");
+  const hello = "Press CREATE to make a cry. RETRY makes another one.";
+  const say = h("div", {class: "dlg", role: "status"}, hello);
   const wave = h("canvas", {class: "crywave", "aria-hidden": "true"});
   const bigPlay = h("button", {type: "button", class: "cryplay", disabled: true, "aria-label": "Play"}, "▶");
-  const st = {tries: [], at: -1, busy: false, error: ""};
+  const st = {tries: [], at: -1, busy: false, error: "", made: 0};
   top.append(h("div", {class: "namebar"}, h("div", {class: "frame no"}, "No." + pad(d.dex)), h("div", {class: "frame"}, h("h3", {}, String(d.name || "").toUpperCase())), h("div", {class: "types"}, (d.types || []).map(typeChip))),
     h("div", {class: "crystage"}, (DEX.ds_sprites[s.id] || {}).front ? h("img", {class: "px", src: DEX.ds_sprites[s.id].front, alt: ""}) : null, wave, bigPlay), say);
   drawWave(wave, null);
@@ -3040,58 +3086,74 @@ function cryMaker(s) {
     const tick = () => { const p = (performance.now() - start) / 1000 / secs; drawWave(wave, samples, Math.min(1, p)); if (p < 1) anim = requestAnimationFrame(tick); else drawWave(wave, samples); };
     tick();
   }
-  async function makeTry(recipe, label) {
+  // a try = the recipe CREATE made (base), the sliders (knobs) and what they give (recipe, samples)
+  async function makeTry(base, label) {
     st.busy = true; st.error = ""; draw();
     try {
-      const samples = await renderCry(recipe);
-      st.tries.push({recipe, samples, label}); st.at = st.tries.length - 1;
+      const samples = await renderCry(base);
+      st.tries.push({base, knobs: CryEngine.knobsOf(base), recipe: base, samples, label, changed: false}); st.at = st.tries.length - 1;
       play(samples);
     } catch (err) { st.error = err.message; }
     st.busy = false; draw();
   }
-  async function playOfficial(n, btn) {
-    btn.disabled = true;
-    try { const src = await officialCry(n); play(CryEngine.render({layers: [{dex: n, semi: 0, gain: 1}], len: 2.4}, {[n]: src})); }
-    catch (err) { st.error = err.message; draw(); }
-    btn.disabled = false;
+  async function remake(t) {
+    t.recipe = CryEngine.tweak(t.base, t.knobs);
+    t.changed = JSON.stringify(t.recipe) !== JSON.stringify(t.base);
+    if (t.label === "SAVED" && t.changed) t.label = "";
+    try { t.samples = await renderCry(t.recipe); if (st.tries[st.at] === t) play(t.samples); }
+    catch (err) { st.error = err.message; }
+    draw();
+  }
+  function knobRows(t) {
+    return h("div", {class: "shsliders crysliders"}, CRY_KNOBS.map(([k, label, min, max, step, words]) => {
+      const shown = h("span", {class: "sub"}, words(t.knobs[k]));
+      const el = h("input", {type: "range", min, max, step, value: t.knobs[k], "aria-label": label});
+      el.addEventListener("input", () => { shown.textContent = words(Number(el.value)); });
+      el.addEventListener("change", () => { t.knobs[k] = Number(el.value); remake(t); });
+      return h("label", {class: "shslider"}, h("span", {}, label), el, shown);
+    }));
   }
   function draw() {
     const cur = st.tries[st.at], saved = DEX.cries[s.id];
     bigPlay.disabled = !cur;
     bigPlay.onclick = () => cur && play(cur.samples);
-    say.replaceChildren(cur ? h("span", {}, h("span", {class: "say-title"}, (cur.label || "TRY " + (st.at + 1)) + "\n"), (cur.recipe.reasons || []).join(".\n") + ".")
-      : st.busy ? "Loading the cries..." : "Press CREATE: it makes a cry from official cries of Pokemon like this one.");
+    const name = t => t.label === "SAVED" ? "THE SAVED CRY" : "TRY " + (st.tries.indexOf(t) + 1);
+    say.replaceChildren(cur ? h("span", {}, h("span", {class: "say-title"}, name(cur) + (cur.changed ? " (changed)" : "") + "\n"), "Press ▶ to hear it again. Change it with the sliders below.")
+      : st.busy ? "Making the cry..." : hello);
     if (cur) drawWave(wave, cur.samples);
-    const create = h("button", {type: "button", class: st.tries.length ? null : "primary", disabled: st.busy || null}, st.busy ? "MAKING..." : st.tries.filter(t => !t.label).length ? "RETRY" : "CREATE");
-    create.onclick = () => makeTry(CryEngine.suggest(cryFacts(s), DEX.official_species || [], Math.floor(Math.random() * 1e9)));
+    const create = h("button", {type: "button", class: st.tries.length ? null : "primary", disabled: st.busy || null}, st.busy ? "MAKING..." : st.made ? "RETRY" : "CREATE");
+    create.onclick = () => (st.made++, makeTry(CryEngine.suggest(cryFacts(s), DEX.official_species || [], Math.floor(Math.random() * 1e9))));
     const save = h("button", {type: "button", class: "primary", disabled: !cur || cur.label === "SAVED" || null}, "SAVE THIS CRY");
     const note = h("span", {class: "sub"});
     save.onclick = async () => {
       if (!me()) { note.textContent = "Write your Discord name at the top of the page first."; document.getElementById("me").focus(); return; }
       save.disabled = true; note.textContent = "Saving...";
-      const data = Object.assign({}, cur.recipe, {at: new Date().toISOString()});
-      try { await saveEdit("cry", s.id, data); DEX.cries[s.id] = Object.assign({}, data, {by: me()}); cur.label = "SAVED"; note.textContent = "Saved. It is stored in the dex within about 15 minutes."; draw(); }
-      catch (err) { note.textContent = err.message; save.disabled = false; }
+      const changes = CRY_KNOBS.filter(([k]) => cur.knobs[k] !== CryEngine.knobsOf(cur.base)[k]).map(([k, label]) => label.toLowerCase() + " " + cur.knobs[k]);
+      const data = Object.assign({}, cur.recipe, {reasons: (cur.recipe.reasons || []).concat(changes.length ? ["Changed by hand: " + changes.join(", ")] : []).slice(0, 8), at: new Date().toISOString()});
+      try {
+        await saveEdit("cry", s.id, data);
+        DEX.cries[s.id] = Object.assign({}, data, {by: me()});
+        Object.assign(cur, {base: cur.recipe, knobs: CryEngine.knobsOf(cur.recipe), label: "SAVED", changed: false});
+        note.textContent = "Saved. It is stored in the dex within about 15 minutes."; draw();
+      } catch (err) { note.textContent = err.message; save.disabled = false; }
     };
     const playSaved = saved ? h("button", {type: "button", class: "small"}, "▶ PLAY THE SAVED CRY") : null;
     if (playSaved) playSaved.onclick = () => { const i = st.tries.findIndex(t => t.label === "SAVED"); if (i >= 0) { st.at = i; play(st.tries[i].samples); draw(); } else makeTry(saved, "SAVED"); };
+    const undo = cur && cur.changed ? h("button", {type: "button", class: "small"}, "UNDO THE CHANGES") : null;
+    if (undo) undo.onclick = () => { cur.knobs = CryEngine.knobsOf(cur.base); remake(cur); };
     const fam = familyOf(s).filter(x => x.s !== s && DEX.cries[x.s.id]);
-    const donors = cur ? [...new Set(cur.recipe.layers.map(l => l.dex))] : [];
     page.replaceChildren(h("div", {},
       h("div", {class: "status"}, saved ? [h("span", {class: "badge done"}, "has a cry"), " Saved" + (saved.by ? " by " + saved.by : "") + ". A new one saved here replaces it. ", playSaved]
         : [h("span", {class: "badge need"}, "no cry yet"), " Press CREATE, listen, RETRY until one fits, then SAVE."]),
       h("div", {style: "display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0"}, create, cur ? h("button", {type: "button", onclick: () => play(cur.samples)}, "▶ PLAY") : null, save, note),
       st.error ? h("div", {class: "notice info"}, st.error) : null,
-      st.tries.length ? [h("h2", {}, "Your tries"), h("div", {class: "chips crytries"}, st.tries.map((t, i) => h("button", {type: "button", class: "chip", "aria-pressed": String(i === st.at),
-        onclick: () => { st.at = i; play(t.samples); draw(); }}, (t.label === "SAVED" ? "★ saved" : "Try " + (i + 1)) + " · " + officialName(t.recipe.layers[0].dex))))] : null,
-      donors.length ? [h("h2", {}, "It starts from"), h("div", {class: "chips"}, donors.map(n => { const b = h("button", {type: "button", class: "chip"}, "▶ " + officialName(n)); b.onclick = () => playOfficial(n, b); return b; })),
-        h("p", {class: "sub", style: "margin:4px 0 0"}, "The official cries as they are, to compare.")] : null,
+      cur ? [h("h2", {}, "Change " + (cur.label === "SAVED" ? "the saved cry" : "try " + (st.at + 1))), knobRows(cur), undo] : null,
+      st.tries.length > 1 ? [h("h2", {}, "Your tries"), h("div", {class: "chips crytries"}, st.tries.map((t, i) => h("button", {type: "button", class: "chip", "aria-pressed": String(i === st.at),
+        onclick: () => { st.at = i; play(t.samples); draw(); }}, (t.label === "SAVED" ? "★ saved" : "Try " + (i + 1)) + (t.changed ? " ✎" : ""))))] : null,
       fam.length ? [h("h2", {}, "Its line"), h("div", {class: "chips"}, fam.map(x => { const b = h("button", {type: "button", class: "chip"}, "▶ " + x.s.data.name);
         b.onclick = async () => { b.disabled = true; try { play(await renderCry(DEX.cries[x.s.id])); } catch (err) { st.error = err.message; draw(); } b.disabled = false; }; return b; })),
-        h("p", {class: "sub", style: "margin:4px 0 0"}, "CREATE starts from these, so the line sounds related.")] : null,
-      h("p", {class: "sub", style: "margin-top:14px"}, "What it looks at: body plan, types, egg groups, height and weight, base stats, its stage in the line, legendary or not, and whose footprint it borrows. "
-        + "Every try is random within that, so RETRY gives another. The cry is about as long and as clear as HeartGold's (13 kHz). "
-        + "The website plays the official cries from a public archive; the game uses HeartGold's own, so the game can sound slightly different. Nothing is saved until SAVE.")));
+        h("p", {class: "sub", style: "margin:4px 0 0"}, "The saved cries of its relatives, to compare. CREATE makes this one sound related.")] : null,
+      h("p", {class: "sub", style: "margin-top:14px"}, "Every try is random, so RETRY gives another. Earlier tries stay in the list. Nothing is saved until SAVE.")));
   }
   draw();
   return {top, bottom: page};
