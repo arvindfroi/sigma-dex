@@ -36,7 +36,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Art | back sprite | 4 / 161 |
 | Art | icon | 4 / 161 |
 | Art | footprint | 142 / 161 |
-| Art | shiny palette | 0 / 161 |
+| Art | shiny palette | 3 / 161 |
 | Art | cry | 0 / 161 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
@@ -217,18 +217,18 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #25 [Snobbit](data/species/icy-freeze.yaml) - 69%
+### #25 [Snobbit](data/species/icy-freeze.yaml) - 72%
 
 - **Dex page:** weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
-### #26 [Freezrick](data/species/freezrick.yaml) - 72%
+### #26 [Freezrick](data/species/freezrick.yaml) - 76%
 
 - **Dex page:** weight
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #27 [Bulbtle](data/species/bulbtle.yaml) - 66%
 
@@ -1154,12 +1154,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #160 [Whaldrill](data/species/whaldrill3.yaml) - 55%
+### #160 [Whaldrill](data/species/whaldrill3.yaml) - 59%
 
 - **Dex page:** category, description, height, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
 ### #162 [Raymon](data/species/raymon.yaml) - 10%
 

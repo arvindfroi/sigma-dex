@@ -6088,7 +6088,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:427",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/icy-freeze.json",
         "cry": null
       },
       "engine": {
@@ -6324,7 +6324,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:428",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/freezrick.json",
         "cry": null
       },
       "engine": {
@@ -35120,7 +35120,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/whaldrill3.json",
         "cry": null
       },
       "engine": {
