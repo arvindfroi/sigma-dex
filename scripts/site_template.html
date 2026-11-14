@@ -856,7 +856,7 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
     <div class="sub" id="summary"></div>
   </div>
   <div class="daynight" id="daynight" role="group" aria-label="Day or night"></div>
-  <label class="me">NAME <input id="me" maxlength="40" placeholder="Discord name" autocomplete="nickname"></label>
+  <label class="me">NAME <input id="me" maxlength="40" placeholder="Discord name (optional)" autocomplete="nickname"></label>
 </header></div>
 <nav id="nav" aria-label="Pages"></nav>
 <main>
@@ -940,7 +940,7 @@ function sure(button, ask, action) {
 }
 const remember = { get(k) { try { return localStorage.getItem("sigma-" + k) || ""; } catch (e) { return ""; } },
                    set(k, v) { try { localStorage.setItem("sigma-" + k, v); } catch (e) {} } };
-const me = () => document.getElementById("me").value.trim();
+const me = () => document.getElementById("me").value.trim();   // optional: saving never needs a name (Arvind, 15 Nov 2026); only claiming a trainer asks for one
 let bySlot, byId;
 function index() { bySlot = new Map(DEX.species.map(s => [s.data.dex, s])); byId = new Map(DEX.species.map(s => [s.id, s])); }
 
@@ -2596,7 +2596,6 @@ function shinyMaker(s) {
     const save = h("button", {type: "button", class: "primary"}, "SAVE THIS SHINY");
     const note = h("span", {class: "sub"});
     save.onclick = async () => {
-      if (!me()) { note.textContent = "Write your Discord name at the top of the page first."; document.getElementById("me").focus(); return; }
       save.disabled = true; note.textContent = "Saving...";
       const m = current(), data = {map: m.map, follower: m.follower, sliders: st.groups.map(g => ({colours: g.colours.map(c => c.hex), keep: !!g.keep, adj: st.adj[g.id] || null})),
         why: st.why.join(". "), front: ds.front || "", at: new Date().toISOString()};
@@ -2810,7 +2809,6 @@ function cryMaker(s) {
     const save = h("button", {type: "button", class: "primary", disabled: !cur || cur.label === "SAVED" || null}, "SAVE THIS CRY");
     const note = h("span", {class: "sub"});
     save.onclick = async () => {
-      if (!me()) { note.textContent = "Write your Discord name at the top of the page first."; document.getElementById("me").focus(); return; }
       save.disabled = true; note.textContent = "Saving...";
       const changes = CRY_KNOBS.filter(([k]) => cur.knobs[k] !== CryEngine.knobsOf(cur.base)[k]).map(([k, label]) => label.toLowerCase() + " " + cur.knobs[k]);
       const data = Object.assign({}, cur.recipe, {reasons: (cur.recipe.reasons || []).concat(changes.length ? ["Changed by hand: " + changes.join(", ")] : []).slice(0, 8), at: new Date().toISOString()});
@@ -4439,7 +4437,6 @@ function teamLibrary(team) {
   const filled = team.mons.filter(m => m.species);
   const shareBtn = h("button", {type: "button", class: "primary", disabled: filled.length ? null : ""}, "Share \u201c" + team.name + "\u201d with the group");
   shareBtn.addEventListener("click", async () => {
-    if (!me()) { status.textContent = "Write your name at the top of the page first, so the group knows whose team it is."; document.getElementById("me").focus(); return; }
     const slug = team.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 20) || "team";
     const id = "team-" + slug + "-" + Date.now().toString(36);
     status.textContent = "Sharing...";
@@ -4472,7 +4469,6 @@ function teamLibrary(team) {
         send.addEventListener("click", async () => {
           const text = area.value.trim();
           if (!text) return;
-          if (!me()) { note.textContent = "Write your name at the top of the page first."; return; }
           note.textContent = "Saving...";
           try { await saveEdit("teamnote", t.id, {text, by: person(me())}); lib.notes.push({team: t.id, text, by: person(me()), when: new Date().toISOString()}); renderTeams(); }
           catch (err) { note.textContent = err.message; }
