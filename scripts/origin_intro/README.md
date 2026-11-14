@@ -590,3 +590,32 @@ reflection in his own colours, three heaves with sink-backs, drips, then a ghost
 - Build: `grav/build_v4.sh v16` (the defaults are v16's). 890/1024 tiles. ROM `~/sigma-origin/rc8/gravriel_v16.nds`,
   md5 `ab4acb0b25f920d3e632016d9448c0bd`.
 - Both ROMs were rebuilt from these scripts on 2026-11-14 and matched byte for byte. `NO_SHOTS=1` builds the ROM only.
+
+## Scene 3 deer strips v11: locked (2026-11-15)
+
+Rockedeer, Moosus and Felk replace Entei, Suicune and Raikou in the three strips of scene 3 (a/2/6/2: palette 39, shared BG
+tiles 40, screens 48/47/49). Order and directions as the originals: Rockedeer on top looking left (Entei), Moosus in the middle
+head-on (Suicune), Felk at the bottom looking right (Raikou). Scripts in `deer/`; work folder `~/sigma-origin/title3d/deer`.
+
+How the pictures were made (1536x384 each, kept locally, not in the repo):
+- **Rockedeer and Felk** (`deer/gen_copystyle.py rockedeer 1`, `felk 5`): Qwen-Image 2.1 gets our design as `<image1>` and the
+  original strip of the same slot (6x nearest from `inv/bg048/049`, local only) as `<image2>`, as a style reference only; the
+  prompt forbids the old beast's shapes and colours. Felk's design is Arvind's own picture (`scratch_intro/src/felk_arvind6.png`).
+  Our design FIRST is what made this work; with the original first (v3, `deer/gen_swap.py`) the old beast leaked in.
+- **Moosus** (`deer/gen_swap.py moosus 2`, v3): Qwen replaced the beast in an original strip; Arvind liked it best.
+- md5 of the pictures: `copy/rockedeer_1.png` a86ab37284ca5511b47229e1908283ac, `swap/moosus_2.png`
+  7cd64e479472f77df321e0328b766c4b, `copy/felk_5.png` e9230e16fda5edaf738afbe68fa687a2.
+
+The strips (`deer/build_strips.py IN.narc OUT.narc`, defaults are v11's): a 4:1 window round the eyes, zoomed so the creature
+covers ~33 % of the band (as the originals), graded to the originals' luma (~66), 9 flat colours by k-means, tiles deduped with
+flips into the slots only the beasts used plus never-used slots >= 688 (lower never-used slots are overwritten at runtime).
+**Eyes** (`stamp_eyes`): the originals' eye is one flat almond of bright gold with a crisp 1-px black ring (Entei one side eye,
+Suicune two, Raikou one, 30-40 px); ours are drawn the same way at eye centres measured in our pictures (32 / 14+14 / 32 px).
+`deer/measure.py` prints the numbers for originals and ours. Tried and dropped on the way (kept as options): our own line
+art (`DEER_LINES`, v2), Sugimori/Qwen style LoRAs (`style_test.py`, v6-v7), a cel pass with base + shadow per material
+(`STYLE3=1`, v8-v9: right on painterly pictures, noisy on already-clean ones).
+
+Build: `python deer/build_strips.py night/out_sabv22.narc deer/out_intro_wip.narc` (narc md5 `8268ed9823264abad7bcd716d1bcf006`),
+copied to `rc8/x_night/files/a/2/6/2` and `dsrom build`. ROM `~/sigma-origin/rc8/intro_hjort_v11.nds`, md5
+`9713f7feb4b250ba52c26f81da6210a9`; rebuilt from these scripts on 2026-11-15 and matched byte for byte. It sits on Sabertann
+v22's narc only: Gravriel v16 is not in this ROM yet.
