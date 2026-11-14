@@ -1601,7 +1601,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:260",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/warrallier.json",
         "cry": null
       },
       "engine": {
@@ -3342,7 +3342,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:430",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/bolthook.json",
         "cry": null
       },
       "engine": {
@@ -4278,7 +4278,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:84",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/pipwi.json",
         "cry": null
       },
       "engine": {
@@ -7513,7 +7513,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:61",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/galfrogtom.json",
         "cry": null
       },
       "engine": {
@@ -9125,7 +9125,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:74",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/stonma.json",
         "cry": null
       },
       "engine": {
@@ -23173,7 +23173,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:287",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/slothbaby.json",
         "cry": null
       },
       "engine": {

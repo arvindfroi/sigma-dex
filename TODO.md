@@ -36,7 +36,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Art | back sprite | 4 / 161 |
 | Art | icon | 4 / 161 |
 | Art | footprint | 142 / 161 |
-| Art | shiny palette | 3 / 161 |
+| Art | shiny palette | 9 / 161 |
 | Art | cry | 0 / 161 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
@@ -85,12 +85,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #6 [Warrallier](data/species/warrallier.yaml) - 59%
+### #6 [Warrallier](data/species/warrallier.yaml) - 62%
 
 - **Dex page:** category, description, height, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #7 [Torchbat](data/species/torchbat.yaml) - 76%
 
@@ -132,11 +132,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #13 [Bolthook](data/species/bolthook.yaml) - 72%
+### #13 [Bolthook](data/species/bolthook.yaml) - 76%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #14 [Wump](data/species/wump.yaml) - 59%
 
@@ -159,12 +159,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #17 [Pipwi](data/species/pipwi.yaml) - 59%
+### #17 [Pipwi](data/species/pipwi.yaml) - 62%
 
 - **Dex page:** category, description, height, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #18 [Tropistrich](data/species/pipwi-utv.yaml) - 59%
 
@@ -258,12 +258,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #31 [Galfrogtom](data/species/galfrogtom.yaml) - 66%
+### #31 [Galfrogtom](data/species/galfrogtom.yaml) - 69%
 
 - **Dex page:** height, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #32 [Sigmanian Eiscue](data/species/eiscue.yaml) - 55%
 
@@ -305,12 +305,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #38 [Stonma](data/species/stonma.yaml) - 66%
+### #38 [Stonma](data/species/stonma.yaml) - 69%
 
 - **Dex page:** height, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #39 [Sigmauler](data/species/sigmauler.yaml) - 59%
 
@@ -743,12 +743,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #100 [Slothbaby](data/species/slothbaby.yaml) - 62%
+### #100 [Slothbaby](data/species/slothbaby.yaml) - 66%
 
 - **Dex page:** category, description, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #101 [Blazlothku](data/species/slothbaby-utviklet.yaml) - 59%
 

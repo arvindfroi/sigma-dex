@@ -1,0 +1,115 @@
+{
+ "map": {
+  "#1d2931": "#1d2931",
+  "#2f7139": "#703050",
+  "#3c63a7": "#a0a040",
+  "#3e3f5e": "#404860",
+  "#479e4d": "#985070",
+  "#4b85c3": "#c0b850",
+  "#6b6152": "#784078",
+  "#70a0d6": "#d0d078",
+  "#84bdf3": "#f0e888",
+  "#afa29b": "#b888c0",
+  "#d58506": "#d58506",
+  "#e2ebec": "#e2ebec",
+  "#eadba1": "#eadba1",
+  "#eec44a": "#eec44a",
+  "#f4af09": "#f4af09"
+ },
+ "follower": {
+  "#010101": "#010101",
+  "#082f16": "#082f16",
+  "#18142c": "#18142c",
+  "#206d30": "#682840",
+  "#27547a": "#286878",
+  "#36a14a": "#a04060",
+  "#42b857": "#b04870",
+  "#45659f": "#98a048",
+  "#4fa1bd": "#b89858",
+  "#80d7e6": "#e0b888",
+  "#926478": "#5050a8",
+  "#9de7f1": "#f0c8a0",
+  "#a0a114": "#a0a114",
+  "#dae36c": "#dae36c",
+  "#ddc6b3": "#ddc6b3"
+ },
+ "sliders": [
+  {
+   "adj": {
+    "hue": -154,
+    "sat": -0.1,
+    "light": 0.01
+   },
+   "keep": false,
+   "colours": [
+    "#3c63a7",
+    "#4b85c3",
+    "#70a0d6",
+    "#84bdf3"
+   ]
+  },
+  {
+   "adj": {
+    "hue": -154,
+    "sat": -0.1,
+    "light": 0.01
+   },
+   "keep": false,
+   "colours": [
+    "#2f7139",
+    "#479e4d"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": true,
+   "colours": [
+    "#d58506",
+    "#f4af09",
+    "#eec44a",
+    "#eadba1"
+   ]
+  },
+  {
+   "adj": {
+    "hue": -17,
+    "sat": 0,
+    "light": 0
+   },
+   "keep": false,
+   "colours": [
+    "#3e3f5e"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 267,
+    "sat": 0.2,
+    "light": 0
+   },
+   "keep": false,
+   "colours": [
+    "#6b6152",
+    "#afa29b"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": true,
+   "colours": [
+    "#e2ebec"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": true,
+   "colours": [
+    "#1d2931"
+   ]
+  }
+ ],
+ "why": "The blue turns yellow",
+ "front": "https://hlkabnevaljtrbldgeqm.supabase.co/storage/v1/object/public/art/tries/galfrogtom/97-4-f44a6e05-image.png",
+ "by": "",
+ "at": "2026-11-14T17:37:00.609Z"
+}
