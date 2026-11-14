@@ -147,6 +147,23 @@ while True:
     grow = smooth((t - T_LEAP) / (170 if AIR else 56))
     s = min(S_MAX, LODS[0]['ppu'] / 30 * 1.96, s0 * (1 + 0.7 * grow))
     L = LODS[0] if leap else next(L for L in LODS if s >= L['smin'])
+    if os.environ.get('SAB_EMERGE') == '1':     # Gravriel: he rises out of the water where he stands, slowly, then stares
+        sA, sB = [float(v) for v in os.environ.get('SAB_ESCALE', '0.5,0.8').split(',')]
+        s = sA * math.exp(math.log(sB / sA) * t / 330); L = LODS[0]
+        T0, STEPE = int(os.environ.get('SAB_ET0', 30)), int(os.environ.get('SAB_ESTEP', 26))
+        k = 0 if t < T0 else min(5, (t - T0) // STEPE)
+        cell = L['cell0'] + k
+        if t >= T0 + 6 * STEPE: cell = L['cell0'] + (6 if ((t - T0 - 6 * STEPE) // 30) % 2 == 0 else 7)
+        if os.environ.get('SAB_ETL'):           # timeline 'cell:until,...' (ticks), e.g. eyes under water, rise, the look
+            for item in os.environ['SAB_ETL'].split(','):
+                c_, u_ = item.split(':')
+                if t < int(u_): cell = L['cell0'] + int(c_); break
+        yw = HORIZON + C_WL * H0 * s
+        ds = s * 30 / L['ppu']
+        path.append(dict(cell=cell, rot=0, sx=ds, sy=ds, tx=0, ty=int(round(yw - 96)), dur=STEP, s=s))
+        t += STEP
+        if t > 330: break
+        continue
     if leap:
         dt = t - T_LEAP
         cell = L['cell0'] + (4 if dt < 14 else 5 if dt < 32 else 6)

@@ -562,3 +562,31 @@ Build: as v14, with `SAB_BLEND=../mv/sab_v15.blend` and the name `v15`.
 - Budget: 958/1024; worst line 1120 of 2130 cycles.
 - ROM: `~/sigma-origin/rc8/sabertann_v15.nds`
 - To look at the model in Blender: `mv/se_sabertann_v15.blend`
+
+## Sabertann v22 and Gravriel v16: locked (2026-11-14)
+
+Arvind locked both after the rounds on 2026-11-14 (lighting, outline, clouds, moon, horizon, motion, foreground).
+What Ho-Oh and Lugia taught us, applied to both scenes:
+- **No outline.** Silhouette edges are the inner colour a shade darker. The figures are backlit, a little darker than
+  the sky, in the scene's own hues.
+- **Clouds** (`night/skykit.py` `wisps2`): soft-edged banks with an 8-step ramp from a dark top to a lit underside, and
+  round puffs on top. Ho-Oh's clouds use 10–12 tones.
+- **Horizon** (`hz_curve`, `warp_sea`): about 6 px higher at the edges than in the middle, as in SoulSilver.
+- **Moon** (`moon4`): a continuous albedo (noise-warped maria at their real places, mottling, rayed craters, limb
+  darkening), area-averaged and only then cut to 6 tones. Hard thresholds looked like "squares and circles".
+- **Motion:** the moon rises with its glow; the foreground sinks; clouds and sea stand still.
+
+**Sabertann v22:** v15's frames, relit by `night/saber_light.py` (palette only, no rim), in the scene from
+`night/paint_v16.py`. The glow is part of the moon sprite, so it rises with the moon.
+Build: `SNAME=v22 night/build_sab16.sh`. ROM `~/sigma-origin/rc8/sabertann_v22.nds`, md5 `75740de4a630a361732bf64f19045b64`.
+
+**Gravriel v16:** a 2D sprite from his front view (`grav/grav2d.py`, backlit grade plus `harmonize` into the scene's
+blue-green) rising out of the sea (`grav/build_grav4.py`): rings before he surfaces, foam at his sides, a swaying
+reflection in his own colours, three heaves with sink-backs, drips, then a ghost-green checker dissolve.
+- Scene `night/paint_grav10.py`: BG3 still (sky, clouds, sea, far wrecks), BG2 the moon (+16 rise), BG1 the near
+  wreckage (the game's own scroll). The water in front of his waist is a strip in his own sprite (palette 2).
+- Overlay 56 is patched only while building (`grav/patch_prio.py`): moon-sprite priority, the bird at timer 5 with a
+  longer wait so the fade time is unchanged, BG2 rise, and 4 sprite palettes. It is reverted after the build.
+- Build: `grav/build_v4.sh v16` (the defaults are v16's). 890/1024 tiles. ROM `~/sigma-origin/rc8/gravriel_v16.nds`,
+  md5 `ab4acb0b25f920d3e632016d9448c0bd`.
+- Both ROMs were rebuilt from these scripts on 2026-11-14 and matched byte for byte. `NO_SHOTS=1` builds the ROM only.

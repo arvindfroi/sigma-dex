@@ -11,7 +11,7 @@ from g2d import *
 from lz import lz10_enc
 from narc import unpack, pack
 IN, OUT = sys.argv[1], sys.argv[2]
-ART = os.path.join(HERE, 'art')
+ART = os.environ.get('NIGHT_ART', os.path.join(HERE, 'art'))
 gs = unpack(open(IN, 'rb').read())
 
 def load(name):
@@ -19,7 +19,7 @@ def load(name):
     c5 = (im[..., :3] >> 3).astype(np.int32)
     key = c5[..., 0] | c5[..., 1] << 5 | c5[..., 2] << 10          # BGR555 value
     key = np.where(im[..., 3] > 127, key, -1)                        # -1 = transparent
-    full = np.full((256, 256), -1, np.int32); full[:192] = key
+    full = np.full((256, 256), -1, np.int32); full[:key.shape[0]] = key      # images may be up to 256 rows (map rows below the screen)
     return full
 
 def pack_palettes(layers, slots):
@@ -32,18 +32,29 @@ def pack_palettes(layers, slots):
                 if len(s) > 15: raise SystemExit(f'{name} tile {tx},{ty} has {len(s)} colours')
                 cellsets.append(s)
     uniq = sorted(set(s for s in cellsets if s), key=lambda s: -len(s))
-    pals = []
+    # pack only the maximal sets (a subset fits wherever its superset went); try several orders, keep the fewest
+    maximal = [s for s in uniq if not any(s < t for t in uniq)]
+    def first_fit(order):
+        pals = []
+        for s in order:
+            best = None
+            for i, p in enumerate(pals):
+                if s <= p: best = (0, i); break
+                add = len(s - p)
+                if len(p | s) <= 15 and (best is None or add < best[0]): best = (add, i)
+            if best is None: pals.append(set(s))
+            else: pals[best[1]] |= s
+        return pals
+    rng_ = np.random.default_rng(0)
+    pals = first_fit(maximal)
+    for _ in range(400):
+        if len(pals) <= len(slots) and _ > 40: break
+        order = sorted(maximal, key=lambda s: -len(s) + rng_.uniform(0, 6))
+        cand = first_fit(order)
+        if len(cand) < len(pals): pals = cand
     where = {}
     for s in uniq:
-        best = None
-        for i, p in enumerate(pals):
-            if s <= p: best = (0, i); break
-            add = len(s - p)
-            if len(p | s) <= 15 and (best is None or add < best[0]): best = (add, i)
-        if best is None:
-            pals.append(set(s)); where[s] = len(pals) - 1
-        else:
-            pals[best[1]] |= s; where[s] = best[1]
+        where[s] = next(i for i, p in enumerate(pals) if s <= p)
     if len(pals) > len(slots): raise SystemExit(f'needs {len(pals)} palettes, only {len(slots)} free')
     # every set must be inside its palette (later merges only grow palettes)
     order = [sorted(p) for p in pals]
@@ -135,7 +146,7 @@ def decode(chr_m, scr_m, pal_m):
         out[(k // 32) * 8:(k // 32) * 8 + 8, (k % 32) * 8:(k % 32) * 8 + 8] = np.where(t > 0, P[(v >> 12) * 16 + t], -1)
     return out
 for (name, k), m in zip(main_layers, (18, 17, 16)):
-    assert (decode(7, m, 1)[:192] == k[:192]).all(), name
+    assert (decode(7, m, 1) == k).all(), name
 assert (decode(6, 15, 0)[:192] == load('top.png')[:192]).all()
 open(OUT, 'wb').write(pack(gs))
 print('round trip exact; wrote', OUT)
