@@ -85,25 +85,26 @@ learnset:
     - {level: 28, move: Disable}
     - {level: 30, move: Roar}
     - {level: 32, move: Rain Dance}
-    - {level: 42, move: Agility}
-    - {level: 42, move: Charge}
-    - {level: 47, move: Surf}
-    - {level: 48, move: Shadow Ball}
+    - {level: 36, move: Agility}
+    - {level: 39, move: Charge}
+    - {level: 42, move: Surf}
+    - {level: 45, move: Shadow Ball}
     - {level: 48, move: Thunderbolt}
     - {level: 51, move: Hydro Pump}
-    - {level: 54, move: Thunder}
+    - {level: 55, move: Thunder}
     - {level: 60, move: Electric Terrain}
-    - {level: 62, move: Double-Edge}
+    - {level: 64, move: Zap Cannon}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
-          Frustration, Thunderbolt, Thunder, Return, Psychic, Shadow Ball, Double Team,
-          Shock Wave, Facade, Secret Power, Rest, Attract, Thief, Charge Beam, Endure,
-          Giga Impact, Flash, Thunder Wave, Dark Pulse, Sleep Talk, Natural Gift, Swagger,
-          Substitute, Electroweb, Eerie Impulse, Electric Terrain, Water Pulse, Hail,
-          Ice Beam, Blizzard, Captivate, Flip Turn, Surf]
+  tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard,
+          Hyper Beam, Light Screen, Protect, Rain Dance, Frustration, Thunderbolt, Thunder,
+          Return, Psychic, Shadow Ball, Double Team, Shock Wave, Sludge Bomb, Facade, Rest,
+          Attract, Thief, Focus Blast, Energy Ball, Charge Beam, Endure, Will-O-Wisp,
+          Giga Impact, Flash, Thunder Wave, Psych Up, Captivate, Dark Pulse, Sleep Talk,
+          Natural Gift, Dream Eater, Swagger, Substitute, Electroweb, Eerie Impulse,
+          Electric Terrain, Liquidation, Flip Turn, Surf]
   # moves a move tutor can teach it
   tutor: [Body Slam, Curse, Hyper Voice, Nasty Plot, Poltergeist, Thunder Punch,
-          Volt Switch, Icy Wind]
+          Volt Switch, Icy Wind, Bitter Malice, Uproar, Echoed Voice]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

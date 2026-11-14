@@ -7379,19 +7379,19 @@
             "move": "Rain Dance"
           },
           {
-            "level": 42,
+            "level": 36,
             "move": "Agility"
           },
           {
-            "level": 42,
+            "level": 39,
             "move": "Charge"
           },
           {
-            "level": 47,
+            "level": 42,
             "move": "Surf"
           },
           {
-            "level": 48,
+            "level": 45,
             "move": "Shadow Ball"
           },
           {
@@ -7403,7 +7403,7 @@
             "move": "Hydro Pump"
           },
           {
-            "level": 54,
+            "level": 55,
             "move": "Thunder"
           },
           {
@@ -7411,14 +7411,19 @@
             "move": "Electric Terrain"
           },
           {
-            "level": 62,
-            "move": "Double-Edge"
+            "level": 64,
+            "move": "Zap Cannon"
           }
         ],
         "tm_hm": [
+          "Water Pulse",
           "Toxic",
+          "Hail",
           "Hidden Power",
           "Sunny Day",
+          "Taunt",
+          "Ice Beam",
+          "Blizzard",
           "Hyper Beam",
           "Light Screen",
           "Protect",
@@ -7431,29 +7436,31 @@
           "Shadow Ball",
           "Double Team",
           "Shock Wave",
+          "Sludge Bomb",
           "Facade",
-          "Secret Power",
           "Rest",
           "Attract",
           "Thief",
+          "Focus Blast",
+          "Energy Ball",
           "Charge Beam",
           "Endure",
+          "Will-O-Wisp",
           "Giga Impact",
           "Flash",
           "Thunder Wave",
+          "Psych Up",
+          "Captivate",
           "Dark Pulse",
           "Sleep Talk",
           "Natural Gift",
+          "Dream Eater",
           "Swagger",
           "Substitute",
           "Electroweb",
           "Eerie Impulse",
           "Electric Terrain",
-          "Water Pulse",
-          "Hail",
-          "Ice Beam",
-          "Blizzard",
-          "Captivate",
+          "Liquidation",
           "Flip Turn",
           "Surf"
         ],
@@ -7465,7 +7472,10 @@
           "Poltergeist",
           "Thunder Punch",
           "Volt Switch",
-          "Icy Wind"
+          "Icy Wind",
+          "Bitter Malice",
+          "Uproar",
+          "Echoed Voice"
         ],
         "egg": []
       },
