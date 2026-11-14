@@ -843,6 +843,10 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .crywave { width: min(100%, 420px); height: 105px; background: #2a2350; border: 3px solid #241c3c; box-shadow: 0 0 0 2px #c9c0dc; }
 .cryplay { position: absolute; right: 8px; bottom: 26px; font-size: 22px; width: 52px; height: 52px; border-radius: 50%; }
 .crytries .chip { cursor: pointer; }
+.crydesign { margin: 12px 0; }
+.crydesign summary { cursor: pointer; font-weight: bold; }
+.cryvoice { width: 150px; min-width: 0; }
+.cryvoicerow .shhead { flex-wrap: wrap; gap: 8px; }
 .crysliders { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4px 18px; margin-bottom: 6px; }
 .crysliders .shslider input { min-width: 90px; }
 .crysliders .shslider span:first-child { width: 78px; }
@@ -2806,6 +2810,19 @@ function cryFacts(s) {
     footprint: fp ? Number(fp[1]) : 0, myIndex: mine ? mine.depth : 0, used,
     line: fam.filter(x => x.s !== s && DEX.cries[x.s.id]).map(x => ({index: x.depth, name: x.s.data.name, recipe: DEX.cries[x.s.id]}))};
 }
+// The automatic cry (15 Nov 2026): what a Pokemon has until someone saves one, and what the game export uses then.
+// A blend of the official Pokemon most like it; an evolution follows the one it evolves from (saved or automatic),
+// and a saved cry anywhere in the line wins. Always the same for the same Pokemon (the seed comes from its id).
+const crySeed = id => { let x = 2166136261; for (const c of id) { x ^= c.charCodeAt(0); x = Math.imul(x, 16777619); } return x >>> 0; };
+function autoCry(s, guard) {
+  const facts = cryFacts(s);
+  if (!facts.line.length && (guard || 0) < 5) {
+    const parent = DEX.species.find(o => (o.data.evolutions || []).some(e => e && e.into === s.id));
+    if (parent && parent !== s) facts.line = [{index: facts.myIndex - 1, name: parent.data.name, recipe: DEX.cries[parent.id] || autoCry(parent, (guard || 0) + 1)}];
+  }
+  return CryEngine.suggest(facts, DEX.official_species || [], crySeed(s.id), {auto: true});
+}
+
 // The sliders under a try (15 Nov 2026). Each shows its value in words; moving one makes the try again and plays it.
 const CRY_KNOBS = [
   ["pitch", "Pitch", -8, 8, 0.5, v => v === 0 ? "as made" : (v > 0 ? "+" : "") + v + " steps"],
@@ -2816,16 +2833,18 @@ const CRY_KNOBS = [
   ["echo", "Echo", 0, 0.6, 0.02, v => v ? "on" : "off"],
   ["drive", "Rough", 0, 1, 0.05, v => v ? "on" : "off"],
   ["ring", "Buzz", 0, 0.6, 0.02, v => v ? "on" : "off"]];
+const TRY_NAMES = {SAVED: ["THE SAVED CRY", "★ saved"], AUTO: ["THE AUTOMATIC CRY", "Automatic"], OWN: ["YOUR SOUND", "Own"], DESIGN: ["YOUR DESIGN", "Design"]};
+const clone = x => JSON.parse(JSON.stringify(x));
 
 function cryMaker(s) {
   const d = s.data;
   const top = h("section", {class: "screen top", "aria-label": "Cry of " + d.name});
   const page = h("div", {class: "page"});
-  const hello = "Press CREATE to make a cry, or use your own sound. RETRY makes another one.";
+  const hello = "Press CREATE to make a cry, use your own sound, or design one yourself. RETRY makes another one.";
   const say = h("div", {class: "dlg", role: "status"}, hello);
   const wave = h("canvas", {class: "crywave", "aria-hidden": "true"});
   const bigPlay = h("button", {type: "button", class: "cryplay", disabled: true, "aria-label": "Play"}, "▶");
-  const st = {tries: [], at: -1, busy: false, error: "", made: 0, rec: null, ownNote: ""};
+  const st = {tries: [], at: -1, busy: false, error: "", made: 0, rec: null, ownNote: "", design: false};
   top.append(h("div", {class: "namebar"}, h("div", {class: "frame no"}, "No." + pad(d.dex)), h("div", {class: "frame"}, h("h3", {}, String(d.name || "").toUpperCase())), h("div", {class: "types"}, (d.types || []).map(typeChip))),
     h("div", {class: "crystage"}, (DEX.ds_sprites[s.id] || {}).front ? h("img", {class: "px", src: DEX.ds_sprites[s.id].front, alt: ""}) : null, wave, bigPlay), say);
   drawWave(wave, null);
@@ -2836,21 +2855,21 @@ function cryMaker(s) {
     const tick = () => { const p = (performance.now() - start) / 1000 / secs; drawWave(wave, samples, Math.min(1, p)); if (p < 1) anim = requestAnimationFrame(tick); else drawWave(wave, samples); };
     tick();
   }
-  // a try = the recipe it started as (base), the sliders (knobs), what they give (recipe, samples) and, for an own
-  // sound, the sound itself (own)
-  async function makeTry(base, label, own) {
+  // A try: orig = the recipe it started as (UNDO goes back to it), base = the same with the voices someone changed,
+  // knobs = the sliders, recipe/samples = what they give, own = an uploaded or recorded sound.
+  async function makeTry(start, label, own) {
     st.busy = true; st.error = ""; draw();
     try {
-      if (!own && base.layers.some(l => l.own)) own = await ownAudio(base.audio);
-      const samples = await renderCry(base, own);
-      st.tries.push({base, knobs: CryEngine.knobsOf(base), recipe: base, samples, label, own: own || null, changed: false}); st.at = st.tries.length - 1;
+      if (!own && start.layers.some(l => l.own)) own = await ownAudio(start.audio);
+      const samples = await renderCry(start, own);
+      st.tries.push({orig: clone(start), base: clone(start), knobs: CryEngine.knobsOf(start), recipe: start, samples, label, own: own || null, changed: false}); st.at = st.tries.length - 1;
       play(samples);
     } catch (err) { st.error = err.message; }
     st.busy = false; draw();
   }
   async function remake(t) {
     t.recipe = CryEngine.tweak(t.base, t.knobs);
-    t.changed = JSON.stringify(t.recipe) !== JSON.stringify(t.base);
+    t.changed = JSON.stringify(t.recipe) !== JSON.stringify(t.orig);
     if (t.label === "SAVED" && t.changed) t.label = "";
     try { t.samples = await renderCry(t.recipe, t.own); if (st.tries[st.at] === t) play(t.samples); }
     catch (err) { st.error = err.message; }
@@ -2879,58 +2898,120 @@ function cryMaker(s) {
     rec.cap = setTimeout(() => rec.state === "recording" && rec.stop(), 4000);     // at most 4 seconds; the silence is cut after
     st.rec = rec; st.error = ""; rec.start(); draw();
   }
+  function slider(label, min, max, step, value, words, onSet) {
+    const shown = h("span", {class: "sub"}, words(value));
+    const el = h("input", {type: "range", min, max, step, value, "aria-label": label});
+    el.addEventListener("input", () => { shown.textContent = words(Number(el.value)); });
+    el.addEventListener("change", () => onSet(Number(el.value)));
+    return h("label", {class: "shslider"}, h("span", {}, label), el, shown);
+  }
   function knobRows(t) {
-    return h("div", {class: "shsliders crysliders"}, CRY_KNOBS.map(([k, label, min, max, step, words]) => {
-      const shown = h("span", {class: "sub"}, words(t.knobs[k]));
-      const el = h("input", {type: "range", min, max, step, value: t.knobs[k], "aria-label": label});
-      el.addEventListener("input", () => { shown.textContent = words(Number(el.value)); });
-      el.addEventListener("change", () => { t.knobs[k] = Number(el.value); remake(t); });
-      return h("label", {class: "shslider"}, h("span", {}, label), el, shown);
-    }));
+    return h("div", {class: "shsliders crysliders"}, CRY_KNOBS.map(([k, label, min, max, step, words]) => slider(label, min, max, step, t.knobs[k], words, v => { t.knobs[k] = v; remake(t); })));
+  }
+  // DESIGN IT YOURSELF: the voices of the current try, each from any official Pokemon (or your own sound).
+  const OFFICIAL = () => DEX.official_species || [];
+  const voiceName = l => l.own ? "Your own sound" : (OFFICIAL().find(o => o.n === l.dex) || {}).name || "#" + l.dex;
+  const names = h("datalist", {id: "cry-voices-" + s.id});
+  function fillNames(t) {
+    const first = CryEngine.likest(cryFacts(s), OFFICIAL(), 12), rest = OFFICIAL().filter(o => !first.includes(o)).sort((a, b) => a.name.localeCompare(b.name));
+    names.replaceChildren(...(t && t.own ? [h("option", {value: "Your own sound"})] : []), ...first.concat(rest).map(o => h("option", {value: o.name})));
+  }
+  function voiceRows(t) {
+    const rows = t.base.layers.map((l, i) => {
+      const pick = h("input", {type: "text", list: names.id, value: voiceName(l), "aria-label": "Voice " + (i + 1), class: "cryvoice"});
+      pick.addEventListener("focus", () => pick.select());
+      pick.addEventListener("change", () => {
+        const v = pick.value.trim().toLowerCase(), o = OFFICIAL().find(x => x.name.toLowerCase() === v);
+        if (v === "your own sound" && t.own) { delete l.dex; l.own = true; }
+        else if (o) { delete l.own; l.dex = o.n; }
+        else { pick.value = voiceName(l); return; }
+        remake(t);
+      });
+      const back = h("input", {type: "checkbox", checked: l.rev ? "" : null});
+      back.addEventListener("change", () => { l.rev = back.checked; remake(t); });
+      const drop = t.base.layers.length > 1 ? h("button", {type: "button", class: "small", "aria-label": "Remove voice " + (i + 1)}, "✕") : null;
+      if (drop) drop.onclick = () => { t.base.layers.splice(i, 1); remake(t); };
+      return h("div", {class: "shgroup cryvoicerow"},
+        h("div", {class: "shhead"}, h("b", {}, "Voice " + (i + 1)), pick, h("label", {class: "sub"}, back, " backwards"), h("span", {class: "grow"}), drop),
+        h("div", {class: "shsliders crysliders"},
+          slider("Pitch", -12, 7, 0.5, l.semi || 0, v => (v > 0 ? "+" : "") + v, v => { l.semi = v; remake(t); }),
+          slider("Volume", 0, 1.5, 0.05, l.gain == null ? 1 : l.gain, v => Math.round(v * 100) + "%", v => { l.gain = v; remake(t); }),
+          slider("Starts", 0, 0.5, 0.01, l.at || 0, v => v ? "+" + v + " s" : "at once", v => { l.at = v; remake(t); })));
+    });
+    const add = t.base.layers.length < 3 ? h("button", {type: "button", class: "small"}, "+ ADD A VOICE") : null;
+    if (add) add.onclick = () => {
+      const used = t.base.layers.map(l => l.dex), o = CryEngine.likest(cryFacts(s), OFFICIAL(), 12).find(x => !used.includes(x.n)) || OFFICIAL()[0];
+      t.base.layers.push({dex: o.n, semi: (t.base.layers[0] || {}).semi || 0, gain: 0.5, at: 0, rev: false}); remake(t);
+    };
+    return [rows, add];
+  }
+  function startDesign() {
+    const o = CryEngine.likest(cryFacts(s), OFFICIAL(), 1)[0] || OFFICIAL()[0];
+    st.design = true;
+    makeTry({v: CryEngine.VERSION, seed: 0, layers: [{dex: o.n, semi: 0, gain: 1, at: 0, rev: false}], stretch: 1, sweep: 0, vib: null, ring: null, echo: null, tone: 0, drive: 0,
+      len: CryEngine.MAX_LEN, reasons: ["Designed by hand"]}, "DESIGN");
   }
   function draw() {
     const cur = st.tries[st.at], saved = DEX.cries[s.id];
     bigPlay.disabled = !cur;
     bigPlay.onclick = () => cur && play(cur.samples);
-    const name = t => t.label === "SAVED" ? "THE SAVED CRY" : (t.label === "OWN" ? "YOUR SOUND " : "TRY ") + (st.tries.indexOf(t) + 1);
+    const name = t => (TRY_NAMES[t.label] || ["TRY"])[0] + (t.label === "SAVED" || t.label === "AUTO" ? "" : " " + (st.tries.indexOf(t) + 1));
     say.replaceChildren(st.rec ? h("span", {}, h("span", {class: "say-title"}, "RECORDING\n"), "Make the sound now. Press STOP when you are done (it stops by itself after 4 seconds).")
       : cur ? h("span", {}, h("span", {class: "say-title"}, name(cur) + (cur.changed ? " (changed)" : "") + "\n"), "Press ▶ to hear it again. Change it with the sliders below.")
       : st.busy ? "Making the cry..." : hello);
     if (cur) drawWave(wave, cur.samples);
-    const create = h("button", {type: "button", class: st.tries.length ? null : "primary", disabled: st.busy || st.rec || null}, st.busy ? "MAKING..." : st.made ? "RETRY" : "CREATE");
-    create.onclick = () => (st.made++, makeTry(CryEngine.suggest(cryFacts(s), DEX.official_species || [], Math.floor(Math.random() * 1e9))));
-    const upload = h("button", {type: "button", disabled: st.busy || st.rec || null}, "UPLOAD A SOUND");
+    const off = st.busy || st.rec || null;
+    const create = h("button", {type: "button", class: st.tries.length ? null : "primary", disabled: off}, st.busy ? "MAKING..." : st.made ? "RETRY" : "CREATE");
+    create.onclick = () => (st.made++, makeTry(CryEngine.suggest(cryFacts(s), OFFICIAL(), Math.floor(Math.random() * 1e9))));
+    const upload = h("button", {type: "button", disabled: off}, "UPLOAD A SOUND");
     upload.onclick = () => fileIn.click();
     const rec = h("button", {type: "button", class: st.rec ? "primary" : null, disabled: st.busy || null}, st.rec ? "■ STOP" : "● RECORD");
     rec.onclick = record;
     const save = h("button", {type: "button", class: "primary", disabled: !cur || cur.label === "SAVED" || st.rec || null}, "SAVE THIS CRY");
     const note = h("span", {class: "sub"});
     save.onclick = async () => {
+      const r = cur.recipe, plain = r.layers.length === 1 && !r.layers[0].own && Math.abs(r.layers[0].semi || 0) < 1 && !r.layers[0].rev
+        && !r.vib && !r.echo && !r.ring && !r.drive && Math.abs(r.tone || 0) < 0.15 && Math.abs(r.sweep || 0) < 1 && Math.abs((r.stretch || 1) - 1) < 0.08;
+      if (plain) { note.textContent = "This is still one official cry as it is. Change it a little first (pitch, a second voice or an effect), so it is its own."; return; }
       save.disabled = true; note.textContent = "Saving...";
-      const changes = CRY_KNOBS.filter(([k]) => cur.knobs[k] !== CryEngine.knobsOf(cur.base)[k]).map(([k, label]) => label.toLowerCase() + " " + cur.knobs[k]);
+      const was = CryEngine.knobsOf(cur.orig);           // the voices change only the layers, so the sliders compare with the start
+      const changes = CRY_KNOBS.filter(([k]) => cur.knobs[k] !== was[k]).map(([k, label]) => label.toLowerCase() + " " + cur.knobs[k]);
+      if (JSON.stringify(cur.base.layers) !== JSON.stringify(cur.orig.layers)) changes.push("the voices");
       const data = Object.assign({}, cur.recipe, {reasons: (cur.recipe.reasons || []).concat(changes.length ? ["Changed by hand: " + changes.join(", ")] : []).slice(0, 8), at: new Date().toISOString()});
       if (cur.own && data.layers.some(l => l.own)) data.audio = ownToBase64(cur.own); else delete data.audio;
       try {
         await saveEdit("cry", s.id, data);
         DEX.cries[s.id] = Object.assign({}, data, {by: me()});
-        Object.assign(cur, {base: cur.recipe, knobs: CryEngine.knobsOf(cur.recipe), label: "SAVED", changed: false});
+        Object.assign(cur, {orig: clone(cur.recipe), base: clone(cur.recipe), knobs: CryEngine.knobsOf(cur.recipe), label: "SAVED", changed: false});
         note.textContent = "Saved. It is stored in the dex within about 15 minutes. It can always be changed later."; draw();
       } catch (err) { note.textContent = /check constraint/i.test(err.message) ? "Own sounds are not switched on in the database yet." : err.message; save.disabled = false; }
     };
+    const reuse = label => st.tries.findIndex(t => t.label === label);
     const playSaved = saved ? h("button", {type: "button", class: "small"}, "▶ PLAY THE SAVED CRY") : null;
-    if (playSaved) playSaved.onclick = () => { const i = st.tries.findIndex(t => t.label === "SAVED"); if (i >= 0) { st.at = i; play(st.tries[i].samples); draw(); } else makeTry(saved, "SAVED"); };
+    if (playSaved) playSaved.onclick = () => { const i = reuse("SAVED"); if (i >= 0) { st.at = i; play(st.tries[i].samples); draw(); } else makeTry(saved, "SAVED"); };
+    const playAuto = saved ? null : h("button", {type: "button", class: "small", disabled: off}, "▶ PLAY THE AUTOMATIC CRY");
+    if (playAuto) playAuto.onclick = () => { const i = reuse("AUTO"); if (i >= 0) { st.at = i; play(st.tries[i].samples); draw(); } else makeTry(autoCry(s), "AUTO"); };
     const undo = cur && cur.changed ? h("button", {type: "button", class: "small"}, "UNDO THE CHANGES") : null;
-    if (undo) undo.onclick = () => { cur.knobs = CryEngine.knobsOf(cur.base); remake(cur); };
+    if (undo) undo.onclick = () => { cur.base = clone(cur.orig); cur.knobs = CryEngine.knobsOf(cur.orig); remake(cur); };
     const fam = familyOf(s).filter(x => x.s !== s && DEX.cries[x.s.id]);
+    const design = h("details", {class: "crydesign", open: st.design ? "" : null},
+      h("summary", {}, "DESIGN IT YOURSELF"),
+      h("p", {class: "sub", style: "margin:4px 0 8px"}, "Build the cry from up to three voices. Each voice is the cry of an official Pokemon (the ones most like this one come first in the list) or your own sound, with its own pitch, volume and start. The sliders above work on top of it."),
+      cur ? voiceRows(cur) : null,
+      h("div", {style: "display:flex;gap:8px;flex-wrap:wrap;margin-top:6px"},
+        h("button", {type: "button", class: "small", disabled: off, onclick: startDesign}, cur ? "START A NEW DESIGN" : "START WITH ONE VOICE")));
+    design.addEventListener("toggle", () => { st.design = design.open; if (design.open) fillNames(st.tries[st.at]); });
+    if (st.design) fillNames(cur);
     page.replaceChildren(h("div", {},
       h("div", {class: "status"}, saved ? [h("span", {class: "badge done"}, "has a cry"), " Saved" + (saved.by ? " by " + saved.by : "") + ". A new one saved here replaces it. ", playSaved]
-        : [h("span", {class: "badge need"}, "no cry yet"), " Press CREATE, or use your own sound. Listen, change it, then SAVE."]),
+        : [h("span", {class: "badge need"}, "no cry saved"), " Until someone saves one, it has an automatic cry: a blend of the official Pokemon most like it. ", playAuto]),
       h("div", {style: "display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0"}, create, upload, rec, fileIn, cur ? h("button", {type: "button", onclick: () => play(cur.samples)}, "▶ PLAY") : null, save, note),
       st.error ? h("div", {class: "notice info"}, st.error) : null,
       st.ownNote && cur && cur.label === "OWN" ? h("div", {class: "notice info"}, st.ownNote) : null,
-      cur ? [h("h2", {}, "Change " + (cur.label === "SAVED" ? "the saved cry" : (cur.label === "OWN" ? "your sound " : "try ") + (st.at + 1))), knobRows(cur), undo] : null,
+      cur ? [h("h2", {}, "Change " + name(cur).toLowerCase()), knobRows(cur), undo] : null,
+      design, names,
       st.tries.length > 1 ? [h("h2", {}, "Your tries"), h("div", {class: "chips crytries"}, st.tries.map((t, i) => h("button", {type: "button", class: "chip", "aria-pressed": String(i === st.at),
-        onclick: () => { st.at = i; play(t.samples); draw(); }}, (t.label === "SAVED" ? "★ saved" : (t.label === "OWN" ? "Own " : "Try ") + (i + 1)) + (t.changed ? " ✎" : ""))))] : null,
+        onclick: () => { st.at = i; play(t.samples); draw(); }}, (TRY_NAMES[t.label] || ["", "Try"])[1] + (t.label === "SAVED" || t.label === "AUTO" ? "" : " " + (i + 1)) + (t.changed ? " ✎" : ""))))] : null,
       fam.length ? [h("h2", {}, "Its line"), h("div", {class: "chips"}, fam.map(x => { const b = h("button", {type: "button", class: "chip"}, "▶ " + x.s.data.name);
         b.onclick = async () => { b.disabled = true; try { play(await renderCry(DEX.cries[x.s.id])); } catch (err) { st.error = err.message; draw(); } b.disabled = false; }; return b; })),
         h("p", {class: "sub", style: "margin:4px 0 0"}, "The saved cries of its relatives, to compare. CREATE makes this one sound related.")] : null,

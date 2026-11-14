@@ -7,7 +7,8 @@ lost.
 ## Using it
 
 - **CREATE / RETRY** makes a new random cry. The page does not say which official cries a try starts from: that is
-  not important to the person making it (Arvind, 15 Nov 2026). It is still kept in the saved recipe.
+  not important to the person making it (Arvind, 15 Nov 2026). It is still kept in the saved recipe. Only DESIGN IT
+  YOURSELF shows the voices, because there you choose them.
 - **The sliders** change the try that is playing. Moving one makes the cry again and plays it:
 
   | Slider | Recipe field | Range |
@@ -24,6 +25,28 @@ lost.
   **UNDO THE CHANGES** puts the sliders back. A changed try is marked ✎. SAVE stores the changed recipe, and its
   `reasons` get a last line such as "Changed by hand: pitch 3, echo 0.3". The engine's `knobsOf` and `tweak` do this.
 - **Its line** plays the saved cries of its relatives, to compare.
+- **The automatic cry** (added 15 Nov 2026). Every Pokemon without a saved cry has one, and the game export uses it
+  for them. **▶ PLAY THE AUTOMATIC CRY** plays it, and it can be changed and saved like any try. It is
+  `CryEngine.suggest(facts, official, seed, {auto: true})`, with the seed made from the Pokemon's id. That gives the
+  same cry every time until its facts change. What it does differently from CREATE:
+  - The voice is always the official Pokemon most like it (the same score as below), blended with one of the next
+    three from another line at 45-65 % loudness.
+  - An evolution always follows the Pokemon it evolves from (its saved cry, or else its automatic one). A saved cry
+    anywhere in the line wins.
+  - Its types give only their most typical effects (chance 40 % or more in `TYPE_FX`); the seed sets the amounts.
+  - Others' saved cries do not change it.
+
+  Of the 96 line starters on 15 Nov, no two automatic cries had the same two voices.
+- **DESIGN IT YOURSELF** (added 15 Nov 2026) is a folding panel under the sliders. It shows the voices (at most 3) of
+  the try that is playing. For each voice you can:
+  - pick its source: any official Pokemon (the 12 most like it are listed first) or your own sound;
+  - set its pitch (-12 to +7), volume (0-150 %) and start (0-0.5 s);
+  - play it backwards;
+  - remove it.
+
+  **+ ADD A VOICE** adds the likest Pokemon not yet used, and **START WITH ONE VOICE** starts from just the likest one.
+  SAVE refuses a cry that is still one official cry as it is (one voice, under 1 step of pitch, no effect): change it
+  a little first.
 - **Own sounds** (added 15 Nov 2026): **UPLOAD A SOUND** takes a sound file (.wav, .mp3, .m4a; .ogg where the
   browser reads it), and **RECORD** takes up to 4 seconds from the microphone. The page:
   - cuts the silence before and after;

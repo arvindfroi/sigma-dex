@@ -3,7 +3,8 @@
 // website and in the game. A cry is a RECIPE, never a sound file: which official cries it starts from ("hgss:<dex>",
 // like the footprints) and how they are bent. No Nintendo audio is stored in the repo. How it decides: docs/CRIES.md.
 //
-//   CryEngine.suggest(mon, facts, rng)  -> a recipe with its reasons (what CREATE / RETRY on the website show)
+//   CryEngine.suggest(mon, facts, seed) -> a recipe with its reasons (what CREATE / RETRY on the website show)
+//   CryEngine.suggest(mon, facts, seed, {auto: true}) -> the automatic cry (a Pokemon without a saved cry)
 //   CryEngine.render(recipe, sources)   -> Float32Array, mono, 13379 Hz (the rate of HeartGold's cries)
 //   CryEngine.knobsOf(recipe) / tweak(recipe, knobs) -> the website's sliders (pitch, length, glide, ...) and back
 //   sources = {<dex>: {data: Float32Array, rate: Number}}  - the official cries the recipe names
@@ -176,7 +177,13 @@
   // mon = {types, egg, shape, h, w, bst, stage ("first" "middle" "final" "single"), legend, color, footprint (dex),
   //        line: [{stage index, recipe}] for relatives that already have a cry, myIndex, used: {dex: count}}
   // facts = the official Pokemon (data/engine/official_species.json)
-  function suggest(mon, facts, seed) {
+  // opts.auto (15 Nov 2026): the automatic cry a Pokemon has until someone saves one. Arvind: "noe passende bare blir
+  // generert (blanding av de likeste mons den har til sine relevante markører)". No dice where it matters: the two
+  // official Pokemon most like it (from two lines) are always mixed, its line is always followed, and its types give
+  // their most typical effects. The seed (from its id) only sets small amounts, so the same Pokemon always gets the
+  // same automatic cry until its facts change.
+  function suggest(mon, facts, seed, opts) {
+    const auto = !!(opts && opts.auto);
     const r = rng(seed);
     const reasons = [];
     const byDex = new Map(facts.map(o => [o.n, o]));
@@ -184,7 +191,7 @@
 
     // 1. A relative already has a cry: the line keeps its sound, bigger stages lower and slower, smaller ones higher.
     const kin = (mon.line || []).filter(k => k.recipe && Array.isArray(k.recipe.layers) && k.recipe.layers.length);
-    if (kin.length && r.chance(0.85)) {
+    if (kin.length && (auto || r.chance(0.85))) {
       const k = kin.slice().sort((a, b) => Math.abs(a.index - mon.myIndex) - Math.abs(b.index - mon.myIndex))[0];
       const steps = mon.myIndex - k.index;
       const recipe = JSON.parse(JSON.stringify(k.recipe));
@@ -192,7 +199,7 @@
       recipe.layers.forEach(l => { l.semi = clampSemi((l.semi || 0) + shift + r.range(-0.4, 0.4)); });
       recipe.stretch = clamp((recipe.stretch || 1) * (1 + steps * r.range(0.04, 0.1)), 0.8, 1.3);
       if (steps > 0 && recipe.layers.length < 3 && r.chance(0.5)) {
-        const deep = pickDonors(mon, facts, r, recipe.layers.map(l => l.dex).filter(Boolean), 1)[0];
+        const deep = pickDonors(mon, facts, r, recipe.layers.map(l => l.dex).filter(Boolean), 1, auto)[0];
         if (deep) { recipe.layers.push({dex: deep.o.n, semi: clampSemi(r.range(-6, -3)), gain: round(r.range(0.25, 0.4)), at: round(r.range(0, 0.05)), rev: false});
           reasons.push("Adds a low " + deep.o.name + " under it, because it is bigger"); }
       }
@@ -211,14 +218,14 @@
     }
 
     // 2. Otherwise: start from official Pokemon that are like this one.
-    const [base, second] = pickDonors(mon, facts, r, [], 2);
+    const [base, second] = pickDonors(mon, facts, r, [], 2, auto);
     const recipe = {v: VERSION, seed, layers: [], stretch: 1, sweep: 0, vib: null, ring: null, echo: null, tone: 0, drive: 0, len: MAX_LEN};
     let semi = (STAGE_PITCH[mon.stage] || 0) - (STAGE_PITCH[base.o.stage] || 0);
     const a = sizeOf(mon);
     if (a.h && base.o.h) semi += clamp(-4 * Math.log2(a.h / base.o.h), -5, 5);
     else if (a.w && base.o.w) semi += clamp(-1.5 * Math.log2(a.w / base.o.w), -5, 5);
     if (mon.legend) semi -= r.range(1, 3);
-    semi += r.range(-2.5, 2.5);
+    semi += auto ? r.range(-1, 1) : r.range(-2.5, 2.5);
     recipe.layers.push({dex: base.o.n, semi: clampSemi(semi), gain: 1, at: 0, rev: false});
     reasons.push("Starts from " + base.o.name + "'s cry" + (base.why.length ? ": " + base.why.slice(0, 3).join(", ") : ""));
     const STAGE_WORD = {first: "a first stage", middle: "a middle stage", final: "a final stage", single: "a Pokemon that does not evolve"};
@@ -226,17 +233,18 @@
       : mon.stage && mon.stage !== base.o.stage && STAGE_PITCH[mon.stage] !== STAGE_PITCH[base.o.stage] ? ", it is " + STAGE_WORD[mon.stage] + " and " + base.o.name + " is " + STAGE_WORD[base.o.stage]
       : mon.legend ? ", it is legendary" : "";
     reasons.push("");                                   // the pitch, filled in at the end when it is final
-    if (second && r.chance(mon.legend ? 0.8 : 0.6)) {
-      const gain = round(r.range(0.3, 0.55)), semi2 = clampSemi(semi + r.range(-5, 3));
+    if (second && (auto || r.chance(mon.legend ? 0.8 : 0.6))) {
+      const gain = round(auto ? r.range(0.45, 0.65) : r.range(0.3, 0.55)), semi2 = clampSemi(semi + r.range(-5, 3));   // automatic: a real blend
       recipe.layers.push({dex: second.o.n, semi: semi2, gain, at: round(r.range(0, 0.12)), rev: false});
       reasons.push("Mixed with a quieter " + second.o.name + (second.why.length ? " (" + second.why.slice(0, 2).join(", ") + ")" : ""));
     }
 
     // 3. Its types, body and size colour the sound. Each effect is a chance with a random amount.
     const fx = new Set();
-    for (const t of mon.types || []) for (const [name, p] of TYPE_FX[t] || []) if (r.chance(p)) fx.add(name);
-    if (mon.legend) { if (r.chance(0.6)) fx.add("echo"); if (r.chance(0.4)) fx.add("slow"); }
-    if (SHAPE_FAMILY[mon.shape] === "wings" && r.chance(0.4)) fx.add("up");
+    const likely = p => auto ? p >= 0.4 : r.chance(p);          // automatic: only the effects most typical of it
+    for (const t of mon.types || []) for (const [name, p] of TYPE_FX[t] || []) if (likely(p)) fx.add(name);
+    if (mon.legend) { if (likely(0.6)) fx.add("echo"); if (likely(0.4)) fx.add("slow"); }
+    if (SHAPE_FAMILY[mon.shape] === "wings" && likely(0.4)) fx.add("up");
     if (a.w > 150 || (a.guess && mon.stage === "final" && mon.bst >= 520)) { if (r.chance(0.5)) fx.add("slow"); if (r.chance(0.4)) fx.add("dark"); }
     if (fx.has("bright") && fx.has("dark")) fx.delete(r.chance(0.5) ? "bright" : "dark");
     if (fx.has("up") && fx.has("down")) fx.delete(r.chance(0.5) ? "up" : "down");
@@ -272,21 +280,27 @@
     recipe.reasons = reasons.filter(Boolean);
     return recipe;
   }
-  function pickDonors(mon, facts, r, skip, count) {
+  function pickDonors(mon, facts, r, skip, count, best) {
     const footprint = mon.footprint ? facts.find(o => o.n === mon.footprint) : null;
     const ranked = facts.filter(o => !skip.includes(o.n)).map(o => score(mon, o, footprint))
-      .map(x => Object.assign(x, {s: x.s - 1.5 * ((mon.used || {})[x.o.n] || 0)}))      // other mons already use it: a little less likely
+      .map(x => Object.assign(x, {s: x.s - (best ? 0 : 1.5 * ((mon.used || {})[x.o.n] || 0))}))   // other mons already use it: a little less likely
       .sort((a, b) => b.s - a.s).slice(0, 14);
     const chosen = [];
     while (chosen.length < count && ranked.length) {
       const top = ranked[0].s, weights = ranked.map(x => Math.exp((x.s - top) / 2.2));
       let pick = r() * weights.reduce((a, b) => a + b, 0), i = 0;
-      while (i < ranked.length - 1 && (pick -= weights[i]) > 0) i++;
+      if (best) i = chosen.length ? Math.floor(r() * Math.min(3, ranked.length)) : 0;   // best: the likest, then one of the next three
+      else while (i < ranked.length - 1 && (pick -= weights[i]) > 0) i++;
       chosen.push(ranked[i]);
       const line = ranked[i].o.line;
       for (let j = ranked.length - 1; j >= 0; j--) if (ranked[j].o.line === line) ranked.splice(j, 1);   // the second voice comes from another line
     }
     return chosen;
+  }
+  // The official Pokemon most like this one, best first (the design panel lists them first).
+  function likest(mon, facts, count) {
+    const footprint = mon.footprint ? facts.find(o => o.n === mon.footprint) : null;
+    return facts.map(o => score(mon, o, footprint)).sort((a, b) => b.s - a.s).slice(0, count || 10).map(x => x.o);
   }
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
   const round = v => Math.round(v * 100) / 100;
@@ -312,7 +326,7 @@
     return out;
   }
 
-  const api = {VERSION, OUT_RATE, MAX_LEN, OWN_LEN, rng, render, suggest, resample, knobsOf, tweak};
+  const api = {VERSION, OUT_RATE, MAX_LEN, OWN_LEN, rng, render, suggest, likest, resample, knobsOf, tweak};
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.CryEngine = api;
 })(typeof window !== "undefined" ? window : globalThis);
