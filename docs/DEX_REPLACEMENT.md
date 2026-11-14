@@ -76,8 +76,8 @@ Swablu 69, Magikarp 69, Eevee 63, Totodile 58, Lapras 57, Clefairy 55, Manaphy 5
 
 ## 3. Sound
 
-Every species has its own cry; changing the pictures keeps the old cry. Options: new cries
-(synthesised or AI sound), existing cries changed (pitch, speed, mixed), or keep them for now.
+Every species has its own cry; changing the pictures keeps the old cry. Chosen (2026-11-14): existing cries changed
+(pitch, speed, mixed, effects) as a recipe per Pokemon, made in the website's CRY tab; see [CRIES.md](CRIES.md).
 
 ## 4. Mechanics tied to a species
 

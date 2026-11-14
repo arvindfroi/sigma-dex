@@ -16,8 +16,9 @@ people edit and approve them there; see [STUDIO.md](STUDIO.md). The pipeline is 
 (described in [SPRITE_STYLE.md](SPRITE_STYLE.md)). Approved ones are stored in
 `assets/sprites-ds/<pokemon>/` (made by `scripts/sprites.py auto`); the website shows them on the
 Pokemon's page and in the **Sprites** tab. The icon and the follower sheet (the small walking
-sprite, 8 frames) come from our edit LoRAs ([LORAS.md](LORAS.md)). Not made yet for any Pokemon: shiny
-colors, footprint and cry.
+sprite, 8 frames) come from our edit LoRAs ([LORAS.md](LORAS.md)). Footprints borrow an official one
+(`hgss:<dex>`, `scripts/footprints.py`). Shinies and cries are made on the website, in each Pokemon's SHINY
+and CRY tabs ([SHINY.md](SHINY.md), [CRIES.md](CRIES.md)).
 
 ## The GBA format (earlier target)
 

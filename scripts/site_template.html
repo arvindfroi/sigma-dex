@@ -817,6 +817,30 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .linkish input { display: none; }
 .notebox { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
 .notebox textarea { width: 100%; box-sizing: border-box; font: inherit; }
+
+/* shiny maker and cry maker (a Pokemon's SHINY and CRY tabs) */
+.shinystage { flex: 1 1 auto; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: center; gap: 6px 18px; padding: 10px 0 24px; min-height: 260px; }
+.shinystage figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.shinystage figcaption { font-family: var(--display); font-size: 14px; color: #ffffff; text-shadow: 1px 1px 0 rgba(20, 10, 50, .7); }
+.shinypic { width: 160px; height: 160px; image-rendering: pixelated; }
+.shinypic.small { width: 120px; height: 120px; }
+.sparkle figcaption { color: #ffe36a; }
+.shgroup { border: 2px solid var(--edge2); background: var(--soft); padding: 6px 8px; margin: 0 0 8px; }
+.shhead { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.shhead b { font-family: var(--display); font-weight: 400; text-transform: uppercase; }
+.shhead input[type=color] { width: 38px; height: 28px; padding: 0; border: 2px solid var(--edge); background: none; }
+.shstrip { display: inline-flex; gap: 2px; }
+.shsw { display: inline-flex; flex-direction: column; border: 1px solid var(--edge); }
+.shsw i { display: block; width: 14px; height: 10px; }
+.shsliders { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2px 12px; margin-top: 4px; }
+.shslider { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+.shslider span { width: 62px; color: var(--muted); }
+.shslider input { flex: 1; min-width: 0; }
+.crystage { flex: 1 1 auto; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 10px; padding: 10px 0 20px; min-height: 260px; }
+.crystage img { width: 160px; height: 160px; image-rendering: pixelated; }
+.crywave { width: min(100%, 420px); height: 105px; background: #2a2350; border: 3px solid #241c3c; box-shadow: 0 0 0 2px #c9c0dc; }
+.cryplay { position: absolute; right: 8px; bottom: 26px; font-size: 22px; width: 52px; height: 52px; border-radius: 50%; }
+.crytries .chip { cursor: pointer; }
 </style>
 </head>
 <body>
@@ -1169,8 +1193,8 @@ function picturesTab(s, onChange, top) {
 // The top screen shows the Pokemon (its name, types and pictures) and a dialog box that explains
 // whatever is pointed at; the bottom screen has coloured tabs with everything else. Edit turns the
 // bottom screen into the form while the top screen stays and follows the changes.
-const DETAIL_TABS = [["info", "INFO", "pink"], ["skills", "SKILLS", "purple"], ["moves", "MOVES", "blue"], ["pictures", "ART", "sky"], ["sprite", "SPRITES", "purple"], ["more", "MORE", "pink"]];
-const VIEW_LABELS = {front: "FRONT", back: "BACK", icon: "ICON", follower: "WALK", art: "ART"};
+const DETAIL_TABS = [["info", "INFO", "pink"], ["skills", "SKILLS", "purple"], ["moves", "MOVES", "blue"], ["pictures", "ART", "sky"], ["sprite", "SPRITES", "purple"], ["shiny", "SHINY", "sky"], ["cry", "CRY", "blue"], ["more", "MORE", "pink"]];
+const VIEW_LABELS = {front: "FRONT", shiny: "SHINY", back: "BACK", icon: "ICON", follower: "WALK", art: "ART"};
 const dexEntry = d => (filled(d.category) ? "The " + d.category + " Pokemon\n" : "") + (filled(d.description) ? d.description.trim() : "No Pokedex entry yet.");
 const STAT_HELP = {hp: "How much damage it can take.", attack: "How hard its physical moves hit.", defense: "How well it takes physical hits.",
   sp_attack: "How hard its special moves hit.", sp_defense: "How well it takes special hits.", speed: "Who moves first in a turn."};
@@ -1187,7 +1211,7 @@ let shown = null;     // {s, top} of the Pokemon page that is open; pasted pictu
 
 function monTop(s) {
   const d = s.data, ds = DEX.ds_sprites[s.id] || {}, art = s.id ? imagesOf(s.id)[0] : null;
-  const views = [["front", ds.front], ["back", ds.back], ["icon", ds.icon], ["follower", ds.follower], ["art", art && art.src]].filter(([, src]) => src);
+  const views = [["front", ds.front], ["shiny", ds.front && s.id && DEX.shinies[s.id] ? "shiny" : null], ["back", ds.back], ["icon", ds.icon], ["follower", ds.follower], ["art", art && art.src]].filter(([, src]) => src);
   let view = views.length ? views[0][0] : null, rest = () => dexEntry(d);
   const name = h("h3", {}, String(d.name || "New Pokemon").toUpperCase());
   const types = h("div", {class: "types"}, (d.types || []).map(typeChip));
@@ -1195,7 +1219,9 @@ function monTop(s) {
   const box = h("div", {class: "dlg", role: "status"});
   function drawStage() {
     const src = (views.find(([v]) => v === view) || [])[1];
-    stage.replaceChildren(!src ? h("div", {class: "noart"}, "NO PICTURE YET") : view === "follower" ? walker(src, 5)
+    const shinyImg = view === "shiny" ? h("img", {class: "px", alt: "shiny " + d.name}) : null;
+    if (shinyImg) shinyPicture(s.id, "front").then(url => { if (url) shinyImg.src = url; });
+    stage.replaceChildren(!src ? h("div", {class: "noart"}, "NO PICTURE YET") : shinyImg ? shinyImg : view === "follower" ? walker(src, 5)
       : h("img", {class: view === "art" ? null : "px" + (view === "icon" ? " icon" : ""), src, alt: VIEW_LABELS[view].toLowerCase() + " of " + d.name}));
     buttons.replaceChildren(...(views.length > 1 ? views.map(([v]) => h("button", {type: "button", "aria-pressed": String(v === view), onclick: () => { view = v; drawStage(); }}, VIEW_LABELS[v])) : []));
   }
@@ -1229,12 +1255,13 @@ function explains(el, top, title, text) {
 
 function openDetail(s, tab) {
   tab = tab === "overview" ? "info" : tab || "info";
-  if (tab === "sprite" && !DEX.web.url) tab = "info";
-  const d = s.data, tabs = DETAIL_TABS.filter(([id]) => id !== "sprite" || DEX.web.url);
+  if (["sprite", "shiny", "cry"].includes(tab) && !DEX.web.url) tab = "info";
+  const d = s.data, tabs = DETAIL_TABS.filter(([id]) => !["sprite", "shiny", "cry"].includes(id) || DEX.web.url);
   if (location.hash !== "#" + s.id) history.replaceState(null, "", "#" + s.id);
   const top = monTop(s);
   shown = {s, top};
   const studio = tab === "sprite" ? spriteStudio(s) : null;      // the sprite studio brings its own top screen (the set)
+  const maker = tab === "shiny" ? shinyMaker(s) : tab === "cry" ? cryMaker(s) : null;   // so do the shiny and cry makers
   const pages = {info: infoPage, skills: skillsPage, moves: movesTab, pictures: s => picturesTab(s, null, top), more: moreTab};
   const bottom = h("section", {class: "screen bottom", "data-c": (tabs.find(t => t[0] === tab) || tabs[0])[2], "aria-label": "About " + d.name},
     h("div", {class: "screen-tabs", role: "tablist"}, tabs.map(([id, label, c]) => h("button", {type: "button", role: "tab", "data-c": c, "aria-selected": String(id === tab), onclick: () => openDetail(s, id)}, label)),
@@ -1242,8 +1269,8 @@ function openDetail(s, tab) {
         studio ? h("button", {type: "button", title: "Close this page; the box at the bottom right keeps showing the drawing", onclick: () => { closeDialog(); trayLoad(); }}, "\u2581 MINIMIZE")
           : h("button", {type: "button", onclick: closeDialog}, "CLOSE"))),
     s.pending ? h("div", {class: "notice info", style: "margin:0 0 6px"}, "Saved" + (s.pending.editor ? " by " + s.pending.editor : "") + ". It is checked and stored within about 15 minutes.") : null,
-    studio ? studio.bottom : h("div", {class: "page"}, pages[tab](s, top)));
-  showDialog(h("div", {class: "ds" + (studio ? " studio" : "")}, studio ? studio.top : top.el, bottom));
+    studio ? studio.bottom : maker ? maker.bottom : h("div", {class: "page"}, pages[tab](s, top)));
+  showDialog(h("div", {class: "ds" + (studio ? " studio" : "")}, studio ? studio.top : maker ? maker.top : top.el, bottom));
 }
 
 function infoPage(s, top) {
@@ -2253,6 +2280,526 @@ function walker(src, scale) {
     ctx.clearRect(0, 0, 32, 32); ctx.imageSmoothingEnabled = false; ctx.drawImage(im, col * 32, row * 32, 32, 32, 0, 0, 32, 32);
   }});
   return canvas;
+}
+
+/*CRY_ENGINE*/
+
+// ---------- shiny maker (14 Nov 2026) ----------
+// Arvind: a tool to make shinies "by adjusting colours easily, not pixel by pixel or 15 colours by hand". The colours of
+// the approved front and back are sorted into groups (each colour family with its shades, greys, whites, outline);
+// each group has three sliders (colour, strength, light) and one tap on its main colour picks the new one directly.
+// CREATE / RETRY suggest a whole shiny with random choices, following the evolution line when a relative already has
+// one. Saved as "normal colour -> shiny colour" (kind 'shiny'); the sync writes assets/shiny/<pokemon>.json.
+// The DS keeps 5 bits per channel, so every shiny colour is a multiple of 8, like our sprites. How: docs/SHINY.md.
+DEX.shinies = DEX.shinies || {};
+DEX.cries = DEX.cries || {};
+const hexOf = c => "#" + c.map(v => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, "0")).join("");
+const rgbOf = hex => [1, 3, 5].map(i => parseInt(String(hex).slice(i, i + 2), 16));
+const ds15 = v => Math.max(0, Math.min(248, Math.round(v / 8) * 8));
+function toHsl([r, g, b]) {
+  r /= 255; g /= 255; b /= 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b), l = (max + min) / 2, d = max - min;
+  if (!d) return [0, 0, l];
+  const s = d / (1 - Math.abs(2 * l - 1));
+  const hue = max === r ? ((g - b) / d + 6) % 6 : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+  return [hue * 60, Math.min(1, s), l];
+}
+function fromHsl([hue, s, l]) {
+  const c = (1 - Math.abs(2 * l - 1)) * s, x = c * (1 - Math.abs((hue / 60) % 2 - 1)), m = l - c / 2;
+  const [r, g, b] = hue < 60 ? [c, x, 0] : hue < 120 ? [x, c, 0] : hue < 180 ? [0, c, x] : hue < 240 ? [0, x, c] : hue < 300 ? [x, 0, c] : [c, 0, x];
+  return [(r + m) * 255, (g + m) * 255, (b + m) * 255];
+}
+const hueGap = (a, b) => { const d = Math.abs(a - b) % 360; return d > 180 ? 360 - d : d; };
+const rgbGap = (a, b) => { const x = rgbOf(a), y = rgbOf(b); return Math.sqrt(2 * (x[0] - y[0]) ** 2 + 4 * (x[1] - y[1]) ** 2 + 3 * (x[2] - y[2]) ** 2) / 3; };
+function hueName([hue, s, l]) {
+  if (s < 0.14) return l > 0.75 ? "white" : l < 0.2 ? "black" : "grey";
+  if (hue < 15 || hue >= 340) return l < 0.3 ? "dark red" : "red";
+  if (hue < 45) return l < 0.42 || s < 0.35 ? "brown" : "orange";
+  if (hue < 70) return l < 0.35 ? "olive" : "yellow";
+  if (hue < 160) return "green";
+  if (hue < 195) return "teal";
+  if (hue < 255) return "blue";
+  if (hue < 290) return "purple";
+  return "pink";
+}
+// One colour bent by a group's sliders: hue turns, strength and light move toward their ends, rounded for the DS.
+function shiftColour(hex, a) {
+  if (!a || (!a.hue && !a.sat && !a.light)) return hex;
+  let [hue, s, l] = toHsl(rgbOf(hex));
+  hue = ((hue + (a.hue || 0)) % 360 + 360) % 360;
+  s = (a.sat || 0) >= 0 ? s + (1 - s) * a.sat : s * (1 + a.sat);
+  l = (a.light || 0) >= 0 ? l + (1 - l) * a.light : l * (1 + a.light);
+  return hexOf(fromHsl([hue, Math.max(0, Math.min(1, s)), Math.max(0, Math.min(1, l))]).map(ds15));
+}
+async function picturePixels(src) {
+  const im = await loadPicture(src);
+  const c = document.createElement("canvas"); c.width = im.width; c.height = im.height;
+  const x = c.getContext("2d"); x.drawImage(im, 0, 0);
+  return {w: im.width, h: im.height, img: x.getImageData(0, 0, im.width, im.height)};
+}
+function countColours(...pictures) {
+  const counts = new Map();
+  for (const p of pictures) if (p) for (let i = 0; i < p.img.data.length; i += 4)
+    if (p.img.data[i + 3] > 0) { const k = hexOf([p.img.data[i], p.img.data[i + 1], p.img.data[i + 2]]); counts.set(k, (counts.get(k) || 0) + 1); }
+  return [...counts].map(([hex, count]) => ({hex, count, hsl: toHsl(rgbOf(hex))}));
+}
+function paintCanvas(p, map, canvas) {
+  canvas.width = p.w; canvas.height = p.h;
+  const out = new ImageData(new Uint8ClampedArray(p.img.data), p.w, p.h), d = out.data;
+  const cache = new Map();
+  for (let i = 0; i < d.length; i += 4) {
+    if (!d[i + 3]) continue;
+    const k = hexOf([d[i], d[i + 1], d[i + 2]]);
+    let v = cache.get(k);
+    if (!v) { v = rgbOf(map[k] || k); cache.set(k, v); }
+    d[i] = v[0]; d[i + 1] = v[1]; d[i + 2] = v[2];
+  }
+  canvas.getContext("2d").putImageData(out, 0, 0);
+  return canvas;
+}
+// The groups: every saturated colour joins the family of the biggest colour within 28 degrees of hue (its shades),
+// then greys, whites and the near-black outline, which stay as they are unless someone moves them.
+function shinyGroups(colours) {
+  const total = colours.reduce((a, c) => a + c.count, 0) || 1;
+  const lines = [], whites = [], greys = [], families = [];
+  for (const c of colours.slice().sort((a, b) => b.count - a.count)) {
+    const [hue, s, l] = c.hsl;
+    if (l < 0.1 || (l < 0.22 && s < 0.3)) lines.push(c);
+    else if (l > 0.86 && s < 0.35) whites.push(c);
+    else if (s < 0.14) greys.push(c);
+    else { const f = families.find(f => hueGap(f.hue, hue) < 28); if (f) f.colours.push(c); else families.push({hue, colours: [c]}); }
+  }
+  const make = (role, list, keep) => {
+    const sorted = list.slice().sort((a, b) => a.hsl[2] - b.hsl[2]), main = list.slice().sort((a, b) => b.count - a.count)[0];
+    const count = list.reduce((a, c) => a + c.count, 0);
+    const name = role === "lines" ? "outline and darkest" : role === "whites" ? "whites" : role === "greys" ? "greys" : hueName(main.hsl);
+    return {role, name, colours: sorted, main: main.hex, count, share: count / total, keep};
+  };
+  const groups = families.map(f => make("colour", f.colours, false)).sort((a, b) => b.count - a.count);
+  const seen = {};
+  for (const g of groups) { seen[g.name] = (seen[g.name] || 0) + 1; if (seen[g.name] > 1) g.name += " " + seen[g.name]; }
+  if (greys.length) groups.push(make("greys", greys, false));
+  if (whites.length) groups.push(make("whites", whites, true));
+  if (lines.length) groups.push(make("lines", lines, true));
+  groups.forEach((g, i) => { g.id = i; });
+  return groups;
+}
+// The whole map from the groups' sliders. Two colours that were different stay different after rounding.
+function shinyMap(groups, adj) {
+  const map = {}, used = new Map();
+  for (const g of groups) for (const c of g.colours) {
+    let v = g.keep && !adj[g.id] ? c.hex : shiftColour(c.hex, adj[g.id]);
+    for (let tries = 0; used.has(v) && used.get(v) !== c.hex && tries < 6; tries++) {
+      const [r, gg, b] = rgbOf(v), up = (toHsl([r, gg, b])[2] < 0.5 ? 8 : -8);
+      v = hexOf([r, gg, b].map(x => ds15(x + up)));
+    }
+    used.set(v, c.hex); map[c.hex] = v;
+  }
+  return map;
+}
+// The walking sprite has its own colours: each follows the front colour closest to it.
+function followerMap(colours, groups, adj) {
+  const front = groups.flatMap(g => g.colours.map(c => ({c, g})));
+  const map = {};
+  for (const c of colours) {
+    let best = null, gap = 1e9;
+    for (const f of front) { const d = rgbGap(c.hex, f.c.hex); if (d < gap) { gap = d; best = f; } }
+    let group = best && gap <= 48 ? best.g : null;
+    if (!group) {
+      const [hue, s, l] = c.hsl;
+      const role = l < 0.1 || (l < 0.22 && s < 0.3) ? "lines" : l > 0.86 && s < 0.35 ? "whites" : s < 0.14 ? "greys" : "colour";
+      group = role === "colour" ? groups.filter(g => g.role === "colour").sort((a, b) => hueGap(toHsl(rgbOf(a.main))[0], hue) - hueGap(toHsl(rgbOf(b.main))[0], hue))[0]
+        : groups.find(g => g.role === role);
+    }
+    map[c.hex] = group && !(group.keep && !adj[group.id]) ? shiftColour(c.hex, adj[group.id]) : c.hex;
+  }
+  return map;
+}
+// How a relative's shiny moved a colour, as slider values (for "follow the line").
+function sliderFrom(normal, shiny) {
+  const [h1, s1, l1] = toHsl(rgbOf(normal)), [h2, s2, l2] = toHsl(rgbOf(shiny));
+  const turn = ((h2 - h1 + 540) % 360) - 180;
+  const part = (a, b) => b >= a ? (a >= 1 ? 0 : (b - a) / (1 - a)) : (a <= 0 ? 0 : b / a - 1);
+  return {hue: Math.round(s1 < 0.08 ? h2 : turn), sat: Math.round(part(s1, s2) * 100) / 100, light: Math.round(part(l1, l2) * 100) / 100};
+}
+const SHINY_TURNS = [60, 90, 120, 150, 180, -60, -90, -120, -150, 40, -40];
+// CREATE / RETRY: a whole shiny with random choices. ctx.line = [{name, map}] of relatives that already have a shiny.
+function suggestShiny(groups, ctx, seed) {
+  const r = CryEngine.rng(seed), adj = {}, why = [];
+  const colourGroups = groups.filter(g => g.role === "colour");
+  const main = colourGroups[0] || groups.find(g => g.role === "greys") || groups[0];
+  if (!main) return {adj, why: ["It has no colours to change."]};
+  const line = (ctx.line || []).filter(k => k.map && Object.keys(k.map).length);
+  if (line.length && (ctx.first || r.chance(0.3))) {
+    const k = line[0];
+    for (const g of groups) {
+      let best = null, gap = 1e9;
+      for (const from of Object.keys(k.map)) { const d = rgbGap(g.main, from); if (d < gap) { gap = d; best = from; } }
+      if (best && gap < 90 && k.map[best] !== best) adj[g.id] = sliderFrom(best, k.map[best]);
+    }
+    if (Object.keys(adj).length) {
+      if (!ctx.first) for (const id of Object.keys(adj)) adj[id].hue = Math.round(adj[id].hue + r.range(-15, 15));
+      why.push("Follows the shiny of " + k.name + ", so the line matches");
+      return {adj, why};
+    }
+  }
+  const strategies = [["turn", 0.4], ["swap", colourGroups.length > 1 && hueGap(toHsl(rgbOf(colourGroups[0].main))[0], toHsl(rgbOf(colourGroups[1].main))[0]) > 40 ? 0.16 : 0],
+    ["metal", 0.16], ["soft", 0.14], ["subtle", 0.1], ["dark", 0.08]];
+  for (let attempt = 0; attempt < 8; attempt++) {
+    for (const k of Object.keys(adj)) delete adj[k];
+    why.length = 0;
+    let pick = r() * strategies.reduce((a, [, p]) => a + p, 0), kind = strategies[0][0];
+    for (const [name, p] of strategies) { if ((pick -= p) <= 0) { kind = name; break; } }
+    if (kind === "turn" || kind === "soft" || kind === "subtle" || kind === "dark") {
+      const turn = kind === "subtle" ? r.pick([1, -1]) * Math.round(r.range(25, 45)) : r.pick(SHINY_TURNS) + Math.round(r.range(-10, 10));
+      adj[main.id] = {hue: turn, sat: kind === "soft" ? -0.3 : kind === "dark" ? 0.1 : Math.round(r.range(-0.15, 0.2) * 100) / 100,
+        light: kind === "soft" ? 0.25 : kind === "dark" ? -0.3 : Math.round(r.range(-0.08, 0.08) * 100) / 100};
+      for (const g of colourGroups.slice(1)) {
+        const roll = r();
+        if (roll < 0.45) adj[g.id] = Object.assign({}, adj[main.id]);                      // the whole body turns together
+        else if (roll < 0.75) adj[g.id] = {hue: Math.round(r.range(-20, 20)), sat: 0, light: 0};   // accents stay almost
+      }
+    } else if (kind === "swap") {
+      const [a, b] = colourGroups, ha = toHsl(rgbOf(a.main)), hb = toHsl(rgbOf(b.main));
+      adj[a.id] = {hue: Math.round(hb[0] - ha[0]), sat: Math.round((hb[1] - ha[1]) * 100) / 100, light: 0};
+      adj[b.id] = {hue: Math.round(ha[0] - hb[0]), sat: Math.round((ha[1] - hb[1]) * 100) / 100, light: 0};
+    } else if (kind === "metal") {
+      const metal = r.pick(["gold", "silver", "black", "pink"]);
+      const target = {gold: [45, 0.75, 0.55], silver: [210, 0.08, 0.68], black: [250, 0.15, 0.24], pink: [330, 0.6, 0.68]}[metal];
+      adj[main.id] = sliderFrom(main.main, hexOf(fromHsl(target)));
+      if (toHsl(rgbOf(main.main))[1] < 0.08) adj[main.id].hue = target[0];
+      why.push("A " + metal + " shiny");
+    }
+    if (groups.find(g => g.role === "greys") && r.chance(0.3)) { const g = groups.find(x => x.role === "greys"); adj[g.id] = {hue: Math.round(r.range(0, 360)), sat: 0.2, light: 0}; }
+    const after = shiftColour(main.main, adj[main.id]);
+    if (rgbGap(main.main, after) >= 22) {
+      const named = hueName(toHsl(rgbOf(after)));
+      if (kind !== "metal") why.unshift(main.name.replace(/ \d+$/, "") === named ? "The " + main.name + " gets another shade of " + named : "The " + main.name + " turns " + named);
+      const kept = colourGroups.slice(1).filter(g => !adj[g.id]).map(g => g.name);
+      if (kept.length) why.push("The " + kept.join(" and the ") + " stay" + (kept.length === 1 ? "s" : ""));
+      if (kind === "swap") why.splice(0, 1, "The " + colourGroups[0].name + " and the " + colourGroups[1].name + " swap places");
+      if (kind === "soft") why.push("Softer, lighter colours");
+      if (kind === "dark") why.push("Deeper, darker colours");
+      return {adj, why};
+    }
+  }
+  adj[main.id] = {hue: 120, sat: 0, light: 0};
+  return {adj, why: ["The " + main.name + " turns " + hueName(toHsl(rgbOf(shiftColour(main.main, adj[main.id]))))]};
+}
+// A saved shiny, as a picture (the dex page's SHINY view and the teams). Colours the sprite got after the shiny was
+// saved follow the closest saved colour.
+const SHINY_PICS = new Map();
+function shinyPicture(sid, view) {
+  const ds = DEX.ds_sprites[sid] || {}, saved = DEX.shinies[sid], src = ds[view];
+  if (!saved || !src) return Promise.resolve(null);
+  const key = sid + "/" + view + "/" + src + "/" + (saved.at || "");
+  if (!SHINY_PICS.has(key)) SHINY_PICS.set(key, picturePixels(src).then(p => {
+    const known = view === "follower" ? (saved.follower || {}) : (saved.map || {}), map = {};
+    const pairs = Object.entries(Object.assign({}, saved.map || {}, known));
+    for (const c of countColours(p)) {
+      if (known[c.hex]) { map[c.hex] = known[c.hex]; continue; }
+      let best = null, gap = 1e9;
+      for (const [from, to] of pairs) { const d = rgbGap(c.hex, from); if (d < gap) { gap = d; best = [from, to]; } }
+      map[c.hex] = best && gap < 60 ? shiftColour(c.hex, sliderFrom(best[0], best[1])) : c.hex;
+    }
+    return paintCanvas(p, map, document.createElement("canvas")).toDataURL();
+  }).catch(() => null));
+  return SHINY_PICS.get(key);
+}
+function familyOf(s) {                                   // the whole evolution line, with how far each one is from the start
+  let root = s;
+  for (let guard = 0; guard < 6; guard++) {
+    const prevo = DEX.species.find(o => (o.data.evolutions || []).some(e => e && e.into === root.id));
+    if (!prevo) break;
+    root = prevo;
+  }
+  const out = [], walk = (o, depth) => { if (out.some(x => x.s === o) || depth > 5) return; out.push({s: o, depth}); (o.data.evolutions || []).forEach(e => e && byId.has(e.into) && walk(byId.get(e.into), depth + 1)); };
+  walk(root, 0);
+  return out;
+}
+
+function shinyMaker(s) {
+  const d = s.data, ds = DEX.ds_sprites[s.id] || {};
+  const top = h("section", {class: "screen top", "aria-label": "Shiny " + d.name});
+  const page = h("div", {class: "page"});
+  const say = h("div", {class: "dlg", role: "status"}, "Point at a colour group to see what it is.");
+  const st = {pics: {}, groups: [], adj: {}, followerColours: [], seed: 0, why: [], tried: 0};
+  const canvases = {front: h("canvas", {class: "px shinypic"}), back: h("canvas", {class: "px shinypic small"}), normal: h("canvas", {class: "px shinypic"})};
+  const walkCanvas = h("canvas", {width: 32, height: 32, class: "px walker", style: "width:96px;height:96px"});
+  let walkSource = null;
+  walkers.add({canvas: walkCanvas, draw() {
+    if (!walkSource) return;
+    const order = [1, 1, 1, 1, 2, 2, 0, 0, 3, 3], col = order[Math.floor(walkTick / 4) % order.length], row = walkTick % 2, x = walkCanvas.getContext("2d");
+    x.clearRect(0, 0, 32, 32); x.imageSmoothingEnabled = false; x.drawImage(walkSource, col * 32, row * 32, 32, 32, 0, 0, 32, 32);
+  }});
+  top.append(h("div", {class: "namebar"}, h("div", {class: "frame no"}, "No." + pad(d.dex)), h("div", {class: "frame"}, h("h3", {}, String(d.name || "").toUpperCase())), h("div", {class: "types"}, (d.types || []).map(typeChip))),
+    h("div", {class: "shinystage"},
+      h("figure", {}, canvases.normal, h("figcaption", {}, "NORMAL")),
+      h("figure", {class: "sparkle"}, canvases.front, h("figcaption", {}, "✦ SHINY")),
+      h("figure", {}, canvases.back, h("figcaption", {}, "BACK")),
+      ds.follower ? h("figure", {}, walkCanvas, h("figcaption", {}, "WALKING")) : null),
+    say);
+  const current = () => ({map: shinyMap(st.groups, st.adj), follower: st.pics.follower ? followerMap(st.followerColours, st.groups, st.adj) : {}});
+  function paint() {
+    const m = current();
+    if (st.pics.front) paintCanvas(st.pics.front, m.map, canvases.front);
+    if (st.pics.back) paintCanvas(st.pics.back, m.map, canvases.back);
+    if (st.pics.follower) walkSource = paintCanvas(st.pics.follower, m.follower, walkSource || document.createElement("canvas"));
+  }
+  function groupRow(g) {
+    const a = () => st.adj[g.id] || {hue: 0, sat: 0, light: 0};
+    const set = (k, v) => { st.adj[g.id] = Object.assign({}, a(), {[k]: v}); if (g.keep) { g.keep = false; keep.checked = false; } paint(); swatches(); };
+    const els = {};
+    const slider = (k, min, max, step, label) => {
+      const el = els[k] = h("input", {type: "range", min, max, step, value: a()[k], "aria-label": label + " of the " + g.name});
+      el.addEventListener("input", () => set(k, Number(el.value)));
+      return h("label", {class: "shslider"}, h("span", {}, label), el);
+    };
+    const sync = () => { for (const k of ["hue", "sat", "light"]) if (els[k]) els[k].value = a()[k]; };
+    const strip = h("span", {class: "shstrip"});
+    const swatches = () => {
+      const m = shinyMap(st.groups, st.adj);
+      strip.replaceChildren(...g.colours.map(c => h("span", {class: "shsw", title: c.hex + " → " + m[c.hex]},
+        h("i", {style: "background:" + c.hex}), h("i", {style: "background:" + m[c.hex]}))));
+    };
+    const keep = h("input", {type: "checkbox", checked: g.keep && !st.adj[g.id] ? "" : null});
+    keep.addEventListener("change", () => { g.keep = keep.checked; if (keep.checked) delete st.adj[g.id]; sync(); paint(); swatches(); pickIt.value = shinyMap(st.groups, st.adj)[g.main]; });
+    const pickIt = h("input", {type: "color", value: shinyMap(st.groups, st.adj)[g.main], title: "Pick the new main colour of this group", "aria-label": "New colour for the " + g.name});
+    pickIt.addEventListener("input", () => { st.adj[g.id] = sliderFrom(g.main, pickIt.value); g.keep = false; keep.checked = false; sync(); paint(); swatches(); });
+    const row = h("div", {class: "shgroup"},
+      h("div", {class: "shhead"}, strip, h("b", {}, g.name), h("span", {class: "sub"}, Math.round(g.share * 100) + "%"),
+        h("span", {class: "grow"}), h("label", {class: "sub"}, keep, " keep"), pickIt),
+      h("div", {class: "shsliders"}, slider("hue", -180, 180, 1, "Colour"), slider("sat", -1, 1, 0.05, "Strength"), slider("light", -0.6, 0.6, 0.05, "Light")));
+    swatches();
+    explains(row, {say: (t, x) => say.replaceChildren(h("span", {class: "say-title"}, t + "\n"), x), rest() {}}, g.name.toUpperCase(),
+      g.role === "lines" ? "The outline and the darkest shades. Official shinies almost always keep them." : g.role === "whites" ? "Whites and the lightest colours, often the eyes and shine. Usually kept."
+        : g.role === "greys" ? "Grey parts. Move Strength up to tint them." : "One colour with its shades (" + g.colours.length + "). Colour turns all of them together, so the shading stays right.");
+    return row;
+  }
+  function draw() {
+    paint();
+    const saved = DEX.shinies[s.id];
+    const save = h("button", {type: "button", class: "primary"}, "SAVE THIS SHINY");
+    const note = h("span", {class: "sub"});
+    save.onclick = async () => {
+      if (!me()) { note.textContent = "Write your Discord name at the top of the page first."; document.getElementById("me").focus(); return; }
+      save.disabled = true; note.textContent = "Saving...";
+      const m = current(), data = {map: m.map, follower: m.follower, sliders: st.groups.map(g => ({colours: g.colours.map(c => c.hex), keep: !!g.keep, adj: st.adj[g.id] || null})),
+        why: st.why.join(". "), front: ds.front || "", at: new Date().toISOString()};
+      try { await saveEdit("shiny", s.id, data); DEX.shinies[s.id] = Object.assign({}, data, {by: me()}); note.textContent = "Saved. It is stored in the dex within about 15 minutes."; }
+      catch (err) { note.textContent = err.message; }
+      save.disabled = false;
+    };
+    const fam = familyOf(s).filter(x => x.s.id !== s.id && DEX.shinies[x.s.id]);
+    const create = h("button", {type: "button"}, st.tried ? "RETRY" : "CREATE");
+    create.onclick = () => {
+      st.seed = Math.floor(Math.random() * 1e9);
+      st.groups.forEach(g => { g.keep = g.role === "whites" || g.role === "lines"; });
+      const sg = suggestShiny(st.groups, {line: fam.map(x => ({name: x.s.data.name, map: DEX.shinies[x.s.id].map})), first: !st.tried}, st.seed);
+      st.adj = sg.adj; st.why = sg.why; st.tried++;
+      draw();
+    };
+    const reset = h("button", {type: "button", class: "small"}, "NO CHANGES");
+    reset.onclick = () => { st.adj = {}; st.why = []; st.groups.forEach(g => { g.keep = g.role === "whites" || g.role === "lines"; }); draw(); };
+    const fromSaved = saved ? h("button", {type: "button", class: "small"}, "START FROM THE SAVED ONE") : null;
+    if (fromSaved) fromSaved.onclick = () => { loadSaved(saved); st.why = ["The saved shiny" + (saved.by ? " by " + saved.by : "")]; draw(); };
+    page.replaceChildren(h("div", {},
+      h("div", {class: "status"}, saved ? [h("span", {class: "badge done"}, "has a shiny"), " Saved" + (saved.by ? " by " + saved.by : "") + ". Make a new one below to replace it."]
+        : [h("span", {class: "badge need"}, "no shiny yet"), " Press CREATE for a suggestion, then change what you like."]),
+      h("div", {class: "toolbar", style: "display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0"}, create, fromSaved, reset,
+        fam.length ? h("span", {class: "sub"}, "Its line: " + fam.map(x => x.s.data.name).join(", ") + " already " + (fam.length > 1 ? "have" : "has") + " a shiny, so CREATE starts from that.") : null),
+      st.why.length ? h("div", {class: "notice info"}, h("b", {}, "This try: "), st.why.join(". ") + ".") : null,
+      h("h2", {}, "Colours"),
+      h("p", {class: "sub", style: "margin:0 0 6px"}, "Each row is one colour with its shades. Colour turns them, Strength makes them stronger or greyer, Light lighter or darker. Or tap the colour box on the right and pick the new colour directly."),
+      st.groups.map(groupRow),
+      h("div", {style: "display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px"}, save, note),
+      h("p", {class: "sub"}, "Only the colours change: the shiny is the same drawing, like in the real games. The party icon has no shiny in HeartGold.")));
+  }
+  function loadSaved(saved) {
+    st.adj = {};
+    for (const g of st.groups) {
+      const was = (saved.sliders || []).find(x => (x.colours || []).includes(g.main));
+      if (was && was.adj) { st.adj[g.id] = Object.assign({}, was.adj); g.keep = false; }
+      else if (saved.map && saved.map[g.main] && saved.map[g.main] !== g.main) { st.adj[g.id] = sliderFrom(g.main, saved.map[g.main]); g.keep = false; }
+    }
+  }
+  if (!ds.front) {
+    page.append(h("div", {class: "notice info"}, "The shiny is made from the approved sprite. Make and approve the front and back under SPRITES first."));
+    return {top, bottom: page};
+  }
+  page.append(h("div", {class: "empty"}, "Loading the sprite..."));
+  Promise.all(["front", "back", "follower"].map(v => ds[v] ? picturePixels(ds[v]).catch(() => null) : null)).then(([front, back, follower]) => {
+    st.pics = {front, back, follower};
+    if (!front) { page.replaceChildren(h("div", {class: "notice info"}, "The sprite did not load. Try again in a moment.")); return; }
+    paintCanvas(front, {}, canvases.normal);
+    st.groups = shinyGroups(countColours(front, back));
+    st.followerColours = follower ? countColours(follower) : [];
+    if (DEX.shinies[s.id]) { loadSaved(DEX.shinies[s.id]); st.why = []; }
+    draw();
+  });
+  return {top, bottom: page};
+}
+
+// ---------- cry maker (14 Nov 2026) ----------
+// Arvind: "just a create and retry, with some random variables; take other things into account, like the moveset
+// creator". Each try starts from the cries of official Pokemon that are like this one (body plan, types, egg groups,
+// size, stage, legendary, its footprint), then bends them: pitch, a second voice, wobble, echo, buzz ... chosen by its
+// types and size, with random amounts. A line keeps its sound: an evolution starts from its relative's saved cry, lower
+// and slower. The engine is scripts/cry_engine.js (the game export runs the same code on HeartGold's own cries).
+// The website plays the official cries from PokeAPI's public archive (github.com/PokeAPI/cries). docs/CRIES.md.
+const CRY_URLS = n => ["https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/legacy/" + n + ".ogg",
+  "https://cdn.jsdelivr.net/gh/PokeAPI/cries@main/cries/pokemon/legacy/" + n + ".ogg"];
+let cryCtx = null, oggDecoder = null;
+const cryAudio = () => { if (!cryCtx) cryCtx = new (window.AudioContext || window.webkitAudioContext)(); if (cryCtx.state === "suspended") cryCtx.resume(); return cryCtx; };
+const CRY_SOURCES = new Map();
+function officialCry(n) {
+  if (!CRY_SOURCES.has(n)) {
+    const p = (async () => {
+      let bytes = null;
+      for (const url of CRY_URLS(n)) {
+        try { const r = await fetch(url); if (r.ok) { bytes = await r.arrayBuffer(); break; } } catch (e) { /* the next address */ }
+      }
+      if (!bytes) throw new Error("The cry of #" + n + " could not be loaded.");
+      try {
+        const buf = await new Promise((ok, no) => { const q = cryAudio().decodeAudioData(bytes.slice(0), ok, no); if (q && q.then) q.then(ok, no); });
+        const data = new Float32Array(buf.length);
+        for (let c = 0; c < buf.numberOfChannels; c++) { const ch = buf.getChannelData(c); for (let i = 0; i < ch.length; i++) data[i] += ch[i] / buf.numberOfChannels; }
+        return {data, rate: buf.sampleRate};
+      } catch (e) {                                  // this browser cannot read .ogg itself (older Safari): a small decoder
+        if (!oggDecoder) oggDecoder = new Promise((ok, no) => {
+          const sc = document.createElement("script");
+          sc.src = "https://cdn.jsdelivr.net/npm/@wasm-audio-decoders/ogg-vorbis@0.1.20/dist/ogg-vorbis-decoder.min.js";
+          sc.onload = () => ok(window["ogg-vorbis-decoder"]); sc.onerror = () => no(new Error("This browser cannot play the cries."));
+          document.head.append(sc);
+        });
+        const lib = await oggDecoder, dec = new lib.OggVorbisDecoder();
+        await dec.ready;
+        const out = await dec.decodeFile(new Uint8Array(bytes));
+        dec.free();
+        return {data: out.channelData[0], rate: out.sampleRate};
+      }
+    })();
+    CRY_SOURCES.set(n, p);
+    p.catch(() => CRY_SOURCES.delete(n));
+  }
+  return CRY_SOURCES.get(n);
+}
+async function renderCry(recipe) {
+  const sources = {};
+  for (const l of recipe.layers || []) sources[l.dex] = await officialCry(l.dex);
+  return CryEngine.render(recipe, sources);
+}
+let cryPlaying = null;
+function playSamples(x, rate) {
+  const ctx = cryAudio(), up = CryEngine.resample(x, rate, ctx.sampleRate);
+  const buf = ctx.createBuffer(1, up.length, ctx.sampleRate);
+  buf.getChannelData(0).set(up);
+  if (cryPlaying) try { cryPlaying.stop(); } catch (e) { /* it had ended */ }
+  const src = ctx.createBufferSource(); src.buffer = buf; src.connect(ctx.destination); src.start();
+  cryPlaying = src;
+  return up.length / ctx.sampleRate;
+}
+function drawWave(canvas, x, played) {
+  const w = canvas.width = 640, hgt = canvas.height = 160, c = canvas.getContext("2d");
+  c.clearRect(0, 0, w, hgt);
+  if (!x) return;
+  const bars = 80, per = Math.max(1, Math.floor(x.length / bars));
+  for (let b = 0; b < bars; b++) {
+    let peak = 0;
+    for (let i = b * per; i < Math.min(x.length, (b + 1) * per); i++) peak = Math.max(peak, Math.abs(x[i]));
+    const bh = Math.max(4, Math.round(peak * (hgt - 16) / 4) * 4);
+    c.fillStyle = played !== undefined && b / bars <= played ? "#f8b8d8" : "#ffffff";
+    c.fillRect(b * 8 + 1, (hgt - bh) / 2, 6, bh);
+    c.fillStyle = "rgba(40,24,80,.35)"; c.fillRect(b * 8 + 1, (hgt + bh) / 2, 6, 2);
+  }
+}
+const LEGENDS = () => DEX.legendaries || {};
+function cryFacts(s) {
+  const d = s.data, fp = /^hgss:(\d+)$/.exec(String((d.assets || {}).footprint || ""));
+  const fam = familyOf(s), mine = fam.find(x => x.s === s);
+  const lineIds = new Set(fam.map(x => x.s.id)), used = {};
+  for (const [sid, recipe] of Object.entries(DEX.cries)) if (!lineIds.has(sid) && recipe && recipe.layers && recipe.layers[0]) used[recipe.layers[0].dex] = (used[recipe.layers[0].dex] || 0) + 1;
+  const L = LEGENDS();
+  return {types: d.types || [], egg: d.egg_groups || [], shape: (d.design || {}).body_shape || "", h: Number(d.height_m) || 0, w: Number(d.weight_kg) || 0,
+    bst: s.bst || 0, stage: stageOf(s), legend: (L.mythical || []).includes(s.id) ? 2 : (L.legendary || []).includes(s.id) ? 1 : 0, color: d.body_color || "",
+    footprint: fp ? Number(fp[1]) : 0, myIndex: mine ? mine.depth : 0, used,
+    line: fam.filter(x => x.s !== s && DEX.cries[x.s.id]).map(x => ({index: x.depth, name: x.s.data.name, recipe: DEX.cries[x.s.id]}))};
+}
+const officialName = n => ((DEX.official_species || []).find(o => o.n === n) || {}).name || "#" + n;
+
+function cryMaker(s) {
+  const d = s.data;
+  const top = h("section", {class: "screen top", "aria-label": "Cry of " + d.name});
+  const page = h("div", {class: "page"});
+  const say = h("div", {class: "dlg", role: "status"}, "Press CREATE: it makes a cry from official cries of Pokemon like this one.");
+  const wave = h("canvas", {class: "crywave", "aria-hidden": "true"});
+  const bigPlay = h("button", {type: "button", class: "cryplay", disabled: true, "aria-label": "Play"}, "▶");
+  const st = {tries: [], at: -1, busy: false, error: ""};
+  top.append(h("div", {class: "namebar"}, h("div", {class: "frame no"}, "No." + pad(d.dex)), h("div", {class: "frame"}, h("h3", {}, String(d.name || "").toUpperCase())), h("div", {class: "types"}, (d.types || []).map(typeChip))),
+    h("div", {class: "crystage"}, (DEX.ds_sprites[s.id] || {}).front ? h("img", {class: "px", src: DEX.ds_sprites[s.id].front, alt: ""}) : null, wave, bigPlay), say);
+  drawWave(wave, null);
+  let anim = null;
+  function play(samples) {
+    const secs = playSamples(samples, CryEngine.OUT_RATE), start = performance.now();
+    cancelAnimationFrame(anim);
+    const tick = () => { const p = (performance.now() - start) / 1000 / secs; drawWave(wave, samples, Math.min(1, p)); if (p < 1) anim = requestAnimationFrame(tick); else drawWave(wave, samples); };
+    tick();
+  }
+  async function makeTry(recipe, label) {
+    st.busy = true; st.error = ""; draw();
+    try {
+      const samples = await renderCry(recipe);
+      st.tries.push({recipe, samples, label}); st.at = st.tries.length - 1;
+      play(samples);
+    } catch (err) { st.error = err.message; }
+    st.busy = false; draw();
+  }
+  async function playOfficial(n, btn) {
+    btn.disabled = true;
+    try { const src = await officialCry(n); play(CryEngine.render({layers: [{dex: n, semi: 0, gain: 1}], len: 2.4}, {[n]: src})); }
+    catch (err) { st.error = err.message; draw(); }
+    btn.disabled = false;
+  }
+  function draw() {
+    const cur = st.tries[st.at], saved = DEX.cries[s.id];
+    bigPlay.disabled = !cur;
+    bigPlay.onclick = () => cur && play(cur.samples);
+    say.replaceChildren(cur ? h("span", {}, h("span", {class: "say-title"}, (cur.label || "TRY " + (st.at + 1)) + "\n"), (cur.recipe.reasons || []).join(".\n") + ".")
+      : st.busy ? "Loading the cries..." : "Press CREATE: it makes a cry from official cries of Pokemon like this one.");
+    if (cur) drawWave(wave, cur.samples);
+    const create = h("button", {type: "button", class: st.tries.length ? null : "primary", disabled: st.busy || null}, st.busy ? "MAKING..." : st.tries.filter(t => !t.label).length ? "RETRY" : "CREATE");
+    create.onclick = () => makeTry(CryEngine.suggest(cryFacts(s), DEX.official_species || [], Math.floor(Math.random() * 1e9)));
+    const save = h("button", {type: "button", class: "primary", disabled: !cur || cur.label === "SAVED" || null}, "SAVE THIS CRY");
+    const note = h("span", {class: "sub"});
+    save.onclick = async () => {
+      if (!me()) { note.textContent = "Write your Discord name at the top of the page first."; document.getElementById("me").focus(); return; }
+      save.disabled = true; note.textContent = "Saving...";
+      const data = Object.assign({}, cur.recipe, {at: new Date().toISOString()});
+      try { await saveEdit("cry", s.id, data); DEX.cries[s.id] = Object.assign({}, data, {by: me()}); cur.label = "SAVED"; note.textContent = "Saved. It is stored in the dex within about 15 minutes."; draw(); }
+      catch (err) { note.textContent = err.message; save.disabled = false; }
+    };
+    const playSaved = saved ? h("button", {type: "button", class: "small"}, "▶ PLAY THE SAVED CRY") : null;
+    if (playSaved) playSaved.onclick = () => { const i = st.tries.findIndex(t => t.label === "SAVED"); if (i >= 0) { st.at = i; play(st.tries[i].samples); draw(); } else makeTry(saved, "SAVED"); };
+    const fam = familyOf(s).filter(x => x.s !== s && DEX.cries[x.s.id]);
+    const donors = cur ? [...new Set(cur.recipe.layers.map(l => l.dex))] : [];
+    page.replaceChildren(h("div", {},
+      h("div", {class: "status"}, saved ? [h("span", {class: "badge done"}, "has a cry"), " Saved" + (saved.by ? " by " + saved.by : "") + ". A new one saved here replaces it. ", playSaved]
+        : [h("span", {class: "badge need"}, "no cry yet"), " Press CREATE, listen, RETRY until one fits, then SAVE."]),
+      h("div", {style: "display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0"}, create, cur ? h("button", {type: "button", onclick: () => play(cur.samples)}, "▶ PLAY") : null, save, note),
+      st.error ? h("div", {class: "notice info"}, st.error) : null,
+      st.tries.length ? [h("h2", {}, "Your tries"), h("div", {class: "chips crytries"}, st.tries.map((t, i) => h("button", {type: "button", class: "chip", "aria-pressed": String(i === st.at),
+        onclick: () => { st.at = i; play(t.samples); draw(); }}, (t.label === "SAVED" ? "★ saved" : "Try " + (i + 1)) + " · " + officialName(t.recipe.layers[0].dex))))] : null,
+      donors.length ? [h("h2", {}, "It starts from"), h("div", {class: "chips"}, donors.map(n => { const b = h("button", {type: "button", class: "chip"}, "▶ " + officialName(n)); b.onclick = () => playOfficial(n, b); return b; })),
+        h("p", {class: "sub", style: "margin:4px 0 0"}, "The official cries as they are, to compare.")] : null,
+      fam.length ? [h("h2", {}, "Its line"), h("div", {class: "chips"}, fam.map(x => { const b = h("button", {type: "button", class: "chip"}, "▶ " + x.s.data.name);
+        b.onclick = async () => { b.disabled = true; try { play(await renderCry(DEX.cries[x.s.id])); } catch (err) { st.error = err.message; draw(); } b.disabled = false; }; return b; })),
+        h("p", {class: "sub", style: "margin:4px 0 0"}, "CREATE starts from these, so the line sounds related.")] : null,
+      h("p", {class: "sub", style: "margin-top:14px"}, "What it looks at: body plan, types, egg groups, height and weight, base stats, its stage in the line, legendary or not, and whose footprint it borrows. "
+        + "Every try is random within that, so RETRY gives another. The cry is about as long and as clear as HeartGold's (13 kHz). "
+        + "The website plays the official cries from a public archive; the game uses HeartGold's own, so the game can sound slightly different. Nothing is saved until SAVE.")));
+  }
+  draw();
+  return {top, bottom: page};
 }
 
 function spriteStudio(s, startStep) {
@@ -4526,6 +5073,11 @@ async function loadRecentEdits() {
         continue;
       }
       if (row.kind === "request") continue;          // cards on the request board (loaded by loadBoard)
+      if (row.kind === "shiny" || row.kind === "cry") {   // a shiny or a cry saved since the build
+        const store = row.kind === "shiny" ? DEX.shinies : DEX.cries;
+        if (row.data.deleted) delete store[row.species_id]; else store[row.species_id] = Object.assign({}, row.data, {by: row.editor});
+        continue;
+      }
       if (row.kind === "reorder") {
         try { applyLayout(arrange(currentLayout(), Array.isArray(row.data.ops) ? row.data.ops : [])); } catch (e) { /* the import reports it */ }
         continue;

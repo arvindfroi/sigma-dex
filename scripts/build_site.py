@@ -83,12 +83,26 @@ def main():
     showdown_path = ROOT / "data" / "engine" / "showdown.json"
     showdown = json.loads(showdown_path.read_text(encoding="utf-8")) if showdown_path.exists() else {"moves": {}, "abilities": {}}
 
+    # Shinies and cries saved on the website (assets/shiny/<pokemon>.json, assets/cries/<pokemon>.json, written by
+    # import_web.py), and the facts about the official Pokemon the cry maker starts from (fetch_official_species.py).
+    def saved(folder):
+        out = {}
+        for path in sorted((ROOT / "assets" / folder).glob("*.json")):
+            if path.stem in ids:
+                out[path.stem] = json.loads(path.read_text(encoding="utf-8"))
+        return out
+    official_path = ROOT / "data" / "engine" / "official_species.json"
+    legendaries_path = ROOT / "data" / "legendaries.yaml"
+
     cursor_path = ROOT / "data" / "web_edits_cursor.txt"
     payload = {
         "project": config.get("project", "Pokedex"), "dex_size": config.get("dex_size", 151),
         "species": entries, "types": dexlib.TYPES, "checks": dexlib.CHECK_LIST,
         "custom": {"move": engine["custom"]["moves"], "ability": engine["custom"]["abilities"]},
         "images": images, "sprites": sprite_info, "ds_sprites": ds_sprites, "showdown": showdown, "studio": studio,
+        "shinies": saved("shiny"), "cries": saved("cries"),
+        "official_species": json.loads(official_path.read_text(encoding="utf-8"))["species"] if official_path.exists() else [],
+        "legendaries": yaml.safe_load(legendaries_path.read_text(encoding="utf-8")) if legendaries_path.exists() else {},
         "type_shares": yaml.safe_load((ROOT / "data" / "engine" / "type_shares.yaml").read_text(encoding="utf-8")),
         "story_moves": story_moves.build()[0],
         "characters": yaml.safe_load((ROOT / "data" / "characters.yaml").read_text(encoding="utf-8")) if (ROOT / "data" / "characters.yaml").exists() else [],
@@ -107,7 +121,9 @@ def main():
         },
     }
     blob = json.dumps(payload, ensure_ascii=False).replace("</", "<\\/")
-    page = PAGE.read_text(encoding="utf-8").replace("/*DATA*/null", blob).replace("@@TITLE@@", str(payload["project"]))
+    engine_js = (ROOT / "scripts" / "cry_engine.js").read_text(encoding="utf-8")
+    page = PAGE.read_text(encoding="utf-8").replace("/*CRY_ENGINE*/", engine_js.replace("</", "<\\/"), 1)
+    page = page.replace("/*DATA*/null", blob).replace("@@TITLE@@", str(payload["project"]))
     (SITE / "index.html").write_text(page, encoding="utf-8")
     print("Built site/index.html")
 
