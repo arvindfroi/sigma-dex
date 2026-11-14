@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions:
   - into: sjef
     method: level
-    level: 62
+    level: 40
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []

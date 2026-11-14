@@ -3993,7 +3993,7 @@
         .levelUpLearnset = sPhantombLevelUpLearnset,
         .teachableLearnset = sPhantombTeachableLearnset,
         .eggMoveLearnset = sPhantombEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 62, SPECIES_PHANTAIL}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_PHANTAIL}),
         FOOTPRINT(QuestionMark)
     },
 
