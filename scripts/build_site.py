@@ -91,6 +91,16 @@ def main():
             if path.stem in ids:
                 out[path.stem] = json.loads(path.read_text(encoding="utf-8"))
         return out
+    cries = saved("cries")
+    for sid, cry in cries.items():                 # an own sound (assets/cries/<pokemon>.wav) is copied next to the page
+        source = ROOT / str(cry.get("audio") or "")
+        if cry.get("audio") and source.is_file():
+            target = art_dir / sid / "cry.wav"
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(source, target)
+            cry["audio"] = "art/%s/cry.wav" % sid
+        elif cry.get("audio"):
+            cry["audio"] = None
     official_path = ROOT / "data" / "engine" / "official_species.json"
     legendaries_path = ROOT / "data" / "legendaries.yaml"
 
@@ -100,7 +110,7 @@ def main():
         "species": entries, "types": dexlib.TYPES, "checks": dexlib.CHECK_LIST,
         "custom": {"move": engine["custom"]["moves"], "ability": engine["custom"]["abilities"]},
         "images": images, "sprites": sprite_info, "ds_sprites": ds_sprites, "showdown": showdown, "studio": studio,
-        "shinies": saved("shiny"), "cries": saved("cries"),
+        "shinies": saved("shiny"), "cries": cries,
         "official_species": json.loads(official_path.read_text(encoding="utf-8"))["species"] if official_path.exists() else [],
         "legendaries": yaml.safe_load(legendaries_path.read_text(encoding="utf-8")) if legendaries_path.exists() else {},
         "type_shares": yaml.safe_load((ROOT / "data" / "engine" / "type_shares.yaml").read_text(encoding="utf-8")),

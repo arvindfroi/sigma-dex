@@ -9,14 +9,17 @@ A row of kind "reorder" is different: it holds steps that move Pokemon to other 
 (see dexlib.change_layout) and changes only the `dex` numbers.
 Rows newer than data/web_edits_cursor.txt are applied in order, so the newest save wins.
 Rows of kind "shiny" and "cry" (the SHINY and CRY tabs) are written to assets/shiny/<pokemon>.json and
-assets/cries/<pokemon>.json, and the species file's assets.shiny_palette / assets.cry point at them.
+assets/cries/<pokemon>.json, and the species file's assets.shiny_palette / assets.cry point at them. A cry made from
+someone's own sound also gets assets/cries/<pokemon>.wav (mono, 16-bit, 13379 Hz).
 A row that would break a species file is skipped and reported in export/web_problems.json
 (shown on the website). Art paths and sprite details cannot be edited on the website and
 are always kept from the species file.
 """
+import base64
 import copy
 import json
 import re
+import wave
 import sys
 import urllib.request
 
@@ -29,6 +32,8 @@ CURSOR = ROOT / "data" / "web_edits_cursor.txt"
 KEPT_FROM_FILE = ("assets", "engine")
 HEX = re.compile(r"#[0-9a-f]{6}")
 SAVED = {"shiny": ("shiny", "shiny_palette"), "cry": ("cries", "cry")}     # kind -> (folder under assets/, asset field)
+CRY_RATE = 13379                    # an own sound: mono 16-bit PCM at HeartGold's cry rate (scripts/cry_engine.js)
+OWN_SAMPLES = round(2.0 * CRY_RATE)  # at most 2 seconds (cry_engine.js OWN_LEN)
 
 
 def number(value, low, high, what):
@@ -64,11 +69,19 @@ def clean_cry(data):
         raise ValueError("a cry has 1 to 3 layers")
     out = {"v": int(data.get("v") or 1), "seed": int(data.get("seed") or 0), "layers": []}
     for layer in layers:
-        dex = layer.get("dex") if isinstance(layer, dict) else None
+        if not isinstance(layer, dict):
+            raise ValueError("a layer must be an object")
+        bend = {"semi": number(layer.get("semi", 0), -12, 7, "semi"), "gain": number(layer.get("gain", 1), 0, 1.5, "gain"),
+                "at": number(layer.get("at", 0), 0, 0.5, "at"), "rev": bool(layer.get("rev"))}
+        if layer.get("own") is True:            # the Pokemon's own sound (uploaded or recorded on the website)
+            if not isinstance(data.get("audio"), str):
+                raise ValueError("a layer uses the own sound, but the cry has none")
+            out["layers"].append(dict({"own": True}, **bend))
+            continue
+        dex = layer.get("dex")
         if isinstance(dex, bool) or not isinstance(dex, int) or not 1 <= dex <= 493:
             raise ValueError("a layer must name an official Pokemon 1-493")
-        out["layers"].append({"dex": dex, "semi": number(layer.get("semi", 0), -12, 7, "semi"), "gain": number(layer.get("gain", 1), 0, 1.5, "gain"),
-                              "at": number(layer.get("at", 0), 0, 0.5, "at"), "rev": bool(layer.get("rev"))})
+        out["layers"].append(dict({"dex": dex}, **bend))
     out["stretch"] = number(data.get("stretch") or 1, 0.7, 1.4, "stretch")
     out["sweep"] = number(data.get("sweep") or 0, -6, 6, "sweep")
     out["tone"] = number(data.get("tone") or 0, -1, 1, "tone")
@@ -81,24 +94,48 @@ def clean_cry(data):
     return out
 
 
+def own_sound(text):
+    """An own sound from the website: base64 of mono 16-bit little-endian PCM at 13379 Hz, at most 2 seconds."""
+    try:
+        pcm = base64.b64decode(text, validate=True)
+    except ValueError:
+        raise ValueError("the own sound is not readable")
+    if len(pcm) % 2 or not 200 <= len(pcm) <= 2 * OWN_SAMPLES:
+        raise ValueError("the own sound must be 0.01 to 2 seconds")
+    return pcm
+
+
 def save_extra(kind, sid, row, files):
     """A shiny or a cry saved on the website: its own file, and the species file points at it. Returns 1 if changed."""
     if sid not in files:
         raise ValueError("there is no Pokemon called '%s'" % sid)
     folder, field = SAVED[kind]
     target = ROOT / "assets" / folder / (sid + ".json")
+    sound = target.with_suffix(".wav")       # a cry's own sound, next to its recipe
     data = row.get("data") or {}
     path, species = files[sid]
     assets = dict(species.get("assets") or {})
     if data.get("deleted"):
         if target.exists():
             target.unlink()
+        if kind == "cry" and sound.exists():
+            sound.unlink()
         assets[field] = None
     else:
         entry = clean_shiny(data) if kind == "shiny" else clean_cry(data)
+        pcm = own_sound(data["audio"]) if kind == "cry" and any(layer.get("own") for layer in entry["layers"]) else None
         entry["by"] = row.get("editor") or ""
         entry["at"] = str(data.get("at") or "")[:40]
         target.parent.mkdir(parents=True, exist_ok=True)
+        if pcm:
+            with wave.open(str(sound), "wb") as out:
+                out.setnchannels(1)
+                out.setsampwidth(2)
+                out.setframerate(CRY_RATE)
+                out.writeframes(pcm)
+            entry["audio"] = sound.relative_to(ROOT).as_posix()
+        elif kind == "cry" and sound.exists():
+            sound.unlink()
         target.write_text(json.dumps(entry, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
         assets[field] = target.relative_to(ROOT).as_posix()
     if assets == (species.get("assets") or {}):

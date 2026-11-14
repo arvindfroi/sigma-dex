@@ -7,11 +7,13 @@
 //   CryEngine.render(recipe, sources)   -> Float32Array, mono, 13379 Hz (the rate of HeartGold's cries)
 //   CryEngine.knobsOf(recipe) / tweak(recipe, knobs) -> the website's sliders (pitch, length, glide, ...) and back
 //   sources = {<dex>: {data: Float32Array, rate: Number}}  - the official cries the recipe names
+//             {own: {...}}  - for a layer {own: true}: the Pokemon's own sound (recipe.audio, assets/cries/<pokemon>.wav)
 (function (root) {
   "use strict";
   const OUT_RATE = 13379;            // HeartGold's cry rate (hg-engine sound/cries/*.wav)
   const WORK = OUT_RATE * 2;         // everything is bent at twice that, then halved, so bending up adds no grit
   const MAX_LEN = 1.6;               // seconds; Origin's cries are 0.1-2.4 s, the sound memory is small
+  const OWN_LEN = 2.0;               // seconds of an own sound that are kept (bent up, 2 s still fill a 1.6 s cry)
   const VERSION = 1;
 
   // ---------- random numbers that can be repeated (a recipe keeps its seed) ----------
@@ -82,8 +84,8 @@
   function render(recipe, sources) {
     const layers = [];
     for (const layer of recipe.layers || []) {
-      const src = sources[layer.dex];
-      if (!src) throw new Error("the cry of #" + layer.dex + " is not loaded");
+      const src = layer.own ? sources.own : sources[layer.dex];      // own: a sound someone uploaded or recorded
+      if (!src) throw new Error(layer.own ? "the own sound is not loaded" : "the cry of #" + layer.dex + " is not loaded");
       let x = resample(src.data, src.rate, WORK);
       if (layer.rev) x = Float32Array.from(x).reverse();
       x = stretch(x, recipe.stretch || 1, WORK);
@@ -190,7 +192,7 @@
       recipe.layers.forEach(l => { l.semi = clampSemi((l.semi || 0) + shift + r.range(-0.4, 0.4)); });
       recipe.stretch = clamp((recipe.stretch || 1) * (1 + steps * r.range(0.04, 0.1)), 0.8, 1.3);
       if (steps > 0 && recipe.layers.length < 3 && r.chance(0.5)) {
-        const deep = pickDonors(mon, facts, r, recipe.layers.map(l => l.dex), 1)[0];
+        const deep = pickDonors(mon, facts, r, recipe.layers.map(l => l.dex).filter(Boolean), 1)[0];
         if (deep) { recipe.layers.push({dex: deep.o.n, semi: clampSemi(r.range(-6, -3)), gain: round(r.range(0.25, 0.4)), at: round(r.range(0, 0.05)), rev: false});
           reasons.push("Adds a low " + deep.o.name + " under it, because it is bigger"); }
       }
@@ -310,7 +312,7 @@
     return out;
   }
 
-  const api = {VERSION, OUT_RATE, MAX_LEN, rng, render, suggest, resample, knobsOf, tweak};
+  const api = {VERSION, OUT_RATE, MAX_LEN, OWN_LEN, rng, render, suggest, resample, knobsOf, tweak};
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.CryEngine = api;
 })(typeof window !== "undefined" ? window : globalThis);

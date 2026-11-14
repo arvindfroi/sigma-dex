@@ -2698,11 +2698,78 @@ function officialCry(n) {
   }
   return CRY_SOURCES.get(n);
 }
-async function renderCry(recipe) {
+// A recipe's voices: official cries by number, and {own: true} = the Pokemon's own sound. own = the sound as samples
+// (a try made from an upload or a recording); otherwise recipe.audio holds it (base64 before the sync, a .wav after).
+async function renderCry(recipe, own) {
   const sources = {};
-  for (const l of recipe.layers || []) sources[l.dex] = await officialCry(l.dex);
+  for (const l of recipe.layers || []) {
+    if (l.own) sources.own = own ? {data: own, rate: CryEngine.OUT_RATE} : {data: await ownAudio(recipe.audio), rate: CryEngine.OUT_RATE};
+    else sources[l.dex] = await officialCry(l.dex);
+  }
   return CryEngine.render(recipe, sources);
 }
+
+// ---------- own cries (15 Nov 2026) ----------
+// Arvind: "la folk legge inn egne cries og. det kan jo alltid endres." An uploaded file or a recording becomes the
+// cry's own voice: silence cut off, mono, 13379 Hz like HeartGold, at most 2 seconds, then the same sliders. It is saved
+// with the recipe as base64 of 16-bit PCM; the sync writes it to assets/cries/<pokemon>.wav (scripts/import_web.py).
+const OWN_FILES = new Map();
+async function ownAudio(audio) {
+  if (typeof audio !== "string" || !audio) throw new Error("This cry's own sound is missing.");
+  if (/\.wav$/.test(audio)) {
+    if (!OWN_FILES.has(audio)) {
+      const p = fetch(audio).then(r => { if (!r.ok) throw new Error("The cry's sound could not be loaded."); return r.arrayBuffer(); }).then(readWav);
+      OWN_FILES.set(audio, p); p.catch(() => OWN_FILES.delete(audio));
+    }
+    return OWN_FILES.get(audio);
+  }
+  const bin = atob(audio), view = new DataView(new ArrayBuffer(bin.length & ~1)), out = new Float32Array(view.byteLength / 2);
+  for (let i = 0; i < view.byteLength; i++) view.setUint8(i, bin.charCodeAt(i));
+  for (let i = 0; i < out.length; i++) out[i] = view.getInt16(i * 2, true) / 32768;
+  return out;
+}
+function readWav(bytes) {                              // the sync's own .wav files: mono 16-bit PCM
+  const v = new DataView(bytes);
+  for (let at = 12; at + 8 <= v.byteLength;) {
+    const id = String.fromCharCode(v.getUint8(at), v.getUint8(at + 1), v.getUint8(at + 2), v.getUint8(at + 3)), size = v.getUint32(at + 4, true);
+    if (id === "data") { const n = Math.floor(Math.min(size, v.byteLength - at - 8) / 2), out = new Float32Array(n); for (let i = 0; i < n; i++) out[i] = v.getInt16(at + 8 + i * 2, true) / 32768; return out; }
+    at += 8 + size + (size & 1);
+  }
+  throw new Error("The cry's sound could not be read.");
+}
+function ownToBase64(x) {
+  const bytes = new Uint8Array(x.length * 2), v = new DataView(bytes.buffer);
+  for (let i = 0; i < x.length; i++) v.setInt16(i * 2, Math.max(-32768, Math.min(32767, Math.round(x[i] * 32767))), true);
+  let bin = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  return btoa(bin);
+}
+// A file or a recording -> {data (13379 Hz), long (it was cut)}.
+async function ownSound(blob) {
+  if (blob.size > 25e6) throw new Error("That file is too big. Use a short sound (a few seconds).");
+  const bytes = await blob.arrayBuffer();
+  let buf;
+  try { buf = await new Promise((ok, no) => { const q = cryAudio().decodeAudioData(bytes.slice(0), ok, no); if (q && q.then) q.then(ok, no); }); }
+  catch (e) { throw new Error("This browser cannot read that file. Try a .wav or .mp3."); }
+  let x = new Float32Array(buf.length);
+  for (let c = 0; c < buf.numberOfChannels; c++) { const ch = buf.getChannelData(c); for (let i = 0; i < ch.length; i++) x[i] += ch[i] / buf.numberOfChannels; }
+  let peak = 0;
+  for (let i = 0; i < x.length; i++) peak = Math.max(peak, Math.abs(x[i]));
+  if (peak < 0.003) throw new Error("The sound is silent. Try again a little louder.");
+  let a = 0, b = x.length - 1;                          // cut the silence before and after
+  while (a < b && Math.abs(x[a]) < peak * 0.03) a++;
+  while (b > a && Math.abs(x[b]) < peak * 0.03) b--;
+  a = Math.max(0, a - Math.round(0.01 * buf.sampleRate)); b = Math.min(x.length, b + Math.round(0.04 * buf.sampleRate));
+  x = CryEngine.resample(x.subarray(a, b), buf.sampleRate, CryEngine.OUT_RATE);
+  const keep = Math.round(CryEngine.OWN_LEN * CryEngine.OUT_RATE), long = x.length > Math.round(CryEngine.MAX_LEN * CryEngine.OUT_RATE);
+  if (x.length > keep) { x = x.slice(0, keep); const f = Math.round(0.05 * CryEngine.OUT_RATE); for (let i = 0; i < f; i++) x[keep - 1 - i] *= i / f; }
+  let top = 0;
+  for (let i = 0; i < x.length; i++) top = Math.max(top, Math.abs(x[i]));
+  for (let i = 0; i < x.length; i++) x[i] = x[i] / top * 0.89;
+  return {data: x, long};
+}
+const OWN_RECIPE = () => ({v: CryEngine.VERSION, seed: 0, layers: [{own: true, semi: 0, gain: 1, at: 0, rev: false}], stretch: 1, sweep: 0, vib: null, ring: null, echo: null,
+  tone: 0, drive: 0, len: CryEngine.MAX_LEN, reasons: ["Its own sound"]});
 let cryPlaying = null;
 function playSamples(x, rate) {
   const ctx = cryAudio(), up = CryEngine.resample(x, rate, ctx.sampleRate);
@@ -2732,7 +2799,7 @@ function cryFacts(s) {
   const d = s.data, fp = /^hgss:(\d+)$/.exec(String((d.assets || {}).footprint || ""));
   const fam = familyOf(s), mine = fam.find(x => x.s === s);
   const lineIds = new Set(fam.map(x => x.s.id)), used = {};
-  for (const [sid, recipe] of Object.entries(DEX.cries)) if (!lineIds.has(sid) && recipe && recipe.layers && recipe.layers[0]) used[recipe.layers[0].dex] = (used[recipe.layers[0].dex] || 0) + 1;
+  for (const [sid, recipe] of Object.entries(DEX.cries)) if (!lineIds.has(sid) && recipe && recipe.layers && recipe.layers[0] && recipe.layers[0].dex) used[recipe.layers[0].dex] = (used[recipe.layers[0].dex] || 0) + 1;
   const L = LEGENDS();
   return {types: d.types || [], egg: d.egg_groups || [], shape: (d.design || {}).body_shape || "", h: Number(d.height_m) || 0, w: Number(d.weight_kg) || 0,
     bst: s.bst || 0, stage: stageOf(s), legend: (L.mythical || []).includes(s.id) ? 2 : (L.legendary || []).includes(s.id) ? 1 : 0, color: d.body_color || "",
@@ -2754,11 +2821,11 @@ function cryMaker(s) {
   const d = s.data;
   const top = h("section", {class: "screen top", "aria-label": "Cry of " + d.name});
   const page = h("div", {class: "page"});
-  const hello = "Press CREATE to make a cry. RETRY makes another one.";
+  const hello = "Press CREATE to make a cry, or use your own sound. RETRY makes another one.";
   const say = h("div", {class: "dlg", role: "status"}, hello);
   const wave = h("canvas", {class: "crywave", "aria-hidden": "true"});
   const bigPlay = h("button", {type: "button", class: "cryplay", disabled: true, "aria-label": "Play"}, "▶");
-  const st = {tries: [], at: -1, busy: false, error: "", made: 0};
+  const st = {tries: [], at: -1, busy: false, error: "", made: 0, rec: null, ownNote: ""};
   top.append(h("div", {class: "namebar"}, h("div", {class: "frame no"}, "No." + pad(d.dex)), h("div", {class: "frame"}, h("h3", {}, String(d.name || "").toUpperCase())), h("div", {class: "types"}, (d.types || []).map(typeChip))),
     h("div", {class: "crystage"}, (DEX.ds_sprites[s.id] || {}).front ? h("img", {class: "px", src: DEX.ds_sprites[s.id].front, alt: ""}) : null, wave, bigPlay), say);
   drawWave(wave, null);
@@ -2769,12 +2836,14 @@ function cryMaker(s) {
     const tick = () => { const p = (performance.now() - start) / 1000 / secs; drawWave(wave, samples, Math.min(1, p)); if (p < 1) anim = requestAnimationFrame(tick); else drawWave(wave, samples); };
     tick();
   }
-  // a try = the recipe CREATE made (base), the sliders (knobs) and what they give (recipe, samples)
-  async function makeTry(base, label) {
+  // a try = the recipe it started as (base), the sliders (knobs), what they give (recipe, samples) and, for an own
+  // sound, the sound itself (own)
+  async function makeTry(base, label, own) {
     st.busy = true; st.error = ""; draw();
     try {
-      const samples = await renderCry(base);
-      st.tries.push({base, knobs: CryEngine.knobsOf(base), recipe: base, samples, label, changed: false}); st.at = st.tries.length - 1;
+      if (!own && base.layers.some(l => l.own)) own = await ownAudio(base.audio);
+      const samples = await renderCry(base, own);
+      st.tries.push({base, knobs: CryEngine.knobsOf(base), recipe: base, samples, label, own: own || null, changed: false}); st.at = st.tries.length - 1;
       play(samples);
     } catch (err) { st.error = err.message; }
     st.busy = false; draw();
@@ -2783,9 +2852,32 @@ function cryMaker(s) {
     t.recipe = CryEngine.tweak(t.base, t.knobs);
     t.changed = JSON.stringify(t.recipe) !== JSON.stringify(t.base);
     if (t.label === "SAVED" && t.changed) t.label = "";
-    try { t.samples = await renderCry(t.recipe); if (st.tries[st.at] === t) play(t.samples); }
+    try { t.samples = await renderCry(t.recipe, t.own); if (st.tries[st.at] === t) play(t.samples); }
     catch (err) { st.error = err.message; }
     draw();
+  }
+  async function useOwn(blob) {
+    st.busy = true; st.error = ""; st.ownNote = ""; draw();
+    try {
+      const got = await ownSound(blob);
+      st.ownNote = got.long ? "Your sound was longer than a cry can be, so the end is cut. Length, Pitch or Glide can make room." : "";
+      st.busy = false;
+      await makeTry(OWN_RECIPE(), "OWN", got.data);
+    } catch (err) { st.error = err.message; st.busy = false; draw(); }
+  }
+  const fileIn = h("input", {type: "file", accept: "audio/*,.wav,.mp3,.m4a,.ogg,.aac,.flac", style: "display:none"});
+  fileIn.addEventListener("change", () => { const f = fileIn.files[0]; fileIn.value = ""; if (f) useOwn(f); });
+  async function record() {
+    if (st.rec) { st.rec.stop(); return; }
+    if (!navigator.mediaDevices || !window.MediaRecorder) { st.error = "This browser cannot record. Upload a sound file instead."; draw(); return; }
+    let stream;
+    try { stream = await navigator.mediaDevices.getUserMedia({audio: true}); }
+    catch (e) { st.error = "The microphone is not allowed. Allow it in the browser, or upload a sound file instead."; draw(); return; }
+    const chunks = [], rec = new MediaRecorder(stream);
+    rec.ondataavailable = e => e.data.size && chunks.push(e.data);
+    rec.onstop = () => { clearTimeout(rec.cap); stream.getTracks().forEach(t => t.stop()); st.rec = null; useOwn(new Blob(chunks, {type: rec.mimeType || "audio/webm"})); };
+    rec.cap = setTimeout(() => rec.state === "recording" && rec.stop(), 4000);     // at most 4 seconds; the silence is cut after
+    st.rec = rec; st.error = ""; rec.start(); draw();
   }
   function knobRows(t) {
     return h("div", {class: "shsliders crysliders"}, CRY_KNOBS.map(([k, label, min, max, step, words]) => {
@@ -2800,24 +2892,30 @@ function cryMaker(s) {
     const cur = st.tries[st.at], saved = DEX.cries[s.id];
     bigPlay.disabled = !cur;
     bigPlay.onclick = () => cur && play(cur.samples);
-    const name = t => t.label === "SAVED" ? "THE SAVED CRY" : "TRY " + (st.tries.indexOf(t) + 1);
-    say.replaceChildren(cur ? h("span", {}, h("span", {class: "say-title"}, name(cur) + (cur.changed ? " (changed)" : "") + "\n"), "Press ▶ to hear it again. Change it with the sliders below.")
+    const name = t => t.label === "SAVED" ? "THE SAVED CRY" : (t.label === "OWN" ? "YOUR SOUND " : "TRY ") + (st.tries.indexOf(t) + 1);
+    say.replaceChildren(st.rec ? h("span", {}, h("span", {class: "say-title"}, "RECORDING\n"), "Make the sound now. Press STOP when you are done (it stops by itself after 4 seconds).")
+      : cur ? h("span", {}, h("span", {class: "say-title"}, name(cur) + (cur.changed ? " (changed)" : "") + "\n"), "Press ▶ to hear it again. Change it with the sliders below.")
       : st.busy ? "Making the cry..." : hello);
     if (cur) drawWave(wave, cur.samples);
-    const create = h("button", {type: "button", class: st.tries.length ? null : "primary", disabled: st.busy || null}, st.busy ? "MAKING..." : st.made ? "RETRY" : "CREATE");
+    const create = h("button", {type: "button", class: st.tries.length ? null : "primary", disabled: st.busy || st.rec || null}, st.busy ? "MAKING..." : st.made ? "RETRY" : "CREATE");
     create.onclick = () => (st.made++, makeTry(CryEngine.suggest(cryFacts(s), DEX.official_species || [], Math.floor(Math.random() * 1e9))));
-    const save = h("button", {type: "button", class: "primary", disabled: !cur || cur.label === "SAVED" || null}, "SAVE THIS CRY");
+    const upload = h("button", {type: "button", disabled: st.busy || st.rec || null}, "UPLOAD A SOUND");
+    upload.onclick = () => fileIn.click();
+    const rec = h("button", {type: "button", class: st.rec ? "primary" : null, disabled: st.busy || null}, st.rec ? "■ STOP" : "● RECORD");
+    rec.onclick = record;
+    const save = h("button", {type: "button", class: "primary", disabled: !cur || cur.label === "SAVED" || st.rec || null}, "SAVE THIS CRY");
     const note = h("span", {class: "sub"});
     save.onclick = async () => {
       save.disabled = true; note.textContent = "Saving...";
       const changes = CRY_KNOBS.filter(([k]) => cur.knobs[k] !== CryEngine.knobsOf(cur.base)[k]).map(([k, label]) => label.toLowerCase() + " " + cur.knobs[k]);
       const data = Object.assign({}, cur.recipe, {reasons: (cur.recipe.reasons || []).concat(changes.length ? ["Changed by hand: " + changes.join(", ")] : []).slice(0, 8), at: new Date().toISOString()});
+      if (cur.own && data.layers.some(l => l.own)) data.audio = ownToBase64(cur.own); else delete data.audio;
       try {
         await saveEdit("cry", s.id, data);
         DEX.cries[s.id] = Object.assign({}, data, {by: me()});
         Object.assign(cur, {base: cur.recipe, knobs: CryEngine.knobsOf(cur.recipe), label: "SAVED", changed: false});
-        note.textContent = "Saved. It is stored in the dex within about 15 minutes."; draw();
-      } catch (err) { note.textContent = err.message; save.disabled = false; }
+        note.textContent = "Saved. It is stored in the dex within about 15 minutes. It can always be changed later."; draw();
+      } catch (err) { note.textContent = /check constraint/i.test(err.message) ? "Own sounds are not switched on in the database yet." : err.message; save.disabled = false; }
     };
     const playSaved = saved ? h("button", {type: "button", class: "small"}, "▶ PLAY THE SAVED CRY") : null;
     if (playSaved) playSaved.onclick = () => { const i = st.tries.findIndex(t => t.label === "SAVED"); if (i >= 0) { st.at = i; play(st.tries[i].samples); draw(); } else makeTry(saved, "SAVED"); };
@@ -2826,16 +2924,19 @@ function cryMaker(s) {
     const fam = familyOf(s).filter(x => x.s !== s && DEX.cries[x.s.id]);
     page.replaceChildren(h("div", {},
       h("div", {class: "status"}, saved ? [h("span", {class: "badge done"}, "has a cry"), " Saved" + (saved.by ? " by " + saved.by : "") + ". A new one saved here replaces it. ", playSaved]
-        : [h("span", {class: "badge need"}, "no cry yet"), " Press CREATE, listen, RETRY until one fits, then SAVE."]),
-      h("div", {style: "display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0"}, create, cur ? h("button", {type: "button", onclick: () => play(cur.samples)}, "▶ PLAY") : null, save, note),
+        : [h("span", {class: "badge need"}, "no cry yet"), " Press CREATE, or use your own sound. Listen, change it, then SAVE."]),
+      h("div", {style: "display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0"}, create, upload, rec, fileIn, cur ? h("button", {type: "button", onclick: () => play(cur.samples)}, "▶ PLAY") : null, save, note),
       st.error ? h("div", {class: "notice info"}, st.error) : null,
-      cur ? [h("h2", {}, "Change " + (cur.label === "SAVED" ? "the saved cry" : "try " + (st.at + 1))), knobRows(cur), undo] : null,
+      st.ownNote && cur && cur.label === "OWN" ? h("div", {class: "notice info"}, st.ownNote) : null,
+      cur ? [h("h2", {}, "Change " + (cur.label === "SAVED" ? "the saved cry" : (cur.label === "OWN" ? "your sound " : "try ") + (st.at + 1))), knobRows(cur), undo] : null,
       st.tries.length > 1 ? [h("h2", {}, "Your tries"), h("div", {class: "chips crytries"}, st.tries.map((t, i) => h("button", {type: "button", class: "chip", "aria-pressed": String(i === st.at),
-        onclick: () => { st.at = i; play(t.samples); draw(); }}, (t.label === "SAVED" ? "★ saved" : "Try " + (i + 1)) + (t.changed ? " ✎" : ""))))] : null,
+        onclick: () => { st.at = i; play(t.samples); draw(); }}, (t.label === "SAVED" ? "★ saved" : (t.label === "OWN" ? "Own " : "Try ") + (i + 1)) + (t.changed ? " ✎" : ""))))] : null,
       fam.length ? [h("h2", {}, "Its line"), h("div", {class: "chips"}, fam.map(x => { const b = h("button", {type: "button", class: "chip"}, "▶ " + x.s.data.name);
         b.onclick = async () => { b.disabled = true; try { play(await renderCry(DEX.cries[x.s.id])); } catch (err) { st.error = err.message; draw(); } b.disabled = false; }; return b; })),
         h("p", {class: "sub", style: "margin:4px 0 0"}, "The saved cries of its relatives, to compare. CREATE makes this one sound related.")] : null,
-      h("p", {class: "sub", style: "margin-top:14px"}, "Every try is random, so RETRY gives another. Earlier tries stay in the list. Nothing is saved until SAVE.")));
+      h("p", {class: "sub", style: "margin-top:14px"}, "Every try is random, so RETRY gives another. Earlier tries stay in the list. Nothing is saved until SAVE, and a saved cry can always be replaced."),
+      h("p", {class: "sub"}, "Your own sound: upload a short sound file or record one with the microphone. The silence before and after is cut, and it is made as clear as HeartGold's cries (13 kHz, at most 1.6 seconds). "
+        + "Use only a sound you made yourself or may use freely, not a sound from a game or a show: a saved sound is public in the dex.")));
   }
   draw();
   return {top, bottom: page};

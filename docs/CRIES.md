@@ -24,10 +24,34 @@ lost.
   **UNDO THE CHANGES** puts the sliders back. A changed try is marked ✎. SAVE stores the changed recipe, and its
   `reasons` get a last line such as "Changed by hand: pitch 3, echo 0.3". The engine's `knobsOf` and `tweak` do this.
 - **Its line** plays the saved cries of its relatives, to compare.
+- **Own sounds** (added 15 Nov 2026): **UPLOAD A SOUND** takes a sound file (.wav, .mp3, .m4a; .ogg where the
+  browser reads it), and **RECORD** takes up to 4 seconds from the microphone. The page:
+  - cuts the silence before and after;
+  - mixes it to mono at 13379 Hz;
+  - keeps at most 2 seconds;
+  - makes it as loud as the official cries.
+
+  The sliders work on it as on any try. A saved cry can always be replaced later. Use only a sound you made yourself
+  or may use freely, never one from a game or a show: a saved sound is public in the dex.
+
+## Own sounds in the files
+
+A cry from an own sound has a voice `{"own": true, "semi": ..., ...}` instead of `{"dex": ...}`. On the website the
+save carries the sound as `audio`, base64 of mono 16-bit PCM at 13379 Hz, at most 2 seconds (71 356 characters). The
+database allows such a row up to 100 000 bytes; see `supabase/migrations/2026-11-15_own_cries.sql`.
+
+The sync (`import_web.py`) writes:
+- the sound to `assets/cries/<pokemon>.wav`;
+- the recipe to `assets/cries/<pokemon>.json`, with `"audio": "assets/cries/<pokemon>.wav"`.
+
+`build_site.py` copies the sound to `site/art/<pokemon>/cry.wav`.
+
+When a relative's cry has an own sound, CREATE for the next stage starts from that sound too. Its save gets its own
+copy. The game export renders the recipe with the .wav as the `own` source and encodes the result like any other cry.
 
 ## What a cry is
 
-A cry is a **recipe**, not a sound file. It names the official cries it starts from (HeartGold's own, by national dex
+A cry is a **recipe**, not a sound file (except an own sound, see below). It names the official cries it starts from (HeartGold's own, by national dex
 number 1-493, the same way footprints borrow `hgss:<dex>`) and says how they are bent. No Nintendo audio is stored in
 this repo. The sync writes the recipe to `assets/cries/<pokemon>.json`, and the species file's `assets.cry` points at it.
 
