@@ -5,6 +5,7 @@
 //
 //   CryEngine.suggest(mon, facts, rng)  -> a recipe with its reasons (what CREATE / RETRY on the website show)
 //   CryEngine.render(recipe, sources)   -> Float32Array, mono, 13379 Hz (the rate of HeartGold's cries)
+//   CryEngine.knobsOf(recipe) / tweak(recipe, knobs) -> the website's sliders (pitch, length, glide, ...) and back
 //   sources = {<dex>: {data: Float32Array, rate: Number}}  - the official cries the recipe names
 (function (root) {
   "use strict";
@@ -289,7 +290,27 @@
   const round = v => Math.round(v * 100) / 100;
   const clampSemi = v => round(clamp(v, -12, 7));        // above +7 the bending would add grit at the game's rate
 
-  const api = {VERSION, OUT_RATE, MAX_LEN, rng, render, suggest, resample};
+  // ---------- the sliders on the website (15 Nov 2026) ----------
+  // Arvind: "bare en retry knapp og en som endrer pitch og slik". A try's settings as slider values, and back:
+  // pitch is steps up or down from the try (all voices together), the rest are the recipe's own values.
+  function knobsOf(recipe) {
+    return {pitch: 0, stretch: recipe.stretch || 1, sweep: recipe.sweep || 0, tone: recipe.tone || 0, drive: recipe.drive || 0,
+      vib: recipe.vib ? recipe.vib.depth : 0, echo: recipe.echo ? recipe.echo.gain : 0, ring: recipe.ring ? recipe.ring.mix : 0};
+  }
+  function tweak(recipe, k) {
+    const out = JSON.parse(JSON.stringify(recipe));
+    out.layers.forEach(l => { l.semi = clampSemi((l.semi || 0) + (k.pitch || 0)); });
+    out.stretch = round(clamp(k.stretch, 0.7, 1.4));
+    out.sweep = round(clamp(k.sweep, -6, 6));
+    out.tone = round(clamp(k.tone, -1, 1));
+    out.drive = round(clamp(k.drive, 0, 1));
+    out.vib = k.vib > 0 ? {rate: recipe.vib ? recipe.vib.rate : 6, depth: round(clamp(k.vib, 0, 1))} : null;
+    out.echo = k.echo > 0 ? {ms: recipe.echo ? recipe.echo.ms : 100, gain: round(clamp(k.echo, 0, 0.6))} : null;
+    out.ring = k.ring > 0 ? {hz: recipe.ring ? recipe.ring.hz : 70, mix: round(clamp(k.ring, 0, 0.6))} : null;
+    return out;
+  }
+
+  const api = {VERSION, OUT_RATE, MAX_LEN, rng, render, suggest, resample, knobsOf, tweak};
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.CryEngine = api;
 })(typeof window !== "undefined" ? window : globalThis);

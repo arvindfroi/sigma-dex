@@ -1,7 +1,29 @@
 # Cries
 
 Every Pokemon gets its cry in the **CRY** tab of its page on the website: press **CREATE**, listen, **RETRY** until
-one fits, then **SAVE**. Earlier tries stay in the list, so a good one is never lost.
+one fits, change it with the sliders if you like, then **SAVE**. Earlier tries stay in the list, so a good one is never
+lost.
+
+## Using it
+
+- **CREATE / RETRY** makes a new random cry. The page does not say which official cries a try starts from: that is
+  not important to the person making it (Arvind, 15 Nov 2026). It is still kept in the saved recipe.
+- **The sliders** change the try that is playing. Moving one makes the cry again and plays it:
+
+  | Slider | Recipe field | Range |
+  | --- | --- | --- |
+  | Pitch | added to every voice's `semi` (each stays within -12 to +7) | -8 to +8 steps |
+  | Length | `stretch` | 0.7 to 1.4 |
+  | Glide | `sweep` | -6 to +6 |
+  | Brightness | `tone` | -1 to +1 |
+  | Wobble | `vib.depth` (0 = off) | 0 to 1 |
+  | Echo | `echo.gain` (0 = off) | 0 to 0.6 |
+  | Rough | `drive` | 0 to 1 |
+  | Buzz | `ring.mix` (0 = off) | 0 to 0.6 |
+
+  **UNDO THE CHANGES** puts the sliders back. A changed try is marked ✎. SAVE stores the changed recipe, and its
+  `reasons` get a last line such as "Changed by hand: pitch 3, echo 0.3". The engine's `knobsOf` and `tweak` do this.
+- **Its line** plays the saved cries of its relatives, to compare.
 
 ## What a cry is
 
@@ -63,8 +85,8 @@ The engine is `scripts/cry_engine.js` (`suggest`). Like the moveset tool, it loo
 5. **Never just an official cry with a new name.** If a try is too close to where it started, it is bent further or
    gets a second voice.
 
-Each try lists its reasons in the top screen. RETRY uses a new random seed. The seed is saved, so a recipe can be
-rebuilt.
+Each recipe keeps its reasons (not shown on the page). RETRY uses a new random seed. The seed is saved, so a recipe
+can be rebuilt.
 
 ## On the website versus in the game
 

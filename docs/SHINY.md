@@ -15,13 +15,15 @@ drawn: a shiny is the same picture with other colours, like in the real games.
 - **The line comes first.** If a relative already has a saved shiny, the first CREATE copies how it moved each colour
   (the closest colour in the relative's sprite). So a line matches.
 - **Colour groups.** The colours of the front and back are sorted into groups: each colour family with its shades,
-  then greys, whites and the outline. Whites and the outline are kept unless someone moves them. Each group has three
-  sliders:
+  then greys, whites and the outline. Whites are kept unless someone moves them. Each group except the outline has
+  three sliders:
   - **Colour** turns every shade together, so the shading stays right;
   - **Strength** makes the group stronger or greyer;
   - **Light** makes it lighter or darker.
 
   The colour box on the right picks the new main colour directly.
+- **The outline never changes** (decided 15 Nov 2026). The near-black outline row has no sliders and no colour box,
+  CREATE leaves it alone, and no other colour may take its place. Official shinies keep the outline too.
 - **The preview** shows normal and shiny side by side, the back and the walking sprite. The walking sprite has its own
   colours. Each of them follows the front colour closest to it.
 - **SAVE THIS SHINY** stores it. The page's top screen then has a **SHINY** button.
