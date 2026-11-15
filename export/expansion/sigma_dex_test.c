@@ -2836,12 +2836,12 @@ SINGLE_BATTLE_TEST("Sigma dex: SOLIDEDGE can use its first move in battle")
 TEST("Sigma dex: Whaldrill0 has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_WHALDRILL0];
-    EXPECT_EQ(info->baseHP, 55);
-    EXPECT_EQ(info->baseAttack, 50);
-    EXPECT_EQ(info->baseDefense, 30);
-    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseDefense, 40);
+    EXPECT_EQ(info->baseSpeed, 35);
     EXPECT_EQ(info->baseSpAttack, 25);
-    EXPECT_EQ(info->baseSpDefense, 40);
+    EXPECT_EQ(info->baseSpDefense, 35);
     EXPECT_EQ(info->types[0], TYPE_ICE);
     EXPECT_EQ(info->types[1], TYPE_GROUND);
     EXPECT_EQ(info->abilities[0], ABILITY_SLUSH_RUSH);

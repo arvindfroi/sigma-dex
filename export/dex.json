@@ -5158,7 +5158,7 @@
         "Normal",
         "Fighting"
       ],
-      "category": null,
+      "category": "Ear Slapper",
       "description": null,
       "height_m": null,
       "weight_kg": null,
@@ -10381,7 +10381,7 @@
       },
       "ev_yield": {
         "sp_attack": 1,
-        "speed": 1
+        "speed": 2
       },
       "catch_rate": 60,
       "base_exp": 177,
@@ -20063,7 +20063,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:67",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/verrith.json",
         "cry": null
       },
       "engine": {
@@ -23212,7 +23212,7 @@
         "speed": 100
       },
       "ev_yield": {
-        "attack": 2
+        "attack": 3
       },
       "catch_rate": 45,
       "base_exp": 190,
@@ -23696,7 +23696,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:444",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/gaiafinn.json",
         "cry": null
       },
       "engine": {
@@ -31207,7 +31207,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/strawboo.json",
         "cry": null
       },
       "engine": {
@@ -34392,7 +34392,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/solidedge.json",
         "cry": "assets/cries/solidedge.json"
       },
       "engine": {
@@ -34427,12 +34427,12 @@
         "hidden": "Thick Fat"
       },
       "base_stats": {
-        "hp": 55,
-        "attack": 50,
-        "defense": 30,
+        "hp": 60,
+        "attack": 55,
+        "defense": 40,
         "sp_attack": 25,
-        "sp_defense": 40,
-        "speed": 50
+        "sp_defense": 35,
+        "speed": 35
       },
       "ev_yield": {
         "hp": 1

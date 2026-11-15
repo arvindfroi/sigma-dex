@@ -915,7 +915,7 @@
         .speciesName = _("Lapper"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_LAPPER,
-        .categoryName = _("Unknown"),
+        .categoryName = _("Ear Slapper"),
         .height = 0,
         .weight = 0,
         .description = COMPOUND_STRING(
@@ -1872,7 +1872,7 @@
         .types = MON_TYPES(TYPE_NORMAL, TYPE_DARK),
         .catchRate = 60,
         .expYield = 177,
-        .evYield_Speed = 1,
+        .evYield_Speed = 2,
         .evYield_SpAttack = 1,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
@@ -5026,12 +5026,12 @@
 
     [SPECIES_WHALDRILL0] =
     {
-        .baseHP = 55,
-        .baseAttack = 50,
-        .baseDefense = 30,
-        .baseSpeed = 50,
+        .baseHP = 60,
+        .baseAttack = 55,
+        .baseDefense = 40,
+        .baseSpeed = 35,
         .baseSpAttack = 25,
-        .baseSpDefense = 40,
+        .baseSpDefense = 35,
         .types = MON_TYPES(TYPE_ICE, TYPE_GROUND),
         .catchRate = 225,
         .expYield = 50,

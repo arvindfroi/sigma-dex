@@ -11,7 +11,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 |------|------|----------:|
 | Identity | types | 160 / 161 |
 | Identity | designer credit | 141 / 161 |
-| Dex page | category | 44 / 161 |
+| Dex page | category | 45 / 161 |
 | Dex page | description | 45 / 161 |
 | Dex page | height | 56 / 161 |
 | Dex page | weight | 31 / 161 |
@@ -36,7 +36,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Art | back sprite | 4 / 161 |
 | Art | icon | 4 / 161 |
 | Art | footprint | 142 / 161 |
-| Art | shiny palette | 13 / 161 |
+| Art | shiny palette | 17 / 161 |
 | Art | cry | 8 / 161 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
@@ -196,9 +196,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #22 [Lapper](data/species/lapper.yaml) - 59%
+### #22 [Lapper](data/species/lapper.yaml) - 62%
 
-- **Dex page:** category, description, height, weight
+- **Dex page:** description, height, weight
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
@@ -647,12 +647,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #86 [Verrith](data/species/verrith.yaml) - 59%
+### #86 [Verrith](data/species/verrith.yaml) - 62%
 
 - **Dex page:** category, description, height, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #87 [Sigmanian Komala](data/species/sigmanian-komala.yaml) - 62%
 
@@ -757,12 +757,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, cry
 
-### #102 [Terratyson](data/species/gaiafinn.yaml) - 59%
+### #102 [Terratyson](data/species/gaiafinn.yaml) - 62%
 
 - **Dex page:** category, description, height, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #103 [Obsidog](data/species/obsidog.yaml) - 59%
 
@@ -1011,7 +1011,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #137 [Strawboo](data/species/strawboo.yaml) - 24%
+### #137 [Strawboo](data/species/strawboo.yaml) - 28%
 
 - **Dex page:** category, description, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
@@ -1019,7 +1019,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
 ### #138 [Wreckingboo](data/species/wreckingboo.yaml) - 24%
 
@@ -1130,14 +1130,14 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #154 [SOLIDEDGE](data/species/solidedge.yaml) - 31%
+### #154 [SOLIDEDGE](data/species/solidedge.yaml) - 34%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
 ### #158 [Whaldrill0](data/species/whaldrill0.yaml) - 48%
 
