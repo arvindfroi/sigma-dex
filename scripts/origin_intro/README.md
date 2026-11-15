@@ -821,3 +821,8 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
      sab3d/bones_walk2.json SCENE BCA 340 1,...,16 3`, then `pack_shared.py OUT FINAL 1=6 11=6 16=20 24=20` (the three
      times of day share one animation) and `inplace.py` into the test ROM. All six shots must be built: the emulator's clock
      is the real time and picks the variant.
+- **Field sprite that comes down** (`a/0/8/1` 210): `sab/eyes_fix.py b` swaps the gold hat studs that read as yellow eyes
+  for the concept's grumpy eyes under the brim (white, black pupil, brow sloping to the nose), then `write_ow.py ... 210
+  sab/pxd_2_pal.npy sab/eyes/f{1..7}_idx.npy`. `hover_patch.py OV002 ROM_IN ROM_OUT 20` makes the bird land 20 units above
+  its map object (overlay 2, Task_BirdFinalApproach: yEnd = pos.y + 20; the dead SoulSilver branch makes room), so he
+  hovers above Satsuki instead of standing behind her. Test ROM `legend_test/jump_hooh2_hover.nds`.
