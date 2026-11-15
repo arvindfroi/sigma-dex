@@ -67,10 +67,23 @@ def worlds(f):
         if ssc and pa != i: L = T @ np.diag([1 / x if x else 0 for x in trs[pa][2]] + [1]) @ R @ S
         W[i] = (W[pa] if pa != i and pa in W else np.eye(4)) @ L
     return W, trs
+# our own root along Ho-Oh's path: facing where it goes (sideways part of the motion), upright to the scene's up (+Y),
+# no banking; Ho-Oh's scale on joint1 is kept so sizes match
+P1 = []; WJ = []
+for f in range(nf):
+    Wf, _ = worlds(f); WJ.append(Wf[j1]); P1.append(Wf[j1][:3, 3])
+P1 = np.array(P1); sig = np.cbrt(np.linalg.det(WJ[0][:3, :3]))
+def root_frame(f):
+    a, b = max(0, f - 4), min(nf - 1, f + 4); v = P1[b] - P1[a]; v[1] = 0
+    if np.linalg.norm(v) < 1e-6: v = np.array([1.0, 0, 0])
+    fwd = v / np.linalg.norm(v); upv = np.array([0, 1.0, 0]); side = np.cross(fwd, upv)
+    M = np.eye(4); M[:3, :3] = sig * np.column_stack([fwd, upv, side]); M[:3, 3] = P1[f]; return M
+PATHFRAME = os.environ.get('PATHFRAME', '1') == '1'
 nodes_T = [[None] * nf for _ in names]; nodes_R = [[None] * nf for _ in names]; nodes_S = [[None] * nf for _ in names]
 for f in range(nf):
     W, trs = worlds(f); want = dict(W)
-    for b in bnames: want[bnode[b]] = W[j1] @ H(bone_world(b, f))
+    RF = root_frame(f) if PATHFRAME else W[j1]
+    for b in bnames: want[bnode[b]] = RF @ H(bone_world(b, f))
     for i in hooh:
         if i != j1 and i not in bnode.values(): want[i] = W[j1]          # unused Ho-Oh joints sit on the root
     for i in range(len(names)):
