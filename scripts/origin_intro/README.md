@@ -865,3 +865,12 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   the repo in `legend/ext/`): `extract_anim.py Cat.fbx Walking Cat_walk.json` (Blender), then `retarget_walk.py Cat_walk.json
   bones_rest13.json pt13.json bones_cat13.json -12` carries the paw paths (scaled by leg length), body bob/pitch and head nod
   onto our rig with two-bone IK. rig3d with CYCLE `1,...,40`.
+- **v22 (2026-11-16), faithful to the high-poly (= Arvind's design)**: `blender -b mv/sab_v15.blend --python
+  sab3d/export_parts5.py -- sab3d/pt15 0.8 0.7 0.7 1.35` reduces every part on its own (the ship hull, deck, gold rail, the
+  big gold stern skull with red eye rims, 1.35x), bakes the high-poly colours, cuts the body into rigid segments per bone
+  (torso, head, upper/lower legs, overlapping, DS style like Ho-Oh), retopologises the hat onto the drawn hat (gold brim band,
+  emblem decal) and adds eye/mouth decals (mouth: line down from the nose, corners down). `python sab3d/build_tex6.py
+  sab3d/pt15` = Ho-Oh-style swatches for flat parts + the baked picture for hull/deck/legs/skull (long strips, fits).
+  Run: Quaternius Farm Animals (CC0) Horse Run, `PROFILE=horse retarget_walk.py Horse_run.json bones_rest14.json pt15.json
+  bones_run14.json -8`. rig3d: unused Ho-Oh joints no longer animated (BCA half the size), the shape-to-texture assignment is
+  searched (all strips placed), `HALFRATE=1`. Film 434120/437100, ROM `legend_test/jump_hooh2_v22.nds`.

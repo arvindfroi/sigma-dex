@@ -223,9 +223,16 @@ for f in range(nf):
             nodes_T[i][f] = Rp.T @ (Mi[:3, 3] - Mp[:3, 3]) / sp; nodes_R[i][f] = Rp.T @ Ri; nodes_S[i][f] = [si, si, si]
         else:
             nodes_T[i][f], nodes_R[i][f], nodes_S[i][f] = trs[i]
+NEEDED = set()                                                    # our bones, the glow joints and all their parents
+for i in list(bnode.values()) + list(glowj):
+    while True:
+        NEEDED.add(i)
+        if i not in parent or parent[i] == i: break
+        i = parent[i]
 bnodes = []
 for i, o in enumerate(anim['objs']):
     keep = None if (i in hooh and i != j1) else (o['flags'] & (1 | 6 | 0xC0 | 0x600))
+    if i in hooh and i != j1 and i not in NEEDED: keep = 1              # unused Ho-Oh joint, no geometry, not a parent: not animated
     bnodes.append(dict(flags_keep=keep, T=nodes_T[i], R=nodes_R[i], S=nodes_S[i], idx=i, rate=(int(os.environ.get('HALFRATE', '0')) if keep is None else 0)))
 new_bca = bca_write.build(nf, bnodes, template=D(BM))
 # geometry: Ho-Oh's shapes emptied; per bone strips in the bone's rest frame
@@ -329,11 +336,38 @@ for g in IDX:
         work.append((g, bones_, cmds_ + [(0x41, [])]))
 done = [False] * len(work); placed = 0
 ready = lambda w, k: all(made.get(bnode[b], 1e9) < k for b in w[1])
+# which texture group each Ho-Oh shape carries (one material per shape): searched, not greedy — the greedy choice gave the
+# big shapes to the body texture and left the head/sail strips without room
+_order = [] if 'noplace' in TEST else sorted(use, key=lambda x: shape_k[x])
+_wlen = [len(pack_cmds(w[2])) for w in work]
+def _simulate(assign):
+    dn = [False] * len(work); n = 0
+    for sh in _order:
+        g = assign.get(sh)
+        if g is None: continue
+        room = shapes[sh][1] - 16
+        for wi, w in enumerate(work):
+            if dn[wi] or w[0] != g or not ready(w, shape_k[sh]) or _wlen[wi] > room: continue
+            room -= _wlen[wi]; dn[wi] = True; n += 1
+    return n
+_need = {g: sum(_wlen[wi] for wi, w in enumerate(work) if w[0] == g) for g in IDX}
+_rng = np.random.default_rng(7); best = None
+for _t in range(600):
+    asg = {}
+    if _t == 0:                                                        # the old greedy as a candidate
+        left = dict(_need)
+        for sh in _order: g = max(left, key=left.get); asg[sh] = g; left[g] -= shapes[sh][1]
+    else:
+        p_ = np.array([_need[g] for g in IDX], float); p_ /= p_.sum(); gs = list(IDX)
+        for sh in _order: asg[sh] = gs[_rng.choice(len(gs), p=p_)]
+    sc_ = _simulate(asg)
+    if best is None or sc_ > best[0]: best = (sc_, asg)
+    if best[0] == len(work): break
+ASSIGN = best[1]
 for sh in ([] if 'noplace' in TEST else sorted(use, key=lambda x: shape_k[x])):             # shapes in draw order; only bones already made; one group per shape
     so, cl = shapes[sh]
-    left = {g: sum(len(pack_cmds(w[2])) for w, ok in zip(work, done) if not ok and w[0] == g and ready(w, shape_k[sh])) for g in IDX}
-    g_ = max(left, key=left.get)
-    if left[g_] == 0: continue
+    g_ = ASSIGN.get(sh)
+    if g_ is None: continue
     # NNS remembers the last restored matrix slot and skips a restore of the same slot; our strips change the hardware
     # matrix behind its back, so the next shape (the sky shot's glow) would be drawn with our bone. Save and give it back.
     cmds = [(0x13, [KEEP_SLOT]), (0x20, [0x7fff])]; tail = [(0x14, [KEEP_SLOT])]
@@ -349,6 +383,10 @@ for sh in ([] if 'noplace' in TEST else sorted(use, key=lambda x: shape_k[x])): 
         # next restore of the same slot is skipped and the sky shot's glow is drawn with our bone matrix)
         if 'noflag' not in TEST: struct.pack_into('<I', d, shapehdr[sh] + 4, struct.unpack_from('<I', d, shapehdr[sh] + 4)[0] | 0x2 | 0x8)
 qi = sum(sum(len(c[1]) for c in [w]) for w, ok in zip(work, done) if ok); queue = work
+if os.environ.get('DIAG_STRIPS'):
+    from collections import Counter as _C
+    print('UNPLACED by group/bones', _C((w[0], tuple(sorted(w[1]))) for w, ok in zip(work, done) if not ok).most_common(8))
+    print('shape free bytes', [(sh, shapes[sh][1]) for sh in sorted(use, key=lambda x: shape_k[x])])
 print('glow joints', sorted(names[i] for i in glowj)); print('strips placed', sum(done), 'of', len(work), 'in', placed, 'shapes; bones', {b: names[i] for b, i in bnode.items()})
 for g, mi_ in ({} if 'nomats' in TEST else GMAT).items():
     mo_ = mats[mi_]['off']; pa = struct.unpack_from('<I', d, mo_ + 12)[0]; struct.pack_into('<I', d, mo_ + 12, (pa & ~0xF & ~(31 << 16)) | 0xC0 | (31 << 16) | (LIGHTS if HASN else 0))

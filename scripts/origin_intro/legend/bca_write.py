@@ -11,6 +11,8 @@ def enc_basis(R):
     inp = [((out[i] & 0x1fff) << 3) | low[i] for i in range(5)]
     # inp order is [in4, in0, in1, in2, in3]
     return (inp[1], inp[2], inp[3], inp[4], inp[0])
+import os as _os
+TOL_T = float(_os.environ.get("BCA_TOL_T", "0.01")); TOL_S = float(_os.environ.get("BCA_TOL_S", "0.001"))   # solved tracks carry tiny noise: still constant
 def fx32(v): return int(round(v * 4096)) & 0xffffffff
 def build(nframes, nodes, name=b'anim', template=None):
     """nodes: list of dicts: {'flags_keep': int or None, 'T': [nf x 3] or None, 'R': [nf x 3x3] or None, 'S': [nf x 3] or None}
@@ -33,7 +35,7 @@ def build(nframes, nodes, name=b'anim', template=None):
             T = np.asarray(T, float)
             for k in range(3):
                 col = T[:, k]
-                if np.allclose(col, col[0], atol=1 / 4096): flags |= 1 << (3 + k); head += struct.pack('<I', fx32(col[0]))
+                if np.allclose(col, col[0], atol=TOL_T): flags |= 1 << (3 + k); head += struct.pack('<I', fx32(col[0]))
                 else:
                     info = (0) | ((nframes & 0xfff) << 16) | (0 << 28) | (rate << 30)
                     curves.append((len(head) + 4, b''.join(struct.pack('<I', fx32(v)) for v in pick(col)), 4)); head += struct.pack('<II', info, 0)
@@ -47,11 +49,11 @@ def build(nframes, nodes, name=b'anim', template=None):
         if fk is not None and fk & 0x600: flags |= fk & 0x600
         else:
             S = np.asarray(S, float)
-            if np.allclose(S, 1, atol=1 / 4096): flags |= 0x200
+            if np.allclose(S, 1, atol=TOL_S): flags |= 0x200
             else:
                 for k in range(3):
                     col = S[:, k]
-                    if np.allclose(col, col[0], atol=1 / 4096): flags |= 1 << (11 + k); head += struct.pack("<II", fx32(col[0]), fx32(1 / col[0] if abs(col[0]) > 1e-9 else 0))
+                    if np.allclose(col, col[0], atol=TOL_S): flags |= 1 << (11 + k); head += struct.pack("<II", fx32(col[0]), fx32(1 / col[0] if abs(col[0]) > 1e-9 else 0))
                     else:
                         info = ((nframes & 0xfff) << 16)
                         curves.append((len(head) + 4, b''.join(struct.pack("<II", fx32(v), fx32(1 / v if abs(v) > 1e-9 else 0)) for v in col), 8)); head += struct.pack('<II', info, 0)

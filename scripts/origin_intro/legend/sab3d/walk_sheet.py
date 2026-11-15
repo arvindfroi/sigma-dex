@@ -16,10 +16,13 @@ for k, fr in enumerate(FR):
     F = {b: np.array(m) for b, m in J['frames'][str(fr)].items()}
     def pose(q, b):
         b = MERGE.get(b, b); return (F[b] @ np.linalg.inv(rest[b]) @ np.append(q, 1))[:3]
-    tris = []
+    tris = []; SPLIT = __import__('os').environ.get('SPLIT', '1') == '1'
     for p in D:
         for i in range(1, len(p['p']) - 1):
-            idx = (0, i, i + 1); tris.append(([pose(p['p'][j], p['vb'][j]) for j in idx], [p['uv'][j] for j in idx], p['g']))
+            idx = (0, i, i + 1); bs = [MERGE.get(p['vb'][j], p['vb'][j]) for j in idx]
+            if SPLIT and len(set(bs)) > 1:                # DS style: a triangle across a joint is drawn rigidly with each bone
+                for b_ in set(bs): tris.append(([pose(p['p'][j], b_) for j in idx], [p['uv'][j] for j in idx], p['g']))
+            else: tris.append(([pose(p['p'][j], p['vb'][j]) for j in idx], [p['uv'][j] for j in idx], p['g']))
     P = (np.array([t[0] for t in tris]) - cen0) @ Rz.T; U = np.array([t[1] for t in tris]); G = [t[2] for t in tris]
     img = np.zeros((W, W, 3), np.uint8); img[:] = (52, 60, 84); zb = np.full((W, W), -1e9)
     xs = W / 2 + P[..., 0] / S * W * 0.48; ys = W / 2 - P[..., 2] / S * W * 0.48; zs = -P[..., 1]

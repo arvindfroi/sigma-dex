@@ -7,19 +7,28 @@ import sys, json, math, numpy as np
 SRC, BJ, MODEL, OUT = sys.argv[1:5]; PITCH = float(sys.argv[5]) if len(sys.argv) > 5 else -12.0
 S = json.load(open(SRC)); B = json.load(open(BJ)); rest = {k: np.array(v) for k, v in B['rest'].items()}; par = B['parent']
 P = json.load(open(MODEL))['polys']
-LEGS = {'FR': ('Bone.014', 'Bone.016'), 'FL': ('Bone.017', 'Bone.019'), 'BL': ('Bone.008', 'Bone.010'), 'BR': ('Bone.011', 'Bone.013')}
+import os
+PROFILE = os.environ.get('PROFILE', 'cat')                     # cat/wolf/dog (Animal Pack Vol.2) or horse (Farm Animals): CC0 Quaternius
+PROFILES = {
+ 'cat': dict(legs={'FR': ('Bone.014', 'Bone.016', 'head'), 'FL': ('Bone.017', 'Bone.019', 'head'), 'BL': ('Bone.008', 'Bone.010', 'head'), 'BR': ('Bone.011', 'Bone.013', 'head')},
+             body=(('Bone', 'head'), ('Bone.001', 'tail')), headb='Bone.003'),
+ 'horse': dict(legs={'FR': ('FrontUpLeg.R', 'FrontLowLeg.R', 'tail'), 'FL': ('FrontUpLeg.L', 'FrontLowLeg.L', 'tail'),
+                     'BR': ('BackUpLeg.R', 'BackLowLeg.R', 'tail'), 'BL': ('BackUpLeg.L', 'BackLowLeg.L', 'tail')},
+               body=(('Hips', 'head'), ('Torso', 'tail')), headb='Head')}
+PR = PROFILES[PROFILE]
+LEGS = {k: (u, f) for k, (u, f, _) in PR['legs'].items()}; PAWEND = {k: e for k, (_, _, e) in PR['legs'].items()}
 def s2o(v):                                                   # source (f=x, l=y, u=z) -> ours (f=-y, l=x, u=z)
     return np.array([v[1], -v[0], v[2]])
 H = lambda fr, b, k: np.array(S['frames'][fr][b][k]) if isinstance(fr, int) else np.array(S['rest'][b][k])
 # source body frame per frame: pelvis head -> chest tail gives forward/pitch; up = world Z re-orthogonalised
 def body(fr):
-    a = H(fr, 'Bone', 'head'); b_ = H(fr, 'Bone.001', 'tail'); fwd = (b_ - a) / np.linalg.norm(b_ - a)
+    (b0, k0), (b1, k1) = PR['body']; a = H(fr, b0, k0); b_ = H(fr, b1, k1); fwd = (b_ - a) / np.linalg.norm(b_ - a)
     up = np.array([0, 0, 1.0]); up = up - fwd * (fwd @ up); up /= np.linalg.norm(up); left = np.cross(up, fwd)
     return (a + b_) / 2, np.column_stack([fwd, left, up])
 c0, R0 = body('rest')
 def pitch_of(R): return math.degrees(math.atan2(R[2, 0], math.hypot(R[0, 0], R[1, 0])))
 p0 = pitch_of(R0)
-LSRC = {k: np.linalg.norm(H('rest', u, 'head') - H('rest', f, 'head')) for k, (u, f) in LEGS.items()}
+LSRC = {k: np.linalg.norm(H('rest', u, 'head') - H('rest', f, PAWEND[k])) for k, (u, f) in LEGS.items()}
 # our paws: the lowest model point that follows each lower-leg bone
 paw = {}
 for k in LEGS:
@@ -44,7 +53,7 @@ for i in range(N):
     sp = rest['spine'][:3, 3]
     G = np.eye(4); G[2, 3] = bob; G = G @ about(rot(LAT, PITCH - dpitch), sp)        # climb + the source's pitch change
     # head nod: source head bone direction relative to the body, pitch only
-    hd0 = R0.T @ (H('rest', 'Bone.003', 'tail') - H('rest', 'Bone.003', 'head')); hd = R.T @ (H(i, 'Bone.003', 'tail') - H(i, 'Bone.003', 'head'))
+    hb_ = PR['headb']; hd0 = R0.T @ (H('rest', hb_, 'tail') - H('rest', hb_, 'head')); hd = R.T @ (H(i, hb_, 'tail') - H(i, hb_, 'head'))
     nod = math.degrees(math.atan2(hd[2], hd[0]) - math.atan2(hd0[2], hd0[0]))
     W = {}
     for b in order:
@@ -60,8 +69,8 @@ for i in range(N):
     # legs: paw target = our shoulder/hip + the source paw offset (in the source body frame) scaled to our leg length
     for k, (su, sf) in LEGS.items():
         up_, lo_ = k + '_up', k + '_lo'
-        off = R.T @ (H(i, sf, 'head') - H(i, su, 'head')) / LSRC[k]                    # source body frame, unit leg
-        off0 = R0.T @ (H('rest', sf, 'head') - H('rest', su, 'head')) / LSRC[k]
+        off = R.T @ (H(i, sf, PAWEND[k]) - H(i, su, 'head')) / LSRC[k]                 # source body frame, unit leg
+        off0 = R0.T @ (H('rest', sf, PAWEND[k]) - H('rest', su, 'head')) / LSRC[k]
         Gb = W['spine'] @ np.linalg.inv(rest['spine'])                                  # our body motion
         A = W[up_][:3, 3]; restpaw_w = (Gb @ np.append(paw[k], 1))[:3]
         # rest-relative: our rest paw offset + (source offset - source rest offset), all in our body frame
