@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**161 / 254** slots have a Pokemon - **0** are fully complete - average completeness **59%**.
+**162 / 254** slots have a Pokemon - **0** are fully complete - average completeness **59%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -161,7 +161,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 150 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician (H) | 680 |  | 72% |
 | 151 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground | Lullaby | 600 |  | 59% |
 | 152 | [Apeshii](data/species/apeshit.yaml) | Normal / Fighting |  | 290 | Julius (Lv 15) | 17% |
-| 153 | *open slot* | | | | | |
+| 153 | [Iron Bulb](data/species/iron-wire.yaml) | Electric |  |  |  | 10% |
 | 154 | [SOLIDEDGE](data/species/solidedge.yaml) | Bug / Psychic | Beast Boost | 600 |  | 34% |
 | 155 | *open slot* | | | | | |
 | 156 | *open slot* | | | | | |

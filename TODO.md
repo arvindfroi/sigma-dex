@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 160 / 161 |
-| Identity | designer credit | 141 / 161 |
-| Dex page | category | 45 / 161 |
-| Dex page | description | 45 / 161 |
-| Dex page | height | 56 / 161 |
-| Dex page | weight | 31 / 161 |
-| Dex page | body color | 143 / 161 |
-| Stats | base stats | 157 / 161 |
-| Stats | ability | 156 / 161 |
-| Stats | EV yield | 154 / 161 |
-| Stats | catch rate | 143 / 161 |
-| Stats | base exp | 143 / 161 |
-| Stats | growth rate | 143 / 161 |
-| Stats | base friendship | 143 / 161 |
-| Breeding | gender | 143 / 161 |
-| Breeding | egg groups | 143 / 161 |
-| Breeding | egg cycles | 143 / 161 |
-| Moves | level-up moves | 146 / 161 |
-| Moves | TM/HM moves | 145 / 161 |
-| Location | encounters | 2 / 161 |
-| Design | concept | 28 / 161 |
-| Art | concept art | 152 / 161 |
-| Art | front sprite | 4 / 161 |
-| Art | front animation frame | 4 / 161 |
-| Art | back sprite | 4 / 161 |
-| Art | icon | 4 / 161 |
-| Art | footprint | 142 / 161 |
-| Art | shiny palette | 17 / 161 |
-| Art | cry | 8 / 161 |
+| Identity | types | 161 / 162 |
+| Identity | designer credit | 142 / 162 |
+| Dex page | category | 45 / 162 |
+| Dex page | description | 45 / 162 |
+| Dex page | height | 56 / 162 |
+| Dex page | weight | 31 / 162 |
+| Dex page | body color | 143 / 162 |
+| Stats | base stats | 157 / 162 |
+| Stats | ability | 156 / 162 |
+| Stats | EV yield | 154 / 162 |
+| Stats | catch rate | 143 / 162 |
+| Stats | base exp | 143 / 162 |
+| Stats | growth rate | 143 / 162 |
+| Stats | base friendship | 143 / 162 |
+| Breeding | gender | 143 / 162 |
+| Breeding | egg groups | 143 / 162 |
+| Breeding | egg cycles | 143 / 162 |
+| Moves | level-up moves | 146 / 162 |
+| Moves | TM/HM moves | 145 / 162 |
+| Location | encounters | 2 / 162 |
+| Design | concept | 29 / 162 |
+| Art | concept art | 152 / 162 |
+| Art | front sprite | 4 / 162 |
+| Art | front animation frame | 4 / 162 |
+| Art | back sprite | 4 / 162 |
+| Art | icon | 4 / 162 |
+| Art | footprint | 142 / 162 |
+| Art | shiny palette | 17 / 162 |
+| Art | cry | 8 / 162 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 78 / 161 |
-| DS back sprite 80x80 | 79 / 161 |
-| DS icon 32x32 | 80 / 161 |
+| DS front sprite 80x80 | 78 / 162 |
+| DS back sprite 80x80 | 79 / 162 |
+| DS icon 32x32 | 80 / 162 |
 
-## Open dex slots (93)
+## Open dex slots (92)
 
-#153, #155, #156, #157, #161, #163, #164, #165, #166, #167, #168, #169, #170, #171, #172, #173, #174, #175, #176, #177, #178, #179, #180, #181, #182, #183, #184, #185, #186, #187, #188, #189, #190, #191, #192, #193, #194, #195, #196, #197, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #218, #219, #220, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232, #233, #234, #235, #236, #237, #238, #239, #240, #241, #242, #243, #244, #245, #246, #247, #248, #249, #251, #252, #253, #254
+#155, #156, #157, #161, #163, #164, #165, #166, #167, #168, #169, #170, #171, #172, #173, #174, #175, #176, #177, #178, #179, #180, #181, #182, #183, #184, #185, #186, #187, #188, #189, #190, #191, #192, #193, #194, #195, #196, #197, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #218, #219, #220, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232, #233, #234, #235, #236, #237, #238, #239, #240, #241, #242, #243, #244, #245, #246, #247, #248, #249, #251, #252, #253, #254
 
 ## Missing per Pokemon
 
@@ -1129,6 +1129,15 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #153 [Iron Bulb](data/species/iron-wire.yaml) - 10%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #154 [SOLIDEDGE](data/species/solidedge.yaml) - 34%
 
