@@ -21,19 +21,22 @@ for k in range(N):
     t = k / N; W = {}
     # body: climb pitch about the spine origin, bob, a little roll with the gait
     sp = rest['spine'][:3, 3]
-    body = about(rot(LAT, PITCH + 2.5 * math.sin(4 * math.pi * t)), sp) @ about(rot(np.array([0, 1.0, 0]), 3 * math.sin(2 * math.pi * t)), sp)
-    lift = np.eye(4); lift[2, 3] = 0.06 * math.sin(4 * math.pi * t)
+    body = about(rot(LAT, PITCH + 3.0 * math.sin(4 * math.pi * t + 0.6)), sp) @ about(rot(np.array([0, 1.0, 0]), 4.5 * math.sin(2 * math.pi * t)), sp)
+    lift = np.eye(4); lift[2, 3] = 0.10 * math.sin(4 * math.pi * t + 0.6)
     G = lift @ body                                               # world motion applied to the whole rig
     extra = {}
-    extra['head'] = -0.6 * (2.5 * math.sin(4 * math.pi * t))      # counter the bob
-    extra['mast'] = 4 * math.sin(2 * math.pi * t + 1.0)
-    extra['flag'] = 10 * math.sin(2 * math.pi * t + 2.0)
+    extra['head'] = -0.7 * (3.0 * math.sin(4 * math.pi * t + 0.6)) - 0.35 * PITCH   # keep the gaze level
+    extra['mast'] = 6 * math.sin(2 * math.pi * t + 1.0)
+    extra['flag'] = 16 * math.sin(2 * math.pi * t + 2.2)
     extra['jaw'] = 4 + 4 * math.sin(2 * math.pi * t)
     for leg, ph in PHASE.items():
-        u = (t + ph) % 1.0                                         # 0..0.6 stance (paw pushes back), 0.6..1 swing (forward)
-        if u < 0.6: sw = SWING * (0.5 - u / 0.6); fold = 0
-        else: v = (u - 0.6) / 0.4; sw = SWING * (-0.5 + v); fold = FOLD * math.sin(math.pi * v)
+        u = (t + ph) % 1.0                                         # 0..0.62 stance: the paw presses down and back on the air
         hind = leg[0] == 'B'
+        if u < 0.62:
+            v = u / 0.62; e = v * v * (3 - 2 * v); sw = SWING * (0.55 - 1.1 * e); fold = FOLD * 0.12 * math.sin(math.pi * v)
+        else:                                                      # 0.62..1 swing: lift high, reach forward and up (a step up)
+            v = (u - 0.62) / 0.38; e = v * v * (3 - 2 * v); sw = SWING * (-0.55 + 1.1 * e) + 0.25 * SWING * math.sin(math.pi * v)
+            fold = FOLD * math.sin(math.pi * v) ** 0.7
         extra[leg + '_up'] = sw * (-1 if hind else 1)
         extra[leg + '_lo'] = fold * (1 if hind else -1)
     for b in order:

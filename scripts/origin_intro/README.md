@@ -808,3 +808,16 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
 - Ho-Oh: `build_jump.py ROM OUT 340 15 18 282 8 0x40a9 4 -580 -2336 +1140 +1366`. Lugia needs an extra script entry that
   sets a temp var and goes to the dancer's own script (Satsuki asks, answer yes): `JUMP_BASE=y/a012_lug_base2 ... 244 16 35
   365 14 0x4001 0 -581 +579 +1366 +2333`. Map ids are pret's `include/constants/maps.h`.
+- **3D Sabertann in Ho-Oh's film** (`a/2/4/3`, the Clear Bell film; see `docs/LEGEND_CUTSCENES.md`). The film is an exported
+  3D scene: Ho-Oh is joint1..joint27 inside each shot model. We replace him the same way the game made him: a low-poly,
+  rigged model with its own walk animation.
+  1. Model in Blender (`sab3d/`): `blender -b sab_v15.blend --python export_parts3.py -- pt7 128 900 0.8 0.7` (parts in one
+     octree-then-voxel remesh, stern skull moved in and up, claw cones, eye quads with their own UVs, per-vertex bones,
+     three texture groups like Ho-Oh's: body 128x128, head 64x64, sails 32x64), then `python shade_tex3.py pt7` (flat cel
+     shading in the DS sprite's colours plus wood tones, the hand-drawn grumpy eye). Check with `preview_tex2.py pt7 OUT.png`
+     and `preview_head.py pt7 OUT.png`.
+  2. Walk: `python walkcycle.py bones.json bones_walk2.json 16 -12 44 70` (walking on air, nose up).
+  3. Film: for each member pair (0 1, 5 6, 10 11, 15 16, 19 20, 23 24) `ROLL=1 PATHFRAME=1 rig3d.py IN OUT sab3d/pt7
+     sab3d/bones_walk2.json SCENE BCA 340 1,...,16 3`, then `pack_shared.py OUT FINAL 1=6 11=6 16=20 24=20` (the three
+     times of day share one animation) and `inplace.py` into the test ROM. All six shots must be built: the emulator's clock
+     is the real time and picks the variant.

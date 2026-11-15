@@ -41,7 +41,9 @@ for _ in range(int(os.environ.get('ROLL', 1))): Fx = np.array([[1, 0, 0], [0, 0,
 polys = json.load(open(BASE + '.json'))['polys']
 tris = []
 for p in polys:
-    for k in range(1, len(p['p']) - 1): tris.append(([p['p'][0], p['p'][k], p['p'][k + 1]], [p['uv'][0], p['uv'][k], p['uv'][k + 1]], MERGE.get(p['b'], p['b']), p.get('g', 0)))
+    vb = [MERGE.get(x, x) for x in p.get('vb', [p['b']] * len(p['p']))]
+    for k in range(1, len(p['p']) - 1):
+        tris.append(([p['p'][0], p['p'][k], p['p'][k + 1]], [p['uv'][0], p['uv'][k], p['uv'][k + 1]], MERGE.get(p['b'], p['b']), p.get('g', 0), [vb[0], vb[k], vb[k + 1]]))
 allp = np.array([t[0] for t in tris]).reshape(-1, 3); cen = (allp.max(0) + allp.min(0)) / 2
 s = SIZE / ((allp @ Fx.T).max(0) - (allp @ Fx.T).min(0)).max()
 def H(Mb):                                                    # Blender bone world -> transform under joint1 (no scale)
@@ -84,11 +86,12 @@ def root_frame(f):
     fwd = np.array([np.cos(YAW[f]), 0, np.sin(YAW[f])]); upv = np.array([0, 1.0, 0]); side = np.cross(fwd, upv)
     M = np.eye(4); M[:3, :3] = sig * np.column_stack([fwd, upv, side]); M[:3, 3] = P1[f]; return M
 PATHFRAME = os.environ.get('PATHFRAME', '1') == '1'
+SUP = np.diag([up, up, up, 1.0])
 nodes_T = [[None] * nf for _ in names]; nodes_R = [[None] * nf for _ in names]; nodes_S = [[None] * nf for _ in names]
 for f in range(nf):
     W, trs = worlds(f); want = dict(W)
     RF = root_frame(f) if PATHFRAME else W[j1]
-    for b in bnames: want[bnode[b]] = RF @ H(bone_world(b, f))
+    for b in bnames: want[bnode[b]] = RF @ H(bone_world(b, f)) @ SUP     # posScale folded into the bone matrices
     for i in hooh:
         if i != j1 and i not in bnode.values(): want[i] = W[j1]          # unused Ho-Oh joints sit on the root
     for i in range(len(names)):
@@ -158,7 +161,8 @@ def pack_cmds(cmds):
 def strips_of(tris_l):                                     # greedy strips; both faces are drawn so winding is free
     keyof = {}; verts = []
     def vid(pv, uv):
-        kk = tuple(np.round(pv, 2)) + (round(uv[0], 4), round(uv[1], 4))
+        u_ = uv[0] if isinstance(uv[1], str) else uv
+        kk = tuple(np.round(pv, 2)) + (round(u_[0], 4), round(u_[1], 4)) + ((uv[1],) if isinstance(uv[1], str) else ())
         if kk not in keyof: keyof[kk] = len(verts); verts.append((pv, uv))
         return keyof[kk]
     T = [tuple(vid(pv, uv) for pv, uv in t) for t in tris_l]; edge = {}
@@ -174,27 +178,30 @@ def strips_of(tris_l):                                     # greedy strips; both
         if used[s0]: continue
         used[s0] = True; st = grow(list(T[s0])); st = grow(list(reversed(st))); out.append([verts[v] for v in st])
     return out
-work = []                                                   # (group, bone, strip commands) in the order bones are made
-for b in sorted(bnames, key=lambda b: made.get(bnode[b], 0)):
-    Hinv = np.linalg.inv(H(rest[b]))
-    for g in IDX:
-        mine = [t for t in tris if t[2] == b and (t[3] if MULTI else 0) == g]
-        loc = [[((Hinv @ np.append(s * Fx @ (np.array(v) - cen), 1))[:3], uvv) for v, uvv in zip(t[0], t[1])] for t in mine]
-        for st in strips_of(loc):
-            work.append((g, b, [(0x40, [2])] + sum([[(0x22, [tc(uv, g)]), (0x24, [v10(pv)])] for pv, uv in st], []) + [(0x41, [])]))
+HINV = {b: np.linalg.inv(H(rest[b])) for b in bnames}
+work = []                                                   # (group, bones used, strip commands); each vertex follows its own bone
+for g in IDX:
+    mine = [t for t in tris if (t[3] if MULTI else 0) == g]
+    loc = [[((HINV[vb] @ np.append(s * Fx @ (np.array(v) - cen), 1))[:3], (uvv, vb)) for v, uvv, vb in zip(t[0], t[1], t[4])] for t in mine]
+    for st in strips_of([[(pv, x) for pv, x in tri] for tri in loc]):
+        bones_ = {x[1] for _, x in st}; cmds_ = [(0x40, [2])]; curb_ = None
+        for pv, (uv, vb) in st:
+            if vb != curb_: cmds_ += [(0x14, [newslot[bnode[vb]]])]; curb_ = vb      # no SCALE: it is in the bone matrix
+            cmds_ += [(0x22, [tc(uv, g)]), (0x24, [v10(pv)])]
+        work.append((g, bones_, cmds_ + [(0x41, [])]))
 done = [False] * len(work); placed = 0
+ready = lambda w, k: all(made.get(bnode[b], 1e9) < k for b in w[1])
 for sh in sorted(use, key=lambda x: shape_k[x]):             # shapes in draw order; only bones already made; one group per shape
     so, cl = shapes[sh]
-    left = {g: sum(len(pack_cmds(w[2])) for w, ok in zip(work, done) if not ok and w[0] == g and made.get(bnode[w[1]], 1e9) < shape_k[sh]) for g in IDX}
+    left = {g: sum(len(pack_cmds(w[2])) for w, ok in zip(work, done) if not ok and w[0] == g and ready(w, shape_k[sh])) for g in IDX}
     g_ = max(left, key=left.get)
     if left[g_] == 0: continue
-    cmds = []; curb = None
-    for wi, (g, b, add) in enumerate(work):
-        if done[wi] or g != g_ or made.get(bnode[b], 1e9) >= shape_k[sh]: continue
-        pre = [(0x14, [newslot[bnode[b]]]), (0x1b, [int(up * 4096)] * 3), (0x20, [0x7fff])] if b != curb else []
-        if len(pack_cmds(cmds + pre + add)) > cl: continue
-        cmds += pre + add; curb = b; done[wi] = True
-    if cmds:
+    cmds = [(0x20, [0x7fff])]
+    for wi, w in enumerate(work):
+        if done[wi] or w[0] != g_ or not ready(w, shape_k[sh]): continue
+        if len(pack_cmds(cmds + w[2])) > cl: continue
+        cmds += w[2]; done[wi] = True
+    if len(cmds) > 1:
         blob = pack_cmds(cmds); d[so:so + cl] = blob + bytes(cl - len(blob)); placed += 1; d[matpos[sh]] = GMAT[g_]
 qi = sum(sum(len(c[1]) for c in [w]) for w, ok in zip(work, done) if ok); queue = work
 print('strips placed', sum(done), 'of', len(work), 'in', placed, 'shapes; bones', {b: names[i] for b, i in bnode.items()})
