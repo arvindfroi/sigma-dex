@@ -1,0 +1,182 @@
+"""Replace Ho-Oh in one shot of the Clear Bell film with our rigged creature, the way the shot was built: our skeleton on
+Ho-Oh's joints (each bone takes a Ho-Oh node that stores its matrix), our textured low-poly skinned rigidly to the bones,
+and a new joint animation: the environment keeps its own tracks; Ho-Oh's joint1 keeps its flight path; our bones play a
+pose cycle from the Blender rig on top of it. Writes the model and its BCA back into the NARC (LZ10).
+python legend/rig3d.py NARC_IN NARC_OUT BASE BONES.json MODEL BCA [SIZE=340] [CYCLE=1,2,3,4] [STEP=5]   (env ROLL=1)"""
+import sys, os, re, json, struct, numpy as np
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')); sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from narc import unpack, pack
+from lz11 import lz11_dec
+from lz import lz10_enc
+import nitro, geom, bca_write
+SRC, DST, BASE, BJ, MM, BM = sys.argv[1:7]; MM, BM = int(MM), int(BM)
+SIZE = float(sys.argv[7]) if len(sys.argv) > 7 else 340.0
+CYC = [int(x) for x in (sys.argv[8] if len(sys.argv) > 8 else '1,2,3,4').split(',')]; STEP = int(sys.argv[9]) if len(sys.argv) > 9 else 5
+HOOH = re.compile(r'^(hou_|ho_head_top|ho_tail)')
+F = unpack(open(SRC, 'rb').read()); D = lambda i: lz11_dec(F[i]) if F[i][:1] == b'\x11' else F[i]
+d = bytearray(D(MM)); r = nitro.read_bmd(bytes(d)); m = r['models'][0]; mats = m['mats']; up = m['info']['up']
+anim = geom.read_bca(D(BM))[0]; nf = anim['nframes']; names = [n for n, _ in m['nodes']]
+# hierarchy and matrix slots from the render commands
+parent = {}; slot = {}
+for op, p in m['rcmds']:
+    if op in (6, 0x26, 0x46, 0x66):
+        parent[p[0]] = p[1]
+        if op in (0x26, 0x66): slot[p[0]] = p[3]
+order = [p for op, p in m['rcmds'] if op in (6, 0x26, 0x46, 0x66)]
+hooh = [i for i, n in enumerate(names) if re.match(r'joint\d+$', n)]
+j1 = names.index('joint1')
+# our rig
+B = json.load(open(BJ)); rest = {k: np.array(v) for k, v in B['rest'].items()}
+MERGE = {'jaw': 'head', 'flag': 'mast', 'stern': 'spine', 'root': 'spine'}             # fewer bones: matrix slots are scarce
+bnames = [b for b in B['rest'] if b not in MERGE]
+pos = {}
+for k_, (op, p) in enumerate(m['rcmds']):
+    if op in (6, 0x26, 0x46, 0x66) and p[0] not in pos: pos[p[0]] = k_
+cands = sorted([i for i in hooh if i != j1 and i in slot], key=lambda i: pos[i])
+assert len(cands) >= len(bnames), (len(cands), len(bnames))
+bnode = {b: cands[k] for k, b in enumerate(bnames)}
+# model frame: Blender (fwd -Y, up +Z) -> joint1 local, as found in the film tests
+Fx = np.array([[0, -1, 0], [-1, 0, 0], [0, 0, -1]], float)
+for _ in range(int(os.environ.get('ROLL', 1))): Fx = np.array([[1, 0, 0], [0, 0, -1], [0, 1, 0]], float) @ Fx
+polys = json.load(open(BASE + '.json'))['polys']
+tris = []
+for p in polys:
+    for k in range(1, len(p['p']) - 1): tris.append(([p['p'][0], p['p'][k], p['p'][k + 1]], [p['uv'][0], p['uv'][k], p['uv'][k + 1]], MERGE.get(p['b'], p['b'])))
+allp = np.array([t[0] for t in tris]).reshape(-1, 3); cen = (allp.max(0) + allp.min(0)) / 2
+s = SIZE / ((allp @ Fx.T).max(0) - (allp @ Fx.T).min(0)).max()
+def H(Mb):                                                    # Blender bone world -> transform under joint1 (no scale)
+    out = np.eye(4); out[:3, :3] = Fx @ Mb[:3, :3]; out[:3, 3] = s * Fx @ (Mb[:3, 3] - cen); return out
+def orth(Rm):
+    u, _, vt = np.linalg.svd(Rm); return u @ vt
+# pose at film frame f: interpolate between cycle poses (rotation by slerp through quaternions)
+from scipy.spatial.transform import Rotation as Rot, Slerp
+pose = {}
+for b in bnames:
+    Ms = [np.array(B['frames'][str(c)][b]) for c in CYC] + [np.array(B['frames'][str(CYC[0])][b])]
+    rots = Rot.from_matrix([orth(M[:3, :3]) for M in Ms]); sl = Slerp(np.arange(len(Ms)), rots); tr = np.array([M[:3, 3] for M in Ms])
+    pose[b] = (sl, tr)
+def bone_world(b, f):
+    x = (f / STEP) % len(CYC); sl, tr = pose[b]; i = int(x); w = x - i
+    M = np.eye(4); M[:3, :3] = sl([x]).as_matrix()[0]; M[:3, 3] = tr[i] * (1 - w) + tr[i + 1] * w; return M
+# evaluate the original worlds (environment parents and joint1's path)
+def worlds(f):
+    trs = geom.node_trs(m, anim, f); W = {}; ssc = m['info']['scaling'] == 1
+    for p in order:
+        i, pa = p[0], p[1]; t, rr, sc = trs[i]; T = np.eye(4); T[:3, 3] = t; R = np.eye(4); R[:3, :3] = rr; S = np.diag(list(sc) + [1])
+        L = T @ R @ S
+        if ssc and pa != i: L = T @ np.diag([1 / x if x else 0 for x in trs[pa][2]] + [1]) @ R @ S
+        W[i] = (W[pa] if pa != i and pa in W else np.eye(4)) @ L
+    return W, trs
+nodes_T = [[None] * nf for _ in names]; nodes_R = [[None] * nf for _ in names]; nodes_S = [[None] * nf for _ in names]
+for f in range(nf):
+    W, trs = worlds(f); want = dict(W)
+    for b in bnames: want[bnode[b]] = W[j1] @ H(bone_world(b, f))
+    for i in hooh:
+        if i != j1 and i not in bnode.values(): want[i] = W[j1]          # unused Ho-Oh joints sit on the root
+    for i in range(len(names)):
+        if i in hooh and i != j1:
+            # Maya segment scale compensation (model scaling == 1): world_i = world_pa . T_i . S_pa^-1 . R_i . S_i, so with
+            # uniform scales: R_i = R_pa^T R_i(world), S_i = scale_i(world), T_i = R_pa^T (p_i - p_pa) / scale_pa
+            pa = parent[i]; Mp, Mi = want[pa], want[i]
+            sp = np.cbrt(np.linalg.det(Mp[:3, :3])); si = np.cbrt(np.linalg.det(Mi[:3, :3]))
+            Rp = orth(Mp[:3, :3] / sp); Ri = orth(Mi[:3, :3] / si)
+            nodes_T[i][f] = Rp.T @ (Mi[:3, 3] - Mp[:3, 3]) / sp; nodes_R[i][f] = Rp.T @ Ri; nodes_S[i][f] = [si, si, si]
+        else:
+            nodes_T[i][f], nodes_R[i][f], nodes_S[i][f] = trs[i]
+bnodes = []
+for i, o in enumerate(anim['objs']):
+    keep = None if (i in hooh and i != j1) else (o['flags'] & (1 | 6 | 0xC0 | 0x600))
+    bnodes.append(dict(flags_keep=keep, T=nodes_T[i], R=nodes_R[i], S=nodes_S[i], idx=i, rate=(1 if keep is None else 0)))
+new_bca = bca_write.build(nf, bnodes, template=D(BM))
+# geometry: Ho-Oh's shapes emptied; per bone strips in the bone's rest frame
+mo = m['off']; size, rc, mat, shp, invo = struct.unpack_from('<5I', d, mo)
+ents, _ = nitro.dict_read(bytes(d), mo + shp, 4); shapes = []
+for e, sn, _ in ents:
+    o = mo + shp + nitro.u32(e, 0); dummy, ssz, flag, co, cl = struct.unpack_from('<HHIII', d, o); shapes.append((o + co, cl))
+headmat = [i for i, x in enumerate(mats) if x.get('tex') == 'ho_head_top'][0]
+# walk the raw render commands: move our bones' matrix stores to free slots (17..), follow the restores, note when each
+# Ho-Oh shape is drawn (a bone can only be drawn after its matrix is made)
+FREE = list(range(17, 31)); newslot = {bnode[b]: FREE[k] for k, b in enumerate(bnames)}
+owner = {}; use = []; cur = None; curpos = None; o = mo + rc; k_ = 0; shape_k = {}; made = {}
+while True:
+    op = d[o]; n = 2 + 3 * d[o + 2] if op == 9 else nitro.RCMD_LEN[op]; p = list(d[o + 1:o + 1 + n])
+    if op == 0x46 and owner.get(p[3]) in newslot: d[o + 1 + 3] = newslot[owner[p[3]]]
+    if op == 0x66 and owner.get(p[4]) in newslot: d[o + 1 + 4] = newslot[owner[p[4]]]
+    if op == 3 and owner.get(p[0]) in newslot: d[o + 1] = newslot[owner[p[0]]]
+    if op in (0x26, 0x66):
+        if p[0] in newslot: d[o + 1 + 3] = newslot[p[0]]; made[p[0]] = k_
+        else: owner[p[3]] = p[0]
+        if p[0] in newslot: pass
+        else: owner[p[3]] = p[0]
+    if op == 9: owner[p[0]] = None
+    if op in (4, 0x24, 0x44): cur = p[0]; curpos = o + 1
+    elif op == 5 and cur is not None and HOOH.search(str(mats[cur].get('tex', ''))) and p[0] not in use:
+        use.append(p[0]); d[curpos] = headmat; shape_k[p[0]] = k_
+    o += 1 + n; k_ += 1
+    if op == 1: break
+for sh in use: so, cl = shapes[sh]; d[so:so + cl] = bytes(cl)
+idx = np.load(BASE + '_tex_idx.npy'); pal = np.load(BASE + '_tex_pal.npy'); TS = idx.shape[0]
+def v10(q):
+    q = [int(round(v / up * 64)) for v in q]; assert all(-512 <= x < 512 for x in q), q
+    return (q[0] & 1023) | (q[1] & 1023) << 10 | (q[2] & 1023) << 20
+def tc(uv):
+    a_ = min(2047, max(-2048, int(round(uv[0] * TS * 16)))); b_ = min(2047, max(-2048, int(round((1 - uv[1]) * TS * 16)))); return (b_ & 0xffff) << 16 | (a_ & 0xffff)
+def pack_cmds(cmds):
+    out = bytearray()
+    for k in range(0, len(cmds), 4):
+        grp = cmds[k:k + 4] + [(0, [])] * (4 - len(cmds[k:k + 4])); out += bytes(op for op, _ in grp)
+        for _, ps in grp:
+            for v in ps: out += struct.pack('<I', v & 0xffffffff)
+    return out
+def strips_of(tris_l):                                     # greedy strips; both faces are drawn so winding is free
+    keyof = {}; verts = []
+    def vid(pv, uv):
+        kk = tuple(np.round(pv, 2)) + (round(uv[0], 4), round(uv[1], 4))
+        if kk not in keyof: keyof[kk] = len(verts); verts.append((pv, uv))
+        return keyof[kk]
+    T = [tuple(vid(pv, uv) for pv, uv in t) for t in tris_l]; edge = {}
+    for ti, t in enumerate(T):
+        for a_, b_ in ((t[0], t[1]), (t[1], t[2]), (t[2], t[0])): edge.setdefault(frozenset((a_, b_)), []).append(ti)
+    used = [False] * len(T); out = []
+    def grow(st):
+        while True:
+            cand = [t for t in edge.get(frozenset((st[-2], st[-1])), []) if not used[t]]
+            if not cand: return st
+            t = cand[0]; used[t] = True; st.append([v for v in T[t] if v not in (st[-2], st[-1])][0])
+    for s0 in range(len(T)):
+        if used[s0]: continue
+        used[s0] = True; st = grow(list(T[s0])); st = grow(list(reversed(st))); out.append([verts[v] for v in st])
+    return out
+work = []                                                   # (bone, strip commands) in the order bones are made
+for b in sorted(bnames, key=lambda b: made.get(bnode[b], 0)):
+    Hinv = np.linalg.inv(H(rest[b])); mine = [t for t in tris if t[2] == b]
+    loc = [[((Hinv @ np.append(s * Fx @ (np.array(v) - cen), 1))[:3], uvv) for v, uvv in zip(t[0], t[1])] for t in mine]
+    for st in strips_of(loc):
+        work.append((b, [(0x40, [2])] + sum([[(0x22, [tc(uv)]), (0x24, [v10(pv)])] for pv, uv in st], []) + [(0x41, [])]))
+done = [False] * len(work); placed = 0
+for sh in sorted(use, key=lambda x: shape_k[x]):             # shapes in draw order; only bones already made
+    so, cl = shapes[sh]; cmds = []; curb = None
+    for wi, (b, add) in enumerate(work):
+        if done[wi] or made.get(bnode[b], 1e9) >= shape_k[sh]: continue
+        pre = [(0x14, [newslot[bnode[b]]]), (0x1b, [int(up * 4096)] * 3), (0x20, [0x7fff])] if b != curb else []
+        if len(pack_cmds(cmds + pre + add)) > cl: continue
+        cmds += pre + add; curb = b; done[wi] = True
+    if cmds:
+        blob = pack_cmds(cmds); d[so:so + cl] = blob + bytes(cl - len(blob)); placed += 1
+qi = sum(sum(len(c[1]) for c in [w]) for w, ok in zip(work, done) if ok); queue = work
+print('strips placed', sum(done), 'of', len(work), 'in', placed, 'shapes; bones', {b: names[i] for b, i in bnode.items()})
+mo_ = mats[headmat]['off']; pa = struct.unpack_from('<I', d, mo_ + 12)[0]; struct.pack_into('<I', d, mo_ + 12, (pa & ~0xF & ~(31 << 16)) | 0xC0 | (31 << 16))
+def c555(c): rr, gg, bb = (int(round(v / 255 * 31)) for v in c); return rr | gg << 5 | bb << 10
+for bo in r['blocks']:
+    if d[bo:bo + 4] != b'TEX0': continue
+    t = nitro.read_tex(bytes(d), bo); fh = t['raw_hdr']; tbo, pbo = fh[6], fh[17]
+    ents2, _ = nitro.dict_read(bytes(d), bo + fh[4], 8)
+    for (e2, nm2, eo), x in zip(ents2, t['texs']):
+        if x['name'] != 'ho_head_top': continue
+        struct.pack_into('<I', d, eo, x['param'] & ~(1 << 29)); off = (x['param'] & 0xffff) << 3; fl = idx.astype(np.uint8).reshape(-1)
+        d[bo + tbo + off: bo + tbo + off + TS * TS // 2] = bytes(fl[0::2] | (fl[1::2] << 4))
+    for pl in t['pals']:
+        if pl['name'].startswith('ho_head_top'):
+            for i in range(16): struct.pack_into('<H', d, bo + pbo + pl['off'] + 2 * i, c555(pal[i - 1]) if 1 <= i <= len(pal) else 0)
+F[MM] = lz10_enc(bytes(d)); F[BM] = lz10_enc(new_bca)
+open(DST, 'wb').write(pack(F)); print('model', len(F[MM]), 'anim', len(F[BM]))
