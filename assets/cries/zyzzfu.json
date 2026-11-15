@@ -1,0 +1,27 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": 0.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Its own sound"
+ ],
+ "by": "",
+ "at": "2026-11-14T21:44:44.006Z",
+ "audio": "assets/cries/zyzzfu.wav"
+}

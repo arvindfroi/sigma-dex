@@ -1,0 +1,35 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": -1.5,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -1.0,
+ "drive": 0.15,
+ "len": 1.6,
+ "vib": null,
+ "ring": {
+  "hz": 70.0,
+  "mix": 0.22
+ },
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.26
+ },
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: pitch -1.5, brightness 1, echo 0.26, rough 0.2, buzz 0.3",
+  "Changed by hand: brightness -1, rough 0.15, buzz 0.22"
+ ],
+ "by": "Emil",
+ "at": "2026-11-14T21:34:20.889Z",
+ "audio": "assets/cries/freezrick.wav"
+}

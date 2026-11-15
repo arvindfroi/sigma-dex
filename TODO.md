@@ -36,8 +36,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Art | back sprite | 4 / 161 |
 | Art | icon | 4 / 161 |
 | Art | footprint | 142 / 161 |
-| Art | shiny palette | 9 / 161 |
-| Art | cry | 0 / 161 |
+| Art | shiny palette | 13 / 161 |
+| Art | cry | 8 / 161 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
@@ -53,9 +53,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 ## Missing per Pokemon
 
-### #1 [Leafing](data/species/leafing.yaml) - 93%
+### #1 [Leafing](data/species/leafing.yaml) - 97%
 
-- **Art:** shiny palette, cry
+- **Art:** cry
 
 ### #2 [Leafsteel](data/species/leafsteel.yaml) - 59%
 
@@ -85,12 +85,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #6 [Warrallier](data/species/warrallier.yaml) - 62%
+### #6 [Warrallier](data/species/warrallier.yaml) - 66%
 
 - **Dex page:** category, description, height, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #7 [Torchbat](data/species/torchbat.yaml) - 76%
 
@@ -203,12 +203,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #23 [Brawleo](data/species/brawleo.yaml) - 66%
+### #23 [Brawleo](data/species/brawleo.yaml) - 69%
 
 - **Dex page:** height, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #24 [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) - 59%
 
@@ -224,11 +224,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, cry
 
-### #26 [Freezrick](data/species/freezrick.yaml) - 76%
+### #26 [Freezrick](data/species/freezrick.yaml) - 79%
 
 - **Dex page:** weight
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #27 [Bulbtle](data/species/bulbtle.yaml) - 66%
 
@@ -347,12 +347,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #44 [Devampry](data/species/devampry.yaml) - 62%
+### #44 [Devampry](data/species/devampry.yaml) - 66%
 
 - **Dex page:** category, height, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #45 [Chillalit](data/species/chillalit.yaml) - 72%
 
@@ -750,12 +750,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, cry
 
-### #101 [Blazlothku](data/species/slothbaby-utviklet.yaml) - 59%
+### #101 [Blazlothku](data/species/slothbaby-utviklet.yaml) - 62%
 
 - **Dex page:** category, description, height, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #102 [Terratyson](data/species/gaiafinn.yaml) - 59%
 
@@ -776,12 +776,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #105 [Slamquake](data/species/slamquake.yaml) - 62%
+### #105 [Slamquake](data/species/slamquake.yaml) - 66%
 
 - **Dex page:** category, description, height
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
 ### #106 [Limulk](data/species/limulk.yaml) - 59%
 
@@ -804,11 +804,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #109 [Phantail](data/species/sjef.yaml) - 62%
+### #109 [Phantail](data/species/sjef.yaml) - 66%
 
 - **Dex page:** category, description, height, weight
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
 ### #110 [Oraclet](data/species/oraclet.yaml) - 66%
 
@@ -942,12 +942,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #128 [Zyzzfu](data/species/zyzzfu.yaml) - 59%
+### #128 [Zyzzfu](data/species/zyzzfu.yaml) - 62%
 
 - **Dex page:** category, description, height, weight
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
 ### #129 [Grincho](data/species/grincho.yaml) - 62%
 
@@ -1076,11 +1076,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #145 [Gravriel](data/species/gravriel.yaml) - 72%
+### #145 [Gravriel](data/species/gravriel.yaml) - 76%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
 ### #146 [Balleisk](data/species/balleisk.yaml) - 59%
 
@@ -1130,14 +1130,14 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #154 [SOLIDEDGE](data/species/solidedge.yaml) - 28%
+### #154 [SOLIDEDGE](data/species/solidedge.yaml) - 31%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
 
 ### #158 [Whaldrill0](data/species/whaldrill0.yaml) - 48%
 
@@ -1161,7 +1161,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
-### #162 [Raymon](data/species/raymon.yaml) - 10%
+### #162 [Raymon](data/species/raymon.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1169,7 +1169,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
 
 ### #198 [Santrock](data/species/santrock.yaml) - 72%
 

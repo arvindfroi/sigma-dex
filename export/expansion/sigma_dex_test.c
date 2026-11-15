@@ -1047,9 +1047,9 @@ TEST("Sigma dex: Devampry has the data from its species file")
     EXPECT_EQ(info->baseHP, 84);
     EXPECT_EQ(info->baseAttack, 75);
     EXPECT_EQ(info->baseDefense, 69);
-    EXPECT_EQ(info->baseSpeed, 95);
+    EXPECT_EQ(info->baseSpeed, 100);
     EXPECT_EQ(info->baseSpAttack, 95);
-    EXPECT_EQ(info->baseSpDefense, 87);
+    EXPECT_EQ(info->baseSpDefense, 82);
     EXPECT_EQ(info->types[0], TYPE_NORMAL);
     EXPECT_EQ(info->types[1], TYPE_DARK);
     EXPECT_EQ(info->abilities[0], ABILITY_SOUNDPROOF);

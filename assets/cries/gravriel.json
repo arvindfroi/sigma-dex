@@ -1,0 +1,28 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": -5.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -1.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: pitch -5, brightness -1"
+ ],
+ "by": "Emil",
+ "at": "2026-11-14T22:20:26.960Z",
+ "audio": "assets/cries/gravriel.wav"
+}

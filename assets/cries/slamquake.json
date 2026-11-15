@@ -1,0 +1,34 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": 0.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.05,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 1.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.0,
+  "depth": 1.0
+ },
+ "ring": null,
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.6
+ },
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: length 1.05, wobble 1, echo 0.6, rough 1"
+ ],
+ "by": "",
+ "at": "2026-11-14T22:07:27.492Z",
+ "audio": "assets/cries/slamquake.wav"
+}

@@ -46,7 +46,6 @@ static const struct LevelUpMove sLeafsteelLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sLeafaxerLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_LEAF_BLADE),
     LEVEL_UP_MOVE( 1, MOVE_LEAF_BLADE),
     LEVEL_UP_MOVE( 1, MOVE_LEAFAGE),
     LEVEL_UP_MOVE( 1, MOVE_RAZOR_LEAF),
@@ -66,8 +65,9 @@ static const struct LevelUpMove sLeafaxerLevelUpLearnset[] = {
     LEVEL_UP_MOVE(28, MOVE_TAKE_DOWN),
     LEVEL_UP_MOVE(31, MOVE_SLAM),
     LEVEL_UP_MOVE(35, MOVE_SLASH),
+    LEVEL_UP_MOVE(37, MOVE_LEAF_BLADE),
     LEVEL_UP_MOVE(39, MOVE_SYNTHESIS),
-    LEVEL_UP_MOVE(40, MOVE_IRON_TAIL),
+    LEVEL_UP_MOVE(42, MOVE_IRON_TAIL),
     LEVEL_UP_MOVE(44, MOVE_X_SCISSOR),
     LEVEL_UP_MOVE(45, MOVE_IRON_DEFENSE),
     LEVEL_UP_MOVE(48, MOVE_NIGHT_SLASH),
@@ -75,7 +75,6 @@ static const struct LevelUpMove sLeafaxerLevelUpLearnset[] = {
     LEVEL_UP_MOVE(52, MOVE_WOOD_HAMMER),
     LEVEL_UP_MOVE(56, MOVE_STONE_AXE),
     LEVEL_UP_MOVE(60, MOVE_SOLAR_BLADE),
-    LEVEL_UP_MOVE(64, MOVE_BEHEMOTH_BLADE),
     LEVEL_UP_END
 };
 
@@ -214,8 +213,6 @@ static const struct LevelUpMove sPrincinderLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sMonarkhanLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_HEAT_WAVE),
-    LEVEL_UP_MOVE( 0, MOVE_AIR_SLASH),
     LEVEL_UP_MOVE( 1, MOVE_HEAT_WAVE),
     LEVEL_UP_MOVE( 1, MOVE_EMBER),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),

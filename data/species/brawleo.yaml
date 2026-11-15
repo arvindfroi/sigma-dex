@@ -9,7 +9,7 @@ credits:
 types: [Normal, Fighting] # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category: Guard Dog      # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+category: Dog Brawler    # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description: It swings its ears like fists to slap the target. Its tough fur protects it while it fights.
 height_m:                # e.g. 0.7
 weight_kg:               # e.g. 6.9
@@ -130,7 +130,7 @@ assets:
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:59"   # footprint.png  16x16, black and white
-  shiny_palette:         # shiny.pal      the 16 colors of the shiny version
+  shiny_palette: "assets/shiny/brawleo.json"
   cry:                   # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---

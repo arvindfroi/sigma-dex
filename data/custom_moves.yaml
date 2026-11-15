@@ -2,6 +2,19 @@
 # see data/engine/expansion.yaml for the 846 that do). Edit them on the website.
 # Each one has to be programmed into the game; 'implemented: true' marks the ones that are.
 moves:
+- id: axe-swing
+  name: Axe Swing
+  type: Steel
+  category: physical
+  power: 95
+  accuracy: 100
+  pp: 10
+  target: one opponent
+  contact: true
+  effect: The user swings its steel axes at the target, has an increased critical hit ratio with a chance
+    to lower the targets defence.
+  effect_chance: 30
+  designer: Emil
 - id: boiling-downpour
   name: Boiling Downpour
   type: Fire
@@ -111,6 +124,17 @@ moves:
   effect: The user swings and hits with its strong, heavy rock fist. It lowers the user's Speed, however.
     (100% chance)
   similar_to: Hammer Arm
+  designer: Emil
+- id: siro-stream
+  name: Siro Stream
+  type: Flying
+  category: special
+  power: 40
+  accuracy: 90
+  pp: 10
+  target: all opponents
+  effect: A scalding, searing wind that hits both foes with a chance to burn, sets up tailwind
+  effect_chance: 10
   designer: Emil
 - id: soul-slash
   name: Soul Slash

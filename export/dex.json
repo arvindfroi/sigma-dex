@@ -232,7 +232,7 @@
         "back_sprite": "assets/sprites/leafing/back.png",
         "icon": "assets/sprites/leafing/icon.png",
         "footprint": "hgss:1",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/leafing.json",
         "cry": null
       },
       "engine": {
@@ -570,7 +570,7 @@
         "level_up": [
           {
             "level": 0,
-            "move": "Leaf Blade"
+            "move": "Axe Swing"
           },
           {
             "level": 1,
@@ -649,11 +649,15 @@
             "move": "Slash"
           },
           {
+            "level": 37,
+            "move": "Leaf Blade"
+          },
+          {
             "level": 39,
             "move": "Synthesis"
           },
           {
-            "level": 40,
+            "level": 42,
             "move": "Iron Tail"
           },
           {
@@ -683,10 +687,6 @@
           {
             "level": 60,
             "move": "Solar Blade"
-          },
-          {
-            "level": 64,
-            "move": "Behemoth Blade"
           }
         ],
         "tm_hm": [
@@ -1602,7 +1602,7 @@
         "icon": null,
         "footprint": "hgss:260",
         "shiny_palette": "assets/shiny/warrallier.json",
-        "cry": null
+        "cry": "assets/cries/warrallier.json"
       },
       "engine": {
         "no_flip": false,
@@ -2168,11 +2168,7 @@
         "level_up": [
           {
             "level": 0,
-            "move": "Heat Wave"
-          },
-          {
-            "level": 0,
-            "move": "Air Slash"
+            "move": "Siro Stream"
           },
           {
             "level": 1,
@@ -5400,7 +5396,7 @@
         "Normal",
         "Fighting"
       ],
-      "category": "Guard Dog",
+      "category": "Dog Brawler",
       "description": "It swings its ears like fists to slap the target. Its tough fur protects it while it fights.",
       "height_m": null,
       "weight_kg": null,
@@ -5637,7 +5633,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:59",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/brawleo.json",
         "cry": null
       },
       "engine": {
@@ -6325,7 +6321,7 @@
         "icon": null,
         "footprint": "hgss:428",
         "shiny_palette": "assets/shiny/freezrick.json",
-        "cry": null
+        "cry": "assets/cries/freezrick.json"
       },
       "engine": {
         "no_flip": false,
@@ -10380,8 +10376,8 @@
         "attack": 75,
         "defense": 69,
         "sp_attack": 95,
-        "sp_defense": 87,
-        "speed": 95
+        "sp_defense": 82,
+        "speed": 100
       },
       "ev_yield": {
         "sp_attack": 1,
@@ -10615,7 +10611,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:472",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/devampry.json",
         "cry": null
       },
       "engine": {
@@ -23468,7 +23464,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:288",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/slothbaby-utviklet.json",
         "cry": null
       },
       "engine": {
@@ -24460,7 +24456,7 @@
         "icon": null,
         "footprint": "hgss:68",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/slamquake.json"
       },
       "engine": {
         "no_flip": false,
@@ -25390,7 +25386,7 @@
         "icon": null,
         "footprint": "hgss:354",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/sjef.json"
       },
       "engine": {
         "no_flip": false,
@@ -29564,7 +29560,7 @@
         "icon": null,
         "footprint": "hgss:448",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/zyzzfu.json"
       },
       "engine": {
         "no_flip": false,
@@ -32624,7 +32620,7 @@
         "icon": null,
         "footprint": "hgss:355",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/gravriel.json"
       },
       "engine": {
         "no_flip": false,
@@ -34385,8 +34381,8 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
+        "body_shape": "a serpentine body",
+        "movement": "It slithers along the ground.",
         "look": null
       },
       "assets": {
@@ -34397,7 +34393,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/solidedge.json"
       },
       "engine": {
         "no_flip": false,
@@ -35201,7 +35197,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/raymon.json"
       },
       "engine": {
         "no_flip": false,

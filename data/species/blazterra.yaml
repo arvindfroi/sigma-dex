@@ -64,8 +64,7 @@ forms:
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 0, move: Heat Wave}
-    - {level: 0, move: Air Slash}
+    - {level: 0, move: Siro Stream}
     - {level: 1, move: Heat Wave}
     - {level: 1, move: Ember}
     - {level: 1, move: Growl}

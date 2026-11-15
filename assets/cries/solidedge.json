@@ -1,0 +1,31 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": 0.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": -6.0,
+ "tone": 0.0,
+ "drive": 1.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.6
+ },
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: glide -6, echo 0.6, rough 1"
+ ],
+ "by": "",
+ "at": "2026-11-14T21:58:18.652Z",
+ "audio": "assets/cries/solidedge.wav"
+}

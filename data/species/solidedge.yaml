@@ -113,8 +113,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
+  body_shape: a serpentine body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  movement: It slithers along the ground.
   look:                  # what it looks like, a few plain sentences: It is a ...
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
@@ -126,7 +126,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint:             # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
-  cry:                   # sound file
+  cry: "assets/cries/solidedge.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---
 engine:

@@ -1,0 +1,43 @@
+{
+ "v": 1,
+ "seed": 609766316,
+ "layers": [
+  {
+   "dex": 18,
+   "semi": -9.33,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 164,
+   "semi": -11.75,
+   "gain": 0.51,
+   "at": 0.1,
+   "rev": true
+  }
+ ],
+ "stretch": 1.05,
+ "sweep": 0.0,
+ "tone": -1.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.0,
+  "depth": 1.0
+ },
+ "ring": null,
+ "echo": {
+  "ms": 92.0,
+  "gain": 0.6
+ },
+ "reasons": [
+  "Starts from Pidgeot's cry: same body plan, also Flying",
+  "Lower by 1 step",
+  "Mixed with a quieter Noctowl (same body plan, also Flying)",
+  "Its Ghost/Flying side gives an echo, a second voice played backwards, a brighter sound",
+  "Changed by hand: pitch -8, length 1.05, brightness -1, wobble 1, echo 0.6"
+ ],
+ "by": "",
+ "at": "2026-11-14T21:54:25.035Z"
+}

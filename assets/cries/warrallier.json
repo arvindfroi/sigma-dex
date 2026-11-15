@@ -1,0 +1,28 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": -2.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 0.8,
+ "sweep": -0.5,
+ "tone": -1.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: pitch -2, length 0.8, glide -0.5, brightness -1"
+ ],
+ "by": "Emil",
+ "at": "2026-11-14T21:08:43.522Z",
+ "audio": "assets/cries/warrallier.wav"
+}

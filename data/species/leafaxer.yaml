@@ -64,7 +64,7 @@ forms:
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 0, move: Leaf Blade}
+    - {level: 0, move: Axe Swing}
     - {level: 1, move: Leaf Blade}
     - {level: 1, move: Leafage}
     - {level: 1, move: Razor Leaf}
@@ -84,8 +84,9 @@ learnset:
     - {level: 28, move: Take Down}
     - {level: 31, move: Slam}
     - {level: 35, move: Slash}
+    - {level: 37, move: Leaf Blade}
     - {level: 39, move: Synthesis}
-    - {level: 40, move: Iron Tail}
+    - {level: 42, move: Iron Tail}
     - {level: 44, move: X-Scissor}
     - {level: 45, move: Iron Defense}
     - {level: 48, move: Night Slash}
@@ -93,7 +94,6 @@ learnset:
     - {level: 52, move: Wood Hammer}
     - {level: 56, move: Stone Axe}
     - {level: 60, move: Solar Blade}
-    - {level: 64, move: Behemoth Blade}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
           Rain Dance, Giga Drain, Safeguard, Frustration, Solar Beam, Iron Tail, Earthquake,

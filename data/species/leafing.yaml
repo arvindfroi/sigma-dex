@@ -122,7 +122,7 @@ assets:
   back_sprite: "assets/sprites/leafing/back.png"
   icon: "assets/sprites/leafing/icon.png"
   footprint: "hgss:1"    # footprint.png  16x16, black and white
-  shiny_palette:         # shiny.pal      the 16 colors of the shiny version
+  shiny_palette: "assets/shiny/leafing.json"
   cry:                   # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---

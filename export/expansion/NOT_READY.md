@@ -71,8 +71,10 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - Freezrick: move 'Ice Egg' is not in the game yet, left out
 - Harpie: evolution into Smeatherace left out until that Pokemon is ready
 - Leadling: evolution into Leadling Utvikling left out until that Pokemon is ready
+- Leafaxer: move 'Axe Swing' is not in the game yet, left out
 - Limulk: ability 'Heckler' is not in the game yet, left out
 - Limulk: evolution into Mortbulk needs custom code (Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.)
+- Monarkhan: move 'Siro Stream' is not in the game yet, left out
 - Mortbulk: ability 'Heckler' is not in the game yet, left out
 - Nukfae: move 'Poison Hug' is not in the game yet, left out
 - Octopearl: move 'Cosmic Shield' is not in the game yet, left out
