@@ -843,3 +843,10 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   through him) and `LIGHTS=3` (normals, DS light) for the pagoda shot. Ho-Oh's glow disc (joint27, texture redrawn as a ring)
   becomes a ripple under each paw that touches down. Bug fixed: restores of a moved bone slot were not redirected, so three
   leg bones built on stale matrices (the long stretched streak).
+- **Correct walk (v19, 2026-11-16)**: the cycle advances with the distance travelled (stride measured from the backward part of
+  the cycle, never faster than one cycle per 20 frames), and in the pagoda shot each paw is locked where it touched down while
+  the leg bends (analytic two-bone IK, 4-frame ease out); ripples start at each touchdown at the locked paw. Sky shot:
+  `FOOTLOCK=0` (Ho-Oh is far too fast to walk). Bone tracks are full rate now (`HALFRATE=1` for the old half rate); the film
+  then needs the original 437100-byte slot, so the test ROM is built from `jump_hooh2_sab.nds` (sprite eyes + hover patch, then
+  the film). Hat: gold trim kept as its own part, drawn emblem quad; sail/flag: planar UVs over the whole cloth, sail picture
+  stored turned, sail in front of the mast. Recordings every frame (`wait:1`) and videos at 60 fps.

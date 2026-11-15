@@ -73,9 +73,11 @@ for b in bnames:
     Ms = [np.array(B['frames'][str(c)][b]) for c in CYC] + [np.array(B['frames'][str(CYC[0])][b])]
     rots = Rot.from_matrix([orth(M[:3, :3]) for M in Ms]); sl = Slerp(np.arange(len(Ms)), rots); tr = np.array([M[:3, 3] for M in Ms])
     pose[b] = (sl, tr)
-def bone_world(b, f):
-    x = (f / STEP) % len(CYC); sl, tr = pose[b]; i = int(x); w = x - i
+PH = None                                                   # walk phase per film frame (set from the distance travelled)
+def bone_pose(b, x):
+    x = x % len(CYC); sl, tr = pose[b]; i = int(x); w = x - i
     M = np.eye(4); M[:3, :3] = sl([x]).as_matrix()[0]; M[:3, 3] = tr[i] * (1 - w) + tr[i + 1] * w; return M
+def bone_world(b, f): return bone_pose(b, PH[f] if PH is not None else f / STEP)
 # evaluate the original worlds (environment parents and joint1's path)
 def worlds(f):
     trs = geom.node_trs(m, anim, f); W = {}; ssc = m['info']['scaling'] == 1
@@ -91,6 +93,68 @@ P1 = []; WJ = []
 for f in range(nf):
     Wf, _ = worlds(f); WJ.append(Wf[j1]); P1.append(Wf[j1][:3, 3])
 P1 = np.array(P1); sig = np.cbrt(np.linalg.det(WJ[0][:3, :3]))
+# Arvind: the walk must be correct -> the cycle advances with the distance travelled, so a paw in stance stays put in the
+# world (no gliding) and he stands still when Ho-Oh hovers. Stride and stance share are measured from the cycle itself.
+if os.environ.get('WALKDIST', '1') == '1':
+    FEET_ = ('FL_lo', 'FR_lo', 'BL_lo', 'BR_lo'); _pv = {}
+    for b in FEET_:
+        vs = [np.array(v) for t in tris for v, vb in zip(t[0], t[4]) if vb == b]
+        v = min(vs, key=lambda q: q[2]); _pv[b] = (np.linalg.inv(H(rest[b])) @ np.append(s * Fx @ (v - cen), 1))[:3]
+    xs = np.linspace(0, len(CYC), 193)[:-1]; strides = []; duties = []; STANCE = {}
+    for b in FEET_:
+        Q = np.array([(H(bone_pose(b, x)) @ np.append(_pv[b], 1))[:3] for x in xs])   # joint1-local: x forward, y up
+        back = np.diff(np.r_[Q[:, 0], Q[0, 0]]) < 0                                   # stance: the paw moves backwards
+        STANCE[b] = back; strides.append(-np.sum(np.minimum(np.diff(np.r_[Q[:, 0], Q[0, 0]]), 0)) * sig); duties.append(back.mean())
+    STRIDE = float(np.mean(strides)); DUTY = float(np.mean(duties)); per_cycle = STRIDE / max(DUTY, 1e-3)
+    sp = np.r_[0, np.linalg.norm(np.diff(P1, axis=0), axis=1)]
+    MINF = float(os.environ.get('MIN_CYCLE_FRAMES', '20'))      # never faster than one cycle per MINF frames (sky shot swoops)
+    PH = np.cumsum(np.minimum(sp / per_cycle * len(CYC), len(CYC) / MINF))
+    print('walk: stride %.2f duty %.2f -> %.2f world units per cycle, %.1f cycles in the shot' % (STRIDE, DUTY, per_cycle, PH[-1] / len(CYC)))
+def in_stance(b, f):
+    if PH is None: return False
+    k = int((PH[f] % len(CYC)) / len(CYC) * len(STANCE[b])) % len(STANCE[b]); return bool(STANCE[b][k])
+UPB = {'FL_lo': 'FL_up', 'FR_lo': 'FR_up', 'BL_lo': 'BL_up', 'BR_lo': 'BR_up'}
+def _rot_between(a, b):
+    a = a / np.linalg.norm(a); b = b / np.linalg.norm(b); v = np.cross(a, b); c = float(a @ b)
+    if np.linalg.norm(v) < 1e-9: return np.eye(3)
+    K = np.array([[0, -v[2], v[1]], [v[2], 0, -v[0]], [-v[1], v[0], 0]]); return np.eye(3) + K + K @ K * (1 / (1 + c))
+def _about(R, piv):
+    M = np.eye(4); M[:3, :3] = R; M[:3, 3] = piv - R @ piv; return M
+_lock = {}
+def plant_targets():
+    # world plant point per foot per frame (None when the paw is free); 4-frame ease back after the stance
+    out = {}
+    for b in UPB:
+        tg = [None] * nf; cur = None; ease = 0; last = None
+        for f in range(nf):
+            free = (root_frame(f) @ H(bone_world(b, f)) @ np.append(_pv[b], 1))[:3]
+            if in_stance(b, f):
+                if cur is None: cur = free
+                tg[f] = ('lock', cur); last = cur
+            else:
+                if cur is not None: ease = 4; cur = None
+                if ease and last is not None: tg[f] = ('ease', last, ease / 5.0); ease -= 1
+        out[b] = tg
+    return out
+def leg_L(f):
+    # bone matrices (joint1-local) of the four legs with the paws locked: analytic two-bone IK in the leg's own bend plane
+    res = {}
+    if PH is None or os.environ.get('FOOTLOCK', '1') != '1': return res
+    RFi = np.linalg.inv(root_frame(f))
+    for lo, upb in UPB.items():
+        Mu = H(bone_world(upb, f)); Ml = H(bone_world(lo, f))
+        A = Mu[:3, 3]; B_ = Ml[:3, 3]; C = (Ml @ np.append(_pv[lo], 1))[:3]
+        t = PLANT[lo][f]
+        if t is None: continue
+        T = (RFi @ np.append(t[1], 1))[:3]
+        if t[0] == 'ease': T = T * t[2] + C * (1 - t[2])
+        l1 = np.linalg.norm(B_ - A); l2 = np.linalg.norm(C - B_); d = np.linalg.norm(T - A)
+        d = min(max(d, abs(l1 - l2) + 1e-4), l1 + l2 - 1e-4); T = A + (T - A) / (np.linalg.norm(T - A) + 1e-9) * d
+        ax = (T - A) / d; pole = B_ - A - ax * ((B_ - A) @ ax); pole /= np.linalg.norm(pole) + 1e-9
+        a_ = (l1 * l1 - l2 * l2 + d * d) / (2 * d); h_ = np.sqrt(max(l1 * l1 - a_ * a_, 0)); Bn = A + ax * a_ + pole * h_
+        R1 = _about(_rot_between(B_ - A, Bn - A), A); Mu2 = R1 @ Mu; Ml1 = R1 @ Ml; C1 = (Ml1 @ np.append(_pv[lo], 1))[:3]
+        R2 = _about(_rot_between(C1 - Bn, T - Bn), Bn); res[upb] = Mu2; res[lo] = R2 @ Ml1
+    return res
 # heading = the way Ho-Oh itself faces (its +X, flattened), smoothed: steady while it hovers, no banking or pitch.
 # (the travel direction flips at random when Ho-Oh hovers in place, which made him turn suddenly)
 YAW = []
@@ -103,6 +167,7 @@ def root_frame(f):
     M = np.eye(4); M[:3, :3] = sig * np.column_stack([fwd, upv, side]); M[:3, 3] = P1[f]; return M
 PATHFRAME = os.environ.get('PATHFRAME', '1') == '1'
 SUP = np.diag([up, up, up, 1.0])
+PLANT = plant_targets() if PH is not None else None   # needs root_frame
 # Arvind: no glow around him; Ho-Oh's glow disc (joint27) becomes a ripple in the air under each paw that touches down
 RIPPLE = os.environ.get('RIPPLE', '1') == '1' and 'joint27' in names
 if RIPPLE:
@@ -111,14 +176,21 @@ if RIPPLE:
     for b in FEET:                                          # the paw: the lowest model point that follows this bone
         vs = [np.array(v) for t in tris for v, vb in zip(t[0], t[4]) if vb == b]
         v = min(vs, key=lambda q: q[2]); pvf[b] = (np.linalg.inv(H(rest[b])) @ np.append(s * Fx @ (v - cen), 1))[:3]
-    def foot_world(b, f): return (root_frame(f) @ H(bone_world(b, f)) @ np.append(pvf[b], 1))[:3]
+    def foot_world(b, f):
+        LG = leg_L(f); M_ = LG[b] if b in LG else H(bone_world(b, f)); return (root_frame(f) @ M_ @ np.append(pvf[b], 1))[:3]
     def foot_h(b, f): return (np.linalg.inv(root_frame(f)) @ np.append(foot_world(b, f), 1))[1]
     events = []
     for b in FEET:
-        hs = np.array([foot_h(b, f) for f in range(nf)]); lo, hi = hs.min(), hs.max(); thr = lo + 0.12 * (hi - lo)
         for f in range(1, nf):
-            if hs[f] <= thr and hs[f - 1] > thr: events.append((f, b))
+            if PH is not None and in_stance(b, f) and not in_stance(b, f - 1): events.append((f, b))
     events.sort(); print('ripples', len(events), [e[0] for e in events][:12])
+    if os.environ.get('DIAG'):
+        sp = np.linalg.norm(np.diff(P1, axis=0), axis=1); print('path speed per frame: mean %.2f min %.2f max %.2f' % (sp.mean(), sp.min(), sp.max()))
+        for b in FEET:
+            st = np.array([in_stance(b, f) for f in range(nf)]); W_ = np.array([foot_world(b, f) for f in range(nf)])
+            v = np.linalg.norm(np.diff(W_, axis=0), axis=1); both = st[1:] & st[:-1]
+            print(b, 'stance frames', int(st.sum()), 'locked-paw drift %.3f/frame' % (v[both].mean() if both.any() else 0), 'swing %.2f/frame' % v[~st[1:]].mean())
+        sys.exit(0)
     def ripple_world(f):
         cur = [e for e in events if e[0] <= f]
         if not cur: return None
@@ -132,7 +204,8 @@ nodes_T = [[None] * nf for _ in names]; nodes_R = [[None] * nf for _ in names]; 
 for f in range(nf):
     W, trs = worlds(f); want = dict(W)
     RF = root_frame(f) if PATHFRAME else W[j1]
-    for b in bnames: want[bnode[b]] = RF @ H(bone_world(b, f)) @ SUP     # posScale folded into the bone matrices
+    LG = leg_L(f)
+    for b in bnames: want[bnode[b]] = RF @ (LG[b] if b in LG else H(bone_world(b, f))) @ SUP     # posScale folded into the bone matrices; legs: paws locked
     if f >= nf - int(os.environ.get('HIDE_TAIL', '0')):   # the sky shot ends with the camera flying through him: hide him there
         for bb in bnames: want[bnode[bb]] = RF @ np.diag([1e-3, 1e-3, 1e-3, 1.0])
     for i in hooh:
@@ -153,7 +226,7 @@ for f in range(nf):
 bnodes = []
 for i, o in enumerate(anim['objs']):
     keep = None if (i in hooh and i != j1) else (o['flags'] & (1 | 6 | 0xC0 | 0x600))
-    bnodes.append(dict(flags_keep=keep, T=nodes_T[i], R=nodes_R[i], S=nodes_S[i], idx=i, rate=(1 if keep is None else 0)))
+    bnodes.append(dict(flags_keep=keep, T=nodes_T[i], R=nodes_R[i], S=nodes_S[i], idx=i, rate=(int(os.environ.get('HALFRATE', '0')) if keep is None else 0)))
 new_bca = bca_write.build(nf, bnodes, template=D(BM))
 # geometry: Ho-Oh's shapes emptied; per bone strips in the bone's rest frame
 mo = m['off']; size, rc, mat, shp, invo = struct.unpack_from('<5I', d, mo)

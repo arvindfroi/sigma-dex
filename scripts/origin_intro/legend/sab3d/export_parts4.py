@@ -14,13 +14,13 @@ argv = sys.argv[sys.argv.index('--') + 1:]; OUT = argv[0]
 SHIFT = float(argv[1]) if len(argv) > 1 else 0.8; LIFT = float(argv[2]) if len(argv) > 2 else 0.7
 sc = bpy.context.scene; sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = 1
 rig = bpy.data.objects['Rig']; rig.data.pose_position = 'REST'
-BUDGET = {'Body': 330, 'Hull': 110, 'Hat': 60, 'HatEdge': 34, 'Deck': 24, 'Stern': 36, 'Mast': 10, 'Nose': 6, 'Rail': 24,
+BUDGET = {'Body': 300, 'Hull': 110, 'Hat': 120, 'HatEdge': 110, 'Deck': 24, 'Stern': 36, 'Mast': 10, 'Nose': 6, 'Rail': 24,
           'Sail': 44, 'Flag': 6, 'Tusk': 16, 'SkullHead': 22, 'SkullCheek': 6, 'SkullJaw': 6, 'SkullMaxilla': 6, 'SkullMouth': 6,
           'EyeHole': 4, 'EyeRim': 6, 'SkNose': 2, 'Brow': 8, 'Claw': 4}
 DROP = ('Post', 'Tooth', 'LowTooth', 'Palate', 'MouthIn', 'Tongue', 'Eye1')       # Eye1 balls: replaced by drawn eye quads
 STERN = ('Stern', 'Skull', 'SkNose', 'EyeHole', 'EyeRim')
 GRIDS = {'Sail': (3, 3), 'Flag': (2, 2)}
-REMESH = {'Body': 140, 'Hull': 140, 'Hat': 120, 'HatEdge': 160, 'Deck': 120, 'Stern': 110, 'Mast': 90, 'Rail': 200, 'Tusk': 80, 'Nose': 60}
+REMESH = {'Body': 140, 'Hull': 140, 'Hat': 170, 'Deck': 50, 'Stern': 110, 'Mast': 90, 'Rail': 200, 'Tusk': 80, 'Nose': 60}
 dg = bpy.context.evaluated_depsgraph_get()
 def base_name(n):
     b = n.split('.')[0]
@@ -133,8 +133,14 @@ for o in src:
     at = sampler(c)
     if bn in GRIDS: lp = grids(c, *GRIDS[bn])
     elif bn in REMESH: lp = remeshed(c, BUDGET.get(bn, 30), REMESH[bn])
+    elif bn == 'HatEdge':
+        lp = c.copy(); lp.data = c.data.copy(); sc.collection.objects.link(lp); lp.name = c.name + '_lp'; decimate_to(lp, BUDGET[bn])
+        P_ = np.array([v.co[:] for v in lp.data.vertices]); cc = P_.mean(0)
+        for v in lp.data.vertices: v.co = Vector(tuple(cc + (np.array(v.co[:]) - cc) * np.array([1.04, 1.04, 1.0]) + np.array([0, 0, 0.02])))
     else:
         lp = c.copy(); lp.data = c.data.copy(); sc.collection.objects.link(lp); lp.name = c.name + '_lp'; decimate_to(lp, BUDGET.get(bn, 6))
+    if bn == 'Sail':                                        # the sail hangs in front of the mast (concept): no mast across the skull
+        for v in lp.data.vertices: v.co.y -= 0.12
     bm = bmesh.new(); bm.from_mesh(lp.data); bmesh.ops.triangulate(bm, faces=bm.faces[:]); bm.to_mesh(lp.data); bm.free()
     me = lp.data
     vn = np.zeros((len(me.vertices), 3))                      # smooth normals within the part
@@ -169,5 +175,20 @@ for e in eyes:
     for tri in ((0, 1, 2), (0, 2, 3)):
         polys.append(dict(p=[list(q[k]) for k in tri], n=[list(n)] * 3, c=None, uv=[list(uvq[k]) for k in tri], tex='eye', part='Eye',
                           g=1, b='head', vb=['head'] * 3, r=2 if side > 0 else 3))
+hats = [h for h in bpy.data.objects if h.name.startswith('Hat_c_lp')]
+if hats:
+    hm = hats[0]; hb = bmesh.new(); hb.from_mesh(hm.data); htree = BVHTree.FromBMesh(hb); hb.free()
+    HP_ = np.array([v.co[:] for v in hm.data.vertices]); hmn, hmx = HP_.min(0), HP_.max(0); hc = (hmn + hmx) / 2
+    n = np.array([0, -1.0, 0.45]); n /= np.linalg.norm(n); origin = np.array([hc[0], hmn[1] - 1.5, hc[2] + 0.10 * (hmx[2] - hmn[2])])
+    hit = htree.ray_cast(Vector(tuple(origin)), Vector((0, 1.0, 0)), 5.0)
+    if hit[0] is not None:
+        ctr = np.array(hit[0][:]) + n * 0.05; t1 = np.array([1.0, 0, 0]); t2 = np.cross(n, t1); t2 /= np.linalg.norm(t2)
+        w, h = 0.30, 0.23
+        q = [ctr - w * t1 - h * t2, ctr + w * t1 - h * t2, ctr + w * t1 + h * t2, ctr - w * t1 + h * t2]
+        uvq = [(0, 0), (1, 0), (1, 1), (0, 1)]
+        for tri in ((0, 1, 2), (0, 2, 3)):
+            polys.append(dict(p=[list(q[k]) for k in tri], n=[list(n)] * 3, c=None, uv=[list(uvq[k]) for k in tri], tex='emblem', part='Emblem',
+                              g=1, b='head', vb=['head'] * 3, r=0))
+        print('EMBLEM at', np.round(ctr, 2))
 json.dump(dict(polys=polys), open(OUT + '_parts.json', 'w'))
 print('PARTS', parts, 'TOTAL', len(polys))

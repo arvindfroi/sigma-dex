@@ -28,7 +28,7 @@ def nearest(c, allowed):
 P = json.load(open(B + '_parts.json'))['polys']
 cls = []
 for p in P:
-    if p['tex'] in ('sail', 'flag', 'eye'): cls.append(None); continue
+    if p['tex'] in ('sail', 'flag', 'eye', 'emblem'): cls.append(None); continue
     if p['part'] in FIXED: cls.append(NAMES.index(FIXED[p['part']])); continue
     cls.append(nearest(p['c'] if p['c'] else (60, 60, 60), ALLOWED.get(p['part'], NAMES)))
 # clean up within each part: a polygon whose colour none of its neighbours share takes theirs
@@ -70,19 +70,60 @@ EK = {'.': 1, 'L': 2, 'K': 0, 'W': 9, 'G': 10}
 E0y, E0x = 64 - 24, 0                                        # eye drawn 2x: 48 x 24 at the bottom-left of texture 1
 for y, row in enumerate(EYE):
     for x, ch in enumerate(row): T1[E0y + 2 * y:E0y + 2 * y + 2, E0x + 2 * x:E0x + 2 * x + 2] = EK[ch]
+EMB = ["GG....GGGG....GG",                                   # hat emblem 16 x 12: gold skull and crossbones on the black hat
+       ".GG..GGGGGG..GG.",
+       "..GG.GKGGKG.GG..",
+       "...GGGKGGKGGG...",
+       "....GGGGGGGG....",
+       ".....GKGGKG.....",
+       "....GGGGGGGG....",
+       "...GGG.GG.GGG...",
+       "..GG........GG..",
+       ".GG..........GG.",
+       "GG............GG",
+       "................"]
+for y, row in enumerate(EMB):
+    for x, ch in enumerate(row): T1[40 + y, 48 + x] = {'G': NAMES.index('gold'), 'K': NAMES.index('fur_dk'), '.': NAMES.index('fur_dk')}[ch]
 def quantize(img, allowed, size):
     a = np.asarray(Image.open(img).convert('RGB').resize(size, Image.LANCZOS)).astype(float)
     ids = [NAMES.index(x) for x in allowed]; L = lab(a); d = np.stack([np.linalg.norm(L - PL[i], axis=-1) for i in ids], -1)
     return np.array(ids)[d.argmin(-1)]
-T2[0:48, :] = quantize(SAIL, ['white', 'grey', 'gold', 'gold_dk', 'black'], (32, 48))      # sail picture, top 48 rows
-T2[48:56, :] = NAMES.index('white'); T2[56:64, :] = quantize(FLAG, ['white', 'black', 'gold', 'red'], (32, 8))
+# cloth texture: the sail picture stored turned 90 degrees (rows = across the sail) so it is not squashed; the flag square below
+SR = 42; T2[:, :] = NAMES.index('white')
+_sail = Image.open(SAIL).convert('RGB').rotate(-90, expand=True); _sail.save('/tmp/_sail_rot.png')
+T2[0:SR, :] = quantize('/tmp/_sail_rot.png', ['white', 'grey', 'gold', 'gold_dk', 'black'], (32, SR))
+FS = 64 - SR; T2[SR:64, 0:FS] = quantize(FLAG, ['white', 'black', 'gold', 'gold_dk'], (FS, FS))
+# planar UVs over each whole cloth piece (so the full skull always shows): in its own plane, up = Blender +Z
+isl = defaultdict(list); _par = {}
+def _f(x):
+    while _par.setdefault(x, x) != x: x = _par[x]
+    return x
+for i, p in enumerate(P):
+    if p['tex'] not in ('sail', 'flag'): continue
+    ks = [key(q) for q in p['p']]
+    for k in ks[1:]: _par[_f(k)] = _f(ks[0])
+for i, p in enumerate(P):
+    if p['tex'] in ('sail', 'flag'): isl[_f(key(p['p'][0]))].append(i)
+CLOTHUV = {}
+for root, ids in isl.items():
+    Q = np.array([q for i in ids for q in P[i]['p']]); c = Q.mean(0); u_, s_, vt = np.linalg.svd(Q - c)
+    nrm = vt[2]; up_ = np.array([0, 0, 1.0]) - nrm * nrm[2]; up_ /= np.linalg.norm(up_) + 1e-9; hz = np.cross(up_, nrm)
+    ph, pv = (Q - c) @ hz, (Q - c) @ up_
+    big = max(np.ptp(ph), np.ptp(pv)) > 0.25
+    for i in ids:
+        out_uv = []
+        for q in P[i]['p']:
+            a_ = ((np.array(q) - c) @ hz - ph.min()) / max(np.ptp(ph), 1e-6); b_ = ((np.array(q) - c) @ up_ - pv.min()) / max(np.ptp(pv), 1e-6)
+            if not big: out_uv.append([30.5 / 32, 1 - 62.5 / 64])                       # ropes and yards: plain white
+            elif P[i]['tex'] == 'sail': out_uv.append([b_, 1 - (0.02 + 0.96 * a_) * SR / 64])   # turned picture: rows follow the width
+            else: out_uv.append([(0.02 + 0.96 * a_) * FS / 32, 1 - (SR + (1 - (0.02 + 0.96 * b_)) * FS) / 64])
+        CLOTHUV[i] = out_uv
 out = []
-for p, c in zip(P, cls):
-    if p['tex'] == 'eye': uv = [[u * 48 / 64, (1 - (1 - v) * 24 / 64) - (64 - 24) / 64 * 0 - (E0y) / 64 * 0] for u, v in p['uv']]
-    elif p['tex'] == 'sail': uv = [[u, 1 - (1 - v) * 48 / 64] for u, v in p['uv']]
-    elif p['tex'] == 'flag': uv = [[u, (1 - v) * 0 + v * 8 / 64] for u, v in p['uv']]
-    else: uv = [list((cell1 if p['g'] == 1 else cell0)[c])] * 3
+for idx_, (p, c) in enumerate(zip(P, cls)):
     if p['tex'] == 'eye': uv = [[u * 48 / 64, v * 24 / 64] for u, v in p['uv']]    # bottom-left 48 x 24 (v=0 is the bottom)
+    elif p['tex'] == 'emblem': uv = [[(48 + 0.3 + u * 15.4) / 64, 1 - (40 + 0.3 + (1 - v) * 11.4) / 64] for u, v in p['uv']]
+    elif p['tex'] in ('sail', 'flag'): uv = CLOTHUV[idx_]
+    else: uv = [list((cell1 if p['g'] == 1 else cell0)[c])] * 3
     out.append(dict(p=p['p'], n=p['n'], uv=uv, b=p['b'], g=p['g'], r=p['r'], vb=p['vb'], part=p['part']))
 json.dump(dict(polys=out), open(B + '.json', 'w'))
 for g, t in ((0, T0), (1, T1), (2, T2)):
