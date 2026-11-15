@@ -850,3 +850,8 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   then needs the original 437100-byte slot, so the test ROM is built from `jump_hooh2_sab.nds` (sprite eyes + hover patch, then
   the film). Hat: gold trim kept as its own part, drawn emblem quad; sail/flag: planar UVs over the whole cloth, sail picture
   stored turned, sail in front of the mast. Recordings every frame (`wait:1`) and videos at 60 fps.
+- **v20 (2026-11-16)**: hand-built low-poly tricorne in `export_parts4.py` (domed crown, brim curled up between three points,
+  gold edge strip in the same surface; the Hunyuan hat + floating trim ring left gaps); mast, sail and flag 0.7 forward to
+  mid-back (geometry + mast/flag bones: `bones_walk3.json`); walk generator fixed: the hind legs swung with the opposite sign
+  and moonwalked (`walkcycle.py`, `bones_walk4.json`); locked paws now drift 0.000-0.011 per frame. `walk_sheet.py` draws a
+  cycle from the side for checking.

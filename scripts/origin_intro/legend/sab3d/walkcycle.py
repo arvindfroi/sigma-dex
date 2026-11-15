@@ -37,7 +37,7 @@ for k in range(N):
         else:                                                      # 0.62..1 swing: lift high, reach forward and up (a step up)
             v = (u - 0.62) / 0.38; e = v * v * (3 - 2 * v); sw = SWING * (-0.55 + 1.1 * e) + 0.25 * SWING * math.sin(math.pi * v)
             fold = FOLD * math.sin(math.pi * v) ** 0.7
-        extra[leg + '_up'] = sw * (-1 if hind else 1)
+        extra[leg + '_up'] = sw                                    # same sign front and hind (the old hind sign flip made them moonwalk)
         extra[leg + '_lo'] = fold * (1 if hind else -1)
     for b in order:
         if b not in rest: continue

@@ -11,7 +11,7 @@ import numpy as np
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 argv = sys.argv[sys.argv.index('--') + 1:]; OUT = argv[0]
-SHIFT = float(argv[1]) if len(argv) > 1 else 0.8; LIFT = float(argv[2]) if len(argv) > 2 else 0.7
+SHIFT = float(argv[1]) if len(argv) > 1 else 0.8; MASTFWD = float(argv[3]) if len(argv) > 3 else 1.0; LIFT = float(argv[2]) if len(argv) > 2 else 0.7
 sc = bpy.context.scene; sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = 1
 rig = bpy.data.objects['Rig']; rig.data.pose_position = 'REST'
 BUDGET = {'Body': 300, 'Hull': 110, 'Hat': 120, 'HatEdge': 110, 'Deck': 24, 'Stern': 36, 'Mast': 10, 'Nose': 6, 'Rail': 24,
@@ -119,12 +119,20 @@ for o in src:
     if any(o.name.startswith(k) for k in DROP):
         if o.name.startswith('Eye1'): eyes.append(copy_rest(o))
         continue
+    if bn in ('HatEdge', 'Hat'): continue                     # the hat is built by hand below (clean tricorne, trim in the surface)
     c = copy_rest(o)
+    if bn in ('Mast', 'Sail', 'Flag'):                        # Arvind: the mast stands mid-back, not at the stern
+        for v in c.data.vertices: v.co.y -= MASTFWD
     if bn in STERN or o.name.startswith(STERN):
         for v in c.data.vertices: v.co.y -= SHIFT; v.co.z += LIFT     # the stern skull in against the hull and up (concept)
     mats = [m.name if m else '' for m in o.data.materials]
     painted = 'paint' in mats
     if painted: bake_vcol(c)
+    if bn == 'Hat':                                           # the gold trim becomes part of the hat surface: one shape, no gaps
+        he = copy_rest(bpy.data.objects['HatEdge']); ga = he.data.color_attributes.new('alb', 'FLOAT_COLOR', 'POINT')
+        for i in range(len(he.data.vertices)): ga.data[i].color = (0.75, 0.43, 0.03, 1.0)
+        bpy.ops.object.select_all(action='DESELECT'); he.select_set(True); c.select_set(True); bpy.context.view_layer.objects.active = c
+        bpy.ops.object.join()
     solid = None
     if not painted and mats:
         m = o.data.materials[0]; bsdf = [n for n in m.node_tree.nodes if n.type == 'BSDF_PRINCIPLED'] if m.use_nodes else []
@@ -160,6 +168,52 @@ for o in src:
         polys.append(dict(p=[list(me.vertices[i].co) for i in p.vertices], n=[list(vn[i]) for i in p.vertices], c=col, uv=uv, tex=tex,
                           part=bn, g=g, b=b, vb=vb, r=1 if bn == 'Claw' else 0))
     parts[bn] = parts.get(bn, 0) + len(me.polygons)
+# the hat, built like a game artist would: a domed crown and a brim curled up between three points, a gold strip along the
+# brim's edge in the same surface (no floating ring, no gaps), fitted to the bounding box of the original hat
+def tricorne():
+    ho = bpy.data.objects['Hat']; hc = copy_rest(ho); P_ = np.array([v.co[:] for v in hc.data.vertices]); mn, mx = P_.min(0), P_.max(0)
+    cx, cy = (mn[0] + mx[0]) / 2, (mn[1] + mx[1]) / 2; z0 = mn[2] + 0.18 * (mx[2] - mn[2]); H_ = mx[2] - mn[2]
+    rx, ry = (mx[0] - mn[0]) / 2, (mx[1] - mn[1]) / 2; N = 18; verts = []; faces = []; cols = []
+    BLACK, GOLD = [40, 38, 46], [230, 166, 28]
+    corners = [-90.0, 30.0, 150.0]                           # front point (-Y) and two back corners
+    def corner_w(th):
+        d = min(abs(((th - c + 180) % 360) - 180) for c in corners); return max(0.0, 1 - d / 60.0)   # 1 at a corner, 0 between
+    def ring(k_r, lift_between, lift_corner, outw):
+        out = []
+        for i in range(N):
+            th = 360.0 * i / N - 90; t = math.radians(th); w = corner_w(th)
+            r = k_r * (1 + outw * w); z = z0 + H_ * (lift_between * (1 - w) + lift_corner * w)
+            out.append((cx + rx * r * math.cos(t), cy + ry * r * math.sin(t), z))
+        return out
+    rings = [ring(0.50, 0.00, 0.00, 0.0),                    # crown base (on the head)
+             ring(0.78, 0.18, 0.02, 0.18),                   # brim, inner part
+             ring(0.93, 0.48, 0.10, 0.20),                   # brim turned up between the points
+             ring(1.00, 0.56, 0.14, 0.22),                   # brim edge (gold strip between this and the ring before)
+             ring(0.46, 0.55, 0.55, 0.0),                    # crown side
+             ring(0.30, 0.80, 0.80, 0.0)]                    # crown shoulder
+    base = []
+    for rg in rings: base.append(len(verts)); verts += rg
+    top = len(verts); verts.append((cx, cy, z0 + H_ * 0.88))
+    def band(a, b, col):
+        for i in range(N):
+            j = (i + 1) % N; faces.append((base[a] + i, base[a] + j, base[b] + j, base[b] + i)); cols.append(col)
+    band(0, 1, BLACK); band(1, 2, BLACK); band(2, 3, GOLD)                  # brim; gold edge strip
+    band(0, 4, BLACK); band(4, 5, BLACK)                                    # crown
+    for i in range(N): faces.append((base[5] + i, base[5] + (i + 1) % N, top)); cols.append(BLACK)
+    me = bpy.data.meshes.new('Hat_c_lp'); me.from_pydata(verts, [], faces); me.update()
+    ob = bpy.data.objects.new('Hat_c_lp', me); sc.collection.objects.link(ob)
+    vn = np.zeros((len(verts), 3)); V = np.array(verts)
+    tri = []
+    for f, cc in zip(faces, cols):
+        for k in range(1, len(f) - 1): tri.append(((f[0], f[k], f[k + 1]), cc))
+    for (a, b_, c_), cc in tri:
+        n_ = np.cross(V[b_] - V[a], V[c_] - V[a]); vn[[a, b_, c_]] += n_
+    vn /= np.linalg.norm(vn, axis=1, keepdims=True) + 1e-9
+    for (a, b_, c_), cc in tri:
+        polys.append(dict(p=[list(V[k]) for k in (a, b_, c_)], n=[list(vn[k]) for k in (a, b_, c_)], c=cc, uv=None, tex=None, part='Hat',
+                          g=1, b='head', vb=['head'] * 3, r=0))
+    parts['Hat'] = len(tri)
+tricorne()
 # drawn eyes: a quad just outside the head surface in front of each eye ball, facing forward and a little out
 heads = [h for h in bpy.data.objects if h.name.startswith('Body_c_lp')] or [h for h in bpy.data.objects if h.name.startswith('Body_c')]
 sbm = bmesh.new(); sbm.from_mesh(heads[0].data); stree = BVHTree.FromBMesh(sbm); sbm.free()
