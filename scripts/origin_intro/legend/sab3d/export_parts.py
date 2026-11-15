@@ -72,7 +72,10 @@ for o in src:
     hp = posed_copy(o, '_hp'); apply_tf(hp); HP.append(hp)
     base = o.name.split('.')[0]
     SOLID.append(hp)                   # every part goes into the voxel mesh (without the sails the remesh falls apart)
-    if base in GRID: LP.append(grids(hp, *GRID[base]))
+    if base in GRID:
+        g = grids(hp, *GRID[base]); a = g.data.attributes.new('grp', 'INT', 'FACE')
+        for i in range(len(g.data.polygons)): a.data[i].value = 2
+        LP.append(g)
 # the solid parts only close up together (the body is open where the hull sits): one voxel mesh, one budget
 bpy.ops.object.select_all(action='DESELECT')
 cps = []
@@ -104,26 +107,91 @@ bpy.ops.object.select_all(action='DESELECT')
 for l in LP: l.select_set(True)
 bpy.context.view_layer.objects.active = LP[0]; bpy.ops.object.join(); L = bpy.context.view_layer.objects.active; L.name = 'LP'
 bm = bmesh.new(); bm.from_mesh(L.data); bmesh.ops.triangulate(bm, faces=bm.faces[:]); bm.to_mesh(L.data); bm.free()
+# texture groups, like Ho-Oh's several textures: 0 body/hull/legs (A, 128x128), 1 head + hat (B, 64x64), 2 sails + flag (C, 32x64)
+SIZES = {0: (TS, TS), 1: (64, 64), 2: (32, 64)}
+me = L.data; names = [g.name for g in L.vertex_groups]
+ga = me.attributes.get('grp') or me.attributes.new('grp', 'INT', 'FACE')
+for p in me.polygons:
+    if ga.data[p.index].value == 2: continue
+    w = {}
+    for i in p.vertices:
+        for ge in me.vertices[i].groups: w[ge.group] = w.get(ge.group, 0) + ge.weight
+    bone = names[max(w, key=w.get)] if w else 'spine'
+    ga.data[p.index].value = 1 if bone in ('head', 'jaw') else 0
+grp = [ga.data[p.index].value for p in me.polygons]
 activate(L); bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
-bpy.ops.uv.smart_project(angle_limit=math.radians(70), island_margin=1.0 / TS, area_weight=1.0)
-bpy.ops.uv.pack_islands(rotate=True, margin=1.0 / TS)
+bpy.ops.uv.smart_project(angle_limit=math.radians(66), island_margin=0.5 / TS, area_weight=1.0)
 bpy.ops.object.mode_set(mode='OBJECT')
-imgs = {k: bpy.data.images.new(k, TS * 4, TS * 4, float_buffer=(k == 'normal')) for k in ('albedo', 'normal')}
-mat = bpy.data.materials.new('lpmat'); mat.use_nodes = True; nt = mat.node_tree; tn = nt.nodes.new('ShaderNodeTexImage'); nt.nodes.active = tn
-L.data.materials.clear(); L.data.materials.append(mat)
+# per group, our own shelf packing (uv.pack_islands does nothing from a script): islands = faces joined by edges whose UVs
+# match on both sides; scaled together as large as they fit, rows of islands sorted by height
+import numpy as _np
+uvl = me.uv_layers.active.data
+def key(li): u = uvl[li].uv; return (round(u[0], 5), round(u[1], 5))
+edge_faces = {}
+for p in me.polygons:
+    for k in range(len(p.vertices)):
+        v1, v2 = p.vertices[k], p.vertices[(k + 1) % len(p.vertices)]
+        l1, l2 = p.loop_indices[k], p.loop_indices[(k + 1) % len(p.vertices)]
+        e = (min(v1, v2), max(v1, v2)); uvp = tuple(sorted([(v1, key(l1)), (v2, key(l2))]))
+        edge_faces.setdefault((e, uvp), []).append(p.index)
+par = list(range(len(me.polygons)))
+def find(x):
+    while par[x] != x: par[x] = par[par[x]]; x = par[x]
+    return x
+for fs in edge_faces.values():
+    for f in fs[1:]:
+        if grp[f] == grp[fs[0]]: par[find(f)] = find(fs[0])
+isl = {}
+for p in me.polygons: isl.setdefault(find(p.index), []).append(p.index)
+for g in (0, 1, 2):
+    w, h = SIZES[g]; asp = w / h; I = []
+    for r, fs in isl.items():
+        if grp[fs[0]] != g: continue
+        lis = [li for f in fs for li in me.polygons[f].loop_indices]
+        uv = _np.array([uvl[li].uv[:] for li in lis]); mn, mx = uv.min(0), uv.max(0)
+        I.append((lis, mn, _np.maximum(mx - mn, 1e-4)))
+    I.sort(key=lambda t: -t[2][1]); pad = 1.0 / min(w, h)
+    def place(sc):
+        x = y = 0.0; rowh = 0.0; pos = []
+        for lis, mn, sz in I:
+            sw, sh = sz[0] * sc / asp, sz[1] * sc
+            if x + sw > 1.0: x = 0.0; y += rowh + pad; rowh = 0.0
+            pos.append((x, y)); x += sw + pad; rowh = max(rowh, sh)
+        return pos, y + rowh
+    lo, hi = 0.01, 50.0
+    for _ in range(40):
+        mid = (lo + hi) / 2; _, top = place(mid)
+        if top <= 1.0: lo = mid
+        else: hi = mid
+    pos, _ = place(lo)
+    for (lis, mn, sz), (x, y) in zip(I, pos):
+        for li in lis:
+            u = uvl[li].uv; uvl[li].uv = (x + (u[0] - mn[0]) * lo / asp, y + (u[1] - mn[1]) * lo)
+    print('PACK', g, 'islands', len(I), 'scale', round(lo, 3))
+L.data.materials.clear(); IM = {}
+for g in (0, 1, 2):
+    w, h = SIZES[g]
+    mat = bpy.data.materials.new(f'grp{g}'); mat.use_nodes = True; nt = mat.node_tree
+    for key in ('albedo', 'normal'):
+        im = bpy.data.images.new(f'{key}{g}', w * 4, h * 4, float_buffer=(key == 'normal')); IM[(key, g)] = im
+        tn = nt.nodes.new('ShaderNodeTexImage'); tn.image = im; tn.name = key
+    L.data.materials.append(mat)
+for p in me.polygons: p.material_index = grp[p.index]
 bpy.ops.object.select_all(action='DESELECT')
 for h in HP: h.select_set(True)
 L.select_set(True); bpy.context.view_layer.objects.active = L
 size = max(max(h.dimensions) for h in HP)
-sc.render.bake.use_selected_to_active = True; sc.render.bake.cage_extrusion = size / 50; sc.render.bake.margin = 6
-tn.image = imgs['albedo']; bpy.ops.object.bake(type='DIFFUSE', pass_filter={'COLOR'})
-tn.image = imgs['normal']; sc.render.bake.normal_space = 'OBJECT'; bpy.ops.object.bake(type='NORMAL')
-for k, im in imgs.items(): im.filepath_raw = OUT + '_' + k + '.png'; im.file_format = 'PNG'; im.save()
+sc.render.bake.use_selected_to_active = True; sc.render.bake.cage_extrusion = size / 50; sc.render.bake.margin = 4
+for key in ('albedo', 'normal'):
+    for g in (0, 1, 2): L.data.materials[g].node_tree.nodes.active = L.data.materials[g].node_tree.nodes[key]
+    if key == 'albedo': bpy.ops.object.bake(type='DIFFUSE', pass_filter={'COLOR'})
+    else: sc.render.bake.normal_space = 'OBJECT'; bpy.ops.object.bake(type='NORMAL')
+for (key, g), im in IM.items(): im.filepath_raw = f'{OUT}_{key}{g}.png'; im.file_format = 'PNG'; im.save()
 me = L.data; uv = me.uv_layers.active.data; names = [g.name for g in L.vertex_groups]; polys = []
 for p in me.polygons:
     w = {}
     for i in p.vertices:
         for ge in me.vertices[i].groups: w[ge.group] = w.get(ge.group, 0) + ge.weight
-    polys.append(dict(p=[list(me.vertices[i].co) for i in p.vertices], uv=[list(uv[li].uv) for li in p.loop_indices], b=names[max(w, key=w.get)] if w else 'spine'))
+    polys.append(dict(p=[list(me.vertices[i].co) for i in p.vertices], uv=[list(uv[li].uv) for li in p.loop_indices], b=names[max(w, key=w.get)] if w else 'spine', g=grp[p.index]))
 json.dump(dict(polys=polys), open(OUT + '.json', 'w')); print('EXPORTED', len(polys))
 bpy.ops.wm.save_as_mainfile(filepath=OUT + '_lp.blend')

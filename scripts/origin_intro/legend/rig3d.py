@@ -41,7 +41,7 @@ for _ in range(int(os.environ.get('ROLL', 1))): Fx = np.array([[1, 0, 0], [0, 0,
 polys = json.load(open(BASE + '.json'))['polys']
 tris = []
 for p in polys:
-    for k in range(1, len(p['p']) - 1): tris.append(([p['p'][0], p['p'][k], p['p'][k + 1]], [p['uv'][0], p['uv'][k], p['uv'][k + 1]], MERGE.get(p['b'], p['b'])))
+    for k in range(1, len(p['p']) - 1): tris.append(([p['p'][0], p['p'][k], p['p'][k + 1]], [p['uv'][0], p['uv'][k], p['uv'][k + 1]], MERGE.get(p['b'], p['b']), p.get('g', 0)))
 allp = np.array([t[0] for t in tris]).reshape(-1, 3); cen = (allp.max(0) + allp.min(0)) / 2
 s = SIZE / ((allp @ Fx.T).max(0) - (allp @ Fx.T).min(0)).max()
 def H(Mb):                                                    # Blender bone world -> transform under joint1 (no scale)
@@ -73,10 +73,15 @@ P1 = []; WJ = []
 for f in range(nf):
     Wf, _ = worlds(f); WJ.append(Wf[j1]); P1.append(Wf[j1][:3, 3])
 P1 = np.array(P1); sig = np.cbrt(np.linalg.det(WJ[0][:3, :3]))
+# heading = the way Ho-Oh itself faces (its +X, flattened), smoothed: steady while it hovers, no banking or pitch.
+# (the travel direction flips at random when Ho-Oh hovers in place, which made him turn suddenly)
+YAW = []
+for f in range(nf):
+    v = WJ[f][:3, :3] @ np.array([1.0, 0, 0]); YAW.append(np.arctan2(v[2], v[0]))
+YAW = np.unwrap(np.array(YAW)); K = 6
+YAW = np.array([YAW[max(0, f - K):f + K + 1].mean() for f in range(nf)])
 def root_frame(f):
-    a, b = max(0, f - 4), min(nf - 1, f + 4); v = P1[b] - P1[a]; v[1] = 0
-    if np.linalg.norm(v) < 1e-6: v = np.array([1.0, 0, 0])
-    fwd = v / np.linalg.norm(v); upv = np.array([0, 1.0, 0]); side = np.cross(fwd, upv)
+    fwd = np.array([np.cos(YAW[f]), 0, np.sin(YAW[f])]); upv = np.array([0, 1.0, 0]); side = np.cross(fwd, upv)
     M = np.eye(4); M[:3, :3] = sig * np.column_stack([fwd, upv, side]); M[:3, 3] = P1[f]; return M
 PATHFRAME = os.environ.get('PATHFRAME', '1') == '1'
 nodes_T = [[None] * nf for _ in names]; nodes_R = [[None] * nf for _ in names]; nodes_S = [[None] * nf for _ in names]
@@ -109,6 +114,7 @@ for e, sn, _ in ents:
 headmat = [i for i, x in enumerate(mats) if x.get('tex') == 'ho_head_top'][0]
 # walk the raw render commands: move our bones' matrix stores to free slots (17..), follow the restores, note when each
 # Ho-Oh shape is drawn (a bone can only be drawn after its matrix is made)
+matpos = {}
 FREE = list(range(17, 31)); newslot = {bnode[b]: FREE[k] for k, b in enumerate(bnames)}
 owner = {}; use = []; cur = None; curpos = None; o = mo + rc; k_ = 0; shape_k = {}; made = {}
 while True:
@@ -124,16 +130,24 @@ while True:
     if op == 9: owner[p[0]] = None
     if op in (4, 0x24, 0x44): cur = p[0]; curpos = o + 1
     elif op == 5 and cur is not None and HOOH.search(str(mats[cur].get('tex', ''))) and p[0] not in use:
-        use.append(p[0]); d[curpos] = headmat; shape_k[p[0]] = k_
+        use.append(p[0]); shape_k[p[0]] = k_; matpos[p[0]] = curpos
     o += 1 + n; k_ += 1
     if op == 1: break
 for sh in use: so, cl = shapes[sh]; d[so:so + cl] = bytes(cl)
-idx = np.load(BASE + '_tex_idx.npy'); pal = np.load(BASE + '_tex_pal.npy'); TS = idx.shape[0]
+TEXN = {0: 'ho_head_top', 1: 'hou_eye', 2: 'hou_mouth01'}
+import os as _os
+MULTI = _os.path.exists(BASE + '_tex0_idx.npy')
+if MULTI:
+    IDX = {g: np.load(f'{BASE}_tex{g}_idx.npy') for g in (0, 1, 2)}; pal = np.load(BASE + '_tex_pal.npy')
+else:
+    IDX = {0: np.load(BASE + '_tex_idx.npy')}; pal = np.load(BASE + '_tex_pal.npy')
+GMAT = {g: [i for i, x in enumerate(mats) if x.get('tex') == TEXN[g]][0] for g in IDX}
 def v10(q):
     q = [int(round(v / up * 64)) for v in q]; assert all(-512 <= x < 512 for x in q), q
     return (q[0] & 1023) | (q[1] & 1023) << 10 | (q[2] & 1023) << 20
-def tc(uv):
-    a_ = min(2047, max(-2048, int(round(uv[0] * TS * 16)))); b_ = min(2047, max(-2048, int(round((1 - uv[1]) * TS * 16)))); return (b_ & 0xffff) << 16 | (a_ & 0xffff)
+def tc(uv, g=0):
+    th, tw = IDX[g].shape
+    a_ = min(tw * 16 - 1, max(-2048, int(round(uv[0] * tw * 16)))); b_ = min(th * 16 - 1, max(-2048, int(round((1 - uv[1]) * th * 16)))); return (b_ & 0xffff) << 16 | (a_ & 0xffff)
 def pack_cmds(cmds):
     out = bytearray()
     for k in range(0, len(cmds), 4):
@@ -160,36 +174,45 @@ def strips_of(tris_l):                                     # greedy strips; both
         if used[s0]: continue
         used[s0] = True; st = grow(list(T[s0])); st = grow(list(reversed(st))); out.append([verts[v] for v in st])
     return out
-work = []                                                   # (bone, strip commands) in the order bones are made
+work = []                                                   # (group, bone, strip commands) in the order bones are made
 for b in sorted(bnames, key=lambda b: made.get(bnode[b], 0)):
-    Hinv = np.linalg.inv(H(rest[b])); mine = [t for t in tris if t[2] == b]
-    loc = [[((Hinv @ np.append(s * Fx @ (np.array(v) - cen), 1))[:3], uvv) for v, uvv in zip(t[0], t[1])] for t in mine]
-    for st in strips_of(loc):
-        work.append((b, [(0x40, [2])] + sum([[(0x22, [tc(uv)]), (0x24, [v10(pv)])] for pv, uv in st], []) + [(0x41, [])]))
+    Hinv = np.linalg.inv(H(rest[b]))
+    for g in IDX:
+        mine = [t for t in tris if t[2] == b and (t[3] if MULTI else 0) == g]
+        loc = [[((Hinv @ np.append(s * Fx @ (np.array(v) - cen), 1))[:3], uvv) for v, uvv in zip(t[0], t[1])] for t in mine]
+        for st in strips_of(loc):
+            work.append((g, b, [(0x40, [2])] + sum([[(0x22, [tc(uv, g)]), (0x24, [v10(pv)])] for pv, uv in st], []) + [(0x41, [])]))
 done = [False] * len(work); placed = 0
-for sh in sorted(use, key=lambda x: shape_k[x]):             # shapes in draw order; only bones already made
-    so, cl = shapes[sh]; cmds = []; curb = None
-    for wi, (b, add) in enumerate(work):
-        if done[wi] or made.get(bnode[b], 1e9) >= shape_k[sh]: continue
+for sh in sorted(use, key=lambda x: shape_k[x]):             # shapes in draw order; only bones already made; one group per shape
+    so, cl = shapes[sh]
+    left = {g: sum(len(pack_cmds(w[2])) for w, ok in zip(work, done) if not ok and w[0] == g and made.get(bnode[w[1]], 1e9) < shape_k[sh]) for g in IDX}
+    g_ = max(left, key=left.get)
+    if left[g_] == 0: continue
+    cmds = []; curb = None
+    for wi, (g, b, add) in enumerate(work):
+        if done[wi] or g != g_ or made.get(bnode[b], 1e9) >= shape_k[sh]: continue
         pre = [(0x14, [newslot[bnode[b]]]), (0x1b, [int(up * 4096)] * 3), (0x20, [0x7fff])] if b != curb else []
         if len(pack_cmds(cmds + pre + add)) > cl: continue
         cmds += pre + add; curb = b; done[wi] = True
     if cmds:
-        blob = pack_cmds(cmds); d[so:so + cl] = blob + bytes(cl - len(blob)); placed += 1
+        blob = pack_cmds(cmds); d[so:so + cl] = blob + bytes(cl - len(blob)); placed += 1; d[matpos[sh]] = GMAT[g_]
 qi = sum(sum(len(c[1]) for c in [w]) for w, ok in zip(work, done) if ok); queue = work
 print('strips placed', sum(done), 'of', len(work), 'in', placed, 'shapes; bones', {b: names[i] for b, i in bnode.items()})
-mo_ = mats[headmat]['off']; pa = struct.unpack_from('<I', d, mo_ + 12)[0]; struct.pack_into('<I', d, mo_ + 12, (pa & ~0xF & ~(31 << 16)) | 0xC0 | (31 << 16))
+for g, mi_ in GMAT.items():
+    mo_ = mats[mi_]['off']; pa = struct.unpack_from('<I', d, mo_ + 12)[0]; struct.pack_into('<I', d, mo_ + 12, (pa & ~0xF & ~(31 << 16)) | 0xC0 | (31 << 16))
 def c555(c): rr, gg, bb = (int(round(v / 255 * 31)) for v in c); return rr | gg << 5 | bb << 10
 for bo in r['blocks']:
     if d[bo:bo + 4] != b'TEX0': continue
     t = nitro.read_tex(bytes(d), bo); fh = t['raw_hdr']; tbo, pbo = fh[6], fh[17]
     ents2, _ = nitro.dict_read(bytes(d), bo + fh[4], 8)
     for (e2, nm2, eo), x in zip(ents2, t['texs']):
-        if x['name'] != 'ho_head_top': continue
-        struct.pack_into('<I', d, eo, x['param'] & ~(1 << 29)); off = (x['param'] & 0xffff) << 3; fl = idx.astype(np.uint8).reshape(-1)
-        d[bo + tbo + off: bo + tbo + off + TS * TS // 2] = bytes(fl[0::2] | (fl[1::2] << 4))
+        for g, tn_ in TEXN.items():
+            if g not in IDX or x['name'] != tn_: continue
+            ix = IDX[g]; assert ix.shape == (x['h'], x['w']) and x['fmt'] == 3, (tn_, ix.shape, x['w'], x['h'], x['fmt'])
+            struct.pack_into('<I', d, eo, x['param'] & ~(1 << 29)); off = (x['param'] & 0xffff) << 3; fl = ix.astype(np.uint8).reshape(-1)
+            d[bo + tbo + off: bo + tbo + off + x['w'] * x['h'] // 2] = bytes(fl[0::2] | (fl[1::2] << 4))
     for pl in t['pals']:
-        if pl['name'].startswith('ho_head_top'):
+        if any(g in IDX and pl['name'].startswith(TEXN[g]) for g in TEXN):
             for i in range(16): struct.pack_into('<H', d, bo + pbo + pl['off'] + 2 * i, c555(pal[i - 1]) if 1 <= i <= len(pal) else 0)
 F[MM] = lz10_enc(bytes(d)); F[BM] = lz10_enc(new_bca)
 open(DST, 'wb').write(pack(F)); print('model', len(F[MM]), 'anim', len(F[BM]))
