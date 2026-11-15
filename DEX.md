@@ -79,7 +79,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 68 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 395 | Octopearl (Moon stone) | 55% |
 | 69 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 495 |  | 55% |
 | 70 | [Cryoblade](data/species/cryoblade.yaml) | Ice | Cold-hearted, Ice Body, Refrigerate (H) | 528 |  | 69% |
-| 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal | Big Pecks, Super Luck, Hustle (H) | 505 |  | 21% |
+| 71 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal | Big Pecks, Super Luck, Hustle (H) | 500 |  | 21% |
 | 72 | [Gorambe](data/species/harambe.yaml) | Ghost / Fairy | Clear Body, Telepathy, Friend Guard (H) | 505 |  | 55% |
 | 73 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Poison Point (H) | 280 | Leadling Utvikling (Lv 20) | 62% |
 | 74 | [Leadling Utvikling](data/species/leadling-utvikling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Poison Point (H) | 400 | Blylem (Lv 40) | 55% |
