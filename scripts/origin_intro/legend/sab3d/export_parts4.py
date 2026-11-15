@@ -14,6 +14,18 @@ argv = sys.argv[sys.argv.index('--') + 1:]; OUT = argv[0]
 SHIFT = float(argv[1]) if len(argv) > 1 else 0.8; MASTFWD = float(argv[3]) if len(argv) > 3 else 1.0; LIFT = float(argv[2]) if len(argv) > 2 else 0.7
 sc = bpy.context.scene; sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = 1
 rig = bpy.data.objects['Rig']; rig.data.pose_position = 'REST'
+HEADDOWN = float(argv[4]) if len(argv) > 4 else 0.0; HEADM = np.eye(4)
+HATTILT = float(argv[5]) if len(argv) > 5 else 0.3; HATSCALE = float(argv[6]) if len(argv) > 6 else 0.85            # Arvind: head low and forward on the shoulders (concept), not up on a neck
+if HEADDOWN:
+    import mathutils as _mu
+    rig.data.pose_position = 'POSE'
+    for _pb in rig.pose.bones: _pb.matrix_basis = _mu.Matrix.Identity(4)   # the file carries a stored pose: only the head may move
+    bpy.context.view_layer.update(); pb = rig.pose.bones['head']
+    piv = pb.head.copy(); Rm = _mu.Matrix.Rotation(math.radians(HEADDOWN), 4, 'X')
+    HM_ = _mu.Matrix.Translation(piv) @ Rm @ _mu.Matrix.Translation(-piv); pb.matrix = HM_ @ pb.matrix
+    HEADM = np.array(rig.matrix_world @ HM_ @ rig.matrix_world.inverted())
+    bpy.context.view_layer.update()
+    json.dump({b.name: [list(r) for r in (rig.matrix_world @ b.matrix)] for b in rig.pose.bones}, open(OUT + '_bones_posed.json', 'w'))
 BUDGET = {'Body': 300, 'Hull': 110, 'Hat': 120, 'HatEdge': 110, 'Deck': 24, 'Stern': 36, 'Mast': 10, 'Nose': 6, 'Rail': 24,
           'Sail': 44, 'Flag': 6, 'Tusk': 16, 'SkullHead': 22, 'SkullCheek': 6, 'SkullJaw': 6, 'SkullMaxilla': 6, 'SkullMouth': 6,
           'EyeHole': 4, 'EyeRim': 6, 'SkNose': 2, 'Brow': 8, 'Claw': 4}
@@ -120,9 +132,10 @@ for o in src:
         if o.name.startswith('Eye1'): eyes.append(copy_rest(o))
         continue
     if bn in ('HatEdge', 'Hat'): continue                     # the hat is built by hand below (clean tricorne, trim in the surface)
+    if bn in ('Hull', 'Deck', 'Rail'): continue               # the shell is built by hand below (a domed carapace like the concept)
     c = copy_rest(o)
     if bn in ('Mast', 'Sail', 'Flag'):                        # Arvind: the mast stands mid-back, not at the stern
-        for v in c.data.vertices: v.co.y -= MASTFWD
+        for v in c.data.vertices: v.co.y -= MASTFWD; v.co.z += 0.45     # and up: the sail stands free above the domed shell
     if bn in STERN or o.name.startswith(STERN):
         for v in c.data.vertices: v.co.y -= SHIFT; v.co.z += LIFT     # the stern skull in against the hull and up (concept)
     mats = [m.name if m else '' for m in o.data.materials]
@@ -171,10 +184,10 @@ for o in src:
 # the hat, built like a game artist would: a domed crown and a brim curled up between three points, a gold strip along the
 # brim's edge in the same surface (no floating ring, no gaps), fitted to the bounding box of the original hat
 def tricorne():
-    ho = bpy.data.objects['Hat']; hc = copy_rest(ho); P_ = np.array([v.co[:] for v in hc.data.vertices]); mn, mx = P_.min(0), P_.max(0)
+    ho = bpy.data.objects['Hat']; P_ = np.array([(ho.matrix_world @ v.co)[:] for v in ho.data.vertices]); mn, mx = P_.min(0), P_.max(0)   # unposed, then tilted with the head
     cx, cy = (mn[0] + mx[0]) / 2, (mn[1] + mx[1]) / 2; z0 = mn[2] + 0.18 * (mx[2] - mn[2]); H_ = mx[2] - mn[2]
     rx, ry = (mx[0] - mn[0]) / 2, (mx[1] - mn[1]) / 2; N = 18; verts = []; faces = []; cols = []
-    BLACK, GOLD = [40, 38, 46], [230, 166, 28]
+    BLACK, GOLD = [14, 13, 18], [230, 166, 28]
     corners = [-90.0, 30.0, 150.0]                           # front point (-Y) and two back corners
     def corner_w(th):
         d = min(abs(((th - c + 180) % 360) - 180) for c in corners); return max(0.0, 1 - d / 60.0)   # 1 at a corner, 0 between
@@ -202,7 +215,10 @@ def tricorne():
     for i in range(N): faces.append((base[5] + i, base[5] + (i + 1) % N, top)); cols.append(BLACK)
     me = bpy.data.meshes.new('Hat_c_lp'); me.from_pydata(verts, [], faces); me.update()
     ob = bpy.data.objects.new('Hat_c_lp', me); sc.collection.objects.link(ob)
-    vn = np.zeros((len(verts), 3)); V = np.array(verts)
+    V0 = np.array(verts); hc0 = np.array([cx, cy, z0]); hcp = (HEADM @ np.append(hc0, 1))[:3]      # follows the head, stays fairly upright
+    t_ = math.radians(HATTILT * HEADDOWN); Rx = np.array([[1, 0, 0], [0, math.cos(t_), -math.sin(t_)], [0, math.sin(t_), math.cos(t_)]])
+    V = (V0 - hc0) * HATSCALE @ Rx.T + hcp; verts = [tuple(v) for v in V]; me.vertices.foreach_set('co', V.ravel()); me.update()
+    vn = np.zeros((len(verts), 3))
     tri = []
     for f, cc in zip(faces, cols):
         for k in range(1, len(f) - 1): tri.append(((f[0], f[k], f[k + 1]), cc))
@@ -229,6 +245,60 @@ for e in eyes:
     for tri in ((0, 1, 2), (0, 2, 3)):
         polys.append(dict(p=[list(q[k]) for k in tri], n=[list(n)] * 3, c=None, uv=[list(uvq[k]) for k in tri], tex='eye', part='Eye',
                           g=1, b='head', vb=['head'] * 3, r=2 if side > 0 else 3))
+# the shell, built by hand like the concept: a red domed carapace over the whole back, a black band along its lower edge,
+# six gold spikes standing on it. Fitted to the original hull's footprint.
+def shell():
+    ho = bpy.data.objects['Hull']; P_ = np.array([(ho.matrix_world @ v.co)[:] for v in ho.data.vertices]); mn, mx = P_.min(0), P_.max(0)
+    de = bpy.data.objects['Deck']; D_ = np.array([(de.matrix_world @ v.co)[:] for v in de.data.vertices])
+    cx, cy = (mn[0] + mx[0]) / 2, (mn[1] + mx[1]) / 2; rx, ry = (mx[0] - mn[0]) / 2 * 1.02, (mx[1] - mn[1]) / 2 * 1.04
+    zb = mn[2] + 0.42 * (mx[2] - mn[2]); zt = D_[:, 2].max() + 0.15
+    N = 20; RINGS = [(1.00, 0.00), (0.98, 0.10), (0.90, 0.38), (0.72, 0.68), (0.45, 0.90), (0.0, 1.0)]   # (radius, height) of the dome profile
+    verts = []; base = []
+    for k, (rr, hh) in enumerate(RINGS[:-1]):
+        base.append(len(verts))
+        for i in range(N):
+            t = 2 * math.pi * i / N; verts.append((cx + rx * rr * math.cos(t), cy + ry * rr * math.sin(t), zb + (zt - zb) * hh))
+    top = len(verts); verts.append((cx, cy, zt))
+    RED, BLACK, GOLD = [168, 28, 36], [14, 13, 18], [230, 166, 28]
+    faces = []; cols = []
+    for k in range(len(base) - 1):
+        for i in range(N):
+            j = (i + 1) % N; faces.append((base[k] + i, base[k] + j, base[k + 1] + j, base[k + 1] + i)); cols.append(BLACK if k == 0 else RED)
+    for i in range(N): faces.append((base[-1] + i, base[-1] + (i + 1) % N, top)); cols.append(RED)
+    V = np.array(verts); tri = []
+    for f, cc in zip(faces, cols):
+        for k in range(1, len(f) - 1): tri.append(((f[0], f[k], f[k + 1]), cc))
+    vn = np.zeros((len(V), 3))
+    for (a, b_, c_), cc in tri: vn[[a, b_, c_]] += np.cross(V[b_] - V[a], V[c_] - V[a])
+    vn /= np.linalg.norm(vn, axis=1, keepdims=True) + 1e-9
+    for (a, b_, c_), cc in tri:
+        polys.append(dict(p=[list(V[k]) for k in (a, b_, c_)], n=[list(vn[k]) for k in (a, b_, c_)], c=cc, uv=None, tex=None, part='Shell',
+                          g=0, b='spine', vb=['spine'] * 3, r=0))
+    for ang in (-150, -90, -30, 30, 90, 150):                # spikes on the third ring, pointing out of the dome
+        t = math.radians(ang); i = int(round((t % (2 * math.pi)) / (2 * math.pi) * N)) % N; bc = V[base[2] + i]; nrm = vn[base[2] + i]
+        u1 = np.cross(nrm, [0, 0, 1.0]); u1 = u1 / (np.linalg.norm(u1) + 1e-9) if np.linalg.norm(u1) > 1e-6 else np.array([1.0, 0, 0]); u2 = np.cross(nrm, u1)
+        ring_ = [bc + 0.16 * (math.cos(j * math.pi / 2) * u1 + math.sin(j * math.pi / 2) * u2) for j in range(4)]; tip = bc + nrm * 0.50
+        for j in range(4):
+            q = [ring_[j], ring_[(j + 1) % 4], tip]; fn = np.cross(q[1] - q[0], q[2] - q[0]); fn /= np.linalg.norm(fn) + 1e-9
+            polys.append(dict(p=[list(x) for x in q], n=[list(fn)] * 3, c=GOLD, uv=None, tex=None, part='Spike', g=0, b='spine', vb=['spine'] * 3, r=0))
+    parts['Shell'] = len(tri); print('SHELL', len(tri), 'tris')
+shell()
+# the mouth, drawn on like the eyes (concept: a heavy grumpy line under the gold nose, fangs outside it)
+def mouth():
+    no = [o for o in bpy.data.objects if o.name.startswith('Nose_c')]
+    bo = [o for o in bpy.data.objects if o.name.startswith('Body_c_lp')] or [o for o in bpy.data.objects if o.name.startswith('Body_c')]
+    if not no or not bo: return
+    NP = np.array([(no[0].matrix_world @ v.co)[:] for v in no[0].data.vertices]); nc = NP.mean(0)
+    bbm = bmesh.new(); bbm.from_mesh(bo[0].data); btr = BVHTree.FromBMesh(bbm); bbm.free()
+    n = np.array([0, -1.0, -0.25]); n /= np.linalg.norm(n); o_ = nc + np.array([0, -1.5, -0.30])
+    hit = btr.ray_cast(Vector(tuple(o_)), Vector((0, 1.0, 0.0)), 4.0)
+    if hit[0] is None: return
+    ctr = np.array(hit[0][:]) + n * 0.04; t1 = np.array([1.0, 0, 0]); t2 = np.cross(n, t1); t2 /= np.linalg.norm(t2); w, h = 0.42, 0.14
+    q = [ctr - w * t1 - h * t2, ctr + w * t1 - h * t2, ctr + w * t1 + h * t2, ctr - w * t1 + h * t2]; uvq = [(0, 0), (1, 0), (1, 1), (0, 1)]
+    for tri in ((0, 1, 2), (0, 2, 3)):
+        polys.append(dict(p=[list(q[k]) for k in tri], n=[list(n)] * 3, c=None, uv=[list(uvq[k]) for k in tri], tex='mouth', part='Mouth', g=1, b='head', vb=['head'] * 3, r=0))
+    print('MOUTH at', np.round(ctr, 2))
+mouth()
 hats = [h for h in bpy.data.objects if h.name.startswith('Hat_c_lp')]
 if hats:
     hm = hats[0]; hb = bmesh.new(); hb.from_mesh(hm.data); htree = BVHTree.FromBMesh(hb); hb.free()

@@ -7,7 +7,7 @@ import sys, json, numpy as np
 from PIL import Image
 from collections import Counter, defaultdict
 B, SAIL, FLAG = sys.argv[1:4]
-PAL = np.array([(12, 11, 16), (84, 80, 92), (120, 116, 128), (104, 18, 24), (168, 28, 36), (166, 104, 18), (230, 166, 28),
+PAL = np.array([(12, 11, 16), (50, 48, 58), (84, 82, 94), (104, 18, 24), (168, 28, 36), (166, 104, 18), (230, 166, 28),
                 (250, 214, 92), (226, 222, 204), (248, 248, 248), (168, 174, 188), (88, 56, 30), (136, 92, 48), (150, 58, 68),
                 (40, 38, 46)], float)
 NAMES = ['black', 'fur', 'fur_hi', 'red_dk', 'red', 'gold_dk', 'gold', 'gold_hi', 'ivory', 'white', 'grey', 'wood', 'wood_hi', 'pink', 'fur_dk']
@@ -15,7 +15,7 @@ FIXED = {'Claw': 'ivory', 'Tusk': 'ivory', 'Brow': 'black', 'EyeHole': 'black', 
          'SkullHead': 'gold', 'SkullCheek': 'gold', 'SkullJaw': 'gold', 'SkullMaxilla': 'gold', 'HatEdge': 'gold', 'Rail': 'gold',
          'EyeRim': 'red_dk', 'Nose': 'gold'}
 ALLOWED = {'Body': ['fur', 'gold', 'ivory', 'red_dk'], 'Hull': ['red', 'red_dk', 'black', 'gold', 'fur'],
-           'Hat': ['fur_dk', 'black', 'gold', 'fur'], 'Deck': ['wood', 'wood_hi', 'red_dk', 'fur'], 'Stern': ['gold', 'red', 'red_dk', 'black', 'fur'],
+           'Hat': ['black', 'gold'], 'Deck': ['red_dk', 'black'], 'Stern': ['gold', 'red', 'red_dk', 'black', 'fur'],
            'Mast': ['wood', 'wood_hi', 'black', 'gold', 'red_dk'], 'Sail': ['white', 'grey', 'gold'], 'Flag': ['white', 'black']}
 def lab(c):
     c = np.asarray(c, float) / 255.0; c = np.where(c > 0.04045, ((c + 0.055) / 1.055) ** 2.4, c / 12.92)
@@ -28,8 +28,14 @@ def nearest(c, allowed):
 P = json.load(open(B + '_parts.json'))['polys']
 cls = []
 for p in P:
-    if p['tex'] in ('sail', 'flag', 'eye', 'emblem'): cls.append(None); continue
+    if p['tex'] in ('sail', 'flag', 'eye', 'emblem', 'mouth'): cls.append(None); continue
     if p['part'] in FIXED: cls.append(NAMES.index(FIXED[p['part']])); continue
+    if p['part'] == 'Hull':                                   # concept: red shell on top, a black band round its edge, gold kept
+        q = np.array(p['p']); fn = np.cross(q[1] - q[0], q[2] - q[0]); fn /= np.linalg.norm(fn) + 1e-9
+        k_ = nearest(p['c'] if p['c'] else (60, 60, 60), ['gold', 'red', 'black'])
+        cls.append(k_ if NAMES[k_] == 'gold' else NAMES.index('red' if abs(fn[2]) > 0.35 else 'black')); continue
+    if p['part'] == 'Spike': cls.append(NAMES.index('gold')); continue
+    if p['part'] == 'Shell': cls.append(nearest(p['c'], ['red', 'black', 'gold'])); continue
     cls.append(nearest(p['c'] if p['c'] else (60, 60, 60), ALLOWED.get(p['part'], NAMES)))
 # clean up within each part: a polygon whose colour none of its neighbours share takes theirs
 key = lambda q: tuple(np.round(q, 4)); edge = defaultdict(list)
@@ -84,6 +90,14 @@ EMB = ["GG....GGGG....GG",                                   # hat emblem 16 x 1
        "................"]
 for y, row in enumerate(EMB):
     for x, ch in enumerate(row): T1[40 + y, 48 + x] = {'G': NAMES.index('gold'), 'K': NAMES.index('fur_dk'), '.': NAMES.index('fur_dk')}[ch]
+MOU = ["................",                                   # mouth 16 x 6 on fur (texture 1, cols 48-63, rows 52-57): a heavy
+       "..K..........K..",                                   # line, corners pulled down (grumpy), a small notch under the nose
+       "...KK......KK...",
+       ".....KKKKKK.....",
+       "........K.......",
+       "................"]
+for y, row in enumerate(MOU):
+    for x, ch in enumerate(row): T1[52 + y, 48 + x] = NAMES.index('black') if ch == 'K' else NAMES.index('fur')
 def quantize(img, allowed, size):
     a = np.asarray(Image.open(img).convert('RGB').resize(size, Image.LANCZOS)).astype(float)
     ids = [NAMES.index(x) for x in allowed]; L = lab(a); d = np.stack([np.linalg.norm(L - PL[i], axis=-1) for i in ids], -1)
@@ -110,6 +124,7 @@ for root, ids in isl.items():
     nrm = vt[2]; up_ = np.array([0, 0, 1.0]) - nrm * nrm[2]; up_ /= np.linalg.norm(up_) + 1e-9; hz = np.cross(up_, nrm)
     ph, pv = (Q - c) @ hz, (Q - c) @ up_
     big = max(np.ptp(ph), np.ptp(pv)) > 0.25
+    upright = abs(nrm[2]) < 0.6 and np.ptp(pv) > 0.4 and np.ptp(ph) > 0.3   # sails stand up (normal ~horizontal); flat yards / a lying spar are dropped
     for i in ids:
         out_uv = []
         for q in P[i]['p']:
@@ -117,12 +132,15 @@ for root, ids in isl.items():
             if not big: out_uv.append([30.5 / 32, 1 - 62.5 / 64])                       # ropes and yards: plain white
             elif P[i]['tex'] == 'sail': out_uv.append([b_, 1 - (0.02 + 0.96 * a_) * SR / 64])   # turned picture: rows follow the width
             else: out_uv.append([(0.02 + 0.96 * a_) * FS / 32, 1 - (SR + (1 - (0.02 + 0.96 * b_)) * FS) / 64])
-        CLOTHUV[i] = out_uv
+        CLOTHUV[i] = out_uv if (upright or P[i]['tex'] == 'flag') else None
 out = []
 for idx_, (p, c) in enumerate(zip(P, cls)):
     if p['tex'] == 'eye': uv = [[u * 48 / 64, v * 24 / 64] for u, v in p['uv']]    # bottom-left 48 x 24 (v=0 is the bottom)
+    elif p['tex'] == 'mouth': uv = [[(48 + 0.3 + u * 15.4) / 64, 1 - (52 + 0.3 + (1 - v) * 5.4) / 64] for u, v in p['uv']]
     elif p['tex'] == 'emblem': uv = [[(48 + 0.3 + u * 15.4) / 64, 1 - (40 + 0.3 + (1 - v) * 11.4) / 64] for u, v in p['uv']]
-    elif p['tex'] in ('sail', 'flag'): uv = CLOTHUV[idx_]
+    elif p['tex'] in ('sail', 'flag'):
+        uv = CLOTHUV[idx_]
+        if uv is None: continue
     else: uv = [list((cell1 if p['g'] == 1 else cell0)[c])] * 3
     out.append(dict(p=p['p'], n=p['n'], uv=uv, b=p['b'], g=p['g'], r=p['r'], vb=p['vb'], part=p['part']))
 json.dump(dict(polys=out), open(B + '.json', 'w'))

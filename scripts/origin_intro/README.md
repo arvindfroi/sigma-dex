@@ -855,3 +855,13 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   mid-back (geometry + mast/flag bones: `bones_walk3.json`); walk generator fixed: the hind legs swung with the opposite sign
   and moonwalked (`walkcycle.py`, `bones_walk4.json`); locked paws now drift 0.000-0.011 per frame. `walk_sheet.py` draws a
   cycle from the side for checking.
+- **v21 (2026-11-16), cross-referenced with the concept (624.webp)**: black fur (not grey), the head lowered 18 degrees onto
+  the shoulders in Blender before the export (stored pose in the .blend reset first; the posed bone matrices become the new
+  rest, `bones_rest13.json`), the hat follows the head but stays fairly upright, a hand-built red domed shell with a black
+  band and six gold spikes (replaces Hull/Deck/Rail), a drawn grumpy mouth decal under the gold nose, flat cloth pieces
+  (yards, a lying spar) dropped, the sail raised above the shell. Command: `blender -b mv/sab_v15.blend --python
+  sab3d/export_parts4.py -- sab3d/pt13 0.8 0.7 0.7 18 0.3 0.85`.
+- **Walk from an existing animation**: Quaternius "Animated Animales Low Poly" (CC0, opengameart.org, 2.1 MB; kept outside
+  the repo in `legend/ext/`): `extract_anim.py Cat.fbx Walking Cat_walk.json` (Blender), then `retarget_walk.py Cat_walk.json
+  bones_rest13.json pt13.json bones_cat13.json -12` carries the paw paths (scaled by leg length), body bob/pitch and head nod
+  onto our rig with two-bone IK. rig3d with CYCLE `1,...,40`.
