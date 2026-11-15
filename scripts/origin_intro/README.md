@@ -833,3 +833,13 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
 - **Flat colours like Ho-Oh** (its film textures are near-solid swatches): `sab3d/clean_tex.py pt7 pt9_6 6` (one colour per
   material, islands under 6 texels removed, no painted light bands, angry eye); check with `sab3d/preview_lit.py pt9_6 OUT`.
   Film v11: `rig3d.py ... legend/sab3d/pt9_6 legend/sab3d/bones_walk2.json SCENE BCA 460 1,...,16 3`.
+- **Model built part by part (pt10, 2026-11-16)**, the way Ho-Oh's film model is built: `blender -b mv/sab_v15.blend --python
+  sab3d/export_parts4.py -- sab3d/pt10` (each part remeshed and reduced on its own, the painted parts' procedural colour baked
+  to their own vertices first, sails/flag as shrink-wrapped grids with their UVs, smooth normals per part, drawn eye quads),
+  then `python sab3d/build_tex4.py sab3d/pt10 h3d/tex/sail.png h3d/tex/flag.png` (one palette colour per polygon as swatches,
+  angry eye, sail picture in the cloth texture). Check: `sab3d/preview_lit.py` and `sab3d/preview_lit_head.py`.
+- **Film v18**: `RIPPLE_R=50 rig3d.py ... sab3d/pt10 ... 460 1,...,16 3` with `LIGHTS=0 HIDE_TAIL=8` for the sky shot (members
+  0/5/10: unlit like Ho-Oh there, light baked into per-vertex COLOR; hidden in the last 8 frames where the camera flies
+  through him) and `LIGHTS=3` (normals, DS light) for the pagoda shot. Ho-Oh's glow disc (joint27, texture redrawn as a ring)
+  becomes a ripple under each paw that touches down. Bug fixed: restores of a moved bone slot were not redirected, so three
+  leg bones built on stale matrices (the long stretched streak).

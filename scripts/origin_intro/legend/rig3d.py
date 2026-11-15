@@ -58,7 +58,8 @@ tris = []
 for p in polys:
     vb = [MERGE.get(x, x) for x in p.get('vb', [p['b']] * len(p['p']))]
     for k in range(1, len(p['p']) - 1):
-        tris.append(([p['p'][0], p['p'][k], p['p'][k + 1]], [p['uv'][0], p['uv'][k], p['uv'][k + 1]], MERGE.get(p['b'], p['b']), p.get('g', 0), [vb[0], vb[k], vb[k + 1]]))
+        nn = p.get('n'); nn = [nn[0], nn[k], nn[k + 1]] if nn else [None] * 3
+        tris.append(([p['p'][0], p['p'][k], p['p'][k + 1]], [p['uv'][0], p['uv'][k], p['uv'][k + 1]], MERGE.get(p['b'], p['b']), p.get('g', 0), [vb[0], vb[k], vb[k + 1]], nn))
 allp = np.array([t[0] for t in tris]).reshape(-1, 3); cen = (allp.max(0) + allp.min(0)) / 2
 s = SIZE / ((allp @ Fx.T).max(0) - (allp @ Fx.T).min(0)).max()
 def H(Mb):                                                    # Blender bone world -> transform under joint1 (no scale)
@@ -102,13 +103,43 @@ def root_frame(f):
     M = np.eye(4); M[:3, :3] = sig * np.column_stack([fwd, upv, side]); M[:3, 3] = P1[f]; return M
 PATHFRAME = os.environ.get('PATHFRAME', '1') == '1'
 SUP = np.diag([up, up, up, 1.0])
+# Arvind: no glow around him; Ho-Oh's glow disc (joint27) becomes a ripple in the air under each paw that touches down
+RIPPLE = os.environ.get('RIPPLE', '1') == '1' and 'joint27' in names
+if RIPPLE:
+    j27 = names.index('joint27'); FEET = ('FL_lo', 'FR_lo', 'BL_lo', 'BR_lo'); RMAX = float(os.environ.get('RIPPLE_R', '12')); RLOC = 0.255
+    pvf = {}
+    for b in FEET:                                          # the paw: the lowest model point that follows this bone
+        vs = [np.array(v) for t in tris for v, vb in zip(t[0], t[4]) if vb == b]
+        v = min(vs, key=lambda q: q[2]); pvf[b] = (np.linalg.inv(H(rest[b])) @ np.append(s * Fx @ (v - cen), 1))[:3]
+    def foot_world(b, f): return (root_frame(f) @ H(bone_world(b, f)) @ np.append(pvf[b], 1))[:3]
+    def foot_h(b, f): return (np.linalg.inv(root_frame(f)) @ np.append(foot_world(b, f), 1))[1]
+    events = []
+    for b in FEET:
+        hs = np.array([foot_h(b, f) for f in range(nf)]); lo, hi = hs.min(), hs.max(); thr = lo + 0.12 * (hi - lo)
+        for f in range(1, nf):
+            if hs[f] <= thr and hs[f - 1] > thr: events.append((f, b))
+    events.sort(); print('ripples', len(events), [e[0] for e in events][:12])
+    def ripple_world(f):
+        cur = [e for e in events if e[0] <= f]
+        if not cur: return None
+        fe, b = cur[-1]; age = f - fe; L = int(os.environ.get('RIPPLE_L', '18'))
+        if age > L: return None
+        pos = foot_world(b, fe); RF_ = root_frame(fe); fwd = RF_[:3, 0] / np.linalg.norm(RF_[:3, 0]); upw = np.array([0, 1.0, 0])
+        fwd = fwd - upw * (fwd @ upw); fwd /= np.linalg.norm(fwd); R = np.column_stack([upw, fwd, np.cross(upw, fwd)])
+        rad = RMAX * (0.25 + 0.75 * age / L); sc_ = rad / (RLOC * up)
+        M = np.eye(4); M[:3, :3] = R * sc_; M[:3, 3] = pos - upw * 0.5; return M
 nodes_T = [[None] * nf for _ in names]; nodes_R = [[None] * nf for _ in names]; nodes_S = [[None] * nf for _ in names]
 for f in range(nf):
     W, trs = worlds(f); want = dict(W)
     RF = root_frame(f) if PATHFRAME else W[j1]
     for b in bnames: want[bnode[b]] = RF @ H(bone_world(b, f)) @ SUP     # posScale folded into the bone matrices
+    if f >= nf - int(os.environ.get('HIDE_TAIL', '0')):   # the sky shot ends with the camera flying through him: hide him there
+        for bb in bnames: want[bnode[bb]] = RF @ np.diag([1e-3, 1e-3, 1e-3, 1.0])
     for i in hooh:
         if i != j1 and i not in bnode.values(): want[i] = W[i] if i in glowj else W[j1]   # glow joints: Ho-Oh's own; the rest on the root
+    if RIPPLE:
+        rw = ripple_world(f)
+        want[j27] = rw if rw is not None else (W[j1] @ np.diag([1e-3, 1e-3, 1e-3, 1]))      # between ripples: hidden (tiny)
     for i in range(len(names)):
         if i in hooh and i != j1:
             # Maya segment scale compensation (model scaling == 1): world_i = world_pa . T_i . S_pa^-1 . R_i . S_i, so with
@@ -141,7 +172,7 @@ while True:
     if op == 0x66 and owner.get(p[4]) in newslot: d[o + 1 + 4] = newslot[owner[p[4]]]
     if op == 3 and owner.get(p[0]) in newslot: d[o + 1] = newslot[owner[p[0]]]
     if op in (0x26, 0x66):
-        if p[0] in newslot: d[o + 1 + 3] = newslot[p[0]]; made[p[0]] = k_
+        if p[0] in newslot: d[o + 1 + 3] = newslot[p[0]]; made[p[0]] = k_; owner[p[3]] = p[0]   # later restores of the old slot follow it
         else: owner[p[3]] = p[0]
         if p[0] in newslot: pass
         else: owner[p[3]] = p[0]
@@ -156,6 +187,7 @@ for sh in use: so, cl = shapes[sh]; d[so:so + cl] = bytes(cl)
 TEXN = {0: 'ho_head_top', 1: 'hou_eye', 2: 'hou_mouth01'}
 import os as _os
 MULTI = _os.path.exists(BASE + '_tex0_idx.npy')
+HASN = any('n' in p for p in polys); LIGHTS = int(os.environ.get('LIGHTS', '3'))   # with normals: lit like Ho-Oh (lights 0+1)
 if MULTI:
     IDX = {g: np.load(f'{BASE}_tex{g}_idx.npy') for g in (0, 1, 2)}; pal = np.load(BASE + '_tex_pal.npy')
 else:
@@ -164,6 +196,8 @@ GMAT = {g: [i for i, x in enumerate(mats) if x.get('tex') == TEXN[g]][0] for g i
 def v10(q):
     q = [int(round(v / up * 64)) for v in q]; assert all(-512 <= x < 512 for x in q), q
     return (q[0] & 1023) | (q[1] & 1023) << 10 | (q[2] & 1023) << 20
+def n10(q):                                                 # NORMAL: three signed 1.9 fixed values
+    a = [max(-512, min(511, int(round(v * 512)))) & 1023 for v in q]; return a[0] | a[1] << 10 | a[2] << 20
 def tc(uv, g=0):
     th, tw = IDX[g].shape
     a_ = min(tw * 16 - 1, max(-2048, int(round(uv[0] * tw * 16)))); b_ = min(th * 16 - 1, max(-2048, int(round((1 - uv[1]) * th * 16)))); return (b_ & 0xffff) << 16 | (a_ & 0xffff)
@@ -178,7 +212,7 @@ def strips_of(tris_l):                                     # greedy strips; both
     keyof = {}; verts = []
     def vid(pv, uv):
         u_ = uv[0] if isinstance(uv[1], str) else uv
-        kk = tuple(np.round(pv, 2)) + (round(u_[0], 4), round(u_[1], 4)) + ((uv[1],) if isinstance(uv[1], str) else ())
+        kk = tuple(np.round(pv, 2)) + (round(u_[0], 4), round(u_[1], 4)) + ((uv[1],) if isinstance(uv[1], str) else ()) + (tuple(uv[2]) if len(uv) > 2 and uv[2] is not None else ())
         if kk not in keyof: keyof[kk] = len(verts); verts.append((pv, uv))
         return keyof[kk]
     T = [tuple(vid(pv, uv) for pv, uv in t) for t in tris_l]; edge = {}
@@ -198,14 +232,27 @@ HINV = {b: np.linalg.inv(H(rest[b])) for b in bnames}
 work = []                                                   # (group, bones used, strip commands); each vertex follows its own bone
 for g in IDX:
     mine = [t for t in tris if (t[3] if MULTI else 0) == g]
-    loc = [[((HINV[vb] @ np.append(s * Fx @ (np.array(v) - cen), 1))[:3], (uvv, vb)) for v, uvv, vb in zip(t[0], t[1], t[4])] for t in mine]
+    def nloc(n_, vb):                                       # the normal in the bone's frame (rotation only), for the DS light
+        if n_ is None: return None
+        q = HINV[vb][:3, :3] @ (Fx @ np.array(n_)); return tuple(np.round(q / (np.linalg.norm(q) + 1e-9), 3))
+    LB = np.array([-0.35, -0.55, 0.75]); LB /= np.linalg.norm(LB)
+    def nshade(n_, vb):                                     # unlit shots (Ho-Oh is unlit in the sky shot): light baked into COLOR
+        if n_ is None: return None
+        return ('c', int(round(31 * min(1.0, 0.55 + 0.5 * max(0.0, float(np.array(n_) @ LB))))))
+    lit = LIGHTS != 0
+    loc = [[((HINV[vb] @ np.append(s * Fx @ (np.array(v) - cen), 1))[:3], (uvv, vb, (nloc(n_, vb) if lit else nshade(n_, vb)))) for v, uvv, vb, n_ in zip(t[0], t[1], t[4], t[5])] for t in mine]
     for st in strips_of([[(pv, x) for pv, x in tri] for tri in loc]):
         bones_ = {x[1] for _, x in st}; cmds_ = [(0x40, [2])]; curb_ = None
         if 'rigid' in TEST: cmds_ = [(0x14, [newslot[bnode[st[0][1][1]]]]), (0x40, [2])]; curb_ = st[0][1][1]
-        for pv, (uv, vb) in st:
+        last_t = None; last_c = None
+        for pv, (uv, vb, nl) in st:
             if 'nomtx' in TEST: curb_ = vb
             if vb != curb_ and 'rigid' not in TEST: cmds_ += [(0x14, [newslot[bnode[vb]]])]; curb_ = vb      # no SCALE: it is in the bone matrix
-            cmds_ += [(0x22, [tc(uv, g)]), (0x24, [v10(pv)])]
+            t_ = tc(uv, g)
+            if nl is not None and nl[0] == 'c':
+                cc = nl[1] | nl[1] << 5 | nl[1] << 10; nc = [] if cc == last_c else [(0x20, [cc])]; last_c = cc; nn_ = []
+            else: nc = []; nn_ = [(0x21, [n10(nl)])] if nl is not None else []
+            cmds_ += ([(0x22, [t_])] if t_ != last_t else []) + nc + nn_ + [(0x24, [v10(pv)])]; last_t = t_   # swatches: same UV, sent once
         work.append((g, bones_, cmds_ + [(0x41, [])]))
 done = [False] * len(work); placed = 0
 ready = lambda w, k: all(made.get(bnode[b], 1e9) < k for b in w[1])
@@ -231,13 +278,21 @@ for sh in ([] if 'noplace' in TEST else sorted(use, key=lambda x: shape_k[x])): 
 qi = sum(sum(len(c[1]) for c in [w]) for w, ok in zip(work, done) if ok); queue = work
 print('glow joints', sorted(names[i] for i in glowj)); print('strips placed', sum(done), 'of', len(work), 'in', placed, 'shapes; bones', {b: names[i] for b, i in bnode.items()})
 for g, mi_ in ({} if 'nomats' in TEST else GMAT).items():
-    mo_ = mats[mi_]['off']; pa = struct.unpack_from('<I', d, mo_ + 12)[0]; struct.pack_into('<I', d, mo_ + 12, (pa & ~0xF & ~(31 << 16)) | 0xC0 | (31 << 16))
+    mo_ = mats[mi_]['off']; pa = struct.unpack_from('<I', d, mo_ + 12)[0]; struct.pack_into('<I', d, mo_ + 12, (pa & ~0xF & ~(31 << 16)) | 0xC0 | (31 << 16) | (LIGHTS if HASN else 0))
+    if HASN:
+        EM = int(os.environ.get('EMI', '9')); struct.pack_into('<I', d, mo_ + 4, 31 | 31 << 5 | 31 << 10 | 0x8000 | (24 | 24 << 5 | 24 << 10) << 16)
+        struct.pack_into('<I', d, mo_ + 8, (EM | EM << 5 | (EM + 2) << 10) << 16)
 def c555(c): rr, gg, bb = (int(round(v / 255 * 31)) for v in c); return rr | gg << 5 | bb << 10
 for bo in ([] if 'notex' in TEST else r['blocks']):
     if d[bo:bo + 4] != b'TEX0': continue
     t = nitro.read_tex(bytes(d), bo); fh = t['raw_hdr']; tbo, pbo = fh[6], fh[17]
     ents2, _ = nitro.dict_read(bytes(d), bo + fh[4], 8)
     for (e2, nm2, eo), x in zip(ents2, t['texs']):
+        if RIPPLE and x['name'].startswith('hou_tail_l') and x['fmt'] == 1 and x['w'] == 16:   # the glow disc becomes a ring (A3I5)
+            off = (x['param'] & 0xffff) << 3; RING = [0, 1, 3, 5, 7, 7, 6, 4, 2, 1, 0, 0, 0, 0, 0, 0]
+            for yy in range(16):
+                for xx in range(16):
+                    k = bo + tbo + off + yy * 16 + xx; d[k] = (RING[xx] << 5) | (d[k] & 31)
         for g, tn_ in TEXN.items():
             if g not in IDX or x['name'] != tn_: continue
             ix = IDX[g]; assert ix.shape == (x['h'], x['w']) and x['fmt'] == 3, (tn_, ix.shape, x['w'], x['h'], x['fmt'])
