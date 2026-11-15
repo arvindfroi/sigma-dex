@@ -5503,7 +5503,7 @@
             "move": "Double Kick"
           },
           {
-            "level": 20,
+            "level": 22,
             "move": "Wake-Up Slap"
           },
           {
@@ -5511,12 +5511,20 @@
             "move": "Charm"
           },
           {
-            "level": 24,
+            "level": 26,
             "move": "Headbutt"
           },
           {
-            "level": 29,
+            "level": 28,
+            "move": "Crunch"
+          },
+          {
+            "level": 30,
             "move": "Take Down"
+          },
+          {
+            "level": 33,
+            "move": "Power-Up Punch"
           },
           {
             "level": 36,
@@ -5524,11 +5532,19 @@
           },
           {
             "level": 41,
-            "move": "Close Combat"
+            "move": "Reversal"
+          },
+          {
+            "level": 43,
+            "move": "Drain Punch"
           },
           {
             "level": 45,
-            "move": "Reversal"
+            "move": "Dizzy Punch"
+          },
+          {
+            "level": 48,
+            "move": "Close Combat"
           },
           {
             "level": 53,
@@ -5537,11 +5553,16 @@
           {
             "level": 62,
             "move": "Extreme Speed"
+          },
+          {
+            "level": 67,
+            "move": "Giga Impact"
           }
         ],
         "tm_hm": [
           "Focus Punch",
           "Roar",
+          "Toxic",
           "Bulk Up",
           "Hidden Power",
           "Sunny Day",
@@ -5551,6 +5572,7 @@
           "Rain Dance",
           "Frustration",
           "Iron Tail",
+          "Earthquake",
           "Return",
           "Dig",
           "Shadow Ball",
@@ -5575,8 +5597,10 @@
           "Sleep Talk",
           "Poison Jab",
           "Swagger",
+          "U-turn",
           "Substitute",
           "Low Sweep",
+          "Bulldoze",
           "Play Rough",
           "Baby-Doll Eyes",
           "High Horsepower",
@@ -5584,9 +5608,11 @@
           "Psychic Fangs",
           "Body Press",
           "Coaching",
+          "Triple Axel",
           "Cut",
           "Strength",
-          "Rock Smash"
+          "Rock Smash",
+          "Rock Climb"
         ],
         "tutor": [
           "Body Slam",
@@ -5595,7 +5621,15 @@
           "Hyper Voice",
           "Super Fang",
           "Zen Headbutt",
-          "Charm"
+          "Charm",
+          "After You",
+          "Knock Off",
+          "Body Press",
+          "Bullet Punch",
+          "Fire Punch",
+          "Ice Punch",
+          "Thunder Punch",
+          "Last Resort"
         ],
         "egg": []
       },
@@ -10498,26 +10532,26 @@
           },
           {
             "level": 43,
-            "move": "Dark Pulse"
+            "move": "Torment"
           },
           {
-            "level": 43,
-            "move": "Torment"
+            "level": 45,
+            "move": "Dark Pulse"
           },
           {
             "level": 48,
             "move": "Sucker Punch"
           },
           {
-            "level": 48,
+            "level": 50,
             "move": "Foul Play"
           },
           {
-            "level": 52,
+            "level": 54,
             "move": "Double-Edge"
           },
           {
-            "level": 60,
+            "level": 58,
             "move": "Boomburst"
           }
         ],
@@ -34356,16 +34390,20 @@
             "move": "First Impression"
           },
           {
-            "level": 48,
+            "level": 43,
+            "move": "Zen Headbutt"
+          },
+          {
+            "level": 45,
             "move": "Coil"
           },
           {
-            "level": 49,
+            "level": 48,
             "move": "Psychic"
           },
           {
-            "level": 49,
-            "move": "Zen Headbutt"
+            "level": 50,
+            "move": "Leech Life"
           },
           {
             "level": 55,
@@ -34376,15 +34414,19 @@
             "move": "Psyblade"
           },
           {
-            "level": 61,
+            "level": 60,
             "move": "Recover"
           },
           {
-            "level": 61,
+            "level": 63,
             "move": "Zap Cannon"
           },
           {
             "level": 67,
+            "move": "Psycho Boost"
+          },
+          {
+            "level": 70,
             "move": "Future Sight"
           },
           {
@@ -34392,8 +34434,8 @@
             "move": "Mirror Coat"
           },
           {
-            "level": 75,
-            "move": "Leech Life"
+            "level": 76,
+            "move": "Photon Geyser"
           }
         ],
         "tm_hm": [
@@ -34402,54 +34444,105 @@
           "Hidden Power",
           "Sunny Day",
           "Taunt",
+          "Ice Beam",
+          "Blizzard",
           "Hyper Beam",
           "Light Screen",
           "Protect",
           "Rain Dance",
+          "Giga Drain",
           "Safeguard",
           "Frustration",
           "Solar Beam",
+          "Iron Tail",
           "Thunderbolt",
           "Thunder",
+          "Earthquake",
           "Return",
+          "Dig",
           "Psychic",
           "Shadow Ball",
           "Brick Break",
           "Double Team",
           "Reflect",
+          "Shock Wave",
+          "Flamethrower",
+          "Sludge Bomb",
+          "Fire Blast",
           "Aerial Ace",
           "Facade",
           "Secret Power",
           "Rest",
+          "Thief",
           "Skill Swap",
+          "Snatch",
+          "Overheat",
           "Focus Blast",
           "Energy Ball",
           "Fling",
           "Charge Beam",
           "Endure",
           "Drain Punch",
+          "Will-O-Wisp",
+          "Payback",
           "Giga Impact",
           "Flash",
           "Thunder Wave",
           "Swords Dance",
           "Psych Up",
+          "Dark Pulse",
           "X-Scissor",
           "Sleep Talk",
+          "Dream Eater",
           "Grass Knot",
           "Swagger",
           "U-turn",
           "Substitute",
+          "Flash Cannon",
           "Trick Room",
           "Psyshock",
+          "Venoshock",
+          "Low Sweep",
+          "Acid Spray",
+          "Foul Play",
+          "Clear Smog",
           "Struggle Bug",
-          "Expanding Force"
+          "Bulldoze",
+          "Electroweb",
+          "Sticky Web",
+          "Play Rough",
+          "Mystical Fire",
+          "Eerie Impulse",
+          "Psychic Terrain",
+          "Lunge",
+          "Smart Strike",
+          "Brutal Swing",
+          "Psychic Fangs",
+          "Expanding Force",
+          "Meteor Beam",
+          "Cut",
+          "Rock Climb"
         ],
         "tutor": [
           "Body Slam",
           "Bug Bite",
-          "Fire Punch",
+          "Buzzy Buzz",
           "Nasty Plot",
-          "Zen Headbutt"
+          "Zen Headbutt",
+          "Hyperspace Fury",
+          "Hyperspace Hole",
+          "Spacial Rend",
+          "Toxic Spikes",
+          "Draco Meteor",
+          "Meteor Assault",
+          "Meteor Mash",
+          "Moonblast",
+          "Moongeist Beam",
+          "Stored Power",
+          "Psycho Boost",
+          "Fell Stinger",
+          "Skitter Smack",
+          "Aura Sphere"
         ],
         "egg": []
       },

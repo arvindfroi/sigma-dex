@@ -83,25 +83,33 @@ learnset:
     - {level: 16, move: Double Slap}
     - {level: 18, move: Fury Swipes}
     - {level: 20, move: Double Kick}
-    - {level: 20, move: Wake-Up Slap}
+    - {level: 22, move: Wake-Up Slap}
     - {level: 24, move: Charm}
-    - {level: 24, move: Headbutt}
-    - {level: 29, move: Take Down}
+    - {level: 26, move: Headbutt}
+    - {level: 28, move: Crunch}
+    - {level: 30, move: Take Down}
+    - {level: 33, move: Power-Up Punch}
     - {level: 36, move: Agility}
-    - {level: 41, move: Close Combat}
-    - {level: 45, move: Reversal}
+    - {level: 41, move: Reversal}
+    - {level: 43, move: Drain Punch}
+    - {level: 45, move: Dizzy Punch}
+    - {level: 48, move: Close Combat}
     - {level: 53, move: Double-Edge}
     - {level: 62, move: Extreme Speed}
+    - {level: 67, move: Giga Impact}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Focus Punch, Roar, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
-          Rain Dance, Frustration, Iron Tail, Return, Dig, Shadow Ball, Brick Break,
-          Double Team, Rock Tomb, Facade, Rest, Attract, Thief, Focus Blast, False Swipe,
-          Fling, Endure, Drain Punch, Shadow Claw, Payback, Giga Impact, Stone Edge,
-          Swords Dance, Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute, Low Sweep,
-          Play Rough, Baby-Doll Eyes, High Horsepower, Brutal Swing, Psychic Fangs,
-          Body Press, Coaching, Cut, Strength, Rock Smash]
+  tm_hm: [Focus Punch, Roar, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Hyper Beam,
+          Protect, Rain Dance, Frustration, Iron Tail, Earthquake, Return, Dig, Shadow Ball,
+          Brick Break, Double Team, Rock Tomb, Facade, Rest, Attract, Thief, Focus Blast,
+          False Swipe, Fling, Endure, Drain Punch, Shadow Claw, Payback, Giga Impact,
+          Stone Edge, Swords Dance, Rock Slide, Sleep Talk, Poison Jab, Swagger, U-turn,
+          Substitute, Low Sweep, Bulldoze, Play Rough, Baby-Doll Eyes, High Horsepower,
+          Brutal Swing, Psychic Fangs, Body Press, Coaching, Triple Axel, Cut, Strength,
+          Rock Smash, Rock Climb]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Close Combat, Endeavor, Hyper Voice, Super Fang, Zen Headbutt, Charm]
+  tutor: [Body Slam, Close Combat, Endeavor, Hyper Voice, Super Fang, Zen Headbutt, Charm,
+          After You, Knock Off, Body Press, Bullet Punch, Fire Punch, Ice Punch,
+          Thunder Punch, Last Resort]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
