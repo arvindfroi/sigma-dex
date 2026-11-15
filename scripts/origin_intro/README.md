@@ -619,3 +619,192 @@ Build: `python deer/build_strips.py night/out_sabv22.narc deer/out_intro_wip.nar
 copied to `rc8/x_night/files/a/2/6/2` and `dsrom build`. ROM `~/sigma-origin/rc8/intro_hjort_v11.nds`, md5
 `9713f7feb4b250ba52c26f81da6210a9`; rebuilt from these scripts on 2026-11-15 and matched byte for byte. It sits on Sabertann
 v22's narc only: Gravriel v16 is not in this ROM yet.
+
+## Scene 5 night fjord v8: Moosus on the rock (2026-11-15)
+
+Suicune standing on its rock by the sea is now Moosus, on a night fjord under the northern lights. Arvind approved v8.
+Scripts are in `sc5/`. Work folder: `~/sigma-origin/title3d/sc5`.
+
+### What it replaces in `a/2/6/2`
+
+- **Screen 62: Suicune's rock.** Cells x0-4, y17-23. Charset 60 tiles 2-30, plus tiles 444-459. Palette 31 bank 3.
+- **Screen 64: bottom screen sky, fjord and sea.** Map rows 12-51. Charset 60. Palette 31 banks 0, 4, 5, 2 and 6.
+- **Screen 61: top screen sky.** Map rows 0-44. Charset 59. Palette 39 banks 7 and 8.
+  - Bank 0 is shared with the deer strips, so it is not used.
+  - Rows 320+ were visible as a blue strip, which is why rows up to 44 are written.
+- **Screen 63: the light flare.** Its shape is kept. It moves to palette 39 bank 9 and gets night colours (mint and teal).
+  - It used bank 1 colours 10-14, but `deer/build_strips.py` writes the whole of bank 1 for Rockedeer. Since scene 3 the
+    flare had shown as black and gold, also in the locked v11 ROM.
+- **Charset 60's spare room.** It holds 768 tiles and the original fills only 0-443. Tiles 444-767 are free, and this was
+  tested in the emulator.
+
+### Scroll, measured in the emulator
+
+- While the scene plays, the bottom screen shows screen 64 rows o..o+191, in `bg64` coordinates (map rows 96+), with o
+  going from 64 to 29.
+- The top screen shows screen 61 rows o+96..o+287.
+- So the two screens meet when canvas row = screen 61 row = screen 64 row + 288. The horizon is at canvas row 496.
+
+### Moosus: a 3D model rendered to a sprite (`sc5/m3d/`)
+
+The earlier routes did not work:
+- Qwen swaps (v1-v2).
+- Back-sprite tracing.
+- An SDXL sprite LoRA.
+- Qwen artwork run through `pixel_render` (v3).
+
+What works:
+1. **`gen_ref.py 2`.** Qwen draws a clean full-body Moosus on white (`ref_2.png`, md5 e58b27a4…), from the DS front and
+   Arvind's drawing.
+2. **`h3d/img2mesh.py`.** Hunyuan3D 2.1 makes the mesh (`mesh_2.glb`, md5 36f18016…). `h3d/prep.py` then cleans it to
+   120k faces.
+3. **`colour_fit.py`.** `h3d/fit_cam.py` finds the view the picture was drawn from (az -38, el 20). The script colours
+   the mesh through that view with a z-buffer and a mirror pass. It gives four classes: pale, brown, crown and dark
+   (`colf_2.npz`, md5 2b4740c0…).
+4. **`render_view.py COL OUT 188 8`.** Blender Cycles renders emission-only data passes as 16-bit PNG: class, crown
+   height, depth and a camera-space normal. Read them with cv2; in Cycles camera space +Z points away from the viewer.
+   - Az 188 is Suicune's angle: a side profile facing right, with the body cut off by the left edge.
+5. **`sprite.py PASS N188.png 40 tip:38 night`** (env `SC5_AUT=0.3 SC5_AMT=0.55`).
+   - A majority shrink to 40 px tall.
+   - Each material gets a night base, one shadow layer (the originals' cel rule) and a green layer where the northern
+     lights hit it. The crown glows.
+   - Inner lines are drawn where the depth jumps. The outline is dark navy.
+   - It sits on the original rock, relit to slate with a teal top. That rock comes from the local `orig_crop.png` and
+     is not in the repo.
+   - Result: 10 colours of its own, `N188.png` md5 72234201….
+6. **`build_sc5.py`** (env `SC5_EXTRA=16`). Writes screen 62. When the picture has 15 colours or fewer it keeps them
+   exactly.
+
+### Background: drawn by rules (`sc5/bg/`)
+
+**`paint_night.py 2`** draws the background in the originals' style: flat bands, stepped ragged edges, few colours and no
+dithering. A painted picture shrunk to size looked like a pixelated photo.
+- **Sky.** Night bands that curve down at the sides (the original's dome). Stars sit on three spots inside a tile, so
+  their tiles repeat.
+- **Northern lights.** Curtains of vertical rays: runs of 1-3 px, a bright mint hem, greens fading upward and a sparse
+  violet fringe. There is a second, fainter curtain far away.
+- **Fjord (`headland()`).**
+  - Steep glacier-cut walls straight into the water, with rounded shoulders, domed sloping tops and snow fields.
+  - Granite ledges and gullies, and cliff faces lit by the northern lights.
+  - Far, mid and near headlands alternate left and right. There is a two-peaked snowy end and a waterfall.
+- **Water.** Ragged bands, the walls mirrored dark, and a green glitter path.
+- Output: `night61.png` md5 0f5cbdf4…, `night64.png` md5 2255564e….
+
+**`build_bg.py IN OUT 16`** dedupes tiles with flips and packs tiles into 15-colour banks with a greedy fit. It uses 366
+of 462 tiles on screen 61 and 512 of 722 on screen 64. It also moves the flare.
+
+### Build
+
+Run in this order:
+1. `build_sc5.py deer/out_intro_wip.narc A N188_x8.png` (N188 on magenta, 8x nearest).
+2. `bg/build_bg.py A B 16`. narc md5 `e37fa15d85587553c320fa556591c798`.
+3. Copy it to `rc8/x_night/files/a/2/6/2` and run `dsrom build`.
+
+ROM `~/sigma-origin/rc8/intro_sc5_v8.nds`, md5 `c3411fa8c2379173847c9ab0cdca77e5`. It was rebuilt from these scripts on
+2026-11-15 and matched byte for byte (the Blender pass PNGs differ, but the sprite they produce is identical). It sits on
+scene 3 v11 and Sabertann v22. Gravriel v16 is not in this ROM yet.
+
+## Title screen bottom clips: Warrallier and Monarkhan (2026-11-15)
+
+The bottom of the title screen (`a/2/6/4`) plays three clips of 50 frames each. Members 14-163 are 256x192 8bpp NCGR frames
+(tiled, uncompressed) with the shared palette 13. Clip 0 is Blastoise, clip 1 Charizard and clip 2 Venusaur. In the game the
+green clip plays first, then orange, then blue.
+
+Our final evolutions replace two of the starters:
+- **Clip 0: Warrallier** (Water) replaces Blastoise. Arvind picked flash strength B.
+- **Clip 1: Monarkhan** (Fire) replaces Charizard. The design is Arvind's drawing.
+- **Clip 2: Venusaur** waits for Leafaxer.
+
+There is no trainer yet. A trainer can be added later as one more layer with its own depth.
+Scripts are in `title/`. Work folder: `~/sigma-origin/title3d/title`.
+
+### How the originals work
+
+`dump.py` dumps the frames, and `tittel_analyse.png` shows the analysis.
+- **The picture does not move.** The camera is still, and each clip is one picture.
+- **A light plane sweeps left to right through 3D.** A pixel lights at about `T0 + B*(x - K*near)`, so the edge of the light
+  bends over the forms. It stays lit for about 14 frames, with one darker tone on its first and last lit frame.
+- **Colour.** Each clip is one hue in 6-7 tones, plus black lines, white and greys. Only 28 of the 256 palette entries are
+  used, so our clips reuse each clip's own entries and palette 13 is not touched.
+- **Effect layers live longer than the sweep.**
+  - Blastoise's cannon flashes on every other frame. A pale disc swells and shrinks, the flash brightens what is around it,
+    and stars twinkle.
+  - Charizard starts with fire in the dark that spreads into a glowing rim along its head.
+
+### `render_clip.py COMP DEPTH OUT CLIP`
+
+It makes one clip from a still picture and a depth map, both drawn by Qwen 2.1 edit:
+- tones ranked inside the figure, plus 20 % from the depth
+- black lines where a pixel is much darker than its surroundings
+- the sweep
+- 3D point lights: Lambert shading on normals taken from the depth map, falling off with 3D distance
+
+Options are set with environment variables:
+- **Warrallier (orb):**
+  - `T_ORB_REF`/`T_ORB_DRAW=0`: the flash sits where a ball was, without the ball.
+  - `T_FL_START`: when the flashes start.
+  - `T_GAIN`/`T_REACH`/`T_FULL`: how strong and how far the flash light goes. Revealed pixels get their own sweep tone.
+  - `T_HAND_*`: the fingers drawn in front of the flash.
+  - Stars and a water drop are our own shapes.
+- **Monarkhan (fire):**
+  - `T_FLAMES`: a mask of the flames. Each flame is a layer that sways, licks up and has rising heat noise.
+  - Each flame is also a point light with a rim/back term (`T_FIRE_RIM`, `T_FIRE_REACH`), so edges facing it glow like
+    Charizard's fire rim.
+  - `T_MAT=1` (`matclass.py`): tones per material (red body, yellow wings, brown spots, pink nose, white claws), so the yellow
+    wings do not turn white.
+  - `T_FUR`: a mask of the fur, drawn with gold tones. It shines for 3 frames after the light reaches it, and glints twinkle
+    on it.
+
+### Pictures
+
+These are local, not in the repo:
+- **Warrallier:**
+  - `war/gen_comp.py v2 5` drew `comp2_5` (md5 0d9fee4f…). It is head-on, with white eyes, holding a water orb.
+  - `war/gen_noorb.py 1` drew `noorb_1` (8d313ad5…), the same picture with the ball removed.
+  - `war/gen_depth.py noorb_1 depth3_2 2` drew the depth map (43e73cb7…).
+- **Monarkhan:**
+  - The design is `monarkhan_design.png` (a31f80ff…).
+  - `mon/gen_comp.py v3 4` drew `comp3_4`: an arched C neck, the mane hiding the eyes, free floating flames.
+  - `mon/gen_edit.py 5` then drew `comp5_5` (230bd960…): a thick red wing arm and bigger flames.
+  - `TAGM=5 FUR=1 mon/gen_maps.py comp5_5 1` and seed 2 drew `depth5_2` (c9d6467c…), `flames5_2` (f73623e3…) and `fur5_1`
+    (5618af82…).
+- Original frames were shown to Qwen as style references, locally only.
+
+### Build
+
+```
+T_FULL=0.8 T_T0=11 T_GAIN=1.8 T_REACH=1.6 T_HAND_DN=0.45 T_HAND_R=6 T_HAND_X=1.9 T_ORB_REF=war/comp2_5.png T_ORB_DRAW=0 \
+  python title/render_clip.py war/noorb_1.png war/depth3_2.png war/clip9b 0
+T_MAT=1 T_FUR=mon/fur5_1.png T_FIRE_RIM=3.5 T_FIRE_REACH=2.6 T_ORB=0 T_FLAMES=mon/flames5_2.png T_T0=6 T_B=0.072 \
+  python title/render_clip.py mon/comp5_5.png mon/depth5_2.png mon/clip5 1
+python title/build_title.py VANILLA_a264 OUT 0=war/clip9b 1=mon/clip5
+```
+
+- The narc md5 is `b4d3a0fad15354f1553746f03d97c3f1`.
+- Copy it to `files/a/2/6/4`, next to scene 5 v8's `a/2/6/2`, and run `dsrom build`.
+- ROM `~/sigma-origin/rc8/title_mon_v5.nds`, md5 `525e263304aca5be1d7397de2feb862f`. It was rebuilt from these scripts and
+  matched byte for byte.
+- That ROM has Sabertann v22, the deer v11, scene 5 v8 and both title clips. Gravriel v16 is not in it.
+
+## Legend cutscenes: Ho-Oh and Lugia (analysis, 2026-11-15)
+
+Arvind: Sabertann takes Ho-Oh's role, Gravriel takes Lugia's. Nothing is replaced yet; these tools find and record the scenes.
+Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (local only: game data, test ROMs, recordings).
+
+- **The birds** are 2D: `a/0/8/1` 210 `hou_obj01` and 211 `lug_obj01`, 7 frames of 64x64, 4 bpp, one palette, front view
+  (1-5 wingbeat, 6 wings folded, 7 cry). They are also shown big in close-ups (Ho-Oh past the sun, Lugia out of the waterfall).
+  Lugia also has 6 translucent 64x64 silhouette frames (`a/1/7/4` 28). The wing items have 4-frame 32x32 textures
+  (`a/1/7/4` 55 Rainbow Wing, 65 Silver Wing). The rest of `a/1/7/4` (pret `files/demo/legend`) is bells, flashes, rings,
+  leaves and waves.
+- **Scripts** (`a/0/1/2` 21 Bell Tower roof, map 340; 104 Whirl Islands, map 244): Origin plays the Kimono Girls' ceremony
+  for both. Ho-Oh is summoned, caught by Team Rocket, and later comes back as a gift at level 95. Lugia is woken by Lawrence and
+  caught by him; later the ceremony with the Tidal Bell, then a battle. The cutscene code (`legend_cutscene_camera.c`) branches on
+  the game version, so the Lugia scene runs HeartGold paths (autumn leaves in the cave, yellow speckles over Lugia).
+- **Tools** (`legend/`): `dump.py` (list and decode every texture of a NARC), `dump_ow.py` (overworld sprite frames),
+  `find_ow.py`, `test_sheet.py` (our intro frames shrunk next to the originals), `scrdis.py` (script disassembler from pret's
+  `asm/macros/script.inc`), `zev.py` (zone events), `build_jump.py` (a test ROM: walk down the stairs from savestate
+  `lw/g7.dst` and a frame script warps to the scene and starts it; the NARC is written in place with `inplace.py` because a
+  rebuilt ROM breaks savestates), `to_video.sh` (shots to mp4, no sound).
+- Ho-Oh: `build_jump.py ROM OUT 340 15 18 282 8 0x40a9 4 -580 -2336 +1140 +1366`. Lugia needs an extra script entry that
+  sets a temp var and goes to the dancer's own script (Satsuki asks, answer yes): `JUMP_BASE=y/a012_lug_base2 ... 244 16 35
+  365 14 0x4001 0 -581 +579 +1366 +2333`. Map ids are pret's `include/constants/maps.h`.

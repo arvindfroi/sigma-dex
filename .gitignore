@@ -8,3 +8,30 @@ poc/
 .worker-key
 .discord-token
 tests/sprite_style/sheet.png
+
+# Parsed game facts for the moveset tools (Origin data, never commit)
+.cache/
+
+# intro overview holds game graphics
+intro_oversikt.html
+sjekkliste_intro_og_sprites.html
+sabertann_intro*.png
+sabertann_intro*.gif
+origin_intro_original.mp4
+intro_bilder.png
+tittelskjerm.png
+tittel_animasjon.gif
+tittelskjerm_hg_vs_origin.png
+hooh_3d_modell.png
+tittel_lys.png
+
+# 3D Sabertann intro previews (the video shows the original Ho-Oh scene too)
+sabertann_intro*.mp4
+sabertann_3d_modell.png
+sabertann_v*_*.png
+
+# cutscene analysis: game graphics and recordings
+mellomsekvens_*.png
+origin_hooh_*.mp4
+origin_lugia_*.mp4
+lugia_gule_prikker.png
