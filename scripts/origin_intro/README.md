@@ -874,3 +874,11 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   Run: Quaternius Farm Animals (CC0) Horse Run, `PROFILE=horse retarget_walk.py Horse_run.json bones_rest14.json pt15.json
   bones_run14.json -8`. rig3d: unused Ho-Oh joints no longer animated (BCA half the size), the shape-to-texture assignment is
   searched (all strips placed), `HALFRATE=1`. Film 434120/437100, ROM `legend_test/jump_hooh2_v22.nds`.
+- **v23 (2026-11-16), the run**: smooth joints. The body is one skin again; each point carries its two strongest high-poly
+  bones and their share (`vw` from `export_parts5.py`); a point between two connected bones (25-75 %) follows a HELPER bone
+  (9: shoulders, hips, elbows/knees, neck) whose matrix is the halfway rotation of both about their joint, solved per frame
+  in `rig3d.py` like the other bones and carried by unused Ho-Oh joints. Their stores were freed by turning the unused
+  joints' NODEDESC stores off in place (0x26 -> 0x06 + NOP, 0x66 -> 0x46 + NOP). The horse gallop is retargeted with shorter
+  swings for the stocky body: `AMP=0.45 BODYAMP=0.6 PROFILE=horse retarget_walk.py ...`. The cycle steps on its own keys
+  (`PHASE_SNAP=1`, pace from the distance), so poses repeat and the animation stays small; `FOOTLOCK=0`. Strips that cannot
+  reach a late helper fall back to its parent bone. Film 434568/437100, ROM `legend_test/jump_hooh2_v23.nds`.

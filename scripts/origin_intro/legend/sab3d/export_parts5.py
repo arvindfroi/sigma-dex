@@ -7,7 +7,7 @@ SHIFT = float(argv[1]) if len(argv) > 1 else 0.8; LIFT = float(argv[2]) if len(a
 MASTFWD = float(argv[3]) if len(argv) > 3 else 0.7; STERNSCALE = float(argv[4]) if len(argv) > 4 else 1.35
 sc = bpy.context.scene; sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = 4
 rig = bpy.data.objects['Rig']; rig.data.pose_position = 'REST'
-BUDGET = {'Body': 330, 'Hull': 100, 'Hat': 110, 'Deck': 18, 'Stern': 28, 'Mast': 10, 'Nose': 6, 'Rail': 16, 'Sail': 44, 'Flag': 6,
+BUDGET = {'Body': 300, 'Hull': 100, 'Hat': 110, 'Deck': 18, 'Stern': 28, 'Mast': 10, 'Nose': 6, 'Rail': 16, 'Sail': 44, 'Flag': 6,
           'Tusk': 8, 'SkullHead': 40, 'SkullCheek': 6, 'SkullJaw': 8, 'SkullMaxilla': 8, 'SkullMouth': 8, 'EyeHole': 4,
           'EyeRim': 8, 'SkNose': 2, 'Brow': 6, 'Claw': 4}
 LPDROP = ('Post', 'Tooth', 'LowTooth', 'Palate', 'MouthIn', 'Tongue', 'Eye1', 'HatEdge')   # baked into the texture, no geometry
@@ -15,6 +15,7 @@ STERN = ('Stern', 'Skull', 'SkNose', 'EyeHole', 'EyeRim', 'Tooth')
 GRIDS = {'Sail': (3, 3), 'Flag': (2, 2)}
 REMESH = {'Body': 140, 'Hull': 140, 'Hat': 170, 'Deck': 60, 'Stern': 110, 'Mast': 90, 'Rail': 200, 'Tusk': 80, 'Nose': 60, 'SkullHead': 80}
 dg = bpy.context.evaluated_depsgraph_get()
+MERGEW = {'jaw': 'head', 'flag': 'mast', 'stern': 'spine', 'root': 'spine'}   # as rig3d merges them
 def base_name(n):
     b = n.split('.')[0]
     for k in sorted(BUDGET, key=len, reverse=True):
@@ -102,7 +103,9 @@ def sampler(hp):
         for i in p.vertices:
             for ge in me.vertices[i].groups: w[names[ge.group]] = w.get(names[ge.group], 0) + ge.weight
         bone = max(w, key=w.get) if w else 'spine'
-        return col, p.material_index, uv, bone
+        wm = {}
+        for k_, v_ in w.items(): k2 = MERGEW.get(k_, k_); wm[k2] = wm.get(k2, 0) + v_
+        return col, p.material_index, uv, bone, wm
     return at
 
 src = [o for o in bpy.data.objects if o.type == 'MESH' and o.visible_get()]
@@ -161,7 +164,7 @@ def finish(lp, bn, at, forced=None):
     for g in list(lp.vertex_groups): lp.vertex_groups.remove(g)
     me = lp.data
     if me.uv_layers: [me.uv_layers.remove(u) for u in list(me.uv_layers)]
-    for nm in [a.name for a in me.attributes if a.name in ('grp', 'role', 'bid', 'pid')]: me.attributes.remove(me.attributes[nm])
+    for nm in [a.name for a in me.attributes if a.name in ('grp', 'role', 'bid', 'pid', 'bid2', 'w2')]: me.attributes.remove(me.attributes[nm])
     upright_ok = True
     if bn in GRIDS:                                            # cloth: keep only standing sails (a lying spar / flat yards dropped)
         bm = bmesh.new(); bm.from_mesh(me); bm.verts.ensure_lookup_table(); kill = []
@@ -182,7 +185,16 @@ def finish(lp, bn, at, forced=None):
             if abs(vt[2][2]) > 0.6 or np.ptp(P_[:, 2]) < 0.35: kill += comp
         bmesh.ops.delete(bm, geom=list(set(kill)), context='FACES'); bm.to_mesh(me); bm.free()
     bid = me.attributes.new('bid', 'INT', 'POINT'); pid = me.attributes.new('pid', 'INT', 'FACE'); grp = me.attributes.new('grp', 'INT', 'FACE'); role = me.attributes.new('role', 'INT', 'FACE')
-    vb = [forced] * len(me.vertices) if forced else [at(v.co)[3] for v in me.vertices]
+    hits = [None] * len(me.vertices) if forced else [at(v.co) for v in me.vertices]
+    vb = [forced] * len(me.vertices) if forced else [h[3] for h in hits]
+    b2 = me.attributes.new('bid2', 'INT', 'POINT'); w2 = me.attributes.new('w2', 'FLOAT', 'POINT')
+    for i in range(len(me.vertices)):
+        b2.data[i].value = BONES.index(vb[i]) if vb[i] in BONES else BONES.index('spine'); w2.data[i].value = 0.0
+        if hits[i] is None: continue
+        t = sorted(hits[i][4].items(), key=lambda kv: -kv[1])
+        if len(t) > 1 and t[0][1] + t[1][1] > 0:
+            b2.data[i].value = BONES.index(t[1][0]) if t[1][0] in BONES else BONES.index('spine'); w2.data[i].value = t[1][1] / (t[0][1] + t[1][1])
+        if t and t[0][0] in BONES: me.attributes['bid'].data[i].value = BONES.index(t[0][0])
     for i, b in enumerate(vb): bid.data[i].value = BONES.index(b) if b in BONES else BONES.index('spine')
     for p in me.polygons:
         pid.data[p.index].value = len(LP); role.data[p.index].value = 1 if bn == 'Claw' else (6 if (me.attributes.get('brim') and me.attributes['brim'].data[p.index].value) else 0)
@@ -238,7 +250,7 @@ for bn, c in PARTS:
         for t in tmp: t.select_set(True)
         bpy.context.view_layer.objects.active = tmp[0]; bpy.ops.object.join(); src_ = tmp[0]
         lp = hat_retopo(src_)
-    elif bn == 'Body':
+    elif bn == 'Body' and __import__('os').environ.get('SEGMENTS', '0') == '1':
         for lp_, seg in body_segments(c): lp_['seg'] = seg; finish(lp_, bn, at, seg)
         continue
     elif bn in GRIDS: lp = grids(c, *GRIDS[bn])
@@ -256,7 +268,9 @@ def decal(name, ctr, n, w, h, rl, flip=False):
     q = [ctr - w * t1 - h * t2, ctr + w * t1 - h * t2, ctr + w * t1 + h * t2, ctr - w * t1 + h * t2]
     me = bpy.data.meshes.new(name); me.from_pydata([tuple(v) for v in q], [], [(0, 1, 2, 3)]); me.update()
     ob = bpy.data.objects.new(name, me); sc.collection.objects.link(ob)
-    for nm_, dom in (('bid', 'POINT'), ('pid', 'FACE'), ('grp', 'FACE'), ('role', 'FACE')): me.attributes.new(nm_, 'INT', dom)
+    for nm_, dom in (('bid', 'POINT'), ('pid', 'FACE'), ('grp', 'FACE'), ('role', 'FACE'), ('bid2', 'POINT')): me.attributes.new(nm_, 'INT', dom)
+    me.attributes.new('w2', 'FLOAT', 'POINT')
+    for i in range(4): me.attributes['bid2'].data[i].value = BONES.index('head')
     for i in range(4): me.attributes['bid'].data[i].value = BONES.index('head')
     me.attributes['pid'].data[0].value = len(LP); me.attributes['grp'].data[0].value = 1; me.attributes['role'].data[0].value = rl
     ob['part'] = name; ob['flip'] = 1 if flip else 0; LP.append(ob); return ob
@@ -379,9 +393,10 @@ for p in me.polygons:
     for i in p.vertices: vn[i] += np.array(p.normal[:]) * p.area
 vn /= np.linalg.norm(vn, axis=1, keepdims=True) + 1e-9
 bidv = [me.attributes['bid'].data[i].value for i in range(len(me.vertices))]
+b2v = [me.attributes['bid2'].data[i].value for i in range(len(me.vertices))]; w2v = [me.attributes['w2'].data[i].value for i in range(len(me.vertices))]
 for p in me.polygons:
     vb = [names[bidv[i]] for i in p.vertices]
     polys.append(dict(p=[list(me.vertices[i].co) for i in p.vertices], n=[list(vn[i]) for i in p.vertices], uv=[list(uvl[li].uv) for li in p.loop_indices],
-                      b=max(set(vb), key=vb.count), g=grp[p.index], r=role[p.index], vb=vb, part=PARTNAMES[pidv[p.index]]))
+                      b=max(set(vb), key=vb.count), g=grp[p.index], r=role[p.index], vb=vb, vw=[[names[b2v[i]], round(w2v[i], 3)] for i in p.vertices], part=PARTNAMES[pidv[p.index]]))
 json.dump(dict(polys=polys), open(OUT + '.json', 'w')); print('EXPORTED', len(polys))
 bpy.ops.wm.save_as_mainfile(filepath=OUT + '_lp.blend')

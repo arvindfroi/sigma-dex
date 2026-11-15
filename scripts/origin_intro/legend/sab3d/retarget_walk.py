@@ -16,6 +16,7 @@ PROFILES = {
                      'BR': ('BackUpLeg.R', 'BackLowLeg.R', 'tail'), 'BL': ('BackUpLeg.L', 'BackLowLeg.L', 'tail')},
                body=(('Hips', 'head'), ('Torso', 'tail')), headb='Head')}
 PR = PROFILES[PROFILE]
+AMP = float(os.environ.get('AMP', '1.0')); BODYAMP = float(os.environ.get('BODYAMP', '1.0'))   # a stocky body: shorter swings, same rhythm
 LEGS = {k: (u, f) for k, (u, f, _) in PR['legs'].items()}; PAWEND = {k: e for k, (_, _, e) in PR['legs'].items()}
 def s2o(v):                                                   # source (f=x, l=y, u=z) -> ours (f=-y, l=x, u=z)
     return np.array([v[1], -v[0], v[2]])
@@ -49,7 +50,7 @@ scale_body = LOUR['FL'] / LSRC['FL']
 frames = {}; N = len(S['frames'])
 for i in range(N):
     t = i / N; c, R = body(i)
-    bob = (c - c0)[2] * scale_body; dpitch = pitch_of(R) - p0
+    bob = (c - c0)[2] * scale_body * BODYAMP; dpitch = (pitch_of(R) - p0) * BODYAMP
     sp = rest['spine'][:3, 3]
     G = np.eye(4); G[2, 3] = bob; G = G @ about(rot(LAT, PITCH - dpitch), sp)        # climb + the source's pitch change
     # head nod: source head bone direction relative to the body, pitch only
@@ -74,7 +75,7 @@ for i in range(N):
         Gb = W['spine'] @ np.linalg.inv(rest['spine'])                                  # our body motion
         A = W[up_][:3, 3]; restpaw_w = (Gb @ np.append(paw[k], 1))[:3]
         # rest-relative: our rest paw offset + (source offset - source rest offset), all in our body frame
-        T = restpaw_w + Gb[:3, :3] @ (s2o(off - off0) * LOUR[k])
+        T = restpaw_w + Gb[:3, :3] @ (s2o(off - off0) * LOUR[k] * AMP)
         Mu = W[up_]; Ml = W[lo_]; B_ = Ml[:3, 3]; C = (Ml @ np.linalg.inv(rest[lo_]) @ np.append(paw[k], 1))[:3]
         l1 = np.linalg.norm(B_ - A); l2 = np.linalg.norm(C - B_); d = np.linalg.norm(T - A)
         d = min(max(d, abs(l1 - l2) + 1e-4), l1 + l2 - 1e-4); T = A + (T - A) / (np.linalg.norm(T - A) + 1e-9) * d

@@ -32,6 +32,22 @@ j1 = names.index('joint1')
 B = json.load(open(BJ)); rest = {k: np.array(v) for k, v in B['rest'].items()}
 MERGE = {'jaw': 'head', 'flag': 'mast', 'stern': 'spine', 'root': 'spine'}             # fewer bones: matrix slots are scarce
 bnames = [b for b in B['rest'] if b not in MERGE]
+# smooth joints (Arvind: the run must look right): a point between two connected bones follows a HELPER bone that is the
+# halfway rotation of both about their joint, so knees, elbows, shoulders, hips and the neck bend instead of tearing
+POLYS_ = json.load(open(BASE + '.json'))['polys']
+PAR = {b: (MERGE.get(B['parent'][b], B['parent'][b]) if B['parent'].get(b) else None) for b in B['rest']}
+SMOOTH = os.environ.get('SMOOTH', '1') == '1'
+def eff_bone(a, vw):
+    if not SMOOTH or not vw: return a
+    b2 = MERGE.get(vw[0], vw[0]); w = vw[1]
+    if w < 0.25 or b2 == a or 'mast' in (a, b2): return a           # the mast is stiff: no helper there
+    if PAR.get(b2) == a: return f'h:{a}:{b2}'
+    if PAR.get(a) == b2: return f'h:{b2}:{a}'
+    return a
+HELP = sorted({eff_bone(MERGE.get(v, v), vw) for p_ in POLYS_ for v, vw in zip(p_.get('vb', []), p_.get('vw', [None] * len(p_['p'])))
+               if eff_bone(MERGE.get(v, v), vw).startswith('h:')})
+BASEB = list(bnames); bnames = BASEB + HELP
+print('helpers', HELP)
 pos = {}
 for k_, (op, p) in enumerate(m['rcmds']):
     if op in (6, 0x26, 0x46, 0x66) and p[0] not in pos: pos[p[0]] = k_
@@ -56,7 +72,7 @@ for _ in range(int(os.environ.get('ROLL', 1))): Fx = np.array([[1, 0, 0], [0, 0,
 polys = json.load(open(BASE + '.json'))['polys']
 tris = []
 for p in polys:
-    vb = [MERGE.get(x, x) for x in p.get('vb', [p['b']] * len(p['p']))]
+    vb = [eff_bone(MERGE.get(x, x), vw) for x, vw in zip(p.get('vb', [p['b']] * len(p['p'])), p.get('vw', [None] * len(p['p'])))]
     for k in range(1, len(p['p']) - 1):
         nn = p.get('n'); nn = [nn[0], nn[k], nn[k + 1]] if nn else [None] * 3
         tris.append(([p['p'][0], p['p'][k], p['p'][k + 1]], [p['uv'][0], p['uv'][k], p['uv'][k + 1]], MERGE.get(p['b'], p['b']), p.get('g', 0), [vb[0], vb[k], vb[k + 1]], nn))
@@ -69,7 +85,7 @@ def orth(Rm):
 # pose at film frame f: interpolate between cycle poses (rotation by slerp through quaternions)
 from scipy.spatial.transform import Rotation as Rot, Slerp
 pose = {}
-for b in bnames:
+for b in BASEB:
     Ms = [np.array(B['frames'][str(c)][b]) for c in CYC] + [np.array(B['frames'][str(CYC[0])][b])]
     rots = Rot.from_matrix([orth(M[:3, :3]) for M in Ms]); sl = Slerp(np.arange(len(Ms)), rots); tr = np.array([M[:3, 3] for M in Ms])
     pose[b] = (sl, tr)
@@ -77,7 +93,8 @@ PH = None                                                   # walk phase per fil
 def bone_pose(b, x):
     x = x % len(CYC); sl, tr = pose[b]; i = int(x); w = x - i
     M = np.eye(4); M[:3, :3] = sl([x]).as_matrix()[0]; M[:3, 3] = tr[i] * (1 - w) + tr[i + 1] * w; return M
-def bone_world(b, f): return bone_pose(b, PH[f] if PH is not None else f / STEP)
+SNAP = os.environ.get('PHASE_SNAP', '1') == '1'                  # step through the cycle's own keys: poses repeat, the animation stays small
+def bone_world(b, f): return bone_pose(b, (round(PH[f]) if SNAP else PH[f]) if PH is not None else f / STEP)
 # evaluate the original worlds (environment parents and joint1's path)
 def worlds(f):
     trs = geom.node_trs(m, anim, f); W = {}; ssc = m['info']['scaling'] == 1
@@ -205,7 +222,15 @@ for f in range(nf):
     W, trs = worlds(f); want = dict(W)
     RF = root_frame(f) if PATHFRAME else W[j1]
     LG = leg_L(f)
-    for b in bnames: want[bnode[b]] = RF @ (LG[b] if b in LG else H(bone_world(b, f))) @ SUP     # posScale folded into the bone matrices; legs: paws locked
+    for b in BASEB: want[bnode[b]] = RF @ (LG[b] if b in LG else H(bone_world(b, f))) @ SUP     # posScale folded into the bone matrices; legs: paws locked
+    for h_ in HELP:                                                    # helpers: halfway between the two bones, about their joint
+        _, A_, Bc_ = h_.split(':')
+        WA = LG[A_] if A_ in LG else H(bone_world(A_, f)); WB = LG[Bc_] if Bc_ in LG else H(bone_world(Bc_, f))
+        KA = WA @ np.linalg.inv(H(rest[A_])); KB = WB @ np.linalg.inv(H(rest[Bc_])); pB = H(rest[Bc_])[:3, 3]
+        Rt = Slerp([0, 1], Rot.from_matrix([orth(KA[:3, :3]), orth(KB[:3, :3])]))([0.5]).as_matrix()[0]
+        pt = ((KA @ np.append(pB, 1))[:3] + (KB @ np.append(pB, 1))[:3]) / 2
+        Kh = np.eye(4); Kh[:3, :3] = Rt; Kh[:3, 3] = pt - Rt @ pB
+        want[bnode[h_]] = RF @ Kh @ H(rest[A_]) @ SUP
     if f >= nf - int(os.environ.get('HIDE_TAIL', '0')):   # the sky shot ends with the camera flying through him: hide him there
         for bb in bnames: want[bnode[bb]] = RF @ np.diag([1e-3, 1e-3, 1e-3, 1.0])
     for i in hooh:
@@ -244,14 +269,26 @@ headmat = [i for i, x in enumerate(mats) if x.get('tex') == 'ho_head_top'][0]
 # walk the raw render commands: move our bones' matrix stores to free slots (17..), follow the restores, note when each
 # Ho-Oh shape is drawn (a bone can only be drawn after its matrix is made)
 matpos = {}
-FREE = list(range(17, 31)); newslot = {bnode[b]: FREE[k] for k, b in enumerate(bnames)}
+OURS = set(bnode.values())
+SUPPRESS = {i for i in hooh if i != j1 and i not in NEEDED and i not in OURS}
+forbid = {KEEP_SLOT, 0}
+for op, p in m['rcmds']:
+    if op in (0x26, 0x66) and p[0] not in OURS and p[0] not in SUPPRESS: forbid.add(p[3])
+    if op == 9: forbid.add(p[0])
+FREE = [s_ for s_ in range(1, 30) if s_ not in forbid]
+assert len(FREE) >= len(bnames), ('not enough matrix slots', len(FREE), len(bnames))
+newslot = {bnode[b]: FREE[k] for k, b in enumerate(bnames)}
+print('slots', len(FREE), 'free for', len(bnames), 'bones; suppressed stores', len(SUPPRESS))
 owner = {}; use = []; cur = None; curpos = None; o = mo + rc; k_ = 0; shape_k = {}; made = {}
 while True:
     op = d[o]; n = 2 + 3 * d[o + 2] if op == 9 else nitro.RCMD_LEN[op]; p = list(d[o + 1:o + 1 + n])
     if op == 0x46 and owner.get(p[3]) in newslot: d[o + 1 + 3] = newslot[owner[p[3]]]
     if op == 0x66 and owner.get(p[4]) in newslot: d[o + 1 + 4] = newslot[owner[p[4]]]
     if op == 3 and owner.get(p[0]) in newslot: d[o + 1] = newslot[owner[p[0]]]
-    if op in (0x26, 0x66):
+    if op in (0x26, 0x66) and p[0] in SUPPRESS:                       # unused Ho-Oh joint: no store (same length: NOP after)
+        if op == 0x26: d[o:o + 5] = bytes([0x06, p[0], p[1], p[2], 0x00])
+        else: d[o:o + 6] = bytes([0x46, p[0], p[1], p[2], d[o + 5], 0x00])
+    elif op in (0x26, 0x66):
         if p[0] in newslot: d[o + 1 + 3] = newslot[p[0]]; made[p[0]] = k_; owner[p[3]] = p[0]   # later restores of the old slot follow it
         else: owner[p[3]] = p[0]
         if p[0] in newslot: pass
@@ -299,16 +336,18 @@ def strips_of(tris_l):                                     # greedy strips; both
     for ti, t in enumerate(T):
         for a_, b_ in ((t[0], t[1]), (t[1], t[2]), (t[2], t[0])): edge.setdefault(frozenset((a_, b_)), []).append(ti)
     used = [False] * len(T); out = []
+    MAXS = int(os.environ.get('MAXSTRIP', '30'))                   # long strips are split so they fit the leftover room in shapes
     def grow(st):
-        while True:
+        while len(st) < MAXS:
             cand = [t for t in edge.get(frozenset((st[-2], st[-1])), []) if not used[t]]
             if not cand: return st
             t = cand[0]; used[t] = True; st.append([v for v in T[t] if v not in (st[-2], st[-1])][0])
+        return st
     for s0 in range(len(T)):
         if used[s0]: continue
         used[s0] = True; st = grow(list(T[s0])); st = grow(list(reversed(st))); out.append([verts[v] for v in st])
     return out
-HINV = {b: np.linalg.inv(H(rest[b])) for b in bnames}
+HINV = {b: np.linalg.inv(H(rest[b.split(':')[1] if b.startswith('h:') else b])) for b in bnames}   # a helper lives in its parent's rest frame
 work = []                                                   # (group, bones used, strip commands); each vertex follows its own bone
 for g in IDX:
     mine = [t for t in tris if (t[3] if MULTI else 0) == g]
@@ -351,8 +390,8 @@ def _simulate(assign):
             room -= _wlen[wi]; dn[wi] = True; n += 1
     return n
 _need = {g: sum(_wlen[wi] for wi, w in enumerate(work) if w[0] == g) for g in IDX}
-_rng = np.random.default_rng(7); best = None
-for _t in range(600):
+_rng = np.random.default_rng(int(os.environ.get("ASSIGN_SEED", "7"))); best = None
+for _t in range(int(os.environ.get("ASSIGN_TRIES", "4000"))):
     asg = {}
     if _t == 0:                                                        # the old greedy as a candidate
         left = dict(_need)
@@ -364,6 +403,25 @@ for _t in range(600):
     if best is None or sc_ > best[0]: best = (sc_, asg)
     if best[0] == len(work): break
 ASSIGN = best[1]
+if best[0] < len(work):                                                # leftovers: strips on a late helper fall back to its parent bone
+    def _placed(assign):
+        dn = [False] * len(work)
+        for sh in _order:
+            g = assign.get(sh)
+            if g is None: continue
+            room = shapes[sh][1] - 16
+            for wi, w in enumerate(work):
+                if dn[wi] or w[0] != g or not ready(w, shape_k[sh]) or _wlen[wi] > room: continue
+                room -= _wlen[wi]; dn[wi] = True
+        return dn
+    for wi, ok_ in enumerate(_placed(ASSIGN)):
+        if ok_: continue
+        w = work[wi]; hs = [b for b in w[1] if b.startswith('h:')]
+        if not hs: continue
+        rp = {newslot[bnode[h]]: newslot[bnode[h.split(':')[1]]] for h in hs}
+        work[wi] = (w[0], {(b.split(':')[1] if b.startswith('h:') else b) for b in w[1]}, [((op, [rp.get(ps[0], ps[0])]) if op == 0x14 else (op, ps)) for op, ps in w[2]])
+    _wlen = [len(pack_cmds(w[2])) for w in work]
+    print('fallback: strips on late helpers moved to the parent bone;', _simulate(ASSIGN), 'of', len(work), 'now fit')
 for sh in ([] if 'noplace' in TEST else sorted(use, key=lambda x: shape_k[x])):             # shapes in draw order; only bones already made; one group per shape
     so, cl = shapes[sh]
     g_ = ASSIGN.get(sh)
