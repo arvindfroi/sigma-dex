@@ -12,7 +12,10 @@ import nitro, geom, bca_write
 SRC, DST, BASE, BJ, MM, BM = sys.argv[1:7]; MM, BM = int(MM), int(BM)
 SIZE = float(sys.argv[7]) if len(sys.argv) > 7 else 340.0
 CYC = [int(x) for x in (sys.argv[8] if len(sys.argv) > 8 else '1,2,3,4').split(',')]; STEP = int(sys.argv[9]) if len(sys.argv) > 9 else 5
-HOOH = re.compile(r'^(hou_|ho_head_top|ho_tail)')
+HOOH = re.compile(r'^(hou_(?!tail_[lp])|ho_head_top|ho_tail)')  # hou_tail_l/_l2 = Ho-Oh's glow disc (~600 units, joint27),
+GLOWTEX = re.compile(r'^hou_tail_[lp]')                           # hou_tail_p = sparkle quads: kept, on Ho-Oh's own joints
+TEST = set(os.environ.get('RIGTEST', '').split(','))              # bisect switches: noshapes, nomats, notex, rigid, nomtx
+KEEP_SLOT = 30                                                   # our shapes save/restore the current matrix here (see below)
 F = unpack(open(SRC, 'rb').read()); D = lambda i: lz11_dec(F[i]) if F[i][:1] == b'\x11' else F[i]
 d = bytearray(D(MM)); r = nitro.read_bmd(bytes(d)); m = r['models'][0]; mats = m['mats']; up = m['info']['up']
 anim = geom.read_bca(D(BM))[0]; nf = anim['nframes']; names = [n for n, _ in m['nodes']]
@@ -32,7 +35,19 @@ bnames = [b for b in B['rest'] if b not in MERGE]
 pos = {}
 for k_, (op, p) in enumerate(m['rcmds']):
     if op in (6, 0x26, 0x46, 0x66) and p[0] not in pos: pos[p[0]] = k_
-cands = sorted([i for i in hooh if i != j1 and i in slot], key=lambda i: pos[i])
+# joints that carry the glow shapes keep Ho-Oh's own animation and are not taken for our bones
+glowj = set(); _own = {}; _cur = None; _mat = None
+for op, p in m['rcmds']:
+    if op in (0x26, 0x66): _own[p[3]] = p[0]
+    if op in (6, 0x26, 0x46, 0x66): _cur = p[0]
+    if op == 3: _cur = _own.get(p[0])
+    if op in (4, 0x24, 0x44): _mat = p[0]
+    if op == 5 and GLOWTEX.search(str(mats[_mat].get('tex', ''))) and _cur is not None: glowj.add(_cur)
+_anc = set()
+for gj in glowj:
+    while gj in parent and parent[gj] != gj: _anc.add(gj); gj = parent[gj]
+glowj |= _anc
+cands = sorted([i for i in hooh if i != j1 and i in slot and i not in glowj], key=lambda i: pos[i])
 assert len(cands) >= len(bnames), (len(cands), len(bnames))
 bnode = {b: cands[k] for k, b in enumerate(bnames)}
 # model frame: Blender (fwd -Y, up +Z) -> joint1 local, as found in the film tests
@@ -93,7 +108,7 @@ for f in range(nf):
     RF = root_frame(f) if PATHFRAME else W[j1]
     for b in bnames: want[bnode[b]] = RF @ H(bone_world(b, f)) @ SUP     # posScale folded into the bone matrices
     for i in hooh:
-        if i != j1 and i not in bnode.values(): want[i] = W[j1]          # unused Ho-Oh joints sit on the root
+        if i != j1 and i not in bnode.values(): want[i] = W[i] if i in glowj else W[j1]   # glow joints: Ho-Oh's own; the rest on the root
     for i in range(len(names)):
         if i in hooh and i != j1:
             # Maya segment scale compensation (model scaling == 1): world_i = world_pa . T_i . S_pa^-1 . R_i . S_i, so with
@@ -111,9 +126,9 @@ for i, o in enumerate(anim['objs']):
 new_bca = bca_write.build(nf, bnodes, template=D(BM))
 # geometry: Ho-Oh's shapes emptied; per bone strips in the bone's rest frame
 mo = m['off']; size, rc, mat, shp, invo = struct.unpack_from('<5I', d, mo)
-ents, _ = nitro.dict_read(bytes(d), mo + shp, 4); shapes = []
+ents, _ = nitro.dict_read(bytes(d), mo + shp, 4); shapes = []; shapehdr = []
 for e, sn, _ in ents:
-    o = mo + shp + nitro.u32(e, 0); dummy, ssz, flag, co, cl = struct.unpack_from('<HHIII', d, o); shapes.append((o + co, cl))
+    o = mo + shp + nitro.u32(e, 0); dummy, ssz, flag, co, cl = struct.unpack_from('<HHIII', d, o); shapes.append((o + co, cl)); shapehdr.append(o)
 headmat = [i for i, x in enumerate(mats) if x.get('tex') == 'ho_head_top'][0]
 # walk the raw render commands: move our bones' matrix stores to free slots (17..), follow the restores, note when each
 # Ho-Oh shape is drawn (a bone can only be drawn after its matrix is made)
@@ -136,6 +151,7 @@ while True:
         use.append(p[0]); shape_k[p[0]] = k_; matpos[p[0]] = curpos
     o += 1 + n; k_ += 1
     if op == 1: break
+if 'noshapes' in TEST: use = []
 for sh in use: so, cl = shapes[sh]; d[so:so + cl] = bytes(cl)
 TEXN = {0: 'ho_head_top', 1: 'hou_eye', 2: 'hou_mouth01'}
 import os as _os
@@ -185,30 +201,39 @@ for g in IDX:
     loc = [[((HINV[vb] @ np.append(s * Fx @ (np.array(v) - cen), 1))[:3], (uvv, vb)) for v, uvv, vb in zip(t[0], t[1], t[4])] for t in mine]
     for st in strips_of([[(pv, x) for pv, x in tri] for tri in loc]):
         bones_ = {x[1] for _, x in st}; cmds_ = [(0x40, [2])]; curb_ = None
+        if 'rigid' in TEST: cmds_ = [(0x14, [newslot[bnode[st[0][1][1]]]]), (0x40, [2])]; curb_ = st[0][1][1]
         for pv, (uv, vb) in st:
-            if vb != curb_: cmds_ += [(0x14, [newslot[bnode[vb]]])]; curb_ = vb      # no SCALE: it is in the bone matrix
+            if 'nomtx' in TEST: curb_ = vb
+            if vb != curb_ and 'rigid' not in TEST: cmds_ += [(0x14, [newslot[bnode[vb]]])]; curb_ = vb      # no SCALE: it is in the bone matrix
             cmds_ += [(0x22, [tc(uv, g)]), (0x24, [v10(pv)])]
         work.append((g, bones_, cmds_ + [(0x41, [])]))
 done = [False] * len(work); placed = 0
 ready = lambda w, k: all(made.get(bnode[b], 1e9) < k for b in w[1])
-for sh in sorted(use, key=lambda x: shape_k[x]):             # shapes in draw order; only bones already made; one group per shape
+for sh in ([] if 'noplace' in TEST else sorted(use, key=lambda x: shape_k[x])):             # shapes in draw order; only bones already made; one group per shape
     so, cl = shapes[sh]
     left = {g: sum(len(pack_cmds(w[2])) for w, ok in zip(work, done) if not ok and w[0] == g and ready(w, shape_k[sh])) for g in IDX}
     g_ = max(left, key=left.get)
     if left[g_] == 0: continue
-    cmds = [(0x20, [0x7fff])]
+    # NNS remembers the last restored matrix slot and skips a restore of the same slot; our strips change the hardware
+    # matrix behind its back, so the next shape (the sky shot's glow) would be drawn with our bone. Save and give it back.
+    cmds = [(0x13, [KEEP_SLOT]), (0x20, [0x7fff])]; tail = [(0x14, [KEEP_SLOT])]
+    if 'nomtx' in TEST: cmds = [(0x20, [0x7fff])]; tail = []
+    if 'minimal' in TEST: cmds = [(0x0, []), (0x0, [])]; tail = []
     for wi, w in enumerate(work):
         if done[wi] or w[0] != g_ or not ready(w, shape_k[sh]): continue
-        if len(pack_cmds(cmds + w[2])) > cl: continue
+        if len(pack_cmds(cmds + w[2] + tail)) > cl: continue
         cmds += w[2]; done[wi] = True
-    if len(cmds) > 1:
-        blob = pack_cmds(cmds); d[so:so + cl] = blob + bytes(cl - len(blob)); placed += 1; d[matpos[sh]] = GMAT[g_]
+    if len(cmds) > (1 if 'nomtx' in TEST else 2):
+        blob = pack_cmds(cmds + tail); d[so:so + cl] = blob + bytes(cl - len(blob)); placed += 1; d[matpos[sh]] = GMAT[g_]
+        # shape flags: 2 = sends COLOR, 8 = restores matrices (NNS then stops trusting its current-matrix cache: without it the
+        # next restore of the same slot is skipped and the sky shot's glow is drawn with our bone matrix)
+        if 'noflag' not in TEST: struct.pack_into('<I', d, shapehdr[sh] + 4, struct.unpack_from('<I', d, shapehdr[sh] + 4)[0] | 0x2 | 0x8)
 qi = sum(sum(len(c[1]) for c in [w]) for w, ok in zip(work, done) if ok); queue = work
-print('strips placed', sum(done), 'of', len(work), 'in', placed, 'shapes; bones', {b: names[i] for b, i in bnode.items()})
-for g, mi_ in GMAT.items():
+print('glow joints', sorted(names[i] for i in glowj)); print('strips placed', sum(done), 'of', len(work), 'in', placed, 'shapes; bones', {b: names[i] for b, i in bnode.items()})
+for g, mi_ in ({} if 'nomats' in TEST else GMAT).items():
     mo_ = mats[mi_]['off']; pa = struct.unpack_from('<I', d, mo_ + 12)[0]; struct.pack_into('<I', d, mo_ + 12, (pa & ~0xF & ~(31 << 16)) | 0xC0 | (31 << 16))
 def c555(c): rr, gg, bb = (int(round(v / 255 * 31)) for v in c); return rr | gg << 5 | bb << 10
-for bo in r['blocks']:
+for bo in ([] if 'notex' in TEST else r['blocks']):
     if d[bo:bo + 4] != b'TEX0': continue
     t = nitro.read_tex(bytes(d), bo); fh = t['raw_hdr']; tbo, pbo = fh[6], fh[17]
     ents2, _ = nitro.dict_read(bytes(d), bo + fh[4], 8)

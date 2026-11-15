@@ -826,3 +826,10 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   sab/pxd_2_pal.npy sab/eyes2/f{1..7}_idx_5.npy`. `hover_patch.py OV002 ROM_IN ROM_OUT 20` makes the bird land 20 units above
   its map object (overlay 2, Task_BirdFinalApproach: yEnd = pos.y + 20; the dead SoulSilver branch makes room), so he
   hovers above Satsuki instead of standing behind her. Test ROM `legend_test/jump_hooh2_hover.nds`.
+- **Ho-Oh's glow** is part of Ho-Oh's own model: the translucent `hou_tail_l` (sky shot) / `hou_tail_l2` (pagoda) disc,
+  about 600 units across, plus the `hou_tail_p` sparkle quads, all on joint27. `rig3d.py` keeps those shapes, keeps
+  joint27 (and its parents) on Ho-Oh's animation and takes our bones from the other joints. Found by bisecting with test
+  ROMs (`RIGTEST=noshapes|nomats|notex|rigid|nomtx|minimal|noplace` switches in rig3d).
+- **Flat colours like Ho-Oh** (its film textures are near-solid swatches): `sab3d/clean_tex.py pt7 pt9_6 6` (one colour per
+  material, islands under 6 texels removed, no painted light bands, angry eye); check with `sab3d/preview_lit.py pt9_6 OUT`.
+  Film v11: `rig3d.py ... legend/sab3d/pt9_6 legend/sab3d/bones_walk2.json SCENE BCA 460 1,...,16 3`.
