@@ -1169,3 +1169,15 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - `overworld_animasjon_lugia_sabertann_gravriel.gif`, `overworld_v4_lugia_sabertann_gravriel.png`.
     - Videos: `gravriel_overworld_v4_halv_fart.mp4`, `gravriel_ritual_soulsilver_vei_v4.mp4` and `sabertann_feltsprite_vind_halv_fart.mp4`.
     - Data: `title3d/legend/grav3d/ow_qwen/frames_v4` and `title3d/legend/sab/wind_v1` with SHA256SUMS.
+- **Gravriel's overworld sprite v5 (2026-11-17): the cry turns green** (Arvind on v4: "when the eyes open up more the nostrils get crazy big ... you can rather make him a bit green like we've done").
+  - `grav3d/ow_qwen/ow_cry.py frames_v4 frames_v2/f6_idx.npy OUT`: frames 1-6 stay v4's. In frame 7, the cry:
+    - The face is the base face again: beak closed, eyes as in the other frames. The open beak's dark/red/dark columns read as two huge nostrils.
+    - The claws thrown open and the flared hem stay. The one-row gap the claw drop left through his right arm is closed.
+    - He flashes his ghost. His darkest colour (the coat, the bulk of him) goes half way to the film's ghost colour (0.35l+10, 1.05l+60, 0.8l+44), giving 24,72,56 (`MIX` 0.5). A one-pixel glow of pale ghost green (96,176,144, `HALO`) rings his silhouette like the film's green outline; holes inside him get none.
+  - **Palette:** it was full (15), so the two closest colour pairs in Lab were merged in every frame to free two slots: 48,80,80 into 32,64,64 (dE 6.9) and 80,128,128 into 56,104,104 (dE 9.5). About 210 px per frame change by one shade of teal.
+  - In the game the cry shows when he has landed in the ritual room, about 60 frames (HeartGold path, frames 2998-3058 of the recording). The eye glimmer is unchanged (v4).
+  - **Files:**
+    - Test ROM: `legend_test/jump_lug_ow9.nds` (jump_lug_ow8 with the new a/0/8/1 211; sha256 prefix `655e8d50054ddfe8`).
+    - Data: `title3d/legend/grav3d/ow_qwen/frames_v5`, `a081_gravriel_ow_v5.bin`, SHA256SUMS_v5.
+    - `gravriel_brol_v4_mot_v5.png` (Lugia, v4 and v5 cry), `gravriel_overworld_v5_rutene.png`, `overworld_animasjon_v5_gravriel_groent_brol.gif`.
+    - Videos: `gravriel_overworld_v5_halv_fart.mp4` (Origin, v4, v5) and `gravriel_overworld_v5.mp4`.
