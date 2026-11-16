@@ -2263,19 +2263,23 @@
             "move": "Tailwind"
           },
           {
+            "level": 50,
+            "move": "Roost"
+          },
+          {
             "level": 54,
             "move": "Inferno"
           },
           {
-            "level": 62,
+            "level": 58,
             "move": "Fire Blast"
           },
           {
-            "level": 66,
-            "move": "Roost"
+            "level": 62,
+            "move": "Overheat"
           },
           {
-            "level": 75,
+            "level": 66,
             "move": "Hurricane"
           }
         ],
@@ -8489,9 +8493,9 @@
       },
       "base_stats": {
         "hp": 67,
-        "attack": 30,
+        "attack": 39,
         "defense": 38,
-        "sp_attack": 76,
+        "sp_attack": 67,
         "sp_defense": 92,
         "speed": 22
       },
@@ -11906,11 +11910,11 @@
       },
       "base_stats": {
         "hp": 55,
-        "attack": 55,
-        "defense": 55,
+        "attack": 30,
+        "defense": 80,
         "sp_attack": 145,
-        "sp_defense": 55,
-        "speed": 55
+        "sp_defense": 80,
+        "speed": 30
       },
       "ev_yield": {
         "sp_attack": 3
@@ -21126,23 +21130,27 @@
             "move": "Slash"
           },
           {
+            "level": 27,
+            "move": "Rock Blast"
+          },
+          {
             "level": 30,
             "move": "Dragon Claw"
           },
           {
-            "level": 30,
+            "level": 34,
             "move": "Rock Slide"
           },
           {
-            "level": 34,
-            "move": "Rock Blast"
-          },
-          {
-            "level": 40,
+            "level": 38,
             "move": "Crunch"
           },
           {
-            "level": 45,
+            "level": 42,
+            "move": "Accelerock"
+          },
+          {
+            "level": 46,
             "move": "Dragon Rush"
           },
           {
@@ -21168,6 +21176,7 @@
         ],
         "tm_hm": [
           "Dragon Claw",
+          "Roar",
           "Toxic",
           "Hidden Power",
           "Sunny Day",
@@ -21192,16 +21201,20 @@
           "Giga Impact",
           "Rock Polish",
           "Stone Edge",
+          "Swords Dance",
           "Stealth Rock",
           "Rock Slide",
           "Sleep Talk",
           "Swagger",
           "Substitute",
+          "Heavy Slam",
           "Bulldoze",
           "High Horsepower",
+          "Psychic Fangs",
           "Body Press",
           "Strength",
-          "Rock Smash"
+          "Rock Smash",
+          "Rock Climb"
         ],
         "tutor": [
           "Ancient Power",
@@ -21213,7 +21226,9 @@
           "Iron Head",
           "Outrage",
           "Power Gem",
-          "Thunder Fang"
+          "Thunder Fang",
+          "Ice Fang",
+          "Fire Fang"
         ],
         "egg": [
           "Rollout",

@@ -3208,6 +3208,7 @@ static const u16 sFlurinaTeachableLearnset[] = {
 
 static const u16 sDragemTeachableLearnset[] = {
     MOVE_DRAGON_CLAW,
+    MOVE_ROAR,
     MOVE_TOXIC,
     MOVE_HIDDEN_POWER,
     MOVE_SUNNY_DAY,
@@ -3232,16 +3233,20 @@ static const u16 sDragemTeachableLearnset[] = {
     MOVE_GIGA_IMPACT,
     MOVE_ROCK_POLISH,
     MOVE_STONE_EDGE,
+    MOVE_SWORDS_DANCE,
     MOVE_STEALTH_ROCK,
     MOVE_ROCK_SLIDE,
     MOVE_SLEEP_TALK,
     MOVE_SWAGGER,
     MOVE_SUBSTITUTE,
+    MOVE_HEAVY_SLAM,
     MOVE_BULLDOZE,
     MOVE_HIGH_HORSEPOWER,
+    MOVE_PSYCHIC_FANGS,
     MOVE_BODY_PRESS,
     MOVE_STRENGTH,
     MOVE_ROCK_SMASH,
+    MOVE_ROCK_CLIMB,
     MOVE_ANCIENT_POWER,
     MOVE_AQUA_TAIL,
     MOVE_BODY_SLAM,
@@ -3252,6 +3257,8 @@ static const u16 sDragemTeachableLearnset[] = {
     MOVE_OUTRAGE,
     MOVE_POWER_GEM,
     MOVE_THUNDER_FANG,
+    MOVE_ICE_FANG,
+    MOVE_FIRE_FANG,
     MOVE_UNAVAILABLE,
 };
 

@@ -821,10 +821,10 @@ TEST("Sigma dex: Nukfae has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_NUKFAE];
     EXPECT_EQ(info->baseHP, 67);
-    EXPECT_EQ(info->baseAttack, 30);
+    EXPECT_EQ(info->baseAttack, 39);
     EXPECT_EQ(info->baseDefense, 38);
     EXPECT_EQ(info->baseSpeed, 22);
-    EXPECT_EQ(info->baseSpAttack, 76);
+    EXPECT_EQ(info->baseSpAttack, 67);
     EXPECT_EQ(info->baseSpDefense, 92);
     EXPECT_EQ(info->types[0], TYPE_POISON);
     EXPECT_EQ(info->types[1], TYPE_FAIRY);
@@ -1157,11 +1157,11 @@ TEST("Sigma dex: Beatld has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BEATLD];
     EXPECT_EQ(info->baseHP, 55);
-    EXPECT_EQ(info->baseAttack, 55);
-    EXPECT_EQ(info->baseDefense, 55);
-    EXPECT_EQ(info->baseSpeed, 55);
+    EXPECT_EQ(info->baseAttack, 30);
+    EXPECT_EQ(info->baseDefense, 80);
+    EXPECT_EQ(info->baseSpeed, 30);
     EXPECT_EQ(info->baseSpAttack, 145);
-    EXPECT_EQ(info->baseSpDefense, 55);
+    EXPECT_EQ(info->baseSpDefense, 80);
     EXPECT_EQ(info->types[0], TYPE_BUG);
     EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
     EXPECT_EQ(info->abilities[0], ABILITY_CURIOUS_MEDICINE);

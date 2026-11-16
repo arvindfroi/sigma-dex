@@ -1450,10 +1450,10 @@
     [SPECIES_NUKFAE] =
     {
         .baseHP = 67,
-        .baseAttack = 30,
+        .baseAttack = 39,
         .baseDefense = 38,
         .baseSpeed = 22,
-        .baseSpAttack = 76,
+        .baseSpAttack = 67,
         .baseSpDefense = 92,
         .types = MON_TYPES(TYPE_POISON, TYPE_FAIRY),
         .catchRate = 190,
@@ -2071,11 +2071,11 @@
     [SPECIES_BEATLD] =
     {
         .baseHP = 55,
-        .baseAttack = 55,
-        .baseDefense = 55,
-        .baseSpeed = 55,
+        .baseAttack = 30,
+        .baseDefense = 80,
+        .baseSpeed = 30,
         .baseSpAttack = 145,
-        .baseSpDefense = 55,
+        .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_BUG, TYPE_PSYCHIC),
         .catchRate = 45,
         .expYield = 147,

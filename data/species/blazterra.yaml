@@ -88,10 +88,11 @@ learnset:
     - {level: 43, move: Acrobatics}
     - {level: 46, move: Fire Spin}
     - {level: 48, move: Tailwind}
+    - {level: 50, move: Roost}
     - {level: 54, move: Inferno}
-    - {level: 62, move: Fire Blast}
-    - {level: 66, move: Roost}
-    - {level: 75, move: Hurricane}
+    - {level: 58, move: Fire Blast}
+    - {level: 62, move: Overheat}
+    - {level: 66, move: Hurricane}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Dragon Claw, Roar, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
           Rain Dance, Frustration, Solar Beam, Iron Tail, Return, Shadow Ball, Double Team,
