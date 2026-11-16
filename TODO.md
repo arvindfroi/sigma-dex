@@ -53,11 +53,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 ## Missing per Pokemon
 
-### #1 [Leafing](data/species/leafing.yaml) - 76%
+### #1 [Leaflet](data/species/leafing.yaml) - 76%
 
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #2 [Leafsteel](data/species/leafsteel.yaml) - 83%
+### #2 [Leafling](data/species/leafsteel.yaml) - 83%
 
 - **Dex page:** category, description
 - **Location:** encounters

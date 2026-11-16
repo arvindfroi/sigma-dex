@@ -5,9 +5,9 @@
 #include "test/battle.h"
 #include "constants/characters.h"
 
-TEST("Sigma dex: Leafing has the data from its species file")
+TEST("Sigma dex: Leaflet has the data from its species file")
 {
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_LEAFING];
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_LEAFLET];
     EXPECT_EQ(info->baseHP, 60);
     EXPECT_EQ(info->baseAttack, 65);
     EXPECT_EQ(info->baseDefense, 60);
@@ -18,13 +18,13 @@ TEST("Sigma dex: Leafing has the data from its species file")
     EXPECT_EQ(info->types[1], TYPE_GRASS);
     EXPECT_EQ(info->abilities[0], ABILITY_OVERGROW);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_TACKLE);
-    EXPECT_EQ(GetSpeciesName(SPECIES_LEAFING)[0], CHAR_L);
+    EXPECT_EQ(GetSpeciesName(SPECIES_LEAFLET)[0], CHAR_L);
 }
 
-SINGLE_BATTLE_TEST("Sigma dex: Leafing can use its first move in battle")
+SINGLE_BATTLE_TEST("Sigma dex: Leaflet can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_LEAFING) { Moves(MOVE_TACKLE); }
+        PLAYER(SPECIES_LEAFLET) { Moves(MOVE_TACKLE); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN { MOVE(player, MOVE_TACKLE); }
@@ -33,9 +33,9 @@ SINGLE_BATTLE_TEST("Sigma dex: Leafing can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: Leafsteel has the data from its species file")
+TEST("Sigma dex: Leafling has the data from its species file")
 {
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_LEAFSTEEL];
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_LEAFLING];
     EXPECT_EQ(info->baseHP, 75);
     EXPECT_EQ(info->baseAttack, 90);
     EXPECT_EQ(info->baseDefense, 80);
@@ -46,13 +46,13 @@ TEST("Sigma dex: Leafsteel has the data from its species file")
     EXPECT_EQ(info->types[1], TYPE_STEEL);
     EXPECT_EQ(info->abilities[0], ABILITY_OVERGROW);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SLASH);
-    EXPECT_EQ(GetSpeciesName(SPECIES_LEAFSTEEL)[0], CHAR_L);
+    EXPECT_EQ(GetSpeciesName(SPECIES_LEAFLING)[0], CHAR_L);
 }
 
-SINGLE_BATTLE_TEST("Sigma dex: Leafsteel can use its first move in battle")
+SINGLE_BATTLE_TEST("Sigma dex: Leafling can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_LEAFSTEEL) { Moves(MOVE_SLASH); }
+        PLAYER(SPECIES_LEAFLING) { Moves(MOVE_SLASH); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN { MOVE(player, MOVE_SLASH); }

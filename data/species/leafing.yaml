@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
 dex: 1
-name: Leafing
+name: Leaflet
 
 credits:
   designer: Emil Venge-Kvamme # who came up with it (Discord name)
@@ -82,11 +82,11 @@ learnset:
     - {level: 40, move: Leaf Blade}
     - {level: 45, move: Swords Dance}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Dragon Claw, Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect,
-          Giga Drain, Frustration, Solar Beam, Iron Tail, Return, Double Team, Aerial Ace,
-          Facade, Secret Power, Rest, Attract, Cut, Strength, Flash, Rock Smash,
-          Light Screen, Safeguard, Reflect, Energy Ball, Endure, Swords Dance, Captivate,
-          Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute, Grassy Terrain]
+  tm_hm: [Dragon Claw, Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam,
+          Light Screen, Protect, Giga Drain, Safeguard, Frustration, Solar Beam, Iron Tail,
+          Return, Double Team, Reflect, Aerial Ace, Facade, Secret Power, Rest, Attract,
+          Energy Ball, Endure, Flash, Swords Dance, Captivate, Sleep Talk, Natural Gift,
+          Grass Knot, Swagger, Substitute, Grassy Terrain, Cut, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Swords Dance, Body Slam, Double-Edge, Mimic, Substitute, Snore, Endure, Mud-Slap,
           Swagger, Sleep Talk, Fury Cutter, Curse, Leaf Storm, Magical Leaf, Seed Bomb,
@@ -120,7 +120,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/leafing.png
+  concept_art:           # e.g. assets/concept-art/leaflet.png
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

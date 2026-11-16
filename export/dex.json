@@ -16,7 +16,7 @@
   "species": [
     {
       "dex": 1,
-      "name": "Leafing",
+      "name": "Leaflet",
       "credits": {
         "designer": "Emil Venge-Kvamme",
         "artist": null
@@ -133,27 +133,24 @@
           "Hidden Power",
           "Sunny Day",
           "Hyper Beam",
+          "Light Screen",
           "Protect",
           "Giga Drain",
+          "Safeguard",
           "Frustration",
           "Solar Beam",
           "Iron Tail",
           "Return",
           "Double Team",
+          "Reflect",
           "Aerial Ace",
           "Facade",
           "Secret Power",
           "Rest",
           "Attract",
-          "Cut",
-          "Strength",
-          "Flash",
-          "Rock Smash",
-          "Light Screen",
-          "Safeguard",
-          "Reflect",
           "Energy Ball",
           "Endure",
+          "Flash",
           "Swords Dance",
           "Captivate",
           "Sleep Talk",
@@ -161,7 +158,10 @@
           "Grass Knot",
           "Swagger",
           "Substitute",
-          "Grassy Terrain"
+          "Grassy Terrain",
+          "Cut",
+          "Strength",
+          "Rock Smash"
         ],
         "tutor": [
           "Swords Dance",
@@ -250,7 +250,7 @@
     },
     {
       "dex": 2,
-      "name": "Leafsteel",
+      "name": "Leafling",
       "credits": {
         "designer": "Emil Venge-Kvamme",
         "artist": null
@@ -402,9 +402,11 @@
           "Bullet Seed",
           "Hidden Power",
           "Sunny Day",
+          "Light Screen",
           "Protect",
           "Rain Dance",
           "Giga Drain",
+          "Safeguard",
           "Frustration",
           "Solar Beam",
           "Iron Tail",
@@ -439,9 +441,7 @@
           "Grassy Terrain",
           "Cut",
           "Strength",
-          "Rock Smash",
-          "Light Screen",
-          "Safeguard"
+          "Rock Smash"
         ],
         "tutor": [
           "Body Slam",

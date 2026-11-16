@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
 dex: 2
-name: Leafsteel
+name: Leafling
 
 credits:
   designer: Emil Venge-Kvamme # who came up with it (Discord name)
@@ -87,13 +87,13 @@ learnset:
     - {level: 48, move: Swords Dance}
     - {level: 51, move: Seed Bomb}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Protect, Rain Dance, Giga Drain,
-          Frustration, Solar Beam, Iron Tail, Return, Dig, Brick Break, Double Team,
-          Reflect, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract, Energy Ball,
-          Endure, Shadow Claw, Flash, Stone Edge, Gyro Ball, Swords Dance, Stealth Rock,
-          Captivate, Rock Slide, Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute,
-          Flash Cannon, Heavy Slam, Grassy Terrain, Cut, Strength, Rock Smash, Light Screen,
-          Safeguard]
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance,
+          Giga Drain, Safeguard, Frustration, Solar Beam, Iron Tail, Return, Dig,
+          Brick Break, Double Team, Reflect, Rock Tomb, Aerial Ace, Facade, Secret Power,
+          Rest, Attract, Energy Ball, Endure, Shadow Claw, Flash, Stone Edge, Gyro Ball,
+          Swords Dance, Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift,
+          Grass Knot, Swagger, Substitute, Flash Cannon, Heavy Slam, Grassy Terrain, Cut,
+          Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Iron Head, Leaf Storm, Magical Leaf, Metal Claw, Seed Bomb,
           Solar Blade, Synthesis, Curse, Zen Headbutt, Night Slash]
