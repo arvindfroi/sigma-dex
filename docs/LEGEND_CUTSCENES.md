@@ -42,3 +42,35 @@ Ho-Oh's camera angles, the camera clipping through the cave. Checked three ways:
    Wing could become something like a treasure map. Origin needs the Rainbow Wing and the Clear Bell (plus the dance) for
    Ho-Oh; the lore asks for the Tidal Bell and the Silver Wing for Lugia. To be decided with Arvind.
 5. **Test in the scene:** put our frames into the test ROM and record the same scene side by side with Origin's.
+
+## Gravriel in the Lugia scenes: what we found and the plan (2026-11-16)
+
+**Lugia's 3D film.** The post-game ritual (script 104) plays `Cinematic 1` = Lugia's 3D film `a/2/4/4` (84324 bytes) right before `LegendCutsceneLugiaArrivesEffect` and the descent. Clean 60 fps recording: `origin_lugia_film_jevn.mp4`. It runs 246 frames:
+- the camera pans along the waterfall in the sea cave;
+- a flash, then Lugia bursts out of the fall;
+- Lugia spins in a ring of water and sparkles;
+- it hovers in front of the fall and roars;
+- fade to black.
+
+**Easier to replace than Ho-Oh's film.** Lugia is its own model, not part of the scene models:
+
+| Member | What it is |
+|---|---|
+| 5 `lugia_b09` | Skinned model (blend matrices, op 9). 26 joints: body, 4 per leg, 4 per arm, body_up, 2 neck, head, jaw (`ago1`), 4 tail. 2 shapes holding 61 KB of display lists. posScale 4. Textures `lugia_s` 64x64 and `lugia_foot` 32x32, 4bpp. |
+| 6 | Lugia's animation, 246 frames, 26 tracks. |
+| 0-4 `demoapri_r` | The cave, the fall, the water ring, and their animations. Kept as they are. |
+
+**Gravriel's model.** The intro model (`title3d/grav/grav_v5.blend`) is one 160k-face Hunyuan mesh with vertex paint and a 3-bone face rig. It has no parts, no arms rig and no UVs. A film model needs work like Sabertann's:
+- **Parts:** hat, owl face mask and beak, seaweed beard, coat, tatters, arms and hands, cutlass, built from the concept (`assets/concept-art/gravriel/240.webp`, 241).
+- **Rig:** about 18 bones on Lugia's 26 joints.
+- **Low-poly:** about 1000 triangles.
+- **Textures:** Ho-Oh-style flat colour swatches plus a face decal (eyes, beak), within 64x64 + 32x32.
+
+**Plan, in order:**
+1. **The film:**
+   - Build Gravriel's game model.
+   - Write `rig_lugia.py` (Lugia's joints and shapes, our strips skinned per vertex, a new BCA), reusing `rig3d.py`'s pieces.
+   - Key the motion by hand on Lugia's path and timing, so the camera, the flash and the water ring still fit.
+2. **Overworld sprites:** 7 frames 64x64 (`a/0/8/1` 211) and the 6 eye-glimmer silhouettes, rendered from the same model.
+3. **Fix the ritual:** make map 244 take the SoulSilver path (code patch), and hide the speckled block.
+4. **Texts.**

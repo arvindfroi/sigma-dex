@@ -932,3 +932,15 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - Film 437068/437100, all 475 strips in all six shots.
     - ROM `legend_test/jump_hooh2_v30.nds`.
     - sha256 prefixes: film `63d1b4ccd7d4130e`, ROM `54b1dba9891fca98`. Build env as for v29.
+- **Gravriel in Lugia's 3D film, draft 1 (2026-11-16)** (`legend/grav3d/`). Lugia's film `a/2/4/4` plays only in Origin's post-game Lugia ritual. Lugia is its own skinned model there (member 5, 26 joints, 2 shapes) with its own animation (member 6, 246 frames); the cave (members 0-4) is kept.
+  - **Model:** `export_gravfilm.py` (Blender, on the intro model `title3d/grav/grav_v5.blend`). It takes the mesh as posed by its intro rig, voxel-remeshes it (0.035) and decimates to about 1230 triangles; the eye slits and sockets are added on top.
+    - **Colours:** the intro paint is the argmax of 7 weights (attributes `wa`/`wb`), read per vertex; each face takes the majority label.
+    - **Rig:** Quaternius' CC0 Universal Animation Library (standard, from OpenGameArt; `title3d/ual_dl/`). Its rig is scaled to his shoulder height and the arms are aimed at his hands; that pose is the bind pose. Vertices go to the nearest of 14 DEF bones. The coat below the waist and the feet follow the hips, so he floats with no legs. The cutlass follows the right hand. A face across far-apart bones goes to one bone (no spikes).
+    - **Motion:** `Swim_Idle_Loop` (rise, arms out), then `Sword_Attack` at film frame 150 (the water ring), then `Sword_Idle`. Library 30 fps against the film's 60; 6-frame blends.
+  - **Into the film:** `rig_lugia.py`.
+    - **Nodes:** our bones on Lugia's nodes 1-14 in the real hierarchy (0x66: restore the parent's slot, store its own), with node 0 as a still root. Bone offsets stay constant, which made the animation 18 KB instead of 36 KB.
+    - **Geometry:** per-vertex MTX_RESTORE strips. The body goes in shape 0 (`lugia_s` 64x64 swatches), the face, sword, shells and eyes in shape 1 (`lugia_foot` 32x32). Bone matrices carry K=16; posScale is not used.
+    - **Path:** hidden deep below the water until film frame 124 (the flash), rising at the foot of the fall through the falling water until 154, out in front of it by 176, then hovering where Lugia hovers. Env for draft 1: `SHOW=124 RISE0=124 RISE1=154 OUT1=176 CY=68`.
+  - **Water:** `cave_tint.py` maps the water palettes (sea, falling water frames, pond line, waves) by brightness onto a dark-teal to sea-green gradient.
+  - **Fog:** the cave is authored for fog (fog flag on most materials), but the film code turns fog off (`G3X_SetFog(0,0,0,0)` in ov106_021E5D70, shared by all three films). Adding fog needs a small code patch in the film overlay, limited to Lugia's film.
+  - **Files:** film 79424/84324 bytes (80164 with the water colour). ROMs `legend_test/jump_lug_g2.nds` and `jump_lug_g2w.nds`. Video `gravriel_lugiafilm_utkast1.mp4` (`video3.py`).
