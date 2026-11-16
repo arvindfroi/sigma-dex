@@ -65,6 +65,31 @@ Arvind (2026-11-11): "andre har jobbet mye med slike greier i det siste så om v
   (we use it). Origin has no wild Pokemon walking in the overworld (encounters in the grass as usual).
 - **Mega forms for our mons:** possible as a held-item form (like Charizardite, Steel Armor, Ninja Scroll).
 
+## Versions and scripted events (Arvind, 2026-11-16)
+
+- **Two versions by difficulty.** Sabertann is the easy one, for less experienced players: no hard mode and no
+  nuzlocke. Gravriel is the hard one, with two modes to pick: Nuzlocke and Hardcore Nuzlocke (healing-item rules in
+  battle, forced nicknames, level cap). Not grindy: Exp Share stays on, and the usual hardcore-hack QoL comes in (Move
+  Deleter, PC anywhere, auto-run). The nuzlocke code is our own (nobody owns the idea); other hacks only show how.
+- **Hall of Fame on Hardcore:** maybe a special badge. Gen 4 Pokemon have ribbons on the summary page and some ribbon
+  slots are unused, so a "Gravriel ribbon" with its own name and picture can work.
+- **Trainer AI:** the advanced trainer AI (EN repo, from the Spanish translation) is built into rc8 for our tests and
+  turned on by event flags. Gravriel can turn it on by script at game start; Sabertann leaves it off. Building the
+  newest EN source (with the TRAINER AI menu row) needs the Chinese base patch "Pokémon Origin HeartGold v4.0.3
+  Cn.delta", which is not public; we need it anyway to build our hack with their tools.
+- **Scripted villain wipe (script only):** Origin already has 60 story battles you are allowed to lose
+  (`TrainerBattle x,0,1,0` and then `CheckBattleWon`, e.g. Blue in Pewter): no blackout, the scene goes on. The
+  villain gets a team far too strong; on the loss the screen fades to black with "SIGMA blacked out...", then he breaks
+  the fourth wall, heals your team and mocks you (Arvind: like Thor: Ragnarok). Arvind: develop this further.
+- **Trainer lines in battle (data only):** the trainer message bank has lines for the last Pokemon sent out (type 15),
+  the last one at half HP (16) and the trainer winning (20); 71 trainers use them in Origin. Still to check: that
+  Origin's battle engine shows them.
+- **Gravriel blackout (new code):** instead of "blacked out", a picture or a short animation (10-20 frames from the
+  intro film) of Gravriel rising out of the water, with a message to the player. Needs a hook in the blackout screen
+  (the SoulSilver nuzlocke hack draws its own screen there). The game has no video player, so frames in a row.
+- **Boss second stage:** easy as two battles in a row with a scene between; inside one battle it needs new code, see
+  Meowthree below. Arvind: "we will need that" (the new-code parts).
+
 ## Meowth story idea (Arvind, 2026-11-12)
 
 Meowth is a real person in a Meowth costume (comic relief); later Team Rocket experiments on him and he becomes a
@@ -144,6 +169,14 @@ shirt and red scarf, psychic energy in his hand).
 - **Boss in two phases:** phase 1 the harness form controlled by Giovanni's Persian (Giovanni talks during the
   battle), a scene where the harness breaks and Persian loses its hold, phase 2 the unleashed form with a legendary intro
   and its own music. A surprise and a real challenge.
+- **Meowthree (Arvind, 2026-11-16):** in the boss fight Meowthwo **evolves in the middle of the battle** and is then
+  called Meowthree. The theme can be evolution and human growth (a man who evolves); maybe Giovanni wants to become a
+  "super trainer" himself. Engine facts: Origin has no in-battle Mega Evolution (Megas are held-item forms in the party,
+  EN repo `work/notes/damage_calc_mechanics.md` section 6, although the battle text still has Mega Evolution lines),
+  but its battle engine has handlers that change a Pokemon's form, and with it the species id (Origin's forms have their
+  own ids), in the middle of a battle: Power Construct (Zygarde turns Complete below half HP and gets more max HP), Zen
+  Mode, Schooling, Disguise, Ice Face. Meowthwo to Meowthree can use the same path, started by that battle's boss rule
+  instead of an ability, with our own text ("What? Meowthwo is evolving!"). New code in overlay 14, like Weather Switch.
 - **Forms after the story:** Meowthwo joins in the harness form; a held key item (working name "Deactivation Key")
   switches it to the unleashed form, the same way Steel Armor makes Armored Mewtwo in Origin (a held-item form). The
   harness form does not have to be Steel type like Armored Mewtwo.
