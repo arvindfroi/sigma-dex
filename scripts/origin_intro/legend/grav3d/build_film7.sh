@@ -12,6 +12,7 @@ OUT=$($PY legend/relocate.py $L/jump_lug3.nds $L/x/files/a/2/4/4 $L/y/a244_${V}w
 "$PYV" legend/inplace.py $L/t1_$V.nds $L/x/files/a/0/4/4 $L/y/a044_room2 $L/t2_$V.nds
 "$PYV" legend/inplace.py $L/t2_$V.nds $L/x/files/a/0/7/0 $L/y/a070_room $L/t3_$V.nds
 $PY legend/grav3d/room_weather.py $L/t3_$V.nds $L/jump_lug_$V.nds 10
+if [ -n "$EDGE" ]; then $PY legend/grav3d/edge_color.py $L/jump_lug_$V.nds $L/t5_$V.nds $EDGE && mv $L/t5_$V.nds $L/jump_lug_$V.nds; fi
 if [ -n "$3" ]; then $PY legend/grav3d/fog_test.py $L/jump_lug_$V.nds $L/t4_$V.nds $3 $4 && mv $L/t4_$V.nds $L/jump_lug_$V.nds; fi
 rm $L/t1_$V.nds $L/t2_$V.nds $L/t3_$V.nds
 NS=$(echo $OUT | sed -E 's/.*-> (0x[0-9a-f]+) \(([0-9]+) bytes\).*/\1/'); NL=$(echo $OUT | sed -E 's/.*-> (0x[0-9a-f]+) \(([0-9]+) bytes\).*/\2/')

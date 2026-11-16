@@ -90,7 +90,7 @@ def _look(C, Tt):
     V = np.eye(4); V[:3, :3] = np.array([x, y, z]); V[:3, 3] = -V[:3, :3] @ C; return V
 def VM(f):
     if not VCAM: return np.eye(4)
-    f = min(f, FREEZE); rp, e_ = rise_pos(f); a = math.radians(E('CAM_ANG', 40)); Dd = E('CAM_D', 320)
+    f = min(f, FREEZE); rp, e_ = rise_pos(f); a = math.radians(E('CAM_ANG', 0)); Dd = E('CAM_D', 320)   # v10: straight in front of him (40 was his left side)
     C = np.array([rp[0] + Dd * math.sin(a), E('CAM_Y0', 18) + (E('CAM_Y1', 40) - E('CAM_Y0', 18)) * e_, rp[2] + Dd * math.cos(a)])
     aim = WATER_Y + E('CAM_AIM0', 80) if f < T0 else max(WATER_Y + E('CAM_AIM0', 80), rp[1] + E('AIM', 0.55) * SIZE)   # looking up a little: the water line sits at the bottom edge
     return _Voi @ _look(C, np.array([rp[0], aim, rp[2]]))
@@ -510,6 +510,27 @@ if os.environ.get('RING_FOLLOW', '1') == '1':
             if i == BURST and PATHMODE == 'rise':      # the portal burst (pCylinder1, de_ap_e1) comes up from the water where he rises
                 par = [p_[1] for p_ in corder if p_[0] == i][0]; Wp = Wd[par] if par != i else np.eye(4)
                 t_ = (np.linalg.inv(Wp) @ np.append([rpw[0], E('BURST_Y', 9), rpw[2]], 1))[:3]
+                # v10: the burst stretches along its own z (out of the fall toward the camera); turned so z points up, it
+                # shoots straight up out of the water where he rises (Arvind: "the portal must be vertical now")
+                if os.environ.get('BURST_UP', '1') == '1': rr_ = np.array([[1, 0, 0], [0, 0, 1.0], [0, -1.0, 0]]) @ np.array(rr_, float)
+            elif i in RINGS and PATHMODE == 'rise' and i in (3, 4):
+                # v10: seen from straight in front the band rings were a circle far bigger than the screen; they become a hoop
+                # around him: laid flat (node 3's disc faced the old camera) and scaled down (RING_SCALE)
+                par = [p_[1] for p_ in corder if p_[0] == i][0]; Wp = Wd[par] if par != i else np.eye(4)
+                # node 3 (a flat disc, normal = its z): a halo facing the camera, centred on his chest, slightly behind him;
+                # node 4 (a tilted ring): a hoop round his middle, tipped 30 degrees toward the camera so it reads as an ellipse
+                if os.environ.get('RING_ORIENT', '0') != '1':   # v10: the own orientation; turning the discs showed their culled back
+                    t_ = (np.linalg.inv(Wp) @ np.append(body + (np.array([0, E('HOOP_DY', 20), 0]) if i == 4 else off[i]), 1))[:3]   # the hoop centred on him
+                    if i == 4:                                  # the ring stood edge-on to the low front camera: tipped back so it opens
+                        tl = math.radians(E('HOOP_TILT', 25)); rr_ = np.array([[1, 0, 0], [0, math.cos(tl), -math.sin(tl)], [0, math.sin(tl), math.cos(tl)]]) @ np.array(rr_, float)
+                elif i == 3:
+                    t_ = (np.linalg.inv(Wp) @ np.append(body + np.array([0, E('HALO_DY', 12), -E('HALO_BACK', 14)]), 1))[:3]; rr_ = np.eye(3)
+                else:
+                    t_ = (np.linalg.inv(Wp) @ np.append(body, 1))[:3]
+                    from scipy.spatial.transform import Rotation as _R
+                    tl = math.radians(E('HOOP_TILT', 30)); dn_ = np.array([0, math.cos(tl), math.sin(tl)])
+                    rr_ = _R.align_vectors([dn_], [np.array([-0.15, -0.93, -0.34]) / np.linalg.norm([-0.15, -0.93, -0.34])])[0].as_matrix()
+                sc_ = [v * E('RING_SCALE', 0.33) for v in sc_]
             elif i in RINGS:
                 par = [p_[1] for p_ in corder if p_[0] == i][0]; Wp = Wd[par] if par != i else np.eye(4)
                 t_ = (np.linalg.inv(Wp) @ np.append(body + off[i], 1))[:3]
