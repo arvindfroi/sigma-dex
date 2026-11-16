@@ -81,24 +81,24 @@ learnset:
     - {level: 18, move: Wing Attack}
     - {level: 18, move: Growth}
     - {level: 22, move: Aerial Ace}
-    - {level: 24, move: Horn Leech}
-    - {level: 25, move: Leaf Blade}
+    - {level: 24, move: Seed Bomb}
     - {level: 27, move: Agility}
-    - {level: 28, move: Seed Bomb}
+    - {level: 30, move: Slash}
+    - {level: 33, move: Acrobatics}
+    - {level: 36, move: Leaf Blade}
     - {level: 40, move: Jump Kick}
-    - {level: 42, move: Leafage}
     - {level: 42, move: Drill Peck}
-    - {level: 45, move: Swords Dance}
+    - {level: 43, move: Swords Dance}
     - {level: 46, move: Roost}
     - {level: 49, move: Brave Bird}
-    - {level: 49, move: Power Whip}
-    - {level: 60, move: Slash}
+    - {level: 52, move: Power Whip}
+    - {level: 56, move: High Jump Kick}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
           Giga Drain, Frustration, Solar Beam, Return, Double Team, Aerial Ace, Facade,
           Secret Power, Rest, Attract, Thief, Steel Wing, Roost, Energy Ball, Endure,
-          Giga Impact, Swords Dance, Captivate, Sleep Talk, Natural Gift, Grass Knot,
-          Swagger, Pluck, U-turn, Substitute, Grassy Terrain, Dual Wingbeat, Fly, Flash]
+          Giga Impact, Flash, Swords Dance, Captivate, Sleep Talk, Natural Gift, Grass Knot,
+          Swagger, Pluck, U-turn, Substitute, Grassy Terrain, Dual Wingbeat, Fly]
   # moves a move tutor can teach it
   tutor: [Air Slash, Brave Bird, Endeavor, Hurricane, Leaf Storm, Magical Leaf, Seed Bomb,
           Sky Attack, Solar Blade, Synthesis, Body Slam]

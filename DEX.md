@@ -61,7 +61,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 50 | [Beatld](data/species/beatld.yaml) | Bug / Psychic | Curious Medicine, Tangled Feet, Psychic Surge (H) | 420 |  | 62% |
 | 51 | [Fleuroom](data/species/fleuroom.yaml) | Grass / Fairy | Effect Spore, Aroma Veil, Magic Bounce (H) | 295 | Sporeshade (Shiny Stown) | 66% |
 | 52 | [Sporeshade](data/species/fleuroom-utvikling.yaml) | Grass / Fairy | Effect Spore, Aroma Veil, Magic Bounce (H) | 460 |  | 66% |
-| 53 | [Voraxia](data/species/voraxia.yaml) | Dragon / Dark |  |  |  | 21% |
+| 53 | [Voraxia](data/species/voraxia.yaml) | Dragon / Dark | Shadow Shield |  |  | 24% |
 | 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock | Ore Body, Stamina, Sand Force (H) | 500 |  | 62% |
 | 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon | Thick Fat | 500 |  | 24% |
 | 56 | [Razox](data/species/razox.yaml) | Fairy / Ice | Snow Cloak, Thick Fat, Pixilate (H) | 500 |  | 62% |

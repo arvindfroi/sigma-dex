@@ -4425,19 +4425,23 @@
           },
           {
             "level": 24,
-            "move": "Horn Leech"
-          },
-          {
-            "level": 25,
-            "move": "Leaf Blade"
+            "move": "Seed Bomb"
           },
           {
             "level": 27,
             "move": "Agility"
           },
           {
-            "level": 28,
-            "move": "Seed Bomb"
+            "level": 30,
+            "move": "Slash"
+          },
+          {
+            "level": 33,
+            "move": "Acrobatics"
+          },
+          {
+            "level": 36,
+            "move": "Leaf Blade"
           },
           {
             "level": 40,
@@ -4445,14 +4449,10 @@
           },
           {
             "level": 42,
-            "move": "Leafage"
-          },
-          {
-            "level": 42,
             "move": "Drill Peck"
           },
           {
-            "level": 45,
+            "level": 43,
             "move": "Swords Dance"
           },
           {
@@ -4464,12 +4464,12 @@
             "move": "Brave Bird"
           },
           {
-            "level": 49,
+            "level": 52,
             "move": "Power Whip"
           },
           {
-            "level": 60,
-            "move": "Slash"
+            "level": 56,
+            "move": "High Jump Kick"
           }
         ],
         "tm_hm": [
@@ -4496,6 +4496,7 @@
           "Energy Ball",
           "Endure",
           "Giga Impact",
+          "Flash",
           "Swords Dance",
           "Captivate",
           "Sleep Talk",
@@ -4507,8 +4508,7 @@
           "Substitute",
           "Grassy Terrain",
           "Dual Wingbeat",
-          "Fly",
-          "Flash"
+          "Fly"
         ],
         "tutor": [
           "Air Slash",
@@ -12645,7 +12645,7 @@
       "weight_kg": 729,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Shadow Shield",
         "secondary": null,
         "hidden": null
       },

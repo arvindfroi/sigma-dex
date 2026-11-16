@@ -17,7 +17,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | weight | 162 / 162 |
 | Dex page | body color | 143 / 162 |
 | Stats | base stats | 157 / 162 |
-| Stats | ability | 156 / 162 |
+| Stats | ability | 157 / 162 |
 | Stats | EV yield | 154 / 162 |
 | Stats | catch rate | 143 / 162 |
 | Stats | base exp | 143 / 162 |
@@ -393,10 +393,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #53 [Voraxia](data/species/voraxia.yaml) - 21%
+### #53 [Voraxia](data/species/voraxia.yaml) - 24%
 
 - **Dex page:** category, description, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
