@@ -2231,10 +2231,18 @@ function renderCustom(kind) {
 // Pick pictures, the AI draws one DS sprite (80x80 front and back, 32x32 icon) with the approved pipeline,
 // then change it: by drawing on it, or by asking the AI to change the whole sprite or a marked area.
 const artUrl = path => DEX.web.url + "/storage/v1/object/public/art/" + path;
+// The database answers at most 1000 rows at a time. A list without its own limit is read page by page, so it is
+// never cut off: the pictures passed 1000 rows on 13 Nov 2026 and every newer upload vanished after a reload.
 async function dbRead(path) {
-  const response = await fetch(DEX.web.url + "/rest/v1/" + path, {headers: {apikey: DEX.web.key}});
-  if (!response.ok) throw new Error("Could not load the sprites (" + response.status + ").");
-  return response.json();
+  const paged = !/[?&]limit=/.test(path), out = [];
+  for (let from = 0; ; from += 1000) {
+    const response = await fetch(DEX.web.url + "/rest/v1/" + path + (paged ? "&limit=1000&offset=" + from : ""), {headers: {apikey: DEX.web.key}});
+    if (!response.ok) throw new Error("Could not load the sprites (" + response.status + ").");
+    const page = await response.json();
+    if (!paged) return page;
+    out.push(...page);
+    if (page.length < 1000) return out;
+  }
 }
 async function dbCall(name, args) {
   let response;
@@ -5338,9 +5346,7 @@ function useApproved(sid, version) {                  // right after SAVE in the
 async function loadRecentEdits() {
   if (!DEX.web.url) return;
   try {
-    const response = await fetch(DEX.web.url + "/rest/v1/species_edits?select=id,kind,species_id,data,editor&id=gt." + DEX.web.cursor + "&order=id.asc", {headers: {apikey: DEX.web.key}});
-    if (!response.ok) return;
-    for (const row of await response.json()) {
+    for (const row of await dbRead("species_edits?select=id,kind,species_id,data,editor&id=gt." + DEX.web.cursor + "&order=id.asc")) {
       if (!row.data || typeof row.data !== "object" || slugify(row.species_id) !== row.species_id) continue;
       if (row.kind === "move" || row.kind === "ability") {
         const old = DEX.custom[row.kind].find(c => c.id === row.species_id);
@@ -5378,9 +5384,8 @@ async function loadRecentEdits() {
     // Pictures uploaded since this page was built, and ones removed since.
     const built = new Set(Object.values(DEX.images).flat().map(i => i.id));
     const builtIn = new Map(Object.entries(DEX.images).flatMap(([sid, list]) => list.map(i => [i.id, sid])));
-    const list = await fetch(DEX.web.url + "/rest/v1/species_images?select=id,species_id,path,caption,editor,removed&order=id.asc", {headers: {apikey: DEX.web.key}});
-    if (list.ok) {
-      for (const row of await list.json()) {
+    {
+      for (const row of await dbRead("species_images?select=id,species_id,path,caption,editor,removed&order=id.asc")) {
         if (row.removed) DEX.images[row.species_id] = allImages(row.species_id).filter(i => i.id !== row.id);
         else if (builtIn.has(row.id) && builtIn.get(row.id) !== row.species_id) {         // moved to another Pokemon since the page was built
           const from = builtIn.get(row.id), image = allImages(from).find(i => i.id === row.id);

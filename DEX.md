@@ -161,7 +161,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 150 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician (H) | 680 |  | 72% |
 | 151 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground | Lullaby | 600 |  | 66% |
 | 152 | [Apeshii](data/species/apeshit.yaml) | Normal / Fighting |  | 290 | Julius (Lv 15) | 31% |
-| 153 | [Iron Bulb](data/species/iron-wire.yaml) | Electric |  |  |  | 17% |
+| 153 | [Iron Bulb](data/species/iron-wire.yaml) | Electric |  |  |  | 21% |
 | 154 | [SOLIDEDGE](data/species/solidedge.yaml) | Bug / Psychic | Beast Boost | 600 |  | 41% |
 | 155 | *open slot* | | | | | |
 | 156 | *open slot* | | | | | |

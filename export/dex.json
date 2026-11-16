@@ -38565,7 +38565,7 @@
         "look": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/iron-wire/1842.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,

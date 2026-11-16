@@ -36,7 +36,15 @@ def main():
         return 0
     base = settings["url"].rstrip("/")
     try:
-        rows = json.loads(fetch(base + "/rest/v1/species_images?select=id,species_id,path,caption,editor,removed&order=id.asc", settings["key"]))
+        # The database answers at most 1000 rows at a time: read page by page. Before 16 Nov 2026 this read only the
+        # first 1000, so every picture uploaded after 13 Nov (row 1001 on) never reached the repository.
+        rows = []
+        while True:
+            page = json.loads(fetch(base + "/rest/v1/species_images?select=id,species_id,path,caption,editor,removed"
+                                    "&order=id.asc&limit=1000&offset=%d" % len(rows), settings["key"]))
+            rows.extend(page)
+            if len(page) < 1000:
+                break
     except OSError as error:
         print("WARNING: the image list could not be read (%s). Nothing imported." % error)
         return 0

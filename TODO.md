@@ -30,7 +30,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Moves | TM/HM moves | 157 / 162 |
 | Location | encounters | 2 / 162 |
 | Design | concept | 29 / 162 |
-| Art | concept art | 152 / 162 |
+| Art | concept art | 153 / 162 |
 | Art | front sprite | 4 / 162 |
 | Art | front animation frame | 4 / 162 |
 | Art | back sprite | 4 / 162 |
@@ -1103,14 +1103,14 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #153 [Iron Bulb](data/species/iron-wire.yaml) - 17%
+### #153 [Iron Bulb](data/species/iron-wire.yaml) - 21%
 
 - **Dex page:** category, description, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #154 [SOLIDEDGE](data/species/solidedge.yaml) - 41%
 
