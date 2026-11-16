@@ -39,8 +39,9 @@ def warp(img, a, ph):
     t = 2 * np.pi * ph
     w = np.clip((yy - HEAD_Y) / 420.0, 0, 1) ** 1.3                 # more the further down a strand hangs
     side = np.clip(np.abs(xx - 560) / 300.0, 0, 1)                   # arms and side rags swing a bit more
-    dx = (8 * np.sin(t + yy / 140.0) * w + 6 * side * np.sin(t + 1.2) * w).astype(np.float32)
-    dy = (2.5 * np.sin(t + xx / 90.0) * w).astype(np.float32)
+    SW = float(os.environ.get('G2_SWAY', 1))      # 2026-11-17 overworld frames: a bigger sway (at 64 px the intro's is under a pixel)
+    dx = (SW * 8 * np.sin(t + yy / 140.0) * w + SW * 6 * side * np.sin(t + 1.2) * w).astype(np.float32)
+    dy = (SW * 2.5 * np.sin(t + xx / 90.0) * w).astype(np.float32)
     mx = (xx - dx).astype(np.float32); my = (yy - dy).astype(np.float32)
     out = cv2.remap(img, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=0)
     oa = cv2.remap(a.astype(np.float32), mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT, borderValue=0)
@@ -54,6 +55,7 @@ FOG = np.array([30, 58, 60], np.float32)
 G = float(os.environ.get('G2_GAIN', 0.8))
 BACKLIT = os.environ.get('G2_LIGHT', 'backlit') == 'backlit'
 def grade(rgb):                    # into the night fog: a bit darker, toward teal; warm parts keep their warmth
+    if os.environ.get('G2_GRADE', 'scene') == 'none': return np.clip(rgb * float(os.environ.get('G2_DAYGAIN', 1.0)), 0, 255)   # overworld sprite: the design's own colours
     if BACKLIT:
         # v7, like Ho-Oh and Lugia: the moon is behind him, so his front is in shade and takes the scene's colour.
         # Colours lose half their strength, turn toward the fog's teal, and get darker toward the water.

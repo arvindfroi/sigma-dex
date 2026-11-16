@@ -1088,3 +1088,34 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - **sha256 prefixes:** film `4ed278a0b45621a8`, ROM `a43e929657231028`, pt20.json `4637ac79533a09bf`.
   - **Build:** as in the v32 entry, at commit 1e28e9d.
   - **For the final game:** the film is 553792 bytes, bigger than its slot. The ROM build must place a/2/4/3 freely (dsrom does; the test ROM relocates it). The field sprite (`a/0/8/1` 210, `eyes_fix2`) and the hover patch (ov002) are separate patches, in `base_hover.nds`.
+- **Gravriel's overworld sprite (LUG_OBJ01, a/0/8/1 211) and eye glimmer (a/1/7/4 28), v1 (2026-11-17)** (Arvind: "neste er gravriel sin overworld sprite").
+  - **Lugia's frames:** 7 frames of 64x64, front view: 1-5 the wing beat while it comes down after the film, 6 wings folded (landed), 7 the cry (beak open).
+  - **Gravriel's frames:**
+    - 1-5: his float cycle. The coat, beard and arms sway, and the whole figure bobs 0/1/2/1/0 px.
+    - 6: still.
+    - 7: the cry, with the eyes flaring.
+  - **Tried first, not used:** `grav3d/ow_render.py` + `ow_pixel.py` render the painted film model and shrink it to 64 px. Next to Lugia that came out dark and muddy, and the face did not read.
+  - **Used:** the intro's pixel art (`grav/grav2d.py`, drawn from his front view, the design exactly, with the edge rule Arvind asked for in the intro: no ink outline). It runs at overworld size in the design's own colours. New switches, whose defaults keep v16: `G2_GRADE=none`, `G2_DAYGAIN`, `G2_SWAY`.
+    - Command: `G2_SCALE=0.0711 G2_POSES=5 G2_SWAY=3 G2_GRADE=none G2_DAYGAIN=1.35 G2_HARMONIZE=0 grav2d.py DIR`.
+    - Then `grav3d/ow_frames.py DIR OUT`:
+      - One framing for all seven frames; the feet on the bottom row.
+      - The face is drawn per pixel: grav2d's eyes need about 14 px, and here an eye is 3. Each eye has a heavy dark lid, white on the outside and glowing cyan toward the beak, with the pale owl mask under the eyes. In the cry the lids lift and the eyes flare.
+      - The darkest colours are lifted (`LIFT` 52).
+      - The silhouette's edge takes the ghost green of his film outline (`EDGE` 96,176,140). Without it he vanished on the dark cave water.
+    - Written with `write_ow.py ... 211 OUT/pal.npy OUT/f1..f7_idx.npy` (same size, in place).
+  - **The yellow speckled block** over Lugia (in Origin too), which covered his upper body when he lands:
+    - The cause is zone 230 (map 244's events): five SPRITE_STOP (349) objects round the bird's spot (objects 6-10, x 15-17, z 16-17, flag 579 like Lugia). Elsewhere STOP objects are invisible blockers; this cutscene draws them with a texture that is not loaded.
+    - Blanking the 'stop' graphic (a/0/8/1 243, a small yellow/black barrier) did not help; hiding the five objects did.
+    - `legend/ritual_stops.py` moves them to x 0, z 0, out of the scene. They only exist with the bird during the scripted ritual, which goes straight into the battle.
+  - **Eye glimmer** (`grav3d/ow_glimmer.py`, the SoulSilver path of the ritual, so it shows once the version switch is in): member 28 is a small model.
+    - Plane `karada` (body) has eye.1-6, 64x64 A5I3: one blue tint, alpha up to 19, two alternating poses that get lighter. Plane `me` (eyes) has de_ao_e7.1-3, 32x32 2 bpp glints, centred on the body texture at (31.5, 30.7).
+    - Gravriel's silhouette is his frame 1 / frame 3 scaled 1.15 with his eyes on that spot, with Lugia's alpha ramp (2, 6, 10, 14, 18, 19).
+    - The glints are redrawn as his round owl eyes with heavy lids drooping outward, at his eye spacing. Tints and palettes stay Origin's.
+  - **Tests:** test ROM `legend_test/jump_lug_ow4.nds`, built from the locked v14 ROM with a/0/8/1, a/0/3/2 and a/1/7/4 written in place; sha256 prefix `eaef2d22616d6888`.
+    - HeartGold path (the game today): he comes down after the film and lands with no block.
+    - SoulSilver path (poke gGameVersion 0x020F2058 = 8, as the version switch will do): his blue ghost with glowing owl eyes shows at the waterfall before the film, and after it he comes down in front of the waterfall.
+    - Not reached: the round-4 scene (Lawrence and the three birds), where LUG_OBJ01 is moved by script after the Rocket battle; g7's team cannot win that battle.
+  - **Files:**
+    - Data: `~/sigma-origin/title3d/legend/grav3d/ow_v1/` (the grav2d output, the frames, the three written files, SHA256SUMS).
+    - Videos: `gravriel_overworld_ritual_halv_fart.mp4` and `gravriel_overworld_ritual.mp4` (HG path, Origin above), and `gravriel_ritual_soulsilver_vei.mp4`.
+    - Stills: `gravriel_overworld_sprite_mot_lugia.png` and `gravriel_overworld_i_spillet.png`.

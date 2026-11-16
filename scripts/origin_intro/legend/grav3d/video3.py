@@ -8,7 +8,7 @@ W, H, LB = 512, 384, 22
 for j in range(N):
     im = Image.new('RGB', (W, len(rows) * (H + LB)), 'white'); d = ImageDraw.Draw(im)
     for k, (dd, off, lab) in enumerate(rows):
-        f = START + j + int(off); p = f'{R}/{dd}/f{f:04d}.png'
+        f = START + j * int(os.environ.get('STEP', '1')) + int(off); p = f'{R}/{dd}/f{f:04d}.png'   # STEP: recordings with a shot every STEP frames
         if os.path.exists(p): im.paste(Image.open(p).convert('RGB').crop((0, 0, 256, 192)).resize((W, H), Image.NEAREST), (0, k * (H + LB) + LB))
         d.text((6, k * (H + LB) + 5), lab, fill='black')
     im.save(f'{tmp}/g{j:04d}.png')
