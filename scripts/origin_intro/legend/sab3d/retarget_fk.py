@@ -41,6 +41,22 @@ LO = np.linalg.norm(rest['FL_up'][:3, 3] - rest['FL_lo'][:3, 3]) * 1.9
 def per(vals):                                                  # periodic spline over the source cycle, sampled at N keys
     x = np.arange(NS + 1); y = np.r_[vals, vals[0]]; cs = CubicSpline(x, y, bc_type='periodic'); return cs(np.arange(N) * NS / N)
 dU = {k: per(np.array(v)) for k, v in dU.items()}; dL = {k: per(np.array(v)) for k, v in dL.items()}; bob = per(bob) * LO / LS * BOBA; nod = per(np.array(nod))
+# hind legs, designed (HIND=design; Arvind: the hind legs were not good): with hind_rig.py the hind leg is a stump that
+# swings from the bottom of the haunch and a paw that rolls at the ankle. Keys over the source cycle (horse frames, left
+# hind; the right hind is 3 frames later as in the horse): (frame, leg swing, paw angle to the body; + = forward/toes up)
+HIND = os.environ.get('HIND', 'design')
+HKEYS = [(0, 12, -25), (2, 30, 8), (4, 30, 0), (8, 5, 0), (11, -22, -15), (13.5, -35, -70), (16, -18, -55)]
+HAMP = E('HAMP', 1.0)
+def hind_curve(shift):
+    from scipy.interpolate import PchipInterpolator
+    xs = np.array([k[0] for k in HKEYS]); xx = np.r_[xs - NS, xs, xs + NS]
+    out = []
+    for c in (1, 2):
+        v = np.array([k[c] for k in HKEYS], float); f = PchipInterpolator(xx, np.r_[v, v, v])
+        out.append(f((np.arange(N) * NS / N - shift) % NS) * HAMP)
+    return out
+if HIND == 'design':
+    HC = {'BL': hind_curve(0), 'BR': hind_curve(3)}
 LAT = np.array([1.0, 0, 0])
 def rot(axis, deg):
     a = math.radians(deg); axis = axis / np.linalg.norm(axis); K = np.array([[0, -axis[2], axis[1]], [axis[2], 0, -axis[0]], [-axis[1], axis[0], 0]])
@@ -64,7 +80,8 @@ for i in range(N):
         if b == 'jaw': Wb = about(rot(LAT, 3 + 3 * math.sin(2 * math.pi * (t - ROCK_PH / NS))), Wb[:3, 3]) @ Wb
         if b.endswith('_up') or b.endswith('_lo'):
             k = b[:2]; front = k[0] == 'F'; latw = (W['spine'] @ np.linalg.inv(rest['spine']))[:3, :3] @ LAT
-            if b.endswith('_up'): sw = (AMP_F if front else AMP_H) * dU[k][i] + (OFF_F if front else OFF_H)
+            if not front and HIND == 'design': sw = HC[k][0][i] if b.endswith('_up') else HC[k][1][i] - HC[k][0][i]
+            elif b.endswith('_up'): sw = (AMP_F if front else AMP_H) * dU[k][i] + (OFF_F if front else OFF_H)
             else: sw = AMP_K * dL[k][i]
             Wb = about(rot(latw, -sw), Wb[:3, 3]) @ Wb                   # rot(lat, -x) moves the paw forward by x
         W[b] = Wb

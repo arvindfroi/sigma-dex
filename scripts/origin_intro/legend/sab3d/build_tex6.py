@@ -52,7 +52,7 @@ used = Counter()
 # texture 0 = the baked atlas (DS size) for the detailed parts; the flat parts point at solid swatches placed in its empty corners
 BAKED = {'Hull', 'Deck', 'Stern', 'SkullHead', 'SkullCheek', 'SkullJaw', 'SkullMaxilla', 'SkullMouth', 'EyeRim', 'EyeHole', 'SkNose'}
 LEGB = {'FL_up', 'FL_lo', 'FR_up', 'FR_lo', 'BL_up', 'BL_lo', 'BR_up', 'BR_lo'}
-def baked(p): return p['g'] == 0 and (p['part'] in BAKED or (p['part'] == 'Body' and p['b'] in LEGB))
+def baked(p): return p['g'] == 0 and (p['part'] in BAKED or (p['part'] in ('Body', 'BodyLeg') and p['b'] in LEGB))
 T0 = swallow(mode_down(CLS[0], 128, 128, len(PAL)), len(PAL)); T0[T0 == NAMES.index('fur_dk')] = NAMES.index('fur')
 from PIL import ImageDraw
 mask = Image.new('L', (128, 128), 0); dr = ImageDraw.Draw(mask)

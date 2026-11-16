@@ -896,3 +896,10 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   Build: `AMP_H=0.55 OFF_H=14 retarget_fk.py Horse_run.json bones_rest14.json bones_run17.json -8`, then rig3d with
   `CADENCE=36` and cycle `1..18`. Film 431908/437100, all 445 strips in all six shots, ROM
   `legend_test/jump_hooh2_v24.nds`.
+- **v25 (2026-11-16), the hind legs** (Arvind: "bakbeina er ikke så bra"). The body was decimated as one 300-triangle piece, so the hind legs were a few points on a column under the haunch. The high-poly thigh bone covered the whole round haunch, and the shin and the big flat paw were one rigid part. Swinging the thigh dragged the flank into a slab, and the paw could only paddle.
+  - `sab3d/export_parts7.py` (HINDSPLIT) makes the hind legs their own part, `BodyLeg`, from the high-poly points whose strongest bone is a hind leg, below z 0.95. The part reaches 0.3 into the haunch, so no gap opens when it swings. Only the left leg is rebuilt (44 triangles); the right one is its mirror, so both are alike. The body is remeshed without them (250 triangles).
+  - `sab3d/hind_rig.py` keeps the same two bones per hind leg, because the matrix slots are full. They get new joints: a hip at the bottom of the haunch (z 0.95) and an ankle (z 0.3). The haunch stays with the body; leg and paw get helpers at the hip and the ankle.
+  - `retarget_fk.py` `HIND=design` keys the hind legs by hand on the horse's timing (right leg 3 frames after the left): land forward with a flat paw, push back, kick the paw up behind, swing forward under the belly.
+  - `walk_sheet.py` `ZC`/`ZS` give close-ups.
+  - Build: `export_parts7.py -- pt19 0.8 0.7 0.7 1.35`, `build_tex6.py pt19`, `HIP_Z=0.95 hind_rig.py pt19 bones_rest14.json pt19r bones_rest19.json`, `retarget_fk.py Horse_run.json bones_rest19.json bones_run19.json -8`, then rig3d on `pt19r` with `CADENCE=36`.
+  - Film 435160/437100, all 475 strips in all six shots, ROM `legend_test/jump_hooh2_v25.nds`.
