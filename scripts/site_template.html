@@ -4056,6 +4056,8 @@ function closeCharacter() {
   if (location.hash.startsWith("#char=")) history.pushState(null, "", location.pathname + location.search);
   render(); window.scrollTo(0, 0);
 }
+// How much a character talks (data/characters.yaml dialogue, counted by scripts/character_dialogue.py, 2026-11-16).
+const talkWord = c => { const w = (c.dialogue || {}).words || 0; return w >= 5000 ? "talks a lot" : w >= 2000 ? "talks quite a bit" : w >= 800 ? "some dialogue" : w >= 100 ? "little dialogue" : "almost silent"; };
 function renderCharacterPage(c) {
   const grid = document.getElementById("grid");
   const status = h("div", {class: "hint charstatus", role: "status"});
@@ -4132,6 +4134,7 @@ function renderCharacterPage(c) {
       h("div", {}, h("span", {}, "Surroundings"), c.place ? c.place.charAt(0).toUpperCase() + c.place.slice(1) : "—"),
       c.rule ? h("div", {}, h("span", {}, "Rule"), c.rule) : null,
       h("div", {}, h("span", {}, "Battles"), isMine ? String(c.battles || 0) + " (each needs its own team): " + sideCount(c) : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
+      c.dialogue ? h("div", {}, h("span", {}, "Dialogue"), talkWord(c) + ": " + c.dialogue.story + " text boxes in the story and " + c.dialogue.battle + " lines in battle, about " + c.dialogue.words.toLocaleString("en") + " words") : null,
       h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (cl.name ? " (as " + cl.name + ")" : "") : h("span", {class: "badge avail"}, "available"))),
     steps, claimArea,
     h("h3", {id: "char-picture"}, "Picture"),
@@ -4214,6 +4217,7 @@ function renderCharacters() {
       h("b", {}, charName(c)), cl.name ? h("div", {}, "\u201c" + cl.name + "\u201d") : null,
       h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
       h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "")),
+      c.dialogue ? h("div", {class: "sub"}, "💬 " + talkWord(c)) : null,
       cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "taken by " + person(cl.by))
         : h("span", {class: "badge avail"}, "available"));
   };
