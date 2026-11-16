@@ -76,8 +76,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_LEAFSTEEL,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 14,
+        .weight = 700,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -125,8 +125,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_LEAFAXER,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 21,
+        .weight = 1900,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -173,8 +173,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_WAFFY,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 4,
+        .weight = 65,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -224,8 +224,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_WEALTHER,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 9,
+        .weight = 245,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -274,8 +274,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_WARRALLIER,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 16,
+        .weight = 550,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -323,7 +323,7 @@
         .natDexNum = NATIONAL_DEX_TORCHBAT,
         .categoryName = _("Unknown"),
         .height = 8,
-        .weight = 0,
+        .weight = 125,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -373,8 +373,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_PRINCINDER,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 11,
+        .weight = 240,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -422,8 +422,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_MONARKHAN,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 18,
+        .weight = 750,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -523,7 +523,7 @@
         .natDexNum = NATIONAL_DEX_HARPIE,
         .categoryName = _("Unknown"),
         .height = 8,
-        .weight = 0,
+        .weight = 116,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -622,8 +622,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_WUMP,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 4,
+        .weight = 43,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -672,8 +672,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_TWEMP,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 5,
+        .weight = 73,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -721,8 +721,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_FLORANTULA,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 15,
+        .weight = 850,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -769,8 +769,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_PIPWI,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 4,
+        .weight = 38,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -818,8 +818,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_COWFIN,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 5,
+        .weight = 112,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -868,8 +868,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_MOOCEON,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 22,
+        .weight = 2100,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -916,8 +916,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_LAPPER,
         .categoryName = _("Ear Slapper"),
-        .height = 0,
-        .weight = 0,
+        .height = 5,
+        .weight = 68,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -966,8 +966,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_BRAWLEO,
         .categoryName = _("Dog Brawler"),
-        .height = 0,
-        .weight = 0,
+        .height = 16,
+        .weight = 662,
         .description = COMPOUND_STRING(
             "It swings its ears like fists to slap\n"
             "the target. Its tough fur protects it\n"
@@ -1017,7 +1017,7 @@
         .natDexNum = NATIONAL_DEX_SNOBBIT,
         .categoryName = _("Frost Swagge"),
         .height = 4,
-        .weight = 0,
+        .weight = 220,
         .description = COMPOUND_STRING(
             "Icy Freeze roams city streets with\n"
             "effortless swagger, chilling the air\n"
@@ -1070,7 +1070,7 @@
         .natDexNum = NATIONAL_DEX_FREEZRICK,
         .categoryName = _("Ice Rabbit"),
         .height = 9,
-        .weight = 0,
+        .weight = 600,
         .description = COMPOUND_STRING(
             "Freezrick evolved by gaining more ice\n"
             "mass and perfecting control over its\n"
@@ -1120,8 +1120,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_BULBTLE,
         .categoryName = _("Little Light"),
-        .height = 0,
-        .weight = 0,
+        .height = 4,
+        .weight = 90,
         .description = COMPOUND_STRING(
             "Its nose glows when it's excited, alert,\n"
             "or using its light. It uses that light\n"
@@ -1173,8 +1173,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_BULBTOISE,
         .categoryName = _("Light Shell"),
-        .height = 0,
-        .weight = 0,
+        .height = 11,
+        .weight = 950,
         .description = COMPOUND_STRING(
             "Bulbtoise's shell is made of glass,\n"
             "which it fills with its own light. It\n"
@@ -1224,8 +1224,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_WISPOLE,
         .categoryName = _("Tadpole"),
-        .height = 0,
-        .weight = 0,
+        .height = 4,
+        .weight = 70,
         .description = COMPOUND_STRING(
             "Boosts the Pokemon's Speed stat in rain."),
         .pokemonScale = 256,
@@ -1275,8 +1275,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_CROAKBLE,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 12,
+        .weight = 382,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -1323,8 +1323,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_GALFROGTOM,
         .categoryName = _("Ghost"),
-        .height = 0,
-        .weight = 0,
+        .height = 13,
+        .weight = 304,
         .description = COMPOUND_STRING(
             "May disable a move that deals damage to\n"
             "the Pokemon."),
@@ -1372,8 +1372,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_BLUTIE,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 3,
+        .weight = 60,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -1422,8 +1422,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_COATAIL,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 13,
+        .weight = 300,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -1574,8 +1574,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_STONMA,
         .categoryName = _("Stone Head"),
-        .height = 0,
-        .weight = 0,
+        .height = 7,
+        .weight = 600,
         .description = COMPOUND_STRING(
             "Can support immense weight on its head.\n"
             "Its thumbs-up form is a mystery of\n"
@@ -1626,8 +1626,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_SIGMAULER,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 22,
+        .weight = 3800,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -1674,8 +1674,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_TINKY,
         .categoryName = _("Small Tiki"),
-        .height = 0,
-        .weight = 0,
+        .height = 4,
+        .weight = 50,
         .description = COMPOUND_STRING(
             "A very small Pokémon. It struggles to\n"
             "form its first masks, its hands\n"
@@ -1728,8 +1728,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_MOTINKY,
         .categoryName = _("Tiki Monkey"),
-        .height = 0,
-        .weight = 0,
+        .height = 8,
+        .weight = 160,
         .description = COMPOUND_STRING(
             "A Pokémon that performs intricate fire\n"
             "dances, mimicking moves it observes. The\n"
@@ -1781,8 +1781,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_GORTIKI,
         .categoryName = _("Tiki Gorilla"),
-        .height = 0,
-        .weight = 0,
+        .height = 17,
+        .weight = 1100,
         .description = COMPOUND_STRING(
             "A powerful Pokémon that leads its tribe\n"
             "with fiery passion. Gortiki's burning\n"
@@ -1832,8 +1832,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_CHEBBI,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 6,
+        .weight = 120,
         .description = COMPOUND_STRING(
             "It's loud, it's fuzzy, and it doesn't\n"
             "care who hears it. Chebbi lives for the\n"
@@ -1885,8 +1885,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_DEVAMPRY,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 10,
+        .weight = 260,
         .description = COMPOUND_STRING(
             "Its voice can shatter glass- and shake\n"
             "hearts. Debatry won't just be heard,\n"
@@ -2091,8 +2091,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_BEATLD,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 10,
+        .weight = 307,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -2140,7 +2140,7 @@
         .natDexNum = NATIONAL_DEX_FLEUROOM,
         .categoryName = _("Unknown"),
         .height = 4,
-        .weight = 0,
+        .weight = 60,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -2190,7 +2190,7 @@
         .natDexNum = NATIONAL_DEX_SPORESHADE,
         .categoryName = _("Unknown"),
         .height = 11,
-        .weight = 0,
+        .weight = 156,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -2237,8 +2237,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_RAZOX,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 8,
+        .weight = 300,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -2440,8 +2440,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_JULIUS,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 11,
+        .weight = 400,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -2490,8 +2490,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_CONQRILLA,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 28,
+        .weight = 3207,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -2539,7 +2539,7 @@
         .natDexNum = NATIONAL_DEX_ANJANE,
         .categoryName = _("Drooping Hai"),
         .height = 8,
-        .weight = 0,
+        .weight = 110,
         .description = COMPOUND_STRING(
             "Anjane's heavy hair droops down to the\n"
             "ground. It absorbs the curse-filled\n"
@@ -2592,7 +2592,7 @@
         .natDexNum = NATIONAL_DEX_JANENON,
         .categoryName = _("Cursed Canno"),
         .height = 18,
-        .weight = 0,
+        .weight = 450,
         .description = COMPOUND_STRING(
             "It's said that when it fires its cannon,\n"
             "the sound is like the curse a thousand\n"
@@ -2641,8 +2641,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_SAUCERL,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 5,
+        .weight = 40,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -2692,8 +2692,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_ABYSSYS,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 8,
+        .weight = 140,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -2742,8 +2742,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_OCTOPEARL,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 14,
+        .weight = 480,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -2791,8 +2791,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_GORAMBE,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 20,
+        .weight = 1800,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -2840,7 +2840,7 @@
         .natDexNum = NATIONAL_DEX_LEADLING,
         .categoryName = _("Unknown"),
         .height = 5,
-        .weight = 0,
+        .weight = 123,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -2990,7 +2990,7 @@
         .natDexNum = NATIONAL_DEX_FURAMIRE,
         .categoryName = _("Unknown"),
         .height = 16,
-        .weight = 0,
+        .weight = 382,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3040,8 +3040,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_GOATJO,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 13,
+        .weight = 403,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3090,8 +3090,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_DETECUP,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 11,
+        .weight = 355,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3138,8 +3138,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_SNOWNIN,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 14,
+        .weight = 220,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3187,8 +3187,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_VIRES,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 3,
+        .weight = 20,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3236,8 +3236,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_FLURINA,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 8,
+        .weight = 220,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3284,8 +3284,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_DRAGEM,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 16,
+        .weight = 1257,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3334,7 +3334,7 @@
         .natDexNum = NATIONAL_DEX_ROKU,
         .categoryName = _("Unknown"),
         .height = 29,
-        .weight = 0,
+        .weight = 6800,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3381,8 +3381,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_SKIIRTLE,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 5,
+        .weight = 120,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3431,8 +3431,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_MCSKIIRTLE,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 12,
+        .weight = 900,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3479,8 +3479,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_AMBUGER,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 3,
+        .weight = 35,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3529,8 +3529,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_AMBRR,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 11,
+        .weight = 450,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3577,8 +3577,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_TORTOPLASM,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 6,
+        .weight = 300,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3627,7 +3627,7 @@
         .natDexNum = NATIONAL_DEX_SLOTHBABY,
         .categoryName = _("Unknown"),
         .height = 10,
-        .weight = 0,
+        .weight = 284,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3675,8 +3675,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_TERRATYSON,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 18,
+        .weight = 1050,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3724,8 +3724,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_OBSIDOG,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 6,
+        .weight = 300,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3824,7 +3824,7 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_SLAMQUAKE,
         .categoryName = _("Unknown"),
-        .height = 0,
+        .height = 19,
         .weight = 3160,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
@@ -3873,8 +3873,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_LIMULK,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 6,
+        .weight = 140,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3922,8 +3922,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_MORTBULK,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 16,
+        .weight = 950,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -3970,8 +3970,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_PHANTOMB,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 5,
+        .weight = 22,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4020,8 +4020,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_PHANTAIL,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 12,
+        .weight = 100,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4119,7 +4119,7 @@
         .natDexNum = NATIONAL_DEX_ORACLAW,
         .categoryName = _("Unknown"),
         .height = 21,
-        .weight = 0,
+        .weight = 784,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4167,7 +4167,7 @@
         .natDexNum = NATIONAL_DEX_ZAPITERA,
         .categoryName = _("Unknown"),
         .height = 15,
-        .weight = 0,
+        .weight = 342,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4215,7 +4215,7 @@
         .natDexNum = NATIONAL_DEX_SHADEEM,
         .categoryName = _("Unknown"),
         .height = 8,
-        .weight = 0,
+        .weight = 125,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4265,7 +4265,7 @@
         .natDexNum = NATIONAL_DEX_SHADROVE,
         .categoryName = _("Unknown"),
         .height = 19,
-        .weight = 0,
+        .weight = 680,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4312,8 +4312,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_AUTUMAN,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 14,
+        .weight = 380,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4413,8 +4413,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_JAWBREAKER,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 17,
+        .weight = 1241,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4461,8 +4461,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_DREADIPEDE,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 4,
+        .weight = 52,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4511,8 +4511,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_DREADFANG,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 15,
+        .weight = 574,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4559,8 +4559,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_AQUAT,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 4,
+        .weight = 72,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4609,8 +4609,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_AQUWAY,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 11,
+        .weight = 333,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4658,8 +4658,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_ZYZZFU,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 14,
+        .weight = 621,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4708,7 +4708,7 @@
         .natDexNum = NATIONAL_DEX_GRINCHO,
         .categoryName = _("Unknown"),
         .height = 19,
-        .weight = 0,
+        .weight = 442,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4756,8 +4756,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_GLAC_P_E,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 17,
+        .weight = 520,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4804,8 +4804,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_EVERDARK,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 15,
+        .weight = 550,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4853,8 +4853,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_DIEDO,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 4,
+        .weight = 36,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4903,7 +4903,7 @@
         .natDexNum = NATIONAL_DEX_ROCKEDEER,
         .categoryName = _("Unknown"),
         .height = 19,
-        .weight = 0,
+        .weight = 2100,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4950,8 +4950,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_SABERTANN,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 30,
+        .weight = 4100,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -4999,8 +4999,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_SOLIDEDGE,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 22,
+        .weight = 280,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -5047,8 +5047,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_WHALDRILL0,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 7,
+        .weight = 350,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -5098,8 +5098,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_NARBURR,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 17,
+        .weight = 1800,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,
@@ -5148,8 +5148,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_WHALDRILL,
         .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
+        .height = 30,
+        .weight = 4200,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,

@@ -1584,7 +1584,7 @@ function numbersPanel(s, f) {
   const box = h("div", {class: "suggest"});
   const go = h("button", {type: "button", class: "small"}, "Fill in the empty ones for me");
   const out = h("div", {class: "hint"});
-  box.append(h("div", {class: "hint"}, "Body color, EV yield, catch rate, exp, growth, friendship, gender, egg groups and egg cycles, the way Game Freak does it for Pokemon like this one. Only empty fields are filled; change anything before you press YES."), go, out);
+  box.append(h("div", {class: "hint"}, "Height, weight, body color, EV yield, catch rate, exp, growth, friendship, gender, egg groups and egg cycles, the way Game Freak does it for Pokemon like this one. Only empty fields are filled; change anything before you press YES."), go, out);
   go.onclick = async () => {
     go.disabled = true; go.textContent = "Loading...";
     if (!SPECIES_SUGGESTIONS) SPECIES_SUGGESTIONS = fetch("species_suggestions.json", {cache: "no-cache"}).then(r => r.ok ? r.json() : null).catch(() => null);
@@ -1594,7 +1594,12 @@ function numbersPanel(s, f) {
     if (!sg) { out.textContent = "No suggestion yet: save this Pokemon first; it is ready within 15 minutes."; return; }
     if (sg.skipped) { out.textContent = sg.skipped.includes("base stats") ? "It needs its base stats (and types) first; save them, and the suggestion is ready within 15 minutes." : "No suggestion: " + sg.skipped; return; }
     const done = [];
+    // Height and weight need no stats (16 Nov 2026), so a Pokemon without stats still gets them.
     const put = (el, value, label, why) => { if (el && !String(el.value || "").trim() && value !== null && value !== undefined) { el.value = String(value); el.dispatchEvent(new Event("input", {bubbles: true})); el.dispatchEvent(new Event("change", {bubbles: true})); done.push(h("li", {title: why || ""}, label + ": " + String(value).replace("_", " ") + (why ? " (" + why + ")" : ""))); } };
+    for (const [key, el, label] of [["height_m", f.height, "Height (m)"], ["weight_kg", f.weight, "Weight (kg)"]]) {
+      const [v, why] = sg[key] || [];
+      put(el, v, label, why);
+    }
     const [color, colorWhy] = sg.body_color || [];
     put(f.color, color, "Body color", colorWhy);
     const [ev, evWhy] = sg.ev_yield || [];
@@ -1609,7 +1614,8 @@ function numbersPanel(s, f) {
     }
     const [groups, groupsWhy] = sg.egg_groups || [];
     if (groups && !f.egg1.value && !f.egg2.value) { put(f.egg1, groups[0], "Egg group", groupsWhy); if (groups[1]) put(f.egg2, groups[1], "Second egg group", ""); }
-    out.replaceChildren(done.length ? h("div", {}, "Filled in (check them, then press YES):", h("ul", {}, done)) : "Everything here is already filled in.");
+    const waits = sg.waits ? (sg.waits.includes("stats") ? " The rest needs its base stats (and types) first; save them, and the suggestion is ready within 15 minutes." : " " + sg.waits + ".") : "";
+    out.replaceChildren(done.length ? h("div", {}, "Filled in (check them, then press YES):", h("ul", {}, done), waits) : "Everything here is already filled in." + waits);
   };
   return box;
 }

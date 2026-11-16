@@ -11,8 +11,8 @@ types: [Fairy]           # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+height_m: 0.8            # e.g. 0.7
+weight_kg: 22            # e.g. 6.9
 body_color: pink         # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
@@ -108,7 +108,7 @@ design:
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
-                     egg groups, egg cycles]
+                     egg groups, egg cycles, height, weight]
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its many legs.
   look: "It is a pink creature with a faceted pink crystal gem body, a small round pink head with two big shiny black eyes in a heart-shaped pale patch and no mouth, two long thin curled pink arms and four long thin ribbon-like pink legs."

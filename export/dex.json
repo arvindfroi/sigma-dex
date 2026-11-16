@@ -258,8 +258,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.4,
+      "weight_kg": 70,
       "body_color": "green",
       "abilities": {
         "primary": "Overgrow",
@@ -476,7 +476,9 @@
           "base friendship",
           "gender",
           "egg cycles",
-          "egg groups"
+          "egg groups",
+          "height",
+          "weight"
         ],
         "body_shape": "a serpentine body",
         "movement": "It slithers along the ground.",
@@ -515,8 +517,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 2.1,
+      "weight_kg": 190,
       "body_color": "green",
       "abilities": {
         "primary": "Overgrow",
@@ -784,7 +786,9 @@
           "base friendship",
           "gender",
           "egg cycles",
-          "egg groups"
+          "egg groups",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It crawls along the ground on its legs.",
@@ -822,8 +826,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.4,
+      "weight_kg": 6.5,
       "body_color": "blue",
       "abilities": {
         "primary": "Torrent",
@@ -999,7 +1003,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -1038,8 +1044,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.9,
+      "weight_kg": 24.5,
       "body_color": "blue",
       "abilities": {
         "primary": "Torrent",
@@ -1259,7 +1265,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -1298,8 +1306,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.6,
+      "weight_kg": 55,
       "body_color": "blue",
       "abilities": {
         "primary": "Torrent",
@@ -1588,7 +1596,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -1627,7 +1637,7 @@
       "category": null,
       "description": null,
       "height_m": 0.8,
-      "weight_kg": null,
+      "weight_kg": 12.5,
       "body_color": "red",
       "abilities": {
         "primary": "Blaze",
@@ -1859,8 +1869,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.1,
+      "weight_kg": 24,
       "body_color": "red",
       "abilities": {
         "primary": "Blaze",
@@ -2074,7 +2084,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -2113,8 +2125,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.8,
+      "weight_kg": 75,
       "body_color": "red",
       "abilities": {
         "primary": "Blaze",
@@ -2369,7 +2381,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -2645,7 +2659,7 @@
       "category": null,
       "description": null,
       "height_m": 0.8,
-      "weight_kg": null,
+      "weight_kg": 11.6,
       "body_color": "white",
       "abilities": {
         "primary": "Unburden",
@@ -3367,8 +3381,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.4,
+      "weight_kg": 4.3,
       "body_color": "gray",
       "abilities": {
         "primary": "Swarm",
@@ -3535,7 +3549,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It crawls along the ground on its many legs.",
@@ -3574,8 +3590,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.5,
+      "weight_kg": 7.3,
       "body_color": "white",
       "abilities": {
         "primary": "Swarm",
@@ -3791,7 +3807,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a head and a base",
         "movement": "It floats in the air.",
@@ -3830,8 +3848,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.5,
+      "weight_kg": 85,
       "body_color": "green",
       "abilities": {
         "primary": "Swarm",
@@ -4050,7 +4068,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It crawls along the ground on its many legs.",
@@ -4088,8 +4108,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.4,
+      "weight_kg": 3.8,
       "body_color": "brown",
       "abilities": {
         "primary": "Early Bird",
@@ -4265,7 +4285,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -4304,8 +4326,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.9,
+      "weight_kg": 62,
       "body_color": "brown",
       "abilities": {
         "primary": "Early Bird",
@@ -4524,7 +4546,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -4563,8 +4587,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.6,
+      "weight_kg": 7.4,
       "body_color": null,
       "abilities": {
         "primary": "Prankster",
@@ -4646,8 +4670,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.5,
+      "weight_kg": 11.2,
       "body_color": "white",
       "abilities": {
         "primary": "Own Tempo",
@@ -4843,7 +4867,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -4882,8 +4908,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 2.2,
+      "weight_kg": 210,
       "body_color": "blue",
       "abilities": {
         "primary": "Own Tempo",
@@ -5125,7 +5151,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -5164,8 +5192,8 @@
       ],
       "category": "Ear Slapper",
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.5,
+      "weight_kg": 6.8,
       "body_color": "brown",
       "abilities": {
         "primary": "Scrappy",
@@ -5363,7 +5391,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -5402,8 +5432,8 @@
       ],
       "category": "Dog Brawler",
       "description": "It swings its ears like fists to slap the target. Its tough fur protects it while it fights.",
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.6,
+      "weight_kg": 66.2,
       "body_color": "black",
       "abilities": {
         "primary": "Scrappy",
@@ -5658,7 +5688,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -5697,8 +5729,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.2,
+      "weight_kg": 67.3,
       "body_color": "yellow",
       "abilities": {
         "primary": "Iron Barbs",
@@ -5892,7 +5924,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -5931,7 +5965,7 @@
       "category": "Frost Swagger",
       "description": "Icy Freeze roams city streets with effortless swagger, chilling the air around him wherever he goes. When threatened, he unleashes a freezing glare and a burst of icy wind that can stop opponents in their tracks.",
       "height_m": 0.4,
-      "weight_kg": null,
+      "weight_kg": 22,
       "body_color": "blue",
       "abilities": {
         "primary": "Ice Body",
@@ -6148,7 +6182,7 @@
       "category": "Ice Rabbit",
       "description": "Freezrick evolved by gaining more ice mass and perfecting control over its frigid aura. Its hair bangs, made of fine ice crystals, are so cold they conceal even its eyes.",
       "height_m": 0.89,
-      "weight_kg": null,
+      "weight_kg": 60,
       "body_color": "blue",
       "abilities": {
         "primary": "Ice Body",
@@ -6384,8 +6418,8 @@
       ],
       "category": "Little Light",
       "description": "Its nose glows when it's excited, alert, or using its light. It uses that light to light up dark caves or to blind enemies.",
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.4,
+      "weight_kg": 9,
       "body_color": "brown",
       "abilities": {
         "primary": "Shell Armor",
@@ -6572,7 +6606,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -6611,8 +6647,8 @@
       ],
       "category": "Light Shell",
       "description": "Bulbtoise's shell is made of glass, which it fills with its own light. It uses this light to illuminate caves or to blind enemies in battle.",
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.1,
+      "weight_kg": 95,
       "body_color": "brown",
       "abilities": {
         "primary": "Shell Armor",
@@ -6825,7 +6861,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -6863,8 +6901,8 @@
       ],
       "category": "Tadpole",
       "description": "Boosts the Pokemon's Speed stat in rain.",
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.4,
+      "weight_kg": 7,
       "body_color": "green",
       "abilities": {
         "primary": "Swift Swim",
@@ -7038,7 +7076,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a body with fins",
         "movement": "It floats in the air, swimming with its fins.",
@@ -7076,8 +7116,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.2,
+      "weight_kg": 38.2,
       "body_color": "brown",
       "abilities": {
         "primary": "Swift Swim",
@@ -7261,7 +7301,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": null,
         "movement": null,
@@ -7300,8 +7342,8 @@
       ],
       "category": "Ghost",
       "description": "May disable a move that deals damage to the Pokemon.",
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.3,
+      "weight_kg": 30.4,
       "body_color": "green",
       "abilities": {
         "primary": "Cursed Body",
@@ -7534,7 +7576,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It floats in the air.",
@@ -7572,8 +7616,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.2,
+      "weight_kg": 65,
       "body_color": "black",
       "abilities": {
         "primary": "Moody",
@@ -7759,7 +7803,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -7795,8 +7841,8 @@
       "types": [],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.8,
+      "weight_kg": 20.4,
       "body_color": "white",
       "abilities": {
         "primary": "Punchable Face",
@@ -7959,7 +8005,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -7997,8 +8045,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.3,
+      "weight_kg": 6,
       "body_color": "white",
       "abilities": {
         "primary": "Run Away",
@@ -8190,7 +8238,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -8228,8 +8278,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.3,
+      "weight_kg": 30,
       "body_color": "blue",
       "abilities": {
         "primary": "Run Away",
@@ -8444,7 +8494,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -8973,8 +9025,8 @@
       ],
       "category": "Stone Head",
       "description": "Can support immense weight on its head. Its thumbs-up form is a mystery of ancient masonry.",
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.7,
+      "weight_kg": 60,
       "body_color": "brown",
       "abilities": {
         "primary": "Sturdy",
@@ -9146,7 +9198,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "only a head",
         "movement": "It floats in the air.",
@@ -9185,8 +9239,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 2.2,
+      "weight_kg": 380,
       "body_color": "brown",
       "abilities": {
         "primary": "Iron Fist",
@@ -9393,7 +9447,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -9431,8 +9487,8 @@
       ],
       "category": "Small Tiki",
       "description": "A very small Pokémon. It struggles to form its first masks, its hands constantly gripping and shaping the raw wood face it wears. The unique green moss that forms around its mouth and in its wood grain provides its natural nutrition. It is much less active than its evolution.",
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.4,
+      "weight_kg": 5,
       "body_color": "brown",
       "abilities": {
         "primary": "Heatproof",
@@ -9603,7 +9659,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks on its legs.",
@@ -9642,8 +9700,8 @@
       ],
       "category": "Tiki Monkey",
       "description": "A Pokémon that performs intricate fire dances, mimicking moves it observes. The flames on its staff are said to burn hotter with the complexity of its routines. While its tail now trails only smoke, it uses it to create smokescreens.",
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.8,
+      "weight_kg": 16,
       "body_color": "brown",
       "abilities": {
         "primary": "Flash Fire",
@@ -9874,7 +9932,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -9913,8 +9973,8 @@
       ],
       "category": "Tiki Gorilla",
       "description": "A powerful Pokémon that leads its tribe with fiery passion. Gortiki’s burning torch can incinerate thick trees in an instant. It performs intense dances to inspire allies and intimidate foes. When its flames die down, it retreats to the jungle to meditate and rekindle its inner fire.",
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.7,
+      "weight_kg": 110,
       "body_color": "brown",
       "abilities": {
         "primary": "Flash Fire",
@@ -10129,7 +10189,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -10168,8 +10230,8 @@
       ],
       "category": null,
       "description": "It’s loud, it’s fuzzy, and it doesn’t care who hears it. Chebbi lives for the stage—and the chaos it brings.",
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.6,
+      "weight_kg": 12,
       "body_color": "purple",
       "abilities": {
         "primary": "Soundproof",
@@ -10362,7 +10424,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks on its legs.",
@@ -10401,8 +10465,8 @@
       ],
       "category": null,
       "description": "Its voice can shatter glass— and shake hearts. Debatry won't just be heard, it'll be remembered.",
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1,
+      "weight_kg": 26,
       "body_color": "gray",
       "abilities": {
         "primary": "Soundproof",
@@ -10636,7 +10700,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -11900,8 +11966,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1,
+      "weight_kg": 30.7,
       "body_color": "blue",
       "abilities": {
         "primary": "Curious Medicine",
@@ -12081,7 +12147,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -12121,7 +12189,7 @@
       "category": null,
       "description": null,
       "height_m": 0.4,
-      "weight_kg": null,
+      "weight_kg": 6,
       "body_color": "red",
       "abilities": {
         "primary": "Effect Spore",
@@ -12302,7 +12370,8 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -12342,7 +12411,7 @@
       "category": null,
       "description": null,
       "height_m": 1.1,
-      "weight_kg": null,
+      "weight_kg": 15.6,
       "body_color": "pink",
       "abilities": {
         "primary": "Effect Spore",
@@ -12532,7 +12601,8 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -12571,8 +12641,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 12.8,
+      "weight_kg": 729,
       "body_color": null,
       "abilities": {
         "primary": null,
@@ -12652,8 +12722,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.5,
+      "weight_kg": 230,
       "body_color": "gray",
       "abilities": {
         "primary": "Ore Body",
@@ -12842,7 +12912,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -12881,8 +12953,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.1,
+      "weight_kg": 110,
       "body_color": null,
       "abilities": {
         "primary": null,
@@ -12929,7 +13001,9 @@
         "filled_by_claude": [
           "body shape",
           "look",
-          "movement"
+          "movement",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -12968,8 +13042,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.8,
+      "weight_kg": 30,
       "body_color": "pink",
       "abilities": {
         "primary": "Snow Cloak",
@@ -13158,7 +13232,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -13656,7 +13732,7 @@
       "category": "Ambush",
       "description": "It hides in marshes beneath curtains of swamp grass. In heavy rain, it sinks low into the water, causing attacks from above to pass harmlessly by.",
       "height_m": 0.6,
-      "weight_kg": null,
+      "weight_kg": 25,
       "body_color": "brown",
       "abilities": {
         "primary": "Diver",
@@ -13852,7 +13928,8 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "weight"
         ],
         "body_shape": "a head and a base",
         "movement": "It crawls along the ground on its legs.",
@@ -13892,7 +13969,7 @@
       "category": "Tank",
       "description": "A group of Hairyen has taken over an abandoned tank. They patched it up with swamp weeds and logs to keep moving. It can only fire at what's straight ahead.",
       "height_m": 1.6,
-      "weight_kg": null,
+      "weight_kg": 420,
       "body_color": "brown",
       "abilities": {
         "primary": "Broken Swivel",
@@ -14135,7 +14212,8 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "weight"
         ],
         "body_shape": "several bodies joined together",
         "movement": "It crawls along the ground on its legs.",
@@ -14624,8 +14702,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.1,
+      "weight_kg": 40,
       "body_color": "black",
       "abilities": {
         "primary": "Sheer Force",
@@ -14830,7 +14908,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "Like a Chimpanzee",
@@ -14869,8 +14949,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 2.8,
+      "weight_kg": 320.7,
       "body_color": "gray",
       "abilities": {
         "primary": "Sheer Force",
@@ -15136,7 +15216,7 @@
       "category": "Drooping Hair",
       "description": "Anjane's heavy hair droops down to the ground. It absorbs the curse-filled emotions of others and hangs motionless. When angered, the hair stiffens and sways, unleashing bursts of cursed energy. It's said that when it sways its hair, the sound is like the curse a thousand spirits let loose in a single moan.",
       "height_m": 0.8,
-      "weight_kg": null,
+      "weight_kg": 11,
       "body_color": "black",
       "abilities": {
         "primary": "Tangling Hair",
@@ -15347,7 +15427,7 @@
       "category": "Cursed Cannon",
       "description": "It's said that when it fires its cannon, the sound is like the curse a thousand spirits let loose in a single scream.",
       "height_m": 1.8,
-      "weight_kg": null,
+      "weight_kg": 45,
       "body_color": "blue",
       "abilities": {
         "primary": "Tangling Hair",
@@ -15540,7 +15620,8 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "weight"
         ],
         "body_shape": "a head and legs",
         "movement": "It walks on its legs.",
@@ -15579,8 +15660,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.5,
+      "weight_kg": 4,
       "body_color": "purple",
       "abilities": {
         "primary": "Analytic",
@@ -15784,7 +15865,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a head and legs",
         "movement": "It walks on its legs.",
@@ -15823,8 +15906,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.8,
+      "weight_kg": 14,
       "body_color": "white",
       "abilities": {
         "primary": "Analytic",
@@ -16038,7 +16121,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a serpentine body",
         "movement": "It floats in the air.",
@@ -16077,8 +16162,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.4,
+      "weight_kg": 48,
       "body_color": "pink",
       "abilities": {
         "primary": "Analytic",
@@ -16316,7 +16401,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It floats in the air.",
@@ -16581,8 +16668,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.5,
+      "weight_kg": 40,
       "body_color": null,
       "abilities": {
         "primary": "Big Pecks",
@@ -16629,7 +16716,9 @@
         "filled_by_claude": [
           "body shape",
           "look",
-          "movement"
+          "movement",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -16668,8 +16757,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 2,
+      "weight_kg": 180,
       "body_color": "pink",
       "abilities": {
         "primary": "Clear Body",
@@ -16941,7 +17030,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": null,
         "movement": null,
@@ -16981,7 +17072,7 @@
       "category": null,
       "description": null,
       "height_m": 0.5,
-      "weight_kg": null,
+      "weight_kg": 12.3,
       "body_color": "gray",
       "abilities": {
         "primary": "Sturdy",
@@ -17209,8 +17300,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.4,
+      "weight_kg": 110,
       "body_color": "blue",
       "abilities": {
         "primary": "Sturdy",
@@ -17410,7 +17501,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": null,
         "movement": null,
@@ -17688,8 +17781,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1,
+      "weight_kg": 50,
       "body_color": null,
       "abilities": {
         "primary": "Ice Body",
@@ -17739,7 +17832,10 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight"
+        ],
         "body_shape": null,
         "movement": null,
         "look": null
@@ -18025,7 +18121,7 @@
       "category": null,
       "description": null,
       "height_m": 1.6,
-      "weight_kg": null,
+      "weight_kg": 38.2,
       "body_color": "brown",
       "abilities": {
         "primary": "Cute Charm",
@@ -18928,8 +19024,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.3,
+      "weight_kg": 40.3,
       "body_color": "black",
       "abilities": {
         "primary": "Wonder Guard",
@@ -19121,7 +19217,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -19159,8 +19257,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.5,
+      "weight_kg": 6.6,
       "body_color": "brown",
       "abilities": {
         "primary": "Pickup",
@@ -19339,7 +19437,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": null,
         "movement": null,
@@ -19377,8 +19477,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.1,
+      "weight_kg": 35.5,
       "body_color": "brown",
       "abilities": {
         "primary": "Pickup",
@@ -19603,7 +19703,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -19642,8 +19744,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.4,
+      "weight_kg": 22,
       "body_color": "white",
       "abilities": {
         "primary": "Snow Warning",
@@ -19856,7 +19958,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a head and a base",
         "movement": "It floats in the air.",
@@ -19895,8 +19999,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.8,
+      "weight_kg": 200,
       "body_color": "brown",
       "abilities": {
         "primary": "Fog Of War",
@@ -20088,7 +20192,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -20126,8 +20232,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.5,
+      "weight_kg": 15,
       "body_color": "green",
       "abilities": {
         "primary": "Drunken Rage",
@@ -20302,7 +20408,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks on its legs.",
@@ -20340,8 +20448,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.8,
+      "weight_kg": 160,
       "body_color": "green",
       "abilities": {
         "primary": "Drunken Rage",
@@ -20573,7 +20681,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -20611,8 +20721,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.3,
+      "weight_kg": 2,
       "body_color": "pink",
       "abilities": {
         "primary": "Mirror Armor",
@@ -20781,7 +20891,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It crawls along the ground on its many legs.",
@@ -20819,8 +20931,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.8,
+      "weight_kg": 22,
       "body_color": "pink",
       "abilities": {
         "primary": "Mirror Armor",
@@ -20997,7 +21109,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "tentacles or many legs",
         "movement": "It crawls along the ground on its many legs.",
@@ -21036,8 +21150,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.6,
+      "weight_kg": 125.7,
       "body_color": "yellow",
       "abilities": {
         "primary": "Sand Stream",
@@ -21259,7 +21373,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It crawls along the ground on its legs.",
@@ -21299,7 +21415,7 @@
       "category": null,
       "description": null,
       "height_m": 0.7,
-      "weight_kg": null,
+      "weight_kg": 14.2,
       "body_color": null,
       "abilities": {
         "primary": "Nerd out",
@@ -21387,7 +21503,7 @@
       "category": null,
       "description": null,
       "height_m": 2.9,
-      "weight_kg": null,
+      "weight_kg": 680,
       "body_color": "red",
       "abilities": {
         "primary": "Magician",
@@ -21621,8 +21737,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.5,
+      "weight_kg": 12,
       "body_color": "pink",
       "abilities": {
         "primary": "Speed Boost",
@@ -21804,7 +21920,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -21843,8 +21961,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.2,
+      "weight_kg": 90,
       "body_color": "purple",
       "abilities": {
         "primary": "Speed Boost",
@@ -22079,7 +22197,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -22118,8 +22238,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.3,
+      "weight_kg": 3.5,
       "body_color": "red",
       "abilities": {
         "primary": "Shell Armor",
@@ -22299,7 +22419,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an insect body with a hard shell",
         "movement": "It crawls along the ground on its legs.",
@@ -22338,8 +22460,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.1,
+      "weight_kg": 45,
       "body_color": "red",
       "abilities": {
         "primary": "Levitate",
@@ -22552,7 +22674,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an insect body with a hard shell",
         "movement": "It flies, flapping its wings.",
@@ -22591,8 +22715,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.6,
+      "weight_kg": 30,
       "body_color": "black",
       "abilities": {
         "primary": "Cursed Body",
@@ -22773,7 +22897,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -22812,8 +22938,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.4,
+      "weight_kg": 150,
       "body_color": "gray",
       "abilities": {
         "primary": "Cursed Body",
@@ -22993,7 +23119,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": null,
         "movement": null,
@@ -23032,7 +23160,7 @@
       "category": null,
       "description": null,
       "height_m": 1,
-      "weight_kg": null,
+      "weight_kg": 28.4,
       "body_color": "red",
       "abilities": {
         "primary": "Truant",
@@ -23244,8 +23372,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 2.3,
+      "weight_kg": 176.4,
       "body_color": "red",
       "abilities": {
         "primary": "Sloth Combat",
@@ -23539,8 +23667,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.8,
+      "weight_kg": 105,
       "body_color": "brown",
       "abilities": {
         "primary": "Iron Fist",
@@ -23732,7 +23860,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -23771,8 +23901,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.6,
+      "weight_kg": 30,
       "body_color": "black",
       "abilities": {
         "primary": "Guard Dog",
@@ -23969,7 +24099,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -24270,7 +24402,7 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
+      "height_m": 1.9,
       "weight_kg": 316,
       "body_color": "gray",
       "abilities": {
@@ -24491,7 +24623,8 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -24529,8 +24662,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.6,
+      "weight_kg": 14,
       "body_color": "green",
       "abilities": {
         "primary": "Anger Point",
@@ -24729,7 +24862,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -24767,8 +24902,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.6,
+      "weight_kg": 95,
       "body_color": "green",
       "abilities": {
         "primary": "Anger Point",
@@ -24969,7 +25104,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -25008,8 +25145,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.5,
+      "weight_kg": 2.2,
       "body_color": "white",
       "abilities": {
         "primary": "Disguise",
@@ -25186,7 +25323,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a serpentine body",
         "movement": "It floats in the air.",
@@ -25225,8 +25364,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.2,
+      "weight_kg": 10,
       "body_color": "white",
       "abilities": {
         "primary": "Disguise",
@@ -25421,7 +25560,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -25689,7 +25830,7 @@
       "category": null,
       "description": null,
       "height_m": 2.1,
-      "weight_kg": null,
+      "weight_kg": 78.4,
       "body_color": "purple",
       "abilities": {
         "primary": "Anticipation",
@@ -25961,7 +26102,7 @@
       "category": null,
       "description": null,
       "height_m": 0.4,
-      "weight_kg": null,
+      "weight_kg": 4.8,
       "body_color": "white",
       "abilities": {
         "primary": "Shields Down",
@@ -26184,8 +26325,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.3,
+      "weight_kg": 43.3,
       "body_color": "red",
       "abilities": {
         "primary": "Shields Down",
@@ -26394,7 +26535,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": null,
         "movement": null,
@@ -26434,7 +26577,7 @@
       "category": null,
       "description": null,
       "height_m": 0.7,
-      "weight_kg": null,
+      "weight_kg": 7.8,
       "body_color": null,
       "abilities": {
         "primary": "Volt Absorb",
@@ -26525,7 +26668,7 @@
       "category": null,
       "description": null,
       "height_m": 1.5,
-      "weight_kg": null,
+      "weight_kg": 34.2,
       "body_color": "blue",
       "abilities": {
         "primary": "Levitate",
@@ -26762,8 +26905,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.5,
+      "weight_kg": 9,
       "body_color": "yellow",
       "abilities": {
         "primary": "Leaf Mane",
@@ -26925,7 +27068,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -26963,8 +27108,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.3,
+      "weight_kg": 55,
       "body_color": "green",
       "abilities": {
         "primary": "Leaf Mane",
@@ -27154,7 +27299,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": null,
         "movement": null,
@@ -27194,7 +27341,7 @@
       "category": null,
       "description": null,
       "height_m": 0.8,
-      "weight_kg": null,
+      "weight_kg": 12.5,
       "body_color": "white",
       "abilities": {
         "primary": "Illusion",
@@ -27431,7 +27578,7 @@
       "category": null,
       "description": null,
       "height_m": 1.9,
-      "weight_kg": null,
+      "weight_kg": 68,
       "body_color": "brown",
       "abilities": {
         "primary": "Illusion",
@@ -27670,8 +27817,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.4,
+      "weight_kg": 38,
       "body_color": "gray",
       "abilities": {
         "primary": "Justified",
@@ -27875,7 +28022,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -28143,8 +28292,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.7,
+      "weight_kg": 19.4,
       "body_color": null,
       "abilities": {
         "primary": "Flame Body",
@@ -28195,7 +28344,9 @@
         "filled_by_claude": [
           "body shape",
           "look",
-          "movement"
+          "movement",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -28234,8 +28385,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.7,
+      "weight_kg": 124.1,
       "body_color": "red",
       "abilities": {
         "primary": "Drought",
@@ -28429,7 +28580,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -28468,8 +28621,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.4,
+      "weight_kg": 5.2,
       "body_color": "green",
       "abilities": {
         "primary": "Mold Breaker",
@@ -28651,7 +28804,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an insect body with a hard shell",
         "movement": "It crawls along the ground on its many legs.",
@@ -28690,8 +28845,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.5,
+      "weight_kg": 57.4,
       "body_color": "green",
       "abilities": {
         "primary": "Mold Breaker",
@@ -28882,7 +29037,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an insect body with a hard shell",
         "movement": "It flies, flapping its wings.",
@@ -28920,8 +29077,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.4,
+      "weight_kg": 7.2,
       "body_color": "red",
       "abilities": {
         "primary": "Swift Swim",
@@ -29094,7 +29251,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -29133,8 +29292,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.1,
+      "weight_kg": 33.3,
       "body_color": "red",
       "abilities": {
         "primary": "Swift Swim",
@@ -29343,7 +29502,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -29382,8 +29543,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.4,
+      "weight_kg": 62.1,
       "body_color": "white",
       "abilities": {
         "primary": "Surge Surfer",
@@ -29595,7 +29756,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -29635,7 +29798,7 @@
       "category": null,
       "description": null,
       "height_m": 1.9,
-      "weight_kg": null,
+      "weight_kg": 44.2,
       "body_color": "white",
       "abilities": {
         "primary": "Unnerve",
@@ -29866,8 +30029,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.6,
+      "weight_kg": 10.5,
       "body_color": null,
       "abilities": {
         "primary": "Weak Armor",
@@ -29911,7 +30074,10 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight"
+        ],
         "body_shape": null,
         "movement": null,
         "look": null
@@ -29949,8 +30115,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.7,
+      "weight_kg": 52,
       "body_color": "blue",
       "abilities": {
         "primary": "Long Reach",
@@ -30145,7 +30311,8 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -30184,8 +30351,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.5,
+      "weight_kg": 55,
       "body_color": "red",
       "abilities": {
         "primary": "Armor Tail",
@@ -30367,7 +30534,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -30405,8 +30574,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.4,
+      "weight_kg": 3.6,
       "body_color": "white",
       "abilities": {
         "primary": "Mind's Eye",
@@ -30584,7 +30753,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -30622,8 +30793,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.4,
+      "weight_kg": 25,
       "body_color": "yellow",
       "abilities": {
         "primary": "Soul-Heart",
@@ -30844,7 +31015,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a body with two or more pairs of wings",
         "movement": "It floats in the air.",
@@ -30884,7 +31057,7 @@
       "category": null,
       "description": null,
       "height_m": 0.6,
-      "weight_kg": null,
+      "weight_kg": 4.8,
       "body_color": null,
       "abilities": {
         "primary": "Prankster",
@@ -30969,8 +31142,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.6,
+      "weight_kg": 30,
       "body_color": "blue",
       "abilities": {
         "primary": "Motor Drive",
@@ -31151,7 +31324,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -31190,7 +31365,7 @@
       "category": null,
       "description": null,
       "height_m": 0.4,
-      "weight_kg": null,
+      "weight_kg": 8,
       "body_color": null,
       "abilities": {
         "primary": "Lightning Rod",
@@ -31281,8 +31456,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1,
+      "weight_kg": 35,
       "body_color": null,
       "abilities": {
         "primary": "Lightning Rod",
@@ -31336,7 +31511,9 @@
         "filled_by_claude": [
           "body shape",
           "look",
-          "movement"
+          "movement",
+          "height",
+          "weight"
         ],
         "body_shape": "a body with fins",
         "movement": "It floats in the air, swimming with its fins.",
@@ -31376,7 +31553,7 @@
       "category": null,
       "description": null,
       "height_m": 7.2,
-      "weight_kg": null,
+      "weight_kg": 999.9,
       "body_color": "red",
       "abilities": {
         "primary": "Lightning Rod",
@@ -31594,8 +31771,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.1,
+      "weight_kg": 18.9,
       "body_color": null,
       "abilities": {
         "primary": "Prankster",
@@ -31682,8 +31859,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 2,
+      "weight_kg": 230,
       "body_color": null,
       "abilities": {
         "primary": null,
@@ -31728,7 +31905,9 @@
         "filled_by_claude": [
           "body shape",
           "look",
-          "movement"
+          "movement",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -31767,8 +31946,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 2.3,
+      "weight_kg": 320,
       "body_color": "white",
       "abilities": {
         "primary": "Aurora Dancer",
@@ -31941,7 +32120,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It floats in the air.",
@@ -31981,7 +32162,7 @@
       "category": null,
       "description": null,
       "height_m": 1.9,
-      "weight_kg": null,
+      "weight_kg": 210,
       "body_color": "blue",
       "abilities": {
         "primary": "Levitate",
@@ -32207,8 +32388,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 3,
+      "weight_kg": 410,
       "body_color": "black",
       "abilities": {
         "primary": "Good as Gold",
@@ -32403,7 +32584,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -32694,8 +32877,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.4,
+      "weight_kg": 6.3,
       "body_color": "red",
       "abilities": {
         "primary": "Catch Master",
@@ -32883,7 +33066,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -32922,8 +33107,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.4,
+      "weight_kg": 60,
       "body_color": "blue",
       "abilities": {
         "primary": "Catch Master",
@@ -33129,7 +33314,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a serpentine body",
         "movement": "It crawls along the ground on its legs.",
@@ -33168,8 +33355,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 2,
+      "weight_kg": 150,
       "body_color": "blue",
       "abilities": {
         "primary": "Catch Master",
@@ -33432,7 +33619,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "a body with two or more pairs of wings",
         "movement": "It flies, flapping its wings.",
@@ -33907,8 +34096,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.8,
+      "weight_kg": 20,
       "body_color": "brown",
       "abilities": {
         "primary": "Lullaby",
@@ -34107,7 +34296,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -34146,8 +34337,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.4,
+      "weight_kg": 6,
       "body_color": null,
       "abilities": {
         "primary": null,
@@ -34195,7 +34386,10 @@
         "notes": null,
         "wishes": "Weak physical attacker. baby mon",
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight"
+        ],
         "body_shape": null,
         "movement": null,
         "look": null
@@ -34232,8 +34426,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.2,
+      "weight_kg": 28,
       "body_color": null,
       "abilities": {
         "primary": null,
@@ -34275,7 +34469,10 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight"
+        ],
         "body_shape": null,
         "movement": null,
         "look": null
@@ -34313,8 +34510,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 2.2,
+      "weight_kg": 28,
       "body_color": null,
       "abilities": {
         "primary": "Beast Boost",
@@ -34568,7 +34765,10 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight"
+        ],
         "body_shape": "a serpentine body",
         "movement": "It slithers along the ground.",
         "look": null
@@ -34606,8 +34806,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 0.7,
+      "weight_kg": 35,
       "body_color": "brown",
       "abilities": {
         "primary": "Slush Rush",
@@ -34796,7 +34996,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": null,
         "movement": null,
@@ -34835,8 +35037,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.7,
+      "weight_kg": 180,
       "body_color": "brown",
       "abilities": {
         "primary": "Slush Rush",
@@ -35075,8 +35277,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 3,
+      "weight_kg": 420,
       "body_color": "brown",
       "abilities": {
         "primary": "Slush Rush",
@@ -35291,7 +35493,9 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles"
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "body_shape": null,
         "movement": null,
@@ -35329,8 +35533,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1,
+      "weight_kg": 18,
       "body_color": null,
       "abilities": {
         "primary": null,
@@ -35372,7 +35576,10 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight"
+        ],
         "body_shape": null,
         "movement": null,
         "look": null
@@ -36198,8 +36405,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.6,
+      "weight_kg": 60,
       "body_color": null,
       "abilities": {
         "primary": "Third Amendment",
@@ -36356,7 +36563,10 @@
         "notes": null,
         "wishes": "Physical Attacker. Not very good.",
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight"
+        ],
         "body_shape": null,
         "movement": null,
         "look": null

@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Fill in the numbers nobody wants to think about, the way Game Freak would: body color, EV yield, catch rate,
-base exp, growth rate, base friendship, gender, egg groups and egg cycles.
+"""Fill in the numbers nobody wants to think about, the way Game Freak would: height, weight, body color, EV yield,
+catch rate, base exp, growth rate, base friendship, gender, egg groups and egg cycles.
 
     python scripts/species_fill.py propose            # -> proposals/species_fill.json (what it would fill, and why)
     python scripts/species_fill.py show leafaxer      # one species
     python scripts/species_fill.py apply --all        # fill the EMPTY fields in the species files
+    python scripts/species_fill.py apply --all --fields height_m,weight_kg   # only some fields
     python scripts/species_fill.py suggest            # -> site/species_suggestions.json for the website's button
 
-Only empty fields are ever filled; a value a person wrote is never changed. Species without base stats wait.
+Only empty fields are ever filled; a value a person wrote is never changed. Species without base stats get only
+their height and weight; the rest waits.
 Where it is found (encounters) is not filled: that depends on the game's maps and the story plan.
 
 How it decides (docs/SPECIES_FILL.md): each species is compared with every official Pokemon (the same weighted
@@ -20,6 +22,10 @@ wishes ...). Each value is the weighted choice of those Pokemon, plus Game Freak
 - Growth rate, gender, egg groups and egg cycles are the same for the whole line (as in the games); starters are
   Medium Slow and 87.5 % male, legendaries Slow and Undiscovered, pseudo-legendary lines Slow.
 - Body color comes from the colour words in its look text (the colour of its body), else from its models.
+- Height is its models' height (a little more or less when its look says small or big); weight is its models'
+  weight for their size scaled to its own height (lighter for ghosts and clouds, heavier for rock and metal). The
+  whole line is done at once so every evolution is bigger and heavier than the one before. Where the rule was off
+  after reading the look, Claude's own value in proposals/height_weight_review.json wins.
 The official numbers come from PokeAPI's public data (fetched when it runs; nothing of it is stored in the repo).
 """
 import argparse
@@ -41,11 +47,12 @@ import moveset_fill as mf
 from dexlib import ROOT, STATS
 
 OUT = ROOT / "proposals" / "species_fill.json"
+SIZE_REVIEW = ROOT / "proposals" / "height_weight_review.json"   # Claude's own values where the rule was off
 SUGGEST = ROOT / "site" / "species_suggestions.json"
 POKEAPI = "https://raw.githubusercontent.com/PokeAPI/pokeapi/master/data/v2/csv/%s.csv"
-FIELDS = ["body_color", "ev_yield", "catch_rate", "base_exp", "growth_rate", "base_friendship", "gender",
+FIELDS = ["height_m", "weight_kg", "body_color", "ev_yield", "catch_rate", "base_exp", "growth_rate", "base_friendship", "gender",
           "egg_groups", "egg_cycles"]
-LABELS = {"body_color": "body color", "ev_yield": "EV yield", "catch_rate": "catch rate", "base_exp": "base exp",
+LABELS = {"height_m": "height", "weight_kg": "weight", "body_color": "body color", "ev_yield": "EV yield", "catch_rate": "catch rate", "base_exp": "base exp",
           "growth_rate": "growth rate", "base_friendship": "base friendship", "gender": "gender",
           "egg_groups": "egg groups", "egg_cycles": "egg cycles"}
 CATCH_VALUES = [3, 25, 30, 45, 60, 75, 90, 100, 120, 127, 140, 150, 170, 180, 190, 200, 225, 235, 255]
@@ -125,6 +132,9 @@ def official_facts():
             default[r["id"]] = int(r["species_id"])
             if int(r["species_id"]) in out and r["base_experience"]:
                 out[int(r["species_id"])]["base_exp"] = int(r["base_experience"])
+            if int(r["species_id"]) in out and r["height"] and r["weight"]:
+                out[int(r["species_id"])]["height_m"] = int(r["height"]) / 10      # PokeAPI keeps decimetres
+                out[int(r["species_id"])]["weight_kg"] = int(r["weight"]) / 10     # and hectograms
     for r in _csv("pokemon_stats"):
         n = default.get(r["pokemon_id"])
         if n in out and int(r["effort"]):
@@ -396,6 +406,99 @@ class Filler:
             return v, "like its models (no look text yet)"
         return TYPE_COLOR.get((sp["types"] or ["Normal"])[0], "brown"), "from its type"
 
+    # ------------------------------------------------------------------ height and weight
+    # Arvind (16 Nov 2026): "add height and weight to all". The sprite LoRAs were trained with "X m tall" and a big
+    # Pokemon fills more of its frame (docs/LORAS.md), so the height matters for the sprites, not only the Pokedex.
+    SMALL = r"\b(tiny|small|little|miniature|minuscule|petite|pocket-sized|baby)\b"
+    BIG = r"\b(huge|giant|gigantic|enormous|massive|towering|colossal|immense|hulking|large|big)\b"
+    LIGHT = r"\b(ghost|ghostly|gas|gaseous|cloud|smoke|wisp|balloon|feathery|paper|bubble|spirit|jelly|jellyfish)\b"
+    HEAVY = r"\b(rock|rocky|stone|boulder|metal|metallic|steel|iron|ore|armou?red|concrete|crystal|golem)\b"
+    GROW_H, GROW_W = 1.2, 1.3          # an evolution is at least this much taller / heavier than what it evolves from
+    POWER = 2      # weight grows with height squared: official Pokemon grow even less (log-log slope 1.75 over 1025)
+
+    def _head(self, x):
+        """The first words of its look: "It is a small tan turtle" (before "with")."""
+        look = str(self.ours[x]["design"].get("look") or "").lower()
+        return re.split(r"\bwith\b|;|\.", look.split(". ")[0])[0]
+
+    def _person(self, x, field):
+        data = self.ours[x]["data"]
+        fb = (data.get("design") or {}).get("filled_by_claude") or []
+        v = data.get(field)
+        return float(v) if isinstance(v, (int, float)) and v > 0 and LABELS[field] not in fb else None
+
+    def line_sizes(self, sid):
+        """Height and weight for the whole line at once, so each evolution is bigger than the one before."""
+        root = self.ours[sid]["root"]
+        cache = self.__dict__.setdefault("_sizes", {})
+        if root in cache:
+            return cache[root]
+        try:
+            review = json.loads(SIZE_REVIEW.read_text(encoding="utf-8")).get("species", {})
+        except Exception:
+            review = {}
+        order = sorted(self.members(sid), key=lambda x: self.ours[x]["stage"])
+        res = {}
+        for x in order:
+            donors = [(w, n, f) for w, n, f in self.donors(x) if f.get("height_m") and f.get("weight_kg")]
+            h = wmedian([(f["height_m"], w) for w, n, f in donors]) or 1.0
+            dens = wmedian([(f["weight_kg"] / f["height_m"] ** self.POWER, w) for w, n, f in donors]) or 27.0
+            models = ", ".join("%s %g m %g kg" % (n, f["height_m"], f["weight_kg"]) for w, n, f in donors[:3])
+            why_h, why_w = ["like its models (%s)" % models], ["as heavy for its size as its models"]
+            head = self._head(x)
+            if re.search(self.SMALL, head):
+                h *= 0.75
+                why_h.append("a little smaller: its look says small")
+            elif re.search(self.BIG, head):
+                h *= 1.3
+                why_h.append("a little bigger: its look says big")
+            if re.search(self.LIGHT, head):
+                dens *= 0.4
+                why_w.append("lighter: its look says %s" % re.search(self.LIGHT, head).group(1))
+            elif re.search(self.HEAVY, head):
+                dens *= 1.6
+                why_w.append("heavier: its look says %s" % re.search(self.HEAVY, head).group(1))
+            r = {"h": h, "dens": dens, "why_h": why_h, "why_w": why_w, "fix_h": False, "fix_w": False, "w": None}
+            rv = review.get(x) or {}
+            for field, key, fix in (("height_m", "h", "fix_h"), ("weight_kg", "w", "fix_w")):
+                person = self._person(x, field)
+                if person:
+                    r[key], r[fix] = person, "chosen by people"
+                elif rv.get(field):
+                    r[key], r[fix] = float(rv[field]), "Claude's choice after reading its look: %s" % rv.get("why", "")
+            res[x] = r
+        kids = {x: [c for c in self.ours[x]["children"] if c in res] for x in order}
+        for key, grow in (("h", self.GROW_H), ("w", self.GROW_W)):
+            fix = "fix_" + key
+            if key == "w":
+                for x in order:
+                    if not res[x]["fix_w"]:
+                        res[x]["w"] = res[x]["dens"] * res[x]["h"] ** self.POWER
+            for x in reversed(order):             # a parent stays smaller than a child people (or Claude) sized
+                for c in kids[x]:
+                    if res[c][fix] and not res[x][fix] and res[x][key] > res[c][key] / grow:
+                        res[x][key] = res[c][key] / grow
+                        res[x]["why_" + key].append("smaller than %s, which it evolves into" % self.ours[c]["name"])
+            for x in order:                       # and every evolution is bigger than what it evolves from
+                for c in kids[x]:
+                    if not res[c][fix] and res[c][key] < res[x][key] * grow:
+                        res[c][key] = res[x][key] * grow
+                        res[c]["why_" + key].append("bigger than %s, which it evolves from" % self.ours[x]["name"])
+                        if key == "h" and not res[c]["fix_w"]:
+                            res[c]["w"] = None        # weight is worked out again from the new height
+            if key == "h":
+                continue
+        cache[root] = res
+        return res
+
+    def height_m(self, sid, fl=None):
+        r = self.line_sizes(sid)[sid]
+        return max(0.1, round(r["h"], 1)), r["fix_h"] or "; ".join(r["why_h"])
+
+    def weight_kg(self, sid, fl=None):
+        r = self.line_sizes(sid)[sid]
+        return min(999.9, max(0.1, round(r["w"], 1))), r["fix_w"] or "; ".join(r["why_w"])
+
     def top_names(self, sid):
         return ", ".join(n for w, n, f in self.donors(sid)[:3])
 
@@ -414,13 +517,16 @@ class Filler:
 
     def propose(self, sid):
         sp = self.ours[sid]
-        if not sp["types"]:
-            return {"skipped": "has no types yet"}
-        if not sp["stats"]:
-            return {"skipped": "waits for its base stats"}
-        fl = self.flags(sid)
         out = {}
-        for field in FIELDS:
+        for field in ("height_m", "weight_kg"):       # height and weight need no stats: its look and line are enough
+            value, why = getattr(self, field)(sid)
+            out[field] = {"value": value, "why": why}
+        if not sp["types"]:
+            return dict(out, waits="the rest waits for its types")
+        if not sp["stats"]:
+            return dict(out, waits="the rest waits for its base stats")
+        fl = self.flags(sid)
+        for field in FIELDS[2:]:
             value, why = self.people_line_value(sid, field) or getattr(self, field)(sid, fl)
             out[field] = {"value": value, "why": why}
         out["_inspired"] = [(n, round(w * 100)) for w, n, f in self.donors(sid)[:6]]
@@ -443,8 +549,7 @@ def cmd_propose(args):
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps({"generated": datetime.date.today().isoformat(), "species": res}, ensure_ascii=False,
                               indent=1) + "\n", encoding="utf-8")
-    empty = sum(1 for sid, r in res.items() if "skipped" not in r for fld in FIELDS
-                if is_empty(f.ours[sid]["data"], fld))
+    empty = sum(1 for sid, r in res.items() for fld in FIELDS if fld in r and is_empty(f.ours[sid]["data"], fld))
     print("%d species, %d empty fields would be filled -> %s" % (len(res), empty, OUT.relative_to(ROOT)))
 
 
@@ -460,6 +565,9 @@ def cmd_apply(args):
     targets = list(res) if args.all else [s.strip() for s in (args.only or "").split(",") if s.strip()]
     if not targets:
         raise SystemExit("Say which: --only a,b or --all")
+    fields = [x.strip() for x in args.fields.split(",")] if args.fields else FIELDS
+    if set(fields) - set(FIELDS):
+        raise SystemExit("Unknown field(s): %s (choose from %s)" % (", ".join(set(fields) - set(FIELDS)), ", ".join(FIELDS)))
     changed = []
     for sid in targets:
         r = res.get(sid) or {}
@@ -468,7 +576,7 @@ def cmd_apply(args):
         path = dexlib.SPECIES_DIR / (sid + ".yaml")
         data = yaml.safe_load(path.read_text(encoding="utf-8"))
         filled = []
-        for field in FIELDS:
+        for field in fields:
             if field in r and is_empty(data, field):
                 data[field] = r[field]["value"]
                 filled.append(LABELS[field])
@@ -487,7 +595,8 @@ def cmd_suggest(args):
     species = {}
     for sid in sorted(f.ours):
         r = f.propose(sid)
-        species[sid] = r if "skipped" in r else {k: [v["value"], v["why"]] for k, v in r.items() if k in FIELDS}
+        species[sid] = dict({k: [v["value"], v["why"]] for k, v in r.items() if k in FIELDS},
+                            **({"waits": r["waits"]} if r.get("waits") else {}))
     old = None
     if SUGGEST.exists():
         try:
@@ -520,6 +629,7 @@ def main():
     p = sub.add_parser("apply")
     p.add_argument("--only")
     p.add_argument("--all", action="store_true")
+    p.add_argument("--fields", help="only these fields, e.g. height_m,weight_kg")
     p.add_argument("--data")
     p.set_defaults(func=cmd_apply)
     args = ap.parse_args()

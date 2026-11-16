@@ -11,8 +11,8 @@ types: [Grass]           # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category: Small Tiki     # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description: "A very small Pokémon. It struggles to form its first masks, its hands constantly gripping and shaping the raw wood face it wears. The unique green moss that forms around its mouth and in its wood grain provides its natural nutrition. It is much less active than its evolution."
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+height_m: 0.4            # e.g. 0.7
+weight_kg: 5             # e.g. 6.9
 body_color: brown        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
@@ -101,7 +101,7 @@ design:
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
-                     base friendship, gender, egg groups, egg cycles]
+                     base friendship, gender, egg groups, egg cycles, height, weight]
   body_shape: an upright body on two legs with a tail
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small brown creature with a body like a plank-wood stump or barrel, with a big open mouth rimmed in green moss, with white teeth and a red tongue. It has small brown hands holding the sides of its wooden face, short feet, a long thin tail and a green leafy sprout on top."

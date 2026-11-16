@@ -11,8 +11,8 @@ types: [Grass, Fire]     # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category: Tiki Gorilla   # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description: "A powerful Pokémon that leads its tribe with fiery passion. Gortiki’s burning torch can incinerate thick trees in an instant. It performs intense dances to inspire allies and intimidate foes. When its flames die down, it retreats to the jungle to meditate and rekindle its inner fire."
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+height_m: 1.7            # e.g. 0.7
+weight_kg: 110           # e.g. 6.9
 body_color: brown        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
@@ -116,7 +116,7 @@ design:
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
-                     egg groups, egg cycles]
+                     egg groups, egg cycles, height, weight]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a brown gorilla-like creature with a wooden tiki-mask head with yellow triangle eyes and a burning flame on top, and a wide open fiery mouth with large white tusks. It has long brown arms, a green leaf skirt, a curled tail and holds a big wooden torch with a flame on top."

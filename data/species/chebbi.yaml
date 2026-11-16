@@ -11,8 +11,8 @@ types: [Normal, Dark]    # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description: "It’s loud, it’s fuzzy, and it doesn’t care who hears it. Chebbi lives for the stage—and the chaos it brings."
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+height_m: 0.6            # e.g. 0.7
+weight_kg: 12            # e.g. 6.9
 body_color: purple       # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
@@ -105,7 +105,7 @@ design:
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
-                     base friendship, gender, egg groups, egg cycles]
+                     base friendship, gender, egg groups, egg cycles, height, weight]
   body_shape: an upright body on two legs with a tail
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a round, fuzzy purple-grey creature with a messy grey-brown mop of hair, big pointed ears and a wide toothy grin with green eyes. It has small dark bat wings on its sides, clawed hands and feet, and a thin tail ending in a black microphone."

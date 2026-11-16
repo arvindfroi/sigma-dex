@@ -12,7 +12,7 @@ types: [Steel, Ground]   # 1 or 2 types, e.g. [Grass, Steel]
 category: Tank           # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description: A group of Hairyen has taken over an abandoned tank. They patched it up with swamp weeds and logs to keep moving. It can only fire at what's straight ahead.
 height_m: 1.6            # e.g. 0.7
-weight_kg:               # e.g. 6.9
+weight_kg: 420           # e.g. 6.9
 body_color: brown        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
@@ -121,7 +121,7 @@ design:
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
-                     egg groups, egg cycles]
+                     egg groups, egg cycles, weight]
   body_shape: several bodies joined together
   movement: It crawls along the ground on its legs.
   look: "It is an old tank covered in moss and swamp grass, with brown rusty armour, six wheels on caterpillar tracks (two of them pale wooden log slices) and a long cannon barrel with a square end on its turret. Two small round creatures with sleepy eyes peek out from under grassy lids on the turret and the hull."

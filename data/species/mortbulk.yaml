@@ -11,8 +11,8 @@ types: [Fighting]        # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+height_m: 1.6            # e.g. 0.7
+weight_kg: 95            # e.g. 6.9
 body_color: green        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
@@ -113,7 +113,7 @@ design:
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
-                     egg groups, egg cycles]
+                     egg groups, egg cycles, height, weight]
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a bulky dark green creature with a huge muscular body, a small head with an angry white eye and a dark spiky green beard. It stands on one thin leg and kicks its other, giant leg high in the air, and has a round fist at its side."

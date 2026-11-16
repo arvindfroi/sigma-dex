@@ -11,8 +11,8 @@ types: [Dragon, Normal]  # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
-height_m:                # e.g. 0.7
-weight_kg:               # e.g. 6.9
+height_m: 1.5            # e.g. 0.7
+weight_kg: 40            # e.g. 6.9
 body_color:              # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
@@ -79,7 +79,8 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, height, weight]
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a white rooster-like bird standing upright, with a red comb, yellow beak and yellow clawed feet. It has two raised bone arms, each coming out of a giant brown drumstick-shaped lump on its shoulder, lavender shading along its back and a long tapering lavender tail with red spikes. In flight it spreads feathered wings and flames burst from the drumsticks."

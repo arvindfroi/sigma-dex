@@ -12,7 +12,7 @@ types: [Ice]             # 1 or 2 types, e.g. [Grass, Steel]
 category: Frost Swagger  # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description: "Icy Freeze roams city streets with effortless swagger, chilling the air around him wherever he goes. When threatened, he unleashes a freezing glare and a burst of icy wind that can stop opponents in their tracks."
 height_m: 0.4            # e.g. 0.7
-weight_kg:               # e.g. 6.9
+weight_kg: 22            # e.g. 6.9
 body_color: blue         # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---

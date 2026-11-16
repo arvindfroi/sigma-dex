@@ -12,7 +12,7 @@ types: [Ice]             # 1 or 2 types, e.g. [Grass, Steel]
 category: Ice Rabbit     # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description: "Freezrick evolved by gaining more ice mass and perfecting control over its frigid aura. Its hair bangs, made of fine ice crystals, are so cold they conceal even its eyes."
 height_m: 0.89           # e.g. 0.7
-weight_kg:               # e.g. 6.9
+weight_kg: 60            # e.g. 6.9
 body_color: blue         # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
