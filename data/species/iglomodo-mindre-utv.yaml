@@ -61,10 +61,32 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Poison Sting}
+    - {level: 1, move: Tackle}
+    - {level: 4, move: Growth}
+    - {level: 4, move: Ice Shard}
+    - {level: 10, move: Powder Snow}
+    - {level: 12, move: Icy Wind}
+    - {level: 14, move: Bite}
+    - {level: 18, move: Poison Fang}
+    - {level: 23, move: Ice Fang}
+    - {level: 29, move: Poison Tail}
+    - {level: 32, move: Toxic}
+    - {level: 36, move: Icicle Crash}
+    - {level: 37, move: Poison Jab}
+    - {level: 40, move: Blizzard}
+    - {level: 44, move: Crunch}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Protect, Rain Dance,
+          Frustration, Return, Dig, Double Team, Sludge Bomb, Facade, Secret Power, Rest,
+          Attract, Thief, Endure, Avalanche, Captivate, Sleep Talk, Natural Gift,
+          Poison Jab, Swagger, Substitute, Venoshock, Acid Spray]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Ice Fang, Ice Punch, Icicle Spear, Icy Wind]
+  # only needed for the first stage of an evolution line
+  egg: [Ice Punch, Haze, Iron Tail, Clear Smog, Smog]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -76,7 +98,15 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [height, weight] # fields Claude filled in (people can change them)
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [height, weight, level-up moves, "TM/HM moves", tutor moves, egg moves]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    height: 65
+    weight: 65
+    level-up moves: 55
+    "TM/HM moves": 60
+    tutor moves: 50
+    egg moves: 50
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...

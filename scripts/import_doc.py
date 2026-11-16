@@ -132,6 +132,7 @@ def main():
             report.append({"row": label, "problem": "; ".join(errors)})
             return False
         if dexlib.prune(updated) != dexlib.prune(current):
+            dexlib.hand_over(updated, updated, current)    # what people changed in the doc is theirs now
             dexlib.write_species(path, updated)
             changed.add(sid)
         entry[2] = updated

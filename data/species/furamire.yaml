@@ -110,6 +110,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 63
+    "TM/HM moves": 68
+    tutor moves: 58
+    egg moves: 58
+    body color: 80
+    EV yield: 85
+    catch rate: 60
+    base exp: 85
+    growth rate: 51
+    base friendship: 90
+    gender: 54
+    egg groups: 44
+    egg cycles: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a slim, tall brown furry humanoid creature with a tan chest, tan fluffy paws, and very long brown hair with cream and pink tips hanging down like long ears. It has a hair bun with a pink flower, small pointed ears, and big fluffy rounded feet."

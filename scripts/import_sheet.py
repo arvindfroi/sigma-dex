@@ -337,6 +337,7 @@ def main():
         new_snapshot[sid] = row
         handled.add(sid)
         if dexlib.prune(updated) != dexlib.prune(before):
+            dexlib.hand_over(updated, updated, before)     # a cell people changed is theirs now (not Claude's)
             dexlib.write_species(path, updated)
             changed += 1
         by_name = {n: s for n, s in by_name.items() if s != sid}

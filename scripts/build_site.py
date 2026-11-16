@@ -30,10 +30,13 @@ def main():
         shutil.rmtree(art_dir)
 
     entries = []
+    claude_moves = dexlib.load_claude_moves()
     for sid, _, data in species:
         errors, warnings = [], []
         validate.check_species(sid, data, ids, engine, errors, warnings)
-        entries.append({"id": sid, "data": data, "problems": errors + warnings})
+        # how much of each move list is Claude's (the rest is people's): the "people / Claude" split on the website
+        entries.append({"id": sid, "data": data, "problems": errors + warnings,
+                        "claude_moves": dexlib.claude_move_share(sid, data, claude_moves)})
 
     # Attached images: copied next to the page so the site does not depend on the database.
     images = {}

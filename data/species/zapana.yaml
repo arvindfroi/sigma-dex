@@ -90,7 +90,7 @@ learnset:
   # moves a move tutor can teach it
   tutor: [Aqua Tail, Icy Wind, Thunder Fang, Volt Switch]
   # only needed for the first stage of an evolution line
-  egg: [Thunder Fang, Muddy Water, Mist, Mud Sport, Fire Fang, Ice Fang, Haze]
+  egg: [Muddy Water, Mist, Mud Sport, Ice Fang, Haze]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -106,6 +106,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 60
+    "TM/HM moves": 65
+    tutor moves: 55
+    egg moves: 55
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 56
+    base friendship: 90
+    gender: 76
+    egg groups: 44
+    egg cycles: 65
   body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: "It floats in the air, swimming with its fins."
   look: "It is a small eel-like tadpole creature with a round white head and a long curved body that is pale yellow on top and white below. It has a large black eye with a gold ring, a wide open pink mouth, yellow lightning-bolt markings, a small dorsal fin and a leaf-shaped tail fin."

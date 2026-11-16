@@ -111,6 +111,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 52
+    "TM/HM moves": 57
+    tutor moves: 47
+    egg moves: 47
+    body color: 90
+    catch rate: 60
+    base exp: 85
+    growth rate: 59
+    base friendship: 90
+    gender: 65
+    egg groups: 50
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a blocky stone golem made of grey and rusty-brown rock plates, with a bell-shaped helmet head with small spikes on top and a glowing teal diamond gem. One arm is a huge pointed blade, the other hand holds teal ghostly flames, and more teal gems glow on its knees and blade, with teal flames showing between its plates."

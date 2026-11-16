@@ -113,6 +113,19 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg cycles, egg groups, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 63
+    "TM/HM moves": 68
+    tutor moves: 58
+    body color: 80
+    catch rate: 90
+    base exp: 85
+    base friendship: 90
+    height: 65
+    weight: 65
   body_shape: a serpentine body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It slithers along the ground.
   look: "It is a long, curved green dragon-like creature with a crest of leaves on its head and a back covered in grey steel plates. It has four short legs with grey claws and a long tail ending in a steel axe-blade."

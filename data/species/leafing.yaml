@@ -110,6 +110,14 @@ design:
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 73
+    "TM/HM moves": 78
+    tutor moves: 68
+    egg moves: 68
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small green long-necked creature with a rounded body covered in overlapping green leaves, four short legs with white claws, and a curved tail ending in a grey blade. It has a smiling face with big brown eyes and a single leaf standing up on its head."

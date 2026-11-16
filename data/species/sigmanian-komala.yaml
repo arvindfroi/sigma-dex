@@ -103,6 +103,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 58
+    "TM/HM moves": 63
+    tutor moves: 53
+    egg moves: 53
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 52
+    base friendship: 90
+    gender: 62
+    egg groups: 49
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a green koala-like creature with big rounded green ears with orange insides, a large dark grey oval nose, and X-shaped closed eyes. It sits hugging a cream bottle with a red band and white crosses, with dark round paw pads and a small white tail tuft."

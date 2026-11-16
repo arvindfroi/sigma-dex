@@ -104,6 +104,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 67
+    "TM/HM moves": 72
+    tutor moves: 62
+    egg moves: 62
+    body color: 80
+    EV yield: 85
+    catch rate: 60
+    base exp: 85
+    growth rate: 53
+    base friendship: 90
+    gender: 81
+    egg groups: 60
+    egg cycles: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a rabbit-like creature made of light blue faceted ice crystal, sitting upright with two tall crystal ears and big white front teeth. It wears a bowl-shaped golden-brown fur cap on its head, has large round paws and a small pink nose."

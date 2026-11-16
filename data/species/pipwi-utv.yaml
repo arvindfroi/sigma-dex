@@ -118,6 +118,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 57
+    "TM/HM moves": 62
+    tutor moves: 52
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 56
+    base friendship: 90
+    gender: 62
+    egg groups: 48
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a tall ostrich-like bird with a round fluffy brown body with a green leaf-shaped patch on its side, a long thin brown segmented neck and two long brown legs with pink feet and black claws. Its small brown fluffy head has a green kiwi-slice face, a long pale beak and a crown of long green leaves."

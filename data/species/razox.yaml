@@ -111,6 +111,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 58
+    "TM/HM moves": 63
+    tutor moves: 53
+    egg moves: 53
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 59
+    base friendship: 90
+    gender: 47
+    egg groups: 47
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small buffalo-like creature with a pink body, a blue-grey furry mane on its head and back, and a round pink snout. Two clear ice-blue crystal wings stick out from its head like horns, with more ice shards on its back. It has four short pink legs."

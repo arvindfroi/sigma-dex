@@ -109,6 +109,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 66
+    "TM/HM moves": 71
+    tutor moves: 61
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 69
+    base friendship: 90
+    gender: 66
+    egg groups: 61
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its many legs.
   look: "It is a pink creature with a faceted pink crystal gem body, a small round pink head with two big shiny black eyes in a heart-shaped pale patch and no mouth, two long thin curled pink arms and four long thin ribbon-like pink legs."

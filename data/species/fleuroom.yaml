@@ -69,7 +69,6 @@ learnset:
     - {level: 4, move: Confuse Ray}
     - {level: 8, move: Ingrain}
     - {level: 9, move: Fairy Wind}
-    - {level: 10, move: Stun Spore}
     - {level: 10, move: Aromatherapy}
     - {level: 12, move: Mega Drain}
     - {level: 16, move: Sleep Powder}
@@ -89,8 +88,7 @@ learnset:
   tutor: [Charm, Dazzling Gleam, Leaf Storm, Magical Leaf, Pollen Puff, Seed Bomb,
           Synthesis]
   # only needed for the first stage of an evolution line
-  egg: [Leech Seed, Growth, Amnesia, Leaf Storm, Grass Whistle, Seed Bomb, Worry Seed,
-        Razor Leaf]
+  egg: [Leech Seed, Stun Spore, Growth, Amnesia, Grass Whistle, Seed Bomb]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -106,6 +104,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 80
+    "TM/HM moves": 85
+    tutor moves: 75
+    egg moves: 75
+    body color: 90
+    EV yield: 85
+    catch rate: 60
+    base exp: 85
+    growth rate: 72
+    base friendship: 90
+    gender: 76
+    egg groups: 65
+    egg cycles: 65
+    weight: 35
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a small pale yellow rounded body with two stubby legs and small arms, big black oval eyes and a small round mouth. A big orange mushroom cap with cream spots and dark pores covers its head, decorated with pink flowers and green vines."

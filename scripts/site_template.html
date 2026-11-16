@@ -140,10 +140,10 @@ main { max-width: 1400px; margin: 0 auto; padding: 6px 16px 70px; }
 .dexlist tr.mon:focus-visible { outline: none; }
 .dexlist .ico { width: 40px; height: 40px; object-fit: contain; display: block; }
 .dexlist .ico.px { image-rendering: pixelated; }
-.dexlist .nm { font-family: var(--display); font-size: 16px; white-space: nowrap; }
+.dexlist .nm { font-family: var(--display); font-size: 16px; white-space: normal; min-width: 96px; }   /* long names wrap, so Done / People / AI fit */
 .dexlist .ab { font-size: 13px; color: var(--muted); line-height: 1.25; }
 .dexlist .bst { font-family: var(--display); }
-.dexlist .types { flex-wrap: nowrap; }
+.dexlist .types { flex-direction: column; align-items: flex-start; gap: 3px; }   /* two types stacked: room for Done / People / AI */
 .stage img.silhouette { filter: brightness(0); opacity: .55; }
 .dexlist .stat-lo { color: var(--bad); } .dexlist .stat-hi { color: var(--good); }
 .viewtoggle { display: flex; }
@@ -779,8 +779,20 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .cov { display: inline-flex; align-items: center; gap: 2px; font-size: 13px; margin: 2px 6px 2px 0; }
 .cov.good { font-weight: 700; } .cov.bad { opacity: .6; }
 @media (max-width: 900px) { .tedit { grid-template-columns: 1fr; } .tslots { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.donebar { position: relative; display: inline-block; width: 64px; height: 14px; background: var(--line); vertical-align: middle; }
+.donebar { position: relative; display: inline-block; width: 52px; height: 14px; background: var(--line); vertical-align: middle; }
 .donebar i { position: absolute; inset: 0 auto 0 0; background: var(--good); opacity: .55; }
+.donebar i.ai, .meter2 i.ai { background: var(--pri); opacity: .45; }
+.dexlist td.ppl { color: var(--good); } .dexlist td.aipct { color: var(--pri); }
+:root[data-theme="dark"] .dexlist td.aipct { color: #b9a6ff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .dexlist td.aipct { color: #b9a6ff; } }
+.meter2 { position: relative; height: 9px; max-width: 320px; background: #3a3450; box-shadow: 0 0 0 2px var(--panel), 0 0 0 4px var(--edge); margin: 6px 3px 2px; }
+.meter2 i { position: absolute; top: 0; bottom: 0; left: 0; background: linear-gradient(180deg, #a8f0a0 0 3px, #58c058 3px); }
+.meter2 i.ai { background: linear-gradient(180deg, #c9b8ff 0 3px, #8a6ee0 3px); opacity: 1; }
+.who { display: flex; gap: 14px; flex-wrap: wrap; font-size: 14px; margin: 2px 3px; }
+.who .p::before, .who .a::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 5px; vertical-align: -1px; }
+.who .p::before { background: #58c058; } .who .a::before { background: #8a6ee0; }
+.sure { display: inline-block; padding: 1px 6px; margin: 2px 4px 2px 0; border: 2px solid var(--line); font-size: 13px; }
+.sure.hi { border-color: var(--good); } .sure.mid { border-color: var(--gold); } .sure.lo { border-color: var(--bad); }
 .donebar b { position: relative; font-size: 11px; font-weight: 400; padding-left: 3px; }
 .evopage { display: grid; gap: 10px; }
 .evoline { background: var(--panel); border: 2px solid var(--line); padding: 10px; overflow-x: auto; }
@@ -874,7 +886,7 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
         <select id="stage" aria-label="Evolution stage"><option value="">Any stage</option><option value="single">Does not evolve</option><option value="first">First stage</option><option value="middle">Middle stage</option><option value="final">Fully evolved</option></select>
         <select id="designer" aria-label="Designer"><option value="">Any designer</option></select>
         <select id="lacks" aria-label="Still missing"><option value="">Missing anything or nothing</option></select>
-        <select id="sort" aria-label="Sort by"><option value="dex">Sort: dex number</option><option value="name">Sort: name</option><option value="complete-1">Sort: most complete</option><option value="complete1">Sort: least complete</option><option value="bst-1">Sort: highest BST</option><option value="bst1">Sort: lowest BST</option><option value="types">Sort: type</option></select>
+        <select id="sort" aria-label="Sort by"><option value="dex">Sort: dex number</option><option value="name">Sort: name</option><option value="complete-1">Sort: most complete</option><option value="complete1">Sort: least complete</option><option value="people-1">Sort: most done by people</option><option value="claude-1">Sort: most done by AI</option><option value="bst-1">Sort: highest BST</option><option value="bst1">Sort: lowest BST</option><option value="types">Sort: type</option></select>
         <select id="show" aria-label="Show">
           <option value="filled">All Pokemon</option>
           <option value="todo">Needs work</option>
@@ -975,6 +987,19 @@ function derive(s) {
     return !filled(path.split(".").reduce((v, k) => (v && typeof v === "object" ? v[k] : undefined), d));
   }).map(([section, label]) => label);
   s.complete = Math.round(100 * (checks.length - s.missing.length) / checks.length);
+  // Who did it (16 Nov 2026; Arvind: "maybe a person did 10 % and you 80 %, I want to see that"): a field counts as
+  // Claude's while it stands in design.filled_by_claude (the import takes it off when a person changes it); a move
+  // list counts by the share of moves Claude added (data/claude_moves.json, worked out by build_site.py).
+  const mine = new Set((d.design || {}).filled_by_claude || []), moveShare = s.claude_moves || {};
+  const MOVE_PATH = {"learnset.level_up": "level_up", "learnset.tm_hm": "tm_hm"};
+  let ai = 0;
+  for (const [, label, path] of checks) {
+    if (s.missing.includes(label)) continue;
+    ai += MOVE_PATH[path] ? (moveShare[MOVE_PATH[path]] || 0) : mine.has(label) ? 1 : 0;
+  }
+  s.byClaude = Math.round(100 * ai / checks.length);
+  s.byPeople = Math.max(0, s.complete - s.byClaude);
+  s.sure = Object.entries((d.design || {}).claude_sure || {}).filter(([k]) => mine.has(k)).sort((a, b) => a[1] - b[1]);
   s.evolutions = (d.evolutions || []).filter(e => e && typeof e === "object").map(e => ({into: e.into, how: evolutionText(e)}));
   s.problems = s.problems || [];
   s.gameNeeds = gameNeeds(s);
@@ -1287,8 +1312,14 @@ function infoPage(s, top) {
   const d = s.data, design = d.design || {};
   const from = DEX.species.filter(o => o.evolutions.some(e => e.into === s.id));
   const link = (o, text) => h("a", {href: "#" + o.id, onclick: ev => { ev.preventDefault(); openDetail(o); }}, text);
+  const sureWord = n => n >= 75 ? "sure" : n >= 50 ? "fairly sure" : "unsure";
   const claude = filled(design.filled_by_claude)
-    ? h("div", {class: "notice info"}, h("b", {}, "Claude filled in: "), design.filled_by_claude.join(", ") + ". Change anything you disagree with under Edit.")
+    ? h("div", {class: "notice info"}, h("b", {}, "Claude filled in: "),
+        s.sure.length ? h("span", {}, s.sure.map(([label, n]) => h("span", {class: "sure " + (n >= 75 ? "hi" : n >= 50 ? "mid" : "lo"),
+          title: "How sure Claude is: " + n + "% (" + sureWord(n) + "). Least sure first."}, label + " " + n + "%")),
+          (design.filled_by_claude.filter(l => !s.sure.some(([k]) => k === l)).length ? " " + design.filled_by_claude.filter(l => !s.sure.some(([k]) => k === l)).join(", ") : ""))
+          : design.filled_by_claude.join(", "),
+        h("div", {class: "sub", style: "margin-top:4px"}, "The number is how sure Claude is (least sure first). Change anything you disagree with under Edit; then it counts as yours."))
     : design.claude_fill && s.missing.length ? h("div", {class: "notice info"}, "Waiting for Claude to fill in what is missing" + (filled(design.wishes) ? ", following your notes." : "."))
     : null;
   const fact = (label, value, help) => explains(h("div", {}, h("span", {}, label), show(value)), top, label.toUpperCase(), help);
@@ -1323,7 +1354,9 @@ function infoPage(s, top) {
         filled(fm.notes) ? h("p", {class: "sub"}, fm.notes) : null);
     })] : null,
     h("h2", {}, s.complete + "% filled in"),
-    h("div", {class: "meter", style: "max-width:320px"}, h("i", {style: "width:" + s.complete + "%"})),
+    h("div", {class: "meter2", role: "img", "aria-label": s.byPeople + "% by people, " + s.byClaude + "% by Claude"},
+      h("i", {style: "width:" + s.byPeople + "%"}), h("i", {class: "ai", style: "left:" + s.byPeople + "%;width:" + s.byClaude + "%"})),
+    h("div", {class: "who"}, h("span", {class: "p"}, s.byPeople + "% by people"), h("span", {class: "a"}, s.byClaude + "% by Claude (AI)")),
     s.missing.length ? h("details", {style: "margin-top:6px"}, h("summary", {class: "sub"}, s.missing.length + " things still missing"), h("ul", {class: "todo"}, s.missing.map(m => h("li", {}, m))))
       : h("div", {class: "ok"}, "Everything is filled in."));
 }
@@ -1580,6 +1613,15 @@ function checkGrid(options, chosen) {
 // The numbers nobody wants to think about (12 Nov 2026; Arvind): scripts/species_fill.py suggest writes
 // site/species_suggestions.json on every sync; this button fills only the EMPTY fields, like Game Freak would.
 let SPECIES_SUGGESTIONS = null;
+// What the fill button put in and nobody changed before YES is Claude's: it goes on filled_by_claude with how sure
+// Claude is, so the people / Claude split stays honest. The import keeps these (scripts/import_web.py hand_over).
+function claudeMarks(design, marks) {
+  const kept = [...marks].filter(([, m]) => m.same());
+  if (!kept.length) return {};
+  const labels = [...(design.filled_by_claude || [])], sure = Object.assign({}, design.claude_sure || {});
+  for (const [label, m] of kept) { if (!labels.includes(label)) labels.push(label); if (Number.isFinite(m.sure)) sure[label] = m.sure; }
+  return {filled_by_claude: labels, claude_sure: sure};
+}
 function numbersPanel(s, f) {
   const box = h("div", {class: "suggest"});
   const go = h("button", {type: "button", class: "small"}, "Fill in the empty ones for me");
@@ -1595,25 +1637,26 @@ function numbersPanel(s, f) {
     if (sg.skipped) { out.textContent = sg.skipped.includes("base stats") ? "It needs its base stats (and types) first; save them, and the suggestion is ready within 15 minutes." : "No suggestion: " + sg.skipped; return; }
     const done = [];
     // Height and weight need no stats (16 Nov 2026), so a Pokemon without stats still gets them.
-    const put = (el, value, label, why) => { if (el && !String(el.value || "").trim() && value !== null && value !== undefined) { el.value = String(value); el.dispatchEvent(new Event("input", {bubbles: true})); el.dispatchEvent(new Event("change", {bubbles: true})); done.push(h("li", {title: why || ""}, label + ": " + String(value).replace("_", " ") + (why ? " (" + why + ")" : ""))); } };
-    for (const [key, el, label] of [["height_m", f.height, "Height (m)"], ["weight_kg", f.weight, "Weight (kg)"]]) {
-      const [v, why] = sg[key] || [];
-      put(el, v, label, why);
+    const put = (el, value, label, why, sure, tag) => { if (el && !String(el.value || "").trim() && value !== null && value !== undefined) { if (tag) f.byClaude.set(tag, {same: () => String(el.value) === String(value), sure}); el.value = String(value); el.dispatchEvent(new Event("input", {bubbles: true})); el.dispatchEvent(new Event("change", {bubbles: true})); done.push(h("li", {title: why || ""}, label + ": " + String(value).replace("_", " ") + (why ? " (" + why + ")" : "") + (Number.isFinite(sure) ? " - Claude is " + sure + "% sure" : ""))); } };
+    for (const [key, el, label, tag] of [["height_m", f.height, "Height (m)", "height"], ["weight_kg", f.weight, "Weight (kg)", "weight"]]) {
+      const [v, why, sure] = sg[key] || [];
+      put(el, v, label, why, sure, tag);
     }
-    const [color, colorWhy] = sg.body_color || [];
-    put(f.color, color, "Body color", colorWhy);
+    const [color, colorWhy, colorSure] = sg.body_color || [];
+    put(f.color, color, "Body color", colorWhy, colorSure, "body color");
     const [ev, evWhy] = sg.ev_yield || [];
     if (ev && STATS.every(([k]) => !String(f.ev[k].value || "").trim())) {
       for (const [k, v] of Object.entries(ev)) f.ev[k].value = String(v);
+      f.byClaude.set("EV yield", {same: () => STATS.every(([k]) => String(f.ev[k].value || "") === String(ev[k] ?? "")), sure: (sg.ev_yield || [])[2]});
       done.push(h("li", {}, "EV yield: " + Object.entries(ev).map(([k, v]) => v + " " + ((STATS.find(x => x[0] === k) || [0, k])[1])).join(", ") + " (" + evWhy + ")"));
     }
-    for (const [key, el, label] of [["catch_rate", f.catchRate, "Catch rate"], ["base_exp", f.baseExp, "Exp given"], ["growth_rate", f.growth, "Growth rate"],
-        ["base_friendship", f.friendship, "Friendship"], ["gender", f.gender, "Gender"], ["egg_cycles", f.eggCycles, "Egg cycles"]]) {
-      const [v, why] = sg[key] || [];
-      put(el, v, label, why);
+    for (const [key, el, label, tag] of [["catch_rate", f.catchRate, "Catch rate", "catch rate"], ["base_exp", f.baseExp, "Exp given", "base exp"], ["growth_rate", f.growth, "Growth rate", "growth rate"],
+        ["base_friendship", f.friendship, "Friendship", "base friendship"], ["gender", f.gender, "Gender", "gender"], ["egg_cycles", f.eggCycles, "Egg cycles", "egg cycles"]]) {
+      const [v, why, sure] = sg[key] || [];
+      put(el, v, label, why, sure, tag);
     }
     const [groups, groupsWhy] = sg.egg_groups || [];
-    if (groups && !f.egg1.value && !f.egg2.value) { put(f.egg1, groups[0], "Egg group", groupsWhy); if (groups[1]) put(f.egg2, groups[1], "Second egg group", ""); }
+    if (groups && !f.egg1.value && !f.egg2.value) { put(f.egg1, groups[0], "Egg group", groupsWhy, (sg.egg_groups || [])[2], "egg groups"); if (groups[1]) put(f.egg2, groups[1], "Second egg group", ""); }
     const waits = sg.waits ? (sg.waits.includes("stats") ? " The rest needs its base stats (and types) first; save them, and the suggestion is ready within 15 minutes." : " " + sg.waits + ".") : "";
     out.replaceChildren(done.length ? h("div", {}, "Filled in (check them, then press YES):", h("ul", {}, done), waits) : "Everything here is already filled in." + waits);
   };
@@ -1783,7 +1826,8 @@ function openEditor(s) {
     designer: textInput(credits.designer, {maxlength: 40}), artist: textInput(credits.artist, {maxlength: 40}),
     category: textInput(d.category, {maxlength: 20}),
     description: h("textarea", {rows: 3, maxlength: 400}, d.description || ""),
-    height: numberInput(d.height_m, 0.1, 99, 0.1), weight: numberInput(d.weight_kg, 0.1, 999.9, 0.1),
+    byClaude: new Map(),   // fields the "Fill in the empty ones for me" button filled: Claude's while left as they are
+    height: numberInput(d.height_m, 0.1, 99, 0.1), weight: numberInput(d.weight_kg, 0.1, 9999.9, 0.1),
     color: selectInput(d.body_color, L.body_colors, "not decided"),
     ability1: abilityInput(abilities.primary), ability2: abilityInput(abilities.secondary),
     hidden: abilityInput(abilities.hidden),
@@ -1857,7 +1901,8 @@ function openEditor(s) {
       encounters: encounters.read().filter(e => e.location).map(e => Object.assign({}, e, {levels: /^\d+$/.test(e.levels || "") ? Number(e.levels) : e.levels})),
       design: Object.assign({}, design, {concept: readText(f.concept), name_origin: readText(f.origin), notes: readText(f.notes),
         wishes: readText(f.wishes), claude_fill: f.claudeFill.checked || null,
-        body_shape: readText(f.bodyShape), look: readText(f.look), movement: readText(f.movement)}),
+        body_shape: readText(f.bodyShape), look: readText(f.look), movement: readText(f.movement)},
+        claudeMarks(design, f.byClaude)),
     });
     if (isNew) out.dex = Number(f.slot.value);
     const result = clean(out);
@@ -4896,7 +4941,7 @@ function renderEvolutions() {
 let layout = remember.get("layout") || "list";
 let listSort = {key: "dex", dir: 1};
 const LIST_COLS = [["dex", "#"], ["name", "Name"], ["types", "Types"], ["abilities", "Abilities"], ["hidden", "Hidden"],
-  ...STATS.map(([k, label]) => [k, label.replace("Sp. Atk", "SpA").replace("Sp. Def", "SpD").replace("Attack", "Atk").replace("Defense", "Def").replace("Speed", "Spe")]), ["bst", "BST"], ["complete", "Done"]];
+  ...STATS.map(([k, label]) => [k, label.replace("Sp. Atk", "SpA").replace("Sp. Def", "SpD").replace("Attack", "Atk").replace("Defense", "Def").replace("Speed", "Spe")]), ["bst", "BST"], ["complete", "Done"], ["people", "People"], ["claude", "AI"]];
 function listValue(s, key) {
   const d = s.data, st = d.base_stats || {}, ab = d.abilities || {};
   if (key === "dex") return d.dex;
@@ -4906,14 +4951,23 @@ function listValue(s, key) {
   if (key === "hidden") return String(ab.hidden || "~").toLowerCase();
   if (key === "bst") return s.bst ?? -1;
   if (key === "complete") return s.complete;
+  if (key === "people") return s.byPeople;
+  if (key === "claude") return s.byClaude;
   return Number.isInteger(st[key]) ? st[key] : -1;
+}
+// The "Done" bar in two parts: what people filled in (green) and what Claude filled in (purple).
+function doneBar(s) {
+  return h("span", {class: "donebar", title: s.complete + "% filled in: " + s.byPeople + "% by people, " + s.byClaude + "% by Claude (AI)" +
+      (s.missing.length ? " - missing: " + s.missing.join(", ") : "")},
+    h("i", {class: "ppl", style: "width:" + s.byPeople + "%"}), h("i", {class: "ai", style: "left:" + s.byPeople + "%;width:" + s.byClaude + "%"}),
+    h("b", {}, s.complete + "%"));
 }
 function renderList(list) {
   const {key, dir} = listSort;
   list = list.slice().sort((a, b) => { const x = listValue(a, key), y = listValue(b, key); return (x > y ? 1 : x < y ? -1 : a.data.dex - b.data.dex) * dir; });
-  const head = h("tr", {}, h("th", {}, ""), LIST_COLS.map(([k, label]) => h("th", {class: STATS.some(([sk]) => sk === k) || k === "bst" || k === "complete" ? "num" : null,
+  const head = h("tr", {}, h("th", {}, ""), LIST_COLS.map(([k, label]) => h("th", {class: STATS.some(([sk]) => sk === k) || ["bst", "complete", "people", "claude"].includes(k) ? "num" : null,
     "aria-sort": key === k ? (dir > 0 ? "ascending" : "descending") : null, title: "Sort by " + label,
-    onclick: () => { listSort = key === k ? {key: k, dir: -dir} : {key: k, dir: STATS.some(([sk]) => sk === k) || k === "bst" || k === "complete" ? -1 : 1}; document.getElementById("sort").value = ""; render(); }},
+    onclick: () => { listSort = key === k ? {key: k, dir: -dir} : {key: k, dir: STATS.some(([sk]) => sk === k) || ["bst", "complete", "people", "claude"].includes(k) ? -1 : 1}; document.getElementById("sort").value = ""; render(); }},
     label + (key === k ? (dir > 0 ? " \u25b4" : " \u25be") : ""))));
   const stat = v => h("td", {class: "num" + (v >= 0 && v < 50 ? " stat-lo" : v >= 110 ? " stat-hi" : "")}, v >= 0 ? String(v) : "\u2014");
   const rows = list.map(s => {
@@ -4926,7 +4980,8 @@ function renderList(list) {
       h("td", {class: "ab"}, [ab.primary, ab.secondary].filter(filled).join(" / ") || "\u2014"),
       h("td", {class: "ab"}, ab.hidden || "\u2014"),
       STATS.map(([k]) => stat(listValue(s, k))), h("td", {class: "num bst"}, s.bst !== null ? String(s.bst) : "\u2014"),
-      h("td", {class: "num"}, h("span", {class: "donebar", title: s.complete + "% filled in" + (s.missing.length ? " - missing: " + s.missing.join(", ") : "")}, h("i", {style: "width:" + s.complete + "%"}), h("b", {}, s.complete + "%"))));
+      h("td", {class: "num"}, doneBar(s)),
+      h("td", {class: "num ppl"}, s.byPeople + "%"), h("td", {class: "num aipct"}, s.byClaude + "%"));
   });
   const grid = document.getElementById("grid");
   grid.append(h("div", {class: "scroll", style: "grid-column:1/-1"}, h("table", {class: "dexlist"}, h("thead", {}, head), h("tbody", {}, rows))));
@@ -5054,7 +5109,7 @@ function render() {
     !((mode === "todo" && s.complete === 100) || (mode === "problems" && !s.problems.length) || (mode === "playable" && s.gameNeeds.length))
     && (!type || (s.data.types || []).includes(type)) && (!query || JSON.stringify(s.data).toLowerCase().includes(query))
     && (!stage || stageOf(s) === stage) && (!designer || designersOf(s).includes(designer))
-    && (!lacks || (lacks === "*sprite" ? !(DEX.ds_sprites[s.id] || {}).front : lacks === "*game" ? s.gameNeeds.length : s.missing.includes(lacks))));
+    && (!lacks || (lacks === "*sprite" ? !(DEX.ds_sprites[s.id] || {}).front : lacks === "*game" ? s.gameNeeds.length : lacks === "*unsure" ? s.sure.some(([, n]) => n < 50) : s.missing.includes(lacks))));
   if (layout !== "list") {
     const {key, dir} = listSort;
     matching.sort((a, b) => { const x = listValue(a, key), y = listValue(b, key); return (x > y ? 1 : x < y ? -1 : a.data.dex - b.data.dex) * dir; });
@@ -5365,7 +5420,7 @@ document.getElementById("designer").append(...[...new Set(DEX.species.flatMap(de
 document.body.append(h("datalist", {id: "people"}, people().map(n => h("option", {value: n}))));
 meBox.setAttribute("list", "people");
 meBox.addEventListener("change", () => { const n = person(meBox.value); if (n && n !== meBox.value.trim()) { meBox.value = n; remember.set("editor", n); } });
-document.getElementById("lacks").append(h("option", {value: "*game"}, "Not playable in the game yet"), h("option", {value: "*sprite"}, "No sprite yet"),
+document.getElementById("lacks").append(h("option", {value: "*game"}, "Not playable in the game yet"), h("option", {value: "*sprite"}, "No sprite yet"), h("option", {value: "*unsure"}, "Claude is unsure about something"),
   ...DEX.checks.filter(([section]) => section !== "Art").map(([, label]) => h("option", {value: label}, "Missing " + label)));
 document.getElementById("dialog").addEventListener("click", ev => { if (ev.target.id === "dialog" && !document.querySelector("#detail form")) closeDialog(); });
 document.getElementById("dialog").addEventListener("cancel", () => { shown = null; if (location.hash) history.replaceState(null, "", location.pathname + location.search); });

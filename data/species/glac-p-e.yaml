@@ -112,6 +112,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 55
+    "TM/HM moves": 60
+    tutor moves: 50
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 57
+    base friendship: 90
+    gender: 75
+    egg groups: 55
+    egg cycles: 65
+    weight: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a tall, slim, smooth pale-blue humanoid figure with a black fencing mask with glowing blue eyes. It has crystal ice shoulder pads, ice crystal boots shaped like pointed cones, and a long thin ice sword in one hand."

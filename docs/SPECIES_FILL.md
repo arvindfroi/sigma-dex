@@ -43,7 +43,8 @@ the weighted choice of the most similar ones, plus Game Freak's fixed habits:
 **Height and weight (16 Nov 2026).** They matter for more than the Pokedex: the sprite LoRAs were trained with
 "X m tall", and a big Pokemon fills more of its frame (docs/LORAS.md). Before the rule ran, the designers' own cards
 in `assets/concept-art` were read (28 Pokemon had a height or weight printed there that never reached the dex;
-Wreckingdrake's card says 1980 kg, kept at the website's 999.9). Where the rule did not fit the design after reading
+Wreckingdrake's card says 1980 kg; the website's old 999.9 limit was raised to 9999.9, as the game keeps weight
+as a whole number of 100 g and shows it as text). Where the rule did not fit the design after reading
 its look and art, Claude's value is in `proposals/height_weight_review.json` (with the reason) and wins over the rule.
 
 Not filled: **where it is found** (encounters). That depends on Origin HeartGold's maps and the story plan

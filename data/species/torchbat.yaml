@@ -91,8 +91,8 @@ learnset:
   tutor: [Body Slam, Fire Fang, Fire Punch, Flare Blitz, Heat Wave, Outrage, Thunder Punch,
           Flame Wheel]
   # only needed for the first stage of an evolution line
-  egg: [Flare Blitz, Fire Punch, Fake Out, Counter, Crunch, Focus Punch, Crush Claw,
-        Double Kick, Sucker Punch, Helping Hand]
+  egg: [Heat Wave, Flare Blitz, Fire Punch, Flame Burst, Blaze Kick, Fake Out, Counter,
+        Crunch, Focus Punch, Crush Claw]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -108,6 +108,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 69
+    "TM/HM moves": 74
+    tutor moves: 64
+    egg moves: 64
+    body color: 80
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 90
+    gender: 90
+    egg groups: 48
+    egg cycles: 90
   body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a small, round, red-orange creature with a cream belly patch, a cream pig-like snout with small fangs and big ears burning with flames. It has very long thin arms with white claws at the tips, small round feet and a long thin tail ending in a flame."

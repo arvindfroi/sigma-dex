@@ -117,6 +117,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 56
+    "TM/HM moves": 61
+    tutor moves: 51
+    body color: 80
+    catch rate: 60
+    base exp: 55
+    growth rate: 66
+    base friendship: 90
+    gender: 57
+    egg groups: 42
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a brown gorilla-like creature with a wooden tiki-mask head with yellow triangle eyes and a burning flame on top, and a wide open fiery mouth with large white tusks. It has long brown arms, a green leaf skirt, a curled tail and holds a big wooden torch with a flame on top."

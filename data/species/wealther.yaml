@@ -113,6 +113,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 55
+    "TM/HM moves": 60
+    tutor moves: 50
+    body color: 80
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 90
+    gender: 90
+    egg groups: 47
+    egg cycles: 90
+    height: 55
+    weight: 45
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a platypus-like creature with deep blue fur, a black mask with a spiky crest and a yellow-orange duck bill. It has grey-black clawed hands and feet and a flat, scaled black-grey beaver-like tail, and it stands upright."

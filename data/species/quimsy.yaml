@@ -64,10 +64,40 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Confusion}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Play Nice}
+    - {level: 1, move: Stored Power}
+    - {level: 5, move: Encore}
+    - {level: 8, move: Echoed Voice}
+    - {level: 10, move: Hypnosis}
+    - {level: 10, move: Pound}
+    - {level: 12, move: Teleport}
+    - {level: 15, move: Psybeam}
+    - {level: 20, move: Helping Hand}
+    - {level: 24, move: Reflect}
+    - {level: 25, move: After You}
+    - {level: 26, move: Tri Attack}
+    - {level: 30, move: Nasty Plot}
+    - {level: 35, move: Psyshock}
+    - {level: 36, move: Light Screen}
+    - {level: 40, move: Calm Mind}
+    - {level: 40, move: Psychic}
+    - {level: 41, move: Hyper Voice}
+    - {level: 60, move: Future Sight}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
+          Rain Dance, Safeguard, Frustration, Thunderbolt, Return, Psychic, Shadow Ball,
+          Double Team, Reflect, Facade, Secret Power, Rest, Attract, Skill Swap,
+          Focus Blast, Energy Ball, Fling, Charge Beam, Endure, Giga Impact, Flash,
+          Thunder Wave, Psych Up, Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute,
+          Trick Room, Psyshock, Psychic Terrain, Expanding Force]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Dazzling Gleam, Endeavor, Hyper Voice, Nasty Plot, Zen Headbutt]
+  # only needed for the first stage of an evolution line
+  egg: [Extrasensory, Fake Out, Yawn, Wish]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -79,7 +109,17 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 62
+    "TM/HM moves": 67
+    tutor moves: 57
+    egg moves: 57
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a small, round, pale cream creature with a large egg-shaped head and no neck, wearing round glasses. It has a small maroon beret-like cap with a curled stalk on top, thin arms with pink fingertips, a round belly, and short legs."

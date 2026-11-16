@@ -69,22 +69,31 @@ learnset:
     - {level: 1, move: Focus Energy}
     - {level: 1, move: Leer}
     - {level: 1, move: Scratch}
+    - {level: 1, move: Tackle}
     - {level: 3, move: Fury Swipes}
+    - {level: 4, move: Quick Attack}
     - {level: 5, move: Low Kick}
     - {level: 8, move: Seismic Toss}
+    - {level: 8, move: Bite}
+    - {level: 10, move: Rock Throw}
     - {level: 12, move: Cross Chop}
     - {level: 14, move: Assurance}
     - {level: 17, move: Thrash}
-    - {level: 19, move: Rock Throw}
     - {level: 22, move: Rock Smash}
     - {level: 24, move: Brick Break}
     - {level: 25, move: Slash}
     - {level: 26, move: Close Combat}
+    - {level: 26, move: Take Down}
+    - {level: 27, move: Play Rough}
+    - {level: 29, move: Hammer Arm}
     - {level: 31, move: Screech}
+    - {level: 33, move: Recover}
+    - {level: 34, move: Dynamic Punch}
     - {level: 35, move: Stomping Tantrum}
     - {level: 40, move: Outrage}
     - {level: 41, move: Body Slam}
     - {level: 48, move: Double-Edge}
+    - {level: 50, move: Giga Impact}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance,
           Frustration, Iron Tail, Thunderbolt, Earthquake, Return, Dig, Brick Break,
@@ -94,7 +103,7 @@ learnset:
           U-turn, Substitute, Low Sweep, Bulldoze, Strength, Rock Smash, Rock Climb]
   # moves a move tutor can teach it
   tutor: [Body Slam, Close Combat, Counter, Curse, Endeavor, Fire Punch, Ice Punch, Outrage,
-          Power-Up Punch, Seed Bomb, Thunder Punch]
+          Power-Up Punch, Seed Bomb, Thunder Punch, Hyper Voice]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -111,6 +120,20 @@ design:
   filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, body color, catch rate,
                      base exp, growth rate, base friendship, gender, egg groups, egg cycles,
                      height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    level-up moves: 80
+    "TM/HM moves": 85
+    tutor moves: 75
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 51
+    base friendship: 90
+    gender: 64
+    egg groups: 45
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: an upright body on two legs without a tail
   movement: Like a Chimpanzee # e.g. It walks on four legs. / It floats in the air.
   look: Its a black aggresive Chimpanzee # what it looks like, a few plain sentences: It is a ...

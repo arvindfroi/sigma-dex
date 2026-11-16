@@ -86,7 +86,7 @@ learnset:
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Curse, Earth Power, Iron Head, Power Gem, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Curse, Wide Guard, Flail, Ancient Power, Power Gem, Knock Off]
+  egg: [Curse, Rollout, Wide Guard, Flail, Iron Head, Power Gem, Knock Off]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -102,6 +102,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 64
+    "TM/HM moves": 69
+    tutor moves: 59
+    egg moves: 59
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 52
+    base friendship: 90
+    gender: 71
+    egg groups: 65
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: only a head # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a tan stone head like a carved statue, with a heavy flat brow, a large pointed triangular nose, narrow dark eyes with small glowing yellow lights, and a block-like jaw. A small curved pale cream arm with a hand gives a thumbs up from its side, and a faint orange swirl is carved into the stone below the arm."

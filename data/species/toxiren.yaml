@@ -122,6 +122,21 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 57
+    "TM/HM moves": 62
+    tutor moves: 52
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 59
+    base friendship: 90
+    gender: 63
+    egg groups: 46
+    egg cycles: 65
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It slithers along the ground.
   look: "It is a slimy, translucent creature of glossy green-yellow goo with swirling rainbow pastel patches. It has a hooded head with long floppy lobes, a green face with pink eyes, two long tentacle-like arms with purple round spots, and a body that melts into a puddle at the base, dripping drops."

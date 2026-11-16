@@ -91,7 +91,7 @@ learnset:
   # moves a move tutor can teach it
   tutor: [Body Slam, Close Combat, Nasty Plot, Snarl, Zen Headbutt, Night Slash]
   # only needed for the first stage of an evolution line
-  egg: [Sucker Punch, Feint Attack, Punishment, Mirror Coat, Power Trip]
+  egg: [Sucker Punch, Feint Attack, Mirror Coat, Pursuit, Future Sight]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -107,6 +107,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 62
+    "TM/HM moves": 67
+    tutor moves: 57
+    egg moves: 57
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 45
+    base friendship: 90
+    gender: 68
+    egg groups: 40
+    egg cycles: 65
+    height: 55
+    weight: 55
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a slender upright dark maroon creature with red glowing vein lines and grey-lavender armour plates. Its head has a yellow slit eye and a crown of tube-like red-ringed tendrils; its hands have large curved grey claws with yellow eyes in the palms, and it has a long segmented scorpion-like tail ending in a claw."

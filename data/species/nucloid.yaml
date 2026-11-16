@@ -87,7 +87,7 @@ learnset:
           Heavy Slam, Acid Spray]
   # moves a move tutor can teach it
   tutor: [Body Slam, Iron Head, Metal Claw]
-  egg: [Clear Smog, Haze, Curse] # only needed for the first stage of an evolution line
+  egg: [Haze, Curse]     # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -103,6 +103,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", egg moves,
                      tutor moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 58
+    "TM/HM moves": 63
+    egg moves: 53
+    tutor moves: 53
+    body color: 90
+    catch rate: 60
+    base exp: 85
+    growth rate: 62
+    base friendship: 90
+    gender: 65
+    egg groups: 49
+    egg cycles: 65
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its many legs.
   look: "It is a dark grey metal barrel-shaped creature with a domed top, a single glowing green eye and a yellow warning triangle. It has a window showing glowing green liquid in front, and eight black cable-like legs underneath, with green toxic drips and gas puffs around it."

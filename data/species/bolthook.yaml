@@ -110,6 +110,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 59
+    "TM/HM moves": 64
+    tutor moves: 54
+    egg moves: 54
+    body color: 90
+    catch rate: 60
+    base exp: 85
+    growth rate: 50
+    base friendship: 90
+    gender: 76
+    egg groups: 60
+    egg cycles: 65
   body_shape: a body with one pair of wings
   movement: It walks on two legs with its wings folded.
   look: "It is a large bird with slate-blue and grey feathers, a spiky crest and yellow eyes. It has an enormous cream-coloured hooked beak with a dark tip and a purple mouth, long dark clawed legs, and big wings with purple diamond markings."

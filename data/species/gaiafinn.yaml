@@ -111,6 +111,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 62
+    "TM/HM moves": 67
+    tutor moves: 57
+    egg moves: 57
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 54
+    base friendship: 90
+    gender: 54
+    egg groups: 53
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a muscular, shark-like fighter with brown skin covered in black spots and a tan belly. It has a shark head with a dorsal fin, sharp teeth, big brown boxing gloves on its arms, strong clawed legs, and a shark tail fin."

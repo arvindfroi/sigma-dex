@@ -497,7 +497,7 @@ class Filler:
 
     def weight_kg(self, sid, fl=None):
         r = self.line_sizes(sid)[sid]
-        return min(999.9, max(0.1, round(r["w"], 1))), r["fix_w"] or "; ".join(r["why_w"])
+        return min(9999.9, max(0.1, round(r["w"], 1))), r["fix_w"] or "; ".join(r["why_w"])
 
     def top_names(self, sid):
         return ", ".join(n for w, n, f in self.donors(sid)[:3])
@@ -587,16 +587,20 @@ def cmd_apply(args):
             dexlib.write_species(path, data)
             changed.append(sid)
     print("filled empty fields in %d species: %s" % (len(changed), ", ".join(changed)))
+    if changed:
+        import claude_sure            # how sure Claude is about what it just filled in (shown on the website)
+        print("claude_sure updated for %d species" % claude_sure.write_all())
 
 
 def cmd_suggest(args):
+    import claude_sure                     # how sure, shown next to each suggestion and kept when it is saved
     mf.use_data_dir(args.data)
     f = Filler()
     species = {}
     for sid in sorted(f.ours):
         r = f.propose(sid)
-        species[sid] = dict({k: [v["value"], v["why"]] for k, v in r.items() if k in FIELDS},
-                            **({"waits": r["waits"]} if r.get("waits") else {}))
+        species[sid] = dict({k: [v["value"], v["why"], claude_sure.numbers_sure(k, v["why"], f, sid)]
+                             for k, v in r.items() if k in FIELDS}, **({"waits": r["waits"]} if r.get("waits") else {}))
     old = None
     if SUGGEST.exists():
         try:

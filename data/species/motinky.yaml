@@ -117,6 +117,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 62
+    "TM/HM moves": 67
+    tutor moves: 57
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 66
+    base friendship: 90
+    gender: 57
+    egg groups: 42
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a small monkey whose body is a brown wooden tiki-mask log with a grinning face with white teeth and a green mossy rim. It has smoke and moss on top, a grass skirt, brown monkey arms, legs and a curly tail, and holds a burning wooden torch."

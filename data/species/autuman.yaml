@@ -113,6 +113,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 57
+    "TM/HM moves": 62
+    tutor moves: 52
+    egg moves: 52
+    body color: 65
+    catch rate: 60
+    base exp: 85
+    growth rate: 46
+    base friendship: 90
+    gender: 65
+    egg groups: 50
+    egg cycles: 65
+    height: 55
+    weight: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a slim humanoid creature with a round yellow head, two leaf-shaped ears like pigtails and an angry face. It has a grey tunic and trousers with a yellow belt, big yellow hands and feet, and a cape of red-orange maple leaves around its shoulders and back."

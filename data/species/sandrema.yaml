@@ -113,6 +113,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 52
+    "TM/HM moves": 57
+    tutor moves: 47
+    body color: 80
+    EV yield: 85
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 46
+    gender: 75
+    egg groups: 90
+    egg cycles: 90
+    height: 65
+    weight: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a small tan-beige sand creature with a tall rounded head that has one big white eye with a swirling rainbow-coloured iris, a smooth body and two short legs. Its thin arms stretch out wide and end in large swirling rainbow-coloured clouds instead of hands."

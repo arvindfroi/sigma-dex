@@ -115,6 +115,21 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 57
+    "TM/HM moves": 62
+    tutor moves: 52
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 60
+    base friendship: 90
+    gender: 66
+    egg groups: 50
+    egg cycles: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a large golem with a body of grey pebbly rock covered in cream-coloured bones, ribs and spikes. It has a bone skull for a head with glowing purple eyes, and its fists are bone-rimmed cannon-like holes leaking purple smoke."

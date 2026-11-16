@@ -105,6 +105,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 59
+    "TM/HM moves": 64
+    tutor moves: 54
+    egg moves: 54
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 56
+    base friendship: 90
+    gender: 62
+    egg groups: 48
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a small round brown kiwi bird with fluffy brown feathers, a green kiwi-slice face with a ring of dark seeds around one big round brown eye, and a long thin pale yellow beak. A fringe of green leaf-like feathers sits on its neck and back. It has two pink legs with black claws."

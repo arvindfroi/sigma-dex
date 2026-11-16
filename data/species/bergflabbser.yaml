@@ -108,6 +108,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 58
+    "TM/HM moves": 63
+    tutor moves: 53
+    body color: 80
+    EV yield: 85
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 69
+    gender: 75
+    egg groups: 90
+    egg cycles: 90
   body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: "It floats in the air, swimming with its fins."
   look: "It is a huge brown speckled anglerfish-like fish with a wide mouth full of white teeth, a pale belly, and big fan-shaped pectoral fins and tail fin. Its back carries a forested green mountain range with grey peaks, a row of colourful houses and a tall tower."

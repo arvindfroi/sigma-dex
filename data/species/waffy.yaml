@@ -104,6 +104,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 65
+    "TM/HM moves": 70
+    tutor moves: 60
+    egg moves: 60
+    body color: 80
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 90
+    gender: 90
+    egg groups: 47
+    egg cycles: 90
+    height: 65
+    weight: 65
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small platypus-like creature with deep blue feathers, a small tuft on its head, a big yellow duck bill, and a white round belly. It has short legs with black webbed claws and a flat black beaver-like tail with a grid pattern."

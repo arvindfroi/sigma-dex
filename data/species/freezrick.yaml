@@ -75,8 +75,8 @@ learnset:
     - {level: 9, move: Icy Wind}
     - {level: 12, move: Ice Shard}
     - {level: 15, move: Ice Fang}
-    - {level: 15, move: Rest}
     - {level: 15, move: Aurora Beam}
+    - {level: 15, move: Rest}
     - {level: 16, move: Slash}
     - {level: 19, move: Bite}
     - {level: 23, move: Snowscape}
@@ -94,7 +94,7 @@ learnset:
           Frustration, Earthquake, Return, Dig, Brick Break, Double Team, Facade,
           Secret Power, Rest, Attract, Endure, Giga Impact, Stone Edge, Avalanche,
           Rock Slide, Sleep Talk, Swagger, Substitute, Heavy Slam, Bulldoze, Liquidation,
-          Body Press, Rock Smash, Rock Tomb, Strength]
+          Body Press, Rock Smash, Focus Punch, Rock Tomb, Strength]
   # moves a move tutor can teach it
   tutor: [Body Slam, Charm, Close Combat, Curse, Ice Fang, Ice Punch, Icicle Spear,
           Icy Wind, Iron Head]
@@ -114,6 +114,21 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 69
+    "TM/HM moves": 74
+    tutor moves: 64
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 53
+    base friendship: 90
+    gender: 81
+    egg groups: 60
+    egg cycles: 65
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a big, round, rabbit-like creature made of light-blue faceted ice crystal. It has two tall crystal ears, a thick tan bowl-cut fringe covering its eyes, a purple nose, a smile with two white buck teeth, and black claws on its hands and feet."

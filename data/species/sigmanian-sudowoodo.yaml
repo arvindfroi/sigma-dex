@@ -96,7 +96,8 @@ learnset:
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Curse, Earth Power, Endeavor, Iron Head, Power Gem,
           Power-Up Punch, Thunder Punch]
-  egg: [Curse, Ancient Power] # only needed for the first stage of an evolution line
+  # only needed for the first stage of an evolution line
+  egg: [Curse, Ancient Power, Magnitude]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -112,6 +113,25 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 67
+    "TM/HM moves": 72
+    tutor moves: 62
+    egg moves: 62
+    body color: 80
+    EV yield: 85
+    catch rate: 60
+    base exp: 85
+    growth rate: 54
+    base friendship: 90
+    gender: 77
+    egg groups: 51
+    egg cycles: 65
+    height: 55
+    weight: 35
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a tree-stump-like creature with a pale yellow body and a brown shaded side, two long bent arms raised up, and short legs with blocky feet. It has two small branches on top of its head, dark eyes with a jagged grin, and green spikes scattered over its body and limbs."

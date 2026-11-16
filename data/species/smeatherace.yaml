@@ -117,6 +117,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 65
+    "TM/HM moves": 70
+    tutor moves: 60
+    body color: 80
+    EV yield: 85
+    catch rate: 60
+    base exp: 85
+    growth rate: 52
+    base friendship: 90
+    gender: 77
+    egg groups: 70
+    egg cycles: 65
   body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a large white tern-like bird with long narrow wings that have black zigzag lines, a long pointed beak, and a forked feathered tail. A yellow patch on its throat and chest shows a black smiley-face marking."

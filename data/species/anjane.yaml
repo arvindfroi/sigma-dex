@@ -69,6 +69,7 @@ learnset:
     - {level: 6, move: Confuse Ray}
     - {level: 8, move: Snarl}
     - {level: 10, move: Sweet Scent}
+    - {level: 11, move: Spite}
     - {level: 12, move: Fairy Wind}
     - {level: 15, move: Fake Tears}
     - {level: 17, move: Hex}
@@ -87,7 +88,7 @@ learnset:
           Trick Room, Water Pulse]
   # moves a move tutor can teach it
   tutor: [Charm, Dazzling Gleam, Nasty Plot, Snarl, Curse]
-  egg: [Spite]           # only needed for the first stage of an evolution line
+  egg: [Punishment]      # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -103,6 +104,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 55
+    "TM/HM moves": 60
+    tutor moves: 50
+    egg moves: 50
+    body color: 90
+    catch rate: 60
+    base exp: 85
+    growth rate: 59
+    base friendship: 90
+    gender: 63
+    egg groups: 40
+    egg cycles: 65
   body_shape: a head and legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a tiny purple doll-like body with a round head, hidden under a huge dome of dark navy-blue hair that falls to the ground in two thick legs with rounded boot-like ends. A glowing white-pink orb crackling with purple lightning sits on top of the hair."

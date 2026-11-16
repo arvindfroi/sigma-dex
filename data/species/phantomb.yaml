@@ -65,19 +65,20 @@ learnset:
   level_up:
     - {level: 1, move: Astonish}
     - {level: 1, move: Growl}
-    - {level: 8, move: Shadow Sneak}
+    - {level: 8, move: Quick Attack}
+    - {level: 9, move: Shadow Sneak}
+    - {level: 10, move: Confuse Ray}
     - {level: 10, move: Spite}
-    - {level: 11, move: Quick Attack}
-    - {level: 14, move: Confuse Ray}
-    - {level: 26, move: Air Cutter}
-    - {level: 33, move: Acrobatics}
-    - {level: 35, move: Hex}
-    - {level: 36, move: Gust}
-    - {level: 48, move: Shadow Ball}
-    - {level: 49, move: Night Shade}
-    - {level: 54, move: Air Slash}
-    - {level: 67, move: Agility}
-    - {level: 80, move: Hurricane}
+    - {level: 13, move: Wing Attack}
+    - {level: 23, move: Gust}
+    - {level: 24, move: Hex}
+    - {level: 31, move: Acrobatics}
+    - {level: 32, move: Night Shade}
+    - {level: 32, move: Shadow Ball}
+    - {level: 45, move: Agility}
+    - {level: 45, move: Air Slash}
+    - {level: 52, move: Roost}
+    - {level: 58, move: Hurricane}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration, Return,
           Psychic, Shadow Ball, Double Team, Aerial Ace, Facade, Secret Power, Rest,
@@ -86,7 +87,7 @@ learnset:
   # moves a move tutor can teach it
   tutor: [Air Slash, Brave Bird, Curse, Heat Wave, Hurricane, Poltergeist, Sky Attack]
   # only needed for the first stage of an evolution line
-  egg: [Feint Attack, Disable, Defog, Ally Switch, Knock Off, Ominous Wind, Curse, Grudge,
+  egg: [Feint Attack, Disable, Defog, Ally Switch, Knock Off, Ominous Wind, Grudge,
         Sucker Punch]
 
 # --- Where it is found ---
@@ -103,6 +104,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 54
+    "TM/HM moves": 59
+    tutor moves: 49
+    egg moves: 49
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 53
+    base friendship: 90
+    gender: 77
+    egg groups: 45
+    egg cycles: 65
+    height: 35
+    weight: 35
   body_shape: a serpentine body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a ghost with a white hood with black and white stripes and a long wavy striped tail that tapers to a point. Under the hood is an orange oval face with three black eyes with small red glowing pupils, a red triangle mark and a wide jagged mouth."

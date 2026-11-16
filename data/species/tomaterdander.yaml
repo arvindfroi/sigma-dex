@@ -106,6 +106,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 55
+    "TM/HM moves": 60
+    tutor moves: 50
+    egg moves: 50
+    body color: 90
+    EV yield: 85
+    catch rate: 55
+    base exp: 55
+    growth rate: 53
+    base friendship: 90
+    gender: 72
+    egg groups: 57
+    egg cycles: 65
   body_shape: a head and arms # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its legs.
   look: "It is a living hamburger with a sesame seed bun on top, lettuce, a red tomato face with angry yellow eyes, pickles, and melted yellow cheese dripping down. Two large curved purple onion rings stick out from the sides like claws."

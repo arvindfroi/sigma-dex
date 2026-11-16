@@ -111,6 +111,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 67
+    "TM/HM moves": 72
+    tutor moves: 62
+    body color: 90
+    EV yield: 85
+    catch rate: 60
+    base exp: 85
+    growth rate: 72
+    base friendship: 90
+    gender: 76
+    egg groups: 65
+    egg cycles: 65
+    weight: 45
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a tall, robed creature with a big orange-red mushroom cap covered in holes and white flowers. It has a dark smiling face under the cap, a long cream robe with pink and purple petal-like trim, hanging purple flower strands, and it holds a wooden staff topped with a large white lily."

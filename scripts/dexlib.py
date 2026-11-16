@@ -224,6 +224,11 @@ def render_species(data):
     put(1, "wishes", scalar(design.get("wishes")), "for Claude: how it should play, move ideas")
     put(1, "claude_fill", scalar(bool(design.get("claude_fill"))), "true = Claude may fill in what is missing")
     put_list(1, "filled_by_claude", design.get("filled_by_claude"), "fields Claude filled in (people can change them)")
+    sure = design.get("claude_sure")
+    if isinstance(sure, dict) and sure:
+        lines.append("  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)")
+        for label, value in sure.items():
+            lines.append("    %s: %s" % (scalar(label), scalar(value)))
     put(1, "body_shape", scalar(design.get("body_shape")), "for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)")
     put(1, "movement", scalar(design.get("movement")), "e.g. It walks on four legs. / It floats in the air.")
     put(1, "look", scalar(design.get("look")), "what it looks like, a few plain sentences: It is a ...")
@@ -461,7 +466,8 @@ FIELDS = {
     "base_stats": tuple(STATS),
     "held_items": ("common", "rare"),
     "learnset": ("level_up", "tm_hm", "tutor", "egg"),
-    "design": ("concept", "name_origin", "notes", "wishes", "claude_fill", "filled_by_claude", "body_shape", "look", "movement"),
+    "design": ("concept", "name_origin", "notes", "wishes", "claude_fill", "filled_by_claude", "claude_sure", "body_shape", "look",
+               "movement"),
     "assets": ("concept_art", "front_sprite", "front_anim", "back_sprite", "icon", "footprint", "shiny_palette", "cry"),
     "engine": ("no_flip", "elevation", "front_y_offset", "back_y_offset", "icon_palette", "safari_flee_rate"),
 }
@@ -669,6 +675,87 @@ CHECK_LIST = [
     ("Art", "shiny palette", "assets.shiny_palette"),
     ("Art", "cry", "assets.cry"),
 ]
+
+
+# Every label that can stand in design.filled_by_claude, with the field it stands for. The check labels above are
+# the same words; these are the extra ones. Used to tell what people did from what Claude did.
+CLAUDE_LABELS = dict([(label, path) for _section, label, path in CHECK_LIST] + [
+    ("body shape", "design.body_shape"), ("look", "design.look"), ("movement", "design.movement"),
+    ("tutor moves", "learnset.tutor"), ("egg moves", "learnset.egg"), ("evolutions", "evolutions"),
+])
+
+
+MOVE_KEYS = ("level_up", "tm_hm", "tutor", "egg")
+
+
+def load_claude_moves():
+    path = ROOT / "data" / "claude_moves.json"
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+
+
+def learnset_hash(data):
+    import hashlib
+    ls = data.get("learnset") or {}
+    return hashlib.sha1(json.dumps({k: ls.get(k) or [] for k in MOVE_KEYS}, sort_keys=True).encode()).hexdigest()[:12]
+
+
+def group_edited(sid, data, claude):
+    """True when someone changed its moves after Claude last applied (then Claude's moves count as theirs)."""
+    rec = claude.get(sid) or {}
+    return bool(rec.get("_group")) or (bool(rec.get("_hash")) and rec["_hash"] != learnset_hash(data))
+
+
+def claude_move_share(sid, data, claude):
+    """{level_up: 0.75, ...}: the share of each move list that Claude added (the rest is people's)."""
+    ls = data.get("learnset") or {}
+    rec = claude.get(sid) or {}
+    out = {}
+    for key in MOVE_KEYS:
+        cur = [e.get("move") if isinstance(e, dict) else e for e in (ls.get(key) or [])]
+        if not cur:
+            continue
+        # a move Claude added counts as Claude's while it is there, also when people changed other moves since
+        mine = {m for lv, m in rec.get(key, [])} if key == "level_up" else set(rec.get(key, []))
+        out[key] = round(sum(1 for m in cur if m in mine) / len(cur), 3)
+    return out
+
+
+CLAUDE_MOVE_LABELS = {"level-up moves", "TM/HM moves", "tutor moves", "egg moves"}
+
+
+def hand_over(merged, new, base):
+    """A field a person changed (new versus the base they started from) is theirs now: it comes off
+    design.filled_by_claude and design.claude_sure, so the website's people / Claude split and the "how sure" numbers
+    follow. Labels the same save added stay: the website's "Fill in the empty ones for me" button marks what it
+    filled as Claude's. Moves stay Claude's per move (data/claude_moves.json). Used by the website, Sheet and Doc
+    imports."""
+    design = merged.get("design") or {}
+    labels = list(design.get("filled_by_claude") or [])
+    added_now = set((new.get("design") or {}).get("filled_by_claude") or []) - set(
+        (base.get("design") or {}).get("filled_by_claude") or [])
+    def differs(a, b):
+        return prune(a) != prune(b)
+    theirs = [l for l in labels if l in CLAUDE_LABELS and l not in CLAUDE_MOVE_LABELS and l not in added_now and
+              differs(value_at(new, CLAUDE_LABELS[l]), value_at(base, CLAUDE_LABELS[l]))]
+    if not theirs:
+        return []
+    design["filled_by_claude"] = [l for l in labels if l not in theirs]
+    sure = {k: v for k, v in (design.get("claude_sure") or {}).items() if k not in theirs}
+    if sure:
+        design["claude_sure"] = sure
+    else:
+        design.pop("claude_sure", None)
+    merged["design"] = design
+    return theirs
+
+
+def value_at(data, path):
+    if path == "base_stats.*":
+        return data.get("base_stats")
+    value = data
+    for key in path.split("."):
+        value = value.get(key) if isinstance(value, dict) else None
+    return value
 
 
 def has(data, path):

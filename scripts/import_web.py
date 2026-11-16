@@ -345,6 +345,7 @@ def main():
             base = row["data"].get("_base")
             if sid in files and isinstance(base, dict):
                 updated = merge_edit(files[sid][1], updated, known_fields_only(base))
+                dexlib.hand_over(updated, known_fields_only(row["data"]), known_fields_only(base))
             if sid in files:
                 path, current = files[sid]
                 updated["dex"] = current.get("dex")

@@ -49,13 +49,10 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+evolutions:
+  - into: cindreon
+    method: level
+    level: 30
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
@@ -76,22 +73,23 @@ learnset:
     - {level: 8, move: Rock Tomb}
     - {level: 10, move: Fire Fang}
     - {level: 10, move: Bite}
+    - {level: 10, move: Rock Throw}
     - {level: 10, move: Tackle}
     - {level: 10, move: Smokescreen}
-    - {level: 11, move: Smack Down}
-    - {level: 12, move: Roar}
-    - {level: 16, move: Headbutt}
-    - {level: 20, move: Protect}
-    - {level: 24, move: Rock Slide}
-    - {level: 25, move: Lava Plume}
+    - {level: 11, move: Roar}
+    - {level: 15, move: Headbutt}
+    - {level: 16, move: Smack Down}
+    - {level: 19, move: Protect}
+    - {level: 23, move: Rock Slide}
+    - {level: 24, move: Lava Plume}
     - {level: 28, move: Stone Edge}
-    - {level: 36, move: Take Down}
+    - {level: 34, move: Take Down}
     - {level: 40, move: Flamethrower}
-    - {level: 44, move: Flame Wheel}
-    - {level: 48, move: Iron Defense}
-    - {level: 52, move: Rock Blast}
-    - {level: 56, move: Double-Edge}
-    - {level: 60, move: Fire Spin}
+    - {level: 42, move: Flame Wheel}
+    - {level: 46, move: Iron Defense}
+    - {level: 50, move: Rock Blast}
+    - {level: 54, move: Double-Edge}
+    - {level: 58, move: Fire Spin}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Iron Tail,
           Earthquake, Return, Dig, Double Team, Flamethrower, Sandstorm, Fire Blast,
@@ -102,9 +100,7 @@ learnset:
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Earth Power, Endeavor, Fire Fang, Flare Blitz,
           Heat Wave, Iron Head, Power Gem]
-  # only needed for the first stage of an evolution line
-  egg: [Curse, Head Smash, Flare Blitz, Rock Throw, Body Slam, Reversal, Screech, Stomp,
-        Iron Head, Endeavor]
+  egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -119,7 +115,19 @@ design:
   # fields Claude filled in (people can change them)
   filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, egg moves, EV yield,
                      catch rate, base exp, growth rate, base friendship, egg cycles, gender,
-                     egg groups]
+                     egg groups, evolutions]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    level-up moves: 72
+    "TM/HM moves": 77
+    tutor moves: 67
+    egg moves: 67
+    EV yield: 85
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 58
+    egg cycles: 90
+    evolutions: 70
   body_shape: a head and legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "Santrock is a small, sand-colored lion cub with bright eyes and a spiky red-orange mane. A single rounded rock covers each shoulder, and its long, slender tail ends in a lively flame. It has large paws and small, pointed fangs."

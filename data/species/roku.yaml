@@ -113,6 +113,21 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 56
+    "TM/HM moves": 61
+    tutor moves: 51
+    body color: 80
+    catch rate: 55
+    base exp: 85
+    growth rate: 57
+    base friendship: 90
+    gender: 60
+    egg groups: 51
+    egg cycles: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a stone guardian built from stacked flat orange rock slabs, with a small square orange head with a smiling face under a tall purple pointed hat. Purple-blue straps cross its chest and a belt with a bow sits at its waist. It has two arms and two legs of slabs, with a floating sword on one side and a floating spiked iron ball on the other, no hands holding them."

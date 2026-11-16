@@ -72,16 +72,16 @@ learnset:
     - {level: 1, move: Razor Leaf}
     - {level: 1, move: Scratch}
     - {level: 1, move: Tackle}
-    - {level: 1, move: Leer}
+    - {level: 1, move: Tail Whip}
     - {level: 10, move: Quick Attack}
     - {level: 12, move: Mega Drain}
     - {level: 13, move: Vine Whip}
+    - {level: 15, move: Leech Seed}
     - {level: 16, move: Bullet Seed}
-    - {level: 16, move: Leech Seed}
     - {level: 25, move: Slam}
     - {level: 28, move: Petal Blizzard}
     - {level: 30, move: Synthesis}
-    - {level: 33, move: Slash}
+    - {level: 31, move: Slash}
     - {level: 40, move: Seed Bomb}
     - {level: 40, move: Grassy Glide}
     - {level: 42, move: Crunch}
@@ -113,6 +113,20 @@ design:
   filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, body color, catch rate,
                      base exp, growth rate, base friendship, gender, egg groups, egg cycles,
                      height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    level-up moves: 62
+    "TM/HM moves": 67
+    tutor moves: 57
+    body color: 35
+    catch rate: 60
+    base exp: 85
+    growth rate: 56
+    base friendship: 90
+    gender: 56
+    egg groups: 50
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...

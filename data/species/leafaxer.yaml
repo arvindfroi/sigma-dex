@@ -123,6 +123,19 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg cycles, egg groups, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 61
+    "TM/HM moves": 66
+    tutor moves: 56
+    body color: 80
+    catch rate: 90
+    base exp: 85
+    base friendship: 90
+    height: 65
+    weight: 65
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its legs.
   look: "It is a long, green dragon-like lizard covered in leaf-like scales, with grey steel plates along its belly and back and grey spikes down its spine. It has a steel crescent blade on its head and a long curled tail ending in a large grey axe blade, on four clawed legs."

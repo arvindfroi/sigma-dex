@@ -114,6 +114,21 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 59
+    "TM/HM moves": 64
+    tutor moves: 54
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 68
+    base friendship: 90
+    gender: 55
+    egg groups: 49
+    egg cycles: 65
   body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a robot-like bird with a dark navy body, a yellow belly, and a red lightning bolt on its chest. It has a dark visor over red eyes, a red-orange beak, a spiky blue and yellow crest, and two big blue and yellow wings with round yellow joints. It has two long legs with yellow claws and a long blue and yellow tail."

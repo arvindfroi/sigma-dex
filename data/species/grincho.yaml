@@ -111,6 +111,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 61
+    "TM/HM moves": 66
+    tutor moves: 56
+    egg moves: 56
+    body color: 90
+    catch rate: 60
+    base exp: 85
+    growth rate: 51
+    base friendship: 90
+    gender: 77
+    egg groups: 51
+    egg cycles: 65
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a tall, thin pale grey-white humanoid with very long thin arms and legs and large flat feet. It has a smooth rounded head with a small bump on top, two small black dot eyes and a huge wide grin full of white teeth, and a thin tail. It holds a small swirling dark purple orb in one hand."

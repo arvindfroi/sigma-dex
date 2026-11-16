@@ -107,6 +107,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 51
+    "TM/HM moves": 56
+    tutor moves: 46
+    body color: 90
+    EV yield: 85
+    catch rate: 60
+    base exp: 85
+    growth rate: 57
+    base friendship: 90
+    gender: 66
+    egg groups: 56
+    egg cycles: 65
+    height: 45
+    weight: 35
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a small creature with a pointed leaf-shaped head and a body that fades from green and blue through yellow and orange to pink and purple like a rainbow. It has black dot eyes, white cheeks, a smile, white fluffy arms crossed in front and white feet."

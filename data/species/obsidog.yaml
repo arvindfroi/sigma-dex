@@ -92,7 +92,7 @@ learnset:
   tutor: [Ancient Power, Body Slam, Curse, Earth Power, Endeavor, Fire Fang, Snarl,
           Thunder Fang, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Curse, Head Smash, Rock Throw, Rollout, Sucker Punch, Thunder Fang, Fire Fang,
+  egg: [Curse, Rock Throw, Rollout, Knock Off, Sucker Punch, Thunder Fang, Fire Fang,
         Pursuit, Endeavor]
 
 # --- Where it is found ---
@@ -109,6 +109,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 68
+    "TM/HM moves": 73
+    tutor moves: 63
+    egg moves: 63
+    body color: 90
+    catch rate: 60
+    base exp: 85
+    growth rate: 52
+    base friendship: 90
+    gender: 75
+    egg groups: 49
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a stocky, dog-like creature made of dark purple-black faceted volcanic glass. It has two ringed grey horns, pointed ears, round black eyes, two white tusks at its mouth, a spiked black collar, black claws, and a small spiky tail."

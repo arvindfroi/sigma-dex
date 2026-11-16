@@ -101,6 +101,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 65
+    "TM/HM moves": 70
+    tutor moves: 60
+    egg moves: 60
+    body color: 90
+    catch rate: 60
+    base exp: 85
+    growth rate: 51
+    base friendship: 90
+    gender: 75
+    egg groups: 45
+    egg cycles: 65
+    height: 35
+    weight: 35
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its many legs.
   look: "It is a spider-like creature with a small cream-white skull-shaped head with big black eyes and tiny fangs, in the middle of a white rope-like spider web body. Eight long glossy green legs with black inner edges hold the web up."

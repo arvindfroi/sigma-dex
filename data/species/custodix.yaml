@@ -130,6 +130,16 @@ design:
   # fields Claude filled in (people can change them)
   filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, EV yield, catch rate,
                      base exp, growth rate, base friendship, egg cycles, gender, egg groups]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    level-up moves: 60
+    "TM/HM moves": 65
+    tutor moves: 55
+    EV yield: 85
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 90
+    egg cycles: 90
   body_shape: an upright body on two legs with a tail
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "Custodix is a powerful golden lion with a majestic grey-white mane and two smooth fur tufts covering its eyes. A bright sun emblem marks its forehead, while dark rocky armor with glowing magma cracks protects its shoulders and legs. Its long tail ends in a grey-white tuft, and it can stand upright on its hind legs."

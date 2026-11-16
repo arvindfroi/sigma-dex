@@ -118,6 +118,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 60
+    "TM/HM moves": 65
+    tutor moves: 55
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 59
+    base friendship: 90
+    gender: 77
+    egg groups: 55
+    egg cycles: 65
+    height: 45
+    weight: 65
   body_shape: a body with two or more pairs of wings
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a floating golden ring with a row of small open eyes set around its rim, and a cream dove-shaped mark in the middle of the ring. Two pairs of white feathered wings, four in all, spread out from its sides, with a soft golden glow around it."

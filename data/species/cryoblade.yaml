@@ -111,6 +111,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 67
+    "TM/HM moves": 72
+    tutor moves: 62
+    egg moves: 62
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 57
+    base friendship: 90
+    gender: 78
+    egg groups: 40
+    egg cycles: 65
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a pale blue-white ice creature with a spiky crown-shaped head, a diamond gem on its forehead and a wide mouth full of sharp teeth. It has a big rectangular block torso with blue diamond crystals, two long arms with dark-blue bands ending in crab-like ice claws, large ice spikes on its shoulders, thick legs with dark-blue knees and sharp claws, and a thin blue tail with an arrow tip."

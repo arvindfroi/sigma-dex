@@ -45,13 +45,10 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+evolutions:
+  - into: glac-p-e
+    method: level
+    level: 30
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
@@ -64,10 +61,36 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Harden}
+    - {level: 1, move: Powder Snow}
+    - {level: 3, move: Endure}
+    - {level: 7, move: Mist}
+    - {level: 10, move: Icy Wind}
+    - {level: 10, move: Quick Attack}
+    - {level: 15, move: Aurora Beam}
+    - {level: 15, move: Freeze-Dry}
+    - {level: 17, move: Slash}
+    - {level: 21, move: Ice Shard}
+    - {level: 24, move: Snowscape}
+    - {level: 25, move: Ice Fang}
+    - {level: 27, move: Thrash}
+    - {level: 29, move: Rest}
+    - {level: 35, move: Blizzard}
+    - {level: 35, move: Ice Beam}
+    - {level: 36, move: Sacred Sword}
+    - {level: 40, move: Icicle Crash}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Protect, Rain Dance,
+          Frustration, Return, Dig, Double Team, Rock Tomb, Facade, Secret Power, Rest,
+          Attract, Endure, Avalanche, Rock Slide, Sleep Talk, Swagger, Substitute, Bulldoze,
+          Surf, Strength, Rock Smash]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Ice Fang, Ice Punch, Icicle Spear, Icy Wind, Aqua Jet]
+  # only needed for the first stage of an evolution line
+  egg: [Ice Punch, Yawn, Aurora Veil, Encore]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -79,7 +102,17 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [height, weight] # fields Claude filled in (people can change them)
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [height, weight, evolutions, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    height: 65
+    weight: 65
+    evolutions: 60
+    level-up moves: 74
+    "TM/HM moves": 79
+    tutor moves: 69
+    egg moves: 69
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...

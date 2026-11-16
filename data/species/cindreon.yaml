@@ -45,13 +45,10 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+evolutions:
+  - into: custodix
+    method: level
+    level: 55
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
@@ -68,28 +65,29 @@ learnset:
   level_up:
     - {level: 0, move: Flamethrower}
     - {level: 0, move: Rock Slide}
-    - {level: 1, move: Flame Charge}
+    - {level: 1, move: Fire Fang}
     - {level: 1, move: Harden}
     - {level: 1, move: Rock Tomb}
     - {level: 1, move: Tackle}
-    - {level: 10, move: Fire Fang}
+    - {level: 8, move: Ember}
     - {level: 10, move: Bite}
     - {level: 10, move: Smokescreen}
-    - {level: 12, move: Incinerate}
-    - {level: 12, move: Roar}
-    - {level: 16, move: Smack Down}
-    - {level: 16, move: Headbutt}
-    - {level: 20, move: Protect}
-    - {level: 25, move: Lava Plume}
+    - {level: 11, move: Roar}
+    - {level: 15, move: Headbutt}
+    - {level: 19, move: Protect}
+    - {level: 19, move: Smack Down}
     - {level: 30, move: Stone Edge}
     - {level: 32, move: Crunch}
-    - {level: 35, move: Stealth Rock}
-    - {level: 39, move: Take Down}
-    - {level: 52, move: Flame Wheel}
-    - {level: 52, move: Rock Blast}
-    - {level: 58, move: Iron Defense}
-    - {level: 59, move: Double-Edge}
-    - {level: 76, move: Fire Spin}
+    - {level: 33, move: Rock Throw}
+    - {level: 34, move: Lava Plume}
+    - {level: 37, move: Take Down}
+    - {level: 56, move: Stealth Rock}
+    - {level: 57, move: Double-Edge}
+    - {level: 61, move: Fire Spin}
+    - {level: 65, move: Flame Wheel}
+    - {level: 71, move: Iron Defense}
+    - {level: 71, move: Rock Blast}
+    - {level: 89, move: Flame Charge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration, Iron Tail,
           Earthquake, Return, Dig, Double Team, Flamethrower, Sandstorm, Fire Blast,
@@ -114,7 +112,18 @@ design:
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
   filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, EV yield, catch rate,
-                     base exp, growth rate, base friendship, egg cycles]
+                     base exp, growth rate, base friendship, egg cycles, evolutions]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    level-up moves: 73
+    "TM/HM moves": 78
+    tutor moves: 68
+    EV yield: 85
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 59
+    egg cycles: 90
+    evolutions: 65
   body_shape: an upright body on two legs with a tail
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "Cindreon is a muscular, sand-gold lion with a short red-orange mane and a flame-tipped tail. Large rocky plates cover its shoulders, each with a glowing furnace opening. Smaller stones run along its back and protect its legs, giving it a rugged, armored appearance."

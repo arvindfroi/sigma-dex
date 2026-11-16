@@ -112,6 +112,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 55
+    "TM/HM moves": 60
+    tutor moves: 50
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 53
+    base friendship: 90
+    gender: 77
+    egg groups: 45
+    egg cycles: 65
+    height: 45
+    weight: 35
   body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a ghost wrapped in a white hooded cloak with black and white striped markings, with an orange oval mask-like face with three red-lit eyes, a red triangle mark and a jagged mouth. Two wide cloak wings spread from its sides, it has two black clawed hands and a long striped tail."

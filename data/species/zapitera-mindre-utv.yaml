@@ -61,10 +61,33 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Growl}
+    - {level: 1, move: Tackle}
+    - {level: 1, move: Tail Whip}
+    - {level: 5, move: Thunder Shock}
+    - {level: 9, move: Thunder Wave}
+    - {level: 10, move: Peck}
+    - {level: 10, move: Quick Attack}
+    - {level: 14, move: Electro Ball}
+    - {level: 16, move: Charge}
+    - {level: 18, move: Slash}
+    - {level: 21, move: Volt Switch}
+    - {level: 28, move: Screech}
+    - {level: 35, move: Agility}
+    - {level: 37, move: Flash Cannon}
+    - {level: 41, move: Discharge}
+    - {level: 45, move: Metal Sound}
+    - {level: 46, move: Thunderbolt}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance, Frustration,
+          Thunderbolt, Thunder, Return, Double Team, Shock Wave, Facade, Secret Power, Rest,
+          Attract, Charge Beam, Endure, Flash, Thunder Wave, Gyro Ball, Sleep Talk,
+          Natural Gift, Swagger, Substitute, Flash Cannon, Heavy Slam, Electroweb,
+          Eerie Impulse, Electric Terrain, Steel Wing]
+  tutor: [Iron Head, Volt Switch] # moves a move tutor can teach it
+  egg: [Spark]           # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -76,7 +99,17 @@ design:
   notes:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
-  filled_by_claude: [body shape, look, movement]
+  # fields Claude filled in (people can change them)
+  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+                     egg moves]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 62
+    "TM/HM moves": 67
+    tutor moves: 57
+    egg moves: 57
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a small dark grey bird with a blue and yellow feather crest, a white-grey VR headset over its eyes with a yellow lightning bolt, yellow earpieces, and an orange beak. It has a yellow zigzag mark on its chest, two small silver-white wings, a short blue and yellow tail, and two thin legs with yellow claws."

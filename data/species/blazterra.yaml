@@ -120,6 +120,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 72
+    "TM/HM moves": 77
+    tutor moves: 67
+    body color: 80
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 90
+    gender: 90
+    egg groups: 48
+    egg cycles: 90
+    height: 65
+    weight: 65
   body_shape: a body with one pair of wings
   movement: "It flies, flapping its wings."
   look: "It is a slender, bat-like dragon with red-orange scaly skin and a tan belly. It has two huge fire-patterned orange wings with yellow claws at the tips, large pointed ears with flames on top, a yellow crest on its head, two clawed legs and a long thin pointed tail."

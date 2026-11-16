@@ -116,6 +116,20 @@ design:
   filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, body color, catch rate,
                      base exp, growth rate, base friendship, gender, egg groups, egg cycles,
                      height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    level-up moves: 59
+    "TM/HM moves": 64
+    tutor moves: 54
+    body color: 35
+    catch rate: 60
+    base exp: 85
+    growth rate: 62
+    base friendship: 90
+    gender: 62
+    egg groups: 54
+    egg cycles: 65
+    height: 45
+    weight: 35
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...

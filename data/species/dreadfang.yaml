@@ -112,6 +112,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 53
+    "TM/HM moves": 58
+    tutor moves: 48
+    body color: 80
+    catch rate: 60
+    base exp: 55
+    growth rate: 57
+    base friendship: 90
+    gender: 74
+    egg groups: 61
+    egg cycles: 65
+    height: 55
+    weight: 45
   body_shape: an insect body with a hard shell
   movement: "It flies, flapping its wings."
   look: "It is a green scorpion-like creature with a long curved snake-like neck and head, a pale grey stripe down the neck, a yellow diamond on its forehead, a yellow eye and two curved dark fangs. It has four clear insect wings, six jointed green legs ending in dark brown claws, a black segmented abdomen and a long curved tail with a yellow diamond and a dark stinger."

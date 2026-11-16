@@ -68,11 +68,9 @@ learnset:
     - {level: 1, move: Tackle}
     - {level: 3, move: Acid}
     - {level: 9, move: Rock Throw}
-    - {level: 10, move: Smog}
     - {level: 10, move: Poison Gas}
     - {level: 11, move: Rock Polish}
     - {level: 11, move: Smack Down}
-    - {level: 16, move: Toxic Spikes}
     - {level: 17, move: Venoshock}
     - {level: 19, move: Ancient Power}
     - {level: 20, move: Rock Slide}
@@ -91,7 +89,7 @@ learnset:
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Curse, Earth Power, Power Gem]
   # only needed for the first stage of an evolution line
-  egg: [Curse, Head Smash, Clear Smog, Sludge, Haze]
+  egg: [Curse, Head Smash, Smog, Sludge, Toxic Spikes, Haze]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -107,6 +105,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 56
+    "TM/HM moves": 61
+    tutor moves: 51
+    egg moves: 51
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 60
+    base friendship: 90
+    gender: 66
+    egg groups: 50
+    egg cycles: 65
   body_shape: a head and legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small round golem made of lumpy dark grey boulders, with a cream-white skull-shaped mask on its front that has two glowing purple teardrop eyes and a jagged mouth. It has round boulder feet and small rock chunks scattered around it."

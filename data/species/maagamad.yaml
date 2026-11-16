@@ -109,6 +109,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 64
+    "TM/HM moves": 69
+    tutor moves: 59
+    body color: 80
+    EV yield: 85
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 76
+    gender: 75
+    egg groups: 90
+    egg cycles: 90
   body_shape: an upright body on two legs with a tail
   movement: It walks on two legs with its wings folded.
   look: "It is a big, plump seagull-like bird with a white body and head, an orange beak and orange webbed feet. It has dark wings with a green and purple oily sheen, a grey sash across its chest holding three sheathed green-crossguard swords on its back, and a small anchor mark on one wing."

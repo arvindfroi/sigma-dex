@@ -78,6 +78,12 @@ design:
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    height: 55
+    weight: 35
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a plump orange dragon-like creature with two large curved horns, a wide toothy grin, orange eyes and a big round cream belly. It wears an iron chain around its neck and has two short arms with cream claws, two clawed feet and a short curled tail with red scale patches."

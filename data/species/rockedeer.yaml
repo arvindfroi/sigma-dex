@@ -82,6 +82,7 @@ learnset:
     - {level: 45, move: Flamethrower}
     - {level: 45, move: Inferno}
     - {level: 49, move: Psychic}
+    - {level: 51, move: Heat Crash}
     - {level: 63, move: Future Sight}
     - {level: 75, move: Overheat}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
@@ -110,6 +111,21 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 62
+    "TM/HM moves": 67
+    tutor moves: 57
+    body color: 80
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 45
+    gender: 75
+    egg groups: 90
+    egg cycles: 90
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a slender deer-like creature with a deep-blue body, a cream face, chest and belly, white and orange lightning-shaped markings, and a white ring on its chest. It has antlers carrying four floating round dark-blue discs with flame rings, flame bursts around its hooves and a short tail trailing orange flame."

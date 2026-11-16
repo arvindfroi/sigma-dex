@@ -312,16 +312,8 @@ def load_claude_moves():
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
 
 
-def learnset_hash(data):
-    import hashlib
-    ls = data.get("learnset") or {}
-    return hashlib.sha1(json.dumps({k: ls.get(k) or [] for k in KEYS}, sort_keys=True).encode()).hexdigest()[:12]
-
-
-def group_edited(sid, data, claude):
-    """True when someone changed its moves after Claude last applied (then Claude's moves count as theirs)."""
-    rec = claude.get(sid) or {}
-    return bool(rec.get("_group")) or (bool(rec.get("_hash")) and rec["_hash"] != learnset_hash(data))
+learnset_hash = dexlib.learnset_hash     # one definition, shared with the website's people/Claude split
+group_edited = dexlib.group_edited
 
 
 def load_ours(exclude_claude=False):
@@ -390,7 +382,21 @@ def build_lines(ours):
     by_dex = {s["dex"]: s for s in loose if isinstance(s["dex"], int)}
     linked_child = set()
 
+    try:      # pairs that must never be guessed into one line: data/lines.yaml and the legendary trios
+        cfg = yaml.safe_load((DATA_DIR / "lines.yaml").read_text(encoding="utf-8")) or {}
+    except FileNotFoundError:
+        cfg = {}
+    try:
+        legs = yaml.safe_load((DATA_DIR / "legendaries.yaml").read_text(encoding="utf-8")) or {}
+    except FileNotFoundError:
+        legs = {}
+    apart = {frozenset(p) for p in cfg.get("not_a_line") or [] if len(p) == 2}
+    for group in legs.get("trios") or []:
+        apart |= {frozenset((x, y)) for x in group for y in group if x != y}
+
     def can_link(a, b):
+        if frozenset((a["id"], b["id"])) in apart:
+            return False
         if not a["types"] or not b["types"] or not set(a["types"]) & set(b["types"]):
             return False
         ba, bb = bst(a), bst(b)
@@ -1784,6 +1790,10 @@ class Proposer:
                 and ("Steel" in sp["types"] or self.profile(sid)["info"]["bulk"] >= 1.1):
             self._add(sid, learnset, added, "Heavy Slam", reasons, "it weighs %g kg (Heavy Slam hits harder the "
                       "heavier the user)" % w, prefer_tm=True)
+        if isinstance(w, (int, float)) and w >= 150 and "Fire" in sp["types"] and "Heat Crash" in self.M \
+                and "Heat Crash" not in set(self.full_pool(sid, learnset)):
+            self._add(sid, learnset, added, "Heat Crash", reasons, "it weighs %g kg (Heat Crash hits harder the "
+                      "heavier the user)" % w, prefer_tm=True)
 
     def role_tools(self, sid, learnset, added, reasons, donors):
         """Make sure the role has its tools (strong same-type moves, setup for sweepers, recovery for walls)."""
@@ -2385,6 +2395,9 @@ def cmd_apply(args):
     (DATA_DIR / "claude_moves.json").write_text(json.dumps(claude_moves, ensure_ascii=False, indent=1, sort_keys=True)
                                                 + "\n", encoding="utf-8")
     print("updated %d species files: %s" % (len(changed), ", ".join(changed)))
+    if changed:
+        import claude_sure            # how sure Claude is about what it just filled in (shown on the website)
+        print("claude_sure updated for %d species" % claude_sure.write_all())
 
 
 def main():

@@ -122,6 +122,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 59
+    "TM/HM moves": 64
+    tutor moves: 54
+    body color: 65
+    catch rate: 55
+    base exp: 55
+    growth rate: 60
+    base friendship: 90
+    gender: 66
+    egg groups: 45
+    egg cycles: 65
+    weight: 65
   body_shape: several bodies joined together
   movement: It crawls along the ground on its legs.
   look: "It is an old tank covered in moss and swamp grass, with brown rusty armour, six wheels on caterpillar tracks (two of them pale wooden log slices) and a long cannon barrel with a square end on its turret. Two small round creatures with sleepy eyes peek out from under grassy lids on the turret and the hull."

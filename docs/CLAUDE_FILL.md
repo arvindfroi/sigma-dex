@@ -52,8 +52,28 @@ Open Claude Code in this repository and say:
 5. Record what was filled in: `design.filled_by_claude` lists the fields (e.g. `[base stats,
    level-up moves, TM/HM moves, catch rate]`). The website shows that list on the Pokemon's page
    so people know what to review.
+   Record how sure you are: `design.claude_sure` gives each of those fields a number 0-100.
+   `scripts/species_fill.py apply` and `scripts/moveset_fill.py apply` write it themselves
+   (`scripts/claude_sure.py`); for anything filled by hand, run `python scripts/claude_sure.py` or set it.
+   85-95 = a fixed Game Freak habit, the colour seen in its sprite, or a look read from its art; 55-80 =
+   copied from similar official Pokemon that mostly agree; 25-50 = a guess (they disagree, or no art).
 6. Run `python scripts/validate.py` and `python scripts/build.py`, then commit with a message that
    names the Pokemon.
 
 The species files are edited directly (not through the website), so the website's history does
 not show these changes; the commit does.
+
+## People and Claude on the website (16 Nov 2026)
+
+Arvind: "maybe a person did 10 % and you 80 %, I want to see that". The list has **Done**, **People** and **AI**
+columns (sortable, and "Sort: most done by people / by AI"); the Done bar is green for people and purple for
+Claude, and each Pokemon's INFO tab shows the same split under "% filled in", plus every field Claude filled in
+with how sure it is (red under 50, yellow 50-74, green 75 and up; the filter "Claude is unsure about something"
+lists them).
+
+- A field counts as Claude's while it is on `design.filled_by_claude`. When a person changes it (website, Sheet
+  or Doc), the import takes it off that list and off `claude_sure` (`dexlib.hand_over`): it is theirs then.
+- A move list counts per move: the share of its moves that Claude added (`data/claude_moves.json`), also after
+  people changed some of them.
+- What the website's "Fill in the empty ones for me" button fills, and nobody changes before YES, is saved as
+  Claude's, with its number.

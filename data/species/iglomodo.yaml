@@ -115,6 +115,21 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 56
+    "TM/HM moves": 61
+    tutor moves: 51
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 59
+    base friendship: 90
+    gender: 77
+    egg groups: 41
+    egg cycles: 65
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a long crocodile-like creature made of light-blue ice blocks, with a big domed igloo-shaped back, a long pointed tail and strong legs with dark claws. It has a long toothy snout, yellow eyes, ice crystals on its head, a purple underside and a long forked purple tongue."

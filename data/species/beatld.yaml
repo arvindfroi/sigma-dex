@@ -67,33 +67,33 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Confusion}
+    - {level: 1, move: Defense Curl}
     - {level: 1, move: Safeguard}
-    - {level: 1, move: Stored Power}
     - {level: 1, move: Tackle}
-    - {level: 9, move: Hypnosis}
+    - {level: 7, move: Struggle Bug}
+    - {level: 10, move: Hypnosis}
     - {level: 10, move: Reflect}
-    - {level: 15, move: Stun Spore}
-    - {level: 16, move: Psybeam}
+    - {level: 15, move: Psybeam}
     - {level: 20, move: Psyshock}
     - {level: 24, move: Light Screen}
     - {level: 29, move: Extrasensory}
     - {level: 35, move: Bug Buzz}
-    - {level: 35, move: Expanding Force}
-    - {level: 37, move: Roost}
+    - {level: 37, move: Calm Mind}
     - {level: 39, move: Heal Pulse}
-    - {level: 40, move: Calm Mind}
-    - {level: 44, move: Psychic}
-    - {level: 45, move: Future Sight}
+    - {level: 40, move: Power Swap}
+    - {level: 46, move: Psychic}
+    - {level: 50, move: Future Sight}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
-          Rain Dance, Giga Drain, Safeguard, Frustration, Solar Beam, Return, Psychic,
-          Shadow Ball, Double Team, Reflect, Facade, Secret Power, Rest, Attract, Thief,
-          Skill Swap, Focus Blast, Energy Ball, Endure, Giga Impact, Flash, Thunder Wave,
-          Psych Up, Sleep Talk, Natural Gift, Grass Knot, Swagger, U-turn, Substitute,
-          Trick Room, Psyshock, Struggle Bug, Psychic Terrain, Expanding Force]
+          Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball, Double Team,
+          Reflect, Facade, Secret Power, Rest, Attract, Thief, Skill Swap, Focus Blast,
+          Energy Ball, Fling, Endure, Giga Impact, Flash, Thunder Wave, Psych Up,
+          Sleep Talk, Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Struggle Bug,
+          Psychic Terrain, Expanding Force]
   # moves a move tutor can teach it
   tutor: [Bug Bite, Dazzling Gleam, Zen Headbutt]
-  egg: []                # only needed for the first stage of an evolution line
+  # only needed for the first stage of an evolution line
+  egg: [Encore, Mirror Coat, Confuse Ray, Fake Tears, Roost]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -109,6 +109,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 60
+    "TM/HM moves": 65
+    tutor moves: 55
+    egg moves: 55
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 47
+    base friendship: 90
+    gender: 71
+    egg groups: 50
+    egg cycles: 65
+    height: 35
+    weight: 55
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a round, blue, egg-shaped creature with a brown mop of hair, a brown moustache and pink spiral eyes on a small face. It has thin blue arms, jointed blue legs with small feet, a gold shoulder pad on each side, and a red circle with gold and purple stripes across its belly."

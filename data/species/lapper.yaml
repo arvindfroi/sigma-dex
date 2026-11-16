@@ -91,8 +91,8 @@ learnset:
   # moves a move tutor can teach it
   tutor: [Body Slam, Charm, Close Combat, Endeavor, Hyper Voice, Zen Headbutt]
   # only needed for the first stage of an evolution line
-  egg: [Counter, Smelling Salts, Covet, Last Resort, Flail, Revenge, Force Palm, Endeavor,
-        Stomp, Mega Kick]
+  egg: [Counter, Smelling Salts, Covet, Fake Out, Flail, Revenge, Force Palm, Feint,
+        Endeavor, Stomp]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -108,6 +108,25 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 59
+    "TM/HM moves": 64
+    tutor moves: 54
+    egg moves: 54
+    body color: 80
+    EV yield: 85
+    catch rate: 60
+    base exp: 85
+    growth rate: 56
+    base friendship: 90
+    gender: 72
+    egg groups: 72
+    egg cycles: 65
+    height: 45
+    weight: 35
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a shaggy dog-like creature with very long, thick dark-brown ears that cover its face and eyes, with only a pink tongue and a small dark nose showing. Its body is brown with cream and orange-speckled legs and chest, big cream paws and a short bushy tail with a cream tip."

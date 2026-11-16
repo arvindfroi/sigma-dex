@@ -114,6 +114,21 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 57
+    "TM/HM moves": 62
+    tutor moves: 52
+    body color: 90
+    catch rate: 60
+    base exp: 85
+    growth rate: 47
+    base friendship: 90
+    gender: 68
+    egg groups: 66
+    egg cycles: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a tall, thin, pale cream creature with a single large pale yellow eye and a wide toothy grin, hidden under a cream hood with a red curled tip. It has very long thin arms ending in huge black hands with long red-tipped claws, thin legs with long toes, and cream and dark red tattered cloth strips trailing behind."

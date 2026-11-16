@@ -110,6 +110,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 69
+    "TM/HM moves": 74
+    tutor moves: 64
+    egg moves: 64
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 55
+    base friendship: 90
+    gender: 71
+    egg groups: 62
+    egg cycles: 65
   body_shape: a body with one pair of wings
   movement: It walks upright on two legs.
   look: "It is a muscular, upright insect-like creature with a yellow head, big dark-blue eyes, a wide grin and two long yellow antennae. Its body is dark blue with red and white stripes and red abs, it has spiky yellow tufts on its forearms, a yellow belt, yellow boots with pointed toes, and large translucent golden veined wings."

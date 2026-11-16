@@ -114,6 +114,21 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 56
+    "TM/HM moves": 61
+    tutor moves: 51
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 66
+    base friendship: 90
+    gender: 71
+    egg groups: 56
+    egg cycles: 65
   body_shape: several bodies joined together
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is four separate black glossy shapes, each with one big white eye, joined in a square loop by glowing yellow wires. The shapes are a triangle with a bar, a coil, a round disc with plus and minus signs, and an H-shaped bar, all crackling with yellow electricity."

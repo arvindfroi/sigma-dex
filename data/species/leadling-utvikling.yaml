@@ -68,19 +68,18 @@ learnset:
     - {level: 1, move: Smack Down}
     - {level: 1, move: Rollout}
     - {level: 1, move: Tackle}
-    - {level: 10, move: Smog}
     - {level: 10, move: Poison Gas}
     - {level: 11, move: Acid Spray}
     - {level: 11, move: Rock Polish}
     - {level: 14, move: Poison Powder}
     - {level: 15, move: Rock Throw}
     - {level: 16, move: Ancient Power}
-    - {level: 16, move: Toxic Spikes}
     - {level: 20, move: Rock Slide}
     - {level: 24, move: Venoshock}
     - {level: 28, move: Bone Rush}
     - {level: 29, move: Toxic}
     - {level: 30, move: Power Gem}
+    - {level: 32, move: Stealth Rock}
     - {level: 33, move: Acid Armor}
     - {level: 43, move: Sludge Bomb}
     - {level: 45, move: Stone Edge}
@@ -110,6 +109,20 @@ design:
   filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, body color, catch rate,
                      base exp, growth rate, base friendship, gender, egg groups, egg cycles,
                      height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    level-up moves: 57
+    "TM/HM moves": 62
+    tutor moves: 52
+    body color: 35
+    catch rate: 60
+    base exp: 85
+    growth rate: 60
+    base friendship: 90
+    gender: 66
+    egg groups: 50
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...

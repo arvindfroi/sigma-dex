@@ -86,7 +86,8 @@ learnset:
   # moves a move tutor can teach it
   tutor: [Charm, Curse, Leaf Storm, Magical Leaf, Seed Bomb, Synthesis]
   # only needed for the first stage of an evolution line
-  egg: [Worry Seed, Encore, Amnesia, Ingrain, Curse]
+  egg: [Worry Seed, Grass Whistle, Nature Power, Encore, Amnesia, Ingrain, Curse, Vine Whip,
+        Tickle]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -102,6 +103,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 60
+    "TM/HM moves": 65
+    tutor moves: 55
+    egg moves: 55
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 66
+    base friendship: 90
+    gender: 57
+    egg groups: 42
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: an upright body on two legs with a tail
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small brown creature with a body like a plank-wood stump or barrel, with a big open mouth rimmed in green moss, with white teeth and a red tongue. It has small brown hands holding the sides of its wooden face, short feet, a long thin tail and a green leafy sprout on top."

@@ -137,5 +137,6 @@ encounters:
 | `design.wishes` | Notes for Claude: how it should play, move ideas (see [CLAUDE_FILL.md](CLAUDE_FILL.md)) |
 | `design.claude_fill` | `true` = Claude may fill in what is still empty |
 | `design.filled_by_claude` | The fields Claude filled in, so people know what to review |
+| `design.claude_sure` | How sure Claude is about each of those fields, 0-100 (docs/CLAUDE_FILL.md) |
 | `assets.*` | Paths to files in this repo. See [SPRITES.md](SPRITES.md) for the exact sizes (DS sprites are in `assets/sprites-ds/`, found by the Pokemon's file name) |
 | `engine.*` | Sprite positioning details for the GBA export, only relevant once GBA sprites exist |

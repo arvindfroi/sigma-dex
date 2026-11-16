@@ -1,0 +1,6 @@
+# Pokemon next to each other in the dex that are NOT one evolution line. The tools that fill in moves and numbers
+# guess a line from the dex order when nobody wrote an evolution (scripts/moveset_fill.py build_lines); these pairs
+# are never guessed. Real evolutions belong in each species file under "evolutions".
+not_a_line:
+  - [quimsy, roku]      # an absent-minded little creature and an ancient stone guardian (their own cards)
+  - [felk, moosus]      # two of the legendary trio with Rockedeer (data/legendaries.yaml)

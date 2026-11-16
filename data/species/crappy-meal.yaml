@@ -69,31 +69,29 @@ learnset:
     - {level: 0, move: Acid Spray}
     - {level: 0, move: Growth}
     - {level: 0, move: Attack Order}
-    - {level: 1, move: Razor Leaf}
+    - {level: 1, move: Stun Spore}
     - {level: 1, move: Tackle}
     - {level: 8, move: Poison Fang}
-    - {level: 8, move: Stun Spore}
     - {level: 12, move: Leech Seed}
     - {level: 15, move: Head Smash}
     - {level: 18, move: Cross Poison}
     - {level: 20, move: Bullet Seed}
-    - {level: 20, move: Synthesis}
     - {level: 22, move: Poison Sting}
     - {level: 24, move: Sweet Scent}
     - {level: 29, move: Slash}
     - {level: 30, move: Absorb}
+    - {level: 30, move: Toxic Spikes}
+    - {level: 31, move: Seed Bomb}
     - {level: 32, move: Ingrain}
     - {level: 32, move: Poison Jab}
-    - {level: 32, move: Seed Bomb}
     - {level: 33, move: Mega Drain}
-    - {level: 33, move: Vine Whip}
-    - {level: 33, move: Toxic Spikes}
+    - {level: 33, move: Razor Leaf}
     - {level: 33, move: Pin Missile}
-    - {level: 36, move: Toxic}
+    - {level: 35, move: Toxic}
     - {level: 40, move: Gunk Shot}
-    - {level: 41, move: Leaf Blade}
+    - {level: 44, move: Leaf Blade}
     - {level: 48, move: Power Whip}
-    - {level: 63, move: Spiky Shield}
+    - {level: 56, move: Spiky Shield}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,
           Giga Drain, Frustration, Solar Beam, Earthquake, Return, Dig, Double Team,
@@ -120,6 +118,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 55
+    "TM/HM moves": 60
+    tutor moves: 50
+    body color: 65
+    EV yield: 85
+    catch rate: 60
+    base exp: 55
+    growth rate: 53
+    base friendship: 90
+    gender: 72
+    egg groups: 57
+    egg cycles: 65
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It crawls along the ground on its legs.
   look: "It is a wide hamburger-shaped creature with a sesame bun on top and a bun at the bottom, two meat patties, pickles and cheese in between. It has angry green pickle eyes, two curved purple onion tusks, many spiky french fries sticking out of its back, and dripping red ketchup and purple goo."

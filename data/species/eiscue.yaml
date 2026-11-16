@@ -110,6 +110,25 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 73
+    "TM/HM moves": 78
+    tutor moves: 68
+    egg moves: 68
+    body color: 80
+    EV yield: 85
+    catch rate: 60
+    base exp: 85
+    growth rate: 59
+    base friendship: 90
+    gender: 74
+    egg groups: 46
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a small black penguin with a white oval belly, thin orange legs and white-tipped flippers. On its head sits a big light blue block of ice shaped like a slot machine, with three windows showing glowing yellow lucky sevens and a small propeller-like fin on the side."

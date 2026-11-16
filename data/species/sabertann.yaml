@@ -113,6 +113,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 62
+    "TM/HM moves": 67
+    tutor moves: 57
+    body color: 80
+    catch rate: 90
+    base exp: 55
+    growth rate: 90
+    base friendship: 75
+    gender: 75
+    egg groups: 90
+    egg cycles: 90
+    height: 65
+    weight: 65
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a heavy, black walrus-like creature with long white tusks, gold-tinted paws, and big clawed feet. It wears a black pirate hat with a gold skull mark and carries a red boat-shaped shell on its back with a mast and white sails showing a gold skull and crossbones, plus a gold tail fin."

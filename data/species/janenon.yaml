@@ -75,6 +75,7 @@ learnset:
     - {level: 6, move: Confuse Ray}
     - {level: 8, move: Snarl}
     - {level: 10, move: Sweet Scent}
+    - {level: 11, move: Spite}
     - {level: 15, move: Draining Kiss}
     - {level: 15, move: Fake Tears}
     - {level: 17, move: Fairy Wind}
@@ -112,6 +113,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 53
+    "TM/HM moves": 58
+    tutor moves: 48
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 59
+    base friendship: 90
+    gender: 63
+    egg groups: 40
+    egg cycles: 65
+    weight: 65
   body_shape: a head and legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a huge mass of dark navy, wavy hair that curls over a small purple creature with pointed ears sitting inside. The hair forms a long cannon-like tube with a glowing pink-white opening at the front, and two rounded dark lumps at the bottom serve as feet."

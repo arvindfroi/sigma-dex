@@ -115,6 +115,21 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 58
+    "TM/HM moves": 63
+    tutor moves: 53
+    body color: 90
+    catch rate: 60
+    base exp: 85
+    growth rate: 62
+    base friendship: 90
+    gender: 65
+    egg groups: 49
+    egg cycles: 65
   body_shape: a head and arms # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a big, heavy robot-like creature with a grey metal domed head with two green glowing eyes. Its metal chest has a glowing green and yellow radiation symbol, and its huge arms are made of bundled black cables ending in spiked yellow and black striped cuffs, with green slime dripping from it."

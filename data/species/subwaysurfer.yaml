@@ -116,6 +116,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 64
+    "TM/HM moves": 69
+    tutor moves: 59
+    body color: 80
+    catch rate: 55
+    base exp: 85
+    growth rate: 61
+    base friendship: 90
+    gender: 75
+    egg groups: 54
+    egg cycles: 65
+    height: 55
+    weight: 45
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is an orange four-legged creature with two very long upright ears, brown spots, blue eyes and a cream belly. It has a big fluffy yellow mane on its chest, a large translucent blue water-like fin along its back, yellow webbed feet and a long thin tail ending in an orange and blue fin."

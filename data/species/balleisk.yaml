@@ -89,8 +89,8 @@ learnset:
   # moves a move tutor can teach it
   tutor: [Aqua Tail, Body Slam, Bug Bite, Draco Meteor, Fire Fang, Iron Head, Outrage]
   # only needed for the first stage of an evolution line
-  egg: [Dragon Breath, Twister, Fire Fang, Counter, Signal Beam, Thunder Fang, Dragon Rage,
-        Pin Missile, Bug Buzz, Body Slam]
+  egg: [Dragon Breath, Twister, Fire Fang, Counter, Signal Beam, Thunder Fang, Silver Wind,
+        Dragon Rage, Twineedle, Pin Missile]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -106,6 +106,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 61
+    "TM/HM moves": 66
+    tutor moves: 56
+    egg moves: 56
+    body color: 80
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 90
+    gender: 77
+    egg groups: 49
+    egg cycles: 90
+    height: 35
+    weight: 35
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a small, bright red dinosaur-like creature standing upright, with a big toothy open mouth, a hooked snout, small arms and a curved tail. A thin antenna with a small round tip sticks out from its head and a black zigzag mark runs down its chest. A thin cord runs from its tail to a red and white ball."

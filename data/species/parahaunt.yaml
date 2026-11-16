@@ -110,6 +110,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 80
+    "TM/HM moves": 85
+    tutor moves: 75
+    body color: 90
+    EV yield: 85
+    catch rate: 60
+    base exp: 85
+    growth rate: 49
+    base friendship: 64
+    gender: 75
+    egg groups: 67
+    egg cycles: 65
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It floats in the air. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a grey smoky ghost with a long draping body of wavy tentacle-like wisps, wearing a dark grey fedora with a jewelled purple band and a purple-glowing eye. It holds a long jewelled cigarette holder in its mouth with a glowing red tip, trailing curls of grey smoke."

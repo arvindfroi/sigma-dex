@@ -110,6 +110,24 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 58
+    "TM/HM moves": 63
+    tutor moves: 53
+    egg moves: 53
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 62
+    base friendship: 90
+    gender: 75
+    egg groups: 43
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a tall, thin figure with a glass light bulb for a head with a flame burning inside it. Its body is a coiled blue spring, with thin jointed brown metal arms and legs and big round orange shoes. Yellow sparks of electricity crackle around it."

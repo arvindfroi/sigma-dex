@@ -160,3 +160,13 @@ At most one setup, recovery, status and hazard move; at least two attacks (three
 - Rainbro is Stellar (no weaknesses or strengths, Arvind 2026-11-12). The species files cannot hold that type yet, so
   `TYPE_OVERRIDES` in the script sets it. Stellar gets no same-type bonus and its moves are spread over many types.
   Origin HG has no Stellar type (its old ??? slot is Fairy), so the export needs new code for it.
+
+## Rebuilt 16 Nov 2026
+
+Arvind: the movesets nobody has changed can be built again with everything taken into account. `propose --fresh`
++ `apply --only` (all species whose moves people had not touched since Claude, plus new ones without moves; 96
+species). It now knows the explicit lines (Santrock -> Cindreon -> Custodix and Sigmanian Charcadet -> Glacépée
+written into the species files; `data/lines.yaml` stops Quimsy/ROKU and Felk/Moosus being guessed as lines, and
+the legendary trios in `data/legendaries.yaml` are never guessed together), and weight (Heavy Slam for 150 kg and
+up, now also Heat Crash for heavy Fire types). The 59 movesets people had changed, and SOLIDEDGE and Meowthwo
+(moves made by people), were left as they are.

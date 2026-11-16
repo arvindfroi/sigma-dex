@@ -64,9 +64,9 @@ learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
     - {level: 1, move: Poison Hug}
-    - {level: 1, move: Fairy Wind}
     - {level: 1, move: Growl}
     - {level: 1, move: Smog}
+    - {level: 1, move: Tackle}
     - {level: 8, move: Wrap}
     - {level: 9, move: Acid}
     - {level: 12, move: Draining Kiss}
@@ -74,22 +74,22 @@ learnset:
     - {level: 20, move: Charm}
     - {level: 24, move: Dazzling Gleam}
     - {level: 25, move: Acid Spray}
-    - {level: 37, move: Toxic}
-    - {level: 39, move: Recover}
+    - {level: 35, move: Toxic}
     - {level: 40, move: Acid Armor}
+    - {level: 40, move: Recover}
     - {level: 40, move: Sludge Bomb}
-    - {level: 45, move: Moonblast}
+    - {level: 44, move: Moonblast}
     - {level: 49, move: Sludge Wave}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance, Giga Drain,
           Safeguard, Frustration, Return, Psychic, Double Team, Sludge Bomb, Facade,
-          Secret Power, Rest, Attract, Energy Ball, Endure, Flash, Thunder Wave, Captivate,
-          Sleep Talk, Natural Gift, Poison Jab, Swagger, Substitute, Venoshock, Acid Spray,
-          Draining Kiss, Baby-Doll Eyes]
+          Secret Power, Rest, Attract, Thief, Energy Ball, Endure, Flash, Thunder Wave,
+          Captivate, Sleep Talk, Natural Gift, Poison Jab, Swagger, Substitute, Venoshock,
+          Acid Spray, Draining Kiss, Baby-Doll Eyes]
   # moves a move tutor can teach it
   tutor: [Charm, Dazzling Gleam, Endeavor, Heal Bell]
   # only needed for the first stage of an evolution line
-  egg: [Clear Smog, Curse, Wish, Stockpile, Poison Powder]
+  egg: [Clear Smog, Stockpile, Wish, Poison Powder]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -105,6 +105,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 56
+    "TM/HM moves": 61
+    tutor moves: 51
+    egg moves: 51
+    body color: 80
+    EV yield: 85
+    catch rate: 60
+    base exp: 85
+    growth rate: 59
+    base friendship: 90
+    gender: 63
+    egg groups: 46
+    egg cycles: 65
   body_shape: a head and a base # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement: It slithers along the ground.
   look: "It is a smiling slime creature made of glossy lime-green sludge with rainbow oily swirls. It has a rounded face under a drooping hood-like head with two long floppy ear shapes, thin arms ending in curved tentacles with purple sucker spots, and a wide melting puddle-like base."

@@ -116,6 +116,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 58
+    "TM/HM moves": 63
+    tutor moves: 53
+    body color: 80
+    catch rate: 55
+    base exp: 85
+    growth rate: 62
+    base friendship: 90
+    gender: 74
+    egg groups: 59
+    egg cycles: 65
+    height: 65
+    weight: 65
   body_shape: an insect body with a hard shell
   movement: "It flies, flapping its wings."
   look: "It is a beetle-like creature with a round orange shell, three thin pale-blue wings on its back and several thin green legs. A green curled spiral horn with an orange tip points forward at the front, and a long green stalk ending in a flared orange cone sticks out at the rear."

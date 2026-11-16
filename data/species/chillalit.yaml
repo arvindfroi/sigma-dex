@@ -112,6 +112,22 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 53
+    "TM/HM moves": 58
+    tutor moves: 48
+    egg moves: 48
+    body color: 80
+    catch rate: 60
+    base exp: 85
+    growth rate: 55
+    base friendship: 90
+    gender: 58
+    egg groups: 46
+    egg cycles: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: "It is a chubby penguin with a black and white body, orange beak and feet, and dark sunglasses. A tall crest of orange and yellow flames burns on top of its head, and it stands on a surfboard made of blue water."

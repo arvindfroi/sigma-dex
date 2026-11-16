@@ -128,6 +128,23 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles, height, weight]
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+    body shape: 80
+    look: 80
+    movement: 80
+    level-up moves: 77
+    "TM/HM moves": 82
+    tutor moves: 72
+    body color: 80
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 67
+    gender: 77
+    egg groups: 49
+    egg cycles: 90
+    height: 65
+    weight: 65
   body_shape: a body with two or more pairs of wings
   movement: "It flies, flapping its wings."
   look: "It is a dark navy-purple dragon with a long curved neck, a white belly, small gold horns and a hooked snout. It has two pairs of thin, translucent gold insect wings and gold spots on its body, and its long thin tail ends in a round ball striped navy and gold over white."
