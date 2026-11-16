@@ -108,8 +108,11 @@ Arvind (2026-11-11): "andre har jobbet mye med slike greier i det siste så om v
   the fourth wall, heals your team and mocks you (Arvind: like Thor: Ragnarok). Arvind: develop this further. A line
   idea (Arvind): "Get up, you are better than this. Need some help?" Not a priority; we work out the details later.
 - **Trainer lines in battle (data only):** the trainer message bank has lines for the last Pokemon sent out (type 15),
-  the last one at half HP (16) and the trainer winning (20); 71 trainers use them in Origin. Still to check: that
-  Origin's battle engine shows them.
+  the last one at half HP (16) and the trainer winning (20); 71 trainers use them in Origin. **Checked 2026-11-17
+  (emulator, Executive Proton = trainer 706, which has lines 15 and 16): when he sent out his last Pokemon no line
+  came**, only "Proton sent out Golbat!". The half-HP line could not be tested yet (Golbat never got below half).
+  So Origin's battle engine most likely ignores these lines; talking mid-battle needs Origin's own way of doing it
+  (Giovanni's Mewtwo fight has lines in the middle of the battle, text bank 599: to look into) or our own code.
 - **Gravriel blackout (new code):** instead of "blacked out", a picture or a short animation (10-20 frames from the
   intro film) of Gravriel rising out of the water, with a message to the player. Needs a hook in the blackout screen
   (the SoulSilver nuzlocke hack draws its own screen there). The game has no video player, so frames in a row.
