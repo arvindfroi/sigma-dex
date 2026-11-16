@@ -34,15 +34,23 @@ events in [WHEN_WE_FINALIZE.md](WHEN_WE_FINALIZE.md), story roles in [STORY_ROLE
 
 **Proposal: version exclusives.** A handful of our lines appear in only one version (like Red/Blue), so trading
 between the two matters. Pick them by theme: calm, friendly lines in Sabertann, fierce or spooky ones in Gravriel.
-About 8-12 lines each is the classic size. **Open:** which lines (a list for Arvind once the dex is final).
+About 8-12 lines each is the classic size. Arvind has his own shortlist; decided when the dex is final.
 
-**Proposal: Sabertann gets something of its own too**, so it does not feel like "the easy cartridge" only: e.g. more
-side content (a photo/collection quest, berry and apricorn crafting already in Origin, a friendly rival), while
-Gravriel's extra is the challenge.
+**Sabertann is the one you graduate from (Arvind, 2026-11-17):** it teaches the game; then you move on to the real
+challenge in Gravriel. **Proposal:** make the graduation visible: Sabertann's ending (Hall of Fame / post-game)
+congratulates the player and points to Gravriel, maybe with a small reward that carries over by trade (a diploma
+ribbon on the Hall of Fame team, or a gift Pokemon to trade across).
 
 ## 3. Difficulty curve
 
-- **Level cap.** Hardcore uses the English patch's cap (the highest gym-leader level so far). The caps in Origin
+- **Level cap (Arvind, 2026-11-17):** Hard uses the standard cap (the gym leader's level); Hardcore maybe the
+  standard cap **minus 1 or 2**, so you are always a little underlevelled. The cap is a ceiling, not a gift: after a
+  boss the cap rises, but the team still has to earn the levels on the way to the next boss.
+- **Trainers' IVs, EVs and natures:** Origin has them per trainer Pokemon (party record: an IV level that is scaled to
+  0-31, six EV bytes up to 252 each, the total not limited to 510, a nature or one made from the personality, plus
+  ability, item and four moves; HP IVs follow the level because of a bug in the hack). So Gravriel's harder trainers
+  can have real competitive spreads; the story team builder should fill these too.
+- **Level cap, old note.** Hardcore uses the English patch's cap (the highest gym-leader level so far). The caps in Origin
   climb to 100 at the end of Kanto and are 80-88 for the Johto gyms after it. **Open:** once our trainers are set,
   make our own cap table that follows our curve, and check that the Johto half still feels hard (the Johto gyms come
   after a level-100 boss in Origin's order).
@@ -52,6 +60,10 @@ Gravriel's extra is the challenge.
 - **Proposal: Gravriel's harder trainers by role, not everywhere.** Gym leaders, rivals, Rocket executives and the
   Elite Four get a 6th Pokemon, held items and better movesets; ordinary route trainers stay as they are so the run
   does not drag. Our story team builder (lines that grow over battles) makes this a data choice.
+- **Simulate instead of playing (Arvind: time is short):** run the boss fights in a battle simulator such as Pokemon
+  Showdown's engine (open source, runs locally, thousands of battles in minutes) with our mons added as custom
+  species, a "fair" team of what is catchable before each gym, and the boss team. It is close to Origin's
+  BW-style rules, not identical, so it finds walls, not exact numbers.
 - **Proposal: a play-test target per gym.** For each gym we write down "a careful Hardcore player with the
   catchable mons up to here should win with 0-2 deaths". The emulator test bench (already used for the nuzlocke)
   can check the numbers: levels, team sizes, type coverage of what is catchable before each gym.
@@ -64,12 +76,15 @@ From the plans so far, in order (details in WHEN_WE_FINALIZE.md):
 2. Meowth with Jessie and James, the real talking Meowth; he "dies" (only implied); a man in a Meowth costume
    takes his place.
 3. Rocket reports about "subject 52" spread over the game (foreshadowing).
-4. **Scripted wipe (proposal: the first time we meet Meowthwo):** a story battle you are allowed to lose; Giovanni
+4. **Scripted wipe (Arvind: relatively early in the game, against an antagonist; which one is open):** a story battle you are allowed to lose; Giovanni
    breaks the fourth wall, heals your team and mocks you ("Get up, you're better than this. Need some help?").
    In Gravriel this battle must not count as a nuzlocke wipe (decide: the team is healed by the script).
 5. The boss fight: Meowthwo under Persian's control evolves into **Meowthree** in the middle of the battle.
-6. Giovanni's goal (open): become a "super trainer" with the harness himself, or turn people into Pokemon to catch
-   them. His final can reuse the mid-battle evolution code.
+6. Giovanni's goal (open). Arvind's problem with "super trainer": then he would have made himself super, not
+   Meowthwo. **Proposal (Claude): turn people into Pokemon**, because humans cannot evolve, so he makes them into
+   something that can, and something you can catch and control. The costume man is his first test: Meowthwo is the
+   proof that it works. It ties the theme, Meowthwo and the Rocket reports together. A possible last twist: in his
+   final, Giovanni uses the harness on himself, so both ideas meet, and the mid-battle evolution code is reused.
 7. Post-game: official Pokemon return; Meowth's fast food place; the freed Meowthree (and in Gravriel the special
    revive).
 
@@ -93,7 +108,8 @@ the two cutscenes each are already mapped in docs/LEGEND_CUTSCENES.md).
 
 Already in Origin / the English patch: Move Reminder, EV allocator, Exp/Shiny/Catching charms, Exp Share option,
 level cap option, text speed, the advanced AI, auto-save-friendly Options. To add (decided): Move Deleter, PC
-anywhere, auto-run. **Proposal:** also a nuzlocke status panel on the area sign (shows "encounter used / free" when
+anywhere, auto-run. Arvind: yes to a **death counter that shows how many times you have tried to beat the hack** (attempts), the area
+sign panel and the "been here before" joke. **Proposal:** also a nuzlocke status panel on the area sign (shows "encounter used / free" when
 entering an area), and a running counter of deaths on the trainer card in Gravriel.
 
 Also from Origin's own problems (decided 2026-11-12): remove the quests you can get stuck in, fix the leftover bugs.
@@ -113,8 +129,8 @@ found again, and version-exclusive legendaries/officials to trade for.
 
 ## 9. Open questions for Arvind
 
-1. Version exclusives: yes, and which lines? (after the dex is final)
-2. Gravriel's level cap: the same as the English patch's (gym-leader level) or lower?
-3. Which battle is the scripted wipe: the first Meowthwo encounter?
-4. Giovanni's goal: super trainer, or turning people into Pokemon?
-5. Does Sabertann get its own extra (side content), or is "relaxed" enough?
+1. Version exclusives: Arvind's shortlist, decided when the dex is final.
+2. Hardcore cap: minus 1 or minus 2?
+3. Which antagonist does the early scripted wipe?
+4. Giovanni's goal: people into Pokemon (Claude's pick), and the self-harness twist?
+5. Sabertann's graduation reward: a ribbon, a gift to trade, or only the message?
