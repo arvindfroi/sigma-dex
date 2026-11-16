@@ -1040,3 +1040,9 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - **Freeze:** as in Origin's own film, the rings fade in the motion blur right after the freeze starts (Lugia's ring is gone at the freeze too).
   - **Build:** `EDGE=104,192,152 build_film7.sh g8 v13`. ROM `legend_test/jump_lug_v13.nds`.
   - **Files:** videos `gravriel_lugiafilm_v13_halv_fart.mp4` and `gravriel_lugiafilm_v13.mp4`; stills `gravriel_v13_ringene.png`.
+- **Gravriel v14 (2026-11-16)**. Arvind on v13: the halo is nailed; but the portal effect seemed a bit off, not placed or timed with his arrival.
+  - **Why it was off:** the burst cylinder (node 1, shape 25: an 8-gon, radius 90, 25 deep) has its axis 90 units off its own origin (local y 90; in Origin's film the origin sits on the rim at the water). Stood up, the column rose beside him. Origin's collapse (y scale 1 to -0.37, frames 128-140) then flattened it sideways into two strips. It also ran on Origin's clock, not his.
+  - **Own track (`BURST_TRACK`, default):** on his rise axis, the axis offset compensated, and timed with him (his head breaks the water at about frame 126.5, his feet leave it at about 141). A short ring of light opens on the water (`BO0` 120 to `BO1` 124, radius `BR` 0.8 = 72 units, height `BZ0` 0.8). It shoots up to `BZ` 12 (300 units) as his head comes through (`BU1` 128), then narrows into him (`BC0` 129 to `BC1` 137), and he comes out of it as the ghost.
+  - **Material:** `cave_tint.py` draws `lambert91` (`de_ap_e1.1`) from both sides (the cylinder's quads face half outward, half inward). `BURST_ALPHA` 31 keeps Origin's opaque flash; 20 was tested and looked muddy, with him barely showing inside.
+  - **Build:** `EDGE=104,192,152 build_film7.sh g8 v14`. ROM `legend_test/jump_lug_v14.nds`.
+  - **Files:** videos `gravriel_lugiafilm_v14_halv_fart.mp4` and `gravriel_lugiafilm_v14.mp4`; stills `gravriel_v14_portalen.png`.

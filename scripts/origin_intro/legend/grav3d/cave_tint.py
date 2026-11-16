@@ -52,4 +52,11 @@ if os.environ.get('RING_BOTH', '1') == '1':
     for mt in r['models'][0]['mats']:
         if mt.get('tex') == 'de_ap_e4':
             pa = struct.unpack_from('<I', d, mt['off'] + 12)[0]; struct.pack_into('<I', d, mt['off'] + 12, pa | 0xC0); print('both sides', mt['name'], '%08x -> %08x' % (pa, pa | 0xC0))
+# v14: the portal burst (material lambert91, texture de_ap_e1.1) now stands round him: both sides drawn, and see-through
+# if BURST_ALPHA < 31 (20 tested: muddy, he barely shows inside; 31 = Origin's opaque flash, he comes out as it narrows)
+BA = int(os.environ.get('BURST_ALPHA', '31'))
+for mt in r['models'][0]['mats']:
+    if mt.get('tex') == 'de_ap_e1.1':
+        pa = struct.unpack_from('<I', d, mt['off'] + 12)[0]; pn = (pa & ~(31 << 16)) | (BA << 16) | 0xC0
+        struct.pack_into('<I', d, mt['off'] + 12, pn); print('burst', mt['name'], '%08x -> %08x' % (pa, pn))
 F[0] = lz10_enc(bytes(d)); open(DST, 'wb').write(pack(F)); print('file', len(pack(F)))

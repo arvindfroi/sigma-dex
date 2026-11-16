@@ -522,6 +522,20 @@ if os.environ.get('RING_FOLLOW', '1') == '1':
                 # v10: the burst stretches along its own z (out of the fall toward the camera); turned so z points up, it
                 # shoots straight up out of the water where he rises (Arvind: "the portal must be vertical now")
                 if os.environ.get('BURST_UP', '1') == '1': rr_ = np.array([[1, 0, 0], [0, 0, 1.0], [0, -1.0, 0]]) @ np.array(rr_, float)
+                if os.environ.get('BURST_UP', '1') == '1' and os.environ.get('BURST_TRACK', '1') == '1':
+                    # v14 (Arvind on v13: the portal seemed off, not placed or timed with his arrival): the cylinder (8-gon,
+                    # radius 90, 25 deep) has its axis 90 units off its own origin (local y), so stood up it rose beside
+                    # him, and the original collapse (y scale 1 -> -0.37) flattened it sideways into two strips. Its own
+                    # track now, on his rise axis and timed with him (his head breaks the water at ~126.5, his feet leave
+                    # it at ~141): a short ring of light opens on the water (BO0-BO1), shoots up as his head comes through
+                    # (BO1-BU1) and narrows into him (BC0-BC1), so he comes out of it
+                    def _ss(a0, a1, x): tq = min(1.0, max(0.0, (x - a0) / (a1 - a0))); return tq * tq * (3 - 2 * tq)
+                    BO0, BO1, BU1, BC0, BC1 = E('BO0', 120), E('BO1', 124), E('BU1', 128), E('BC0', 129), E('BC1', 137)
+                    rad = E('BR', 0.8) * _ss(BO0, BO1, f) * (1 - _ss(BC0, BC1, f)); hz = E('BZ0', 0.8) + (E('BZ', 12) - E('BZ0', 0.8)) * _ss(BO1, BU1, f)
+                    if f < BO0 or f >= BC1: rad, hz = 0.0, 0.0
+                    sc_ = [rad, rad, hz]; Rw = np.array([[1, 0, 0], [0, 0, 1.0], [0, -1.0, 0]])
+                    org = np.array([rpw[0], E('BURST_Y', 9), rpw[2]]) - Rw @ np.array([0, 90.0 * rad, 0])   # the axis (local y 90) on his rise axis
+                    rr_ = orth(Wp[:3, :3]).T @ Rw; t_ = (np.linalg.inv(Wp) @ np.append(org, 1))[:3]
             elif i in RINGS and PATHMODE == 'rise' and i in (3, 4) and RING_MODE == 'halo':
                 # v13 (Arvind on v12: the ring/halo should come out from behind Gravriel, so it looks like it comes from his
                 # head, facing the camera): both band discs (12-gon fans: node 3 rim 143, node 4 rim 202 in their own
