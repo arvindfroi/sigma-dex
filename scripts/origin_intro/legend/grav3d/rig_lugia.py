@@ -39,8 +39,10 @@ SUPK = np.diag([K, K, K, 1.0])
 # ------------------------------------------------------------------ path
 # v2 (Arvind: out of the portal/fall like Lugia, slower and eerier): he waits behind the fall, glides through the
 # curtain at the flash and drifts out in front of it, where Lugia hovers
-KEYS = [(E('K0', 60), np.array([E('AX', 10), E('AY', 34), E('AZ', -250)])), (E('K1', 124), np.array([E('BX', 6), E('BY', 46), E('BZ', -95)])),
-        (E('K2', 178), np.array([E('CX', 0), E('CY', 66), E('CZ', 48)]))]
+# v4 (Arvind: "it looks silly that he comes out before the portal opens"; "the way he flies out is stiff"): he appears
+# in the curtain when the portal opens (126) and drifts out to the hover spot, leaning into it and swaying
+KEYS = [(E('K0', 126), np.array([E('AX', 8), E('AY', 36), E('AZ', -120)])), (E('K1', 168), np.array([E('BX', 4), E('BY', 58), E('BZ', -10)])),
+        (E('K2', 204), np.array([E('CX', 0), E('CY', 66), E('CZ', 48)]))]
 SHOW = KEYS[0][0]
 def ease(t): t = min(1.0, max(0.0, t)); return t * t * (3 - 2 * t)
 def root(f):
@@ -49,8 +51,14 @@ def root(f):
     else:
         for (f0, p0), (f1, p1) in zip(KEYS, KEYS[1:]):
             if f0 <= f <= f1: p = p0 + (p1 - p0) * ease((f - f0) / (f1 - f0)); break
-    M = np.eye(4); M[:3, 3] = p
-    if f < SHOW: M[:3, 3] += np.array([0, -900.0, 0])                     # hidden until he is behind the fall
+    # sway: lean forward while gliding (eases upright at the hover), slow roll and yaw, all small
+    gl = 1 - ease((f - KEYS[0][0]) / (KEYS[-1][0] - KEYS[0][0])) if f >= KEYS[0][0] else 1.0
+    pitch = math.radians(E('LEAN', 16)) * gl; roll = math.radians(E('ROLL_SW', 6)) * math.sin(2 * math.pi * f / 95)
+    yaw = math.radians(E('YAW_SW', 9)) * math.sin(2 * math.pi * f / 140 + 0.7)
+    cx_, sx_ = math.cos(pitch), math.sin(pitch); cz_, sz_ = math.cos(roll), math.sin(roll); cy_, sy_ = math.cos(yaw), math.sin(yaw)
+    Rx = np.array([[1, 0, 0], [0, cx_, -sx_], [0, sx_, cx_]]); Rz = np.array([[cz_, -sz_, 0], [sz_, cz_, 0], [0, 0, 1]]); Ry = np.array([[cy_, 0, sy_], [0, 1, 0], [-sy_, 0, cy_]])
+    M = np.eye(4); M[:3, :3] = Ry @ Rz @ Rx; M[:3, 3] = p
+    if f < SHOW: M[:3, 3] += np.array([0, -900.0, 0])                     # hidden until the portal opens
     return M
 # mist (v2, Arvind: more fog, scarier, the whole room): two drifting layers of see-through sheets, on spare nodes
 MIST = int(E('MIST', 1)); MS = E('MS', 64.0)
@@ -104,14 +112,23 @@ for e, sn, _ in ents:
 GROUP = {'coat': 0, 'weed': 0, 'skin': 0, 'hat': 0, 'kelp2': 0, 'kelp3': 0, 'mask': 1, 'bone': 1, 'shell': 1, 'eye': 1, 'socket': 1, 'blade': 1, 'mist': 1}
 COL = {n: c for n, c in zip(J['names'], J['palette'])}; COL['eye'] = [170, 255, 245]; COL['socket'] = [4, 6, 6]; COL['mist'] = [int(x) for x in os.environ.get('MISTC', '176,214,190').split(',')]
 TEXN = {0: 'lugia_s', 1: 'lugia_foot'}; TS = {0: 64, 1: 32}
+if 'tex' in J:                                                  # the artwork's scheme: near-black coat, bright kelp strands, sea-green skin
+    COL.update({'coat': [24, 34, 28], 'kelp2': [62, 102, 46], 'kelp3': [100, 146, 62], 'weed': [116, 156, 66], 'skin': [70, 136, 132], 'hat': [26, 30, 28]})
 labs = {g: [l for l in COL if GROUP.get(l, 0) == g] for g in (0, 1)}
 PALG = {g: [COL[l] for l in labs[g]] for g in (0, 1)}
 IDX = {}; CELL = {}
-for g in (0, 1):
+TEXMODE = 'tex' in J and all('uv' in p for p in polys)
+HYB = 'tex' in J and not TEXMODE
+if HYB: GROUP.update({k: 0 for k in GROUP}); labs = {0: [l for l in COL if l not in ('eye', 'socket', 'mist')], 1: []}; PALG = {0: [COL[l] for l in labs[0]], 1: []}
+for g in ([] if TEXMODE else ((0,) if HYB else (0, 1))):
     n_ = TS[g]; c4 = n_ // 4; ix = np.zeros((n_, n_), int)
     for k, l in enumerate(labs[g]):
         y, x = divmod(k, 4); ix[y * c4:(y + 1) * c4, x * c4:(x + 1) * c4] = k; CELL[l] = ((x + 0.5) / 4, 1 - (y + 0.5) / 4)
     IDX[g] = ix
+if TEXMODE or HYB:                                             # painted textures from the turnaround (tex_project.py)
+    for g in ((0, 1) if TEXMODE else (1,)):
+        png, npy, pal_ = J['tex'][str(g)]; IDX[g] = np.load(os.path.join(os.path.dirname(GJ), os.path.basename(npy))); PALG[g] = [list(c) for c in pal_]
+    CELL['mist'] = (30.5 / 32, 1 - 30.5 / 32)
 # ------------------------------------------------------------------ strips
 up = 1.0
 def v10(q):
@@ -142,8 +159,9 @@ work = {0: [], 1: []}
 for g in (0, 1):
     tris = []
     for p, pp in zip(polys, FP):
-        if GROUP[p['lab']] != g: continue
-        tris.append([(pp[k], p['vb'][k], p['lab']) for k in range(3)])
+        pg = p['g'] if (TEXMODE or HYB) else GROUP[p['lab']]
+        if pg != g: continue
+        tris.append([(pp[k], p['vb'][k], tuple(p['uv'][k]) if 'uv' in p else p['lab']) for k in range(3)])
     # greedy strips over shared (position, bone, label) vertices
     keyof = {}; verts = []
     def vid(q, b, l):
@@ -167,7 +185,7 @@ for g in (0, 1):
         for vi in st:
             q, b, l = verts[vi]; loc = (HBi[b] @ np.append(q, 1))[:3]
             if b != curb: cmds.append((0x14, [NODE[b]])); curb = b
-            t_ = tc(CELL[l], g)
+            t_ = tc(l if isinstance(l, tuple) else CELL[l], g)
             if t_ != lastt: cmds.append((0x22, [t_])); lastt = t_
             if LIGHTS: cmds.append((0x21, [n10(HBi[b][:3, :3] @ vnorm(q))]))
             cmds.append((0x24, [v10(loc)]))
@@ -182,7 +200,7 @@ if MIST:
     for li, (y, alpha) in enumerate(((14, int(E('MA1', 13))), (22, int(E('MA2', 11))), (32, int(E('MA3', 9))), (46, int(E('MA4', 7))))):
         qs = [quad_h(rng.uniform(-150, 380), y + rng.uniform(-3, 3), rng.uniform(-130, 150), rng.uniform(50, 110), rng.uniform(30, 70)) for _ in range(9)]
         LAYERS.append((MIST_NODES[0], alpha, 33 + li, qs))
-    for li, (z, alpha) in enumerate(((-15, int(E('MV1', 7))), (30, int(E('MV2', 6))), (80, int(E('MV3', 5))))):
+    for li, (z, alpha) in enumerate((((-15, int(E('MV1', 7))), (30, int(E('MV2', 6))), (80, int(E('MV3', 5))))[:int(E('VEILS', 1))])):
         qs = [quad_v(rng.uniform(-120, 330), rng.uniform(35, 75), z + rng.uniform(-8, 8), rng.uniform(60, 110), rng.uniform(25, 45)) for _ in range(6)]
         LAYERS.append((MIST_NODES[1], alpha, 40 + li, qs))
     for node, alpha, pid, qs in LAYERS:

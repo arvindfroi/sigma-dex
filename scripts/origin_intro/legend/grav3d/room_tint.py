@@ -9,7 +9,7 @@ import nitro
 SRC, DST = sys.argv[1:3]; SET = int(sys.argv[3]) if len(sys.argv) > 3 else 98
 col = lambda k, d: np.array([float(x) for x in os.environ.get(k, d).split(',')])
 DARK, MID, LIGHT = col('WDARK', '6,26,24'), col('WMID', '38,92,78'), col('WLIGHT', '176,214,190'); MIX = float(os.environ.get('WMIX', '0.9'))
-WATER = ('dsea_on', 'dsea_un', 'sea_un', 'sea_f02', 'sea_line02', 'r_dpond_line', 'uzu_taki')
+WATER = ('dsea_on', 'dsea_un', 'sea_un', 'sea_f02', 'sea_line02', 'r_dpond_line', 'uzu_taki', 'uzushio')
 F = unpack(open(SRC, 'rb').read()); d = bytearray(F[SET]); assert d[:4] == b'BTX0'
 bo = struct.unpack_from('<I', d, 16)[0]; t = nitro.read_tex(bytes(d), bo); pbo = t['raw_hdr'][17]
 def from555(v): return np.array([(v & 31), (v >> 5) & 31, (v >> 10) & 31], float) * 255 / 31

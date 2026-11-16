@@ -6,6 +6,7 @@ J = json.load(open(sys.argv[1])); OUT = sys.argv[2]
 FR = [int(x) for x in (sys.argv[3] if len(sys.argv) > 3 else '0,110,130,150,165,180,200,230').split(',')]
 AZ = [float(x) for x in (sys.argv[4] if len(sys.argv) > 4 else '0,35').split(',')]
 PAL = {n: c for n, c in zip(J['names'], J['palette'])}; PAL['eye'] = [170, 255, 245]; PAL['socket'] = [4, 6, 6]
+TEX = {int(k): np.asarray(Image.open(v[0]).convert('RGB')).astype(float) for k, v in J.get('tex', {}).items()}
 B = {b: np.array(m) for b, m in J['bind'].items()}; Bi = {b: np.linalg.inv(m) for b, m in B.items()}
 polys = J['polys']; W, H = 260, 300; sc = 34
 L = np.array([0.3, -0.6, 0.75]); L /= np.linalg.norm(L)
@@ -19,7 +20,10 @@ for r, az in enumerate(AZ):
             P = np.array([(M[b] @ np.append(q, 1))[:3] for q, b in zip(p['p'], p['vb'])]) @ Rz.T
             n = np.cross(P[1] - P[0], P[2] - P[0]); nn = np.linalg.norm(n)
             sh = 0.55 + 0.45 * abs(n @ L) / nn if nn > 1e-9 else 0.8
-            col = tuple(int(min(255, v * sh)) for v in PAL[p['lab']])
+            if 'uv' in p:
+                T_ = TEX[p['g']]; th, tw = T_.shape[:2]; u, v = np.mean(p['uv'], 0); base = T_[min(th - 1, int((1 - v) * th)), min(tw - 1, int(u * tw))]
+            else: base = PAL[p['lab']]
+            col = tuple(int(min(255, v_ * sh)) for v_ in base)
             tris.append((P[:, 1].mean(), P, col))
         tris.sort(key=lambda t: -t[0])                                   # far (+y) first: the camera looks from -y
         ox, oy = c_ * W + W / 2, r * H + H * 0.55

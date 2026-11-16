@@ -959,3 +959,13 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - **Weather:** `room_weather.py` sets the weather. 10 = mist, unused; 9 is the same but used by Sprout Tower 2F and the Goldenrod Dept. Store 3F, sharing graphics and the white fog colour. 13 = dark fog. From the overhead camera both are faint, because their fog starts far away.
     - **Green fog in the room:** needs a code change, because the mist colour (ov001 literal at 0x7E34) is shared.
   - **Files:** film 82136/84324 bytes. ROM `legend_test/jump_lug_v3.nds`. Video `gravriel_lugiafilm_v3.mp4`, room picture `gravriel_rommet_groent_vann.png`.
+- **Gravriel v5 (2026-11-16)**. Arvind on v3: silly that he comes out before the portal opens, extend the scene instead; the flight is stiff; not enough like the artwork; the fog shows only in the video, put it in the room; the waterfall at the back of the room too; the face like the intro.
+  - **Timing and sway:** he appears in the curtain when the portal opens (film frame 126), drifts out to the hover spot by 204, leans into the glide and sways slowly (`LEAN`, `ROLL_SW`, `YAW_SW`).
+  - **Look:** `tex_project.py` projects the turnaround the 3D model was made from (`title3d/grav/turn_11.png`; the figures are split at white columns). The background takes the nearest inner colour. Colours are a saturation-weighted k-means.
+    - The fully painted 64x64 body came out muddy brown at film size.
+    - So it is a **hybrid**: the face (head front) is painted from the artwork (32x32, brightened), and the body uses swatches in the artwork's scheme (near-black coat, bright kelp strands, sea-green skin; `rig_lugia.py` sets them when `tex` is present).
+    - Only the veil behind him is kept; the ones in front washed him out. The mist is still (no drift), which keeps the film in its slot.
+  - **Room:** `room_tint.py 96` on `a/0/7/0` recolours the waterfall building at the back (falls, whirlpool). Building pack 96 is used only by area 98.
+  - **Film length:** the film runs until the longest animation of its models ends (overlay code: every AnmObj frame +1 until numFrames; ends when none is left). A longer scene therefore means a longer Gravriel BCA. The cave's BTA/BTP/BMA/BCA (246 frames) would then freeze on their last frame unless they are extended too.
+  - **`relocate.py`:** moves a file that outgrew its slot to the end of the ROM, updating its FAT entry, the used-ROM size and the header CRC. **It does not show in tests that start from a savestate (`g7.dst`)**, because the game keeps the file table in RAM. It needs a cold boot.
+  - **Files:** film 84268/84324 bytes. ROM `legend_test/jump_lug_v5.nds`. Video `gravriel_lugiafilm_v5.mp4`, room `gravriel_rommet_v5.png`.
