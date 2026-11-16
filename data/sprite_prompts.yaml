@@ -177,8 +177,8 @@ pokemon:
       mountain peaks with grey rock tips, a tiny grey tower on the tallest peak and four tiny
       colored houses in a row between the peaks.
     seeds: {front: 21, back: 22}
-  leafing:
-    refs: [assets/concept-art/leafing/450.png, assets/concept-art/leafing/433.webp]
+  leafsteel:   # Leafing's old design, moved here 2026-11-16
+    refs: [assets/concept-art/leafsteel/450.png, assets/concept-art/leafsteel/433.webp]
     ds_pose: >-
       calm and steady: standing on all four legs with its long neck raised and head turned toward the viewer, its leaf scales lifted a little along its back, its blade tail curled up behind it
     look: >-
