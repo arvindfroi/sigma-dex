@@ -180,7 +180,11 @@ dialog::backdrop { background: rgba(16, 8, 36, .72); }
 .stage img.px { width: 240px; height: auto; }
 .stage canvas { position: relative; margin-bottom: 18px; }
 .stage img:not(.px) { border: 4px solid #ffffff; box-shadow: 0 0 0 3px #241c3c; max-height: 280px; margin-bottom: 24px; }
-.stage img.px.icon { width: 128px; }
+.stage img.px.icon { width: 128px; animation: iconbob .6s steps(1) infinite; }
+/* A DS icon may hold HeartGold's two frames stacked (32x64): everywhere it shows the top frame, square; the big view
+   on a Pokemon's page switches between the two like the party menu does (a 32x32 icon simply stays still). */
+img[src$="ds-icon.png"] { aspect-ratio: 1 / 1; object-fit: cover !important; object-position: top; }   /* beats "contain" in lists */
+@keyframes iconbob { 50% { object-position: bottom; } }
 .stage .noart { position: relative; font-family: var(--display); color: #ffffff; text-shadow: 2px 2px 0 rgba(40, 20, 80, .6); font-size: 18px; margin-bottom: 40px; }
 .viewbtns { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin: 8px 0 10px; }
 .viewbtns button { border: 0; padding: 0 4px; background: none; border-style: solid; border-width: 15px; border-image: var(--box) 5 fill / 15px stretch; min-height: 0; }
