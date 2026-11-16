@@ -229,8 +229,9 @@ New abilities and moves can use the same region instead of Zero to Hero's code s
 ## Nuzlocke test (2026-11-16)
 
 First encounter per area (a Poke Ball is refused in the battle Bag in an area already used) and a graveyard box
-(fainted Pokemon move to box 24 "GRAVES" after the battle), written in C against Origin's own functions and
-tested in the emulator, including save and reload. Details, patched places and what is still missing:
+(fainted Pokemon move to box 24 "GRAVES" after the battle, with grey icons), no revives, and Hardcore Nuzlocke
+(CAP, ITEMS DEFAULT and SET forced before every battle, no Bag items in battle except Balls, no Rare Candy at or
+above the cap). Written in C against Origin's own functions and tested in the emulator, including save and reload. Details, patched places and what is still missing:
 `scripts/origin_custom/nuzlocke/README.md`.
 
 ## Where things are

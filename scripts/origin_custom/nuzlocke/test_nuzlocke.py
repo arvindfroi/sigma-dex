@@ -29,9 +29,11 @@ E.decode_pokemon = decode136
 S = Path(__file__).resolve().parent
 OUT = Path.home() / 'sigma-origin/nuzlocke_run'
 OUT.mkdir(exist_ok=True)
-ROM = Path.home() / 'sigma-origin/rc8/nuzlocke_test.nds'
+import os
+ROM = Path(os.environ.get('NZ_ROM', Path.home() / 'sigma-origin/rc8/nuzlocke_test.nds'))
+SYMS = json.loads(Path(str(ROM) + '.symbols.json').read_text()) if Path(str(ROM) + '.symbols.json').exists() else {}
 SRC = Path.home() / 'sigma-origin/saves/pallet_start_rc8_ai_all.dsv'
-NZ_NO_CATCH = 0x023D21CE
+NZ_NO_CATCH = SYMS.get('nz_no_catch', 0x023D21CE)
 ROUTE1, ROUTE1_SEC = 9, 149
 
 def map_chunks(map_id):
@@ -148,6 +150,26 @@ def sheet(paths, name, cols=4):
     s.save(OUT / name)
     return OUT / name
 
+
+def back_to_battle_menu(h):
+    for _ in range(5):
+        if h.on_screen('battle_menu') or h.in_field():
+            return
+        h.touch(232, 169, frames=10, after=80)      # the bag's return arrow
+
+def single_battle(h, tries=6):
+    """Walk until a wild battle with ONE wild Pokemon (Origin also has wild double battles, where a Ball cannot be
+    aimed at all); doubles are fled."""
+    for _ in range(tries):
+        log = h.walk_until_battle()
+        h.wait_screen('battle_menu', 1500)
+        h.step(30)
+        if len(log.rows) == 1:
+            return log
+        print('  (wild double battle, fleeing)')
+        h.flee(battle_menu_wait=10)
+    raise RuntimeError('no single wild battle')
+
 def step_b1(h):
     print('battle 1 state', nz_state(h), 'balls', balls(h))
     shots = throw_ball(h, 't1')
@@ -159,9 +181,8 @@ def step_b1(h):
     sheet(shots, 'throw1.png')
 
 def step_b2(h):
-    log = h.walk_until_battle()
+    log = single_battle(h)
     print('wild 2', log.rows[-1]['species'])
-    h.wait_screen('battle_menu', 1500)
     print('battle 2 state', nz_state(h), 'balls', balls(h))
     h.save_state(str(OUT / 'b2.dst'))
     shots = throw_ball(h, 't2')
@@ -241,9 +262,8 @@ if __name__ == '__main__' and sys.argv[1] == 'b3':
 def step_b3(h):
     edit_lead_fragile(h)
     print('party before battle 3', party(h), 'box 24', pc_box(h, 23)[0][:3])
-    log = h.walk_until_battle()
+    log = single_battle(h)
     print('wild 3', log.rows[-1]['species'])
-    h.wait_screen('battle_menu', 1500)
     for t in range(15):
         try:
             st = h.battle_turn(0)
@@ -277,4 +297,103 @@ if __name__ == '__main__' and sys.argv[1] == 'all':
     step_b2(h)
     print('balls after battle 2', balls(h))
     step_b3(h)
+    h.close()
+
+
+# ---------------------------------------------------------------------------------------------- hardcore round
+
+def options_word(h):
+    return h.u16(h.array(E.ARR_PARTY) - 0x90 + 0x60)     # Options at general block +0x60
+
+def mon_level_hp(h, slot):
+    a = h.array(E.ARR_PARTY) + 8 + 236 * slot
+    m = Mon(h.read(a, 236))
+    return m.party[4], struct.unpack_from('<H', m.party, 6)[0]
+
+def set_hp(h, slot, hp):
+    a = h.array(E.ARR_PARTY) + 8 + 236 * slot
+    m = Mon(h.read(a, 236)); m.set_hp(hp); h.write(a, m.encode())
+
+def leave_field_bag(h):
+    for _ in range(4):
+        if h.in_field() and not h.on_screen('battle_menu'):
+            pass
+        h.press('B', after=60)
+    h.step(60)
+
+def prep_hc():
+    prep()
+    from savetool import gen4_slow_exp
+    path = OUT / 'start.sav'
+    s = Save(data=image(path.read_bytes()))
+    m = s.mon(0); m.set_level(12, 12 ** 3); s.set_mon(0, m)          # lead at the 0-badge cap (12)
+    v = s.u('<H', 0x60)[0]
+    s.put('<H', 0x60, (v | 0x20) & ~0x08 & ~0x40)                     # ITEMS ALL, CAP off, style SHIFT
+    path.write_bytes(s.to_bytes())
+    import fix_test_save_pc; fix_test_save_pc.fix(str(path), str(path))
+    print('hardcore prep: lead Lv12, options 0x%04X' % s.u('<H', 0x60)[0])
+
+def battle_bag_use(h, category_xy, tag):
+    h.touch(*E.BATTLE_BUTTONS['bag'], frames=10, after=90)
+    h.touch(*category_xy, frames=10, after=90)
+    h.touch(64, 30, frames=10, after=90)
+    h.touch(104, 169, frames=10, after=20)
+    shots = []
+    for i in range(4):
+        h.step(30); shots.append(h.screenshot('%s_%d' % (tag, i)))
+    for _ in range(4):
+        if h.on_screen('battle_menu'):
+            break
+        h.touch(232, 169, frames=10, after=80)
+    return shots
+
+def open_pc_box24(h, tag):
+    h.run_script(program=E.script_bytes(("LockAll",), ("ScrCmd_158", 2), ("ReleaseAll",), ("End",)), settle=400)
+    h.touch(13, 27, frames=8, after=120)
+    return h.screenshot(tag)
+
+if __name__ == '__main__' and sys.argv[1] == 'prep_hc':
+    prep_hc()
+
+if __name__ == '__main__' and sys.argv[1] == 'hc':
+    h = boot()
+    print('options before', hex(options_word(h)), 'state', nz_state(h))
+    # field: Rare Candy on the Lv12 lead (cap 12) must be refused, on the Lv5 second Pokemon allowed
+    h.bag_put_first(50, 5, 'medicine')
+    h.level_up_with_candy(0) if False else None
+    h.open_bag(); h.bag_pocket('medicine')
+    h.touch(*E.BAG_SLOTS[0], frames=12, after=60); h.touch(*E.BAG_USE, frames=12, after=60)
+    h.touch(*E.PARTY_SLOTS[0], frames=12, after=120)
+    shots = [h.screenshot('hc_candy_capped')]
+    for _ in range(3): h.press('A', after=90)
+    print('candy on Lv12 lead -> lead', mon_level_hp(h, 0))
+    h.touch(*E.BAG_SLOTS[0], frames=12, after=60); h.touch(*E.BAG_USE, frames=12, after=60)
+    h.touch(*E.PARTY_SLOTS[1], frames=12, after=120)
+    for _ in range(4): h.press('A', after=90)
+    print('candy on Lv5 second -> second', mon_level_hp(h, 1))
+    leave_field_bag(h)
+    # field: Revive on a fainted party Pokemon must be refused
+    set_hp(h, 1, 0)
+    h.bag_put_first(28, 5, 'medicine')
+    h.open_bag(); h.bag_pocket('medicine')
+    h.touch(*E.BAG_SLOTS[0], frames=12, after=60); h.touch(*E.BAG_USE, frames=12, after=60)
+    h.touch(*E.PARTY_SLOTS[1], frames=12, after=120)
+    shots.append(h.screenshot('hc_revive'))
+    for _ in range(3): h.press('A', after=90)
+    print('revive on fainted second -> second', mon_level_hp(h, 1))
+    leave_field_bag(h)
+    set_hp(h, 1, 20)
+    h.bag_put_first(17, 5, 'medicine')
+    # battle 1: options forced, Potion refused, Ball allowed
+    log = single_battle(h)
+    print('wild 1', log.rows[-1]['species'], 'options in battle', hex(options_word(h)), nz_state(h))
+    shots += battle_bag_use(h, (64, 58), 'hc_potion')[:2]
+    print('after potion try: in battle menu', h.on_screen('battle_menu'))
+    throw_ball(h, 'hc_t1'); back_to_battle_menu(h); r = until_menu_or_field(h)
+    if r == 'menu': h.flee(battle_menu_wait=10)
+    print('after battle 1', party(h), nz_state(h))
+    step_b2(h)
+    step_b3(h)
+    shots.append(open_pc_box24(h, 'hc_pc'))
+    sheet(shots, 'hc_round.png', cols=4)
     h.close()
