@@ -98,3 +98,17 @@ Important trainers show only a code name and a random order, so nothing is spoil
 Left out on purpose (Arvind makes them himself): every champion (Steven, Cynthia) and the main rival (Blue).
 The villains (codes A, B, D, E, F, L, N, R, S, T, V) were taken off the website on 2026-11-12 (Arvind); their codes are kept
 here so the remaining letters keep their meaning.
+
+## Text to fix when the characters are replaced
+
+Found while counting dialogue (scripts/character_dialogue.py) and checking claims, 2026-11-16:
+
+- **One person claims both Chuck and Bruno** (Emil has gym-fighting and Trainer Q). That is fine: the two never share a
+  scene or a battle. One line has to change, though. In text bank 134 (Chuck's training scene on the beach, line 25)
+  Chuck says he is not as strong as "Mr. Bruno of the Elite Four". With one person in both roles, he would be talking
+  about himself. When the texts are rewritten, change or drop that comparison.
+- **Koga is one person in two roles.** In Origin he is the Fuchsia gym leader (gym-poison, 4 teams, including the
+  Venonat 80 battle) and an Elite Four member (Trainer H). Janine is only a Ninja Girl trainer there. His story lines
+  (78 text boxes, banks 090, 329, 354 and 506) belong to both roles. If two different people claim gym-poison and
+  Trainer H, the story has two people saying one person's lines. Make it one role, or let only the same person claim
+  both.
