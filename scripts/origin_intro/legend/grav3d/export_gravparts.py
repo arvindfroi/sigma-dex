@@ -126,7 +126,7 @@ TRIS['body'] = int(E('T_BODY', 1300)); TRIS['ghost'] = int(E('T_GHOST', 500))
 VOX = {'body': E('VOXW', 0.08), 'ghost': E('VOXW', 0.08), 'coat': E('VOX', 0.035), 'beard': 0.03, 'head': 0.025, 'hat': 0.03, 'armL': 0.03, 'armR': 0.03, 'sword': 0.012}
 ALLOWED = {'body': list(DSB), 'ghost': list(DSB), 'coat': [b for b in DSB if not ('arm' in b or 'hand' in b)], 'beard': ['DEF-head', 'DEF-neck', 'DEF-spine.003'],
            'head': ['DEF-head'], 'hat': ['DEF-head'], 'sword': ['DEF-hand.R'],
-           'armL': ['DEF-shoulder.L', 'DEF-upper_arm.L', 'DEF-forearm.L', 'DEF-hand.L'], 'armR': ['DEF-upper_arm.R', 'DEF-forearm.R', 'DEF-hand.R']}   # v11: the sword arm swings whole (the shoulder blend twisted it)
+           'armL': ['DEF-shoulder.L', 'DEF-upper_arm.L', 'DEF-forearm.L', 'DEF-hand.L'], 'armR': (['DEF-upper_arm.R', 'DEF-forearm.R', 'DEF-hand.R'] if os.environ.get('ARM_WHOLE', '0') == '1' else ['DEF-shoulder.R', 'DEF-upper_arm.R', 'DEF-forearm.R', 'DEF-hand.R'])}   # v12: back to v9's arm (ARM_WHOLE=1 was v11: the sword arm swings whole)
 fverts = [list(p.vertices) for p in me.polygons]
 LP = {}
 # v8 (Arvind: green and see-through at the start, like the intro's ghost, then his own colours on the way out): a second,
@@ -301,7 +301,7 @@ if os.environ.get('POINT', '1') == '1' and 'sword' in LP:
     sw = LP['sword']; SV = np.array([list(sw.matrix_world @ v.co) for v in sw.data.vertices])
     # bind pose positions (the rig is posed at the last frame here)
     hand_t = np.array(list(Matrix(BIND['DEF-hand.R']).to_translation())); grip = SV[np.argmin(np.linalg.norm(SV - hand_t, axis=1))]; tip = SV[np.argmax(np.linalg.norm(SV - grip, axis=1))]
-    bdir = Vector(list(tip - grip)).normalized(); D_ = Vector([float(v) for v in os.environ.get('POINT_DIR', '-0.55,-0.45,0.7').split(',')]).normalized()
+    bdir = Vector(list(tip - grip)).normalized(); D_ = Vector([float(v) for v in os.environ.get('POINT_DIR', '-0.2,-1,0.38').split(',')]).normalized()
     Rp = bdir.rotation_difference(D_).to_matrix().to_4x4(); piv0 = Matrix(BIND['DEF-upper_arm.R']).to_translation()
     TP0, TP1 = E('TP0', 134), E('TP1', 156); CH = ['DEF-upper_arm.R', 'DEF-forearm.R', 'DEF-hand.R']
     print('point: blade', [round(x, 2) for x in bdir], '->', [round(x, 2) for x in D_])
@@ -314,7 +314,7 @@ if os.environ.get('POINT', '1') == '1' and 'sword' in LP:
             mm[b] = [list(r) for r in Matrix(mm[b]).lerp(tgt, w_)]
 # v11 (Arvind: "he does not look at the camera"): the low camera in front is ~20 degrees below his eyes; the head bows
 # toward it while he rises (HEAD_PITCH, about the head joint, same timing as the sword)
-if os.environ.get('HEAD_LOOK', '1') == '1':
+if os.environ.get('HEAD_LOOK', '0') == '1':   # v12: off again (v9's pose); v11 had it on
     hp_ = math.radians(E('HEAD_PITCH', 20)); Rh = Matrix.Rotation(hp_, 4, 'X'); hpiv0 = Matrix(BIND['DEF-head']).to_translation()
     TP0, TP1 = E('TP0', 134), E('TP1', 156)
     for fk, mm in frames.items():

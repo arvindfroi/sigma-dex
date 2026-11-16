@@ -90,7 +90,7 @@ def _look(C, Tt):
     V = np.eye(4); V[:3, :3] = np.array([x, y, z]); V[:3, 3] = -V[:3, :3] @ C; return V
 def VM(f):
     if not VCAM: return np.eye(4)
-    f = min(f, FREEZE); rp, e_ = rise_pos(f); a = math.radians(E('CAM_ANG', 0)); Dd = E('CAM_D', 320)   # v10: straight in front of him (40 was his left side)
+    f = min(f, FREEZE); rp, e_ = rise_pos(f); a = math.radians(E('CAM_ANG', 40)); Dd = E('CAM_D', 320)   # v12: back to v9's 40 degrees to his side (Arvind: v9's angle was better); v10/v11 had 0, straight in front
     C = np.array([rp[0] + Dd * math.sin(a), E('CAM_Y0', 18) + (E('CAM_Y1', 40) - E('CAM_Y0', 18)) * e_, rp[2] + Dd * math.cos(a)])
     aim = WATER_Y + E('CAM_AIM0', 80) if f < T0 else max(WATER_Y + E('CAM_AIM0', 80), rp[1] + E('AIM', 0.55) * SIZE)   # looking up a little: the water line sits at the bottom edge
     return _Voi @ _look(C, np.array([rp[0], aim, rp[2]]))
@@ -121,7 +121,7 @@ def root(f):
     yaw = math.radians(E('YAW_SW', 3 if PATHMODE == 'glide' else 9)) * math.sin(2 * math.pi * f / 140 + 0.7)
     # v6b: the film camera looks along +x (Lugia's body node turns its +z to -x for the whole film); facing +z showed him
     # side-on (and -90 showed his back: the shell on the wrong side), so he is turned to face +x, the camera
-    yaw += math.radians(E('BASE_YAW', (0 if PATHMODE == 'rise' else -4 if PATHMODE == 'glide' else 90) if LUGIA_PATH else 0))   # v11: rise faces the camera in front (Lugia's -4 is close)   # v7b: Lugia's own heading at the end (head/jaw toward +z, -4 deg); 60 faced the camera
+    yaw += math.radians(E('BASE_YAW', (-4 if PATHMODE in ('glide', 'rise') else 90) if LUGIA_PATH else 0))   # v12: back to v9, Lugia's heading (v11 had 0 for rise, facing the front camera)   # v7b: Lugia's own heading at the end (head/jaw toward +z, -4 deg); 60 faced the camera
     cx_, sx_ = math.cos(pitch), math.sin(pitch); cz_, sz_ = math.cos(roll), math.sin(roll); cy_, sy_ = math.cos(yaw), math.sin(yaw)
     Rx = np.array([[1, 0, 0], [0, cx_, -sx_], [0, sx_, cx_]]); Rz = np.array([[cz_, -sz_, 0], [sz_, cz_, 0], [0, 0, 1]]); Ry = np.array([[cy_, 0, sy_], [0, 1, 0], [-sy_, 0, cy_]])
     M = np.eye(4); M[:3, :3] = Ry @ Rz @ Rx; M[:3, 3] = p
