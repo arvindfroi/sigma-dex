@@ -218,6 +218,21 @@ free everywhere in the game, our own overlay can be loaded there (the way hg-eng
 stock HeartGold), holding the new handlers, the bigger ability table and the longer move list. Checking
 that region is the next step.
 
+**Solved for code that lives all the time (2026-11-16):** the English patch's rc8 builds already load
+resident code there the clean way: a new ARM9 autoload section (the boot code copies it into place) plus a
+lower main-arena end, so the heap never hands that memory out. rc8 with the advanced trainer AI has two such
+sections (`0x023DC000` difficulty layer, `0x023D4000` the AI) and the arena ends at `0x023D4000`; about 77 KB
+of the arena's tail is still unused by the root heaps. Our nuzlocke test uses the same method at
+`0x023D2000`-`0x023D4000` and works in battle and in the field (`scripts/origin_custom/nuzlocke/README.md`).
+New abilities and moves can use the same region instead of Zero to Hero's code space.
+
+## Nuzlocke test (2026-11-16)
+
+First encounter per area (a Poke Ball is refused in the battle Bag in an area already used) and a graveyard box
+(fainted Pokemon move to box 24 "GRAVES" after the battle), written in C against Origin's own functions and
+tested in the emulator, including save and reload. Details, patched places and what is still missing:
+`scripts/origin_custom/nuzlocke/README.md`.
+
 ## Where things are
 
 | Thing | Location |
@@ -226,3 +241,4 @@ that region is the next step.
 | Test ROMs | `~/sigma-origin/ws_weather_switch.nds` (Drizzle lead), `ws_weather_switch_drought.nds`, `ws_weather_switch_none.nds` |
 | Working copy used by the build | `~/sigma-origin/x_ws/` (copy of the clean `x_spike_backup/`) |
 | Screenshots of the test | `~/sigma-origin/poc_weather_switch.png` |
+| Nuzlocke test ROM, screens, emulator runs | `~/sigma-origin/rc8/nuzlocke_test.nds`, `~/sigma-origin/nuzlocke_test_v1.png`, `~/sigma-origin/nuzlocke_run/` |
