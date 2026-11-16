@@ -43,7 +43,7 @@ TEST("Sigma dex: Leafling has the data from its species file")
     EXPECT_EQ(info->baseSpAttack, 60);
     EXPECT_EQ(info->baseSpDefense, 65);
     EXPECT_EQ(info->types[0], TYPE_GRASS);
-    EXPECT_EQ(info->types[1], TYPE_STEEL);
+    EXPECT_EQ(info->types[1], TYPE_GRASS);
     EXPECT_EQ(info->abilities[0], ABILITY_OVERGROW);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SLASH);
     EXPECT_EQ(GetSpeciesName(SPECIES_LEAFLING)[0], CHAR_L);

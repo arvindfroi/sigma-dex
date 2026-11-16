@@ -114,7 +114,7 @@ design:
     "TM/HM moves": 78
     tutor moves: 68
     egg moves: 68
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...
 

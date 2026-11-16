@@ -123,7 +123,7 @@ design:
     egg cycles: 65
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  look: "It has a warm brown body with darker oval spots across its back and a creamy white belly. Its most distinctive feature is a long, pointed, segmented, spiral-like horn or tusk extending from the front of its head. It has small flippers on either side and a long, tapering rear body ending in a tail. Its appearance is unusual, gentle, and somewhat prehistoric."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

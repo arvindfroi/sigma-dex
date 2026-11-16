@@ -10,7 +10,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | # | Name | Types | Abilities | BST | Evolves into | Done |
 |--:|------|-------|-----------|----:|--------------|-----:|
 | 1 | [Leaflet](data/species/leafing.yaml) | Grass | Overgrow, Sharpness (H) | 320 | Leafling (Lv 16) | 79% |
-| 2 | [Leafling](data/species/leafsteel.yaml) | Grass / Steel | Overgrow, Sharpness (H) | 420 | Leafaxer (Lv 36) | 83% |
+| 2 | [Leafling](data/species/leafsteel.yaml) | Grass | Overgrow, Sharpness (H) | 420 | Leafaxer (Lv 36) | 83% |
 | 3 | [Leafaxer](data/species/leafaxer.yaml) | Grass / Steel | Overgrow, Sharpness (H) | 530 |  | 66% |
 | 4 | [Waffy](data/species/waffy.yaml) | Water | Torrent, Defiant (H) | 320 | Wealther (Lv 16) | 79% |
 | 5 | [Wealther](data/species/wealther.yaml) | Water / Dark | Torrent, Defiant (H) | 420 | Warrallier (Lv 36) | 66% |

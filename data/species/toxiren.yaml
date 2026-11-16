@@ -36,7 +36,7 @@ growth_rate: medium_fast # erratic fast medium_fast medium_slow slow fluctuating
 base_friendship: 70      # 70 is the standard value
 
 # --- Breeding ---
-gender: 50               # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+gender: 12.5             # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
 egg_groups: [fairy]      # 1 or 2, e.g. [field, grass]
 egg_cycles: 20           # hatch time, 20 is typical
 
@@ -120,7 +120,7 @@ design:
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
-                     body color, catch rate, base exp, growth rate, base friendship, gender,
+                     body color, catch rate, base exp, growth rate, base friendship,
                      egg groups, egg cycles]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
     body shape: 80
@@ -134,7 +134,6 @@ design:
     base exp: 85
     growth rate: 59
     base friendship: 90
-    gender: 63
     egg groups: 46
     egg cycles: 65
   body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)

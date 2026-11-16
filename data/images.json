@@ -4858,13 +4858,6 @@
     "editor": "Casper"
   },
   {
-    "id": 1548,
-    "species": "santrock",
-    "file": "assets/concept-art/santrock/1548.png",
-    "caption": "[ds-front] sprite #258",
-    "editor": "Casper"
-  },
-  {
     "id": 1549,
     "species": "santrock",
     "file": "assets/concept-art/santrock/1549.png",
@@ -4883,13 +4876,6 @@
     "species": "santrock",
     "file": "assets/concept-art/santrock/1551.png",
     "caption": "[ds-follower] sprite #258",
-    "editor": "Casper"
-  },
-  {
-    "id": 1556,
-    "species": "cindreon",
-    "file": "assets/concept-art/cindreon/1556.png",
-    "caption": "[ds-front] sprite #259",
     "editor": "Casper"
   },
   {
@@ -5689,5 +5675,61 @@
     "file": "assets/concept-art/leafing/1870.png",
     "caption": "pasted",
     "editor": "Arvind"
+  },
+  {
+    "id": 1871,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/1871.png",
+    "caption": "[ds-front] sprite #331",
+    "editor": null
+  },
+  {
+    "id": 1872,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/1872.png",
+    "caption": "[ds-back] sprite #331",
+    "editor": null
+  },
+  {
+    "id": 1873,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/1873.png",
+    "caption": "[ds-icon] sprite #331",
+    "editor": null
+  },
+  {
+    "id": 1874,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/1874.png",
+    "caption": "[ds-follower] sprite #331",
+    "editor": null
+  },
+  {
+    "id": 1876,
+    "species": "toxiren",
+    "file": "assets/concept-art/toxiren/1876.webp",
+    "caption": null,
+    "editor": "Emil"
+  },
+  {
+    "id": 1877,
+    "species": "toxiren",
+    "file": "assets/concept-art/toxiren/1877.webp",
+    "caption": null,
+    "editor": "Emil"
+  },
+  {
+    "id": 1878,
+    "species": "cindreon",
+    "file": "assets/concept-art/cindreon/1878.png",
+    "caption": "[ds-front] sprite #332",
+    "editor": "Emil"
+  },
+  {
+    "id": 1882,
+    "species": "santrock",
+    "file": "assets/concept-art/santrock/1882.png",
+    "caption": "[ds-front] sprite #334",
+    "editor": "Emil"
   }
 ]

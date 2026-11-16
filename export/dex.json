@@ -224,7 +224,7 @@
           "tutor moves": 68,
           "egg moves": 68
         },
-        "body_shape": null,
+        "body_shape": "a quadruped body",
         "movement": null,
         "look": null
       },
@@ -256,8 +256,7 @@
         "artist": null
       },
       "types": [
-        "Grass",
-        "Steel"
+        "Grass"
       ],
       "category": null,
       "description": null,
@@ -9535,7 +9534,7 @@
       "base_exp": 182,
       "growth_rate": "medium_fast",
       "base_friendship": 70,
-      "gender": 50,
+      "gender": 12.5,
       "egg_groups": [
         "fairy"
       ],
@@ -9742,7 +9741,6 @@
           "base exp",
           "growth rate",
           "base friendship",
-          "gender",
           "egg groups",
           "egg cycles"
         ],
@@ -9758,7 +9756,6 @@
           "base exp": 85,
           "growth rate": 59,
           "base friendship": 90,
-          "gender": 63,
           "egg groups": 46,
           "egg cycles": 65
         },
@@ -39355,7 +39352,7 @@
         },
         "body_shape": null,
         "movement": null,
-        "look": null
+        "look": "It has a warm brown body with darker oval spots across its back and a creamy white belly. Its most distinctive feature is a long, pointed, segmented, spiral-like horn or tusk extending from the front of its head. It has small flippers on either side and a long, tapering rear body ending in a tail. Its appearance is unusual, gentle, and somewhat prehistoric."
       },
       "assets": {
         "concept_art": "assets/concept-art/whaldrill/1569.png",
