@@ -81,6 +81,10 @@ Arvind (2026-11-11): "andre har jobbet mye med slike greier i det siste så om v
   new-game question is plain script in the intro. Gifts and static encounters do not use up an area. Forced
   nicknames, the game over screen (with the Gravriel blackout picture) and locked menu rows come with the intro,
   script and art work.
+- **Game over on both screens (Arvind, 2026-11-17):** the Gravriel game over / blackout uses both DS screens, e.g.
+  the top one Gravriel rising out of the water (picture or short frame animation from the intro film), the bottom
+  one the message to the player and the run's memorial (deaths, the fallen by name). Each screen is 256x192; a full
+  picture fits as a 256-colour bitmap or 16-colour tiles.
 - **Harder trainers in Gravriel (Arvind):** some trainers get bigger teams and higher levels, and the level cap may
   be lower; but Hardcore Nuzlocke is hard already, so it must never become impossible. The two versions are two
   separate ROMs, so Gravriel can simply have its own trainer data and its own cap table (no switch in the game).
