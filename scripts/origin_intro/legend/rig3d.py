@@ -191,6 +191,14 @@ PLANT = plant_targets() if PH is not None else None   # needs root_frame
 RIPPLE = os.environ.get('RIPPLE', '1') == '1' and 'joint27' in names
 if RIPPLE:
     j27 = names.index('joint27'); FEET = ('FL_lo', 'FR_lo', 'BL_lo', 'BR_lo'); RMAX = float(os.environ.get('RIPPLE_R', '12')); RLOC = 0.255
+    # Ho-Oh's disc (shape polygon13) is a fan of radius 0.254 in the joint's YZ plane, at x = -0.187: it sits 0.73 x its
+    # radius below the joint. joint27 hangs under joint1, whose 0.1 scale it inherits (measured in the game: the drawn ring
+    # is sig x rad), so the drop is sig x 0.73 x rad; lifted back here. The bright line of the texture is at 0.72 of the radius.
+    DISC_X, VIS = -0.187, 0.72
+    def ring_matrix(pos, rad, f):
+        RF_ = root_frame(f); upw = np.array([0, 1.0, 0]); fwd = RF_[:3, 0] / np.linalg.norm(RF_[:3, 0]); fwd = fwd - upw * (fwd @ upw); fwd /= np.linalg.norm(fwd)
+        sc_ = rad / (RLOC * up); M = np.eye(4); M[:3, :3] = np.column_stack([upw, fwd, np.cross(upw, fwd)]) * sc_
+        M[:3, 3] = pos - upw * (sig * sc_ * up * DISC_X); return M
     pvf = {}
     for b in FEET:                                          # the paw: the lowest model point that follows this bone
         vs = [np.array(v) for t in tris for v, vb in zip(t[0], t[4]) if vb == b]
@@ -199,17 +207,31 @@ if RIPPLE:
         LG = leg_L(f); M_ = LG[b] if b in LG else H(bone_world(b, f)); return (root_frame(f) @ M_ @ np.append(pvf[b], 1))[:3]
     def foot_h(b, f): return (np.linalg.inv(root_frame(f)) @ np.append(foot_world(b, f), 1))[1]
     events = []
+    PAIRS = {}
     if os.environ.get('TD_EVENTS', '1') == '1' and PH is not None:
-        # one touchdown per paw per cycle: the phase where the paw is furthest forward (stance starts there). A gallop lands in
-        # pairs (hind L/R, front L/R a few frames apart); with one ripple disc the first hind paw and the last front paw make one.
-        xs_ = np.arange(len(CYC)); TD = {}
+        # Arvind: the ripples under the legs must be right. Touchdown = the key where the paw comes down into the lowest quarter
+        # of its own height range and stays there (its contact). Not the most forward point: the front paw is furthest
+        # forward high up in the reach, which put the front ring ~120 units up in the air before the paw came down.
+        # A gallop lands in pairs (the hind pair, then the front pair, each two to four frames apart). With one ripple disc
+        # the first paw of each pair makes the ring (see ring_of): hind ring, front ring, 18 frames apart, one always showing.
+        # Checked in the game with DEBUG_RING=<paw> (a small ring locked to that paw every frame).
+        n_ = len(CYC); xs_ = np.arange(n_); TD = {}; HMIN = {}; BAND = {}
         for b in FEET:
-            Q = np.array([(H(bone_pose(b, x)) @ np.append(pvf[b], 1))[:3] for x in xs_]); TD[b] = int(np.argmax(Q[:, 0]))
-        lead = [min(('BL_lo', 'BR_lo'), key=lambda b: TD[b]), max(('FL_lo', 'FR_lo'), key=lambda b: TD[b])]   # first hind, last front: evenly spread
-        print('touchdown keys', TD, 'ripple paws', lead)
-        for b in lead:
-            for f in range(1, nf):
-                if np.floor((PH[f] - TD[b]) / len(CYC) + 1e-6) != np.floor((PH[f - 1] - TD[b]) / len(CYC) + 1e-6): events.append((f, b))
+            h = np.array([(H(bone_pose(b, x)) @ np.append(pvf[b], 1))[1] for x in xs_]); HMIN[b] = h.min(); thr = h.min() + 0.25 * (h.max() - h.min()); BAND[b] = h <= thr
+            def stay(k):
+                c = 0
+                while c < n_ and h[(k + c) % n_] <= thr: c += 1
+                return c
+            TD[b] = max([k for k in range(n_) if h[k] <= thr and h[k - 1] > thr], key=stay)
+        def crossings(b):
+            return [f for f in range(1, nf) if np.floor((PH[f] - TD[b]) / n_ + 1e-6) != np.floor((PH[f - 1] - TD[b]) / n_ + 1e-6)]
+        CROSS = {b: crossings(b) for b in FEET}
+        for pr in (('BL_lo', 'BR_lo'), ('FL_lo', 'FR_lo')):
+            a, b2 = pr if (TD[pr[1]] - TD[pr[0]]) % n_ <= n_ / 2 else pr[::-1]      # a lands first, b2 after it
+            PAIRS[a] = b2
+        print('touchdown keys', TD, 'ripple pairs', PAIRS)
+        for a in PAIRS:
+            for f in CROSS[a]: events.append((f, a))
     else:
         for b in FEET:
             for f in range(1, nf):
@@ -222,15 +244,53 @@ if RIPPLE:
             v = np.linalg.norm(np.diff(W_, axis=0), axis=1); both = st[1:] & st[:-1]
             print(b, 'stance frames', int(st.sum()), 'locked-paw drift %.3f/frame' % (v[both].mean() if both.any() else 0), 'swing %.2f/frame' % v[~st[1:]].mean())
         sys.exit(0)
+    def under_paw(a, f):
+        RF_ = root_frame(f); q = (np.linalg.inv(RF_) @ np.append(foot_world(a, f), 1))[:3]
+        if a in HMIN: q[1] = min(q[1], HMIN[a])
+        return (RF_ @ np.append(q, 1))[:3]
+    def ring_of(fe, a):
+        # the drawn ring is paw-sized (sig x 0.72 x RIPPLE_R), smaller than the gap between two paws: it goes under the paw that
+        # lands first, at that paw's lowest level (the paw settles onto it, never through it). While that paw stays down and
+        # pushes, the ring stays under it; when the paw lifts, the ring is left where it was. (In the pagoda shot he gallops
+        # almost on the spot while Ho-Oh's path sinks, so a ring fixed at the first touch was left behind within a few frames.)
+        fl = fe
+        if a in BAND:
+            while fl + 1 < nf and BAND[a][int(math.floor(PH[fl + 1] + 1e-6)) % len(CYC)]: fl += 1
+        return fl, 0.25 * RMAX
+    RINGS = {e: ring_of(*e) for e in events}
+    if os.environ.get('DIAG_RIPPLE'):                       # check: is each ripple under a paw that is down, at the right time?
+        xs_ = np.arange(len(CYC))
+        for b in FEET:
+            Q = np.array([(H(bone_pose(b, x)) @ np.append(pvf[b], 1))[:3] for x in xs_]) / s
+            print(b, 'fwd', ' '.join('%5.2f' % v for v in Q[:, 0])); print(b, ' up', ' '.join('%5.2f' % v for v in Q[:, 1]), ' lowest key', int(np.argmin(Q[:, 1])), 'most fwd key', int(np.argmax(Q[:, 0])))
+        sp_ = np.linalg.norm(np.diff(P1, axis=0), axis=1); print('path per frame %.1f, per cycle %.0f; ripple radius %.0f' % (sp_.mean(), sp_.mean() * len(CYC) * 2, RMAX))
+        for fe, b in events[:6]:
+            fl, r0 = RINGS[(fe, b)]; out = []; print('   ring follows the paw for %d frames' % (fl - fe + 1))
+            if b in PAIRS:
+                pos = under_paw(b, fe); b2 = PAIRS[b]; fb = next((f for f in CROSS[b2] if f >= fe), fe); RFi = np.linalg.inv(root_frame(fe))
+                pa = (RFi @ np.append(foot_world(b, fe), 1))[:3] * sig; pb = (RFi @ np.append(foot_world(b2, fb), 1))[:3] * sig; cc = (RFi @ np.append(pos, 1))[:3] * sig
+                same = {pw[:2]: np.round((RFi @ np.append(foot_world(pw, fe), 1))[:3] * sig) for pw in FEET}
+                print('   all paws at f%d in its own frame:' % fe, same, ' yaw change to f%d: %.1f deg' % (fb, math.degrees(YAW[fb] - YAW[fe])))
+                print('   local (fwd, up, side): %s %s at f%d, %s %s at f%d, ring %s' % (b[:2], np.round(pa), fe, b2[:2], np.round(pb), fb, np.round(cc)))
+            for pw in [b]:
+                row = []
+                for a_ in (0, 2, 4, 6, 9, 12, 18):
+                    f_ = min(fe + a_, nf - 1); RFi = np.linalg.inv(root_frame(f_)); q = (RFi @ np.append(foot_world(pw, f_), 1))[:3]; c = (RFi @ np.append(under_paw(pw, min(f_, fl)), 1))[:3]
+                    rad = (r0 + (RMAX - r0) * a_ / 18) * VIS * sig
+                    row.append('%+.0f/%+.0f' % ((q[1] - c[1]) * sig, np.linalg.norm(np.delete(q - c, 1)) * sig - rad))
+                out.append(pw[:2] + ' ' + ' '.join(row))
+            print('ring f%d r0 %.0f  (paw height over ring / paw distance outside the ring line, ages 0 2 4 6 9 12 18):' % (fe, r0)); [print('   ', o) for o in out]
+        sys.exit(0)
     def ripple_world(f):
+        if os.environ.get('DEBUG_RING'):                      # test: a small ring on one paw (or the hind midpoint) every frame
+            dr = os.environ['DEBUG_RING']; pos = foot_world(dr, f) if dr != 'MID' else (foot_world('BL_lo', f) + foot_world('BR_lo', f)) / 2
+            return ring_matrix(pos, 0.25 * RMAX, f)
         cur = [e for e in events if e[0] <= f]
         if not cur: return None
         fe, b = cur[-1]; age = f - fe; L = int(os.environ.get('RIPPLE_L', '18'))
         if age > L: return None
-        pos = foot_world(b, fe); RF_ = root_frame(fe); fwd = RF_[:3, 0] / np.linalg.norm(RF_[:3, 0]); upw = np.array([0, 1.0, 0])
-        fwd = fwd - upw * (fwd @ upw); fwd /= np.linalg.norm(fwd); R = np.column_stack([upw, fwd, np.cross(upw, fwd)])
-        rad = RMAX * (0.25 + 0.75 * age / L); sc_ = rad / (RLOC * up)
-        M = np.eye(4); M[:3, :3] = R * sc_; M[:3, 3] = pos - upw * 0.5; return M
+        fl, r0 = RINGS[(fe, b)]; rad = r0 + (RMAX - r0) * age / L
+        return ring_matrix(under_paw(b, min(f, fl)), rad, min(f, fl))
 nodes_T = [[None] * nf for _ in names]; nodes_R = [[None] * nf for _ in names]; nodes_S = [[None] * nf for _ in names]
 for f in range(nf):
     W, trs = worlds(f); want = dict(W)

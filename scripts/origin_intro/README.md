@@ -903,3 +903,13 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - `walk_sheet.py` `ZC`/`ZS` give close-ups.
   - Build: `export_parts7.py -- pt19 0.8 0.7 0.7 1.35`, `build_tex6.py pt19`, `HIP_Z=0.95 hind_rig.py pt19 bones_rest14.json pt19r bones_rest19.json`, `retarget_fk.py Horse_run.json bones_rest19.json bones_run19.json -8`, then rig3d on `pt19r` with `CADENCE=36`.
   - Film 435160/437100, all 475 strips in all six shots, ROM `legend_test/jump_hooh2_v25.nds`.
+- **v29 (2026-11-16), the ripples under the paws. LOCKED** (Arvind: "ja det ser bra ut. bare pass på at de ripple effekten under beina er gjort riktig nå 🙂 så er det en lock").
+  Faults found in v25's ripples, all fixed in `rig3d.py`:
+  - **Timing.** The touchdown was taken as the paw's most forward point. The front paw is furthest forward high up in its reach, so the front ring appeared ~120 units up in the air before the paw came down. Touchdown is now the key where the paw enters the lowest quarter of its own height range and stays there: hind left key 7, front left key 16 of 18.
+  - **Spacing.** One ring per pair, made by the paw that lands first. Hind ring and front ring are now 18 frames apart (was 12/24), so one ring always shows.
+  - **Size.** The ring joint (joint27) hangs under joint1 and inherits its 0.1 scale, so the drawn ring is `sig x 0.72 x RIPPLE_R`. Ho-Oh's disc fan is at x = -0.187 of the joint, and the bright line of the texture sits at 0.72 of the disc radius. That makes the ring paw-sized: it goes under one paw, not between two.
+  - **Height.** The disc drop (`sig x 0.73 x radius`) is lifted back. The ring sits at the paw's lowest level.
+  - **Placement.** While the paw stays down and pushes, the ring follows it (10 frames hind, 18 front). When the paw lifts, the ring stays where it was. In the pagoda shot he gallops nearly on the spot while Ho-Oh's path sinks, so a ring fixed at the first touch was left behind within a few frames.
+  - **Checks.** `DIAG_RIPPLE=1` prints the paw heights and distances from the ring line per event. `DEBUG_RING=BL_lo` (or any paw, or `MID`) builds a test ROM with a small ring locked to that paw. Recorded side by side, the v29 ring sits where the paw-locked ring does.
+  - **Build.** Same as v25 (`pt19r`, `bones_run19.json`, `ROLL=1 PATHFRAME=1 RIPPLE_R=50 HALFRATE=1 FOOTLOCK=0 CADENCE=36`, cycle 1..18 step 3, `pack_shared 1=6 11=6 16=20 24=20`, `inplace` onto `base_hover.nds`).
+  - **Result.** Film 435160/437100, all 475 strips in all six shots, ROM `legend_test/jump_hooh2_v29.nds`. sha256 prefixes: film `4675ad183ae41c99`, ROM `0366de60f163ed7e`, pt19r.json `43571836d5f43ec9`, bones_run19.json `fd5dc4365a740001`.
