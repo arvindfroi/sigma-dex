@@ -67,15 +67,38 @@ if LUGIA_PATH:
     SHOW = T0
 # v7 PATH=glide (default): a slow, eased glide from where Lugia leaves the fall to where Lugia hovers, rising on the way
 # and bobbing gently after (v6's half-speed copy of Lugia's path swung close to the camera and looked rushed)
-PATHMODE = os.environ.get('PATH_MODE', 'glide')
+PATHMODE = os.environ.get('PATH_MODE', 'rise')
 # v8: Lugia stops at film frame ~160 and the picture holds until the fade (a freeze frame before the battle): he reaches
 # his pose by then and freezes too (FREEZE), the glide ending there (T1)
 FREEZE = E('FREEZE', 160)
 T1 = E('T1', 160)
 SWITCH, AURA = E('SWITCH', 147), E('AURA', 14)      # ghost -> his own colours as the scream ring reaches him; green drains
+# v9 PATH_MODE=rise (Arvind: "come up out of the water instead", the portal effect from there too, a low camera at the
+# water in front of him that follows his eye line): straight up out of the water below Lugia's hover spot, eased out
+WATER_Y = E('WATER_Y', 10)
+def rise_pos(f):
+    f = min(f, FREEZE); P1 = _LB[-1] - np.array([0, SIZE * E('MID', 0.55), 0]) + np.array([E('RISE_DX', 0), 0, E('RISE_DZ', 0)])
+    t_ = min(1.0, max(0.0, (f - T0) / (T1 - T0))); e_ = 1 - (1 - t_) ** E('EASE_OUT', 2.2)
+    return P1 + np.array([0, -E('DEPTH', 200) * (1 - e_), 0]), e_
+# the film camera never moves (measured with marker cubes: film_camera.json, 0.1 px); a new camera is made by moving the
+# whole world the other way: everything (cave root, his root, the mist) gets M = V_orig^-1 V_new
+_CJ = json.load(open(os.path.join(HERE, 'film_camera.json'))); _Ro = np.array(_CJ['R']); _Co = np.array(_CJ['C'])
+_Vo = np.eye(4); _Vo[:3, :3] = _Ro; _Vo[:3, 3] = -_Ro @ _Co; _Voi = np.linalg.inv(_Vo)
+VCAM = os.environ.get('VCAM', '1' if os.environ.get('PATH_MODE', 'rise') == 'rise' else '0') == '1'
+def _look(C, Tt):
+    z = Tt - C; z = z / np.linalg.norm(z); dn = np.array([0, -1.0, 0]); y = dn - (dn @ z) * z; y = y / np.linalg.norm(y); x = np.cross(y, z)
+    V = np.eye(4); V[:3, :3] = np.array([x, y, z]); V[:3, 3] = -V[:3, :3] @ C; return V
+def VM(f):
+    if not VCAM: return np.eye(4)
+    f = min(f, FREEZE); rp, e_ = rise_pos(f); a = math.radians(E('CAM_ANG', 40)); Dd = E('CAM_D', 320)
+    C = np.array([rp[0] + Dd * math.sin(a), E('CAM_Y0', 18) + (E('CAM_Y1', 40) - E('CAM_Y0', 18)) * e_, rp[2] + Dd * math.cos(a)])
+    aim = WATER_Y + E('CAM_AIM0', 80) if f < T0 else max(WATER_Y + E('CAM_AIM0', 80), rp[1] + E('AIM', 0.55) * SIZE)   # looking up a little: the water line sits at the bottom edge
+    return _Voi @ _look(C, np.array([rp[0], aim, rp[2]]))
 def root(f):
-    if PATHMODE == 'glide': f = min(f, FREEZE)
-    if LUGIA_PATH and PATHMODE == 'glide':
+    if PATHMODE in ('glide', 'rise'): f = min(f, FREEZE)
+    if LUGIA_PATH and PATHMODE == 'rise':
+        p = rise_pos(f)[0]
+    elif LUGIA_PATH and PATHMODE == 'glide':
         # start behind the falling water in the middle of the fall (Lugia's own start at frame 124 is off to the side near
         # the camera: he popped in at the bottom right), end where Lugia hovers
         mid = np.array([0, SIZE * E('MID', 0.55), 0]); P0 = np.array([float(v) for v in os.environ.get('G0', '8,40,-90').split(',')]); P1 = _LB[-1] - mid
@@ -93,12 +116,12 @@ def root(f):
         for (f0, p0), (f1, p1) in zip(KEYS, KEYS[1:]):
             if f0 <= f <= f1: p = p0 + (p1 - p0) * ease((f - f0) / (f1 - f0)); break
     # sway: lean forward while gliding (eases upright at the hover), slow roll and yaw, all small
-    gl = (1 - ease((f - T0) / (T1 - T0)) if f >= T0 else 1.0) if (LUGIA_PATH and PATHMODE == 'glide') else (1 - ease((f - KEYS[0][0]) / (KEYS[-1][0] - KEYS[0][0])) if f >= KEYS[0][0] else 1.0)
+    gl = 0.0 if PATHMODE == 'rise' else (1 - ease((f - T0) / (T1 - T0)) if f >= T0 else 1.0) if (LUGIA_PATH and PATHMODE == 'glide') else (1 - ease((f - KEYS[0][0]) / (KEYS[-1][0] - KEYS[0][0])) if f >= KEYS[0][0] else 1.0)
     pitch = math.radians(E('LEAN', 16)) * gl; roll = math.radians(E('ROLL_SW', 2 if PATHMODE == 'glide' else 6)) * math.sin(2 * math.pi * f / 95)
     yaw = math.radians(E('YAW_SW', 3 if PATHMODE == 'glide' else 9)) * math.sin(2 * math.pi * f / 140 + 0.7)
     # v6b: the film camera looks along +x (Lugia's body node turns its +z to -x for the whole film); facing +z showed him
     # side-on (and -90 showed his back: the shell on the wrong side), so he is turned to face +x, the camera
-    yaw += math.radians(E('BASE_YAW', (-4 if PATHMODE == 'glide' else 90) if LUGIA_PATH else 0))   # v7b: Lugia's own heading at the end (head/jaw toward +z, -4 deg); 60 faced the camera
+    yaw += math.radians(E('BASE_YAW', (-4 if PATHMODE in ('glide', 'rise') else 90) if LUGIA_PATH else 0))   # v7b: Lugia's own heading at the end (head/jaw toward +z, -4 deg); 60 faced the camera
     cx_, sx_ = math.cos(pitch), math.sin(pitch); cz_, sz_ = math.cos(roll), math.sin(roll); cy_, sy_ = math.cos(yaw), math.sin(yaw)
     Rx = np.array([[1, 0, 0], [0, cx_, -sx_], [0, sx_, cx_]]); Rz = np.array([[cz_, -sz_, 0], [sz_, cz_, 0], [0, 0, 1]]); Ry = np.array([[cy_, 0, sy_], [0, 1, 0], [-sy_, 0, cy_]])
     M = np.eye(4); M[:3, :3] = Ry @ Rz @ Rx; M[:3, 3] = p
@@ -138,22 +161,23 @@ print('helpers', [a[4:] + '/' + b[4:] for a, b in HELPERS])
 HELPER_NODES = {NODE[h]: h for h in HELPERS}
 T_ = [[None] * nf for _ in names]; R_ = [[None] * nf for _ in names]; S_ = [[None] * nf for _ in names]
 for f in range(nf):
-    fz = min(f, FREEZE) if PATHMODE == 'glide' else f
-    Wf = J['frames'][str(min(int(fz), len(J['frames']) - 1))]; RT = root(f); RTG = RT.copy()
+    fz = min(f, FREEZE) if PATHMODE in ('glide', 'rise') else f
+    Wf = J['frames'][str(min(int(fz), len(J['frames']) - 1))]; RT = root(f); Mv = VM(f); RTG = Mv @ RT
     if GPOLYS and f < SWITCH: RT = RT.copy(); RT[:3, 3] += np.array([0, -900.0, 0])     # his own body appears at the switch
+    RT = Mv @ RT
     W0 = {b: RT @ H(Wf[b]) for b in BONES}; WW = {b: W0[b] @ SUPK for b in BONES}
     if GPOLYS:
         # the ghost: rigid in the artwork pose; at the switch it swells a little around him and shrinks into him (green drains)
         a_ = (f - SWITCH) / AURA; gs = 1.0 if a_ < 0 else (E('AURA_S0', 1.06) + (E('AURA_S1', 0.86) - E('AURA_S0', 1.06)) * min(1.0, a_))
         Mg = RTG @ np.array([[1, 0, 0, GMID[0]], [0, 1, 0, GMID[1]], [0, 0, 1, GMID[2]], [0, 0, 0, 1.0]]) @ np.diag([K * gs, K * gs, K * gs, 1])
-        if f >= SWITCH + AURA: Mg[:3, 3] += np.array([0, -900.0, 0])
+        if f >= SWITCH + AURA: Mg = Mv @ np.linalg.inv(Mv) @ Mg; Mg[:3, 3] += Mv[:3, :3] @ np.array([0, -900.0, 0])
         WW['__ghost'] = Mg
     for h in HELPERS:
         A_, B_ = h; KA = W0[A_] @ HBi[A_]; KB = W0[B_] @ HBi[B_]
         Rt = Slerp([0, 1], Rot.from_matrix([orth(KA[:3, :3]), orth(KB[:3, :3])]))([0.5]).as_matrix()[0]
         Wh = np.eye(4); Wh[:3, :3] = Rt @ HB[h][:3, :3]; Wh[:3, 3] = (KB @ np.append(HB[h][:3, 3], 1))[:3]; WW[h] = Wh @ SUPK
     for i in range(len(names)):
-        if i in MIST_NODES: T_[i][f], R_[i][f], S_[i][f] = MBASE[i] + MDRIFT[i] * f, np.eye(3), [MS, MS, MS]; continue
+        if i in MIST_NODES: T_[i][f], R_[i][f], S_[i][f] = Mv[:3, :3] @ (MBASE[i] + MDRIFT[i] * f) + Mv[:3, 3], orth(Mv[:3, :3]), [MS, MS, MS]; continue
         if i == GHOST_NODE:
             Lm = WW['__ghost']; sc = np.cbrt(np.linalg.det(Lm[:3, :3])); T_[i][f] = Lm[:3, 3]; R_[i][f] = orth(Lm[:3, :3] / sc); S_[i][f] = [sc, sc, sc]; continue
         if i in HELPER_NODES:
@@ -329,6 +353,21 @@ if MIST:
             for v in q: cmds.append((0x24, [v10((v - MBASE[node]) / MS * K)]))
         work[1].append(cmds + [(0x41, [])])
     print('mist layers', len(LAYERS))
+MARKERS = os.environ.get('MARKERS', '')
+if MARKERS and MIST:
+    # camera calibration (v9): opaque coloured cubes at known film-space points, on the still mist node
+    mn = MIST_NODES[0]; cmk = [(0x29, [0xC0 | (31 << 16) | (60 << 24)]), (0x2A, [0]), (0x14, [mn])]
+    for mk in MARKERS.split(';'):
+        x, y, z, rr, gg, bb = [float(v) for v in mk.split(',')]; c = np.array([x, y, z]); hs = E('MK_SIZE', 3.0)
+        cmk.append((0x20, [int(rr) >> 3 | (int(gg) >> 3) << 5 | (int(bb) >> 3) << 10])); cmk.append((0x40, [1]))
+        for ax in range(3):
+            for sg in (-1, 1):
+                u_, w_ = [a for a in range(3) if a != ax]
+                for du, dw in ((-1, -1), (1, -1), (1, 1), (-1, 1)):
+                    v = c.copy(); v[ax] += sg * hs; v[u_] += du * hs; v[w_] += dw * hs
+                    cmk.append((0x24, [v10((v - MBASE[mn]) / MS * K)]))
+        cmk.append((0x41, []))
+    work[1].append(cmk); print('markers', len(MARKERS.split(';')))
 if GPOLYS:
     # colour per vertex like the intro's ghost: the painted texture's brightness at the vertex turned into pale sea green
     # (build_grav4.py: (0.35l+10, 1.05l+60, 0.8l+44)), the eyes' glow kept bright
@@ -456,15 +495,22 @@ if os.environ.get('RING_FOLLOW', '1') == '1':
             Lm_ = (Tm @ np.diag([1 / x if x else 0 for x in trs[pa_][2]] + [1]) @ Rm @ Sm) if pa_ != i_ else Tm @ Rm @ Sm
             Wd[i_] = (Wd[pa_] if pa_ != i_ and pa_ in Wd else np.eye(4)) @ Lm_
         return Wd
-    RINGS = [int(x) for x in os.environ.get('RING_NODES', '1,3,4,5').split(',')]       # v8: + pCylinder1, the white band ring
+    BURST = int(E('BURST_NODE', 1))
+    RINGS = [int(x) for x in os.environ.get('RING_NODES', '3,4,5' if PATHMODE == 'rise' else '1,3,4,5').split(',')]   # 3/4 = the band rings (de_ap_e4), 5 = sparkles
     W160 = cworld(geom.node_trs(mc, ac, 160)); off = {k: W160[k][:3, 3] - _LB[-1] for k in RINGS}
     mid_ = np.array([0, SIZE * E('MID', 0.55), 0])
     CT = {i: [] for i in range(len(mc['nodes']))}; CR = {i: [] for i in CT}; CS = {i: [] for i in CT}
     for f in range(nfc):
         trs = geom.node_trs(mc, ac, f); Wd = cworld(trs); body = root(min(f, nf - 1))[:3, 3] + mid_
+        Mv = VM(f); rpw = rise_pos(f)[0]
         for i in CT:
             t_, rr_, sc_ = trs[i]; t_ = np.array(t_, float)
-            if i in RINGS:
+            if i == 0 and VCAM:                          # the whole cave moves the other way of the new camera
+                W0n = Mv @ Wd[0]; sc0 = np.array(sc_, float); t_ = W0n[:3, 3]; rr_ = orth(W0n[:3, :3] @ np.diag(1 / np.where(sc0 == 0, 1, sc0)))
+            if i == BURST and PATHMODE == 'rise':      # the portal burst (pCylinder1, de_ap_e1) comes up from the water where he rises
+                par = [p_[1] for p_ in corder if p_[0] == i][0]; Wp = Wd[par] if par != i else np.eye(4)
+                t_ = (np.linalg.inv(Wp) @ np.append([rpw[0], E('BURST_Y', 9), rpw[2]], 1))[:3]
+            elif i in RINGS:
                 par = [p_[1] for p_ in corder if p_[0] == i][0]; Wp = Wd[par] if par != i else np.eye(4)
                 t_ = (np.linalg.inv(Wp) @ np.append(body + off[i], 1))[:3]
             CT[i].append(t_); CR[i].append(np.array(rr_, float)); CS[i].append(list(sc_))
