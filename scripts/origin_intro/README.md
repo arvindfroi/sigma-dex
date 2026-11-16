@@ -1149,3 +1149,23 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - Videos: `gravriel_overworld_v3_halv_fart.mp4` and `gravriel_overworld_v3.mp4`, and `gravriel_ritual_soulsilver_vei_v3.mp4`.
     - `gravriel_overworld_v3_animasjon.gif` shows Lugia, Sabertann and Gravriel side by side.
     - Stills: `gravriel_overworld_v3_mot_lugia.png` and `gravriel_overworld_v3_i_spillet.png`.
+- **Overworld sprites v4 (2026-11-17): Gravriel floats and drips; Sabertann's sails and flag move** (Arvind on v3: "he should not flap his arms, just have water dripping off him, the body and the claws reacting to the movement, floating in the air"; "on Sabertann I expect that with the flags too").
+  - **Gravriel** (`grav3d/ow_qwen/ow_float.py frames_v2/f6_idx.npy frames_v2/pal.npy OUT`): pixel animation on the approved v2 sprite, so the creature is identical in every frame.
+    - Float: a bob of 0/1/2/1/0 px and a side sway of 0/1/1/0/-1 px, a small loop.
+    - The hem: a wave runs down the tatters (row shifts growing toward the tips).
+    - The claws: the right hand's three fingers curl up a pixel and open again; the left hand's fingers move out of phase.
+    - Water drips, each tip on its own phase. Drops form at 8 tatter tips, 3 claw tips, 2 finger tips and the cutlass tip. Each is a white bead, then a falling two-pixel drop: glowing cyan with a white glint. Drops from the hands and the blade fall up to 17 px and may pass in front of the coat. Glints of water run down the tatters before they drip.
+    - Frame 6: still, beads hanging. Frame 7, the cry: the beak opens (dark mouth, red throat), the lids glow and the eyes go white, the claws drop open and the hem flares.
+    - The eye glimmer is rebuilt from these frames (green ghost, `ow_glimmer.py`).
+  - **Sabertann** (`sab/sab_wind.py eyes2/f1_idx_5.npy OUT`): his 7 frames were one picture with a bob. Now:
+    - The mast is whole (it had a gap). A small white flag with a gold mark sits at its top, under the tip so the bob never cuts it, and flutters through three shapes.
+    - The sails billow: the outer halves move out and in, 1 px and 2 px on the side flaps, with a wave running down.
+    - Frame 6: sails at rest. Frame 7: sails full.
+    - In the evening scene the flag is partly behind the tower's spire.
+  - **Test ROMs:**
+    - `legend_test/jump_lug_ow8.nds` (Gravriel, ritual, sha256 prefix `d3ba9bb80ba9b405`).
+    - `legend_test/jump_hooh2_wind1.nds` (Sabertann: the locked film v32c with the new a/0/8/1 210; sha256 prefix `315eede83553d074`). Recorded with FAT pokes for file 363 at RAM 0x023BFDB8.
+  - **Files:**
+    - `overworld_animasjon_lugia_sabertann_gravriel.gif`, `overworld_v4_lugia_sabertann_gravriel.png`.
+    - Videos: `gravriel_overworld_v4_halv_fart.mp4`, `gravriel_ritual_soulsilver_vei_v4.mp4` and `sabertann_feltsprite_vind_halv_fart.mp4`.
+    - Data: `title3d/legend/grav3d/ow_qwen/frames_v4` and `title3d/legend/sab/wind_v1` with SHA256SUMS.
