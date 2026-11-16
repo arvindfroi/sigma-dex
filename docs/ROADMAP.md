@@ -1,6 +1,6 @@
 # Roadmap (2026-11-12)
 
-What is left before our dex is a playable game, sorted by when it fits best and who does it. Details: the export table in
+What is left before our dex is a playable game, sorted by when it fits best and who does it. The design of the game itself (versions, difficulty, story beats, fun moments): [GAME_DESIGN.md](GAME_DESIGN.md). Details: the export table in
 [TRAINERS_AND_ASSETS.md](TRAINERS_AND_ASSETS.md) section 13, ideas in [WHEN_WE_FINALIZE.md](WHEN_WE_FINALIZE.md).
 Arvind's rule: everything in front of us before the export starts.
 
