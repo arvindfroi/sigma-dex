@@ -58,7 +58,8 @@ enough (Arvind).
 - **Hardcore: healing is limited (Arvind, 2026-11-17).** Each place that heals (every Pokemon Center, and other
   healers) can be used **once**. Built like the area rule: one bit per healing place in our save block, checked where
   the game heals the party. **Open:** are potions and other healing items outside battle still allowed? (If yes, the
-  limit is soft; most hardcore rule sets allow them.)
+  limit is soft; most hardcore rule sets allow them.) **Arvind: the usual hardcore nuzlocke rules apply**, so
+  healing items outside battle stay allowed; the one-heal-per-place limit is our own extra rule on top.
 - **Not grindy under the cap (Arvind: "still just as grindy").** The cap does not make grinding, the EXP on the road
   does. Two tools: (1) place the route trainers so that fighting all of them brings the team to the cap (Exp Share
   on); (2) **Proposal: catch-up EXP**, more EXP the further a Pokemon is below the cap (for example x2 when 3 or more
@@ -116,7 +117,10 @@ From the plans so far, in order (details in WHEN_WE_FINALIZE.md):
    overworld). Beedrill also stands in Giovanni's two other teams; those slots become our mons anyway.
    **Catch him (Arvind: "irony"):** possible with a scripted wild battle after (or instead of) trainer 289, like a
    legendary. But Origin brings Giovanni back two years later (Mt. Silver, text bank 539), so either he gets out
-   of the Ball (a line in the Mt. Silver scene) or the catch moves to that last Mt. Silver meeting.
+   of the Ball (a line in the Mt. Silver scene) or the catch moves to that last Mt. Silver meeting (Arvind: both are
+   fun). **Proposal (from Arvind's question about the past):** the final already has a Giovanni copy taken from the
+   past (Arceus + Dialga). You catch the present Giovanni; the past copy stays behind in our time, and he is the one
+   on Mt. Silver two years later. No escape from the Ball needed.
 7. Post-game: official Pokemon return; Meowth's fast food place; the freed Meowthree (and in Gravriel the special
    revive).
 
@@ -141,9 +145,22 @@ the two cutscenes each are already mapped in docs/LEGEND_CUTSCENES.md).
 Already in Origin / the English patch: Move Reminder, EV allocator, Exp/Shiny/Catching charms, Exp Share option,
 level cap option, text speed, the advanced AI, auto-save-friendly Options. To add (decided): Move Deleter, PC
 anywhere, auto-run. Arvind (2026-11-17): also the other normal QoL things the game lacks; a portable PC is not in
-Origin yet. Candidate list to check against Origin first: PC from the menu, auto-run toggle, field moves without
-HMs (own the HM + badge), reusable TMs, "use another Repel?" prompt, Move Reminder/Deleter from the party menu, nature
-mints and ability capsule/patch, IV/EV shown in the summary, type-effectiveness hints in battle. Arvind: yes to a **death counter that shows how many times you have tried to beat the hack** (attempts), the area
+Origin yet. **Checked 2026-11-17 (texts, item lists, emulator):**
+
+| QoL (Arvind: yes to all) | In Origin? | To do |
+|---|---|---|
+| Reusable TMs | **yes** (emulator: TM17 taught, still 1 in the Bag) | nothing |
+| "Use another Repel?" | **yes** (text bank 38) | nothing |
+| Nature mints, Ability Capsule, Ability Patch | **yes**, sold in Celadon (25,000 / 50,000, mints 9,000) | maybe earlier or cheaper |
+| IV/EV in the summary | **yes** (summary bank 295 has IVs/EVs pages) | nothing |
+| EV Allocator | in the game's code and works (emulator), but **never given** by any script | give it (when?) |
+| PC from the menu | **no**: a "Box Link" item exists ("access the Boxes ... at any time") but has no Use button and is never given | give Box Link a field use that opens the PC, hand it out early |
+| Auto-run on/off | no (Options has no such row) | our code + an Options row |
+| Field moves without HMs | no as far as checked (the guide notes one rock where you "don't need" Rock Smash, so normally you do) | our code: HM in the Bag + badge is enough |
+| Move Reminder / Deleter from the party menu | no: reminder is Mr. Psychic in Saffron (1 Heart Scale), deleter in Blackthorn | party-menu entries |
+| Type-effectiveness hints in battle | no | **Sabertann only**, and learned one by one: a matchup shows after you have seen it once (like Sun/Moon); one bit per type pair (18 x 18) in our save block |
+
+Arvind: yes to a **death counter that shows how many times you have tried to beat the hack** (attempts), the area
 sign panel and the "been here before" joke. **Proposal:** also a nuzlocke status panel on the area sign (shows "encounter used / free" when
 entering an area), and a running counter of deaths on the trainer card in Gravriel.
 
