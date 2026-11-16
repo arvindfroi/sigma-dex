@@ -89,7 +89,7 @@ def root(f):
     yaw = math.radians(E('YAW_SW', 3 if PATHMODE == 'glide' else 9)) * math.sin(2 * math.pi * f / 140 + 0.7)
     # v6b: the film camera looks along +x (Lugia's body node turns its +z to -x for the whole film); facing +z showed him
     # side-on (and -90 showed his back: the shell on the wrong side), so he is turned to face +x, the camera
-    yaw += math.radians(E('BASE_YAW', (60 if PATHMODE == 'glide' else 90) if LUGIA_PATH else 0))   # v7: 60 faces the camera (tested 60/90/120)
+    yaw += math.radians(E('BASE_YAW', (-4 if PATHMODE == 'glide' else 90) if LUGIA_PATH else 0))   # v7b: Lugia's own heading at the end (head/jaw toward +z, -4 deg); 60 faced the camera
     cx_, sx_ = math.cos(pitch), math.sin(pitch); cz_, sz_ = math.cos(roll), math.sin(roll); cy_, sy_ = math.cos(yaw), math.sin(yaw)
     Rx = np.array([[1, 0, 0], [0, cx_, -sx_], [0, sx_, cx_]]); Rz = np.array([[cz_, -sz_, 0], [sz_, cz_, 0], [0, 0, 1]]); Ry = np.array([[cy_, 0, sy_], [0, 1, 0], [-sy_, 0, cy_]])
     M = np.eye(4); M[:3, :3] = Ry @ Rz @ Rx; M[:3, 3] = p
@@ -259,15 +259,26 @@ for g in (0, 1):
     for ti, t in enumerate(T):
         for a_, b_ in ((t[0], t[1]), (t[1], t[2]), (t[2], t[0])): edge.setdefault(frozenset((a_, b_)), []).append(ti)
     used = [False] * len(T)
+    # v7b: a strip draws triangle k as (s[k], s[k+1], s[k+2]) for even k and (s[k+1], s[k], s[k+2]) for odd k; a triangle
+    # is only added when that order is its own winding. v6's builder ignored it, which did not show while both sides were
+    # drawn but left holes once back faces were culled (the magenta test)
+    def cyc(a, b, c, t): return (a, b, c) in ((t[0], t[1], t[2]), (t[1], t[2], t[0]), (t[2], t[0], t[1]))
+    FIXW = os.environ.get('STRIP_FIX', '1') == '1'
     def grow(st):
         while len(st) < 40:
-            cand = [t for t in edge.get(frozenset((st[-2], st[-1])), []) if not used[t]]
-            if not cand: return st
-            t = cand[0]; used[t] = True; st.append([v for v in T[t] if v not in (st[-2], st[-1])][0])
+            k = len(st) - 2; a, b = st[-2], st[-1]
+            cand = [t for t in edge.get(frozenset((a, b)), []) if not used[t]]
+            ok = None
+            for t in cand:
+                x = [v for v in T[t] if v not in (a, b)][0]
+                if not FIXW or (cyc(a, b, x, T[t]) if k % 2 == 0 else cyc(b, a, x, T[t])): ok = (t, x); break
+            if ok is None: return st
+            used[ok[0]] = True; st.append(ok[1])
         return st
     for s0 in range(len(T)):
         if used[s0]: continue
-        used[s0] = True; st = grow(list(T[s0])); st = grow(list(reversed(st)))
+        used[s0] = True; st = grow(list(T[s0]))
+        if not FIXW: st = grow(list(reversed(st)))
         cmds = [(0x40, [2])]; curb = None; lastt = None
         for vi in st:
             q, b, l = verts[vi]; loc = (HBi[b] @ np.append(q, 1))[:3]
@@ -362,5 +373,31 @@ for bo in ([] if BIGTEX else r['blocks']):
             if pl['name'].startswith(tn_):
                 for i in range(16): struct.pack_into('<H', d, bo + pbo + pl['off'] + 2 * i, c555(PALG[g][i]) if i < len(PALG[g]) else 0)
                 print('palette', pl['name'], len(PALG[g]), 'colours')
+# v7b (Arvind: the ring around Lugia when it screams lay in front of Gravriel, who arrives later): the cave's three ring
+# nodes (polySurface758/759/760, the wave2/3/6 discs that grow from film frame ~150) follow him, keeping their offset to
+# Lugia's body at the hover. All cave tracks are re-encoded from their decoded values; only the rings' translation changes.
+if os.environ.get('RING_FOLLOW', '1') == '1':
+    mc = nitro.read_bmd(D(0))['models'][0]; ac = geom.read_bca(D(1))[0]; nfc = ac['nframes']; corder = [p_ for op, p_ in mc['rcmds'] if op in (6, 0x26, 0x46, 0x66)]
+    def cworld(trs):
+        Wd = {}
+        for p_ in corder:
+            i_, pa_ = p_[0], p_[1]; t_, rr_, sc_ = trs[i_]; Tm = np.eye(4); Tm[:3, 3] = t_; Rm = np.eye(4); Rm[:3, :3] = rr_; Sm = np.diag(list(sc_) + [1])
+            Lm_ = (Tm @ np.diag([1 / x if x else 0 for x in trs[pa_][2]] + [1]) @ Rm @ Sm) if pa_ != i_ else Tm @ Rm @ Sm
+            Wd[i_] = (Wd[pa_] if pa_ != i_ and pa_ in Wd else np.eye(4)) @ Lm_
+        return Wd
+    RINGS = [int(x) for x in os.environ.get('RING_NODES', '3,4,5').split(',')]
+    W160 = cworld(geom.node_trs(mc, ac, 160)); off = {k: W160[k][:3, 3] - _LB[-1] for k in RINGS}
+    mid_ = np.array([0, SIZE * E('MID', 0.55), 0])
+    CT = {i: [] for i in range(len(mc['nodes']))}; CR = {i: [] for i in CT}; CS = {i: [] for i in CT}
+    for f in range(nfc):
+        trs = geom.node_trs(mc, ac, f); Wd = cworld(trs); body = root(min(f, nf - 1))[:3, 3] + mid_
+        for i in CT:
+            t_, rr_, sc_ = trs[i]; t_ = np.array(t_, float)
+            if i in RINGS:
+                par = [p_[1] for p_ in corder if p_[0] == i][0]; Wp = Wd[par] if par != i else np.eye(4)
+                t_ = (np.linalg.inv(Wp) @ np.append(body + off[i], 1))[:3]
+            CT[i].append(t_); CR[i].append(np.array(rr_, float)); CS[i].append(list(sc_))
+    cnodes = [dict(flags_keep=None, T=CT[i], R=CR[i], S=CS[i], idx=i, rate=0) for i in CT]
+    F[1] = lz10_enc(bca_write.build(nfc, cnodes, template=D(1))); print('ring nodes follow him', RINGS, 'cave anim', len(F[1]))
 F[MM] = lz10_enc(bytes(d)); F[BM] = lz10_enc(new_bca)
 open(DST, 'wb').write(pack(F)); print('model', len(F[MM]), 'anim', len(F[BM]), 'file', len(pack(F)))
