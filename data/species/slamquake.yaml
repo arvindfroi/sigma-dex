@@ -17,9 +17,9 @@ body_color: gray         # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Sand Force
+  primary: Flash Fire
   secondary: Steam Engine # optional
-  hidden: Flash Fire     # optional
+  hidden: Sand Force     # optional
 
 base_stats:              # each 1-255
   hp: 90
@@ -147,7 +147,7 @@ assets:
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:68"   # footprint.png  16x16, black and white
-  shiny_palette:         # shiny.pal      the 16 colors of the shiny version
+  shiny_palette: "assets/shiny/slamquake.json"
   cry: "assets/cries/slamquake.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---

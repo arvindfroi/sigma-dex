@@ -2200,7 +2200,7 @@ TEST("Sigma dex: Slamquake has the data from its species file")
     EXPECT_EQ(info->baseSpDefense, 100);
     EXPECT_EQ(info->types[0], TYPE_STEEL);
     EXPECT_EQ(info->types[1], TYPE_GROUND);
-    EXPECT_EQ(info->abilities[0], ABILITY_SAND_FORCE);
+    EXPECT_EQ(info->abilities[0], ABILITY_FLASH_FIRE);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CRUNCH);
     EXPECT_EQ(GetSpeciesName(SPECIES_SLAMQUAKE)[0], CHAR_S);
 }
@@ -2945,6 +2945,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Sabertann can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Bergflabb has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BERGFLABB];
+    EXPECT_EQ(info->baseHP, 150);
+    EXPECT_EQ(info->baseAttack, 130);
+    EXPECT_EQ(info->baseDefense, 130);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 110);
+    EXPECT_EQ(info->baseSpDefense, 110);
+    EXPECT_EQ(info->types[0], TYPE_WATER);
+    EXPECT_EQ(info->types[1], TYPE_GROUND);
+    EXPECT_EQ(info->abilities[0], ABILITY_PRIMORDIAL_SEA);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ANCIENT_POWER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_BERGFLABB)[0], CHAR_B);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Bergflabb can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_BERGFLABB) { Moves(MOVE_ANCIENT_POWER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ANCIENT_POWER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ANCIENT_POWER, player);
+    }
+}
+
 TEST("Sigma dex: SOLIDEDGE has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SOLIDEDGE];
@@ -3061,14 +3089,14 @@ TEST("Sigma dex: Santrock has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SANTROCK];
     EXPECT_EQ(info->baseHP, 45);
-    EXPECT_EQ(info->baseAttack, 55);
+    EXPECT_EQ(info->baseAttack, 40);
     EXPECT_EQ(info->baseDefense, 55);
-    EXPECT_EQ(info->baseSpeed, 35);
-    EXPECT_EQ(info->baseSpAttack, 40);
-    EXPECT_EQ(info->baseSpDefense, 40);
+    EXPECT_EQ(info->baseSpeed, 60);
+    EXPECT_EQ(info->baseSpAttack, 55);
+    EXPECT_EQ(info->baseSpDefense, 45);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
     EXPECT_EQ(info->types[1], TYPE_ROCK);
-    EXPECT_EQ(info->abilities[0], ABILITY_BLAZE);
+    EXPECT_EQ(info->abilities[0], ABILITY_FIRE_MANE);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ROCK_POLISH);
     EXPECT_EQ(GetSpeciesName(SPECIES_SANTROCK)[0], CHAR_S);
 }
@@ -3089,14 +3117,14 @@ TEST("Sigma dex: Cindreon has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_CINDREON];
     EXPECT_EQ(info->baseHP, 65);
-    EXPECT_EQ(info->baseAttack, 80);
-    EXPECT_EQ(info->baseDefense, 85);
-    EXPECT_EQ(info->baseSpeed, 45);
-    EXPECT_EQ(info->baseSpAttack, 65);
-    EXPECT_EQ(info->baseSpDefense, 50);
+    EXPECT_EQ(info->baseAttack, 60);
+    EXPECT_EQ(info->baseDefense, 70);
+    EXPECT_EQ(info->baseSpeed, 75);
+    EXPECT_EQ(info->baseSpAttack, 90);
+    EXPECT_EQ(info->baseSpDefense, 60);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
     EXPECT_EQ(info->types[1], TYPE_ROCK);
-    EXPECT_EQ(info->abilities[0], ABILITY_FLASH_FIRE);
+    EXPECT_EQ(info->abilities[0], ABILITY_FIRE_MANE);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_FLAMETHROWER);
     EXPECT_EQ(GetSpeciesName(SPECIES_CINDREON)[0], CHAR_C);
 }

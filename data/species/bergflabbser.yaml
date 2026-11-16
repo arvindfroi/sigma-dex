@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
 dex: 149
-name: Bergflabbser
+name: Bergflabb
 
 credits:
   designer: Emil Venge-Kvamme # who came up with it (Discord name)
@@ -85,11 +85,11 @@ learnset:
     - {level: 72, move: Wave Crash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Water Pulse, Roar, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Hyper Beam,
-          Protect, Rain Dance, Frustration, Earthquake, Return, Dig, Double Team, Rock Tomb,
-          Facade, Secret Power, Rest, Endure, Giga Impact, Stone Edge, Stealth Rock,
-          Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute, Heavy Slam, Scald,
-          Bulldoze, High Horsepower, Liquidation, Body Press, Flip Turn, Surf, Strength,
-          Whirlpool, Waterfall, Thunder, Flash]
+          Protect, Rain Dance, Frustration, Thunder, Earthquake, Return, Dig, Double Team,
+          Rock Tomb, Facade, Secret Power, Rest, Endure, Giga Impact, Flash, Stone Edge,
+          Stealth Rock, Rock Slide, Sleep Talk, Natural Gift, Swagger, Substitute,
+          Heavy Slam, Scald, Bulldoze, High Horsepower, Liquidation, Body Press, Flip Turn,
+          Surf, Strength, Whirlpool, Waterfall]
   # moves a move tutor can teach it
   tutor: [Aqua Tail, Body Slam, Curse, Earth Power, Iron Head, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line

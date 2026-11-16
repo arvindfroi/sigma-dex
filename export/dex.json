@@ -26815,9 +26815,9 @@
       "weight_kg": 316,
       "body_color": "gray",
       "abilities": {
-        "primary": "Sand Force",
+        "primary": "Flash Fire",
         "secondary": "Steam Engine",
-        "hidden": "Flash Fire"
+        "hidden": "Sand Force"
       },
       "base_stats": {
         "hp": 90,
@@ -27064,7 +27064,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:68",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/slamquake.json",
         "cry": "assets/cries/slamquake.json"
       },
       "engine": {
@@ -37223,9 +37223,9 @@
       },
       "base_stats": {
         "hp": 88,
-        "attack": 128,
+        "attack": 125,
         "defense": 80,
-        "sp_attack": 112,
+        "sp_attack": 115,
         "sp_defense": 80,
         "speed": 112
       },
@@ -37525,7 +37525,7 @@
     },
     {
       "dex": 149,
-      "name": "Bergflabbser",
+      "name": "Bergflabb",
       "credits": {
         "designer": "Emil Venge-Kvamme",
         "artist": null
@@ -37653,6 +37653,7 @@
           "Protect",
           "Rain Dance",
           "Frustration",
+          "Thunder",
           "Earthquake",
           "Return",
           "Dig",
@@ -37663,6 +37664,7 @@
           "Rest",
           "Endure",
           "Giga Impact",
+          "Flash",
           "Stone Edge",
           "Stealth Rock",
           "Rock Slide",
@@ -37680,9 +37682,7 @@
           "Surf",
           "Strength",
           "Whirlpool",
-          "Waterfall",
-          "Thunder",
-          "Flash"
+          "Waterfall"
         ],
         "tutor": [
           "Aqua Tail",
@@ -39753,20 +39753,20 @@
       "weight_kg": 40,
       "body_color": "yellow",
       "abilities": {
-        "primary": "Blaze",
+        "primary": "Fire Mane",
         "secondary": null,
-        "hidden": null
+        "hidden": "Intimidate"
       },
       "base_stats": {
         "hp": 45,
-        "attack": 55,
+        "attack": 40,
         "defense": 55,
-        "sp_attack": 40,
-        "sp_defense": 40,
-        "speed": 35
+        "sp_attack": 55,
+        "sp_defense": 45,
+        "speed": 60
       },
       "ev_yield": {
-        "attack": 1
+        "speed": 1
       },
       "catch_rate": 45,
       "base_exp": 54,
@@ -39950,7 +39950,6 @@
           "TM/HM moves",
           "tutor moves",
           "egg moves",
-          "EV yield",
           "catch rate",
           "base exp",
           "growth rate",
@@ -39965,7 +39964,6 @@
           "TM/HM moves": 77,
           "tutor moves": 67,
           "egg moves": 67,
-          "EV yield": 85,
           "catch rate": 90,
           "base exp": 85,
           "growth rate": 90,
@@ -40014,17 +40012,17 @@
       "weight_kg": 100,
       "body_color": "yellow",
       "abilities": {
-        "primary": "Flash Fire",
+        "primary": "Fire Mane",
         "secondary": null,
         "hidden": "Intimidate"
       },
       "base_stats": {
         "hp": 65,
-        "attack": 80,
-        "defense": 85,
-        "sp_attack": 65,
-        "sp_defense": 50,
-        "speed": 45
+        "attack": 60,
+        "defense": 70,
+        "sp_attack": 90,
+        "sp_defense": 60,
+        "speed": 75
       },
       "ev_yield": {
         "defense": 2

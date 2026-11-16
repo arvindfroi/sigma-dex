@@ -18,3 +18,9 @@ const u16 gMonShinyPalette_Torchbat[] = INCGFX_U16("graphics/pokemon/sigma/torch
 const u8 gMonIcon_Torchbat[] = INCGFX_U8("graphics/pokemon/sigma/torchbat/icon.png", ".4bpp");
 const u32 gMonBackPic_Torchbat[] = INCGFX_U32("graphics/pokemon/sigma/torchbat/back.png", ".4bpp.smol");
 
+const u32 gMonFrontPic_Bergflabb[] = INCGFX_U32("graphics/pokemon/sigma/bergflabbser/anim_front.png", ".4bpp.smol");
+const u16 gMonPalette_Bergflabb[] = INCGFX_U16("graphics/pokemon/sigma/bergflabbser/normal.pal", ".gbapal");
+const u16 gMonShinyPalette_Bergflabb[] = INCGFX_U16("graphics/pokemon/sigma/bergflabbser/shiny.pal", ".gbapal");
+const u8 gMonIcon_Bergflabb[] = INCGFX_U8("graphics/pokemon/sigma/bergflabbser/icon.png", ".4bpp");
+const u32 gMonBackPic_Bergflabb[] = INCGFX_U32("graphics/pokemon/sigma/bergflabbser/back.png", ".4bpp.smol");
+

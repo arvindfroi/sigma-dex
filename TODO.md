@@ -36,7 +36,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Art | back sprite | 4 / 162 |
 | Art | icon | 4 / 162 |
 | Art | footprint | 142 / 162 |
-| Art | shiny palette | 18 / 162 |
+| Art | shiny palette | 19 / 162 |
 | Art | cry | 8 / 162 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
@@ -756,12 +756,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #105 [Slamquake](data/species/slamquake.yaml) - 69%
+### #105 [Slamquake](data/species/slamquake.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #106 [Limulk](data/species/limulk.yaml) - 66%
 
@@ -1077,7 +1077,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #149 [Bergflabbser](data/species/bergflabbser.yaml) - 90%
+### #149 [Bergflabb](data/species/bergflabbser.yaml) - 90%
 
 - **Location:** encounters
 - **Art:** shiny palette, cry

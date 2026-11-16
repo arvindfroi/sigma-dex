@@ -113,7 +113,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 102 | [Terratyson](data/species/gaiafinn.yaml) | Ground / Fighting | Iron Fist, Sand Force, Sand Rush (H) | 508 |  | 69% |
 | 103 | [Obsidog](data/species/obsidog.yaml) | Dark / Rock | Guard Dog, Intimidate, Rough Skin (H) | 340 | Geronimok (Dusk Stone) | 66% |
 | 104 | [Geronimok](data/species/obsidog-utvikling.yaml) | Dark / Rock | Guard Dog, Intimidate, Rough Skin (H) | 555 |  | 76% |
-| 105 | [Slamquake](data/species/slamquake.yaml) | Steel / Ground | Sand Force, Steam Engine, Flash Fire (H) | 500 |  | 69% |
+| 105 | [Slamquake](data/species/slamquake.yaml) | Steel / Ground | Flash Fire, Steam Engine, Sand Force (H) | 500 |  | 72% |
 | 106 | [Limulk](data/species/limulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 369 | Mortbulk (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 66% |
 | 107 | [Mortbulk](data/species/mortbulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 490 |  | 66% |
 | 108 | [Phantomb](data/species/phantomb.yaml) | Ghost / Flying | Disguise | 280 | Phantail (Lv 40) | 66% |
@@ -157,7 +157,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 146 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 300 | Greation (Lv 30) | 66% |
 | 147 | [Greation](data/species/greation.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 422 | Ultragon (Lv 55) | 66% |
 | 148 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 600 |  | 66% |
-| 149 | [Bergflabbser](data/species/bergflabbser.yaml) | Water / Ground | Primordial Sea | 680 |  | 90% |
+| 149 | [Bergflabb](data/species/bergflabbser.yaml) | Water / Ground | Primordial Sea | 680 |  | 90% |
 | 150 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician (H) | 680 |  | 72% |
 | 151 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground | Lullaby | 600 |  | 66% |
 | 152 | [Apeshii](data/species/apeshit.yaml) | Normal / Fighting |  | 290 | Julius (Lv 15) | 31% |
@@ -206,8 +206,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 195 | *open slot* | | | | | |
 | 196 | *open slot* | | | | | |
 | 197 | *open slot* | | | | | |
-| 198 | [Santrock](data/species/santrock.yaml) | Fire / Rock | Blaze | 270 | Cindreon (Lv 30) | 72% |
-| 199 | [Cindreon](data/species/cindreon.yaml) | Fire / Rock | Flash Fire, Intimidate (H) | 390 | Custodix (Lv 55) | 72% |
+| 198 | [Santrock](data/species/santrock.yaml) | Fire / Rock | Fire Mane, Intimidate (H) | 300 | Cindreon (Lv 30) | 72% |
+| 199 | [Cindreon](data/species/cindreon.yaml) | Fire / Rock | Fire Mane, Intimidate (H) | 420 | Custodix (Lv 55) | 72% |
 | 200 | [Custodix](data/species/custodix.yaml) | Fire / Rock | Fire Mane, Drought, Intimidate (H) | 600 |  | 72% |
 | 201 | *open slot* | | | | | |
 | 202 | *open slot* | | | | | |
