@@ -1083,3 +1083,8 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - **Budget:** sky 190128 + pagoda 69152 = 259280 of 262144 bytes of texture VRAM. All 453 strips are placed in all six shots.
   - **Build:** `tex_views.py pt20 mv/views pv9sky3` (LAYOUT=sky3) and `pv9mid2` (LAYOUT=mid2), then `build_sab31.sh legend/sab3d/pv9sky3 legend/sab3d/pv9mid2 v32c 0 0`.
   - **Result:** ROM `legend_test/jump_hooh2_v32c.nds`. sha256 prefixes: film `4ed278a0b45621a8`, ROM `a43e929657231028`. Videos `sabertann_3d_filmen_v32_halv_fart.mp4` and `sabertann_3d_filmen_v32.mp4`. Stills `sabertann_v32_tenner_i_spillet.png` and `sabertann_v32_hodet_modell.png`.
+- **Sabertann v32 LOCKED (2026-11-17)** (Arvind: "nice det er bra det! lås den du").
+  - **Locked copy:** `~/sigma-origin/title3d/legend/sab3d/locked_v32/`. It holds the film file (`a243_sabertann_v32.bin`), the test ROM and its base `base_hover.nds`, the model `pt20.json` (with the tusks; from `pt19r.json`), the texture sets `pv9sky3`/`pv9mid2`, `bones_run19.json`, the scripts as built and `SHA256SUMS`.
+  - **sha256 prefixes:** film `4ed278a0b45621a8`, ROM `a43e929657231028`, pt20.json `4637ac79533a09bf`.
+  - **Build:** as in the v32 entry, at commit 1e28e9d.
+  - **For the final game:** the film is 553792 bytes, bigger than its slot. The ROM build must place a/2/4/3 freely (dsrom does; the test ROM relocates it). The field sprite (`a/0/8/1` 210, `eyes_fix2`) and the hover patch (ov002) are separate patches, in `base_hover.nds`.
