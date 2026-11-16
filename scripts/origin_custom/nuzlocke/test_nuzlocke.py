@@ -262,17 +262,22 @@ if __name__ == '__main__' and sys.argv[1] == 'b3':
 def step_b3(h):
     edit_lead_fragile(h)
     print('party before battle 3', party(h), 'box 24', pc_box(h, 23)[0][:3])
-    log = single_battle(h)
-    print('wild 3', log.rows[-1]['species'])
-    for t in range(15):
-        try:
-            st = h.battle_turn(0)
-        except RuntimeError:
-            st = 'prompt'
-        if st != 'menu':
+    shots = []
+    for attempt in range(4):          # until the 1-HP lead really faints (a wild Pokemon may flee first)
+        log = single_battle(h)
+        print('wild 3', log.rows[-1]['species'])
+        st = 'menu'
+        for t in range(15):
+            try:
+                st = h.battle_turn(0)
+            except RuntimeError:
+                st = 'prompt'
+            if st != 'menu':
+                break
+        print('battle 3 turn', t, st)
+        if st == 'prompt':
             break
-    print('battle 3 turn', t, st)
-    shots = [h.screenshot('f0')]
+    shots.append(h.screenshot('f0'))
     h.touch(190, 28, frames=10, after=90)     # the second Pokemon
     h.touch(128, 108, frames=10, after=60)    # SHIFT
     h.run_until(lambda h: h.on_screen('battle_menu'), 1800, every=15)
@@ -393,7 +398,37 @@ if __name__ == '__main__' and sys.argv[1] == 'hc':
     if r == 'menu': h.flee(battle_menu_wait=10)
     print('after battle 1', party(h), nz_state(h))
     step_b2(h)
+    print('AI flags after a battle: 0x2C2 =', h.get_flag(0x2C2), '0x2C3 =', h.get_flag(0x2C3))
     step_b3(h)
-    shots.append(open_pc_box24(h, 'hc_pc'))
+    h.field_menu('save')
+    for i in range(6):
+        h.press('A', after=200)
+    h.step(300)
+    h.emu.backup.export_file(str(OUT / 'hc_after.sav'))
     sheet(shots, 'hc_round.png', cols=4)
+    h.close()
+
+if __name__ == '__main__' and sys.argv[1] == 'pcclose':
+    # from the battery saved at the end of 'hc': withdraw the dead Pokemon from GRAVES, close the PC
+    h = E.Harness(str(ROM), str(OUT / 'start.sav'), out=str(OUT), verbose=False)
+    h.load_state(str(OUT / 'after_b3.dst'))          # right after battle 3 of 'hc' (same ROM build)
+    h.step(30)
+    print('before: party', party(h), 'box 24', pc_box(h, 23)[0][:3])
+    h.run_script(program=E.script_bytes(("LockAll",), ("ScrCmd_158", int(sys.argv[2]) if len(sys.argv) > 2 else 1),
+                                        ("ReleaseAll",), ("End",)), settle=400)
+    shots = [h.screenshot('w0')]
+    h.touch(13, 27, frames=8, after=120)             # box 24
+    h.touch(22, 52, frames=8, after=90)              # the dead Pokemon
+    shots.append(h.screenshot('w1'))
+    h.touch(214, 76, frames=8, after=150)            # WITHDRAW
+    shots.append(h.screenshot('w2'))
+    print('in the PC after withdraw: party', party(h), 'box 24', pc_box(h, 23)[0][:3])
+    h.touch(222, 180, frames=8, after=150)           # RETURN
+    shots.append(h.screenshot('w3'))
+    h.touch(224, 112, frames=8, after=150)           # "Exit the Box?" YES
+    h.run_until(lambda h: h.in_field(), 1200, every=20)
+    h.step(120)
+    shots.append(h.screenshot('w_end'))
+    print('after the PC closed: party', party(h), 'box 24', pc_box(h, 23)[0][:3])
+    sheet(shots, 'pc_close.png', cols=4)
     h.close()

@@ -71,6 +71,18 @@ Arvind (2026-11-11): "andre har jobbet mye med slike greier i det siste så om v
   nuzlocke. Gravriel is the hard one, with two modes to pick: Nuzlocke and Hardcore Nuzlocke (healing-item rules in
   battle, forced nicknames, level cap). Not grindy: Exp Share stays on, and the usual hardcore-hack QoL comes in (Move
   Deleter, PC anywhere, auto-run). The nuzlocke code is our own (nobody owns the idea); other hacks only show how.
+- **Gravriel's two modes (Arvind, 2026-11-16):** the player picks **Hard** (normal Nuzlocke) or **Hardcore**
+  (Hardcore Nuzlocke) at the start. Both turn on the advanced trainer AI for every trainer (ALL). Hardcore forces the
+  English patch's level cap (CAP) on, ITEMS DEFAULT and battle style SET, and allows no Bag items in battle except
+  Poke Balls. Day Care may go past the cap (Arvind: fine). Dead Pokemon may be moved around in the PC, as long as
+  they cannot be used: one taken into the party goes back to GRAVES when the PC closes. Built and tested:
+  `scripts/origin_custom/nuzlocke/README.md`.
+- **Harder trainers in Gravriel (Arvind):** some trainers get bigger teams and higher levels, and the level cap may
+  be lower; but Hardcore Nuzlocke is hard already, so it must never become impossible. The two versions are two
+  separate ROMs, so Gravriel can simply have its own trainer data and its own cap table (no switch in the game).
+- **Special revive (Arvind, idea):** once in the Gravriel version, at a special story moment, one dead Pokemon can be
+  brought back, e.g. when we meet the freed Meowthree and he thanks us by offering to heal one Pokemon. Needs a small
+  script command of ours: pick one from GRAVES, clear its dead mark, give it back healed.
 - **Hall of Fame on Hardcore:** maybe a special badge. Gen 4 Pokemon have ribbons on the summary page and some ribbon
   slots are unused, so a "Gravriel ribbon" with its own name and picture can work.
 - **Trainer AI:** the advanced trainer AI (EN repo, from the Spanish translation) is built into rc8 for our tests and

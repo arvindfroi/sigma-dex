@@ -6,7 +6,9 @@
  *   - Graveyard: after a battle every fainted Pokemon is marked dead and leaves the party for the last PC box
  *     ("GRAVES": box names hold 8 letters), where its icon is grey. A wiped party moves nothing (the blackout decides).
  *   - No revives: Revive, Max Revive, Revival Herb and Sacred Ash are refused in battle and on the party screen.
- * Hardcore only:
+ *   - Dead Pokemon cannot be used: one taken from the PC into the party goes back to GRAVES when the PC closes.
+ *   - Gravriel turns on the advanced trainer AI for every trainer (ALL) before every battle.
+ * Gravriel offers two modes: Hard (mode 1, nuzlocke) and Hardcore (mode 2). Hardcore also:
  *   - The difficulty options are forced before every battle: level CAP on, ITEMS DEFAULT, battle style SET.
  *   - No Bag items in battle except Poke Balls.
  *   - Rare Candy is refused on a Pokemon at or above the level cap.
@@ -38,6 +40,9 @@ typedef unsigned int u32;
 #define Profile_HasBadge     GAME(0x02029428, u32, void *profile, u32 badge)
 #define Save_GetVars         GAME(0x0204F858, void *, void *save)
 #define Vars_GetFlag         GAME(0x0204F864, u32, void *vars, u32 flag)
+#define Vars_SetFlag         GAME(0x0204F890, void, void *vars, u32 flag)
+#define Vars_ClearFlag       GAME(0x0204F8B8, void, void *vars, u32 flag)
+#define PcClosed_Original    GAME(0x020926B8, void, void *fs)                    /* US sub_02093070 */
 
 #define MON_DATA_DEAD 53            /* MON_DATA_UNUSED_RIBBON_53: our "died in a nuzlocke" mark */
 #define MON_DATA_IS_EGG 76
@@ -53,6 +58,8 @@ typedef unsigned int u32;
 #define MSG_NO_ITEMS 0x32           /* battle Bag text bank 5, added by the build script */
 #define MSG_NO_REVIVE 0x33
 
+#define AI_FLAG_ON 0x2C2             /* advanced trainer AI: ALL = 0x2C2 set and 0x2C3 clear (KEY = both set) */
+#define AI_FLAG_KEY 0x2C3
 #define OPT_CAP_ON 0x0008           /* Options word: the English patch's difficulty bits and battle style */
 #define OPT_ITEMS_ALL 0x0020
 #define OPT_STYLE_SET 0x0040
@@ -134,6 +141,11 @@ void nz_on_battle_setup(void *save)
 {
     struct nz_state *st = nz_get(save);
     nz_battle_mode = st->mode;
+    if (st->mode) {                 /* any Gravriel mode: advanced trainer AI for every trainer */
+        void *vars = Save_GetVars(save);
+        Vars_SetFlag(vars, AI_FLAG_ON);
+        Vars_ClearFlag(vars, AI_FLAG_KEY);
+    }
     if (st->mode == 2) {
         u16 *opt = Save_GetOptions(save);
         *opt = (u16)((*opt | OPT_CAP_ON | OPT_STYLE_SET) & ~OPT_ITEMS_ALL);
@@ -244,5 +256,27 @@ void nz_battle_end(void *setup, u8 *fs)
             st->deaths++;
             nz_name_graveyard(pc);
         }
+    }
+}
+
+/* Replaces the call at the end of the PC (script command 158) that closes the box app. A dead Pokemon in the party
+   goes back to GRAVES. The party never ends up empty: if only dead ones are left, the last stays, fainted. */
+void nz_pc_closed(u8 *fs)
+{
+    PcClosed_Original(fs);
+    void *save = *(void **)(fs + FS_SAVE);
+    struct nz_state *st = nz_get(save);
+    if (!st->mode)
+        return;
+    void *party = SaveArray_Party_Get(save), *pc = SaveArray_PC_Get(save);
+    static const u32 zero = 0;
+    for (int i = Party_GetCount(party) - 1; i >= 0; i--) {
+        void *mon = Party_GetMon(party, i);
+        if (!GetMonData(mon, MON_DATA_DEAD, 0))
+            continue;
+        if (Party_GetCount(party) > 1 && PC_PlaceInBox(pc, GRAVEYARD_BOX, mon))
+            Party_RemoveMon(party, i);
+        else
+            SetMonData(mon, MON_DATA_HP, &zero);
     }
 }

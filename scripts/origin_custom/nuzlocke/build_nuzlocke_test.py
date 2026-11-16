@@ -7,6 +7,7 @@ new ARM9 autoload section, lowers the main arena end to make room, and patches:
   arm9 0x0204FBB8   battle end, party copied back      bl nz_battle_end        (was bl 0x02051574)
   arm9 0x02051278   every field battle is set up       bl nz_hook_setup        (was bl 0x02051074)
   arm9 0x0207A8E6   party screen, item on a Pokemon    bl nz_hook_party_item   (was bl 0x0208FA38)
+  arm9 0x02042050   the PC closes (script cmd 158)     bl nz_pc_closed         (was bl 0x020926B8)
   ov9  0x021EB2A4   battle Bag, Use (any item)         adds r7,r0,#0 ; bl nz_bag_use
   ov9  0x021EB3D6   battle Bag, Use on a Ball          bl nz_ball_check        (was the "aim" flag test)
   ov16 0x021F211C   PC box loaded its icon palettes    bl nz_hook_pc_palettes  (was bl 0x020731FC)
@@ -103,7 +104,8 @@ def build_code(name_codes, grey, mode):
     data = image.read_bytes()
     assert REGION + len(data) <= REGION_END, "code too big: %d bytes" % len(data)
     for sym in ("nz_hook_wild", "nz_battle_end", "nz_hook_setup", "nz_hook_party_item", "nz_bag_use",
-                "nz_ball_check", "nz_hook_pc_palettes", "nz_icon_palette", "nz_no_catch", "nz_battle_mode"):
+                "nz_ball_check", "nz_hook_pc_palettes", "nz_icon_palette", "nz_no_catch", "nz_battle_mode",
+                "nz_pc_closed"):
         assert REGION <= syms[sym] < REGION + len(data), sym
     return data, syms, elf
 
@@ -142,6 +144,7 @@ def main(src, out, mode=1):
     patch_bl(m, A, 0x0204FBB8, 0x02051574, syms["nz_battle_end"], "battle end copy-back")
     patch_bl(m, A, 0x02051278, 0x02051074, syms["nz_hook_setup"], "field battle setup")
     patch_bl(m, A, 0x0207A8E6, 0x0208FA38, syms["nz_hook_party_item"], "party screen item check")
+    patch_bl(m, A, 0x02042050, 0x020926B8, syms["nz_pc_closed"], "PC closed")
     patch(m, A, 0x0202B2D0, bytes.fromhex("802c"), bytes.fromhex("1f2c"), "apricorn loop (daily)")
     patch(m, A, 0x0202B332, bytes.fromhex("802b"), bytes.fromhex("1f2b"), "apricorn loop (refill)")
     arm9.sections.append(ndspy.code.MainCodeFile.Section(code, REGION, 0))
