@@ -1133,3 +1133,19 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - Videos: `gravriel_overworld_v2_halv_fart.mp4` and `gravriel_overworld_v2.mp4`, and `gravriel_ritual_soulsilver_vei_v2.mp4`.
     - Stills: `gravriel_overworld_v2_mot_lugia_og_sabertann.png` and `gravriel_overworld_v2_i_spillet.png`.
   - **ComfyUI:** it had stopped on the Legion. The sprite worker was restarted with `start_worker.ps1`, and ComfyUI was started detached (Win32_Process Create of `start_comfyui.bat`).
+- **Gravriel's overworld sprite v3 (2026-11-17): a real beat, and the green ghost in the eye glimmer** (Arvind on v2: "the animation is a bit lazy" next to Lugia, Ho-Oh and even Sabertann; the eye glimmer "must match his colour, maybe the green ghost form").
+  - **Poses** (`grav3d/ow_qwen/anim_edit.py base_v2.png OUT SEEDS`): Qwen-Image-Edit redraws the finished v2 pixel sprite on its own grid (`scripts/ds_pixel.edit`) in each pose. The poses are arms high (cutlass up), half up, swept down (coat flaring), coming back up, landed (arms at his sides, cutlass hanging, coat straight) and the cry (beak open, arms thrown up, cutlass high).
+    - The first run let the body shrink and move with the arms. The second run (`KEEP_BODY`) adds: only the arms, the cutlass and the coat's hem change; head, hat, face, beard and body stay put.
+  - **Frames** (`anim_frames.py`), in Lugia's order:
+    - 1 arms high, 2 half up, 3 level (the v2 sprite), 4 swept down, 5 coming back up, 6 landed, 7 the cry.
+    - All frames use one palette (nearest v2 colour in Lab).
+    - Each frame is aligned to the base by the head (rows 0-20, best shift), not by the eyes, which Qwen sometimes greys.
+    - The base's glowing eyes are pasted into frames 1-6; in the cry they flare white with a cyan rim.
+    - A lift of 0/0/1/2/1 px on the stroke.
+  - **Eye glimmer** (`ow_glimmer.py`, `GHOST=1`): eye.1-6 now show his green ghost. The 8 colour slots of each A5I3 palette are the film's ghost colour (0.35l+10, 1.05l+60, 0.8l+44) at 8 brightness levels, getting lighter like Lugia's tints (gain 0.62 / 0.8 / 1.0). Each pixel takes the level of the sprite's own brightness, so hat, beard and arms show in green. Lugia's alpha ramp stays. The poses are frames 1 (arms up) and 3, and the glints stay his cyan owl eyes.
+  - **Files:**
+    - Test ROM: `legend_test/jump_lug_ow7.nds` (sha256 prefix `859a728f157a88dc`).
+    - Data: `title3d/legend/grav3d/ow_qwen/` (anim1, anim2, frames_v3, the written files, SHA256SUMS).
+    - Videos: `gravriel_overworld_v3_halv_fart.mp4` and `gravriel_overworld_v3.mp4`, and `gravriel_ritual_soulsilver_vei_v3.mp4`.
+    - `gravriel_overworld_v3_animasjon.gif` shows Lugia, Sabertann and Gravriel side by side.
+    - Stills: `gravriel_overworld_v3_mot_lugia.png` and `gravriel_overworld_v3_i_spillet.png`.

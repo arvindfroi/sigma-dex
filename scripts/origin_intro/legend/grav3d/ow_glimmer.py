@@ -26,20 +26,36 @@ ys, xs = np.nonzero(np.isin(f[1], eyecol) & (np.arange(64)[:, None] < 30)); ecx,
 # eye spacing: the two clusters
 left = xs < ecx; sep = xs[~left].mean() - xs[left].mean()
 SC = E('SCALE', 1.4); CX, CY = 31.5, 30.7
+GHOST = os.environ.get('GHOST', '1') == '1'          # v3 (Arvind: "match his colour, maybe the green ghost form"): 8 green tones
+P1 = np.vstack([[0, 0, 0], pal]); LUMP = P1 @ np.array([0.3, 0.55, 0.15])
 def silhouette(fr):
-    m = fr > 0; out = np.zeros((64, 64), bool)
+    m = fr > 0; out = np.zeros((64, 64), bool); lv = np.zeros((64, 64), np.uint8)
     yy, xx = np.mgrid[0:64, 0:64]; sx = ecx + (xx - CX) / SC; sy = ecy + (yy - CY) / SC
     ok = (sx >= 0) & (sx < 64) & (sy >= 0) & (sy < 64); out[ok] = m[sy[ok].astype(int), sx[ok].astype(int)]
+    src = np.zeros((64, 64)); src[ok] = LUMP[fr[sy[ok].astype(int), sx[ok].astype(int)]]
     out = ndimage.binary_closing(out, iterations=1)
     dist = ndimage.distance_transform_edt(np.pad(out, 1))[1:-1, 1:-1]
-    return np.where(out, np.clip(4 * dist - 2, 1, 19), 0).astype(np.uint8)          # Lugia's ramp: 2, 6, 10, 14, 18, 19
+    al = np.where(out, np.clip(4 * dist - 2, 1, 19), 0).astype(np.uint8)          # Lugia's ramp: 2, 6, 10, 14, 18, 19
+    if GHOST:                                          # his own light and dark inside the ghost: 8 levels by the sprite's brightness
+        v = src[out & (src > 0)]; q = np.percentile(v, np.linspace(0, 100, 9)[1:-1]) if len(v) else np.zeros(7)
+        lv[out] = np.searchsorted(q, src[out]).clip(0, 7)
+        lv[out & (src == 0)] = 0
+    return al, lv
 POSE = {1: int(E('POSE_A', 1)), 2: int(E('POSE_B', 3))}
 sil = {k: silhouette(f[POSE[k]]) for k in (1, 2)}
+def ghost(l, gain):                                    # the film's ghost colour (rig_lugia: 0.35l+10, 1.05l+60, 0.8l+44)
+    return np.clip(np.array([0.35 * l + 10, 1.05 * l + 60, 0.8 * l + 44]) * gain, 0, 248)
+STAGE = {1: 0.62, 2: 0.62, 3: 0.8, 4: 0.8, 5: 1.0, 6: 1.0}  # darker -> lighter like Lugia's three tints
 for x in t['texs']:
     off = (x['param'] & 0xffff) << 3
     if x['name'].startswith('eye.'):
-        n = int(x['name'][4:]); a = sil[1 if n % 2 else 2]; assert x['fmt'] == 6 and x['w'] == 64
-        d[bo + tbo + off:bo + tbo + off + 4096] = bytes((a.astype(np.uint8) << 3).ravel())       # colour index 0 (the tint), alpha
+        n = int(x['name'][4:]); a, lv = sil[1 if n % 2 else 2]; assert x['fmt'] == 6 and x['w'] == 64
+        d[bo + tbo + off:bo + tbo + off + 4096] = bytes(((a.astype(np.uint8) << 3) | (lv if GHOST else 0)).ravel())   # alpha, colour index
+        if GHOST:
+            pl = P[x['name'] + '_pl']; po = bo + pbo + pl['off']
+            for j in range(8):
+                c = ghost(20 + j * 24, STAGE[n]); v = int(c[0]) >> 3 | (int(c[1]) >> 3) << 5 | (int(c[2]) >> 3) << 10
+                d[po + 2 * j:po + 2 * j + 2] = v.to_bytes(2, 'little')
     elif x['name'] in ('de_ao_e7.1', 'de_ao_e7.2'):
         # round owl eyes, heavy lids drooping outward; 3 = bright core, 2 = glow, 1 = rim; at his spacing in plane px
         gs = sep * SC * 1.055 / 18 * 32; g = np.zeros((32, 32), np.uint8)
