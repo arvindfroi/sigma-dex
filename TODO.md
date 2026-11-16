@@ -16,9 +16,9 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | height | 162 / 162 |
 | Dex page | weight | 162 / 162 |
 | Dex page | body color | 143 / 162 |
-| Stats | base stats | 157 / 162 |
-| Stats | ability | 157 / 162 |
-| Stats | EV yield | 154 / 162 |
+| Stats | base stats | 158 / 162 |
+| Stats | ability | 158 / 162 |
+| Stats | EV yield | 155 / 162 |
 | Stats | catch rate | 143 / 162 |
 | Stats | base exp | 143 / 162 |
 | Stats | growth rate | 143 / 162 |
@@ -43,9 +43,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 78 / 162 |
-| DS back sprite 80x80 | 79 / 162 |
-| DS icon 32x32 | 80 / 162 |
+| DS front sprite 80x80 | 96 / 162 |
+| DS back sprite 80x80 | 96 / 162 |
+| DS icon 32x32 | 96 / 162 |
 
 ## Open dex slots (92)
 
@@ -1103,10 +1103,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #153 [Iron Bulb](data/species/iron-wire.yaml) - 21%
+### #153 [Iron Bulb](data/species/iron-wire.yaml) - 31%
 
 - **Dex page:** category, description, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
