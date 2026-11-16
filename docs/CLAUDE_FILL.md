@@ -67,7 +67,7 @@ not show these changes; the commit does.
 
 Arvind: "maybe a person did 10 % and you 80 %, I want to see that". The list's **Done** bar is green for what
 people filled in and purple for Claude (hover shows both numbers; "Sort: most done by people / by AI" sorts by
-them). Separate People and AI columns were tried and taken out the same day: "the green-purple bar is enough", and each Pokemon's INFO tab shows the same split under "% filled in", plus every field Claude filled in
+them). Separate People and AI columns were tried and taken out the same day ("we only need the green-purple bar"). Each Pokemon's INFO tab shows the same split under "% filled in", plus every field Claude filled in
 with how sure it is (red under 50, yellow 50-74, green 75 and up; the filter "Claude is unsure about something"
 lists them).
 
