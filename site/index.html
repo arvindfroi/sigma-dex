@@ -779,12 +779,9 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .cov { display: inline-flex; align-items: center; gap: 2px; font-size: 13px; margin: 2px 6px 2px 0; }
 .cov.good { font-weight: 700; } .cov.bad { opacity: .6; }
 @media (max-width: 900px) { .tedit { grid-template-columns: 1fr; } .tslots { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.donebar { position: relative; display: inline-block; width: 52px; height: 14px; background: var(--line); vertical-align: middle; }
+.donebar { position: relative; display: inline-block; width: 72px; height: 14px; background: var(--line); vertical-align: middle; }
 .donebar i { position: absolute; inset: 0 auto 0 0; background: var(--good); opacity: .55; }
 .donebar i.ai, .meter2 i.ai { background: var(--pri); opacity: .45; }
-.dexlist td.ppl { color: var(--good); } .dexlist td.aipct { color: var(--pri); }
-:root[data-theme="dark"] .dexlist td.aipct { color: #b9a6ff; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .dexlist td.aipct { color: #b9a6ff; } }
 .meter2 { position: relative; height: 9px; max-width: 320px; background: #3a3450; box-shadow: 0 0 0 2px var(--panel), 0 0 0 4px var(--edge); margin: 6px 3px 2px; }
 .meter2 i { position: absolute; top: 0; bottom: 0; left: 0; background: linear-gradient(180deg, #a8f0a0 0 3px, #58c058 3px); }
 .meter2 i.ai { background: linear-gradient(180deg, #c9b8ff 0 3px, #8a6ee0 3px); opacity: 1; }
@@ -793,7 +790,7 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .who .p::before { background: #58c058; } .who .a::before { background: #8a6ee0; }
 .sure { display: inline-block; padding: 1px 6px; margin: 2px 4px 2px 0; border: 2px solid var(--line); font-size: 13px; }
 .sure.hi { border-color: var(--good); } .sure.mid { border-color: var(--gold); } .sure.lo { border-color: var(--bad); }
-.donebar b { position: relative; font-size: 11px; font-weight: 400; padding-left: 3px; }
+.donebar b { position: relative; display: block; text-align: left; line-height: 14px; font-size: 11px; font-weight: 400; padding-left: 3px; }
 .evopage { display: grid; gap: 10px; }
 .evoline { background: var(--panel); border: 2px solid var(--line); padding: 10px; overflow-x: auto; }
 .evosingles { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -5273,7 +5270,7 @@ function renderEvolutions() {
 let layout = remember.get("layout") || "list";
 let listSort = {key: "dex", dir: 1};
 const LIST_COLS = [["dex", "#"], ["name", "Name"], ["types", "Types"], ["abilities", "Abilities"], ["hidden", "Hidden"],
-  ...STATS.map(([k, label]) => [k, label.replace("Sp. Atk", "SpA").replace("Sp. Def", "SpD").replace("Attack", "Atk").replace("Defense", "Def").replace("Speed", "Spe")]), ["bst", "BST"], ["complete", "Done"], ["people", "People"], ["claude", "AI"]];
+  ...STATS.map(([k, label]) => [k, label.replace("Sp. Atk", "SpA").replace("Sp. Def", "SpD").replace("Attack", "Atk").replace("Defense", "Def").replace("Speed", "Spe")]), ["bst", "BST"], ["complete", "Done"]];
 function listValue(s, key) {
   const d = s.data, st = d.base_stats || {}, ab = d.abilities || {};
   if (key === "dex") return d.dex;
@@ -5297,9 +5294,9 @@ function doneBar(s) {
 function renderList(list) {
   const {key, dir} = listSort;
   list = list.slice().sort((a, b) => { const x = listValue(a, key), y = listValue(b, key); return (x > y ? 1 : x < y ? -1 : a.data.dex - b.data.dex) * dir; });
-  const head = h("tr", {}, h("th", {}, ""), LIST_COLS.map(([k, label]) => h("th", {class: STATS.some(([sk]) => sk === k) || ["bst", "complete", "people", "claude"].includes(k) ? "num" : null,
+  const head = h("tr", {}, h("th", {}, ""), LIST_COLS.map(([k, label]) => h("th", {class: STATS.some(([sk]) => sk === k) || ["bst", "complete"].includes(k) ? "num" : null,
     "aria-sort": key === k ? (dir > 0 ? "ascending" : "descending") : null, title: "Sort by " + label,
-    onclick: () => { listSort = key === k ? {key: k, dir: -dir} : {key: k, dir: STATS.some(([sk]) => sk === k) || ["bst", "complete", "people", "claude"].includes(k) ? -1 : 1}; document.getElementById("sort").value = ""; render(); }},
+    onclick: () => { listSort = key === k ? {key: k, dir: -dir} : {key: k, dir: STATS.some(([sk]) => sk === k) || ["bst", "complete"].includes(k) ? -1 : 1}; document.getElementById("sort").value = ""; render(); }},
     label + (key === k ? (dir > 0 ? " \u25b4" : " \u25be") : ""))));
   const stat = v => h("td", {class: "num" + (v >= 0 && v < 50 ? " stat-lo" : v >= 110 ? " stat-hi" : "")}, v >= 0 ? String(v) : "\u2014");
   const rows = list.map(s => {
@@ -5312,8 +5309,7 @@ function renderList(list) {
       h("td", {class: "ab"}, [ab.primary, ab.secondary].filter(filled).join(" / ") || "\u2014"),
       h("td", {class: "ab"}, ab.hidden || "\u2014"),
       STATS.map(([k]) => stat(listValue(s, k))), h("td", {class: "num bst"}, s.bst !== null ? String(s.bst) : "\u2014"),
-      h("td", {class: "num"}, doneBar(s)),
-      h("td", {class: "num ppl"}, s.byPeople + "%"), h("td", {class: "num aipct"}, s.byClaude + "%"));
+      h("td", {class: "num"}, doneBar(s)));
   });
   const grid = document.getElementById("grid");
   grid.append(h("div", {class: "scroll", style: "grid-column:1/-1"}, h("table", {class: "dexlist"}, h("thead", {}, head), h("tbody", {}, rows))));
