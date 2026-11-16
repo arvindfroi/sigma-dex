@@ -80,7 +80,8 @@ Arvind (2026-11-11): "andre har jobbet mye med slike greier i det siste så om v
 - **Scripted villain wipe (script only):** Origin already has 60 story battles you are allowed to lose
   (`TrainerBattle x,0,1,0` and then `CheckBattleWon`, e.g. Blue in Pewter): no blackout, the scene goes on. The
   villain gets a team far too strong; on the loss the screen fades to black with "SIGMA blacked out...", then he breaks
-  the fourth wall, heals your team and mocks you (Arvind: like Thor: Ragnarok). Arvind: develop this further.
+  the fourth wall, heals your team and mocks you (Arvind: like Thor: Ragnarok). Arvind: develop this further. A line
+  idea (Arvind): "Get up, you are better than this. Need some help?" Not a priority; we work out the details later.
 - **Trainer lines in battle (data only):** the trainer message bank has lines for the last Pokemon sent out (type 15),
   the last one at half HP (16) and the trainer winning (20); 71 trainers use them in Origin. Still to check: that
   Origin's battle engine shows them.
@@ -170,8 +171,11 @@ shirt and red scarf, psychic energy in his hand).
   battle), a scene where the harness breaks and Persian loses its hold, phase 2 the unleashed form with a legendary intro
   and its own music. A surprise and a real challenge.
 - **Meowthree (Arvind, 2026-11-16):** in the boss fight Meowthwo **evolves in the middle of the battle** and is then
-  called Meowthree. The theme can be evolution and human growth (a man who evolves); maybe Giovanni wants to become a
-  "super trainer" himself. Engine facts: Origin has no in-battle Mega Evolution (Megas are held-item forms in the party,
+  called Meowthree; Arvind draws Meowthree. The theme can be evolution and human growth: humans cannot evolve, the
+  EXP harness steals other mons' growth to force it, and real growth has to be earned. Giovanni's goal, one of two
+  ideas (Arvind): he wants to become a "super trainer" himself (the harness on himself; in his final his own mons could
+  evolve mid-battle with the same code), or he wants to use the technology on people to turn them into Pokemon, maybe
+  so he can catch them. Engine facts: Origin has no in-battle Mega Evolution (Megas are held-item forms in the party,
   EN repo `work/notes/damage_calc_mechanics.md` section 6, although the battle text still has Mega Evolution lines),
   but its battle engine has handlers that change a Pokemon's form, and with it the species id (Origin's forms have their
   own ids), in the middle of a battle: Power Construct (Zygarde turns Complete below half HP and gets more max HP), Zen
