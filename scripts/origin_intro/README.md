@@ -913,3 +913,22 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - **Checks.** `DIAG_RIPPLE=1` prints the paw heights and distances from the ring line per event. `DEBUG_RING=BL_lo` (or any paw, or `MID`) builds a test ROM with a small ring locked to that paw. Recorded side by side, the v29 ring sits where the paw-locked ring does.
   - **Build.** Same as v25 (`pt19r`, `bones_run19.json`, `ROLL=1 PATHFRAME=1 RIPPLE_R=50 HALFRATE=1 FOOTLOCK=0 CADENCE=36`, cycle 1..18 step 3, `pack_shared 1=6 11=6 16=20 24=20`, `inplace` onto `base_hover.nds`).
   - **Result.** Film 435160/437100, all 475 strips in all six shots, ROM `legend_test/jump_hooh2_v29.nds`. sha256 prefixes: film `4675ad183ae41c99`, ROM `0366de60f163ed7e`, pt19r.json `43571836d5f43ec9`, bones_run19.json `fd5dc4365a740001`.
+- **v30 (2026-11-16), a ripple from every paw, where it pushes off** (Arvind on v29: "hvorfor kommer det ikke på hver pote når de lander på lufta" and "det skal se ut som det kommer en ripple effekt hvor han tråkker fra ... hver gang han presser fra for å løpe/hoppe fremover"). This replaces v29 as the lock candidate.
+  - **When.** Each paw makes its own ring at its push-off: the last frame it is down, i.e. the last frame in the lowest quarter of its height range. Per stride that is front left, front right, hind left, hind right.
+  - **Where.** At the spot the paw pushes from, on the paw's lowest level. The ring stays there and grows. It no longer follows the paw.
+  - **Second disc.** One disc could only show one ring at a time, so `rig3d.py` RIPPLE2 adds a second one, patched in place in the render commands:
+    - joint16 (Ho-Oh's tail joint, no slot) restores the world root, applies its own track and stores its matrix in a free slot. Its draw still carries our strips.
+    - Right after disc 1 is drawn, that slot is restored and the same disc shape is drawn again.
+    - Disc 2 comes after disc 1's POSSCALE command (0x0b), so the posScale is folded into its matrix. Without this it was 128 times too small.
+    - Its NODEDESC flag is 0. The world root keeps no parent scale for scale compensation.
+    - The bytes for the new commands come from repeated material commands in front of Ho-Oh's sparkle quads, and from world-root visibility checks. NOPs pad the list to its old length.
+  - **Cheaper tracks.** Both discs hang on the world root, so their tracks stand still between rings. The drawn size is kept at sig x 0.72 x RIPPLE_R. Hidden discs wait, tiny, where their next ring comes. Disc tracks are written at full rate, so a ring never slides to its next spot.
+  - **Ring lengths.** The two discs take turns. Front rings live 10 frames and hind rings 18.
+  - **Checks.**
+    - `DEBUG_RING2=<paw>` locks disc 2 to a paw (`DEBUG_RING` does disc 1).
+    - The hind rings were recorded against paw-locked test rings: each starts where its paw is at push-off.
+    - `DIAG_RIPPLE=1` prints each ring's paw distance.
+  - **Result.**
+    - Film 437068/437100, all 475 strips in all six shots.
+    - ROM `legend_test/jump_hooh2_v30.nds`.
+    - sha256 prefixes: film `63d1b4ccd7d4130e`, ROM `54b1dba9891fca98`. Build env as for v29.
