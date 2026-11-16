@@ -1046,3 +1046,8 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - **Material:** `cave_tint.py` draws `lambert91` (`de_ap_e1.1`) from both sides (the cylinder's quads face half outward, half inward). `BURST_ALPHA` 31 keeps Origin's opaque flash; 20 was tested and looked muddy, with him barely showing inside.
   - **Build:** `EDGE=104,192,152 build_film7.sh g8 v14`. ROM `legend_test/jump_lug_v14.nds`.
   - **Files:** videos `gravriel_lugiafilm_v14_halv_fart.mp4` and `gravriel_lugiafilm_v14.mp4`; stills `gravriel_v14_portalen.png`.
+- **Gravriel v14 LOCKED (2026-11-16)** (Arvind: "lås den").
+  - **Locked copy:** `~/sigma-origin/title3d/legend/grav3d/locked_v14/`. It holds the film file (`a244_gravriel_v14.bin`), the test ROM, the export `g8.json` and its texture atlas `g8t*`, the scripts as built and `SHA256SUMS`.
+  - **sha256 prefixes:** film `9911a636e0591761`, ROM `e5e6f9c4738e61e6`, g8.json `13995c80a61f7a2a`, g8t.json `9f42af6249f5916e`.
+  - **Build:** `EDGE=104,192,152 build_film7.sh g8 v14`, with the defaults of `rig_lugia.py` and `cave_tint.py` at commit ce19ada. Source model `title3d/grav/grav_v5.blend`. Export: `export_gravparts.py` with v9's defaults on `AnimationLibrary_Godot_Standard.glb`.
+  - **Not part of the film file:** the green outline (`edge_color.py`, ov097 edge table entry 1) and the room's weather/colours (`room_weather.py`, `inplace.py` a/0/4/4 + a/0/7/0). These patches must also go into the final game.
