@@ -121,7 +121,7 @@ def root(f):
     yaw = math.radians(E('YAW_SW', 3 if PATHMODE == 'glide' else 9)) * math.sin(2 * math.pi * f / 140 + 0.7)
     # v6b: the film camera looks along +x (Lugia's body node turns its +z to -x for the whole film); facing +z showed him
     # side-on (and -90 showed his back: the shell on the wrong side), so he is turned to face +x, the camera
-    yaw += math.radians(E('BASE_YAW', (-4 if PATHMODE in ('glide', 'rise') else 90) if LUGIA_PATH else 0))   # v7b: Lugia's own heading at the end (head/jaw toward +z, -4 deg); 60 faced the camera
+    yaw += math.radians(E('BASE_YAW', (0 if PATHMODE == 'rise' else -4 if PATHMODE == 'glide' else 90) if LUGIA_PATH else 0))   # v11: rise faces the camera in front (Lugia's -4 is close)   # v7b: Lugia's own heading at the end (head/jaw toward +z, -4 deg); 60 faced the camera
     cx_, sx_ = math.cos(pitch), math.sin(pitch); cz_, sz_ = math.cos(roll), math.sin(roll); cy_, sy_ = math.cos(yaw), math.sin(yaw)
     Rx = np.array([[1, 0, 0], [0, cx_, -sx_], [0, sx_, cx_]]); Rz = np.array([[cz_, -sz_, 0], [sz_, cz_, 0], [0, 0, 1]]); Ry = np.array([[cy_, 0, sy_], [0, 1, 0], [-sy_, 0, cy_]])
     M = np.eye(4); M[:3, :3] = Ry @ Rz @ Rx; M[:3, 3] = p
