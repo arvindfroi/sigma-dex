@@ -52,7 +52,13 @@ enough (Arvind).
   **Does Origin use them? Yes, for the important fights** (counted in the trainer list, 3,891 trainer Pokemon): Elite
   Four and Champions 60/60 with EVs, a set nature and IV 30; gym leaders 139 of 173; Rocket bosses and executives
   221 of 271; rivals 28 of 86; ordinary trainers only 597 of 2,949. IVs rise with the game: 0-6 early, 12-18 in the
-  middle, 24-30 late. Our teams can follow the same pattern.
+  middle, 24-30 late. Our teams can follow the same pattern and adjust it where needed (Arvind). Within a team
+  Origin almost always gives every Pokemon the same IV level (920 teams); only 36 teams differ, mostly an ace or
+  the newest catch one step higher or lower. **Proposal:** our builder gives the ace one step more (e.g. 24 -> 30).
+- **Hardcore: healing is limited (Arvind, 2026-11-17).** Each place that heals (every Pokemon Center, and other
+  healers) can be used **once**. Built like the area rule: one bit per healing place in our save block, checked where
+  the game heals the party. **Open:** are potions and other healing items outside battle still allowed? (If yes, the
+  limit is soft; most hardcore rule sets allow them.)
 - **Not grindy under the cap (Arvind: "still just as grindy").** The cap does not make grinding, the EXP on the road
   does. Two tools: (1) place the route trainers so that fighting all of them brings the team to the cap (Exp Share
   on); (2) **Proposal: catch-up EXP**, more EXP the further a Pokemon is below the cap (for example x2 when 3 or more
@@ -108,6 +114,9 @@ From the plans so far, in order (details in WHEN_WE_FINALIZE.md):
    other mons); optional: the battle shows the creature as its own trainer, like Origin's Mewtwo battle (#1013), and
    the change happens in the battle with the Meowthree code (later). New art needed: one new mon (front, back, icon,
    overworld). Beedrill also stands in Giovanni's two other teams; those slots become our mons anyway.
+   **Catch him (Arvind: "irony"):** possible with a scripted wild battle after (or instead of) trainer 289, like a
+   legendary. But Origin brings Giovanni back two years later (Mt. Silver, text bank 539), so either he gets out
+   of the Ball (a line in the Mt. Silver scene) or the catch moves to that last Mt. Silver meeting.
 7. Post-game: official Pokemon return; Meowth's fast food place; the freed Meowthree (and in Gravriel the special
    revive).
 
@@ -131,7 +140,10 @@ the two cutscenes each are already mapped in docs/LEGEND_CUTSCENES.md).
 
 Already in Origin / the English patch: Move Reminder, EV allocator, Exp/Shiny/Catching charms, Exp Share option,
 level cap option, text speed, the advanced AI, auto-save-friendly Options. To add (decided): Move Deleter, PC
-anywhere, auto-run. Arvind: yes to a **death counter that shows how many times you have tried to beat the hack** (attempts), the area
+anywhere, auto-run. Arvind (2026-11-17): also the other normal QoL things the game lacks; a portable PC is not in
+Origin yet. Candidate list to check against Origin first: PC from the menu, auto-run toggle, field moves without
+HMs (own the HM + badge), reusable TMs, "use another Repel?" prompt, Move Reminder/Deleter from the party menu, nature
+mints and ability capsule/patch, IV/EV shown in the summary, type-effectiveness hints in battle. Arvind: yes to a **death counter that shows how many times you have tried to beat the hack** (attempts), the area
 sign panel and the "been here before" joke. **Proposal:** also a nuzlocke status panel on the area sign (shows "encounter used / free" when
 entering an area), and a running counter of deaths on the trainer card in Gravriel.
 
