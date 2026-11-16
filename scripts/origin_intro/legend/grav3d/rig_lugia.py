@@ -15,7 +15,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.jo
 from narc import unpack, pack
 from lz11 import lz11_dec
 from lz import lz10_enc
-import nitro, geom, bca_write
+import nitro, geom, bca_write, tex0_grow
 SRC, DST, GJ = sys.argv[1:4]
 E = lambda k, d: float(os.environ.get(k, d))
 MM, BM = 5, 6
@@ -62,8 +62,21 @@ if LUGIA_PATH:
     def lugia_at(t):
         t = min(nf - 1.0, max(0.0, t)); i0 = int(t); i1 = min(nf - 1, i0 + 1); w = t - i0; return _LB[i0] * (1 - w) + _LB[i1] * w
     SHOW = T0
+# v7 PATH=glide (default): a slow, eased glide from where Lugia leaves the fall to where Lugia hovers, rising on the way
+# and bobbing gently after (v6's half-speed copy of Lugia's path swung close to the camera and looked rushed)
+PATHMODE = os.environ.get('PATH_MODE', 'glide')
+T1 = E('T1', 204)
 def root(f):
-    if LUGIA_PATH:
+    if LUGIA_PATH and PATHMODE == 'glide':
+        # start behind the falling water in the middle of the fall (Lugia's own start at frame 124 is off to the side near
+        # the camera: he popped in at the bottom right), end where Lugia hovers
+        mid = np.array([0, SIZE * E('MID', 0.55), 0]); P0 = np.array([float(v) for v in os.environ.get('G0', '8,40,-90').split(',')]); P1 = _LB[-1] - mid
+        # ease-out: he breaks through the falling water quickly (behind the water he smeared into a ghost for ~40 frames
+        # in v7c) and slows into the hover
+        t_ = min(1.0, max(0.0, (f - T0) / (T1 - T0))); e_ = 1 - (1 - t_) ** E('EASE_OUT', 3) if os.environ.get('EASE', 'out') == 'out' else ease(t_)
+        p = P0 + (P1 - P0) * e_ + np.array([0, E('ARC', 12) * math.sin(math.pi * e_), 0])
+        p = p + np.array([0, E('BOB', 1.5) * math.sin(2 * math.pi * f / 90) * min(1.0, max(0.0, (f - T0) / 30)), 0])
+    elif LUGIA_PATH:
         p = lugia_at(T0 + max(0.0, f - T0) * SLOW) - np.array([0, SIZE * E('MID', 0.55), 0]) + np.array([0, 3 * math.sin(2 * math.pi * f / 80), 0])
     elif f <= KEYS[0][0]: p = KEYS[0][1].copy()
     elif f >= KEYS[-1][0]: p = KEYS[-1][1] + np.array([0, 3 * math.sin(2 * math.pi * (f - KEYS[-1][0]) / 80), 0])
@@ -72,11 +85,11 @@ def root(f):
             if f0 <= f <= f1: p = p0 + (p1 - p0) * ease((f - f0) / (f1 - f0)); break
     # sway: lean forward while gliding (eases upright at the hover), slow roll and yaw, all small
     gl = 1 - ease((f - KEYS[0][0]) / (KEYS[-1][0] - KEYS[0][0])) if f >= KEYS[0][0] else 1.0
-    pitch = math.radians(E('LEAN', 16)) * gl; roll = math.radians(E('ROLL_SW', 6)) * math.sin(2 * math.pi * f / 95)
-    yaw = math.radians(E('YAW_SW', 9)) * math.sin(2 * math.pi * f / 140 + 0.7)
+    pitch = math.radians(E('LEAN', 16)) * gl; roll = math.radians(E('ROLL_SW', 2 if PATHMODE == 'glide' else 6)) * math.sin(2 * math.pi * f / 95)
+    yaw = math.radians(E('YAW_SW', 3 if PATHMODE == 'glide' else 9)) * math.sin(2 * math.pi * f / 140 + 0.7)
     # v6b: the film camera looks along +x (Lugia's body node turns its +z to -x for the whole film); facing +z showed him
     # side-on (and -90 showed his back: the shell on the wrong side), so he is turned to face +x, the camera
-    yaw += math.radians(E('BASE_YAW', 90 if LUGIA_PATH else 0))
+    yaw += math.radians(E('BASE_YAW', (60 if PATHMODE == 'glide' else 90) if LUGIA_PATH else 0))   # v7: 60 faces the camera (tested 60/90/120)
     cx_, sx_ = math.cos(pitch), math.sin(pitch); cz_, sz_ = math.cos(roll), math.sin(roll); cy_, sy_ = math.cos(yaw), math.sin(yaw)
     Rx = np.array([[1, 0, 0], [0, cx_, -sx_], [0, sx_, cx_]]); Rz = np.array([[cz_, -sz_, 0], [sz_, cz_, 0], [0, 0, 1]]); Ry = np.array([[cy_, 0, sy_], [0, 1, 0], [-sy_, 0, cy_]])
     M = np.eye(4); M[:3, :3] = Ry @ Rz @ Rx; M[:3, 3] = p
@@ -164,6 +177,9 @@ for e, sn, _ in ents:
 GROUP = {'coat': 0, 'weed': 0, 'skin': 0, 'hat': 0, 'kelp2': 0, 'kelp3': 0, 'mask': 1, 'bone': 1, 'shell': 1, 'eye': 1, 'socket': 1, 'blade': 1, 'mist': 1}
 COL = {n: c for n, c in zip(J['names'], J['palette'])}; COL['eye'] = [170, 255, 245]; COL['socket'] = [4, 6, 6]; COL['mist'] = [int(x) for x in os.environ.get('MISTC', '176,214,190').split(',')]
 TEXN = {0: 'lugia_s', 1: 'lugia_foot'}; TS = {0: 64, 1: 32}
+TSZ = {0: (64, 64), 1: (32, 32)}; TFMT = {0: 3, 1: 3}; ORIG_SZ = dict(TSZ)
+if 'tex' in J and all(len(J['tex'][str(g)]) >= 6 for g in (0, 1)):     # v7 atlases (tex_atlas.py): own size and format
+    for g in (0, 1): TSZ[g] = tuple(J['tex'][str(g)][3:5]); TFMT[g] = J['tex'][str(g)][5]
 if 'tex' in J:                                                  # the artwork's scheme: near-black coat, bright kelp strands, sea-green skin
     # v6b: the film's light made the old kelp greens lime; the artwork is a near-black coat with dark green kelp, olive
     # beard strands and sea-teal hands and feet (env SCHEME=old for the v5 colours)
@@ -184,8 +200,8 @@ for g in ([] if TEXMODE else ((0,) if HYB else (0, 1))):
     IDX[g] = ix
 if TEXMODE or HYB:                                             # painted textures from the turnaround (tex_project.py)
     for g in ((0, 1) if TEXMODE else (1,)):
-        png, npy, pal_ = J['tex'][str(g)]; IDX[g] = np.load(os.path.join(os.path.dirname(GJ), os.path.basename(npy))); PALG[g] = [list(c) for c in pal_]
-    CELL['mist'] = (30.5 / 32, 1 - 30.5 / 32)
+        png, npy, pal_ = J['tex'][str(g)][:3]; IDX[g] = np.load(os.path.join(os.path.dirname(GJ), os.path.basename(npy))); PALG[g] = [list(c) for c in pal_]
+    CELL['mist'] = tuple(J['mist_uv']) if 'mist_uv' in J else (30.5 / 32, 1 - 30.5 / 32)
 # ------------------------------------------------------------------ strips
 up = 1.0
 def v10(q):
@@ -194,7 +210,7 @@ def v10(q):
 def n10(q):
     a = [max(-512, min(511, int(round(v * 512)))) & 1023 for v in q]; return a[0] | a[1] << 10 | a[2] << 20
 def tc(uv, g):
-    n_ = TS[g]; a_ = int(round(uv[0] * n_ * 16)); b_ = int(round((1 - uv[1]) * n_ * 16)); return (b_ & 0xffff) << 16 | (a_ & 0xffff)
+    w_, h_ = TSZ[g]; a_ = int(round(uv[0] * w_ * 16)); b_ = int(round((1 - uv[1]) * h_ * 16)); return (b_ & 0xffff) << 16 | (a_ & 0xffff)
 def pack_cmds(cmds):
     out = bytearray()
     for k in range(0, len(cmds), 4):
@@ -312,12 +328,26 @@ for g in (0, 1):
     # polygons the DS has to draw (env BOTH=1 for the old 0xC0)
     sides = 0xC0 if os.environ.get('BOTH') == '1' else 0x80
     struct.pack_into('<I', d, mo_ + 12, (pa & ~0xF & ~(31 << 16) & ~0xC0) | sides | (31 << 16) | (pa & 0xF if LIGHTS else 0))
+    if not LIGHTS:                                  # unlit: white vertex colour, the painted texture as it is
+        struct.pack_into('<II', d, mo_ + 4, 31 | 31 << 5 | 31 << 10 | 0x8000, 0)
     if LIGHTS:
         struct.pack_into('<I', d, mo_ + 4, 31 | 31 << 5 | 31 << 10 | 0x8000 | (int(E('AMB', 26)) * 0x421) << 16)
         # v6d: the face (shape 1: painted head front + the unlit mist) glows a little more than the body, so the pale beak
         # and the blue eyes read in the film's light now that he faces the camera
         EM = int(E('EMI1', 13)) if g == 1 else int(E('EMI', 7)); struct.pack_into('<I', d, mo_ + 8, (EM | EM << 5 | EM << 10) << 16)
-for bo in r['blocks']:
+BIGTEX = any(TFMT[g] != 3 or TSZ[g] != ORIG_SZ[g] for g in TEXN)
+if BIGTEX:                                          # v7: the TEX0 block is rebuilt for the bigger 8-bpp textures
+    _bo = [b for b in r['blocks'] if d[b:b + 4] == b'TEX0'][0]; _tp = nitro.read_tex(bytes(d), _bo)['pals']; texd = {}; pald = {}
+    for g, tn_ in TEXN.items():
+        ix = IDX[g]; h_, w_ = ix.shape; assert (w_, h_) == TSZ[g], (tn_, ix.shape, TSZ[g]); fl = ix.astype(np.uint8).reshape(-1)
+        texd[tn_] = (TFMT[g], w_, h_, bytes(fl) if TFMT[g] == 4 else bytes(fl[0::2] | (fl[1::2] << 4)))
+        pn = [p_['name'] for p_ in _tp if p_['name'].startswith(tn_)][0]
+        pald[pn] = b''.join(struct.pack('<H', c555(PALG[g][i]) if i < len(PALG[g]) else 0) for i in range(256 if TFMT[g] == 4 else 16))
+    d = bytearray(tex0_grow.grow(d, texd, pald))
+    for g, tn_ in TEXN.items():
+        struct.pack_into('<HH', d, mats[MAT_OF[tn_]]['off'] + 32, *TSZ[g])
+    print('textures rebuilt', {tn_: TSZ[g] for g, tn_ in TEXN.items()}, 'model', len(d))
+for bo in ([] if BIGTEX else r['blocks']):
     if d[bo:bo + 4] != b'TEX0': continue
     t = nitro.read_tex(bytes(d), bo); fh = t['raw_hdr']; tbo, pbo = fh[6], fh[17]
     ents2, _ = nitro.dict_read(bytes(d), bo + fh[4], 8)

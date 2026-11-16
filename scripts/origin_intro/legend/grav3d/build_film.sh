@@ -1,6 +1,6 @@
 #!/bin/zsh
 # usage: build_film.sh G (export name, e.g. g6b) V (version tag, e.g. v6b)   -> legend_test/jump_lug_$V.nds + rec_lug$V
-set -e
+set -e -o pipefail
 G=$1; V=$2
 PY=~/sigma-toolchain/venv312/bin/python; PYV="/Users/arvind/Sigma pokemon pc port attempt/.venv/bin/python"; L=~/sigma-origin/legend_test
 cd ~/sigma-origin/title3d/legend/grav3d

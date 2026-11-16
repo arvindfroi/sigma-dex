@@ -12,5 +12,5 @@ for j in range(N):
         if os.path.exists(p): im.paste(Image.open(p).convert('RGB').crop((0, 0, 256, 192)).resize((W, H), Image.NEAREST), (0, k * (H + LB) + LB))
         d.text((6, k * (H + LB) + 5), lab, fill='black')
     im.save(f'{tmp}/g{j:04d}.png')
-subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-framerate', '60', '-i', f'{tmp}/g%04d.png', '-an', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', OUT], check=True)
+subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-framerate', os.environ.get('FPS', '60'), '-i', f'{tmp}/g%04d.png', '-an', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '18', OUT], check=True)
 print('ok', OUT)

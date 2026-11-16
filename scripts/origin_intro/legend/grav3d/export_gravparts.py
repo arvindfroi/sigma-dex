@@ -104,18 +104,25 @@ PART[(LAB == 4) & (HP[:, 2] > NECK_Z)] = 'hat'
 headr = E('HEAD_R', 0.55) * k / 3.236
 PART[(PART == 'coat') & (np.linalg.norm(HP - np.array(head('DEF-head')), axis=1) < headr * 1.6) & (HP[:, 2] > NECK_Z - 0.1) & (LAB != 1)] = 'head'
 PART[(PART == 'coat') & (LAB == 1) & (HP[:, 2] > CHEST_Z - E('BEARD_DROP', 0.9)) & (np.abs(HP[:, 0] - cx) < E('BEARD_HALF', 0.75))] = 'beard'
+# v7 (Arvind on v6: "there are holes and it does not look like Gravriel"): WHOLE=1 makes everything but the cutlass ONE
+# closed body. A coarse voxel (VOXW) fuses the kelp tatters into one skirt with a wavy hem, a smoothing pass rounds it and
+# it is reduced as one piece, so there are no seams or gaps between parts; the look comes from the artwork painted on
+# (tex_atlas.py), the way the Pokémon film models carry their detail in the texture
+WHOLE = os.environ.get('WHOLE', '1') == '1'
+if WHOLE: PART[PART != 'sword'] = 'body'
 print('parts', {p: int((PART == p).sum()) for p in set(PART)})
 BUDGET = {'coat': int(E('B_COAT', 520)), 'beard': int(E('B_BEARD', 130)), 'head': int(E('B_HEAD', 110)), 'hat': int(E('B_HAT', 70)),
           'armL': int(E('B_ARM', 110)), 'armR': int(E('B_ARM', 110)), 'sword': int(E('B_SWORD', 30))}   # polygons (mostly quads); Lugia is 1128
 TRIS = {'coat': int(E('T_COAT', 900)), 'beard': int(E('T_BEARD', 220)), 'head': int(E('T_HEAD', 220)), 'hat': int(E('T_HAT', 100)),
         'armL': int(E('T_ARM', 150)), 'armR': int(E('T_ARM', 150)), 'sword': int(E('T_SWORD', 40))}   # triangles before quad pairing
-VOX = {'coat': E('VOX', 0.035), 'beard': 0.03, 'head': 0.025, 'hat': 0.03, 'armL': 0.03, 'armR': 0.03, 'sword': 0.012}
-ALLOWED = {'coat': [b for b in DSB if not ('arm' in b or 'hand' in b)], 'beard': ['DEF-head', 'DEF-neck', 'DEF-spine.003'],
+TRIS['body'] = int(E('T_BODY', 1300))
+VOX = {'body': E('VOXW', 0.08), 'coat': E('VOX', 0.035), 'beard': 0.03, 'head': 0.025, 'hat': 0.03, 'armL': 0.03, 'armR': 0.03, 'sword': 0.012}
+ALLOWED = {'body': list(DSB), 'coat': [b for b in DSB if not ('arm' in b or 'hand' in b)], 'beard': ['DEF-head', 'DEF-neck', 'DEF-spine.003'],
            'head': ['DEF-head'], 'hat': ['DEF-head'], 'sword': ['DEF-hand.R'],
            'armL': ['DEF-shoulder.L', 'DEF-upper_arm.L', 'DEF-forearm.L', 'DEF-hand.L'], 'armR': ['DEF-shoulder.R', 'DEF-upper_arm.R', 'DEF-forearm.R', 'DEF-hand.R']}
 fverts = [list(p.vertices) for p in me.polygons]
 LP = {}
-for part in BUDGET:
+for part in (['body', 'sword'] if WHOLE else list(BUDGET)):
     keep = [f for f in fverts if sum(PART[i] == part for i in f) * 2 > len(f)]
     if not keep: continue
     used = sorted({i for f in keep for i in f}); rem = {i: j for j, i in enumerate(used)}
@@ -180,6 +187,8 @@ for part in BUDGET:
     bm.to_mesh(o.data); bm.free(); o.data.update()
     if os.environ.get('KEEP_STAGES') == '1':
         v_ = o.copy(); v_.data = o.data.copy(); v_.name = 'V_' + part; bpy.context.collection.objects.link(v_); v_.hide_render = True
+    if part == 'body':                                       # round the voxel steps before reducing
+        sm2 = o.modifiers.new('sm', 'SMOOTH'); sm2.factor = 0.5; sm2.iterations = int(E('SMI', 4)); bpy.ops.object.modifier_apply(modifier=sm2.name)
     dm = o.modifiers.new('dec', 'DECIMATE'); dm.decimate_type = 'COLLAPSE'; dm.ratio = min(1.0, TRIS[part] / max(1, len(o.data.polygons))); dm.use_collapse_triangulate = True
     bpy.ops.object.modifier_apply(modifier=dm.name)
     bm = bmesh.new(); bm.from_mesh(o.data)
@@ -215,6 +224,8 @@ for part, o in LP.items():
         al = ALLOWED[part]
         if part == 'coat':
             al = ['DEF-hips'] if c[2] < HIP_Z - E('COAT_FREE', 0.3) else al     # the long coat hangs from the hips (a ghost: no legs)
+        if part == 'body' and c[2] < HIP_Z - E('COAT_FREE', 0.3):            # below the waist: the hips, or the hands beside it
+            al = ['DEF-hips', 'DEF-forearm.L', 'DEF-hand.L', 'DEF-forearm.R', 'DEF-hand.R']
         bw = [two_bones(p, al) for p in P]
         polys.append(dict(p=[list(map(float, p)) for p in P], vb=[b for b, _ in bw], vw=[w for _, w in bw], lab=lab, part=part))
 print('polys', len(polys), 'by part', {p: sum(1 for q in polys if q['part'] == p) for p in LP})
@@ -223,6 +234,14 @@ FPS = 2.0                                                # film frames per libra
 # v6b (in game the Spell idle turned him side-on to the camera): he settles into the standing idle, arms down with the
 # cutlass in his right hand, like the artwork
 SEQ = [('Swim_Idle_Loop', E('T_RISE', 100), 0.5), (os.environ.get('ACT2', 'Idle_Loop'), E('T_REACH', 178), float(os.environ.get('ACT2_SPEED', 0.6)))]
+# v7: only part of each library motion, on top of the artwork pose (the bind pose), so the one-piece body is not torn and
+# the movement stays calm: a slow float with the arms lifting a little, then a quiet idle
+AMP = [E('AMP1', 0.35), E('AMP2', 0.6)]
+def scaled(ps, amp):
+    out = {}
+    for nm, (q, t) in ps.items():
+        b0 = BIND_POSE[nm]; out[nm] = (b0.to_quaternion().slerp(q, amp), b0.to_translation().lerp(t, amp))
+    return out
 BLEND = E('BLEND', 12)
 def basis_at(action, t):
     rig.animation_data.action = bpy.data.actions[action]
@@ -241,7 +260,7 @@ for f in range(NF):
         if k_ > 0 and f < start + BLEND: w = min(w, (f - (start - BLEND)) / (2 * BLEND))
         if k_ + 1 < len(SEQ) and f > end - BLEND: w = min(w, 1 - (f - (end - BLEND)) / (2 * BLEND))
         if w <= 0: continue
-        poses.append((max(w, 1e-3), basis_at(act, max(0.0, f - start) / FPS * speed)))
+        poses.append((max(w, 1e-3), scaled(basis_at(act, max(0.0, f - start) / FPS * speed), AMP[min(k_, len(AMP) - 1)])))
     tot = sum(w for w, _ in poses); acc = None
     for w, ps in poses:
         if acc is None: acc = {k2: (q, t * (w / tot)) for k2, (q, t) in ps.items()}; aw = w / tot; continue
