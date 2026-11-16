@@ -209,47 +209,41 @@
       "design": {
         "concept": "Grass starter. A small creature with a leaf that slowly turns to steel as it evolves.",
         "name_origin": null,
-        "notes": "PROOF OF CONCEPT - every value in this file except name, type and evolution is a draft proposed by Claude on 2026-10-02. The Council should review and replace them.",
+        "notes": "NEW DESIGN COMING (2026-11-16): the old Leafing design, its art and sprites moved to Leafsteel, because it fits a second stage better. PROOF OF CONCEPT - every value in this file except name, type and evolution is a draft proposed by Claude on 2026-10-02. The Council should review and replace them.",
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement",
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
           "egg moves"
         ],
         "claude_sure": {
-          "body shape": 80,
-          "look": 80,
-          "movement": 80,
           "level-up moves": 73,
           "TM/HM moves": 78,
           "tutor moves": 68,
           "egg moves": 68
         },
-        "body_shape": "a quadruped body",
-        "movement": "It walks on four legs.",
-        "look": "It is a small green long-necked creature with a rounded body covered in overlapping green leaves, four short legs with white claws, and a curved tail ending in a grey blade. It has a smiling face with big brown eyes and a single leaf standing up on its head."
+        "body_shape": null,
+        "movement": null,
+        "look": null
       },
       "assets": {
-        "concept_art": "assets/concept-art/leafing/338.webp",
-        "front_sprite": "assets/sprites/leafing/front.png",
-        "front_anim": "assets/sprites/leafing/anim_front.png",
-        "back_sprite": "assets/sprites/leafing/back.png",
-        "icon": "assets/sprites/leafing/icon.png",
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
         "footprint": "hgss:1",
-        "shiny_palette": "assets/shiny/leafing.json",
+        "shiny_palette": null,
         "cry": null
       },
       "engine": {
         "no_flip": false,
         "elevation": 0,
-        "front_y_offset": 11,
-        "back_y_offset": 10,
-        "icon_palette": 1,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
         "safari_flee_rate": 0
       },
       "id": "leafing"
@@ -468,7 +462,7 @@
       "design": {
         "concept": null,
         "name_origin": null,
-        "notes": null,
+        "notes": "The design, art and sprites were Leafing's until 2026-11-16 (Arvind: it fits a second-stage starter better). Leafsteel's own older pictures are in Lost and found.",
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [
@@ -503,26 +497,26 @@
           "height": 65,
           "weight": 65
         },
-        "body_shape": "a serpentine body",
-        "movement": "It slithers along the ground.",
-        "look": "It is a long, curved green dragon-like creature with a crest of leaves on its head and a back covered in grey steel plates. It has four short legs with grey claws and a long tail ending in a steel axe-blade."
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "It is a small green long-necked creature with a rounded body covered in overlapping green leaves, four short legs with white claws, and a curved tail ending in a grey blade. It has a smiling face with big brown eyes and a single leaf standing up on its head."
       },
       "assets": {
-        "concept_art": "assets/concept-art/leafsteel/434.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
+        "concept_art": "assets/concept-art/leafsteel/338.webp",
+        "front_sprite": "assets/sprites/leafsteel/front.png",
+        "front_anim": "assets/sprites/leafsteel/anim_front.png",
+        "back_sprite": "assets/sprites/leafsteel/back.png",
+        "icon": "assets/sprites/leafsteel/icon.png",
         "footprint": "hgss:2",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/leafsteel.json",
         "cry": null
       },
       "engine": {
         "no_flip": false,
         "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
+        "front_y_offset": 11,
+        "back_y_offset": 10,
+        "icon_palette": 1,
         "safari_flee_rate": 0
       },
       "id": "leafsteel"

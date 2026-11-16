@@ -132,13 +132,13 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art: "assets/concept-art/leafsteel/434.webp"
+  concept_art: "assets/concept-art/leafsteel/338.webp"
   front_sprite: "assets/sprites/leafsteel/front.png"
   front_anim: "assets/sprites/leafsteel/anim_front.png"
   back_sprite: "assets/sprites/leafsteel/back.png"
   icon: "assets/sprites/leafsteel/icon.png"
   footprint: "hgss:2"    # footprint.png  16x16, black and white
-  shiny_palette:         # shiny.pal      the 16 colors of the shiny version
+  shiny_palette: "assets/shiny/leafsteel.json"
   cry:                   # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---

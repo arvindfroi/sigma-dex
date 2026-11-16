@@ -108,8 +108,7 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves,
-                     egg moves]
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, egg moves]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
     level-up moves: 73
     "TM/HM moves": 78
@@ -117,17 +116,17 @@ design:
     egg moves: 68
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
   movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, for the sprite studio
+  look:                  # what it looks like, a few plain sentences: It is a ...
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art: "assets/concept-art/leafing/338.webp"
+  concept_art:           # e.g. assets/concept-art/leafing.png
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:1"    # footprint.png  16x16, black and white
-  shiny_palette: "assets/shiny/leafing.json"
+  shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---

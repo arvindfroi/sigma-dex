@@ -1058,8 +1058,8 @@
   },
   {
     "id": 338,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/338.webp",
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/338.webp",
     "caption": "Concept art, cut out of the starter picture from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
     "editor": "Claude (from Discord)"
   },
@@ -1079,22 +1079,22 @@
   },
   {
     "id": 343,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/343.webp",
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/343.webp",
     "caption": "The three starters, from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
     "editor": "Claude (from Discord)"
   },
   {
     "id": 345,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/345.webp",
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/345.webp",
     "caption": "The Leafing line with stats from Discord (#kanteradet), posted by SLOTHBABY 2026-05-01",
     "editor": "Claude (from Discord)"
   },
   {
     "id": 348,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/348.webp",
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/348.webp",
     "caption": "The Leafing line, red version from Discord (#kanteradet), posted by Ruben 2026-05-01",
     "editor": "Claude (from Discord)"
   },
@@ -1142,15 +1142,15 @@
   },
   {
     "id": 381,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/381.png",
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/381.png",
     "caption": "[front] AI draft #31",
     "editor": "Claude (pipeline test)"
   },
   {
     "id": 382,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/382.png",
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/382.png",
     "caption": "[back] AI draft #31",
     "editor": "Claude (pipeline test)"
   },
@@ -1478,16 +1478,9 @@
   },
   {
     "id": 433,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/433.webp",
-    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-01 (Name written above small green one)",
-    "editor": "Claude (from Discord)"
-  },
-  {
-    "id": 434,
     "species": "leafsteel",
-    "file": "assets/concept-art/leafsteel/434.webp",
-    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-01 (Name written above middle form)",
+    "file": "assets/concept-art/leafsteel/433.webp",
+    "caption": "Cut-out from Discord, posted by SLOTHBABY 2026-05-01 (Name written above small green one)",
     "editor": "Claude (from Discord)"
   },
   {
@@ -1541,8 +1534,8 @@
   },
   {
     "id": 450,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/450.png",
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/450.png",
     "caption": null,
     "editor": null
   },
@@ -1576,8 +1569,8 @@
   },
   {
     "id": 459,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/459.webp",
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/459.webp",
     "caption": null,
     "editor": null
   },
@@ -2311,9 +2304,9 @@
   },
   {
     "id": 752,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/752.png",
-    "caption": "[ds-front] sprite #81",
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/752.png",
+    "caption": "[ds-front] sprite #115",
     "editor": null
   },
   {
@@ -2808,22 +2801,22 @@
   },
   {
     "id": 916,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/916.png",
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/916.png",
     "caption": "[ds-back] sprite #115",
     "editor": "Arvind"
   },
   {
     "id": 917,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/917.png",
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/917.png",
     "caption": "[ds-icon] sprite #115",
     "editor": "Arvind"
   },
   {
     "id": 918,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/918.png",
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/918.png",
     "caption": "[ds-follower] sprite #115",
     "editor": "Arvind"
   },
@@ -5685,8 +5678,8 @@
   },
   {
     "id": 1865,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/1865.webp",
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/1865.webp",
     "caption": "pasted",
     "editor": "Arvind"
   }
