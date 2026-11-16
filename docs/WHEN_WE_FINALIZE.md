@@ -85,6 +85,11 @@ Arvind (2026-11-11): "andre har jobbet mye med slike greier i det siste så om v
   the top one Gravriel rising out of the water (picture or short frame animation from the intro film), the bottom
   one the message to the player and the run's memorial (deaths, the fallen by name). Each screen is 256x192; a full
   picture fits as a 256-colour bitmap or 16-colour tiles.
+  Arvind: an **obituary** that rubs it in: each fallen Pokemon by nickname (with level, where and to what it died if
+  we log that), the number of deaths, how far the run got (badges, play time) and **how many attempts** the player
+  has made. Tone: mocking, in Gravriel's voice. Open question: a New Game wipes the save, so the attempt counter
+  needs a place that survives it (ideas: a part of the save area New Game does not clear, or counting in the
+  other save slot); to check when we build it. Come back to this together with the blackout art.
 - **Harder trainers in Gravriel (Arvind):** some trainers get bigger teams and higher levels, and the level cap may
   be lower; but Hardcore Nuzlocke is hard already, so it must never become impossible. The two versions are two
   separate ROMs, so Gravriel can simply have its own trainer data and its own cap table (no switch in the game).
