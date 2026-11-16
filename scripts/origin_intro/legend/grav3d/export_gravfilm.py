@@ -31,6 +31,10 @@ PAL_LIN = [(0.009, 0.014, 0.012), (0.065, 0.102, 0.034), (0.03, 0.102, 0.107), (
 NAMES = ['coat', 'weed', 'skin', 'bone', 'hat', 'shell', 'mask']
 s2 = lambda c: [int(round(255 * (12.92 * x if x <= 0.0031308 else 1.055 * x ** (1 / 2.4) - 0.055))) for x in c]
 PAL = [s2(c) for c in PAL_LIN]
+# v2 (Arvind: much of him came out grey, he is mostly kelp and seaweed): the coat is kelp in three greens (strands by
+# position), the weed a lighter olive, the skin a paler sea-green, the blade steel so it shows against the white fall
+PAL[0] = [34, 58, 34]; PAL[1] = [104, 136, 58]; PAL[2] = [78, 128, 120]; PAL[4] = [28, 34, 30]
+NAMES += ['kelp2', 'kelp3', 'blade']; PAL += [[52, 86, 40], [76, 110, 46], [150, 164, 170]]
 HP = np.array([tuple(body.matrix_world @ v.co) for v in me.vertices], float)
 print('labels', {NAMES[k]: int((LAB == k).sum()) for k in range(7)})
 # ---------------------------------------------------------------- low poly
@@ -51,6 +55,9 @@ for nm, lab in (('Socket0', 'socket'), ('Socket1', 'socket'), ('Slit0', 'eye'), 
     bpy.ops.object.select_all(action='DESELECT'); c.select_set(True); bpy.context.view_layer.objects.active = c
     dd = c.modifiers.new('dec', 'DECIMATE'); dd.ratio = 16 / max(1, len(c.data.polygons)); bpy.ops.object.modifier_apply(modifier=dd.name)
     bm = bmesh.new(); bm.from_mesh(c.data); bmesh.ops.triangulate(bm, faces=bm.faces[:]); bm.to_mesh(c.data); bm.free()
+    k_ = E('EYE_SCALE', 1.6) if lab == 'eye' else E('SOCKET_SCALE', 1.0)
+    cen_ = sum((v.co for v in c.data.vertices), Vector()) / len(c.data.vertices)
+    for v in c.data.vertices: v.co = cen_ + (v.co - cen_) * k_ + (Vector((0, -E('EYE_FWD', 0.04), 0)) if lab == 'eye' else Vector())   # glow in front of the socket
     EXTRA.append((c, lab))
 # ---------------------------------------------------------------- rig: UAL, fitted and posed into the mesh
 before = set(bpy.data.objects)
@@ -92,6 +99,8 @@ def nearest_bone(p, allowed):
         if dd < bd: best, bd = b, dd
     return best
 UPPER = [b for b in DSB if b != 'DEF-hips']
+def chain(b):
+    return 'L' if b.endswith('.L') else ('R' if b.endswith('.R') else 'T')
 def parent_of(b):
     p_ = rig.pose.bones[b].parent
     while p_ is not None and p_.name not in DSB: p_ = p_.parent
@@ -115,9 +124,14 @@ for poly in lp.data.polygons:
     for p in P + [np.array(c)]:
         for (co, idx, dist) in kd.find_n(Vector(p), 6): votes[LAB[idx]] += 1
     lab = NAMES[int(votes.argmax())]
+    if lab == 'coat':                                       # kelp strands: vertical bands with a little noise
+        cc = np.array(c); band = math.sin(cc[0] * 5.1 + cc[1] * 3.7 + 0.6 * math.sin(cc[2] * 2.3)) + 0.35 * math.sin(cc[0] * 13.0 + cc[2] * 1.1)
+        lab = 'coat' if band < -0.35 else ('kelp2' if band < 0.55 else 'kelp3')
     vb = [assign(p, lab) for p in P]
     if len(set(vb)) > 1 and not all(x == y or parent_of(x) == y or parent_of(y) == x for x in vb for y in vb):
-        vb = [assign(np.array(c), lab)] * 3          # a face across far-apart bones (sleeve tatter to coat): one bone, no spike
+        if len({chain(x) for x in vb}) > 1: continue   # sleeve tatter to coat (arm and body): dropped (v1 made it a loose shard)
+        vb = [assign(np.array(c), lab)] * 3            # within the body (waist band, hips to chest): one bone, no gap
+    if lab == 'bone' and all(b == 'DEF-hand.R' for b in vb) and c[0] < SWORD_X: lab = 'blade'
     polys.append(dict(p=[list(map(float, p)) for p in P], vb=vb, lab=lab))
 for o, lab in EXTRA:
     for poly in o.data.polygons:
@@ -126,7 +140,8 @@ for o, lab in EXTRA:
 print('polys', len(polys), 'by bone', {b: sum(1 for p in polys if p['vb'][0] == b) for b in DSB})
 # ---------------------------------------------------------------- motion
 FPS = 2.0                                                # film frames per library frame (60 vs 30 fps)
-SEQ = [('Swim_Idle_Loop', E('T_RISE', 100), 0.8), ('Sword_Attack', E('T_SLASH', 150), 1.3), ('Sword_Idle', E('T_STANCE', 150 + 36 * FPS / 1.3), 1.0)]
+S_SL = E('S_SLASH', 1.0)
+SEQ = [('Swim_Idle_Loop', E('T_RISE', 100), 0.6), ('Sword_Attack', E('T_SLASH', 150), S_SL), ('Sword_Idle', E('T_STANCE', 150 + 36 * FPS / S_SL), 0.8)]
 BLEND = E('BLEND', 6)
 def basis_at(action, t):
     rig.animation_data.action = bpy.data.actions[action]

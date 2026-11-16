@@ -37,17 +37,26 @@ def P(v): return s * Fx @ (np.array(v) - ORG)
 HB = {b: H(J['bind'][b]) for b in BONES}; HBi = {b: np.linalg.inv(M) for b, M in HB.items()}
 SUPK = np.diag([K, K, K, 1.0])
 # ------------------------------------------------------------------ path
-SHOW, RISE0, RISE1, OUT1 = E('SHOW', 96), E('RISE0', 100), E('RISE1', 142), E('OUT1', 168)
-A = np.array([E('AX', 0), E('AY', -150), E('AZ', -60)]); B_ = np.array([E('BX', 0), E('BY', 30), E('BZ', -45)]); C = np.array([E('CX', 0), E('CY', 58), E('CZ', 48)])
+# v2 (Arvind: out of the portal/fall like Lugia, slower and eerier): he waits behind the fall, glides through the
+# curtain at the flash and drifts out in front of it, where Lugia hovers
+KEYS = [(E('K0', 60), np.array([E('AX', 10), E('AY', 34), E('AZ', -250)])), (E('K1', 124), np.array([E('BX', 6), E('BY', 46), E('BZ', -95)])),
+        (E('K2', 178), np.array([E('CX', 0), E('CY', 66), E('CZ', 48)]))]
+SHOW = KEYS[0][0]
 def ease(t): t = min(1.0, max(0.0, t)); return t * t * (3 - 2 * t)
 def root(f):
-    if f < RISE0: p = A
-    elif f < RISE1: p = A + (B_ - A) * ease((f - RISE0) / (RISE1 - RISE0))
-    elif f < OUT1: p = B_ + (C - B_) * ease((f - RISE1) / (OUT1 - RISE1))
-    else: p = C + np.array([0, 3 * math.sin(2 * math.pi * (f - OUT1) / 70), 0])
+    if f <= KEYS[0][0]: p = KEYS[0][1].copy()
+    elif f >= KEYS[-1][0]: p = KEYS[-1][1] + np.array([0, 3 * math.sin(2 * math.pi * (f - KEYS[-1][0]) / 80), 0])
+    else:
+        for (f0, p0), (f1, p1) in zip(KEYS, KEYS[1:]):
+            if f0 <= f <= f1: p = p0 + (p1 - p0) * ease((f - f0) / (f1 - f0)); break
     M = np.eye(4); M[:3, 3] = p
-    if f < SHOW: M[:3, 3] += np.array([0, -900.0, 0])                     # hidden deep below until he comes up (scale stays constant: small track)
+    if f < SHOW: M[:3, 3] += np.array([0, -900.0, 0])                     # hidden until he is behind the fall
     return M
+# mist (v2, Arvind: more fog, scarier, the whole room): two drifting layers of see-through sheets, on spare nodes
+MIST = int(E('MIST', 1)); MS = E('MS', 64.0)
+MIST_NODES = [len(BONES) + 1, len(BONES) + 2] if MIST else []
+MBASE = {MIST_NODES[0]: np.array([100.0, 0, 0]), MIST_NODES[1]: np.array([100.0, 0, 0])} if MIST else {}
+MDRIFT = {MIST_NODES[0]: np.array([E('DRIFT1', 0.22), 0, 0.04]), MIST_NODES[1]: np.array([-E('DRIFT2', 0.15), 0, 0])} if MIST else {}
 # ------------------------------------------------------------------ node worlds per frame -> local TRS (parent = still root)
 NODE = {b: i + 1 for i, b in enumerate(BONES)}
 PAR = {b: (J['parent'][b] if J['parent'].get(b) in NODE else None) for b in BONES}   # real hierarchy: bone offsets stay constant (small track)
@@ -56,13 +65,14 @@ for f in range(nf):
     Wf = J['frames'][str(min(f, len(J['frames']) - 1))]; RT = root(f)
     WW = {b: RT @ H(Wf[b]) @ SUPK for b in BONES}
     for i in range(len(names)):
+        if i in MIST_NODES: T_[i][f], R_[i][f], S_[i][f] = MBASE[i] + MDRIFT[i] * f, np.eye(3), [MS, MS, MS]; continue
         if i == 0 or i > len(BONES): T_[i][f], R_[i][f], S_[i][f] = np.zeros(3), np.eye(3), np.ones(3); continue
         b = BONES[i - 1]; Lm = (np.linalg.inv(WW[PAR[b]]) @ WW[b]) if PAR[b] else WW[b]
         sc = np.cbrt(np.linalg.det(Lm[:3, :3])); T_[i][f] = Lm[:3, 3]; R_[i][f] = orth(Lm[:3, :3] / sc); S_[i][f] = [sc, sc, sc]
 anim_tpl = geom.read_bca(D(BM))[0]
 bnodes = []
 for i in range(len(names)):
-    used = 1 <= i <= len(BONES)
+    used = 1 <= i <= len(BONES) or i in MIST_NODES
     bnodes.append(dict(flags_keep=None if used else 1, T=T_[i], R=R_[i], S=S_[i], idx=i, rate=int(E('HALFRATE', 1)) if used else 0))
 bnodes[0]['flags_keep'] = None; bnodes[0]['rate'] = 0
 new_bca = bca_write.build(nf, bnodes, template=D(BM))
@@ -80,6 +90,7 @@ for op, p in ops:
 KEEP = 30
 cmd = bytearray([0x26, 0, 0, 0, 0])                                    # root: own parent, stored in slot 0
 for b in BONES: pn = NODE[PAR[b]] if PAR[b] else 0; cmd += bytes([0x66, NODE[b], pn, 0, NODE[b], pn])   # restore the parent's slot, store in slot = node
+for mn in MIST_NODES: cmd += bytes([0x66, mn, 0, 0, mn, 0])
 cmd += bytes([0x02, 0, 1])                                            # node 0 visible (the draws check it)
 for mt, sh in draws: cmd += bytes([0x03, 0, 0x0b, 0x04, mt, 0x05, sh])
 assert len(cmd) + 1 <= RC_LEN, (len(cmd), RC_LEN)
@@ -90,10 +101,10 @@ ents, _ = nitro.dict_read(bytes(d), mo + shp, 4); shapes = []; shapehdr = []
 for e, sn, _ in ents:
     oo = mo + shp + nitro.u32(e, 0); dummy, ssz, flag, co, cl = struct.unpack_from('<HHIII', d, oo); shapes.append((oo + co, cl)); shapehdr.append(oo)
 # ------------------------------------------------------------------ swatch textures
-GROUP = {'coat': 0, 'weed': 0, 'skin': 0, 'hat': 0, 'mask': 1, 'bone': 1, 'shell': 1, 'eye': 1, 'socket': 1}
-COL = {n: c for n, c in zip(J['names'], J['palette'])}; COL['eye'] = [130, 255, 235]; COL['socket'] = [6, 8, 8]
+GROUP = {'coat': 0, 'weed': 0, 'skin': 0, 'hat': 0, 'kelp2': 0, 'kelp3': 0, 'mask': 1, 'bone': 1, 'shell': 1, 'eye': 1, 'socket': 1, 'blade': 1, 'mist': 1}
+COL = {n: c for n, c in zip(J['names'], J['palette'])}; COL['eye'] = [170, 255, 245]; COL['socket'] = [4, 6, 6]; COL['mist'] = [int(x) for x in os.environ.get('MISTC', '176,214,190').split(',')]
 TEXN = {0: 'lugia_s', 1: 'lugia_foot'}; TS = {0: 64, 1: 32}
-labs = {g: [l for l in COL if GROUP[l] == g] for g in (0, 1)}
+labs = {g: [l for l in COL if GROUP.get(l, 0) == g] for g in (0, 1)}
 PALG = {g: [COL[l] for l in labs[g]] for g in (0, 1)}
 IDX = {}; CELL = {}
 for g in (0, 1):
@@ -120,7 +131,7 @@ def pack_cmds(cmds):
 # smooth normals per position (film frame, bind pose)
 from collections import defaultdict
 nacc = defaultdict(lambda: np.zeros(3))
-FP = [[P(q) for q in p['p']] for p in polys]
+FP = [[P(q) + (np.array([0, 0, E('EYE_DZ', 2.0)]) if p['lab'] == 'eye' else 0) for q in p['p']] for p in polys]   # the glow in front of the dark socket
 for pp in FP:
     n = np.cross(pp[1] - pp[0], pp[2] - pp[0])
     for q in pp: nacc[tuple(np.round(q, 2))] += n
@@ -161,6 +172,26 @@ for g in (0, 1):
             if LIGHTS: cmds.append((0x21, [n10(HBi[b][:3, :3] @ vnorm(q))]))
             cmds.append((0x24, [v10(loc)]))
         work[g].append(cmds + [(0x41, [])])
+if MIST:
+    rng = np.random.default_rng(int(E('MSEED', 5)))
+    def quad_h(cx, cy, cz, w, dz):               # a flat sheet over the water
+        return [np.array([cx - w, cy, cz - dz]), np.array([cx + w, cy, cz - dz]), np.array([cx + w, cy, cz + dz]), np.array([cx - w, cy, cz + dz])]
+    def quad_v(cx, cy, cz, w, h):                # a veil facing the camera
+        return [np.array([cx - w, cy - h, cz]), np.array([cx + w, cy - h, cz]), np.array([cx + w, cy + h, cz]), np.array([cx - w, cy + h, cz])]
+    LAYERS = []
+    for li, (y, alpha) in enumerate(((14, int(E('MA1', 13))), (22, int(E('MA2', 11))), (32, int(E('MA3', 9))), (46, int(E('MA4', 7))))):
+        qs = [quad_h(rng.uniform(-150, 380), y + rng.uniform(-3, 3), rng.uniform(-130, 150), rng.uniform(50, 110), rng.uniform(30, 70)) for _ in range(9)]
+        LAYERS.append((MIST_NODES[0], alpha, 33 + li, qs))
+    for li, (z, alpha) in enumerate(((-15, int(E('MV1', 7))), (30, int(E('MV2', 6))), (80, int(E('MV3', 5))))):
+        qs = [quad_v(rng.uniform(-120, 330), rng.uniform(35, 75), z + rng.uniform(-8, 8), rng.uniform(60, 110), rng.uniform(25, 45)) for _ in range(6)]
+        LAYERS.append((MIST_NODES[1], alpha, 40 + li, qs))
+    for node, alpha, pid, qs in LAYERS:
+        attr = (0 << 0) | (0 << 4) | (3 << 6) | (1 << 15) | (alpha << 16) | (pid << 24)      # unlit, modulate, both faces, fog, see-through
+        cmds = [(0x29, [attr]), (0x14, [node]), (0x20, [0x7fff]), (0x22, [tc(CELL['mist'], 1)]), (0x40, [1])]
+        for q in qs:
+            for v in q: cmds.append((0x24, [v10((v - MBASE[node]) / MS * K)]))
+        work[1].append(cmds + [(0x41, [])])
+    print('mist layers', len(LAYERS))
 for g in (0, 1):
     sh = SHAPE_OF[TEXN[g]]; so, cl = shapes[sh]
     cmds = [(0x13, [KEEP]), (0x20, [0x7fff])]; n_ok = 0
@@ -178,7 +209,8 @@ for g in (0, 1):
     print('material', mats[mt]['name'], 'polygon attr %08x' % pa)
     struct.pack_into('<I', d, mo_ + 12, (pa & ~0xF & ~(31 << 16)) | 0xC0 | (31 << 16) | (pa & 0xF if LIGHTS else 0))
     if LIGHTS:
-        struct.pack_into('<I', d, mo_ + 4, 31 | 31 << 5 | 31 << 10 | 0x8000 | (int(E('AMB', 20)) * 0x421) << 16)
+        struct.pack_into('<I', d, mo_ + 4, 31 | 31 << 5 | 31 << 10 | 0x8000 | (int(E('AMB', 26)) * 0x421) << 16)
+        EM = int(E('EMI', 7)); struct.pack_into('<I', d, mo_ + 8, (EM | EM << 5 | EM << 10) << 16)
 for bo in r['blocks']:
     if d[bo:bo + 4] != b'TEX0': continue
     t = nitro.read_tex(bytes(d), bo); fh = t['raw_hdr']; tbo, pbo = fh[6], fh[17]

@@ -944,3 +944,18 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - **Water:** `cave_tint.py` maps the water palettes (sea, falling water frames, pond line, waves) by brightness onto a dark-teal to sea-green gradient.
   - **Fog:** the cave is authored for fog (fog flag on most materials), but the film code turns fog off (`G3X_SetFog(0,0,0,0)` in ov106_021E5D70, shared by all three films). Adding fog needs a small code patch in the film overlay, limited to Lugia's film.
   - **Files:** film 79424/84324 bytes (80164 with the water colour). ROMs `legend_test/jump_lug_g2.nds` and `jump_lug_g2w.nds`. Video `gravriel_lugiafilm_utkast1.mp4` (`video3.py`).
+- **Gravriel v3 in Lugia's film, and the room (2026-11-16)**. Arvind on draft 1: out of the portal/fall like Lugia, slower and eerier; mostly kelp and seaweed, not grey; more fog, scarier; the whole room like that, not only the cutscene; fix the darkness, the loose tatters, the sword and the face.
+  - **`export_gravfilm.py` (v3):**
+    - **Kelp colours:** the coat is kelp in three greens, in strands by position; the weed is olive, the skin a paler sea-green. The cutlass has its own steel label.
+    - **Cross-chain faces:** faces that bridge the arm and body chains are dropped (no loose shards). Within the body they become one bone, so the waist has no gap.
+    - **Eyes:** the eye glow is 1.6x. The slash is slower (`S_SLASH` 1.0).
+  - **`rig_lugia.py` (v3):**
+    - **Path:** `KEYS`. He waits behind the fall from film frame 60, crosses the curtain at the flash (124) and drifts out to Lugia's hover spot (178).
+    - **Lighting:** brighter materials (ambient 26, emission 7). The eye glow sits 2 units in front of the socket.
+    - **Fog:** 7 see-through mist layers (4 low sheets over the water, 3 veils in front of the fall) on spare nodes 15/16, drifting slowly. Each layer has its own `POLYGON_ATTR` (unlit, both faces, alpha 7-13, its own polygon id) in shape 1.
+    - **Why geometry fog:** the film code turns hardware fog off for all three films, there is no room for code in the film overlay (Origin's ov097 = pret ov106), and Ho-Oh's film materials carry the fog flag too.
+  - **The room** (map 244, `MAP_WHIRL_ISLANDS_B3F_LUGIA_CAVE`; header at arm9 0xF4EA4, ROM 0xF8EA4):
+    - **Water:** `room_tint.py` gives texture set 98 (`a/0/4/4`) the film's green water. Area 98 is shared with map 486 (Whirl Islands B3F), so that floor changes too.
+    - **Weather:** `room_weather.py` sets the weather. 10 = mist, unused; 9 is the same but used by Sprout Tower 2F and the Goldenrod Dept. Store 3F, sharing graphics and the white fog colour. 13 = dark fog. From the overhead camera both are faint, because their fog starts far away.
+    - **Green fog in the room:** needs a code change, because the mist colour (ov001 literal at 0x7E34) is shared.
+  - **Files:** film 82136/84324 bytes. ROM `legend_test/jump_lug_v3.nds`. Video `gravriel_lugiafilm_v3.mp4`, room picture `gravriel_rommet_groent_vann.png`.

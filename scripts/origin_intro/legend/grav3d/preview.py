@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw
 J = json.load(open(sys.argv[1])); OUT = sys.argv[2]
 FR = [int(x) for x in (sys.argv[3] if len(sys.argv) > 3 else '0,110,130,150,165,180,200,230').split(',')]
 AZ = [float(x) for x in (sys.argv[4] if len(sys.argv) > 4 else '0,35').split(',')]
-PAL = {n: c for n, c in zip(J['names'], J['palette'])}; PAL['eye'] = [120, 255, 230]; PAL['socket'] = [8, 10, 10]
+PAL = {n: c for n, c in zip(J['names'], J['palette'])}; PAL['eye'] = [170, 255, 245]; PAL['socket'] = [4, 6, 6]
 B = {b: np.array(m) for b, m in J['bind'].items()}; Bi = {b: np.linalg.inv(m) for b, m in B.items()}
 polys = J['polys']; W, H = 260, 300; sc = 34
 L = np.array([0.3, -0.6, 0.75]); L /= np.linalg.norm(L)
