@@ -46,4 +46,10 @@ for bo in r['blocks']:
             struct.pack_into('<H', d, a, to555(c * (1 - MIX) + grad(y) * MIX) | (v & 0x8000))
         n += 1
 print('water palettes recoloured', n)
+# v13: the band discs (material lambert94, texture de_ap_e4) turn to face the new camera behind his head; drawn from both
+# sides (polygon attr bit 6) so no turn can hide them behind back-face culling
+if os.environ.get('RING_BOTH', '1') == '1':
+    for mt in r['models'][0]['mats']:
+        if mt.get('tex') == 'de_ap_e4':
+            pa = struct.unpack_from('<I', d, mt['off'] + 12)[0]; struct.pack_into('<I', d, mt['off'] + 12, pa | 0xC0); print('both sides', mt['name'], '%08x -> %08x' % (pa, pa | 0xC0))
 F[0] = lz10_enc(bytes(d)); open(DST, 'wb').write(pack(F)); print('file', len(pack(F)))

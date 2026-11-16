@@ -88,10 +88,12 @@ VCAM = os.environ.get('VCAM', '1' if os.environ.get('PATH_MODE', 'rise') == 'ris
 def _look(C, Tt):
     z = Tt - C; z = z / np.linalg.norm(z); dn = np.array([0, -1.0, 0]); y = dn - (dn @ z) * z; y = y / np.linalg.norm(y); x = np.cross(y, z)
     V = np.eye(4); V[:3, :3] = np.array([x, y, z]); V[:3, 3] = -V[:3, :3] @ C; return V
+def cam_C(f):                                       # the new camera's position (film world, before M is applied)
+    f = min(f, FREEZE); rp, e_ = rise_pos(f); a = math.radians(E('CAM_ANG', 40)); Dd = E('CAM_D', 320)   # v12: back to v9's 40 degrees to his side (Arvind: v9's angle was better); v10/v11 had 0, straight in front
+    return np.array([rp[0] + Dd * math.sin(a), E('CAM_Y0', 18) + (E('CAM_Y1', 40) - E('CAM_Y0', 18)) * e_, rp[2] + Dd * math.cos(a)])
 def VM(f):
     if not VCAM: return np.eye(4)
-    f = min(f, FREEZE); rp, e_ = rise_pos(f); a = math.radians(E('CAM_ANG', 40)); Dd = E('CAM_D', 320)   # v12: back to v9's 40 degrees to his side (Arvind: v9's angle was better); v10/v11 had 0, straight in front
-    C = np.array([rp[0] + Dd * math.sin(a), E('CAM_Y0', 18) + (E('CAM_Y1', 40) - E('CAM_Y0', 18)) * e_, rp[2] + Dd * math.cos(a)])
+    f = min(f, FREEZE); rp, e_ = rise_pos(f); C = cam_C(f)
     aim = WATER_Y + E('CAM_AIM0', 80) if f < T0 else max(WATER_Y + E('CAM_AIM0', 80), rp[1] + E('AIM', 0.55) * SIZE)   # looking up a little: the water line sits at the bottom edge
     return _Voi @ _look(C, np.array([rp[0], aim, rp[2]]))
 def root(f):
@@ -496,6 +498,13 @@ if os.environ.get('RING_FOLLOW', '1') == '1':
             Wd[i_] = (Wd[pa_] if pa_ != i_ and pa_ in Wd else np.eye(4)) @ Lm_
         return Wd
     BURST = int(E('BURST_NODE', 1))
+    RING_MODE = os.environ.get('RING_MODE', 'halo')   # v13 'halo' (facing the camera behind his head); 'hoop' = v10-v12
+    HALO_N = {3: np.array([0, 0, 1.0]), 4: np.array([0.148, 0.928, 0.342])}   # front face normal (by winding) of the disc shapes 27/28
+    HALO_C = {3: np.array([0, 0, 0.0]), 4: np.array([7.97, -6.405, 9.685])}   # disc centre (fan hub) in the shape's units
+    def _rot_between(a_, b_):                       # the smallest rotation taking direction a_ to b_
+        a_ = a_ / np.linalg.norm(a_); b_ = b_ / np.linalg.norm(b_); v_ = np.cross(a_, b_); c_ = float(a_ @ b_)
+        if c_ < -0.9999: return -np.eye(3) + 2 * np.outer(np.array([1.0, 0, 0]), np.array([1.0, 0, 0]))
+        K_ = np.array([[0, -v_[2], v_[1]], [v_[2], 0, -v_[0]], [-v_[1], v_[0], 0]]); return np.eye(3) + K_ + K_ @ K_ / (1 + c_)
     RINGS = [int(x) for x in os.environ.get('RING_NODES', '3,4,5' if PATHMODE == 'rise' else '1,3,4,5').split(',')]   # 3/4 = the band rings (de_ap_e4), 5 = sparkles
     W160 = cworld(geom.node_trs(mc, ac, 160)); off = {k: W160[k][:3, 3] - _LB[-1] for k in RINGS}
     mid_ = np.array([0, SIZE * E('MID', 0.55), 0])
@@ -513,6 +522,17 @@ if os.environ.get('RING_FOLLOW', '1') == '1':
                 # v10: the burst stretches along its own z (out of the fall toward the camera); turned so z points up, it
                 # shoots straight up out of the water where he rises (Arvind: "the portal must be vertical now")
                 if os.environ.get('BURST_UP', '1') == '1': rr_ = np.array([[1, 0, 0], [0, 0, 1.0], [0, -1.0, 0]]) @ np.array(rr_, float)
+            elif i in RINGS and PATHMODE == 'rise' and i in (3, 4) and RING_MODE == 'halo':
+                # v13 (Arvind on v12: the ring/halo should come out from behind Gravriel, so it looks like it comes from his
+                # head, facing the camera): both band discs (12-gon fans: node 3 rim 143, node 4 rim 202 in their own
+                # units) turn so their front faces the camera, centred on his head and HALO_BACK behind it along the view
+                # line; they grow as in the original (frames 152-160), so two concentric rings widen out from behind him
+                par = [p_[1] for p_ in corder if p_[0] == i][0]; Wp = Wd[par] if par != i else np.eye(4)
+                Cc = cam_C(f); head = body + np.array([0, E('HALO_DY', 32), 0]); dv = Cc - head; dv = dv / np.linalg.norm(dv)
+                ctr = head - E('HALO_BACK', 32) * dv
+                Rw = _rot_between(HALO_N[i], dv); rr_ = orth(Wp[:3, :3]).T @ Rw
+                sc_ = [v * E('HALO_SCALE', 0.30) for v in sc_]
+                t_ = (np.linalg.inv(Wp) @ np.append(ctr - Rw @ (HALO_C[i] * sc_[0]), 1))[:3]   # the disc's centre (not the node origin) on ctr
             elif i in RINGS and PATHMODE == 'rise' and i in (3, 4):
                 # v10: seen from straight in front the band rings were a circle far bigger than the screen; they become a hoop
                 # around him: laid flat (node 3's disc faced the old camera) and scaled down (RING_SCALE)

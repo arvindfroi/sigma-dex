@@ -1033,3 +1033,10 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - **Kept from v10:** the vertical portal burst out of the water (`BURST_UP`), the green hoop round him (`HOOP_TILT` 25, `RING_SCALE` 0.33, `HOOP_DY` 20; it reads well from the side angle too) and the green outline (`EDGE=104,192,152`).
   - **Build:** `EDGE=104,192,152 build_film7.sh g8 v12`. ROM `legend_test/jump_lug_v12.nds`.
   - **Files:** videos `gravriel_lugiafilm_v12_halv_fart.mp4` and `gravriel_lugiafilm_v12.mp4`; stills `gravriel_v12_fire_bilder.png`, freeze next to v9 `gravriel_v12_frys_mot_v9.png`.
+- **Gravriel v13 (2026-11-16)**. Arvind on v12 (with a drawing of rings round his head): nice; the ring/halo should come out from behind Gravriel, so it looks like it comes from his head, straight toward the camera.
+  - **The two band discs:** nodes 3 and 4 (material `lambert94`, texture `de_ap_e4`) are 12-gon fans (rim 143 and 202 in their own units, hubs at (0,0,0) and (7.97,-6.4,9.69); front faces by winding (0,0,1) and (0.148,0.928,0.342)). They grow from film frame 152 to 160 (scale 0.76 to 3.64).
+  - **Halo mode (`RING_MODE=halo`, default):** each frame both discs are turned so their front faces the new camera (`cam_C`), with the hub on his head (`HALO_DY` 32 above his middle) and `HALO_BACK` 32 behind it along the view line, scaled by `HALO_SCALE` 0.30. So two concentric rings widen out from behind his head. `RING_MODE=hoop` gives v10-v12's hoop.
+  - **Both sides:** `cave_tint.py` sets `lambert94` to draw both sides (`RING_BOTH`, polygon attr bit 6), so no turn can hide the discs behind back-face culling.
+  - **Freeze:** as in Origin's own film, the rings fade in the motion blur right after the freeze starts (Lugia's ring is gone at the freeze too).
+  - **Build:** `EDGE=104,192,152 build_film7.sh g8 v13`. ROM `legend_test/jump_lug_v13.nds`.
+  - **Files:** videos `gravriel_lugiafilm_v13_halv_fart.mp4` and `gravriel_lugiafilm_v13.mp4`; stills `gravriel_v13_ringene.png`.
