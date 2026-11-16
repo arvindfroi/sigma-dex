@@ -77,6 +77,10 @@ Arvind (2026-11-11): "andre har jobbet mye med slike greier i det siste så om v
   Poke Balls. Day Care may go past the cap (Arvind: fine). Dead Pokemon may be moved around in the PC, as long as
   they cannot be used: one taken into the party goes back to GRAVES when the PC closes. Built and tested:
   `scripts/origin_custom/nuzlocke/README.md`.
+- **Mode flags and later pieces (2026-11-17):** the mode is event flags 0x2C4 (Hard) and 0x2C5 (Hardcore), so the
+  new-game question is plain script in the intro. Gifts and static encounters do not use up an area. Forced
+  nicknames, the game over screen (with the Gravriel blackout picture) and locked menu rows come with the intro,
+  script and art work.
 - **Harder trainers in Gravriel (Arvind):** some trainers get bigger teams and higher levels, and the level cap may
   be lower; but Hardcore Nuzlocke is hard already, so it must never become impossible. The two versions are two
   separate ROMs, so Gravriel can simply have its own trainer data and its own cap table (no switch in the game).

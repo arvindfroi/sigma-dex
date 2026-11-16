@@ -58,6 +58,8 @@ typedef unsigned int u32;
 #define MSG_NO_ITEMS 0x32           /* battle Bag text bank 5, added by the build script */
 #define MSG_NO_REVIVE 0x33
 
+#define FLAG_NUZLOCKE 0x2C4          /* our mode flags, next to the English patch's AI flags */
+#define FLAG_HARDCORE 0x2C5
 #define AI_FLAG_ON 0x2C2             /* advanced trainer AI: ALL = 0x2C2 set and 0x2C3 clear (KEY = both set) */
 #define AI_FLAG_KEY 0x2C3
 #define OPT_CAP_ON 0x0008           /* Options word: the English patch's difficulty bits and battle style */
@@ -96,13 +98,21 @@ extern const u16 nz_grey_icon_pal[48];  /* grey copies of the three icon palette
 static struct nz_state *nz_get(void *save)
 {
     struct nz_state *st = (struct nz_state *)(SaveArray_Misc_Get(save) + NZ_STATE);
-    if (st->magic != NZ_MAGIC) {    /* first use; the real game will set the mode from Gravriel's new-game menu */
+    void *vars = Save_GetVars(save);
+    if (st->magic != NZ_MAGIC) {    /* first use */
         u8 *p = (u8 *)st;
         for (unsigned i = 0; i < sizeof *st; i++)
             p[i] = 0;
         st->magic = NZ_MAGIC;
-        st->mode = NZ_TEST_MODE;
+#if NZ_TEST_MODE                    /* test builds start in a mode; the game sets the flags from a script */
+        Vars_SetFlag(vars, FLAG_NUZLOCKE);
+        if (NZ_TEST_MODE == 2)
+            Vars_SetFlag(vars, FLAG_HARDCORE);
+#endif
     }
+    /* The mode lives in two event flags, so Gravriel's new-game choice is plain script (SetFlag): 0x2C4 = Hard
+       (nuzlocke), 0x2C4 + 0x2C5 = Hardcore. No script uses them (checked over all 966 script files). */
+    st->mode = Vars_GetFlag(vars, FLAG_NUZLOCKE) ? (Vars_GetFlag(vars, FLAG_HARDCORE) ? 2 : 1) : 0;
     return st;
 }
 

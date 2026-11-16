@@ -33,8 +33,14 @@ the level cap as a setting, so we force it on"):
 The options are forced in the save's Options word just before each field battle is set up, so changing them in the
 menu does not survive the next battle. Locking the menu rows is still to do. Day Care still ignores the cap.
 
-The test build starts every save in the mode given to the build (1 nuzlocke, 2 hardcore). The real build will set it
-from Gravriel's new-game choice.
+**The mode lives in two event flags**, so Gravriel's new-game choice is plain script: `SetFlag 0x2C4` = Hard
+(nuzlocke), `SetFlag 0x2C4` + `SetFlag 0x2C5` = Hardcore, neither = off (Sabertann). No script of the game uses
+them (checked over all 966 script files; they sit next to the English patch's AI flags 0x2C2/0x2C3). A test build
+sets them on first use (build argument 1 or 2); the real build gets 0 and leaves them to the script.
+
+**Gifts and static encounters** (Pokemon you are given, story battles against a lone Pokemon) do not use up the
+area: they are bonus Pokemon. Our mons take every story role, so counting them would take areas away for story
+reasons. Easy to change if we want the strict rule.
 
 ## How it is put in
 
@@ -106,7 +112,15 @@ Found on the way: an empty PC slot in a Gen 4 save is not 136 zero bytes but **z
 Our earlier hand-made test save had plain zeros, so every slot looked like a broken Pokemon and box 24 was "full";
 `fix_test_save_pc.py` writes proper empty slots.
 
-## Not done yet
+## Not done yet (on purpose, they belong with later work)
+
+- **New-game choice Hard / Hardcore:** the code is ready (the flags above); the question itself goes into the intro
+  script when we rewrite the intro.
+- **Forced nicknames:** the game has a script command for it (`NicknameInput`, 173); it needs a script started after
+  a catch, best done with the script work.
+- **Game over when the whole party dies:** together with the Gravriel blackout picture (the art comes first).
+- **DIFFICULTY rows shown locked in the menu:** that menu is the English patch's code; easiest once we build with
+  their tools (needs the Chinese base patch). Until then the forced values win at every battle.
 
 - Forced nicknames (Origin has no nickname prompt after a catch: open the naming screen in the field after the
   battle), the DIFFICULTY rows shown locked in the Options menu, Sacred Ash used from the Bag directly, Day Care
