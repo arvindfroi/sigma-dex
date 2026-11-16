@@ -23,6 +23,9 @@ F = unpack(open(SRC, 'rb').read()); D = lambda i: lz11_dec(F[i]) if F[i][:1] == 
 d = bytearray(D(MM)); r = nitro.read_bmd(bytes(d)); m = r['models'][0]; mats = m['mats']; names = [n for n, _ in m['nodes']]
 nf = geom.read_bca(D(BM))[0]['nframes']
 J = json.load(open(GJ)); BONES = J['bones']; polys = J['polys']
+# v8: the 'ghost' copy (export_gravparts.py) is drawn on its own: untextured, pale sea green, see-through, rigid on one node
+GPOLYS = [p for p in polys if p.get('part') == 'ghost'] if os.environ.get('GHOST', '1') == '1' else []
+polys = [p for p in polys if p.get('part') != 'ghost']
 assert len(BONES) + 1 <= len(names)
 # ------------------------------------------------------------------ Blender -> film coordinates
 Fx = np.array([[1, 0, 0], [0, 0, 1], [0, -1, 0]], float)          # x right, z up, faces -y  ->  x right, y up, faces +z
@@ -65,15 +68,21 @@ if LUGIA_PATH:
 # v7 PATH=glide (default): a slow, eased glide from where Lugia leaves the fall to where Lugia hovers, rising on the way
 # and bobbing gently after (v6's half-speed copy of Lugia's path swung close to the camera and looked rushed)
 PATHMODE = os.environ.get('PATH_MODE', 'glide')
-T1 = E('T1', 204)
+# v8: Lugia stops at film frame ~160 and the picture holds until the fade (a freeze frame before the battle): he reaches
+# his pose by then and freezes too (FREEZE), the glide ending there (T1)
+FREEZE = E('FREEZE', 160)
+T1 = E('T1', 160)
+SWITCH, AURA = E('SWITCH', 147), E('AURA', 14)      # ghost -> his own colours as the scream ring reaches him; green drains
 def root(f):
+    if PATHMODE == 'glide': f = min(f, FREEZE)
     if LUGIA_PATH and PATHMODE == 'glide':
         # start behind the falling water in the middle of the fall (Lugia's own start at frame 124 is off to the side near
         # the camera: he popped in at the bottom right), end where Lugia hovers
         mid = np.array([0, SIZE * E('MID', 0.55), 0]); P0 = np.array([float(v) for v in os.environ.get('G0', '8,40,-90').split(',')]); P1 = _LB[-1] - mid
         # ease-out: he breaks through the falling water quickly (behind the water he smeared into a ghost for ~40 frames
         # in v7c) and slows into the hover
-        t_ = min(1.0, max(0.0, (f - T0) / (T1 - T0))); e_ = 1 - (1 - t_) ** E('EASE_OUT', 3) if os.environ.get('EASE', 'out') == 'out' else ease(t_)
+        # v8: the glide starts after the portal flash (G_START) so the flight out shows, eased in and out, ending at the freeze
+        GS = E('G_START', 132); t_ = min(1.0, max(0.0, (f - GS) / (T1 - GS))); e_ = 1 - (1 - t_) ** E('EASE_OUT', 3) if os.environ.get('EASE', 'inout') == 'out' else ease(t_)
         p = P0 + (P1 - P0) * e_ + np.array([0, E('ARC', 12) * math.sin(math.pi * e_), 0])
         p = p + np.array([0, E('BOB', 1.5) * math.sin(2 * math.pi * f / 90) * min(1.0, max(0.0, (f - T0) / 30)), 0])
     elif LUGIA_PATH:
@@ -84,7 +93,7 @@ def root(f):
         for (f0, p0), (f1, p1) in zip(KEYS, KEYS[1:]):
             if f0 <= f <= f1: p = p0 + (p1 - p0) * ease((f - f0) / (f1 - f0)); break
     # sway: lean forward while gliding (eases upright at the hover), slow roll and yaw, all small
-    gl = 1 - ease((f - KEYS[0][0]) / (KEYS[-1][0] - KEYS[0][0])) if f >= KEYS[0][0] else 1.0
+    gl = (1 - ease((f - T0) / (T1 - T0)) if f >= T0 else 1.0) if (LUGIA_PATH and PATHMODE == 'glide') else (1 - ease((f - KEYS[0][0]) / (KEYS[-1][0] - KEYS[0][0])) if f >= KEYS[0][0] else 1.0)
     pitch = math.radians(E('LEAN', 16)) * gl; roll = math.radians(E('ROLL_SW', 2 if PATHMODE == 'glide' else 6)) * math.sin(2 * math.pi * f / 95)
     yaw = math.radians(E('YAW_SW', 3 if PATHMODE == 'glide' else 9)) * math.sin(2 * math.pi * f / 140 + 0.7)
     # v6b: the film camera looks along +x (Lugia's body node turns its +z to -x for the whole film); facing +z showed him
@@ -97,9 +106,11 @@ def root(f):
     return M
 # mist (v2, Arvind: more fog, scarier, the whole room): two drifting layers of see-through sheets, on spare nodes
 MIST = int(E('MIST', 1)); MS = E('MS', 64.0)
-MIST_NODES = [len(BONES) + 1, len(BONES) + 2] if MIST else []
-MBASE = {MIST_NODES[0]: np.array([100.0, 0, 0]), MIST_NODES[1]: np.array([100.0, 0, 0])} if MIST else {}
-MDRIFT = {MIST_NODES[0]: np.array([E('DRIFT1', 0.22), 0, 0.04]), MIST_NODES[1]: np.array([-E('DRIFT2', 0.15), 0, 0])} if MIST else {}
+MIST_NODES = ([len(BONES) + 1] if GPOLYS else [len(BONES) + 1, len(BONES) + 2]) if MIST else []   # v8: one mist node frees one for the ghost
+MBASE = {n_: np.array([100.0, 0, 0]) for n_ in MIST_NODES}
+MDRIFT = {n_: np.array([E('DRIFT1', 0.22), 0, 0.04]) * (1 if k_ == 0 else -0.7) for k_, n_ in enumerate(MIST_NODES)}
+GHOST_NODE = len(BONES) + 1 + len(MIST_NODES) if GPOLYS else None
+GMID = np.array([0, SIZE * E('MID', 0.55), 0])
 # ------------------------------------------------------------------ node worlds per frame -> local TRS (parent = still root)
 NODE = {b: i + 1 for i, b in enumerate(BONES)}
 PAR = {b: (J['parent'][b] if J['parent'].get(b) in NODE else None) for b in BONES}   # real hierarchy: bone offsets stay constant (small track)
@@ -116,7 +127,7 @@ def helper_of(b1, vw):
     if PAR.get(b1) == b2: return (b2, b1)
     return None
 _cnt = Counter(h for p in polys for b1, vw in zip(p['vb'], p.get('vw', [None] * len(p['vb']))) for h in [helper_of(b1, vw)] if h)
-FIRST_H = len(BONES) + 1 + len(MIST_NODES); NH = max(0, min(int(E('HMAX', 9)), len(names) - FIRST_H))
+FIRST_H = len(BONES) + 1 + len(MIST_NODES) + (1 if GPOLYS else 0); NH = max(0, min(int(E('HMAX', 9)), len(names) - FIRST_H))
 HELPERS = [h for h, _ in _cnt.most_common(NH)]
 for k_, h in enumerate(HELPERS): NODE[h] = FIRST_H + k_
 for h in HELPERS:
@@ -127,14 +138,24 @@ print('helpers', [a[4:] + '/' + b[4:] for a, b in HELPERS])
 HELPER_NODES = {NODE[h]: h for h in HELPERS}
 T_ = [[None] * nf for _ in names]; R_ = [[None] * nf for _ in names]; S_ = [[None] * nf for _ in names]
 for f in range(nf):
-    Wf = J['frames'][str(min(f, len(J['frames']) - 1))]; RT = root(f)
+    fz = min(f, FREEZE) if PATHMODE == 'glide' else f
+    Wf = J['frames'][str(min(int(fz), len(J['frames']) - 1))]; RT = root(f); RTG = RT.copy()
+    if GPOLYS and f < SWITCH: RT = RT.copy(); RT[:3, 3] += np.array([0, -900.0, 0])     # his own body appears at the switch
     W0 = {b: RT @ H(Wf[b]) for b in BONES}; WW = {b: W0[b] @ SUPK for b in BONES}
+    if GPOLYS:
+        # the ghost: rigid in the artwork pose; at the switch it swells a little around him and shrinks into him (green drains)
+        a_ = (f - SWITCH) / AURA; gs = 1.0 if a_ < 0 else (E('AURA_S0', 1.06) + (E('AURA_S1', 0.86) - E('AURA_S0', 1.06)) * min(1.0, a_))
+        Mg = RTG @ np.array([[1, 0, 0, GMID[0]], [0, 1, 0, GMID[1]], [0, 0, 1, GMID[2]], [0, 0, 0, 1.0]]) @ np.diag([K * gs, K * gs, K * gs, 1])
+        if f >= SWITCH + AURA: Mg[:3, 3] += np.array([0, -900.0, 0])
+        WW['__ghost'] = Mg
     for h in HELPERS:
         A_, B_ = h; KA = W0[A_] @ HBi[A_]; KB = W0[B_] @ HBi[B_]
         Rt = Slerp([0, 1], Rot.from_matrix([orth(KA[:3, :3]), orth(KB[:3, :3])]))([0.5]).as_matrix()[0]
         Wh = np.eye(4); Wh[:3, :3] = Rt @ HB[h][:3, :3]; Wh[:3, 3] = (KB @ np.append(HB[h][:3, 3], 1))[:3]; WW[h] = Wh @ SUPK
     for i in range(len(names)):
         if i in MIST_NODES: T_[i][f], R_[i][f], S_[i][f] = MBASE[i] + MDRIFT[i] * f, np.eye(3), [MS, MS, MS]; continue
+        if i == GHOST_NODE:
+            Lm = WW['__ghost']; sc = np.cbrt(np.linalg.det(Lm[:3, :3])); T_[i][f] = Lm[:3, 3]; R_[i][f] = orth(Lm[:3, :3] / sc); S_[i][f] = [sc, sc, sc]; continue
         if i in HELPER_NODES:
             h = HELPER_NODES[i]; Lm = np.linalg.inv(WW[h[0]]) @ WW[h]
             sc = np.cbrt(np.linalg.det(Lm[:3, :3])); T_[i][f] = Lm[:3, 3]; R_[i][f] = orth(Lm[:3, :3] / sc); S_[i][f] = [sc, sc, sc]; continue
@@ -144,7 +165,7 @@ for f in range(nf):
 anim_tpl = geom.read_bca(D(BM))[0]
 bnodes = []
 for i in range(len(names)):
-    used = 1 <= i <= len(BONES) or i in MIST_NODES or i in HELPER_NODES
+    used = 1 <= i <= len(BONES) or i in MIST_NODES or i in HELPER_NODES or i == GHOST_NODE
     bnodes.append(dict(flags_keep=None if used else 1, T=T_[i], R=R_[i], S=S_[i], idx=i, rate=int(E('HALFRATE', 1)) if used else 0))
 bnodes[0]['flags_keep'] = None; bnodes[0]['rate'] = 0
 new_bca = bca_write.build(nf, bnodes, template=D(BM))
@@ -162,7 +183,7 @@ for op, p in ops:
 KEEP = 30
 cmd = bytearray([0x26, 0, 0, 0, 0])                                    # root: own parent, stored in slot 0
 for b in BONES: pn = NODE[PAR[b]] if PAR[b] else 0; cmd += bytes([0x66, NODE[b], pn, 0, NODE[b], pn])   # restore the parent's slot, store in slot = node
-for mn in MIST_NODES: cmd += bytes([0x66, mn, 0, 0, mn, 0])
+for mn in MIST_NODES + ([GHOST_NODE] if GPOLYS else []): cmd += bytes([0x66, mn, 0, 0, mn, 0])
 for hn, h in HELPER_NODES.items(): cmd += bytes([0x66, hn, NODE[h[0]], 0, hn, NODE[h[0]]])   # helpers under their parent bone
 cmd += bytes([0x02, 0, 1])                                            # node 0 visible (the draws check it)
 for mt, sh in draws: cmd += bytes([0x03, 0, 0x0b, 0x04, mt, 0x05, sh])
@@ -300,7 +321,7 @@ if MIST:
         LAYERS.append((MIST_NODES[0], alpha, 33 + li, qs))
     for li, (z, alpha) in enumerate((((-15, int(E('MV1', 7))), (30, int(E('MV2', 6))), (80, int(E('MV3', 5))))[:int(E('VEILS', 1))])):
         qs = [quad_v(rng.uniform(-120, 330), rng.uniform(35, 75), z + rng.uniform(-8, 8), rng.uniform(60, 110), rng.uniform(25, 45)) for _ in range(6)]
-        LAYERS.append((MIST_NODES[1], alpha, 40 + li, qs))
+        LAYERS.append((MIST_NODES[-1], alpha, 40 + li, qs))
     for node, alpha, pid, qs in LAYERS:
         attr = (0 << 0) | (0 << 4) | (3 << 6) | (1 << 15) | (alpha << 16) | (pid << 24)      # unlit, modulate, both faces, fog, see-through
         cmds = [(0x29, [attr]), (0x14, [node]), (0x20, [0x7fff]), (0x22, [tc(CELL['mist'], 1)]), (0x40, [1])]
@@ -308,6 +329,56 @@ if MIST:
             for v in q: cmds.append((0x24, [v10((v - MBASE[node]) / MS * K)]))
         work[1].append(cmds + [(0x41, [])])
     print('mist layers', len(LAYERS))
+if GPOLYS:
+    # colour per vertex like the intro's ghost: the painted texture's brightness at the vertex turned into pale sea green
+    # (build_grav4.py: (0.35l+10, 1.05l+60, 0.8l+44)), the eyes' glow kept bright
+    def tex_rgb(g, uv):
+        ix = IDX[g]; h_, w_ = ix.shape; x = int(min(w_ - 1, max(0, uv[0] * w_))); y = int(min(h_ - 1, max(0, (1 - uv[1]) * h_)))
+        blk = ix[max(0, y - 1):y + 2, max(0, x - 1):x + 2].ravel(); return np.mean([PALG[g][int(c)] for c in blk], 0)
+    def ghost_col(c):
+        if c[2] > 200 and c[1] > 200 and c[0] < 200: return (200, 255, 230)
+        l = 0.3 * c[0] + 0.55 * c[1] + 0.15 * c[2]; gb = E('GHOST_GAIN', 1.0); q_ = E('GHOST_Q', 24); l = round(l / q_) * q_   # steps: fewer COLOR commands
+        return tuple(min(248, v) for v in ((0.35 * l + 10) * gb, (1.05 * l + 60) * gb, (0.8 * l + 44) * gb))
+    def c555(c): rr, gg, bb = (int(round(v / 255 * 31)) for v in c); return rr | gg << 5 | bb << 10
+    GA = int(E('GHOST_ALPHA', 14)); gattr = 0x80 | (GA << 16) | (int(E('GHOST_ID', 50)) << 24)
+    head_ = [(0x29, [gattr]), (0x2A, [0]), (0x14, [GHOST_NODE])]
+    gv = {}; gverts = []
+    def gvid(q, col):
+        kk = tuple(np.round(q, 2)) + tuple(int(v) for v in col)
+        if kk not in gv: gv[kk] = len(gverts); gverts.append((q, col))
+        return gv[kk]
+    gtris = []; gquads = []
+    for p in GPOLYS:
+        vs = [gvid(P(q) - GMID, ghost_col(tex_rgb(p['g'], uv))) for q, uv in zip(p['p'], p['uv'])]
+        (gquads if len(vs) == 4 else gtris).append(tuple(vs))
+    def emit(seq, prim):
+        cmds = [(0x40, [prim])]; lastc = None
+        for vi in seq:
+            q, col = gverts[vi]; c_ = c555(col)
+            if c_ != lastc: cmds.append((0x20, [c_])); lastc = c_
+            cmds.append((0x24, [v10(q)]))
+        return cmds + [(0x41, [])]
+    first = True
+    for k0 in range(0, len(gquads), 24):
+        work[1].append((head_ if first else []) + emit([v for qd in gquads[k0:k0 + 24] for v in qd], 1)); first = False
+    gedge = {}
+    for ti, t in enumerate(gtris):
+        for a_, b_ in ((t[0], t[1]), (t[1], t[2]), (t[2], t[0])): gedge.setdefault(frozenset((a_, b_)), []).append(ti)
+    gused = [False] * len(gtris)
+    def gcyc(a, b, c, t): return (a, b, c) in ((t[0], t[1], t[2]), (t[1], t[2], t[0]), (t[2], t[0], t[1]))
+    for s0 in range(len(gtris)):
+        if gused[s0]: continue
+        gused[s0] = True; st = list(gtris[s0])
+        while len(st) < 40:
+            k = len(st) - 2; a, b = st[-2], st[-1]; ok = None
+            for t in gedge.get(frozenset((a, b)), []):
+                if gused[t]: continue
+                x = [v for v in gtris[t] if v not in (a, b)][0]
+                if gcyc(a, b, x, gtris[t]) if k % 2 == 0 else gcyc(b, a, x, gtris[t]): ok = (t, x); break
+            if ok is None: break
+            gused[ok[0]] = True; st.append(ok[1])
+        work[1].append((head_ if first else []) + emit(st, 2)); first = False
+    print('ghost', len(GPOLYS), 'polys on node', GHOST_NODE, 'switch', SWITCH, 'aura', AURA, 'alpha', GA)
 # v6: the two shapes' display lists lie back to back (shape 0 then shape 1, then the inverse bind matrices), so the
 # boundary between them moves to where the body needs it; only the two shape headers' offset/length fields change
 blobs = {}
@@ -385,7 +456,7 @@ if os.environ.get('RING_FOLLOW', '1') == '1':
             Lm_ = (Tm @ np.diag([1 / x if x else 0 for x in trs[pa_][2]] + [1]) @ Rm @ Sm) if pa_ != i_ else Tm @ Rm @ Sm
             Wd[i_] = (Wd[pa_] if pa_ != i_ and pa_ in Wd else np.eye(4)) @ Lm_
         return Wd
-    RINGS = [int(x) for x in os.environ.get('RING_NODES', '3,4,5').split(',')]
+    RINGS = [int(x) for x in os.environ.get('RING_NODES', '1,3,4,5').split(',')]       # v8: + pCylinder1, the white band ring
     W160 = cworld(geom.node_trs(mc, ac, 160)); off = {k: W160[k][:3, 3] - _LB[-1] for k in RINGS}
     mid_ = np.array([0, SIZE * E('MID', 0.55), 0])
     CT = {i: [] for i in range(len(mc['nodes']))}; CR = {i: [] for i in CT}; CS = {i: [] for i in CT}

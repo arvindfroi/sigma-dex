@@ -14,6 +14,10 @@ SRC, DST = sys.argv[1:3]
 col = lambda k, d: np.array([float(x) for x in os.environ.get(k, d).split(',')])
 DARK, MID, LIGHT = col('WDARK', '6,26,24'), col('WMID', '38,92,78'), col('WLIGHT', '176,214,190'); MIX = float(os.environ.get('WMIX', '0.9'))
 WATER = ('dsea_on', 'dsea_un', 'sea_un', 'sea_f02', 'sea_line02', 'r_dpond_line', 'uzu_taki')
+# the ring around Lugia when it screams (cave nodes polySurface758-760, materials wave2/3/6 -> textures uzu_taki_ha/ha2)
+# (v8) and the white band ring itself (pCylinder1, material lambert94 -> de_ap_e4): mint green, dark -> mid -> light
+RING = tuple(x for x in os.environ.get('RING_PALS', 'uzu_taki_ha,de_ap_e4').split(',') if x); RGAIN = float(os.environ.get('RING_GAIN', '1.0'))
+RDARK, RMID, RLIGHT = col('RDARK', '10,56,34'), col('RMID', '52,196,116'), col('RLIGHT', '176,255,204')
 F = unpack(open(SRC, 'rb').read()); d = bytearray(lz11_dec(F[0]) if F[0][:1] == b'\x11' else F[0])
 r = nitro.read_bmd(bytes(d))
 def from555(v): return np.array([(v & 31), (v >> 5) & 31, (v >> 10) & 31], float) * 255 / 31
@@ -26,8 +30,16 @@ for bo in r['blocks']:
     t = nitro.read_tex(bytes(d), bo); pbo = t['raw_hdr'][17]
     pals = sorted(t['pals'], key=lambda p: p['off']); ends = [p['off'] for p in pals[1:]] + [None]
     for p, end in zip(pals, ends):
-        if not p['name'].startswith(WATER): continue
+        ring = p['name'].startswith(RING) if RING else False
+        if not p['name'].startswith(WATER) and not ring: continue
         cnt = min(16, ((end - p['off']) // 2) if end else 16, (len(d) - (bo + pbo + p['off'])) // 2)
+        if ring:                                       # v8: the scream ring glows the intro ghost's pale sea green
+            for i in range(cnt):
+                a = bo + pbo + p['off'] + 2 * i; v = struct.unpack_from('<H', d, a)[0]; c = from555(v)
+                l = min(1.0, float(c @ np.array([0.3, 0.55, 0.15])) / 255 * RGAIN)
+                g_ = RDARK + (RMID - RDARK) * (l / 0.5) if l < 0.5 else RMID + (RLIGHT - RMID) * ((l - 0.5) / 0.5)
+                struct.pack_into('<H', d, a, to555(g_) | (v & 0x8000))
+            n += 1; continue
         for i in range(cnt):
             a = bo + pbo + p['off'] + 2 * i; v = struct.unpack_from('<H', d, a)[0]; c = from555(v)
             y = float(c @ np.array([0.3, 0.59, 0.11])) / 255

@@ -99,6 +99,9 @@ for s in 'LR':
     near = DB[:, ARM[s]].min(1) < E('ARM_R', 0.42) * k / 3.236
     out_ = np.abs(HP[:, 0] - cx) > SH_X[s] * E('ARM_X', 0.9)
     PART[side & near & out_] = 'arm' + s
+    # v8: the hands and claws reach past the short hand bone: sea-teal skin near the hand goes with the arm (not the feet)
+    hand = DB[:, NB['DEF-hand.' + s]] < E('HAND_R', 0.75) * k / 3.236
+    PART[side & hand & (LAB == NAMES.index('skin')) & (HP[:, 2] > E('HAND_ZMIN', -1.4))] = 'arm' + s
 PART[(LAB == 3) & (HP[:, 0] < SWORD_X) & (HP[:, 2] < head('DEF-forearm.R')[2])] = 'sword'
 PART[(LAB == 4) & (HP[:, 2] > NECK_Z)] = 'hat'
 headr = E('HEAD_R', 0.55) * k / 3.236
@@ -109,21 +112,29 @@ PART[(PART == 'coat') & (LAB == 1) & (HP[:, 2] > CHEST_Z - E('BEARD_DROP', 0.9))
 # it is reduced as one piece, so there are no seams or gaps between parts; the look comes from the artwork painted on
 # (tex_atlas.py), the way the Pokémon film models carry their detail in the texture
 WHOLE = os.environ.get('WHOLE', '1') == '1'
-if WHOLE: PART[PART != 'sword'] = 'body'
+PART0 = PART.copy()
+# v8: the arms stay their own closed parts (to raise the cutlass without dragging the coat); coat, beard, head and hat
+# are the one body (ARMS_APART=0: everything but the cutlass in one body, as in v7)
+ARMS_APART = os.environ.get('ARMS_APART', '1') == '1'
+if WHOLE: PART[np.isin(PART, ['coat', 'beard', 'head', 'hat'] + ([] if ARMS_APART else ['armL', 'armR']))] = 'body'
 print('parts', {p: int((PART == p).sum()) for p in set(PART)})
 BUDGET = {'coat': int(E('B_COAT', 520)), 'beard': int(E('B_BEARD', 130)), 'head': int(E('B_HEAD', 110)), 'hat': int(E('B_HAT', 70)),
           'armL': int(E('B_ARM', 110)), 'armR': int(E('B_ARM', 110)), 'sword': int(E('B_SWORD', 30))}   # polygons (mostly quads); Lugia is 1128
 TRIS = {'coat': int(E('T_COAT', 900)), 'beard': int(E('T_BEARD', 220)), 'head': int(E('T_HEAD', 220)), 'hat': int(E('T_HAT', 100)),
         'armL': int(E('T_ARM', 150)), 'armR': int(E('T_ARM', 150)), 'sword': int(E('T_SWORD', 40))}   # triangles before quad pairing
-TRIS['body'] = int(E('T_BODY', 1300))
-VOX = {'body': E('VOXW', 0.08), 'coat': E('VOX', 0.035), 'beard': 0.03, 'head': 0.025, 'hat': 0.03, 'armL': 0.03, 'armR': 0.03, 'sword': 0.012}
-ALLOWED = {'body': list(DSB), 'coat': [b for b in DSB if not ('arm' in b or 'hand' in b)], 'beard': ['DEF-head', 'DEF-neck', 'DEF-spine.003'],
+TRIS['body'] = int(E('T_BODY', 1300)); TRIS['ghost'] = int(E('T_GHOST', 500))
+VOX = {'body': E('VOXW', 0.08), 'ghost': E('VOXW', 0.08), 'coat': E('VOX', 0.035), 'beard': 0.03, 'head': 0.025, 'hat': 0.03, 'armL': 0.03, 'armR': 0.03, 'sword': 0.012}
+ALLOWED = {'body': list(DSB), 'ghost': list(DSB), 'coat': [b for b in DSB if not ('arm' in b or 'hand' in b)], 'beard': ['DEF-head', 'DEF-neck', 'DEF-spine.003'],
            'head': ['DEF-head'], 'hat': ['DEF-head'], 'sword': ['DEF-hand.R'],
            'armL': ['DEF-shoulder.L', 'DEF-upper_arm.L', 'DEF-forearm.L', 'DEF-hand.L'], 'armR': ['DEF-shoulder.R', 'DEF-upper_arm.R', 'DEF-forearm.R', 'DEF-hand.R']}
 fverts = [list(p.vertices) for p in me.polygons]
 LP = {}
-for part in (['body', 'sword'] if WHOLE else list(BUDGET)):
-    keep = [f for f in fverts if sum(PART[i] == part for i in f) * 2 > len(f)]
+# v8 (Arvind: green and see-through at the start, like the intro's ghost, then his own colours on the way out): a second,
+# lighter copy of the body, 'ghost', drawn untextured, pale sea green and translucent in the film
+GHOSTPART = WHOLE and os.environ.get('GHOST', '1') == '1'
+WPARTS = ['body'] + (['armL', 'armR'] if ARMS_APART else []) + (['ghost'] if GHOSTPART else []) + ['sword']
+for part in (WPARTS if WHOLE else list(BUDGET)):
+    keep = [f for f in fverts if sum((PART[i] in ('body', 'armL', 'armR')) if part == 'ghost' else (PART[i] == part) for i in f) * 2 > len(f)]
     if not keep: continue
     used = sorted({i for f in keep for i in f}); rem = {i: j for j, i in enumerate(used)}
     m_ = bpy.data.meshes.new('P_' + part); m_.from_pydata([tuple(HP[i]) for i in used], [], [[rem[i] for i in f] for f in keep]); m_.update()
@@ -187,7 +198,7 @@ for part in (['body', 'sword'] if WHOLE else list(BUDGET)):
     bm.to_mesh(o.data); bm.free(); o.data.update()
     if os.environ.get('KEEP_STAGES') == '1':
         v_ = o.copy(); v_.data = o.data.copy(); v_.name = 'V_' + part; bpy.context.collection.objects.link(v_); v_.hide_render = True
-    if part == 'body':                                       # round the voxel steps before reducing
+    if part in ('body', 'ghost'):                            # round the voxel steps before reducing
         sm2 = o.modifiers.new('sm', 'SMOOTH'); sm2.factor = 0.5; sm2.iterations = int(E('SMI', 4)); bpy.ops.object.modifier_apply(modifier=sm2.name)
     dm = o.modifiers.new('dec', 'DECIMATE'); dm.decimate_type = 'COLLAPSE'; dm.ratio = min(1.0, TRIS[part] / max(1, len(o.data.polygons))); dm.use_collapse_triangulate = True
     bpy.ops.object.modifier_apply(modifier=dm.name)
@@ -197,6 +208,13 @@ for part in (['body', 'sword'] if WHOLE else list(BUDGET)):
     bmesh.ops.recalc_face_normals(bm, faces=bm.faces[:])
     bm.to_mesh(o.data); bm.free(); o.data.update()
     LP[part] = o; print('part', part, 'faces', len(keep), '-> voxel %.3f' % vs, '->', len(o.data.polygons), 'polygons', sum(len(p_.vertices) == 4 for p_ in o.data.polygons), 'quads')
+# v8: the cutlass's grip sat ~0.3 below the fist in the sculpt, a gap that shows once he points it: pull it into the hand
+if 'sword' in LP and os.environ.get('SWORD_TO_HAND', '1') == '1':
+    sw = LP['sword']; hh = Matrix(BIND['DEF-hand.R']).to_translation()
+    gi = min(range(len(sw.data.vertices)), key=lambda i: (sw.matrix_world @ sw.data.vertices[i].co - hh).length)
+    shift = (hh - sw.matrix_world @ sw.data.vertices[gi].co) * E('SWORD_PULL', 0.85)
+    for v in sw.data.vertices: v.co += sw.matrix_world.inverted().to_3x3() @ shift
+    print('sword pulled into the hand by', round(shift.length, 3))
 # ---------------------------------------------------------------- faces: points, bones (two per point), colour label
 from mathutils.kdtree import KDTree
 kd = KDTree(len(HP))
@@ -224,9 +242,12 @@ for part, o in LP.items():
         al = ALLOWED[part]
         if part == 'coat':
             al = ['DEF-hips'] if c[2] < HIP_Z - E('COAT_FREE', 0.3) else al     # the long coat hangs from the hips (a ghost: no legs)
-        if part == 'body' and c[2] < HIP_Z - E('COAT_FREE', 0.3):            # below the waist: the hips, or the hands beside it
-            al = ['DEF-hips', 'DEF-forearm.L', 'DEF-hand.L', 'DEF-forearm.R', 'DEF-hand.R']
-        bw = [two_bones(p, al) for p in P]
+        if part in ('body', 'ghost'):
+            # v8: per point, from the sculpt part it came from: sleeves and hands follow their arm, the coat never does (when he
+            # raised the sword, the coat hem beside the hand was dragged up with it)
+            bw = [two_bones(p, ['DEF-hips'] if p[2] < HIP_Z - E('COAT_FREE', 0.3) else (ALLOWED['coat'] if ARMS_APART else ALLOWED['body'])) for p in P]
+        else:
+            bw = [two_bones(p, al) for p in P]
         polys.append(dict(p=[list(map(float, p)) for p in P], vb=[b for b, _ in bw], vw=[w for _, w in bw], lab=lab, part=part))
 print('polys', len(polys), 'by part', {p: sum(1 for q in polys if q['part'] == p) for p in LP})
 # ---------------------------------------------------------------- motion
@@ -236,7 +257,7 @@ FPS = 2.0                                                # film frames per libra
 SEQ = [('Swim_Idle_Loop', E('T_RISE', 100), 0.5), (os.environ.get('ACT2', 'Idle_Loop'), E('T_REACH', 178), float(os.environ.get('ACT2_SPEED', 0.6)))]
 # v7: only part of each library motion, on top of the artwork pose (the bind pose), so the one-piece body is not torn and
 # the movement stays calm: a slow float with the arms lifting a little, then a quiet idle
-AMP = [E('AMP1', 0.35), E('AMP2', 0.6)]
+AMP = [E('AMP1', 0.2), E('AMP2', 0.6)]
 def scaled(ps, amp):
     out = {}
     for nm, (q, t) in ps.items():
@@ -273,6 +294,24 @@ for f in range(NF):
     frames[str(f)] = bone_mats()
 # the cutlass hangs ~2 units below the right wrist: the library's wrist turns would swing it off his hand, so the right
 # hand is rigid with the forearm (also lock_wrist.py for older exports)
+# v8 (Arvind: "points his sword in the same direction as Lugia looks"): from TP0 to TP1 the right arm chain swings about
+# the shoulder, rigid in the artwork pose, until the BLADE (grip -> tip, measured on the cutlass) lies along POINT_DIR:
+# his forward (-y) and up a little, which is where Lugia looks at the end of the film (he faces Lugia's heading there)
+if os.environ.get('POINT', '1') == '1' and 'sword' in LP:
+    sw = LP['sword']; SV = np.array([list(sw.matrix_world @ v.co) for v in sw.data.vertices])
+    # bind pose positions (the rig is posed at the last frame here)
+    hand_t = np.array(list(Matrix(BIND['DEF-hand.R']).to_translation())); grip = SV[np.argmin(np.linalg.norm(SV - hand_t, axis=1))]; tip = SV[np.argmax(np.linalg.norm(SV - grip, axis=1))]
+    bdir = Vector(list(tip - grip)).normalized(); D_ = Vector([float(v) for v in os.environ.get('POINT_DIR', '-0.2,-1,0.38').split(',')]).normalized()
+    Rp = bdir.rotation_difference(D_).to_matrix().to_4x4(); piv0 = Matrix(BIND['DEF-upper_arm.R']).to_translation()
+    TP0, TP1 = E('TP0', 134), E('TP1', 156); CH = ['DEF-upper_arm.R', 'DEF-forearm.R', 'DEF-hand.R']
+    print('point: blade', [round(x, 2) for x in bdir], '->', [round(x, 2) for x in D_])
+    for fk, mm in frames.items():
+        f_ = int(fk); w_ = min(1.0, max(0.0, (f_ - TP0) / (TP1 - TP0))); w_ = w_ * w_ * (3 - 2 * w_)
+        if w_ <= 0: continue
+        piv = Matrix(mm['DEF-upper_arm.R']).to_translation()
+        for b in CH:
+            tgt = Matrix.Translation(piv) @ Rp @ Matrix.Translation(-piv0) @ Matrix(BIND[b])
+            mm[b] = [list(r) for r in Matrix(mm[b]).lerp(tgt, w_)]
 if os.environ.get('WRIST_LOCK', '1') == '1':
     _rel = np.linalg.inv(np.array(BIND['DEF-forearm.R'])) @ np.array(BIND['DEF-hand.R'])
     for _m in frames.values(): _m['DEF-hand.R'] = (np.array(_m['DEF-forearm.R']) @ _rel).tolist()
