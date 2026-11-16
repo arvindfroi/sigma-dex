@@ -1069,3 +1069,17 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - **Film file:** 536032 bytes, too big for its slot. The test ROM relocates it (`relocate.py`), and `build_sab31.sh` points the g7.dst savestate's in-RAM file table at it (file 363 at RAM 0x023BFDB8). In the final game, the ROM build places files freely.
   - **Build:** `tex_views.py pt19r mv/views pv5sky2` (LAYOUT=sky2) and `pv5mid2` (LAYOUT=mid2), then `sab3d/build_sab31.sh legend/sab3d/pv5sky2 legend/sab3d/pv5mid2 v31f 0 0`. All 437 strips are placed in all six shots.
   - **Result:** ROM `legend_test/jump_hooh2_v31f.nds`. sha256 prefixes: film `79238a4d9ee87ea7`, ROM `ff31af93927a5e3b`. Videos `sabertann_3d_filmen_v31_halv_fart.mp4` and `sabertann_3d_filmen_v31.mp4` (Origin, v30 and v31 recorded at night, same variant). Stills `sabertann_v31_i_spillet_mot_v30.png` and `sabertann_v31_modell_mot_turnaround.png`.
+- **Sabertann v32 (2026-11-17), the sabre tusks** (Arvind on v31: "kan du gjøre de enda bedre? tennene er viktigst å få gjort riktig, men det ser veldig bra ut da!").
+  - **Why they were wrong:** the export left each tusk as a 4-triangle wedge. The drawn tusks were also painted onto the chest and cheeks behind them, so from the side he had two flat pairs as well.
+  - **`sab3d/make_tusks.py`:** new tusks, measured on the turnaround with the fitted views.
+    - Front view: root centre x 0.374 at z 2.39 under the lip, bowing out to 0.38 halfway, tip x 0.297 at z 1.43 (the tips turn in), 0.22 wide at the root.
+    - Side view: root y -2.77, tip y -2.69, front edge convex, 0.17 thick.
+    - Each is a tube of 6 sides x 5 rings plus a closed point, 54 triangles; it tapers with (1-t)^0.45, so it keeps its width and then points. The root is embedded in the lip. The bone is `head`.
+    - Build: `TUSK_TAPER=0.45 TUSK_RX=0.11 TUSK_RY=0.085 make_tusks.py pt19r pt20`.
+  - **Painted with the drawing's own tusk:** `tex_views.py` cuts the front view's tusk and straightens it row by row (ivory span plus outline, stretched to 16 px). u runs around the tusk (outer edge 0, the inner edge with the white highlight 1); v runs along it. The drawn tusks are painted out of the front and side pictures (nearest fur colour in the tusk zones), so there is only one pair.
+  - **Face:**
+    - `LAYOUT=sky3` (36 KB) gives head faces seen from the front their own 64x64 close up of the drawing (`fhead`), like Gravriel's face texture. The hat emblem reads in the fly-by.
+    - Head faces lean to the front picture (`FHEAD_W` 1.6, when facing it at least 0.3). The nose always takes it: the side picture is turned a little toward 3/4, so its gold nose landed in front of ours.
+  - **Budget:** sky 190128 + pagoda 69152 = 259280 of 262144 bytes of texture VRAM. All 453 strips are placed in all six shots.
+  - **Build:** `tex_views.py pt20 mv/views pv9sky3` (LAYOUT=sky3) and `pv9mid2` (LAYOUT=mid2), then `build_sab31.sh legend/sab3d/pv9sky3 legend/sab3d/pv9mid2 v32c 0 0`.
+  - **Result:** ROM `legend_test/jump_hooh2_v32c.nds`. sha256 prefixes: film `4ed278a0b45621a8`, ROM `a43e929657231028`. Videos `sabertann_3d_filmen_v32_halv_fart.mp4` and `sabertann_3d_filmen_v32.mp4`. Stills `sabertann_v32_tenner_i_spillet.png` and `sabertann_v32_hodet_modell.png`.

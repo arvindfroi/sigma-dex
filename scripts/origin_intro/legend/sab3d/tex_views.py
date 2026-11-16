@@ -64,6 +64,15 @@ for n, (dv, ax) in VIEWS.items():
                     sm = silhouette(Q, s, cub + du, cvb + dw, 256, sel); iou = (sm & m256).sum() / max(1, (sm | m256).sum())
                     if iou > best[0]: best = (iou, s, cub + du, cvb + dw)
     FIT[n] = dict(iou=float(best[0]), s=float(best[1]), cu=float(best[2]), cv=float(best[3])); print('fit', n, {k: round(v, 3) for k, v in FIT[n].items()})
+    # v32: the drawn tusks are 3D tusks now (make_tusks.py): painted out of the picture, so the chest and cheeks behind
+    # them do not carry a second, flat pair (ivory pixels + outline in the tusk zone take the nearest fur colour)
+    TZ = {'front': os.environ.get('TUSKZONE_FRONT', '425,420,612,602'), 'side': os.environ.get('TUSKZONE_SIDE', '66,492,156,648')}
+    if n in TZ and os.environ.get('TUSK_PAINT_OUT', '1') == '1':
+        x0_, y0_, x1_, y1_ = (int(v) for v in TZ[n].split(',')); im_ = IMG[n]; lum = im_ @ np.array([0.3, 0.59, 0.11])
+        tm = np.zeros(lum.shape, bool); tm[y0_:y1_, x0_:x1_] = lum[y0_:y1_, x0_:x1_] > 110; tm = ndimage.binary_dilation(tm, iterations=4)
+        _, (iy, ix) = ndimage.distance_transform_edt(tm, return_indices=True); fill = im_[iy, ix]
+        bl = np.stack([ndimage.uniform_filter(fill[..., c], 9) for c in range(3)], -1); IMG[n] = np.where(tm[..., None], bl, im_)
+        Image.fromarray(IMG[n][y0_ - 40:y1_ + 40, x0_ - 40:x1_ + 40].astype(np.uint8)).save(OUT + f'_tuskout_{n}.png')
     # the background takes the nearest figure colour (no white bleeding at the silhouette)
     core = ndimage.binary_erosion(M, iterations=3); _, (iy, ix) = ndimage.distance_transform_edt(~core, return_indices=True); IMG[n] = IMG[n][iy, ix]
 # ---- rendered views: the real model (V positions) with v30's flat textures, for the parts the drawing does not show
@@ -93,7 +102,7 @@ def alb_col(i, l0, l1, l2):
     uv = l0[:, None] * UVO[i, 0] + l1[:, None] * UVO[i, 1] + l2[:, None] * UVO[i, 2]; a_ = ALB[GO[i]]; h, w = a_.shape[:2]
     x = np.clip((uv[:, 0] * w).astype(int), 0, w - 1); y = np.clip(((1 - uv[:, 1]) * h).astype(int), 0, h - 1); return a_[y, x]
 RR = int(E('REND_RES', 512)); allv = V.reshape(-1, 3)
-LAYOUT = os.environ.get('LAYOUT', 'big'); TOP_LAND = LAYOUT in ('sky', 'sky2', 'mid', 'mid2', 'pag')
+LAYOUT = os.environ.get('LAYOUT', 'big'); TOP_LAND = LAYOUT in ('sky', 'sky2', 'sky3', 'mid', 'mid2', 'pag')
 def ortho(ua, va, land=False):
     """fit two model axes into an RR x RR picture; returns q(Q3) -> pixel coords"""
     a_, b_ = ua(allv), va(allv); s_ = 0.92 * RR / max(np.ptp(a_), np.ptp(b_))
@@ -139,7 +148,12 @@ dv = np.array([-1.0, 0, 0]); qf = RV['rside'][1]; Q2 = qf(V); zb, fb, _ = raster
 xi = np.clip(pts[..., 0].astype(int), 0, RR - 1); yi = np.clip(pts[..., 1].astype(int), 0, RR - 1)
 sc_ = (dz >= zb[yi, xi] - 0.06).mean(1) * np.clip(nrmV @ dv, 0, 1) * E('RENDW', 0.5); sc_[isstern] = sc_[isstern] / E('RENDW', 0.5) + 0.01
 SCORE['rside_m'] = sc_; PIX['rside_m'] = Q2
+# v32: head faces lean to the front picture (the eyes under the brim and the gold nose are drawn there; the side picture
+# is turned a little toward 3/4, so its nose lands in front of ours); the nose always takes the front picture
+headb = np.array([p.get('b') in ('head', 'jaw') for p in P]); SCORE['front'] = np.where(headb & (np.clip(nrmA @ np.array([0, -1.0, 0]), 0, 1) > 0.3), SCORE['front'] * E('FHEAD_W', 1.6), SCORE['front'])
 names = ['front', 'side', 'back', 'side_m', 'top', 'rback', 'rside', 'rside_m']; S = np.stack([SCORE[k] for k in names], 1); choice = S.argmax(1)
+for i in range(NF):
+    if part[i] == 'Nose': choice[i] = 0
 for i in range(NF):                                                # the thin mast: from the back view (keeps the sail out of the side texture)
     if part[i] == 'Mast': choice[i] = 2
 from collections import Counter
@@ -156,9 +170,13 @@ elif LAYOUT == 'mid':                                              # 28 KB: the 
 elif LAYOUT == 'sky2':                                             # 28 KB, sky shot (sky + pagoda textures <= 256 KB VRAM)
     TS = {0: (128, 128), 1: (128, 64), 2: (64, 64)}
     LAY = {'side': (0, 0, 0, 128, 88), 'top': (0, 0, 88, 128, 40), 'front': (1, 0, 0, 64, 64), 'rback': (1, 64, 0, 32, 32), 'rside': (1, 64, 32, 64, 32), 'back': (2, 0, 0, 32, 64), 'old': (2, 32, 0, 32, 64)}
+elif LAYOUT == 'sky3':                                             # 36 KB, sky shot v32: + the face close up (64x64) and the tusk
+    TS = {0: (128, 128), 1: (128, 128), 2: (64, 64)}
+    LAY = {'side': (0, 0, 0, 128, 88), 'top': (0, 0, 88, 128, 40), 'front': (1, 0, 0, 64, 64), 'rback': (1, 64, 0, 32, 32), 'tusk': (1, 96, 0, 16, 32), 'rside': (1, 64, 32, 64, 32),
+           'fhead': (1, 0, 64, 64, 64), 'back': (2, 0, 0, 32, 64), 'old': (2, 32, 0, 32, 64)}
 elif LAYOUT == 'mid2':                                             # 26 KB, pagoda: head faces in one texture (shape placement)
     TS = {0: (128, 128), 1: (128, 64), 2: (32, 64)}
-    LAY = {'side': (0, 0, 0, 128, 88), 'front': (0, 0, 88, 40, 40), 'top': (0, 40, 88, 88, 40), 'back': (1, 0, 0, 64, 64), 'rback': (1, 64, 0, 32, 32), 'rside': (1, 64, 32, 64, 32), 'old': (2, 0, 0, 32, 64)}
+    LAY = {'side': (0, 0, 0, 128, 88), 'front': (0, 0, 88, 40, 40), 'top': (0, 40, 88, 72, 40), 'tusk': (0, 112, 88, 16, 40), 'back': (1, 0, 0, 64, 64), 'rback': (1, 64, 0, 32, 32), 'rside': (1, 64, 32, 64, 32), 'old': (2, 0, 0, 32, 64)}
 def region(img, pix_sel, x0, y0, w, h):
     """crop img to the bounding box of the chosen faces' pixels (+ margin), scale uniformly into (x0,y0,w,h)"""
     p = pix_sel.reshape(-1, 2); lo = p.min(0) - 6; hi = p.max(0) + 6; bw, bh = hi - lo; sc = min(w / bw, h / bh)
@@ -167,15 +185,33 @@ def region(img, pix_sel, x0, y0, w, h):
     cx0, cy0 = (x0 - ox) / sc + PADS, (y0 - oy) / sc + PADS
     part_img = big.resize((w, h), Image.BOX, box=(cx0, cy0, cx0 + w / sc, cy0 + h / sc))
     return np.asarray(part_img).astype(float), (sc, ox, oy)
-oldm = np.array([part[i] in OLD for i in range(NF)])
+oldm = np.array([part[i] in OLD for i in range(NF)]); tuskm = np.array(['tu' in p for p in P]) & ('tusk' in LAY)
 KEYOF = {'front': 'front', 'side': 'side', 'side_m': 'side', 'back': 'back', 'top': 'top', 'rback': 'rback', 'rside': 'rside', 'rside_m': 'rside'}
+# v32: head faces seen from the front get their own close up of the drawing (the face, like Gravriel's face texture)
+headm = np.array([p.get('b') in ('head', 'jaw') for p in P])
+fkey = ['old' if oldm[i] else 'tusk' if tuskm[i] else ('fhead' if ('fhead' in LAY and names[choice[i]] == 'front' and headm[i]) else KEYOF[names[choice[i]]]) for i in range(NF)]
+fkey = np.array(fkey); print('faces per picture', Counter(fkey))
 TEX = {g: np.zeros((h, w, 3)) for g, (w, h) in TS.items()}; MAP = {}
-SRCIMG = {'front': IMG['front'], 'side': IMG['side'], 'back': IMG['back'], 'top': RIMG['top'], 'rback': RIMG['rback'], 'rside': RIMG['rside']}
-for key in ('side', 'front', 'back', 'top', 'rback', 'rside'):
-    sel_ = np.array([KEYOF[names[c]] == key for c in choice]) & ~oldm
-    if not sel_.any(): continue
-    pix_ = np.concatenate([PIX[nm][sel_ & (np.array(names)[choice] == nm)] for nm in names if KEYOF[nm] == key])
+SRCIMG = {'front': IMG['front'], 'fhead': IMG['front'], 'side': IMG['side'], 'back': IMG['back'], 'top': RIMG['top'], 'rback': RIMG['rback'], 'rside': RIMG['rside']}
+for key in ('side', 'front', 'fhead', 'back', 'top', 'rback', 'rside'):
+    sel_ = fkey == key
+    if not sel_.any() or key not in LAY: continue
+    pix_ = np.concatenate([PIX[names[choice[i]]][i][None] for i in np.nonzero(sel_)[0]])
     g, x0, y0, w, h = LAY[key]; im_, MAP[key] = region(SRCIMG[key], pix_, x0, y0, w, h); TEX[g][y0:y0 + h, x0:x0 + w] = im_
+if tuskm.any():
+    # the drawing's own tusk (front view, the one at x < 0), straightened: each row's ivory span (+ its ink outline)
+    # stretched to the full width, so u runs across the tusk (outer edge 0, inner edge with the highlight 1), v along it
+    fr_ = np.asarray(Image.open(os.path.join(VD, 'front.png')).convert('RGB')).astype(float); f_ = FIT['front']
+    cx = int(f_['cu'] + f_['s'] * -0.36); ya, yb = int(E('TUSK_Y0', 428)), int(E('TUSK_Y1', 588)); rows = []; last = None
+    for yy in range(ya, yb + 1):
+        seg = fr_[yy, cx - 45:cx + 45]; lum = seg @ np.array([0.3, 0.59, 0.11]); xs = np.nonzero(lum > 110)[0]
+        if len(xs): last = (max(xs.min() - 2, 0), min(xs.max() + 2, len(seg) - 1))
+        if last is None: continue
+        a_, b_ = last; src = seg[a_:b_ + 1]; xq = np.linspace(0, len(src) - 1, 16)
+        rows.append(np.stack([np.interp(xq, np.arange(len(src)), src[:, c]) for c in range(3)], 1))
+    TUSKIMG = np.array(rows); g, x0, y0, w, h = LAY['tusk']
+    TEX[g][y0:y0 + h, x0:x0 + w] = np.asarray(Image.fromarray(np.clip(TUSKIMG, 0, 255).astype(np.uint8)).resize((w, h), Image.BOX)).astype(float)
+    Image.fromarray(np.clip(TUSKIMG, 0, 255).astype(np.uint8)).resize((64, 320), Image.NEAREST).save(OUT + '_tusk.png')
 OLDIMG = np.asarray(Image.open(f'{BASE}_albedo2.png').convert('RGB')).astype(float)
 g, x0, y0, w, h = LAY['old']; TEX[g][y0:y0 + h, x0:x0 + w] = np.asarray(Image.fromarray(OLDIMG.astype(np.uint8)).resize((w, h), Image.BOX)).astype(float)
 def quant(a, n=256):
@@ -187,12 +223,15 @@ for i, p in enumerate(P):
     if oldm[i]:                                                   # old sail/flag picture: old uv into its region
         g, x0, y0, w, h = LAY['old']; Wg, Hg = TS[g]
         q['uv'] = [[(x0 + u * w) / Wg, 1 - (y0 + (1 - v) * h) / Hg] for u, v in p['uv']]; q['g'] = g
+    elif tuskm[i]:                                                # the tusk picture: u around, v along (half a texel inside)
+        g, x0, y0, w, h = LAY['tusk']; Wg, Hg = TS[g]
+        q['uv'] = [[(x0 + 0.5 + u * (w - 1)) / Wg, 1 - (y0 + 0.5 + v * (h - 1)) / Hg] for u, v in p['tu']]; q['g'] = g
     else:
-        c = names[choice[i]]; key = KEYOF[c]; sc, ox, oy = MAP[key]
+        c = names[choice[i]]; key = fkey[i]; sc, ox, oy = MAP[key]
         px = PIX[c][i]; gx = ox + px[:, 0] * sc; gy = oy + px[:, 1] * sc
         g = LAY[key][0]; Wg, Hg = TS[g]
         q['uv'] = [[float(np.clip(x / Wg, 0.002, 0.998)), float(np.clip(1 - y / Hg, 0.002, 0.998))] for x, y in zip(gx, gy)]; q['g'] = g
-    q['view'] = 'old' if oldm[i] else names[choice[i]]; out.append(q)
+    q['view'] = str(fkey[i]); q.pop('tu', None); out.append(q)
 json.dump(dict(J, polys=out, fit=FIT, layout=LAYOUT), open(OUT + '.json', 'w'))
 for g, T in TEX.items():
     ix, pal = quant(T); np.save(f'{OUT}_tex{g}_idx.npy', ix); np.save(f'{OUT}_tex{g}_pal.npy', pal)

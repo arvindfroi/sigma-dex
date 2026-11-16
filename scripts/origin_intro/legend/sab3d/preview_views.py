@@ -14,11 +14,11 @@ def load(base, alb):
     return P, T
 def render(P, T, yaw, pitch, size):
     V = np.array([p['p'] for p in P], float); UV = np.array([p['uv'] for p in P], float); G = [p['g'] for p in P]
-    c = V.reshape(-1, 3).mean(0); V = V - c
+    c = np.array([float(x) for x in os.environ['CENTER'].split(',')]) if os.environ.get('CENTER') else V.reshape(-1, 3).mean(0); V = V - c
     cy, sy = math.cos(math.radians(yaw)), math.sin(math.radians(yaw)); cp, sp = math.cos(math.radians(pitch)), math.sin(math.radians(pitch))
     Rz = np.array([[cy, -sy, 0], [sy, cy, 0], [0, 0, 1]]); Rx = np.array([[1, 0, 0], [0, cp, -sp], [0, sp, cp]])
     W = V @ (Rx @ Rz).T                                         # view: looking along +y (from -y), z up
-    ext = 0.55 * size / 3.6; Q = np.stack([size / 2 + ext * W[..., 0], size / 2 - ext * W[..., 2]], -1); depth = -W[..., 1]
+    ext = 0.55 * size / 3.6 * float(os.environ.get('ZOOM', '1')); Q = np.stack([size / 2 + ext * W[..., 0], size / 2 - ext * W[..., 2]], -1); depth = -W[..., 1]
     zb = np.full((size, size), -1e9); img = np.full((size, size, 3), 235.0)
     for i in range(len(P)):
         q = Q[i]; x0, y0 = np.floor(q.min(0)).astype(int); x1, y1 = np.ceil(q.max(0)).astype(int)
@@ -38,6 +38,7 @@ def render(P, T, yaw, pitch, size):
         img[y0:y1 + 1, x0:x1 + 1][upd] = t[yy, xx]
     return img
 ANG = [(0, 8, 'forfra'), (-60, 12, 'skra forfra'), (-90, 5, 'fra siden'), (-150, 20, 'skra bakfra'), (180, 35, 'bakfra ovenfra')]
+if os.environ.get('HEADVIEW'): ANG = [(0, 5, 'forfra'), (-30, 8, 'litt fra siden'), (-60, 10, 'skra forfra'), (-90, 3, 'fra siden'), (-25, -15, 'nedenfra')]
 rows = [(AB, os.environ.get('LAB_A', 'ny'), os.environ.get('ALB_A') == '1'), (BB, os.environ.get('LAB_B', 'gammel'), os.environ.get('ALB_B') == '1')]
 z = Image.new('RGB', (len(ANG) * (SZ + 6), len(rows) * (SZ + 20)), 'white'); d = ImageDraw.Draw(z)
 for r, (base, lab, alb) in enumerate(rows):
