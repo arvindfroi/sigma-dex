@@ -5654,5 +5654,33 @@
     "file": "assets/concept-art/wreckingdrake/1860.webp",
     "caption": null,
     "editor": "Emil"
+  },
+  {
+    "id": 1861,
+    "species": "iron-wire",
+    "file": "assets/concept-art/iron-wire/1861.png",
+    "caption": "[ds-front] sprite #329",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1862,
+    "species": "iron-wire",
+    "file": "assets/concept-art/iron-wire/1862.png",
+    "caption": "[ds-back] sprite #329",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1863,
+    "species": "iron-wire",
+    "file": "assets/concept-art/iron-wire/1863.png",
+    "caption": "[ds-icon] sprite #329",
+    "editor": "Arvind"
+  },
+  {
+    "id": 1864,
+    "species": "iron-wire",
+    "file": "assets/concept-art/iron-wire/1864.png",
+    "caption": "[ds-follower] sprite #329",
+    "editor": "Arvind"
   }
 ]

@@ -15,7 +15,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Dex page | description | 45 / 162 |
 | Dex page | height | 162 / 162 |
 | Dex page | weight | 162 / 162 |
-| Dex page | body color | 143 / 162 |
+| Dex page | body color | 144 / 162 |
 | Stats | base stats | 158 / 162 |
 | Stats | ability | 158 / 162 |
 | Stats | EV yield | 155 / 162 |
@@ -36,16 +36,16 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Art | back sprite | 4 / 162 |
 | Art | icon | 4 / 162 |
 | Art | footprint | 142 / 162 |
-| Art | shiny palette | 17 / 162 |
+| Art | shiny palette | 18 / 162 |
 | Art | cry | 8 / 162 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 96 / 162 |
-| DS back sprite 80x80 | 96 / 162 |
-| DS icon 32x32 | 96 / 162 |
+| DS front sprite 80x80 | 97 / 162 |
+| DS back sprite 80x80 | 97 / 162 |
+| DS icon 32x32 | 97 / 162 |
 
 ## Open dex slots (92)
 
@@ -1103,14 +1103,14 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #153 [Iron Bulb](data/species/iron-wire.yaml) - 31%
+### #153 [Iron Bulb](data/species/iron-wire.yaml) - 38%
 
-- **Dex page:** category, description, body color
+- **Dex page:** category, description
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
 ### #154 [SOLIDEDGE](data/species/solidedge.yaml) - 41%
 

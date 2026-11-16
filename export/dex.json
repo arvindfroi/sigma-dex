@@ -38509,9 +38509,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": 1.2,
-      "weight_kg": 28,
-      "body_color": null,
+      "height_m": 0.7,
+      "weight_kg": 4,
+      "body_color": "yellow",
       "abilities": {
         "primary": "Quark Drive",
         "secondary": null,
@@ -38554,17 +38554,10 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [
-          "height",
-          "weight"
-        ],
-        "claude_sure": {
-          "height": 65,
-          "weight": 65
-        },
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [],
+        "body_shape": "an upright body on two legs with a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "A bunch of electrical wires and outlet as hands and AV cables as legs."
       },
       "assets": {
         "concept_art": "assets/concept-art/iron-wire/1842.png",
@@ -38573,7 +38566,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/iron-wire.json",
         "cry": null
       },
       "engine": {
