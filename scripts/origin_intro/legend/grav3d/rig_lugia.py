@@ -45,8 +45,27 @@ KEYS = [(E('K0', 126), np.array([E('AX', 8), E('AY', 36), E('AZ', -120)])), (E('
         (E('K2', 204), np.array([E('CX', 0), E('CY', 66), E('CZ', 48)]))]
 SHOW = KEYS[0][0]
 def ease(t): t = min(1.0, max(0.0, t)); return t * t * (3 - 2 * t)
+# v6 (Arvind: "fly out of the portal like Lugia and float up"): Lugia's own body path from its animation, played at
+# SLOW speed from the moment the portal opens, his middle where Lugia's body joint is
+LUGIA_PATH = os.environ.get('LUGIA_PATH', '1') == '1'
+if LUGIA_PATH:
+    _a0 = geom.read_bca(D(BM))[0]; _order = [p for op, p in m['rcmds'] if op in (6, 0x26, 0x46, 0x66)]
+    def _lugia_body(fr):
+        trs = geom.node_trs(m, _a0, fr); W = {}
+        for p_ in _order:
+            i_, pa_ = p_[0], p_[1]; t_, rr_, sc_ = trs[i_]; T = np.eye(4); T[:3, 3] = t_; R = np.eye(4); R[:3, :3] = rr_; S = np.diag(list(sc_) + [1])
+            L = (T @ np.diag([1 / x if x else 0 for x in trs[pa_][2]] + [1]) @ R @ S) if pa_ != i_ else T @ R @ S
+            W[i_] = (W[pa_] if pa_ != i_ and pa_ in W else np.eye(4)) @ L
+        return W[0][:3, 3]
+    _LB = [_lugia_body(fr) for fr in range(nf)]
+    SLOW, T0 = E('SLOW', 0.5), E('T0', 124)
+    def lugia_at(t):
+        t = min(nf - 1.0, max(0.0, t)); i0 = int(t); i1 = min(nf - 1, i0 + 1); w = t - i0; return _LB[i0] * (1 - w) + _LB[i1] * w
+    SHOW = T0
 def root(f):
-    if f <= KEYS[0][0]: p = KEYS[0][1].copy()
+    if LUGIA_PATH:
+        p = lugia_at(T0 + max(0.0, f - T0) * SLOW) - np.array([0, SIZE * E('MID', 0.55), 0]) + np.array([0, 3 * math.sin(2 * math.pi * f / 80), 0])
+    elif f <= KEYS[0][0]: p = KEYS[0][1].copy()
     elif f >= KEYS[-1][0]: p = KEYS[-1][1] + np.array([0, 3 * math.sin(2 * math.pi * (f - KEYS[-1][0]) / 80), 0])
     else:
         for (f0, p0), (f1, p1) in zip(KEYS, KEYS[1:]):
@@ -55,6 +74,9 @@ def root(f):
     gl = 1 - ease((f - KEYS[0][0]) / (KEYS[-1][0] - KEYS[0][0])) if f >= KEYS[0][0] else 1.0
     pitch = math.radians(E('LEAN', 16)) * gl; roll = math.radians(E('ROLL_SW', 6)) * math.sin(2 * math.pi * f / 95)
     yaw = math.radians(E('YAW_SW', 9)) * math.sin(2 * math.pi * f / 140 + 0.7)
+    # v6b: the film camera looks along +x (Lugia's body node turns its +z to -x for the whole film); facing +z showed him
+    # side-on (and -90 showed his back: the shell on the wrong side), so he is turned to face +x, the camera
+    yaw += math.radians(E('BASE_YAW', 90 if LUGIA_PATH else 0))
     cx_, sx_ = math.cos(pitch), math.sin(pitch); cz_, sz_ = math.cos(roll), math.sin(roll); cy_, sy_ = math.cos(yaw), math.sin(yaw)
     Rx = np.array([[1, 0, 0], [0, cx_, -sx_], [0, sx_, cx_]]); Rz = np.array([[cz_, -sz_, 0], [sz_, cz_, 0], [0, 0, 1]]); Ry = np.array([[cy_, 0, sy_], [0, 1, 0], [-sy_, 0, cy_]])
     M = np.eye(4); M[:3, :3] = Ry @ Rz @ Rx; M[:3, 3] = p
@@ -68,19 +90,48 @@ MDRIFT = {MIST_NODES[0]: np.array([E('DRIFT1', 0.22), 0, 0.04]), MIST_NODES[1]: 
 # ------------------------------------------------------------------ node worlds per frame -> local TRS (parent = still root)
 NODE = {b: i + 1 for i, b in enumerate(BONES)}
 PAR = {b: (J['parent'][b] if J['parent'].get(b) in NODE else None) for b in BONES}   # real hierarchy: bone offsets stay constant (small track)
+# v6 smooth joints (Pokémon quality, no tearing): a vertex whose second bone is its parent/child with weight >= HELP_W
+# follows a HELPER = the halfway rotation of the two about their joint. The helper's frame has its origin AT the joint
+# and the parent's bind orientation, so in its parent node its offset is constant and only a rotation is animated.
+from collections import Counter
+from scipy.spatial.transform import Rotation as Rot, Slerp
+HELP_W = E('HELP_W', 0.22)
+def helper_of(b1, vw):
+    if not vw or vw[1] < HELP_W: return None
+    b2 = vw[0]
+    if PAR.get(b2) == b1: return (b1, b2)
+    if PAR.get(b1) == b2: return (b2, b1)
+    return None
+_cnt = Counter(h for p in polys for b1, vw in zip(p['vb'], p.get('vw', [None] * len(p['vb']))) for h in [helper_of(b1, vw)] if h)
+FIRST_H = len(BONES) + 1 + len(MIST_NODES); NH = max(0, min(int(E('HMAX', 9)), len(names) - FIRST_H))
+HELPERS = [h for h, _ in _cnt.most_common(NH)]
+for k_, h in enumerate(HELPERS): NODE[h] = FIRST_H + k_
+for h in HELPERS:
+    A_, B_ = h; Mh = np.eye(4); Mh[:3, :3] = HB[A_][:3, :3]; Mh[:3, 3] = HB[B_][:3, 3]; HB[h] = Mh; HBi[h] = np.linalg.inv(Mh)
+def eff_bone(b1, vw):
+    h = helper_of(b1, vw); return h if h in HB else b1
+print('helpers', [a[4:] + '/' + b[4:] for a, b in HELPERS])
+HELPER_NODES = {NODE[h]: h for h in HELPERS}
 T_ = [[None] * nf for _ in names]; R_ = [[None] * nf for _ in names]; S_ = [[None] * nf for _ in names]
 for f in range(nf):
     Wf = J['frames'][str(min(f, len(J['frames']) - 1))]; RT = root(f)
-    WW = {b: RT @ H(Wf[b]) @ SUPK for b in BONES}
+    W0 = {b: RT @ H(Wf[b]) for b in BONES}; WW = {b: W0[b] @ SUPK for b in BONES}
+    for h in HELPERS:
+        A_, B_ = h; KA = W0[A_] @ HBi[A_]; KB = W0[B_] @ HBi[B_]
+        Rt = Slerp([0, 1], Rot.from_matrix([orth(KA[:3, :3]), orth(KB[:3, :3])]))([0.5]).as_matrix()[0]
+        Wh = np.eye(4); Wh[:3, :3] = Rt @ HB[h][:3, :3]; Wh[:3, 3] = (KB @ np.append(HB[h][:3, 3], 1))[:3]; WW[h] = Wh @ SUPK
     for i in range(len(names)):
         if i in MIST_NODES: T_[i][f], R_[i][f], S_[i][f] = MBASE[i] + MDRIFT[i] * f, np.eye(3), [MS, MS, MS]; continue
+        if i in HELPER_NODES:
+            h = HELPER_NODES[i]; Lm = np.linalg.inv(WW[h[0]]) @ WW[h]
+            sc = np.cbrt(np.linalg.det(Lm[:3, :3])); T_[i][f] = Lm[:3, 3]; R_[i][f] = orth(Lm[:3, :3] / sc); S_[i][f] = [sc, sc, sc]; continue
         if i == 0 or i > len(BONES): T_[i][f], R_[i][f], S_[i][f] = np.zeros(3), np.eye(3), np.ones(3); continue
         b = BONES[i - 1]; Lm = (np.linalg.inv(WW[PAR[b]]) @ WW[b]) if PAR[b] else WW[b]
         sc = np.cbrt(np.linalg.det(Lm[:3, :3])); T_[i][f] = Lm[:3, 3]; R_[i][f] = orth(Lm[:3, :3] / sc); S_[i][f] = [sc, sc, sc]
 anim_tpl = geom.read_bca(D(BM))[0]
 bnodes = []
 for i in range(len(names)):
-    used = 1 <= i <= len(BONES) or i in MIST_NODES
+    used = 1 <= i <= len(BONES) or i in MIST_NODES or i in HELPER_NODES
     bnodes.append(dict(flags_keep=None if used else 1, T=T_[i], R=R_[i], S=S_[i], idx=i, rate=int(E('HALFRATE', 1)) if used else 0))
 bnodes[0]['flags_keep'] = None; bnodes[0]['rate'] = 0
 new_bca = bca_write.build(nf, bnodes, template=D(BM))
@@ -99,6 +150,7 @@ KEEP = 30
 cmd = bytearray([0x26, 0, 0, 0, 0])                                    # root: own parent, stored in slot 0
 for b in BONES: pn = NODE[PAR[b]] if PAR[b] else 0; cmd += bytes([0x66, NODE[b], pn, 0, NODE[b], pn])   # restore the parent's slot, store in slot = node
 for mn in MIST_NODES: cmd += bytes([0x66, mn, 0, 0, mn, 0])
+for hn, h in HELPER_NODES.items(): cmd += bytes([0x66, hn, NODE[h[0]], 0, hn, NODE[h[0]]])   # helpers under their parent bone
 cmd += bytes([0x02, 0, 1])                                            # node 0 visible (the draws check it)
 for mt, sh in draws: cmd += bytes([0x03, 0, 0x0b, 0x04, mt, 0x05, sh])
 assert len(cmd) + 1 <= RC_LEN, (len(cmd), RC_LEN)
@@ -113,7 +165,12 @@ GROUP = {'coat': 0, 'weed': 0, 'skin': 0, 'hat': 0, 'kelp2': 0, 'kelp3': 0, 'mas
 COL = {n: c for n, c in zip(J['names'], J['palette'])}; COL['eye'] = [170, 255, 245]; COL['socket'] = [4, 6, 6]; COL['mist'] = [int(x) for x in os.environ.get('MISTC', '176,214,190').split(',')]
 TEXN = {0: 'lugia_s', 1: 'lugia_foot'}; TS = {0: 64, 1: 32}
 if 'tex' in J:                                                  # the artwork's scheme: near-black coat, bright kelp strands, sea-green skin
-    COL.update({'coat': [24, 34, 28], 'kelp2': [62, 102, 46], 'kelp3': [100, 146, 62], 'weed': [116, 156, 66], 'skin': [70, 136, 132], 'hat': [26, 30, 28]})
+    # v6b: the film's light made the old kelp greens lime; the artwork is a near-black coat with dark green kelp, olive
+    # beard strands and sea-teal hands and feet (env SCHEME=old for the v5 colours)
+    if os.environ.get('SCHEME', 'v6') == 'old':
+        COL.update({'coat': [24, 34, 28], 'kelp2': [62, 102, 46], 'kelp3': [100, 146, 62], 'weed': [116, 156, 66], 'skin': [70, 136, 132], 'hat': [26, 30, 28]})
+    else:
+        COL.update({'coat': [16, 22, 19], 'kelp2': [28, 48, 30], 'kelp3': [52, 84, 40], 'weed': [70, 104, 46], 'skin': [44, 104, 112], 'hat': [18, 21, 19]})
 labs = {g: [l for l in COL if GROUP.get(l, 0) == g] for g in (0, 1)}
 PALG = {g: [COL[l] for l in labs[g]] for g in (0, 1)}
 IDX = {}; CELL = {}
@@ -157,11 +214,25 @@ def vnorm(q):
 LIGHTS = int(E('LIGHTS', 1))
 work = {0: [], 1: []}
 for g in (0, 1):
-    tris = []
+    tris = []; quads = []
     for p, pp in zip(polys, FP):
         pg = p['g'] if (TEXMODE or HYB) else GROUP[p['lab']]
         if pg != g: continue
-        tris.append([(pp[k], p['vb'][k], tuple(p['uv'][k]) if 'uv' in p else p['lab']) for k in range(3)])
+        vws = p.get('vw', [None] * len(p['vb']))
+        vv = [(pp[k], eff_bone(p['vb'][k], vws[k]), tuple(p['uv'][k]) if 'uv' in p else p['lab']) for k in range(len(pp))]
+        (quads if len(vv) == 4 else tris).append(vv)
+    # quads (v6, like the Pokémon models: one DS polygon each) go out as quad lists, 24 per block
+    for k0 in range(0, len(quads), 24):
+        cmds = [(0x40, [1])]; curb = None; lastt = None
+        for qd in quads[k0:k0 + 24]:
+            for q, b, l in qd:
+                loc = (HBi[b] @ np.append(q, 1))[:3]
+                if b != curb: cmds.append((0x14, [NODE[b]])); curb = b
+                t_ = tc(l if isinstance(l, tuple) else CELL[l], g)
+                if t_ != lastt: cmds.append((0x22, [t_])); lastt = t_
+                if LIGHTS: cmds.append((0x21, [n10(HBi[b][:3, :3] @ vnorm(q))]))
+                cmds.append((0x24, [v10(loc)]))
+        work[g].append(cmds + [(0x41, [])])
     # greedy strips over shared (position, bone, label) vertices
     keyof = {}; verts = []
     def vid(q, b, l):
@@ -210,25 +281,42 @@ if MIST:
             for v in q: cmds.append((0x24, [v10((v - MBASE[node]) / MS * K)]))
         work[1].append(cmds + [(0x41, [])])
     print('mist layers', len(LAYERS))
+# v6: the two shapes' display lists lie back to back (shape 0 then shape 1, then the inverse bind matrices), so the
+# boundary between them moves to where the body needs it; only the two shape headers' offset/length fields change
+blobs = {}
 for g in (0, 1):
-    sh = SHAPE_OF[TEXN[g]]; so, cl = shapes[sh]
-    cmds = [(0x13, [KEEP]), (0x20, [0x7fff])]; n_ok = 0
-    for w in work[g]:
-        if len(pack_cmds(cmds + w + [(0x14, [KEEP])])) > cl: continue
-        cmds += w; n_ok += 1
-    blob = pack_cmds(cmds + [(0x14, [KEEP])]); d[so:so + cl] = blob + bytes(cl - len(blob))
+    cmds = [(0x13, [KEEP]), (0x20, [0x7fff])]
+    for w in work[g]: cmds += w
+    blobs[g] = pack_cmds(cmds + [(0x14, [KEEP])])
+lay = sorted(((shapes[SHAPE_OF[TEXN[g]]][0], g) for g in (0, 1)))
+start0 = lay[0][0]; end1 = lay[1][0] + shapes[SHAPE_OF[TEXN[lay[1][1]]]][1]
+assert lay[0][0] + shapes[SHAPE_OF[TEXN[lay[0][1]]]][1] == lay[1][0], 'shape display lists are not back to back'
+need = sum(len(b) for b in blobs.values()); room = end1 - start0
+print('display lists', {g: len(b) for g, b in blobs.items()}, 'need', need, 'room', room)
+assert need <= room, 'strips do not fit'
+pos = start0
+for k_, (_, g) in enumerate(lay):
+    sh = SHAPE_OF[TEXN[g]]; b = blobs[g]
+    ln = len(b) if k_ == 0 else end1 - pos                                   # the last list keeps the slack (zero padded)
+    d[pos:pos + ln] = b + bytes(ln - len(b))
+    struct.pack_into('<II', d, shapehdr[sh] + 8, pos - shapehdr[sh], ln)    # offset from the shape header, length
     struct.pack_into('<I', d, shapehdr[sh] + 4, struct.unpack_from('<I', d, shapehdr[sh] + 4)[0] | 0x2 | 0x8)
-    print('group', g, TEXN[g], 'strips', n_ok, 'of', len(work[g]), 'bytes', len(blob), '/', cl)
-    assert n_ok == len(work[g]), 'strips do not fit'
+    print('group', g, TEXN[g], 'strips', len(work[g]), 'bytes', len(b), 'slot', ln); pos += ln
 # ------------------------------------------------------------------ materials (lit like Lugia, white diffuse), textures, palettes
 def c555(c): rr, gg, bb = (int(round(v / 255 * 31)) for v in c); return rr | gg << 5 | bb << 10
 for g in (0, 1):
     mt = MAT_OF[TEXN[g]]; mo_ = mats[mt]['off']; pa = struct.unpack_from('<I', d, mo_ + 12)[0]
     print('material', mats[mt]['name'], 'polygon attr %08x' % pa)
-    struct.pack_into('<I', d, mo_ + 12, (pa & ~0xF & ~(31 << 16)) | 0xC0 | (31 << 16) | (pa & 0xF if LIGHTS else 0))
+    # v6g: the parts are closed and their normals agree, so back faces are culled (front only, 0x80). Drawing both sides
+    # showed the brim's underside and the solidify inner sheets as a black band over the face; it also halves the
+    # polygons the DS has to draw (env BOTH=1 for the old 0xC0)
+    sides = 0xC0 if os.environ.get('BOTH') == '1' else 0x80
+    struct.pack_into('<I', d, mo_ + 12, (pa & ~0xF & ~(31 << 16) & ~0xC0) | sides | (31 << 16) | (pa & 0xF if LIGHTS else 0))
     if LIGHTS:
         struct.pack_into('<I', d, mo_ + 4, 31 | 31 << 5 | 31 << 10 | 0x8000 | (int(E('AMB', 26)) * 0x421) << 16)
-        EM = int(E('EMI', 7)); struct.pack_into('<I', d, mo_ + 8, (EM | EM << 5 | EM << 10) << 16)
+        # v6d: the face (shape 1: painted head front + the unlit mist) glows a little more than the body, so the pale beak
+        # and the blue eyes read in the film's light now that he faces the camera
+        EM = int(E('EMI1', 13)) if g == 1 else int(E('EMI', 7)); struct.pack_into('<I', d, mo_ + 8, (EM | EM << 5 | EM << 10) << 16)
 for bo in r['blocks']:
     if d[bo:bo + 4] != b'TEX0': continue
     t = nitro.read_tex(bytes(d), bo); fh = t['raw_hdr']; tbo, pbo = fh[6], fh[17]

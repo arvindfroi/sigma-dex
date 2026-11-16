@@ -28,8 +28,8 @@ def view(k):
     _, (iy, ix) = ndimage.distance_transform_edt(~core, return_indices=True)   # outline and background take the nearest inner colour
     v = v[iy, ix]; return v, (xs.min(), xs.max(), ys.min(), ys.max())
 FRONT, FB = view(0); BACK, BB = view(2)
-P = np.array([q for p in polys for q in p['p']]).reshape(-1, 3, 3)
-xmin, xmax = P[..., 0].min(), P[..., 0].max(); zmin, zmax = P[..., 2].min(), P[..., 2].max()
+P = [np.array(p['p']) for p in polys]; _all = np.vstack(P)
+xmin, xmax = _all[:, 0].min(), _all[:, 0].max(); zmin, zmax = _all[:, 2].min(), _all[:, 2].max()
 def to_img(q, box, mirror):
     x0, x1, y0, y1 = box; u = (q[0] - xmin) / (xmax - xmin); u = 1 - u if mirror else u
     return x0 + u * (x1 - x0), y1 - (q[2] - zmin) / (zmax - zmin) * (y1 - y0)
@@ -58,9 +58,17 @@ def quant(a, n=15, seed=1):
         C = np.array([np.average(X[lab == k], 0, weights=w[lab == k]) if (lab == k).any() else C[k] for k in range(n)])
     lab = ((X[:, None] - C[None]) ** 2).sum(-1).argmin(1)
     return lab.reshape(a.shape[:2]), np.clip(np.round(C), 0, 255).astype(int)
-A1 = np.clip(A1 * E('FACE_GAIN', 1.25), 0, 255)                   # the painting is dark for the DS film light
+A1 = np.clip(A1 * E('FACE_GAIN', 1.45), 0, 255)                   # the painting is dark for the DS film light (v6d 1.45)
 I0, P0 = quant(A0); I1, P1 = quant(A1)
+# v6e: the eyes are 1-2 pixels at film size and read as dark: the blue entries of the face palette glow pale cyan (the
+# intro's glowing eyes), the pale beak is lifted a little
+if os.environ.get('EYE_GLOW', '1') == '1':
+    for k_ in range(len(P1)):
+        r_, g_, b_ = (int(x) for x in P1[k_])
+        if b_ > r_ + 25 and b_ >= g_ - 10: P1[k_] = [170, 238, 255]; print('eye colour', (r_, g_, b_), '-> glow')
+        elif min(r_, g_, b_) > 120 and max(r_, g_, b_) - min(r_, g_, b_) < 40: P1[k_] = np.clip(P1[k_] * 1.15, 0, 255).astype(int); print('pale', (r_, g_, b_), '-> lifted')
 MIST = [int(x) for x in os.environ.get('MISTC', '176,214,190').split(',')]
+if os.environ.get('DEBUG_FACE') == '1': P1[:] = [255, 0, 255]                 # diagnosis: is the face texture drawn at all?
 I1[30:32, 30:32] = 15; P1 = np.vstack([P1, [MIST]])
 out = []
 for p, q3 in zip(polys, P):
