@@ -882,3 +882,17 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   swings for the stocky body: `AMP=0.45 BODYAMP=0.6 PROFILE=horse retarget_walk.py ...`. The cycle steps on its own keys
   (`PHASE_SNAP=1`, pace from the distance), so poses repeat and the animation stays small; `FOOTLOCK=0`. Strips that cannot
   reach a late helper fall back to its parent bone. Film 434568/437100, ROM `legend_test/jump_hooh2_v23.nds`.
+- **v24 (2026-11-16), the gallop redone**: v23's paw-path IK gave the left front leg +-48 deg and the right one +-4 deg,
+  hind legs +-10 deg, and no body rocking (the Quaternius horse run has no body pitch). On screen that read as a small,
+  quick shuffle. `sab3d/retarget_fk.py` now carries the source's LEG ANGLES over (upper-leg swing and knee bend in the
+  side plane, relative to the source rest). Settings: front swing x0.8 (-53..41 deg); hind x0.55, 14 deg forward
+  (-31..20 deg, shorter so the stocky haunches do not stretch); knee x0.9. It adds a +-7 deg rocking-horse pitch (nose
+  highest while the hind legs push), the source bob, and a head that partly holds against the rock. Output: 18 keys.
+  `rig3d.py` `CADENCE=36` gives a steady gallop: one stride per 36 film frames (~1.7 strides/s, like Ho-Oh's wingbeat),
+  one key per 2 frames (half-rate tracks), instead of 20 frames per stride tied to the distance. Ripples now come from
+  one clean touchdown per paw per stride (the paw's most-forward key), shown for the first hind paw and the last front
+  paw. Before, the stance test flickered and gave ~8 per stride. Previews: `walk_sheet.py` with `SPLIT=0` (the DS
+  skins per vertex) and `EL=` for a view from above.
+  Build: `AMP_H=0.55 OFF_H=14 retarget_fk.py Horse_run.json bones_rest14.json bones_run17.json -8`, then rig3d with
+  `CADENCE=36` and cycle `1..18`. Film 431908/437100, all 445 strips in all six shots, ROM
+  `legend_test/jump_hooh2_v24.nds`.

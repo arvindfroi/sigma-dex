@@ -11,6 +11,7 @@ D = json.load(open(B + '.json'))['polys']
 LT = np.array([-0.35, -0.55, 0.75]); LT /= np.linalg.norm(LT); W = int(__import__("os").environ.get("WS", "220"))
 allP = np.array([q for p in D for q in p['p']]); cen0 = (allP.max(0) + allP.min(0)) / 2; S = np.abs(allP - cen0).max() * 1.05
 a = np.radians(AZ); Rz = np.array([[np.cos(a), -np.sin(a), 0], [np.sin(a), np.cos(a), 0], [0, 0, 1]])
+_el = np.radians(float(__import__('os').environ.get('EL', '0'))); Rz = np.array([[1, 0, 0], [0, np.cos(_el), -np.sin(_el)], [0, np.sin(_el), np.cos(_el)]]) @ Rz   # EL: look from above
 sheet = Image.new('RGB', (W * 8, W * ((len(FR) + 7) // 8)), (52, 60, 84))
 for k, fr in enumerate(FR):
     F = {b: np.array(m) for b, m in J['frames'][str(fr)].items()}

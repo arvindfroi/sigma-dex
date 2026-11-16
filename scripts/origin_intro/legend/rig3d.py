@@ -3,7 +3,7 @@ Ho-Oh's joints (each bone takes a Ho-Oh node that stores its matrix), our textur
 and a new joint animation: the environment keeps its own tracks; Ho-Oh's joint1 keeps its flight path; our bones play a
 pose cycle from the Blender rig on top of it. Writes the model and its BCA back into the NARC (LZ10).
 python legend/rig3d.py NARC_IN NARC_OUT BASE BONES.json MODEL BCA [SIZE=340] [CYCLE=1,2,3,4] [STEP=5]   (env ROLL=1)"""
-import sys, os, re, json, struct, numpy as np
+import math, sys, os, re, json, struct, numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')); sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from narc import unpack, pack
 from lz11 import lz11_dec
@@ -94,7 +94,7 @@ def bone_pose(b, x):
     x = x % len(CYC); sl, tr = pose[b]; i = int(x); w = x - i
     M = np.eye(4); M[:3, :3] = sl([x]).as_matrix()[0]; M[:3, 3] = tr[i] * (1 - w) + tr[i + 1] * w; return M
 SNAP = os.environ.get('PHASE_SNAP', '1') == '1'                  # step through the cycle's own keys: poses repeat, the animation stays small
-def bone_world(b, f): return bone_pose(b, (round(PH[f]) if SNAP else PH[f]) if PH is not None else f / STEP)
+def bone_world(b, f): return bone_pose(b, (math.floor(PH[f] + 1e-6) if SNAP else PH[f]) if PH is not None else f / STEP)
 # evaluate the original worlds (environment parents and joint1's path)
 def worlds(f):
     trs = geom.node_trs(m, anim, f); W = {}; ssc = m['info']['scaling'] == 1
@@ -126,6 +126,8 @@ if os.environ.get('WALKDIST', '1') == '1':
     sp = np.r_[0, np.linalg.norm(np.diff(P1, axis=0), axis=1)]
     MINF = float(os.environ.get('MIN_CYCLE_FRAMES', '20'))      # never faster than one cycle per MINF frames (sky shot swoops)
     PH = np.cumsum(np.minimum(sp / per_cycle * len(CYC), len(CYC) / MINF))
+    if os.environ.get('CADENCE'):                                # Arvind: a steady, heavier gallop like Ho-Oh's steady wingbeat
+        PH = np.arange(nf) * len(CYC) / float(os.environ['CADENCE'])
     print('walk: stride %.2f duty %.2f -> %.2f world units per cycle, %.1f cycles in the shot' % (STRIDE, DUTY, per_cycle, PH[-1] / len(CYC)))
 def in_stance(b, f):
     if PH is None: return False
@@ -197,9 +199,21 @@ if RIPPLE:
         LG = leg_L(f); M_ = LG[b] if b in LG else H(bone_world(b, f)); return (root_frame(f) @ M_ @ np.append(pvf[b], 1))[:3]
     def foot_h(b, f): return (np.linalg.inv(root_frame(f)) @ np.append(foot_world(b, f), 1))[1]
     events = []
-    for b in FEET:
-        for f in range(1, nf):
-            if PH is not None and in_stance(b, f) and not in_stance(b, f - 1): events.append((f, b))
+    if os.environ.get('TD_EVENTS', '1') == '1' and PH is not None:
+        # one touchdown per paw per cycle: the phase where the paw is furthest forward (stance starts there). A gallop lands in
+        # pairs (hind L/R, front L/R a few frames apart); with one ripple disc the first hind paw and the last front paw make one.
+        xs_ = np.arange(len(CYC)); TD = {}
+        for b in FEET:
+            Q = np.array([(H(bone_pose(b, x)) @ np.append(pvf[b], 1))[:3] for x in xs_]); TD[b] = int(np.argmax(Q[:, 0]))
+        lead = [min(('BL_lo', 'BR_lo'), key=lambda b: TD[b]), max(('FL_lo', 'FR_lo'), key=lambda b: TD[b])]   # first hind, last front: evenly spread
+        print('touchdown keys', TD, 'ripple paws', lead)
+        for b in lead:
+            for f in range(1, nf):
+                if np.floor((PH[f] - TD[b]) / len(CYC) + 1e-6) != np.floor((PH[f - 1] - TD[b]) / len(CYC) + 1e-6): events.append((f, b))
+    else:
+        for b in FEET:
+            for f in range(1, nf):
+                if PH is not None and in_stance(b, f) and not in_stance(b, f - 1): events.append((f, b))
     events.sort(); print('ripples', len(events), [e[0] for e in events][:12])
     if os.environ.get('DIAG'):
         sp = np.linalg.norm(np.diff(P1, axis=0), axis=1); print('path speed per frame: mean %.2f min %.2f max %.2f' % (sp.mean(), sp.min(), sp.max()))
