@@ -9,7 +9,7 @@ Sprites are drawn for the DS (Origin HeartGold), the main target, and the older 
 |---|---|---|
 | `front.png` | Front view (battle sprite) | 80x80, at most 15 colors + see-through |
 | `back.png` | Back view | 80x80, the **same** colors as the front |
-| `icon.png` | Party/PC menu icon | 32x32 |
+| `icon.png` | Party/PC menu icon | 32x32 (frame 1; the export makes the second) or 32x64 (HeartGold's two frames stacked, as approved around 18 Oct 2026) |
 
 The website's sprite studio makes them, one version per request, from the group's concept art, and
 people edit and approve them there; see [STUDIO.md](STUDIO.md). The pipeline is `scripts/ds_pixel.py`

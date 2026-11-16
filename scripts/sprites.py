@@ -556,8 +556,12 @@ def auto_ds(manifest):
             for kind, (path, caption) in sources.items():
                 name, side = DS_KINDS[kind]
                 image = Image.open(path).convert("RGBA")
-                if image.size != side:
-                    raise SpriteError("%s is %dx%d, must be %dx%d" % (kind, image.width, image.height, side[0], side[1]))
+                # An icon is 32x32 (frame 1; the export makes the second frame) or 32x64 (both of HeartGold's frames,
+                # stacked, as the studio made them around 18 Oct). Before 16 Nov 2026 only 32x32 was taken, so 12
+                # Pokemon kept an older approval: their newest one had a two-frame icon and the whole set was refused.
+                sizes = [side, (32, 64)] if kind == "ds-icon" else [side]
+                if image.size not in sizes:
+                    raise SpriteError("%s is %dx%d, must be %s" % (kind, image.width, image.height, " or ".join("%dx%d" % s for s in sizes)))
                 colours = len({p for p, a in zip(image.getdata(), image.getchannel("A").getdata()) if a})
                 if colours > COLORS:
                     raise SpriteError("%s uses %d colours, the limit is %d" % (kind, colours, COLORS))
