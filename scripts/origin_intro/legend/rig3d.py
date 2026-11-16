@@ -386,7 +386,10 @@ TEXN = {0: 'ho_head_top', 1: 'hou_eye', 2: 'hou_mouth01'}
 import os as _os
 MULTI = _os.path.exists(BASE + '_tex0_idx.npy')
 HASN = any('n' in p for p in polys); LIGHTS = int(os.environ.get('LIGHTS', '3'))   # with normals: lit like Ho-Oh (lights 0+1)
-if MULTI:
+PALG = None
+if MULTI and _os.path.exists(BASE + '_tex0_pal.npy'):     # v31 (tex_views.py): Arvind's turnaround painted on, 8 bpp, a palette per texture
+    IDX = {g: np.load(f'{BASE}_tex{g}_idx.npy') for g in (0, 1, 2)}; PALG = {g: np.load(f'{BASE}_tex{g}_pal.npy') for g in (0, 1, 2)}; pal = PALG[0]
+elif MULTI:
     IDX = {g: np.load(f'{BASE}_tex{g}_idx.npy') for g in (0, 1, 2)}; pal = np.load(BASE + '_tex_pal.npy')
 else:
     IDX = {0: np.load(BASE + '_tex_idx.npy')}; pal = np.load(BASE + '_tex_pal.npy')
@@ -437,7 +440,7 @@ for g in IDX:
         q = HINV[vb][:3, :3] @ (Fx @ np.array(n_)); return tuple(np.round(q / (np.linalg.norm(q) + 1e-9), 3))
     LB = np.array([-0.35, -0.55, 0.75]); LB /= np.linalg.norm(LB)
     def nshade(n_, vb):                                     # unlit shots (Ho-Oh is unlit in the sky shot): light baked into COLOR
-        if n_ is None: return None
+        if n_ is None or PALG is not None: return None          # v31: the painting carries its own light (white vertex colour)
         return ('c', int(round(31 * min(1.0, 0.55 + 0.5 * max(0.0, float(np.array(n_) @ LB))))))
     lit = LIGHTS != 0
     loc = [[((HINV[vb] @ np.append(s * Fx @ (np.array(v) - cen), 1))[:3], (uvv, vb, (nloc(n_, vb) if lit else nshade(n_, vb)))) for v, uvv, vb, n_ in zip(t[0], t[1], t[4], t[5])] for t in mine]
@@ -533,7 +536,32 @@ for g, mi_ in ({} if 'nomats' in TEST else GMAT).items():
         EM = int(os.environ.get('EMI', '9')); struct.pack_into('<I', d, mo_ + 4, 31 | 31 << 5 | 31 << 10 | 0x8000 | (24 | 24 << 5 | 24 << 10) << 16)
         struct.pack_into('<I', d, mo_ + 8, (EM | EM << 5 | (EM + 2) << 10) << 16)
 def c555(c): rr, gg, bb = (int(round(v / 255 * 31)) for v in c); return rr | gg << 5 | bb << 10
-for bo in ([] if 'notex' in TEST else r['blocks']):
+BIGTEX = PALG is not None
+if BIGTEX and 'notex' not in TEST:                          # v31: Ho-Oh's three texture slots rebuilt as 8-bpp textures with their own palettes
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'grav3d')); import tex0_grow
+    _bo = [b for b in r['blocks'] if d[b:b + 4] == b'TEX0'][0]; _tt = nitro.read_tex(bytes(d), _bo); texd = {}; pald = {}
+    for g, tn_ in TEXN.items():
+        ix = IDX[g]; h_, w_ = ix.shape; texd[tn_] = (4, w_, h_, bytes(ix.astype(np.uint8).reshape(-1)))
+        pn = mats[GMAT[g]]['pal']                               # the material's own palette (a prefix match took hou_eye01_pl for hou_eye)
+        pald[pn] = b''.join(struct.pack('<H', c555(PALG[g][i]) if i < len(PALG[g]) else 0) for i in range(256))
+    if RIPPLE:                                              # the glow disc's texture redrawn as a ring (A3I5), as below
+        for x in _tt['texs']:
+            if x['name'].startswith('hou_tail_l') and x['fmt'] == 1 and x['w'] == 16:
+                RING_ = [0, 1, 3, 5, 7, 7, 6, 4, 2, 1, 0, 0, 0, 0, 0, 0]; raw_ = bytearray(x['data'])
+                for yy in range(16):
+                    for xx in range(16): raw_[yy * 16 + xx] = (RING_[xx] << 5) | (raw_[yy * 16 + xx] & 31)
+                texd[x['name']] = (1, 16, 16, bytes(raw_))
+    # Ho-Oh's other textures (his emptied shapes only) shrink to 8x8, 4 colours: texture VRAM and RAM are tight here
+    if os.environ.get('SHRINK_HOOH', '1') == '1':
+        for x in _tt['texs']:
+            if HOOH.search(x['name']) and x['name'] not in TEXN.values() and x['name'] not in texd and not GLOWTEX.search(x['name']):
+                texd[x['name']] = (2, 8, 8, bytes(16))
+    d = bytearray(tex0_grow.grow(d, texd, pald))
+    for mt in mats:
+        for g, tn_ in TEXN.items():
+            if mt.get('tex') == tn_: h_, w_ = IDX[g].shape; struct.pack_into('<HH', d, mt['off'] + 32, w_, h_)
+    print('textures rebuilt', {tn_: IDX[g].shape[::-1] for g, tn_ in TEXN.items()}, 'model', len(d))
+for bo in ([] if ('notex' in TEST or BIGTEX) else r['blocks']):
     if d[bo:bo + 4] != b'TEX0': continue
     t = nitro.read_tex(bytes(d), bo); fh = t['raw_hdr']; tbo, pbo = fh[6], fh[17]
     ents2, _ = nitro.dict_read(bytes(d), bo + fh[4], 8)

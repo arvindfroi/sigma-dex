@@ -1051,3 +1051,21 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - **sha256 prefixes:** film `9911a636e0591761`, ROM `e5e6f9c4738e61e6`, g8.json `13995c80a61f7a2a`, g8t.json `9f42af6249f5916e`.
   - **Build:** `EDGE=104,192,152 build_film7.sh g8 v14`, with the defaults of `rig_lugia.py` and `cave_tint.py` at commit ce19ada. Source model `title3d/grav/grav_v5.blend`. Export: `export_gravparts.py` with v9's defaults on `AnimationLibrary_Godot_Standard.glb`.
   - **Not part of the film file:** the green outline (`edge_color.py`, ov097 edge table entry 1) and the room's weather/colours (`room_weather.py`, `inplace.py` a/0/4/4 + a/0/7/0). These patches must also go into the final game.
+- **Sabertann v31 (2026-11-16/17), painted with Arvind's turnaround** (Arvind: "lås den" for Gravriel, then "gå tilbake til sabeltann sin cutscene og gjør det du gjorde med gravriel sin modell her siden det ble sykt bra"). The shape, rig, run and ripples are v30's (`pt19r`, approved). The textures change: before, all three of Ho-Oh's texture slots shared one palette of 15 flat colours.
+  - **`sab3d/tex_views.py`** paints the model with Arvind's turnaround (`mv/views/front|side|back.png`, the pictures the high-poly was made from), like Gravriel's `tex_atlas.py`:
+    - **Fit:** each view is fitted to the model's silhouette (scale and offset, best IoU) in the art positions. Parts the export moved are moved back first: the stern skull (-SHIFT y, +LIFT z, then 1.35x about the skull), and the mast, sail and flag (MASTFWD forward, 0.2 up).
+    - **Choosing a picture:** each face takes the view that sees it best (visible share from a z-buffer x facing), so the chest under the head does not get the tusks. The right flank uses the side picture mirrored.
+    - **Where the drawing does not match:** RENDERED views of the model with v30's own flat textures are used instead. This covers the stern skull (Arvind's later wish; the drawing has a gold fin there), other faces that fall on the drawn fin, and faces no drawing sees squarely (top view: shell top, deck, hat crown). The sail and flag keep their old picture.
+    - **Decals dropped:** the drawn eye, brow, mouth and emblem decals are gone; the painting has them.
+  - **8-bpp textures, a palette each:** `rig3d.py` rebuilds the TEX0 block with `grav3d/tex0_grow.py` and takes the palette from the material. A prefix match had taken `hou_eye01_pl` for `hou_eye`, which gave a white skull and wrong face colours. It also shrinks Ho-Oh's other, now unused textures to 8x8 (`SHRINK_HOOH`). There is no baked shading or light (the painting carries its own), and the build uses `LIGHTS=0` in both shots.
+  - **Texture VRAM, measured:** the sky scene and the pagoda scene are loaded together at the cut and share 256 KB.
+    - Declared TEX0 texture data of 261904 bytes worked; 263376 failed, and the pagoda shot drew white.
+    - A test with 24 KB more RAM in the pagoda members still worked, so the limit is VRAM, not the heap (`sab3d/pad_test.sh`).
+    - Origin's own two scenes use 215568 bytes. `sab3d/vram_check.py` checks each time-of-day pair.
+    - Layouts:
+      - `LAYOUT=sky2` for the sky shot, 28 KB: side 128x88 + top 128x40; front 64x64 + rendered back/side; back 32x64 + sail.
+      - `LAYOUT=mid2` for the pagoda shot, 26 KB: side + front 40x40 + top in one texture, so the head's strips fit Ho-Oh's shapes; back 64x64 + rendered back/side; sail.
+      - Pair total 251088 of 262144.
+  - **Film file:** 536032 bytes, too big for its slot. The test ROM relocates it (`relocate.py`), and `build_sab31.sh` points the g7.dst savestate's in-RAM file table at it (file 363 at RAM 0x023BFDB8). In the final game, the ROM build places files freely.
+  - **Build:** `tex_views.py pt19r mv/views pv5sky2` (LAYOUT=sky2) and `pv5mid2` (LAYOUT=mid2), then `sab3d/build_sab31.sh legend/sab3d/pv5sky2 legend/sab3d/pv5mid2 v31f 0 0`. All 437 strips are placed in all six shots.
+  - **Result:** ROM `legend_test/jump_hooh2_v31f.nds`. sha256 prefixes: film `79238a4d9ee87ea7`, ROM `ff31af93927a5e3b`. Videos `sabertann_3d_filmen_v31_halv_fart.mp4` and `sabertann_3d_filmen_v31.mp4` (Origin, v30 and v31 recorded at night, same variant). Stills `sabertann_v31_i_spillet_mot_v30.png` and `sabertann_v31_modell_mot_turnaround.png`.
