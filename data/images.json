@@ -5682,5 +5682,12 @@
     "file": "assets/concept-art/iron-wire/1864.png",
     "caption": "[ds-follower] sprite #329",
     "editor": "Arvind"
+  },
+  {
+    "id": 1865,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/1865.webp",
+    "caption": "pasted",
+    "editor": "Arvind"
   }
 ]
