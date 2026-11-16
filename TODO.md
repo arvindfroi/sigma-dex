@@ -30,7 +30,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Moves | TM/HM moves | 157 / 162 |
 | Location | encounters | 2 / 162 |
 | Design | concept | 29 / 162 |
-| Art | concept art | 152 / 162 |
+| Art | concept art | 153 / 162 |
 | Art | front sprite | 4 / 162 |
 | Art | front animation frame | 4 / 162 |
 | Art | back sprite | 4 / 162 |
@@ -53,9 +53,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 ## Missing per Pokemon
 
-### #1 [Leaflet](data/species/leafing.yaml) - 76%
+### #1 [Leaflet](data/species/leafing.yaml) - 79%
 
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
 ### #2 [Leafling](data/species/leafsteel.yaml) - 83%
 
