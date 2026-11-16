@@ -1119,3 +1119,17 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - Data: `~/sigma-origin/title3d/legend/grav3d/ow_v1/` (the grav2d output, the frames, the three written files, SHA256SUMS).
     - Videos: `gravriel_overworld_ritual_halv_fart.mp4` and `gravriel_overworld_ritual.mp4` (HG path, Origin above), and `gravriel_ritual_soulsilver_vei.mp4`.
     - Stills: `gravriel_overworld_sprite_mot_lugia.png` and `gravriel_overworld_i_spillet.png`.
+- **Gravriel's overworld sprite v2 (2026-11-17)** (Arvind on v1: "Jeg likte ikke gravriel sin modell at all. det var bedre på sabertann"; and in the SoulSilver video: "why do they go out of the picture, to the other screen?").
+  - **The SoulSilver arrival:** the bird does not go to the other screen (that one shows the menu). On that path the camera is low at the fall: the bird comes down in front of the fall and sinks behind the near rock line, then the scene cuts to the room where it hovers. Lugia does exactly the same in Origin.
+  - **Made the way Sabertann's field sprite was** (`legend/sab/gen_front.py`: Qwen draws a front view with the design as reference and the legendary's own cutscene frame as style only, then pixel art):
+    1. `grav3d/ow_qwen/gen_front_grav.py SEED` takes three references: his card art 240.webp, his front view `title3d/grav/views/front.png`, and Lugia's frame 1 (style only, local, `style_lugia1.png`). The pose: floating down toward the viewer, arms spread like wings, one cutlass, the ragged coat flaring out. Seeds 1 and 2 drew two cutlasses; seed 3 is used.
+    2. Shrinking that picture to 64 px (`sab/pixelize.py`) gave noise (barnacles, kelp) and lost the eyes. So `grav3d/ow_qwen/ds_ow.py` uses the dex's DS sprite recipe (`scripts/ds_pixel.py`): Qwen redraws him as pixel art inside the sprite's grey silhouette on the 64 grid (one pixel = 16 px of 1024), and the picture is read back cell by cell. Seed 2 is used; seeds 1 and 4 left the silhouette grey.
+    3. `grav3d/ow_qwen/ow_clean.py ds3_px_2.png OUT` cleans it like Sabertann's `eyes_fix2`. The two closest colour pairs are merged to make room for glowing cyan eyes (drawn per pixel: heavy lid, white outside, cyan toward the beak) and the red-orange shell on his left shoulder (it came out grey-brown). Dark colours are lifted a little. Frames: 1-5 float (bob 0/1/2/1/0, the hem sways a pixel), 6 still, 7 cry (lids lift, the eyes flare).
+  - **Edge colour:** no ghost-green edge this time (tried as `EDGE`). It reads well on the light fall (SoulSilver path) and is darker but readable over the dark water (HeartGold path).
+  - **Eye glimmer:** rebuilt from the v2 frames (`ow_glimmer.py` on `frames_v2`, arms out).
+  - **Files:**
+    - Data: `~/sigma-origin/title3d/legend/grav3d/ow_qwen/` (the Qwen pictures, frames_v2, the written files, SHA256SUMS).
+    - Test ROM: `legend_test/jump_lug_ow6.nds` (sha256 prefix `d3e94c2be8843107`; also has the ritual stop fix).
+    - Videos: `gravriel_overworld_v2_halv_fart.mp4` and `gravriel_overworld_v2.mp4`, and `gravriel_ritual_soulsilver_vei_v2.mp4`.
+    - Stills: `gravriel_overworld_v2_mot_lugia_og_sabertann.png` and `gravriel_overworld_v2_i_spillet.png`.
+  - **ComfyUI:** it had stopped on the Legion. The sprite worker was restarted with `start_worker.ps1`, and ComfyUI was started detached (Win32_Process Create of `start_comfyui.bat`).
