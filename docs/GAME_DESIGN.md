@@ -116,11 +116,12 @@ From the plans so far, in order (details in WHEN_WE_FINALIZE.md):
    the change happens in the battle with the Meowthree code (later). New art needed: one new mon (front, back, icon,
    overworld). Beedrill also stands in Giovanni's two other teams; those slots become our mons anyway.
    **Catch him (Arvind: "irony"):** possible with a scripted wild battle after (or instead of) trainer 289, like a
-   legendary. But Origin brings Giovanni back two years later (Mt. Silver, text bank 539), so either he gets out
-   of the Ball (a line in the Mt. Silver scene) or the catch moves to that last Mt. Silver meeting (Arvind: both are
-   fun). **Proposal (from Arvind's question about the past):** the final already has a Giovanni copy taken from the
-   past (Arceus + Dialga). You catch the present Giovanni; the past copy stays behind in our time, and he is the one
-   on Mt. Silver two years later. No escape from the Ball needed.
+   legendary. **Checked the story order (corrected 2026-11-17):** the Mt. Silver meeting "two years" later (text
+   bank 539) comes **before** the final, not after: Cerulean Cave (Kanto) -> two years -> Johto -> Mt. Silver
+   (he finds the Adamant Orb) -> Dialga's space -> Distortion World (Giratina) -> the final at League HQ -> the final
+   Hall of Fame -> post-game. After the final he is led away to stand trial and does not come back, so catching him
+   at the very end needs no explanation. (Claude first wrote that he returns after the final: wrong.) The copy from
+   the past already appears in the final itself; a post-game rematch with that copy is an optional extra, not needed.
 7. Post-game: official Pokemon return; Meowth's fast food place; the freed Meowthree (and in Gravriel the special
    revive).
 
