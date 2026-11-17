@@ -1199,3 +1199,15 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - **Conclusion:** in the daytime the film has about 14-20 KB less texture VRAM than at night (the sun flare's effect textures). The night limit is 261904; in the daytime 240000 is safe.
   - **Fix needed before the game ships:** v32 must come down by at least 19280 bytes. The candidates are our three biggest textures, all 8-bpp 128x128 (sky: hou_eye 16 KB and ho_head_top 16 KB; pagoda: ho_head_top 16 KB). Origin's own unused-looking textures (hod_e06.2/.3) are frames of its texture-pattern animation, so they cannot go.
   - Still: `sabertann_film_fryser_om_dagen.png`.
+- **Sabertann's field sprite: roar v2, the whole body (2026-11-17)** (Arvind on roar v1: "I didn't like that roar. It should happen with the whole body when you roar").
+  - **Qwen tried first** (`sab/sab_roar_qwen.py`, Qwen-Image-Edit on the sprite's own grid; `roar_q1` and `roar_q2` stay local). It was rejected:
+    - Seed 11 turned him into a standing bear and dropped the sail emblem and shoulder spikes.
+    - Round 2 (keep the crouch, the sails, the emblem) made the whole head one mouth, and the white sails vanished into Qwen's white page.
+    - ComfyUI also stopped once mid-run and came back by itself.
+  - **Used: `sab/sab_roar_body.py roar_v1 OUT`** with `RISE=5 SPREAD=3 SAILX=1.15` (TOP 16). It warps v1's cry frame (open mouth, jaw dropped, sails full) with a smooth offset field, so the creature stays the approved sprite:
+    - He rears: the head and band rise 5 px, fading down the body, so the paws stay planted. The mast, flag and skull emblem stay put, and the head rises over the lower sails.
+    - The sails flare 15 % wider about the mast, like Ho-Oh's wings in its cry.
+    - The shoulders and gold spikes come up a pixel more and out. The front legs brace 3 px wider, and the claws reach the frame's edge without being cut.
+    - The inner ends of the brows come down (an angry face); the eyes keep their shape.
+  - **Test ROM:** `legend_test/jump_hooh2_roar2.nds` (sha256 prefix `e5c748124c1905ea`). The cry is still not seen in the game: talking to the bird in the test (A, or tapping TALK) did not start the battle.
+  - **Files:** `sabertann_brol_v2_hele_kroppen.png` (Ho-Oh landed and roaring, Sabertann landed, roar v1, roar v2) and `sabertann_overworld_brol_v2_animasjon.gif`. Data: `title3d/legend/sab/roar_v2` with SHA256SUMS.
