@@ -11,8 +11,8 @@ types: [Water, Ground]   # 1 or 2 types, e.g. [Grass, Steel]
 # --- Pokedex page ---
 category: Fjellfisk      # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
 description: "Bergflabbser is a rare Pokémon that dwells in the fjords of Bergen. The seven mountains on its back form a living ecosystem, and the Ulriken pillar serves as its guiding beacon. It summons rain with its Drizzle and moves silently through the deep, using its wide mouth to catch prey."
-height_m: 2.4            # e.g. 0.7
-weight_kg: 285           # e.g. 6.9
+height_m: 99             # e.g. 0.7
+weight_kg: 9999          # e.g. 6.9
 body_color: brown        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
@@ -134,7 +134,7 @@ assets:
   front_anim: "assets/sprites/bergflabbser/anim_front.png"
   back_sprite: "assets/sprites/bergflabbser/back.png"
   icon: "assets/sprites/bergflabbser/icon.png"
-  footprint: "hgss:382"
+  footprint: "hgss:382"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

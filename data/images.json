@@ -6356,24 +6356,115 @@
     "editor": "Arvind"
   },
   {
-    "id": 2067,
-    "species": "bergflabbser",
-    "file": "assets/concept-art/bergflabbser/2067.png",
-    "caption": "[ds-back] sprite #377",
-    "editor": "Arvind"
-  },
-  {
-    "id": 2068,
-    "species": "bergflabbser",
-    "file": "assets/concept-art/bergflabbser/2068.png",
-    "caption": "[ds-icon] sprite #377",
-    "editor": "Arvind"
-  },
-  {
     "id": 2069,
     "species": "bergflabbser",
     "file": "assets/concept-art/bergflabbser/2069.png",
     "caption": "[ds-follower] sprite #377",
     "editor": "Arvind"
+  },
+  {
+    "id": 2071,
+    "species": "bergflabbser",
+    "file": "assets/concept-art/bergflabbser/2071.png",
+    "caption": "[ds-back] sprite #381",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2072,
+    "species": "bergflabbser",
+    "file": "assets/concept-art/bergflabbser/2072.png",
+    "caption": "[ds-icon] sprite #381",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2074,
+    "species": "hairyen",
+    "file": "assets/concept-art/hairyen/2074.png",
+    "caption": "[ds-front] sprite #379",
+    "editor": null
+  },
+  {
+    "id": 2075,
+    "species": "hairyen",
+    "file": "assets/concept-art/hairyen/2075.png",
+    "caption": "[ds-back] sprite #379",
+    "editor": null
+  },
+  {
+    "id": 2076,
+    "species": "hairyen",
+    "file": "assets/concept-art/hairyen/2076.png",
+    "caption": "[ds-icon] sprite #379",
+    "editor": null
+  },
+  {
+    "id": 2077,
+    "species": "hairyen",
+    "file": "assets/concept-art/hairyen/2077.png",
+    "caption": "[ds-follower] sprite #379",
+    "editor": null
+  },
+  {
+    "id": 2078,
+    "species": "apeshit",
+    "file": "assets/concept-art/apeshit/2078.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2079,
+    "species": "apeshit",
+    "file": "assets/concept-art/apeshit/2079.png",
+    "caption": "[ds-front] sprite #380",
+    "editor": null
+  },
+  {
+    "id": 2080,
+    "species": "apeshit",
+    "file": "assets/concept-art/apeshit/2080.png",
+    "caption": "[ds-back] sprite #380",
+    "editor": null
+  },
+  {
+    "id": 2081,
+    "species": "apeshit",
+    "file": "assets/concept-art/apeshit/2081.png",
+    "caption": "[ds-icon] sprite #380",
+    "editor": null
+  },
+  {
+    "id": 2082,
+    "species": "apeshit",
+    "file": "assets/concept-art/apeshit/2082.png",
+    "caption": "[ds-follower] sprite #380",
+    "editor": null
+  },
+  {
+    "id": 2087,
+    "species": "mortbulk",
+    "file": "assets/concept-art/mortbulk/2087.png",
+    "caption": "[ds-front] sprite #383",
+    "editor": null
+  },
+  {
+    "id": 2088,
+    "species": "mortbulk",
+    "file": "assets/concept-art/mortbulk/2088.png",
+    "caption": "[ds-back] sprite #383",
+    "editor": null
+  },
+  {
+    "id": 2089,
+    "species": "mortbulk",
+    "file": "assets/concept-art/mortbulk/2089.png",
+    "caption": "[ds-icon] sprite #383",
+    "editor": null
+  },
+  {
+    "id": 2090,
+    "species": "mortbulk",
+    "file": "assets/concept-art/mortbulk/2090.png",
+    "caption": "[ds-follower] sprite #383",
+    "editor": null
   }
 ]

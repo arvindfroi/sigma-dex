@@ -36,16 +36,16 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Art | back sprite | 4 / 170 |
 | Art | icon | 4 / 170 |
 | Art | footprint | 145 / 170 |
-| Art | shiny palette | 45 / 170 |
+| Art | shiny palette | 46 / 170 |
 | Art | cry | 21 / 170 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 118 / 170 |
-| DS back sprite 80x80 | 118 / 170 |
-| DS icon 32x32 | 115 / 170 |
+| DS front sprite 80x80 | 121 / 170 |
+| DS back sprite 80x80 | 121 / 170 |
+| DS icon 32x32 | 118 / 170 |
 
 ## Open dex slots (84)
 
@@ -1093,13 +1093,13 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #152 [Apeshii](data/species/apeshit.yaml) - 31%
+### #152 [Apeshii](data/species/apeshit.yaml) - 34%
 
 - **Dex page:** category, description, body color
 - **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
 ### #153 [Iron Bulb](data/species/iron-wire.yaml) - 38%
 
@@ -1186,7 +1186,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #205 [Catbat](data/species/catbat.yaml) - 10%
+### #205 [Cabat](data/species/catbat.yaml) - 10%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1196,7 +1196,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #206 [CobraBat](data/species/cobrabat.yaml) - 14%
+### #206 [Cobrat](data/species/cobrabat.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship

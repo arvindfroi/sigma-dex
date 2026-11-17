@@ -37537,8 +37537,8 @@
       ],
       "category": "Fjellfisk",
       "description": "Bergflabbser is a rare Pokémon that dwells in the fjords of Bergen. The seven mountains on its back form a living ecosystem, and the Ulriken pillar serves as its guiding beacon. It summons rain with its Drizzle and moves silently through the deep, using its wide mouth to catch prey.",
-      "height_m": 2.4,
-      "weight_kg": 285,
+      "height_m": 99,
+      "weight_kg": 9999,
       "body_color": "brown",
       "abilities": {
         "primary": "Primordial Sea",
@@ -38467,7 +38467,7 @@
           "egg moves": 50
         },
         "body_shape": null,
-        "movement": null,
+        "movement": "It crawls along the ground on its legs.",
         "look": null
       },
       "assets": {
@@ -38477,7 +38477,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/apeshit.json",
         "cry": null
       },
       "engine": {
@@ -40739,7 +40739,7 @@
     },
     {
       "dex": 205,
-      "name": "Catbat",
+      "name": "Cabat",
       "credits": {
         "designer": "Ivar",
         "artist": null
@@ -40826,7 +40826,7 @@
     },
     {
       "dex": 206,
-      "name": "CobraBat",
+      "name": "Cobrat",
       "credits": {
         "designer": "Ivar",
         "artist": null

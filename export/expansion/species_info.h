@@ -5250,8 +5250,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_BERGFLABB,
         .categoryName = _("Fjellfisk"),
-        .height = 24,
-        .weight = 2850,
+        .height = 990,
+        .weight = 99990,
         .description = COMPOUND_STRING(
             "Bergflabbser is a rare Pokémon that\n"
             "dwells in the fjords of Bergen. The\n"

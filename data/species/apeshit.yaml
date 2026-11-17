@@ -116,7 +116,7 @@ design:
     tutor moves: 50
     egg moves: 50
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
+  movement: It crawls along the ground on its legs.
   look:                  # what it looks like, a few plain sentences: It is a ...
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
@@ -127,7 +127,7 @@ assets:
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
   footprint:             # footprint.png  16x16, black and white
-  shiny_palette:         # shiny.pal      the 16 colors of the shiny version
+  shiny_palette: "assets/shiny/apeshit.json"
   cry:                   # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---

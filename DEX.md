@@ -160,7 +160,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 149 | [Bergflabb](data/species/bergflabbser.yaml) | Water / Ground | Primordial Sea | 680 |  | 90% |
 | 150 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician (H) | 680 |  | 72% |
 | 151 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground | Lullaby | 600 |  | 66% |
-| 152 | [Apeshii](data/species/apeshit.yaml) | Normal / Fighting |  | 290 | Julius (Lv 15) | 31% |
+| 152 | [Apeshii](data/species/apeshit.yaml) | Normal / Fighting |  | 290 | Julius (Lv 15) | 34% |
 | 153 | [Iron Bulb](data/species/iron-wire.yaml) | Electric | Quark Drive | 570 |  | 38% |
 | 154 | [Solidedge](data/species/solidedge.yaml) | Bug / Psychic | Beast Boost | 600 |  | 41% |
 | 155 | [Rosie](data/species/rosie.yaml) | Grass / Fairy |  |  | Rosievoir (Lv 40) | 10% |
@@ -213,8 +213,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 202 | *open slot* | | | | | |
 | 203 | *open slot* | | | | | |
 | 204 | *open slot* | | | | | |
-| 205 | [Catbat](data/species/catbat.yaml) | Dark / Flying |  |  | CobraBat (Lv 34) | 10% |
-| 206 | [CobraBat](data/species/cobrabat.yaml) | Dark / Flying |  |  |  | 14% |
+| 205 | [Cabat](data/species/catbat.yaml) | Dark / Flying |  |  | Cobrat (Lv 34) | 10% |
+| 206 | [Cobrat](data/species/cobrabat.yaml) | Dark / Flying |  |  |  | 14% |
 | 207 | *open slot* | | | | | |
 | 208 | *open slot* | | | | | |
 | 209 | *open slot* | | | | | |
