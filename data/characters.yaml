@@ -283,7 +283,7 @@
   code: Trainer O
   dialogue: {story: 462, battle: 4, words: 6413}
   teams:
-  - {lv: 24, size: 4, side: both, original: 'Chikorita 10, Parasect 24, Cubone 9, Natu 9'}
+  - {lv: 24, size: 4, side: with, original: 'Chikorita 10, Parasect 24, Cubone 9, Natu 9'}
   - {lv: 24, size: 5, side: against, original: 'Chikorita 11, Parasect 24, Cubone 10, Natu 10, Smoochum 10'}
   - {lv: 25, size: 5, side: with, original: 'Chikorita 16, Parasect 25, Cubone 15, Smoochum 15, Natu 15'}
   - {lv: 30, size: 6, side: with, original: 'Bayleef 30, Parasect 30, Marowak 29, Hitmonchan 29, Xatu 29, Jynx 29'}

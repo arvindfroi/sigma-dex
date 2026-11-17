@@ -110,6 +110,31 @@ are claimable again since 2026-11-17 (Arvind: "Du kan faktisk legge de til som m
 The villains (codes A, B, D, E, F, L, N, R, S, T, V) were taken off the website on 2026-11-12 (Arvind); their codes are kept
 here so the remaining letters keep their meaning.
 
+## Facts to know when claiming (checked against the game, 2026-11-17)
+
+Every role's battles, levels, team sizes and sides were compared with Origin's trainer data and battle scripts (EN rc8).
+All matched except one side: Crystal's first team (Route 46) only fights next to you; its "against you" use is in a
+scene that never starts. Fixed. Other things a claimer should know:
+
+- **Romance.** Origin has an optional romance route, and eight claimable roles can become the player's partner:
+  for male players Green (Trainer J), Misty (gym-water), Yellow (P), Cynthia (Z) and Crystal (O); for female players
+  Red (J), Steven (Y), Gold (G) and Silver (W). Blue is the fifth option for female players. A confession happens in
+  the final chapter, and some partners have dates after the story (Cynthia even meets the player's mother). Arvind
+  keeps it (2026-11-17: "Romance er bare morsomt").
+- **Trainer J is two characters.** A male player meets Green (a girl), a female player meets Red (a boy), with the same
+  lines and teams. Whoever claims J appears as both, so the name and look have to work either way, or J gets two
+  versions.
+- **Johto is about two years after Kanto.** Several lines say so (Lance on Mt. Silver: Giovanni has hidden "these past
+  two years"; a Silver Conference entrant went to the Indigo Conference "two years ago"). Characters could look a bit
+  older in Johto.
+- **Some counted battles are optional or easy to miss:** Steven's and Cynthia's Fuchsia battles (the usual order skips
+  them, a known bug), Cynthia on Route 12 (optional, one chance), Bruno in Pewter City (one chance), and the romance
+  dates. Their teams are still worth making.
+- **Not on the page:** Blue (Arvind makes him), the villains (taken off 2026-11-12), and small recurring trainers such
+  as Janine (2 battles: disguised as Koga in the Fuchsia Gym and as a competitor in the Victory Road qualifiers),
+  Norman (after the story, with Steven) and the Copycat. Gold's unused trainer 260 (it has Green's team) is left out.
+- **Other trainer-name fixes in the EN patch** (bank 719) do not touch these roles; only 703 and 705 did (see above).
+
 ## Text to fix when the characters are replaced
 
 Found while counting dialogue (scripts/character_dialogue.py) and checking claims, 2026-11-16:
