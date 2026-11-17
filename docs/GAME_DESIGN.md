@@ -134,6 +134,14 @@ Team Aqua/Magma/Galactic/Plasma: Origin makes the other regions' villains Rocket
 - Jessie and James (8 tag battles each, Meowth in James' team); Silver works with Rocket for a while ("Master Silver").
 - 142 Rocket Grunt teams and about 20 named scientists.
 Who takes Giovanni's role (or whether anyone does) is open (Arvind).
+Origin's world is Kanto + Johto + the Sevii Islands (plus special places: Sinjoh Ruins, Dream World, Dialga's
+space, Distortion World). No Hoenn or Sinnoh: Maxie, Archie, Cyrus and Charon only come over as Rocket executives.
+**Size of a villain swap:** about 3,000 text entries name Rocket or one of its people (Rocket in 199 of the 805
+text banks, Giovanni in 74). Three levels: (A) keep Rocket and its people, give them our mons and add our own
+beats (Meowthwo, the harness, the Giovanni twist): least work, planned anyway; (B) rename: same plot, new names and
+new trainer pictures (name swaps in the texts + about 16 new character pictures and a grunt): medium, can be done
+late; (C) our own villain plot: hundreds of scenes rewritten, not realistic. **Proposal:** A now, decide on B when
+the dex is done; nothing waits on it.
 
 **Open:** where Sabertann and Gravriel appear in the story (Origin's Ho-Oh/Lugia scenes: Bell Tower, Whirl Islands,
 the two cutscenes each are already mapped in docs/LEGEND_CUTSCENES.md).
