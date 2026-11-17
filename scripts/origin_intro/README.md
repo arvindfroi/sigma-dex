@@ -1284,3 +1284,4 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - `sabertann_film_v33_om_morgenen.png` (v32 frozen, v33 playing).
     - `sabertann_film_v32_mot_v33.png` (the same film frames at night).
     - Video `sabertann_film_v33_morgen_og_kveld.mp4`.
+  - **Gravriel's Lugia film at midday** (`legend_test/jump_lug_ow11.nds`, `TZ=XXX-12`) plays through too: the fall, his rise, the cut, the ritual room, his wind-up and the green cry. It was already seen in the morning and at night, so all three times of day are covered for both films.
