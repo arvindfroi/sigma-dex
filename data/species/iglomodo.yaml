@@ -1,4 +1,4 @@
-# Sigma Dex species file. What every field means: docs/FIELDS.md
+# Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 77
 name: Iglomodo
 
@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions: []
 # evolutions:
 #   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
+#     method: level      # level | item | trade | friendship | ... full list in docs/DEX_DATA.md#field-guide
 #     level: 16          # for method: level
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
@@ -115,7 +115,7 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg groups, egg cycles]
-  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     body shape: 80
     look: 80
     movement: 80
@@ -130,7 +130,7 @@ design:
     gender: 77
     egg groups: 41
     egg cycles: 65
-  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a long crocodile-like creature made of light-blue ice blocks, with a big domed igloo-shaped back, a long pointed tail and strong legs with dark claws. It has a long toothy snout, yellow eyes, ice crystals on its head, a purple underside and a long forked purple tongue."
 
@@ -145,7 +145,7 @@ assets:
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
-# --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---
+# --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle

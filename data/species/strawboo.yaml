@@ -1,4 +1,4 @@
-# Sigma Dex species file. What every field means: docs/FIELDS.md
+# Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 137
 name: Strawboo
 
@@ -104,7 +104,7 @@ design:
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves]
-  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     body shape: 80
     look: 80
     movement: 80
@@ -112,7 +112,7 @@ design:
     "TM/HM moves": 67
     tutor moves: 57
     egg moves: 57
-  body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: "It floats in the air, swimming with its fins."
   look: "It is a small round dark red creature with a black zigzag crack down its middle, blue oval spots, and white spikes around its body. It has two mismatched eyes, one blue target-ringed and one tall blue oval, and a black mouth with a green tongue. Four pointed red fins stick out, two at the sides and two at the bottom, and a green stalk on top ends in a glowing yellow ball."
 
@@ -127,7 +127,7 @@ assets:
   shiny_palette: "assets/shiny/strawboo.json"
   cry:                   # sound file
 
-# --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---
+# --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle

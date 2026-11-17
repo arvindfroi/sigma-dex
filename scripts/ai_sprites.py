@@ -3,7 +3,7 @@
 
     python scripts/ai_sprites.py [pokemon ...] [--redo]
 
-Draws a front and a back view with ComfyUI (see docs/COMFYUI.md) for every Pokemon listed in
+Draws a front and a back view with ComfyUI (see docs/ART.md#the-image-generator-comfyui) for every Pokemon listed in
 data/sprite_prompts.yaml (or only the ones named), converts them with scripts/sprites.py and
 marks the result as an "AI draft". Pokemon that already have sprites are skipped unless
 --redo is given or their text in sprite_prompts.yaml changed. Sprites someone made by hand

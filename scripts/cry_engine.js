@@ -1,7 +1,7 @@
 // Cry maker engine (2026-11-14). One file, two places: the website inlines it (build_site.py puts it where
 // /*CRY_ENGINE*/ stands) and the game export runs it in Node on the ROM's own cries, so a cry sounds the same on the
 // website and in the game. A cry is a RECIPE, never a sound file: which official cries it starts from ("hgss:<dex>",
-// like the footprints) and how they are bent. No Nintendo audio is stored in the repo. How it decides: docs/CRIES.md.
+// like the footprints) and how they are bent. No Nintendo audio is stored in the repo. How it decides: docs/ART.md#cries.
 //
 //   CryEngine.suggest(mon, facts, seed) -> a recipe with its reasons (what CREATE / RETRY on the website show)
 //   CryEngine.suggest(mon, facts, seed, {auto: true}) -> the automatic cry (a Pokemon without a saved cry)

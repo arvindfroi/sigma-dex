@@ -3,7 +3,7 @@
 The Pokemon themselves are generated from the species files. This folder holds what has to
 be written by hand: new moves, new abilities, and the tests that prove they work.
 `scripts/apply_to_expansion.py` puts all of it into a checkout of pokeemerald-expansion
-(see [docs/BUILDING.md](../docs/BUILDING.md)).
+(see [Building the game (GBA target)](../docs/GAME_TECH.md#building-the-game-gba-target)).
 
 | Folder | Contains |
 |---|---|

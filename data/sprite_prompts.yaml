@@ -1,4 +1,4 @@
-# What the AI is told when it draws sprites (scripts/ai_sprites.py, see docs/SPRITES.md).
+# What the AI is told when it draws sprites (scripts/ai_sprites.py, see docs/ART.md#sprites).
 # `style` is the same for every Pokemon, so the whole dex gets one look. Each Pokemon has a
 # `look`: a short caricature of it - a sprite is 64 pixels wide, so say what to keep and
 # exaggerate, not every detail. `refs` are pictures in this repository the AI looks at.

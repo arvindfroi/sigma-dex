@@ -1,4 +1,4 @@
-# Sigma Dex species file. What every field means: docs/FIELDS.md
+# Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 61
 name: Nucloid
 
@@ -103,7 +103,7 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", egg moves,
                      tutor moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
-  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     body shape: 80
     look: 80
     movement: 80
@@ -119,7 +119,7 @@ design:
     gender: 65
     egg groups: 49
     egg cycles: 65
-  body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  body_shape: tentacles or many legs # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: It crawls along the ground on its many legs.
   look: "It is a dark grey metal barrel-shaped creature with a domed top, a single glowing green eye and a yellow warning triangle. It has a window showing glowing green liquid in front, and eight black cable-like legs underneath, with green toxic drips and gas puffs around it."
 
@@ -134,7 +134,7 @@ assets:
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
-# --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---
+# --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle

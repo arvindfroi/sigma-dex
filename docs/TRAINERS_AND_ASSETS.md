@@ -31,7 +31,7 @@ is acceptable; the game images stay local and never go in the repo (memory: sigm
 | 2 (6-13 Oct) | Qwen-Image 2.1 (edit model, RGBA VAE) | ai-toolkit (ostris), arch `qwen_image_2`, rank 32 | icon v2, follower v1-v6, back v1-v6, front v7/v7d, art v1 | icon v2 and front v7 still used; the rest replaced |
 | 3 (14 Oct on) | FLUX.2 Klein base 4B (Apache-2.0) | ai-toolkit, arch `flux2_klein_4b`, rank 32 | follower, icon, back, sketch-to-art | **current default**, free on the Legion |
 
-**What the studio uses today (verified, docs/STUDIO.md "What draws what", lines 28-34):**
+**What the studio uses today (verified, docs/ART.md ("The sprite studio") "What draws what", lines 28-34):**
 
 | Step | Model | Picked checkpoint |
 |---|---|---|
@@ -130,14 +130,14 @@ hg-engine wiki page `documentation/wiki/Adding-New-Trainer-Classes.md`, and Orig
 
 **Trainer back sprite (the player character's back):** `data/graphics/trainer_back_gfx`: **17** entries, `NN.png` is 80x640 (8 frames of 80x80: the
 throw animation) or 80x400 (5 frames). Origin's `a/0/0/6` has 85 members = 17 x 5. Only the player-character classes use these
-(Ethan, Lyra, Barry and similar). Our game has a player from Pallet Town (docs/STORY_ROLES.md), so a replaced player needs this too (not needed for NPCs).
+(Ethan, Lyra, Barry and similar). Our game has a player from Pallet Town (docs/STORY.md ("Story roles: which Pokémon Origin HeartGold's story needs, and who from our dex takes them")), so a replaced player needs this too (not needed for NPCs).
 
 **Where trainer sprites live in the ROM:** `a/0/5/8` (front, 5 NARC members per class) and `a/0/0/6` (back). Trainer data is `a/0/5/5`
 (1024 entries) and parties `a/0/5/6` (1024 entries). **Verified** in Origin's NARCs (member counts above) and `narcs.mk` lines 814-817.
 
 **Class and sprite are bound (verified, wiki):** in HeartGold a class *is* the sprite, and it also decides gender, prize money, battle music
 and class name (text banks 730 and 731 in hg-engine). To add classes, hg-engine has a source commit and tables for roughly 120 more classes;
-**Origin has no source**, so adding classes would need the overlay-patch route (docs/ORIGIN_CUSTOM_CODE.md). **Simplest and inferred
+**Origin has no source**, so adding classes would need the overlay-patch route (docs/GAME_TECH.md ("New abilities and moves in Origin HeartGold")). **Simplest and inferred
 to work:** *replace* an existing class in place, as we already do for species (same trick: swap the NCGR/NCLR members, keep the cell bank
 and animation bank of the old class, optionally rename the class in the text bank). It is unproven for trainers. Nobody has tried it in
 this project (no trainer work exists in the repo, the memory notes or on the Legion: I looked at `D:\LocalAI\lora-train` and its data folders).
@@ -234,21 +234,21 @@ Counts are from the repo checkout (branch detached on `origin/main`): **150 spec
 | **Normal palette** | the front's 15 colours | automatic at export (`build_lw.py` `frame_of`, asserts at most 15 colours) | implicit in the 71 | - |
 | **Shiny palette** | second palette, same colour order (members 5 and 7 of the 8 per species in `data/pokepic_m.narc`) | **none** | **0** | no rule or tool; the test script writes the normal palette into the shiny slot, so shinies look normal. Arvind: "shiny and cry last" |
 | Female forms | `pokepic_f.narc` (separate files) | not needed | n/a | `build_lw.py` writes the same picture to male and female files, which is enough unless a species has a real gender difference |
-| **Party/PC icon** | 32x32, 2 frames (32x64), index 0 transparent, one of 3 (Origin: its own palettes in member 0) shared palettes | Klein icon v1 + `scripts/sprite_colours.py` palette rules | 71 of 150 | the palette index must be written to the arm9 table at `0xFF7FC` (u8 per species, found 2026-10-17); `engine.icon_palette` is set for only 4 species; MUST-FIX list in docs/DEX_REPLACEMENT.md |
+| **Party/PC icon** | 32x32, 2 frames (32x64), index 0 transparent, one of 3 (Origin: its own palettes in member 0) shared palettes | Klein icon v1 + `scripts/sprite_colours.py` palette rules | 71 of 150 | the palette index must be written to the arm9 table at `0xFF7FC` (u8 per species, found 2026-10-17); `engine.icon_palette` is set for only 4 species; MUST-FIX list in docs/GAME_TECH.md ("Replacing the whole dex: where real Pokémon still show") |
 | **Follower** (overworld) | 8 frames of 32x32 stacked, 4bpp + 16 colours, in `a/0/8/1` (BTX0 `tsure_poke`) | Klein follower v3 + `klein_follower.py`; encoder `lw/btx.py` | 71 of 150 (128x64 sheet each) | tested in the game for 2 mons only; no female-model entries for species that have two models |
 | **Footprint** | 16x16, 2 colours | `scripts/footprints.py` (on branch `studio-v3-tries`, commit a2a9e5d: each of 142 mons *borrows* an official footprint, stored as `hgss:<dex>`) | **0 on main**, 142 chosen on the branch | not written into the ROM yet (no export step); plan: copy the real picture from the ROM at build time |
-| **Cry** | `.wav` in hg-engine (`sound/cries`, 1099 files); in Origin: sound archive | **none** | **0** (`assets/cries` is empty) | every mon keeps the old slot's cry; options in docs/DEX_REPLACEMENT.md section 3; how Origin loads new cries is unknown (hg-engine `CONFIG.md` mentions pseudo-banks from SBNK 778) |
+| **Cry** | `.wav` in hg-engine (`sound/cries`, 1099 files); in Origin: sound archive | **none** | **0** (`assets/cries` is empty) | every mon keeps the old slot's cry; options in docs/GAME_TECH.md ("Replacing the whole dex: where real Pokémon still show") section 3; how Origin loads new cries is unknown (hg-engine `CONFIG.md` mentions pseudo-banks from SBNK 778) |
 | **Battle animation entry** | 0x59 = 89 bytes per species in `a/1/8/0`: see section 3 | **none** | **0** (the test script never touches it) | choice of animation ids and frame timing; verified that the slot keeps the old species' motion |
 | Height table (y offset in battle) | `a/0/0/5`, 4 bytes per species: value = 79 minus the feet row | done in `build_lw.py` (`79 - bottom row`) | works | only species up to 493; for slots 494+ pick slots by feet row (spike notes); extending the table hangs the game |
-| Dex text | entry (banks 791-793), category (803, 809), 12-character limit for category | `build_lw.py` | `description` 41 of 150, `category` 40 of 150 | 109 and 110 missing; text is written in `docs/FIELDS.md` rules |
+| Dex text | entry (banks 791-793), category (803, 809), 12-character limit for category | `build_lw.py` | `description` 41 of 150, `category` 40 of 150 | 109 and 110 missing; text is written in `docs/DEX_DATA.md` ("Field guide") rules |
 | Dex height and weight | a table somewhere | species files: `height_m` 52, `weight_kg` 26 of 150 | partly | Found (section 6): the numbers are in `a/0/7/4` members 0 and 1 (1026 heights, 1389 weights), the shown text in banks 801/799; the 2026-10-17 patches showed no change because the text banks are what the dex displays |
-| Species name | text bank 232 (line = species id); other banks may repeat it | `build_lw.py` | all 150 have a name; **8 are placeholders** with "utvikling"-style notes in the name field (e.g. "Leadling Utvikling"), 14 exceed 12 characters, 23 exceed 10 | the real in-game limit is **unknown**: docs say 12 (`FIELDS.md`); vanilla HGSS allows 10 visible characters (inferred, from general knowledge of the games) |
+| Species name | text bank 232 (line = species id); other banks may repeat it | `build_lw.py` | all 150 have a name; **8 are placeholders** with "utvikling"-style notes in the name field (e.g. "Leadling Utvikling"), 14 exceed 12 characters, 23 exceed 10 | the real in-game limit is **unknown**: docs say 12 (`docs/DEX_DATA.md` ("Field guide")); vanilla HGSS allows 10 visible characters (inferred, from general knowledge of the games) |
 | Pokedex body shape and colour | PokeAPI-style fields | dex has `design.body_shape` 138 of 150, `body_color` **2 of 150** | shape yes | **Unknown** where Origin keeps them; the colour is also the best predictor of the icon palette (LORAS.md 1296-1303), so fill `body_color` anyway |
 | Species data | stats, types, abilities, catch rate, exp, growth, gender, egg groups | `spike_bugmight.species_record` (52-byte records, `a/0/0/2`) | `base_stats` 135, `types` 149, abilities 138 | `catch_rate`, `base_exp`, `growth_rate`, `gender`, `egg_groups` filled for **1 of 150**: inherited from the old slot otherwise |
 | Learnset | `a/0/3/3`, (level, move) pairs, move id = line in `msg/739.txt` | `build_lw.py` | `learnset.level_up` **39 of 150** | 111 mons would have no moves of their own; TM/HM and tutor compatibility (hg-engine `tmlearnset.txt`) **not looked at anywhere** |
-| Evolutions | table in Origin | none written yet | `evolutions` 55 of 150 | not tested; evolution lines without a method (docs/OPEN_QUESTIONS.md 10) |
+| Evolutions | table in Origin | none written yet | `evolutions` 55 of 150 | not tested; evolution lines without a method (docs/PLANS.md ("Open questions for the Council") 10) |
 | New moves and abilities | ids 468+ / 311+ via an overlay-14 patch | `scripts/origin_custom` (Weather Switch PoC works) | 1 proof of concept | each custom ability or move needs code (new ids, not reused ids) |
-| Forms of our own | extra sprites or species entries | docs/FIELDS.md `forms` | 1 species has `forms` | how Origin stores forms is **not checked** |
+| Forms of our own | extra sprites or species entries | docs/DEX_DATA.md ("Field guide") `forms` | 1 species has `forms` | how Origin stores forms is **not checked** |
 | **Automatic export** | writes everything above into a patch | **`scripts/export_origin.py` does not exist** | the one-off `~/sigma-origin/lw/build_lw.py` (132 lines, outside the repo) did Leafing (slot 25) and Waffy (slot 7) end to end | the repo has no exporter; all of the above is wired by hand for 2 mons |
 
 ### 2.2 In general (not per creature)
@@ -257,13 +257,13 @@ Counts are from the repo checkout (branch detached on `origin/main`): **150 spec
 |---|---|---|---|
 | Trainer battle sprites | see section 1.3; 129 classes, 80x80 | none of ours | everything; no tool, no data prepared |
 | Trainer class data | class names (text banks), gender, prize money, music | none | whole table; locations in Origin found, see section 6.1 (arm9 `0xFF77C` gender, `0xF91E2`/`0xF9222` battle music, `0xF9434` encounter music, overlay 14 `0x4DCD4` money, text bank 720) |
-| Trainer parties | `a/0/5/6`, 28 bytes per Pokemon | format known (memory) | no tool to write our parties; Origin docs (`~/sigma-origin/docs/trainers.md`) list them; trainer lines naming a party Pokemon must match (DEX_REPLACEMENT.md section 1) |
+| Trainer parties | `a/0/5/6`, 28 bytes per Pokemon | format known (memory) | no tool to write our parties; Origin docs (`~/sigma-origin/docs/trainers.md`) list them; trainer lines naming a party Pokemon must match (docs/GAME_TECH.md ("Replacing the whole dex: where real Pokémon still show") section 1) |
 | NPC / trainer overworld sprites | 32x32 frames in `a/0/8/1` | follower encoder works | NPC frame order and the object-to-sprite table **unknown** |
 | Player-character sprites | back (80x640), overworld, trainer card | none | only if the player is changed |
-| Text that names species | 6925 lines in 384 banks | name map idea only | script for the name swap, hand edits for story lines (DEX_REPLACEMENT.md) |
+| Text that names species | 6925 lines in 384 banks | name map idea only | script for the name swap, hand edits for story lines (docs/GAME_TECH.md ("Replacing the whole dex: where real Pokémon still show")) |
 | 73 map objects with their own sprite file | Sudowoodo tree, sleeping Snorlax, Lapras, Red Gyarados, Rotom appliances, ... | none | same format as followers; leave the slot alone or draw them |
 | Legendary cutscene sprites | Ho-Oh and Lugia, 7 frames of 64x64 each | none | only if those slots are replaced |
-| Title screen (3D Ho-Oh), intro, Ruins of Alph puzzles, opening movie Ho-Oh | various | none | keep Ho-Oh or cover with a drawing (DEX_REPLACEMENT.md section 2) |
+| Title screen (3D Ho-Oh), intro, Ruins of Alph puzzles, opening movie Ho-Oh | various | none | keep Ho-Oh or cover with a drawing (docs/GAME_TECH.md ("Replacing the whole dex: where real Pokémon still show") section 2) |
 | Slots with special code | Unown, Spinda, Castform, Deoxys, Burmy, Cherrim, Shellos, Rotom, Giratina, Shaymin, Arceus, Pichu | table exists | choose slots that avoid them |
 
 ### 2.3 Ranking: what blocks "a playable mon in the game" most
@@ -687,7 +687,7 @@ Not changed by Origin (V, byte-identical): `a/1/7/4` demo/legend (Ho-Oh/Lugia cu
 | Asset | Where (V unless marked) | Shows | Origin | If our mon takes the role |
 |---|---|---|---|---|
 | **Follower sprites** of every species, also used for the 1544 map objects that show a story Pokemon (Burned Tower beasts, birds, Mewtwo, Dialga/Palkia, Regis, Celebi, Kimono Girl Eeveelutions) | `a/0/8/1` `MMODEL_FOLLOWER_MON_*` members 297-862 (then Origin's 863+), BTX0 4544 bytes | the species | untouched for species 1-493 | already covered by the follower pipeline; nothing extra |
-| **Separate static copies** (73 objects) | `a/0/8/1` members below 297 and Origin's extra ones (list in DEX_REPLACEMENT.md section 2) | Sudowoodo tree `USOKKY` (186), sleeping Snorlax `KABIGON` (194), Lapras `RAPURASU` (228), Red Gyarados `RGYARADOSU` (183), tailless Slowpoke `YADON` (209), 5 Rotom appliances (196-200), Pikachu `PIKACHU` (68), plus static Clefairy, Miltank, Ampharos, Kyogre etc. | only `YADON` | Same file type as followers (BTX0, 32x32 frames; `lw/btx.py` writes it). Rotom, Sudowoodo, Lapras, Gyarados have fewer frames (1128-4712 bytes): count frames first (U: exact frame order of the NPC format, see 1.3). 183/186/194/228 are single-frame or few-frame, the easiest of the legendary-like roles |
+| **Separate static copies** (73 objects) | `a/0/8/1` members below 297 and Origin's extra ones (list in docs/GAME_TECH.md ("Replacing the whole dex: where real Pokémon still show") section 2) | Sudowoodo tree `USOKKY` (186), sleeping Snorlax `KABIGON` (194), Lapras `RAPURASU` (228), Red Gyarados `RGYARADOSU` (183), tailless Slowpoke `YADON` (209), 5 Rotom appliances (196-200), Pikachu `PIKACHU` (68), plus static Clefairy, Miltank, Ampharos, Kyogre etc. | only `YADON` | Same file type as followers (BTX0, 32x32 frames; `lw/btx.py` writes it). Rotom, Sudowoodo, Lapras, Gyarados have fewer frames (1128-4712 bytes): count frames first (U: exact frame order of the NPC format, see 1.3). 183/186/194/228 are single-frame or few-frame, the easiest of the legendary-like roles |
 | **Oak's Marill** | `a/1/2/0` members 59-66 (NCLR 59/63, NCGR 60/64, NCER 61/65, NANR 62/66); drawn as a 2D sprite with palette overrides 4 and 5 (`src/oaks_speech.c` states `APPEAR_MARILL`..`HIDE_MARILL`, `src/oaks_speech_obj.c`); rendered: Marill plus a Poke Ball in 3 poses, blue and red palette | Marill, hard-coded; `PlayCry(SPECIES_MARILL)` | untouched | Redraw member 64 (4528 bytes = 141 tiles, 4bpp) and keep the cell bank, or keep Marill (Origin keeps it). The cry follows the Marill slot, so a mon in slot 183 also changes the cry |
 | **Opening movie, scene 3 "Unown, Eusine, Silver silhouette"** | `a/2/6/2` members 65-72 (struct fields `silverSilhouetteSprite`, `eusineSprite`, `unownSprites[3]`, `include/intro_movie_internal.h`) | 3 Unown, characters | untouched | 2D sprite sheets; swap pictures only if Unown is replaced (Sigmanian Unown is planned) |
 | **Opening movie, scene 4 starters** | `a/2/6/2` members 81-96 (`starterSprites[3]`, hands, sparkles) | Chikorita, Cyndaquil, Totodile | untouched | 2D sprites; Origin never changed them, so the opening still shows the Johto starters. Replace only if wanted |
@@ -709,7 +709,7 @@ Not changed by Origin (V, byte-identical): `a/1/7/4` demo/legend (Ho-Oh/Lugia cu
 | **Ho-Oh and Lugia in the cutscenes** (flying in over the Bell Tower and the Whirl Islands, level 95 gift) | `a/0/8/1` members 210 `HOU_OBJ01`, 211 `LUG_OBJ01`: BTX0 of 14700 bytes, 7 frames of 64x64, sit on a 64x64 plane model (`mmdl_m64x64`); `src/field/legend_cutscene_camera.c` `Task_BirdFinalApproach` sets species, flap delay and flap sound per game | both untouched. Origin keeps the full cutscene (V). The bells, leaves, waves, light ring are separate 3D models in `a/1/7/4` (110 members, e.g. members 34-35 are `NSBMD`/`NSBCA` used by `BirdFinalApproach`) and contain no Pokemon (I). **Needs 7 new 64x64 frames** from a new bird; the code picks species 249/250 and uses their cry, so the slot decides the cry. The map objects `obj_D17R0110_hou_obj01` and `obj_D40R0107_lug_obj01` stay |
 | **`TSURE_250`** (members 274, 275) | `a/0/8/1`, BMD0 model 17236 bytes with a 48x48 plane | named for species 250 (Ho-Oh): a 3D-plane Pokemon that follows or stands on the map; where it is placed: U |
 | **`SPPOKE4`** (269) | BMD0 on a 64x64 plane | "special Pokemon 4": U which |
-| **Embedded Tower Kyogre, Groudon, Rayquaza** | Origin events with the standard follower sprite or the static copies; scripts take the species number (V per DEX_REPLACEMENT.md and trades_tutors.md) | only a slot swap needed; Kyogre has a static copy (list above) |
+| **Embedded Tower Kyogre, Groudon, Rayquaza** | Origin events with the standard follower sprite or the static copies; scripts take the species number (V per docs/GAME_TECH.md ("Replacing the whole dex: where real Pokémon still show") and trades_tutors.md) | only a slot swap needed; Kyogre has a static copy (list above) |
 | **Opening movie scene 2 Ethan and Lyra**, scene 5 | `a/2/6/2` members 31-38, 73-80 | characters, not Pokemon (V from struct names) |
 | **Pokemon that change look with a form** (Unown 28 letters, Deoxys 4, Giratina 2, Shaymin 2, Rotom 6, Castform, Arceus 17) | `a/0/8/1` follower forms 501-528 (Unown), 716-719, 837-862 | each form is its own follower and its own front sprite set; code uses `SPECIES_` special cases in `pokedex.c`, `overlay_94.c`, `mail.c`, `follow_mon.c` (V) |
 | **Pokemon cries as special events** | `PlayCry(SPECIES_...)` at the title (`TITLE_SCREEN_SPECIES` = Ho-Oh in HG), Oak's Marill, Chatot cry (`sound_chatot.c`, a recorded user voice), Ho-Oh/Lugia final approach | the species slot decides which cry plays. The title cry is a compile-time constant (V, `src/title_screen.c` lines 36-38) |
@@ -718,7 +718,7 @@ Not changed by Origin (V, byte-identical): `a/1/7/4` demo/legend (Ho-Oh/Lugia cu
 
 | Model | NARC and member | Shows | Origin |
 |---|---|---|---|
-| **Title screen Ho-Oh** (HG) | `a/0/4/6` members 25 (NSBMD), 26 (NSBCA bones), 27 (NSBTA texture scroll), 28 (NSBMA material anim), 29 (NSBTP texture swap); `TitleScreen_Load3DObjects` in `src/title_screen.c` lines 493 and 496 | Ho-Oh, 1009 polygons, 28 bones (STORY_ROLES.md section 5) | untouched |
+| **Title screen Ho-Oh** (HG) | `a/0/4/6` members 25 (NSBMD), 26 (NSBCA bones), 27 (NSBTA texture scroll), 28 (NSBMA material anim), 29 (NSBTP texture swap); `TitleScreen_Load3DObjects` in `src/title_screen.c` lines 493 and 496 | Ho-Oh, 1009 polygons, 28 bones (docs/STORY.md ("Story roles: which Pokémon Origin HeartGold's story needs, and who from our dex takes them") section 5) | untouched |
 | **Title screen Lugia** (SS) | the same members 20-24; stays in the HG ROM but is unused (V: code branch on game version) | Lugia | untouched, unused |
 | **Title sparkles** | members 38-40 (HG) and 41-43 (SS) | an effect, not a Pokemon | untouched |
 | **Opening movie 3D** | `a/2/6/2` members 97-105: three map models of New Bark, Goldenrod and Ecruteak with `NSBCA`/`NSBTA` | maps | untouched |
@@ -732,8 +732,8 @@ Easy fallback: keep Ho-Oh and hide it behind a drawn background, or accept a re-
 
 ### 8.5 Code, not pictures
 
-- Compile-time species: `TITLE_SCREEN_SPECIES` (cry), Oak's Marill cry, `sSpecies` of the starter screen, Chatot cry, Krabby/Kingler offset in Hall of Fame, `SPECIES_` cases for forms. Changing a *slot's* content changes all of them without code; changing *which* slot needs an overlay-14 style patch (docs/ORIGIN_CUSTOM_CODE.md).
-- Special static battles and gifts (Ho-Oh gift, Lugia, Snorlax, legendary quests in `~/sigma-origin/docs/trades_tutors.md`) take a species number from a script; the slot swap covers them (V, DEX_REPLACEMENT.md section 2).
+- Compile-time species: `TITLE_SCREEN_SPECIES` (cry), Oak's Marill cry, `sSpecies` of the starter screen, Chatot cry, Krabby/Kingler offset in Hall of Fame, `SPECIES_` cases for forms. Changing a *slot's* content changes all of them without code; changing *which* slot needs an overlay-14 style patch (docs/GAME_TECH.md ("New abilities and moves in Origin HeartGold")).
+- Special static battles and gifts (Ho-Oh gift, Lugia, Snorlax, legendary quests in `~/sigma-origin/docs/trades_tutors.md`) take a species number from a script; the slot swap covers them (V, docs/GAME_TECH.md ("Replacing the whole dex: where real Pokémon still show") section 2).
 - Sudowoodo is not fought in Origin (it runs off after watering): only the tree picture and the script matter.
 
 ### 8.6 Spriters Resource asset 27185
@@ -1248,7 +1248,7 @@ update the count byte in `a/0/5/5`).
 There are **29 four-member bust groups**: 22 at members 63, 67, ... 147 (16 gym leaders in 63-126, Elite Four and champion in 127-150, 4 apart),
 players boy/girl at 207 and 211 (the Elite Four intro hard-codes them), five Rocket executives at 222-238.
 - Picture: NCGR **3,120 bytes = 48-byte header + 3,072 bytes, 4bpp, 96 tiles** (V, all 22 leader/E4 busts). The cell bank (111 bytes, one cell) places two OBJs: a 64x64 at x=-52 and a
-  32x64 at x=+12, so the bust is **96 wide x 64 tall, not 64x64 as section "VS portraits" in `WHEN_WE_FINALIZE.md` says**.
+  32x64 at x=+12, so the bust is **96 wide x 64 tall, not 64x64 as section "VS portraits" in `docs/PLANS.md` ("When we finalize the game") says**.
 - Palette: NCLR, 552 bytes (256-entry layout) for 19 of 22 leaders, 72 bytes (16 entries) for the two players, 548 for one; **the bust uses 16 colours (row 0)**; some palettes also fill rows 14/15 (effect/flash colours, I).
 - Cell banks: 7 variants (111/107/123/142 bytes), the animation bank is identical across the leaders. A new portrait of the same size reuses them unchanged.
 - Backgrounds are separate (NSCR 2,084 + NCGR 2,624 + NCLR 552), one per leader, optional to redraw.
@@ -1283,6 +1283,6 @@ Effort: S = a day or less with tools in hand, M = a few days, L = weeks or open-
 | Wild tables | record decoded (13.3), EN guide tables | write tool (parse -> change -> pack), our encounter design | S | no |
 | Text: names, dex entries, story, trainers | `msgtool` all banks, `qa.py` width gate | text writing; Æ Ø glyph restore for font 1 and 4 via `[[font]]` | M | no |
 | VS portraits (22 busts, backgrounds optional) | format decoded (13.6), cell/anim banks reusable | art, 96x64, 16 colours; Elite Four/champion/Rocket extra | M-L | yes |
-| Custom abilities, moves, evolutions | overlay-14 patch route, Weather Switch PoC (`ORIGIN_CUSTOM_CODE.md`) | each new ability is hand-written Thumb code, no source | L | no |
-| New quests, new maps, overworld wild mons | `scriptinsert` (insert commands), `a/0/3/2` decoded | script assembler, map editor, spawn code (open ideas in `WHEN_WE_FINALIZE.md`) | L | no |
+| Custom abilities, moves, evolutions | overlay-14 patch route, Weather Switch PoC (`docs/GAME_TECH.md` ("New abilities and moves in Origin HeartGold")) | each new ability is hand-written Thumb code, no source | L | no |
+| New quests, new maps, overworld wild mons | `scriptinsert` (insert commands), `a/0/3/2` decoded | script assembler, map editor, spawn code (open ideas in `docs/PLANS.md` ("When we finalize the game")) | L | no |
 | Pokewalker | none needed | needs real IR hardware; vanilla files untouched | leave | no |

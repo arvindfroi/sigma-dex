@@ -1,4 +1,4 @@
-# Sigma Dex species file. What every field means: docs/FIELDS.md
+# Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 138
 name: Wreckingboo
 
@@ -110,7 +110,7 @@ design:
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, height, weight, level-up moves,
                      "TM/HM moves", tutor moves]
-  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     body shape: 80
     look: 80
     movement: 80
@@ -119,7 +119,7 @@ design:
     level-up moves: 61
     "TM/HM moves": 66
     tutor moves: 56
-  body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: "It floats in the air, swimming with its fins."
   look: "It is a round spiky creature with a body split in a zigzag between dark blue-purple and crimson, ringed with white spikes. It has one red eye and one blue eye, a wide mouth full of sharp white teeth, and five small green clawed hands on its body. Two long crimson blue-spotted fins stick out from its sides, and a green stalk on top ends in a yellow smiley-faced lure."
 
@@ -134,7 +134,7 @@ assets:
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
-# --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---
+# --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle

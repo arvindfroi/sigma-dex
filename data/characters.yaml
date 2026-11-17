@@ -1,10 +1,10 @@
 # Characters in the game that the group can claim (replace with themselves).
 # Names are left out on purpose (no spoilers for those who have not played the game); the real names are in
-# docs/CHARACTERS.md. Shown on the website under MORE > Characters. Claims are saved on the website.
+# docs/STORY.md#characters-with-a-type-for-claiming. Shown on the website under MORE > Characters. Claims are saved on the website.
 # group: what kind of character; type: the type of their team and of their surroundings; rule: a gym rule.
 # about: a short line about the character's story, shown on the website.
 # battles: how many times this character fights the player in Origin (each needs its own team);
-# levels: the highest level in each of those teams, lowest first (from the ROM, docs/CHARACTERS.md has the names).
+# levels: the highest level in each of those teams, lowest first (from the ROM, docs/STORY.md#characters-with-a-type-for-claiming has the names).
 # Only the roles that matter are listed (Arvind, 2026-11-11): gym leaders, the Elite Four and trainers you meet and fight
 # several times. Regions are left out too, so it is less obvious who is who.
 # Surprises stay hidden (Arvind, 2026-11-11): the group has not played this kind of hack, so nothing here says

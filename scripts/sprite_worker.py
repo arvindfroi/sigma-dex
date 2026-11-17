@@ -6,7 +6,7 @@
 It asks the website's database for the next sprite request, has ComfyUI draw it (starting
 ComfyUI if it is not running), converts the result to game sprites and hands them in. It
 only makes outgoing connections, so the PC does not have to be reachable from the internet.
-Setup and settings: docs/STUDIO.md.
+Setup and settings: docs/ART.md#the-sprite-studio.
 
 Settings (environment variables): SIGMA_WORKER_KEY_FILE (file with the worker key),
 COMFY_DIR (ComfyUI's folder, used to start it), COMFY_URL (default http://127.0.0.1:8188).

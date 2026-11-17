@@ -130,7 +130,7 @@ def check(data, moves=None, sid=None):
         battle_forms = [f for f in data.get("forms") or [] if isinstance(f, dict) and f.get("name")]
         if a in FORM_ABILITIES and not battle_forms:
             out.append("%s changes %s's form in battle: add the form it changes into (Forms on the "
-                       "website); the game also needs new code for it (docs/ORIGIN_CUSTOM_CODE.md)"
+                       "website); the game also needs new code for it (docs/GAME_TECH.md#new-abilities-and-moves-in-origin-heartgold)"
                        % (a, FORM_ABILITIES[a]))
         if a in BANNED_SINGLES and (sid, a) not in ACCEPTED:
             out.append("%s is banned in official competitive play - check that it is not too strong here" % a)

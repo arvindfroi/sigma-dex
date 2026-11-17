@@ -3,7 +3,7 @@
 
 # What is left to do
 
-A Pokemon is complete when every item below is filled in. Field guide: [docs/FIELDS.md](docs/FIELDS.md)
+A Pokemon is complete when every item below is filled in. What each field means: [Field guide](docs/DEX_DATA.md#field-guide)
 
 ## Progress per area
 

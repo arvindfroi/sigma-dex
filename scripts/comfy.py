@@ -5,7 +5,7 @@
                             [--size 1024x1024] [--steps 25] [--seed 1] [--transparent]
 
 ComfyUI must be reachable at COMFY_URL (default http://127.0.0.1:8188). How it is set up
-and reached is described in docs/COMFYUI.md. With --ref the picture(s) are given to the
+and reached is described in docs/ART.md#the-image-generator-comfyui. With --ref the picture(s) are given to the
 model as references; mention them in the prompt as <image1>, <image2>, ...
 """
 import argparse
@@ -38,7 +38,7 @@ def call(path, data=None, headers=None):
     except urllib.error.HTTPError as error:
         raise ComfyError("ComfyUI refused %s: %s" % (path, error.read().decode("utf-8", "replace")[:600]))
     except OSError as error:
-        raise ComfyError("ComfyUI is not reachable at %s (%s). See docs/COMFYUI.md." % (URL, error))
+        raise ComfyError("ComfyUI is not reachable at %s (%s). See docs/ART.md#the-image-generator-comfyui." % (URL, error))
 
 
 def upload(path):

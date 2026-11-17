@@ -4,7 +4,7 @@
     python3 scripts/character_ivs.py      # needs the EN patch's trainer list in ~/origin-en (never in this repo)
 
 Arvind (2026-11-17): "gjør det slik at IV blir gjort automatisk hos motstanderene ... de skaleres automatisk oppover".
-Origin's IVs already rise through the game (0-6 early, 12-18 in the middle, 24-30 late; see docs/GAME_DESIGN.md), so
+Origin's IVs already rise through the game (0-6 early, 12-18 in the middle, 24-30 late; see docs/STORY.md#game-design-making-our-version-good-and-fun-2026-11-17), so
 every battle keeps the IV level of the original battle (the level most of its Pokemon have), exactly as the game has
 it (Arvind: "vi gjør det bare slik spillet gjør"), odd dips included (Goh's Lv. 100 legendaries have IV 1).
 The HP IV is not stored: Origin sets it from the level (10 up to Lv. 40, 20 at Lv. 41-79, 31 from Lv. 80), and the

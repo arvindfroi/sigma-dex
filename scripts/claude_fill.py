@@ -6,7 +6,7 @@
 
 For each one it prints what is filled in, what is missing, the designer's notes for Claude
 (`design.wishes`), and its evolution family (so a line is filled in as a whole: stats that grow,
-shared moves). How Claude should fill them in: docs/CLAUDE_FILL.md.
+shared moves). How Claude should fill them in: docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon.
 """
 import sys
 

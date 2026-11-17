@@ -1,4 +1,4 @@
-# Sigma Dex species file. What every field means: docs/FIELDS.md
+# Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 159
 name: Narburr
 
@@ -109,7 +109,7 @@ design:
   # fields Claude filled in (people can change them)
   filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, body color, catch rate,
                      base exp, growth rate, base friendship, gender, egg groups, egg cycles]
-  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     level-up moves: 80
     "TM/HM moves": 85
     tutor moves: 75
@@ -121,7 +121,7 @@ design:
     gender: 79
     egg groups: 60
     egg cycles: 65
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look: "It has a warm brown body with darker oval spots across its back and a creamy white belly. Its most distinctive feature is a long, pointed, segmented, spiral-like horn or tusk extending from the front of its head. It has small flippers on either side and a long, tapering rear body ending in a tail. Its appearance is unusual, gentle, and somewhat prehistoric."
 
@@ -136,7 +136,7 @@ assets:
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
-# --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---
+# --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle

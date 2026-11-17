@@ -1,4 +1,4 @@
-# Sigma Dex species file. What every field means: docs/FIELDS.md
+# Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 120
 name: Autuman
 
@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions: []
 # evolutions:
 #   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md
+#     method: level      # level | item | trade | friendship | ... full list in docs/DEX_DATA.md#field-guide
 #     level: 16          # for method: level
 #     item:              # for method: item, e.g. Thunder Stone
 #     note:              # anything else worth knowing
@@ -113,7 +113,7 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
-  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     body shape: 80
     look: 80
     movement: 80
@@ -146,7 +146,7 @@ assets:
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
-# --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---
+# --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle

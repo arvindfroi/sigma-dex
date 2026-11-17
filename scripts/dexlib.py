@@ -116,7 +116,7 @@ def render_species(data):
     assets, engine = section(data, "assets"), section(data, "engine")
     sid = slugify(data.get("name") or "name")
 
-    lines.append("# Sigma Dex species file. What every field means: docs/FIELDS.md")
+    lines.append("# Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide")
     put(0, "dex", scalar(data.get("dex")))
     put(0, "name", scalar(data.get("name")))
     lines.append("")
@@ -175,7 +175,7 @@ def render_species(data):
             "evolutions: []",
             "# evolutions:",
             "#   - into: leafsteel    # file name of the target, without .yaml",
-            "#     method: level      # level | item | trade | friendship | ... full list in docs/FIELDS.md",
+            "#     method: level      # level | item | trade | friendship | ... full list in docs/DEX_DATA.md#field-guide",
             "#     level: 16          # for method: level",
             "#     item:              # for method: item, e.g. Thunder Stone",
             "#     note:              # anything else worth knowing",
@@ -226,10 +226,10 @@ def render_species(data):
     put_list(1, "filled_by_claude", design.get("filled_by_claude"), "fields Claude filled in (people can change them)")
     sure = design.get("claude_sure")
     if isinstance(sure, dict) and sure:
-        lines.append("  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)")
+        lines.append("  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)")
         for label, value in sure.items():
             lines.append("    %s: %s" % (scalar(label), scalar(value)))
-    put(1, "body_shape", scalar(design.get("body_shape")), "for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)")
+    put(1, "body_shape", scalar(design.get("body_shape")), "for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)")
     put(1, "movement", scalar(design.get("movement")), "e.g. It walks on four legs. / It floats in the air.")
     put(1, "look", scalar(design.get("look")), "what it looks like, a few plain sentences: It is a ...")
     lines += ["", "# --- Assets (paths inside this repo, leave empty until the file exists) ---"]
@@ -242,7 +242,7 @@ def render_species(data):
     put(1, "footprint", scalar(assets.get("footprint")), "footprint.png  16x16, black and white")
     put(1, "shiny_palette", scalar(assets.get("shiny_palette")), "shiny.pal      the 16 colors of the shiny version")
     put(1, "cry", scalar(assets.get("cry")), "sound file")
-    lines += ["", "# --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---"]
+    lines += ["", "# --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---"]
     put(0, "engine")
     put(1, "no_flip", scalar(bool(engine.get("no_flip"))), "true if the sprite must never be mirrored")
     put(1, "elevation", scalar(engine.get("elevation") or 0), "pixels it floats above the ground in battle")

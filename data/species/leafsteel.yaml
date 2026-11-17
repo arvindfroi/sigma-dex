@@ -1,4 +1,4 @@
-# Sigma Dex species file. What every field means: docs/FIELDS.md
+# Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 2
 name: Leafling
 
@@ -113,7 +113,7 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, catch rate, base exp, growth rate, base friendship, gender,
                      egg cycles, egg groups, height, weight]
-  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     body shape: 80
     look: 80
     movement: 80
@@ -126,7 +126,7 @@ design:
     base friendship: 90
     height: 65
     weight: 65
-  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a small green long-necked creature with a rounded body covered in overlapping green leaves, four short legs with white claws, and a curved tail ending in a grey blade. It has a smiling face with big brown eyes and a single leaf standing up on its head."
 
@@ -141,7 +141,7 @@ assets:
   shiny_palette: "assets/shiny/leafsteel.json"
   cry:                   # sound file
 
-# --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---
+# --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle

@@ -1444,7 +1444,7 @@ What was tried, in order (scripts in `v6cfg`, results in `results\<name>`):
   better". Steps 2000-3500 are close; 2500 looked the most even (3500 a little flatter and smaller).
   **Arvind picked step 2500** (17 Oct: "a lot usable here, 2500 maybe best"): `approved\pkmn_style_klein_v2_000002500`,
   sha256 DBF17D1EDF27852A81F7211EA89EC195C3F69AD4E59715FD300F7316CE912609; in the studio as the art step's `sketch` recipe
-  (docs/STUDIO.md). The stage check (`v6cfg\sketch_stage_check.py`, results\sketch_stage) cut Torchbat and Stonma
+  (docs/ART.md ("The sprite studio")). The stage check (`v6cfg\sketch_stage_check.py`, results\sketch_stage) cut Torchbat and Stonma
   cleanly from white.
   Arvind on Stonma (17 Oct): "the swirl and the arm miss; push it a tiny bit more towards the sketch and art". Two causes:
   the dex look text (written by Claude) said a cream arm and an orange swirl, while the art has a stone arm and a faint

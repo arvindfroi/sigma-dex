@@ -10,7 +10,7 @@ Any picture works as input: a drawing, AI art, or a finished pixel sprite. The b
 removed, the picture is shrunk to fit 64x64, and its colors are reduced to the 15 the game
 allows (front and back share them). A picture that already is a 64x64 sprite passes through
 unchanged apart from the color check. What comes out is in assets/sprites/<pokemon>/, see
-docs/SPRITES.md.
+docs/ART.md#sprites.
 """
 import argparse
 import hashlib

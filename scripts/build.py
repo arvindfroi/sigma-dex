@@ -109,7 +109,7 @@ def main():
 
     # ---- TODO.md ----
     lines = [GENERATED, "# What is left to do\n",
-             "A Pokemon is complete when every item below is filled in. Field guide: [docs/FIELDS.md](docs/FIELDS.md)\n",
+             "A Pokemon is complete when every item below is filled in. What each field means: [Field guide](docs/DEX_DATA.md#field-guide)\n",
              "## Progress per area\n", "| Area | Item | Filled in |", "|------|------|----------:|"]
     for sec, label, test in dexlib.CHECKS:
         count = sum(1 for _, _, d in species if test(d))

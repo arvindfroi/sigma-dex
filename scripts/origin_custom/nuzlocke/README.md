@@ -1,6 +1,6 @@
 # Nuzlocke and Hardcore Nuzlocke (tests of 2026-11-16)
 
-Gravriel gets two hard modes, Nuzlocke and Hardcore Nuzlocke (docs/WHEN_WE_FINALIZE.md, "Versions and scripted
+Gravriel gets two hard modes, Nuzlocke and Hardcore Nuzlocke (docs/PLANS.md ("When we finalize the game"), "Versions and scripted
 events"). This folder is the first working piece, our own code. Other hacks were only used as a map of which game
 events need hooks.
 

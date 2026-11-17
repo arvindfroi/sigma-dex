@@ -25,7 +25,7 @@ with where it comes from:
              parts). A back view can be given the front's palette so both match.
 
 Same artwork, same sprite: nothing is random. The look is modelled on measurements of the
-games' own sprites (docs/SPRITE_STYLE.md); scripts/check_sprite_style.py renders a fixed test set
+games' own sprites (docs/ART.md#the-sigma-sprite-style); scripts/check_sprite_style.py renders a fixed test set
 and compares it with locked reference sprites, so any change to these steps shows up there.
 """
 import cv2

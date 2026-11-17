@@ -14,7 +14,7 @@ last run (state.json remembers what the last run saw). Three parts, none of whic
   A picture is downloaded once; nothing here is overwritten or removed.
 Then the raws of unpicked studio tries that are safely here are removed from the website storage (prune_raws): the
 free plan holds 1.1 GB, so this backup is where those raws live. Only that ever deletes, and only on the website.
-A summary of each run is appended to backup.log. Restoring: docs/BACKUP.md.
+A summary of each run is appended to backup.log. Restoring: docs/DEX_DATA.md#backup.
 """
 import datetime
 import gzip

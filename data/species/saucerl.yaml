@@ -1,4 +1,4 @@
-# Sigma Dex species file. What every field means: docs/FIELDS.md
+# Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 67
 name: Saucerl
 
@@ -108,7 +108,7 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
-  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     body shape: 80
     look: 80
     movement: 80
@@ -126,7 +126,7 @@ design:
     egg cycles: 65
     height: 65
     weight: 65
-  body_shape: a head and legs # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  body_shape: a head and legs # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: It walks on its legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a round body shaped like a swim ring, with purple and white stripes around a pink centre where a worried face with two small eyes sits. It has two curved red arms with teal tips on its sides and two short red legs with teal tips below."
 
@@ -141,7 +141,7 @@ assets:
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
-# --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---
+# --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle

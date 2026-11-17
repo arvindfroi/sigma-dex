@@ -1,7 +1,7 @@
 # The request board on the website (REQUESTS). These cards are written by the team; cards added
 # on the website are stored in the database (species_edits, kind 'request') and win over these
 # when they have the same id. status: idea | needed | doing | done. area: pokemon | sprites | website | other.
-# The "needed" cards come from docs/STORY_ROLES.md, section 4 (the story's roles that no design fills yet).
+# The "needed" cards come from docs/STORY.md#story-roles-which-pokémon-origin-heartgolds-story-needs-and-who-from-our-dex-takes-them, section 4 (the story's roles that no design fills yet).
 - id: req-story-electric-mascot
   title: Electric mascot
   text: Mono Electric, small. The player's first partner from the professor (the old mascot's slot).

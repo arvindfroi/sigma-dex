@@ -12,7 +12,7 @@ Only empty fields are ever filled; a value a person wrote is never changed. Spec
 their height and weight; the rest waits.
 Where it is found (encounters) is not filled: that depends on the game's maps and the story plan.
 
-How it decides (docs/SPECIES_FILL.md): each species is compared with every official Pokemon (the same weighted
+How it decides (docs/DEX_DATA.md#the-numbers-height-weight-body-color-ev-yield-catch-rate-exp-growth-friendship-gender-egg-groups-egg-cycles): each species is compared with every official Pokemon (the same weighted
 "inspired by" list as the moveset tool: stats, types, stage, line length, evolution levels, look words, designer
 wishes ...). Each value is the weighted choice of those Pokemon, plus Game Freak's fixed habits:
 - EV yield: 1 point for a first stage, 2 for a middle stage, 2-3 for a final or single one (as its models), 3 for a

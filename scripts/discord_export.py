@@ -2,7 +2,7 @@
 """Download every message and attachment (concept art!) from a Discord channel.
 
 Uses Discord's official bot API, so it is allowed by Discord's rules - unlike "self-bot"
-tools that log in with your personal account. Setup (docs/DISCORD.md has the full steps):
+tools that log in with your personal account. Setup (docs/DEX_DATA.md#getting-everything-out-of-the-discord-channel has the full steps):
 
     export DISCORD_BOT_TOKEN=...          # or save it in the file .discord-token (ignored by git)
     python3 scripts/discord_export.py CHANNEL_ID

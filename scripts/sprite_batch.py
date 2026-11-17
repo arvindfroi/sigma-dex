@@ -10,7 +10,7 @@ and all attempts, and one sheet with every Pokemon's best (artwork, front, back)
 Nothing is put into the dex: the group picks, then the sprites go in through the studio or
 `scripts/sprites.py`.
 
-Needs ComfyUI with Qwen-Image (docs/COMFYUI.md). Each Pokemon's `look`, `refs` and `signature`
+Needs ComfyUI with Qwen-Image (docs/ART.md#the-image-generator-comfyui). Each Pokemon's `look`, `refs` and `signature`
 come from data/sprite_prompts.yaml; without refs, its first concept art pictures are used.
 """
 import argparse

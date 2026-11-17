@@ -808,7 +808,7 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
 - Ho-Oh: `build_jump.py ROM OUT 340 15 18 282 8 0x40a9 4 -580 -2336 +1140 +1366`. Lugia needs an extra script entry that
   sets a temp var and goes to the dancer's own script (Satsuki asks, answer yes): `JUMP_BASE=y/a012_lug_base2 ... 244 16 35
   365 14 0x4001 0 -581 +579 +1366 +2333`. Map ids are pret's `include/constants/maps.h`.
-- **3D Sabertann in Ho-Oh's film** (`a/2/4/3`, the Clear Bell film; see `docs/LEGEND_CUTSCENES.md`). The film is an exported
+- **3D Sabertann in Ho-Oh's film** (`a/2/4/3`, the Clear Bell film; see `docs/STORY.md` ("Ho-Oh and Lugia scenes: what Origin does and how we replace them")). The film is an exported
   3D scene: Ho-Oh is joint1..joint27 inside each shot model. We replace him the same way the game made him: a low-poly,
   rigged model with its own walk animation.
   1. Model in Blender (`sab3d/`): `blender -b sab_v15.blend --python export_parts3.py -- pt7 128 900 0.8 0.7` (parts in one
@@ -1286,7 +1286,7 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - Video `sabertann_film_v33_morgen_og_kveld.mp4`.
   - **Gravriel's Lugia film at midday** (`legend_test/jump_lug_ow11.nds`, `TZ=XXX-12`) plays through too: the fall, his rise, the cut, the ritual room, his wind-up and the green cry. It was already seen in the morning and at night, so all three times of day are covered for both films.
 - **The Lugia/Gravriel ritual on SoulSilver's path, and the legend set LOCKED (2026-11-17)** (Arvind: "the only thing missing is the whole Lugia/Gravriel cutscene fixed: it uses leaves and the camera was very weird ... and that it is a lock").
-  - **`legend/version_switch/`:** `hooks.s` (44 bytes at 0x01FFFE00, the top of ITCM, empty all through the ritual) and `build.py`. The three version reads in overlay 2's legendary cutscene code answer SoulSilver on map 244 only. `gGameVersion` is not touched, so the catch is "met in HeartGold" and Bell Tower stays on HeartGold's path. Details in `docs/LEGEND_CUTSCENES.md`.
+  - **`legend/version_switch/`:** `hooks.s` (44 bytes at 0x01FFFE00, the top of ITCM, empty all through the ritual) and `build.py`. The three version reads in overlay 2's legendary cutscene code answer SoulSilver on map 244 only. `gGameVersion` is not touched, so the catch is "met in HeartGold" and Bell Tower stays on HeartGold's path. Details in `docs/STORY.md` ("Ho-Oh and Lugia scenes: what Origin does and how we replace them").
   - **Tests:**
     - `legend_test/jump_lug_ow12.nds` (sha256 prefix `a7b9ad0d6d703c83`; hook pokes in `jump_lug_ow12.hookpokes`): the ritual plays SoulSilver's path with the game HeartGold. It matches the earlier version-8 test, and Gravriel comes down in front of the fall where Lugia does in Origin.
     - `legend_test/jump_hooh2_v33vs.nds` (sha256 prefix `d8c650e7eb3b33c2`): Bell Tower with the patch is identical, frame for frame, to Bell Tower without it.

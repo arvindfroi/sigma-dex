@@ -1614,7 +1614,7 @@ function checkGrid(options, chosen) {
 // Moveset suggestions (12 Nov 2026; Arvind: "people should be able to generate new movesets whenever they want and
 // change what they want"). scripts/moveset_fill.py suggest writes site/moveset_suggestions.json on every sync: for each
 // Pokemon "fill" (what its moves lack) and "fresh" (a new proposal for the part Claude added before; the designers'
-// own moves stay). Nothing is saved until YES. How it decides: docs/MOVESETS.md.
+// own moves stay). Nothing is saved until YES. How it decides: docs/DEX_DATA.md#movesets-how-the-autocomplete-decides.
 // The numbers nobody wants to think about (12 Nov 2026; Arvind): scripts/species_fill.py suggest writes
 // site/species_suggestions.json on every sync; this button fills only the EMPTY fields, like Game Freak would.
 let SPECIES_SUGGESTIONS = null;
@@ -2364,7 +2364,7 @@ function walker(src, scale) {
 // each group has three sliders (colour, strength, light) and one tap on its main colour picks the new one directly.
 // CREATE / RETRY suggest a whole shiny with random choices, following the evolution line when a relative already has
 // one. Saved as "normal colour -> shiny colour" (kind 'shiny'); the sync writes assets/shiny/<pokemon>.json.
-// The DS keeps 5 bits per channel, so every shiny colour is a multiple of 8, like our sprites. How: docs/SHINY.md.
+// The DS keeps 5 bits per channel, so every shiny colour is a multiple of 8, like our sprites. How: docs/ART.md#shinies.
 DEX.shinies = DEX.shinies || {};
 DEX.cries = DEX.cries || {};
 const hexOf = c => "#" + c.map(v => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, "0")).join("");
@@ -2728,7 +2728,7 @@ function shinyMaker(s) {
 // types and size, with random amounts. A line keeps its sound: an evolution starts from its relative's saved cry, lower
 // and slower. 15 Nov: the page no longer says which official cries a try starts from ("de trenger ikke å vite
 // inspirasjonen"); instead each try has sliders (pitch, length, glide, brightness, wobble, echo, rough, buzz). The engine is scripts/cry_engine.js (the game export runs the same code on HeartGold's own cries).
-// The website plays the official cries from PokeAPI's public archive (github.com/PokeAPI/cries). docs/CRIES.md.
+// The website plays the official cries from PokeAPI's public archive (github.com/PokeAPI/cries). docs/ART.md#cries.
 const CRY_URLS = n => ["https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/legacy/" + n + ".ogg",
   "https://cdn.jsdelivr.net/gh/PokeAPI/cries@main/cries/pokemon/legacy/" + n + ".ogg"];
 let cryCtx = null, oggDecoder = null;

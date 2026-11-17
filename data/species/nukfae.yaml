@@ -1,4 +1,4 @@
-# Sigma Dex species file. What every field means: docs/FIELDS.md
+# Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 36
 name: Nukfae
 
@@ -105,7 +105,7 @@ design:
   filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
                      egg moves, body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles]
-  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/CLAUDE_FILL.md)
+  claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     body shape: 80
     look: 80
     movement: 80
@@ -122,7 +122,7 @@ design:
     gender: 63
     egg groups: 46
     egg cycles: 65
-  body_shape: a head and a base # for the sprite studio, e.g. a quadruped body (docs/STUDIO.md)
+  body_shape: a head and a base # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: It slithers along the ground.
   look: "It is a smiling slime creature made of glossy lime-green sludge with rainbow oily swirls. It has a rounded face under a drooping hood-like head with two long floppy ear shapes, thin arms ending in curved tentacles with purple sucker spots, and a wide melting puddle-like base."
 
@@ -137,7 +137,7 @@ assets:
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 
-# --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---
+# --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:
   no_flip: false         # true if the sprite must never be mirrored
   elevation: 0           # pixels it floats above the ground in battle

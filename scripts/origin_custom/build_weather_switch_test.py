@@ -3,7 +3,7 @@
 Assembles weather_switch.s, puts it into overlay 14 (the battle engine) in place of Zero to Hero's code,
 points ability 278 at it, renames ability 278 to "WeatherSwtch", and gives the lab rival (trainer 497)
 two Pokemon: a level 1 Squirtle with FIRST_ABILITY and a level 5 Vulpix with Weather Switch.
-Beat the Squirtle and the Vulpix comes in and flips the weather. See docs/ORIGIN_CUSTOM_CODE.md.
+Beat the Squirtle and the Vulpix comes in and flips the weather. See docs/GAME_TECH.md#new-abilities-and-moves-in-origin-heartgold.
 
 Everything here runs outside the dex repo, on Arvind's own files (Nintendo data, never committed):
   ~/sigma-origin/x_spike_backup   clean extracted Origin HG (EN rc3), read only
