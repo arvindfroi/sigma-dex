@@ -1211,3 +1211,21 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - The inner ends of the brows come down (an angry face); the eyes keep their shape.
   - **Test ROM:** `legend_test/jump_hooh2_roar2.nds` (sha256 prefix `e5c748124c1905ea`). The cry is still not seen in the game: talking to the bird in the test (A, or tapping TALK) did not start the battle.
   - **Files:** `sabertann_brol_v2_hele_kroppen.png` (Ho-Oh landed and roaring, Sabertann landed, roar v1, roar v2) and `sabertann_overworld_brol_v2_animasjon.gif`. Data: `title3d/legend/sab/roar_v2` with SHA256SUMS.
+- **Overworld sprites: frame 6 is the anticipation before the cry (2026-11-17)** (Arvind: "I see they also have an anticipation frame, so Sabertann and Gravriel must have it too").
+  - **How Origin uses frames 6 and 7** (frames matched in Origin's recordings):
+    - Lugia in the ritual: flapping, then frame 6 (wings folded in front) held for about 32 frames, frame 5 for a moment, then frame 7 (the cry) for about 60 frames, then flapping again.
+    - Ho-Oh at Bell Tower (morning): lands, flaps, then frame 6 held about 30 frames and frame 7 about 50, by itself after landing.
+    - So frame 6 is not a resting pose but the wind-up before the cry. Ours were rest frames.
+  - **Sabertann** (`sab/sab_roar_body.py roar_v2 roar_v3` with `FRAME=6 TOP=-10 RISE=-3 SPREAD=-2 SAILX=0.8`, on wind_v1's rest frame): he crouches 3 px with mast and flag (the flag keeps its shape) and draws the sails in 20 %. The legs pull 2 px under him, the shoulders come in and the brows come down. Frame 7 stays roar v2 (made with `FLAGGUARD=0`; the flag guard now keeps mast and flag out of the sail flare and is on by default).
+  - **Gravriel** (`grav3d/ow_qwen/ow_anticip.py frames_v5 frames_v6`):
+    - The head and hat bow 2 px (middle columns only, so the arms and cutlass keep their shape).
+    - The arms and claws pull in (0.88) and the claws curl a pixel. The coat draws in (0.85) and its tatters tuck up 2 px.
+    - A one-pixel inner rim of the cry's dark ghost green (24,72,56) runs on the coat below the head, so the green flash that follows is foreshadowed.
+  - **Checked in the game** (our frames matched in the recordings):
+    - Gravriel (`legend_test/jump_lug_ow10.nds`, sha256 prefix `29bbdef70984b852`): frame 6 at 2958-2990, a float frame, frame 7 at 2998-3058, as Lugia.
+    - Sabertann (`legend_test/jump_hooh2_roar3.nds`, sha256 prefix `025b85434a912829`, recorded at night): lands at about 2400 and bobs. Then frame 6 at 2490-2510, frame 4, and frame 7 at 2530-2580 with the game's cry ring.
+    - So roar v2 is seen in the game too. The earlier "cry only when you talk to it" was wrong: it plays by itself after landing.
+  - **Files:**
+    - `oppladning_rutene_gravriel_sabertann.png` (Origin's frames 6/7 next to ours, before and now).
+    - Videos: `gravriel_oppladning_og_brol_halv_fart.mp4` (Lugia, before, now) and `sabertann_oppladning_og_brol_halv_fart.mp4` (before, now; close up, half speed).
+    - Data: `frames_v6` and `roar_v3` with SHA256SUMS.
