@@ -86,14 +86,20 @@ def write_species_files():
         if num in seen:
             raise SystemExit(f"{species} and {seen[num]} both use #{num}")
         seen[num] = species
+    gone = []
     for species, num in sorted(FOOT.items()):
         path = ROOT / "data/species" / f"{species}.yaml"
+        if not path.exists():
+            gone.append(species)          # species removed from the dex since the footprints were picked
+            continue
         text = path.read_text(encoding="utf-8")
         new = re.sub(r"(?m)^(  footprint:).*$", lambda m: f'{m.group(1)} "hgss:{num}"', text, count=1)
         if new != text:
             path.write_text(new, encoding="utf-8")
     missing = sorted(p.stem for p in (ROOT / "data/species").glob("*.yaml") if p.stem not in FOOT)
-    print(len(FOOT), "footprints set; none yet:", missing)
+    print(len(FOOT) - len(gone), "footprints set; none yet:", missing)
+    if gone:
+        print("no species file any more (skipped):", gone)
 
 
 # --- reading the official footprints from the ROM (a/0/6/9: member n+3 = footprint of species n) ---

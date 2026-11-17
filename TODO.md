@@ -35,7 +35,7 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Art | front animation frame | 4 / 170 |
 | Art | back sprite | 4 / 170 |
 | Art | icon | 4 / 170 |
-| Art | footprint | 142 / 170 |
+| Art | footprint | 145 / 170 |
 | Art | shiny palette | 45 / 170 |
 | Art | cry | 21 / 170 |
 
@@ -1129,7 +1129,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #156 [Rosievoir](data/species/rosievoir.yaml) - 10%
+### #156 [Rosievoir](data/species/rosievoir.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1137,7 +1137,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
 ### #158 [Whaldrill0](data/species/whaldrill0.yaml) - 55%
 
@@ -1196,7 +1196,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #206 [CobraBat](data/species/cobrabat.yaml) - 10%
+### #206 [CobraBat](data/species/cobrabat.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1204,7 +1204,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
 ### #233 [Entrigon](data/species/entrigon.yaml) - 14%
 
@@ -1216,7 +1216,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #234 [Tsunamo](data/species/tsunamo.yaml) - 14%
+### #234 [Tsunamo](data/species/tsunamo.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1224,7 +1224,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
 ### #240 [Lansseax](data/species/natureo.yaml) - 17%
 

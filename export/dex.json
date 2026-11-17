@@ -39026,7 +39026,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:123",
         "shiny_palette": null,
         "cry": null
       },
@@ -40891,7 +40891,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:442",
         "shiny_palette": null,
         "cry": null
       },
@@ -41051,7 +41051,7 @@
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": null,
+        "footprint": "hgss:143",
         "shiny_palette": null,
         "cry": null
       },

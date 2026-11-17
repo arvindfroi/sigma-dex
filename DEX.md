@@ -164,7 +164,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 153 | [Iron Bulb](data/species/iron-wire.yaml) | Electric | Quark Drive | 570 |  | 38% |
 | 154 | [Solidedge](data/species/solidedge.yaml) | Bug / Psychic | Beast Boost | 600 |  | 41% |
 | 155 | [Rosie](data/species/rosie.yaml) | Grass / Fairy |  |  | Rosievoir (Lv 40) | 10% |
-| 156 | [Rosievoir](data/species/rosievoir.yaml) | Grass / Fairy |  |  |  | 10% |
+| 156 | [Rosievoir](data/species/rosievoir.yaml) | Grass / Fairy |  |  |  | 14% |
 | 157 | *open slot* | | | | | |
 | 158 | [Whaldrill0](data/species/whaldrill0.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 250 | Narburr (Lv 25) | 55% |
 | 159 | [Narburr](data/species/whaldrill.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 450 | Whaldrill (Lv 45) | 62% |
@@ -214,7 +214,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 203 | *open slot* | | | | | |
 | 204 | *open slot* | | | | | |
 | 205 | [Catbat](data/species/catbat.yaml) | Dark / Flying |  |  | CobraBat (Lv 34) | 10% |
-| 206 | [CobraBat](data/species/cobrabat.yaml) | Dark / Flying |  |  |  | 10% |
+| 206 | [CobraBat](data/species/cobrabat.yaml) | Dark / Flying |  |  |  | 14% |
 | 207 | *open slot* | | | | | |
 | 208 | *open slot* | | | | | |
 | 209 | *open slot* | | | | | |
@@ -242,7 +242,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 231 | *open slot* | | | | | |
 | 232 | *open slot* | | | | | |
 | 233 | [Entrigon](data/species/entrigon.yaml) | Fire | Pressure, Inner Focus, Prankster (H) |  |  | 14% |
-| 234 | [Tsunamo](data/species/tsunamo.yaml) | Water | Pressure, Inner Focus, Prankster (H) |  |  | 14% |
+| 234 | [Tsunamo](data/species/tsunamo.yaml) | Water | Pressure, Inner Focus, Prankster (H) |  |  | 17% |
 | 235 | *open slot* | | | | | |
 | 236 | *open slot* | | | | | |
 | 237 | *open slot* | | | | | |

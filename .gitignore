@@ -15,3 +15,34 @@ tests/sprite_style/sheet.png
 proposals/movesets.json
 proposals/review.html
 proposals/species_fill.json
+
+# intro overview holds game graphics
+intro_oversikt.html
+sjekkliste_intro_og_sprites.html
+sabertann_intro*.png
+sabertann_intro*.gif
+origin_intro_original.mp4
+intro_bilder.png
+tittelskjerm.png
+tittel_animasjon.gif
+tittelskjerm_hg_vs_origin.png
+hooh_3d_modell.png
+tittel_lys.png
+
+# 3D Sabertann intro previews (the video shows the original Ho-Oh scene too)
+sabertann_intro*.mp4
+sabertann_3d_modell.png
+sabertann_v*_*.png
+
+# cutscene analysis: game graphics and recordings
+mellomsekvens_*.png
+origin_hooh_*.mp4
+origin_lugia_*.mp4
+lugia_gule_prikker.png
+lugia_med_soulsilver_kode.mp4
+sabertann_bell_tower_*.mp4
+mellomsekvens_sabertann_px.png
+sabertann_3d_film_*
+
+# music pipeline test renders
+music_tests/

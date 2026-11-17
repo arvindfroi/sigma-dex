@@ -137,7 +137,7 @@ assets:
   front_anim: "assets/sprites/leafsteel/anim_front.png"
   back_sprite: "assets/sprites/leafsteel/back.png"
   icon: "assets/sprites/leafsteel/icon.png"
-  footprint: "hgss:2"    # footprint.png  16x16, black and white
+  footprint: "hgss:2"
   shiny_palette: "assets/shiny/leafsteel.json"
   cry:                   # sound file
 

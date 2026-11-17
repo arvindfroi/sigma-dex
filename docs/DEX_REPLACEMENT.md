@@ -33,9 +33,9 @@ Swablu 69, Magikarp 69, Eevee 63, Totodile 58, Lapras 57, Clefairy 55, Manaphy 5
 
 ## 2. Pictures that are not the usual sprites
 
-- Title screen: a **3D model** of Ho-Oh with animations (`a/0/4/6` members 20-29; Origin only
-  changed the logo and backgrounds). Replacing it needs a 3D model; keeping Ho-Oh or hiding the
-  model behind a drawn background is far easier.
+- Title screen: vanilla HeartGold has a **3D model** of Ho-Oh (`a/0/4/6` members 25-29, sparkles 38-40),
+  but **Origin's title screen never shows it** (checked in rc8 on 2026-11-12: the top screen is the logo,
+  the bottom screen cycles 2D art of Red's starters). Nothing to replace there.
 - The intro (the professor shows a Pokémon).
 - Ruins of Alph sliding puzzles (Kabuto, Omanyte, Aerodactyl, Ho-Oh panels).
 - Overworld Pokémon on the maps (checked 2026-10-08 in Origin's map data, `a/0/3/2`):
@@ -58,7 +58,10 @@ Swablu 69, Magikarp 69, Eevee 63, Totodile 58, Lapras 57, Clefairy 55, Manaphy 5
   the cry from the species slot. The 3D models there are bells, leaves/waves and a light ring, not
   Pokémon. So a new bird needs 7 new frames, no 3D work.
 - The opening movie (before the title) has its own animated Ho-Oh sprite (`a/2/6/2` members
-  23-30), which Origin did not change.
+  23-26 for HG: palette, tiles, animation, cells; 27-30 = SoulSilver's Lugia). It is 2D, not 3D: 6 flap
+  frames zoomed by the animation from 5 % to 210 %. **Done for Sabertann on 2026-11-12**
+  (`scripts/origin_intro/`): same animation file, new cells/tiles/palette. The intro's other official
+  mons (Suicune, Entei, Raikou with Eusine, Suicune on the sea) are still there.
 - In Origin, Sudowoodo is not battled at all (it runs off after being watered), Ho-Oh is a gift
   (level 95) and Lugia and Snorlax are battles. All of them take the species number from the script,
   so the battle or gift becomes our mon by itself.
