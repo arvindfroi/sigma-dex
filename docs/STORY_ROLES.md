@@ -132,9 +132,9 @@ Five pseudo-legendaries carry big parts of the story (counted in all trainer par
 
 | Line | Party slots | Who uses it | Kanto/Johto native? | Ours |
 |---|---|---|---|---|
-| Dratini → Dragonite | 28 | Lance, Lorin, Clair, Charon; Dratini gift | yes | Balleisk → Greation → Ultragon |
+| Dratini → Dragonite | 28 | Lance, Clair, Charon; Dratini gift | yes | Balleisk → Greation → Ultragon |
 | Larvitar → Tyranitar | 19 | Ariana (every battle), Giovanni, Marauder, Silver; Larvitar in Mt. Moon | yes | **new**, or Obsidog line (2 stages, 555) |
-| Bagon → Salamence | 20 | Lance, Lorin, Archer, Lawrence, Marauder; static battle on Route 34 | no (Hoenn) | guest, can stay real |
+| Bagon → Salamence | 20 | Lance, Archer, Lawrence, Marauder; static battle on Route 34 | no (Hoenn) | guest, can stay real |
 | Beldum → Metagross | 21 | Steven, Jasmine | no (Hoenn) | guest |
 | Gible → Garchomp | 22 | Cynthia, Giovanni, Ariana, Clair | no (Sinnoh) | guest |
 
@@ -161,7 +161,7 @@ rematch team). A type with fewer than about 6 different mons gives weak or repet
 | Ground | 7 | Giovanni | barely |
 | Ice | 7 | Pryce, Lorelei (both 6) | barely |
 | Fire | 8 | Blaine (6) | OK |
-| Dragon | 8 | Clair, Lance/Lorin (6 each) | OK |
+| Dragon | 8 | Clair, Lance (6 in each of his two teams) | OK |
 | Electric | 9 | Lt. Surge (6) | OK |
 | Steel | 9 | Jasmine | OK |
 | Ghost, Bug, Normal, Grass, Rock, Poison, Dark, Water | 11-17 | Morty/Agatha, Bugsy, Whitney, Erika, Brock, Koga, Rocket, Misty | OK |

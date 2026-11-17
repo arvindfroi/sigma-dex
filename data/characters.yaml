@@ -18,6 +18,8 @@
 # The two champions were left out on 2026-11-12 and came back as Trainer Y and Trainer Z on 2026-11-17 (Arvind:
 # "Du kan faktisk legge de til som mulige trenere tilbake"). Their school battle in Origin (Lv. 5) is not counted:
 # it can never be started in a normal game.
+# Trainer U ('Lorin') was merged into Trainer I on 2026-11-17: trainer 705 is Lance's second team; the Chinese
+# original gives it a wrong name, which the EN patch fixed to Lance in rc8. The code U is not used again.
 # The villains (Rocket, Magma, Aqua and Galactic: codes A, B, D, E, F, L, N, R, S, T, V) are left out too (Arvind, 2026-11-12).
 # dialogue: how much they say in Origin: story = text boxes in the story, battle = lines in battle, words =
 # both together (scripts/character_dialogue.py, counted 2026-11-16; only numbers, never the text).
@@ -232,13 +234,14 @@
 - id: trainer-i
   group: Important trainer
   type: Flying / Dragon
-  place: you meet them once, at an important moment
+  place: you meet them again and again
   code: Trainer I
-  battles: 1
-  levels: [90]
-  dialogue: {story: 233, battle: 3, words: 2934}
+  battles: 2
+  levels: [90, 95]
+  dialogue: {story: 233, battle: 6, words: 2960}
   teams:
   - {lv: 90, size: 6, side: against, original: 'Gyarados 90, Salamence 90, Charizard 90, Aerodactyl 90, Dragonite 90, Kingdra 90'}
+  - {lv: 95, size: 6, side: against, original: 'Dragonite 95, Salamence 95, Aerodactyl 95, Gyarados 95, Charizard 95, Altaria 95'}
 - id: trainer-j
   group: Important trainer
   type: Mixed
@@ -317,16 +320,6 @@
   teams:
   - {lv: 88, size: 6, side: against, original: 'Hitmontop 87, Machamp 87, Steelix 88, Hitmonlee 88, Hitmonchan 87, Infernape 88'}
   - {lv: 92, size: 6, side: against, original: 'Hitmontop 91, Steelix 92, Machamp 91, Heracross 91, Infernape 92, Lucario 92'}
-- id: trainer-u
-  group: Important trainer
-  type: Flying / Dragon
-  place: you meet them once, at an important moment
-  code: Trainer U
-  battles: 1
-  levels: [95]
-  dialogue: {story: 0, battle: 3, words: 26}
-  teams:
-  - {lv: 95, size: 6, side: against, original: 'Dragonite 95, Salamence 95, Aerodactyl 95, Gyarados 95, Charizard 95, Altaria 95'}
 - id: trainer-w
   group: Important trainer
   type: Mixed

@@ -44,14 +44,13 @@ WHO = {
     "trainer-c": (["Eusine"], ["Mystery Man Eusine"]),
     "trainer-g": (["Gold"], ["Johto Trainer Gold", "PKMN Trainer Gold"]),
     "trainer-h": (["Koga"], ["Elite Four Koga"]),
-    "trainer-i": (["Lance"], ["Elite Four Lance"]),
+    "trainer-i": (["Lance"], ["Elite Four Lance", "Elite Four Lorin"]),   # 705 "Lorin" is Lance's second team (fixed in EN rc8)
     "trainer-j": ([["Green"], ["Red"]], [["PKMN Trainer Green"], ["PKMN Trainer Red"]]),   # one role, two versions
     "trainer-k": (["Lorelei"], ["Elite Four Lorelei"]),
     "trainer-m": (["Agatha"], ["Elite Four Agatha"]),
     "trainer-o": (["Crystal"], ["Johto Trainer Crystal"]),
     "trainer-p": (["Yellow"], ["Viridian Trnr Yellow"]),
     "trainer-q": (["Bruno"], ["Elite Four Bruno"]),
-    "trainer-u": (["Lorin"], ["Elite Four Lorin"]),
     "trainer-w": (["Silver"], ["Redhead Silver"]),
     "trainer-x": (["Goh"], ["One-Ball Man Goh"]),
     "trainer-y": (["Steven"], ["Hoenn Trainer Steven", "Hoenn Champion Steven"]),

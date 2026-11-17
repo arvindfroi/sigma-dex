@@ -35,9 +35,11 @@ A character can be redrawn and renamed; its type follows whoever claims it (our 
 | Agatha | Ghost | 83 % |
 | Koga (Elite Four) | Ghost/Poison | 50 % / 33 % |
 | Lance | Flying/Dragon | 83 % / 50 % |
-| Lorin | Flying/Dragon | 83 % / 50 % |
 | Steven (Hoenn champion) | Steel | 50 % |
 | Cynthia (Sinnoh champion) | mixed (Ground, Water) | |
+
+"Lorin" (trainer 705) in older lists is not a person: it is Lance's second team (his rematch after the first Hall of
+Fame). The Chinese original gives it a wrong name; the EN patch fixed it to Lance in rc8 (their decision D-1442).
 
 ## Villains with a type
 
@@ -90,7 +92,7 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer R: Marauder (executive)
 - Trainer S: Archer (executive)
 - Trainer T: Proton (executive)
-- Trainer U: Lorin (Elite Four)
+- Trainer U: not used since 2026-11-17 (it was "Lorin", Lance's second team; merged into Trainer I)
 - Trainer V: Cyrus (executive)
 - Trainer W: Silver (added 2026-11-12)
 - Trainer X: Goh, the One-Ball Man (added 2026-11-12)
