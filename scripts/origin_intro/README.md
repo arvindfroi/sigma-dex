@@ -1362,3 +1362,37 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - **Combined a/0/8/1:** `legend/final/a081_customs_v3.bin` (sha256 prefix `ca1476b760724650`). It is v2's chain with Dahrugula v4, then `SHINY=dark seraphinnen_ow.py`; the shiny is provisional until Arvind picks. Members 183, 186, 194, 210, 211 and 228 differ from rc8.
   - **Oak's intro:** Arvind confirmed Lapper in place of Marill. Marill is a/1/2/0 member 64 (NCGR, 140 tiles of poses plus the Poke Ball pieces), with palette 63, cells 65 and animation 66. Not started.
   - **Files:** `alph_puslespill_v3.png`, `alph_fossiler_fra_skisse.png`, `dahrugula_full_v4.png`, `seraphinnen_rod_gyarados_forslag.gif`, `mooceon_svom_animasjon.gif`.
+- **Oak's intro: Lapper in place of Marill (2026-11-17)** (tools in `legend/oak/`, provenance `~/sigma-origin/title3d/legend/oak/PROVENANCE_v1.txt`):
+  - **What the original is** (`dump_oak.py`, `render_oak.py`): a/1/2/0 members 63-66 are Marill's palette, tiles (140, 4bpp, 1D), cells and animation. There are only two poses:
+    - cell 0 stands (48x48 box, figure 43x34, feet on row -8, tiles 0-35);
+    - cell 1 hops (80x80 box, the same figure 11 px higher with its mouth open and tail flung, tiles 36-135);
+    - cell 2 is the Poke Ball (tiles 136-139, palette row 1).
+  - **How the animation plays:** sequence 1 is the 24 steps. Cell 0 grows out of the ball in Oak's hand (scale 0.05 to 1), flies left in an arc and squashes as it lands. The white flash and fade-in is the game's palette fade, not the graphics. Sequence 2 loops: cell 1 for 12 frames, then cell 0 for 60, so it hops every 72 frames. Sequence 3 is the ball.
+  - **Members 59-62** are the pink "A" message box, not a Pokemon. They are left alone.
+  - **In the game:** Marill stands at Oak's left on the floor (screen x 95-137, anchor at 116,150), facing front, with its tail toward Oak. Lapper's approved front sprite (head left, tail right) fits that layout without mirroring.
+  - **Cell 0** (`make_cells.py`, `lapper_small2.py`) is the approved DS front shrunk to 47x31 (0.73x, about the same ratio as Marill's intro sprite to its battle sprite). It uses an index-space downscale: every small pixel takes the colour covering most of its area, and the outline colours win only with a 42 % share. Then single pixels are removed and the outline is closed. It has 12 of the front's colours and the feet are on row -8.
+  - **Cell 1** is made on the finished stand in whole pixels, so the face and fur stay pixel for pixel (`hop_small`):
+    - the tongue is one row longer;
+    - the front ear's lower half swings out 1-2 px;
+    - the legs are one row longer, dangling;
+    - the front half is 1 px higher (a nose-up tilt);
+    - loose bits and holes are cleaned up, and the feet are on row -19 (11 px up, as Marill).
+  - **What was tried and dropped:**
+    - Qwen-Image-Edit hops (`qwen_hop.py`, 2 seeds) were flying leaps with the ears flipped up, so they no longer looked like the approved Lapper.
+    - The same hop edits on the 64-px front before shrinking resampled the face, and two muzzle pixels read as eyes.
+  - **Build:** `build_a120.py` writes the new tiles into the same slots (the ball's tiles stay byte for byte) and puts palette row 0 into member 63. Cells and animation are unchanged, and the file is rewritten in place. `verify_a120.py` renders the cells back out of the file (the only difference is 5-bit colour rounding, at most 4).
+  - **Result:** `legend/final/a120_lapper_v1.bin` (sha256 prefix `c7f94223bad13dde`). Only members 63 and 64 differ, and all sizes are kept.
+  - **Numbers (`measure.py`, Marill vs Lapper):**
+
+    | | Marill | Lapper |
+    |---|---|---|
+    | stand | 43x34, 847 px | 47x31, 967 px |
+    | hop | 49x35 | 49x33 |
+    | colours | 13 | 12 |
+    | outline closed (dark) | 48 % (part of it dark blue) | 100 % |
+    | lone pixels | 15 % | 6.7 % |
+    | mean luma | 125 | 60 (Lapper is dark brown) |
+    | contrast to the wall | 108 | 150 |
+
+  - **Seen in the game:** the test ROM `legend_test/oak_lapper_v1.nds` is the rc8 AI 30fps ROM with `inplace.py`. `oak_capture.py` replays the key schedule `oak_keys.txt` from a savestate taken before the intro (the intro loads its graphics when it starts, so later savestates still show Marill). Lapper pops out white, fades in, lands, hops every 72 frames and goes back into the ball, just as Marill does. `sheets.py` makes the pictures from those films.
+  - **Files:** `oak_intro_lapper_v1.png`, `oak_intro_lapper_v1.gif`, `oak_intro_lapper_v1_halv_fart.gif`.
