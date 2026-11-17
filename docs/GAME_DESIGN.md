@@ -54,7 +54,12 @@ enough (Arvind).
   221 of 271; rivals 28 of 86; ordinary trainers only 597 of 2,949. IVs rise with the game: 0-6 early, 12-18 in the
   middle, 24-30 late. Our teams can follow the same pattern and adjust it where needed (Arvind). Within a team
   Origin almost always gives every Pokemon the same IV level (920 teams); only 36 teams differ, mostly an ace or
-  the newest catch one step higher or lower. **Proposal:** our builder gives the ace one step more (e.g. 24 -> 30).
+  the newest catch one step higher or lower. **Decided (Arvind, 2026-11-17): opponents' IVs are automatic and scale up.**
+  Each battle gets Origin's IV level for that point in the story (the level most of the original team has; they only
+  go up, so Origin's odd dips such as Goh's Lv. 100 legendaries at IV 1 take the earlier battle's level), and the ace
+  gets one step (6) more, at most 31. Done for the claimable roles (data/characters.yaml `iv`, scripts/character_ivs.py,
+  the story team builder and Copy to TEAMS); every other trainer team we make or change follows the same rule when the
+  trainer data are exported. Origin's HP-IV bug (HP IV follows the level) still applies in the game.
 - **Hardcore: healing is limited (Arvind, 2026-11-17).** Each place that heals (every Pokemon Center, and other
   healers) can be used **once**. Built like the area rule: one bit per healing place in our save block, checked where
   the game heals the party. **Open:** are potions and other healing items outside battle still allowed? (If yes, the
