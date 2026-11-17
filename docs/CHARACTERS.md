@@ -94,8 +94,11 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer V: Cyrus (executive)
 - Trainer W: Silver (added 2026-11-12)
 - Trainer X: Goh, the One-Ball Man (added 2026-11-12)
+- Trainer Y: Steven (Hoenn champion; added back 2026-11-17)
+- Trainer Z: Cynthia (Sinnoh champion; added back 2026-11-17)
 
-Left out on purpose (Arvind makes them himself): every champion (Steven, Cynthia) and the main rival (Blue).
+Left out on purpose (Arvind makes him himself): the main rival (Blue). The two champions were left out on 2026-11-12 and
+are claimable again since 2026-11-17 (Arvind: "Du kan faktisk legge de til som mulige trenere tilbake").
 The villains (codes A, B, D, E, F, L, N, R, S, T, V) were taken off the website on 2026-11-12 (Arvind); their codes are kept
 here so the remaining letters keep their meaning.
 
@@ -112,3 +115,18 @@ Found while counting dialogue (scripts/character_dialogue.py) and checking claim
   (78 text boxes, banks 090, 329, 354 and 506) belong to both roles. If two different people claim gym-poison and
   Trainer H, the story has two people saying one person's lines. Make it one role, or let only the same person claim
   both.
+- **Steven and Cynthia come back as a surprise** (Arvind, 2026-11-17). In Origin they are your friends all through Kanto,
+  leave after the first Hall of Fame and only return in the final chapter, on the Indigo Plateau, as the new champions
+  of Hoenn and Sinnoh. You never see them in Johto, but the text gives it away. Plan: they only say they are going
+  home, and the Johto rumours lose their names. The romance with them stays (Arvind: "Romance er bare morsomt").
+  Lines to change (bank#line in the EN patch rc8):
+  - 445#128, Steven outside the school in Viridian: drop his plan to become champion and battle you again; keep the goodbye.
+  - 393#153, #155, #159, #160, the Hoenn trainer in Mt. Mortar: no name, no "friend of Mr. Steven's" choice (only the menu text changes).
+  - 364#9 and 124#145, Hoenn trainers on Mt. Silver and at the Silver Conference: no name, no hint that the champion knows you.
+  - 579#24, Prof. Rowan in Goldenrod: drop "I heard about you from Sinnoh's new League Champion. She said...".
+  - Keep the reveal (608#48-55: "Who are these two?" ... "The new League Champions of the Hoenn and Sinnoh regions?!")
+    and Goodshow's hint before it (537#145). 145#9 (Sinjoh Ruins) comes after the story and can stay.
+  - Their names are also choices in two romance menus in Johto (583#49/#60, 586#8/#13); fine, they only name them.
+  Their looks already change at the reveal: overworld sprites 142/143 (Kanto) and 295/296 (final chapter and after),
+  trainer classes Hoenn/Sinnoh Trainer and Hoenn/Sinnoh Champion (720#127/#128), so each claimer draws a Kanto look
+  and a champion look.

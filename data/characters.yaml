@@ -9,13 +9,15 @@
 # several times. Regions are left out too, so it is less obvious who is who.
 # Surprises stay hidden (Arvind, 2026-11-11): the group has not played this kind of hack, so nothing here says
 # who is a champion, a villain, the rival or a friend; those are 'Important trainer' with a code name.
-# The Elite Four and one of the two champions are left out (Arvind, 2026-11-11: he makes those himself); one
-# champion stays, hidden among the important trainers. The website shows the trainers in a random order.
+# Champions are hidden among the important trainers like everyone else. The website shows the trainers in a random order.
 # teams: one per battle, lowest level first: lv = highest level, size = number of Pokemon, side = against (they fight
 # you), with (they fight next to you in a multi battle) or both (Origin uses the same team both ways), read from the
 # game's own battle scripts (2026-11-12); note = something the one who claims it should know; original = Origin's own
 # team (shown only to the one who claims the trainer).
-# The Elite Four are among the important trainers; every champion and the main rival are left out (Arvind makes those himself, 2026-11-12).
+# The Elite Four are among the important trainers. The main rival is left out (Arvind makes him himself, 2026-11-12).
+# The two champions were left out on 2026-11-12 and came back as Trainer Y and Trainer Z on 2026-11-17 (Arvind:
+# "Du kan faktisk legge de til som mulige trenere tilbake"). Their school battle in Origin (Lv. 5) is not counted:
+# it can never be started in a normal game.
 # The villains (Rocket, Magma, Aqua and Galactic: codes A, B, D, E, F, L, N, R, S, T, V) are left out too (Arvind, 2026-11-12).
 # dialogue: how much they say in Origin: story = text boxes in the story, battle = lines in battle, words =
 # both together (scripts/character_dialogue.py, counted 2026-11-16; only numbers, never the text).
@@ -357,3 +359,37 @@
   - {lv: 85, size: 6, side: against, original: 'Pidgeot 85, Starmie 85, Wigglytuff 85, Garchomp 85, Metagross 85, Pikachu 85'}
   - {lv: 85, size: 6, side: against, original: 'Pinsir 84, Cloyster 85, Misdreavus 84, Dragonite 85, Magmortar 84, Aggron 85'}
   - {lv: 100, size: 6, side: against, original: 'Arceus 100, Dialga 100, Palkia 100, Giratina 100, Ho-Oh 100, Lugia 100'}
+- id: trainer-y
+  group: Important trainer
+  type: Mixed
+  place: you meet them again and again
+  code: Trainer Y
+  battles: 8
+  levels: [12, 15, 20, 35, 42, 65, 83, 96]
+  dialogue: {story: 229, battle: 14, words: 2911}
+  teams:
+  - {lv: 12, size: 3, side: against, original: 'Beldum 12, Baltoy 11, Aron 12'}
+  - {lv: 15, size: 4, side: with, original: 'Beldum 15, Aron 14, Baltoy 12, Anorith 13'}
+  - {lv: 20, size: 4, side: against, original: 'Metang 20, Aron 15, Baltoy 16, Anorith 17'}
+  - {lv: 35, size: 5, side: against, original: 'Metang 35, Lairon 34, Claydol 34, Armaldo 34, Cradily 34'}
+  - {lv: 42, size: 6, side: with, original: 'Metang 42, Aggron 42, Claydol 40, Armaldo 40, Cradily 40, Skarmory 40'}
+  - {lv: 65, size: 6, side: against, note: 'Easy to miss in Origin: in the usual order of play this battle never happens (they leave when Team Rocket takes over Saffron, a known bug).', original: 'Metagross 55, Aggron 54, Claydol 53, Armaldo 65, Cradily 54, Skarmory 53'}
+  - {lv: 83, size: 6, side: against, original: 'Skarmory 82, Aggron 83, Claydol 82, Armaldo 82, Cradily 83, Metagross 83'}
+  - {lv: 96, size: 6, side: both, note: 'Next to you near the end of the story, against you after it.', original: 'Metagross 96, Skarmory 95, Aggron 96, Claydol 95, Cradily 96, Armaldo 95'}
+- id: trainer-z
+  group: Important trainer
+  type: Mixed
+  place: you meet them again and again
+  code: Trainer Z
+  battles: 8
+  levels: [9, 15, 24, 30, 35, 42, 55, 96]
+  dialogue: {story: 341, battle: 28, words: 3917}
+  teams:
+  - {lv: 9, size: 3, side: against, original: 'Gible 9, Riolu 8, Budew 6'}
+  - {lv: 15, size: 4, side: with, original: 'Gible 15, Riolu 14, Budew 12, Scyther 13'}
+  - {lv: 24, size: 4, side: against, original: 'Gabite 24, Lucario 19, Spiritomb 17, Scyther 18'}
+  - {lv: 30, size: 4, side: against, original: 'Feebas 25, Spiritomb 28, Gabite 30, Lucario 29'}
+  - {lv: 35, size: 5, side: against, original: 'Gabite 35, Spiritomb 34, Scyther 34, Lucario 34, Milotic 33'}
+  - {lv: 42, size: 6, side: with, original: 'Gabite 42, Spiritomb 40, Scizor 40, Lucario 41, Milotic 40, Roserade 40'}
+  - {lv: 55, size: 6, side: against, note: 'Easy to miss in Origin: in the usual order of play this battle never happens (they leave when Team Rocket takes over Saffron, a known bug).', original: 'Garchomp 55, Spiritomb 53, Scizor 53, Lucario 54, Roserade 54, Milotic 53'}
+  - {lv: 96, size: 6, side: both, note: 'Next to you near the end of the story, against you after it.', original: 'Spiritomb 95, Garchomp 96, Lucario 96, Gastrodon 95, Milotic 96, Roserade 95'}

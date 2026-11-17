@@ -54,6 +54,8 @@ WHO = {
     "trainer-u": (["Lorin"], ["Elite Four Lorin"]),
     "trainer-w": (["Silver"], ["Redhead Silver"]),
     "trainer-x": (["Goh"], ["One-Ball Man Goh"]),
+    "trainer-y": (["Steven"], ["Hoenn Trainer Steven", "Hoenn Champion Steven"]),
+    "trainer-z": (["Cynthia"], ["Sinnoh Trainer Cynthia", "Sinnoh Champion Cynthia"]),
 }
 TAG = re.compile(r"^\s*([A-Z][A-Za-z.'\- ]{0,24}):\s")
 CODE = re.compile(r"\{[^}]*\}|\\[nrf]")
