@@ -2564,7 +2564,7 @@ TEST("Sigma dex: JAWBREAKER has the data from its species file")
     EXPECT_EQ(info->baseSpDefense, 67);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
     EXPECT_EQ(info->types[1], TYPE_DRAGON);
-    EXPECT_EQ(info->abilities[0], ABILITY_DROUGHT);
+    EXPECT_EQ(info->abilities[0], ABILITY_STRONG_JAW);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_BITE);
     EXPECT_EQ(GetSpeciesName(SPECIES_JAWBREAKER)[0], CHAR_J);
 }

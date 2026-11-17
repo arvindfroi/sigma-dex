@@ -148,3 +148,16 @@ moves:
   effect: A sword strike that cuts into the soul. Heals the user for 50% of the damage dealt.
   similar_to: Bitter Blade
   designer: Emil
+- id: toxic-love
+  name: Toxic Love
+  type: Poison
+  category: status
+  accuracy: 100
+  pp: 10
+  target: one opponent
+  effect: "Causes Pokémon of the opposite gender to become infatuated and badly poisoned. Infatuated Pokémon\
+    \ have a 50% chance of being immobilized by love each turn and unable to attack. the target to be\
+    \ badly poisoned.  \n\nToxic Love will fail on Pokémon of the same gender, genderless Pokémon and\
+    \ those with the ability Oblivious."
+  similar_to: Attract
+  designer: Emil & Arvind

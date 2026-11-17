@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**165 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
+**170 / 254** slots have a Pokemon - **0** are fully complete - average completeness **63%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -123,15 +123,15 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 112 | [Aluminimonk](data/species/alminimonk.yaml) | Psychic | Shields Down | 300 | Aluminimonk Utviklin (Lv 32) | 66% |
 | 113 | [Aluminimonk Utviklin](data/species/alminimonk-utvikling.yaml) | Psychic / Fighting | Shields Down | 440 |  | 62% |
 | 114 | [sparktera](data/species/zapitera-mindre-utv.yaml) | Steel / Electric | Volt Absorb, Magnet Pull, Stalwart (H) | 305 | Zapitera (Lv 35) | 34% |
-| 115 | [Zapitera](data/species/zapitera.yaml) | Steel / Electric | Levitate, Magnet Pull, Stalwart (H) | 505 |  | 66% |
+| 115 | [Zapitera](data/species/zapitera.yaml) | Steel / Electric | Levitate, Magnet Pull, Stalwart (H) | 505 |  | 69% |
 | 116 | [Viridub](data/species/viridub.yaml) | Grass | Leaf Mane, Grass Pelt, Chlorophyll (H) | 369 | Viridub Utvikling (Leaf Stone) | 66% |
 | 117 | [Viridub Utvikling](data/species/viridub-utvikling.yaml) | Grass | Leaf Mane, Grass Pelt, Chlorophyll (H) | 510 |  | 59% |
 | 118 | [Shadeem](data/species/shadeem.yaml) | Normal / Dark | Illusion | 330 | Shadrove (Dusk Stone) | 72% |
 | 119 | [Shadrove](data/species/shadrove.yaml) | Normal / Dark | Illusion | 510 |  | 66% |
 | 120 | [Autuman](data/species/autuman.yaml) | Grass / Fighting | Justified, Guts, Wind Rider (H) | 500 |  | 66% |
 | 121 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Justified, Guts, Tinted Lens (H) | 500 |  | 72% |
-| 122 | [JAWIE](data/species/jawie.yaml) | Fire / Dragon | Flame Body, Moxie, Dragonize (H) |  | JAWBREAKER (Lv 42) | 28% |
-| 123 | [JAWBREAKER](data/species/jawbreaker.yaml) | Fire / Dragon | Drought, Moxie, Dragonize (H) | 515 |  | 69% |
+| 122 | [JAWIE](data/species/jawie.yaml) | Fire / Dragon | Strong Jaw, Intimidate, Dragonize (H) |  | JAWBREAKER (Lv 42) | 28% |
+| 123 | [JAWBREAKER](data/species/jawbreaker.yaml) | Fire / Dragon | Strong Jaw, Intimidate, Dragonize (H) | 515 |  | 69% |
 | 124 | [Dreadipede](data/species/dreadipede.yaml) | Bug / Flying | Mold Breaker, Battle Armor, Strong Jaw (H) | 360 | Dreadfang (Lv 59) | 66% |
 | 125 | [Dreadfang](data/species/dreadfang.yaml) | Bug / Flying | Mold Breaker, Battle Armor, Strong Jaw (H) | 550 |  | 69% |
 | 126 | [Aquat](data/species/surfer.yaml) | Water | Swift Swim, Water Absorb, Adaptability (H) | 330 | Aquway (Lv 25) | 69% |
@@ -163,7 +163,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 152 | [Apeshii](data/species/apeshit.yaml) | Normal / Fighting |  | 290 | Julius (Lv 15) | 31% |
 | 153 | [Iron Bulb](data/species/iron-wire.yaml) | Electric | Quark Drive | 570 |  | 38% |
 | 154 | [Solidedge](data/species/solidedge.yaml) | Bug / Psychic | Beast Boost | 600 |  | 41% |
-| 155 | [Rosie](data/species/rosie.yaml) | Grass / Fairy |  |  |  | 10% |
+| 155 | [Rosie](data/species/rosie.yaml) | Grass / Fairy |  |  | Rosievoir (Lv 40) | 10% |
 | 156 | [Rosievoir](data/species/rosievoir.yaml) | Grass / Fairy |  |  |  | 10% |
 | 157 | *open slot* | | | | | |
 | 158 | [Whaldrill0](data/species/whaldrill0.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 250 | Narburr (Lv 25) | 55% |
@@ -213,8 +213,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 202 | *open slot* | | | | | |
 | 203 | *open slot* | | | | | |
 | 204 | *open slot* | | | | | |
-| 205 | *open slot* | | | | | |
-| 206 | *open slot* | | | | | |
+| 205 | [Catbat](data/species/catbat.yaml) | Dark / Flying |  |  | CobraBat (Lv 34) | 10% |
+| 206 | [CobraBat](data/species/cobrabat.yaml) | Dark / Flying |  |  |  | 10% |
 | 207 | *open slot* | | | | | |
 | 208 | *open slot* | | | | | |
 | 209 | *open slot* | | | | | |
@@ -241,14 +241,14 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 230 | *open slot* | | | | | |
 | 231 | *open slot* | | | | | |
 | 232 | *open slot* | | | | | |
-| 233 | *open slot* | | | | | |
-| 234 | *open slot* | | | | | |
+| 233 | [Entrigon](data/species/entrigon.yaml) | Fire |  |  |  | 10% |
+| 234 | [Tsunamo](data/species/tsunamo.yaml) | Water |  |  |  | 10% |
 | 235 | *open slot* | | | | | |
 | 236 | *open slot* | | | | | |
 | 237 | *open slot* | | | | | |
 | 238 | *open slot* | | | | | |
 | 239 | *open slot* | | | | | |
-| 240 | *open slot* | | | | | |
+| 240 | [Lansseax](data/species/natureo.yaml) | Psychic / Grass | Slow Start, Natural Cure, Regenerator (H) | 640 |  | 17% |
 | 241 | *open slot* | | | | | |
 | 242 | *open slot* | | | | | |
 | 243 | *open slot* | | | | | |
@@ -262,4 +262,4 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 251 | *open slot* | | | | | |
 | 252 | *open slot* | | | | | |
 | 253 | *open slot* | | | | | |
-| 254 | [Eclipsox](data/species/eclipsox.yaml) | Normal / Dragon |  |  |  | 14% |
+| 254 | [Eclipsox](data/species/eclipsox.yaml) | Normal / Dragon | Multitype, Regenerator, Intimidate (H) | 1355 |  | 21% |

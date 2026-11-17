@@ -4561,7 +4561,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_DROUGHT, ABILITY_MOXIE, ABILITY_DRAGONIZE },
+        .abilities = { ABILITY_STRONG_JAW, ABILITY_INTIMIDATE, ABILITY_DRAGONIZE },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("JAWBREAKER"),
         .cryId = CRY_NONE,
