@@ -1229,3 +1229,28 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - `oppladning_rutene_gravriel_sabertann.png` (Origin's frames 6/7 next to ours, before and now).
     - Videos: `gravriel_oppladning_og_brol_halv_fart.mp4` (Lugia, before, now) and `sabertann_oppladning_og_brol_halv_fart.mp4` (before, now; close up, half speed).
     - Data: `frames_v6` and `roar_v3` with SHA256SUMS.
+- **Frames 6 and 7 posed anew (2026-11-17)** (Arvind on the warped anticipation: "so little happens in the two frames compared with Lugia and Ho-Oh", then OK'd the plan; on the struck sails: "the sail should be rolled up on the mast when it is closed").
+  - **3D pose, tried first:** `ow_pose/pose_render.py` renders a rigged film model in a pose, front view. Sabertann's film model (`sab3d/pt19r_lp.blend`, 15 bones) has other proportions than the approved field sprite: from the front its sail is narrow and its legs straight. A silhouette from it would have made another creature, so it was not used.
+  - **Used: cut-out puppets of the approved sprites** (`ow_pose/puppet.py`: parts as masks, each moved, turned and scaled about its pivot, gaps closed with the nearest colour):
+    - Gravriel (`grav_pose.py` on `frames_v2` base):
+      - 6: wraps himself in his coat like Lugia folding its wings. Both arms swing down 70 degrees and cross in front of his chest with the cutlass hanging across, the coat draws in (0.8) and the hat bows.
+      - 7: both arms swing up 40 degrees with the cutlass high, and the coat flares (1.15).
+      - The float loop 1-5 keeps the arms still.
+    - Sabertann (`sab_pose.py`):
+      - 6: the sails are rolled up tight on two yards (white roll, grey top, shade below, dark gaskets every 5 px, a brown yard a little longer). The bare mast shows. Ship and body sink 3 and the head 3 more. The legs splay out, and sail cloth around the band and shoulders is dropped.
+      - 7: the sails are thrown open (1.18 x 1.12), the body rears 3 and the head goes up 3 more with v1's open mouth. The viewer's-left front paw is raised high (moved +9,-11 and turned 25 degrees), and the other leg braces out.
+  - **Qwen redraw:**
+    - `qwen_clean.py` takes two pictures on a dark page (the puppet and the approved sprite). Qwen's figure is scaled onto the puppet's box and read cell by cell in the approved palette. Clamping it to the puppet's exact silhouette instead gave a mess.
+    - **Used:** Gravriel 6 seed 23 (the beard and teal sleeves keep his colours; seed 22 wrapped him all in olive) and 7 seed 21.
+    - Sabertann's full redraws made his head one big mouth (roar) or put a big sail back behind the head (rolled sails). So 6 is the cleaned puppet itself (`sab_p6`). For 7 only the raised paw is redrawn with an area edit (`paw_edit.py`, `ds_pixel.edit` with an area, seed 31), on `sab_p3`'s roar puppet. That puppet was built before the sail-cloth rule, so the rest is pixel for pixel.
+    - ComfyUI fell over twice: the Legion's sprite studio ran a LoRA job at the same time and the GPU ran out of memory. `qwen_clean.py` now waits and retries.
+  - **Frames:**
+    - Gravriel `frames_v7` (`grav_final.py`): 1-5 v5's, 6 and 7 mapped to v5's palette. 7 gets v5's ghost flash (coat to dark ghost green, pale green glow ring).
+    - Sabertann `roar_v4`: 1-5 wind_v1, 6 `sab_p6` anticip, 7 `paw_31`.
+  - **Checked in the game:**
+    - `legend_test/jump_lug_ow11.nds` (sha256 prefix `5a7bb8748b97d6b4`): wrapped about half a second, then the green throw-open.
+    - `legend_test/jump_hooh2_roar4.nds` (sha256 prefix `d778173cbb39c640`, night): rolled sails and crouch, then the roar with wide sails, raised paw and the game's cry ring.
+  - **Files:**
+    - `oppladning_og_brol_v2_rutene.png` (Origin's 1/6/7 next to ours) and `oppladning_og_brol_v2_animasjon.gif`.
+    - Videos: `gravriel_oppladning_og_brol_v7_halv_fart.mp4` and `sabertann_oppladning_og_brol_v4_halv_fart.mp4` (before, now; close up, half speed).
+    - Data: `frames_v7`, `roar_v4` and `title3d/legend/ow_pose` (puppets, Qwen pictures, SHA256SUMS).
