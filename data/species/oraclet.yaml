@@ -9,8 +9,8 @@ credits:
 types: [Psychic]         # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
+category: Hatchling      # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: "Oraclet hatches from a shell covered in mysterious eyes. It scurries around on its newly formed legs, using its psychic power to sense the world around it."
 height_m: 0.6            # e.g. 0.7
 weight_kg: 6.8           # e.g. 6.9
 body_color: purple       # red blue yellow green black brown purple gray white pink

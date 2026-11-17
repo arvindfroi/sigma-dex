@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 161 / 162 |
-| Identity | designer credit | 142 / 162 |
-| Dex page | category | 46 / 162 |
-| Dex page | description | 46 / 162 |
-| Dex page | height | 162 / 162 |
-| Dex page | weight | 162 / 162 |
-| Dex page | body color | 144 / 162 |
-| Stats | base stats | 158 / 162 |
-| Stats | ability | 158 / 162 |
-| Stats | EV yield | 155 / 162 |
-| Stats | catch rate | 143 / 162 |
-| Stats | base exp | 143 / 162 |
-| Stats | growth rate | 143 / 162 |
-| Stats | base friendship | 143 / 162 |
-| Breeding | gender | 143 / 162 |
-| Breeding | egg groups | 143 / 162 |
-| Breeding | egg cycles | 143 / 162 |
-| Moves | level-up moves | 157 / 162 |
-| Moves | TM/HM moves | 157 / 162 |
-| Location | encounters | 2 / 162 |
-| Design | concept | 29 / 162 |
-| Art | concept art | 153 / 162 |
-| Art | front sprite | 4 / 162 |
-| Art | front animation frame | 4 / 162 |
-| Art | back sprite | 4 / 162 |
-| Art | icon | 4 / 162 |
-| Art | footprint | 142 / 162 |
-| Art | shiny palette | 44 / 162 |
-| Art | cry | 21 / 162 |
+| Identity | types | 163 / 164 |
+| Identity | designer credit | 144 / 164 |
+| Dex page | category | 47 / 164 |
+| Dex page | description | 47 / 164 |
+| Dex page | height | 162 / 164 |
+| Dex page | weight | 162 / 164 |
+| Dex page | body color | 144 / 164 |
+| Stats | base stats | 158 / 164 |
+| Stats | ability | 158 / 164 |
+| Stats | EV yield | 155 / 164 |
+| Stats | catch rate | 143 / 164 |
+| Stats | base exp | 143 / 164 |
+| Stats | growth rate | 143 / 164 |
+| Stats | base friendship | 143 / 164 |
+| Breeding | gender | 143 / 164 |
+| Breeding | egg groups | 143 / 164 |
+| Breeding | egg cycles | 143 / 164 |
+| Moves | level-up moves | 157 / 164 |
+| Moves | TM/HM moves | 157 / 164 |
+| Location | encounters | 2 / 164 |
+| Design | concept | 29 / 164 |
+| Art | concept art | 155 / 164 |
+| Art | front sprite | 4 / 164 |
+| Art | front animation frame | 4 / 164 |
+| Art | back sprite | 4 / 164 |
+| Art | icon | 4 / 164 |
+| Art | footprint | 142 / 164 |
+| Art | shiny palette | 44 / 164 |
+| Art | cry | 21 / 164 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 110 / 162 |
-| DS back sprite 80x80 | 110 / 162 |
-| DS icon 32x32 | 110 / 162 |
+| DS front sprite 80x80 | 110 / 164 |
+| DS back sprite 80x80 | 110 / 164 |
+| DS icon 32x32 | 110 / 164 |
 
-## Open dex slots (92)
+## Open dex slots (90)
 
-#155, #156, #157, #161, #163, #164, #165, #166, #167, #168, #169, #170, #171, #172, #173, #174, #175, #176, #177, #178, #179, #180, #181, #182, #183, #184, #185, #186, #187, #188, #189, #190, #191, #192, #193, #194, #195, #196, #197, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #218, #219, #220, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232, #233, #234, #235, #236, #237, #238, #239, #240, #241, #242, #243, #244, #245, #246, #247, #248, #249, #251, #252, #253, #254
+#157, #161, #163, #164, #165, #166, #167, #168, #169, #170, #171, #172, #173, #174, #175, #176, #177, #178, #179, #180, #181, #182, #183, #184, #185, #186, #187, #188, #189, #190, #191, #192, #193, #194, #195, #196, #197, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #218, #219, #220, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232, #233, #234, #235, #236, #237, #238, #239, #240, #241, #242, #243, #244, #245, #246, #247, #248, #249, #251, #252, #253, #254
 
 ## Missing per Pokemon
 
@@ -790,9 +790,8 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #110 [Oraclet](data/species/oraclet.yaml) - 72%
+### #110 [Oraclet](data/species/oraclet.yaml) - 79%
 
-- **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
@@ -1119,6 +1118,26 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint
+
+### #155 [Rosie](data/species/rosie.yaml) - 10%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #156 [Rosievoir](data/species/rosievoir.yaml) - 10%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #158 [Whaldrill0](data/species/whaldrill0.yaml) - 55%
 

@@ -6074,5 +6074,33 @@
     "file": "assets/concept-art/dreadipede/1999.png",
     "caption": "[ds-follower] sprite #361",
     "editor": "Ivar"
+  },
+  {
+    "id": 2001,
+    "species": "rosie",
+    "file": "assets/concept-art/rosie/2001.webp",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 2002,
+    "species": "rosie",
+    "file": "assets/concept-art/rosie/2002.png",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 2003,
+    "species": "rosievoir",
+    "file": "assets/concept-art/rosievoir/2003.webp",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 2004,
+    "species": "rosievoir",
+    "file": "assets/concept-art/rosievoir/2004.png",
+    "caption": null,
+    "editor": "Ivar"
   }
 ]

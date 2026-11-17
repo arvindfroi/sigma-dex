@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**162 / 254** slots have a Pokemon - **0** are fully complete - average completeness **65%**.
+**164 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -118,7 +118,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 107 | [Mortbulk](data/species/mortbulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 490 |  | 66% |
 | 108 | [Phantomb](data/species/phantomb.yaml) | Ghost / Flying | Disguise | 280 | Phantail (Lv 40) | 72% |
 | 109 | [Phantail](data/species/sjef.yaml) | Ghost / Flying | Disguise | 480 |  | 76% |
-| 110 | [Oraclet](data/species/oraclet.yaml) | Psychic | Anticipation, Forewarn, Magic Guard (H) | 355 | Oraclaw (Lv 38) | 72% |
+| 110 | [Oraclet](data/species/oraclet.yaml) | Psychic | Anticipation, Forewarn, Magic Guard (H) | 355 | Oraclaw (Lv 38) | 79% |
 | 111 | [Oraclaw](data/species/oraclaw.yaml) | Psychic / Flying | Anticipation, Forewarn, Magic Guard (H) | 525 |  | 79% |
 | 112 | [Aluminimonk](data/species/alminimonk.yaml) | Psychic | Shields Down | 300 | Aluminimonk Utviklin (Lv 32) | 66% |
 | 113 | [Aluminimonk Utviklin](data/species/alminimonk-utvikling.yaml) | Psychic / Fighting | Shields Down | 440 |  | 62% |
@@ -163,8 +163,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 152 | [Apeshii](data/species/apeshit.yaml) | Normal / Fighting |  | 290 | Julius (Lv 15) | 31% |
 | 153 | [Iron Bulb](data/species/iron-wire.yaml) | Electric | Quark Drive | 570 |  | 38% |
 | 154 | [Solidedge](data/species/solidedge.yaml) | Bug / Psychic | Beast Boost | 600 |  | 41% |
-| 155 | *open slot* | | | | | |
-| 156 | *open slot* | | | | | |
+| 155 | [Rosie](data/species/rosie.yaml) | Grass / Fairy |  |  |  | 10% |
+| 156 | [Rosievoir](data/species/rosievoir.yaml) | Grass / Fairy |  |  |  | 10% |
 | 157 | *open slot* | | | | | |
 | 158 | [Whaldrill0](data/species/whaldrill0.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 250 | Narburr (Lv 25) | 55% |
 | 159 | [Narburr](data/species/whaldrill.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 450 | Whaldrill (Lv 45) | 62% |

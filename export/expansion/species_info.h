@@ -4166,11 +4166,14 @@
         .speciesName = _("Oraclet"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_ORACLET,
-        .categoryName = _("Unknown"),
+        .categoryName = _("Hatchling"),
         .height = 6,
         .weight = 68,
         .description = COMPOUND_STRING(
-            "This Pokemon has no Pokedex entry yet."),
+            "Oraclet hatches from a shell covered in\n"
+            "mysterious eyes. It scurries around on\n"
+            "its newly formed legs, using its psychic\n"
+            "power to sense the world around it."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,
