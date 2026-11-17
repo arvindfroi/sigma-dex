@@ -11,8 +11,8 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 |------|------|----------:|
 | Identity | types | 161 / 162 |
 | Identity | designer credit | 142 / 162 |
-| Dex page | category | 45 / 162 |
-| Dex page | description | 45 / 162 |
+| Dex page | category | 46 / 162 |
+| Dex page | description | 46 / 162 |
 | Dex page | height | 162 / 162 |
 | Dex page | weight | 162 / 162 |
 | Dex page | body color | 144 / 162 |
@@ -797,9 +797,8 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #111 [Oraclaw](data/species/oraclaw.yaml) - 72%
+### #111 [Oraclaw](data/species/oraclaw.yaml) - 79%
 
-- **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon

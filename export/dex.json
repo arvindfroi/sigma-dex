@@ -28345,8 +28345,8 @@
         "Psychic",
         "Flying"
       ],
-      "category": null,
-      "description": null,
+      "category": "Oracle",
+      "description": "Oraclaw can see glimpses into the future. It soars through the skies, striking its prey before they even realize they've been targeted.",
       "height_m": 2.1,
       "weight_kg": 78.4,
       "body_color": "purple",

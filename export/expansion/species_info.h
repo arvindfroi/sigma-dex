@@ -4216,11 +4216,14 @@
         .speciesName = _("Oraclaw"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_ORACLAW,
-        .categoryName = _("Unknown"),
+        .categoryName = _("Oracle"),
         .height = 21,
         .weight = 784,
         .description = COMPOUND_STRING(
-            "This Pokemon has no Pokedex entry yet."),
+            "Oraclaw can see glimpses into the\n"
+            "future. It soars through the skies,\n"
+            "striking its prey before they even\n"
+            "realize they've been targeted."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,

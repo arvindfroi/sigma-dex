@@ -9,8 +9,8 @@ credits:
 types: [Psychic, Flying] # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
-category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description:             # the Pokedex entry text: max 4 lines of about 40 characters
+category: Oracle         # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
+description: "Oraclaw can see glimpses into the future. It soars through the skies, striking its prey before they even realize they've been targeted."
 height_m: 2.1            # e.g. 0.7
 weight_kg: 78.4          # e.g. 6.9
 body_color: purple       # red blue yellow green black brown purple gray white pink
