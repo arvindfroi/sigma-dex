@@ -1254,3 +1254,13 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - `oppladning_og_brol_v2_rutene.png` (Origin's 1/6/7 next to ours) and `oppladning_og_brol_v2_animasjon.gif`.
     - Videos: `gravriel_oppladning_og_brol_v7_halv_fart.mp4` and `sabertann_oppladning_og_brol_v4_halv_fart.mp4` (before, now; close up, half speed).
     - Data: `frames_v7`, `roar_v4` and `title3d/legend/ow_pose` (puppets, Qwen pictures, SHA256SUMS).
+- **Overworld sprites APPROVED (2026-11-17)** (Arvind on frames 6/7: "Both are really good. The only thing is that Sabertann does not have gold claws. Other than that it is perfect!").
+  - **Claws:** `sab/sab_claws.py roar_v4 roar_v5`. Qwen's paw edit had drawn gold claw tips on the raised paw. In the claw box (rows 38-46, x 7-27), 40 pixels change: yellow, gold and cream go to white; orange and brown go to beige-grey, like the claws of his standing paws. The gold band at the wrist stays, as on his legs.
+  - **Final frames:**
+    - Gravriel: `grav3d/ow_qwen/frames_v7` (a/0/8/1 211; eye glimmer v4 in a/1/7/4).
+    - Sabertann: `sab/roar_v5` (a/0/8/1 210).
+    - Both go into one a/0/8/1 when the game is built.
+  - **Test ROMs:**
+    - Gravriel: `legend_test/jump_lug_ow11.nds`.
+    - Sabertann: `legend_test/jump_hooh2_roar5.nds` (sha256 prefix `0e5bb089bc11effb`; the cry checked in the game at night).
+  - **Still:** `sabertann_hvite_klor.png`.
