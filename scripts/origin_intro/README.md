@@ -1341,3 +1341,24 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - **Combined a/0/8/1:** `legend/final/a081_customs_v2.bin` (sha256 prefix `0fb1a62e3985cf45`). It is built from the locked legends file `a081_sabertann210_gravriel211.bin` in this order: `sudowoodo_paint.py`, then `dahru_paint.py kabigon_idx.npy`, then `WL=27 SINK=1 ferry_from_follower.py` with `assets/sprites-ds/mooceon/follower.png`. Members 186, 194, 210, 211 and 228 differ from rc8; all sizes are kept.
   - **Not done yet:** still not seen in the game (a jump ROM per spot is the next check), and the texts come later.
   - **Files:** `alph_puslespill_v2.png`, `custom_sprites_v2.png`.
+- **Custom sprites, round 3 (2026-11-17)**, after Arvind's notes on round 2 (Sudowoodo and Mooceon were fine):
+  - **Alph puzzles** ("Ambuger doesn't look right", "Tortoplasm should be a turtle", "Sabertann is fine but could be cooler"):
+    - **Why round 2 missed:** the round-1 emblems got the designs wrong. Tortoplasm is a turtle with a cracked rock shell and see-through jelly legs and head, not a jellyfish. Ambuger *is* the mosquito: a round amber body, blue wings, thin legs and a green proboscis rolled into a spiral. Check the concept art before drawing.
+    - **Arvind sketched both fossil compositions himself:**
+      - Tortoplasm is a rounded-square shell filling the frame, pointed flippers at its four corners, and the head in profile coming out over the middle of the lower edge.
+      - Ambuger is a round body on the right, the head with one big eye, the spiral proboscis at the lower left, two wings up left and a big one up right, and legs.
+    - **`fossil_sketch.py`:** traces each sketch as smooth shapes on its own canvas and writes the line tracing (to check against the sketch) and a stencil. Each shape is a mask, its outline cut by erosion (PIL's wide lines leave hairs). The flippers sit in front of the shell. Ambuger's thin legs are light lines. `SW` 20 gives 2-3 px grooves at 128.
+    - **Sabertann:** `qwen_stencil.py FULL=1` reworks the round-2 emblem to be fiercer: roaring jaws with long sabre tusks, narrow angry eyes, torn sails and a skull flag behind the tricorne, claws forward (`q/st5_sab_2`). The concept's own side view, with the ship on its back, was tried (`q/st2_sab_*`) but reads as noise between the pieces at 128 px.
+    - **Result:** `legend/alph/final/a172_alph_v3.bin` (sha256 prefix `ad17ebe25636461f`, `PROVENANCE_v3.txt`). The cuts are Tortoplasm 28 %, Ambuger 53 % and Sabertann 44 %.
+  - **194 Dahrugula, v3 then v4** ("keep working on it", then "the line on the belly goes the wrong way"):
+    - v3 uses the follower sprite's bright green as the main colour (it was a dark green blob before), by luminance from Snorlax's palette. A second barrel lies tipped over on the grass by his side, with spilled brew.
+    - v4: he lies along x, so the red sash runs round his waist, across the body. It is light red on the belly and dark red on his shaded side, it bows like the belly's left edge, and it starts under the keg.
+  - **183 the red Gyarados becomes a shiny Seraphinnen** (`mapfig/seraphinnen_ow.py`). Seraphinnen has no DS sprites or shiny recipe yet, so the figure is drawn after its pixel concept (977, by BUST):
+    - a golden halo seen at an angle, with its ring of eyes and the small cross in its middle;
+    - four wings, each three long feathers fanning out from the halo (sampled at 4x);
+    - on the second step the feathers swing toward the halo (a wingbeat), the figure bobs a pixel and the ripples on the lake below spread.
+    - The member has Lapras's frame layout (names .1-.16 play 0,5,0,5 / 6,7,6,7 / 2,1,2,1 / 3,4,3,4).
+    - `SHINY` = normal, silver, dark or rose. Arvind picks the shiny, and the battle sprites' shiny must match it later.
+  - **Combined a/0/8/1:** `legend/final/a081_customs_v3.bin` (sha256 prefix `ca1476b760724650`). It is v2's chain with Dahrugula v4, then `SHINY=dark seraphinnen_ow.py`; the shiny is provisional until Arvind picks. Members 183, 186, 194, 210, 211 and 228 differ from rc8.
+  - **Oak's intro:** Arvind confirmed Lapper in place of Marill. Marill is a/1/2/0 member 64 (NCGR, 140 tiles of poses plus the Poke Ball pieces), with palette 63, cells 65 and animation 66. Not started.
+  - **Files:** `alph_puslespill_v3.png`, `alph_fossiler_fra_skisse.png`, `dahrugula_full_v4.png`, `seraphinnen_rod_gyarados_forslag.gif`, `mooceon_svom_animasjon.gif`.

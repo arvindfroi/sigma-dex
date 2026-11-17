@@ -6,7 +6,7 @@ perspective, and it must look like Dahrugula). Every pixel of Snorlax keeps its 
   - two big round koala ears with peach insides on the head (the head lies on the right, its top toward the right)
   - the face: two dark X eyes one above the other toward the top of the head, a brown nose, the open mouth with a red
     tongue toward the belly
-  - a red sash round the waist, and one of its orange-brown barrels with dark hoops hugged on the belly
+  - a red sash round the waist (across the body, since he lies along it), and one of its orange-brown barrels with dark hoops hugged on the belly
   - the feet's pads brown, the claws cream
 python dahru_paint.py KABIGON_IDX.npy A081_IN A081_OUT PREVIEW.png"""
 import sys, os
@@ -20,14 +20,15 @@ KI, IN, OUT, PREV = sys.argv[1:5]
 src = np.load(KI).astype(int)
 E = lambda k, d: int(os.environ.get(k, d))
 # new palette
-C = dict(OUTL=(8, 16, 16), G0=(8, 48, 32), G1=(0, 96, 56), G2=(8, 128, 64), G3=(56, 176, 88), GRASS=(88, 128, 80),
-         CREAM=(248, 224, 192), PEACH=(248, 168, 112), RED=(240, 72, 48), NOSE=(96, 64, 48), B1=(200, 120, 64),
-         B2=(248, 136, 32), B3=(168, 80, 32))
+# v7: the follower's bright green as the main colour (Dahrugula is green all over, not dark green with a light belly)
+C = dict(OUTL=(3, 11, 14), G0=(0, 48, 16), G1=(0, 109, 43), G2=(43, 176, 89), G3=(81, 208, 115), GRASS=(88, 128, 80),
+         CREAM=(249, 222, 194), PEACH=(253, 173, 115), RED=(240, 72, 47), NOSE=(96, 68, 47), B1=(202, 119, 64),
+         B2=(251, 131, 25), B3=(169, 78, 36), BREW=(248, 200, 80), RED_D=(168, 40, 36))
 names = list(C); I = {n: k + 1 for k, n in enumerate(names)}
 pal = [(0, 0, 0)] + [C[n] for n in names] + [(0, 0, 0)] * (15 - len(names))
 # Snorlax index -> ours (8 cream belly -> light green, 7 -> green, 9 -> dark green, a outline -> darkest, 3/4/5 body teal
 # -> dark/mid/darkest green, b -> outline, 6 grass, 1 pink mouth -> red, 2 white claws -> cream)
-MAP = {8: 'G3', 7: 'G2', 9: 'G1', 10: 'G0', 3: 'G1', 4: 'G2', 5: 'G0', 11: 'OUTL', 6: 'GRASS', 1: 'RED', 2: 'CREAM', 0: None}
+MAP = {8: 'G3', 7: 'G2', 9: 'G1', 10: 'G0', 4: 'G2', 3: 'G1', 5: 'G0', 11: 'OUTL', 6: 'GRASS', 1: 'RED', 2: 'CREAM', 0: None}   # by luminance
 g = np.zeros_like(src)
 for k, n in MAP.items():
     if n: g[src == k] = I[n]
@@ -60,11 +61,16 @@ put([(NX + 1, 43), (NX + 2, 43)] + [(x, y) for y in (44, 45, 46) for x in range(
 put([(NX + 1, 44)], 'B3')                                               # its shine
 put([(NX - 1, 45), (NX - 1, 46)], 'RED')                                # the tongue hanging out below the nose
 put([(47, 40), (47, 50)], 'PEACH')                                      # flushed cheeks
-# the red sash round the waist: two rows across the belly's green
-for x in range(20, 43):                                         # it follows the belly's curve (lowest in the middle)
-    y0 = E('SASH', 46) + int(round(1.6 * (1 - ((x - 31.5) / 11.5) ** 2)))
-    for y in (y0, y0 + 1):
-        if g[y, x] in (I['G3'], I['G2'], I['G1']): g[y, x] = I['RED']
+# the red sash round the waist (Arvind on v3: "the line on the belly goes the wrong way"). He lies along x, feet left and
+# head right, so a band round his waist runs from the belly's top edge down over his side, across the body. It sits on
+# the lower belly (left of the belly's middle) and bows like the belly's own left contour, so it reads as going round
+# the round body. It is lighter red on the belly and darker on his shaded side below it
+XS = E('SASHX', 29)
+for y in range(E('SASHY', 44), 60):                             # above this the keg on the belly covers it
+    xl = XS + int(round(1.6 * ((y - 48.5) / 10.0) ** 2))
+    for x in (xl, xl + 1):
+        if src[y, x] in (3, 4, 5, 7, 8, 9) and g[y, x] not in (I['OUTL'],):
+            g[y, x] = I['RED'] if src[y, x] in (7, 8, 9, 10) else I['RED_D']
 # the barrel hugged on the belly: a small keg lying across, orange-brown with dark hoops and a lighter top
 bx, by, bw, bh = E('BX', 28), E('BY', 38), 11, 7
 keg = []
@@ -90,6 +96,19 @@ for y in range(40, 60):
 for y in range(52, 61):                                         # the lower foot's sole: a brown pad inside a green rim
     for x in range(22, 28):
         if src[y, x] == 8 and all(src[y + dy, x + dx] in (7, 8, 9) for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))): g[y, x] = I['NOSE']
+# a second barrel tipped over on the grass by his side, its brew spilled (the original's grass patch, right of the body)
+if E('TIPPED', 1):
+    tx, ty = E('TX', 48), E('TY', 54)
+    body_ = [(x, y) for y in range(ty, ty + 5) for x in range(tx, tx + 7) if not ((x in (tx, tx + 6)) and (y in (ty, ty + 4)))]
+    for x, y in body_:
+        edge = any((x + dx, y + dy) not in body_ for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)))
+        put([(x, y)], 'OUTL' if edge else ('B3' if x in (tx + 2, tx + 4) else ('B2' if y == ty + 1 else 'B1')))
+    put([(tx + 6, ty + 1), (tx + 6, ty + 2), (tx + 6, ty + 3), (tx + 7, ty + 2)], 'OUTL')   # the open end, dark inside
+    put([(tx + 7, ty + 1), (tx + 7, ty + 3), (tx + 8, ty + 2)], 'B3')
+    spill = [(tx + 8, ty + 4), (tx + 9, ty + 4), (tx + 9, ty + 3), (tx + 10, ty + 4), (tx + 10, ty + 5), (tx + 8, ty + 5),
+             (tx + 9, ty + 5), (tx + 11, ty + 5), (tx + 7, ty + 5), (tx + 9, ty + 6), (tx + 10, ty + 6)]
+    for x, y in spill:
+        if g[y, x] in (0, I['GRASS']): g[y, x] = I['BREW']
 raw = open(IN, 'rb').read(); F = unpack(raw); d = F[194]
 new = btx.encode(d, g.astype(np.uint8), pal); assert len(new) == len(d)
 ro = raw.find(d); assert raw.count(d) == 1
