@@ -241,8 +241,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 230 | *open slot* | | | | | |
 | 231 | *open slot* | | | | | |
 | 232 | *open slot* | | | | | |
-| 233 | [Entrigon](data/species/entrigon.yaml) | Fire |  |  |  | 10% |
-| 234 | [Tsunamo](data/species/tsunamo.yaml) | Water |  |  |  | 10% |
+| 233 | [Entrigon](data/species/entrigon.yaml) | Fire | Pressure, Inner Focus, Prankster (H) |  |  | 14% |
+| 234 | [Tsunamo](data/species/tsunamo.yaml) | Water | Pressure, Inner Focus, Prankster (H) |  |  | 14% |
 | 235 | *open slot* | | | | | |
 | 236 | *open slot* | | | | | |
 | 237 | *open slot* | | | | | |

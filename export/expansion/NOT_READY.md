@@ -60,8 +60,8 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Raymon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Catbat** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **CobraBat** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Entrigon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Tsunamo** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Entrigon** needs: base stats, a level-up move that exists in the game
+- **Tsunamo** needs: base stats, a level-up move that exists in the game
 - **Lansseax** needs: a level-up move that exists in the game
 - **Meowthwo** needs: an ability that exists in the game
 - **Eclipsox** needs: a level-up move that exists in the game

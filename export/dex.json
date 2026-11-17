@@ -40923,9 +40923,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Pressure",
+        "secondary": "Inner Focus",
+        "hidden": "Prankster"
       },
       "base_stats": {
         "hp": null,
@@ -41003,9 +41003,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Pressure",
+        "secondary": "Inner Focus",
+        "hidden": "Prankster"
       },
       "base_stats": {
         "hp": null,
