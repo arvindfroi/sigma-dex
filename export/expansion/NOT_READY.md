@@ -4,7 +4,7 @@
 
 **113** Pokemon are written as game code: Leaflet, Leafling, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Cloudgnome, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, blutie, coatail, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Roostasaur, Gorambe, Leadling, Blylem, Iglomodo, Furamire, Goatjo, Detecup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, McSkiirtle, ambuger, Ambrr, Tortoplasm, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, sparktera, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, JAWBREAKER, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Glacépée, Everdark, Diedo, Riftbloom, Strawboo, Rockedeer, Sabertann, Bergflabb, Solidedge, Whaldrill0, Narburr, Whaldrill, Santrock, Cindreon, Custodix
 
-## Not exported yet (51)
+## Not exported yet (52)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -59,6 +59,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Rosievoir** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Raymon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Meowthwo** needs: an ability that exists in the game
+- **Eclipsox** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 
 ## Left out of exported Pokemon
 

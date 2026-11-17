@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**164 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
+**165 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -262,4 +262,4 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 251 | *open slot* | | | | | |
 | 252 | *open slot* | | | | | |
 | 253 | *open slot* | | | | | |
-| 254 | *open slot* | | | | | |
+| 254 | [Eclipsox](data/species/eclipsox.yaml) | Normal / Dragon |  |  |  | 14% |

@@ -5936,13 +5936,6 @@
     "editor": "Ivar"
   },
   {
-    "id": 1951,
-    "species": "jawie",
-    "file": "assets/concept-art/jawie/1951.png",
-    "caption": "[ds-front] sprite #352",
-    "editor": "Ivar"
-  },
-  {
     "id": 1952,
     "species": "jawie",
     "file": "assets/concept-art/jawie/1952.png",
@@ -6100,6 +6093,27 @@
     "id": 2004,
     "species": "rosievoir",
     "file": "assets/concept-art/rosievoir/2004.png",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 2005,
+    "species": "jawie",
+    "file": "assets/concept-art/jawie/2005.png",
+    "caption": "[ds-front] sprite #362",
+    "editor": "Emil"
+  },
+  {
+    "id": 2009,
+    "species": "eclipsox",
+    "file": "assets/concept-art/eclipsox/2009.webp",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 2010,
+    "species": "eclipsox",
+    "file": "assets/concept-art/eclipsox/2010.png",
     "caption": null,
     "editor": "Ivar"
   }
