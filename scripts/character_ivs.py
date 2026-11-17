@@ -5,10 +5,10 @@
 
 Arvind (2026-11-17): "gjør det slik at IV blir gjort automatisk hos motstanderene ... de skaleres automatisk oppover".
 Origin's IVs already rise through the game (0-6 early, 12-18 in the middle, 24-30 late; see docs/GAME_DESIGN.md), so
-every battle keeps the IV level of the original battle (the level most of its Pokemon have). The website's story team
-builder gives the ace (line no. 1) one step (6) more, at most 31.
-The IVs only go up: a battle never gets less than the battle before it (lowest level first). Origin has a few odd dips
-(Goh's Lv. 100 legendaries have IV 1, some multi battles are lower); those take the earlier battle's level.
+every battle keeps the IV level of the original battle (the level most of its Pokemon have), exactly as the game has
+it (Arvind: "vi gjør det bare slik spillet gjør"), odd dips included (Goh's Lv. 100 legendaries have IV 1).
+The HP IV is not stored: Origin sets it from the level (10 up to Lv. 40, 20 at Lv. 41-79, 31 from Lv. 80), and the
+website does the same.
 """
 import collections
 import importlib.util
@@ -43,14 +43,12 @@ def main():
             speakers, trainers = cd.WHO.get(cid, ([], []))
             ids = {i for n in flat(trainers) for i in ids_by_name.get(n, [])} | set(EXTRA.get(cid, []))
             recs = [tj[i] for i in ids if i in tj and tj[i]["team"]]
-            floor = 0
         t = re.match(r"  - \{lv: (\d+), size: (\d+),", line)
         if t and cid:
             lv, size = int(t.group(1)), int(t.group(2))
             same = [r for r in recs if max(m["level"] for m in r["team"]) == lv and len(r["team"]) == size]
             if same:
                 iv = max(collections.Counter(m["ivs"] for m in r["team"]).most_common(1)[0][0] for r in same)
-                iv = floor = max(iv, floor)
                 line = line.rstrip("\n")
                 line = line[:-1] + ", iv: %d}\n" % iv
             else:

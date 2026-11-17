@@ -14,8 +14,8 @@
 # you), with (they fight next to you in a multi battle) or both (Origin uses the same team both ways), read from the
 # game's own battle scripts (2026-11-12); note = something the one who claims it should know; original = Origin's own
 # team (shown only to the one who claims the trainer).
-# iv = the IV level of Origin's team for that battle, never lower than the battle before (scripts/character_ivs.py);
-# the story team builder uses it for every Pokemon and gives the star 6 more (Arvind, 2026-11-17).
+# iv = the IV level of Origin's team for that battle, as in the game (scripts/character_ivs.py); HP follows the level;
+# the story team builder uses it for every Pokemon (Arvind, 2026-11-17: "slik spillet gjør").
 # The Elite Four are among the important trainers. The main rival is left out (Arvind makes him himself, 2026-11-12).
 # The two champions were left out on 2026-11-12 and came back as Trainer Y and Trainer Z on 2026-11-17 (Arvind:
 # "Du kan faktisk legge de til som mulige trenere tilbake"). Their school battle in Origin (Lv. 5) is not counted:
@@ -194,7 +194,7 @@
   - {lv: 19, size: 4, side: with, original: 'Starmie 19, Goldeen 18, Horsea 17, Psyduck 15', iv: 12}
   - {lv: 20, size: 4, side: against, original: 'Goldeen 19, Quagsire 20, Starmie 20, Horsea 18', iv: 12}
   - {lv: 41, size: 6, side: both, original: 'Starmie 41, Quagsire 40, Seaking 40, Kingdra 40, Golduck 40, Togepi 10', iv: 18}
-  - {lv: 65, size: 5, side: with, original: 'Gyarados 65, Goldeen 14, Horsea 13, Psyduck 10, Starmie 15', iv: 18}
+  - {lv: 65, size: 5, side: with, original: 'Gyarados 65, Goldeen 14, Horsea 13, Psyduck 10, Starmie 15', iv: 12}
   - {lv: 82, size: 6, side: against, original: 'Starmie 82, Seaking 81, Kingdra 82, Quagsire 81, Golduck 82, Togekiss 81', iv: 24}
   - {lv: 87, size: 6, side: against, original: 'Politoed 86, Golduck 87, Lapras 87, Lanturn 86, Starmie 87, Milotic 86', iv: 30}
   - {lv: 87, size: 6, side: with, original: 'Starmie 87, Kingdra 87, Golduck 86, Quagsire 86, Gyarados 87, Seaking 86', iv: 30}
@@ -220,7 +220,7 @@
   teams:
   - {lv: 11, size: 4, side: against, original: 'Cyndaquil 11, Aipom 11, Poliwag 10, Sunkern 10', iv: 12}
   - {lv: 14, size: 5, side: with, original: 'Cyndaquil 14, Aipom 14, Poliwhirl 13, Sunkern 13, Mantyke 13', iv: 18}
-  - {lv: 30, size: 6, side: with, original: 'Ambipom 30, Quilava 30, Poliwhirl 29, Mantine 30, Togepi 10, Sunflora 29', iv: 18}
+  - {lv: 30, size: 6, side: with, original: 'Ambipom 30, Quilava 30, Poliwhirl 29, Mantine 30, Togepi 10, Sunflora 29', iv: 12}
   - {lv: 34, size: 6, side: against, original: 'Quilava 34, Ambipom 34, Togepi 15, Poliwhirl 33, Sunflora 33, Mantine 33', iv: 18}
   - {lv: 36, size: 6, side: against, original: 'Quilava 35, Ambipom 36, Togepi 16, Poliwhirl 34, Sunflora 34, Mantine 34', iv: 18}
   - {lv: 37, size: 6, side: against, original: 'Typhlosion 36, Ambipom 37, Togetic 35, Politoed 35, Sunflora 35, Mantine 35', iv: 24}
@@ -350,7 +350,7 @@
   - {lv: 85, size: 6, side: against, original: 'Manectric 84, Slowbro 85, Dugtrio 84, Scizor 85, Slaking 84, Tangrowth 85', iv: 30}
   - {lv: 85, size: 6, side: against, original: 'Pidgeot 85, Starmie 85, Wigglytuff 85, Garchomp 85, Metagross 85, Pikachu 85', iv: 30}
   - {lv: 85, size: 6, side: against, original: 'Pinsir 84, Cloyster 85, Misdreavus 84, Dragonite 85, Magmortar 84, Aggron 85', iv: 30}
-  - {lv: 100, size: 6, side: against, original: 'Arceus 100, Dialga 100, Palkia 100, Giratina 100, Ho-Oh 100, Lugia 100', iv: 30}
+  - {lv: 100, size: 6, side: against, original: 'Arceus 100, Dialga 100, Palkia 100, Giratina 100, Ho-Oh 100, Lugia 100', iv: 1}
 - id: trainer-y
   group: Important trainer
   type: Mixed

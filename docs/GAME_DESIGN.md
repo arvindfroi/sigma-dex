@@ -54,12 +54,16 @@ enough (Arvind).
   221 of 271; rivals 28 of 86; ordinary trainers only 597 of 2,949. IVs rise with the game: 0-6 early, 12-18 in the
   middle, 24-30 late. Our teams can follow the same pattern and adjust it where needed (Arvind). Within a team
   Origin almost always gives every Pokemon the same IV level (920 teams); only 36 teams differ, mostly an ace or
-  the newest catch one step higher or lower. **Decided (Arvind, 2026-11-17): opponents' IVs are automatic and scale up.**
-  Each battle gets Origin's IV level for that point in the story (the level most of the original team has; they only
-  go up, so Origin's odd dips such as Goh's Lv. 100 legendaries at IV 1 take the earlier battle's level), and the ace
-  gets one step (6) more, at most 31. Done for the claimable roles (data/characters.yaml `iv`, scripts/character_ivs.py,
-  the story team builder and Copy to TEAMS); every other trainer team we make or change follows the same rule when the
-  trainer data are exported. Origin's HP-IV bug (HP IV follows the level) still applies in the game.
+  the newest catch one step higher or lower. **Decided (Arvind, 2026-11-17): opponents' IVs are automatic and exactly
+  as in Origin** ("vi gjør det bare slik spillet gjør"): each battle gets the IV level of Origin's own team for that
+  battle (the level most of it has; dips such as Goh's Lv. 100 legendaries at IV 1 stay), the whole team the same, and
+  HP as Origin's loader sets it: 10 up to Lv. 40, 20 at Lv. 41-79, 31 from Lv. 80. Done for the claimable roles
+  (data/characters.yaml `iv`, scripts/character_ivs.py, the story team builder and Copy to TEAMS); every other trainer
+  team we make follows the same rule when the trainer data are exported.
+  **The HP rule is a bug in the hack, not a design** (EN patch notes trainer_runtime_review.md and
+  damage_calc_mechanics.md): the loader picks 10/20/31 from the level and writes it six times in a loop that never
+  moves to the next stat, so only HP gets it. The intent was clearly all six IVs from the level (which would have
+  replaced the per-team IV levels). We keep the game as it plays.
 - **Hardcore: healing is limited (Arvind, 2026-11-17).** Each place that heals (every Pokemon Center, and other
   healers) can be used **once**. Built like the area rule: one bit per healing place in our save block, checked where
   the game heals the party. **Open:** are potions and other healing items outside battle still allowed? (If yes, the

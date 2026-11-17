@@ -3974,9 +3974,11 @@ function shuffledCharacters() {
 // top-ranked lines first; multi battles have fewer), the levels spread like the original team's (the star highest), each
 // line at the stage it would have at that level, and the 4 moves scripts/moveset_pick.py picks at that level
 // (DEX.story_moves, worked out at build time). A shared team picked for a battle overrides it.
-// IVs are automatic (Arvind, 2026-11-17): each battle has Origin's IV level for that point in the story (c.teams[i].iv,
-// scripts/character_ivs.py; it only goes up), and the star gets one step (6) more, at most 31.
-const storyIv = (b, k) => { const iv = Number.isInteger(b.iv) ? b.iv : 31; return Math.min(31, k === 0 ? iv + 6 : iv); };
+// IVs are automatic and exactly as in Origin (Arvind, 2026-11-17: "vi gjør det bare slik spillet gjør"): the five
+// stats get the IV level of the original battle (c.teams[i].iv, scripts/character_ivs.py), and HP gets what Origin's
+// trainer loader gives it from the level: 10 up to Lv. 40, 20 at Lv. 41-79, 31 from Lv. 80.
+const storyHpIv = level => level <= 40 ? 10 : level < 80 ? 20 : 31;
+const storyIvs = (iv, level) => Object.assign(allStats(iv), {hp: storyHpIv(level)});
 function storyChain(finalId) {                       // base -> ... -> final, following evolutions backwards
   const chain = [finalId];
   for (let guard = 0; guard < 5; guard++) {
@@ -4010,18 +4012,18 @@ function storyTeam(c, story, i) {
   return story.lines.slice(0, n).map((finalId, k) => {
     const level = levels[k] || b.lv, sid = stageAt(storyChain(finalId), level), s = byId.get(sid);
     const ab = (s && s.data.abilities) || {};
-    return {species: sid, level, iv: storyIv(b, k), ability: ab.primary || "", ...storyMoves(sid, level)};
+    return {species: sid, level, iv: Number.isInteger(b.iv) ? b.iv : 31, ability: ab.primary || "", ...storyMoves(sid, level)};
   });
 }
 function storyTeamText(team) {
   return team.map(m => nameOf(m.species) + "\nAbility: " + (m.ability || "-") + "\nLevel: " + m.level + "\n" +
-    (m.iv === 31 ? "" : "IVs: " + STATS.map(([k]) => m.iv + " " + SHORT_STAT[k]).join(" / ") + "\n") + m.moves.map(x => "- " + x).join("\n")).join("\n\n");
+    "IVs: " + STATS.map(([k]) => storyIvs(m.iv, m.level)[k] + " " + SHORT_STAT[k]).join(" / ") + "\n" + m.moves.map(x => "- " + x).join("\n")).join("\n\n");
 }
 function storyTeamView(team) {
   return h("div", {class: "storyteam"}, team.map(m => {
     const s = byId.get(m.species), ds = s && DEX.ds_sprites[m.species], pic = s && (portrait(s));
     return h("div", {class: "storymon"}, pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: ""}) : null,
-      h("b", {}, nameOf(m.species)), h("span", {class: "sub"}, " lv " + m.level + " · IV " + m.iv + (m.ability ? " · " + m.ability : "")),
+      h("b", {}, nameOf(m.species)), h("span", {class: "sub"}, " lv " + m.level + " · IV " + m.iv + " (HP " + storyHpIv(m.level) + ")" + (m.ability ? " · " + m.ability : "")),
       h("div", {class: "sub"}, m.moves.length ? m.moves.join(", ") : "no moves yet (comes when its moves are filled in)"));
   }));
 }
@@ -4201,7 +4203,7 @@ function renderCharacterPage(c) {
       // is saved to this battle by itself (Arvind, 2026-11-17: before, the copy was loose and the changes never came back).
       const copy = gen.length && !t ? h("button", {type: "button", title: "Put this team in TEAMS to change it; your changes are saved to this battle", onclick: async ev => {
         const btn = ev.currentTarget, name = (charName(c) + " battle " + (i + 1)).slice(0, 40);
-        const team = {name, mons: gen.map(m => Object.assign(blankMon(), {species: m.species, level: m.level, ability: m.ability, ivs: allStats(m.iv), moves: m.moves.concat(["", "", "", ""]).slice(0, 4)})),
+        const team = {name, mons: gen.map(m => Object.assign(blankMon(), {species: m.species, level: m.level, ability: m.ability, ivs: storyIvs(m.iv, m.level), moves: m.moves.concat(["", "", "", ""]).slice(0, 4)})),
           shared: {id: newTeamId(name), by: person(me()), battle: name}};
         btn.disabled = true; status.textContent = "Copying...";
         try {
@@ -4223,7 +4225,7 @@ function renderCharacterPage(c) {
     })));
     main = h("div", {class: "charmain"},
       h("h3", {id: "char-team", style: "margin-top:0"}, "Your story team"),
-      h("div", {class: "sub"}, "Pick up to 6 evolution lines by their last evolution and rank them (drag them, or use the arrows). No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage and with sensible moves for the level. IVs are set by themselves: they follow the original battle's level for that point in the story (low early, high late), and your star gets a bit more."),
+      h("div", {class: "sub"}, "Pick up to 6 evolution lines by their last evolution and rank them (drag them, or use the arrows). No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage and with sensible moves for the level. IVs are set by themselves, exactly as in the original game: low early, high late."),
       slots, story.lines.length < 6 ? storyLinePicker(story, saveStory) : null,
       h("h3", {}, "Every battle"),
       h("div", {class: "sub"}, "Auto: the website makes each battle's team from your story team (how many Pokemon, levels, stages and moves). To change a battle's team, press Copy to TEAMS: the team opens in TEAMS and is used for that battle, and what you change there is saved here by itself. You can also pick one of your shared teams in the menu. The others only see your teams behind spoiler buttons."),
