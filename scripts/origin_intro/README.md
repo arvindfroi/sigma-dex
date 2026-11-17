@@ -1425,7 +1425,10 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
       - The nose tilts up, the paws are off the ground and the tail goes up.
       - Positive turns are clockwise on screen, so for this left-facing dog nose-up is positive.
       - `hop2_cells.py` shrinks the pose like the stand, then copies the stand's face back, placed by the tracked nose point.
-    - **Variants:** G (mild, 80 %), H (middle, 71 %) and J (spring, 62 %), all filmed in the game (`sheets_hop.py`). Waiting for Arvind's pick, then `build_set.py hop2/c_X v2`.
+    - **Variants:** G (mild, 80 %), H (middle, 71 %) and J (spring, 62 %), all filmed in the game (`sheets_hop.py`).
+    - **Arvind chose J ("gå for J").** `build_set.py hop2/c_J v2` gives the final set: `final/a120_lapper_v2.bin` (sha256 prefix `68bba770ab65eb0d`), `final/a120_clothes1_lapper_v2.bin` (`579f383a3d58bd0c`) and `final/a120_clothes2_lapper_v2.bin` (`43f496010c82b405`). The stand is v1's.
+    - **Test ROM:** `legend_test/oak_lapper_v2.nds` has all three files written in place. Its a/1/2/0 is byte for byte the J build that was filmed in the game.
+    - **Files:** `oak_intro_lapper_v2.png`, `oak_intro_lapper_v2.gif`, `oak_intro_lapper_v2_halv_fart.gif`.
     - **Dropped:** Qwen redraws of the puppets (`qwen_clean_hop.py`) turned the raised ears into thin horns.
     - **Files:** `oak_intro_lapper_hopp_v2.png`, `oak_intro_lapper_hopp_v2.gif`, `oak_intro_lapper_hopp_v2_halv_fart.gif`.
   - **Per-outfit copies of a/1/2/0 (2026-11-17, heads-up from the custom-sprites session):**

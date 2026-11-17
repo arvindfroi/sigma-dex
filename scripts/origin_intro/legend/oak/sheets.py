@@ -26,7 +26,7 @@ cw = 80 * k; gw = (box[2] - box[0]) * g; gh = (box[3] - box[1]) * g
 W = 2 * cw + 2 * gw + 70; H = 2 * (max(cw, gh) + 40) + 60
 sh = Image.new('RGBA', (W, H), 'white'); d = ImageDraw.Draw(sh)
 d.text((10, 8), 'Oaks intro: Marill (Origin) mot Lapper   -   cellene 4x, i spillet 2x', fill='black', font=font)
-for r, (name, cs, film) in enumerate((('Origin: Marill', mo, fo), ('Lapper v1', ml, fn))):
+for r, (name, cs, film) in enumerate((('Origin: Marill', mo, fo), (__import__('os').environ.get('LABEL', 'Lapper'), ml, fn))):
     y = 50 + r * (max(cw, gh) + 40)
     d.text((10, y), name, fill='black', font=font)
     x = 10
