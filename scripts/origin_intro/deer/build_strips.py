@@ -29,6 +29,9 @@ STRIPS = [('rockedeer', os.environ.get('ROCK', 'copy/rockedeer_1.png'), 48, 0, 1
           ('felk', os.environ.get('FELK', 'copy/felk_5.png'), 49, 16, 6, float(os.environ.get('FELK_EYE', 0.42)))]
 LINES = os.environ.get('DEER_LINES', '0') == '1'   # v2's own line art + mode filter + black eye ring: Arvind found it worse
 COVER, LUMA, EYE_PX, NCOL = 0.33, 66.0, 32, 9
+EYE_STYLE = os.environ.get('EYE_STYLE', 'lid')   # v12; v11 = ring
+EYE_SHADE = os.environ.get('EYE_SHADE', '0') == '1'   # v12: eyes all bright gold (Arvind 2026-11-15: the shading inside the eyes did not work)
+DX = {'rockedeer': int(os.environ.get('ROCK_DX', 12)), 'moosus': int(os.environ.get('MOOS_DX', 0)), 'felk': int(os.environ.get('FELK_DX', -16))}   # v12; v11 = all 0
 # v7 (Arvind 2026-11-15: v5 and D best, none good enough; D's clean source went grey in the shrink): STYLE2=1 grades with a curve
 # that keeps the darks dark and the contrast (instead of scaling + pressing highlights), uses 11 colours (originals 9-11) and keeps
 # the source's own black lines (a band pixel goes black when >= LINE_KEEP of its source block is dark line) - not drawn lines like v2
@@ -197,7 +200,7 @@ EYE_AT = {   # name: (source file it was measured on, kind, [(y, x) in source px
     'moosus': ('moosus_2.png', 'front', [(172, 681), (170, 851)]),
     'felk': ('felk_5.png', 'right', [(202, 1009)]),
 }
-def stamp_eyes(img, em, box, spec):
+def stamp_eyes(img, em, box, spec, pal=None):
     _, kind, pts = spec
     img = img.copy(); eyes = (NCOL + 1, NCOL + 2)
     old = nd.binary_dilation(np.isin(img, eyes) | em, iterations=1) & np.isin(img, eyes) | em
@@ -216,10 +219,64 @@ def stamp_eyes(img, em, box, spec):
         mask = np.zeros(img.shape, bool)
         ys, xs = np.nonzero(m); ys = ys + y0; xs = xs + x0
         ok = (ys >= 0) & (ys < 64) & (xs >= 0) & (xs < 256); mask[ys[ok], xs[ok]] = True
-        img[nd.binary_dilation(mask, structure=np.ones((3, 3))) & ~mask] = 0      # crisp black ring
-        img[mask] = NCOL + 1
-        low = mask & ~np.roll(mask, -1, axis=0)                                   # bottom edge in the darker gold
-        img[low & (np.arange(256)[None, :] % 3 == 0)] = NCOL + 2
+        if EYE_STYLE == 'ring':                                                  # v11: crisp black ring all round
+            img[nd.binary_dilation(mask, structure=np.ones((3, 3))) & ~mask] = 0
+            img[mask] = NCOL + 1
+            low = mask & ~np.roll(mask, -1, axis=0)                               # bottom edge in the darker gold
+            img[low & (np.arange(256)[None, :] % 3 == 0)] = NCOL + 2
+        else:
+            # v12 (Arvind 2026-11-15: "the black outline round the eyes is not how the originals do it"): measured on the
+            # originals, only 45-75 % of the ring is black: a heavy upper lid (2 px in the middle, running past the back
+            # corner), black corners, and an open lower edge that meets the body; the back of the eye in the darker gold
+            ring = nd.binary_dilation(mask, structure=np.ones((3, 3))) & ~mask
+            Y = np.arange(64)[:, None] + np.zeros((1, 256), int); X = np.arange(256)[None, :] + np.zeros((64, 1), int)
+            mid = cy if h % 2 else cy - 0.5
+            lid = ring & (Y <= mid)
+            cols = np.nonzero(mask.any(0))[0]; xl, xr = cols.min(), cols.max()
+            corner = ring & ((X <= xl) | (X >= xr))
+            back = 1 if kind == 'left' else -1 if kind == 'right' else (-1 if k == 0 else 1)   # the side away from the snout
+            if kind in ('left', 'right'):
+                # side eyes (Entei 58 %, Raikou 67-77 % black): black lids above AND below; only the back end is open,
+                # where the darker gold meets the body
+                open_end = ring & ((X > xr) if back > 0 else (X < xl)) & (Y > mid - 1) & (Y < mid + 1.5)
+                # under the back half the lower lid is the darkest body colour, not black (Raikou, Entei)
+                half = (X >= (xl + xr) / 2) if back > 0 else (X <= (xl + xr) / 2)
+                soft = ring & (Y > mid) & half & ~open_end
+                lid = ring & ~open_end & ~soft; corner = np.zeros_like(ring)
+            img[lid | corner] = 0
+            if kind in ('left', 'right') and pal is not None:
+                body_ix = [i for i in range(1, NCOL + 1) if i < len(pal)]
+                dark = min(body_ix, key=lambda i: luma(np.array(pal[i], float)))
+                img[soft] = dark
+                # a soft brow: the row above the lid in the darkest body colour, over the eye's width
+                # the originals' side eyes sit in a dark brow/mask (Entei's dark band, Raikou's black head): a 2-3 px
+                # socket shadow above the lid that runs back past the eye
+                top_lid = lid & (Y <= mid)
+                brow = nd.binary_dilation(top_lid, structure=np.ones((3, 3)), iterations=2) & (Y < mid - 1)
+                reach = ((X >= xl + (xr - xl) // 4) & (X <= xr + 4)) if back > 0 else ((X <= xr - (xr - xl) // 4) & (X >= xl - 4))
+                brow &= reach & ~mask & ~lid
+                img[brow & (img != 0) & ~np.isin(img, eyes)] = dark
+            top = np.zeros_like(mask)                                             # second lid row over the middle of the eye
+            for xx in range(xl + (xr - xl + 1) // 5, xr - (xr - xl + 1) // 5 + 1):
+                yy = np.nonzero(mask[:, xx])[0]
+                if len(yy) and yy.min() >= 2: top[yy.min() - 2, xx] = True
+            img[top] = 0
+            row = np.nonzero((ring & (Y <= mid)).any(1))[0]
+            if len(row):
+                ry = row.min(); bx = xr if back > 0 else xl
+                for t in (1, 2):
+                    if 0 <= bx + back * t < 256: img[ry + (1 if t == 2 else 0), bx + back * t] = 0   # lid tail past the back corner
+            # the lower edge meets the body: black there (from the source's own dark rim or the old fill) takes the most
+            # common non-black colour of a wider band round the eye
+            band = nd.binary_dilation(mask, iterations=4) & ~nd.binary_dilation(mask, iterations=1)
+            vv, cc = np.unique(img[band & (img != 0) & ~np.isin(img, eyes)], return_counts=True)
+            if len(vv):
+                body = vv[cc.argmax()]
+                low = nd.binary_dilation(mask, structure=np.ones((3, 3)), iterations=2) & ~mask & (Y > mid) & ~corner & ~lid
+                img[low & (img == 0)] = body
+            img[mask] = NCOL + 1
+            third = (X >= xr - (xr - xl) // 3) if back > 0 else (X <= xl + (xr - xl) // 3)
+            if EYE_SHADE: img[mask & third & (Y >= mid)] = NCOL + 2                 # back of the eye in the darker gold (off: Arvind wants the eyes all gold)
     return img
 def line_art(img, pal, lit, avoid):
     """black 1-px lines on the darker side of borders between clearly different colour areas (the originals' contour
@@ -365,8 +422,13 @@ for name, pic, scr_i, row0, pal_no, eyey in STRIPS:
         if em.any(): img[em & (core_l >= np.median(core_l[em]))] = NCOL + 1
         if LINES: img[nd.binary_dilation(em) & ~em & lit] = 0
         if name in EYE_AT and os.path.basename(pic) == EYE_AT[name][0]:
-            img = stamp_eyes(img, em, box, EYE_AT[name])
+            img = stamp_eyes(img, em, box, EYE_AT[name], pal)
         grp = np.zeros(256, int); pals = [pal]; pals_no = (pal_no,)
+    # v12 (Arvind 2026-11-15: "the faces get cut off later in the video"): the scene narrows each strip to a window of about
+    # x 72-188 (middle strip at the end 77-182); slide the picture so the whole face sits inside it (black fills the gap)
+    dx = DX.get(name, 0)
+    if dx > 0: img = np.hstack([np.zeros((64, dx), img.dtype), img[:, :-dx]])
+    elif dx < 0: img = np.hstack([img[:, -dx:], np.zeros((64, -dx), img.dtype)])
     grp = np.zeros(256, int); pals = [pal]; pals_no = (pal_no,)
     for merge in (MERGE, 5, 7, 9, 12, 16):                 # merge harder only when the strip does not fit
         # tiles, dedupe with flips
