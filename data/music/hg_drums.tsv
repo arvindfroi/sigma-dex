@@ -1,0 +1,10 @@
+# The drum kind Creature Maker's tune keeps -> HeartGold's own kit (basic bank program 39, General MIDI layout,
+# measured 2026-11-16) at that kind's General MIDI key.
+# kind	sound
+kick	b700.39.36
+snare	b700.39.38
+clap	b700.39.39
+tom	b700.39.45
+hat	b700.39.42
+openhat	b700.39.46
+crash	b700.39.57

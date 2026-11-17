@@ -1,0 +1,16 @@
+# Verified HeartGold sounds (id = b<bank>.<program>[.<key>]) and the MuScriptor instrument group they stand for. These
+# win over the guessed names in hg_sound_names.tsv. Sources: the DS Pokemon hacking music porting guide
+# (ds-pokemon-hacking.github.io/docs/universal/guides/music_porting, a hacker's by-ear map of the basic bank) and our
+# own measurement of the drum kit's samples (2026-11-16: keys 32/35/36 low = kicks, 38/40 snares, 42/46 hats, 49-58
+# cymbals: program 39 follows General MIDI's drum keys). Add rows as sounds are checked by ear.
+# id	group	source
+b700.23	string_ensemble	guide (string ensemble)
+b700.3	electric_piano	guide (Rhodes)
+b700.21	electric_bass	guide (slap bass)
+b700.5	chromatic_percussion	guide (vibraphone)
+b700.6	chromatic_percussion	guide (marimba)
+b700.8	chromatic_percussion	guide (tubular bell)
+b700.35	flutes	guide (flute)
+b700.26	pizzicato	guide (pizzicato strings; its own group so a held part never gets it)
+b700.27	orchestral_harp	guide (harp)
+b700.34	clarinet	guide (clarinet)

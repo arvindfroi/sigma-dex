@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HG-instrumenter</title>
+<style>
+:root{--bg:#f6f4fb;--fg:#1d1a26;--card:#fff;--line:#ddd6ee;--acc:#6b4bd6;--ok:#1f8a4c}
+@media (prefers-color-scheme:dark){:root{--bg:#16131d;--fg:#ece8f6;--card:#221d2c;--line:#3a3348;--acc:#a58cff;--ok:#4fd18a}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.4 system-ui,sans-serif}
+main{max-width:900px;margin:0 auto;padding:16px}
+h1{font-size:20px;margin:4px 0} p{margin:6px 0 12px}
+.row{display:grid;grid-template-columns:70px 52px 1fr 1.2fr;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin:6px 0}
+.row.ver{border-color:var(--ok)} .row.done{box-shadow:inset 4px 0 0 var(--acc)} .id{font-weight:600} .hint{font-size:12px;opacity:.75}
+button{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:8px;padding:6px 10px;cursor:pointer}
+button.main{background:var(--acc);color:#fff;border-color:var(--acc)}
+select{font:inherit;padding:5px;border-radius:8px;width:100%;background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.bar{position:sticky;top:0;background:var(--bg);padding:8px 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center;z-index:2}
+@media (max-width:640px){.row{grid-template-columns:60px 48px 1fr}.row .hint{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<main>
+<h1>HeartGold-instrumenter (BASIC-banken)</h1>
+<p>Trykk ▶ og velg hva det høres ut som. Grønn kant = fra hacking-guiden. Valgene huskes i denne nettleseren. Trykk <b>Eksporter</b> når du er ferdig; filen havner i Nedlastinger.</p>
+<div class="bar"><button class="main" id="exp">Eksporter</button><span id="cnt"></span></div>
+<div id="list"></div>
+</main>
+<audio id="au"></audio>
+<script>
+const ROWS = __ROWS__;
+const OPTS = __OPTS__;
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem('hgInstr') || '{}'); } catch (e) {}
+const list = document.getElementById('list'), au = document.getElementById('au');
+function store() { try { localStorage.setItem('hgInstr', JSON.stringify(saved)); } catch (e) {} count(); }
+function count() { document.getElementById('cnt').textContent = Object.keys(saved).length + ' av ' + ROWS.length + ' hørt på'; }
+for (const r of ROWS) {
+  const d = document.createElement('div');
+  d.className = 'row' + (r.verified ? ' ver' : '') + (saved[r.id] ? ' done' : '');
+  d.innerHTML = `<div class="id">prog ${r.prog}</div><button title="spill">▶</button><select>${OPTS}</select>` +
+    `<div class="hint">gjetning: ${r.src || '?'} · likner GM: ${r.gm} · brukt ${Math.round(r.use)} s i spillets sanger</div>`;
+  const sel = d.querySelector('select');
+  sel.value = saved[r.id] || r.guess;
+  sel.onchange = () => { saved[r.id] = sel.value; d.classList.add('done'); store(); };
+  d.querySelector('button').onclick = () => { au.src = 'lyd/' + r.id + '.mp3'; au.play(); };
+  list.appendChild(d);
+}
+count();
+document.getElementById('exp').onclick = () => {
+  const out = {};
+  for (const r of ROWS) out[r.id] = saved[r.id] || null;
+  const b = new Blob([JSON.stringify(out, null, 1)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(b); a.download = 'hg_instrumenter_arvind.json'; a.click();
+};
+</script>
+</body>
+</html>
