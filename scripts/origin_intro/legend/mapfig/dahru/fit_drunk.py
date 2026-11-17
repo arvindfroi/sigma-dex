@@ -1,7 +1,7 @@
 """Qwen's drunk Dahrugula fitted into Snorlax's place: the figure (everything not white page) cropped, scaled to the box the
 sleeping Snorlax takes in its 64x64 frame (same bottom line and centre), cut to 14 colours (k-means in RGB on DS 5-bit
 steps), lone pixels removed and a one-pixel dark outline round the silhouette, as Snorlax has.
-python fit_drunk.py QWEN.png KABIGON.png OUT_idx.npy OUT_pal.npy PREVIEW.png   env SCALE (1.0 of Snorlax's width)"""
+python fit_drunk.py QWEN.png KABIGON.png OUT_idx.npy OUT_pal.npy PREVIEW.png   env SCALE (1.0 of Snorlax's width), FIXED=1 (Dahrugula's palette)"""
 import sys, os
 import numpy as np
 from PIL import Image
@@ -21,9 +21,18 @@ w, h = int(round((x1 - x0) * s)), int(round((y1 - y0) * s))
 crop = np.dstack([q[y0:y1, x0:x1], fig[y0:y1, x0:x1] * 255]).astype(np.uint8)
 small = np.asarray(Image.fromarray(crop, 'RGBA').resize((w, h), Image.BOX)).astype(float)
 on = small[..., 3] > 110
-cols = small[on][:, :3]; km = KMeans(14, n_init=8, random_state=0).fit(cols)
-cen = (np.round(km.cluster_centers_ / 8) * 8).clip(0, 248)
-idx = np.zeros((h, w), int); idx[on] = km.labels_ + 2                      # 1 = outline, 2.. = colours
+cols = small[on][:, :3]
+if os.environ.get('FIXED'):                                     # Dahrugula's own colours + grass + barrel, not k-means
+    cen = np.array([[8, 48, 32], [0, 96, 56], [8, 128, 64], [56, 176, 88], [248, 224, 192], [248, 168, 112],
+                    [240, 72, 48], [96, 64, 48], [200, 120, 64], [168, 80, 32], [72, 112, 64], [104, 144, 80], [40, 72, 40], [24, 16, 16]], float)
+    def lab(c):
+        c = np.asarray(c, float) / 255; c = np.where(c > 0.04045, ((c + 0.055) / 1.055) ** 2.4, c / 12.92)
+        M = np.array([[0.4124, 0.3576, 0.1805], [0.2126, 0.7152, 0.0722], [0.0193, 0.1192, 0.9505]]); xyz = c @ M.T / np.array([0.9505, 1.0, 1.089])
+        f = np.where(xyz > 0.008856, np.cbrt(xyz), 7.787 * xyz + 16 / 116); return np.stack([116 * f[..., 1] - 16, 500 * (f[..., 0] - f[..., 1]), 200 * (f[..., 1] - f[..., 2])], -1)
+    lab_ = ((lab(cols)[:, None] - lab(cen)[None]) ** 2).sum(-1).argmin(1)
+else:
+    km = KMeans(14, n_init=8, random_state=0).fit(cols); cen = (np.round(km.cluster_centers_ / 8) * 8).clip(0, 248); lab_ = km.labels_
+idx = np.zeros((h, w), int); idx[on] = lab_ + 2                            # 1 = outline, 2.. = colours
 for _ in range(2):
     new = idx.copy()
     for y in range(1, h - 1):

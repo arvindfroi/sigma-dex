@@ -129,6 +129,26 @@ if os.environ.get('TILE') == '1':                              # the source is Q
                     nb = np.delete(TILEIDX[y - 1:y + 2, x - 1:x + 2].ravel(), 4)
                     if (nb == TILEIDX[y, x]).sum() <= 1: T2[y, x] = np.bincount(nb).argmax()
             TILEIDX = T2
+if os.environ.get('STENCIL') == '1':                           # the source is a black and white paper-cut (qwen_stencil.py)
+    A = np.asarray(Image.open(SRC).convert('L')).astype(float) / 255; white = A > 0.5
+    lb, nn = ndimage.label(white); sz = ndimage.sum(white, lb, range(1, nn + 1))
+    white = np.isin(lb, [k + 1 for k, v in enumerate(sz) if v >= 0.0005 * white.size])   # paper specks go
+    ys_, xs_ = np.nonzero(white); y0_, y1_, x0_, x1_ = ys_.min(), ys_.max() + 1, xs_.min(), xs_.max() + 1
+    side = int(max(y1_ - y0_, x1_ - x0_) * (1 + 2 * E('PAD', 0.02))); cy_, cx_ = (y0_ + y1_) // 2, (x0_ + x1_) // 2
+    Wp = np.pad(white, side); sq = Wp[cy_ - side // 2 + side:cy_ - side // 2 + 2 * side, cx_ - side // 2 + side:cx_ - side // 2 + 2 * side]
+    MARGIN = int(E('MARGIN', 10)); BOXS = int(E('BOX', 128 - 2 * MARGIN + 2))   # the figure fills the field inside the light margin
+    hi = np.asarray(Image.fromarray((sq * 255).astype(np.uint8)).resize((BOXS * 4, BOXS * 4), Image.BOX)) > 127
+    if E('THICK', 1): hi = ndimage.binary_erosion(hi, iterations=int(E('THICK', 1)))   # the black lines a little wider, so they last at 128
+    lo = np.asarray(Image.fromarray((hi * 255).astype(np.uint8)).resize((BOXS, BOXS), Image.BOX)).astype(float) / 255 > E('LT', 0.5)
+    w128 = np.zeros((128, 128), bool); o_ = (128 - BOXS) // 2; dy_, dx_ = int(E('DY', 0)), int(E('DX', 0))
+    w128[o_ + dy_:o_ + dy_ + BOXS, o_ + dx_:o_ + dx_ + BOXS] = lo[:128 - o_ - dy_, :128 - o_ - dx_]
+    yy_, xx_ = np.mgrid[0:128, 0:128]; dist = np.minimum.reduce([yy_, xx_, 127 - yy_, 127 - xx_])
+    cut = ~w128 & (dist >= MARGIN)
+    for _ in range(2):                                            # lone specks of either tone go
+        lb, nn = ndimage.label(cut); sz = ndimage.sum(cut, lb, range(1, nn + 1)); cut &= ~np.isin(lb, [k + 1 for k, v in enumerate(sz) if v < 3])
+        rs = ~cut; lb, nn = ndimage.label(rs); sz = ndimage.sum(rs, lb, range(1, nn + 1)); cut |= np.isin(lb, [k + 1 for k, v in enumerate(sz) if v < 3])
+    fig = np.ones((128, 128), bool); RGB = np.repeat(w128[..., None], 3, -1).astype(float) * 0.9 + 0.05
+    print('stencil: cut %.0f%% (the originals 24-34%%)' % (100 * cut.mean()))
 # --- the new interior: stone with dots, the cut figure with dark dots
 rng = np.random.default_rng(int(E('SEED', 7)))
 new = np.where(cut, 12, 6)

@@ -1317,3 +1317,27 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - **Combined a/0/8/1:** `legend/final/a081_customs_v1.bin` (sha256 prefix `8623f8a0651113b8`). Members 186, 194, 210, 211 and 228 are ours; every other member is Origin's.
   - **Not done yet:** none of these has been seen in the game. The texts (the "odd tree", the sleeping Snorlax, Lapras) are the later text job. The Pokedex's mon cries for these slots follow their slots.
   - **Files:** `alph_puslespill_v1.png` (Origin above, ours below), `kartfigurer_sudowoodo_dahrugula_mooceon.png`, `sudowoodo_kaktus_rute36.png`.
+- **Custom sprites, round 2 (2026-11-17)**, after Arvind's notes on round 1:
+  - **Alph puzzles** ("the originals all have the same dark background, so the pose must fill it up"):
+    - **`qwen_stencil.py`:** Qwen-Image-Edit turns each round-1 emblem into a black and white paper-cut in the same pose: a solid black field, the Pokemon as large solid white shapes filling the square, only bold details cut.
+    - **`alph_puzzle.py STENCIL=1 THICK=2`:** reads it at 128 px. White becomes raised stone and black is cut. A light margin of 10 px runs inside the rim, as in all four originals (`MARGIN`). The figure fills the field inside it (`BOX` 110). The black lines are widened a little at 4x before the downscale (`THICK`, 2 matches the originals' grooves) and lone specks go.
+    - **Used:** Tortoplasm `q/sten_tor_3` (4), Ambuger `q/sten_amb_3` (5), Sabertann `q/sten_sab_2` (7). The cut is 37 %, 29 % and 48 % (the originals 24-34 %).
+    - **Result:** `legend/alph/final/a172_alph_v2.bin` (sha256 prefix `a35588dcea9cd77b`, provenance in `PROVENANCE_v2.txt`). Only members 4, 5 and 7 change.
+  - **186 Sudowoodo** ("the shape isn't the same; just paint over the original Sudowoodo"): `sudowoodo_paint.py` keeps every pixel of Origin's 6 swaying frames.
+    - Only the colours change: the browns and greens become the yellows, shade and dark outline of Sigmanian Sudowoodo's DS sprite.
+    - Green spines dot the balls and the lower trunk, and the face (eye pits, a mouth) sits on the head, following each frame's lean.
+    - `cactus_npc.py` is dropped.
+  - **194 Dahrugula** ("it breaks the original's perspective, and it doesn't look enough like Dahrugula"): `dahru/dahru_paint.py` paints over the sleeping Snorlax pixel for pixel, so the shape and perspective are Snorlax's.
+    - The body and the head take the greens, with a light belly and a red sash following its curve. A bulging orange keg with hoops is hugged on the belly, and the lower foot gets a brown pad.
+    - The head lies with its top toward the right, as Snorlax's closed eyes show. Its features:
+      - two round outlined ears with peach insides stick out there;
+      - two X eyes sit on light patches, so they read as X's and not a checker;
+      - a big brown koala nose has a shine, with a red tongue under it and flushed cheeks.
+    - The Qwen tries (`gen_drunk2.py`, `gen_drunk3.py`) are dropped.
+  - **228 Mooceon** ("could be better: the centring, left and right"): `ferry_from_follower.py` now centres the front and back views at x 16, as Lapras is.
+    - The side views lose 5 columns from the even middle of the back (`CUT`) and sit at x 15.5, so Lapras's wake trails behind them.
+    - The second step bobs a pixel up (`BOB`).
+    - Only Lapras's white and light-blue ring pixels are taken, not its yellow belly.
+  - **Combined a/0/8/1:** `legend/final/a081_customs_v2.bin` (sha256 prefix `0fb1a62e3985cf45`). It is built from the locked legends file `a081_sabertann210_gravriel211.bin` in this order: `sudowoodo_paint.py`, then `dahru_paint.py kabigon_idx.npy`, then `WL=27 SINK=1 ferry_from_follower.py` with `assets/sprites-ds/mooceon/follower.png`. Members 186, 194, 210, 211 and 228 differ from rc8; all sizes are kept.
+  - **Not done yet:** still not seen in the game (a jump ROM per spot is the next check), and the texts come later.
+  - **Files:** `alph_puslespill_v2.png`, `custom_sprites_v2.png`.
