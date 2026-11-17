@@ -1285,3 +1285,19 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - `sabertann_film_v32_mot_v33.png` (the same film frames at night).
     - Video `sabertann_film_v33_morgen_og_kveld.mp4`.
   - **Gravriel's Lugia film at midday** (`legend_test/jump_lug_ow11.nds`, `TZ=XXX-12`) plays through too: the fall, his rise, the cut, the ritual room, his wind-up and the green cry. It was already seen in the morning and at night, so all three times of day are covered for both films.
+- **The Lugia/Gravriel ritual on SoulSilver's path, and the legend set LOCKED (2026-11-17)** (Arvind: "the only thing missing is the whole Lugia/Gravriel cutscene fixed: it uses leaves and the camera was very weird ... and that it is a lock").
+  - **`legend/version_switch/`:** `hooks.s` (44 bytes at 0x01FFFE00, the top of ITCM, empty all through the ritual) and `build.py`. The three version reads in overlay 2's legendary cutscene code answer SoulSilver on map 244 only. `gGameVersion` is not touched, so the catch is "met in HeartGold" and Bell Tower stays on HeartGold's path. Details in `docs/LEGEND_CUTSCENES.md`.
+  - **Tests:**
+    - `legend_test/jump_lug_ow12.nds` (sha256 prefix `a7b9ad0d6d703c83`; hook pokes in `jump_lug_ow12.hookpokes`): the ritual plays SoulSilver's path with the game HeartGold. It matches the earlier version-8 test, and Gravriel comes down in front of the fall where Lugia does in Origin.
+    - `legend_test/jump_hooh2_v33vs.nds` (sha256 prefix `d8c650e7eb3b33c2`): Bell Tower with the patch is identical, frame for frame, to Bell Tower without it.
+    - `vs_boot_test.nds` (rc8 AI 30 fps with `--section`): boots, and the hook is in ITCM after boot.
+  - **Files:** `lugia_ritual_versjonsbryter_for_og_na.png` and `lugia_ritual_versjonsbryter.mp4` (before: Ho-Oh's camera and leaves in the cave; now: SoulSilver's path).
+  - **LOCKED: `~/sigma-origin/title3d/legend/locked_legends_v1/`** with SHA256SUMS. It holds:
+    - the version-switch hook and its builder;
+    - a/0/8/1 with both field sprites;
+    - Sabertann's Ho-Oh film v33;
+    - Gravriel's Lugia film v14;
+    - the eye glimmer a/1/7/4 v4;
+    - the ritual's STOP objects moved out (a/0/3/2);
+    - both test ROMs with their pokes.
+  - **For the game build:** add the hook with `build.py --section`. Place a/2/4/3 freely, since the film is larger than its slot. Also apply the hover patch (ov002, Bell Tower), the green outline and room weather patches from the Lugia film entry, and the 30 fps patch. The texts that still name Lugia and Ho-Oh are a later text job.

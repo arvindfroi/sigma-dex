@@ -74,3 +74,38 @@ Ho-Oh's camera angles, the camera clipping through the cave. Checked three ways:
 2. **Overworld sprites:** 7 frames 64x64 (`a/0/8/1` 211) and the 6 eye-glimmer silhouettes, rendered from the same model.
 3. **Fix the ritual:** make map 244 take the SoulSilver path (code patch), and hide the speckled block.
 4. **Texts.**
+
+## DONE 2026-11-17: the version switch for the Lugia ritual
+
+**Built as a hook, not a flip** (`scripts/origin_intro/legend/version_switch/`):
+- The three reads of `gGameVersion` in the legendary cutscene code (overlay 2: `LegendCutscene_BeginClearBellAnim` 0x02252D5C, `LegendCutscene_BirdFinalApproach` 0x0225388E, `LegendCutscene_BeginLugiaArrivesEffect` 0x02253FE2) each become one `bl` to 44 bytes of Thumb code at 0x01FFFE00, the top of ITCM.
+- The hook answers SoulSilver (8) when `FieldSystem->location->mapId` is 244 (the Lugia cave) and the real version everywhere else.
+- `gGameVersion` is never written. So the caught Pokemon is "met in HeartGold", and nothing else in the list below can see SoulSilver.
+- `build.py IN OUT --section` adds the code as an ARM9 autoload section, so it is copied into ITCM at boot (checked on rc8 AI 30 fps).
+- `build.py IN OUT` without it patches overlay 2 in place. Write the printed pokes after loading a savestate, since a savestate skips the boot's autoload.
+
+**Checked (2026-11-17):**
+- The Lugia ritual with the game still HeartGold now plays the SoulSilver path, like the old test that set the version to 8: the bell glow, water rings, the camera along the fall, and Gravriel coming down in front of the fall.
+- Bell Tower with the patch is pixel-identical to Bell Tower without it (1701 frames).
+- The round-4 scene (Lawrence) is also on map 244 and will take the SoulSilver path too; it is not reached in testing.
+
+### The plan as written 2026-11-16 (Arvind)
+
+Origin is HeartGold. The Lugia ritual's scene picks its effects and camera from the game version (`gGameVersion`, a byte in arm9): autumn leaves and HeartGold's camera instead of waves and the sea camera. Arvind's idea is to flip the version to SoulSilver just before the ritual's scene and straight back after it. That should be the last change before the game is built.
+
+**What else reads the version**, all of it in pret (pokeheartgold), checked 2026-11-16:
+
+| Place | What it does | Matters during the ritual? |
+|---|---|---|
+| `field/legend_cutscene_camera.c` | 3 reads: camera presets, the bird's final approach, waves vs leaves | **yes, this is the point** |
+| `pokemon.c` | "met in game" for Pokémon created or caught | flip back **before** `WildBattle`, so Lugia/Gravriel is "met in HeartGold" |
+| `unk_0206D494.c` | checks "met in this game" (an event check) | no |
+| `title_screen.c`, `oaks_speech.c` | title screen and intro palettes | no |
+| `mail.c`, `safari_zone.c`, `unk_02069528.c`, ov74 main menu | version stamped on mail, link data, profile, wireless | no |
+| `field/scrcmd_pokemon_misc.c` | Kurt's Apricorn box text | no |
+
+The wild encounter tables are chosen when the game is built (separate HeartGold/SoulSilver files), not at runtime, so a temporary flip does not touch them.
+
+**How:** a small code hook (or two script commands of our own) around the ritual in script 104: flip to SoulSilver before `LegendCutsceneClearBellAnimBegin`, flip back after `LegendCutsceneLugiaArrivesEffectEnd` and before `WildBattle 249`. Test it in the jump ROM: the waves, the sea camera and the waterfall should show.
+
+**Fun to test:** setting the version to SoulSilver in memory before the ritual already showed the waves and the right camera (2026-11-15).
