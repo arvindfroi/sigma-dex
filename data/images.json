@@ -6319,5 +6319,61 @@
     "file": "assets/concept-art/catbat/2057.png",
     "caption": "[ds-follower] sprite #375",
     "editor": "Ivar"
+  },
+  {
+    "id": 2062,
+    "species": "gravriel",
+    "file": "assets/concept-art/gravriel/2062.png",
+    "caption": "[ds-front] sprite #376",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2063,
+    "species": "gravriel",
+    "file": "assets/concept-art/gravriel/2063.png",
+    "caption": "[ds-back] sprite #376",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2064,
+    "species": "gravriel",
+    "file": "assets/concept-art/gravriel/2064.png",
+    "caption": "[ds-icon] sprite #376",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2065,
+    "species": "gravriel",
+    "file": "assets/concept-art/gravriel/2065.png",
+    "caption": "[ds-follower] sprite #376",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2066,
+    "species": "bergflabbser",
+    "file": "assets/concept-art/bergflabbser/2066.png",
+    "caption": "[ds-front] sprite #377",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2067,
+    "species": "bergflabbser",
+    "file": "assets/concept-art/bergflabbser/2067.png",
+    "caption": "[ds-back] sprite #377",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2068,
+    "species": "bergflabbser",
+    "file": "assets/concept-art/bergflabbser/2068.png",
+    "caption": "[ds-icon] sprite #377",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2069,
+    "species": "bergflabbser",
+    "file": "assets/concept-art/bergflabbser/2069.png",
+    "caption": "[ds-follower] sprite #377",
+    "editor": "Arvind"
   }
 ]

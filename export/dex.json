@@ -37704,7 +37704,6 @@
         "claude_fill": false,
         "filled_by_claude": [
           "body shape",
-          "look",
           "movement",
           "level-up moves",
           "TM/HM moves",
@@ -37721,7 +37720,6 @@
         ],
         "claude_sure": {
           "body shape": 80,
-          "look": 80,
           "movement": 80,
           "level-up moves": 58,
           "TM/HM moves": 63,
@@ -37738,7 +37736,7 @@
         },
         "body_shape": "a body with fins",
         "movement": "It floats in the air, swimming with its fins.",
-        "look": "It is a huge brown speckled anglerfish-like fish with a wide mouth full of white teeth, a pale belly, and big fan-shaped pectoral fins and tail fin. Its back carries a forested green mountain range with grey peaks, a row of colourful houses and a tall tower."
+        "look": "It is a huge brown speckled bream-like fish with a wide mouth full of white teeth, a pale belly, and big fan-shaped pectoral fins and tail fin. Its back carries a forested green mountain range with grey peaks, A blue lake ,a row of colourful houses and a tall tower."
       },
       "assets": {
         "concept_art": "assets/concept-art/bergflabbser/4.png",
