@@ -60,6 +60,10 @@ enough (Arvind).
   HP as Origin's loader sets it: 10 up to Lv. 40, 20 at Lv. 41-79, 31 from Lv. 80. Done for the claimable roles
   (data/characters.yaml `iv`, scripts/character_ivs.py, the story team builder and Copy to TEAMS); every other trainer
   team we make follows the same rule when the trainer data are exported.
+  **The IVs belong to the battle, not to the team** (Arvind asked how the website knows): a claimer's own team picked
+  for a battle gets that battle's IVs. In TEAMS its IV fields are locked to them (with a note), the trainer page shows
+  "IVs in the game" per battle, and the game export must take the IVs from the battle (characters.yaml `iv`), never
+  from the team.
   **The HP rule is a bug in the hack, not a design** (EN patch notes trainer_runtime_review.md and
   damage_calc_mechanics.md): the loader picks 10/20/31 from the level and writes it six times in a loop that never
   moves to the next stat, so only HP gets it. The intent was clearly all six IVs from the level (which would have

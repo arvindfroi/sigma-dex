@@ -4311,6 +4311,14 @@ function shuffledCharacters() {
 // trainer loader gives it from the level: 10 up to Lv. 40, 20 at Lv. 41-79, 31 from Lv. 80.
 const storyHpIv = level => level <= 40 ? 10 : level < 80 ? 20 : 31;
 const storyIvs = (iv, level) => Object.assign(allStats(iv), {hp: storyHpIv(level)});
+// A team picked for a battle gets that battle's IVs, whatever its owner set (Arvind, 2026-11-17: "hvordan vet nettsiden
+// hva iv skal være"): the IVs belong to the battle, not to the team. Returns the battle's IV level, or null.
+function battleIv(team) {
+  const id = team && team.shared && team.shared.id, u = id && claims ? teamUse(id) : null;
+  const b = u && (u.c.teams || [])[u.battle - 1];
+  return b && Number.isInteger(b.iv) ? b.iv : null;
+}
+let claimsAsked = false;
 function storyChain(finalId) {                       // base -> ... -> final, following evolutions backwards
   const chain = [finalId];
   for (let guard = 0; guard < 5; guard++) {
@@ -4550,7 +4558,8 @@ function renderCharacterPage(c) {
       }}, "Copy to TEAMS") : null;
       return h("tr", {}, h("td", {class: "num"}, "Battle " + (i + 1)),
         h("td", {class: "sub"}, "up to lv " + b.lv + " · " + b.size + " Pokemon" + " · " + (b.side === "with" ? "fights next to you" : b.side === "both" ? "against you, and next to you in another battle" : "against you"),
-          b.note ? h("div", {class: "sub"}, h("b", {}, "Note: "), b.note) : null),
+          b.note ? h("div", {class: "sub"}, h("b", {}, "Note: "), b.note) : null,
+          Number.isInteger(b.iv) ? h("div", {class: "sub"}, "IVs in the game: " + b.iv + " (HP from each Pokemon's level: 10 up to Lv. 40, 20 up to 79, then 31), whatever team you pick") : null),
         h("td", {}, t ? spoilerTeam(t) : gen.length ? storyTeamView(gen) : h("span", {class: "sub"}, "add lines to your story team"),
           h("details", {class: "spoiler"}, h("summary", {}, "The original team in Origin (spoiler)"), h("div", {class: "sub"}, b.original))),
         h("td", {}, pick, copy));
@@ -5230,7 +5239,7 @@ function monEditor(m, team, redraw) {
   const natureSel = h("select", {"aria-label": "Nature", onchange: change(v => { m.nature = v; }, true)},
     Object.keys(NATURES).map(n => h("option", {value: n, selected: n === m.nature ? "" : null}, natureLabel(n))));
   const levelBox = numberInput(m.level, 1, 100, 1, {"aria-label": "Level", style: "width:70px"});
-  levelBox.addEventListener("input", change(v => { m.level = Math.max(1, Math.min(100, Number(v) || 1)); }));
+  levelBox.addEventListener("input", change(v => { m.level = Math.max(1, Math.min(100, Number(v) || 1)); if (battleIv(team) !== null) m.ivs.hp = storyHpIv(m.level); }));
   const nickBox = textInput(m.nickname, {placeholder: "Nickname", "aria-label": "Nickname", maxlength: 12});
   nickBox.addEventListener("change", () => { m.nickname = nickBox.value.trim(); redraw(); });
 
@@ -5247,11 +5256,18 @@ function monEditor(m, team, redraw) {
   });
 
   // stats: base, IV, EV, the result
+  if (!claims && !claimsAsked) { claimsAsked = true; loadClaims().catch(() => { claims = new Map(); }).then(() => view === "teams" && renderTeams()); }
+  const lockIv = battleIv(team);
+  if (lockIv !== null) {
+    const want = storyIvs(lockIv, m.level);
+    if (STATS.some(([k]) => m.ivs[k] !== want[k])) { m.ivs = want; saveTeams(); }
+  }
   const evLeft = h("span", {class: "sub"});
   const statCells = {};
   const rows = STATS.map(([k, label]) => {
     const base = (d.base_stats || {})[k];
     const iv = numberInput(m.ivs[k], 0, 31, 1, {"aria-label": label + " IV", style: "width:56px"});
+    if (lockIv !== null) { iv.disabled = true; iv.title = "Set by the battle this team is used for"; }
     const evNum = numberInput(m.evs[k], 0, 252, 4, {"aria-label": label + " EVs", style: "width:72px"});
     const ev = h("input", {type: "range", min: 0, max: 252, step: 4, value: m.evs[k], "aria-label": label + " EVs slider"});
     const setEv = v => {
@@ -5291,7 +5307,8 @@ function monEditor(m, team, redraw) {
       field("Ability", abilitySel), m.ability ? h("div", {class: "sub"}, abilityDesc(m.ability)) : null,
       h("div", {class: "flabel"}, "Moves"), moveBoxes,
       s && !canLearn.length ? h("div", {class: "sub"}, d.name + " has no moves in its learnset yet.") : null),
-    h("div", {class: "tright"}, field("Nature", natureSel), statsTable, evLeft));
+    h("div", {class: "tright"}, field("Nature", natureSel), statsTable, evLeft,
+      lockIv !== null ? h("div", {class: "sub"}, "IVs are set by the game: this team is used for a battle in the story, so it gets that battle's IVs (" + lockIv + ", HP from the level), as in the original game.") : null));
 }
 
 // The team as a whole: what hits it hard, and what its attacking moves hit hard.
