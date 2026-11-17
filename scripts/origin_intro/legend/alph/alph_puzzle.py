@@ -78,9 +78,9 @@ if os.environ.get('RELIEF') == '1':                             # the source is 
             sm = ndimage.gaussian_filter(hi, 1.2 * size / 512); hp = sm - ndimage.gaussian_filter(sm, float(os.environ['LOCAL']) * size / 512)
             g_ = hp < -float(os.environ.get('LT', 16))
             lb, nn = ndimage.label(g_); sz = ndimage.sum(g_, lb, range(1, nn + 1))
-            keep = [k + 1 for k, v in enumerate(sz) if v >= 40 * (size / 512) ** 2]                   # stone grain goes
-            edge_ids = set(np.unique(np.concatenate([lb[:3].ravel(), lb[-3:].ravel(), lb[:, :3].ravel(), lb[:, -3:].ravel()])))
-            return np.isin(lb, [k for k in keep if k not in edge_ids])                               # and the tablet's own edge
+            keep = np.isin(lb, [k + 1 for k, v in enumerate(sz) if v >= 40 * (size / 512) ** 2])   # stone grain goes
+            bw = max(2, int(0.012 * size)); keep[:bw] = keep[-bw:] = False; keep[:, :bw] = keep[:, -bw:] = False   # and the tablet's own edge
+            return keep
         g0 = grooves(src_im, 512); ys_, xs_ = np.nonzero(g0)                     # the figure's box on the tablet
         mg = 0.03 * 512; by0, by1, bx0, bx1 = max(0, ys_.min() - mg), min(512, ys_.max() + mg), max(0, xs_.min() - mg), min(512, xs_.max() + mg)
         side = max(by1 - by0, bx1 - bx0); cy, cx = (by0 + by1) / 2, (bx0 + bx1) / 2
@@ -93,6 +93,7 @@ if os.environ.get('RELIEF') == '1':                             # the source is 
         if os.environ.get('FILLED') == '1':                      # Ho-Oh's style: the figure dark, its lines left as raised gaps
             body = ndimage.binary_fill_holes(ndimage.binary_closing(lines, iterations=int(os.environ.get('CLOSE', 2))))
             body = ndimage.binary_opening(body, iterations=1)
+            if E('THICK_GAPS', 0): lines = ndimage.binary_dilation(lines, iterations=int(E('THICK_GAPS', 0)))   # the originals' gaps are ~2 px
             if os.environ.get('INVERT') == '1':                  # the originals' look: a light margin, the field inside it cut away,
                 body |= ndimage.binary_dilation(lines, iterations=1)   # the figure raised with its lines cut; thin parts stay as ridges
                 yy_, xx_ = np.mgrid[0:128, 0:128]; dist = np.minimum.reduce([yy_, xx_, 127 - yy_, 127 - xx_])
