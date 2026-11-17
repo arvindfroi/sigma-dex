@@ -6046,5 +6046,33 @@
     "file": "assets/concept-art/subwaysurfer/1992.png",
     "caption": "[ds-icon] sprite #360",
     "editor": "Ivar"
+  },
+  {
+    "id": 1996,
+    "species": "dreadipede",
+    "file": "assets/concept-art/dreadipede/1996.png",
+    "caption": "[ds-front] sprite #361",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1997,
+    "species": "dreadipede",
+    "file": "assets/concept-art/dreadipede/1997.png",
+    "caption": "[ds-back] sprite #361",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1998,
+    "species": "dreadipede",
+    "file": "assets/concept-art/dreadipede/1998.png",
+    "caption": "[ds-icon] sprite #361",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1999,
+    "species": "dreadipede",
+    "file": "assets/concept-art/dreadipede/1999.png",
+    "caption": "[ds-follower] sprite #361",
+    "editor": "Ivar"
   }
 ]
