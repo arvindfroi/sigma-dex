@@ -5292,7 +5292,7 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_BEAST_BOOST, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_GRAY,
-        .speciesName = _("SOLIDEDGE"),
+        .speciesName = _("Solidedge"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_SOLIDEDGE,
         .categoryName = _("Unknown"),
@@ -5316,8 +5316,8 @@
         .shinyPalette = gMonShinyPalette_CircledQuestionMark,
         .iconSprite = gMonIcon_QuestionMark,
         .iconPalIndex = 0,
-        .levelUpLearnset = sSOLIDEDGELevelUpLearnset,
-        .teachableLearnset = sSOLIDEDGETeachableLearnset,
+        .levelUpLearnset = sSolidedgeLevelUpLearnset,
+        .teachableLearnset = sSolidedgeTeachableLearnset,
         FOOTPRINT(QuestionMark)
     },
 

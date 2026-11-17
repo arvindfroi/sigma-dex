@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 604188552,
+ "layers": [
+  {
+   "dex": 460,
+   "semi": 2.24,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 409,
+   "semi": -1.04,
+   "gain": 0.41,
+   "at": 0.09,
+   "rev": false
+  }
+ ],
+ "stretch": 1.13,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Abomasnow's cry: its footprint is Abomasnow's, same body plan, also Ice",
+  "Higher by 2 steps, it is smaller than Abomasnow",
+  "Mixed with a quieter Rampardos (same body plan)",
+  "Its Ice side gives drawn out"
+ ],
+ "by": "Ivar",
+ "at": "2026-11-16T22:09:07.113Z"
+}

@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": 5.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 0.75,
+ "sweep": 0.0,
+ "tone": -0.2,
+ "drive": 0.45,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.0,
+  "depth": 0.15
+ },
+ "ring": {
+  "hz": 70.0,
+  "mix": 0.28
+ },
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.06
+ },
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: pitch 4, length 0.95, wobble 0.15, echo 0.06, rough 0.45, buzz 0.38",
+  "Changed by hand: pitch 2, brightness -0.2, buzz 0.28",
+  "Changed by hand: pitch -1"
+ ],
+ "by": "",
+ "at": "2026-11-16T22:11:10.416Z",
+ "audio": "assets/cries/cloudgnome.wav"
+}

@@ -1,0 +1,28 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": 1.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 1.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: pitch 1, glide 1"
+ ],
+ "by": "",
+ "at": "2026-11-16T21:28:13.764Z",
+ "audio": "assets/cries/oraclet.wav"
+}

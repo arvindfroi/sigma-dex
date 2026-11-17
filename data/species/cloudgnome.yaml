@@ -126,8 +126,8 @@ assets:
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:143"  # footprint.png  16x16, black and white
-  shiny_palette:         # shiny.pal      the 16 colors of the shiny version
-  cry:                   # sound file
+  shiny_palette: "assets/shiny/cloudgnome.json"
+  cry: "assets/cries/cloudgnome.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/ENGINE.md) ---
 engine:

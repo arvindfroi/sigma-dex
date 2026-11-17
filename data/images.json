@@ -4536,13 +4536,6 @@
     "editor": null
   },
   {
-    "id": 1446,
-    "species": "furamire",
-    "file": "assets/concept-art/furamire/1446.png",
-    "caption": "[ds-front] sprite #235",
-    "editor": null
-  },
-  {
     "id": 1450,
     "species": "voraxia",
     "file": "assets/concept-art/voraxia/1450.webp",
@@ -5432,13 +5425,6 @@
     "editor": "Emil"
   },
   {
-    "id": 1773,
-    "species": "solidedge",
-    "file": "assets/concept-art/solidedge/1773.png",
-    "caption": "[ds-follower] sprite #309",
-    "editor": "Emil"
-  },
-  {
     "id": 1783,
     "species": "gaiafinn",
     "file": "assets/concept-art/gaiafinn/1783.png",
@@ -5731,5 +5717,306 @@
     "file": "assets/concept-art/santrock/1882.png",
     "caption": "[ds-front] sprite #334",
     "editor": "Emil"
+  },
+  {
+    "id": 1890,
+    "species": "toxiren",
+    "file": "assets/concept-art/toxiren/1890.webp",
+    "caption": null,
+    "editor": "Emil"
+  },
+  {
+    "id": 1891,
+    "species": "voraxia",
+    "file": "assets/concept-art/voraxia/1891.png",
+    "caption": "[ds-front] sprite #335",
+    "editor": null
+  },
+  {
+    "id": 1892,
+    "species": "voraxia",
+    "file": "assets/concept-art/voraxia/1892.png",
+    "caption": "[ds-back] sprite #335",
+    "editor": null
+  },
+  {
+    "id": 1893,
+    "species": "voraxia",
+    "file": "assets/concept-art/voraxia/1893.png",
+    "caption": "[ds-icon] sprite #335",
+    "editor": null
+  },
+  {
+    "id": 1894,
+    "species": "voraxia",
+    "file": "assets/concept-art/voraxia/1894.png",
+    "caption": "[ds-follower] sprite #335",
+    "editor": null
+  },
+  {
+    "id": 1896,
+    "species": "cloudgnome",
+    "file": "assets/concept-art/cloudgnome/1896.png",
+    "caption": "[ds-back] sprite #341",
+    "editor": null
+  },
+  {
+    "id": 1897,
+    "species": "cloudgnome",
+    "file": "assets/concept-art/cloudgnome/1897.png",
+    "caption": "[ds-icon] sprite #341",
+    "editor": null
+  },
+  {
+    "id": 1898,
+    "species": "cloudgnome",
+    "file": "assets/concept-art/cloudgnome/1898.png",
+    "caption": "[ds-follower] sprite #341",
+    "editor": null
+  },
+  {
+    "id": 1901,
+    "species": "cloudjester",
+    "file": "assets/concept-art/cloudjester/1901.png",
+    "caption": "[ds-icon] sprite #342",
+    "editor": null
+  },
+  {
+    "id": 1902,
+    "species": "cloudjester",
+    "file": "assets/concept-art/cloudjester/1902.png",
+    "caption": "[ds-follower] sprite #342",
+    "editor": null
+  },
+  {
+    "id": 1903,
+    "species": "furamire",
+    "file": "assets/concept-art/furamire/1903.png",
+    "caption": "[ds-front] sprite #340",
+    "editor": null
+  },
+  {
+    "id": 1915,
+    "species": "cloudgnome",
+    "file": "assets/concept-art/cloudgnome/1915.png",
+    "caption": "[ds-front] sprite #341",
+    "editor": null
+  },
+  {
+    "id": 1919,
+    "species": "cloudjester",
+    "file": "assets/concept-art/cloudjester/1919.png",
+    "caption": "[ds-front] sprite #342",
+    "editor": null
+  },
+  {
+    "id": 1920,
+    "species": "cloudjester",
+    "file": "assets/concept-art/cloudjester/1920.png",
+    "caption": "[ds-back] sprite #342",
+    "editor": null
+  },
+  {
+    "id": 1924,
+    "species": "jawbreaker",
+    "file": "assets/concept-art/jawbreaker/1924.png",
+    "caption": "[ds-back] sprite #351",
+    "editor": "Emil"
+  },
+  {
+    "id": 1925,
+    "species": "jawbreaker",
+    "file": "assets/concept-art/jawbreaker/1925.png",
+    "caption": "[ds-icon] sprite #351",
+    "editor": "Emil"
+  },
+  {
+    "id": 1926,
+    "species": "jawbreaker",
+    "file": "assets/concept-art/jawbreaker/1926.png",
+    "caption": "[ds-follower] sprite #351",
+    "editor": "Emil"
+  },
+  {
+    "id": 1927,
+    "species": "everdark",
+    "file": "assets/concept-art/everdark/1927.png",
+    "caption": "[ds-front] sprite #344",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1928,
+    "species": "everdark",
+    "file": "assets/concept-art/everdark/1928.png",
+    "caption": "[ds-back] sprite #344",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1929,
+    "species": "everdark",
+    "file": "assets/concept-art/everdark/1929.png",
+    "caption": "[ds-icon] sprite #344",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1930,
+    "species": "everdark",
+    "file": "assets/concept-art/everdark/1930.png",
+    "caption": "[ds-follower] sprite #344",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1934,
+    "species": "solidedge",
+    "file": "assets/concept-art/solidedge/1934.png",
+    "caption": "[ds-follower] sprite #345",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1935,
+    "species": "giga-circuit",
+    "file": "assets/concept-art/giga-circuit/1935.png",
+    "caption": "[ds-front] sprite #347",
+    "editor": "Emil"
+  },
+  {
+    "id": 1936,
+    "species": "giga-circuit",
+    "file": "assets/concept-art/giga-circuit/1936.png",
+    "caption": "[ds-back] sprite #347",
+    "editor": "Emil"
+  },
+  {
+    "id": 1937,
+    "species": "giga-circuit",
+    "file": "assets/concept-art/giga-circuit/1937.png",
+    "caption": "[ds-icon] sprite #347",
+    "editor": "Emil"
+  },
+  {
+    "id": 1938,
+    "species": "giga-circuit",
+    "file": "assets/concept-art/giga-circuit/1938.png",
+    "caption": "[ds-follower] sprite #347",
+    "editor": "Emil"
+  },
+  {
+    "id": 1943,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/1943.png",
+    "caption": "[ds-front] sprite #348",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1944,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/1944.png",
+    "caption": "[ds-back] sprite #348",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1945,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/1945.png",
+    "caption": "[ds-icon] sprite #348",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1946,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/1946.png",
+    "caption": "[ds-follower] sprite #348",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1948,
+    "species": "dreadfang",
+    "file": "assets/concept-art/dreadfang/1948.png",
+    "caption": "[ds-back] sprite #356",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1949,
+    "species": "dreadfang",
+    "file": "assets/concept-art/dreadfang/1949.png",
+    "caption": "[ds-icon] sprite #356",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1950,
+    "species": "dreadfang",
+    "file": "assets/concept-art/dreadfang/1950.png",
+    "caption": "[ds-follower] sprite #356",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1951,
+    "species": "jawie",
+    "file": "assets/concept-art/jawie/1951.png",
+    "caption": "[ds-front] sprite #352",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1952,
+    "species": "jawie",
+    "file": "assets/concept-art/jawie/1952.png",
+    "caption": "[ds-back] sprite #352",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1953,
+    "species": "jawie",
+    "file": "assets/concept-art/jawie/1953.png",
+    "caption": "[ds-icon] sprite #352",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1954,
+    "species": "jawbreaker",
+    "file": "assets/concept-art/jawbreaker/1954.png",
+    "caption": "[ds-front] sprite #351",
+    "editor": "Emil"
+  },
+  {
+    "id": 1961,
+    "species": "jawie",
+    "file": "assets/concept-art/jawie/1961.png",
+    "caption": "[ds-follower] sprite #352",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1963,
+    "species": "subwaysurfer",
+    "file": "assets/concept-art/subwaysurfer/1963.png",
+    "caption": "[ds-back] sprite #355",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1964,
+    "species": "subwaysurfer",
+    "file": "assets/concept-art/subwaysurfer/1964.png",
+    "caption": "[ds-icon] sprite #355",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1965,
+    "species": "subwaysurfer",
+    "file": "assets/concept-art/subwaysurfer/1965.png",
+    "caption": "[ds-follower] sprite #355",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1970,
+    "species": "subwaysurfer",
+    "file": "assets/concept-art/subwaysurfer/1970.png",
+    "caption": "[ds-front] sprite #355",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1974,
+    "species": "dreadfang",
+    "file": "assets/concept-art/dreadfang/1974.png",
+    "caption": "[ds-front] sprite #356",
+    "editor": "Ivar"
   }
 ]

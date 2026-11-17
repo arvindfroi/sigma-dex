@@ -1,0 +1,43 @@
+{
+ "v": 1,
+ "seed": 935886083,
+ "layers": [
+  {
+   "dex": 171,
+   "semi": 2.69,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 224,
+   "semi": -1.86,
+   "gain": 0.44,
+   "at": 0.08,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 2.5,
+ "tone": 1.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": {
+  "hz": 71.41,
+  "mix": 0.1
+ },
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.04
+ },
+ "reasons": [
+  "Starts from Lanturn's cry: both types",
+  "Higher by 2 steps, it is smaller than Lanturn",
+  "Mixed with a quieter Octillery (also Water, same egg group)",
+  "Its Water/Electric side gives a metallic buzz, a brighter sound",
+  "Changed by hand: pitch 1, glide 2.5, brightness 1, echo 0.04, buzz 0.1"
+ ],
+ "by": "",
+ "at": "2026-11-16T21:12:35.314Z"
+}

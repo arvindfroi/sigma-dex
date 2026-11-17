@@ -1,0 +1,44 @@
+{
+ "v": 1,
+ "seed": 854886815,
+ "layers": [
+  {
+   "dex": 171,
+   "semi": 7.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 224,
+   "semi": 3.12,
+   "gain": 0.44,
+   "at": 0.08,
+   "rev": false
+  }
+ ],
+ "stretch": 0.93,
+ "sweep": 2.5,
+ "tone": 1.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.37,
+  "depth": 0.36
+ },
+ "ring": {
+  "hz": 71.41,
+  "mix": 0.1
+ },
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.04
+ },
+ "reasons": [
+  "Keeps the sound of Ampeel's cry, 3 steps higher, because it is one stage earlier",
+  "Adds a wobble",
+  "Changed by hand: pitch 2"
+ ],
+ "by": "",
+ "at": "2026-11-16T21:29:38.771Z"
+}

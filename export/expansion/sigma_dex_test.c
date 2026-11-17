@@ -2973,7 +2973,7 @@ SINGLE_BATTLE_TEST("Sigma dex: Bergflabb can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: SOLIDEDGE has the data from its species file")
+TEST("Sigma dex: Solidedge has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SOLIDEDGE];
     EXPECT_EQ(info->baseHP, 79);
@@ -2989,7 +2989,7 @@ TEST("Sigma dex: SOLIDEDGE has the data from its species file")
     EXPECT_EQ(GetSpeciesName(SPECIES_SOLIDEDGE)[0], CHAR_S);
 }
 
-SINGLE_BATTLE_TEST("Sigma dex: SOLIDEDGE can use its first move in battle")
+SINGLE_BATTLE_TEST("Sigma dex: Solidedge can use its first move in battle")
 {
     GIVEN {
         PLAYER(SPECIES_SOLIDEDGE) { Moves(MOVE_CONFUSION); }

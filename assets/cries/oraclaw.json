@@ -1,0 +1,35 @@
+{
+ "v": 1,
+ "seed": 475893198,
+ "layers": [
+  {
+   "dex": 398,
+   "semi": -6.1,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 0.85,
+ "sweep": -1.0,
+ "tone": -0.25,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.0,
+  "depth": 0.1
+ },
+ "ring": null,
+ "echo": {
+  "ms": 108.0,
+  "gain": 0.23
+ },
+ "reasons": [
+  "Starts from Staraptor's cry: its footprint comes from Staraptor's line, same body plan, also Flying",
+  "Lower by 2 steps, it is taller than Staraptor",
+  "Its Psychic/Flying side gives an echo, a brighter sound",
+  "Changed by hand: pitch -4, length 0.85, glide -1, brightness -0.25, wobble 0.1"
+ ],
+ "by": "",
+ "at": "2026-11-16T21:23:16.162Z"
+}

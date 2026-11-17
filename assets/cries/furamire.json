@@ -1,0 +1,35 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": 1.5,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 1.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.0,
+  "depth": 0.35
+ },
+ "ring": null,
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.1
+ },
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: pitch 1.5",
+  "Changed by hand: glide 1, wobble 0.35, echo 0.1"
+ ],
+ "by": "Johannes",
+ "at": "2026-11-16T22:12:54.524Z",
+ "audio": "assets/cries/furamire.wav"
+}

@@ -5210,7 +5210,7 @@ static const u16 sBergflabbTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sSOLIDEDGETeachableLearnset[] = {
+static const u16 sSolidedgeTeachableLearnset[] = {
     MOVE_CALM_MIND,
     MOVE_TOXIC,
     MOVE_HIDDEN_POWER,

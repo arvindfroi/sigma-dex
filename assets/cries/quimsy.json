@@ -1,0 +1,38 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": 7.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.1,
+ "sweep": 6.0,
+ "tone": 1.0,
+ "drive": 0.15,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.0,
+  "depth": 0.4
+ },
+ "ring": {
+  "hz": 70.0,
+  "mix": 0.14
+ },
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.32
+ },
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: pitch 5.5, length 1.1, glide 2, brightness -0.05, wobble 0.4, echo 0.08, rough 0.15, buzz 0.14",
+  "Changed by hand: pitch 3, glide 6, brightness 1, echo 0.32"
+ ],
+ "by": "",
+ "at": "2026-11-16T22:05:10.685Z",
+ "audio": "assets/cries/quimsy.wav"
+}

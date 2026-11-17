@@ -5085,8 +5085,8 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:143",
-        "shiny_palette": null,
-        "cry": null
+        "shiny_palette": "assets/shiny/cloudgnome.json",
+        "cry": "assets/cries/cloudgnome.json"
       },
       "engine": {
         "no_flip": false,
@@ -12117,8 +12117,8 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:265",
-        "shiny_palette": null,
-        "cry": null
+        "shiny_palette": "assets/shiny/zapana.json",
+        "cry": "assets/cries/zapana.json"
       },
       "engine": {
         "no_flip": false,
@@ -12401,8 +12401,8 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:290",
-        "shiny_palette": null,
-        "cry": null
+        "shiny_palette": "assets/shiny/ampeel.json",
+        "cry": "assets/cries/ampeel.json"
       },
       "engine": {
         "no_flip": false,
@@ -13391,8 +13391,8 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:285",
-        "shiny_palette": null,
-        "cry": null
+        "shiny_palette": "assets/shiny/fleuroom.json",
+        "cry": "assets/cries/fleuroom.json"
       },
       "engine": {
         "no_flip": false,
@@ -13640,7 +13640,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:286",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/fleuroom-utvikling.json",
         "cry": null
       },
       "engine": {
@@ -13721,7 +13721,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/voraxia.json",
         "cry": null
       },
       "engine": {
@@ -18113,8 +18113,8 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:460",
-        "shiny_palette": null,
-        "cry": null
+        "shiny_palette": "assets/shiny/cryoblade.json",
+        "cry": "assets/cries/cryoblade.json"
       },
       "engine": {
         "no_flip": false,
@@ -20131,8 +20131,8 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:77",
-        "shiny_palette": null,
-        "cry": null
+        "shiny_palette": "assets/shiny/furamire.json",
+        "cry": "assets/cries/furamire.json"
       },
       "engine": {
         "no_flip": false,
@@ -23672,8 +23672,8 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:63",
-        "shiny_palette": null,
-        "cry": null
+        "shiny_palette": "assets/shiny/quimsy.json",
+        "cry": "assets/cries/quimsy.json"
       },
       "engine": {
         "no_flip": false,
@@ -27822,8 +27822,8 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:353",
-        "shiny_palette": null,
-        "cry": null
+        "shiny_palette": "assets/shiny/phantomb.json",
+        "cry": "assets/cries/phantomb.json"
       },
       "engine": {
         "no_flip": false,
@@ -28077,7 +28077,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:354",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/sjef.json",
         "cry": "assets/cries/sjef.json"
       },
       "engine": {
@@ -28321,8 +28321,8 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:396",
-        "shiny_palette": null,
-        "cry": null
+        "shiny_palette": "assets/shiny/oraclet.json",
+        "cry": "assets/cries/oraclet.json"
       },
       "engine": {
         "no_flip": false,
@@ -28610,8 +28610,8 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:397",
-        "shiny_palette": null,
-        "cry": null
+        "shiny_palette": "assets/shiny/oraclaw.json",
+        "cry": "assets/cries/oraclaw.json"
       },
       "engine": {
         "no_flip": false,
@@ -30302,7 +30302,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:64",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/shadeem.json",
         "cry": null
       },
       "engine": {
@@ -30558,7 +30558,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:65",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/shadrove.json",
         "cry": null
       },
       "engine": {
@@ -31423,7 +31423,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:409",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/jawbreaker.json",
         "cry": null
       },
       "engine": {
@@ -31917,7 +31917,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:452",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/dreadfang.json",
         "cry": null
       },
       "engine": {
@@ -32151,7 +32151,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:37",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/surfer.json",
         "cry": null
       },
       "engine": {
@@ -32420,7 +32420,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:38",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/subwaysurfer.json",
         "cry": null
       },
       "engine": {
@@ -32696,7 +32696,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:448",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/zyzzfu.json",
         "cry": "assets/cries/zyzzfu.json"
       },
       "engine": {
@@ -32946,8 +32946,8 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:302",
-        "shiny_palette": null,
-        "cry": null
+        "shiny_palette": "assets/shiny/grincho.json",
+        "cry": "assets/cries/grincho.json"
       },
       "engine": {
         "no_flip": false,
@@ -33664,8 +33664,8 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:461",
-        "shiny_palette": null,
-        "cry": null
+        "shiny_palette": "assets/shiny/everdark.json",
+        "cry": "assets/cries/everdark.json"
       },
       "engine": {
         "no_flip": false,
@@ -34414,7 +34414,7 @@
         "icon": null,
         "footprint": "hgss:425",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/riftbloom.json"
       },
       "engine": {
         "no_flip": false,
@@ -35571,7 +35571,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:123",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/cloudjester.json",
         "cry": null
       },
       "engine": {
@@ -38572,7 +38572,7 @@
     },
     {
       "dex": 154,
-      "name": "SOLIDEDGE",
+      "name": "Solidedge",
       "credits": {
         "designer": "Ivar",
         "artist": null

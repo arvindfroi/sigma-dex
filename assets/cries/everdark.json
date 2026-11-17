@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 401922742,
+ "layers": [
+  {
+   "dex": 215,
+   "semi": -5.31,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 64,
+   "semi": -6.38,
+   "gain": 0.53,
+   "at": 0.12,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -0.33,
+ "drive": 0.26,
+ "len": 1.6,
+ "vib": {
+  "rate": 7.24,
+  "depth": 0.5
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Sneasel's cry: its footprint comes from Sneasel's line, same body plan, also Dark",
+  "Lower by 5 steps, it is taller than Sneasel",
+  "Mixed with a quieter Kadabra (same body plan, also Psychic)",
+  "Its Dark/Psychic side gives a darker sound, a rough edge, a wobble in the voice"
+ ],
+ "by": "Ivar",
+ "at": "2026-11-16T22:07:55.103Z"
+}
