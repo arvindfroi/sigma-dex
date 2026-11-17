@@ -4525,9 +4525,23 @@ function renderCharacterPage(c) {
       const tid = (cl.slots || {})[i], t = (lib.teams || []).find(x => x.id === tid), gen = storyTeam(c, story, i);
       const pick = h("select", {"aria-label": "Team for battle " + (i + 1), onchange: ev => { const slots = Object.assign({}, cl.slots || {}); if (ev.target.value) slots[i] = ev.target.value; else delete slots[i]; saveClaim(cl.by, slots, cl.story); }},
         h("option", {value: ""}, "Auto: made from your story team"), myTeams.map(x => h("option", {value: x.id, selected: x.id === tid ? "" : null}, x.name)));
-      const copy = gen.length && !t ? h("button", {type: "button", title: "Put this team in TEAMS to change it, then share it and pick it here", onclick: () => {
-        tb.teams.push({name: (charName(c) + " battle " + (i + 1)).slice(0, 40), mons: gen.map(m => Object.assign(blankMon(), {species: m.species, level: m.level, ability: m.ability, moves: m.moves.concat(["", "", "", ""]).slice(0, 4)}))});
-        saveTeams(); status.textContent = "Copied to TEAMS as “" + tb.teams[tb.teams.length - 1].name + "”."; }}, "Copy to TEAMS") : null;
+      // Copy to TEAMS shares the copy with the group and picks it for this battle at once, so what is changed in TEAMS
+      // is saved to this battle by itself (Arvind, 2026-11-17: before, the copy was loose and the changes never came back).
+      const copy = gen.length && !t ? h("button", {type: "button", title: "Put this team in TEAMS to change it; your changes are saved to this battle", onclick: async ev => {
+        const btn = ev.currentTarget, name = (charName(c) + " battle " + (i + 1)).slice(0, 40);
+        const team = {name, mons: gen.map(m => Object.assign(blankMon(), {species: m.species, level: m.level, ability: m.ability, moves: m.moves.concat(["", "", "", ""]).slice(0, 4)})),
+          shared: {id: newTeamId(name), by: person(me()), battle: name}};
+        btn.disabled = true; status.textContent = "Copying...";
+        try {
+          if (lib.teams === null) await loadLibrary();
+          await pushShared(team);
+          tb.teams.push(team); tb.cur = tb.teams.length - 1; tb.slot = 0; tb.panel = ""; saveTeams();
+          const slots = Object.assign({}, cl.slots || {}); slots[i] = team.shared.id;
+          await saveClaim(cl.by, slots, cl.story);
+          setSyncNote("Copied from " + name + ".");
+          view = "teams"; charOpen = ""; history.replaceState(null, "", location.pathname + location.search); render(); window.scrollTo(0, 0);
+        } catch (err) { status.textContent = err.message; btn.disabled = false; }
+      }}, "Copy to TEAMS") : null;
       return h("tr", {}, h("td", {class: "num"}, "Battle " + (i + 1)),
         h("td", {class: "sub"}, "up to lv " + b.lv + " · " + b.size + " Pokemon" + " · " + (b.side === "with" ? "fights next to you" : b.side === "both" ? "against you, and next to you in another battle" : "against you"),
           b.note ? h("div", {class: "sub"}, h("b", {}, "Note: "), b.note) : null),
@@ -4540,7 +4554,7 @@ function renderCharacterPage(c) {
       h("div", {class: "sub"}, "Pick up to 6 evolution lines by their last evolution and rank them (drag them, or use the arrows). No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage and with sensible moves for the level."),
       slots, story.lines.length < 6 ? storyLinePicker(story, saveStory) : null,
       h("h3", {}, "Every battle"),
-      h("div", {class: "sub"}, "Auto: the website makes each battle's team from your story team (how many Pokemon, levels, stages and moves). To use your own team in a battle instead, pick one of your shared teams in its menu. The others only see your teams behind spoiler buttons."),
+      h("div", {class: "sub"}, "Auto: the website makes each battle's team from your story team (how many Pokemon, levels, stages and moves). To change a battle's team, press Copy to TEAMS: the team opens in TEAMS and is used for that battle, and what you change there is saved here by itself. You can also pick one of your shared teams in the menu. The others only see your teams behind spoiler buttons."),
       battles);
   }
   grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, h("div", {class: "charcols"}, left, main)));
@@ -4925,7 +4939,47 @@ const fromShareCode = code => JSON.parse(decodeURIComponent(escape(atob(code.rep
 
 function loadTeams() { try { const t = JSON.parse(remember.get("teams") || "[]"); return Array.isArray(t) ? t : []; } catch (e) { return []; } }
 const tb = {teams: loadTeams(), cur: Number(remember.get("team-cur")) || 0, slot: 0, panel: ""};
-function saveTeams() { remember.set("teams", JSON.stringify(tb.teams)); remember.set("team-cur", String(tb.cur)); }
+function saveTeams() {
+  remember.set("teams", JSON.stringify(tb.teams)); remember.set("team-cur", String(tb.cur));
+  const t = tb.teams[tb.cur];
+  if (t && t.shared && DEX.web.url) { teamSync.dirty.add(t); syncShared(false); }
+}
+// A team linked to the group's teams (shared from here, or copied from a trainer's battle) saves its changes there by
+// itself, so the trainer's battle shows them (Arvind, 2026-11-17: "the changes are not saved"). A save waits until the
+// editing pauses (4 s) and comes at most once every 30 s per team, as the database takes 300 edits an hour in all.
+const teamSync = {timer: null, last: new Map(), sent: new Map(), dirty: new Set(), note: ""};
+const newTeamId = name => "team-" + (String(name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 20) || "team") + "-" + Date.now().toString(36);
+function sharedTeamData(team) {
+  const filled = team.mons.filter(m => m.species);
+  const old = (lib.teams || []).find(x => x.id === team.shared.id);
+  return {name: team.name.slice(0, 60), by: (old && old.by) || team.shared.by || person(me()), text: filled.map(exportMon).join("\n\n"), team: {name: team.name, mons: filled}};
+}
+async function pushShared(team) {
+  const id = team.shared.id, data = sharedTeamData(team), key = JSON.stringify([data.name, data.text]);
+  const old = (lib.teams || []).find(x => x.id === id);
+  if (teamSync.sent.get(id) === key || (old && JSON.stringify([old.name, old.text]) === key)) return false;   // nothing new
+  await saveEdit("team", id, data);
+  teamSync.sent.set(id, key); teamSync.last.set(id, Date.now());
+  if (lib.teams) { const row = Object.assign({id}, data, {when: new Date().toISOString()}), i = lib.teams.findIndex(x => x.id === id);
+    if (i >= 0) lib.teams[i] = Object.assign({}, lib.teams[i], row); else lib.teams.unshift(row); }
+  return true;
+}
+function setSyncNote(text) { teamSync.note = text; const el = document.getElementById("teamsync"); if (el) el.textContent = text; }
+function syncShared(now) {
+  clearTimeout(teamSync.timer);
+  const due = [...teamSync.dirty].filter(t => tb.teams.includes(t) && t.shared);
+  if (!due.length) return;
+  const wait = now ? 0 : Math.max(4000, ...due.map(t => (teamSync.last.get(t.shared.id) || 0) + 30000 - Date.now()));
+  if (!now) setSyncNote("Changes are saved for the group in a moment...");
+  teamSync.timer = setTimeout(async () => {
+    for (const t of due) {
+      teamSync.dirty.delete(t);
+      try { if (await pushShared(t)) setSyncNote("Saved for the group " + new Date().toTimeString().slice(0, 5) + "."); else setSyncNote("Saved for the group."); }
+      catch (err) { teamSync.dirty.add(t); setSyncNote("Not saved for the group yet: " + err.message); }
+    }
+  }, wait);
+}
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") syncShared(true); });
 function currentTeam() {
   if (!tb.teams.length) tb.teams.push({name: "Team 1", mons: []});
   tb.cur = Math.max(0, Math.min(tb.cur, tb.teams.length - 1));
@@ -5006,7 +5060,7 @@ function renderTeams() {
   const panelBtn = (id, label) => h("button", {type: "button", "aria-pressed": String(tb.panel === id), onclick: () => { tb.panel = tb.panel === id ? "" : id; renderTeams(); }}, label);
   const bar = h("div", {class: "tbar"}, teamSelect, nameBox,
     h("button", {type: "button", onclick: () => { tb.teams.push({name: "Team " + (tb.teams.length + 1), mons: []}); tb.cur = tb.teams.length - 1; tb.slot = 0; redraw(); }}, "+ New team"),
-    h("button", {type: "button", onclick: () => { tb.teams.push(JSON.parse(JSON.stringify(Object.assign({}, team, {name: team.name + " copy"})))); tb.cur = tb.teams.length - 1; redraw(); }}, "Copy"),
+    h("button", {type: "button", onclick: () => { const copy = JSON.parse(JSON.stringify(Object.assign({}, team, {name: team.name + " copy"}))); delete copy.shared; tb.teams.push(copy); tb.cur = tb.teams.length - 1; redraw(); }}, "Copy"),
     del, h("span", {class: "grow"}), panelBtn("import", "Import"), panelBtn("export", "Export"), panelBtn("share", "Share link"), panelBtn("library", "\u2605 Group's teams"));
 
   let panel = null;
@@ -5050,7 +5104,10 @@ function renderTeams() {
 
   const m = team.mons[tb.slot];
   const editor = m ? monEditor(m, team, redraw) : h("div", {class: "empty"}, "Press + Add to put a Pokemon in the team.");
-  grid.replaceChildren(h("div", {class: "teams", style: "grid-column:1/-1"}, bar, panel, tabs, editor, teamReport(team)));
+  const link = team.shared && DEX.web.url ? h("div", {class: "hint", style: "margin:4px 0"},
+    "★ Shared with the group" + (team.shared.battle ? " and used for " + team.shared.battle : "") + ": your changes are saved there by themselves. ",
+    h("span", {id: "teamsync", class: "sub"}, teamSync.note)) : null;
+  grid.replaceChildren(h("div", {class: "teams", style: "grid-column:1/-1"}, bar, panel, link, tabs, editor, teamReport(team)));
 }
 
 // ---------- the group's teams: shared in the database (species_edits rows of kind 'team' and 'teamnote') ----------
@@ -5077,15 +5134,16 @@ function teamLibrary(team) {
   }
   const status = h("div", {class: "hint", role: "status", style: "margin:0"});
   const filled = team.mons.filter(m => m.species);
-  const shareBtn = h("button", {type: "button", class: "primary", disabled: filled.length ? null : ""}, "Share \u201c" + team.name + "\u201d with the group");
+  const linked = team.shared && lib.teams.some(x => x.id === team.shared.id);
+  const shareBtn = h("button", {type: "button", class: "primary", disabled: filled.length ? null : ""}, linked ? "Save \u201c" + team.name + "\u201d for the group now" : "Share \u201c" + team.name + "\u201d with the group");
   shareBtn.addEventListener("click", async () => {
-    const slug = team.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 20) || "team";
-    const id = "team-" + slug + "-" + Date.now().toString(36);
-    status.textContent = "Sharing...";
+    status.textContent = linked ? "Saving..." : "Sharing...";
     try {
-      await saveEdit("team", id, {name: team.name.slice(0, 60), by: person(me()), text: filled.map(exportMon).join("\n\n"), team: {name: team.name, mons: filled}});
-      lib.teams = null; lib.open = id; renderTeams();
-    } catch (err) { status.textContent = /check constraint/i.test(err.message) ? "Sharing teams is not switched on in the database yet." : err.message; }
+      // Sharing links the team: later changes are saved to the same shared team by themselves (not a new copy each time).
+      if (!linked) team.shared = {id: newTeamId(team.name), by: person(me())};
+      teamSync.dirty.delete(team); await pushShared(team); saveTeams();
+      lib.open = team.shared.id; renderTeams();
+    } catch (err) { if (!linked) delete team.shared; status.textContent = /check constraint/i.test(err.message) ? "Sharing teams is not switched on in the database yet." : err.message; }
   });
   const cards = lib.teams.map(t => {
     const mons = (t.team && Array.isArray(t.team.mons) ? t.team.mons : importTeam(t.text || "").mons).slice(0, 6);
@@ -5120,7 +5178,9 @@ function teamLibrary(team) {
       person(t.by) && person(t.by) === person(me()) ? (() => {
         const del = h("button", {type: "button"}, "Take it down");
         del.addEventListener("click", () => sure(del, "Really take it down?", async () => {
-          try { await saveEdit("team", t.id, Object.assign({}, {name: t.name, by: t.by, text: t.text, team: t.team}, {deleted: true})); lib.teams = lib.teams.filter(x => x !== t); renderTeams(); }
+          try { await saveEdit("team", t.id, Object.assign({}, {name: t.name, by: t.by, text: t.text, team: t.team}, {deleted: true})); lib.teams = lib.teams.filter(x => x !== t);
+            for (const x of tb.teams) if (x.shared && x.shared.id === t.id) { teamSync.dirty.delete(x); delete x.shared; }   // taken down: no more saves to it
+            saveTeams(); renderTeams(); }
           catch (err) { note.textContent = err.message; }
         }));
         return del;
