@@ -758,6 +758,10 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .tslot .letter { width: 80px; height: 80px; display: grid; place-items: center; font-family: var(--display); font-size: 20px; color: var(--muted); }
 .tslot .nm { font-family: var(--display); font-size: 12px; text-align: center; overflow-wrap: anywhere; }
 .tslot .types { display: flex; gap: 2px; transform: scale(.8); }
+.tslot.dragslot { cursor: grab; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.tslot.dragslot img { -webkit-user-drag: none; pointer-events: none; }
+.tslot.dragging { opacity: .45; cursor: grabbing; }
+.tslot.dropto { border-color: var(--pink); outline: 2px dashed var(--pink); outline-offset: 2px; }
 .tedit { display: grid; grid-template-columns: minmax(170px, 220px) minmax(220px, 1fr) minmax(280px, 1.3fr); gap: 14px; background: var(--panel); border: 2px solid var(--line); padding: 12px; align-items: start; }
 .tleft, .tmid, .tright { display: grid; gap: 6px; min-width: 0; }
 .tpic { width: 120px; height: 120px; object-fit: contain; justify-self: center; }
@@ -4184,6 +4188,7 @@ function renderCharacterPage(c) {
           h("button", {type: "button", title: "Remove", onclick: () => saveStory(story.lines.filter(x => x !== id))}, "✕"),
           h("button", {type: "button", title: "Lower", disabled: k === story.lines.length - 1 ? "" : null, onclick: () => move(k, 1)}, "▶")));
     }));
+    dragSlots(slots, story.lines.length, (from, to) => saveStory(moveInList(story.lines, from, to)));
     const battles = h("div", {class: "scroll"}, h("table", {class: "balance"}, plan.map((b, i) => {
       const tid = (cl.slots || {})[i], t = (lib.teams || []).find(x => x.id === tid), gen = storyTeam(c, story, i);
       const pick = h("select", {"aria-label": "Team for battle " + (i + 1), onchange: ev => { const slots = Object.assign({}, cl.slots || {}); if (ev.target.value) slots[i] = ev.target.value; else delete slots[i]; saveClaim(cl.by, slots, cl.story); }},
@@ -4200,7 +4205,7 @@ function renderCharacterPage(c) {
     })));
     main = h("div", {class: "charmain"},
       h("h3", {id: "char-team", style: "margin-top:0"}, "Your story team"),
-      h("div", {class: "sub"}, "Pick up to 6 evolution lines by their last evolution and rank them. No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage and with sensible moves for the level."),
+      h("div", {class: "sub"}, "Pick up to 6 evolution lines by their last evolution and rank them (drag them, or use the arrows). No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage and with sensible moves for the level."),
       slots, story.lines.length < 6 ? storyLinePicker(story, saveStory) : null,
       h("h3", {}, "Every battle"),
       h("div", {class: "sub"}, "Auto: the website makes each battle's team from your story team (how many Pokemon, levels, stages and moves). To use your own team in a battle instead, pick one of your shared teams in its menu. The others only see your teams behind spoiler buttons."),
@@ -4609,6 +4614,55 @@ function takeSharedTeam() {
   return true;
 }
 
+// Drag a filled team slot onto another to change the order (Arvind, 2026-11-17). With a mouse the drag starts at once;
+// on a touch screen, hold the Pokemon a moment and then drag, so a normal swipe still scrolls the page.
+// onMove(from, to): the Pokemon at "from" is taken out and put in at "to".
+function dragSlots(row, count, onMove) {
+  const slots = [...row.children];
+  const slotAt = (x, y) => { const t = document.elementFromPoint(x, y), s = t && t.closest(".tslot"), i = slots.indexOf(s); return i >= 0 && i < count ? i : -1; };
+  slots.slice(0, count).forEach((el, from) => {
+    let st = null;
+    el.classList.add("dragslot"); el.title = "Drag to change the order";
+    const clear = () => slots.forEach(s => s.classList.remove("dragging", "dropto"));
+    el.addEventListener("dragstart", ev => ev.preventDefault());
+    // While a press lasts, moves and the release are read on the whole window, so a fast drag is not lost.
+    const move = ev => {
+      if (!st || ev.pointerId !== st.id) return;
+      const far = Math.hypot(ev.clientX - st.x, ev.clientY - st.y);
+      if (!st.armed) { if (far > 8) stop(); return; }   // touch moved early: it is a scroll
+      if (!st.on && far < 6) return;
+      if (!st.on) { st.on = true; el.classList.add("dragging"); }
+      st.to = slotAt(ev.clientX, ev.clientY);
+      slots.forEach((s, i) => s.classList.toggle("dropto", i === st.to && i !== from));
+    };
+    const end = ev => {
+      if (!st || ev.pointerId !== st.id) return;
+      if (ev.type === "pointerup") move(ev);
+      const was = st; stop();
+      if (!was || !was.on) return;
+      el.dataset.dragged = "1"; setTimeout(() => { delete el.dataset.dragged; }, 80);   // the click after a drag does nothing
+      if (ev.type === "pointerup" && was.to >= 0 && was.to !== from) onMove(from, was.to);
+    };
+    const stop = () => {
+      if (st) clearTimeout(st.timer);
+      st = null; clear();
+      window.removeEventListener("pointermove", move); window.removeEventListener("pointerup", end); window.removeEventListener("pointercancel", end);
+    };
+    el.addEventListener("pointerdown", ev => {
+      if (ev.button !== 0 || ev.target.closest(".slotbtns")) return;
+      stop();
+      st = {x: ev.clientX, y: ev.clientY, id: ev.pointerId, armed: ev.pointerType === "mouse", on: false, to: -1};
+      if (!st.armed) st.timer = setTimeout(() => { if (st) { st.armed = true; el.classList.add("dragging"); } }, 300);
+      window.addEventListener("pointermove", move); window.addEventListener("pointerup", end); window.addEventListener("pointercancel", end);
+    });
+    el.addEventListener("click", ev => { if (el.dataset.dragged) { ev.stopImmediatePropagation(); ev.preventDefault(); } }, true);
+    el.addEventListener("touchmove", ev => { if (st && st.armed) ev.preventDefault(); }, {passive: false});   // no scrolling while dragging
+    el.addEventListener("contextmenu", ev => { if (st) ev.preventDefault(); });
+  });
+  return row;
+}
+const moveInList = (list, from, to) => { const l = list.slice(), [x] = l.splice(from, 1); l.splice(to, 0, x); return l; };
+
 function renderTeams() {
   const grid = document.getElementById("grid"), team = currentTeam(), redraw = () => { saveTeams(); renderTeams(); };
   if (tb.slot > team.mons.length) tb.slot = team.mons.length;
@@ -4660,6 +4714,7 @@ function renderTeams() {
            h("span", {class: "nm"}, m.nickname || (s ? s.data.name : m.species) || "(empty)"), h("span", {class: "types"}, monTypes(m).map(typeChip))]
         : h("span", {class: "nm"}, "+ Add"));
   }));
+  dragSlots(tabs, team.mons.length, (from, to) => { team.mons = moveInList(team.mons, from, to); tb.slot = to; redraw(); });
 
   const m = team.mons[tb.slot];
   const editor = m ? monEditor(m, team, redraw) : h("div", {class: "empty"}, "Press + Add to put a Pokemon in the team.");
