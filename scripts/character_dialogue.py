@@ -55,6 +55,8 @@ WHO = {
     "trainer-x": (["Goh"], ["One-Ball Man Goh"]),
     "trainer-y": (["Steven"], ["Hoenn Trainer Steven", "Hoenn Champion Steven"]),
     "trainer-z": (["Cynthia"], ["Sinnoh Trainer Cynthia", "Sinnoh Champion Cynthia"]),
+    # Janine: her lines while disguised as Koga are labelled Koga in the game, so they are not counted.
+    "trainer-aa": (["Janine"], ["Ninja Girl Janine"]),
 }
 TAG = re.compile(r"^\s*([A-Z][A-Za-z.'\- ]{0,24}):\s")
 CODE = re.compile(r"\{[^}]*\}|\\[nrf]")

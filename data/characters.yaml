@@ -23,6 +23,9 @@
 # Trainer H ('Koga (Elite Four)') was merged into Trainer M the same day: trainer 703 is Agatha's second team (same
 # room, same trainer class and picture, and Agatha speaks just before the battle, also in the Chinese original).
 # Koga is only the Fuchsia gym leader in Origin. The code H is not used again.
+# Trainer AA (Janine) added 2026-11-17 (Arvind: "du kan legge hun til ja det er gøy. skriv at denne personen er
+# master of disquise"). All 26 letters were used or retired, so the code is AA. Counted: her two battles with her own
+# team and the Attack EV sparring battle; the disguised Victory Road 3F battle uses another trainer's team.
 # The villains (Rocket, Magma, Aqua and Galactic: codes A, B, D, E, F, L, N, R, S, T, V) are left out too (Arvind, 2026-11-12).
 # dialogue: how much they say in Origin: story = text boxes in the story, battle = lines in battle, words =
 # both together (scripts/character_dialogue.py, counted 2026-11-16; only numbers, never the text).
@@ -360,7 +363,7 @@
   - {lv: 20, size: 4, side: against, original: 'Metang 20, Aron 15, Baltoy 16, Anorith 17'}
   - {lv: 35, size: 5, side: against, original: 'Metang 35, Lairon 34, Claydol 34, Armaldo 34, Cradily 34'}
   - {lv: 42, size: 6, side: with, original: 'Metang 42, Aggron 42, Claydol 40, Armaldo 40, Cradily 40, Skarmory 40'}
-  - {lv: 65, size: 6, side: against, note: 'Easy to miss in Origin: in the usual order of play this battle never happens (they leave when Team Rocket takes over Saffron, a known bug).', original: 'Metagross 55, Aggron 54, Claydol 53, Armaldo 65, Cradily 54, Skarmory 53'}
+  - {lv: 65, size: 6, side: against, note: 'Easy to miss in Origin: they wait in Fuchsia City after the Soul Badge and leave for good when Team Rocket takes over Saffron (a known bug), so the battle only happens if the player goes there before Pokémon Tower.', original: 'Metagross 55, Aggron 54, Claydol 53, Armaldo 65, Cradily 54, Skarmory 53'}
   - {lv: 83, size: 6, side: against, original: 'Skarmory 82, Aggron 83, Claydol 82, Armaldo 82, Cradily 83, Metagross 83'}
   - {lv: 96, size: 6, side: both, note: 'Next to you near the end of the story, against you after it.', original: 'Metagross 96, Skarmory 95, Aggron 96, Claydol 95, Cradily 96, Armaldo 95'}
 - id: trainer-z
@@ -378,5 +381,18 @@
   - {lv: 30, size: 4, side: against, original: 'Feebas 25, Spiritomb 28, Gabite 30, Lucario 29'}
   - {lv: 35, size: 5, side: against, original: 'Gabite 35, Spiritomb 34, Scyther 34, Lucario 34, Milotic 33'}
   - {lv: 42, size: 6, side: with, original: 'Gabite 42, Spiritomb 40, Scizor 40, Lucario 41, Milotic 40, Roserade 40'}
-  - {lv: 55, size: 6, side: against, note: 'Easy to miss in Origin: in the usual order of play this battle never happens (they leave when Team Rocket takes over Saffron, a known bug).', original: 'Garchomp 55, Spiritomb 53, Scizor 53, Lucario 54, Roserade 54, Milotic 53'}
+  - {lv: 55, size: 6, side: against, note: 'Easy to miss in Origin: they wait in Fuchsia City after the Soul Badge and leave for good when Team Rocket takes over Saffron (a known bug), so the battle only happens if the player goes there before Pokémon Tower.', original: 'Garchomp 55, Spiritomb 53, Scizor 53, Lucario 54, Roserade 54, Milotic 53'}
   - {lv: 96, size: 6, side: both, note: 'Next to you near the end of the story, against you after it.', original: 'Spiritomb 95, Garchomp 96, Lucario 96, Gastrodon 95, Milotic 96, Roserade 95'}
+- id: trainer-aa
+  group: Important trainer
+  type: Poison
+  about: master of disguise
+  place: you meet them a few times, and not always as themselves
+  code: Trainer AA
+  battles: 3
+  levels: [10, 46, 75]
+  dialogue: {story: 21, battle: 3, words: 321}
+  teams:
+  - {lv: 10, size: 6, side: against, note: 'A training battle the player can repeat for a berry after a badge: its Pokemon must give Attack EVs when beaten (Origin uses Pinsir, Zangoose and Solrock).', original: 'Pinsir 10, Pinsir 10, Zangoose 10, Zangoose 10, Solrock 10, Solrock 10'}
+  - {lv: 46, size: 4, side: against, note: 'Fought in disguise: the player thinks this is someone else until after the battle.', original: 'Venomoth 46, Golbat 46, Ariados 46, Haunter 46'}
+  - {lv: 75, size: 4, side: against, note: 'They also hide among other trainers right after this one, and that battle uses the other trainer''s team.', original: 'Crobat 75, Venomoth 75, Ditto 75, Swalot 75'}

@@ -104,6 +104,8 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer X: Goh, the One-Ball Man (added 2026-11-12)
 - Trainer Y: Steven (Hoenn champion; added back 2026-11-17)
 - Trainer Z: Cynthia (Sinnoh champion; added back 2026-11-17)
+- Trainer AA: Janine (Koga's daughter; added 2026-11-17, shown as "master of disguise"; all 26 letters were used or
+  retired, hence AA)
 
 Left out on purpose (Arvind makes him himself): the main rival (Blue). The two champions were left out on 2026-11-12 and
 are claimable again since 2026-11-17 (Arvind: "Du kan faktisk legge de til som mulige trenere tilbake").
@@ -122,17 +124,33 @@ scene that never starts. Fixed. Other things a claimer should know:
   the final chapter, and some partners have dates after the story (Cynthia even meets the player's mother). Arvind
   keeps it (2026-11-17: "Romance er bare morsomt").
 - **Trainer J is two characters.** A male player meets Green (a girl), a female player meets Red (a boy), with the same
-  lines and teams. Whoever claims J appears as both, so the name and look have to work either way, or J gets two
-  versions.
+  lines and teams. Arvind decided 2026-11-17: J gets one design, used for both (Green's and Red's sprites are simply
+  the same picture).
 - **Johto is about two years after Kanto.** Several lines say so (Lance on Mt. Silver: Giovanni has hidden "these past
-  two years"; a Silver Conference entrant went to the Indigo Conference "two years ago"). Characters could look a bit
-  older in Johto.
-- **Some counted battles are optional or easy to miss:** Steven's and Cynthia's Fuchsia battles (the usual order skips
-  them, a known bug), Cynthia on Route 12 (optional, one chance), Bruno in Pewter City (one chance), and the romance
-  dates. Their teams are still worth making.
+  two years"; a Silver Conference entrant went to the Indigo Conference "two years ago"). The game does not show it:
+  every role keeps one figure on the map from start to end, Johto included. Only Steven and Cynthia change (to their
+  champion look in the final chapter, below). In battle, Gold (G) has a second picture (class 109 instead of 125) for
+  his Lv. 97 battle at the Mt. Silver summit, and Misty fights next to you under a second class (93; against you
+  she is class 103). Looking older in Johto would be new work: a second map sprite plus a switch.
+- **Some counted battles are optional or easy to miss:** Steven and Cynthia wait in Fuchsia City from the Soul Badge
+  until Team Rocket takes over Saffron (Sabrina's call in Pokémon Tower), then leave for good, a known Origin bug
+  (guide/known-issues.md, "Cynthia and Steven in Fuchsia City"); in the usual order there is a window, so battle them
+  before Pokémon Tower. Also Cynthia on Route 12 (optional, one chance), Bruno in Pewter City (one chance), and the
+  romance dates. Their teams are still worth making.
 - **Not on the page:** Blue (Arvind makes him), the villains (taken off 2026-11-12), and small recurring trainers such
-  as Janine (2 battles: disguised as Koga in the Fuchsia Gym and as a competitor in the Victory Road qualifiers),
-  Norman (after the story, with Steven) and the Copycat. Gold's unused trainer 260 (it has Green's team) is left out.
+  as Norman (after the story, with Steven) and the Copycat. Gold's unused trainer 260 (it has Green's
+  team) is left out.
+- **Janine, Koga's daughter (checked 2026-11-17; on the page as Trainer AA since the same day).** All in Kanto; she is never seen in Johto (her old phone slot
+  went to Koga). Fuchsia Gym: she is the "Koga" eight steps north of the door (trainer 325: Venomoth, Golbat,
+  Ariados, Haunter, Lv. 46); after the loss the real Koga steps out: "Well done, Janine" (file 806 script 9). Fuchsia
+  Forest: one of Koga's clones that scare off Granny Kin and the Rocket executives is Janine in disguise (90#115–117,
+  no battle). After the Soul Badge she stays in the Gym as an Attack EV sparring partner for a Rawst Berry (trainer
+  473, Lv. 10 Pinsir/Zangoose/Solrock, also after the story). Victory Road qualifiers: she is the League staff member
+  hidden among the competitors (the job was meant for Koga, but then too few would pass). She shows up openly on 2F
+  "on a secret break" (trainer 564: Crobat, Venomoth, Ditto, Swalot, Lv. 75), then disguises herself as one of five
+  3F competitors, which one depends on gender, starter and the Route 11 choice (that battle uses the competitor's
+  team). Beat that one and she reveals herself and gives the password 570819. Misty later says she saw through
+  Janine's disguise thanks to your hint (588#10). So: 2 battles with her own team, 1 disguised, plus the sparring; the page counts 3 (the sparring included).
 - **Other trainer-name fixes in the EN patch** (bank 719) do not touch these roles; only 703 and 705 did (see above).
 
 ## Text to fix when the characters are replaced
