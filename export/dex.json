@@ -12916,7 +12916,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:463",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/crappy-meal.json",
         "cry": null
       },
       "engine": {
@@ -31169,7 +31169,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:408",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/jawie.json",
         "cry": null
       },
       "engine": {

@@ -5838,13 +5838,6 @@
     "editor": "Emil"
   },
   {
-    "id": 1927,
-    "species": "everdark",
-    "file": "assets/concept-art/everdark/1927.png",
-    "caption": "[ds-front] sprite #344",
-    "editor": "Ivar"
-  },
-  {
     "id": 1928,
     "species": "everdark",
     "file": "assets/concept-art/everdark/1928.png",
@@ -5856,13 +5849,6 @@
     "species": "everdark",
     "file": "assets/concept-art/everdark/1929.png",
     "caption": "[ds-icon] sprite #344",
-    "editor": "Ivar"
-  },
-  {
-    "id": 1930,
-    "species": "everdark",
-    "file": "assets/concept-art/everdark/1930.png",
-    "caption": "[ds-follower] sprite #344",
     "editor": "Ivar"
   },
   {
@@ -5985,20 +5971,6 @@
     "editor": "Ivar"
   },
   {
-    "id": 1963,
-    "species": "subwaysurfer",
-    "file": "assets/concept-art/subwaysurfer/1963.png",
-    "caption": "[ds-back] sprite #355",
-    "editor": "Ivar"
-  },
-  {
-    "id": 1964,
-    "species": "subwaysurfer",
-    "file": "assets/concept-art/subwaysurfer/1964.png",
-    "caption": "[ds-icon] sprite #355",
-    "editor": "Ivar"
-  },
-  {
     "id": 1965,
     "species": "subwaysurfer",
     "file": "assets/concept-art/subwaysurfer/1965.png",
@@ -6017,6 +5989,62 @@
     "species": "dreadfang",
     "file": "assets/concept-art/dreadfang/1974.png",
     "caption": "[ds-front] sprite #356",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1982,
+    "species": "crappy-meal",
+    "file": "assets/concept-art/crappy-meal/1982.png",
+    "caption": "[ds-front] sprite #358",
+    "editor": null
+  },
+  {
+    "id": 1983,
+    "species": "crappy-meal",
+    "file": "assets/concept-art/crappy-meal/1983.png",
+    "caption": "[ds-back] sprite #358",
+    "editor": null
+  },
+  {
+    "id": 1984,
+    "species": "crappy-meal",
+    "file": "assets/concept-art/crappy-meal/1984.png",
+    "caption": "[ds-icon] sprite #358",
+    "editor": null
+  },
+  {
+    "id": 1985,
+    "species": "crappy-meal",
+    "file": "assets/concept-art/crappy-meal/1985.png",
+    "caption": "[ds-follower] sprite #358",
+    "editor": null
+  },
+  {
+    "id": 1986,
+    "species": "everdark",
+    "file": "assets/concept-art/everdark/1986.png",
+    "caption": "[ds-front] sprite #359",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1989,
+    "species": "everdark",
+    "file": "assets/concept-art/everdark/1989.png",
+    "caption": "[ds-follower] sprite #359",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1991,
+    "species": "subwaysurfer",
+    "file": "assets/concept-art/subwaysurfer/1991.png",
+    "caption": "[ds-back] sprite #360",
+    "editor": "Ivar"
+  },
+  {
+    "id": 1992,
+    "species": "subwaysurfer",
+    "file": "assets/concept-art/subwaysurfer/1992.png",
+    "caption": "[ds-icon] sprite #360",
     "editor": "Ivar"
   }
 ]

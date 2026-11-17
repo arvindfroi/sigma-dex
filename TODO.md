@@ -36,16 +36,16 @@ A Pokemon is complete when every item below is filled in. Field guide: [docs/FIE
 | Art | back sprite | 4 / 162 |
 | Art | icon | 4 / 162 |
 | Art | footprint | 142 / 162 |
-| Art | shiny palette | 42 / 162 |
+| Art | shiny palette | 44 / 162 |
 | Art | cry | 21 / 162 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 108 / 162 |
-| DS back sprite 80x80 | 108 / 162 |
-| DS icon 32x32 | 108 / 162 |
+| DS front sprite 80x80 | 109 / 162 |
+| DS back sprite 80x80 | 109 / 162 |
+| DS icon 32x32 | 109 / 162 |
 
 ## Open dex slots (92)
 
@@ -365,10 +365,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #49 [Crappy Meal](data/species/crappy-meal.yaml) - 76%
+### #49 [Crappy Meal](data/species/crappy-meal.yaml) - 79%
 
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #50 [Beatld](data/species/beatld.yaml) - 62%
 
@@ -876,7 +876,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #122 [JAWIE](data/species/jawie.yaml) - 24%
+### #122 [JAWIE](data/species/jawie.yaml) - 28%
 
 - **Dex page:** category, description, body color
 - **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
@@ -884,7 +884,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #123 [JAWBREAKER](data/species/jawbreaker.yaml) - 69%
 
