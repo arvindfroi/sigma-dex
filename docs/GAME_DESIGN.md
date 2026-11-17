@@ -140,8 +140,11 @@ space, Distortion World). No Hoenn or Sinnoh: Maxie, Archie, Cyrus and Charon on
 text banks, Giovanni in 74). Three levels: (A) keep Rocket and its people, give them our mons and add our own
 beats (Meowthwo, the harness, the Giovanni twist): least work, planned anyway; (B) rename: same plot, new names and
 new trainer pictures (name swaps in the texts + about 16 new character pictures and a grunt): medium, can be done
-late; (C) our own villain plot: hundreds of scenes rewritten, not realistic. **Proposal:** A now, decide on B when
-the dex is done; nothing waits on it.
+late; (C) our own villain plot: hundreds of scenes rewritten, not realistic. **Arvind (2026-11-17): A for now**; he does not know yet what Rocket would be replaced
+with. Ideas to keep in mind for B (Claude): (1) Rocket stays, but changes during the game as the harness spreads
+(no new team, only new looks late in the story); (2) a team built on our theme, people who want to "evolve" humans,
+e.g. a self-improvement company that sells growth (fits the harness and the fast-food humour); (3) a team per
+version, each worshipping that version's legend (Sabertann / Gravriel), so the versions differ in story too.
 
 **Open:** where Sabertann and Gravriel appear in the story (Origin's Ho-Oh/Lugia scenes: Bell Tower, Whirl Islands,
 the two cutscenes each are already mapped in docs/LEGEND_CUTSCENES.md).
