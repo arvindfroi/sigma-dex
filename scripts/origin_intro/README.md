@@ -1264,3 +1264,23 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - Gravriel: `legend_test/jump_lug_ow11.nds`.
     - Sabertann: `legend_test/jump_hooh2_roar5.nds` (sha256 prefix `0e5bb089bc11effb`; the cry checked in the game at night).
   - **Still:** `sabertann_hvite_klor.png`.
+- **Sabertann's Ho-Oh film v33: the daytime freeze fixed (2026-11-17)** (Arvind: "fix what you must before we move on").
+  - **`sab3d/vram_trim.py`** takes the locked v32 and turns five of our 8-bpp textures into 4-bpp ones (16 colours, same size, so the texture coordinates stay). Everything else is v32's, bit for bit:
+    - Sky shot: `ho_head_top` (side and top views, 16 KB to 8 KB) and `hou_mouth01` (back and sail).
+    - Pagoda shot: `ho_head_top` (side, front 40x40 and top), `hou_eye` (back and stern) and `hou_mouth01` (sail).
+    - The sky shot's `hou_eye`, which holds the face close-up of the fly-by (hat, eyes, tusks), keeps 256 colours.
+  - **Palette:** k-means in Lab, each colour weighted by its area (`POWER` 1.0). The square-root weighting tried first turned the dark fur brownish and blotchy. The error over the area is dE 1.5-4.5 per texture.
+  - **Texture VRAM:** 235728 of 262144 in every time-of-day pair (v32 had 259280). The film file is 486124 bytes, against v32's 553792.
+  - **Tests** (`TZ` on `drive.py`, the whole film to the landing):
+    - Morning (07:xx), midday (12:xx) and evening (21:xx) all play through, where v32 froze in the morning and at midday.
+    - At night v33 and v32 match closely at the same film frame: a few hundred pixels differ in the sky shot, and the pagoda shot's side is a little darker.
+  - **Locked copy:** `~/sigma-origin/title3d/legend/sab3d/locked_v33/`, with the film, the test ROM (with the approved field sprites), the FAT pokes, the scripts and SHA256SUMS.
+    - sha256 prefixes: film `db8790417c007f1b`, ROM `a6166e4a90d266ad`.
+    - Built from `locked_v32/a243_sabertann_v32.bin` with `vram_trim.py` defaults, then `pack_shared.py 1=6 11=6 16=20 24=20`.
+  - **For the game build:**
+    - `a/0/8/1` with both field sprites, 210 Sabertann roar_v5 and 211 Gravriel frames_v7, every other member Origin's: `title3d/legend/final/a081_sabertann210_gravriel211.bin` (sha256 prefix `4807b1bfc9f31c60`).
+    - Every film from now on is tested in the morning, at midday and at night.
+  - **Files:**
+    - `sabertann_film_v33_om_morgenen.png` (v32 frozen, v33 playing).
+    - `sabertann_film_v32_mot_v33.png` (the same film frames at night).
+    - Video `sabertann_film_v33_morgen_og_kveld.mp4`.
