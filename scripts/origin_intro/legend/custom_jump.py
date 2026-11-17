@@ -13,7 +13,11 @@ F = unpack(open(orig, 'rb').read())
 code = struct.pack('<HHH', 41, 0x4000, 1)
 for a in sys.argv[6:]:                                          # +FLAG sets, -FLAG clears (a figure's hide flag), before the warp
     if a[0] in '+-' and a[1:].isdigit(): code += struct.pack('<HH', 30 if a[0] == '+' else 31, int(a[1:]))
-code += struct.pack('<HHHHHH', 176, ZONE, 0, X, Z, 0) + struct.pack('<H', 2)
+code += struct.pack('<HHHHHH', 176, ZONE, 0, X, Z, int(os.environ.get('DIR', 0)))
+for a in sys.argv[6:]:                                          # @CMD=ARG,ARG: raw script commands after the warp (u16 args),
+    if a[0] == '@':                                             # e.g. @178=0 (Surf with party slot 0, from the EN command list)
+        c_, _, args = a[1:].partition('='); code += struct.pack('<H', int(c_)) + b''.join(struct.pack('<H', int(v, 0)) for v in args.split(',') if v)
+code += struct.pack('<H', 2)
 F[842] = struct.pack('<i', 2) + struct.pack('<H', 0xFD13) + code
 F[617] = bytes([1]) + struct.pack('<i', 1) + bytes([0]) + struct.pack('<HHHH', 0x4000, 0, 1, 0)
 new = pack(F); old = open(orig, 'rb').read(); assert len(new) <= len(old), (len(new), len(old))
@@ -22,7 +26,7 @@ def inplace(old, new):
     i = rom.find(old); assert i >= 0 and rom.find(old, i + 1) < 0, 'not found once'
     assert len(new) <= len(old), (len(new), len(old)); rom[i:i + len(old)] = new + bytes(len(old) - len(new)); return i
 print('scripts at', hex(inplace(old, new)))
-for a in [a for a in sys.argv[6:] if '=' in a]:
+for a in [a for a in sys.argv[6:] if '=' in a and a[0] != '@']:
     o, n = a.split('='); print(os.path.basename(n), 'at', hex(inplace(open(o, 'rb').read(), open(n, 'rb').read())))
 # A081=customs.bin: our map figure members into EVERY copy of the overworld NARC (a/0/8/1 and Origin's per-outfit
 # data/clothesN/a081.narc: the game loads the copy that matches the player's clothes), member by member, in place
