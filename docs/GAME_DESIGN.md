@@ -125,6 +125,16 @@ From the plans so far, in order (details in WHEN_WE_FINALIZE.md):
 7. Post-game: official Pokemon return; Meowth's fast food place; the freed Meowthree (and in Gravriel the special
    revive).
 
+**Villains in Origin (counted 2026-11-17 from the trainer list):** one evil team only, Team Rocket. There is no
+Team Aqua/Magma/Galactic/Plasma: Origin makes the other regions' villains Rocket executives.
+- Boss: Giovanni (8 teams). A nameless "Rocket Boss" team (#700) is used in the Celebi time-travel scene.
+- Executives (10): Archer, Ariana, Proton, Petrel (HeartGold's own), Maxie and Archie (Hoenn), Cyrus and Charon
+  (Sinnoh), Lawrence and Marauder (Origin's own). 3-8 teams each.
+- "Rocket Elite" (5): Karen, Will, Joy, Cassidy, Butch (3-5 teams each).
+- Jessie and James (8 tag battles each, Meowth in James' team); Silver works with Rocket for a while ("Master Silver").
+- 142 Rocket Grunt teams and about 20 named scientists.
+Who takes Giovanni's role (or whether anyone does) is open (Arvind).
+
 **Open:** where Sabertann and Gravriel appear in the story (Origin's Ho-Oh/Lugia scenes: Bell Tower, Whirl Islands,
 the two cutscenes each are already mapped in docs/LEGEND_CUTSCENES.md).
 
