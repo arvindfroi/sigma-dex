@@ -19900,7 +19900,7 @@
     },
     {
       "dex": 78,
-      "name": "furamire",
+      "name": "Furamire",
       "credits": {
         "designer": "Michael",
         "artist": null
@@ -20035,6 +20035,7 @@
           "Solar Beam",
           "Return",
           "Psychic",
+          "Shadow Ball",
           "Double Team",
           "Reflect",
           "Facade",
@@ -20057,9 +20058,8 @@
           "Psyshock",
           "Draining Kiss",
           "Play Rough",
-          "Baby-Doll Eyes",
-          "Shadow Ball",
-          "Mystical Fire"
+          "Mystical Fire",
+          "Baby-Doll Eyes"
         ],
         "tutor": [
           "Body Slam",

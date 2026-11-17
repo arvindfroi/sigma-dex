@@ -573,7 +573,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #78 [furamire](data/species/furamire.yaml) - 72%
+### #78 [Furamire](data/species/furamire.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters

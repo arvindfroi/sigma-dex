@@ -1713,7 +1713,7 @@ SINGLE_BATTLE_TEST("Sigma dex: Iglomodo can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: furamire has the data from its species file")
+TEST("Sigma dex: Furamire has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_FURAMIRE];
     EXPECT_EQ(info->baseHP, 69);
@@ -1729,7 +1729,7 @@ TEST("Sigma dex: furamire has the data from its species file")
     EXPECT_EQ(GetSpeciesName(SPECIES_FURAMIRE)[0], CHAR_F);
 }
 
-SINGLE_BATTLE_TEST("Sigma dex: furamire can use its first move in battle")
+SINGLE_BATTLE_TEST("Sigma dex: Furamire can use its first move in battle")
 {
     GIVEN {
         PLAYER(SPECIES_FURAMIRE) { Moves(MOVE_ECHOED_VOICE); }

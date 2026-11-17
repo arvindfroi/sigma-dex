@@ -3084,7 +3084,7 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS),
         .abilities = { ABILITY_CUTE_CHARM, ABILITY_COMPETITIVE, ABILITY_SERENE_GRACE },
         .bodyColor = BODY_COLOR_BROWN,
-        .speciesName = _("furamire"),
+        .speciesName = _("Furamire"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_FURAMIRE,
         .categoryName = _("Unknown"),

@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/FIELDS.md
 dex: 78
-name: furamire
+name: Furamire
 
 credits:
   designer: Michael      # who came up with it (Discord name)
@@ -87,10 +87,10 @@ learnset:
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
           Protect, Rain Dance, Safeguard, Frustration, Solar Beam, Return, Psychic,
-          Double Team, Reflect, Facade, Secret Power, Rest, Attract, Thief, Energy Ball,
-          Fling, Endure, Giga Impact, Thunder Wave, Psych Up, Sleep Talk, Natural Gift,
-          Grass Knot, Swagger, U-turn, Substitute, Psyshock, Draining Kiss, Play Rough,
-          Baby-Doll Eyes, Shadow Ball, Mystical Fire]
+          Shadow Ball, Double Team, Reflect, Facade, Secret Power, Rest, Attract, Thief,
+          Energy Ball, Fling, Endure, Giga Impact, Thunder Wave, Psych Up, Sleep Talk,
+          Natural Gift, Grass Knot, Swagger, U-turn, Substitute, Psyshock, Draining Kiss,
+          Play Rough, Mystical Fire, Baby-Doll Eyes]
   # moves a move tutor can teach it
   tutor: [Body Slam, Charm, Dazzling Gleam, Endeavor, Heal Bell, Hyper Voice, Magical Leaf]
   # only needed for the first stage of an evolution line
