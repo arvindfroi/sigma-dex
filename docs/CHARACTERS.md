@@ -129,9 +129,7 @@ scene that never starts. Fixed. Other things a claimer should know:
 - **Johto is about two years after Kanto.** Several lines say so (Lance on Mt. Silver: Giovanni has hidden "these past
   two years"; a Silver Conference entrant went to the Indigo Conference "two years ago"). The game does not show it:
   every role keeps one figure on the map from start to end, Johto included. Only Steven and Cynthia change (to their
-  champion look in the final chapter, below). In battle, Gold (G) has a second picture (class 109 instead of 125) for
-  his Lv. 97 battle at the Mt. Silver summit, and Misty fights next to you under a second class (93; against you
-  she is class 103). Looking older in Johto would be new work: a second map sprite plus a switch.
+  champion look in the final chapter, below). In battle, Gold (G) has a second trainer class (109 instead of 125) for his Lv. 97 battle at the Mt. Silver summit, but the picture is the same (checked pixel by pixel 2026-11-17). Misty fights next to you under a second class (93; against you she is class 103) whose picture is a boy in a green cap, a leftover; whether the game ever shows it in a partner battle is not checked. Looking older in Johto would be new work: a second map sprite plus a switch.
 - **Some counted battles are optional or easy to miss:** Steven and Cynthia wait in Fuchsia City from the Soul Badge
   until Team Rocket takes over Saffron (Sabrina's call in Pokémon Tower), then leave for good, a known Origin bug
   (guide/known-issues.md, "Cynthia and Steven in Fuchsia City"); in the usual order there is a window, so battle them
