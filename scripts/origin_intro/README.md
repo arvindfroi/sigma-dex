@@ -1418,3 +1418,25 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
 
   - **Seen in the game:** the test ROM `legend_test/oak_lapper_v1.nds` is the rc8 AI 30fps ROM with `inplace.py`. `oak_capture.py` replays the key schedule `oak_keys.txt` from a savestate taken before the intro (the intro loads its graphics when it starts, so later savestates still show Marill). Lapper pops out white, fades in, lands, hops every 72 frames and goes back into the ball, just as Marill does. `sheets.py` makes the pictures from those films.
   - **Files:** `oak_intro_lapper_v1.png`, `oak_intro_lapper_v1.gif`, `oak_intro_lapper_v1_halv_fart.gif`.
+  - **Hop v2 (2026-11-17, Arvind: "the hop doesn't convince"):**
+    - **Why v1 failed:** Marill's hop changes its silhouette a lot, keeping only 67 % overlap with its stand. v1's hop kept 93 %: the same figure, just lifted.
+    - **Recipe** (`hop_pose.py`, the `ow_pose` cut-out recipe on the 64x42 front):
+      - The ears flare out like a bell, as in the concept art's "winds up its ears" (they never point up).
+      - The nose tilts up, the paws are off the ground and the tail goes up.
+      - Positive turns are clockwise on screen, so for this left-facing dog nose-up is positive.
+      - `hop2_cells.py` shrinks the pose like the stand, then copies the stand's face back, placed by the tracked nose point.
+    - **Variants:** G (mild, 80 %), H (middle, 71 %) and J (spring, 62 %), all filmed in the game (`sheets_hop.py`). Waiting for Arvind's pick, then `build_set.py hop2/c_X v2`.
+    - **Dropped:** Qwen redraws of the puppets (`qwen_clean_hop.py`) turned the raised ears into thin horns.
+    - **Files:** `oak_intro_lapper_hopp_v2.png`, `oak_intro_lapper_hopp_v2.gif`, `oak_intro_lapper_hopp_v2_halv_fart.gif`.
+  - **Per-outfit copies of a/1/2/0 (2026-11-17, heads-up from the custom-sprites session):**
+    - Origin keeps `data/clothes1/a120.narc` and `data/clothes2/a120.narc` next to a/1/2/0. Their members 59-66 (Marill and the "A" box) are byte for byte a/1/2/0's. Only members 12-29 (the outfit's player pictures) differ.
+    - **How the game picks the copy** (arm9):
+      - The archive path list is at 0x0210E21C (a/1/2/0 is archive 120; the copies are appended as 298 and 299).
+      - The path function is 0x02007838. If the byte at 0x021CFCF0 is set, it forces an outfit. Otherwise the outfit in the save is used (read via 0x0202933C / 0x02029518; 1 = clothes1, 2 = clothes2).
+      - The 12-entry table at 0x020F233C (archive, clothes1, clothes2) does the swap.
+    - **What the intro loads** (`clothes_probe.py`, a hook on 0x02007838): a fresh new game opens archive 120 with the save's outfit 0, so it uses a/1/2/0. The intro opens the archive when it starts and keeps reading from that handle. So the copy is picked once, from the save's outfit at that moment: a new game started over a save whose player wore clothes1 or clothes2 can show the copy.
+    - **Fix:** `clothes_a120.py` copies members 63 and 64 of the built a/1/2/0 into both copies, in place: `final/a120_clothes1_lapper_v1.bin` and `final/a120_clothes2_lapper_v1.bin`. Only those two members differ, and all sizes are kept. `build_set.py CELLDIR TAG` builds all three files for a hop choice. The game build must write all three.
+    - **Not seen in the game.** Writing 0x021CFCF0 swaps all 12 per-outfit archives and stalls the intro on an empty orange screen. Faking the save's outfit for archive 120 only (`SAVE_OUTFIT_120=1`) has two outcomes:
+      - from the title, the key replay no longer matches and stops on the same orange screen;
+      - from frame 4200 of the pre-intro savestate, Marill still shows, because the handle was already open.
+    - The copies are correct byte for byte: members 63 and 64 are identical to the a/1/2/0 that was seen in the game. A real test needs a save whose player wears clothes1 or clothes2, followed by a new game.
