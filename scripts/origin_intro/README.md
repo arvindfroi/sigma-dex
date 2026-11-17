@@ -1181,3 +1181,21 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
     - Data: `title3d/legend/grav3d/ow_qwen/frames_v5`, `a081_gravriel_ow_v5.bin`, SHA256SUMS_v5.
     - `gravriel_brol_v4_mot_v5.png` (Lugia, v4 and v5 cry), `gravriel_overworld_v5_rutene.png`, `overworld_animasjon_v5_gravriel_groent_brol.gif`.
     - Videos: `gravriel_overworld_v5_halv_fart.mp4` (Origin, v4, v5) and `gravriel_overworld_v5.mp4`.
+- **Sabertann's field sprite: the cry roars (2026-11-17)** (Arvind: "make him roar or open his mouth on the frame where that should happen").
+  - `sab/sab_roar.py wind_v1 OUT`: frames 1-6 stay wind_v1's. Frame 7 is the cry (Ho-Oh opens its beak there).
+    - The jaw drops 2 px: the cheeks stretch, the chin moves down.
+    - A wide open mouth under the nose. It has a black rim, dark red inside, a black throat at the top, a red tongue at the bottom and two small white lower fangs on the lower lip. A wide shape on purpose: Gravriel's narrow open beak read as two big nostrils.
+    - The sabre tusks hang in front of the opening, a pixel longer.
+  - **Test ROM:** `legend_test/jump_hooh2_roar1.nds` (wind1 with the new a/0/8/1 210; sha256 prefix `e499207dec0bb737`). At night frames 1-6 show as before.
+  - **Not seen in the game yet:** in the Bell Tower scene the bird shows the cry only when you talk to it, and the test input did not get the player to talk to it. Frame 7 replaces Ho-Oh's own cry frame one for one.
+  - **Files:** `sabertann_brol_for_og_na.png` (Ho-Oh's cry, before, after) and `sabertann_overworld_brol_animasjon.gif`. Data: `title3d/legend/sab/roar_v1` with SHA256SUMS.
+- **Found 2026-11-17: the locked Ho-Oh film v32 freezes in the morning and at midday** (the game hangs in the pagoda shot, at about the point where Origin's daytime sun flare starts). At night it works. Every earlier test of v31/v32 was recorded at night.
+  - DeSmuME takes the clock from the Mac; `TZ=XXX3` (21:xx), `TZ=XXX-7` (07:xx) and `TZ=XXX-12` (12:xx) on `drive.py` set the game's time of day.
+  - **Tests in the morning:**
+    - Origin's film: works.
+    - v32c (259280 bytes of texture VRAM) and v31f (251088): freeze. v32c also freezes at 12:20.
+    - Origin's film with the declared texture size raised (`sab3d/vram_pad_test.py`): 230000 and 240000 are clean. 248000 runs, but garbage covers the field sprites around the bird.
+    - Origin's film with every member padded to v32's sizes (`sab3d/heap_pad_test.py`, compressed and decompressed), plain and with 240000 bytes of VRAM: works. So the heap is not the cause.
+  - **Conclusion:** in the daytime the film has about 14-20 KB less texture VRAM than at night (the sun flare's effect textures). The night limit is 261904; in the daytime 240000 is safe.
+  - **Fix needed before the game ships:** v32 must come down by at least 19280 bytes. The candidates are our three biggest textures, all 8-bpp 128x128 (sky: hou_eye 16 KB and ho_head_top 16 KB; pagoda: ho_head_top 16 KB). Origin's own unused-looking textures (hod_e06.2/.3) are frames of its texture-pattern animation, so they cannot go.
+  - Still: `sabertann_film_fryser_om_dagen.png`.
