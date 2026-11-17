@@ -4,36 +4,31 @@
  "layers": [
   {
    "own": true,
-   "semi": 6.0,
+   "semi": 4.0,
    "gain": 1.0,
    "at": 0.0,
    "rev": false
   }
  ],
- "stretch": 0.9,
- "sweep": -2.0,
- "tone": -0.25,
- "drive": 0.15,
+ "stretch": 0.95,
+ "sweep": -6.0,
+ "tone": -0.5,
+ "drive": 0.0,
  "len": 1.6,
  "vib": {
   "rate": 6.0,
-  "depth": 1.0
+  "depth": 0.55
  },
- "ring": {
-  "hz": 70.0,
-  "mix": 0.48
- },
+ "ring": null,
  "echo": {
   "ms": 100.0,
-  "gain": 0.12
+  "gain": 0.16
  },
  "reasons": [
   "Its own sound",
-  "Changed by hand: pitch 7, length 0.95, glide 1, brightness -0.9, wobble 0.3, echo 0.14, rough 0.1, buzz 0.1",
-  "Changed by hand: pitch -6.5, length 1, glide -2.5, brightness -0.25, wobble 1, echo 0.12, rough 0.15, buzz 0.6",
-  "Changed by hand: pitch 5.5, length 0.9, glide -2, buzz 0.48"
+  "Changed by hand: pitch 4, length 0.95, glide -6, brightness -0.5, wobble 0.55, echo 0.16"
  ],
- "by": "",
- "at": "2026-11-17T02:05:27.681Z",
+ "by": "michael",
+ "at": "2026-11-17T17:51:46.218Z",
  "audio": "assets/cries/grincho.wav"
 }

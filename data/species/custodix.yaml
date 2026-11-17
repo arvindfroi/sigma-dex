@@ -23,7 +23,7 @@ body_color: yellow       # red blue yellow green black brown purple gray white p
 abilities:
   primary: Fire Mane
   secondary: Drought     # optional
-  hidden: Intimidate     # optional
+  hidden: Solar Power    # optional
 
 base_stats:              # each 1-255
   hp: 90

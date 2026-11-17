@@ -1101,8 +1101,8 @@ TEST("Sigma dex: Chillalit has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_CHILLALIT];
     EXPECT_EQ(info->baseHP, 50);
-    EXPECT_EQ(info->baseAttack, 95);
-    EXPECT_EQ(info->baseDefense, 55);
+    EXPECT_EQ(info->baseAttack, 100);
+    EXPECT_EQ(info->baseDefense, 50);
     EXPECT_EQ(info->baseSpeed, 119);
     EXPECT_EQ(info->baseSpAttack, 109);
     EXPECT_EQ(info->baseSpDefense, 67);
@@ -1801,9 +1801,9 @@ TEST("Sigma dex: Snownin has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SNOWNIN];
     EXPECT_EQ(info->baseHP, 60);
-    EXPECT_EQ(info->baseAttack, 75);
+    EXPECT_EQ(info->baseAttack, 80);
     EXPECT_EQ(info->baseDefense, 40);
-    EXPECT_EQ(info->baseSpeed, 125);
+    EXPECT_EQ(info->baseSpeed, 120);
     EXPECT_EQ(info->baseSpAttack, 135);
     EXPECT_EQ(info->baseSpDefense, 40);
     EXPECT_EQ(info->types[0], TYPE_ICE);

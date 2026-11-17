@@ -1,0 +1,34 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": 4.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -0.45,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.0,
+  "depth": 0.2
+ },
+ "ring": null,
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.14
+ },
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: pitch 4, brightness -0.45, wobble 0.2, echo 0.14"
+ ],
+ "by": "michael",
+ "at": "2026-11-17T17:53:57.152Z",
+ "audio": "assets/cries/shadrove.wav"
+}

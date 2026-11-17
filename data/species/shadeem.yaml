@@ -136,9 +136,9 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:64"
+  footprint: "hgss:64"   # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/shadeem.json"
-  cry:                   # sound file
+  cry: "assets/cries/shadeem.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

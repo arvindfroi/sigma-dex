@@ -1,0 +1,44 @@
+{
+ "v": 1,
+ "seed": 3569517195,
+ "layers": [
+  {
+   "dex": 442,
+   "semi": -3.72,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 149,
+   "semi": -3.16,
+   "gain": 0.64,
+   "at": 0.05,
+   "rev": false
+  }
+ ],
+ "stretch": 1.09,
+ "sweep": -0.5,
+ "tone": 0.15,
+ "drive": 0.5,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.0,
+  "depth": 0.6
+ },
+ "ring": null,
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.3
+ },
+ "reasons": [
+  "Starts from Spiritomb's cry: also Dark",
+  "Lower by 4 steps, it is taller than Spiritomb",
+  "Mixed with a quieter Dragonite (also Dragon)",
+  "Its Dragon/Dark side gives a rough edge, a darker sound, drawn out",
+  "Changed by hand: wobble 0.6",
+  "Changed by hand: brightness 0.15, echo 0.3"
+ ],
+ "by": "michael",
+ "at": "2026-11-17T17:26:48.031Z"
+}

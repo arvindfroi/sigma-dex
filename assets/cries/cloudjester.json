@@ -1,0 +1,35 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": 2.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.05,
+ "sweep": 0.0,
+ "tone": -0.6,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.0,
+  "depth": 0.4
+ },
+ "ring": null,
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.14
+ },
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: pitch 3, glide 1.5, brightness -0.6, wobble 0.4, echo 0.14",
+  "Changed by hand: pitch -1, length 1.05, glide 0"
+ ],
+ "by": "michael",
+ "at": "2026-11-17T20:10:27.890Z",
+ "audio": "assets/cries/cloudjester.wav"
+}

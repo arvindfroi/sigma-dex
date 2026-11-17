@@ -17,17 +17,17 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
-  hidden:                # optional
+  primary: Unnerve
+  secondary: Defiant     # optional
+  hidden: Heckler        # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 35
+  attack: 50
+  defense: 25
+  sp_attack: 35
+  sp_defense: 25
+  speed: 85
 
 ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions:
   - into: cobrabat
     method: level
-    level: 34
+    level: 22
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []

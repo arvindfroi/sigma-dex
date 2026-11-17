@@ -6237,13 +6237,6 @@
     "editor": "Ivar"
   },
   {
-    "id": 2037,
-    "species": "eclipsox",
-    "file": "assets/concept-art/eclipsox/2037.png",
-    "caption": "[ds-front] sprite #373",
-    "editor": "Ivar"
-  },
-  {
     "id": 2039,
     "species": "catbat",
     "file": "assets/concept-art/catbat/2039.png",
@@ -6279,13 +6272,6 @@
     "editor": "Ivar"
   },
   {
-    "id": 2050,
-    "species": "eclipsox",
-    "file": "assets/concept-art/eclipsox/2050.png",
-    "caption": "[ds-back] sprite #373",
-    "editor": "Ivar"
-  },
-  {
     "id": 2051,
     "species": "natureo",
     "file": "assets/concept-art/natureo/2051.webp",
@@ -6311,13 +6297,6 @@
     "species": "catbat",
     "file": "assets/concept-art/catbat/2056.png",
     "caption": "[ds-icon] sprite #375",
-    "editor": "Ivar"
-  },
-  {
-    "id": 2057,
-    "species": "catbat",
-    "file": "assets/concept-art/catbat/2057.png",
-    "caption": "[ds-follower] sprite #375",
     "editor": "Ivar"
   },
   {
@@ -6466,5 +6445,362 @@
     "file": "assets/concept-art/mortbulk/2090.png",
     "caption": "[ds-follower] sprite #383",
     "editor": null
+  },
+  {
+    "id": 2097,
+    "species": "rosievoir",
+    "file": "assets/concept-art/rosievoir/2097.png",
+    "caption": "[ds-icon] sprite #384",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2098,
+    "species": "rosievoir",
+    "file": "assets/concept-art/rosievoir/2098.png",
+    "caption": "[ds-follower] sprite #384",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2099,
+    "species": "eclipsox",
+    "file": "assets/concept-art/eclipsox/2099.png",
+    "caption": "[ds-front] sprite #385",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2100,
+    "species": "eclipsox",
+    "file": "assets/concept-art/eclipsox/2100.png",
+    "caption": "[ds-back] sprite #385",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2101,
+    "species": "eclipsox",
+    "file": "assets/concept-art/eclipsox/2101.png",
+    "caption": "[ds-icon] sprite #385",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2102,
+    "species": "eclipsox",
+    "file": "assets/concept-art/eclipsox/2102.png",
+    "caption": "[ds-follower] sprite #385",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2103,
+    "species": "entrigon",
+    "file": "assets/concept-art/entrigon/2103.png",
+    "caption": "[ds-front] sprite #390",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2104,
+    "species": "entrigon",
+    "file": "assets/concept-art/entrigon/2104.png",
+    "caption": "[ds-back] sprite #390",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2107,
+    "species": "tsunamo",
+    "file": "assets/concept-art/tsunamo/2107.png",
+    "caption": "[ds-back] sprite #399",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2111,
+    "species": "catbat",
+    "file": "assets/concept-art/catbat/2111.png",
+    "caption": "[ds-follower] sprite #388",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2114,
+    "species": "riftlees",
+    "file": "assets/concept-art/riftlees/2114.webp",
+    "caption": null,
+    "editor": "michael"
+  },
+  {
+    "id": 2117,
+    "species": "entrigon",
+    "file": "assets/concept-art/entrigon/2117.png",
+    "caption": "[ds-icon] sprite #390",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2118,
+    "species": "entrigon",
+    "file": "assets/concept-art/entrigon/2118.png",
+    "caption": "[ds-follower] sprite #390",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2121,
+    "species": "tsunamo",
+    "file": "assets/concept-art/tsunamo/2121.png",
+    "caption": "[ds-icon] sprite #399",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2122,
+    "species": "natureo",
+    "file": "assets/concept-art/natureo/2122.png",
+    "caption": "[ds-front] sprite #396",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2123,
+    "species": "natureo",
+    "file": "assets/concept-art/natureo/2123.png",
+    "caption": "[ds-back] sprite #396",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2124,
+    "species": "natureo",
+    "file": "assets/concept-art/natureo/2124.png",
+    "caption": "[ds-icon] sprite #396",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2125,
+    "species": "venofrib",
+    "file": "assets/concept-art/venofrib/2125.webp",
+    "caption": null,
+    "editor": "michael"
+  },
+  {
+    "id": 2126,
+    "species": "vendepiede",
+    "file": "assets/concept-art/vendepiede/2126.webp",
+    "caption": null,
+    "editor": "michael"
+  },
+  {
+    "id": 2127,
+    "species": "crysteel",
+    "file": "assets/concept-art/crysteel/2127.webp",
+    "caption": null,
+    "editor": "michael"
+  },
+  {
+    "id": 2128,
+    "species": "crystax",
+    "file": "assets/concept-art/crystax/2128.webp",
+    "caption": null,
+    "editor": "michael"
+  },
+  {
+    "id": 2129,
+    "species": "alminimonk",
+    "file": "assets/concept-art/alminimonk/2129.png",
+    "caption": "[ds-front] sprite #393",
+    "editor": "michael"
+  },
+  {
+    "id": 2130,
+    "species": "alminimonk",
+    "file": "assets/concept-art/alminimonk/2130.png",
+    "caption": "[ds-back] sprite #393",
+    "editor": "michael"
+  },
+  {
+    "id": 2131,
+    "species": "alminimonk",
+    "file": "assets/concept-art/alminimonk/2131.png",
+    "caption": "[ds-icon] sprite #393",
+    "editor": "michael"
+  },
+  {
+    "id": 2132,
+    "species": "alminimonk",
+    "file": "assets/concept-art/alminimonk/2132.png",
+    "caption": "[ds-follower] sprite #393",
+    "editor": "michael"
+  },
+  {
+    "id": 2133,
+    "species": "praxis",
+    "file": "assets/concept-art/praxis/2133.webp",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 2134,
+    "species": "praxis",
+    "file": "assets/concept-art/praxis/2134.png",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 2135,
+    "species": "laxis",
+    "file": "assets/concept-art/laxis/2135.webp",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 2136,
+    "species": "laxis",
+    "file": "assets/concept-art/laxis/2136.png",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 2140,
+    "species": "tsunamo",
+    "file": "assets/concept-art/tsunamo/2140.png",
+    "caption": "[ds-follower] sprite #399",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2144,
+    "species": "natureo",
+    "file": "assets/concept-art/natureo/2144.png",
+    "caption": "[ds-follower] sprite #396",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2149,
+    "species": "whyrmshade",
+    "file": "assets/concept-art/whyrmshade/2149.webp",
+    "caption": null,
+    "editor": "michael"
+  },
+  {
+    "id": 2150,
+    "species": "felk",
+    "file": "assets/concept-art/felk/2150.png",
+    "caption": "[ds-front] sprite #397",
+    "editor": "michael"
+  },
+  {
+    "id": 2151,
+    "species": "felk",
+    "file": "assets/concept-art/felk/2151.png",
+    "caption": "[ds-back] sprite #397",
+    "editor": "michael"
+  },
+  {
+    "id": 2152,
+    "species": "felk",
+    "file": "assets/concept-art/felk/2152.png",
+    "caption": "[ds-icon] sprite #397",
+    "editor": "michael"
+  },
+  {
+    "id": 2153,
+    "species": "felk",
+    "file": "assets/concept-art/felk/2153.png",
+    "caption": "[ds-follower] sprite #397",
+    "editor": "michael"
+  },
+  {
+    "id": 2154,
+    "species": "chillalit",
+    "file": "assets/concept-art/chillalit/2154.png",
+    "caption": "[ds-front] sprite #398",
+    "editor": "michael"
+  },
+  {
+    "id": 2155,
+    "species": "chillalit",
+    "file": "assets/concept-art/chillalit/2155.png",
+    "caption": "[ds-back] sprite #398",
+    "editor": "michael"
+  },
+  {
+    "id": 2156,
+    "species": "chillalit",
+    "file": "assets/concept-art/chillalit/2156.png",
+    "caption": "[ds-icon] sprite #398",
+    "editor": "michael"
+  },
+  {
+    "id": 2157,
+    "species": "chillalit",
+    "file": "assets/concept-art/chillalit/2157.png",
+    "caption": "[ds-follower] sprite #398",
+    "editor": "michael"
+  },
+  {
+    "id": 2158,
+    "species": "horaxigon",
+    "file": "assets/concept-art/horaxigon/2158.webp",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 2159,
+    "species": "horaxigon",
+    "file": "assets/concept-art/horaxigon/2159.png",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 2160,
+    "species": "horaxander",
+    "file": "assets/concept-art/horaxander/2160.webp",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 2161,
+    "species": "horaxander",
+    "file": "assets/concept-art/horaxander/2161.webp",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 2162,
+    "species": "tsunamo",
+    "file": "assets/concept-art/tsunamo/2162.png",
+    "caption": "[ds-front] sprite #399",
+    "editor": "Ivar"
+  },
+  {
+    "id": 2166,
+    "species": "aqualoom",
+    "file": "assets/concept-art/aqualoom/2166.webp",
+    "caption": null,
+    "editor": "michael"
+  },
+  {
+    "id": 2167,
+    "species": "riftlees",
+    "file": "assets/concept-art/riftlees/2167.png",
+    "caption": "[ds-front] sprite #401",
+    "editor": "michael"
+  },
+  {
+    "id": 2168,
+    "species": "riftlees",
+    "file": "assets/concept-art/riftlees/2168.png",
+    "caption": "[ds-back] sprite #401",
+    "editor": "michael"
+  },
+  {
+    "id": 2169,
+    "species": "riftlees",
+    "file": "assets/concept-art/riftlees/2169.png",
+    "caption": "[ds-icon] sprite #401",
+    "editor": "michael"
+  },
+  {
+    "id": 2170,
+    "species": "riftlees",
+    "file": "assets/concept-art/riftlees/2170.png",
+    "caption": "[ds-follower] sprite #401",
+    "editor": "michael"
+  },
+  {
+    "id": 2175,
+    "species": "abysspero",
+    "file": "assets/concept-art/abysspero/2175.webp",
+    "caption": null,
+    "editor": "michael"
   }
 ]

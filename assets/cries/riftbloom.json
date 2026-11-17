@@ -1,36 +1,37 @@
 {
  "v": 1,
- "seed": 890303697,
+ "seed": 0,
  "layers": [
   {
-   "dex": 201,
-   "semi": 2.69,
+   "own": true,
+   "semi": 3.5,
    "gain": 1.0,
    "at": 0.0,
-   "rev": false
-  },
-  {
-   "dex": 425,
-   "semi": 5.21,
-   "gain": 0.46,
-   "at": 0.1,
    "rev": false
   }
  ],
  "stretch": 1.0,
  "sweep": 0.0,
- "tone": 0.0,
+ "tone": -0.65,
  "drive": 0.0,
  "len": 1.6,
- "vib": null,
- "ring": null,
- "echo": null,
+ "vib": {
+  "rate": 6.0,
+  "depth": 1.0
+ },
+ "ring": {
+  "hz": 70.0,
+  "mix": 0.3
+ },
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.16
+ },
  "reasons": [
-  "Starts from Unown's cry: a similar body plan, also Psychic",
-  "Higher by 3 steps, it is taller than Unown",
-  "Mixed with a quieter Drifloon (its footprint is Drifloon's, also Ghost)",
-  "Bent higher so it is its own cry, not Unown's"
+  "Its own sound",
+  "Changed by hand: pitch 3.5, brightness -0.65, wobble 1, echo 0.16, buzz 0.3"
  ],
- "by": "",
- "at": "2026-11-16T22:12:26.549Z"
+ "by": "michael",
+ "at": "2026-11-17T17:55:11.119Z",
+ "audio": "assets/cries/riftbloom.wav"
 }
