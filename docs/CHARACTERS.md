@@ -10,7 +10,7 @@ A character can be redrawn and renamed; its type follows whoever claims it (our 
 | Region | Leader | Type | Share | Special rule in the gym |
 |---|---|---|---|---|
 | Johto | Falkner | Flying | 100 % | only Flying Pokemon may be used |
-| Johto | Bugsy | Bug | 100 % | no type advantage allowed |
+| Johto | Bugsy | Bug, **Fairy in our game** (2026-11-17) | 100 % | no type advantage allowed (no Poison or Steel in ours) |
 | Johto | Whitney | Normal | 90 % | |
 | Johto | Morty | Ghost | 100 % | |
 | Johto | Pryce | Ice | 100 % | |
@@ -177,3 +177,23 @@ Found while counting dialogue (scripts/character_dialogue.py) and checking claim
   Their looks already change at the reveal: overworld sprites 142/143 (Kanto) and 295/296 (final chapter and after),
   trainer classes Hoenn/Sinnoh Trainer and Hoenn/Sinnoh Champion (720#127/#128), so each claimer draws a Kanto look
   and a champion look.
+
+## The Bug gym becomes a Fairy gym (Arvind, 2026-11-17)
+
+"vi vil gjøre bug gym til en fairy gym. det krever bare å endre den regelen og det spindelvevet asset til noe annet som
+passer". On the website the role (id gym-bug, so claims keep working) is Fairy since 2026-11-17. What changes in the
+game, checked in the rc8 files:
+
+- **The rule.** Azalea Gym's script (file 866, L367 on) is 203 `PlayerHasSpecies` checks in a row: Bugsy refuses if any
+  party Pokemon is on the list (Fire, Flying and Rock species). For Fairy the list becomes the Poison and Steel species:
+  78 official species up to Sinnoh, 197 entries with all regions and forms in Origin's data, plus 20 of ours so far
+  (counted 2026-11-17). Only the species ids change; if the list grows past 203 the script is rebuilt longer. Bugsy's
+  line ("None of your Pokemon can have a type that's strong against Bug") changes with it.
+- **The web asset.** The pit is the map texture `g02spider` (128x128, 8 colours with alpha, format A5I3) in the Azalea
+  texture set a/0/4/4 file 29, drawn on the `gym02spider` mesh of land data 248; the silk walkways are `g02rope_a`
+  (32x32). Same size and format in, so no model change: for example glittering ribbons or flower garlands instead of
+  webs. `g02mark` (64x64) is the gym's bug emblem on the floor at the entrance.
+- **Also Bug-themed, decide later:** the Spinarak carts (overworld objects, command AzaleaGymSpinarak), the gym
+  trainers' Bug teams, the Hive Badge name and picture, the reward TM81 X-Scissor, the Megahorn tutor at the door,
+  Bugsy's Bug lines in the gym and the Ilex Forest bug hunt he runs before the gym.
+

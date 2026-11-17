@@ -25,6 +25,8 @@
 # Trainer H ('Koga (Elite Four)') was merged into Trainer M the same day: trainer 703 is Agatha's second team (same
 # room, same trainer class and picture, and Agatha speaks just before the battle, also in the Chinese original).
 # Koga is only the Fuchsia gym leader in Origin. The code H is not used again.
+# gym-bug is a Fairy gym in our game (Arvind, 2026-11-17: "vi vil gjøre bug gym til en fairy gym"); the id stays so
+# claims keep working. Its rule becomes: no Poison or Steel Pokemon (the types strong against Fairy).
 # Trainer AA (Janine) added 2026-11-17 (Arvind: "du kan legge hun til ja det er gøy. skriv at denne personen er
 # master of disquise"). All 26 letters were used or retired, so the code is AA. Counted: her two battles with her own
 # team and the Attack EV sparring battle; the disguised Victory Road 3F battle uses another trainer's team.
@@ -33,14 +35,14 @@
 # both together (scripts/character_dialogue.py, counted 2026-11-16; only numbers, never the text).
 - id: gym-bug
   group: Gym leader
-  type: Bug
-  place: a gym full of plants and insects
+  type: Fairy
+  place: a gym full of plants and sparkling threads
   rule: no type advantage allowed
   battles: 2
   levels: [80, 87]
   dialogue: {story: 75, battle: 6, words: 1303}
   teams:
-  - {lv: 80, size: 4, side: against, original: 'Scyther 80, Escavalier 80, Heracross 80, Volcarona 80', iv: 30}
+  - {lv: 80, size: 4, side: against, note: 'This was the Bug gym in Origin; it is a Fairy gym in our game (Arvind, 2026-11-17). The rule bans Poison and Steel instead.', original: 'Scyther 80, Escavalier 80, Heracross 80, Volcarona 80', iv: 30}
   - {lv: 87, size: 6, side: against, original: 'Scizor 87, Shedinja 86, Armaldo 86, Pinsir 87, Heracross 87, Vikavolt 86', iv: 30}
 - id: gym-dragon
   group: Gym leader
