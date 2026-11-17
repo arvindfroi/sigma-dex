@@ -1362,6 +1362,28 @@ Work folder `~/sigma-origin/title3d/legend` and `~/sigma-origin/legend_test` (lo
   - **Combined a/0/8/1:** `legend/final/a081_customs_v3.bin` (sha256 prefix `ca1476b760724650`). It is v2's chain with Dahrugula v4, then `SHINY=dark seraphinnen_ow.py`; the shiny is provisional until Arvind picks. Members 183, 186, 194, 210, 211 and 228 differ from rc8.
   - **Oak's intro:** Arvind confirmed Lapper in place of Marill. Marill is a/1/2/0 member 64 (NCGR, 140 tiles of poses plus the Poke Ball pieces), with palette 63, cells 65 and animation 66. Not started.
   - **Files:** `alph_puslespill_v3.png`, `alph_fossiler_fra_skisse.png`, `dahrugula_full_v4.png`, `seraphinnen_rod_gyarados_forslag.gif`, `mooceon_svom_animasjon.gif`.
+- **Custom sprites checked in the game (2026-11-17)** (Arvind: "remember to test it in game, so that it's right"):
+  - **Tools** (`legend/`, test ROMs only, never shipped):
+    - `custom_jump.py ROM_IN ROM_OUT MAP X Z [orig=new ...] [-FLAG|+FLAG ...]` writes our NARCs in place, so the `lw/g7.dst` savestate still works (base ROM `origin_hg_en.nds`). The 1F frame script (map 63, a/0/1/2 members 617/842) clears the given hide flags and warps to MAP X Z.
+    - `env A081=` puts our map figures into every overworld NARC copy.
+    - `custom_shots.py ROM OUT [keys]` loads the savestate, walks U*6, R, U, then R onto the bedroom stairs at (9,3), and shoots the field after the warp (the field view stays cropped until the first map change).
+  - **Origin keeps per-outfit copies of 15 NARCs:** `data/clothes1/aXXX.narc` and `data/clothes2/aXXX.narc` (a006, a031, a046, a049, a058, a068, a081, a093, a109, a120, a142, a144, a177, a179, a233), next to `a/x/y/z`.
+    - The game loads the copy for the player's outfit. The test player wears clothes1, so with only `a/0/8/1` patched the original Snorlax and Sudowoodo showed.
+    - The copies share our members byte for byte but differ elsewhere, so they are patched member by member.
+    - **The final build must patch every copy of every archive we change**, including the legend sprites 210/211 in a081, a046, and a120 (Oak's intro, Lapper).
+  - **Map ids:** the arm9 map header table is read as entry (map−3) at 998834−6−60·24. The first scan used it unshifted and so had zone numbers 3 too low. A warp with those ids lands on the right terrain but with the wrong map's objects and tileset; that was the flat brown bridge in the first Route 12 test.
+  - **The figures** (true map ids):
+
+    | Figure | Where | Notes |
+    |---|---|---|
+    | Dahrugula | map 20 (Route 12, Silence Bridge, ≈1426,306, hide flag 1158) and map 154 (≈102,53, flag 2173) | A person stands right of his head at both spots, as with Snorlax (Karate King Jet on Route 12): he covers the lower ear. So `dahru_paint.py` now lays the tipped barrel at his feet on the left (`TIPSIDE=left`, the default), where it shows. |
+    | Sigmanian Sudowoodo | map 40 (Route 36, ≈415,246, flags 463 and 551) | |
+    | Seraphinnen ×3 | map 88 (Lake of Rage, objects at 530,72 / 525,78 / 533,74) | Hovering with ripples. The dark shiny proposal reads a little like a crab in the game. |
+    | Mooceon | maps 66, 94, 108, 151, 162, 503, 506 | Swimming NPC Pokemon, some beside swimmers. **The player does not ride them:** surfing uses the game's own surf figure under the player's sitting sprite (a081 73/74). |
+    | Alph puzzles | maps 312, 314, 316, 318 (Kabuto, Aerodactyl, Omanyte, Ho-Oh); panel at (6,6) | v3 loads and shows in the puzzle screen. The hint text above the board still describes Kabuto (text job). |
+
+  - **Combined a/0/8/1:** `legend/final/a081_customs_v4.bin` (sha256 prefix `77bec4b550897a58`), v3's chain with the moved barrel.
+  - **Files:** `custom_sprites_i_spillet.png`.
 - **Oak's intro: Lapper in place of Marill (2026-11-17)** (tools in `legend/oak/`, provenance `~/sigma-origin/title3d/legend/oak/PROVENANCE_v1.txt`):
   - **What the original is** (`dump_oak.py`, `render_oak.py`): a/1/2/0 members 63-66 are Marill's palette, tiles (140, 4bpp, 1D), cells and animation. There are only two poses:
     - cell 0 stands (48x48 box, figure 43x34, feet on row -8, tiles 0-35);

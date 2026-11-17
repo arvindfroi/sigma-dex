@@ -98,17 +98,23 @@ for y in range(52, 61):                                         # the lower foot
         if src[y, x] == 8 and all(src[y + dy, x + dx] in (7, 8, 9) for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))): g[y, x] = I['NOSE']
 # a second barrel tipped over on the grass by his side, its brew spilled (the original's grass patch, right of the body)
 if E('TIPPED', 1):
-    tx, ty = E('TX', 48), E('TY', 54)
-    body_ = [(x, y) for y in range(ty, ty + 5) for x in range(tx, tx + 7) if not ((x in (tx, tx + 6)) and (y in (ty, ty + 4)))]
+    # drawn in its own little layer (open end and spill to the right), then put by his feet on the LEFT, mirrored, so the
+    # open end and the spill point away from him (in the game a person stands right of his head at both of his spots,
+    # Karate King Jet on Route 12, and covered it on the right: in-game check 2026-11-17); TIPSIDE=right for the old place
+    lay = {}
+    body_ = [(x, y) for y in range(5) for x in range(7) if not ((x in (0, 6)) and (y in (0, 4)))]
     for x, y in body_:
         edge = any((x + dx, y + dy) not in body_ for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)))
-        put([(x, y)], 'OUTL' if edge else ('B3' if x in (tx + 2, tx + 4) else ('B2' if y == ty + 1 else 'B1')))
-    put([(tx + 6, ty + 1), (tx + 6, ty + 2), (tx + 6, ty + 3), (tx + 7, ty + 2)], 'OUTL')   # the open end, dark inside
-    put([(tx + 7, ty + 1), (tx + 7, ty + 3), (tx + 8, ty + 2)], 'B3')
-    spill = [(tx + 8, ty + 4), (tx + 9, ty + 4), (tx + 9, ty + 3), (tx + 10, ty + 4), (tx + 10, ty + 5), (tx + 8, ty + 5),
-             (tx + 9, ty + 5), (tx + 11, ty + 5), (tx + 7, ty + 5), (tx + 9, ty + 6), (tx + 10, ty + 6)]
-    for x, y in spill:
-        if g[y, x] in (0, I['GRASS']): g[y, x] = I['BREW']
+        lay[(x, y)] = 'OUTL' if edge else ('B3' if x in (2, 4) else ('B2' if y == 1 else 'B1'))
+    for q in ((6, 1), (6, 2), (6, 3), (7, 2)): lay[q] = 'OUTL'                 # the open end, dark inside
+    for q in ((7, 1), (7, 3), (8, 2)): lay[q] = 'B3'
+    for q in ((8, 4), (9, 4), (9, 3), (10, 4), (10, 5), (8, 5), (9, 5), (11, 5), (7, 5), (9, 6), (10, 6)): lay.setdefault(q, 'BREW')
+    left = os.environ.get('TIPSIDE', 'left') == 'left'
+    ox, oy = (E('TX', 10), E('TY', 55)) if left else (E('TX', 48), E('TY', 54))
+    for (x, y), n in lay.items():
+        X_, Y_ = (ox + 11 - x if left else ox + x), oy + y
+        if 0 <= X_ < 64 and 0 <= Y_ < 64 and (n != 'BREW' or g[Y_, X_] in (0, I['GRASS'])) and g[Y_, X_] in (0, I['GRASS'], I['OUTL']):
+            g[Y_, X_] = I[n]
 raw = open(IN, 'rb').read(); F = unpack(raw); d = F[194]
 new = btx.encode(d, g.astype(np.uint8), pal); assert len(new) == len(d)
 ro = raw.find(d); assert raw.count(d) == 1
