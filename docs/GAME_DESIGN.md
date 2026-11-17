@@ -145,6 +145,17 @@ with. Ideas to keep in mind for B (Claude): (1) Rocket stays, but changes during
 (no new team, only new looks late in the story); (2) a team built on our theme, people who want to "evolve" humans,
 e.g. a self-improvement company that sells growth (fits the harness and the fast-food humour); (3) a team per
 version, each worshipping that version's legend (Sabertann / Gravriel), so the versions differ in story too.
+**If B (same plot, new names and looks), concepts that fit Origin's plot (theft, experiments, the League gold,
+legendaries) and our theme (names are placeholders):**
+- **A growth company (Claude's pick):** a self-improvement/biotech firm that sells "faster growth" to trainers; the
+  EXP harness is its product. Ads and shops early in the game (foreshadowing, cheeky humour), crime behind it. Boss =
+  the founder, executives = department heads, grunts = sales staff/lab workers. Fits the League gold (funding) and
+  the experiments (Meowthwo) directly.
+- **A cat syndicate:** built around the boss's Persian that controls Meowthwo; Origin already has Persian statues
+  with glowing eyes in the Mahogany base. Ties to the costume Meowth; check it does not clash with Sabertann (a cat).
+- **A shedding cult:** people who believe humans can "molt" into something higher; executives are ranks, grunts
+  are novices. Darkest of the three; fits the Giovanni-in-the-harness ending.
+- Per version (one per legend) is possible on top, but doubles the text work.
 
 **Open:** where Sabertann and Gravriel appear in the story (Origin's Ho-Oh/Lugia scenes: Bell Tower, Whirl Islands,
 the two cutscenes each are already mapped in docs/LEGEND_CUTSCENES.md).
