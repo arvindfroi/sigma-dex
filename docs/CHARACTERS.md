@@ -180,20 +180,24 @@ Found while counting dialogue (scripts/character_dialogue.py) and checking claim
 
 ## The Bug gym becomes a Fairy gym (Arvind, 2026-11-17)
 
-"vi vil gjøre bug gym til en fairy gym. det krever bare å endre den regelen og det spindelvevet asset til noe annet som
-passer". On the website the role (id gym-bug, so claims keep working) is Fairy since 2026-11-17. What changes in the
-game, checked in the rc8 files:
+GutnDin's idea (he has claimed the role). Arvind: "vi vil gjøre bug gym til en fairy gym". On the website the role
+(id gym-bug, so claims keep working) is Fairy since 2026-11-17. It is the only gym that changes type. With it, the
+gyms cover 15 types: Bug now has no gym, and Ground and Dark have none either (as before; they are only among the
+villains: Giovanni, Ariana, Petrel). The Elite Four (Ice, Fighting, Ghost, Dragon) repeat gym types.
 
-- **The rule.** Azalea Gym's script (file 866, L367 on) is 203 `PlayerHasSpecies` checks in a row: Bugsy refuses if any
-  party Pokemon is on the list (Fire, Flying and Rock species). For Fairy the list becomes the Poison and Steel species:
-  78 official species up to Sinnoh, 197 entries with all regions and forms in Origin's data, plus 20 of ours so far
-  (counted 2026-11-17). Only the species ids change; if the list grows past 203 the script is rebuilt longer. Bugsy's
-  line ("None of your Pokemon can have a type that's strong against Bug") changes with it.
-- **The web asset.** The pit is the map texture `g02spider` (128x128, 8 colours with alpha, format A5I3) in the Azalea
-  texture set a/0/4/4 file 29, drawn on the `gym02spider` mesh of land data 248; the silk walkways are `g02rope_a`
-  (32x32). Same size and format in, so no model change: for example glittering ribbons or flower garlands instead of
-  webs. `g02mark` (64x64) is the gym's bug emblem on the floor at the entrance.
-- **Also Bug-themed, decide later:** the Spinarak carts (overworld objects, command AzaleaGymSpinarak), the gym
-  trainers' Bug teams, the Hive Badge name and picture, the reward TM81 X-Scissor, the Megahorn tutor at the door,
-  Bugsy's Bug lines in the gym and the Ilex Forest bug hunt he runs before the gym.
-
+- **The rule: DONE in a test ROM** ("holy shit. broken på denne gymen. vi går for det"). Azalea Gym's script (file
+  866, L393 on) is 203 `PlayerHasSpecies` checks in a row; Bugsy refuses if any party Pokemon is on the list. Now the
+  list is the Poison and Steel species (any form): 168 national ids from the EN patch's species list, the last one
+  repeated to fill 203 slots. His refusal (bank 559 line 22) now reads "None of your Pokémon can be Poison or Steel
+  type. / Those two would make this battle far too easy for you!". Built by
+  scripts/origin_custom/fairy_gym/build_fairy_gym.py (IN.nds OUT.nds); tested in the emulator 2026-11-17 on
+  ~/sigma-origin/rc8/fairy_gym_test.nds: with a Bulbasaur in the party he refuses with the new line, with a
+  Charmander (banned in Origin) the battle starts. Our own Poison/Steel species (20 so far) are added at export; if
+  the list passes 203 the script has to be rebuilt longer.
+- **The pit: flowers and glitter** (Arvind). The webs are the map texture `g02spider` (128x128, 8 colours with alpha,
+  format A5I3) in the Azalea texture set a/0/4/4 file 29, on the `gym02spider` mesh of land data 248; the silk
+  walkways are `g02rope_a` (32x32). Same size and format in, so no model change.
+- **The Spinarak carts:** a Fairy Pokemon or a cute cart instead (overworld objects, command AzaleaGymSpinarak).
+- **Also now:** the bug emblem on the floor at the entrance (`g02mark`, 64x64) and the gym trainers' teams (Fairy).
+- **Later:** the Hive Badge (name and picture), the reward TM81 X-Scissor, the Megahorn tutor at the door.
+- **Rewrite:** Bugsy's Bug lines in the gym, and the Ilex Forest bug hunt he runs before the gym.
