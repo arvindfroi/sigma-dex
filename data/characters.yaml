@@ -20,6 +20,9 @@
 # it can never be started in a normal game.
 # Trainer U ('Lorin') was merged into Trainer I on 2026-11-17: trainer 705 is Lance's second team; the Chinese
 # original gives it a wrong name, which the EN patch fixed to Lance in rc8. The code U is not used again.
+# Trainer H ('Koga (Elite Four)') was merged into Trainer M the same day: trainer 703 is Agatha's second team (same
+# room, same trainer class and picture, and Agatha speaks just before the battle, also in the Chinese original).
+# Koga is only the Fuchsia gym leader in Origin. The code H is not used again.
 # The villains (Rocket, Magma, Aqua and Galactic: codes A, B, D, E, F, L, N, R, S, T, V) are left out too (Arvind, 2026-11-12).
 # dialogue: how much they say in Origin: story = text boxes in the story, battle = lines in battle, words =
 # both together (scripts/character_dialogue.py, counted 2026-11-16; only numbers, never the text).
@@ -221,16 +224,6 @@
   - {lv: 96, size: 3, side: both, original: 'Raikou 95, Sudowoodo 96, Sunflora 96'}
   - {lv: 97, size: 6, side: both, original: 'Torkoal 96, Typhlosion 97, Togekiss 97, Ambipom 97, Sudowoodo 96, Mantine 96'}
   - {lv: 97, size: 6, side: both, original: 'Torkoal 96, Typhlosion 97, Togekiss 97, Ambipom 97, Sudowoodo 96, Mantine 96'}
-- id: trainer-h
-  group: Important trainer
-  type: Ghost / Poison
-  place: you meet them once, at an important moment
-  code: Trainer H
-  battles: 1
-  levels: [94]
-  dialogue: {story: 101, battle: 3, words: 1434}
-  teams:
-  - {lv: 94, size: 6, side: against, original: 'Arbok 93, Sableye 93, Gengar 94, Wobbuffet 94, Dusclops 93, Gardevoir 94'}
 - id: trainer-i
   group: Important trainer
   type: Flying / Dragon
@@ -273,13 +266,14 @@
 - id: trainer-m
   group: Important trainer
   type: Ghost
-  place: you meet them once, at an important moment
+  place: you meet them a couple of times
   code: Trainer M
-  battles: 1
-  levels: [90]
-  dialogue: {story: 38, battle: 3, words: 477}
+  battles: 2
+  levels: [90, 94]
+  dialogue: {story: 38, battle: 6, words: 500}
   teams:
   - {lv: 90, size: 6, side: against, original: 'Arbok 90, Gengar 90, Sableye 89, Spiritomb 89, Dusknoir 90, Mismagius 89'}
+  - {lv: 94, size: 6, side: against, original: 'Arbok 93, Sableye 93, Gengar 94, Wobbuffet 94, Dusclops 93, Gardevoir 94'}
 - id: trainer-o
   group: Important trainer
   type: Mixed

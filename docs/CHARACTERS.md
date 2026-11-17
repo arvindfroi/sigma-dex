@@ -33,13 +33,19 @@ A character can be redrawn and renamed; its type follows whoever claims it (our 
 | Lorelei | Ice | 91 % |
 | Bruno | Fighting | 83 % |
 | Agatha | Ghost | 83 % |
-| Koga (Elite Four) | Ghost/Poison | 50 % / 33 % |
 | Lance | Flying/Dragon | 83 % / 50 % |
 | Steven (Hoenn champion) | Steel | 50 % |
 | Cynthia (Sinnoh champion) | mixed (Ground, Water) | |
 
-"Lorin" (trainer 705) in older lists is not a person: it is Lance's second team (his rematch after the first Hall of
-Fame). The Chinese original gives it a wrong name; the EN patch fixed it to Lance in rc8 (their decision D-1442).
+**The Elite Four in Origin, checked in the game files (2026-11-17).** It is the Gen 1 line-up, not the Gen 2 one:
+Lorelei (room 1), Agatha (room 2), Bruno (room 3) and Lance (room 4), then Blue in the champion's room. Origin reuses
+HeartGold's rooms (Will's, Koga's, Bruno's, Karen's, Lance's). Each member has two teams: the story run (trainers 245,
+247, 418, 246) and a rematch after the first Hall of Fame (702-705), started from the same room script (817-820).
+Koga is only the Fuchsia gym leader; Will and Karen are Team Rocket. The Chinese trainer names call 703 "Koga" (阿桔)
+and 705 "Lorin" (梨琳), but both use the same trainer class (so the same battle picture) as Agatha (class 89) and
+Lance (class 88), and the line just before the battle is Agatha's (菊子) and Lance's (渡), also in the Chinese
+original. The EN patch fixed the names in rc8 (their decision D-1442). So "Koga (Elite Four)" and "Lorin" were
+never people; on the website they were merged into Agatha (Trainer M) and Lance (Trainer I).
 
 ## Villains with a type
 
@@ -79,7 +85,7 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer E: Giovanni (Rocket boss)
 - Trainer F: Maxie (executive, Fire)
 - Trainer G: Gold
-- Trainer H: Koga (Elite Four)
+- Trainer H: not used since 2026-11-17 (it was "Koga (Elite Four)", Agatha's second team; merged into Trainer M)
 - Trainer I: Lance (Elite Four)
 - Trainer J: Green (a girl player meets Red instead: the same teams and lines, so it is one role)
 - Trainer K: Lorelei (Elite Four)
@@ -112,11 +118,9 @@ Found while counting dialogue (scripts/character_dialogue.py) and checking claim
   scene or a battle. One line has to change, though. In text bank 134 (Chuck's training scene on the beach, line 25)
   Chuck says he is not as strong as "Mr. Bruno of the Elite Four". With one person in both roles, he would be talking
   about himself. When the texts are rewritten, change or drop that comparison.
-- **Koga is one person in two roles.** In Origin he is the Fuchsia gym leader (gym-poison, 4 teams, including the
-  Venonat 80 battle) and an Elite Four member (Trainer H). Janine is only a Ninja Girl trainer there. His story lines
-  (78 text boxes, banks 090, 329, 354 and 506) belong to both roles. If two different people claim gym-poison and
-  Trainer H, the story has two people saying one person's lines. Make it one role, or let only the same person claim
-  both.
+- **Koga has one role, not two** (corrected 2026-11-17). An earlier note here said he was also in the Elite Four
+  (Trainer H). That was a wrong name in the Chinese trainer list: trainer 703 is Agatha's second team. Koga is only
+  the Fuchsia gym leader (gym-poison).
 - **Steven and Cynthia come back as a surprise** (Arvind, 2026-11-17). In Origin they are your friends all through Kanto,
   leave after the first Hall of Fame and only return in the final chapter, on the Indigo Plateau, as the new champions
   of Hoenn and Sinnoh. You never see them in Johto, but the text gives it away. Plan: they only say they are going

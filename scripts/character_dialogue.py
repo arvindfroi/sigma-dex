@@ -13,7 +13,8 @@ numbers go into the repo, never the text (the text is Nintendo's and the Origin 
   ~/sigma-origin/docs/trainers.md ("#### Leader Chuck (#251)").
 - words: all their words, story and battle together.
 
-Koga is both the Fuchsia leader and an Elite Four member in Origin: both roles get his story lines (one person).
+The Elite Four in Origin are Lorelei, Agatha, Bruno and Lance. "Elite Four Koga" (703) and "Elite Four Lorin" (705)
+in the Chinese trainer names are Agatha's and Lance's second teams (fixed in EN rc8), so they count for them.
 Green and Red are one role (a girl player meets Red instead, with the same lines): the bigger count is used.
 """
 import re
@@ -43,11 +44,10 @@ WHO = {
     "gym-water": (["Misty"], ["Cerulean Trnr Misty"]),
     "trainer-c": (["Eusine"], ["Mystery Man Eusine"]),
     "trainer-g": (["Gold"], ["Johto Trainer Gold", "PKMN Trainer Gold"]),
-    "trainer-h": (["Koga"], ["Elite Four Koga"]),
     "trainer-i": (["Lance"], ["Elite Four Lance", "Elite Four Lorin"]),   # 705 "Lorin" is Lance's second team (fixed in EN rc8)
     "trainer-j": ([["Green"], ["Red"]], [["PKMN Trainer Green"], ["PKMN Trainer Red"]]),   # one role, two versions
     "trainer-k": (["Lorelei"], ["Elite Four Lorelei"]),
-    "trainer-m": (["Agatha"], ["Elite Four Agatha"]),
+    "trainer-m": (["Agatha"], ["Elite Four Agatha", "Elite Four Koga"]),   # 703 "Koga" is Agatha's second team (fixed in EN rc8)
     "trainer-o": (["Crystal"], ["Johto Trainer Crystal"]),
     "trainer-p": (["Yellow"], ["Viridian Trnr Yellow"]),
     "trainer-q": (["Bruno"], ["Elite Four Bruno"]),
