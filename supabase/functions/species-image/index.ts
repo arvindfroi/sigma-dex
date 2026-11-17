@@ -42,8 +42,11 @@ Deno.serve(async (req: Request) => {
     if (form.get("action") === "remove") {
       const id = Number(form.get("id"));
       if (!Number.isInteger(id)) return reply(400, { message: "Which image?" });
-      const { data, error } = await supabase.from("species_images").update({ removed: true }).eq("id", id).select("id").maybeSingle();
+      const { data, error } = await supabase.from("species_images").update({ removed: true }).eq("id", id).select("id, species_id, path").maybeSingle();
       if (error || !data) return reply(404, { message: "That image does not exist" });
+      // A trainer picture can be a photo of a person: removing it deletes the file too, not only its place on
+      // the page (Arvind, 2026-11-17: people must be able to get rid of their pictures).
+      if (String(data.species_id).startsWith("trainer-") && data.path) await supabase.storage.from("art").remove([data.path]);
       return reply(200, { id, removed: true });
     }
 
