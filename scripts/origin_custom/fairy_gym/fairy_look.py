@@ -14,12 +14,15 @@ written back in place (same offsets: savestates and the test jump still work).
 How each texture changes (the picture stays the game's own pixels; only colours change, except the two new ones):
 - ramp: every palette colour is moved onto a Fairy colour ramp by its brightness, so shading and outlines stay.
 - hue: only the colourful entries are moved to a new hue (grey metal and outlines stay).
+- the cart (room model 118, the Spinarak) becomes Fleuroom's mushroom head: see fleuroom_cart.py.
 - g02spider (A5I3, 8 colours + alpha) is drawn new: an opaque dusk-violet flower bed with glitter (Arvind: "flowers
   and glitter" in the pit). g02mark is drawn new: a sparkle in a ring instead of the bug emblem.
 Nothing here holds game data; it reads Arvind's own ROM and writes a new one."""
 import colorsys, os, struct, sys
 import numpy as np
 import ndspy.rom, ndspy.narc
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import fleuroom_cart
 
 # ---------------------------------------------------------------------------------------------- texture container
 def u32(d, o): return struct.unpack_from('<I', d, o)[0]
@@ -154,25 +157,9 @@ BUILD_RULES = [
     ('gym02rope_1_pl', 4, 'ramp', BRIDGE_PINK), ('gym02rope_2_pl', 4, 'ramp', BRIDGE_BLUE),
     ('g2switch_r.1_pl', 16, 'hue', [(330, 60, 330, 0.8, 0.2)]), ('g2switch_r.2_pl', 16, 'hue', [(330, 60, 330, 0.8, 0.2)]),
     ('g2switch.1_pl', 16, 'hue', [(170, 260, 225, 0.7, 0.25)]), ('g2switch.2_pl', 16, 'hue', [(170, 260, 225, 0.7, 0.25)]),
-    # the Spinarak cart becomes a sweet pink cart: green -> pink, yellow -> cream, dark grey legs -> plum
-    ('g02lift_body_pl', 4, 'hue', [(60, 180, 335, 0.55, 0.35)]), ('g02lift_body2_pl', 4, 'hue', [(60, 180, 335, 0.55, 0.35)]),
-    ('g02lift_leg1_pl', 4, 'hue', [(40, 75, 40, 0.25, 0.5)]),
-    ('g02lift_on1_pl', 4, 'hue', [(40, 90, 345, 0.35, 0.45)]), ('g02lift_on2_pl', 4, 'hue', [(40, 90, 345, 0.35, 0.45)]),
     ('plant_x_pl', 16, 'hue', GREEN_TO_PINK),
     ('d_mat01', 4, 'hue', [(330, 40, 335, 0.7, 0.3)]),   # the red door mat -> pink
 ]
-DARK_TO_PLUM = ['g02lift_body_pl', 'g02lift_body2_pl', 'g02lift_leg1_pl', 'g02lift_leg2_pl', 'g02lift_leg3_pl']
-
-
-def plumify(d, o, n):
-    """dark grey -> dark plum (the cart's legs and shadows)"""
-    cols = get_pal(d, o, n); out = []
-    for c in cols:
-        rgb = to_rgb(c); h, s, v = colorsys.rgb_to_hsv(*(rgb / 255))
-        if s < 0.22 and v < 0.6: rgb = np.array(colorsys.hsv_to_rgb(320 / 360, 0.35, min(1, v * 1.15))) * 255
-        out.append(to15(rgb))
-    set_pal(d, o, out)
-
 
 def used_entries(d, texs, pals, pal_off):
     """palette entries drawn by every texture that uses this palette (a clear index 0 is not drawn)"""
@@ -195,14 +182,6 @@ def apply_rules(d, rules):
 
 
 # ---------------------------------------------------------------------------------------------- the two new pictures
-def wrap_stamp(img, x, y, pat, val):
-    for dy, row in enumerate(pat):
-        for dx, ch in enumerate(row):
-            if ch != '.': img[(y + dy) % img.shape[0], (x + dx) % img.shape[1]] = val[ch]
-
-
-
-
 def blossom(img, cx, cy, R, petal, rim, centre, S=128):
     """a five-petal blossom of radius R texels, drawn with wrap-around"""
     for dy in range(-R - 1, R + 2):
@@ -280,6 +259,7 @@ def sparkle_mark():
 # ---------------------------------------------------------------------------------------------- ROM
 MAP_TEX, MAP_IDX = 'a/0/4/4', 29
 BLD_TEX, BLD_IDX = 'a/0/7/0', 27
+CART = [('a/1/4/8', 118), ('fielddata/build_model/bm_room.narc', 118)]   # two FAT entries of the room models
 
 
 def build(d_map, d_bld):
@@ -290,7 +270,9 @@ def build(d_map, d_bld):
     img, cols = sparkle_mark(); x = texs['g02mark']; assert x['fmt'] == 2 and x['w'] == 64
     put_idx(d_map, x, img); set_pal(d_map, pals['g02mark_pl'], cols)
     btexs, bpals = apply_rules(d_bld, BUILD_RULES)
-    for nm in DARK_TO_PLUM: plumify(d_bld, bpals[nm], 4)
+    for nm, (img, cols) in fleuroom_cart.textures().items():     # the cart's textures: Fleuroom's cap and face
+        x = btexs[nm]; assert x['fmt'] == 2 and img.shape == (x['h'], x['w']), nm
+        put_idx(d_bld, x, img); set_pal(d_bld, bpals[nm + '_pl'], [fleuroom_cart.to15(fleuroom_cart.hexrgb(c)) for c in cols])
     return bytes(d_map), bytes(d_bld)
 
 
@@ -317,6 +299,12 @@ def main(src, dst, preview=None):
     new_map, new_bld = build(out[o1:o1 + n1], out[o2:o2 + n2])
     assert len(new_map) == n1 and len(new_bld) == n2
     out[o1:o1 + n1] = new_map; out[o2:o2 + n2] = new_bld
+    done = set()
+    for path, idx in CART:                                      # the cart model becomes Fleuroom's mushroom head
+        o, n = narc_member_span(out, rom, path, idx)
+        if o in done: continue
+        new, used, room = fleuroom_cart.build_model(bytes(out[o:o + n])); assert len(new) == n
+        out[o:o + n] = new; done.add(o); print('cart model at', hex(o), '%d of %d display-list bytes' % (used, room))
     open(dst, 'wb').write(out)
     print('fairy gym textures ->', dst)
     if preview: write_preview(bytes(out[o1:o1 + n1]), bytes(out[o2:o2 + n2]), preview)

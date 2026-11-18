@@ -698,8 +698,17 @@ villains: Giovanni, Ariana, Petrel). The Elite Four (Ice, Fighting, Ghost, Drago
   - silk walkways (`g02rope_a`) -> pink and white ribbon; the switch bridges: orange -> pink, blue -> periwinkle; the
     levers follow (red -> pink, blue -> periwinkle), so the colour clue of the puzzle stays;
   - the bug emblem (`g02mark`) -> a pink ring with a four-point sparkle (drawn new);
-  - the Spinarak carts (`g02lift_*`) -> pink and cream with plum legs. Their shape is a 3D model (a spider with legs);
-    only the colours change for now. A new shape means a new model.
+  - the Spinarak carts -> **Fleuroom's mushroom head** (Arvind 2026-11-18: Fleuroom is the leader's signature
+    Pokemon). Built by scripts/origin_custom/fairy_gym/fleuroom_cart.py (called by fairy_look.py). The cart is room
+    building model 118 `gym02lift` (a/1/4/8, also listed as fielddata/build_model/bm_room.narc; both FAT entries are
+    patched, they are two copies). Its 22 display lists are rewritten in the same 5544 bytes: an orange dome cap with
+    cream spots (the player stands on top, y about 2, the old platform was at 1), gills under the rim, and a cream stem
+    with Fleuroom's face on the camera side; the six legs get one invisible triangle each. Colours come from his DS
+    sprite. Texture gotcha: in a/0/7/0 file 27 g02lift_body and _body2 share one palette, body2 shares its pixels with
+    leg1 and on2 with leg2, so the face is on g02lift_on1. Riding works in the emulator (the player stands on the cap
+    and crosses the pit). Parked against a ledge only the cap shows (the ledge hides the stem, as it hid the Spinarak's
+    body); while riding the face shows as a cream stem with two dark eyes. Pictures:
+    ~/sigma-origin/fairy_gym/fleuroom_cart_model.png, ride6_zoom.png, side_v6.png.
   Method: "ramp" moves every palette colour onto a Fairy colour ramp by its brightness, so the original shading and
   outlines stay; "hue" moves only the colourful entries (grey metal stays). Tested in the emulator on
   ~/sigma-origin/origin_hg_en.nds (test jump into map 180), side by side with the original:
