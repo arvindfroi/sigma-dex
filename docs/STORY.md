@@ -685,7 +685,8 @@ villains: Giovanni, Ariana, Petrel). The Elite Four (Ice, Fighting, Ghost, Drago
   walkways are `g02rope_a` (32x32). Same size and format in, so no model change.
 - **The Spinarak carts:** a Fairy Pokemon or a cute cart instead (overworld objects, command AzaleaGymSpinarak).
 - **Also now:** the bug emblem on the floor at the entrance (`g02mark`, 64x64) and the gym trainers' teams (Fairy).
-- **The look: DONE in a test ROM, approved by Arvind (2026-11-18, "looks good").** Built by
+- **The look: DONE and LOCKED (Arvind 2026-11-18: "looks good", "lock it inn").** Locked copy with both test ROMs,
+  pictures, the scripts and SHA-256 sums: ~/sigma-origin/fairy_gym/locked_fairy_gym_v1/ (README.txt). Built by
   scripts/origin_custom/fairy_gym/fairy_look.py (IN.nds OUT.nds [PREVIEW_DIR]); it runs after build_fairy_gym.py.
   Everything visible in the gym comes from two texture sets that only area 29 uses (maps 136 = the entrance hall and
   180 = the gym): map textures a/0/4/4 file 29 and building textures a/0/7/0 file 27. Neither has per-outfit copies in
