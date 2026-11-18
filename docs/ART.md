@@ -632,19 +632,29 @@ drawn: a shiny is the same picture with other colours, like in the real games.
   - **subtle**, like many official shinies.
 - **The line comes first.** If a relative already has a saved shiny, the first CREATE copies how it moved each colour
   (the closest colour in the relative's sprite). So a line matches.
-- **Colour groups.** The colours of the front and back are sorted into groups: each colour family with its shades,
-  then greys, whites and the outline. Whites are kept unless someone moves them. Each group except the outline has
-  three sliders:
-  - **Colour** turns every shade together, so the shading stays right;
-  - **Strength** makes the group stronger or greyer;
-  - **Light** makes it lighter or darker.
-
-  The colour box on the right picks the new main colour directly.
-- **The outline never changes** (decided 15 Nov 2026). The near-black outline row has no sliders and no colour box,
-  CREATE leaves it alone, and no other colour may take its place. Official shinies keep the outline too.
+- **Colour groups.** The colours of the front and back are sorted into rows: each colour family with its shades,
+  then **dark parts**, greys, whites and the outline. Whites are kept unless someone moves them.
+  - A coloured row has **Colour** (turns every shade together), **Strength** (stronger or greyer) and **Light**.
+  - A dark, grey or white row has no hue to turn, so it has **Tint** (the hue it gets), **Amount** (how much) and **Light**.
+  - Each row has quick colour dots (red ... white), a colour box for the new main colour, ↺ to reset the row, and
+    sliders that show their own colours. Double-click a slider to reset it.
+  - Tap a small square in a row to change only that one colour ("Only this colour"). FOLLOW THE ROW AGAIN undoes it.
+- **Tap the picture** to find which row a colour is in. Pointing at a row shows where its colours are for a moment.
+- **UNDO / REDO** (also Ctrl+Z / Ctrl+Shift+Z).
+- **Colours move in OKLCH** (since 18 Nov 2026), a colour space made for the eye. Turning a colour keeps how light it
+  looks, so the shading stays right. In HSL, yellow -> blue went dark and blue -> yellow went neon.
+- **The outline never changes** (decided 15 Nov 2026). Official shinies keep the outline too.
+  - Since 18 Nov the outline is found from the picture: the dark colour(s) that run along the edge of the figure.
+    Before that every near-black colour counted as outline, so black and dark bodies could not get a shiny.
+  - Other dark colours are the **dark parts** row and can be tinted, lightened or recoloured.
+  - Tap a colour and tick or untick **outline** to move it in or out. The outline row has no sliders, CREATE leaves
+    it alone, and no other colour may take its place.
+  - Measured on 137 fronts: the outline colour is hardly ever used as a fill. Lapper is the exception, at 30%.
+    So separating them by colour is enough.
 - **The preview** shows normal and shiny side by side, the back and the walking sprite. The walking sprite has its own
-  colours. Each of them follows the front colour closest to it.
+  colours. Each of them follows the front colour closest to it, and its own outline stays.
 - **SAVE THIS SHINY** stores it. The page's top screen then has a **SHINY** button.
+- **Old saves** open exactly as they were saved. Each colour shows its saved value until someone moves its row.
 
 ### What is stored
 
@@ -656,6 +666,9 @@ The sync writes `assets/shiny/<pokemon>.json`, and the species file's `assets.sh
  "why": "The blue turns green", "front": "<the sprite it was made for>", "by": "Arvind", "at": "2026-11-14T..."}
 ```
 
+- Since 18 Nov 2026 a save also has `"v": 2`, `"over"` (single colours set on their own, normal -> shiny) and
+  `"outline"` (the colours locked as outline). In v2, `adj` of a dark, grey or white row has `"tint": true`, and its
+  `hue` is the tint's hue (0-360), not a turn.
 - `map` covers every colour of the front and back. `follower` covers the walking sprite.
 - Every shiny colour is a multiple of 8. The DS keeps 5 bits per channel.
 - Two colours that were different stay different after rounding.

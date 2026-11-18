@@ -850,8 +850,22 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .shsw { display: inline-flex; flex-direction: column; border: 1px solid var(--edge); }
 .shsw i { display: block; width: 14px; height: 10px; }
 .shsliders { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2px 12px; margin-top: 4px; }
-.shgroup.locked { opacity: .75; }
-.shgroup.locked .shsw i { width: 10px; }
+.shgroup.locked { opacity: .8; }
+.shgroup.found { box-shadow: 0 0 0 3px #ffe36a; }
+.shinypic.pickable { cursor: crosshair; }
+.shsw { padding: 0; background: none; cursor: pointer; }
+.shsw.open { outline: 3px solid #ffe36a; outline-offset: 1px; }
+.shsw.own { border-style: dashed; border-width: 2px; }
+.shsw.big i { width: 26px; height: 18px; }
+.shgroup.locked .shsw i { width: 12px; height: 12px; }
+.shchips { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 2px; }
+.shchip { flex: none; box-sizing: border-box; width: 24px; height: 24px; min-width: 0; min-height: 0; padding: 0; border: 2px solid var(--edge); border-radius: 50%; cursor: pointer; }
+.shchip:hover, .shchip:focus-visible { transform: scale(1.18); }
+.shone { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 6px; padding: 4px 6px; border: 1px dashed var(--edge); }
+.shone input[type=color] { width: 38px; height: 28px; padding: 0; border: 2px solid var(--edge); background: none; }
+input[type=range].shtrack { -webkit-appearance: none; appearance: none; height: 14px; border: 2px solid var(--edge); border-radius: 0; margin: 6px 0; }
+input[type=range].shtrack::-webkit-slider-thumb { -webkit-appearance: none; width: 10px; height: 22px; background: #ffffff; border: 2px solid #241c3c; cursor: pointer; }
+input[type=range].shtrack::-moz-range-thumb { width: 8px; height: 20px; background: #ffffff; border: 2px solid #241c3c; border-radius: 0; cursor: pointer; }
 .shslider { display: flex; align-items: center; gap: 6px; font-size: 13px; }
 .shslider span { width: 62px; color: var(--muted); }
 .shslider input { flex: 1; min-width: 0; }
@@ -2697,11 +2711,20 @@ function walker(src, scale) {
 // CREATE / RETRY suggest a whole shiny with random choices, following the evolution line when a relative already has
 // one. Saved as "normal colour -> shiny colour" (kind 'shiny'); the sync writes assets/shiny/<pokemon>.json.
 // The DS keeps 5 bits per channel, so every shiny colour is a multiple of 8, like our sprites. How: docs/ART.md#shinies.
+// 18 Nov 2026, v2 (Arvind: "det blir ikke så bra ... kontrollen føler litt dårlig ... pokemons som har svart og mørkere
+// farger i sitt design som jeg ikke kan endre fargen på ... uten å endre selve outlinen"):
+// - colours move in OKLCH, a colour space made for the eye, so turning a colour keeps its lightness and its shading
+//   (in HSL yellow -> blue went dark and blue -> yellow went neon);
+// - the outline is found from the picture: the dark colour(s) that run along the edge of the figure. Other dark colours
+//   are "dark parts" and can be tinted, lightened or recoloured. Any colour can be moved in or out of the outline;
+// - tap the picture to find a colour's row, quick colour chips, sliders that show their colours, one colour on its own,
+//   undo and redo.
 DEX.shinies = DEX.shinies || {};
 DEX.cries = DEX.cries || {};
 const hexOf = c => "#" + c.map(v => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, "0")).join("");
 const rgbOf = hex => [1, 3, 5].map(i => parseInt(String(hex).slice(i, i + 2), 16));
 const ds15 = v => Math.max(0, Math.min(248, Math.round(v / 8) * 8));
+const round2 = v => Math.round(v * 100) / 100;
 function toHsl([r, g, b]) {
   r /= 255; g /= 255; b /= 255;
   const max = Math.max(r, g, b), min = Math.min(r, g, b), l = (max + min) / 2, d = max - min;
@@ -2710,11 +2733,30 @@ function toHsl([r, g, b]) {
   const hue = max === r ? ((g - b) / d + 6) % 6 : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
   return [hue * 60, Math.min(1, s), l];
 }
-function fromHsl([hue, s, l]) {
-  const c = (1 - Math.abs(2 * l - 1)) * s, x = c * (1 - Math.abs((hue / 60) % 2 - 1)), m = l - c / 2;
-  const [r, g, b] = hue < 60 ? [c, x, 0] : hue < 120 ? [x, c, 0] : hue < 180 ? [0, c, x] : hue < 240 ? [0, x, c] : hue < 300 ? [x, 0, c] : [c, 0, x];
-  return [(r + m) * 255, (g + m) * 255, (b + m) * 255];
+// OKLCH: L lightness 0-1, C colourfulness (0 = grey, about 0.32 at most), H hue in degrees.
+const linear = v => (v /= 255) <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+function toLch(rgb) {
+  const [r, g, b] = rgb.map(linear);
+  const l = Math.cbrt(0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b);
+  const m = Math.cbrt(0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b);
+  const s = Math.cbrt(0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b);
+  const L = 0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * s;
+  const A = 1.9779984951 * l - 2.4285922050 * m + 0.4505937099 * s, B = 0.0259040371 * l + 0.7827717662 * m - 0.8086757660 * s;
+  return [L, Math.hypot(A, B), (Math.atan2(B, A) * 180 / Math.PI + 360) % 360];
 }
+function lchLinear(L, C, H) {
+  const A = C * Math.cos(H * Math.PI / 180), B = C * Math.sin(H * Math.PI / 180);
+  const l = (L + 0.3963377774 * A + 0.2158037573 * B) ** 3, m = (L - 0.1055613458 * A - 0.0638541728 * B) ** 3, s = (L - 0.0894841775 * A - 1.2914855480 * B) ** 3;
+  return [4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s, -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s, -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s];
+}
+function fromLch([L, C, H]) {                            // a colour the screen cannot show loses colourfulness, not its hue
+  L = Math.max(0, Math.min(1, L)); C = Math.max(0, C);
+  const fits = c => lchLinear(L, c, H).every(v => v >= -0.0005 && v <= 1.0005);
+  if (!fits(C)) { let lo = 0, hi = C; for (let i = 0; i < 16; i++) { const mid = (lo + hi) / 2; if (fits(mid)) lo = mid; else hi = mid; } C = lo; }
+  return lchLinear(L, C, H).map(v => { v = Math.max(0, Math.min(1, v)); return 255 * (v <= 0.0031308 ? 12.92 * v : 1.055 * v ** (1 / 2.4) - 0.055); });
+}
+const GREYISH = 0.045;                                   // below this colourfulness a colour counts as grey, white or dark
+const TINT_TOP = 0.15;                                   // how colourful a full tint gets
 const hueGap = (a, b) => { const d = Math.abs(a - b) % 360; return d > 180 ? 360 - d : d; };
 const rgbGap = (a, b) => { const x = rgbOf(a), y = rgbOf(b); return Math.sqrt(2 * (x[0] - y[0]) ** 2 + 4 * (x[1] - y[1]) ** 2 + 3 * (x[2] - y[2]) ** 2) / 3; };
 function hueName([hue, s, l]) {
@@ -2728,14 +2770,36 @@ function hueName([hue, s, l]) {
   if (hue < 290) return "purple";
   return "pink";
 }
-// One colour bent by a group's sliders: hue turns, strength and light move toward their ends, rounded for the DS.
+// One colour bent by a group's sliders, rounded for the DS.
+// A coloured group: hue = how far the colour turns, sat = stronger (+) or greyer (-), light = lighter (+) or darker (-).
+// A grey, white or dark group (a.tint): a grey has no hue to turn, so hue = the hue of the tint (0-360) and sat = how much tint.
 function shiftColour(hex, a) {
   if (!a || (!a.hue && !a.sat && !a.light)) return hex;
-  let [hue, s, l] = toHsl(rgbOf(hex));
-  hue = ((hue + (a.hue || 0)) % 360 + 360) % 360;
-  s = (a.sat || 0) >= 0 ? s + (1 - s) * a.sat : s * (1 + a.sat);
-  l = (a.light || 0) >= 0 ? l + (1 - l) * a.light : l * (1 + a.light);
-  return hexOf(fromHsl([hue, Math.max(0, Math.min(1, s)), Math.max(0, Math.min(1, l))]).map(ds15));
+  let [L, C, H] = toLch(rgbOf(hex));
+  const sat = a.sat || 0, light = a.light || 0;
+  if (a.tint) {
+    let A = C * Math.cos(H * Math.PI / 180), B = C * Math.sin(H * Math.PI / 180);
+    if (sat >= 0) { const th = (a.hue || 0) * Math.PI / 180; A = A * (1 - sat) + sat * TINT_TOP * Math.cos(th); B = B * (1 - sat) + sat * TINT_TOP * Math.sin(th); }
+    else { A *= 1 + sat; B *= 1 + sat; }
+    C = Math.hypot(A, B); H = (Math.atan2(B, A) * 180 / Math.PI + 360) % 360;
+  } else {
+    H = ((H + (a.hue || 0)) % 360 + 360) % 360;
+    C = sat >= 0 ? C * (1 + 3 * sat) : C * (1 + sat);
+  }
+  L = light >= 0 ? L + (1 - L) * light : L * (1 + light);
+  return hexOf(fromLch([L, C, H]).map(ds15));
+}
+// The slider values that move `normal` to `shiny` (picking a colour, following a relative's shiny, old saves).
+function sliderFrom(normal, shiny, tint) {
+  const [L1, C1, H1] = toLch(rgbOf(normal)), [L2, C2, H2] = toLch(rgbOf(shiny));
+  if (tint === undefined) tint = C1 < GREYISH;
+  const light = round2(Math.max(-1, Math.min(1, L2 >= L1 ? (L1 >= 1 ? 0 : (L2 - L1) / (1 - L1)) : (L1 <= 0 ? 0 : L2 / L1 - 1))));
+  const clamp = v => round2(Math.max(-1, Math.min(1, v)));
+  if (tint) {
+    if (C2 < C1 - 0.005) return {tint: true, hue: Math.round(H1), sat: clamp(C1 ? C2 / C1 - 1 : 0), light};
+    return {tint: true, hue: Math.round(C2 > 0.01 ? H2 : H1), sat: clamp(C2 > 0.01 ? (C2 - C1 * 0.5) / (TINT_TOP - C1 * 0.5) : 0), light};
+  }
+  return {hue: Math.round(((H2 - H1 + 540) % 360) - 180), sat: clamp(!C1 ? 0 : C2 >= C1 ? (C2 / C1 - 1) / 3 : C2 / C1 - 1), light};
 }
 async function picturePixels(src) {
   const im = await loadPicture(src);
@@ -2743,13 +2807,34 @@ async function picturePixels(src) {
   const x = c.getContext("2d"); x.drawImage(im, 0, 0);
   return {w: im.width, h: im.height, img: x.getImageData(0, 0, im.width, im.height)};
 }
+// Every colour of the pictures with how many pixels it has and how many of them sit on the edge of the figure
+// (a pixel next to the see-through background). The outline is the dark colour that owns the edge.
 function countColours(...pictures) {
   const counts = new Map();
-  for (const p of pictures) if (p) for (let i = 0; i < p.img.data.length; i += 4)
-    if (p.img.data[i + 3] > 0) { const k = hexOf([p.img.data[i], p.img.data[i + 1], p.img.data[i + 2]]); counts.set(k, (counts.get(k) || 0) + 1); }
-  return [...counts].map(([hex, count]) => ({hex, count, hsl: toHsl(rgbOf(hex))}));
+  for (const p of pictures) if (p) {
+    const d = p.img.data, w = p.w, hgt = p.h;
+    const clear = (x, y) => x < 0 || y < 0 || x >= w || y >= hgt || !d[(y * w + x) * 4 + 3];
+    for (let y = 0; y < hgt; y++) for (let x = 0; x < w; x++) {
+      const i = (y * w + x) * 4;
+      if (!d[i + 3]) continue;
+      const k = hexOf([d[i], d[i + 1], d[i + 2]]);
+      const c = counts.get(k) || {count: 0, edge: 0};
+      c.count++;
+      if (clear(x - 1, y) || clear(x + 1, y) || clear(x, y - 1) || clear(x, y + 1)) c.edge++;
+      counts.set(k, c);
+    }
+  }
+  return [...counts].map(([hex, c]) => ({hex, count: c.count, edge: c.edge, hsl: toHsl(rgbOf(hex)), lch: toLch(rgbOf(hex))}));
 }
-function paintCanvas(p, map, canvas) {
+function guessOutline(colours) {
+  const edges = colours.reduce((a, c) => a + c.edge, 0) || 1;
+  const byEdge = colours.filter(c => c.edge).sort((a, b) => b.edge - a.edge);
+  const first = byEdge[0];
+  if (!first || first.lch[0] > 0.5) return [];
+  return byEdge.filter(c => c === first || (c.edge / edges >= 0.12 && c.lch[0] < 0.4 && c.lch[0] <= first.lch[0] + 0.1)).map(c => c.hex);
+}
+// only: a set of normal colours to show; the rest is dimmed (pointing at a group shows where it is).
+function paintCanvas(p, map, canvas, only) {
   canvas.width = p.w; canvas.height = p.h;
   const out = new ImageData(new Uint8ClampedArray(p.img.data), p.w, p.h), d = out.data;
   const cache = new Map();
@@ -2759,44 +2844,49 @@ function paintCanvas(p, map, canvas) {
     let v = cache.get(k);
     if (!v) { v = rgbOf(map[k] || k); cache.set(k, v); }
     d[i] = v[0]; d[i + 1] = v[1]; d[i + 2] = v[2];
+    if (only && !only.has(k)) d[i + 3] = 45;
   }
   canvas.getContext("2d").putImageData(out, 0, 0);
   return canvas;
 }
-// The groups: every saturated colour joins the family of the biggest colour within 28 degrees of hue (its shades),
-// then greys, whites and the near-black outline. Whites stay unless someone moves them. The outline always stays
-// (Arvind, 15 Nov 2026: "endre outline skal de nok ikke på shiny"), like in official shinies.
-function shinyGroups(colours) {
+// The groups: the outline (locked), then each colour family with its shades (hues within 30 degrees), dark parts,
+// greys and whites. Whites stay unless someone moves them. The outline always stays (Arvind, 15 Nov 2026: "endre
+// outline skal de nok ikke på shiny"), like in official shinies; which colours are outline can be changed.
+function shinyGroups(colours, outline) {
   const total = colours.reduce((a, c) => a + c.count, 0) || 1;
-  const lines = [], whites = [], greys = [], families = [];
+  const lines = [], whites = [], greys = [], darks = [], families = [];
   for (const c of colours.slice().sort((a, b) => b.count - a.count)) {
-    const [hue, s, l] = c.hsl;
-    if (l < 0.1 || (l < 0.22 && s < 0.3)) lines.push(c);
-    else if (l > 0.86 && s < 0.35) whites.push(c);
-    else if (s < 0.14) greys.push(c);
-    else { const f = families.find(f => hueGap(f.hue, hue) < 28); if (f) f.colours.push(c); else families.push({hue, colours: [c]}); }
+    const [L, C, H] = c.lch;
+    if (outline.has(c.hex)) lines.push(c);
+    else if (C < GREYISH && L < 0.36) darks.push(c);
+    else if (C < GREYISH && L > 0.9) whites.push(c);
+    else if (C < GREYISH) greys.push(c);
+    else { const f = families.find(f => hueGap(f.hue, H) < 30); if (f) f.colours.push(c); else families.push({hue: H, colours: [c]}); }
   }
-  const make = (role, list, keep) => {
-    const sorted = list.slice().sort((a, b) => a.hsl[2] - b.hsl[2]), main = list.slice().sort((a, b) => b.count - a.count)[0];
+  const make = (role, list) => {
+    const sorted = list.slice().sort((a, b) => a.lch[0] - b.lch[0]), main = list.slice().sort((a, b) => b.count - a.count)[0];
     const count = list.reduce((a, c) => a + c.count, 0);
-    const name = role === "lines" ? "outline" : role === "whites" ? "whites" : role === "greys" ? "greys" : hueName(main.hsl);
-    return {role, name, colours: sorted, main: main.hex, count, share: count / total, keep};
+    const name = {lines: "outline", whites: "whites", greys: "greys", darks: "dark parts"}[role] || hueName(main.hsl);
+    return {role, name, colours: sorted, main: main.hex, key: main.hex, count, share: count / total, tint: role !== "colour", locked: role === "lines"};
   };
-  const groups = families.map(f => make("colour", f.colours, false)).sort((a, b) => b.count - a.count);
+  const groups = families.map(f => make("colour", f.colours)).sort((a, b) => b.count - a.count);
   const seen = {};
   for (const g of groups) { seen[g.name] = (seen[g.name] || 0) + 1; if (seen[g.name] > 1) g.name += " " + seen[g.name]; }
-  if (greys.length) groups.push(make("greys", greys, false));
-  if (whites.length) groups.push(make("whites", whites, true));
-  if (lines.length) groups.push(Object.assign(make("lines", lines, true), {locked: true}));
-  groups.forEach((g, i) => { g.id = i; });
+  if (darks.length) groups.push(make("darks", darks));
+  if (greys.length) groups.push(make("greys", greys));
+  if (whites.length) groups.push(make("whites", whites));
+  if (lines.length) groups.push(make("lines", lines));
   return groups;
 }
-// The whole map from the groups' sliders. Two colours that were different stay different after rounding.
-function shinyMap(groups, adj) {
+// The whole map. over = single colours picked on their own. Two colours that were different stay different after rounding.
+function shinyMap(groups, adj, keep, over) {
   const map = {}, used = new Map(), order = groups.filter(g => g.locked).concat(groups.filter(g => !g.locked));
+  over = over || {};
+  for (const g of groups) if (!g.locked) for (const c of g.colours) if (over[c.hex]) used.set(over[c.hex], c.hex);   // hand-picked colours first
   for (const g of order) for (const c of g.colours) {
     if (g.locked) { used.set(c.hex, c.hex); map[c.hex] = c.hex; continue; }   // the outline never changes
-    let v = g.keep && !adj[g.id] ? c.hex : shiftColour(c.hex, adj[g.id]);
+    if (over[c.hex]) { map[c.hex] = over[c.hex]; used.set(over[c.hex], c.hex); continue; }   // picked by hand: exactly that
+    let v = keep[g.key] && !adj[g.key] ? c.hex : shiftColour(c.hex, adj[g.key]);
     for (let tries = 0; used.has(v) && used.get(v) !== c.hex && tries < 6; tries++) {
       const [r, gg, b] = rgbOf(v), up = (toHsl([r, gg, b])[2] < 0.5 ? 8 : -8);
       v = hexOf([r, gg, b].map(x => ds15(x + up)));
@@ -2805,37 +2895,38 @@ function shinyMap(groups, adj) {
   }
   return map;
 }
-// The walking sprite has its own colours: each follows the front colour closest to it.
-function followerMap(colours, groups, adj) {
+// The walking sprite has its own colours: each follows the front colour closest to it. Its own outline stays.
+function followerMap(colours, lines, groups, adj, keep, over) {
   const front = groups.flatMap(g => g.colours.map(c => ({c, g})));
   const map = {};
   for (const c of colours) {
+    if (lines.has(c.hex)) { map[c.hex] = c.hex; continue; }
     let best = null, gap = 1e9;
     for (const f of front) { const d = rgbGap(c.hex, f.c.hex); if (d < gap) { gap = d; best = f; } }
-    let group = best && gap <= 48 ? best.g : null;
-    if (!group) {
-      const [hue, s, l] = c.hsl;
-      const role = l < 0.1 || (l < 0.22 && s < 0.3) ? "lines" : l > 0.86 && s < 0.35 ? "whites" : s < 0.14 ? "greys" : "colour";
-      group = role === "colour" ? groups.filter(g => g.role === "colour").sort((a, b) => hueGap(toHsl(rgbOf(a.main))[0], hue) - hueGap(toHsl(rgbOf(b.main))[0], hue))[0]
-        : groups.find(g => g.role === role);
+    if (best && gap <= 48) {
+      const g = best.g;
+      map[c.hex] = g.locked ? c.hex : over[best.c.hex] ? shiftColour(c.hex, sliderFrom(best.c.hex, over[best.c.hex], g.tint))
+        : keep[g.key] && !adj[g.key] ? c.hex : shiftColour(c.hex, adj[g.key]);
+      continue;
     }
-    map[c.hex] = group && !group.locked && !(group.keep && !adj[group.id]) ? shiftColour(c.hex, adj[group.id]) : c.hex;
+    const [L, C, H] = c.lch;
+    const role = C < GREYISH ? (L < 0.36 ? "darks" : L > 0.9 ? "whites" : "greys") : "colour";
+    const g = role === "colour" ? groups.filter(x => x.role === "colour").sort((a, b) => hueGap(toLch(rgbOf(a.main))[2], H) - hueGap(toLch(rgbOf(b.main))[2], H))[0]
+      : groups.find(x => x.role === role);
+    map[c.hex] = g && !g.locked && !(keep[g.key] && !adj[g.key]) ? shiftColour(c.hex, adj[g.key]) : c.hex;
   }
   return map;
 }
-// How a relative's shiny moved a colour, as slider values (for "follow the line").
-function sliderFrom(normal, shiny) {
-  const [h1, s1, l1] = toHsl(rgbOf(normal)), [h2, s2, l2] = toHsl(rgbOf(shiny));
-  const turn = ((h2 - h1 + 540) % 360) - 180;
-  const part = (a, b) => b >= a ? (a >= 1 ? 0 : (b - a) / (1 - a)) : (a <= 0 ? 0 : b / a - 1);
-  return {hue: Math.round(s1 < 0.08 ? h2 : turn), sat: Math.round(part(s1, s2) * 100) / 100, light: Math.round(part(l1, l2) * 100) / 100};
-}
 const SHINY_TURNS = [60, 90, 120, 150, 180, -60, -90, -120, -150, 40, -40];
+const SHINY_CHIPS = [["red", "#d83838"], ["orange", "#f08028"], ["yellow", "#f8d030"], ["green", "#48b048"], ["teal", "#28a898"],
+  ["blue", "#3868d8"], ["navy", "#283880"], ["purple", "#8048c8"], ["pink", "#f070a8"], ["brown", "#885830"], ["gold", "#d8a830"],
+  ["silver", "#b0b8c8"], ["black", "#282830"], ["white", "#f0f0f0"]];
 // CREATE / RETRY: a whole shiny with random choices. ctx.line = [{name, map}] of relatives that already have a shiny.
 function suggestShiny(groups, ctx, seed) {
   const r = CryEngine.rng(seed), adj = {}, why = [];
   const colourGroups = groups.filter(g => g.role === "colour");
-  const main = colourGroups[0] || groups.find(g => g.role === "greys") || groups[0];
+  const free = groups.filter(g => !g.locked && g.role !== "whites");
+  const main = free.slice().sort((a, b) => b.count - a.count)[0];
   if (!main) return {adj, why: ["It has no colours to change."]};
   const line = (ctx.line || []).filter(k => k.map && Object.keys(k.map).length);
   if (line.length && (ctx.first || r.chance(0.3))) {
@@ -2843,16 +2934,20 @@ function suggestShiny(groups, ctx, seed) {
     for (const g of groups.filter(x => !x.locked)) {
       let best = null, gap = 1e9;
       for (const from of Object.keys(k.map)) { const d = rgbGap(g.main, from); if (d < gap) { gap = d; best = from; } }
-      if (best && gap < 90 && k.map[best] !== best) adj[g.id] = sliderFrom(best, k.map[best]);
+      if (best && gap < 90 && k.map[best] !== best) adj[g.key] = sliderFrom(best, k.map[best], g.tint);
     }
     if (Object.keys(adj).length) {
-      if (!ctx.first) for (const id of Object.keys(adj)) adj[id].hue = Math.round(adj[id].hue + r.range(-15, 15));
+      if (!ctx.first) for (const id of Object.keys(adj)) if (!adj[id].tint) adj[id].hue = Math.round(adj[id].hue + r.range(-15, 15));
       why.push("Follows the shiny of " + k.name + ", so the line matches");
       return {adj, why};
     }
   }
-  const strategies = [["turn", 0.4], ["swap", colourGroups.length > 1 && hueGap(toHsl(rgbOf(colourGroups[0].main))[0], toHsl(rgbOf(colourGroups[1].main))[0]) > 40 ? 0.16 : 0],
-    ["metal", 0.16], ["soft", 0.14], ["subtle", 0.1], ["dark", 0.08]];
+  const darks = groups.find(g => g.role === "darks"), greys = groups.find(g => g.role === "greys");
+  const tintOf = g => ({tint: true, hue: Math.round(r.pick([215, 235, 265, 290, 330, 0, 180, 150, 40])), sat: round2(r.range(0.45, 0.9)), light: round2(r.range(0, 0.12))});
+  const others = () => colourGroups.filter(g => g !== main);
+  const strategies = main.tint ? [["tint", 0.55], ["metal", 0.3], ["lift", 0.15]]
+    : [["turn", 0.4], ["swap", colourGroups.length > 1 && hueGap(toLch(rgbOf(colourGroups[0].main))[2], toLch(rgbOf(colourGroups[1].main))[2]) > 40 ? 0.16 : 0],
+      ["metal", 0.16], ["soft", 0.14], ["subtle", 0.1], ["dark", 0.08]];
   for (let attempt = 0; attempt < 8; attempt++) {
     for (const k of Object.keys(adj)) delete adj[k];
     why.length = 0;
@@ -2860,30 +2955,39 @@ function suggestShiny(groups, ctx, seed) {
     for (const [name, p] of strategies) { if ((pick -= p) <= 0) { kind = name; break; } }
     if (kind === "turn" || kind === "soft" || kind === "subtle" || kind === "dark") {
       const turn = kind === "subtle" ? r.pick([1, -1]) * Math.round(r.range(25, 45)) : r.pick(SHINY_TURNS) + Math.round(r.range(-10, 10));
-      adj[main.id] = {hue: turn, sat: kind === "soft" ? -0.3 : kind === "dark" ? 0.1 : Math.round(r.range(-0.15, 0.2) * 100) / 100,
-        light: kind === "soft" ? 0.25 : kind === "dark" ? -0.3 : Math.round(r.range(-0.08, 0.08) * 100) / 100};
-      for (const g of colourGroups.slice(1)) {
+      adj[main.key] = {hue: turn, sat: kind === "soft" ? -0.3 : kind === "dark" ? 0.05 : round2(r.range(-0.1, 0.15)),
+        light: kind === "soft" ? 0.22 : kind === "dark" ? -0.25 : round2(r.range(-0.06, 0.06))};
+      for (const g of others()) {
         const roll = r();
-        if (roll < 0.45) adj[g.id] = Object.assign({}, adj[main.id]);                      // the whole body turns together
-        else if (roll < 0.75) adj[g.id] = {hue: Math.round(r.range(-20, 20)), sat: 0, light: 0};   // accents stay almost
+        if (roll < 0.45) adj[g.key] = Object.assign({}, adj[main.key]);                      // the whole body turns together
+        else if (roll < 0.75) adj[g.key] = {hue: Math.round(r.range(-20, 20)), sat: 0, light: 0};   // accents stay almost
       }
+      if (darks && r.chance(0.25)) adj[darks.key] = {tint: true, hue: Math.round((toLch(rgbOf(shiftColour(main.main, adj[main.key])))[2])), sat: 0.35, light: 0};
     } else if (kind === "swap") {
-      const [a, b] = colourGroups, ha = toHsl(rgbOf(a.main)), hb = toHsl(rgbOf(b.main));
-      adj[a.id] = {hue: Math.round(hb[0] - ha[0]), sat: Math.round((hb[1] - ha[1]) * 100) / 100, light: 0};
-      adj[b.id] = {hue: Math.round(ha[0] - hb[0]), sat: Math.round((ha[1] - hb[1]) * 100) / 100, light: 0};
+      const [a, b] = colourGroups;
+      adj[a.key] = sliderFrom(a.main, b.main, false); adj[b.key] = sliderFrom(b.main, a.main, false);
+      adj[a.key].light = 0; adj[b.key].light = 0;
     } else if (kind === "metal") {
-      const metal = r.pick(["gold", "silver", "black", "pink"]);
-      const target = {gold: [45, 0.75, 0.55], silver: [210, 0.08, 0.68], black: [250, 0.15, 0.24], pink: [330, 0.6, 0.68]}[metal];
-      adj[main.id] = sliderFrom(main.main, hexOf(fromHsl(target)));
-      if (toHsl(rgbOf(main.main))[1] < 0.08) adj[main.id].hue = target[0];
+      const metal = r.pick(main.tint ? ["gold", "silver", "navy", "wine"] : ["gold", "silver", "black", "pink"]);
+      const target = {gold: "#d8a830", silver: "#a0a8b8", black: "#383848", pink: "#f088b8", navy: "#283878", wine: "#782848"}[metal];
+      const was = toLch(rgbOf(main.main))[0], to = toLch(rgbOf(target))[0];
+      adj[main.key] = sliderFrom(main.main, target, main.tint);
+      if (main.tint) adj[main.key].light = round2(Math.max(0, Math.min(metal === "silver" ? 0.35 : 0.12, (to - was) / (1 - was))));   // dark bodies stay dark-ish
       why.push("A " + metal + " shiny");
+    } else if (kind === "tint") {
+      adj[main.key] = tintOf(main);
+      for (const g of others()) if (r.chance(0.4)) adj[g.key] = {hue: r.pick(SHINY_TURNS), sat: 0, light: 0};
+    } else if (kind === "lift") {
+      adj[main.key] = {tint: true, hue: Math.round(r.pick([220, 245, 265])), sat: 0.2, light: round2(r.range(0.2, 0.35))};
+      why.push("The dark parts turn into a lighter grey");
     }
-    if (groups.find(g => g.role === "greys") && r.chance(0.3)) { const g = groups.find(x => x.role === "greys"); adj[g.id] = {hue: Math.round(r.range(0, 360)), sat: 0.2, light: 0}; }
-    const after = shiftColour(main.main, adj[main.id]);
-    if (rgbGap(main.main, after) >= 22) {
+    if (greys && greys !== main && r.chance(0.3)) adj[greys.key] = {tint: true, hue: Math.round(r.range(0, 360)), sat: 0.35, light: 0};
+    const after = shiftColour(main.main, adj[main.key]);
+    if (rgbGap(main.main, after) >= 18) {
       const named = hueName(toHsl(rgbOf(after)));
-      if (kind !== "metal") why.unshift(main.name.replace(/ \d+$/, "") === named ? "The " + main.name + " gets another shade of " + named : "The " + main.name + " turns " + named);
-      const kept = colourGroups.slice(1).filter(g => !adj[g.id]).map(g => g.name);
+      if (kind === "tint") why.unshift("The " + main.name + " get a " + named + " tint");
+      else if (kind !== "metal" && kind !== "lift") why.unshift(main.name.replace(/ \d+$/, "") === named ? "The " + main.name + " gets another shade of " + named : "The " + main.name + " turns " + named);
+      const kept = others().filter(g => !adj[g.key] && g.share >= 0.02).map(g => g.name);
       if (kept.length) why.push("The " + kept.join(" and the ") + " stay" + (kept.length === 1 ? "s" : ""));
       if (kind === "swap") why.splice(0, 1, "The " + colourGroups[0].name + " and the " + colourGroups[1].name + " swap places");
       if (kind === "soft") why.push("Softer, lighter colours");
@@ -2891,8 +2995,8 @@ function suggestShiny(groups, ctx, seed) {
       return {adj, why};
     }
   }
-  adj[main.id] = {hue: 120, sat: 0, light: 0};
-  return {adj, why: ["The " + main.name + " turns " + hueName(toHsl(rgbOf(shiftColour(main.main, adj[main.id]))))]};
+  adj[main.key] = main.tint ? {tint: true, hue: 240, sat: 0.7, light: 0.05} : {hue: 120, sat: 0, light: 0};
+  return {adj, why: ["The " + main.name + " turns " + hueName(toHsl(rgbOf(shiftColour(main.main, adj[main.key]))))]};
 }
 // A saved shiny, as a picture (the dex page's SHINY view and the teams). Colours the sprite got after the shiny was
 // saved follow the closest saved colour.
@@ -2930,9 +3034,13 @@ function shinyMaker(s) {
   const d = s.data, ds = DEX.ds_sprites[s.id] || {};
   const top = h("section", {class: "screen top", "aria-label": "Shiny " + d.name});
   const page = h("div", {class: "page"});
-  const say = h("div", {class: "dlg", role: "status"}, "Point at a colour group to see what it is.");
-  const st = {pics: {}, groups: [], adj: {}, followerColours: [], seed: 0, why: [], tried: 0};
-  const canvases = {front: h("canvas", {class: "px shinypic"}), back: h("canvas", {class: "px shinypic small"}), normal: h("canvas", {class: "px shinypic"})};
+  const say = h("div", {class: "dlg", role: "status"}, "Tap the picture to find a colour, or point at a row to see where it is.");
+  const tell = (t, x) => say.replaceChildren(h("span", {class: "say-title"}, t + "\n"), x);
+  const topSay = {say: tell, rest() {}};
+  // adj and keep are keyed by a group's main colour; over = single colours set on their own; outline = locked colours.
+  const st = {pics: {}, colours: [], outline: new Set(), groups: [], adj: {}, keep: {}, over: {}, followerColours: [], followerLines: new Set(),
+    seed: 0, why: [], tried: 0, flash: null, open: null, undo: [], redo: [], lastStep: 0, loaded: new Set()};
+  const canvases = {front: h("canvas", {class: "px shinypic pickable"}), back: h("canvas", {class: "px shinypic small pickable"}), normal: h("canvas", {class: "px shinypic pickable"})};
   const walkCanvas = h("canvas", {width: 32, height: 32, class: "px walker", style: "width:96px;height:96px"});
   let walkSource = null;
   walkers.add({canvas: walkCanvas, draw() {
@@ -2947,47 +3055,156 @@ function shinyMaker(s) {
       h("figure", {}, canvases.back, h("figcaption", {}, "BACK")),
       ds.follower ? h("figure", {}, walkCanvas, h("figcaption", {}, "WALKING")) : null),
     say);
-  const current = () => ({map: shinyMap(st.groups, st.adj), follower: st.pics.follower ? followerMap(st.followerColours, st.groups, st.adj) : {}});
+  const groupOf = hex => st.groups.find(g => g.colours.some(c => c.hex === hex));
+  const mapNow = () => shinyMap(st.groups, st.adj, st.keep, st.over);
+  const current = () => ({map: mapNow(), follower: st.pics.follower ? followerMap(st.followerColours, st.followerLines, st.groups, st.adj, st.keep, st.over) : {}});
   function paint() {
-    const m = current();
-    if (st.pics.front) paintCanvas(st.pics.front, m.map, canvases.front);
-    if (st.pics.back) paintCanvas(st.pics.back, m.map, canvases.back);
+    const m = current(), g = st.groups.find(x => x.key === st.flash), only = g ? new Set(g.colours.map(c => c.hex)) : null;
+    if (st.pics.front) { paintCanvas(st.pics.front, m.map, canvases.front, only); paintCanvas(st.pics.front, {}, canvases.normal, only); }
+    if (st.pics.back) paintCanvas(st.pics.back, m.map, canvases.back, only);
     if (st.pics.follower) walkSource = paintCanvas(st.pics.follower, m.follower, walkSource || document.createElement("canvas"));
   }
+  let flashTimer = 0;
+  function flash(g) {                                    // show where a group is for a moment, then the whole picture again
+    st.flash = g ? g.key : null; paint();
+    clearTimeout(flashTimer);
+    if (g) flashTimer = setTimeout(() => { st.flash = null; paint(); }, 800);
+  }
+  // undo / redo: a step is remembered before each change (a slider drag counts as one step)
+  const snapshot = () => JSON.stringify({adj: st.adj, keep: st.keep, over: st.over, outline: [...st.outline], why: st.why, loaded: [...st.loaded]});
+  function remember() {
+    const now = Date.now();
+    if (now - st.lastStep > 700) { st.undo.push(snapshot()); if (st.undo.length > 80) st.undo.shift(); st.redo = []; }
+    st.lastStep = now;
+    stepButtons();
+  }
+  const stepButtons = () => { if (st.undoB) { st.undoB.disabled = !st.undo.length; st.redoB.disabled = !st.redo.length; } };
+  function restore(snap) {
+    const o = JSON.parse(snap), outlineChanged = o.outline.join() !== [...st.outline].join();
+    st.adj = o.adj; st.keep = o.keep; st.over = o.over; st.why = o.why; st.outline = new Set(o.outline); st.loaded = new Set(o.loaded || []);
+    if (outlineChanged) regroup();
+    draw();
+  }
+  const undo = () => { if (!st.undo.length) return; st.redo.push(snapshot()); restore(st.undo.pop()); st.lastStep = 0; };
+  const redo = () => { if (!st.redo.length) return; st.undo.push(snapshot()); restore(st.redo.pop()); st.lastStep = 0; };
+  const onKey = ev => {
+    if (!page.isConnected) { document.removeEventListener("keydown", onKey); return; }
+    if (!(ev.ctrlKey || ev.metaKey) || ev.key.toLowerCase() !== "z" || /input|textarea/i.test((ev.target.tagName || "")) && ev.target.type !== "range") return;
+    ev.preventDefault(); ev.shiftKey ? redo() : undo();
+  };
+  document.addEventListener("keydown", onKey);
+  function regroup() {
+    const before = st.groups;
+    st.groups = shinyGroups(st.colours, st.outline);
+    for (const g of st.groups) {                         // a group that got a new main colour keeps its sliders
+      if (st.adj[g.key] || st.keep[g.key] !== undefined) continue;
+      const old = before.find(o => o.colours.some(c => c.hex === g.main));
+      if (old && st.adj[old.key] && old.tint === g.tint) st.adj[g.key] = st.adj[old.key];
+      if (old && st.keep[old.key] !== undefined) st.keep[g.key] = st.keep[old.key];
+      if (st.keep[g.key] === undefined) st.keep[g.key] = g.role === "whites";
+    }
+    for (const hex of Object.keys(st.over)) if (st.outline.has(hex)) delete st.over[hex];
+  }
+  // tap a pixel of a picture: that colour's row opens with the colour chosen
+  for (const [view, cv] of Object.entries(canvases)) cv.addEventListener("click", ev => {
+    const p = st.pics[view === "normal" ? "front" : view];
+    if (!p) return;
+    const r = cv.getBoundingClientRect(), x = Math.floor((ev.clientX - r.left) / r.width * p.w), y = Math.floor((ev.clientY - r.top) / r.height * p.h);
+    const i = (y * p.w + x) * 4;
+    if (x < 0 || y < 0 || x >= p.w || y >= p.h || !p.img.data[i + 3]) return;
+    const hex = hexOf([p.img.data[i], p.img.data[i + 1], p.img.data[i + 2]]), g = groupOf(hex);
+    if (!g) return;
+    st.open = hex; draw(); flash(g);
+    const row = page.querySelector('[data-group="' + g.key + '"]');
+    if (row) { row.scrollIntoView({block: "nearest", behavior: "smooth"}); row.classList.add("found"); setTimeout(() => row.classList.remove("found"), 900); }
+    tell(g.name.toUpperCase(), g.locked ? "This colour is part of the outline, so it stays. Untick 'outline' below if it is really a dark part of the body." : "This colour is in the " + g.name + " row. Change the row, or this one colour on its own below the row.");
+  });
   function groupRow(g) {
+    const m = mapNow();
+    const strip = h("span", {class: "shstrip"}, g.colours.map(c => {
+      const sw = h("button", {type: "button", class: "shsw" + (st.open === c.hex ? " open" : "") + (st.over[c.hex] && !st.loaded.has(c.hex) ? " own" : ""), title: c.hex + " → " + m[c.hex], "aria-label": "Change only " + c.hex},
+        h("i", {style: "background:" + c.hex}), g.locked ? null : h("i", {style: "background:" + m[c.hex]}));
+      sw.onclick = ev => { ev.stopPropagation(); st.open = st.open === c.hex ? null : c.hex; draw(); flash(g); };
+      return sw;
+    }));
+    const oneColour = () => {                            // the colour chosen in the strip, on its own
+      const c = g.colours.find(x => x.hex === st.open);
+      if (!c) return null;
+      const dark = c.lch[0] < 0.5;
+      const line = dark ? h("input", {type: "checkbox", checked: g.locked ? "" : null}) : null;
+      if (line) line.onchange = () => { remember(); if (line.checked) st.outline.add(c.hex); else st.outline.delete(c.hex); regroup(); draw(); };
+      const lineBox = line ? h("label", {class: "sub"}, line, " outline (never changes)") : null;
+      if (g.locked) return h("div", {class: "shone"}, h("span", {class: "shsw big"}, h("i", {style: "background:" + c.hex})), h("span", {class: "sub"}, c.hex + ", " + c.count + " pixels, " + Math.round(c.edge / c.count * 100) + "% on the edge"), lineBox);
+      const own = h("input", {type: "color", value: m[c.hex], "aria-label": "New colour for " + c.hex});
+      own.addEventListener("input", () => { remember(); st.loaded.delete(c.hex); st.over[c.hex] = hexOf(rgbOf(own.value).map(ds15)); paint(); swatchesOnly(); });
+      own.addEventListener("change", () => draw());
+      const back = st.over[c.hex] && !st.loaded.has(c.hex) ? h("button", {type: "button", class: "small"}, "FOLLOW THE ROW AGAIN") : null;
+      if (back) back.onclick = () => { remember(); delete st.over[c.hex]; draw(); };
+      return h("div", {class: "shone"}, h("span", {class: "shsw big"}, h("i", {style: "background:" + c.hex}), h("i", {style: "background:" + m[c.hex]})),
+        h("span", {class: "sub"}, "Only this colour:"), own, back, lineBox);
+    };
+    function swatchesOnly() {                            // update the little before/after swatches without rebuilding
+      const mm = mapNow();
+      strip.querySelectorAll(".shsw").forEach((sw, i) => { const c = g.colours[i], to = sw.children[1]; if (to) to.style.background = mm[c.hex]; sw.title = c.hex + " → " + mm[c.hex]; });
+    }
+    const row = h("div", {class: "shgroup" + (g.locked ? " locked" : ""), "data-group": g.key});
+    row.addEventListener("mouseenter", () => flash(g));
     if (g.locked) {
-      const row = h("div", {class: "shgroup locked"}, h("div", {class: "shhead"}, h("span", {class: "shstrip"}, g.colours.map(c => h("span", {class: "shsw", title: c.hex}, h("i", {style: "background:" + c.hex})))),
-        h("b", {}, g.name), h("span", {class: "sub"}, "always stays, like in official shinies")));
-      explains(row, {say: (t, x) => say.replaceChildren(h("span", {class: "say-title"}, t + "\n"), x), rest() {}}, "OUTLINE", "The outline and the darkest lines. A shiny keeps them, so the drawing stays the same.");
+      row.append(h("div", {class: "shhead"}, strip, h("b", {}, g.name), h("span", {class: "sub"}, "always stays, like in official shinies. Tap a colour to free it.")), oneColour() || "");
+      explains(row, topSay, "OUTLINE", "The colours along the edge of the figure. A shiny keeps them, so the drawing stays the same. If a dark part of the body landed here, tap it and untick 'outline'.");
       return row;
     }
-    const a = () => st.adj[g.id] || {hue: 0, sat: 0, light: 0};
-    const set = (k, v) => { st.adj[g.id] = Object.assign({}, a(), {[k]: v}); if (g.keep) { g.keep = false; keep.checked = false; } paint(); swatches(); };
-    const els = {};
+    const a = () => st.adj[g.key] || (g.tint ? {tint: true, hue: Math.round(toLch(rgbOf(g.main))[2]), sat: 0, light: 0} : {hue: 0, sat: 0, light: 0});
+    const els = {}, tracks = {};
+    const keep = h("input", {type: "checkbox", checked: st.keep[g.key] && !st.adj[g.key] ? "" : null});
+    const pickIt = h("input", {type: "color", value: m[g.main], title: "Pick the new main colour of this row", "aria-label": "New colour for the " + g.name});
+    const refresh = () => {
+      for (const k of ["hue", "sat", "light"]) {
+        if (els[k] && document.activeElement !== els[k]) els[k].value = a()[k];
+        if (els[k]) els[k].style.background = tracks[k]();
+      }
+      keep.checked = !!st.keep[g.key] && !st.adj[g.key];
+      pickIt.value = mapNow()[g.main];
+      paint(); swatchesOnly();
+    };
+    const set = patch => {
+      remember();
+      for (const c of g.colours) if (st.loaded.has(c.hex)) { delete st.over[c.hex]; st.loaded.delete(c.hex); }   // the row now decides these
+      st.adj[g.key] = Object.assign({}, a(), patch, g.tint ? {tint: true} : {}); st.keep[g.key] = false; refresh();
+    };
     const slider = (k, min, max, step, label) => {
-      const el = els[k] = h("input", {type: "range", min, max, step, value: a()[k], "aria-label": label + " of the " + g.name});
-      el.addEventListener("input", () => set(k, Number(el.value)));
+      const el = els[k] = h("input", {type: "range", min, max, step, value: a()[k], class: "shtrack", "aria-label": label + " of the " + g.name});
+      tracks[k] = () => {                                // the slider's own colours: what the main colour becomes along it
+        const stops = [];
+        for (let i = 0; i <= 8; i++) { const v = min + (max - min) * i / 8; stops.push(shiftColour(g.main, Object.assign({}, a(), {[k]: v}, g.tint ? {tint: true, sat: k === "sat" ? v : Math.max(a().sat, k === "hue" ? 0.8 : a().sat)} : {}))); }
+        return "linear-gradient(to right," + stops.join(",") + ")";
+      };
+      el.style.background = tracks[k]();
+      el.addEventListener("input", () => set({[k]: Number(el.value)}));
+      el.addEventListener("dblclick", () => set({[k]: k === "hue" && g.tint ? a().hue : 0}));
       return h("label", {class: "shslider"}, h("span", {}, label), el);
     };
-    const sync = () => { for (const k of ["hue", "sat", "light"]) if (els[k]) els[k].value = a()[k]; };
-    const strip = h("span", {class: "shstrip"});
-    const swatches = () => {
-      const m = shinyMap(st.groups, st.adj);
-      strip.replaceChildren(...g.colours.map(c => h("span", {class: "shsw", title: c.hex + " → " + m[c.hex]},
-        h("i", {style: "background:" + c.hex}), h("i", {style: "background:" + m[c.hex]}))));
-    };
-    const keep = h("input", {type: "checkbox", checked: g.keep && !st.adj[g.id] ? "" : null});
-    keep.addEventListener("change", () => { g.keep = keep.checked; if (keep.checked) delete st.adj[g.id]; sync(); paint(); swatches(); pickIt.value = shinyMap(st.groups, st.adj)[g.main]; });
-    const pickIt = h("input", {type: "color", value: shinyMap(st.groups, st.adj)[g.main], title: "Pick the new main colour of this group", "aria-label": "New colour for the " + g.name});
-    pickIt.addEventListener("input", () => { st.adj[g.id] = sliderFrom(g.main, pickIt.value); g.keep = false; keep.checked = false; sync(); paint(); swatches(); });
-    const row = h("div", {class: "shgroup"},
+    keep.addEventListener("change", () => { remember(); st.keep[g.key] = keep.checked; if (keep.checked) delete st.adj[g.key]; refresh(); });
+    pickIt.addEventListener("input", () => { set(sliderFrom(g.main, pickIt.value, g.tint)); });
+    const reset = h("button", {type: "button", class: "small", title: "Back to the normal colours for this row"}, "↺");
+    reset.onclick = () => { remember(); delete st.adj[g.key]; for (const c of g.colours) { delete st.over[c.hex]; st.loaded.delete(c.hex); } refresh(); draw(); };
+    const chips = h("div", {class: "shchips"}, SHINY_CHIPS.map(([name, hex]) => {
+      const b = h("button", {type: "button", class: "shchip", title: name, "aria-label": "Make the " + g.name + " " + name, style: "background:" + hex});
+      b.onclick = () => set(sliderFrom(g.main, hex, g.tint));
+      return b;
+    }));
+    row.append(
       h("div", {class: "shhead"}, strip, h("b", {}, g.name), h("span", {class: "sub"}, Math.round(g.share * 100) + "%"),
-        h("span", {class: "grow"}), h("label", {class: "sub"}, keep, " keep"), pickIt),
-      h("div", {class: "shsliders"}, slider("hue", -180, 180, 1, "Colour"), slider("sat", -1, 1, 0.05, "Strength"), slider("light", -0.6, 0.6, 0.05, "Light")));
-    swatches();
-    explains(row, {say: (t, x) => say.replaceChildren(h("span", {class: "say-title"}, t + "\n"), x), rest() {}}, g.name.toUpperCase(),
+        h("span", {class: "grow"}), h("label", {class: "sub"}, keep, " keep"), reset, pickIt),
+      chips,
+      h("div", {class: "shsliders"}, g.tint ? [slider("hue", 0, 360, 1, "Tint"), slider("sat", -1, 1, 0.02, "Amount"), slider("light", -0.7, 0.7, 0.02, "Light")]
+        : [slider("hue", -180, 180, 1, "Colour"), slider("sat", -1, 1, 0.02, "Strength"), slider("light", -0.7, 0.7, 0.02, "Light")]),
+      oneColour() || "");
+    explains(row, topSay, g.name.toUpperCase(),
       g.role === "whites" ? "Whites and the lightest colours, often the eyes and shine. Usually kept."
-        : g.role === "greys" ? "Grey parts. Move Strength up to tint them." : "One colour with its shades (" + g.colours.length + "). Colour turns all of them together, so the shading stays right.");
+        : g.role === "darks" ? "The dark parts of the body that are not the outline (" + g.colours.length + " colours). A black has no colour to turn, so Tint gives it one: pick the tint, then raise Amount. Light makes them lighter."
+        : g.role === "greys" ? "Grey parts. Pick a Tint and raise Amount to colour them."
+        : "One colour with its shades (" + g.colours.length + "). Colour turns all of them together, so the shading stays right. Tap a small square to change one colour on its own.");
     return row;
   }
   function draw() {
@@ -2997,8 +3214,9 @@ function shinyMaker(s) {
     const note = h("span", {class: "sub"});
     save.onclick = async () => {
       save.disabled = true; note.textContent = "Saving...";
-      const m = current(), data = {map: m.map, follower: m.follower, sliders: st.groups.map(g => ({colours: g.colours.map(c => c.hex), keep: !!g.keep, adj: st.adj[g.id] || null})),
-        why: st.why.join(". "), front: ds.front || "", at: new Date().toISOString()};
+      const m = current(), data = {v: 2, map: m.map, follower: m.follower,
+        sliders: st.groups.filter(g => !g.locked).map(g => ({colours: g.colours.map(c => c.hex), keep: !!st.keep[g.key], adj: st.adj[g.key] || null})),
+        over: st.over, outline: [...st.outline], why: st.why.join(". "), front: ds.front || "", at: new Date().toISOString()};
       try { await saveEdit("shiny", s.id, data); DEX.shinies[s.id] = Object.assign({}, data, {by: me()}); note.textContent = "Saved. It is stored in the dex within about 15 minutes."; }
       catch (err) { note.textContent = err.message; }
       save.disabled = false;
@@ -3006,35 +3224,54 @@ function shinyMaker(s) {
     const fam = familyOf(s).filter(x => x.s.id !== s.id && DEX.shinies[x.s.id]);
     const create = h("button", {type: "button"}, st.tried ? "RETRY" : "CREATE");
     create.onclick = () => {
+      remember(); st.lastStep = 0;
       st.seed = Math.floor(Math.random() * 1e9);
-      st.groups.forEach(g => { g.keep = g.role === "whites" || g.role === "lines"; });
+      st.keep = {}; st.over = {}; st.loaded = new Set();
+      st.groups.forEach(g => { st.keep[g.key] = g.role === "whites"; });
       const sg = suggestShiny(st.groups, {line: fam.map(x => ({name: x.s.data.name, map: DEX.shinies[x.s.id].map})), first: !st.tried}, st.seed);
       st.adj = sg.adj; st.why = sg.why; st.tried++;
       draw();
     };
+    const undoB = h("button", {type: "button", class: "small", disabled: !st.undo.length, title: "Ctrl+Z"}, "UNDO");
+    undoB.onclick = undo;
+    const redoB = h("button", {type: "button", class: "small", disabled: !st.redo.length, title: "Ctrl+Shift+Z"}, "REDO");
+    redoB.onclick = redo;
+    st.undoB = undoB; st.redoB = redoB;
     const reset = h("button", {type: "button", class: "small"}, "NO CHANGES");
-    reset.onclick = () => { st.adj = {}; st.why = []; st.groups.forEach(g => { g.keep = g.role === "whites" || g.role === "lines"; }); draw(); };
+    reset.onclick = () => { remember(); st.lastStep = 0; st.adj = {}; st.over = {}; st.loaded = new Set(); st.why = []; st.keep = {}; st.groups.forEach(g => { st.keep[g.key] = g.role === "whites"; }); draw(); };
     const fromSaved = saved ? h("button", {type: "button", class: "small"}, "START FROM THE SAVED ONE") : null;
-    if (fromSaved) fromSaved.onclick = () => { loadSaved(saved); st.why = ["The saved shiny" + (saved.by ? " by " + saved.by : "")]; draw(); };
+    if (fromSaved) fromSaved.onclick = () => { remember(); st.lastStep = 0; loadSaved(saved); st.why = ["The saved shiny" + (saved.by ? " by " + saved.by : "")]; draw(); };
     page.replaceChildren(h("div", {},
       h("div", {class: "status"}, saved ? [h("span", {class: "badge done"}, "has a shiny"), " Saved" + (saved.by ? " by " + saved.by : "") + ". Make a new one below to replace it."]
         : [h("span", {class: "badge need"}, "no shiny yet"), " Press CREATE for a suggestion, then change what you like."]),
-      h("div", {class: "toolbar", style: "display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0"}, create, fromSaved, reset,
+      h("div", {class: "toolbar", style: "display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:8px 0"}, create, undoB, redoB, fromSaved, reset,
         fam.length ? h("span", {class: "sub"}, "Its line: " + fam.map(x => x.s.data.name).join(", ") + " already " + (fam.length > 1 ? "have" : "has") + " a shiny, so CREATE starts from that.") : null),
       st.why.length ? h("div", {class: "notice info"}, h("b", {}, "This try: "), st.why.join(". ") + ".") : null,
       h("h2", {}, "Colours"),
-      h("p", {class: "sub", style: "margin:0 0 6px"}, "Each row is one colour with its shades. Colour turns them, Strength makes them stronger or greyer, Light lighter or darker. Or tap the colour box on the right and pick the new colour directly. The outline always stays."),
+      h("p", {class: "sub", style: "margin:0 0 6px"}, "Tap the picture to find a colour. Each row is one colour with its shades: tap a colour dot for a quick colour, or use the sliders (double-click a slider to reset it). Tap a small square to change just that one colour. The outline always stays."),
       st.groups.map(groupRow),
       h("div", {style: "display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px"}, save, note),
       h("p", {class: "sub"}, "Only the colours change: the shiny is the same drawing, like in the real games. The party icon has no shiny in HeartGold.")));
   }
   function loadSaved(saved) {
-    st.adj = {};
+    st.adj = {}; st.over = {}; st.keep = {};
+    const known = new Set(st.colours.map(c => c.hex));
+    if (saved.outline) st.outline = new Set(saved.outline.filter(hex => known.has(hex)));
+    for (const [from, to] of Object.entries(saved.map || {})) if (from !== to) st.outline.delete(from);   // a saved shiny changed it, so it is no outline
+    regroup();
     for (const g of st.groups.filter(x => !x.locked)) {
       const was = (saved.sliders || []).find(x => (x.colours || []).includes(g.main));
-      if (was && was.adj) { st.adj[g.id] = Object.assign({}, was.adj); g.keep = false; }
-      else if (saved.map && saved.map[g.main] && saved.map[g.main] !== g.main) { st.adj[g.id] = sliderFrom(g.main, saved.map[g.main]); g.keep = false; }
+      if (saved.v >= 2 && was) { if (was.adj) st.adj[g.key] = Object.assign({}, was.adj); st.keep[g.key] = !!was.keep; }
+      else {                                             // an old save: the sliders that come closest (the sprite may have changed since)
+        let best = saved.map && saved.map[g.main] ? g.main : null, gap = best ? 0 : 1e9;
+        if (!best) for (const from of Object.keys(saved.map || {})) { const d2 = rgbGap(g.main, from); if (d2 < gap) { gap = d2; best = from; } }
+        if (best && gap < 60 && saved.map[best] !== best) { st.adj[g.key] = sliderFrom(best, saved.map[best], g.tint); st.keep[g.key] = false; }
+      }
     }
+    if (saved.v >= 2) Object.assign(st.over, saved.over || {});
+    st.loaded = new Set();                               // every colour shows exactly as saved until someone moves its row
+    const m = mapNow();
+    for (const [from, to] of Object.entries(saved.map || {})) if (m[from] && m[from] !== to && !st.outline.has(from) && !st.over[from]) { st.over[from] = to; st.loaded.add(from); }
   }
   if (!ds.front) {
     page.append(h("div", {class: "notice info"}, "The shiny is made from the approved sprite. Make and approve the front and back under SPRITES first."));
@@ -3044,9 +3281,11 @@ function shinyMaker(s) {
   Promise.all(["front", "back", "follower"].map(v => ds[v] ? picturePixels(ds[v]).catch(() => null) : null)).then(([front, back, follower]) => {
     st.pics = {front, back, follower};
     if (!front) { page.replaceChildren(h("div", {class: "notice info"}, "The sprite did not load. Try again in a moment.")); return; }
-    paintCanvas(front, {}, canvases.normal);
-    st.groups = shinyGroups(countColours(front, back));
+    st.colours = countColours(front, back);
+    st.outline = new Set(guessOutline(st.colours));
     st.followerColours = follower ? countColours(follower) : [];
+    st.followerLines = new Set(guessOutline(st.followerColours));
+    regroup();
     if (DEX.shinies[s.id]) { loadSaved(DEX.shinies[s.id]); st.why = []; }
     draw();
   });
