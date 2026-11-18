@@ -787,42 +787,89 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .cov { display: inline-flex; align-items: center; gap: 2px; font-size: 13px; margin: 2px 6px 2px 0; }
 .cov.good { font-weight: 700; } .cov.bad { opacity: .6; }
 @media (max-width: 900px) { .tedit { grid-template-columns: 1fr; } .tslots { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-/* damage calc (TEAMS > Damage calc) */
-.calc { display: grid; gap: 10px; background: var(--panel); border: 2px solid var(--line); padding: 12px; min-width: 0; }
-.cres { display: grid; gap: 6px; min-width: 0; }
-.cdirs { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
-.cdir { display: grid; gap: 4px; align-content: start; min-width: 0; }
-.cdir h3, .cside h3 { margin: 0; font-family: var(--display); font-size: 14px; overflow-wrap: anywhere; }
-.crow { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; align-items: center; padding: 6px 8px; border: 2px solid var(--line); background: var(--bg, transparent); cursor: pointer; }
-.crow:hover, .crow:focus-visible { border-color: var(--pink); }
-.crow.none { cursor: default; opacity: .7; }
-.crow .nowrap { white-space: nowrap; }
-.crow .cmv { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; min-width: 0; }
-.crow .cnum { font-variant-numeric: tabular-nums; font-weight: 700; text-align: right; white-space: nowrap; }
-.crow .cko { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
-.crow .cko.ohko { color: var(--bad); font-weight: 700; } .crow .cko.two { color: var(--pink); }
-.crow .cbar { grid-column: 1 / -1; position: relative; height: 8px; background: var(--soft); overflow: hidden; }
-.crow .cbar i { position: absolute; left: 0; top: 0; bottom: 0; }
-.crow .cbar .left { background: var(--good); opacity: .35; } .crow .cbar .hi { background: var(--pink); opacity: .55; } .crow .cbar .lo { background: var(--bad); }
-.crow .cdesc { grid-column: 1 / -1; font-size: 12px; overflow-wrap: anywhere; display: grid; gap: 2px; }
-.cfield { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: end; padding: 8px 0; border-top: 2px solid var(--line); border-bottom: 2px solid var(--line); }
-.cfield .field { min-width: 120px; }
-.ccheck { display: inline-flex; gap: 5px; align-items: center; font-size: 13px; }
-.csides { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
-.cside { display: grid; gap: 6px; align-content: start; min-width: 0; }
-.cside .chead { display: flex; gap: 8px; align-items: center; }
-.cside .chead img { width: 56px; height: 56px; object-fit: contain; } .cside .chead img.px { image-rendering: pixelated; }
-.cside .trow { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px; }
-.cside .trow .field input, .cside .trow .field select { width: 100%; }
-.cmoves { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4px; }
-.cmoves input { width: 100%; }
-.cflags { display: flex; flex-wrap: wrap; gap: 4px 12px; }
-.cstats td, .cstats th { padding: 2px 4px; }
-.cboost { width: 70px; padding-left: 4px; padding-right: 2px; }
-.cstats input { padding-left: 4px; padding-right: 2px; }
-@media (max-width: 760px) { .cdirs, .csides { grid-template-columns: 1fr; } .calc { padding: 8px; }
-  .cstats td, .cstats th { padding: 2px 1px; } .cstats input[type=number] { width: 46px !important; } .cstats .cboost { width: 54px; } .cstats .tot { font-size: 12px; }
-  .crow { grid-template-columns: minmax(0, 1fr); } .crow .cnum { text-align: left; font-size: 18px; } }
+/* damage calc (TEAMS > Damage calc), laid out like wispcoach.com/calc */
+.calc { display: grid; gap: 12px; background: var(--panel); border: 2px solid var(--line); padding: 14px 16px; min-width: 0; }
+.ctabs { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+.ctab { padding: 6px 16px; border: 2px solid var(--line); background: none; color: inherit; font-family: var(--display); }
+.ctab[aria-pressed="true"] { background: var(--pink); border-color: var(--pink); color: #fff; }
+.ctabs .sub { margin-left: 8px; }
+.csentence { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; font-size: 26px; line-height: 1.25; }
+.csentence .cfill { color: var(--muted); }
+.csentence .chpic { width: 56px; height: 56px; object-fit: contain; } .csentence .chpic.px { image-rendering: pixelated; }
+.csentence .cdot { width: 40px; height: 40px; }
+.csentence input.cname { font: inherit; font-weight: 800; background: none; border: none; border-bottom: 2px dotted var(--muted); color: inherit; padding: 0 2px; min-width: 4ch; max-width: 100%; }
+.csentence input.cname:focus { outline: none; border-bottom-color: var(--pink); }
+.csentence .cmovebox { color: var(--pri) !important; }
+.csentence .cword b { font-weight: 800; }
+.csentence select.cpool { font: inherit; font-weight: 800; color: inherit; background: none; border: none; border-bottom: 2px dotted var(--muted); padding: 0 2px; max-width: 100%; cursor: pointer; }
+.csentence select.cpool option { font-size: 15px; font-weight: 400; background: var(--panel); }
+.csentence button.small { font-size: 13px; }
+.cset { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: 14px; color: var(--muted); }
+.cset .cdotsep { opacity: .6; }
+.cset select { font-size: 13px; }
+.cstep { display: inline-flex; align-items: center; border: 1px solid var(--line); }
+.cstep button { padding: 0 8px; border: none; background: none; color: inherit; font-weight: 700; }
+.cstep b { padding: 0 4px; color: var(--good); font-size: 13px; }
+.clink { background: none; border: none; color: var(--pri); padding: 0; text-decoration: underline; cursor: pointer; font-size: 14px; }
+.cmini { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: end; padding: 8px; border: 1px dashed var(--line); }
+.cmevs { display: flex; flex-wrap: wrap; gap: 6px; }
+.cchips { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; }
+.cchip { padding: 3px 10px; border: 1px solid transparent; background: none; color: var(--muted); font-size: 13px; border-radius: 99px; }
+.cchip:hover { border-color: var(--line); color: inherit; }
+.cchip[aria-pressed="true"] { border-color: var(--pink); background: var(--soft); color: inherit; }
+.csep { width: 1px; height: 16px; background: var(--line); margin: 0 4px; }
+.cchart { position: relative; padding-top: 18px; padding-bottom: 20px; user-select: none; }
+.czlabels span, .cticks span { position: absolute; font-size: 11px; color: var(--muted); }
+.czlabels span { top: 0; text-align: center; overflow: hidden; white-space: nowrap; }
+.czlabels span.ko, .czlabels span.bad { color: var(--bad); font-weight: 700; } .czlabels span.good { color: var(--good); font-weight: 700; }
+.cticks span { bottom: 2px; transform: translateX(-50%); } .cticks span:first-child { transform: none; }
+.cplot { position: relative; border-bottom: 2px solid var(--line); overflow: hidden; }
+.czone { position: absolute; top: 0; bottom: 0; background: rgba(127, 127, 160, .06); border-left: 1px solid rgba(127, 127, 160, .18); }
+.czone.alt { background: rgba(127, 127, 160, .11); }
+.czone.ko, .czone.bad { background: rgba(230, 70, 90, .13); border-left: 1px solid var(--bad); }
+.czone.good { background: rgba(80, 200, 120, .08); }
+.cline { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--pri); z-index: 2; }
+.cline span { position: absolute; top: 2px; left: 6px; font-size: 11px; white-space: nowrap; background: var(--panel); padding: 0 4px; }
+.csprite { position: absolute; padding: 0; border: none; background: none; cursor: pointer; z-index: 1; transition: transform .1s; }
+.csprite img, .csprite .cdot { width: 100%; height: 100%; object-fit: contain; display: block; }
+.csprite img.px { image-rendering: pixelated; }
+.csprite:hover { transform: scale(1.35); z-index: 3; }
+.csprite.on { z-index: 4; filter: drop-shadow(0 0 3px var(--pink)) drop-shadow(0 0 2px var(--pink)); transform: scale(1.3); }
+.cdot { display: grid; place-items: center; border-radius: 50%; background: rgba(160, 150, 210, .18); color: var(--muted); font-size: 11px; font-weight: 700; }
+.csprite .cdot { width: 64% !important; height: 64% !important; margin: 18% auto 0; }
+.ccard { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1.4fr) auto; gap: 6px 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.ccard .cbigpic { width: 64px; height: 64px; object-fit: contain; } .ccard .cbigpic.px { image-rendering: pixelated; }
+.ccard .cwho { display: grid; gap: 3px; min-width: 0; } .ccard .cwho b { font-size: 18px; }
+.ccard .cbig { text-align: right; } .ccard .cbig b { font-size: 26px; font-variant-numeric: tabular-nums; }
+.crolls { display: grid; gap: 4px; min-width: 0; }
+.crollbar { display: flex; gap: 2px; align-items: flex-end; height: 28px; }
+.crollbar i { flex: 1; background: var(--pri); opacity: .7; } .crollbar i.ko { background: var(--bad); opacity: 1; }
+.crollnums { font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.ccard .cfull { grid-column: 1 / -1; overflow-wrap: anywhere; }
+.csum { margin: 4px 0; }
+.clist { display: grid; gap: 10px; }
+.cgroup { display: grid; }
+.cghead { font-weight: 700; padding: 4px 0; border-bottom: 1px solid var(--line); }
+.clrow { display: grid; grid-template-columns: 40px minmax(0, 1.2fr) minmax(0, 2fr) 120px 110px; gap: 10px; align-items: center; padding: 4px 0; border: none; border-bottom: 1px solid var(--line); background: none; color: inherit; text-align: left; cursor: pointer; }
+.clrow:hover, .clrow.on { background: var(--soft); }
+.clrow .clpic { width: 36px; height: 36px; object-fit: contain; } .clrow .clpic.px { image-rendering: pixelated; }
+.clrow .clname { display: grid; gap: 2px; min-width: 0; } .clrow .clname .types { display: flex; gap: 2px; transform: scale(.85); transform-origin: left; }
+.clbar { position: relative; height: 8px; background: rgba(230, 70, 90, .25); overflow: hidden; }
+.clbar i { position: absolute; top: 0; bottom: 0; left: 0; } .clbar .left { background: var(--good); } .clbar .range { background: var(--pink); opacity: .6; }
+.cldmg { text-align: right; font-variant-numeric: tabular-nums; }
+.clres { text-align: right; font-weight: 700; font-size: 13px; }
+.clres.gsure, .clres.groll, .clres.them { color: var(--bad); } .clres.g2 { color: var(--pink); } .clres.you { color: var(--good); } .clres.gnone { color: var(--muted); }
+@media (max-width: 760px) {
+  .calc { padding: 10px; }
+  .csentence { font-size: 18px; gap: 0 6px; } .csentence .chpic { width: 40px; height: 40px; }
+  .csentence input.cname, .csentence select.cpool { min-height: 0; padding: 2px; } .csentence select.cpool { width: 100%; }
+  .ctabs { flex-wrap: nowrap; } .ctab { flex: 1; padding: 6px 4px; font-size: 13px; } .ctabs .sub { display: none; }
+  .cchips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; } .cchip { white-space: nowrap; flex: none; min-height: 0; padding: 4px 10px; }
+  .ccard { grid-template-columns: auto minmax(0, 1fr); } .ccard .cbig { grid-column: 1 / -1; text-align: left; } .ccard .crolls { grid-column: 1 / -1; } .ccard .cbig b { font-size: 22px; }
+  .csprite { min-height: 0; min-width: 0; } .ccard .cfull { display: none; }
+  .clrow { grid-template-columns: 32px minmax(0, 1fr) auto auto; gap: 6px; } .clrow .clbar { display: none; } .clrow .clpic { width: 30px; height: 30px; }
+  .cldmg, .clres { font-size: 12px; }
+}
 .donebar { position: relative; display: inline-block; width: 72px; height: 14px; background: var(--line); vertical-align: middle; }
 .donebar i { position: absolute; inset: 0 auto 0 0; background: var(--good); opacity: .55; }
 .donebar i.ai, .meter2 i.ai { background: var(--pri); opacity: .45; }
@@ -5279,17 +5326,23 @@ function loadCalc() {
   return calcLoading;
 }
 const CALC_KEYS = {hp: "hp", attack: "atk", defense: "def", sp_attack: "spa", sp_defense: "spd", speed: "spe"};
-const calcSide = () => ({link: false, mon: blankMon(), boosts: allStats(0), status: "", hp: 100, screens: {}});
+// Laid out like wispcoach.com/calc (Arvind, 2026-11-18: "the way it looked and how easy it was"): one sentence on top
+// ("Abyssys uses Surf on 120 Pokemon") where the names are the choices, one row of on/off chips for the field, a chart
+// with every target as a sprite placed by the damage it takes, a card for the one tapped, and the list by result.
+// Attack: your Pokemon's move on all of ours. Defense: all of ours use their best move on yours. Speed: who moves first.
+// "me" is the Pokemon being tested; linked, it follows the slot open in TEAMS.
+const calcMe = () => ({link: false, mon: blankMon(), boosts: allStats(0), status: "", hp: 100, screens: {}});
 function loadCalcState() {
+  const fresh = {mode: "attack", me: Object.assign(calcMe(), {link: true}), move: "", pool: "final", spread: "none", speedSpread: "max",
+    field: {weather: "", terrain: "", helping: false, crit: false, screens: false, friend: false, doubles: false, tailwind: false, theirTailwind: false, trickroom: false}, pick: ""};
   try {
-    const s = JSON.parse(remember.get("calc") || "null");
-    if (s && s.atk && s.def && s.field) { for (const k of ["atk", "def"]) { s[k] = Object.assign(calcSide(), s[k]); s[k].mon = Object.assign(blankMon(), s[k].mon); } return s; }
+    const s = JSON.parse(remember.get("calc2") || "null");
+    if (s && s.me && s.field) { s.me = Object.assign(calcMe(), s.me); s.me.mon = Object.assign(blankMon(), s.me.mon); return Object.assign(fresh, s, {field: Object.assign(fresh.field, s.field)}); }
   } catch (e) { /* a broken save starts afresh */ }
-  return {atk: Object.assign(calcSide(), {link: true}), def: calcSide(), field: {weather: "", terrain: "", doubles: false, crit: false}};
+  return fresh;
 }
 const cs = loadCalcState();
-const saveCalc = () => remember.set("calc", JSON.stringify(cs));
-// A side "linked" to TEAMS follows the Pokemon open there; changing anything here makes it a copy (the team is not changed).
+const saveCalc = () => remember.set("calc2", JSON.stringify(cs));
 const sideMon = side => side.link ? (currentTeam().mons[tb.slot] || blankMon()) : side.mon;
 function editSide(side) { if (side.link) { side.mon = Object.assign(blankMon(), JSON.parse(JSON.stringify(sideMon(side)))); side.link = false; } return side.mon; }
 const boostMult = b => b >= 0 ? (2 + b) / 2 : 2 / (2 - b);
@@ -5364,63 +5417,204 @@ function calcMove(C, gen, name, notes) {
   if (mv.category === "Status" || !mv.bp) return null;
   return {mv, base, name: info.name || name};
 }
-function calcField(C, from, to) {
-  const flags = s => ({isReflect: !!s.screens.reflect, isLightScreen: !!s.screens.light, isAuroraVeil: !!s.screens.veil,
-    isHelpingHand: !!s.screens.helping, isSR: !!s.screens.sr, isFriendGuard: !!s.screens.friend});
-  return new C.Field({gameType: cs.field.doubles ? "Doubles" : "Singles", weather: cs.field.weather || undefined, terrain: cs.field.terrain || undefined,
-    attackerSide: flags(from), defenderSide: flags(to)});
+// ----- the targets: all our Pokemon (or only the last stage of each line), at your Pokemon's level
+const calcPool = () => DEX.species.filter(s => s.data.base_stats && Number.isInteger(s.data.base_stats.hp) && (s.data.types || []).length &&
+  (cs.pool === "all" || !(s.data.evolutions || []).some(e => e && byId.has(e.into))));
+function calcTarget(s, evs, nature) {
+  return {link: false, boosts: allStats(0), status: "", hp: 100, screens: {},
+    mon: Object.assign(blankMon(), {species: s.id, level: Number(sideMon(cs.me).level) || 50, ability: (s.data.abilities || {}).primary || "", nature: nature || "Hardy", evs: Object.assign(allStats(0), evs || {})})};
 }
-// Speed with boosts, paralysis, Choice Scarf, Iron Ball and Tailwind (abilities like Swift Swim are not counted here).
-function calcSpeed(p, side) {
+const plusNature = {attack: "Adamant", sp_attack: "Modest", speed: "Jolly", defense: "Impish", sp_defense: "Careful"};
+function calcFieldNow(C) {
+  const f = cs.field;
+  return new C.Field({gameType: f.doubles ? "Doubles" : "Singles", weather: f.weather || undefined, terrain: f.terrain || undefined,
+    attackerSide: {isHelpingHand: !!f.helping}, defenderSide: {isReflect: !!f.screens, isLightScreen: !!f.screens, isFriendGuard: !!f.friend}});
+}
+// Speed with boosts, Choice Scarf, Iron Ball, paralysis, Tailwind and the weather / terrain speed abilities.
+function speedOf(p, tailwind) {
+  const f = cs.field, a = p.ability;
   let v = Math.floor(p.rawStats.spe * boostMult(p.boosts.spe || 0));
   if (p.item === "Choice Scarf") v = Math.floor(v * 1.5);
   if (p.item === "Iron Ball") v = Math.floor(v / 2);
-  if (side.screens.tailwind) v *= 2;
-  if (p.status === "par" && p.ability !== "Quick Feet") v = Math.floor(v / 2);
+  if ((a === "Swift Swim" && f.weather === "Rain") || (a === "Chlorophyll" && f.weather === "Sun") || (a === "Sand Rush" && f.weather === "Sand") ||
+      (a === "Slush Rush" && (f.weather === "Hail" || f.weather === "Snow")) || (a === "Surge Surfer" && f.terrain === "Electric")) v *= 2;
+  if (tailwind) v *= 2;
+  if (p.status === "par" && a !== "Quick Feet") v = Math.floor(v / 2);
   return v;
 }
-
-function calcResults(C, gen) {
-  const notes = [];
-  let A, D;
-  try { A = calcPokemon(C, gen, cs.atk, notes, sideName(cs.atk, "Your Pokemon")); D = calcPokemon(C, gen, cs.def, notes, sideName(cs.def, "The opponent")); }
-  catch (err) { return [h("div", {class: "notice"}, "The calculator could not read a Pokemon: " + err.message)]; }
-  if (!A || !D) return [h("div", {class: "empty"}, !A ? "Choose your Pokemon below." : "Choose an opponent below.")];
-  const dir = (P, Q, from, to, key) => {
-    const field = calcField(C, from, to), moves = sideMon(from).moves.filter(Boolean);
-    const rows = moves.map((name, i) => {
-      const id = key + i, m = (() => { try { return calcMove(C, gen, name, notes); } catch (e) { return null; } })();
-      const info = moveInfo(name);
-      if (!m) return h("div", {class: "crow none"}, h("div", {class: "cmv"}, info.type ? typeChip(info.type) : null, catBadge(info.category), h("b", {}, info.name || name)),
-        h("div", {class: "cnum sub"}, info.unknown ? "not a move yet" : "no damage"));
-      let r;
-      try { r = C.calculate(gen, P, Q, m.mv, field); } catch (err) { return h("div", {class: "crow none"}, h("b", {}, m.name), h("div", {class: "sub"}, "Could not work it out: " + err.message)); }
-      const [lo, hi] = r.range(), max = Q.maxHP(), pc = x => Math.floor(x / max * 1000) / 10;   // rounded down, as Showdown does
-      let ko = "", desc = "";
-      try { ko = lo || hi ? r.kochance().text : ""; } catch (e) { ko = ""; }
-      try { desc = r.desc().replace(" " + m.base + " vs.", " " + m.name + " vs."); } catch (e) { desc = hi ? "" : m.name + " does not affect " + Q.name + "."; }
-      const rolls = Array.isArray(r.damage) ? (Array.isArray(r.damage[0]) ? r.damage.map(x => "(" + x.join(", ") + ")").join(" + ") : r.damage.join(", ")) : String(r.damage);
-      const open = calcOpen === id, toggle = () => { calcOpen = open ? "" : id; updateCalc(); };
-      return h("div", {class: "crow" + (open ? " open" : ""), role: "button", tabindex: 0, "aria-expanded": String(open), onclick: toggle,
-          onkeydown: ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); toggle(); } }},
-        h("div", {class: "cmv"}, typeChip(m.mv.type), catBadge(m.mv.category), h("span", {class: "nowrap"}, h("b", {}, m.name), h("span", {class: "sub"}, " " + m.mv.bp))),
-        h("div", {class: "cnum"}, hi ? pc(lo) + " – " + pc(hi) + "%" : "0%"),
-        h("div", {class: "cko" + (/OHKO/.test(ko) ? " ohko" : /2HKO/.test(ko) ? " two" : "")}, hi ? ko || "—" : "no effect"),
-        h("div", {class: "cbar", title: lo + "–" + hi + " of " + max + " HP"},
-          h("i", {class: "left", style: "width:" + Math.min(100, Q.curHP() / max * 100) + "%"}),
-          h("i", {class: "hi", style: "width:" + Math.min(100, pc(hi)) + "%"}), h("i", {class: "lo", style: "width:" + Math.min(100, pc(lo)) + "%"})),
-        open ? h("div", {class: "cdesc"}, h("div", {}, desc), h("div", {class: "sub"}, lo + "–" + hi + " HP. Rolls: " + rolls)) : null);
-    });
-    return h("div", {class: "cdir"}, h("h3", {}, P.name + " → " + Q.name),
-      h("div", {class: "sub"}, Q.name + " has " + Q.curHP() + "/" + Q.maxHP() + " HP"), rows.length ? rows : h("div", {class: "sub"}, P.name + " has no moves yet: add them below."));
-  };
-  const sa = calcSpeed(A, cs.atk), sd = calcSpeed(D, cs.def);
-  const speed = h("div", {class: "cspeed sub"}, "Speed: " + A.name + " " + sa + ", " + D.name + " " + sd + " → " +
-    (sa === sd ? "a speed tie" : (sa > sd ? A.name : D.name) + " moves first") + (cs.field.trickroom ? " (Trick Room turns it round)" : "") + ".");
-  return [h("div", {class: "cdirs"}, dir(A, D, cs.atk, cs.def, "a"), dir(D, A, cs.def, cs.atk, "d")), speed,
-    notes.length ? h("div", {class: "hint"}, [...new Set(notes)].join(" ")) : null];
+// One attack: damage range, % of max HP, how many hits, the rolls and Showdown's sentence.
+function calcHit(C, gen, A, D, m, field) {
+  const r = C.calculate(gen, A, D, m.mv, field), [lo, hi] = r.range(), hp = D.curHP(), max = D.maxHP();
+  let ko = {n: 0, chance: 0, text: ""};
+  if (hi > 0) try { ko = r.kochance(); } catch (e) { /* no KO chance for this one */ }
+  const group = !hi ? "none" : lo >= hp ? "sure" : hi >= hp ? "roll" : ko.n === 2 ? "2" : ko.n === 3 ? "3" : "4";
+  let desc = "";
+  try { desc = r.desc().replace(" " + m.base + " vs.", " " + m.name + " vs."); } catch (e) { desc = ""; }
+  const rolls = Array.isArray(r.damage) ? (Array.isArray(r.damage[0]) ? r.damage.map(x => x.reduce((a, b) => a + b, 0)) : r.damage) : [r.damage];
+  return {lo, hi, hp, max, pl: Math.floor(lo / max * 1000) / 10, ph: Math.floor(hi / max * 1000) / 10, ko, group, desc, rolls, move: m.name, type: m.mv.type, cat: m.mv.category};
 }
-function sideName(side, fallback) { const m = sideMon(side), s = speciesByName(m.species); return s ? s.data.name : m.species || fallback; }
+const CALC_GROUPS = [["sure", "Sure KO"], ["roll", "KO with a good roll"], ["2", "2 hits"], ["3", "3 hits"], ["4", "4 or more hits"], ["none", "No damage"]];
+const hitLabel = x => x.group === "sure" ? "Sure KO" : x.group === "roll" ? Math.round(x.ko.chance * 100) + "% to KO" : x.group === "none" ? "No effect" : x.group === "4" ? "4+ hits" : x.group + " hits";
+
+// The moves to choose from: its own four first, then what it can learn, then every other damaging move.
+function calcMoveRows(mon) {
+  const s = speciesByName(mon.species), own = mon.moves.filter(Boolean), seen = new Set(own.map(norm)), rows = [];
+  const add = (name, order, how) => { const i = moveInfo(name); if (i.unknown || i.category === "Status" || !i.power) return; rows.push(Object.assign({}, i, {name: i.name || name, order, desc: (how ? how + " - " : "") + (i.desc || "")})); };
+  own.forEach(n => add(n, -2, "in its set"));
+  if (s) learnable(s.id).forEach(x => { if (!seen.has(norm(x.name))) { seen.add(norm(x.name)); add(x.name, -1, x.how); } });
+  pickerRows("move").forEach(r => { if (!seen.has(norm(r.name))) add(r.name, 0, ""); });
+  return rows;
+}
+function calcDefaultMove(mon) {
+  const rows = calcMoveRows(mon);
+  return (rows.find(r => r.order === -2) || rows.filter(r => r.order === -1).sort((a, b) => (b.power || 0) - (a.power || 0))[0] || rows[0] || {name: "Tackle"}).name;
+}
+
+// ----- the sums for the open tab; null when no Pokemon is chosen
+function calcCompute(C, gen) {
+  const notes = [], me = sideMon(cs.me);
+  let P;
+  try { P = calcPokemon(C, gen, cs.me, notes, "Your Pokemon"); } catch (e) { P = null; }
+  if (!P) return null;
+  const pool = calcPool(), field = calcFieldNow(C), out = {me: P, notes, rows: []};
+  if (cs.mode === "attack") {
+    if (!cs.move) cs.move = calcDefaultMove(me);
+    const m = calcMove(C, gen, cs.move, notes);
+    out.move = m;
+    if (!m) return out;
+    const def = m.mv.category === "Physical" ? "defense" : "sp_defense";
+    const evs = cs.spread === "hp" ? {hp: 252} : cs.spread === "bulky" ? {hp: 252, [def]: 252} : {};
+    for (const s of pool) {
+      try { const D = calcPokemon(C, gen, calcTarget(s, evs, cs.spread === "bulky" ? plusNature[def] : ""), [], ""); out.rows.push(Object.assign({s}, calcHit(C, gen, P, D, m, field))); } catch (e) { /* skip one that will not work */ }
+    }
+  } else if (cs.mode === "defense") {
+    // "best move" leaves out moves that charge or recharge, only work on the first turn, or knock out the user
+    // (Solar Beam/Blade count in sun and Electro Shot in rain, where they hit at once)
+    const awkward = new Set(["Solar Beam", "Solar Blade", "Electro Shot", "Sky Attack", "Skull Bash", "Razor Wind", "Freeze Shock", "Ice Burn", "Meteor Beam",
+      "Hyper Beam", "Giga Impact", "Blast Burn", "Hydro Cannon", "Frenzy Plant", "Rock Wrecker", "Roar of Time", "Prismatic Laser", "Eternabeam", "Meteor Assault",
+      "First Impression", "Fake Out", "Focus Punch", "Dream Eater", "Explosion", "Self-Destruct", "Misty Explosion", "Final Gambit", "Belch", "Mind Blown", "Shell Trap", "Future Sight", "Doom Desire"].map(norm));
+    const usable = name => !awkward.has(norm(name)) || (cs.field.weather === "Sun" && /^solar/i.test(name)) || (cs.field.weather === "Rain" && /electro shot/i.test(name));
+    const moves = new Map(), get = name => { if (!moves.has(name)) { try { moves.set(name, calcMove(C, gen, name, [])); } catch (e) { moves.set(name, null); } } return moves.get(name); };
+    for (const s of pool) {
+      let best = null;
+      for (const how of [["attack", "Physical"], ["sp_attack", "Special"]]) {
+        const A = (() => { try { return calcPokemon(C, gen, calcTarget(s, cs.spread === "max" ? {[how[0]]: 252} : {}, cs.spread === "max" ? plusNature[how[0]] : ""), [], ""); } catch (e) { return null; } })();
+        if (!A) continue;
+        for (const x of learnable(s.id)) {
+          if (!usable(x.name)) continue;
+          const m = get(x.name);
+          if (!m || m.mv.category !== how[1]) continue;
+          try { const hit = calcHit(C, gen, A, P, m, field); if (!best || hit.hi > best.hi) best = hit; } catch (e) { /* skip */ }
+        }
+      }
+      if (best) out.rows.push(Object.assign({s}, best));
+    }
+  } else {
+    out.mine = speedOf(P, cs.field.tailwind);
+    for (const s of pool) {
+      try {
+        const T = calcPokemon(C, gen, calcTarget(s, cs.speedSpread === "max" ? {speed: 252} : {}, cs.speedSpread === "max" ? "Jolly" : ""), [], "");
+        const v = speedOf(T, cs.field.theirTailwind), first = v === out.mine ? "tie" : (v < out.mine) !== !!cs.field.trickroom ? "you" : "them";
+        out.rows.push({s, speed: v, first, group: first});
+      } catch (e) { /* skip */ }
+    }
+    out.rows.sort((a, b) => b.speed - a.speed);
+    return out;
+  }
+  out.rows.sort((a, b) => b.ph - a.ph || b.pl - a.pl);
+  return out;
+}
+
+// ----- drawing
+// game sprites only (concept art in a white frame looks messy in the chart); a letter when there is none yet
+const calcPic = (s, cls) => { const ds = s && DEX.ds_sprites[s.id], p = ds && ds.front ? {src: ds.front, pixel: true} : null; return p ? h("img", {class: (cls || "") + (p.pixel ? " px" : ""), src: p.src, alt: "", loading: "lazy"}) : h("span", {class: (cls || "") + " cdot"}, s ? (s.data.name || "?")[0] : "?"); };
+// x position in the chart (0..1): 0-100% takes 84% of the width, the KO zone above 100% the rest
+const dmgX = pct => pct <= 100 ? pct / 100 * 0.84 : 0.84 + Math.min(1, (pct - 100) / 100) * 0.16;
+function calcChart(res, width) {
+  const wrap = h("div", {class: "cchart"});
+  const speed = cs.mode === "speed";
+  let xOf, zones, ticks;
+  if (speed) {
+    const vals = res.rows.map(r => r.speed).concat(res.mine), lo = Math.min(...vals) - 5, hi = Math.max(...vals) + 5;
+    xOf = v => (v - lo) / (hi - lo);
+    const mx = xOf(res.mine), tr = cs.field.trickroom;
+    zones = [[0, mx, tr ? "Slower: they move first" : "Slower: you move first", tr ? "bad" : "good"], [mx, 1, tr ? "Faster: you move first" : "Faster: they move first", tr ? "good" : "bad"]];
+    const step = Math.max(10, Math.round((hi - lo) / 6 / 10) * 10);
+    ticks = []; for (let v = Math.ceil(lo / step) * step; v <= hi; v += step) ticks.push([xOf(v), String(v)]);
+  } else {
+    xOf = r => dmgX(r);
+    zones = [[0, dmgX(25), "5+ hits"], [dmgX(25), dmgX(100 / 3), "4 hits"], [dmgX(100 / 3), dmgX(50), "3 hits"], [dmgX(50), dmgX(100), "2 hits"], [dmgX(100), 1, "KO", "ko"]];
+    ticks = [[0, "0%"], [dmgX(25), "25%"], [dmgX(100 / 3), "33%"], [dmgX(50), "50%"], [dmgX(75), "75%"], [dmgX(100), "100%"]];
+  }
+  // sprites stacked upwards where they would overlap (a beeswarm); smaller sprites when there are many
+  let size = width < 600 ? 28 : 40, lanes = 0;
+  const items = res.rows.map(r => ({r, px: Math.max(0, Math.min(1, speed ? xOf(r.speed) : xOf(r.ph))) * width}));
+  items.sort((a, b) => a.px - b.px);
+  for (; size >= 14; size -= 2) {
+    const last = [];
+    for (const it of items) { let l = 0; while (last[l] !== undefined && it.px - last[l] < size * 0.78) l++; last[l] = it.px; it.lane = l; }
+    lanes = last.length;
+    if (lanes * size * 0.8 + size <= (width < 600 ? 300 : 420)) break;
+  }
+  const height = Math.max(width < 600 ? 160 : 220, lanes * size * 0.8 + size + 8);
+  const plot = h("div", {class: "cplot", style: "height:" + height + "px"},
+    zones.map(([a, b, label, cls], i) => h("div", {class: "czone" + (cls ? " " + cls : "") + (i % 2 ? " alt" : ""), style: "left:" + a * 100 + "%;width:" + (b - a) * 100 + "%"})),
+    speed ? h("div", {class: "cline", style: "left:" + xOf(res.mine) * 100 + "%"}, h("span", {}, nameOf(sideMon(cs.me).species) || res.me.name, " " + res.mine)) : null,
+    items.map(it => {
+      const b = h("button", {type: "button", class: "csprite" + (cs.pick === it.r.s.id ? " on" : ""), title: it.r.s.data.name + (speed ? " " + it.r.speed : " " + it.r.pl + "–" + it.r.ph + "%"),
+        style: "width:" + size + "px;height:" + size + "px;left:" + Math.max(0, Math.min(width - size, it.px - size / 2)) + "px;bottom:" + (it.lane * size * 0.8 + 2) + "px",
+        onclick: () => { cs.pick = it.r.s.id; saveCalc(); updateCalc(true); }}, calcPic(it.r.s));
+      return b;
+    }));
+  wrap.append(h("div", {class: "czlabels"}, zones.map(([a, b, label, cls]) => h("span", {class: cls || null, style: "left:" + a * 100 + "%;width:" + (b - a) * 100 + "%"}, (b - a) * width > label.length * 6 ? label : ""))),
+    plot, h("div", {class: "cticks"}, ticks.filter((t, i, all) => !i || (t[0] - all[i - 1][0]) * width > 34).map(([x, t]) => h("span", {style: "left:" + x * 100 + "%"}, t))));
+  return wrap;
+}
+function calcCard(res) {
+  const r = res.rows.find(x => x.s.id === cs.pick) || res.rows[0];
+  if (!r) return null;
+  const s = r.s, d = s.data;
+  if (cs.mode === "speed") {
+    return h("div", {class: "ccard"}, calcPic(s, "cbigpic"), h("div", {class: "cwho"}, h("b", {}, d.name), h("div", {class: "types"}, (d.types || []).map(typeChip)),
+      h("div", {class: "sub"}, "Lv " + (Number(sideMon(cs.me).level) || 50) + " · " + (cs.speedSpread === "max" ? "252 Spe, Jolly" : "no EVs") + (cs.field.theirTailwind ? " · Tailwind" : ""))),
+      h("div", {class: "cbig"}, h("b", {}, String(r.speed)), h("div", {class: "sub"}, r.first === "tie" ? "Speed tie" : r.first === "you" ? "You move first" : "It moves first")));
+  }
+  const who = cs.mode === "attack" ? d.name : nameOf(sideMon(cs.me).species) || res.me.name;
+  const rollMax = Math.max(...r.rolls, 1);
+  return h("div", {class: "ccard"}, calcPic(s, "cbigpic"),
+    h("div", {class: "cwho"}, h("b", {}, d.name), h("div", {class: "types"}, (d.types || []).map(typeChip)),
+      h("div", {class: "sub"}, cs.mode === "defense" ? ["Uses ", typeChip(r.type), " ", h("b", {}, r.move)] : "Lv " + (Number(sideMon(cs.me).level) || 50) + " · " + ((d.abilities || {}).primary || "") + " · " + ({none: "no EVs", hp: "252 HP", bulky: "252 HP / 252 " + (res.move && res.move.mv.category === "Physical" ? "Def" : "SpD")}[cs.spread])),
+      h("div", {class: "sub"}, r.group === "sure" ? "A sure KO." : r.group === "roll" ? "KO with a good roll: " + Math.round(r.ko.chance * 100) + "% of the time." : r.ko.text ? calcCap(r.ko.text) + "." : r.hi ? "" : "No effect on " + who + ".")),
+    h("div", {class: "crolls"}, h("div", {class: "crollbar"}, r.rolls.map(v => h("i", {class: v >= r.hp ? "ko" : null, style: "height:" + Math.max(8, v / rollMax * 100) + "%"}))),
+      h("div", {class: "sub crollnums"}, r.rolls.join(" "))),
+    h("div", {class: "cbig"}, h("b", {}, r.pl + "–" + r.ph + "%"), h("div", {class: "sub"}, hitLabel(r) + " · " + r.lo + "–" + r.hi + " / " + r.max + " HP")),
+    r.desc ? h("div", {class: "sub cfull"}, r.desc) : null);
+}
+function calcList(res) {
+  const count = g => res.rows.filter(r => r.group === g).length;
+  if (cs.mode === "speed") {
+    const you = count("you"), them = count("them"), tie = count("tie");
+    return [h("p", {class: "csum"}, "You move first against " + you + ", they move first: " + them + (tie ? ", a speed tie with " + tie : "") + "."),
+      [["them", "They move first"], ["tie", "Speed tie"], ["you", "You move first"]].map(([g, label]) => {
+        const rows = res.rows.filter(r => r.group === g);
+        return rows.length ? h("div", {class: "cgroup"}, h("div", {class: "cghead"}, label, h("span", {class: "sub"}, " " + rows.length)),
+          rows.map(r => h("button", {type: "button", class: "clrow" + (cs.pick === r.s.id ? " on" : ""), onclick: () => { cs.pick = r.s.id; saveCalc(); updateCalc(true); }},
+            calcPic(r.s, "clpic"), h("span", {class: "clname"}, h("b", {}, r.s.data.name), h("span", {class: "types"}, (r.s.data.types || []).map(typeChip))),
+            h("span", {class: "clbar"}), h("span", {class: "cldmg"}, String(r.speed)), h("span", {class: "clres " + g}, label)))) : null;
+      })];
+  }
+  const sum = [["sure", "sure KO on "], ["roll", "KO with a good roll on "], ["2", "two hits for "], ["3", "three for "], ["4", "four or more for "], ["none", "no effect on "]]
+    .filter(([g]) => count(g)).map(([g, t]) => t + count(g));
+  return [h("p", {class: "csum"}, sum.length ? calcCap(sum.join(", ")) + "." : "Nothing to show."),
+    CALC_GROUPS.map(([g, label]) => {
+      const rows = res.rows.filter(r => r.group === g);
+      return rows.length ? h("div", {class: "cgroup"}, h("div", {class: "cghead"}, label, h("span", {class: "sub"}, " " + rows.length)),
+        rows.map(r => h("button", {type: "button", class: "clrow" + (cs.pick === r.s.id ? " on" : ""), onclick: () => { cs.pick = r.s.id; saveCalc(); updateCalc(true); }},
+          calcPic(r.s, "clpic"), h("span", {class: "clname"}, h("b", {}, r.s.data.name), cs.mode === "defense" ? h("span", {class: "sub"}, r.move) : h("span", {class: "types"}, (r.s.data.types || []).map(typeChip))),
+          h("span", {class: "clbar", title: "HP left after the hit"}, h("i", {class: "left", style: "width:" + Math.max(0, (r.hp - r.hi) / r.max * 100) + "%"}), h("i", {class: "range", style: "left:" + Math.max(0, (r.hp - r.hi) / r.max * 100) + "%;width:" + Math.max(0, Math.min(r.hp, r.hi) - Math.min(r.hp, r.lo)) / r.max * 100 + "%"})),
+          h("span", {class: "cldmg"}, r.pl + "–" + r.ph + "%"), h("span", {class: "clres g" + g}, hitLabel(r))))) : null;
+    })];
+}
 
 let updateCalc = () => {};
 function calcPanel() {
@@ -5435,127 +5629,114 @@ function calcPanel() {
   drawCalc(box);
   return box;
 }
+let calcResize = null;
 function drawCalc(box) {
-  const C = window.calc, gen = C.Generations.get(9);
-  const results = h("div", {class: "cres", "aria-live": "polite"}), fills = [];
-  const update = () => { saveCalc(); results.replaceChildren(...calcResults(C, gen).filter(Boolean)); fills.forEach(f => f()); };
+  const C = window.calc, gen = C.Generations.get(9), me = sideMon(cs.me), f = cs.field;
   const redraw = () => { saveCalc(); drawCalc(box); };
-  updateCalc = update;
-  const f = cs.field;
-  const sel = (label, value, options, set) => field(label, h("select", {onchange: ev => { set(ev.target.value); update(); }},
-    options.map(([v, t]) => h("option", {value: v, selected: v === value ? "" : null}, t))));
-  const check = (label, on, set, title) => h("label", {class: "ccheck", title: title || null}, h("input", {type: "checkbox", checked: on ? "" : null, onchange: ev => { set(ev.target.checked); update(); }}), label);
-  const fieldBar = h("div", {class: "cfield"},
-    sel("Weather", f.weather, [["", "None"], ["Sun", "Sun"], ["Rain", "Rain"], ["Sand", "Sandstorm"], ["Hail", "Hail"]], v => { f.weather = v; }),
-    sel("Terrain", f.terrain, [["", "None"], ["Electric", "Electric"], ["Grassy", "Grassy"], ["Misty", "Misty"], ["Psychic", "Psychic"]], v => { f.terrain = v; }),
-    check("Doubles", f.doubles, v => { f.doubles = v; }, "Moves that hit both foes do 75%"),
-    check("Critical hit", f.crit, v => { f.crit = v; }),
-    check("Trick Room", f.trickroom, v => { f.trickroom = v; }, "Only changes who moves first"),
-    h("button", {type: "button", onclick: () => { [cs.atk, cs.def] = [cs.def, cs.atk]; calcOpen = ""; redraw(); }}, "⇄ Swap sides"));
-  box.replaceChildren(
-    h("details", {class: "sub"}, h("summary", {}, "Your Pokemon against an opponent: damage in % of HP and hits to KO. Tap a move for every roll. How it counts"),
-      "Pick both from your teams, or any Pokemon, ours or official. Smogon's damage calc (the one Showdown uses) does the sums with Gen 9 rules (physical/special split, Fairy type) and Origin HeartGold's own move changes. New abilities and items the calc does not know are not counted; a new move counts by its type, category and power."),
-    results, fieldBar,
-    h("div", {class: "csides"}, calcSideCard(C, gen, cs.atk, "Your Pokemon", update, redraw, fills), calcSideCard(C, gen, cs.def, "Opponent", update, redraw, fills)));
-  update();
-}
-function calcSideCard(C, gen, side, title, update, redraw, fills) {
-  const m = sideMon(side), sp = calcSpecies(C, gen, m);
-  // change(fn): fn changes the Pokemon (a linked one becomes a copy first, and the card is drawn again to say so)
-  const change = (fn, full) => { const was = side.link; fn(editSide(side)); if (full || was) redraw(); else update(); };
-  const pick = h("select", {"aria-label": title + ": where from", onchange: ev => {
-    const v = ev.target.value;
-    if (v === "slot") side.link = true;
-    else if (v.startsWith("t:")) { const [, i, j] = v.split(":").map(Number); side.mon = Object.assign(blankMon(), JSON.parse(JSON.stringify(tb.teams[i].mons[j]))); side.link = false; }
-    else if (v === "new") { side.mon = blankMon(); side.link = false; }
-    side.boosts = allStats(0); side.status = ""; side.hp = 100; calcOpen = ""; redraw();
-  }},
-    h("option", {value: "slot", selected: side.link ? "" : null}, "The Pokemon open in TEAMS (follows your clicks)"),
-    h("option", {value: "own", selected: side.link ? null : ""}, side.link ? "A copy" : "This copy" + (m.species ? " (" + sideName(side, "") + ")" : "")),
-    h("option", {value: "new"}, "A new, empty Pokemon"),
-    tb.teams.map((t, i) => h("optgroup", {label: t.name}, t.mons.map((x, j) => x.species ? h("option", {value: "t:" + i + ":" + j}, t.name + ": " + (x.nickname || nameOf(x.species) || x.species)) : null))));
+  const tab = (id, label) => h("button", {type: "button", class: "ctab", "aria-pressed": String(cs.mode === id), onclick: () => { cs.mode = id; cs.pick = ""; redraw(); }}, label);
+  const tabs = h("div", {class: "ctabs"}, tab("attack", "⚔ Attack"), tab("defense", "⛨ Defense"), tab("speed", "» Speed"),
+    h("span", {class: "sub"}, {attack: "One move on all our Pokemon", defense: "All our Pokemon attack yours", speed: "Who moves first"}[cs.mode]));
 
-  const speciesBox = attachPicker(textInput(sp ? sp.name : m.species, {placeholder: "Pokemon (ours or official)", "aria-label": title + ": Pokemon"}), "species", () => calcSpeciesList(gen));
-  speciesBox.addEventListener("change", () => {
-    const ours = speciesByName(speciesBox.value), off = !ours && gen.species.get(C.toID(speciesBox.value));
+  // the sentence: the names in it are the choices
+  const sp = calcSpecies(C, gen, me);
+  const nameBox = attachPicker(textInput(sp ? sp.name : me.species, {class: "cname", placeholder: "Pokemon", "aria-label": "Your Pokemon", size: Math.max(6, (sp ? sp.name : "Pokemon").length)}), "species", () => calcSpeciesList(gen));
+  nameBox.addEventListener("change", () => {
+    const ours = speciesByName(nameBox.value), off = !ours && gen.species.get(C.toID(nameBox.value));
     if (!ours && !off) return;
-    change(x => {
-      x.species = ours ? ours.id : off.name;
-      x.ability = ours ? ((ours.data.abilities || {}).primary || "") : Object.values(off.abilities || {})[0] || "";
-      x.moves = ["", "", "", ""]; x.item = ""; x.nickname = "";
-    }, true);
+    const x = editSide(cs.me);
+    x.species = ours ? ours.id : off.name; x.ability = ours ? ((ours.data.abilities || {}).primary || "") : Object.values(off.abilities || {})[0] || "";
+    x.moves = ["", "", "", ""]; x.item = ""; x.nickname = ""; cs.move = ""; cs.pick = ""; redraw();
   });
-  const levelBox = numberInput(m.level, 1, 100, 1, {"aria-label": title + ": level", style: "width:64px"});
-  levelBox.addEventListener("change", () => change(x => { x.level = Math.max(1, Math.min(100, Number(levelBox.value) || 50)); }));
-  const natureSel = h("select", {"aria-label": title + ": nature", onchange: ev => change(x => { x.nature = ev.target.value; }, true)},
-    Object.keys(NATURES).map(n => h("option", {value: n, selected: n === m.nature ? "" : null}, natureLabel(n))));
-  const itemBox = attachPicker(textInput(m.item, {placeholder: "Item", "aria-label": title + ": item"}), "item", () => Object.entries(SD.items || {}).map(([name, desc]) => ({name, desc})));
-  itemBox.addEventListener("change", () => change(x => { x.item = itemBox.value.trim(); }));
-  const own = sp ? sp.abilities : [];
-  const abilityBox = attachPicker(textInput(m.ability, {placeholder: "Ability", "aria-label": title + ": ability"}), "ability",
-    () => pickerRows("ability").map(r => own.some(a => norm(a) === norm(r.name)) ? Object.assign({}, r, {order: -1, desc: "★ " + (r.desc || "")}) : r));
-  abilityBox.addEventListener("change", () => change(x => { x.ability = abilityBox.value.trim(); }));
-  const statusSel = h("select", {"aria-label": title + ": status", onchange: ev => { side.status = ev.target.value; update(); }},
-    [["", "Healthy"], ["brn", "Burned"], ["par", "Paralysed"], ["psn", "Poisoned"], ["tox", "Badly poisoned"], ["slp", "Asleep"], ["frz", "Frozen"]]
-      .map(([v, t]) => h("option", {value: v, selected: v === side.status ? "" : null}, t)));
-  const hpBox = numberInput(side.hp, 1, 100, 1, {"aria-label": title + ": HP left in %", style: "width:64px"});
-  hpBox.addEventListener("change", () => { side.hp = Math.max(1, Math.min(100, Number(hpBox.value) || 100)); hpBox.value = side.hp; update(); });
-
-  // stats: base, IV, EV, boost and the stat
-  const cells = {}, evLeft = h("span", {class: "sub"});
-  const nat = NATURES[m.nature] || [];
-  const rows = STATS.map(([k, label]) => {
-    const iv = numberInput(m.ivs[k], 0, 31, 1, {"aria-label": title + ": " + label + " IV", style: "width:50px"});
-    iv.addEventListener("change", () => change(x => { x.ivs[k] = Math.max(0, Math.min(31, Number(iv.value) || 0)); }));
-    const ev = numberInput(m.evs[k], 0, 252, 4, {"aria-label": title + ": " + label + " EVs", style: "width:66px"});
-    ev.addEventListener("change", () => change(x => {
-      const others = STATS.reduce((a, [o]) => a + (o === k ? 0 : Number(x.evs[o]) || 0), 0);
-      x.evs[k] = Math.max(0, Math.min(252, 510 - others, Math.round((Number(ev.value) || 0) / 4) * 4)); ev.value = x.evs[k];
+  const pool = calcPool();
+  const poolSel = h("select", {class: "cpool", "aria-label": "Which of our Pokemon", onchange: ev => { cs.pool = ev.target.value; cs.pick = ""; redraw(); }},
+    [["final", "fully evolved"], ["all", "of all stages"]].map(([v, t]) => {
+      const n = v === cs.pool ? pool.length : (() => { const was = cs.pool; cs.pool = v; const k = calcPool().length; cs.pool = was; return k; })();
+      return h("option", {value: v, selected: v === cs.pool ? "" : null}, n + " Pok\u00e9mon " + t);
     }));
-    const boost = k === "hp" ? h("td", {}) : h("td", {}, h("select", {"aria-label": title + ": " + label + " boost", class: "cboost", onchange: ev2 => { side.boosts[k] = Number(ev2.target.value); update(); }},
-      [6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5, -6].map(b => h("option", {value: b, selected: b === (Number(side.boosts[k]) || 0) ? "" : null}, b > 0 ? "+" + b : b === 0 ? "±0" : String(b)))));
-    cells[k] = h("td", {class: "num tot"});
-    return h("tr", {}, h("th", {class: nat[0] === k ? "up" : nat[1] === k ? "down" : null}, SHORT_STAT[k]),
-      h("td", {class: "num"}, sp ? String(sp.base[k]) : "—"), h("td", {}, iv), h("td", {}, ev), boost, cells[k]);
-  });
-  fills.push(() => {
-    let p = null;
-    try { p = calcPokemon(C, gen, side, [], ""); } catch (e) { p = null; }
-    for (const [k] of STATS) {
-      if (!p) { cells[k].textContent = "—"; continue; }
-      const raw = p.rawStats[CALC_KEYS[k]], b = k === "hp" ? 0 : Number(side.boosts[k]) || 0;
-      cells[k].textContent = b ? raw + " → " + Math.floor(raw * boostMult(b)) : String(raw);
-    }
-    const used = STATS.reduce((a, [k]) => a + (Number(sideMon(side).evs[k]) || 0), 0);
-    evLeft.textContent = "EVs: " + used + " of 510";
-  });
+  const poolWord = poolSel;
+  let sentence;
+  if (cs.mode === "attack") {
+    if (!cs.move) cs.move = calcDefaultMove(me);
+    const moveBox = attachPicker(textInput(cs.move, {class: "cname cmovebox", "aria-label": "Move", size: Math.max(6, cs.move.length)}), "move", () => calcMoveRows(me));
+    moveBox.addEventListener("change", () => { cs.move = moveBox.value.trim(); redraw(); });
+    const mi = moveInfo(cs.move);
+    sentence = [calcPic(byId.get(me.species), "chpic"), nameBox, h("span", {class: "cfill"}, "uses"), mi.type ? typeChip(mi.type) : null, moveBox, h("span", {class: "cfill"}, "on"), poolWord,
+      h("button", {type: "button", class: "small", onclick: () => { cs.mode = "defense"; cs.pick = ""; redraw(); }}, "⇄ Who KOs it?")];
+  } else if (cs.mode === "defense") {
+    sentence = [poolWord, h("span", {class: "cfill"}, "use their best move on"), calcPic(byId.get(me.species), "chpic"), nameBox,
+      h("button", {type: "button", class: "small", onclick: () => { cs.mode = "attack"; cs.pick = ""; redraw(); }}, "⇄ What does it KO?")];
+  } else sentence = [calcPic(byId.get(me.species), "chpic"), nameBox, h("span", {class: "cfill"}, "at"), h("b", {class: "cword", id: "cmyspeed"}, "…"), h("span", {class: "cfill"}, "against"), poolWord];
 
-  const s = sp && sp.ours, pic = s && portrait(s);
-  const learn = s ? learnable(s.id) : null;
-  const moveBoxes = m.moves.map((mv, i) => {
-    const box = attachPicker(textInput(mv, {placeholder: "Move " + (i + 1), "aria-label": title + ": move " + (i + 1)}), "move",
-      learn ? () => learn.map(x => Object.assign({}, moveInfo(x.name), {name: x.name, desc: x.how + " - " + (moveInfo(x.name).desc || "")})).concat(pickerRows("move").map(r => Object.assign({}, r, {order: 1}))) : undefined);
-    box.addEventListener("change", () => change(x => { x.moves[i] = box.value.trim(); }));
-    return box;
-  });
-  const screen = (key, label, tip) => h("label", {class: "ccheck", title: tip || null}, h("input", {type: "checkbox", checked: side.screens[key] ? "" : null,
-    onchange: ev => { side.screens[key] = ev.target.checked; update(); }}), label);
-  return h("div", {class: "cside"},
-    h("div", {class: "chead"}, pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: ""}) : null,
-      h("div", {}, h("h3", {}, title), sp ? h("div", {class: "types"}, sp.types.map(typeChip)) : null)),
-    field("From", pick),
-    side.link ? h("div", {class: "sub"}, "Follows the Pokemon you open in the team above. Changing something here makes a copy; your team is not changed.") : null,
-    field("Pokemon", speciesBox),
-    h("div", {class: "trow"}, field("Level", levelBox), field("Nature", natureSel)),
-    h("div", {class: "trow"}, field("Item", itemBox), field("Ability", abilityBox)),
-    h("div", {class: "trow"}, field("Status", statusSel), field("HP %", hpBox)),
-    h("div", {class: "scroll"}, h("table", {class: "tstats cstats"}, h("thead", {}, h("tr", {}, h("th", {}, ""), h("th", {class: "num"}, "Base"), h("th", {}, "IV"), h("th", {}, "EV"), h("th", {}, "Boost"), h("th", {class: "num"}, "Stat"))), h("tbody", {}, rows))),
-    evLeft,
-    h("div", {class: "flabel"}, "Moves"), h("div", {class: "cmoves"}, moveBoxes),
-    h("div", {class: "flabel"}, "Its side of the field"),
-    h("div", {class: "cflags"}, screen("reflect", "Reflect"), screen("light", "Light Screen"), screen("veil", "Aurora Veil"),
-      screen("helping", "Helping Hand", "A partner used Helping Hand on it"), screen("friend", "Friend Guard", "A partner with Friend Guard"),
-      screen("sr", "Stealth Rock", "Stealth Rock is on its side: counted in how many hits to KO"), screen("tailwind", "Tailwind")));
+  // the set, in one line: item, ability, nature, the EVs that count, a boost, and where to change it
+  const bstat = cs.mode === "speed" ? "speed" : cs.mode === "defense" ? null : (moveInfo(cs.move).category === "Physical" ? "attack" : "sp_attack");
+  const ev = k => (Number(me.evs[k]) || 0) + " " + SHORT_STAT[k];
+  const bits = [me.item || "no item", me.ability || "no ability", natureLabel(me.nature), "Lv " + me.level,
+    bstat ? ev(bstat) : ev("hp") + " / " + ev("defense") + " / " + ev("sp_defense")];
+  const boost = bstat ? h("span", {class: "cstep"},
+    h("button", {type: "button", "aria-label": "Lower " + SHORT_STAT[bstat], onclick: () => { cs.me.boosts[bstat] = Math.max(-6, (Number(cs.me.boosts[bstat]) || 0) - 1); redraw(); }}, "−"),
+    h("b", {}, ((n => n > 0 ? "+" + n : String(n))(Number(cs.me.boosts[bstat]) || 0)) + " " + SHORT_STAT[bstat]),
+    h("button", {type: "button", "aria-label": "Raise " + SHORT_STAT[bstat], onclick: () => { cs.me.boosts[bstat] = Math.min(6, (Number(cs.me.boosts[bstat]) || 0) + 1); redraw(); }}, "+")) : null;
+  const change = h("button", {type: "button", class: "clink", onclick: () => {
+    if (cs.me.link && currentTeam().mons[tb.slot]) { tb.panel = ""; renderTeams(); } else { cs.edit = !cs.edit; redraw(); } }}, cs.me.link ? "Change its set (in the team)" : cs.edit ? "Hide its set" : "Change its set");
+  const spreadSel = cs.mode === "speed"
+    ? h("select", {"aria-label": "Their speed", onchange: ev2 => { cs.speedSpread = ev2.target.value; redraw(); }}, [["max", "theirs at max speed (252+)"], ["none", "theirs with no EVs"]].map(([v, t]) => h("option", {value: v, selected: v === cs.speedSpread ? "" : null}, t)))
+    : cs.mode === "attack"
+      ? h("select", {"aria-label": "Their spread", onchange: ev2 => { cs.spread = ev2.target.value; redraw(); }}, [["none", "theirs with no EVs"], ["hp", "theirs with 252 HP"], ["bulky", "theirs fully bulky"]].map(([v, t]) => h("option", {value: v, selected: v === cs.spread ? "" : null}, t)))
+      : h("select", {"aria-label": "Their spread", onchange: ev2 => { cs.spread = ev2.target.value; redraw(); }}, [["none", "theirs with no EVs"], ["max", "theirs with max attack (252+)"]].map(([v, t]) => h("option", {value: v, selected: v === (cs.spread === "max" ? "max" : "none") ? "" : null}, t)));
+  if (cs.mode === "defense" && cs.spread !== "max") cs.spread = "none";
+  if (cs.mode === "attack" && cs.spread === "max") cs.spread = "none";
+  const setLine = h("div", {class: "cset"}, bits.map((b, i) => [i ? h("span", {class: "cdotsep"}, "·") : null, h("span", {}, b)]), boost, change, h("span", {class: "cdotsep"}, "·"), spreadSel);
+  const editor = !cs.me.link && cs.edit ? calcMiniEditor(C, gen, redraw) : null;
+
+  // the field: one row of on/off chips
+  const chip = (label, on, set) => h("button", {type: "button", class: "cchip", "aria-pressed": String(!!on), onclick: () => { set(!on); redraw(); }}, label);
+  const sep = () => h("span", {class: "csep"});
+  const weather = [["Sun", "☀ Sun"], ["Rain", "☔ Rain"], ["Sand", "Sandstorm"], ["Hail", "❄ Hail"]].map(([v, t]) => chip(t, f.weather === v, on => { f.weather = on ? v : ""; }));
+  const chips = h("div", {class: "cchips"}, weather, sep(),
+    (cs.mode === "speed" ? [["Electric", "Electric Terrain"]] : [["Electric", "Electric Terrain"], ["Grassy", "Grassy Terrain"], ["Psychic", "Psychic Terrain"], ["Misty", "Misty Terrain"]])
+      .map(([v, t]) => chip(t, f.terrain === v, on => { f.terrain = on ? v : ""; })), sep(),
+    cs.mode === "speed" ? [chip("Tailwind for you", f.tailwind, on => { f.tailwind = on; }), chip("Their Tailwind", f.theirTailwind, on => { f.theirTailwind = on; }), chip("Trick Room", f.trickroom, on => { f.trickroom = on; })]
+      : [chip("Helping Hand", f.helping, on => { f.helping = on; }), chip("Critical hit", f.crit, on => { f.crit = on; }), chip("Screens up", f.screens, on => { f.screens = on; }),
+        chip("Friend Guard", f.friend, on => { f.friend = on; }), chip("Doubles", f.doubles, on => { f.doubles = on; })]);
+
+  const chartBox = h("div", {class: "cchartbox"}), cardBox = h("div", {}), listBox = h("div", {class: "clist"}), notesBox = h("div", {class: "hint"});
+  let res = null;
+  const paint = keep => {
+    if (!keep || !res) { try { res = calcCompute(C, gen); } catch (err) { res = null; notesBox.textContent = "The calculator stopped: " + err.message; } }
+    saveCalc();
+    if (!res) { chartBox.replaceChildren(h("div", {class: "empty"}, "Choose a Pokemon: type its name above, or open one in the team.")); cardBox.replaceChildren(); listBox.replaceChildren(); return; }
+    if (cs.mode === "attack" && !res.move) { chartBox.replaceChildren(h("div", {class: "empty"}, (cs.move || "That move") + " does no damage. Choose an attacking move.")); cardBox.replaceChildren(); listBox.replaceChildren(); return; }
+    const sp2 = box.querySelector("#cmyspeed"); if (sp2 && res.mine !== undefined) sp2.textContent = String(res.mine);
+    if (!res.rows.some(r => r.s.id === cs.pick)) cs.pick = (res.rows.find(r => cs.mode === "speed" ? true : r.group !== "sure") || res.rows[0] || {s: {}}).s.id || "";
+    chartBox.replaceChildren(calcChart(res, Math.max(260, chartBox.clientWidth || box.clientWidth - 24)));
+    cardBox.replaceChildren(calcCard(res) || "");
+    listBox.replaceChildren(...calcList(res).flat().filter(Boolean));
+    notesBox.textContent = [...new Set(res.notes)].join(" ");
+  };
+  updateCalc = paint;
+  box.replaceChildren(...[tabs, h("div", {class: "csentence"}, sentence), setLine, editor, chips, chartBox, cardBox, listBox, notesBox,
+    h("details", {class: "sub"}, h("summary", {}, "How it counts"),
+      "Smogon's damage calc (the one Showdown uses) does the sums with Gen 9 rules (physical/special split, Fairy type) and Origin HeartGold's own move changes. The targets are our Pokemon at your Pokemon's level with their first ability, no item and the spread you choose. Defense tries every damaging move each one can learn and shows its best (not moves that charge, recharge, only work on the first turn or knock out the user). New abilities and items the calc does not know are not counted; a new move counts by its type, category and power.")].filter(Boolean));
+  setTimeout(() => paint(false), 0);   // after the panel is on the page, so the chart can measure its width (rAF waits while the tab is hidden)
+  if (!calcResize) { calcResize = true; let t = null; addEventListener("resize", () => { clearTimeout(t); t = setTimeout(() => { if (tb.panel === "calc" && view === "teams") updateCalc(true); }, 200); }); }
+}
+// The set of a Pokemon that is not in a team: the few things that change the sums.
+function calcMiniEditor(C, gen, redraw) {
+  const m = cs.me.mon, set = fn => ev => { fn(ev.target.value); redraw(); };
+  const sp = calcSpecies(C, gen, m), own = sp ? sp.abilities : [];
+  const item = attachPicker(textInput(m.item, {placeholder: "Item", "aria-label": "Item"}), "item", () => Object.entries(SD.items || {}).map(([name, desc]) => ({name, desc})));
+  item.addEventListener("change", () => { m.item = item.value.trim(); redraw(); });
+  const ability = attachPicker(textInput(m.ability, {placeholder: "Ability", "aria-label": "Ability"}), "ability",
+    () => pickerRows("ability").map(r => own.some(a => norm(a) === norm(r.name)) ? Object.assign({}, r, {order: -1, desc: "★ " + (r.desc || "")}) : r));
+  ability.addEventListener("change", () => { m.ability = ability.value.trim(); redraw(); });
+  return h("div", {class: "cmini"},
+    field("Level", numberInput(m.level, 1, 100, 1, {style: "width:64px", onchange: set(v => { m.level = Math.max(1, Math.min(100, Number(v) || 50)); })})),
+    field("Nature", h("select", {onchange: set(v => { m.nature = v; })}, Object.keys(NATURES).map(n => h("option", {value: n, selected: n === m.nature ? "" : null}, natureLabel(n))))),
+    field("Item", item), field("Ability", ability),
+    field("Status", h("select", {onchange: set(v => { cs.me.status = v; })}, [["", "Healthy"], ["brn", "Burned"], ["par", "Paralysed"], ["psn", "Poisoned"]].map(([v, t]) => h("option", {value: v, selected: v === cs.me.status ? "" : null}, t)))),
+    h("div", {class: "cmevs"}, STATS.map(([k]) => field(SHORT_STAT[k] + " EVs", numberInput(m.evs[k], 0, 252, 4, {style: "width:62px", onchange: set(v => {
+      const others = STATS.reduce((a, [o]) => a + (o === k ? 0 : Number(m.evs[o]) || 0), 0);
+      m.evs[k] = Math.max(0, Math.min(252, 510 - others, Math.round((Number(v) || 0) / 4) * 4)); })})))));
 }
 
 // The team as a whole: what hits it hard, and what its attacking moves hit hard.
