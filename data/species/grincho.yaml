@@ -1,5 +1,5 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
-dex: 129
+dex: 130
 name: Grincho
 
 credits:
@@ -138,7 +138,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:302"
+  footprint: "hgss:302"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/grincho.json"
   cry: "assets/cries/grincho.json" # sound file
 

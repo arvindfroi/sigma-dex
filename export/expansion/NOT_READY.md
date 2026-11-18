@@ -10,6 +10,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 
 - **Smeatherace** needs: a name of at most 10 letters
 - **Tropistrich** needs: a name of at most 10 letters
+- **Cloudjester** needs: a name of at most 10 letters
 - **Sigmanian Sudowoodo** needs: a name of at most 10 letters
 - **Sigmanian Eiscue** needs: a name of at most 10 letters
 - **Rainbro** needs: a valid type, an ability that exists in the game
@@ -41,10 +42,10 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **JAWIE** needs: a level-up move that exists in the game
 - **Sigmanian Charcadet** needs: a name of at most 10 letters
 - **Seraphinnen** needs: a name of at most 10 letters
+- **riftlees** needs: a level-up move that exists in the game
 - **Giga-Circuit** needs: a name of at most 10 letters
 - **Wreckingboo** needs: a name of at most 10 letters
 - **Wreckingdrake** needs: a name of at most 10 letters
-- **Cloudjester** needs: a name of at most 10 letters
 - **Felk** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Moosus** needs: an ability that exists in the game
 - **Gravriel** needs: an ability that exists in the game
@@ -57,16 +58,15 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Iron Bulb** needs: a level-up move that exists in the game
 - **Rosie** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Rosievoir** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **riftlees** needs: a level-up move that exists in the game
 - **Venofrib** needs: a level-up move that exists in the game
 - **Vendepiede** needs: a level-up move that exists in the game
+- **Venorax** needs: base stats, a level-up move that exists in the game
 - **Raymon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Crysteel** needs: a level-up move that exists in the game
 - **Crystax** needs: an ability that exists in the game, a level-up move that exists in the game
 - **whyrmshade** needs: a level-up move that exists in the game
 - **Abysspero** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Aqualoom** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Venorax** needs: base stats, a level-up move that exists in the game
 - **Cabat** needs: a level-up move that exists in the game
 - **Cobramp** needs: a level-up move that exists in the game
 - **Praxis** needs: a level-up move that exists in the game

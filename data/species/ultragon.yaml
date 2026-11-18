@@ -1,5 +1,5 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
-dex: 148
+dex: 149
 name: Ultragon
 
 credits:
@@ -125,11 +125,10 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
-                     body color, catch rate, base exp, growth rate, base friendship, gender,
-                     egg groups, egg cycles, height, weight]
+  filled_by_claude: [look, movement, level-up moves, "TM/HM moves", tutor moves, body color,
+                     catch rate, base exp, growth rate, base friendship, gender, egg groups,
+                     egg cycles, height, weight]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
-    body shape: 80
     look: 80
     movement: 80
     level-up moves: 77
@@ -156,7 +155,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:373"
+  footprint: "hgss:373"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

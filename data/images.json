@@ -6608,13 +6608,6 @@
     "editor": "Ivar"
   },
   {
-    "id": 2140,
-    "species": "tsunamo",
-    "file": "assets/concept-art/tsunamo/2140.png",
-    "caption": "[ds-follower] sprite #399",
-    "editor": "Ivar"
-  },
-  {
     "id": 2144,
     "species": "natureo",
     "file": "assets/concept-art/natureo/2144.png",
@@ -6731,13 +6724,6 @@
     "species": "riftlees",
     "file": "assets/concept-art/riftlees/2167.png",
     "caption": "[ds-front] sprite #401",
-    "editor": "michael"
-  },
-  {
-    "id": 2168,
-    "species": "riftlees",
-    "file": "assets/concept-art/riftlees/2168.png",
-    "caption": "[ds-back] sprite #401",
     "editor": "michael"
   },
   {
@@ -6979,13 +6965,6 @@
     "editor": "michael"
   },
   {
-    "id": 2240,
-    "species": "venofrib",
-    "file": "assets/concept-art/venofrib/2240.png",
-    "caption": "[ds-front] sprite #425",
-    "editor": "michael"
-  },
-  {
     "id": 2241,
     "species": "venofrib",
     "file": "assets/concept-art/venofrib/2241.png",
@@ -7014,24 +6993,129 @@
     "editor": "michael"
   },
   {
-    "id": 2249,
-    "species": "crystax",
-    "file": "assets/concept-art/crystax/2249.png",
-    "caption": "[ds-back] sprite #424",
-    "editor": "michael"
-  },
-  {
-    "id": 2250,
-    "species": "crystax",
-    "file": "assets/concept-art/crystax/2250.png",
-    "caption": "[ds-icon] sprite #424",
-    "editor": "michael"
-  },
-  {
     "id": 2251,
     "species": "crystax",
     "file": "assets/concept-art/crystax/2251.png",
     "caption": "[ds-follower] sprite #424",
     "editor": "michael"
+  },
+  {
+    "id": 2272,
+    "species": "venofrib",
+    "file": "assets/concept-art/venofrib/2272.png",
+    "caption": "[ds-front] sprite #429",
+    "editor": "michael"
+  },
+  {
+    "id": 2280,
+    "species": "aqualoom",
+    "file": "assets/concept-art/aqualoom/2280.png",
+    "caption": "[ds-front] sprite #430",
+    "editor": "michael"
+  },
+  {
+    "id": 2281,
+    "species": "aqualoom",
+    "file": "assets/concept-art/aqualoom/2281.png",
+    "caption": "[ds-back] sprite #430",
+    "editor": "michael"
+  },
+  {
+    "id": 2282,
+    "species": "aqualoom",
+    "file": "assets/concept-art/aqualoom/2282.png",
+    "caption": "[ds-icon] sprite #430",
+    "editor": "michael"
+  },
+  {
+    "id": 2283,
+    "species": "crysteel",
+    "file": "assets/concept-art/crysteel/2283.png",
+    "caption": "[ds-front] sprite #438",
+    "editor": "michael"
+  },
+  {
+    "id": 2284,
+    "species": "crysteel",
+    "file": "assets/concept-art/crysteel/2284.png",
+    "caption": "[ds-back] sprite #438",
+    "editor": "michael"
+  },
+  {
+    "id": 2285,
+    "species": "crysteel",
+    "file": "assets/concept-art/crysteel/2285.png",
+    "caption": "[ds-icon] sprite #438",
+    "editor": "michael"
+  },
+  {
+    "id": 2286,
+    "species": "crysteel",
+    "file": "assets/concept-art/crysteel/2286.png",
+    "caption": "[ds-follower] sprite #438",
+    "editor": "michael"
+  },
+  {
+    "id": 2291,
+    "species": "venorax",
+    "file": "assets/concept-art/venorax/2291.png",
+    "caption": "[ds-front] sprite #437",
+    "editor": "michael"
+  },
+  {
+    "id": 2292,
+    "species": "venorax",
+    "file": "assets/concept-art/venorax/2292.png",
+    "caption": "[ds-back] sprite #437",
+    "editor": "michael"
+  },
+  {
+    "id": 2293,
+    "species": "venorax",
+    "file": "assets/concept-art/venorax/2293.png",
+    "caption": "[ds-icon] sprite #437",
+    "editor": "michael"
+  },
+  {
+    "id": 2297,
+    "species": "heatbat",
+    "file": "assets/concept-art/heatbat/2297.png",
+    "caption": "pasted",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2301,
+    "species": "tsunamo",
+    "file": "assets/concept-art/tsunamo/2301.png",
+    "caption": "[ds-follower] sprite #435",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2303,
+    "species": "crystax",
+    "file": "assets/concept-art/crystax/2303.png",
+    "caption": "[ds-back] sprite #436",
+    "editor": "michael"
+  },
+  {
+    "id": 2304,
+    "species": "crystax",
+    "file": "assets/concept-art/crystax/2304.png",
+    "caption": "[ds-icon] sprite #436",
+    "editor": "michael"
+  },
+  {
+    "id": 2309,
+    "species": "venorax",
+    "file": "assets/concept-art/venorax/2309.png",
+    "caption": "[ds-follower] sprite #437",
+    "editor": "michael"
+  },
+  {
+    "id": 2315,
+    "species": "riftlees",
+    "file": "assets/concept-art/riftlees/2315.png",
+    "caption": "[ds-back] sprite #439",
+    "editor": null
   }
 ]

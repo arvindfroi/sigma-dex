@@ -18,7 +18,7 @@
   "#5369c7": "#78e078",
   "#5531a0": "#48d898",
   "#558ae7": "#558ae7",
-  "#725f3d": "#386068",
+  "#725f3d": "#709098",
   "#7a8173": "#986068",
   "#7e7a75": "#906098",
   "#8eefef": "#90f0d0",
@@ -27,8 +27,8 @@
   "#dcc8c1": "#b0d0c8",
   "#e4ae6b": "#58d8e0",
   "#ecf2dc": "#ecf2dc",
-  "#f6d8ac": "#90e8f0",
-  "#f9f7ec": "#d0e8f0"
+  "#f6d8ac": "#d0e8e8",
+  "#f9f7ec": "#f0f8f8"
  },
  "follower": {
   "#101112": "#101112",
@@ -40,12 +40,12 @@
   "#3599ef": "#3599ef",
   "#394a39": "#584030",
   "#425668": "#68b050",
-  "#666632": "#304860",
+  "#666632": "#688090",
   "#a6903b": "#b030a0",
   "#d6b95f": "#50b0d0",
   "#e6f6e9": "#e6f6e9",
-  "#f7e49c": "#80d0f0",
-  "#f9eab7": "#a0d8f8"
+  "#f7e49c": "#c8e0e8",
+  "#f9eab7": "#d8e8f0"
  },
  "sliders": [
   {
@@ -80,9 +80,9 @@
   },
   {
    "adj": {
-    "hue": 151,
-    "sat": -0.03,
-    "light": -0.07
+    "hue": 149,
+    "sat": -0.54,
+    "light": 0.27
    },
    "keep": false,
    "colours": [
@@ -156,8 +156,8 @@
    ]
   }
  ],
- "why": "The blue turns brown. The blue 2 and the green stay",
+ "why": "",
  "front": "https://hlkabnevaljtrbldgeqm.supabase.co/storage/v1/object/public/art/tries/riftlees/drawn-5046-b2a14be9.png",
  "by": "michael",
- "at": "2026-11-18T01:30:41.803Z"
+ "at": "2026-11-18T03:15:10.307Z"
 }
