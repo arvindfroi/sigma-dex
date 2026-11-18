@@ -113,12 +113,11 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+  filled_by_claude: [body shape, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     body shape: 80
-    look: 80
     movement: 80
     level-up moves: 57
     "TM/HM moves": 62
@@ -136,7 +135,7 @@ design:
     weight: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
-  look: "It is a huge golem made of tan stone blocks, each carved like a stone face with a heavy brow. It has a big stone head with a glowing yellow eye, broad shoulders, thick arms ending in large stone fists made of many faces, moss patches and orange swirl carvings."
+  look: "It is a huge golem made of tan stone blocks, each carved like a stone face with a heavy brow amd a thumbs up. It has a big stone head with a glowing yellow eye, broad shoulders, thick arms ending in large stone fists made of many faces, moss patches and orange swirl carvings. It does a thumbs up"
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

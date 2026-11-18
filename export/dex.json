@@ -9948,7 +9948,6 @@
         "claude_fill": false,
         "filled_by_claude": [
           "body shape",
-          "look",
           "movement",
           "level-up moves",
           "TM/HM moves",
@@ -9963,7 +9962,6 @@
         ],
         "claude_sure": {
           "body shape": 80,
-          "look": 80,
           "movement": 80,
           "level-up moves": 57,
           "TM/HM moves": 62,
@@ -9978,7 +9976,7 @@
         },
         "body_shape": "tentacles or many legs",
         "movement": "It slithers along the ground.",
-        "look": "It is a slimy, translucent creature of glossy green-yellow goo with swirling rainbow pastel patches. It has a hooded head with long floppy lobes, a green face with pink eyes, two long tentacle-like arms with purple round spots, and a body that melts into a puddle at the base, dripping drops."
+        "look": "It is a slimy, translucent creature of glossy green goo with swirling rainbow pastel patches. It has a hooded head with long floppy lobes, a green face with pink eyes, two long tentacle-like arms with purple round spots, and a body that melts into a puddle at the base, dripping drops. sexy and curvy"
       },
       "assets": {
         "concept_art": "assets/concept-art/toxiren/319.webp",
@@ -10441,7 +10439,6 @@
         "claude_fill": false,
         "filled_by_claude": [
           "body shape",
-          "look",
           "movement",
           "level-up moves",
           "TM/HM moves",
@@ -10460,7 +10457,6 @@
         ],
         "claude_sure": {
           "body shape": 80,
-          "look": 80,
           "movement": 80,
           "level-up moves": 57,
           "TM/HM moves": 62,
@@ -10479,7 +10475,7 @@
         },
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
-        "look": "It is a huge golem made of tan stone blocks, each carved like a stone face with a heavy brow. It has a big stone head with a glowing yellow eye, broad shoulders, thick arms ending in large stone fists made of many faces, moss patches and orange swirl carvings."
+        "look": "It is a huge golem made of tan stone blocks, each carved like a stone face with a heavy brow amd a thumbs up. It has a big stone head with a glowing yellow eye, broad shoulders, thick arms ending in large stone fists made of many faces, moss patches and orange swirl carvings. It does a thumbs up"
       },
       "assets": {
         "concept_art": "assets/concept-art/sigmauler/401.webp",
@@ -16197,6 +16193,243 @@
     },
     {
       "dex": 64,
+      "name": "Apeshii",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Normal"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": 0.4,
+      "weight_kg": 6,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 60,
+        "attack": 65,
+        "defense": 55,
+        "sp_attack": 20,
+        "sp_defense": 30,
+        "speed": 60
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "julius",
+          "method": "level",
+          "level": 15
+        }
+      ],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 3,
+            "move": "Low Kick"
+          },
+          {
+            "level": 4,
+            "move": "Quick Attack"
+          },
+          {
+            "level": 7,
+            "move": "Focus Energy"
+          },
+          {
+            "level": 8,
+            "move": "Bite"
+          },
+          {
+            "level": 9,
+            "move": "Rock Smash"
+          },
+          {
+            "level": 10,
+            "move": "Scratch"
+          },
+          {
+            "level": 10,
+            "move": "Rock Throw"
+          },
+          {
+            "level": 23,
+            "move": "Take Down"
+          },
+          {
+            "level": 23,
+            "move": "Karate Chop"
+          },
+          {
+            "level": 24,
+            "move": "Play Rough"
+          },
+          {
+            "level": 25,
+            "move": "Brick Break"
+          },
+          {
+            "level": 26,
+            "move": "Hammer Arm"
+          },
+          {
+            "level": 26,
+            "move": "Headbutt"
+          },
+          {
+            "level": 30,
+            "move": "Recover"
+          },
+          {
+            "level": 31,
+            "move": "Dynamic Punch"
+          },
+          {
+            "level": 35,
+            "move": "Double-Edge"
+          },
+          {
+            "level": 40,
+            "move": "Body Slam"
+          },
+          {
+            "level": 47,
+            "move": "Giga Impact"
+          }
+        ],
+        "tm_hm": [
+          "Focus Punch",
+          "Toxic",
+          "Bulk Up",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Return",
+          "Dig",
+          "Brick Break",
+          "Double Team",
+          "Rock Tomb",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Focus Blast",
+          "Fling",
+          "Endure",
+          "Drain Punch",
+          "Payback",
+          "Captivate",
+          "Rock Slide",
+          "Sleep Talk",
+          "Natural Gift",
+          "Swagger",
+          "Substitute",
+          "Low Sweep",
+          "Strength",
+          "Rock Smash"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Close Combat",
+          "Counter",
+          "Endeavor",
+          "Fire Punch",
+          "Hyper Voice",
+          "Ice Punch",
+          "Power-Up Punch",
+          "Thunder Punch"
+        ],
+        "egg": [
+          "Counter",
+          "Power-Up Punch",
+          "Smelling Salts",
+          "Mach Punch",
+          "Thunder Punch",
+          "Ice Punch",
+          "Fake Out",
+          "Revenge",
+          "Last Resort",
+          "Bullet Punch"
+        ]
+      },
+      "encounters": [],
+      "design": {
+        "concept": "A baby chimpanzee that is wearing a sweater and a diaper",
+        "name_origin": null,
+        "notes": null,
+        "wishes": "Weak physical attacker. baby mon",
+        "claude_fill": false,
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves"
+        ],
+        "claude_sure": {
+          "height": 65,
+          "weight": 65,
+          "level-up moves": 55,
+          "TM/HM moves": 60,
+          "tutor moves": 50,
+          "egg moves": 50
+        },
+        "body_shape": null,
+        "movement": "It crawls along the ground on its legs.",
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/apeshit/1539.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": "assets/shiny/apeshit.json",
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "apeshit"
+    },
+    {
+      "dex": 65,
       "name": "Julius",
       "credits": {
         "designer": "Thomas & Ragna",
@@ -16495,7 +16728,7 @@
       "id": "julius"
     },
     {
-      "dex": 65,
+      "dex": 66,
       "name": "Conqrilla",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -16777,1801 +17010,7 @@
       "id": "yanklet"
     },
     {
-      "dex": 66,
-      "name": "Anjane",
-      "credits": {
-        "designer": "Emil Venge-Kvamme",
-        "artist": null
-      },
-      "types": [
-        "Dark",
-        "Fairy"
-      ],
-      "category": "Drooping Hair",
-      "description": "Anjane's heavy hair droops down to the ground. It absorbs the curse-filled emotions of others and hangs motionless. When angered, the hair stiffens and sways, unleashing bursts of cursed energy. It's said that when it sways its hair, the sound is like the curse a thousand spirits let loose in a single moan.",
-      "height_m": 0.8,
-      "weight_kg": 11,
-      "body_color": "black",
-      "abilities": {
-        "primary": "Tangling Hair",
-        "secondary": "Mega Launcher",
-        "hidden": "Misty Surge"
-      },
-      "base_stats": {
-        "hp": 30,
-        "attack": 37,
-        "defense": 71,
-        "sp_attack": 100,
-        "sp_defense": 67,
-        "speed": 15
-      },
-      "ev_yield": {
-        "sp_attack": 1
-      },
-      "catch_rate": 190,
-      "base_exp": 64,
-      "growth_rate": "medium_fast",
-      "base_friendship": 70,
-      "gender": 50,
-      "egg_groups": [
-        "fairy"
-      ],
-      "egg_cycles": 20,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [
-        {
-          "into": "janenon",
-          "method": "level",
-          "level": 42
-        }
-      ],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 1,
-            "move": "Disarming Voice"
-          },
-          {
-            "level": 1,
-            "move": "Growl"
-          },
-          {
-            "level": 1,
-            "move": "Protect"
-          },
-          {
-            "level": 6,
-            "move": "Confuse Ray"
-          },
-          {
-            "level": 8,
-            "move": "Snarl"
-          },
-          {
-            "level": 10,
-            "move": "Sweet Scent"
-          },
-          {
-            "level": 11,
-            "move": "Spite"
-          },
-          {
-            "level": 12,
-            "move": "Fairy Wind"
-          },
-          {
-            "level": 15,
-            "move": "Fake Tears"
-          },
-          {
-            "level": 17,
-            "move": "Hex"
-          },
-          {
-            "level": 20,
-            "move": "Charm"
-          },
-          {
-            "level": 40,
-            "move": "Recover"
-          },
-          {
-            "level": 43,
-            "move": "Dark Pulse"
-          },
-          {
-            "level": 45,
-            "move": "Misty Terrain"
-          },
-          {
-            "level": 46,
-            "move": "Nasty Plot"
-          },
-          {
-            "level": 50,
-            "move": "Dazzling Gleam"
-          },
-          {
-            "level": 58,
-            "move": "Moonblast"
-          }
-        ],
-        "tm_hm": [
-          "Toxic",
-          "Hidden Power",
-          "Sunny Day",
-          "Taunt",
-          "Light Screen",
-          "Protect",
-          "Rain Dance",
-          "Safeguard",
-          "Frustration",
-          "Solar Beam",
-          "Return",
-          "Psychic",
-          "Double Team",
-          "Facade",
-          "Secret Power",
-          "Rest",
-          "Attract",
-          "Thief",
-          "Energy Ball",
-          "Fling",
-          "Endure",
-          "Dark Pulse",
-          "Sleep Talk",
-          "Swagger",
-          "Substitute",
-          "Foul Play",
-          "Draining Kiss",
-          "Misty Terrain",
-          "Trick Room",
-          "Water Pulse"
-        ],
-        "tutor": [
-          "Charm",
-          "Dazzling Gleam",
-          "Nasty Plot",
-          "Snarl",
-          "Curse"
-        ],
-        "egg": [
-          "Punishment"
-        ]
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: Lv. 24 -> Janenon; also on the card: Height 2'07\", weight 24.3 lbs; signature move Hex Burst (Fairy, Special, power 95, accuracy 100%, PP 15); role Trick Room Sweeper.",
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement",
-          "level-up moves",
-          "TM/HM moves",
-          "tutor moves",
-          "egg moves",
-          "body color",
-          "catch rate",
-          "base exp",
-          "growth rate",
-          "base friendship",
-          "gender",
-          "egg groups",
-          "egg cycles"
-        ],
-        "claude_sure": {
-          "body shape": 80,
-          "look": 80,
-          "movement": 80,
-          "level-up moves": 55,
-          "TM/HM moves": 60,
-          "tutor moves": 50,
-          "egg moves": 50,
-          "body color": 90,
-          "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 59,
-          "base friendship": 90,
-          "gender": 63,
-          "egg groups": 40,
-          "egg cycles": 65
-        },
-        "body_shape": "a head and legs",
-        "movement": "It walks on its legs.",
-        "look": "It is a tiny purple doll-like body with a round head, hidden under a huge dome of dark navy-blue hair that falls to the ground in two thick legs with rounded boot-like ends. A glowing white-pink orb crackling with purple lightning sits on top of the hair."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/anjane/170.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": "hgss:106",
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "anjane"
-    },
-    {
       "dex": 67,
-      "name": "Janenon",
-      "credits": {
-        "designer": "Emil Venge-Kvamme",
-        "artist": null
-      },
-      "types": [
-        "Dark",
-        "Fairy"
-      ],
-      "category": "Cursed Cannon",
-      "description": "It's said that when it fires its cannon, the sound is like the curse a thousand spirits let loose in a single scream.",
-      "height_m": 1.8,
-      "weight_kg": 45,
-      "body_color": "blue",
-      "abilities": {
-        "primary": "Tangling Hair",
-        "secondary": "Mega Launcher",
-        "hidden": "Misty Surge"
-      },
-      "base_stats": {
-        "hp": 41,
-        "attack": 67,
-        "defense": 100,
-        "sp_attack": 167,
-        "sp_defense": 85,
-        "speed": 25
-      },
-      "ev_yield": {
-        "sp_attack": 3
-      },
-      "catch_rate": 60,
-      "base_exp": 170,
-      "growth_rate": "medium_fast",
-      "base_friendship": 70,
-      "gender": 50,
-      "egg_groups": [
-        "fairy"
-      ],
-      "egg_cycles": 20,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 0,
-            "move": "Dark Pulse"
-          },
-          {
-            "level": 1,
-            "move": "Dark Pulse"
-          },
-          {
-            "level": 1,
-            "move": "Charm"
-          },
-          {
-            "level": 1,
-            "move": "Disarming Voice"
-          },
-          {
-            "level": 1,
-            "move": "Growl"
-          },
-          {
-            "level": 1,
-            "move": "Heal Pulse"
-          },
-          {
-            "level": 6,
-            "move": "Confuse Ray"
-          },
-          {
-            "level": 8,
-            "move": "Snarl"
-          },
-          {
-            "level": 10,
-            "move": "Sweet Scent"
-          },
-          {
-            "level": 11,
-            "move": "Spite"
-          },
-          {
-            "level": 15,
-            "move": "Draining Kiss"
-          },
-          {
-            "level": 15,
-            "move": "Fake Tears"
-          },
-          {
-            "level": 17,
-            "move": "Fairy Wind"
-          },
-          {
-            "level": 17,
-            "move": "Hex"
-          },
-          {
-            "level": 20,
-            "move": "Protect"
-          },
-          {
-            "level": 24,
-            "move": "Sucker Punch"
-          },
-          {
-            "level": 35,
-            "move": "Dazzling Gleam"
-          },
-          {
-            "level": 35,
-            "move": "Misty Terrain"
-          },
-          {
-            "level": 40,
-            "move": "Nasty Plot"
-          },
-          {
-            "level": 40,
-            "move": "Recover"
-          },
-          {
-            "level": 45,
-            "move": "Moonblast"
-          },
-          {
-            "level": 48,
-            "move": "Aura Sphere"
-          }
-        ],
-        "tm_hm": [
-          "Calm Mind",
-          "Toxic",
-          "Hidden Power",
-          "Sunny Day",
-          "Taunt",
-          "Hyper Beam",
-          "Light Screen",
-          "Protect",
-          "Rain Dance",
-          "Safeguard",
-          "Frustration",
-          "Return",
-          "Psychic",
-          "Shadow Ball",
-          "Double Team",
-          "Reflect",
-          "Facade",
-          "Secret Power",
-          "Rest",
-          "Attract",
-          "Thief",
-          "Energy Ball",
-          "Fling",
-          "Endure",
-          "Payback",
-          "Giga Impact",
-          "Psych Up",
-          "Dark Pulse",
-          "Sleep Talk",
-          "Swagger",
-          "Substitute",
-          "Trick Room",
-          "Psyshock",
-          "Foul Play",
-          "Draining Kiss",
-          "Misty Terrain",
-          "Play Rough",
-          "Solar Beam",
-          "Flash Cannon"
-        ],
-        "tutor": [
-          "Body Slam",
-          "Charm",
-          "Dazzling Gleam",
-          "Nasty Plot",
-          "Snarl",
-          "Hyper Voice",
-          "Curse"
-        ],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: ??? -> (Lv. 24) ??? -> (Lv. 48) Janenon; also on the card: Height 5'11\", weight 143 lbs; signature move Hex Burst; role Trick Room Sweeper.",
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement",
-          "level-up moves",
-          "TM/HM moves",
-          "tutor moves",
-          "body color",
-          "catch rate",
-          "base exp",
-          "growth rate",
-          "base friendship",
-          "gender",
-          "egg groups",
-          "egg cycles",
-          "weight"
-        ],
-        "claude_sure": {
-          "body shape": 80,
-          "look": 80,
-          "movement": 80,
-          "level-up moves": 53,
-          "TM/HM moves": 58,
-          "tutor moves": 48,
-          "body color": 80,
-          "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 59,
-          "base friendship": 90,
-          "gender": 63,
-          "egg groups": 40,
-          "egg cycles": 65,
-          "weight": 65
-        },
-        "body_shape": "a head and legs",
-        "movement": "It walks on its legs.",
-        "look": "It is a huge mass of dark navy, wavy hair that curls over a small purple creature with pointed ears sitting inside. The hair forms a long cannon-like tube with a glowing pink-white opening at the front, and two rounded dark lumps at the bottom serve as feet."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/janenon/259.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": "hgss:40",
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "janenon"
-    },
-    {
-      "dex": 68,
-      "name": "Saucerl",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [
-        "Psychic",
-        "Water"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": 0.5,
-      "weight_kg": 4,
-      "body_color": "purple",
-      "abilities": {
-        "primary": "Analytic",
-        "secondary": "Telepathy",
-        "hidden": "Prism Armor"
-      },
-      "base_stats": {
-        "hp": 20,
-        "attack": 28,
-        "defense": 92,
-        "sp_attack": 38,
-        "sp_defense": 97,
-        "speed": 20
-      },
-      "ev_yield": {
-        "sp_defense": 1
-      },
-      "catch_rate": 190,
-      "base_exp": 59,
-      "growth_rate": "medium_slow",
-      "base_friendship": 70,
-      "gender": 50,
-      "egg_groups": [
-        "water_3",
-        "grass"
-      ],
-      "egg_cycles": 20,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [
-        {
-          "into": "abyssys",
-          "method": "level",
-          "level": 23
-        }
-      ],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 1,
-            "move": "Confusion"
-          },
-          {
-            "level": 1,
-            "move": "Tackle"
-          },
-          {
-            "level": 4,
-            "move": "Water Gun"
-          },
-          {
-            "level": 8,
-            "move": "Withdraw"
-          },
-          {
-            "level": 10,
-            "move": "Aqua Jet"
-          },
-          {
-            "level": 10,
-            "move": "Psybeam"
-          },
-          {
-            "level": 12,
-            "move": "Aqua Ring"
-          },
-          {
-            "level": 14,
-            "move": "Psyshock"
-          },
-          {
-            "level": 17,
-            "move": "Hypnosis"
-          },
-          {
-            "level": 22,
-            "move": "Water Pulse"
-          },
-          {
-            "level": 24,
-            "move": "Razor Shell"
-          },
-          {
-            "level": 25,
-            "move": "Protect"
-          },
-          {
-            "level": 26,
-            "move": "Bubble Beam"
-          },
-          {
-            "level": 27,
-            "move": "Psychic"
-          },
-          {
-            "level": 35,
-            "move": "Future Sight"
-          },
-          {
-            "level": 37,
-            "move": "Iron Defense"
-          },
-          {
-            "level": 40,
-            "move": "Hydro Pump"
-          },
-          {
-            "level": 41,
-            "move": "Aqua Tail"
-          },
-          {
-            "level": 42,
-            "move": "Surf"
-          }
-        ],
-        "tm_hm": [
-          "Water Pulse",
-          "Calm Mind",
-          "Toxic",
-          "Hail",
-          "Hidden Power",
-          "Sunny Day",
-          "Ice Beam",
-          "Blizzard",
-          "Light Screen",
-          "Protect",
-          "Rain Dance",
-          "Safeguard",
-          "Frustration",
-          "Return",
-          "Psychic",
-          "Shadow Ball",
-          "Double Team",
-          "Reflect",
-          "Rock Tomb",
-          "Facade",
-          "Secret Power",
-          "Rest",
-          "Attract",
-          "Thief",
-          "Skill Swap",
-          "Brine",
-          "Endure",
-          "Flash",
-          "Thunder Wave",
-          "Psych Up",
-          "Captivate",
-          "Sleep Talk",
-          "Natural Gift",
-          "Grass Knot",
-          "Swagger",
-          "Substitute",
-          "Trick Room",
-          "Psyshock",
-          "Scald",
-          "Liquidation",
-          "Expanding Force",
-          "Flip Turn",
-          "Surf",
-          "Whirlpool",
-          "Waterfall"
-        ],
-        "tutor": [
-          "Aqua Tail",
-          "Body Slam",
-          "Icy Wind",
-          "Zen Headbutt"
-        ],
-        "egg": [
-          "Mirror Coat",
-          "Zen Headbutt",
-          "Crabhammer",
-          "Barrier",
-          "Haze",
-          "Flail",
-          "Stockpile"
-        ]
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement",
-          "level-up moves",
-          "TM/HM moves",
-          "tutor moves",
-          "egg moves",
-          "body color",
-          "catch rate",
-          "base exp",
-          "growth rate",
-          "base friendship",
-          "gender",
-          "egg groups",
-          "egg cycles",
-          "height",
-          "weight"
-        ],
-        "claude_sure": {
-          "body shape": 80,
-          "look": 80,
-          "movement": 80,
-          "level-up moves": 59,
-          "TM/HM moves": 64,
-          "tutor moves": 54,
-          "egg moves": 54,
-          "body color": 90,
-          "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 54,
-          "base friendship": 90,
-          "gender": 52,
-          "egg groups": 40,
-          "egg cycles": 65,
-          "height": 65,
-          "weight": 65
-        },
-        "body_shape": "a head and legs",
-        "movement": "It walks on its legs.",
-        "look": "It is a round body shaped like a swim ring, with purple and white stripes around a pink centre where a worried face with two small eyes sits. It has two curved red arms with teal tips on its sides and two short red legs with teal tips below."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/saucerl/394.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": "hgss:224",
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "saucerl"
-    },
-    {
-      "dex": 69,
-      "name": "Abyssys",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [
-        "Psychic",
-        "Water"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": 0.8,
-      "weight_kg": 14,
-      "body_color": "white",
-      "abilities": {
-        "primary": "Analytic",
-        "secondary": "Telepathy",
-        "hidden": "Prism Armor"
-      },
-      "base_stats": {
-        "hp": 35,
-        "attack": 43,
-        "defense": 117,
-        "sp_attack": 48,
-        "sp_defense": 127,
-        "speed": 25
-      },
-      "ev_yield": {
-        "defense": 1,
-        "sp_defense": 1
-      },
-      "catch_rate": 75,
-      "base_exp": 138,
-      "growth_rate": "medium_slow",
-      "base_friendship": 70,
-      "gender": 50,
-      "egg_groups": [
-        "water_3",
-        "grass"
-      ],
-      "egg_cycles": 20,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [
-        {
-          "into": "octopearl",
-          "method": "item",
-          "item": "Moon stone"
-        }
-      ],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 1,
-            "move": "Confusion"
-          },
-          {
-            "level": 1,
-            "move": "Tackle"
-          },
-          {
-            "level": 1,
-            "move": "Water Gun"
-          },
-          {
-            "level": 1,
-            "move": "Withdraw"
-          },
-          {
-            "level": 9,
-            "move": "Psybeam"
-          },
-          {
-            "level": 10,
-            "move": "Aqua Jet"
-          },
-          {
-            "level": 12,
-            "move": "Aqua Ring"
-          },
-          {
-            "level": 13,
-            "move": "Rapid Spin"
-          },
-          {
-            "level": 14,
-            "move": "Psyshock"
-          },
-          {
-            "level": 17,
-            "move": "Hypnosis"
-          },
-          {
-            "level": 22,
-            "move": "Water Pulse"
-          },
-          {
-            "level": 24,
-            "move": "Bubble Beam"
-          },
-          {
-            "level": 26,
-            "move": "Protect"
-          },
-          {
-            "level": 27,
-            "move": "Razor Shell"
-          },
-          {
-            "level": 32,
-            "move": "Muddy Water"
-          },
-          {
-            "level": 33,
-            "move": "Recover"
-          },
-          {
-            "level": 36,
-            "move": "Psychic"
-          },
-          {
-            "level": 40,
-            "move": "Iron Defense"
-          },
-          {
-            "level": 41,
-            "move": "Surf"
-          },
-          {
-            "level": 44,
-            "move": "Aqua Tail"
-          },
-          {
-            "level": 45,
-            "move": "Hydro Pump"
-          },
-          {
-            "level": 52,
-            "move": "Future Sight"
-          }
-        ],
-        "tm_hm": [
-          "Water Pulse",
-          "Calm Mind",
-          "Toxic",
-          "Hail",
-          "Hidden Power",
-          "Sunny Day",
-          "Ice Beam",
-          "Blizzard",
-          "Light Screen",
-          "Protect",
-          "Rain Dance",
-          "Safeguard",
-          "Frustration",
-          "Return",
-          "Psychic",
-          "Shadow Ball",
-          "Double Team",
-          "Reflect",
-          "Rock Tomb",
-          "Facade",
-          "Secret Power",
-          "Rest",
-          "Attract",
-          "Skill Swap",
-          "Brine",
-          "Fling",
-          "Charge Beam",
-          "Endure",
-          "Flash",
-          "Thunder Wave",
-          "Psych Up",
-          "Captivate",
-          "Rock Slide",
-          "Sleep Talk",
-          "Natural Gift",
-          "Grass Knot",
-          "Swagger",
-          "Substitute",
-          "Trick Room",
-          "Psyshock",
-          "Scald",
-          "Psychic Terrain",
-          "Liquidation",
-          "Expanding Force",
-          "Flip Turn",
-          "Surf",
-          "Whirlpool",
-          "Waterfall",
-          "Thief"
-        ],
-        "tutor": [
-          "Aqua Tail",
-          "Body Slam",
-          "Charm",
-          "Dazzling Gleam",
-          "Icy Wind",
-          "Zen Headbutt"
-        ],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement",
-          "level-up moves",
-          "TM/HM moves",
-          "tutor moves",
-          "body color",
-          "catch rate",
-          "base exp",
-          "growth rate",
-          "base friendship",
-          "gender",
-          "egg groups",
-          "egg cycles",
-          "height",
-          "weight"
-        ],
-        "claude_sure": {
-          "body shape": 80,
-          "look": 80,
-          "movement": 80,
-          "level-up moves": 61,
-          "TM/HM moves": 66,
-          "tutor moves": 56,
-          "body color": 90,
-          "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 54,
-          "base friendship": 90,
-          "gender": 52,
-          "egg groups": 40,
-          "egg cycles": 65,
-          "height": 65,
-          "weight": 65
-        },
-        "body_shape": "a serpentine body",
-        "movement": "It floats in the air.",
-        "look": "It is a long, curved, tube-like body in pale lilac-white with a flat cut-off bottom end. A thin green stalk with a red tip arches out of the top, ending in a round spiky pale ball with one large purple eye. Two small white eyestalks and a red tongue-like lip stick out of the opening."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/abyssys/393.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": "hgss:138",
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "abyssys"
-    },
-    {
-      "dex": 70,
-      "name": "Octopearl",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [
-        "Psychic",
-        "Water"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": 1.4,
-      "weight_kg": 48,
-      "body_color": "pink",
-      "abilities": {
-        "primary": "Analytic",
-        "secondary": "Telepathy",
-        "hidden": "Prism Armor"
-      },
-      "base_stats": {
-        "hp": 50,
-        "attack": 53,
-        "defense": 142,
-        "sp_attack": 63,
-        "sp_defense": 152,
-        "speed": 35
-      },
-      "ev_yield": {
-        "defense": 1,
-        "sp_defense": 2
-      },
-      "catch_rate": 45,
-      "base_exp": 174,
-      "growth_rate": "medium_slow",
-      "base_friendship": 70,
-      "gender": 50,
-      "egg_groups": [
-        "water_3",
-        "grass"
-      ],
-      "egg_cycles": 20,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 0,
-            "move": "Cosmic Shield"
-          },
-          {
-            "level": 1,
-            "move": "Confusion"
-          },
-          {
-            "level": 1,
-            "move": "Extrasensory"
-          },
-          {
-            "level": 1,
-            "move": "Tackle"
-          },
-          {
-            "level": 1,
-            "move": "Water Gun"
-          },
-          {
-            "level": 1,
-            "move": "Withdraw"
-          },
-          {
-            "level": 9,
-            "move": "Yawn"
-          },
-          {
-            "level": 10,
-            "move": "Aqua Jet"
-          },
-          {
-            "level": 12,
-            "move": "Aqua Ring"
-          },
-          {
-            "level": 13,
-            "move": "Rapid Spin"
-          },
-          {
-            "level": 14,
-            "move": "Psyshock"
-          },
-          {
-            "level": 15,
-            "move": "Psybeam"
-          },
-          {
-            "level": 20,
-            "move": "Hypnosis"
-          },
-          {
-            "level": 20,
-            "move": "Protect"
-          },
-          {
-            "level": 20,
-            "move": "Wrap"
-          },
-          {
-            "level": 22,
-            "move": "Water Pulse"
-          },
-          {
-            "level": 24,
-            "move": "Bubble Beam"
-          },
-          {
-            "level": 27,
-            "move": "Razor Shell"
-          },
-          {
-            "level": 28,
-            "move": "Recover"
-          },
-          {
-            "level": 30,
-            "move": "Surf"
-          },
-          {
-            "level": 32,
-            "move": "Muddy Water"
-          },
-          {
-            "level": 40,
-            "move": "Psychic"
-          },
-          {
-            "level": 42,
-            "move": "Rain Dance"
-          },
-          {
-            "level": 43,
-            "move": "Iron Defense"
-          },
-          {
-            "level": 44,
-            "move": "Calm Mind"
-          },
-          {
-            "level": 47,
-            "move": "Aqua Tail"
-          },
-          {
-            "level": 49,
-            "move": "Hydro Pump"
-          },
-          {
-            "level": 56,
-            "move": "Future Sight"
-          }
-        ],
-        "tm_hm": [
-          "Water Pulse",
-          "Calm Mind",
-          "Toxic",
-          "Hail",
-          "Hidden Power",
-          "Sunny Day",
-          "Ice Beam",
-          "Blizzard",
-          "Hyper Beam",
-          "Light Screen",
-          "Protect",
-          "Rain Dance",
-          "Safeguard",
-          "Frustration",
-          "Return",
-          "Psychic",
-          "Shadow Ball",
-          "Double Team",
-          "Reflect",
-          "Rock Tomb",
-          "Facade",
-          "Secret Power",
-          "Rest",
-          "Attract",
-          "Skill Swap",
-          "Energy Ball",
-          "Brine",
-          "Fling",
-          "Endure",
-          "Giga Impact",
-          "Flash",
-          "Thunder Wave",
-          "Psych Up",
-          "Captivate",
-          "Rock Slide",
-          "Sleep Talk",
-          "Natural Gift",
-          "Grass Knot",
-          "Swagger",
-          "Substitute",
-          "Trick Room",
-          "Psyshock",
-          "Scald",
-          "Psychic Terrain",
-          "Liquidation",
-          "Expanding Force",
-          "Flip Turn",
-          "Surf",
-          "Whirlpool",
-          "Waterfall",
-          "Brick Break",
-          "Charge Beam",
-          "Strength",
-          "Rock Smash",
-          "Thief"
-        ],
-        "tutor": [
-          "Aqua Tail",
-          "Body Slam",
-          "Icy Wind",
-          "Zen Headbutt",
-          "Charm",
-          "Dazzling Gleam"
-        ],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement",
-          "level-up moves",
-          "TM/HM moves",
-          "tutor moves",
-          "body color",
-          "catch rate",
-          "base exp",
-          "growth rate",
-          "base friendship",
-          "gender",
-          "egg groups",
-          "egg cycles",
-          "height",
-          "weight"
-        ],
-        "claude_sure": {
-          "body shape": 80,
-          "look": 80,
-          "movement": 80,
-          "level-up moves": 57,
-          "TM/HM moves": 62,
-          "tutor moves": 52,
-          "body color": 65,
-          "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 54,
-          "base friendship": 90,
-          "gender": 52,
-          "egg groups": 40,
-          "egg cycles": 65,
-          "height": 65,
-          "weight": 65
-        },
-        "body_shape": "tentacles or many legs",
-        "movement": "It floats in the air.",
-        "look": "It is a round flower-like body with six large purple petals around a bright magenta centre that holds a small face with two eyes and a jagged mouth. Four teal tentacles with red curled tips hang below, and one long pale-pink frilly tube with a white ring at its top ends in a teal clawed hand."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/octopearl/573.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": "hgss:139",
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "octopearl"
-    },
-    {
-      "dex": 71,
-      "name": "Cryoblade",
-      "credits": {
-        "designer": "Ivar",
-        "artist": null
-      },
-      "types": [
-        "Ice"
-      ],
-      "category": "Frozen Executioner",
-      "description": null,
-      "height_m": 2.1,
-      "weight_kg": 182,
-      "body_color": "blue",
-      "abilities": {
-        "primary": "Cold-hearted",
-        "secondary": "Ice Body",
-        "hidden": "Refrigerate"
-      },
-      "base_stats": {
-        "hp": 98,
-        "attack": 130,
-        "defense": 95,
-        "sp_attack": 50,
-        "sp_defense": 85,
-        "speed": 70
-      },
-      "ev_yield": {
-        "attack": 3
-      },
-      "catch_rate": 60,
-      "base_exp": 185,
-      "growth_rate": "medium_fast",
-      "base_friendship": 70,
-      "gender": 50,
-      "egg_groups": [
-        "water_3"
-      ],
-      "egg_cycles": 20,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 1,
-            "move": "Growl"
-          },
-          {
-            "level": 1,
-            "move": "Leer"
-          },
-          {
-            "level": 1,
-            "move": "Powder Snow"
-          },
-          {
-            "level": 1,
-            "move": "Tackle"
-          },
-          {
-            "level": 7,
-            "move": "Protect"
-          },
-          {
-            "level": 12,
-            "move": "Ice Shard"
-          },
-          {
-            "level": 18,
-            "move": "Ice Fang"
-          },
-          {
-            "level": 21,
-            "move": "Bite"
-          },
-          {
-            "level": 21,
-            "move": "Slash"
-          },
-          {
-            "level": 24,
-            "move": "Flail"
-          },
-          {
-            "level": 27,
-            "move": "Avalanche"
-          },
-          {
-            "level": 27,
-            "move": "Iron Defense"
-          },
-          {
-            "level": 28,
-            "move": "Crush Claw"
-          },
-          {
-            "level": 33,
-            "move": "Crunch"
-          },
-          {
-            "level": 36,
-            "move": "Take Down"
-          },
-          {
-            "level": 37,
-            "move": "Scary Face"
-          },
-          {
-            "level": 42,
-            "move": "Ice Beam"
-          },
-          {
-            "level": 48,
-            "move": "Swords Dance"
-          },
-          {
-            "level": 50,
-            "move": "Ice Hammer"
-          },
-          {
-            "level": 51,
-            "move": "Icicle Crash"
-          },
-          {
-            "level": 55,
-            "move": "Double-Edge"
-          }
-        ],
-        "tm_hm": [
-          "Toxic",
-          "Hail",
-          "Hidden Power",
-          "Ice Beam",
-          "Hyper Beam",
-          "Protect",
-          "Rain Dance",
-          "Frustration",
-          "Earthquake",
-          "Return",
-          "Dig",
-          "Brick Break",
-          "Double Team",
-          "Rock Tomb",
-          "Facade",
-          "Secret Power",
-          "Rest",
-          "Attract",
-          "Endure",
-          "Giga Impact",
-          "Stone Edge",
-          "Avalanche",
-          "Swords Dance",
-          "Rock Slide",
-          "Sleep Talk",
-          "Swagger",
-          "Substitute",
-          "Heavy Slam",
-          "Bulldoze",
-          "Liquidation",
-          "Body Press",
-          "Rock Smash"
-        ],
-        "tutor": [
-          "Body Slam",
-          "Close Combat",
-          "Curse",
-          "Ice Fang",
-          "Ice Punch",
-          "Icicle Spear",
-          "Iron Head"
-        ],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": "From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement",
-          "level-up moves",
-          "TM/HM moves",
-          "tutor moves",
-          "egg moves",
-          "body color",
-          "catch rate",
-          "base exp",
-          "growth rate",
-          "base friendship",
-          "gender",
-          "egg groups",
-          "egg cycles"
-        ],
-        "claude_sure": {
-          "body shape": 80,
-          "look": 80,
-          "movement": 80,
-          "level-up moves": 67,
-          "TM/HM moves": 72,
-          "tutor moves": 62,
-          "egg moves": 62,
-          "body color": 80,
-          "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 57,
-          "base friendship": 90,
-          "gender": 78,
-          "egg groups": 40,
-          "egg cycles": 65
-        },
-        "body_shape": "an upright body on two legs with a tail",
-        "movement": "It walks upright on two legs.",
-        "look": "It is a pale blue-white ice creature with a spiky crown-shaped head, a diamond gem on its forehead and a wide mouth full of sharp teeth. It has a big rectangular block torso with blue diamond crystals, two long arms with dark-blue bands ending in crab-like ice claws, large ice spikes on its shoulders, thick legs with dark-blue knees and sharp claws, and a thin blue tail with an arrow tip."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/cryoblade/676.png",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": "hgss:460",
-        "shiny_palette": "assets/shiny/cryoblade.json",
-        "cry": "assets/cries/cryoblade.json"
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "cryoblade"
-    },
-    {
-      "dex": 72,
-      "name": "Roostasaur",
-      "credits": {
-        "designer": null,
-        "artist": null
-      },
-      "types": [
-        "Dragon",
-        "Normal"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": 1.5,
-      "weight_kg": 40,
-      "body_color": null,
-      "abilities": {
-        "primary": "Big Pecks",
-        "secondary": "Super Luck",
-        "hidden": "Hustle"
-      },
-      "base_stats": {
-        "hp": 85,
-        "attack": 120,
-        "defense": 70,
-        "sp_attack": 60,
-        "sp_defense": 65,
-        "speed": 100
-      },
-      "ev_yield": {
-        "attack": 2
-      },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 1,
-            "move": "Growl"
-          },
-          {
-            "level": 1,
-            "move": "Leer"
-          },
-          {
-            "level": 1,
-            "move": "Scratch"
-          },
-          {
-            "level": 1,
-            "move": "Tackle"
-          },
-          {
-            "level": 6,
-            "move": "Quick Attack"
-          },
-          {
-            "level": 12,
-            "move": "Taunt"
-          },
-          {
-            "level": 12,
-            "move": "Peck"
-          },
-          {
-            "level": 14,
-            "move": "Breaking Swipe"
-          },
-          {
-            "level": 16,
-            "move": "Wing Attack"
-          },
-          {
-            "level": 21,
-            "move": "Slash"
-          },
-          {
-            "level": 22,
-            "move": "Bite"
-          },
-          {
-            "level": 35,
-            "move": "Take Down"
-          },
-          {
-            "level": 36,
-            "move": "Dragon Claw"
-          },
-          {
-            "level": 40,
-            "move": "Body Slam"
-          },
-          {
-            "level": 45,
-            "move": "Dragon Rush"
-          },
-          {
-            "level": 48,
-            "move": "Outrage"
-          },
-          {
-            "level": 50,
-            "move": "Thrash"
-          },
-          {
-            "level": 51,
-            "move": "Double-Edge"
-          }
-        ],
-        "tm_hm": [
-          "Dragon Claw",
-          "Toxic",
-          "Hidden Power",
-          "Sunny Day",
-          "Taunt",
-          "Hyper Beam",
-          "Protect",
-          "Rain Dance",
-          "Frustration",
-          "Return",
-          "Brick Break",
-          "Double Team",
-          "Aerial Ace",
-          "Facade",
-          "Secret Power",
-          "Rest",
-          "Attract",
-          "Thief",
-          "Endure",
-          "Dragon Pulse",
-          "Shadow Claw",
-          "Giga Impact",
-          "Sleep Talk",
-          "Natural Gift",
-          "Swagger",
-          "U-turn",
-          "Substitute",
-          "Cut",
-          "Strength",
-          "Fire Blast",
-          "Flamethrower",
-          "Fly",
-          "Roost"
-        ],
-        "tutor": [
-          "Body Slam",
-          "Close Combat",
-          "Draco Meteor",
-          "Endeavor",
-          "Fire Fang",
-          "Fire Punch",
-          "Hyper Voice",
-          "Iron Head",
-          "Outrage",
-          "Zen Headbutt"
-        ],
-        "egg": [
-          "Endeavor",
-          "Flail",
-          "Fury Swipes",
-          "Crush Claw"
-        ]
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement",
-          "height",
-          "weight",
-          "level-up moves",
-          "TM/HM moves",
-          "tutor moves",
-          "egg moves"
-        ],
-        "claude_sure": {
-          "body shape": 80,
-          "look": 80,
-          "movement": 80,
-          "height": 65,
-          "weight": 65,
-          "level-up moves": 59,
-          "TM/HM moves": 64,
-          "tutor moves": 54,
-          "egg moves": 54
-        },
-        "body_shape": "an upright body on two legs with a tail",
-        "movement": "It walks upright on two legs.",
-        "look": "It is a white rooster-like bird standing upright, with a red comb, yellow beak and yellow clawed feet. It has two raised bone arms, each coming out of a giant brown drumstick-shaped lump on its shoulder, lavender shading along its back and a long tapering lavender tail with red spikes. In flight it spreads feathered wings and flames burst from the drumsticks."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/roostasaur/291.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": "hgss:257",
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "roostasaur"
-    },
-    {
-      "dex": 73,
       "name": "Gorambe",
       "credits": {
         "designer": "Arvind",
@@ -18900,7 +17339,1801 @@
       "id": "harambe"
     },
     {
+      "dex": 68,
+      "name": "Anjane",
+      "credits": {
+        "designer": "Emil Venge-Kvamme",
+        "artist": null
+      },
+      "types": [
+        "Dark",
+        "Fairy"
+      ],
+      "category": "Drooping Hair",
+      "description": "Anjane's heavy hair droops down to the ground. It absorbs the curse-filled emotions of others and hangs motionless. When angered, the hair stiffens and sways, unleashing bursts of cursed energy. It's said that when it sways its hair, the sound is like the curse a thousand spirits let loose in a single moan.",
+      "height_m": 0.8,
+      "weight_kg": 11,
+      "body_color": "black",
+      "abilities": {
+        "primary": "Tangling Hair",
+        "secondary": "Mega Launcher",
+        "hidden": "Misty Surge"
+      },
+      "base_stats": {
+        "hp": 30,
+        "attack": 37,
+        "defense": 71,
+        "sp_attack": 100,
+        "sp_defense": 67,
+        "speed": 15
+      },
+      "ev_yield": {
+        "sp_attack": 1
+      },
+      "catch_rate": 190,
+      "base_exp": 64,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "fairy"
+      ],
+      "egg_cycles": 20,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "janenon",
+          "method": "level",
+          "level": 42
+        }
+      ],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Disarming Voice"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Protect"
+          },
+          {
+            "level": 6,
+            "move": "Confuse Ray"
+          },
+          {
+            "level": 8,
+            "move": "Snarl"
+          },
+          {
+            "level": 10,
+            "move": "Sweet Scent"
+          },
+          {
+            "level": 11,
+            "move": "Spite"
+          },
+          {
+            "level": 12,
+            "move": "Fairy Wind"
+          },
+          {
+            "level": 15,
+            "move": "Fake Tears"
+          },
+          {
+            "level": 17,
+            "move": "Hex"
+          },
+          {
+            "level": 20,
+            "move": "Charm"
+          },
+          {
+            "level": 40,
+            "move": "Recover"
+          },
+          {
+            "level": 43,
+            "move": "Dark Pulse"
+          },
+          {
+            "level": 45,
+            "move": "Misty Terrain"
+          },
+          {
+            "level": 46,
+            "move": "Nasty Plot"
+          },
+          {
+            "level": 50,
+            "move": "Dazzling Gleam"
+          },
+          {
+            "level": 58,
+            "move": "Moonblast"
+          }
+        ],
+        "tm_hm": [
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Safeguard",
+          "Frustration",
+          "Solar Beam",
+          "Return",
+          "Psychic",
+          "Double Team",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Energy Ball",
+          "Fling",
+          "Endure",
+          "Dark Pulse",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Foul Play",
+          "Draining Kiss",
+          "Misty Terrain",
+          "Trick Room",
+          "Water Pulse"
+        ],
+        "tutor": [
+          "Charm",
+          "Dazzling Gleam",
+          "Nasty Plot",
+          "Snarl",
+          "Curse"
+        ],
+        "egg": [
+          "Punishment"
+        ]
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: Lv. 24 -> Janenon; also on the card: Height 2'07\", weight 24.3 lbs; signature move Hex Burst (Fairy, Special, power 95, accuracy 100%, PP 15); role Trick Room Sweeper.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
+        ],
+        "claude_sure": {
+          "body shape": 80,
+          "look": 80,
+          "movement": 80,
+          "level-up moves": 55,
+          "TM/HM moves": 60,
+          "tutor moves": 50,
+          "egg moves": 50,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 59,
+          "base friendship": 90,
+          "gender": 63,
+          "egg groups": 40,
+          "egg cycles": 65
+        },
+        "body_shape": "a head and legs",
+        "movement": "It walks on its legs.",
+        "look": "It is a tiny purple doll-like body with a round head, hidden under a huge dome of dark navy-blue hair that falls to the ground in two thick legs with rounded boot-like ends. A glowing white-pink orb crackling with purple lightning sits on top of the hair."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/anjane/170.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": "hgss:106",
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "anjane"
+    },
+    {
+      "dex": 69,
+      "name": "Janenon",
+      "credits": {
+        "designer": "Emil Venge-Kvamme",
+        "artist": null
+      },
+      "types": [
+        "Dark",
+        "Fairy"
+      ],
+      "category": "Cursed Cannon",
+      "description": "It's said that when it fires its cannon, the sound is like the curse a thousand spirits let loose in a single scream.",
+      "height_m": 1.8,
+      "weight_kg": 45,
+      "body_color": "blue",
+      "abilities": {
+        "primary": "Tangling Hair",
+        "secondary": "Mega Launcher",
+        "hidden": "Misty Surge"
+      },
+      "base_stats": {
+        "hp": 41,
+        "attack": 67,
+        "defense": 100,
+        "sp_attack": 167,
+        "sp_defense": 85,
+        "speed": 25
+      },
+      "ev_yield": {
+        "sp_attack": 3
+      },
+      "catch_rate": 60,
+      "base_exp": 170,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "fairy"
+      ],
+      "egg_cycles": 20,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Dark Pulse"
+          },
+          {
+            "level": 1,
+            "move": "Dark Pulse"
+          },
+          {
+            "level": 1,
+            "move": "Charm"
+          },
+          {
+            "level": 1,
+            "move": "Disarming Voice"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Heal Pulse"
+          },
+          {
+            "level": 6,
+            "move": "Confuse Ray"
+          },
+          {
+            "level": 8,
+            "move": "Snarl"
+          },
+          {
+            "level": 10,
+            "move": "Sweet Scent"
+          },
+          {
+            "level": 11,
+            "move": "Spite"
+          },
+          {
+            "level": 15,
+            "move": "Draining Kiss"
+          },
+          {
+            "level": 15,
+            "move": "Fake Tears"
+          },
+          {
+            "level": 17,
+            "move": "Fairy Wind"
+          },
+          {
+            "level": 17,
+            "move": "Hex"
+          },
+          {
+            "level": 20,
+            "move": "Protect"
+          },
+          {
+            "level": 24,
+            "move": "Sucker Punch"
+          },
+          {
+            "level": 35,
+            "move": "Dazzling Gleam"
+          },
+          {
+            "level": 35,
+            "move": "Misty Terrain"
+          },
+          {
+            "level": 40,
+            "move": "Nasty Plot"
+          },
+          {
+            "level": 40,
+            "move": "Recover"
+          },
+          {
+            "level": 45,
+            "move": "Moonblast"
+          },
+          {
+            "level": 48,
+            "move": "Aura Sphere"
+          }
+        ],
+        "tm_hm": [
+          "Calm Mind",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Safeguard",
+          "Frustration",
+          "Return",
+          "Psychic",
+          "Shadow Ball",
+          "Double Team",
+          "Reflect",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Energy Ball",
+          "Fling",
+          "Endure",
+          "Payback",
+          "Giga Impact",
+          "Psych Up",
+          "Dark Pulse",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Trick Room",
+          "Psyshock",
+          "Foul Play",
+          "Draining Kiss",
+          "Misty Terrain",
+          "Play Rough",
+          "Solar Beam",
+          "Flash Cannon"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Charm",
+          "Dazzling Gleam",
+          "Nasty Plot",
+          "Snarl",
+          "Hyper Voice",
+          "Curse"
+        ],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": "From the Discord concept card (SLOTHBABY, 2026-05-07): evolution on the card: ??? -> (Lv. 24) ??? -> (Lv. 48) Janenon; also on the card: Height 5'11\", weight 143 lbs; signature move Hex Burst; role Trick Room Sweeper.",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "weight"
+        ],
+        "claude_sure": {
+          "body shape": 80,
+          "look": 80,
+          "movement": 80,
+          "level-up moves": 53,
+          "TM/HM moves": 58,
+          "tutor moves": 48,
+          "body color": 80,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 59,
+          "base friendship": 90,
+          "gender": 63,
+          "egg groups": 40,
+          "egg cycles": 65,
+          "weight": 65
+        },
+        "body_shape": "a head and legs",
+        "movement": "It walks on its legs.",
+        "look": "It is a huge mass of dark navy, wavy hair that curls over a small purple creature with pointed ears sitting inside. The hair forms a long cannon-like tube with a glowing pink-white opening at the front, and two rounded dark lumps at the bottom serve as feet."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/janenon/259.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": "hgss:40",
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "janenon"
+    },
+    {
+      "dex": 70,
+      "name": "Saucerl",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Psychic",
+        "Water"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": 0.5,
+      "weight_kg": 4,
+      "body_color": "purple",
+      "abilities": {
+        "primary": "Analytic",
+        "secondary": "Telepathy",
+        "hidden": "Prism Armor"
+      },
+      "base_stats": {
+        "hp": 20,
+        "attack": 28,
+        "defense": 92,
+        "sp_attack": 38,
+        "sp_defense": 97,
+        "speed": 20
+      },
+      "ev_yield": {
+        "sp_defense": 1
+      },
+      "catch_rate": 190,
+      "base_exp": 59,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_3",
+        "grass"
+      ],
+      "egg_cycles": 20,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "abyssys",
+          "method": "level",
+          "level": 23
+        }
+      ],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Confusion"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 4,
+            "move": "Water Gun"
+          },
+          {
+            "level": 8,
+            "move": "Withdraw"
+          },
+          {
+            "level": 10,
+            "move": "Aqua Jet"
+          },
+          {
+            "level": 10,
+            "move": "Psybeam"
+          },
+          {
+            "level": 12,
+            "move": "Aqua Ring"
+          },
+          {
+            "level": 14,
+            "move": "Psyshock"
+          },
+          {
+            "level": 17,
+            "move": "Hypnosis"
+          },
+          {
+            "level": 22,
+            "move": "Water Pulse"
+          },
+          {
+            "level": 24,
+            "move": "Razor Shell"
+          },
+          {
+            "level": 25,
+            "move": "Protect"
+          },
+          {
+            "level": 26,
+            "move": "Bubble Beam"
+          },
+          {
+            "level": 27,
+            "move": "Psychic"
+          },
+          {
+            "level": 35,
+            "move": "Future Sight"
+          },
+          {
+            "level": 37,
+            "move": "Iron Defense"
+          },
+          {
+            "level": 40,
+            "move": "Hydro Pump"
+          },
+          {
+            "level": 41,
+            "move": "Aqua Tail"
+          },
+          {
+            "level": 42,
+            "move": "Surf"
+          }
+        ],
+        "tm_hm": [
+          "Water Pulse",
+          "Calm Mind",
+          "Toxic",
+          "Hail",
+          "Hidden Power",
+          "Sunny Day",
+          "Ice Beam",
+          "Blizzard",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Safeguard",
+          "Frustration",
+          "Return",
+          "Psychic",
+          "Shadow Ball",
+          "Double Team",
+          "Reflect",
+          "Rock Tomb",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Skill Swap",
+          "Brine",
+          "Endure",
+          "Flash",
+          "Thunder Wave",
+          "Psych Up",
+          "Captivate",
+          "Sleep Talk",
+          "Natural Gift",
+          "Grass Knot",
+          "Swagger",
+          "Substitute",
+          "Trick Room",
+          "Psyshock",
+          "Scald",
+          "Liquidation",
+          "Expanding Force",
+          "Flip Turn",
+          "Surf",
+          "Whirlpool",
+          "Waterfall"
+        ],
+        "tutor": [
+          "Aqua Tail",
+          "Body Slam",
+          "Icy Wind",
+          "Zen Headbutt"
+        ],
+        "egg": [
+          "Mirror Coat",
+          "Zen Headbutt",
+          "Crabhammer",
+          "Barrier",
+          "Haze",
+          "Flail",
+          "Stockpile"
+        ]
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "height",
+          "weight"
+        ],
+        "claude_sure": {
+          "body shape": 80,
+          "look": 80,
+          "movement": 80,
+          "level-up moves": 59,
+          "TM/HM moves": 64,
+          "tutor moves": 54,
+          "egg moves": 54,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 54,
+          "base friendship": 90,
+          "gender": 52,
+          "egg groups": 40,
+          "egg cycles": 65,
+          "height": 65,
+          "weight": 65
+        },
+        "body_shape": "a head and legs",
+        "movement": "It walks on its legs.",
+        "look": "It is a round body shaped like a swim ring, with purple and white stripes around a pink centre where a worried face with two small eyes sits. It has two curved red arms with teal tips on its sides and two short red legs with teal tips below."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/saucerl/394.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": "hgss:224",
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "saucerl"
+    },
+    {
+      "dex": 71,
+      "name": "Abyssys",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Psychic",
+        "Water"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": 0.8,
+      "weight_kg": 14,
+      "body_color": "white",
+      "abilities": {
+        "primary": "Analytic",
+        "secondary": "Telepathy",
+        "hidden": "Prism Armor"
+      },
+      "base_stats": {
+        "hp": 35,
+        "attack": 43,
+        "defense": 117,
+        "sp_attack": 48,
+        "sp_defense": 127,
+        "speed": 25
+      },
+      "ev_yield": {
+        "defense": 1,
+        "sp_defense": 1
+      },
+      "catch_rate": 75,
+      "base_exp": 138,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_3",
+        "grass"
+      ],
+      "egg_cycles": 20,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "octopearl",
+          "method": "item",
+          "item": "Moon stone"
+        }
+      ],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Confusion"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 1,
+            "move": "Water Gun"
+          },
+          {
+            "level": 1,
+            "move": "Withdraw"
+          },
+          {
+            "level": 9,
+            "move": "Psybeam"
+          },
+          {
+            "level": 10,
+            "move": "Aqua Jet"
+          },
+          {
+            "level": 12,
+            "move": "Aqua Ring"
+          },
+          {
+            "level": 13,
+            "move": "Rapid Spin"
+          },
+          {
+            "level": 14,
+            "move": "Psyshock"
+          },
+          {
+            "level": 17,
+            "move": "Hypnosis"
+          },
+          {
+            "level": 22,
+            "move": "Water Pulse"
+          },
+          {
+            "level": 24,
+            "move": "Bubble Beam"
+          },
+          {
+            "level": 26,
+            "move": "Protect"
+          },
+          {
+            "level": 27,
+            "move": "Razor Shell"
+          },
+          {
+            "level": 32,
+            "move": "Muddy Water"
+          },
+          {
+            "level": 33,
+            "move": "Recover"
+          },
+          {
+            "level": 36,
+            "move": "Psychic"
+          },
+          {
+            "level": 40,
+            "move": "Iron Defense"
+          },
+          {
+            "level": 41,
+            "move": "Surf"
+          },
+          {
+            "level": 44,
+            "move": "Aqua Tail"
+          },
+          {
+            "level": 45,
+            "move": "Hydro Pump"
+          },
+          {
+            "level": 52,
+            "move": "Future Sight"
+          }
+        ],
+        "tm_hm": [
+          "Water Pulse",
+          "Calm Mind",
+          "Toxic",
+          "Hail",
+          "Hidden Power",
+          "Sunny Day",
+          "Ice Beam",
+          "Blizzard",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Safeguard",
+          "Frustration",
+          "Return",
+          "Psychic",
+          "Shadow Ball",
+          "Double Team",
+          "Reflect",
+          "Rock Tomb",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Skill Swap",
+          "Brine",
+          "Fling",
+          "Charge Beam",
+          "Endure",
+          "Flash",
+          "Thunder Wave",
+          "Psych Up",
+          "Captivate",
+          "Rock Slide",
+          "Sleep Talk",
+          "Natural Gift",
+          "Grass Knot",
+          "Swagger",
+          "Substitute",
+          "Trick Room",
+          "Psyshock",
+          "Scald",
+          "Psychic Terrain",
+          "Liquidation",
+          "Expanding Force",
+          "Flip Turn",
+          "Surf",
+          "Whirlpool",
+          "Waterfall",
+          "Thief"
+        ],
+        "tutor": [
+          "Aqua Tail",
+          "Body Slam",
+          "Charm",
+          "Dazzling Gleam",
+          "Icy Wind",
+          "Zen Headbutt"
+        ],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "height",
+          "weight"
+        ],
+        "claude_sure": {
+          "body shape": 80,
+          "look": 80,
+          "movement": 80,
+          "level-up moves": 61,
+          "TM/HM moves": 66,
+          "tutor moves": 56,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 54,
+          "base friendship": 90,
+          "gender": 52,
+          "egg groups": 40,
+          "egg cycles": 65,
+          "height": 65,
+          "weight": 65
+        },
+        "body_shape": "a serpentine body",
+        "movement": "It floats in the air.",
+        "look": "It is a long, curved, tube-like body in pale lilac-white with a flat cut-off bottom end. A thin green stalk with a red tip arches out of the top, ending in a round spiky pale ball with one large purple eye. Two small white eyestalks and a red tongue-like lip stick out of the opening."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/abyssys/393.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": "hgss:138",
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "abyssys"
+    },
+    {
+      "dex": 72,
+      "name": "Octopearl",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Psychic",
+        "Water"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": 1.4,
+      "weight_kg": 48,
+      "body_color": "pink",
+      "abilities": {
+        "primary": "Analytic",
+        "secondary": "Telepathy",
+        "hidden": "Prism Armor"
+      },
+      "base_stats": {
+        "hp": 50,
+        "attack": 53,
+        "defense": 142,
+        "sp_attack": 63,
+        "sp_defense": 152,
+        "speed": 35
+      },
+      "ev_yield": {
+        "defense": 1,
+        "sp_defense": 2
+      },
+      "catch_rate": 45,
+      "base_exp": 174,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_3",
+        "grass"
+      ],
+      "egg_cycles": 20,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Cosmic Shield"
+          },
+          {
+            "level": 1,
+            "move": "Confusion"
+          },
+          {
+            "level": 1,
+            "move": "Extrasensory"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 1,
+            "move": "Water Gun"
+          },
+          {
+            "level": 1,
+            "move": "Withdraw"
+          },
+          {
+            "level": 9,
+            "move": "Yawn"
+          },
+          {
+            "level": 10,
+            "move": "Aqua Jet"
+          },
+          {
+            "level": 12,
+            "move": "Aqua Ring"
+          },
+          {
+            "level": 13,
+            "move": "Rapid Spin"
+          },
+          {
+            "level": 14,
+            "move": "Psyshock"
+          },
+          {
+            "level": 15,
+            "move": "Psybeam"
+          },
+          {
+            "level": 20,
+            "move": "Hypnosis"
+          },
+          {
+            "level": 20,
+            "move": "Protect"
+          },
+          {
+            "level": 20,
+            "move": "Wrap"
+          },
+          {
+            "level": 22,
+            "move": "Water Pulse"
+          },
+          {
+            "level": 24,
+            "move": "Bubble Beam"
+          },
+          {
+            "level": 27,
+            "move": "Razor Shell"
+          },
+          {
+            "level": 28,
+            "move": "Recover"
+          },
+          {
+            "level": 30,
+            "move": "Surf"
+          },
+          {
+            "level": 32,
+            "move": "Muddy Water"
+          },
+          {
+            "level": 40,
+            "move": "Psychic"
+          },
+          {
+            "level": 42,
+            "move": "Rain Dance"
+          },
+          {
+            "level": 43,
+            "move": "Iron Defense"
+          },
+          {
+            "level": 44,
+            "move": "Calm Mind"
+          },
+          {
+            "level": 47,
+            "move": "Aqua Tail"
+          },
+          {
+            "level": 49,
+            "move": "Hydro Pump"
+          },
+          {
+            "level": 56,
+            "move": "Future Sight"
+          }
+        ],
+        "tm_hm": [
+          "Water Pulse",
+          "Calm Mind",
+          "Toxic",
+          "Hail",
+          "Hidden Power",
+          "Sunny Day",
+          "Ice Beam",
+          "Blizzard",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Safeguard",
+          "Frustration",
+          "Return",
+          "Psychic",
+          "Shadow Ball",
+          "Double Team",
+          "Reflect",
+          "Rock Tomb",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Skill Swap",
+          "Energy Ball",
+          "Brine",
+          "Fling",
+          "Endure",
+          "Giga Impact",
+          "Flash",
+          "Thunder Wave",
+          "Psych Up",
+          "Captivate",
+          "Rock Slide",
+          "Sleep Talk",
+          "Natural Gift",
+          "Grass Knot",
+          "Swagger",
+          "Substitute",
+          "Trick Room",
+          "Psyshock",
+          "Scald",
+          "Psychic Terrain",
+          "Liquidation",
+          "Expanding Force",
+          "Flip Turn",
+          "Surf",
+          "Whirlpool",
+          "Waterfall",
+          "Brick Break",
+          "Charge Beam",
+          "Strength",
+          "Rock Smash",
+          "Thief"
+        ],
+        "tutor": [
+          "Aqua Tail",
+          "Body Slam",
+          "Icy Wind",
+          "Zen Headbutt",
+          "Charm",
+          "Dazzling Gleam"
+        ],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "height",
+          "weight"
+        ],
+        "claude_sure": {
+          "body shape": 80,
+          "look": 80,
+          "movement": 80,
+          "level-up moves": 57,
+          "TM/HM moves": 62,
+          "tutor moves": 52,
+          "body color": 65,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 54,
+          "base friendship": 90,
+          "gender": 52,
+          "egg groups": 40,
+          "egg cycles": 65,
+          "height": 65,
+          "weight": 65
+        },
+        "body_shape": "tentacles or many legs",
+        "movement": "It floats in the air.",
+        "look": "It is a round flower-like body with six large purple petals around a bright magenta centre that holds a small face with two eyes and a jagged mouth. Four teal tentacles with red curled tips hang below, and one long pale-pink frilly tube with a white ring at its top ends in a teal clawed hand."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/octopearl/573.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": "hgss:139",
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "octopearl"
+    },
+    {
+      "dex": 73,
+      "name": "Cryoblade",
+      "credits": {
+        "designer": "Ivar",
+        "artist": null
+      },
+      "types": [
+        "Ice"
+      ],
+      "category": "Frozen Executioner",
+      "description": null,
+      "height_m": 2.1,
+      "weight_kg": 182,
+      "body_color": "blue",
+      "abilities": {
+        "primary": "Cold-hearted",
+        "secondary": "Ice Body",
+        "hidden": "Refrigerate"
+      },
+      "base_stats": {
+        "hp": 98,
+        "attack": 130,
+        "defense": 95,
+        "sp_attack": 50,
+        "sp_defense": 85,
+        "speed": 70
+      },
+      "ev_yield": {
+        "attack": 3
+      },
+      "catch_rate": 60,
+      "base_exp": 185,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_3"
+      ],
+      "egg_cycles": 20,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Powder Snow"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 7,
+            "move": "Protect"
+          },
+          {
+            "level": 12,
+            "move": "Ice Shard"
+          },
+          {
+            "level": 18,
+            "move": "Ice Fang"
+          },
+          {
+            "level": 21,
+            "move": "Bite"
+          },
+          {
+            "level": 21,
+            "move": "Slash"
+          },
+          {
+            "level": 24,
+            "move": "Flail"
+          },
+          {
+            "level": 27,
+            "move": "Avalanche"
+          },
+          {
+            "level": 27,
+            "move": "Iron Defense"
+          },
+          {
+            "level": 28,
+            "move": "Crush Claw"
+          },
+          {
+            "level": 33,
+            "move": "Crunch"
+          },
+          {
+            "level": 36,
+            "move": "Take Down"
+          },
+          {
+            "level": 37,
+            "move": "Scary Face"
+          },
+          {
+            "level": 42,
+            "move": "Ice Beam"
+          },
+          {
+            "level": 48,
+            "move": "Swords Dance"
+          },
+          {
+            "level": 50,
+            "move": "Ice Hammer"
+          },
+          {
+            "level": 51,
+            "move": "Icicle Crash"
+          },
+          {
+            "level": 55,
+            "move": "Double-Edge"
+          }
+        ],
+        "tm_hm": [
+          "Toxic",
+          "Hail",
+          "Hidden Power",
+          "Ice Beam",
+          "Hyper Beam",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Earthquake",
+          "Return",
+          "Dig",
+          "Brick Break",
+          "Double Team",
+          "Rock Tomb",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Endure",
+          "Giga Impact",
+          "Stone Edge",
+          "Avalanche",
+          "Swords Dance",
+          "Rock Slide",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Heavy Slam",
+          "Bulldoze",
+          "Liquidation",
+          "Body Press",
+          "Rock Smash"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Close Combat",
+          "Curse",
+          "Ice Fang",
+          "Ice Punch",
+          "Icicle Spear",
+          "Iron Head"
+        ],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": "From the Discord concept card (#kanteradet, dr.grey8421, 2026-05-01).",
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
+        ],
+        "claude_sure": {
+          "body shape": 80,
+          "look": 80,
+          "movement": 80,
+          "level-up moves": 67,
+          "TM/HM moves": 72,
+          "tutor moves": 62,
+          "egg moves": 62,
+          "body color": 80,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 57,
+          "base friendship": 90,
+          "gender": 78,
+          "egg groups": 40,
+          "egg cycles": 65
+        },
+        "body_shape": "an upright body on two legs with a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a pale blue-white ice creature with a spiky crown-shaped head, a diamond gem on its forehead and a wide mouth full of sharp teeth. It has a big rectangular block torso with blue diamond crystals, two long arms with dark-blue bands ending in crab-like ice claws, large ice spikes on its shoulders, thick legs with dark-blue knees and sharp claws, and a thin blue tail with an arrow tip."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/cryoblade/676.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": "hgss:460",
+        "shiny_palette": "assets/shiny/cryoblade.json",
+        "cry": "assets/cries/cryoblade.json"
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "cryoblade"
+    },
+    {
       "dex": 74,
+      "name": "Roostasaur",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Dragon",
+        "Normal"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": 1.5,
+      "weight_kg": 40,
+      "body_color": null,
+      "abilities": {
+        "primary": "Big Pecks",
+        "secondary": "Super Luck",
+        "hidden": "Hustle"
+      },
+      "base_stats": {
+        "hp": 85,
+        "attack": 120,
+        "defense": 70,
+        "sp_attack": 60,
+        "sp_defense": 65,
+        "speed": 100
+      },
+      "ev_yield": {
+        "attack": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Scratch"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 6,
+            "move": "Quick Attack"
+          },
+          {
+            "level": 12,
+            "move": "Taunt"
+          },
+          {
+            "level": 12,
+            "move": "Peck"
+          },
+          {
+            "level": 14,
+            "move": "Breaking Swipe"
+          },
+          {
+            "level": 16,
+            "move": "Wing Attack"
+          },
+          {
+            "level": 21,
+            "move": "Slash"
+          },
+          {
+            "level": 22,
+            "move": "Bite"
+          },
+          {
+            "level": 35,
+            "move": "Take Down"
+          },
+          {
+            "level": 36,
+            "move": "Dragon Claw"
+          },
+          {
+            "level": 40,
+            "move": "Body Slam"
+          },
+          {
+            "level": 45,
+            "move": "Dragon Rush"
+          },
+          {
+            "level": 48,
+            "move": "Outrage"
+          },
+          {
+            "level": 50,
+            "move": "Thrash"
+          },
+          {
+            "level": 51,
+            "move": "Double-Edge"
+          }
+        ],
+        "tm_hm": [
+          "Dragon Claw",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Hyper Beam",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Return",
+          "Brick Break",
+          "Double Team",
+          "Aerial Ace",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Endure",
+          "Dragon Pulse",
+          "Shadow Claw",
+          "Giga Impact",
+          "Sleep Talk",
+          "Natural Gift",
+          "Swagger",
+          "U-turn",
+          "Substitute",
+          "Cut",
+          "Strength",
+          "Fire Blast",
+          "Flamethrower",
+          "Fly",
+          "Roost"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Close Combat",
+          "Draco Meteor",
+          "Endeavor",
+          "Fire Fang",
+          "Fire Punch",
+          "Hyper Voice",
+          "Iron Head",
+          "Outrage",
+          "Zen Headbutt"
+        ],
+        "egg": [
+          "Endeavor",
+          "Flail",
+          "Fury Swipes",
+          "Crush Claw"
+        ]
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement",
+          "height",
+          "weight",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves"
+        ],
+        "claude_sure": {
+          "body shape": 80,
+          "look": 80,
+          "movement": 80,
+          "height": 65,
+          "weight": 65,
+          "level-up moves": 59,
+          "TM/HM moves": 64,
+          "tutor moves": 54,
+          "egg moves": 54
+        },
+        "body_shape": "an upright body on two legs with a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "It is a white rooster-like bird standing upright, with a red comb, yellow beak and yellow clawed feet. It has two raised bone arms, each coming out of a giant brown drumstick-shaped lump on its shoulder, lavender shading along its back and a long tapering lavender tail with red spikes. In flight it spreads feathered wings and flames burst from the drumsticks."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/roostasaur/291.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": "hgss:257",
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "roostasaur"
+    },
+    {
+      "dex": 75,
       "name": "Leadling",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -19139,7 +19372,7 @@
       "id": "leadling"
     },
     {
-      "dex": 75,
+      "dex": 76,
       "name": "Leadling Utvikling",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -19392,7 +19625,7 @@
       "id": "leadling-utvikling"
     },
     {
-      "dex": 76,
+      "dex": 77,
       "name": "Blylem",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -19647,7 +19880,7 @@
       "id": "blylem"
     },
     {
-      "dex": 77,
+      "dex": 78,
       "name": "Iglomodo mindre utv",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -19853,7 +20086,7 @@
       "id": "iglomodo-mindre-utv"
     },
     {
-      "dex": 78,
+      "dex": 79,
       "name": "Iglomodo",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -20116,7 +20349,7 @@
       "id": "iglomodo"
     },
     {
-      "dex": 79,
+      "dex": 80,
       "name": "Furamire",
       "credits": {
         "designer": "Michael",
@@ -20362,7 +20595,7 @@
       "id": "furamire"
     },
     {
-      "dex": 80,
+      "dex": 81,
       "name": "Ciggiti",
       "credits": {
         "designer": null,
@@ -20605,7 +20838,7 @@
       "id": "ciggiti"
     },
     {
-      "dex": 81,
+      "dex": 82,
       "name": "Chuchar",
       "credits": {
         "designer": null,
@@ -20847,7 +21080,7 @@
       "id": "chuchar"
     },
     {
-      "dex": 82,
+      "dex": 83,
       "name": "Parahaunt",
       "credits": {
         "designer": null,
@@ -21090,7 +21323,7 @@
       "id": "parahaunt"
     },
     {
-      "dex": 83,
+      "dex": 84,
       "name": "Goatjo",
       "credits": {
         "designer": "Ruben",
@@ -21344,7 +21577,7 @@
       "id": "goatjo"
     },
     {
-      "dex": 84,
+      "dex": 85,
       "name": "Detecub mindre evo",
       "credits": {
         "designer": "Ruben",
@@ -21579,7 +21812,7 @@
       "id": "darkgonark"
     },
     {
-      "dex": 85,
+      "dex": 86,
       "name": "Detecup",
       "credits": {
         "designer": "Ruben",
@@ -21863,7 +22096,7 @@
       "id": "detecup"
     },
     {
-      "dex": 86,
+      "dex": 87,
       "name": "Snownin",
       "credits": {
         "designer": "Arvind",
@@ -22136,7 +22369,7 @@
       "id": "snownin"
     },
     {
-      "dex": 87,
+      "dex": 88,
       "name": "Verrith",
       "credits": {
         "designer": "Casper",
@@ -22389,7 +22622,7 @@
       "id": "verrith"
     },
     {
-      "dex": 88,
+      "dex": 89,
       "name": "Sigmanian Komala",
       "credits": {
         "designer": "Magnus",
@@ -22624,7 +22857,7 @@
       "id": "sigmanian-komala"
     },
     {
-      "dex": 89,
+      "dex": 90,
       "name": "Dahrugula",
       "credits": {
         "designer": "Magnus",
@@ -22915,7 +23148,7 @@
       "id": "dahrugula"
     },
     {
-      "dex": 90,
+      "dex": 91,
       "name": "Vires",
       "credits": {
         "designer": "Arvind",
@@ -23145,7 +23378,7 @@
       "id": "vires"
     },
     {
-      "dex": 91,
+      "dex": 92,
       "name": "Flurina",
       "credits": {
         "designer": "Arvind",
@@ -23381,7 +23614,7 @@
       "id": "flurina"
     },
     {
-      "dex": 92,
+      "dex": 93,
       "name": "Dragem",
       "credits": {
         "designer": "Arvind",
@@ -23664,7 +23897,7 @@
       "id": "dragem"
     },
     {
-      "dex": 93,
+      "dex": 94,
       "name": "Quimsy",
       "credits": {
         "designer": "Michael",
@@ -23902,7 +24135,7 @@
       "id": "quimsy"
     },
     {
-      "dex": 94,
+      "dex": 95,
       "name": "ROKU",
       "credits": {
         "designer": "Ruben",
@@ -24154,7 +24387,7 @@
       "id": "roku"
     },
     {
-      "dex": 95,
+      "dex": 96,
       "name": "Skiirtle",
       "credits": {
         "designer": "Arvind",
@@ -24397,7 +24630,7 @@
       "id": "skiirtle"
     },
     {
-      "dex": 96,
+      "dex": 97,
       "name": "McSkiirtle",
       "credits": {
         "designer": null,
@@ -24632,7 +24865,6 @@
         "claude_fill": false,
         "filled_by_claude": [
           "body shape",
-          "look",
           "movement",
           "level-up moves",
           "TM/HM moves",
@@ -24651,7 +24883,6 @@
         ],
         "claude_sure": {
           "body shape": 80,
-          "look": 80,
           "movement": 80,
           "level-up moves": 57,
           "TM/HM moves": 62,
@@ -24670,7 +24901,7 @@
         },
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
-        "look": "It is a purple scaly turtle with a smooth snout and dark sunglasses with yellow frames, and a glossy red segmented shell trimmed with chrome and yellow lightning bolts. It has four stubby clawed legs and flames and electric sparks streaming from the back of its shell."
+        "look": "It is a purple turtle with a smooth snout and dark sunglasses with frames, and a glossy red segmented shell trimmed with chrome and yellow lightning bolts. It has four stubby clawed legs and flames and electric sparks streaming from the back of its booster. Its tail is replaced with a turbo rocket booster"
       },
       "assets": {
         "concept_art": "assets/concept-art/mcskiirtle/264.webp",
@@ -24693,7 +24924,7 @@
       "id": "mcskiirtle"
     },
     {
-      "dex": 97,
+      "dex": 98,
       "name": "ambuger",
       "credits": {
         "designer": "Arvind",
@@ -24934,7 +25165,7 @@
       "id": "ambuger"
     },
     {
-      "dex": 98,
+      "dex": 99,
       "name": "Ambrr",
       "credits": {
         "designer": "Arvind",
@@ -25207,7 +25438,7 @@
       "id": "ambcoptr"
     },
     {
-      "dex": 99,
+      "dex": 100,
       "name": "Tortoplasm",
       "credits": {
         "designer": "Arvind",
@@ -25449,7 +25680,7 @@
       "id": "tortoplasm"
     },
     {
-      "dex": 100,
+      "dex": 101,
       "name": "Tortoplasm utviklet",
       "credits": {
         "designer": "Arvind",
@@ -25687,7 +25918,7 @@
       "id": "tortoplasm-utviklet"
     },
     {
-      "dex": 101,
+      "dex": 102,
       "name": "Slothbaby",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -25916,7 +26147,7 @@
       "id": "slothbaby"
     },
     {
-      "dex": 102,
+      "dex": 103,
       "name": "Blazlothku",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -26227,7 +26458,7 @@
       "id": "slothbaby-utviklet"
     },
     {
-      "dex": 103,
+      "dex": 104,
       "name": "Terratyson",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -26480,7 +26711,7 @@
       "id": "gaiafinn"
     },
     {
-      "dex": 104,
+      "dex": 105,
       "name": "Obsidog",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -26738,7 +26969,7 @@
       "id": "obsidog"
     },
     {
-      "dex": 105,
+      "dex": 106,
       "name": "Geronimok",
       "credits": {
         "designer": "Casper",
@@ -27012,7 +27243,7 @@
       "id": "obsidog-utvikling"
     },
     {
-      "dex": 106,
+      "dex": 107,
       "name": "Slamquake",
       "credits": {
         "designer": "Ivar",
@@ -27291,7 +27522,7 @@
       "id": "slamquake"
     },
     {
-      "dex": 107,
+      "dex": 108,
       "name": "Limulk",
       "credits": {
         "designer": "Arvind",
@@ -27552,7 +27783,7 @@
       "id": "limulk"
     },
     {
-      "dex": 108,
+      "dex": 109,
       "name": "Mortbulk",
       "credits": {
         "designer": "Arvind",
@@ -27812,7 +28043,7 @@
       "id": "mortbulk"
     },
     {
-      "dex": 109,
+      "dex": 110,
       "name": "Phantomb",
       "credits": {
         "designer": "Ivar",
@@ -28053,7 +28284,7 @@
       "id": "phantomb"
     },
     {
-      "dex": 110,
+      "dex": 111,
       "name": "Phantail",
       "credits": {
         "designer": "Ivar",
@@ -28308,7 +28539,7 @@
       "id": "sjef"
     },
     {
-      "dex": 111,
+      "dex": 112,
       "name": "Oraclet",
       "credits": {
         "designer": "Johannes",
@@ -28552,7 +28783,7 @@
       "id": "oraclet"
     },
     {
-      "dex": 112,
+      "dex": 113,
       "name": "Oraclaw",
       "credits": {
         "designer": "Johannes",
@@ -28841,7 +29072,7 @@
       "id": "oraclaw"
     },
     {
-      "dex": 113,
+      "dex": 114,
       "name": "Aluminimonk",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -29081,7 +29312,7 @@
       "id": "alminimonk"
     },
     {
-      "dex": 114,
+      "dex": 115,
       "name": "Aluminimonk Utviklin",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -29347,7 +29578,7 @@
       "id": "alminimonk-utvikling"
     },
     {
-      "dex": 115,
+      "dex": 116,
       "name": "Sparktera",
       "credits": {
         "designer": "Ruben",
@@ -29557,7 +29788,7 @@
       "id": "zapitera-mindre-utv"
     },
     {
-      "dex": 116,
+      "dex": 117,
       "name": "Zapitera",
       "credits": {
         "designer": "Ruben & Emil",
@@ -29812,7 +30043,7 @@
       "id": "zapitera"
     },
     {
-      "dex": 117,
+      "dex": 118,
       "name": "Viridub",
       "credits": {
         "designer": "Rebekka",
@@ -30032,7 +30263,7 @@
       "id": "viridub"
     },
     {
-      "dex": 118,
+      "dex": 119,
       "name": "Viridub Utvikling",
       "credits": {
         "designer": null,
@@ -30278,7 +30509,7 @@
       "id": "viridub-utvikling"
     },
     {
-      "dex": 119,
+      "dex": 120,
       "name": "Shadeem",
       "credits": {
         "designer": "Michael",
@@ -30532,7 +30763,7 @@
       "id": "shadeem"
     },
     {
-      "dex": 120,
+      "dex": 121,
       "name": "Shadrove",
       "credits": {
         "designer": null,
@@ -30787,7 +31018,7 @@
       "id": "shadrove"
     },
     {
-      "dex": 121,
+      "dex": 122,
       "name": "Autuman",
       "credits": {
         "designer": "Arvind",
@@ -31052,7 +31283,7 @@
       "id": "autuman"
     },
     {
-      "dex": 122,
+      "dex": 123,
       "name": "Bugmight",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -31298,7 +31529,7 @@
       "id": "bugmight"
     },
     {
-      "dex": 123,
+      "dex": 124,
       "name": "JAWIE",
       "credits": {
         "designer": "Ivar",
@@ -31400,7 +31631,7 @@
       "id": "jawie"
     },
     {
-      "dex": 124,
+      "dex": 125,
       "name": "JAWBREAKER",
       "credits": {
         "designer": "Ivar",
@@ -31654,7 +31885,7 @@
       "id": "jawbreaker"
     },
     {
-      "dex": 125,
+      "dex": 126,
       "name": "Dreadipede",
       "credits": {
         "designer": "Ivar",
@@ -31897,7 +32128,7 @@
       "id": "dreadipede"
     },
     {
-      "dex": 126,
+      "dex": 127,
       "name": "Dreadfang",
       "credits": {
         "designer": "Ivar",
@@ -32148,7 +32379,7 @@
       "id": "dreadfang"
     },
     {
-      "dex": 127,
+      "dex": 128,
       "name": "Aquat",
       "credits": {
         "designer": "Ivar",
@@ -32382,7 +32613,7 @@
       "id": "surfer"
     },
     {
-      "dex": 128,
+      "dex": 129,
       "name": "Aquway",
       "credits": {
         "designer": "Ivar",
@@ -32651,7 +32882,7 @@
       "id": "subwaysurfer"
     },
     {
-      "dex": 129,
+      "dex": 130,
       "name": "Zyzzfu",
       "credits": {
         "designer": "Ivar",
@@ -32927,7 +33158,7 @@
       "id": "zyzzfu"
     },
     {
-      "dex": 130,
+      "dex": 131,
       "name": "Grincho",
       "credits": {
         "designer": "Michael",
@@ -33177,7 +33408,7 @@
       "id": "grincho"
     },
     {
-      "dex": 131,
+      "dex": 132,
       "name": "Sigmanian Charcadet",
       "credits": {
         "designer": null,
@@ -33399,7 +33630,7 @@
       "id": "glac-pee-mindre-evo"
     },
     {
-      "dex": 132,
+      "dex": 133,
       "name": "Glacépée",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -33652,7 +33883,7 @@
       "id": "glac-p-e"
     },
     {
-      "dex": 133,
+      "dex": 134,
       "name": "Everdark",
       "credits": {
         "designer": "Ivar",
@@ -33895,7 +34126,7 @@
       "id": "everdark"
     },
     {
-      "dex": 134,
+      "dex": 135,
       "name": "Diedo",
       "credits": {
         "designer": "Magnus",
@@ -34132,7 +34363,7 @@
       "id": "diedo"
     },
     {
-      "dex": 135,
+      "dex": 136,
       "name": "Seraphinnen",
       "credits": {
         "designer": "Magnus",
@@ -34412,7 +34643,7 @@
       "id": "seraphinnen"
     },
     {
-      "dex": 136,
+      "dex": 137,
       "name": "Riftbloom",
       "credits": {
         "designer": "Michael",
@@ -34650,7 +34881,7 @@
       "id": "riftbloom"
     },
     {
-      "dex": 137,
+      "dex": 138,
       "name": "riftlees",
       "credits": {
         "designer": "Michael",
@@ -34733,7 +34964,7 @@
       "id": "riftlees"
     },
     {
-      "dex": 138,
+      "dex": 139,
       "name": "Giga-Circuit",
       "credits": {
         "designer": "Ruben",
@@ -34974,7 +35205,7 @@
       "id": "giga-circuit"
     },
     {
-      "dex": 139,
+      "dex": 140,
       "name": "Strawboo",
       "credits": {
         "designer": "Ruben",
@@ -35198,7 +35429,7 @@
       "id": "strawboo"
     },
     {
-      "dex": 140,
+      "dex": 141,
       "name": "Wreckingboo",
       "credits": {
         "designer": "Ruben",
@@ -35445,7 +35676,7 @@
       "id": "wreckingboo"
     },
     {
-      "dex": 141,
+      "dex": 142,
       "name": "Wreckingdrake",
       "credits": {
         "designer": "Ruben",
@@ -35680,7 +35911,7 @@
       "id": "wreckingdrake"
     },
     {
-      "dex": 142,
+      "dex": 143,
       "name": "Felk",
       "credits": {
         "designer": "Ruben",
@@ -35774,7 +36005,7 @@
       "id": "felk"
     },
     {
-      "dex": 143,
+      "dex": 144,
       "name": "Moosus",
       "credits": {
         "designer": "Arvind",
@@ -36008,7 +36239,7 @@
       "id": "moosus"
     },
     {
-      "dex": 144,
+      "dex": 145,
       "name": "Rockedeer",
       "credits": {
         "designer": "Ruben",
@@ -36255,7 +36486,7 @@
       "id": "rockedeer"
     },
     {
-      "dex": 145,
+      "dex": 146,
       "name": "Sabertann",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -36510,7 +36741,7 @@
       "id": "sabertann"
     },
     {
-      "dex": 146,
+      "dex": 147,
       "name": "Gravriel",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -36778,7 +37009,7 @@
       "id": "gravriel"
     },
     {
-      "dex": 147,
+      "dex": 148,
       "name": "Balleisk",
       "credits": {
         "designer": "Arvind",
@@ -37027,7 +37258,7 @@
       "id": "balleisk"
     },
     {
-      "dex": 148,
+      "dex": 149,
       "name": "Greation",
       "credits": {
         "designer": "Arvind",
@@ -37293,7 +37524,7 @@
       "id": "greation"
     },
     {
-      "dex": 149,
+      "dex": 150,
       "name": "Ultragon",
       "credits": {
         "designer": "Arvind",
@@ -37614,7 +37845,7 @@
       "id": "ultragon"
     },
     {
-      "dex": 150,
+      "dex": 151,
       "name": "Bergflabb",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -37848,7 +38079,7 @@
       "id": "bergflabbser"
     },
     {
-      "dex": 151,
+      "dex": 152,
       "name": "Maagamad",
       "credits": {
         "designer": "Arvind",
@@ -38068,7 +38299,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:279",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/maagamad.json",
         "cry": null
       },
       "engine": {
@@ -38082,7 +38313,7 @@
       "id": "maagamad"
     },
     {
-      "dex": 152,
+      "dex": 153,
       "name": "Sandrema",
       "credits": {
         "designer": "Arvind",
@@ -38282,7 +38513,6 @@
         "filled_by_claude": [
           "body shape",
           "look",
-          "movement",
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
@@ -38301,7 +38531,6 @@
         "claude_sure": {
           "body shape": 80,
           "look": 80,
-          "movement": 80,
           "level-up moves": 52,
           "TM/HM moves": 57,
           "tutor moves": 47,
@@ -38318,7 +38547,7 @@
           "weight": 65
         },
         "body_shape": "an upright body on two legs without a tail",
-        "movement": "It walks upright on two legs.",
+        "movement": "It floats in the air.",
         "look": "It is a small tan-beige sand creature with a tall rounded head that has one big white eye with a swirling rainbow-coloured iris, a smooth body and two short legs. Its thin arms stretch out wide and end in large swirling rainbow-coloured clouds instead of hands."
       },
       "assets": {
@@ -38342,243 +38571,6 @@
       "id": "sandrema"
     },
     {
-      "dex": 153,
-      "name": "Apeshii",
-      "credits": {
-        "designer": "Arvind",
-        "artist": "Arvind"
-      },
-      "types": [
-        "Normal"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": 0.4,
-      "weight_kg": 6,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": 60,
-        "attack": 65,
-        "defense": 55,
-        "sp_attack": 20,
-        "sp_defense": 30,
-        "speed": 60
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [
-        {
-          "into": "julius",
-          "method": "level",
-          "level": 15
-        }
-      ],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 1,
-            "move": "Leer"
-          },
-          {
-            "level": 1,
-            "move": "Tackle"
-          },
-          {
-            "level": 3,
-            "move": "Low Kick"
-          },
-          {
-            "level": 4,
-            "move": "Quick Attack"
-          },
-          {
-            "level": 7,
-            "move": "Focus Energy"
-          },
-          {
-            "level": 8,
-            "move": "Bite"
-          },
-          {
-            "level": 9,
-            "move": "Rock Smash"
-          },
-          {
-            "level": 10,
-            "move": "Scratch"
-          },
-          {
-            "level": 10,
-            "move": "Rock Throw"
-          },
-          {
-            "level": 23,
-            "move": "Take Down"
-          },
-          {
-            "level": 23,
-            "move": "Karate Chop"
-          },
-          {
-            "level": 24,
-            "move": "Play Rough"
-          },
-          {
-            "level": 25,
-            "move": "Brick Break"
-          },
-          {
-            "level": 26,
-            "move": "Hammer Arm"
-          },
-          {
-            "level": 26,
-            "move": "Headbutt"
-          },
-          {
-            "level": 30,
-            "move": "Recover"
-          },
-          {
-            "level": 31,
-            "move": "Dynamic Punch"
-          },
-          {
-            "level": 35,
-            "move": "Double-Edge"
-          },
-          {
-            "level": 40,
-            "move": "Body Slam"
-          },
-          {
-            "level": 47,
-            "move": "Giga Impact"
-          }
-        ],
-        "tm_hm": [
-          "Focus Punch",
-          "Toxic",
-          "Bulk Up",
-          "Hidden Power",
-          "Sunny Day",
-          "Taunt",
-          "Protect",
-          "Rain Dance",
-          "Frustration",
-          "Return",
-          "Dig",
-          "Brick Break",
-          "Double Team",
-          "Rock Tomb",
-          "Facade",
-          "Secret Power",
-          "Rest",
-          "Attract",
-          "Thief",
-          "Focus Blast",
-          "Fling",
-          "Endure",
-          "Drain Punch",
-          "Payback",
-          "Captivate",
-          "Rock Slide",
-          "Sleep Talk",
-          "Natural Gift",
-          "Swagger",
-          "Substitute",
-          "Low Sweep",
-          "Strength",
-          "Rock Smash"
-        ],
-        "tutor": [
-          "Body Slam",
-          "Close Combat",
-          "Counter",
-          "Endeavor",
-          "Fire Punch",
-          "Hyper Voice",
-          "Ice Punch",
-          "Power-Up Punch",
-          "Thunder Punch"
-        ],
-        "egg": [
-          "Counter",
-          "Power-Up Punch",
-          "Smelling Salts",
-          "Mach Punch",
-          "Thunder Punch",
-          "Ice Punch",
-          "Fake Out",
-          "Revenge",
-          "Last Resort",
-          "Bullet Punch"
-        ]
-      },
-      "encounters": [],
-      "design": {
-        "concept": "A baby chimpanzee that is wearing a sweater and a diaper",
-        "name_origin": null,
-        "notes": null,
-        "wishes": "Weak physical attacker. baby mon",
-        "claude_fill": false,
-        "filled_by_claude": [
-          "height",
-          "weight",
-          "level-up moves",
-          "TM/HM moves",
-          "tutor moves",
-          "egg moves"
-        ],
-        "claude_sure": {
-          "height": 65,
-          "weight": 65,
-          "level-up moves": 55,
-          "TM/HM moves": 60,
-          "tutor moves": 50,
-          "egg moves": 50
-        },
-        "body_shape": null,
-        "movement": "It crawls along the ground on its legs.",
-        "look": null
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/apeshit/1539.png",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": "assets/shiny/apeshit.json",
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "apeshit"
-    },
-    {
       "dex": 154,
       "name": "Iron Bulb",
       "credits": {
@@ -38599,12 +38591,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": 70,
+        "hp": 50,
         "attack": 90,
-        "defense": 70,
-        "sp_attack": 200,
-        "sp_defense": 70,
-        "speed": 70
+        "defense": 60,
+        "sp_attack": 250,
+        "sp_defense": 55,
+        "speed": 65
       },
       "ev_yield": {
         "sp_attack": 3

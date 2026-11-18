@@ -1,5 +1,5 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
-dex: 96
+dex: 97
 name: McSkiirtle
 
 credits:
@@ -120,12 +120,11 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
+  filled_by_claude: [body shape, movement, level-up moves, "TM/HM moves", tutor moves,
                      body color, EV yield, catch rate, base exp, growth rate,
                      base friendship, gender, egg groups, egg cycles, height, weight]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     body shape: 80
-    look: 80
     movement: 80
     level-up moves: 57
     "TM/HM moves": 62
@@ -143,7 +142,7 @@ design:
     weight: 65
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
-  look: "It is a purple scaly turtle with a smooth snout and dark sunglasses with yellow frames, and a glossy red segmented shell trimmed with chrome and yellow lightning bolts. It has four stubby clawed legs and flames and electric sparks streaming from the back of its shell."
+  look: "It is a purple turtle with a smooth snout and dark sunglasses with frames, and a glossy red segmented shell trimmed with chrome and yellow lightning bolts. It has four stubby clawed legs and flames and electric sparks streaming from the back of its booster. Its tail is replaced with a turbo rocket booster"
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

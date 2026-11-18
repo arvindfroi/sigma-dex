@@ -1433,6 +1433,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Conqrilla can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Gorambe has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GORAMBE];
+    EXPECT_EQ(info->baseHP, 105);
+    EXPECT_EQ(info->baseAttack, 65);
+    EXPECT_EQ(info->baseDefense, 80);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 95);
+    EXPECT_EQ(info->baseSpDefense, 110);
+    EXPECT_EQ(info->types[0], TYPE_GHOST);
+    EXPECT_EQ(info->types[1], TYPE_FAIRY);
+    EXPECT_EQ(info->abilities[0], ABILITY_CLEAR_BODY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CHARM);
+    EXPECT_EQ(GetSpeciesName(SPECIES_GORAMBE)[0], CHAR_G);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Gorambe can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_GORAMBE) { Moves(MOVE_CHARM); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CHARM); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CHARM, player);
+    }
+}
+
 TEST("Sigma dex: Anjane has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ANJANE];
@@ -1598,34 +1626,6 @@ SINGLE_BATTLE_TEST("Sigma dex: Roostasaur can use its first move in battle")
         TURN { MOVE(player, MOVE_GROWL); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
-    }
-}
-
-TEST("Sigma dex: Gorambe has the data from its species file")
-{
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GORAMBE];
-    EXPECT_EQ(info->baseHP, 105);
-    EXPECT_EQ(info->baseAttack, 65);
-    EXPECT_EQ(info->baseDefense, 80);
-    EXPECT_EQ(info->baseSpeed, 50);
-    EXPECT_EQ(info->baseSpAttack, 95);
-    EXPECT_EQ(info->baseSpDefense, 110);
-    EXPECT_EQ(info->types[0], TYPE_GHOST);
-    EXPECT_EQ(info->types[1], TYPE_FAIRY);
-    EXPECT_EQ(info->abilities[0], ABILITY_CLEAR_BODY);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CHARM);
-    EXPECT_EQ(GetSpeciesName(SPECIES_GORAMBE)[0], CHAR_G);
-}
-
-SINGLE_BATTLE_TEST("Sigma dex: Gorambe can use its first move in battle")
-{
-    GIVEN {
-        PLAYER(SPECIES_GORAMBE) { Moves(MOVE_CHARM); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_CHARM); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CHARM, player);
     }
 }
 
