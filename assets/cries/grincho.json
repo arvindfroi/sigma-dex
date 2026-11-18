@@ -4,7 +4,7 @@
  "layers": [
   {
    "own": true,
-   "semi": 4.0,
+   "semi": 6.0,
    "gain": 1.0,
    "at": 0.0,
    "rev": false
@@ -26,9 +26,10 @@
  },
  "reasons": [
   "Its own sound",
-  "Changed by hand: pitch 4, length 0.95, glide -6, brightness -0.5, wobble 0.55, echo 0.16"
+  "Changed by hand: pitch 4, length 0.95, glide -6, brightness -0.5, wobble 0.55, echo 0.16",
+  "Changed by hand: pitch 2"
  ],
  "by": "michael",
- "at": "2026-11-17T17:51:46.218Z",
+ "at": "2026-11-18T01:30:59.137Z",
  "audio": "assets/cries/grincho.wav"
 }

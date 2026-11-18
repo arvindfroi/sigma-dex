@@ -2596,7 +2596,8 @@
       "evolutions": [
         {
           "into": "harpie",
-          "method": "other",
+          "method": "level",
+          "level": 18,
           "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
@@ -2850,7 +2851,8 @@
       "evolutions": [
         {
           "into": "smeatherace",
-          "method": "other",
+          "method": "level",
+          "level": 36,
           "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
@@ -9309,7 +9311,7 @@
         {
           "into": "toxiren",
           "method": "level",
-          "level": 38
+          "level": 40
         }
       ],
       "forms": [],
@@ -14963,7 +14965,7 @@
       "abilities": {
         "primary": "Diver",
         "secondary": "Tangling Hair",
-        "hidden": "Rain Dish"
+        "hidden": null
       },
       "base_stats": {
         "hp": 45,
@@ -15524,10 +15526,10 @@
       "base_stats": {
         "hp": 35,
         "attack": 25,
-        "defense": 60,
-        "sp_attack": 40,
+        "defense": 65,
+        "sp_attack": 50,
         "sp_defense": 78,
-        "speed": 67
+        "speed": 72
       },
       "ev_yield": {
         "defense": 1
@@ -15750,7 +15752,7 @@
         "defense": 103,
         "sp_attack": 108,
         "sp_defense": 120,
-        "speed": 45
+        "speed": 38
       },
       "ev_yield": {
         "sp_defense": 2
@@ -21657,8 +21659,7 @@
         "artist": "Arvind"
       },
       "types": [
-        "Ice",
-        "Ghost"
+        "Ice"
       ],
       "category": null,
       "description": null,
@@ -27125,7 +27126,8 @@
       "evolutions": [
         {
           "into": "mortbulk",
-          "method": "other",
+          "method": "level",
+          "level": 37,
           "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
@@ -29135,7 +29137,7 @@
     },
     {
       "dex": 114,
-      "name": "sparktera",
+      "name": "Sparktera",
       "credits": {
         "designer": "Ruben",
         "artist": null
@@ -29270,6 +29272,7 @@
           "Secret Power",
           "Rest",
           "Attract",
+          "Steel Wing",
           "Charge Beam",
           "Endure",
           "Flash",
@@ -29283,8 +29286,7 @@
           "Heavy Slam",
           "Electroweb",
           "Eerie Impulse",
-          "Electric Terrain",
-          "Steel Wing"
+          "Electric Terrain"
         ],
         "tutor": [
           "Iron Head",
@@ -30072,7 +30074,6 @@
         "artist": null
       },
       "types": [
-        "Normal",
         "Dark"
       ],
       "category": null,
@@ -30327,7 +30328,6 @@
         "artist": "Michael"
       },
       "types": [
-        "Normal",
         "Dark"
       ],
       "category": null,
@@ -31108,14 +31108,16 @@
         "hidden": "Dragonize"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 60,
+        "attack": 90,
+        "defense": 60,
+        "sp_attack": 50,
+        "sp_defense": 40,
+        "speed": 50
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -34185,7 +34187,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:468",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/seraphinnen.json",
         "cry": null
       },
       "engine": {
@@ -34241,7 +34243,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "riftlees",
+          "method": "level",
+          "level": 26
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [
@@ -38260,8 +38268,7 @@
         "artist": "Arvind"
       },
       "types": [
-        "Normal",
-        "Fighting"
+        "Normal"
       ],
       "category": null,
       "description": null,
@@ -38511,11 +38518,11 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": 75,
-        "attack": 75,
-        "defense": 75,
+        "hp": 70,
+        "attack": 90,
+        "defense": 70,
         "sp_attack": 200,
-        "sp_defense": 75,
+        "sp_defense": 70,
         "speed": 70
       },
       "ev_yield": {
@@ -38548,7 +38555,7 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": "an upright body on two legs with a tail",
+        "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
         "look": "A bunch of electrical wires and outlet as hands and AV cables as legs."
       },
@@ -39110,7 +39117,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/riftlees.json",
         "cry": "assets/cries/riftlees.json"
       },
       "engine": {
@@ -39915,19 +39922,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Color Change",
+        "secondary": "Poison Point",
+        "hidden": "Protean"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 45,
+        "attack": 60,
+        "defense": 45,
+        "sp_attack": 50,
+        "sp_defense": 65,
+        "speed": 55
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -39966,7 +39975,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/venofrib.json",
         "cry": null
       },
       "engine": {
@@ -39981,6 +39990,89 @@
     },
     {
       "dex": 162,
+      "name": "Vendepiede",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Poison",
+        "Fire"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Color Change",
+        "secondary": "Spicy Spray",
+        "hidden": "Protean"
+      },
+      "base_stats": {
+        "hp": 60,
+        "attack": 80,
+        "defense": 55,
+        "sp_attack": 65,
+        "sp_defense": 85,
+        "speed": 75
+      },
+      "ev_yield": {
+        "sp_defense": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Venofrib second evolution",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/vendepiede/2126.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": "assets/shiny/vendepiede.json",
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "vendepiede"
+    },
+    {
+      "dex": 163,
       "name": "Raymon",
       "credits": {
         "designer": "Ivar",
@@ -40067,87 +40159,6 @@
       "id": "raymon"
     },
     {
-      "dex": 163,
-      "name": "Vendepiede",
-      "credits": {
-        "designer": "Michael",
-        "artist": null
-      },
-      "types": [
-        "Poison",
-        "Fire"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": "Venofrib second evolution",
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/vendepiede/2126.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "vendepiede"
-    },
-    {
       "dex": 164,
       "name": "Crysteel",
       "credits": {
@@ -40164,19 +40175,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Clear Body",
+        "secondary": "Pickup",
+        "hidden": "Sand Force"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 40,
+        "attack": 70,
+        "defense": 50,
+        "sp_attack": 30,
+        "sp_defense": 35,
+        "speed": 65
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -40245,19 +40258,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Crystal Body",
+        "secondary": "Tough Claws",
+        "hidden": "Sand Force"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 65,
+        "attack": 125,
+        "defense": 80,
+        "sp_attack": 45,
+        "sp_defense": 60,
+        "speed": 115
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 3
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -40317,7 +40332,6 @@
         "artist": null
       },
       "types": [
-        "Dragon",
         "Ghost"
       ],
       "category": null,
@@ -40326,19 +40340,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Levitate",
+        "secondary": "Cursed Body",
+        "hidden": "Infiltrator"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 30,
+        "attack": 35,
+        "defense": 35,
+        "sp_attack": 85,
+        "sp_defense": 45,
+        "speed": 70
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -40392,87 +40408,6 @@
     },
     {
       "dex": 167,
-      "name": "Aqualoom",
-      "credits": {
-        "designer": "Michael",
-        "artist": null
-      },
-      "types": [
-        "Water",
-        "Ghost"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/aqualoom/2166.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "aqualoom"
-    },
-    {
-      "dex": 168,
       "name": "Abysspero",
       "credits": {
         "designer": "Michael",
@@ -40551,6 +40486,168 @@
         "safari_flee_rate": 0
       },
       "id": "abysspero"
+    },
+    {
+      "dex": 168,
+      "name": "Aqualoom",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Water",
+        "Steel"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/aqualoom/2166.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "aqualoom"
+    },
+    {
+      "dex": 169,
+      "name": "Venorax",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Poison",
+        "Fire"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Color Change",
+        "secondary": "Spicy Spray",
+        "hidden": "Protean"
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/venorax/2231.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "venorax"
     },
     {
       "dex": 198,
@@ -41564,7 +41661,7 @@
         "artist": null
       },
       "types": [
-        "Psychic",
+        "Flying",
         "Ghost"
       ],
       "category": null,
@@ -41645,7 +41742,7 @@
         "artist": null
       },
       "types": [
-        "Psychic",
+        "Flying",
         "Ice"
       ],
       "category": null,
@@ -41823,18 +41920,21 @@
       "body_color": null,
       "abilities": {
         "primary": "Mold Breaker",
-        "secondary": "Telepathy",
-        "hidden": null
+        "secondary": "Pressure",
+        "hidden": "Sheer Force"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 80,
+        "attack": 75,
+        "defense": 120,
+        "sp_attack": 125,
+        "sp_defense": 85,
+        "speed": 50
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1,
+        "sp_attack": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -41903,9 +42003,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Pressure",
-        "secondary": "Inner Focus",
-        "hidden": "Prankster"
+        "primary": "Volt Absorb",
+        "secondary": null,
+        "hidden": null
       },
       "base_stats": {
         "hp": null,
@@ -41984,9 +42084,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Pressure",
-        "secondary": "Inner Focus",
-        "hidden": "Prankster"
+        "primary": "Water Absorb",
+        "secondary": null,
+        "hidden": null
       },
       "base_stats": {
         "hp": null,

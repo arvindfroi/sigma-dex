@@ -1326,9 +1326,9 @@ TEST("Sigma dex: Nucloid has the data from its species file")
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_NUCLOID];
     EXPECT_EQ(info->baseHP, 35);
     EXPECT_EQ(info->baseAttack, 25);
-    EXPECT_EQ(info->baseDefense, 60);
-    EXPECT_EQ(info->baseSpeed, 67);
-    EXPECT_EQ(info->baseSpAttack, 40);
+    EXPECT_EQ(info->baseDefense, 65);
+    EXPECT_EQ(info->baseSpeed, 72);
+    EXPECT_EQ(info->baseSpAttack, 50);
     EXPECT_EQ(info->baseSpDefense, 78);
     EXPECT_EQ(info->types[0], TYPE_POISON);
     EXPECT_EQ(info->types[1], TYPE_STEEL);
@@ -1355,7 +1355,7 @@ TEST("Sigma dex: Nuclobyl has the data from its species file")
     EXPECT_EQ(info->baseHP, 90);
     EXPECT_EQ(info->baseAttack, 59);
     EXPECT_EQ(info->baseDefense, 103);
-    EXPECT_EQ(info->baseSpeed, 45);
+    EXPECT_EQ(info->baseSpeed, 38);
     EXPECT_EQ(info->baseSpAttack, 108);
     EXPECT_EQ(info->baseSpDefense, 120);
     EXPECT_EQ(info->types[0], TYPE_POISON);
@@ -1807,7 +1807,7 @@ TEST("Sigma dex: Snownin has the data from its species file")
     EXPECT_EQ(info->baseSpAttack, 135);
     EXPECT_EQ(info->baseSpDefense, 40);
     EXPECT_EQ(info->types[0], TYPE_ICE);
-    EXPECT_EQ(info->types[1], TYPE_GHOST);
+    EXPECT_EQ(info->types[1], TYPE_ICE);
     EXPECT_EQ(info->abilities[0], ABILITY_SNOW_WARNING);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_AURORA_VEIL);
     EXPECT_EQ(GetSpeciesName(SPECIES_SNOWNIN)[0], CHAR_S);
@@ -2385,7 +2385,7 @@ SINGLE_BATTLE_TEST("Sigma dex: Oraclaw can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: sparktera has the data from its species file")
+TEST("Sigma dex: Sparktera has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SPARKTERA];
     EXPECT_EQ(info->baseHP, 40);
@@ -2401,7 +2401,7 @@ TEST("Sigma dex: sparktera has the data from its species file")
     EXPECT_EQ(GetSpeciesName(SPECIES_SPARKTERA)[0], CHAR_S);
 }
 
-SINGLE_BATTLE_TEST("Sigma dex: sparktera can use its first move in battle")
+SINGLE_BATTLE_TEST("Sigma dex: Sparktera can use its first move in battle")
 {
     GIVEN {
         PLAYER(SPECIES_SPARKTERA) { Moves(MOVE_GROWL); }
@@ -2450,7 +2450,7 @@ TEST("Sigma dex: Shadeem has the data from its species file")
     EXPECT_EQ(info->baseSpeed, 65);
     EXPECT_EQ(info->baseSpAttack, 60);
     EXPECT_EQ(info->baseSpDefense, 45);
-    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[0], TYPE_DARK);
     EXPECT_EQ(info->types[1], TYPE_DARK);
     EXPECT_EQ(info->abilities[0], ABILITY_ILLUSION);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);
@@ -2478,7 +2478,7 @@ TEST("Sigma dex: Shadrove has the data from its species file")
     EXPECT_EQ(info->baseSpeed, 110);
     EXPECT_EQ(info->baseSpAttack, 100);
     EXPECT_EQ(info->baseSpDefense, 60);
-    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[0], TYPE_DARK);
     EXPECT_EQ(info->types[1], TYPE_DARK);
     EXPECT_EQ(info->abilities[0], ABILITY_ILLUSION);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);

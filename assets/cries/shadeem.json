@@ -4,7 +4,7 @@
  "layers": [
   {
    "own": true,
-   "semi": 3.0,
+   "semi": 5.0,
    "gain": 1.0,
    "at": 0.0,
    "rev": false
@@ -12,7 +12,7 @@
  ],
  "stretch": 1.0,
  "sweep": 0.0,
- "tone": -0.7,
+ "tone": 0.15,
  "drive": 0.0,
  "len": 1.6,
  "vib": {
@@ -29,9 +29,10 @@
  },
  "reasons": [
   "Its own sound",
-  "Changed by hand: pitch 3, brightness -0.7, wobble 0.25, echo 0.08, buzz 0.1"
+  "Changed by hand: pitch 3, brightness -0.7, wobble 0.25, echo 0.08, buzz 0.1",
+  "Changed by hand: pitch 2, brightness 0.15"
  ],
  "by": "michael",
- "at": "2026-11-17T17:53:16.452Z",
+ "at": "2026-11-18T01:31:35.220Z",
  "audio": "assets/cries/shadeem.wav"
 }

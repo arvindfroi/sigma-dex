@@ -17,19 +17,19 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
-  secondary:             # optional
-  hidden:                # optional
+  primary: Clear Body
+  secondary: Pickup      # optional
+  hidden: Sand Force     # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 40
+  attack: 70
+  defense: 50
+  sp_attack: 30
+  sp_defense: 35
+  speed: 65
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {attack: 1}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating

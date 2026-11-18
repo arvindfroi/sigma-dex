@@ -1,0 +1,163 @@
+{
+ "map": {
+  "#242424": "#242424",
+  "#27223b": "#27223b",
+  "#28282d": "#28282d",
+  "#2b382a": "#2b382a",
+  "#33383f": "#284828",
+  "#36deed": "#36deed",
+  "#3a3a5f": "#48a860",
+  "#3d4860": "#50a848",
+  "#3f256e": "#30c088",
+  "#443e7d": "#48c070",
+  "#4694f0": "#4694f0",
+  "#4fa9fb": "#4fa9fb",
+  "#50c0fb": "#50c0fb",
+  "#51459a": "#58c888",
+  "#52daf4": "#52daf4",
+  "#5369c7": "#78e078",
+  "#5531a0": "#48d898",
+  "#558ae7": "#558ae7",
+  "#725f3d": "#386068",
+  "#7a8173": "#986068",
+  "#7e7a75": "#906098",
+  "#8eefef": "#90f0d0",
+  "#cb76fb": "#e0f860",
+  "#cfb4b1": "#a0c8b8",
+  "#dcc8c1": "#b0d0c8",
+  "#e4ae6b": "#58d8e0",
+  "#ecf2dc": "#ecf2dc",
+  "#f6d8ac": "#90e8f0",
+  "#f9f7ec": "#d0e8f0"
+ },
+ "follower": {
+  "#101112": "#101112",
+  "#151531": "#151531",
+  "#17c7e9": "#17c7e9",
+  "#1a231c": "#1a231c",
+  "#1d7ed0": "#78e848",
+  "#1e59a4": "#50e030",
+  "#3599ef": "#3599ef",
+  "#394a39": "#584030",
+  "#425668": "#68b050",
+  "#666632": "#304860",
+  "#a6903b": "#b030a0",
+  "#d6b95f": "#50b0d0",
+  "#e6f6e9": "#e6f6e9",
+  "#f7e49c": "#80d0f0",
+  "#f9eab7": "#a0d8f8"
+ },
+ "sliders": [
+  {
+   "adj": {
+    "hue": -105,
+    "sat": 0.23,
+    "light": 0.25
+   },
+   "keep": false,
+   "colours": [
+    "#3f256e",
+    "#3a3a5f",
+    "#3d4860",
+    "#443e7d",
+    "#5531a0",
+    "#51459a",
+    "#5369c7"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 151,
+    "sat": -0.03,
+    "light": -0.07
+   },
+   "keep": false,
+   "colours": [
+    "#e4ae6b",
+    "#cfb4b1",
+    "#dcc8c1"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 151,
+    "sat": -0.03,
+    "light": -0.07
+   },
+   "keep": false,
+   "colours": [
+    "#725f3d",
+    "#f6d8ac",
+    "#f9f7ec"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#36deed",
+    "#4694f0",
+    "#558ae7",
+    "#52daf4",
+    "#4fa9fb",
+    "#50c0fb"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#ecf2dc"
+   ]
+  },
+  {
+   "adj": {
+    "hue": -17,
+    "sat": 0,
+    "light": 0
+   },
+   "keep": false,
+   "colours": [
+    "#8eefef"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 151,
+    "sat": -0.03,
+    "light": -0.07
+   },
+   "keep": false,
+   "colours": [
+    "#cb76fb"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 262,
+    "sat": 0.2,
+    "light": 0
+   },
+   "keep": false,
+   "colours": [
+    "#33383f",
+    "#7e7a75",
+    "#7a8173"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": true,
+   "colours": [
+    "#242424",
+    "#28282d",
+    "#27223b",
+    "#2b382a"
+   ]
+  }
+ ],
+ "why": "The blue turns brown. The blue 2 and the green stay",
+ "front": "https://hlkabnevaljtrbldgeqm.supabase.co/storage/v1/object/public/art/tries/riftlees/drawn-5046-b2a14be9.png",
+ "by": "michael",
+ "at": "2026-11-18T01:30:41.803Z"
+}

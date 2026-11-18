@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions:
   - into: toxiren
     method: level
-    level: 38
+    level: 40
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
@@ -133,7 +133,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:422"
+  footprint: "hgss:422"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

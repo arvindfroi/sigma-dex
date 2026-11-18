@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 114
-name: sparktera
+name: Sparktera
 
 credits:
   designer: Ruben        # who came up with it (Discord name)
@@ -83,9 +83,9 @@ learnset:
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance, Frustration,
           Thunderbolt, Thunder, Return, Double Team, Shock Wave, Facade, Secret Power, Rest,
-          Attract, Charge Beam, Endure, Flash, Thunder Wave, Gyro Ball, Sleep Talk,
-          Natural Gift, Swagger, Substitute, Flash Cannon, Heavy Slam, Electroweb,
-          Eerie Impulse, Electric Terrain, Steel Wing]
+          Attract, Steel Wing, Charge Beam, Endure, Flash, Thunder Wave, Gyro Ball,
+          Sleep Talk, Natural Gift, Swagger, Substitute, Flash Cannon, Heavy Slam,
+          Electroweb, Eerie Impulse, Electric Terrain]
   tutor: [Iron Head, Volt Switch] # moves a move tutor can teach it
   egg: [Spark]           # only needed for the first stage of an evolution line
 
@@ -121,7 +121,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:276"
+  footprint: "hgss:276"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

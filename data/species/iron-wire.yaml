@@ -22,11 +22,11 @@ abilities:
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp: 75
-  attack: 75
-  defense: 75
+  hp: 70
+  attack: 90
+  defense: 70
   sp_attack: 200
-  sp_defense: 75
+  sp_defense: 70
   speed: 70
 
 ev_yield: {sp_attack: 3} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
@@ -80,7 +80,7 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape: an upright body on two legs with a tail
+  body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.
   look: A bunch of electrical wires and outlet as hands and AV cables as legs.
 

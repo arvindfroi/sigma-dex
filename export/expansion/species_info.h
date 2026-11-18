@@ -496,6 +496,7 @@
         .levelUpLearnset = sErobiLevelUpLearnset,
         .teachableLearnset = sErobiTeachableLearnset,
         .eggMoveLearnset = sErobiEggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_HARPIE}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -1545,7 +1546,7 @@
         .levelUpLearnset = sNukfaeLevelUpLearnset,
         .teachableLearnset = sNukfaeTeachableLearnset,
         .eggMoveLearnset = sNukfaeEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_TOXIREN}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_TOXIREN}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -2368,9 +2369,9 @@
     {
         .baseHP = 35,
         .baseAttack = 25,
-        .baseDefense = 60,
-        .baseSpeed = 67,
-        .baseSpAttack = 40,
+        .baseDefense = 65,
+        .baseSpeed = 72,
+        .baseSpAttack = 50,
         .baseSpDefense = 78,
         .types = MON_TYPES(TYPE_POISON, TYPE_STEEL),
         .catchRate = 190,
@@ -2421,7 +2422,7 @@
         .baseHP = 90,
         .baseAttack = 59,
         .baseDefense = 103,
-        .baseSpeed = 45,
+        .baseSpeed = 38,
         .baseSpAttack = 108,
         .baseSpDefense = 120,
         .types = MON_TYPES(TYPE_POISON, TYPE_STEEL),
@@ -3222,7 +3223,7 @@
         .baseSpeed = 120,
         .baseSpAttack = 135,
         .baseSpDefense = 40,
-        .types = MON_TYPES(TYPE_ICE, TYPE_GHOST),
+        .types = MON_TYPES(TYPE_ICE),
         .catchRate = 75,
         .expYield = 166,
         .evYield_SpAttack = 2,
@@ -3995,6 +3996,7 @@
         .levelUpLearnset = sLimulkLevelUpLearnset,
         .teachableLearnset = sLimulkTeachableLearnset,
         .eggMoveLearnset = sLimulkEggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 37, SPECIES_MORTBULK}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -4266,7 +4268,7 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
         .abilities = { ABILITY_VOLT_ABSORB, ABILITY_MAGNET_PULL, ABILITY_STALWART },
         .bodyColor = BODY_COLOR_GRAY,
-        .speciesName = _("sparktera"),
+        .speciesName = _("Sparktera"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_SPARKTERA,
         .categoryName = _("Unknown"),
@@ -4353,7 +4355,7 @@
         .baseSpeed = 65,
         .baseSpAttack = 60,
         .baseSpDefense = 45,
-        .types = MON_TYPES(TYPE_NORMAL, TYPE_DARK),
+        .types = MON_TYPES(TYPE_DARK),
         .catchRate = 190,
         .expYield = 66,
         .evYield_Attack = 1,
@@ -4403,7 +4405,7 @@
         .baseSpeed = 110,
         .baseSpAttack = 100,
         .baseSpDefense = 60,
-        .types = MON_TYPES(TYPE_NORMAL, TYPE_DARK),
+        .types = MON_TYPES(TYPE_DARK),
         .catchRate = 45,
         .expYield = 179,
         .evYield_Attack = 2,

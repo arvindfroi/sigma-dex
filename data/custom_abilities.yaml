@@ -35,6 +35,17 @@ abilities:
     field, its Attack rises by one stage. This happens once per Snowscape activation. If the snow ends
     and a new one starts, it triggers again. The boost is a normal stat stage, so Intimidate, Haze, and
     switching out remove it.
+- id: crystal-body
+  name: Crystal Body
+  description: Prevents its stats from being lowered, immune to status conditions.
+  effect: This Pokémon’s crystalline body shrugs off both stat drops and status. It combines Clear Body
+    and Comatose-style status protection. Stat reductions caused by other Pokémon’s moves and abilities,
+    such as Intimidate, Growl, or Icy Wind, have no effect. It also can’t be afflicted by burn, poison,
+    badly poisoned, paralysis, sleep, or freeze, and it can’t be put to sleep by Yawn. Self-inflicted
+    stat drops, like those from Close Combat or Draco Meteor, still apply, and so does self-inflicted
+    status such as Rest. Confusion, flinching, Leech Seed, and other volatile conditions still work normally.
+    Mold Breaker and similar effects bypass the protection.
+  designer: Emil
 - id: drunken-rage
   name: Drunken Rage
   description: Raises Attack by two stages upon entering battle, but become confused

@@ -17,9 +17,9 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Pressure
-  secondary: Inner Focus # optional
-  hidden: Prankster      # optional
+  primary: Water Absorb
+  secondary:             # optional
+  hidden:                # optional
 
 base_stats:              # each 1-255
   hp:

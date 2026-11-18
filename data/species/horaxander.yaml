@@ -18,18 +18,18 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Mold Breaker
-  secondary: Telepathy   # optional
-  hidden:                # optional
+  secondary: Pressure    # optional
+  hidden: Sheer Force    # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 80
+  attack: 75
+  defense: 120
+  sp_attack: 125
+  sp_defense: 85
+  speed: 50
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {defense: 1, sp_attack: 2} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating

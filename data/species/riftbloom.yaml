@@ -45,13 +45,10 @@ held_items:              # items wild ones can hold (optional)
   rare:
 
 # --- Evolution: what THIS Pokemon evolves INTO ---
-evolutions: []
-# evolutions:
-#   - into: leafsteel    # file name of the target, without .yaml
-#     method: level      # level | item | trade | friendship | ... full list in docs/DEX_DATA.md#field-guide
-#     level: 16          # for method: level
-#     item:              # for method: item, e.g. Thunder Stone
-#     note:              # anything else worth knowing
+evolutions:
+  - into: riftlees
+    method: level
+    level: 26
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
@@ -129,7 +126,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:425"
+  footprint: "hgss:425"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry: "assets/cries/riftbloom.json" # sound file
 
