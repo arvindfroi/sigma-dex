@@ -116,6 +116,8 @@ def main():
         "shinies": saved("shiny"), "cries": cries,
         "official_species": json.loads(official_path.read_text(encoding="utf-8"))["species"] if official_path.exists() else [],
         "legendaries": yaml.safe_load(legendaries_path.read_text(encoding="utf-8")) if legendaries_path.exists() else {},
+        # Origin HeartGold's changes to official moves (type, category, power), for the damage calc in TEAMS
+        "origin_moves": (yaml.safe_load((ROOT / "data" / "engine" / "origin.yaml").read_text(encoding="utf-8")) or {}).get("move_changes") or {},
         "type_shares": yaml.safe_load((ROOT / "data" / "engine" / "type_shares.yaml").read_text(encoding="utf-8")),
         "story_moves": story_moves.build()[0],
         "characters": yaml.safe_load((ROOT / "data" / "characters.yaml").read_text(encoding="utf-8")) if (ROOT / "data" / "characters.yaml").exists() else [],
