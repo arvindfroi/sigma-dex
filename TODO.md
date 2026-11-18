@@ -16,7 +16,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Dex page | height | 162 / 183 |
 | Dex page | weight | 162 / 183 |
 | Dex page | body color | 144 / 183 |
-| Stats | base stats | 172 / 183 |
+| Stats | base stats | 173 / 183 |
 | Stats | ability | 175 / 183 |
 | Stats | EV yield | 164 / 183 |
 | Stats | catch rate | 143 / 183 |
@@ -43,9 +43,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 140 / 183 |
-| DS back sprite 80x80 | 140 / 183 |
-| DS icon 32x32 | 137 / 183 |
+| DS front sprite 80x80 | 142 / 183 |
+| DS back sprite 80x80 | 142 / 183 |
+| DS icon 32x32 | 139 / 183 |
 
 ## Open dex slots (71)
 
@@ -288,7 +288,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #36 [coatail](data/species/coatail.yaml) - 69%
+### #36 [Coatail](data/species/coatail.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
@@ -1188,10 +1188,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
-### #163 [Venorax](data/species/venorax.yaml) - 17%
+### #163 [Venorax](data/species/venorax.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

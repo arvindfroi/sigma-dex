@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 36
-name: coatail
+name: Coatail
 
 credits:
   designer: Arvind       # who came up with it (Discord name)
@@ -93,12 +93,12 @@ learnset:
     - {level: 40, move: Body Slam}
     - {level: 43, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance, Frustration,
-          Iron Tail, Thunderbolt, Thunder, Return, Dig, Shadow Ball, Brick Break,
-          Double Team, Facade, Secret Power, Rest, Attract, Thief, Fling, Endure,
-          Shadow Claw, Giga Impact, Thunder Wave, Captivate, Sleep Talk, Natural Gift,
-          Grass Knot, Swagger, U-turn, Substitute, Play Rough, Cut, Strength, Rock Smash,
-          Blizzard, Shock Wave, Surf, Swords Dance, Bullet Seed]
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Taunt, Blizzard, Protect, Rain Dance,
+          Frustration, Iron Tail, Thunderbolt, Thunder, Return, Dig, Shadow Ball,
+          Brick Break, Double Team, Shock Wave, Facade, Secret Power, Rest, Attract, Thief,
+          Fling, Endure, Shadow Claw, Giga Impact, Thunder Wave, Swords Dance, Captivate,
+          Sleep Talk, Natural Gift, Grass Knot, Swagger, U-turn, Substitute, Play Rough,
+          Cut, Surf, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Aqua Tail, Body Slam, Charm, Endeavor, Hyper Voice, Seed Bomb, Super Fang,
           Zen Headbutt, Icy Wind]

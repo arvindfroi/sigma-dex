@@ -817,7 +817,7 @@ SINGLE_BATTLE_TEST("Sigma dex: blutie can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: coatail has the data from its species file")
+TEST("Sigma dex: Coatail has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_COATAIL];
     EXPECT_EQ(info->baseHP, 76);
@@ -833,7 +833,7 @@ TEST("Sigma dex: coatail has the data from its species file")
     EXPECT_EQ(GetSpeciesName(SPECIES_COATAIL)[0], CHAR_C);
 }
 
-SINGLE_BATTLE_TEST("Sigma dex: coatail can use its first move in battle")
+SINGLE_BATTLE_TEST("Sigma dex: Coatail can use its first move in battle")
 {
     GIVEN {
         PLAYER(SPECIES_COATAIL) { Moves(MOVE_AGILITY); }

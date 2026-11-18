@@ -7117,5 +7117,61 @@
     "file": "assets/concept-art/riftlees/2315.png",
     "caption": "[ds-back] sprite #439",
     "editor": null
+  },
+  {
+    "id": 2318,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/2318.png",
+    "caption": "[ds-front] sprite #440",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2319,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/2319.png",
+    "caption": "[ds-back] sprite #440",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2320,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/2320.png",
+    "caption": "[ds-icon] sprite #440",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2321,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/2321.png",
+    "caption": "[ds-follower] sprite #440",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2322,
+    "species": "ultragon",
+    "file": "assets/concept-art/ultragon/2322.png",
+    "caption": "[ds-front] sprite #441",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2323,
+    "species": "ultragon",
+    "file": "assets/concept-art/ultragon/2323.png",
+    "caption": "[ds-back] sprite #441",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2324,
+    "species": "ultragon",
+    "file": "assets/concept-art/ultragon/2324.png",
+    "caption": "[ds-icon] sprite #441",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2325,
+    "species": "ultragon",
+    "file": "assets/concept-art/ultragon/2325.png",
+    "caption": "[ds-follower] sprite #441",
+    "editor": "Arvind"
   }
 ]

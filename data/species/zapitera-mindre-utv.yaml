@@ -19,7 +19,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 abilities:
   primary: Volt Absorb
   secondary: Magnet Pull # optional
-  hidden: Stalwart       # optional
+  hidden: Steely Spirit  # optional
 
 base_stats:              # each 1-255
   hp: 40

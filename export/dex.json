@@ -9203,7 +9203,7 @@
     },
     {
       "dex": 36,
-      "name": "coatail",
+      "name": "Coatail",
       "credits": {
         "designer": "Arvind",
         "artist": "Arvind"
@@ -9356,9 +9356,11 @@
         ],
         "tm_hm": [
           "Toxic",
+          "Bullet Seed",
           "Hidden Power",
           "Sunny Day",
           "Taunt",
+          "Blizzard",
           "Protect",
           "Rain Dance",
           "Frustration",
@@ -9370,6 +9372,7 @@
           "Shadow Ball",
           "Brick Break",
           "Double Team",
+          "Shock Wave",
           "Facade",
           "Secret Power",
           "Rest",
@@ -9380,6 +9383,7 @@
           "Shadow Claw",
           "Giga Impact",
           "Thunder Wave",
+          "Swords Dance",
           "Captivate",
           "Sleep Talk",
           "Natural Gift",
@@ -9389,13 +9393,9 @@
           "Substitute",
           "Play Rough",
           "Cut",
-          "Strength",
-          "Rock Smash",
-          "Blizzard",
-          "Shock Wave",
           "Surf",
-          "Swords Dance",
-          "Bullet Seed"
+          "Strength",
+          "Rock Smash"
         ],
         "tutor": [
           "Aqua Tail",
@@ -29365,7 +29365,7 @@
       "abilities": {
         "primary": "Volt Absorb",
         "secondary": "Magnet Pull",
-        "hidden": "Stalwart"
+        "hidden": "Steely Spirit"
       },
       "base_stats": {
         "hp": 40,
@@ -40091,12 +40091,12 @@
         "hidden": "Protean"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 70,
+        "attack": 105,
+        "defense": 65,
+        "sp_attack": 85,
+        "sp_defense": 95,
+        "speed": 110
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -40344,9 +40344,9 @@
       "base_stats": {
         "hp": 65,
         "attack": 125,
-        "defense": 80,
+        "defense": 85,
         "sp_attack": 45,
-        "sp_defense": 60,
+        "sp_defense": 75,
         "speed": 115
       },
       "ev_yield": {
