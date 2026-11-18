@@ -1402,6 +1402,7 @@ static const u16 sGalfrogtomTeachableLearnset[] = {
 
 static const u16 sBlutieTeachableLearnset[] = {
     MOVE_TOXIC,
+    MOVE_BULLET_SEED,
     MOVE_HIDDEN_POWER,
     MOVE_SUNNY_DAY,
     MOVE_BLIZZARD,
@@ -1434,7 +1435,6 @@ static const u16 sBlutieTeachableLearnset[] = {
     MOVE_CUT,
     MOVE_SURF,
     MOVE_ROCK_SMASH,
-    MOVE_BULLET_SEED,
     MOVE_BODY_SLAM,
     MOVE_CHARM,
     MOVE_ENDEAVOR,
@@ -2279,6 +2279,7 @@ static const u16 sUnknightedTeachableLearnset[] = {
     MOVE_SLEEP_TALK,
     MOVE_NATURAL_GIFT,
     MOVE_SWAGGER,
+    MOVE_U_TURN,
     MOVE_SUBSTITUTE,
     MOVE_TRICK_ROOM,
     MOVE_PSYSHOCK,
@@ -2286,7 +2287,6 @@ static const u16 sUnknightedTeachableLearnset[] = {
     MOVE_EERIE_IMPULSE,
     MOVE_ELECTRIC_TERRAIN,
     MOVE_EXPANDING_FORCE,
-    MOVE_U_TURN,
     MOVE_BODY_SLAM,
     MOVE_VOLT_SWITCH,
     MOVE_ZEN_HEADBUTT,

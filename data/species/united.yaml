@@ -23,11 +23,11 @@ abilities:
 
 base_stats:              # each 1-255
   hp: 67
-  attack: 77
+  attack: 76
   defense: 67
-  sp_attack: 77
+  sp_attack: 76
   sp_defense: 67
-  speed: 112
+  speed: 114
 
 ev_yield: {speed: 2}     # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate: 75           # 3 (legendary) to 255 (very easy)
@@ -94,8 +94,8 @@ learnset:
           Rain Dance, Safeguard, Frustration, Thunderbolt, Thunder, Return, Psychic,
           Shadow Ball, Double Team, Reflect, Shock Wave, Facade, Secret Power, Rest,
           Attract, Thief, Skill Swap, Charge Beam, Endure, Giga Impact, Flash, Thunder Wave,
-          Psych Up, Sleep Talk, Natural Gift, Swagger, Substitute, Trick Room, Psyshock,
-          Electroweb, Eerie Impulse, Electric Terrain, Expanding Force, U-turn]
+          Psych Up, Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Trick Room,
+          Psyshock, Electroweb, Eerie Impulse, Electric Terrain, Expanding Force]
   # moves a move tutor can teach it
   tutor: [Body Slam, Volt Switch, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line

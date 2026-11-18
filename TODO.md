@@ -16,8 +16,8 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Dex page | height | 162 / 183 |
 | Dex page | weight | 162 / 183 |
 | Dex page | body color | 144 / 183 |
-| Stats | base stats | 173 / 183 |
-| Stats | ability | 175 / 183 |
+| Stats | base stats | 174 / 183 |
+| Stats | ability | 176 / 183 |
 | Stats | EV yield | 164 / 183 |
 | Stats | catch rate | 143 / 183 |
 | Stats | base exp | 143 / 183 |
@@ -36,16 +36,16 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Art | back sprite | 4 / 183 |
 | Art | icon | 4 / 183 |
 | Art | footprint | 145 / 183 |
-| Art | shiny palette | 72 / 183 |
+| Art | shiny palette | 73 / 183 |
 | Art | cry | 27 / 183 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 158 / 183 |
-| DS back sprite 80x80 | 158 / 183 |
-| DS icon 32x32 | 155 / 183 |
+| DS front sprite 80x80 | 163 / 183 |
+| DS back sprite 80x80 | 163 / 183 |
+| DS icon 32x32 | 160 / 183 |
 
 ## Open dex slots (71)
 
@@ -282,7 +282,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #35 [blutie](data/species/coati.yaml) - 69%
+### #35 [Blutie](data/species/coati.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
@@ -584,11 +584,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #79 [Iglomodo](data/species/iglomodo.yaml) - 72%
+### #79 [Iglomodo](data/species/iglomodo.yaml) - 76%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #80 [Furamire](data/species/furamire.yaml) - 72%
 
@@ -1244,10 +1244,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #169 [Aqualoom](data/species/aqualoom.yaml) - 14%
+### #169 [Aqualoom](data/species/aqualoom.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

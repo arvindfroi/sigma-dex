@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 35
-name: blutie
+name: Blutie
 
 credits:
   designer: Arvind       # who came up with it (Discord name)
@@ -82,11 +82,11 @@ learnset:
     - {level: 31, move: Double-Edge}
     - {level: 40, move: Body Slam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Blizzard, Protect, Rain Dance, Frustration,
-          Iron Tail, Thunderbolt, Thunder, Return, Dig, Shadow Ball, Double Team,
-          Shock Wave, Facade, Secret Power, Rest, Attract, Thief, Fling, Endure,
-          Thunder Wave, Captivate, Sleep Talk, Natural Gift, Grass Knot, Swagger, U-turn,
-          Substitute, Cut, Surf, Rock Smash, Bullet Seed]
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Blizzard, Protect, Rain Dance,
+          Frustration, Iron Tail, Thunderbolt, Thunder, Return, Dig, Shadow Ball,
+          Double Team, Shock Wave, Facade, Secret Power, Rest, Attract, Thief, Fling,
+          Endure, Thunder Wave, Captivate, Sleep Talk, Natural Gift, Grass Knot, Swagger,
+          U-turn, Substitute, Cut, Surf, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Charm, Endeavor, Hyper Voice, Icy Wind, Seed Bomb, Super Fang]
   # only needed for the first stage of an evolution line

@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**183 / 254** slots have a Pokemon - **0** are fully complete - average completeness **60%**.
+**183 / 254** slots have a Pokemon - **0** are fully complete - average completeness **61%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -43,7 +43,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 32 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Cursed Body, Lightning Rod, Galvanize (H) | 504 |  | 76% |
 | 33 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice | Moody | 462 |  | 62% |
 | 34 | [Rainbro](data/species/rainbro.yaml) |  | Punchable Face | 490 |  | 59% |
-| 35 | [blutie](data/species/coati.yaml) | Normal | Run Away, Quick Feet, Unburden (H) | 255 | Coatail (Lv 15) | 69% |
+| 35 | [Blutie](data/species/coati.yaml) | Normal | Run Away, Quick Feet, Unburden (H) | 255 | Coatail (Lv 15) | 69% |
 | 36 | [Coatail](data/species/coatail.yaml) | Normal | Run Away, Quick Feet, Unburden (H) | 446 |  | 69% |
 | 37 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Sticky Hold, Regenerator (H) | 325 | Toxiren (Lv 40) | 72% |
 | 38 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Toxic Voice, Regenerator (H) | 518 |  | 72% |
@@ -87,7 +87,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 76 | [Leadleak](data/species/leadling-utvikling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Poison Point (H) | 400 | Blylem (Lv 40) | 66% |
 | 77 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Poison Point (H) | 525 |  | 72% |
 | 78 | [Iglomodo mindre utv](data/species/iglomodo-mindre-utv.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 340 | Iglomodo (Lv 35) | 34% |
-| 79 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 530 |  | 72% |
+| 79 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 520 |  | 76% |
 | 80 | [Furamire](data/species/furamire.yaml) | Normal / Fairy | Cute Charm, Competitive, Serene Grace (H) | 480 |  | 72% |
 | 81 | [Ciggiti](data/species/ciggiti.yaml) | Ghost | Smoked Up | 310 | Chuchar (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.), Parahaunt (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 69% |
 | 82 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 69% |
@@ -96,7 +96,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 85 | [Detecub mindre evo](data/species/darkgonark.yaml) | Normal | Pickup, Keen Eye, Download (H) | 317 | Detecup (Lv 20) | 62% |
 | 86 | [Detecup](data/species/detecup.yaml) | Normal | Pickup, Keen Eye, Download (H) | 462 |  | 69% |
 | 87 | [Snownin](data/species/snownin.yaml) | Ice | Snow Warning, Snow Cloak, Levitate (H) | 475 |  | 66% |
-| 88 | [Verrith](data/species/verrith.yaml) | Ghost / Steel | Fog Of War, Neutralizing Gas (H) | 555 |  | 69% |
+| 88 | [Verrith](data/species/verrith.yaml) | Ghost / Steel | Fog Of War, Neutralizing Gas (H) | 580 |  | 69% |
 | 89 | [Sigmanian Komala](data/species/sigmanian-komala.yaml) | Normal | Drunken Rage, Poison Heal, Toxic Boost (H) | 348 | Dahrugula (Lv 32) | 69% |
 | 90 | [Dahrugula](data/species/dahrugula.yaml) | Normal | Drunken Rage, Poison Heal, Toxic Boost (H) | 540 |  | 66% |
 | 91 | [Vires](data/species/vires.yaml) | Fairy | Mirror Armor, Symbiosis, Hospitality (H) | 315 | Flurina (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 69% |
@@ -177,7 +177,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 166 | [Crystax](data/species/crystax.yaml) | Steel / Rock | Crystal Body, Tough Claws, Sand Force (H) | 510 |  | 24% |
 | 167 | [whyrmshade](data/species/whyrmshade.yaml) | Ghost | Levitate, Cursed Body, Infiltrator (H) | 300 |  | 24% |
 | 168 | [Abysspero](data/species/abysspero.yaml) | Dragon / Ghost |  |  |  | 14% |
-| 169 | [Aqualoom](data/species/aqualoom.yaml) | Water / Steel |  |  |  | 14% |
+| 169 | [Aqualoom](data/species/aqualoom.yaml) | Water / Steel | Rain Dish, Water Absorb, Oblivious (H) | 305 |  | 21% |
 | 170 | *open slot* | | | | | |
 | 171 | *open slot* | | | | | |
 | 172 | *open slot* | | | | | |

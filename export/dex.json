@@ -8950,7 +8950,7 @@
     },
     {
       "dex": 35,
-      "name": "blutie",
+      "name": "Blutie",
       "credits": {
         "designer": "Arvind",
         "artist": "Arvind"
@@ -9074,6 +9074,7 @@
         ],
         "tm_hm": [
           "Toxic",
+          "Bullet Seed",
           "Hidden Power",
           "Sunny Day",
           "Blizzard",
@@ -9105,8 +9106,7 @@
           "Substitute",
           "Cut",
           "Surf",
-          "Rock Smash",
-          "Bullet Seed"
+          "Rock Smash"
         ],
         "tutor": [
           "Body Slam",
@@ -14921,11 +14921,11 @@
       },
       "base_stats": {
         "hp": 67,
-        "attack": 77,
+        "attack": 76,
         "defense": 67,
-        "sp_attack": 77,
+        "sp_attack": 76,
         "sp_defense": 67,
-        "speed": 112
+        "speed": 114
       },
       "ev_yield": {
         "speed": 2
@@ -15074,14 +15074,14 @@
           "Sleep Talk",
           "Natural Gift",
           "Swagger",
+          "U-turn",
           "Substitute",
           "Trick Room",
           "Psyshock",
           "Electroweb",
           "Eerie Impulse",
           "Electric Terrain",
-          "Expanding Force",
-          "U-turn"
+          "Expanding Force"
         ],
         "tutor": [
           "Body Slam",
@@ -19375,7 +19375,7 @@
       "dex": 76,
       "name": "Leadleak",
       "credits": {
-        "designer": "Emil Venge-Kvamme",
+        "designer": "Arvind",
         "artist": null
       },
       "types": [
@@ -20112,7 +20112,7 @@
         "defense": 70,
         "sp_attack": 85,
         "sp_defense": 100,
-        "speed": 65
+        "speed": 55
       },
       "ev_yield": {
         "attack": 2
@@ -20335,7 +20335,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:160",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/iglomodo.json",
         "cry": null
       },
       "engine": {
@@ -22394,8 +22394,8 @@
         "attack": 125,
         "defense": 130,
         "sp_attack": 120,
-        "sp_defense": 55,
-        "speed": 40
+        "sp_defense": 70,
+        "speed": 50
       },
       "ev_yield": {
         "defense": 3
@@ -40575,17 +40575,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Rain Dish",
+        "secondary": "Water Absorb",
+        "hidden": "Oblivious"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 44,
+        "attack": 24,
+        "defense": 91,
+        "sp_attack": 50,
+        "sp_defense": 86,
+        "speed": 10
       },
       "ev_yield": null,
       "catch_rate": null,

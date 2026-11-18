@@ -789,7 +789,7 @@ SINGLE_BATTLE_TEST("Sigma dex: Galfrogtom can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: blutie has the data from its species file")
+TEST("Sigma dex: Blutie has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BLUTIE];
     EXPECT_EQ(info->baseHP, 38);
@@ -805,7 +805,7 @@ TEST("Sigma dex: blutie has the data from its species file")
     EXPECT_EQ(GetSpeciesName(SPECIES_BLUTIE)[0], CHAR_B);
 }
 
-SINGLE_BATTLE_TEST("Sigma dex: blutie can use its first move in battle")
+SINGLE_BATTLE_TEST("Sigma dex: Blutie can use its first move in battle")
 {
     GIVEN {
         PLAYER(SPECIES_BLUTIE) { Moves(MOVE_GROWL); }
@@ -1297,10 +1297,10 @@ TEST("Sigma dex: Unknighted has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_UNKNIGHTED];
     EXPECT_EQ(info->baseHP, 67);
-    EXPECT_EQ(info->baseAttack, 77);
+    EXPECT_EQ(info->baseAttack, 76);
     EXPECT_EQ(info->baseDefense, 67);
-    EXPECT_EQ(info->baseSpeed, 112);
-    EXPECT_EQ(info->baseSpAttack, 77);
+    EXPECT_EQ(info->baseSpeed, 114);
+    EXPECT_EQ(info->baseSpAttack, 76);
     EXPECT_EQ(info->baseSpDefense, 67);
     EXPECT_EQ(info->types[0], TYPE_ELECTRIC);
     EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
@@ -1719,7 +1719,7 @@ TEST("Sigma dex: Iglomodo has the data from its species file")
     EXPECT_EQ(info->baseHP, 85);
     EXPECT_EQ(info->baseAttack, 125);
     EXPECT_EQ(info->baseDefense, 70);
-    EXPECT_EQ(info->baseSpeed, 65);
+    EXPECT_EQ(info->baseSpeed, 55);
     EXPECT_EQ(info->baseSpAttack, 85);
     EXPECT_EQ(info->baseSpDefense, 100);
     EXPECT_EQ(info->types[0], TYPE_ICE);
