@@ -1,5 +1,5 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
-dex: 47
+dex: 48
 name: Ampeel
 
 credits:
@@ -147,7 +147,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:290"
+  footprint: "hgss:290"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/ampeel.json"
   cry: "assets/cries/ampeel.json" # sound file
 

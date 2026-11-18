@@ -685,6 +685,48 @@ villains: Giovanni, Ariana, Petrel). The Elite Four (Ice, Fighting, Ghost, Drago
   walkways are `g02rope_a` (32x32). Same size and format in, so no model change.
 - **The Spinarak carts:** a Fairy Pokemon or a cute cart instead (overworld objects, command AzaleaGymSpinarak).
 - **Also now:** the bug emblem on the floor at the entrance (`g02mark`, 64x64) and the gym trainers' teams (Fairy).
+- **The look: DONE and LOCKED (Arvind 2026-11-18: "looks good", "lock it inn").** Locked copy with both test ROMs,
+  pictures, the scripts and SHA-256 sums: ~/sigma-origin/fairy_gym/locked_fairy_gym_v1/ (README.txt). Built by
+  scripts/origin_custom/fairy_gym/fairy_look.py (IN.nds OUT.nds [PREVIEW_DIR]); it runs after build_fairy_gym.py.
+  Everything visible in the gym comes from two texture sets that only area 29 uses (maps 136 = the entrance hall and
+  180 = the gym): map textures a/0/4/4 file 29 and building textures a/0/7/0 file 27. Neither has per-outfit copies in
+  data/clothes1|2. Every texture keeps its size and format, so the script writes them back in place. Changes:
+  - autumn leaves (`g02ochi*`) -> fallen cherry petals; the trees and the big tree -> pink blossom trees, rosy bark;
+  - hedges -> mint; floor -> pale pink stone with lilac pebbles; the wavy back wall and the pit walls -> lavender;
+  - entrance hall: the green diamond carpet -> pink, the red door mat -> pink, the potted plants -> pink bushes;
+  - the pit: the transparent webs are replaced by an opaque dusk-violet flower bed with glitter (`g02spider` drawn
+    new, A5I3; the pit shows it about 3x smaller than its texels, so the flowers are drawn big, radius 5-9);
+  - silk walkways (`g02rope_a`) -> pink and white ribbon; the switch bridges: orange -> pink, blue -> periwinkle; the
+    levers follow (red -> pink, blue -> periwinkle), so the colour clue of the puzzle stays;
+  - the bug emblem (`g02mark`) -> a pink ring with a four-point sparkle (drawn new);
+  - the Spinarak carts -> **Fleuroom's mushroom head** (Arvind 2026-11-18: Fleuroom is the leader's signature
+    Pokemon). Built by scripts/origin_custom/fairy_gym/fleuroom_cart.py (called by fairy_look.py). The cart is room
+    building model 118 `gym02lift` (a/1/4/8, also listed as fielddata/build_model/bm_room.narc; both FAT entries are
+    patched, they are two copies). Its 22 display lists are rewritten in the same 5544 bytes: an orange dome cap with
+    cream spots (the player stands on top, y about 2, the old platform was at 1), gills under the rim, and a cream stem
+    with Fleuroom's face on the camera side; the six legs get one invisible triangle each. Colours come from his DS
+    sprite. Texture gotcha: in a/0/7/0 file 27 g02lift_body and _body2 share one palette, body2 shares its pixels with
+    leg1 and on2 with leg2, so the face is on g02lift_on1. Riding works in the emulator (the player stands on the cap
+    and crosses the pit). Parked against a ledge only the cap shows (the ledge hides the stem, as it hid the Spinarak's
+    body); while riding the face shows as a cream stem with two dark eyes. Pictures:
+    ~/sigma-origin/fairy_gym/fleuroom_cart_model.png, ride6_zoom.png, side_v6.png.
+  **Nothing else in the game changes (checked 2026-11-18, Arvind asked).** A byte compare of the original ROM and the
+  output finds changes in exactly four places: a/0/4/4 member 29, a/0/7/0 member 27, a/1/4/8 member 118 and its copy
+  fielddata/build_model/bm_room.narc member 118. Who uses them:
+  - map textures 29 and building textures 27: only area 29 (area data a/0/4/2), and only maps 136 and 180 have area 29
+    in the map header table (all 569 entries checked). Both are Azalea Gym: 180 is the gym, 136 uses land data 247,
+    the gym's own entrance hall.
+  - room model 118 (the cart): no indoor map places it; the gym's cart code spawns it. Land data that place a
+    building 118 all belong to outdoor areas (type 1), where 118 means outdoor model a/0/4/0 118, a different model.
+    Indoor maps take their buildings from a/1/4/8 (the gym's land data 248 places 115/116/117/122 = gym02rope_1,
+    gym02rope_2, gym02switch, gym02switch_r).
+  - none of the four archives has per-outfit copies in data/clothes1|2.
+  Method: "ramp" moves every palette colour onto a Fairy colour ramp by its brightness, so the original shading and
+  outlines stay; "hue" moves only the colourful entries (grey metal stays). Tested in the emulator on
+  ~/sigma-origin/origin_hg_en.nds (test jump into map 180), side by side with the original:
+  ~/sigma-origin/fairy_gym/side_v2.png and mark_side.png. Applied to the rc8 rule ROM:
+  ~/sigma-origin/rc8/fairy_gym_look_test.nds. Not changed yet: the gym trainers are still Bug Catchers (their
+  sprites and classes go with the Fairy teams), the two gym statues and Bugsy himself.
 - **Later:** the Hive Badge (name and picture), the reward TM81 X-Scissor, the Megahorn tutor at the door.
 - **Rewrite:** Bugsy's Bug lines in the gym, and the Ilex Forest bug hunt he runs before the gym.
 

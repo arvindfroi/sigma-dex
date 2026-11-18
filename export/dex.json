@@ -1067,7 +1067,7 @@
         "back_sprite": "assets/sprites/waffy/back.png",
         "icon": "assets/sprites/waffy/icon.png",
         "footprint": "hgss:258",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/waffy.json",
         "cry": null
       },
       "engine": {
@@ -1347,7 +1347,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:259",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/wealther.json",
         "cry": null
       },
       "engine": {
@@ -5102,6 +5102,217 @@
     },
     {
       "dex": 20,
+      "name": "Cloudjester",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Fairy",
+        "Flying"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": 1.1,
+      "weight_kg": 18.9,
+      "body_color": null,
+      "abilities": {
+        "primary": "Prankster",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 65,
+        "attack": 55,
+        "defense": 60,
+        "sp_attack": 87,
+        "sp_defense": 90,
+        "speed": 121
+      },
+      "ev_yield": {
+        "speed": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Tailwind"
+          },
+          {
+            "level": 1,
+            "move": "Fairy Wind"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Gust"
+          },
+          {
+            "level": 6,
+            "move": "Helping Hand"
+          },
+          {
+            "level": 10,
+            "move": "Disarming Voice"
+          },
+          {
+            "level": 12,
+            "move": "Charm"
+          },
+          {
+            "level": 15,
+            "move": "Air Cutter"
+          },
+          {
+            "level": 25,
+            "move": "Whirlwind"
+          },
+          {
+            "level": 26,
+            "move": "Encore"
+          },
+          {
+            "level": 32,
+            "move": "Air Slash"
+          },
+          {
+            "level": 36,
+            "move": "Agility"
+          },
+          {
+            "level": 36,
+            "move": "Roost"
+          },
+          {
+            "level": 39,
+            "move": "Moonblast"
+          },
+          {
+            "level": 40,
+            "move": "Dazzling Gleam"
+          },
+          {
+            "level": 42,
+            "move": "Sweet Scent"
+          },
+          {
+            "level": 50,
+            "move": "Hurricane"
+          }
+        ],
+        "tm_hm": [
+          "Calm Mind",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Safeguard",
+          "Frustration",
+          "Solar Beam",
+          "Return",
+          "Psychic",
+          "Double Team",
+          "Reflect",
+          "Aerial Ace",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Steel Wing",
+          "Roost",
+          "Endure",
+          "Giga Impact",
+          "Thunder Wave",
+          "Psych Up",
+          "Sleep Talk",
+          "Natural Gift",
+          "Swagger",
+          "U-turn",
+          "Substitute",
+          "Draining Kiss",
+          "Play Rough",
+          "Fly",
+          "Energy Ball"
+        ],
+        "tutor": [
+          "Air Slash",
+          "Charm",
+          "Dazzling Gleam",
+          "Heat Wave",
+          "Hurricane",
+          "Sky Attack",
+          "Fake Out"
+        ],
+        "egg": [
+          "Defog"
+        ]
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": true,
+        "filled_by_claude": [
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves"
+        ],
+        "claude_sure": {
+          "level-up moves": 55,
+          "TM/HM moves": 60,
+          "tutor moves": 50,
+          "egg moves": 50
+        },
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/cloudjester/1463.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": "hgss:123",
+        "shiny_palette": "assets/shiny/cloudjester.json",
+        "cry": "assets/cries/cloudjester.json"
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "cloudjester"
+    },
+    {
+      "dex": 21,
       "name": "Cowfin",
       "credits": {
         "designer": "Arvind",
@@ -5359,7 +5570,7 @@
       "id": "cowfin"
     },
     {
-      "dex": 21,
+      "dex": 22,
       "name": "Mooceon",
       "credits": {
         "designer": "Arvind",
@@ -5661,7 +5872,7 @@
       "id": "mooceon"
     },
     {
-      "dex": 22,
+      "dex": 23,
       "name": "Lapper",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -5921,7 +6132,7 @@
       "id": "lapper"
     },
     {
-      "dex": 23,
+      "dex": 24,
       "name": "Brawleo",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -6236,7 +6447,7 @@
       "id": "brawleo"
     },
     {
-      "dex": 24,
+      "dex": 25,
       "name": "Sigmanian Sudowoodo",
       "credits": {
         "designer": "Arvind",
@@ -6493,7 +6704,7 @@
       "id": "sigmanian-sudowoodo"
     },
     {
-      "dex": 25,
+      "dex": 26,
       "name": "Snobbit",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -6728,7 +6939,7 @@
       "id": "icy-freeze"
     },
     {
-      "dex": 26,
+      "dex": 27,
       "name": "Freezrick",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -6981,7 +7192,7 @@
       "id": "freezrick"
     },
     {
-      "dex": 27,
+      "dex": 28,
       "name": "Bulbtle",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -7230,7 +7441,7 @@
       "id": "bulbtle"
     },
     {
-      "dex": 28,
+      "dex": 29,
       "name": "Bulbtoise",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -7503,7 +7714,7 @@
       "id": "bulbtoise"
     },
     {
-      "dex": 29,
+      "dex": 30,
       "name": "Wispole",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -7737,7 +7948,7 @@
       "id": "wispole"
     },
     {
-      "dex": 30,
+      "dex": 31,
       "name": "Croakble",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -7977,7 +8188,7 @@
       "id": "croakble"
     },
     {
-      "dex": 31,
+      "dex": 32,
       "name": "Galfrogtom",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -8270,7 +8481,7 @@
       "id": "galfrogtom"
     },
     {
-      "dex": 32,
+      "dex": 33,
       "name": "Sigmanian Eiscue",
       "credits": {
         "designer": null,
@@ -8517,7 +8728,7 @@
       "id": "eiscue"
     },
     {
-      "dex": 33,
+      "dex": 34,
       "name": "Rainbro",
       "credits": {
         "designer": null,
@@ -8738,7 +8949,7 @@
       "id": "rainbro"
     },
     {
-      "dex": 34,
+      "dex": 35,
       "name": "blutie",
       "credits": {
         "designer": "Arvind",
@@ -8991,7 +9202,7 @@
       "id": "coati"
     },
     {
-      "dex": 35,
+      "dex": 36,
       "name": "coatail",
       "credits": {
         "designer": "Arvind",
@@ -9263,7 +9474,7 @@
       "id": "coatail"
     },
     {
-      "dex": 36,
+      "dex": 37,
       "name": "Nukfae",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -9501,7 +9712,7 @@
       "id": "nukfae"
     },
     {
-      "dex": 37,
+      "dex": 38,
       "name": "Toxiren",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -9790,7 +10001,7 @@
       "id": "toxiren"
     },
     {
-      "dex": 38,
+      "dex": 39,
       "name": "Stonma",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -10023,7 +10234,7 @@
       "id": "stonma"
     },
     {
-      "dex": 39,
+      "dex": 40,
       "name": "Sigmauler",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -10291,7 +10502,7 @@
       "id": "sigmauler"
     },
     {
-      "dex": 40,
+      "dex": 41,
       "name": "Tinky",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -10526,7 +10737,7 @@
       "id": "tinky"
     },
     {
-      "dex": 41,
+      "dex": 42,
       "name": "Motinky",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -10817,7 +11028,7 @@
       "id": "motinky"
     },
     {
-      "dex": 42,
+      "dex": 43,
       "name": "Gortiki",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -11092,7 +11303,7 @@
       "id": "gortiki"
     },
     {
-      "dex": 43,
+      "dex": 44,
       "name": "Chebbi",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -11342,7 +11553,7 @@
       "id": "chebbi"
     },
     {
-      "dex": 44,
+      "dex": 45,
       "name": "Devampry",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -11636,7 +11847,7 @@
       "id": "devampry"
     },
     {
-      "dex": 45,
+      "dex": 46,
       "name": "Chillalit",
       "credits": {
         "designer": "Joar",
@@ -11892,7 +12103,7 @@
       "id": "chillalit"
     },
     {
-      "dex": 46,
+      "dex": 47,
       "name": "Zapana",
       "credits": {
         "designer": "Johannes",
@@ -12137,7 +12348,7 @@
       "id": "zapana"
     },
     {
-      "dex": 47,
+      "dex": 48,
       "name": "Ampeel",
       "credits": {
         "designer": "Johannes",
@@ -12421,7 +12632,7 @@
       "id": "ampeel"
     },
     {
-      "dex": 48,
+      "dex": 49,
       "name": "Tomaternader",
       "credits": {
         "designer": "Casper",
@@ -12666,7 +12877,7 @@
       "id": "tomaterdander"
     },
     {
-      "dex": 49,
+      "dex": 50,
       "name": "Crappy Meal",
       "credits": {
         "designer": "Casper",
@@ -12936,7 +13147,7 @@
       "id": "crappy-meal"
     },
     {
-      "dex": 50,
+      "dex": 51,
       "name": "Beatld",
       "credits": {
         "designer": null,
@@ -13176,7 +13387,7 @@
       "id": "beatld"
     },
     {
-      "dex": 51,
+      "dex": 52,
       "name": "Fleuroom",
       "credits": {
         "designer": "Michael",
@@ -13411,7 +13622,7 @@
       "id": "fleuroom"
     },
     {
-      "dex": 52,
+      "dex": 53,
       "name": "Sporeshade",
       "credits": {
         "designer": "Michael",
@@ -13660,7 +13871,7 @@
       "id": "fleuroom-utvikling"
     },
     {
-      "dex": 53,
+      "dex": 54,
       "name": "Voraxia",
       "credits": {
         "designer": "Michael",
@@ -13741,7 +13952,7 @@
       "id": "voraxia"
     },
     {
-      "dex": 54,
+      "dex": 55,
       "name": "Hippore",
       "credits": {
         "designer": null,
@@ -13991,7 +14202,7 @@
       "id": "hippore"
     },
     {
-      "dex": 55,
+      "dex": 56,
       "name": "Docuphant",
       "credits": {
         "designer": null,
@@ -14205,7 +14416,7 @@
       "id": "docuphant"
     },
     {
-      "dex": 56,
+      "dex": 57,
       "name": "Razox",
       "credits": {
         "designer": null,
@@ -14455,7 +14666,7 @@
       "id": "razox"
     },
     {
-      "dex": 57,
+      "dex": 58,
       "name": "Sigmanian Unown",
       "credits": {
         "designer": null,
@@ -14692,7 +14903,7 @@
       "id": "bulgarian-unown"
     },
     {
-      "dex": 58,
+      "dex": 59,
       "name": "Unknighted",
       "credits": {
         "designer": null,
@@ -14947,7 +15158,7 @@
       "id": "united"
     },
     {
-      "dex": 59,
+      "dex": 60,
       "name": "Hairyen",
       "credits": {
         "designer": "Magnus",
@@ -15202,7 +15413,7 @@
       "id": "hairyen"
     },
     {
-      "dex": 60,
+      "dex": 61,
       "name": "Panzerien",
       "credits": {
         "designer": "Magnus",
@@ -15503,7 +15714,7 @@
       "id": "panzerien"
     },
     {
-      "dex": 61,
+      "dex": 62,
       "name": "Nucloid",
       "credits": {
         "designer": "Magnus",
@@ -15726,7 +15937,7 @@
       "id": "nucloid"
     },
     {
-      "dex": 62,
+      "dex": 63,
       "name": "Nuclobyl",
       "credits": {
         "designer": "Magnus",
@@ -15985,7 +16196,7 @@
       "id": "nuclobyl"
     },
     {
-      "dex": 63,
+      "dex": 64,
       "name": "Julius",
       "credits": {
         "designer": "Thomas & Ragna",
@@ -16284,7 +16495,7 @@
       "id": "julius"
     },
     {
-      "dex": 64,
+      "dex": 65,
       "name": "Conqrilla",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -16566,7 +16777,7 @@
       "id": "yanklet"
     },
     {
-      "dex": 65,
+      "dex": 66,
       "name": "Anjane",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -16798,7 +17009,7 @@
       "id": "anjane"
     },
     {
-      "dex": 66,
+      "dex": 67,
       "name": "Janenon",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -17053,7 +17264,7 @@
       "id": "janenon"
     },
     {
-      "dex": 67,
+      "dex": 68,
       "name": "Saucerl",
       "credits": {
         "designer": null,
@@ -17318,7 +17529,7 @@
       "id": "saucerl"
     },
     {
-      "dex": 68,
+      "dex": 69,
       "name": "Abyssys",
       "credits": {
         "designer": null,
@@ -17592,7 +17803,7 @@
       "id": "abyssys"
     },
     {
-      "dex": 69,
+      "dex": 70,
       "name": "Octopearl",
       "credits": {
         "designer": null,
@@ -17890,7 +18101,7 @@
       "id": "octopearl"
     },
     {
-      "dex": 70,
+      "dex": 71,
       "name": "Cryoblade",
       "credits": {
         "designer": "Ivar",
@@ -18133,7 +18344,7 @@
       "id": "cryoblade"
     },
     {
-      "dex": 71,
+      "dex": 72,
       "name": "Roostasaur",
       "credits": {
         "designer": null,
@@ -18360,7 +18571,7 @@
       "id": "roostasaur"
     },
     {
-      "dex": 72,
+      "dex": 73,
       "name": "Gorambe",
       "credits": {
         "designer": "Arvind",
@@ -18689,7 +18900,7 @@
       "id": "harambe"
     },
     {
-      "dex": 73,
+      "dex": 74,
       "name": "Leadling",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -18928,7 +19139,7 @@
       "id": "leadling"
     },
     {
-      "dex": 74,
+      "dex": 75,
       "name": "Leadling Utvikling",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -19181,7 +19392,7 @@
       "id": "leadling-utvikling"
     },
     {
-      "dex": 75,
+      "dex": 76,
       "name": "Blylem",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -19436,7 +19647,7 @@
       "id": "blylem"
     },
     {
-      "dex": 76,
+      "dex": 77,
       "name": "Iglomodo mindre utv",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -19642,7 +19853,7 @@
       "id": "iglomodo-mindre-utv"
     },
     {
-      "dex": 77,
+      "dex": 78,
       "name": "Iglomodo",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -19905,7 +20116,7 @@
       "id": "iglomodo"
     },
     {
-      "dex": 78,
+      "dex": 79,
       "name": "Furamire",
       "credits": {
         "designer": "Michael",
@@ -20151,7 +20362,7 @@
       "id": "furamire"
     },
     {
-      "dex": 79,
+      "dex": 80,
       "name": "Ciggiti",
       "credits": {
         "designer": null,
@@ -20394,7 +20605,7 @@
       "id": "ciggiti"
     },
     {
-      "dex": 80,
+      "dex": 81,
       "name": "Chuchar",
       "credits": {
         "designer": null,
@@ -20636,7 +20847,7 @@
       "id": "chuchar"
     },
     {
-      "dex": 81,
+      "dex": 82,
       "name": "Parahaunt",
       "credits": {
         "designer": null,
@@ -20879,7 +21090,7 @@
       "id": "parahaunt"
     },
     {
-      "dex": 82,
+      "dex": 83,
       "name": "Goatjo",
       "credits": {
         "designer": "Ruben",
@@ -21133,7 +21344,7 @@
       "id": "goatjo"
     },
     {
-      "dex": 83,
+      "dex": 84,
       "name": "Detecub mindre evo",
       "credits": {
         "designer": "Ruben",
@@ -21368,7 +21579,7 @@
       "id": "darkgonark"
     },
     {
-      "dex": 84,
+      "dex": 85,
       "name": "Detecup",
       "credits": {
         "designer": "Ruben",
@@ -21652,7 +21863,7 @@
       "id": "detecup"
     },
     {
-      "dex": 85,
+      "dex": 86,
       "name": "Snownin",
       "credits": {
         "designer": "Arvind",
@@ -21925,7 +22136,7 @@
       "id": "snownin"
     },
     {
-      "dex": 86,
+      "dex": 87,
       "name": "Verrith",
       "credits": {
         "designer": "Casper",
@@ -22178,7 +22389,7 @@
       "id": "verrith"
     },
     {
-      "dex": 87,
+      "dex": 88,
       "name": "Sigmanian Komala",
       "credits": {
         "designer": "Magnus",
@@ -22413,7 +22624,7 @@
       "id": "sigmanian-komala"
     },
     {
-      "dex": 88,
+      "dex": 89,
       "name": "Dahrugula",
       "credits": {
         "designer": "Magnus",
@@ -22704,7 +22915,7 @@
       "id": "dahrugula"
     },
     {
-      "dex": 89,
+      "dex": 90,
       "name": "Vires",
       "credits": {
         "designer": "Arvind",
@@ -22934,7 +23145,7 @@
       "id": "vires"
     },
     {
-      "dex": 90,
+      "dex": 91,
       "name": "Flurina",
       "credits": {
         "designer": "Arvind",
@@ -23170,7 +23381,7 @@
       "id": "flurina"
     },
     {
-      "dex": 91,
+      "dex": 92,
       "name": "Dragem",
       "credits": {
         "designer": "Arvind",
@@ -23453,7 +23664,7 @@
       "id": "dragem"
     },
     {
-      "dex": 92,
+      "dex": 93,
       "name": "Quimsy",
       "credits": {
         "designer": "Michael",
@@ -23691,7 +23902,7 @@
       "id": "quimsy"
     },
     {
-      "dex": 93,
+      "dex": 94,
       "name": "ROKU",
       "credits": {
         "designer": "Ruben",
@@ -23943,7 +24154,7 @@
       "id": "roku"
     },
     {
-      "dex": 94,
+      "dex": 95,
       "name": "Skiirtle",
       "credits": {
         "designer": "Arvind",
@@ -24186,7 +24397,7 @@
       "id": "skiirtle"
     },
     {
-      "dex": 95,
+      "dex": 96,
       "name": "McSkiirtle",
       "credits": {
         "designer": null,
@@ -24482,7 +24693,7 @@
       "id": "mcskiirtle"
     },
     {
-      "dex": 96,
+      "dex": 97,
       "name": "ambuger",
       "credits": {
         "designer": "Arvind",
@@ -24723,7 +24934,7 @@
       "id": "ambuger"
     },
     {
-      "dex": 97,
+      "dex": 98,
       "name": "Ambrr",
       "credits": {
         "designer": "Arvind",
@@ -24996,7 +25207,7 @@
       "id": "ambcoptr"
     },
     {
-      "dex": 98,
+      "dex": 99,
       "name": "Tortoplasm",
       "credits": {
         "designer": "Arvind",
@@ -25238,7 +25449,7 @@
       "id": "tortoplasm"
     },
     {
-      "dex": 99,
+      "dex": 100,
       "name": "Tortoplasm utviklet",
       "credits": {
         "designer": "Arvind",
@@ -25476,7 +25687,7 @@
       "id": "tortoplasm-utviklet"
     },
     {
-      "dex": 100,
+      "dex": 101,
       "name": "Slothbaby",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -25705,7 +25916,7 @@
       "id": "slothbaby"
     },
     {
-      "dex": 101,
+      "dex": 102,
       "name": "Blazlothku",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -26016,7 +26227,7 @@
       "id": "slothbaby-utviklet"
     },
     {
-      "dex": 102,
+      "dex": 103,
       "name": "Terratyson",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -26269,7 +26480,7 @@
       "id": "gaiafinn"
     },
     {
-      "dex": 103,
+      "dex": 104,
       "name": "Obsidog",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -26527,7 +26738,7 @@
       "id": "obsidog"
     },
     {
-      "dex": 104,
+      "dex": 105,
       "name": "Geronimok",
       "credits": {
         "designer": "Casper",
@@ -26801,7 +27012,7 @@
       "id": "obsidog-utvikling"
     },
     {
-      "dex": 105,
+      "dex": 106,
       "name": "Slamquake",
       "credits": {
         "designer": "Ivar",
@@ -27080,7 +27291,7 @@
       "id": "slamquake"
     },
     {
-      "dex": 106,
+      "dex": 107,
       "name": "Limulk",
       "credits": {
         "designer": "Arvind",
@@ -27341,7 +27552,7 @@
       "id": "limulk"
     },
     {
-      "dex": 107,
+      "dex": 108,
       "name": "Mortbulk",
       "credits": {
         "designer": "Arvind",
@@ -27601,7 +27812,7 @@
       "id": "mortbulk"
     },
     {
-      "dex": 108,
+      "dex": 109,
       "name": "Phantomb",
       "credits": {
         "designer": "Ivar",
@@ -27842,7 +28053,7 @@
       "id": "phantomb"
     },
     {
-      "dex": 109,
+      "dex": 110,
       "name": "Phantail",
       "credits": {
         "designer": "Ivar",
@@ -28097,7 +28308,7 @@
       "id": "sjef"
     },
     {
-      "dex": 110,
+      "dex": 111,
       "name": "Oraclet",
       "credits": {
         "designer": "Johannes",
@@ -28341,7 +28552,7 @@
       "id": "oraclet"
     },
     {
-      "dex": 111,
+      "dex": 112,
       "name": "Oraclaw",
       "credits": {
         "designer": "Johannes",
@@ -28630,7 +28841,7 @@
       "id": "oraclaw"
     },
     {
-      "dex": 112,
+      "dex": 113,
       "name": "Aluminimonk",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -28870,7 +29081,7 @@
       "id": "alminimonk"
     },
     {
-      "dex": 113,
+      "dex": 114,
       "name": "Aluminimonk Utviklin",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -29136,7 +29347,7 @@
       "id": "alminimonk-utvikling"
     },
     {
-      "dex": 114,
+      "dex": 115,
       "name": "Sparktera",
       "credits": {
         "designer": "Ruben",
@@ -29346,7 +29557,7 @@
       "id": "zapitera-mindre-utv"
     },
     {
-      "dex": 115,
+      "dex": 116,
       "name": "Zapitera",
       "credits": {
         "designer": "Ruben & Emil",
@@ -29601,7 +29812,7 @@
       "id": "zapitera"
     },
     {
-      "dex": 116,
+      "dex": 117,
       "name": "Viridub",
       "credits": {
         "designer": "Rebekka",
@@ -29821,7 +30032,7 @@
       "id": "viridub"
     },
     {
-      "dex": 117,
+      "dex": 118,
       "name": "Viridub Utvikling",
       "credits": {
         "designer": null,
@@ -30067,7 +30278,7 @@
       "id": "viridub-utvikling"
     },
     {
-      "dex": 118,
+      "dex": 119,
       "name": "Shadeem",
       "credits": {
         "designer": "Michael",
@@ -30321,7 +30532,7 @@
       "id": "shadeem"
     },
     {
-      "dex": 119,
+      "dex": 120,
       "name": "Shadrove",
       "credits": {
         "designer": null,
@@ -30576,7 +30787,7 @@
       "id": "shadrove"
     },
     {
-      "dex": 120,
+      "dex": 121,
       "name": "Autuman",
       "credits": {
         "designer": "Arvind",
@@ -30841,7 +31052,7 @@
       "id": "autuman"
     },
     {
-      "dex": 121,
+      "dex": 122,
       "name": "Bugmight",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -31087,7 +31298,7 @@
       "id": "bugmight"
     },
     {
-      "dex": 122,
+      "dex": 123,
       "name": "JAWIE",
       "credits": {
         "designer": "Ivar",
@@ -31189,7 +31400,7 @@
       "id": "jawie"
     },
     {
-      "dex": 123,
+      "dex": 124,
       "name": "JAWBREAKER",
       "credits": {
         "designer": "Ivar",
@@ -31443,7 +31654,7 @@
       "id": "jawbreaker"
     },
     {
-      "dex": 124,
+      "dex": 125,
       "name": "Dreadipede",
       "credits": {
         "designer": "Ivar",
@@ -31686,7 +31897,7 @@
       "id": "dreadipede"
     },
     {
-      "dex": 125,
+      "dex": 126,
       "name": "Dreadfang",
       "credits": {
         "designer": "Ivar",
@@ -31937,7 +32148,7 @@
       "id": "dreadfang"
     },
     {
-      "dex": 126,
+      "dex": 127,
       "name": "Aquat",
       "credits": {
         "designer": "Ivar",
@@ -32171,7 +32382,7 @@
       "id": "surfer"
     },
     {
-      "dex": 127,
+      "dex": 128,
       "name": "Aquway",
       "credits": {
         "designer": "Ivar",
@@ -32440,7 +32651,7 @@
       "id": "subwaysurfer"
     },
     {
-      "dex": 128,
+      "dex": 129,
       "name": "Zyzzfu",
       "credits": {
         "designer": "Ivar",
@@ -32716,7 +32927,7 @@
       "id": "zyzzfu"
     },
     {
-      "dex": 129,
+      "dex": 130,
       "name": "Grincho",
       "credits": {
         "designer": "Michael",
@@ -32966,7 +33177,7 @@
       "id": "grincho"
     },
     {
-      "dex": 130,
+      "dex": 131,
       "name": "Sigmanian Charcadet",
       "credits": {
         "designer": null,
@@ -33188,7 +33399,7 @@
       "id": "glac-pee-mindre-evo"
     },
     {
-      "dex": 131,
+      "dex": 132,
       "name": "Glacépée",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -33441,7 +33652,7 @@
       "id": "glac-p-e"
     },
     {
-      "dex": 132,
+      "dex": 133,
       "name": "Everdark",
       "credits": {
         "designer": "Ivar",
@@ -33684,7 +33895,7 @@
       "id": "everdark"
     },
     {
-      "dex": 133,
+      "dex": 134,
       "name": "Diedo",
       "credits": {
         "designer": "Magnus",
@@ -33921,7 +34132,7 @@
       "id": "diedo"
     },
     {
-      "dex": 134,
+      "dex": 135,
       "name": "Seraphinnen",
       "credits": {
         "designer": "Magnus",
@@ -34201,7 +34412,7 @@
       "id": "seraphinnen"
     },
     {
-      "dex": 135,
+      "dex": 136,
       "name": "Riftbloom",
       "credits": {
         "designer": "Michael",
@@ -34425,7 +34636,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:425",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/riftbloom.json",
         "cry": "assets/cries/riftbloom.json"
       },
       "engine": {
@@ -34439,7 +34650,90 @@
       "id": "riftbloom"
     },
     {
-      "dex": 136,
+      "dex": 137,
+      "name": "riftlees",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Ghost",
+        "Psychic"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Prankster",
+        "secondary": null,
+        "hidden": "Shadow Tag"
+      },
+      "base_stats": {
+        "hp": 35,
+        "attack": 50,
+        "defense": 50,
+        "sp_attack": 100,
+        "sp_defense": 70,
+        "speed": 120
+      },
+      "ev_yield": {
+        "speed": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Second evolution to riftbloom",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": true,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/riftlees/2114.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": "assets/shiny/riftlees.json",
+        "cry": "assets/cries/riftlees.json"
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "riftlees"
+    },
+    {
+      "dex": 138,
       "name": "Giga-Circuit",
       "credits": {
         "designer": "Ruben",
@@ -34680,7 +34974,7 @@
       "id": "giga-circuit"
     },
     {
-      "dex": 137,
+      "dex": 139,
       "name": "Strawboo",
       "credits": {
         "designer": "Ruben",
@@ -34904,7 +35198,7 @@
       "id": "strawboo"
     },
     {
-      "dex": 138,
+      "dex": 140,
       "name": "Wreckingboo",
       "credits": {
         "designer": "Ruben",
@@ -35151,7 +35445,7 @@
       "id": "wreckingboo"
     },
     {
-      "dex": 139,
+      "dex": 141,
       "name": "Wreckingdrake",
       "credits": {
         "designer": "Ruben",
@@ -35386,218 +35680,7 @@
       "id": "wreckingdrake"
     },
     {
-      "dex": 140,
-      "name": "Cloudjester",
-      "credits": {
-        "designer": "Michael",
-        "artist": null
-      },
-      "types": [
-        "Fairy",
-        "Flying"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": 1.1,
-      "weight_kg": 18.9,
-      "body_color": null,
-      "abilities": {
-        "primary": "Prankster",
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": 65,
-        "attack": 55,
-        "defense": 60,
-        "sp_attack": 87,
-        "sp_defense": 90,
-        "speed": 121
-      },
-      "ev_yield": {
-        "speed": 2
-      },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 0,
-            "move": "Tailwind"
-          },
-          {
-            "level": 1,
-            "move": "Fairy Wind"
-          },
-          {
-            "level": 1,
-            "move": "Growl"
-          },
-          {
-            "level": 1,
-            "move": "Gust"
-          },
-          {
-            "level": 6,
-            "move": "Helping Hand"
-          },
-          {
-            "level": 10,
-            "move": "Disarming Voice"
-          },
-          {
-            "level": 12,
-            "move": "Charm"
-          },
-          {
-            "level": 15,
-            "move": "Air Cutter"
-          },
-          {
-            "level": 25,
-            "move": "Whirlwind"
-          },
-          {
-            "level": 26,
-            "move": "Encore"
-          },
-          {
-            "level": 32,
-            "move": "Air Slash"
-          },
-          {
-            "level": 36,
-            "move": "Agility"
-          },
-          {
-            "level": 36,
-            "move": "Roost"
-          },
-          {
-            "level": 39,
-            "move": "Moonblast"
-          },
-          {
-            "level": 40,
-            "move": "Dazzling Gleam"
-          },
-          {
-            "level": 42,
-            "move": "Sweet Scent"
-          },
-          {
-            "level": 50,
-            "move": "Hurricane"
-          }
-        ],
-        "tm_hm": [
-          "Calm Mind",
-          "Toxic",
-          "Hidden Power",
-          "Sunny Day",
-          "Taunt",
-          "Hyper Beam",
-          "Light Screen",
-          "Protect",
-          "Rain Dance",
-          "Safeguard",
-          "Frustration",
-          "Solar Beam",
-          "Return",
-          "Psychic",
-          "Double Team",
-          "Reflect",
-          "Aerial Ace",
-          "Facade",
-          "Secret Power",
-          "Rest",
-          "Attract",
-          "Thief",
-          "Steel Wing",
-          "Roost",
-          "Endure",
-          "Giga Impact",
-          "Thunder Wave",
-          "Psych Up",
-          "Sleep Talk",
-          "Natural Gift",
-          "Swagger",
-          "U-turn",
-          "Substitute",
-          "Draining Kiss",
-          "Play Rough",
-          "Fly",
-          "Energy Ball"
-        ],
-        "tutor": [
-          "Air Slash",
-          "Charm",
-          "Dazzling Gleam",
-          "Heat Wave",
-          "Hurricane",
-          "Sky Attack",
-          "Fake Out"
-        ],
-        "egg": [
-          "Defog"
-        ]
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": true,
-        "filled_by_claude": [
-          "level-up moves",
-          "TM/HM moves",
-          "tutor moves",
-          "egg moves"
-        ],
-        "claude_sure": {
-          "level-up moves": 55,
-          "TM/HM moves": 60,
-          "tutor moves": 50,
-          "egg moves": 50
-        },
-        "body_shape": null,
-        "movement": null,
-        "look": null
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/cloudjester/1463.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": "hgss:123",
-        "shiny_palette": "assets/shiny/cloudjester.json",
-        "cry": "assets/cries/cloudjester.json"
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "cloudjester"
-    },
-    {
-      "dex": 141,
+      "dex": 142,
       "name": "Felk",
       "credits": {
         "designer": "Ruben",
@@ -35691,7 +35774,7 @@
       "id": "felk"
     },
     {
-      "dex": 142,
+      "dex": 143,
       "name": "Moosus",
       "credits": {
         "designer": "Arvind",
@@ -35925,7 +36008,7 @@
       "id": "moosus"
     },
     {
-      "dex": 143,
+      "dex": 144,
       "name": "Rockedeer",
       "credits": {
         "designer": "Ruben",
@@ -36172,7 +36255,7 @@
       "id": "rockedeer"
     },
     {
-      "dex": 144,
+      "dex": 145,
       "name": "Sabertann",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -36427,7 +36510,7 @@
       "id": "sabertann"
     },
     {
-      "dex": 145,
+      "dex": 146,
       "name": "Gravriel",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -36695,7 +36778,7 @@
       "id": "gravriel"
     },
     {
-      "dex": 146,
+      "dex": 147,
       "name": "Balleisk",
       "credits": {
         "designer": "Arvind",
@@ -36944,7 +37027,7 @@
       "id": "balleisk"
     },
     {
-      "dex": 147,
+      "dex": 148,
       "name": "Greation",
       "credits": {
         "designer": "Arvind",
@@ -37210,7 +37293,7 @@
       "id": "greation"
     },
     {
-      "dex": 148,
+      "dex": 149,
       "name": "Ultragon",
       "credits": {
         "designer": "Arvind",
@@ -37473,7 +37556,6 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [
-          "body shape",
           "look",
           "movement",
           "level-up moves",
@@ -37491,7 +37573,6 @@
           "weight"
         ],
         "claude_sure": {
-          "body shape": 80,
           "look": 80,
           "movement": 80,
           "level-up moves": 77,
@@ -37533,7 +37614,7 @@
       "id": "ultragon"
     },
     {
-      "dex": 149,
+      "dex": 150,
       "name": "Bergflabb",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -37767,7 +37848,7 @@
       "id": "bergflabbser"
     },
     {
-      "dex": 150,
+      "dex": 151,
       "name": "Maagamad",
       "credits": {
         "designer": "Arvind",
@@ -38001,7 +38082,7 @@
       "id": "maagamad"
     },
     {
-      "dex": 151,
+      "dex": 152,
       "name": "Sandrema",
       "credits": {
         "designer": "Arvind",
@@ -38261,7 +38342,7 @@
       "id": "sandrema"
     },
     {
-      "dex": 152,
+      "dex": 153,
       "name": "Apeshii",
       "credits": {
         "designer": "Arvind",
@@ -38498,7 +38579,7 @@
       "id": "apeshit"
     },
     {
-      "dex": 153,
+      "dex": 154,
       "name": "Iron Bulb",
       "credits": {
         "designer": "Arvind",
@@ -38580,7 +38661,7 @@
       "id": "iron-wire"
     },
     {
-      "dex": 154,
+      "dex": 155,
       "name": "Solidedge",
       "credits": {
         "designer": "Ivar",
@@ -38880,7 +38961,7 @@
       "id": "solidedge"
     },
     {
-      "dex": 155,
+      "dex": 156,
       "name": "Rosie",
       "credits": {
         "designer": "Ivar",
@@ -38967,7 +39048,7 @@
       "id": "rosie"
     },
     {
-      "dex": 156,
+      "dex": 157,
       "name": "Rosievoir",
       "credits": {
         "designer": "Ivar",
@@ -39046,89 +39127,6 @@
         "safari_flee_rate": 0
       },
       "id": "rosievoir"
-    },
-    {
-      "dex": 157,
-      "name": "riftlees",
-      "credits": {
-        "designer": "Michael",
-        "artist": null
-      },
-      "types": [
-        "Ghost",
-        "Psychic"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": "Prankster",
-        "secondary": null,
-        "hidden": "Shadow Tag"
-      },
-      "base_stats": {
-        "hp": 35,
-        "attack": 50,
-        "defense": 50,
-        "sp_attack": 100,
-        "sp_defense": 70,
-        "speed": 120
-      },
-      "ev_yield": {
-        "speed": 2
-      },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": "Second evolution to riftbloom",
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": true,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/riftlees/2114.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": "assets/shiny/riftlees.json",
-        "cry": "assets/cries/riftlees.json"
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "riftlees"
     },
     {
       "dex": 158,
@@ -40073,6 +40071,87 @@
     },
     {
       "dex": 163,
+      "name": "Venorax",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Poison",
+        "Fire"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Color Change",
+        "secondary": "Spicy Spray",
+        "hidden": "Protean"
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/venorax/2231.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": "assets/shiny/venorax.json",
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "venorax"
+    },
+    {
+      "dex": 164,
       "name": "Raymon",
       "credits": {
         "designer": "Ivar",
@@ -40159,7 +40238,7 @@
       "id": "raymon"
     },
     {
-      "dex": 164,
+      "dex": 165,
       "name": "Crysteel",
       "credits": {
         "designer": "Michael",
@@ -40228,7 +40307,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/crysteel.json",
         "cry": null
       },
       "engine": {
@@ -40242,7 +40321,7 @@
       "id": "crysteel"
     },
     {
-      "dex": 165,
+      "dex": 166,
       "name": "Crystax",
       "credits": {
         "designer": "michael",
@@ -40325,7 +40404,7 @@
       "id": "crystax"
     },
     {
-      "dex": 166,
+      "dex": 167,
       "name": "whyrmshade",
       "credits": {
         "designer": "Michael",
@@ -40407,7 +40486,7 @@
       "id": "whyrmshade"
     },
     {
-      "dex": 167,
+      "dex": 168,
       "name": "Abysspero",
       "credits": {
         "designer": "Michael",
@@ -40488,7 +40567,7 @@
       "id": "abysspero"
     },
     {
-      "dex": 168,
+      "dex": 169,
       "name": "Aqualoom",
       "credits": {
         "designer": "Michael",
@@ -40555,7 +40634,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/aqualoom.json",
         "cry": null
       },
       "engine": {
@@ -40567,87 +40646,6 @@
         "safari_flee_rate": 0
       },
       "id": "aqualoom"
-    },
-    {
-      "dex": 169,
-      "name": "Venorax",
-      "credits": {
-        "designer": "Michael",
-        "artist": null
-      },
-      "types": [
-        "Poison",
-        "Fire"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": "Color Change",
-        "secondary": "Spicy Spray",
-        "hidden": "Protean"
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/venorax/2231.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "venorax"
     },
     {
       "dex": 198,
