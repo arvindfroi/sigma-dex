@@ -5858,7 +5858,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:128",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/mooceon.json",
         "cry": null
       },
       "engine": {
@@ -7700,7 +7700,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:388",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/bulbtoise.json",
         "cry": null
       },
       "engine": {
@@ -19373,7 +19373,7 @@
     },
     {
       "dex": 76,
-      "name": "Leadling Utvikling",
+      "name": "Leadleak",
       "credits": {
         "designer": "Emil Venge-Kvamme",
         "artist": null
@@ -19521,7 +19521,9 @@
           "Sunny Day",
           "Rain Dance",
           "Frustration",
+          "Earthquake",
           "Return",
+          "Dig",
           "Double Team",
           "Sludge Bomb",
           "Sandstorm",
@@ -19530,6 +19532,8 @@
           "Secret Power",
           "Rest",
           "Attract",
+          "Thief",
+          "Rock Polish",
           "Flash",
           "Stone Edge",
           "Stealth Rock",
@@ -19546,10 +19550,6 @@
           "Bulldoze",
           "Body Press",
           "Meteor Beam",
-          "Earthquake",
-          "Dig",
-          "Thief",
-          "Rock Polish",
           "Rock Smash"
         ],
         "tutor": [
@@ -19605,7 +19605,7 @@
         "look": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/leadling-utvikling/2485.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -24646,7 +24646,7 @@
       "weight_kg": 90,
       "body_color": "purple",
       "abilities": {
-        "primary": "Speed Boost",
+        "primary": "Better Late",
         "secondary": null,
         "hidden": "Reckless"
       },
@@ -27769,7 +27769,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:296",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/limulk.json",
         "cry": null
       },
       "engine": {
@@ -34349,7 +34349,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:176",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/diedo.json",
         "cry": null
       },
       "engine": {
@@ -40083,10 +40083,10 @@
         "hidden": "Protean"
       },
       "base_stats": {
-        "hp": 70,
+        "hp": 75,
         "attack": 105,
         "defense": 65,
-        "sp_attack": 85,
+        "sp_attack": 80,
         "sp_defense": 95,
         "speed": 110
       },

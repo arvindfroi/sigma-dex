@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 76
-name: Leadling Utvikling
+name: Leadleak
 
 credits:
   designer: Emil Venge-Kvamme # who came up with it (Discord name)
@@ -86,11 +86,11 @@ learnset:
     - {level: 51, move: Sludge Wave}
     - {level: 58, move: Belch}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Rain Dance, Frustration, Return, Double Team,
-          Sludge Bomb, Sandstorm, Rock Tomb, Facade, Secret Power, Rest, Attract, Flash,
-          Stone Edge, Stealth Rock, Captivate, Rock Slide, Sleep Talk, Natural Gift,
-          Poison Jab, Swagger, Substitute, Venoshock, Heavy Slam, Acid Spray, Bulldoze,
-          Body Press, Meteor Beam, Earthquake, Dig, Thief, Rock Polish, Rock Smash]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Rain Dance, Frustration, Earthquake, Return, Dig,
+          Double Team, Sludge Bomb, Sandstorm, Rock Tomb, Facade, Secret Power, Rest,
+          Attract, Thief, Rock Polish, Flash, Stone Edge, Stealth Rock, Captivate,
+          Rock Slide, Sleep Talk, Natural Gift, Poison Jab, Swagger, Substitute, Venoshock,
+          Heavy Slam, Acid Spray, Bulldoze, Body Press, Meteor Beam, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Curse, Earth Power, Leaf Storm, Magical Leaf, Power Gem]
   egg: []                # only needed for the first stage of an evolution line
@@ -129,7 +129,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/leadling-utvikling.png
+  concept_art: "assets/concept-art/leadling-utvikling/2485.png"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
