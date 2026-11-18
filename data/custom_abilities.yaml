@@ -11,6 +11,12 @@ abilities:
     it.'
   similar_to: Motor Drive
   designer: Emil
+- id: better-late
+  name: Better Late
+  description: Has gotten ready
+  effect: This ability activates 3 turn after the pokemon has been on the field continuously. When conditions
+    are met they get +2 priority on all moves
+  designer: Arvind
 - id: bringer-of-light
   name: Bringer of light
   description: Brings forth harsh sunlight, disallows further weatherchange

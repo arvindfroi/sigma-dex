@@ -2,7 +2,7 @@
 
 # Game export status
 
-**113** Pokemon are written as game code: Leaflet, Leafling, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Cloudgnome, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, blutie, Coatail, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Gorambe, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Roostasaur, Leadling, Blylem, Iglomodo, Furamire, Goatjo, Detecup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, McSkiirtle, ambuger, Ambrr, Tortoplasm, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, Sparktera, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, JAWBREAKER, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Glacépée, Everdark, Diedo, Riftbloom, Strawboo, Rockedeer, Sabertann, Bergflabb, Solidedge, Whaldrill0, Narburr, Whaldrill, Santrock, Cindreon, Custodix
+**113** Pokemon are written as game code: Leaflet, Leafling, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Cloudgnome, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, blutie, Coatail, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Gorambe, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Roostasaur, Leadling, Leadleak, Blylem, Iglomodo, Furamire, Goatjo, Detecup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, ambuger, Ambrr, Tortoplasm, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, Sparktera, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, JAWBREAKER, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Glacépée, Everdark, Diedo, Riftbloom, Strawboo, Rockedeer, Sabertann, Bergflabb, Solidedge, Whaldrill0, Narburr, Whaldrill, Santrock, Cindreon, Custodix
 
 ## Not exported yet (70)
 
@@ -24,7 +24,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Panzerien** needs: an ability that exists in the game
 - **Apeshii** needs: an ability that exists in the game
 - **Cryoblade** needs: an ability that exists in the game
-- **Leadling Utvikling** needs: a name of at most 10 letters
 - **Iglomodo mindre utv** needs: a name of at most 10 letters
 - **Ciggiti** needs: an ability that exists in the game
 - **Chuchar** needs: an ability that exists in the game
@@ -34,6 +33,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Sigmanian Komala** needs: an ability that exists in the game, a name of at most 10 letters
 - **Dahrugula** needs: an ability that exists in the game
 - **Quimsy** needs: an ability that exists in the game
+- **McSkiirtle** needs: an ability that exists in the game
 - **Tortoplasm utviklet** needs: a name of at most 10 letters
 - **Blazlothku** needs: an ability that exists in the game
 - **Aluminimonk** needs: a name of at most 10 letters
@@ -85,7 +85,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - Diedo: evolution into Seraphinnen left out until that Pokemon is ready
 - Freezrick: move 'Ice Egg' is not in the game yet, left out
 - Harpie: evolution into Smeatherace left out until that Pokemon is ready
-- Leadling: evolution into Leadling Utvikling left out until that Pokemon is ready
 - Leafaxer: move 'Axe Swing' is not in the game yet, left out
 - Limulk: ability 'Heckler' is not in the game yet, left out
 - Monarkhan: move 'Siro Stream' is not in the game yet, left out
@@ -95,7 +94,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - Pipwi: evolution into Tropistrich left out until that Pokemon is ready
 - Riftbloom: evolution into riftlees left out until that Pokemon is ready
 - Sigmauler: move 'Rock Hammer' is not in the game yet, left out
-- Skiirtle: evolution into McSkiirtle needs custom code (Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.)
+- Skiirtle: evolution into McSkiirtle left out until that Pokemon is ready
 - Slothbaby: evolution into Blazlothku left out until that Pokemon is ready
 - Strawboo: ability 'Glowing Lure' is not in the game yet, left out
 - Strawboo: evolution into Wreckingboo left out until that Pokemon is ready

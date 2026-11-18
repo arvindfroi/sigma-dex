@@ -7217,13 +7217,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2375,
-    "species": "bulbtoise",
-    "file": "assets/concept-art/bulbtoise/2375.png",
-    "caption": "[ds-back] sprite #458",
-    "editor": "Arvind"
-  },
-  {
     "id": 2376,
     "species": "bulbtoise",
     "file": "assets/concept-art/bulbtoise/2376.png",
@@ -7620,6 +7613,20 @@
     "species": "horaxander",
     "file": "assets/concept-art/horaxander/2480.png",
     "caption": "[ds-follower] sprite #480",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2482,
+    "species": "bulbtoise",
+    "file": "assets/concept-art/bulbtoise/2482.png",
+    "caption": "[ds-back] sprite #481",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2485,
+    "species": "leadling-utvikling",
+    "file": "assets/concept-art/leadling-utvikling/2485.png",
+    "caption": "pasted",
     "editor": "Arvind"
   }
 ]

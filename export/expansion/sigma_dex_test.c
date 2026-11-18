@@ -1657,6 +1657,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Leadling can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Leadleak has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_LEADLEAK];
+    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseAttack, 50);
+    EXPECT_EQ(info->baseDefense, 80);
+    EXPECT_EQ(info->baseSpeed, 15);
+    EXPECT_EQ(info->baseSpAttack, 95);
+    EXPECT_EQ(info->baseSpDefense, 100);
+    EXPECT_EQ(info->types[0], TYPE_ROCK);
+    EXPECT_EQ(info->types[1], TYPE_POISON);
+    EXPECT_EQ(info->abilities[0], ABILITY_STURDY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ACID);
+    EXPECT_EQ(GetSpeciesName(SPECIES_LEADLEAK)[0], CHAR_L);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Leadleak can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_LEADLEAK) { Moves(MOVE_ACID); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ACID); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ACID, player);
+    }
+}
+
 TEST("Sigma dex: Blylem has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BLYLEM];
@@ -1962,34 +1990,6 @@ SINGLE_BATTLE_TEST("Sigma dex: Skiirtle can use its first move in battle")
         TURN { MOVE(player, MOVE_EMBER); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, player);
-    }
-}
-
-TEST("Sigma dex: McSkiirtle has the data from its species file")
-{
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_MCSKIIRTLE];
-    EXPECT_EQ(info->baseHP, 60);
-    EXPECT_EQ(info->baseAttack, 100);
-    EXPECT_EQ(info->baseDefense, 100);
-    EXPECT_EQ(info->baseSpeed, 70);
-    EXPECT_EQ(info->baseSpAttack, 55);
-    EXPECT_EQ(info->baseSpDefense, 100);
-    EXPECT_EQ(info->types[0], TYPE_FIRE);
-    EXPECT_EQ(info->types[1], TYPE_ELECTRIC);
-    EXPECT_EQ(info->abilities[0], ABILITY_SPEED_BOOST);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SHELL_SMASH);
-    EXPECT_EQ(GetSpeciesName(SPECIES_MCSKIIRTLE)[0], CHAR_M);
-}
-
-SINGLE_BATTLE_TEST("Sigma dex: McSkiirtle can use its first move in battle")
-{
-    GIVEN {
-        PLAYER(SPECIES_MCSKIIRTLE) { Moves(MOVE_SHELL_SMASH); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_SHELL_SMASH); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SHELL_SMASH, player);
     }
 }
 

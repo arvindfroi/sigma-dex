@@ -30,13 +30,13 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Moves | TM/HM moves | 157 / 183 |
 | Location | encounters | 2 / 183 |
 | Design | concept | 37 / 183 |
-| Art | concept art | 174 / 183 |
+| Art | concept art | 175 / 183 |
 | Art | front sprite | 4 / 183 |
 | Art | front animation frame | 4 / 183 |
 | Art | back sprite | 4 / 183 |
 | Art | icon | 4 / 183 |
 | Art | footprint | 145 / 183 |
-| Art | shiny palette | 68 / 183 |
+| Art | shiny palette | 72 / 183 |
 | Art | cry | 27 / 183 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
@@ -197,12 +197,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #22 [Mooceon](data/species/mooceon.yaml) - 66%
+### #22 [Mooceon](data/species/mooceon.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #23 [Lapper](data/species/lapper.yaml) - 69%
 
@@ -241,11 +241,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #29 [Bulbtoise](data/species/bulbtoise.yaml) - 72%
+### #29 [Bulbtoise](data/species/bulbtoise.yaml) - 76%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #30 [Wispole](data/species/wispole.yaml) - 72%
 
@@ -562,12 +562,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #76 [Leadling Utvikling](data/species/leadling-utvikling.yaml) - 62%
+### #76 [Leadleak](data/species/leadling-utvikling.yaml) - 66%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
 ### #77 [Blylem](data/species/blylem.yaml) - 72%
 
@@ -780,12 +780,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #108 [Limulk](data/species/limulk.yaml) - 66%
+### #108 [Limulk](data/species/limulk.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #109 [Mortbulk](data/species/mortbulk.yaml) - 66%
 
@@ -974,11 +974,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #135 [Diedo](data/species/diedo.yaml) - 69%
+### #135 [Diedo](data/species/diedo.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #136 [Seraphinnen](data/species/seraphinnen.yaml) - 69%
 

@@ -17,7 +17,7 @@ body_color: purple       # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Speed Boost
+  primary: Better Late
   secondary:             # optional
   hidden: Reckless       # optional
 
