@@ -709,6 +709,17 @@ villains: Giovanni, Ariana, Petrel). The Elite Four (Ice, Fighting, Ghost, Drago
     and crosses the pit). Parked against a ledge only the cap shows (the ledge hides the stem, as it hid the Spinarak's
     body); while riding the face shows as a cream stem with two dark eyes. Pictures:
     ~/sigma-origin/fairy_gym/fleuroom_cart_model.png, ride6_zoom.png, side_v6.png.
+  **Nothing else in the game changes (checked 2026-11-18, Arvind asked).** A byte compare of the original ROM and the
+  output finds changes in exactly four places: a/0/4/4 member 29, a/0/7/0 member 27, a/1/4/8 member 118 and its copy
+  fielddata/build_model/bm_room.narc member 118. Who uses them:
+  - map textures 29 and building textures 27: only area 29 (area data a/0/4/2), and only maps 136 and 180 have area 29
+    in the map header table (all 569 entries checked). Both are Azalea Gym: 180 is the gym, 136 uses land data 247,
+    the gym's own entrance hall.
+  - room model 118 (the cart): no indoor map places it; the gym's cart code spawns it. Land data that place a
+    building 118 all belong to outdoor areas (type 1), where 118 means outdoor model a/0/4/0 118, a different model.
+    Indoor maps take their buildings from a/1/4/8 (the gym's land data 248 places 115/116/117/122 = gym02rope_1,
+    gym02rope_2, gym02switch, gym02switch_r).
+  - none of the four archives has per-outfit copies in data/clothes1|2.
   Method: "ramp" moves every palette colour onto a Fairy colour ramp by its brightness, so the original shading and
   outlines stay; "hue" moves only the colourful entries (grey metal stays). Tested in the emulator on
   ~/sigma-origin/origin_hg_en.nds (test jump into map 180), side by side with the original:
