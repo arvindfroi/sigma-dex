@@ -5343,7 +5343,22 @@ function loadCalcState() {
 }
 const cs = loadCalcState();
 const saveCalc = () => remember.set("calc2", JSON.stringify(cs));
-const sideMon = side => side.link ? (currentTeam().mons[tb.slot] || blankMon()) : side.mon;
+// With nothing open in the team, an example stands in (our strongest fully evolved Pokemon with a game sprite), as Wisp
+// shows a demo team, so the calculator never starts empty.
+let calcDemo = null;
+function demoMon() {
+  if (!calcDemo) {
+    // a normal (not legendary) fully evolved one with a learnset, at 600 BST or under
+    const s = DEX.species.filter(x => x.data.base_stats && (DEX.ds_sprites[x.id] || {}).front && !(x.data.evolutions || []).some(e => e && byId.has(e.into)) &&
+        (x.bst || 0) <= 600 && ((x.data.learnset || {}).level_up || []).length && !JSON.stringify(DEX.legendaries || {}).includes('"' + x.id + '"'))
+      .sort((a, b) => (b.bst || 0) - (a.bst || 0))[0];
+    const b = s ? s.data.base_stats : {}, phys = (b.attack || 0) >= (b.sp_attack || 0);
+    calcDemo = Object.assign(blankMon(), s ? {species: s.id, ability: (s.data.abilities || {}).primary || "", nature: phys ? "Adamant" : "Modest",
+      evs: Object.assign(allStats(0), {hp: 4, [phys ? "attack" : "sp_attack"]: 252, speed: 252})} : {});
+  }
+  return calcDemo;
+}
+const sideMon = side => side.link ? ((currentTeam().mons[tb.slot] || {}).species ? currentTeam().mons[tb.slot] : demoMon()) : side.mon;
 function editSide(side) { if (side.link) { side.mon = Object.assign(blankMon(), JSON.parse(JSON.stringify(sideMon(side)))); side.link = false; } return side.mon; }
 const boostMult = b => b >= 0 ? (2 + b) / 2 : 2 / (2 - b);
 const calcCap = s => s ? s[0].toUpperCase() + s.slice(1) : s;
@@ -5467,7 +5482,12 @@ function calcMoveRows(mon) {
 }
 function calcDefaultMove(mon) {
   const rows = calcMoveRows(mon);
-  return (rows.find(r => r.order === -2) || rows.filter(r => r.order === -1).sort((a, b) => (b.power || 0) - (a.power || 0))[0] || rows[0] || {name: "Tackle"}).name;
+  // its own first attack; else the strongest it can learn, same-type moves counted 1.5x (STAB), on its better attacking side
+  const s = speciesByName(mon.species), types = s ? s.data.types || [] : [], b = s ? s.data.base_stats || {} : {};
+  const side = (b.attack || 0) >= (b.sp_attack || 0) ? "Physical" : "Special";
+  const score = r => (r.power || 0) * (types.includes(r.type) ? 1.5 : 1) * (r.category === side ? 1.2 : 1) * (r.power > 120 ? 0.7 : 1);
+  const pick = list => list.slice().sort((x, y) => score(y) - score(x))[0];
+  return (rows.find(r => r.order === -2) || pick(rows.filter(r => r.order === -1)) || pick(rows.filter(r => types.includes(r.type) && r.power <= 100)) || rows[0] || {name: "Tackle"}).name;
 }
 
 // ----- the sums for the open tab; null when no Pokemon is chosen
@@ -5677,7 +5697,9 @@ function drawCalc(box) {
     h("b", {}, ((n => n > 0 ? "+" + n : String(n))(Number(cs.me.boosts[bstat]) || 0)) + " " + SHORT_STAT[bstat]),
     h("button", {type: "button", "aria-label": "Raise " + SHORT_STAT[bstat], onclick: () => { cs.me.boosts[bstat] = Math.min(6, (Number(cs.me.boosts[bstat]) || 0) + 1); redraw(); }}, "+")) : null;
   const change = h("button", {type: "button", class: "clink", onclick: () => {
-    if (cs.me.link && currentTeam().mons[tb.slot]) { tb.panel = ""; renderTeams(); } else { cs.edit = !cs.edit; redraw(); } }}, cs.me.link ? "Change its set (in the team)" : cs.edit ? "Hide its set" : "Change its set");
+    if (cs.me.link && (currentTeam().mons[tb.slot] || {}).species) { tb.panel = ""; renderTeams(); } else { if (cs.me.link) editSide(cs.me); cs.edit = !cs.edit; redraw(); } }},
+    cs.me.link && (currentTeam().mons[tb.slot] || {}).species ? "Change its set (in the team)" : cs.edit ? "Hide its set" : "Change its set");
+  const demo = cs.me.link && !(currentTeam().mons[tb.slot] || {}).species;
   const spreadSel = cs.mode === "speed"
     ? h("select", {"aria-label": "Their speed", onchange: ev2 => { cs.speedSpread = ev2.target.value; redraw(); }}, [["max", "theirs at max speed (252+)"], ["none", "theirs with no EVs"]].map(([v, t]) => h("option", {value: v, selected: v === cs.speedSpread ? "" : null}, t)))
     : cs.mode === "attack"
@@ -5685,7 +5707,7 @@ function drawCalc(box) {
       : h("select", {"aria-label": "Their spread", onchange: ev2 => { cs.spread = ev2.target.value; redraw(); }}, [["none", "theirs with no EVs"], ["max", "theirs with max attack (252+)"]].map(([v, t]) => h("option", {value: v, selected: v === (cs.spread === "max" ? "max" : "none") ? "" : null}, t)));
   if (cs.mode === "defense" && cs.spread !== "max") cs.spread = "none";
   if (cs.mode === "attack" && cs.spread === "max") cs.spread = "none";
-  const setLine = h("div", {class: "cset"}, bits.map((b, i) => [i ? h("span", {class: "cdotsep"}, "·") : null, h("span", {}, b)]), boost, change, h("span", {class: "cdotsep"}, "·"), spreadSel);
+  const setLine = h("div", {class: "cset"}, demo ? h("span", {class: "badge"}, "Example") : null, bits.map((b, i) => [i ? h("span", {class: "cdotsep"}, "·") : null, h("span", {}, b)]), boost, change, h("span", {class: "cdotsep"}, "·"), spreadSel);
   const editor = !cs.me.link && cs.edit ? calcMiniEditor(C, gen, redraw) : null;
 
   // the field: one row of on/off chips
