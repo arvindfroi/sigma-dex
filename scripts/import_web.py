@@ -57,6 +57,12 @@ def clean_shiny(data):
         raise ValueError("the shiny has no colours")
     sliders = data.get("sliders") or []
     out["sliders"] = sliders if isinstance(sliders, list) and len(sliders) <= 20 else []
+    if data.get("v") == 2:                                   # shiny maker v2 (18 Nov 2026), docs/ART.md#shinies
+        out["v"] = 2
+        over = data.get("over") or {}
+        out["over"] = dict(sorted((a, b) for a, b in over.items() if HEX.fullmatch(str(a)) and HEX.fullmatch(str(b)))) if isinstance(over, dict) and len(over) <= 40 else {}
+        outline = data.get("outline") or []
+        out["outline"] = sorted(str(c) for c in outline if HEX.fullmatch(str(c)))[:16] if isinstance(outline, list) else []
     out["why"] = str(data.get("why") or "")[:300]
     out["front"] = str(data.get("front") or "")[:300]       # the sprite it was made for
     return out
