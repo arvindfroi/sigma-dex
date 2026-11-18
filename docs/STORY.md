@@ -685,6 +685,27 @@ villains: Giovanni, Ariana, Petrel). The Elite Four (Ice, Fighting, Ghost, Drago
   walkways are `g02rope_a` (32x32). Same size and format in, so no model change.
 - **The Spinarak carts:** a Fairy Pokemon or a cute cart instead (overworld objects, command AzaleaGymSpinarak).
 - **Also now:** the bug emblem on the floor at the entrance (`g02mark`, 64x64) and the gym trainers' teams (Fairy).
+- **The look: v2 in a test ROM, waiting for Arvind's yes (2026-11-18).** Built by
+  scripts/origin_custom/fairy_gym/fairy_look.py (IN.nds OUT.nds [PREVIEW_DIR]); it runs after build_fairy_gym.py.
+  Everything visible in the gym comes from two texture sets that only area 29 uses (maps 136 = the entrance hall and
+  180 = the gym): map textures a/0/4/4 file 29 and building textures a/0/7/0 file 27. Neither has per-outfit copies in
+  data/clothes1|2. Every texture keeps its size and format, so the script writes them back in place. Changes:
+  - autumn leaves (`g02ochi*`) -> fallen cherry petals; the trees and the big tree -> pink blossom trees, rosy bark;
+  - hedges -> mint; floor -> pale pink stone with lilac pebbles; the wavy back wall and the pit walls -> lavender;
+  - entrance hall: the green diamond carpet -> pink, the red door mat -> pink, the potted plants -> pink bushes;
+  - the pit: the transparent webs are replaced by an opaque dusk-violet flower bed with glitter (`g02spider` drawn
+    new, A5I3; the pit shows it about 3x smaller than its texels, so the flowers are drawn big, radius 5-9);
+  - silk walkways (`g02rope_a`) -> pink and white ribbon; the switch bridges: orange -> pink, blue -> periwinkle; the
+    levers follow (red -> pink, blue -> periwinkle), so the colour clue of the puzzle stays;
+  - the bug emblem (`g02mark`) -> a pink ring with a four-point sparkle (drawn new);
+  - the Spinarak carts (`g02lift_*`) -> pink and cream with plum legs. Their shape is a 3D model (a spider with legs);
+    only the colours change for now. A new shape means a new model.
+  Method: "ramp" moves every palette colour onto a Fairy colour ramp by its brightness, so the original shading and
+  outlines stay; "hue" moves only the colourful entries (grey metal stays). Tested in the emulator on
+  ~/sigma-origin/origin_hg_en.nds (test jump into map 180), side by side with the original:
+  ~/sigma-origin/fairy_gym/side_v2.png and mark_side.png. Applied to the rc8 rule ROM:
+  ~/sigma-origin/rc8/fairy_gym_look_test.nds. Not changed yet: the gym trainers are still Bug Catchers (their
+  sprites and classes go with the Fairy teams), the two gym statues and Bugsy himself.
 - **Later:** the Hive Badge (name and picture), the reward TM81 X-Scissor, the Megahorn tutor at the door.
 - **Rewrite:** Bugsy's Bug lines in the gym, and the Ilex Forest bug hunt he runs before the gym.
 
