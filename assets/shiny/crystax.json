@@ -1,0 +1,114 @@
+{
+ "map": {
+  "#065f3e": "#065f3e",
+  "#0d0c11": "#0d0c11",
+  "#112a57": "#112a57",
+  "#202129": "#202129",
+  "#2a66b7": "#7858a8",
+  "#392b55": "#502840",
+  "#3b7ad3": "#8868c8",
+  "#454d6a": "#584860",
+  "#5c99e1": "#a088d8",
+  "#83879b": "#a07898",
+  "#8ec1f1": "#b8b8f0",
+  "#a39eb2": "#c090b0",
+  "#dcd8d7": "#f8c8d8",
+  "#e65345": "#c07800",
+  "#fe7948": "#d89800"
+ },
+ "follower": {
+  "#010206": "#010206",
+  "#051a41": "#051a41",
+  "#113765": "#113765",
+  "#1362bf": "#7050b0",
+  "#1f2323": "#1f2323",
+  "#2b793c": "#2b793c",
+  "#2d7fd6": "#8870d0",
+  "#48a2ec": "#9890e8",
+  "#61728a": "#806880",
+  "#6cc6f6": "#a8b8f8",
+  "#7ca9cd": "#a0a0d0",
+  "#bec5cb": "#e0b8c8",
+  "#dbdee5": "#f8d0e0",
+  "#f17b3a": "#c89800",
+  "#f24b77": "#e86800"
+ },
+ "sliders": [
+  {
+   "adj": {
+    "hue": 41,
+    "sat": -0.07,
+    "light": 0.02
+   },
+   "keep": false,
+   "colours": [
+    "#454d6a",
+    "#2a66b7",
+    "#3b7ad3",
+    "#5c99e1",
+    "#8ec1f1"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 41,
+    "sat": -0.07,
+    "light": 0.02
+   },
+   "keep": false,
+   "colours": [
+    "#e65345",
+    "#fe7948"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#065f3e"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 41,
+    "sat": -0.07,
+    "light": 0.02
+   },
+   "keep": false,
+   "colours": [
+    "#392b55"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#0d0c11"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 358,
+    "sat": 0.35,
+    "tint": true,
+    "light": 0
+   },
+   "keep": false,
+   "colours": [
+    "#83879b",
+    "#a39eb2",
+    "#dcd8d7"
+   ]
+  }
+ ],
+ "v": 2,
+ "over": {},
+ "outline": [
+  "#112a57",
+  "#202129"
+ ],
+ "why": "The blue turns purple",
+ "front": "https://hlkabnevaljtrbldgeqm.supabase.co/storage/v1/object/public/art/tries/crystax/drawn-5105-afafce27.png",
+ "by": "Michael",
+ "at": "2026-11-19T15:00:09.144Z"
+}

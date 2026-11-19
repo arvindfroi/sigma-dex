@@ -2933,7 +2933,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
-        .abilities = { ABILITY_STURDY, ABILITY_TOXIC_DEBRIS, ABILITY_POISON_POINT },
+        .abilities = { ABILITY_STURDY, ABILITY_NONE, ABILITY_TOXIC_DEBRIS },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Leadling"),
         .cryId = CRY_NONE,
@@ -2970,10 +2970,10 @@
     {
         .baseHP = 60,
         .baseAttack = 50,
-        .baseDefense = 80,
-        .baseSpeed = 15,
+        .baseDefense = 70,
+        .baseSpeed = 20,
         .baseSpAttack = 95,
-        .baseSpDefense = 100,
+        .baseSpDefense = 105,
         .types = MON_TYPES(TYPE_ROCK, TYPE_POISON),
         .catchRate = 100,
         .expYield = 140,
@@ -2983,7 +2983,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
-        .abilities = { ABILITY_STURDY, ABILITY_TOXIC_DEBRIS, ABILITY_POISON_POINT },
+        .abilities = { ABILITY_STURDY, ABILITY_NONE, ABILITY_TOXIC_DEBRIS },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Leadleak"),
         .cryId = CRY_NONE,
@@ -3032,7 +3032,7 @@
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
-        .abilities = { ABILITY_STURDY, ABILITY_TOXIC_DEBRIS, ABILITY_POISON_POINT },
+        .abilities = { ABILITY_STURDY, ABILITY_NONE, ABILITY_TOXIC_DEBRIS },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Blylem"),
         .cryId = CRY_NONE,
@@ -3041,9 +3041,10 @@
         .height = 26,
         .weight = 4120,
         .description = COMPOUND_STRING(
-            "Born from bones and lead, it rises in\n"
-            "polluted lands. Its touch can corrode\n"
-            "rock and rot even steel."),
+            "It rises from bones and lead in polluted\n"
+            "lands, absorbing radiation to sustain\n"
+            "itself. What it cannot use falls from\n"
+            "its body as toxic debris."),
         .pokemonScale = 256,
         .pokemonOffset = 0,
         .trainerScale = 256,
@@ -4940,16 +4941,16 @@
 
     [SPECIES_EVERDARK] =
     {
-        .baseHP = 70,
-        .baseAttack = 125,
-        .baseDefense = 85,
-        .baseSpeed = 90,
-        .baseSpAttack = 65,
-        .baseSpDefense = 85,
+        .baseHP = 95,
+        .baseAttack = 145,
+        .baseDefense = 120,
+        .baseSpeed = 100,
+        .baseSpAttack = 100,
+        .baseSpDefense = 120,
         .types = MON_TYPES(TYPE_DARK, TYPE_PSYCHIC),
         .catchRate = 45,
         .expYield = 182,
-        .evYield_Attack = 2,
+        .evYield_Attack = 3,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,

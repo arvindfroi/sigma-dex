@@ -10,7 +10,7 @@ types: [Rock, Poison]    # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category: Lead Golem     # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
-description: "Born from bones and lead, it rises in polluted lands. Its touch can corrode rock and rot even steel."
+description: "It rises from bones and lead in polluted lands, absorbing radiation to sustain itself. What it cannot use falls from its body as toxic debris."
 height_m: 2.6            # e.g. 0.7
 weight_kg: 412           # e.g. 6.9
 body_color: gray         # red blue yellow green black brown purple gray white pink
@@ -18,8 +18,8 @@ body_color: gray         # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Sturdy
-  secondary: Toxic Debris # optional
-  hidden: Poison Point   # optional
+  secondary: Radiation Eater # optional
+  hidden: Toxic Debris   # optional
 
 base_stats:              # each 1-255
   hp: 83

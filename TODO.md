@@ -16,9 +16,9 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Dex page | height | 162 / 183 |
 | Dex page | weight | 162 / 183 |
 | Dex page | body color | 144 / 183 |
-| Stats | base stats | 176 / 183 |
-| Stats | ability | 176 / 183 |
-| Stats | EV yield | 165 / 183 |
+| Stats | base stats | 178 / 183 |
+| Stats | ability | 177 / 183 |
+| Stats | EV yield | 166 / 183 |
 | Stats | catch rate | 143 / 183 |
 | Stats | base exp | 143 / 183 |
 | Stats | growth rate | 143 / 183 |
@@ -36,16 +36,16 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Art | back sprite | 4 / 183 |
 | Art | icon | 4 / 183 |
 | Art | footprint | 145 / 183 |
-| Art | shiny palette | 73 / 183 |
+| Art | shiny palette | 74 / 183 |
 | Art | cry | 27 / 183 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 166 / 183 |
-| DS back sprite 80x80 | 166 / 183 |
-| DS icon 32x32 | 163 / 183 |
+| DS front sprite 80x80 | 170 / 183 |
+| DS back sprite 80x80 | 170 / 183 |
+| DS icon 32x32 | 167 / 183 |
 
 ## Open dex slots (71)
 
@@ -1214,7 +1214,16 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
-### #166 [Crystax](data/species/crystax.yaml) - 24%
+### #166 [Crystax](data/species/crystax.yaml) - 28%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+
+### #167 [Whyrmshade](data/species/whyrmshade.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
@@ -1223,19 +1232,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #167 [whyrmshade](data/species/whyrmshade.yaml) - 24%
+### #168 [Abysspero](data/species/abysspero.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #168 [Abysspero](data/species/abysspero.yaml) - 14%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -1306,10 +1306,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #215 [Horaxigon](data/species/horaxigon.yaml) - 14%
+### #215 [Horaxigon](data/species/horaxigon.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

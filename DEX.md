@@ -83,9 +83,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 72 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 495 |  | 62% |
 | 73 | [Cryoblade](data/species/cryoblade.yaml) | Ice | Cold-hearted, Ice Body, Refrigerate (H) | 528 |  | 76% |
 | 74 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal | Big Pecks, Super Luck, Hustle (H) | 500 |  | 34% |
-| 75 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Poison Point (H) | 280 | Leadleak (Lv 20) | 66% |
-| 76 | [Leadleak](data/species/leadling-utvikling.yaml) | Rock / Poison | Sturdy, Toxic Debris, Poison Point (H) | 400 | Blylem (Lv 40) | 66% |
-| 77 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Toxic Debris, Poison Point (H) | 525 |  | 72% |
+| 75 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Radiation Eater, Toxic Debris (H) | 280 | Leadleak (Lv 20) | 66% |
+| 76 | [Leadleak](data/species/leadling-utvikling.yaml) | Rock / Poison | Sturdy, Radiation Eater, Toxic Debris (H) | 400 | Blylem (Lv 40) | 66% |
+| 77 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Radiation Eater, Toxic Debris (H) | 525 |  | 72% |
 | 78 | [Iglomodo mindre utv](data/species/iglomodo-mindre-utv.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 340 | Iglomodo (Lv 35) | 34% |
 | 79 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 520 |  | 76% |
 | 80 | [Furamire](data/species/furamire.yaml) | Normal / Fairy | Cute Charm, Competitive, Serene Grace (H) | 480 |  | 72% |
@@ -142,7 +142,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 131 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve, Prankster, Shadow Tag (H) | 415 |  | 72% |
 | 132 | [Sigmanian Charcadet](data/species/glac-pee-mindre-evo.yaml) | Ice | Weak Armor, Ice Body (H) | 255 | Glacépée (Lv 30) | 31% |
 | 133 | [Glacépée](data/species/glac-p-e.yaml) | Ice / Fighting | Long Reach, Weak Armor, Sniper (H) | 525 |  | 66% |
-| 134 | [Everdark](data/species/everdark.yaml) | Dark / Psychic | Armor Tail, Dark Aura (H) | 520 |  | 72% |
+| 134 | [Everdark](data/species/everdark.yaml) | Dark / Psychic | Armor Tail, Dark Aura (H) | 680 |  | 72% |
 | 135 | [Diedo](data/species/diedo.yaml) | Flying | Mind's Eye | 200 | Seraphinnen (Lv 20) | 72% |
 | 136 | [Seraphinnen](data/species/seraphinnen.yaml) | Flying | Soul-Heart, Mind's Eye, Aerilate (H) | 540 |  | 69% |
 | 137 | [Riftbloom](data/species/riftbloom.yaml) | Ghost / Psychic | Prankster, Shadow Tag (H) | 265 | riftlees (Lv 26) | 45% |
@@ -174,9 +174,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 163 | [Venorax](data/species/venorax.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 530 |  | 28% |
 | 164 | [Raymon](data/species/raymon.yaml) | Normal |  |  |  | 21% |
 | 165 | [Crysteel](data/species/crysteel.yaml) | Steel / Rock | Clear Body, Pickup, Sand Force (H) | 290 |  | 28% |
-| 166 | [Crystax](data/species/crystax.yaml) | Steel / Rock | Crystal Body, Tough Claws, Sand Force (H) | 510 |  | 24% |
-| 167 | [whyrmshade](data/species/whyrmshade.yaml) | Ghost | Levitate, Cursed Body, Infiltrator (H) | 300 |  | 24% |
-| 168 | [Abysspero](data/species/abysspero.yaml) | Dragon / Ghost |  |  |  | 14% |
+| 166 | [Crystax](data/species/crystax.yaml) | Steel / Rock | Crystal Body, Tough Claws, Sand Force (H) | 510 |  | 28% |
+| 167 | [Whyrmshade](data/species/whyrmshade.yaml) | Ghost | Cursed Body, Levitate, Infiltrator (H) | 340 |  | 24% |
+| 168 | [Abysspero](data/species/abysspero.yaml) | Dragon / Ghost | Cursed Body, Berserk, Infiltrator (H) | 540 |  | 24% |
 | 169 | [Aqualoom](data/species/aqualoom.yaml) | Water / Steel | Rain Dish, Water Absorb, Oblivious (H) | 305 |  | 21% |
 | 170 | *open slot* | | | | | |
 | 171 | *open slot* | | | | | |
@@ -223,8 +223,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 212 | *open slot* | | | | | |
 | 213 | *open slot* | | | | | |
 | 214 | *open slot* | | | | | |
-| 215 | [Horaxigon](data/species/horaxigon.yaml) | Steel / Dragon | Mold Breaker, Telepathy |  | Horaxander (Lv 55) | 14% |
-| 216 | [Horaxander](data/species/horaxander.yaml) | Steel / Dragon | Mold Breaker, Pressure, Sheer Force (H) | 535 |  | 21% |
+| 215 | [Horaxigon](data/species/horaxigon.yaml) | Steel / Dragon | Mold Breaker, Download, Sheer Force (H) | 340 | Horaxander (Lv 55) | 17% |
+| 216 | [Horaxander](data/species/horaxander.yaml) | Steel / Dragon | Mold Breaker, Download, Sheer Force (H) | 540 |  | 21% |
 | 217 | *open slot* | | | | | |
 | 218 | *open slot* | | | | | |
 | 219 | *open slot* | | | | | |
@@ -262,4 +262,4 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 251 | *open slot* | | | | | |
 | 252 | *open slot* | | | | | |
 | 253 | *open slot* | | | | | |
-| 254 | [Eclipsox](data/species/eclipsox.yaml) | Normal / Dragon | Multitype, Regenerator, Intimidate (H) | 1355 |  | 21% |
+| 254 | [Eclipsox](data/species/eclipsox.yaml) | Normal / Dragon | Mold Breaker, Intimidate (H) | 720 |  | 21% |

@@ -18,14 +18,14 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Mold Breaker
-  secondary: Pressure    # optional
+  secondary: Download    # optional
   hidden: Sheer Force    # optional
 
 base_stats:              # each 1-255
   hp: 80
   attack: 75
   defense: 120
-  sp_attack: 125
+  sp_attack: 130
   sp_defense: 85
   speed: 50
 

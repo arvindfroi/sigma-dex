@@ -92,12 +92,13 @@ learnset:
     - {level: 44, move: Tailwind}
     - {level: 46, move: Hyper Voice}
     - {level: 49, move: Brave Bird}
+    - {level: 54, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
-          Return, Dig, Double Team, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief,
-          Steel Wing, Roost, Endure, Giga Impact, Captivate, Sleep Talk, Natural Gift,
-          Swagger, Pluck, U-turn, Substitute, Dual Wingbeat, Fly, Strength, Solar Beam,
-          Swords Dance]
+          Solar Beam, Return, Dig, Double Team, Aerial Ace, Facade, Secret Power, Rest,
+          Attract, Thief, Steel Wing, Roost, Endure, Giga Impact, Swords Dance, Captivate,
+          Sleep Talk, Natural Gift, Swagger, Pluck, U-turn, Substitute, Dual Wingbeat, Fly,
+          Strength]
   # moves a move tutor can teach it
   tutor: [Air Slash, Body Slam, Brave Bird, Endeavor, Heat Wave, Hurricane, Hyper Voice,
           Seed Bomb, Sky Attack, Charm]
@@ -144,7 +145,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:18"
+  footprint: "hgss:18"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

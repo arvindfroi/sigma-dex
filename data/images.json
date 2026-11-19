@@ -4144,13 +4144,6 @@
     "editor": null
   },
   {
-    "id": 1259,
-    "species": "fleuroom",
-    "file": "assets/concept-art/fleuroom/1259.png",
-    "caption": "[ds-back] sprite #197",
-    "editor": null
-  },
-  {
     "id": 1260,
     "species": "fleuroom",
     "file": "assets/concept-art/fleuroom/1260.png",
@@ -4232,13 +4225,6 @@
     "species": "grincho",
     "file": "assets/concept-art/grincho/1319.png",
     "caption": "[ds-icon] sprite #208",
-    "editor": null
-  },
-  {
-    "id": 1320,
-    "species": "grincho",
-    "file": "assets/concept-art/grincho/1320.png",
-    "caption": "[ds-follower] sprite #208",
     "editor": null
   },
   {
@@ -7901,5 +7887,138 @@
     "file": "assets/concept-art/dragem/2571.png",
     "caption": "[ds-follower] sprite #500",
     "editor": "Arvind"
+  },
+  {
+    "id": 2572,
+    "species": "bugmight",
+    "file": "assets/concept-art/bugmight/2572.png",
+    "caption": "[ds-front] sprite #501",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2573,
+    "species": "bugmight",
+    "file": "assets/concept-art/bugmight/2573.png",
+    "caption": "[ds-back] sprite #501",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2574,
+    "species": "bugmight",
+    "file": "assets/concept-art/bugmight/2574.png",
+    "caption": "[ds-icon] sprite #501",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2575,
+    "species": "bugmight",
+    "file": "assets/concept-art/bugmight/2575.png",
+    "caption": "[ds-follower] sprite #501",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2576,
+    "species": "greation",
+    "file": "assets/concept-art/greation/2576.png",
+    "caption": "[ds-front] sprite #502",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2577,
+    "species": "greation",
+    "file": "assets/concept-art/greation/2577.png",
+    "caption": "[ds-back] sprite #502",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2578,
+    "species": "greation",
+    "file": "assets/concept-art/greation/2578.png",
+    "caption": "[ds-icon] sprite #502",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2579,
+    "species": "greation",
+    "file": "assets/concept-art/greation/2579.png",
+    "caption": "[ds-follower] sprite #502",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2580,
+    "species": "glac-p-e",
+    "file": "assets/concept-art/glac-p-e/2580.png",
+    "caption": "[ds-front] sprite #503",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2581,
+    "species": "glac-p-e",
+    "file": "assets/concept-art/glac-p-e/2581.png",
+    "caption": "[ds-back] sprite #503",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2582,
+    "species": "glac-p-e",
+    "file": "assets/concept-art/glac-p-e/2582.png",
+    "caption": "[ds-icon] sprite #503",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2583,
+    "species": "glac-p-e",
+    "file": "assets/concept-art/glac-p-e/2583.png",
+    "caption": "[ds-follower] sprite #503",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2584,
+    "species": "whyrmshade",
+    "file": "assets/concept-art/whyrmshade/2584.png",
+    "caption": "[ds-front] sprite #505",
+    "editor": "Michael"
+  },
+  {
+    "id": 2585,
+    "species": "whyrmshade",
+    "file": "assets/concept-art/whyrmshade/2585.png",
+    "caption": "[ds-back] sprite #505",
+    "editor": "Michael"
+  },
+  {
+    "id": 2586,
+    "species": "whyrmshade",
+    "file": "assets/concept-art/whyrmshade/2586.png",
+    "caption": "[ds-icon] sprite #505",
+    "editor": "Michael"
+  },
+  {
+    "id": 2587,
+    "species": "whyrmshade",
+    "file": "assets/concept-art/whyrmshade/2587.png",
+    "caption": "[ds-follower] sprite #505",
+    "editor": "Michael"
+  },
+  {
+    "id": 2595,
+    "species": "aqualoom",
+    "file": "assets/concept-art/aqualoom/2595.png",
+    "caption": "[ds-follower] sprite #507",
+    "editor": "Michael"
+  },
+  {
+    "id": 2603,
+    "species": "grincho",
+    "file": "assets/concept-art/grincho/2603.png",
+    "caption": "[ds-follower] sprite #508",
+    "editor": "Michael"
+  },
+  {
+    "id": 2605,
+    "species": "fleuroom",
+    "file": "assets/concept-art/fleuroom/2605.png",
+    "caption": "[ds-back] sprite #509",
+    "editor": "Michael"
   }
 ]

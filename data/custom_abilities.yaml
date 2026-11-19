@@ -161,6 +161,13 @@ abilities:
     the move Taunt: switching a Pokémon out clears it, and Pokémon with Oblivious, Aroma Veil, or Own
     Tempo are immune. It only triggers once per switch-in.'
   designer: Emil
+- id: radiation-eater
+  name: Radiation Eater
+  description: Draws in Poison-type moves and heals 1/4 of max HP. Poison Immunity
+  effect: Draws in Poison-type moves and heals 1/4 of max HP instead of taking damage. Immune to being
+    poisoned
+  similar_to: Storm Drain
+  designer: Emil
 - id: sloth-combat
   name: Sloth Combat
   description: Doubles the user's Attack stat while it is asleep.

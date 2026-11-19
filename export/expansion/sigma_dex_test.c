@@ -1662,10 +1662,10 @@ TEST("Sigma dex: Leadleak has the data from its species file")
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_LEADLEAK];
     EXPECT_EQ(info->baseHP, 60);
     EXPECT_EQ(info->baseAttack, 50);
-    EXPECT_EQ(info->baseDefense, 80);
-    EXPECT_EQ(info->baseSpeed, 15);
+    EXPECT_EQ(info->baseDefense, 70);
+    EXPECT_EQ(info->baseSpeed, 20);
     EXPECT_EQ(info->baseSpAttack, 95);
-    EXPECT_EQ(info->baseSpDefense, 100);
+    EXPECT_EQ(info->baseSpDefense, 105);
     EXPECT_EQ(info->types[0], TYPE_ROCK);
     EXPECT_EQ(info->types[1], TYPE_POISON);
     EXPECT_EQ(info->abilities[0], ABILITY_STURDY);
@@ -2780,12 +2780,12 @@ SINGLE_BATTLE_TEST("Sigma dex: Glacépée can use its first move in battle")
 TEST("Sigma dex: Everdark has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_EVERDARK];
-    EXPECT_EQ(info->baseHP, 70);
-    EXPECT_EQ(info->baseAttack, 125);
-    EXPECT_EQ(info->baseDefense, 85);
-    EXPECT_EQ(info->baseSpeed, 90);
-    EXPECT_EQ(info->baseSpAttack, 65);
-    EXPECT_EQ(info->baseSpDefense, 85);
+    EXPECT_EQ(info->baseHP, 95);
+    EXPECT_EQ(info->baseAttack, 145);
+    EXPECT_EQ(info->baseDefense, 120);
+    EXPECT_EQ(info->baseSpeed, 100);
+    EXPECT_EQ(info->baseSpAttack, 100);
+    EXPECT_EQ(info->baseSpDefense, 120);
     EXPECT_EQ(info->types[0], TYPE_DARK);
     EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
     EXPECT_EQ(info->abilities[0], ABILITY_ARMOR_TAIL);

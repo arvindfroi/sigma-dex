@@ -61,14 +61,14 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Raymon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Crysteel** needs: a level-up move that exists in the game
 - **Crystax** needs: an ability that exists in the game, a level-up move that exists in the game
-- **whyrmshade** needs: a level-up move that exists in the game
-- **Abysspero** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Whyrmshade** needs: a level-up move that exists in the game
+- **Abysspero** needs: a level-up move that exists in the game
 - **Aqualoom** needs: a level-up move that exists in the game
 - **Cabat** needs: a level-up move that exists in the game
 - **Cobramp** needs: a level-up move that exists in the game
 - **Praxis** needs: a level-up move that exists in the game
 - **Laxis** needs: a level-up move that exists in the game
-- **Horaxigon** needs: base stats, a level-up move that exists in the game
+- **Horaxigon** needs: a level-up move that exists in the game
 - **Horaxander** needs: a level-up move that exists in the game
 - **Entrigon** needs: a level-up move that exists in the game
 - **Tsunamo** needs: a level-up move that exists in the game
@@ -78,10 +78,13 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 
 ## Left out of exported Pokemon
 
+- Blylem: ability 'Radiation Eater' is not in the game yet, left out
 - Chillalit: move 'Boiling Downpour' is not in the game yet, left out
 - Diedo: evolution into Seraphinnen left out until that Pokemon is ready
 - Freezrick: move 'Ice Egg' is not in the game yet, left out
 - Harpie: evolution into Smeatherace left out until that Pokemon is ready
+- Leadleak: ability 'Radiation Eater' is not in the game yet, left out
+- Leadling: ability 'Radiation Eater' is not in the game yet, left out
 - Leafaxer: move 'Axe Swing' is not in the game yet, left out
 - Limulk: ability 'Heckler' is not in the game yet, left out
 - Monarkhan: move 'Siro Stream' is not in the game yet, left out

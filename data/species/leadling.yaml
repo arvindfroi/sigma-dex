@@ -18,8 +18,8 @@ body_color: gray         # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Sturdy
-  secondary: Toxic Debris # optional
-  hidden: Poison Point   # optional
+  secondary: Radiation Eater # optional
+  hidden: Toxic Debris   # optional
 
 base_stats:              # each 1-255
   hp: 45

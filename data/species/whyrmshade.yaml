@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 167
-name: whyrmshade
+name: Whyrmshade
 
 credits:
   designer: Michael      # who came up with it (Discord name)
@@ -17,17 +17,17 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Levitate
-  secondary: Cursed Body # optional
+  primary: Cursed Body
+  secondary: Levitate    # optional
   hidden: Infiltrator    # optional
 
 base_stats:              # each 1-255
-  hp: 30
-  attack: 35
-  defense: 35
+  hp: 40
+  attack: 40
+  defense: 40
   sp_attack: 85
-  sp_defense: 45
-  speed: 70
+  sp_defense: 55
+  speed: 80
 
 ev_yield: {sp_attack: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
