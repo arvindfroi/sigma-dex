@@ -16,9 +16,9 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Dex page | height | 162 / 183 |
 | Dex page | weight | 162 / 183 |
 | Dex page | body color | 144 / 183 |
-| Stats | base stats | 174 / 183 |
+| Stats | base stats | 176 / 183 |
 | Stats | ability | 176 / 183 |
-| Stats | EV yield | 164 / 183 |
+| Stats | EV yield | 165 / 183 |
 | Stats | catch rate | 143 / 183 |
 | Stats | base exp | 143 / 183 |
 | Stats | growth rate | 143 / 183 |
@@ -26,8 +26,8 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Breeding | gender | 143 / 183 |
 | Breeding | egg groups | 143 / 183 |
 | Breeding | egg cycles | 143 / 183 |
-| Moves | level-up moves | 157 / 183 |
-| Moves | TM/HM moves | 157 / 183 |
+| Moves | level-up moves | 160 / 183 |
+| Moves | TM/HM moves | 160 / 183 |
 | Location | encounters | 2 / 183 |
 | Design | concept | 37 / 183 |
 | Art | concept art | 175 / 183 |
@@ -1170,30 +1170,27 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
-### #161 [Venofrib](data/species/venofrib.yaml) - 28%
+### #161 [Venofrib](data/species/venofrib.yaml) - 34%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
-### #162 [Vendepiede](data/species/vendepiede.yaml) - 28%
+### #162 [Vendepiede](data/species/vendepiede.yaml) - 34%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
-### #163 [Venorax](data/species/venorax.yaml) - 21%
+### #163 [Venorax](data/species/venorax.yaml) - 28%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
@@ -1329,20 +1326,20 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #233 [Entrigon](data/species/entrigon.yaml) - 14%
+### #233 [Entrigon](data/species/entrigon.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #234 [Tsunamo](data/species/tsunamo.yaml) - 17%
+### #234 [Tsunamo](data/species/tsunamo.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

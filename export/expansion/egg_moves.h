@@ -563,3 +563,11 @@ static const u16 sWhaldrill0EggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sVenofribEggMoveLearnset[] = {
+    MOVE_PURSUIT,
+    MOVE_SUCKER_PUNCH,
+    MOVE_CURSE,
+    MOVE_VENOM_DRENCH,
+    MOVE_UNAVAILABLE,
+};
+

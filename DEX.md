@@ -169,9 +169,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 158 | [Whaldrill0](data/species/whaldrill0.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 250 | Narburr (Lv 25) | 55% |
 | 159 | [Narburr](data/species/whaldrill.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 450 | Whaldrill (Lv 45) | 62% |
 | 160 | [Whaldrill](data/species/whaldrill3.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 530 |  | 66% |
-| 161 | [Venofrib](data/species/venofrib.yaml) | Poison | Color Change, Poison Point, Protean (H) | 320 |  | 28% |
-| 162 | [Vendepiede](data/species/vendepiede.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 420 |  | 28% |
-| 163 | [Venorax](data/species/venorax.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 530 |  | 21% |
+| 161 | [Venofrib](data/species/venofrib.yaml) | Poison | Color Change, Poison Point, Protean (H) | 320 |  | 34% |
+| 162 | [Vendepiede](data/species/vendepiede.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 420 |  | 34% |
+| 163 | [Venorax](data/species/venorax.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 530 |  | 28% |
 | 164 | [Raymon](data/species/raymon.yaml) | Normal |  |  |  | 21% |
 | 165 | [Crysteel](data/species/crysteel.yaml) | Steel / Rock | Clear Body, Pickup, Sand Force (H) | 290 |  | 28% |
 | 166 | [Crystax](data/species/crystax.yaml) | Steel / Rock | Crystal Body, Tough Claws, Sand Force (H) | 510 |  | 24% |
@@ -241,8 +241,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 230 | *open slot* | | | | | |
 | 231 | *open slot* | | | | | |
 | 232 | *open slot* | | | | | |
-| 233 | [Entrigon](data/species/entrigon.yaml) | Fire / Electric | Volt Absorb |  |  | 14% |
-| 234 | [Tsunamo](data/species/tsunamo.yaml) | Ice / Water | Water Absorb |  |  | 17% |
+| 233 | [Entrigon](data/species/entrigon.yaml) | Fire / Electric | Motor Drive | 600 |  | 17% |
+| 234 | [Tsunamo](data/species/tsunamo.yaml) | Ice / Water | Water Absorb | 600 |  | 24% |
 | 235 | *open slot* | | | | | |
 | 236 | *open slot* | | | | | |
 | 237 | *open slot* | | | | | |

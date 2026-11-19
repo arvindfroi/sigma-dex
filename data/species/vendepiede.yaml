@@ -26,8 +26,8 @@ base_stats:              # each 1-255
   attack: 80
   defense: 55
   sp_attack: 65
-  sp_defense: 85
-  speed: 75
+  sp_defense: 75
+  speed: 85
 
 ev_yield: {sp_defense: 2} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -64,9 +64,48 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Ember}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Poison Sting}
+    - {level: 1, move: Scratch}
+    - {level: 1, move: Wrap}
+    - {level: 5, move: Peck}
+    - {level: 8, move: Poison Fang}
+    - {level: 10, move: Focus Energy}
+    - {level: 12, move: Fury Swipes}
+    - {level: 13, move: Quick Attack}
+    - {level: 15, move: Bite}
+    - {level: 15, move: Flame Charge}
+    - {level: 17, move: Screech}
+    - {level: 20, move: Acid}
+    - {level: 20, move: Toxic Spikes}
+    - {level: 20, move: Venoshock}
+    - {level: 24, move: Agility}
+    - {level: 25, move: Fire Fang}
+    - {level: 26, move: Lava Plume}
+    - {level: 30, move: Scary Face}
+    - {level: 31, move: Acid Spray}
+    - {level: 35, move: Fire Spin}
+    - {level: 39, move: Gastro Acid}
+    - {level: 40, move: Flamethrower}
+    - {level: 41, move: Gunk Shot}
+    - {level: 43, move: Sludge Bomb}
+    - {level: 44, move: Haze}
+    - {level: 48, move: Inferno}
+    - {level: 48, move: Poison Jab}
+    - {level: 52, move: Flare Blitz}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Focus Punch, Toxic, Hidden Power, Sunny Day, Taunt, Protect, Rain Dance,
+          Giga Drain, Frustration, Solar Beam, Iron Tail, Return, Dig, Brick Break,
+          Double Team, Flamethrower, Sludge Bomb, Fire Blast, Facade, Secret Power, Rest,
+          Attract, Thief, Overheat, Energy Ball, Endure, Will-O-Wisp, Payback, Captivate,
+          Dark Pulse, Sleep Talk, Natural Gift, Poison Jab, Swagger, Substitute, Venoshock,
+          Flame Charge, Acid Spray, Cut, Strength]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Fire Fang, Fire Punch, Flare Blitz, Heat Wave, Leaf Storm, Seed Bomb]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
