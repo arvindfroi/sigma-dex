@@ -7810,5 +7810,96 @@
     "file": "assets/concept-art/greation/2552.webp",
     "caption": null,
     "editor": "Emil"
+  },
+  {
+    "id": 2553,
+    "species": "roku",
+    "file": "assets/concept-art/roku/2553.png",
+    "caption": "[ds-front] sprite #498",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2554,
+    "species": "roku",
+    "file": "assets/concept-art/roku/2554.png",
+    "caption": "[ds-back] sprite #498",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2555,
+    "species": "roku",
+    "file": "assets/concept-art/roku/2555.png",
+    "caption": "[ds-icon] sprite #498",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2556,
+    "species": "roku",
+    "file": "assets/concept-art/roku/2556.png",
+    "caption": "[ds-follower] sprite #498",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2561,
+    "species": "autuman",
+    "file": "assets/concept-art/autuman/2561.png",
+    "caption": "[ds-front] sprite #499",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2562,
+    "species": "autuman",
+    "file": "assets/concept-art/autuman/2562.png",
+    "caption": "[ds-back] sprite #499",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2563,
+    "species": "autuman",
+    "file": "assets/concept-art/autuman/2563.png",
+    "caption": "[ds-icon] sprite #499",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2564,
+    "species": "autuman",
+    "file": "assets/concept-art/autuman/2564.png",
+    "caption": "[ds-follower] sprite #499",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2567,
+    "species": "greation",
+    "file": "assets/concept-art/greation/2567.webp",
+    "caption": "pasted",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2568,
+    "species": "dragem",
+    "file": "assets/concept-art/dragem/2568.png",
+    "caption": "[ds-front] sprite #500",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2569,
+    "species": "dragem",
+    "file": "assets/concept-art/dragem/2569.png",
+    "caption": "[ds-back] sprite #500",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2570,
+    "species": "dragem",
+    "file": "assets/concept-art/dragem/2570.png",
+    "caption": "[ds-icon] sprite #500",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2571,
+    "species": "dragem",
+    "file": "assets/concept-art/dragem/2571.png",
+    "caption": "[ds-follower] sprite #500",
+    "editor": "Arvind"
   }
 ]
