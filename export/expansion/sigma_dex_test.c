@@ -1718,9 +1718,9 @@ TEST("Sigma dex: Iglomodo has the data from its species file")
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_IGLOMODO];
     EXPECT_EQ(info->baseHP, 85);
     EXPECT_EQ(info->baseAttack, 125);
-    EXPECT_EQ(info->baseDefense, 70);
+    EXPECT_EQ(info->baseDefense, 75);
     EXPECT_EQ(info->baseSpeed, 55);
-    EXPECT_EQ(info->baseSpAttack, 85);
+    EXPECT_EQ(info->baseSpAttack, 80);
     EXPECT_EQ(info->baseSpDefense, 100);
     EXPECT_EQ(info->types[0], TYPE_ICE);
     EXPECT_EQ(info->types[1], TYPE_POISON);
@@ -2669,10 +2669,10 @@ TEST("Sigma dex: Aquway has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_AQUWAY];
     EXPECT_EQ(info->baseHP, 80);
-    EXPECT_EQ(info->baseAttack, 100);
+    EXPECT_EQ(info->baseAttack, 85);
     EXPECT_EQ(info->baseDefense, 55);
     EXPECT_EQ(info->baseSpeed, 115);
-    EXPECT_EQ(info->baseSpAttack, 90);
+    EXPECT_EQ(info->baseSpAttack, 105);
     EXPECT_EQ(info->baseSpDefense, 55);
     EXPECT_EQ(info->types[0], TYPE_WATER);
     EXPECT_EQ(info->types[1], TYPE_GROUND);

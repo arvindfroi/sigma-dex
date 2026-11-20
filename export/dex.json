@@ -12653,12 +12653,12 @@
         "hidden": "Defiant"
       },
       "base_stats": {
-        "hp": 80,
-        "attack": 85,
-        "defense": 75,
-        "sp_attack": 50,
-        "sp_defense": 70,
-        "speed": 40
+        "hp": 70,
+        "attack": 75,
+        "defense": 65,
+        "sp_attack": 45,
+        "sp_defense": 65,
+        "speed": 30
       },
       "ev_yield": {
         "attack": 1
@@ -20113,8 +20113,8 @@
       "base_stats": {
         "hp": 85,
         "attack": 125,
-        "defense": 70,
-        "sp_attack": 85,
+        "defense": 75,
+        "sp_attack": 80,
         "sp_defense": 100,
         "speed": 55
       },
@@ -32639,9 +32639,9 @@
       },
       "base_stats": {
         "hp": 80,
-        "attack": 100,
+        "attack": 85,
         "defense": 55,
-        "sp_attack": 90,
+        "sp_attack": 105,
         "sp_defense": 55,
         "speed": 115
       },
@@ -34989,10 +34989,10 @@
       },
       "base_stats": {
         "hp": 92,
-        "attack": 60,
+        "attack": 56,
         "defense": 60,
         "sp_attack": 140,
-        "sp_defense": 56,
+        "sp_defense": 60,
         "speed": 92
       },
       "ev_yield": {

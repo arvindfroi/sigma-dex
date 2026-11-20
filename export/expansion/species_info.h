@@ -3070,9 +3070,9 @@
     {
         .baseHP = 85,
         .baseAttack = 125,
-        .baseDefense = 70,
+        .baseDefense = 75,
         .baseSpeed = 55,
-        .baseSpAttack = 85,
+        .baseSpAttack = 80,
         .baseSpDefense = 100,
         .types = MON_TYPES(TYPE_ICE, TYPE_POISON),
         .catchRate = 60,
@@ -4747,10 +4747,10 @@
     [SPECIES_AQUWAY] =
     {
         .baseHP = 80,
-        .baseAttack = 100,
+        .baseAttack = 85,
         .baseDefense = 55,
         .baseSpeed = 115,
-        .baseSpAttack = 90,
+        .baseSpAttack = 105,
         .baseSpDefense = 55,
         .types = MON_TYPES(TYPE_WATER, TYPE_GROUND),
         .catchRate = 75,
