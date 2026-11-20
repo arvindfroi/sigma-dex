@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions:
   - into: julius
     method: level
-    level: 15
+    level: 20
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []

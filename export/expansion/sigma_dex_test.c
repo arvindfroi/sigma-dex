@@ -1608,8 +1608,8 @@ TEST("Sigma dex: Roostasaur has the data from its species file")
     EXPECT_EQ(info->baseAttack, 120);
     EXPECT_EQ(info->baseDefense, 70);
     EXPECT_EQ(info->baseSpeed, 100);
-    EXPECT_EQ(info->baseSpAttack, 60);
-    EXPECT_EQ(info->baseSpDefense, 65);
+    EXPECT_EQ(info->baseSpAttack, 55);
+    EXPECT_EQ(info->baseSpDefense, 70);
     EXPECT_EQ(info->types[0], TYPE_DRAGON);
     EXPECT_EQ(info->types[1], TYPE_NORMAL);
     EXPECT_EQ(info->abilities[0], ABILITY_BIG_PECKS);
@@ -2810,10 +2810,10 @@ TEST("Sigma dex: Everdark has the data from its species file")
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_EVERDARK];
     EXPECT_EQ(info->baseHP, 95);
     EXPECT_EQ(info->baseAttack, 145);
-    EXPECT_EQ(info->baseDefense, 120);
+    EXPECT_EQ(info->baseDefense, 110);
     EXPECT_EQ(info->baseSpeed, 100);
-    EXPECT_EQ(info->baseSpAttack, 100);
-    EXPECT_EQ(info->baseSpDefense, 120);
+    EXPECT_EQ(info->baseSpAttack, 120);
+    EXPECT_EQ(info->baseSpDefense, 110);
     EXPECT_EQ(info->types[0], TYPE_DARK);
     EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
     EXPECT_EQ(info->abilities[0], ABILITY_ARMOR_TAIL);
@@ -2945,9 +2945,9 @@ SINGLE_BATTLE_TEST("Sigma dex: Solidedge can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: Selmball has the data from its species file")
+TEST("Sigma dex: Sealma has the data from its species file")
 {
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SELMBALL];
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SEALMA];
     EXPECT_EQ(info->baseHP, 75);
     EXPECT_EQ(info->baseAttack, 45);
     EXPECT_EQ(info->baseDefense, 40);
@@ -2958,13 +2958,13 @@ TEST("Sigma dex: Selmball has the data from its species file")
     EXPECT_EQ(info->types[1], TYPE_GROUND);
     EXPECT_EQ(info->abilities[0], ABILITY_SLUSH_RUSH);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_MUD_SLAP);
-    EXPECT_EQ(GetSpeciesName(SPECIES_SELMBALL)[0], CHAR_S);
+    EXPECT_EQ(GetSpeciesName(SPECIES_SEALMA)[0], CHAR_S);
 }
 
-SINGLE_BATTLE_TEST("Sigma dex: Selmball can use its first move in battle")
+SINGLE_BATTLE_TEST("Sigma dex: Sealma can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_SELMBALL) { Moves(MOVE_MUD_SLAP); }
+        PLAYER(SPECIES_SEALMA) { Moves(MOVE_MUD_SLAP); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN { MOVE(player, MOVE_MUD_SLAP); }
@@ -3250,34 +3250,6 @@ SINGLE_BATTLE_TEST("Sigma dex: Custodix can use its first move in battle")
         TURN { MOVE(player, MOVE_EMBER); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, player);
-    }
-}
-
-TEST("Sigma dex: Rockedeer has the data from its species file")
-{
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ROCKEDEER];
-    EXPECT_EQ(info->baseHP, 80);
-    EXPECT_EQ(info->baseAttack, 90);
-    EXPECT_EQ(info->baseDefense, 70);
-    EXPECT_EQ(info->baseSpeed, 140);
-    EXPECT_EQ(info->baseSpAttack, 130);
-    EXPECT_EQ(info->baseSpDefense, 70);
-    EXPECT_EQ(info->types[0], TYPE_FIRE);
-    EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
-    EXPECT_EQ(info->abilities[0], ABILITY_LEVITATE);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ALLY_SWITCH);
-    EXPECT_EQ(GetSpeciesName(SPECIES_ROCKEDEER)[0], CHAR_R);
-}
-
-SINGLE_BATTLE_TEST("Sigma dex: Rockedeer can use its first move in battle")
-{
-    GIVEN {
-        PLAYER(SPECIES_ROCKEDEER) { Moves(MOVE_ALLY_SWITCH); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_ALLY_SWITCH); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, player);
     }
 }
 

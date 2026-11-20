@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions:
   - into: whaldrill3
     method: level
-    level: 45
+    level: 42
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []

@@ -549,7 +549,7 @@ static const u16 sStrawbooEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sSelmballEggMoveLearnset[] = {
+static const u16 sSealmaEggMoveLearnset[] = {
     MOVE_ICICLE_SPEAR,
     MOVE_MUD_SHOT,
     MOVE_DOUBLE_EDGE,

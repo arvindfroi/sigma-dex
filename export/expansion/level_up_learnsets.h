@@ -2648,7 +2648,7 @@ static const struct LevelUpMove sSolidedgeLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const struct LevelUpMove sSelmballLevelUpLearnset[] = {
+static const struct LevelUpMove sSealmaLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_MUD_SLAP),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 4, MOVE_POWDER_SNOW),
@@ -2940,29 +2940,6 @@ static const struct LevelUpMove sCustodixLevelUpLearnset[] = {
     LEVEL_UP_MOVE(64, MOVE_FIRE_BLAST),
     LEVEL_UP_MOVE(66, MOVE_POWER_GEM),
     LEVEL_UP_MOVE(84, MOVE_OVERHEAT),
-    LEVEL_UP_END
-};
-
-static const struct LevelUpMove sRockedeerLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_ALLY_SWITCH),
-    LEVEL_UP_MOVE( 1, MOVE_CONFUSION),
-    LEVEL_UP_MOVE( 1, MOVE_EMBER),
-    LEVEL_UP_MOVE( 1, MOVE_LEER),
-    LEVEL_UP_MOVE( 5, MOVE_HELPING_HAND),
-    LEVEL_UP_MOVE( 7, MOVE_SWIFT),
-    LEVEL_UP_MOVE(21, MOVE_PSYBEAM),
-    LEVEL_UP_MOVE(25, MOVE_LAVA_PLUME),
-    LEVEL_UP_MOVE(25, MOVE_PSYSHOCK),
-    LEVEL_UP_MOVE(30, MOVE_INCINERATE),
-    LEVEL_UP_MOVE(35, MOVE_EXTRASENSORY),
-    LEVEL_UP_MOVE(40, MOVE_AGILITY),
-    LEVEL_UP_MOVE(42, MOVE_NASTY_PLOT),
-    LEVEL_UP_MOVE(45, MOVE_FLAMETHROWER),
-    LEVEL_UP_MOVE(45, MOVE_INFERNO),
-    LEVEL_UP_MOVE(49, MOVE_PSYCHIC),
-    LEVEL_UP_MOVE(51, MOVE_HEAT_CRASH),
-    LEVEL_UP_MOVE(63, MOVE_FUTURE_SIGHT),
-    LEVEL_UP_MOVE(75, MOVE_OVERHEAT),
     LEVEL_UP_END
 };
 

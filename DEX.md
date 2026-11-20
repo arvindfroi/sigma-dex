@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**186 / 254** slots have a Pokemon - **0** are fully complete - average completeness **61%**.
+**185 / 254** slots have a Pokemon - **0** are fully complete - average completeness **61%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -22,16 +22,16 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 11 | [Harpie](data/species/harpie.yaml) | Normal / Flying | Unburden, Keen Eye, Gale Wings (H) | 365 | Smeatherace (Lv 36) | 66% |
 | 12 | [Smeatherace](data/species/smeatherace.yaml) | Normal / Flying | Unburden, Keen Eye, Gale Wings (H) | 495 |  | 72% |
 | 13 | [Bolthook](data/species/bolthook.yaml) | Dark / Flying | Strong Jaw, Intimidate, Pressure (H) | 495 |  | 76% |
-| 14 | [Wump](data/species/wump.yaml) | Bug | Swarm, Run Away, Unburden (H) | 300 | Twemp (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 66% |
-| 15 | [Twemp](data/species/twemp.yaml) | Bug / Grass | Swarm, Leaf Guard, Grassy Surge (H) | 380 | Florantula (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 66% |
+| 14 | [Wump](data/species/wump.yaml) | Bug | Swarm, Run Away, Unburden (H) | 300 | Twemp (Lv 16) | 66% |
+| 15 | [Twemp](data/species/twemp.yaml) | Bug / Grass | Swarm, Leaf Guard, Grassy Surge (H) | 380 | Florantula (Lv 38) | 66% |
 | 16 | [Florantula](data/species/florantula.yaml) | Bug / Grass | Swarm, Leaf Guard, Grassy Surge (H) | 485 |  | 69% |
 | 17 | [Pipwi](data/species/pipwi.yaml) | Grass | Early Bird, Harvest, Grass Pelt (H) | 300 | Tropistrich (Lv 30) | 69% |
 | 18 | [Tropistrich](data/species/pipwi-utv.yaml) | Grass / Flying | Early Bird, Harvest, Tough Claws (H) | 470 |  | 69% |
-| 19 | [Cloudgnome](data/species/cloudgnome.yaml) | Fairy / Flying | Prankster | 278 |  | 48% |
+| 19 | [Cloudgnome](data/species/cloudgnome.yaml) | Fairy / Flying | Prankster | 278 | Cloudjester (Lv 25) | 48% |
 | 20 | [Cloudjester](data/species/cloudjester.yaml) | Fairy / Flying | Prankster | 478 |  | 45% |
 | 21 | [Cowfin](data/species/cowfin.yaml) | Normal / Water | Own Tempo, Drizzle, Unaware (H) | 315 | Mooceon (Lv 30) | 66% |
 | 22 | [Mooceon](data/species/mooceon.yaml) | Normal / Water | Own Tempo, Drizzle, Unaware (H) | 490 |  | 69% |
-| 23 | [Lapper](data/species/lapper.yaml) | Normal / Fighting | Scrappy, Fur Coat, Hustle (H) | 327 | Brawleo (Lv 25) | 69% |
+| 23 | [Lapper](data/species/lapper.yaml) | Normal / Fighting | Scrappy, Fur Coat, Hustle (H) | 327 | Brawleo (Lv 30) | 69% |
 | 24 | [Brawleo](data/species/brawleo.yaml) | Normal / Fighting | Scrappy, Fur Coat, Technician (H) | 485 |  | 76% |
 | 25 | [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) | Rock / Ground | Iron Barbs, Sand Veil, Sand Force (H) | 410 |  | 66% |
 | 26 | [Snobbit](data/species/icy-freeze.yaml) | Ice | Ice Body, Slush Rush, Oblivious (H) | 280 | Freezrick (Lv 28) | 76% |
@@ -43,7 +43,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 32 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Cursed Body, Lightning Rod, Galvanize (H) | 504 |  | 76% |
 | 33 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice | Moody | 462 |  | 62% |
 | 34 | [Rainbro](data/species/rainbro.yaml) |  | Punchable Face | 490 |  | 59% |
-| 35 | [Blutie](data/species/coati.yaml) | Normal | Run Away, Quick Feet, Unburden (H) | 255 | Coatail (Lv 15) | 69% |
+| 35 | [Blutie](data/species/coati.yaml) | Normal | Run Away, Quick Feet, Unburden (H) | 255 | Coatail (Lv 20) | 69% |
 | 36 | [Coatail](data/species/coatail.yaml) | Normal | Run Away, Quick Feet, Unburden (H) | 446 |  | 69% |
 | 37 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Sticky Hold, Regenerator (H) | 325 | Toxiren (Lv 40) | 76% |
 | 38 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Toxic Voice, Regenerator (H) | 518 |  | 76% |
@@ -71,7 +71,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Broken Swivel | 667 |  | 72% |
 | 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel | Innards Out, Corrosion, Run Away (H) | 325 | Nuclobyl (Lv 40) | 76% |
 | 62 | [Nuclobyl](data/species/nuclobyl.yaml) | Poison / Steel | Innards Out, Corrosion, Filter (H) | 518 |  | 76% |
-| 63 | [Apeshii](data/species/apeshit.yaml) | Normal |  | 290 | Julius (Lv 15) | 34% |
+| 63 | [Apeshii](data/species/apeshit.yaml) | Normal |  | 290 | Julius (Lv 20) | 34% |
 | 64 | [Julius](data/species/julius.yaml) | Fighting / Normal | Sheer Force, Rocky Payload, Gorilla Tactics (H) | 405 | Conqrilla (Trade holding Metal Coat), Gorambe (Friendship) | 69% |
 | 65 | [Conqrilla](data/species/yanklet.yaml) | Fighting / Steel | Sheer Force, Rocky Payload, Gorilla Tactics (H) | 505 |  | 66% |
 | 66 | [Gorambe](data/species/harambe.yaml) | Ghost / Fairy | Clear Body, Telepathy, Friend Guard (H) | 505 |  | 62% |
@@ -103,7 +103,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 92 | [Dragem](data/species/dragem.yaml) | Dragon / Rock | Sand Stream, Rough Skin, Multiscale (H) | 515 |  | 66% |
 | 93 | [Quimsy](data/species/quimsy.yaml) | Normal / Psychic | Nerd out, Download (H) | 415 |  | 45% |
 | 94 | [ROKU](data/species/roku.yaml) | Ground / Psychic | Magician, Power Spot, Purifying Salt (H) | 530 |  | 66% |
-| 95 | [Skiirtle](data/species/skiirtle.yaml) | Fire | Speed Boost, Reckless (H) | 350 | McSkiirtle (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 66% |
+| 95 | [Skiirtle](data/species/skiirtle.yaml) | Fire | Speed Boost, Reckless (H) | 350 | McSkiirtle (Thunder Stone) | 66% |
 | 96 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric | Better Late, Reckless (H) | 485 |  | 62% |
 | 97 | [ambuger](data/species/ambuger.yaml) | Rock / Bug | Shell Armor, Overcoat, Infiltrator (H) | 350 | Ambrr (Lv 40) | 69% |
 | 98 | [Ambrr](data/species/ambcoptr.yaml) | Rock / Bug | Levitate, Overcoat, Infiltrator (H) | 495 |  | 69% |
@@ -125,7 +125,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 114 | [Aluminimonk Utviklin](data/species/alminimonk-utvikling.yaml) | Psychic / Fighting | Shields Down | 440 |  | 62% |
 | 115 | [Sparktera](data/species/zapitera-mindre-utv.yaml) | Steel / Electric | Volt Absorb, Magnet Pull, Steely Spirit (H) | 305 | Zapitera (Lv 35) | 34% |
 | 116 | [Zapitera](data/species/zapitera.yaml) | Steel / Electric | Levitate, Magnet Pull, Stalwart (H) | 505 |  | 69% |
-| 117 | [Viridub](data/species/viridub.yaml) | Grass | Leaf Mane, Grass Pelt, Chlorophyll (H) | 369 | Viridub Utvikling (Leaf Stone) | 66% |
+| 117 | [Viridub](data/species/viridub.yaml) | Grass | Leaf Mane, Grass Pelt, Chlorophyll (H) | 369 | Viridub Utvikling (Leaf Stone) | 69% |
 | 118 | [Viridub Utvikling](data/species/viridub-utvikling.yaml) | Grass | Leaf Mane, Grass Pelt, Chlorophyll (H) | 510 |  | 59% |
 | 119 | [Shadeem](data/species/shadeem.yaml) | Dark | Illusion | 330 | Shadrove (Dusk Stone) | 76% |
 | 120 | [Shadrove](data/species/shadrove.yaml) | Dark | Illusion | 510 |  | 69% |
@@ -148,28 +148,28 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 137 | [riftlees](data/species/riftlees.yaml) | Ghost / Psychic | Prankster, Shadow Tag (H) | 425 |  | 31% |
 | 138 | [Giga-Circuit](data/species/giga-circuit.yaml) | Electric | Motor Drive, Flare Boost, Transistor (H) | 500 |  | 66% |
 | 139 | [Strawboo](data/species/strawboo.yaml) | Water | Lightning Rod, Glowing Lure, Marvel Scale (H) | 240 | Wreckingboo (Lv 30) | 38% |
-| 140 | [Wreckingboo](data/species/wreckingboo.yaml) | Water | Lightning Rod, Glowing Lure, Marvel Scale (H) | 340 | Wreckingdrake (Trade holding Dragon Scale) | 38% |
+| 140 | [Wreckingboo](data/species/wreckingboo.yaml) | Water | Lightning Rod, Glowing Lure, Marvel Scale (H) | 340 | Wreckingdrake (Lv 48) | 38% |
 | 141 | [Wreckingdrake](data/species/wreckingdrake.yaml) | Water / Dragon | Lightning Rod, Glowing Lure, Marvel Scale (H) | 540 |  | 62% |
 | 142 | [Iron Bulb](data/species/iron-wire.yaml) | Electric | Quark Drive | 570 |  | 38% |
 | 143 | [Solidedge](data/species/solidedge.yaml) | Bug / Psychic | Beast Boost | 600 |  | 41% |
 | 144 | [Rosie](data/species/rosie.yaml) | Grass / Fairy |  |  | Rosievoir (Lv 40) | 14% |
 | 145 | [Rosievoir](data/species/rosievoir.yaml) | Grass / Fairy |  |  |  | 17% |
-| 146 | [Sealma](data/species/sealma.yaml) | Ice |  |  |  | 17% |
-| 147 | [Selmball](data/species/whaldrill0.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 280 | Narburr (Lv 25) | 62% |
-| 148 | [Narburr](data/species/whaldrill.yaml) | Ice / Ground | Comatose, Oblivious, Thick Fat (H) | 450 | Whaldrill (Lv 45) | 66% |
+| 146 | *open slot* | | | | | |
+| 147 | [Sealma](data/species/whaldrill0.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 280 | Narburr (Lv 25) | 66% |
+| 148 | [Narburr](data/species/whaldrill.yaml) | Ice / Ground | Comatose, Oblivious, Thick Fat (H) | 450 | Whaldrill (Lv 42) | 66% |
 | 149 | [Whaldrill](data/species/whaldrill3.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 530 |  | 66% |
-| 150 | [Venofrib](data/species/venofrib.yaml) | Poison | Color Change, Poison Point, Protean (H) | 320 |  | 34% |
-| 151 | [Vendepiede](data/species/vendepiede.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 420 |  | 34% |
+| 150 | [Venofrib](data/species/venofrib.yaml) | Poison | Color Change, Poison Point, Protean (H) | 320 | Vendepiede (Lv 18) | 34% |
+| 151 | [Vendepiede](data/species/vendepiede.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 420 | Venorax (Lv 38) | 34% |
 | 152 | [Venorax](data/species/venorax.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 530 |  | 28% |
 | 153 | [Raymon](data/species/raymon.yaml) | Normal | Natural Cure, Bad Dreams | 540 |  | 31% |
 | 154 | [Crysteel](data/species/crysteel.yaml) | Steel / Rock | Clear Body, Pickup, Sand Force (H) | 290 |  | 28% |
 | 155 | [Crystax](data/species/crystax.yaml) | Steel / Rock | Crystal Body, Tough Claws, Sand Force (H) | 510 |  | 28% |
-| 156 | [Whyrmshade](data/species/whyrmshade.yaml) | Ghost | Cursed Body, Levitate, Infiltrator (H) | 340 |  | 24% |
+| 156 | [Whyrmshade](data/species/whyrmshade.yaml) | Ghost | Cursed Body, Levitate, Infiltrator (H) | 340 | Abysspero (Lv 45) | 24% |
 | 157 | [Abysspero](data/species/abysspero.yaml) | Dragon / Ghost | Cursed Body, Berserk, Infiltrator (H) | 540 |  | 24% |
 | 158 | [Aqualoom](data/species/aqualoom.yaml) | Water / Steel | Rain Dish, Water Absorb, Oblivious (H) | 450 |  | 31% |
-| 159 | [Cabat](data/species/catbat.yaml) | Dark / Flying | Unnerve, Defiant, Heckler (H) | 255 | Cobramp (Lv 22) | 21% |
-| 160 | [Cobramp](data/species/cobrabat.yaml) | Dark / Flying | Unnerve, Defiant, Heckler (H) | 455 |  | 28% |
-| 161 | [Horaxigon](data/species/horaxigon.yaml) | Steel / Dragon | Mold Breaker, Download, Sheer Force (H) | 340 | Horaxander (Lv 55) | 21% |
+| 159 | [Cabat](data/species/catbat.yaml) | Dark / Flying | Unnerve, Frisk, Heckler (H) | 255 | Cobramp (Lv 22) | 21% |
+| 160 | [Cobramp](data/species/cobrabat.yaml) | Dark / Flying | Unnerve, Frisk, Heckler (H) | 455 |  | 28% |
+| 161 | [Horaxigon](data/species/horaxigon.yaml) | Steel / Dragon | Mold Breaker, Download, Sheer Force (H) | 340 | Horaxander (Lv 45) | 21% |
 | 162 | [Horaxander](data/species/horaxander.yaml) | Steel / Dragon | Mold Breaker, Download, Sheer Force (H) | 540 |  | 24% |
 | 163 | [Lansseax](data/species/natureo.yaml) | Psychic / Grass | Slow Start, Natural Cure, Regenerator (H) | 640 |  | 21% |
 | 164 | [Dinoactyl](data/species/dinoactyl.yaml) | Dragon / Rock | Rough Skin, Compound Eyes |  |  | 21% |
@@ -250,9 +250,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 239 | [Custodix](data/species/custodix.yaml) | Fire / Rock | Fire Mane, Drought, Solar Power (H) | 600 |  | 72% |
 | 240 | [Entrigon](data/species/entrigon.yaml) | Fire / Electric | Motor Drive | 600 |  | 21% |
 | 241 | [Tsunamo](data/species/tsunamo.yaml) | Ice / Water | Water Absorb | 600 |  | 28% |
-| 242 | [Felk](data/species/felk.yaml) | Fairy / Grass |  |  |  | 21% |
-| 243 | [Moosus](data/species/moosus.yaml) | Flying / Ice | Aurora Dancer | 580 |  | 69% |
-| 244 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Levitate | 580 |  | 66% |
+| 242 | [Felk](data/species/felk.yaml) | Grass / Flying | Wind Master | 580 |  | 31% |
+| 243 | [Moosus](data/species/moosus.yaml) | Ice / Fairy | Aurora Dancer | 580 |  | 69% |
+| 244 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Rocket Science | 580 |  | 66% |
 | 245 | [Praxis](data/species/praxis.yaml) | Flying / Ghost | Levitate | 600 |  | 21% |
 | 246 | [Laxis](data/species/laxis.yaml) | Flying / Ice | Levitate | 600 |  | 21% |
 | 247 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician (H) | 680 |  | 76% |

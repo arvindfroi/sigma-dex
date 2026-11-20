@@ -47,8 +47,8 @@ held_items:              # items wild ones can hold (optional)
 # --- Evolution: what THIS Pokemon evolves INTO ---
 evolutions:
   - into: wreckingdrake
-    method: trade_item
-    item: Dragon Scale
+    method: level
+    level: 48
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []

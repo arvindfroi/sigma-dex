@@ -17,17 +17,17 @@ body_color: blue         # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Levitate
+  primary: Rocket Science
   secondary:             # optional
   hidden:                # optional
 
 base_stats:              # each 1-255
   hp: 80
-  attack: 90
+  attack: 100
   defense: 70
   sp_attack: 130
   sp_defense: 70
-  speed: 140
+  speed: 130
 
 ev_yield: {speed: 3}     # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate: 3            # 3 (legendary) to 255 (very easy)
@@ -89,10 +89,10 @@ learnset:
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
           Protect, Rain Dance, Safeguard, Frustration, Solar Beam, Thunderbolt, Thunder,
           Return, Psychic, Shadow Ball, Double Team, Reflect, Flamethrower, Fire Blast,
-          Facade, Secret Power, Rest, Skill Swap, Overheat, Energy Ball, Fling, Charge Beam,
-          Endure, Will-O-Wisp, Giga Impact, Flash, Thunder Wave, Psych Up, Sleep Talk,
-          Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Flame Charge,
-          Mystical Fire, Expanding Force, Focus Blast, U-turn]
+          Facade, Secret Power, Rest, Skill Swap, Overheat, Focus Blast, Energy Ball, Fling,
+          Charge Beam, Endure, Will-O-Wisp, Giga Impact, Flash, Thunder Wave, Psych Up,
+          Sleep Talk, Natural Gift, Grass Knot, Swagger, U-turn, Substitute, Trick Room,
+          Psyshock, Flame Charge, Mystical Fire, Expanding Force]
   # moves a move tutor can teach it
   tutor: [Body Slam, Flare Blitz, Heat Wave, Nasty Plot, Zen Headbutt]
   egg: []                # only needed for the first stage of an evolution line

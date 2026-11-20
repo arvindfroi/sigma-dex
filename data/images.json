@@ -5614,13 +5614,6 @@
     "editor": null
   },
   {
-    "id": 1903,
-    "species": "furamire",
-    "file": "assets/concept-art/furamire/1903.png",
-    "caption": "[ds-front] sprite #340",
-    "editor": null
-  },
-  {
     "id": 1919,
     "species": "cloudjester",
     "file": "assets/concept-art/cloudjester/1919.png",
@@ -6465,13 +6458,6 @@
     "species": "whyrmshade",
     "file": "assets/concept-art/whyrmshade/2149.webp",
     "caption": null,
-    "editor": "michael"
-  },
-  {
-    "id": 2150,
-    "species": "felk",
-    "file": "assets/concept-art/felk/2150.png",
-    "caption": "[ds-front] sprite #397",
     "editor": "michael"
   },
   {
@@ -7546,13 +7532,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2490,
-    "species": "rockedeer",
-    "file": "assets/concept-art/rockedeer/2490.png",
-    "caption": "[ds-front] sprite #484",
-    "editor": "Arvind"
-  },
-  {
     "id": 2492,
     "species": "rockedeer",
     "file": "assets/concept-art/rockedeer/2492.png",
@@ -8127,13 +8106,6 @@
     "editor": null
   },
   {
-    "id": 2623,
-    "species": "sealma",
-    "file": "assets/concept-art/sealma/2623.png",
-    "caption": null,
-    "editor": "Arvind"
-  },
-  {
     "id": 2624,
     "species": "dinoactyl",
     "file": "assets/concept-art/dinoactyl/2624.webp",
@@ -8174,5 +8146,54 @@
     "file": "assets/concept-art/whaldrill0/2629.png",
     "caption": "[ds-follower] sprite #514",
     "editor": null
+  },
+  {
+    "id": 2634,
+    "species": "felk",
+    "file": "assets/concept-art/felk/2634.png",
+    "caption": "[ds-front] sprite #515",
+    "editor": null
+  },
+  {
+    "id": 2638,
+    "species": "rockedeer",
+    "file": "assets/concept-art/rockedeer/2638.png",
+    "caption": "[ds-front] sprite #517",
+    "editor": "Emil"
+  },
+  {
+    "id": 2646,
+    "species": "leafaxer",
+    "file": "assets/concept-art/leafaxer/2646.png",
+    "caption": "[ds-front] sprite #519",
+    "editor": "Emil"
+  },
+  {
+    "id": 2647,
+    "species": "leafaxer",
+    "file": "assets/concept-art/leafaxer/2647.png",
+    "caption": "[ds-back] sprite #519",
+    "editor": "Emil"
+  },
+  {
+    "id": 2648,
+    "species": "leafaxer",
+    "file": "assets/concept-art/leafaxer/2648.png",
+    "caption": "[ds-icon] sprite #519",
+    "editor": "Emil"
+  },
+  {
+    "id": 2649,
+    "species": "leafaxer",
+    "file": "assets/concept-art/leafaxer/2649.png",
+    "caption": "[ds-follower] sprite #519",
+    "editor": "Emil"
+  },
+  {
+    "id": 2658,
+    "species": "furamire",
+    "file": "assets/concept-art/furamire/2658.png",
+    "caption": "[ds-front] sprite #522",
+    "editor": "Emil"
   }
 ]

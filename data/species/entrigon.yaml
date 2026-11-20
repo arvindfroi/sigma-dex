@@ -22,9 +22,9 @@ abilities:
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp: 80
+  hp: 85
   attack: 120
-  defense: 85
+  defense: 80
   sp_attack: 100
   sp_defense: 90
   speed: 125

@@ -4,11 +4,9 @@
 abilities:
 - id: aurora-dancer
   name: Aurora Dancer
-  description: Ice-type moves raises the user’s Speed. Instead of hurting it
-  effect: 'When this Pokémon is hit by an Ice-type move, it takes no damage and its Speed rises by two
-    stages. Otherwise it works like Motor Drive: it only triggers from moves used by other Pokémon, not
-    from Snowscape, and it doesn''t block non-Ice or status moves. Mold Breaker and similar effects bypass
-    it.'
+  description: Ice-type moves raises the user’s Speed. Ice immunity. Levitating
+  effect: When this Pokémon is hit by an Ice-type move, it takes no damage and its Speed rises by one
+    stage. User is Levitating
   similar_to: Motor Drive
   designer: Emil
 - id: better-late
@@ -168,6 +166,13 @@ abilities:
     poisoned
   similar_to: Storm Drain
   designer: Emil
+- id: rocket-science
+  name: Rocket Science
+  description: Boost Speed if hit by a Fire-type move. Fire-type immunity. Levitating
+  effect: The Pokémon takes no damage when hit by Fire-type moves. Instead, its Speed stat is boosted.
+    The Pokémon is levitating which gives it ground immunity aswell as immunity to stage hazards exluding
+    stealth rock
+  designer: Emil
 - id: sloth-combat
   name: Sloth Combat
   description: Doubles the user's Attack stat while it is asleep.
@@ -192,4 +197,9 @@ abilities:
 
     Poison type Pokémon also gain STAB from those moves.'
   similar_to: Liquid Voice
+  designer: Emil
+- id: wind-master
+  name: Wind Master
+  description: Draws in Flying type moves & raises its speed instead of hurting it
+  effect: Draws in Flying-Type moves and raises user’s speed by 1 stages instead of hurting it
   designer: Emil

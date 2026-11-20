@@ -18,14 +18,14 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Unnerve
-  secondary: Defiant     # optional
+  secondary: Frisk       # optional
   hidden: Heckler        # optional
 
 base_stats:              # each 1-255
   hp: 65
-  attack: 90
+  attack: 95
   defense: 55
-  sp_attack: 60
+  sp_attack: 55
   sp_defense: 55
   speed: 130
 

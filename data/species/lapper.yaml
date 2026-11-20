@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions:
   - into: brawleo
     method: level
-    level: 25
+    level: 30
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []

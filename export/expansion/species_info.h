@@ -646,6 +646,7 @@
         .levelUpLearnset = sWumpLevelUpLearnset,
         .teachableLearnset = sWumpTeachableLearnset,
         .eggMoveLearnset = sWumpEggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_TWEMP}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -695,6 +696,7 @@
         .iconPalIndex = 0,
         .levelUpLearnset = sTwempLevelUpLearnset,
         .teachableLearnset = sTwempTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_FLORANTULA}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -989,7 +991,7 @@
         .levelUpLearnset = sLapperLevelUpLearnset,
         .teachableLearnset = sLapperTeachableLearnset,
         .eggMoveLearnset = sLapperEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_BRAWLEO}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_BRAWLEO}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -1445,7 +1447,7 @@
         .levelUpLearnset = sBlutieLevelUpLearnset,
         .teachableLearnset = sBlutieTeachableLearnset,
         .eggMoveLearnset = sBlutieEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 15, SPECIES_COATAIL}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_COATAIL}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -2873,8 +2875,8 @@
         .baseAttack = 120,
         .baseDefense = 70,
         .baseSpeed = 100,
-        .baseSpAttack = 60,
-        .baseSpDefense = 65,
+        .baseSpAttack = 55,
+        .baseSpDefense = 70,
         .types = MON_TYPES(TYPE_DRAGON, TYPE_NORMAL),
         .catchRate = 45,
         .expYield = 64,
@@ -4992,10 +4994,10 @@
     {
         .baseHP = 95,
         .baseAttack = 145,
-        .baseDefense = 120,
+        .baseDefense = 110,
         .baseSpeed = 100,
-        .baseSpAttack = 100,
-        .baseSpDefense = 120,
+        .baseSpAttack = 120,
+        .baseSpDefense = 110,
         .types = MON_TYPES(TYPE_DARK, TYPE_PSYCHIC),
         .catchRate = 45,
         .expYield = 182,
@@ -5233,7 +5235,7 @@
         FOOTPRINT(QuestionMark)
     },
 
-    [SPECIES_SELMBALL] =
+    [SPECIES_SEALMA] =
     {
         .baseHP = 75,
         .baseAttack = 45,
@@ -5252,9 +5254,9 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
         .abilities = { ABILITY_SLUSH_RUSH, ABILITY_SAND_RUSH, ABILITY_THICK_FAT },
         .bodyColor = BODY_COLOR_BROWN,
-        .speciesName = _("Selmball"),
+        .speciesName = _("Sealma"),
         .cryId = CRY_NONE,
-        .natDexNum = NATIONAL_DEX_SELMBALL,
+        .natDexNum = NATIONAL_DEX_SEALMA,
         .categoryName = _("Unknown"),
         .height = 7,
         .weight = 350,
@@ -5276,9 +5278,9 @@
         .shinyPalette = gMonShinyPalette_CircledQuestionMark,
         .iconSprite = gMonIcon_QuestionMark,
         .iconPalIndex = 0,
-        .levelUpLearnset = sSelmballLevelUpLearnset,
-        .teachableLearnset = sSelmballTeachableLearnset,
-        .eggMoveLearnset = sSelmballEggMoveLearnset,
+        .levelUpLearnset = sSealmaLevelUpLearnset,
+        .teachableLearnset = sSealmaTeachableLearnset,
+        .eggMoveLearnset = sSealmaEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_NARBURR}),
         FOOTPRINT(QuestionMark)
     },
@@ -5329,7 +5331,7 @@
         .iconPalIndex = 0,
         .levelUpLearnset = sNarburrLevelUpLearnset,
         .teachableLearnset = sNarburrTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 45, SPECIES_WHALDRILL}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 42, SPECIES_WHALDRILL}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -5428,6 +5430,7 @@
         .levelUpLearnset = sVenofribLevelUpLearnset,
         .teachableLearnset = sVenofribTeachableLearnset,
         .eggMoveLearnset = sVenofribEggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_VENDEPIEDE}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -5476,6 +5479,7 @@
         .iconPalIndex = 0,
         .levelUpLearnset = sVendepiedeLevelUpLearnset,
         .teachableLearnset = sVendepiedeTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_VENORAX}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -5775,54 +5779,6 @@
         .iconPalIndex = 0,
         .levelUpLearnset = sCustodixLevelUpLearnset,
         .teachableLearnset = sCustodixTeachableLearnset,
-        FOOTPRINT(QuestionMark)
-    },
-
-    [SPECIES_ROCKEDEER] =
-    {
-        .baseHP = 80,
-        .baseAttack = 90,
-        .baseDefense = 70,
-        .baseSpeed = 140,
-        .baseSpAttack = 130,
-        .baseSpDefense = 70,
-        .types = MON_TYPES(TYPE_FIRE, TYPE_PSYCHIC),
-        .catchRate = 3,
-        .expYield = 261,
-        .evYield_Speed = 3,
-        .genderRatio = MON_GENDERLESS,
-        .eggCycles = 120,
-        .friendship = 0,
-        .growthRate = GROWTH_SLOW,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },
-        .bodyColor = BODY_COLOR_BLUE,
-        .speciesName = _("Rockedeer"),
-        .cryId = CRY_NONE,
-        .natDexNum = NATIONAL_DEX_ROCKEDEER,
-        .categoryName = _("Unknown"),
-        .height = 19,
-        .weight = 2100,
-        .description = COMPOUND_STRING(
-            "This Pokemon has no Pokedex entry yet."),
-        .pokemonScale = 256,
-        .pokemonOffset = 0,
-        .trainerScale = 256,
-        .trainerOffset = 0,
-        .frontPic = gMonFrontPic_CircledQuestionMark,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        .backPic = gMonBackPic_CircledQuestionMark,
-        .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 7,
-        .backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_CircledQuestionMark,
-        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
-        .iconSprite = gMonIcon_QuestionMark,
-        .iconPalIndex = 0,
-        .levelUpLearnset = sRockedeerLevelUpLearnset,
-        .teachableLearnset = sRockedeerTeachableLearnset,
         FOOTPRINT(QuestionMark)
     },
 

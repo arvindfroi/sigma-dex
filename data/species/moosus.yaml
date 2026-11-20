@@ -6,7 +6,7 @@ credits:
   designer: Arvind       # who came up with it (Discord name)
   artist: Arvind         # who drew the concept art
 
-types: [Flying, Ice]     # 1 or 2 types, e.g. [Grass, Steel]
+types: [Ice, Fairy]      # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -22,8 +22,8 @@ abilities:
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp: 130
-  attack: 110
+  hp: 120
+  attack: 120
   defense: 100
   sp_attack: 70
   sp_defense: 100
@@ -76,8 +76,9 @@ learnset:
     - {level: 18, move: Stomp}
     - {level: 30, move: Taunt}
     - {level: 31, move: Aurora Beam}
-    - {level: 40, move: Play Rough}
-    - {level: 44, move: Recover}
+    - {level: 35, move: Play Rough}
+    - {level: 40, move: Recover}
+    - {level: 44, move: Ice Hammer}
     - {level: 48, move: Swords Dance}
     - {level: 54, move: Thrash}
     - {level: 60, move: Moonblast}
@@ -85,14 +86,17 @@ learnset:
     - {level: 68, move: Horn Leech}
     - {level: 70, move: Sky Attack}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect,
-          Rain Dance, Frustration, Earthquake, Return, Double Team, Reflect, Aerial Ace,
-          Facade, Secret Power, Rest, Steel Wing, Roost, Endure, Giga Impact, Psych Up,
-          Sleep Talk, Swagger, Substitute, Draining Kiss, Play Rough, Aurora Veil,
-          Body Press, Fly]
+  tm_hm: [Calm Mind, Roar, Toxic, Hail, Bulk Up, Hidden Power, Sunny Day, Ice Beam,
+          Blizzard, Hyper Beam, Light Screen, Protect, Rain Dance, Frustration, Earthquake,
+          Return, Psychic, Double Team, Reflect, Aerial Ace, Facade, Secret Power, Rest,
+          Steel Wing, Roost, Endure, Giga Impact, Stone Edge, Avalanche, Psych Up,
+          Rock Slide, Sleep Talk, Natural Gift, Grass Knot, Swagger, U-turn, Substitute,
+          Trick Room, Heavy Slam, Bulldoze, Draining Kiss, Misty Terrain, Play Rough,
+          High Horsepower, Brutal Swing, Aurora Veil, Body Press, Triple Axel, Fly,
+          Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Air Slash, Body Slam, Brave Bird, Dazzling Gleam, Hurricane, Sky Attack,
-          Zen Headbutt]
+  tutor: [Air Slash, Body Slam, Dazzling Gleam, Hurricane, Sky Attack, Zen Headbutt,
+          Avalanche, Ice Shard, Ice Spinner]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

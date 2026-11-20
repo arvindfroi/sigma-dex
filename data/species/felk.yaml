@@ -6,7 +6,7 @@ credits:
   designer: Ruben        # who came up with it (Discord name)
   artist: Ruben          # who drew the concept art
 
-types: [Fairy, Grass]    # 1 or 2 types, e.g. [Grass, Steel]
+types: [Grass, Flying]   # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -17,19 +17,19 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary:
+  primary: Wind Master
   secondary:             # optional
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 100
+  attack: 80
+  defense: 85
+  sp_attack: 120
+  sp_defense: 85
+  speed: 110
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {sp_attack: 3} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
