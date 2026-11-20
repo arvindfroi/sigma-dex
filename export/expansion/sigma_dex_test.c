@@ -2917,90 +2917,6 @@ SINGLE_BATTLE_TEST("Sigma dex: Strawboo can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: Rockedeer has the data from its species file")
-{
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ROCKEDEER];
-    EXPECT_EQ(info->baseHP, 80);
-    EXPECT_EQ(info->baseAttack, 90);
-    EXPECT_EQ(info->baseDefense, 70);
-    EXPECT_EQ(info->baseSpeed, 140);
-    EXPECT_EQ(info->baseSpAttack, 130);
-    EXPECT_EQ(info->baseSpDefense, 70);
-    EXPECT_EQ(info->types[0], TYPE_FIRE);
-    EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
-    EXPECT_EQ(info->abilities[0], ABILITY_LEVITATE);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ALLY_SWITCH);
-    EXPECT_EQ(GetSpeciesName(SPECIES_ROCKEDEER)[0], CHAR_R);
-}
-
-SINGLE_BATTLE_TEST("Sigma dex: Rockedeer can use its first move in battle")
-{
-    GIVEN {
-        PLAYER(SPECIES_ROCKEDEER) { Moves(MOVE_ALLY_SWITCH); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_ALLY_SWITCH); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, player);
-    }
-}
-
-TEST("Sigma dex: Sabertann has the data from its species file")
-{
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SABERTANN];
-    EXPECT_EQ(info->baseHP, 120);
-    EXPECT_EQ(info->baseAttack, 150);
-    EXPECT_EQ(info->baseDefense, 100);
-    EXPECT_EQ(info->baseSpeed, 90);
-    EXPECT_EQ(info->baseSpAttack, 120);
-    EXPECT_EQ(info->baseSpDefense, 100);
-    EXPECT_EQ(info->types[0], TYPE_DARK);
-    EXPECT_EQ(info->types[1], TYPE_WATER);
-    EXPECT_EQ(info->abilities[0], ABILITY_GOOD_AS_GOLD);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWTH);
-    EXPECT_EQ(GetSpeciesName(SPECIES_SABERTANN)[0], CHAR_S);
-}
-
-SINGLE_BATTLE_TEST("Sigma dex: Sabertann can use its first move in battle")
-{
-    GIVEN {
-        PLAYER(SPECIES_SABERTANN) { Moves(MOVE_GROWTH); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_GROWTH); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWTH, player);
-    }
-}
-
-TEST("Sigma dex: Bergflabb has the data from its species file")
-{
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BERGFLABB];
-    EXPECT_EQ(info->baseHP, 150);
-    EXPECT_EQ(info->baseAttack, 130);
-    EXPECT_EQ(info->baseDefense, 130);
-    EXPECT_EQ(info->baseSpeed, 50);
-    EXPECT_EQ(info->baseSpAttack, 110);
-    EXPECT_EQ(info->baseSpDefense, 110);
-    EXPECT_EQ(info->types[0], TYPE_WATER);
-    EXPECT_EQ(info->types[1], TYPE_GROUND);
-    EXPECT_EQ(info->abilities[0], ABILITY_PRIMORDIAL_SEA);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ANCIENT_POWER);
-    EXPECT_EQ(GetSpeciesName(SPECIES_BERGFLABB)[0], CHAR_B);
-}
-
-SINGLE_BATTLE_TEST("Sigma dex: Bergflabb can use its first move in battle")
-{
-    GIVEN {
-        PLAYER(SPECIES_BERGFLABB) { Moves(MOVE_ANCIENT_POWER); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_ANCIENT_POWER); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_ANCIENT_POWER, player);
-    }
-}
-
 TEST("Sigma dex: Solidedge has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SOLIDEDGE];
@@ -3306,6 +3222,90 @@ SINGLE_BATTLE_TEST("Sigma dex: Custodix can use its first move in battle")
         TURN { MOVE(player, MOVE_EMBER); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, player);
+    }
+}
+
+TEST("Sigma dex: Rockedeer has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ROCKEDEER];
+    EXPECT_EQ(info->baseHP, 80);
+    EXPECT_EQ(info->baseAttack, 90);
+    EXPECT_EQ(info->baseDefense, 70);
+    EXPECT_EQ(info->baseSpeed, 140);
+    EXPECT_EQ(info->baseSpAttack, 130);
+    EXPECT_EQ(info->baseSpDefense, 70);
+    EXPECT_EQ(info->types[0], TYPE_FIRE);
+    EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_LEVITATE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ALLY_SWITCH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_ROCKEDEER)[0], CHAR_R);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Rockedeer can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_ROCKEDEER) { Moves(MOVE_ALLY_SWITCH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ALLY_SWITCH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, player);
+    }
+}
+
+TEST("Sigma dex: Bergflabb has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BERGFLABB];
+    EXPECT_EQ(info->baseHP, 150);
+    EXPECT_EQ(info->baseAttack, 130);
+    EXPECT_EQ(info->baseDefense, 130);
+    EXPECT_EQ(info->baseSpeed, 50);
+    EXPECT_EQ(info->baseSpAttack, 110);
+    EXPECT_EQ(info->baseSpDefense, 110);
+    EXPECT_EQ(info->types[0], TYPE_WATER);
+    EXPECT_EQ(info->types[1], TYPE_GROUND);
+    EXPECT_EQ(info->abilities[0], ABILITY_PRIMORDIAL_SEA);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ANCIENT_POWER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_BERGFLABB)[0], CHAR_B);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Bergflabb can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_BERGFLABB) { Moves(MOVE_ANCIENT_POWER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ANCIENT_POWER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ANCIENT_POWER, player);
+    }
+}
+
+TEST("Sigma dex: Sabertann has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SABERTANN];
+    EXPECT_EQ(info->baseHP, 120);
+    EXPECT_EQ(info->baseAttack, 150);
+    EXPECT_EQ(info->baseDefense, 100);
+    EXPECT_EQ(info->baseSpeed, 90);
+    EXPECT_EQ(info->baseSpAttack, 120);
+    EXPECT_EQ(info->baseSpDefense, 100);
+    EXPECT_EQ(info->types[0], TYPE_DARK);
+    EXPECT_EQ(info->types[1], TYPE_WATER);
+    EXPECT_EQ(info->abilities[0], ABILITY_GOOD_AS_GOLD);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWTH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_SABERTANN)[0], CHAR_S);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Sabertann can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_SABERTANN) { Moves(MOVE_GROWTH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWTH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWTH, player);
     }
 }
 

@@ -1,5 +1,5 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
-dex: 149
+dex: 235
 name: Greation
 
 credits:
@@ -22,7 +22,7 @@ abilities:
   hidden: Shield Dust    # optional
 
 base_stats:              # each 1-255
-  hp: 62
+  hp: 60
   attack: 90
   defense: 60
   sp_attack: 70
@@ -88,11 +88,11 @@ learnset:
     - {level: 67, move: Outrage}
     - {level: 72, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Dragon Claw, Toxic, Hidden Power, Sunny Day, Protect, Rain Dance, Frustration,
-          Iron Tail, Return, Dig, Double Team, Facade, Secret Power, Rest, Attract, Endure,
-          Dragon Pulse, Giga Impact, Captivate, X-Scissor, Sleep Talk, Natural Gift,
-          Swagger, U-turn, Substitute, Struggle Bug, Roar, Flamethrower, Fire Blast,
-          Rock Tomb, Poison Jab, Lunge]
+  tm_hm: [Dragon Claw, Roar, Toxic, Hidden Power, Sunny Day, Protect, Rain Dance,
+          Frustration, Iron Tail, Return, Dig, Double Team, Flamethrower, Fire Blast,
+          Rock Tomb, Facade, Secret Power, Rest, Attract, Endure, Dragon Pulse, Giga Impact,
+          Captivate, X-Scissor, Sleep Talk, Natural Gift, Poison Jab, Swagger, U-turn,
+          Substitute, Struggle Bug, Lunge]
   # moves a move tutor can teach it
   tutor: [Body Slam, Bug Bite, Draco Meteor, Dragon Dance, Iron Head, Outrage, Fire Fang,
           Headbutt]

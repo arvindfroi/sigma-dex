@@ -8111,5 +8111,12 @@
     "file": "assets/concept-art/tortoplasm-utviklet/2620.png",
     "caption": "[ds-follower] sprite #512",
     "editor": "Arvind"
+  },
+  {
+    "id": 2621,
+    "species": "seraphinnen",
+    "file": "assets/concept-art/seraphinnen/2621.webp",
+    "caption": null,
+    "editor": "Arvind"
   }
 ]
