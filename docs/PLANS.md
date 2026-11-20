@@ -219,6 +219,12 @@ Arvind's sketches: [the controlled form](img/meowthwo_sketch_controlled.webp) (t
 Persian's ghostly shape and red gem behind him) and [the costume](img/meowthwo_sketch_costume.png) (Meowth suit, Rocket
 shirt and red scarf, psychic energy in his hand).
 
+- **Names and Meowthree's final design (Arvind, 2026-11-20):** three stages, three names:
+  **Meowthscot** (the costumed dude, replaces the working name "Furry Meowth"), **Meowthwo** (with the EXP harness on)
+  and **Meowthree** (when he breaks free). [Meowthree's final design](img/meowthree_design.webp): a tall, slim cat-man
+  standing wide, khaki fur, white eyes with yellow pupils and a calm sly smile, Meowth's coin on the forehead as a
+  barred gold oval, a dark navy-purple bodysuit with gold V-shaped plates from the shoulders down the chest, gold
+  shoulder caps and two gold knobs at the hips, big clawed hands and feet, and a thin tail curled behind him. No harness.
 - **Meowth "dies" early.** The Meowth in the first one or two battles (Viridian Forest, Route 4) is the real Pokemon,
   no. 52, the trio's talking Meowth like in the series. After that he is gone, his death only implied (Jessie and James
   change the subject when asked). Next time the trio has **a dude dressed as Meowth** instead. Everyone thinks he is a
