@@ -9,7 +9,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 
 | # | Name | Types | Abilities | BST | Evolves into | Done |
 |--:|------|-------|-----------|----:|--------------|-----:|
-| 1 | [Leaflet](data/species/leafing.yaml) | Grass | Overgrow, Sharpness (H) | 320 | Leafling (Lv 16) | 79% |
+| 1 | [Leaflet](data/species/leafing.yaml) | Grass | Overgrow, Sharpness (H) | 320 | Leafling (Lv 16) | 83% |
 | 2 | [Leafling](data/species/leafsteel.yaml) | Grass | Overgrow, Sharpness (H) | 420 | Leafaxer (Lv 36) | 83% |
 | 3 | [Leafaxer](data/species/leafaxer.yaml) | Grass / Steel | Overgrow, Sharpness (H) | 530 |  | 66% |
 | 4 | [Waffy](data/species/waffy.yaml) | Water | Torrent, Defiant (H) | 320 | Wealther (Lv 16) | 83% |
@@ -24,7 +24,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 13 | [Bolthook](data/species/bolthook.yaml) | Dark / Flying | Strong Jaw, Intimidate, Pressure (H) | 495 |  | 76% |
 | 14 | [Wump](data/species/wump.yaml) | Bug | Swarm, Run Away, Unburden (H) | 300 | Twemp (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 66% |
 | 15 | [Twemp](data/species/twemp.yaml) | Bug / Grass | Swarm, Leaf Guard, Grassy Surge (H) | 380 | Florantula (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 66% |
-| 16 | [Florantula](data/species/florantula.yaml) | Bug / Grass | Swarm, Leaf Guard, Grassy Surge (H) | 485 |  | 66% |
+| 16 | [Florantula](data/species/florantula.yaml) | Bug / Grass | Swarm, Leaf Guard, Grassy Surge (H) | 485 |  | 69% |
 | 17 | [Pipwi](data/species/pipwi.yaml) | Grass | Early Bird, Harvest, Grass Pelt (H) | 300 | Tropistrich (Lv 30) | 69% |
 | 18 | [Tropistrich](data/species/pipwi-utv.yaml) | Grass / Flying | Early Bird, Harvest, Tough Claws (H) | 470 |  | 66% |
 | 19 | [Cloudgnome](data/species/cloudgnome.yaml) | Fairy / Flying | Prankster | 278 |  | 48% |
@@ -108,8 +108,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 97 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric | Better Late, Reckless (H) | 485 |  | 62% |
 | 98 | [ambuger](data/species/ambuger.yaml) | Rock / Bug | Shell Armor, Overcoat, Infiltrator (H) | 350 | Ambrr (Lv 40) | 69% |
 | 99 | [Ambrr](data/species/ambcoptr.yaml) | Rock / Bug | Levitate, Overcoat, Infiltrator (H) | 495 |  | 69% |
-| 100 | [Tortoplasm](data/species/tortoplasm.yaml) | Rock / Ghost | Cursed Body, Weak Armor, Perish Body (H) | 350 | Tortoplasm utviklet (Lv 40) | 66% |
-| 101 | [Tortoplasm utviklet](data/species/tortoplasm-utviklet.yaml) | Rock / Ghost | Cursed Body, Weak Armor, Perish Body (H) | 495 |  | 62% |
+| 100 | [Tortoplasm](data/species/tortoplasm.yaml) | Rock / Ghost | Cursed Body, Weak Armor, Perish Body (H) | 350 | Fossitoise (Lv 40) | 66% |
+| 101 | [Fossitoise](data/species/tortoplasm-utviklet.yaml) | Rock / Ghost | Cursed Body, Weak Armor, Perish Body (H) | 495 |  | 66% |
 | 102 | [Slothbaby](data/species/slothbaby.yaml) | Fire | Truant | 420 | Blazlothku (Lv 40) | 69% |
 | 103 | [Blazlothku](data/species/slothbaby-utviklet.yaml) | Fire / Fighting | Sloth Combat | 540 |  | 69% |
 | 104 | [Terratyson](data/species/gaiafinn.yaml) | Ground / Fighting | Iron Fist, Sand Force, Sand Rush (H) | 508 |  | 69% |
@@ -172,7 +172,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 161 | [Venofrib](data/species/venofrib.yaml) | Poison | Color Change, Poison Point, Protean (H) | 320 |  | 34% |
 | 162 | [Vendepiede](data/species/vendepiede.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 420 |  | 34% |
 | 163 | [Venorax](data/species/venorax.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 530 |  | 28% |
-| 164 | [Raymon](data/species/raymon.yaml) | Normal |  |  |  | 21% |
+| 164 | [Raymon](data/species/raymon.yaml) | Normal | Natural Cure, Bad Dreams | 540 |  | 31% |
 | 165 | [Crysteel](data/species/crysteel.yaml) | Steel / Rock | Clear Body, Pickup, Sand Force (H) | 290 |  | 28% |
 | 166 | [Crystax](data/species/crystax.yaml) | Steel / Rock | Crystal Body, Tough Claws, Sand Force (H) | 510 |  | 28% |
 | 167 | [Whyrmshade](data/species/whyrmshade.yaml) | Ghost | Cursed Body, Levitate, Infiltrator (H) | 340 |  | 24% |
@@ -213,18 +213,18 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 202 | *open slot* | | | | | |
 | 203 | *open slot* | | | | | |
 | 204 | *open slot* | | | | | |
-| 205 | [Cabat](data/species/catbat.yaml) | Dark / Flying | Unnerve, Defiant, Heckler (H) | 255 | Cobramp (Lv 22) | 17% |
-| 206 | [Cobramp](data/species/cobrabat.yaml) | Dark / Flying | Unnerve, Defiant, Heckler (H) | 455 |  | 24% |
+| 205 | [Cabat](data/species/catbat.yaml) | Dark / Flying | Unnerve, Defiant, Heckler (H) | 255 | Cobramp (Lv 22) | 21% |
+| 206 | [Cobramp](data/species/cobrabat.yaml) | Dark / Flying | Unnerve, Defiant, Heckler (H) | 455 |  | 28% |
 | 207 | *open slot* | | | | | |
-| 208 | [Praxis](data/species/praxis.yaml) | Flying / Ghost | Levitate | 600 |  | 17% |
-| 209 | [Laxis](data/species/laxis.yaml) | Flying / Ice | Levitate | 600 |  | 17% |
+| 208 | [Praxis](data/species/praxis.yaml) | Flying / Ghost | Levitate | 600 |  | 21% |
+| 209 | [Laxis](data/species/laxis.yaml) | Flying / Ice | Levitate | 600 |  | 21% |
 | 210 | *open slot* | | | | | |
 | 211 | *open slot* | | | | | |
 | 212 | *open slot* | | | | | |
 | 213 | *open slot* | | | | | |
 | 214 | *open slot* | | | | | |
-| 215 | [Horaxigon](data/species/horaxigon.yaml) | Steel / Dragon | Mold Breaker, Download, Sheer Force (H) | 340 | Horaxander (Lv 55) | 17% |
-| 216 | [Horaxander](data/species/horaxander.yaml) | Steel / Dragon | Mold Breaker, Download, Sheer Force (H) | 540 |  | 21% |
+| 215 | [Horaxigon](data/species/horaxigon.yaml) | Steel / Dragon | Mold Breaker, Download, Sheer Force (H) | 340 | Horaxander (Lv 55) | 21% |
+| 216 | [Horaxander](data/species/horaxander.yaml) | Steel / Dragon | Mold Breaker, Download, Sheer Force (H) | 540 |  | 24% |
 | 217 | *open slot* | | | | | |
 | 218 | *open slot* | | | | | |
 | 219 | *open slot* | | | | | |
@@ -241,14 +241,14 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 230 | *open slot* | | | | | |
 | 231 | *open slot* | | | | | |
 | 232 | *open slot* | | | | | |
-| 233 | [Entrigon](data/species/entrigon.yaml) | Fire / Electric | Motor Drive | 600 |  | 17% |
-| 234 | [Tsunamo](data/species/tsunamo.yaml) | Ice / Water | Water Absorb | 600 |  | 24% |
+| 233 | [Entrigon](data/species/entrigon.yaml) | Fire / Electric | Motor Drive | 600 |  | 21% |
+| 234 | [Tsunamo](data/species/tsunamo.yaml) | Ice / Water | Water Absorb | 600 |  | 28% |
 | 235 | *open slot* | | | | | |
 | 236 | *open slot* | | | | | |
 | 237 | *open slot* | | | | | |
 | 238 | *open slot* | | | | | |
 | 239 | *open slot* | | | | | |
-| 240 | [Lansseax](data/species/natureo.yaml) | Psychic / Grass | Slow Start, Natural Cure, Regenerator (H) | 640 |  | 17% |
+| 240 | [Lansseax](data/species/natureo.yaml) | Psychic / Grass | Slow Start, Natural Cure, Regenerator (H) | 640 |  | 21% |
 | 241 | *open slot* | | | | | |
 | 242 | *open slot* | | | | | |
 | 243 | *open slot* | | | | | |
@@ -262,4 +262,4 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 251 | *open slot* | | | | | |
 | 252 | *open slot* | | | | | |
 | 253 | *open slot* | | | | | |
-| 254 | [Eclipsox](data/species/eclipsox.yaml) | Normal / Dragon | Mold Breaker, Intimidate (H) | 720 |  | 21% |
+| 254 | [Eclipsox](data/species/eclipsox.yaml) | Normal / Dragon | Mold Breaker, Intimidate (H) | 720 |  | 24% |

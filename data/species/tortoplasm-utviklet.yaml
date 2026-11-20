@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 101
-name: Tortoplasm utviklet
+name: Fossitoise
 
 credits:
   designer: Arvind       # who came up with it (Discord name)
@@ -87,12 +87,11 @@ learnset:
     - {level: 54, move: Stone Edge}
     - {level: 55, move: Head Smash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Frustration,
-          Earthquake, Return, Psychic, Shadow Ball, Double Team, Sandstorm, Rock Tomb,
-          Facade, Secret Power, Rest, Attract, Endure, Will-O-Wisp, Giga Impact,
-          Rock Polish, Stone Edge, Stealth Rock, Rock Slide, Sleep Talk, Natural Gift,
-          Swagger, Substitute, Bulldoze, Meteor Beam, Rock Smash, Captivate, Heavy Slam,
-          Ice Beam]
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Ice Beam, Hyper Beam, Protect, Rain Dance,
+          Frustration, Earthquake, Return, Psychic, Shadow Ball, Double Team, Sandstorm,
+          Rock Tomb, Facade, Secret Power, Rest, Attract, Endure, Will-O-Wisp, Giga Impact,
+          Rock Polish, Stone Edge, Stealth Rock, Captivate, Rock Slide, Sleep Talk,
+          Natural Gift, Swagger, Substitute, Heavy Slam, Bulldoze, Meteor Beam, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Curse, Earth Power, Poltergeist, Power Gem]
   egg: []                # only needed for the first stage of an evolution line
@@ -125,13 +124,13 @@ design:
     egg cycles: 65
     height: 65
     weight: 65
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
+  body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
+  movement: "It floats in the air, swimming with its fins."
   look:                  # what it looks like, a few plain sentences: It is a ...
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/tortoplasm-utviklet.png
+  concept_art: "assets/concept-art/tortoplasm-utviklet/2608.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

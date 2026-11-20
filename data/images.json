@@ -8020,5 +8020,96 @@
     "file": "assets/concept-art/fleuroom/2605.png",
     "caption": "[ds-back] sprite #509",
     "editor": "Michael"
+  },
+  {
+    "id": 2608,
+    "species": "tortoplasm-utviklet",
+    "file": "assets/concept-art/tortoplasm-utviklet/2608.webp",
+    "caption": "pasted",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2609,
+    "species": "wreckingboo",
+    "file": "assets/concept-art/wreckingboo/2609.png",
+    "caption": "[ds-front] sprite #510",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2610,
+    "species": "wreckingboo",
+    "file": "assets/concept-art/wreckingboo/2610.png",
+    "caption": "[ds-back] sprite #510",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2611,
+    "species": "wreckingboo",
+    "file": "assets/concept-art/wreckingboo/2611.png",
+    "caption": "[ds-icon] sprite #510",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2612,
+    "species": "wreckingboo",
+    "file": "assets/concept-art/wreckingboo/2612.png",
+    "caption": "[ds-follower] sprite #510",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2613,
+    "species": "wreckingdrake",
+    "file": "assets/concept-art/wreckingdrake/2613.png",
+    "caption": "[ds-front] sprite #511",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2614,
+    "species": "wreckingdrake",
+    "file": "assets/concept-art/wreckingdrake/2614.png",
+    "caption": "[ds-back] sprite #511",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2615,
+    "species": "wreckingdrake",
+    "file": "assets/concept-art/wreckingdrake/2615.png",
+    "caption": "[ds-icon] sprite #511",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2616,
+    "species": "wreckingdrake",
+    "file": "assets/concept-art/wreckingdrake/2616.png",
+    "caption": "[ds-follower] sprite #511",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2617,
+    "species": "tortoplasm-utviklet",
+    "file": "assets/concept-art/tortoplasm-utviklet/2617.png",
+    "caption": "[ds-front] sprite #512",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2618,
+    "species": "tortoplasm-utviklet",
+    "file": "assets/concept-art/tortoplasm-utviklet/2618.png",
+    "caption": "[ds-back] sprite #512",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2619,
+    "species": "tortoplasm-utviklet",
+    "file": "assets/concept-art/tortoplasm-utviklet/2619.png",
+    "caption": "[ds-icon] sprite #512",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2620,
+    "species": "tortoplasm-utviklet",
+    "file": "assets/concept-art/tortoplasm-utviklet/2620.png",
+    "caption": "[ds-follower] sprite #512",
+    "editor": "Arvind"
   }
 ]

@@ -1,0 +1,141 @@
+{
+ "map": {
+  "#000000": "#000000",
+  "#0164a8": "#205080",
+  "#025856": "#8048c8",
+  "#0fa942": "#f800f8",
+  "#25233e": "#25233e",
+  "#3a988d": "#a088f8",
+  "#3d4052": "#3858a8",
+  "#4545a9": "#383880",
+  "#68b642": "#e080f8",
+  "#706e6d": "#6080d0",
+  "#9aa2a8": "#88b0f8",
+  "#d6202a": "#d6202a",
+  "#e98c22": "#e98c22",
+  "#edf3ef": "#9090c8",
+  "#f2dc02": "#70f8f8"
+ },
+ "follower": {
+  "#000000": "#000000",
+  "#019626": "#e000f0",
+  "#0d91d3": "#3078a0",
+  "#0ecc3a": "#f880f8",
+  "#2768b0": "#305088",
+  "#2aa38a": "#9898f8",
+  "#32299a": "#282870",
+  "#4dc6c4": "#d0b0f8",
+  "#54575c": "#4868b8",
+  "#5543d3": "#4838a0",
+  "#848a94": "#7898f0",
+  "#ac5b2a": "#ac5b2a",
+  "#e92e1c": "#e92e1c",
+  "#f39019": "#f39019",
+  "#f3db0f": "#70f8f8"
+ },
+ "sliders": [
+  {
+   "adj": {
+    "hue": 180,
+    "sat": 0.26,
+    "light": 0.14
+   },
+   "keep": false,
+   "colours": [
+    "#0fa942",
+    "#68b642"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 2,
+    "sat": -0.28,
+    "light": -0.14
+   },
+   "keep": false,
+   "colours": [
+    "#4545a9",
+    "#0164a8"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#d6202a"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 90,
+    "sat": 0,
+    "light": 0.32
+   },
+   "keep": false,
+   "colours": [
+    "#f2dc02"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#25233e"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 108,
+    "sat": 0.56,
+    "light": 0.2
+   },
+   "keep": false,
+   "colours": [
+    "#025856",
+    "#3a988d"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#e98c22"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 266,
+    "sat": 0.86,
+    "tint": true,
+    "light": 0.16
+   },
+   "keep": false,
+   "colours": [
+    "#3d4052",
+    "#706e6d",
+    "#9aa2a8"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 291,
+    "sat": 0.58,
+    "tint": true,
+    "light": -0.3
+   },
+   "keep": false,
+   "colours": [
+    "#edf3ef"
+   ]
+  }
+ ],
+ "v": 2,
+ "over": {},
+ "outline": [
+  "#000000"
+ ],
+ "why": "",
+ "front": "https://hlkabnevaljtrbldgeqm.supabase.co/storage/v1/object/public/art/tries/florantula/64-1-485c49e2-image.png",
+ "by": "Arvind",
+ "at": "2026-11-20T05:09:23.650Z"
+}

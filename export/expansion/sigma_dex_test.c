@@ -2077,6 +2077,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Tortoplasm can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Fossitoise has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_FOSSITOISE];
+    EXPECT_EQ(info->baseHP, 75);
+    EXPECT_EQ(info->baseAttack, 60);
+    EXPECT_EQ(info->baseDefense, 125);
+    EXPECT_EQ(info->baseSpeed, 45);
+    EXPECT_EQ(info->baseSpAttack, 90);
+    EXPECT_EQ(info->baseSpDefense, 100);
+    EXPECT_EQ(info->types[0], TYPE_ROCK);
+    EXPECT_EQ(info->types[1], TYPE_GHOST);
+    EXPECT_EQ(info->abilities[0], ABILITY_CURSED_BODY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ASTONISH);
+    EXPECT_EQ(GetSpeciesName(SPECIES_FOSSITOISE)[0], CHAR_F);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Fossitoise can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_FOSSITOISE) { Moves(MOVE_ASTONISH); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_ASTONISH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ASTONISH, player);
+    }
+}
+
 TEST("Sigma dex: Slothbaby has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SLOTHBABY];
@@ -3166,6 +3194,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Venorax can use its first move in battle")
         TURN { MOVE(player, MOVE_EMBER); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, player);
+    }
+}
+
+TEST("Sigma dex: Raymon has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_RAYMON];
+    EXPECT_EQ(info->baseHP, 255);
+    EXPECT_EQ(info->baseAttack, 10);
+    EXPECT_EQ(info->baseDefense, 10);
+    EXPECT_EQ(info->baseSpeed, 55);
+    EXPECT_EQ(info->baseSpAttack, 75);
+    EXPECT_EQ(info->baseSpDefense, 135);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_NORMAL);
+    EXPECT_EQ(info->abilities[0], ABILITY_NATURAL_CURE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SELF_DESTRUCT);
+    EXPECT_EQ(GetSpeciesName(SPECIES_RAYMON)[0], CHAR_R);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Raymon can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_RAYMON) { Moves(MOVE_SELF_DESTRUCT); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SELF_DESTRUCT); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SELF_DESTRUCT, player);
     }
 }
 

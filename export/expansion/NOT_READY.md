@@ -2,9 +2,9 @@
 
 # Game export status
 
-**116** Pokemon are written as game code: Leaflet, Leafling, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Cloudgnome, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, Blutie, Coatail, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Gorambe, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Roostasaur, Leadling, Leadleak, Blylem, Iglomodo, Furamire, Goatjo, Detecup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, ambuger, Ambrr, Tortoplasm, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, Sparktera, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, JAWBREAKER, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Glacépée, Everdark, Diedo, Riftbloom, Strawboo, Rockedeer, Sabertann, Bergflabb, Solidedge, Whaldrill0, Narburr, Whaldrill, Venofrib, Vendepiede, Venorax, Santrock, Cindreon, Custodix
+**118** Pokemon are written as game code: Leaflet, Leafling, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Cloudgnome, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, Blutie, Coatail, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Gorambe, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Roostasaur, Leadling, Leadleak, Blylem, Iglomodo, Furamire, Goatjo, Detecup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, ambuger, Ambrr, Tortoplasm, Fossitoise, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, Sparktera, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, JAWBREAKER, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Glacépée, Everdark, Diedo, Riftbloom, Strawboo, Rockedeer, Sabertann, Bergflabb, Solidedge, Whaldrill0, Narburr, Whaldrill, Venofrib, Vendepiede, Venorax, Raymon, Santrock, Cindreon, Custodix
 
-## Not exported yet (67)
+## Not exported yet (65)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -34,7 +34,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Dahrugula** needs: an ability that exists in the game
 - **Quimsy** needs: an ability that exists in the game
 - **McSkiirtle** needs: an ability that exists in the game
-- **Tortoplasm utviklet** needs: a name of at most 10 letters
 - **Blazlothku** needs: an ability that exists in the game
 - **Aluminimonk** needs: a name of at most 10 letters
 - **Aluminimonk Utviklin** needs: a name of at most 10 letters
@@ -58,7 +57,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Iron Bulb** needs: a level-up move that exists in the game
 - **Rosie** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Rosievoir** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Raymon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Crysteel** needs: a level-up move that exists in the game
 - **Crystax** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Whyrmshade** needs: a level-up move that exists in the game
@@ -98,7 +96,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - Slothbaby: evolution into Blazlothku left out until that Pokemon is ready
 - Strawboo: ability 'Glowing Lure' is not in the game yet, left out
 - Strawboo: evolution into Wreckingboo left out until that Pokemon is ready
-- Tortoplasm: evolution into Tortoplasm utviklet left out until that Pokemon is ready
 - Toxiren: ability 'Toxic Voice' is not in the game yet, left out
 - Toxiren: move 'Poison Hug' is not in the game yet, left out
 - Toxiren: move 'Toxic Love' is not in the game yet, left out

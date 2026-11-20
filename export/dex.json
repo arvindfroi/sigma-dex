@@ -235,7 +235,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:1",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/leafing.json",
         "cry": null
       },
       "engine": {
@@ -4353,7 +4353,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:168",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/florantula.json",
         "cry": null
       },
       "engine": {
@@ -25685,7 +25685,7 @@
     },
     {
       "dex": 101,
-      "name": "Tortoplasm utviklet",
+      "name": "Fossitoise",
       "credits": {
         "designer": "Arvind",
         "artist": null
@@ -25817,6 +25817,7 @@
           "Toxic",
           "Hidden Power",
           "Sunny Day",
+          "Ice Beam",
           "Hyper Beam",
           "Protect",
           "Rain Dance",
@@ -25838,17 +25839,16 @@
           "Rock Polish",
           "Stone Edge",
           "Stealth Rock",
+          "Captivate",
           "Rock Slide",
           "Sleep Talk",
           "Natural Gift",
           "Swagger",
           "Substitute",
+          "Heavy Slam",
           "Bulldoze",
           "Meteor Beam",
-          "Rock Smash",
-          "Captivate",
-          "Heavy Slam",
-          "Ice Beam"
+          "Rock Smash"
         ],
         "tutor": [
           "Ancient Power",
@@ -25897,12 +25897,12 @@
           "height": 65,
           "weight": 65
         },
-        "body_shape": null,
-        "movement": null,
+        "body_shape": "a body with fins",
+        "movement": "It floats in the air, swimming with its fins.",
         "look": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/tortoplasm-utviklet/2608.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -40647,17 +40647,17 @@
       "weight_kg": 18,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
+        "primary": "Natural Cure",
+        "secondary": "Bad Dreams",
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 255,
+        "attack": 10,
+        "defense": 10,
+        "sp_attack": 75,
+        "sp_defense": 135,
+        "speed": 55
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -40674,7 +40674,32 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 5,
+            "move": "Self-Destruct"
+          },
+          {
+            "level": 15,
+            "move": "Will-O-Wisp"
+          },
+          {
+            "level": 22,
+            "move": "Stun Spore"
+          },
+          {
+            "level": 32,
+            "move": "Toxic"
+          },
+          {
+            "level": 33,
+            "move": "Spore"
+          },
+          {
+            "level": 66,
+            "move": "Absorb"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -42038,7 +42063,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/catbat.json",
         "cry": null
       },
       "engine": {
@@ -42121,7 +42146,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:442",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/cobrabat.json",
         "cry": null
       },
       "engine": {
@@ -42202,7 +42227,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/praxis.json",
         "cry": null
       },
       "engine": {
@@ -42283,7 +42308,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/laxis.json",
         "cry": null
       },
       "engine": {
@@ -42370,7 +42395,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/horaxigon.json",
         "cry": null
       },
       "engine": {
@@ -42454,7 +42479,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/horaxander.json",
         "cry": null
       },
       "engine": {
@@ -42535,7 +42560,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/entrigon.json",
         "cry": null
       },
       "engine": {
@@ -42618,7 +42643,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:143",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/tsunamo.json",
         "cry": null
       },
       "engine": {
@@ -42699,7 +42724,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/natureo.json",
         "cry": null
       },
       "engine": {
@@ -42982,7 +43007,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/eclipsox.json",
         "cry": null
       },
       "engine": {

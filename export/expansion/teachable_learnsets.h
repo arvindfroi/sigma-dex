@@ -3632,6 +3632,51 @@ static const u16 sTortoplasmTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sFossitoiseTeachableLearnset[] = {
+    MOVE_TOXIC,
+    MOVE_HIDDEN_POWER,
+    MOVE_SUNNY_DAY,
+    MOVE_ICE_BEAM,
+    MOVE_HYPER_BEAM,
+    MOVE_PROTECT,
+    MOVE_RAIN_DANCE,
+    MOVE_FRUSTRATION,
+    MOVE_EARTHQUAKE,
+    MOVE_RETURN,
+    MOVE_PSYCHIC,
+    MOVE_SHADOW_BALL,
+    MOVE_DOUBLE_TEAM,
+    MOVE_SANDSTORM,
+    MOVE_ROCK_TOMB,
+    MOVE_FACADE,
+    MOVE_SECRET_POWER,
+    MOVE_REST,
+    MOVE_ATTRACT,
+    MOVE_ENDURE,
+    MOVE_WILL_O_WISP,
+    MOVE_GIGA_IMPACT,
+    MOVE_ROCK_POLISH,
+    MOVE_STONE_EDGE,
+    MOVE_STEALTH_ROCK,
+    MOVE_CAPTIVATE,
+    MOVE_ROCK_SLIDE,
+    MOVE_SLEEP_TALK,
+    MOVE_NATURAL_GIFT,
+    MOVE_SWAGGER,
+    MOVE_SUBSTITUTE,
+    MOVE_HEAVY_SLAM,
+    MOVE_BULLDOZE,
+    MOVE_METEOR_BEAM,
+    MOVE_ROCK_SMASH,
+    MOVE_ANCIENT_POWER,
+    MOVE_BODY_SLAM,
+    MOVE_CURSE,
+    MOVE_EARTH_POWER,
+    MOVE_POLTERGEIST,
+    MOVE_POWER_GEM,
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sSlothbabyTeachableLearnset[] = {
     MOVE_TOXIC,
     MOVE_HIDDEN_POWER,
@@ -5614,6 +5659,10 @@ static const u16 sVenoraxTeachableLearnset[] = {
     MOVE_IRON_HEAD,
     MOVE_LEAF_STORM,
     MOVE_SEED_BOMB,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sRaymonTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
