@@ -23,11 +23,11 @@ abilities:
 
 base_stats:              # each 1-255
   hp: 45
-  attack: 70
+  attack: 80
   defense: 100
   sp_attack: 45
   sp_defense: 100
-  speed: 20
+  speed: 10
 
 ev_yield: {defense: 1, sp_defense: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate: 120          # 3 (legendary) to 255 (very easy)
@@ -91,10 +91,10 @@ learnset:
     - {level: 51, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Light Screen, Protect, Rain Dance,
-          Giga Drain, Safeguard, Frustration, Solar Beam, Return, Double Team, Facade,
-          Secret Power, Rest, Attract, Energy Ball, Endure, Flash, X-Scissor, Sleep Talk,
-          Grass Knot, Swagger, Substitute, Struggle Bug, Grassy Terrain, Lunge, Cut, Dig,
-          Thief, Poison Jab, U-turn]
+          Giga Drain, Safeguard, Frustration, Solar Beam, Return, Dig, Double Team, Facade,
+          Secret Power, Rest, Attract, Thief, Energy Ball, Endure, Flash, X-Scissor,
+          Sleep Talk, Poison Jab, Grass Knot, Swagger, U-turn, Substitute, Struggle Bug,
+          Grassy Terrain, Lunge, Cut]
   # moves a move tutor can teach it
   tutor: [Body Slam, Bug Bite, Charm, Leaf Storm, Magical Leaf, Seed Bomb, Solar Blade,
           Synthesis]
@@ -143,7 +143,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:69"
+  footprint: "hgss:69"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
   cry:                   # sound file
 

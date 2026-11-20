@@ -1,0 +1,149 @@
+{
+ "map": {
+  "#195d1a": "#404048",
+  "#1e381e": "#282830",
+  "#237f25": "#585868",
+  "#263122": "#263122",
+  "#31d425": "#9098a8",
+  "#393e32": "#393e32",
+  "#39ae77": "#808088",
+  "#3bc993": "#9898a0",
+  "#48b740": "#808898",
+  "#4d4b89": "#4d4b89",
+  "#60e264": "#a0a8b8",
+  "#6984ca": "#6984ca",
+  "#77a83b": "#788090",
+  "#8286f8": "#8286f8",
+  "#8cda6a": "#98a0b0",
+  "#92a2e5": "#92a2e5",
+  "#94f243": "#b0b8c8",
+  "#9ec9dc": "#9ec9dc",
+  "#9f7dca": "#9f7dca",
+  "#bae83f": "#a8b8c8",
+  "#cb7cc0": "#cb7cc0",
+  "#ddfbb9": "#b8c0c8",
+  "#dea19f": "#dea19f",
+  "#dff89b": "#c8d0d8",
+  "#e0faa7": "#c0c8d0",
+  "#e191cd": "#e191cd",
+  "#e1c3a3": "#e1c3a3",
+  "#e4c264": "#e4c264",
+  "#f1fbf6": "#f1fbf6",
+  "#f6e449": "#f6e449"
+ },
+ "follower": {
+  "#010901": "#010901",
+  "#1d3316": "#202828",
+  "#25255d": "#25255d",
+  "#27a711": "#707888",
+  "#356d0f": "#485058",
+  "#3f8019": "#586068",
+  "#49d828": "#90a0b0",
+  "#5c3ea7": "#5c3ea7",
+  "#69e83d": "#a0b0c0",
+  "#aa6eb7": "#aa6eb7",
+  "#b1a9df": "#b1a9df",
+  "#c0e2a0": "#b0b8c0",
+  "#c9ccc6": "#c9ccc6",
+  "#ccf992": "#c0c8d0",
+  "#dafac0": "#c8d0d8"
+ },
+ "sliders": [
+  {
+   "adj": {
+    "hue": 120,
+    "sat": -0.88,
+    "light": -0.1
+   },
+   "keep": false,
+   "colours": [
+    "#1e381e",
+    "#195d1a",
+    "#237f25",
+    "#39ae77",
+    "#77a83b",
+    "#48b740",
+    "#3bc993",
+    "#31d425",
+    "#60e264",
+    "#8cda6a",
+    "#bae83f",
+    "#94f243",
+    "#dff89b",
+    "#e0faa7",
+    "#ddfbb9"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#4d4b89",
+    "#6984ca",
+    "#9f7dca",
+    "#8286f8",
+    "#92a2e5"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#cb7cc0",
+    "#e191cd"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#e4c264",
+    "#f6e449"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#e1c3a3"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#9ec9dc"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#dea19f"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#393e32"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": true,
+   "colours": [
+    "#f1fbf6"
+   ]
+  }
+ ],
+ "v": 2,
+ "over": {},
+ "outline": [
+  "#263122"
+ ],
+ "why": "A silver shiny. The blue and the pink and the yellow stay",
+ "front": "https://hlkabnevaljtrbldgeqm.supabase.co/storage/v1/object/public/art/tries/nukfae/drawn-5665-672dd0eb.png",
+ "by": "",
+ "at": "2026-11-20T16:36:02.401Z"
+}

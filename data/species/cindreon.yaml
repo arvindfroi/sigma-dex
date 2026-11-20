@@ -18,7 +18,7 @@ body_color: yellow       # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Fire Mane
-  secondary: Drought     # optional
+  secondary: Flame Body  # optional
   hidden: Solar Power    # optional
 
 base_stats:              # each 1-255

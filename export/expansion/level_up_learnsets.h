@@ -307,8 +307,9 @@ static const struct LevelUpMove sBolthookLevelUpLearnset[] = {
     LEVEL_UP_MOVE(27, MOVE_PAYBACK),
     LEVEL_UP_MOVE(30, MOVE_KNOCK_OFF),
     LEVEL_UP_MOVE(30, MOVE_SUCKER_PUNCH),
-    LEVEL_UP_MOVE(31, MOVE_ROOST),
-    LEVEL_UP_MOVE(35, MOVE_CRUNCH),
+    LEVEL_UP_MOVE(33, MOVE_ROOST),
+    LEVEL_UP_MOVE(35, MOVE_DEFOG),
+    LEVEL_UP_MOVE(37, MOVE_CRUNCH),
     LEVEL_UP_MOVE(40, MOVE_FOUL_PLAY),
     LEVEL_UP_MOVE(44, MOVE_DRILL_PECK),
     LEVEL_UP_MOVE(50, MOVE_BRAVE_BIRD),
@@ -2335,7 +2336,7 @@ static const struct LevelUpMove sBugmightLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const struct LevelUpMove sJAWBREAKERLevelUpLearnset[] = {
+static const struct LevelUpMove sJawbreakerLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_BITE),
     LEVEL_UP_MOVE( 1, MOVE_BREAKING_SWIPE),
     LEVEL_UP_MOVE( 1, MOVE_EMBER),
@@ -2538,9 +2539,14 @@ static const struct LevelUpMove sEverdarkLevelUpLearnset[] = {
     LEVEL_UP_MOVE(18, MOVE_AERIAL_ACE),
     LEVEL_UP_MOVE(20, MOVE_TAUNT),
     LEVEL_UP_MOVE(21, MOVE_SLASH),
+    LEVEL_UP_MOVE(22, MOVE_SCARY_FACE),
+    LEVEL_UP_MOVE(24, MOVE_PROTECT),
+    LEVEL_UP_MOVE(28, MOVE_IMPRISON),
     LEVEL_UP_MOVE(30, MOVE_FURY_SWIPES),
     LEVEL_UP_MOVE(32, MOVE_AGILITY),
     LEVEL_UP_MOVE(37, MOVE_FOUL_PLAY),
+    LEVEL_UP_MOVE(42, MOVE_SACRED_SWORD),
+    LEVEL_UP_MOVE(49, MOVE_SUCKER_PUNCH),
     LEVEL_UP_END
 };
 
@@ -2642,7 +2648,7 @@ static const struct LevelUpMove sSolidedgeLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const struct LevelUpMove sWhaldrill0LevelUpLearnset[] = {
+static const struct LevelUpMove sSelmballLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_MUD_SLAP),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 4, MOVE_POWDER_SNOW),
@@ -2821,6 +2827,26 @@ static const struct LevelUpMove sRaymonLevelUpLearnset[] = {
     LEVEL_UP_MOVE(32, MOVE_TOXIC),
     LEVEL_UP_MOVE(33, MOVE_SPORE),
     LEVEL_UP_MOVE(66, MOVE_ABSORB),
+    LEVEL_UP_END
+};
+
+static const struct LevelUpMove sAqualoomLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_GROWL),
+    LEVEL_UP_MOVE( 1, MOVE_HARDEN),
+    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
+    LEVEL_UP_MOVE( 1, MOVE_WATER_GUN),
+    LEVEL_UP_MOVE( 7, MOVE_PROTECT),
+    LEVEL_UP_MOVE(12, MOVE_BITE),
+    LEVEL_UP_MOVE(18, MOVE_WATER_PULSE),
+    LEVEL_UP_MOVE(19, MOVE_BUBBLE_BEAM),
+    LEVEL_UP_MOVE(25, MOVE_RAIN_DANCE),
+    LEVEL_UP_MOVE(33, MOVE_BRINE),
+    LEVEL_UP_MOVE(35, MOVE_IRON_DEFENSE),
+    LEVEL_UP_MOVE(36, MOVE_FLASH_CANNON),
+    LEVEL_UP_MOVE(48, MOVE_HYDRO_PUMP),
+    LEVEL_UP_MOVE(50, MOVE_RECOVER),
+    LEVEL_UP_MOVE(56, MOVE_SURF),
+    LEVEL_UP_MOVE(60, MOVE_GYRO_BALL),
     LEVEL_UP_END
 };
 

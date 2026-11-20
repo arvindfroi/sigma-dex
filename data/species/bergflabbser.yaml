@@ -135,7 +135,7 @@ assets:
   back_sprite: "assets/sprites/bergflabbser/back.png"
   icon: "assets/sprites/bergflabbser/icon.png"
   footprint: "hgss:382"  # footprint.png  16x16, black and white
-  shiny_palette:         # shiny.pal      the 16 colors of the shiny version
+  shiny_palette: "assets/shiny/bergflabbser.json"
   cry:                   # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---

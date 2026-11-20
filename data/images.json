@@ -8118,5 +8118,61 @@
     "file": "assets/concept-art/seraphinnen/2621.webp",
     "caption": null,
     "editor": "Arvind"
+  },
+  {
+    "id": 2622,
+    "species": "whaldrill0",
+    "file": "assets/concept-art/whaldrill0/2622.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2623,
+    "species": "sealma",
+    "file": "assets/concept-art/sealma/2623.png",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2624,
+    "species": "dinoactyl",
+    "file": "assets/concept-art/dinoactyl/2624.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2625,
+    "species": "tusksir",
+    "file": "assets/concept-art/tusksir/2625.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2626,
+    "species": "whaldrill0",
+    "file": "assets/concept-art/whaldrill0/2626.png",
+    "caption": "[ds-front] sprite #514",
+    "editor": null
+  },
+  {
+    "id": 2627,
+    "species": "whaldrill0",
+    "file": "assets/concept-art/whaldrill0/2627.png",
+    "caption": "[ds-back] sprite #514",
+    "editor": null
+  },
+  {
+    "id": 2628,
+    "species": "whaldrill0",
+    "file": "assets/concept-art/whaldrill0/2628.png",
+    "caption": "[ds-icon] sprite #514",
+    "editor": null
+  },
+  {
+    "id": 2629,
+    "species": "whaldrill0",
+    "file": "assets/concept-art/whaldrill0/2629.png",
+    "caption": "[ds-follower] sprite #514",
+    "editor": null
   }
 ]

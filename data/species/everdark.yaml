@@ -77,17 +77,23 @@ learnset:
     - {level: 18, move: Aerial Ace}
     - {level: 20, move: Taunt}
     - {level: 21, move: Slash}
+    - {level: 22, move: Scary Face}
+    - {level: 24, move: Protect}
+    - {level: 28, move: Imprison}
     - {level: 30, move: Fury Swipes}
     - {level: 32, move: Agility}
     - {level: 37, move: Foul Play}
+    - {level: 42, move: Sacred Sword}
+    - {level: 49, move: Sucker Punch}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
-          Protect, Rain Dance, Frustration, Return, Psychic, Shadow Ball, Brick Break,
-          Double Team, Reflect, Rock Tomb, Aerial Ace, Torment, Facade, Secret Power, Rest,
-          Attract, Thief, Skill Swap, Fling, Endure, Shadow Claw, Payback, Giga Impact,
-          Flash, Thunder Wave, Swords Dance, Psych Up, Dark Pulse, Rock Slide, X-Scissor,
-          Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock,
-          Foul Play, Brutal Swing, Psychic Fangs, Expanding Force, Cut, Rock Smash]
+          Protect, Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball,
+          Brick Break, Double Team, Reflect, Rock Tomb, Aerial Ace, Torment, Facade,
+          Secret Power, Rest, Attract, Thief, Skill Swap, Fling, Endure, Drain Punch,
+          Shadow Claw, Payback, Giga Impact, Flash, Thunder Wave, Swords Dance, Psych Up,
+          Dark Pulse, Rock Slide, X-Scissor, Sleep Talk, Natural Gift, Grass Knot, Swagger,
+          U-turn, Substitute, Trick Room, Psyshock, Foul Play, Brutal Swing, Psychic Fangs,
+          Body Press, Expanding Force, Cut, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Close Combat, Nasty Plot, Snarl, Zen Headbutt, Night Slash]
   # only needed for the first stage of an evolution line

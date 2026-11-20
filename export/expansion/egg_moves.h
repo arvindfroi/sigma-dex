@@ -549,7 +549,7 @@ static const u16 sStrawbooEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sWhaldrill0EggMoveLearnset[] = {
+static const u16 sSelmballEggMoveLearnset[] = {
     MOVE_ICICLE_SPEAR,
     MOVE_MUD_SHOT,
     MOVE_DOUBLE_EDGE,
@@ -568,6 +568,13 @@ static const u16 sVenofribEggMoveLearnset[] = {
     MOVE_SUCKER_PUNCH,
     MOVE_CURSE,
     MOVE_VENOM_DRENCH,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sAqualoomEggMoveLearnset[] = {
+    MOVE_MUDDY_WATER,
+    MOVE_CURSE,
+    MOVE_AQUA_RING,
     MOVE_UNAVAILABLE,
 };
 

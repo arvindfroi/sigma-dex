@@ -78,8 +78,9 @@ learnset:
     - {level: 27, move: Payback}
     - {level: 30, move: Knock Off}
     - {level: 30, move: Sucker Punch}
-    - {level: 31, move: Roost}
-    - {level: 35, move: Crunch}
+    - {level: 33, move: Roost}
+    - {level: 35, move: Defog}
+    - {level: 37, move: Crunch}
     - {level: 40, move: Foul Play}
     - {level: 44, move: Drill Peck}
     - {level: 50, move: Brave Bird}
@@ -137,7 +138,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:430"
+  footprint: "hgss:430"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/bolthook.json"
   cry:                   # sound file
 

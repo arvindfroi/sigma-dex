@@ -2,9 +2,9 @@
 
 # Game export status
 
-**118** Pokemon are written as game code: Leaflet, Leafling, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Cloudgnome, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, Blutie, Coatail, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Gorambe, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Roostasaur, Leadling, Leadleak, Blylem, Iglomodo, Furamire, Goatjo, Detecup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, ambuger, Ambrr, Tortoplasm, Fossitoise, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, Sparktera, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, JAWBREAKER, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Glacépée, Everdark, Diedo, Riftbloom, Strawboo, Solidedge, Whaldrill0, Narburr, Whaldrill, Venofrib, Vendepiede, Venorax, Raymon, Santrock, Cindreon, Custodix, Rockedeer, Bergflabb, Sabertann
+**119** Pokemon are written as game code: Leaflet, Leafling, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Cloudgnome, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, Blutie, Coatail, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Gorambe, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Roostasaur, Leadling, Leadleak, Blylem, Iglomodo, Furamire, Goatjo, Detecup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, ambuger, Ambrr, Tortoplasm, Fossitoise, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, Sparktera, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, Jawbreaker, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Glacépée, Everdark, Diedo, Riftbloom, Strawboo, Solidedge, Selmball, Narburr, Whaldrill, Venofrib, Vendepiede, Venorax, Raymon, Aqualoom, Santrock, Cindreon, Custodix, Rockedeer, Bergflabb, Sabertann
 
-## Not exported yet (65)
+## Not exported yet (67)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -38,7 +38,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Aluminimonk Utviklin** needs: a name of at most 10 letters
 - **Viridub** needs: an ability that exists in the game
 - **Viridub Utvikling** needs: an ability that exists in the game, a name of at most 10 letters
-- **JAWIE** needs: a level-up move that exists in the game
+- **Jawie** needs: a level-up move that exists in the game
 - **Sigmanian Charcadet** needs: a name of at most 10 letters
 - **Seraphinnen** needs: a name of at most 10 letters
 - **riftlees** needs: a level-up move that exists in the game
@@ -48,16 +48,18 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Iron Bulb** needs: a level-up move that exists in the game
 - **Rosie** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Rosievoir** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Sealma** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Crysteel** needs: a level-up move that exists in the game
 - **Crystax** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Whyrmshade** needs: a level-up move that exists in the game
 - **Abysspero** needs: a level-up move that exists in the game
-- **Aqualoom** needs: a level-up move that exists in the game
 - **Cabat** needs: a level-up move that exists in the game
 - **Cobramp** needs: a level-up move that exists in the game
 - **Horaxigon** needs: a level-up move that exists in the game
 - **Horaxander** needs: a level-up move that exists in the game
 - **Lansseax** needs: a level-up move that exists in the game
+- **Dinoactyl** needs: base stats, a level-up move that exists in the game
+- **Tusksir** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Balleisk** needs: an ability that exists in the game
 - **Greation** needs: an ability that exists in the game
 - **Ultragon** needs: an ability that exists in the game

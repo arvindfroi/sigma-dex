@@ -1,0 +1,112 @@
+{
+ "map": {
+  "#0d100f": "#0d100f",
+  "#197d54": "#f0f0f0",
+  "#2b4637": "#486870",
+  "#362729": "#362729",
+  "#3cbc39": "#f8f8f8",
+  "#42c0ff": "#42c0ff",
+  "#5c4342": "#786878",
+  "#6acd47": "#e8e8e8",
+  "#867058": "#989090",
+  "#9e6b61": "#9e6b61",
+  "#b58c7e": "#b58c7e",
+  "#c1b293": "#c1b293",
+  "#cfb616": "#cfb616",
+  "#e4d8c9": "#e0e0e8",
+  "#fbf8ee": "#fbf8ee"
+ },
+ "follower": {
+  "#020201": "#020201",
+  "#162111": "#162111",
+  "#248d79": "#f0f0f0",
+  "#2f5e5b": "#f0f0f0",
+  "#34c0f5": "#34c0f5",
+  "#386d40": "#f0f0f0",
+  "#418857": "#f0f0f0",
+  "#479665": "#f0f0f0",
+  "#493d25": "#493d25",
+  "#544c2f": "#707068",
+  "#6b5d42": "#808078",
+  "#8a825f": "#98a090",
+  "#a49c7a": "#a49c7a",
+  "#b9be9b": "#b9be9b",
+  "#dce5d7": "#d8e8f8"
+ },
+ "sliders": [
+  {
+   "adj": {
+    "hue": -70,
+    "sat": -1,
+    "light": 0.91
+   },
+   "keep": false,
+   "colours": [
+    "#197d54",
+    "#3cbc39",
+    "#6acd47"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#c1b293",
+    "#cfb616"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#9e6b61",
+    "#b58c7e"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#42c0ff"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#362729"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 265,
+    "sat": 0.2,
+    "tint": true,
+    "light": 0.21
+   },
+   "keep": false,
+   "colours": [
+    "#2b4637",
+    "#5c4342",
+    "#867058",
+    "#e4d8c9"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": true,
+   "colours": [
+    "#fbf8ee"
+   ]
+  }
+ ],
+ "v": 2,
+ "over": {},
+ "outline": [
+  "#0d100f"
+ ],
+ "why": "The dark parts turn into a lighter grey. The green and the brown and the brown 2 stay",
+ "front": "https://hlkabnevaljtrbldgeqm.supabase.co/storage/v1/object/public/art/tries/bergflabbser/drawn-3542-ce697fd7.png",
+ "by": "",
+ "at": "2026-11-20T16:51:37.189Z"
+}

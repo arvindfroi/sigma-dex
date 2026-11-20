@@ -1,0 +1,93 @@
+{
+ "map": {
+  "#010512": "#010512",
+  "#011028": "#011028",
+  "#1d2b50": "#202850",
+  "#2c4c81": "#604078",
+  "#2f66ac": "#8050a8",
+  "#418ccd": "#9078d0",
+  "#49467d": "#504078",
+  "#4bb4f4": "#a898f8",
+  "#586f9a": "#806098",
+  "#69cbfd": "#b8b8f8",
+  "#8acff9": "#c0c0f8",
+  "#8ea4b9": "#8ea4b9",
+  "#bef1fb": "#d8e8f8",
+  "#d3f0f6": "#d3f0f6",
+  "#fbfdfe": "#fbfdfe"
+ },
+ "follower": {
+  "#010109": "#010109",
+  "#060c2e": "#060c2e",
+  "#085391": "#604090",
+  "#0988c4": "#8070d0",
+  "#183150": "#203050",
+  "#1b255b": "#202058",
+  "#25a0d0": "#8888e8",
+  "#3d7098": "#7060a0",
+  "#3dbae7": "#98a0f8",
+  "#50d2fa": "#b0c0f8",
+  "#5461bf": "#9848a0",
+  "#82e4f0": "#b8d8f8",
+  "#92e1f1": "#b8d8f8",
+  "#96f7fd": "#d0e8f8",
+  "#b6f7fd": "#d8e8f8"
+ },
+ "sliders": [
+  {
+   "adj": {
+    "hue": 50,
+    "sat": 0.04,
+    "light": 0.02
+   },
+   "keep": false,
+   "colours": [
+    "#2c4c81",
+    "#2f66ac",
+    "#586f9a",
+    "#418ccd",
+    "#4bb4f4",
+    "#69cbfd",
+    "#8acff9",
+    "#bef1fb"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 7,
+    "sat": 0,
+    "light": 0
+   },
+   "keep": false,
+   "colours": [
+    "#1d2b50",
+    "#49467d"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#8ea4b9"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": true,
+   "colours": [
+    "#d3f0f6",
+    "#fbfdfe"
+   ]
+  }
+ ],
+ "v": 2,
+ "over": {},
+ "outline": [
+  "#010512",
+  "#011028"
+ ],
+ "why": "The blue gets another shade of blue",
+ "front": "https://hlkabnevaljtrbldgeqm.supabase.co/storage/v1/object/public/art/tries/glac-p-e/1701-3-f2acad63-image.png",
+ "by": "",
+ "at": "2026-11-20T16:50:03.079Z"
+}

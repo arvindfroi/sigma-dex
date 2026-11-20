@@ -1,0 +1,125 @@
+{
+ "map": {
+  "#0f0b0b": "#0f0b0b",
+  "#221a1c": "#221a1c",
+  "#373d71": "#373d71",
+  "#3752af": "#3752af",
+  "#429a78": "#006080",
+  "#658ffd": "#658ffd",
+  "#6fb896": "#0878a0",
+  "#76d0b2": "#2088b8",
+  "#90e1f2": "#90e1f2",
+  "#bdf286": "#00b0a8",
+  "#be8aff": "#c888f8",
+  "#c39d9b": "#807050",
+  "#deffad": "#00c0b8",
+  "#e2d09c": "#68a078",
+  "#f291e7": "#f890d8",
+  "#f9fbc5": "#70b8a0"
+ },
+ "follower": {
+  "#030201": "#030201",
+  "#104f2e": "#104f2e",
+  "#116634": "#004048",
+  "#3f447c": "#3f447c",
+  "#5ca43f": "#007070",
+  "#69be50": "#008088",
+  "#83cfa8": "#1090b0",
+  "#8ae268": "#0098a0",
+  "#8c9dfb": "#8c9dfb",
+  "#9adaef": "#9adaef",
+  "#a2e7f3": "#a2e7f3",
+  "#a9f68d": "#00a8b0",
+  "#aa7af2": "#b878e8",
+  "#ccfeb8": "#00b8c0",
+  "#d765a2": "#984800"
+ },
+ "sliders": [
+  {
+   "adj": {
+    "hue": 63,
+    "sat": 0.05,
+    "light": -0.25
+   },
+   "keep": false,
+   "colours": [
+    "#bdf286",
+    "#deffad",
+    "#f9fbc5"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 63,
+    "sat": 0.05,
+    "light": -0.25
+   },
+   "keep": false,
+   "colours": [
+    "#429a78",
+    "#6fb896",
+    "#76d0b2"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#373d71",
+    "#3752af",
+    "#658ffd"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 8,
+    "sat": 0,
+    "light": 0
+   },
+   "keep": false,
+   "colours": [
+    "#be8aff",
+    "#f291e7"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#90e1f2"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 63,
+    "sat": 0.05,
+    "light": -0.25
+   },
+   "keep": false,
+   "colours": [
+    "#e2d09c"
+   ]
+  },
+  {
+   "adj": {
+    "hue": 63,
+    "sat": 0.05,
+    "light": -0.25
+   },
+   "keep": false,
+   "colours": [
+    "#c39d9b"
+   ]
+  }
+ ],
+ "v": 2,
+ "over": {},
+ "outline": [
+  "#0f0b0b",
+  "#221a1c"
+ ],
+ "why": "The green turns teal. The blue and the teal 2 stay. Deeper, darker colours",
+ "front": "https://hlkabnevaljtrbldgeqm.supabase.co/storage/v1/object/public/art/tries/toxiren/drawn-2577-3d6188ca.png",
+ "by": "",
+ "at": "2026-11-20T16:36:23.675Z"
+}

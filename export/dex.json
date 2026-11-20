@@ -3433,11 +3433,15 @@
             "move": "Sucker Punch"
           },
           {
-            "level": 31,
+            "level": 33,
             "move": "Roost"
           },
           {
             "level": 35,
+            "move": "Defog"
+          },
+          {
+            "level": 37,
             "move": "Crunch"
           },
           {
@@ -3833,11 +3837,11 @@
       },
       "base_stats": {
         "hp": 45,
-        "attack": 70,
+        "attack": 80,
         "defense": 100,
         "sp_attack": 45,
         "sp_defense": 100,
-        "speed": 20
+        "speed": 10
       },
       "ev_yield": {
         "defense": 1,
@@ -3984,27 +3988,27 @@
           "Frustration",
           "Solar Beam",
           "Return",
+          "Dig",
           "Double Team",
           "Facade",
           "Secret Power",
           "Rest",
           "Attract",
+          "Thief",
           "Energy Ball",
           "Endure",
           "Flash",
           "X-Scissor",
           "Sleep Talk",
+          "Poison Jab",
           "Grass Knot",
           "Swagger",
+          "U-turn",
           "Substitute",
           "Struggle Bug",
           "Grassy Terrain",
           "Lunge",
-          "Cut",
-          "Dig",
-          "Thief",
-          "Poison Jab",
-          "U-turn"
+          "Cut"
         ],
         "tutor": [
           "Body Slam",
@@ -4868,7 +4872,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:85",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/pipwi-utv.json",
         "cry": null
       },
       "engine": {
@@ -7431,7 +7435,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:387",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/bulbtle.json",
         "cry": null
       },
       "engine": {
@@ -7938,7 +7942,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:60",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/wispole.json",
         "cry": null
       },
       "engine": {
@@ -9702,7 +9706,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:422",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/nukfae.json",
         "cry": null
       },
       "engine": {
@@ -9989,7 +9993,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:423",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/toxiren.json",
         "cry": null
       },
       "engine": {
@@ -10026,9 +10030,9 @@
         "hp": 67,
         "attack": 67,
         "defense": 111,
-        "sp_attack": 25,
+        "sp_attack": 30,
         "sp_defense": 40,
-        "speed": 15
+        "speed": 10
       },
       "ev_yield": {
         "defense": 1
@@ -10140,12 +10144,12 @@
           "Natural Gift",
           "Swagger",
           "Substitute",
+          "Heavy Slam",
           "Bulldoze",
           "High Horsepower",
           "Body Press",
           "Strength",
-          "Rock Smash",
-          "Heavy Slam"
+          "Rock Smash"
         ],
         "tutor": [
           "Ancient Power",
@@ -15099,11 +15103,11 @@
       },
       "base_stats": {
         "hp": 45,
-        "attack": 46,
+        "attack": 36,
         "defense": 90,
-        "sp_attack": 34,
-        "sp_defense": 80,
-        "speed": 15
+        "sp_attack": 39,
+        "sp_defense": 90,
+        "speed": 10
       },
       "ev_yield": {
         "defense": 1
@@ -19281,7 +19285,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:304",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/leadling.json",
         "cry": null
       },
       "engine": {
@@ -19534,7 +19538,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:305",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/leadling-utvikling.json",
         "cry": null
       },
       "engine": {
@@ -19789,7 +19793,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:306",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/blylem.json",
         "cry": null
       },
       "engine": {
@@ -25827,7 +25831,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:99",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/tortoplasm-utviklet.json",
         "cry": null
       },
       "engine": {
@@ -26878,7 +26882,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:228",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/obsidog.json",
         "cry": null
       },
       "engine": {
@@ -31453,7 +31457,7 @@
     },
     {
       "dex": 123,
-      "name": "JAWIE",
+      "name": "Jawie",
       "credits": {
         "designer": "Ivar",
         "artist": null
@@ -31555,7 +31559,7 @@
     },
     {
       "dex": 124,
-      "name": "JAWBREAKER",
+      "name": "Jawbreaker",
       "credits": {
         "designer": "Ivar",
         "artist": null
@@ -33792,7 +33796,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:475",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/glac-p-e.json",
         "cry": null
       },
       "engine": {
@@ -33899,6 +33903,18 @@
             "move": "Slash"
           },
           {
+            "level": 22,
+            "move": "Scary Face"
+          },
+          {
+            "level": 24,
+            "move": "Protect"
+          },
+          {
+            "level": 28,
+            "move": "Imprison"
+          },
+          {
             "level": 30,
             "move": "Fury Swipes"
           },
@@ -33909,6 +33925,14 @@
           {
             "level": 37,
             "move": "Foul Play"
+          },
+          {
+            "level": 42,
+            "move": "Sacred Sword"
+          },
+          {
+            "level": 49,
+            "move": "Sucker Punch"
           }
         ],
         "tm_hm": [
@@ -33921,6 +33945,7 @@
           "Light Screen",
           "Protect",
           "Rain Dance",
+          "Safeguard",
           "Frustration",
           "Return",
           "Psychic",
@@ -33939,6 +33964,7 @@
           "Skill Swap",
           "Fling",
           "Endure",
+          "Drain Punch",
           "Shadow Claw",
           "Payback",
           "Giga Impact",
@@ -33953,12 +33979,14 @@
           "Natural Gift",
           "Grass Knot",
           "Swagger",
+          "U-turn",
           "Substitute",
           "Trick Room",
           "Psyshock",
           "Foul Play",
           "Brutal Swing",
           "Psychic Fangs",
+          "Body Press",
           "Expanding Force",
           "Cut",
           "Rock Smash"
@@ -34437,6 +34465,10 @@
           {
             "level": 67,
             "move": "Aeroblast"
+          },
+          {
+            "level": 72,
+            "move": "Judgment"
           }
         ],
         "tm_hm": [
@@ -36383,9 +36415,89 @@
     },
     {
       "dex": 146,
-      "name": "Whaldrill0",
+      "name": "Sealma",
       "credits": {
-        "designer": null,
+        "designer": "Emil",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Ice"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": "brown",
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "A cute chubby seal with a ice ball as its nosee",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "a body with fins",
+        "movement": "It slithers along the ground.",
+        "look": "It is a chubby brown seal with a yellowish tummy. On its nose there is a ice ball that as a swirling pattern on it."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/sealma/2623.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "sealma"
+    },
+    {
+      "dex": 147,
+      "name": "Selmball",
+      "credits": {
+        "designer": "Arvind",
         "artist": null
       },
       "types": [
@@ -36403,12 +36515,12 @@
         "hidden": "Thick Fat"
       },
       "base_stats": {
-        "hp": 60,
-        "attack": 55,
+        "hp": 75,
+        "attack": 45,
         "defense": 40,
         "sp_attack": 25,
-        "sp_defense": 35,
-        "speed": 35
+        "sp_defense": 30,
+        "speed": 65
       },
       "ev_yield": {
         "hp": 1
@@ -36613,7 +36725,7 @@
         "look": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/whaldrill0/2622.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -36633,7 +36745,7 @@
       "id": "whaldrill0"
     },
     {
-      "dex": 147,
+      "dex": 148,
       "name": "Narburr",
       "credits": {
         "designer": "Emil",
@@ -36649,8 +36761,8 @@
       "weight_kg": 180,
       "body_color": "brown",
       "abilities": {
-        "primary": "Slush Rush",
-        "secondary": "Sand Rush",
+        "primary": "Comatose",
+        "secondary": "Oblivious",
         "hidden": "Thick Fat"
       },
       "base_stats": {
@@ -36872,7 +36984,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/whaldrill.json",
         "cry": null
       },
       "engine": {
@@ -36886,7 +36998,7 @@
       "id": "whaldrill"
     },
     {
-      "dex": 148,
+      "dex": 149,
       "name": "Whaldrill",
       "credits": {
         "designer": "Emil",
@@ -37158,7 +37270,7 @@
       "id": "whaldrill3"
     },
     {
-      "dex": 149,
+      "dex": 150,
       "name": "Venofrib",
       "credits": {
         "designer": "Michael",
@@ -37350,7 +37462,7 @@
       "id": "venofrib"
     },
     {
-      "dex": 150,
+      "dex": 151,
       "name": "Vendepiede",
       "credits": {
         "designer": "Michael",
@@ -37607,7 +37719,7 @@
       "id": "vendepiede"
     },
     {
-      "dex": 151,
+      "dex": 152,
       "name": "Venorax",
       "credits": {
         "designer": "Michael",
@@ -37889,7 +38001,7 @@
       "id": "venorax"
     },
     {
-      "dex": 152,
+      "dex": 153,
       "name": "Raymon",
       "credits": {
         "designer": "Ivar",
@@ -38001,7 +38113,7 @@
       "id": "raymon"
     },
     {
-      "dex": 153,
+      "dex": 154,
       "name": "Crysteel",
       "credits": {
         "designer": "Michael",
@@ -38084,7 +38196,7 @@
       "id": "crysteel"
     },
     {
-      "dex": 154,
+      "dex": 155,
       "name": "Crystax",
       "credits": {
         "designer": "michael",
@@ -38167,7 +38279,7 @@
       "id": "crystax"
     },
     {
-      "dex": 155,
+      "dex": 156,
       "name": "Whyrmshade",
       "credits": {
         "designer": "Michael",
@@ -38249,7 +38361,7 @@
       "id": "whyrmshade"
     },
     {
-      "dex": 156,
+      "dex": 157,
       "name": "Abysspero",
       "credits": {
         "designer": "Michael",
@@ -38332,7 +38444,7 @@
       "id": "abysspero"
     },
     {
-      "dex": 157,
+      "dex": 158,
       "name": "Aqualoom",
       "credits": {
         "designer": "Michael",
@@ -38353,14 +38465,17 @@
         "hidden": "Oblivious"
       },
       "base_stats": {
-        "hp": 44,
-        "attack": 29,
-        "defense": 91,
-        "sp_attack": 50,
-        "sp_defense": 86,
+        "hp": 40,
+        "attack": 57,
+        "defense": 150,
+        "sp_attack": 48,
+        "sp_defense": 150,
         "speed": 5
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1,
+        "sp_defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -38375,10 +38490,124 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Harden"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 1,
+            "move": "Water Gun"
+          },
+          {
+            "level": 7,
+            "move": "Protect"
+          },
+          {
+            "level": 12,
+            "move": "Bite"
+          },
+          {
+            "level": 18,
+            "move": "Water Pulse"
+          },
+          {
+            "level": 19,
+            "move": "Bubble Beam"
+          },
+          {
+            "level": 25,
+            "move": "Rain Dance"
+          },
+          {
+            "level": 33,
+            "move": "Brine"
+          },
+          {
+            "level": 35,
+            "move": "Iron Defense"
+          },
+          {
+            "level": 36,
+            "move": "Flash Cannon"
+          },
+          {
+            "level": 48,
+            "move": "Hydro Pump"
+          },
+          {
+            "level": 50,
+            "move": "Recover"
+          },
+          {
+            "level": 56,
+            "move": "Surf"
+          },
+          {
+            "level": 60,
+            "move": "Gyro Ball"
+          }
+        ],
+        "tm_hm": [
+          "Water Pulse",
+          "Toxic",
+          "Hail",
+          "Hidden Power",
+          "Sunny Day",
+          "Ice Beam",
+          "Blizzard",
+          "Hyper Beam",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Return",
+          "Shadow Ball",
+          "Double Team",
+          "Sandstorm",
+          "Rock Tomb",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Brine",
+          "Endure",
+          "Giga Impact",
+          "Gyro Ball",
+          "Stealth Rock",
+          "Captivate",
+          "Rock Slide",
+          "Sleep Talk",
+          "Natural Gift",
+          "Swagger",
+          "Substitute",
+          "Flash Cannon",
+          "Heavy Slam",
+          "Scald",
+          "Liquidation",
+          "Surf",
+          "Whirlpool",
+          "Waterfall"
+        ],
+        "tutor": [
+          "Aqua Tail",
+          "Body Slam",
+          "Icy Wind",
+          "Iron Head",
+          "Earth Power"
+        ],
+        "egg": [
+          "Muddy Water",
+          "Curse",
+          "Aqua Ring"
+        ]
       },
       "encounters": [],
       "design": {
@@ -38413,7 +38642,7 @@
       "id": "aqualoom"
     },
     {
-      "dex": 158,
+      "dex": 159,
       "name": "Cabat",
       "credits": {
         "designer": "Ivar",
@@ -38500,7 +38729,7 @@
       "id": "catbat"
     },
     {
-      "dex": 159,
+      "dex": 160,
       "name": "Cobramp",
       "credits": {
         "designer": "Ivar",
@@ -38583,7 +38812,7 @@
       "id": "cobrabat"
     },
     {
-      "dex": 160,
+      "dex": 161,
       "name": "Horaxigon",
       "credits": {
         "designer": "Ivar",
@@ -38670,7 +38899,7 @@
       "id": "horaxigon"
     },
     {
-      "dex": 161,
+      "dex": 162,
       "name": "Horaxander",
       "credits": {
         "designer": "Ivar",
@@ -38754,7 +38983,7 @@
       "id": "horaxander"
     },
     {
-      "dex": 162,
+      "dex": 163,
       "name": "Lansseax",
       "credits": {
         "designer": "Ivar",
@@ -38833,6 +39062,167 @@
         "safari_flee_rate": 0
       },
       "id": "natureo"
+    },
+    {
+      "dex": 164,
+      "name": "Dinoactyl",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Dragon",
+        "Rock"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": "green",
+      "abilities": {
+        "primary": "Rough Skin",
+        "secondary": "Compound Eyes",
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "A primal creature that is the apex predator of its time",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "a body with one pair of wings",
+        "movement": "It crawls along the ground on its many legs.",
+        "look": "A dragon with 6 eyes and 6 legs connecting its batlike wings together. it has a iridescent skin that looks like bronze or rainbows"
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/dinoactyl/2624.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "dinoactyl"
+    },
+    {
+      "dex": 165,
+      "name": "Tusksir",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Normal"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/tusksir/2625.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "tusksir"
     },
     {
       "dex": 234,
@@ -39688,7 +40078,7 @@
       "body_color": "yellow",
       "abilities": {
         "primary": "Fire Mane",
-        "secondary": "Drought",
+        "secondary": "Flame Body",
         "hidden": "Solar Power"
       },
       "base_stats": {
@@ -39947,7 +40337,7 @@
       "body_color": "yellow",
       "abilities": {
         "primary": "Fire Mane",
-        "secondary": "Drought",
+        "secondary": "Flame Body",
         "hidden": "Solar Power"
       },
       "base_stats": {
@@ -40677,7 +41067,7 @@
       },
       "types": [
         "Fairy",
-        "Flying"
+        "Grass"
       ],
       "category": null,
       "description": null,
@@ -40771,7 +41161,7 @@
       },
       "types": [
         "Flying",
-        "Fairy"
+        "Ice"
       ],
       "category": null,
       "description": null,
@@ -41860,7 +42250,7 @@
         "back_sprite": "assets/sprites/bergflabbser/back.png",
         "icon": "assets/sprites/bergflabbser/icon.png",
         "footprint": "hgss:382",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/bergflabbser.json",
         "cry": null
       },
       "engine": {
@@ -42128,7 +42518,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:355",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/gravriel.json",
         "cry": "assets/cries/gravriel.json"
       },
       "engine": {
