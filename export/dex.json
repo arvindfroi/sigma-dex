@@ -39311,7 +39311,7 @@
         "claude_fill": false,
         "filled_by_claude": [],
         "body_shape": "an upright body on two legs without a tail",
-        "movement": "It walks upright on two legs.",
+        "movement": "It floats in the air.",
         "look": null
       },
       "assets": {
@@ -39468,9 +39468,9 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "A rat with flag on tail"
       },
       "assets": {
         "concept_art": "assets/concept-art/ratpid/2684.webp",
@@ -39548,8 +39548,8 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
+        "body_shape": "a body with one pair of wings",
+        "movement": "It flies, flapping its wings.",
         "look": null
       },
       "assets": {

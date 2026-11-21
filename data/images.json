@@ -8314,5 +8314,61 @@
     "file": "assets/concept-art/steinar/2691.png",
     "caption": "[ds-follower] sprite #526",
     "editor": "Arvind"
+  },
+  {
+    "id": 2692,
+    "species": "dinoactyl",
+    "file": "assets/concept-art/dinoactyl/2692.png",
+    "caption": "[ds-front] sprite #527",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2693,
+    "species": "dinoactyl",
+    "file": "assets/concept-art/dinoactyl/2693.png",
+    "caption": "[ds-back] sprite #527",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2694,
+    "species": "dinoactyl",
+    "file": "assets/concept-art/dinoactyl/2694.png",
+    "caption": "[ds-icon] sprite #527",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2695,
+    "species": "dinoactyl",
+    "file": "assets/concept-art/dinoactyl/2695.png",
+    "caption": "[ds-follower] sprite #527",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2697,
+    "species": "fleinar",
+    "file": "assets/concept-art/fleinar/2697.png",
+    "caption": "[ds-back] sprite #532",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2698,
+    "species": "fleinar",
+    "file": "assets/concept-art/fleinar/2698.png",
+    "caption": "[ds-icon] sprite #532",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2699,
+    "species": "fleinar",
+    "file": "assets/concept-art/fleinar/2699.png",
+    "caption": "[ds-follower] sprite #532",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2708,
+    "species": "fleinar",
+    "file": "assets/concept-art/fleinar/2708.png",
+    "caption": "[ds-front] sprite #532",
+    "editor": "Arvind"
   }
 ]
