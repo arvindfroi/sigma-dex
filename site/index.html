@@ -2436,7 +2436,7 @@ const STUDIO_STEPS = [
   {id: "save", n: "✓", label: "SAVE", c: "purple", what: "Put the picked pictures together and make them the sprite."}];
 const STEP_SIZE = {art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 32], follower: [128, 64]};
 const TRY_SIDE = {art: 640, front: 80, back: 80, icon: 32};                    // the square ones (the colour tools use it)
-const TRY_DEFAULT_SECONDS = {art: 75, "art:sketch": 25, "art:pose": 60, front: 100, back: 55, icon: 30, follower: 40, trainer: 50};
+const TRY_DEFAULT_SECONDS = {art: 75, "art:sketch": 25, "art:pose": 60, front: 100, back: 55, icon: 30, follower: 40, trainer: 50, vs: 25};
 const mmss = sec => Math.floor(Math.max(0, sec) / 60) + ":" + String(Math.floor(Math.max(0, sec) % 60)).padStart(2, "0");
 const aboutMinutes = sec => !(sec >= 90) ? "about a minute" : "about " + Math.round(sec / 60) + " minutes";
 function secondsFor(timings, stage) {
@@ -4982,6 +4982,7 @@ const TSTEPS = [
   {id: "picture", n: "1", label: "PICTURE", c: "pink", what: "The picture the drawing PC paints your trainer from."},
   {id: "base", n: "2", label: "BASE", c: "purple", what: "A real trainer from the DS games whose body and pose are like the trainer you want. Your trainer keeps its size and stance; the look comes from your picture."},
   {id: "make", n: "3", label: "MAKE", c: "blue", what: "The drawing PC paints the base with your picture: a battle sprite and a map figure each time. Tap the one you like best."},
+  {id: "vs", n: "4", label: "VS", c: "sky", what: "The portrait on the VS screen before a battle (gym leaders, the Elite Four, rivals and champions have one). The drawing PC paints it from your battle sprite and your picture. Optional."},
   {id: "save", n: "✓", label: "SAVE", c: "purple", what: "How your trainer looks in a battle and on the map."}];
 const NPC_WALK = {up: [9, 8], down: [11, 12], left: [1, 3], right: [4, 5]};   // frames of the game's 16-frame NPC sheet (2 steps each)
 const tstudios = new Map();          // slot -> what the person has chosen so far (kept while they move around the site)
@@ -5024,7 +5025,7 @@ function tstudioState(slot) {
     let photo = null;
     try { photo = JSON.parse(remember.get("trainer-photo-" + slot) || "null"); } catch (e) { photo = null; }
     tstudios.set(slot, {photo, ref: null, base: remember.get("trainer-base-" + slot) || "", strength: 0.75, count: 3, words: remember.get("trainer-words-" + slot) || "",
-      filter: "", game: "", step: null, tries: [], jobs: [], line: [], worker: null, loaded: false, editing: null, busyMsg: "", showAll: false});
+      filter: "", game: "", step: null, tries: [], vsTries: [], vsCount: 2, jobs: [], line: [], worker: null, loaded: false, editing: null, busyMsg: "", showAll: false});
   }
   return tstudios.get(slot);
 }
@@ -5056,11 +5057,14 @@ function trainerStudio(slot, opts) {
     : opts.current ? {image: opts.current.image, overworld: opts.current.overworld, tryRow: st.tries.find(x => x.id === opts.current.try) || null, live: true} : null; };
   const mine = () => st.line.filter(j => j.species_id === slot);
   const each = () => secondsFor(st.worker && st.worker.timings, "trainer");
+  // Step 4 VS: the picked portrait, else the saved one.
+  const pickedVs = () => st.vsTries.filter(t => t.picked && usable(t)).sort((a, b) => String(b.picked_at).localeCompare(String(a.picked_at)))[0] || null;
+  const vsInSet = () => { const t = pickedVs(); return t ? {image: t.image, tryRow: t} : opts.current && opts.current.vs ? {image: opts.current.vs, tryRow: st.vsTries.find(x => x.id === opts.current.vs_try) || null} : null; };
   function secondsLeft() {
     let total = 0, last = 0;
     for (const j of st.line) {
       const per = j.stage === "trainer" ? each() : secondsFor(st.worker && st.worker.timings, j.stage || "front"), n = j.mode === "tries" || j.stage === "trainer" ? (j.count || 1) : 6;
-      const done = j.species_id === slot ? st.tries.filter(t => t.job_id === j.id && t.status !== "drawing").length : 0;
+      const done = j.species_id === slot ? st.tries.concat(st.vsTries).filter(t => t.job_id === j.id && t.status !== "drawing").length : 0;
       total += Math.max(j.status === "running" ? 5 : per, (n - done) * per);
       if (j.species_id === slot) last = total;
     }
@@ -5071,9 +5075,9 @@ function trainerStudio(slot, opts) {
     if (st.busyMsg) return st.busyMsg;
     const jobs = mine(), online = st.worker && Date.now() - new Date(st.worker.seen_at).getTime() < 90000;
     if (jobs.length) {
-      const n = jobs.reduce((a, j) => a + (j.count || 1), 0), ahead = st.line.findIndex(j => j.species_id === slot);
+      const n = jobs.reduce((a, j) => a + (j.count || 1), 0), ahead = st.line.findIndex(j => j.species_id === slot), vs = jobs.every(j => j.stage === "vs");
       if (!online) return "WAITING\nThe drawing PC is off right now. Your request waits in line until it is back.";
-      return (jobs.some(j => j.status === "running") ? "DRAWING" : "IN LINE") + "\n" + n + " trainer" + (n > 1 ? "s" : "") + ": a battle sprite and a map figure each.\nReady in " +
+      return (jobs.some(j => j.status === "running") ? "DRAWING" : "IN LINE") + "\n" + (vs ? n + " VS portrait" + (n > 1 ? "s" : "") + "." : n + " trainer" + (n > 1 ? "s" : "") + ": a battle sprite and a map figure each.") + "\nReady in " +
         aboutMinutes(secondsLeft()) + (ahead > 0 ? " (" + ahead + " request" + (ahead > 1 ? "s" : "") + " from others first)." : ".");
     }
     const p = picked(), cur = opts.current;
@@ -5098,14 +5102,18 @@ function trainerStudio(slot, opts) {
         slotBox("BATTLE", it && it.image ? h("img", {class: "px", src: artUrl(it.image), alt: "battle sprite", style: "width:160px"}) : null,
           canEdit ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("battle", it.tryRow)}, "EDIT") : null),
         slotBox("MAP", it && it.overworld ? npcWalker(artUrl(it.overworld), 3) : null,
-          canEdit && it.overworld ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("map", it.tryRow)}, "EDIT") : null)),
+          canEdit && it.overworld ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("map", it.tryRow)}, "EDIT") : null),
+        (() => { const v = vsInSet(); return h("div", {class: "slot frame"},
+          h("button", {type: "button", class: "slotpic", title: "Go to 4 VS", onclick: () => go("vs")}, v ? h("img", {class: "px", src: artUrl(v.image), alt: "VS portrait", style: "width:192px"}) : h("div", {class: "slotempty"}, "—")),
+          h("div", {class: "slotname"}, "VS", v ? h("small", {}, opts.current && opts.current.vs === v.image ? "saved" : "picked") : h("small", {}, "optional")),
+          v && v.tryRow && DEX.web.url ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("vs", v.tryRow)}, "EDIT") : null); })()),
       say);
     say.textContent = status();
   }
   function drawSteps() {
     steps.replaceChildren(...TSTEPS.map(stp => {
-      const busy = stp.id === "make" && mine().length;
-      const done = stp.id === "picture" ? hasPicture() : stp.id === "base" ? !!st.base : stp.id === "make" ? !!picked() : false;
+      const busy = (stp.id === "make" && mine().some(j => j.stage !== "vs")) || (stp.id === "vs" && mine().some(j => j.stage === "vs"));
+      const done = stp.id === "picture" ? hasPicture() : stp.id === "base" ? !!st.base : stp.id === "make" ? !!picked() : stp.id === "vs" ? !!vsInSet() : false;
       return h("button", {type: "button", role: "tab", "data-c": stp.c, "aria-selected": String(st.step === stp.id), onclick: () => go(stp.id)},
         h("b", {}, stp.n), " " + stp.label, busy ? h("span", {class: "spinner", "aria-label": "drawing"}) : done ? h("span", {class: "tick"}, "✓") : null);
     }));
@@ -5239,6 +5247,38 @@ function trainerStudio(slot, opts) {
       !list.length && !waiting.length ? h("div", {class: "empty", style: "margin-top:8px"}, "Nothing made yet.") : null);
   }
 
+  // ----- 4 VS
+  function vsTile(t) {
+    if (t.waiting || t.status === "drawing") return h("div", {class: "tile wait"}, h("div", {class: "tilepic"}, h("span", {class: "spinner"}), h("span", {class: "sub"}, t.waiting ? "in line" : "drawing")));
+    const p = pickedVs(), on = p && p.id === t.id, saved = opts.current && opts.current.vs_try === t.id;
+    return h("div", {class: "tile" + (on ? " inuse" : "") + (t.status === "broken" ? " broken" : "")},
+      h("button", {type: "button", class: "tilepic", disabled: !t.image, title: on ? "Picked" : "Pick this one", onclick: () => !on && pick(t)},
+        t.image ? h("img", {class: "px", src: artUrl(t.image), alt: "VS portrait #" + t.id, style: "width:192px"}) : h("span", {class: "sub"}, "failed"),
+        on ? h("span", {class: "tag"}, saved ? "SAVED" : "PICKED") : saved ? h("span", {class: "tag"}, "SAVED") : null),
+      t.job_id === null ? h("div", {class: "tilenote"}, "drawn on" + (t.editor ? " by " + t.editor : "")) : null,
+      t.image && DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openPixelEditor("vs", t)}, "EDIT")) : null);
+  }
+  function vsPage() {
+    const it = inSet(), from = it && it.tryRow;
+    const count = h("select", {"aria-label": "How many"}, [1, 2, 3, 4].map(n => h("option", {value: n, selected: n === st.vsCount ? "" : null}, String(n))));
+    count.addEventListener("change", () => { st.vsCount = Number(count.value); });
+    const btn = h("button", {type: "button", class: "primary", disabled: from ? null : "", onclick: async () => {
+      btn.disabled = true;
+      try { await dbCall("request_trainer_vs", {p_try: from.id, p_count: st.vsCount, p_editor: me()}); noteMine(slot); await load(); }
+      catch (err) { fail(err); }
+      btn.disabled = false;
+    }}, "MAKE");
+    const waiting = [];
+    for (const j of mine().filter(j => j.stage === "vs")) for (let k = st.vsTries.filter(t => t.job_id === j.id).length; k < (j.count || 1); k++) waiting.push({waiting: true});
+    const list = st.vsTries.filter(t => t.status !== "failed").sort((a, b) => b.id - a.id);
+    return h("div", {},
+      h("div", {class: "hint", style: "margin-top:0"}, TSTEPS[3].what),
+      h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "vs") * st.vsCount) + ")" : "Pick a battle sprite in 3 MAKE first."),
+        from ? h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(from.image), alt: ""})) : null),
+      h("div", {class: "tiles"}, waiting.map(vsTile), list.slice(0, 12).map(vsTile)),
+      !list.length && !waiting.length ? h("div", {class: "empty", style: "margin-top:8px"}, "No VS portrait yet.") : null);
+  }
+
   // ----- SAVE
   function battle(it) {
     const canvas = h("canvas", {width: 256, height: 192, class: "battle", "aria-label": "How it looks in a battle"});
@@ -5250,15 +5290,17 @@ function trainerStudio(slot, opts) {
     return h("div", {class: "together"}, canvas, h("div", {class: "grass"}, it && it.overworld ? npcWalker(artUrl(it.overworld), 3) : null));
   }
   function savePage() {
-    const t = picked(), it = inSet(), note = h("div", {class: "ask"});
-    const isSaved = t && opts.current && opts.current.try === t.id;
+    const t = picked(), it = inSet(), note = h("div", {class: "ask"}), pv = pickedVs();
+    const vsNow = pv ? pv.image : opts.current && opts.current.vs || null;
+    const isSaved = t && opts.current && opts.current.try === t.id && (opts.current.vs || null) === vsNow;
     const yes = h("button", {type: "button", class: "hot", disabled: !t || isSaved ? "" : null, onclick: async () => {
       yes.disabled = true; note.textContent = "Saving...";
       try {
         const j = jobOf(t), set = settingsOf(j);
         const sprite = {try: t.id, job: j ? j.id : null, image: t.image, overworld: t.overworld || null, base: j ? j.recipe : null, strength: set.strength || null, seed: t.seed || null,
           picture: set.photo ? "private upload #" + set.photo : j && (j.ref_image_ids || [])[0] ? "public picture #" + j.ref_image_ids[0] : "", words: set.words || "",
-          edited: t.job_id === null ? t.recipe || "drawn" : undefined, by: me(), at: new Date().toISOString()};
+          edited: t.job_id === null ? t.recipe || "drawn" : undefined, vs: vsNow, vs_try: pv ? pv.id : opts.current && opts.current.vs_try || null,
+          by: me(), at: new Date().toISOString()};
         await opts.onPick(sprite);
         opts.current = sprite;
         note.textContent = "Saved! " + (npc ? "It is " + (opts.name || "the NPC") + "'s sprite now." : "It is your trainer's sprite now.");
@@ -5269,6 +5311,7 @@ function trainerStudio(slot, opts) {
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS[3].what),
       battle(it),
+      vsNow ? h("div", {class: "grass", style: "margin-top:8px"}, h("img", {class: "px", src: artUrl(vsNow), alt: "VS portrait", style: "width:192px"})) : null,
       h("div", {class: "yesno", style: "position:static"}, note, h("div", {class: "menu", role: "group", "aria-label": "Save it?"}, yes,
         h("button", {type: "button", onclick: () => go("make")}, "NO"))));
   }
@@ -5281,40 +5324,42 @@ function trainerStudio(slot, opts) {
     const stp = TSTEPS.find(x => x.id === st.step);
     page.dataset.c = stp.c;
     page.replaceChildren(!st.loaded ? h("div", {class: "empty"}, "Loading...")
-      : stp.id === "picture" ? picturePage() : stp.id === "base" ? basePage() : stp.id === "make" ? makePage() : savePage());
+      : stp.id === "picture" ? picturePage() : stp.id === "base" ? basePage() : stp.id === "make" ? makePage() : stp.id === "vs" ? vsPage() : savePage());
   }
   async function load() {
     try {
-      [st.tries, st.jobs, st.line, st.worker] = await Promise.all([
+      [st.tries, st.jobs, st.line, st.worker, st.vsTries] = await Promise.all([
         dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.trainer&order=id.desc&limit=300&select=id,job_id,n,seed,status,image,overworld,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at"),
         dbRead("sprite_jobs?species_id=eq." + slot + "&stage=eq.trainer&order=id.desc&limit=100&select=id,status,recipe,prompt,count,error,ref_image_ids"),
         dbRead("sprite_jobs?status=in.(queued,running)&order=id.asc&select=id,species_id,status,mode,stage,count,recipe"),
-        dbRead("sprite_worker?select=seen_at,state,timings").then(r => r[0] || null)]);
+        dbRead("sprite_worker?select=seen_at,state,timings").then(r => r[0] || null),
+        dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.vs&order=id.desc&limit=100&select=id,job_id,n,seed,status,image,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at")]);
       st.loaded = true;
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; }
     if (!top.isConnected && st.loaded && timer !== null) return;      // the studio was closed: stop asking
     draw(); st.busyMsg = "";
     noteMine(slot, true);
     clearTimeout(timer);
-    const busy = mine().length || st.tries.some(t => t.status === "drawing");
+    const busy = mine().length || st.tries.concat(st.vsTries).some(t => t.status === "drawing");
     timer = setTimeout(() => { if (top.isConnected) load(); }, busy ? 4000 : 60000);
   }
 
   // The editor takes the bottom screen; the top screen stays. Saving makes a new try (picked), the old one stays.
   async function openPixelEditor(what, t) {
-    const map = what === "map";
+    const map = what === "map", vs = what === "vs";
     let src = artUrl(map ? t.overworld : t.image);
     if (map) { try { src = npcToGrid(await loadPicture(src)).toDataURL("image/png"); } catch (err) { fail(new Error("The map figure could not be loaded.")); return; } }
     const close = () => { st.editing = null; bottomSlot.replaceChildren(steps, page); draw(); };
     st.editing = pixelEditor({
-      title: map ? "EDIT MAP FIGURE (16 frames)" : "EDIT BATTLE SPRITE", view: map ? "npc" : "trainer", src, size: map ? [128, 128] : [80, 80],
+      title: map ? "EDIT MAP FIGURE (16 frames)" : vs ? "EDIT VS PORTRAIT" : "EDIT BATTLE SPRITE", view: map ? "npc" : vs ? "vs" : "trainer", src,
+      size: map ? [128, 128] : vs ? [96, 64] : [80, 80],
       frontSrc: map && t.image ? artUrl(t.image) : null, bodyColour: "",
       async save(file, how, note) {
         const fields = {try: t.id, how, editor: me(), note};
         if (map) fields.overworld = await gridToNpc(file); else fields.image = file;
         const row = await postForm("sprite-draw", fields);
         await dbCall("pick_try", {p_try: row.id, p_picked: true, p_editor: me()}).catch(() => null);
-        st.step = "make"; close(); await load();
+        st.step = vs ? "vs" : "make"; close(); await load();
       },
       close});
     bottomSlot.replaceChildren(st.editing.el);

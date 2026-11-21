@@ -27,7 +27,7 @@ Deno.serve(async (req: Request) => {
 
     if (action === "claim") {
       // A worker names the steps it can draw ("stages", comma separated); one that names none never gets a trainer job.
-      const stages = String(form.get("stages") ?? "").split(",").map((s) => s.trim()).filter((s) => /^[a-z]{2,12}$/.test(s));
+      const stages = String(form.get("stages") ?? "").split(",").map((s) => s.trim()).filter((s) => /^[a-z][a-z0-9]{1,11}$/.test(s));
       const { data, error } = await supabase.rpc("claim_sprite_job", stages.length ? { p_stages: stages } : {});
       if (error) return reply(500, { message: error.message });
       return reply(200, { job: data });
@@ -99,7 +99,7 @@ Deno.serve(async (req: Request) => {
     // The trainer studio (2026-11-21): the uploaded picture of the job being drawn is private (trainer-photos); the
     // drawing PC gets a link that works for two minutes.
     if (action === "trainer_photo") {
-      if (job.stage !== "trainer") return reply(400, { message: "Not a trainer job" });
+      if (job.stage !== "trainer" && job.stage !== "vs") return reply(400, { message: "Not a trainer job" });   // vs = the VS portrait (step 4)
       const { data: full } = await supabase.from("sprite_jobs").select("prompt").eq("id", jobId).single();
       let photo: number | null = null;
       try { photo = Number(JSON.parse(String(full?.prompt ?? "{}")).photo) || null; } catch (_e) { photo = null; }

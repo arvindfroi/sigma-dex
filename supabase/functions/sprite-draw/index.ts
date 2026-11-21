@@ -7,7 +7,8 @@ import { createClient } from "jsr:@supabase/supabase-js@2";
 const MAX_BYTES = 200 * 1024;
 const SIZES: Record<string, number[]> = { front: [64, 80], back: [64, 80], icon: [32] };
 // The size of a try's picture per step (studio v3/v4).
-const TRY_SIZE: Record<string, [number, number]> = { art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 32], follower: [128, 64], trainer: [80, 80] };
+const TRY_SIZE: Record<string, [number, number]> = { art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 32], follower: [128, 64], trainer: [80, 80],
+  front2: [80, 80], back2: [80, 80], vs: [96, 64] };   // frame 2 of the front and the back; vs = the trainer's VS portrait (2026-11-21)
 // The trainer studio (2026-11-21): a trainer try also has its map figure, 16 frames of 32x32 in a row.
 const OVERWORLD: [number, number] = [512, 32];
 const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "content-type, apikey, authorization" };
@@ -76,7 +77,7 @@ Deno.serve(async (req: Request) => {
     if (form.get("version") !== null) {
       const versionId = Number(form.get("version"));
       const view = String(form.get("view") ?? "");
-      if (!["front", "back", "icon", "follower"].includes(view)) return reply(400, { message: "Which part was drawn on?" });
+      if (!["front", "back", "icon", "follower", "front2", "back2"].includes(view)) return reply(400, { message: "Which part was drawn on?" });
       const { data: version } = await supabase.from("sprite_candidates").select("id, species_id, gen").eq("id", versionId).maybeSingle();
       if (!version || version.gen !== 4) return reply(404, { message: "That sprite does not exist" });
       const since = new Date(Date.now() - 3600 * 1000).toISOString();

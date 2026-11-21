@@ -193,3 +193,65 @@ def run(job, base, key, post, download, folder, log=print):
                          "note": note[:300], "seconds": round(time.time() - started, 1)}, files)
         made += 1
     return made
+
+
+# ---------- step 4 VS: the VS-screen portrait (2026-11-21). The VS LoRA (trained 12 Nov, step 2000; Arvind on kind "both":
+# "looks much better") draws it from the battle sprite (image 1, 80x80 on magenta at 4x) and the person's picture (image 2,
+# on white at 320), with the text of lora-train\v6cfg\vs_gen.py. 384x256 -> the game's 96x64 portrait, 15 colours.
+VS_LORA = os.environ.get("TRAINER_VS_LORA", "pkmn_vs_klein_v1_000002000.safetensors")
+VS_SECONDS = 25
+
+
+def vs_text(V, cls, words):
+    r = {"who": (words or "").strip().rstrip(".") or "a trainer", "gesture": "a hand raised in a confident gesture"}
+    text = V.caption(V.describe(r, cls, 0), True)
+    return text.replace("clothes and colours. ", "clothes and colours. Image 2 is a photo of the same person: keep their real face, age and build. ", 1)
+
+
+def run_vs(job, base, key, post, download, folder, log=print):
+    T, _, S = _modules()
+    if str(CFG) not in sys.path:
+        sys.path.insert(0, str(CFG))
+    import build_vs_klein as V
+    settings = json.loads(job.get("prompt") or "{}")
+    src = job.get("from_try") or {}
+    if not src.get("image"):
+        raise RuntimeError("the VS portrait needs the battle sprite")
+    sprite = Image.open(download(base, src["image"], folder / "battle.png")).convert("RGBA")
+    T.on_magenta(sprite).save(folder / "vs_sprite.png")
+    if settings.get("photo"):
+        link = post(base, key, {"action": "trainer_photo", "job_id": job["id"]})["url"]
+        if link.startswith("/"):
+            link = base + "/storage/v1" + link
+        got = fetch(link, folder / "photo_in")
+    elif job.get("refs"):
+        got = download(base, job["refs"][0], folder / "photo_in")
+    else:
+        raise RuntimeError("no picture of the trainer")
+    square(got, folder / "vs_photo.png")
+    refs = [comfy.upload(folder / "vs_sprite.png"), comfy.upload(folder / "vs_photo.png")]
+    row = T.rows().get(base_key(job.get("recipe"))) or {}
+    text = vs_text(V, row.get("cls") or "Pokemon Trainer", settings.get("words") or "")
+    made = 0
+    for n in range(1, int(job.get("count") or 1) + 1):
+        seed = job["id"] * 100 + n
+        t = post(base, key, {"action": "try_start", "job_id": job["id"], "n": n, "seed": seed,
+                             "recipe": VS_LORA.replace(".safetensors", "").replace("pkmn_", "")[:60], "expected_seconds": VS_SECONDS})
+        post(base, key, {"action": "progress", "job_id": job["id"], "state": "drawing a VS portrait: %d of %d" % (n, int(job.get("count") or 1))})
+        started = time.time()
+        try:
+            raw = folder / ("vs_raw%d.png" % n)
+            raw.write_bytes(comfy.run(comfy.klein(text, refs, 384, 256, seed, "sigma/trainervs", lora=VS_LORA)))
+            portrait = klein_follower.to_back(raw)
+            image = folder / ("vs%d.png" % n)
+            portrait.save(image)
+            status = "done" if portrait.size == (96, 64) and portrait.getbbox() else "broken"
+            post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": status,
+                             "note": "VS portrait from battle sprite #%s + the picture, seed %d" % (src.get("id"), seed),
+                             "seconds": round(time.time() - started, 1)}, {"image": image, "raw": raw})
+            made += 1
+        except Exception as problem:
+            log("VS try %d of job %d failed: %s" % (n, job["id"], problem))
+            post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "failed",
+                             "note": ("%s: %s" % (type(problem).__name__, problem))[:300], "seconds": round(time.time() - started, 1)})
+    return made

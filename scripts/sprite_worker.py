@@ -38,7 +38,7 @@ COMFY_DIR = os.environ.get("COMFY_DIR")
 POLL_SECONDS, IDLE_UNLOAD_SECONDS, UPDATE_SECONDS = 8, 180, 600
 # The steps this worker draws, sent with every claim; the database gives a worker that sends none no trainer jobs.
 # `--stages trainer` runs a worker for trainer jobs only (a second copy for testing next to the main one).
-ALL_STAGES = "art,front,back,icon,follower,trainer"
+ALL_STAGES = "art,front,back,icon,follower,trainer,vs"
 STAGES = sys.argv[sys.argv.index("--stages") + 1] if "--stages" in sys.argv else ALL_STAGES
 
 
@@ -493,6 +493,10 @@ def run_ds(job, base, key, settings):
 
 
 def run(job, base, key, settings):
+    if job.get("stage") == "vs":                   # the trainer studio's step 4: the VS portrait from the battle sprite
+        import trainer_studio
+        with tempfile.TemporaryDirectory() as folder:
+            return trainer_studio.run_vs(job, base, key, post, download, Path(folder), log)
     if job.get("stage") == "trainer":              # the trainer studio (2026-11-21): a trainer sprite from a person's picture
         import trainer_studio
         with tempfile.TemporaryDirectory() as folder:
