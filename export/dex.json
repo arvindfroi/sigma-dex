@@ -16650,7 +16650,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/julius.json",
-        "cry": null
+        "cry": "assets/cries/julius.json"
       },
       "engine": {
         "no_flip": false,

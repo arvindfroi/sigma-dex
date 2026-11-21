@@ -37,7 +37,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Art | icon | 4 / 197 |
 | Art | footprint | 145 / 197 |
 | Art | shiny palette | 113 / 197 |
-| Art | cry | 27 / 197 |
+| Art | cry | 28 / 197 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
@@ -473,11 +473,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
-### #64 [Julius](data/species/julius.yaml) - 69%
+### #64 [Julius](data/species/julius.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
 ### #65 [Conqrilla](data/species/yanklet.yaml) - 66%
 
