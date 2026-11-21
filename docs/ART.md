@@ -442,6 +442,35 @@ and the editor now show sprites on a light checker in both themes (the dark one 
 
 ---
 
+### Frame 2 (FRONT 2 and BACK 2)
+
+Steps 6 and 7 of the studio (2026-11-21) draw the second animation frame of the front and the back. In a battle
+the sprite switches between frame 1 and frame 2. Both steps are optional. SAVE says when no frame 2 is picked,
+and then both frames stay the same.
+
+| Step | Drawn from | Klein LoRA (Arvind's pick, 18 Nov) | Image 1 / 2 / 3 |
+|---|---|---|---|
+| FRONT 2 | the picked front (+ the picked back) | `pkmn_frontf2_klein_v1_000002250` ("desidert best") | front frame 1 / artwork / back |
+| BACK 2 | the picked back (+ the picked FRONT 2) | `pkmn_backf2_klein_v1_000001250` | back frame 1 / the front's two frames side by side / artwork |
+
+- **Recipe.** The texts and inputs are the training ones (`lora-train\v6cfg\build_f2_split.py` on the PC).
+  Frames are at 4x on magenta, and the artwork is fitted on white at 320. A missing picture is plain white,
+  and the text says "image N is empty". The artwork is the front's cut-out (the claim sends the try's parent
+  and grandparent) or else the first chosen picture.
+- **Motion.** The person picks the motion from the LoRA's templates (M mouth, H head, A arms, W wings, T tail,
+  C crouch, L lean, B breathe, E eyes, R turn, X a part) and how big the change is. These go in the prompt
+  JSON (`motion`, `amount`) next to the body words. "Let the PC choose" sends no template.
+- **After-work.** `klein_follower.to_back`, then every pixel takes the nearest colour of frame 1
+  (`studio_tries.frame1_colours`), because the game gives both frames one palette.
+- **On the website.** A tile switches between frame 1 and frame 2 (`flipPair`). The pixel editor has
+  "USE FRAME 1'S COLOURS". SAVE passes `p_front2` / `p_back2` to `assemble_sprite`, which fills
+  `sprite_candidates.front2` / `back2`. The pictures `[ds-front2]` / `[ds-back2]` then become
+  `assets/sprites-ds/<pokemon>/front2.png` / `back2.png` (`sprites.auto_ds`).
+- **Database.** Migration `2026-11-21_frame2.sql` adds the stages `front2` / `back2`, the request rules, the
+  claim's grandparent, `assemble_sprite`'s two new arguments, and `review_sprite` / `art_orphans` for the new
+  columns. The worker function accepts stage names with digits.
+- **Not done yet.** The export into Origin's anim files, and the battle animation per Pokemon.
+
 ## The trainer studio
 
 *(2026-11-21; v2 the same day: Arvind wanted it to mirror the Pokemon sprite studio, with one text box and the

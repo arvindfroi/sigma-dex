@@ -38,7 +38,7 @@ COMFY_DIR = os.environ.get("COMFY_DIR")
 POLL_SECONDS, IDLE_UNLOAD_SECONDS, UPDATE_SECONDS = 8, 180, 600
 # The steps this worker draws, sent with every claim; the database gives a worker that sends none no trainer jobs.
 # `--stages trainer` runs a worker for trainer jobs only (a second copy for testing next to the main one).
-ALL_STAGES = "art,front,back,icon,follower,trainer,vs"
+ALL_STAGES = "art,front,back,icon,follower,trainer,vs,front2,back2"
 STAGES = sys.argv[sys.argv.index("--stages") + 1] if "--stages" in sys.argv else ALL_STAGES
 
 

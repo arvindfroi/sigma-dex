@@ -56,7 +56,7 @@ SKETCH_REDRAW = 0.85
 POSES = ["in a new dynamic action pose (not the pose of <image1>): moving, leaning forward, limbs in different positions",
          "turned the other way: a three-quarter view facing the other side, in a relaxed new pose",
          "in a new lively pose (not the pose of <image1>), as if about to jump or attack"]
-DEFAULT_SECONDS = {"art": 75, "art:sketch": 25, "art:pose": 60, "front": 100, "back": 55, "icon:pc": 8, "icon:canvas": 8, "icon": 30, "follower": 40, "back:klein": 30,
+DEFAULT_SECONDS = {"art": 75, "art:sketch": 25, "art:pose": 60, "front": 100, "back": 55, "icon:pc": 8, "icon:canvas": 8, "icon": 30, "follower": 40, "back:klein": 30, "front2": 35, "back2": 35,
                    "rear": 70}   # measured on the Legion, 14 Oct (the Klein ones: a first guess until measured)
 LINE = (175, 175, 175, 255)
 
@@ -677,6 +677,108 @@ def try_back_klein(n, seed, folder, job, inputs):
     return ("broken" if why else "done", why, image, raw)
 
 
+# ---------- frame 2: the second animation frame of the front and the back (2026-11-21; Arvind's picks of 18 Nov:
+# front v1 step 2250 "desidert best", back v1 step 1250). The recipe and texts are the training ones (build_f2_split.py
+# on the PC): front = image 1 its frame 1, image 2 the artwork, image 3 the back; back = image 1 its frame 1, image 2 the
+# front's two frames side by side, image 3 the artwork. A missing picture is plain white and the text says "image N is
+# empty". The game's frame 2 shares frame 1's palette, so the result is snapped to frame 1's colours.
+FRONT2_KLEIN = "pkmn_frontf2_klein_v1_000002250.safetensors"
+BACK2_KLEIN = "pkmn_backf2_klein_v1_000001250.safetensors"
+MOTIONS = {"M": "it opens its mouth wide, as if roaring", "H": "it raises or turns its head", "A": "it raises or moves its arms, hands or claws",
+           "W": "it flaps or spreads its wings", "T": "it swings or raises its tail", "C": "it crouches low, ready to pounce",
+           "L": "it leans forward to attack", "B": "its whole body rises and stretches, as if breathing in", "E": "it blinks or narrows its eyes",
+           "R": "it turns its whole body a little",
+           "X": "it moves or stretches out a part of its body (tentacles, vines, antennae, petals, flames or fins)"}
+F2_AMOUNTS = {"small": "a small change of pose", "clear": "a clear change of pose", "big": "a big change of pose"}
+
+
+def f2_change(job):
+    """the website's choice of motion (letters of MOTIONS) and amount, as the training captions said it"""
+    try:
+        body = json.loads(job.get("prompt") or "{}")
+    except ValueError:
+        body = {}
+    body = body if isinstance(body, dict) else {}
+    codes = "".join(c for c in str(body.get("motion") or "").upper() if c in MOTIONS)[:2]
+    t = " and ".join(MOTIONS[c] for c in codes)
+    return (t + "; " if t else "") + F2_AMOUNTS.get(body.get("amount"), F2_AMOUNTS["clear"]) + ", all over its body"
+
+
+def on_magenta4(sprite):
+    bg = Image.new("RGBA", (80, 80), (255, 0, 255, 255))
+    bg.alpha_composite(sprite.convert("RGBA"))
+    return bg.convert("RGB").resize((320, 320), Image.NEAREST)
+
+
+def front_pair(f1, f2):
+    w = Image.new("RGBA", (320, 320), (255, 255, 255, 255))
+    for i, f in enumerate((f1, f2)):
+        w.alpha_composite(f.convert("RGBA").resize((160, 160), Image.NEAREST), (i * 160, 80))
+    return w.convert("RGB")
+
+
+def frame1_colours(sprite, frame1):
+    """every pixel of frame 2 takes the nearest colour of frame 1 (one palette for both frames in the game)"""
+    a = np.array(sprite.convert("RGBA")).copy()
+    b = np.array(frame1.convert("RGBA"))
+    pal = np.unique(b[b[..., 3] > 0][:, :3].reshape(-1, 3), axis=0).astype(int)
+    on = a[..., 3] > 0
+    if not len(pal) or not on.any():
+        return Image.fromarray(a)
+    px = a[on][:, :3].astype(int)
+    near = ((px[:, None, :] - pal[None, :, :]) ** 2).sum(-1).argmin(1)
+    a[..., :3][on] = pal[near]
+    a[..., 3][on] = 255
+    a[..., :3][~on] = 0
+    return Image.fromarray(a)
+
+
+def f2_text(view, head, job, words):
+    return (head + about(job, words, move=False) + "The picture is its second frame: the same 80x80 pixel art %s sprite on a flat "
+            "magenta background, the same creature in the same place and size, with exactly the colours, outline and design of "
+            "image 1; only its pose changes: %s." % (view, f2_change(job)))
+
+
+def try_front2(n, seed, folder, job, inputs):
+    words, _ = inputs["tags"]
+    f1, art, back = inputs["front"], inputs.get("art"), inputs.get("back")
+    if not (folder / "f2_1.png").exists():
+        on_magenta4(f1).save(folder / "f2_1.png")
+        (fit_white(art) if art is not None else Image.new("RGB", (320, 320), "white")).save(folder / "f2_2.png")
+        (on_magenta4(back) if back is not None else Image.new("RGB", (320, 320), "white")).save(folder / "f2_3.png")
+    head = ("Create the second animation frame of the front battle sprite from Pokemon HeartGold of the Pokemon in image 1: image 1 "
+            "is its first frame. " + ("Image 2 is its official artwork, for its design. " if art is not None else "Image 2 is empty. ") +
+            ("Image 3 is its back sprite, for how it looks from behind. " if back is not None else "Image 3 is empty. "))
+    raw = klein_draw(folder / ("front2_raw_%d.png" % n), f2_text("front", head, job, words),
+                     [folder / "f2_1.png", folder / "f2_2.png", folder / "f2_3.png"], 320, 320, seed, FRONT2_KLEIN)
+    sprite = frame1_colours(klein_follower.to_back(raw), f1)
+    why = too_small(sprite, 200)
+    image = folder / ("front2_%d.png" % n)
+    sprite.save(image)
+    return ("broken" if why else "done", why, image, raw)
+
+
+def try_back2(n, seed, folder, job, inputs):
+    words, _ = inputs["tags"]
+    b1, art, pair = inputs["back"], inputs.get("art"), inputs.get("pair")
+    if not (folder / "b2_1.png").exists():
+        on_magenta4(b1).save(folder / "b2_1.png")
+        (front_pair(*pair) if pair else Image.new("RGB", (320, 320), "white")).save(folder / "b2_2.png")
+        (fit_white(art) if art is not None else Image.new("RGB", (320, 320), "white")).save(folder / "b2_3.png")
+    head = ("Create the second animation frame of the back battle sprite from Pokemon HeartGold of the Pokemon in image 1: image 1 is "
+            "its back sprite's first frame. " +
+            ("Image 2 shows its front sprite's two animation frames side by side (frame 1 left, frame 2 right): the back's second frame "
+             "makes the same motion, seen from behind. " if pair else "Image 2 is empty. ") +
+            ("Image 3 is its official artwork, for its design. " if art is not None else "Image 3 is empty. "))
+    raw = klein_draw(folder / ("back2_raw_%d.png" % n), f2_text("back", head, job, words),
+                     [folder / "b2_1.png", folder / "b2_2.png", folder / "b2_3.png"], 320, 320, seed, BACK2_KLEIN)
+    sprite = frame1_colours(klein_follower.to_back(raw), b1)
+    why = too_small(sprite, 200)
+    image = folder / ("back2_%d.png" % n)
+    sprite.save(image)
+    return ("broken" if why else "done", why, image, raw)
+
+
 def icon_recipe(job, n):
     if job.get("recipe") in ("pc", "canvas"):
         return job["recipe"]
@@ -684,7 +786,7 @@ def icon_recipe(job, n):
 
 
 STAGES = {"art": try_art, "front": try_front, "back": try_back_klein if BACK_KLEIN else try_back, "icon": try_icon_klein,
-          "follower": try_follower}
+          "follower": try_follower, "front2": try_front2, "back2": try_back2}
 
 
 def recipe_name(job, n):
@@ -699,6 +801,8 @@ def recipe_name(job, n):
         return "icon klein v1 2500"
     if stage == "follower":
         return "follower klein v3 2000"
+    if stage in ("front2", "back2"):
+        return Path(FRONT2_KLEIN if stage == "front2" else BACK2_KLEIN).stem.replace("pkmn_", "").replace("_0000", " ")
     if job.get("recipe") == "pose":
         return "sketch new pose (Qwen + style v2)"
     return "sketch to art (style klein v2 2500)" if job.get("recipe") == "sketch" else "base Qwen cut-out"
@@ -764,6 +868,24 @@ def run(job, base, key, post, download, folder, log=print):
         if not other.get("image"):
             raise RuntimeError("the walking sprite needs a back: pick one first")
         inputs["back"] = Image.open(download(base, other["image"], folder / "with_back.png")).convert("RGBA")
+    if stage in ("front2", "back2"):                           # frame 2 (the claim sends the try, its parent and grandparent)
+        chain = [src, src.get("parent") or {}, (src.get("parent") or {}).get("parent") or {}]
+        get = lambda t, name: Image.open(download(base, t["image"], folder / name)).convert("RGBA")
+        art = next((t for t in chain[1:] if t.get("stage") == "art" and t.get("image")), None)
+        if art:
+            inputs["art"] = get(art, "f2_art.png")
+        elif job.get("refs"):
+            inputs["art"] = framed(Image.open(download(base, job["refs"][0], folder / "ref0.png")))
+        other = job.get("with_try") or {}
+        if stage == "front2":
+            inputs["front"] = get(src, "f2_front.png")
+            if other.get("image"):
+                inputs["back"] = get(other, "f2_back.png")
+        else:
+            inputs["back"] = get(src, "f2_back.png")
+            front = chain[1] if chain[1].get("stage") == "front" and chain[1].get("image") else None
+            if front and other.get("image"):
+                inputs["pair"] = (get(front, "f2_front.png"), get(other, "f2_front2.png"))
     if stage == "icon":
         species = {sid: d for sid, _, d in dexlib.load_species()[0]}
         inputs["body_color"] = (species.get(job["species_id"]) or {}).get("body_color")

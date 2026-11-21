@@ -745,6 +745,9 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .ttry.on { border-color: var(--pri); }
 .ttry.inuse::after { content: "IN USE"; position: absolute; top: 2px; left: 2px; background: var(--good); color: #fff; font-size: 11px; padding: 0 4px; font-family: var(--display); }
 .ttry.wait { cursor: default; color: #555; font-size: 13px; }
+.flip { position: relative; display: inline-block; line-height: 0; }
+.flip .f2 { position: absolute; left: 0; top: 0; animation: f2flip 1.2s steps(1) infinite; }
+@keyframes f2flip { 0% { opacity: 0; } 50% { opacity: 1; } }
 .ttile .tilepic { flex-direction: row; gap: 8px; height: 140px; }
 .ttile .nomap { width: 64px; font-size: 11px; }
 .tiles:has(.ttile) { grid-template-columns: repeat(auto-fill, minmax(214px, 1fr)); }
@@ -2433,10 +2436,13 @@ const STUDIO_STEPS = [
   {id: "back", n: "3", label: "BACK", c: "blue", count: 4, what: "The back sprite, drawn from the picked front, on its colours. Tap the best one."},
   {id: "icon", n: "4", label: "ICON", c: "sky", count: 4, what: "The menu icon, drawn from the picked front, in one of the game's icon palettes."},
   {id: "follower", n: "5", label: "WALK", c: "pink", count: 4, what: "The walking sprite that follows the player, drawn from the picked front and back."},
+  // Frame 2 (2026-11-21): the second animation frame of the front and the back; in a battle the sprite switches between the two.
+  {id: "front2", n: "6", label: "FRONT 2", c: "purple", count: 3, what: "The front's second animation frame: the same creature in a new pose, on the front's colours. In a battle it switches between the two."},
+  {id: "back2", n: "7", label: "BACK 2", c: "blue", count: 3, what: "The back's second animation frame: the same motion as FRONT 2, seen from behind."},
   {id: "save", n: "✓", label: "SAVE", c: "purple", what: "Put the picked pictures together and make them the sprite."}];
-const STEP_SIZE = {art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 32], follower: [128, 64]};
-const TRY_SIDE = {art: 640, front: 80, back: 80, icon: 32};                    // the square ones (the colour tools use it)
-const TRY_DEFAULT_SECONDS = {art: 75, "art:sketch": 25, "art:pose": 60, front: 100, back: 55, icon: 30, follower: 40, trainer: 50, vs: 25};
+const STEP_SIZE = {art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 32], follower: [128, 64], front2: [80, 80], back2: [80, 80]};
+const TRY_SIDE = {art: 640, front: 80, back: 80, icon: 32, front2: 80, back2: 80};                    // the square ones (the colour tools use it)
+const TRY_DEFAULT_SECONDS = {art: 75, "art:sketch": 25, "art:pose": 60, front: 100, back: 55, icon: 30, follower: 40, trainer: 50, vs: 25, front2: 35, back2: 35};
 const mmss = sec => Math.floor(Math.max(0, sec) / 60) + ":" + String(Math.floor(Math.max(0, sec) % 60)).padStart(2, "0");
 const aboutMinutes = sec => !(sec >= 90) ? "about a minute" : "about " + Math.round(sec / 60) + " minutes";
 function secondsFor(timings, stage) {
@@ -2447,7 +2453,16 @@ const loadPicture = src => new Promise((ok, no) => {
   const im = new Image(); im.crossOrigin = "anonymous";
   im.onload = () => ok(im); im.onerror = () => no(new Error("the picture did not load")); im.src = src;
 });
-const SLOT_NAMES = {front: "FRONT", back: "BACK", icon: "ICON", follower: "WALK"};
+const SLOT_NAMES = {front: "FRONT", back: "BACK", icon: "ICON", follower: "WALK", front2: "FRONT 2", back2: "BACK 2"};
+// Frame 2's motion, as the frame-2 LoRAs were trained (build_frame2_klein_v2.py's templates); the PC gets the letter.
+const F2_MOTIONS = [["", "let the PC choose"], ["M", "opens its mouth, roaring"], ["H", "raises or turns its head"], ["A", "moves its arms, hands or claws"],
+  ["W", "flaps or spreads its wings"], ["T", "swings or raises its tail"], ["C", "crouches, ready to pounce"], ["L", "leans forward to attack"],
+  ["B", "breathes in, the body rises"], ["E", "blinks or narrows its eyes"], ["R", "turns its body a little"], ["X", "moves a part (tentacles, vines, flames, fins)"]];
+// Two frames in one place, switching like the game's animation (frame 1, then frame 2).
+function flipPair(src1, src2, width) {
+  return h("span", {class: "flip", style: "width:" + width + "px"}, h("img", {class: "px", src: src1, alt: "frame 1", style: "width:" + width + "px"}),
+    src2 ? h("img", {class: "px f2", src: src2, alt: "frame 2", style: "width:" + width + "px"}) : null);
+}
 
 // What the PC is told about the body (the Klein LoRAs were trained with it): the shape (PokeAPI's 14), its look and how it
 // moves. Kept in the dex (design.body_shape / look / movement), so it is written once.
@@ -3812,7 +3827,7 @@ function spriteStudio(s, startStep) {
     const jobs = mine(), online = st.worker && Date.now() - new Date(st.worker.seen_at).getTime() < 90000;
     if (st.busyMsg) return st.busyMsg;
     if (jobs.length) {
-      const names = {art: "cut-outs", front: "fronts", back: "backs", icon: "icons", follower: "walking sprites"};
+      const names = {art: "cut-outs", front: "fronts", back: "backs", icon: "icons", follower: "walking sprites", front2: "front 2s", back2: "back 2s"};
       const what = jobs.map(j => (j.count || 1) + " " + (names[j.stage] || j.stage)).join(", then ");
       const ahead = st.line.findIndex(j => j.species_id === s.id);
       if (!online) return "WAITING\nThe drawing PC is off right now. Your request (" + what + ") waits in line until it is back.";
@@ -3831,9 +3846,10 @@ function spriteStudio(s, startStep) {
 
   function drawTop() {
     const slot = view => {
-      const it = inSet(view), big = view === "front" || view === "back";
+      const it = inSet(view), big = view === "front" || view === "back", one = {front2: "front", back2: "back"}[view];
       const pic = !it ? h("div", {class: "slotempty"}, "—")
         : view === "follower" ? walker(it.src, 3)
+        : one ? flipPair(inSet(one) ? inSet(one).src : it.src, it.src, 96)
         : h("img", {class: "px", src: it.src, alt: SLOT_NAMES[view].toLowerCase() + " of " + s.data.name, style: "width:" + (big ? 160 : 96) + "px"});
       return h("div", {class: "slot frame" + (it && it.live ? " live" : "")},
         h("button", {type: "button", class: "slotpic", title: "Go to " + SLOT_NAMES[view], onclick: () => go(view)}, pic),
@@ -3843,7 +3859,7 @@ function spriteStudio(s, startStep) {
     top.replaceChildren(
       h("div", {class: "namebar"}, h("div", {class: "frame no"}, "No." + pad(s.data.dex)), h("div", {class: "frame"}, h("h3", {}, String(s.data.name).toUpperCase())),
         h("div", {class: "frame cat"}, "SPRITES")),
-      h("div", {class: "setgrid"}, ["front", "back", "icon", "follower"].map(slot)),
+      h("div", {class: "setgrid"}, ["front", "back", "icon", "follower", "front2", "back2"].map(slot)),
       say);
     say.textContent = status();
   }
@@ -3886,16 +3902,28 @@ function spriteStudio(s, startStep) {
     return h("div", {}, box, h("datalist", {id: "list-moves-body"}, BODY_MOVES.map(m => h("option", {value: m}))));
   }
 
+  // Frame 2's motion and how big the change is (remembered per Pokemon).
+  const f2Choice = () => ({motion: remember.get("f2motion-" + s.id) || "", amount: remember.get("f2amount-" + s.id) || "clear"});
+  function motionBox() {
+    const c = f2Choice();
+    const motion = h("select", {"aria-label": "What moves in frame 2", onchange: ev => remember.set("f2motion-" + s.id, ev.target.value)},
+      F2_MOTIONS.map(([k, label]) => h("option", {value: k, selected: k === c.motion ? true : null}, label)));
+    const amount = h("select", {"aria-label": "How big the change is", onchange: ev => remember.set("f2amount-" + s.id, ev.target.value)},
+      [["small", "a small change"], ["clear", "a clear change"], ["big", "a big change"]].map(([k, label]) => h("option", {value: k, selected: k === c.amount ? true : null}, label)));
+    return h("div", {class: "row", style: "margin:6px 0"}, h("span", {class: "pixfont"}, "IN FRAME 2 IT "), motion, amount);
+  }
   async function make(stepId, count, button, recipe) {
-    const from = stepId === "front" ? picked("art") : stepId === "art" ? null : picked("front");
-    const refs = stepId === "art" || stepId === "back" || (stepId === "front" && !from) ? chosen : [];
+    const from = stepId === "front" ? picked("art") : stepId === "art" ? null : stepId === "back2" ? picked("back") : picked("front");
+    const refs = stepId === "art" || stepId === "back" || stepId === "front2" || stepId === "back2" || (stepId === "front" && !from) ? chosen : [];
     if ((stepId === "art" || (stepId === "front" && !from)) && !refs.length) { st.busyMsg = "Choose a picture in 1 PICTURE first."; draw(); st.busyMsg = ""; return; }
-    const b = bodyOf(s), body = recipe === "sketch" ? sketchBody() : ["back", "icon", "follower"].includes(stepId) && (b.shape || b.look || b.move) ? JSON.stringify(b) : null;
+    const b = bodyOf(s), body = recipe === "sketch" ? sketchBody() : stepId === "front2" || stepId === "back2" ? JSON.stringify(Object.assign({}, b, f2Choice()))
+      : ["back", "icon", "follower"].includes(stepId) && (b.shape || b.look || b.move) ? JSON.stringify(b) : null;
+    const withTry = stepId === "follower" ? picked("back") : stepId === "front2" ? picked("back") : stepId === "back2" ? picked("front2") : null;
     button.disabled = true;
     noteMine(s.id);
     try {
       await dbCall("request_tries", {p_species_id: s.id, p_stage: stepId, p_count: count, p_from_try: from ? from.id : null, p_refs: refs,
-        p_prompt: body, p_recipe: recipe || null, p_editor: me(), p_with_try: stepId === "follower" && picked("back") ? picked("back").id : null});
+        p_prompt: body, p_recipe: recipe || null, p_editor: me(), p_with_try: withTry ? withTry.id : null});
       await load();
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; draw(); st.busyMsg = ""; }
     button.disabled = false;
@@ -3922,11 +3950,22 @@ function spriteStudio(s, startStep) {
       await load();
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; draw(); st.busyMsg = ""; }
   }
+  // Frame 1 of a frame-2 try: the front or back it was drawn from (a drawn-on frame 2 goes back to its first try).
+  function frameOne(t) {
+    const m = new Map(st.tries.map(x => [x.id, x]));
+    let x = t; while (x.parent_try && m.get(x.parent_try) && m.get(x.parent_try).stage === x.stage) x = m.get(x.parent_try);
+    const p = x.parent_try && m.get(x.parent_try);
+    if (p && p.image) return artUrl(p.image);
+    const it = inSet(t.stage === "front2" ? "front" : "back");
+    return it ? it.src : null;
+  }
   function tile(t) {
     const [w, hgt] = STEP_SIZE[t.stage] || [80, 80], zoom = t.stage === "art" ? 0.19 : t.stage === "icon" ? 3 : t.stage === "follower" ? 3 : 1.5;
     if (t.waiting || t.status === "drawing") return h("div", {class: "tile wait"}, h("div", {class: "tilepic"}, h("span", {class: "spinner"}), h("span", {class: "sub"}, t.waiting ? "in line" : "drawing")));
     const inUse = picked(t.stage) && picked(t.stage).id === t.id;
+    const one = (t.stage === "front2" || t.stage === "back2") && t.image ? frameOne(t) : null;
     const pic = !t.image ? h("span", {class: "sub"}, "failed") : t.stage === "follower" ? walker(artUrl(t.image), 3)
+      : one ? flipPair(one, artUrl(t.image), Math.round(w * zoom))
       : h("img", {src: artUrl(t.image), alt: t.stage + " #" + t.id, loading: "lazy", class: t.stage === "art" ? "" : "px", style: "width:" + Math.round(w * zoom) + "px"});
     const made = t.job_id === null ? (t.recipe === "mirrored" ? "mirrored" : t.recipe === "recoloured" ? "new colours" : "drawn") + (t.editor ? " by " + t.editor : "")
       : t.recipe === "new colours" ? "new colours (18 Oct): the same picture, with more of its shading kept" : null;
@@ -3954,8 +3993,8 @@ function spriteStudio(s, startStep) {
   function stepPage(stp) {
     const thumb = (t, label) => t ? h("span", {class: "from"}, label + " ", t.stage === "follower" ? walker(artUrl(t.image), 1) : h("img", {src: artUrl(t.image), alt: "", class: t.stage === "art" ? "" : "px"})) : null;
     const front = picked("front"), back = picked("back");
-    const needs = ["back", "icon", "follower"].includes(stp.id) && !front ? "Pick a front first (2 FRONT)."
-      : stp.id === "follower" && !back ? "Pick a back first (3 BACK)." : (stp.id === "art" || stp.id === "front") && !pictures.length ? "Add its concept art first (the ART tab)." : null;
+    const needs = ["back", "icon", "follower", "front2"].includes(stp.id) && !front ? "Pick a front first (2 FRONT)."
+      : (stp.id === "follower" || stp.id === "back2") && !back ? "Pick a back first (3 BACK)." : (stp.id === "art" || stp.id === "front") && !pictures.length ? "Add its concept art first (the ART tab)." : null;
     const count = h("select", {"aria-label": "How many"}, [1, 2, 3, 4, 6, 8].map(n => h("option", {value: n, selected: n === stp.count ? true : null}, String(n))));
     const how = stp.id === "art" ? h("select", {"aria-label": "What to do with the picture"},
       h("option", {value: ""}, "cut the creature out"), h("option", {value: "sketch", selected: remember.get("artway-" + s.id) === "sketch" ? true : null}, "redraw a sketch as official art")) : null;
@@ -3964,7 +4003,8 @@ function spriteStudio(s, startStep) {
       stp.id === "art" ? (remember.get("artway-" + s.id) === "sketch" ? "REDRAW" : "CUT OUT") : "MAKE");
     const each = secondsFor(st.worker && st.worker.timings, stp.id);
     const ctl = h("div", {class: "tryctl"}, go, how, count, h("span", {class: "sub"}, needs || "(" + aboutMinutes(each * Number(count.value)) + " for " + count.value + ")"),
-      stp.id === "front" ? thumb(picked("art"), "from") : stp.id === "follower" ? [thumb(front, "from"), thumb(back, "+")] : stp.id !== "art" ? thumb(front, "from") : null);
+      stp.id === "front" ? thumb(picked("art"), "from") : stp.id === "follower" || stp.id === "front2" ? [thumb(front, "from"), thumb(back, "+")]
+        : stp.id === "back2" ? [thumb(back, "from"), thumb(picked("front2"), "+")] : stp.id !== "art" ? thumb(front, "from") : null);
     count.addEventListener("change", () => { ctl.querySelector(".sub").textContent = needs || "(" + aboutMinutes(each * Number(count.value)) + " for " + count.value + ")"; });
     const chooser = stp.id === "art" ? h("div", {class: "inspo"}, pictures.map(p => {
       const k = chosen.indexOf(p.id);
@@ -3976,7 +4016,9 @@ function spriteStudio(s, startStep) {
       h("div", {class: "hint", style: "margin-top:0"}, stp.what),
       chooser, chooser ? h("div", {class: "hint"}, "Up to 3; the first matters most. Is your picture already a clean drawing of just the creature? Then go straight to 2 FRONT.") : null,
       stp.id === "art" && remember.get("artway-" + s.id) === "sketch" ? noteBox() : null,
-      ["back", "icon", "follower"].includes(stp.id) ? bodyBox(true) : null,
+      ["back", "icon", "follower", "front2", "back2"].includes(stp.id) ? bodyBox(true) : null,
+      stp.id === "front2" || stp.id === "back2" ? motionBox() : null,
+      stp.id === "back2" && !picked("front2") ? h("div", {class: "hint"}, "Tip: pick a FRONT 2 first; the back then makes the same motion.") : null,
       ctl, tilesOf(stp.id));
   }
 
@@ -3989,24 +4031,27 @@ function spriteStudio(s, startStep) {
     ctx.fillStyle = "#a8c870"; ctx.beginPath(); ctx.ellipse(192, 78, 56, 16, 0, 0, 7); ctx.fill(); ctx.beginPath(); ctx.ellipse(68, 170, 68, 20, 0, 0, 7); ctx.fill();
     const put = (it, x, y) => it && loadPicture(it.src).then(im => ctx.drawImage(im, x, y)).catch(() => {});
     put(f, 152, 4); put(b, 24, 112);
+    const f2 = inSet("front2"), b2 = inSet("back2");
     return h("div", {class: "together"}, canvas,
-      h("div", {class: "grass"}, ic ? h("img", {class: "px", src: ic.src, alt: "icon", style: "width:96px"}) : null, w ? walker(w.src, 3) : null));
+      h("div", {class: "grass"}, ic ? h("img", {class: "px", src: ic.src, alt: "icon", style: "width:96px"}) : null, w ? walker(w.src, 3) : null,
+        f && f2 ? flipPair(f.src, f2.src, 120) : null, b && b2 ? flipPair(b.src, b2.src, 120) : null));
   }
   function savePage() {
-    const f = picked("front"), b = picked("back"), ic = picked("icon"), w = picked("follower");
+    const f = picked("front"), b = picked("back"), ic = picked("icon"), w = picked("follower"), f2 = picked("front2"), b2 = picked("back2");
     const note = h("div", {class: "ask"});
     const yes = h("button", {type: "button", class: "hot", disabled: !(f && b) ? true : null, onclick: async () => {
       yes.disabled = true; note.textContent = "Saving...";
       try {
-        const id = await dbCall("assemble_sprite", {p_front: f.id, p_back: b.id, p_icon: ic ? ic.id : null, p_follower: w ? w.id : null, p_editor: me()});
+        const id = await dbCall("assemble_sprite", {p_front: f.id, p_back: b.id, p_icon: ic ? ic.id : null, p_follower: w ? w.id : null, p_editor: me(),
+          p_front2: f2 ? f2.id : null, p_back2: b2 ? b2.id : null});
         await dbCall("review_sprite", {p_key: remember.get("key"), p_candidate: id, p_status: "approved", p_editor: me()});
-        useApproved(s.id, {front: f.image, back: b.image, icon: ic && ic.image, follower: w && w.image});
+        useApproved(s.id, {front: f.image, back: b.image, icon: ic && ic.image, follower: w && w.image, front2: f2 && f2.image, back2: b2 && b2.image});
         note.textContent = "Saved! It is " + s.data.name + "'s sprite now, on the website at once; the game files have it within about 15 minutes.";
         await load();
       } catch (err) { note.textContent = err.message; yes.disabled = false; }
     }}, "YES");
     note.textContent = !(f && b) ? "Pick a front and a back first. The icon and the walking sprite can come later."
-      : "Make these " + s.data.name + "'s sprite?" + (!ic ? " (no icon picked: the game makes one from the front)" : "") + (!w ? " (no walking sprite picked yet)" : "");
+      : "Make these " + s.data.name + "'s sprite?" + (!ic ? " (no icon picked: the game makes one from the front)" : "") + (!w ? " (no walking sprite picked yet)" : "") + (!f2 || !b2 ? " (frame 2: " + (!f2 && !b2 ? "none picked, both frames stay the same" : !f2 ? "no FRONT 2 picked" : "no BACK 2 picked") + ")" : "");
     const older = st.versions.filter(v => v.front);
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, "How the picked pictures look in a battle, in the menu and walking."),
@@ -4197,7 +4242,7 @@ function spriteStudio(s, startStep) {
     page.dataset.c = stp.c;
     page.replaceChildren(!st.loaded ? h("div", {class: "empty"}, "Loading...") : stp.id === "save" ? savePage() : stepPage(stp),
       st.loaded && firstTime() ? h("div", {class: "hint", style: "margin-top:18px;text-align:right"},
-        h("button", {type: "button", class: "link", onclick: () => { remember.set("studio-full", ""); draw(); }}, "Back to the guided way")) : null);
+        h("button", {type: "button", class: "link", onclick: () => { remember.set("studio-full", ""); draw(); }}, "Back to the guided way")) : "");
   }
   async function load() {
     try {
@@ -4205,7 +4250,7 @@ function spriteStudio(s, startStep) {
         dbRead("sprite_tries?species_id=eq." + s.id + "&order=id.desc&limit=300"),
         dbRead("sprite_jobs?status=in.(queued,running)&order=id.asc&select=id,species_id,status,mode,stage,count,started_at,from_try,with_try,recipe"),
         dbRead("sprite_worker?select=seen_at,state,timings").then(r => r[0] || null),
-        dbRead("sprite_candidates?species_id=eq." + s.id + "&gen=eq.4&status=in.(approved,superseded)&order=id.desc&limit=20&select=id,status,front,back,icon,follower,created_at")]);
+        dbRead("sprite_candidates?species_id=eq." + s.id + "&gen=eq.4&status=in.(approved,superseded)&order=id.desc&limit=20&select=id,status,front,back,icon,follower,front2,back2,created_at")]);
       st.loaded = true;
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; }
     draw(); st.busyMsg = "";
@@ -4222,7 +4267,8 @@ function spriteStudio(s, startStep) {
     const front = inSet("front");
     const close = () => { st.editing = null; bottomSlot.replaceChildren(steps, page); draw(); };
     st.editing = pixelEditor({
-      title: "EDIT " + (SLOT_NAMES[view] || "PICTURE"), view, src: it.src, size: STEP_SIZE[view], frontSrc: front && view !== "front" ? front.src : null,
+      title: "EDIT " + (SLOT_NAMES[view] || "PICTURE"), view, src: it.src, size: STEP_SIZE[view],
+      frontSrc: view === "back2" ? (inSet("back") || {}).src || null : front && view !== "front" ? front.src : null,
       bodyColour: (s.data || {}).body_color || "",
       async save(file, how, note) {
         const row = it.tryRow ? await postForm("sprite-draw", {try: it.tryRow.id, how, image: file, editor: me(), note})
@@ -4340,6 +4386,8 @@ function pixelEditor(o) {
       h("div", {class: "hint", style: "margin:4px 0 0"}, "Real walking sprites are a little darker than the front, with the same colours.")];
     if (o.view === "npc" && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, followerPalette(frontImg), 0.5); changed(); }}, "CLOSER TO THE BATTLE SPRITE"),
       h("div", {class: "hint", style: "margin:4px 0 0"}, "The trainer's map figure has the battle sprite's colours, a little darker.")];
+    if ((o.view === "front2" || o.view === "back2") && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, paletteOf(frontImg), 1); changed(); }}, "USE FRAME 1'S COLOURS"),
+      h("div", {class: "hint", style: "margin:4px 0 0"}, "In the game both frames share one palette: frame 2 has exactly frame 1's colours.")];
     if (o.view === "icon") {
       const best = suggestIconPalette(ed.data, o.bodyColour);
       return [h("div", {class: "toolbar", style: "margin:0"}, [0, 1, 2].map(i => h("button", {type: "button", class: "small", title: "HeartGold's icon palette " + (i + 1),
@@ -7127,10 +7175,10 @@ function addRequest(save) {
 async function loadApprovedSprites() {
   if (!DEX.web.url) return;
   try {
-    const rows = await dbRead("sprite_candidates?status=eq.approved&gen=eq.4&select=species_id,front,back,icon,follower");
+    const rows = await dbRead("sprite_candidates?status=eq.approved&gen=eq.4&select=species_id,front,back,icon,follower,front2,back2");
     for (const r of rows) {
       const ds = {};
-      for (const view of ["front", "back", "icon", "follower"]) if (r[view]) ds[view] = artUrl(r[view]);
+      for (const view of ["front", "back", "icon", "follower", "front2", "back2"]) if (r[view]) ds[view] = artUrl(r[view]);
       if (ds.front) DEX.ds_sprites[r.species_id] = ds;
     }
     if (!document.getElementById("dialog").open) render();
@@ -7138,7 +7186,7 @@ async function loadApprovedSprites() {
 }
 function useApproved(sid, version) {                  // right after SAVE in the studio
   const ds = {};
-  for (const view of ["front", "back", "icon", "follower"]) if (version[view]) ds[view] = artUrl(version[view]);
+  for (const view of ["front", "back", "icon", "follower", "front2", "back2"]) if (version[view]) ds[view] = artUrl(version[view]);
   DEX.ds_sprites[sid] = ds;
   render();
 }

@@ -528,11 +528,13 @@ def auto():
 
 DS_SPRITES = ROOT / "assets" / "sprites-ds"
 DS_KINDS = {"ds-front": ("front.png", (80, 80)), "ds-back": ("back.png", (80, 80)), "ds-icon": ("icon.png", (32, 32)),
-            "ds-follower": ("follower.png", (128, 64))}     # the walking sprite: up, down, left, right x 2 steps of 32x32
+            "ds-follower": ("follower.png", (128, 64)),     # the walking sprite: up, down, left, right x 2 steps of 32x32
+            # frame 2 of the front and the back (2026-11-21): the second animation frame, on frame 1's colours
+            "ds-front2": ("front2.png", (80, 80)), "ds-back2": ("back2.png", (80, 80))}
 
 
 def auto_ds(manifest):
-    """DS sprites approved in the sprite studio (pictures captioned [ds-front], [ds-back], [ds-icon], [ds-follower]):
+    """DS sprites approved in the sprite studio (pictures captioned [ds-front], [ds-back], [ds-icon], [ds-follower], [ds-front2], [ds-back2]):
     already finished 80x80 / 32x32 / 128x64 pixel art, so they are copied as they are to assets/sprites-ds/<pokemon>/
     (the Origin HeartGold export reads them there). A Pokemon whose approved version was withdrawn loses them."""
     wanted = {}
