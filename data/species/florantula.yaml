@@ -18,16 +18,16 @@ body_color: green        # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Swarm
-  secondary: Leaf Guard  # optional
+  secondary: Enticing Lure # optional
   hidden: Grassy Surge   # optional
 
 base_stats:              # each 1-255
   hp: 67
-  attack: 105
-  defense: 115
+  attack: 110
+  defense: 120
   sp_attack: 53
-  sp_defense: 115
-  speed: 30
+  sp_defense: 120
+  speed: 20
 
 ev_yield: {defense: 2, sp_defense: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate: 45           # 3 (legendary) to 255 (very easy)

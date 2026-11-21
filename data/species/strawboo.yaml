@@ -18,7 +18,7 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Lightning Rod
-  secondary: Glowing Lure # optional
+  secondary: Enticing Lure # optional
   hidden: Marvel Scale   # optional
 
 base_stats:              # each 1-255
@@ -85,8 +85,8 @@ learnset:
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Water Pulse, Toxic, Hail, Hidden Power, Ice Beam, Blizzard, Protect, Rain Dance,
           Frustration, Return, Dig, Double Team, Rock Tomb, Facade, Secret Power, Rest,
-          Attract, Brine, Endure, Captivate, Sleep Talk, Natural Gift, Swagger, Substitute,
-          Scald, Liquidation, Flip Turn, Surf, Whirlpool, Waterfall, Flash]
+          Attract, Brine, Endure, Flash, Captivate, Sleep Talk, Natural Gift, Swagger,
+          Substitute, Scald, Liquidation, Flip Turn, Surf, Whirlpool, Waterfall]
   tutor: [Aqua Tail, Body Slam, Icy Wind]
   # only needed for the first stage of an evolution line
   egg: [Mud Sport, Aqua Ring, Counter, Hydro Pump, Haze]

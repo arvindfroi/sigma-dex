@@ -524,7 +524,7 @@
       "dex": 3,
       "name": "Leafaxer",
       "credits": {
-        "designer": "Emil Venge-Kvamme",
+        "designer": "Emil & Arvind",
         "artist": null
       },
       "types": [
@@ -831,7 +831,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:3",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/leafaxer.json",
         "cry": null
       },
       "engine": {
@@ -4111,16 +4111,16 @@
       "body_color": "green",
       "abilities": {
         "primary": "Swarm",
-        "secondary": "Leaf Guard",
+        "secondary": "Enticing Lure",
         "hidden": "Grassy Surge"
       },
       "base_stats": {
         "hp": 67,
-        "attack": 105,
-        "defense": 115,
+        "attack": 110,
+        "defense": 120,
         "sp_attack": 53,
-        "sp_defense": 115,
-        "speed": 30
+        "sp_defense": 120,
+        "speed": 20
       },
       "ev_yield": {
         "defense": 2,
@@ -4889,52 +4889,54 @@
     },
     {
       "dex": 19,
-      "name": "Cloudgnome",
+      "name": "Blutie",
       "credits": {
-        "designer": "Michael",
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
-        "Fairy",
-        "Flying"
+        "Normal"
       ],
       "category": null,
       "description": null,
-      "height_m": 0.6,
-      "weight_kg": 7.4,
-      "body_color": null,
+      "height_m": 0.3,
+      "weight_kg": 6,
+      "body_color": "white",
       "abilities": {
-        "primary": "Prankster",
-        "secondary": null,
-        "hidden": null
+        "primary": "Run Away",
+        "secondary": "Quick Feet",
+        "hidden": "Unburden"
       },
       "base_stats": {
         "hp": 38,
-        "attack": 23,
-        "defense": 30,
-        "sp_attack": 55,
-        "sp_defense": 60,
-        "speed": 72
+        "attack": 40,
+        "defense": 41,
+        "sp_attack": 30,
+        "sp_defense": 41,
+        "speed": 65
       },
       "ev_yield": {
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 255,
+      "base_exp": 60,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 15,
       "held_items": {
         "common": null,
         "rare": null
       },
       "evolutions": [
         {
-          "into": "cloudjester",
+          "into": "coatail",
           "method": "level",
-          "level": 25
+          "level": 20,
+          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
       "forms": [],
@@ -4942,111 +4944,98 @@
         "level_up": [
           {
             "level": 1,
-            "move": "Disarming Voice"
-          },
-          {
-            "level": 1,
-            "move": "Fairy Wind"
-          },
-          {
-            "level": 1,
             "move": "Growl"
           },
           {
             "level": 1,
-            "move": "Wish"
+            "move": "Tackle"
           },
           {
-            "level": 4,
-            "move": "Gust"
+            "level": 2,
+            "move": "Sand Attack"
           },
           {
-            "level": 6,
-            "move": "Helping Hand"
+            "level": 3,
+            "move": "Quick Attack"
+          },
+          {
+            "level": 5,
+            "move": "Tail Whip"
+          },
+          {
+            "level": 7,
+            "move": "Covet"
+          },
+          {
+            "level": 9,
+            "move": "Headbutt"
           },
           {
             "level": 10,
-            "move": "Confuse Ray"
+            "move": "Scratch"
           },
           {
-            "level": 12,
-            "move": "Charm"
+            "level": 11,
+            "move": "Baby-Doll Eyes"
           },
           {
-            "level": 12,
-            "move": "Safeguard"
+            "level": 14,
+            "move": "Assurance"
           },
           {
-            "level": 15,
-            "move": "Air Cutter"
+            "level": 14,
+            "move": "Pin Missile"
           },
           {
-            "level": 18,
-            "move": "Encore"
+            "level": 16,
+            "move": "Rest"
           },
           {
-            "level": 21,
-            "move": "Sweet Kiss"
+            "level": 19,
+            "move": "Take Down"
           },
           {
-            "level": 24,
-            "move": "Dazzling Gleam"
+            "level": 20,
+            "move": "Acrobatics"
           },
           {
             "level": 25,
-            "move": "Whirlwind"
+            "move": "Flail"
           },
           {
-            "level": 35,
-            "move": "Air Slash"
+            "level": 31,
+            "move": "Double-Edge"
           },
           {
-            "level": 36,
-            "move": "Agility"
-          },
-          {
-            "level": 39,
-            "move": "Moonblast"
-          },
-          {
-            "level": 45,
-            "move": "Tailwind"
-          },
-          {
-            "level": 49,
-            "move": "Hurricane"
+            "level": 40,
+            "move": "Body Slam"
           }
         ],
         "tm_hm": [
-          "Calm Mind",
           "Toxic",
+          "Bullet Seed",
           "Hidden Power",
           "Sunny Day",
-          "Taunt",
-          "Hyper Beam",
-          "Light Screen",
+          "Blizzard",
           "Protect",
           "Rain Dance",
-          "Safeguard",
           "Frustration",
-          "Solar Beam",
+          "Iron Tail",
+          "Thunderbolt",
+          "Thunder",
           "Return",
-          "Psychic",
+          "Dig",
+          "Shadow Ball",
           "Double Team",
-          "Reflect",
-          "Aerial Ace",
+          "Shock Wave",
           "Facade",
           "Secret Power",
           "Rest",
           "Attract",
           "Thief",
-          "Roost",
           "Fling",
           "Endure",
-          "Giga Impact",
-          "Flash",
           "Thunder Wave",
-          "Psych Up",
           "Captivate",
           "Sleep Talk",
           "Natural Gift",
@@ -5054,57 +5043,92 @@
           "Swagger",
           "U-turn",
           "Substitute",
-          "Draining Kiss",
-          "Play Rough",
-          "Fly",
-          "Energy Ball"
+          "Cut",
+          "Surf",
+          "Rock Smash"
         ],
         "tutor": [
-          "Air Slash",
+          "Body Slam",
           "Charm",
-          "Dazzling Gleam",
           "Endeavor",
-          "Heat Wave",
-          "Hurricane",
-          "Sky Attack",
-          "Fake Out"
+          "Hyper Voice",
+          "Icy Wind",
+          "Seed Bomb",
+          "Super Fang"
         ],
         "egg": [
-          "Defog"
+          "Pursuit",
+          "Rock Climb",
+          "Tickle",
+          "Charm",
+          "Last Resort",
+          "Uproar",
+          "Fake Out",
+          "Feint",
+          "Tail Slap",
+          "Fake Tears"
         ]
       },
       "encounters": [],
       "design": {
-        "concept": "Its a mythical gnome pokemon on a cloud",
+        "concept": "a ble coati/rotent pokemon. found in early routes. it is very agile and feeds of farmers crops.",
         "name_origin": null,
         "notes": null,
-        "wishes": null,
-        "claude_fill": true,
+        "wishes": "weak but fast pokemon. like zigzagoon or ratata",
+        "claude_fill": false,
         "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement",
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "claude_sure": {
-          "level-up moves": 55,
-          "TM/HM moves": 60,
-          "tutor moves": 50,
-          "egg moves": 50
+          "body shape": 80,
+          "look": 80,
+          "movement": 80,
+          "level-up moves": 80,
+          "TM/HM moves": 85,
+          "tutor moves": 75,
+          "egg moves": 75,
+          "body color": 90,
+          "EV yield": 85,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 78,
+          "base friendship": 90,
+          "gender": 81,
+          "egg groups": 71,
+          "egg cycles": 65,
+          "height": 65,
+          "weight": 65
         },
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "It is a small, low rodent-like creature with a pointed snout, one round ear, a round dark-ringed eye and short legs. Its body is blue-purple fading to white on the back, and a very long, thick white tail curls around behind it and sweeps forward under its belly."
       },
       "assets": {
-        "concept_art": "assets/concept-art/cloudgnome/1441.webp",
+        "concept_art": "assets/concept-art/coati/792.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": "hgss:143",
-        "shiny_palette": "assets/shiny/cloudgnome.json",
-        "cry": "assets/cries/cloudgnome.json"
+        "footprint": "hgss:161",
+        "shiny_palette": null,
+        "cry": null
       },
       "engine": {
         "no_flip": false,
@@ -5114,47 +5138,48 @@
         "icon_palette": null,
         "safari_flee_rate": 0
       },
-      "id": "cloudgnome"
+      "id": "coati"
     },
     {
       "dex": 20,
-      "name": "Cloudjester",
+      "name": "Coatail",
       "credits": {
-        "designer": "Michael",
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
-        "Fairy",
-        "Flying"
+        "Normal"
       ],
       "category": null,
       "description": null,
-      "height_m": 1.1,
-      "weight_kg": 18.9,
-      "body_color": null,
+      "height_m": 1.3,
+      "weight_kg": 30,
+      "body_color": "blue",
       "abilities": {
-        "primary": "Prankster",
-        "secondary": null,
-        "hidden": null
+        "primary": "Run Away",
+        "secondary": "Quick Feet",
+        "hidden": "Unburden"
       },
       "base_stats": {
-        "hp": 65,
-        "attack": 55,
-        "defense": 60,
-        "sp_attack": 87,
-        "sp_defense": 90,
-        "speed": 121
+        "hp": 76,
+        "attack": 82,
+        "defense": 61,
+        "sp_attack": 50,
+        "sp_defense": 67,
+        "speed": 110
       },
       "ev_yield": {
         "speed": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 90,
+      "base_exp": 156,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 15,
       "held_items": {
         "common": null,
         "rare": null
@@ -5165,11 +5190,27 @@
         "level_up": [
           {
             "level": 0,
-            "move": "Tailwind"
+            "move": "Agility"
+          },
+          {
+            "level": 0,
+            "move": "Slash"
           },
           {
             "level": 1,
-            "move": "Fairy Wind"
+            "move": "Baby-Doll Eyes"
+          },
+          {
+            "level": 1,
+            "move": "Quick Attack"
+          },
+          {
+            "level": 1,
+            "move": "Switcheroo"
+          },
+          {
+            "level": 1,
+            "move": "Tail Whip"
           },
           {
             "level": 1,
@@ -5177,145 +5218,189 @@
           },
           {
             "level": 1,
-            "move": "Gust"
+            "move": "Tackle"
           },
           {
-            "level": 6,
-            "move": "Helping Hand"
+            "level": 2,
+            "move": "Sand Attack"
+          },
+          {
+            "level": 7,
+            "move": "Covet"
+          },
+          {
+            "level": 9,
+            "move": "Headbutt"
           },
           {
             "level": 10,
-            "move": "Disarming Voice"
+            "move": "Scratch"
           },
           {
-            "level": 12,
-            "move": "Charm"
+            "level": 11,
+            "move": "Hone Claws"
           },
           {
-            "level": 15,
-            "move": "Air Cutter"
+            "level": 14,
+            "move": "Fury Swipes"
           },
           {
-            "level": 25,
-            "move": "Whirlwind"
+            "level": 14,
+            "move": "Assurance"
           },
           {
-            "level": 26,
-            "move": "Encore"
+            "level": 14,
+            "move": "Pin Missile"
           },
           {
-            "level": 32,
-            "move": "Air Slash"
+            "level": 17,
+            "move": "Helping Hand"
+          },
+          {
+            "level": 18,
+            "move": "Rest"
+          },
+          {
+            "level": 21,
+            "move": "Follow Me"
+          },
+          {
+            "level": 22,
+            "move": "Take Down"
+          },
+          {
+            "level": 23,
+            "move": "Acrobatics"
+          },
+          {
+            "level": 28,
+            "move": "Slam"
+          },
+          {
+            "level": 28,
+            "move": "Flail"
           },
           {
             "level": 36,
-            "move": "Agility"
-          },
-          {
-            "level": 36,
-            "move": "Roost"
-          },
-          {
-            "level": 39,
-            "move": "Moonblast"
+            "move": "Sucker Punch"
           },
           {
             "level": 40,
-            "move": "Dazzling Gleam"
+            "move": "Body Slam"
           },
           {
-            "level": 42,
-            "move": "Sweet Scent"
-          },
-          {
-            "level": 50,
-            "move": "Hurricane"
+            "level": 43,
+            "move": "Double-Edge"
           }
         ],
         "tm_hm": [
-          "Calm Mind",
           "Toxic",
+          "Bullet Seed",
           "Hidden Power",
           "Sunny Day",
           "Taunt",
-          "Hyper Beam",
-          "Light Screen",
+          "Blizzard",
           "Protect",
           "Rain Dance",
-          "Safeguard",
           "Frustration",
-          "Solar Beam",
+          "Iron Tail",
+          "Thunderbolt",
+          "Thunder",
           "Return",
-          "Psychic",
+          "Dig",
+          "Shadow Ball",
+          "Brick Break",
           "Double Team",
-          "Reflect",
-          "Aerial Ace",
+          "Shock Wave",
           "Facade",
           "Secret Power",
           "Rest",
           "Attract",
           "Thief",
-          "Steel Wing",
-          "Roost",
+          "Fling",
           "Endure",
+          "Shadow Claw",
           "Giga Impact",
           "Thunder Wave",
-          "Psych Up",
+          "Swords Dance",
+          "Captivate",
           "Sleep Talk",
           "Natural Gift",
+          "Grass Knot",
           "Swagger",
           "U-turn",
           "Substitute",
-          "Draining Kiss",
           "Play Rough",
-          "Fly",
-          "Energy Ball"
+          "Cut",
+          "Surf",
+          "Strength",
+          "Rock Smash"
         ],
         "tutor": [
-          "Air Slash",
+          "Aqua Tail",
+          "Body Slam",
           "Charm",
-          "Dazzling Gleam",
-          "Heat Wave",
-          "Hurricane",
-          "Sky Attack",
-          "Fake Out"
+          "Endeavor",
+          "Hyper Voice",
+          "Seed Bomb",
+          "Super Fang",
+          "Zen Headbutt",
+          "Icy Wind"
         ],
-        "egg": [
-          "Defog"
-        ]
+        "egg": []
       },
       "encounters": [],
       "design": {
-        "concept": null,
+        "concept": "A rodent/coati pokemon. this pokemon uses stolen barry seeds to grow his own berries and widen his territory",
         "name_origin": null,
         "notes": null,
         "wishes": null,
-        "claude_fill": true,
+        "claude_fill": false,
         "filled_by_claude": [
+          "look",
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "height",
+          "weight"
         ],
         "claude_sure": {
-          "level-up moves": 55,
-          "TM/HM moves": 60,
-          "tutor moves": 50,
-          "egg moves": 50
+          "look": 80,
+          "level-up moves": 75,
+          "TM/HM moves": 80,
+          "tutor moves": 70,
+          "body color": 80,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 78,
+          "base friendship": 90,
+          "gender": 81,
+          "egg groups": 71,
+          "egg cycles": 65,
+          "height": 65,
+          "weight": 65
         },
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "It is a long, low, four-legged rodent-like creature with a pointed snout, one pointed ear and a small eye. Its body fades from blue on the legs to white on the back, with a ridge of jagged cream spikes along its back that runs into a long, thin, jagged cream tail curving upward."
       },
       "assets": {
-        "concept_art": "assets/concept-art/cloudjester/1463.webp",
+        "concept_art": "assets/concept-art/coatail/793.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
-        "footprint": "hgss:123",
-        "shiny_palette": "assets/shiny/cloudjester.json",
-        "cry": "assets/cries/cloudjester.json"
+        "footprint": "hgss:162",
+        "shiny_palette": null,
+        "cry": null
       },
       "engine": {
         "no_flip": false,
@@ -5325,7 +5410,7 @@
         "icon_palette": null,
         "safari_flee_rate": 0
       },
-      "id": "cloudjester"
+      "id": "coatail"
     },
     {
       "dex": 21,
@@ -8498,6 +8583,446 @@
     },
     {
       "dex": 33,
+      "name": "Cloudgnome",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Fairy",
+        "Flying"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": 0.6,
+      "weight_kg": 7.4,
+      "body_color": null,
+      "abilities": {
+        "primary": "Prankster",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 38,
+        "attack": 23,
+        "defense": 30,
+        "sp_attack": 55,
+        "sp_defense": 60,
+        "speed": 72
+      },
+      "ev_yield": {
+        "speed": 1
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "cloudjester",
+          "method": "level",
+          "level": 25
+        }
+      ],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Disarming Voice"
+          },
+          {
+            "level": 1,
+            "move": "Fairy Wind"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Wish"
+          },
+          {
+            "level": 4,
+            "move": "Gust"
+          },
+          {
+            "level": 6,
+            "move": "Helping Hand"
+          },
+          {
+            "level": 10,
+            "move": "Confuse Ray"
+          },
+          {
+            "level": 12,
+            "move": "Charm"
+          },
+          {
+            "level": 12,
+            "move": "Safeguard"
+          },
+          {
+            "level": 15,
+            "move": "Air Cutter"
+          },
+          {
+            "level": 18,
+            "move": "Encore"
+          },
+          {
+            "level": 21,
+            "move": "Sweet Kiss"
+          },
+          {
+            "level": 24,
+            "move": "Dazzling Gleam"
+          },
+          {
+            "level": 25,
+            "move": "Whirlwind"
+          },
+          {
+            "level": 35,
+            "move": "Air Slash"
+          },
+          {
+            "level": 36,
+            "move": "Agility"
+          },
+          {
+            "level": 39,
+            "move": "Moonblast"
+          },
+          {
+            "level": 45,
+            "move": "Tailwind"
+          },
+          {
+            "level": 49,
+            "move": "Hurricane"
+          }
+        ],
+        "tm_hm": [
+          "Calm Mind",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Safeguard",
+          "Frustration",
+          "Solar Beam",
+          "Return",
+          "Psychic",
+          "Double Team",
+          "Reflect",
+          "Aerial Ace",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Roost",
+          "Fling",
+          "Endure",
+          "Giga Impact",
+          "Flash",
+          "Thunder Wave",
+          "Psych Up",
+          "Captivate",
+          "Sleep Talk",
+          "Natural Gift",
+          "Grass Knot",
+          "Swagger",
+          "U-turn",
+          "Substitute",
+          "Draining Kiss",
+          "Play Rough",
+          "Fly",
+          "Energy Ball"
+        ],
+        "tutor": [
+          "Air Slash",
+          "Charm",
+          "Dazzling Gleam",
+          "Endeavor",
+          "Heat Wave",
+          "Hurricane",
+          "Sky Attack",
+          "Fake Out"
+        ],
+        "egg": [
+          "Defog"
+        ]
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Its a mythical gnome pokemon on a cloud",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": true,
+        "filled_by_claude": [
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves"
+        ],
+        "claude_sure": {
+          "level-up moves": 55,
+          "TM/HM moves": 60,
+          "tutor moves": 50,
+          "egg moves": 50
+        },
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/cloudgnome/1441.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": "hgss:143",
+        "shiny_palette": "assets/shiny/cloudgnome.json",
+        "cry": "assets/cries/cloudgnome.json"
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "cloudgnome"
+    },
+    {
+      "dex": 34,
+      "name": "Cloudjester",
+      "credits": {
+        "designer": "Michael",
+        "artist": null
+      },
+      "types": [
+        "Fairy",
+        "Flying"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": 1.1,
+      "weight_kg": 18.9,
+      "body_color": null,
+      "abilities": {
+        "primary": "Prankster",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 65,
+        "attack": 55,
+        "defense": 60,
+        "sp_attack": 87,
+        "sp_defense": 90,
+        "speed": 121
+      },
+      "ev_yield": {
+        "speed": 2
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Tailwind"
+          },
+          {
+            "level": 1,
+            "move": "Fairy Wind"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Gust"
+          },
+          {
+            "level": 6,
+            "move": "Helping Hand"
+          },
+          {
+            "level": 10,
+            "move": "Disarming Voice"
+          },
+          {
+            "level": 12,
+            "move": "Charm"
+          },
+          {
+            "level": 15,
+            "move": "Air Cutter"
+          },
+          {
+            "level": 25,
+            "move": "Whirlwind"
+          },
+          {
+            "level": 26,
+            "move": "Encore"
+          },
+          {
+            "level": 32,
+            "move": "Air Slash"
+          },
+          {
+            "level": 36,
+            "move": "Agility"
+          },
+          {
+            "level": 36,
+            "move": "Roost"
+          },
+          {
+            "level": 39,
+            "move": "Moonblast"
+          },
+          {
+            "level": 40,
+            "move": "Dazzling Gleam"
+          },
+          {
+            "level": 42,
+            "move": "Sweet Scent"
+          },
+          {
+            "level": 50,
+            "move": "Hurricane"
+          }
+        ],
+        "tm_hm": [
+          "Calm Mind",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Safeguard",
+          "Frustration",
+          "Solar Beam",
+          "Return",
+          "Psychic",
+          "Double Team",
+          "Reflect",
+          "Aerial Ace",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Steel Wing",
+          "Roost",
+          "Endure",
+          "Giga Impact",
+          "Thunder Wave",
+          "Psych Up",
+          "Sleep Talk",
+          "Natural Gift",
+          "Swagger",
+          "U-turn",
+          "Substitute",
+          "Draining Kiss",
+          "Play Rough",
+          "Fly",
+          "Energy Ball"
+        ],
+        "tutor": [
+          "Air Slash",
+          "Charm",
+          "Dazzling Gleam",
+          "Heat Wave",
+          "Hurricane",
+          "Sky Attack",
+          "Fake Out"
+        ],
+        "egg": [
+          "Defog"
+        ]
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": true,
+        "filled_by_claude": [
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves"
+        ],
+        "claude_sure": {
+          "level-up moves": 55,
+          "TM/HM moves": 60,
+          "tutor moves": 50,
+          "egg moves": 50
+        },
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/cloudjester/1463.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": "hgss:123",
+        "shiny_palette": "assets/shiny/cloudjester.json",
+        "cry": "assets/cries/cloudjester.json"
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "cloudjester"
+    },
+    {
+      "dex": 35,
       "name": "Sigmanian Eiscue",
       "credits": {
         "designer": null,
@@ -8744,7 +9269,7 @@
       "id": "eiscue"
     },
     {
-      "dex": 34,
+      "dex": 36,
       "name": "Rainbro",
       "credits": {
         "designer": null,
@@ -8963,531 +9488,6 @@
         "safari_flee_rate": 0
       },
       "id": "rainbro"
-    },
-    {
-      "dex": 35,
-      "name": "Blutie",
-      "credits": {
-        "designer": "Arvind",
-        "artist": "Arvind"
-      },
-      "types": [
-        "Normal"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": 0.3,
-      "weight_kg": 6,
-      "body_color": "white",
-      "abilities": {
-        "primary": "Run Away",
-        "secondary": "Quick Feet",
-        "hidden": "Unburden"
-      },
-      "base_stats": {
-        "hp": 38,
-        "attack": 40,
-        "defense": 41,
-        "sp_attack": 30,
-        "sp_defense": 41,
-        "speed": 65
-      },
-      "ev_yield": {
-        "speed": 1
-      },
-      "catch_rate": 255,
-      "base_exp": 60,
-      "growth_rate": "medium_fast",
-      "base_friendship": 70,
-      "gender": 50,
-      "egg_groups": [
-        "field"
-      ],
-      "egg_cycles": 15,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [
-        {
-          "into": "coatail",
-          "method": "level",
-          "level": 20,
-          "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
-        }
-      ],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 1,
-            "move": "Growl"
-          },
-          {
-            "level": 1,
-            "move": "Tackle"
-          },
-          {
-            "level": 2,
-            "move": "Sand Attack"
-          },
-          {
-            "level": 3,
-            "move": "Quick Attack"
-          },
-          {
-            "level": 5,
-            "move": "Tail Whip"
-          },
-          {
-            "level": 7,
-            "move": "Covet"
-          },
-          {
-            "level": 9,
-            "move": "Headbutt"
-          },
-          {
-            "level": 10,
-            "move": "Scratch"
-          },
-          {
-            "level": 11,
-            "move": "Baby-Doll Eyes"
-          },
-          {
-            "level": 14,
-            "move": "Assurance"
-          },
-          {
-            "level": 14,
-            "move": "Pin Missile"
-          },
-          {
-            "level": 16,
-            "move": "Rest"
-          },
-          {
-            "level": 19,
-            "move": "Take Down"
-          },
-          {
-            "level": 20,
-            "move": "Acrobatics"
-          },
-          {
-            "level": 25,
-            "move": "Flail"
-          },
-          {
-            "level": 31,
-            "move": "Double-Edge"
-          },
-          {
-            "level": 40,
-            "move": "Body Slam"
-          }
-        ],
-        "tm_hm": [
-          "Toxic",
-          "Bullet Seed",
-          "Hidden Power",
-          "Sunny Day",
-          "Blizzard",
-          "Protect",
-          "Rain Dance",
-          "Frustration",
-          "Iron Tail",
-          "Thunderbolt",
-          "Thunder",
-          "Return",
-          "Dig",
-          "Shadow Ball",
-          "Double Team",
-          "Shock Wave",
-          "Facade",
-          "Secret Power",
-          "Rest",
-          "Attract",
-          "Thief",
-          "Fling",
-          "Endure",
-          "Thunder Wave",
-          "Captivate",
-          "Sleep Talk",
-          "Natural Gift",
-          "Grass Knot",
-          "Swagger",
-          "U-turn",
-          "Substitute",
-          "Cut",
-          "Surf",
-          "Rock Smash"
-        ],
-        "tutor": [
-          "Body Slam",
-          "Charm",
-          "Endeavor",
-          "Hyper Voice",
-          "Icy Wind",
-          "Seed Bomb",
-          "Super Fang"
-        ],
-        "egg": [
-          "Pursuit",
-          "Rock Climb",
-          "Tickle",
-          "Charm",
-          "Last Resort",
-          "Uproar",
-          "Fake Out",
-          "Feint",
-          "Tail Slap",
-          "Fake Tears"
-        ]
-      },
-      "encounters": [],
-      "design": {
-        "concept": "a ble coati/rotent pokemon. found in early routes. it is very agile and feeds of farmers crops.",
-        "name_origin": null,
-        "notes": null,
-        "wishes": "weak but fast pokemon. like zigzagoon or ratata",
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement",
-          "level-up moves",
-          "TM/HM moves",
-          "tutor moves",
-          "egg moves",
-          "body color",
-          "EV yield",
-          "catch rate",
-          "base exp",
-          "growth rate",
-          "base friendship",
-          "gender",
-          "egg groups",
-          "egg cycles",
-          "height",
-          "weight"
-        ],
-        "claude_sure": {
-          "body shape": 80,
-          "look": 80,
-          "movement": 80,
-          "level-up moves": 80,
-          "TM/HM moves": 85,
-          "tutor moves": 75,
-          "egg moves": 75,
-          "body color": 90,
-          "EV yield": 85,
-          "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 78,
-          "base friendship": 90,
-          "gender": 81,
-          "egg groups": 71,
-          "egg cycles": 65,
-          "height": 65,
-          "weight": 65
-        },
-        "body_shape": "a quadruped body",
-        "movement": "It walks on four legs.",
-        "look": "It is a small, low rodent-like creature with a pointed snout, one round ear, a round dark-ringed eye and short legs. Its body is blue-purple fading to white on the back, and a very long, thick white tail curls around behind it and sweeps forward under its belly."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/coati/792.png",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": "hgss:161",
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "coati"
-    },
-    {
-      "dex": 36,
-      "name": "Coatail",
-      "credits": {
-        "designer": "Arvind",
-        "artist": "Arvind"
-      },
-      "types": [
-        "Normal"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": 1.3,
-      "weight_kg": 30,
-      "body_color": "blue",
-      "abilities": {
-        "primary": "Run Away",
-        "secondary": "Quick Feet",
-        "hidden": "Unburden"
-      },
-      "base_stats": {
-        "hp": 76,
-        "attack": 82,
-        "defense": 61,
-        "sp_attack": 50,
-        "sp_defense": 67,
-        "speed": 110
-      },
-      "ev_yield": {
-        "speed": 2
-      },
-      "catch_rate": 90,
-      "base_exp": 156,
-      "growth_rate": "medium_fast",
-      "base_friendship": 70,
-      "gender": 50,
-      "egg_groups": [
-        "field"
-      ],
-      "egg_cycles": 15,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 0,
-            "move": "Agility"
-          },
-          {
-            "level": 0,
-            "move": "Slash"
-          },
-          {
-            "level": 1,
-            "move": "Baby-Doll Eyes"
-          },
-          {
-            "level": 1,
-            "move": "Quick Attack"
-          },
-          {
-            "level": 1,
-            "move": "Switcheroo"
-          },
-          {
-            "level": 1,
-            "move": "Tail Whip"
-          },
-          {
-            "level": 1,
-            "move": "Growl"
-          },
-          {
-            "level": 1,
-            "move": "Tackle"
-          },
-          {
-            "level": 2,
-            "move": "Sand Attack"
-          },
-          {
-            "level": 7,
-            "move": "Covet"
-          },
-          {
-            "level": 9,
-            "move": "Headbutt"
-          },
-          {
-            "level": 10,
-            "move": "Scratch"
-          },
-          {
-            "level": 11,
-            "move": "Hone Claws"
-          },
-          {
-            "level": 14,
-            "move": "Fury Swipes"
-          },
-          {
-            "level": 14,
-            "move": "Assurance"
-          },
-          {
-            "level": 14,
-            "move": "Pin Missile"
-          },
-          {
-            "level": 17,
-            "move": "Helping Hand"
-          },
-          {
-            "level": 18,
-            "move": "Rest"
-          },
-          {
-            "level": 21,
-            "move": "Follow Me"
-          },
-          {
-            "level": 22,
-            "move": "Take Down"
-          },
-          {
-            "level": 23,
-            "move": "Acrobatics"
-          },
-          {
-            "level": 28,
-            "move": "Slam"
-          },
-          {
-            "level": 28,
-            "move": "Flail"
-          },
-          {
-            "level": 36,
-            "move": "Sucker Punch"
-          },
-          {
-            "level": 40,
-            "move": "Body Slam"
-          },
-          {
-            "level": 43,
-            "move": "Double-Edge"
-          }
-        ],
-        "tm_hm": [
-          "Toxic",
-          "Bullet Seed",
-          "Hidden Power",
-          "Sunny Day",
-          "Taunt",
-          "Blizzard",
-          "Protect",
-          "Rain Dance",
-          "Frustration",
-          "Iron Tail",
-          "Thunderbolt",
-          "Thunder",
-          "Return",
-          "Dig",
-          "Shadow Ball",
-          "Brick Break",
-          "Double Team",
-          "Shock Wave",
-          "Facade",
-          "Secret Power",
-          "Rest",
-          "Attract",
-          "Thief",
-          "Fling",
-          "Endure",
-          "Shadow Claw",
-          "Giga Impact",
-          "Thunder Wave",
-          "Swords Dance",
-          "Captivate",
-          "Sleep Talk",
-          "Natural Gift",
-          "Grass Knot",
-          "Swagger",
-          "U-turn",
-          "Substitute",
-          "Play Rough",
-          "Cut",
-          "Surf",
-          "Strength",
-          "Rock Smash"
-        ],
-        "tutor": [
-          "Aqua Tail",
-          "Body Slam",
-          "Charm",
-          "Endeavor",
-          "Hyper Voice",
-          "Seed Bomb",
-          "Super Fang",
-          "Zen Headbutt",
-          "Icy Wind"
-        ],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": "A rodent/coati pokemon. this pokemon uses stolen barry seeds to grow his own berries and widen his territory",
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "look",
-          "level-up moves",
-          "TM/HM moves",
-          "tutor moves",
-          "body color",
-          "catch rate",
-          "base exp",
-          "growth rate",
-          "base friendship",
-          "gender",
-          "egg groups",
-          "egg cycles",
-          "height",
-          "weight"
-        ],
-        "claude_sure": {
-          "look": 80,
-          "level-up moves": 75,
-          "TM/HM moves": 80,
-          "tutor moves": 70,
-          "body color": 80,
-          "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 78,
-          "base friendship": 90,
-          "gender": 81,
-          "egg groups": 71,
-          "egg cycles": 65,
-          "height": 65,
-          "weight": 65
-        },
-        "body_shape": "a quadruped body",
-        "movement": "It walks on four legs.",
-        "look": "It is a long, low, four-legged rodent-like creature with a pointed snout, one pointed ear and a small eye. Its body fades from blue on the legs to white on the back, with a ridge of jagged cream spikes along its back that runs into a long, thin, jagged cream tail curving upward."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/coatail/793.png",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": "hgss:162",
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "coatail"
     },
     {
       "dex": 37,
@@ -11885,7 +11885,7 @@
         "defense": 50,
         "sp_attack": 109,
         "sp_defense": 67,
-        "speed": 119
+        "speed": 124
       },
       "ev_yield": {
         "speed": 2
@@ -12906,8 +12906,8 @@
       "body_color": "red",
       "abilities": {
         "primary": "Pickle Armor",
-        "secondary": "Chlorophyll",
-        "hidden": "Defiant"
+        "secondary": "Poison Point",
+        "hidden": "Toxic Chain"
       },
       "base_stats": {
         "hp": 95,
@@ -18622,8 +18622,8 @@
         "attack": 130,
         "defense": 95,
         "sp_attack": 50,
-        "sp_defense": 85,
-        "speed": 70
+        "sp_defense": 88,
+        "speed": 67
       },
       "ev_yield": {
         "attack": 3
@@ -24552,7 +24552,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:7",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/skiirtle.json",
         "cry": null
       },
       "engine": {
@@ -24846,7 +24846,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:9",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/mcskiirtle.json",
         "cry": null
       },
       "engine": {
@@ -25087,7 +25087,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:193",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/ambuger.json",
         "cry": null
       },
       "engine": {
@@ -25360,7 +25360,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:469",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/ambcoptr.json",
         "cry": null
       },
       "engine": {
@@ -25602,7 +25602,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:98",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/tortoplasm.json",
         "cry": null
       },
       "engine": {
@@ -35183,7 +35183,7 @@
       "body_color": null,
       "abilities": {
         "primary": "Lightning Rod",
-        "secondary": "Glowing Lure",
+        "secondary": "Enticing Lure",
         "hidden": "Marvel Scale"
       },
       "base_stats": {
@@ -35315,6 +35315,7 @@
           "Attract",
           "Brine",
           "Endure",
+          "Flash",
           "Captivate",
           "Sleep Talk",
           "Natural Gift",
@@ -35325,8 +35326,7 @@
           "Flip Turn",
           "Surf",
           "Whirlpool",
-          "Waterfall",
-          "Flash"
+          "Waterfall"
         ],
         "tutor": [
           "Aqua Tail",
@@ -35407,7 +35407,7 @@
       "body_color": null,
       "abilities": {
         "primary": "Lightning Rod",
-        "secondary": "Glowing Lure",
+        "secondary": "Enticing Lure",
         "hidden": "Marvel Scale"
       },
       "base_stats": {
@@ -35560,6 +35560,7 @@
           "Secret Power",
           "Rest",
           "Attract",
+          "Brine",
           "Fling",
           "Endure",
           "Captivate",
@@ -35574,8 +35575,7 @@
           "Strength",
           "Whirlpool",
           "Rock Smash",
-          "Waterfall",
-          "Brine"
+          "Waterfall"
         ],
         "tutor": [
           "Aqua Tail",
@@ -35655,7 +35655,7 @@
       "body_color": "red",
       "abilities": {
         "primary": "Lightning Rod",
-        "secondary": "Glowing Lure",
+        "secondary": "Enticing Lure",
         "hidden": "Marvel Scale"
       },
       "base_stats": {
@@ -36423,7 +36423,7 @@
       "id": "rosievoir"
     },
     {
-      "dex": 147,
+      "dex": 146,
       "name": "Sealma",
       "credits": {
         "designer": "Arvind",
@@ -36674,7 +36674,7 @@
       "id": "whaldrill0"
     },
     {
-      "dex": 148,
+      "dex": 147,
       "name": "Narburr",
       "credits": {
         "designer": "Emil",
@@ -36927,7 +36927,7 @@
       "id": "whaldrill"
     },
     {
-      "dex": 149,
+      "dex": 148,
       "name": "Whaldrill",
       "credits": {
         "designer": "Emil",
@@ -37199,7 +37199,7 @@
       "id": "whaldrill3"
     },
     {
-      "dex": 150,
+      "dex": 149,
       "name": "Venofrib",
       "credits": {
         "designer": "Michael",
@@ -37397,7 +37397,7 @@
       "id": "venofrib"
     },
     {
-      "dex": 151,
+      "dex": 150,
       "name": "Vendepiede",
       "credits": {
         "designer": "Michael",
@@ -37660,7 +37660,7 @@
       "id": "vendepiede"
     },
     {
-      "dex": 152,
+      "dex": 151,
       "name": "Venorax",
       "credits": {
         "designer": "Michael",
@@ -37942,7 +37942,7 @@
       "id": "venorax"
     },
     {
-      "dex": 153,
+      "dex": 152,
       "name": "Raymon",
       "credits": {
         "designer": "Ivar",
@@ -38054,7 +38054,7 @@
       "id": "raymon"
     },
     {
-      "dex": 154,
+      "dex": 153,
       "name": "Crysteel",
       "credits": {
         "designer": "Michael",
@@ -38137,7 +38137,7 @@
       "id": "crysteel"
     },
     {
-      "dex": 155,
+      "dex": 154,
       "name": "Crystax",
       "credits": {
         "designer": "michael",
@@ -38220,7 +38220,7 @@
       "id": "crystax"
     },
     {
-      "dex": 156,
+      "dex": 155,
       "name": "Whyrmshade",
       "credits": {
         "designer": "Michael",
@@ -38308,7 +38308,7 @@
       "id": "whyrmshade"
     },
     {
-      "dex": 157,
+      "dex": 156,
       "name": "Abysspero",
       "credits": {
         "designer": "Michael",
@@ -38391,7 +38391,7 @@
       "id": "abysspero"
     },
     {
-      "dex": 158,
+      "dex": 157,
       "name": "Aqualoom",
       "credits": {
         "designer": "Michael",
@@ -38589,7 +38589,7 @@
       "id": "aqualoom"
     },
     {
-      "dex": 159,
+      "dex": 158,
       "name": "Cabat",
       "credits": {
         "designer": "Ivar",
@@ -38676,7 +38676,7 @@
       "id": "catbat"
     },
     {
-      "dex": 160,
+      "dex": 159,
       "name": "Cobramp",
       "credits": {
         "designer": "Ivar",
@@ -38759,7 +38759,7 @@
       "id": "cobrabat"
     },
     {
-      "dex": 161,
+      "dex": 160,
       "name": "Horaxigon",
       "credits": {
         "designer": "Ivar",
@@ -38846,7 +38846,7 @@
       "id": "horaxigon"
     },
     {
-      "dex": 162,
+      "dex": 161,
       "name": "Horaxander",
       "credits": {
         "designer": "Ivar",
@@ -38930,7 +38930,7 @@
       "id": "horaxander"
     },
     {
-      "dex": 163,
+      "dex": 162,
       "name": "Lansseax",
       "credits": {
         "designer": "Ivar",
@@ -39011,7 +39011,7 @@
       "id": "natureo"
     },
     {
-      "dex": 164,
+      "dex": 163,
       "name": "Dinoactyl",
       "credits": {
         "designer": "Arvind",
@@ -39092,14 +39092,335 @@
       "id": "dinoactyl"
     },
     {
-      "dex": 165,
-      "name": "Tusksir",
+      "dex": 164,
+      "name": "Wondertusk",
       "credits": {
         "designer": "Arvind",
         "artist": "Arvind"
       },
       "types": [
-        "Normal"
+        "Normal",
+        "Fire"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/tusksir/2625.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "tusksir"
+    },
+    {
+      "dex": 165,
+      "name": "Steinar",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Frøiland"
+      },
+      "types": [
+        "Rock",
+        "Poison"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "A animated rock",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "an upright body on two legs without a tail",
+        "movement": "It walks upright on two legs.",
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/steinar/2670.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "steinar"
+    },
+    {
+      "dex": 166,
+      "name": "Fleinar",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Poison",
+        "Psychic"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Curious Medicine",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "an upright body on two legs without a tail",
+        "movement": "It walks upright on two legs.",
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/fleinar/2672.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "fleinar"
+    },
+    {
+      "dex": 167,
+      "name": "Racedent",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "A blue and orange rat with a race flag"
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/racedent/2683.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "racedent"
+    },
+    {
+      "dex": 168,
+      "name": "Ratpid",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Dark"
       ],
       "category": null,
       "description": null,
@@ -39152,7 +39473,7 @@
         "look": null
       },
       "assets": {
-        "concept_art": "assets/concept-art/tusksir/2625.webp",
+        "concept_art": "assets/concept-art/ratpid/2684.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -39169,7 +39490,247 @@
         "icon_palette": null,
         "safari_flee_rate": 0
       },
-      "id": "tusksir"
+      "id": "ratpid"
+    },
+    {
+      "dex": 169,
+      "name": "Daytard",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Bug"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Stupid fat fly",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/daytard/2685.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "daytard"
+    },
+    {
+      "dex": 170,
+      "name": "plumbuzzz",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Bug"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "A lazy fat fly",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/plumbuzzz/2686.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "plumbuzzz"
+    },
+    {
+      "dex": 171,
+      "name": "Demetiscet",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Bug"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Old fly",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/demetiscet/2687.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "demetiscet"
     },
     {
       "dex": 234,
@@ -39407,7 +39968,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:371",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/balleisk.json",
         "cry": null
       },
       "engine": {
@@ -39673,7 +40234,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:372",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/greation.json",
         "cry": null
       },
       "engine": {
@@ -39994,7 +40555,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:373",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/ultragon.json",
         "cry": null
       },
       "engine": {
@@ -41349,7 +41910,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:234",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/moosus.json",
         "cry": null
       },
       "engine": {

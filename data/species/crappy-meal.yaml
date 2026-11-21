@@ -18,8 +18,8 @@ body_color: red          # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Pickle Armor
-  secondary: Chlorophyll # optional
-  hidden: Defiant        # optional
+  secondary: Poison Point # optional
+  hidden: Toxic Chain    # optional
 
 base_stats:              # each 1-255
   hp: 95

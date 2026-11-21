@@ -401,11 +401,11 @@ TEST("Sigma dex: Florantula has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_FLORANTULA];
     EXPECT_EQ(info->baseHP, 67);
-    EXPECT_EQ(info->baseAttack, 105);
-    EXPECT_EQ(info->baseDefense, 115);
-    EXPECT_EQ(info->baseSpeed, 30);
+    EXPECT_EQ(info->baseAttack, 110);
+    EXPECT_EQ(info->baseDefense, 120);
+    EXPECT_EQ(info->baseSpeed, 20);
     EXPECT_EQ(info->baseSpAttack, 53);
-    EXPECT_EQ(info->baseSpDefense, 115);
+    EXPECT_EQ(info->baseSpDefense, 120);
     EXPECT_EQ(info->types[0], TYPE_BUG);
     EXPECT_EQ(info->types[1], TYPE_GRASS);
     EXPECT_EQ(info->abilities[0], ABILITY_SWARM);
@@ -453,31 +453,59 @@ SINGLE_BATTLE_TEST("Sigma dex: Pipwi can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: Cloudgnome has the data from its species file")
+TEST("Sigma dex: Blutie has the data from its species file")
 {
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_CLOUDGNOME];
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BLUTIE];
     EXPECT_EQ(info->baseHP, 38);
-    EXPECT_EQ(info->baseAttack, 23);
-    EXPECT_EQ(info->baseDefense, 30);
-    EXPECT_EQ(info->baseSpeed, 72);
-    EXPECT_EQ(info->baseSpAttack, 55);
-    EXPECT_EQ(info->baseSpDefense, 60);
-    EXPECT_EQ(info->types[0], TYPE_FAIRY);
-    EXPECT_EQ(info->types[1], TYPE_FLYING);
-    EXPECT_EQ(info->abilities[0], ABILITY_PRANKSTER);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_DISARMING_VOICE);
-    EXPECT_EQ(GetSpeciesName(SPECIES_CLOUDGNOME)[0], CHAR_C);
+    EXPECT_EQ(info->baseAttack, 40);
+    EXPECT_EQ(info->baseDefense, 41);
+    EXPECT_EQ(info->baseSpeed, 65);
+    EXPECT_EQ(info->baseSpAttack, 30);
+    EXPECT_EQ(info->baseSpDefense, 41);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_NORMAL);
+    EXPECT_EQ(info->abilities[0], ABILITY_RUN_AWAY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_BLUTIE)[0], CHAR_B);
 }
 
-SINGLE_BATTLE_TEST("Sigma dex: Cloudgnome can use its first move in battle")
+SINGLE_BATTLE_TEST("Sigma dex: Blutie can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_CLOUDGNOME) { Moves(MOVE_DISARMING_VOICE); }
+        PLAYER(SPECIES_BLUTIE) { Moves(MOVE_GROWL); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_DISARMING_VOICE); }
+        TURN { MOVE(player, MOVE_GROWL); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_DISARMING_VOICE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
+TEST("Sigma dex: Coatail has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_COATAIL];
+    EXPECT_EQ(info->baseHP, 76);
+    EXPECT_EQ(info->baseAttack, 82);
+    EXPECT_EQ(info->baseDefense, 61);
+    EXPECT_EQ(info->baseSpeed, 110);
+    EXPECT_EQ(info->baseSpAttack, 50);
+    EXPECT_EQ(info->baseSpDefense, 67);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_NORMAL);
+    EXPECT_EQ(info->abilities[0], ABILITY_RUN_AWAY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_AGILITY);
+    EXPECT_EQ(GetSpeciesName(SPECIES_COATAIL)[0], CHAR_C);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Coatail can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_COATAIL) { Moves(MOVE_AGILITY); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_AGILITY); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_AGILITY, player);
     }
 }
 
@@ -789,59 +817,31 @@ SINGLE_BATTLE_TEST("Sigma dex: Galfrogtom can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: Blutie has the data from its species file")
+TEST("Sigma dex: Cloudgnome has the data from its species file")
 {
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_BLUTIE];
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_CLOUDGNOME];
     EXPECT_EQ(info->baseHP, 38);
-    EXPECT_EQ(info->baseAttack, 40);
-    EXPECT_EQ(info->baseDefense, 41);
-    EXPECT_EQ(info->baseSpeed, 65);
-    EXPECT_EQ(info->baseSpAttack, 30);
-    EXPECT_EQ(info->baseSpDefense, 41);
-    EXPECT_EQ(info->types[0], TYPE_NORMAL);
-    EXPECT_EQ(info->types[1], TYPE_NORMAL);
-    EXPECT_EQ(info->abilities[0], ABILITY_RUN_AWAY);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
-    EXPECT_EQ(GetSpeciesName(SPECIES_BLUTIE)[0], CHAR_B);
+    EXPECT_EQ(info->baseAttack, 23);
+    EXPECT_EQ(info->baseDefense, 30);
+    EXPECT_EQ(info->baseSpeed, 72);
+    EXPECT_EQ(info->baseSpAttack, 55);
+    EXPECT_EQ(info->baseSpDefense, 60);
+    EXPECT_EQ(info->types[0], TYPE_FAIRY);
+    EXPECT_EQ(info->types[1], TYPE_FLYING);
+    EXPECT_EQ(info->abilities[0], ABILITY_PRANKSTER);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_DISARMING_VOICE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_CLOUDGNOME)[0], CHAR_C);
 }
 
-SINGLE_BATTLE_TEST("Sigma dex: Blutie can use its first move in battle")
+SINGLE_BATTLE_TEST("Sigma dex: Cloudgnome can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_BLUTIE) { Moves(MOVE_GROWL); }
+        PLAYER(SPECIES_CLOUDGNOME) { Moves(MOVE_DISARMING_VOICE); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_GROWL); }
+        TURN { MOVE(player, MOVE_DISARMING_VOICE); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
-    }
-}
-
-TEST("Sigma dex: Coatail has the data from its species file")
-{
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_COATAIL];
-    EXPECT_EQ(info->baseHP, 76);
-    EXPECT_EQ(info->baseAttack, 82);
-    EXPECT_EQ(info->baseDefense, 61);
-    EXPECT_EQ(info->baseSpeed, 110);
-    EXPECT_EQ(info->baseSpAttack, 50);
-    EXPECT_EQ(info->baseSpDefense, 67);
-    EXPECT_EQ(info->types[0], TYPE_NORMAL);
-    EXPECT_EQ(info->types[1], TYPE_NORMAL);
-    EXPECT_EQ(info->abilities[0], ABILITY_RUN_AWAY);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_AGILITY);
-    EXPECT_EQ(GetSpeciesName(SPECIES_COATAIL)[0], CHAR_C);
-}
-
-SINGLE_BATTLE_TEST("Sigma dex: Coatail can use its first move in battle")
-{
-    GIVEN {
-        PLAYER(SPECIES_COATAIL) { Moves(MOVE_AGILITY); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_AGILITY); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_AGILITY, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DISARMING_VOICE, player);
     }
 }
 
@@ -1103,7 +1103,7 @@ TEST("Sigma dex: Chillalit has the data from its species file")
     EXPECT_EQ(info->baseHP, 50);
     EXPECT_EQ(info->baseAttack, 100);
     EXPECT_EQ(info->baseDefense, 50);
-    EXPECT_EQ(info->baseSpeed, 119);
+    EXPECT_EQ(info->baseSpeed, 124);
     EXPECT_EQ(info->baseSpAttack, 109);
     EXPECT_EQ(info->baseSpDefense, 67);
     EXPECT_EQ(info->types[0], TYPE_FIRE);

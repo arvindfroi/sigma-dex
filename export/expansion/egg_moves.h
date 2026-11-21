@@ -86,8 +86,17 @@ static const u16 sPipwiEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sCloudgnomeEggMoveLearnset[] = {
-    MOVE_DEFOG,
+static const u16 sBlutieEggMoveLearnset[] = {
+    MOVE_PURSUIT,
+    MOVE_ROCK_CLIMB,
+    MOVE_TICKLE,
+    MOVE_CHARM,
+    MOVE_LAST_RESORT,
+    MOVE_UPROAR,
+    MOVE_FAKE_OUT,
+    MOVE_FEINT,
+    MOVE_TAIL_SLAP,
+    MOVE_FAKE_TEARS,
     MOVE_UNAVAILABLE,
 };
 
@@ -146,17 +155,8 @@ static const u16 sWispoleEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sBlutieEggMoveLearnset[] = {
-    MOVE_PURSUIT,
-    MOVE_ROCK_CLIMB,
-    MOVE_TICKLE,
-    MOVE_CHARM,
-    MOVE_LAST_RESORT,
-    MOVE_UPROAR,
-    MOVE_FAKE_OUT,
-    MOVE_FEINT,
-    MOVE_TAIL_SLAP,
-    MOVE_FAKE_TEARS,
+static const u16 sCloudgnomeEggMoveLearnset[] = {
+    MOVE_DEFOG,
     MOVE_UNAVAILABLE,
 };
 

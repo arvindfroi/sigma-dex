@@ -1,12 +1,12 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
-dex: 165
-name: Tusksir
+dex: 164
+name: Wondertusk
 
 credits:
   designer: Arvind       # who came up with it (Discord name)
   artist: Arvind         # who drew the concept art
 
-types: [Normal]          # 1 or 2 types, e.g. [Grass, Steel]
+types: [Normal, Fire]    # 1 or 2 types, e.g. [Grass, Steel]
 
 # --- Pokedex page ---
 category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 characters
@@ -80,8 +80,8 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
+  movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---

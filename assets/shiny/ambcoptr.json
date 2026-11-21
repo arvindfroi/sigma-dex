@@ -1,0 +1,142 @@
+{
+ "map": {
+  "#105c57": "#105c57",
+  "#201d1e": "#201d1e",
+  "#2d371d": "#2d371d",
+  "#3a1122": "#3a1122",
+  "#3e592c": "#3e592c",
+  "#422554": "#422554",
+  "#422e22": "#422e22",
+  "#4698bd": "#4698bd",
+  "#496b90": "#496b90",
+  "#4a8ccd": "#4a8ccd",
+  "#4f701d": "#4f701d",
+  "#55325c": "#55325c",
+  "#5b7431": "#5b7431",
+  "#643f11": "#701800",
+  "#6a102f": "#6a102f",
+  "#7ab4e3": "#7ab4e3",
+  "#7fbcda": "#7fbcda",
+  "#843b18": "#880030",
+  "#8aa23e": "#8aa23e",
+  "#8aab1f": "#8aab1f",
+  "#965202": "#a80000",
+  "#9acef4": "#9acef4",
+  "#a60e8a": "#a60e8a",
+  "#b1e4f7": "#b1e4f7",
+  "#be4e15": "#c00048",
+  "#cacb77": "#cacb77",
+  "#cb6106": "#d00038",
+  "#ea6321": "#e80058",
+  "#f1f8fd": "#f1f8fd",
+  "#fb7d31": "#f83058"
+ },
+ "follower": {
+  "#020300": "#020300",
+  "#143404": "#143404",
+  "#6b8ea8": "#6b8ea8",
+  "#77b52b": "#77b52b",
+  "#7e3e0d": "#880020",
+  "#80fffd": "#80fffd",
+  "#828f27": "#828f27",
+  "#8d4a96": "#8d4a96",
+  "#9cd0f7": "#9cd0f7",
+  "#ab3e4b": "#a00070",
+  "#ae5f4f": "#c00060",
+  "#e37011": "#f00040",
+  "#f0fcff": "#f0fcff",
+  "#fd9626": "#f86048"
+ },
+ "sliders": [
+  {
+   "adj": {
+    "hue": -31,
+    "sat": 0.38,
+    "light": -0.1
+   },
+   "keep": false,
+   "colours": [
+    "#643f11",
+    "#843b18",
+    "#965202",
+    "#be4e15",
+    "#cb6106",
+    "#ea6321",
+    "#fb7d31"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#496b90",
+    "#4a8ccd",
+    "#4698bd",
+    "#7ab4e3",
+    "#7fbcda",
+    "#9acef4",
+    "#b1e4f7"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#3e592c",
+    "#4f701d",
+    "#5b7431",
+    "#8aa23e",
+    "#8aab1f",
+    "#cacb77"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#3a1122",
+    "#6a102f",
+    "#a60e8a"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#105c57"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#422554",
+    "#55325c"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#422e22"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": true,
+   "colours": [
+    "#f1f8fd"
+   ]
+  }
+ ],
+ "v": 2,
+ "over": {},
+ "outline": [
+  "#201d1e",
+  "#2d371d"
+ ],
+ "why": "",
+ "front": "https://hlkabnevaljtrbldgeqm.supabase.co/storage/v1/object/public/art/tries/ambcoptr/drawn-559-5df06b29.png",
+ "by": "Arvind",
+ "at": "2026-11-21T03:24:55.366Z"
+}

@@ -5278,20 +5278,6 @@
     "editor": "Emil"
   },
   {
-    "id": 1783,
-    "species": "gaiafinn",
-    "file": "assets/concept-art/gaiafinn/1783.png",
-    "caption": "[ds-back] sprite #316",
-    "editor": "Emil"
-  },
-  {
-    "id": 1798,
-    "species": "gaiafinn",
-    "file": "assets/concept-art/gaiafinn/1798.png",
-    "caption": "[ds-front] sprite #316",
-    "editor": "Emil"
-  },
-  {
     "id": 1803,
     "species": "lapper",
     "file": "assets/concept-art/lapper/1803.png",
@@ -8195,5 +8181,138 @@
     "file": "assets/concept-art/furamire/2658.png",
     "caption": "[ds-front] sprite #522",
     "editor": "Emil"
+  },
+  {
+    "id": 2670,
+    "species": "steinar",
+    "file": "assets/concept-art/steinar/2670.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2671,
+    "species": "steinar",
+    "file": "assets/concept-art/steinar/2671.png",
+    "caption": "pasted",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2672,
+    "species": "fleinar",
+    "file": "assets/concept-art/fleinar/2672.png",
+    "caption": "pasted",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2673,
+    "species": "steinar",
+    "file": "assets/concept-art/steinar/2673.png",
+    "caption": "pasted",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2675,
+    "species": "gaiafinn",
+    "file": "assets/concept-art/gaiafinn/2675.png",
+    "caption": "[ds-front] sprite #524",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2676,
+    "species": "gaiafinn",
+    "file": "assets/concept-art/gaiafinn/2676.png",
+    "caption": "[ds-back] sprite #524",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2679,
+    "species": "tusksir",
+    "file": "assets/concept-art/tusksir/2679.png",
+    "caption": "[ds-front] sprite #525",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2680,
+    "species": "tusksir",
+    "file": "assets/concept-art/tusksir/2680.png",
+    "caption": "[ds-back] sprite #525",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2681,
+    "species": "tusksir",
+    "file": "assets/concept-art/tusksir/2681.png",
+    "caption": "[ds-icon] sprite #525",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2682,
+    "species": "tusksir",
+    "file": "assets/concept-art/tusksir/2682.png",
+    "caption": "[ds-follower] sprite #525",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2683,
+    "species": "racedent",
+    "file": "assets/concept-art/racedent/2683.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2684,
+    "species": "ratpid",
+    "file": "assets/concept-art/ratpid/2684.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2685,
+    "species": "daytard",
+    "file": "assets/concept-art/daytard/2685.png",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2686,
+    "species": "plumbuzzz",
+    "file": "assets/concept-art/plumbuzzz/2686.png",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2687,
+    "species": "demetiscet",
+    "file": "assets/concept-art/demetiscet/2687.png",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2688,
+    "species": "steinar",
+    "file": "assets/concept-art/steinar/2688.png",
+    "caption": "[ds-front] sprite #526",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2689,
+    "species": "steinar",
+    "file": "assets/concept-art/steinar/2689.png",
+    "caption": "[ds-back] sprite #526",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2690,
+    "species": "steinar",
+    "file": "assets/concept-art/steinar/2690.png",
+    "caption": "[ds-icon] sprite #526",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2691,
+    "species": "steinar",
+    "file": "assets/concept-art/steinar/2691.png",
+    "caption": "[ds-follower] sprite #526",
+    "editor": "Arvind"
   }
 ]

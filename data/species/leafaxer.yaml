@@ -3,7 +3,7 @@ dex: 3
 name: Leafaxer
 
 credits:
-  designer: Emil Venge-Kvamme # who came up with it (Discord name)
+  designer: "Emil & Arvind" # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Grass, Steel]    # 1 or 2 types, e.g. [Grass, Steel]
@@ -147,8 +147,8 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:3"
-  shiny_palette:         # shiny.pal      the 16 colors of the shiny version
+  footprint: "hgss:3"    # footprint.png  16x16, black and white
+  shiny_palette: "assets/shiny/leafaxer.json"
   cry:                   # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
