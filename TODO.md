@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. What each field means:
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 190 / 192 |
-| Identity | designer credit | 173 / 192 |
-| Dex page | category | 47 / 192 |
-| Dex page | description | 47 / 192 |
-| Dex page | height | 162 / 192 |
-| Dex page | weight | 162 / 192 |
-| Dex page | body color | 145 / 192 |
-| Stats | base stats | 180 / 192 |
-| Stats | ability | 181 / 192 |
-| Stats | EV yield | 168 / 192 |
-| Stats | catch rate | 143 / 192 |
-| Stats | base exp | 143 / 192 |
-| Stats | growth rate | 143 / 192 |
-| Stats | base friendship | 143 / 192 |
-| Breeding | gender | 143 / 192 |
-| Breeding | egg groups | 143 / 192 |
-| Breeding | egg cycles | 143 / 192 |
-| Moves | level-up moves | 162 / 192 |
-| Moves | TM/HM moves | 161 / 192 |
-| Location | encounters | 2 / 192 |
-| Design | concept | 42 / 192 |
-| Art | concept art | 186 / 192 |
-| Art | front sprite | 4 / 192 |
-| Art | front animation frame | 4 / 192 |
-| Art | back sprite | 4 / 192 |
-| Art | icon | 4 / 192 |
-| Art | footprint | 145 / 192 |
-| Art | shiny palette | 113 / 192 |
-| Art | cry | 27 / 192 |
+| Identity | types | 195 / 197 |
+| Identity | designer credit | 174 / 197 |
+| Dex page | category | 47 / 197 |
+| Dex page | description | 47 / 197 |
+| Dex page | height | 162 / 197 |
+| Dex page | weight | 162 / 197 |
+| Dex page | body color | 145 / 197 |
+| Stats | base stats | 180 / 197 |
+| Stats | ability | 181 / 197 |
+| Stats | EV yield | 168 / 197 |
+| Stats | catch rate | 143 / 197 |
+| Stats | base exp | 143 / 197 |
+| Stats | growth rate | 143 / 197 |
+| Stats | base friendship | 143 / 197 |
+| Breeding | gender | 143 / 197 |
+| Breeding | egg groups | 143 / 197 |
+| Breeding | egg cycles | 143 / 197 |
+| Moves | level-up moves | 162 / 197 |
+| Moves | TM/HM moves | 161 / 197 |
+| Location | encounters | 2 / 197 |
+| Design | concept | 42 / 197 |
+| Art | concept art | 191 / 197 |
+| Art | front sprite | 4 / 197 |
+| Art | front animation frame | 4 / 197 |
+| Art | back sprite | 4 / 197 |
+| Art | icon | 4 / 197 |
+| Art | footprint | 145 / 197 |
+| Art | shiny palette | 113 / 197 |
+| Art | cry | 27 / 197 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 179 / 192 |
-| DS back sprite 80x80 | 179 / 192 |
-| DS icon 32x32 | 176 / 192 |
+| DS front sprite 80x80 | 179 / 197 |
+| DS back sprite 80x80 | 179 / 197 |
+| DS icon 32x32 | 176 / 197 |
 
-## Open dex slots (62)
+## Open dex slots (57)
 
-#172, #173, #174, #175, #176, #177, #178, #179, #180, #181, #182, #183, #184, #185, #186, #187, #188, #189, #190, #191, #192, #193, #194, #195, #196, #197, #198, #199, #200, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #218, #219, #220, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232, #233
+#177, #178, #179, #180, #181, #182, #183, #184, #185, #186, #187, #188, #189, #190, #191, #192, #193, #194, #195, #196, #197, #198, #199, #200, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #218, #219, #220, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232, #233
 
 ## Missing per Pokemon
 
@@ -1300,6 +1300,60 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #172 [S.Rotom](data/species/s-rotom.yaml) - 7%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #173 [Rot.poison](data/species/rotom-vape.yaml) - 10%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #174 [Rot.Fight](data/species/rot-fight.yaml) - 7%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #175 [Rot.Fairy](data/species/rot-fairy.yaml) - 7%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #176 [Rot.Normal](data/species/rot-normal.yaml) - 7%
+
+- **Identity:** designer credit
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #234 [Balleisk](data/species/balleisk.yaml) - 69%

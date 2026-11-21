@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**192 / 254** slots have a Pokemon - **0** are fully complete - average completeness **59%**.
+**197 / 254** slots have a Pokemon - **0** are fully complete - average completeness **58%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -180,11 +180,11 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 169 | [Daytard](data/species/daytard.yaml) | Bug |  |  |  | 14% |
 | 170 | [plumbuzzz](data/species/plumbuzzz.yaml) | Bug |  |  |  | 14% |
 | 171 | [Demetiscet](data/species/demetiscet.yaml) | Bug |  |  |  | 14% |
-| 172 | *open slot* | | | | | |
-| 173 | *open slot* | | | | | |
-| 174 | *open slot* | | | | | |
-| 175 | *open slot* | | | | | |
-| 176 | *open slot* | | | | | |
+| 172 | [S.Rotom](data/species/s-rotom.yaml) | Electric |  |  |  | 7% |
+| 173 | [Rot.poison](data/species/rotom-vape.yaml) | Electric / Poison |  |  |  | 10% |
+| 174 | [Rot.Fight](data/species/rot-fight.yaml) | Electric / Fighting |  |  |  | 7% |
+| 175 | [Rot.Fairy](data/species/rot-fairy.yaml) | Electric / Fairy |  |  |  | 7% |
+| 176 | [Rot.Normal](data/species/rot-normal.yaml) | Electric / Normal |  |  |  | 7% |
 | 177 | *open slot* | | | | | |
 | 178 | *open slot* | | | | | |
 | 179 | *open slot* | | | | | |

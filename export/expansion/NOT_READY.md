@@ -4,7 +4,7 @@
 
 **118** Pokemon are written as game code: Leaflet, Leafling, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Blutie, Coatail, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, Cloudgnome, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Gorambe, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Roostasaur, Leadling, Leadleak, Blylem, Iglomodo, Furamire, Goatjo, Detecup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, ambuger, Ambrr, Tortoplasm, Fossitoise, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, Sparktera, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, Jawbreaker, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Glacépée, Everdark, Diedo, Riftbloom, Strawboo, Solidedge, Sealma, Narburr, Whaldrill, Venofrib, Vendepiede, Venorax, Raymon, Aqualoom, Santrock, Cindreon, Custodix, Bergflabb, Sabertann
 
-## Not exported yet (74)
+## Not exported yet (79)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -66,6 +66,11 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Daytard** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **plumbuzzz** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Demetiscet** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **S.Rotom** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Rot.poison** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Rot.Fight** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Rot.Fairy** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Rot.Normal** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Balleisk** needs: an ability that exists in the game
 - **Greation** needs: an ability that exists in the game
 - **Ultragon** needs: an ability that exists in the game
