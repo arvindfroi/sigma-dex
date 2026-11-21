@@ -5,6 +5,7 @@ How our sprites look and get made (the Sigma style, the sprite studio on the web
 Contents:
 - [The Sigma sprite style](#the-sigma-sprite-style)
 - [The sprite studio](#the-sprite-studio)
+- [The trainer studio](#the-trainer-studio)
 - [Sprites](#sprites)
 - [The image generator (ComfyUI)](#the-image-generator-comfyui)
 - [Shinies](#shinies)
@@ -440,6 +441,65 @@ not affected; a scan of all approved sprites found only natural gaps (between le
 and the editor now show sprites on a light checker in both themes (the dark one hid the black outline).
 
 ---
+
+## The trainer studio
+
+*(2026-11-21; v2 the same day: Arvind wanted it to mirror the Pokemon sprite studio, with one text box and the
+post-processing)* A trainer's **battle sprite** (80x80, 15 colours, HGSS style) **and map figure** (the game's 16-frame
+32x32 NPC sheet, 512x32) from a picture, on the website. Two ways in:
+
+- **My trainer**: on a claimed character's page (MORE > Characters), under TRAINER STUDIO, for the one who claimed it.
+  The saved sprite is stored in the claim (`species_edits` kind `claim`, `data.sprite`) and shown as the trainer's
+  picture; giving the trainer back clears it.
+- **Create NPC**: at the bottom of the Characters list. An NPC is a `species_edits` row of kind `npc`
+  (`species_id` = `npc-<name>-<4 letters>`, `data` = `{name, by, about, sprite, deleted}`, the newest row wins; not tied
+  to a claim; `import_web.py` and the page's recent-edits loader skip them). Saving needs no name. Only own characters:
+  the page says so (characters from other games, films or shows are someone else's copyright).
+
+The page shows the saved sprite and map figure and a button that opens the **studio as a dialog, laid out like the
+sprite studio**: the top screen is the set (BATTLE, MAP walking, EDIT under each) and one status line with the time; the
+bottom screen has the steps **1 PICTURE** (private upload or a public picture), **2 BASE** (a grid of 229 real gen 4
+trainer classes: 124 HGSS + 105 DP/Pt, with search), **3 MAKE** (one optional text box "anything the picture does not
+show", the strength 0.60-0.88 with 0.75 first, how many 1-4; tiles with the battle sprite and the walking map figure; a tap
+picks; EDIT and EDIT MAP open the pixel editor, the map figure as its 16 frames in a 4x4 grid, and save a new try through
+`sprite-draw`) and **SAVE** (the picked one in a battle scene and walking, YES / NO).
+
+**The picture is private.** It goes to the edge function `trainer-photo` (no key, 60 an hour, PNG/JPG/WEBP up to 3 MB)
+into the private bucket `trainer-photos` (table `trainer_photos`, no read policy). The page never shows it from the
+server (a small copy stays on the uploader's device); the uploader's device keeps a token, and "Delete my picture" deletes
+the file and its row. The drawing PC asks `sprite-worker` (action `trainer_photo`) for a two-minute link while it draws
+that job. A public picture under PICTURE can be used instead. People upload only pictures of themselves (the page says
+so); never put a real person's picture anywhere public without their consent.
+
+**How it is drawn** (`scripts/trainer_studio.py`; each try makes both, about 42 s on the Legion; seed = job id x 100 + n):
+1. *Battle sprite*, the SWAP method: the base's frame 1 on magenta at 4x (320 px) is the start picture; the trainer LoRA
+   `pkmn_trainer_klein_c1_000002500` (Klein, CREATE task: image 1 = the picture, flattened on white, at most 1024 px;
+   text = `build_trainer_klein_b.caption(describe(...), True)` with the base's class, pose, facing and build and the
+   person's words as `who`) repaints it from `strength` down (SplitSigmasDenoise, `trainer_swap.graph` in `lora-train\v6cfg`).
+   `klein_follower.to_back` makes 80x80, then `scripts/trainer_post.py` `battle` (T 40): merge to 15 colours, lone pixels
+   take their closest neighbour colour, light outside-edge pixels take a darker shade of themselves (a closed sel-out
+   outline), feet 1 px above the bottom. It is the same code as `title3d/legend/trainers/trainer_post2.py` (pixel-identical).
+2. *Map figure*: the NPC LoRA `pkmn_followernpc_klein_v2_000001000` (checkpoints 750-1250 are best; the final one draws
+   too tall; Arvind approved its figures 2026-11-21), image 1 = the new battle sprite 4x on white, image 2 = the picture
+   centred on white (320 px), the same words; 512x256 in the follower layout, `klein_follower.to_game`, `trainer_post.to16`
+   (the 16 game frames as a real NPC sheet uses them) and `trainer_post.overworld` (one 15-colour palette, lone pixels
+   cleaned per frame, T 25). Held items drop out of some frames on some seeds: that is why there are several tries.
+Settings: `TRAINER_LORA`, `NPC_LORA`, `TRAINER_CFG`. Training stops ComfyUI (`D:\LocalAI\start_comfy.bat` starts it).
+
+**Database** (migration `supabase/migrations/2026-11-21_trainer_studio.sql`): the jobs share the sprite studio's line:
+`sprite_jobs` / `sprite_tries` with stage `trainer`, `species_id` = the slot (`trainer-<role>` or `npc-<id>`), `recipe`
+= the base (`hgss:12`, `pt:beauty`), `prompt` = JSON `{strength, words, photo}` (v1 jobs: `fields`); RPC `request_trainer`
+(`p_fields = {"words": ...}`); `sprite_tries.overworld` holds the map figure (migration `2026-11-21_trainer_studio_v2.sql`;
+`art_orphans` keeps it). A worker says
+which stages it draws (`stages` on claim, `claim_sprite_job(p_stages)`); one that sends none never gets a trainer job.
+A saved sprite stores where it came from: `{try, job, image, overworld, base, strength, seed, picture, words, edited, by, at}`.
+
+**The base grid** (`scripts/trainer_bases.py`, run on the Legion): the classes are read where they live on the PC
+(`lora-train\data\trainers\hgss` and `\pt`, captions in `captions*.tsv`), never in the repository; it puts one sheet
+`trainer-bases/sheet.png` in the website's storage (sprite-worker action `put_asset`; `art_orphans` keeps it) and writes
+`data/trainer_bases.json` (ids, names, caption fields: search words, and the class, pose, facing and build the worker reads from the PC) for `build_site.py`. HGSS 90-94 are left out (broken palettes).
+Into the game: `~/sigma-origin/title3d/legend/trainers/trainer_write.py ROM_IN ROM_OUT CLASS=PNG` (see
+[TRAINERS_AND_ASSETS.md](TRAINERS_AND_ASSETS.md)).
 
 ## Sprites
 *(was `docs/SPRITES.md`)*

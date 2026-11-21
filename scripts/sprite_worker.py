@@ -36,6 +36,10 @@ from dexlib import ROOT
 KEY_FILE = Path(os.environ.get("SIGMA_WORKER_KEY_FILE", ROOT / ".worker-key"))
 COMFY_DIR = os.environ.get("COMFY_DIR")
 POLL_SECONDS, IDLE_UNLOAD_SECONDS, UPDATE_SECONDS = 8, 180, 600
+# The steps this worker draws, sent with every claim; the database gives a worker that sends none no trainer jobs.
+# `--stages trainer` runs a worker for trainer jobs only (a second copy for testing next to the main one).
+ALL_STAGES = "art,front,back,icon,follower,trainer"
+STAGES = sys.argv[sys.argv.index("--stages") + 1] if "--stages" in sys.argv else ALL_STAGES
 
 
 def log(text):
@@ -489,6 +493,10 @@ def run_ds(job, base, key, settings):
 
 
 def run(job, base, key, settings):
+    if job.get("stage") == "trainer":              # the trainer studio (2026-11-21): a trainer sprite from a person's picture
+        import trainer_studio
+        with tempfile.TemporaryDirectory() as folder:
+            return trainer_studio.run(job, base, key, post, download, Path(folder), log)
     if job.get("mode") == "tries":                 # studio v3: several pictures of one step, each handed in with its time
         import studio_tries
         with tempfile.TemporaryDirectory() as folder:
@@ -583,7 +591,7 @@ def main():
     idle_since, unloaded, checked = time.time(), True, time.time()
     while True:
         try:
-            job = post(base, key, {"action": "claim"}).get("job")
+            job = post(base, key, {"action": "claim", "stages": STAGES}).get("job")
         except (RuntimeError, OSError) as error:
             log("could not reach the database: %s" % error)
             time.sleep(60)
@@ -591,14 +599,15 @@ def main():
         if not job:
             if "--once" in sys.argv:           # for testing: stop when the queue is empty
                 return 0
-            if not unloaded and time.time() - idle_since > IDLE_UNLOAD_SECONDS and comfy_alive():
+            alone = STAGES == ALL_STAGES             # a second copy for some steps leaves the model and the updates to the main one
+            if alone and not unloaded and time.time() - idle_since > IDLE_UNLOAD_SECONDS and comfy_alive():
                 try:                                 # give the graphics memory back while nobody is drawing
                     comfy.call("/free", json.dumps({"unload_models": True, "free_memory": True}).encode(), {"Content-Type": "application/json"})
                     log("idle: unloaded the model")
                 except comfy.ComfyError:
                     pass
                 unloaded = True
-            if time.time() - checked > UPDATE_SECONDS:      # newer scripts or style in the repository? restart with them
+            if alone and time.time() - checked > UPDATE_SECONDS:      # newer scripts or style in the repository? restart with them
                 checked = time.time()
                 subprocess.run(["git", "-C", str(ROOT), "pull", "--ff-only", "--quiet"], capture_output=True)
                 if subprocess.run(["git", "-C", str(ROOT), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip() != head:

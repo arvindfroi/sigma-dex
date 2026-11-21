@@ -15,6 +15,7 @@ the section you need.
 | Moveset autocomplete | [DEX_DATA.md › Movesets](docs/DEX_DATA.md#movesets-how-the-autocomplete-decides) |
 | What the dex lacks (types, roles); Discord export; backups | [DEX_DATA.md](docs/DEX_DATA.md) (last four sections) |
 | Sprite style, sprite studio, sprite formats, ComfyUI | [ART.md](docs/ART.md) |
+| Trainer studio on the website (My trainer, Create NPC) | [ART.md › The trainer studio](docs/ART.md#the-trainer-studio) |
 | Shiny and cry makers | [ART.md › Shinies](docs/ART.md#shinies), [› Cries](docs/ART.md#cries) |
 | LoRA training log (rounds, traps, lessons) | [LORAS.md](docs/LORAS.md) |
 | Trainer sprites, every asset the game needs, export readiness | [TRAINERS_AND_ASSETS.md](docs/TRAINERS_AND_ASSETS.md) (13 numbered sections) |

@@ -26,7 +26,9 @@ Deno.serve(async (req: Request) => {
     const action = String(form.get("action") ?? "");
 
     if (action === "claim") {
-      const { data, error } = await supabase.rpc("claim_sprite_job");
+      // A worker names the steps it can draw ("stages", comma separated); one that names none never gets a trainer job.
+      const stages = String(form.get("stages") ?? "").split(",").map((s) => s.trim()).filter((s) => /^[a-z]{2,12}$/.test(s));
+      const { data, error } = await supabase.rpc("claim_sprite_job", stages.length ? { p_stages: stages } : {});
       if (error) return reply(500, { message: error.message });
       return reply(200, { job: data });
     }
@@ -67,6 +69,20 @@ Deno.serve(async (req: Request) => {
       return reply(200, { allowed: rows.length, backed_up: safe.length, removed, bytes, days: RAW_DAYS });
     }
 
+    // The trainer studio's base grid (scripts/trainer_bases.py): the sheet of the gen 4 trainer classes and its index.
+    if (action === "put_asset") {
+      const path = String(form.get("path") ?? "");
+      if (!/^trainer-bases\/[a-z0-9_.-]{1,60}\.(png|json)$/.test(path)) return reply(400, { message: "Not a trainer-bases file" });
+      const file = form.get("file");
+      if (!(file instanceof File) || file.size > MAX_BYTES) return reply(400, { message: "file is missing or larger than 3 MB" });
+      const json = path.endsWith(".json");
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      if (!json && !isPng(bytes)) return reply(400, { message: "file is not a PNG" });
+      const { error } = await supabase.storage.from("art").upload(path, bytes, { contentType: json ? "application/json" : "image/png", cacheControl: "300", upsert: true });
+      if (error) return reply(500, { message: error.message });
+      return reply(200, { path });
+    }
+
     // Seconds per try by stage, measured by the worker: the website shows how long things take (studio v3).
     if (action === "timings") {
       let timings: unknown = null;
@@ -79,6 +95,21 @@ Deno.serve(async (req: Request) => {
     if (!Number.isInteger(jobId)) return reply(400, { message: "Which job?" });
     const { data: job } = await supabase.from("sprite_jobs").select("id, species_id, status, mode, notes, parent_candidate, editor, stage, from_try, recipe, ref_image_ids").eq("id", jobId).maybeSingle();
     if (!job || job.status !== "running") return reply(409, { message: "That job is not running" });
+
+    // The trainer studio (2026-11-21): the uploaded picture of the job being drawn is private (trainer-photos); the
+    // drawing PC gets a link that works for two minutes.
+    if (action === "trainer_photo") {
+      if (job.stage !== "trainer") return reply(400, { message: "Not a trainer job" });
+      const { data: full } = await supabase.from("sprite_jobs").select("prompt").eq("id", jobId).single();
+      let photo: number | null = null;
+      try { photo = Number(JSON.parse(String(full?.prompt ?? "{}")).photo) || null; } catch (_e) { photo = null; }
+      if (!photo) return reply(404, { message: "This job has no uploaded picture" });
+      const { data: p } = await supabase.from("trainer_photos").select("path, slot").eq("id", photo).maybeSingle();
+      if (!p || p.slot !== job.species_id) return reply(404, { message: "The picture was removed" });
+      const { data: signed, error } = await supabase.storage.from("trainer-photos").createSignedUrl(p.path, 120);
+      if (error || !signed) return reply(500, { message: "No link to the picture" });
+      return reply(200, { url: signed.signedUrl });
+    }
 
     // Studio v3: a try starts (the website shows it as drawing, with the time it should take) ...
     if (action === "try_start") {
@@ -104,7 +135,8 @@ Deno.serve(async (req: Request) => {
       if (!["done", "broken", "failed"].includes(status)) return reply(400, { message: "Unknown status" });
       const stamp = crypto.randomUUID().slice(0, 8);
       const paths: Record<string, string> = {};
-      for (const name of ["image", "raw"]) {
+      // a trainer try also hands in its map figure (the 512x32 NPC sheet, trainer studio 2026-11-21)
+      for (const name of job.stage === "trainer" ? ["image", "raw", "overworld"] : ["image", "raw"]) {
         const file = form.get(name);
         if (!(file instanceof File)) continue;
         if (file.size > MAX_BYTES) return reply(400, { message: `${name} is larger than 3 MB` });

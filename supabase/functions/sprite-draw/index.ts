@@ -7,7 +7,9 @@ import { createClient } from "jsr:@supabase/supabase-js@2";
 const MAX_BYTES = 200 * 1024;
 const SIZES: Record<string, number[]> = { front: [64, 80], back: [64, 80], icon: [32] };
 // The size of a try's picture per step (studio v3/v4).
-const TRY_SIZE: Record<string, [number, number]> = { art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 32], follower: [128, 64] };
+const TRY_SIZE: Record<string, [number, number]> = { art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 32], follower: [128, 64], trainer: [80, 80] };
+// The trainer studio (2026-11-21): a trainer try also has its map figure, 16 frames of 32x32 in a row.
+const OVERWORLD: [number, number] = [512, 32];
 const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "content-type, apikey, authorization" };
 
 function reply(status: number, body: unknown) {
@@ -33,27 +35,35 @@ Deno.serve(async (req: Request) => {
     // the front's colours, the icon in an icon palette; "we should be able to play with it in the sprite studio").
     if (form.get("try") !== null) {
       const tryId = Number(form.get("try"));
-      const { data: from } = await supabase.from("sprite_tries").select("id, species_id, stage, status, raw").eq("id", tryId).maybeSingle();
+      const { data: from } = await supabase.from("sprite_tries").select("id, species_id, stage, status, raw, image, overworld, seed").eq("id", tryId).maybeSingle();
       if (!from || !["done", "broken"].includes(from.status)) return reply(404, { message: "That picture does not exist" });
       const since = new Date(Date.now() - 3600 * 1000).toISOString();
       const { count } = await supabase.from("sprite_tries").select("id", { count: "exact", head: true }).is("job_id", null).gt("created_at", since);
       if ((count ?? 0) >= 200) return reply(429, { message: "Too many drawings saved in the last hour, try again later" });
-      const file = form.get("image");
-      if (!(file instanceof File)) return reply(400, { message: "Nothing was drawn" });
-      const limit = from.stage === "art" ? 1536 * 1024 : MAX_BYTES;
-      if (file.size > limit) return reply(400, { message: "The picture is too large" });
-      const bytes = new Uint8Array(await file.arrayBuffer());
-      const size = pngSize(bytes);
-      const want = TRY_SIZE[from.stage as string];
-      if (!size || !want || size[0] !== want[0] || size[1] !== want[1]) return reply(400, { message: "The picture has the wrong size" });
       const asked = String(form.get("how") ?? "");
       const how = asked === "mirrored" || asked === "recoloured" ? asked : "drawn";
-      const path = `tries/${from.species_id}/${how}-${tryId}-${crypto.randomUUID().slice(0, 8)}.png`;
-      const { error: upError } = await supabase.storage.from("art").upload(path, bytes, { contentType: "image/png", cacheControl: "31536000" });
-      if (upError) return reply(500, { message: "The picture could not be stored" });
+      const stamp = crypto.randomUUID().slice(0, 8);
+      // The picture of the step, and for a trainer also (or only) the map figure; what is not sent is kept from the try.
+      const stored: Record<string, string> = {};
+      for (const [name, want] of [["image", TRY_SIZE[from.stage as string]], ["overworld", OVERWORLD]] as [string, [number, number] | undefined][]) {
+        const file = form.get(name);
+        if (!(file instanceof File)) continue;
+        if (name === "overworld" && from.stage !== "trainer") return reply(400, { message: "Only a trainer has a map figure" });
+        const limit = from.stage === "art" ? 1536 * 1024 : MAX_BYTES;
+        if (file.size > limit) return reply(400, { message: "The picture is too large" });
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        const size = pngSize(bytes);
+        if (!size || !want || size[0] !== want[0] || size[1] !== want[1]) return reply(400, { message: "The picture has the wrong size" });
+        const path = `tries/${from.species_id}/${how}-${tryId}-${stamp}${name === "overworld" ? "-overworld" : ""}.png`;
+        const { error: upError } = await supabase.storage.from("art").upload(path, bytes, { contentType: "image/png", cacheControl: "31536000" });
+        if (upError) return reply(500, { message: "The picture could not be stored" });
+        stored[name] = path;
+      }
+      if (!stored.image && !stored.overworld) return reply(400, { message: "Nothing was drawn" });
       const editor = String(form.get("editor") ?? "").trim().slice(0, 40) || null;
       const { data: row, error } = await supabase.from("sprite_tries").insert({
-        job_id: null, species_id: from.species_id, stage: from.stage, n: 1, status: "done", image: path, raw: from.raw,
+        job_id: null, species_id: from.species_id, stage: from.stage, n: 1, status: "done", image: stored.image ?? from.image, raw: from.raw,
+        overworld: stored.overworld ?? from.overworld ?? null, seed: from.seed ?? null,
         recipe: how === "drawn" ? "drawn by hand" : how, note: String(form.get("note") ?? "").trim().slice(0, 300) || null,
         parent_try: tryId, editor, seconds: null, finished_at: new Date().toISOString(),
       }).select("id").single();

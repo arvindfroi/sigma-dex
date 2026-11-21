@@ -721,6 +721,36 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .charthumb img, .charstage img { max-width: 100%; max-height: 100%; object-fit: contain; }
 .charsil { font-size: 48px; opacity: .35; font-family: var(--pixel, monospace); }
 .charstage { height: 140px; display: flex; align-items: center; justify-content: center; }
+/* the trainer studio (2026-11-21) */
+.tstudio { display: grid; gap: 10px; }
+.tstudio h4 { margin: 4px 0 2px; font-family: var(--display); font-size: 15px; }
+.tstep { border-top: 2px dashed var(--line); padding-top: 8px; }
+.tpic { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.tpic img { width: 96px; height: 96px; object-fit: contain; background: var(--soft); border: 2px solid var(--line); }
+.tpic .tchoice { cursor: pointer; border: 3px solid transparent; padding: 0; background: none; }
+.tpic .tchoice.on { border-color: var(--pri); }
+.tpic .sub { flex: 1; min-width: 160px; }
+.private { font-size: 13px; color: var(--good); }
+.tbases { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 4px; max-height: 360px; overflow: auto; padding: 2px; border: 2px solid var(--line); background: var(--soft); }
+.tbase { padding: 0; border: 3px solid transparent; background: repeating-conic-gradient(#eef1f6 0% 25%, #dde2ea 0% 50%) 50% / 16px 16px; display: grid; justify-items: center; cursor: pointer; }
+.tbase.on { border-color: var(--pri); }
+.tbase i { display: block; width: 80px; height: 80px; image-rendering: pixelated; }
+.tbase span { font-size: 10px; line-height: 1.1; color: #333; max-width: 80px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.tstrength { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.tstrength input { flex: 1; min-width: 160px; }
+.tjob { border: 2px solid var(--line); padding: 6px 8px; background: var(--soft); }
+.ttries { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.ttry { padding: 0; border: 3px solid var(--line); background: repeating-conic-gradient(#eef1f6 0% 25%, #dde2ea 0% 50%) 50% / 16px 16px; width: 166px; height: 166px; display: flex; align-items: center; justify-content: center; position: relative; cursor: pointer; }
+.ttry img { width: 160px; height: 160px; image-rendering: pixelated; }
+.ttry.on { border-color: var(--pri); }
+.ttry.inuse::after { content: "IN USE"; position: absolute; top: 2px; left: 2px; background: var(--good); color: #fff; font-size: 11px; padding: 0 4px; font-family: var(--display); }
+.ttry.wait { cursor: default; color: #555; font-size: 13px; }
+.ttile .tilepic { flex-direction: row; gap: 8px; height: 140px; }
+.ttile .nomap { width: 64px; font-size: 11px; }
+.tiles:has(.ttile) { grid-template-columns: repeat(auto-fill, minmax(214px, 1fr)); }
+.tspritebox .tpic { align-items: flex-end; }
+.tryctl .from .basecell { display: inline-block; }
+.spritebig { width: 160px; height: 160px; image-rendering: pixelated; background: repeating-conic-gradient(#eef1f6 0% 25%, #dde2ea 0% 50%) 50% / 16px 16px; }
 .storyline { display: flex; align-items: center; gap: 6px; padding: 3px 0; border-bottom: 1px solid var(--line); }
 .storyteam { display: grid; gap: 4px; }
 .storymon { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; }
@@ -2406,7 +2436,7 @@ const STUDIO_STEPS = [
   {id: "save", n: "✓", label: "SAVE", c: "purple", what: "Put the picked pictures together and make them the sprite."}];
 const STEP_SIZE = {art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 32], follower: [128, 64]};
 const TRY_SIDE = {art: 640, front: 80, back: 80, icon: 32};                    // the square ones (the colour tools use it)
-const TRY_DEFAULT_SECONDS = {art: 75, "art:sketch": 25, "art:pose": 60, front: 100, back: 55, icon: 30, follower: 40};
+const TRY_DEFAULT_SECONDS = {art: 75, "art:sketch": 25, "art:pose": 60, front: 100, back: 55, icon: 30, follower: 40, trainer: 50};
 const mmss = sec => Math.floor(Math.max(0, sec) / 60) + ":" + String(Math.floor(Math.max(0, sec) % 60)).padStart(2, "0");
 const aboutMinutes = sec => !(sec >= 90) ? "about a minute" : "about " + Math.round(sec / 60) + " minutes";
 function secondsFor(timings, stage) {
@@ -3976,6 +4006,8 @@ function pixelEditor(o) {
       h("div", {class: "hint", style: "margin:4px 0 0"}, "In the game the back has exactly the front's colours.")];
     if (o.view === "follower" && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, followerPalette(frontImg), 0.5); changed(); }}, "CLOSER TO THE FRONT"),
       h("div", {class: "hint", style: "margin:4px 0 0"}, "Real walking sprites are a little darker than the front, with the same colours.")];
+    if (o.view === "npc" && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, followerPalette(frontImg), 0.5); changed(); }}, "CLOSER TO THE BATTLE SPRITE"),
+      h("div", {class: "hint", style: "margin:4px 0 0"}, "The trainer's map figure has the battle sprite's colours, a little darker.")];
     if (o.view === "icon") {
       const best = suggestIconPalette(ed.data, o.bodyColour);
       return [h("div", {class: "toolbar", style: "margin:0"}, [0, 1, 2].map(i => h("button", {type: "button", class: "small", title: "HeartGold's icon palette " + (i + 1),
@@ -4019,7 +4051,7 @@ function pixelEditor(o) {
     h("div", {class: "edhead"}, h("span", {class: "pixfont"}, o.title), h("button", {type: "button", class: "small", onclick: () => no.click()}, "CLOSE")),
     h("div", {class: "edgrid"}, tools, wrap, side),
     h("div", {class: "yesno", style: "position:static"}, ask, h("div", {class: "menu", role: "group", "aria-label": "Save as a new picture?"}, yes, no)));
-  Promise.all([loadPicture(o.src + (o.src.includes("?") ? "&" : "?") + "edit"), o.frontSrc ? loadPicture(o.frontSrc + (o.frontSrc.includes("?") ? "&" : "?") + "edit").catch(() => null) : null]).then(([im, fim]) => {
+  Promise.all([loadPicture(/^(data|blob):/.test(o.src) ? o.src : o.src + (o.src.includes("?") ? "&" : "?") + "edit"), o.frontSrc ? loadPicture(o.frontSrc + (o.frontSrc.includes("?") ? "&" : "?") + "edit").catch(() => null) : null]).then(([im, fim]) => {
     const off = Object.assign(document.createElement("canvas"), {width: W, height: H}), x = off.getContext("2d", {willReadFrequently: true});
     x.drawImage(im, 0, 0, W, H); ed.data = x.getImageData(0, 0, W, H);
     if (fim) { const c = Object.assign(document.createElement("canvas"), {width: 80, height: 80}), cx = c.getContext("2d", {willReadFrequently: true}); cx.drawImage(fim, 0, 0, 80, 80); frontImg = cx.getImageData(0, 0, 80, 80); }
@@ -4263,7 +4295,7 @@ const CHARS_PREVIEW = /[?&]chars-preview\b/.test(location.search);   // test vie
 let claims = null, claimsError = "", charOpen = "";
 const trainerPics = new Map();     // role id -> [{id, src, caption, editor}] (species_images rows with species_id "trainer-<role>")
 async function loadClaims() {
-  const [rows, pics] = await Promise.all([dbRead("species_edits?select=id,species_id,data,editor&kind=eq.claim&order=id.asc"),
+  const [rows, , pics] = await Promise.all([dbRead("species_edits?select=id,species_id,data,editor&kind=eq.claim&order=id.asc"), loadNpcs().catch(() => {}),
     dbRead("species_images?species_id=like.trainer-*&removed=eq.false&order=id.asc&select=id,species_id,path,caption,editor")]);
   claims = new Map();
   for (const r of rows) claims.set(r.species_id.replace(/^claim-/, ""), Object.assign({by: "", slots: {}}, r.data || {}));
@@ -4388,7 +4420,7 @@ function charTop(c) {
 // left, the story team as six slots and every battle below it (Arvind, 2026-11-13). Address: #char=<role id>.
 function openCharacter(c, part) {
   const first = charOpen !== c.id;
-  charOpen = c.id; view = "chars"; plan = null;
+  charOpen = c.id; npcOpen = ""; view = "chars"; plan = null;
   if (location.hash !== "#char=" + c.id) history[first ? "pushState" : "replaceState"](null, "", "#char=" + c.id);
   const y = window.scrollY;
   render();
@@ -4410,11 +4442,11 @@ function renderCharacterPage(c) {
     if (!me()) { status.textContent = "Write your Discord name first."; return; }
     status.textContent = "Saving...";
     const data = Object.assign({}, cl, {by, role: c.id, slots: slots || {}, story: story || cl.story || {lines: []}});
-    if (!by) { data.slots = {}; data.story = {lines: []}; data.name = ""; }
+    if (!by) { data.slots = {}; data.story = {lines: []}; data.name = ""; delete data.sprite; }
     try { await saveEdit("claim", "claim-" + c.id, data); claims.set(c.id, data); openCharacter(c); }
     catch (err) { status.textContent = /check constraint/i.test(err.message) ? "Claiming is not switched on in the database yet." : err.message; }
   };
-  const goTo = part => h("button", {type: "button", class: "linkish", onclick: () => document.getElementById("char-" + part).scrollIntoView({block: "start"})}, part === "picture" ? "PICTURE" : "STORY TEAM");
+  const goTo = part => h("button", {type: "button", class: "linkish", onclick: () => document.getElementById("char-" + part).scrollIntoView({block: "start"})}, part === "picture" ? "PICTURE" : part === "studio" ? "TRAINER STUDIO" : "STORY TEAM");
 
   // ----- the bar on top, as Showdown's teambuilder has it
   const bar = h("div", {class: "tbar charbar"},
@@ -4429,7 +4461,7 @@ function renderCharacterPage(c) {
   // Step 1 is who you are (Discord name); claiming without a name starts the onboarding there (Arvind, 2026-11-13)
   const restSteps = live => [
     h("div", {class: "storyline"}, h("span", {class: "badge" + (live && cl.name ? " done" : "")}, "2"), "Give your trainer a name", live ? ": " : "", live ? nameBox : null),
-    h("div", {class: "storyline"}, h("span", {class: "badge" + (live && (trainerPics.get(c.id) || []).length ? " done" : "")}, "3"), "Add a picture or drawing under ", live ? goTo("picture") : "PICTURE"),
+    h("div", {class: "storyline"}, h("span", {class: "badge" + (live && cl.sprite ? " done" : "")}, "3"), "Make your trainer sprite in the ", live ? goTo("studio") : "TRAINER STUDIO"),
     h("div", {class: "storyline"}, h("span", {class: "badge" + (live && ((cl.story || {}).lines || []).length ? " done" : "")}, "4"), "Build your story team under ", live ? goTo("team") : "STORY TEAM")];
   const steps = isMine ? h("div", {class: "box"}, h("h3", {style: "margin-top:0"}, "Make this trainer yours"),
     h("div", {class: "storyline"}, h("span", {class: "badge done"}, "1"), "You: " + person(cl.by)), restSteps(true)) : null;
@@ -4470,7 +4502,7 @@ function renderCharacterPage(c) {
     catch (err) { status.textContent = err.message; }
   });
   const left = h("div", {class: "charside"},
-    h("div", {class: "charstage"}, pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("span", {class: "charsil"}, "?")),
+    h("div", {class: "charstage"}, cl.sprite ? spriteImg(cl.sprite) : pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("span", {class: "charsil"}, "?")),
     h("div", {class: "factrows"},
       h("div", {}, h("span", {}, "Role"), c.group),
       h("div", {}, h("span", {}, "Type"), String(c.type || "")),
@@ -4492,8 +4524,12 @@ function renderCharacterPage(c) {
             trainerPics.set(c.id, (trainerPics.get(c.id) || []).filter(x => x.id !== p.id)); openCharacter(c, "picture"); }
           catch (err) { status.textContent = err.message; }
         })}, "Remove")) : null)) : h("span", {class: "sub"}, "No picture yet.")),
-    isMine ? h("div", {class: "sub"}, "Upload a drawing or a photo of yourself. It becomes your trainer sprite in the trainer studio once the trainer model is ready. Pictures on this site are public, so a drawing may be nicer than a photo. ", upload) : h("div", {class: "sub"}, "The one who claims this trainer adds a picture here."),
-    h("button", {type: "button", disabled: ""}, "Trainer studio (coming when the trainer model is ready)"));
+    isMine ? h("div", {class: "sub"}, "Pictures here are public. For your trainer sprite, use the TRAINER STUDIO below: a picture you upload there stays private. ", upload) : h("div", {class: "sub"}, "The one who claims this trainer adds a picture here."),
+    isMine ? null : h("div", {class: "sub", style: "margin-top:8px"}, cl.sprite ? "This trainer has its trainer sprite." : "The one who claims this trainer makes its sprite in the trainer studio."));
+  const studio = isMine ? h("div", {class: "charmain", style: "margin-top:14px"}, h("h3", {id: "char-studio", style: "margin-top:0"}, "Trainer studio"),
+    h("div", {class: "sub"}, "Your trainer's battle sprite and map figure, made from your picture by the drawing PC in the style of the DS games."),
+    trainerSpriteBox("trainer-" + c.id, {kind: "mine", name: charName(c), pics: pics.map(p => ({id: p.id, src: p.src})), current: cl.sprite,
+      onPick: async sprite => { cl.sprite = sprite; await saveClaim(cl.by, cl.slots, cl.story); }, onClose: () => { if (charOpen === c.id) openCharacter(c); }})) : null;
 
   // ----- right: the story team as six slots (Showdown's team row), then every battle
   if (lib.teams === null && DEX.web.url && !lib.error && !lib.loading) { lib.loading = true; loadLibrary().catch(err => { lib.error = err.message; }).then(() => { lib.loading = false; if (charOpen === c.id) openCharacter(c); }); }
@@ -4562,7 +4598,7 @@ function renderCharacterPage(c) {
       h("div", {class: "sub"}, "Auto: the website makes each battle's team from your story team (how many Pokemon, levels, stages and moves). To change a battle's team, press Copy to TEAMS: the team opens in TEAMS and is used for that battle, and what you change there is saved here by itself. You can also pick one of your shared teams in the menu. The others only see your teams behind spoiler buttons."),
       battles);
   }
-  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, h("div", {class: "charcols"}, left, main)));
+  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, h("div", {class: "charcols"}, left, main), studio));
 }
 function renderCharacters() {
   const grid = document.getElementById("grid");
@@ -4576,13 +4612,14 @@ function renderCharacters() {
     return;
   }
   if (charOpen) { const oc = (DEX.characters || []).find(x => x.id === charOpen); if (oc) return renderCharacterPage(oc); charOpen = ""; }
+  if (npcOpen) { const on = npcs.get(npcOpen); if (on) return renderNpcPage(on); npcOpen = ""; }
   const mine = person(me());
   const groups = [];
   for (const c of shuffledCharacters()) { let g = groups.find(x => x.name === c.group); if (!g) groups.push(g = {name: c.group, rows: []}); g.rows.push(c); }
   const card = c => {
     const cl = claimOf(c.id), pic = charPic(c), isMine = cl.by && mine && person(cl.by) === mine;
     return h("button", {type: "button", class: "card charcard " + (cl.by ? (isMine ? "mine" : "taken") : "avail"), onclick: () => openCharacter(c)},
-      h("div", {class: "charthumb"}, pic ? h("img", {src: pic.src, alt: ""}) : h("span", {class: "charsil"}, "?")),
+      h("div", {class: "charthumb"}, cl.sprite ? spriteImg(cl.sprite, "") : pic ? h("img", {src: pic.src, alt: ""}) : h("span", {class: "charsil"}, "?")),
       h("b", {}, charName(c)), cl.name ? h("div", {}, "\u201c" + cl.name + "\u201d") : null,
       h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
       h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "")),
@@ -4594,7 +4631,455 @@ function renderCharacters() {
     CLAIMS_OPEN ? null : h("div", {class: "notice info"}, h("b", {}, "Work in progress. "), "Claiming is closed for now. Soon each trainer gets your own picture and the teams you fight with."),
     h("div", {class: "sub"}, "The people you battle in the game. Who they really are stays a surprise; tap a trainer to see the type, how often you meet them and its teams."),
     claimsError ? h("div", {class: "hint"}, claimsError) : null,
-    groups.map(g => h("div", {}, h("h3", {}, g.name + "s"), h("div", {class: "chargrid"}, g.rows.map(card))))));
+    groups.map(g => h("div", {}, h("h3", {}, g.name + "s"), h("div", {class: "chargrid"}, g.rows.map(card)))),
+    DEX.web.url ? npcSection() : null));
+}
+
+// ---------- the trainer studio v2 (2026-11-21) ----------
+// Arvind (21 Nov, on v1 with its eleven text fields): "it must mirror the sprite studio for Pokemon, people are used to it
+// ... only one box is needed". So two screens like the sprite studio: the TOP screen is the trainer as it is now (the battle
+// sprite and the walking map figure, EDIT under each) and one line saying what happens and how long it takes; the BOTTOM
+// screen is one step at a time: 1 PICTURE (a private upload, or a public picture), 2 BASE (a real gen 4 trainer class with
+// a body and pose like the one wanted), 3 MAKE (one text box, how close to the base, how many), SAVE (YES / NO).
+// Every try the drawing PC makes is a battle sprite AND a map figure (scripts/trainer_studio.py, post-processing
+// scripts/trainer_post.py). A tap picks a try; EDIT opens the pixel editor (the map figure as its 16 frames in a 4x4 grid);
+// SAVE stores the pick with where it came from (base, strength, seed, picture, words) on the claim (MY TRAINER, slot
+// "trainer-<role id>") or on the NPC (slot "npc-<id>"). The uploaded picture stays PRIVATE (edge function trainer-photo):
+// it is never shown from the server, only the drawing PC gets it for the job it draws.
+const TSTEPS = [
+  {id: "picture", n: "1", label: "PICTURE", c: "pink", what: "The picture the drawing PC paints your trainer from."},
+  {id: "base", n: "2", label: "BASE", c: "purple", what: "A real trainer from the DS games whose body and pose are like the trainer you want. Your trainer keeps its size and stance; the look comes from your picture."},
+  {id: "make", n: "3", label: "MAKE", c: "blue", what: "The drawing PC paints the base with your picture: a battle sprite and a map figure each time. Tap the one you like best."},
+  {id: "save", n: "✓", label: "SAVE", c: "purple", what: "How your trainer looks in a battle and on the map."}];
+const NPC_WALK = {up: [9, 8], down: [11, 12], left: [1, 3], right: [4, 5]};   // frames of the game's 16-frame NPC sheet (2 steps each)
+const tstudios = new Map();          // slot -> what the person has chosen so far (kept while they move around the site)
+const trainerBases = () => (DEX.trainer_bases && DEX.trainer_bases.bases) || [];
+const trainerBase = id => trainerBases().find(b => b.id === id);
+function baseCell(b, scale) {
+  const tb = DEX.trainer_bases, i = trainerBases().indexOf(b), cell = tb.cell * scale;
+  return h("i", {class: "basecell", style: "background:url(" + artUrl(tb.sheet) + ") " + (-(i % tb.cols) * cell) + "px " + (-Math.floor(i / tb.cols) * cell) + "px / " +
+    (tb.cols * cell) + "px auto no-repeat;width:" + cell + "px;height:" + cell + "px", role: "img", "aria-label": b.label});
+}
+const spriteImg = (sp, cls) => sp && sp.image ? h("img", {class: "px " + (cls || "spritebig"), src: artUrl(sp.image), alt: "trainer sprite"}) : null;
+// The map figure walking: down, left, up, right, two steps each (like the follower walker).
+const npcSheets = new Map();
+function npcWalker(src, scale) {
+  const canvas = h("canvas", {width: 32, height: 32, class: "px walker", style: "width:" + 32 * scale + "px;height:" + 32 * scale + "px", "aria-label": "map figure"});
+  const ctx = canvas.getContext("2d"), order = ["down", "down", "down", "down", "left", "left", "up", "up", "right", "right"];
+  let im = null;
+  if (!npcSheets.has(src)) npcSheets.set(src, loadPicture(src));       // the studio redraws often: load each sheet once
+  npcSheets.get(src).then(x => { im = x; }).catch(() => npcSheets.delete(src));
+  walkers.add({canvas, draw() {
+    if (!im) return;
+    const f = NPC_WALK[order[Math.floor(walkTick / 4) % order.length]][walkTick % 2];
+    ctx.clearRect(0, 0, 32, 32); ctx.imageSmoothingEnabled = false; ctx.drawImage(im, f * 32, 0, 32, 32, 0, 0, 32, 32);
+  }});
+  return canvas;
+}
+// The 512x32 sheet as a 4x4 grid of frames (the pixel editor draws it big enough), and back.
+function npcToGrid(im) {
+  const c = Object.assign(document.createElement("canvas"), {width: 128, height: 128}), x = c.getContext("2d");
+  for (let i = 0; i < 16; i++) x.drawImage(im, i * 32, 0, 32, 32, (i % 4) * 32, Math.floor(i / 4) * 32, 32, 32);
+  return c;
+}
+async function gridToNpc(file) {
+  const im = await createImageBitmap(file), c = Object.assign(document.createElement("canvas"), {width: 512, height: 32}), x = c.getContext("2d");
+  for (let i = 0; i < 16; i++) x.drawImage(im, (i % 4) * 32, Math.floor(i / 4) * 32, 32, 32, i * 32, 0, 32, 32);
+  return new Promise(ok => c.toBlob(b => ok(new File([b], "overworld.png", {type: "image/png"})), "image/png"));
+}
+function tstudioState(slot) {
+  if (!tstudios.has(slot)) {
+    let photo = null;
+    try { photo = JSON.parse(remember.get("trainer-photo-" + slot) || "null"); } catch (e) { photo = null; }
+    tstudios.set(slot, {photo, ref: null, base: remember.get("trainer-base-" + slot) || "", strength: 0.75, count: 3, words: remember.get("trainer-words-" + slot) || "",
+      filter: "", game: "", step: null, tries: [], jobs: [], line: [], worker: null, loaded: false, editing: null, busyMsg: "", showAll: false});
+  }
+  return tstudios.get(slot);
+}
+// A small copy of the picture for this device only (the picture itself is never shown from the server).
+function thumbOf(file) {
+  return createImageBitmap(file).then(bm => {
+    const k = Math.min(1, 160 / Math.max(bm.width, bm.height)), c = Object.assign(document.createElement("canvas"), {width: Math.round(bm.width * k), height: Math.round(bm.height * k)});
+    c.getContext("2d").drawImage(bm, 0, 0, c.width, c.height); return c.toDataURL("image/jpeg", 0.8);
+  }).catch(() => "");
+}
+const fillIn = (el, ...kids) => el.replaceChildren(...kids.flat(Infinity).filter(k => k !== null && k !== undefined && k !== false));
+
+// opts: {kind: "mine" | "npc", name: the trainer's name, pics: [{id, src}] public pictures that may be used instead,
+//        current: the sprite in use, onPick: async sprite => ... (SAVE)}. Returns {top, bottom} like spriteStudio.
+function trainerStudio(slot, opts) {
+  const st = tstudioState(slot), npc = opts.kind === "npc";
+  st.editing = null; st.busyMsg = "";
+  const top = h("section", {class: "screen top studio-top", "aria-label": "The trainer sprite of " + (opts.name || "your trainer")});
+  const steps = h("div", {class: "stepbar", role: "tablist", "aria-label": "Steps"});
+  const page = h("div", {class: "page studio-page"});
+  const say = h("div", {class: "dlg", role: "status"});
+  let timer = null;
+  const fail = err => { st.busyMsg = "THAT DID NOT WORK\n" + err.message; draw(); st.busyMsg = ""; };
+
+  const usable = t => t && t.image && (t.status === "done" || t.status === "broken");
+  const picked = () => st.tries.filter(t => t.picked && usable(t)).sort((a, b) => String(b.picked_at).localeCompare(String(a.picked_at)))[0] || null;
+  // What the set shows: the picked try, else the sprite saved now.
+  const inSet = () => { const t = picked(); return t ? {image: t.image, overworld: t.overworld, tryRow: t, live: opts.current && opts.current.try === t.id}
+    : opts.current ? {image: opts.current.image, overworld: opts.current.overworld, tryRow: st.tries.find(x => x.id === opts.current.try) || null, live: true} : null; };
+  const mine = () => st.line.filter(j => j.species_id === slot);
+  const each = () => secondsFor(st.worker && st.worker.timings, "trainer");
+  function secondsLeft() {
+    let total = 0, last = 0;
+    for (const j of st.line) {
+      const per = j.stage === "trainer" ? each() : secondsFor(st.worker && st.worker.timings, j.stage || "front"), n = j.mode === "tries" || j.stage === "trainer" ? (j.count || 1) : 6;
+      const done = j.species_id === slot ? st.tries.filter(t => t.job_id === j.id && t.status !== "drawing").length : 0;
+      total += Math.max(j.status === "running" ? 5 : per, (n - done) * per);
+      if (j.species_id === slot) last = total;
+    }
+    return last;
+  }
+  const hasPicture = () => !!(st.ref || st.photo);
+  function status() {
+    if (st.busyMsg) return st.busyMsg;
+    const jobs = mine(), online = st.worker && Date.now() - new Date(st.worker.seen_at).getTime() < 90000;
+    if (jobs.length) {
+      const n = jobs.reduce((a, j) => a + (j.count || 1), 0), ahead = st.line.findIndex(j => j.species_id === slot);
+      if (!online) return "WAITING\nThe drawing PC is off right now. Your request waits in line until it is back.";
+      return (jobs.some(j => j.status === "running") ? "DRAWING" : "IN LINE") + "\n" + n + " trainer" + (n > 1 ? "s" : "") + ": a battle sprite and a map figure each.\nReady in " +
+        aboutMinutes(secondsLeft()) + (ahead > 0 ? " (" + ahead + " request" + (ahead > 1 ? "s" : "") + " from others first)." : ".");
+    }
+    const p = picked(), cur = opts.current;
+    if (p && (!cur || cur.try !== p.id)) return "PICKED\nGo to SAVE to make it " + (npc ? (opts.name || "the NPC") + "'s sprite." : "your trainer.");
+    if (cur) return (npc ? "THIS IS " + String(opts.name || "the NPC").toUpperCase() + " NOW" : "THIS IS YOUR TRAINER NOW") + "\nTap EDIT under a picture to change it, or make new ones in 3 MAKE.";
+    if (st.tries.some(usable)) return "PICK ONE\nIn 3 MAKE, tap the one you like best.";
+    if (!hasPicture()) return (npc ? "LET'S MAKE THIS NPC\nStart with 1 PICTURE: a drawing of your own character." : "LET'S MAKE YOUR TRAINER\nStart with 1 PICTURE: a photo or drawing of yourself.");
+    if (!st.base) return "PICK A BASE\nIn 2 BASE, tap a trainer whose body and pose are like " + (npc ? "your character's." : "yours.");
+    return "READY\nIn 3 MAKE, press MAKE. Each one takes " + aboutMinutes(each()) + ".";
+  }
+
+  function drawTop() {
+    const it = inSet();
+    const slotBox = (label, pic, edit) => h("div", {class: "slot frame" + (it && it.live ? " live" : "")},
+      h("button", {type: "button", class: "slotpic", title: "Go to 3 MAKE", onclick: () => go("make")}, pic || h("div", {class: "slotempty"}, "—")),
+      h("div", {class: "slotname"}, label, it ? h("small", {}, it.live ? "saved" : "picked") : null), edit);
+    const canEdit = it && it.tryRow && DEX.web.url;
+    top.replaceChildren(
+      h("div", {class: "namebar"}, h("div", {class: "frame no"}, npc ? "NPC" : "TRAINER"), h("div", {class: "frame"}, h("h3", {}, String(opts.name || "Your trainer").toUpperCase())),
+        h("div", {class: "frame cat"}, "TRAINER SPRITE")),
+      h("div", {class: "setgrid"},
+        slotBox("BATTLE", it && it.image ? h("img", {class: "px", src: artUrl(it.image), alt: "battle sprite", style: "width:160px"}) : null,
+          canEdit ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("battle", it.tryRow)}, "EDIT") : null),
+        slotBox("MAP", it && it.overworld ? npcWalker(artUrl(it.overworld), 3) : null,
+          canEdit && it.overworld ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("map", it.tryRow)}, "EDIT") : null)),
+      say);
+    say.textContent = status();
+  }
+  function drawSteps() {
+    steps.replaceChildren(...TSTEPS.map(stp => {
+      const busy = stp.id === "make" && mine().length;
+      const done = stp.id === "picture" ? hasPicture() : stp.id === "base" ? !!st.base : stp.id === "make" ? !!picked() : false;
+      return h("button", {type: "button", role: "tab", "data-c": stp.c, "aria-selected": String(st.step === stp.id), onclick: () => go(stp.id)},
+        h("b", {}, stp.n), " " + stp.label, busy ? h("span", {class: "spinner", "aria-label": "drawing"}) : done ? h("span", {class: "tick"}, "✓") : null);
+    }));
+  }
+  function go(id) { if (st.editing) return; st.step = id; st.showAll = false; draw(); }
+
+  // ----- 1 PICTURE
+  function picturePage() {
+    const upload = h("input", {type: "file", accept: "image/png,image/jpeg,image/webp", style: "max-width:240px", "aria-label": "Upload a picture"});
+    upload.addEventListener("change", async () => {
+      const file = upload.files[0]; if (!file) return;
+      st.busyMsg = "UPLOADING\nPrivately: only the drawing PC will see it."; draw(); st.busyMsg = "";
+      try {
+        const ready = await prepareImage(file), thumb = await thumbOf(ready);
+        const row = await postForm("trainer-photo", {slot, editor: me(), file: ready});
+        if (st.photo) postForm("trainer-photo", {action: "remove", id: st.photo.id, token: st.photo.token}).catch(() => {});
+        st.photo = {id: row.id, token: row.token, thumb}; st.ref = null;
+        remember.set("trainer-photo-" + slot, JSON.stringify(st.photo));
+        if (!st.base) st.step = "base";
+        draw();
+      } catch (err) { fail(err); }
+    });
+    const pics = opts.pics || [];
+    return h("div", {},
+      h("div", {class: "hint", style: "margin-top:0"}, npc ? "A picture or drawing of your own character. Only characters you made: no characters from other games, films or shows."
+        : "A photo or drawing of yourself. Only yourself: never upload a picture of somebody else."),
+      h("div", {class: "private"}, "🔒 Private: the picture is never shown on this site. Only the drawing PC sees it, to make the sprite. You can delete it any time."),
+      h("div", {class: "tpic", style: "margin-top:8px"},
+        st.photo ? h("button", {type: "button", class: "tchoice" + (st.ref === null ? " on" : ""), "aria-pressed": String(st.ref === null), title: "Use this picture", onclick: () => { st.ref = null; draw(); }},
+          st.photo.thumb ? h("img", {src: st.photo.thumb, alt: "your picture (only on this device)"}) : h("span", {class: "sub"}, "picture uploaded")) : null,
+        h("div", {class: "sub"}, st.photo ? "Uploaded. A new picture replaces it." : "Upload one:", h("br"), upload,
+          st.photo ? h("div", {style: "margin-top:6px"}, h("button", {type: "button", class: "small", onclick: ev => sure(ev.currentTarget, "Really delete?", async () => {
+            try { await postForm("trainer-photo", {action: "remove", id: st.photo.id, token: st.photo.token}); st.photo = null; remember.set("trainer-photo-" + slot, "");
+              st.busyMsg = "DELETED\nYour picture is gone from the server."; draw(); st.busyMsg = ""; }
+            catch (err) { fail(err); }
+          })}, "DELETE MY PICTURE")) : null)),
+      pics.length ? h("div", {class: "hint"}, "Or use a picture from PICTURE on the trainer's page (those are public):") : null,
+      pics.length ? h("div", {class: "tpic"}, pics.map(p => h("button", {type: "button", class: "tchoice" + (st.ref === p.id ? " on" : ""), "aria-pressed": String(st.ref === p.id),
+        onclick: () => { st.ref = st.ref === p.id ? null : p.id; draw(); }}, h("img", {src: p.src, alt: "trainer picture"})))) : null);
+  }
+
+  // ----- 2 BASE
+  function basePage() {
+    const area = h("div", {});
+    const drawGrid = () => {
+      const words = st.filter.toLowerCase().split(/\s+/).filter(Boolean);
+      const shown = trainerBases().filter(b => (!st.game || b.game === st.game) &&
+        words.every(w => (b.label + " " + Object.values(b.fields || {}).join(" ")).toLowerCase().includes(w)));
+      const search = h("input", {type: "search", value: st.filter, placeholder: "Search: girl, cap, old, beard ...", "aria-label": "Search the bases", style: "max-width:240px"});
+      search.addEventListener("input", () => { st.filter = search.value; const pos = search.selectionStart; drawGrid(); const s2 = area.querySelector("input[type=search]"); s2.focus(); s2.setSelectionRange(pos, pos); });
+      const game = h("select", {"aria-label": "Game", onchange: ev => { st.game = ev.target.value; drawGrid(); }},
+        [["", "All (" + trainerBases().length + ")"], ["HGSS", "HeartGold/SoulSilver"], ["Pt", "Diamond/Pearl/Platinum"]].map(([v, t]) => h("option", {value: v, selected: st.game === v ? "" : null}, t)));
+      const b = trainerBase(st.base);
+      fillIn(area, h("div", {class: "tstrength"}, search, game, h("b", {}, b ? "Base: " + b.label + " (" + b.game + ")" : "No base chosen yet")),
+        h("div", {class: "tbases", role: "list"}, shown.map(x => h("button", {type: "button", class: "tbase" + (st.base === x.id ? " on" : ""), title: x.label + " (" + x.game + ")" + ((x.fields || {}).pose ? ": " + x.fields.pose : ""),
+          "aria-pressed": String(st.base === x.id), onclick: () => { st.base = x.id; remember.set("trainer-base-" + slot, x.id); draw(); }}, baseCell(x, 1), h("span", {}, x.label)))));
+    };
+    drawGrid();
+    return area;
+  }
+
+  // ----- 3 MAKE
+  async function make(button) {
+    if (!hasPicture()) { st.busyMsg = "A PICTURE FIRST\nUpload one in 1 PICTURE."; draw(); st.busyMsg = ""; return; }
+    if (!st.base) { st.busyMsg = "A BASE FIRST\nPick one in 2 BASE."; draw(); st.busyMsg = ""; return; }
+    button.disabled = true;
+    noteMine(slot);
+    try {
+      const words = st.words.trim().slice(0, 400);
+      await dbCall("request_trainer", {p_slot: slot, p_base: st.base, p_strength: st.strength, p_count: st.count, p_fields: words ? {words} : {},
+        p_photo: st.ref ? null : st.photo.id, p_ref: st.ref || null, p_editor: me()});
+      await load();
+    } catch (err) {
+      if (/gone|upload it again/i.test(err.message)) { st.photo = null; remember.set("trainer-photo-" + slot, ""); err = new Error("The picture is gone from the server. Upload it again in 1 PICTURE."); }
+      fail(err);
+    }
+    button.disabled = false;
+  }
+  async function pick(t) {
+    try { await dbCall("pick_try", {p_try: t.id, p_picked: true, p_editor: me()}); t.picked = true; t.picked_at = new Date().toISOString(); draw(); }
+    catch (err) { fail(err); }
+  }
+  const jobOf = t => { const m = new Map(st.tries.map(x => [x.id, x])); let x = t; while (x && !x.job_id && x.parent_try) x = m.get(x.parent_try); return x && st.jobs.find(j => j.id === x.job_id) || null; };
+  const settingsOf = j => { try { return JSON.parse((j && j.prompt) || "{}"); } catch (e) { return {}; } };
+  function tile(t) {
+    if (t.waiting || t.status === "drawing") return h("div", {class: "tile wait"}, h("div", {class: "tilepic"}, h("span", {class: "spinner"}), h("span", {class: "sub"}, t.waiting ? "in line" : "drawing")));
+    const p = picked(), on = p && p.id === t.id, saved = opts.current && opts.current.try === t.id;
+    const j = jobOf(t), set = settingsOf(j), b = j && trainerBase(j.recipe);
+    const made = t.job_id === null ? (t.recipe === "mirrored" ? "mirrored" : "drawn on") + (t.editor ? " by " + t.editor : "")
+      : (b ? b.label : j ? j.recipe : "") + (set.strength ? " · " + set.strength : "");
+    return h("div", {class: "tile ttile" + (on ? " inuse" : "") + (t.status === "broken" ? " broken" : "")},
+      h("button", {type: "button", class: "tilepic", disabled: !t.image, title: on ? "Picked" : "Pick this one", onclick: () => !on && pick(t)},
+        h("img", {class: "px", src: artUrl(t.image), alt: "battle sprite #" + t.id, style: "width:120px"}),
+        t.overworld ? npcWalker(artUrl(t.overworld), 2) : h("span", {class: "sub nomap"}, "no map figure"),
+        on ? h("span", {class: "tag"}, saved ? "SAVED" : "PICKED") : saved ? h("span", {class: "tag"}, "SAVED") : null),
+      made ? h("div", {class: "tilenote"}, made) : null,
+      DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openPixelEditor("battle", t)}, "EDIT"),
+        t.overworld ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("map", t)}, "EDIT MAP") : null) : null);
+  }
+  function makePage() {
+    const b = trainerBase(st.base);
+    const pic = st.ref ? (opts.pics || []).find(p => p.id === st.ref) : st.photo;
+    const from = h("div", {class: "tryctl"},
+      h("span", {class: "from"}, "picture ", pic && (pic.thumb || pic.src) ? h("img", {src: pic.thumb || pic.src, alt: ""}) : pic ? "uploaded" : h("button", {type: "button", class: "link", onclick: () => go("picture")}, "choose")),
+      h("span", {class: "from"}, "base ", b ? baseCell(b, 0.5) : h("button", {type: "button", class: "link", onclick: () => go("base")}, "choose"), b ? b.label : null));
+    const words = h("textarea", {rows: 2, maxlength: 400, placeholder: npc ? "e.g. holding a wooden staff, a red scarf, green eyes" : "e.g. holding a guitar, a red scarf, my glasses",
+      "aria-label": "Anything to add"}, st.words);
+    words.addEventListener("input", () => { st.words = words.value; remember.set("trainer-words-" + slot, words.value); });
+    const strength = h("input", {type: "range", min: "0.6", max: "0.88", step: "0.01", value: String(st.strength), "aria-label": "How much it changes the base"});
+    const strengthLabel = h("b", {}, st.strength.toFixed(2));
+    strength.addEventListener("input", () => { st.strength = Number(strength.value); strengthLabel.textContent = st.strength.toFixed(2); });
+    const count = h("select", {"aria-label": "How many"}, [1, 2, 3, 4].map(n => h("option", {value: n, selected: n === st.count ? "" : null}, String(n))));
+    const time = h("span", {class: "sub"}, "(" + aboutMinutes(each() * st.count) + " for " + st.count + ")");
+    count.addEventListener("change", () => { st.count = Number(count.value); time.textContent = "(" + aboutMinutes(each() * st.count) + " for " + st.count + ")"; });
+    const btn = h("button", {type: "button", class: "primary", disabled: hasPicture() && st.base ? null : "", onclick: () => make(btn)}, "MAKE");
+    // the tries: waiting ones first, then the newest
+    const waiting = [];
+    for (const j of mine()) for (let k = st.tries.filter(t => t.job_id === j.id).length; k < (j.count || 1); k++) waiting.push({waiting: true});
+    const list = st.tries.filter(t => t.status !== "failed").sort((a, b2) => b2.id - a.id);
+    const shown = st.showAll ? list : list.slice(0, Math.max(0, 12 - waiting.length));
+    const failed = st.jobs.filter(j => j.status === "failed" && j.error).slice(0, 1);
+    return h("div", {},
+      h("div", {class: "hint", style: "margin-top:0"}, TSTEPS[2].what),
+      from,
+      h("label", {class: "notebox"}, h("span", {class: "sub"}, "Anything the picture does not show? (optional, one line)"), words),
+      h("div", {class: "tstrength"}, h("span", {class: "sub"}, "close to the base"), strength, h("span", {class: "sub"}, "more like the picture"), strengthLabel),
+      h("div", {class: "tryctl"}, btn, count, time),
+      failed.length ? h("div", {class: "notice warn"}, "The last request failed: " + failed[0].error) : null,
+      h("div", {class: "tiles"}, waiting.map(tile), shown.map(tile)),
+      list.length > shown.length ? h("button", {type: "button", class: "small", style: "margin-top:8px", onclick: () => { st.showAll = true; draw(); }}, "SHOW ALL " + list.length) : null,
+      !list.length && !waiting.length ? h("div", {class: "empty", style: "margin-top:8px"}, "Nothing made yet.") : null);
+  }
+
+  // ----- SAVE
+  function battle(it) {
+    const canvas = h("canvas", {width: 256, height: 192, class: "battle", "aria-label": "How it looks in a battle"});
+    const ctx = canvas.getContext("2d"); ctx.imageSmoothingEnabled = false;
+    const sky = ctx.createLinearGradient(0, 0, 0, 112); sky.addColorStop(0, "#b0d8f8"); sky.addColorStop(1, "#d8ecf8");
+    ctx.fillStyle = sky; ctx.fillRect(0, 0, 256, 112); ctx.fillStyle = "#c8e098"; ctx.fillRect(0, 112, 256, 80);
+    ctx.fillStyle = "#a8c870"; ctx.beginPath(); ctx.ellipse(192, 78, 56, 16, 0, 0, 7); ctx.fill(); ctx.beginPath(); ctx.ellipse(68, 170, 68, 20, 0, 0, 7); ctx.fill();
+    if (it && it.image) loadPicture(artUrl(it.image)).then(im => ctx.drawImage(im, 152, 4)).catch(() => {});
+    return h("div", {class: "together"}, canvas, h("div", {class: "grass"}, it && it.overworld ? npcWalker(artUrl(it.overworld), 3) : null));
+  }
+  function savePage() {
+    const t = picked(), it = inSet(), note = h("div", {class: "ask"});
+    const isSaved = t && opts.current && opts.current.try === t.id;
+    const yes = h("button", {type: "button", class: "hot", disabled: !t || isSaved ? "" : null, onclick: async () => {
+      yes.disabled = true; note.textContent = "Saving...";
+      try {
+        const j = jobOf(t), set = settingsOf(j);
+        const sprite = {try: t.id, job: j ? j.id : null, image: t.image, overworld: t.overworld || null, base: j ? j.recipe : null, strength: set.strength || null, seed: t.seed || null,
+          picture: set.photo ? "private upload #" + set.photo : j && (j.ref_image_ids || [])[0] ? "public picture #" + j.ref_image_ids[0] : "", words: set.words || "",
+          edited: t.job_id === null ? t.recipe || "drawn" : undefined, by: me(), at: new Date().toISOString()};
+        await opts.onPick(sprite);
+        opts.current = sprite;
+        note.textContent = "Saved! " + (npc ? "It is " + (opts.name || "the NPC") + "'s sprite now." : "It is your trainer's sprite now.");
+        draw();
+      } catch (err) { note.textContent = err.message; yes.disabled = false; }
+    }}, "YES");
+    note.textContent = !t ? "Pick one in 3 MAKE first." : isSaved ? "This one is saved." : (npc ? "Make this " + (opts.name || "the NPC") + "'s sprite?" : "Make this your trainer?") + (t.overworld ? "" : " (it has no map figure yet)");
+    return h("div", {},
+      h("div", {class: "hint", style: "margin-top:0"}, TSTEPS[3].what),
+      battle(it),
+      h("div", {class: "yesno", style: "position:static"}, note, h("div", {class: "menu", role: "group", "aria-label": "Save it?"}, yes,
+        h("button", {type: "button", onclick: () => go("make")}, "NO"))));
+  }
+
+  function draw() {
+    drawTop();
+    if (st.editing) return;
+    if (!st.step) st.step = !hasPicture() ? "picture" : !st.base ? "base" : "make";
+    drawSteps();
+    const stp = TSTEPS.find(x => x.id === st.step);
+    page.dataset.c = stp.c;
+    page.replaceChildren(!st.loaded ? h("div", {class: "empty"}, "Loading...")
+      : stp.id === "picture" ? picturePage() : stp.id === "base" ? basePage() : stp.id === "make" ? makePage() : savePage());
+  }
+  async function load() {
+    try {
+      [st.tries, st.jobs, st.line, st.worker] = await Promise.all([
+        dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.trainer&order=id.desc&limit=300&select=id,job_id,n,seed,status,image,overworld,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at"),
+        dbRead("sprite_jobs?species_id=eq." + slot + "&stage=eq.trainer&order=id.desc&limit=100&select=id,status,recipe,prompt,count,error,ref_image_ids"),
+        dbRead("sprite_jobs?status=in.(queued,running)&order=id.asc&select=id,species_id,status,mode,stage,count,recipe"),
+        dbRead("sprite_worker?select=seen_at,state,timings").then(r => r[0] || null)]);
+      st.loaded = true;
+    } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; }
+    if (!top.isConnected && st.loaded && timer !== null) return;      // the studio was closed: stop asking
+    draw(); st.busyMsg = "";
+    noteMine(slot, true);
+    clearTimeout(timer);
+    const busy = mine().length || st.tries.some(t => t.status === "drawing");
+    timer = setTimeout(() => { if (top.isConnected) load(); }, busy ? 4000 : 60000);
+  }
+
+  // The editor takes the bottom screen; the top screen stays. Saving makes a new try (picked), the old one stays.
+  async function openPixelEditor(what, t) {
+    const map = what === "map";
+    let src = artUrl(map ? t.overworld : t.image);
+    if (map) { try { src = npcToGrid(await loadPicture(src)).toDataURL("image/png"); } catch (err) { fail(new Error("The map figure could not be loaded.")); return; } }
+    const close = () => { st.editing = null; bottomSlot.replaceChildren(steps, page); draw(); };
+    st.editing = pixelEditor({
+      title: map ? "EDIT MAP FIGURE (16 frames)" : "EDIT BATTLE SPRITE", view: map ? "npc" : "trainer", src, size: map ? [128, 128] : [80, 80],
+      frontSrc: map && t.image ? artUrl(t.image) : null, bodyColour: "",
+      async save(file, how, note) {
+        const fields = {try: t.id, how, editor: me(), note};
+        if (map) fields.overworld = await gridToNpc(file); else fields.image = file;
+        const row = await postForm("sprite-draw", fields);
+        await dbCall("pick_try", {p_try: row.id, p_picked: true, p_editor: me()}).catch(() => null);
+        st.step = "make"; close(); await load();
+      },
+      close});
+    bottomSlot.replaceChildren(st.editing.el);
+    st.editing.el.scrollIntoView({block: "nearest"});
+  }
+
+  const bottomSlot = h("div", {class: "studio-bottom"}, steps, page);
+  draw();
+  load();
+  return {top, bottom: bottomSlot};
+}
+// The studio as a dialog over the page, like the Pokemon sprite studio.
+function openTrainerStudio(slot, opts) {
+  const studio = trainerStudio(slot, opts);
+  const bottom = h("section", {class: "screen bottom", "data-c": "blue", "aria-label": "Trainer studio"},
+    h("div", {class: "screen-tabs"}, h("span", {class: "pixfont", style: "align-self:center"}, "TRAINER STUDIO"),
+      h("span", {class: "right"}, h("button", {type: "button", onclick: () => { document.getElementById("dialog").close(); if (opts.onClose) opts.onClose(); }}, "CLOSE"))),
+    studio.bottom);
+  showDialog(h("div", {class: "ds studio"}, studio.top, bottom));
+}
+// What the trainer's page shows: the saved sprite and map figure, and the way into the studio.
+function trainerSpriteBox(slot, opts) {
+  const cur = opts.current;
+  return h("div", {class: "tspritebox"},
+    cur ? h("div", {class: "tpic"}, spriteImg(cur), cur.overworld ? npcWalker(artUrl(cur.overworld), 3) : null) : null,
+    h("div", {class: "sub"}, cur ? "Saved " + String(cur.at || "").slice(0, 10) + (cur.by ? " by " + person(cur.by) : "") + "." : "No trainer sprite yet."),
+    h("button", {type: "button", class: "primary", style: "margin-top:6px", onclick: () => openTrainerStudio(slot, opts)}, cur ? "OPEN THE TRAINER STUDIO" : "MAKE THE TRAINER SPRITE"));
+}
+
+// ---------- NPCs made by the group (CREATE NPC): species_edits rows of kind 'npc', the newest row of an id wins ----------
+let npcs = new Map(), npcOpen = "";
+async function loadNpcs() {
+  const rows = await dbRead("species_edits?select=id,species_id,data,editor&kind=eq.npc&order=id.asc");
+  npcs = new Map();
+  for (const r of rows) npcs.set(r.species_id, Object.assign({}, r.data || {}, {id: r.species_id}));
+  for (const [id, n] of [...npcs]) if (n.deleted) npcs.delete(id);
+}
+async function saveNpc(n, changes) {
+  const data = Object.assign({}, n, changes); delete data.id;
+  await saveEdit("npc", n.id, data);
+  if (data.deleted) npcs.delete(n.id); else npcs.set(n.id, Object.assign(data, {id: n.id}));
+}
+function openNpc(id) {
+  npcOpen = id; charOpen = ""; view = "chars";
+  if (location.hash !== "#npc=" + id) history.pushState(null, "", "#npc=" + id);
+  render(); window.scrollTo(0, 0);
+}
+function closeNpc() {
+  npcOpen = "";
+  if (location.hash.startsWith("#npc=")) history.pushState(null, "", location.pathname + location.search);
+  render(); window.scrollTo(0, 0);
+}
+function createNpcBox() {
+  const note = h("div", {class: "hint", role: "status", style: "margin:6px 0 0"});
+  const name = h("input", {type: "text", maxlength: 40, placeholder: "The NPC's name", "aria-label": "NPC name", style: "max-width:220px"});
+  const go = async () => {
+    const n = name.value.trim();
+    if (!n) { note.textContent = "Give the NPC a name."; name.focus(); return; }
+    const id = ("npc-" + (slugify(n).slice(0, 28) || "npc") + "-" + Math.random().toString(36).slice(2, 6)).replace(/-+/g, "-");
+    note.textContent = "Saving...";
+    try { await saveNpc({id}, {name: n, by: person(me()) || "", about: ""}); openNpc(id); }
+    catch (err) { note.textContent = /check constraint/i.test(err.message) ? "NPCs are not switched on in the database yet." : err.message; }
+  };
+  name.addEventListener("keydown", ev => { if (ev.key === "Enter") go(); });
+  return h("div", {class: "box"}, h("h3", {style: "margin-top:0"}, "Create NPC"),
+    h("div", {class: "sub"}, "A person you meet in the game who is not one of us: your own character. It gets a trainer sprite in the trainer studio. Only characters you made yourself (no characters from other games, films or shows)."),
+    h("div", {class: "storyline"}, name, h("button", {type: "button", class: "primary", onclick: go}, "Create")), note);
+}
+function renderNpcPage(n) {
+  const grid = document.getElementById("grid");
+  const status = h("div", {class: "hint charstatus", role: "status"});
+  const mine = person(me()), owner = !n.by || (mine && person(n.by) === mine);
+  const save = async changes => { status.textContent = "Saving..."; try { await saveNpc(n, changes); status.textContent = ""; if (!changes.deleted) { n = npcs.get(n.id); renderNpcPage(n); } } catch (err) { status.textContent = err.message; } };
+  const nameBox = h("input", {type: "text", maxlength: 40, value: n.name || "", "aria-label": "NPC name", style: "max-width:220px"});
+  nameBox.addEventListener("change", () => nameBox.value.trim() && save({name: nameBox.value.trim()}));
+  const about = h("textarea", {maxlength: 300, rows: 3, placeholder: "Who is this? Where do you meet them? (optional)", "aria-label": "About the NPC"}, n.about || "");
+  about.addEventListener("change", () => save({about: about.value.trim().slice(0, 300)}));
+  const bar = h("div", {class: "tbar charbar"}, h("button", {type: "button", onclick: closeNpc}, "◀ All characters"), h("b", {class: "charname"}, n.name || "NPC"),
+    h("span", {class: "grow"}), h("span", {class: "badge"}, "NPC" + (n.by ? " by " + person(n.by) : "")));
+  const left = h("div", {class: "charside"},
+    h("div", {class: "charstage"}, n.sprite ? spriteImg(n.sprite) : h("span", {class: "charsil"}, "?")),
+    h("div", {class: "factrows"}, h("div", {}, h("span", {}, "Name"), nameBox), h("div", {}, h("span", {}, "Made by"), n.by ? person(n.by) : "someone")),
+    h("div", {style: "margin-top:6px"}, about),
+    owner ? h("button", {type: "button", class: "small", style: "margin-top:8px", onclick: ev => sure(ev.currentTarget, "Really delete this NPC?", async () => { await save({deleted: true}); closeNpc(); })}, "Delete NPC") : null);
+  const main = h("div", {class: "charmain"}, h("h3", {style: "margin-top:0"}, "Trainer studio"),
+    trainerSpriteBox(n.id, {kind: "npc", name: n.name, pics: [], current: n.sprite, onPick: async sprite => { await saveNpc(n, {sprite}); n = npcs.get(n.id); },
+      onClose: () => { if (npcOpen === n.id) renderNpcPage(npcs.get(n.id) || n); }}));
+  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, h("div", {class: "charcols"}, left, main)));
+}
+function npcSection() {
+  const list = [...npcs.values()].sort((a, b) => String(a.name).localeCompare(String(b.name)));
+  return h("div", {}, h("h3", {}, "NPCs"),
+    h("div", {class: "sub"}, "Characters the group made for the game. Tap one to change it or make its sprite."),
+    list.length ? h("div", {class: "chargrid"}, list.map(n => h("button", {type: "button", class: "card charcard", onclick: () => openNpc(n.id)},
+      h("div", {class: "charthumb"}, n.sprite ? spriteImg(n.sprite, "") : h("span", {class: "charsil"}, "?")),
+      h("b", {}, n.name || "NPC"), n.by ? h("div", {class: "sub"}, "by " + person(n.by)) : null))) : h("div", {class: "sub"}, "No NPCs yet."),
+    createNpcBox());
 }
 
 function renderBalance() {
@@ -6151,13 +6636,15 @@ function drawTray() {
   if (!tray.jobs.length && !tray.ready.length) { tray.el.hidden = true; return; }
   tray.el.hidden = false;
   const online = tray.worker && Date.now() - new Date(tray.worker.seen_at).getTime() < 90000;
-  const names = {art: "cut-out", front: "front", back: "back", icon: "icon", follower: "walking sprite"};
+  const names = {art: "cut-out", front: "front", back: "back", icon: "icon", follower: "walking sprite", trainer: "trainer sprite"};
   let total = 0;
   const rows = tray.jobs.map(j => {
     const n = j.count || 1, done = tray.tries.filter(x => x.job_id === j.id && x.status !== "drawing").length, each = secondsFor(timings, j.stage || "front");
     total += Math.max(5, (n - done) * each);
-    const s = byId.get(j.species_id), who = s ? s.data.name : j.species_id, isMine = !!mine[j.species_id];
-    return h("button", {type: "button", class: "trayrow" + (isMine ? " mine" : ""), onclick: () => s && openDetail(s, "sprite")},
+    const s = byId.get(j.species_id), isMine = !!mine[j.species_id];
+    const trainer = /^trainer-/.test(j.species_id) && (DEX.characters || []).find(c => "trainer-" + c.id === j.species_id), npc = npcs.get(j.species_id);
+    const who = s ? s.data.name : trainer ? "A trainer" : npc ? npc.name || "An NPC" : /^npc-/.test(j.species_id) ? "An NPC" : j.species_id;
+    return h("button", {type: "button", class: "trayrow" + (isMine ? " mine" : ""), onclick: () => s ? openDetail(s, "sprite") : trainer ? openCharacter(trainer, "studio") : npc ? openNpc(npc.id) : null},
       j.status === "running" ? h("span", {class: "spinner"}) : h("span", {class: "dot"}),
       h("span", {class: "who"}, (isMine ? "\u2605 " : "") + who), h("span", {class: "what"}, n + " " + (names[j.stage] || j.stage || "sprite") + (n > 1 ? "s" : "")),
       h("span", {class: "when"}, j.status === "running" ? done + "/" + n : "in line", " \u00b7 ", online ? aboutMinutes(total).replace("about ", "~") : "waits for the PC"));
@@ -6292,6 +6779,7 @@ async function loadRecentEdits() {
         continue;
       }
       if (row.kind === "request") continue;          // cards on the request board (loaded by loadBoard)
+      if (row.kind === "npc") continue;              // NPCs made in CREATE NPC (loaded by loadNpcs)
       if (row.kind === "shiny" || row.kind === "cry") {   // a shiny or a cry saved since the build
         const store = row.kind === "shiny" ? DEX.shinies : DEX.cries;
         if (row.data.deleted) delete store[row.species_id]; else store[row.species_id] = Object.assign({}, row.data, {by: row.editor});
@@ -6366,10 +6854,13 @@ document.addEventListener("click", ev => { for (const d of document.querySelecto
 if (takeSharedTeam()) view = "teams";
 const charFromHash = () => { const m = location.hash.match(/^#char=([a-z0-9-]+)$/); return m && (DEX.characters || []).some(c => c.id === m[1]) ? m[1] : ""; };
 if (charFromHash() && (CLAIMS_OPEN || CHARS_PREVIEW)) { view = "chars"; charOpen = charFromHash(); }
+const npcFromHash = () => { const m = location.hash.match(/^#npc=(npc-[a-z0-9-]+)$/); return m ? m[1] : ""; };
+if (npcFromHash() && (CLAIMS_OPEN || CHARS_PREVIEW)) { view = "chars"; npcOpen = npcFromHash(); }
 window.addEventListener("popstate", () => {      // the browser's back button: from a trainer's page back to the list, and forward again
-  const id = charFromHash();
-  if (id) { view = "chars"; charOpen = id; render(); }
-  else if (charOpen) { charOpen = ""; render(); }
+  const id = charFromHash(), nid = npcFromHash();
+  if (id) { view = "chars"; charOpen = id; npcOpen = ""; render(); }
+  else if (nid) { view = "chars"; npcOpen = nid; charOpen = ""; render(); }
+  else if (charOpen || npcOpen) { charOpen = ""; npcOpen = ""; render(); }
 });
 render();
 if (location.hash && byId.has(location.hash.slice(1))) openDetail(byId.get(location.hash.slice(1)));

@@ -1,0 +1,3197 @@
+{
+"sheet": "trainer-bases/sheet.png",
+"cols": 16,
+"cell": 80,
+"bases": [
+{
+"id": "hgss:0",
+"game": "HGSS",
+"label": "Pokemon Trainer (main character)",
+"fields": {
+"cls": "Pokemon Trainer (main character)",
+"who": "a teenage boy",
+"skin": "light skin",
+"hair": "short dark hair with a fringe, under a black and yellow baseball cap worn sideways",
+"clothes": "a red and black zip jacket with white trim, baggy dark grey knee-length shorts, red and white sneakers",
+"pose": "standing with legs apart, one fist raised to the chest, ready to throw",
+"facing": "turned three-quarters to the left",
+"build": "slim",
+"mood": "determined"
+}
+},
+{
+"id": "hgss:1",
+"game": "HGSS",
+"label": "Pokemon Trainer (main character)",
+"fields": {
+"cls": "Pokemon Trainer (main character)",
+"who": "a teenage girl",
+"skin": "light skin",
+"hair": "long brown hair in two pigtails",
+"clothes": "a big white puffy hat with a red bow, a red long-sleeved top under blue denim overalls with short legs, white thigh-high socks, red shoes",
+"extra": "a yellow bag at the hip",
+"pose": "running forward with arms spread",
+"facing": "facing the viewer, body turned a little to the left",
+"build": "slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "hgss:2",
+"game": "HGSS",
+"label": "Youngster",
+"fields": {
+"cls": "Youngster",
+"who": "a young boy of about 10",
+"skin": "light skin",
+"hair": "short dark hair under a blue baseball cap",
+"clothes": "a yellow T-shirt with white sleeves, blue shorts, blue sneakers",
+"extra": "a bandage on one knee",
+"held": "a red and white Poke Ball",
+"pose": "wide stance, about to throw the Poke Ball",
+"facing": "turned three-quarters to the left",
+"build": "small and slim",
+"mood": "eager"
+}
+},
+{
+"id": "hgss:3",
+"game": "HGSS",
+"label": "Lass",
+"fields": {
+"cls": "Lass",
+"who": "a young girl of about 12",
+"skin": "light skin",
+"hair": "short brown bob with a red flower clip",
+"clothes": "a black sleeveless dress with a pink collar and a red bow, white socks, brown shoes",
+"held": "a red and white Poke Ball held up",
+"pose": "playful pose, one leg kicked back",
+"facing": "turned to the left",
+"build": "small and slim",
+"mood": "playful"
+}
+},
+{
+"id": "hgss:4",
+"game": "HGSS",
+"label": "Camper",
+"fields": {
+"cls": "Camper",
+"who": "a young boy",
+"skin": "light skin",
+"hair": "dark hair under a green cap with two red badges",
+"clothes": "a light blue short-sleeved shirt, green overall shorts, grey knee socks, orange shoes",
+"held": "a red and white Poke Ball",
+"pose": "pointing forward with one arm, the other arm back",
+"facing": "turned three-quarters to the left",
+"build": "small and slim",
+"mood": "excited"
+}
+},
+{
+"id": "hgss:5",
+"game": "HGSS",
+"label": "Picnicker",
+"fields": {
+"cls": "Picnicker",
+"who": "a young girl",
+"skin": "light skin",
+"hair": "long dark navy hair in a ponytail under a green cap",
+"clothes": "a light blue short-sleeved shirt, a green skirt, grey socks, orange shoes",
+"pose": "leaning forward with both arms spread",
+"facing": "turned to the left",
+"build": "small and slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "hgss:6",
+"game": "HGSS",
+"label": "Bug Catcher",
+"fields": {
+"cls": "Bug Catcher",
+"who": "a young boy",
+"skin": "tan skin",
+"hair": "short dark hair under a wide straw hat with a green band",
+"clothes": "a white short-sleeved shirt, blue shorts, green sandals",
+"extra": "a green bug cage on a strap over the shoulder",
+"held": "a big bug net raised high",
+"pose": "running, swinging the net",
+"facing": "turned to the right",
+"build": "small and slim",
+"mood": "excited"
+}
+},
+{
+"id": "hgss:7",
+"game": "HGSS",
+"label": "Aroma Lady",
+"fields": {
+"cls": "Aroma Lady",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "long brown hair in a low side ponytail",
+"clothes": "a white long-sleeved blouse, a long green skirt, green flat shoes",
+"extra": "green rings and pink sparkles of scent floating around her",
+"pose": "standing relaxed, turned a little to the side",
+"facing": "facing the viewer, turned a little to the right",
+"build": "slim",
+"mood": "calm and gentle"
+}
+},
+{
+"id": "hgss:8",
+"game": "HGSS",
+"label": "Twins",
+"fields": {
+"cls": "Twins",
+"who": "two identical young girls",
+"skin": "light skin",
+"hair": "dark brown hair in pigtails with yellow bows",
+"clothes": "pink jackets, light blue skirts, striped socks, yellow shoes",
+"pose": "the two girls side by side, holding hands and leaning together",
+"facing": "facing the viewer",
+"build": "small",
+"mood": "happy"
+}
+},
+{
+"id": "hgss:9",
+"game": "HGSS",
+"label": "Hiker",
+"fields": {
+"cls": "Hiker",
+"who": "a heavy-set middle-aged man",
+"skin": "light skin",
+"hair": "short dark hair and a thick dark beard, under an olive bush hat with a red feather",
+"clothes": "a green long-sleeved shirt, wide khaki trousers over a big belly, red boots",
+"extra": "a huge rolled backpack",
+"held": "a wooden walking stick",
+"pose": "standing, stroking his beard",
+"facing": "facing the viewer",
+"build": "big and heavy",
+"mood": "jolly"
+}
+},
+{
+"id": "hgss:10",
+"game": "HGSS",
+"label": "Battle Girl",
+"fields": {
+"cls": "Battle Girl",
+"who": "a young woman",
+"skin": "tan skin",
+"hair": "blonde hair in a high ponytail with a blue band",
+"clothes": "an orange crop top and orange shorts, blue fingerless gloves, blue shoes",
+"pose": "a high side kick, fists up",
+"facing": "turned to the left",
+"build": "athletic",
+"mood": "fierce"
+}
+},
+{
+"id": "hgss:11",
+"game": "HGSS",
+"label": "Fisherman",
+"fields": {
+"cls": "Fisherman",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "short dark hair under an orange cap",
+"clothes": "a white T-shirt under an orange vest, brown trousers, dark boots",
+"extra": "sitting on a grey cooler box",
+"held": "a fishing rod cast overhead, its line ending in a Poke Ball on the ground",
+"pose": "seated, casting the rod",
+"facing": "facing the viewer",
+"build": "average",
+"mood": "focused"
+}
+},
+{
+"id": "hgss:12",
+"game": "HGSS",
+"label": "Cyclist",
+"fields": {
+"cls": "Cyclist",
+"who": "a young man",
+"skin": "tan skin",
+"hair": "short dark hair under a red and white cycling cap",
+"clothes": "a red sleeveless top, dark cycling shorts",
+"extra": "riding a red road bike",
+"held": "a red and white Poke Ball held out",
+"pose": "riding the bike toward the viewer",
+"facing": "turned to the left",
+"build": "athletic",
+"mood": "confident"
+}
+},
+{
+"id": "hgss:13",
+"game": "HGSS",
+"label": "Cyclist",
+"fields": {
+"cls": "Cyclist",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "orange hair in a ponytail under a red visor",
+"clothes": "a red sleeveless top, beige shorts",
+"extra": "riding a red road bike",
+"held": "a red and white Poke Ball held up",
+"pose": "riding the bike, one arm raised",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "hgss:14",
+"game": "HGSS",
+"label": "Black Belt",
+"fields": {
+"cls": "Black Belt",
+"who": "a young man",
+"skin": "light skin",
+"hair": "spiky dark navy hair",
+"clothes": "a white karate gi with a black belt, barefoot",
+"extra": "red wristbands",
+"pose": "fighting stance, one fist raised, shouting",
+"facing": "turned to the left",
+"build": "muscular",
+"mood": "fierce"
+}
+},
+{
+"id": "hgss:15",
+"game": "HGSS",
+"label": "Artist",
+"fields": {
+"cls": "Artist",
+"who": "an old man",
+"skin": "light skin",
+"hair": "grey hair and a big grey mustache, under a green beret",
+"clothes": "a grey shirt, a brown vest, green striped trousers, dark shoes",
+"held": "a paintbrush raised and a wooden painter's palette",
+"pose": "standing proudly with the brush up",
+"facing": "facing the viewer",
+"build": "average",
+"mood": "proud"
+}
+},
+{
+"id": "hgss:16",
+"game": "HGSS",
+"label": "Pokemon Breeder",
+"fields": {
+"cls": "Pokemon Breeder",
+"who": "a young man",
+"skin": "tan skin",
+"hair": "brown hair under a green bandana with a white Poke Ball emblem",
+"clothes": "a green apron over a white short-sleeved shirt, brown knee-length trousers, green shoes",
+"held": "a grey metal bucket full of red berries",
+"pose": "leaning forward, carrying the bucket",
+"facing": "turned three-quarters to the left",
+"build": "slim",
+"mood": "friendly"
+}
+},
+{
+"id": "hgss:17",
+"game": "HGSS",
+"label": "Pokemon Breeder",
+"fields": {
+"cls": "Pokemon Breeder",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "short brown hair under a green bandana with a white Poke Ball emblem",
+"clothes": "a green apron over a white short-sleeved shirt, brown trousers, green shoes",
+"held": "a grey metal bucket full of red berries",
+"pose": "bent forward, carrying the bucket with both hands",
+"facing": "turned three-quarters to the left",
+"build": "slim",
+"mood": "friendly"
+}
+},
+{
+"id": "hgss:18",
+"game": "HGSS",
+"label": "Cowgirl",
+"fields": {
+"cls": "Cowgirl",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "long blonde hair in two braids under a brown cowboy hat",
+"clothes": "a white shirt under blue denim overalls, brown leather chaps, brown boots",
+"extra": "a brown belt",
+"held": "a coiled yellow lasso and a red and white Poke Ball",
+"pose": "standing with one arm stretched out",
+"facing": "facing the viewer, turned a little to the right",
+"build": "slim",
+"mood": "lively"
+}
+},
+{
+"id": "hgss:19",
+"game": "HGSS",
+"label": "Jogger",
+"fields": {
+"cls": "Jogger",
+"who": "a young man",
+"skin": "tan skin",
+"hair": "short dark hair under a blue visor",
+"clothes": "a dark blue tank top, orange running shorts, green sneakers",
+"pose": "jogging, small dust puffs behind his feet",
+"facing": "turned to the right",
+"build": "athletic",
+"mood": "focused"
+}
+},
+{
+"id": "hgss:20",
+"game": "HGSS",
+"label": "Poke Fan",
+"fields": {
+"cls": "Poke Fan",
+"who": "a chubby adult man",
+"skin": "light skin",
+"hair": "short dark hair",
+"clothes": "a dark green T-shirt with a yellow stripe, blue trousers, red shoes",
+"extra": "a toy Pichu-like Pokemon riding on his back",
+"held": "a red and white Poke Ball on the ground",
+"pose": "crawling on all fours, smiling",
+"facing": "turned to the left",
+"build": "chubby",
+"mood": "happy"
+}
+},
+{
+"id": "hgss:21",
+"game": "HGSS",
+"label": "Poke Fan",
+"fields": {
+"cls": "Poke Fan",
+"who": "a chubby adult woman",
+"skin": "light skin",
+"hair": "curly brown hair",
+"clothes": "a red-orange dress with a yellow belt, red shoes",
+"extra": "two seed-like Pokemon toys beside her and one in her arms",
+"held": "a red and white Poke Ball",
+"pose": "sitting on the ground, hugging a small Pokemon",
+"facing": "facing the viewer",
+"build": "chubby",
+"mood": "happy"
+}
+},
+{
+"id": "hgss:22",
+"game": "HGSS",
+"label": "Poke Kid",
+"fields": {
+"cls": "Poke Kid",
+"who": "a little girl",
+"skin": "light skin",
+"hair": "brown hair",
+"clothes": "a yellow Pikachu costume hood with long black-tipped ears and a lightning-bolt tail, pink leggings, brown shoes",
+"pose": "jumping playfully, one hand by the face",
+"facing": "turned to the left",
+"build": "small",
+"mood": "playful"
+}
+},
+{
+"id": "hgss:23",
+"game": "HGSS",
+"label": "Rival",
+"fields": {
+"cls": "Rival",
+"who": "a teenage boy",
+"skin": "light skin",
+"hair": "long spiky red hair falling over one eye",
+"clothes": "a dark navy jacket with a high collar and red trim, dark navy trousers, red and black shoes",
+"pose": "standing with hands in pockets, cold expression",
+"facing": "facing the viewer, turned a little to the right",
+"build": "slim",
+"mood": "cold and moody"
+}
+},
+{
+"id": "hgss:24",
+"game": "HGSS",
+"label": "Ace Trainer",
+"fields": {
+"cls": "Ace Trainer",
+"who": "a young man",
+"skin": "light skin",
+"hair": "spiky dark navy hair",
+"clothes": "a red zip jacket with a high collar, black fingerless gloves, dark navy trousers, red boots",
+"held": "a red and white Poke Ball held up",
+"pose": "confident stance, one hand on the hip",
+"facing": "facing the viewer",
+"build": "athletic",
+"mood": "confident"
+}
+},
+{
+"id": "hgss:25",
+"game": "HGSS",
+"label": "Ace Trainer",
+"fields": {
+"cls": "Ace Trainer",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "dark navy hair in a high bun",
+"clothes": "a red zip jacket, black shorts, black thigh-high stockings, red boots",
+"held": "a red and white Poke Ball held up",
+"pose": "confident stance, legs apart",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "confident"
+}
+},
+{
+"id": "hgss:26",
+"game": "HGSS",
+"label": "Waitress",
+"fields": {
+"cls": "Waitress",
+"who": "a young woman",
+"skin": "tan skin",
+"hair": "short brown hair with a white headband",
+"clothes": "a blue puffy dress with a white apron, white shoes",
+"held": "a silver tray with two red and white Poke Balls",
+"pose": "walking quickly, carrying the tray",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "busy"
+}
+},
+{
+"id": "hgss:27",
+"game": "HGSS",
+"label": "Veteran",
+"fields": {
+"cls": "Veteran",
+"who": "an older woman",
+"skin": "light skin",
+"hair": "long grey hair",
+"clothes": "a white kimono top with a red hakama skirt, white socks",
+"held": "a red and white Poke Ball",
+"pose": "standing calm and upright",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "calm and dignified"
+}
+},
+{
+"id": "hgss:28",
+"game": "HGSS",
+"label": "Ninja Boy",
+"fields": {
+"cls": "Ninja Boy",
+"who": "a young boy",
+"skin": "light skin",
+"hair": "dark hair under an olive green head wrap with a metal plate",
+"clothes": "a dark grey ninja outfit, red sash, a long red scarf flying behind him, grey shoes",
+"held": "a red and white Poke Ball",
+"pose": "running fast, crouched forward",
+"facing": "turned to the left",
+"build": "small",
+"mood": "excited"
+}
+},
+{
+"id": "hgss:29",
+"game": "HGSS",
+"label": "Dragon Tamer",
+"fields": {
+"cls": "Dragon Tamer",
+"who": "a tall young man",
+"skin": "light skin",
+"hair": "spiky grey hair",
+"clothes": "a long purple and black cape with gold trim, grey and black clothes, gold boots",
+"held": "a red and white Poke Ball",
+"pose": "standing, one arm swept forward under the cape",
+"facing": "turned to the left",
+"build": "tall and slim",
+"mood": "serious"
+}
+},
+{
+"id": "hgss:30",
+"game": "HGSS",
+"label": "Bird Keeper",
+"fields": {
+"cls": "Bird Keeper",
+"who": "a young man",
+"skin": "tan skin",
+"hair": "spiky orange hair",
+"clothes": "a blue jumpsuit with a brown belt, brown gloves, brown shoes",
+"extra": "blue feathers floating",
+"held": "an empty birdcage",
+"pose": "saluting, holding the cage",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "hgss:31",
+"game": "HGSS",
+"label": "Juggler",
+"fields": {
+"cls": "Juggler",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "spiky yellow hair with a red headband",
+"clothes": "a white shirt, a red bow tie, a dark grey vest, red trousers, a short red cape",
+"extra": "three red and white Poke Balls in the air",
+"pose": "juggling the Poke Balls, smiling",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "hgss:32",
+"game": "HGSS",
+"label": "Rich Boy",
+"fields": {
+"cls": "Rich Boy",
+"who": "a teenage boy",
+"skin": "light skin",
+"hair": "short purple hair under a purple flat cap",
+"clothes": "a white suit with a purple bow tie and purple shoes",
+"held": "a red and white Poke Ball",
+"pose": "standing elegantly, offering the Poke Ball",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "smug"
+}
+},
+{
+"id": "hgss:33",
+"game": "HGSS",
+"label": "Lady",
+"fields": {
+"cls": "Lady",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "very long dark navy hair",
+"clothes": "a white sundress with a pink hem, a wide white sun hat with a pink ribbon, white sandals",
+"extra": "a small white shoulder bag",
+"held": "a red and white Poke Ball",
+"pose": "standing, one hand holding her hat",
+"facing": "facing the viewer, turned a little to the right",
+"build": "slim",
+"mood": "elegant and cheerful"
+}
+},
+{
+"id": "hgss:34",
+"game": "HGSS",
+"label": "Gentleman",
+"fields": {
+"cls": "Gentleman",
+"who": "an old man",
+"skin": "light skin",
+"hair": "grey hair and a grey mustache, under a brown bowler hat",
+"clothes": "a long brown overcoat over a purple waistcoat and tie, dark trousers, dark shoes",
+"held": "a red and white Poke Ball and a brown leather suitcase",
+"pose": "standing upright and dignified",
+"facing": "turned a little to the left",
+"build": "average",
+"mood": "dignified"
+}
+},
+{
+"id": "hgss:35",
+"game": "HGSS",
+"label": "Socialite",
+"fields": {
+"cls": "Socialite",
+"who": "an older woman",
+"skin": "light skin",
+"hair": "short grey hair under a brown hat with a pink flower",
+"clothes": "a beige fur-trimmed coat with a pink fur collar, white gloves, light shoes",
+"pose": "standing, one gloved hand at her cheek",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "refined"
+}
+},
+{
+"id": "hgss:36",
+"game": "HGSS",
+"label": "Beauty",
+"fields": {
+"cls": "Beauty",
+"who": "a young woman",
+"skin": "tan skin",
+"hair": "long wavy light brown hair",
+"clothes": "a short black dress with pink trim, black heels",
+"extra": "a black handbag with pink spots over the shoulder",
+"pose": "posing with one hand on the hip, walking like a model",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "confident and flirty"
+}
+},
+{
+"id": "hgss:37",
+"game": "HGSS",
+"label": "Collector",
+"fields": {
+"cls": "Collector",
+"who": "a chubby adult man",
+"skin": "light skin",
+"hair": "short blue hair, round glasses",
+"clothes": "a white short-sleeved shirt, blue jeans, red shoes",
+"extra": "a big red backpack on the ground",
+"held": "a red and white Poke Ball held up proudly",
+"pose": "kneeling on the ground",
+"facing": "turned to the right",
+"build": "chubby",
+"mood": "proud"
+}
+},
+{
+"id": "hgss:38",
+"game": "HGSS",
+"label": "Policeman",
+"fields": {
+"cls": "Policeman",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "short brown hair under a navy police cap with a gold badge",
+"clothes": "a navy police uniform with a black belt and holster, dark shoes",
+"extra": "a whistle; a bright yellow flash of light",
+"held": "a yellow flashlight",
+"pose": "standing alert, shining the flashlight",
+"facing": "turned to the left",
+"build": "average",
+"mood": "alert"
+}
+},
+{
+"id": "hgss:39",
+"game": "HGSS",
+"label": "Pokemon Ranger",
+"fields": {
+"cls": "Pokemon Ranger",
+"who": "a young man",
+"skin": "tan skin",
+"hair": "short dark hair under a red cap",
+"clothes": "a red vest over a dark shirt, dark trousers, red-brown boots, a yellow belt",
+"extra": "a coiled capture rope at the hip",
+"pose": "standing, one hand raised to the cap",
+"facing": "facing the viewer",
+"build": "athletic",
+"mood": "confident"
+}
+},
+{
+"id": "hgss:40",
+"game": "HGSS",
+"label": "Pokemon Ranger",
+"fields": {
+"cls": "Pokemon Ranger",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "purple hair under a red cap",
+"clothes": "a red and black jacket, red shorts, black stockings, red boots",
+"extra": "a coiled capture rope",
+"held": "a red and white Poke Ball",
+"pose": "running pose, one knee raised",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "lively"
+}
+},
+{
+"id": "hgss:41",
+"game": "HGSS",
+"label": "Scientist",
+"fields": {
+"cls": "Scientist",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "short dark navy hair, glasses",
+"clothes": "a long white lab coat over a white shirt and white trousers, blue shoes",
+"extra": "a yellow ID badge",
+"held": "a red and white Poke Ball",
+"pose": "standing hunched, coat open",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "sly"
+}
+},
+{
+"id": "hgss:42",
+"game": "HGSS",
+"label": "Swimmer",
+"fields": {
+"cls": "Swimmer",
+"who": "a young man",
+"skin": "tan skin",
+"hair": "hidden under a white swim cap with goggles",
+"clothes": "black and grey swim trunks, barefoot, bare chest",
+"pose": "stretching low before a dive, arms behind the head",
+"facing": "turned to the right",
+"build": "muscular",
+"mood": "energetic"
+}
+},
+{
+"id": "hgss:43",
+"game": "HGSS",
+"label": "Swimmer",
+"fields": {
+"cls": "Swimmer",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "brown hair in a bun",
+"clothes": "a blue bikini, barefoot",
+"held": "a red and white Poke Ball held overhead",
+"pose": "standing on tiptoe, stretching",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "hgss:44",
+"game": "HGSS",
+"label": "Tuber",
+"fields": {
+"cls": "Tuber",
+"who": "a little boy",
+"skin": "tan skin",
+"hair": "short brown hair",
+"clothes": "light orange swim trunks, barefoot, bare chest",
+"extra": "a blue swim ring around his waist",
+"pose": "standing on one leg, holding the swim ring",
+"facing": "facing the viewer",
+"build": "small",
+"mood": "happy"
+}
+},
+{
+"id": "hgss:45",
+"game": "HGSS",
+"label": "Tuber",
+"fields": {
+"cls": "Tuber",
+"who": "a little girl",
+"skin": "tan skin",
+"hair": "brown hair with a red clip",
+"clothes": "a blue swimsuit, barefoot",
+"extra": "a big pink swim ring held over her back",
+"pose": "crouching, ready to jump",
+"facing": "turned to the right",
+"build": "small",
+"mood": "playful"
+}
+},
+{
+"id": "hgss:46",
+"game": "HGSS",
+"label": "Sailor",
+"fields": {
+"cls": "Sailor",
+"who": "a stout adult man",
+"skin": "light skin",
+"hair": "short dark hair under a white sailor cap",
+"clothes": "a white sailor uniform with a navy collar and a red neckerchief, white trousers",
+"held": "black binoculars",
+"pose": "standing, holding the binoculars to his chest",
+"facing": "facing the viewer",
+"build": "stout",
+"mood": "friendly"
+}
+},
+{
+"id": "hgss:47",
+"game": "HGSS",
+"label": "Kimono Girl",
+"fields": {
+"cls": "Kimono Girl",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "black hair in a traditional updo with red and gold hair ornaments",
+"clothes": "a red and green layered kimono with a yellow pattern, wooden sandals",
+"held": "a red and white Poke Ball",
+"pose": "standing gracefully",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "graceful"
+}
+},
+{
+"id": "hgss:48",
+"game": "HGSS",
+"label": "Ruin Maniac",
+"fields": {
+"cls": "Ruin Maniac",
+"who": "an adult man",
+"skin": "tan skin",
+"hair": "short dark hair under a tan bush hat",
+"clothes": "khaki explorer clothes with many pockets, green boots",
+"extra": "a big green backpack",
+"held": "an old stone tablet fragment",
+"pose": "crouching forward, studying the tablet",
+"facing": "turned to the left",
+"build": "stocky",
+"mood": "curious"
+}
+},
+{
+"id": "hgss:49",
+"game": "HGSS",
+"label": "Psychic",
+"fields": {
+"cls": "Psychic",
+"who": "a young man",
+"skin": "light skin",
+"hair": "dark green hair",
+"clothes": "a purple loose tunic with a dark belt, wide purple trousers, barefoot",
+"extra": "glowing yellow psychic lights and a floating Poke Ball",
+"pose": "arms raised, using psychic power",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "focused"
+}
+},
+{
+"id": "hgss:50",
+"game": "HGSS",
+"label": "Psychic",
+"fields": {
+"cls": "Psychic",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "dark green hair in a ponytail",
+"clothes": "a purple loose tunic with a dark belt, wide purple trousers, barefoot",
+"extra": "glowing yellow psychic lights and a floating Poke Ball",
+"pose": "arms raised over the head, using psychic power",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "focused"
+}
+},
+{
+"id": "hgss:51",
+"game": "HGSS",
+"label": "PI (detective)",
+"fields": {
+"cls": "PI (detective)",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "brown hair under a brown fedora",
+"clothes": "a long brown trench coat, grey trousers, dark shoes",
+"extra": "a gold spark",
+"pose": "standing turned, one hand tipping the hat",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "mysterious"
+}
+},
+{
+"id": "hgss:52",
+"game": "HGSS",
+"label": "Guitarist",
+"fields": {
+"cls": "Guitarist",
+"who": "a young man",
+"skin": "light skin",
+"hair": "long straight blonde hair",
+"clothes": "a black sleeveless top, black trousers, white shoes",
+"held": "a red electric guitar",
+"pose": "rocking pose, fist raised, playing the guitar",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "wild"
+}
+},
+{
+"id": "hgss:53",
+"game": "HGSS",
+"label": "Ace Trainer",
+"fields": {
+"cls": "Ace Trainer",
+"who": "a young man",
+"skin": "light skin",
+"hair": "short dark green hair",
+"clothes": "an orange flight suit with a fur collar, beige gloves, dark green boots",
+"held": "a red and white Poke Ball",
+"pose": "battle stance, arms spread",
+"facing": "facing the viewer",
+"build": "athletic",
+"mood": "confident"
+}
+},
+{
+"id": "hgss:54",
+"game": "HGSS",
+"label": "Ace Trainer",
+"fields": {
+"cls": "Ace Trainer",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "long flowing dark green hair",
+"clothes": "an orange flight suit with a fur collar, beige gloves, dark green boots",
+"held": "a red and white Poke Ball held up",
+"pose": "battle stance, hair blowing",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "confident"
+}
+},
+{
+"id": "hgss:55",
+"game": "HGSS",
+"label": "Team Rocket Grunt",
+"fields": {
+"cls": "Team Rocket Grunt",
+"who": "a young man",
+"skin": "light skin",
+"hair": "red hair under a black cap",
+"clothes": "a black uniform with grey gloves and grey boots",
+"held": "a red and white Poke Ball",
+"pose": "crouched, sneaky stance",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "sneaky"
+}
+},
+{
+"id": "hgss:56",
+"game": "HGSS",
+"label": "Skier",
+"fields": {
+"cls": "Skier",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "blue hair under a pink knit hat with white goggles",
+"clothes": "a pink ski suit, pink boots",
+"extra": "skis and ski poles, a spray of snow",
+"pose": "skiing downhill, leaning forward",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "excited"
+}
+},
+{
+"id": "hgss:57",
+"game": "HGSS",
+"label": "Roughneck",
+"fields": {
+"cls": "Roughneck",
+"who": "a big adult man",
+"skin": "tan skin",
+"hair": "bald head",
+"clothes": "a black sleeveless jacket with a blue skull print, a grey fur collar, blue jeans, dark shoes",
+"extra": "blue wristbands",
+"held": "a red and white Poke Ball tossed in the air",
+"pose": "looming forward, menacing",
+"facing": "turned to the right",
+"build": "big and heavy",
+"mood": "menacing"
+}
+},
+{
+"id": "hgss:58",
+"game": "HGSS",
+"label": "Clown",
+"fields": {
+"cls": "Clown",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "hidden under a yellow jester hat with white pompoms",
+"clothes": "a yellow and red clown costume with a white ruff collar, white tights, yellow shoes",
+"extra": "a red clown nose",
+"held": "two red and white Poke Balls",
+"pose": "juggling, standing on one leg",
+"facing": "facing the viewer",
+"build": "average",
+"mood": "silly"
+}
+},
+{
+"id": "hgss:59",
+"game": "HGSS",
+"label": "Worker",
+"fields": {
+"cls": "Worker",
+"who": "a young man",
+"skin": "tan skin",
+"hair": "short dark hair under a yellow hard hat",
+"clothes": "green work overalls, a brown tool belt, brown gloves, tan boots",
+"held": "a yellow hand tool",
+"pose": "crouching, working with the tool",
+"facing": "turned to the left",
+"build": "average",
+"mood": "focused"
+}
+},
+{
+"id": "hgss:60",
+"game": "HGSS",
+"label": "School Kid",
+"fields": {
+"cls": "School Kid",
+"who": "a young boy",
+"skin": "light skin",
+"hair": "blue-grey hair, round glasses",
+"clothes": "a light blue shirt, olive trousers, white shoes",
+"extra": "a blue school bag on a strap, pencils falling",
+"held": "a red and white Poke Ball",
+"pose": "standing, Poke Ball raised near the face",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "nervous"
+}
+},
+{
+"id": "hgss:61",
+"game": "HGSS",
+"label": "School Kid",
+"fields": {
+"cls": "School Kid",
+"who": "a young girl",
+"skin": "light skin",
+"hair": "short brown hair",
+"clothes": "a teal sleeveless dress over a white shirt, grey socks, orange shoes",
+"extra": "an orange school bag",
+"pose": "standing straight, smiling",
+"facing": "facing the viewer",
+"build": "small and slim",
+"mood": "shy"
+}
+},
+{
+"id": "hgss:62",
+"game": "HGSS",
+"label": "Team Rocket Grunt",
+"fields": {
+"cls": "Team Rocket Grunt",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "short magenta hair under a black cap",
+"clothes": "a black uniform with a red R on the chest, black shorts, grey gloves and grey thigh-high boots",
+"pose": "pointing forward, legs apart",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "bold"
+}
+},
+{
+"id": "hgss:63",
+"game": "HGSS",
+"label": "Burglar",
+"fields": {
+"cls": "Burglar",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "grey cap, a white bandana over the lower face",
+"clothes": "a grey hooded jacket, dark blue trousers, dark shoes",
+"extra": "a dark sack over the shoulder, Poke Balls falling out",
+"pose": "sneaking, hunched forward",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "sneaky"
+}
+},
+{
+"id": "hgss:64",
+"game": "HGSS",
+"label": "Firebreather",
+"fields": {
+"cls": "Firebreather",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "spiky blonde hair, red face paint",
+"clothes": "a yellow and red flame-patterned open jacket, bare chest, khaki trousers, red shoes",
+"extra": "a burst of fire from his mouth",
+"held": "a lit torch",
+"pose": "leaning back, breathing fire",
+"facing": "turned to the left",
+"build": "heavy",
+"mood": "wild"
+}
+},
+{
+"id": "hgss:65",
+"game": "HGSS",
+"label": "Biker",
+"fields": {
+"cls": "Biker",
+"who": "a big adult man",
+"skin": "tan skin",
+"hair": "black hair slicked back",
+"clothes": "a brown leather vest over a black shirt, blue jeans, brown boots, a spiked collar",
+"extra": "a blue and grey motorcycle behind him",
+"held": "a red and white Poke Ball",
+"pose": "standing in front of the motorcycle, arms crossed",
+"facing": "facing the viewer",
+"build": "big and muscular",
+"mood": "tough"
+}
+},
+{
+"id": "hgss:66",
+"game": "HGSS",
+"label": "Gym Leader (bird master)",
+"fields": {
+"cls": "Gym Leader (bird master)",
+"who": "a teenage boy",
+"skin": "light skin",
+"hair": "blue hair falling over the face",
+"clothes": "a blue and teal martial arts outfit with a white belt, wide blue trousers, white socks, dark shoes",
+"extra": "a feather drifting",
+"pose": "dynamic fighting stance, one arm raised high",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "intense"
+}
+},
+{
+"id": "hgss:67",
+"game": "HGSS",
+"label": "Gym Leader (bug expert)",
+"fields": {
+"cls": "Gym Leader (bug expert)",
+"who": "a young boy",
+"skin": "light skin",
+"hair": "short purple hair",
+"clothes": "a green short-sleeved shirt with a yellow pattern, green shorts, brown shoes",
+"held": "a long bug net",
+"pose": "crouching, holding the net upright",
+"facing": "turned to the right",
+"build": "small and slim",
+"mood": "calm"
+}
+},
+{
+"id": "hgss:68",
+"game": "HGSS",
+"label": "Poke Maniac",
+"fields": {
+"cls": "Poke Maniac",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "hidden under a hood",
+"clothes": "a green dinosaur-like Pokemon costume with a big tail and claws, a white shirt underneath",
+"pose": "arms up in the costume, roaring playfully",
+"facing": "facing the viewer",
+"build": "average",
+"mood": "playful"
+}
+},
+{
+"id": "hgss:69",
+"game": "HGSS",
+"label": "Bird Keeper",
+"fields": {
+"cls": "Bird Keeper",
+"who": "a young man",
+"skin": "light skin",
+"hair": "spiky orange-brown hair",
+"clothes": "a blue jumpsuit, a bandaged arm, a brown belt, brown boots",
+"extra": "blue feathers floating",
+"held": "an empty birdcage",
+"pose": "stepping forward, arm out for a bird to land",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "friendly"
+}
+},
+{
+"id": "hgss:70",
+"game": "HGSS",
+"label": "Gym Leader (normal type)",
+"fields": {
+"cls": "Gym Leader (normal type)",
+"who": "a teenage girl",
+"skin": "light skin",
+"hair": "pink hair in two short pigtails",
+"clothes": "a white jacket over a pink shirt, blue denim shorts, black knee socks, white sneakers",
+"pose": "pointing up high, cheerful",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "cheerful and bubbly"
+}
+},
+{
+"id": "hgss:71",
+"game": "HGSS",
+"label": "Rancher",
+"fields": {
+"cls": "Rancher",
+"who": "an old man",
+"skin": "light skin",
+"hair": "grey beard under a brown cowboy hat",
+"clothes": "a brown jacket over a red shirt, blue denim overalls, brown boots",
+"held": "a pitchfork",
+"pose": "sitting on the ground, relaxed",
+"facing": "facing the viewer",
+"build": "stocky",
+"mood": "relaxed"
+}
+},
+{
+"id": "hgss:72",
+"game": "HGSS",
+"label": "Gym Leader (ghost type)",
+"fields": {
+"cls": "Gym Leader (ghost type)",
+"who": "a young man",
+"skin": "light skin",
+"hair": "blonde hair under a purple headband",
+"clothes": "a dark purple and black sweater with a scarf, light grey trousers, dark shoes",
+"pose": "standing, one hand reaching out",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "quiet and mysterious"
+}
+},
+{
+"id": "hgss:73",
+"game": "HGSS",
+"label": "Gym Leader (ice type)",
+"fields": {
+"cls": "Gym Leader (ice type)",
+"who": "an old man",
+"skin": "light skin",
+"hair": "white hair and white eyebrows",
+"clothes": "a long teal coat with a light blue scarf, olive trousers, brown shoes",
+"held": "a silver walking cane",
+"pose": "standing calmly, leaning on the cane",
+"facing": "turned to the left",
+"build": "thin",
+"mood": "calm and stern"
+}
+},
+{
+"id": "hgss:74",
+"game": "HGSS",
+"label": "Gym Leader (steel type)",
+"fields": {
+"cls": "Gym Leader (steel type)",
+"who": "a young girl",
+"skin": "light skin",
+"hair": "long brown hair with two pointed buns and orange hair bobbles",
+"clothes": "a mint green dress with a white sleeveless coat, green sandals",
+"pose": "standing shyly, hands clasped at the chest",
+"facing": "facing the viewer",
+"build": "small and slim",
+"mood": "shy"
+}
+},
+{
+"id": "hgss:75",
+"game": "HGSS",
+"label": "Gym Leader (fighting type)",
+"fields": {
+"cls": "Gym Leader (fighting type)",
+"who": "a big middle-aged man",
+"skin": "light skin",
+"hair": "short dark hair and a thick mustache",
+"clothes": "bare chest, wide maroon trousers with a black belt, torn at the knees, barefoot",
+"extra": "grey wristbands",
+"pose": "wide fighting stance, fists ready, grinning",
+"facing": "turned to the left",
+"build": "big and muscular",
+"mood": "fierce and laughing"
+}
+},
+{
+"id": "hgss:76",
+"game": "HGSS",
+"label": "Gym Leader (dragon type)",
+"fields": {
+"cls": "Gym Leader (dragon type)",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "light blue hair in a long ponytail",
+"clothes": "a blue bodysuit, a long dark navy cape, blue high boots",
+"pose": "confident, cape flowing, one hand raised",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "proud"
+}
+},
+{
+"id": "hgss:77",
+"game": "HGSS",
+"label": "Teacher",
+"fields": {
+"cls": "Teacher",
+"who": "an adult woman",
+"skin": "light skin",
+"hair": "short wavy brown hair",
+"clothes": "a brown jacket over a white blouse, a grey skirt, brown shoes",
+"extra": "a black bag with a pointer and books",
+"held": "a red and white Poke Ball",
+"pose": "standing upright",
+"facing": "turned to the left",
+"build": "average",
+"mood": "strict"
+}
+},
+{
+"id": "hgss:78",
+"game": "HGSS",
+"label": "Super Nerd",
+"fields": {
+"cls": "Super Nerd",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "blue hair, glasses",
+"clothes": "a white shirt, blue trousers, grey shoes",
+"extra": "a grey robot Pokemon toy on the ground",
+"held": "a small radio controller",
+"pose": "kneeling, working the controller",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "focused"
+}
+},
+{
+"id": "hgss:79",
+"game": "HGSS",
+"label": "Sage",
+"fields": {
+"cls": "Sage",
+"who": "an old man",
+"skin": "light skin",
+"hair": "shaved grey head",
+"clothes": "a dark grey monk's robe with white undergarments, white socks and sandals",
+"held": "large prayer beads with a Poke Ball",
+"pose": "standing, holding out the beads",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "serious"
+}
+},
+{
+"id": "hgss:80",
+"game": "HGSS",
+"label": "Parasol Lady",
+"fields": {
+"cls": "Parasol Lady",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "olive green hair",
+"clothes": "a pink jacket over a yellow dress, pink boots",
+"held": "a pink and white parasol",
+"pose": "walking with the parasol over her shoulder",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "hgss:81",
+"game": "HGSS",
+"label": "Waiter",
+"fields": {
+"cls": "Waiter",
+"who": "a young man",
+"skin": "light skin",
+"hair": "brown hair",
+"clothes": "a white shirt, black bow tie, dark grey waistcoat and trousers, brown shoes",
+"extra": "a white towel over one arm",
+"held": "a silver tray with two Poke Balls",
+"pose": "standing politely with the tray",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "polite"
+}
+},
+{
+"id": "hgss:82",
+"game": "HGSS",
+"label": "Medium",
+"fields": {
+"cls": "Medium",
+"who": "an old woman",
+"skin": "light skin",
+"hair": "grey hair with a blue headband, glasses",
+"clothes": "white shrine robes with a blue apron and prayer beads, a green skirt",
+"held": "two lit candles with red flames",
+"pose": "sitting, holding the candles up",
+"facing": "facing the viewer",
+"build": "small",
+"mood": "eerie"
+}
+},
+{
+"id": "hgss:83",
+"game": "HGSS",
+"label": "Cameraman",
+"fields": {
+"cls": "Cameraman",
+"who": "a young man",
+"skin": "tan skin",
+"hair": "short hair under a red cap worn backwards",
+"clothes": "a white tank top, teal trousers, a red tool belt, red shoes",
+"held": "a big black video camera on his shoulder",
+"pose": "filming, walking forward",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "focused"
+}
+},
+{
+"id": "hgss:84",
+"game": "HGSS",
+"label": "Reporter",
+"fields": {
+"cls": "Reporter",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "short dark teal hair",
+"clothes": "a grey sleeveless top, a white pencil skirt, dark shoes",
+"held": "a microphone",
+"pose": "leaning forward, arms out, talking",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "lively"
+}
+},
+{
+"id": "hgss:85",
+"game": "HGSS",
+"label": "Idol",
+"fields": {
+"cls": "Idol",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "brown hair with a yellow headband and a pink flower",
+"clothes": "a pink and yellow frilly dress, pink shoes",
+"held": "a pink microphone",
+"pose": "singing and dancing on one leg",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "hgss:86",
+"game": "HGSS",
+"label": "Champion",
+"fields": {
+"cls": "Champion",
+"who": "a young man",
+"skin": "light skin",
+"hair": "spiky red hair",
+"clothes": "a navy and black outfit with gold trim, a long dark red cape, dark boots",
+"pose": "arms spread wide, cape flowing",
+"facing": "facing the viewer",
+"build": "athletic",
+"mood": "commanding"
+}
+},
+{
+"id": "hgss:87",
+"game": "HGSS",
+"label": "Elite Four (psychic type)",
+"fields": {
+"cls": "Elite Four (psychic type)",
+"who": "a young man",
+"skin": "light skin",
+"hair": "purple hair, a black and white masquerade mask",
+"clothes": "a black and white tailcoat with a yellow pattern, purple trousers, black shoes",
+"pose": "elegant pose, both hands open",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "theatrical"
+}
+},
+{
+"id": "hgss:88",
+"game": "HGSS",
+"label": "Elite Four (dark type)",
+"fields": {
+"cls": "Elite Four (dark type)",
+"who": "a young woman",
+"skin": "tan skin",
+"hair": "very long wavy light blue hair",
+"clothes": "a white top and white capri trousers, a gold belt, yellow high heels",
+"pose": "standing, one hand at the shoulder",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "cool and confident"
+}
+},
+{
+"id": "hgss:89",
+"game": "HGSS",
+"label": "Elite Four (poison type)",
+"fields": {
+"cls": "Elite Four (poison type)",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "spiky dark teal hair",
+"clothes": "a black ninja outfit with a purple sash, a long red scarf, grey shin guards",
+"pose": "low ninja stance, pointing forward",
+"facing": "turned to the left",
+"build": "athletic",
+"mood": "fierce"
+}
+},
+{
+"id": "hgss:95",
+"game": "HGSS",
+"label": "Pokemon Trainer (frontier)",
+"fields": {
+"cls": "Pokemon Trainer (frontier)",
+"who": "a teenage boy",
+"skin": "light skin",
+"hair": "short dark hair under a red beret",
+"clothes": "a white and red short-sleeved jacket over a dark blue shirt, blue jeans, red shoes",
+"extra": "a yellow satchel",
+"pose": "standing, one fist raised",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "determined"
+}
+},
+{
+"id": "hgss:96",
+"game": "HGSS",
+"label": "Pokemon Trainer (frontier)",
+"fields": {
+"cls": "Pokemon Trainer (frontier)",
+"who": "a teenage girl",
+"skin": "light skin",
+"hair": "long dark navy hair under a white beanie with a pink Poke Ball mark",
+"clothes": "a black sleeveless top, a red scarf, a short pink skirt, black knee socks, pink boots",
+"extra": "a yellow shoulder bag",
+"pose": "standing, one arm swept back",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "hgss:97",
+"game": "HGSS",
+"label": "Tower Tycoon",
+"fields": {
+"cls": "Tower Tycoon",
+"who": "a young man",
+"skin": "tan skin",
+"hair": "spiky blonde hair",
+"clothes": "a long green coat over a white shirt, brown trousers, brown shoes",
+"pose": "standing with arms crossed, confident",
+"facing": "facing the viewer",
+"build": "tall and slim",
+"mood": "cool and confident"
+}
+},
+{
+"id": "hgss:98",
+"game": "HGSS",
+"label": "Gym Leader (rock type)",
+"fields": {
+"cls": "Gym Leader (rock type)",
+"who": "a young man",
+"skin": "tan skin",
+"hair": "spiky brown hair, narrow closed eyes",
+"clothes": "an orange long-sleeved shirt, green trousers, brown shoes",
+"pose": "kneeling on one knee, leaning forward",
+"facing": "turned to the left",
+"build": "athletic",
+"mood": "calm"
+}
+},
+{
+"id": "hgss:99",
+"game": "HGSS",
+"label": "Hall Matron",
+"fields": {
+"cls": "Hall Matron",
+"who": "an older woman",
+"skin": "light skin",
+"hair": "short purple hair, glasses",
+"clothes": "a red long coat with a white collar, black gloves, black boots",
+"pose": "standing with one hand on the hip",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "stern"
+}
+},
+{
+"id": "hgss:100",
+"game": "HGSS",
+"label": "Factory Head",
+"fields": {
+"cls": "Factory Head",
+"who": "a young man",
+"skin": "light skin",
+"hair": "spiky dark grey hair with a green streak",
+"clothes": "a black vest over a light blue shirt, a teal tie, green knee-length shorts, teal socks, dark shoes",
+"held": "a teal handheld device",
+"pose": "standing, holding up the device",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "cocky"
+}
+},
+{
+"id": "hgss:101",
+"game": "HGSS",
+"label": "Arcade Star",
+"fields": {
+"cls": "Arcade Star",
+"who": "a young woman",
+"skin": "tan skin",
+"hair": "very long black hair with yellow ornaments",
+"clothes": "a yellow jacket over a white top, blue jeans, yellow heels",
+"pose": "posing, one hand behind the head",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "cool"
+}
+},
+{
+"id": "hgss:102",
+"game": "HGSS",
+"label": "Castle Valet",
+"fields": {
+"cls": "Castle Valet",
+"who": "a young man and a young woman side by side",
+"skin": "light skin",
+"hair": "he: short blonde and black hair, purple glasses; she: long light brown hair with a white headpiece",
+"clothes": "he: a black tailcoat with a purple shirt and purple trousers; she: a white blouse and a long yellow skirt",
+"pose": "standing side by side politely",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "polite"
+}
+},
+{
+"id": "hgss:103",
+"game": "HGSS",
+"label": "Gym Leader (water type)",
+"fields": {
+"cls": "Gym Leader (water type)",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "short orange hair in a side ponytail",
+"clothes": "a light blue swimsuit under an open blue jacket, flip-flops",
+"pose": "energetic pose, one fist raised",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "energetic"
+}
+},
+{
+"id": "hgss:104",
+"game": "HGSS",
+"label": "Gym Leader (electric type)",
+"fields": {
+"cls": "Gym Leader (electric type)",
+"who": "a tall muscular man",
+"skin": "light skin",
+"hair": "spiky blonde hair",
+"clothes": "a green tank top with dog tags, camouflage trousers, black combat boots",
+"extra": "sunglasses held in one hand",
+"pose": "shrugging with arms open, grinning",
+"facing": "facing the viewer",
+"build": "tall and muscular",
+"mood": "cocky"
+}
+},
+{
+"id": "hgss:105",
+"game": "HGSS",
+"label": "Gym Leader (grass type)",
+"fields": {
+"cls": "Gym Leader (grass type)",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "short black bob with a red headband",
+"clothes": "a yellow kimono with orange flower patterns and a red obi, sandals",
+"held": "a red and white Poke Ball",
+"pose": "standing gracefully",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "gentle"
+}
+},
+{
+"id": "hgss:106",
+"game": "HGSS",
+"label": "Gym Leader (poison type)",
+"fields": {
+"cls": "Gym Leader (poison type)",
+"who": "a teenage girl",
+"skin": "light skin",
+"hair": "spiky purple hair with a gold headband",
+"clothes": "a black ninja outfit, a long pink scarf, purple leg wraps, white shoes",
+"pose": "leaping forward in a ninja dash",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "fierce"
+}
+},
+{
+"id": "hgss:107",
+"game": "HGSS",
+"label": "Gym Leader (psychic type)",
+"fields": {
+"cls": "Gym Leader (psychic type)",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "long dark teal hair",
+"clothes": "a pink crop top, white trousers, pink shoes",
+"extra": "green psychic flames around her hands",
+"pose": "arms raised, using psychic power",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "cold"
+}
+},
+{
+"id": "hgss:108",
+"game": "HGSS",
+"label": "Gym Leader (fire type)",
+"fields": {
+"cls": "Gym Leader (fire type)",
+"who": "an old man",
+"skin": "light skin",
+"hair": "bald under a white hat, a white mustache and beard, sunglasses",
+"clothes": "a white shirt, a dark red jacket, brown trousers, dark shoes",
+"held": "a curved wooden cane",
+"pose": "standing, one hand at the hat",
+"facing": "turned to the left",
+"build": "thin",
+"mood": "cheeky"
+}
+},
+{
+"id": "hgss:109",
+"game": "HGSS",
+"label": "Pokemon Trainer (legendary)",
+"fields": {
+"cls": "Pokemon Trainer (legendary)",
+"who": "a teenage boy",
+"skin": "light skin",
+"hair": "dark hair under a red and white cap",
+"clothes": "a red and white short-sleeved jacket over a black shirt, a yellow backpack, black fingerless gloves, blue jeans, red shoes",
+"held": "a red and white Poke Ball",
+"pose": "standing, one hand at the cap",
+"facing": "facing the viewer",
+"build": "athletic",
+"mood": "quiet and determined"
+}
+},
+{
+"id": "hgss:110",
+"game": "HGSS",
+"label": "Gym Leader (rival)",
+"fields": {
+"cls": "Gym Leader (rival)",
+"who": "a young man",
+"skin": "light skin",
+"hair": "spiky orange-brown hair",
+"clothes": "a black jacket over a grey shirt, a necklace, brown trousers, dark shoes",
+"held": "a red and white Poke Ball",
+"pose": "standing coolly, turned to the side",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "cocky"
+}
+},
+{
+"id": "hgss:111",
+"game": "HGSS",
+"label": "Elder",
+"fields": {
+"cls": "Elder",
+"who": "an old man",
+"skin": "light skin",
+"hair": "bald with white eyebrows and a white beard",
+"clothes": "purple robes with a yellow patterned stole, white socks and sandals",
+"held": "a red and white Poke Ball",
+"pose": "standing, holding the Poke Ball at the chest",
+"facing": "facing the viewer",
+"build": "small",
+"mood": "wise and calm"
+}
+},
+{
+"id": "hgss:112",
+"game": "HGSS",
+"label": "Elite Four (fighting type)",
+"fields": {
+"cls": "Elite Four (fighting type)",
+"who": "a muscular man",
+"skin": "tan skin",
+"hair": "long black hair tied back",
+"clothes": "bare chest, wide white trousers, black wristbands",
+"pose": "shown from the back, crouching in a fighting stance, fist raised",
+"facing": "seen from behind, turned to the left",
+"build": "muscular",
+"mood": "fierce"
+}
+},
+{
+"id": "hgss:113",
+"game": "HGSS",
+"label": "Scientist",
+"fields": {
+"cls": "Scientist",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "grey-purple hair, glasses",
+"clothes": "a white lab coat over a white shirt and red tie, dark trousers, dark shoes",
+"held": "a green chemical flask and a red and white Poke Ball",
+"pose": "standing hunched, holding up the flask",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "excited"
+}
+},
+{
+"id": "hgss:114",
+"game": "HGSS",
+"label": "Team Rocket Executive",
+"fields": {
+"cls": "Team Rocket Executive",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "long red hair",
+"clothes": "a white long coat with a black belt, a red R logo, grey boots",
+"held": "a red and white Poke Ball",
+"pose": "standing, one hand in her hair",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "cold"
+}
+},
+{
+"id": "hgss:115",
+"game": "HGSS",
+"label": "Boarder",
+"fields": {
+"cls": "Boarder",
+"who": "a young man",
+"skin": "light skin",
+"hair": "hidden under a white knit hat with a green band",
+"clothes": "an orange jacket, green snow trousers, white gloves",
+"extra": "a red and white snowboard",
+"held": "a red and white Poke Ball",
+"pose": "snowboarding mid-jump, leaning forward",
+"facing": "turned to the left",
+"build": "athletic",
+"mood": "excited"
+}
+},
+{
+"id": "hgss:116",
+"game": "HGSS",
+"label": "Team Rocket Executive",
+"fields": {
+"cls": "Team Rocket Executive",
+"who": "a young man",
+"skin": "light skin",
+"hair": "teal blue hair",
+"clothes": "a white uniform with a red R logo and a black belt, white trousers, white shoes",
+"pose": "standing, hand at the chin, thinking",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "calculating"
+}
+},
+{
+"id": "hgss:117",
+"game": "HGSS",
+"label": "Team Rocket Executive",
+"fields": {
+"cls": "Team Rocket Executive",
+"who": "a young man",
+"skin": "light skin",
+"hair": "teal hair under a black cap",
+"clothes": "a black uniform with a grey belt, white gloves, grey boots with red trim",
+"pose": "saluting, legs apart",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "cocky"
+}
+},
+{
+"id": "hgss:118",
+"game": "HGSS",
+"label": "Team Rocket Executive",
+"fields": {
+"cls": "Team Rocket Executive",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "spiky purple hair, a purple goatee",
+"clothes": "a black uniform with an orange R logo, grey gloves, grey boots",
+"pose": "standing with hands on the hips",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "sly"
+}
+},
+{
+"id": "hgss:119",
+"game": "HGSS",
+"label": "119",
+"fields": {}
+},
+{
+"id": "hgss:120",
+"game": "HGSS",
+"label": "Mystery Man",
+"fields": {
+"cls": "Mystery Man",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "wavy brown hair",
+"clothes": "a purple suit with a red bow tie and a white cape",
+"pose": "standing, one hand in the cape",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "mysterious"
+}
+},
+{
+"id": "hgss:121",
+"game": "HGSS",
+"label": "Double Team",
+"fields": {
+"cls": "Double Team",
+"who": "a young man and a young woman side by side",
+"skin": "light skin",
+"hair": "he: spiky dark navy hair; she: dark navy hair in a high bun",
+"clothes": "matching red zip jackets, he in dark navy trousers, she in black shorts and black stockings, red boots",
+"held": "red and white Poke Balls",
+"pose": "both in a confident battle stance",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "confident"
+}
+},
+{
+"id": "hgss:122",
+"game": "HGSS",
+"label": "Young Couple",
+"fields": {
+"cls": "Young Couple",
+"who": "a young man and a young woman together",
+"skin": "light skin",
+"hair": "he: short blonde hair; she: long light brown hair with a blue clip",
+"clothes": "he: a blue shirt and khaki trousers; she: a blue dress",
+"pose": "the woman leaning in the man's arms, both waving",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "happy"
+}
+},
+{
+"id": "hgss:123",
+"game": "HGSS",
+"label": "Pokemon Trainer (dragon master)",
+"fields": {
+"cls": "Pokemon Trainer (dragon master)",
+"who": "an adult man",
+"skin": "light skin",
+"hair": "spiky red hair",
+"clothes": "a long black cape with a high collar",
+"pose": "seen from behind, looking back over his shoulder",
+"facing": "seen from behind, turned to the right",
+"build": "tall",
+"mood": "serious"
+}
+},
+{
+"id": "hgss:124",
+"game": "HGSS",
+"label": "Team Rocket Boss",
+"fields": {
+"cls": "Team Rocket Boss",
+"who": "a middle-aged man",
+"skin": "light skin",
+"hair": "dark hair under a black fedora",
+"clothes": "a long black double-breasted coat with a red pocket square, black trousers, black shoes",
+"pose": "standing, one hand tipping the hat down",
+"facing": "facing the viewer",
+"build": "tall",
+"mood": "cold and menacing"
+}
+},
+{
+"id": "hgss:125",
+"game": "HGSS",
+"label": "Pokemon Trainer (main character)",
+"fields": {
+"cls": "Pokemon Trainer (main character)",
+"who": "a teenage boy",
+"skin": "light skin",
+"hair": "short dark hair under a red beret with a white mark",
+"clothes": "a white and red short-sleeved jacket over a dark blue shirt, light blue jeans, red shoes",
+"extra": "a yellow satchel",
+"pose": "standing, one fist raised",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "determined"
+}
+},
+{
+"id": "hgss:126",
+"game": "HGSS",
+"label": "Pokemon Trainer (main character)",
+"fields": {
+"cls": "Pokemon Trainer (main character)",
+"who": "a teenage girl",
+"skin": "light skin",
+"hair": "long dark navy hair under a white beanie with a pink mark",
+"clothes": "a black sleeveless top, a red scarf, a short pink skirt, black knee socks, pink boots",
+"extra": "a yellow shoulder bag",
+"pose": "standing, one arm swept back",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "hgss:127",
+"game": "HGSS",
+"label": "Pokemon Trainer (main character)",
+"fields": {
+"cls": "Pokemon Trainer (main character)",
+"who": "a teenage boy",
+"skin": "light skin",
+"hair": "short dark hair under a red beret with a white mark",
+"clothes": "a blue winter jacket over a red shirt, dark trousers, grey shoes",
+"extra": "a grey satchel",
+"pose": "standing straight, arms at his sides",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "calm"
+}
+},
+{
+"id": "hgss:128",
+"game": "HGSS",
+"label": "Pokemon Trainer (main character)",
+"fields": {
+"cls": "Pokemon Trainer (main character)",
+"who": "a teenage girl",
+"skin": "light skin",
+"hair": "long dark navy hair under a white beanie with a pink mark",
+"clothes": "a white winter coat with a red scarf, a pink skirt, white socks, pink boots",
+"extra": "a white bag",
+"pose": "standing, arms a little out",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "pt:ace_trainer_female",
+"game": "Pt",
+"label": "Ace Trainer",
+"fields": {
+"cls": "Ace Trainer",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "shaggy green hair",
+"clothes": "a brown long-sleeved top with a green belt, brown shorts over dark leggings, green boots",
+"held": "a red and white Poke Ball",
+"pose": "standing, one arm raised holding the Poke Ball",
+"facing": "facing the viewer, turned a little to the right",
+"build": "slim",
+"mood": "confident"
+}
+},
+{
+"id": "pt:ace_trainer_male",
+"game": "Pt",
+"label": "Ace Trainer",
+"fields": {
+"cls": "Ace Trainer",
+"who": "a young man",
+"skin": "light skin",
+"hair": "shaggy green hair",
+"clothes": "a brown long-sleeved top with a green belt, dark brown trousers, green boots",
+"held": "a red and white Poke Ball",
+"pose": "standing relaxed, arms at the sides",
+"facing": "facing the viewer, turned a little to the right",
+"build": "slim",
+"mood": "calm"
+}
+},
+{
+"id": "pt:ace_trainer_snow_female",
+"game": "Pt",
+"label": "Ace Trainer Snow Female",
+"fields": {}
+},
+{
+"id": "pt:ace_trainer_snow_male",
+"game": "Pt",
+"label": "Ace Trainer Snow Male",
+"fields": {}
+},
+{
+"id": "pt:arcade_star",
+"game": "Pt",
+"label": "Arcade Star",
+"fields": {}
+},
+{
+"id": "pt:aroma_lady",
+"game": "Pt",
+"label": "Aroma Lady",
+"fields": {}
+},
+{
+"id": "pt:artist",
+"game": "Pt",
+"label": "Artist",
+"fields": {}
+},
+{
+"id": "pt:battle_girl",
+"game": "Pt",
+"label": "Battle Girl",
+"fields": {}
+},
+{
+"id": "pt:beauty",
+"game": "Pt",
+"label": "Beauty",
+"fields": {
+"cls": "Beauty",
+"who": "a young woman",
+"skin": "tan skin",
+"hair": "long wavy blonde hair",
+"clothes": "a dark blue sleeveless top with gold trim, white shorts, gold sandals",
+"extra": "a brown handbag, gold bracelets",
+"held": "a red and white Poke Ball",
+"pose": "posing, one hip out",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "flirty"
+}
+},
+{
+"id": "pt:belle_and_pa",
+"game": "Pt",
+"label": "Belle and Pa",
+"fields": {
+"cls": "Belle and Pa",
+"who": "an old man and a young woman together",
+"skin": "light skin",
+"hair": "he: a grey beard under a brown cowboy hat; she: blonde braids under a brown cowboy hat",
+"clothes": "he: a brown jacket and blue overalls; she: a white shirt, blue overalls, brown boots",
+"held": "he: a pitchfork; she: a red and white Poke Ball",
+"pose": "he squats, she stands beside him",
+"facing": "facing the viewer",
+"build": "he stocky, she slim",
+"mood": "friendly"
+}
+},
+{
+"id": "pt:bird_keeper",
+"game": "Pt",
+"label": "Bird Keeper",
+"fields": {}
+},
+{
+"id": "pt:black_belt",
+"game": "Pt",
+"label": "Black Belt",
+"fields": {
+"cls": "Black Belt",
+"who": "a muscular young man",
+"skin": "tan skin",
+"hair": "short dark navy hair with a red headband",
+"clothes": "a white karate gi with a black belt, barefoot",
+"pose": "wide fighting stance, fists ready, shouting",
+"facing": "facing the viewer",
+"build": "muscular",
+"mood": "fierce"
+}
+},
+{
+"id": "pt:breeder_female",
+"game": "Pt",
+"label": "Breeder Female",
+"fields": {}
+},
+{
+"id": "pt:breeder_male",
+"game": "Pt",
+"label": "Breeder Male",
+"fields": {}
+},
+{
+"id": "pt:bug_catcher",
+"game": "Pt",
+"label": "Bug Catcher",
+"fields": {
+"cls": "Bug Catcher",
+"who": "a young boy",
+"skin": "tan skin",
+"hair": "short hair under a wide straw hat with a green band",
+"clothes": "a white shirt, dark blue shorts, sandals",
+"extra": "a green bug cage on a strap",
+"held": "a big bug net",
+"pose": "swinging the net",
+"facing": "turned to the left",
+"build": "small and slim",
+"mood": "focused"
+}
+},
+{
+"id": "pt:cameraman",
+"game": "Pt",
+"label": "Cameraman",
+"fields": {}
+},
+{
+"id": "pt:camper",
+"game": "Pt",
+"label": "Camper",
+"fields": {}
+},
+{
+"id": "pt:castle_valet",
+"game": "Pt",
+"label": "Castle Valet",
+"fields": {}
+},
+{
+"id": "pt:champion_cynthia",
+"game": "Pt",
+"label": "Champion",
+"fields": {
+"cls": "Champion",
+"who": "a tall young woman",
+"skin": "light skin",
+"hair": "very long blonde hair with black hair clips over one eye",
+"clothes": "a long black coat with black trousers and a fur collar, black shoes",
+"pose": "standing elegantly, one hand raised",
+"facing": "turned to the right",
+"build": "tall and slim",
+"mood": "calm and confident"
+}
+},
+{
+"id": "pt:clown",
+"game": "Pt",
+"label": "Clown",
+"fields": {}
+},
+{
+"id": "pt:collector",
+"game": "Pt",
+"label": "Collector",
+"fields": {}
+},
+{
+"id": "pt:commander_jupiter",
+"game": "Pt",
+"label": "Team Galactic Commander",
+"fields": {
+"cls": "Team Galactic Commander",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "magenta hair in a short bob with a ponytail",
+"clothes": "a white and black space uniform with a gold emblem, grey thigh-high boots",
+"held": "a red and white Poke Ball",
+"pose": "standing, legs apart",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "cool and smug"
+}
+},
+{
+"id": "pt:commander_mars",
+"game": "Pt",
+"label": "Team Galactic Commander",
+"fields": {
+"cls": "Team Galactic Commander",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "short spiky red hair",
+"clothes": "a white and black space uniform dress with a gold emblem, white boots",
+"held": "a red and white Poke Ball held out",
+"pose": "pointing the Poke Ball forward",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "cheeky"
+}
+},
+{
+"id": "pt:commander_saturn",
+"game": "Pt",
+"label": "Team Galactic Commander",
+"fields": {
+"cls": "Team Galactic Commander",
+"who": "a young man",
+"skin": "light skin",
+"hair": "spiky blue hair",
+"clothes": "a black and white space uniform with a gold emblem, striped grey trousers, white shoes",
+"held": "a red and white Poke Ball",
+"pose": "standing, one arm out",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "calm"
+}
+},
+{
+"id": "pt:cowgirl",
+"game": "Pt",
+"label": "Cowgirl",
+"fields": {}
+},
+{
+"id": "pt:cyclist_female",
+"game": "Pt",
+"label": "Cyclist Female",
+"fields": {}
+},
+{
+"id": "pt:cyclist_male",
+"game": "Pt",
+"label": "Cyclist Male",
+"fields": {}
+},
+{
+"id": "pt:double_team",
+"game": "Pt",
+"label": "Double Team",
+"fields": {
+"cls": "Double Team",
+"who": "a young man and a young woman side by side",
+"skin": "light skin",
+"hair": "shaggy green hair",
+"clothes": "matching brown tops with green belts, brown trousers or shorts, green boots",
+"held": "red and white Poke Balls",
+"pose": "both standing in a battle pose",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "confident"
+}
+},
+{
+"id": "pt:dp_player_female",
+"game": "Pt",
+"label": "Dp Player Female",
+"fields": {}
+},
+{
+"id": "pt:dp_player_female_2",
+"game": "Pt",
+"label": "Dp Player Female 2",
+"fields": {}
+},
+{
+"id": "pt:dp_player_male",
+"game": "Pt",
+"label": "Dp Player Male",
+"fields": {}
+},
+{
+"id": "pt:dp_player_male_2",
+"game": "Pt",
+"label": "Dp Player Male 2",
+"fields": {}
+},
+{
+"id": "pt:dragon_tamer",
+"game": "Pt",
+"label": "Dragon Tamer",
+"fields": {}
+},
+{
+"id": "pt:elite_four_aaron",
+"game": "Pt",
+"label": "Elite Four (bug type)",
+"fields": {
+"cls": "Elite Four (bug type)",
+"who": "a young man",
+"skin": "light skin",
+"hair": "green hair with a single antenna-like curl",
+"clothes": "a black and orange top, orange trousers, dark shoes",
+"pose": "jumping with arms spread wide, seen from behind",
+"facing": "seen from behind",
+"build": "slim",
+"mood": "energetic"
+}
+},
+{
+"id": "pt:elite_four_bertha",
+"game": "Pt",
+"label": "Elite Four (ground type)",
+"fields": {
+"cls": "Elite Four (ground type)",
+"who": "an old woman",
+"skin": "light skin",
+"hair": "grey hair in a bun",
+"clothes": "a white coat over a black dress with a brown fur stole, dark shoes",
+"pose": "standing calmly, arms a little out",
+"facing": "facing the viewer",
+"build": "stout",
+"mood": "kind"
+}
+},
+{
+"id": "pt:elite_four_flint",
+"game": "Pt",
+"label": "Elite Four (fire type)",
+"fields": {
+"cls": "Elite Four (fire type)",
+"who": "a young man",
+"skin": "tan skin",
+"hair": "big red afro hair",
+"clothes": "a yellow shirt, a red sash, dark grey trousers, sandals",
+"extra": "black fingerless gloves",
+"pose": "standing, laughing with eyes closed",
+"facing": "facing the viewer",
+"build": "athletic",
+"mood": "cheerful"
+}
+},
+{
+"id": "pt:elite_four_lucian",
+"game": "Pt",
+"label": "Elite Four (psychic type)",
+"fields": {
+"cls": "Elite Four (psychic type)",
+"who": "a young man",
+"skin": "light skin",
+"hair": "wavy lavender hair, glasses",
+"clothes": "a long dark red suit",
+"pose": "standing, one hand in his pocket",
+"facing": "turned to the left",
+"build": "tall and slim",
+"mood": "calm and aloof"
+}
+},
+{
+"id": "pt:factory_head",
+"game": "Pt",
+"label": "Factory Head",
+"fields": {}
+},
+{
+"id": "pt:fisherman",
+"game": "Pt",
+"label": "Fisherman",
+"fields": {}
+},
+{
+"id": "pt:galactic_boss",
+"game": "Pt",
+"label": "Team Galactic Boss",
+"fields": {
+"cls": "Team Galactic Boss",
+"who": "a middle-aged man",
+"skin": "light skin",
+"hair": "spiky light blue hair",
+"clothes": "a grey and black space uniform with a gold emblem, black trousers, dark shoes",
+"pose": "standing upright, hands behind the back, cold expression",
+"facing": "facing the viewer",
+"build": "tall",
+"mood": "cold"
+}
+},
+{
+"id": "pt:galactic_grunt_female",
+"game": "Pt",
+"label": "Team Galactic Grunt",
+"fields": {
+"cls": "Team Galactic Grunt",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "teal hair in a bowl cut",
+"clothes": "a grey and black space suit with a gold emblem, grey and white boots",
+"held": "a red and white Poke Ball",
+"pose": "wide dramatic stance, one arm pointing up",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "theatrical"
+}
+},
+{
+"id": "pt:galactic_grunt_male",
+"game": "Pt",
+"label": "Team Galactic Grunt",
+"fields": {
+"cls": "Team Galactic Grunt",
+"who": "a young man",
+"skin": "light skin",
+"hair": "teal hair in a bowl cut",
+"clothes": "a grey and black space suit with a gold emblem, white boots",
+"held": "a red and white Poke Ball",
+"pose": "standing, Poke Ball held up at the side",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "cocky"
+}
+},
+{
+"id": "pt:gentleman",
+"game": "Pt",
+"label": "Gentleman",
+"fields": {
+"cls": "Gentleman",
+"who": "an old man",
+"skin": "light skin",
+"hair": "grey hair and a grey mustache",
+"clothes": "a brown suit jacket with a green tie, grey trousers, brown shoes",
+"held": "a brown hat held out and a green walking cane",
+"pose": "bowing slightly, tipping his hat",
+"facing": "turned to the left",
+"build": "average",
+"mood": "polite"
+}
+},
+{
+"id": "pt:guitarist",
+"game": "Pt",
+"label": "Guitarist",
+"fields": {}
+},
+{
+"id": "pt:hall_matron",
+"game": "Pt",
+"label": "Hall Matron",
+"fields": {}
+},
+{
+"id": "pt:hiker",
+"game": "Pt",
+"label": "Hiker",
+"fields": {}
+},
+{
+"id": "pt:idol",
+"game": "Pt",
+"label": "Idol",
+"fields": {}
+},
+{
+"id": "pt:interviewers",
+"game": "Pt",
+"label": "Interviewers",
+"fields": {
+"cls": "Interviewers",
+"who": "a young woman and a young man together",
+"skin": "she: light skin; he: tan skin",
+"hair": "she: short teal hair; he: short hair under a red cap worn backwards",
+"clothes": "she: a grey sleeveless top and a white skirt; he: a white tank top, teal trousers, a red tool belt",
+"held": "she: a microphone; he: a big video camera on his shoulder",
+"pose": "reporting side by side",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "busy and lively"
+}
+},
+{
+"id": "pt:jogger",
+"game": "Pt",
+"label": "Jogger",
+"fields": {}
+},
+{
+"id": "pt:lady",
+"game": "Pt",
+"label": "Lady",
+"fields": {}
+},
+{
+"id": "pt:lass",
+"game": "Pt",
+"label": "Lass",
+"fields": {
+"cls": "Lass",
+"who": "a young girl",
+"skin": "light skin",
+"hair": "long olive-brown hair with a red clip",
+"clothes": "a white blouse with an orange bow, a dark vest, an orange skirt, navy knee socks, brown shoes",
+"held": "a red and white Poke Ball",
+"pose": "running playfully, one leg raised",
+"facing": "turned to the left",
+"build": "small and slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "pt:leader_byron",
+"game": "Pt",
+"label": "Gym Leader (steel type)",
+"fields": {
+"cls": "Gym Leader (steel type)",
+"who": "a big middle-aged man",
+"skin": "tan skin",
+"hair": "spiky purple-pink hair",
+"clothes": "a white tank top, grey work trousers, a brown cape, dark boots",
+"extra": "white work gloves",
+"held": "a shovel",
+"pose": "standing firmly, leaning on the shovel",
+"facing": "facing the viewer",
+"build": "big and stocky",
+"mood": "proud"
+}
+},
+{
+"id": "pt:leader_candice",
+"game": "Pt",
+"label": "Gym Leader (ice type)",
+"fields": {
+"cls": "Gym Leader (ice type)",
+"who": "a teenage girl",
+"skin": "light skin",
+"hair": "dark hair in two long pigtails",
+"clothes": "a light blue school sweater over a white shirt, a blue skirt, striped blue and white leg warmers, brown shoes",
+"pose": "energetic pose, leaning forward",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "energetic"
+}
+},
+{
+"id": "pt:leader_fantina",
+"game": "Pt",
+"label": "Gym Leader (ghost type)",
+"fields": {
+"cls": "Gym Leader (ghost type)",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "purple hair in big round buns",
+"clothes": "a long sparkling purple ball gown",
+"pose": "bowing gracefully, turned to the side",
+"facing": "turned to the left, bowing",
+"build": "slim",
+"mood": "graceful"
+}
+},
+{
+"id": "pt:leader_gardenia",
+"game": "Pt",
+"label": "Gym Leader (grass type)",
+"fields": {
+"cls": "Gym Leader (grass type)",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "short orange-brown hair",
+"clothes": "a green poncho-like top over a black crop top, orange cargo shorts, green boots",
+"pose": "standing with hands on the hips",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "confident"
+}
+},
+{
+"id": "pt:leader_maylene",
+"game": "Pt",
+"label": "Gym Leader (fighting type)",
+"fields": {
+"cls": "Gym Leader (fighting type)",
+"who": "a teenage girl",
+"skin": "light skin",
+"hair": "pink hair",
+"clothes": "a blue sleeveless top, white trousers with a pink stripe, barefoot",
+"extra": "blue fingerless gloves",
+"pose": "both fists raised high, cheering",
+"facing": "facing the viewer",
+"build": "slim and athletic",
+"mood": "cheerful"
+}
+},
+{
+"id": "pt:leader_roark",
+"game": "Pt",
+"label": "Gym Leader (rock type)",
+"fields": {
+"cls": "Gym Leader (rock type)",
+"who": "a young man",
+"skin": "tan skin",
+"hair": "red hair under a red mining helmet with a lamp",
+"clothes": "a grey jacket over a black shirt, grey work trousers, dark boots",
+"extra": "white work gloves",
+"pose": "standing, fist clenched",
+"facing": "facing the viewer",
+"build": "athletic",
+"mood": "confident"
+}
+},
+{
+"id": "pt:leader_volkner",
+"game": "Pt",
+"label": "Gym Leader (electric type)",
+"fields": {
+"cls": "Gym Leader (electric type)",
+"who": "a young man",
+"skin": "light skin",
+"hair": "spiky blonde hair",
+"clothes": "a blue jacket with yellow buttons, dark blue trousers",
+"pose": "sitting on the ground, bored",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "bored"
+}
+},
+{
+"id": "pt:leader_wake",
+"game": "Pt",
+"label": "Gym Leader (water type)",
+"fields": {
+"cls": "Gym Leader (water type)",
+"who": "a big muscular man",
+"skin": "light skin",
+"hair": "hidden under a white and blue wrestling mask",
+"clothes": "bare chest, blue wrestling tights, an orange belt, brown boots",
+"extra": "orange wristbands",
+"pose": "both fists raised, shouting",
+"facing": "facing the viewer",
+"build": "big and muscular",
+"mood": "loud and excited"
+}
+},
+{
+"id": "pt:maid",
+"game": "Pt",
+"label": "Maid",
+"fields": {
+"cls": "Maid",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "green hair with a white headband",
+"clothes": "a dark brown maid dress with a white apron, brown shoes",
+"pose": "standing politely, hands folded",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "polite and shy"
+}
+},
+{
+"id": "pt:ninja_boy",
+"game": "Pt",
+"label": "Ninja Boy",
+"fields": {}
+},
+{
+"id": "pt:parasol_lady",
+"game": "Pt",
+"label": "Parasol Lady",
+"fields": {}
+},
+{
+"id": "pt:pi",
+"game": "Pt",
+"label": "Pi",
+"fields": {}
+},
+{
+"id": "pt:picnicker",
+"game": "Pt",
+"label": "Picnicker",
+"fields": {}
+},
+{
+"id": "pt:player_female",
+"game": "Pt",
+"label": "Player Female",
+"fields": {}
+},
+{
+"id": "pt:player_male",
+"game": "Pt",
+"label": "Player Male",
+"fields": {}
+},
+{
+"id": "pt:poke_kid",
+"game": "Pt",
+"label": "Poke Kid",
+"fields": {}
+},
+{
+"id": "pt:pokefan_female",
+"game": "Pt",
+"label": "Pokefan Female",
+"fields": {}
+},
+{
+"id": "pt:pokefan_male",
+"game": "Pt",
+"label": "Pokefan Male",
+"fields": {}
+},
+{
+"id": "pt:policeman",
+"game": "Pt",
+"label": "Policeman",
+"fields": {}
+},
+{
+"id": "pt:psychic_female",
+"game": "Pt",
+"label": "Psychic Female",
+"fields": {}
+},
+{
+"id": "pt:psychic_male",
+"game": "Pt",
+"label": "Psychic Male",
+"fields": {}
+},
+{
+"id": "pt:rancher",
+"game": "Pt",
+"label": "Rancher",
+"fields": {}
+},
+{
+"id": "pt:ranger_female",
+"game": "Pt",
+"label": "Ranger Female",
+"fields": {}
+},
+{
+"id": "pt:ranger_male",
+"game": "Pt",
+"label": "Ranger Male",
+"fields": {}
+},
+{
+"id": "pt:reporter",
+"game": "Pt",
+"label": "Reporter",
+"fields": {}
+},
+{
+"id": "pt:rich_boy",
+"game": "Pt",
+"label": "Rich Boy",
+"fields": {}
+},
+{
+"id": "pt:rival",
+"game": "Pt",
+"label": "Rival",
+"fields": {
+"cls": "Rival",
+"who": "a teenage boy",
+"skin": "light skin",
+"hair": "spiky blonde hair",
+"clothes": "an orange and white striped shirt, a green scarf, grey-brown trousers, brown shoes",
+"extra": "a brown shoulder bag",
+"pose": "stepping forward impatiently, one fist up",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "impatient"
+}
+},
+{
+"id": "pt:roughneck",
+"game": "Pt",
+"label": "Roughneck",
+"fields": {}
+},
+{
+"id": "pt:ruin_maniac",
+"game": "Pt",
+"label": "Ruin Maniac",
+"fields": {}
+},
+{
+"id": "pt:sailor",
+"game": "Pt",
+"label": "Sailor",
+"fields": {}
+},
+{
+"id": "pt:school_kid_female",
+"game": "Pt",
+"label": "School Kid Female",
+"fields": {}
+},
+{
+"id": "pt:school_kid_male",
+"game": "Pt",
+"label": "School Kid",
+"fields": {
+"cls": "School Kid",
+"who": "a teenage boy",
+"skin": "light skin",
+"hair": "short brown hair, blue glasses",
+"clothes": "a yellow short-sleeved shirt with a brown vest, teal jeans, brown shoes",
+"extra": "a blue book bag",
+"pose": "walking, pushing up his glasses",
+"facing": "turned to the right",
+"build": "slim",
+"mood": "smart"
+}
+},
+{
+"id": "pt:scientist",
+"game": "Pt",
+"label": "Scientist",
+"fields": {}
+},
+{
+"id": "pt:sis_and_bro",
+"game": "Pt",
+"label": "Sis and Bro",
+"fields": {
+"cls": "Sis and Bro",
+"who": "a young man and a little girl together",
+"skin": "tan skin",
+"hair": "he: hidden under a white swim cap with goggles; she: brown hair with a red clip",
+"clothes": "he: blue swim trunks, barefoot; she: a blue swimsuit",
+"extra": "she holds a big pink swim ring",
+"pose": "both crouching, ready to jump into the water",
+"facing": "turned to the right",
+"build": "he athletic, she small",
+"mood": "excited"
+}
+},
+{
+"id": "pt:skier_female",
+"game": "Pt",
+"label": "Skier",
+"fields": {
+"cls": "Skier",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "dark hair under a pink knit hat with a pompom",
+"clothes": "a pale pink ski suit, pink gloves",
+"extra": "skis and ski poles",
+"pose": "skiing, knees bent",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "pt:skier_male",
+"game": "Pt",
+"label": "Skier",
+"fields": {
+"cls": "Skier",
+"who": "a young man",
+"skin": "light skin",
+"hair": "hidden under a blue cap with dark goggles",
+"clothes": "a grey ski suit, blue gloves",
+"extra": "skis and ski poles",
+"pose": "skiing fast, crouched low",
+"facing": "turned to the left",
+"build": "athletic",
+"mood": "focused"
+}
+},
+{
+"id": "pt:socialite",
+"game": "Pt",
+"label": "Socialite",
+"fields": {}
+},
+{
+"id": "pt:swimmer_female",
+"game": "Pt",
+"label": "Swimmer",
+"fields": {
+"cls": "Swimmer",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "light brown hair in a bun",
+"clothes": "a blue bikini, barefoot",
+"extra": "a red and white Poke Ball shaped swim bag on her back",
+"pose": "standing, smiling",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "cheerful"
+}
+},
+{
+"id": "pt:swimmer_male",
+"game": "Pt",
+"label": "Swimmer",
+"fields": {
+"cls": "Swimmer",
+"who": "a young man",
+"skin": "tan skin",
+"hair": "hidden under a white swim cap with goggles",
+"clothes": "blue swim trunks, barefoot, bare chest",
+"pose": "flexing, legs bent, grinning",
+"facing": "facing the viewer",
+"build": "athletic",
+"mood": "cocky"
+}
+},
+{
+"id": "pt:tower_tycoon",
+"game": "Pt",
+"label": "Tower Tycoon",
+"fields": {}
+},
+{
+"id": "pt:trainer_buck",
+"game": "Pt",
+"label": "Pokemon Trainer",
+"fields": {
+"cls": "Pokemon Trainer",
+"who": "a teenage boy",
+"skin": "light skin",
+"hair": "spiky red hair with a yellow streak",
+"clothes": "a red T-shirt, dark grey knee-length shorts, red shoes",
+"pose": "energetic pose, fists up",
+"facing": "turned to the left",
+"build": "slim",
+"mood": "energetic"
+}
+},
+{
+"id": "pt:trainer_cheryl",
+"game": "Pt",
+"label": "Pokemon Trainer",
+"fields": {
+"cls": "Pokemon Trainer",
+"who": "a young woman",
+"skin": "light skin",
+"hair": "very long wavy green hair",
+"clothes": "a long green dress with a white blouse, brown boots",
+"extra": "a green bag",
+"pose": "standing calmly, hands at the chest",
+"facing": "facing the viewer",
+"build": "slim",
+"mood": "gentle"
+}
+},
+{
+"id": "pt:trainer_marley",
+"game": "Pt",
+"label": "Pokemon Trainer",
+"fields": {
+"cls": "Pokemon Trainer",
+"who": "a young girl",
+"skin": "light skin",
+"hair": "short black hair with a white clip",
+"clothes": "a black and white frilly dress, black leggings, black boots",
+"extra": "black arm warmers",
+"pose": "standing still, quiet expression",
+"facing": "facing the viewer",
+"build": "small and slim",
+"mood": "quiet"
+}
+},
+{
+"id": "pt:trainer_mira",
+"game": "Pt",
+"label": "Pokemon Trainer",
+"fields": {
+"cls": "Pokemon Trainer",
+"who": "a little girl",
+"skin": "light skin",
+"hair": "very long pink hair in two pigtails with yellow ornaments",
+"clothes": "a white and pink top with a pink bow, white trousers, pink shoes",
+"pose": "arms spread, cheerful",
+"facing": "facing the viewer",
+"build": "small",
+"mood": "cheerful"
+}
+},
+{
+"id": "pt:trainer_riley",
+"game": "Pt",
+"label": "Pokemon Trainer",
+"fields": {
+"cls": "Pokemon Trainer",
+"who": "a young man",
+"skin": "light skin",
+"hair": "spiky dark blue hair under a blue fedora",
+"clothes": "a blue suit jacket over a black shirt, brown trousers, black shoes",
+"pose": "standing, one hand at his hat",
+"facing": "turned to the left",
+"build": "tall and slim",
+"mood": "cool"
+}
+},
+{
+"id": "pt:tuber_female",
+"game": "Pt",
+"label": "Tuber Female",
+"fields": {}
+},
+{
+"id": "pt:tuber_male",
+"game": "Pt",
+"label": "Tuber Male",
+"fields": {}
+},
+{
+"id": "pt:twins",
+"game": "Pt",
+"label": "Twins",
+"fields": {
+"cls": "Twins",
+"who": "two identical little girls",
+"skin": "light skin",
+"hair": "dark brown hair with big red bows",
+"clothes": "yellow dresses over white shirts, white leggings, red shoes",
+"pose": "the two girls side by side, holding hands, arms out",
+"facing": "facing the viewer",
+"build": "small",
+"mood": "happy"
+}
+},
+{
+"id": "pt:veteran",
+"game": "Pt",
+"label": "Veteran",
+"fields": {}
+},
+{
+"id": "pt:waiter",
+"game": "Pt",
+"label": "Waiter",
+"fields": {}
+},
+{
+"id": "pt:waitress",
+"game": "Pt",
+"label": "Waitress",
+"fields": {}
+},
+{
+"id": "pt:worker",
+"game": "Pt",
+"label": "Worker",
+"fields": {}
+},
+{
+"id": "pt:young_couple",
+"game": "Pt",
+"label": "Young Couple",
+"fields": {}
+},
+{
+"id": "pt:youngster",
+"game": "Pt",
+"label": "Youngster",
+"fields": {
+"cls": "Youngster",
+"who": "a young boy",
+"skin": "light skin",
+"hair": "short hair under a blue cap worn backwards",
+"clothes": "a red T-shirt, blue shorts, blue and white sneakers",
+"held": "a red and white Poke Ball",
+"pose": "running pose, about to throw",
+"facing": "turned to the right",
+"build": "small and slim",
+"mood": "eager"
+}
+}
+]
+}
