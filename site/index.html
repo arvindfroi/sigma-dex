@@ -745,6 +745,8 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .ttry.on { border-color: var(--pri); }
 .ttry.inuse::after { content: "IN USE"; position: absolute; top: 2px; left: 2px; background: var(--good); color: #fff; font-size: 11px; padding: 0 4px; font-family: var(--display); }
 .ttry.wait { cursor: default; color: #555; font-size: 13px; }
+.f2paintbox { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start; margin: 6px 0 10px; }
+.f2paint { width: 240px; max-width: 100%; touch-action: none; cursor: crosshair; image-rendering: pixelated; border: 2px solid var(--line, #556); }
 .flip { position: relative; display: inline-block; line-height: 0; }
 .flip .f2 { position: absolute; left: 0; top: 0; animation: f2flip 1.2s steps(1) infinite; }
 @keyframes f2flip { 0% { opacity: 0; } 50% { opacity: 1; } }
@@ -2437,12 +2439,12 @@ const STUDIO_STEPS = [
   {id: "icon", n: "4", label: "ICON", c: "sky", count: 4, what: "The menu icon, drawn from the picked front, in one of the game's icon palettes."},
   {id: "follower", n: "5", label: "WALK", c: "pink", count: 4, what: "The walking sprite that follows the player, drawn from the picked front and back."},
   // Frame 2 (2026-11-21): the second animation frame of the front and the back; in a battle the sprite switches between the two.
-  {id: "front2", n: "6", label: "FRONT 2", c: "purple", count: 3, what: "The front's second animation frame: the same creature in a new pose, on the front's colours. In a battle it switches between the two."},
-  {id: "back2", n: "7", label: "BACK 2", c: "blue", count: 3, what: "The back's second animation frame: the same motion as FRONT 2, seen from behind."},
+  {id: "front2", n: "6", label: "FRONT 2", c: "purple", count: 3, what: "The front's second animation frame: one part of it moves (the mouth, the arms, the tail...), the rest stays frame 1. In a battle it switches between the two."},
+  {id: "back2", n: "7", label: "BACK 2", c: "blue", count: 3, what: "The back's second animation frame: one part moves, best the same part as in FRONT 2, seen from behind."},
   {id: "save", n: "✓", label: "SAVE", c: "purple", what: "Put the picked pictures together and make them the sprite."}];
 const STEP_SIZE = {art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 32], follower: [128, 64], front2: [80, 80], back2: [80, 80]};
 const TRY_SIDE = {art: 640, front: 80, back: 80, icon: 32, front2: 80, back2: 80};                    // the square ones (the colour tools use it)
-const TRY_DEFAULT_SECONDS = {art: 75, "art:sketch": 25, "art:pose": 60, front: 100, back: 55, icon: 30, follower: 40, trainer: 50, vs: 25, front2: 35, back2: 35};
+const TRY_DEFAULT_SECONDS = {art: 75, "art:sketch": 25, "art:pose": 60, front: 100, back: 55, icon: 30, follower: 40, trainer: 50, vs: 25, front2: 60, back2: 60};
 const mmss = sec => Math.floor(Math.max(0, sec) / 60) + ":" + String(Math.floor(Math.max(0, sec) % 60)).padStart(2, "0");
 const aboutMinutes = sec => !(sec >= 90) ? "about a minute" : "about " + Math.round(sec / 60) + " minutes";
 function secondsFor(timings, stage) {
@@ -2454,10 +2456,8 @@ const loadPicture = src => new Promise((ok, no) => {
   im.onload = () => ok(im); im.onerror = () => no(new Error("the picture did not load")); im.src = src;
 });
 const SLOT_NAMES = {front: "FRONT", back: "BACK", icon: "ICON", follower: "WALK", front2: "FRONT 2", back2: "BACK 2"};
-// Frame 2's motion, as the frame-2 LoRAs were trained (build_frame2_klein_v2.py's templates); the PC gets the letter.
-const F2_MOTIONS = [["", "let the PC choose"], ["M", "opens its mouth, roaring"], ["H", "raises or turns its head"], ["A", "moves its arms, hands or claws"],
-  ["W", "flaps or spreads its wings"], ["T", "swings or raises its tail"], ["C", "crouches, ready to pounce"], ["L", "leans forward to attack"],
-  ["B", "breathes in, the body rises"], ["E", "blinks or narrows its eyes"], ["R", "turns its body a little"], ["X", "moves a part (tentacles, vines, flames, fins)"]];
+// Frame 2: which part of frame 1 may move (the rest stays frame 1, pixel for pixel; 2026-11-21).
+const F2_PARTS = [["head", "the head and mouth"], ["arms", "the arms, hands or claws"], ["lower", "the tail and legs"], ["own", "a part I paint myself"]];
 // Two frames in one place, switching like the game's animation (frame 1, then frame 2).
 function flipPair(src1, src2, width) {
   return h("span", {class: "flip", style: "width:" + width + "px"}, h("img", {class: "px", src: src1, alt: "frame 1", style: "width:" + width + "px"}),
@@ -3902,21 +3902,50 @@ function spriteStudio(s, startStep) {
     return h("div", {}, box, h("datalist", {id: "list-moves-body"}, BODY_MOVES.map(m => h("option", {value: m}))));
   }
 
-  // Frame 2's motion and how big the change is (remembered per Pokemon).
-  const f2Choice = () => ({motion: remember.get("f2motion-" + s.id) || "", amount: remember.get("f2amount-" + s.id) || "clear"});
-  function motionBox() {
-    const c = f2Choice();
-    const motion = h("select", {"aria-label": "What moves in frame 2", onchange: ev => remember.set("f2motion-" + s.id, ev.target.value)},
-      F2_MOTIONS.map(([k, label]) => h("option", {value: k, selected: k === c.motion ? true : null}, label)));
-    const amount = h("select", {"aria-label": "How big the change is", onchange: ev => remember.set("f2amount-" + s.id, ev.target.value)},
-      [["small", "a small change"], ["clear", "a clear change"], ["big", "a big change"]].map(([k, label]) => h("option", {value: k, selected: k === c.amount ? true : null}, label)));
-    return h("div", {class: "row", style: "margin:6px 0"}, h("span", {class: "pixfont"}, "IN FRAME 2 IT "), motion, amount);
+  // Frame 2: the part that may move (remembered per Pokemon) and, for "own", the mask painted on frame 1 (per step).
+  const f2Part = () => remember.get("f2part-" + s.id) || "head";
+  const f2Mask = stepId => remember.get("f2mask-" + s.id + "-" + stepId) || "";
+  const f2Choice = stepId => f2Part() === "own" && f2Mask(stepId) ? {part: "own", mask: f2Mask(stepId)} : {part: f2Part() === "own" ? "head" : f2Part()};
+  function motionBox(stepId) {
+    const part = h("select", {"aria-label": "What moves in frame 2", onchange: ev => { remember.set("f2part-" + s.id, ev.target.value); draw(); }},
+      F2_PARTS.map(([k, label]) => h("option", {value: k, selected: k === f2Part() ? true : null}, label)));
+    const row = h("div", {class: "row", style: "margin:6px 0"}, h("span", {class: "pixfont"}, "IN FRAME 2, ONLY THIS MOVES: "), part);
+    if (f2Part() !== "own") return h("div", {}, row, h("div", {class: "hint", style: "margin-top:0"}, "Everything else stays exactly as in frame 1, with its colours."));
+    const one = inSet(stepId === "front2" ? "front" : "back");
+    const Z = 3, cv = h("canvas", {width: 80 * Z, height: 80 * Z, class: "f2paint", "aria-label": "Paint the part that moves"});
+    let bits = new Uint8Array(6400), erase = false, down = false, img = null;
+    try { const raw = atob(f2Mask(stepId)); for (let i = 0; i < 6400; i++) bits[i] = (raw.charCodeAt(i >> 3) >> (7 - (i & 7))) & 1; } catch (e) { /* empty */ }
+    const save = () => { const bytes = new Uint8Array(800); bits.forEach((b, i) => { if (b) bytes[i >> 3] |= 1 << (7 - (i & 7)); });
+      remember.set("f2mask-" + s.id + "-" + stepId, bits.some(Boolean) ? btoa(String.fromCharCode(...bytes)) : ""); note.textContent = count(); };
+    const count = () => bits.some(Boolean) ? "" : "Paint over the part that should move (a few pixels around it are added).";
+    const note = h("span", {class: "sub"}, count());
+    function paint() {
+      const c = cv.getContext("2d"); c.imageSmoothingEnabled = false; c.fillStyle = "#eef1f6"; c.fillRect(0, 0, cv.width, cv.height);
+      if (img) c.drawImage(img, 0, 0, cv.width, cv.height);
+      c.fillStyle = "rgba(255,40,160,0.45)";
+      for (let i = 0; i < 6400; i++) if (bits[i]) c.fillRect((i % 80) * Z, Math.floor(i / 80) * Z, Z, Z);
+    }
+    function at(ev) {
+      const r = cv.getBoundingClientRect(), x = Math.floor((ev.clientX - r.left) / r.width * 80), y = Math.floor((ev.clientY - r.top) / r.height * 80);
+      for (let dy = -2; dy <= 2; dy++) for (let dx = -2; dx <= 2; dx++) {
+        const X = x + dx, Y = y + dy; if (X >= 0 && X < 80 && Y >= 0 && Y < 80 && dx * dx + dy * dy <= 5) bits[Y * 80 + X] = erase ? 0 : 1;
+      }
+      paint();
+    }
+    cv.addEventListener("pointerdown", ev => { down = true; cv.setPointerCapture(ev.pointerId); at(ev); });
+    cv.addEventListener("pointermove", ev => { if (down) at(ev); });
+    cv.addEventListener("pointerup", () => { down = false; save(); });
+    if (one) loadPicture(one.src).then(im => { img = im; paint(); }).catch(paint); else paint();
+    const eraseBtn = h("button", {type: "button", class: "small", "aria-pressed": "false", onclick: () => { erase = !erase; eraseBtn.setAttribute("aria-pressed", String(erase)); eraseBtn.textContent = erase ? "ERASING" : "ERASE"; }}, "ERASE");
+    return h("div", {}, row, h("div", {class: "f2paintbox"}, cv, h("div", {}, h("div", {class: "toolbar", style: "margin:0 0 6px"}, eraseBtn,
+      h("button", {type: "button", class: "small", onclick: () => { bits.fill(0); paint(); save(); }}, "CLEAR")), note,
+      h("div", {class: "hint"}, "Frame 1 is shown; paint the part that should move in frame 2. Everything outside it stays exactly the same."))));
   }
   async function make(stepId, count, button, recipe) {
     const from = stepId === "front" ? picked("art") : stepId === "art" ? null : stepId === "back2" ? picked("back") : picked("front");
     const refs = stepId === "art" || stepId === "back" || stepId === "front2" || stepId === "back2" || (stepId === "front" && !from) ? chosen : [];
     if ((stepId === "art" || (stepId === "front" && !from)) && !refs.length) { st.busyMsg = "Choose a picture in 1 PICTURE first."; draw(); st.busyMsg = ""; return; }
-    const b = bodyOf(s), body = recipe === "sketch" ? sketchBody() : stepId === "front2" || stepId === "back2" ? JSON.stringify(Object.assign({}, b, f2Choice()))
+    const b = bodyOf(s), body = recipe === "sketch" ? sketchBody() : stepId === "front2" || stepId === "back2" ? JSON.stringify(Object.assign({}, b, f2Choice(stepId)))
       : ["back", "icon", "follower"].includes(stepId) && (b.shape || b.look || b.move) ? JSON.stringify(b) : null;
     const withTry = stepId === "follower" ? picked("back") : stepId === "front2" ? picked("back") : stepId === "back2" ? picked("front2") : null;
     button.disabled = true;
@@ -4017,7 +4046,7 @@ function spriteStudio(s, startStep) {
       chooser, chooser ? h("div", {class: "hint"}, "Up to 3; the first matters most. Is your picture already a clean drawing of just the creature? Then go straight to 2 FRONT.") : null,
       stp.id === "art" && remember.get("artway-" + s.id) === "sketch" ? noteBox() : null,
       ["back", "icon", "follower", "front2", "back2"].includes(stp.id) ? bodyBox(true) : null,
-      stp.id === "front2" || stp.id === "back2" ? motionBox() : null,
+      stp.id === "front2" || stp.id === "back2" ? motionBox(stp.id) : null,
       stp.id === "back2" && !picked("front2") ? h("div", {class: "hint"}, "Tip: pick a FRONT 2 first; the back then makes the same motion.") : null,
       ctl, tilesOf(stp.id));
   }

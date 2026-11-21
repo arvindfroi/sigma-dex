@@ -56,7 +56,7 @@ SKETCH_REDRAW = 0.85
 POSES = ["in a new dynamic action pose (not the pose of <image1>): moving, leaning forward, limbs in different positions",
          "turned the other way: a three-quarter view facing the other side, in a relaxed new pose",
          "in a new lively pose (not the pose of <image1>), as if about to jump or attack"]
-DEFAULT_SECONDS = {"art": 75, "art:sketch": 25, "art:pose": 60, "front": 100, "back": 55, "icon:pc": 8, "icon:canvas": 8, "icon": 30, "follower": 40, "back:klein": 30, "front2": 35, "back2": 35,
+DEFAULT_SECONDS = {"art": 75, "art:sketch": 25, "art:pose": 60, "front": 100, "back": 55, "icon:pc": 8, "icon:canvas": 8, "icon": 30, "follower": 40, "back:klein": 30, "front2": 60, "back2": 60,
                    "rear": 70}   # measured on the Legion, 14 Oct (the Klein ones: a first guess until measured)
 LINE = (175, 175, 175, 255)
 
@@ -677,31 +677,91 @@ def try_back_klein(n, seed, folder, job, inputs):
     return ("broken" if why else "done", why, image, raw)
 
 
-# ---------- frame 2: the second animation frame of the front and the back (2026-11-21; Arvind's picks of 18 Nov:
-# front v1 step 2250 "desidert best", back v1 step 1250). The recipe and texts are the training ones (build_f2_split.py
-# on the PC): front = image 1 its frame 1, image 2 the artwork, image 3 the back; back = image 1 its frame 1, image 2 the
-# front's two frames side by side, image 3 the artwork. A missing picture is plain white and the text says "image N is
-# empty". The game's frame 2 shares frame 1's palette, so the result is snapped to frame 1's colours.
+# ---------- frame 2: the second animation frame of the front and the back (2026-11-21). The frame-2 LoRAs (Arvind's picks of
+# 18 Nov: front v1 step 2250, back v1 step 1250) redraw only ONE PART of frame 1 (Arvind, same day: "it does not keep the
+# Pokemon's look"; drawn from scratch it lost legs, started from frame 1 it hardly moved and re-shaded everything). A mask says
+# which part may move: the head and mouth, the arms, the tail and legs, or one the person painted on the website. Inside it
+# the LoRA draws freely (the latent outside stays frame 1); afterwards every pixel outside it IS frame 1 and the part takes
+# frame 1's colours, as in the real HGSS frame 2s, where only the moving part changes and both frames share one palette.
+# Inputs as trained (lora-train\v6cfg\build_f2_split.py): front = frame 1 / artwork / back; back = frame 1 / the front's two
+# frames side by side / artwork; a missing picture is plain white and the text says "image N is empty".
 FRONT2_KLEIN = "pkmn_frontf2_klein_v1_000002250.safetensors"
 BACK2_KLEIN = "pkmn_backf2_klein_v1_000001250.safetensors"
-MOTIONS = {"M": "it opens its mouth wide, as if roaring", "H": "it raises or turns its head", "A": "it raises or moves its arms, hands or claws",
-           "W": "it flaps or spreads its wings", "T": "it swings or raises its tail", "C": "it crouches low, ready to pounce",
-           "L": "it leans forward to attack", "B": "its whole body rises and stretches, as if breathing in", "E": "it blinks or narrows its eyes",
-           "R": "it turns its whole body a little",
-           "X": "it moves or stretches out a part of its body (tentacles, vines, antennae, petals, flames or fins)"}
-F2_AMOUNTS = {"small": "a small change of pose", "clear": "a clear change of pose", "big": "a big change of pose"}
+F2_PARTS = {"head": "it raises or turns its head and opens its mouth wide, as if roaring",
+            "arms": "it raises or moves its arms, hands or claws",
+            "lower": "it swings or raises its tail and moves its legs",
+            "own": "the part that moves changes its pose clearly"}
+F2_ATTEMPTS = 3          # drawings per try at most: the first that keeps the part (no lost limb) is used, else the best
 
 
-def f2_change(job):
-    """the website's choice of motion (letters of MOTIONS) and amount, as the training captions said it"""
+def f2_choice(job):
+    """the website's choice: the part (head / arms / lower / own) and, for 'own', the painted mask (80x80 bits, base64)"""
     try:
         body = json.loads(job.get("prompt") or "{}")
     except ValueError:
         body = {}
     body = body if isinstance(body, dict) else {}
-    codes = "".join(c for c in str(body.get("motion") or "").upper() if c in MOTIONS)[:2]
-    t = " and ".join(MOTIONS[c] for c in codes)
-    return (t + "; " if t else "") + F2_AMOUNTS.get(body.get("amount"), F2_AMOUNTS["clear"]) + ", all over its body"
+    part = body.get("part") if body.get("part") in F2_PARTS else "head"
+    painted = None
+    if part == "own" and body.get("mask"):
+        import base64
+        try:
+            bits = np.unpackbits(np.frombuffer(base64.b64decode(body["mask"]), dtype=np.uint8))[:6400]
+            painted = bits.reshape(80, 80).astype(bool) if bits.size == 6400 and bits.any() else None
+        except (ValueError, TypeError):
+            painted = None
+    return (part if painted is not None or part != "own" else "head"), painted
+
+
+def _grow(m, steps=1):
+    """binary dilation with the 4-neighbour cross (scipy's default), numpy only (the worker's Python has no scipy)"""
+    m = m.copy()
+    for _ in range(steps):
+        p = np.pad(m, 1)
+        m = p[1:-1, 1:-1] | p[:-2, 1:-1] | p[2:, 1:-1] | p[1:-1, :-2] | p[1:-1, 2:]
+    return m
+
+
+def _open2(m):
+    """binary opening with a 2x2 square: only blobs at least 2 pixels thick stay"""
+    p = np.pad(m, ((0, 1), (0, 1)))
+    core = p[:-1, :-1] & p[1:, :-1] & p[:-1, 1:] & p[1:, 1:]
+    q = np.pad(core, ((1, 0), (1, 0)))
+    return m & (q[1:, 1:] | q[:-1, 1:] | q[1:, :-1] | q[:-1, :-1])
+
+
+def _blobs(m):
+    """8-connected blobs of a small bool picture, as lists of (y, x)"""
+    seen = np.zeros_like(m); out = []
+    for y, x in zip(*np.nonzero(m)):
+        if seen[y, x]:
+            continue
+        stack, blob = [(y, x)], []
+        seen[y, x] = True
+        while stack:
+            cy, cx = stack.pop(); blob.append((cy, cx))
+            for ny in (cy - 1, cy, cy + 1):
+                for nx in (cx - 1, cx, cx + 1):
+                    if 0 <= ny < m.shape[0] and 0 <= nx < m.shape[1] and m[ny, nx] and not seen[ny, nx]:
+                        seen[ny, nx] = True; stack.append((ny, nx))
+        out.append(blob)
+    return out
+
+
+def f2_mask(frame1, part, painted=None, grow=3):
+    """80x80 bool: where frame 2 may change. A part is a slice of the figure's box (head = top 45 %, arms = the outer thirds,
+    lower = the bottom 45 %), grown by a few pixels so a limb has room to move; a painted mask is grown the same way."""
+    a = np.array(frame1.convert("RGBA"))[..., 3] > 0
+    if painted is not None:
+        sel = painted
+    else:
+        ys, xs = np.nonzero(a)
+        y0, y1, x0, x1 = ys.min(), ys.max() + 1, xs.min(), xs.max() + 1
+        yy, xx = np.mgrid[0:80, 0:80]
+        h, w = y1 - y0, x1 - x0
+        sel = a & {"head": (yy - y0) < 0.45 * h, "arms": ((xx - x0) < 0.33 * w) | ((xx - x0) > 0.67 * w),
+                   "lower": (yy - y0) > 0.55 * h}[part]
+    return _grow(sel, grow)
 
 
 def on_magenta4(sprite):
@@ -718,7 +778,7 @@ def front_pair(f1, f2):
 
 
 def frame1_colours(sprite, frame1):
-    """every pixel of frame 2 takes the nearest colour of frame 1 (one palette for both frames in the game)"""
+    """every pixel takes the nearest colour of frame 1 (one palette for both frames in the game)"""
     a = np.array(sprite.convert("RGBA")).copy()
     b = np.array(frame1.convert("RGBA"))
     pal = np.unique(b[b[..., 3] > 0][:, :3].reshape(-1, 3), axis=0).astype(int)
@@ -733,14 +793,73 @@ def frame1_colours(sprite, frame1):
     return Image.fromarray(a)
 
 
-def f2_text(view, head, job, words):
-    return (head + about(job, words, move=False) + "The picture is its second frame: the same 80x80 pixel art %s sprite on a flat "
+def f2_compose(frame1, drawn, mask):
+    """frame 1 outside the mask; inside it the drawing on frame 1's colours, except where the drawing only re-shades frame 1
+    (both opaque, colour close: frame 1's pixel stays, so still parts do not flicker); loose specks the drawing added go.
+    Returns the sprite and the LOST share: frame-1 pixels inside the mask that vanished in thick blobs (2x2 opening, so a
+    thinner outline does not count). Measured on 18 tries (Steinar, Fleinar, Gaiafinn): a lost limb is >= 0.20, good ones <= 0.19."""
+    a = np.array(frame1.convert("RGBA")); b = np.array(frame1_colours(drawn, frame1))
+    both = (a[..., 3] > 0) & (b[..., 3] > 0)
+    close = both & (np.sqrt(((a[..., :3].astype(int) - b[..., :3].astype(int)) ** 2).sum(-1)) < 70)
+    out = a.copy()
+    take = mask & ~close
+    out[take] = b[take]
+    on = out[..., 3] > 0
+    for blob in _blobs(on):
+        if len(blob) <= 3:
+            ys, xs = zip(*blob)
+            if (out[ys, xs] != a[ys, xs]).any():              # a loose speck the drawing added: back to frame 1 there
+                out[ys, xs] = a[ys, xs]
+    was = a[..., 3] > 0
+    gone = _open2(was & ~(out[..., 3] > 0))
+    area = was[mask].sum()
+    return Image.fromarray(out), float(gone.sum() / area) if area else 0.0
+
+
+def f2_graph(text, refs, seed, lora, start, mask):
+    g = comfy.klein(text, refs, 320, 320, seed, "sigma/studio_f2", lora)
+    g["startimg"] = {"class_type": "LoadImage", "inputs": {"image": start}}
+    g["startenc"] = {"class_type": "VAEEncode", "inputs": {"pixels": ["startimg", 0], "vae": ["vae", 0]}}
+    g["maskimg"] = {"class_type": "LoadImage", "inputs": {"image": mask}}
+    g["mask"] = {"class_type": "ImageToMask", "inputs": {"image": ["maskimg", 0], "channel": "red"}}
+    g["masked"] = {"class_type": "SetLatentNoiseMask", "inputs": {"samples": ["startenc", 0], "mask": ["mask", 0]}}
+    g["sca"]["inputs"]["latent_image"] = ["masked", 0]
+    return g
+
+
+def f2_draw(n, seed, folder, job, view, frame1, refs, head):
+    words, _ = job["_tags"]
+    part, painted = f2_choice(job)
+    mask = f2_mask(frame1, part, painted)
+    mfile = folder / ("f2_mask_%s.png" % view)
+    if not mfile.exists():
+        Image.fromarray((mask * 255).astype(np.uint8)).resize((320, 320), Image.NEAREST).convert("RGB").save(mfile)
+        on_magenta4(frame1).save(folder / ("f2_start_%s.png" % view))
+    text = (head + about(job, words, move=False) + "The picture is its second frame: the same 80x80 pixel art %s sprite on a flat "
             "magenta background, the same creature in the same place and size, with exactly the colours, outline and design of "
-            "image 1; only its pose changes: %s." % (view, f2_change(job)))
+            "image 1; only its pose changes: %s; a clear change of pose there, the rest stays exactly as in image 1." % (view, F2_PARTS[part]))
+    lora = FRONT2_KLEIN if view == "front" else BACK2_KLEIN
+    ups, st, mk = [up(r) for r in refs], up(folder / ("f2_start_%s.png" % view)), up(mfile)
+    best = None
+    for k in range(F2_ATTEMPTS):
+        raw = folder / ("%s2_raw_%d_%d.png" % (view, n, k))
+        if not raw.exists():
+            raw.write_bytes(comfy.run(f2_graph(text, ups, seed + 1000 * k, lora, st, mk)))
+        sprite, lost = f2_compose(frame1, klein_follower.to_back(raw), mask)
+        changed = int((np.array(sprite) != np.array(frame1.convert("RGBA"))).any(-1).sum())
+        score = (lost < 0.20 and changed >= 12, -lost, changed)
+        if best is None or score > best[0]:
+            best = (score, sprite, raw, lost, changed)
+        if score[0]:
+            break
+    (_, sprite, raw, lost, changed) = best
+    why = "a part went missing (%d%% of it lost)" % (100 * lost) if lost >= 0.20 else "almost nothing moved" if changed < 12 else ""
+    image = folder / ("%s2_%d.png" % (view, n))
+    sprite.save(image)
+    return ("broken" if why else "done", why, image, raw)
 
 
 def try_front2(n, seed, folder, job, inputs):
-    words, _ = inputs["tags"]
     f1, art, back = inputs["front"], inputs.get("art"), inputs.get("back")
     if not (folder / "f2_1.png").exists():
         on_magenta4(f1).save(folder / "f2_1.png")
@@ -749,17 +868,11 @@ def try_front2(n, seed, folder, job, inputs):
     head = ("Create the second animation frame of the front battle sprite from Pokemon HeartGold of the Pokemon in image 1: image 1 "
             "is its first frame. " + ("Image 2 is its official artwork, for its design. " if art is not None else "Image 2 is empty. ") +
             ("Image 3 is its back sprite, for how it looks from behind. " if back is not None else "Image 3 is empty. "))
-    raw = klein_draw(folder / ("front2_raw_%d.png" % n), f2_text("front", head, job, words),
-                     [folder / "f2_1.png", folder / "f2_2.png", folder / "f2_3.png"], 320, 320, seed, FRONT2_KLEIN)
-    sprite = frame1_colours(klein_follower.to_back(raw), f1)
-    why = too_small(sprite, 200)
-    image = folder / ("front2_%d.png" % n)
-    sprite.save(image)
-    return ("broken" if why else "done", why, image, raw)
+    job["_tags"] = inputs["tags"]
+    return f2_draw(n, seed, folder, job, "front", f1, [folder / "f2_1.png", folder / "f2_2.png", folder / "f2_3.png"], head)
 
 
 def try_back2(n, seed, folder, job, inputs):
-    words, _ = inputs["tags"]
     b1, art, pair = inputs["back"], inputs.get("art"), inputs.get("pair")
     if not (folder / "b2_1.png").exists():
         on_magenta4(b1).save(folder / "b2_1.png")
@@ -770,13 +883,8 @@ def try_back2(n, seed, folder, job, inputs):
             ("Image 2 shows its front sprite's two animation frames side by side (frame 1 left, frame 2 right): the back's second frame "
              "makes the same motion, seen from behind. " if pair else "Image 2 is empty. ") +
             ("Image 3 is its official artwork, for its design. " if art is not None else "Image 3 is empty. "))
-    raw = klein_draw(folder / ("back2_raw_%d.png" % n), f2_text("back", head, job, words),
-                     [folder / "b2_1.png", folder / "b2_2.png", folder / "b2_3.png"], 320, 320, seed, BACK2_KLEIN)
-    sprite = frame1_colours(klein_follower.to_back(raw), b1)
-    why = too_small(sprite, 200)
-    image = folder / ("back2_%d.png" % n)
-    sprite.save(image)
-    return ("broken" if why else "done", why, image, raw)
+    job["_tags"] = inputs["tags"]
+    return f2_draw(n, seed, folder, job, "back", b1, [folder / "b2_1.png", folder / "b2_2.png", folder / "b2_3.png"], head)
 
 
 def icon_recipe(job, n):
