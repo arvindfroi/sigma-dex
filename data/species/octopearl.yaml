@@ -3,8 +3,8 @@ dex: 71
 name: Octopearl
 
 credits:
-  designer:              # who came up with it (Discord name)
-  artist:                # who drew the concept art
+  designer: Arvind       # who came up with it (Discord name)
+  artist: Arvind         # who drew the concept art
 
 types: [Psychic, Water]  # 1 or 2 types, e.g. [Grass, Steel]
 
@@ -97,12 +97,12 @@ learnset:
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Water Pulse, Calm Mind, Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard,
           Hyper Beam, Light Screen, Protect, Rain Dance, Safeguard, Frustration, Return,
-          Psychic, Shadow Ball, Double Team, Reflect, Rock Tomb, Facade, Secret Power, Rest,
-          Attract, Skill Swap, Energy Ball, Brine, Fling, Endure, Giga Impact, Flash,
-          Thunder Wave, Psych Up, Captivate, Rock Slide, Sleep Talk, Natural Gift,
-          Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Scald, Psychic Terrain,
-          Liquidation, Expanding Force, Flip Turn, Surf, Whirlpool, Waterfall, Brick Break,
-          Charge Beam, Strength, Rock Smash, Thief]
+          Psychic, Shadow Ball, Brick Break, Double Team, Reflect, Rock Tomb, Facade,
+          Secret Power, Rest, Attract, Thief, Skill Swap, Energy Ball, Brine, Fling,
+          Charge Beam, Endure, Giga Impact, Flash, Thunder Wave, Psych Up, Captivate,
+          Rock Slide, Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute, Trick Room,
+          Psyshock, Scald, Psychic Terrain, Liquidation, Expanding Force, Flip Turn, Surf,
+          Strength, Whirlpool, Rock Smash, Waterfall]
   # moves a move tutor can teach it
   tutor: [Aqua Tail, Body Slam, Icy Wind, Zen Headbutt, Charm, Dazzling Gleam]
   egg: []                # only needed for the first stage of an evolution line

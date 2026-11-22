@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**198 / 254** slots have a Pokemon - **0** are fully complete - average completeness **58%**.
+**203 / 254** slots have a Pokemon - **0** are fully complete - average completeness **57%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -43,8 +43,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 32 | [Galfrogtom](data/species/galfrogtom.yaml) | Ghost / Electric | Cursed Body, Lightning Rod, Galvanize (H) | 504 |  | 76% |
 | 33 | [Cloudgnome](data/species/cloudgnome.yaml) | Fairy / Flying | Prankster | 278 | Cloudjester (Lv 25) | 48% |
 | 34 | [Cloudjester](data/species/cloudjester.yaml) | Fairy / Flying | Prankster | 478 |  | 45% |
-| 35 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice | Moody | 462 |  | 62% |
-| 36 | [Rainbro](data/species/rainbro.yaml) |  | Punchable Face | 490 |  | 59% |
+| 35 | [Sigmanian Eiscue](data/species/eiscue.yaml) | Ice | Moody | 462 |  | 66% |
+| 36 | [Rainbro](data/species/rainbro.yaml) |  | Punchable Face | 490 |  | 62% |
 | 37 | [Nukfae](data/species/nukfae.yaml) | Poison / Fairy | Liquid Ooze, Sticky Hold, Regenerator (H) | 325 | Toxiren (Lv 40) | 76% |
 | 38 | [Toxiren](data/species/toxiren.yaml) | Poison / Fairy | Liquid Ooze, Toxic Voice, Regenerator (H) | 518 |  | 76% |
 | 39 | [Stonma](data/species/stonma.yaml) | Rock | Sturdy, Rock Head, Solid Rock (H) | 325 | Sigmauler (Lv 38) | 76% |
@@ -59,12 +59,12 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 48 | [Ampeel](data/species/ampeel.yaml) | Water / Electric | Swift Swim, Static, Eelevate (H) | 487 |  | 79% |
 | 49 | [Tomaternader](data/species/tomaterdander.yaml) | Poison / Grass | Pickle Armor, Chlorophyll, Defiant (H) | 350 | Crappy Meal (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 76% |
 | 50 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass | Pickle Armor, Poison Point, Toxic Chain (H) | 500 |  | 79% |
-| 51 | [Beatld](data/species/beatld.yaml) | Bug / Psychic | Curious Medicine, Tangled Feet, Psychic Surge (H) | 420 |  | 66% |
+| 51 | [Beatld](data/species/beatld.yaml) | Bug / Psychic | Curious Medicine, Tangled Feet, Psychic Surge (H) | 420 |  | 69% |
 | 52 | [Fleuroom](data/species/fleuroom.yaml) | Grass / Fairy | Effect Spore, Aroma Veil, Magic Bounce (H) | 295 | Sporeshade (Shiny Stown) | 72% |
 | 53 | [Sporeshade](data/species/fleuroom-utvikling.yaml) | Grass / Fairy | Effect Spore, Aroma Veil, Magic Bounce (H) | 460 |  | 72% |
-| 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock | Ore Body, Stamina, Sand Force (H) | 500 |  | 62% |
-| 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon | Thick Fat | 500 |  | 31% |
-| 56 | [Razox](data/species/razox.yaml) | Fairy / Ice | Snow Cloak, Thick Fat, Pixilate (H) | 500 |  | 66% |
+| 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock | Ore Body, Stamina, Sand Force (H) | 500 |  | 66% |
+| 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon | Thick Fat | 500 |  | 34% |
+| 56 | [Razox](data/species/razox.yaml) | Fairy / Ice | Snow Cloak, Thick Fat, Pixilate (H) | 500 |  | 69% |
 | 57 | [Sigmanian Unown](data/species/bulgarian-unown.yaml) | Electric / Psychic | Battery | 336 | Unknighted (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 69% |
 | 58 | [Unknighted](data/species/united.yaml) | Electric / Psychic | Battery | 467 |  | 69% |
 | 59 | [Hairyen](data/species/hairyen.yaml) | Grass / Water | Diver, Tangling Hair | 310 | Panzerien (Trade holding Metal Coat) | 72% |
@@ -77,11 +77,11 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 66 | [Gorambe](data/species/harambe.yaml) | Ghost / Fairy | Clear Body, Telepathy, Friend Guard (H) | 505 |  | 62% |
 | 67 | [Anjane](data/species/anjane.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 320 | Janenon (Lv 42) | 72% |
 | 68 | [Janenon](data/species/janenon.yaml) | Dark / Fairy | Tangling Hair, Mega Launcher, Misty Surge (H) | 485 |  | 72% |
-| 69 | [Saucerl](data/species/saucerl.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 295 | Abyssys (Lv 23) | 62% |
-| 70 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 395 | Octopearl (Moon stone) | 62% |
-| 71 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 495 |  | 62% |
+| 69 | [Saucerl](data/species/saucerl.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 295 | Abyssys (Lv 23) | 66% |
+| 70 | [Abyssys](data/species/abyssys.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 395 | Octopearl (Moon stone) | 66% |
+| 71 | [Octopearl](data/species/octopearl.yaml) | Psychic / Water | Analytic, Telepathy, Prism Armor (H) | 495 |  | 66% |
 | 72 | [Cryoblade](data/species/cryoblade.yaml) | Ice | Cold-hearted, Ice Body, Refrigerate (H) | 528 |  | 76% |
-| 73 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal | Big Pecks, Super Luck, Hustle (H) | 500 |  | 34% |
+| 73 | [Roostasaur](data/species/roostasaur.yaml) | Dragon / Normal | Big Pecks, Super Luck, Hustle (H) | 500 |  | 38% |
 | 74 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Radiation Eater, Toxic Debris (H) | 280 | Leadleak (Lv 20) | 69% |
 | 75 | [Leadleak](data/species/leadling-utvikling.yaml) | Rock / Poison | Sturdy, Radiation Eater, Toxic Debris (H) | 400 | Blylem (Lv 40) | 69% |
 | 76 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Radiation Eater, Toxic Debris (H) | 525 |  | 76% |
@@ -104,7 +104,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 93 | [Quimsy](data/species/quimsy.yaml) | Normal / Psychic | Nerd out, Download (H) | 415 |  | 45% |
 | 94 | [ROKU](data/species/roku.yaml) | Ground / Psychic | Magician, Power Spot, Purifying Salt (H) | 530 |  | 66% |
 | 95 | [Skiirtle](data/species/skiirtle.yaml) | Fire | Speed Boost, Reckless (H) | 350 | McSkiirtle (Thunder Stone) | 69% |
-| 96 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric | Better Late, Reckless (H) | 485 |  | 66% |
+| 96 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric | Better Late, Reckless (H) | 485 |  | 69% |
 | 97 | [ambuger](data/species/ambuger.yaml) | Rock / Bug | Shell Armor, Overcoat, Infiltrator (H) | 350 | Ambrr (Lv 40) | 72% |
 | 98 | [Ambrr](data/species/ambcoptr.yaml) | Rock / Bug | Levitate, Overcoat, Infiltrator (H) | 495 |  | 72% |
 | 99 | [Tortoplasm](data/species/tortoplasm.yaml) | Rock / Ghost | Cursed Body, Weak Armor, Perish Body (H) | 350 | Fossitoise (Lv 40) | 69% |
@@ -175,7 +175,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 164 | [Wondertusk](data/species/tusksir.yaml) | Normal / Fire |  |  |  | 10% |
 | 165 | [Steinar](data/species/steinar.yaml) | Rock / Poison |  |  |  | 14% |
 | 166 | [Fleinar](data/species/fleinar.yaml) | Poison / Psychic | Curious Medicine |  |  | 14% |
-| 167 | [Racedent](data/species/racedent.yaml) |  |  |  |  | 7% |
+| 167 | [Racedent](data/species/racedent.yaml) | Dark |  |  |  | 10% |
 | 168 | [Ratpid](data/species/ratpid.yaml) | Dark |  |  |  | 10% |
 | 169 | [Daytard](data/species/daytard.yaml) | Bug |  |  |  | 14% |
 | 170 | [plumbuzzz](data/species/plumbuzzz.yaml) | Bug |  |  |  | 14% |
@@ -186,11 +186,11 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 175 | [Rot.Fairy](data/species/rot-fairy.yaml) | Electric / Fairy |  |  |  | 7% |
 | 176 | [Rot.Normal](data/species/rot-normal.yaml) | Electric / Normal |  |  |  | 7% |
 | 177 | [Thooji](data/species/thooji.yaml) | Fighting | Heavenly Pact |  |  | 17% |
-| 178 | *open slot* | | | | | |
-| 179 | *open slot* | | | | | |
-| 180 | *open slot* | | | | | |
-| 181 | *open slot* | | | | | |
-| 182 | *open slot* | | | | | |
+| 178 | [endermon](data/species/endermon.yaml) | Dark / Rock |  |  |  | 10% |
+| 179 | [Crepawmon](data/species/crepawmon.yaml) | Normal / Grass |  |  |  | 7% |
+| 180 | [Viltector](data/species/viltector.yaml) | Steel |  |  |  | 10% |
+| 181 | [Subwocada](data/species/subwocada.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 320 |  | 21% |
+| 182 | [Cicadj](data/species/cicadj.yaml) | Bug / Electric |  |  |  | 3% |
 | 183 | *open slot* | | | | | |
 | 184 | *open slot* | | | | | |
 | 185 | *open slot* | | | | | |

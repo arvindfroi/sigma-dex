@@ -5062,8 +5062,8 @@
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_DIEDO,
         .categoryName = _("Unknown"),
-        .height = 4,
-        .weight = 36,
+        .height = 3,
+        .weight = 3,
         .description = COMPOUND_STRING(
             "This Pokemon has no Pokedex entry yet."),
         .pokemonScale = 256,

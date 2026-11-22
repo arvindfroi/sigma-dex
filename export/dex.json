@@ -9025,8 +9025,8 @@
       "dex": 35,
       "name": "Sigmanian Eiscue",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Ice"
@@ -9272,8 +9272,8 @@
       "dex": 36,
       "name": "Rainbro",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [],
       "category": null,
@@ -9388,6 +9388,7 @@
           }
         ],
         "tm_hm": [
+          "Calm Mind",
           "Toxic",
           "Hidden Power",
           "Sunny Day",
@@ -9410,8 +9411,7 @@
           "Swagger",
           "U-turn",
           "Substitute",
-          "Psyshock",
-          "Calm Mind"
+          "Psyshock"
         ],
         "tutor": [
           "Body Slam",
@@ -13162,8 +13162,8 @@
       "dex": 51,
       "name": "Beatld",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Bug",
@@ -13886,8 +13886,8 @@
       "dex": 54,
       "name": "Hippore",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Steel",
@@ -14136,8 +14136,8 @@
       "dex": 55,
       "name": "Docuphant",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Ground",
@@ -14350,8 +14350,8 @@
       "dex": 56,
       "name": "Razox",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Fairy",
@@ -17764,8 +17764,8 @@
       "dex": 69,
       "name": "Saucerl",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Psychic",
@@ -18029,8 +18029,8 @@
       "dex": 70,
       "name": "Abyssys",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Psychic",
@@ -18195,6 +18195,7 @@
           "Secret Power",
           "Rest",
           "Attract",
+          "Thief",
           "Skill Swap",
           "Brine",
           "Fling",
@@ -18219,8 +18220,7 @@
           "Flip Turn",
           "Surf",
           "Whirlpool",
-          "Waterfall",
-          "Thief"
+          "Waterfall"
         ],
         "tutor": [
           "Aqua Tail",
@@ -18303,8 +18303,8 @@
       "dex": 71,
       "name": "Octopearl",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Psychic",
@@ -18481,6 +18481,7 @@
           "Return",
           "Psychic",
           "Shadow Ball",
+          "Brick Break",
           "Double Team",
           "Reflect",
           "Rock Tomb",
@@ -18488,10 +18489,12 @@
           "Secret Power",
           "Rest",
           "Attract",
+          "Thief",
           "Skill Swap",
           "Energy Ball",
           "Brine",
           "Fling",
+          "Charge Beam",
           "Endure",
           "Giga Impact",
           "Flash",
@@ -18512,13 +18515,10 @@
           "Expanding Force",
           "Flip Turn",
           "Surf",
-          "Whirlpool",
-          "Waterfall",
-          "Brick Break",
-          "Charge Beam",
           "Strength",
+          "Whirlpool",
           "Rock Smash",
-          "Thief"
+          "Waterfall"
         ],
         "tutor": [
           "Aqua Tail",
@@ -18844,8 +18844,8 @@
       "dex": 73,
       "name": "Roostasaur",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Dragon",
@@ -24569,8 +24569,8 @@
       "dex": 96,
       "name": "McSkiirtle",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Fire",
@@ -34097,8 +34097,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": 0.4,
-      "weight_kg": 3.6,
+      "height_m": 0.3,
+      "weight_kg": 0.3,
       "body_color": "white",
       "abilities": {
         "primary": "Mind's Eye",
@@ -34275,9 +34275,7 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles",
-          "height",
-          "weight"
+          "egg cycles"
         ],
         "claude_sure": {
           "body shape": 80,
@@ -34294,9 +34292,7 @@
           "base friendship": 90,
           "gender": 77,
           "egg groups": 55,
-          "egg cycles": 65,
-          "height": 45,
-          "weight": 35
+          "egg cycles": 65
         },
         "body_shape": "a body with one pair of wings",
         "movement": "It flies, flapping its wings.",
@@ -39177,7 +39173,7 @@
       "name": "Steinar",
       "credits": {
         "designer": "Arvind",
-        "artist": "Frøiland"
+        "artist": "Arvind"
       },
       "types": [
         "Rock",
@@ -39341,7 +39337,9 @@
         "designer": "Arvind",
         "artist": "Arvind"
       },
-      "types": [],
+      "types": [
+        "Dark"
+      ],
       "category": null,
       "description": null,
       "height_m": null,
@@ -40222,6 +40220,412 @@
         "safari_flee_rate": 0
       },
       "id": "thooji"
+    },
+    {
+      "dex": 178,
+      "name": "endermon",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Dark",
+        "Rock"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/endermon/2746.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "endermon"
+    },
+    {
+      "dex": 179,
+      "name": "Crepawmon",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Normal",
+        "Grass"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/crepawmon/2747.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "crepawmon"
+    },
+    {
+      "dex": 180,
+      "name": "Viltector",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Steel"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/viltector/2748.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "viltector"
+    },
+    {
+      "dex": 181,
+      "name": "Subwocada",
+      "credits": {
+        "designer": "Emil",
+        "artist": null
+      },
+      "types": [
+        "Bug",
+        "Electric"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Swarm",
+        "secondary": "Subwoofer",
+        "hidden": "Compound Eyes"
+      },
+      "base_stats": {
+        "hp": 30,
+        "attack": 35,
+        "defense": 60,
+        "sp_attack": 65,
+        "sp_defense": 70,
+        "speed": 60
+      },
+      "ev_yield": {
+        "sp_defense": 1
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/subwocada/2769.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "subwocada"
+    },
+    {
+      "dex": 182,
+      "name": "Cicadj",
+      "credits": {
+        "designer": null,
+        "artist": null
+      },
+      "types": [
+        "Bug",
+        "Electric"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "cicadj"
     },
     {
       "dex": 234,

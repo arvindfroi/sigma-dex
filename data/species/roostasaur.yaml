@@ -3,8 +3,8 @@ dex: 73
 name: Roostasaur
 
 credits:
-  designer:              # who came up with it (Discord name)
-  artist:                # who drew the concept art
+  designer: Arvind       # who came up with it (Discord name)
+  artist: Arvind         # who drew the concept art
 
 types: [Dragon, Normal]  # 1 or 2 types, e.g. [Grass, Steel]
 

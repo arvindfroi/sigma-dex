@@ -3,8 +3,8 @@ dex: 36
 name: Rainbro
 
 credits:
-  designer:              # who came up with it (Discord name)
-  artist:                # who drew the concept art
+  designer: Arvind       # who came up with it (Discord name)
+  artist: Arvind         # who drew the concept art
 
 types: []                # 1 or 2 types, e.g. [Grass, Steel]
 
@@ -85,10 +85,10 @@ learnset:
     - {level: 49, move: Foul Play}
     - {level: 54, move: First Impression}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen, Protect,
-          Rain Dance, Frustration, Return, Double Team, Facade, Secret Power, Rest, Attract,
-          Thief, Endure, Giga Impact, Sleep Talk, Swagger, U-turn, Substitute, Psyshock,
-          Calm Mind]
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
+          Protect, Rain Dance, Frustration, Return, Double Team, Facade, Secret Power, Rest,
+          Attract, Thief, Endure, Giga Impact, Sleep Talk, Swagger, U-turn, Substitute,
+          Psyshock]
   # moves a move tutor can teach it
   tutor: [Body Slam, Endeavor, Dazzling Gleam]
   egg: []                # only needed for the first stage of an evolution line

@@ -4,7 +4,7 @@ name: Steinar
 
 credits:
   designer: Arvind       # who came up with it (Discord name)
-  artist: "Frøiland"     # who drew the concept art
+  artist: Arvind         # who drew the concept art
 
 types: [Rock, Poison]    # 1 or 2 types, e.g. [Grass, Steel]
 

@@ -2800,13 +2800,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 917,
-    "species": "leafsteel",
-    "file": "assets/concept-art/leafsteel/917.png",
-    "caption": "[ds-icon] sprite #115",
-    "editor": "Arvind"
-  },
-  {
     "id": 918,
     "species": "leafsteel",
     "file": "assets/concept-art/leafsteel/918.png",
@@ -3248,13 +3241,6 @@
     "editor": null
   },
   {
-    "id": 1017,
-    "species": "octopearl",
-    "file": "assets/concept-art/octopearl/1017.png",
-    "caption": "[ds-back] sprite #138",
-    "editor": null
-  },
-  {
     "id": 1018,
     "species": "octopearl",
     "file": "assets/concept-art/octopearl/1018.png",
@@ -3378,13 +3364,6 @@
     "species": "wispole",
     "file": "assets/concept-art/wispole/1039.jpg",
     "caption": null,
-    "editor": null
-  },
-  {
-    "id": 1040,
-    "species": "wispole",
-    "file": "assets/concept-art/wispole/1040.png",
-    "caption": "[ds-front] sprite #144",
     "editor": null
   },
   {
@@ -3798,13 +3777,6 @@
     "species": "julius",
     "file": "assets/concept-art/julius/1166.png",
     "caption": "[ds-front] sprite #167",
-    "editor": null
-  },
-  {
-    "id": 1170,
-    "species": "octopearl",
-    "file": "assets/concept-art/octopearl/1170.png",
-    "caption": "[ds-front] sprite #168",
     "editor": null
   },
   {
@@ -5474,31 +5446,10 @@
     "editor": "Arvind"
   },
   {
-    "id": 1871,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/1871.png",
-    "caption": "[ds-front] sprite #331",
-    "editor": null
-  },
-  {
-    "id": 1872,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/1872.png",
-    "caption": "[ds-back] sprite #331",
-    "editor": null
-  },
-  {
     "id": 1873,
     "species": "leafing",
     "file": "assets/concept-art/leafing/1873.png",
     "caption": "[ds-icon] sprite #331",
-    "editor": null
-  },
-  {
-    "id": 1874,
-    "species": "leafing",
-    "file": "assets/concept-art/leafing/1874.png",
-    "caption": "[ds-follower] sprite #331",
     "editor": null
   },
   {
@@ -6601,13 +6552,6 @@
     "editor": "Ivar"
   },
   {
-    "id": 2184,
-    "species": "horaxander",
-    "file": "assets/concept-art/horaxander/2184.png",
-    "caption": "[ds-front] sprite #409",
-    "editor": "Ivar"
-  },
-  {
     "id": 2186,
     "species": "horaxander",
     "file": "assets/concept-art/horaxander/2186.png",
@@ -7546,13 +7490,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2502,
-    "species": "leadling-utvikling",
-    "file": "assets/concept-art/leadling-utvikling/2502.png",
-    "caption": "[ds-front] sprite #486",
-    "editor": "Arvind"
-  },
-  {
     "id": 2503,
     "species": "leadling-utvikling",
     "file": "assets/concept-art/leadling-utvikling/2503.png",
@@ -8043,34 +7980,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2617,
-    "species": "tortoplasm-utviklet",
-    "file": "assets/concept-art/tortoplasm-utviklet/2617.png",
-    "caption": "[ds-front] sprite #512",
-    "editor": "Arvind"
-  },
-  {
-    "id": 2618,
-    "species": "tortoplasm-utviklet",
-    "file": "assets/concept-art/tortoplasm-utviklet/2618.png",
-    "caption": "[ds-back] sprite #512",
-    "editor": "Arvind"
-  },
-  {
-    "id": 2619,
-    "species": "tortoplasm-utviklet",
-    "file": "assets/concept-art/tortoplasm-utviklet/2619.png",
-    "caption": "[ds-icon] sprite #512",
-    "editor": "Arvind"
-  },
-  {
-    "id": 2620,
-    "species": "tortoplasm-utviklet",
-    "file": "assets/concept-art/tortoplasm-utviklet/2620.png",
-    "caption": "[ds-follower] sprite #512",
-    "editor": "Arvind"
-  },
-  {
     "id": 2621,
     "species": "seraphinnen",
     "file": "assets/concept-art/seraphinnen/2621.webp",
@@ -8215,13 +8124,6 @@
     "species": "gaiafinn",
     "file": "assets/concept-art/gaiafinn/2676.png",
     "caption": "[ds-back] sprite #524",
-    "editor": "Arvind"
-  },
-  {
-    "id": 2679,
-    "species": "tusksir",
-    "file": "assets/concept-art/tusksir/2679.png",
-    "caption": "[ds-front] sprite #525",
     "editor": "Arvind"
   },
   {
@@ -8412,5 +8314,138 @@
     "file": "assets/concept-art/steinar/2726.png",
     "caption": "[ds-front] sprite #534",
     "editor": "Arvind"
+  },
+  {
+    "id": 2730,
+    "species": "tusksir",
+    "file": "assets/concept-art/tusksir/2730.png",
+    "caption": "[ds-front] sprite #535",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2734,
+    "species": "wispole",
+    "file": "assets/concept-art/wispole/2734.png",
+    "caption": "[ds-front] sprite #536",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2738,
+    "species": "leadling-utvikling",
+    "file": "assets/concept-art/leadling-utvikling/2738.png",
+    "caption": "[ds-front] sprite #537",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2742,
+    "species": "tortoplasm-utviklet",
+    "file": "assets/concept-art/tortoplasm-utviklet/2742.png",
+    "caption": "[ds-front] sprite #538",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2743,
+    "species": "tortoplasm-utviklet",
+    "file": "assets/concept-art/tortoplasm-utviklet/2743.png",
+    "caption": "[ds-back] sprite #538",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2744,
+    "species": "tortoplasm-utviklet",
+    "file": "assets/concept-art/tortoplasm-utviklet/2744.png",
+    "caption": "[ds-icon] sprite #538",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2745,
+    "species": "tortoplasm-utviklet",
+    "file": "assets/concept-art/tortoplasm-utviklet/2745.png",
+    "caption": "[ds-follower] sprite #538",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2746,
+    "species": "endermon",
+    "file": "assets/concept-art/endermon/2746.png",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2747,
+    "species": "crepawmon",
+    "file": "assets/concept-art/crepawmon/2747.png",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2748,
+    "species": "viltector",
+    "file": "assets/concept-art/viltector/2748.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2749,
+    "species": "horaxander",
+    "file": "assets/concept-art/horaxander/2749.png",
+    "caption": "[ds-front] sprite #539",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2756,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/2756.png",
+    "caption": "[ds-follower] sprite #542",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2759,
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/2759.png",
+    "caption": "[ds-icon] sprite #541",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2761,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/2761.png",
+    "caption": "[ds-front] sprite #542",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2762,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/2762.png",
+    "caption": "[ds-back] sprite #542",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2765,
+    "species": "octopearl",
+    "file": "assets/concept-art/octopearl/2765.png",
+    "caption": "[ds-front] sprite #543",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2766,
+    "species": "octopearl",
+    "file": "assets/concept-art/octopearl/2766.png",
+    "caption": "[ds-back] sprite #543",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2769,
+    "species": "subwocada",
+    "file": "assets/concept-art/subwocada/2769.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2770,
+    "species": "subwocada",
+    "file": "assets/concept-art/subwocada/2770.jpg",
+    "caption": null,
+    "editor": null
   }
 ]
