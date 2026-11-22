@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**203 / 254** slots have a Pokemon - **0** are fully complete - average completeness **57%**.
+**207 / 254** slots have a Pokemon - **0** are fully complete - average completeness **56%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -106,9 +106,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 95 | [Skiirtle](data/species/skiirtle.yaml) | Fire | Speed Boost, Reckless (H) | 350 | McSkiirtle (Thunder Stone) | 69% |
 | 96 | [McSkiirtle](data/species/mcskiirtle.yaml) | Fire / Electric | Better Late, Reckless (H) | 485 |  | 69% |
 | 97 | [ambuger](data/species/ambuger.yaml) | Rock / Bug | Shell Armor, Overcoat, Infiltrator (H) | 350 | Ambrr (Lv 40) | 72% |
-| 98 | [Ambrr](data/species/ambcoptr.yaml) | Rock / Bug | Levitate, Overcoat, Infiltrator (H) | 495 |  | 72% |
+| 98 | [Ambrr](data/species/ambcoptr.yaml) | Rock / Bug | Stealth Chopper, Overcoat, Infiltrator (H) | 495 |  | 72% |
 | 99 | [Tortoplasm](data/species/tortoplasm.yaml) | Rock / Ghost | Cursed Body, Weak Armor, Perish Body (H) | 350 | Fossitoise (Lv 40) | 69% |
-| 100 | [Fossitoise](data/species/tortoplasm-utviklet.yaml) | Rock / Ghost | Cursed Body, Weak Armor, Perish Body (H) | 495 |  | 69% |
+| 100 | [Fossitoise](data/species/tortoplasm-utviklet.yaml) | Rock / Ghost | Fossil Armor, Weak Armor, Perish Body (H) | 495 |  | 69% |
 | 101 | [Slothbaby](data/species/slothbaby.yaml) | Fire | Truant | 420 | Blazlothku (Lv 40) | 69% |
 | 102 | [Blazlothku](data/species/slothbaby-utviklet.yaml) | Fire / Fighting | Sloth Combat | 540 |  | 69% |
 | 103 | [Terratyson](data/species/gaiafinn.yaml) | Ground / Fighting | Iron Fist, Sand Force, Sand Rush (H) | 508 |  | 69% |
@@ -146,10 +146,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 135 | [Seraphinnen](data/species/seraphinnen.yaml) | Flying | Soul-Heart, Mind's Eye, Aerilate (H) | 540 |  | 69% |
 | 136 | [Riftbloom](data/species/riftbloom.yaml) | Ghost / Psychic | Prankster, Shadow Tag (H) | 265 | riftlees (Lv 26) | 45% |
 | 137 | [riftlees](data/species/riftlees.yaml) | Ghost / Psychic | Prankster, Shadow Tag (H) | 425 |  | 31% |
-| 138 | [Giga-Circuit](data/species/giga-circuit.yaml) | Electric | Motor Drive, Flare Boost, Transistor (H) | 500 |  | 66% |
-| 139 | [Strawboo](data/species/strawboo.yaml) | Water | Lightning Rod, Enticing Lure, Marvel Scale (H) | 240 | Wreckingboo (Lv 30) | 38% |
-| 140 | [Wreckingboo](data/species/wreckingboo.yaml) | Water | Lightning Rod, Enticing Lure, Marvel Scale (H) | 340 | Wreckingdrake (Lv 48) | 38% |
-| 141 | [Wreckingdrake](data/species/wreckingdrake.yaml) | Water / Dragon | Lightning Rod, Enticing Lure, Marvel Scale (H) | 540 |  | 62% |
+| 138 | [G-Circuit](data/species/giga-circuit.yaml) | Electric | Motor Drive, Flare Boost, Transistor (H) | 500 |  | 66% |
+| 139 | [Strawboo](data/species/strawboo.yaml) | Water | Lightning Rod, Enticing Lure, Marvel Scale (H) | 240 | Wreckingbo (Lv 30) | 38% |
+| 140 | [Wreckingbo](data/species/wreckingboo.yaml) | Water | Lightning Rod, Enticing Lure, Marvel Scale (H) | 340 | Wreckdrake (Lv 48) | 38% |
+| 141 | [Wreckdrake](data/species/wreckingdrake.yaml) | Water / Dragon | Lightning Rod, Enticing Lure, Marvel Scale (H) | 540 |  | 62% |
 | 142 | [Iron Bulb](data/species/iron-wire.yaml) | Electric | Quark Drive | 570 |  | 38% |
 | 143 | [Solidedge](data/species/solidedge.yaml) | Bug / Psychic | Beast Boost | 600 |  | 41% |
 | 144 | [Rosie](data/species/rosie.yaml) | Grass / Fairy |  |  | Rosievoir (Lv 40) | 14% |
@@ -186,15 +186,15 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 175 | [Rot.Fairy](data/species/rot-fairy.yaml) | Electric / Fairy |  |  |  | 7% |
 | 176 | [Rot.Normal](data/species/rot-normal.yaml) | Electric / Normal |  |  |  | 7% |
 | 177 | [Thooji](data/species/thooji.yaml) | Fighting | Heavenly Pact |  |  | 17% |
-| 178 | [endermon](data/species/endermon.yaml) | Dark / Rock |  |  |  | 10% |
-| 179 | [Crepawmon](data/species/crepawmon.yaml) | Normal / Grass |  |  |  | 7% |
-| 180 | [Viltector](data/species/viltector.yaml) | Steel |  |  |  | 10% |
-| 181 | [Subwocada](data/species/subwocada.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 320 |  | 21% |
-| 182 | [Cicadj](data/species/cicadj.yaml) | Bug / Electric |  |  |  | 3% |
-| 183 | *open slot* | | | | | |
-| 184 | *open slot* | | | | | |
-| 185 | *open slot* | | | | | |
-| 186 | *open slot* | | | | | |
+| 178 | [endermon](data/species/endermon.yaml) | Dark |  |  |  | 10% |
+| 179 | [Crepawmon](data/species/crepawmon.yaml) | Normal / Grass | Exploder, Innards Out (H) | 600 |  | 17% |
+| 180 | [Viltector](data/species/viltector.yaml) | Steel | Sap Sipper | 600 |  | 21% |
+| 181 | [Subwooca](data/species/subwocada.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 320 | Cicadj (Lv 28) | 21% |
+| 182 | [Cicadj](data/species/cicadj.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 475 |  | 10% |
+| 183 | [Ibur](data/species/ibur.yaml) |  |  |  |  | 7% |
+| 184 | [Tbur](data/species/tbur.yaml) | Ice |  |  |  | 10% |
+| 185 | [Nebur](data/species/nebur.yaml) | Ice / Electric |  |  |  | 14% |
+| 186 | [Rhamp](data/species/rhamp.yaml) | Psychic / Rock |  |  |  | 10% |
 | 187 | *open slot* | | | | | |
 | 188 | *open slot* | | | | | |
 | 189 | *open slot* | | | | | |

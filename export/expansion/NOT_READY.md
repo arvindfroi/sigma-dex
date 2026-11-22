@@ -2,9 +2,9 @@
 
 # Game export status
 
-**118** Pokemon are written as game code: Leaflet, Leafling, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Blutie, Coatail, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, Cloudgnome, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Gorambe, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Roostasaur, Leadling, Leadleak, Blylem, Iglomodo, Furamire, Goatjo, Detecup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, ambuger, Ambrr, Tortoplasm, Fossitoise, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, Sparktera, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, Jawbreaker, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Glacépée, Everdark, Diedo, Riftbloom, Strawboo, Solidedge, Sealma, Narburr, Whaldrill, Venofrib, Vendepiede, Venorax, Raymon, Aqualoom, Santrock, Cindreon, Custodix, Bergflabb, Sabertann
+**119** Pokemon are written as game code: Leaflet, Leafling, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Blutie, Coatail, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, Cloudgnome, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Gorambe, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Roostasaur, Leadling, Leadleak, Blylem, Iglomodo, Furamire, Goatjo, Detecup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, ambuger, Tortoplasm, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, Sparktera, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, Jawbreaker, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Glacépée, Everdark, Diedo, Riftbloom, G-Circuit, Strawboo, Wreckingbo, Wreckdrake, Solidedge, Sealma, Narburr, Whaldrill, Venofrib, Vendepiede, Venorax, Raymon, Aqualoom, Santrock, Cindreon, Custodix, Bergflabb, Sabertann
 
-## Not exported yet (85)
+## Not exported yet (88)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -33,6 +33,8 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Dahrugula** needs: an ability that exists in the game
 - **Quimsy** needs: an ability that exists in the game
 - **McSkiirtle** needs: an ability that exists in the game
+- **Ambrr** needs: an ability that exists in the game
+- **Fossitoise** needs: an ability that exists in the game
 - **Blazlothku** needs: an ability that exists in the game
 - **Aluminimonk** needs: a name of at most 10 letters
 - **Aluminimonk Utviklin** needs: a name of at most 10 letters
@@ -42,9 +44,6 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Sigmanian Charcadet** needs: a name of at most 10 letters
 - **Seraphinnen** needs: a name of at most 10 letters
 - **riftlees** needs: a level-up move that exists in the game
-- **Giga-Circuit** needs: a name of at most 10 letters
-- **Wreckingboo** needs: a name of at most 10 letters
-- **Wreckingdrake** needs: a name of at most 10 letters
 - **Iron Bulb** needs: a level-up move that exists in the game
 - **Rosie** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Rosievoir** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
@@ -73,10 +72,14 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Rot.Normal** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Thooji** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **endermon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Crepawmon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Viltector** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Subwocada** needs: a level-up move that exists in the game
-- **Cicadj** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Crepawmon** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Viltector** needs: a level-up move that exists in the game
+- **Subwooca** needs: a level-up move that exists in the game
+- **Cicadj** needs: a level-up move that exists in the game
+- **Ibur** needs: base stats, a valid type, an ability that exists in the game, a level-up move that exists in the game
+- **Tbur** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Nebur** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Rhamp** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Balleisk** needs: an ability that exists in the game
 - **Greation** needs: an ability that exists in the game
 - **Ultragon** needs: an ability that exists in the game
@@ -117,11 +120,14 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - Skiirtle: evolution into McSkiirtle left out until that Pokemon is ready
 - Slothbaby: evolution into Blazlothku left out until that Pokemon is ready
 - Strawboo: ability 'Enticing Lure' is not in the game yet, left out
-- Strawboo: evolution into Wreckingboo left out until that Pokemon is ready
+- Tortoplasm: evolution into Fossitoise left out until that Pokemon is ready
 - Toxiren: ability 'Toxic Voice' is not in the game yet, left out
 - Toxiren: move 'Poison Hug' is not in the game yet, left out
 - Toxiren: move 'Toxic Love' is not in the game yet, left out
 - Vires: evolution into Flurina needs custom code (Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.)
 - Warrallier: move 'Hidden Spur' is not in the game yet, left out
+- Wreckdrake: ability 'Enticing Lure' is not in the game yet, left out
+- Wreckingbo: ability 'Enticing Lure' is not in the game yet, left out
 - Zapitera: move 'Heat Laser Gaze' is not in the game yet, left out
+- ambuger: evolution into Ambrr left out until that Pokemon is ready
 

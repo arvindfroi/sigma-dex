@@ -8435,17 +8435,220 @@
     "editor": "Arvind"
   },
   {
-    "id": 2769,
+    "id": 2771,
     "species": "subwocada",
-    "file": "assets/concept-art/subwocada/2769.png",
+    "file": "assets/concept-art/subwocada/2771.jpg",
     "caption": null,
     "editor": null
   },
   {
-    "id": 2770,
+    "id": 2772,
     "species": "subwocada",
-    "file": "assets/concept-art/subwocada/2770.jpg",
+    "file": "assets/concept-art/subwocada/2772.png",
     "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2773,
+    "species": "subwocada",
+    "file": "assets/concept-art/subwocada/2773.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2774,
+    "species": "nebur",
+    "file": "assets/concept-art/nebur/2774.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2775,
+    "species": "nebur",
+    "file": "assets/concept-art/nebur/2775.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2776,
+    "species": "nebur",
+    "file": "assets/concept-art/nebur/2776.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2777,
+    "species": "tbur",
+    "file": "assets/concept-art/tbur/2777.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2778,
+    "species": "tbur",
+    "file": "assets/concept-art/tbur/2778.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2779,
+    "species": "tbur",
+    "file": "assets/concept-art/tbur/2779.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2780,
+    "species": "ibur",
+    "file": "assets/concept-art/ibur/2780.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2782,
+    "species": "ibur",
+    "file": "assets/concept-art/ibur/2782.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2783,
+    "species": "ibur",
+    "file": "assets/concept-art/ibur/2783.webp",
+    "caption": "pasted",
+    "editor": null
+  },
+  {
+    "id": 2784,
+    "species": "rhamp",
+    "file": "assets/concept-art/rhamp/2784.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2785,
+    "species": "rhamp",
+    "file": "assets/concept-art/rhamp/2785.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2786,
+    "species": "rhamp",
+    "file": "assets/concept-art/rhamp/2786.webp",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 2787,
+    "species": "ibur",
+    "file": "assets/concept-art/ibur/2787.png",
+    "caption": "[ds-front] sprite #545",
+    "editor": null
+  },
+  {
+    "id": 2788,
+    "species": "ibur",
+    "file": "assets/concept-art/ibur/2788.png",
+    "caption": "[ds-back] sprite #545",
+    "editor": null
+  },
+  {
+    "id": 2789,
+    "species": "ibur",
+    "file": "assets/concept-art/ibur/2789.png",
+    "caption": "[ds-icon] sprite #545",
+    "editor": null
+  },
+  {
+    "id": 2790,
+    "species": "ibur",
+    "file": "assets/concept-art/ibur/2790.png",
+    "caption": "[ds-follower] sprite #545",
+    "editor": null
+  },
+  {
+    "id": 2795,
+    "species": "tbur",
+    "file": "assets/concept-art/tbur/2795.png",
+    "caption": "[ds-front] sprite #546",
+    "editor": null
+  },
+  {
+    "id": 2796,
+    "species": "tbur",
+    "file": "assets/concept-art/tbur/2796.png",
+    "caption": "[ds-back] sprite #546",
+    "editor": null
+  },
+  {
+    "id": 2797,
+    "species": "tbur",
+    "file": "assets/concept-art/tbur/2797.png",
+    "caption": "[ds-icon] sprite #546",
+    "editor": null
+  },
+  {
+    "id": 2798,
+    "species": "tbur",
+    "file": "assets/concept-art/tbur/2798.png",
+    "caption": "[ds-follower] sprite #546",
+    "editor": null
+  },
+  {
+    "id": 2799,
+    "species": "nebur",
+    "file": "assets/concept-art/nebur/2799.png",
+    "caption": "[ds-front] sprite #547",
+    "editor": null
+  },
+  {
+    "id": 2800,
+    "species": "nebur",
+    "file": "assets/concept-art/nebur/2800.png",
+    "caption": "[ds-back] sprite #547",
+    "editor": null
+  },
+  {
+    "id": 2801,
+    "species": "nebur",
+    "file": "assets/concept-art/nebur/2801.png",
+    "caption": "[ds-icon] sprite #547",
+    "editor": null
+  },
+  {
+    "id": 2802,
+    "species": "nebur",
+    "file": "assets/concept-art/nebur/2802.png",
+    "caption": "[ds-follower] sprite #547",
+    "editor": null
+  },
+  {
+    "id": 2803,
+    "species": "rhamp",
+    "file": "assets/concept-art/rhamp/2803.png",
+    "caption": "[ds-front] sprite #548",
+    "editor": null
+  },
+  {
+    "id": 2804,
+    "species": "rhamp",
+    "file": "assets/concept-art/rhamp/2804.png",
+    "caption": "[ds-back] sprite #548",
+    "editor": null
+  },
+  {
+    "id": 2805,
+    "species": "rhamp",
+    "file": "assets/concept-art/rhamp/2805.png",
+    "caption": "[ds-icon] sprite #548",
+    "editor": null
+  },
+  {
+    "id": 2806,
+    "species": "rhamp",
+    "file": "assets/concept-art/rhamp/2806.png",
+    "caption": "[ds-follower] sprite #548",
     "editor": null
   }
 ]

@@ -540,6 +540,15 @@ static const u16 sRiftbloomEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sGCircuitEggMoveLearnset[] = {
+    MOVE_TEARFUL_LOOK,
+    MOVE_FAKE_TEARS,
+    MOVE_WISH,
+    MOVE_SING,
+    MOVE_LUCKY_CHANT,
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sStrawbooEggMoveLearnset[] = {
     MOVE_MUD_SPORT,
     MOVE_AQUA_RING,

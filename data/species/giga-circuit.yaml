@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 138
-name: Giga-Circuit
+name: G-Circuit
 
 credits:
   designer: Ruben        # who came up with it (Discord name)

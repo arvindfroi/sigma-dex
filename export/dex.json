@@ -25117,7 +25117,7 @@
       "weight_kg": 45,
       "body_color": "red",
       "abilities": {
-        "primary": "Levitate",
+        "primary": "Stealth Chopper",
         "secondary": "Overcoat",
         "hidden": "Infiltrator"
       },
@@ -25632,7 +25632,7 @@
       "weight_kg": 150,
       "body_color": "gray",
       "abilities": {
-        "primary": "Cursed Body",
+        "primary": "Fossil Armor",
         "secondary": "Weak Armor",
         "hidden": "Perish Body"
       },
@@ -34923,7 +34923,7 @@
     },
     {
       "dex": 138,
-      "name": "Giga-Circuit",
+      "name": "G-Circuit",
       "credits": {
         "designer": "Ruben",
         "artist": null
@@ -35388,7 +35388,7 @@
     },
     {
       "dex": 140,
-      "name": "Wreckingboo",
+      "name": "Wreckingbo",
       "credits": {
         "designer": "Ruben",
         "artist": "Ruben"
@@ -35635,7 +35635,7 @@
     },
     {
       "dex": 141,
-      "name": "Wreckingdrake",
+      "name": "Wreckdrake",
       "credits": {
         "designer": "Ruben",
         "artist": null
@@ -40229,8 +40229,7 @@
         "artist": "Arvind"
       },
       "types": [
-        "Dark",
-        "Rock"
+        "Dark"
       ],
       "category": null,
       "description": null,
@@ -40319,19 +40318,23 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Exploder",
         "secondary": null,
-        "hidden": null
+        "hidden": "Innards Out"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 150,
+        "attack": 150,
+        "defense": 50,
+        "sp_attack": 150,
+        "sp_defense": 50,
+        "speed": 50
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "hp": 1,
+        "attack": 1,
+        "sp_attack": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -40399,19 +40402,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Sap Sipper",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 80,
+        "attack": 142,
+        "defense": 135,
+        "sp_attack": 65,
+        "sp_defense": 135,
+        "speed": 43
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 3
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -40465,7 +40470,7 @@
     },
     {
       "dex": 181,
-      "name": "Subwocada",
+      "name": "Subwooca",
       "credits": {
         "designer": "Emil",
         "artist": null
@@ -40506,7 +40511,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "cicadj",
+          "method": "level",
+          "level": 28
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -40527,7 +40538,7 @@
         "look": null
       },
       "assets": {
-        "concept_art": "assets/concept-art/subwocada/2769.png",
+        "concept_art": "assets/concept-art/subwocada/2771.jpg",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -40563,17 +40574,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Swarm",
+        "secondary": "Subwoofer",
+        "hidden": "Compound Eyes"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 55,
+        "attack": 50,
+        "defense": 90,
+        "sp_attack": 95,
+        "sp_defense": 105,
+        "speed": 80
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -40626,6 +40637,326 @@
         "safari_flee_rate": 0
       },
       "id": "cicadj"
+    },
+    {
+      "dex": 183,
+      "name": "Ibur",
+      "credits": {
+        "designer": "Ruben",
+        "artist": "Ruben"
+      },
+      "types": [],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "a head and a base",
+        "movement": "It walks upright on two legs.",
+        "look": "A snowman with a hat, and a scarf, and 2 legs, with his hands in his pockets"
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/ibur/2780.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "ibur"
+    },
+    {
+      "dex": 184,
+      "name": "Tbur",
+      "credits": {
+        "designer": "Ruben",
+        "artist": "Ruben"
+      },
+      "types": [
+        "Ice"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": "its a snowman with nice hair"
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/tbur/2777.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "tbur"
+    },
+    {
+      "dex": 185,
+      "name": "Nebur",
+      "credits": {
+        "designer": "Ruben",
+        "artist": "Ruben"
+      },
+      "types": [
+        "Ice",
+        "Electric"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "A Tbur that jumped on a zapitera using a chaos gem causing the zapiteras armore to rupture and become pure energy.",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "a body with one pair of wings",
+        "movement": "It flies, flapping its wings.",
+        "look": "A muscely Snowman with a hat and a blue scarf standing on top of an eagle made of pure electricity. Make sure that the head of the snowman turns the same way as the head of the eagle"
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/nebur/2774.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "nebur"
+    },
+    {
+      "dex": 186,
+      "name": "Rhamp",
+      "credits": {
+        "designer": "Ruben",
+        "artist": "Ruben"
+      },
+      "types": [
+        "Psychic",
+        "Rock"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "a body with fins",
+        "movement": "It floats in the air, swimming with its fins.",
+        "look": "Its a rock pokemon using its psycic powers to make sparks with rocks, wich project an electric shark over itself."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/rhamp/2784.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "rhamp"
     },
     {
       "dex": 234,
