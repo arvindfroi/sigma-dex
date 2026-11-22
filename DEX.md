@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**197 / 254** slots have a Pokemon - **0** are fully complete - average completeness **58%**.
+**198 / 254** slots have a Pokemon - **0** are fully complete - average completeness **58%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -182,10 +182,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 171 | [Demetiscet](data/species/demetiscet.yaml) | Bug |  |  |  | 14% |
 | 172 | [S.Rotom](data/species/s-rotom.yaml) | Electric |  |  |  | 7% |
 | 173 | [Rot.poison](data/species/rotom-vape.yaml) | Electric / Poison |  |  |  | 10% |
-| 174 | [Rot.Fight](data/species/rot-fight.yaml) | Electric / Fighting |  |  |  | 7% |
+| 174 | [Rot.Fight](data/species/rot-fight.yaml) | Electric / Fighting | Galvanize |  |  | 14% |
 | 175 | [Rot.Fairy](data/species/rot-fairy.yaml) | Electric / Fairy |  |  |  | 7% |
 | 176 | [Rot.Normal](data/species/rot-normal.yaml) | Electric / Normal |  |  |  | 7% |
-| 177 | *open slot* | | | | | |
+| 177 | [Thooji](data/species/thooji.yaml) | Fighting | Heavenly Pact |  |  | 17% |
 | 178 | *open slot* | | | | | |
 | 179 | *open slot* | | | | | |
 | 180 | *open slot* | | | | | |

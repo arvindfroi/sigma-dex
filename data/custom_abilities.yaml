@@ -81,6 +81,34 @@ abilities:
     like Aerial Ace or Swift, and moves with perfect accuracy are not affected. Fog of War can only trigger
     once per switch-in.
   designer: Casper & Emil
+- id: heavenly-pact
+  name: Heavenly Pact
+  effect: 'The Pokémon''s physical capabilities are enhanced in proportion to its lack of special power.
+    The ability dynamically calculates two separate multipliers using the Pokémon''s current in-battle
+    stats:
+
+
+    - **Attack:** Its Attack stat is multiplied based on the ratio between its current Attack and Special
+    Attack. The lower its Special Attack relative to its Attack, the greater the multiplier, reaching
+    a maximum of 2×.
+
+    - **Speed:** Its Speed stat is multiplied based on the ratio between its current Speed and Special
+    Defense. The lower its Special Defense relative to its Speed, the greater the multiplier, reaching
+    a maximum of 2×.
+
+
+    Both calculations use the Pokémon''s actual current stats rather than base stats, meaning EVs, IVs,
+    natures and stat-stage changes can influence the multipliers. Stat reductions and increases must dynamically
+    recalculate the ability''s effects during battle.
+
+
+    The multipliers should be applied at the final stage of the respective stat calculations, following
+    the general implementation principle of Huge Power.
+
+
+    **Design intention:** A Pokémon with virtually no Special Attack and Special Defense can achieve extraordinary
+    physical Attack and Speed, reflecting Toji Fushiguro''s Heavenly Restriction. The ability converts
+    the absence of supernatural power into overwhelming physical capabilities.'
 - id: trash-talker
   name: Heckler
   description: On switch-in, lower the Special Attack of all adjacent opponents

@@ -7077,13 +7077,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2366,
-    "species": "eiscue",
-    "file": "assets/concept-art/eiscue/2366.png",
-    "caption": "[ds-front] sprite #453",
-    "editor": "Arvind"
-  },
-  {
     "id": 2368,
     "species": "eiscue",
     "file": "assets/concept-art/eiscue/2368.png",
@@ -8288,13 +8281,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2688,
-    "species": "steinar",
-    "file": "assets/concept-art/steinar/2688.png",
-    "caption": "[ds-front] sprite #526",
-    "editor": "Arvind"
-  },
-  {
     "id": 2689,
     "species": "steinar",
     "file": "assets/concept-art/steinar/2689.png",
@@ -8405,5 +8391,26 @@
     "file": "assets/concept-art/rot-normal/2720.png",
     "caption": null,
     "editor": "BUST"
+  },
+  {
+    "id": 2721,
+    "species": "eiscue",
+    "file": "assets/concept-art/eiscue/2721.png",
+    "caption": "[ds-front] sprite #533",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2725,
+    "species": "thooji",
+    "file": "assets/concept-art/thooji/2725.png",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2726,
+    "species": "steinar",
+    "file": "assets/concept-art/steinar/2726.png",
+    "caption": "[ds-front] sprite #534",
+    "editor": "Arvind"
   }
 ]

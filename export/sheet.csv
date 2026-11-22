@@ -178,10 +178,10 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 171,Demetiscet,Bug,,,,,=SUM(I173:N173),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Old fly,,,Arvind,Arvind
 172,S.Rotom,Electric,,,,,=SUM(I174:N174),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 173,Rot.poison,Electric,Poison,,,,=SUM(I175:N175),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,BUST,
-174,Rot.Fight,Electric,Fighting,,,,=SUM(I176:N176),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+174,Rot.Fight,Electric,Fighting,Galvanize,,,=SUM(I176:N176),,,,,,,,,,,,,,,,,,,,,,,,,Explosion,,,,,,,,,
 175,Rot.Fairy,Electric,Fairy,,,,=SUM(I177:N177),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 176,Rot.Normal,Electric,Normal,,,,=SUM(I178:N178),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-177,,,,,,,=SUM(I179:N179),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+177,Thooji,Fighting,,Heavenly Pact,,,=SUM(I179:N179),,,,,,,,,,,,,,,,,,,,,,,,Inverted Bite of Heaven (1),,,,,,,,,Arvind,Arvind
 178,,,,,,,=SUM(I180:N180),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 179,,,,,,,=SUM(I181:N181),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 180,,,,,,,=SUM(I182:N182),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
