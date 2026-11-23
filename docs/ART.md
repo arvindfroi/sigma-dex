@@ -482,6 +482,17 @@ are retired: Arvind found they did not keep the Pokemon's look.
   claim's grandparent, `assemble_sprite`'s two new arguments, and `review_sprite` / `art_orphans` for the new
   columns. The worker function accepts stage names with digits.
   The pair recipe needs only the picked frame 1 (no grandparent, no `with_try`), so it works with the live claim.
+- **Frame 2 swipe (2026-11-23).** Arvind: make the most explosive frame 2 for every saved sprite first, he
+  swipes yes/no "like Tinder", and a no goes on to a calmer try, round and round. Claude put in one `big` FRONT 2
+  and BACK 2 per saved sprite as **batch jobs** (`sprite_jobs.batch = true`, set only by the service role):
+  `claim_sprite_job` takes them after everyone's own jobs (`order by batch, id`), they do not count against the
+  queue and hourly limits, and the worker keeps no raw for them. The website's MORE menu has **Frame 2 swipe**
+  (also `#swipe`, and a button on the SPRITES page): one card at a time, frame 1 and frame 2 flipping. YES / → /
+  swipe right calls `frame2_verdict(key, try, 'yes')`, which copies the saved sprite with that frame 2 and approves
+  it. NO / ← / swipe left marks the try as turned down (`picked = false`, `picked_at` set) and queues one new try
+  one size calmer (big → clear → calm → big), as a normal job, so it comes back soon. Z / UNDO takes the last
+  one back (the earlier saved sprite comes back; a redraw that has not started is cancelled). Migration
+  `2026-11-23_frame2_swipe.sql`. The queue views show the batch as one line.
 - **Not done yet.** The export into Origin's anim files, and the battle animation per Pokemon.
 
 ## The trainer studio
