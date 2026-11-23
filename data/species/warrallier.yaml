@@ -154,7 +154,7 @@ assets:
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
-  footprint: "hgss:260"
+  footprint: "hgss:260"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/warrallier.json"
   cry: "assets/cries/warrallier.json" # sound file
 
@@ -166,3 +166,4 @@ engine:
   back_y_offset:         # pixels the back sprite is moved down
   icon_palette:          # 0, 1 or 2 - which shared icon palette fits best
   safari_flee_rate: 0
+  anim_from: Golduck     # the official Pokemon whose battle animation it borrows

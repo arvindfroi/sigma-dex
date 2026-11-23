@@ -250,6 +250,8 @@ def render_species(data):
     put(1, "back_y_offset", scalar(engine.get("back_y_offset")), "pixels the back sprite is moved down")
     put(1, "icon_palette", scalar(engine.get("icon_palette")), "0, 1 or 2 - which shared icon palette fits best")
     put(1, "safari_flee_rate", scalar(engine.get("safari_flee_rate") or 0))
+    if engine.get("anim_from"):      # picked on the website (2026-11-23); empty = the closest official one (anim_pick.py)
+        put(1, "anim_from", scalar(engine.get("anim_from")), "the official Pokemon whose battle animation it borrows")
     return "\n".join(lines) + "\n"
 
 
@@ -469,7 +471,7 @@ FIELDS = {
     "design": ("concept", "name_origin", "notes", "wishes", "claude_fill", "filled_by_claude", "claude_sure", "body_shape", "look",
                "movement"),
     "assets": ("concept_art", "front_sprite", "front_anim", "back_sprite", "icon", "footprint", "shiny_palette", "cry"),
-    "engine": ("no_flip", "elevation", "front_y_offset", "back_y_offset", "icon_palette", "safari_flee_rate"),
+    "engine": ("no_flip", "elevation", "front_y_offset", "back_y_offset", "icon_palette", "safari_flee_rate", "anim_from"),
 }
 
 
