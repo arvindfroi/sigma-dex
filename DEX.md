@@ -60,7 +60,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 49 | [Tomaternader](data/species/tomaterdander.yaml) | Poison / Grass | Pickle Armor, Chlorophyll, Defiant (H) | 350 | Crappy Meal (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 79% |
 | 50 | [Crappy Meal](data/species/crappy-meal.yaml) | Poison / Grass | Pickle Armor, Poison Point, Toxic Chain (H) | 500 |  | 83% |
 | 51 | [Beatld](data/species/beatld.yaml) | Bug / Psychic | Curious Medicine, Tangled Feet, Psychic Surge (H) | 420 |  | 72% |
-| 52 | [Fleuroom](data/species/fleuroom.yaml) | Grass / Fairy | Effect Spore, Aroma Veil, Magic Bounce (H) | 295 | Sporeshade (Shiny Stown) | 72% |
+| 52 | [Fleuroom](data/species/fleuroom.yaml) | Grass / Fairy | Effect Spore, Aroma Veil, Magic Bounce (H) | 295 | Sporeshade (Shiny Stone) | 72% |
 | 53 | [Sporeshade](data/species/fleuroom-utvikling.yaml) | Grass / Fairy | Effect Spore, Aroma Veil, Magic Bounce (H) | 460 |  | 72% |
 | 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock | Ore Body, Stamina, Sand Force (H) | 500 |  | 69% |
 | 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon | Thick Fat | 500 |  | 66% |

@@ -2215,7 +2215,7 @@
         .levelUpLearnset = sFleuroomLevelUpLearnset,
         .teachableLearnset = sFleuroomTeachableLearnset,
         .eggMoveLearnset = sFleuroomEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_SHINY_STOWN, SPECIES_SPORESHADE}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_SHINY_STONE, SPECIES_SPORESHADE}),
         FOOTPRINT(QuestionMark)
     },
 
