@@ -7679,13 +7679,6 @@
     "editor": "Emil"
   },
   {
-    "id": 2553,
-    "species": "roku",
-    "file": "assets/concept-art/roku/2553.png",
-    "caption": "[ds-front] sprite #498",
-    "editor": "Arvind"
-  },
-  {
     "id": 2554,
     "species": "roku",
     "file": "assets/concept-art/roku/2554.png",
@@ -8726,6 +8719,111 @@
     "species": "brawleo",
     "file": "assets/concept-art/brawleo/2863.png",
     "caption": "[ds-front] sprite #559",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2867,
+    "species": "roku",
+    "file": "assets/concept-art/roku/2867.png",
+    "caption": "[ds-front] sprite #560",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2875,
+    "species": "wealther",
+    "file": "assets/concept-art/wealther/2875.png",
+    "caption": "[ds-front2] sprite #561",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2880,
+    "species": "warrallier",
+    "file": "assets/concept-art/warrallier/2880.png",
+    "caption": "[ds-front2] sprite #562",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2886,
+    "species": "heatbat",
+    "file": "assets/concept-art/heatbat/2886.png",
+    "caption": "[ds-back2] sprite #563",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2891,
+    "species": "blazterra",
+    "file": "assets/concept-art/blazterra/2891.png",
+    "caption": "[ds-front2] sprite #565",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2897,
+    "species": "blazterra",
+    "file": "assets/concept-art/blazterra/2897.png",
+    "caption": "[ds-back2] sprite #565",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2902,
+    "species": "erobi",
+    "file": "assets/concept-art/erobi/2902.png",
+    "caption": "[ds-front2] sprite #567",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2908,
+    "species": "erobi",
+    "file": "assets/concept-art/erobi/2908.png",
+    "caption": "[ds-back2] sprite #567",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2913,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/2913.png",
+    "caption": "[ds-front2] sprite #568",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2918,
+    "species": "harpie",
+    "file": "assets/concept-art/harpie/2918.png",
+    "caption": "[ds-front2] sprite #570",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2924,
+    "species": "harpie",
+    "file": "assets/concept-art/harpie/2924.png",
+    "caption": "[ds-back2] sprite #570",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2930,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/2930.png",
+    "caption": "[ds-back2] sprite #571",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2935,
+    "species": "smeatherace",
+    "file": "assets/concept-art/smeatherace/2935.png",
+    "caption": "[ds-front2] sprite #572",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2940,
+    "species": "bolthook",
+    "file": "assets/concept-art/bolthook/2940.png",
+    "caption": "[ds-front2] sprite #573",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2945,
+    "species": "torchbat",
+    "file": "assets/concept-art/torchbat/2945.png",
+    "caption": "[ds-front2] sprite #574",
     "editor": "Arvind"
   }
 ]
