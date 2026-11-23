@@ -3760,7 +3760,7 @@ function spriteStudio(s, startStep) {
       return url ? h("img", {src: url, alt: view === "front2" ? "front moving" : "back moving", style: "width:192px;height:192px;image-rendering:pixelated"}) : flipPair(base.src, it.src, 120);
     };
     return h("div", {class: "together"}, canvas,
-      h("div", {class: "grass"}, ic ? h("img", {class: "px", src: ic.src, alt: "icon", style: "width:96px"}) : null, w ? walker(w.src, 3) : null,
+      h("div", {class: "grass"}, ic ? gameIconCanvas(ic.src, (s.data || {}).body_color || "", f ? f.src : null, 96) : null, w ? walker(w.src, 3) : null,
         f && f2 ? moving(f, f2, "front2") : null, b && b2 ? moving(b, b2, "back2") : null));
   }
   function savePage() {
@@ -4117,10 +4117,10 @@ function pixelEditor(o) {
     if ((o.view === "front2" || o.view === "back2") && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, paletteOf(frontImg), 1); changed(); }}, "USE FRAME 1'S COLOURS"),
       h("div", {class: "hint", style: "margin:4px 0 0"}, "In the game both frames share one palette: frame 2 has exactly frame 1's colours.")];
     if (o.view === "icon") {
-      const best = suggestIconPalette(ed.data, o.bodyColour);
+      const best = suggestIconPalette(ed.data, o.bodyColour, frontImg);
       return [h("div", {class: "toolbar", style: "margin:0"}, [0, 1, 2].map(i => h("button", {type: "button", class: "small", title: "HeartGold's icon palette " + (i + 1),
         onclick: () => { snap("recoloured"); ed.data = contrastRecolour(ed.data, ICON_PALETTES[i]); changed(); }}, "PALETTE " + (i + 1) + (i === best ? " ★" : "")))),
-        h("div", {class: "hint", style: "margin:4px 0 0"}, "Icons use one of the game's 3 icon palettes; ★ = the one that fits" + (o.bodyColour ? " (body colour " + o.bodyColour + ")" : "") + ".")];
+        h("div", {class: "hint", style: "margin:4px 0 0"}, "Icons use one of the game's 3 icon palettes. New icons come in it already; ★ = the one it fits best (the front" + (o.bodyColour ? " and the body colour, " + o.bodyColour + "," : "") + " count too).")];
     }
     return [];
   }
@@ -4326,11 +4326,24 @@ function contrastRecolour(img, palette) {
   for (let p = 0, i = 0; i < d.length; i += 4, p++) { const c = parts.idx[p]; if (c >= 0) { const q = palette[f[c]]; d[i] = q[0]; d[i + 1] = q[1]; d[i + 2] = q[2]; } }
   return out;
 }
-// the icon palette where the picture survives best (contrastMap's energy) plus the body colour's odds
-function suggestIconPalette(img, bodyColour) {
-  const parts = pictureParts(img), odds = ICON_ODDS[bodyColour];
-  const score = i => contrastMap(parts, ICON_PALETTES[i]).e - (odds ? 10 * Math.log((odds[i] + 1) / (odds[0] + odds[1] + odds[2] + 3)) : 0);
+// the icon palette where the picture survives best (contrastMap's energy), plus how well the front survives in it and the
+// body colour's odds (sprite_colours.icon_colours: right 93.5 % on HeartGold's 493 icons, the old way 77.5 %)
+function suggestIconPalette(img, bodyColour, front) {
+  const parts = pictureParts(img), fparts = front ? pictureParts(front) : null, odds = ICON_ODDS[bodyColour];
+  const score = i => contrastMap(parts, ICON_PALETTES[i]).e + (fparts ? contrastMap(fparts, ICON_PALETTES[i]).e : 0)
+    - (odds ? 5 * Math.log((odds[i] + 1) / (odds[0] + odds[1] + odds[2] + 3)) : 0);
   return [0, 1, 2].map(i => [score(i), i]).sort((a, b) => a[0] - b[0])[0][1];
+}
+// the icon as the game will show it: in the palette suggestIconPalette picks (the drawing PC makes new icons like this)
+function iconInGame(img, bodyColour, front) { const k = suggestIconPalette(img, bodyColour, front); return {img: contrastRecolour(img, ICON_PALETTES[k]), palette: k}; }
+function gameIconCanvas(src, bodyColour, frontSrc, width) {     // a canvas that shows the icon in its game palette
+  const c = h("canvas", {width: 32, height: 32, class: "px", style: "width:" + width + "px;image-rendering:pixelated", title: "As in the game"});
+  const pixels = (im, w, hh) => { const k = Object.assign(document.createElement("canvas"), {width: w, height: hh}), x = k.getContext("2d", {willReadFrequently: true}); x.drawImage(im, 0, 0, w, hh); return x.getImageData(0, 0, w, hh); };
+  Promise.all([loadPicture(src), frontSrc ? loadPicture(frontSrc).catch(() => null) : null]).then(([im, fim]) => {
+    const g = iconInGame(pixels(im, 32, 32), bodyColour, fim ? pixels(fim, 80, 80) : null);
+    c.getContext("2d").putImageData(g.img, 0, 0); c.title = "As in the game: icon palette " + (g.palette + 1);
+  }).catch(() => {});
+  return c;
 }
 function followerPalette(front) {                      // the front's colours and two darker shades of each
   const out = [];

@@ -258,12 +258,17 @@ def contrast_snap(img, palette, lam=None):
     return Image.fromarray(a), e
 
 
-def icon_colours(icon, palettes, body_color=None, prior=10.0):
-    """the icon in the one of HeartGold's 3 icon palettes (ICON_ODDS order) where it survives best (contrast_map's energy)
-    plus the body colour's odds; returns (icon, palette index)"""
+def icon_colours(icon, palettes, body_color=None, front=None, prior=5.0, front_weight=1.0):
+    """the icon in the one of HeartGold's 3 icon palettes (ICON_ODDS order) where it survives best (contrast_map's energy),
+    plus how well the battle front survives in it and the body colour's odds; returns (icon, palette index).
+    Tuned on all 493 HeartGold icons with Klein-like drift (2026-11-23, Arvind: "pass på at veldig riktige pallets"): the
+    right palette 93.5 % of the time (the old fit + body colour way: 77.5 %); most of the rest are near-ties between
+    palettes 1 and 2, which both have the yellows."""
     odds = ICON_ODDS.get(body_color); best = None
     for i in range(3):
         out, e = contrast_snap(icon, palettes[i])
+        if front is not None:
+            e += front_weight * contrast_snap(front, palettes[i])[1]
         score = e - (prior * np.log((odds[i] + 1) / (sum(odds) + 3)) if odds else 0.0)
         if best is None or score < best[0]: best = (score, out, i)
     return best[1], best[2]

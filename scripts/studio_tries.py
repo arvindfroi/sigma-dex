@@ -634,13 +634,15 @@ def try_icon_klein(n, seed, folder, job, inputs):
         on_white(inputs["front"]).save(folder / "k_front.png")
     raw = klein_draw(folder / ("icon_raw_%d.png" % n), ICON_K.format(about=about(job, words, move=False)),
                      [folder / "k_front.png"], 512, 256, seed, ICON_KLEIN)
-    # frame 1 (the game's second frame is made from it), in Klein's own colours: snapping to an icon palette made the
-    # icons bluer or olive (Obsidog, 15 Oct; Arvind agreed); the palettes are a button in the studio's editor
+    # frame 1 (the game's second frame is made from it), straight into the game's icon palette (2026-11-23, Arvind: "det
+    # beste er om det blir automatisk"): sprite_colours.icon_colours picks the palette where it survives best and keeps the
+    # neighbour contrast (the 15 Oct nearest-colour snap made icons bluer or olive; this one was tested on HeartGold's icons)
     frame = klein_follower.to_icon(raw).crop((0, 0, 32, 32))
     why = too_small(frame, 30)
+    frame, pal = sprite_colours.icon_colours(frame, sprite_colours.HG_ICON_PALETTES, inputs.get("body_color"), inputs.get("front"))
     image = folder / ("icon_%d.png" % n)
     frame.save(image)
-    return ("broken" if why else "done", why, image, raw)
+    return ("broken" if why else "done", why or "in the game's icon palette %d" % (pal + 1), image, raw)
 
 
 def rear_drawing(folder, art_path, seed):
