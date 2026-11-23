@@ -21722,12 +21722,12 @@
           "height": 35,
           "weight": 35
         },
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "it is a little dog"
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/darkgonark/2807.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -21748,7 +21748,7 @@
     },
     {
       "dex": 85,
-      "name": "Detecup",
+      "name": "Detepup",
       "credits": {
         "designer": "Ruben",
         "artist": "Ruben"
@@ -40645,7 +40645,9 @@
         "designer": "Ruben",
         "artist": "Ruben"
       },
-      "types": [],
+      "types": [
+        "Ice"
+      ],
       "category": null,
       "description": null,
       "height_m": null,

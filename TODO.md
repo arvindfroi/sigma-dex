@@ -9,7 +9,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 205 / 207 |
+| Identity | types | 206 / 207 |
 | Identity | designer credit | 193 / 207 |
 | Dex page | category | 47 / 207 |
 | Dex page | description | 47 / 207 |
@@ -30,7 +30,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Moves | TM/HM moves | 162 / 207 |
 | Location | encounters | 2 / 207 |
 | Design | concept | 43 / 207 |
-| Art | concept art | 200 / 207 |
+| Art | concept art | 201 / 207 |
 | Art | front sprite | 4 / 207 |
 | Art | front animation frame | 4 / 207 |
 | Art | back sprite | 4 / 207 |
@@ -607,14 +607,14 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #84 [Detecub mindre evo](data/species/darkgonark.yaml) - 62%
+### #84 [Detecub mindre evo](data/species/darkgonark.yaml) - 66%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #85 [Detecup](data/species/detecup.yaml) - 69%
+### #85 [Detepup](data/species/detecup.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
@@ -1407,9 +1407,8 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #183 [Ibur](data/species/ibur.yaml) - 7%
+### #183 [Ibur](data/species/ibur.yaml) - 10%
 
-- **Identity:** types
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles

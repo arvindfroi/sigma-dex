@@ -3167,7 +3167,7 @@ static const u16 sGoatjoTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sDetecupTeachableLearnset[] = {
+static const u16 sDetepupTeachableLearnset[] = {
     MOVE_TOXIC,
     MOVE_HIDDEN_POWER,
     MOVE_SUNNY_DAY,

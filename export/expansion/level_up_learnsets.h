@@ -1661,7 +1661,7 @@ static const struct LevelUpMove sGoatjoLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const struct LevelUpMove sDetecupLevelUpLearnset[] = {
+static const struct LevelUpMove sDetepupLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_LOCK_ON),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_MOVE( 1, MOVE_HYPER_VOICE),

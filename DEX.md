@@ -92,8 +92,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 81 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 69% |
 | 82 | [Parahaunt](data/species/parahaunt.yaml) | Ghost | Smoked Up | 556 |  | 69% |
 | 83 | [Goatjo](data/species/goatjo.yaml) | Psychic / Dragon | Wonder Guard | 435 |  | 62% |
-| 84 | [Detecub mindre evo](data/species/darkgonark.yaml) | Normal | Pickup, Keen Eye, Download (H) | 317 | Detecup (Lv 20) | 62% |
-| 85 | [Detecup](data/species/detecup.yaml) | Normal | Pickup, Keen Eye, Download (H) | 462 |  | 69% |
+| 84 | [Detecub mindre evo](data/species/darkgonark.yaml) | Normal | Pickup, Keen Eye, Download (H) | 317 | Detepup (Lv 20) | 66% |
+| 85 | [Detepup](data/species/detecup.yaml) | Normal | Pickup, Keen Eye, Download (H) | 462 |  | 69% |
 | 86 | [Snownin](data/species/snownin.yaml) | Ice | Snow Warning, Snow Cloak, Levitate (H) | 475 |  | 66% |
 | 87 | [Verrith](data/species/verrith.yaml) | Ghost / Steel | Fog Of War, Neutralizing Gas (H) | 580 |  | 69% |
 | 88 | [Sigmanian Komala](data/species/sigmanian-komala.yaml) | Normal | Drunken Rage, Poison Heal, Toxic Boost (H) | 348 | Dahrugula (Lv 32) | 69% |
@@ -191,7 +191,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 180 | [Viltector](data/species/viltector.yaml) | Steel | Sap Sipper | 600 |  | 21% |
 | 181 | [Subwooca](data/species/subwocada.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 320 | Cicadj (Lv 28) | 21% |
 | 182 | [Cicadj](data/species/cicadj.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 475 |  | 10% |
-| 183 | [Ibur](data/species/ibur.yaml) |  |  |  |  | 7% |
+| 183 | [Ibur](data/species/ibur.yaml) | Ice |  |  |  | 10% |
 | 184 | [Tbur](data/species/tbur.yaml) | Ice |  |  |  | 10% |
 | 185 | [Nebur](data/species/nebur.yaml) | Ice / Electric |  |  |  | 14% |
 | 186 | [Rhamp](data/species/rhamp.yaml) | Psychic / Rock |  |  |  | 10% |

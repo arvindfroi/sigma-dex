@@ -119,13 +119,13 @@ design:
     egg cycles: 65
     height: 35
     weight: 35
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
+  movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
+  look: it is a little dog # what it looks like, a few plain sentences: It is a ...
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/detecub-mindre-evo.png
+  concept_art: "assets/concept-art/darkgonark/2807.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

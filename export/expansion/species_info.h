@@ -3219,7 +3219,7 @@
         FOOTPRINT(QuestionMark)
     },
 
-    [SPECIES_DETECUP] =
+    [SPECIES_DETEPUP] =
     {
         .baseHP = 72,
         .baseAttack = 92,
@@ -3239,9 +3239,9 @@
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
         .abilities = { ABILITY_PICKUP, ABILITY_KEEN_EYE, ABILITY_DOWNLOAD },
         .bodyColor = BODY_COLOR_BROWN,
-        .speciesName = _("Detecup"),
+        .speciesName = _("Detepup"),
         .cryId = CRY_NONE,
-        .natDexNum = NATIONAL_DEX_DETECUP,
+        .natDexNum = NATIONAL_DEX_DETEPUP,
         .categoryName = _("Unknown"),
         .height = 11,
         .weight = 355,
@@ -3263,8 +3263,8 @@
         .shinyPalette = gMonShinyPalette_CircledQuestionMark,
         .iconSprite = gMonIcon_QuestionMark,
         .iconPalIndex = 0,
-        .levelUpLearnset = sDetecupLevelUpLearnset,
-        .teachableLearnset = sDetecupTeachableLearnset,
+        .levelUpLearnset = sDetepupLevelUpLearnset,
+        .teachableLearnset = sDetepupTeachableLearnset,
         FOOTPRINT(QuestionMark)
     },
 

@@ -8596,13 +8596,6 @@
     "editor": null
   },
   {
-    "id": 2799,
-    "species": "nebur",
-    "file": "assets/concept-art/nebur/2799.png",
-    "caption": "[ds-front] sprite #547",
-    "editor": null
-  },
-  {
     "id": 2800,
     "species": "nebur",
     "file": "assets/concept-art/nebur/2800.png",
@@ -8650,5 +8643,40 @@
     "file": "assets/concept-art/rhamp/2806.png",
     "caption": "[ds-follower] sprite #548",
     "editor": null
+  },
+  {
+    "id": 2807,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/2807.webp",
+    "caption": "pasted",
+    "editor": null
+  },
+  {
+    "id": 2808,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/2808.webp",
+    "caption": "pasted",
+    "editor": null
+  },
+  {
+    "id": 2809,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/2809.webp",
+    "caption": "pasted",
+    "editor": null
+  },
+  {
+    "id": 2810,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/2810.png",
+    "caption": "pasted",
+    "editor": null
+  },
+  {
+    "id": 2811,
+    "species": "nebur",
+    "file": "assets/concept-art/nebur/2811.png",
+    "caption": "[ds-front] sprite #549",
+    "editor": "Arvind"
   }
 ]

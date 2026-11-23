@@ -1797,9 +1797,9 @@ SINGLE_BATTLE_TEST("Sigma dex: Goatjo can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: Detecup has the data from its species file")
+TEST("Sigma dex: Detepup has the data from its species file")
 {
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DETECUP];
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DETEPUP];
     EXPECT_EQ(info->baseHP, 72);
     EXPECT_EQ(info->baseAttack, 92);
     EXPECT_EQ(info->baseDefense, 62);
@@ -1810,13 +1810,13 @@ TEST("Sigma dex: Detecup has the data from its species file")
     EXPECT_EQ(info->types[1], TYPE_NORMAL);
     EXPECT_EQ(info->abilities[0], ABILITY_PICKUP);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LOCK_ON);
-    EXPECT_EQ(GetSpeciesName(SPECIES_DETECUP)[0], CHAR_D);
+    EXPECT_EQ(GetSpeciesName(SPECIES_DETEPUP)[0], CHAR_D);
 }
 
-SINGLE_BATTLE_TEST("Sigma dex: Detecup can use its first move in battle")
+SINGLE_BATTLE_TEST("Sigma dex: Detepup can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_DETECUP) { Moves(MOVE_LOCK_ON); }
+        PLAYER(SPECIES_DETEPUP) { Moves(MOVE_LOCK_ON); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN { MOVE(player, MOVE_LOCK_ON); }
