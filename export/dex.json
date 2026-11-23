@@ -236,7 +236,7 @@
         "icon": null,
         "footprint": "hgss:1",
         "shiny_palette": "assets/shiny/leafing.json",
-        "cry": null
+        "cry": "assets/cries/leafing.json"
       },
       "engine": {
         "no_flip": false,
@@ -486,9 +486,9 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 63,
-          "TM/HM moves": 68,
-          "tutor moves": 58,
+          "level-up moves": 71,
+          "TM/HM moves": 76,
+          "tutor moves": 66,
           "body color": 80,
           "catch rate": 90,
           "base exp": 85,
@@ -508,7 +508,7 @@
         "icon": "assets/sprites/leafsteel/icon.png",
         "footprint": "hgss:2",
         "shiny_palette": "assets/shiny/leafsteel.json",
-        "cry": null
+        "cry": "assets/cries/leafsteel.json"
       },
       "engine": {
         "no_flip": false,
@@ -832,7 +832,7 @@
         "icon": null,
         "footprint": "hgss:3",
         "shiny_palette": "assets/shiny/leafaxer.json",
-        "cry": null
+        "cry": "assets/cries/leafaxer.json"
       },
       "engine": {
         "no_flip": false,
@@ -1068,7 +1068,7 @@
         "icon": "assets/sprites/waffy/icon.png",
         "footprint": "hgss:258",
         "shiny_palette": "assets/shiny/waffy.json",
-        "cry": null
+        "cry": "assets/cries/waffy.json"
       },
       "engine": {
         "no_flip": false,
@@ -1348,7 +1348,7 @@
         "icon": null,
         "footprint": "hgss:259",
         "shiny_palette": "assets/shiny/wealther.json",
-        "cry": null
+        "cry": "assets/cries/wealther.json"
       },
       "engine": {
         "no_flip": false,
@@ -1946,7 +1946,7 @@
         "icon": "assets/sprites/torchbat/icon.png",
         "footprint": "hgss:4",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/torchbat.json"
       },
       "engine": {
         "no_flip": false,
@@ -2221,7 +2221,7 @@
         "icon": null,
         "footprint": "hgss:5",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/heatbat.json"
       },
       "engine": {
         "no_flip": false,
@@ -2536,7 +2536,7 @@
         "icon": null,
         "footprint": "hgss:6",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/blazterra.json"
       },
       "engine": {
         "no_flip": false,
@@ -2775,7 +2775,7 @@
           "base exp": 85,
           "growth rate": 52,
           "base friendship": 90,
-          "gender": 77,
+          "gender": 76,
           "egg groups": 70,
           "egg cycles": 65
         },
@@ -2791,7 +2791,7 @@
         "icon": null,
         "footprint": "hgss:16",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/erobi.json"
       },
       "engine": {
         "no_flip": false,
@@ -3035,7 +3035,7 @@
           "base exp": 85,
           "growth rate": 52,
           "base friendship": 90,
-          "gender": 77,
+          "gender": 76,
           "egg groups": 70,
           "egg cycles": 65
         },
@@ -3051,7 +3051,7 @@
         "icon": null,
         "footprint": "hgss:17",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/harpie.json"
       },
       "engine": {
         "no_flip": false,
@@ -3307,7 +3307,7 @@
           "base exp": 85,
           "growth rate": 52,
           "base friendship": 90,
-          "gender": 77,
+          "gender": 76,
           "egg groups": 70,
           "egg cycles": 65
         },
@@ -3323,7 +3323,7 @@
         "icon": null,
         "footprint": "hgss:18",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/smeatherace.json"
       },
       "engine": {
         "no_flip": false,
@@ -3575,7 +3575,7 @@
         "icon": null,
         "footprint": "hgss:430",
         "shiny_palette": "assets/shiny/bolthook.json",
-        "cry": null
+        "cry": "assets/cries/bolthook.json"
       },
       "engine": {
         "no_flip": false,
@@ -3785,7 +3785,7 @@
           "base exp": 85,
           "growth rate": 51,
           "base friendship": 90,
-          "gender": 75,
+          "gender": 76,
           "egg groups": 45,
           "egg cycles": 65,
           "height": 35,
@@ -3803,7 +3803,7 @@
         "icon": null,
         "footprint": "hgss:167",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/wump.json"
       },
       "engine": {
         "no_flip": false,
@@ -4054,16 +4054,16 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 75,
-          "TM/HM moves": 80,
-          "tutor moves": 70,
+          "level-up moves": 73,
+          "TM/HM moves": 78,
+          "tutor moves": 68,
           "body color": 65,
           "EV yield": 85,
           "catch rate": 60,
           "base exp": 85,
           "growth rate": 51,
           "base friendship": 90,
-          "gender": 75,
+          "gender": 76,
           "egg groups": 45,
           "egg cycles": 65,
           "height": 35,
@@ -4081,7 +4081,7 @@
         "icon": null,
         "footprint": "hgss:69",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/twemp.json"
       },
       "engine": {
         "no_flip": false,
@@ -4334,15 +4334,15 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 58,
-          "TM/HM moves": 63,
-          "tutor moves": 53,
+          "level-up moves": 60,
+          "TM/HM moves": 65,
+          "tutor moves": 55,
           "body color": 90,
           "catch rate": 60,
-          "base exp": 85,
+          "base exp": 55,
           "growth rate": 51,
           "base friendship": 90,
-          "gender": 75,
+          "gender": 76,
           "egg groups": 45,
           "egg cycles": 65,
           "height": 65,
@@ -4360,7 +4360,7 @@
         "icon": null,
         "footprint": "hgss:168",
         "shiny_palette": "assets/shiny/florantula.json",
-        "cry": null
+        "cry": "assets/cries/florantula.json"
       },
       "engine": {
         "no_flip": false,
@@ -4596,7 +4596,7 @@
         "icon": null,
         "footprint": "hgss:84",
         "shiny_palette": "assets/shiny/pipwi.json",
-        "cry": null
+        "cry": "assets/cries/pipwi.json"
       },
       "engine": {
         "no_flip": false,
@@ -4875,7 +4875,7 @@
         "icon": null,
         "footprint": "hgss:85",
         "shiny_palette": "assets/shiny/pipwi-utv.json",
-        "cry": null
+        "cry": "assets/cries/pipwi-utv.json"
       },
       "engine": {
         "no_flip": false,
@@ -5128,7 +5128,7 @@
         "icon": null,
         "footprint": "hgss:161",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/coati.json"
       },
       "engine": {
         "no_flip": false,
@@ -5400,7 +5400,7 @@
         "icon": null,
         "footprint": "hgss:162",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/coatail.json"
       },
       "engine": {
         "no_flip": false,
@@ -5658,7 +5658,7 @@
         "icon": null,
         "footprint": "hgss:241",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/cowfin.json"
       },
       "engine": {
         "no_flip": false,
@@ -5960,7 +5960,7 @@
         "icon": null,
         "footprint": "hgss:128",
         "shiny_palette": "assets/shiny/mooceon.json",
-        "cry": null
+        "cry": "assets/cries/mooceon.json"
       },
       "engine": {
         "no_flip": false,
@@ -6220,7 +6220,7 @@
         "icon": null,
         "footprint": "hgss:58",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/lapper.json"
       },
       "engine": {
         "no_flip": false,
@@ -6535,7 +6535,7 @@
         "icon": null,
         "footprint": "hgss:59",
         "shiny_palette": "assets/shiny/brawleo.json",
-        "cry": null
+        "cry": "assets/cries/brawleo.json"
       },
       "engine": {
         "no_flip": false,
@@ -6792,7 +6792,7 @@
         "icon": null,
         "footprint": "hgss:185",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/sigmanian-sudowoodo.json"
       },
       "engine": {
         "no_flip": false,
@@ -7027,7 +7027,7 @@
         "icon": null,
         "footprint": "hgss:427",
         "shiny_palette": "assets/shiny/icy-freeze.json",
-        "cry": null
+        "cry": "assets/cries/icy-freeze.json"
       },
       "engine": {
         "no_flip": false,
@@ -7529,7 +7529,7 @@
         "icon": null,
         "footprint": "hgss:387",
         "shiny_palette": "assets/shiny/bulbtle.json",
-        "cry": null
+        "cry": "assets/cries/bulbtle.json"
       },
       "engine": {
         "no_flip": false,
@@ -7802,7 +7802,7 @@
         "icon": null,
         "footprint": "hgss:388",
         "shiny_palette": "assets/shiny/bulbtoise.json",
-        "cry": null
+        "cry": "assets/cries/bulbtoise.json"
       },
       "engine": {
         "no_flip": false,
@@ -8036,7 +8036,7 @@
         "icon": null,
         "footprint": "hgss:60",
         "shiny_palette": "assets/shiny/wispole.json",
-        "cry": null
+        "cry": "assets/cries/wispole.json"
       },
       "engine": {
         "no_flip": false,
@@ -8569,7 +8569,7 @@
         "icon": null,
         "footprint": "hgss:61",
         "shiny_palette": "assets/shiny/galfrogtom.json",
-        "cry": null
+        "cry": "assets/cries/galfrogtom.json"
       },
       "engine": {
         "no_flip": false,
@@ -8596,7 +8596,7 @@
       "description": null,
       "height_m": 0.6,
       "weight_kg": 7.4,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Prankster",
         "secondary": null,
@@ -8613,13 +8613,16 @@
       "ev_yield": {
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 56,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "amorphous",
+        "flying"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -8778,13 +8781,29 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "claude_sure": {
-          "level-up moves": 55,
-          "TM/HM moves": 60,
-          "tutor moves": 50,
-          "egg moves": 50
+          "level-up moves": 54,
+          "TM/HM moves": 59,
+          "tutor moves": 49,
+          "egg moves": 49,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 62,
+          "base friendship": 90,
+          "gender": 74,
+          "egg groups": 42,
+          "egg cycles": 65
         },
         "body_shape": null,
         "movement": null,
@@ -8825,7 +8844,7 @@
       "description": null,
       "height_m": 1.1,
       "weight_kg": 18.9,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Prankster",
         "secondary": null,
@@ -8842,13 +8861,16 @@
       "ev_yield": {
         "speed": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 75,
+      "base_exp": 168,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "amorphous",
+        "flying"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -8989,13 +9011,29 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "claude_sure": {
-          "level-up moves": 55,
-          "TM/HM moves": 60,
-          "tutor moves": 50,
-          "egg moves": 50
+          "level-up moves": 54,
+          "TM/HM moves": 59,
+          "tutor moves": 49,
+          "egg moves": 49,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 62,
+          "base friendship": 90,
+          "gender": 74,
+          "egg groups": 42,
+          "egg cycles": 65
         },
         "body_shape": null,
         "movement": null,
@@ -9256,7 +9294,7 @@
         "icon": null,
         "footprint": "hgss:393",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/eiscue.json"
       },
       "engine": {
         "no_flip": false,
@@ -9477,7 +9515,7 @@
         "icon": null,
         "footprint": "hgss:280",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/rainbro.json"
       },
       "engine": {
         "no_flip": false,
@@ -9699,7 +9737,7 @@
           "base exp": 85,
           "growth rate": 59,
           "base friendship": 90,
-          "gender": 63,
+          "gender": 55,
           "egg groups": 46,
           "egg cycles": 65
         },
@@ -9715,7 +9753,7 @@
         "icon": null,
         "footprint": "hgss:422",
         "shiny_palette": "assets/shiny/nukfae.json",
-        "cry": null
+        "cry": "assets/cries/nukfae.json"
       },
       "engine": {
         "no_flip": false,
@@ -10002,7 +10040,7 @@
         "icon": null,
         "footprint": "hgss:423",
         "shiny_palette": "assets/shiny/toxiren.json",
-        "cry": null
+        "cry": "assets/cries/toxiren.json"
       },
       "engine": {
         "no_flip": false,
@@ -10235,7 +10273,7 @@
         "icon": null,
         "footprint": "hgss:74",
         "shiny_palette": "assets/shiny/stonma.json",
-        "cry": null
+        "cry": "assets/cries/stonma.json"
       },
       "engine": {
         "no_flip": false,
@@ -10501,7 +10539,7 @@
         "icon": null,
         "footprint": "hgss:76",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/sigmauler.json"
       },
       "engine": {
         "no_flip": false,
@@ -10736,7 +10774,7 @@
         "icon": null,
         "footprint": "hgss:390",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/tinky.json"
       },
       "engine": {
         "no_flip": false,
@@ -11027,7 +11065,7 @@
         "icon": null,
         "footprint": "hgss:391",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/motinky.json"
       },
       "engine": {
         "no_flip": false,
@@ -11302,7 +11340,7 @@
         "icon": null,
         "footprint": "hgss:392",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/gortiki.json"
       },
       "engine": {
         "no_flip": false,
@@ -11552,7 +11590,7 @@
         "icon": null,
         "footprint": "hgss:207",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/chebbi.json"
       },
       "engine": {
         "no_flip": false,
@@ -11846,7 +11884,7 @@
         "icon": null,
         "footprint": "hgss:472",
         "shiny_palette": "assets/shiny/devampry.json",
-        "cry": null
+        "cry": "assets/cries/devampry.json"
       },
       "engine": {
         "no_flip": false,
@@ -12077,14 +12115,14 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 53,
-          "TM/HM moves": 58,
-          "tutor moves": 48,
-          "egg moves": 48,
+          "level-up moves": 54,
+          "TM/HM moves": 59,
+          "tutor moves": 49,
+          "egg moves": 49,
           "body color": 80,
           "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 55,
+          "base exp": 55,
+          "growth rate": 54,
           "base friendship": 90,
           "gender": 58,
           "egg groups": 46,
@@ -12102,7 +12140,7 @@
         "icon": null,
         "footprint": "hgss:394",
         "shiny_palette": "assets/shiny/chillalit.json",
-        "cry": null
+        "cry": "assets/cries/chillalit.json"
       },
       "engine": {
         "no_flip": false,
@@ -12850,18 +12888,18 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 55,
-          "TM/HM moves": 60,
-          "tutor moves": 50,
-          "egg moves": 50,
+          "level-up moves": 56,
+          "TM/HM moves": 61,
+          "tutor moves": 51,
+          "egg moves": 51,
           "body color": 90,
           "EV yield": 85,
           "catch rate": 55,
           "base exp": 55,
-          "growth rate": 53,
+          "growth rate": 56,
           "base friendship": 90,
-          "gender": 72,
-          "egg groups": 57,
+          "gender": 74,
+          "egg groups": 56,
           "egg cycles": 65
         },
         "body_shape": "a head and arms",
@@ -12876,7 +12914,7 @@
         "icon": null,
         "footprint": "hgss:108",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/tomaterdander.json"
       },
       "engine": {
         "no_flip": false,
@@ -13128,10 +13166,10 @@
           "EV yield": 85,
           "catch rate": 60,
           "base exp": 55,
-          "growth rate": 53,
+          "growth rate": 56,
           "base friendship": 90,
-          "gender": 72,
-          "egg groups": 57,
+          "gender": 74,
+          "egg groups": 56,
           "egg cycles": 65
         },
         "body_shape": "a quadruped body",
@@ -13146,7 +13184,7 @@
         "icon": null,
         "footprint": "hgss:463",
         "shiny_palette": "assets/shiny/crappy-meal.json",
-        "cry": null
+        "cry": "assets/cries/crappy-meal.json"
       },
       "engine": {
         "no_flip": false,
@@ -13386,7 +13424,7 @@
         "icon": null,
         "footprint": "hgss:122",
         "shiny_palette": "assets/shiny/beatld.json",
-        "cry": null
+        "cry": "assets/cries/beatld.json"
       },
       "engine": {
         "no_flip": false,
@@ -14120,7 +14158,7 @@
         "icon": null,
         "footprint": "hgss:111",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/hippore.json"
       },
       "engine": {
         "no_flip": false,
@@ -14147,7 +14185,7 @@
       "description": null,
       "height_m": 1.1,
       "weight_kg": 110,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": null,
         "secondary": "Thick Fat",
@@ -14164,13 +14202,15 @@
       "ev_yield": {
         "hp": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 175,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -14310,7 +14350,15 @@
           "weight",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "claude_sure": {
           "body shape": 80,
@@ -14320,7 +14368,15 @@
           "weight": 65,
           "level-up moves": 53,
           "TM/HM moves": 58,
-          "tutor moves": 48
+          "tutor moves": 48,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 56,
+          "base friendship": 90,
+          "gender": 71,
+          "egg groups": 60,
+          "egg cycles": 65
         },
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -14334,7 +14390,7 @@
         "icon": null,
         "footprint": "hgss:232",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/docuphant.json"
       },
       "engine": {
         "no_flip": false,
@@ -14584,7 +14640,7 @@
         "icon": null,
         "footprint": "hgss:473",
         "shiny_palette": "assets/shiny/razox.json",
-        "cry": null
+        "cry": "assets/cries/razox.json"
       },
       "engine": {
         "no_flip": false,
@@ -14821,7 +14877,7 @@
         "icon": null,
         "footprint": "hgss:81",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/bulgarian-unown.json"
       },
       "engine": {
         "no_flip": false,
@@ -15076,7 +15132,7 @@
         "icon": null,
         "footprint": "hgss:82",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/united.json"
       },
       "engine": {
         "no_flip": false,
@@ -15312,9 +15368,9 @@
           "body color": 80,
           "catch rate": 60,
           "base exp": 85,
-          "growth rate": 60,
+          "growth rate": 59,
           "base friendship": 90,
-          "gender": 66,
+          "gender": 67,
           "egg groups": 45,
           "egg cycles": 65,
           "weight": 65
@@ -15331,7 +15387,7 @@
         "icon": null,
         "footprint": "hgss:114",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/hairyen.json"
       },
       "engine": {
         "no_flip": false,
@@ -15613,9 +15669,9 @@
           "body color": 65,
           "catch rate": 55,
           "base exp": 55,
-          "growth rate": 60,
+          "growth rate": 59,
           "base friendship": 90,
-          "gender": 66,
+          "gender": 67,
           "egg groups": 45,
           "egg cycles": 65,
           "weight": 65
@@ -15632,7 +15688,7 @@
         "icon": null,
         "footprint": "hgss:411",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/panzerien.json"
       },
       "engine": {
         "no_flip": false,
@@ -15830,14 +15886,14 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 58,
-          "TM/HM moves": 63,
-          "egg moves": 53,
-          "tutor moves": 53,
+          "level-up moves": 60,
+          "TM/HM moves": 65,
+          "egg moves": 55,
+          "tutor moves": 55,
           "body color": 90,
           "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 62,
+          "base exp": 55,
+          "growth rate": 61,
           "base friendship": 90,
           "gender": 65,
           "egg groups": 49,
@@ -15855,7 +15911,7 @@
         "icon": null,
         "footprint": "hgss:345",
         "shiny_palette": "assets/shiny/nucloid.json",
-        "cry": null
+        "cry": "assets/cries/nucloid.json"
       },
       "engine": {
         "no_flip": false,
@@ -16090,13 +16146,13 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 58,
-          "TM/HM moves": 63,
-          "tutor moves": 53,
+          "level-up moves": 57,
+          "TM/HM moves": 62,
+          "tutor moves": 52,
           "body color": 90,
           "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 62,
+          "base exp": 55,
+          "growth rate": 61,
           "base friendship": 90,
           "gender": 65,
           "egg groups": 49,
@@ -16114,7 +16170,7 @@
         "icon": null,
         "footprint": "hgss:377",
         "shiny_palette": "assets/shiny/nuclobyl.json",
-        "cry": null
+        "cry": "assets/cries/nuclobyl.json"
       },
       "engine": {
         "no_flip": false,
@@ -16140,7 +16196,7 @@
       "description": null,
       "height_m": 0.4,
       "weight_kg": 6,
-      "body_color": null,
+      "body_color": "black",
       "abilities": {
         "primary": null,
         "secondary": null,
@@ -16154,14 +16210,18 @@
         "sp_defense": 30,
         "speed": 60
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "attack": 1
+      },
+      "catch_rate": 255,
+      "base_exp": 58,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -16329,15 +16389,33 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "claude_sure": {
           "height": 65,
           "weight": 65,
-          "level-up moves": 55,
-          "TM/HM moves": 60,
-          "tutor moves": 50,
-          "egg moves": 50
+          "level-up moves": 57,
+          "TM/HM moves": 62,
+          "tutor moves": 52,
+          "egg moves": 52,
+          "body color": 90,
+          "EV yield": 85,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 51,
+          "base friendship": 90,
+          "gender": 66,
+          "egg groups": 47,
+          "egg cycles": 65
         },
         "body_shape": null,
         "movement": "It crawls along the ground on its legs.",
@@ -16351,7 +16429,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/apeshit.json",
-        "cry": null
+        "cry": "assets/cries/apeshit.json"
       },
       "engine": {
         "no_flip": false,
@@ -16632,8 +16710,8 @@
           "base exp": 85,
           "growth rate": 51,
           "base friendship": 90,
-          "gender": 64,
-          "egg groups": 45,
+          "gender": 66,
+          "egg groups": 47,
           "egg cycles": 65,
           "height": 65,
           "weight": 65
@@ -16916,8 +16994,8 @@
           "base exp": 85,
           "growth rate": 51,
           "base friendship": 90,
-          "gender": 64,
-          "egg groups": 45,
+          "gender": 66,
+          "egg groups": 47,
           "egg cycles": 65
         },
         "body_shape": "several bodies joined together",
@@ -16932,7 +17010,7 @@
         "icon": null,
         "footprint": "hgss:351",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/yanklet.json"
       },
       "engine": {
         "no_flip": false,
@@ -17243,8 +17321,8 @@
           "base exp": 85,
           "growth rate": 51,
           "base friendship": 90,
-          "gender": 64,
-          "egg groups": 45,
+          "gender": 66,
+          "egg groups": 47,
           "egg cycles": 65,
           "height": 65,
           "weight": 65
@@ -17261,7 +17339,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/harambe.json"
       },
       "engine": {
         "no_flip": false,
@@ -17493,7 +17571,7 @@
         "icon": null,
         "footprint": "hgss:106",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/anjane.json"
       },
       "engine": {
         "no_flip": false,
@@ -17748,7 +17826,7 @@
         "icon": null,
         "footprint": "hgss:40",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/janenon.json"
       },
       "engine": {
         "no_flip": false,
@@ -18013,7 +18091,7 @@
         "icon": null,
         "footprint": "hgss:224",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/saucerl.json"
       },
       "engine": {
         "no_flip": false,
@@ -18287,7 +18365,7 @@
         "icon": null,
         "footprint": "hgss:138",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/abyssys.json"
       },
       "engine": {
         "no_flip": false,
@@ -18585,7 +18663,7 @@
         "icon": null,
         "footprint": "hgss:139",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/octopearl.json"
       },
       "engine": {
         "no_flip": false,
@@ -18810,7 +18888,7 @@
           "body color": 80,
           "catch rate": 60,
           "base exp": 85,
-          "growth rate": 57,
+          "growth rate": 58,
           "base friendship": 90,
           "gender": 78,
           "egg groups": 40,
@@ -18855,7 +18933,7 @@
       "description": null,
       "height_m": 1.5,
       "weight_kg": 40,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Big Pecks",
         "secondary": "Super Luck",
@@ -18872,13 +18950,15 @@
       "ev_yield": {
         "attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 175,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -19030,7 +19110,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "claude_sure": {
           "body shape": 80,
@@ -19038,10 +19126,18 @@
           "movement": 80,
           "height": 65,
           "weight": 65,
-          "level-up moves": 59,
-          "TM/HM moves": 64,
-          "tutor moves": 54,
-          "egg moves": 54
+          "level-up moves": 58,
+          "TM/HM moves": 63,
+          "tutor moves": 53,
+          "egg moves": 53,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 44,
+          "base friendship": 90,
+          "gender": 72,
+          "egg groups": 45,
+          "egg cycles": 65
         },
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -19055,7 +19151,7 @@
         "icon": null,
         "footprint": "hgss:257",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/roostasaur.json"
       },
       "engine": {
         "no_flip": false,
@@ -19294,7 +19390,7 @@
         "icon": null,
         "footprint": "hgss:304",
         "shiny_palette": "assets/shiny/leadling.json",
-        "cry": null
+        "cry": "assets/cries/leadling.json"
       },
       "engine": {
         "no_flip": false,
@@ -19521,11 +19617,11 @@
           "weight"
         ],
         "claude_sure": {
-          "level-up moves": 57,
-          "TM/HM moves": 62,
-          "tutor moves": 52,
+          "level-up moves": 59,
+          "TM/HM moves": 64,
+          "tutor moves": 54,
           "body color": 35,
-          "catch rate": 60,
+          "catch rate": 55,
           "base exp": 85,
           "growth rate": 60,
           "base friendship": 90,
@@ -19547,7 +19643,7 @@
         "icon": null,
         "footprint": "hgss:305",
         "shiny_palette": "assets/shiny/leadling-utvikling.json",
-        "cry": null
+        "cry": "assets/cries/leadling-utvikling.json"
       },
       "engine": {
         "no_flip": false,
@@ -19802,7 +19898,7 @@
         "icon": null,
         "footprint": "hgss:306",
         "shiny_palette": "assets/shiny/blylem.json",
-        "cry": null
+        "cry": "assets/cries/blylem.json"
       },
       "engine": {
         "no_flip": false,
@@ -20247,13 +20343,13 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 56,
-          "TM/HM moves": 61,
-          "tutor moves": 51,
+          "level-up moves": 57,
+          "TM/HM moves": 62,
+          "tutor moves": 52,
           "body color": 80,
           "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 59,
+          "base exp": 55,
+          "growth rate": 60,
           "base friendship": 90,
           "gender": 77,
           "egg groups": 41,
@@ -20271,7 +20367,7 @@
         "icon": null,
         "footprint": "hgss:160",
         "shiny_palette": "assets/shiny/iglomodo.json",
-        "cry": null
+        "cry": "assets/cries/iglomodo.json"
       },
       "engine": {
         "no_flip": false,
@@ -20760,7 +20856,7 @@
         "icon": null,
         "footprint": "hgss:92",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/ciggiti.json"
       },
       "engine": {
         "no_flip": false,
@@ -21002,7 +21098,7 @@
         "icon": null,
         "footprint": "hgss:93",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/chuchar.json"
       },
       "engine": {
         "no_flip": false,
@@ -21245,7 +21341,7 @@
         "icon": null,
         "footprint": "hgss:200",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/parahaunt.json"
       },
       "engine": {
         "no_flip": false,
@@ -21499,7 +21595,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/goatjo.json"
       },
       "engine": {
         "no_flip": false,
@@ -21707,20 +21803,20 @@
           "weight"
         ],
         "claude_sure": {
-          "level-up moves": 62,
-          "TM/HM moves": 67,
-          "tutor moves": 57,
-          "egg moves": 57,
+          "level-up moves": 61,
+          "TM/HM moves": 66,
+          "tutor moves": 56,
+          "egg moves": 56,
           "body color": 35,
           "catch rate": 60,
           "base exp": 85,
-          "growth rate": 53,
+          "growth rate": 52,
           "base friendship": 90,
           "gender": 68,
           "egg groups": 74,
           "egg cycles": 65,
-          "height": 35,
-          "weight": 35
+          "height": 55,
+          "weight": 55
         },
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -21998,7 +22094,7 @@
           "body color": 80,
           "catch rate": 60,
           "base exp": 85,
-          "growth rate": 53,
+          "growth rate": 52,
           "base friendship": 90,
           "gender": 68,
           "egg groups": 74,
@@ -22018,7 +22114,7 @@
         "icon": null,
         "footprint": "hgss:447",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/detecup.json"
       },
       "engine": {
         "no_flip": false,
@@ -22264,17 +22360,17 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 75,
-          "TM/HM moves": 80,
-          "tutor moves": 70,
-          "egg moves": 70,
+          "level-up moves": 68,
+          "TM/HM moves": 73,
+          "tutor moves": 63,
+          "egg moves": 63,
           "body color": 80,
-          "catch rate": 60,
+          "catch rate": 55,
           "base exp": 85,
-          "growth rate": 61,
+          "growth rate": 70,
           "base friendship": 90,
-          "gender": 54,
-          "egg groups": 53,
+          "gender": 51,
+          "egg groups": 43,
           "egg cycles": 65,
           "height": 65,
           "weight": 65
@@ -22291,7 +22387,7 @@
         "icon": null,
         "footprint": "hgss:478",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/snownin.json"
       },
       "engine": {
         "no_flip": false,
@@ -22517,18 +22613,18 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 52,
-          "TM/HM moves": 57,
-          "tutor moves": 47,
-          "egg moves": 47,
+          "level-up moves": 57,
+          "TM/HM moves": 62,
+          "tutor moves": 52,
+          "egg moves": 52,
           "body color": 90,
-          "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 59,
-          "base friendship": 90,
-          "gender": 65,
-          "egg groups": 50,
-          "egg cycles": 65,
+          "catch rate": 55,
+          "base exp": 55,
+          "growth rate": 55,
+          "base friendship": 55,
+          "gender": 55,
+          "egg groups": 55,
+          "egg cycles": 55,
           "height": 65,
           "weight": 65
         },
@@ -22544,7 +22640,7 @@
         "icon": null,
         "footprint": "hgss:67",
         "shiny_palette": "assets/shiny/verrith.json",
-        "cry": null
+        "cry": "assets/cries/verrith.json"
       },
       "engine": {
         "no_flip": false,
@@ -22779,7 +22875,7 @@
         "icon": null,
         "footprint": "hgss:216",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/sigmanian-komala.json"
       },
       "engine": {
         "no_flip": false,
@@ -23070,7 +23166,7 @@
         "icon": null,
         "footprint": "hgss:217",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/dahrugula.json"
       },
       "engine": {
         "no_flip": false,
@@ -23300,7 +23396,7 @@
         "icon": null,
         "footprint": "hgss:46",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/vires.json"
       },
       "engine": {
         "no_flip": false,
@@ -23536,7 +23632,7 @@
         "icon": null,
         "footprint": "hgss:47",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/flurina.json"
       },
       "engine": {
         "no_flip": false,
@@ -23819,7 +23915,7 @@
         "icon": null,
         "footprint": "hgss:158",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/dragem.json"
       },
       "engine": {
         "no_flip": false,
@@ -23846,7 +23942,7 @@
       "description": null,
       "height_m": 0.7,
       "weight_kg": 14.2,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Nerd out",
         "secondary": null,
@@ -23864,13 +23960,15 @@
         "sp_attack": 1,
         "sp_defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 145,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -24034,7 +24132,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "claude_sure": {
           "body shape": 80,
@@ -24043,7 +24149,15 @@
           "level-up moves": 62,
           "TM/HM moves": 67,
           "tutor moves": 57,
-          "egg moves": 57
+          "egg moves": 57,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 45,
+          "base friendship": 90,
+          "gender": 71,
+          "egg groups": 45,
+          "egg cycles": 65
         },
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
@@ -24309,7 +24423,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/roku.json"
       },
       "engine": {
         "no_flip": false,
@@ -24536,7 +24650,7 @@
           "growth rate": 57,
           "base friendship": 90,
           "gender": 65,
-          "egg groups": 47,
+          "egg groups": 43,
           "egg cycles": 65,
           "height": 65,
           "weight": 65
@@ -24553,7 +24667,7 @@
         "icon": null,
         "footprint": "hgss:7",
         "shiny_palette": "assets/shiny/skiirtle.json",
-        "cry": null
+        "cry": "assets/cries/skiirtle.json"
       },
       "engine": {
         "no_flip": false,
@@ -24830,7 +24944,7 @@
           "growth rate": 57,
           "base friendship": 90,
           "gender": 65,
-          "egg groups": 47,
+          "egg groups": 43,
           "egg cycles": 65,
           "height": 65,
           "weight": 65
@@ -24847,7 +24961,7 @@
         "icon": null,
         "footprint": "hgss:9",
         "shiny_palette": "assets/shiny/mcskiirtle.json",
-        "cry": null
+        "cry": "assets/cries/mcskiirtle.json"
       },
       "engine": {
         "no_flip": false,
@@ -25068,7 +25182,7 @@
           "EV yield": 85,
           "catch rate": 60,
           "base exp": 85,
-          "growth rate": 62,
+          "growth rate": 63,
           "base friendship": 90,
           "gender": 74,
           "egg groups": 59,
@@ -25088,7 +25202,7 @@
         "icon": null,
         "footprint": "hgss:193",
         "shiny_palette": "assets/shiny/ambuger.json",
-        "cry": null
+        "cry": "assets/cries/ambuger.json"
       },
       "engine": {
         "no_flip": false,
@@ -25341,7 +25455,7 @@
           "body color": 80,
           "catch rate": 55,
           "base exp": 85,
-          "growth rate": 62,
+          "growth rate": 63,
           "base friendship": 90,
           "gender": 74,
           "egg groups": 59,
@@ -25361,7 +25475,7 @@
         "icon": null,
         "footprint": "hgss:469",
         "shiny_palette": "assets/shiny/ambcoptr.json",
-        "cry": null
+        "cry": "assets/cries/ambcoptr.json"
       },
       "engine": {
         "no_flip": false,
@@ -25603,7 +25717,7 @@
         "icon": null,
         "footprint": "hgss:98",
         "shiny_palette": "assets/shiny/tortoplasm.json",
-        "cry": null
+        "cry": "assets/cries/tortoplasm.json"
       },
       "engine": {
         "no_flip": false,
@@ -25841,7 +25955,7 @@
         "icon": null,
         "footprint": "hgss:99",
         "shiny_palette": "assets/shiny/tortoplasm-utviklet.json",
-        "cry": null
+        "cry": "assets/cries/tortoplasm-utviklet.json"
       },
       "engine": {
         "no_flip": false,
@@ -26070,7 +26184,7 @@
         "icon": null,
         "footprint": "hgss:287",
         "shiny_palette": "assets/shiny/slothbaby.json",
-        "cry": null
+        "cry": "assets/cries/slothbaby.json"
       },
       "engine": {
         "no_flip": false,
@@ -26381,7 +26495,7 @@
         "icon": null,
         "footprint": "hgss:288",
         "shiny_palette": "assets/shiny/slothbaby-utviklet.json",
-        "cry": null
+        "cry": "assets/cries/slothbaby-utviklet.json"
       },
       "engine": {
         "no_flip": false,
@@ -26634,7 +26748,7 @@
         "icon": null,
         "footprint": "hgss:444",
         "shiny_palette": "assets/shiny/gaiafinn.json",
-        "cry": null
+        "cry": "assets/cries/gaiafinn.json"
       },
       "engine": {
         "no_flip": false,
@@ -26892,7 +27006,7 @@
         "icon": null,
         "footprint": "hgss:228",
         "shiny_palette": "assets/shiny/obsidog.json",
-        "cry": null
+        "cry": "assets/cries/obsidog.json"
       },
       "engine": {
         "no_flip": false,
@@ -27706,7 +27820,7 @@
         "icon": null,
         "footprint": "hgss:296",
         "shiny_palette": "assets/shiny/limulk.json",
-        "cry": null
+        "cry": "assets/cries/limulk.json"
       },
       "engine": {
         "no_flip": false,
@@ -27966,7 +28080,7 @@
         "icon": null,
         "footprint": "hgss:297",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/mortbulk.json"
       },
       "engine": {
         "no_flip": false,
@@ -29235,7 +29349,7 @@
         "icon": null,
         "footprint": "hgss:307",
         "shiny_palette": "assets/shiny/alminimonk.json",
-        "cry": null
+        "cry": "assets/cries/alminimonk.json"
       },
       "engine": {
         "no_flip": false,
@@ -29528,7 +29642,7 @@
       "description": null,
       "height_m": 0.7,
       "weight_kg": 7.8,
-      "body_color": null,
+      "body_color": "black",
       "abilities": {
         "primary": "Volt Absorb",
         "secondary": "Magnet Pull",
@@ -29542,14 +29656,18 @@
         "sp_defense": 40,
         "speed": 70
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "speed": 1
+      },
+      "catch_rate": 190,
+      "base_exp": 61,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -29688,7 +29806,16 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "claude_sure": {
           "body shape": 80,
@@ -29697,7 +29824,16 @@
           "level-up moves": 62,
           "TM/HM moves": 67,
           "tutor moves": 57,
-          "egg moves": 57
+          "egg moves": 57,
+          "body color": 90,
+          "EV yield": 85,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 68,
+          "base friendship": 90,
+          "gender": 57,
+          "egg groups": 49,
+          "egg cycles": 65
         },
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -29711,7 +29847,7 @@
         "icon": null,
         "footprint": "hgss:276",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/zapitera-mindre-utv.json"
       },
       "engine": {
         "no_flip": false,
@@ -29966,7 +30102,7 @@
         "icon": null,
         "footprint": "hgss:277",
         "shiny_palette": "assets/shiny/zapitera.json",
-        "cry": null
+        "cry": "assets/cries/zapitera.json"
       },
       "engine": {
         "no_flip": false,
@@ -30186,7 +30322,7 @@
         "icon": null,
         "footprint": "hgss:403",
         "shiny_palette": "assets/shiny/viridub.json",
-        "cry": null
+        "cry": "assets/cries/viridub.json"
       },
       "engine": {
         "no_flip": false,
@@ -30660,18 +30796,18 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 56,
-          "TM/HM moves": 61,
-          "tutor moves": 51,
-          "egg moves": 51,
+          "level-up moves": 74,
+          "TM/HM moves": 79,
+          "tutor moves": 69,
+          "egg moves": 69,
           "body color": 80,
           "EV yield": 85,
-          "catch rate": 60,
+          "catch rate": 55,
           "base exp": 85,
-          "growth rate": 47,
+          "growth rate": 61,
           "base friendship": 90,
-          "gender": 68,
-          "egg groups": 66,
+          "gender": 58,
+          "egg groups": 74,
           "egg cycles": 65
         },
         "body_shape": "an upright body on two legs without a tail",
@@ -30917,16 +31053,16 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 57,
-          "TM/HM moves": 62,
-          "tutor moves": 52,
+          "level-up moves": 73,
+          "TM/HM moves": 78,
+          "tutor moves": 68,
           "body color": 90,
           "catch rate": 60,
           "base exp": 85,
-          "growth rate": 47,
+          "growth rate": 61,
           "base friendship": 90,
-          "gender": 68,
-          "egg groups": 66,
+          "gender": 58,
+          "egg groups": 74,
           "egg cycles": 65
         },
         "body_shape": "an upright body on two legs without a tail",
@@ -31206,7 +31342,7 @@
         "icon": null,
         "footprint": "hgss:274",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/autuman.json"
       },
       "engine": {
         "no_flip": false,
@@ -31452,7 +31588,7 @@
         "icon": null,
         "footprint": "hgss:214",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/bugmight.json"
       },
       "engine": {
         "no_flip": false,
@@ -31479,7 +31615,7 @@
       "description": null,
       "height_m": 0.7,
       "weight_kg": 19.4,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Strong Jaw",
         "secondary": "Intimidate",
@@ -31496,13 +31632,15 @@
       "ev_yield": {
         "attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 70,
+      "growth_rate": "slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "dragon"
+      ],
+      "egg_cycles": 25,
       "held_items": {
         "common": null,
         "rare": null
@@ -31516,10 +31654,141 @@
       ],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Ember"
+          },
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 8,
+            "move": "Dragon Tail"
+          },
+          {
+            "level": 9,
+            "move": "Bite"
+          },
+          {
+            "level": 9,
+            "move": "Flame Charge"
+          },
+          {
+            "level": 15,
+            "move": "Horn Attack"
+          },
+          {
+            "level": 21,
+            "move": "Headbutt"
+          },
+          {
+            "level": 21,
+            "move": "Slash"
+          },
+          {
+            "level": 26,
+            "move": "Flame Wheel"
+          },
+          {
+            "level": 26,
+            "move": "Scary Face"
+          },
+          {
+            "level": 32,
+            "move": "Dragon Claw"
+          },
+          {
+            "level": 34,
+            "move": "Crunch"
+          },
+          {
+            "level": 36,
+            "move": "Take Down"
+          },
+          {
+            "level": 40,
+            "move": "Focus Energy"
+          },
+          {
+            "level": 41,
+            "move": "Dragon Rush"
+          },
+          {
+            "level": 54,
+            "move": "Outrage"
+          },
+          {
+            "level": 56,
+            "move": "Flare Blitz"
+          },
+          {
+            "level": 61,
+            "move": "Double-Edge"
+          }
+        ],
+        "tm_hm": [
+          "Dragon Claw",
+          "Roar",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Iron Tail",
+          "Return",
+          "Dig",
+          "Brick Break",
+          "Double Team",
+          "Flamethrower",
+          "Fire Blast",
+          "Rock Tomb",
+          "Aerial Ace",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Overheat",
+          "Endure",
+          "Dragon Pulse",
+          "Will-O-Wisp",
+          "Rock Slide",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Flame Charge",
+          "Strength",
+          "Rock Smash"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Draco Meteor",
+          "Dragon Dance",
+          "Endeavor",
+          "Fire Fang",
+          "Fire Punch",
+          "Flare Blitz",
+          "Iron Head",
+          "Outrage",
+          "Thunder Fang",
+          "Zen Headbutt"
+        ],
+        "egg": [
+          "Fire Fang",
+          "Dragon Breath",
+          "Thunder Fang",
+          "Dragon Dance",
+          "Fire Spin",
+          "Dragon Rage",
+          "Reversal",
+          "Curse"
+        ]
       },
       "encounters": [],
       "design": {
@@ -31533,14 +31802,38 @@
           "look",
           "movement",
           "height",
-          "weight"
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves"
         ],
         "claude_sure": {
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "height": 55,
-          "weight": 35
+          "height": 45,
+          "weight": 55,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 51,
+          "base friendship": 90,
+          "gender": 65,
+          "egg groups": 48,
+          "egg cycles": 65,
+          "level-up moves": 59,
+          "TM/HM moves": 64,
+          "tutor moves": 54,
+          "egg moves": 54
         },
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -31554,7 +31847,7 @@
         "icon": null,
         "footprint": "hgss:408",
         "shiny_palette": "assets/shiny/jawie.json",
-        "cry": null
+        "cry": "assets/cries/jawie.json"
       },
       "engine": {
         "no_flip": false,
@@ -31782,19 +32075,19 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 55,
-          "TM/HM moves": 60,
-          "tutor moves": 50,
+          "level-up moves": 56,
+          "TM/HM moves": 61,
+          "tutor moves": 51,
           "body color": 80,
           "catch rate": 60,
           "base exp": 85,
-          "growth rate": 47,
+          "growth rate": 55,
           "base friendship": 90,
-          "gender": 63,
-          "egg groups": 45,
-          "egg cycles": 65,
-          "height": 45,
-          "weight": 45
+          "gender": 65,
+          "egg groups": 48,
+          "egg cycles": 55,
+          "height": 55,
+          "weight": 55
         },
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -31808,7 +32101,7 @@
         "icon": null,
         "footprint": "hgss:409",
         "shiny_palette": "assets/shiny/jawbreaker.json",
-        "cry": null
+        "cry": "assets/cries/jawbreaker.json"
       },
       "engine": {
         "no_flip": false,
@@ -32051,7 +32344,7 @@
         "icon": null,
         "footprint": "hgss:451",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/dreadipede.json"
       },
       "engine": {
         "no_flip": false,
@@ -32302,7 +32595,7 @@
         "icon": null,
         "footprint": "hgss:452",
         "shiny_palette": "assets/shiny/dreadfang.json",
-        "cry": null
+        "cry": "assets/cries/dreadfang.json"
       },
       "engine": {
         "no_flip": false,
@@ -32518,7 +32811,7 @@
           "base exp": 85,
           "growth rate": 61,
           "base friendship": 90,
-          "gender": 75,
+          "gender": 74,
           "egg groups": 54,
           "egg cycles": 65,
           "height": 55,
@@ -32536,7 +32829,7 @@
         "icon": null,
         "footprint": "hgss:37",
         "shiny_palette": "assets/shiny/surfer.json",
-        "cry": null
+        "cry": "assets/cries/surfer.json"
       },
       "engine": {
         "no_flip": false,
@@ -32783,15 +33076,15 @@
           "TM/HM moves": 69,
           "tutor moves": 59,
           "body color": 80,
-          "catch rate": 55,
+          "catch rate": 60,
           "base exp": 85,
           "growth rate": 61,
           "base friendship": 90,
-          "gender": 75,
+          "gender": 74,
           "egg groups": 54,
           "egg cycles": 65,
           "height": 55,
-          "weight": 45
+          "weight": 55
         },
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -32805,7 +33098,7 @@
         "icon": null,
         "footprint": "hgss:38",
         "shiny_palette": "assets/shiny/subwaysurfer.json",
-        "cry": null
+        "cry": "assets/cries/subwaysurfer.json"
       },
       "engine": {
         "no_flip": false,
@@ -33806,7 +34099,7 @@
         "icon": null,
         "footprint": "hgss:475",
         "shiny_palette": "assets/shiny/glac-p-e.json",
-        "cry": null
+        "cry": "assets/cries/glac-p-e.json"
       },
       "engine": {
         "no_flip": false,
@@ -34046,18 +34339,18 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 62,
-          "TM/HM moves": 67,
-          "tutor moves": 57,
-          "egg moves": 57,
+          "level-up moves": 57,
+          "TM/HM moves": 62,
+          "tutor moves": 52,
+          "egg moves": 52,
           "body color": 80,
-          "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 45,
-          "base friendship": 90,
-          "gender": 68,
-          "egg groups": 40,
-          "egg cycles": 65,
+          "catch rate": 55,
+          "base exp": 55,
+          "growth rate": 55,
+          "base friendship": 55,
+          "gender": 55,
+          "egg groups": 55,
+          "egg cycles": 55,
           "height": 55,
           "weight": 55
         },
@@ -34306,7 +34599,7 @@
         "icon": null,
         "footprint": "hgss:176",
         "shiny_palette": "assets/shiny/diedo.json",
-        "cry": null
+        "cry": "assets/cries/diedo.json"
       },
       "engine": {
         "no_flip": false,
@@ -34588,7 +34881,7 @@
         "icon": null,
         "footprint": "hgss:468",
         "shiny_palette": "assets/shiny/seraphinnen.json",
-        "cry": null
+        "cry": "assets/cries/seraphinnen.json"
       },
       "engine": {
         "no_flip": false,
@@ -34615,7 +34908,7 @@
       "description": null,
       "height_m": 0.6,
       "weight_kg": 4.8,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Prankster",
         "secondary": null,
@@ -34632,13 +34925,15 @@
       "ev_yield": {
         "speed": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 53,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -34803,16 +35098,32 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "claude_sure": {
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 53,
-          "TM/HM moves": 58,
-          "tutor moves": 48,
-          "egg moves": 48
+          "level-up moves": 57,
+          "TM/HM moves": 62,
+          "tutor moves": 52,
+          "egg moves": 52,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 59,
+          "base friendship": 90,
+          "gender": 69,
+          "egg groups": 44,
+          "egg cycles": 65
         },
         "body_shape": "a head and a base",
         "movement": "It floats in the air.",
@@ -34851,9 +35162,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 1,
+      "weight_kg": 20.7,
+      "body_color": "brown",
       "abilities": {
         "primary": "Prankster",
         "secondary": null,
@@ -34870,13 +35181,15 @@
       "ev_yield": {
         "speed": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 149,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -34884,9 +35197,156 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Confusion"
+          },
+          {
+            "level": 1,
+            "move": "Copycat"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Hex"
+          },
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Power Gem"
+          },
+          {
+            "level": 1,
+            "move": "Stored Power"
+          },
+          {
+            "level": 1,
+            "move": "Teleport"
+          },
+          {
+            "level": 10,
+            "move": "Disable"
+          },
+          {
+            "level": 10,
+            "move": "Encore"
+          },
+          {
+            "level": 10,
+            "move": "Shadow Sneak"
+          },
+          {
+            "level": 12,
+            "move": "Helping Hand"
+          },
+          {
+            "level": 14,
+            "move": "Ally Switch"
+          },
+          {
+            "level": 16,
+            "move": "Charm"
+          },
+          {
+            "level": 16,
+            "move": "Confuse Ray"
+          },
+          {
+            "level": 22,
+            "move": "Psybeam"
+          },
+          {
+            "level": 26,
+            "move": "Trick"
+          },
+          {
+            "level": 32,
+            "move": "Agility"
+          },
+          {
+            "level": 35,
+            "move": "Light Screen"
+          },
+          {
+            "level": 36,
+            "move": "Shadow Ball"
+          },
+          {
+            "level": 40,
+            "move": "Psychic"
+          },
+          {
+            "level": 45,
+            "move": "Imprison"
+          },
+          {
+            "level": 50,
+            "move": "Future Sight"
+          },
+          {
+            "level": 54,
+            "move": "Extrasensory"
+          }
+        ],
+        "tm_hm": [
+          "Calm Mind",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Safeguard",
+          "Frustration",
+          "Return",
+          "Psychic",
+          "Shadow Ball",
+          "Double Team",
+          "Reflect",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Skill Swap",
+          "Focus Blast",
+          "Energy Ball",
+          "Charge Beam",
+          "Endure",
+          "Giga Impact",
+          "Flash",
+          "Thunder Wave",
+          "Psych Up",
+          "Sleep Talk",
+          "Natural Gift",
+          "Grass Knot",
+          "Swagger",
+          "Substitute",
+          "Trick Room",
+          "Psyshock",
+          "Psychic Terrain",
+          "Expanding Force",
+          "Torment",
+          "Will-O-Wisp",
+          "Captivate"
+        ],
+        "tutor": [
+          "Charm",
+          "Curse",
+          "Dazzling Gleam",
+          "Nasty Plot",
+          "Poltergeist",
+          "Zen Headbutt"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -34896,7 +35356,36 @@
         "notes": null,
         "wishes": null,
         "claude_fill": true,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
+        ],
+        "claude_sure": {
+          "height": 55,
+          "weight": 45,
+          "body color": 90,
+          "catch rate": 55,
+          "base exp": 85,
+          "growth rate": 59,
+          "base friendship": 90,
+          "gender": 69,
+          "egg groups": 44,
+          "egg cycles": 65,
+          "level-up moves": 57,
+          "TM/HM moves": 62,
+          "tutor moves": 52
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -35133,7 +35622,7 @@
           "growth rate": 62,
           "base friendship": 90,
           "gender": 75,
-          "egg groups": 43,
+          "egg groups": 55,
           "egg cycles": 65,
           "height": 65,
           "weight": 65
@@ -35150,7 +35639,7 @@
         "icon": null,
         "footprint": "hgss:125",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/giga-circuit.json"
       },
       "engine": {
         "no_flip": false,
@@ -35176,7 +35665,7 @@
       "description": null,
       "height_m": 0.4,
       "weight_kg": 8,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Lightning Rod",
         "secondary": "Enticing Lure",
@@ -35193,13 +35682,16 @@
       "ev_yield": {
         "defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 48,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 87.5,
+      "egg_groups": [
+        "dragon",
+        "water_2"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -35351,7 +35843,15 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "egg moves"
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "claude_sure": {
           "body shape": 80,
@@ -35360,7 +35860,15 @@
           "level-up moves": 62,
           "TM/HM moves": 67,
           "tutor moves": 57,
-          "egg moves": 57
+          "egg moves": 57,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 56,
+          "base friendship": 90,
+          "gender": 56,
+          "egg groups": 40,
+          "egg cycles": 65
         },
         "body_shape": "a body with fins",
         "movement": "It floats in the air, swimming with its fins.",
@@ -35374,7 +35882,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/strawboo.json",
-        "cry": null
+        "cry": "assets/cries/strawboo.json"
       },
       "engine": {
         "no_flip": false,
@@ -35400,7 +35908,7 @@
       "description": null,
       "height_m": 1,
       "weight_kg": 35,
-      "body_color": null,
+      "body_color": "red",
       "abilities": {
         "primary": "Lightning Rod",
         "secondary": "Enticing Lure",
@@ -35418,13 +35926,16 @@
         "attack": 1,
         "defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 68,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 87.5,
+      "egg_groups": [
+        "dragon",
+        "water_2"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -35597,7 +36108,15 @@
           "weight",
           "level-up moves",
           "TM/HM moves",
-          "tutor moves"
+          "tutor moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "claude_sure": {
           "body shape": 80,
@@ -35607,7 +36126,15 @@
           "weight": 65,
           "level-up moves": 61,
           "TM/HM moves": 66,
-          "tutor moves": 56
+          "tutor moves": 56,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 56,
+          "base friendship": 90,
+          "gender": 56,
+          "egg groups": 40,
+          "egg cycles": 65
         },
         "body_shape": "a body with fins",
         "movement": "It floats in the air, swimming with its fins.",
@@ -35621,7 +36148,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/wreckingboo.json"
       },
       "engine": {
         "no_flip": false,
@@ -35856,7 +36383,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/wreckingdrake.json"
       },
       "engine": {
         "no_flip": false,
@@ -35899,13 +36426,15 @@
       "ev_yield": {
         "sp_attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 3,
+      "base_exp": 257,
+      "growth_rate": "slow",
+      "base_friendship": 35,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -35913,9 +36442,113 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Thunder Shock"
+          },
+          {
+            "level": 1,
+            "move": "Wrap"
+          },
+          {
+            "level": 5,
+            "move": "Charge"
+          },
+          {
+            "level": 10,
+            "move": "Thunder Wave"
+          },
+          {
+            "level": 15,
+            "move": "Ingrain"
+          },
+          {
+            "level": 20,
+            "move": "Parabolic Charge"
+          },
+          {
+            "level": 25,
+            "move": "Shock Wave"
+          },
+          {
+            "level": 30,
+            "move": "Hypnosis"
+          },
+          {
+            "level": 35,
+            "move": "Eerie Impulse"
+          },
+          {
+            "level": 40,
+            "move": "Discharge"
+          },
+          {
+            "level": 50,
+            "move": "Magnet Rise"
+          },
+          {
+            "level": 55,
+            "move": "Thunderbolt"
+          },
+          {
+            "level": 60,
+            "move": "Electric Terrain"
+          },
+          {
+            "level": 60,
+            "move": "Rain Dance"
+          },
+          {
+            "level": 65,
+            "move": "Thunder"
+          },
+          {
+            "level": 70,
+            "move": "Zap Cannon"
+          }
+        ],
+        "tm_hm": [
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Solar Beam",
+          "Thunderbolt",
+          "Thunder",
+          "Return",
+          "Double Team",
+          "Reflect",
+          "Facade",
+          "Rest",
+          "Fling",
+          "Charge Beam",
+          "Endure",
+          "Giga Impact",
+          "Thunder Wave",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Electroweb",
+          "Eerie Impulse",
+          "Electric Terrain",
+          "Energy Ball"
+        ],
+        "tutor": [
+          "Dazzling Gleam",
+          "Thunder Punch",
+          "Volt Switch",
+          "Heat Wave",
+          "Earth Power"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -35925,7 +36558,30 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
+        ],
+        "claude_sure": {
+          "catch rate": 90,
+          "base exp": 85,
+          "growth rate": 90,
+          "base friendship": 62,
+          "gender": 75,
+          "egg groups": 90,
+          "egg cycles": 90,
+          "level-up moves": 79,
+          "TM/HM moves": 84,
+          "tutor moves": 74
+        },
         "body_shape": "an upright body on two legs without a tail",
         "movement": "It walks upright on two legs.",
         "look": "A bunch of electrical wires and outlet as hands and AV cables as legs."
@@ -35938,7 +36594,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/iron-wire.json",
-        "cry": null
+        "cry": "assets/cries/iron-wire.json"
       },
       "engine": {
         "no_flip": false,
@@ -35965,7 +36621,7 @@
       "description": null,
       "height_m": 2.2,
       "weight_kg": 28,
-      "body_color": null,
+      "body_color": "purple",
       "abilities": {
         "primary": "Beast Boost",
         "secondary": null,
@@ -35983,13 +36639,15 @@
         "attack": 1,
         "sp_attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 3,
+      "base_exp": 270,
+      "growth_rate": "slow",
+      "base_friendship": 0,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -36220,11 +36878,27 @@
         "claude_fill": false,
         "filled_by_claude": [
           "height",
-          "weight"
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "claude_sure": {
           "height": 65,
-          "weight": 65
+          "weight": 65,
+          "body color": 90,
+          "catch rate": 90,
+          "base exp": 85,
+          "growth rate": 90,
+          "base friendship": 58,
+          "gender": 75,
+          "egg groups": 90,
+          "egg cycles": 90
         },
         "body_shape": "a serpentine body",
         "movement": "It slithers along the ground.",
@@ -36630,17 +37304,17 @@
           "weight"
         ],
         "claude_sure": {
-          "level-up moves": 77,
-          "TM/HM moves": 82,
-          "tutor moves": 72,
-          "egg moves": 72,
+          "level-up moves": 80,
+          "TM/HM moves": 85,
+          "tutor moves": 75,
+          "egg moves": 75,
           "body color": 35,
           "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 68,
+          "base exp": 55,
+          "growth rate": 69,
           "base friendship": 90,
-          "gender": 79,
-          "egg groups": 60,
+          "gender": 80,
+          "egg groups": 61,
           "egg cycles": 65,
           "height": 65,
           "weight": 65
@@ -36657,7 +37331,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/whaldrill0.json",
-        "cry": null
+        "cry": "assets/cries/whaldrill0.json"
       },
       "engine": {
         "no_flip": false,
@@ -36889,13 +37563,13 @@
           "level-up moves": 80,
           "TM/HM moves": 85,
           "tutor moves": 75,
-          "body color": 35,
+          "body color": 80,
           "catch rate": 60,
           "base exp": 85,
-          "growth rate": 68,
+          "growth rate": 69,
           "base friendship": 90,
-          "gender": 79,
-          "egg groups": 60,
+          "gender": 80,
+          "egg groups": 61,
           "egg cycles": 65
         },
         "body_shape": null,
@@ -36910,7 +37584,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/whaldrill.json",
-        "cry": null
+        "cry": "assets/cries/whaldrill.json"
       },
       "engine": {
         "no_flip": false,
@@ -37162,10 +37836,10 @@
           "body color": 35,
           "catch rate": 60,
           "base exp": 85,
-          "growth rate": 68,
+          "growth rate": 69,
           "base friendship": 90,
-          "gender": 79,
-          "egg groups": 60,
+          "gender": 80,
+          "egg groups": 61,
           "egg cycles": 65,
           "height": 65,
           "weight": 65
@@ -37182,7 +37856,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/whaldrill3.json",
-        "cry": null
+        "cry": "assets/cries/whaldrill3.json"
       },
       "engine": {
         "no_flip": false,
@@ -37206,9 +37880,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 0.7,
+      "weight_kg": 11.8,
+      "body_color": "green",
       "abilities": {
         "primary": "Color Change",
         "secondary": "Poison Point",
@@ -37225,13 +37899,16 @@
       "ev_yield": {
         "sp_defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 225,
+      "base_exp": 64,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field",
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -37367,7 +38044,30 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
+        ],
+        "claude_sure": {
+          "height": 35,
+          "weight": 45,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 57,
+          "base friendship": 90,
+          "gender": 56,
+          "egg groups": 44,
+          "egg cycles": 65
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -37380,7 +38080,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/venofrib.json",
-        "cry": null
+        "cry": "assets/cries/venofrib.json"
       },
       "engine": {
         "no_flip": false,
@@ -37405,9 +38105,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 0.9,
+      "weight_kg": 20.2,
+      "body_color": "green",
       "abilities": {
         "primary": "Color Change",
         "secondary": "Spicy Spray",
@@ -37424,13 +38124,16 @@
       "ev_yield": {
         "sp_defense": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 147,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field",
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -37630,7 +38333,30 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
+        ],
+        "claude_sure": {
+          "height": 45,
+          "weight": 35,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 57,
+          "base friendship": 90,
+          "gender": 56,
+          "egg groups": 44,
+          "egg cycles": 65
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -37643,7 +38369,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/vendepiede.json",
-        "cry": null
+        "cry": "assets/cries/vendepiede.json"
       },
       "engine": {
         "no_flip": false,
@@ -37668,9 +38394,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 1.4,
+      "weight_kg": 47.5,
+      "body_color": "yellow",
       "abilities": {
         "primary": "Color Change",
         "secondary": "Spicy Spray",
@@ -37684,14 +38410,20 @@
         "sp_defense": 90,
         "speed": 110
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "attack": 1,
+        "speed": 2
+      },
+      "catch_rate": 45,
+      "base_exp": 238,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field",
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -37912,7 +38644,32 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
+        ],
+        "claude_sure": {
+          "height": 55,
+          "weight": 45,
+          "body color": 90,
+          "EV yield": 85,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 57,
+          "base friendship": 90,
+          "gender": 56,
+          "egg groups": 44,
+          "egg cycles": 65
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -37925,7 +38682,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/venorax.json",
-        "cry": null
+        "cry": "assets/cries/venorax.json"
       },
       "engine": {
         "no_flip": false,
@@ -38062,9 +38819,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 0.5,
+      "weight_kg": 9.2,
+      "body_color": "white",
       "abilities": {
         "primary": "Clear Body",
         "secondary": "Pickup",
@@ -38081,13 +38838,15 @@
       "ev_yield": {
         "attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 190,
+      "base_exp": 58,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -38095,10 +38854,118 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 4,
+            "move": "Sand Attack"
+          },
+          {
+            "level": 8,
+            "move": "Metal Claw"
+          },
+          {
+            "level": 12,
+            "move": "Bite"
+          },
+          {
+            "level": 13,
+            "move": "Smack Down"
+          },
+          {
+            "level": 19,
+            "move": "Assurance"
+          },
+          {
+            "level": 21,
+            "move": "Headbutt"
+          },
+          {
+            "level": 24,
+            "move": "Iron Head"
+          },
+          {
+            "level": 25,
+            "move": "Screech"
+          },
+          {
+            "level": 28,
+            "move": "Roar"
+          },
+          {
+            "level": 28,
+            "move": "Rock Slide"
+          },
+          {
+            "level": 28,
+            "move": "Scary Face"
+          },
+          {
+            "level": 36,
+            "move": "Crunch"
+          },
+          {
+            "level": 40,
+            "move": "Iron Tail"
+          },
+          {
+            "level": 44,
+            "move": "Stealth Rock"
+          },
+          {
+            "level": 48,
+            "move": "Stone Edge"
+          }
+        ],
+        "tm_hm": [
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Iron Tail",
+          "Earthquake",
+          "Return",
+          "Dig",
+          "Brick Break",
+          "Double Team",
+          "Sandstorm",
+          "Rock Tomb",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Endure",
+          "Rock Polish",
+          "Stone Edge",
+          "Stealth Rock",
+          "Rock Slide",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Flash Cannon",
+          "Bulldoze",
+          "Rock Smash"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Earth Power",
+          "Endeavor",
+          "Iron Head"
+        ],
+        "egg": [
+          "Curse",
+          "Head Smash",
+          "Rock Throw"
+        ]
       },
       "encounters": [],
       "design": {
@@ -38107,7 +38974,38 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves"
+        ],
+        "claude_sure": {
+          "height": 45,
+          "weight": 35,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 63,
+          "base friendship": 90,
+          "gender": 71,
+          "egg groups": 48,
+          "egg cycles": 65,
+          "level-up moves": 57,
+          "TM/HM moves": 62,
+          "tutor moves": 52,
+          "egg moves": 52
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -38120,7 +39018,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/crysteel.json",
-        "cry": null
+        "cry": "assets/cries/crysteel.json"
       },
       "engine": {
         "no_flip": false,
@@ -38145,9 +39043,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 1.3,
+      "weight_kg": 62.6,
+      "body_color": "gray",
       "abilities": {
         "primary": "Crystal Body",
         "secondary": "Tough Claws",
@@ -38164,13 +39062,15 @@
       "ev_yield": {
         "attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 178,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -38178,9 +39078,154 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Quick Attack"
+          },
+          {
+            "level": 1,
+            "move": "Rollout"
+          },
+          {
+            "level": 1,
+            "move": "Sand Attack"
+          },
+          {
+            "level": 1,
+            "move": "Scratch"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 7,
+            "move": "Taunt"
+          },
+          {
+            "level": 12,
+            "move": "Bite"
+          },
+          {
+            "level": 13,
+            "move": "Rock Tomb"
+          },
+          {
+            "level": 13,
+            "move": "Smack Down"
+          },
+          {
+            "level": 17,
+            "move": "Metal Claw"
+          },
+          {
+            "level": 19,
+            "move": "Assurance"
+          },
+          {
+            "level": 21,
+            "move": "Headbutt"
+          },
+          {
+            "level": 24,
+            "move": "Slash"
+          },
+          {
+            "level": 25,
+            "move": "Screech"
+          },
+          {
+            "level": 31,
+            "move": "Roar"
+          },
+          {
+            "level": 31,
+            "move": "Scary Face"
+          },
+          {
+            "level": 32,
+            "move": "Agility"
+          },
+          {
+            "level": 32,
+            "move": "Rock Slide"
+          },
+          {
+            "level": 35,
+            "move": "Iron Head"
+          },
+          {
+            "level": 36,
+            "move": "Crunch"
+          },
+          {
+            "level": 40,
+            "move": "Iron Tail"
+          },
+          {
+            "level": 44,
+            "move": "Swords Dance"
+          },
+          {
+            "level": 47,
+            "move": "Stealth Rock"
+          },
+          {
+            "level": 60,
+            "move": "Stone Edge"
+          }
+        ],
+        "tm_hm": [
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Hyper Beam",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Iron Tail",
+          "Earthquake",
+          "Return",
+          "Dig",
+          "Brick Break",
+          "Double Team",
+          "Sandstorm",
+          "Rock Tomb",
+          "Aerial Ace",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Endure",
+          "Giga Impact",
+          "Rock Polish",
+          "Stone Edge",
+          "Swords Dance",
+          "Stealth Rock",
+          "Rock Slide",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Flash Cannon",
+          "Heavy Slam",
+          "Bulldoze",
+          "High Horsepower",
+          "Body Press",
+          "Strength",
+          "Rock Smash"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Earth Power",
+          "Iron Head",
+          "Metal Claw",
+          "Endeavor"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -38190,7 +39235,36 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
+        ],
+        "claude_sure": {
+          "height": 45,
+          "weight": 55,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 63,
+          "base friendship": 90,
+          "gender": 71,
+          "egg groups": 48,
+          "egg cycles": 65,
+          "level-up moves": 55,
+          "TM/HM moves": 60,
+          "tutor moves": 50
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -38203,7 +39277,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/crystax.json",
-        "cry": null
+        "cry": "assets/cries/crystax.json"
       },
       "engine": {
         "no_flip": false,
@@ -38227,9 +39301,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 0.7,
+      "weight_kg": 1,
+      "body_color": "purple",
       "abilities": {
         "primary": "Cursed Body",
         "secondary": "Levitate",
@@ -38246,13 +39320,15 @@
       "ev_yield": {
         "sp_attack": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 90,
+      "base_exp": 68,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "amorphous"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -38266,10 +39342,119 @@
       ],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Confusion"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Withdraw"
+          },
+          {
+            "level": 6,
+            "move": "Hypnosis"
+          },
+          {
+            "level": 10,
+            "move": "Astonish"
+          },
+          {
+            "level": 14,
+            "move": "Confuse Ray"
+          },
+          {
+            "level": 23,
+            "move": "Hex"
+          },
+          {
+            "level": 28,
+            "move": "Psybeam"
+          },
+          {
+            "level": 30,
+            "move": "Night Shade"
+          },
+          {
+            "level": 32,
+            "move": "Pain Split"
+          },
+          {
+            "level": 35,
+            "move": "Curse"
+          },
+          {
+            "level": 48,
+            "move": "Shadow Ball"
+          },
+          {
+            "level": 50,
+            "move": "Power Gem"
+          }
+        ],
+        "tm_hm": [
+          "Calm Mind",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Protect",
+          "Rain Dance",
+          "Giga Drain",
+          "Frustration",
+          "Thunderbolt",
+          "Thunder",
+          "Return",
+          "Psychic",
+          "Shadow Ball",
+          "Double Team",
+          "Torment",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Skill Swap",
+          "Snatch",
+          "Energy Ball",
+          "Endure",
+          "Will-O-Wisp",
+          "Embargo",
+          "Payback",
+          "Flash",
+          "Psych Up",
+          "Captivate",
+          "Dark Pulse",
+          "Sleep Talk",
+          "Natural Gift",
+          "Swagger",
+          "Substitute",
+          "Trick Room",
+          "Foul Play"
+        ],
+        "tutor": [
+          "Curse",
+          "Dazzling Gleam",
+          "Icy Wind",
+          "Magical Leaf",
+          "Nasty Plot",
+          "Poltergeist"
+        ],
+        "egg": [
+          "Ominous Wind",
+          "Shadow Sneak",
+          "Imprison",
+          "Disable",
+          "Spite",
+          "Me First",
+          "Haze",
+          "Clear Smog",
+          "Ally Switch"
+        ]
       },
       "encounters": [],
       "design": {
@@ -38278,7 +39463,38 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves"
+        ],
+        "claude_sure": {
+          "height": 45,
+          "weight": 35,
+          "body color": 90,
+          "catch rate": 55,
+          "base exp": 85,
+          "growth rate": 55,
+          "base friendship": 55,
+          "gender": 70,
+          "egg groups": 62,
+          "egg cycles": 55,
+          "level-up moves": 80,
+          "TM/HM moves": 85,
+          "tutor moves": 75,
+          "egg moves": 75
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -38291,7 +39507,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/whyrmshade.json"
       },
       "engine": {
         "no_flip": false,
@@ -38316,9 +39532,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 1.4,
+      "weight_kg": 35.3,
+      "body_color": "red",
       "abilities": {
         "primary": "Cursed Body",
         "secondary": "Berserk",
@@ -38335,13 +39551,15 @@
       "ev_yield": {
         "sp_attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 189,
+      "growth_rate": "medium_slow",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "amorphous"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -38349,9 +39567,153 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Astonish"
+          },
+          {
+            "level": 1,
+            "move": "Dragon Breath"
+          },
+          {
+            "level": 1,
+            "move": "Dragon Pulse"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Helping Hand"
+          },
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Confusion"
+          },
+          {
+            "level": 1,
+            "move": "Withdraw"
+          },
+          {
+            "level": 6,
+            "move": "Hypnosis"
+          },
+          {
+            "level": 14,
+            "move": "Confuse Ray"
+          },
+          {
+            "level": 18,
+            "move": "Protect"
+          },
+          {
+            "level": 20,
+            "move": "Night Shade"
+          },
+          {
+            "level": 21,
+            "move": "Charm"
+          },
+          {
+            "level": 28,
+            "move": "Hex"
+          },
+          {
+            "level": 28,
+            "move": "Psybeam"
+          },
+          {
+            "level": 30,
+            "move": "Sweet Scent"
+          },
+          {
+            "level": 32,
+            "move": "Pain Split"
+          },
+          {
+            "level": 38,
+            "move": "Screech"
+          },
+          {
+            "level": 42,
+            "move": "Nasty Plot"
+          },
+          {
+            "level": 48,
+            "move": "Shadow Ball"
+          },
+          {
+            "level": 53,
+            "move": "Power Gem"
+          },
+          {
+            "level": 66,
+            "move": "Curse"
+          }
+        ],
+        "tm_hm": [
+          "Dragon Claw",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Hyper Beam",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Return",
+          "Psychic",
+          "Shadow Ball",
+          "Double Team",
+          "Flamethrower",
+          "Facade",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Endure",
+          "Dragon Pulse",
+          "Will-O-Wisp",
+          "Giga Impact",
+          "Psych Up",
+          "Dark Pulse",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Calm Mind",
+          "Taunt",
+          "Giga Drain",
+          "Thunderbolt",
+          "Thunder",
+          "Torment",
+          "Secret Power",
+          "Skill Swap",
+          "Snatch",
+          "Energy Ball",
+          "Embargo",
+          "Payback",
+          "Flash",
+          "Captivate",
+          "Natural Gift",
+          "Trick Room",
+          "Foul Play",
+          "U-turn"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Curse",
+          "Draco Meteor",
+          "Nasty Plot",
+          "Outrage",
+          "Poltergeist",
+          "Dazzling Gleam",
+          "Icy Wind",
+          "Magical Leaf"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -38361,7 +39723,36 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
+        ],
+        "claude_sure": {
+          "height": 55,
+          "weight": 55,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 55,
+          "base friendship": 90,
+          "gender": 70,
+          "egg groups": 62,
+          "egg cycles": 55,
+          "level-up moves": 57,
+          "TM/HM moves": 62,
+          "tutor moves": 52
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -38374,7 +39765,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/abysspero.json"
       },
       "engine": {
         "no_flip": false,
@@ -38399,9 +39790,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 1.4,
+      "weight_kg": 62.6,
+      "body_color": "blue",
       "abilities": {
         "primary": "Rain Dish",
         "secondary": "Water Absorb",
@@ -38419,13 +39810,15 @@
         "defense": 1,
         "sp_defense": 1
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 158,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "water_1"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -38559,7 +39952,30 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
+        ],
+        "claude_sure": {
+          "height": 45,
+          "weight": 35,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 48,
+          "base friendship": 90,
+          "gender": 61,
+          "egg groups": 47,
+          "egg cycles": 65
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -38572,7 +39988,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/aqualoom.json",
-        "cry": null
+        "cry": "assets/cries/aqualoom.json"
       },
       "engine": {
         "no_flip": false,
@@ -38597,9 +40013,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 0.4,
+      "weight_kg": 4.1,
+      "body_color": "purple",
       "abilities": {
         "primary": "Unnerve",
         "secondary": "Frisk",
@@ -38613,14 +40029,18 @@
         "sp_defense": 25,
         "speed": 85
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "speed": 1
+      },
+      "catch_rate": 200,
+      "base_exp": 51,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "flying"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -38634,10 +40054,118 @@
       ],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Peck"
+          },
+          {
+            "level": 6,
+            "move": "Quick Attack"
+          },
+          {
+            "level": 9,
+            "move": "Payback"
+          },
+          {
+            "level": 13,
+            "move": "Bite"
+          },
+          {
+            "level": 14,
+            "move": "Wing Attack"
+          },
+          {
+            "level": 19,
+            "move": "Torment"
+          },
+          {
+            "level": 24,
+            "move": "Assurance"
+          },
+          {
+            "level": 24,
+            "move": "Taunt"
+          },
+          {
+            "level": 28,
+            "move": "Agility"
+          },
+          {
+            "level": 30,
+            "move": "Sucker Punch"
+          },
+          {
+            "level": 33,
+            "move": "Drill Peck"
+          },
+          {
+            "level": 34,
+            "move": "Roost"
+          },
+          {
+            "level": 40,
+            "move": "Foul Play"
+          }
+        ],
+        "tm_hm": [
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Return",
+          "Double Team",
+          "Aerial Ace",
+          "Torment",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Steel Wing",
+          "Roost",
+          "Endure",
+          "Payback",
+          "Captivate",
+          "Dark Pulse",
+          "Sleep Talk",
+          "Natural Gift",
+          "Swagger",
+          "Pluck",
+          "U-turn",
+          "Substitute",
+          "Foul Play",
+          "Dual Wingbeat",
+          "Fly"
+        ],
+        "tutor": [
+          "Air Slash",
+          "Brave Bird",
+          "Heat Wave",
+          "Hurricane",
+          "Nasty Plot",
+          "Sky Attack",
+          "Snarl"
+        ],
+        "egg": [
+          "Feint Attack",
+          "Sky Attack",
+          "Pursuit",
+          "Brave Bird",
+          "Defog",
+          "Knock Off",
+          "Whirlwind",
+          "Air Cutter",
+          "Razor Wind",
+          "Gust"
+        ]
       },
       "encounters": [],
       "design": {
@@ -38646,7 +40174,40 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves"
+        ],
+        "claude_sure": {
+          "height": 45,
+          "weight": 55,
+          "body color": 90,
+          "EV yield": 85,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 54,
+          "base friendship": 90,
+          "gender": 79,
+          "egg groups": 58,
+          "egg cycles": 65,
+          "level-up moves": 58,
+          "TM/HM moves": 63,
+          "tutor moves": 53,
+          "egg moves": 53
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -38659,7 +40220,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/catbat.json",
-        "cry": null
+        "cry": "assets/cries/catbat.json"
       },
       "engine": {
         "no_flip": false,
@@ -38684,9 +40245,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 1.1,
+      "weight_kg": 31.9,
+      "body_color": "purple",
       "abilities": {
         "primary": "Unnerve",
         "secondary": "Frisk",
@@ -38703,13 +40264,15 @@
       "ev_yield": {
         "speed": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 60,
+      "base_exp": 160,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "flying"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -38717,9 +40280,144 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Dual Wingbeat"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Peck"
+          },
+          {
+            "level": 1,
+            "move": "Pluck"
+          },
+          {
+            "level": 1,
+            "move": "Sand Attack"
+          },
+          {
+            "level": 6,
+            "move": "Quick Attack"
+          },
+          {
+            "level": 9,
+            "move": "Payback"
+          },
+          {
+            "level": 12,
+            "move": "Bite"
+          },
+          {
+            "level": 15,
+            "move": "Wing Attack"
+          },
+          {
+            "level": 16,
+            "move": "Aerial Ace"
+          },
+          {
+            "level": 18,
+            "move": "Screech"
+          },
+          {
+            "level": 19,
+            "move": "Torment"
+          },
+          {
+            "level": 25,
+            "move": "Assurance"
+          },
+          {
+            "level": 27,
+            "move": "Taunt"
+          },
+          {
+            "level": 29,
+            "move": "Agility"
+          },
+          {
+            "level": 33,
+            "move": "Sucker Punch"
+          },
+          {
+            "level": 35,
+            "move": "Drill Peck"
+          },
+          {
+            "level": 37,
+            "move": "Roost"
+          },
+          {
+            "level": 39,
+            "move": "Crunch"
+          },
+          {
+            "level": 40,
+            "move": "Foul Play"
+          },
+          {
+            "level": 48,
+            "move": "Night Slash"
+          }
+        ],
+        "tm_hm": [
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Hyper Beam",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Return",
+          "Double Team",
+          "Aerial Ace",
+          "Torment",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Steel Wing",
+          "Roost",
+          "Fling",
+          "Endure",
+          "Payback",
+          "Giga Impact",
+          "Captivate",
+          "Dark Pulse",
+          "Sleep Talk",
+          "Natural Gift",
+          "Swagger",
+          "Pluck",
+          "U-turn",
+          "Substitute",
+          "Foul Play",
+          "Fly",
+          "Dual Wingbeat",
+          "Swords Dance"
+        ],
+        "tutor": [
+          "Air Slash",
+          "Body Slam",
+          "Brave Bird",
+          "Hurricane",
+          "Sky Attack",
+          "Snarl",
+          "Heat Wave",
+          "Nasty Plot",
+          "Seed Bomb"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -38729,7 +40427,36 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
+        ],
+        "claude_sure": {
+          "height": 45,
+          "weight": 35,
+          "body color": 90,
+          "catch rate": 55,
+          "base exp": 85,
+          "growth rate": 54,
+          "base friendship": 90,
+          "gender": 79,
+          "egg groups": 58,
+          "egg cycles": 65,
+          "level-up moves": 55,
+          "TM/HM moves": 60,
+          "tutor moves": 50
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -38742,7 +40469,7 @@
         "icon": null,
         "footprint": "hgss:442",
         "shiny_palette": "assets/shiny/cobrabat.json",
-        "cry": null
+        "cry": "assets/cries/cobrabat.json"
       },
       "engine": {
         "no_flip": false,
@@ -38767,9 +40494,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 0.6,
+      "weight_kg": 12,
+      "body_color": "gray",
       "abilities": {
         "primary": "Mold Breaker",
         "secondary": "Download",
@@ -38783,14 +40510,19 @@
         "sp_defense": 50,
         "speed": 35
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "sp_attack": 1
+      },
+      "catch_rate": 90,
+      "base_exp": 68,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral",
+        "dragon"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -38804,10 +40536,102 @@
       ],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 3,
+            "move": "Protect"
+          },
+          {
+            "level": 12,
+            "move": "Hone Claws"
+          },
+          {
+            "level": 18,
+            "move": "Metal Sound"
+          },
+          {
+            "level": 24,
+            "move": "Dragon Breath"
+          },
+          {
+            "level": 33,
+            "move": "Screech"
+          },
+          {
+            "level": 36,
+            "move": "Iron Defense"
+          },
+          {
+            "level": 42,
+            "move": "Focus Energy"
+          },
+          {
+            "level": 48,
+            "move": "Dragon Pulse"
+          },
+          {
+            "level": 54,
+            "move": "Flash Cannon"
+          },
+          {
+            "level": 55,
+            "move": "Lock-On"
+          },
+          {
+            "level": 60,
+            "move": "Metal Burst"
+          },
+          {
+            "level": 66,
+            "move": "Hyper Beam"
+          }
+        ],
+        "tm_hm": [
+          "Dragon Claw",
+          "Roar",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Thunderbolt",
+          "Return",
+          "Double Team",
+          "Sandstorm",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Endure",
+          "Dragon Pulse",
+          "Thunder Wave",
+          "Gyro Ball",
+          "Stealth Rock",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Flash Cannon",
+          "Heavy Slam"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Draco Meteor",
+          "Iron Head",
+          "Outrage"
+        ],
+        "egg": [
+          "Curse",
+          "Dragon Rush"
+        ]
       },
       "encounters": [],
       "design": {
@@ -38816,7 +40640,40 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves"
+        ],
+        "claude_sure": {
+          "height": 35,
+          "weight": 55,
+          "body color": 90,
+          "EV yield": 85,
+          "catch rate": 55,
+          "base exp": 85,
+          "growth rate": 67,
+          "base friendship": 90,
+          "gender": 68,
+          "egg groups": 46,
+          "egg cycles": 65,
+          "level-up moves": 61,
+          "TM/HM moves": 66,
+          "tutor moves": 56,
+          "egg moves": 56
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -38829,7 +40686,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/horaxigon.json",
-        "cry": null
+        "cry": "assets/cries/horaxigon.json"
       },
       "engine": {
         "no_flip": false,
@@ -38854,9 +40711,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 1.7,
+      "weight_kg": 83,
+      "body_color": "gray",
       "abilities": {
         "primary": "Mold Breaker",
         "secondary": "Download",
@@ -38874,13 +40731,16 @@
         "defense": 1,
         "sp_attack": 2
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 45,
+      "base_exp": 190,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "mineral",
+        "dragon"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -38888,9 +40748,129 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Flash Cannon"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Harden"
+          },
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 1,
+            "move": "Yawn"
+          },
+          {
+            "level": 12,
+            "move": "Hone Claws"
+          },
+          {
+            "level": 16,
+            "move": "Protect"
+          },
+          {
+            "level": 18,
+            "move": "Metal Sound"
+          },
+          {
+            "level": 24,
+            "move": "Dragon Breath"
+          },
+          {
+            "level": 33,
+            "move": "Screech"
+          },
+          {
+            "level": 35,
+            "move": "Twister"
+          },
+          {
+            "level": 36,
+            "move": "Iron Defense"
+          },
+          {
+            "level": 42,
+            "move": "Focus Energy"
+          },
+          {
+            "level": 42,
+            "move": "Recover"
+          },
+          {
+            "level": 48,
+            "move": "Dragon Pulse"
+          },
+          {
+            "level": 48,
+            "move": "Iron Tail"
+          },
+          {
+            "level": 58,
+            "move": "Lock-On"
+          },
+          {
+            "level": 60,
+            "move": "Metal Burst"
+          },
+          {
+            "level": 69,
+            "move": "Hyper Beam"
+          }
+        ],
+        "tm_hm": [
+          "Dragon Claw",
+          "Roar",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Hyper Beam",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Thunderbolt",
+          "Earthquake",
+          "Return",
+          "Double Team",
+          "Reflect",
+          "Flamethrower",
+          "Sandstorm",
+          "Facade",
+          "Rest",
+          "Attract",
+          "Focus Blast",
+          "Endure",
+          "Dragon Pulse",
+          "Giga Impact",
+          "Thunder Wave",
+          "Gyro Ball",
+          "Stealth Rock",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Flash Cannon",
+          "Heavy Slam",
+          "Secret Power"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Draco Meteor",
+          "Earth Power",
+          "Iron Head",
+          "Outrage"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -38900,7 +40880,36 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
+        ],
+        "claude_sure": {
+          "height": 55,
+          "weight": 55,
+          "body color": 90,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 67,
+          "base friendship": 90,
+          "gender": 68,
+          "egg groups": 46,
+          "egg cycles": 65,
+          "level-up moves": 60,
+          "TM/HM moves": 65,
+          "tutor moves": 55
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -38913,7 +40922,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/horaxander.json",
-        "cry": null
+        "cry": "assets/cries/horaxander.json"
       },
       "engine": {
         "no_flip": false,
@@ -38938,9 +40947,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 1.5,
+      "weight_kg": 62.2,
+      "body_color": "green",
       "abilities": {
         "primary": "Slow Start",
         "secondary": "Natural Cure",
@@ -38954,14 +40963,19 @@
         "sp_defense": 110,
         "speed": 100
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "hp": 2,
+        "attack": 1
+      },
+      "catch_rate": 3,
+      "base_exp": 320,
+      "growth_rate": "slow",
+      "base_friendship": 0,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -38969,9 +40983,128 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Growth"
+          },
+          {
+            "level": 1,
+            "move": "Helping Hand"
+          },
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Quick Attack"
+          },
+          {
+            "level": 7,
+            "move": "Razor Leaf"
+          },
+          {
+            "level": 14,
+            "move": "Retaliate"
+          },
+          {
+            "level": 21,
+            "move": "Quick Guard"
+          },
+          {
+            "level": 24,
+            "move": "Seed Bomb"
+          },
+          {
+            "level": 35,
+            "move": "Swords Dance"
+          },
+          {
+            "level": 36,
+            "move": "Psycho Cut"
+          },
+          {
+            "level": 42,
+            "move": "Sacred Sword"
+          },
+          {
+            "level": 42,
+            "move": "Synthesis"
+          },
+          {
+            "level": 50,
+            "move": "Leech Seed"
+          },
+          {
+            "level": 56,
+            "move": "Zen Headbutt"
+          },
+          {
+            "level": 60,
+            "move": "Petal Blizzard"
+          },
+          {
+            "level": 70,
+            "move": "Imprison"
+          },
+          {
+            "level": 77,
+            "move": "Megahorn"
+          },
+          {
+            "level": 84,
+            "move": "Ally Switch"
+          }
+        ],
+        "tm_hm": [
+          "Calm Mind",
+          "Toxic",
+          "Bullet Seed",
+          "Sunny Day",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Giga Drain",
+          "Safeguard",
+          "Frustration",
+          "Solar Beam",
+          "Return",
+          "Psychic",
+          "Brick Break",
+          "Double Team",
+          "Reflect",
+          "Aerial Ace",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Skill Swap",
+          "Energy Ball",
+          "Endure",
+          "Giga Impact",
+          "Thunder Wave",
+          "Swords Dance",
+          "Psych Up",
+          "Sleep Talk",
+          "Grass Knot",
+          "Swagger",
+          "Substitute",
+          "Trick Room",
+          "Psyshock",
+          "Grassy Terrain",
+          "Psychic Terrain",
+          "Rock Slide"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Close Combat",
+          "Leaf Storm",
+          "Magical Leaf",
+          "Seed Bomb",
+          "Solar Blade",
+          "Zen Headbutt"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -38981,7 +41114,38 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
+        ],
+        "claude_sure": {
+          "height": 45,
+          "weight": 55,
+          "body color": 90,
+          "EV yield": 85,
+          "catch rate": 90,
+          "base exp": 85,
+          "growth rate": 90,
+          "base friendship": 55,
+          "gender": 75,
+          "egg groups": 90,
+          "egg cycles": 90,
+          "level-up moves": 66,
+          "TM/HM moves": 71,
+          "tutor moves": 61
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -38994,7 +41158,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/natureo.json",
-        "cry": null
+        "cry": "assets/cries/natureo.json"
       },
       "engine": {
         "no_flip": false,
@@ -39332,166 +41496,6 @@
     },
     {
       "dex": 167,
-      "name": "Racedent",
-      "credits": {
-        "designer": "Arvind",
-        "artist": "Arvind"
-      },
-      "types": [
-        "Dark"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": "a quadruped body",
-        "movement": "It walks on four legs.",
-        "look": "A blue and orange rat with a race flag"
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/racedent/2683.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "racedent"
-    },
-    {
-      "dex": 168,
-      "name": "Ratpid",
-      "credits": {
-        "designer": "Arvind",
-        "artist": "Arvind"
-      },
-      "types": [
-        "Dark"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": "a quadruped body",
-        "movement": "It walks on four legs.",
-        "look": "A rat with flag on tail"
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/ratpid/2684.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "ratpid"
-    },
-    {
-      "dex": 169,
       "name": "Daytard",
       "credits": {
         "designer": "Arvind",
@@ -39571,7 +41575,7 @@
       "id": "daytard"
     },
     {
-      "dex": 170,
+      "dex": 168,
       "name": "plumbuzzz",
       "credits": {
         "designer": "Arvind",
@@ -39651,7 +41655,7 @@
       "id": "plumbuzzz"
     },
     {
-      "dex": 171,
+      "dex": 169,
       "name": "Demetiscet",
       "credits": {
         "designer": "Arvind",
@@ -39729,6 +41733,166 @@
         "safari_flee_rate": 0
       },
       "id": "demetiscet"
+    },
+    {
+      "dex": 170,
+      "name": "Racedent",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Dark"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "A blue and orange rat with a race flag"
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/racedent/2683.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "racedent"
+    },
+    {
+      "dex": 171,
+      "name": "Ratpid",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Dark"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "A rat with flag on tail"
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/ratpid/2684.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "ratpid"
     },
     {
       "dex": 172,
@@ -41180,7 +43344,7 @@
           "growth rate": 90,
           "base friendship": 90,
           "gender": 77,
-          "egg groups": 49,
+          "egg groups": 50,
           "egg cycles": 90,
           "height": 35,
           "weight": 35
@@ -41197,7 +43361,7 @@
         "icon": null,
         "footprint": "hgss:371",
         "shiny_palette": "assets/shiny/balleisk.json",
-        "cry": null
+        "cry": "assets/cries/balleisk.json"
       },
       "engine": {
         "no_flip": false,
@@ -41442,11 +43606,11 @@
           "tutor moves": 65,
           "body color": 80,
           "catch rate": 90,
-          "base exp": 85,
+          "base exp": 55,
           "growth rate": 90,
-          "base friendship": 63,
+          "base friendship": 64,
           "gender": 77,
-          "egg groups": 49,
+          "egg groups": 50,
           "egg cycles": 90,
           "height": 65,
           "weight": 65
@@ -41463,7 +43627,7 @@
         "icon": null,
         "footprint": "hgss:372",
         "shiny_palette": "assets/shiny/greation.json",
-        "cry": null
+        "cry": "assets/cries/greation.json"
       },
       "engine": {
         "no_flip": false,
@@ -41765,9 +43929,9 @@
           "catch rate": 90,
           "base exp": 85,
           "growth rate": 90,
-          "base friendship": 67,
+          "base friendship": 66,
           "gender": 77,
-          "egg groups": 49,
+          "egg groups": 50,
           "egg cycles": 90,
           "height": 65,
           "weight": 65
@@ -41784,7 +43948,7 @@
         "icon": null,
         "footprint": "hgss:373",
         "shiny_palette": "assets/shiny/ultragon.json",
-        "cry": null
+        "cry": "assets/cries/ultragon.json"
       },
       "engine": {
         "no_flip": false,
@@ -42020,14 +44184,14 @@
           "evolutions"
         ],
         "claude_sure": {
-          "level-up moves": 72,
-          "TM/HM moves": 77,
-          "tutor moves": 67,
-          "egg moves": 67,
+          "level-up moves": 61,
+          "TM/HM moves": 66,
+          "tutor moves": 56,
+          "egg moves": 56,
           "catch rate": 90,
-          "base exp": 85,
+          "base exp": 55,
           "growth rate": 90,
-          "base friendship": 58,
+          "base friendship": 55,
           "egg cycles": 90,
           "evolutions": 70
         },
@@ -42043,7 +44207,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/santrock.json"
       },
       "engine": {
         "no_flip": false,
@@ -42290,14 +44454,14 @@
           "evolutions"
         ],
         "claude_sure": {
-          "level-up moves": 73,
-          "TM/HM moves": 78,
-          "tutor moves": 68,
-          "EV yield": 85,
+          "level-up moves": 61,
+          "TM/HM moves": 66,
+          "tutor moves": 56,
+          "EV yield": 55,
           "catch rate": 90,
-          "base exp": 85,
+          "base exp": 55,
           "growth rate": 90,
-          "base friendship": 59,
+          "base friendship": 55,
           "egg cycles": 90,
           "evolutions": 65
         },
@@ -42313,7 +44477,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/cindreon.json"
       },
       "engine": {
         "no_flip": false,
@@ -42596,9 +44760,9 @@
           "egg groups"
         ],
         "claude_sure": {
-          "level-up moves": 60,
-          "TM/HM moves": 65,
-          "tutor moves": 55,
+          "level-up moves": 62,
+          "TM/HM moves": 67,
+          "tutor moves": 57,
           "EV yield": 85,
           "catch rate": 90,
           "base exp": 85,
@@ -42618,7 +44782,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/custodix.json"
       },
       "engine": {
         "no_flip": false,
@@ -42643,9 +44807,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 1.5,
+      "weight_kg": 50.5,
+      "body_color": "black",
       "abilities": {
         "primary": "Motor Drive",
         "secondary": null,
@@ -42659,14 +44823,19 @@
         "sp_defense": 90,
         "speed": 125
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "attack": 1,
+        "speed": 2
+      },
+      "catch_rate": 3,
+      "base_exp": 270,
+      "growth_rate": "slow",
+      "base_friendship": 0,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -42674,9 +44843,123 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Quick Attack"
+          },
+          {
+            "level": 1,
+            "move": "Spark"
+          },
+          {
+            "level": 1,
+            "move": "Thunder Shock"
+          },
+          {
+            "level": 8,
+            "move": "Fury Swipes"
+          },
+          {
+            "level": 10,
+            "move": "Flame Charge"
+          },
+          {
+            "level": 16,
+            "move": "Quick Guard"
+          },
+          {
+            "level": 24,
+            "move": "Slash"
+          },
+          {
+            "level": 25,
+            "move": "Fire Fang"
+          },
+          {
+            "level": 30,
+            "move": "Charge"
+          },
+          {
+            "level": 32,
+            "move": "Thunder Punch"
+          },
+          {
+            "level": 40,
+            "move": "Agility"
+          },
+          {
+            "level": 40,
+            "move": "Crunch"
+          },
+          {
+            "level": 54,
+            "move": "Thrash"
+          },
+          {
+            "level": 54,
+            "move": "Wild Charge"
+          },
+          {
+            "level": 56,
+            "move": "Hone Claws"
+          },
+          {
+            "level": 88,
+            "move": "Thunder Fang"
+          },
+          {
+            "level": 96,
+            "move": "Close Combat"
+          }
+        ],
+        "tm_hm": [
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Thunderbolt",
+          "Thunder",
+          "Return",
+          "Double Team",
+          "Flamethrower",
+          "Fire Blast",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Overheat",
+          "Fling",
+          "Charge Beam",
+          "Endure",
+          "Will-O-Wisp",
+          "Giga Impact",
+          "Thunder Wave",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Flame Charge",
+          "Electroweb",
+          "Eerie Impulse",
+          "Electric Terrain"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Fire Punch",
+          "Flare Blitz",
+          "Heat Wave",
+          "Thunder Punch",
+          "Volt Switch",
+          "Zen Headbutt"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -42686,7 +44969,38 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
+        ],
+        "claude_sure": {
+          "height": 55,
+          "weight": 55,
+          "body color": 90,
+          "EV yield": 85,
+          "catch rate": 90,
+          "base exp": 85,
+          "growth rate": 90,
+          "base friendship": 51,
+          "gender": 75,
+          "egg groups": 90,
+          "egg cycles": 90,
+          "level-up moves": 63,
+          "TM/HM moves": 68,
+          "tutor moves": 58
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -42699,7 +45013,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/entrigon.json",
-        "cry": null
+        "cry": "assets/cries/entrigon.json"
       },
       "engine": {
         "no_flip": false,
@@ -42724,9 +45038,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 1.7,
+      "weight_kg": 66.1,
+      "body_color": "blue",
       "abilities": {
         "primary": "Water Absorb",
         "secondary": null,
@@ -42743,13 +45057,15 @@
       "ev_yield": {
         "sp_defense": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 3,
+      "base_exp": 270,
+      "growth_rate": "slow",
+      "base_friendship": 35,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -42757,9 +45073,119 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Mist"
+          },
+          {
+            "level": 1,
+            "move": "Water Gun"
+          },
+          {
+            "level": 6,
+            "move": "Water Pulse"
+          },
+          {
+            "level": 8,
+            "move": "Icy Wind"
+          },
+          {
+            "level": 12,
+            "move": "Ancient Power"
+          },
+          {
+            "level": 18,
+            "move": "Calm Mind"
+          },
+          {
+            "level": 24,
+            "move": "Bubble Beam"
+          },
+          {
+            "level": 35,
+            "move": "Agility"
+          },
+          {
+            "level": 36,
+            "move": "Freeze-Dry"
+          },
+          {
+            "level": 36,
+            "move": "Ice Beam"
+          },
+          {
+            "level": 54,
+            "move": "Aqua Ring"
+          },
+          {
+            "level": 55,
+            "move": "Surf"
+          },
+          {
+            "level": 60,
+            "move": "Haze"
+          },
+          {
+            "level": 65,
+            "move": "Blizzard"
+          },
+          {
+            "level": 72,
+            "move": "Hydro Pump"
+          },
+          {
+            "level": 72,
+            "move": "Hyper Beam"
+          }
+        ],
+        "tm_hm": [
+          "Water Pulse",
+          "Toxic",
+          "Hail",
+          "Hidden Power",
+          "Ice Beam",
+          "Blizzard",
+          "Hyper Beam",
+          "Protect",
+          "Rain Dance",
+          "Safeguard",
+          "Frustration",
+          "Thunderbolt",
+          "Thunder",
+          "Return",
+          "Double Team",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Brine",
+          "Endure",
+          "Giga Impact",
+          "Avalanche",
+          "Psych Up",
+          "Sleep Talk",
+          "Natural Gift",
+          "Swagger",
+          "Substitute",
+          "Scald",
+          "Liquidation",
+          "Surf",
+          "Whirlpool",
+          "Waterfall",
+          "Focus Blast",
+          "Psychic",
+          "Shadow Ball",
+          "Flip Turn"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Icicle Spear",
+          "Icy Wind"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -42769,7 +45195,36 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
+        ],
+        "claude_sure": {
+          "height": 45,
+          "weight": 55,
+          "body color": 90,
+          "catch rate": 90,
+          "base exp": 85,
+          "growth rate": 90,
+          "base friendship": 49,
+          "gender": 75,
+          "egg groups": 90,
+          "egg cycles": 90,
+          "level-up moves": 60,
+          "TM/HM moves": 65,
+          "tutor moves": 55
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -42782,7 +45237,7 @@
         "icon": null,
         "footprint": "hgss:143",
         "shiny_palette": "assets/shiny/tsunamo.json",
-        "cry": null
+        "cry": "assets/cries/tsunamo.json"
       },
       "engine": {
         "no_flip": false,
@@ -42809,7 +45264,7 @@
       "description": null,
       "height_m": 2,
       "weight_kg": 230,
-      "body_color": null,
+      "body_color": "brown",
       "abilities": {
         "primary": "Wind Master",
         "secondary": null,
@@ -42826,13 +45281,15 @@
       "ev_yield": {
         "sp_attack": 3
       },
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "catch_rate": 3,
+      "base_exp": 261,
+      "growth_rate": "slow",
+      "base_friendship": 35,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -42840,9 +45297,141 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Air Cutter"
+          },
+          {
+            "level": 1,
+            "move": "Gust"
+          },
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Mega Drain"
+          },
+          {
+            "level": 7,
+            "move": "Roar"
+          },
+          {
+            "level": 10,
+            "move": "Light Screen"
+          },
+          {
+            "level": 10,
+            "move": "Fairy Wind"
+          },
+          {
+            "level": 14,
+            "move": "Magical Leaf"
+          },
+          {
+            "level": 18,
+            "move": "Wing Attack"
+          },
+          {
+            "level": 21,
+            "move": "Aromatherapy"
+          },
+          {
+            "level": 25,
+            "move": "Agility"
+          },
+          {
+            "level": 25,
+            "move": "Ancient Power"
+          },
+          {
+            "level": 30,
+            "move": "Tailwind"
+          },
+          {
+            "level": 35,
+            "move": "Giga Drain"
+          },
+          {
+            "level": 40,
+            "move": "Roost"
+          },
+          {
+            "level": 45,
+            "move": "Hurricane"
+          },
+          {
+            "level": 54,
+            "move": "Heal Pulse"
+          },
+          {
+            "level": 55,
+            "move": "Solar Beam"
+          },
+          {
+            "level": 56,
+            "move": "Air Slash"
+          },
+          {
+            "level": 60,
+            "move": "Rain Dance"
+          },
+          {
+            "level": 70,
+            "move": "Energy Ball"
+          },
+          {
+            "level": 91,
+            "move": "Hyper Beam"
+          }
+        ],
+        "tm_hm": [
+          "Toxic",
+          "Bullet Seed",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Giga Drain",
+          "Frustration",
+          "Solar Beam",
+          "Return",
+          "Double Team",
+          "Aerial Ace",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Roost",
+          "Focus Blast",
+          "Energy Ball",
+          "Endure",
+          "Giga Impact",
+          "Sleep Talk",
+          "Grass Knot",
+          "Swagger",
+          "U-turn",
+          "Substitute",
+          "Dual Wingbeat",
+          "Fly"
+        ],
+        "tutor": [
+          "Air Slash",
+          "Body Slam",
+          "Brave Bird",
+          "Heat Wave",
+          "Hurricane",
+          "Leaf Storm",
+          "Magical Leaf",
+          "Seed Bomb",
+          "Sky Attack",
+          "Moonblast",
+          "Dazzling Gleam"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -42857,14 +45446,36 @@
           "look",
           "movement",
           "height",
-          "weight"
+          "weight",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
         ],
         "claude_sure": {
           "body shape": 80,
           "look": 80,
           "movement": 80,
           "height": 65,
-          "weight": 65
+          "weight": 65,
+          "body color": 90,
+          "catch rate": 90,
+          "base exp": 85,
+          "growth rate": 90,
+          "base friendship": 54,
+          "gender": 75,
+          "egg groups": 90,
+          "egg cycles": 90,
+          "level-up moves": 64,
+          "TM/HM moves": 69,
+          "tutor moves": 59
         },
         "body_shape": "a quadruped body",
         "movement": "It walks on four legs.",
@@ -42878,7 +45489,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/felk.json",
-        "cry": null
+        "cry": "assets/cries/felk.json"
       },
       "engine": {
         "no_flip": false,
@@ -43112,15 +45723,15 @@
           "body shape": 80,
           "look": 80,
           "movement": 80,
-          "level-up moves": 52,
-          "TM/HM moves": 57,
-          "tutor moves": 47,
+          "level-up moves": 63,
+          "TM/HM moves": 68,
+          "tutor moves": 58,
           "body color": 80,
-          "EV yield": 85,
+          "EV yield": 55,
           "catch rate": 90,
-          "base exp": 85,
+          "base exp": 55,
           "growth rate": 90,
-          "base friendship": 50,
+          "base friendship": 55,
           "gender": 75,
           "egg groups": 90,
           "egg cycles": 90,
@@ -43139,7 +45750,7 @@
         "icon": null,
         "footprint": "hgss:234",
         "shiny_palette": "assets/shiny/moosus.json",
-        "cry": null
+        "cry": "assets/cries/moosus.json"
       },
       "engine": {
         "no_flip": false,
@@ -43369,7 +45980,7 @@
           "catch rate": 90,
           "base exp": 85,
           "growth rate": 90,
-          "base friendship": 45,
+          "base friendship": 47,
           "gender": 75,
           "egg groups": 90,
           "egg cycles": 90
@@ -43386,7 +45997,7 @@
         "icon": null,
         "footprint": "hgss:78",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/rockedeer.json"
       },
       "engine": {
         "no_flip": false,
@@ -43411,9 +46022,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 1.5,
+      "weight_kg": 46.2,
+      "body_color": "purple",
       "abilities": {
         "primary": "Levitate",
         "secondary": null,
@@ -43427,14 +46038,18 @@
         "sp_defense": 110,
         "speed": 110
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "sp_attack": 3
+      },
+      "catch_rate": 3,
+      "base_exp": 270,
+      "growth_rate": "slow",
+      "base_friendship": 35,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -43442,9 +46057,111 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Astonish"
+          },
+          {
+            "level": 1,
+            "move": "Gust"
+          },
+          {
+            "level": 1,
+            "move": "Spite"
+          },
+          {
+            "level": 5,
+            "move": "Leer"
+          },
+          {
+            "level": 10,
+            "move": "Light Screen"
+          },
+          {
+            "level": 19,
+            "move": "Hex"
+          },
+          {
+            "level": 20,
+            "move": "Confuse Ray"
+          },
+          {
+            "level": 25,
+            "move": "Agility"
+          },
+          {
+            "level": 30,
+            "move": "Tailwind"
+          },
+          {
+            "level": 36,
+            "move": "Shadow Ball"
+          },
+          {
+            "level": 40,
+            "move": "Air Slash"
+          },
+          {
+            "level": 45,
+            "move": "Extrasensory"
+          },
+          {
+            "level": 50,
+            "move": "Uproar"
+          },
+          {
+            "level": 60,
+            "move": "Disable"
+          },
+          {
+            "level": 60,
+            "move": "Rain Dance"
+          },
+          {
+            "level": 65,
+            "move": "Hurricane"
+          },
+          {
+            "level": 68,
+            "move": "Nasty Plot"
+          }
+        ],
+        "tm_hm": [
+          "Calm Mind",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Hyper Beam",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Thunderbolt",
+          "Return",
+          "Psychic",
+          "Shadow Ball",
+          "Double Team",
+          "Aerial Ace",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Endure",
+          "Giga Impact",
+          "Psych Up",
+          "Dark Pulse",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Fly",
+          "U-turn"
+        ],
+        "tutor": [
+          "Air Slash",
+          "Hurricane",
+          "Poltergeist"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -43454,7 +46171,38 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
+        ],
+        "claude_sure": {
+          "height": 35,
+          "weight": 35,
+          "body color": 90,
+          "EV yield": 85,
+          "catch rate": 90,
+          "base exp": 85,
+          "growth rate": 90,
+          "base friendship": 55,
+          "gender": 75,
+          "egg groups": 90,
+          "egg cycles": 90,
+          "level-up moves": 58,
+          "TM/HM moves": 63,
+          "tutor moves": 53
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -43467,7 +46215,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/praxis.json",
-        "cry": null
+        "cry": "assets/cries/praxis.json"
       },
       "engine": {
         "no_flip": false,
@@ -43492,9 +46240,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 1.7,
+      "weight_kg": 55.4,
+      "body_color": "blue",
       "abilities": {
         "primary": "Levitate",
         "secondary": null,
@@ -43508,14 +46256,18 @@
         "sp_defense": 130,
         "speed": 110
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "sp_defense": 3
+      },
+      "catch_rate": 3,
+      "base_exp": 270,
+      "growth_rate": "slow",
+      "base_friendship": 35,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -43523,9 +46275,120 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Gust"
+          },
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Mist"
+          },
+          {
+            "level": 5,
+            "move": "Powder Snow"
+          },
+          {
+            "level": 10,
+            "move": "Reflect"
+          },
+          {
+            "level": 15,
+            "move": "Aurora Beam"
+          },
+          {
+            "level": 20,
+            "move": "Agility"
+          },
+          {
+            "level": 24,
+            "move": "Air Slash"
+          },
+          {
+            "level": 25,
+            "move": "Ancient Power"
+          },
+          {
+            "level": 30,
+            "move": "Tailwind"
+          },
+          {
+            "level": 35,
+            "move": "Freeze-Dry"
+          },
+          {
+            "level": 40,
+            "move": "Roost"
+          },
+          {
+            "level": 45,
+            "move": "Ice Beam"
+          },
+          {
+            "level": 50,
+            "move": "Snowscape"
+          },
+          {
+            "level": 55,
+            "move": "Hurricane"
+          },
+          {
+            "level": 60,
+            "move": "Haze"
+          },
+          {
+            "level": 65,
+            "move": "Blizzard"
+          }
+        ],
+        "tm_hm": [
+          "Water Pulse",
+          "Toxic",
+          "Hail",
+          "Hidden Power",
+          "Sunny Day",
+          "Ice Beam",
+          "Blizzard",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Return",
+          "Double Team",
+          "Reflect",
+          "Aerial Ace",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Roost",
+          "Endure",
+          "Giga Impact",
+          "Avalanche",
+          "Sleep Talk",
+          "Natural Gift",
+          "Swagger",
+          "U-turn",
+          "Substitute",
+          "Dual Wingbeat",
+          "Fly",
+          "Focus Blast",
+          "Shadow Ball"
+        ],
+        "tutor": [
+          "Air Slash",
+          "Body Slam",
+          "Heat Wave",
+          "Hurricane",
+          "Icicle Spear",
+          "Icy Wind",
+          "Sky Attack",
+          "Weather Ball"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -43535,7 +46398,38 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
+        ],
+        "claude_sure": {
+          "height": 55,
+          "weight": 35,
+          "body color": 90,
+          "EV yield": 85,
+          "catch rate": 90,
+          "base exp": 85,
+          "growth rate": 90,
+          "base friendship": 62,
+          "gender": 75,
+          "egg groups": 90,
+          "egg cycles": 90,
+          "level-up moves": 72,
+          "TM/HM moves": 77,
+          "tutor moves": 67
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -43548,7 +46442,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/laxis.json",
-        "cry": null
+        "cry": "assets/cries/laxis.json"
       },
       "engine": {
         "no_flip": false,
@@ -43782,7 +46676,7 @@
         "icon": null,
         "footprint": "hgss:279",
         "shiny_palette": "assets/shiny/maagamad.json",
-        "cry": null
+        "cry": "assets/cries/maagamad.json"
       },
       "engine": {
         "no_flip": false,
@@ -44016,7 +46910,7 @@
         "icon": "assets/sprites/bergflabbser/icon.png",
         "footprint": "hgss:382",
         "shiny_palette": "assets/shiny/bergflabbser.json",
-        "cry": null
+        "cry": "assets/cries/bergflabbser.json"
       },
       "engine": {
         "no_flip": false,
@@ -44539,7 +47433,7 @@
         "icon": null,
         "footprint": "hgss:221",
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/sabertann.json"
       },
       "engine": {
         "no_flip": false,
@@ -44564,9 +47458,9 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 3.2,
+      "weight_kg": 283,
+      "body_color": "white",
       "abilities": {
         "primary": "Mold Breaker",
         "secondary": null,
@@ -44580,14 +47474,19 @@
         "sp_defense": 120,
         "speed": 120
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "hp": 2,
+        "attack": 1
+      },
+      "catch_rate": 3,
+      "base_exp": 324,
+      "growth_rate": "slow",
+      "base_friendship": 0,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
       "held_items": {
         "common": null,
         "rare": null
@@ -44595,9 +47494,146 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Noble Roar"
+          },
+          {
+            "level": 1,
+            "move": "Quick Attack"
+          },
+          {
+            "level": 1,
+            "move": "Scary Face"
+          },
+          {
+            "level": 1,
+            "move": "Twister"
+          },
+          {
+            "level": 8,
+            "move": "Dragon Breath"
+          },
+          {
+            "level": 9,
+            "move": "Echoed Voice"
+          },
+          {
+            "level": 10,
+            "move": "Ancient Power"
+          },
+          {
+            "level": 11,
+            "move": "Dragon Tail"
+          },
+          {
+            "level": 16,
+            "move": "Crunch"
+          },
+          {
+            "level": 24,
+            "move": "Uproar"
+          },
+          {
+            "level": 25,
+            "move": "Slash"
+          },
+          {
+            "level": 26,
+            "move": "Tri Attack"
+          },
+          {
+            "level": 35,
+            "move": "Agility"
+          },
+          {
+            "level": 36,
+            "move": "Dragon Pulse"
+          },
+          {
+            "level": 40,
+            "move": "Body Slam"
+          },
+          {
+            "level": 42,
+            "move": "Dragon Claw"
+          },
+          {
+            "level": 50,
+            "move": "Hyper Voice"
+          },
+          {
+            "level": 56,
+            "move": "Dragon Rush"
+          },
+          {
+            "level": 72,
+            "move": "Earth Power"
+          },
+          {
+            "level": 77,
+            "move": "Outrage"
+          },
+          {
+            "level": 80,
+            "move": "Hyper Beam"
+          }
+        ],
+        "tm_hm": [
+          "Dragon Claw",
+          "Roar",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Hyper Beam",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Thunderbolt",
+          "Thunder",
+          "Earthquake",
+          "Return",
+          "Dig",
+          "Brick Break",
+          "Double Team",
+          "Flamethrower",
+          "Fire Blast",
+          "Aerial Ace",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Focus Blast",
+          "Fling",
+          "Endure",
+          "Dragon Pulse",
+          "Shadow Claw",
+          "Giga Impact",
+          "Stone Edge",
+          "Thunder Wave",
+          "Psych Up",
+          "Rock Slide",
+          "Sleep Talk",
+          "Natural Gift",
+          "Swagger",
+          "Substitute",
+          "Bulldoze",
+          "Body Press",
+          "Cut",
+          "Strength"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Draco Meteor",
+          "Earth Power",
+          "Endeavor",
+          "Heat Wave",
+          "Hyper Voice",
+          "Iron Head",
+          "Outrage",
+          "Weather Ball",
+          "Zen Headbutt"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -44607,7 +47643,38 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
+        "filled_by_claude": [
+          "height",
+          "weight",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
+        ],
+        "claude_sure": {
+          "height": 55,
+          "weight": 55,
+          "body color": 90,
+          "EV yield": 85,
+          "catch rate": 90,
+          "base exp": 85,
+          "growth rate": 90,
+          "base friendship": 69,
+          "gender": 75,
+          "egg groups": 90,
+          "egg cycles": 90,
+          "level-up moves": 55,
+          "TM/HM moves": 60,
+          "tutor moves": 50
+        },
         "body_shape": null,
         "movement": null,
         "look": null
@@ -44620,7 +47687,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/eclipsox.json",
-        "cry": null
+        "cry": "assets/cries/eclipsox.json"
       },
       "engine": {
         "no_flip": false,
@@ -44959,7 +48026,7 @@
         "icon": null,
         "footprint": "hgss:150",
         "shiny_palette": "assets/shiny/sandrema.json",
-        "cry": null
+        "cry": "assets/cries/sandrema.json"
       },
       "engine": {
         "no_flip": false,
@@ -44985,7 +48052,7 @@
       "description": null,
       "height_m": 1.6,
       "weight_kg": 60,
-      "body_color": null,
+      "body_color": "white",
       "abilities": {
         "primary": "Third Amendment",
         "secondary": null,
@@ -44999,14 +48066,18 @@
         "sp_defense": 45,
         "speed": 50
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "hp": 2
+      },
+      "catch_rate": 90,
+      "base_exp": 105,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -45143,11 +48214,29 @@
         "claude_fill": false,
         "filled_by_claude": [
           "height",
-          "weight"
+          "weight",
+          "body color",
+          "EV yield",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles"
         ],
         "claude_sure": {
           "height": 65,
-          "weight": 65
+          "weight": 65,
+          "body color": 90,
+          "EV yield": 85,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 59,
+          "base friendship": 90,
+          "gender": 63,
+          "egg groups": 56,
+          "egg cycles": 65
         },
         "body_shape": null,
         "movement": null,
@@ -45161,7 +48250,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/meowthwo.json",
-        "cry": null
+        "cry": "assets/cries/meowthwo.json"
       },
       "engine": {
         "no_flip": false,

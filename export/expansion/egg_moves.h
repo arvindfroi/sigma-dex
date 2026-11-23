@@ -472,6 +472,18 @@ static const u16 sBugmightEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sJawieEggMoveLearnset[] = {
+    MOVE_FIRE_FANG,
+    MOVE_DRAGON_BREATH,
+    MOVE_THUNDER_FANG,
+    MOVE_DRAGON_DANCE,
+    MOVE_FIRE_SPIN,
+    MOVE_DRAGON_RAGE,
+    MOVE_REVERSAL,
+    MOVE_CURSE,
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sDreadipedeEggMoveLearnset[] = {
     MOVE_NIGHT_SLASH,
     MOVE_DEFOG,
@@ -580,10 +592,50 @@ static const u16 sVenofribEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sCrysteelEggMoveLearnset[] = {
+    MOVE_CURSE,
+    MOVE_HEAD_SMASH,
+    MOVE_ROCK_THROW,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sWhyrmshadeEggMoveLearnset[] = {
+    MOVE_OMINOUS_WIND,
+    MOVE_SHADOW_SNEAK,
+    MOVE_IMPRISON,
+    MOVE_DISABLE,
+    MOVE_SPITE,
+    MOVE_ME_FIRST,
+    MOVE_HAZE,
+    MOVE_CLEAR_SMOG,
+    MOVE_ALLY_SWITCH,
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sAqualoomEggMoveLearnset[] = {
     MOVE_MUDDY_WATER,
     MOVE_CURSE,
     MOVE_AQUA_RING,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sCabatEggMoveLearnset[] = {
+    MOVE_FEINT_ATTACK,
+    MOVE_SKY_ATTACK,
+    MOVE_PURSUIT,
+    MOVE_BRAVE_BIRD,
+    MOVE_DEFOG,
+    MOVE_KNOCK_OFF,
+    MOVE_WHIRLWIND,
+    MOVE_AIR_CUTTER,
+    MOVE_RAZOR_WIND,
+    MOVE_GUST,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sHoraxigonEggMoveLearnset[] = {
+    MOVE_CURSE,
+    MOVE_DRAGON_RUSH,
     MOVE_UNAVAILABLE,
 };
 

@@ -8678,5 +8678,47 @@
     "file": "assets/concept-art/tomaterdander/2832.png",
     "caption": "[ds-front] sprite #553",
     "editor": "Arvind"
+  },
+  {
+    "id": 2840,
+    "species": "bergflabbser",
+    "file": "assets/concept-art/bergflabbser/2840.png",
+    "caption": "[ds-front2] sprite #554",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2841,
+    "species": "bergflabbser",
+    "file": "assets/concept-art/bergflabbser/2841.png",
+    "caption": "[ds-back2] sprite #554",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2846,
+    "species": "leafing",
+    "file": "assets/concept-art/leafing/2846.png",
+    "caption": "[ds-front2] sprite #555",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2851,
+    "species": "leafsteel",
+    "file": "assets/concept-art/leafsteel/2851.png",
+    "caption": "[ds-front2] sprite #556",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2856,
+    "species": "leafaxer",
+    "file": "assets/concept-art/leafaxer/2856.png",
+    "caption": "[ds-front2] sprite #557",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2861,
+    "species": "heatbat",
+    "file": "assets/concept-art/heatbat/2861.png",
+    "caption": "[ds-front2] sprite #558",
+    "editor": "Arvind"
   }
 ]

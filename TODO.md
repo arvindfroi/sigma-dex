@@ -13,21 +13,21 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Identity | designer credit | 193 / 207 |
 | Dex page | category | 47 / 207 |
 | Dex page | description | 47 / 207 |
-| Dex page | height | 162 / 207 |
-| Dex page | weight | 162 / 207 |
-| Dex page | body color | 145 / 207 |
+| Dex page | height | 181 / 207 |
+| Dex page | weight | 181 / 207 |
+| Dex page | body color | 178 / 207 |
 | Stats | base stats | 184 / 207 |
 | Stats | ability | 187 / 207 |
-| Stats | EV yield | 171 / 207 |
-| Stats | catch rate | 143 / 207 |
-| Stats | base exp | 143 / 207 |
-| Stats | growth rate | 143 / 207 |
-| Stats | base friendship | 143 / 207 |
-| Breeding | gender | 143 / 207 |
-| Breeding | egg groups | 143 / 207 |
-| Breeding | egg cycles | 143 / 207 |
-| Moves | level-up moves | 163 / 207 |
-| Moves | TM/HM moves | 162 / 207 |
+| Stats | EV yield | 182 / 207 |
+| Stats | catch rate | 177 / 207 |
+| Stats | base exp | 177 / 207 |
+| Stats | growth rate | 177 / 207 |
+| Stats | base friendship | 177 / 207 |
+| Breeding | gender | 177 / 207 |
+| Breeding | egg groups | 177 / 207 |
+| Breeding | egg cycles | 177 / 207 |
+| Moves | level-up moves | 181 / 207 |
+| Moves | TM/HM moves | 180 / 207 |
 | Location | encounters | 2 / 207 |
 | Design | concept | 43 / 207 |
 | Art | concept art | 201 / 207 |
@@ -37,7 +37,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Art | icon | 4 / 207 |
 | Art | footprint | 145 / 207 |
 | Art | shiny palette | 113 / 207 |
-| Art | cry | 28 / 207 |
+| Art | cry | 174 / 207 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
@@ -53,37 +53,35 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 ## Missing per Pokemon
 
-### #1 [Leaflet](data/species/leafing.yaml) - 83%
+### #1 [Leaflet](data/species/leafing.yaml) - 86%
 
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #2 [Leafling](data/species/leafsteel.yaml) - 83%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** cry
-
-### #3 [Leafaxer](data/species/leafaxer.yaml) - 69%
+### #2 [Leafling](data/species/leafsteel.yaml) - 86%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
-### #4 [Waffy](data/species/waffy.yaml) - 83%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** cry
-
-### #5 [Wealther](data/species/wealther.yaml) - 69%
+### #3 [Leafaxer](data/species/leafaxer.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #4 [Waffy](data/species/waffy.yaml) - 86%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+
+### #5 [Wealther](data/species/wealther.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #6 [Warrallier](data/species/warrallier.yaml) - 72%
 
@@ -92,161 +90,161 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #7 [Torchbat](data/species/torchbat.yaml) - 79%
+### #7 [Torchbat](data/species/torchbat.yaml) - 83%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** shiny palette, cry
+- **Art:** shiny palette
 
-### #8 [Princinder](data/species/heatbat.yaml) - 66%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #9 [Monarkhan](data/species/blazterra.yaml) - 66%
+### #8 [Princinder](data/species/heatbat.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #10 [Erobi](data/species/erobi.yaml) - 72%
-
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #11 [Harpie](data/species/harpie.yaml) - 66%
+### #9 [Monarkhan](data/species/blazterra.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #12 [Smeatherace](data/species/smeatherace.yaml) - 72%
-
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #13 [Bolthook](data/species/bolthook.yaml) - 76%
+### #10 [Erobi](data/species/erobi.yaml) - 76%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #14 [Wump](data/species/wump.yaml) - 66%
+### #11 [Harpie](data/species/harpie.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #15 [Twemp](data/species/twemp.yaml) - 66%
+### #12 [Smeatherace](data/species/smeatherace.yaml) - 76%
+
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+
+### #13 [Bolthook](data/species/bolthook.yaml) - 79%
+
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #14 [Wump](data/species/wump.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #16 [Florantula](data/species/florantula.yaml) - 69%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #17 [Pipwi](data/species/pipwi.yaml) - 69%
+### #15 [Twemp](data/species/twemp.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #18 [Tropistrich](data/species/pipwi-utv.yaml) - 69%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #19 [Blutie](data/species/coati.yaml) - 69%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #20 [Coatail](data/species/coatail.yaml) - 69%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #21 [Cowfin](data/species/cowfin.yaml) - 66%
+### #16 [Florantula](data/species/florantula.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #22 [Mooceon](data/species/mooceon.yaml) - 69%
+### #17 [Pipwi](data/species/pipwi.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #23 [Lapper](data/species/lapper.yaml) - 69%
+### #18 [Tropistrich](data/species/pipwi-utv.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #19 [Blutie](data/species/coati.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+
+### #20 [Coatail](data/species/coatail.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+
+### #21 [Cowfin](data/species/cowfin.yaml) - 69%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+
+### #22 [Mooceon](data/species/mooceon.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #23 [Lapper](data/species/lapper.yaml) - 72%
 
 - **Dex page:** description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #24 [Brawleo](data/species/brawleo.yaml) - 76%
+### #24 [Brawleo](data/species/brawleo.yaml) - 79%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #25 [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) - 66%
+### #25 [Sigmanian Sudowoodo](data/species/sigmanian-sudowoodo.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #26 [Snobbit](data/species/icy-freeze.yaml) - 76%
+### #26 [Snobbit](data/species/icy-freeze.yaml) - 79%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #27 [Freezrick](data/species/freezrick.yaml) - 83%
 
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #28 [Bulbtle](data/species/bulbtle.yaml) - 76%
+### #28 [Bulbtle](data/species/bulbtle.yaml) - 79%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #29 [Bulbtoise](data/species/bulbtoise.yaml) - 76%
-
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #30 [Wispole](data/species/wispole.yaml) - 76%
+### #29 [Bulbtoise](data/species/bulbtoise.yaml) - 79%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #30 [Wispole](data/species/wispole.yaml) - 79%
+
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #31 [Croakble](data/species/croakble.yaml) - 62%
 
@@ -255,106 +253,102 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #32 [Galfrogtom](data/species/galfrogtom.yaml) - 76%
+### #32 [Galfrogtom](data/species/galfrogtom.yaml) - 79%
 
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #33 [Cloudgnome](data/species/cloudgnome.yaml) - 48%
-
-- **Dex page:** category, description, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon
-
-### #34 [Cloudjester](data/species/cloudjester.yaml) - 45%
-
-- **Dex page:** category, description, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #35 [Sigmanian Eiscue](data/species/eiscue.yaml) - 66%
+### #33 [Cloudgnome](data/species/cloudgnome.yaml) - 76%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #34 [Cloudjester](data/species/cloudjester.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #36 [Rainbro](data/species/rainbro.yaml) - 62%
+### #35 [Sigmanian Eiscue](data/species/eiscue.yaml) - 69%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+
+### #36 [Rainbro](data/species/rainbro.yaml) - 66%
 
 - **Identity:** types
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #37 [Nukfae](data/species/nukfae.yaml) - 76%
-
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #38 [Toxiren](data/species/toxiren.yaml) - 76%
+### #37 [Nukfae](data/species/nukfae.yaml) - 79%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #39 [Stonma](data/species/stonma.yaml) - 76%
+### #38 [Toxiren](data/species/toxiren.yaml) - 79%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #40 [Sigmauler](data/species/sigmauler.yaml) - 66%
+### #39 [Stonma](data/species/stonma.yaml) - 79%
+
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #40 [Sigmauler](data/species/sigmauler.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #41 [Tinky](data/species/tinky.yaml) - 72%
-
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #42 [Motinky](data/species/motinky.yaml) - 72%
+### #41 [Tinky](data/species/tinky.yaml) - 76%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #43 [Gortiki](data/species/gortiki.yaml) - 72%
+### #42 [Motinky](data/species/motinky.yaml) - 76%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #44 [Chebbi](data/species/chebbi.yaml) - 69%
+### #43 [Gortiki](data/species/gortiki.yaml) - 76%
+
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+
+### #44 [Chebbi](data/species/chebbi.yaml) - 72%
 
 - **Dex page:** category
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #45 [Devampry](data/species/devampry.yaml) - 72%
+### #45 [Devampry](data/species/devampry.yaml) - 76%
 
 - **Dex page:** category
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #46 [Chillalit](data/species/chillalit.yaml) - 76%
+### #46 [Chillalit](data/species/chillalit.yaml) - 79%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #47 [Zapana](data/species/zapana.yaml) - 79%
 
@@ -368,22 +362,22 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #49 [Tomaternader](data/species/tomaterdander.yaml) - 76%
+### #49 [Tomaternader](data/species/tomaterdander.yaml) - 79%
 
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #50 [Crappy Meal](data/species/crappy-meal.yaml) - 79%
+### #50 [Crappy Meal](data/species/crappy-meal.yaml) - 83%
 
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #51 [Beatld](data/species/beatld.yaml) - 69%
+### #51 [Beatld](data/species/beatld.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #52 [Fleuroom](data/species/fleuroom.yaml) - 72%
 
@@ -399,74 +393,72 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #54 [Hippore](data/species/hippore.yaml) - 66%
+### #54 [Hippore](data/species/hippore.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #55 [Docuphant](data/species/docuphant.yaml) - 34%
+### #55 [Docuphant](data/species/docuphant.yaml) - 66%
 
-- **Dex page:** category, description, body color
-- **Stats:** ability, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
+- **Dex page:** category, description
+- **Stats:** ability
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #56 [Razox](data/species/razox.yaml) - 69%
+### #56 [Razox](data/species/razox.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #57 [Sigmanian Unown](data/species/bulgarian-unown.yaml) - 69%
-
-- **Identity:** designer credit
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #58 [Unknighted](data/species/united.yaml) - 69%
+### #57 [Sigmanian Unown](data/species/bulgarian-unown.yaml) - 72%
 
 - **Identity:** designer credit
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #59 [Hairyen](data/species/hairyen.yaml) - 72%
+### #58 [Unknighted](data/species/united.yaml) - 72%
+
+- **Identity:** designer credit
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+
+### #59 [Hairyen](data/species/hairyen.yaml) - 76%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #60 [Panzerien](data/species/panzerien.yaml) - 72%
-
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #61 [Nucloid](data/species/nucloid.yaml) - 76%
+### #60 [Panzerien](data/species/panzerien.yaml) - 76%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #62 [Nuclobyl](data/species/nuclobyl.yaml) - 76%
+### #61 [Nucloid](data/species/nucloid.yaml) - 79%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #63 [Apeshii](data/species/apeshit.yaml) - 34%
+### #62 [Nuclobyl](data/species/nuclobyl.yaml) - 79%
 
-- **Dex page:** category, description, body color
-- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #63 [Apeshii](data/species/apeshit.yaml) - 69%
+
+- **Dex page:** category, description
+- **Stats:** ability
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
 ### #64 [Julius](data/species/julius.yaml) - 72%
 
@@ -474,52 +466,52 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #65 [Conqrilla](data/species/yanklet.yaml) - 66%
+### #65 [Conqrilla](data/species/yanklet.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #66 [Gorambe](data/species/harambe.yaml) - 62%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #67 [Anjane](data/species/anjane.yaml) - 72%
-
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #68 [Janenon](data/species/janenon.yaml) - 72%
-
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #69 [Saucerl](data/species/saucerl.yaml) - 66%
+### #66 [Gorambe](data/species/harambe.yaml) - 66%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
 
-### #70 [Abyssys](data/species/abyssys.yaml) - 66%
+### #67 [Anjane](data/species/anjane.yaml) - 76%
+
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+
+### #68 [Janenon](data/species/janenon.yaml) - 76%
+
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+
+### #69 [Saucerl](data/species/saucerl.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #71 [Octopearl](data/species/octopearl.yaml) - 66%
+### #70 [Abyssys](data/species/abyssys.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+
+### #71 [Octopearl](data/species/octopearl.yaml) - 69%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
 ### #72 [Cryoblade](data/species/cryoblade.yaml) - 76%
 
@@ -528,34 +520,32 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #73 [Roostasaur](data/species/roostasaur.yaml) - 38%
-
-- **Dex page:** category, description, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #74 [Leadling](data/species/leadling.yaml) - 69%
+### #73 [Roostasaur](data/species/roostasaur.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #75 [Leadleak](data/species/leadling-utvikling.yaml) - 69%
+### #74 [Leadling](data/species/leadling.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #76 [Blylem](data/species/blylem.yaml) - 76%
+### #75 [Leadleak](data/species/leadling-utvikling.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #76 [Blylem](data/species/blylem.yaml) - 79%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #77 [Iglomodo mindre utv](data/species/iglomodo-mindre-utv.yaml) - 34%
 
@@ -566,11 +556,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #78 [Iglomodo](data/species/iglomodo.yaml) - 76%
+### #78 [Iglomodo](data/species/iglomodo.yaml) - 79%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #79 [Furamire](data/species/furamire.yaml) - 72%
 
@@ -579,33 +569,33 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #80 [Ciggiti](data/species/ciggiti.yaml) - 69%
+### #80 [Ciggiti](data/species/ciggiti.yaml) - 72%
 
 - **Identity:** designer credit
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #81 [Chuchar](data/species/chuchar.yaml) - 69%
-
-- **Identity:** designer credit
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #82 [Parahaunt](data/species/parahaunt.yaml) - 69%
+### #81 [Chuchar](data/species/chuchar.yaml) - 72%
 
 - **Identity:** designer credit
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #83 [Goatjo](data/species/goatjo.yaml) - 62%
+### #82 [Parahaunt](data/species/parahaunt.yaml) - 72%
+
+- **Identity:** designer credit
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+
+### #83 [Goatjo](data/species/goatjo.yaml) - 66%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
 
 ### #84 [Detecub mindre evo](data/species/darkgonark.yaml) - 66%
 
@@ -614,140 +604,138 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #85 [Detepup](data/species/detecup.yaml) - 69%
+### #85 [Detepup](data/species/detecup.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #86 [Snownin](data/species/snownin.yaml) - 66%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #87 [Verrith](data/species/verrith.yaml) - 69%
+### #86 [Snownin](data/species/snownin.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #88 [Sigmanian Komala](data/species/sigmanian-komala.yaml) - 69%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #89 [Dahrugula](data/species/dahrugula.yaml) - 66%
+### #87 [Verrith](data/species/verrith.yaml) - 72%
 
 - **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #90 [Vires](data/species/vires.yaml) - 69%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #91 [Flurina](data/species/flurina.yaml) - 69%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #92 [Dragem](data/species/dragem.yaml) - 66%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #93 [Quimsy](data/species/quimsy.yaml) - 45%
-
-- **Dex page:** category, description, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #94 [ROKU](data/species/roku.yaml) - 66%
+### #88 [Sigmanian Komala](data/species/sigmanian-komala.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #95 [Skiirtle](data/species/skiirtle.yaml) - 69%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #96 [McSkiirtle](data/species/mcskiirtle.yaml) - 69%
+### #89 [Dahrugula](data/species/dahrugula.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #97 [ambuger](data/species/ambuger.yaml) - 72%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #98 [Ambrr](data/species/ambcoptr.yaml) - 72%
+### #90 [Vires](data/species/vires.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #99 [Tortoplasm](data/species/tortoplasm.yaml) - 69%
+### #91 [Flurina](data/species/flurina.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #100 [Fossitoise](data/species/tortoplasm-utviklet.yaml) - 69%
+### #92 [Dragem](data/species/dragem.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #101 [Slothbaby](data/species/slothbaby.yaml) - 69%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #102 [Blazlothku](data/species/slothbaby-utviklet.yaml) - 69%
+### #93 [Quimsy](data/species/quimsy.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #103 [Terratyson](data/species/gaiafinn.yaml) - 69%
+### #94 [ROKU](data/species/roku.yaml) - 69%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
+
+### #95 [Skiirtle](data/species/skiirtle.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #104 [Obsidog](data/species/obsidog.yaml) - 69%
+### #96 [McSkiirtle](data/species/mcskiirtle.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #97 [ambuger](data/species/ambuger.yaml) - 76%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #98 [Ambrr](data/species/ambcoptr.yaml) - 76%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #99 [Tortoplasm](data/species/tortoplasm.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #100 [Fossitoise](data/species/tortoplasm-utviklet.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #101 [Slothbaby](data/species/slothbaby.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #102 [Blazlothku](data/species/slothbaby-utviklet.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #103 [Terratyson](data/species/gaiafinn.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #104 [Obsidog](data/species/obsidog.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #105 [Geronimok](data/species/obsidog-utvikling.yaml) - 76%
 
@@ -761,19 +749,19 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #107 [Limulk](data/species/limulk.yaml) - 69%
+### #107 [Limulk](data/species/limulk.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #108 [Mortbulk](data/species/mortbulk.yaml) - 66%
+### #108 [Mortbulk](data/species/mortbulk.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
 ### #109 [Phantomb](data/species/phantomb.yaml) - 72%
 
@@ -800,12 +788,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #113 [Aluminimonk](data/species/alminimonk.yaml) - 69%
+### #113 [Aluminimonk](data/species/alminimonk.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #114 [Aluminimonk Utviklin](data/species/alminimonk-utvikling.yaml) - 62%
 
@@ -814,28 +802,26 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #115 [Sparktera](data/species/zapitera-mindre-utv.yaml) - 34%
-
-- **Dex page:** category, description, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #116 [Zapitera](data/species/zapitera.yaml) - 69%
+### #115 [Sparktera](data/species/zapitera-mindre-utv.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #117 [Viridub](data/species/viridub.yaml) - 69%
+### #116 [Zapitera](data/species/zapitera.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #117 [Viridub](data/species/viridub.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #118 [Viridub Utvikling](data/species/viridub-utvikling.yaml) - 59%
 
@@ -859,63 +845,60 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #121 [Autuman](data/species/autuman.yaml) - 66%
+### #121 [Autuman](data/species/autuman.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #122 [Bugmight](data/species/bugmight.yaml) - 72%
+### #122 [Bugmight](data/species/bugmight.yaml) - 76%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #123 [Jawie](data/species/jawie.yaml) - 34%
-
-- **Dex page:** category, description, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #124 [Jawbreaker](data/species/jawbreaker.yaml) - 69%
+### #123 [Jawie](data/species/jawie.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #125 [Dreadipede](data/species/dreadipede.yaml) - 66%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
-
-### #126 [Dreadfang](data/species/dreadfang.yaml) - 69%
+### #124 [Jawbreaker](data/species/jawbreaker.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #127 [Aquat](data/species/surfer.yaml) - 69%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #128 [Aquway](data/species/subwaysurfer.yaml) - 69%
+### #125 [Dreadipede](data/species/dreadipede.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+
+### #126 [Dreadfang](data/species/dreadfang.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #127 [Aquat](data/species/surfer.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #128 [Aquway](data/species/subwaysurfer.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #129 [Zyzzfu](data/species/zyzzfu.yaml) - 72%
 
@@ -941,12 +924,12 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
-### #132 [Glacépée](data/species/glac-p-e.yaml) - 69%
+### #132 [Glacépée](data/species/glac-p-e.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #133 [Everdark](data/species/everdark.yaml) - 72%
 
@@ -955,82 +938,68 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #134 [Diedo](data/species/diedo.yaml) - 72%
+### #134 [Diedo](data/species/diedo.yaml) - 76%
 
 - **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #135 [Seraphinnen](data/species/seraphinnen.yaml) - 69%
+### #135 [Seraphinnen](data/species/seraphinnen.yaml) - 72%
 
 - **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #136 [Riftbloom](data/species/riftbloom.yaml) - 45%
-
-- **Dex page:** category, description, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #137 [riftlees](data/species/riftlees.yaml) - 31%
+### #136 [Riftbloom](data/species/riftbloom.yaml) - 72%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #137 [riftlees](data/species/riftlees.yaml) - 72%
+
+- **Dex page:** category, description
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #138 [G-Circuit](data/species/giga-circuit.yaml) - 66%
+### #138 [G-Circuit](data/species/giga-circuit.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #139 [Strawboo](data/species/strawboo.yaml) - 38%
-
-- **Dex page:** category, description, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
-
-### #140 [Wreckingbo](data/species/wreckingboo.yaml) - 38%
-
-- **Dex page:** category, description, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #141 [Wreckdrake](data/species/wreckingdrake.yaml) - 62%
+### #139 [Strawboo](data/species/strawboo.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #142 [Iron Bulb](data/species/iron-wire.yaml) - 38%
+### #140 [Wreckingbo](data/species/wreckingboo.yaml) - 69%
 
 - **Dex page:** category, description
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
 
-### #143 [Solidedge](data/species/solidedge.yaml) - 41%
+### #141 [Wreckdrake](data/species/wreckingdrake.yaml) - 66%
 
-- **Dex page:** category, description, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
+
+### #142 [Iron Bulb](data/species/iron-wire.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
+
+### #143 [Solidedge](data/species/solidedge.yaml) - 69%
+
+- **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint
@@ -1055,51 +1024,45 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, cry
 
-### #146 [Sealma](data/species/whaldrill0.yaml) - 66%
+### #146 [Sealma](data/species/whaldrill0.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #147 [Narburr](data/species/whaldrill.yaml) - 66%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
-
-### #148 [Whaldrill](data/species/whaldrill3.yaml) - 66%
+### #147 [Narburr](data/species/whaldrill.yaml) - 69%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #149 [Venofrib](data/species/venofrib.yaml) - 34%
+### #148 [Whaldrill](data/species/whaldrill3.yaml) - 69%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
-
-### #150 [Vendepiede](data/species/vendepiede.yaml) - 34%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
-
-### #151 [Venorax](data/species/venorax.yaml) - 28%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
+- **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
+
+### #149 [Venofrib](data/species/venofrib.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
+
+### #150 [Vendepiede](data/species/vendepiede.yaml) - 72%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
+
+### #151 [Venorax](data/species/venorax.yaml) - 69%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
 ### #152 [Raymon](data/species/raymon.yaml) - 31%
 
@@ -1111,100 +1074,71 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
 
-### #153 [Crysteel](data/species/crysteel.yaml) - 28%
+### #153 [Crysteel](data/species/crysteel.yaml) - 72%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #154 [Crystax](data/species/crystax.yaml) - 28%
+### #154 [Crystax](data/species/crystax.yaml) - 72%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #155 [Whyrmshade](data/species/whyrmshade.yaml) - 24%
+### #155 [Whyrmshade](data/species/whyrmshade.yaml) - 69%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
 
-### #156 [Abysspero](data/species/abysspero.yaml) - 24%
+### #156 [Abysspero](data/species/abysspero.yaml) - 69%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
 
-### #157 [Aqualoom](data/species/aqualoom.yaml) - 31%
+### #157 [Aqualoom](data/species/aqualoom.yaml) - 69%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
+- **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #158 [Cabat](data/species/catbat.yaml) - 21%
+### #158 [Cabat](data/species/catbat.yaml) - 69%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #159 [Cobramp](data/species/cobrabat.yaml) - 28%
+### #159 [Cobramp](data/species/cobrabat.yaml) - 72%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #160 [Horaxigon](data/species/horaxigon.yaml) - 21%
+### #160 [Horaxigon](data/species/horaxigon.yaml) - 69%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #161 [Horaxander](data/species/horaxander.yaml) - 24%
+### #161 [Horaxander](data/species/horaxander.yaml) - 69%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #162 [Lansseax](data/species/natureo.yaml) - 21%
+### #162 [Lansseax](data/species/natureo.yaml) - 69%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
 ### #163 [Dinoactyl](data/species/dinoactyl.yaml) - 21%
 
@@ -1244,7 +1178,34 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #167 [Racedent](data/species/racedent.yaml) - 10%
+### #167 [Daytard](data/species/daytard.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #168 [plumbuzzz](data/species/plumbuzzz.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #169 [Demetiscet](data/species/demetiscet.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #170 [Racedent](data/species/racedent.yaml) - 10%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1254,7 +1215,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #168 [Ratpid](data/species/ratpid.yaml) - 10%
+### #171 [Ratpid](data/species/ratpid.yaml) - 10%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1262,33 +1223,6 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #169 [Daytard](data/species/daytard.yaml) - 14%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #170 [plumbuzzz](data/species/plumbuzzz.yaml) - 14%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #171 [Demetiscet](data/species/demetiscet.yaml) - 14%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #172 [S.Rotom](data/species/s-rotom.yaml) - 7%
@@ -1446,115 +1380,99 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #234 [Balleisk](data/species/balleisk.yaml) - 69%
+### #234 [Balleisk](data/species/balleisk.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #235 [Greation](data/species/greation.yaml) - 69%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #236 [Ultragon](data/species/ultragon.yaml) - 69%
+### #235 [Greation](data/species/greation.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #237 [Santrock](data/species/santrock.yaml) - 72%
-
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #238 [Cindreon](data/species/cindreon.yaml) - 72%
-
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #239 [Custodix](data/species/custodix.yaml) - 72%
-
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
-
-### #240 [Entrigon](data/species/entrigon.yaml) - 21%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
-
-### #241 [Tsunamo](data/species/tsunamo.yaml) - 28%
-
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #242 [Felk](data/species/felk.yaml) - 31%
-
-- **Dex page:** category, description, body color
-- **Stats:** catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
-- **Location:** encounters
-- **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
-
-### #243 [Moosus](data/species/moosus.yaml) - 72%
-
-- **Dex page:** category, description
-- **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
-
-### #244 [Rockedeer](data/species/rockedeer.yaml) - 66%
+### #236 [Ultragon](data/species/ultragon.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #245 [Praxis](data/species/praxis.yaml) - 21%
+### #237 [Santrock](data/species/santrock.yaml) - 76%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
+
+### #238 [Cindreon](data/species/cindreon.yaml) - 76%
+
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
+
+### #239 [Custodix](data/species/custodix.yaml) - 76%
+
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
+
+### #240 [Entrigon](data/species/entrigon.yaml) - 69%
+
+- **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #246 [Laxis](data/species/laxis.yaml) - 21%
+### #241 [Tsunamo](data/species/tsunamo.yaml) - 72%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #247 [Maagamad](data/species/maagamad.yaml) - 76%
+### #242 [Felk](data/species/felk.yaml) - 69%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
+
+### #243 [Moosus](data/species/moosus.yaml) - 76%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon
+
+### #244 [Rockedeer](data/species/rockedeer.yaml) - 69%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+
+### #245 [Praxis](data/species/praxis.yaml) - 69%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
+
+### #246 [Laxis](data/species/laxis.yaml) - 69%
+
+- **Dex page:** category, description
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
+
+### #247 [Maagamad](data/species/maagamad.yaml) - 79%
 
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #248 [Bergflabb](data/species/bergflabbser.yaml) - 93%
+### #248 [Bergflabb](data/species/bergflabbser.yaml) - 97%
 
 - **Location:** encounters
-- **Art:** cry
 
 ### #249 [Gravriel](data/species/gravriel.yaml) - 79%
 
@@ -1562,20 +1480,17 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #250 [Sabertann](data/species/sabertann.yaml) - 69%
+### #250 [Sabertann](data/species/sabertann.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #251 [Eclipsox](data/species/eclipsox.yaml) - 24%
+### #251 [Eclipsox](data/species/eclipsox.yaml) - 72%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
 ### #252 [Voraxia](data/species/voraxia.yaml) - 31%
 
@@ -1586,18 +1501,16 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #253 [Sandrema](data/species/sandrema.yaml) - 69%
+### #253 [Sandrema](data/species/sandrema.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, cry
+- **Art:** front sprite, front animation frame, back sprite, icon
 
-### #254 [Meowthwo](data/species/meowthwo.yaml) - 38%
+### #254 [Meowthwo](data/species/meowthwo.yaml) - 72%
 
-- **Dex page:** category, description, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
+- **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
