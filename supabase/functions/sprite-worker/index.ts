@@ -156,6 +156,28 @@ Deno.serve(async (req: Request) => {
       return reply(200, { id: tryId, status });
     }
 
+    // Battle animation previews (2026-11-23): a frame-2 try's frame 1 and frame 2 played with the battle animation the
+    // Pokemon borrows (an animated WebP of our own sprite, made on the drawing PC). Handed in by the try's own job or by
+    // an 'animprev' job that names the try (someone picked another animation on the website).
+    if (action === "try_anim") {
+      const tryId = Number(form.get("try_id"));
+      const donor = String(form.get("donor") ?? "").trim().slice(0, 20);
+      const { data: t } = await supabase.from("sprite_tries").select("id, job_id, species_id, stage").eq("id", tryId).maybeSingle();
+      if (!t || !["front2", "back2"].includes(t.stage) || t.species_id !== job.species_id) return reply(409, { message: "Not a frame 2 of this Pokemon" });
+      if (!(t.job_id === jobId || (job.stage === "animprev" && job.from_try === tryId))) return reply(409, { message: "That try is not part of this job" });
+      if (!donor) return reply(400, { message: "Which animation?" });
+      const file = form.get("anim");
+      if (!(file instanceof File) || file.size > MAX_BYTES) return reply(400, { message: "anim is missing or larger than 3 MB" });
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      const isWebp = bytes[0] === 0x52 && bytes[1] === 0x49 && bytes[2] === 0x46 && bytes[3] === 0x46 && bytes[8] === 0x57 && bytes[9] === 0x45 && bytes[10] === 0x42 && bytes[11] === 0x50;
+      if (!isWebp) return reply(400, { message: "anim is not a WebP" });
+      const path = `tries/${t.species_id}/${tryId}-anim-${crypto.randomUUID().slice(0, 8)}.webp`;
+      const { error } = await supabase.storage.from("art").upload(path, bytes, { contentType: "image/webp", cacheControl: "31536000" });
+      if (error) return reply(500, { message: "anim could not be stored" });
+      await supabase.from("sprite_tries").update({ anim: path, anim_from: donor }).eq("id", tryId);
+      return reply(200, { path });
+    }
+
     if (action === "finish") {
       const error = String(form.get("error") ?? "").trim().slice(0, 500) || null;
       await supabase.from("sprite_jobs").update({ status: error ? "failed" : "done", error, finished_at: new Date().toISOString() }).eq("id", jobId);

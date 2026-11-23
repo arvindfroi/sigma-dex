@@ -4081,10 +4081,16 @@ function spriteStudio(s, startStep) {
     ctx.fillStyle = "#a8c870"; ctx.beginPath(); ctx.ellipse(192, 78, 56, 16, 0, 0, 7); ctx.fill(); ctx.beginPath(); ctx.ellipse(68, 170, 68, 20, 0, 0, 7); ctx.fill();
     const put = (it, x, y) => it && loadPicture(it.src).then(im => ctx.drawImage(im, x, y)).catch(() => {});
     put(f, 152, 4); put(b, 24, 112);
-    const f2 = inSet("front2"), b2 = inSet("back2");
+    const f2 = inSet("front2"), b2 = inSet("back2"), donor = animDonorOf(s);
+    const moving = (base, it, view) => {            // the animated preview when there is one for this animation, else the flip
+      const t = it.tryRow || st.tries.find(x => x.stage === view && x.image && artUrl(x.image) === it.src);
+      const url = animOf(t, donor);
+      if (!url) askAnim(t, donor);
+      return url ? h("img", {src: url, alt: view === "front2" ? "front moving" : "back moving", style: "width:192px;height:192px;image-rendering:pixelated"}) : flipPair(base.src, it.src, 120);
+    };
     return h("div", {class: "together"}, canvas,
       h("div", {class: "grass"}, ic ? h("img", {class: "px", src: ic.src, alt: "icon", style: "width:96px"}) : null, w ? walker(w.src, 3) : null,
-        f && f2 ? flipPair(f.src, f2.src, 120) : null, b && b2 ? flipPair(b.src, b2.src, 120) : null));
+        f && f2 ? moving(f, f2, "front2") : null, b && b2 ? moving(b, b2, "back2") : null));
   }
   function savePage() {
     const f = picked("front"), b = picked("back"), ic = picked("icon"), w = picked("follower"), f2 = picked("front2"), b2 = picked("back2");
@@ -4106,7 +4112,7 @@ function spriteStudio(s, startStep) {
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, "How the picked pictures look in a battle, in the menu and walking."),
       battle(),
-      animChooser(s),
+      animChooser(s, {onChange: () => { draw(); setTimeout(load, 5000); setTimeout(load, 12000); }}),
       h("div", {class: "yesno", style: "position:static"}, note, h("div", {class: "menu", role: "group", "aria-label": "Make these the sprite?"}, yes,
         h("button", {type: "button", onclick: () => go("front")}, "NO"))),
       older.length ? h("details", {style: "margin-top:12px"}, h("summary", {class: "sub"}, "Earlier sprites (" + older.length + ")"),
@@ -4590,7 +4596,17 @@ function renderSprites() {
 // closest one (scripts/anim_pick.py: body shape first, then types, size, weight, stats, colour, stage), or the one
 // picked here, saved in the dex as engine.anim_from.
 const animDonorOf = s => ((s.data.engine || {}).anim_from) || (((DEX.anim_picks || {})[s.id] || [])[0] || {}).name || "";
-function animChooser(s) {
+// The animated preview of a frame-2 try (made on the drawing PC: our frame 1 and frame 2 played with the borrowed
+// animation), when it was made with the animation the Pokemon uses now; else ask for one, once per try and animation.
+const animOf = (t, donor) => t && t.anim && t.anim_from === donor ? artUrl(t.anim) : null;
+const animAsked = new Set();
+async function askAnim(t, donor) {
+  if (!t || !t.id || !donor || animOf(t, donor) || animAsked.has(t.id + "|" + donor) || !DEX.web.url) return;
+  animAsked.add(t.id + "|" + donor);
+  try { await dbCall("request_anim_preview", {p_try: t.id, p_donor: donor, p_editor: me()}); } catch (e) { animAsked.delete(t.id + "|" + donor); }
+}
+function animChooser(s, opts) {
+  opts = opts || {};
   const picks = (DEX.anim_picks || {})[s.id] || [], chosen = (s.data.engine || {}).anim_from || "";
   const note = h("span", {class: "sub", role: "status"});
   const names = (DEX.official_species || []).map(o => o.name).sort((a, b) => a.localeCompare(b));
@@ -4602,6 +4618,7 @@ function animChooser(s) {
     try {
       if (DEX.web.url) await saveEdit("species", s.id, Object.assign({}, data, {_base: s.data}));
       s.data = data; s.pending = {editor: me()}; note.textContent = "Saved.";
+      if (opts.onChange) opts.onChange(animDonorOf(s));
     } catch (err) { note.textContent = err.message; }
     sel.disabled = false;
   }},
@@ -4610,9 +4627,11 @@ function animChooser(s) {
     h("optgroup", {label: "All of them"}, names.map(n => h("option", {value: n}, n))));
   sel.value = chosen;
   if (chosen && sel.value !== chosen) sel.append(h("option", {value: chosen}, chosen)), sel.value = chosen;
+  if (opts.compact) return h("div", {class: "row", style: "margin:6px 0;align-items:center;gap:6px;flex-wrap:wrap"},
+    h("span", {class: "sub"}, "Moves like"), sel, note);
   return h("div", {class: "row", style: "margin:8px 0;align-items:center;gap:8px;flex-wrap:wrap"},
     h("span", {class: "pixfont"}, "BATTLE ANIMATION: "), h("span", {class: "sub"}, "moves like"), sel, note,
-    h("div", {class: "sub", style: "flex-basis:100%"}, "How it moves in battle and when frame 2 shows is borrowed from this Pokemon's animation in HeartGold."));
+    h("div", {class: "sub", style: "flex-basis:100%"}, "How it moves in battle and when frame 2 shows is borrowed from this Pokemon's animation in HeartGold. The pictures above play it as the game does."));
 }
 
 // ---------- frame 2 swipe (23 Nov 2026; Arvind: "som tinder ... de som vi avvist går videre til mer rolig, også repeat") ----------
@@ -4636,13 +4655,15 @@ function renderSwipe() {
     try {
       [st.sets, st.tries, st.jobs] = await Promise.all([
         dbRead("sprite_candidates?status=eq.approved&gen=eq.4&select=id,species_id,front,back,front2,back2"),
-        dbRead("sprite_tries?stage=in.(front2,back2)&recipe=like.f2pair*&order=id.asc&select=id,job_id,species_id,stage,status,image,recipe,note,picked,picked_at"),
+        dbRead("sprite_tries?stage=in.(front2,back2)&recipe=like.f2pair*&order=id.asc&select=id,job_id,species_id,stage,status,image,recipe,note,picked,picked_at,anim,anim_from"),
         dbRead("sprite_jobs?stage=in.(front2,back2)&status=in.(queued,running)&select=id,species_id,stage,status,batch")]);
       st.sets.sort((a, b) => dexOf(a.species_id) - dexOf(b.species_id));
       st.loaded = true; st.msg = st.msg.startsWith("Could not") ? "" : st.msg;
     } catch (err) { st.msg = err.message; }
     if (!st.busy) draw();
-    if (box.isConnected) st.timer = setTimeout(load, 20000);
+    // faster while the card on screen waits for its animation preview (the drawing PC makes it in a few seconds)
+    const c = st.card, s0 = c && byId.get(c.c.species_id);
+    if (box.isConnected) st.timer = setTimeout(load, c && s0 && !animOf(c.t, animDonorOf(s0)) ? 4000 : 20000);
   }
   // every saved sprite x (front 2, back 2): saved, a card to look at, being drawn, or stuck (failed / turned down with nothing new coming)
   function sort() {
@@ -4698,15 +4719,20 @@ function renderSwipe() {
   function cardView(card, nextCards) {
     const s = byId.get(card.c.species_id), name = s ? s.data.name : card.c.species_id, front = card.view === "front2";
     const frame1 = artUrl(front ? card.c.front : card.c.back), frame2 = artUrl(card.t.image), size = f2SizeOf(card.t);
+    const donor = s ? animDonorOf(s) : "", animUrl = animOf(card.t, donor);
+    if (!animUrl) askAnim(card.t, donor);
+    for (const n of nextCards) { const ns = byId.get(n.c.species_id); if (ns) askAnim(n.t, animDonorOf(ns)); }   // the next cards' previews early
     for (const n of nextCards) { new Image().src = artUrl(n.t.image); new Image().src = artUrl(n.view === "front2" ? n.c.front : n.c.back); }
     const yesStamp = h("div", {class: "sstamp yes"}, "YES"), noStamp = h("div", {class: "sstamp no"}, "NO");
     const el = h("div", {class: "swipecard", role: "group", "aria-label": name + (front ? " front" : " back") + " frame 2"},
       yesStamp, noStamp,
       h("div", {class: "stitle"}, h("span", {}, "#" + pad(s ? s.data.dex : 0) + " " + name), h("span", {class: "chip"}, front ? "FRONT 2" : "BACK 2"),
         h("span", {class: "chip"}, size.toUpperCase()), card.round > 1 ? h("span", {class: "sub"}, "try " + card.round) : null),
-      h("div", {class: "sstage" + (front ? "" : " back")}, flipPair(frame1, frame2, 240)),
+      h("div", {class: "sstage" + (front ? "" : " back")}, animUrl ? h("img", {src: animUrl, alt: name + " moving in battle", style: "width:256px;height:256px;image-rendering:pixelated"})
+        : h("div", {style: "position:relative;line-height:0"}, flipPair(frame1, frame2, 240),
+            h("span", {class: "sub", style: "position:absolute;left:0;bottom:-2px;line-height:1.2;background:var(--panel);padding:0 4px"}, "making the battle animation..."))),
       h("div", {class: "spair"}, h("figure", {}, h("img", {src: frame1, alt: "frame 1"}), "frame 1"), h("figure", {}, h("img", {src: frame2, alt: "frame 2"}), "frame 2")),
-      s && animDonorOf(s) ? h("div", {class: "sub"}, "In battle it moves like " + animDonorOf(s) + " (change it in the studio, under SAVE).") : null,
+      s ? animChooser(s, {compact: true, onChange: d => { askAnim(card.t, d); clearTimeout(st.timer); st.timer = setTimeout(load, 4000); draw(); }}) : null,
       h("div", {class: "snote" + (card.t.status === "broken" ? " bad" : "")},
         card.t.status === "broken" ? "BROKEN? " + (card.t.note || "maybe new or missing body parts") : (card.t.note || "")));
     // drag to decide (phones): past 90 px it counts
@@ -4769,7 +4795,7 @@ function renderSwipe() {
 // ---------- the whole drawing line (11 Nov 2026: "better view of the queue so all of it can be shown") ----------
 // Read only: it shows the same rows the drawing PC works through and never changes them. Every job with its place,
 // who asked, how far it is, when it starts and when it is done (from the PC's measured times), plus what was drawn last.
-const STAGE_WORDS = {art: "cut-out", front: "front", back: "back", icon: "icon", follower: "walking sprite", trainer: "trainer sprite", vs: "VS portrait", map: "map figure", anim: "animation", tback: "back", throw: "throw"};
+const STAGE_WORDS = {animprev: "animation preview", art: "cut-out", front: "front", back: "back", icon: "icon", follower: "walking sprite", trainer: "trainer sprite", vs: "VS portrait", map: "map figure", anim: "animation", tback: "back", throw: "throw"};
 const ago = t => { const m = Math.round((Date.now() - new Date(t).getTime()) / 60000); return m < 1 ? "just now" : m < 60 ? m + " min ago" : m < 1440 ? Math.round(m / 60) + " h ago" : Math.round(m / 1440) + " d ago"; };
 function jobTimes(jobs, tries, timings) {
   let clock = 0;
@@ -7588,7 +7614,7 @@ function drawTray() {
   if (!tray.jobs.length && !tray.ready.length) { tray.el.hidden = true; return; }
   tray.el.hidden = false;
   const online = tray.worker && Date.now() - new Date(tray.worker.seen_at).getTime() < 90000;
-  const names = {art: "cut-out", front: "front", back: "back", icon: "icon", follower: "walking sprite", trainer: "trainer sprite", vs: "VS portrait", map: "map figure", anim: "animation", tback: "back", throw: "throw"};
+  const names = {animprev: "animation preview", art: "cut-out", front: "front", back: "back", icon: "icon", follower: "walking sprite", trainer: "trainer sprite", vs: "VS portrait", map: "map figure", anim: "animation", tback: "back", throw: "throw"};
   let total = 0;
   const rows = tray.jobs.map(j => {
     const n = j.count || 1, done = tray.tries.filter(x => x.job_id === j.id && x.status !== "drawing").length, each = secondsFor(timings, j.stage || "front");

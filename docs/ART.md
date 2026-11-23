@@ -501,6 +501,15 @@ are retired: Arvind found they did not keep the Pokemon's look.
   weight, BST, colour, stage, legendary, egg groups); the site embeds the top three (`DEX.anim_picks`) and the
   studio's SAVE page has BATTLE ANIMATION ("moves like ..."), saved as `engine.anim_from`. Export: copy bytes 0-85
   of the donor's record into our slot, keep our own y offset and shadow.
+- **Animation previews (2026-11-23).** Arvind: "gifen på nettsiden bør vises MED animasjonsscripet (det bør vi også
+  kunne velge btw)". Every FRONT 2 / BACK 2 try gets an animated WebP (`sprite_tries.anim`, `anim_from` = the official
+  Pokemon it was played as): our frame 1 and frame 2 moved the way the game moves them. The drawing PC makes it right
+  after the try (`scripts/anim_preview.py`, sprite-worker action `try_anim`) and again when someone picks another
+  animation (RPC `request_anim_preview` -> a cheap `animprev` job). The swipe card and the studio's SAVE page show it and
+  have the chooser. The player itself reads game data and follows the decompiled engine, so it is PRIVATE: it lives on
+  the drawing PC in `D:\LocalAI\sigma-private\anim` (`poke_anim.py` + `data/`), not in this repository; without it
+  the site keeps the plain flip. Checked against the game (battle recordings: frame timing, shifts, stretch and the
+  direction of the tilt match). Previews play at 30 frames per second (the 30 fps build).
 - **Not done yet.** The export into Origin's files (sprites with frame 2 + the borrowed animation record).
 
 ## The trainer studio

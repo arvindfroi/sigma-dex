@@ -1005,6 +1005,11 @@ def run(job, base, key, post, download, folder, log=print):
         post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": row["id"], "status": status, "note": note,
                          "seconds": round(seconds, 1)}, files)
         made += 1
+        if stage in ("front2", "back2") and status in ("done", "broken"):   # the battle animation preview (2026-11-23)
+            import anim_preview
+            first = folder / ("anim_frame1_%s.png" % stage)
+            inputs["front" if stage == "front2" else "back"].save(first)
+            anim_preview.after_try(post, base, key, job, row["id"], first, image, folder, log)
         try:
             post(base, key, {"action": "timings", "timings": json.dumps({k: expected(timings, k) for k in timings})})
         except (RuntimeError, OSError):

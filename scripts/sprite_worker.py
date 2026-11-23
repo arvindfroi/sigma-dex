@@ -38,7 +38,7 @@ COMFY_DIR = os.environ.get("COMFY_DIR")
 POLL_SECONDS, IDLE_UNLOAD_SECONDS, UPDATE_SECONDS = 8, 180, 600
 # The steps this worker draws, sent with every claim; the database gives a worker that sends none no trainer jobs.
 # `--stages trainer` runs a worker for trainer jobs only (a second copy for testing next to the main one).
-ALL_STAGES = "art,front,back,icon,follower,trainer,vs,front2,back2,map,anim,tback,throw"
+ALL_STAGES = "art,front,back,icon,follower,trainer,vs,front2,back2,map,anim,tback,throw,animprev"
 STAGES = sys.argv[sys.argv.index("--stages") + 1] if "--stages" in sys.argv else ALL_STAGES
 
 
@@ -493,6 +493,10 @@ def run_ds(job, base, key, settings):
 
 
 def run(job, base, key, settings):
+    if job.get("stage") == "animprev":             # a battle animation preview for a frame-2 try (scripts/anim_preview.py)
+        import anim_preview
+        with tempfile.TemporaryDirectory() as folder:
+            return anim_preview.run_job(job, base, key, post, download, Path(folder), log)
     # the trainer studio's ANIM step (the battle intro poses) and BACK step (frame 1 'tback', then the throw)
     runner = {"anim": "run_anim", "tback": "run_tback", "throw": "run_throw"}.get(job.get("stage"))
     if runner:
