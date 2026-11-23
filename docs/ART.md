@@ -528,6 +528,54 @@ so); never put a real person's picture anywhere public without their consent.
    cleaned per frame, T 25). Held items drop out of some frames on some seeds: that is why there are several tries.
 Settings: `TRAINER_LORA`, `NPC_LORA`, `TRAINER_CFG`. Training stops ComfyUI (`D:\LocalAI\start_comfy.bat` starts it).
 
+**The later steps** (2026-11-21/22; each its own stage, drawn from the picked battle sprite, `from_try` = that try; the
+steps are 1 PICTURE, 2 BASE, 3 MAKE, 4 MAP, 5 ANIM, 6 VS, 7 BACK, SAVE):
+- **4 MAP** (stage `map`, RPC `request_trainer_map`, 1-6): more map figures the way the first two test figures were
+  made: NPC LoRA v2, checkpoints 1000/750/1250 in turn (`NPC_MAP_CKPTS`), own seed each, plus optional words for the map
+  figure only (`extra`, e.g. "no hat"). The pick wins over the battle try's own map figure.
+- **5 ANIM** (stage `anim`, RPC `request_trainer_anim(p_try, p_script, ...)`, 1-4): the battle intro animation. The page
+  lists 26 scripts of Origin's animated classes (`data/trainer_anims.json`, made by `scripts/trainer_anims.py` from the
+  ROM's a/0/5/8 NANR sequence 1: pose = cell, shift, time at 30 game frames a second; numbers and words only) and plays the
+  chosen one on the person's own sprite. Recipe v2 "side by side" (2026-11-22, `front_anim/approved_pair_v2`; Arvind on
+  the game GIF: "det ser sykt bra ut!"): each extra pose j = klein BASE (no LoRA) at 640x320, start = battle sprite |
+  battle sprite (4x on magenta), only the right half re-noised (SetLatentNoiseMask), image 1 = the battle sprite, text =
+  "two frames of the same trainer ... exactly the same size ... in a new pose: the trainer {pose words}" with the
+  person's words and build (`data/trainer_anim_poses.json`: what pose j shows, about the body, not the leader's things).
+  The right half is size-locked (more than 8 % taller than frame 1 -> scaled to frame 1's height around the feet), then
+  `trainer_post.battle` and the colours locked to the battle sprite's. Try 1 uses seed 1 (kept faces best), the others
+  other seeds. The try's image is a strip, frame j = cell j (frame 0 = the battle sprite; a cell with no pose in the
+  game, Koga's cell 3, = the battle sprite). Left out: 101/102 (blank cells, two figures), 106 (starts as smoke), 123
+  Lance (a close-up). v1 (start = the leader's real pose at denoise 0.6/0.75 with the trainer LoRA) leaked the leader's
+  body: a stout person got Chuck's body.
+  Stage 2 (default, `TRAINER_ANIM_SWAP=0.55`, 0 = off): before pixelizing, each pose panel is repainted once with the
+  trainer LoRA c1 swap (image 1 = the battle sprite, start = the pose panel, denoise 0.55, text = the swap caption with
+  pose = "the trainer {pose words}"): keeps the pose and brings the face back (a shaved head and beard came back); 0.65
+  sometimes undid the pose, 0.8 more.
+  Round 3: both texts end with ANIM_STRICT ("exactly two arms and two hands ... no arm or hand stays behind ... the hair
+  exactly as in image 1"), against extra arms and hair that grew. Even so one seed in three can keep an old fist, so the
+  page asks 3 tries by default and the person's pick is the filter.
+- **6 VS** (stage `vs`): the VS portrait, VS LoRA v1 step 2000 (image 1 = the battle sprite, image 2 = the picture). Since
+  2026-11-23 every second try has no personal description (only "A trainer holding a Poke Ball", vs_gen.py NODESC) and the
+  picture at its own size up to 1 MP (PHOTOFULL); tested only on one person, so both kinds are offered, not a switch.
+- **7 BACK** (only player characters and tag partners; the order is front -> VS -> back -> throw; recipe
+  `title3d/legend/trainers/locked_back_throw_v2`, "Step 1 update", Arvind 2026-11-23: "Ja vs + foto var bra"):
+  stage `tback` (RPC `request_trainer_back(p_try, p_shape, p_count 1-8, p_editor, p_extra, p_vs)`, default 6; the page sends
+  the picked VS, the job stores its picture as `vs_image`) = frame 1: trainer LoRA c1 CREATE-back, start = a player back
+  picked by what the base picture shows (`long` 13/01, `short` 12/24, `spiky` 14/04, `cap` 09/00, `tied` 08/07, `stout`
+  the real wide backs 22/21). Order per 8 tries: D D F D D F D D (the last two at d0.65, the rest d0.6). D = image 1 the
+  photo + image 2 the VS 4x on white (+ "Image 2 is a pixel art portrait of the same person ..."), base unwidened, no colour
+  lock; no VS -> photo only; no photo -> the VS as image 1. F = image 1 the front 4x on white, colours locked to the front
+  (keeps the clothes best in the throw; but it takes the base's hair on a bald person). The person picks.
+  Stage `throw` (RPC `request_trainer_throw(p_try = the picked back, p_editor, p_count 1-2)`) = frames 2-8:
+  `pkmn_backmotion_klein_v5_000000750`, each frame an edit of our frame k-1 toward a template's pose map, our frame 1 as image
+  3, seeds 1 and 2, colours locked to frame 1, pick = IoU - lock distance / 60 (`back_motion5_gen.py`). Template 14 (Barry
+  Pt) for slim people, 21 (Barry Pt wide, a real 8-frame set) when frame 1 came from base 20/21/22 or the words say stout;
+  a second try uses the other template. The v5b widening is gone (it did not keep a stout test person wide).
+  Test 2026-11-23 on our two OCs: D tries good on both (bald man with plaid and overalls; the ranger's red hair, green jacket
+  and backpack); F tries gave the bald man blond/grey hair again.
+A saved sprite also stores `map_try`, `vs`, `vs_try`, `anim = {script, try, image}` and `back = {try, image, throw, throw_try}`.
+Migrations `2026-11-21_trainer_map.sql`, `2026-11-22_trainer_anim_back.sql`, `2026-11-23_trainer_back_vs.sql`.
+
 **Database** (migration `supabase/migrations/2026-11-21_trainer_studio.sql`): the jobs share the sprite studio's line:
 `sprite_jobs` / `sprite_tries` with stage `trainer`, `species_id` = the slot (`trainer-<role>` or `npc-<id>`), `recipe`
 = the base (`hgss:12`, `pt:beauty`), `prompt` = JSON `{strength, words, photo}` (v1 jobs: `fields`); RPC `request_trainer`

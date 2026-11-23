@@ -734,6 +734,21 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .tbases { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 4px; max-height: 360px; overflow: auto; padding: 2px; border: 2px solid var(--line); background: var(--soft); }
 .tbase { padding: 0; border: 3px solid transparent; background: repeating-conic-gradient(#eef1f6 0% 25%, #dde2ea 0% 50%) 50% / 16px 16px; display: grid; justify-items: center; cursor: pointer; }
 .tbase.on { border-color: var(--pri); }
+/* trainer studio steps ANIM and BACK (2026-11-22) */
+.tanims { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px; max-height: 420px; overflow: auto; padding: 2px; border: 2px solid var(--line); background: var(--soft); }
+.tanim { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: left; padding: 6px 8px; border: 3px solid var(--line); background: var(--field); cursor: pointer; font: inherit; color: var(--ink); }
+.tanim .sub { color: var(--muted); }
+.tanim.on { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+.tanim .tag { position: static; }
+.twide { display: inline-block; width: 80px; height: 80px; overflow: visible; }
+.twide i { display: block; image-rendering: pixelated; transform-origin: 50% 100%; }
+.tanimtop { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 8px 0; }
+.battlewrap { position: relative; display: inline-block; max-width: 100%; line-height: 0; }
+.battleanim, .battleback { position: absolute; width: 43.75%; pointer-events: none; }
+.battleanim { left: 53.125%; top: -6.25%; }
+.battleback { left: 4.7%; top: 50%; }
+.battleanim canvas, .battleback canvas, .battleback img { width: 100% !important; height: auto !important; image-rendering: pixelated; }
+.battleback img { width: 71.4% !important; margin: 16.7% 0 0 14.3%; }
 .tbase i { display: block; width: 80px; height: 80px; image-rendering: pixelated; }
 .tbase span { font-size: 10px; line-height: 1.1; color: #333; max-width: 80px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .tstrength { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
@@ -1531,7 +1546,13 @@ async function uploadPictures(s, files, caption, report) {
   }
 }
 let newPictureSink = null;        // the "new Pokemon" form, while it is open: pasted pictures wait there until it is saved
+let trainerPictureSink = null;    // the trainer studio's PICTURE step, while it is open: a pasted picture is the private photo
 document.addEventListener("paste", async ev => {
+  if (trainerPictureSink && trainerPictureSink.form.isConnected) {    // never let it fall through to the public picture upload
+    const file = [...((ev.clipboardData || {}).files || [])].find(f => /^image\//.test(f.type));
+    if (file) { ev.preventDefault(); trainerPictureSink.add(file); }
+    return;
+  }
   if (newPictureSink && newPictureSink.form.isConnected && document.getElementById("dialog").open) {
     const files = [...((ev.clipboardData || {}).files || [])].filter(f => /^image\//.test(f.type));
     if (files.length) { ev.preventDefault(); newPictureSink.add(files); }
@@ -2442,7 +2463,8 @@ const STUDIO_STEPS = [
   {id: "save", n: "✓", label: "SAVE", c: "purple", what: "Put the picked pictures together and make them the sprite."}];
 const STEP_SIZE = {art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 32], follower: [128, 64], front2: [80, 80], back2: [80, 80]};
 const TRY_SIDE = {art: 640, front: 80, back: 80, icon: 32, front2: 80, back2: 80};                    // the square ones (the colour tools use it)
-const TRY_DEFAULT_SECONDS = {art: 75, "art:sketch": 25, "art:pose": 60, front: 100, back: 55, icon: 30, follower: 40, trainer: 50, vs: 25, front2: 60, back2: 60};
+const TRY_DEFAULT_SECONDS = {art: 75, "art:sketch": 25, "art:pose": 60, front: 100, back: 55, icon: 30, follower: 40, trainer: 50, vs: 25, front2: 60, back2: 60,
+  map: 30, anim: 90, tback: 25, throw: 360};
 const mmss = sec => Math.floor(Math.max(0, sec) / 60) + ":" + String(Math.floor(Math.max(0, sec) % 60)).padStart(2, "0");
 const aboutMinutes = sec => !(sec >= 90) ? "about a minute" : "about " + Math.round(sec / 60) + " minutes";
 function secondsFor(timings, stage) {
@@ -4206,7 +4228,7 @@ function renderSprites() {
 // ---------- the whole drawing line (11 Nov 2026: "better view of the queue so all of it can be shown") ----------
 // Read only: it shows the same rows the drawing PC works through and never changes them. Every job with its place,
 // who asked, how far it is, when it starts and when it is done (from the PC's measured times), plus what was drawn last.
-const STAGE_WORDS = {art: "cut-out", front: "front", back: "back", icon: "icon", follower: "walking sprite"};
+const STAGE_WORDS = {art: "cut-out", front: "front", back: "back", icon: "icon", follower: "walking sprite", trainer: "trainer sprite", vs: "VS portrait", map: "map figure", anim: "animation", tback: "back", throw: "throw"};
 const ago = t => { const m = Math.round((Date.now() - new Date(t).getTime()) / 60000); return m < 1 ? "just now" : m < 60 ? m + " min ago" : m < 1440 ? Math.round(m / 60) + " h ago" : Math.round(m / 1440) + " d ago"; };
 function jobTimes(jobs, tries, timings) {
   let clock = 0;
@@ -4702,7 +4724,10 @@ const TSTEPS = [
   {id: "picture", n: "1", label: "PICTURE", c: "pink", what: "The picture the drawing PC paints your trainer from."},
   {id: "base", n: "2", label: "BASE", c: "purple", what: "A real trainer from the DS games whose body and pose are like the trainer you want. Your trainer keeps its size and stance; the look comes from your picture."},
   {id: "make", n: "3", label: "MAKE", c: "blue", what: "The drawing PC paints the base with your picture: a battle sprite and a map figure each time. Tap the one you like best."},
-  {id: "vs", n: "4", label: "VS", c: "sky", what: "The portrait on the VS screen before a battle (gym leaders, the Elite Four, rivals and champions have one). The drawing PC paints it from your battle sprite and your picture. Optional."},
+  {id: "map", n: "4", label: "MAP", c: "pink", what: "More map figures for the battle sprite you picked: each one is drawn a little differently. Tap the one that looks most like your trainer. Words here change only the map figure."},
+  {id: "anim", n: "5", label: "ANIM", c: "blue", what: "How your trainer moves when a battle starts. Most trainers just stand there; gym leaders, the Elite Four and other big trainers have a short animation with a few poses. Pick one whose poses suit your trainer and watch it on your own sprite, then MAKE draws the extra poses. Optional."},
+  {id: "vs", n: "6", label: "VS", c: "sky", what: "The portrait on the VS screen before a battle (gym leaders, the Elite Four, rivals and champions have one). The drawing PC paints it from your battle sprite and your picture. Optional."},
+  {id: "back", n: "7", label: "BACK", c: "purple", what: "Only for a player character or a tag-battle partner: your trainer seen from behind, throwing the Poke Ball at the start of a battle. First the back (pick the one most like your trainer), then the throw is drawn from it. Optional."},
   {id: "save", n: "✓", label: "SAVE", c: "purple", what: "How your trainer looks in a battle and on the map."}];
 const NPC_WALK = {up: [9, 8], down: [11, 12], left: [1, 3], right: [4, 5]};   // frames of the game's 16-frame NPC sheet (2 steps each)
 const tstudios = new Map();          // slot -> what the person has chosen so far (kept while they move around the site)
@@ -4729,11 +4754,48 @@ function npcWalker(src, scale) {
   }});
   return canvas;
 }
+// The trainer's battle intro (step ANIM): a script of data/trainer_anims.json played on our own sprite. Pose j = frame j of
+// `strip` (frame 0 = the battle sprite); without a strip every pose is the battle sprite, so only the moves show. Game
+// frames at 30 a second, then a second's rest before it plays again. A throw (step BACK) is a strip of 8 played in a row.
+const trainerAnims = () => (DEX.trainer_anims && DEX.trainer_anims.scripts) || [];
+const trainerAnim = cls => trainerAnims().find(a => a.cls === Number(cls)) || null;
+const animPlayers = new Set();
+setInterval(() => { for (const a of animPlayers) { if (!a.canvas.isConnected) { animPlayers.delete(a); continue; } a.draw(); } }, 33);
+function animPlayer(stripSrc, script, scale, opts) {
+  const pad = 16, w = 80 + 2 * pad, hgt = 80 + pad, canvas = h("canvas", {width: w, height: hgt, class: "px", style: "width:" + w * scale + "px;height:" + hgt * scale + "px", "aria-label": script ? script.name + " animation" : "animation"});
+  const ctx = canvas.getContext("2d"), start = performance.now();
+  let im = null;
+  const src = stripSrc;
+  if (src) { if (!npcSheets.has(src)) npcSheets.set(src, loadPicture(src)); npcSheets.get(src).then(x => { im = x; }).catch(() => npcSheets.delete(src)); }
+  const seq = script ? script.seq : (opts && opts.frames ? Array.from({length: opts.frames}, (_, k) => [k, 0, 0, k === 0 ? 30 : 5]) : [[0, 0, 0, 30]]);
+  const total = seq.reduce((a, f) => a + f[3], 0) + 30;
+  animPlayers.add({canvas, draw() {
+    if (!im) return;
+    let t = Math.floor((performance.now() - start) / 1000 * 30) % total, f = seq[seq.length - 1];
+    for (const x of seq) { if (t < x[3]) { f = x; break; } t -= x[3]; }
+    const cells = Math.max(1, Math.floor(im.width / 80)), cell = f[0] < cells ? f[0] : 0;
+    ctx.clearRect(0, 0, w, hgt); ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(im, cell * 80, 0, 80, 80, pad + f[1], pad + f[2], 80, 80);
+  }});
+  return canvas;
+}
 // The 512x32 sheet as a 4x4 grid of frames (the pixel editor draws it big enough), and back.
 function npcToGrid(im) {
   const c = Object.assign(document.createElement("canvas"), {width: 128, height: 128}), x = c.getContext("2d");
   for (let i = 0; i < 16; i++) x.drawImage(im, i * 32, 0, 32, 32, (i % 4) * 32, Math.floor(i / 4) * 32, 32, 32);
   return c;
+}
+// The throw (2026-11-23): a strip of 8 frames of 80x80. It is edited one frame at a time (80x80 is big enough to draw on
+// with a phone; Arvind: "bare la folk redigere sprites"): the edited frame goes back into the strip.
+function stripFrame(im, k) {
+  const c = Object.assign(document.createElement("canvas"), {width: 80, height: 80});
+  c.getContext("2d").drawImage(im, k * 80, 0, 80, 80, 0, 0, 80, 80);
+  return c;
+}
+async function frameIntoStrip(im, k, file) {
+  const f = await createImageBitmap(file), c = Object.assign(document.createElement("canvas"), {width: im.width, height: 80}), x = c.getContext("2d");
+  x.drawImage(im, 0, 0); x.clearRect(k * 80, 0, 80, 80); x.drawImage(f, 0, 0, 80, 80, k * 80, 0, 80, 80);
+  return new Promise(ok => c.toBlob(b => ok(new File([b], "throw.png", {type: "image/png"})), "image/png"));
 }
 async function gridToNpc(file) {
   const im = await createImageBitmap(file), c = Object.assign(document.createElement("canvas"), {width: 512, height: 32}), x = c.getContext("2d");
@@ -4745,7 +4807,9 @@ function tstudioState(slot) {
     let photo = null;
     try { photo = JSON.parse(remember.get("trainer-photo-" + slot) || "null"); } catch (e) { photo = null; }
     tstudios.set(slot, {photo, ref: null, base: remember.get("trainer-base-" + slot) || "", strength: 0.75, count: 3, words: remember.get("trainer-words-" + slot) || "",
-      filter: "", game: "", step: null, tries: [], vsTries: [], vsCount: 2, jobs: [], line: [], worker: null, loaded: false, editing: null, busyMsg: "", showAll: false});
+      filter: "", game: "", step: null, tries: [], vsTries: [], vsCount: 2, mapTries: [], mapCount: 3, mapExtra: "",
+      animTries: [], animScript: Number(remember.get("trainer-anim-" + slot) || 0) || 0, animCount: 3, animExtra: "",
+      backTries: [], throwTries: [], backShape: remember.get("trainer-backshape-" + slot) || "short", width: Number(remember.get("trainer-width-" + slot) || 1) || 1, backCount: 6, backExtra: "", jobs: [], line: [], worker: null, loaded: false, editing: null, busyMsg: "", showAll: false});
   }
   return tstudios.get(slot);
 }
@@ -4766,6 +4830,8 @@ function trainerStudio(slot, opts) {
   const top = h("section", {class: "screen top studio-top", "aria-label": "The trainer sprite of " + (opts.name || "your trainer")});
   const steps = h("div", {class: "stepbar", role: "tablist", "aria-label": "Steps"});
   const page = h("div", {class: "page studio-page"});
+  // a picture pasted anywhere in the studio is the private photo (PICTURE step), never a public trainer picture
+  trainerPictureSink = {form: page, use: null, add: file => { if (st.editing) return; st.step = "picture"; draw(); if (trainerPictureSink.use) trainerPictureSink.use(file); }};
   const say = h("div", {class: "dlg", role: "status"});
   let timer = null;
   const fail = err => { st.busyMsg = "THAT DID NOT WORK\n" + err.message; draw(); st.busyMsg = ""; };
@@ -4773,18 +4839,41 @@ function trainerStudio(slot, opts) {
   const usable = t => t && t.image && (t.status === "done" || t.status === "broken");
   const picked = () => st.tries.filter(t => t.picked && usable(t)).sort((a, b) => String(b.picked_at).localeCompare(String(a.picked_at)))[0] || null;
   // What the set shows: the picked try, else the sprite saved now.
-  const inSet = () => { const t = picked(); return t ? {image: t.image, overworld: t.overworld, tryRow: t, live: opts.current && opts.current.try === t.id}
-    : opts.current ? {image: opts.current.image, overworld: opts.current.overworld, tryRow: st.tries.find(x => x.id === opts.current.try) || null, live: true} : null; };
+  // Step MAP: the picked map figure drawn for the picked battle sprite (its parent_try), else the battle try's own.
+  // a map figure drawn on by hand has the map try as its parent: walk up to the battle sprite it belongs to
+  const mapBattle = t => { const m = new Map(st.mapTries.map(x => [x.id, x])); let x = t; for (let i = 0; i < 20 && m.has(x.parent_try); i++) x = m.get(x.parent_try); return x.parent_try; };
+  const pickedMap = () => { const b = picked(); return b ? st.mapTries.filter(t => t.picked && usable(t) && t.overworld && mapBattle(t) === b.id)
+    .sort((a, b2) => String(b2.picked_at).localeCompare(String(a.picked_at)))[0] || null : null; };
+  const inSet = () => { const t = picked(), m = pickedMap(); return t ? {image: t.image, overworld: m ? m.overworld : t.overworld, tryRow: t, mapRow: m || t,
+      live: opts.current && opts.current.try === t.id && opts.current.overworld === (m ? m.overworld : t.overworld)}
+    : opts.current ? {image: opts.current.image, overworld: opts.current.overworld, tryRow: st.tries.find(x => x.id === opts.current.try) || null,
+      mapRow: st.mapTries.find(x => x.id === opts.current.map_try) || st.tries.find(x => x.id === opts.current.try) || null, live: true} : null; };
   const mine = () => st.line.filter(j => j.species_id === slot);
   const each = () => secondsFor(st.worker && st.worker.timings, "trainer");
   // Step 4 VS: the picked portrait, else the saved one.
   const pickedVs = () => st.vsTries.filter(t => t.picked && usable(t)).sort((a, b) => String(b.picked_at).localeCompare(String(a.picked_at)))[0] || null;
   const vsInSet = () => { const t = pickedVs(); return t ? {image: t.image, tryRow: t} : opts.current && opts.current.vs ? {image: opts.current.vs, tryRow: st.vsTries.find(x => x.id === opts.current.vs_try) || null} : null; };
+  // Step ANIM: the picked animation of the picked battle sprite (its from_try), for the script chosen now (0 = none).
+  const animOf = t => { const m = /anim (\d+)/.exec(t.recipe || ""); return m ? Number(m[1]) : 0; };
+  const pickedAnim = () => { const b = picked(); return b && st.animScript ? st.animTries.filter(t => t.picked && usable(t) && t.parent_try === b.id && animOf(t) === st.animScript)
+    .sort((a, b2) => String(b2.picked_at).localeCompare(String(a.picked_at)))[0] || null : null; };
+  // Step BACK: the picked back (frame 1) of the picked battle sprite, and the picked throw drawn from that back.
+  const backBattle = t => { const m = new Map(st.backTries.map(x => [x.id, x])); let x = t; for (let i = 0; i < 20 && m.has(x.parent_try); i++) x = m.get(x.parent_try); return x.parent_try; };
+  const pickedBack = () => { const b = picked(); return b ? st.backTries.filter(t => t.picked && usable(t) && backBattle(t) === b.id)
+    .sort((a, b2) => String(b2.picked_at).localeCompare(String(a.picked_at)))[0] || null : null; };
+  const pickedThrow = () => { const k = pickedBack(); return k ? st.throwTries.filter(t => t.picked && usable(t) && t.parent_try === k.id)
+    .sort((a, b2) => String(b2.picked_at).localeCompare(String(a.picked_at)))[0] || null : null; };
+  const allTries = () => st.tries.concat(st.vsTries, st.mapTries, st.animTries, st.backTries, st.throwTries);
+  const animNow = () => { const a = pickedAnim(); if (a) return {image: a.image, script: st.animScript};
+    const c = opts.current; return c && c.anim && st.animScript === c.anim.script && (!picked() || c.try === picked().id) ? c.anim : null; };
+  const backNow = () => { const k = pickedBack(), w = pickedThrow(); if (k) return {image: k.image, throw: w ? w.image : null, backRow: k, throwRow: w};
+    const c = opts.current; return c && c.back && (!picked() || c.try === picked().id) ? c.back : null; };
+  const stepOf = stage => ({vs: "vs", map: "map", anim: "anim", tback: "back", throw: "back"})[stage] || "make";
   function secondsLeft() {
     let total = 0, last = 0;
     for (const j of st.line) {
       const per = j.stage === "trainer" ? each() : secondsFor(st.worker && st.worker.timings, j.stage || "front"), n = j.mode === "tries" || j.stage === "trainer" ? (j.count || 1) : 6;
-      const done = j.species_id === slot ? st.tries.concat(st.vsTries).filter(t => t.job_id === j.id && t.status !== "drawing").length : 0;
+      const done = j.species_id === slot ? allTries().filter(t => t.job_id === j.id && t.status !== "drawing").length : 0;
       total += Math.max(j.status === "running" ? 5 : per, (n - done) * per);
       if (j.species_id === slot) last = total;
     }
@@ -4795,9 +4884,13 @@ function trainerStudio(slot, opts) {
     if (st.busyMsg) return st.busyMsg;
     const jobs = mine(), online = st.worker && Date.now() - new Date(st.worker.seen_at).getTime() < 90000;
     if (jobs.length) {
-      const n = jobs.reduce((a, j) => a + (j.count || 1), 0), ahead = st.line.findIndex(j => j.species_id === slot), vs = jobs.every(j => j.stage === "vs");
+      const ahead = st.line.findIndex(j => j.species_id === slot), words = {trainer: ["trainer", "trainers", " (a battle sprite and a map figure each)"], vs: ["VS portrait", "VS portraits", ""],
+        map: ["map figure", "map figures", ""], anim: ["animation", "animations", " (the extra poses)"], tback: ["back", "backs", ""], throw: ["Poke Ball throw", "Poke Ball throws", ""]};
+      const counts = new Map();
+      for (const j of jobs) { const k = words[j.stage] ? j.stage : "trainer"; counts.set(k, (counts.get(k) || 0) + (j.count || 1)); }
+      const what = [...counts].map(([k, c]) => c + " " + words[k][c > 1 ? 1 : 0] + words[k][2]).join(", ");
       if (!online) return "WAITING\nThe drawing PC is off right now. Your request waits in line until it is back.";
-      return (jobs.some(j => j.status === "running") ? "DRAWING" : "IN LINE") + "\n" + (vs ? n + " VS portrait" + (n > 1 ? "s" : "") + "." : n + " trainer" + (n > 1 ? "s" : "") + ": a battle sprite and a map figure each.") + "\nReady in " +
+      return (jobs.some(j => j.status === "running") ? "DRAWING" : "IN LINE") + "\n" + what.charAt(0).toUpperCase() + what.slice(1) + ".\nReady in " +
         aboutMinutes(secondsLeft()) + (ahead > 0 ? " (" + ahead + " request" + (ahead > 1 ? "s" : "") + " from others first)." : ".");
     }
     const p = picked(), cur = opts.current;
@@ -4819,21 +4912,27 @@ function trainerStudio(slot, opts) {
       h("div", {class: "namebar"}, h("div", {class: "frame no"}, npc ? "NPC" : "TRAINER"), h("div", {class: "frame"}, h("h3", {}, String(opts.name || "Your trainer").toUpperCase())),
         h("div", {class: "frame cat"}, "TRAINER SPRITE")),
       h("div", {class: "setgrid"},
-        slotBox("BATTLE", it && it.image ? h("img", {class: "px", src: artUrl(it.image), alt: "battle sprite", style: "width:160px"}) : null,
+        slotBox("BATTLE", it && it.image ? (animNow() ? animPlayer(artUrl(animNow().image), trainerAnim(animNow().script), 1.4) : h("img", {class: "px", src: artUrl(it.image), alt: "battle sprite", style: "width:160px"})) : null,
           canEdit ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("battle", it.tryRow)}, "EDIT") : null),
         slotBox("MAP", it && it.overworld ? npcWalker(artUrl(it.overworld), 3) : null,
-          canEdit && it.overworld ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("map", it.tryRow)}, "EDIT") : null),
+          canEdit && it.overworld && it.mapRow ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("map", it.mapRow)}, "EDIT") : null),
         (() => { const v = vsInSet(); return h("div", {class: "slot frame"},
           h("button", {type: "button", class: "slotpic", title: "Go to 4 VS", onclick: () => go("vs")}, v ? h("img", {class: "px", src: artUrl(v.image), alt: "VS portrait", style: "width:192px"}) : h("div", {class: "slotempty"}, "—")),
           h("div", {class: "slotname"}, "VS", v ? h("small", {}, opts.current && opts.current.vs === v.image ? "saved" : "picked") : h("small", {}, "optional")),
-          v && v.tryRow && DEX.web.url ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("vs", v.tryRow)}, "EDIT") : null); })()),
+          v && v.tryRow && DEX.web.url ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("vs", v.tryRow)}, "EDIT") : null); })(),
+        (() => { const b = backNow(); return h("div", {class: "slot frame"},
+          h("button", {type: "button", class: "slotpic", title: "Go to 7 BACK", onclick: () => go("back")}, b ? (b.throw ? animPlayer(artUrl(b.throw), null, 1.4, {frames: 8}) : h("img", {class: "px", src: artUrl(b.image), alt: "back", style: "width:160px"})) : h("div", {class: "slotempty"}, "—")),
+          h("div", {class: "slotname"}, "BACK", h("small", {}, b ? (b.throw ? "with throw" : "no throw yet") : "players only")),
+          b && DEX.web.url && (b.throwRow || b.backRow) ? h("button", {type: "button", class: "small", onclick: () => b.throwRow ? openPixelEditor("throw", b.throwRow) : openPixelEditor("back", b.backRow)}, b.throwRow ? "EDIT THE THROW" : "EDIT")
+            : null); })()),
       say);
     say.textContent = status();
   }
   function drawSteps() {
     steps.replaceChildren(...TSTEPS.map(stp => {
-      const busy = (stp.id === "make" && mine().some(j => j.stage !== "vs")) || (stp.id === "vs" && mine().some(j => j.stage === "vs"));
-      const done = stp.id === "picture" ? hasPicture() : stp.id === "base" ? !!st.base : stp.id === "make" ? !!picked() : stp.id === "vs" ? !!vsInSet() : false;
+      const busy = mine().some(j => stepOf(j.stage) === stp.id);
+      const done = stp.id === "picture" ? hasPicture() : stp.id === "base" ? !!st.base : stp.id === "make" ? !!picked() : stp.id === "map" ? !!pickedMap() : stp.id === "vs" ? !!vsInSet()
+        : stp.id === "anim" ? !!animNow() : stp.id === "back" ? !!(backNow() && backNow().throw) : false;
       return h("button", {type: "button", role: "tab", "data-c": stp.c, "aria-selected": String(st.step === stp.id), onclick: () => go(stp.id)},
         h("b", {}, stp.n), " " + stp.label, busy ? h("span", {class: "spinner", "aria-label": "drawing"}) : done ? h("span", {class: "tick"}, "✓") : null);
     }));
@@ -4843,8 +4942,15 @@ function trainerStudio(slot, opts) {
   // ----- 1 PICTURE
   function picturePage() {
     const upload = h("input", {type: "file", accept: "image/png,image/jpeg,image/webp", style: "max-width:240px", "aria-label": "Upload a picture"});
-    upload.addEventListener("change", async () => {
-      const file = upload.files[0]; if (!file) return;
+    upload.addEventListener("change", () => { const file = upload.files[0]; upload.value = ""; if (file) useFile(file); });
+    const drop = h("div", {class: "dropzone", style: "margin-top:8px"}, h("b", {}, "PASTE OR DROP A PICTURE"),
+      h("div", {class: "sub"}, "Copy a picture and press Ctrl+V / Cmd+V here, or drag it in. No need to save it first."));
+    drop.addEventListener("dragover", ev => { ev.preventDefault(); drop.classList.add("over"); });
+    drop.addEventListener("dragleave", () => drop.classList.remove("over"));
+    drop.addEventListener("drop", ev => { ev.preventDefault(); drop.classList.remove("over");
+      const file = [...ev.dataTransfer.files].find(f => /^image\//.test(f.type)); if (file) useFile(file); });
+    trainerPictureSink.use = useFile;
+    async function useFile(file) {
       st.busyMsg = "UPLOADING\nPrivately: only the drawing PC will see it."; draw(); st.busyMsg = "";
       try {
         const ready = await prepareImage(file), thumb = await thumbOf(ready);
@@ -4855,7 +4961,7 @@ function trainerStudio(slot, opts) {
         if (!st.base) st.step = "base";
         draw();
       } catch (err) { fail(err); }
-    });
+    }
     const pics = opts.pics || [];
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, npc ? "A picture or drawing of your own character. Only characters you made: no characters from other games, films or shows."
@@ -4864,7 +4970,7 @@ function trainerStudio(slot, opts) {
       h("div", {class: "tpic", style: "margin-top:8px"},
         st.photo ? h("button", {type: "button", class: "tchoice" + (st.ref === null ? " on" : ""), "aria-pressed": String(st.ref === null), title: "Use this picture", onclick: () => { st.ref = null; draw(); }},
           st.photo.thumb ? h("img", {src: st.photo.thumb, alt: "your picture (only on this device)"}) : h("span", {class: "sub"}, "picture uploaded")) : null,
-        h("div", {class: "sub"}, st.photo ? "Uploaded. A new picture replaces it." : "Upload one:", h("br"), upload,
+        h("div", {class: "sub"}, st.photo ? "Uploaded. A new picture replaces it." : "Upload one:", h("br"), upload, drop,
           st.photo ? h("div", {style: "margin-top:6px"}, h("button", {type: "button", class: "small", onclick: ev => sure(ev.currentTarget, "Really delete?", async () => {
             try { await postForm("trainer-photo", {action: "remove", id: st.photo.id, token: st.photo.token}); st.photo = null; remember.set("trainer-photo-" + slot, "");
               st.busyMsg = "DELETED\nYour picture is gone from the server."; draw(); st.busyMsg = ""; }
@@ -4887,7 +4993,15 @@ function trainerStudio(slot, opts) {
       const game = h("select", {"aria-label": "Game", onchange: ev => { st.game = ev.target.value; drawGrid(); }},
         [["", "All (" + trainerBases().length + ")"], ["HGSS", "HeartGold/SoulSilver"], ["Pt", "Diamond/Pearl/Platinum"]].map(([v, t]) => h("option", {value: v, selected: st.game === v ? "" : null}, t)));
       const b = trainerBase(st.base);
+      const wide = h("input", {type: "range", min: 1, max: 1.4, step: 0.05, value: st.width, "aria-label": "Body width", style: "max-width:160px"});
+      const wideOut = h("b", {}, "x" + st.width.toFixed(2));
+      const wideCell = b ? h("span", {class: "twide"}, baseCell(b, 1)) : null;
+      if (wideCell) wideCell.firstChild.style.transform = "scaleX(" + st.width + ")";
+      wide.addEventListener("input", () => { st.width = Number(wide.value); remember.set("trainer-width-" + slot, String(st.width)); wideOut.textContent = "x" + st.width.toFixed(2);
+        if (wideCell) wideCell.firstChild.style.transform = "scaleX(" + st.width + ")"; });
       fillIn(area, h("div", {class: "tstrength"}, search, game, h("b", {}, b ? "Base: " + b.label + " (" + b.game + ")" : "No base chosen yet")),
+        h("div", {class: "hint"}, "Pick a base with the same body type as your trainer: for a stout person, for example the Hiker (HGSS) or the Sailor or Wake (Platinum). Or make a slimmer base wider here:"),
+        h("div", {class: "tstrength"}, h("span", {class: "sub"}, "Body width"), wide, wideOut, wideCell, h("span", {class: "sub"}, "1.00 = as the base; 1.30-1.40 for a stout person.")),
         h("div", {class: "tbases", role: "list"}, shown.map(x => h("button", {type: "button", class: "tbase" + (st.base === x.id ? " on" : ""), title: x.label + " (" + x.game + ")" + ((x.fields || {}).pose ? ": " + x.fields.pose : ""),
           "aria-pressed": String(st.base === x.id), onclick: () => { st.base = x.id; remember.set("trainer-base-" + slot, x.id); draw(); }}, baseCell(x, 1), h("span", {}, x.label)))));
     };
@@ -4903,7 +5017,7 @@ function trainerStudio(slot, opts) {
     noteMine(slot);
     try {
       const words = st.words.trim().slice(0, 400);
-      await dbCall("request_trainer", {p_slot: slot, p_base: st.base, p_strength: st.strength, p_count: st.count, p_fields: words ? {words} : {},
+      await dbCall("request_trainer", {p_slot: slot, p_base: st.base, p_strength: st.strength, p_count: st.count, p_fields: Object.assign(words ? {words} : {}, st.width > 1 ? {width: st.width.toFixed(2)} : {}),
         p_photo: st.ref ? null : st.photo.id, p_ref: st.ref || null, p_editor: me()});
       await load();
     } catch (err) {
@@ -4967,7 +5081,163 @@ function trainerStudio(slot, opts) {
       !list.length && !waiting.length ? h("div", {class: "empty", style: "margin-top:8px"}, "Nothing made yet.") : null);
   }
 
-  // ----- 4 VS
+  // ----- 4 MAP
+  function mapTile(t) {
+    if (t.waiting || t.status === "drawing") return h("div", {class: "tile wait"}, h("div", {class: "tilepic"}, h("span", {class: "spinner"}), h("span", {class: "sub"}, t.waiting ? "in line" : "drawing")));
+    const p = pickedMap(), on = p && p.id === t.id, saved = opts.current && opts.current.map_try === t.id;
+    const ck = /checkpoint (\w+)/.exec(t.note || "");
+    return h("div", {class: "tile" + (on ? " inuse" : "") + (t.status === "broken" ? " broken" : "")},
+      h("button", {type: "button", class: "tilepic", disabled: !t.overworld, title: on ? "Picked" : "Pick this one", onclick: () => !on && pick(t)},
+        t.overworld ? npcWalker(artUrl(t.overworld), 2) : h("span", {class: "sub"}, "failed"),
+        on ? h("span", {class: "tag"}, saved ? "SAVED" : "PICKED") : saved ? h("span", {class: "tag"}, "SAVED") : null),
+      h("div", {class: "tilenote"}, t.job_id === null ? "drawn on" + (t.editor ? " by " + t.editor : "") : ck ? "style " + ck[1] : ""),
+      t.overworld && DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openPixelEditor("map", t)}, "EDIT")) : null);
+  }
+  function mapPage() {
+    const from = picked();
+    const count = h("select", {"aria-label": "How many"}, [1, 2, 3, 4, 5, 6].map(n => h("option", {value: n, selected: n === st.mapCount ? "" : null}, String(n))));
+    count.addEventListener("change", () => { st.mapCount = Number(count.value); });
+    const extra = h("input", {type: "text", maxlength: 200, value: st.mapExtra, placeholder: "e.g. no hat, curly red hair, holding a staff in every frame", "aria-label": "Words for the map figure only", style: "width:100%"});
+    extra.addEventListener("input", () => { st.mapExtra = extra.value; });
+    const btn = h("button", {type: "button", class: "primary", disabled: from ? null : "", onclick: async () => {
+      btn.disabled = true;
+      try { await dbCall("request_trainer_map", {p_try: from.id, p_count: st.mapCount, p_editor: me(), p_extra: st.mapExtra.trim() || null}); noteMine(slot); await load(); }
+      catch (err) { fail(err); }
+      btn.disabled = false;
+    }}, "MAKE");
+    const waiting = [];
+    for (const j of mine().filter(j => j.stage === "map")) for (let k = st.mapTries.filter(t => t.job_id === j.id).length; k < (j.count || 1); k++) waiting.push({waiting: true});
+    // only the map figures of the picked battle sprite (others belong to another look); the battle try's own one first
+    const list = from ? [from].filter(t => t.overworld).map(t => Object.assign({}, t, {own: true}))
+      .concat(st.mapTries.filter(t => t.status !== "failed" && mapBattle(t) === from.id).sort((a, b) => b.id - a.id)) : [];
+    const ownTile = t => h("div", {class: "tile" + (!pickedMap() ? " inuse" : "")},
+      h("button", {type: "button", class: "tilepic", title: "The map figure made with the battle sprite", onclick: async () => {
+        const all = st.mapTries.filter(m => m.picked && mapBattle(m) === from.id); if (!all.length) return;
+        try { for (const m of all) { await dbCall("pick_try", {p_try: m.id, p_picked: false, p_editor: me()}); m.picked = false; } draw(); } catch (err) { fail(err); } }},
+        npcWalker(artUrl(t.overworld), 2), !pickedMap() ? h("span", {class: "tag"}, "PICKED") : null),
+      h("div", {class: "tilenote"}, "made with the battle sprite"));
+    return h("div", {},
+      h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "map").what),
+      h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the map figure only (optional)"), extra),
+      h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "map") * st.mapCount) + ")" : "Pick a battle sprite in 3 MAKE first."),
+        from ? h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(from.image), alt: ""})) : null),
+      h("div", {class: "tiles"}, waiting.map(mapTile), list.slice(0, 13).map(t => t.own ? ownTile(t) : mapTile(t))),
+      !list.length && !waiting.length ? h("div", {class: "empty", style: "margin-top:8px"}, "No map figure yet.") : null);
+  }
+
+  // ----- 5 ANIM
+  function animTile(t) {
+    if (t.waiting || t.status === "drawing") return h("div", {class: "tile wait"}, h("div", {class: "tilepic"}, h("span", {class: "spinner"}), h("span", {class: "sub"}, t.waiting ? "in line" : "drawing")));
+    const p = pickedAnim(), on = p && p.id === t.id, saved = opts.current && opts.current.anim && opts.current.anim.try === t.id;
+    const d = /denoise ([\d.]+)/.exec(t.note || ""), sd = /seed (\d+)/.exec(t.note || "");
+    return h("div", {class: "tile" + (on ? " inuse" : "") + (t.status === "broken" ? " broken" : "")},
+      h("button", {type: "button", class: "tilepic", disabled: !t.image, title: on ? "Picked" : "Pick this one", onclick: () => !on && pick(t)},
+        t.image ? animPlayer(artUrl(t.image), trainerAnim(animOf(t)), 1) : h("span", {class: "sub"}, "failed"),
+        on ? h("span", {class: "tag"}, saved ? "SAVED" : "PICKED") : saved ? h("span", {class: "tag"}, "SAVED") : null),
+      h("div", {class: "tilenote"}, d ? (Number(d[1]) >= 0.7 ? "bolder poses" : "closer to your sprite") : sd ? "variant " + (Number(sd[1]) === 1 ? 1 : Number(sd[1]) % 100) : ""),
+      t.image ? h("div", {class: "tilenote"}, h("img", {class: "px", src: artUrl(t.image), alt: "the poses", style: "height:40px;max-width:100%"})) : null);
+  }
+  function animPage() {
+    const from = picked(), cur = trainerAnim(st.animScript);
+    const base = from && jobOf(from) ? String(jobOf(from).recipe || "") : "";
+    const suggest = /^hgss:(\d+)$/.exec(base) && trainerAnim(Number(/^hgss:(\d+)$/.exec(base)[1])) ? Number(/^hgss:(\d+)$/.exec(base)[1]) : 0;
+    const choose = cls => { st.animScript = cls; remember.set("trainer-anim-" + slot, String(cls || "")); draw(); };
+    const count = h("select", {"aria-label": "How many"}, [1, 2, 3, 4].map(n => h("option", {value: n, selected: n === st.animCount ? "" : null}, String(n))));
+    count.addEventListener("change", () => { st.animCount = Number(count.value); });
+    const extra = h("input", {type: "text", maxlength: 200, value: st.animExtra, placeholder: "e.g. keeps the staff in every pose", "aria-label": "Words for the poses only", style: "width:100%"});
+    extra.addEventListener("input", () => { st.animExtra = extra.value; });
+    const btn = h("button", {type: "button", class: "primary", disabled: from && cur ? null : "", onclick: async () => {
+      btn.disabled = true;
+      try { await dbCall("request_trainer_anim", {p_try: from.id, p_script: st.animScript, p_count: st.animCount, p_editor: me(), p_extra: st.animExtra.trim() || null}); noteMine(slot); await load(); }
+      catch (err) { fail(err); }
+      btn.disabled = false;
+    }}, "MAKE");
+    const waiting = [];
+    for (const j of mine().filter(j => j.stage === "anim" && j.recipe === "anim:" + st.animScript)) for (let k = st.animTries.filter(t => t.job_id === j.id).length; k < (j.count || 1); k++) waiting.push({waiting: true});
+    const list = from && cur ? st.animTries.filter(t => t.status !== "failed" && t.parent_try === from.id && animOf(t) === st.animScript).sort((a, b) => b.id - a.id) : [];
+    const card = a => h("button", {type: "button", class: "tanim" + (st.animScript === a.cls ? " on" : ""), "aria-pressed": String(st.animScript === a.cls), onclick: () => choose(a.cls)},
+      h("b", {}, a.name), a.cls === suggest ? h("span", {class: "tag"}, "YOUR BASE") : null,
+      h("span", {class: "sub"}, a.poses + " poses · " + a.seconds + " s"), h("span", {}, a.shows), h("span", {class: "sub"}, a.moves));
+    const scripts = trainerAnims().slice().sort((a, b) => (b.cls === suggest) - (a.cls === suggest));
+    return h("div", {},
+      h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "anim").what),
+      !from ? h("div", {class: "empty"}, "Pick a battle sprite in 3 MAKE first.") : h("div", {class: "tanimtop"},
+        h("div", {class: "grass"}, cur ? animPlayer(artUrl((pickedAnim() || {}).image || from.image), cur, 2) : h("img", {class: "px", src: artUrl(from.image), alt: "battle sprite", style: "width:160px"})),
+        h("div", {class: "sub"}, cur ? (pickedAnim() ? "Your trainer with the picked poses." : "The moves of " + cur.name + "'s animation on your sprite. MAKE draws the " + (cur.poses - 1) + " other pose" + (cur.poses > 2 ? "s" : "") + ".")
+          : "No animation: your trainer stands still, like most trainers.")),
+      from && cur ? h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the poses only (optional)"), extra) : null,
+      from && cur ? h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "anim") * st.animCount) + ")")) : null,
+      from && cur ? h("div", {class: "tiles"}, waiting.map(animTile), list.slice(0, 12).map(animTile)) : null,
+      h("div", {class: "hint"}, "Pick an animation:"),
+      h("div", {class: "tanims", role: "list"}, h("button", {type: "button", class: "tanim" + (!st.animScript ? " on" : ""), "aria-pressed": String(!st.animScript), onclick: () => choose(0)},
+        h("b", {}, "NONE"), h("span", {}, "Stands still, like most trainers.")), scripts.map(card)));
+  }
+
+  // ----- 7 BACK
+  function backTile(t) {
+    if (t.waiting || t.status === "drawing") return h("div", {class: "tile wait"}, h("div", {class: "tilepic"}, h("span", {class: "spinner"}), h("span", {class: "sub"}, t.waiting ? "in line" : "drawing")));
+    const p = pickedBack(), on = p && p.id === t.id, saved = opts.current && opts.current.back && opts.current.back.try === t.id;
+    return h("div", {class: "tile" + (on ? " inuse" : "") + (t.status === "broken" ? " broken" : "")},
+      h("button", {type: "button", class: "tilepic", disabled: !t.image, title: on ? "Picked" : "Pick this one", onclick: () => !on && pick(t)},
+        t.image ? h("img", {class: "px", src: artUrl(t.image), alt: "back #" + t.id, style: "width:120px"}) : h("span", {class: "sub"}, "failed"),
+        on ? h("span", {class: "tag"}, saved ? "SAVED" : "PICKED") : saved ? h("span", {class: "tag"}, "SAVED") : null),
+      t.job_id === null ? h("div", {class: "tilenote"}, "drawn on" + (t.editor ? " by " + t.editor : "")) : null,
+      t.image && DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openPixelEditor("back", t)}, "EDIT")) : null);
+  }
+  function throwTile(t) {
+    if (t.waiting || t.status === "drawing") return h("div", {class: "tile wait"}, h("div", {class: "tilepic"}, h("span", {class: "spinner"}), h("span", {class: "sub"}, t.waiting ? "in line" : "drawing the throw")));
+    const p = pickedThrow(), on = p && p.id === t.id;
+    return h("div", {class: "tile" + (on ? " inuse" : "")},
+      h("button", {type: "button", class: "tilepic", disabled: !t.image, title: on ? "Picked" : "Pick this one", onclick: () => !on && pick(t)},
+        t.image ? animPlayer(artUrl(t.image), null, 1.2, {frames: 8}) : h("span", {class: "sub"}, "failed"), on ? h("span", {class: "tag"}, "PICKED") : null),
+      t.image ? h("div", {class: "tilenote"}, h("img", {class: "px", src: artUrl(t.image), alt: "the throw", style: "height:40px;max-width:100%"})) : null,
+      t.job_id === null ? h("div", {class: "tilenote"}, "drawn on" + (t.editor ? " by " + t.editor : "")) : null,
+      t.image && DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openPixelEditor("throw", t)}, "EDIT")) : null);
+  }
+  function backPage() {
+    const from = picked(), k = pickedBack();
+    const shape = h("select", {"aria-label": "Shape"}, [["short", "Short hair"], ["spiky", "Spiky hair"], ["long", "Long hair or a dress"], ["cap", "A cap or a hat"], ["tied", "A ponytail"], ["stout", "A wide, stout body"]]
+      .map(([v, t]) => h("option", {value: v, selected: v === st.backShape ? "" : null}, t)));
+    shape.addEventListener("change", () => { st.backShape = shape.value; remember.set("trainer-backshape-" + slot, shape.value); });
+    const vsNow = vsInSet(), vsId = vsNow && vsNow.tryRow ? vsNow.tryRow.id : null;
+    const tcount = h("select", {"aria-label": "How many throws"}, [1, 2].map(n => h("option", {value: n, selected: n === (st.throwCount || 1) ? "" : null}, n === 1 ? "1 throw" : "2 (two body types)")));
+    tcount.addEventListener("change", () => { st.throwCount = Number(tcount.value); });
+    const count = h("select", {"aria-label": "How many"}, [2, 4, 6, 8].map(n => h("option", {value: n, selected: n === st.backCount ? "" : null}, String(n))));
+    count.addEventListener("change", () => { st.backCount = Number(count.value); });
+    const extra = h("input", {type: "text", maxlength: 200, value: st.backExtra, placeholder: "e.g. a red cap, a big blue backpack", "aria-label": "Words for the back only", style: "width:100%"});
+    extra.addEventListener("input", () => { st.backExtra = extra.value; });
+    const btn = h("button", {type: "button", class: "primary", disabled: from ? null : "", onclick: async () => {
+      btn.disabled = true;
+      try { await dbCall("request_trainer_back", {p_try: from.id, p_shape: st.backShape, p_count: st.backCount, p_editor: me(), p_extra: st.backExtra.trim() || null, p_vs: vsId}); noteMine(slot); await load(); }
+      catch (err) { fail(err); }
+      btn.disabled = false;
+    }}, "MAKE");
+    const throwBtn = h("button", {type: "button", class: "primary", disabled: k ? null : "", onclick: async () => {
+      throwBtn.disabled = true;
+      try { await dbCall("request_trainer_throw", {p_try: k.id, p_editor: me(), p_count: st.throwCount || 1}); noteMine(slot); await load(); }
+      catch (err) { fail(err); }
+      throwBtn.disabled = false;
+    }}, "MAKE THE THROW");
+    const waiting = [], twait = [];
+    for (const j of mine().filter(j => j.stage === "tback")) for (let i = st.backTries.filter(t => t.job_id === j.id).length; i < (j.count || 1); i++) waiting.push({waiting: true});
+    for (const j of mine().filter(j => j.stage === "throw" && k && j.from_try === k.id)) for (let i = st.throwTries.filter(t => t.job_id === j.id).length; i < (j.count || 1); i++) twait.push({waiting: true});
+    const list = from ? st.backTries.filter(t => t.status !== "failed" && backBattle(t) === from.id).sort((a, b) => b.id - a.id) : [];
+    const throws = k ? st.throwTries.filter(t => t.status !== "failed" && t.parent_try === k.id).sort((a, b) => b.id - a.id) : [];
+    return h("div", {},
+      h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "back").what),
+      !from ? h("div", {class: "empty"}, "Pick a battle sprite in 3 MAKE first.") : null,
+      from ? h("div", {class: "hint"}, h("b", {}, "1. The back. "), "The drawing PC starts from a player's back with the same look and paints your trainer on it: most tries from your picture and your VS portrait, some from your battle sprite (they keep the clothes best in the throw). It often takes a few tries: pick the one most like your trainer, or EDIT it.") : null,
+      from && !vsId ? h("div", {class: "hint"}, "Tip: make and pick a VS portrait in 6 VS first. The back uses it too.") : null,
+      from ? h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the back only (optional)"), extra) : null,
+      from ? h("div", {class: "tryctl"}, btn, shape, count, h("span", {class: "sub"}, "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "tback") * st.backCount) + ")")) : null,
+      from ? h("div", {class: "tiles"}, waiting.map(backTile), list.slice(0, 16).map(backTile)) : null,
+      from ? h("div", {class: "hint"}, h("b", {}, "2. The throw. "), k ? "Seven more frames drawn from the back you picked. Things held in the hand may drop out after a few frames." : "Pick a back first.") : null,
+      k ? h("div", {class: "tryctl"}, throwBtn, tcount, h("span", {class: "sub"}, "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "throw") * (st.throwCount || 1)) + ")"),
+        h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(k.image), alt: ""}))) : null,
+      k ? h("div", {class: "tiles"}, twait.map(throwTile), throws.slice(0, 8).map(throwTile)) : null);
+  }
+
+  // ----- 6 VS
   function vsTile(t) {
     if (t.waiting || t.status === "drawing") return h("div", {class: "tile wait"}, h("div", {class: "tilepic"}, h("span", {class: "spinner"}), h("span", {class: "sub"}, t.waiting ? "in line" : "drawing")));
     const p = pickedVs(), on = p && p.id === t.id, saved = opts.current && opts.current.vs_try === t.id;
@@ -4992,7 +5262,7 @@ function trainerStudio(slot, opts) {
     for (const j of mine().filter(j => j.stage === "vs")) for (let k = st.vsTries.filter(t => t.job_id === j.id).length; k < (j.count || 1); k++) waiting.push({waiting: true});
     const list = st.vsTries.filter(t => t.status !== "failed").sort((a, b) => b.id - a.id);
     return h("div", {},
-      h("div", {class: "hint", style: "margin-top:0"}, TSTEPS[3].what),
+      h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "vs").what),
       h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "vs") * st.vsCount) + ")" : "Pick a battle sprite in 3 MAKE first."),
         from ? h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(from.image), alt: ""})) : null),
       h("div", {class: "tiles"}, waiting.map(vsTile), list.slice(0, 12).map(vsTile)),
@@ -5006,20 +5276,31 @@ function trainerStudio(slot, opts) {
     const sky = ctx.createLinearGradient(0, 0, 0, 112); sky.addColorStop(0, "#b0d8f8"); sky.addColorStop(1, "#d8ecf8");
     ctx.fillStyle = sky; ctx.fillRect(0, 0, 256, 112); ctx.fillStyle = "#c8e098"; ctx.fillRect(0, 112, 256, 80);
     ctx.fillStyle = "#a8c870"; ctx.beginPath(); ctx.ellipse(192, 78, 56, 16, 0, 0, 7); ctx.fill(); ctx.beginPath(); ctx.ellipse(68, 170, 68, 20, 0, 0, 7); ctx.fill();
-    if (it && it.image) loadPicture(artUrl(it.image)).then(im => ctx.drawImage(im, 152, 4)).catch(() => {});
-    return h("div", {class: "together"}, canvas, h("div", {class: "grass"}, it && it.overworld ? npcWalker(artUrl(it.overworld), 3) : null));
+    const a = animNow();
+    if (it && it.image && !a) loadPicture(artUrl(it.image)).then(im => ctx.drawImage(im, 152, 4)).catch(() => {});
+    const b = backNow();
+    return h("div", {class: "together"}, h("div", {class: "battlewrap"}, canvas, a ? h("div", {class: "battleanim"}, animPlayer(artUrl(a.image), trainerAnim(a.script), 1)) : null,
+        b ? h("div", {class: "battleback"}, b.throw ? animPlayer(artUrl(b.throw), null, 1, {frames: 8}) : h("img", {class: "px", src: artUrl(b.image), alt: "back"})) : null),
+      h("div", {class: "grass"}, it && it.overworld ? npcWalker(artUrl(it.overworld), 3) : null));
   }
   function savePage() {
-    const t = picked(), it = inSet(), note = h("div", {class: "ask"}), pv = pickedVs();
+    const t = picked(), it = inSet(), note = h("div", {class: "ask"}), pv = pickedVs(), pm = pickedMap();
     const vsNow = pv ? pv.image : opts.current && opts.current.vs || null;
-    const isSaved = t && opts.current && opts.current.try === t.id && (opts.current.vs || null) === vsNow;
+    const owNow = pm ? pm.overworld : t ? t.overworld || null : null;
+    const pa = pickedAnim(), pk = pickedBack(), pw = pickedThrow();
+    const animSave = pa ? {script: st.animScript, try: pa.id, image: pa.image} : st.animScript && opts.current && opts.current.anim && opts.current.anim.script === st.animScript && t && opts.current.try === t.id ? opts.current.anim : null;
+    const backSave = pk ? {try: pk.id, image: pk.image, throw: pw ? pw.image : null, throw_try: pw ? pw.id : null} : t && opts.current && opts.current.try === t.id ? opts.current.back || null : null;
+    const same = (a, b) => JSON.stringify(a || null) === JSON.stringify(b || null);
+    const isSaved = t && opts.current && opts.current.try === t.id && (opts.current.vs || null) === vsNow && (opts.current.overworld || null) === owNow
+      && same(opts.current.anim, animSave) && same(opts.current.back, backSave);
     const yes = h("button", {type: "button", class: "hot", disabled: !t || isSaved ? "" : null, onclick: async () => {
       yes.disabled = true; note.textContent = "Saving...";
       try {
         const j = jobOf(t), set = settingsOf(j);
-        const sprite = {try: t.id, job: j ? j.id : null, image: t.image, overworld: t.overworld || null, base: j ? j.recipe : null, strength: set.strength || null, seed: t.seed || null,
+        const sprite = {try: t.id, job: j ? j.id : null, image: t.image, overworld: owNow, map_try: pm ? pm.id : null, base: j ? j.recipe : null, strength: set.strength || null, seed: t.seed || null,
           picture: set.photo ? "private upload #" + set.photo : j && (j.ref_image_ids || [])[0] ? "public picture #" + j.ref_image_ids[0] : "", words: set.words || "",
           edited: t.job_id === null ? t.recipe || "drawn" : undefined, vs: vsNow, vs_try: pv ? pv.id : opts.current && opts.current.vs_try || null,
+          anim: animSave || undefined, back: backSave || undefined,
           by: me(), at: new Date().toISOString()};
         await opts.onPick(sprite);
         opts.current = sprite;
@@ -5027,9 +5308,10 @@ function trainerStudio(slot, opts) {
         draw();
       } catch (err) { note.textContent = err.message; yes.disabled = false; }
     }}, "YES");
-    note.textContent = !t ? "Pick one in 3 MAKE first." : isSaved ? "This one is saved." : (npc ? "Make this " + (opts.name || "the NPC") + "'s sprite?" : "Make this your trainer?") + (t.overworld ? "" : " (it has no map figure yet)");
+    note.textContent = !t ? "Pick one in 3 MAKE first." : isSaved ? "This one is saved." : (npc ? "Make this " + (opts.name || "the NPC") + "'s sprite?" : "Make this your trainer?") + (owNow ? "" : " (it has no map figure yet)")
+      + (backSave && !backSave.throw ? " (the back has no throw yet)" : "");
     return h("div", {},
-      h("div", {class: "hint", style: "margin-top:0"}, TSTEPS[3].what),
+      h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "save").what),
       battle(it),
       vsNow ? h("div", {class: "grass", style: "margin-top:8px"}, h("img", {class: "px", src: artUrl(vsNow), alt: "VS portrait", style: "width:192px"})) : null,
       h("div", {class: "yesno", style: "position:static"}, note, h("div", {class: "menu", role: "group", "aria-label": "Save it?"}, yes,
@@ -5044,44 +5326,71 @@ function trainerStudio(slot, opts) {
     const stp = TSTEPS.find(x => x.id === st.step);
     page.dataset.c = stp.c;
     page.replaceChildren(!st.loaded ? h("div", {class: "empty"}, "Loading...")
-      : stp.id === "picture" ? picturePage() : stp.id === "base" ? basePage() : stp.id === "make" ? makePage() : stp.id === "vs" ? vsPage() : savePage());
+      : stp.id === "picture" ? picturePage() : stp.id === "base" ? basePage() : stp.id === "make" ? makePage() : stp.id === "map" ? mapPage() : stp.id === "anim" ? animPage() : stp.id === "back" ? backPage() : stp.id === "vs" ? vsPage() : savePage());
   }
   async function load() {
     try {
-      [st.tries, st.jobs, st.line, st.worker, st.vsTries] = await Promise.all([
+      [st.tries, st.jobs, st.line, st.worker, st.vsTries, st.mapTries, st.animTries, st.backTries, st.throwTries] = await Promise.all([
         dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.trainer&order=id.desc&limit=300&select=id,job_id,n,seed,status,image,overworld,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at"),
         dbRead("sprite_jobs?species_id=eq." + slot + "&stage=eq.trainer&order=id.desc&limit=100&select=id,status,recipe,prompt,count,error,ref_image_ids"),
-        dbRead("sprite_jobs?status=in.(queued,running)&order=id.asc&select=id,species_id,status,mode,stage,count,recipe"),
+        dbRead("sprite_jobs?status=in.(queued,running)&order=id.asc&select=id,species_id,status,mode,stage,count,recipe,from_try"),
         dbRead("sprite_worker?select=seen_at,state,timings").then(r => r[0] || null),
-        dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.vs&order=id.desc&limit=100&select=id,job_id,n,seed,status,image,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at")]);
+        dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.vs&order=id.desc&limit=100&select=id,job_id,n,seed,status,image,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at"),
+        dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.map&order=id.desc&limit=200&select=id,job_id,n,seed,status,image,overworld,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at"),
+        dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.anim&order=id.desc&limit=200&select=id,job_id,n,seed,status,image,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at"),
+        dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.tback&order=id.desc&limit=200&select=id,job_id,n,seed,status,image,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at"),
+        dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.throw&order=id.desc&limit=100&select=id,job_id,n,seed,status,image,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at")]);
       st.loaded = true;
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; }
     if (!top.isConnected && st.loaded && timer !== null) return;      // the studio was closed: stop asking
     draw(); st.busyMsg = "";
     noteMine(slot, true);
     clearTimeout(timer);
-    const busy = mine().length || st.tries.concat(st.vsTries).some(t => t.status === "drawing");
+    const busy = mine().length || allTries().some(t => t.status === "drawing");
     timer = setTimeout(() => { if (top.isConnected) load(); }, busy ? 4000 : 60000);
   }
 
   // The editor takes the bottom screen; the top screen stays. Saving makes a new try (picked), the old one stays.
-  async function openPixelEditor(what, t) {
-    const map = what === "map", vs = what === "vs";
+  // The throw: first the 8 frames to choose from, then one frame in the editor.
+  async function openThrowFrames(t) {
+    let strip;
+    try { strip = await loadPicture(artUrl(t.image)); } catch (err) { fail(new Error("The throw could not be loaded.")); return; }
+    const n = Math.max(1, Math.floor(strip.width / 80));
+    const close = () => { st.editing = null; bottomSlot.replaceChildren(steps, page); draw(); };
+    const frames = Array.from({length: n}, (_, k) => {
+      const c = stripFrame(strip, k); c.className = "px"; c.style.cssText = "width:80px;height:80px;background:var(--field)";
+      return h("button", {type: "button", class: "tilepic", title: "Edit frame " + (k + 1), onclick: () => openPixelEditor("throw", t, {strip, k})},
+        c, h("span", {class: "sub"}, String(k + 1)));
+    });
+    st.editing = {el: h("div", {class: "pixeditor"},
+      h("h3", {}, "EDIT THE THROW"),
+      h("div", {class: "hint"}, "Tap the frame to fix. Each save makes a new throw (picked), and you come back here for the next frame."),
+      h("div", {class: "tiles"}, frames),
+      h("div", {class: "tryctl"}, h("button", {type: "button", onclick: close}, "DONE")))};
+    bottomSlot.replaceChildren(st.editing.el);
+    st.editing.el.scrollIntoView({block: "nearest"});
+  }
+  async function openPixelEditor(what, t, part) {
+    const map = what === "map", vs = what === "vs", back = what === "back", thr = what === "throw";
+    if (thr && !part) return openThrowFrames(t);
     let src = artUrl(map ? t.overworld : t.image);
     if (map) { try { src = npcToGrid(await loadPicture(src)).toDataURL("image/png"); } catch (err) { fail(new Error("The map figure could not be loaded.")); return; } }
+    if (thr) src = stripFrame(part.strip, part.k).toDataURL("image/png");
     const close = () => { st.editing = null; bottomSlot.replaceChildren(steps, page); draw(); };
     st.editing = pixelEditor({
-      title: map ? "EDIT MAP FIGURE (16 frames)" : vs ? "EDIT VS PORTRAIT" : "EDIT BATTLE SPRITE", view: map ? "npc" : vs ? "vs" : "trainer", src,
+      title: map ? "EDIT MAP FIGURE (16 frames)" : vs ? "EDIT VS PORTRAIT" : back ? "EDIT BACK" : thr ? "EDIT THE THROW: FRAME " + (part.k + 1) : "EDIT BATTLE SPRITE",
+      view: map ? "npc" : vs ? "vs" : "trainer", src,
       size: map ? [128, 128] : vs ? [96, 64] : [80, 80],
       frontSrc: map && t.image ? artUrl(t.image) : null, bodyColour: "",
       async save(file, how, note) {
         const fields = {try: t.id, how, editor: me(), note};
-        if (map) fields.overworld = await gridToNpc(file); else fields.image = file;
+        if (map) fields.overworld = await gridToNpc(file); else if (thr) fields.image = await frameIntoStrip(part.strip, part.k, file); else fields.image = file;
         const row = await postForm("sprite-draw", fields);
         await dbCall("pick_try", {p_try: row.id, p_picked: true, p_editor: me()}).catch(() => null);
-        st.step = vs ? "vs" : "make"; close(); await load();
+        if (thr) { await load(); const nt = st.throwTries.find(x => x.id === row.id); if (nt) return openThrowFrames(nt); }
+        st.step = vs ? "vs" : back || thr ? "back" : map && st.mapTries.some(x => x.id === t.id) ? "map" : "make"; close(); await load();
       },
-      close});
+      close: thr ? () => openThrowFrames(t) : close});
     bottomSlot.replaceChildren(st.editing.el);
     st.editing.el.scrollIntoView({block: "nearest"});
   }
@@ -6733,7 +7042,7 @@ function drawTray() {
   if (!tray.jobs.length && !tray.ready.length) { tray.el.hidden = true; return; }
   tray.el.hidden = false;
   const online = tray.worker && Date.now() - new Date(tray.worker.seen_at).getTime() < 90000;
-  const names = {art: "cut-out", front: "front", back: "back", icon: "icon", follower: "walking sprite", trainer: "trainer sprite"};
+  const names = {art: "cut-out", front: "front", back: "back", icon: "icon", follower: "walking sprite", trainer: "trainer sprite", vs: "VS portrait", map: "map figure", anim: "animation", tback: "back", throw: "throw"};
   let total = 0;
   const rows = tray.jobs.map(j => {
     const n = j.count || 1, done = tray.tries.filter(x => x.job_id === j.id && x.status !== "drawing").length, each = secondsFor(timings, j.stage || "front");

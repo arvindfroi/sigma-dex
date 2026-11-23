@@ -99,7 +99,7 @@ Deno.serve(async (req: Request) => {
     // The trainer studio (2026-11-21): the uploaded picture of the job being drawn is private (trainer-photos); the
     // drawing PC gets a link that works for two minutes.
     if (action === "trainer_photo") {
-      if (job.stage !== "trainer" && job.stage !== "vs") return reply(400, { message: "Not a trainer job" });   // vs = the VS portrait (step 4)
+      if (!["trainer", "vs", "map", "tback"].includes(job.stage)) return reply(400, { message: "Not a trainer job" });   // vs = the VS portrait, map = more map figures, tback = the back (2026-11-22)
       const { data: full } = await supabase.from("sprite_jobs").select("prompt").eq("id", jobId).single();
       let photo: number | null = null;
       try { photo = Number(JSON.parse(String(full?.prompt ?? "{}")).photo) || null; } catch (_e) { photo = null; }
@@ -136,7 +136,7 @@ Deno.serve(async (req: Request) => {
       const stamp = crypto.randomUUID().slice(0, 8);
       const paths: Record<string, string> = {};
       // a trainer try also hands in its map figure (the 512x32 NPC sheet, trainer studio 2026-11-21)
-      for (const name of job.stage === "trainer" ? ["image", "raw", "overworld"] : ["image", "raw"]) {
+      for (const name of job.stage === "trainer" || job.stage === "map" ? ["image", "raw", "overworld"] : ["image", "raw"]) {
         const file = form.get(name);
         if (!(file instanceof File)) continue;
         if (file.size > MAX_BYTES) return reply(400, { message: `${name} is larger than 3 MB` });

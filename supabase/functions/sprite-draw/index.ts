@@ -8,7 +8,7 @@ const MAX_BYTES = 200 * 1024;
 const SIZES: Record<string, number[]> = { front: [64, 80], back: [64, 80], icon: [32] };
 // The size of a try's picture per step (studio v3/v4).
 const TRY_SIZE: Record<string, [number, number]> = { art: [640, 640], front: [80, 80], back: [80, 80], icon: [32, 32], follower: [128, 64], trainer: [80, 80],
-  front2: [80, 80], back2: [80, 80], vs: [96, 64] };   // frame 2 of the front and the back; vs = the trainer's VS portrait (2026-11-21)
+  front2: [80, 80], back2: [80, 80], vs: [96, 64], map: [512, 32], tback: [80, 80], throw: [640, 80] };   // frame 2 of the front and the back; vs = the trainer's VS portrait (2026-11-21); tback = the trainer's back, frame 1 (2026-11-22); throw = its 8 frames (2026-11-23)
 // The trainer studio (2026-11-21): a trainer try also has its map figure, 16 frames of 32x32 in a row.
 const OVERWORLD: [number, number] = [512, 32];
 const CORS = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "content-type, apikey, authorization" };
@@ -36,7 +36,7 @@ Deno.serve(async (req: Request) => {
     // the front's colours, the icon in an icon palette; "we should be able to play with it in the sprite studio").
     if (form.get("try") !== null) {
       const tryId = Number(form.get("try"));
-      const { data: from } = await supabase.from("sprite_tries").select("id, species_id, stage, status, raw, image, overworld, seed").eq("id", tryId).maybeSingle();
+      const { data: from } = await supabase.from("sprite_tries").select("id, species_id, stage, status, raw, image, overworld, seed, parent_try").eq("id", tryId).maybeSingle();
       if (!from || !["done", "broken"].includes(from.status)) return reply(404, { message: "That picture does not exist" });
       const since = new Date(Date.now() - 3600 * 1000).toISOString();
       const { count } = await supabase.from("sprite_tries").select("id", { count: "exact", head: true }).is("job_id", null).gt("created_at", since);
@@ -49,7 +49,7 @@ Deno.serve(async (req: Request) => {
       for (const [name, want] of [["image", TRY_SIZE[from.stage as string]], ["overworld", OVERWORLD]] as [string, [number, number] | undefined][]) {
         const file = form.get(name);
         if (!(file instanceof File)) continue;
-        if (name === "overworld" && from.stage !== "trainer") return reply(400, { message: "Only a trainer has a map figure" });
+        if (name === "overworld" && from.stage !== "trainer" && from.stage !== "map") return reply(400, { message: "Only a trainer has a map figure" });
         const limit = from.stage === "art" ? 1536 * 1024 : MAX_BYTES;
         if (file.size > limit) return reply(400, { message: "The picture is too large" });
         const bytes = new Uint8Array(await file.arrayBuffer());
@@ -66,7 +66,8 @@ Deno.serve(async (req: Request) => {
         job_id: null, species_id: from.species_id, stage: from.stage, n: 1, status: "done", image: stored.image ?? from.image, raw: from.raw,
         overworld: stored.overworld ?? from.overworld ?? null, seed: from.seed ?? null,
         recipe: how === "drawn" ? "drawn by hand" : how, note: String(form.get("note") ?? "").trim().slice(0, 300) || null,
-        parent_try: tryId, editor, seconds: null, finished_at: new Date().toISOString(),
+        // a throw belongs to its back (the website lists a back's throws by parent_try), so an edited throw keeps that parent
+        parent_try: from.stage === "throw" ? from.parent_try : tryId, editor, seconds: null, finished_at: new Date().toISOString(),
       }).select("id").single();
       if (error) return reply(500, { message: "The picture could not be saved" });
       return reply(200, row);

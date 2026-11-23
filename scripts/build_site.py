@@ -123,6 +123,8 @@ def main():
         # the trainer studio's base classes (ids, names, caption fields; the pictures are a sheet in the website's
         # storage, scripts/trainer_bases.py)
         "trainer_bases": json.loads((ROOT / "data" / "trainer_bases.json").read_text(encoding="utf-8")) if (ROOT / "data" / "trainer_bases.json").exists() else None,
+        # the 28 animated classes' intro scripts (poses, shifts, timing; scripts/trainer_anims.py), for the studio's ANIM step
+        "trainer_anims": json.loads((ROOT / "data" / "trainer_anims.json").read_text(encoding="utf-8")) if (ROOT / "data" / "trainer_anims.json").exists() else None,
         "characters": yaml.safe_load((ROOT / "data" / "characters.yaml").read_text(encoding="utf-8")) if (ROOT / "data" / "characters.yaml").exists() else [],
         "official_balance": json.loads((ROOT / "data" / "engine" / "official_balance.json").read_text(encoding="utf-8")) if (ROOT / "data" / "engine" / "official_balance.json").exists() else {"gens": {}},
         "requests": yaml.safe_load((ROOT / "data" / "requests.yaml").read_text(encoding="utf-8")) if (ROOT / "data" / "requests.yaml").exists() else [],

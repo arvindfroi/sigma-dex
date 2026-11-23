@@ -151,7 +151,13 @@ def run(job, base, key, post, download, folder, log=print):
         raise RuntimeError("no picture of the trainer")
     art = comfy.upload(person_picture(got, folder / "person.png"))
     art2 = comfy.upload(square(got, folder / "person_sq.png"))
-    start = S.start(bkey, folder / "start.png")
+    width = min(1.4, max(1.0, float(settings.get("width") or 1.0)))
+    if width > 1.0:                                  # the BASE step's width slider: the base frame widened (widen_front.py)
+        f1, _ = T.frames(bkey)
+        widen_front(f1, width).save(folder / "base_wide.png")
+        start = S.start("file:" + str(folder / "base_wide.png"), folder / "start.png")
+    else:
+        start = S.start(bkey, folder / "start.png")
     text = battle_text(T.rows().get(bkey), words)
     ntext = npc_text(words, True)
     made = 0
@@ -169,7 +175,7 @@ def run(job, base, key, post, download, folder, log=print):
             sprite.save(image)
             status = "done" if sprite.getbbox() else "broken"
             files = {"image": image, "raw": raw}
-            note = "base %s, strength %.2f, seed %d" % (job.get("recipe"), strength, seed)
+            note = "base %s%s, strength %.2f, seed %d" % (job.get("recipe"), " x%.2f wide" % width if width > 1.0 else "", strength, seed)
             if status == "done":
                 post(base, key, {"action": "progress", "job_id": job["id"], "state": "drawing a map figure: %d of %d" % (n, count)})
                 try:
@@ -202,9 +208,15 @@ VS_LORA = os.environ.get("TRAINER_VS_LORA", "pkmn_vs_klein_v1_000002000.safetens
 VS_SECONDS = 25
 
 
-def vs_text(V, cls, words):
-    r = {"who": (words or "").strip().rstrip(".") or "a trainer", "gesture": "a hand raised in a confident gesture"}
-    text = V.caption(V.describe(r, cls, 0), True)
+def vs_text(V, cls, words, plain=False):
+    """plain (2026-11-23, vs_gen.py NODESC; tried on one test person: it looked more like them): no
+    personal description, only the pose words, so the likeness comes from the pictures"""
+    if plain:
+        desc = "A trainer holding a Poke Ball. "
+    else:
+        r = {"who": (words or "").strip().rstrip(".") or "a trainer", "gesture": "a hand raised in a confident gesture"}
+        desc = V.describe(r, cls, 0)
+    text = V.caption(desc, True)
     return text.replace("clothes and colours. ", "clothes and colours. Image 2 is a photo of the same person: keep their real face, age and build. ", 1)
 
 
@@ -229,9 +241,13 @@ def run_vs(job, base, key, post, download, folder, log=print):
     else:
         raise RuntimeError("no picture of the trainer")
     square(got, folder / "vs_photo.png")
-    refs = [comfy.upload(folder / "vs_sprite.png"), comfy.upload(folder / "vs_photo.png")]
+    ph = Image.open(person_picture(got, folder / "vs_photo_full0.png")).convert("RGB")   # PHOTOFULL: own size, up to 1 MP
+    k = min(1.0, (1024 * 1024 / (ph.width * ph.height)) ** 0.5)
+    ph.resize((max(16, round(ph.width * k) // 16 * 16), max(16, round(ph.height * k) // 16 * 16)), Image.LANCZOS).save(folder / "vs_photo_full.png")
+    sprite_up = comfy.upload(folder / "vs_sprite.png")
+    refs_of = {False: [sprite_up, comfy.upload(folder / "vs_photo.png")], True: [sprite_up, comfy.upload(folder / "vs_photo_full.png")]}
     row = T.rows().get(base_key(job.get("recipe"))) or {}
-    text = vs_text(V, row.get("cls") or "Pokemon Trainer", settings.get("words") or "")
+    texts = {plain: vs_text(V, row.get("cls") or "Pokemon Trainer", settings.get("words") or "", plain) for plain in (False, True)}
     made = 0
     for n in range(1, int(job.get("count") or 1) + 1):
         seed = job["id"] * 100 + n
@@ -241,17 +257,485 @@ def run_vs(job, base, key, post, download, folder, log=print):
         started = time.time()
         try:
             raw = folder / ("vs_raw%d.png" % n)
-            raw.write_bytes(comfy.run(comfy.klein(text, refs, 384, 256, seed, "sigma/trainervs", lora=VS_LORA)))
+            plain = n % 2 == 0                           # half the tries without the description (tested only on one person)
+            raw.write_bytes(comfy.run(comfy.klein(texts[plain], refs_of[plain], 384, 256, seed, "sigma/trainervs", lora=VS_LORA)))
             portrait = klein_follower.to_back(raw)
             image = folder / ("vs%d.png" % n)
             portrait.save(image)
             status = "done" if portrait.size == (96, 64) and portrait.getbbox() else "broken"
             post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": status,
-                             "note": "VS portrait from battle sprite #%s + the picture, seed %d" % (src.get("id"), seed),
+                             "note": "VS portrait from battle sprite #%s + the picture%s, seed %d" % (src.get("id"), " (no description, full-size picture)" if plain else "", seed),
                              "seconds": round(time.time() - started, 1)}, {"image": image, "raw": raw})
             made += 1
         except Exception as problem:
             log("VS try %d of job %d failed: %s" % (n, job["id"], problem))
+            post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "failed",
+                             "note": ("%s: %s" % (type(problem).__name__, problem))[:300], "seconds": round(time.time() - started, 1)})
+    return made
+
+
+# ---------- step MAP: more map figures for the picked battle sprite (2026-11-21). The way the first two test figures were
+# made (Arvind: "they look great"): NPC LoRA v2, image 1 = the battle sprite 4x on white, image 2 = the person's picture, the
+# person's words (+ a few words for the map figure only, e.g. "no hat"), then to16 + trainer_post.overworld. Checkpoints
+# 750-1250 are the good ones and held items drop out on some seeds, so each try takes the next checkpoint and its own seed.
+MAP_CKPTS = [c.strip() for c in os.environ.get("NPC_MAP_CKPTS", "1000,750,1250").split(",") if c.strip()]
+MAP_SECONDS = 30
+
+
+def run_map(job, base, key, post, download, folder, log=print):
+    settings = json.loads(job.get("prompt") or "{}")
+    src = job.get("from_try") or {}
+    if not src.get("image"):
+        raise RuntimeError("the map figure needs the battle sprite")
+    sprite = Image.open(download(base, src["image"], folder / "battle.png")).convert("RGBA")
+    if settings.get("photo"):
+        link = post(base, key, {"action": "trainer_photo", "job_id": job["id"]})["url"]
+        if link.startswith("/"):
+            link = base + "/storage/v1" + link
+        got = fetch(link, folder / "photo_in")
+    elif job.get("refs"):
+        got = download(base, job["refs"][0], folder / "photo_in")
+    else:
+        raise RuntimeError("no picture of the trainer")
+    one = comfy.upload(on_white(sprite, folder / "battle_4x.png"))
+    art2 = comfy.upload(square(got, folder / "person_sq.png"))
+    words = words_of(settings)
+    extra = " ".join(str(settings.get("extra") or "").split())[:200]
+    text = npc_text((words + (". " + extra if extra else "")).strip(" ."), True)
+    count = int(job.get("count") or 1)
+    made = 0
+    for n in range(1, count + 1):
+        seed = job["id"] * 100 + n
+        ck = MAP_CKPTS[(n - 1) % len(MAP_CKPTS)]
+        lora = "pkmn_followernpc_klein_v2.safetensors" if ck == "final" else "pkmn_followernpc_klein_v2_%09d.safetensors" % int(ck)
+        t = post(base, key, {"action": "try_start", "job_id": job["id"], "n": n, "seed": seed,
+                             "recipe": ("followernpc v2 c%s" % ck)[:60], "expected_seconds": MAP_SECONDS})
+        post(base, key, {"action": "progress", "job_id": job["id"], "state": "drawing a map figure: %d of %d" % (n, count)})
+        started = time.time()
+        try:
+            nraw = folder / ("map_raw%d.png" % n)
+            nraw.write_bytes(comfy.run(comfy.klein(text, [one, art2], 512, 256, seed, "sigma/trainermap", lora=lora)))
+            sheet = trainer_post.overworld(trainer_post.to16(klein_follower.to_game(nraw, mirror_right=False).convert("RGBA")))
+            ow = folder / ("map%d.png" % n)
+            sheet.save(ow)
+            status = "done" if sheet.size == (512, 32) and sheet.getbbox() else "broken"
+            post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": status,
+                             "note": ("map figure from battle sprite #%s, checkpoint %s, seed %d%s" % (src.get("id"), ck, seed, ", extra: " + extra if extra else ""))[:300],
+                             "seconds": round(time.time() - started, 1)}, {"image": ow, "overworld": ow, "raw": nraw})
+            made += 1
+        except Exception as problem:
+            log("map try %d of job %d failed: %s" % (n, job["id"], problem))
+            post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "failed",
+                             "note": ("%s: %s" % (type(problem).__name__, problem))[:300], "seconds": round(time.time() - started, 1)})
+    return made
+
+
+def _photo(job, settings, base, key, post, download, folder):
+    """the person's picture: the private upload (a two-minute link) or a public trainer picture"""
+    if settings.get("photo"):
+        link = post(base, key, {"action": "trainer_photo", "job_id": job["id"]})["url"]
+        if link.startswith("/"):
+            link = base + "/storage/v1" + link
+        return fetch(link, folder / "photo_in")
+    if job.get("refs"):
+        return download(base, job["refs"][0], folder / "photo_in")
+    raise RuntimeError("no picture of the trainer")
+
+
+def lock_palette(im, pal):
+    """every pixel to the nearest colour of `pal` (frame 1's colours), alpha to 0/255; returns the picture and the mean
+    distance the colours had to move (back_motion5_gen.lock)"""
+    import numpy as np
+    a = np.array(im.convert("RGBA"))
+    a[..., 3] = np.where(a[..., 3] >= 128, 255, 0)
+    m = a[..., 3] > 0
+    px = a[m][:, :3].astype(int)
+    if not len(px):
+        return Image.fromarray(a), 99.0
+    d = ((px[:, None, :] - pal[None]) ** 2).sum(-1)
+    a[m, :3] = pal[d.argmin(1)]
+    return Image.fromarray(a), float(np.sqrt(d.min(1)).mean())
+
+
+def colours_of(im):
+    import numpy as np
+    a = np.array(im.convert("RGBA"))
+    return np.unique(a[a[..., 3] >= 128][:, :3], axis=0).astype(int)
+
+
+def widen_front(f, fx, fy=1.0):
+    """a FRONT base frame widened by fx around the body centre, feet kept on the floor (widen_front.py, 2026-11-22)"""
+    f = f.convert("RGBA")
+    bb = f.getbbox()
+    W, H = f.size
+    w, h = round(W * fx), round(H * fy)
+    g = f.resize((w, h), Image.NEAREST)
+    cx = (bb[0] + bb[2]) / 2
+    x0, y0 = round(cx * fx - cx), h - H
+    out = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    out.alpha_composite(g.crop((x0, y0, x0 + W, y0 + H)))
+    return out
+
+
+def widen_back(f, fx):
+    """a player BACK frame widened by fx (and a little lower), feet kept (back_f1_front.widen, 2026-11-22)"""
+    f = f.convert("RGBA")
+    bb = f.getbbox()
+    W, H = f.size
+    if fx == 1 or not bb:
+        return f
+    g = f.resize((round(W * fx), round(H * (1 - (fx - 1) * 0.15))), Image.NEAREST)
+    cx = (bb[0] + bb[2]) / 2
+    x0, y0 = round(cx * fx - cx), g.height - H
+    out = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    out.alpha_composite(g.crop((x0, max(0, y0), x0 + W, max(0, y0) + H)) if y0 >= 0 else g.crop((x0, 0, x0 + W, g.height)), (0, max(0, -y0)))
+    return out
+
+
+STOUT_WORDS = ("stout", "fat", "round", "sturdy", "chubby", "belly", "heavy", "plump", "big-bellied", "wide")
+
+
+def is_stout(front, words):
+    """the build words say so, or the front's torso is wide: median row width over the middle third / figure height > 0.45"""
+    import numpy as np
+    if any(w in (words or "").lower() for w in STOUT_WORDS):
+        return True
+    a = np.array(front.convert("RGBA"))[..., 3] > 0
+    ys = np.nonzero(a.any(1))[0]
+    if not len(ys):
+        return False
+    y0, y1 = ys.min(), ys.max() + 1
+    mid = [a[y].sum() for y in range(y0 + (y1 - y0) // 3, y0 + 2 * (y1 - y0) // 3)]
+    return float(np.median(mid)) / max(1, y1 - y0) > 0.45
+
+
+# ---------- step ANIM (2026-11-22): the trainer's battle intro animation. Arvind's idea: people pick one of the animated
+# classes' scripts (data/trainer_anims.json: poses = cells, shifts, timing from a/0/5/8) and get the extra poses drawn.
+# Recipe v2 "side by side" (front_anim/approved_pair_v2, Arvind on the game GIF: "det ser sykt bra ut!"); v1 started from
+# the leader's real pose and leaked its body. Each pose j > 0 = klein BASE (no LoRA) at 640x320: start = our battle sprite |
+# our battle sprite (4x on magenta), only the right half re-noised (SetLatentNoiseMask), image 1 = our sprite, the text
+# says what pose j shows (data/trainer_anim_poses.json: about the body, not the leader's things) + the person's words and
+# build. The right half -> size lock (more than 8 % taller than frame 1: scaled down around the feet) -> 80x80 ->
+# trainer_post.battle -> colours locked to the battle sprite. Image = a strip of 80x80 frames, frame j = cell j (cell 0 =
+# the battle sprite; a cell the game has no pose for, as Koga's cell 3, = the battle sprite).
+# Stage 2 (anim_trio_swap.py, tested on 4 people): before pixelizing, each pose panel is repainted once with the trainer LoRA
+# c1 SWAP (image 1 = the battle sprite, start = the pose panel, denoise 0.55): keeps the pose and brings the face back.
+ANIM_SECONDS = 45            # a pose (side by side + the swap)
+ANIM_SWAP = float(os.environ.get("TRAINER_ANIM_SWAP", "0.55"))   # stage 2 denoise; 0 = off (0.65+ undid poses in the tests)
+ANIM_STRICT = ("The trainer has exactly two arms and two hands, and both are part of the new pose: no arm or hand stays behind where it "
+               "was in image 1. The hair is exactly as in image 1: the same length, shape and colour.")   # round 3: extra arms, longer hair
+ANIM_SIZE = "exactly the same size as the left frame: the head just as big and the feet on the same line"
+
+
+def anim_scripts():
+    here = Path(__file__).resolve().parent.parent / "data" / "trainer_anims.json"
+    return {s["cls"]: s for s in json.loads(here.read_text(encoding="utf-8"))["scripts"]}
+
+
+def anim_poses():
+    here = Path(__file__).resolve().parent.parent / "data" / "trainer_anim_poses.json"
+    return {int(k): v for k, v in json.loads(here.read_text(encoding="utf-8")).items() if k.isdigit()}
+
+
+def pair_graph(text, ref, seed, start, mask):
+    g = comfy.klein(text, [ref], 640, 320, seed, "sigma/animpair", lora=None)
+    g["startimg"] = {"class_type": "LoadImage", "inputs": {"image": start}}
+    g["startenc"] = {"class_type": "VAEEncode", "inputs": {"pixels": ["startimg", 0], "vae": ["vae", 0]}}
+    g["maskimg"] = {"class_type": "LoadImage", "inputs": {"image": mask}}
+    g["mask"] = {"class_type": "ImageToMask", "inputs": {"image": ["maskimg", 0], "channel": "red"}}
+    g["masked"] = {"class_type": "SetLatentNoiseMask", "inputs": {"samples": ["startenc", 0], "mask": ["mask", 0]}}
+    g["sca"]["inputs"]["latent_image"] = ["masked", 0]
+    return g
+
+
+def fig_box(im):
+    """the figure's box on a magenta panel"""
+    import numpy as np
+    a = np.array(im.convert("RGB")).astype(int)
+    fg = ~((a[..., 0] > 200) & (a[..., 1] < 80) & (a[..., 2] > 200))
+    ys, xs = np.nonzero(fg)
+    return (xs.min(), ys.min(), xs.max() + 1, ys.max() + 1) if len(xs) else None
+
+
+def size_lock(panel, ref_h):
+    """a pose more than 8 % taller than frame 1 is scaled down to frame 1's height around its feet (magenta around it)"""
+    bb = fig_box(panel)
+    if not bb or (bb[3] - bb[1]) <= ref_h * 1.08:
+        return panel, 1.0
+    s = ref_h / (bb[3] - bb[1])
+    fig = panel.crop(bb)
+    fw, fh = max(1, round(fig.width * s)), max(1, round(fig.height * s))
+    out = Image.new("RGB", panel.size, (255, 0, 255))
+    cx = (bb[0] + bb[2]) / 2
+    out.paste(fig.resize((fw, fh), Image.LANCZOS), (round(cx - fw / 2), bb[3] - fh))
+    return out, s
+
+
+def run_anim(job, base, key, post, download, folder, log=print):
+    T, TB, S = _modules()
+    settings = json.loads(job.get("prompt") or "{}")
+    src = job.get("from_try") or {}
+    if not src.get("image"):
+        raise RuntimeError("the animation needs the battle sprite")
+    script = anim_scripts().get(int(settings.get("script") or 0))
+    if not script:
+        raise RuntimeError("unknown animation %r" % settings.get("script"))
+    cls = script["cls"]
+    poses = anim_poses().get(cls) or []
+    sprite = Image.open(download(base, src["image"], folder / "battle.png")).convert("RGBA")
+    pal = colours_of(sprite)
+    cells = [j for j in script["cells"] if j]
+    drawn = [j for j in cells if j <= len(poses)]          # cells with pose words; the rest show the battle sprite
+    words = words_of(settings)
+    extra = " ".join(str(settings.get("extra") or "").split())[:200]
+    who = (words + (". " + extra if extra else "")).strip(" .") or "the trainer in image 1"
+    try:                                                   # the build: the battle sprite's base, or stout by the words/shape
+        brow = T.rows().get(base_key(str(src.get("recipe") or "").split(" ")[0])) or {}
+    except Exception:
+        brow = {}
+    build = brow.get("build") or "-"
+    if is_stout(sprite, words + " " + extra):
+        build = "stout"
+    swap_row = {"cls": brow.get("cls") or "Trainer", "facing": brow.get("facing") or "-", "build": build, "who": who, "held": "-"}
+    T.on_magenta(sprite).save(folder / "anim_f1.png")
+    i1 = Image.open(folder / "anim_f1.png").convert("RGB")
+    ref = comfy.upload(folder / "anim_f1.png")
+    bb = fig_box(i1)
+    ref_h = bb[3] - bb[1] if bb else i1.height
+    start = Image.new("RGB", (640, 320))
+    start.paste(i1.resize((320, 320), Image.NEAREST) if i1.size != (320, 320) else i1, (0, 0))
+    start.paste(start.crop((0, 0, 320, 320)), (320, 0))
+    start.save(folder / "anim_start.png")
+    start_up = comfy.upload(folder / "anim_start.png")
+    mask = Image.new("RGB", (640, 320), "black")
+    mask.paste((255, 255, 255), (320, 0, 640, 320))
+    mask.save(folder / "anim_mask.png")
+    mask_up = comfy.upload(folder / "anim_mask.png")
+    count = int(job.get("count") or 1)
+    made = 0
+    for n in range(1, count + 1):
+        seed = n if n <= 1 else job["id"] * 100 + n         # seed 1 kept the faces best in the tests; the others give choice
+        t = post(base, key, {"action": "try_start", "job_id": job["id"], "n": n, "seed": seed,
+                             "recipe": ("anim pair%s %s s%d" % ("+sw%g" % ANIM_SWAP if ANIM_SWAP > 0 else "", cls, seed))[:60], "expected_seconds": ANIM_SECONDS * len(drawn)})
+        started = time.time()
+        try:
+            strip = Image.new("RGBA", (80 * (max(script["cells"]) + 1), 80), (0, 0, 0, 0))
+            for j in [0] + [c for c in cells if c not in drawn]:
+                strip.alpha_composite(sprite, (80 * j, 0))
+            scales = []
+            for i, j in enumerate(drawn):
+                post(base, key, {"action": "progress", "job_id": job["id"], "state": "drawing pose %d of %d (animation %d of %d)" % (i + 2, len(drawn) + 1, n, count)})
+                text = ("Two 80x80 pixel art battle sprites of the same trainer (%s, build: %s) side by side on a flat magenta "
+                        "background, like two animation frames. The left one is exactly image 1. The right one is the same trainer with "
+                        "exactly the same face, hair, clothes, colours, body shape and outline, %s, in a new pose: the trainer %s. %s"
+                        % (who, build, ANIM_SIZE, poses[j - 1], ANIM_STRICT))
+                raw = folder / ("anim_raw%d_%d.png" % (n, j))
+                raw.write_bytes(comfy.run(pair_graph(text, ref, seed, start_up, mask_up)))
+                panel, s = size_lock(Image.open(raw).convert("RGB").crop((320, 0, 640, 320)), ref_h)
+                scales.append(round(s, 2))
+                right = folder / ("anim_right%d_%d.png" % (n, j))
+                panel.save(right)
+                if ANIM_SWAP > 0:                          # stage 2: the trainer LoRA swap brings the face back
+                    post(base, key, {"action": "progress", "job_id": job["id"], "state": "cleaning pose %d of %d (animation %d of %d)" % (i + 2, len(drawn) + 1, n, count)})
+                    row = dict(swap_row, pose="the trainer " + poses[j - 1])
+                    swapped = folder / ("anim_swap%d_%d.png" % (n, j))
+                    swapped.write_bytes(comfy.run(S.graph(TB.caption(T.describe(row, drop=0), True) + " " + ANIM_STRICT, [ref], seed, LORA, comfy.upload(right), ANIM_SWAP)))
+                    right = swapped
+                pose, _ = lock_palette(trainer_post.battle(klein_follower.to_back(right)), pal)
+                strip.alpha_composite(pose, (80 * j, 0))
+            image = folder / ("anim%d.png" % n)
+            strip.save(image)
+            shrunk = [s for s in scales if s < 1]
+            post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "done",
+                             "note": ("%s animation (%d poses) side by side%s from battle sprite #%s, seed %d, build %s%s%s" % (
+                                 script["name"], len(drawn) + 1, " + swap %.2f" % ANIM_SWAP if ANIM_SWAP > 0 else "", src.get("id"), seed, build,
+                                 ", size locked x" + "/".join("%.2f" % s for s in shrunk) if shrunk else "",
+                                 ", extra: " + extra if extra else ""))[:300],
+                             "seconds": round(time.time() - started, 1)}, {"image": image})
+            made += 1
+        except Exception as problem:
+            log("anim try %d of job %d failed: %s" % (n, job["id"], problem))
+            post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "failed",
+                             "note": ("%s: %s" % (type(problem).__name__, problem))[:300], "seconds": round(time.time() - started, 1)})
+    return made
+
+
+# ---------- step BACK (2026-11-22; 2026-11-23 the back A/B, Arvind: "Ja vs + foto var bra"; locked_back_throw_v2 "Step 1
+# update"). Only player characters and tag-battle partners need it. The VS is made BEFORE the back and the back job carries
+# the picked VS portrait (vs_image in its prompt).
+# Stage 'tback' = frame 1, the back seen in battle: trainer LoRA c1 CREATE-back, start = a player back's real frame 1 whose
+# look matches (BACK_SHAPES, named by what the base picture shows), the person PICKS one of several tries. Routes:
+#   D (main): image 1 = the photo, image 2 = the picked VS 96x64 at 4x on white (+ one sentence about image 2), base
+#     unwidened, denoise 0.6 (0.65 for the last tries), no colour lock. No VS -> photo only. No photo -> the VS as image 1.
+#   F (2-3 of 8): image 1 = the picked FRONT sprite 4x on white, colours locked to the front: keeps the clothes better
+#     through the throw.
+# Stage 'throw' = frames 2-8 from the picked frame 1: pkmn_backmotion_klein_v5 checkpoint 750, each frame an EDIT of our
+# frame k-1 toward the pose map of a template, with our frame 1 as image 3; seeds 1 and 2, colours locked to frame 1, the
+# pick = IoU with the template - lock distance / 60 (back_motion5_gen.py). Template 14 (Barry Pt) for slim people, 21
+# (Barry Pt wide, a real 8-frame set) for stout ones; a second try uses the other template.
+BACKS = Path(os.environ.get("TRAINER_BACKS", r"D:\LocalAI\lora-train\data\trainers\backs"))
+BACK_SHAPES = {"long": [13, 1], "short": [12, 24], "spiky": [14, 4], "cap": [9, 0], "tied": [8, 7], "stout": [22, 21]}
+#   13 long blond, 01 brown long hair, 12/24 short grey (24 an adult man), 14 spiky blond, 04 spiky orange, 09/00 caps,
+#   08 blond ponytail, 07 side ponytail, 22/21 the real wide backs (Lucas Pt / Barry Pt wide)
+WIDE_BACKS = (20, 21, 22)
+BACK_SECONDS = 25
+VS_SENTENCE = " Image 2 is a pixel art portrait of the same person: the same face, hair, clothes and colours."
+THROW_LORA = os.environ.get("TRAINER_THROW_LORA", "pkmn_backmotion_klein_v5_000000750.safetensors")
+THROW_SLIM, THROW_WIDE = 14, 21
+THROW_SEEDS = (1, 2)
+
+
+def back_frame1(b):
+    f = next(BACKS.glob("%02d_*.png" % b))
+    return Image.open(f).convert("RGBA").crop((0, 0, 80, 80))
+
+
+def run_tback(job, base, key, post, download, folder, log=print):
+    """Frame-1 tries, n = 1..8: D(A,.6) D(B,.6) F(A) D(A,.6) D(B,.6) F(B) D(A,.65) D(B,.65) (A/B = the shape's two bases;
+    D = photo + VS, F = from the front sprite at 0.6). Without photo and VS every try takes the front route."""
+    T, _, S = _modules()
+    import build_trainer_klein_c as C
+    settings = json.loads(job.get("prompt") or "{}")
+    shape = settings.get("shape") if settings.get("shape") in BACK_SHAPES else "short"
+    bA, bB = BACK_SHAPES[shape]
+    src = job.get("from_try") or {}
+    if not src.get("image"):
+        raise RuntimeError("the back needs the battle sprite")
+    front = Image.open(download(base, src["image"], folder / "front.png")).convert("RGBA")
+    pal = colours_of(front)
+    words = words_of(settings)
+    extra = " ".join(str(settings.get("extra") or "").split())[:200]
+    # the front route's base is widened for a stout person, unless the shape's bases are the wide ones already
+    ffx = 1.3 if shape != "stout" and is_stout(front, words + " " + extra) else 1.0
+    plan = [("D", bA, 0.6), ("D", bB, 0.6), ("F", bA, 0.6), ("D", bA, 0.6), ("D", bB, 0.6), ("F", bB, 0.6), ("D", bA, 0.65), ("D", bB, 0.65)]
+    row = {"cls": "Pokemon Trainer", "who": (words + (". " + extra if extra else "")).strip(" .") or "-",
+           "facing": "seen from behind, turned to the right", "pose": "about to throw a Poke Ball"}
+    text = C.create_caption(T.describe(row, drop=0), True, back=True)
+    photo = vs = None
+    try:
+        photo = comfy.upload(person_picture(_photo(job, settings, base, key, post, download, folder), folder / "person.png"))
+    except Exception as problem:
+        log("back job %d: no picture (%s)" % (job["id"], problem))
+    if settings.get("vs_image"):
+        try:
+            v = Image.open(download(base, settings["vs_image"], folder / "vs.png")).convert("RGBA")
+            on_white(v, folder / "vs_ref.png")
+            vs = comfy.upload(folder / "vs_ref.png")
+        except Exception as problem:
+            log("back job %d: no VS portrait (%s)" % (job["id"], problem))
+    if photo and vs:
+        d_refs, d_text, d_name = [photo, vs], text.rstrip() + VS_SENTENCE, "the picture + VS #%s" % settings.get("vs_try")
+    elif photo:
+        d_refs, d_text, d_name = [photo], text, "the picture"
+    elif vs:
+        d_refs, d_text, d_name = [vs], text, "VS #%s" % settings.get("vs_try")
+    else:
+        d_refs = None
+        plan = [("F", b, 0.6) for _, b, _ in plan]
+    on_white(front, folder / "front_ref.png")
+    fref = comfy.upload(folder / "front_ref.png")
+    starts = {}
+
+    def start_of(b, fx):
+        if (b, fx) not in starts:
+            T.on_magenta(widen_back(back_frame1(b), fx)).save(folder / ("back_start%d_%g.png" % (b, fx)))
+            starts[(b, fx)] = comfy.upload(folder / ("back_start%d_%g.png" % (b, fx)))
+        return starts[(b, fx)]
+    count = int(job.get("count") or 1)
+    made = 0
+    for n in range(1, count + 1):
+        route, b, dn = plan[(n - 1) % len(plan)]
+        fx = ffx if route == "F" else 1.0
+        seed = job["id"] * 100 + n
+        t = post(base, key, {"action": "try_start", "job_id": job["id"], "n": n, "seed": seed,
+                             "recipe": ("back %s b%02d x%g d%.2f" % (route, b, fx, dn))[:60], "expected_seconds": BACK_SECONDS})
+        post(base, key, {"action": "progress", "job_id": job["id"], "state": "drawing a back: %d of %d" % (n, count)})
+        started = time.time()
+        try:
+            raw = folder / ("back_raw%d.png" % n)
+            if route == "F":
+                raw.write_bytes(comfy.run(S.graph(text, [fref], seed, LORA, start_of(b, fx), dn)))
+            else:
+                raw.write_bytes(comfy.run(S.graph(d_text, d_refs, seed, LORA, start_of(b, 1.0), dn)))
+            im = klein_follower.to_back(raw).convert("RGBA")
+            if route == "F":
+                im, _ = lock_palette(im, pal)
+            image = folder / ("back%d.png" % n)
+            im.save(image)
+            note = "back frame 1 from %s: base %02d (%s)%s, denoise %.2f, seed %d%s" % (
+                "the battle sprite" if route == "F" else d_name, b, shape, " x%g wide" % fx if fx > 1 else "", dn, seed, ", extra: " + extra if extra else "")
+            post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "done" if im.getbbox() else "broken",
+                             "note": note[:300], "seconds": round(time.time() - started, 1)}, {"image": image, "raw": raw})
+            made += 1
+        except Exception as problem:
+            log("back try %d of job %d failed: %s" % (n, job["id"], problem))
+            post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "failed",
+                             "note": ("%s: %s" % (type(problem).__name__, problem))[:300], "seconds": round(time.time() - started, 1)})
+    return made
+
+
+def run_throw(job, base, key, post, download, folder, log=print):
+    import numpy as np
+    import re
+    _modules()
+    import build_back_motion as B
+    import build_back_motion2 as B2
+    import build_back_motion5 as B5
+    T, _, _ = _modules()
+    settings = json.loads(job.get("prompt") or "{}")
+    src = job.get("from_try") or {}
+    if not src.get("image"):
+        raise RuntimeError("the throw needs a picked back")
+    f1 = Image.open(download(base, src["image"], folder / "throw_f1.png")).convert("RGBA").crop((0, 0, 80, 80))
+    pal = colours_of(f1)
+    m = re.search(r"\bb(\d\d)\b", str(src.get("recipe") or ""))
+    wide = (m and int(m.group(1)) in WIDE_BACKS) or any(w in (settings.get("words") or "").lower() for w in STOUT_WORDS)
+    templates = [THROW_WIDE, THROW_SLIM] if wide else [THROW_SLIM, THROW_WIDE]
+
+    def up(im, name):
+        T.on_magenta(im).save(folder / name)
+        return comfy.upload(folder / name)
+
+    def iou(a, b):
+        x = np.array(a)[..., 3] > 0
+        y = np.array(b.convert("RGBA"))[..., 3] > 0
+        return (x & y).sum() / max(1, (x | y).sum())
+    r3 = up(f1, "throw_one.png")
+    count = min(2, int(job.get("count") or 1))
+    made = 0
+    for n in range(1, count + 1):
+        tpl = templates[n - 1]
+        fr = B.frames(tpl)
+        nfr = len(fr)
+        t = post(base, key, {"action": "try_start", "job_id": job["id"], "n": n, "seed": THROW_SEEDS[0],
+                             "recipe": "throw v5 c750 b%02d" % tpl, "expected_seconds": BACK_SECONDS * len(THROW_SEEDS) * (nfr - 1)})
+        started = time.time()
+        try:
+            ours = [f1]
+            for k in range(1, nfr):
+                post(base, key, {"action": "progress", "job_id": job["id"], "state": "drawing the throw: frame %d of %d (throw %d of %d)" % (k + 1, nfr, n, count)})
+                r1 = up(ours[-1], "throw_prev%d_%d.png" % (n, k))
+                r2 = up(B2.pose(fr[k]), "throw_pose%d_%d.png" % (n, k))
+                best = None
+                for sd in THROW_SEEDS:
+                    raw = folder / ("throw_raw%d_%d_s%d.png" % (n, k, sd))
+                    raw.write_bytes(comfy.run(comfy.klein(B5.caption(k + 1, nfr), [r1, r2, r3], 320, 320, sd, "sigma/backmotion5", lora=THROW_LORA)))
+                    im, dist = lock_palette(klein_follower.to_back(raw), pal)
+                    score = iou(im, fr[k]) - dist / 60
+                    if best is None or score > best[0]:
+                        best = (score, im, sd)
+                ours.append(best[1])
+            strip = Image.new("RGBA", (80 * nfr, 80), (0, 0, 0, 0))
+            for k, im in enumerate(ours):
+                strip.alpha_composite(im, (80 * k, 0))
+            image = folder / ("throw%d.png" % n)
+            strip.save(image)
+            post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "done",
+                             "note": ("throw from back #%s: v5 c750, template %02d (%s), seeds %s" % (src.get("id"), tpl, "wide" if tpl == THROW_WIDE else "slim", ",".join(map(str, THROW_SEEDS))))[:300],
+                             "seconds": round(time.time() - started, 1)}, {"image": image})
+            made += 1
+        except Exception as problem:
+            log("throw %d of job %d failed: %s" % (n, job["id"], problem))
             post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "failed",
                              "note": ("%s: %s" % (type(problem).__name__, problem))[:300], "seconds": round(time.time() - started, 1)})
     return made
