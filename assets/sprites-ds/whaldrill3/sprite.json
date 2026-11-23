@@ -4,6 +4,7 @@
     "back.png": "[ds-back] sprite #272",
     "icon.png": "[ds-icon] sprite #272",
     "follower.png": "[ds-follower] sprite #272",
-    "front2.png": "[ds-front2] sprite #820"
+    "front2.png": "[ds-front2] sprite #820",
+    "back2.png": "[ds-back2] sprite #920"
   }
 }

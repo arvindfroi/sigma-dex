@@ -11156,5 +11156,26 @@
     "file": "assets/concept-art/meowthwo/4831.png",
     "caption": "[ds-back2] sprite #917",
     "editor": "Arvind"
+  },
+  {
+    "id": 4837,
+    "species": "whaldrill0",
+    "file": "assets/concept-art/whaldrill0/4837.png",
+    "caption": "[ds-back2] sprite #918",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4843,
+    "species": "whyrmshade",
+    "file": "assets/concept-art/whyrmshade/4843.png",
+    "caption": "[ds-back2] sprite #919",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4849,
+    "species": "whaldrill3",
+    "file": "assets/concept-art/whaldrill3/4849.png",
+    "caption": "[ds-back2] sprite #920",
+    "editor": "Arvind"
   }
 ]

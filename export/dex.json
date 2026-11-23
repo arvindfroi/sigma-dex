@@ -840,7 +840,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Torterra"
       },
       "id": "leafaxer"
     },
@@ -1076,7 +1077,8 @@
         "front_y_offset": 12,
         "back_y_offset": 10,
         "icon_palette": 3,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Nidoran♀"
       },
       "id": "waffy"
     },
@@ -1356,7 +1358,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Prinplup"
       },
       "id": "wealther"
     },
@@ -1705,7 +1708,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Golduck"
       },
       "id": "warrallier"
     },
@@ -1954,7 +1958,8 @@
         "front_y_offset": 11,
         "back_y_offset": 11,
         "icon_palette": 5,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Delibird"
       },
       "id": "torchbat"
     },
@@ -2544,7 +2549,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Aerodactyl"
       },
       "id": "blazterra"
     },
@@ -2799,7 +2805,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Spearow"
       },
       "id": "erobi"
     },
@@ -3059,7 +3066,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Farfetch’d"
       },
       "id": "harpie"
     },
@@ -3331,7 +3339,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Aerodactyl"
       },
       "id": "smeatherace"
     },
@@ -3583,7 +3592,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Skarmory"
       },
       "id": "bolthook"
     },
@@ -4089,7 +4099,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Weepinbell"
       },
       "id": "twemp"
     },
@@ -4368,7 +4379,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Parasect"
       },
       "id": "florantula"
     },
@@ -4604,7 +4616,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Bellsprout"
       },
       "id": "pipwi"
     },
@@ -5136,7 +5149,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Eevee"
       },
       "id": "coati"
     },
@@ -5968,7 +5982,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Walrein"
       },
       "id": "mooceon"
     },
@@ -6543,7 +6558,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Hitmonchan"
       },
       "id": "brawleo"
     },
@@ -6800,7 +6816,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Sudowoodo"
       },
       "id": "sigmanian-sudowoodo"
     },
@@ -7288,7 +7305,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Abomasnow"
       },
       "id": "freezrick"
     },
@@ -7537,7 +7555,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Swinub"
       },
       "id": "bulbtle"
     },
@@ -8577,7 +8596,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Alakazam"
       },
       "id": "galfrogtom"
     },
@@ -8825,7 +8845,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Fearow"
       },
       "id": "cloudgnome"
     },
@@ -9523,7 +9544,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Illumise"
       },
       "id": "rainbro"
     },
@@ -9761,7 +9783,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Grimer"
       },
       "id": "nukfae"
     },
@@ -10048,7 +10071,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Grimer"
       },
       "id": "toxiren"
     },
@@ -10281,7 +10305,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Croconaw"
       },
       "id": "stonma"
     },
@@ -10782,7 +10807,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Hoppip"
       },
       "id": "tinky"
     },
@@ -11598,7 +11624,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Abra"
       },
       "id": "chebbi"
     },
@@ -11892,7 +11919,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Weavile"
       },
       "id": "devampry"
     },
@@ -12148,7 +12176,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Aerodactyl"
       },
       "id": "chillalit"
     },
@@ -12393,7 +12422,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Remoraid"
       },
       "id": "zapana"
     },
@@ -12677,7 +12707,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Gorebyss"
       },
       "id": "ampeel"
     },
@@ -12922,7 +12953,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Grimer"
       },
       "id": "tomaterdander"
     },
@@ -13432,7 +13464,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Heracross"
       },
       "id": "beatld"
     },
@@ -13667,7 +13700,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Bellossom"
       },
       "id": "fleuroom"
     },
@@ -14398,7 +14432,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Piloswine"
       },
       "id": "docuphant"
     },
@@ -14648,7 +14683,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Tauros"
       },
       "id": "razox"
     },
@@ -15395,7 +15431,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Ditto"
       },
       "id": "hairyen"
     },
@@ -15696,7 +15733,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Metagross"
       },
       "id": "panzerien"
     },
@@ -15919,7 +15957,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Drifblim"
       },
       "id": "nucloid"
     },
@@ -16178,7 +16217,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Magnezone"
       },
       "id": "nuclobyl"
     },
@@ -16736,7 +16776,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Aipom"
       },
       "id": "julius"
     },
@@ -17347,7 +17388,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Slowking"
       },
       "id": "harambe"
     },
@@ -17579,7 +17621,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Poliwag"
       },
       "id": "anjane"
     },
@@ -17834,7 +17877,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Xatu"
       },
       "id": "janenon"
     },
@@ -18373,7 +18417,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Gastrodon"
       },
       "id": "abyssys"
     },
@@ -19398,7 +19443,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Oddish"
       },
       "id": "leadling"
     },
@@ -19651,7 +19697,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Sudowoodo"
       },
       "id": "leadling-utvikling"
     },
@@ -19906,7 +19953,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Rampardos"
       },
       "id": "blylem"
     },
@@ -20621,7 +20669,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Lopunny"
       },
       "id": "furamire"
     },
@@ -21349,7 +21398,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Tentacruel"
       },
       "id": "parahaunt"
     },
@@ -22122,7 +22172,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Bibarel"
       },
       "id": "detecup"
     },
@@ -22395,7 +22446,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Alakazam"
       },
       "id": "snownin"
     },
@@ -22648,7 +22700,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Dusclops"
       },
       "id": "verrith"
     },
@@ -22883,7 +22936,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Munchlax"
       },
       "id": "sigmanian-komala"
     },
@@ -23174,7 +23228,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Snorlax"
       },
       "id": "dahrugula"
     },
@@ -23640,7 +23695,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Omastar"
       },
       "id": "flurina"
     },
@@ -24179,7 +24235,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Cherubi"
       },
       "id": "quimsy"
     },
@@ -24673,7 +24730,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Magmortar"
       },
       "id": "skiirtle"
     },
@@ -24967,7 +25025,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Manectric"
       },
       "id": "mcskiirtle"
     },
@@ -25208,7 +25267,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Bronzor"
       },
       "id": "ambuger"
     },
@@ -25481,7 +25541,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Zubat"
       },
       "id": "ambcoptr"
     },
@@ -25723,7 +25784,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Carnivine"
       },
       "id": "tortoplasm"
     },
@@ -26190,7 +26252,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Charmeleon"
       },
       "id": "slothbaby"
     },
@@ -26501,7 +26564,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Entei"
       },
       "id": "slothbaby-utviklet"
     },
@@ -26754,7 +26818,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Infernape"
       },
       "id": "gaiafinn"
     },
@@ -27826,7 +27891,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Tyrogue"
       },
       "id": "limulk"
     },
@@ -28327,7 +28393,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Dratini"
       },
       "id": "phantomb"
     },
@@ -28582,7 +28649,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Xatu"
       },
       "id": "sjef"
     },
@@ -29115,7 +29183,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Articuno"
       },
       "id": "oraclaw"
     },
@@ -31083,7 +31152,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Shiftry"
       },
       "id": "shadrove"
     },
@@ -31348,7 +31418,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Empoleon"
       },
       "id": "autuman"
     },
@@ -32107,7 +32178,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Magmortar"
       },
       "id": "jawbreaker"
     },
@@ -32350,7 +32422,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Vibrava"
       },
       "id": "dreadipede"
     },
@@ -32835,7 +32908,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Totodile"
       },
       "id": "surfer"
     },
@@ -33104,7 +33178,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Vaporeon"
       },
       "id": "subwaysurfer"
     },
@@ -33380,7 +33455,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Electivire"
       },
       "id": "zyzzfu"
     },
@@ -33630,7 +33706,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Abra"
       },
       "id": "grincho"
     },
@@ -34105,7 +34182,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Gallade"
       },
       "id": "glac-p-e"
     },
@@ -34372,7 +34450,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Mewtwo"
       },
       "id": "everdark"
     },
@@ -34605,7 +34684,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Pidgey"
       },
       "id": "diedo"
     },
@@ -34887,7 +34967,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Cresselia"
       },
       "id": "seraphinnen"
     },
@@ -35143,7 +35224,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Espeon"
       },
       "id": "riftbloom"
     },
@@ -35404,7 +35486,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Alakazam"
       },
       "id": "riftlees"
     },
@@ -35888,7 +35971,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Goldeen"
       },
       "id": "strawboo"
     },
@@ -36389,7 +36473,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Seaking"
       },
       "id": "wreckingdrake"
     },
@@ -36600,7 +36685,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Elekid"
       },
       "id": "iron-wire"
     },
@@ -36918,7 +37004,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Deoxys"
       },
       "id": "solidedge"
     },
@@ -37005,7 +37092,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Cleffa"
       },
       "id": "rosie"
     },
@@ -37086,7 +37174,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Gardevoir"
       },
       "id": "rosievoir"
     },
@@ -37337,7 +37426,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Sealeo"
       },
       "id": "whaldrill0"
     },
@@ -37862,7 +37952,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Walrein"
       },
       "id": "whaldrill3"
     },
@@ -38375,7 +38466,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Combusken"
       },
       "id": "vendepiede"
     },
@@ -38688,7 +38780,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Ninetales"
       },
       "id": "venorax"
     },
@@ -39513,7 +39606,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Corsola"
       },
       "id": "whyrmshade"
     },
@@ -39771,7 +39865,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Dusknoir"
       },
       "id": "abysspero"
     },
@@ -39994,7 +40089,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Empoleon"
       },
       "id": "aqualoom"
     },
@@ -40928,7 +41024,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Dragonite"
       },
       "id": "horaxander"
     },
@@ -41245,7 +41342,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Flygon"
       },
       "id": "dinoactyl"
     },
@@ -41326,7 +41424,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Torkoal"
       },
       "id": "tusksir"
     },
@@ -41407,7 +41506,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Aipom"
       },
       "id": "steinar"
     },
@@ -42876,7 +42976,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Snorunt"
       },
       "id": "ibur"
     },
@@ -42956,7 +43057,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Delibird"
       },
       "id": "tbur"
     },
@@ -43037,7 +43139,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Electivire"
       },
       "id": "nebur"
     },
@@ -43118,7 +43221,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Spiritomb"
       },
       "id": "rhamp"
     },
@@ -43713,7 +43817,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Gabite"
       },
       "id": "greation"
     },
@@ -44293,7 +44398,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Quilava"
       },
       "id": "santrock"
     },
@@ -44868,7 +44974,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Rampardos"
       },
       "id": "custodix"
     },
@@ -45099,7 +45206,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Entei"
       },
       "id": "entrigon"
     },
@@ -45323,7 +45431,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Azumarill"
       },
       "id": "tsunamo"
     },
@@ -45575,7 +45684,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Dialga"
       },
       "id": "felk"
     },
@@ -45836,7 +45946,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Beedrill"
       },
       "id": "moosus"
     },
@@ -46083,7 +46194,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Heatran"
       },
       "id": "rockedeer"
     },
@@ -46301,7 +46413,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Latias"
       },
       "id": "praxis"
     },
@@ -46528,7 +46641,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Latios"
       },
       "id": "laxis"
     },
@@ -46762,7 +46876,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Mewtwo"
       },
       "id": "maagamad"
     },
@@ -46996,7 +47111,8 @@
         "front_y_offset": 8,
         "back_y_offset": 10,
         "icon_palette": 5,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Whiscash"
       },
       "id": "bergflabbser"
     },
@@ -47519,7 +47635,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Dialga"
       },
       "id": "sabertann"
     },
@@ -47854,7 +47971,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Giratina"
       },
       "id": "voraxia"
     },
@@ -48112,7 +48230,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Celebi"
       },
       "id": "sandrema"
     },
@@ -48336,7 +48455,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Granbull"
       },
       "id": "meowthwo"
     }
