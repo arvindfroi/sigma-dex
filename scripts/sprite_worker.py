@@ -17,6 +17,7 @@ import os
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -598,6 +599,42 @@ def run(job, base, key, settings):
     return made
 
 
+def quick_lane(base, key, anon):
+    """Animation previews next to the drawing (2026-11-23; Arvind: "det tar så lang tid å bytte animasjon"). A preview
+    takes about 3 seconds, but it waited up to a minute behind the drawing job in hand. This thread does only the
+    'animprev' jobs. It looks at the queue through the database's REST API every 1.5 seconds (a plain read, not a call
+    of the worker function, so the function's monthly calls do not grow) and claims only when a preview waits."""
+    url = base + "/rest/v1/sprite_jobs?stage=eq.animprev&status=eq.queued&select=id&limit=1"
+    while True:
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers={"apikey": anon}), timeout=20) as response:
+                waiting = json.loads(response.read())
+        except Exception:                             # the database is away for a moment: the main loop says so
+            time.sleep(15)
+            continue
+        if not waiting:
+            time.sleep(1.5)
+            continue
+        try:
+            job = post(base, key, {"action": "claim", "stages": "animprev"}).get("job")
+        except (RuntimeError, OSError):
+            time.sleep(15)
+            continue
+        if not job:                                   # the main loop took it
+            continue
+        error = ""
+        try:
+            run(job, base, key, None)
+            log("job %d: animation preview (quick lane)" % job["id"])
+        except Exception as problem:
+            error = "%s: %s" % (type(problem).__name__, problem)
+            log("job %d failed: %s" % (job["id"], error))
+        try:
+            post(base, key, {"action": "finish", "job_id": job["id"], "error": error[:480]})
+        except (RuntimeError, OSError) as problem:
+            log("could not report job %d: %s" % (job["id"], problem))
+
+
 def main():
     config = dexlib.load_config().get("web_edits") or {}
     base = (config.get("url") or "").rstrip("/")
@@ -606,6 +643,11 @@ def main():
     key = KEY_FILE.read_text().strip()
     head = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
     log("sprite worker started (%s)" % head[:7])
+    if STAGES == ALL_STAGES and config.get("key"):
+        import anim_preview
+        if anim_preview.player():
+            threading.Thread(target=quick_lane, args=(base, key, config["key"]), daemon=True).start()
+            log("quick lane for animation previews started")
     idle_since, unloaded, checked = time.time(), True, time.time()
     while True:
         try:

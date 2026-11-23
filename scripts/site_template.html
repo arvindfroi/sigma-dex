@@ -4449,9 +4449,30 @@ function renderSwipe() {
       st.loaded = true; st.msg = st.msg.startsWith("Could not") ? "" : st.msg;
     } catch (err) { st.msg = err.message; }
     if (!st.busy) draw();
-    // faster while the card on screen waits for its animation preview (the drawing PC makes it in a few seconds)
-    const c = st.card, s0 = c && byId.get(c.c.species_id);
-    if (box.isConnected) st.timer = setTimeout(load, c && s0 && !animOf(c.t, animDonorOf(s0)) ? 4000 : 20000);
+    if (box.isConnected) st.timer = setTimeout(load, 20000);
+  }
+  // The card on screen waits for its animation preview: ask for just that try every 1.5 s and show it as soon as it is
+  // there. Since 23 Nov the drawing PC makes previews in a quick lane next to the drawing (Arvind: "det tar så lang tid
+  // å bytte animasjon"), so a new animation shows in a few seconds instead of up to a minute.
+  function watch(t, donor) {
+    if (!t || !donor || animOf(t, donor)) return;
+    const tag = t.id + "|" + donor;
+    if (st.watching === tag) return;
+    st.watching = tag;
+    const t0 = Date.now();
+    const tick = async () => {
+      if (st.watching !== tag || !box.isConnected) return;
+      try {
+        const [row] = await dbRead("sprite_tries?id=eq." + t.id + "&select=anim,anim_from&limit=1");
+        if (row && row.anim && row.anim_from === donor) {
+          t.anim = row.anim; t.anim_from = row.anim_from; st.watching = null;
+          if (!st.busy) draw();
+          return;
+        }
+      } catch (e) { /* a hiccup: the next tick tries again */ }
+      if (Date.now() - t0 < 90000) setTimeout(tick, 1500); else st.watching = null;
+    };
+    setTimeout(tick, 1500);
   }
   // every saved sprite x (front 2, back 2): saved, a card to look at, being drawn, or stuck (failed / turned down with nothing new coming)
   function sort() {
@@ -4508,7 +4529,7 @@ function renderSwipe() {
     const s = byId.get(card.c.species_id), name = s ? s.data.name : card.c.species_id, front = card.view === "front2";
     const frame1 = artUrl(front ? card.c.front : card.c.back), frame2 = artUrl(card.t.image), size = f2SizeOf(card.t);
     const donor = s ? animDonorOf(s) : "", animUrl = animOf(card.t, donor);
-    if (!animUrl) askAnim(card.t, donor);
+    if (!animUrl) { askAnim(card.t, donor); watch(card.t, donor); }
     for (const n of nextCards) { const ns = byId.get(n.c.species_id); if (ns) askAnim(n.t, animDonorOf(ns)); }   // the next cards' previews early
     for (const n of nextCards) { new Image().src = artUrl(n.t.image); new Image().src = artUrl(n.view === "front2" ? n.c.front : n.c.back); }
     const yesStamp = h("div", {class: "sstamp yes"}, "YES"), noStamp = h("div", {class: "sstamp no"}, "NO");
@@ -4520,7 +4541,7 @@ function renderSwipe() {
         : h("div", {style: "position:relative;line-height:0"}, flipPair(frame1, frame2, 240),
             h("span", {class: "sub", style: "position:absolute;left:0;bottom:-2px;line-height:1.2;background:var(--panel);padding:0 4px"}, "making the battle animation..."))),
       h("div", {class: "spair"}, h("figure", {}, h("img", {src: frame1, alt: "frame 1"}), "frame 1"), h("figure", {}, h("img", {src: frame2, alt: "frame 2"}), "frame 2")),
-      s ? animChooser(s, {compact: true, onChange: d => { askAnim(card.t, d); clearTimeout(st.timer); st.timer = setTimeout(load, 4000); draw(); }}) : null,
+      s ? animChooser(s, {compact: true, onChange: d => { askAnim(card.t, d); draw(); }}) : null,
       h("div", {class: "snote" + (card.t.status === "broken" ? " bad" : "")},
         card.t.status === "broken" ? "BROKEN? " + (card.t.note || "maybe new or missing body parts") : (card.t.note || "")));
     // drag to decide (phones): past 90 px it counts
