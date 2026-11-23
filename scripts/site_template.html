@@ -4108,7 +4108,7 @@ function pixelEditor(o) {
   // The game's colour rule for this kind of sprite, as one button (studio colours, 15 Oct).
   let frontImg = null;
   function gameColours() {
-    if (o.view === "back" && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, paletteOf(frontImg), 1, true); changed(); }}, "USE THE FRONT'S COLOURS"),
+    if (o.view === "back" && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, paletteOf(frontImg), 1); changed(); }}, "USE THE FRONT'S COLOURS"),
       h("div", {class: "hint", style: "margin:4px 0 0"}, "In the game the back has exactly the front's colours.")];
     if (o.view === "follower" && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, followerPalette(frontImg), 0.5); changed(); }}, "CLOSER TO THE FRONT"),
       h("div", {class: "hint", style: "margin:4px 0 0"}, "Real walking sprites are a little darker than the front, with the same colours.")];
