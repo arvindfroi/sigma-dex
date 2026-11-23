@@ -68,14 +68,97 @@ def colours(img):
     return c, n / n.sum()
 
 
-def snap(img, palette):
-    """every solid colour -> the nearest palette colour (Lab)"""
+def assign(cost):
+    """the cheapest way to give every row its own column (rows <= columns): the Hungarian method (Kuhn-Munkres with
+    potentials, O(n^2 m)). Written out here so the drawing PC needs no scipy; scripts/site_template.html has the same."""
+    cost = np.asarray(cost, np.float64); n, m = cost.shape
+    INF = float("inf"); u = [0.0] * (n + 1); v = [0.0] * (m + 1); p = [0] * (m + 1); way = [0] * (m + 1)
+    for i in range(1, n + 1):
+        p[0] = i; j0 = 0; minv = [INF] * (m + 1); used = [False] * (m + 1)
+        while True:
+            used[j0] = True; i0 = p[j0]; delta = INF; j1 = 0
+            row = cost[i0 - 1]
+            for j in range(1, m + 1):
+                if not used[j]:
+                    cur = row[j - 1] - u[i0] - v[j]
+                    if cur < minv[j]: minv[j] = cur; way[j] = j0
+                    if minv[j] < delta: delta = minv[j]; j1 = j
+            for j in range(m + 1):
+                if used[j]: u[p[j]] += delta; v[j] -= delta
+                else: minv[j] -= delta
+            j0 = j1
+            if p[j0] == 0: break
+        while True:
+            j1 = way[j0]; p[j0] = p[j1]; j0 = j1
+            if j0 == 0: break
+    out = [0] * n
+    for j in range(1, m + 1):
+        if p[j]: out[p[j] - 1] = j - 1
+    return out
+
+
+# 2026-11-23, Arvind: "slik det er nå så merges den mange farger til en ... Jeg vil at alle fargene shiftes til den relative
+# nabofarge UTEN at de okkuperer samme farge". Nearest-colour snapping sent several of a sprite's colours to the same palette
+# colour (two greens -> one green) and lost the details. Now every colour gets a palette colour of its OWN: the cheapest
+# one-to-one assignment (Lab distance), where a big area weighs more than a small detail (so details move to a free
+# neighbour, big areas keep their nearest). A colour only goes to a shade of its own family (grey to grey, a colour within
+# FAMILY degrees of hue), and two colours share one only when no free shade is within MERGE (Lab) more of it.
+MERGE, HUE, FAMILY = 12.0, 1.0, 40.0
+NEUTRAL, PALE, OUTSIDE = 12.0, 25.0, 1000.0
+
+
+def family_gate(L1, L2, family=None):
+    """OUTSIDE where a target is not in the source's colour family: grey stays grey, a colour stays within `family` degrees
+    of hue. Within the family the cheapest free shade wins, so shades keep their own colour and their light-to-dark order."""
+    family = FAMILY if family is None else family
+    C1 = np.hypot(L1[:, 1], L1[:, 2]); C2 = np.hypot(L2[:, 1], L2[:, 2])
+    h1 = np.degrees(np.arctan2(L1[:, 2], L1[:, 1])); h2 = np.degrees(np.arctan2(L2[:, 2], L2[:, 1]))
+    dh = np.abs((h1[:, None] - h2[None] + 180) % 360 - 180)
+    n1, n2, p1 = (C1 < NEUTRAL)[:, None], (C2 < NEUTRAL)[None], (C1 < PALE)[:, None]
+    # a grey goes to a grey; a pale, nearly grey colour (lavender white, ice blue) may also go to a grey
+    out = (n1 & ~n2) | (~p1 & n2) | (~n1 & ~n2 & (dh > family))
+    return np.where(out, OUTSIDE, 0.0)
+
+
+def hue_distance(L1, L2, hue=None):
+    """Lab distance with the hue part weighted (LCh): with hue > 1 a shade goes to another shade of its own colour before
+    it goes to a neighbouring colour"""
+    hue = HUE if hue is None else hue
+    C1 = np.hypot(L1[:, 1], L1[:, 2])[:, None]; C2 = np.hypot(L2[:, 1], L2[:, 2])[None]
+    dL = L1[:, 0][:, None] - L2[:, 0][None]; dC = C1 - C2
+    dab2 = (L1[:, 1][:, None] - L2[:, 1][None]) ** 2 + (L1[:, 2][:, None] - L2[:, 2][None]) ** 2
+    dH2 = np.maximum(dab2 - dC ** 2, 0)
+    return np.sqrt(dL ** 2 + dC ** 2 + hue * hue * dH2)
+
+
+def distinct_map(cols, shares, palette, merge=None, hue=None, family=None):
+    """for each source colour (rows of cols, RGB) the index of its palette colour"""
+    merge = MERGE if merge is None else merge
+    cols = np.asarray(cols, np.uint8); pal = np.asarray(palette, np.uint8); n, m = len(cols), len(pal)
+    if not n or not m:
+        return np.zeros(n, int)
+    L1, L2 = lab(cols), lab(pal)
+    d = hue_distance(L1, L2, hue) + family_gate(L1, L2, family)
+    shares = np.asarray(shares, np.float64); w = 0.3 + 0.7 * np.sqrt(shares / max(shares.max(), 1e-9))
+    slots = n                                                # no cap: every further taker of one colour just costs more
+    # column s*m + k = colour k for its s-th taker; moving AND sharing are weighed by the area, so a big area keeps its
+    # nearest colour and a small detail moves to a free neighbour rather than share
+    cost = np.concatenate([(d + s * merge) * w[:, None] for s in range(slots)], 1)
+    return np.array(assign(cost)) % m          # the optimum keeps shades in their light-to-dark order by itself
+
+
+def snap(img, palette, distinct=True):
+    """every solid colour -> a palette colour (Lab): its own one (distinct_map), or with distinct=False the nearest"""
     a = np.array(img.convert("RGBA")); solid = a[..., 3] > 0
     if not solid.any() or not len(palette):
         return Image.fromarray(a)
-    cols, inv = np.unique(a[solid][:, :3], axis=0, return_inverse=True)
-    pal = np.asarray(palette, np.uint8); d = ((lab(cols)[:, None] - lab(pal)[None]) ** 2).sum(-1)
-    flat = a[solid]; flat[:, :3] = pal[d.argmin(1)][inv.ravel()]; a[solid] = flat
+    cols, inv, counts = np.unique(a[solid][:, :3], axis=0, return_inverse=True, return_counts=True)
+    pal = np.asarray(palette, np.uint8)
+    if distinct:
+        pick = distinct_map(cols, counts / counts.sum(), pal)
+    else:
+        pick = ((lab(cols)[:, None] - lab(pal)[None]) ** 2).sum(-1).argmin(1)
+    flat = a[solid]; flat[:, :3] = pal[pick][inv.ravel()]; a[solid] = flat
     return Image.fromarray(a)
 
 
