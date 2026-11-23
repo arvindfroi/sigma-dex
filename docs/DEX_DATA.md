@@ -1008,7 +1008,15 @@ Everything is kept in three places:
      ago (`RAW_DAYS`, rule in `raw_prune_candidates`), and only if the backup holds it at the same size. The path
      stays in `sprite_tries.raw`. Why: Supabase's free plan holds 1.1 GB, the bucket had reached 2.19 GB, 1.9 GB of
      it raws (a front's raw ~1.4 MB, its sprite 2 KB), and the website never shows a raw. Picked raws stay on the
-     website. This is the only thing the backup ever deletes, and it never deletes here.
+     website.
+   - **Old unchosen tries of Pokemon with a saved set live only here** (since 2026-11-23; Arvind: "ta den du" when
+     the bucket was at 1.34 GB). After the raws, the backup sends every studio file it holds (`prune_unchosen`), and
+     the function removes every file of a try of a Pokemon with an approved set that finished more than 7 days ago
+     (`UNCHOSEN_DAYS`, rule in `unchosen_prune_candidates`), unless an approved or waiting set uses it, it belongs to
+     a try such a set uses or a waiting job starts from, or it is the picture of a try one of those was made from;
+     again only if the backup holds it at the same size, and only on a night when every picture was downloaded. The
+     tries get `pruned_at` and the studio stops listing them. Trainer tries and Pokemon without a set are never
+     touched. These two are the only things the backup ever deletes, and it never deletes here.
    - `backup.log`: one line per night with the free space left; a line with PROBLEMS means something was not copied
      or that less than 3 GB is free. Below 1.5 GB free no new pictures are downloaded, so the disk never fills up.
 

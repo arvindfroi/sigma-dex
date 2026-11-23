@@ -3975,7 +3975,7 @@ function spriteStudio(s, startStep) {
   async function load() {
     try {
       [st.tries, st.line, st.worker, st.versions] = await Promise.all([
-        dbRead("sprite_tries?species_id=eq." + s.id + "&order=id.desc&limit=300"),
+        dbRead("sprite_tries?species_id=eq." + s.id + "&pruned_at=is.null&order=id.desc&limit=300"),   // pruned_at: an old unchosen try whose files left the storage (2026-11-23)
         dbRead("sprite_jobs?status=in.(queued,running)&order=status.desc,batch.asc,id.asc&select=batch,id,species_id,status,mode,stage,count,started_at,from_try,with_try,recipe"),
         dbRead("sprite_worker?select=seen_at,state,timings").then(r => r[0] || null),
         dbRead("sprite_candidates?species_id=eq." + s.id + "&gen=eq.4&status=in.(approved,superseded)&order=id.desc&limit=20&select=id,status,front,back,icon,follower,front2,back2,created_at")]);

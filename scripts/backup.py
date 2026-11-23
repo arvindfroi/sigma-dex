@@ -12,8 +12,9 @@ last run (state.json remembers what the last run saw). Three parts, none of whic
   Old days are kept.
 - files/<path>: every picture the database points to in the "art" storage (uploads, Lost and found, studio tries).
   A picture is downloaded once; nothing here is overwritten or removed.
-Then the raws of unpicked studio tries that are safely here are removed from the website storage (prune_raws): the
-free plan holds 1.1 GB, so this backup is where those raws live. Only that ever deletes, and only on the website.
+Then the raws of unpicked studio tries that are safely here are removed from the website storage (prune_raws), and
+since 2026-11-23 also every file of a week-old try nobody chose of a Pokemon with a saved sprite set (prune_unchosen):
+the free plan holds 1.1 GB, so this backup is where those files live. Only that ever deletes, and only on the website.
 A summary of each run is appended to backup.log. Restoring: docs/DEX_DATA.md#backup.
 """
 import datetime
@@ -129,6 +130,35 @@ def prune_raws(base, target):
         result.get("removed", 0), result.get("bytes", 0) / 1024 ** 2, result.get("allowed", 0), result.get("backed_up", 0))
 
 
+def prune_unchosen(base, target):
+    """The files of old tries nobody chose, of Pokemon that have a saved sprite set, leave the website storage once
+    they are here (2026-11-23; Arvind: "ta den du", unchosen tries older than 7 days, the storage was at 1.34 GB of
+    1.1). Sends every studio file this backup holds with its size; the sprite-worker function removes only those
+    unchosen_prune_candidates allows and that are here at the same size, at most 1000 per call, so it is called
+    until nothing more goes."""
+    key_file = Path(os.environ.get("SIGMA_WORKER_KEY_FILE", r"D:\LocalAI\sigma-worker\worker.key"))
+    if not key_file.exists():
+        return "unchosen tries not pruned (no worker key at %s)" % key_file
+    files = target / "files"
+    have = {"/".join(p.relative_to(files).parts): p.stat().st_size for p in (files / "tries").rglob("*") if p.is_file()}
+    removed = size = 0
+    for _ in range(20):
+        body = urllib.parse.urlencode({"action": "prune_unchosen", "key": key_file.read_text(encoding="utf-8").strip(),
+                                       "have": json.dumps(have)}).encode()
+        request = urllib.request.Request(base + "/functions/v1/sprite-worker", body,
+                                         {"Content-Type": "application/x-www-form-urlencoded", "User-Agent": "sigma-dex-backup"})
+        try:
+            with urllib.request.urlopen(request, timeout=300) as response:
+                result = json.loads(response.read())
+        except urllib.error.HTTPError as error:
+            raise RuntimeError("the website said %s: %s" % (error.code, error.read()[:200].decode("utf-8", "replace")))
+        removed += result.get("removed", 0)
+        size += result.get("bytes", 0)
+        if not result.get("removed"):
+            break
+    return "unchosen tries moved off the website storage: %d files (%.0f MB)" % (removed, size / 1024 ** 2)
+
+
 def main():
     if len(sys.argv) < 2:
         sys.exit(__doc__)
@@ -200,6 +230,11 @@ def main():
             lines.append(pruned)
     except Exception as error:
         problems.append("raws: %s" % error)
+    if not failed:                  # only when every picture the database points to is here
+        try:
+            lines.append(prune_unchosen(base, target))
+        except Exception as error:
+            problems.append("unchosen tries: %s" % error)
     lines.append("%.1f GB free" % (shutil.disk_usage(target).free / 1024 ** 3))
     if not problems:
         state_file.write_text(json.dumps({"tables": dict(state.get("tables", {}), **sums), "last_run": day}, indent=1), encoding="utf-8")

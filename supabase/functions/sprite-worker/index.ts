@@ -9,6 +9,10 @@ const FILES = ["raw_front", "raw_back", "front", "back", "preview", "icon"];
 const NEEDED = ["front", "back"];
 // Days an unpicked try keeps its raw picture in the storage (prune_raws). Picking a try never needs its raw.
 const RAW_DAYS = 1;
+// Days an unchosen try of a Pokemon with a saved set keeps its files in the storage (prune_unchosen, 2026-11-23),
+// and how many files one call removes at most (the backup calls again until nothing is left).
+const UNCHOSEN_DAYS = 7;
+const UNCHOSEN_PER_CALL = 1000;
 
 function reply(status: number, body: unknown) {
   return new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
@@ -67,6 +71,34 @@ Deno.serve(async (req: Request) => {
         for (const r of batch) if (goneNames.has(r.path)) { removed += 1; bytes += Number(r.bytes); }
       }
       return reply(200, { allowed: rows.length, backed_up: safe.length, removed, bytes, days: RAW_DAYS });
+    }
+
+    // Housekeeping (2026-11-23; Arvind: "ta den du"): the files of old tries nobody chose, of Pokemon that have a saved
+    // sprite set, leave the storage once the Legion's backup holds them (unchosen_prune_candidates says which; never a
+    // file a set or a job still needs). Same `have` check as prune_raws. Their tries get pruned_at, so the studio
+    // stops showing them; the pictures stay in D:\SigmaBackup\files\<path>.
+    if (action === "prune_unchosen") {
+      let have: Record<string, number>;
+      try { have = JSON.parse(String(form.get("have") ?? "{}")); } catch (_e) { return reply(400, { message: "have is not JSON" }); }
+      const { data, error } = await supabase.rpc("unchosen_prune_candidates", { p_days: UNCHOSEN_DAYS });
+      if (error) return reply(500, { message: error.message });
+      const rows = (data ?? []) as { path: string; bytes: number }[];
+      const safe = rows.filter((r) => typeof have[r.path] === "number" && have[r.path] === Number(r.bytes)).slice(0, UNCHOSEN_PER_CALL);
+      let removed = 0, bytes = 0, marked = 0;
+      for (let i = 0; i < safe.length; i += 100) {
+        const batch = safe.slice(i, i + 100);
+        const { data: gone, error: removeError } = await supabase.storage.from("art").remove(batch.map((r) => r.path));
+        if (removeError) return reply(500, { message: removeError.message, removed, bytes, marked });
+        const goneNames = (gone ?? []).map((g: { name: string }) => g.name);
+        const goneSet = new Set(goneNames);
+        for (const r of batch) if (goneSet.has(r.path)) { removed += 1; bytes += Number(r.bytes); }
+        if (goneNames.length) {
+          const { count } = await supabase.from("sprite_tries").update({ pruned_at: new Date().toISOString() }, { count: "exact" })
+            .in("image", goneNames).is("pruned_at", null);
+          marked += count ?? 0;
+        }
+      }
+      return reply(200, { allowed: rows.length, backed_up: safe.length, removed, bytes, marked, days: UNCHOSEN_DAYS });
     }
 
     // The trainer studio's base grid (scripts/trainer_bases.py): the sheet of the gen 4 trainer classes and its index.
