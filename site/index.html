@@ -4441,7 +4441,7 @@ function pixelEditor(o) {
   let frontImg = null;
   function gameColours() {
     if (o.view === "back" && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, paletteOf(frontImg), 1); changed(); }}, "USE THE FRONT'S COLOURS"),
-      h("div", {class: "hint", style: "margin:4px 0 0"}, "In the game the back has exactly the front's colours.")];
+      h("div", {class: "hint", style: "margin:4px 0 0"}, "Not needed: in Origin the back has a palette of its own, so it keeps all its colours. Only for a back you want in exactly the front's colours.")];
     if (o.view === "follower" && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, followerPalette(frontImg), 0.5); changed(); }}, "CLOSER TO THE FRONT"),
       h("div", {class: "hint", style: "margin:4px 0 0"}, "Real walking sprites are a little darker than the front, with the same colours.")];
     if (o.view === "npc" && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, followerPalette(frontImg), 0.5); changed(); }}, "CLOSER TO THE BATTLE SPRITE"),
@@ -4508,7 +4508,8 @@ function pixelEditor(o) {
 // ---------- colours per kind of sprite (2026-10-15) ----------
 // The same rules as scripts/sprite_colours.py, measured on the real HeartGold sprites (Arvind: "different sprites use
 // different colours for the same Pokemon, and so should we"; "we should be able to play with it in the sprite studio"):
-// the back uses exactly the front's colours; the icon uses one of the game's 3 icon palettes (hg-engine adds 3), which the
+// (2026-11-23: in Origin the back has its OWN palette, pokepic member 3 next to the front's member 1, so it need not take
+// the front's colours; vanilla HeartGold shared one) the icon uses one of the game's 3 icon palettes (hg-engine adds 3), which the
 // game picks by the body colour; the follower keeps its own colours, pulled halfway towards the front's and darker shades.
 const ICON_PALETTES = [[[128,128,112],[184,184,184],[248,248,248],[184,160,64],[240,240,40],[208,96,64],[240,144,40],[136,120,248],[96,72,200],[232,112,152],[248,176,160],[160,192,248],[104,168,152],[96,96,88],[64,64,64]],[[120,120,120],[184,184,176],[248,248,248],[112,112,200],[160,168,240],[176,128,88],[232,192,136],[192,168,40],[240,240,40],[240,96,80],[144,120,200],[192,160,200],[184,40,152],[96,96,88],[64,64,64]],[[112,112,112],[184,184,184],[248,248,248],[120,152,72],[152,200,72],[144,240,72],[232,112,152],[240,144,240],[184,160,88],[240,224,40],[240,240,168],[208,208,104],[224,72,40],[96,96,88],[64,64,64]],[[131,131,115],[189,189,189],[255,255,255],[189,164,65],[246,246,41],[213,98,65],[246,148,41],[139,123,255],[98,74,205],[238,115,156],[255,180,164],[164,197,255],[106,172,156],[98,98,90],[65,65,65]],[[123,123,123],[189,189,180],[255,255,255],[115,115,205],[164,172,246],[180,131,90],[238,197,139],[197,172,41],[246,246,41],[246,98,82],[148,123,205],[197,164,205],[189,41,156],[98,98,90],[65,65,65]],[[115,115,115],[189,189,189],[255,255,255],[123,156,74],[156,205,74],[148,246,74],[238,115,156],[246,148,246],[189,164,90],[246,230,41],[246,246,172],[213,213,106],[230,74,41],[98,98,90],[65,65,65]]];
 const ICON_ODDS = {black: [13, 4, 1], blue: [68, 17, 1], brown: [20, 41, 12], gray: [21, 10, 7], green: [3, 0, 46], pink: [24, 1, 6],

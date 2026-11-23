@@ -9,6 +9,9 @@ The rules were then chosen by testing them on all the real sprites (v6cfg/palett
 sprite drifted the way Klein's colours drift, fixed, compared with the real one (Arvind: "something more certain and
 thorough; can the PokeAPI markers help?"):
   back_colours(back, front)          every colour -> the nearest front colour. Drift 7.0 -> 0.8; the exact real back in 74 %.
+                                     2026-11-23: NOT needed for Origin. Its pokepic archive has a palette for the back of
+                                     its own (member 3, shiny member 7; 20 of Origin's species already differ from their
+                                     front's), and a test ROM showed the back drawn from it. So a back keeps all its colours.
   follower_colours(follower, front)  every colour HALFWAY towards the nearest of the front's colours and two darker shades.
                                      Snapping all the way made a nearly right follower worse (5.8 -> 9.5): real follower
                                      colours sit ~10 from the front's. Halfway: 5.8 -> 6.1 when Klein is close, 10.6 -> 8.9
