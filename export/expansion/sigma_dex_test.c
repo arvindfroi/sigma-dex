@@ -1797,6 +1797,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Goatjo can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Puptive has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_PUPTIVE];
+    EXPECT_EQ(info->baseHP, 42);
+    EXPECT_EQ(info->baseAttack, 62);
+    EXPECT_EQ(info->baseDefense, 42);
+    EXPECT_EQ(info->baseSpeed, 67);
+    EXPECT_EQ(info->baseSpAttack, 62);
+    EXPECT_EQ(info->baseSpDefense, 42);
+    EXPECT_EQ(info->types[0], TYPE_NORMAL);
+    EXPECT_EQ(info->types[1], TYPE_NORMAL);
+    EXPECT_EQ(info->abilities[0], ABILITY_PICKUP);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_PUPTIVE)[0], CHAR_P);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Puptive can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_PUPTIVE) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
 TEST("Sigma dex: Detepup has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_DETEPUP];

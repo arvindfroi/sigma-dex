@@ -8344,13 +8344,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2746,
-    "species": "endermon",
-    "file": "assets/concept-art/endermon/2746.png",
-    "caption": null,
-    "editor": "Arvind"
-  },
-  {
     "id": 2747,
     "species": "crepawmon",
     "file": "assets/concept-art/crepawmon/2747.png",
@@ -11177,5 +11170,208 @@
     "file": "assets/concept-art/whaldrill3/4849.png",
     "caption": "[ds-back2] sprite #920",
     "editor": "Arvind"
+  },
+  {
+    "id": 4855,
+    "species": "wump",
+    "file": "assets/concept-art/wump/4855.png",
+    "caption": "[ds-back2] sprite #921",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4861,
+    "species": "zapana",
+    "file": "assets/concept-art/zapana/4861.png",
+    "caption": "[ds-back2] sprite #922",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4867,
+    "species": "yanklet",
+    "file": "assets/concept-art/yanklet/4867.png",
+    "caption": "[ds-back2] sprite #923",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4873,
+    "species": "wispole",
+    "file": "assets/concept-art/wispole/4873.png",
+    "caption": "[ds-back2] sprite #924",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4879,
+    "species": "zapitera",
+    "file": "assets/concept-art/zapitera/4879.png",
+    "caption": "[ds-back2] sprite #925",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4885,
+    "species": "wreckingboo",
+    "file": "assets/concept-art/wreckingboo/4885.png",
+    "caption": "[ds-back2] sprite #926",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4891,
+    "species": "zapitera-mindre-utv",
+    "file": "assets/concept-art/zapitera-mindre-utv/4891.png",
+    "caption": "[ds-back2] sprite #927",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4897,
+    "species": "wreckingdrake",
+    "file": "assets/concept-art/wreckingdrake/4897.png",
+    "caption": "[ds-back2] sprite #928",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4902,
+    "species": "sabertann",
+    "file": "assets/concept-art/sabertann/4902.png",
+    "caption": "[ds-front2] sprite #929",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4909,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/4909.png",
+    "caption": "[ds-back2] sprite #930",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4916,
+    "species": "moosus",
+    "file": "assets/concept-art/moosus/4916.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 4917,
+    "species": "moosus",
+    "file": "assets/concept-art/moosus/4917.png",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 4918,
+    "species": "ledrake",
+    "file": "assets/concept-art/ledrake/4918.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 4919,
+    "species": "ledrake",
+    "file": "assets/concept-art/ledrake/4919.png",
+    "caption": "[ds-front] sprite #933",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4920,
+    "species": "ledrake",
+    "file": "assets/concept-art/ledrake/4920.png",
+    "caption": "[ds-back] sprite #933",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4921,
+    "species": "ledrake",
+    "file": "assets/concept-art/ledrake/4921.png",
+    "caption": "[ds-icon] sprite #933",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4922,
+    "species": "ledrake",
+    "file": "assets/concept-art/ledrake/4922.png",
+    "caption": "[ds-front2] sprite #933",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4926,
+    "species": "ledrake",
+    "file": "assets/concept-art/ledrake/4926.png",
+    "caption": "[ds-follower] sprite #933",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4928,
+    "species": "ledrake",
+    "file": "assets/concept-art/ledrake/4928.png",
+    "caption": "[ds-back2] sprite #933",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4929,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/4929.webp",
+    "caption": "pasted",
+    "editor": "Emil"
+  },
+  {
+    "id": 4930,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/4930.png",
+    "caption": "[ds-front] sprite #935",
+    "editor": "Emil"
+  },
+  {
+    "id": 4932,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/4932.png",
+    "caption": "[ds-icon] sprite #935",
+    "editor": "Emil"
+  },
+  {
+    "id": 4934,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/4934.png",
+    "caption": "[ds-back] sprite #935",
+    "editor": "Emil"
+  },
+  {
+    "id": 4936,
+    "species": "viltector",
+    "file": "assets/concept-art/viltector/4936.webp",
+    "caption": "pasted",
+    "editor": "Arvind"
+  },
+  {
+    "id": 4940,
+    "species": "pegalaxy",
+    "file": "assets/concept-art/pegalaxy/4940.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 4941,
+    "species": "endermon",
+    "file": "assets/concept-art/endermon/4941.png",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 4942,
+    "species": "endermon",
+    "file": "assets/concept-art/endermon/4942.png",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 4943,
+    "species": "tenebravis",
+    "file": "assets/concept-art/tenebravis/4943.webp",
+    "caption": "pasted",
+    "editor": "Emil"
+  },
+  {
+    "id": 4944,
+    "species": "tenebravis",
+    "file": "assets/concept-art/tenebravis/4944.webp",
+    "caption": "pasted",
+    "editor": "Emil"
   }
 ]

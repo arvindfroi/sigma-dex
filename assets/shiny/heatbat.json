@@ -1,0 +1,97 @@
+{
+ "map": {
+  "#100207": "#100207",
+  "#110d15": "#110d15",
+  "#1f1b2f": "#1f1b2f",
+  "#2b2440": "#283050",
+  "#3d406c": "#305078",
+  "#6a0b0f": "#700040",
+  "#755c8a": "#6868a0",
+  "#9e1d11": "#a80858",
+  "#a8525a": "#a85088",
+  "#b02615": "#b81060",
+  "#cea74c": "#e09870",
+  "#dd4d1a": "#e83870",
+  "#e97d27": "#f86868",
+  "#fbdf6f": "#f8d8b0",
+  "#fdd94c": "#f8d0a8"
+ },
+ "follower": {
+  "#0a0304": "#0a0304",
+  "#1e1e34": "#1e1e34",
+  "#20120a": "#20120a",
+  "#383c6f": "#204880",
+  "#581604": "#601030",
+  "#8d731f": "#b06820",
+  "#97290c": "#a01850",
+  "#bbaa45": "#d0a060",
+  "#bf3c03": "#d02860",
+  "#c04a5a": "#c04890",
+  "#cf6f11": "#e86058",
+  "#e65613": "#f84070",
+  "#ecc73a": "#f8b878",
+  "#f1881b": "#f88070",
+  "#f9e389": "#f8d8b8"
+ },
+ "sliders": [
+  {
+   "adj": {
+    "hue": -30,
+    "sat": 0.05,
+    "light": 0.04
+   },
+   "keep": false,
+   "colours": [
+    "#6a0b0f",
+    "#9e1d11",
+    "#b02615",
+    "#a8525a",
+    "#dd4d1a",
+    "#e97d27"
+   ]
+  },
+  {
+   "adj": {
+    "hue": -31,
+    "sat": -0.14,
+    "light": 0
+   },
+   "keep": false,
+   "colours": [
+    "#cea74c",
+    "#fdd94c",
+    "#fbdf6f"
+   ]
+  },
+  {
+   "adj": {
+    "hue": -24,
+    "sat": 0.04,
+    "light": 0.05
+   },
+   "keep": false,
+   "colours": [
+    "#2b2440",
+    "#3d406c",
+    "#755c8a"
+   ]
+  },
+  {
+   "adj": null,
+   "keep": false,
+   "colours": [
+    "#110d15",
+    "#1f1b2f"
+   ]
+  }
+ ],
+ "v": 2,
+ "over": {},
+ "outline": [
+  "#100207"
+ ],
+ "why": "Follows the shiny of Monarkhan, so the line matches",
+ "front": "https://hlkabnevaljtrbldgeqm.supabase.co/storage/v1/object/public/art/tries/heatbat/drawn-5927-d05e4483.png",
+ "by": "Emil",
+ "at": "2026-11-23T17:00:06.130Z"
+}

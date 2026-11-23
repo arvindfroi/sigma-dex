@@ -1949,7 +1949,7 @@
         "back_sprite": "assets/sprites/torchbat/back.png",
         "icon": "assets/sprites/torchbat/icon.png",
         "footprint": "hgss:4",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/torchbat.json",
         "cry": "assets/cries/torchbat.json"
       },
       "engine": {
@@ -2225,7 +2225,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:5",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/heatbat.json",
         "cry": "assets/cries/heatbat.json"
       },
       "engine": {
@@ -2540,7 +2540,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:6",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/blazterra.json",
         "cry": "assets/cries/blazterra.json"
       },
       "engine": {
@@ -15422,7 +15422,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:114",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/hairyen.json",
         "cry": "assets/cries/hairyen.json"
       },
       "engine": {
@@ -15724,7 +15724,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:411",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/panzerien.json",
         "cry": "assets/cries/panzerien.json"
       },
       "engine": {
@@ -17868,7 +17868,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:40",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/janenon.json",
         "cry": "assets/cries/janenon.json"
       },
       "engine": {
@@ -18134,7 +18134,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:224",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/saucerl.json",
         "cry": "assets/cries/saucerl.json"
       },
       "engine": {
@@ -18408,7 +18408,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:138",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/abyssys.json",
         "cry": "assets/cries/abyssys.json"
       },
       "engine": {
@@ -18707,7 +18707,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:139",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/octopearl.json",
         "cry": "assets/cries/octopearl.json"
       },
       "engine": {
@@ -21659,7 +21659,7 @@
     },
     {
       "dex": 84,
-      "name": "Detecub mindre evo",
+      "name": "Puptive",
       "credits": {
         "designer": "Ruben",
         "artist": null
@@ -23970,7 +23970,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:158",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/dragem.json",
         "cry": "assets/cries/dragem.json"
       },
       "engine": {
@@ -26259,7 +26259,7 @@
     },
     {
       "dex": 102,
-      "name": "Blazlothku",
+      "name": "Slothku",
       "credits": {
         "designer": "Emil Venge-Kvamme",
         "artist": null
@@ -41928,9 +41928,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Speed Boost",
+        "secondary": "Limber",
+        "hidden": "Quick Feet"
       },
       "base_stats": {
         "hp": null,
@@ -42485,7 +42485,7 @@
     },
     {
       "dex": 178,
-      "name": "endermon",
+      "name": "Endermon",
       "credits": {
         "designer": "Arvind",
         "artist": "Arvind"
@@ -42499,17 +42499,17 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Anger Point",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 80,
+        "attack": 130,
+        "defense": 80,
+        "sp_attack": 100,
+        "sp_defense": 80,
+        "speed": 130
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -42544,7 +42544,7 @@
         "look": null
       },
       "assets": {
-        "concept_art": "assets/concept-art/endermon/2746.png",
+        "concept_art": "assets/concept-art/endermon/4941.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -42580,9 +42580,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Exploder",
+        "primary": "Lightning Rod",
         "secondary": null,
-        "hidden": "Innards Out"
+        "hidden": null
       },
       "base_stats": {
         "hp": 150,
@@ -42624,9 +42624,9 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "creeper"
       },
       "assets": {
         "concept_art": "assets/concept-art/crepawmon/2747.png",
@@ -43293,7 +43293,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/ledrake.json",
         "cry": null
       },
       "engine": {
@@ -43305,6 +43305,166 @@
         "safari_flee_rate": 0
       },
       "id": "ledrake"
+    },
+    {
+      "dex": 188,
+      "name": "Pegalaxy",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Flying"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/pegalaxy/4940.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "pegalaxy"
+    },
+    {
+      "dex": 233,
+      "name": "Tenebravis",
+      "credits": {
+        "designer": "Devilry",
+        "artist": null
+      },
+      "types": [
+        "Dark"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/tenebravis/4943.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "tenebravis"
     },
     {
       "dex": 234,

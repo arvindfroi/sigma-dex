@@ -299,6 +299,19 @@ static const u16 sGoatjoEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sPuptiveEggMoveLearnset[] = {
+    MOVE_FLAIL,
+    MOVE_FAKE_OUT,
+    MOVE_FAKE_TEARS,
+    MOVE_UPROAR,
+    MOVE_FEINT,
+    MOVE_COVET,
+    MOVE_ENDEAVOR,
+    MOVE_RAGE,
+    MOVE_THRASH,
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sSnowninEggMoveLearnset[] = {
     MOVE_FROST_BREATH,
     MOVE_GRUDGE,
