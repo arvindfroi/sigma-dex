@@ -4451,7 +4451,7 @@ function pixelEditor(o) {
     if (o.view === "icon") {
       const best = suggestIconPalette(ed.data, o.bodyColour);
       return [h("div", {class: "toolbar", style: "margin:0"}, [0, 1, 2].map(i => h("button", {type: "button", class: "small", title: "HeartGold's icon palette " + (i + 1),
-        onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, ICON_PALETTES[i], 1, true); changed(); }}, "PALETTE " + (i + 1) + (i === best ? " ★" : "")))),
+        onclick: () => { snap("recoloured"); ed.data = contrastRecolour(ed.data, ICON_PALETTES[i]); changed(); }}, "PALETTE " + (i + 1) + (i === best ? " ★" : "")))),
         h("div", {class: "hint", style: "margin:4px 0 0"}, "Icons use one of the game's 3 icon palettes; ★ = the one that fits" + (o.bodyColour ? " (body colour " + o.bodyColour + ")" : "") + ".")];
     }
     return [];
@@ -4603,12 +4603,66 @@ function paletteFit(img, palette) {                    // the mean Lab distance 
   for (const [k, cnt] of spriteColours(img)) { const l = toLab(...k.split(",").map(Number)); sum += cnt * Math.min(...labs.map(p => labDist(l, p))); n += cnt; }
   return n ? sum / n : Infinity;
 }
-// the icon palette the game would most likely use: among HeartGold's 3 that fit within 6 of the best, the best fit plus the
-// body colour's odds (tuned on 80 real Klein icons: 51 % right by fit alone, 90 % with the body colour)
+// ---------- neighbour contrast (2026-11-23; the same as scripts/sprite_colours.py contrast_map / icon_colours) ----------
+// Arvind: "på ikon så kan det egentlig også bli bedre". Tested on HeartGold's own icons with Klein-like drift: the old way
+// (palette by fit, every colour to its nearest) gave back 84 % of the pixels and the right palette 80 % of the time; this
+// gives 90 % and 97 %. The colour map is chosen for the whole picture: every colour stays near its own (weighed by its
+// area) AND neighbouring pixels keep their difference, so shading and outlines survive without new hard edges.
+const CONTRAST = 8;
+function pictureParts(img) {                           // distinct colours, pixel counts, colour index per pixel, touching pairs
+  const d = img.data, keyOf = new Map(), cols = [], counts = [], idx = new Int32Array(img.width * img.height).fill(-1);
+  for (let p = 0, i = 0; i < d.length; i += 4, p++) if (d[i + 3] > 127) {
+    const k = d[i] + "," + d[i + 1] + "," + d[i + 2];
+    let c = keyOf.get(k); if (c === undefined) { c = cols.length; keyOf.set(k, c); cols.push([d[i], d[i + 1], d[i + 2]]); counts.push(0); }
+    counts[c]++; idx[p] = c;
+  }
+  const n = cols.length, A = Array.from({length: n}, () => new Float64Array(n)), W = img.width, H = img.height;
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+    const a = idx[y * W + x]; if (a < 0) continue;
+    if (x + 1 < W) { const b = idx[y * W + x + 1]; if (b >= 0 && b !== a) { A[a][b]++; A[b][a]++; } }
+    if (y + 1 < H) { const b = idx[(y + 1) * W + x]; if (b >= 0 && b !== a) { A[a][b]++; A[b][a]++; } }
+  }
+  return {cols, counts, idx, A, keyOf};
+}
+function contrastMap(parts, palette, lam) {            // -> {f: palette index per colour, e: energy per pixel}
+  lam = lam === undefined ? CONTRAST : lam;
+  const {cols, counts, A} = parts, n = cols.length, m = palette.length, X = cols.map(c => toLab(...c)), P = palette.map(c => toLab(...c));
+  const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
+  const U = X.map((x, i) => P.map(p => counts[i] * dist(x, p)));
+  const f = X.map(x => { let b = 0; P.forEach((p, j) => { if (dist(x, p) < dist(x, P[b])) b = j; }); return b; });
+  const order = [...Array(n).keys()].sort((a, b) => counts[b] - counts[a] || cols[a][0] - cols[b][0] || cols[a][1] - cols[b][1] || cols[a][2] - cols[b][2]);
+  for (let sweep = 0; sweep < 20; sweep++) {
+    let changed = false;
+    for (const i of order) {
+      let best = 0, bestCost = Infinity;
+      for (let j = 0; j < m; j++) {
+        let c = U[i][j];
+        for (let k = 0; k < n; k++) if (A[i][k]) {
+          const q = P[f[k]];
+          c += lam * A[i][k] * Math.hypot((X[i][0] - X[k][0]) - (P[j][0] - q[0]), (X[i][1] - X[k][1]) - (P[j][1] - q[1]), (X[i][2] - X[k][2]) - (P[j][2] - q[2]));
+        }
+        if (c < bestCost) { bestCost = c; best = j; }
+      }
+      if (best !== f[i]) { f[i] = best; changed = true; }
+    }
+    if (!changed) break;
+  }
+  let e = 0, total = 0;
+  for (let i = 0; i < n; i++) { e += U[i][f[i]]; total += counts[i];
+    for (let k = i + 1; k < n; k++) if (A[i][k]) { const a = P[f[i]], b = P[f[k]];
+      e += lam * A[i][k] * Math.hypot((X[i][0] - X[k][0]) - (a[0] - b[0]), (X[i][1] - X[k][1]) - (a[1] - b[1]), (X[i][2] - X[k][2]) - (a[2] - b[2])); } }
+  return {f, e: total ? e / total : 0};
+}
+function contrastRecolour(img, palette) {
+  const parts = pictureParts(img), {f} = contrastMap(parts, palette), out = new ImageData(new Uint8ClampedArray(img.data), img.width, img.height), d = out.data;
+  for (let p = 0, i = 0; i < d.length; i += 4, p++) { const c = parts.idx[p]; if (c >= 0) { const q = palette[f[c]]; d[i] = q[0]; d[i + 1] = q[1]; d[i + 2] = q[2]; } }
+  return out;
+}
+// the icon palette where the picture survives best (contrastMap's energy) plus the body colour's odds
 function suggestIconPalette(img, bodyColour) {
-  const fits = ICON_PALETTES.slice(0, 3).map(p => paletteFit(img, p)), best = Math.min(...fits), odds = ICON_ODDS[bodyColour];
-  const score = i => fits[i] - (odds ? 20 * Math.log((odds[i] + 1) / (odds[0] + odds[1] + odds[2] + 3)) : 0);
-  return [0, 1, 2].filter(i => fits[i] <= best + 6).sort((a, b) => score(a) - score(b))[0];
+  const parts = pictureParts(img), odds = ICON_ODDS[bodyColour];
+  const score = i => contrastMap(parts, ICON_PALETTES[i]).e - (odds ? 10 * Math.log((odds[i] + 1) / (odds[0] + odds[1] + odds[2] + 3)) : 0);
+  return [0, 1, 2].map(i => [score(i), i]).sort((a, b) => a[0] - b[0])[0][1];
 }
 function followerPalette(front) {                      // the front's colours and two darker shades of each
   const out = [];

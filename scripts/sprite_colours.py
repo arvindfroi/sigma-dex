@@ -150,8 +150,8 @@ def distinct_map(cols, shares, palette, merge=None, hue=None, family=None):
     return np.array(assign(cost)) % m          # the optimum keeps shades in their light-to-dark order by itself
 
 
-def snap(img, palette, distinct=True):
-    """every solid colour -> a palette colour (Lab): its own one (distinct_map), or with distinct=False the nearest"""
+def snap(img, palette, distinct=False):
+    """every solid colour -> the nearest palette colour (Lab), or with distinct=True its own one (distinct_map)"""
     a = np.array(img.convert("RGBA")); solid = a[..., 3] > 0
     if not solid.any() or not len(palette):
         return Image.fromarray(a)
@@ -205,7 +205,71 @@ def load_icon_palettes(path, least_uses=10):
     return [np.array(p["rgb"][1:], np.uint8) for p in json.loads(Path(path).read_text()) if p["uses"] >= least_uses]
 
 
-def icon_colours(icon, palettes, body_color=None, game_only=True, weight=20.0, guard=6.0):
+# ---------- neighbour contrast (2026-11-23) ----------
+# Arvind: "det må jo være en bedre måte ... på ikon så kan det egentlig også bli bedre". Tested with ground truth: HeartGold's
+# own icons, their colours drifted the way Klein's drift, then mapped back (private benchmark in ~/sigma-origin/colourbench):
+# the old way (palette by fit + body colour, every colour to its nearest) gave back 84 % of the pixels and picked the right
+# palette 80 % of the time; this gives 90 % and 97 %. A colour map is chosen for the whole picture: every colour stays near
+# its own (weighed by its area) AND neighbouring pixels keep their difference (direction and size), so shading and outlines
+# survive without new hard edges; two shades that never touch may share a colour. The palette is the one where the picture
+# survives best, plus the body colour's odds.
+CONTRAST = 8.0
+
+
+def picture_parts(img):
+    """the distinct colours, their pixel counts, the colour index of every pixel (-1 = clear) and how often two colours
+    touch (4-neighbours)"""
+    a = np.array(img.convert("RGBA")); solid = a[..., 3] > 0
+    cols, inv, counts = np.unique(a[solid][:, :3], axis=0, return_inverse=True, return_counts=True)
+    idx = -np.ones(a.shape[:2], int); idx[solid] = inv.ravel(); n = len(cols); A = np.zeros((n, n))
+    for x, y in ((idx[:, :-1], idx[:, 1:]), (idx[:-1, :], idx[1:, :])):
+        m = (x >= 0) & (y >= 0) & (x != y)
+        np.add.at(A, (x[m], y[m]), 1)
+    return a, solid, cols, inv.ravel(), counts.astype(float), A + A.T
+
+
+def contrast_map(cols, counts, A, palette, lam=None, sweeps=20):
+    """(palette index per colour, energy per pixel): the colour map that keeps both the colours and the neighbour
+    differences, by coordinate descent from the nearest map"""
+    lam = CONTRAST if lam is None else lam
+    cols = np.asarray(cols, np.uint8); X, P = lab(cols), lab(np.asarray(palette, np.uint8))
+    U = counts[:, None] * np.sqrt(((X[:, None] - P[None]) ** 2).sum(-1))
+    f = np.sqrt(((X[:, None] - P[None]) ** 2).sum(-1)).argmin(1)
+    for _ in range(sweeps):
+        changed = False
+        for i in np.lexsort((cols[:, 2], cols[:, 1], cols[:, 0], -counts)):   # biggest first, ties by RGB (as on the website)
+            D = (X[i] - X)[None] - (P[:, None] - P[f][None])
+            c = U[i] + lam * (A[i][None] * np.sqrt((D ** 2).sum(-1))).sum(1)
+            j = int(c.argmin())
+            if j != f[i]: f[i] = j; changed = True
+        if not changed: break
+    D = (X[:, None] - X[None]) - (P[f][:, None] - P[f][None])
+    e = U[np.arange(len(f)), f].sum() + lam * 0.5 * (A * np.sqrt((D ** 2).sum(-1))).sum()
+    return f, float(e / max(counts.sum(), 1))
+
+
+def contrast_snap(img, palette, lam=None):
+    """every colour onto the palette with contrast_map (returns the picture and its energy per pixel)"""
+    a, solid, cols, inv, counts, A = picture_parts(img)
+    if not len(cols) or not len(palette):
+        return Image.fromarray(a), 0.0
+    pal = np.asarray(palette, np.uint8); f, e = contrast_map(cols, counts, A, pal, lam)
+    flat = a[solid]; flat[:, :3] = pal[f][inv]; a[solid] = flat
+    return Image.fromarray(a), e
+
+
+def icon_colours(icon, palettes, body_color=None, prior=10.0):
+    """the icon in the one of HeartGold's 3 icon palettes (ICON_ODDS order) where it survives best (contrast_map's energy)
+    plus the body colour's odds; returns (icon, palette index)"""
+    odds = ICON_ODDS.get(body_color); best = None
+    for i in range(3):
+        out, e = contrast_snap(icon, palettes[i])
+        score = e - (prior * np.log((odds[i] + 1) / (sum(odds) + 3)) if odds else 0.0)
+        if best is None or score < best[0]: best = (score, out, i)
+    return best[1], best[2]
+
+
+def icon_colours_old(icon, palettes, body_color=None, game_only=True, weight=20.0, guard=6.0):
     """among the icon palettes that fit within `guard` of the best (HeartGold's 3 only, unless game_only is False), the one
     with the best fit plus the body colour's odds; every colour -> its nearest colour in it. Returns (icon, palette index)."""
     k = 3 if game_only else len(palettes)
@@ -219,4 +283,4 @@ def icon_colours(icon, palettes, body_color=None, game_only=True, weight=20.0, g
             prior = -weight * np.log(1 / (sum(odds) + 3))
         return fits[i] + prior
     best = min((i for i in range(k) if fits[i] <= min(fits) + guard), key=score)
-    return snap(icon, palettes[best]), best
+    return snap(icon, palettes[best], False), best
