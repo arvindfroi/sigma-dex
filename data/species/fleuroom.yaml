@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions:
   - into: fleuroom-utvikling
     method: item
-    item: Shiny Stown
+    item: Shiny Stone
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms: []
