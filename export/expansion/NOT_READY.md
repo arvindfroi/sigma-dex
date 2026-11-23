@@ -80,7 +80,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Gravriel** needs: an ability that exists in the game
 - **Voraxia** needs: base stats, a level-up move that exists in the game
 - **Sandrema** needs: an ability that exists in the game
-- **Meowthwo** needs: an ability that exists in the game
+- **Meowthscot** needs: an ability that exists in the game
 
 ## Left out of exported Pokemon
 

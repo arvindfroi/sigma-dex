@@ -1517,7 +1517,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #254 [Meowthwo](data/species/meowthwo.yaml) - 72%
+### #254 [Meowthscot](data/species/meowthwo.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters

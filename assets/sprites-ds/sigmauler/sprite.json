@@ -2,6 +2,8 @@
   "sources": {
     "front.png": "[ds-front] sprite #469",
     "back.png": "[ds-back] sprite #469",
-    "icon.png": "[ds-icon] sprite #469"
+    "icon.png": "[ds-icon] sprite #469",
+    "front2.png": "[ds-front2] sprite #792",
+    "back2.png": "[ds-back2] sprite #792"
   }
 }

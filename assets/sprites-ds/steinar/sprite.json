@@ -3,6 +3,8 @@
     "back.png": "[ds-back] sprite #526",
     "icon.png": "[ds-icon] sprite #526",
     "follower.png": "[ds-follower] sprite #526",
-    "front.png": "[ds-front] sprite #534"
+    "front.png": "[ds-front] sprite #534",
+    "front2.png": "[ds-front2] sprite #877",
+    "back2.png": "[ds-back2] sprite #877"
   }
 }
