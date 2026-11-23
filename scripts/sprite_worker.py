@@ -644,6 +644,15 @@ def main():
         except (RuntimeError, OSError) as problem:
             log("could not report job %d: %s" % (job["id"], problem))
         idle_since, unloaded = time.time(), False
+        # 2026-11-23: with a long queue (Claude's whole-dex batch) the queue is never empty, so also look for newer
+        # scripts between two jobs; run_worker.bat pulls and starts the new code
+        if STAGES == ALL_STAGES and time.time() - checked > UPDATE_SECONDS:
+            checked = time.time()
+            subprocess.run(["git", "-C", str(ROOT), "fetch", "--quiet", "origin"], capture_output=True)
+            remote = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "origin/main"], capture_output=True, text=True).stdout.strip()
+            if remote and remote != head:
+                log("the repository changed (between jobs): restarting")
+                return 0
 
 
 if __name__ == "__main__":
