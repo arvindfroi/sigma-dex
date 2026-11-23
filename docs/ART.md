@@ -448,18 +448,30 @@ Steps 6 and 7 of the studio (2026-11-21) draw the second animation frame of the 
 the sprite switches between frame 1 and frame 2. Both steps are optional. SAVE says when no frame 2 is picked,
 and then both frames stay the same.
 
-| Step | Drawn from | Klein LoRA (Arvind's pick, 18 Nov) | Image 1 / 2 / 3 |
-|---|---|---|---|
-| FRONT 2 | the picked front (+ the picked back) | `pkmn_frontf2_klein_v1_000002250` ("desidert best") | front frame 1 / artwork / back |
-| BACK 2 | the picked back (+ the picked FRONT 2) | `pkmn_backf2_klein_v1_000001250` | back frame 1 / the front's two frames side by side / artwork |
+Since 2026-11-23 both steps use the **pair LoRA** `pkmn_f2pair_klein_v1_000002250` (trained 22.11 on the real HGSS
+pairs, front and back; recipe and tests in `~/sigma-origin/title3d/legend/frame2/`, `f2pair_gen.py` and `f2parts.py`).
+The first frame-2 LoRAs (`pkmn_frontf2_klein_v1`, `pkmn_backf2_klein_v1`, one frame at a time, later with a part mask)
+are retired: Arvind found they did not keep the Pokemon's look.
 
-- **Recipe.** The texts and inputs are the training ones (`lora-train\v6cfg\build_f2_split.py` on the PC).
-  Frames are at 4x on magenta, and the artwork is fitted on white at 320. A missing picture is plain white,
-  and the text says "image N is empty". The artwork is the front's cut-out (the claim sends the try's parent
-  and grandparent) or else the first chosen picture.
-- **Motion.** The person picks the motion from the LoRA's templates (M mouth, H head, A arms, W wings, T tail,
-  C crouch, L lean, B breathe, E eyes, R turn, X a part) and how big the change is. These go in the prompt
-  JSON (`motion`, `amount`) next to the body words. "Let the PC choose" sends no template.
+| Step | Drawn from | Image 1 / 2 |
+|---|---|---|
+| FRONT 2 | the picked front | front frame 1 at 4x on magenta / white ("Image 2 is empty") |
+| BACK 2 | the picked back | back frame 1 at 4x on magenta / white |
+
+- **How it draws.** The model draws frame 1 | frame 2 side by side (640x320). The start picture is frame 1 | frame 1
+  and only the right half gets noise (`SetLatentNoiseMask`), so it sees its own frame 1 while drawing frame 2. The
+  text is the training caption (`build_f2_pair.caption`) with the body words (`about`).
+- **How much it moves** (the website's choice, `size` in the prompt JSON; Arvind 22.11 liked all three):
+  calm = denoise 0.85, CFG 4; clear = denoise 1.0, CFG 4; big = denoise 1.0, CFG 5.5 and the trained words "a big
+  change of pose, all over its body, and the top of the figure moves up 3 pixels" (his "1.2", the one he liked best).
+  "A mix" (the default) makes try 1 big, try 2 clear, try 3 calm, and so on.
+- **What moves** (front only, `move`): one of the motion templates the LoRA learnt (M mouth, H head, A arms, W wings,
+  T tail, C crouch, L lean, B breathe, E eyes, R turn, X a part), written before the change words. Empty = the PC chooses.
+- **Body-part check** (Arvind: it must not make new body parts). Each drawing is scored like `f2parts.py`: new = sprite
+  more than 3 px outside frame 1 after the best whole-sprite shift, lost = frame 1 no longer covered, extra = a new
+  loose piece, edge = a front that now touches the box edge. Bad = new > 6 % or lost > 10 % or extra or edge. Up to 3
+  seeds per try, the first good one is kept; a big try that never passes gets one more drawing at clear; if none
+  passes, the best is kept as BROKEN? with the numbers in its note (it can still be picked or EDITed).
 - **After-work.** `klein_follower.to_back`, then every pixel takes the nearest colour of frame 1
   (`studio_tries.frame1_colours`), because the game gives both frames one palette.
 - **On the website.** A tile switches between frame 1 and frame 2 (`flipPair`). The pixel editor has
@@ -469,6 +481,7 @@ and then both frames stay the same.
 - **Database.** Migration `2026-11-21_frame2.sql` adds the stages `front2` / `back2`, the request rules, the
   claim's grandparent, `assemble_sprite`'s two new arguments, and `review_sprite` / `art_orphans` for the new
   columns. The worker function accepts stage names with digits.
+  The pair recipe needs only the picked frame 1 (no grandparent, no `with_try`), so it works with the live claim.
 - **Not done yet.** The export into Origin's anim files, and the battle animation per Pokemon.
 
 ## The trainer studio

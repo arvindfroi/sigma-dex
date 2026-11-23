@@ -677,57 +677,46 @@ def try_back_klein(n, seed, folder, job, inputs):
     return ("broken" if why else "done", why, image, raw)
 
 
-# ---------- frame 2: the second animation frame of the front and the back (2026-11-21). The frame-2 LoRAs (Arvind's picks of
-# 18 Nov: front v1 step 2250, back v1 step 1250) redraw only ONE PART of frame 1 (Arvind, same day: "it does not keep the
-# Pokemon's look"; drawn from scratch it lost legs, started from frame 1 it hardly moved and re-shaded everything). A mask says
-# which part may move: the head and mouth, the arms, the tail and legs, or one the person painted on the website. Inside it
-# the LoRA draws freely (the latent outside stays frame 1); afterwards every pixel outside it IS frame 1 and the part takes
-# frame 1's colours, as in the real HGSS frame 2s, where only the moving part changes and both frames share one palette.
-# Inputs as trained (lora-train\v6cfg\build_f2_split.py): front = frame 1 / artwork / back; back = frame 1 / the front's two
-# frames side by side / artwork; a missing picture is plain white and the text says "image N is empty".
-FRONT2_KLEIN = "pkmn_frontf2_klein_v1_000002250.safetensors"
-BACK2_KLEIN = "pkmn_backf2_klein_v1_000001250.safetensors"
-F2_PARTS = {"head": "it raises or turns its head and opens its mouth wide, as if roaring",
-            "arms": "it raises or moves its arms, hands or claws",
-            "lower": "it swings or raises its tail and moves its legs",
-            "own": "the part that moves changes its pose clearly"}
-F2_ATTEMPTS = 3          # drawings per try at most: the first that keeps the part (no lost limb) is used, else the best
+# ---------- frame 2: the second animation frame of the front and the back (2026-11-23, the PAIR LoRA). The model draws frame 1 |
+# frame 2 side by side (640x320), as the real HGSS pairs it was trained on (lora-train\v6cfg\build_f2_pair.py, train_f2pair.ps1);
+# in use the start picture is frame 1 | frame 1 and only the RIGHT half gets noise (SetLatentNoiseMask), so it sees its own frame 1
+# while it draws frame 2. The right half -> 80x80 -> every pixel takes frame 1's nearest colour (one palette in the game).
+# Image 2 is white ("Image 2 is empty"), as in the tests on our own mons. How much it moves (Arvind 22.11, all three liked):
+#   calm   denoise 0.85 (frame 1 partly kept), CFG 4          "0.85 og 1.0 funker bra"
+#   clear  denoise 1.0, CFG 4
+#   big    denoise 1.0, CFG 5.5 + the trained 'a big change of pose' words ("1.2"; "jeg tror jeg likte den best egentlig")
+# Every drawing is checked for NEW or LOST body parts (Arvind: "den skaper nye kroppsdeler og slik er ikke bra"; f2parts.py in
+# ~/sigma-origin/title3d/legend/frame2, here numpy only): up to F2_ATTEMPTS seeds, the first that passes is used; a big one that
+# never passes gets one more drawing at 'clear'; if still none passes, the best is kept and marked broken (people can still pick
+# it or EDIT it). The website may say what moves on the FRONT (the motion templates the LoRA learnt, front only).
+PAIR_LORA = "pkmn_f2pair_klein_v1_000002250.safetensors"
+F2_MODES = {"calm": (0.85, 4.0, "a clear change of pose, all over its body"),
+            "clear": (1.0, 4.0, "a clear change of pose, all over its body"),
+            "big": (1.0, 5.5, "a big change of pose, all over its body, and the top of the figure moves up 3 pixels")}
+F2_MIX = ["big", "clear", "calm"]
+F2_MOVES = {"M": "it opens its mouth wide, as if roaring", "H": "it raises or turns its head", "A": "it raises or moves its arms, hands or claws",
+            "W": "it flaps or spreads its wings", "T": "it swings or raises its tail", "C": "it crouches low, ready to pounce",
+            "L": "it leans forward to attack", "B": "its whole body rises and stretches, as if breathing in", "E": "it blinks or narrows its eyes",
+            "R": "it turns its whole body a little",
+            "X": "it moves or stretches out a part of its body (tentacles, vines, antennae, petals, flames or fins)"}
+F2_ATTEMPTS = 3
 
 
 def f2_choice(job):
-    """the website's choice: the part (head / arms / lower / own) and, for 'own', the painted mask (80x80 bits, base64)"""
+    """the website's choice (JSON in job['prompt']): size = mix / big / clear / calm, move = a motion code (front only)"""
     try:
         body = json.loads(job.get("prompt") or "{}")
     except ValueError:
         body = {}
     body = body if isinstance(body, dict) else {}
-    part = body.get("part") if body.get("part") in F2_PARTS else "head"
-    painted = None
-    if part == "own" and body.get("mask"):
-        import base64
-        try:
-            bits = np.unpackbits(np.frombuffer(base64.b64decode(body["mask"]), dtype=np.uint8))[:6400]
-            painted = bits.reshape(80, 80).astype(bool) if bits.size == 6400 and bits.any() else None
-        except (ValueError, TypeError):
-            painted = None
-    return (part if painted is not None or part != "own" else "head"), painted
+    size = body.get("size") if body.get("size") in F2_MODES or body.get("size") == "mix" else "mix"
+    move = body.get("move") if body.get("move") in F2_MOVES else ""
+    return size, move
 
 
-def _grow(m, steps=1):
-    """binary dilation with the 4-neighbour cross (scipy's default), numpy only (the worker's Python has no scipy)"""
-    m = m.copy()
-    for _ in range(steps):
-        p = np.pad(m, 1)
-        m = p[1:-1, 1:-1] | p[:-2, 1:-1] | p[2:, 1:-1] | p[1:-1, :-2] | p[1:-1, 2:]
-    return m
-
-
-def _open2(m):
-    """binary opening with a 2x2 square: only blobs at least 2 pixels thick stay"""
-    p = np.pad(m, ((0, 1), (0, 1)))
-    core = p[:-1, :-1] & p[1:, :-1] & p[:-1, 1:] & p[1:, 1:]
-    q = np.pad(core, ((1, 0), (1, 0)))
-    return m & (q[1:, 1:] | q[:-1, 1:] | q[1:, :-1] | q[:-1, :-1])
+def f2_mode(job, n):
+    size, _ = f2_choice(job)
+    return F2_MIX[(n - 1) % len(F2_MIX)] if size == "mix" else size
 
 
 def _blobs(m):
@@ -748,20 +737,49 @@ def _blobs(m):
     return out
 
 
-def f2_mask(frame1, part, painted=None, grow=3):
-    """80x80 bool: where frame 2 may change. A part is a slice of the figure's box (head = top 45 %, arms = the outer thirds,
-    lower = the bottom 45 %), grown by a few pixels so a limb has room to move; a painted mask is grown the same way."""
-    a = np.array(frame1.convert("RGBA"))[..., 3] > 0
-    if painted is not None:
-        sel = painted
-    else:
-        ys, xs = np.nonzero(a)
-        y0, y1, x0, x1 = ys.min(), ys.max() + 1, xs.min(), xs.max() + 1
-        yy, xx = np.mgrid[0:80, 0:80]
-        h, w = y1 - y0, x1 - x0
-        sel = a & {"head": (yy - y0) < 0.45 * h, "arms": ((xx - x0) < 0.33 * w) | ((xx - x0) > 0.67 * w),
-                   "lower": (yy - y0) > 0.55 * h}[part]
-    return _grow(sel, grow)
+def _shift(m, dx, dy):
+    o = np.zeros_like(m); h, w = m.shape
+    o[max(0, dy):h + min(0, dy), max(0, dx):w + min(0, dx)] = m[max(0, -dy):h - max(0, dy), max(0, -dx):w - max(0, dx)]
+    return o
+
+
+def _near(m, r):
+    """every pixel within r px (straight-line distance) of m"""
+    o = np.zeros_like(m)
+    for dy in range(-r, r + 1):
+        for dx in range(-r, r + 1):
+            if dx * dx + dy * dy <= r * r:
+                o |= _shift(m, dx, dy)
+    return o
+
+
+def f2_check(f1, f2, front=True, R=3):
+    """f2parts.check: new = % of frame 1's area that frame 2 has more than R px outside frame 1 (after the best whole-sprite shift,
+    so a hop or a lean is motion), lost = % of frame 1 that frame 2 no longer covers within R px, extra = new separate pieces,
+    edge = a front that now touches the box edge, moved = % of the sprite that changed. Real HGSS frame 2s score new 1-13 /
+    lost 2-12, so this RANKS drawings; 'bad' is the line the tests drew (22.11)."""
+    a, b = np.array(f1.convert("RGBA")), np.array(f2.convert("RGBA"))
+    A, B0 = a[..., 3] > 0, b[..., 3] > 0
+    area = max(1, int(A.sum()))
+    best = (-1.0, 0, 0)
+    for dy in range(-8, 9):
+        for dx in range(-8, 9):
+            S = _shift(B0, dx, dy); v = (A & S).sum() / max(1, (A | S).sum())
+            if v > best[0]:
+                best = (v, dx, dy)
+    B = _shift(B0, best[1], best[2])
+    new = float((B & ~_near(A, R)).sum() / area * 100)
+    lost = float((A & ~_near(B, R)).sum() / area * 100)
+    pieces = lambda m: sum(1 for bl in _blobs(m) if len(bl) >= 6)
+    extra = max(0, pieces(B0) - pieces(A))
+    sides = lambda m: {s for s, v in (("t", m[0]), ("b", m[-1]), ("l", m[:, 0]), ("r", m[:, -1])) if v.any()}
+    edge = front and bool(sides(B0) - sides(A))
+    on = A | B0
+    diff = (A != B0) | (A & B0 & (np.abs(a[..., :3].astype(int) - b[..., :3]).sum(-1) > 30))
+    moved = float(diff[on].mean() * 100) if on.any() else 0.0
+    bad = new > 6 or lost > 10 or extra > 0 or edge
+    score = new + 0.5 * lost + 8 * extra + 20 * edge + (1.5 * (10 - moved) if moved < 10 else 0)
+    return dict(new=new, lost=lost, extra=extra, edge=edge, moved=moved, bad=bad, score=score)
 
 
 def on_magenta4(sprite):
@@ -770,121 +788,103 @@ def on_magenta4(sprite):
     return bg.convert("RGB").resize((320, 320), Image.NEAREST)
 
 
-def front_pair(f1, f2):
-    w = Image.new("RGBA", (320, 320), (255, 255, 255, 255))
-    for i, f in enumerate((f1, f2)):
-        w.alpha_composite(f.convert("RGBA").resize((160, 160), Image.NEAREST), (i * 160, 80))
-    return w.convert("RGB")
-
-
 def frame1_colours(sprite, frame1):
     """every pixel takes the nearest colour of frame 1 (one palette for both frames in the game)"""
     a = np.array(sprite.convert("RGBA")).copy()
     b = np.array(frame1.convert("RGBA"))
     pal = np.unique(b[b[..., 3] > 0][:, :3].reshape(-1, 3), axis=0).astype(int)
-    on = a[..., 3] > 0
-    if not len(pal) or not on.any():
-        return Image.fromarray(a)
-    px = a[on][:, :3].astype(int)
-    near = ((px[:, None, :] - pal[None, :, :]) ** 2).sum(-1).argmin(1)
-    a[..., :3][on] = pal[near]
-    a[..., 3][on] = 255
+    on = a[..., 3] >= 128
+    if len(pal) and on.any():
+        px = a[on][:, :3].astype(int)
+        a[..., :3][on] = pal[((px[:, None, :] - pal[None, :, :]) ** 2).sum(-1).argmin(1)]
+    a[..., 3] = np.where(on, 255, 0)
     a[..., :3][~on] = 0
     return Image.fromarray(a)
 
 
-def f2_compose(frame1, drawn, mask):
-    """frame 1 outside the mask; inside it the drawing on frame 1's colours, except where the drawing only re-shades frame 1
-    (both opaque, colour close: frame 1's pixel stays, so still parts do not flicker); loose specks the drawing added go.
-    Returns the sprite and the LOST share: frame-1 pixels inside the mask that vanished in thick blobs (2x2 opening, so a
-    thinner outline does not count). Measured on 18 tries (Steinar, Fleinar, Gaiafinn): a lost limb is >= 0.20, good ones <= 0.19."""
-    a = np.array(frame1.convert("RGBA")); b = np.array(frame1_colours(drawn, frame1))
-    both = (a[..., 3] > 0) & (b[..., 3] > 0)
-    close = both & (np.sqrt(((a[..., :3].astype(int) - b[..., :3].astype(int)) ** 2).sum(-1)) < 70)
-    out = a.copy()
-    take = mask & ~close
-    out[take] = b[take]
-    on = out[..., 3] > 0
-    for blob in _blobs(on):
-        if len(blob) <= 3:
-            ys, xs = zip(*blob)
-            if (out[ys, xs] != a[ys, xs]).any():              # a loose speck the drawing added: back to frame 1 there
-                out[ys, xs] = a[ys, xs]
-    was = a[..., 3] > 0
-    gone = _open2(was & ~(out[..., 3] > 0))
-    area = was[mask].sum()
-    return Image.fromarray(out), float(gone.sum() / area) if area else 0.0
+def f2_seam(sprite, frame1):
+    """The pair picture's middle seam: where frame 1 touches its RIGHT edge (Waffy's beak), the model can carry a thin line
+    over into frame 2's LEFT edge (test 23.11: all three Waffy backs). A piece of frame 2 that lies wholly in columns 0-2,
+    where frame 1 has nothing in those rows, goes."""
+    a = np.array(sprite.convert("RGBA")).copy()
+    f = np.array(frame1.convert("RGBA"))[..., 3] > 0
+    for blob in _blobs(a[..., 3] > 0):
+        ys = [y for y, _ in blob]
+        if max(x for _, x in blob) <= 2 and not f[max(0, min(ys) - 2):max(ys) + 3, :3].any():
+            for y, x in blob:
+                a[y, x] = 0
+    return Image.fromarray(a)
 
 
-def f2_graph(text, refs, seed, lora, start, mask):
-    g = comfy.klein(text, refs, 320, 320, seed, "sigma/studio_f2", lora)
+def f2_caption(view, body, change):
+    """build_f2_pair.caption, as trained (image 2 empty)"""
+    return ("Create the two animation frames of the %s battle sprite from Pokemon HeartGold of the Pokemon in image 1, side by side: "
+            "image 1 is its first frame. Image 2 is empty. %sThe picture shows its two 80x80 pixel art %s frames side by side on a flat "
+            "magenta background: the left one is exactly image 1, the right one is its second frame, the same creature in the same place "
+            "and size, with exactly the colours, outline and design of image 1, redrawn in a new pose: %s." % (view, body, view, change))
+
+
+def f2_graph(text, refs, seed, start, mask, dn, cfg):
+    g = comfy.klein(text, refs, 640, 320, seed, "sigma/studio_f2", PAIR_LORA, cfg=cfg)
     g["startimg"] = {"class_type": "LoadImage", "inputs": {"image": start}}
     g["startenc"] = {"class_type": "VAEEncode", "inputs": {"pixels": ["startimg", 0], "vae": ["vae", 0]}}
     g["maskimg"] = {"class_type": "LoadImage", "inputs": {"image": mask}}
     g["mask"] = {"class_type": "ImageToMask", "inputs": {"image": ["maskimg", 0], "channel": "red"}}
     g["masked"] = {"class_type": "SetLatentNoiseMask", "inputs": {"samples": ["startenc", 0], "mask": ["mask", 0]}}
     g["sca"]["inputs"]["latent_image"] = ["masked", 0]
+    if dn < 1:
+        g["split"] = {"class_type": "SplitSigmasDenoise", "inputs": {"sigmas": ["sched", 0], "denoise": dn}}
+        g["sca"]["inputs"]["sigmas"] = ["split", 1]
     return g
 
 
-def f2_draw(n, seed, folder, job, view, frame1, refs, head):
+def f2_draw(n, seed, folder, job, view, frame1):
     words, _ = job["_tags"]
-    part, painted = f2_choice(job)
-    mask = f2_mask(frame1, part, painted)
-    mfile = folder / ("f2_mask_%s.png" % view)
-    if not mfile.exists():
-        Image.fromarray((mask * 255).astype(np.uint8)).resize((320, 320), Image.NEAREST).convert("RGB").save(mfile)
-        on_magenta4(frame1).save(folder / ("f2_start_%s.png" % view))
-    text = (head + about(job, words, move=False) + "The picture is its second frame: the same 80x80 pixel art %s sprite on a flat "
-            "magenta background, the same creature in the same place and size, with exactly the colours, outline and design of "
-            "image 1; only its pose changes: %s; a clear change of pose there, the rest stays exactly as in image 1." % (view, F2_PARTS[part]))
-    lora = FRONT2_KLEIN if view == "front" else BACK2_KLEIN
-    ups, st, mk = [up(r) for r in refs], up(folder / ("f2_start_%s.png" % view)), up(mfile)
+    _, move = f2_choice(job)
+    if not (folder / ("f2_start_%s.png" % view)).exists():
+        one = on_magenta4(frame1)
+        one.save(folder / ("f2_one_%s.png" % view))
+        Image.new("RGB", (320, 320), "white").save(folder / "f2_white.png")
+        start = Image.new("RGB", (640, 320)); start.paste(one, (0, 0)); start.paste(one, (320, 0)); start.save(folder / ("f2_start_%s.png" % view))
+        m = Image.new("RGB", (640, 320), "black"); m.paste((255, 255, 255), (320, 0, 640, 320)); m.save(folder / "f2_mask.png")
+    refs = [up(folder / ("f2_one_%s.png" % view)), up(folder / "f2_white.png")]
+    st, mk = up(folder / ("f2_start_%s.png" % view)), up(folder / "f2_mask.png")
+    body = about(job, words, move=False)
+    mode = f2_mode(job, n)
+    plan = [(mode, seed + 1000 * k) for k in range(F2_ATTEMPTS)] + ([("clear", seed + 1000 * F2_ATTEMPTS)] if mode == "big" else [])
     best = None
-    for k in range(F2_ATTEMPTS):
+    for k, (md, sd) in enumerate(plan):
+        dn, cfg, change = F2_MODES[md]
+        if move and view == "front":
+            change = F2_MOVES[move] + "; " + change
         raw = folder / ("%s2_raw_%d_%d.png" % (view, n, k))
         if not raw.exists():
-            raw.write_bytes(comfy.run(f2_graph(text, ups, seed + 1000 * k, lora, st, mk)))
-        sprite, lost = f2_compose(frame1, klein_follower.to_back(raw), mask)
-        changed = int((np.array(sprite) != np.array(frame1.convert("RGBA"))).any(-1).sum())
-        score = (lost < 0.20 and changed >= 12, -lost, changed)
-        if best is None or score > best[0]:
-            best = (score, sprite, raw, lost, changed)
-        if score[0]:
+            raw.write_bytes(comfy.run(f2_graph(f2_caption(view, body, change), refs, sd, st, mk, dn, cfg)))
+        right = folder / ("%s2_right_%d_%d.png" % (view, n, k))
+        Image.open(raw).convert("RGB").crop((320, 0, 640, 320)).save(right)
+        sprite = f2_seam(frame1_colours(klein_follower.to_back(right), frame1), frame1)
+        c = f2_check(frame1, sprite, front=view == "front")
+        if best is None or (not c["bad"], -c["score"]) > (not best[0]["bad"], -best[0]["score"]):
+            best = (c, sprite, raw, md)
+        if not c["bad"]:
             break
-    (_, sprite, raw, lost, changed) = best
-    why = "a part went missing (%d%% of it lost)" % (100 * lost) if lost >= 0.20 else "almost nothing moved" if changed < 12 else ""
+    c, sprite, raw, md = best
+    why = ("" if not c["bad"] else "maybe new or lost body parts (new %d%%, lost %d%%%s%s)" % (
+        c["new"], c["lost"], ", a new loose piece" if c["extra"] else "", ", touches the edge" if c["edge"] else ""))
     image = folder / ("%s2_%d.png" % (view, n))
     sprite.save(image)
-    return ("broken" if why else "done", why, image, raw)
+    how = "%s%s, %d%% of it moved" % (md, " (from big: big broke)" if md != mode else "", c["moved"])
+    return ("broken" if why else "done", (why + "; " + how) if why else how, image, raw)
 
 
 def try_front2(n, seed, folder, job, inputs):
-    f1, art, back = inputs["front"], inputs.get("art"), inputs.get("back")
-    if not (folder / "f2_1.png").exists():
-        on_magenta4(f1).save(folder / "f2_1.png")
-        (fit_white(art) if art is not None else Image.new("RGB", (320, 320), "white")).save(folder / "f2_2.png")
-        (on_magenta4(back) if back is not None else Image.new("RGB", (320, 320), "white")).save(folder / "f2_3.png")
-    head = ("Create the second animation frame of the front battle sprite from Pokemon HeartGold of the Pokemon in image 1: image 1 "
-            "is its first frame. " + ("Image 2 is its official artwork, for its design. " if art is not None else "Image 2 is empty. ") +
-            ("Image 3 is its back sprite, for how it looks from behind. " if back is not None else "Image 3 is empty. "))
     job["_tags"] = inputs["tags"]
-    return f2_draw(n, seed, folder, job, "front", f1, [folder / "f2_1.png", folder / "f2_2.png", folder / "f2_3.png"], head)
+    return f2_draw(n, seed, folder, job, "front", inputs["front"])
 
 
 def try_back2(n, seed, folder, job, inputs):
-    b1, art, pair = inputs["back"], inputs.get("art"), inputs.get("pair")
-    if not (folder / "b2_1.png").exists():
-        on_magenta4(b1).save(folder / "b2_1.png")
-        (front_pair(*pair) if pair else Image.new("RGB", (320, 320), "white")).save(folder / "b2_2.png")
-        (fit_white(art) if art is not None else Image.new("RGB", (320, 320), "white")).save(folder / "b2_3.png")
-    head = ("Create the second animation frame of the back battle sprite from Pokemon HeartGold of the Pokemon in image 1: image 1 is "
-            "its back sprite's first frame. " +
-            ("Image 2 shows its front sprite's two animation frames side by side (frame 1 left, frame 2 right): the back's second frame "
-             "makes the same motion, seen from behind. " if pair else "Image 2 is empty. ") +
-            ("Image 3 is its official artwork, for its design. " if art is not None else "Image 3 is empty. "))
     job["_tags"] = inputs["tags"]
-    return f2_draw(n, seed, folder, job, "back", b1, [folder / "b2_1.png", folder / "b2_2.png", folder / "b2_3.png"], head)
+    return f2_draw(n, seed, folder, job, "back", inputs["back"])
 
 
 def icon_recipe(job, n):
@@ -910,7 +910,7 @@ def recipe_name(job, n):
     if stage == "follower":
         return "follower klein v3 2000"
     if stage in ("front2", "back2"):
-        return Path(FRONT2_KLEIN if stage == "front2" else BACK2_KLEIN).stem.replace("pkmn_", "").replace("_0000", " ")
+        return "f2pair v1 2250 %s" % f2_mode(job, n)
     if job.get("recipe") == "pose":
         return "sketch new pose (Qwen + style v2)"
     return "sketch to art (style klein v2 2500)" if job.get("recipe") == "sketch" else "base Qwen cut-out"
@@ -976,24 +976,8 @@ def run(job, base, key, post, download, folder, log=print):
         if not other.get("image"):
             raise RuntimeError("the walking sprite needs a back: pick one first")
         inputs["back"] = Image.open(download(base, other["image"], folder / "with_back.png")).convert("RGBA")
-    if stage in ("front2", "back2"):                           # frame 2 (the claim sends the try, its parent and grandparent)
-        chain = [src, src.get("parent") or {}, (src.get("parent") or {}).get("parent") or {}]
-        get = lambda t, name: Image.open(download(base, t["image"], folder / name)).convert("RGBA")
-        art = next((t for t in chain[1:] if t.get("stage") == "art" and t.get("image")), None)
-        if art:
-            inputs["art"] = get(art, "f2_art.png")
-        elif job.get("refs"):
-            inputs["art"] = framed(Image.open(download(base, job["refs"][0], folder / "ref0.png")))
-        other = job.get("with_try") or {}
-        if stage == "front2":
-            inputs["front"] = get(src, "f2_front.png")
-            if other.get("image"):
-                inputs["back"] = get(other, "f2_back.png")
-        else:
-            inputs["back"] = get(src, "f2_back.png")
-            front = chain[1] if chain[1].get("stage") == "front" and chain[1].get("image") else None
-            if front and other.get("image"):
-                inputs["pair"] = (get(front, "f2_front.png"), get(other, "f2_front2.png"))
+    if stage in ("front2", "back2"):                           # frame 2: only the picked frame 1 (the pair LoRA needs nothing else)
+        inputs["front" if stage == "front2" else "back"] = Image.open(download(base, src["image"], folder / ("f2_%s.png" % stage))).convert("RGBA")
     if stage == "icon":
         species = {sid: d for sid, _, d in dexlib.load_species()[0]}
         inputs["body_color"] = (species.get(job["species_id"]) or {}).get("body_color")
