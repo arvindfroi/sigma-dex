@@ -8,6 +8,7 @@ import shutil
 
 import yaml
 
+import anim_pick
 import dexlib
 import validate
 import story_moves
@@ -115,6 +116,8 @@ def main():
         "images": images, "sprites": sprite_info, "ds_sprites": ds_sprites, "showdown": showdown, "studio": studio,
         "shinies": saved("shiny"), "cries": cries,
         "official_species": json.loads(official_path.read_text(encoding="utf-8"))["species"] if official_path.exists() else [],
+        # the three official Pokemon whose battle animation fits each of ours best (scripts/anim_pick.py)
+        "anim_picks": anim_pick.all_picks() if official_path.exists() else {},
         "legendaries": yaml.safe_load(legendaries_path.read_text(encoding="utf-8")) if legendaries_path.exists() else {},
         # Origin HeartGold's changes to official moves (type, category, power), for the damage calc in TEAMS
         "origin_moves": (yaml.safe_load((ROOT / "data" / "engine" / "origin.yaml").read_text(encoding="utf-8")) or {}).get("move_changes") or {},

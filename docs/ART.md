@@ -493,7 +493,15 @@ are retired: Arvind found they did not keep the Pokemon's look.
   one size calmer (big → clear → calm → big), as a normal job, so it comes back soon. Z / UNDO takes the last
   one back (the earlier saved sprite comes back; a redraw that has not started is cancelled). Migration
   `2026-11-23_frame2_swipe.sql`. The queue views show the batch as one line.
-- **Not done yet.** The export into Origin's anim files, and the battle animation per Pokemon.
+- **Battle animation (2026-11-23).** Arvind: "vi må kunne velge animasjon script også. Vi velger etter nærmeste
+  pokemon basert på alle variablene". HeartGold keeps one 89-byte animation record per species in `a/1/8/0`
+  (front cry delay, movement script id 0-142 from `a/0/9/0`, start delay, 10 frame steps `(frame 0/1, frames, x, y)`,
+  the same for the back, then y offset, shadow x, shadow size); Origin has one for every slot (1441). Ours borrow the
+  record of an official Pokemon 1-493: `scripts/anim_pick.py` ranks them (body shape first, then types, height,
+  weight, BST, colour, stage, legendary, egg groups); the site embeds the top three (`DEX.anim_picks`) and the
+  studio's SAVE page has BATTLE ANIMATION ("moves like ..."), saved as `engine.anim_from`. Export: copy bytes 0-85
+  of the donor's record into our slot, keep our own y offset and shadow.
+- **Not done yet.** The export into Origin's files (sprites with frame 2 + the borrowed animation record).
 
 ## The trainer studio
 

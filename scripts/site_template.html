@@ -3774,6 +3774,7 @@ function spriteStudio(s, startStep) {
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, "How the picked pictures look in a battle, in the menu and walking."),
       battle(),
+      animChooser(s),
       h("div", {class: "yesno", style: "position:static"}, note, h("div", {class: "menu", role: "group", "aria-label": "Make these the sprite?"}, yes,
         h("button", {type: "button", onclick: () => go("front")}, "NO"))),
       older.length ? h("details", {style: "margin-top:12px"}, h("summary", {class: "sub"}, "Earlier sprites (" + older.length + ")"),
@@ -4251,6 +4252,37 @@ function renderSprites() {
   }).catch(err => waiting.replaceChildren(h("div", {class: "empty"}, err.message)));
 }
 
+// ---------- battle animation (23 Nov 2026; Arvind: "vi må kunne velge animasjon script også. Vi velger etter nærmeste pokemon") ----------
+// In the game every Pokemon has an animation record: how its front sprite moves when it comes out, when frame 2 shows
+// and for how long, and the same for its back. Ours borrow the record of an official Pokemon (1-493): by default the
+// closest one (scripts/anim_pick.py: body shape first, then types, size, weight, stats, colour, stage), or the one
+// picked here, saved in the dex as engine.anim_from.
+const animDonorOf = s => ((s.data.engine || {}).anim_from) || (((DEX.anim_picks || {})[s.id] || [])[0] || {}).name || "";
+function animChooser(s) {
+  const picks = (DEX.anim_picks || {})[s.id] || [], chosen = (s.data.engine || {}).anim_from || "";
+  const note = h("span", {class: "sub", role: "status"});
+  const names = (DEX.official_species || []).map(o => o.name).sort((a, b) => a.localeCompare(b));
+  const sel = h("select", {"aria-label": "Battle animation borrowed from", onchange: async () => {
+    const engine = Object.assign({}, s.data.engine || {});
+    if (sel.value) engine.anim_from = sel.value; else delete engine.anim_from;
+    const data = clean(Object.assign(JSON.parse(JSON.stringify(s.data)), {engine}));
+    sel.disabled = true; note.textContent = "Saving...";
+    try {
+      if (DEX.web.url) await saveEdit("species", s.id, Object.assign({}, data, {_base: s.data}));
+      s.data = data; s.pending = {editor: me()}; note.textContent = "Saved.";
+    } catch (err) { note.textContent = err.message; }
+    sel.disabled = false;
+  }},
+    h("option", {value: ""}, picks[0] ? "The closest: " + picks[0].name : "The closest (worked out at the next website build)"),
+    picks.length ? h("optgroup", {label: "Closest to " + s.data.name}, picks.map(p => h("option", {value: p.name}, p.name + " - " + p.why))) : null,
+    h("optgroup", {label: "All of them"}, names.map(n => h("option", {value: n}, n))));
+  sel.value = chosen;
+  if (chosen && sel.value !== chosen) sel.append(h("option", {value: chosen}, chosen)), sel.value = chosen;
+  return h("div", {class: "row", style: "margin:8px 0;align-items:center;gap:8px;flex-wrap:wrap"},
+    h("span", {class: "pixfont"}, "BATTLE ANIMATION: "), h("span", {class: "sub"}, "moves like"), sel, note,
+    h("div", {class: "sub", style: "flex-basis:100%"}, "How it moves in battle and when frame 2 shows is borrowed from this Pokemon's animation in HeartGold."));
+}
+
 // ---------- frame 2 swipe (23 Nov 2026; Arvind: "som tinder ... de som vi avvist går videre til mer rolig, også repeat") ----------
 // Claude put in one FRONT 2 and one BACK 2 at the biggest size for every saved sprite (batch jobs, drawn after everyone's
 // own jobs). Here they come one card at a time. YES makes the picture the saved sprite's frame 2 at once. NO turns it down
@@ -4342,6 +4374,7 @@ function renderSwipe() {
         h("span", {class: "chip"}, size.toUpperCase()), card.round > 1 ? h("span", {class: "sub"}, "try " + card.round) : null),
       h("div", {class: "sstage" + (front ? "" : " back")}, flipPair(frame1, frame2, 240)),
       h("div", {class: "spair"}, h("figure", {}, h("img", {src: frame1, alt: "frame 1"}), "frame 1"), h("figure", {}, h("img", {src: frame2, alt: "frame 2"}), "frame 2")),
+      s && animDonorOf(s) ? h("div", {class: "sub"}, "In battle it moves like " + animDonorOf(s) + " (change it in the studio, under SAVE).") : null,
       h("div", {class: "snote" + (card.t.status === "broken" ? " bad" : "")},
         card.t.status === "broken" ? "BROKEN? " + (card.t.note || "maybe new or missing body parts") : (card.t.note || "")));
     // drag to decide (phones): past 90 px it counts
