@@ -1,0 +1,45 @@
+{
+ "v": 1,
+ "seed": 3030569835,
+ "layers": [
+  {
+   "dex": 443,
+   "semi": -3.87,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 240,
+   "semi": -1.53,
+   "gain": 0.5,
+   "at": 0.1,
+   "rev": false
+  },
+  {
+   "dex": 6,
+   "semi": -4.71,
+   "gain": 0.35,
+   "at": 0.02,
+   "rev": false
+  }
+ ],
+ "stretch": 1.092,
+ "sweep": 0.0,
+ "tone": -0.14,
+ "drive": 0.25,
+ "len": 1.6,
+ "vib": {
+  "rate": 5.45,
+  "depth": 0.2
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Jawie's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Charizard under it, because it is bigger",
+  "Adds a wobble"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

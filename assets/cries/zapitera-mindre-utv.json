@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 1911220525,
+ "layers": [
+  {
+   "dex": 81,
+   "semi": -5.83,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 180,
+   "semi": -10.58,
+   "gain": 0.6,
+   "at": 0.06,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.61,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": {
+  "hz": 73.21,
+  "mix": 0.22
+ },
+ "echo": null,
+ "reasons": [
+  "Starts from Magnemite's cry: both types, same egg group",
+  "Lower by 6 steps, it is taller than Magnemite",
+  "Mixed with a quieter Flaaffy (same body plan, also Electric)",
+  "Its Steel/Electric side gives a metallic buzz, a brighter sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

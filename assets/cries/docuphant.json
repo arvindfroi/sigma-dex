@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 226029201,
+ "layers": [
+  {
+   "dex": 232,
+   "semi": 2.56,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 221,
+   "semi": 3.39,
+   "gain": 0.52,
+   "at": 0.1,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -0.44,
+ "drive": 0.5,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Donphan's cry: its footprint is Donphan's, same body plan, also Ground",
+  "Higher by 3 steps, it is smaller than Donphan",
+  "Mixed with a quieter Piloswine (same body plan, also Ground)",
+  "Its Ground/Dragon side gives a darker sound, a rough edge"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 2046397783,
+ "layers": [
+  {
+   "dex": 70,
+   "semi": 0.99,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 209,
+   "semi": 3.53,
+   "gain": 0.5,
+   "at": 0.07,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.33,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 7.61,
+  "depth": 0.44
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Weepinbell's cry: same body plan, also Poison",
+  "Higher by 1 step, it is taller than Weepinbell",
+  "Mixed with a quieter Snubbull (also Fairy, same egg group)",
+  "Its Poison/Fairy side gives a wobble in the voice, a brighter sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

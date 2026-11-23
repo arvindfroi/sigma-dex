@@ -119,7 +119,7 @@ design:
     base exp: 85
     growth rate: 59
     base friendship: 90
-    gender: 63
+    gender: 55
     egg groups: 46
     egg cycles: 65
   body_shape: a head and a base # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
@@ -135,7 +135,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:422"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/nukfae.json"
-  cry:                   # sound file
+  cry: "assets/cries/nukfae.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 428919670,
+ "layers": [
+  {
+   "dex": 16,
+   "semi": -1.34,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 276,
+   "semi": 0.04,
+   "gain": 0.54,
+   "at": 0.11,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 2.46,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Pidgey's cry: its footprint is Pidgey's, same body plan, both types",
+  "Lower by 1 step, it is taller than Pidgey",
+  "Mixed with a quieter Taillow (same body plan, both types)",
+  "Its Normal/Flying side gives a rising pitch"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

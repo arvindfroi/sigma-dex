@@ -131,7 +131,7 @@ design:
     base exp: 85
     growth rate: 52
     base friendship: 90
-    gender: 77
+    gender: 76
     egg groups: 70
     egg cycles: 65
   body_shape: a body with one pair of wings
@@ -147,7 +147,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:18"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
-  cry:                   # sound file
+  cry: "assets/cries/smeatherace.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

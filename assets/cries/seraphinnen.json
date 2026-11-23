@@ -1,0 +1,45 @@
+{
+ "v": 1,
+ "seed": 3529325424,
+ "layers": [
+  {
+   "dex": 16,
+   "semi": -2.26,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 276,
+   "semi": -1.87,
+   "gain": 0.47,
+   "at": 0.04,
+   "rev": false
+  },
+  {
+   "dex": 468,
+   "semi": -5.35,
+   "gain": 0.36,
+   "at": 0.01,
+   "rev": false
+  }
+ ],
+ "stretch": 1.056,
+ "sweep": 1.98,
+ "tone": 0.06,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.56,
+  "depth": 0.28
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Diedo's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Togekiss under it, because it is bigger",
+  "Adds a wobble"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

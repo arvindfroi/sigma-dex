@@ -1,0 +1,40 @@
+{
+ "v": 1,
+ "seed": 4126587431,
+ "layers": [
+  {
+   "dex": 72,
+   "semi": 0.86,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 451,
+   "semi": -2.5,
+   "gain": 0.58,
+   "at": 0.06,
+   "rev": false
+  }
+ ],
+ "stretch": 1.078,
+ "sweep": -0.75,
+ "tone": 0.14,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 8.74,
+  "depth": 0.18
+ },
+ "ring": {
+  "hz": 123.66,
+  "mix": 0.32
+ },
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Nucloid's cry, 3 steps lower, because it is one stage further",
+  "Its pitch falls a little more"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 3799455801,
+ "layers": [
+  {
+   "dex": 245,
+   "semi": -4.33,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 485,
+   "semi": -4.58,
+   "gain": 0.47,
+   "at": 0.03,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -0.33,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.32,
+  "depth": 0.32
+ },
+ "ring": null,
+ "echo": {
+  "ms": 99.0,
+  "gain": 0.26
+ },
+ "reasons": [
+  "Starts from Suicune's cry: same body plan, also Water, legendary too",
+  "Lower by 4 steps, it is taller than Suicune",
+  "Mixed with a quieter Heatran (same body plan, legendary too)",
+  "Its Dark/Water side and being legendary gives a darker sound, a wobble in the voice, an echo"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

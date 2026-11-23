@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 3525721778,
+ "layers": [
+  {
+   "dex": 228,
+   "semi": -1.39,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 285,
+   "semi": -3.96,
+   "gain": 0.61,
+   "at": 0.12,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.43,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Houndour's cry: a similar body plan, also Dark",
+  "Lower by 1 step, it is taller than Houndour",
+  "Mixed with a quieter Shroomish (same body plan, same egg group)",
+  "Its Dark/Fairy side gives a brighter sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

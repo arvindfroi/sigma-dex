@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 1271528459,
+ "layers": [
+  {
+   "dex": 60,
+   "semi": -0.01,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 43,
+   "semi": -5.16,
+   "gain": 0.58,
+   "at": 0.02,
+   "rev": false
+  },
+  {
+   "dex": 138,
+   "semi": -5.71,
+   "gain": 0.25,
+   "at": 0.04,
+   "rev": false
+  }
+ ],
+ "stretch": 1.064,
+ "sweep": 0.0,
+ "tone": -0.04,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Saucerl's cry, 2 steps lower, because it is one stage further",
+  "Adds a low Omanyte under it, because it is bigger",
+  "Without the wobble"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

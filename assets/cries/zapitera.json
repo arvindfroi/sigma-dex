@@ -1,0 +1,40 @@
+{
+ "v": 1,
+ "seed": 670945569,
+ "layers": [
+  {
+   "dex": 81,
+   "semi": -8.91,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 180,
+   "semi": -12.0,
+   "gain": 0.6,
+   "at": 0.06,
+   "rev": false
+  }
+ ],
+ "stretch": 1.077,
+ "sweep": 0.0,
+ "tone": 0.47,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 8.02,
+  "depth": 0.44
+ },
+ "ring": {
+  "hz": 73.21,
+  "mix": 0.22
+ },
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Sparktera's cry, 3 steps lower, because it is one stage further",
+  "Adds a wobble"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

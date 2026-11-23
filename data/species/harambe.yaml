@@ -139,8 +139,8 @@ design:
     base exp: 85
     growth rate: 51
     base friendship: 90
-    gender: 64
-    egg groups: 45
+    gender: 66
+    egg groups: 47
     egg cycles: 65
     height: 65
     weight: 65
@@ -157,7 +157,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint:             # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
-  cry:                   # sound file
+  cry: "assets/cries/harambe.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

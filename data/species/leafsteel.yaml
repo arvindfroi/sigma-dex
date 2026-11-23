@@ -117,9 +117,9 @@ design:
     body shape: 80
     look: 80
     movement: 80
-    level-up moves: 63
-    "TM/HM moves": 68
-    tutor moves: 58
+    level-up moves: 71
+    "TM/HM moves": 76
+    tutor moves: 66
     body color: 80
     catch rate: 90
     base exp: 85
@@ -137,9 +137,9 @@ assets:
   front_anim: "assets/sprites/leafsteel/anim_front.png"
   back_sprite: "assets/sprites/leafsteel/back.png"
   icon: "assets/sprites/leafsteel/icon.png"
-  footprint: "hgss:2"
+  footprint: "hgss:2"    # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/leafsteel.json"
-  cry:                   # sound file
+  cry: "assets/cries/leafsteel.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

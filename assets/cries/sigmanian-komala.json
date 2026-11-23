@@ -1,0 +1,35 @@
+{
+ "v": 1,
+ "seed": 2509645698,
+ "layers": [
+  {
+   "dex": 216,
+   "semi": 1.93,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 427,
+   "semi": 4.53,
+   "gain": 0.5,
+   "at": 0.04,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Teddiursa's cry: its footprint is Teddiursa's, a similar body plan, also Normal",
+  "Higher by 2 steps, it is smaller than Teddiursa",
+  "Mixed with a quieter Buneary (a similar body plan, also Normal)"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

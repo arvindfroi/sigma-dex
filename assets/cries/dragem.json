@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 453075629,
+ "layers": [
+  {
+   "dex": 411,
+   "semi": 0.6,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 357,
+   "semi": 1.37,
+   "gain": 0.56,
+   "at": 0.05,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -0.27,
+ "drive": 0.18,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Bastiodon's cry: same body plan, also Rock, same egg group",
+  "Higher by 1 step, it is taller than Bastiodon",
+  "Mixed with a quieter Tropius (same body plan, same egg group)",
+  "Its Dragon/Rock side gives a rough edge, a darker sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

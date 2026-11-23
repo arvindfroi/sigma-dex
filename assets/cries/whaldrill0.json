@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 1505368416,
+ "layers": [
+  {
+   "dex": 220,
+   "semi": -2.94,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 363,
+   "semi": -1.73,
+   "gain": 0.62,
+   "at": 0.04,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -0.64,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Swinub's cry: both types, same egg group",
+  "Lower by 3 steps, it is taller than Swinub",
+  "Mixed with a quieter Spheal (also Ice, same egg group)",
+  "Its Ice/Ground side gives a darker sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

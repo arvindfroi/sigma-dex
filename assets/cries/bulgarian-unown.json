@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 2356635710,
+ "layers": [
+  {
+   "dex": 100,
+   "semi": 1.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 436,
+   "semi": -2.24,
+   "gain": 0.63,
+   "at": 0.01,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.5,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 4.87,
+  "depth": 0.48
+ },
+ "ring": {
+  "hz": 47.76,
+  "mix": 0.17
+ },
+ "echo": null,
+ "reasons": [
+  "Starts from Voltorb's cry: same body plan, also Electric",
+  "Higher by 1 step, it is smaller than Voltorb",
+  "Mixed with a quieter Bronzor (same body plan, also Psychic)",
+  "Its Electric/Psychic side gives a metallic buzz, a brighter sound, a wobble in the voice"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

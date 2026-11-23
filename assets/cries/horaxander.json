@@ -1,0 +1,48 @@
+{
+ "v": 1,
+ "seed": 2335771455,
+ "layers": [
+  {
+   "dex": 443,
+   "semi": -1.96,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 371,
+   "semi": -5.15,
+   "gain": 0.5,
+   "at": 0.01,
+   "rev": false
+  },
+  {
+   "dex": 330,
+   "semi": -5.91,
+   "gain": 0.35,
+   "at": 0.03,
+   "rev": false
+  }
+ ],
+ "stretch": 1.06,
+ "sweep": 0.0,
+ "tone": 0.09,
+ "drive": 0.41,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.5,
+  "depth": 0.47
+ },
+ "ring": {
+  "hz": 58.61,
+  "mix": 0.25
+ },
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Horaxigon's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Flygon under it, because it is bigger",
+  "Adds a wobble"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

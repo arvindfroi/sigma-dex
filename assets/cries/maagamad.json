@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 3426927764,
+ "layers": [
+  {
+   "dex": 150,
+   "semi": -2.22,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 484,
+   "semi": -0.99,
+   "gain": 0.6,
+   "at": 0.06,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 1.15,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 7.09,
+  "depth": 0.34
+ },
+ "ring": null,
+ "echo": {
+  "ms": 135.0,
+  "gain": 0.29
+ },
+ "reasons": [
+  "Starts from Mewtwo's cry: same body plan, legendary too",
+  "Lower by 2 steps, it is smaller than Mewtwo",
+  "Mixed with a quieter Palkia (same body plan, legendary too)",
+  "Its Flying/Poison side and being legendary gives a rising pitch, a wobble in the voice, an echo"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

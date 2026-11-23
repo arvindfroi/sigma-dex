@@ -13,7 +13,7 @@ category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
 height_m: 0.7            # e.g. 0.7
 weight_kg: 19.4          # e.g. 6.9
-body_color:              # red blue yellow green black brown purple gray white pink
+body_color: red          # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
@@ -30,15 +30,15 @@ base_stats:              # each 1-255
   speed: 50
 
 ev_yield: {attack: 1}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+catch_rate: 45           # 3 (legendary) to 255 (very easy)
+base_exp: 70             # exp yield when defeated, e.g. 64
+growth_rate: slow        # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 70      # 70 is the standard value
 
 # --- Breeding ---
-gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: []           # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+gender: 50               # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: [dragon]     # 1 or 2, e.g. [field, grass]
+egg_cycles: 25           # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -61,10 +61,39 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
-  egg: []                # only needed for the first stage of an evolution line
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Ember}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Tackle}
+    - {level: 8, move: Dragon Tail}
+    - {level: 9, move: Bite}
+    - {level: 9, move: Flame Charge}
+    - {level: 15, move: Horn Attack}
+    - {level: 21, move: Headbutt}
+    - {level: 21, move: Slash}
+    - {level: 26, move: Flame Wheel}
+    - {level: 26, move: Scary Face}
+    - {level: 32, move: Dragon Claw}
+    - {level: 34, move: Crunch}
+    - {level: 36, move: Take Down}
+    - {level: 40, move: Focus Energy}
+    - {level: 41, move: Dragon Rush}
+    - {level: 54, move: Outrage}
+    - {level: 56, move: Flare Blitz}
+    - {level: 61, move: Double-Edge}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Dragon Claw, Roar, Toxic, Hidden Power, Sunny Day, Protect, Rain Dance,
+          Frustration, Iron Tail, Return, Dig, Brick Break, Double Team, Flamethrower,
+          Fire Blast, Rock Tomb, Aerial Ace, Facade, Secret Power, Rest, Attract, Overheat,
+          Endure, Dragon Pulse, Will-O-Wisp, Rock Slide, Sleep Talk, Swagger, Substitute,
+          Flame Charge, Strength, Rock Smash]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Draco Meteor, Dragon Dance, Endeavor, Fire Fang, Fire Punch,
+          Flare Blitz, Iron Head, Outrage, Thunder Fang, Zen Headbutt]
+  # only needed for the first stage of an evolution line
+  egg: [Fire Fang, Dragon Breath, Thunder Fang, Dragon Dance, Fire Spin, Dragon Rage,
+        Reversal, Curse]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]
@@ -77,13 +106,27 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [body shape, look, movement, height, weight]
+  filled_by_claude: [body shape, look, movement, height, weight, body color, catch rate,
+                     base exp, growth rate, base friendship, gender, egg groups, egg cycles,
+                     level-up moves, "TM/HM moves", tutor moves, egg moves]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     body shape: 80
     look: 80
     movement: 80
-    height: 55
-    weight: 35
+    height: 45
+    weight: 55
+    body color: 90
+    catch rate: 60
+    base exp: 85
+    growth rate: 51
+    base friendship: 90
+    gender: 65
+    egg groups: 48
+    egg cycles: 65
+    level-up moves: 59
+    "TM/HM moves": 64
+    tutor moves: 54
+    egg moves: 54
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a plump orange dragon-like creature with two large curved horns, a wide toothy grin, orange eyes and a big round cream belly. It wears an iron chain around its neck and has two short arms with cream claws, two clawed feet and a short curled tail with red scale patches."
@@ -97,7 +140,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:408"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/jawie.json"
-  cry:                   # sound file
+  cry: "assets/cries/jawie.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

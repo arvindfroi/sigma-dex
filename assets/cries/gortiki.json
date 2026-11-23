@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 3575760564,
+ "layers": [
+  {
+   "dex": 390,
+   "semi": -3.6,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 187,
+   "semi": -4.31,
+   "gain": 0.61,
+   "at": 0.02,
+   "rev": false
+  },
+  {
+   "dex": 275,
+   "semi": -3.87,
+   "gain": 0.33,
+   "at": 0.04,
+   "rev": false
+  }
+ ],
+ "stretch": 1.151,
+ "sweep": 0.71,
+ "tone": 0.2,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Motinky's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Shiftry under it, because it is bigger",
+  "Its pitch rises a little more"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

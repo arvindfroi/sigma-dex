@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 508463656,
+ "layers": [
+  {
+   "dex": 115,
+   "semi": -1.85,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 149,
+   "semi": -3.29,
+   "gain": 0.47,
+   "at": 0.11,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.27,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Kangaskhan's cry: also Normal",
+  "Lower by 2 steps, it is taller than Kangaskhan",
+  "Mixed with a quieter Dragonite (also Dragon)",
+  "Its Normal/Dragon side gives a rough edge"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

@@ -1,0 +1,47 @@
+{
+ "v": 1,
+ "seed": 3278984331,
+ "layers": [
+  {
+   "dex": 425,
+   "semi": -5.95,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 353,
+   "semi": -4.61,
+   "gain": 0.63,
+   "at": 0.07,
+   "rev": false
+  },
+  {
+   "dex": 94,
+   "semi": -4.31,
+   "gain": 0.32,
+   "at": 0.02,
+   "rev": false
+  }
+ ],
+ "stretch": 1.068,
+ "sweep": 0.0,
+ "tone": -0.16,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 7.84,
+  "depth": 0.3
+ },
+ "ring": null,
+ "echo": {
+  "ms": 70.0,
+  "gain": 0.29
+ },
+ "reasons": [
+  "Keeps the sound of Whyrmshade's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Gengar under it, because it is bigger"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

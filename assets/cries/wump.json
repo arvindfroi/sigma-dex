@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 453600740,
+ "layers": [
+  {
+   "dex": 167,
+   "semi": 0.86,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 46,
+   "semi": -3.61,
+   "gain": 0.61,
+   "at": 0.08,
+   "rev": false
+  }
+ ],
+ "stretch": 0.83,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Spinarak's cry: its footprint is Spinarak's, a similar body plan, also Bug",
+  "Higher by 1 step, it is smaller than Spinarak",
+  "Mixed with a quieter Paras (a similar body plan, also Bug)",
+  "Its Bug side gives said quicker"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

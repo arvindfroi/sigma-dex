@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 85335783,
+ "layers": [
+  {
+   "dex": 155,
+   "semi": -4.63,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 391,
+   "semi": -3.84,
+   "gain": 0.5,
+   "at": 0.06,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.17,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Cyndaquil's cry: same body plan, also Fire, same egg group",
+  "Lower by 5 steps, it is taller than Cyndaquil",
+  "Mixed with a quieter Monferno (a similar body plan, also Fire)",
+  "Its Fire side gives a rough edge"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

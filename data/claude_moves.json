@@ -1,4 +1,154 @@
 {
+ "abysspero": {
+  "_hash": "20fa35617949",
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Dragon Breath"
+   ],
+   [
+    1,
+    "Dragon Pulse"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Helping Hand"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    14,
+    "Confuse Ray"
+   ],
+   [
+    18,
+    "Protect"
+   ],
+   [
+    20,
+    "Night Shade"
+   ],
+   [
+    21,
+    "Charm"
+   ],
+   [
+    28,
+    "Hex"
+   ],
+   [
+    30,
+    "Sweet Scent"
+   ],
+   [
+    38,
+    "Screech"
+   ],
+   [
+    42,
+    "Nasty Plot"
+   ],
+   [
+    48,
+    "Shadow Ball"
+   ],
+   [
+    66,
+    "Curse"
+   ],
+   [
+    1,
+    "Confusion"
+   ],
+   [
+    1,
+    "Withdraw"
+   ],
+   [
+    6,
+    "Hypnosis"
+   ],
+   [
+    28,
+    "Psybeam"
+   ],
+   [
+    32,
+    "Pain Split"
+   ],
+   [
+    53,
+    "Power Gem"
+   ]
+  ],
+  "tm_hm": [
+   "Dragon Claw",
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Flamethrower",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Endure",
+   "Dragon Pulse",
+   "Will-O-Wisp",
+   "Giga Impact",
+   "Psych Up",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Calm Mind",
+   "Taunt",
+   "Giga Drain",
+   "Thunderbolt",
+   "Thunder",
+   "Torment",
+   "Secret Power",
+   "Skill Swap",
+   "Snatch",
+   "Energy Ball",
+   "Embargo",
+   "Payback",
+   "Flash",
+   "Captivate",
+   "Natural Gift",
+   "Trick Room",
+   "Foul Play",
+   "U-turn"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Curse",
+   "Draco Meteor",
+   "Nasty Plot",
+   "Outrage",
+   "Poltergeist",
+   "Dazzling Gleam",
+   "Icy Wind",
+   "Magical Leaf"
+  ]
+ },
  "abyssys": {
   "_hash": "e3f13bf26632",
   "level_up": [
@@ -2873,6 +3023,121 @@
    "Zen Headbutt"
   ]
  },
+ "catbat": {
+  "_hash": "9cadee6d639e",
+  "egg": [
+   "Feint Attack",
+   "Sky Attack",
+   "Pursuit",
+   "Brave Bird",
+   "Defog",
+   "Knock Off",
+   "Whirlwind",
+   "Air Cutter",
+   "Razor Wind",
+   "Gust"
+  ],
+  "level_up": [
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Peck"
+   ],
+   [
+    6,
+    "Quick Attack"
+   ],
+   [
+    9,
+    "Payback"
+   ],
+   [
+    13,
+    "Bite"
+   ],
+   [
+    14,
+    "Wing Attack"
+   ],
+   [
+    19,
+    "Torment"
+   ],
+   [
+    24,
+    "Assurance"
+   ],
+   [
+    24,
+    "Taunt"
+   ],
+   [
+    28,
+    "Agility"
+   ],
+   [
+    30,
+    "Sucker Punch"
+   ],
+   [
+    33,
+    "Drill Peck"
+   ],
+   [
+    34,
+    "Roost"
+   ],
+   [
+    40,
+    "Foul Play"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Return",
+   "Double Team",
+   "Aerial Ace",
+   "Torment",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Steel Wing",
+   "Roost",
+   "Endure",
+   "Payback",
+   "Captivate",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Natural Gift",
+   "Swagger",
+   "Pluck",
+   "U-turn",
+   "Substitute",
+   "Foul Play",
+   "Dual Wingbeat",
+   "Fly"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Brave Bird",
+   "Heat Wave",
+   "Hurricane",
+   "Nasty Plot",
+   "Sky Attack",
+   "Snarl"
+  ]
+ },
  "chebbi": {
   "_hash": "e884227276c5",
   "egg": [
@@ -4088,6 +4353,147 @@
    "Super Fang"
   ]
  },
+ "cobrabat": {
+  "_hash": "5e805a280108",
+  "level_up": [
+   [
+    1,
+    "Dual Wingbeat"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Peck"
+   ],
+   [
+    1,
+    "Pluck"
+   ],
+   [
+    1,
+    "Sand Attack"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    15,
+    "Wing Attack"
+   ],
+   [
+    16,
+    "Aerial Ace"
+   ],
+   [
+    18,
+    "Screech"
+   ],
+   [
+    25,
+    "Assurance"
+   ],
+   [
+    29,
+    "Agility"
+   ],
+   [
+    35,
+    "Drill Peck"
+   ],
+   [
+    39,
+    "Crunch"
+   ],
+   [
+    40,
+    "Foul Play"
+   ],
+   [
+    48,
+    "Night Slash"
+   ],
+   [
+    6,
+    "Quick Attack"
+   ],
+   [
+    9,
+    "Payback"
+   ],
+   [
+    19,
+    "Torment"
+   ],
+   [
+    27,
+    "Taunt"
+   ],
+   [
+    33,
+    "Sucker Punch"
+   ],
+   [
+    37,
+    "Roost"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Return",
+   "Double Team",
+   "Aerial Ace",
+   "Torment",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Steel Wing",
+   "Roost",
+   "Fling",
+   "Endure",
+   "Payback",
+   "Giga Impact",
+   "Captivate",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Natural Gift",
+   "Swagger",
+   "Pluck",
+   "U-turn",
+   "Substitute",
+   "Foul Play",
+   "Fly",
+   "Dual Wingbeat",
+   "Swords Dance"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Body Slam",
+   "Brave Bird",
+   "Hurricane",
+   "Sky Attack",
+   "Snarl",
+   "Heat Wave",
+   "Nasty Plot",
+   "Seed Bomb"
+  ]
+ },
  "cowfin": {
   "_hash": "e51f72beb831",
   "egg": [
@@ -4610,6 +5016,272 @@
    "Ice Fang",
    "Ice Punch",
    "Icicle Spear",
+   "Iron Head"
+  ]
+ },
+ "crystax": {
+  "_hash": "b4abef18c75a",
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Rollout"
+   ],
+   [
+    1,
+    "Sand Attack"
+   ],
+   [
+    1,
+    "Scratch"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    7,
+    "Taunt"
+   ],
+   [
+    13,
+    "Rock Tomb"
+   ],
+   [
+    17,
+    "Metal Claw"
+   ],
+   [
+    21,
+    "Headbutt"
+   ],
+   [
+    24,
+    "Slash"
+   ],
+   [
+    32,
+    "Agility"
+   ],
+   [
+    32,
+    "Rock Slide"
+   ],
+   [
+    35,
+    "Iron Head"
+   ],
+   [
+    36,
+    "Crunch"
+   ],
+   [
+    40,
+    "Iron Tail"
+   ],
+   [
+    44,
+    "Swords Dance"
+   ],
+   [
+    60,
+    "Stone Edge"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    13,
+    "Smack Down"
+   ],
+   [
+    19,
+    "Assurance"
+   ],
+   [
+    25,
+    "Screech"
+   ],
+   [
+    31,
+    "Roar"
+   ],
+   [
+    31,
+    "Scary Face"
+   ],
+   [
+    47,
+    "Stealth Rock"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Iron Tail",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Aerial Ace",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Rock Polish",
+   "Stone Edge",
+   "Swords Dance",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flash Cannon",
+   "Heavy Slam",
+   "Bulldoze",
+   "High Horsepower",
+   "Body Press",
+   "Strength",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Earth Power",
+   "Iron Head",
+   "Metal Claw",
+   "Endeavor"
+  ]
+ },
+ "crysteel": {
+  "_hash": "75eb2f8d0fbd",
+  "egg": [
+   "Curse",
+   "Head Smash",
+   "Rock Throw"
+  ],
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    4,
+    "Sand Attack"
+   ],
+   [
+    8,
+    "Metal Claw"
+   ],
+   [
+    12,
+    "Bite"
+   ],
+   [
+    13,
+    "Smack Down"
+   ],
+   [
+    19,
+    "Assurance"
+   ],
+   [
+    21,
+    "Headbutt"
+   ],
+   [
+    24,
+    "Iron Head"
+   ],
+   [
+    25,
+    "Screech"
+   ],
+   [
+    28,
+    "Roar"
+   ],
+   [
+    28,
+    "Rock Slide"
+   ],
+   [
+    28,
+    "Scary Face"
+   ],
+   [
+    36,
+    "Crunch"
+   ],
+   [
+    40,
+    "Iron Tail"
+   ],
+   [
+    44,
+    "Stealth Rock"
+   ],
+   [
+    48,
+    "Stone Edge"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Iron Tail",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Sandstorm",
+   "Rock Tomb",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Rock Polish",
+   "Stone Edge",
+   "Stealth Rock",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flash Cannon",
+   "Bulldoze",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Earth Power",
+   "Endeavor",
    "Iron Head"
   ]
  },
@@ -6049,6 +6721,149 @@
    "Sky Attack"
   ]
  },
+ "eclipsox": {
+  "_hash": "3123d679e505",
+  "level_up": [
+   [
+    1,
+    "Noble Roar"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Scary Face"
+   ],
+   [
+    1,
+    "Twister"
+   ],
+   [
+    8,
+    "Dragon Breath"
+   ],
+   [
+    9,
+    "Echoed Voice"
+   ],
+   [
+    10,
+    "Ancient Power"
+   ],
+   [
+    11,
+    "Dragon Tail"
+   ],
+   [
+    16,
+    "Crunch"
+   ],
+   [
+    24,
+    "Uproar"
+   ],
+   [
+    25,
+    "Slash"
+   ],
+   [
+    26,
+    "Tri Attack"
+   ],
+   [
+    35,
+    "Agility"
+   ],
+   [
+    36,
+    "Dragon Pulse"
+   ],
+   [
+    40,
+    "Body Slam"
+   ],
+   [
+    42,
+    "Dragon Claw"
+   ],
+   [
+    50,
+    "Hyper Voice"
+   ],
+   [
+    56,
+    "Dragon Rush"
+   ],
+   [
+    72,
+    "Earth Power"
+   ],
+   [
+    77,
+    "Outrage"
+   ],
+   [
+    80,
+    "Hyper Beam"
+   ]
+  ],
+  "tm_hm": [
+   "Dragon Claw",
+   "Roar",
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Thunderbolt",
+   "Thunder",
+   "Earthquake",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Aerial Ace",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Focus Blast",
+   "Fling",
+   "Endure",
+   "Dragon Pulse",
+   "Shadow Claw",
+   "Giga Impact",
+   "Stone Edge",
+   "Thunder Wave",
+   "Psych Up",
+   "Rock Slide",
+   "Sleep Talk",
+   "Natural Gift",
+   "Swagger",
+   "Substitute",
+   "Bulldoze",
+   "Body Press",
+   "Cut",
+   "Strength"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Draco Meteor",
+   "Earth Power",
+   "Endeavor",
+   "Heat Wave",
+   "Hyper Voice",
+   "Iron Head",
+   "Outrage",
+   "Weather Ball",
+   "Zen Headbutt"
+  ]
+ },
  "eiscue": {
   "_hash": "0830d4261066",
   "egg": [
@@ -6176,6 +6991,126 @@
    "Weather Ball",
    "Zen Headbutt",
    "Curse"
+  ]
+ },
+ "entrigon": {
+  "_hash": "2e839628faec",
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    1,
+    "Spark"
+   ],
+   [
+    1,
+    "Thunder Shock"
+   ],
+   [
+    8,
+    "Fury Swipes"
+   ],
+   [
+    10,
+    "Flame Charge"
+   ],
+   [
+    16,
+    "Quick Guard"
+   ],
+   [
+    24,
+    "Slash"
+   ],
+   [
+    25,
+    "Fire Fang"
+   ],
+   [
+    30,
+    "Charge"
+   ],
+   [
+    32,
+    "Thunder Punch"
+   ],
+   [
+    40,
+    "Agility"
+   ],
+   [
+    40,
+    "Crunch"
+   ],
+   [
+    54,
+    "Thrash"
+   ],
+   [
+    54,
+    "Wild Charge"
+   ],
+   [
+    56,
+    "Hone Claws"
+   ],
+   [
+    88,
+    "Thunder Fang"
+   ],
+   [
+    96,
+    "Close Combat"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Overheat",
+   "Fling",
+   "Charge Beam",
+   "Endure",
+   "Will-O-Wisp",
+   "Giga Impact",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flame Charge",
+   "Electroweb",
+   "Eerie Impulse",
+   "Electric Terrain"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Fire Punch",
+   "Flare Blitz",
+   "Heat Wave",
+   "Thunder Punch",
+   "Volt Switch",
+   "Zen Headbutt"
   ]
  },
  "erobi": {
@@ -6415,6 +7350,144 @@
    "Snarl",
    "Zen Headbutt",
    "Night Slash"
+  ]
+ },
+ "felk": {
+  "_hash": "277128bbcc2d",
+  "level_up": [
+   [
+    1,
+    "Air Cutter"
+   ],
+   [
+    1,
+    "Gust"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Mega Drain"
+   ],
+   [
+    7,
+    "Roar"
+   ],
+   [
+    10,
+    "Light Screen"
+   ],
+   [
+    14,
+    "Magical Leaf"
+   ],
+   [
+    25,
+    "Agility"
+   ],
+   [
+    25,
+    "Ancient Power"
+   ],
+   [
+    30,
+    "Tailwind"
+   ],
+   [
+    35,
+    "Giga Drain"
+   ],
+   [
+    40,
+    "Roost"
+   ],
+   [
+    45,
+    "Hurricane"
+   ],
+   [
+    55,
+    "Solar Beam"
+   ],
+   [
+    56,
+    "Air Slash"
+   ],
+   [
+    60,
+    "Rain Dance"
+   ],
+   [
+    70,
+    "Energy Ball"
+   ],
+   [
+    91,
+    "Hyper Beam"
+   ],
+   [
+    10,
+    "Fairy Wind"
+   ],
+   [
+    21,
+    "Aromatherapy"
+   ],
+   [
+    54,
+    "Heal Pulse"
+   ],
+   [
+    18,
+    "Wing Attack"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Bullet Seed",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Giga Drain",
+   "Frustration",
+   "Solar Beam",
+   "Return",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Roost",
+   "Focus Blast",
+   "Energy Ball",
+   "Endure",
+   "Giga Impact",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Dual Wingbeat",
+   "Fly"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Body Slam",
+   "Brave Bird",
+   "Heat Wave",
+   "Hurricane",
+   "Leaf Storm",
+   "Magical Leaf",
+   "Seed Bomb",
+   "Sky Attack",
+   "Moonblast",
+   "Dazzling Gleam"
   ]
  },
  "fleuroom": {
@@ -9465,6 +10538,231 @@
    "Zen Headbutt"
   ]
  },
+ "horaxander": {
+  "_hash": "4ba6d6f35d48",
+  "level_up": [
+   [
+    1,
+    "Flash Cannon"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Harden"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    1,
+    "Yawn"
+   ],
+   [
+    12,
+    "Hone Claws"
+   ],
+   [
+    16,
+    "Protect"
+   ],
+   [
+    18,
+    "Metal Sound"
+   ],
+   [
+    24,
+    "Dragon Breath"
+   ],
+   [
+    35,
+    "Twister"
+   ],
+   [
+    36,
+    "Iron Defense"
+   ],
+   [
+    42,
+    "Focus Energy"
+   ],
+   [
+    42,
+    "Recover"
+   ],
+   [
+    48,
+    "Dragon Pulse"
+   ],
+   [
+    48,
+    "Iron Tail"
+   ],
+   [
+    60,
+    "Metal Burst"
+   ],
+   [
+    33,
+    "Screech"
+   ],
+   [
+    58,
+    "Lock-On"
+   ],
+   [
+    69,
+    "Hyper Beam"
+   ]
+  ],
+  "tm_hm": [
+   "Dragon Claw",
+   "Roar",
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Thunderbolt",
+   "Earthquake",
+   "Return",
+   "Double Team",
+   "Reflect",
+   "Flamethrower",
+   "Sandstorm",
+   "Facade",
+   "Rest",
+   "Attract",
+   "Focus Blast",
+   "Endure",
+   "Dragon Pulse",
+   "Giga Impact",
+   "Thunder Wave",
+   "Gyro Ball",
+   "Stealth Rock",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flash Cannon",
+   "Heavy Slam",
+   "Secret Power"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Draco Meteor",
+   "Earth Power",
+   "Iron Head",
+   "Outrage"
+  ]
+ },
+ "horaxigon": {
+  "_hash": "af327848212d",
+  "egg": [
+   "Curse",
+   "Dragon Rush"
+  ],
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    3,
+    "Protect"
+   ],
+   [
+    12,
+    "Hone Claws"
+   ],
+   [
+    18,
+    "Metal Sound"
+   ],
+   [
+    24,
+    "Dragon Breath"
+   ],
+   [
+    33,
+    "Screech"
+   ],
+   [
+    36,
+    "Iron Defense"
+   ],
+   [
+    42,
+    "Focus Energy"
+   ],
+   [
+    48,
+    "Dragon Pulse"
+   ],
+   [
+    54,
+    "Flash Cannon"
+   ],
+   [
+    55,
+    "Lock-On"
+   ],
+   [
+    60,
+    "Metal Burst"
+   ],
+   [
+    66,
+    "Hyper Beam"
+   ]
+  ],
+  "tm_hm": [
+   "Dragon Claw",
+   "Roar",
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Thunderbolt",
+   "Return",
+   "Double Team",
+   "Sandstorm",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Dragon Pulse",
+   "Thunder Wave",
+   "Gyro Ball",
+   "Stealth Rock",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flash Cannon",
+   "Heavy Slam"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Draco Meteor",
+   "Iron Head",
+   "Outrage"
+  ]
+ },
  "icy-freeze": {
   "_hash": "5d5b32bf1157",
   "egg": [
@@ -9816,6 +11114,116 @@
    "Icy Wind"
   ]
  },
+ "iron-wire": {
+  "_hash": "f66e68efb732",
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Thunder Shock"
+   ],
+   [
+    1,
+    "Wrap"
+   ],
+   [
+    5,
+    "Charge"
+   ],
+   [
+    10,
+    "Thunder Wave"
+   ],
+   [
+    15,
+    "Ingrain"
+   ],
+   [
+    20,
+    "Parabolic Charge"
+   ],
+   [
+    25,
+    "Shock Wave"
+   ],
+   [
+    30,
+    "Hypnosis"
+   ],
+   [
+    35,
+    "Eerie Impulse"
+   ],
+   [
+    40,
+    "Discharge"
+   ],
+   [
+    50,
+    "Magnet Rise"
+   ],
+   [
+    55,
+    "Thunderbolt"
+   ],
+   [
+    60,
+    "Electric Terrain"
+   ],
+   [
+    60,
+    "Rain Dance"
+   ],
+   [
+    65,
+    "Thunder"
+   ],
+   [
+    70,
+    "Zap Cannon"
+   ]
+  ],
+  "tm_hm": [
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Solar Beam",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Double Team",
+   "Reflect",
+   "Facade",
+   "Rest",
+   "Fling",
+   "Charge Beam",
+   "Endure",
+   "Giga Impact",
+   "Thunder Wave",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Electroweb",
+   "Eerie Impulse",
+   "Electric Terrain",
+   "Energy Ball"
+  ],
+  "tutor": [
+   "Dazzling Gleam",
+   "Thunder Punch",
+   "Volt Switch",
+   "Heat Wave",
+   "Earth Power"
+  ]
+ },
  "janenon": {
   "_hash": "1f9f28c54d41",
   "level_up": [
@@ -10081,6 +11489,144 @@
    "Thunder Fang",
    "Zen Headbutt",
    "Weather Ball"
+  ]
+ },
+ "jawie": {
+  "_hash": "7a35bdf03bf1",
+  "egg": [
+   "Fire Fang",
+   "Dragon Breath",
+   "Thunder Fang",
+   "Dragon Dance",
+   "Fire Spin",
+   "Dragon Rage",
+   "Reversal",
+   "Curse"
+  ],
+  "level_up": [
+   [
+    1,
+    "Ember"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Tackle"
+   ],
+   [
+    8,
+    "Dragon Tail"
+   ],
+   [
+    9,
+    "Bite"
+   ],
+   [
+    9,
+    "Flame Charge"
+   ],
+   [
+    21,
+    "Headbutt"
+   ],
+   [
+    26,
+    "Flame Wheel"
+   ],
+   [
+    26,
+    "Scary Face"
+   ],
+   [
+    32,
+    "Dragon Claw"
+   ],
+   [
+    34,
+    "Crunch"
+   ],
+   [
+    36,
+    "Take Down"
+   ],
+   [
+    40,
+    "Focus Energy"
+   ],
+   [
+    41,
+    "Dragon Rush"
+   ],
+   [
+    54,
+    "Outrage"
+   ],
+   [
+    56,
+    "Flare Blitz"
+   ],
+   [
+    61,
+    "Double-Edge"
+   ],
+   [
+    15,
+    "Horn Attack"
+   ],
+   [
+    21,
+    "Slash"
+   ]
+  ],
+  "tm_hm": [
+   "Dragon Claw",
+   "Roar",
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Iron Tail",
+   "Return",
+   "Dig",
+   "Brick Break",
+   "Double Team",
+   "Flamethrower",
+   "Fire Blast",
+   "Rock Tomb",
+   "Aerial Ace",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Attract",
+   "Overheat",
+   "Endure",
+   "Dragon Pulse",
+   "Will-O-Wisp",
+   "Rock Slide",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Flame Charge",
+   "Strength",
+   "Rock Smash"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Draco Meteor",
+   "Dragon Dance",
+   "Endeavor",
+   "Fire Fang",
+   "Fire Punch",
+   "Flare Blitz",
+   "Iron Head",
+   "Outrage",
+   "Thunder Fang",
+   "Zen Headbutt"
   ]
  },
  "julius": {
@@ -10371,6 +11917,123 @@
    "Endeavor",
    "Hyper Voice",
    "Zen Headbutt"
+  ]
+ },
+ "laxis": {
+  "_hash": "c0c693594144",
+  "level_up": [
+   [
+    1,
+    "Gust"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Mist"
+   ],
+   [
+    5,
+    "Powder Snow"
+   ],
+   [
+    10,
+    "Reflect"
+   ],
+   [
+    15,
+    "Aurora Beam"
+   ],
+   [
+    20,
+    "Agility"
+   ],
+   [
+    24,
+    "Air Slash"
+   ],
+   [
+    25,
+    "Ancient Power"
+   ],
+   [
+    30,
+    "Tailwind"
+   ],
+   [
+    35,
+    "Freeze-Dry"
+   ],
+   [
+    40,
+    "Roost"
+   ],
+   [
+    45,
+    "Ice Beam"
+   ],
+   [
+    50,
+    "Snowscape"
+   ],
+   [
+    55,
+    "Hurricane"
+   ],
+   [
+    60,
+    "Haze"
+   ],
+   [
+    65,
+    "Blizzard"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Toxic",
+   "Hail",
+   "Hidden Power",
+   "Sunny Day",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Return",
+   "Double Team",
+   "Reflect",
+   "Aerial Ace",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Roost",
+   "Endure",
+   "Giga Impact",
+   "Avalanche",
+   "Sleep Talk",
+   "Natural Gift",
+   "Swagger",
+   "U-turn",
+   "Substitute",
+   "Dual Wingbeat",
+   "Fly",
+   "Focus Blast",
+   "Shadow Ball"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Body Slam",
+   "Heat Wave",
+   "Hurricane",
+   "Icicle Spear",
+   "Icy Wind",
+   "Sky Attack",
+   "Weather Ball"
   ]
  },
  "leadling": {
@@ -11972,6 +13635,131 @@
    "Seed Bomb",
    "Synthesis",
    "Charm"
+  ]
+ },
+ "natureo": {
+  "_hash": "4cef38a240b5",
+  "level_up": [
+   [
+    1,
+    "Growth"
+   ],
+   [
+    1,
+    "Helping Hand"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Quick Attack"
+   ],
+   [
+    7,
+    "Razor Leaf"
+   ],
+   [
+    14,
+    "Retaliate"
+   ],
+   [
+    21,
+    "Quick Guard"
+   ],
+   [
+    24,
+    "Seed Bomb"
+   ],
+   [
+    35,
+    "Swords Dance"
+   ],
+   [
+    36,
+    "Psycho Cut"
+   ],
+   [
+    42,
+    "Sacred Sword"
+   ],
+   [
+    42,
+    "Synthesis"
+   ],
+   [
+    50,
+    "Leech Seed"
+   ],
+   [
+    56,
+    "Zen Headbutt"
+   ],
+   [
+    60,
+    "Petal Blizzard"
+   ],
+   [
+    70,
+    "Imprison"
+   ],
+   [
+    77,
+    "Megahorn"
+   ],
+   [
+    84,
+    "Ally Switch"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Toxic",
+   "Bullet Seed",
+   "Sunny Day",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Giga Drain",
+   "Safeguard",
+   "Frustration",
+   "Solar Beam",
+   "Return",
+   "Psychic",
+   "Brick Break",
+   "Double Team",
+   "Reflect",
+   "Aerial Ace",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Skill Swap",
+   "Energy Ball",
+   "Endure",
+   "Giga Impact",
+   "Thunder Wave",
+   "Swords Dance",
+   "Psych Up",
+   "Sleep Talk",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Grassy Terrain",
+   "Psychic Terrain",
+   "Rock Slide"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Close Combat",
+   "Leaf Storm",
+   "Magical Leaf",
+   "Seed Bomb",
+   "Solar Blade",
+   "Zen Headbutt"
   ]
  },
  "nuclobyl": {
@@ -13826,6 +15614,114 @@
    "Body Slam"
   ]
  },
+ "praxis": {
+  "_hash": "1746b6c6bed5",
+  "level_up": [
+   [
+    1,
+    "Astonish"
+   ],
+   [
+    1,
+    "Gust"
+   ],
+   [
+    1,
+    "Spite"
+   ],
+   [
+    5,
+    "Leer"
+   ],
+   [
+    10,
+    "Light Screen"
+   ],
+   [
+    19,
+    "Hex"
+   ],
+   [
+    20,
+    "Confuse Ray"
+   ],
+   [
+    25,
+    "Agility"
+   ],
+   [
+    30,
+    "Tailwind"
+   ],
+   [
+    36,
+    "Shadow Ball"
+   ],
+   [
+    40,
+    "Air Slash"
+   ],
+   [
+    45,
+    "Extrasensory"
+   ],
+   [
+    50,
+    "Uproar"
+   ],
+   [
+    60,
+    "Disable"
+   ],
+   [
+    60,
+    "Rain Dance"
+   ],
+   [
+    65,
+    "Hurricane"
+   ],
+   [
+    68,
+    "Nasty Plot"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Frustration",
+   "Thunderbolt",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Aerial Ace",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Attract",
+   "Endure",
+   "Giga Impact",
+   "Psych Up",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Swagger",
+   "Substitute",
+   "Fly",
+   "U-turn"
+  ],
+  "tutor": [
+   "Air Slash",
+   "Hurricane",
+   "Poltergeist"
+  ]
+ },
  "quimsy": {
   "_hash": "ee217ea89671",
   "egg": [
@@ -14348,6 +16244,159 @@
    "Charm",
    "Curse",
    "Dazzling Gleam",
+   "Poltergeist",
+   "Zen Headbutt"
+  ]
+ },
+ "riftlees": {
+  "_hash": "308d480f7e4e",
+  "level_up": [
+   [
+    1,
+    "Confusion"
+   ],
+   [
+    1,
+    "Copycat"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Hex"
+   ],
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Power Gem"
+   ],
+   [
+    12,
+    "Helping Hand"
+   ],
+   [
+    16,
+    "Charm"
+   ],
+   [
+    16,
+    "Confuse Ray"
+   ],
+   [
+    22,
+    "Psybeam"
+   ],
+   [
+    35,
+    "Light Screen"
+   ],
+   [
+    36,
+    "Shadow Ball"
+   ],
+   [
+    40,
+    "Psychic"
+   ],
+   [
+    45,
+    "Imprison"
+   ],
+   [
+    50,
+    "Future Sight"
+   ],
+   [
+    54,
+    "Extrasensory"
+   ],
+   [
+    1,
+    "Stored Power"
+   ],
+   [
+    1,
+    "Teleport"
+   ],
+   [
+    10,
+    "Disable"
+   ],
+   [
+    10,
+    "Encore"
+   ],
+   [
+    10,
+    "Shadow Sneak"
+   ],
+   [
+    14,
+    "Ally Switch"
+   ],
+   [
+    26,
+    "Trick"
+   ],
+   [
+    32,
+    "Agility"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Hyper Beam",
+   "Light Screen",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Frustration",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Reflect",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Skill Swap",
+   "Focus Blast",
+   "Energy Ball",
+   "Charge Beam",
+   "Endure",
+   "Giga Impact",
+   "Flash",
+   "Thunder Wave",
+   "Psych Up",
+   "Sleep Talk",
+   "Natural Gift",
+   "Grass Knot",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Psyshock",
+   "Psychic Terrain",
+   "Expanding Force",
+   "Torment",
+   "Will-O-Wisp",
+   "Captivate"
+  ],
+  "tutor": [
+   "Charm",
+   "Curse",
+   "Dazzling Gleam",
+   "Nasty Plot",
    "Poltergeist",
    "Zen Headbutt"
   ]
@@ -18364,6 +20413,122 @@
    "Endeavor"
   ]
  },
+ "tsunamo": {
+  "_hash": "99b4d5c68ba2",
+  "level_up": [
+   [
+    1,
+    "Leer"
+   ],
+   [
+    1,
+    "Mist"
+   ],
+   [
+    1,
+    "Water Gun"
+   ],
+   [
+    6,
+    "Water Pulse"
+   ],
+   [
+    8,
+    "Icy Wind"
+   ],
+   [
+    12,
+    "Ancient Power"
+   ],
+   [
+    18,
+    "Calm Mind"
+   ],
+   [
+    24,
+    "Bubble Beam"
+   ],
+   [
+    35,
+    "Agility"
+   ],
+   [
+    36,
+    "Freeze-Dry"
+   ],
+   [
+    36,
+    "Ice Beam"
+   ],
+   [
+    54,
+    "Aqua Ring"
+   ],
+   [
+    55,
+    "Surf"
+   ],
+   [
+    60,
+    "Haze"
+   ],
+   [
+    65,
+    "Blizzard"
+   ],
+   [
+    72,
+    "Hydro Pump"
+   ],
+   [
+    72,
+    "Hyper Beam"
+   ]
+  ],
+  "tm_hm": [
+   "Water Pulse",
+   "Toxic",
+   "Hail",
+   "Hidden Power",
+   "Ice Beam",
+   "Blizzard",
+   "Hyper Beam",
+   "Protect",
+   "Rain Dance",
+   "Safeguard",
+   "Frustration",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Double Team",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Brine",
+   "Endure",
+   "Giga Impact",
+   "Avalanche",
+   "Psych Up",
+   "Sleep Talk",
+   "Natural Gift",
+   "Swagger",
+   "Substitute",
+   "Scald",
+   "Liquidation",
+   "Surf",
+   "Whirlpool",
+   "Waterfall",
+   "Focus Blast",
+   "Psychic",
+   "Shadow Ball",
+   "Flip Turn"
+  ],
+  "tutor": [
+   "Body Slam",
+   "Icicle Spear",
+   "Icy Wind"
+  ]
+ },
  "twemp": {
   "_hash": "d2c5e7f5cd0a",
   "level_up": [
@@ -20167,6 +22332,122 @@
    "Iron Head",
    "Ancient Power",
    "Haze"
+  ]
+ },
+ "whyrmshade": {
+  "_hash": "3bf642158fa3",
+  "egg": [
+   "Ominous Wind",
+   "Shadow Sneak",
+   "Imprison",
+   "Disable",
+   "Spite",
+   "Me First",
+   "Haze",
+   "Clear Smog",
+   "Ally Switch"
+  ],
+  "level_up": [
+   [
+    1,
+    "Confusion"
+   ],
+   [
+    1,
+    "Growl"
+   ],
+   [
+    1,
+    "Withdraw"
+   ],
+   [
+    6,
+    "Hypnosis"
+   ],
+   [
+    10,
+    "Astonish"
+   ],
+   [
+    14,
+    "Confuse Ray"
+   ],
+   [
+    23,
+    "Hex"
+   ],
+   [
+    28,
+    "Psybeam"
+   ],
+   [
+    30,
+    "Night Shade"
+   ],
+   [
+    32,
+    "Pain Split"
+   ],
+   [
+    35,
+    "Curse"
+   ],
+   [
+    48,
+    "Shadow Ball"
+   ],
+   [
+    50,
+    "Power Gem"
+   ]
+  ],
+  "tm_hm": [
+   "Calm Mind",
+   "Toxic",
+   "Hidden Power",
+   "Sunny Day",
+   "Taunt",
+   "Protect",
+   "Rain Dance",
+   "Giga Drain",
+   "Frustration",
+   "Thunderbolt",
+   "Thunder",
+   "Return",
+   "Psychic",
+   "Shadow Ball",
+   "Double Team",
+   "Torment",
+   "Facade",
+   "Secret Power",
+   "Rest",
+   "Attract",
+   "Thief",
+   "Skill Swap",
+   "Snatch",
+   "Energy Ball",
+   "Endure",
+   "Will-O-Wisp",
+   "Embargo",
+   "Payback",
+   "Flash",
+   "Psych Up",
+   "Captivate",
+   "Dark Pulse",
+   "Sleep Talk",
+   "Natural Gift",
+   "Swagger",
+   "Substitute",
+   "Trick Room",
+   "Foul Play"
+  ],
+  "tutor": [
+   "Curse",
+   "Dazzling Gleam",
+   "Icy Wind",
+   "Magical Leaf",
+   "Nasty Plot",
+   "Poltergeist"
   ]
  },
  "wispole": {

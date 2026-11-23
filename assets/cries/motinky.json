@@ -1,0 +1,33 @@
+{
+ "v": 1,
+ "seed": 573183480,
+ "layers": [
+  {
+   "dex": 390,
+   "semi": -0.79,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 187,
+   "semi": -1.33,
+   "gain": 0.61,
+   "at": 0.02,
+   "rev": false
+  }
+ ],
+ "stretch": 1.084,
+ "sweep": 0.0,
+ "tone": 0.03,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Tinky's cry, 2 steps lower, because it is one stage further"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

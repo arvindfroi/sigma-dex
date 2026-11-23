@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 2362085401,
+ "layers": [
+  {
+   "dex": 133,
+   "semi": -2.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 399,
+   "semi": -0.86,
+   "gain": 0.51,
+   "at": 0.05,
+   "rev": false
+  }
+ ],
+ "stretch": 0.85,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 0.76,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Eevee's cry: same body plan, also Normal, same egg group",
+  "Lower by 2 steps, it is taller than Eevee",
+  "Mixed with a quieter Bidoof (same body plan, also Normal)",
+  "Its Normal/Fighting side gives said quicker, cut short"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

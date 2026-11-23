@@ -13,7 +13,7 @@ category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
 height_m: 1.5            # e.g. 0.7
 weight_kg: 40            # e.g. 6.9
-body_color:              # red blue yellow green black brown purple gray white pink
+body_color: white        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
@@ -30,15 +30,15 @@ base_stats:              # each 1-255
   speed: 100
 
 ev_yield: {attack: 2}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+catch_rate: 45           # 3 (legendary) to 255 (very easy)
+base_exp: 175            # exp yield when defeated, e.g. 64
+growth_rate: medium_slow # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 70      # 70 is the standard value
 
 # --- Breeding ---
-gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: []           # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+gender: 50               # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: [field]      # 1 or 2, e.g. [field, grass]
+egg_cycles: 20           # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -108,17 +108,26 @@ design:
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
   filled_by_claude: [body shape, look, movement, height, weight, level-up moves,
-                     "TM/HM moves", tutor moves, egg moves]
+                     "TM/HM moves", tutor moves, egg moves, body color, catch rate,
+                     base exp, growth rate, base friendship, gender, egg groups, egg cycles]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     body shape: 80
     look: 80
     movement: 80
     height: 65
     weight: 65
-    level-up moves: 59
-    "TM/HM moves": 64
-    tutor moves: 54
-    egg moves: 54
+    level-up moves: 58
+    "TM/HM moves": 63
+    tutor moves: 53
+    egg moves: 53
+    body color: 90
+    catch rate: 60
+    base exp: 85
+    growth rate: 44
+    base friendship: 90
+    gender: 72
+    egg groups: 45
+    egg cycles: 65
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a white rooster-like bird standing upright, with a red comb, yellow beak and yellow clawed feet. It has two raised bone arms, each coming out of a giant brown drumstick-shaped lump on its shoulder, lavender shading along its back and a long tapering lavender tail with red spikes. In flight it spreads feathered wings and flames burst from the drumsticks."
@@ -132,7 +141,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:257"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
-  cry:                   # sound file
+  cry: "assets/cries/roostasaur.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

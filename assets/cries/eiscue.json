@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 488727435,
+ "layers": [
+  {
+   "dex": 395,
+   "semi": 4.5,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 459,
+   "semi": 4.28,
+   "gain": 0.64,
+   "at": 0.05,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.48,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Empoleon's cry: its footprint comes from Empoleon's line, same body plan, same egg group",
+  "Higher by 5 steps, it is smaller than Empoleon",
+  "Mixed with a quieter Snover (same body plan, also Ice)",
+  "Its Ice side gives a brighter sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

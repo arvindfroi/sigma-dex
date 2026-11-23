@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 2481605053,
+ "layers": [
+  {
+   "dex": 214,
+   "semi": 2.67,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 314,
+   "semi": -2.07,
+   "gain": 0.5,
+   "at": 0.05,
+   "rev": false
+  }
+ ],
+ "stretch": 0.82,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 8.44,
+  "depth": 0.36
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Heracross's cry: same body plan, also Bug, same egg group",
+  "Higher by 3 steps, it is smaller than Heracross",
+  "Mixed with a quieter Illumise (same body plan, also Bug)",
+  "Its Bug/Psychic side gives said quicker, a wobble in the voice"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

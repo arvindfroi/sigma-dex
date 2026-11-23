@@ -115,18 +115,18 @@ design:
     body shape: 80
     look: 80
     movement: 80
-    level-up moves: 52
-    "TM/HM moves": 57
-    tutor moves: 47
-    egg moves: 47
+    level-up moves: 57
+    "TM/HM moves": 62
+    tutor moves: 52
+    egg moves: 52
     body color: 90
-    catch rate: 60
-    base exp: 85
-    growth rate: 59
-    base friendship: 90
-    gender: 65
-    egg groups: 50
-    egg cycles: 65
+    catch rate: 55
+    base exp: 55
+    growth rate: 55
+    base friendship: 55
+    gender: 55
+    egg groups: 55
+    egg cycles: 55
     height: 65
     weight: 65
   body_shape: an upright body on two legs without a tail
@@ -142,7 +142,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:67"   # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/verrith.json"
-  cry:                   # sound file
+  cry: "assets/cries/verrith.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

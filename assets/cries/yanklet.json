@@ -1,0 +1,34 @@
+{
+ "v": 1,
+ "seed": 523286029,
+ "layers": [
+  {
+   "dex": 294,
+   "semi": -5.85,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 476,
+   "semi": -4.83,
+   "gain": 0.27,
+   "at": 0.04,
+   "rev": false
+  }
+ ],
+ "stretch": 1.098,
+ "sweep": -2.54,
+ "tone": -0.09,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Julius's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Probopass under it, because it is bigger"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

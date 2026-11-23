@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 1137189961,
+ "layers": [
+  {
+   "dex": 203,
+   "semi": -0.65,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 359,
+   "semi": -5.63,
+   "gain": 0.56,
+   "at": 0.09,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.2,
+ "len": 1.6,
+ "vib": {
+  "rate": 4.76,
+  "depth": 0.53
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Girafarig's cry: same body plan, also Psychic, same egg group",
+  "Lower by 1 step, it is smaller than Girafarig",
+  "Mixed with a quieter Absol (same body plan, same egg group)",
+  "Its Psychic/Dragon side gives a wobble in the voice, a rough edge"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 2890313945,
+ "layers": [
+  {
+   "dex": 357,
+   "semi": -1.02,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 243,
+   "semi": 1.74,
+   "gain": 0.55,
+   "at": 0.04,
+   "rev": false
+  }
+ ],
+ "stretch": 1.13,
+ "sweep": 3.27,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": {
+  "ms": 120.0,
+  "gain": 0.23
+ },
+ "reasons": [
+  "Starts from Tropius's cry: same body plan, both types",
+  "Lower by 1 step, it is smaller than Tropius",
+  "Mixed with a quieter Raikou (same body plan, legendary too)",
+  "Its Grass/Flying side and being legendary gives a rising pitch, an echo, drawn out"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

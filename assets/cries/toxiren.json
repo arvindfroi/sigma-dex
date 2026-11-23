@@ -1,0 +1,45 @@
+{
+ "v": 1,
+ "seed": 1967472048,
+ "layers": [
+  {
+   "dex": 70,
+   "semi": -2.46,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 209,
+   "semi": 0.62,
+   "gain": 0.5,
+   "at": 0.07,
+   "rev": false
+  },
+  {
+   "dex": 73,
+   "semi": -3.79,
+   "gain": 0.27,
+   "at": 0.03,
+   "rev": false
+  }
+ ],
+ "stretch": 1.048,
+ "sweep": 0.0,
+ "tone": 0.43,
+ "drive": 0.22,
+ "len": 1.6,
+ "vib": {
+  "rate": 7.61,
+  "depth": 0.44
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Nukfae's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Tentacruel under it, because it is bigger",
+  "A rougher edge, it is bigger"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

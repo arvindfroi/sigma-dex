@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 1841002128,
+ "layers": [
+  {
+   "dex": 371,
+   "semi": 0.51,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 443,
+   "semi": -3.38,
+   "gain": 0.61,
+   "at": 0.06,
+   "rev": false
+  },
+  {
+   "dex": 372,
+   "semi": -3.29,
+   "gain": 0.34,
+   "at": 0.01,
+   "rev": false
+  }
+ ],
+ "stretch": 0.885,
+ "sweep": 0.0,
+ "tone": -0.22,
+ "drive": 0.46,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Balleisk's cry, 2 steps lower, because it is one stage further",
+  "Adds a low Shelgon under it, because it is bigger",
+  "A rougher edge, it is bigger"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

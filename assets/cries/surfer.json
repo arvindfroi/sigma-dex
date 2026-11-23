@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 2297710674,
+ "layers": [
+  {
+   "dex": 54,
+   "semi": 3.18,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 158,
+   "semi": 1.49,
+   "gain": 0.56,
+   "at": 0.11,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 5.81,
+  "depth": 0.56
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Psyduck's cry: same body plan, also Water, same egg group",
+  "Higher by 3 steps, it is smaller than Psyduck",
+  "Mixed with a quieter Totodile (same body plan, also Water)",
+  "Its Water side gives a wobble in the voice"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

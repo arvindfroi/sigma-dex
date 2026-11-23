@@ -138,9 +138,9 @@ design:
     catch rate: 90
     base exp: 85
     growth rate: 90
-    base friendship: 67
+    base friendship: 66
     gender: 77
-    egg groups: 49
+    egg groups: 50
     egg cycles: 90
     height: 65
     weight: 65
@@ -157,7 +157,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:373"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/ultragon.json"
-  cry:                   # sound file
+  cry: "assets/cries/ultragon.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

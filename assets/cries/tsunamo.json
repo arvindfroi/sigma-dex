@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 2731249818,
+ "layers": [
+  {
+   "dex": 131,
+   "semi": 2.89,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 91,
+   "semi": -2.01,
+   "gain": 0.55,
+   "at": 0.08,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.67,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 8.32,
+  "depth": 0.46
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Lapras's cry: both types",
+  "Higher by 3 steps, it is smaller than Lapras",
+  "Mixed with a quieter Cloyster (both types)",
+  "Its Ice/Water side gives a brighter sound, a wobble in the voice"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

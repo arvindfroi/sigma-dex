@@ -119,16 +119,16 @@ design:
     body shape: 80
     look: 80
     movement: 80
-    level-up moves: 75
-    "TM/HM moves": 80
-    tutor moves: 70
+    level-up moves: 73
+    "TM/HM moves": 78
+    tutor moves: 68
     body color: 65
     EV yield: 85
     catch rate: 60
     base exp: 85
     growth rate: 51
     base friendship: 90
-    gender: 75
+    gender: 76
     egg groups: 45
     egg cycles: 65
     height: 35
@@ -146,7 +146,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:69"   # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
-  cry:                   # sound file
+  cry: "assets/cries/twemp.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

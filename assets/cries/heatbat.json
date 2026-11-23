@@ -1,0 +1,37 @@
+{
+ "v": 1,
+ "seed": 2332447510,
+ "layers": [
+  {
+   "dex": 4,
+   "semi": -3.33,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 83,
+   "semi": -1.97,
+   "gain": 0.59,
+   "at": 0.11,
+   "rev": false
+  }
+ ],
+ "stretch": 1.083,
+ "sweep": 2.6,
+ "tone": -0.11,
+ "drive": 0.39,
+ "len": 1.6,
+ "vib": {
+  "rate": 8.14,
+  "depth": 0.15
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Torchbat's cry, 3 steps lower, because it is one stage further",
+  "Adds a wobble"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

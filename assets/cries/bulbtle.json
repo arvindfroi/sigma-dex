@@ -1,0 +1,38 @@
+{
+ "v": 1,
+ "seed": 1216762141,
+ "layers": [
+  {
+   "dex": 387,
+   "semi": -0.25,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 403,
+   "semi": 2.33,
+   "gain": 0.65,
+   "at": 0.04,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.28,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": {
+  "hz": 116.41,
+  "mix": 0.22
+ },
+ "echo": null,
+ "reasons": [
+  "Starts from Turtwig's cry: its footprint is Turtwig's, same body plan, same egg group",
+  "Mixed with a quieter Shinx (same body plan, also Electric)",
+  "Its Ground/Electric side gives a metallic buzz, a brighter sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

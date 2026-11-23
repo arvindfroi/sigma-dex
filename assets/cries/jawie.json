@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 1454970927,
+ "layers": [
+  {
+   "dex": 443,
+   "semi": -0.63,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 240,
+   "semi": 1.89,
+   "gain": 0.5,
+   "at": 0.1,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.25,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Gible's cry: same body plan, also Dragon, same egg group",
+  "Lower by 1 step, it is smaller than Gible",
+  "Mixed with a quieter Magby (same body plan, also Fire)",
+  "Its Fire/Dragon side gives a rough edge"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

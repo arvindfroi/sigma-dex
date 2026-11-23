@@ -1,0 +1,37 @@
+{
+ "v": 1,
+ "seed": 2946565028,
+ "layers": [
+  {
+   "dex": 161,
+   "semi": 2.27,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 52,
+   "semi": 3.02,
+   "gain": 0.56,
+   "at": 0.03,
+   "rev": false
+  }
+ ],
+ "stretch": 1.058,
+ "sweep": 0.0,
+ "tone": -0.25,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": {
+  "ms": 94.0,
+  "gain": 0.28
+ },
+ "reasons": [
+  "Keeps the sound of Blutie's cry, 3 steps lower, because it is one stage further",
+  "Adds an echo"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

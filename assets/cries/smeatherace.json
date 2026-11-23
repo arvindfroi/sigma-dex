@@ -1,0 +1,45 @@
+{
+ "v": 1,
+ "seed": 1090641011,
+ "layers": [
+  {
+   "dex": 16,
+   "semi": -6.92,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 276,
+   "semi": -4.7,
+   "gain": 0.54,
+   "at": 0.11,
+   "rev": false
+  },
+  {
+   "dex": 18,
+   "semi": -5.71,
+   "gain": 0.39,
+   "at": 0.01,
+   "rev": false
+  }
+ ],
+ "stretch": 1.16,
+ "sweep": 2.46,
+ "tone": -0.03,
+ "drive": 0.24,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.5,
+  "depth": 0.25
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Harpie's cry, 2 steps lower, because it is one stage further",
+  "Adds a low Pidgeot under it, because it is bigger",
+  "A rougher edge, it is bigger"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

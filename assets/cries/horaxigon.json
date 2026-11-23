@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 1948848090,
+ "layers": [
+  {
+   "dex": 443,
+   "semi": 1.6,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 371,
+   "semi": -2.0,
+   "gain": 0.5,
+   "at": 0.01,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.41,
+ "len": 1.6,
+ "vib": null,
+ "ring": {
+  "hz": 58.61,
+  "mix": 0.25
+ },
+ "echo": null,
+ "reasons": [
+  "Starts from Gible's cry: also Dragon, same egg group",
+  "Higher by 2 steps, it is smaller than Gible",
+  "Mixed with a quieter Bagon (also Dragon, same egg group)",
+  "Its Steel/Dragon side gives a metallic buzz, a rough edge"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

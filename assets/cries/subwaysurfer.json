@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 4258835511,
+ "layers": [
+  {
+   "dex": 54,
+   "semi": -0.36,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 158,
+   "semi": -1.87,
+   "gain": 0.56,
+   "at": 0.11,
+   "rev": false
+  }
+ ],
+ "stretch": 1.09,
+ "sweep": 0.0,
+ "tone": -0.32,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 5.81,
+  "depth": 0.56
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Aquat's cry, 3 steps lower, because it is one stage further"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

@@ -120,7 +120,7 @@ design:
     growth rate: 90
     base friendship: 90
     gender: 77
-    egg groups: 49
+    egg groups: 50
     egg cycles: 90
     height: 35
     weight: 35
@@ -137,7 +137,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:371"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/balleisk.json"
-  cry:                   # sound file
+  cry: "assets/cries/balleisk.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

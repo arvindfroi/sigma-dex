@@ -1,0 +1,48 @@
+{
+ "v": 1,
+ "seed": 1570655622,
+ "layers": [
+  {
+   "dex": 100,
+   "semi": -1.68,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 436,
+   "semi": -5.54,
+   "gain": 0.63,
+   "at": 0.01,
+   "rev": false
+  },
+  {
+   "dex": 82,
+   "semi": -4.82,
+   "gain": 0.32,
+   "at": 0.04,
+   "rev": false
+  }
+ ],
+ "stretch": 1.056,
+ "sweep": -0.45,
+ "tone": 0.37,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 4.87,
+  "depth": 0.48
+ },
+ "ring": {
+  "hz": 47.76,
+  "mix": 0.17
+ },
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Sigmanian Unown's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Magneton under it, because it is bigger",
+  "Its pitch falls a little more"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

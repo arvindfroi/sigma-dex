@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 1398899671,
+ "layers": [
+  {
+   "dex": 1,
+   "semi": -0.61,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 69,
+   "semi": 0.57,
+   "gain": 0.54,
+   "at": 0.12,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 7.05,
+  "depth": 0.39
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Bulbasaur's cry: both types, same egg group",
+  "Lower by 1 step, it is taller than Bulbasaur",
+  "Mixed with a quieter Bellsprout (both types, same egg group)",
+  "Its Poison/Grass side gives a wobble in the voice"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

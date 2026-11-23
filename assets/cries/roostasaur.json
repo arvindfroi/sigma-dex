@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 4282281484,
+ "layers": [
+  {
+   "dex": 335,
+   "semi": -1.58,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 288,
+   "semi": -0.92,
+   "gain": 0.51,
+   "at": 0.11,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.36,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Zangoose's cry: same body plan, also Normal, same egg group",
+  "Lower by 2 steps, it is taller than Zangoose",
+  "Mixed with a quieter Vigoroth (same body plan, also Normal)",
+  "Its Dragon/Normal side gives a rough edge"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

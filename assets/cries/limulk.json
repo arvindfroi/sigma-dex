@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 3274629521,
+ "layers": [
+  {
+   "dex": 296,
+   "semi": 3.34,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 56,
+   "semi": -1.35,
+   "gain": 0.51,
+   "at": 0.08,
+   "rev": false
+  }
+ ],
+ "stretch": 0.9,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 0.93,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Makuhita's cry: its footprint is Makuhita's, same body plan, also Fighting",
+  "Higher by 3 steps, it is smaller than Makuhita",
+  "Mixed with a quieter Mankey (a similar body plan, also Fighting)",
+  "Its Fighting side gives said quicker, cut short"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

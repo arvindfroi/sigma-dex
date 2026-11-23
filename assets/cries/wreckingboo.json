@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 4027417885,
+ "layers": [
+  {
+   "dex": 129,
+   "semi": 3.29,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 118,
+   "semi": 0.34,
+   "gain": 0.53,
+   "at": 0.05,
+   "rev": false
+  }
+ ],
+ "stretch": 1.087,
+ "sweep": 0.0,
+ "tone": -0.09,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 5.02,
+  "depth": 0.35
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Strawboo's cry, 2 steps lower, because it is one stage further"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

@@ -1,0 +1,41 @@
+{
+ "v": 1,
+ "seed": 4039768523,
+ "layers": [
+  {
+   "dex": 133,
+   "semi": -4.81,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 399,
+   "semi": -3.41,
+   "gain": 0.51,
+   "at": 0.05,
+   "rev": false
+  },
+  {
+   "dex": 162,
+   "semi": -3.59,
+   "gain": 0.38,
+   "at": 0.01,
+   "rev": false
+  }
+ ],
+ "stretch": 0.916,
+ "sweep": 0.0,
+ "tone": 0.1,
+ "drive": 0.0,
+ "len": 0.76,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Lapper's cry, 2 steps lower, because it is one stage further",
+  "Adds a low Furret under it, because it is bigger"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

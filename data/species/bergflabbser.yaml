@@ -136,7 +136,7 @@ assets:
   icon: "assets/sprites/bergflabbser/icon.png"
   footprint: "hgss:382"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/bergflabbser.json"
-  cry:                   # sound file
+  cry: "assets/cries/bergflabbser.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

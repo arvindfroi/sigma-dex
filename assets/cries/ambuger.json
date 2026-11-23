@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 1722085364,
+ "layers": [
+  {
+   "dex": 46,
+   "semi": 0.93,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 10,
+   "semi": 0.27,
+   "gain": 0.48,
+   "at": 0.02,
+   "rev": false
+  }
+ ],
+ "stretch": 0.81,
+ "sweep": 0.0,
+ "tone": -0.68,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Paras's cry: same body plan, also Bug, same egg group",
+  "Higher by 1 step, it is smaller than Paras",
+  "Mixed with a quieter Caterpie (same body plan, also Bug)",
+  "Its Rock/Bug side gives a darker sound, said quicker"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

@@ -116,7 +116,7 @@ design:
     base exp: 85
     growth rate: 61
     base friendship: 90
-    gender: 75
+    gender: 74
     egg groups: 54
     egg cycles: 65
     height: 55
@@ -134,7 +134,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:37"   # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/surfer.json"
-  cry:                   # sound file
+  cry: "assets/cries/surfer.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

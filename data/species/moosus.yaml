@@ -117,15 +117,15 @@ design:
     body shape: 80
     look: 80
     movement: 80
-    level-up moves: 52
-    "TM/HM moves": 57
-    tutor moves: 47
+    level-up moves: 63
+    "TM/HM moves": 68
+    tutor moves: 58
     body color: 80
-    EV yield: 85
+    EV yield: 55
     catch rate: 90
-    base exp: 85
+    base exp: 55
     growth rate: 90
-    base friendship: 50
+    base friendship: 55
     gender: 75
     egg groups: 90
     egg cycles: 90
@@ -144,7 +144,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:234"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/moosus.json"
-  cry:                   # sound file
+  cry: "assets/cries/moosus.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

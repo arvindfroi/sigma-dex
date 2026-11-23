@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 2897894943,
+ "layers": [
+  {
+   "dex": 311,
+   "semi": -2.76,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 312,
+   "semi": -7.4,
+   "gain": 0.62,
+   "at": 0.1,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.58,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": {
+  "hz": 117.87,
+  "mix": 0.29
+ },
+ "echo": null,
+ "reasons": [
+  "Starts from Plusle's cry: a similar body plan, also Electric",
+  "Lower by 3 steps, it is taller than Plusle",
+  "Mixed with a quieter Minun (a similar body plan, also Electric)",
+  "Its Electric side gives a metallic buzz, a brighter sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

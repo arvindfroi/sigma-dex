@@ -110,18 +110,18 @@ design:
     body shape: 80
     look: 80
     movement: 80
-    level-up moves: 55
-    "TM/HM moves": 60
-    tutor moves: 50
-    egg moves: 50
+    level-up moves: 56
+    "TM/HM moves": 61
+    tutor moves: 51
+    egg moves: 51
     body color: 90
     EV yield: 85
     catch rate: 55
     base exp: 55
-    growth rate: 53
+    growth rate: 56
     base friendship: 90
-    gender: 72
-    egg groups: 57
+    gender: 74
+    egg groups: 56
     egg cycles: 65
   body_shape: a head and arms # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: It crawls along the ground on its legs.
@@ -136,7 +136,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:108"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
-  cry:                   # sound file
+  cry: "assets/cries/tomaterdander.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

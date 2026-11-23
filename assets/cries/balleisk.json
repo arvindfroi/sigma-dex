@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 4131294788,
+ "layers": [
+  {
+   "dex": 371,
+   "semi": 3.32,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 443,
+   "semi": -1.29,
+   "gain": 0.61,
+   "at": 0.06,
+   "rev": false
+  }
+ ],
+ "stretch": 0.81,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.3,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Bagon's cry: its footprint is Bagon's, a similar body plan, also Dragon",
+  "Higher by 3 steps, it is smaller than Bagon",
+  "Mixed with a quieter Gible (same body plan, also Dragon)",
+  "Its Dragon/Bug side gives a rough edge, said quicker"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

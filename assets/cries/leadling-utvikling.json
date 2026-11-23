@@ -1,0 +1,37 @@
+{
+ "v": 1,
+ "seed": 648768095,
+ "layers": [
+  {
+   "dex": 438,
+   "semi": -1.22,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 32,
+   "semi": -2.69,
+   "gain": 0.58,
+   "at": 0.03,
+   "rev": false
+  }
+ ],
+ "stretch": 1.047,
+ "sweep": 0.0,
+ "tone": -0.6,
+ "drive": 0.1,
+ "len": 1.6,
+ "vib": {
+  "rate": 8.75,
+  "depth": 0.35
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Leadling's cry, 2 steps lower, because it is one stage further",
+  "A rougher edge, it is bigger"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

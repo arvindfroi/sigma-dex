@@ -1,0 +1,34 @@
+{
+ "v": 1,
+ "seed": 2742732547,
+ "layers": [
+  {
+   "dex": 438,
+   "semi": -5.3,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 77,
+   "semi": -10.57,
+   "gain": 0.65,
+   "at": 0.1,
+   "rev": false
+  }
+ ],
+ "stretch": 1.063,
+ "sweep": -0.27,
+ "tone": -0.95,
+ "drive": 0.23,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Santrock's cry, 3 steps lower, because it is one stage further",
+  "Its pitch falls a little more"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

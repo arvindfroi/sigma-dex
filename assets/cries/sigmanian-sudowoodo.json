@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 3186475990,
+ "layers": [
+  {
+   "dex": 185,
+   "semi": 2.32,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 76,
+   "semi": 0.39,
+   "gain": 0.6,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -0.68,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Sudowoodo's cry: its footprint is Sudowoodo's, same body plan, also Rock",
+  "Higher by 2 steps, it is smaller than Sudowoodo",
+  "Mixed with a quieter Golem (same body plan, both types)",
+  "Its Rock/Ground side gives a darker sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 291992046,
+ "layers": [
+  {
+   "dex": 60,
+   "semi": 1.82,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 43,
+   "semi": -2.63,
+   "gain": 0.58,
+   "at": 0.02,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 5.14,
+  "depth": 0.27
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Poliwag's cry: same body plan, also Water",
+  "Higher by 2 steps, it is smaller than Poliwag",
+  "Mixed with a quieter Oddish (same body plan, same egg group)",
+  "Its Psychic/Water side gives a wobble in the voice"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

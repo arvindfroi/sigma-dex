@@ -44,7 +44,7 @@ from dexlib import ROOT, STATS
 
 OUT_DIR = ROOT / "proposals"
 OUT_JSON = OUT_DIR / "movesets.json"
-OUT_MD = OUT_DIR / "docs/DEX_DATA.md#movesets-how-the-autocomplete-decides"
+OUT_MD = OUT_DIR / "MOVESETS.md"
 DESIGN_REVIEW = OUT_DIR / "design_review.json"   # judgment notes from reading each design (kept across reruns)
 KEYS = ("level_up", "tm_hm", "tutor", "egg")
 DATA_DIR = ROOT / "data"

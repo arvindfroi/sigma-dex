@@ -122,15 +122,15 @@ design:
     body shape: 80
     look: 80
     movement: 80
-    level-up moves: 58
-    "TM/HM moves": 63
-    tutor moves: 53
+    level-up moves: 60
+    "TM/HM moves": 65
+    tutor moves: 55
     body color: 90
     catch rate: 60
-    base exp: 85
+    base exp: 55
     growth rate: 51
     base friendship: 90
-    gender: 75
+    gender: 76
     egg groups: 45
     egg cycles: 65
     height: 65
@@ -148,7 +148,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:168"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/florantula.json"
-  cry:                   # sound file
+  cry: "assets/cries/florantula.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

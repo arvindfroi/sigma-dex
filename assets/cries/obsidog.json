@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 1352238734,
+ "layers": [
+  {
+   "dex": 228,
+   "semi": -0.62,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 111,
+   "semi": 1.48,
+   "gain": 0.45,
+   "at": 0.12,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -0.29,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Houndour's cry: its footprint is Houndour's, same body plan, also Dark",
+  "Lower by 1 step, it is smaller than Houndour",
+  "Mixed with a quieter Rhyhorn (same body plan, also Rock)",
+  "Its Dark/Rock side gives a darker sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

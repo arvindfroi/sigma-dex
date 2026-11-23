@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 1397932136,
+ "layers": [
+  {
+   "dex": 32,
+   "semi": -2.27,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 29,
+   "semi": -6.83,
+   "gain": 0.45,
+   "at": 0.08,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 5.49,
+  "depth": 0.22
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Nidoran♂'s cry: also Poison, same egg group",
+  "Lower by 2 steps, it is taller than Nidoran♂",
+  "Mixed with a quieter Nidoran♀ (also Poison, same egg group)",
+  "Its Poison side gives a wobble in the voice"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

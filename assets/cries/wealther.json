@@ -1,0 +1,26 @@
+{
+ "v": 1,
+ "seed": 3487287559,
+ "layers": [
+  {
+   "own": true,
+   "semi": 0.72,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 0.8,
+ "sweep": -0.5,
+ "tone": -0.72,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Warrallier's cry, 2 steps higher, because it is one stage earlier"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

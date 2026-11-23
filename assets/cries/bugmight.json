@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 2635565976,
+ "layers": [
+  {
+   "dex": 214,
+   "semi": -2.18,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 166,
+   "semi": -7.12,
+   "gain": 0.59,
+   "at": 0.06,
+   "rev": false
+  }
+ ],
+ "stretch": 0.87,
+ "sweep": 2.2,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 0.72,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Heracross's cry: its footprint is Heracross's, both types, same egg group",
+  "Lower by 2 steps, it is taller than Heracross",
+  "Mixed with a quieter Ledian (same body plan, also Bug)",
+  "Its Bug/Fighting side gives said quicker, cut short, a rising pitch"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

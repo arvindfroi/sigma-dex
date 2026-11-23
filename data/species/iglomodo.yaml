@@ -119,13 +119,13 @@ design:
     body shape: 80
     look: 80
     movement: 80
-    level-up moves: 56
-    "TM/HM moves": 61
-    tutor moves: 51
+    level-up moves: 57
+    "TM/HM moves": 62
+    tutor moves: 52
     body color: 80
     catch rate: 60
-    base exp: 85
-    growth rate: 59
+    base exp: 55
+    growth rate: 60
     base friendship: 90
     gender: 77
     egg groups: 41
@@ -143,7 +143,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:160"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/iglomodo.json"
-  cry:                   # sound file
+  cry: "assets/cries/iglomodo.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

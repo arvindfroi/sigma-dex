@@ -1,0 +1,45 @@
+{
+ "v": 1,
+ "seed": 3250666863,
+ "layers": [
+  {
+   "dex": 76,
+   "semi": 1.37,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 356,
+   "semi": -2.59,
+   "gain": 0.6,
+   "at": 0.12,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 7.44,
+  "depth": 0.17
+ },
+ "ring": {
+  "hz": 103.13,
+  "mix": 0.38
+ },
+ "echo": {
+  "ms": 128.0,
+  "gain": 0.24
+ },
+ "reasons": [
+  "Starts from Golem's cry: same body plan, same egg group",
+  "Higher by 1 step, it is taller than Golem",
+  "Mixed with a quieter Dusclops (same body plan, also Ghost)",
+  "Its Ghost/Steel side gives an echo, a wobble in the voice, a metallic buzz"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

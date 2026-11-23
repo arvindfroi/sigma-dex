@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 1792190649,
+ "layers": [
+  {
+   "dex": 74,
+   "semi": -2.99,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 337,
+   "semi": -3.88,
+   "gain": 0.53,
+   "at": 0.1,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -0.32,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Geodude's cry: its footprint is Geodude's, also Rock, same egg group",
+  "Lower by 3 steps, it is taller than Geodude",
+  "Mixed with a quieter Lunatone (same body plan, also Rock)",
+  "Its Rock side gives a darker sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

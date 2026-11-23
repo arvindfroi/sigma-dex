@@ -1,0 +1,27 @@
+{
+ "v": 1,
+ "seed": 1887523589,
+ "layers": [
+  {
+   "dex": 294,
+   "semi": 0.12,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 0.903,
+ "sweep": -4.44,
+ "tone": 0.23,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Julius's cry, 3 steps higher, because it is one stage earlier",
+  "Its pitch falls a little more"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

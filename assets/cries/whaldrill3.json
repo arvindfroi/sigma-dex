@@ -1,0 +1,44 @@
+{
+ "v": 1,
+ "seed": 1555701273,
+ "layers": [
+  {
+   "dex": 220,
+   "semi": -7.66,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 363,
+   "semi": -6.54,
+   "gain": 0.62,
+   "at": 0.04,
+   "rev": false
+  },
+  {
+   "dex": 473,
+   "semi": -4.89,
+   "gain": 0.28,
+   "at": 0.04,
+   "rev": false
+  }
+ ],
+ "stretch": 1.156,
+ "sweep": 0.0,
+ "tone": -0.82,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": {
+  "ms": 85.0,
+  "gain": 0.27
+ },
+ "reasons": [
+  "Keeps the sound of Narburr's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Mamoswine under it, because it is bigger"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

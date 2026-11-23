@@ -117,18 +117,18 @@ design:
     body shape: 80
     look: 80
     movement: 80
-    level-up moves: 62
-    "TM/HM moves": 67
-    tutor moves: 57
-    egg moves: 57
+    level-up moves: 57
+    "TM/HM moves": 62
+    tutor moves: 52
+    egg moves: 52
     body color: 80
-    catch rate: 60
-    base exp: 85
-    growth rate: 45
-    base friendship: 90
-    gender: 68
-    egg groups: 40
-    egg cycles: 65
+    catch rate: 55
+    base exp: 55
+    growth rate: 55
+    base friendship: 55
+    gender: 55
+    egg groups: 55
+    egg cycles: 55
     height: 55
     weight: 55
   body_shape: an upright body on two legs with a tail

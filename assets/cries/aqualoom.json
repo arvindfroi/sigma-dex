@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 1179623244,
+ "layers": [
+  {
+   "dex": 395,
+   "semi": 3.62,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 369,
+   "semi": 2.8,
+   "gain": 0.46,
+   "at": 0.08,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 8.72,
+  "depth": 0.46
+ },
+ "ring": {
+  "hz": 71.76,
+  "mix": 0.22
+ },
+ "echo": null,
+ "reasons": [
+  "Starts from Empoleon's cry: both types, same egg group",
+  "Higher by 4 steps, it is smaller than Empoleon",
+  "Mixed with a quieter Relicanth (also Water, same egg group)",
+  "Its Water/Steel side gives a wobble in the voice, a metallic buzz"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

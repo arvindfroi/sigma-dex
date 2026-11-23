@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 2038454322,
+ "layers": [
+  {
+   "dex": 426,
+   "semi": 0.88,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 227,
+   "semi": -0.72,
+   "gain": 0.63,
+   "at": 0.1,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 1.77,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 4.87,
+  "depth": 0.55
+ },
+ "ring": null,
+ "echo": {
+  "ms": 139.0,
+  "gain": 0.29
+ },
+ "reasons": [
+  "Starts from Drifblim's cry: both types",
+  "Higher by 1 step, it is taller than Drifblim",
+  "Mixed with a quieter Skarmory (also Flying)",
+  "Its Flying/Ghost side gives a rising pitch, an echo, a wobble in the voice"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

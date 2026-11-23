@@ -1,0 +1,37 @@
+{
+ "v": 1,
+ "seed": 1423102276,
+ "layers": [
+  {
+   "dex": 228,
+   "semi": -1.33,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 58,
+   "semi": -3.99,
+   "gain": 0.59,
+   "at": 0.1,
+   "rev": false
+  }
+ ],
+ "stretch": 1.099,
+ "sweep": 0.0,
+ "tone": -0.18,
+ "drive": 0.4,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": {
+  "ms": 117.0,
+  "gain": 0.23
+ },
+ "reasons": [
+  "Keeps the sound of Skiirtle's cry, 3 steps lower, because it is one stage further",
+  "Adds an echo"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

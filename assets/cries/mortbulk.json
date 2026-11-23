@@ -1,0 +1,45 @@
+{
+ "v": 1,
+ "seed": 569121891,
+ "layers": [
+  {
+   "dex": 296,
+   "semi": 0.01,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 56,
+   "semi": -4.66,
+   "gain": 0.51,
+   "at": 0.08,
+   "rev": false
+  },
+  {
+   "dex": 297,
+   "semi": -4.13,
+   "gain": 0.34,
+   "at": 0.05,
+   "rev": false
+  }
+ ],
+ "stretch": 0.945,
+ "sweep": 0.0,
+ "tone": 0.1,
+ "drive": 0.0,
+ "len": 0.93,
+ "vib": {
+  "rate": 7.09,
+  "depth": 0.37
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Limulk's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Hariyama under it, because it is bigger",
+  "Adds a wobble"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

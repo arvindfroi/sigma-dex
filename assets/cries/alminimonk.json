@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 4144407708,
+ "layers": [
+  {
+   "dex": 307,
+   "semi": 2.73,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 280,
+   "semi": 0.78,
+   "gain": 0.55,
+   "at": 0.07,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 5.55,
+  "depth": 0.48
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Meditite's cry: its footprint is Meditite's, same body plan, also Psychic",
+  "Higher by 3 steps, it is smaller than Meditite",
+  "Mixed with a quieter Ralts (same body plan, also Psychic)",
+  "Its Psychic side gives a wobble in the voice"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

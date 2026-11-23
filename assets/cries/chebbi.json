@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 692837096,
+ "layers": [
+  {
+   "dex": 190,
+   "semi": 0.97,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 293,
+   "semi": 0.24,
+   "gain": 0.58,
+   "at": 0.09,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -0.27,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Aipom's cry: same body plan, also Normal, same egg group",
+  "Higher by 1 step, it is smaller than Aipom",
+  "Mixed with a quieter Whismur (same body plan, also Normal)",
+  "Its Normal/Dark side gives a darker sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

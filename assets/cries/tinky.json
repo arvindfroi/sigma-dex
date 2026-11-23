@@ -1,0 +1,35 @@
+{
+ "v": 1,
+ "seed": 369510312,
+ "layers": [
+  {
+   "dex": 390,
+   "semi": 1.02,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 187,
+   "semi": 0.48,
+   "gain": 0.61,
+   "at": 0.02,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Chimchar's cry: its footprint is Chimchar's, same body plan, same egg group",
+  "Higher by 1 step, it is smaller than Chimchar",
+  "Mixed with a quieter Hoppip (same body plan, also Grass)"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

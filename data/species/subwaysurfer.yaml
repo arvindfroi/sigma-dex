@@ -124,15 +124,15 @@ design:
     "TM/HM moves": 69
     tutor moves: 59
     body color: 80
-    catch rate: 55
+    catch rate: 60
     base exp: 85
     growth rate: 61
     base friendship: 90
-    gender: 75
+    gender: 74
     egg groups: 54
     egg cycles: 65
     height: 55
-    weight: 45
+    weight: 55
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is an orange four-legged creature with two very long upright ears, brown spots, blue eyes and a cream belly. It has a big fluffy yellow mane on its chest, a large translucent blue water-like fin along its back, yellow webbed feet and a long thin tail ending in an orange and blue fin."
@@ -146,7 +146,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:38"   # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/subwaysurfer.json"
-  cry:                   # sound file
+  cry: "assets/cries/subwaysurfer.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

@@ -1,0 +1,33 @@
+{
+ "v": 1,
+ "seed": 3287978589,
+ "layers": [
+  {
+   "dex": 451,
+   "semi": 2.19,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 290,
+   "semi": -2.46,
+   "gain": 0.57,
+   "at": 0.06,
+   "rev": false
+  }
+ ],
+ "stretch": 0.911,
+ "sweep": 1.98,
+ "tone": 0.03,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Dreadipede's cry, 2 steps lower, because it is one stage further"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

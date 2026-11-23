@@ -1,0 +1,34 @@
+{
+ "v": 1,
+ "seed": 1252763320,
+ "layers": [
+  {
+   "dex": 228,
+   "semi": -3.42,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 285,
+   "semi": -5.99,
+   "gain": 0.61,
+   "at": 0.12,
+   "rev": false
+  }
+ ],
+ "stretch": 1.054,
+ "sweep": 0.51,
+ "tone": 0.24,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Anjane's cry, 2 steps lower, because it is one stage further",
+  "Its pitch rises a little more"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

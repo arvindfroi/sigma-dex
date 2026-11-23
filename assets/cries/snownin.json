@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 4078306443,
+ "layers": [
+  {
+   "dex": 478,
+   "semi": 1.16,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 442,
+   "semi": 2.84,
+   "gain": 0.59,
+   "at": 0.08,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.42,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Froslass's cry: its footprint is Froslass's, also Ice",
+  "Higher by 1 step, it is taller than Froslass",
+  "Mixed with a quieter Spiritomb (same body plan, same egg group)",
+  "Its Ice side gives a brighter sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

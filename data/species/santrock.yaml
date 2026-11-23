@@ -117,14 +117,14 @@ design:
                      base exp, growth rate, base friendship, egg cycles, gender, egg groups,
                      evolutions]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
-    level-up moves: 72
-    "TM/HM moves": 77
-    tutor moves: 67
-    egg moves: 67
+    level-up moves: 61
+    "TM/HM moves": 66
+    tutor moves: 56
+    egg moves: 56
     catch rate: 90
-    base exp: 85
+    base exp: 55
     growth rate: 90
-    base friendship: 58
+    base friendship: 55
     egg cycles: 90
     evolutions: 70
   body_shape: a head and legs # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
@@ -140,7 +140,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint:             # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
-  cry:                   # sound file
+  cry: "assets/cries/santrock.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

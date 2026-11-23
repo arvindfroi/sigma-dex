@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 2207160314,
+ "layers": [
+  {
+   "dex": 438,
+   "semi": -2.24,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 77,
+   "semi": -7.1,
+   "gain": 0.65,
+   "at": 0.1,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -0.67,
+ "drive": 0.23,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Bonsly's cry: same body plan, also Rock",
+  "Lower by 2 steps, it is taller than Bonsly",
+  "Mixed with a quieter Ponyta (a similar body plan, also Fire)",
+  "Its Fire/Rock side gives a rough edge, a darker sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

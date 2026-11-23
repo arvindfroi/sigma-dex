@@ -1,0 +1,35 @@
+{
+ "v": 1,
+ "seed": 1487627136,
+ "layers": [
+  {
+   "dex": 16,
+   "semi": 0.44,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 276,
+   "semi": 0.59,
+   "gain": 0.47,
+   "at": 0.04,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 1.98,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Pidgey's cry: same body plan, also Flying, same egg group",
+  "Mixed with a quieter Taillow (same body plan, also Flying)",
+  "Its Flying side gives a rising pitch"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

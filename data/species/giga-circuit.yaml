@@ -124,7 +124,7 @@ design:
     growth rate: 62
     base friendship: 90
     gender: 75
-    egg groups: 43
+    egg groups: 55
     egg cycles: 65
     height: 65
     weight: 65
@@ -141,7 +141,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:125"  # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
-  cry:                   # sound file
+  cry: "assets/cries/giga-circuit.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

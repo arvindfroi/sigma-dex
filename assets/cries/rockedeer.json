@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 3359354039,
+ "layers": [
+  {
+   "dex": 244,
+   "semi": -1.42,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 245,
+   "semi": 0.79,
+   "gain": 0.56,
+   "at": 0.06,
+   "rev": false
+  }
+ ],
+ "stretch": 1.21,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 7.64,
+  "depth": 0.57
+ },
+ "ring": null,
+ "echo": {
+  "ms": 90.0,
+  "gain": 0.29
+ },
+ "reasons": [
+  "Starts from Entei's cry: same body plan, also Fire, legendary too",
+  "Lower by 1 step, it is smaller than Entei",
+  "Mixed with a quieter Suicune (same body plan, legendary too)",
+  "Its Fire/Psychic side and being legendary gives a wobble in the voice, an echo, drawn out"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

@@ -1,0 +1,45 @@
+{
+ "v": 1,
+ "seed": 723584261,
+ "layers": [
+  {
+   "dex": 198,
+   "semi": -1.72,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 41,
+   "semi": -3.79,
+   "gain": 0.49,
+   "at": 0.06,
+   "rev": false
+  },
+  {
+   "dex": 430,
+   "semi": -4.14,
+   "gain": 0.28,
+   "at": 0.01,
+   "rev": false
+  }
+ ],
+ "stretch": 1.043,
+ "sweep": 2.23,
+ "tone": -0.43,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 7.56,
+  "depth": 0.45
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Cabat's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Honchkrow under it, because it is bigger",
+  "Adds a wobble"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

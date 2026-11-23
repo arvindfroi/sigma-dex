@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 205164853,
+ "layers": [
+  {
+   "dex": 229,
+   "semi": 2.06,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 405,
+   "semi": -2.02,
+   "gain": 0.56,
+   "at": 0.04,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.32,
+ "drive": 0.34,
+ "len": 1.6,
+ "vib": null,
+ "ring": {
+  "hz": 81.74,
+  "mix": 0.39
+ },
+ "echo": null,
+ "reasons": [
+  "Starts from Houndoom's cry: also Fire",
+  "Higher by 2 steps, it is taller than Houndoom",
+  "Mixed with a quieter Luxray (also Electric)",
+  "Its Fire/Electric side gives a rough edge, a metallic buzz, a brighter sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

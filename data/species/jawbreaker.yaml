@@ -116,19 +116,19 @@ design:
     body shape: 80
     look: 80
     movement: 80
-    level-up moves: 55
-    "TM/HM moves": 60
-    tutor moves: 50
+    level-up moves: 56
+    "TM/HM moves": 61
+    tutor moves: 51
     body color: 80
     catch rate: 60
     base exp: 85
-    growth rate: 47
+    growth rate: 55
     base friendship: 90
-    gender: 63
-    egg groups: 45
-    egg cycles: 65
-    height: 45
-    weight: 45
+    gender: 65
+    egg groups: 48
+    egg cycles: 55
+    height: 55
+    weight: 55
   body_shape: an upright body on two legs with a tail
   movement: It walks upright on two legs.
   look: "It is a bright orange dragon-like lizard with a cream belly, red scale patches and two curved horns on its head. It has a long toothy mouth, long arms with large cream claws, a broken iron chain hanging from each wrist, two strong clawed legs and a long thick tail."
@@ -142,7 +142,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:409"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/jawbreaker.json"
-  cry:                   # sound file
+  cry: "assets/cries/jawbreaker.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

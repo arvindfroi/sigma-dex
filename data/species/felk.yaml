@@ -13,7 +13,7 @@ category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
 height_m: 2              # e.g. 0.7
 weight_kg: 230           # e.g. 6.9
-body_color:              # red blue yellow green black brown purple gray white pink
+body_color: brown        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
@@ -30,15 +30,15 @@ base_stats:              # each 1-255
   speed: 110
 
 ev_yield: {sp_attack: 3} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+catch_rate: 3            # 3 (legendary) to 255 (very easy)
+base_exp: 261            # exp yield when defeated, e.g. 64
+growth_rate: slow        # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 35      # 70 is the standard value
 
 # --- Breeding ---
-gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: []           # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+gender: genderless       # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: [undiscovered] # 1 or 2, e.g. [field, grass]
+egg_cycles: 120          # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -64,9 +64,39 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Air Cutter}
+    - {level: 1, move: Gust}
+    - {level: 1, move: Leer}
+    - {level: 1, move: Mega Drain}
+    - {level: 7, move: Roar}
+    - {level: 10, move: Light Screen}
+    - {level: 10, move: Fairy Wind}
+    - {level: 14, move: Magical Leaf}
+    - {level: 18, move: Wing Attack}
+    - {level: 21, move: Aromatherapy}
+    - {level: 25, move: Agility}
+    - {level: 25, move: Ancient Power}
+    - {level: 30, move: Tailwind}
+    - {level: 35, move: Giga Drain}
+    - {level: 40, move: Roost}
+    - {level: 45, move: Hurricane}
+    - {level: 54, move: Heal Pulse}
+    - {level: 55, move: Solar Beam}
+    - {level: 56, move: Air Slash}
+    - {level: 60, move: Rain Dance}
+    - {level: 70, move: Energy Ball}
+    - {level: 91, move: Hyper Beam}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Toxic, Bullet Seed, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
+          Protect, Rain Dance, Giga Drain, Frustration, Solar Beam, Return, Double Team,
+          Aerial Ace, Facade, Secret Power, Rest, Roost, Focus Blast, Energy Ball, Endure,
+          Giga Impact, Sleep Talk, Grass Knot, Swagger, U-turn, Substitute, Dual Wingbeat,
+          Fly]
+  # moves a move tutor can teach it
+  tutor: [Air Slash, Body Slam, Brave Bird, Heat Wave, Hurricane, Leaf Storm, Magical Leaf,
+          Seed Bomb, Sky Attack, Moonblast, Dazzling Gleam]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -80,13 +110,26 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [body shape, look, movement, height, weight]
+  filled_by_claude: [body shape, look, movement, height, weight, body color, catch rate,
+                     base exp, growth rate, base friendship, gender, egg groups, egg cycles,
+                     level-up moves, "TM/HM moves", tutor moves]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     body shape: 80
     look: 80
     movement: 80
     height: 65
     weight: 65
+    body color: 90
+    catch rate: 90
+    base exp: 85
+    growth rate: 90
+    base friendship: 54
+    gender: 75
+    egg groups: 90
+    egg cycles: 90
+    level-up moves: 64
+    "TM/HM moves": 69
+    tutor moves: 59
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: "It is a deer-like creature with a cream face and legs, a shaggy brown and cream mane, one blue eye and black hooves with brown leaf-like tufts above them. It has large pale antlers topped with green leaf shapes with golden rings floating around them, and a big wing of green, cream and brown leaf-feathers on its back."
@@ -100,7 +143,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint:             # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/felk.json"
-  cry:                   # sound file
+  cry: "assets/cries/felk.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

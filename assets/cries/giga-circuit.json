@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 3739439971,
+ "layers": [
+  {
+   "dex": 125,
+   "semi": -2.69,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 181,
+   "semi": -2.42,
+   "gain": 0.53,
+   "at": 0.07,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.44,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": {
+  "hz": 52.37,
+  "mix": 0.26
+ },
+ "echo": null,
+ "reasons": [
+  "Starts from Electabuzz's cry: its footprint is Electabuzz's, a similar body plan, also Electric",
+  "Lower by 3 steps, it is taller than Electabuzz",
+  "Mixed with a quieter Ampharos (a similar body plan, also Electric)",
+  "Its Electric side gives a metallic buzz, a brighter sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

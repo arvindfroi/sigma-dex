@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 2114863550,
+ "layers": [
+  {
+   "dex": 451,
+   "semi": 4.48,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 290,
+   "semi": 0.22,
+   "gain": 0.57,
+   "at": 0.06,
+   "rev": false
+  }
+ ],
+ "stretch": 0.83,
+ "sweep": 1.98,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Skorupi's cry: its footprint is Skorupi's, same body plan, also Bug",
+  "Higher by 4 steps, it is smaller than Skorupi",
+  "Mixed with a quieter Nincada (same body plan, also Bug)",
+  "Its Bug/Flying side gives said quicker, a rising pitch"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

@@ -113,13 +113,13 @@ design:
     level-up moves: 80
     "TM/HM moves": 85
     tutor moves: 75
-    body color: 35
+    body color: 80
     catch rate: 60
     base exp: 85
-    growth rate: 68
+    growth rate: 69
     base friendship: 90
-    gender: 79
-    egg groups: 60
+    gender: 80
+    egg groups: 61
     egg cycles: 65
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement:              # e.g. It walks on four legs. / It floats in the air.
@@ -134,7 +134,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint:             # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/whaldrill.json"
-  cry:                   # sound file
+  cry: "assets/cries/whaldrill.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

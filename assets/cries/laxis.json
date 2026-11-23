@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 2625612246,
+ "layers": [
+  {
+   "dex": 225,
+   "semi": -3.65,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 142,
+   "semi": -2.36,
+   "gain": 0.6,
+   "at": 0.05,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 3.13,
+ "tone": 0.38,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Delibird's cry: both types",
+  "Lower by 4 steps, it is taller than Delibird",
+  "Mixed with a quieter Aerodactyl (also Flying)",
+  "Its Flying/Ice side gives a rising pitch, a brighter sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

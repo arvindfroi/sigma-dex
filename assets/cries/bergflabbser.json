@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 1209080198,
+ "layers": [
+  {
+   "dex": 382,
+   "semi": -7.22,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 340,
+   "semi": -11.97,
+   "gain": 0.55,
+   "at": 0.03,
+   "rev": false
+  }
+ ],
+ "stretch": 1.1,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 8.48,
+  "depth": 0.58
+ },
+ "ring": null,
+ "echo": {
+  "ms": 114.0,
+  "gain": 0.37
+ },
+ "reasons": [
+  "Starts from Kyogre's cry: its footprint is Kyogre's, same body plan, also Water",
+  "Lower by 7 steps, it is taller than Kyogre",
+  "Mixed with a quieter Whiscash (same body plan, both types)",
+  "Its Water/Ground side and being legendary gives a wobble in the voice, an echo, drawn out"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

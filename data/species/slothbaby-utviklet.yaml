@@ -154,7 +154,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:288"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/slothbaby-utviklet.json"
-  cry:                   # sound file
+  cry: "assets/cries/slothbaby-utviklet.json"
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

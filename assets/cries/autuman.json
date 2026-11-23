@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 3700818156,
+ "layers": [
+  {
+   "dex": 275,
+   "semi": 2.09,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 454,
+   "semi": -0.43,
+   "gain": 0.49,
+   "at": 0.12,
+   "rev": false
+  }
+ ],
+ "stretch": 0.89,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 0.72,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Shiftry's cry: its footprint comes from Shiftry's line, same body plan, also Grass",
+  "Higher by 2 steps, it is taller than Shiftry",
+  "Mixed with a quieter Toxicroak (same body plan, also Fighting)",
+  "Its Grass/Fighting side gives said quicker, cut short"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

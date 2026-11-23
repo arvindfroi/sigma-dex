@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 2960417517,
+ "layers": [
+  {
+   "dex": 394,
+   "semi": -1.39,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 186,
+   "semi": 0.66,
+   "gain": 0.46,
+   "at": 0.08,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.19,
+ "len": 1.6,
+ "vib": {
+  "rate": 4.97,
+  "depth": 0.25
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Prinplup's cry: its footprint is Prinplup's, a similar body plan, also Water",
+  "Lower by 1 step, it is taller than Prinplup",
+  "Mixed with a quieter Politoed (same body plan, also Water)",
+  "Its Fire/Water side gives a rough edge, a wobble in the voice"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

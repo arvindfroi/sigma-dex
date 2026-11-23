@@ -1,0 +1,37 @@
+{
+ "v": 1,
+ "seed": 2021327030,
+ "layers": [
+  {
+   "dex": 167,
+   "semi": -1.49,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 46,
+   "semi": -5.67,
+   "gain": 0.61,
+   "at": 0.08,
+   "rev": false
+  }
+ ],
+ "stretch": 0.88,
+ "sweep": 0.0,
+ "tone": -0.23,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 8.27,
+  "depth": 0.47
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Wump's cry, 2 steps lower, because it is one stage further",
+  "Adds a wobble"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

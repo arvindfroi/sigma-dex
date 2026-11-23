@@ -117,14 +117,14 @@ design:
     body shape: 80
     look: 80
     movement: 80
-    level-up moves: 53
-    "TM/HM moves": 58
-    tutor moves: 48
-    egg moves: 48
+    level-up moves: 54
+    "TM/HM moves": 59
+    tutor moves: 49
+    egg moves: 49
     body color: 80
     catch rate: 60
-    base exp: 85
-    growth rate: 55
+    base exp: 55
+    growth rate: 54
     base friendship: 90
     gender: 58
     egg groups: 46
@@ -142,7 +142,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:394"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/chillalit.json"
-  cry:                   # sound file
+  cry: "assets/cries/chillalit.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

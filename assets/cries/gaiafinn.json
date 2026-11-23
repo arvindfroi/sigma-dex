@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 1161243442,
+ "layers": [
+  {
+   "dex": 444,
+   "semi": -1.55,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 448,
+   "semi": -5.31,
+   "gain": 0.51,
+   "at": 0.02,
+   "rev": false
+  }
+ ],
+ "stretch": 0.84,
+ "sweep": 0.0,
+ "tone": -0.65,
+ "drive": 0.0,
+ "len": 0.9,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Gabite's cry: its footprint is Gabite's, same body plan, also Ground",
+  "Lower by 2 steps, it is taller than Gabite",
+  "Mixed with a quieter Lucario (same body plan, also Fighting)",
+  "Its Ground/Fighting side gives a darker sound, said quicker, cut short"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

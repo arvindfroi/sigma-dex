@@ -1,0 +1,45 @@
+{
+ "v": 1,
+ "seed": 605087710,
+ "layers": [
+  {
+   "dex": 32,
+   "semi": -4.29,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 29,
+   "semi": -9.34,
+   "gain": 0.45,
+   "at": 0.08,
+   "rev": false
+  },
+  {
+   "dex": 256,
+   "semi": -4.88,
+   "gain": 0.38,
+   "at": 0.01,
+   "rev": false
+  }
+ ],
+ "stretch": 1.06,
+ "sweep": 0.0,
+ "tone": 0.15,
+ "drive": 0.26,
+ "len": 1.6,
+ "vib": {
+  "rate": 5.49,
+  "depth": 0.22
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Venofrib's cry, 2 steps lower, because it is one stage further",
+  "Adds a low Combusken under it, because it is bigger",
+  "A rougher edge, it is bigger"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

@@ -129,10 +129,10 @@ design:
     EV yield: 85
     catch rate: 60
     base exp: 55
-    growth rate: 53
+    growth rate: 56
     base friendship: 90
-    gender: 72
-    egg groups: 57
+    gender: 74
+    egg groups: 56
     egg cycles: 65
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: It crawls along the ground on its legs.
@@ -147,7 +147,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:463"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/crappy-meal.json"
-  cry:                   # sound file
+  cry: "assets/cries/crappy-meal.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

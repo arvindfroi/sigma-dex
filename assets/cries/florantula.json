@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 4185477509,
+ "layers": [
+  {
+   "dex": 167,
+   "semi": -4.19,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 46,
+   "semi": -8.17,
+   "gain": 0.61,
+   "at": 0.08,
+   "rev": false
+  },
+  {
+   "dex": 168,
+   "semi": -3.08,
+   "gain": 0.35,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 0.926,
+ "sweep": 0.0,
+ "tone": -0.15,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Twemp's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Ariados under it, because it is bigger",
+  "Without the wobble"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

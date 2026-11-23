@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 1455066276,
+ "layers": [
+  {
+   "dex": 251,
+   "semi": -4.46,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 491,
+   "semi": -4.52,
+   "gain": 0.62,
+   "at": 0.02,
+   "rev": false
+  }
+ ],
+ "stretch": 1.21,
+ "sweep": 0.0,
+ "tone": -0.39,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": {
+  "ms": 144.0,
+  "gain": 0.27
+ },
+ "reasons": [
+  "Starts from Celebi's cry: same body plan, legendary too",
+  "Lower by 4 steps, it is taller than Celebi",
+  "Mixed with a quieter Darkrai (same body plan, legendary too)",
+  "Its Fairy/Ground side and being legendary gives a darker sound, an echo, drawn out"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

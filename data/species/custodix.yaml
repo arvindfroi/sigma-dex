@@ -131,9 +131,9 @@ design:
   filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, EV yield, catch rate,
                      base exp, growth rate, base friendship, egg cycles, gender, egg groups]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
-    level-up moves: 60
-    "TM/HM moves": 65
-    tutor moves: 55
+    level-up moves: 62
+    "TM/HM moves": 67
+    tutor moves: 57
     EV yield: 85
     catch rate: 90
     base exp: 85
@@ -153,7 +153,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint:             # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
-  cry:                   # sound file
+  cry: "assets/cries/custodix.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

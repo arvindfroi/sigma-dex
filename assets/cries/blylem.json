@@ -1,0 +1,34 @@
+{
+ "v": 1,
+ "seed": 3423094164,
+ "layers": [
+  {
+   "dex": 438,
+   "semi": -3.76,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 32,
+   "semi": -5.03,
+   "gain": 0.58,
+   "at": 0.03,
+   "rev": false
+  }
+ ],
+ "stretch": 1.103,
+ "sweep": 0.0,
+ "tone": -0.79,
+ "drive": 0.1,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Leadleak's cry, 3 steps lower, because it is one stage further",
+  "Without the wobble"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

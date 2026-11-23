@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 1665025974,
+ "layers": [
+  {
+   "dex": 411,
+   "semi": 2.04,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 111,
+   "semi": -0.38,
+   "gain": 0.63,
+   "at": 0.06,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -0.42,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": {
+  "hz": 110.2,
+  "mix": 0.32
+ },
+ "echo": null,
+ "reasons": [
+  "Starts from Bastiodon's cry: same body plan, both types",
+  "Higher by 2 steps, it is taller than Bastiodon",
+  "Mixed with a quieter Rhyhorn (its footprint is Rhyhorn's, same body plan)",
+  "Its Steel/Rock side gives a metallic buzz, a darker sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

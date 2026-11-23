@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 2076334549,
+ "layers": [
+  {
+   "dex": 425,
+   "semi": -2.27,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 353,
+   "semi": -1.03,
+   "gain": 0.63,
+   "at": 0.07,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 7.84,
+  "depth": 0.3
+ },
+ "ring": null,
+ "echo": {
+  "ms": 70.0,
+  "gain": 0.29
+ },
+ "reasons": [
+  "Starts from Drifloon's cry: also Ghost, same egg group",
+  "Lower by 2 steps, it is taller than Drifloon",
+  "Mixed with a quieter Shuppet (also Ghost, same egg group)",
+  "Its Ghost side gives an echo, a wobble in the voice"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

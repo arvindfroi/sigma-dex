@@ -112,18 +112,18 @@ design:
     body shape: 80
     look: 80
     movement: 80
-    level-up moves: 56
-    "TM/HM moves": 61
-    tutor moves: 51
-    egg moves: 51
+    level-up moves: 74
+    "TM/HM moves": 79
+    tutor moves: 69
+    egg moves: 69
     body color: 80
     EV yield: 85
-    catch rate: 60
+    catch rate: 55
     base exp: 85
-    growth rate: 47
+    growth rate: 61
     base friendship: 90
-    gender: 68
-    egg groups: 66
+    gender: 58
+    egg groups: 74
     egg cycles: 65
   body_shape: an upright body on two legs without a tail
   movement: It walks upright on two legs.

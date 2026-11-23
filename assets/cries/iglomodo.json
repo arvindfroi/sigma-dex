@@ -1,0 +1,44 @@
+{
+ "v": 1,
+ "seed": 209722385,
+ "layers": [
+  {
+   "dex": 459,
+   "semi": -3.58,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 72,
+   "semi": -8.45,
+   "gain": 0.46,
+   "at": 0.09,
+   "rev": false
+  },
+  {
+   "dex": 473,
+   "semi": -4.03,
+   "gain": 0.27,
+   "at": 0.01,
+   "rev": false
+  }
+ ],
+ "stretch": 1.1,
+ "sweep": 0.0,
+ "tone": 0.54,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 7.36,
+  "depth": 0.26
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Iglomodo mindre utv's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Mamoswine under it, because it is bigger"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

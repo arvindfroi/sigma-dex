@@ -1,0 +1,35 @@
+{
+ "v": 1,
+ "seed": 595173892,
+ "layers": [
+  {
+   "dex": 303,
+   "semi": -2.28,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 282,
+   "semi": -5.32,
+   "gain": 0.5,
+   "at": 0.11,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Mawile's cry: same body plan, same egg group",
+  "Lower by 2 steps, it is taller than Mawile",
+  "Mixed with a quieter Gardevoir (its footprint comes from Gardevoir's line, same body plan)"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

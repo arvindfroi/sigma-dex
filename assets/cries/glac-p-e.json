@@ -1,0 +1,45 @@
+{
+ "v": 1,
+ "seed": 1703189657,
+ "layers": [
+  {
+   "dex": 361,
+   "semi": -1.69,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 238,
+   "semi": 0.86,
+   "gain": 0.51,
+   "at": 0.02,
+   "rev": false
+  },
+  {
+   "dex": 475,
+   "semi": -3.09,
+   "gain": 0.26,
+   "at": 0.01,
+   "rev": false
+  }
+ ],
+ "stretch": 1.053,
+ "sweep": 0.0,
+ "tone": 0.45,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.97,
+  "depth": 0.34
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Sigmanian Charcadet's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Gallade under it, because it is bigger",
+  "Adds a wobble"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

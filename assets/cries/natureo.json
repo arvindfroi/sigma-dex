@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 3200582271,
+ "layers": [
+  {
+   "dex": 103,
+   "semi": 4.45,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 455,
+   "semi": -0.29,
+   "gain": 0.55,
+   "at": 0.04,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 7.65,
+  "depth": 0.57
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Exeggutor's cry: both types",
+  "Higher by 4 steps, it is smaller than Exeggutor",
+  "Mixed with a quieter Carnivine (also Grass)",
+  "Its Psychic/Grass side gives a wobble in the voice"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

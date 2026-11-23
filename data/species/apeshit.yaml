@@ -13,7 +13,7 @@ category:                # e.g. Seed  (shown in game as "Seed Pokemon"), max 12 
 description:             # the Pokedex entry text: max 4 lines of about 40 characters
 height_m: 0.4            # e.g. 0.7
 weight_kg: 6             # e.g. 6.9
-body_color:              # red blue yellow green black brown purple gray white pink
+body_color: black        # red blue yellow green black brown purple gray white pink
 
 # --- Battle data ---
 abilities:
@@ -29,16 +29,16 @@ base_stats:              # each 1-255
   sp_defense: 30
   speed: 60
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
-catch_rate:              # 3 (legendary) to 255 (very easy)
-base_exp:                # exp yield when defeated, e.g. 64
-growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
-base_friendship:         # 70 is the standard value
+ev_yield: {attack: 1}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+catch_rate: 255          # 3 (legendary) to 255 (very easy)
+base_exp: 58             # exp yield when defeated, e.g. 64
+growth_rate: medium_fast # erratic fast medium_fast medium_slow slow fluctuating
+base_friendship: 70      # 70 is the standard value
 
 # --- Breeding ---
-gender:                  # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
-egg_groups: []           # 1 or 2, e.g. [field, grass]
-egg_cycles:              # hatch time, 20 is typical
+gender: 50               # percent male: 0, 12.5, 25, 50, 75, 87.5, 100 - or genderless
+egg_groups: [field]      # 1 or 2, e.g. [field, grass]
+egg_cycles: 20           # hatch time, 20 is typical
 
 held_items:              # items wild ones can hold (optional)
   common:
@@ -107,14 +107,25 @@ design:
   wishes: Weak physical attacker. baby mon
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [height, weight, level-up moves, "TM/HM moves", tutor moves, egg moves]
+  filled_by_claude: [height, weight, level-up moves, "TM/HM moves", tutor moves, egg moves,
+                     body color, EV yield, catch rate, base exp, growth rate,
+                     base friendship, gender, egg groups, egg cycles]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     height: 65
     weight: 65
-    level-up moves: 55
-    "TM/HM moves": 60
-    tutor moves: 50
-    egg moves: 50
+    level-up moves: 57
+    "TM/HM moves": 62
+    tutor moves: 52
+    egg moves: 52
+    body color: 90
+    EV yield: 85
+    catch rate: 60
+    base exp: 85
+    growth rate: 51
+    base friendship: 90
+    gender: 66
+    egg groups: 47
+    egg cycles: 65
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: It crawls along the ground on its legs.
   look:                  # what it looks like, a few plain sentences: It is a ...
@@ -128,7 +139,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint:             # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/apeshit.json"
-  cry:                   # sound file
+  cry: "assets/cries/apeshit.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

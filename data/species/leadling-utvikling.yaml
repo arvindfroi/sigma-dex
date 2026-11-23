@@ -110,11 +110,11 @@ design:
                      base exp, growth rate, base friendship, gender, egg groups, egg cycles,
                      height, weight]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
-    level-up moves: 57
-    "TM/HM moves": 62
-    tutor moves: 52
+    level-up moves: 59
+    "TM/HM moves": 64
+    tutor moves: 54
     body color: 35
-    catch rate: 60
+    catch rate: 55
     base exp: 85
     growth rate: 60
     base friendship: 90
@@ -136,7 +136,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:305"  # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/leadling-utvikling.json"
-  cry:                   # sound file
+  cry: "assets/cries/leadling-utvikling.json"
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

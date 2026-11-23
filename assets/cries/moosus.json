@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 2001032639,
+ "layers": [
+  {
+   "dex": 244,
+   "semi": -3.12,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 245,
+   "semi": -4.68,
+   "gain": 0.47,
+   "at": 0.11,
+   "rev": false
+  }
+ ],
+ "stretch": 1.18,
+ "sweep": 0.0,
+ "tone": 0.41,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": {
+  "ms": 69.0,
+  "gain": 0.22
+ },
+ "reasons": [
+  "Starts from Entei's cry: same body plan, legendary too",
+  "Lower by 3 steps, it is taller than Entei",
+  "Mixed with a quieter Suicune (same body plan, legendary too)",
+  "Its Ice/Fairy side and being legendary gives a brighter sound, an echo, drawn out"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

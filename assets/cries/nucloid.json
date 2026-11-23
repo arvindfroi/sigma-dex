@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 95055753,
+ "layers": [
+  {
+   "dex": 72,
+   "semi": 4.06,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 451,
+   "semi": 0.85,
+   "gain": 0.58,
+   "at": 0.06,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 8.74,
+  "depth": 0.18
+ },
+ "ring": {
+  "hz": 123.66,
+  "mix": 0.32
+ },
+ "echo": null,
+ "reasons": [
+  "Starts from Tentacool's cry: same body plan, also Poison",
+  "Higher by 4 steps, it is smaller than Tentacool",
+  "Mixed with a quieter Skorupi (a similar body plan, also Poison)",
+  "Its Poison/Steel side gives a wobble in the voice, a metallic buzz"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

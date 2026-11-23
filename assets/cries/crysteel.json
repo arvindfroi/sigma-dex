@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 2119366506,
+ "layers": [
+  {
+   "dex": 303,
+   "semi": 1.82,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 438,
+   "semi": 2.91,
+   "gain": 0.52,
+   "at": 0.01,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": -0.31,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": {
+  "hz": 101.29,
+  "mix": 0.25
+ },
+ "echo": null,
+ "reasons": [
+  "Starts from Mawile's cry: also Steel, same egg group",
+  "Higher by 2 steps, it is smaller than Mawile",
+  "Mixed with a quieter Bonsly (also Rock)",
+  "Its Steel/Rock side gives a metallic buzz, a darker sound"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

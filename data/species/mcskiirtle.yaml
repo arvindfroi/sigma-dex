@@ -136,7 +136,7 @@ design:
     growth rate: 57
     base friendship: 90
     gender: 65
-    egg groups: 47
+    egg groups: 43
     egg cycles: 65
     height: 65
     weight: 65
@@ -153,7 +153,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:9"    # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/mcskiirtle.json"
-  cry:                   # sound file
+  cry: "assets/cries/mcskiirtle.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

@@ -1,0 +1,42 @@
+{
+ "v": 1,
+ "seed": 1541342353,
+ "layers": [
+  {
+   "dex": 46,
+   "semi": -2.36,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 10,
+   "semi": -2.57,
+   "gain": 0.48,
+   "at": 0.02,
+   "rev": false
+  },
+  {
+   "dex": 213,
+   "semi": -5.08,
+   "gain": 0.39,
+   "at": 0.01,
+   "rev": false
+  }
+ ],
+ "stretch": 0.878,
+ "sweep": -1.39,
+ "tone": -0.7,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of ambuger's cry, 3 steps lower, because it is one stage further",
+  "Adds a low Shuckle under it, because it is bigger",
+  "Its pitch falls a little more"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

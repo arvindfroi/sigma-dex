@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "seed": 805707838,
+ "layers": [
+  {
+   "dex": 76,
+   "semi": -1.49,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 344,
+   "semi": -3.32,
+   "gain": 0.57,
+   "at": 0.04,
+   "rev": false
+  }
+ ],
+ "stretch": 1.12,
+ "sweep": 0.0,
+ "tone": -0.44,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 5.39,
+  "depth": 0.27
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Golem's cry: same body plan, also Ground, same egg group",
+  "Lower by 1 step, it is taller than Golem",
+  "Mixed with a quieter Claydol (both types, same egg group)",
+  "Its Ground/Psychic side gives a darker sound, a wobble in the voice, drawn out"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

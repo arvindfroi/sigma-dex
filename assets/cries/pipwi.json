@@ -1,0 +1,35 @@
+{
+ "v": 1,
+ "seed": 166934238,
+ "layers": [
+  {
+   "dex": 69,
+   "semi": 3.66,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 182,
+   "semi": 5.63,
+   "gain": 0.62,
+   "at": 0.05,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Starts from Bellsprout's cry: same body plan, also Grass, same egg group",
+  "Higher by 4 steps, it is smaller than Bellsprout",
+  "Mixed with a quieter Bellossom (same body plan, also Grass)"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

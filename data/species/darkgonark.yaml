@@ -105,20 +105,20 @@ design:
                      catch rate, base exp, growth rate, base friendship, gender, egg groups,
                      egg cycles, height, weight]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
-    level-up moves: 62
-    "TM/HM moves": 67
-    tutor moves: 57
-    egg moves: 57
+    level-up moves: 61
+    "TM/HM moves": 66
+    tutor moves: 56
+    egg moves: 56
     body color: 35
     catch rate: 60
     base exp: 85
-    growth rate: 53
+    growth rate: 52
     base friendship: 90
     gender: 68
     egg groups: 74
     egg cycles: 65
-    height: 35
-    weight: 35
+    height: 55
+    weight: 55
   body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
   look: it is a little dog # what it looks like, a few plain sentences: It is a ...

@@ -1,0 +1,41 @@
+{
+ "v": 1,
+ "seed": 649324803,
+ "layers": [
+  {
+   "dex": 190,
+   "semi": -0.94,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 293,
+   "semi": -1.82,
+   "gain": 0.58,
+   "at": 0.09,
+   "rev": false
+  },
+  {
+   "dex": 461,
+   "semi": -3.89,
+   "gain": 0.35,
+   "at": 0.03,
+   "rev": false
+  }
+ ],
+ "stretch": 1.093,
+ "sweep": 0.0,
+ "tone": -0.23,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Chebbi's cry, 2 steps lower, because it is one stage further",
+  "Adds a low Weavile under it, because it is bigger"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

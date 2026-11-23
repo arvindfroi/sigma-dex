@@ -133,7 +133,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint: "hgss:74"   # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/stonma.json"
-  cry:                   # sound file
+  cry: "assets/cries/stonma.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:

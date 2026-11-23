@@ -1,0 +1,44 @@
+{
+ "v": 1,
+ "seed": 1066503002,
+ "layers": [
+  {
+   "dex": 32,
+   "semi": -7.24,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 29,
+   "semi": -12.0,
+   "gain": 0.45,
+   "at": 0.08,
+   "rev": false
+  },
+  {
+   "dex": 256,
+   "semi": -7.87,
+   "gain": 0.38,
+   "at": 0.01,
+   "rev": false
+  }
+ ],
+ "stretch": 1.141,
+ "sweep": -1.57,
+ "tone": 0.18,
+ "drive": 0.26,
+ "len": 1.6,
+ "vib": {
+  "rate": 5.49,
+  "depth": 0.22
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Vendepiede's cry, 3 steps lower, because it is one stage further",
+  "Its pitch falls a little more"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

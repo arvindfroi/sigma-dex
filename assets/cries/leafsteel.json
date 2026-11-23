@@ -1,0 +1,33 @@
+{
+ "v": 1,
+ "seed": 2534765044,
+ "layers": [
+  {
+   "dex": 1,
+   "semi": -3.83,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 387,
+   "semi": -8.07,
+   "gain": 0.55,
+   "at": 0.1,
+   "rev": false
+  }
+ ],
+ "stretch": 1.09,
+ "sweep": 0.0,
+ "tone": -0.14,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Keeps the sound of Leaflet's cry, 2 steps lower, because it is one stage further"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}

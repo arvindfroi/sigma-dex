@@ -1,0 +1,36 @@
+{
+ "v": 1,
+ "seed": 2344057580,
+ "layers": [
+  {
+   "own": true,
+   "semi": 0.97,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 0.931,
+ "sweep": 0.0,
+ "tone": -0.97,
+ "drive": 0.15,
+ "len": 1.6,
+ "vib": {
+  "rate": 5.66,
+  "depth": 0.42
+ },
+ "ring": {
+  "hz": 70.0,
+  "mix": 0.22
+ },
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.26
+ },
+ "reasons": [
+  "Keeps the sound of Freezrick's cry, 2 steps higher, because it is one stage earlier",
+  "Adds a wobble"
+ ],
+ "by": "Claude (automatic cry)",
+ "at": "2026-11-23T08:24:02.000Z"
+}
