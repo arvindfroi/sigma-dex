@@ -1000,7 +1000,7 @@ def run(job, base, key, post, download, folder, log=print):
         seconds = time.time() - started
         remember(timings, tkey, seconds)
         files = {"image": image}
-        if raw and Path(raw).stat().st_size < 3 * 1024 * 1024:
+        if raw and not job.get("batch") and Path(raw).stat().st_size < 3 * 1024 * 1024:   # batch (whole-dex) jobs keep no raw: storage
             files["raw"] = raw
         post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": row["id"], "status": status, "note": note,
                          "seconds": round(seconds, 1)}, files)
