@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**207 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
+**208 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -195,7 +195,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 184 | [Tbur](data/species/tbur.yaml) | Ice |  |  |  | 10% |
 | 185 | [Nebur](data/species/nebur.yaml) | Ice / Electric |  |  |  | 14% |
 | 186 | [Rhamp](data/species/rhamp.yaml) | Psychic / Rock |  |  |  | 10% |
-| 187 | *open slot* | | | | | |
+| 187 | [Ledrake](data/species/ledrake.yaml) | Dragon |  |  |  | 17% |
 | 188 | *open slot* | | | | | |
 | 189 | *open slot* | | | | | |
 | 190 | *open slot* | | | | | |

@@ -3481,7 +3481,7 @@
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
         .abilities = { ABILITY_MAGICIAN, ABILITY_POWER_SPOT, ABILITY_PURIFYING_SALT },
-        .bodyColor = BODY_COLOR_RED,
+        .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("ROKU"),
         .cryId = CRY_NONE,
         .natDexNum = NATIONAL_DEX_ROKU,

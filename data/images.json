@@ -7525,13 +7525,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2518,
-    "species": "brawleo",
-    "file": "assets/concept-art/brawleo/2518.png",
-    "caption": "[ds-front] sprite #496",
-    "editor": "Emil"
-  },
-  {
     "id": 2520,
     "species": "brawleo",
     "file": "assets/concept-art/brawleo/2520.png",
@@ -8719,6 +8712,20 @@
     "species": "heatbat",
     "file": "assets/concept-art/heatbat/2861.png",
     "caption": "[ds-front2] sprite #558",
+    "editor": "Arvind"
+  },
+  {
+    "id": 2862,
+    "species": "ledrake",
+    "file": "assets/concept-art/ledrake/2862.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 2863,
+    "species": "brawleo",
+    "file": "assets/concept-art/brawleo/2863.png",
+    "caption": "[ds-front] sprite #559",
     "editor": "Arvind"
   }
 ]

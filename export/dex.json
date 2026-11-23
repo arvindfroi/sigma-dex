@@ -24198,7 +24198,7 @@
       "description": null,
       "height_m": 2.9,
       "weight_kg": 680,
-      "body_color": "red",
+      "body_color": "brown",
       "abilities": {
         "primary": "Magician",
         "secondary": "Power Spot",
@@ -24386,7 +24386,6 @@
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
-          "body color",
           "catch rate",
           "base exp",
           "growth rate",
@@ -24402,7 +24401,6 @@
           "level-up moves": 56,
           "TM/HM moves": 61,
           "tutor moves": 51,
-          "body color": 80,
           "catch rate": 55,
           "base exp": 85,
           "growth rate": 57,
@@ -43123,6 +43121,86 @@
         "safari_flee_rate": 0
       },
       "id": "rhamp"
+    },
+    {
+      "dex": 187,
+      "name": "Ledrake",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Dragon"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": "red",
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "a meteo L drago with a firery dagon behind it",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": "a serpentine body",
+        "movement": "It floats in the air.",
+        "look": "a meteo L drago with a firery dagon behind it"
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/ledrake/2862.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "ledrake"
     },
     {
       "dex": 234,
