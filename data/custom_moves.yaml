@@ -101,6 +101,36 @@ moves:
     ally's priority-boosted... no, that doesn't apply, so it works normally under all terrains.
   similar_to: Pollen Puff
   designer: Emil
+- id: inverted-bite-of-heaven
+  name: Inverted Bite of Heaven
+  type: Fighting
+  category: physical
+  power: 80
+  accuracy: 100
+  pp: 10
+  target: one opponent
+  effect: 'The user attacks with a supernatural-nullifying weapon that bypasses protective effects and
+    defensive abilities.
+
+
+    Bypasses Protect, Detect, King''s Shield, Spiky Shield, Baneful Bunker, Obstruct, Silk Trap, Burning
+    Bulwark and similar protection moves.
+
+
+    Ignores Wonder Guard, allowing the move to damage Pokémon regardless of type effectiveness.
+
+
+    Ignores defensive abilities that would otherwise block, negate or prevent the attack from connecting,
+    such as Levitate, Flash Fire, Volt Absorb, Water Absorb and similar abilities.
+
+
+    Ignores defensive effects that reduce or prevent damage from the attack.
+
+
+    The move does not ignore the target''s actual defensive stats, type-based damage multipliers or stat
+    boosts. It simply nullifies effects that would prevent the attack from connecting or dealing damage.'
+  notes: The point is that nothing on the oppentes side can negate any damage. It can still miss if accuracy
+    is lowered
 - id: poison-hug
   name: Poison Hug
   type: Poison

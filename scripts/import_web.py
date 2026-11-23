@@ -295,6 +295,11 @@ def main():
                     existing = {norm(name) for name in engine["engine_names"][kind]}
                     taken = {norm(e["name"]) for e in custom[kind] if e["id"] != sid}
                     found = dexlib.check_custom(kind, entry, existing)
+                    # A name too long for the game is no reason to lose the design (2026-11-23: Sea Ghost Emperor and
+                    # Inverted Bite of Heaven never reached this file, so the game build thought they were undefined).
+                    # It is saved and listed; the game shows a shortened name, as with long Pokemon names.
+                    long_name = [p for p in found if "the game fits at most" in p]
+                    found = [p for p in found if p not in long_name]
                     if norm(entry.get("name") or "") in taken:
                         found.append("another new %s already has that name" % row["kind"])
                     if found:
@@ -302,6 +307,9 @@ def main():
                     custom[kind] = [e for e in custom[kind] if e["id"] != sid] + [entry]
                 custom_changed.add(kind)
                 report = [entry for entry in report if entry.get("species") != row["kind"] + ":" + sid]
+                if not data.get("deleted") and long_name:
+                    report.append({"id": row.get("id"), "species": row["kind"] + ":" + sid, "row": label,
+                                   "problem": long_name[0] + " (saved anyway; the game will show a shorter name)"})
             except Exception as error:
                 report.append({"id": row.get("id"), "species": row["kind"] + ":" + sid, "row": label, "problem": str(error)})
             continue
