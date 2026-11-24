@@ -546,7 +546,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #77 [Iglomodo mindre utv](data/species/iglomodo-mindre-utv.yaml) - 38%
+### #77 [Globzar](data/species/iglomodo-mindre-utv.yaml) - 38%
 
 - **Dex page:** category, description, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship

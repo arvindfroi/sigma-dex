@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 77
-name: Iglomodo mindre utv
+name: Globzar
 
 credits:
   designer: Emil Venge-Kvamme # who came up with it (Discord name)
@@ -23,11 +23,11 @@ abilities:
 
 base_stats:              # each 1-255
   hp: 50
-  attack: 75
+  attack: 70
   defense: 50
-  sp_attack: 55
-  sp_defense: 70
-  speed: 40
+  sp_attack: 50
+  sp_defense: 65
+  speed: 35
 
 ev_yield: {attack: 1}    # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
@@ -107,9 +107,9 @@ design:
     "TM/HM moves": 60
     tutor moves: 50
     egg moves: 50
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
-  look:                  # what it looks like, a few plain sentences: It is a ...
+  body_shape: a quadruped body # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
+  movement: It walks on four legs. # e.g. It walks on four legs. / It floats in the air.
+  look: snow globe on its back # what it looks like, a few plain sentences: It is a ...
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:

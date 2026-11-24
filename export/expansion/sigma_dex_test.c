@@ -1713,6 +1713,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Blylem can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Globzar has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GLOBZAR];
+    EXPECT_EQ(info->baseHP, 50);
+    EXPECT_EQ(info->baseAttack, 70);
+    EXPECT_EQ(info->baseDefense, 50);
+    EXPECT_EQ(info->baseSpeed, 35);
+    EXPECT_EQ(info->baseSpAttack, 50);
+    EXPECT_EQ(info->baseSpDefense, 65);
+    EXPECT_EQ(info->types[0], TYPE_ICE);
+    EXPECT_EQ(info->types[1], TYPE_POISON);
+    EXPECT_EQ(info->abilities[0], ABILITY_ICE_BODY);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_POISON_STING);
+    EXPECT_EQ(GetSpeciesName(SPECIES_GLOBZAR)[0], CHAR_G);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Globzar can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_GLOBZAR) { Moves(MOVE_POISON_STING); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_POISON_STING); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_POISON_STING, player);
+    }
+}
+
 TEST("Sigma dex: Iglomodo has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_IGLOMODO];

@@ -85,7 +85,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 74 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Radiation Eater, Toxic Debris (H) | 280 | Leadleak (Lv 20) | 72% |
 | 75 | [Leadleak](data/species/leadling-utvikling.yaml) | Rock / Poison | Sturdy, Radiation Eater, Toxic Debris (H) | 400 | Blylem (Lv 40) | 72% |
 | 76 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Radiation Eater, Toxic Debris (H) | 525 |  | 79% |
-| 77 | [Iglomodo mindre utv](data/species/iglomodo-mindre-utv.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 340 | Iglomodo (Lv 35) | 38% |
+| 77 | [Globzar](data/species/iglomodo-mindre-utv.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 320 | Iglomodo (Lv 35) | 38% |
 | 78 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 520 |  | 79% |
 | 79 | [Furamire](data/species/furamire.yaml) | Normal / Fairy | Cute Charm, Competitive, Serene Grace (H) | 480 |  | 72% |
 | 80 | [Ciggiti](data/species/ciggiti.yaml) | Ghost | Smoked Up | 310 | Chuchar (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.), Parahaunt (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 72% |

@@ -19974,7 +19974,7 @@
     },
     {
       "dex": 77,
-      "name": "Iglomodo mindre utv",
+      "name": "Globzar",
       "credits": {
         "designer": "Emil Venge-Kvamme",
         "artist": null
@@ -19995,11 +19995,11 @@
       },
       "base_stats": {
         "hp": 50,
-        "attack": 75,
+        "attack": 70,
         "defense": 50,
-        "sp_attack": 55,
-        "sp_defense": 70,
-        "speed": 40
+        "sp_attack": 50,
+        "sp_defense": 65,
+        "speed": 35
       },
       "ev_yield": {
         "attack": 1
@@ -20154,9 +20154,9 @@
           "tutor moves": 50,
           "egg moves": 50
         },
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "snow globe on its back"
       },
       "assets": {
         "concept_art": "assets/concept-art/iglomodo-mindre-utv/5140.png",

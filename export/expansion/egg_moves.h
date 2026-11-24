@@ -283,6 +283,15 @@ static const u16 sLeadlingEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sGlobzarEggMoveLearnset[] = {
+    MOVE_ICE_PUNCH,
+    MOVE_HAZE,
+    MOVE_IRON_TAIL,
+    MOVE_CLEAR_SMOG,
+    MOVE_SMOG,
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sFuramireEggMoveLearnset[] = {
     MOVE_LUCKY_CHANT,
     MOVE_FAKE_OUT,
