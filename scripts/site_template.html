@@ -712,6 +712,22 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .charstage .charsil { font-family: var(--display); font-size: 48px; color: var(--muted); }
 .charmain .tslot { min-height: 150px; }
 .tslot .slotbtns { display: flex; gap: 2px; margin-top: auto; }
+.storyslots .storyadd { cursor: pointer; justify-content: center; font: inherit; }
+.storyadd .plus { font-family: var(--display); font-size: 44px; line-height: 1; color: var(--muted); }
+.storyadd:hover .plus { color: var(--pink); }
+.storycard { cursor: pointer; position: relative; }
+.storycard.star { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold); background: var(--soft); }
+.storycard .crown { font-size: 22px; line-height: 1; }
+.storycard .lvl { font-size: 11px; }
+.storypick { margin-top: 8px; border: 2px solid var(--line); background: var(--panel); padding: 6px; }
+.storypickhead { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-bottom: 6px; }
+.storypickhead input { flex: 1 1 200px; }
+.storypicklist { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 4px; max-height: 340px; overflow: auto; }
+.storypickrow { display: grid; grid-template-columns: 48px 1fr; grid-template-rows: auto auto auto; column-gap: 6px; align-items: center; text-align: left; padding: 4px; border: 2px solid var(--line); background: var(--field); color: inherit; font: inherit; cursor: pointer; }
+.storypickrow img, .storypickrow .letter { grid-row: 1 / 4; width: 48px; height: 48px; object-fit: contain; }
+.storypickrow img.px { image-rendering: pixelated; }
+.storypickrow.on { border-color: var(--gold); }
+.storypickrow .types { display: flex; gap: 2px; transform: scale(.8); transform-origin: left; }
 .tslot .slotbtns button { padding: 0 6px; min-height: 0; font-size: 12px; }
 .charpics { display: flex; gap: 8px; flex-wrap: wrap; } .charpics img { max-height: 160px; max-width: 160px; object-fit: contain; border: 2px solid var(--line); }
 .chardetail h4 { margin: 10px 0 4px; }
@@ -5054,19 +5070,56 @@ function renderCharacterPage(c) {
     const story = Object.assign({lines: []}, cl.story || {});
     const saveStory = lines => saveClaim(cl.by, cl.slots, Object.assign({}, story, {lines}));
     const move = (k, d) => { const l = story.lines.slice(); [l[k + d], l[k]] = [l[k], l[k + d]]; saveStory(l); };
-    const slots = h("div", {class: "tslots"}, Array.from({length: 6}, (_, k) => {
+    // The story team as six slot cards, a variant of Showdown's teambuilder (2026-11-24, Arvind: "man kan trykke på hver slot og
+    // legge til ... story laget må ha litt special attention"): tap an empty slot to add a line, a filled one to swap or remove
+    // it; No. 1, the star, wears the crown. Each card shows the line's levels from its first to its last battle.
+    const lineLevels = k => { const lv = []; plan.forEach((b, i) => { const team = storyTeam(c, story, i); if (team[k]) lv.push(team[k].level); }); return lv; };
+    const pickBox = h("div", {class: "storypick", hidden: ""});
+    const openPick = k => {
+      const cur = story.lines[k];
+      const finals = DEX.species.filter(x => !(x.data.evolutions || []).some(e => e && byId.has(e.into)));
+      const search = h("input", {type: "search", placeholder: "Search: its last evolution, a type or an earlier stage", "aria-label": "Search for a line"});
+      const list = h("div", {class: "storypicklist", role: "list"});
+      const choose = id => {
+        const lines = story.lines.slice(), at = lines.indexOf(id);
+        if (k < lines.length) { if (at >= 0) lines[at] = lines[k]; lines[k] = id; }          // a line already in the team swaps places
+        else if (at < 0) lines.push(id);
+        pickBox.hidden = true; saveStory(lines.slice(0, 6));
+      };
+      const fill = () => {
+        const q = search.value.trim().toLowerCase();
+        const rows = finals.filter(x => !q || (storyChain(x.id).map(nameOf).join(" ") + " " + (x.data.types || []).join(" ")).toLowerCase().includes(q)).slice(0, 60);
+        list.replaceChildren(...rows.map(x => { const p = portrait(x), inTeam = story.lines.includes(x.id);
+          return h("button", {type: "button", class: "storypickrow" + (x.id === cur ? " on" : ""), onclick: () => choose(x.id)},
+            p ? h("img", {class: p.pixel ? "px" : null, src: p.src, alt: ""}) : h("span", {class: "letter"}, (x.data.name || "?")[0]),
+            h("b", {}, x.data.name), h("span", {class: "types"}, (x.data.types || []).map(typeChip)),
+            h("span", {class: "sub"}, storyChain(x.id).map(nameOf).join(" → ") + (inTeam && x.id !== cur ? " · in the team (swaps)" : ""))); }),
+          rows.length ? "" : h("div", {class: "sub"}, "Nothing found."));
+      };
+      search.addEventListener("input", fill);
+      fill();
+      pickBox.replaceChildren(h("div", {class: "storypickhead"}, h("b", {}, cur ? "Slot " + (k + 1) + ": swap " + nameOf(cur) : "Slot " + (k + 1) + ": add a line"), search,
+          cur ? h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; saveStory(story.lines.filter(x => x !== cur)); }}, "Remove") : null,
+          h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; }}, "Close")), list);
+      pickBox.hidden = false; search.focus(); pickBox.scrollIntoView({block: "nearest"});
+    };
+    const slots = h("div", {class: "tslots storyslots"}, Array.from({length: 6}, (_, k) => {
       const id = story.lines[k];
-      if (!id) return h("div", {class: "tslot empty"}, k === story.lines.length ? h("span", {class: "nm"}, "+ Add below") : null);
-      const s = byId.get(id), p = s && portrait(s);
-      return h("div", {class: "tslot"},
-        h("span", {class: "badge" + (k === 0 ? " done" : "")}, k === 0 ? "★ star" : "#" + (k + 1)),
+      if (!id) return h("button", {type: "button", class: "tslot empty storyadd", title: "Add a line", onclick: () => openPick(Math.min(k, story.lines.length))},
+        h("span", {class: "plus"}, "+"), h("span", {class: "sub"}, k === 0 ? "your star" : "add a line"));
+      const s = byId.get(id), p = s && portrait(s), lv = lineLevels(k);
+      const card = h("div", {class: "tslot storycard" + (k === 0 ? " star" : ""), role: "button", tabindex: "0", title: "Tap to swap or remove; drag to change the order",
+          onclick: ev => { if (card.dataset.dragged || ev.target.closest(".slotbtns")) return; openPick(k); },
+          onkeydown: ev => { if (ev.key === "Enter") openPick(k); }},
+        k === 0 ? h("span", {class: "crown", "aria-label": "star"}, "👑") : h("span", {class: "badge"}, "#" + (k + 1)),
         p ? h("img", {class: p.pixel ? "px" : null, src: p.src, alt: ""}) : h("span", {class: "letter"}, (nameOf(id) || "?")[0]),
         h("span", {class: "nm"}, nameOf(id)), h("span", {class: "types"}, ((s && s.data.types) || []).map(typeChip)),
         h("span", {class: "sub", style: "font-size:11px;text-align:center"}, storyChain(id).map(nameOf).join(" → ")),
+        h("span", {class: "sub lvl"}, lv.length ? "Lv " + lv[0] + (lv.length > 1 ? " → " + lv[lv.length - 1] : "") + " · " + lv.length + " battle" + (lv.length > 1 ? "s" : "") : "not in a battle yet"),
         h("span", {class: "slotbtns"},
           h("button", {type: "button", title: "Higher", disabled: k === 0 ? "" : null, onclick: () => move(k, -1)}, "◀"),
-          h("button", {type: "button", title: "Remove", onclick: () => saveStory(story.lines.filter(x => x !== id))}, "✕"),
           h("button", {type: "button", title: "Lower", disabled: k === story.lines.length - 1 ? "" : null, onclick: () => move(k, 1)}, "▶")));
+      return card;
     }));
     dragSlots(slots, story.lines.length, (from, to) => saveStory(moveInList(story.lines, from, to)));
     const battles = h("div", {class: "scroll"}, h("table", {class: "balance"}, plan.map((b, i) => {
@@ -5100,8 +5153,8 @@ function renderCharacterPage(c) {
     })));
     main = h("div", {class: "charmain"},
       h("h3", {id: "char-team", style: "margin-top:0"}, npcHere ? (npcHere.name || "The NPC") + "'s story team" : "Your story team"),
-      h("div", {class: "sub"}, "Pick up to 6 evolution lines by their last evolution and rank them (drag them, or use the arrows). No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage and with sensible moves for the level. IVs are set by themselves, exactly as in the original game: low early, high late."),
-      slots, story.lines.length < 6 ? storyLinePicker(story, saveStory) : null,
+      h("div", {class: "sub"}, "Tap a slot to add an evolution line (by its last evolution), tap a line to swap or remove it, and rank them (drag them, or use the arrows). No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage and with sensible moves for the level. IVs are set by themselves, exactly as in the original game: low early, high late."),
+      slots, pickBox,
       h("h3", {}, "Every battle"),
       h("div", {class: "sub"}, "Auto: the website makes each battle's team from your story team (how many Pokemon, levels, stages and moves). To change a battle's team, press Copy to TEAMS: the team opens in TEAMS and is used for that battle, and what you change there is saved here by itself. You can also pick one of your shared teams in the menu. The others only see your teams behind spoiler buttons."),
       battles);
