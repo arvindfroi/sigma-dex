@@ -6853,13 +6853,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2322,
-    "species": "ultragon",
-    "file": "assets/concept-art/ultragon/2322.png",
-    "caption": "[ds-front] sprite #441",
-    "editor": "Arvind"
-  },
-  {
     "id": 2323,
     "species": "ultragon",
     "file": "assets/concept-art/ultragon/2323.png",
@@ -11988,6 +11981,13 @@
     "species": "iglomodo-mindre-utv",
     "file": "assets/concept-art/iglomodo-mindre-utv/5187.png",
     "caption": "[ds-icon] sprite #976",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5191,
+    "species": "ultragon",
+    "file": "assets/concept-art/ultragon/5191.png",
+    "caption": "[ds-front] sprite #977",
     "editor": "Arvind"
   }
 ]
