@@ -5214,17 +5214,21 @@ function storyMoves(sid, level) {
 // A story slot is a line (its last evolution's id) or a line that depends on a story choice (2026-11-24, Arvind: "man kan
 // designere slot basert på ting som valg av starter"): {when: "starter", options: {leafing: id, torchbat: id, waffy: id}} = the
 // line the trainer has when the player picked that starter (a rival who counter-picks). The game build picks per battle record.
-const STORY_WHEN = {starter: {label: "the player's starter", options: [["leafing", "Leafing"], ["torchbat", "Torchbat"], ["waffy", "Waffy"]]}};
-let storyView = "leafing";                                      // which starter the page shows the team for
+// The game build (2026-11-24): the version is picked when each ROM is built; the starter needs extra trainer records per
+// battle, of which there are few spare, so a battle that cannot be split uses `default` (the line it had when it was split).
+const STORY_WHEN = {starter: {label: "the player's starter", options: [["leafing", "Leafing"], ["torchbat", "Torchbat"], ["waffy", "Waffy"]]},
+  version: {label: "the version", options: [["glory", "Glory"], ["grave", "Grave"]]}};
+const whenPhrase = (when, label) => when === "version" ? "in Pokémon " + label : "if the player took " + label;
+const storyView = {starter: "leafing", version: "glory"};       // which starter and version the page shows the team for
 const slotLine = (entry, cond) => !entry ? "" : typeof entry === "string" ? entry
-  : (entry.options || {})[cond] || Object.values(entry.options || {}).find(Boolean) || "";
+  : (entry.options || {})[(cond || storyView)[entry.when]] || entry.default || Object.values(entry.options || {}).find(Boolean) || "";
 const slotIds = entry => !entry ? [] : typeof entry === "string" ? [entry] : Object.values(entry.options || {}).filter(Boolean);
 function storyTeam(c, story, i, cond) {
   const b = (c.teams || [])[i];
   if (!b || !story || !(story.lines || []).length) return [];
   const levels = String(b.original || "").split(",").map(x => Number((x.trim().match(/(\d+)$/) || [])[1])).filter(Boolean).sort((x, y) => y - x);
   const n = Math.min(b.size || levels.length || 1, story.lines.length);
-  return story.lines.slice(0, n).map(e => slotLine(e, cond || storyView)).map((finalId, k) => {
+  return story.lines.slice(0, n).map(e => slotLine(e, cond)).map((finalId, k) => {
     const level = levels[k] || b.lv, sid = stageAt(storyChain(finalId), level), s = byId.get(sid);
     const ab = (s && s.data.abilities) || {};
     return {species: sid, level, iv: Number.isInteger(b.iv) ? b.iv : 31, ability: ab.primary || "", ...storyMoves(sid, level)};
@@ -5422,7 +5426,6 @@ function renderCharacterPage(c) {
     // it; No. 1, the star, wears the crown. Each card shows the line's levels from its first to its last battle.
     const lineLevels = k => { const lv = []; plan.forEach((b, i) => { const team = storyTeam(c, story, i); if (team[k]) lv.push(team[k].level); }); return lv; };
     const pickBox = h("div", {class: "storypick", hidden: ""});
-    const anyWhen = story.lines.some(e => e && typeof e === "object");
     const openPick = (k, opt) => {
       const entry = story.lines[k], cur = opt ? (entry && entry.options || {})[opt] : typeof entry === "string" ? entry : "";
       const finals = DEX.species.filter(x => !(x.data.evolutions || []).some(e => e && byId.has(e.into)));
@@ -5450,21 +5453,21 @@ function renderCharacterPage(c) {
       fill();
       const optLabel = opt ? (STORY_WHEN[entry.when].options.find(o => o[0] === opt) || [opt, opt])[1] : "";
       pickBox.replaceChildren(h("div", {class: "storypickhead"},
-          h("b", {}, "Slot " + (k + 1) + (opt ? " if the player took " + optLabel : "") + ": " + (cur ? "swap " + nameOf(cur) : "add a line")), search,
+          h("b", {}, "Slot " + (k + 1) + (opt ? " " + whenPhrase(entry.when, optLabel) : "") + ": " + (cur ? "swap " + nameOf(cur) : "add a line")), search,
           cur && !opt ? h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; saveStory(story.lines.filter((_, i) => i !== k)); }}, "Remove") : null,
           h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; }}, "Close")), list);
       pickBox.hidden = false; search.focus(); pickBox.scrollIntoView({block: "nearest"});
     };
     // a slot that depends on the player's starter, and back to one line for all
-    const toWhen = k => { const id = story.lines[k], lines = story.lines.slice();
-      lines[k] = {when: "starter", options: Object.fromEntries(STORY_WHEN.starter.options.map(([o]) => [o, id]))}; saveStory(lines); };
-    const toOne = k => { const lines = story.lines.slice(); lines[k] = slotLine(lines[k], storyView); saveStory(lines); };
+    const toWhen = (k, when) => { const id = story.lines[k], lines = story.lines.slice();
+      lines[k] = {when, options: Object.fromEntries(STORY_WHEN[when].options.map(([o]) => [o, id])), default: id}; saveStory(lines); };
+    const toOne = k => { const lines = story.lines.slice(); lines[k] = slotLine(lines[k]); saveStory(lines); };
     const mini = id => { const s2 = byId.get(id), p = s2 && portrait(s2); return p ? h("img", {class: (p.pixel ? "px " : "") + "mini", src: p.src, alt: ""}) : h("span", {class: "letter mini"}, (nameOf(id) || "?")[0]); };
     const slots = h("div", {class: "tslots storyslots"}, Array.from({length: 6}, (_, k) => {
       const entry = story.lines[k];
       if (!entry) return h("button", {type: "button", class: "tslot empty storyadd", title: "Add a line", onclick: () => openPick(Math.min(k, story.lines.length))},
         h("span", {class: "plus"}, "+"), h("span", {class: "sub"}, k === 0 ? "your star" : "add a line"));
-      const id = slotLine(entry, storyView), s = byId.get(id), p = s && portrait(s), lv = lineLevels(k), when = typeof entry === "object" && STORY_WHEN[entry.when];
+      const id = slotLine(entry), s = byId.get(id), p = s && portrait(s), lv = lineLevels(k), when = typeof entry === "object" && STORY_WHEN[entry.when];
       const card = h("div", {class: "tslot storycard" + (k === 0 ? " star" : "") + (when ? " when" : ""), role: "button", tabindex: "0", title: when ? "Drag to change the order" : "Tap to swap or remove; drag to change the order",
           onclick: ev => { if (card.dataset.dragged || ev.target.closest(".slotbtns, .whenrows, .whenbtn")) return; if (!when) openPick(k); },
           onkeydown: ev => { if (ev.key === "Enter" && !when) openPick(k); }},
@@ -5472,19 +5475,23 @@ function renderCharacterPage(c) {
         p ? h("img", {class: p.pixel ? "px" : null, src: p.src, alt: ""}) : h("span", {class: "letter"}, (nameOf(id) || "?")[0]),
         h("span", {class: "nm"}, nameOf(id)), h("span", {class: "types"}, ((s && s.data.types) || []).map(typeChip)),
         when ? h("span", {class: "whenrows"}, h("span", {class: "sub"}, "depends on " + when.label + ":"),
-            when.options.map(([o, label]) => h("button", {type: "button", class: "whenrow" + (o === storyView ? " on" : ""), title: "The line if the player took " + label + " (tap to change)", onclick: () => openPick(k, o)},
+            when.options.map(([o, label]) => h("button", {type: "button", class: "whenrow" + (o === storyView[entry.when] ? " on" : ""), title: "The line " + whenPhrase(entry.when, label) + " (tap to change)", onclick: () => openPick(k, o)},
               h("span", {class: "sub"}, label), mini(entry.options[o]), h("span", {}, nameOf(entry.options[o]) || "choose"))))
           : h("span", {class: "sub", style: "font-size:11px;text-align:center"}, storyChain(id).map(nameOf).join(" → ")),
         h("span", {class: "sub lvl"}, lv.length ? "Lv " + lv[0] + (lv.length > 1 ? " → " + lv[lv.length - 1] : "") + " · " + lv.length + " battle" + (lv.length > 1 ? "s" : "") : "not in a battle yet"),
-        h("button", {type: "button", class: "link whenbtn", onclick: () => when ? toOne(k) : toWhen(k)}, when ? "one line for all" : "depends on the starter…"),
+        when ? h("button", {type: "button", class: "link whenbtn", onclick: () => toOne(k)}, "one line for all")
+          : h("span", {class: "whenbtn sub"}, "depends on: ", h("button", {type: "button", class: "link", onclick: () => toWhen(k, "starter")}, "starter"), " · ",
+              h("button", {type: "button", class: "link", onclick: () => toWhen(k, "version")}, "version")),
         h("span", {class: "slotbtns"},
           h("button", {type: "button", title: "Higher", disabled: k === 0 ? "" : null, onclick: () => move(k, -1)}, "◀"),
           h("button", {type: "button", title: "Lower", disabled: k === story.lines.length - 1 ? "" : null, onclick: () => move(k, 1)}, "▶")));
       return card;
     }));
-    const viewBar = anyWhen ? h("div", {class: "storyview"}, h("span", {class: "sub"}, "Show the team and the battles for the player's starter:"),
-      STORY_WHEN.starter.options.map(([o, label]) => h("button", {type: "button", class: "small" + (o === storyView ? " primary" : ""), "aria-pressed": String(o === storyView),
-        onclick: () => { storyView = o; openCharacter(c, "team"); }}, label))) : null;
+    const whens = [...new Set(story.lines.filter(e => e && typeof e === "object").map(e => e.when))].filter(w => STORY_WHEN[w]);
+    const viewBar = whens.length ? h("div", {class: "storyview"}, h("span", {class: "sub"}, "Show the team and the battles for"),
+      whens.map(w => h("span", {class: "storyview"}, h("span", {class: "sub"}, STORY_WHEN[w].label + ":"),
+        STORY_WHEN[w].options.map(([o, label]) => h("button", {type: "button", class: "small" + (o === storyView[w] ? " primary" : ""), "aria-pressed": String(o === storyView[w]),
+          onclick: () => { storyView[w] = o; openCharacter(c, "team"); }}, label))))) : null;
     dragSlots(slots, story.lines.length, (from, to) => saveStory(moveInList(story.lines, from, to)));
     const battles = h("div", {class: "scroll"}, h("table", {class: "balance"}, plan.map((b, i) => {
       const tid = (cl.slots || {})[i], t = (lib.teams || []).find(x => x.id === tid), gen = storyTeam(c, story, i);
