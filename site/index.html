@@ -783,6 +783,8 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .edgewarn { display: inline-block; font-size: 12px; color: #fff; background: var(--warn, #c03030); padding: 1px 6px; margin: 2px 0; }
 .edgewarn[hidden] { display: none; }
 .tfields { margin-top: 14px; }
+.tphotos { gap: 8px; }
+.tphoto { display: flex; flex-direction: column; align-items: center; gap: 4px; }
 .tfields h3 { margin: 0 0 4px; }
 .tmore { margin-top: 8px; }
 .tmore summary { cursor: pointer; color: var(--muted); }
@@ -5734,9 +5736,14 @@ async function gridToNpc(file) {
 }
 function tstudioState(slot) {
   if (!tstudios.has(slot)) {
-    let photo = null;
+    let photo = null, photos = [];
     try { photo = JSON.parse(remember.get("trainer-photo-" + slot) || "null"); } catch (e) { photo = null; }
-    tstudios.set(slot, {photo, ref: null, base: remember.get("trainer-base-" + slot) || "", strength: 0.75, count: 2, words: remember.get("trainer-words-" + slot) || "",
+    // every picture uploaded from this device for this trainer (2026-11-24, Arvind: "da gjør vi det som at vi lagrer bilder her og
+    // slik som vi gjør med pokemon"): a new upload no longer deletes the old one; the thumbnails and delete tokens stay on
+    // this device only (the pictures stay private: the site never shows them, only the drawing PC fetches them)
+    try { photos = JSON.parse(remember.get("trainer-photos-" + slot) || "[]") || []; } catch (e) { photos = []; }
+    if (photo && !photos.some(p => p.id === photo.id)) photos.unshift(photo);
+    tstudios.set(slot, {photo, photos, ref: null, base: remember.get("trainer-base-" + slot) || "", strength: 0.75, count: 2, words: remember.get("trainer-words-" + slot) || "",
       fields: (() => { try { return JSON.parse(remember.get("trainer-fields-" + slot) || "{}") || {}; } catch (e) { return {}; } })(),
       more: (remember.get("trainer-more-" + slot) || "").split(",").filter(Boolean),
       filter: "", game: "", step: null, tries: [], vsTries: [], vsCount: 2, mapTries: [], mapCount: 3, mapExtra: "",
@@ -5887,6 +5894,7 @@ function trainerStudio(slot, opts) {
         h("b", {}, stp.n), " " + stp.label, busy ? h("span", {class: "spinner", "aria-label": "drawing"}) : done ? h("span", {class: "tick"}, "✓") : null);
     }));
   }
+  function savePhotos() { remember.set("trainer-photo-" + slot, st.photo ? JSON.stringify(st.photo) : ""); remember.set("trainer-photos-" + slot, JSON.stringify(st.photos.slice(0, 20))); }
   function go(id) { if (st.editing) return; st.step = id; st.showAll = false; draw(); }
 
   // ----- 1 PICTURE
@@ -5905,27 +5913,32 @@ function trainerStudio(slot, opts) {
       try {
         const ready = await prepareImage(file), thumb = await thumbOf(ready);
         const row = await postForm("trainer-photo", {slot, editor: me(), file: ready});
-        if (st.photo) postForm("trainer-photo", {action: "remove", id: st.photo.id, token: st.photo.token}).catch(() => {});
         st.photo = {id: row.id, token: row.token, thumb}; st.ref = null;
-        remember.set("trainer-photo-" + slot, JSON.stringify(st.photo));
+        st.photos = [st.photo].concat(st.photos.filter(p => p.id !== row.id));
+        savePhotos();
         if (!st.base) st.step = "base";
         draw();
       } catch (err) { fail(err); }
     }
     const pics = opts.pics || [];
+    const usePhoto = p => { st.photo = p; st.ref = null; savePhotos(); draw(); };
+    const dropPhoto = async p => {
+      try { await postForm("trainer-photo", {action: "remove", id: p.id, token: p.token}); }
+      catch (err) { if (!/gone|not found|404/i.test(err.message)) { fail(err); return; } }
+      st.photos = st.photos.filter(x => x.id !== p.id);
+      if (st.photo && st.photo.id === p.id) st.photo = st.photos[0] || null;
+      savePhotos(); st.busyMsg = "DELETED\nThat picture is gone from the server."; draw(); st.busyMsg = "";
+    };
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, npc ? "A picture or drawing of your own character. Only characters you made: no characters from other games, films or shows."
         : "A photo or drawing of yourself. Only yourself: never upload a picture of somebody else."),
       h("div", {class: "private"}, "🔒 Private: the picture is never shown on this site. Only the drawing PC sees it, to make the sprite. You can delete it any time."),
-      h("div", {class: "tpic", style: "margin-top:8px"},
-        st.photo ? h("button", {type: "button", class: "tchoice" + (st.ref === null ? " on" : ""), "aria-pressed": String(st.ref === null), title: "Use this picture", onclick: () => { st.ref = null; draw(); }},
-          st.photo.thumb ? h("img", {src: st.photo.thumb, alt: "your picture (only on this device)"}) : h("span", {class: "sub"}, "picture uploaded")) : null,
-        h("div", {class: "sub"}, st.photo ? "Uploaded. A new picture replaces it." : "Upload one:", h("br"), upload, drop,
-          st.photo ? h("div", {style: "margin-top:6px"}, h("button", {type: "button", class: "small", onclick: ev => sure(ev.currentTarget, "Really delete?", async () => {
-            try { await postForm("trainer-photo", {action: "remove", id: st.photo.id, token: st.photo.token}); st.photo = null; remember.set("trainer-photo-" + slot, "");
-              st.busyMsg = "DELETED\nYour picture is gone from the server."; draw(); st.busyMsg = ""; }
-            catch (err) { fail(err); }
-          })}, "DELETE MY PICTURE")) : null)),
+      st.photos.length ? h("div", {class: "hint"}, "Your pictures (kept on the server, private; tap one to use it):") : null,
+      st.photos.length ? h("div", {class: "tpic tphotos"}, st.photos.map(p => h("div", {class: "tphoto"},
+        h("button", {type: "button", class: "tchoice" + (st.photo && st.photo.id === p.id && st.ref === null ? " on" : ""), "aria-pressed": String(!!(st.photo && st.photo.id === p.id && st.ref === null)),
+          title: "Use this picture", onclick: () => usePhoto(p)}, p.thumb ? h("img", {src: p.thumb, alt: "your picture (only on this device)"}) : h("span", {class: "sub"}, "picture #" + p.id)),
+        h("button", {type: "button", class: "small", onclick: ev => sure(ev.currentTarget, "Really delete?", () => dropPhoto(p))}, "Delete")))) : null,
+      h("div", {class: "sub", style: "margin-top:8px"}, st.photos.length ? "Add another picture (the old ones stay until you delete them):" : "Upload one:", h("br"), upload, drop),
       pics.length ? h("div", {class: "hint"}, "Or use a picture from PICTURE on the trainer's page (those are public):") : null,
       pics.length ? h("div", {class: "tpic"}, pics.map(p => h("button", {type: "button", class: "tchoice" + (st.ref === p.id ? " on" : ""), "aria-pressed": String(st.ref === p.id),
         onclick: () => { st.ref = st.ref === p.id ? null : p.id; draw(); }}, h("img", {src: p.src, alt: "trainer picture"})))) : null,
@@ -6010,7 +6023,8 @@ function trainerStudio(slot, opts) {
           p_photo: st.ref ? null : st.photo.id, p_ref: st.ref || null, p_editor: me()});
       await load();
     } catch (err) {
-      if (/gone|upload it again/i.test(err.message)) { st.photo = null; remember.set("trainer-photo-" + slot, ""); err = new Error("The picture is gone from the server. Upload it again in 1 PICTURE."); }
+      if (/gone|upload it again/i.test(err.message)) { const gone = st.photo; st.photos = st.photos.filter(p => !gone || p.id !== gone.id); st.photo = null; savePhotos();
+        err = new Error("That picture is gone from the server. Pick another one, or upload one, in 1 PICTURE."); }
       fail(err);
     }
     button.disabled = false;
