@@ -11849,5 +11849,103 @@
     "file": "assets/concept-art/thooji/5153.png",
     "caption": "[ds-back2] sprite #970",
     "editor": "Arvind"
+  },
+  {
+    "id": 5154,
+    "species": "gb-vance",
+    "file": "assets/concept-art/gb-vance/5154.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 5155,
+    "species": "de-es-lite",
+    "file": "assets/concept-art/de-es-lite/5155.png",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 5156,
+    "species": "gb-vance",
+    "file": "assets/concept-art/gb-vance/5156.png",
+    "caption": "[ds-front] sprite #972",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5157,
+    "species": "gb-vance",
+    "file": "assets/concept-art/gb-vance/5157.png",
+    "caption": "[ds-back] sprite #972",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5158,
+    "species": "gb-vance",
+    "file": "assets/concept-art/gb-vance/5158.png",
+    "caption": "[ds-icon] sprite #972",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5159,
+    "species": "gb-vance",
+    "file": "assets/concept-art/gb-vance/5159.png",
+    "caption": "[ds-follower] sprite #972",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5160,
+    "species": "gb-vance",
+    "file": "assets/concept-art/gb-vance/5160.png",
+    "caption": "[ds-front2] sprite #972",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5166,
+    "species": "gb-vance",
+    "file": "assets/concept-art/gb-vance/5166.png",
+    "caption": "[ds-back2] sprite #972",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5167,
+    "species": "de-es-lite",
+    "file": "assets/concept-art/de-es-lite/5167.png",
+    "caption": "[ds-front] sprite #974",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5168,
+    "species": "de-es-lite",
+    "file": "assets/concept-art/de-es-lite/5168.png",
+    "caption": "[ds-back] sprite #974",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5169,
+    "species": "de-es-lite",
+    "file": "assets/concept-art/de-es-lite/5169.png",
+    "caption": "[ds-icon] sprite #974",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5170,
+    "species": "de-es-lite",
+    "file": "assets/concept-art/de-es-lite/5170.png",
+    "caption": "[ds-follower] sprite #974",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5171,
+    "species": "de-es-lite",
+    "file": "assets/concept-art/de-es-lite/5171.png",
+    "caption": "[ds-front2] sprite #974",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5172,
+    "species": "de-es-lite",
+    "file": "assets/concept-art/de-es-lite/5172.png",
+    "caption": "[ds-back2] sprite #974",
+    "editor": "Arvind"
   }
 ]
