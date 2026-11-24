@@ -195,6 +195,8 @@ def render_species(data):
                     lines.append(lead + " " + flow_map({k: value[k] for k in sub}, sub))
                 elif key == "types":
                     lines.append(lead + " [" + ", ".join(scalar(v) for v in listing(value)) + "]")
+                elif isinstance(value, (dict, list)):   # e.g. a merged species' ev_yield, learnset or credits (2026-11-25)
+                    lines.append(lead + " " + yaml.safe_dump(value, default_flow_style=True, sort_keys=False, allow_unicode=True, width=10 ** 6).strip())
                 else:
                     lines.append(lead + " " + scalar(value))
     else:
