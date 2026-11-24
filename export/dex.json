@@ -30936,8 +30936,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": 1.9,
-      "weight_kg": 68,
+      "height_m": 1.6,
+      "weight_kg": 58,
       "body_color": "brown",
       "abilities": {
         "primary": "Illusion",
@@ -33219,21 +33219,21 @@
       ],
       "category": null,
       "description": null,
-      "height_m": 1.4,
-      "weight_kg": 62.1,
+      "height_m": 1.7,
+      "weight_kg": 75,
       "body_color": "white",
       "abilities": {
-        "primary": "Surge Surfer",
+        "primary": "Unseen Fist",
         "secondary": null,
-        "hidden": "Unseen Fist"
+        "hidden": "Surge Surfer"
       },
       "base_stats": {
         "hp": 80,
-        "attack": 115,
-        "defense": 60,
-        "sp_attack": 110,
-        "sp_defense": 60,
-        "speed": 100
+        "attack": 125,
+        "defense": 80,
+        "sp_attack": 115,
+        "sp_defense": 80,
+        "speed": 120
       },
       "ev_yield": {
         "attack": 2,
@@ -33294,42 +33294,46 @@
           },
           {
             "level": 19,
-            "move": "Bite"
+            "move": "Mach Punch"
           },
           {
-            "level": 20,
-            "move": "Thunder Wave"
-          },
-          {
-            "level": 21,
+            "level": 22,
             "move": "Feint"
           },
           {
-            "level": 23,
+            "level": 26,
             "move": "Spark"
           },
           {
-            "level": 24,
+            "level": 30,
             "move": "Brick Break"
+          },
+          {
+            "level": 32,
+            "move": "Thunder Wave"
+          },
+          {
+            "level": 36,
+            "move": "Vacuum Wave"
           },
           {
             "level": 40,
             "move": "Discharge"
           },
           {
-            "level": 41,
+            "level": 42,
             "move": "Thunderbolt"
           },
           {
-            "level": 42,
-            "move": "Hammer Arm"
+            "level": 44,
+            "move": "Aura Sphere"
           },
           {
-            "level": 45,
+            "level": 46,
             "move": "Agility"
           },
           {
-            "level": 47,
+            "level": 48,
             "move": "Wild Charge"
           },
           {
@@ -33337,16 +33341,21 @@
             "move": "Close Combat"
           },
           {
-            "level": 56,
+            "level": 54,
             "move": "Superpower"
           },
           {
             "level": 58,
             "move": "Thunder"
+          },
+          {
+            "level": 62,
+            "move": "Plasma Fists"
           }
         ],
         "tm_hm": [
           "Focus Punch",
+          "Calm Mind",
           "Toxic",
           "Bulk Up",
           "Hidden Power",
@@ -33358,6 +33367,7 @@
           "Frustration",
           "Thunderbolt",
           "Thunder",
+          "Earthquake",
           "Return",
           "Dig",
           "Brick Break",
@@ -33374,6 +33384,7 @@
           "Charge Beam",
           "Endure",
           "Drain Punch",
+          "Payback",
           "Giga Impact",
           "Stone Edge",
           "Thunder Wave",
@@ -33381,16 +33392,27 @@
           "Rock Slide",
           "Sleep Talk",
           "Poison Jab",
+          "Grass Knot",
           "Swagger",
+          "Pluck",
+          "U-turn",
           "Substitute",
+          "Flame Charge",
           "Low Sweep",
           "Bulldoze",
           "Electroweb",
+          "Play Rough",
           "Eerie Impulse",
           "Electric Terrain",
+          "Nuzzle",
+          "Lunge",
+          "Smart Strike",
+          "Body Press",
           "Coaching",
+          "Triple Axel",
           "Strength",
-          "Rock Smash"
+          "Rock Smash",
+          "Rock Climb"
         ],
         "tutor": [
           "Aura Sphere",
@@ -33404,14 +33426,10 @@
           "Thunder Punch",
           "Volt Switch",
           "Mach Punch",
-          "Nasty Plot"
-        ],
-        "egg": [
-          "Quick Guard",
-          "Thunder Punch",
-          "Power-Up Punch",
+          "Nasty Plot",
           "Fake Out"
-        ]
+        ],
+        "egg": []
       },
       "encounters": [],
       "design": {
@@ -33435,9 +33453,7 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles",
-          "height",
-          "weight"
+          "egg cycles"
         ],
         "claude_sure": {
           "body shape": 80,
@@ -33454,9 +33470,7 @@
           "base friendship": 90,
           "gender": 61,
           "egg groups": 56,
-          "egg cycles": 65,
-          "height": 45,
-          "weight": 35
+          "egg cycles": 65
         },
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -34223,8 +34237,8 @@
       ],
       "category": null,
       "description": null,
-      "height_m": 1.5,
-      "weight_kg": 55,
+      "height_m": 1.7,
+      "weight_kg": 85,
       "body_color": "red",
       "abilities": {
         "primary": "Armor Tail",
@@ -34430,9 +34444,7 @@
           "base friendship",
           "gender",
           "egg groups",
-          "egg cycles",
-          "height",
-          "weight"
+          "egg cycles"
         ],
         "claude_sure": {
           "body shape": 80,
@@ -34449,9 +34461,7 @@
           "base friendship": 55,
           "gender": 55,
           "egg groups": 55,
-          "egg cycles": 55,
-          "height": 55,
-          "weight": 55
+          "egg cycles": 55
         },
         "body_shape": "an upright body on two legs with a tail",
         "movement": "It walks upright on two legs.",
@@ -43352,7 +43362,7 @@
     },
     {
       "dex": 188,
-      "name": "Pegalaxy",
+      "name": "Gingalaxy",
       "credits": {
         "designer": "Arvind",
         "artist": "Arvind"
@@ -43636,9 +43646,115 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Disable"
+          },
+          {
+            "level": 1,
+            "move": "Focus Energy"
+          },
+          {
+            "level": 1,
+            "move": "Tri Attack"
+          },
+          {
+            "level": 7,
+            "move": "Roar"
+          },
+          {
+            "level": 11,
+            "move": "Quick Attack"
+          },
+          {
+            "level": 14,
+            "move": "Snarl"
+          },
+          {
+            "level": 20,
+            "move": "Hypnosis"
+          },
+          {
+            "level": 29,
+            "move": "Dark Pulse"
+          },
+          {
+            "level": 38,
+            "move": "Night Shade"
+          },
+          {
+            "level": 42,
+            "move": "Hyper Voice"
+          },
+          {
+            "level": 50,
+            "move": "Ruination"
+          },
+          {
+            "level": 57,
+            "move": "Haze"
+          },
+          {
+            "level": 75,
+            "move": "Nasty Plot"
+          },
+          {
+            "level": 84,
+            "move": "Dragon Pulse"
+          },
+          {
+            "level": 91,
+            "move": "Hyper Beam"
+          }
+        ],
+        "tm_hm": [
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Hyper Beam",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Return",
+          "Psychic",
+          "Shadow Ball",
+          "Brick Break",
+          "Double Team",
+          "Sludge Bomb",
+          "Rock Tomb",
+          "Aerial Ace",
+          "Torment",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Thief",
+          "Focus Blast",
+          "Fling",
+          "Charge Beam",
+          "Endure",
+          "Embargo",
+          "Payback",
+          "Giga Impact",
+          "Thunder Wave",
+          "Swords Dance",
+          "Psych Up",
+          "Dark Pulse",
+          "Sleep Talk",
+          "Natural Gift",
+          "Swagger",
+          "U-turn",
+          "Substitute",
+          "Psyshock",
+          "Foul Play"
+        ],
+        "tutor": [
+          "Curse",
+          "Icy Wind",
+          "Nasty Plot",
+          "Snarl"
+        ],
         "egg": []
       },
       "encounters": [],

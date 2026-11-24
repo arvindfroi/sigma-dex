@@ -531,14 +531,6 @@ static const u16 sAquatEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sZyzzfuEggMoveLearnset[] = {
-    MOVE_QUICK_GUARD,
-    MOVE_THUNDER_PUNCH,
-    MOVE_POWER_UP_PUNCH,
-    MOVE_FAKE_OUT,
-    MOVE_UNAVAILABLE,
-};
-
 static const u16 sGrinchoEggMoveLearnset[] = {
     MOVE_FAKE_OUT,
     MOVE_DISABLE,

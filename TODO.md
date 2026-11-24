@@ -26,8 +26,8 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Breeding | gender | 177 / 212 |
 | Breeding | egg groups | 177 / 212 |
 | Breeding | egg cycles | 177 / 212 |
-| Moves | level-up moves | 181 / 212 |
-| Moves | TM/HM moves | 180 / 212 |
+| Moves | level-up moves | 182 / 212 |
+| Moves | TM/HM moves | 181 / 212 |
 | Location | encounters | 2 / 212 |
 | Design | concept | 44 / 212 |
 | Art | concept art | 207 / 212 |
@@ -1388,7 +1388,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
-### #188 [Pegalaxy](data/species/pegalaxy.yaml) - 14%
+### #188 [Gingalaxy](data/species/pegalaxy.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1418,12 +1418,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #233 [Tenebravis](data/species/tenebravis.yaml) - 21%
+### #233 [Tenebravis](data/species/tenebravis.yaml) - 28%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry

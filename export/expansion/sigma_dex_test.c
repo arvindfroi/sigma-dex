@@ -2753,14 +2753,14 @@ TEST("Sigma dex: Zyzzfu has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ZYZZFU];
     EXPECT_EQ(info->baseHP, 80);
-    EXPECT_EQ(info->baseAttack, 115);
-    EXPECT_EQ(info->baseDefense, 60);
-    EXPECT_EQ(info->baseSpeed, 100);
-    EXPECT_EQ(info->baseSpAttack, 110);
-    EXPECT_EQ(info->baseSpDefense, 60);
+    EXPECT_EQ(info->baseAttack, 125);
+    EXPECT_EQ(info->baseDefense, 80);
+    EXPECT_EQ(info->baseSpeed, 120);
+    EXPECT_EQ(info->baseSpAttack, 115);
+    EXPECT_EQ(info->baseSpDefense, 80);
     EXPECT_EQ(info->types[0], TYPE_ELECTRIC);
     EXPECT_EQ(info->types[1], TYPE_FIGHTING);
-    EXPECT_EQ(info->abilities[0], ABILITY_SURGE_SURFER);
+    EXPECT_EQ(info->abilities[0], ABILITY_UNSEEN_FIST);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);
     EXPECT_EQ(GetSpeciesName(SPECIES_ZYZZFU)[0], CHAR_Z);
 }
@@ -3558,6 +3558,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Lansseax can use its first move in battle")
         TURN { MOVE(player, MOVE_GROWTH); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWTH, player);
+    }
+}
+
+TEST("Sigma dex: Tenebravis has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_TENEBRAVIS];
+    EXPECT_EQ(info->baseHP, 85);
+    EXPECT_EQ(info->baseAttack, 90);
+    EXPECT_EQ(info->baseDefense, 85);
+    EXPECT_EQ(info->baseSpeed, 120);
+    EXPECT_EQ(info->baseSpAttack, 135);
+    EXPECT_EQ(info->baseSpDefense, 85);
+    EXPECT_EQ(info->types[0], TYPE_DARK);
+    EXPECT_EQ(info->types[1], TYPE_DARK);
+    EXPECT_EQ(info->abilities[0], ABILITY_GRIM_NEIGH);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_DISABLE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_TENEBRAVIS)[0], CHAR_T);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Tenebravis can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_TENEBRAVIS) { Moves(MOVE_DISABLE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_DISABLE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DISABLE, player);
     }
 }
 

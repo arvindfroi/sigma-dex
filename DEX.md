@@ -137,7 +137,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 126 | [Dreadfang](data/species/dreadfang.yaml) | Bug / Flying | Mold Breaker, Battle Armor, Strong Jaw (H) | 550 |  | 72% |
 | 127 | [Aquat](data/species/surfer.yaml) | Water | Swift Swim, Water Absorb, Adaptability (H) | 330 | Aquway (Lv 25) | 72% |
 | 128 | [Aquway](data/species/subwaysurfer.yaml) | Water / Ground | Swift Swim, Storm Drain, Adaptability (H) | 495 |  | 72% |
-| 129 | [Zyzzfu](data/species/zyzzfu.yaml) | Electric / Fighting | Surge Surfer, Unseen Fist (H) | 525 |  | 72% |
+| 129 | [Zyzzfu](data/species/zyzzfu.yaml) | Electric / Fighting | Unseen Fist, Surge Surfer (H) | 600 |  | 72% |
 | 130 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve, Prankster, Shadow Tag (H) | 415 |  | 72% |
 | 131 | [Sigmanian Charcadet](data/species/glac-pee-mindre-evo.yaml) | Ice | Weak Armor, Ice Body (H) | 255 | Glacépée (Lv 30) | 31% |
 | 132 | [Glacépée](data/species/glac-p-e.yaml) | Ice / Fighting | Long Reach, Weak Armor, Sniper (H) | 525 |  | 72% |
@@ -196,7 +196,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 185 | [Nebur](data/species/nebur.yaml) | Ice / Electric |  |  |  | 14% |
 | 186 | [Rhamp](data/species/rhamp.yaml) | Psychic / Rock |  |  |  | 10% |
 | 187 | [Ledrake](data/species/ledrake.yaml) | Dragon |  |  |  | 21% |
-| 188 | [Pegalaxy](data/species/pegalaxy.yaml) | Flying |  |  |  | 14% |
+| 188 | [Gingalaxy](data/species/pegalaxy.yaml) | Flying |  |  |  | 14% |
 | 189 | [gb vance](data/species/gb-vance.yaml) | Electric |  |  |  | 10% |
 | 190 | [de es lite](data/species/de-es-lite.yaml) | Electric |  |  |  | 10% |
 | 191 | *open slot* | | | | | |
@@ -241,7 +241,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 230 | *open slot* | | | | | |
 | 231 | *open slot* | | | | | |
 | 232 | *open slot* | | | | | |
-| 233 | [Tenebravis](data/species/tenebravis.yaml) | Dark | Grim Neigh | 600 |  | 21% |
+| 233 | [Tenebravis](data/species/tenebravis.yaml) | Dark | Grim Neigh | 600 |  | 28% |
 | 234 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 300 | Greation (Lv 30) | 72% |
 | 235 | [Greation](data/species/greation.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 420 | Ultragon (Lv 55) | 72% |
 | 236 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 600 |  | 72% |

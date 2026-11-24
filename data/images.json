@@ -5614,13 +5614,6 @@
     "editor": "Emil"
   },
   {
-    "id": 1943,
-    "species": "zyzzfu",
-    "file": "assets/concept-art/zyzzfu/1943.png",
-    "caption": "[ds-front] sprite #348",
-    "editor": "Ivar"
-  },
-  {
     "id": 1944,
     "species": "zyzzfu",
     "file": "assets/concept-art/zyzzfu/1944.png",
@@ -10031,13 +10024,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 3971,
-    "species": "zyzzfu",
-    "file": "assets/concept-art/zyzzfu/3971.png",
-    "caption": "[ds-front2] sprite #762",
-    "editor": "Arvind"
-  },
-  {
     "id": 3977,
     "species": "pipwi-utv",
     "file": "assets/concept-art/pipwi-utv/3977.png",
@@ -11438,13 +11424,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 5077,
-    "species": "viltector",
-    "file": "assets/concept-art/viltector/5077.png",
-    "caption": "[ds-front] sprite #958",
-    "editor": "Arvind"
-  },
-  {
     "id": 5078,
     "species": "viltector",
     "file": "assets/concept-art/viltector/5078.png",
@@ -11989,5 +11968,47 @@
     "file": "assets/concept-art/ultragon/5191.png",
     "caption": "[ds-front] sprite #977",
     "editor": "Arvind"
+  },
+  {
+    "id": 5197,
+    "species": "viltector",
+    "file": "assets/concept-art/viltector/5197.png",
+    "caption": "[ds-front] sprite #978",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5203,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/5203.png",
+    "caption": null,
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 5204,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/5204.png",
+    "caption": null,
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 5205,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/5205.png",
+    "caption": null,
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 5206,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/5206.png",
+    "caption": "[ds-front] sprite #984",
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 5210,
+    "species": "zyzzfu",
+    "file": "assets/concept-art/zyzzfu/5210.png",
+    "caption": "[ds-front2] sprite #984",
+    "editor": "Emil Venge-Kvamme"
   }
 ]
