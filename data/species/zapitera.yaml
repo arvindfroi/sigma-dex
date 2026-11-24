@@ -83,9 +83,9 @@ learnset:
     - {level: 39, move: Slash}
     - {level: 40, move: Discharge}
     - {level: 45, move: Agility}
-    - {level: 50, move: Thunder}
+    - {level: 48, move: Thunderbolt}
     - {level: 52, move: Light Screen}
-    - {level: 57, move: Thunderbolt}
+    - {level: 57, move: Thunder}
     - {level: 60, move: Brave Bird}
     - {level: 62, move: Steel Beam}
     - {level: 67, move: Zap Cannon}
@@ -97,7 +97,7 @@ learnset:
           Thunder Wave, Gyro Ball, Sleep Talk, Natural Gift, Swagger, Substitute,
           Flash Cannon, Heavy Slam, Electroweb, Eerie Impulse, Electric Terrain, Fly]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Iron Head, Volt Switch, Hurricane]
+  tutor: [Body Slam, Iron Head, Volt Switch, Hurricane, Tailwind]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

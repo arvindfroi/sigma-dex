@@ -16,9 +16,9 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Dex page | height | 181 / 210 |
 | Dex page | weight | 181 / 210 |
 | Dex page | body color | 179 / 210 |
-| Stats | base stats | 185 / 210 |
-| Stats | ability | 189 / 210 |
-| Stats | EV yield | 182 / 210 |
+| Stats | base stats | 191 / 210 |
+| Stats | ability | 195 / 210 |
+| Stats | EV yield | 189 / 210 |
 | Stats | catch rate | 177 / 210 |
 | Stats | base exp | 177 / 210 |
 | Stats | growth rate | 177 / 210 |
@@ -43,9 +43,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 185 / 210 |
-| DS back sprite 80x80 | 185 / 210 |
-| DS icon 32x32 | 182 / 210 |
+| DS front sprite 80x80 | 186 / 210 |
+| DS back sprite 80x80 | 186 / 210 |
+| DS icon 32x32 | 183 / 210 |
 
 ## Open dex slots (44)
 
@@ -1204,10 +1204,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #170 [Racedent](data/species/racedent.yaml) - 10%
+### #170 [Racedent](data/species/racedent.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -1224,54 +1224,54 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #172 [S.Rotom](data/species/s-rotom.yaml) - 7%
+### #172 [S.Rotom](data/species/s-rotom.yaml) - 17%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #173 [Rot.poison](data/species/rotom-vape.yaml) - 10%
+### #173 [Rot.poison](data/species/rotom-vape.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #174 [Rot.Fight](data/species/rot-fight.yaml) - 14%
+### #174 [Rot.Fight](data/species/rot-fight.yaml) - 21%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #175 [Rot.Fairy](data/species/rot-fairy.yaml) - 7%
+### #175 [Rot.Fairy](data/species/rot-fairy.yaml) - 17%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #176 [Rot.Normal](data/species/rot-normal.yaml) - 7%
+### #176 [Rot.Normal](data/species/rot-normal.yaml) - 17%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -1329,11 +1329,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #182 [Cicadj](data/species/cicadj.yaml) - 10%
+### #182 [Cicadj](data/species/cicadj.yaml) - 14%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -1398,10 +1398,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #233 [Tenebravis](data/species/tenebravis.yaml) - 10%
+### #233 [Tenebravis](data/species/tenebravis.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

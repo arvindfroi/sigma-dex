@@ -54,7 +54,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 43 | [Gortiki](data/species/gortiki.yaml) | Grass / Fire | Flash Fire, Dancer, Huge Power (H) | 520 |  | 76% |
 | 44 | [Chebbi](data/species/chebbi.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 360 | Devampry (Lv 32) | 72% |
 | 45 | [Devampry](data/species/devampry.yaml) | Normal / Dark | Soundproof, Gluttony, Punk Rock (H) | 505 |  | 76% |
-| 46 | [Chillalit](data/species/chillalit.yaml) | Fire / Water | Swift Swim, Solar Power, Battle Bond (H) | 500 |  | 79% |
+| 46 | [Chillalit](data/species/chillalit.yaml) | Fire / Water | Swift Swim, Solar Power, Battle Bond (H) | 495 |  | 79% |
 | 47 | [Zapana](data/species/zapana.yaml) | Water / Electric | Swift Swim, Static, Eelevate (H) | 287 | Ampeel (Lv 25) | 79% |
 | 48 | [Ampeel](data/species/ampeel.yaml) | Water / Electric | Swift Swim, Static, Eelevate (H) | 487 |  | 79% |
 | 49 | [Tomaternader](data/species/tomaterdander.yaml) | Poison / Grass | Pickle Armor, Chlorophyll, Defiant (H) | 350 | Crappy Meal (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 79% |
@@ -178,19 +178,19 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 167 | [Daytard](data/species/daytard.yaml) | Bug |  |  |  | 14% |
 | 168 | [plumbuzzz](data/species/plumbuzzz.yaml) | Bug |  |  |  | 14% |
 | 169 | [Demetiscet](data/species/demetiscet.yaml) | Bug |  |  |  | 14% |
-| 170 | [Racedent](data/species/racedent.yaml) | Dark |  |  |  | 10% |
+| 170 | [Racedent](data/species/racedent.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) |  |  | 14% |
 | 171 | [Ratpid](data/species/ratpid.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) |  |  | 14% |
-| 172 | [S.Rotom](data/species/s-rotom.yaml) | Electric |  |  |  | 7% |
-| 173 | [Rot.poison](data/species/rotom-vape.yaml) | Electric / Poison |  |  |  | 10% |
-| 174 | [Rot.Fight](data/species/rot-fight.yaml) | Electric / Fighting | Galvanize |  |  | 14% |
-| 175 | [Rot.Fairy](data/species/rot-fairy.yaml) | Electric / Fairy |  |  |  | 7% |
-| 176 | [Rot.Normal](data/species/rot-normal.yaml) | Electric / Normal |  |  |  | 7% |
+| 172 | [S.Rotom](data/species/s-rotom.yaml) | Electric | Levitate | 440 |  | 17% |
+| 173 | [Rot.poison](data/species/rotom-vape.yaml) | Electric / Poison | Levitate | 520 |  | 21% |
+| 174 | [Rot.Fight](data/species/rot-fight.yaml) | Electric / Fighting | Levitate | 520 |  | 21% |
+| 175 | [Rot.Fairy](data/species/rot-fairy.yaml) | Electric / Fairy | Levitate | 520 |  | 17% |
+| 176 | [Rot.Normal](data/species/rot-normal.yaml) | Electric / Normal | Levitate | 520 |  | 17% |
 | 177 | [Thooji](data/species/thooji.yaml) | Fighting | Heavenly Pact |  |  | 17% |
 | 178 | [Endermon](data/species/endermon.yaml) | Dark | Anger Point | 600 |  | 17% |
 | 179 | [Crepawmon](data/species/crepawmon.yaml) | Normal / Grass | Lightning Rod | 600 |  | 17% |
 | 180 | [Viltector](data/species/viltector.yaml) | Steel | Sap Sipper | 600 |  | 21% |
 | 181 | [Subwooca](data/species/subwocada.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 320 | Cicadj (Lv 28) | 21% |
-| 182 | [Cicadj](data/species/cicadj.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 475 |  | 10% |
+| 182 | [Cicadj](data/species/cicadj.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 475 |  | 14% |
 | 183 | [Ibur](data/species/ibur.yaml) | Ice |  |  |  | 10% |
 | 184 | [Tbur](data/species/tbur.yaml) | Ice |  |  |  | 10% |
 | 185 | [Nebur](data/species/nebur.yaml) | Ice / Electric |  |  |  | 14% |
@@ -241,7 +241,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 230 | *open slot* | | | | | |
 | 231 | *open slot* | | | | | |
 | 232 | *open slot* | | | | | |
-| 233 | [Tenebravis](data/species/tenebravis.yaml) | Dark |  |  |  | 10% |
+| 233 | [Tenebravis](data/species/tenebravis.yaml) | Dark | Grim Neigh | 600 |  | 21% |
 | 234 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 300 | Greation (Lv 30) | 72% |
 | 235 | [Greation](data/species/greation.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 420 | Ultragon (Lv 55) | 72% |
 | 236 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 600 |  | 72% |
@@ -255,10 +255,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 244 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Rocket Science | 580 |  | 69% |
 | 245 | [Praxis](data/species/praxis.yaml) | Flying / Ghost | Levitate | 600 |  | 69% |
 | 246 | [Laxis](data/species/laxis.yaml) | Flying / Ice | Levitate | 600 |  | 69% |
-| 247 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch, Technician (H) | 680 |  | 79% |
+| 247 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch | 680 |  | 79% |
 | 248 | [Bergflabb](data/species/bergflabbser.yaml) | Water / Ground | Primordial Sea | 680 |  | 97% |
-| 249 | [Gravriel](data/species/gravriel.yaml) | Ghost / Grass | Sea Ghost Emperor | 680 |  | 79% |
-| 250 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 680 |  | 72% |
+| 249 | [Gravriel](data/species/gravriel.yaml) | Ghost / Grass | Sea Ghost Emperor | 690 |  | 79% |
+| 250 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 690 |  | 72% |
 | 251 | [Eclipsox](data/species/eclipsox.yaml) | Normal / Dragon | Mold Breaker, Intimidate (H) | 720 |  | 72% |
 | 252 | [Voraxia](data/species/voraxia.yaml) | Dragon / Dark | Shadow Shield |  |  | 31% |
 | 253 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground | Lullaby | 600 |  | 72% |

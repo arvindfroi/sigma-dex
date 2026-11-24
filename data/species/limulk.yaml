@@ -71,6 +71,7 @@ learnset:
     - {level: 5, move: Rock Smash}
     - {level: 8, move: Taunt}
     - {level: 15, move: Detect}
+    - {level: 20, move: Fake Out}
     - {level: 22, move: Brick Break}
     - {level: 23, move: Rage}
     - {level: 25, move: Bulk Up}

@@ -87,9 +87,9 @@ learnset:
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
           Protect, Rain Dance, Safeguard, Frustration, Solar Beam, Return, Psychic,
           Double Team, Reflect, Aerial Ace, Facade, Secret Power, Rest, Attract, Thief,
-          Steel Wing, Roost, Endure, Giga Impact, Thunder Wave, Psych Up, Sleep Talk,
-          Natural Gift, Swagger, U-turn, Substitute, Draining Kiss, Play Rough, Fly,
-          Energy Ball]
+          Steel Wing, Roost, Energy Ball, Endure, Giga Impact, Thunder Wave, Psych Up,
+          Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Draining Kiss, Play Rough,
+          Fly]
   # moves a move tutor can teach it
   tutor: [Air Slash, Charm, Dazzling Gleam, Heat Wave, Hurricane, Sky Attack, Fake Out]
   egg: [Defog]           # only needed for the first stage of an evolution line

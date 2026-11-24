@@ -1910,6 +1910,9 @@ static const u16 sDevampryTeachableLearnset[] = {
     MOVE_SUPER_FANG,
     MOVE_ZEN_HEADBUTT,
     MOVE_AIR_SLASH,
+    MOVE_DISARMING_VOICE,
+    MOVE_ECHOED_VOICE,
+    MOVE_TORCH_SONG,
     MOVE_UNAVAILABLE,
 };
 
@@ -2985,6 +2988,7 @@ static const u16 sBlylemTeachableLearnset[] = {
     MOVE_EARTHQUAKE,
     MOVE_RETURN,
     MOVE_DIG,
+    MOVE_SHADOW_BALL,
     MOVE_DOUBLE_TEAM,
     MOVE_SLUDGE_BOMB,
     MOVE_SANDSTORM,
@@ -3012,6 +3016,11 @@ static const u16 sBlylemTeachableLearnset[] = {
     MOVE_CURSE,
     MOVE_EARTH_POWER,
     MOVE_POWER_GEM,
+    MOVE_FLASH_CANNON,
+    MOVE_ARMOR_CANNON,
+    MOVE_ZAP_CANNON,
+    MOVE_SHADOW_BONE,
+    MOVE_DESTINY_BOND,
     MOVE_UNAVAILABLE,
 };
 
@@ -4249,6 +4258,7 @@ static const u16 sZapiteraTeachableLearnset[] = {
     MOVE_IRON_HEAD,
     MOVE_VOLT_SWITCH,
     MOVE_HURRICANE,
+    MOVE_TAILWIND,
     MOVE_UNAVAILABLE,
 };
 

@@ -3438,19 +3438,19 @@
             "move": "Knock Off"
           },
           {
-            "level": 30,
-            "move": "Sucker Punch"
+            "level": 32,
+            "move": "Parting Shot"
           },
           {
-            "level": 33,
+            "level": 34,
             "move": "Roost"
           },
           {
-            "level": 35,
+            "level": 36,
             "move": "Defog"
           },
           {
-            "level": 37,
+            "level": 38,
             "move": "Crunch"
           },
           {
@@ -3458,11 +3458,19 @@
             "move": "Foul Play"
           },
           {
-            "level": 44,
+            "level": 43,
+            "move": "Sucker Punch"
+          },
+          {
+            "level": 46,
             "move": "Drill Peck"
           },
           {
             "level": 50,
+            "move": "Jaw Lock"
+          },
+          {
+            "level": 54,
             "move": "Brave Bird"
           }
         ],
@@ -6394,7 +6402,7 @@
           },
           {
             "level": 41,
-            "move": "Reversal"
+            "move": "Storm Throw"
           },
           {
             "level": 43,
@@ -7691,14 +7699,14 @@
           },
           {
             "level": 38,
-            "move": "Dig"
+            "move": "Shell Smash"
           },
           {
             "level": 40,
             "move": "Earth Power"
           },
           {
-            "level": 41,
+            "level": 42,
             "move": "Thunderbolt"
           },
           {
@@ -8994,6 +9002,7 @@
           "Thief",
           "Steel Wing",
           "Roost",
+          "Energy Ball",
           "Endure",
           "Giga Impact",
           "Thunder Wave",
@@ -9005,8 +9014,7 @@
           "Substitute",
           "Draining Kiss",
           "Play Rough",
-          "Fly",
-          "Energy Ball"
+          "Fly"
         ],
         "tutor": [
           "Air Slash",
@@ -11852,7 +11860,11 @@
           "Snarl",
           "Super Fang",
           "Zen Headbutt",
-          "Air Slash"
+          "Air Slash",
+          "Disarming Voice",
+          "Echoed Voice",
+          "Disarming Voice",
+          "Torch Song"
         ],
         "egg": []
       },
@@ -11951,7 +11963,7 @@
         "defense": 50,
         "sp_attack": 109,
         "sp_defense": 67,
-        "speed": 124
+        "speed": 119
       },
       "ev_yield": {
         "speed": 2
@@ -17215,30 +17227,26 @@
           },
           {
             "level": 38,
-            "move": "Curse"
+            "move": "Instruct"
           },
           {
-            "level": 38,
-            "move": "Stomping Tantrum"
-          },
-          {
-            "level": 42,
-            "move": "Play Rough"
+            "level": 40,
+            "move": "Life Dew"
           },
           {
             "level": 42,
             "move": "Shadow Ball"
           },
           {
-            "level": 43,
+            "level": 44,
             "move": "Dazzling Gleam"
           },
           {
-            "level": 44,
+            "level": 46,
             "move": "Body Slam"
           },
           {
-            "level": 47,
+            "level": 48,
             "move": "Heal Pulse"
           },
           {
@@ -18551,7 +18559,7 @@
           },
           {
             "level": 30,
-            "move": "Surf"
+            "move": "Psychic Noise"
           },
           {
             "level": 32,
@@ -19862,6 +19870,7 @@
           "Earthquake",
           "Return",
           "Dig",
+          "Shadow Ball",
           "Double Team",
           "Sludge Bomb",
           "Sandstorm",
@@ -19890,7 +19899,12 @@
           "Body Slam",
           "Curse",
           "Earth Power",
-          "Power Gem"
+          "Power Gem",
+          "Flash Cannon",
+          "Armor Cannon",
+          "Zap Cannon",
+          "Shadow Bone",
+          "Destiny Bond"
         ],
         "egg": []
       },
@@ -27718,6 +27732,10 @@
             "move": "Detect"
           },
           {
+            "level": 20,
+            "move": "Fake Out"
+          },
+          {
             "level": 22,
             "move": "Brick Break"
           },
@@ -28027,6 +28045,10 @@
           {
             "level": 48,
             "move": "Mega Kick"
+          },
+          {
+            "level": 50,
+            "move": "Parting Shot"
           },
           {
             "level": 54,
@@ -30044,8 +30066,8 @@
             "move": "Agility"
           },
           {
-            "level": 50,
-            "move": "Thunder"
+            "level": 48,
+            "move": "Thunderbolt"
           },
           {
             "level": 52,
@@ -30053,7 +30075,7 @@
           },
           {
             "level": 57,
-            "move": "Thunderbolt"
+            "move": "Thunder"
           },
           {
             "level": 60,
@@ -30114,7 +30136,8 @@
           "Body Slam",
           "Iron Head",
           "Volt Switch",
-          "Hurricane"
+          "Hurricane",
+          "Tailwind"
         ],
         "egg": []
       },
@@ -34211,10 +34234,10 @@
       "base_stats": {
         "hp": 95,
         "attack": 145,
-        "defense": 110,
+        "defense": 100,
         "sp_attack": 120,
-        "sp_defense": 110,
-        "speed": 100
+        "sp_defense": 100,
+        "speed": 120
       },
       "ev_yield": {
         "attack": 3
@@ -39893,9 +39916,9 @@
       },
       "base_stats": {
         "hp": 40,
-        "attack": 57,
+        "attack": 67,
         "defense": 150,
-        "sp_attack": 48,
+        "sp_attack": 38,
         "sp_defense": 150,
         "speed": 5
       },
@@ -41848,9 +41871,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
+        "primary": "Speed Boost",
+        "secondary": "Limber",
+        "hidden": "Quick Feet"
       },
       "base_stats": {
         "hp": null,
@@ -42008,19 +42031,22 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Levitate",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 50,
+        "defense": 77,
+        "sp_attack": 95,
+        "sp_defense": 77,
+        "speed": 91
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_attack": 1,
+        "speed": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -42089,19 +42115,23 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Levitate",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 65,
+        "defense": 107,
+        "sp_attack": 105,
+        "sp_defense": 107,
+        "speed": 86
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1,
+        "sp_attack": 1,
+        "sp_defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -42170,19 +42200,23 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Galvanize",
+        "primary": "Levitate",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 65,
+        "defense": 107,
+        "sp_attack": 105,
+        "sp_defense": 107,
+        "speed": 86
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1,
+        "sp_attack": 1,
+        "sp_defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -42253,19 +42287,23 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Levitate",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 65,
+        "defense": 107,
+        "sp_attack": 105,
+        "sp_defense": 107,
+        "speed": 86
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1,
+        "sp_attack": 1,
+        "sp_defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -42334,19 +42372,23 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Levitate",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 65,
+        "defense": 107,
+        "sp_attack": 105,
+        "sp_defense": 107,
+        "speed": 86
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "defense": 1,
+        "sp_attack": 1,
+        "sp_defense": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -42842,13 +42884,15 @@
       },
       "base_stats": {
         "hp": 55,
-        "attack": 50,
+        "attack": 60,
         "defense": 90,
-        "sp_attack": 95,
+        "sp_attack": 85,
         "sp_defense": 105,
         "speed": 80
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_defense": 2
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -43402,19 +43446,22 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Grim Neigh",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 85,
+        "attack": 90,
+        "defense": 85,
+        "sp_attack": 135,
+        "sp_defense": 85,
+        "speed": 120
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 2,
+        "speed": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -43443,7 +43490,7 @@
         "claude_fill": false,
         "filled_by_claude": [],
         "body_shape": null,
-        "movement": null,
+        "movement": "It walks on four legs.",
         "look": null
       },
       "assets": {
@@ -46134,11 +46181,11 @@
       },
       "base_stats": {
         "hp": 80,
-        "attack": 100,
+        "attack": 95,
         "defense": 70,
         "sp_attack": 130,
         "sp_defense": 70,
-        "speed": 130
+        "speed": 135
       },
       "ev_yield": {
         "speed": 3
@@ -46825,7 +46872,7 @@
       "abilities": {
         "primary": "Weather Switch",
         "secondary": null,
-        "hidden": "Technician"
+        "hidden": null
       },
       "base_stats": {
         "hp": 120,
@@ -47298,7 +47345,7 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": 89,
+        "hp": 99,
         "attack": 181,
         "defense": 104,
         "sp_attack": 181,
@@ -47571,7 +47618,7 @@
         "defense": 100,
         "sp_attack": 120,
         "sp_defense": 100,
-        "speed": 90
+        "speed": 100
       },
       "ev_yield": {
         "attack": 3

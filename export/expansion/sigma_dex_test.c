@@ -1103,7 +1103,7 @@ TEST("Sigma dex: Chillalit has the data from its species file")
     EXPECT_EQ(info->baseHP, 50);
     EXPECT_EQ(info->baseAttack, 100);
     EXPECT_EQ(info->baseDefense, 50);
-    EXPECT_EQ(info->baseSpeed, 124);
+    EXPECT_EQ(info->baseSpeed, 119);
     EXPECT_EQ(info->baseSpAttack, 109);
     EXPECT_EQ(info->baseSpDefense, 67);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
@@ -2810,10 +2810,10 @@ TEST("Sigma dex: Everdark has the data from its species file")
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_EVERDARK];
     EXPECT_EQ(info->baseHP, 95);
     EXPECT_EQ(info->baseAttack, 145);
-    EXPECT_EQ(info->baseDefense, 110);
-    EXPECT_EQ(info->baseSpeed, 100);
+    EXPECT_EQ(info->baseDefense, 100);
+    EXPECT_EQ(info->baseSpeed, 120);
     EXPECT_EQ(info->baseSpAttack, 120);
-    EXPECT_EQ(info->baseSpDefense, 110);
+    EXPECT_EQ(info->baseSpDefense, 100);
     EXPECT_EQ(info->types[0], TYPE_DARK);
     EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
     EXPECT_EQ(info->abilities[0], ABILITY_ARMOR_TAIL);
@@ -3369,10 +3369,10 @@ TEST("Sigma dex: Aqualoom has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_AQUALOOM];
     EXPECT_EQ(info->baseHP, 40);
-    EXPECT_EQ(info->baseAttack, 57);
+    EXPECT_EQ(info->baseAttack, 67);
     EXPECT_EQ(info->baseDefense, 150);
     EXPECT_EQ(info->baseSpeed, 5);
-    EXPECT_EQ(info->baseSpAttack, 48);
+    EXPECT_EQ(info->baseSpAttack, 38);
     EXPECT_EQ(info->baseSpDefense, 150);
     EXPECT_EQ(info->types[0], TYPE_WATER);
     EXPECT_EQ(info->types[1], TYPE_STEEL);
@@ -3763,7 +3763,7 @@ TEST("Sigma dex: Sabertann has the data from its species file")
     EXPECT_EQ(info->baseHP, 120);
     EXPECT_EQ(info->baseAttack, 150);
     EXPECT_EQ(info->baseDefense, 100);
-    EXPECT_EQ(info->baseSpeed, 90);
+    EXPECT_EQ(info->baseSpeed, 100);
     EXPECT_EQ(info->baseSpAttack, 120);
     EXPECT_EQ(info->baseSpDefense, 100);
     EXPECT_EQ(info->types[0], TYPE_DARK);

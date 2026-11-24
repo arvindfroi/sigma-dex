@@ -4935,13 +4935,6 @@
     "editor": "Emil"
   },
   {
-    "id": 1614,
-    "species": "whaldrill3",
-    "file": "assets/concept-art/whaldrill3/1614.png",
-    "caption": "[ds-front] sprite #272",
-    "editor": "Emil"
-  },
-  {
     "id": 1615,
     "species": "whaldrill3",
     "file": "assets/concept-art/whaldrill3/1615.png",
@@ -7385,13 +7378,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2469,
-    "species": "toxiren",
-    "file": "assets/concept-art/toxiren/2469.png",
-    "caption": "[ds-front] sprite #478",
-    "editor": "Arvind"
-  },
-  {
     "id": 2470,
     "species": "toxiren",
     "file": "assets/concept-art/toxiren/2470.png",
@@ -7991,13 +7977,6 @@
     "species": "whaldrill0",
     "file": "assets/concept-art/whaldrill0/2626.png",
     "caption": "[ds-front] sprite #514",
-    "editor": null
-  },
-  {
-    "id": 2627,
-    "species": "whaldrill0",
-    "file": "assets/concept-art/whaldrill0/2627.png",
-    "caption": "[ds-back] sprite #514",
     "editor": null
   },
   {
@@ -8722,13 +8701,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2875,
-    "species": "wealther",
-    "file": "assets/concept-art/wealther/2875.png",
-    "caption": "[ds-front2] sprite #561",
-    "editor": "Arvind"
-  },
-  {
     "id": 2880,
     "species": "warrallier",
     "file": "assets/concept-art/warrallier/2880.png",
@@ -8925,13 +8897,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 3031,
-    "species": "lapper",
-    "file": "assets/concept-art/lapper/3031.png",
-    "caption": "[ds-front2] sprite #594",
-    "editor": "Arvind"
-  },
-  {
     "id": 3037,
     "species": "cowfin",
     "file": "assets/concept-art/cowfin/3037.png",
@@ -8985,13 +8950,6 @@
     "species": "bulbtle",
     "file": "assets/concept-art/bulbtle/3074.png",
     "caption": "[ds-front2] sprite #604",
-    "editor": "Arvind"
-  },
-  {
-    "id": 3079,
-    "species": "bulbtoise",
-    "file": "assets/concept-art/bulbtoise/3079.png",
-    "caption": "[ds-back2] sprite #608",
     "editor": "Arvind"
   },
   {
@@ -9107,13 +9065,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 3172,
-    "species": "stonma",
-    "file": "assets/concept-art/stonma/3172.png",
-    "caption": "[ds-front2] sprite #801",
-    "editor": "Arvind"
-  },
-  {
     "id": 3176,
     "species": "sigmauler",
     "file": "assets/concept-art/sigmauler/3176.png",
@@ -9153,13 +9104,6 @@
     "species": "chebbi",
     "file": "assets/concept-art/chebbi/3202.png",
     "caption": "[ds-back2] sprite #622",
-    "editor": "Arvind"
-  },
-  {
-    "id": 3207,
-    "species": "devampry",
-    "file": "assets/concept-art/devampry/3207.png",
-    "caption": "[ds-front2] sprite #627",
     "editor": "Arvind"
   },
   {
@@ -10577,20 +10521,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 4384,
-    "species": "catbat",
-    "file": "assets/concept-art/catbat/4384.png",
-    "caption": "[ds-front2] sprite #836",
-    "editor": "Arvind"
-  },
-  {
-    "id": 4390,
-    "species": "catbat",
-    "file": "assets/concept-art/catbat/4390.png",
-    "caption": "[ds-back2] sprite #836",
-    "editor": "Arvind"
-  },
-  {
     "id": 4393,
     "species": "cobrabat",
     "file": "assets/concept-art/cobrabat/4393.png",
@@ -11372,6 +11302,118 @@
     "species": "tenebravis",
     "file": "assets/concept-art/tenebravis/4944.webp",
     "caption": "pasted",
+    "editor": "Emil"
+  },
+  {
+    "id": 4946,
+    "species": "tenebravis",
+    "file": "assets/concept-art/tenebravis/4946.png",
+    "caption": "[ds-back] sprite #953",
+    "editor": "Emil"
+  },
+  {
+    "id": 4947,
+    "species": "tenebravis",
+    "file": "assets/concept-art/tenebravis/4947.png",
+    "caption": "[ds-icon] sprite #953",
+    "editor": "Emil"
+  },
+  {
+    "id": 4948,
+    "species": "tenebravis",
+    "file": "assets/concept-art/tenebravis/4948.png",
+    "caption": "[ds-follower] sprite #953",
+    "editor": "Emil"
+  },
+  {
+    "id": 4949,
+    "species": "tenebravis",
+    "file": "assets/concept-art/tenebravis/4949.png",
+    "caption": "[ds-front2] sprite #953",
+    "editor": "Emil"
+  },
+  {
+    "id": 4950,
+    "species": "tenebravis",
+    "file": "assets/concept-art/tenebravis/4950.png",
+    "caption": "[ds-back2] sprite #953",
+    "editor": "Emil"
+  },
+  {
+    "id": 4975,
+    "species": "tenebravis",
+    "file": "assets/concept-art/tenebravis/4975.png",
+    "caption": "[ds-front] sprite #953",
+    "editor": "Emil"
+  },
+  {
+    "id": 4982,
+    "species": "whaldrill0",
+    "file": "assets/concept-art/whaldrill0/4982.png",
+    "caption": "[ds-back] sprite #943",
+    "editor": "Emil"
+  },
+  {
+    "id": 5003,
+    "species": "wealther",
+    "file": "assets/concept-art/wealther/5003.png",
+    "caption": "[ds-front2] sprite #945",
+    "editor": "Emil"
+  },
+  {
+    "id": 5009,
+    "species": "catbat",
+    "file": "assets/concept-art/catbat/5009.png",
+    "caption": "[ds-front2] sprite #947",
+    "editor": "Emil"
+  },
+  {
+    "id": 5010,
+    "species": "catbat",
+    "file": "assets/concept-art/catbat/5010.png",
+    "caption": "[ds-back2] sprite #947",
+    "editor": "Emil"
+  },
+  {
+    "id": 5021,
+    "species": "lapper",
+    "file": "assets/concept-art/lapper/5021.png",
+    "caption": "[ds-front2] sprite #948",
+    "editor": "Emil"
+  },
+  {
+    "id": 5027,
+    "species": "devampry",
+    "file": "assets/concept-art/devampry/5027.png",
+    "caption": "[ds-front2] sprite #949",
+    "editor": "Emil"
+  },
+  {
+    "id": 5029,
+    "species": "toxiren",
+    "file": "assets/concept-art/toxiren/5029.png",
+    "caption": "[ds-front] sprite #950",
+    "editor": "Emil"
+  },
+  {
+    "id": 5046,
+    "species": "bulbtoise",
+    "file": "assets/concept-art/bulbtoise/5046.png",
+    "caption": "[ds-back2] sprite #952",
+    "editor": "Emil"
+  },
+  {
+    "id": 5057,
+    "species": "stonma",
+    "file": "assets/concept-art/stonma/5057.png",
+    "caption": "[ds-front2] sprite #954",
+    "editor": "Emil"
+  },
+  {
+    "id": 5059,
+    "species": "whaldrill3",
+    "file": "assets/concept-art/whaldrill3/5059.png",
+    "caption": "[ds-front] sprite #956",
     "editor": "Emil"
   }
 ]

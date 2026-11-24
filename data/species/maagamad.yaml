@@ -19,7 +19,7 @@ body_color: white        # red blue yellow green black brown purple gray white p
 abilities:
   primary: Weather Switch
   secondary:             # optional
-  hidden: Technician     # optional
+  hidden:                # optional
 
 base_stats:              # each 1-255
   hp: 120

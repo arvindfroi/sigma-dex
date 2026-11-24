@@ -51,13 +51,13 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Daytard** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **plumbuzzz** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Demetiscet** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Racedent** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Racedent** needs: base stats, a level-up move that exists in the game
 - **Ratpid** needs: base stats, a level-up move that exists in the game
-- **S.Rotom** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Rot.poison** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Rot.Fight** needs: base stats, a level-up move that exists in the game
-- **Rot.Fairy** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Rot.Normal** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **S.Rotom** needs: a level-up move that exists in the game
+- **Rot.poison** needs: a level-up move that exists in the game
+- **Rot.Fight** needs: a level-up move that exists in the game
+- **Rot.Fairy** needs: a level-up move that exists in the game
+- **Rot.Normal** needs: a level-up move that exists in the game
 - **Thooji** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Endermon** needs: a level-up move that exists in the game
 - **Crepawmon** needs: a level-up move that exists in the game
@@ -70,7 +70,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Rhamp** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Ledrake** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Pegalaxy** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Tenebravis** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Tenebravis** needs: a level-up move that exists in the game
 - **Balleisk** needs: an ability that exists in the game
 - **Greation** needs: an ability that exists in the game
 - **Ultragon** needs: an ability that exists in the game

@@ -85,7 +85,7 @@ learnset:
     - {level: 24, move: Bubble Beam}
     - {level: 27, move: Razor Shell}
     - {level: 28, move: Recover}
-    - {level: 30, move: Surf}
+    - {level: 30, move: Psychic Noise}
     - {level: 32, move: Muddy Water}
     - {level: 40, move: Psychic}
     - {level: 42, move: Rain Dance}

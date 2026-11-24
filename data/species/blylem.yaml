@@ -93,12 +93,13 @@ learnset:
     - {level: 60, move: Meteor Beam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Earthquake,
-          Return, Dig, Double Team, Sludge Bomb, Sandstorm, Rock Tomb, Facade, Rest,
-          Attract, Endure, Giga Impact, Rock Polish, Stone Edge, Stealth Rock, Rock Slide,
-          Sleep Talk, Poison Jab, Swagger, Substitute, Venoshock, Heavy Slam, Bulldoze,
-          Meteor Beam, Rock Smash]
+          Return, Dig, Shadow Ball, Double Team, Sludge Bomb, Sandstorm, Rock Tomb, Facade,
+          Rest, Attract, Endure, Giga Impact, Rock Polish, Stone Edge, Stealth Rock,
+          Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute, Venoshock, Heavy Slam,
+          Bulldoze, Meteor Beam, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Power Gem]
+  tutor: [Ancient Power, Body Slam, Curse, Earth Power, Power Gem, Flash Cannon,
+          Armor Cannon, Zap Cannon, Shadow Bone, Destiny Bond]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
