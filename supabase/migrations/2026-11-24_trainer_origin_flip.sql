@@ -2,7 +2,8 @@
 -- the bases may be Origin's own trainer pictures ('origin:N', the classes Origin redrew in a/0/5/8; pictures on the PC,
 -- sheet trainer-bases/origin.png), and the BASE step's MIRROR is sent as flip '1' (the job's prompt gets flip true;
 -- the worker mirrors the start picture). The width may also be thinner: 0.7 to 1.4 ("og muligheten til å gjøre de
--- tynnere btw, ikke bare bredde"), and a height 0.85 to 1.1 (Arvind OK'd the height slider the same day). Otherwise as 2026-11-22_trainer_width.sql.
+-- tynnere btw, ikke bare bredde"), and a height 0.85 to 1.1 (Arvind OK'd the height slider the same day). Claude's batch jobs do not count against the queue and hourly limits (as in
+-- 2026-11-23_frame2_swipe.sql). Otherwise as 2026-11-22_trainer_width.sql.
 create or replace function public.request_trainer(p_slot text, p_base text, p_strength real, p_count integer, p_fields jsonb, p_photo bigint, p_ref bigint, p_editor text)
  returns bigint language plpgsql security definer set search_path to '' as $function$
 declare new_id bigint; k text; w numeric := null; ht numeric := null; fl boolean := null; f jsonb := coalesce(p_fields, '{}'::jsonb);
@@ -40,10 +41,10 @@ begin
   if p_ref is not null and not exists (select 1 from public.species_images where id = p_ref and species_id = p_slot and not removed) then
     raise exception 'That picture does not belong to this trainer';
   end if;
-  if (select count(*) from public.sprite_jobs where status in ('queued', 'running')) >= 40 then
+  if (select count(*) from public.sprite_jobs where status in ('queued', 'running') and not batch) >= 40 then
     raise exception 'The queue is full, try again when some sprites are done' using errcode = '54000';
   end if;
-  if (select count(*) from public.sprite_jobs where created_at > now() - interval '1 hour') >= 120 then
+  if (select count(*) from public.sprite_jobs where created_at > now() - interval '1 hour' and not batch) >= 120 then
     raise exception 'Too many sprite requests in the last hour, try again later' using errcode = '54000';
   end if;
   insert into public.sprite_jobs (species_id, look, notes, ref_image_ids, variations, editor, pose, style, mode, stage, count, prompt, recipe)
