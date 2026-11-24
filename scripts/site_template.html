@@ -5502,6 +5502,9 @@ function trainerStudio(slot, opts) {
         onclick: () => { st.ref = st.ref === p.id ? null : p.id; draw(); }}, h("img", {src: p.src, alt: "trainer picture"})))) : null,
       fieldsBox());
   }
+  // the description as filled in now, for every step (2026-11-24: a back of a battle sprite made before the fields existed got
+  // no description and drew a hoodie instead of the cape); null when nothing is filled in (then the battle sprite's own words)
+  const fieldsNow = () => { const o = {}; for (const [k] of TFIELDS) { const v = String(st.fields[k] || "").trim().slice(0, 240); if (v) o[k] = v; } return Object.keys(o).length ? o : null; };
   // the words about the trainer: one box per field, kept on this device until MAKE sends them
   function fieldsBox() {
     const filled = () => TFIELDS.filter(([k]) => (st.fields[k] || "").trim()).length + " of " + TFIELDS.length + " filled";
@@ -5661,7 +5664,7 @@ function trainerStudio(slot, opts) {
     extra.addEventListener("input", () => { st.mapExtra = extra.value; });
     const btn = h("button", {type: "button", class: "primary", disabled: from ? null : "", onclick: async () => {
       btn.disabled = true;
-      try { await dbCall("request_trainer_map", {p_try: from.id, p_count: st.mapCount, p_editor: me(), p_extra: st.mapExtra.trim() || null}); noteMine(slot); await load(); }
+      try { await dbCall("request_trainer_map", {p_try: from.id, p_count: st.mapCount, p_editor: me(), p_extra: st.mapExtra.trim() || null, p_fields: fieldsNow()}); noteMine(slot); await load(); }
       catch (err) { fail(err); }
       btn.disabled = false;
     }}, "MAKE");
@@ -5710,7 +5713,7 @@ function trainerStudio(slot, opts) {
     const set = pickedAnim(), missing = missingFor(set, cur);
     const btn = h("button", {type: "button", class: "primary", disabled: from && cur ? null : "", onclick: async () => {
       btn.disabled = true;
-      try { await dbCall("request_trainer_anim", Object.assign({p_try: from.id, p_script: st.animScript, p_count: st.animCount, p_editor: me(), p_extra: st.animExtra.trim() || null},
+      try { await dbCall("request_trainer_anim", Object.assign({p_try: from.id, p_script: st.animScript, p_count: st.animCount, p_editor: me(), p_extra: st.animExtra.trim() || null, p_fields: fieldsNow()},
           set && missing.length ? {p_frames: set.id} : {})); noteMine(slot); await load(); }
       catch (err) { fail(err); }
       btn.disabled = false;
@@ -5782,13 +5785,13 @@ function trainerStudio(slot, opts) {
     // was drawn from the photo only; the locked recipe is photo + VS)
     const btn = h("button", {type: "button", class: "primary", disabled: from && vsId ? null : "", onclick: async () => {
       btn.disabled = true;
-      try { await dbCall("request_trainer_back", {p_try: from.id, p_shape: st.backShape, p_count: st.backCount, p_editor: me(), p_extra: st.backExtra.trim() || null, p_vs: vsId}); noteMine(slot); await load(); }
+      try { await dbCall("request_trainer_back", {p_try: from.id, p_shape: st.backShape, p_count: st.backCount, p_editor: me(), p_extra: st.backExtra.trim() || null, p_vs: vsId, p_fields: fieldsNow()}); noteMine(slot); await load(); }
       catch (err) { fail(err); }
       btn.disabled = false;
     }}, "MAKE");
     const throwBtn = h("button", {type: "button", class: "primary", disabled: k ? null : "", onclick: async () => {
       throwBtn.disabled = true;
-      try { await dbCall("request_trainer_throw", {p_try: k.id, p_editor: me(), p_count: st.throwCount || 1}); noteMine(slot); await load(); }
+      try { await dbCall("request_trainer_throw", {p_try: k.id, p_editor: me(), p_count: st.throwCount || 1, p_fields: fieldsNow()}); noteMine(slot); await load(); }
       catch (err) { fail(err); }
       throwBtn.disabled = false;
     }}, "MAKE THE THROW");
@@ -5829,7 +5832,7 @@ function trainerStudio(slot, opts) {
     count.addEventListener("change", () => { st.vsCount = Number(count.value); });
     const btn = h("button", {type: "button", class: "primary", disabled: from ? null : "", onclick: async () => {
       btn.disabled = true;
-      try { await dbCall("request_trainer_vs", {p_try: from.id, p_count: st.vsCount, p_editor: me()}); noteMine(slot); await load(); }
+      try { await dbCall("request_trainer_vs", {p_try: from.id, p_count: st.vsCount, p_editor: me(), p_fields: fieldsNow()}); noteMine(slot); await load(); }
       catch (err) { fail(err); }
       btn.disabled = false;
     }}, "MAKE");

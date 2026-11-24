@@ -672,7 +672,8 @@ def run_anim(job, base, key, post, download, folder, log=print):
 # pick = IoU with the template - lock distance / 60 (back_motion5_gen.py). Template 14 (Barry Pt) for slim people, 21
 # (Barry Pt wide, a real 8-frame set) for stout ones; a second try uses the other template.
 BACKS = Path(os.environ.get("TRAINER_BACKS", r"D:\LocalAI\lora-train\data\trainers\backs"))
-BACK_SHAPES = {"long": [13, 1], "short": [12, 24], "spiky": [14, 4], "cap": [9, 0], "tied": [8, 7], "stout": [22, 21]}
+BACK_SHAPES = {"long": [13, 1], "short": [12, 24], "spiky": [5, 14, 4], "cap": [9, 0], "tied": [8, 7], "stout": [22, 21]}
+# 2026-11-24: spiky got 05 (adult man, short hair) first: the tested spiky-haired person's best backs were on 05
 #   13 long blond, 01 brown long hair, 12/24 short grey (24 an adult man), 14 spiky blond, 04 spiky orange, 09/00 caps,
 #   08 blond ponytail, 07 side ponytail, 22/21 the real wide backs (Lucas Pt / Barry Pt wide)
 WIDE_BACKS = (20, 21, 22)
@@ -689,13 +690,14 @@ def back_frame1(b):
 
 
 def run_tback(job, base, key, post, download, folder, log=print):
-    """Frame-1 tries, n = 1..8: D(A,.6) D(B,.6) F(A) D(A,.6) D(B,.6) F(B) D(A,.65) D(B,.65) (A/B = the shape's two bases;
-    D = photo + VS, F = from the front sprite at 0.6). Without photo and VS every try takes the front route."""
+    """Frame-1 tries: every base of the shape at 0.6, then at 0.65, by D = photo + VS (the locked recipe). F (from the front
+    sprite, base widened) only for a stout person, once per round (2026-11-24: for a slim person F was the worst try every
+    time). Without photo and VS every try takes the front route. The person's description fields go in the text."""
     T, _, S = _modules()
     import build_trainer_klein_c as C
     settings = json.loads(job.get("prompt") or "{}")
     shape = settings.get("shape") if settings.get("shape") in BACK_SHAPES else "short"
-    bA, bB = BACK_SHAPES[shape]
+    bases = BACK_SHAPES[shape]
     src = job.get("from_try") or {}
     if not src.get("image"):
         raise RuntimeError("the back needs the battle sprite")
@@ -704,10 +706,19 @@ def run_tback(job, base, key, post, download, folder, log=print):
     words = words_of(settings)
     extra = " ".join(str(settings.get("extra") or "").split())[:200]
     # the front route's base is widened for a stout person, unless the shape's bases are the wide ones already
-    ffx = 1.3 if shape != "stout" and is_stout(front, words + " " + extra) else 1.0
-    plan = [("D", bA, 0.6), ("D", bB, 0.6), ("F", bA, 0.6), ("D", bA, 0.6), ("D", bB, 0.6), ("F", bB, 0.6), ("D", bA, 0.65), ("D", bB, 0.65)]
-    row = {"cls": "Pokemon Trainer", "who": (words + (". " + extra if extra else "")).strip(" .") or "-",
-           "facing": "seen from behind, turned to the right", "pose": "about to throw a Poke Ball"}
+    # a filled-in build decides (a wide cape or coat made a slim person look stout to the measurement)
+    build = (fields_of(settings).get("build") or "").lower()
+    stout = any(w in build for w in STOUT_WORDS) if build else is_stout(front, words + " " + extra)
+    ffx = 1.3 if shape != "stout" and stout else 1.0
+    plan = ([("D", b, 0.6) for b in bases] + ([("F", bases[0], 0.6)] if stout else [])
+            + [("D", b, 0.65) for b in bases] + ([("F", bases[-1], 0.6)] if stout else []))
+    f = fields_of(settings)
+    if f:                                  # as the tested back recipe: the person's own description, seen from behind
+        row = dict(f, cls=f.get("cls") or "Pokemon Trainer")
+        row["extra"] = ", ".join(x for x in (f.get("extra"), " ".join(str(settings.get("words") or "").split()), extra) if x) or "-"
+    else:
+        row = {"cls": "Pokemon Trainer", "who": (words + (". " + extra if extra else "")).strip(" .") or "-"}
+    row.update(facing="seen from behind, turned to the right", pose="about to throw a Poke Ball")
     text = C.create_caption(T.describe(row, drop=0), True, back=True)
     photo = vs = None
     try:
