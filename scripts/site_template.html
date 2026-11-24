@@ -5263,7 +5263,7 @@ const TSTEPS = [
   {id: "anim", n: "4", label: "ANIM", c: "blue", what: "How your trainer moves when a battle starts. Most trainers just stand there; gym leaders, the Elite Four and other big trainers have a short animation with a few poses. Pick one whose poses suit your trainer and watch it on your own sprite, then MAKE draws the extra poses. Optional."},
   {id: "vs", n: "5", label: "VS", c: "sky", what: "The portrait on the VS screen before a battle (gym leaders, the Elite Four, rivals and champions have one). The drawing PC paints it from your battle sprite and your picture. Needed for a back."},
   {id: "back", n: "6", label: "BACK", c: "purple", what: "Only for a player character or a tag-battle partner: your trainer seen from behind, throwing the Poke Ball at the start of a battle. First the back (drawn from your picture and the VS you picked), then the throw is drawn from it. Optional."},
-  {id: "map", n: "7", label: "MAP", c: "pink", what: "The little figure that walks around on the map, drawn from the battle sprite you picked. Each one is drawn a little differently: tap the one that looks most like your trainer. Words here change only the map figure."},
+  {id: "map", n: "7", label: "MAP", c: "pink", what: "The little figure that walks around on the map, drawn from one of your battle sprites (the picked one, or choose another). Each one is drawn a little differently: tap the one that looks most like your trainer; it stays picked whatever front you use. Words here change only the map figure."},
   {id: "save", n: "✓", label: "SAVE", c: "purple", what: "How your trainer looks in a battle and on the map."}];
 // The words about the trainer (2026-11-24, Arvind: "lag fields vi kan fylle ut"): the same fields as the tested recipe
 // (trainer_swap.py), each with an example; the drawing PC puts them in its text (scripts/trainer_studio.py battle_text).
@@ -5460,8 +5460,10 @@ function trainerStudio(slot, opts) {
     for (let i = 0; i < 20 && x && x.job_id === null && m.has(x.parent_try); i++) x = m.get(x.parent_try); return x ? x.id : id; };
   const sameBattle = (a, b) => a === b || (a != null && b != null && battleRoot(a) === battleRoot(b));
   const mapBattle = t => { const m = new Map(st.mapTries.map(x => [x.id, x])); let x = t; for (let i = 0; i < 20 && m.has(x.parent_try); i++) x = m.get(x.parent_try); return x.parent_try; };
-  const pickedMap = () => { const b = picked(); return b ? st.mapTries.filter(t => t.picked && usable(t) && t.overworld && sameBattle(mapBattle(t), b.id))
-    .sort((a, b2) => String(b2.picked_at).localeCompare(String(a.picked_at)))[0] || null : null; };
+  // The map figure is not tied to the front (2026-11-25, Arvind: "litt irriterende at map sprite til trenere er låst til front
+  // sprites"): the latest picked map figure of the trainer, whatever battle sprite it was drawn from, stays picked.
+  const pickedMap = () => st.mapTries.filter(t => t.picked && usable(t) && t.overworld)
+    .sort((a, b2) => String(b2.picked_at).localeCompare(String(a.picked_at)))[0] || null;
   const inSet = () => { const t = picked(), m = pickedMap(); return t ? {image: t.image, overworld: m ? m.overworld : t.overworld, tryRow: t, mapRow: m || t,
       live: opts.current && opts.current.try === t.id && opts.current.overworld === (m ? m.overworld : t.overworld)}
     : opts.current ? {image: opts.current.image, overworld: opts.current.overworld, tryRow: st.tries.find(x => x.id === opts.current.try) || null,
@@ -5774,11 +5776,15 @@ function trainerStudio(slot, opts) {
       h("button", {type: "button", class: "tilepic", disabled: !t.overworld, title: on ? "Picked" : "Pick this one", onclick: () => !on && pick(t)},
         t.overworld ? npcWalker(artUrl(t.overworld), 2) : h("span", {class: "sub"}, "failed"),
         on ? h("span", {class: "tag"}, saved ? "SAVED" : "PICKED") : saved ? h("span", {class: "tag"}, "SAVED") : null),
-      h("div", {class: "tilenote"}, t.job_id === null ? "drawn on" + (t.editor ? " by " + t.editor : "") : ck ? "style " + ck[1] : ""),
+      h("div", {class: "tilenote"}, (t.job_id === null ? "drawn on" + (t.editor ? " by " + t.editor : "") : ck ? "style " + ck[1] : "") + (mapBattle(t) ? " · from #" + mapBattle(t) : "")),
       t.overworld && DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openPixelEditor("map", t)}, "EDIT")) : null);
   }
   function mapPage() {
-    const from = picked();
+    // MAKE draws from the picked battle sprite, or from another one of this trainer's battle sprites
+    const fronts = st.tries.filter(t => usable(t) && t.stage !== "map").sort((a, b) => b.id - a.id);
+    const from = fronts.find(t => t.id === st.mapFrom) || picked();
+    const fromSel = fronts.length > 1 ? h("select", {"aria-label": "Draw from", onchange: ev => { st.mapFrom = Number(ev.target.value); draw(); }},
+      fronts.slice(0, 30).map(t => h("option", {value: t.id, selected: from && t.id === from.id ? "" : null}, "battle sprite #" + t.id + (picked() && t.id === picked().id ? " (picked)" : "")))) : null;
     const count = h("select", {"aria-label": "How many"}, [1, 2, 3, 4, 5, 6].map(n => h("option", {value: n, selected: n === st.mapCount ? "" : null}, String(n))));
     count.addEventListener("change", () => { st.mapCount = Number(count.value); });
     const extra = h("input", {type: "text", maxlength: 200, value: st.mapExtra, placeholder: "e.g. no hat, curly red hair, holding a staff in every frame", "aria-label": "Words for the map figure only", style: "width:100%"});
@@ -5791,21 +5797,23 @@ function trainerStudio(slot, opts) {
     }}, "MAKE");
     const waiting = [];
     for (const j of mine().filter(j => j.stage === "map")) for (let k = st.mapTries.filter(t => t.job_id === j.id).length; k < (j.count || 1); k++) waiting.push({waiting: true});
-    // only the map figures of the picked battle sprite (others belong to another look); the battle try's own one first
-    const list = from ? [from].filter(t => t.overworld).map(t => Object.assign({}, t, {own: true}))
-      .concat(st.mapTries.filter(t => t.status !== "failed" && sameBattle(mapBattle(t), from.id)).sort((a, b) => b.id - a.id)) : [];
+    // every map figure of this trainer (the picked battle sprite's own one first, for an older one that came with it)
+    const own = picked() && picked().overworld ? [Object.assign({}, picked(), {own: true})] : [];
+    const list = own.concat(st.mapTries.filter(t => t.status !== "failed").sort((a, b) => b.id - a.id));
     const ownTile = t => h("div", {class: "tile" + (!pickedMap() ? " inuse" : "")},
       h("button", {type: "button", class: "tilepic", title: "The map figure made with the battle sprite", onclick: async () => {
-        const all = st.mapTries.filter(m => m.picked && sameBattle(mapBattle(m), from.id)); if (!all.length) return;
+        const all = st.mapTries.filter(m => m.picked); if (!all.length) return;
         try { for (const m of all) { await dbCall("pick_try", {p_try: m.id, p_picked: false, p_editor: me()}); m.picked = false; } draw(); } catch (err) { fail(err); } }},
         npcWalker(artUrl(t.overworld), 2), !pickedMap() ? h("span", {class: "tag"}, "PICKED") : null),
       h("div", {class: "tilenote"}, "made with the battle sprite"));
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "map").what),
       h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the map figure only (optional)"), extra),
-      h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "map") * st.mapCount) + ")" : "Pick a battle sprite in 3 FRONT first."),
-        from ? h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(from.image), alt: ""})) : null),
-      h("div", {class: "tiles"}, waiting.map(mapTile), list.slice(0, 13).map(t => t.own ? ownTile(t) : mapTile(t))),
+      h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "map") * st.mapCount) + ")" : "Make a battle sprite in 3 FRONT first: the map figure is drawn from one."),
+        from ? h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(from.image), alt: ""}), fromSel) : null),
+      list.length ? h("div", {class: "hint"}, "All map figures of this trainer, from any battle sprite: the one you pick stays, whatever front you use.") : null,
+      h("div", {class: "tiles"}, waiting.map(mapTile), list.slice(0, st.showAll ? 200 : 18).map(t => t.own ? ownTile(t) : mapTile(t))),
+      list.length > 18 && !st.showAll ? h("button", {type: "button", class: "small", onclick: () => { st.showAll = true; draw(); }}, "SHOW ALL " + list.length) : null,
       !list.length && !waiting.length ? h("div", {class: "empty", style: "margin-top:8px"}, "No map figure yet.") : null);
   }
 
