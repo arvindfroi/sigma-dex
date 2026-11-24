@@ -11807,5 +11807,47 @@
     "file": "assets/concept-art/endermon/5147.png",
     "caption": "[ds-back2] sprite #969",
     "editor": "Arvind"
+  },
+  {
+    "id": 5148,
+    "species": "thooji",
+    "file": "assets/concept-art/thooji/5148.png",
+    "caption": "[ds-front] sprite #970",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5149,
+    "species": "thooji",
+    "file": "assets/concept-art/thooji/5149.png",
+    "caption": "[ds-back] sprite #970",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5150,
+    "species": "thooji",
+    "file": "assets/concept-art/thooji/5150.png",
+    "caption": "[ds-icon] sprite #970",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5151,
+    "species": "thooji",
+    "file": "assets/concept-art/thooji/5151.png",
+    "caption": "[ds-follower] sprite #970",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5152,
+    "species": "thooji",
+    "file": "assets/concept-art/thooji/5152.png",
+    "caption": "[ds-front2] sprite #970",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5153,
+    "species": "thooji",
+    "file": "assets/concept-art/thooji/5153.png",
+    "caption": "[ds-back2] sprite #970",
+    "editor": "Arvind"
   }
 ]

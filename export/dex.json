@@ -42501,8 +42501,8 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
         "look": null
       },
       "assets": {
