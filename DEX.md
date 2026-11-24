@@ -258,7 +258,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 247 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch | 680 |  | 79% |
 | 248 | [Bergflabb](data/species/bergflabbser.yaml) | Water / Ground | Primordial Sea | 680 |  | 97% |
 | 249 | [Gravriel](data/species/gravriel.yaml) | Ghost / Grass | Sea Ghost Emperor | 690 |  | 79% |
-| 250 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 690 |  | 72% |
+| 250 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 690 |  | 76% |
 | 251 | [Eclipsox](data/species/eclipsox.yaml) | Normal / Dragon | Mold Breaker, Intimidate (H) | 720 |  | 72% |
 | 252 | [Voraxia](data/species/voraxia.yaml) | Dragon / Dark | Shadow Shield |  |  | 31% |
 | 253 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground | Lullaby | 600 |  | 72% |

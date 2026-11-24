@@ -11947,5 +11947,47 @@
     "file": "assets/concept-art/de-es-lite/5172.png",
     "caption": "[ds-back2] sprite #974",
     "editor": "Arvind"
+  },
+  {
+    "id": 5179,
+    "species": "iglomodo-mindre-utv",
+    "file": "assets/concept-art/iglomodo-mindre-utv/5179.png",
+    "caption": "[ds-front] sprite #976",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5180,
+    "species": "iglomodo-mindre-utv",
+    "file": "assets/concept-art/iglomodo-mindre-utv/5180.png",
+    "caption": "[ds-back] sprite #976",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5182,
+    "species": "iglomodo-mindre-utv",
+    "file": "assets/concept-art/iglomodo-mindre-utv/5182.png",
+    "caption": "[ds-follower] sprite #976",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5183,
+    "species": "iglomodo-mindre-utv",
+    "file": "assets/concept-art/iglomodo-mindre-utv/5183.png",
+    "caption": "[ds-front2] sprite #976",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5184,
+    "species": "iglomodo-mindre-utv",
+    "file": "assets/concept-art/iglomodo-mindre-utv/5184.png",
+    "caption": "[ds-back2] sprite #976",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5187,
+    "species": "iglomodo-mindre-utv",
+    "file": "assets/concept-art/iglomodo-mindre-utv/5187.png",
+    "caption": "[ds-icon] sprite #976",
+    "editor": "Arvind"
   }
 ]

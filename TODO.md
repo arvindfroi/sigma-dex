@@ -36,16 +36,16 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Art | back sprite | 4 / 212 |
 | Art | icon | 4 / 212 |
 | Art | footprint | 145 / 212 |
-| Art | shiny palette | 125 / 212 |
+| Art | shiny palette | 126 / 212 |
 | Art | cry | 174 / 212 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 198 / 212 |
-| DS back sprite 80x80 | 198 / 212 |
-| DS icon 32x32 | 195 / 212 |
+| DS front sprite 80x80 | 199 / 212 |
+| DS back sprite 80x80 | 199 / 212 |
+| DS icon 32x32 | 196 / 212 |
 
 ## Open dex slots (42)
 
@@ -1528,11 +1528,11 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #250 [Sabertann](data/species/sabertann.yaml) - 72%
+### #250 [Sabertann](data/species/sabertann.yaml) - 76%
 
 - **Dex page:** category, description
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
+- **Art:** front sprite, front animation frame, back sprite, icon
 
 ### #251 [Eclipsox](data/species/eclipsox.yaml) - 72%
 
