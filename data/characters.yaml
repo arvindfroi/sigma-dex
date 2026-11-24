@@ -105,7 +105,9 @@
   levels: [80, 88]
   dialogue: {story: 228, battle: 6, words: 3737}
   teams:
-  - {lv: 80, size: 6, side: against, original: 'Gengar 80, Dusclops 80, Mismagius 80, Mimikyu 1, Dhelmise 1, Sinistcha 1', iv: 30}
+  # Origin's data has Mimikyu, Dhelmise and Sinistcha at Lv 1 here (a data bug, see the EN guide's known issues);
+  # Arvind 2026-11-24: use Lv 80 like the rest of the team.
+  - {lv: 80, size: 6, side: against, original: 'Gengar 80, Dusclops 80, Mismagius 80, Mimikyu 80, Dhelmise 80, Sinistcha 80', iv: 30}
   - {lv: 88, size: 6, side: against, original: 'Drifblim 87, Gengar 88, Spiritomb 87, Mismagius 88, Dusknoir 88, Shedinja 87', iv: 30}
 - id: gym-grass
   group: Gym leader
