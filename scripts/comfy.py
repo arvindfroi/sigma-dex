@@ -42,11 +42,13 @@ def call(path, data=None, headers=None):
 
 
 def upload(path):
-    """Send a reference picture to ComfyUI's input folder; returns the name it got there."""
+    """Send a reference picture to ComfyUI's input folder; returns the name it got there. Every upload gets its own name
+    (2026-11-24: two workers on one ComfyUI both sent "sigma_start.png" and the like; one overwrote the other's picture before
+    its drawing ran, and a Pokemon's walking sprites came out as another Pokemon)."""
     path = Path(path)
     boundary = uuid.uuid4().hex
     body = (("--%s\r\nContent-Disposition: form-data; name=\"image\"; filename=\"%s\"\r\nContent-Type: application/octet-stream\r\n\r\n"
-             % (boundary, "sigma_" + path.name)).encode() + path.read_bytes()
+             % (boundary, "sigma_%s_%s" % (uuid.uuid4().hex[:10], path.name))).encode() + path.read_bytes()
             + ("\r\n--%s\r\nContent-Disposition: form-data; name=\"overwrite\"\r\n\r\ntrue\r\n--%s--\r\n" % (boundary, boundary)).encode())
     answer = json.loads(call("/upload/image", body, {"Content-Type": "multipart/form-data; boundary=" + boundary}))
     return answer["name"]

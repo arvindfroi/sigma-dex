@@ -691,6 +691,15 @@ def main():
                     log("idle: unloaded the model")
                 except comfy.ComfyError:
                     pass
+                try:                                 # every upload has its own name now (comfy.upload): clear the old ones
+                    old = time.time() - 2 * 86400
+                    gone = [f for f in (Path(COMFY_DIR) / "input").glob("sigma_*") if f.is_file() and f.stat().st_mtime < old] if COMFY_DIR else []
+                    for f in gone:
+                        f.unlink()
+                    if gone:
+                        log("idle: removed %d old uploads from ComfyUI's input folder" % len(gone))
+                except OSError:
+                    pass
                 unloaded = True
             if alone and time.time() - checked > UPDATE_SECONDS:      # newer scripts or style in the repository? restart with them
                 checked = time.time()

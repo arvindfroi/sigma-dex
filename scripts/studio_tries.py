@@ -1002,7 +1002,7 @@ def fit_frame(stage, n, seed, folder, job, inputs, first, log):
         log("try %d of job %d is cut at the %s edge: drawn again%s" % (n, job["id"], "/".join(best_cut), "" if stage.endswith("2") else " at x%.2f" % shrink))
         inputs["shrink"] = shrink
         try:
-            again = STAGES[stage](n, seed + 5000 * k, folder, job, inputs)
+            again = STAGES[stage](n + 100 * k, seed + 5000 * k, folder, job, inputs)   # another n: new file names (the stages reuse a raw that exists)
         finally:
             inputs.pop("shrink", None)
         if again[0] != "done":
@@ -1050,8 +1050,9 @@ def run(job, base, key, post, download, folder, log=print):
     if stage in ("back", "icon", "follower"):
         inputs["front"] = Image.open(download(base, src["image"], folder / "from_front.png")).convert("RGBA")
         parent = src.get("parent") or {}
-        if stage == "back" and parent.get("stage") == "art" and parent.get("image"):
-            inputs["art"] = Image.open(download(base, parent["image"], folder / "from_art.png")).convert("RGBA")
+        art = parent if parent.get("stage") == "art" else (parent.get("parent") or {}) if parent.get("stage") == "front" else {}
+        if stage == "back" and art.get("stage") == "art" and art.get("image"):   # a front drawn on by hand: its front's art (2026-11-24)
+            inputs["art"] = Image.open(download(base, art["image"], folder / "from_art.png")).convert("RGBA")
         elif stage == "back" and job.get("refs"):                # the front was drawn from a chosen picture directly
             inputs["art"] = framed(Image.open(download(base, job["refs"][0], folder / "ref0.png")))
     if stage == "follower":

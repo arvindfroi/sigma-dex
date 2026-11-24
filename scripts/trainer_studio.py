@@ -574,7 +574,13 @@ def run_anim(job, base, key, post, download, folder, log=print):
     sprite = Image.open(download(base, src["image"], folder / "battle.png")).convert("RGBA")
     pal = colours_of(sprite)
     cells = [j for j in script["cells"] if j]
-    drawn = [j for j in cells if j <= len(poses)]          # cells with pose words; the rest show the battle sprite
+    # poses made earlier, maybe for another animation (2026-11-24, Arvind: "jeg vil ikke at de framesa skal være låst til den
+    # animasjonen"): kept as they are, and only the poses this animation still lacks are drawn
+    have = None
+    if settings.get("frames"):
+        have = Image.open(download(base, settings["frames"], folder / "frames_in.png")).convert("RGBA")
+    kept = have.width // 80 if have is not None else 1
+    drawn = [j for j in cells if j <= len(poses) and j >= kept]   # cells with pose words not made yet; the rest show the sprite
     words = words_of(settings)
     extra = " ".join(str(settings.get("extra") or "").split())[:200]
     who = (words + (". " + extra if extra else "")).strip(" .") or "the trainer in image 1"
@@ -608,9 +614,12 @@ def run_anim(job, base, key, post, download, folder, log=print):
                              "recipe": ("anim pair%s %s s%d" % ("+sw%g" % ANIM_SWAP if ANIM_SWAP > 0 else "", cls, seed))[:60], "expected_seconds": ANIM_SECONDS * len(drawn)})
         started = time.time()
         try:
-            strip = Image.new("RGBA", (80 * (max(script["cells"]) + 1), 80), (0, 0, 0, 0))
+            strip = Image.new("RGBA", (80 * max(max(script["cells"]) + 1, kept), 80), (0, 0, 0, 0))
             for j in [0] + [c for c in cells if c not in drawn]:
-                strip.alpha_composite(sprite, (80 * j, 0))
+                if have is not None and j < kept:
+                    strip.alpha_composite(have.crop((80 * j, 0, 80 * j + 80, 80)), (80 * j, 0))
+                else:
+                    strip.alpha_composite(sprite, (80 * j, 0))
             scales = []
             for i, j in enumerate(drawn):
                 post(base, key, {"action": "progress", "job_id": job["id"], "state": "drawing pose %d of %d (animation %d of %d)" % (i + 2, len(drawn) + 1, n, count)})
@@ -639,7 +648,7 @@ def run_anim(job, base, key, post, download, folder, log=print):
                              "note": ("%s animation (%d poses) side by side%s from battle sprite #%s, seed %d, build %s%s%s" % (
                                  script["name"], len(drawn) + 1, " + swap %.2f" % ANIM_SWAP if ANIM_SWAP > 0 else "", src.get("id"), seed, build,
                                  ", size locked x" + "/".join("%.2f" % s for s in shrunk) if shrunk else "",
-                                 ", extra: " + extra if extra else ""))[:300],
+                                 ", extra: " + extra if extra else "") + (", kept %d poses from #%s" % (kept, settings.get("frames_try")) if have is not None else ""))[:300],
                              "seconds": round(time.time() - started, 1)}, {"image": image})
             made += 1
         except Exception as problem:

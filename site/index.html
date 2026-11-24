@@ -5118,6 +5118,11 @@ async function loadClaims() {
   for (const r of pics) { const id = r.species_id.replace(/^trainer-/, ""); if (!trainerPics.has(id)) trainerPics.set(id, []); trainerPics.get(id).push({id: r.id, src: artUrl(r.path), caption: r.caption, editor: r.editor}); }
 }
 const claimOf = id => (claims && claims.get(id)) || {by: "", slots: {}};
+// An NPC can play a role nobody has claimed (2026-11-24, Arvind: "jeg vil kunne assigne npc til de rollene vi ikke har for de
+// som er til overs"; "alle kan gjøre det"): the claim row then has npc (its id) and assigned_by, no by. Its story team works as a
+// person's: anyone may change it. A person who claims the role later takes it over (the story team is kept).
+const roleNpc = cl => (!cl.by && cl.npc && npcs.get(cl.npc)) || null;
+const npcRole = id => (DEX.characters || []).find(c => { const cl = claimOf(c.id); return !cl.by && cl.npc === id; }) || null;
 // A team shown behind a spoiler button: the in-game teams are not secret, but nobody sees them by accident.
 function spoilerTeam(t) {
   if (!t) return h("span", {class: "sub"}, "no team chosen yet");
@@ -5229,7 +5234,7 @@ function charTop(c) {
     h("div", {class: "namebar"}, h("div", {class: "frame no"}, c.group), h("div", {class: "frame"}, h("h3", {}, charName(c).toUpperCase())),
       h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).filter(t => DEX.types.includes(t)).map(typeChip))),
     h("div", {class: "stage"}, pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("div", {class: "noart"}, "NO PICTURE YET")),
-    h("div", {class: "dlg", role: "status"}, (cl.by ? "Claimed by " + person(cl.by) + ". " : "Available: nobody has claimed this trainer yet. ") + (c.place ? c.place.charAt(0).toUpperCase() + c.place.slice(1) + "." : "")));
+    h("div", {class: "dlg", role: "status"}, (cl.by ? "Claimed by " + person(cl.by) + ". " : roleNpc(cl) ? "Played by the NPC " + (roleNpc(cl).name || "NPC") + ". " : "Available: nobody has claimed this trainer yet. ") + (c.place ? c.place.charAt(0).toUpperCase() + c.place.slice(1) + "." : "")));
 }
 // Each trainer has its own page (not a popup), laid out like Showdown's teambuilder: a bar on top, the trainer on the
 // left, the story team as six slots and every battle below it (Arvind, 2026-11-13). Address: #char=<role id>.
@@ -5253,11 +5258,18 @@ function renderCharacterPage(c) {
   const grid = document.getElementById("grid");
   const status = h("div", {class: "hint charstatus", role: "status"});
   const cl = claimOf(c.id), mine = person(me()), isMine = cl.by && mine && person(cl.by) === mine;
-  const saveClaim = async (by, slots, story) => {
+  const npcHere = roleNpc(cl), canTeam = isMine || !!npcHere;       // an NPC's story team: anyone may change it
+  // saveClaim(by, slots, story, how): how = "npc:<id>" puts an NPC in the role, "release" takes it out; with no `how`, a
+  // role an NPC plays keeps its NPC (only its teams change), and an empty `by` otherwise gives the role back.
+  const saveClaim = async (by, slots, story, how) => {
     if (!me()) { status.textContent = "Write your Discord name first."; return; }
     status.textContent = "Saving...";
     const data = Object.assign({}, cl, {by, role: c.id, slots: slots || {}, story: story || cl.story || {lines: []}});
-    if (!by) { data.slots = {}; data.story = {lines: []}; data.name = ""; delete data.sprite; }
+    const toNpc = how && how.startsWith("npc:") ? how.slice(4) : "";
+    if (by) { delete data.npc; delete data.assigned_by; }                       // a person takes the role (from an NPC too)
+    else if (toNpc) { data.npc = toNpc; data.assigned_by = person(me()); data.name = ""; delete data.sprite; data.slots = {}; data.story = {lines: []}; }
+    else if (cl.npc && how !== "release") { data.npc = cl.npc; }
+    else { data.slots = {}; data.story = {lines: []}; data.name = ""; delete data.sprite; delete data.npc; delete data.assigned_by; }
     try { await saveEdit("claim", "claim-" + c.id, data); claims.set(c.id, data); openCharacter(c); }
     catch (err) { status.textContent = /check constraint/i.test(err.message) ? "Claiming is not switched on in the database yet." : err.message; }
   };
@@ -5268,7 +5280,8 @@ function renderCharacterPage(c) {
     h("button", {type: "button", onclick: closeCharacter}, "◀ All characters"),
     h("b", {class: "charname"}, charName(c)), h("span", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).filter(t => DEX.types.includes(t)).map(typeChip)),
     h("span", {class: "grow"}),
-    cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "claimed by " + person(cl.by) + (cl.name ? " (as " + cl.name + ")" : "")) : h("span", {class: "badge avail"}, "available"));
+    cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "claimed by " + person(cl.by) + (cl.name ? " (as " + cl.name + ")" : ""))
+      : npcHere ? h("span", {class: "badge taken"}, "played by the NPC " + (npcHere.name || "NPC")) : h("span", {class: "badge avail"}, "available"));
 
   // ----- left: the trainer, its facts, claiming and the onboarding
   const nameBox = isMine ? h("input", {type: "text", maxlength: 10, value: cl.name || "", placeholder: "Trainer name (max 10)", "aria-label": "Trainer name", style: "max-width:180px"}) : null;
@@ -5303,7 +5316,17 @@ function renderCharacterPage(c) {
       box.focus();
     };
     const note = h("div", {class: "hint", role: "status", style: "margin:6px 0 0"});
-    claimArea.replaceChildren(intro, h("button", {type: "button", class: "primary", onclick: () => me() ? claimNow(note) : askName()}, "Claim this trainer"), note);
+    // or an NPC plays it (anyone may do this; a person can still claim it later)
+    const free = [...npcs.values()].filter(n => !npcRole(n.id)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
+    const pickNpc = h("select", {"aria-label": "NPC"}, h("option", {value: ""}, "Choose an NPC"), free.map(n => h("option", {value: n.id}, (n.name || n.id) + (n.sprite ? "" : " (no sprite yet)"))));
+    const npcBox = npcHere ? h("div", {class: "box", style: "margin-top:8px"},
+      h("div", {}, "Played by the NPC ", h("button", {type: "button", class: "link", onclick: () => openNpc(npcHere.id)}, npcHere.name || "NPC"),
+        cl.assigned_by ? " (put here by " + person(cl.assigned_by) + ")" : "", ". Anyone can build its story team below. If you claim the trainer, the NPC steps out and you keep its story team."),
+      h("button", {type: "button", class: "small", style: "margin-top:6px", onclick: ev => sure(ev.currentTarget, "Really take the NPC out?", () => saveClaim("", {}, null, "release"))}, "Take the NPC out"))
+      : free.length ? h("div", {class: "storyline", style: "margin-top:8px"}, h("span", {class: "sub"}, "Or let one of the group's NPCs play this trainer:"), pickNpc,
+        h("button", {type: "button", onclick: ev => { if (!pickNpc.value) { note.textContent = "Choose an NPC first."; return; }
+          sure(ev.currentTarget, "Really put " + ((npcs.get(pickNpc.value) || {}).name || "it") + " here?", () => saveClaim("", {}, null, "npc:" + pickNpc.value)); }}, "Put the NPC here")) : null;
+    claimArea.replaceChildren(intro, h("button", {type: "button", class: "primary", onclick: () => me() ? claimNow(note) : askName()}, npcHere ? "Claim this trainer (the NPC steps out)" : "Claim this trainer"), note, npcBox);
   }
   const pic = charPic(c);
   const pics = trainerPics.get(c.id) || [];
@@ -5317,16 +5340,16 @@ function renderCharacterPage(c) {
     catch (err) { status.textContent = err.message; }
   });
   const left = h("div", {class: "charside"},
-    h("div", {class: "charstage"}, cl.sprite ? spriteImg(cl.sprite) : pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("span", {class: "charsil"}, "?")),
+    h("div", {class: "charstage"}, cl.sprite ? spriteImg(cl.sprite) : npcHere && npcHere.sprite ? spriteImg(npcHere.sprite) : pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("span", {class: "charsil"}, "?")),
     h("div", {class: "factrows"},
       h("div", {}, h("span", {}, "Role"), c.group),
       h("div", {}, h("span", {}, "Type"), String(c.type || "")),
       c.about ? h("div", {}, h("span", {}, "Story"), c.about.charAt(0).toUpperCase() + c.about.slice(1)) : null,
       h("div", {}, h("span", {}, "Surroundings"), c.place ? c.place.charAt(0).toUpperCase() + c.place.slice(1) : "—"),
       c.rule ? h("div", {}, h("span", {}, "Rule"), c.rule) : null,
-      h("div", {}, h("span", {}, "Battles"), isMine ? String(c.battles || 0) + " (each needs its own team): " + sideCount(c) : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
+      h("div", {}, h("span", {}, "Battles"), canTeam ? String(c.battles || 0) + " (each needs its own team): " + sideCount(c) : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
       c.dialogue ? h("div", {}, h("span", {}, "Dialogue"), talkWord(c) + ": " + c.dialogue.story + " text boxes in the story and " + c.dialogue.battle + " lines in battle, about " + c.dialogue.words.toLocaleString("en") + " words") : null,
-      h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (cl.name ? " (as " + cl.name + ")" : "") : h("span", {class: "badge avail"}, "available"))),
+      h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (cl.name ? " (as " + cl.name + ")" : "") : npcHere ? "the NPC " + (npcHere.name || "NPC") + (cl.assigned_by ? " (put here by " + person(cl.assigned_by) + ")" : "") : h("span", {class: "badge avail"}, "available"))),
     steps, claimArea,
     h("h3", {id: "char-picture"}, "Picture"),
     h("div", {class: "charpics"}, pics.length ? pics.map(p => h("figure", {}, h("img", {src: p.src, alt: "trainer picture"}),
@@ -5349,7 +5372,7 @@ function renderCharacterPage(c) {
   // ----- right: the story team as six slots (Showdown's team row), then every battle
   if (lib.teams === null && DEX.web.url && !lib.error && !lib.loading) { lib.loading = true; loadLibrary().catch(err => { lib.error = err.message; }).then(() => { lib.loading = false; if (charOpen === c.id) openCharacter(c); }); }
   let main;
-  if (!isMine) {
+  if (!canTeam) {
     // Others only see the chosen teams, each behind a spoiler button; levels and counts stay with the owner.
     const chosen = Object.entries(cl.slots || {}).map(([i, tid]) => (lib.teams || []).find(x => x.id === tid)).filter(Boolean);
     main = h("div", {class: "charmain"}, h("h3", {id: "char-team", style: "margin-top:0"}, "Teams"),
@@ -5406,7 +5429,7 @@ function renderCharacterPage(c) {
         h("td", {}, pick, copy));
     })));
     main = h("div", {class: "charmain"},
-      h("h3", {id: "char-team", style: "margin-top:0"}, "Your story team"),
+      h("h3", {id: "char-team", style: "margin-top:0"}, npcHere ? (npcHere.name || "The NPC") + "'s story team" : "Your story team"),
       h("div", {class: "sub"}, "Pick up to 6 evolution lines by their last evolution and rank them (drag them, or use the arrows). No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage and with sensible moves for the level. IVs are set by themselves, exactly as in the original game: low early, high late."),
       slots, story.lines.length < 6 ? storyLinePicker(story, saveStory) : null,
       h("h3", {}, "Every battle"),
@@ -5434,13 +5457,13 @@ function renderCharacters() {
   const card = c => {
     const cl = claimOf(c.id), pic = charPic(c), isMine = cl.by && mine && person(cl.by) === mine;
     return h("button", {type: "button", class: "card charcard " + (cl.by ? (isMine ? "mine" : "taken") : "avail"), onclick: () => openCharacter(c)},
-      h("div", {class: "charthumb"}, cl.sprite ? spriteImg(cl.sprite, "") : pic ? h("img", {src: pic.src, alt: ""}) : h("span", {class: "charsil"}, "?")),
-      h("b", {}, charName(c)), cl.name ? h("div", {}, "\u201c" + cl.name + "\u201d") : null,
+      h("div", {class: "charthumb"}, cl.sprite ? spriteImg(cl.sprite, "") : roleNpc(cl) && roleNpc(cl).sprite ? spriteImg(roleNpc(cl).sprite, "") : pic ? h("img", {src: pic.src, alt: ""}) : h("span", {class: "charsil"}, "?")),
+      h("b", {}, charName(c)), cl.name ? h("div", {}, "\u201c" + cl.name + "\u201d") : roleNpc(cl) ? h("div", {}, "\u201c" + (roleNpc(cl).name || "NPC") + "\u201d") : null,
       h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
       h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "")),
       c.dialogue ? h("div", {class: "sub"}, "💬 " + talkWord(c)) : null,
       cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "taken by " + person(cl.by))
-        : h("span", {class: "badge avail"}, "available"));
+        : roleNpc(cl) ? h("span", {class: "badge taken"}, "NPC: " + (roleNpc(cl).name || "NPC")) : h("span", {class: "badge avail"}, "available"));
   };
   grid.replaceChildren(h("div", {style: "grid-column:1/-1"},
     CLAIMS_OPEN ? null : h("div", {class: "notice info"}, h("b", {}, "Work in progress. "), "Claiming is closed for now. Soon each trainer gets your own picture and the teams you fight with."),
@@ -5680,8 +5703,13 @@ function trainerStudio(slot, opts) {
     const m = /^anim\b(?:\s+\S*[^\d\s]\S*)*\s+(\d{1,3})(?:\s|$)/.exec(t.recipe || "");
     return m ? Number(m[1]) : 0;
   };
-  const pickedAnim = () => { const b = picked(); return b && st.animScript ? st.animTries.filter(t => t.picked && usable(t) && sameBattle(t.parent_try, b.id) && animOf(t) === st.animScript)
+  // The poses and the animation are chosen apart (2026-11-24, Arvind: "jeg vil ikke at de framesa skal være låst til den
+  // animasjonen ... jeg vil teste det på andre scripts"): the picked set of poses of the picked battle sprite, whatever script
+  // it was drawn for, plays with the script chosen now; a script that needs more poses repeats pose 1 until MAKE draws them.
+  const pickedAnim = () => { const b = picked(); return b && st.animScript ? st.animTries.filter(t => t.picked && usable(t) && sameBattle(t.parent_try, b.id))
     .sort((a, b2) => String(b2.picked_at).localeCompare(String(a.picked_at)))[0] || null : null; };
+  const posesIn = t => { const a = t && trainerAnim(animOf(t)); return a ? Math.max(...a.cells) + 1 : 1; };            // frames in a set's strip
+  const missingFor = (t, a) => a ? [...new Set(a.cells)].filter(j => j >= posesIn(t)).sort((x, y) => x - y) : [];     // the script's poses the set lacks
   // Step BACK: the picked back (frame 1) of the picked battle sprite, and the picked throw drawn from that back.
   const backBattle = t => { const m = new Map(st.backTries.map(x => [x.id, x])); let x = t; for (let i = 0; i < 20 && m.has(x.parent_try); i++) x = m.get(x.parent_try); return x.parent_try; };
   const pickedBack = () => { const b = picked(); return b ? st.backTries.filter(t => t.picked && usable(t) && sameBattle(backBattle(t), b.id))
@@ -5996,9 +6024,9 @@ function trainerStudio(slot, opts) {
     const d = /denoise ([\d.]+)/.exec(t.note || ""), sd = /seed (\d+)/.exec(t.note || "");
     return h("div", {class: "tile" + (on ? " inuse" : "") + (t.status === "broken" ? " broken" : "")},
       h("button", {type: "button", class: "tilepic", disabled: !t.image, title: on ? "Picked" : "Pick this one", onclick: () => !on && pick(t)},
-        t.image ? animPlayer(artUrl(t.image), trainerAnim(animOf(t)), 1) : h("span", {class: "sub"}, "failed"),
+        t.image ? animPlayer(artUrl(t.image), trainerAnim(st.animScript) || trainerAnim(animOf(t)), 1) : h("span", {class: "sub"}, "failed"),
         on ? h("span", {class: "tag"}, saved ? "SAVED" : "PICKED") : saved ? h("span", {class: "tag"}, "SAVED") : null),
-      h("div", {class: "tilenote"}, d ? (Number(d[1]) >= 0.7 ? "bolder poses" : "closer to your sprite") : sd ? "variant " + (Number(sd[1]) === 1 ? 1 : Number(sd[1]) % 100) : ""),
+      h("div", {class: "tilenote"}, posesIn(t) + " poses, made for " + ((trainerAnim(animOf(t)) || {}).name || "?") + (sd ? " · variant " + (Number(sd[1]) === 1 ? 1 : Number(sd[1]) % 100) : d ? (Number(d[1]) >= 0.7 ? " · bolder" : " · closer") : "")),
       t.image ? h("div", {class: "tilenote"}, h("img", {class: "px", src: artUrl(t.image), alt: "the poses", style: "height:40px;max-width:100%"})) : null,
       t.image ? edgeWarn(artUrl(t.image), 80) : null);
   }
@@ -6011,33 +6039,39 @@ function trainerStudio(slot, opts) {
     count.addEventListener("change", () => { st.animCount = Number(count.value); });
     const extra = h("input", {type: "text", maxlength: 200, value: st.animExtra, placeholder: "e.g. keeps the staff in every pose", "aria-label": "Words for the poses only", style: "width:100%"});
     extra.addEventListener("input", () => { st.animExtra = extra.value; });
+    const set = pickedAnim(), missing = missingFor(set, cur);
     const btn = h("button", {type: "button", class: "primary", disabled: from && cur ? null : "", onclick: async () => {
       btn.disabled = true;
-      try { await dbCall("request_trainer_anim", {p_try: from.id, p_script: st.animScript, p_count: st.animCount, p_editor: me(), p_extra: st.animExtra.trim() || null}); noteMine(slot); await load(); }
+      try { await dbCall("request_trainer_anim", Object.assign({p_try: from.id, p_script: st.animScript, p_count: st.animCount, p_editor: me(), p_extra: st.animExtra.trim() || null},
+          set && missing.length ? {p_frames: set.id} : {})); noteMine(slot); await load(); }
       catch (err) { fail(err); }
       btn.disabled = false;
-    }}, "MAKE");
+    }}, set && missing.length ? "MAKE THE MISSING POSES" : "MAKE NEW POSES");
     const waiting = [];
-    for (const j of mine().filter(j => j.stage === "anim" && j.recipe === "anim:" + st.animScript)) for (let k = st.animTries.filter(t => t.job_id === j.id).length; k < (j.count || 1); k++) waiting.push({waiting: true});
-    const list = from && cur ? st.animTries.filter(t => t.status !== "failed" && sameBattle(t.parent_try, from.id) && animOf(t) === st.animScript).sort((a, b) => b.id - a.id) : [];
+    for (const j of mine().filter(j => j.stage === "anim")) for (let k = st.animTries.filter(t => t.job_id === j.id).length; k < (j.count || 1); k++) waiting.push({waiting: true});
+    const list = from ? st.animTries.filter(t => t.status !== "failed" && sameBattle(t.parent_try, from.id)).sort((a, b) => b.id - a.id) : [];
     // Each card plays the animation (2026-11-24, Arvind: "vi burde ha en måte å se og vite det"): the game's own poses with
     // the script's moves, and next to it your battle sprite with the same moves (the poses come when MAKE draws them).
     const posesSheet = DEX.trainer_anims && DEX.trainer_anims.poses ? artUrl(DEX.trainer_anims.poses) : null;
     const card = a => h("button", {type: "button", class: "tanim" + (st.animScript === a.cls ? " on" : ""), "aria-pressed": String(st.animScript === a.cls), onclick: () => choose(a.cls)},
       h("b", {}, a.name), a.cls === suggest ? h("span", {class: "tag"}, "YOUR BASE") : null,
       posesSheet ? h("span", {class: "tanimpv"}, h("span", {}, animPlayer(posesSheet, a, 0.8, {row: trainerAnims().indexOf(a)}), h("i", {}, "the game")),
-        from ? h("span", {}, animPlayer(artUrl(from.image), a, 0.8), h("i", {}, "yours")) : null) : null,
+        from ? h("span", {}, animPlayer(artUrl((pickedAnim() || from).image), a, 0.8), h("i", {}, pickedAnim() ? "your poses" + (missingFor(pickedAnim(), a).length ? " (+" + missingFor(pickedAnim(), a).length + " missing)" : "") : "yours")) : null) : null,
       h("span", {class: "sub"}, a.poses + " poses · " + a.seconds + " s"), h("span", {}, a.shows), h("span", {class: "sub"}, a.moves));
     const scripts = trainerAnims().slice().sort((a, b) => (b.cls === suggest) - (a.cls === suggest));
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "anim").what),
       !from ? h("div", {class: "empty"}, "Pick a battle sprite in 3 FRONT first.") : h("div", {class: "tanimtop"},
         h("div", {class: "grass"}, cur ? animPlayer(artUrl((pickedAnim() || {}).image || from.image), cur, 2) : h("img", {class: "px", src: artUrl(from.image), alt: "battle sprite", style: "width:160px"})),
-        h("div", {class: "sub"}, cur ? (pickedAnim() ? "Your trainer with the picked poses." : "The moves of " + cur.name + "'s animation on your sprite. MAKE draws the " + (cur.poses - 1) + " other pose" + (cur.poses > 2 ? "s" : "") + ".")
+        h("div", {class: "sub"}, cur ? (set ? "Your poses (" + posesIn(set) + ", made for " + ((trainerAnim(animOf(set)) || {}).name || "another animation") + ") played with " + cur.name + "'s animation. " +
+            (missing.length ? cur.name + " needs " + (Math.max(...cur.cells) + 1) + " poses: pose" + (missing.length > 1 ? "s " : " ") + missing.map(j => j + 1).join(", ") + (missing.length > 1 ? " show" : " shows") + " pose 1 for now. MAKE draws only the missing one" + (missing.length > 1 ? "s" : "") + " and keeps yours."
+              : "It has all the poses it needs: pick it and save.")
+            : "The moves of " + cur.name + "'s animation on your sprite. MAKE draws the " + (cur.poses - 1) + " other pose" + (cur.poses > 2 ? "s" : "") + ".")
           : "No animation: your trainer stands still, like most trainers.")),
       from && cur ? h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the poses only (optional)"), extra) : null,
       from && cur ? h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "anim") * st.animCount) + ")")) : null,
-      from && cur ? h("div", {class: "tiles"}, waiting.map(animTile), list.slice(0, 12).map(animTile)) : null,
+      from && (list.length || waiting.length) ? h("div", {class: "hint"}, "Your sets of poses (tap one to use it; each plays with the animation chosen below):") : null,
+      from ? h("div", {class: "tiles"}, waiting.map(animTile), list.slice(0, 12).map(animTile)) : null,
       h("div", {class: "hint"}, "Pick an animation:"),
       h("div", {class: "tanims", role: "list"}, h("button", {type: "button", class: "tanim" + (!st.animScript ? " on" : ""), "aria-pressed": String(!st.animScript), onclick: () => choose(0)},
         h("b", {}, "NONE"), h("span", {}, "Stands still, like most trainers.")), scripts.map(card)));
@@ -6389,8 +6423,37 @@ function renderNpcPage(n) {
       async () => { await save({deleted: true}); closeNpc(); })}, "Delete NPC"));
   const main = h("div", {class: "charmain"}, h("h3", {style: "margin-top:0"}, "Trainer studio"),
     trainerSpriteBox(n.id, {kind: "npc", name: n.name, pics: [], current: n.sprite, onPick: async sprite => { await saveNpc(n, {sprite}); n = npcs.get(n.id); },
-      onClose: () => { if (npcOpen === n.id) renderNpcPage(npcs.get(n.id) || n); }}));
+      onClose: () => { if (npcOpen === n.id) renderNpcPage(npcs.get(n.id) || n); }}),
+    npcBattles(n, status));
   grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, h("div", {class: "charcols"}, left, main)));
+}
+// Where an NPC battles (2026-11-24, Arvind: "de spillerene VI kan ta i gjengen kommer ikke til å fylles opp. så da kan vi plassere
+// våres npc på de ledige ... så vi legger bare inn story lagene også blir resten gjort for oss"; "alle kan gjøre det"): an NPC
+// plays a trainer role nobody has claimed, with that role's story team, levels and battles, as a person who claims it.
+function npcBattles(n, status) {
+  const role = npcRole(n.id);
+  if (role) {
+    const cl = claimOf(role.id);
+    return h("div", {class: "box", style: "margin-top:14px"}, h("h3", {style: "margin-top:0"}, "Battles"),
+      h("div", {}, (n.name || "This NPC") + " plays ", h("button", {type: "button", class: "link", onclick: () => openCharacter(role, "team")}, charName(role)),
+        " (" + (role.battles || 0) + " battles)" + (cl.assigned_by ? ", put there by " + person(cl.assigned_by) : "") + ". Its story team is built on that page; anyone can change it."));
+  }
+  if (claims === null) { loadClaims().then(() => { if (npcOpen === n.id) renderNpcPage(npcs.get(n.id) || n); }).catch(() => {}); return h("div", {class: "sub"}, "Loading the roles..."); }
+  const free = (DEX.characters || []).filter(c => { const cl = claimOf(c.id); return !cl.by && !cl.npc; });
+  const roleSel = h("select", {"aria-label": "Role"}, h("option", {value: ""}, "Choose a trainer nobody has claimed"),
+    free.map(c => h("option", {value: c.id}, charName(c) + " (" + roughBattles(c.battles || 0) + ")")));
+  const putRole = async () => {
+    const c = free.find(x => x.id === roleSel.value); if (!c) { status.textContent = "Choose a trainer first."; return; }
+    if (!me()) { status.textContent = "Write your Discord name first."; return; }
+    status.textContent = "Saving...";
+    const data = Object.assign({}, claimOf(c.id), {by: "", role: c.id, npc: n.id, assigned_by: person(me()), slots: {}, story: {lines: []}, name: ""});
+    try { await saveEdit("claim", "claim-" + c.id, data); claims.set(c.id, data); status.textContent = ""; openCharacter(c, "team"); }
+    catch (err) { status.textContent = err.message; }
+  };
+  return h("div", {class: "box", style: "margin-top:14px"}, h("h3", {style: "margin-top:0"}, "Battles"),
+    h("div", {class: "sub"}, "Put " + (n.name || "this NPC") + " on one of the trainers nobody in the group has claimed: it then fights that trainer's battles, with a story team you build on the trainer's page (the levels, sizes and moves are made for you). A person who claims the trainer later takes it over and keeps the story team."),
+    free.length ? h("div", {class: "storyline"}, roleSel, h("button", {type: "button", onclick: ev => sure(ev.currentTarget, "Really put " + (n.name || "it") + " there?", putRole)}, "Put it there"))
+      : h("div", {class: "sub"}, "Every trainer is taken."));
 }
 function npcSection() {
   const list = [...npcs.values()].sort((a, b) => String(a.name).localeCompare(String(b.name)));
