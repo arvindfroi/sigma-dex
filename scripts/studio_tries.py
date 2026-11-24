@@ -667,7 +667,10 @@ def try_back_klein(n, seed, folder, job, inputs):
             art = front
         framed(art).save(folder / "k_art640.png")
         fit_white(art).save(folder / "k_art.png")
-        fit_white(rear_drawing(folder, folder / "k_art640.png", job["id"] * 100), smooth=True).save(folder / "k_hint.png")
+        if inputs.get("back_ref") is not None:   # a back to keep the look of (2026-11-25: the cut backs redrawn; their sticking-out
+            on_white(inputs["back_ref"]).save(folder / "k_hint.png")      # parts must stay): image 3 = that back, not a drawing from behind
+        else:
+            fit_white(rear_drawing(folder, folder / "k_art640.png", job["id"] * 100), smooth=True).save(folder / "k_hint.png")
     shrink = inputs.get("shrink") or 1.0
     kfront, text = folder / "k_front.png", BACK_K.format(hint=BACK_HINT, about=about(job, words, move=False))
     if shrink != 1.0:                    # a redraw after the edge check: a smaller front as image 1 and "not so big" words
@@ -1055,6 +1058,13 @@ def run(job, base, key, post, download, folder, log=print):
             inputs["art"] = Image.open(download(base, art["image"], folder / "from_art.png")).convert("RGBA")
         elif stage == "back" and job.get("refs"):                # the front was drawn from a chosen picture directly
             inputs["art"] = framed(Image.open(download(base, job["refs"][0], folder / "ref0.png")))
+    if stage == "back":                                          # the website (or a batch) may name a back to keep the look of
+        try:
+            ref = (json.loads(job.get("prompt") or "{}") or {}).get("back_ref")
+        except (ValueError, AttributeError):
+            ref = None
+        if ref:
+            inputs["back_ref"] = Image.open(download(base, ref, folder / "back_ref.png")).convert("RGBA")
     if stage == "follower":
         other = job.get("with_try") or {}
         if not other.get("image"):
