@@ -761,6 +761,8 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .edgewarn[hidden] { display: none; }
 .tfields { margin-top: 14px; }
 .tfields h3 { margin: 0 0 4px; }
+.tmore { margin-top: 8px; }
+.tmore summary { cursor: pointer; color: var(--muted); }
 .tfieldgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 6px 10px; }
 .tfieldgrid .field { display: flex; flex-direction: column; gap: 2px; }
 .tfieldgrid .field.wide { grid-column: span 2; }
@@ -5498,12 +5500,15 @@ const TSTEPS = [
   {id: "save", n: "✓", label: "SAVE", c: "purple", what: "How your trainer looks in a battle and on the map."}];
 // The words about the trainer (2026-11-24, Arvind: "lag fields vi kan fylle ut"): the same fields as the tested recipe
 // (trainer_swap.py), each with an example; the drawing PC puts them in its text (scripts/trainer_studio.py battle_text).
-const TFIELDS = [["who", "Who", "a young man, an old woman, a girl of about 10"], ["cls", "Role", "Gym Leader, Ace Trainer, Hiker, Team Rocket"],
+const TFIELDS = [["who", "Who", "a young man, an old woman, a girl of about 10"],
   ["skin", "Skin", "light skin, tanned skin, dark brown skin, a pale made-up face"], ["hair", "Hair", "spiky white hair with a red streak, a golden band on the forehead"],
   ["clothes", "Clothes", "a long white cape with a high collar, a black sleeveless vest, black trousers, brown boots"],
   ["extra", "Extras", "glasses, a golden gauntlet on the right arm, a scar on the cheek"], ["held", "Holds", "a Poke Ball, a wooden staff, a big wrench"],
-  ["build", "Build", "slim, athletic, stout, very tall, small"], ["mood", "Mood", "a menacing grin, calm, cheerful"],
-  ["pose", "Pose", "empty = the base's pose; or e.g. standing wide, both hands raised like claws"], ["facing", "Facing", "empty = as the base; or e.g. facing the viewer"]];
+  ["build", "Build", "slim, athletic, stout, very tall, small"]];
+// 2026-11-24 (Arvind: "alle disse er litt mye ... man vet ikke enda hva slag trener ... 'facing' skjønte jeg ikke"): no Role (the
+// base's class goes in the text), and pose, which way they turn and mood are tucked away; empty = as the base, a neutral mood
+const TFIELDS_MORE = [["pose", "Pose", "empty = the base's pose; or e.g. standing wide, both hands raised like claws"],
+  ["facing", "Which way they turn", "empty = like the base; or e.g. facing straight at you"], ["mood", "Mood", "a menacing grin, calm, cheerful"]];
 const NPC_WALK = {up: [9, 8], down: [11, 12], left: [1, 3], right: [4, 5]};   // frames of the game's 16-frame NPC sheet (2 steps each)
 const BATTLE_ROWS = "1890b02090b82090b82090b84098b85898b8609cb868a0b868a0b868a0b85898b83098c83098c82890c01888c01090c81090c81090c81090c81890c81890c82888c02878a02878a03080a83080a83080a83080a83080b83080b83080b83088c03098c858a0c068a0bc88b8d8a8c8d8e0e8f0e0e8f0f0f0f8e0e8f0d8e0d8d8e0d8b8d0c898b8b078a8a068a08868a08850907840907840907850907858988068a08880a89880a89890b8a0f8f0e0383838383838f8f0e0e0e0d0e0d8d0d8d8c8d0d8c8d0d0c8d0d0c0c8c8c0c0c8b8c0c8b8b8c0b0b8b8b0b8b8b0b0b0a8b0b0a8a8a8a0a0a898a0a89898a09898a090989890989888909080909088888878888878888880808070808070787868707068707068686860686858686858686858606050606050606050606050606050606050585848585848585848585848585848505040585040585040585040505040505040505040505040505040505040505040505040505040505040505040505040505040505040505040505040505040505040505040606050606050746c70a898a0a898a0a898a0a898a0e8e0e8e8e0e8e8e0e8e8e0e8e8e0e8e8e0e8e8e0e8";   // battle background colour per row (see battle() in the trainer studio)
 const tstudios = new Map();          // slot -> what the person has chosen so far (kept while they move around the site)
@@ -5836,19 +5841,23 @@ function trainerStudio(slot, opts) {
   }
   // the description as filled in now, for every step (2026-11-24: a back of a battle sprite made before the fields existed got
   // no description and drew a hoodie instead of the cape); null when nothing is filled in (then the battle sprite's own words)
-  const fieldsNow = () => { const o = {}; for (const [k] of TFIELDS) { const v = String(st.fields[k] || "").trim().slice(0, 240); if (v) o[k] = v; } return Object.keys(o).length ? o : null; };
+  const fieldsNow = () => { const o = {}; for (const [k] of TFIELDS.concat(TFIELDS_MORE)) { const v = String(st.fields[k] || "").trim().slice(0, 240); if (v) o[k] = v; } return Object.keys(o).length ? o : null; };
   // the words about the trainer: one box per field, kept on this device until MAKE sends them
   function fieldsBox() {
     const filled = () => TFIELDS.filter(([k]) => (st.fields[k] || "").trim()).length + " of " + TFIELDS.length + " filled";
     const counter = h("span", {class: "sub"}, filled());
+    const box = ([k, label, ex]) => {
+      const input = h("input", {type: "text", maxlength: 240, value: st.fields[k] || "", placeholder: "e.g. " + ex, "aria-label": label});
+      input.addEventListener("input", () => { st.fields[k] = input.value; remember.set("trainer-fields-" + slot, JSON.stringify(st.fields)); counter.textContent = filled(); });
+      return h("label", {class: "field" + (["clothes", "hair", "extra", "pose", "facing"].includes(k) ? " wide" : "")}, h("span", {}, label), input);
+    };
+    const moreN = TFIELDS_MORE.filter(([k]) => (st.fields[k] || "").trim()).length;
     return h("div", {class: "tfields"},
       h("h3", {}, "DESCRIBE " + (npc ? "YOUR CHARACTER" : "YOURSELF") + " ", counter),
-      h("div", {class: "hint", style: "margin-top:0"}, "Say what the picture shows, in plain words: the drawing PC follows the words for details (hair, clothes, what they hold) and the picture for the face and colours. Fill in what you can; Pose and Facing can stay empty."),
-      h("div", {class: "tfieldgrid"}, TFIELDS.map(([k, label, ex]) => {
-        const box = h("input", {type: "text", maxlength: 240, value: st.fields[k] || "", placeholder: "e.g. " + ex, "aria-label": label});
-        box.addEventListener("input", () => { st.fields[k] = box.value; remember.set("trainer-fields-" + slot, JSON.stringify(st.fields)); counter.textContent = filled(); });
-        return h("label", {class: "field" + (["clothes", "hair", "extra", "pose"].includes(k) ? " wide" : "")}, h("span", {}, label), box);
-      })));
+      h("div", {class: "hint", style: "margin-top:0"}, "Say what the picture shows, in plain words: the drawing PC follows the words for details (hair, clothes, what they hold) and the picture for the face and colours. Fill in what you can."),
+      h("div", {class: "tfieldgrid"}, TFIELDS.map(box)),
+      h("details", {class: "tmore", open: moreN ? "" : null}, h("summary", {}, "More (optional): pose, which way they turn, mood"),
+        h("div", {class: "sub"}, "Leave these empty and the base decides."), h("div", {class: "tfieldgrid"}, TFIELDS_MORE.map(box))));
   }
 
   // ----- 2 BASE
@@ -5903,7 +5912,7 @@ function trainerStudio(slot, opts) {
     noteMine(slot);
     try {
       const words = st.words.trim().slice(0, 400), described = {};
-      for (const [k] of TFIELDS) { const v = String(st.fields[k] || "").trim().slice(0, 240); if (v) described[k] = v; }
+      for (const [k] of TFIELDS.concat(TFIELDS_MORE)) { const v = String(st.fields[k] || "").trim().slice(0, 240); if (v) described[k] = v; }
       for (const b of [st.base].concat(st.more.filter(id => id !== st.base && trainerBase(id))))      // each base its own job
         await dbCall("request_trainer", {p_slot: slot, p_base: b, p_strength: st.strength, p_count: st.count, p_fields: Object.assign({}, described, words ? {words} : {}, st.width !== 1 ? {width: st.width.toFixed(2)} : {}, st.height !== 1 ? {height: st.height.toFixed(2)} : {}, st.flip ? {flip: "1"} : {}),
           p_photo: st.ref ? null : st.photo.id, p_ref: st.ref || null, p_editor: me()});
