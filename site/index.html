@@ -719,6 +719,13 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .storycard.star { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold); background: var(--soft); }
 .storycard .crown { font-size: 22px; line-height: 1; }
 .storycard .lvl { font-size: 11px; }
+.storycard .whenbtn { font-size: 11px; }
+.storycard.when { grid-column: span 2; }
+.whenrows { display: flex; flex-direction: column; gap: 2px; align-self: stretch; }
+.whenrow { display: grid; grid-template-columns: 58px 24px 1fr; align-items: center; gap: 3px; padding: 1px 3px; min-height: 0; font-size: 11px; border-width: 1px; text-align: left; }
+.whenrow.on { border-color: var(--gold); }
+.whenrow .mini { width: 24px; height: 24px; object-fit: contain; }
+.storyview { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
 .storypick { margin-top: 8px; border: 2px solid var(--line); background: var(--panel); padding: 6px; }
 .storypickhead { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-bottom: 6px; }
 .storypickhead input { flex: 1 1 200px; }
@@ -5204,12 +5211,20 @@ function storyMoves(sid, level) {
   for (const p of picks) if (p[0] <= level) best = p;
   return best ? {moves: best[1], role: best[2]} : {moves: [], role: ""};
 }
-function storyTeam(c, story, i) {
+// A story slot is a line (its last evolution's id) or a line that depends on a story choice (2026-11-24, Arvind: "man kan
+// designere slot basert på ting som valg av starter"): {when: "starter", options: {leafing: id, torchbat: id, waffy: id}} = the
+// line the trainer has when the player picked that starter (a rival who counter-picks). The game build picks per battle record.
+const STORY_WHEN = {starter: {label: "the player's starter", options: [["leafing", "Leafing"], ["torchbat", "Torchbat"], ["waffy", "Waffy"]]}};
+let storyView = "leafing";                                      // which starter the page shows the team for
+const slotLine = (entry, cond) => !entry ? "" : typeof entry === "string" ? entry
+  : (entry.options || {})[cond] || Object.values(entry.options || {}).find(Boolean) || "";
+const slotIds = entry => !entry ? [] : typeof entry === "string" ? [entry] : Object.values(entry.options || {}).filter(Boolean);
+function storyTeam(c, story, i, cond) {
   const b = (c.teams || [])[i];
   if (!b || !story || !(story.lines || []).length) return [];
   const levels = String(b.original || "").split(",").map(x => Number((x.trim().match(/(\d+)$/) || [])[1])).filter(Boolean).sort((x, y) => y - x);
   const n = Math.min(b.size || levels.length || 1, story.lines.length);
-  return story.lines.slice(0, n).map((finalId, k) => {
+  return story.lines.slice(0, n).map(e => slotLine(e, cond || storyView)).map((finalId, k) => {
     const level = levels[k] || b.lv, sid = stageAt(storyChain(finalId), level), s = byId.get(sid);
     const ab = (s && s.data.abilities) || {};
     return {species: sid, level, iv: Number.isInteger(b.iv) ? b.iv : 31, ability: ab.primary || "", ...storyMoves(sid, level)};
@@ -5407,52 +5422,69 @@ function renderCharacterPage(c) {
     // it; No. 1, the star, wears the crown. Each card shows the line's levels from its first to its last battle.
     const lineLevels = k => { const lv = []; plan.forEach((b, i) => { const team = storyTeam(c, story, i); if (team[k]) lv.push(team[k].level); }); return lv; };
     const pickBox = h("div", {class: "storypick", hidden: ""});
-    const openPick = k => {
-      const cur = story.lines[k];
+    const anyWhen = story.lines.some(e => e && typeof e === "object");
+    const openPick = (k, opt) => {
+      const entry = story.lines[k], cur = opt ? (entry && entry.options || {})[opt] : typeof entry === "string" ? entry : "";
       const finals = DEX.species.filter(x => !(x.data.evolutions || []).some(e => e && byId.has(e.into)));
       const search = h("input", {type: "search", placeholder: "Search: its last evolution, a type or an earlier stage", "aria-label": "Search for a line"});
       const list = h("div", {class: "storypicklist", role: "list"});
+      const used = new Set(story.lines.flatMap(slotIds));
       const choose = id => {
-        const lines = story.lines.slice(), at = lines.indexOf(id);
-        if (k < lines.length) { if (at >= 0) lines[at] = lines[k]; lines[k] = id; }          // a line already in the team swaps places
-        else if (at < 0) lines.push(id);
+        const lines = story.lines.slice();
+        if (opt) { lines[k] = {when: entry.when, options: Object.assign({}, entry.options, {[opt]: id})}; }
+        else if (k < lines.length) { const at = lines.findIndex(e => e === id); if (at >= 0) lines[at] = lines[k]; lines[k] = id; }   // a line already in the team swaps places
+        else if (!used.has(id)) lines.push(id);
         pickBox.hidden = true; saveStory(lines.slice(0, 6));
       };
       const fill = () => {
         const q = search.value.trim().toLowerCase();
         const rows = finals.filter(x => !q || (storyChain(x.id).map(nameOf).join(" ") + " " + (x.data.types || []).join(" ")).toLowerCase().includes(q)).slice(0, 60);
-        list.replaceChildren(...rows.map(x => { const p = portrait(x), inTeam = story.lines.includes(x.id);
+        list.replaceChildren(...rows.map(x => { const p = portrait(x), inTeam = used.has(x.id);
           return h("button", {type: "button", class: "storypickrow" + (x.id === cur ? " on" : ""), onclick: () => choose(x.id)},
             p ? h("img", {class: p.pixel ? "px" : null, src: p.src, alt: ""}) : h("span", {class: "letter"}, (x.data.name || "?")[0]),
             h("b", {}, x.data.name), h("span", {class: "types"}, (x.data.types || []).map(typeChip)),
-            h("span", {class: "sub"}, storyChain(x.id).map(nameOf).join(" → ") + (inTeam && x.id !== cur ? " · in the team (swaps)" : ""))); }),
+            h("span", {class: "sub"}, storyChain(x.id).map(nameOf).join(" → ") + (inTeam && x.id !== cur ? " · in the team" + (opt ? "" : " (swaps)") : ""))); }),
           rows.length ? "" : h("div", {class: "sub"}, "Nothing found."));
       };
       search.addEventListener("input", fill);
       fill();
-      pickBox.replaceChildren(h("div", {class: "storypickhead"}, h("b", {}, cur ? "Slot " + (k + 1) + ": swap " + nameOf(cur) : "Slot " + (k + 1) + ": add a line"), search,
-          cur ? h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; saveStory(story.lines.filter(x => x !== cur)); }}, "Remove") : null,
+      const optLabel = opt ? (STORY_WHEN[entry.when].options.find(o => o[0] === opt) || [opt, opt])[1] : "";
+      pickBox.replaceChildren(h("div", {class: "storypickhead"},
+          h("b", {}, "Slot " + (k + 1) + (opt ? " if the player took " + optLabel : "") + ": " + (cur ? "swap " + nameOf(cur) : "add a line")), search,
+          cur && !opt ? h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; saveStory(story.lines.filter((_, i) => i !== k)); }}, "Remove") : null,
           h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; }}, "Close")), list);
       pickBox.hidden = false; search.focus(); pickBox.scrollIntoView({block: "nearest"});
     };
+    // a slot that depends on the player's starter, and back to one line for all
+    const toWhen = k => { const id = story.lines[k], lines = story.lines.slice();
+      lines[k] = {when: "starter", options: Object.fromEntries(STORY_WHEN.starter.options.map(([o]) => [o, id]))}; saveStory(lines); };
+    const toOne = k => { const lines = story.lines.slice(); lines[k] = slotLine(lines[k], storyView); saveStory(lines); };
+    const mini = id => { const s2 = byId.get(id), p = s2 && portrait(s2); return p ? h("img", {class: (p.pixel ? "px " : "") + "mini", src: p.src, alt: ""}) : h("span", {class: "letter mini"}, (nameOf(id) || "?")[0]); };
     const slots = h("div", {class: "tslots storyslots"}, Array.from({length: 6}, (_, k) => {
-      const id = story.lines[k];
-      if (!id) return h("button", {type: "button", class: "tslot empty storyadd", title: "Add a line", onclick: () => openPick(Math.min(k, story.lines.length))},
+      const entry = story.lines[k];
+      if (!entry) return h("button", {type: "button", class: "tslot empty storyadd", title: "Add a line", onclick: () => openPick(Math.min(k, story.lines.length))},
         h("span", {class: "plus"}, "+"), h("span", {class: "sub"}, k === 0 ? "your star" : "add a line"));
-      const s = byId.get(id), p = s && portrait(s), lv = lineLevels(k);
-      const card = h("div", {class: "tslot storycard" + (k === 0 ? " star" : ""), role: "button", tabindex: "0", title: "Tap to swap or remove; drag to change the order",
-          onclick: ev => { if (card.dataset.dragged || ev.target.closest(".slotbtns")) return; openPick(k); },
-          onkeydown: ev => { if (ev.key === "Enter") openPick(k); }},
+      const id = slotLine(entry, storyView), s = byId.get(id), p = s && portrait(s), lv = lineLevels(k), when = typeof entry === "object" && STORY_WHEN[entry.when];
+      const card = h("div", {class: "tslot storycard" + (k === 0 ? " star" : "") + (when ? " when" : ""), role: "button", tabindex: "0", title: when ? "Drag to change the order" : "Tap to swap or remove; drag to change the order",
+          onclick: ev => { if (card.dataset.dragged || ev.target.closest(".slotbtns, .whenrows, .whenbtn")) return; if (!when) openPick(k); },
+          onkeydown: ev => { if (ev.key === "Enter" && !when) openPick(k); }},
         k === 0 ? h("span", {class: "crown", "aria-label": "star"}, "👑") : h("span", {class: "badge"}, "#" + (k + 1)),
         p ? h("img", {class: p.pixel ? "px" : null, src: p.src, alt: ""}) : h("span", {class: "letter"}, (nameOf(id) || "?")[0]),
         h("span", {class: "nm"}, nameOf(id)), h("span", {class: "types"}, ((s && s.data.types) || []).map(typeChip)),
-        h("span", {class: "sub", style: "font-size:11px;text-align:center"}, storyChain(id).map(nameOf).join(" → ")),
+        when ? h("span", {class: "whenrows"}, h("span", {class: "sub"}, "depends on " + when.label + ":"),
+            when.options.map(([o, label]) => h("button", {type: "button", class: "whenrow" + (o === storyView ? " on" : ""), title: "The line if the player took " + label + " (tap to change)", onclick: () => openPick(k, o)},
+              h("span", {class: "sub"}, label), mini(entry.options[o]), h("span", {}, nameOf(entry.options[o]) || "choose"))))
+          : h("span", {class: "sub", style: "font-size:11px;text-align:center"}, storyChain(id).map(nameOf).join(" → ")),
         h("span", {class: "sub lvl"}, lv.length ? "Lv " + lv[0] + (lv.length > 1 ? " → " + lv[lv.length - 1] : "") + " · " + lv.length + " battle" + (lv.length > 1 ? "s" : "") : "not in a battle yet"),
+        h("button", {type: "button", class: "link whenbtn", onclick: () => when ? toOne(k) : toWhen(k)}, when ? "one line for all" : "depends on the starter…"),
         h("span", {class: "slotbtns"},
           h("button", {type: "button", title: "Higher", disabled: k === 0 ? "" : null, onclick: () => move(k, -1)}, "◀"),
           h("button", {type: "button", title: "Lower", disabled: k === story.lines.length - 1 ? "" : null, onclick: () => move(k, 1)}, "▶")));
       return card;
     }));
+    const viewBar = anyWhen ? h("div", {class: "storyview"}, h("span", {class: "sub"}, "Show the team and the battles for the player's starter:"),
+      STORY_WHEN.starter.options.map(([o, label]) => h("button", {type: "button", class: "small" + (o === storyView ? " primary" : ""), "aria-pressed": String(o === storyView),
+        onclick: () => { storyView = o; openCharacter(c, "team"); }}, label))) : null;
     dragSlots(slots, story.lines.length, (from, to) => saveStory(moveInList(story.lines, from, to)));
     const battles = h("div", {class: "scroll"}, h("table", {class: "balance"}, plan.map((b, i) => {
       const tid = (cl.slots || {})[i], t = (lib.teams || []).find(x => x.id === tid), gen = storyTeam(c, story, i);
@@ -5486,7 +5518,7 @@ function renderCharacterPage(c) {
     main = h("div", {class: "charmain"},
       h("h3", {id: "char-team", style: "margin-top:0"}, npcHere ? (npcHere.name || "The NPC") + "'s story team" : "Your story team"),
       h("div", {class: "sub"}, "Tap a slot to add an evolution line (by its last evolution), tap a line to swap or remove it, and rank them (drag them, or use the arrows). No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage and with sensible moves for the level. IVs are set by themselves, exactly as in the original game: low early, high late."),
-      slots, pickBox,
+      slots, viewBar, pickBox,
       h("h3", {}, "Every battle"),
       h("div", {class: "sub"}, "Auto: the website makes each battle's team from your story team (how many Pokemon, levels, stages and moves). To change a battle's team, press Copy to TEAMS: the team opens in TEAMS and is used for that battle, and what you change there is saved here by itself. You can also pick one of your shared teams in the menu. The others only see your teams behind spoiler buttons."),
       battles);
