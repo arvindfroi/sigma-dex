@@ -797,6 +797,9 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .tbasewrap > .tbase { flex: 1; }
 .tplus { position: absolute; top: 2px; right: 2px; min-height: 0; padding: 0 5px; font-size: 13px; line-height: 18px; border-width: 2px; }
 .tplus.on, .tbase.also { border-color: var(--gold); }
+.animothers { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin: 4px 0 8px; }
+.animothers canvas { background: var(--field); border: 2px solid var(--line); image-rendering: pixelated; }
+.animothers canvas.cur { border-color: var(--gold); }
 .tset { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .tsetbox { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 6px; background: var(--soft); border: 2px solid var(--line); min-width: 120px; }
 .tsetpic { min-height: 120px; display: flex; align-items: center; justify-content: center; }
@@ -4171,6 +4174,8 @@ function pixelEditor(o) {
       h("div", {class: "hint", style: "margin:4px 0 0"}, "Real walking sprites are a little darker than the front, with the same colours.")];
     if (o.view === "npc" && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, followerPalette(frontImg), 0.5); changed(); }}, "CLOSER TO THE BATTLE SPRITE"),
       h("div", {class: "hint", style: "margin:4px 0 0"}, "The trainer's map figure has the battle sprite's colours, a little darker.")];
+    if (o.view === "animpose" && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, paletteOf(frontImg), 1); changed(); }}, "USE THE BATTLE SPRITE'S COLOURS"),
+      h("span", {class: "sub"}, "All poses share one palette in the game (at most 15 colours): this puts the pose on the battle sprite's colours.")];
     if ((o.view === "front2" || o.view === "back2") && frontImg) return [h("button", {type: "button", class: "small", onclick: () => { snap("recoloured"); ed.data = recolour(ed.data, paletteOf(frontImg), 1); changed(); }}, "USE FRAME 1'S COLOURS"),
       h("div", {class: "hint", style: "margin:4px 0 0"}, "In the game both frames share one palette: frame 2 has exactly frame 1's colours.")];
     if (o.view === "icon") {
@@ -5473,7 +5478,8 @@ function trainerStudio(slot, opts) {
     const j = t.job_id && st.jobs.find(x => x.id === t.job_id), jm = j && /^anim:(\d+)$/.exec(j.recipe || "");
     if (jm) return Number(jm[1]);
     const m = /^anim\b(?:\s+\S*[^\d\s]\S*)*\s+(\d{1,3})(?:\s|$)/.exec(t.recipe || "");
-    return m ? Number(m[1]) : 0;
+    const nm = /\banim:(\d{1,3})\b/.exec(t.note || "");                // a strip edited by hand keeps its animation in the note
+    return m ? Number(m[1]) : nm ? Number(nm[1]) : 0;
   };
   // The poses and the animation are chosen apart (2026-11-24, Arvind: "jeg vil ikke at de framesa skal være låst til den
   // animasjonen ... jeg vil teste det på andre scripts"): the picked set of poses of the picked battle sprite, whatever script
@@ -5814,7 +5820,8 @@ function trainerStudio(slot, opts) {
         on ? h("span", {class: "tag"}, saved ? "SAVED" : "PICKED") : saved ? h("span", {class: "tag"}, "SAVED") : null),
       h("div", {class: "tilenote"}, posesIn(t) + " poses, made for " + ((trainerAnim(animOf(t)) || {}).name || "?") + (sd ? " · variant " + (Number(sd[1]) === 1 ? 1 : Number(sd[1]) % 100) : d ? (Number(d[1]) >= 0.7 ? " · bolder" : " · closer") : "")),
       t.image ? h("div", {class: "tilenote"}, h("img", {class: "px", src: artUrl(t.image), alt: "the poses", style: "height:40px;max-width:100%"})) : null,
-      t.image ? edgeWarn(artUrl(t.image), 80) : null);
+      t.image ? edgeWarn(artUrl(t.image), 80) : null,
+      t.image && DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openAnimFrames(t)}, "EDIT")) : null);
   }
   function animPage() {
     const from = picked(), cur = trainerAnim(st.animScript);
@@ -6088,6 +6095,28 @@ function trainerStudio(slot, opts) {
     bottomSlot.replaceChildren(st.editing.el);
     st.editing.el.scrollIntoView({block: "nearest"});
   }
+  // EDIT the animation (2026-11-25, Arvind: "man må kunne redigere trainer sprites i animasjonen og"): the poses of a strip,
+  // playing with its animation; tap one to draw on it in the editor (the battle sprite's colours one button away). A save is a
+  // new set of poses (picked) for the same animation and battle sprite, and you come back here for the next pose.
+  async function openAnimFrames(t) {
+    let strip;
+    try { strip = await loadPicture(artUrl(t.image)); } catch (err) { fail(new Error("The animation could not be loaded.")); return; }
+    const n = Math.max(1, Math.floor(strip.width / 80)), a = trainerAnim(st.animScript) || trainerAnim(animOf(t));
+    const close = () => { st.editing = null; bottomSlot.replaceChildren(steps, page); draw(); };
+    const frames = Array.from({length: n}, (_, k) => {
+      const c = stripFrame(strip, k); c.className = "px"; c.style.cssText = "width:80px;height:80px;background:var(--field)";
+      return h("button", {type: "button", class: "tilepic", title: k ? "Edit pose " + (k + 1) : "Pose 1 is the battle sprite (edit it in 3 FRONT)", disabled: k === 0 ? "" : null,
+        onclick: () => openPixelEditor("anim", t, {strip, k})}, c, h("span", {class: "sub"}, k ? "pose " + (k + 1) : "pose 1 (the sprite)"));
+    });
+    st.editing = {el: h("div", {class: "pixeditor"},
+      h("h3", {}, "EDIT THE ANIMATION"),
+      h("div", {class: "tanimtop"}, h("div", {class: "grass"}, animPlayer(artUrl(t.image), a, 2)),
+        h("div", {class: "hint"}, "It plays as it will in the game" + (a ? " (" + a.name + ")" : "") + ". Tap a pose to fix it. Each save makes a new set of poses (picked), and you come back here for the next pose.")),
+      h("div", {class: "tiles"}, frames),
+      h("div", {class: "tryctl"}, h("button", {type: "button", onclick: close}, "DONE")))};
+    bottomSlot.replaceChildren(st.editing.el);
+    st.editing.el.scrollIntoView({block: "nearest"});
+  }
   // one tap: a mirrored copy of a battle sprite as a new try, picked (the editor's MIRROR does the same with more steps)
   async function mirrorTry(t, button) {
     button.disabled = true;
@@ -6102,26 +6131,35 @@ function trainerStudio(slot, opts) {
     button.disabled = false;
   }
   async function openPixelEditor(what, t, part) {
-    const map = what === "map", vs = what === "vs", back = what === "back", thr = what === "throw";
+    const map = what === "map", vs = what === "vs", back = what === "back", thr = what === "throw", anim = what === "anim";
     if (thr && !part) return openThrowFrames(t);
+    if (anim && !part) return openAnimFrames(t);
     let src = artUrl(map ? t.overworld : t.image);
     if (map) { try { src = npcToGrid(await loadPicture(src)).toDataURL("image/png"); } catch (err) { fail(new Error("The map figure could not be loaded.")); return; } }
-    if (thr) src = stripFrame(part.strip, part.k).toDataURL("image/png");
+    if (thr || anim) src = stripFrame(part.strip, part.k).toDataURL("image/png");
     const close = () => { st.editing = null; bottomSlot.replaceChildren(steps, page); draw(); };
+    const battleSrc = anim && picked() ? artUrl(picked().image) : null;
     st.editing = pixelEditor({
-      title: map ? "EDIT MAP FIGURE (16 frames)" : vs ? "EDIT VS PORTRAIT" : back ? "EDIT BACK" : thr ? "EDIT THE THROW: FRAME " + (part.k + 1) : "EDIT BATTLE SPRITE",
-      view: map ? "npc" : vs ? "vs" : "trainer", src,
+      title: map ? "EDIT MAP FIGURE (16 frames)" : vs ? "EDIT VS PORTRAIT" : back ? "EDIT BACK" : thr ? "EDIT THE THROW: FRAME " + (part.k + 1) : anim ? "EDIT THE ANIMATION: POSE " + (part.k + 1) : "EDIT BATTLE SPRITE",
+      view: map ? "npc" : vs ? "vs" : anim ? "animpose" : "trainer", src,
       size: map ? [128, 128] : vs ? [96, 64] : [80, 80],
-      frontSrc: map && t.image ? artUrl(t.image) : null, bodyColour: "",
+      frontSrc: map && t.image ? artUrl(t.image) : battleSrc, bodyColour: "",
       async save(file, how, note) {
-        const fields = {try: t.id, how, editor: me(), note};
-        if (map) fields.overworld = await gridToNpc(file); else if (thr) fields.image = await frameIntoStrip(part.strip, part.k, file); else fields.image = file;
+        const fields = {try: t.id, how, editor: me(), note: anim ? ("anim:" + animOf(t) + " " + (note || "")).trim() : note};
+        if (map) fields.overworld = await gridToNpc(file); else if (thr || anim) fields.image = await frameIntoStrip(part.strip, part.k, file); else fields.image = file;
         const row = await postForm("sprite-draw", fields);
         await dbCall("pick_try", {p_try: row.id, p_picked: true, p_editor: me()}).catch(() => null);
         if (thr) { await load(); const nt = st.throwTries.find(x => x.id === row.id); if (nt) return openThrowFrames(nt); }
+        if (anim) { await load(); const nt = st.animTries.find(x => x.id === row.id); if (nt) return openAnimFrames(nt); }
         st.step = vs ? "vs" : back || thr ? "back" : map && st.mapTries.some(x => x.id === t.id) ? "map" : "make"; close(); await load();
       },
-      close: thr ? () => openThrowFrames(t) : close});
+      close: thr ? () => openThrowFrames(t) : anim ? () => openAnimFrames(t) : close});
+    if (anim) {                                    // the other poses beside the editor, to compare with (an onion-skin strip)
+      const others = h("div", {class: "animothers"}, h("span", {class: "sub"}, "The other poses:"),
+        Array.from({length: Math.floor(part.strip.width / 80)}, (_, k) => { const c = stripFrame(part.strip, k); c.className = "px" + (k === part.k ? " cur" : "");
+          c.style.cssText = "width:64px;height:64px"; return c; }));
+      st.editing.el.querySelector(".edhead").after(others);
+    }
     bottomSlot.replaceChildren(st.editing.el);
     st.editing.el.scrollIntoView({block: "nearest"});
   }

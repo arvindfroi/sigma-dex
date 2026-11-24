@@ -54,7 +54,9 @@ Deno.serve(async (req: Request) => {
         if (file.size > limit) return reply(400, { message: "The picture is too large" });
         const bytes = new Uint8Array(await file.arrayBuffer());
         const size = pngSize(bytes);
-        if (!size || !want || size[0] !== want[0] || size[1] !== want[1]) return reply(400, { message: "The picture has the wrong size" });
+        // an animation's strip (2026-11-25): 80x80 poses side by side, 2 to 8 of them, the same width as the strip it came from
+        const animOk = from.stage === "anim" && name === "image" && size && size[1] === 80 && size[0] % 80 === 0 && size[0] >= 160 && size[0] <= 640;
+        if (!animOk && (!size || !want || size[0] !== want[0] || size[1] !== want[1])) return reply(400, { message: "The picture has the wrong size" });
         const path = `tries/${from.species_id}/${how}-${tryId}-${stamp}${name === "overworld" ? "-overworld" : ""}.png`;
         const { error: upError } = await supabase.storage.from("art").upload(path, bytes, { contentType: "image/png", cacheControl: "31536000" });
         if (upError) return reply(500, { message: "The picture could not be stored" });
@@ -67,7 +69,8 @@ Deno.serve(async (req: Request) => {
         overworld: stored.overworld ?? from.overworld ?? null, seed: from.seed ?? null,
         recipe: how === "drawn" ? "drawn by hand" : how, note: String(form.get("note") ?? "").trim().slice(0, 300) || null,
         // a throw belongs to its back (the website lists a back's throws by parent_try), so an edited throw keeps that parent
-        parent_try: from.stage === "throw" ? from.parent_try : tryId, editor, seconds: null, finished_at: new Date().toISOString(),
+        // an edited animation belongs to its battle sprite like the drawn ones (the website lists them by parent_try; the note keeps the animation)
+        parent_try: from.stage === "throw" || from.stage === "anim" ? from.parent_try : tryId, editor, seconds: null, finished_at: new Date().toISOString(),
       }).select("id").single();
       if (error) return reply(500, { message: "The picture could not be saved" });
       return reply(200, row);
