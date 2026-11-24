@@ -1,63 +1,115 @@
 {
  "_about": "Pose words for the trainer front animation, side by side (2026-11-22). Key = animated class (a/0/5/8) whose intro script is used; list item j = what pose j+1 shows (pose 0 = the battle sprite itself). Written from Origin's real cells, about the BODY, not the leader's props, so the person keeps their own things. Used in the text: '... in a new pose: the trainer {words}'.",
- "23": ["stands relaxed with one hand in a pocket, looking at you",
-        "stands and reaches the free hand out toward you, palm open, as a challenge"],
- "66": ["leans forward in a low lunge with the knees bent, both arms bent in front of the chest like a fighter",
-        "stands in a wide stance and stretches both arms out to the sides at shoulder height, fists closed"],
- "67": ["holds one arm up behind the head over the shoulder and puts the other hand on the hip",
-        "keeps the arm up over the shoulder and the other hand on the hip, leaning a little forward with a confident grin"],
- "70": ["crouches down a little with the knees bent and both hands raised near the face, excited",
-        "jumps up into the air with the knees pulled up and both arms raised high"],
- "72": ["raises one arm up across the face and turns half away",
-        "turns away with the arms close to the body and pulls the collar up over the mouth"],
- "73": ["stands firm while a cold wind blows the hair and clothes to the side",
-        "stands firm while a stronger wind blows the hair and clothes far out to the side"],
- "74": ["stands still and shy, one hand at the chest and the other hand down by the side",
-        "stands shy with the eyes closed and both hands folded in front of the waist"],
- "75": ["stands with the legs wide apart and crosses both forearms in front of the face",
-        "squats lower with the legs wide apart and holds both crossed forearms up above the head"],
- "76": ["turns around so the clothes swirl around the body, one arm raised",
-        "has turned away and looks back at you over the shoulder"],
- "86": ["raises one hand to the top of the head as if tipping a hat",
-        "holds one hand out to the side at shoulder height, palm up"],
- "87": ["raises one hand to the face and touches the hair, the other hand held forward",
-        "lowers the hand from the face again, the other hand still held forward"],
- "88": ["stands upright with both arms crossed in front of the chest",
-        "flings both arms out wide to the sides, a dramatic entrance"],
- "89": ["leans calmly on a walking stick and lifts it a little off the ground",
-        "leans calmly on the walking stick again"],
- "97": ["stands with the arms crossed while the clothes flutter behind",
-        "bends the knees in a wide stance and clenches both fists at the sides",
-        "holds the wide stance with both fists clenched, tense with power",
-        "holds the wide stance with both fists clenched, leaning a little forward"],
- "98": ["crouches on one knee and reaches one hand down to the ground",
-        "crouches on one knee, clenches a fist in front of the chest and looks up"],
- "99": ["raises one hand to the forehead as if looking far away",
-        "keeps the hand at the forehead and leans a little to the side",
-        "raises the hand higher, above the head",
-        "keeps the hand above the head and turns a little",
-        "stands straight with the hand above the head"],
- "100": ["holds a card up in one hand next to the face",
-         "lowers the card a little",
-         "puts the card away and puts that hand on the hip",
-         "stands with both hands on the hips"],
- "103": ["crouches low with the knees bent and both arms stretched out to the sides, ready to jump",
-         "jumps up with one arm raised high and the other arm out to the side"],
- "104": ["throws one arm up as if tossing sunglasses away, the other hand open at the side, grinning",
-         "stands straight with the arms crossed over the chest"],
- "105": ["turns a little to the side with both hands together at the chest",
-         "turns further to the side, the hands together at the chest, smiling",
-         "turns back and reaches one hand out gracefully"],
- "107": ["stretches one arm out to the side with the palm open, as if using telekinesis",
-         "stretches the arm out further, the other hand on the hip"],
- "108": ["lifts one hand up high, waving",
-         "waves the raised hand forward"],
- "109": ["pulls the cap or hair down over the eyes with one hand",
-         "lowers the hand a little and stands calm"],
- "110": ["holds a Poke Ball up in front of the chest, confident",
-         "points up and forward with one arm, holding a Poke Ball in the other hand"],
- "112": ["sits cross-legged and punches the fists together in front of the chest",
-         "sits cross-legged and flexes both arms up"],
- "124": ["tosses a Poke Ball up into the air with one hand",
-         "catches the Poke Ball again, the other hand in a pocket"]
+ "23": [
+  "stands relaxed with one hand in a pocket, looking at you",
+  "stands and reaches the free hand out toward you, palm open, as a challenge"
+ ],
+ "66": [
+  "leans forward in a low lunge with the knees bent, both arms bent in front of the chest like a fighter",
+  "stands in a wide stance and stretches both arms out to the sides at shoulder height, fists closed"
+ ],
+ "67": [
+  "holds one arm up behind the head over the shoulder and puts the other hand on the hip",
+  "keeps the arm up over the shoulder and the other hand on the hip, leaning a little forward with a confident grin"
+ ],
+ "70": [
+  "crouches down a little with the knees bent and both hands raised near the face, excited",
+  "jumps up into the air with the knees pulled up and both arms raised high"
+ ],
+ "72": [
+  "raises one arm up across the face and turns half away",
+  "turns away with the arms close to the body and pulls the collar up over the mouth"
+ ],
+ "73": [
+  "stands firm while a cold wind blows the scarf, cape and clothes to the side; the hair keeps exactly its own shape and length",
+  "stands firm, leaning into a stronger wind that blows the scarf, cape and clothes far out to the side; the hair keeps exactly its own shape and length"
+ ],
+ "74": [
+  "stands still and shy, one hand at the chest and the other hand down by the side",
+  "stands shy with the eyes closed and both hands folded in front of the waist"
+ ],
+ "75": [
+  "stands with the legs wide apart and crosses both forearms in front of the face",
+  "squats lower with the legs wide apart and holds both crossed forearms up above the head"
+ ],
+ "76": [
+  "turns around so the clothes swirl around the body, one arm raised",
+  "has turned away and looks back at you over the shoulder"
+ ],
+ "86": [
+  "raises one hand to the top of the head as if tipping a hat",
+  "holds one hand out to the side at shoulder height, palm up"
+ ],
+ "87": [
+  "raises one hand to the face and touches the hair, the other hand held forward",
+  "lowers the hand from the face again, the other hand still held forward"
+ ],
+ "88": [
+  "stands upright with both arms crossed in front of the chest",
+  "flings both arms out wide to the sides, a dramatic entrance"
+ ],
+ "89": [
+  "leans calmly on a walking stick and lifts it a little off the ground",
+  "leans calmly on the walking stick again"
+ ],
+ "97": [
+  "stands with the arms crossed while the clothes flutter behind",
+  "bends the knees in a wide stance and clenches both fists at the sides",
+  "holds the wide stance with both fists clenched, tense with power",
+  "holds the wide stance with both fists clenched, leaning a little forward"
+ ],
+ "98": [
+  "crouches on one knee and reaches one hand down to the ground",
+  "crouches on one knee, clenches a fist in front of the chest and looks up"
+ ],
+ "99": [
+  "raises one hand to the forehead as if looking far away",
+  "keeps the hand at the forehead and leans a little to the side",
+  "raises the hand higher, above the head",
+  "keeps the hand above the head and turns a little",
+  "stands straight with the hand above the head"
+ ],
+ "100": [
+  "holds a card up in one hand next to the face",
+  "lowers the card a little",
+  "puts the card away and puts that hand on the hip",
+  "stands with both hands on the hips"
+ ],
+ "103": [
+  "crouches low with the knees bent and both arms stretched out to the sides, ready to jump",
+  "jumps up with one arm raised high and the other arm out to the side"
+ ],
+ "104": [
+  "throws one arm up as if tossing sunglasses away, the other hand open at the side, grinning",
+  "stands straight with the arms crossed over the chest"
+ ],
+ "105": [
+  "turns a little to the side with both hands together at the chest",
+  "turns further to the side, the hands together at the chest, smiling",
+  "turns back and reaches one hand out gracefully"
+ ],
+ "107": [
+  "stretches one arm out to the side with the palm open, as if using telekinesis",
+  "stretches the arm out further, the other hand on the hip"
+ ],
+ "108": [
+  "lifts one hand up high, waving",
+  "waves the raised hand forward"
+ ],
+ "109": [
+  "pulls the cap or hair down over the eyes with one hand",
+  "lowers the hand a little and stands calm"
+ ],
+ "110": [
+  "holds a Poke Ball up in front of the chest, confident",
+  "points up and forward with one arm, holding a Poke Ball in the other hand"
+ ],
+ "112": [
+  "sits cross-legged and punches the fists together in front of the chest",
+  "sits cross-legged and flexes both arms up"
+ ],
+ "124": [
+  "tosses a Poke Ball up into the air with one hand",
+  "catches the Poke Ball again, the other hand in a pocket"
+ ]
 }

@@ -514,6 +514,20 @@ ANIM_SWAP = float(os.environ.get("TRAINER_ANIM_SWAP", "0.55"))   # stage 2 denoi
 ANIM_STRICT = ("The trainer has exactly two arms and two hands, and both are part of the new pose: no arm or hand stays behind where it "
                "was in image 1. The hair is exactly as in image 1: the same length, shape and colour.")   # round 3: extra arms, longer hair
 ANIM_SIZE = "exactly the same size as the left frame: the head just as big and the feet on the same line"
+ANIM_LIKE = 0.22          # the most a new pose's colour shares may differ from the battle sprite's (good poses 0.06-0.19, drifted 0.25-0.57)
+ANIM_TRIES = 3
+
+
+def colour_gap(a, b):
+    """half the summed difference of two sprites' colour shares (0 = the same colours in the same amounts, 1 = none shared)"""
+    from collections import Counter
+    def shares(im):
+        px = [p[:3] for p in im.convert("RGBA").getdata() if p[3]]
+        c = Counter(px)
+        n = max(1, len(px))
+        return {k: v / n for k, v in c.items()}
+    x, y = shares(a), shares(b)
+    return sum(abs(x.get(k, 0) - y.get(k, 0)) for k in set(x) | set(y)) / 2
 
 
 def anim_scripts():
@@ -589,7 +603,10 @@ def run_anim(job, base, key, post, download, folder, log=print):
     except Exception:
         brow = {}
     build = brow.get("build") or "-"
-    if is_stout(sprite, words + " " + extra):
+    fb = (fields_of(settings).get("build") or "").strip()
+    if fb:                                                 # a filled-in build decides (a wide cape looked stout to the measurement)
+        build = fb
+    elif is_stout(sprite, words + " " + extra):
         build = "stout"
     swap_row = {"cls": brow.get("cls") or "Trainer", "facing": brow.get("facing") or "-", "build": build, "who": who, "held": "-"}
     T.on_magenta(sprite).save(folder / "anim_f1.png")
@@ -620,26 +637,39 @@ def run_anim(job, base, key, post, download, folder, log=print):
                     strip.alpha_composite(have.crop((80 * j, 0, 80 * j + 80, 80)), (80 * j, 0))
                 else:
                     strip.alpha_composite(sprite, (80 * j, 0))
-            scales = []
+            scales, redrawn = [], []
             for i, j in enumerate(drawn):
                 post(base, key, {"action": "progress", "job_id": job["id"], "state": "drawing pose %d of %d (animation %d of %d)" % (i + 2, len(drawn) + 1, n, count)})
                 text = ("Two 80x80 pixel art battle sprites of the same trainer (%s, build: %s) side by side on a flat magenta "
                         "background, like two animation frames. The left one is exactly image 1. The right one is the same trainer with "
                         "exactly the same face, hair, clothes, colours, body shape and outline, %s, in a new pose: the trainer %s. %s"
                         % (who, build, ANIM_SIZE, poses[j - 1], ANIM_STRICT))
-                raw = folder / ("anim_raw%d_%d.png" % (n, j))
-                raw.write_bytes(comfy.run(pair_graph(text, ref, seed, start_up, mask_up)))
-                panel, s = size_lock(Image.open(raw).convert("RGB").crop((320, 0, 640, 320)), ref_h)
+                # the likeness check (2026-11-24: a wind pose gave the trainer long blue or blond hair): a pose whose colours differ
+                # from the battle sprite's by more than ANIM_LIKE is drawn again with another seed (twice at most); the closest is kept
+                best = None
+                for k in range(ANIM_TRIES):
+                    sd = seed + 7919 * k
+                    raw = folder / ("anim_raw%d_%d_%d.png" % (n, j, k))
+                    raw.write_bytes(comfy.run(pair_graph(text, ref, sd, start_up, mask_up)))
+                    panel, s = size_lock(Image.open(raw).convert("RGB").crop((320, 0, 640, 320)), ref_h)
+                    right = folder / ("anim_right%d_%d_%d.png" % (n, j, k))
+                    panel.save(right)
+                    if ANIM_SWAP > 0:                      # stage 2: the trainer LoRA swap brings the face back
+                        post(base, key, {"action": "progress", "job_id": job["id"], "state": "cleaning pose %d of %d (animation %d of %d)" % (i + 2, len(drawn) + 1, n, count)})
+                        row = dict(swap_row, pose="the trainer " + poses[j - 1])
+                        swapped = folder / ("anim_swap%d_%d_%d.png" % (n, j, k))
+                        swapped.write_bytes(comfy.run(S.graph(TB.caption(T.describe(row, drop=0), True) + " " + ANIM_STRICT, [ref], sd, LORA, comfy.upload(right), ANIM_SWAP)))
+                        right = swapped
+                    pose, _ = lock_palette(trainer_post.battle(klein_follower.to_back(right)), pal)
+                    off = colour_gap(sprite, pose)
+                    if best is None or off < best[0]:
+                        best = (off, pose, s)
+                    if off <= ANIM_LIKE:
+                        break
+                    redrawn.append(j)
+                    log("anim job %d try %d pose %d looks different (%.2f): drawn again" % (job["id"], n, j, off))
+                off, pose, s = best
                 scales.append(round(s, 2))
-                right = folder / ("anim_right%d_%d.png" % (n, j))
-                panel.save(right)
-                if ANIM_SWAP > 0:                          # stage 2: the trainer LoRA swap brings the face back
-                    post(base, key, {"action": "progress", "job_id": job["id"], "state": "cleaning pose %d of %d (animation %d of %d)" % (i + 2, len(drawn) + 1, n, count)})
-                    row = dict(swap_row, pose="the trainer " + poses[j - 1])
-                    swapped = folder / ("anim_swap%d_%d.png" % (n, j))
-                    swapped.write_bytes(comfy.run(S.graph(TB.caption(T.describe(row, drop=0), True) + " " + ANIM_STRICT, [ref], seed, LORA, comfy.upload(right), ANIM_SWAP)))
-                    right = swapped
-                pose, _ = lock_palette(trainer_post.battle(klein_follower.to_back(right)), pal)
                 strip.alpha_composite(pose, (80 * j, 0))
             image = folder / ("anim%d.png" % n)
             strip.save(image)
@@ -648,7 +678,8 @@ def run_anim(job, base, key, post, download, folder, log=print):
                              "note": ("%s animation (%d poses) side by side%s from battle sprite #%s, seed %d, build %s%s%s" % (
                                  script["name"], len(drawn) + 1, " + swap %.2f" % ANIM_SWAP if ANIM_SWAP > 0 else "", src.get("id"), seed, build,
                                  ", size locked x" + "/".join("%.2f" % s for s in shrunk) if shrunk else "",
-                                 ", extra: " + extra if extra else "") + (", kept %d poses from #%s" % (kept, settings.get("frames_try")) if have is not None else ""))[:300],
+                                 ", extra: " + extra if extra else "") + (", kept %d poses from #%s" % (kept, settings.get("frames_try")) if have is not None else "")
+                                 + (", redrawn to keep the look: pose %s" % "/".join(str(x + 1) for x in sorted(set(redrawn))) if redrawn else ""))[:300],
                              "seconds": round(time.time() - started, 1)}, {"image": image})
             made += 1
         except Exception as problem:
