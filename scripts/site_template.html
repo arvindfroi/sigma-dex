@@ -1038,6 +1038,8 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .skipcut { display: flex; gap: 8px; align-items: flex-start; margin-top: 10px; font-size: 14px; }
 .skipcut input { margin-top: 3px; }
 .formcard { margin: 8px 0; }
+.formchips { display: flex; gap: 4px; flex-wrap: wrap; margin: 0 0 6px; } .formchips button[aria-pressed="true"] { outline: 2px solid currentColor; }
+.formnote { font-size: 11px; opacity: .75; }
 .formshow { margin: 8px 0; } .formshow h3 { margin: 0 0 4px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; } .formshow p { margin: 4px 0; }
 .newpics { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 14px; }
 .newpics figure { margin: 0; display: flex; flex-direction: column; gap: 4px; align-items: center; }
@@ -1522,18 +1524,22 @@ function explains(el, top, title, text) {
 function openDetail(s, tab) {
   tab = tab === "overview" ? "info" : tab || "info";
   if (["sprite", "shiny", "cry"].includes(tab) && !DEX.web.url) tab = "info";
-  const d = s.data, tabs = DETAIL_TABS.filter(([id]) => !["sprite", "shiny", "cry"].includes(id) || DEX.web.url);
+  if (s.form && !["info", "pictures", "sprite"].includes(tab)) tab = "info";
+  const d = s.data, tabs = DETAIL_TABS.filter(([id]) => (!["sprite", "shiny", "cry"].includes(id) || DEX.web.url) && (!s.form || ["info", "pictures", "sprite"].includes(id)));
   if (location.hash !== "#" + s.id) history.replaceState(null, "", "#" + s.id);
   const top = monTop(s);
   shown = {s, top};
   const studio = tab === "sprite" ? spriteStudio(s) : null;      // the sprite studio brings its own top screen (the set)
   const maker = tab === "shiny" ? shinyMaker(s) : tab === "cry" ? cryMaker(s) : null;   // so do the shiny and cry makers
-  const pages = {info: infoPage, skills: skillsPage, moves: movesTab, pictures: s => picturesTab(s, null, top), more: moreTab};
+  const pages = {info: s.form ? formInfoPage : infoPage, skills: skillsPage, moves: movesTab, pictures: s => picturesTab(s, null, top), more: moreTab};
+  const reopen = id => s.form ? openForm(s.form.base, s.form.index, id) : openDetail(s, id);
   const bottom = h("section", {class: "screen bottom", "data-c": (tabs.find(t => t[0] === tab) || tabs[0])[2], "aria-label": "About " + d.name},
-    h("div", {class: "screen-tabs", role: "tablist"}, tabs.map(([id, label, c]) => h("button", {type: "button", role: "tab", "data-c": c, "aria-selected": String(id === tab), onclick: () => openDetail(s, id)}, label)),
-      h("span", {class: "right"}, DEX.web.url ? h("button", {type: "button", class: "primary", onclick: () => openEditor(s)}, "EDIT") : null,
+    h("div", {class: "screen-tabs", role: "tablist"}, tabs.map(([id, label, c]) => h("button", {type: "button", role: "tab", "data-c": c, "aria-selected": String(id === tab), onclick: () => reopen(id)}, label)),
+      h("span", {class: "right"}, DEX.web.url ? h("button", {type: "button", class: "primary", onclick: () => s.form ? formDialog(s.form.base, s.form.index) : openEditor(s)}, "EDIT") : null,
         studio ? h("button", {type: "button", title: "Close this page; the box at the bottom right keeps showing the drawing", onclick: () => { closeDialog(); trayLoad(); }}, "\u2581 MINIMIZE")
+          : s.form ? h("button", {type: "button", onclick: () => openDetail(s.form.base)}, "BACK TO " + String(s.form.base.data.name).toUpperCase())
           : h("button", {type: "button", onclick: closeDialog}, "CLOSE"))),
+    formChips(s.form ? s.form.base : s, s.form ? s.form.index : null),
     s.pending ? h("div", {class: "notice info", style: "margin:0 0 6px"}, "Saved" + (s.pending.editor ? " by " + s.pending.editor : "") + ". It is checked and stored within about 15 minutes.") : null,
     studio ? studio.bottom : maker ? maker.bottom : h("div", {class: "page"}, pages[tab](s, top)));
   showDialog(h("div", {class: "ds" + (studio ? " studio" : "")}, studio ? studio.top : maker ? maker.top : top.el, bottom));
@@ -1582,8 +1588,12 @@ function infoPage(s, top) {
         [ab.primary, ab.secondary, ab.hidden].some(filled) ? h("p", {}, h("b", {}, "Abilities: "), [ab.primary, ab.secondary, ab.hidden && ab.hidden + " (hidden)"].filter(filled).join(", ")) : null,
         stats ? h("p", {}, h("b", {}, "Base stats: "), stats) : null,
         filled(fm.look) ? h("p", {}, h("b", {}, "Looks: "), fm.look) : null,
-        filled(fm.notes) ? h("p", {class: "sub"}, fm.notes) : null);
+        filled(fm.notes) ? h("p", {class: "sub"}, fm.notes) : null,
+        fm.sid && (DEX.ds_sprites[fm.sid] || {}).front ? h("img", {class: "px", src: DEX.ds_sprites[fm.sid].front, alt: "front of " + d.name + " " + fm.name, style: "width:96px"}) : null,
+        DEX.web.url ? h("div", {class: "row"}, h("button", {type: "button", class: "small", onclick: () => openForm(s, d.forms.indexOf(fm), "sprite")}, "SPRITES"),
+          h("button", {type: "button", class: "small", onclick: () => openForm(s, d.forms.indexOf(fm), "info")}, "OPEN")) : null);
     })] : null,
+    DEX.web.url && s.id && byId.get(s.id) === s ? h("button", {type: "button", class: "small", style: "margin-top:6px", onclick: () => formDialog(s)}, "+ ADD A FORM") : null,
     h("h2", {}, s.complete + "% filled in"),
     h("div", {class: "meter2", role: "img", "aria-label": s.byPeople + "% by people, " + s.byClaude + "% by Claude"},
       h("i", {style: "width:" + s.byPeople + "%"}), h("i", {class: "ai", style: "left:" + s.byPeople + "%;width:" + s.byClaude + "%"})),
@@ -2010,15 +2020,129 @@ function formsEditor(initial) {
     card.read = () => {
       const types = [t1.value, t2.value].filter((t, i, all) => t && all.indexOf(t) === i);
       const battleToo = changes.value === "battle";
-      return clean({name: readText(name), changes: changes.value, how: readText(how),
+      const keep = Object.fromEntries(Object.entries(fm).filter(([k]) => !["name", "changes", "how", "types", "abilities", "base_stats", "look", "notes"].includes(k)));
+      return clean(Object.assign(keep, {name: readText(name), changes: changes.value, how: readText(how),
         types: battleToo ? types : [], abilities: battleToo ? {primary: readText(a1), secondary: readText(a2), hidden: readText(ah)} : {},
-        base_stats: battleToo ? Object.fromEntries(STATS.map(([k]) => [k, readNumber(st[k])])) : {}, look: readText(look), notes: readText(notes)});
+        base_stats: battleToo ? Object.fromEntries(STATS.map(([k]) => [k, readNumber(st[k])])) : {}, look: readText(look), notes: readText(notes)}));
     };
     box.append(card);
   }
   (initial || []).filter(v => v && typeof v === "object").forEach(add);
   return {el: h("div", {}, box, h("button", {type: "button", class: "small", onclick: () => add()}, "+ Add a form")),
     read: () => [...box.children].filter(c => c.read).map(c => c.read()).filter(fm => Object.keys(fm).some(k => k !== "changes"))};
+}
+
+// ---------- forms with their own sprites (25 Nov 2026) ----------
+// Arvind: "Kan du fikse at folk kan lage forms til eksisterende pokemon OG gi de egne sprites på nettsiden". A form stays in its
+// base's data.forms (no dex number of its own); its sprites, pictures and studio use the form's own sprite id fm.sid =
+// "<base>-form-<name>", so the sprite tables keep one id per picture set and the export finds the form's approved sprite by it.
+function formSid(base, name) {
+  const used = new Set(DEX.species.flatMap(o => [o.id, ...(o.data.forms || []).map(f => f && f.sid).filter(Boolean)]));
+  const room = Math.max(1, 40 - base.id.length - 6), stem = slugify(name).slice(0, room).replace(/-+$/, "") || "x";
+  let sid = base.id + "-form-" + stem;
+  for (let k = 2; used.has(sid); k++) sid = base.id + "-form-" + stem.slice(0, room - String(k).length - 1).replace(/-+$/, "") + "-" + k;
+  return sid;
+}
+function formOf(sid) {                                   // a form's sprite id -> its base and place in the base's forms
+  for (const base of DEX.species) {
+    const i = (base.data.forms || []).findIndex(f => f && f.sid === sid);
+    if (i >= 0) return {base, index: i};
+  }
+  return null;
+}
+function formSpecies(base, i) {                          // a form dressed as a Pokemon, for its pages and its sprite studio
+  const fm = base.data.forms[i], bd = base.data, design = Object.assign({}, bd.design || {});
+  for (const [from, to] of [["look", "look"], ["shape", "body_shape"], ["move", "movement"]]) if (filled(fm[from])) design[to] = fm[from];
+  const s = {id: fm.sid, form: {base, index: i, fm}, pending: null,
+    data: Object.assign({}, bd, {name: bd.name + " " + fm.name, types: (fm.types || []).length ? fm.types : bd.types, design, forms: [], evolutions: []})};
+  if (fm.base_stats && Object.keys(fm.base_stats).length) s.data.base_stats = Object.assign({}, bd.base_stats || {}, fm.base_stats);
+  return derive(s);
+}
+async function saveForms(base, forms) {                  // saves the base with a new forms list
+  const data = clean(Object.assign(JSON.parse(JSON.stringify(base.data)), {forms}));
+  if (DEX.web.url) await saveEdit("species", base.id, Object.assign({}, data, {_base: base.data}));
+  if (!data.forms) data.forms = [];
+  base.data = data; base.pending = {editor: me()}; derive(base);
+}
+async function saveFormFields(base, i, patch) {          // changes one form; what is empty is the same as the base
+  const forms = JSON.parse(JSON.stringify(base.data.forms || []));
+  forms[i] = clean(Object.assign({}, forms[i] || {}, patch));
+  await saveForms(base, forms);
+}
+async function openForm(base, i, tab) {
+  const fm = (base.data.forms || [])[i];
+  if (!fm) return openDetail(base);
+  if (!fm.sid) {                                         // a form written before forms had sprites: give it its sprite id first
+    try { await saveFormFields(base, i, {sid: formSid(base, fm.name || "form")}); }
+    catch (err) { alert(err.message); return; }
+  }
+  openDetail(formSpecies(base, i), tab || "sprite");
+}
+function formDialog(base, i) {                           // add a form (i undefined) or change one
+  const fm = i === undefined ? {} : base.data.forms[i], bd = base.data;
+  const name = textInput(fm.name, {maxlength: 30, placeholder: "e.g. Mega, Vape, Winter"});
+  const changes = selectInput(fm.changes || "looks", FORM_CHANGES);
+  const how = h("textarea", {rows: 2, maxlength: 500, placeholder: "How and when does it change? e.g. It holds a Mega Stone. / In battle, below half HP."}, fm.how || "");
+  const t1 = selectInput((fm.types || [])[0], DEX.types, "same as " + (bd.name || "the base")), t2 = selectInput((fm.types || [])[1], DEX.types, "none");
+  const a1 = abilityInput((fm.abilities || {}).primary), a2 = abilityInput((fm.abilities || {}).secondary), ah = abilityInput((fm.abilities || {}).hidden);
+  const st = Object.fromEntries(STATS.map(([k]) => [k, numberInput((fm.base_stats || {})[k], 1, 255)]));
+  const look = h("textarea", {rows: 3, maxlength: 420, placeholder: "What it looks like in this form, in a few plain sentences. Empty = like " + (bd.name || "the base") + "."}, fm.look || "");
+  const battle = h("div", {},
+    h("div", {class: "fields"}, field("Type", t1), field("Second type", t2), field("Ability", a1), field("Second ability", a2), field("Hidden ability", ah)),
+    h("div", {class: "fields narrow"}, STATS.map(([k, label]) => field(label, st[k]))));
+  const showBattle = () => { battle.hidden = changes.value !== "battle"; };
+  changes.addEventListener("change", showBattle); showBattle();
+  const note = h("div", {class: "hint", role: "status"});
+  const save = h("button", {type: "button", class: "primary", onclick: async () => {
+    const n = readText(name);
+    if (!n) { note.textContent = "Give the form a name first."; return; }
+    if ((bd.forms || []).some((f, k) => k !== i && f && String(f.name || "").trim().toLowerCase() === n.toLowerCase())) { note.textContent = bd.name + " already has a form called " + n + "."; return; }
+    const battleToo = changes.value === "battle", types = [t1.value, t2.value].filter((t, k, all) => t && all.indexOf(t) === k);
+    const patch = {name: n, changes: changes.value, how: readText(how), look: readText(look),
+      types: battleToo ? types : [], abilities: battleToo ? {primary: readText(a1), secondary: readText(a2), hidden: readText(ah)} : {},
+      base_stats: battleToo ? Object.fromEntries(STATS.map(([k]) => [k, readNumber(st[k])])) : {}};
+    save.disabled = true; note.textContent = "Saving...";
+    try {
+      const k = i === undefined ? (bd.forms || []).length : i;
+      if (i === undefined) patch.sid = formSid(base, n);
+      await saveFormFields(base, k, patch);
+      closeDialog(); refreshLists(); render(); openForm(base, k, i === undefined ? "pictures" : "info");
+    } catch (err) { note.textContent = err.message; save.disabled = false; }
+  }}, i === undefined ? "ADD THE FORM" : "SAVE");
+  const remove = i === undefined ? null : h("button", {type: "button", class: "small", onclick: ev => sure(ev.currentTarget, "Remove the form " + fm.name + "? Its sprites stay stored but are no longer used.", async () => {
+    const forms = JSON.parse(JSON.stringify(bd.forms || [])); forms.splice(i, 1);
+    try { await saveForms(base, forms); closeDialog(); render(); openDetail(base); } catch (err) { note.textContent = err.message; }
+  })}, "Remove this form");
+  showDialog(h("div", {class: "box", style: "max-width:640px"},
+    h("h2", {}, i === undefined ? "A new form of " + bd.name : bd.name + " " + fm.name),
+    h("div", {class: "hint"}, "A form has no dex number of its own: it lives on " + bd.name + "'s page and gets its own sprites. Leave empty what is the same as " + bd.name + "."),
+    h("div", {class: "fields"}, field("Name of the form", name), field("What changes", changes), field("How and when it changes form", how, "wide")),
+    battle,
+    h("div", {class: "fields"}, field("What it looks like in this form", look, "wide")),
+    h("div", {class: "row", style: "margin-top:8px"}, save, h("button", {type: "button", onclick: () => { closeDialog(); i === undefined ? openDetail(base) : openForm(base, i, "info"); }}, "CANCEL"), remove),
+    note));
+}
+function formInfoPage(s, top) {                          // the INFO tab of a form
+  const {base, fm} = s.form, ab = fm.abilities || {}, stt = fm.base_stats || {};
+  const stats = STATS.filter(([k]) => Number.isInteger(stt[k])).map(([k, label]) => label + " " + stt[k]).join(", ");
+  return h("div", {},
+    h("div", {class: "notice info"}, "A form of ", h("a", {href: "#" + base.id, onclick: ev => { ev.preventDefault(); openDetail(base); }}, base.data.name),
+      ". It has no dex number of its own; what is not written here is the same as " + base.data.name + "."),
+    h("div", {class: "factrows"},
+      h("div", {}, h("span", {}, "Type"), show((fm.types || []).length ? fm.types.join(" / ") : "same as " + base.data.name)),
+      h("div", {}, h("span", {}, "What changes"), show(fm.changes === "battle" ? "type, stats or ability too" : "only how it looks"))),
+    filled(fm.how) ? h("p", {}, h("b", {}, "How it changes: "), fm.how) : null,
+    [ab.primary, ab.secondary, ab.hidden].some(filled) ? h("p", {}, h("b", {}, "Abilities: "), [ab.primary, ab.secondary, ab.hidden && ab.hidden + " (hidden)"].filter(filled).join(", ")) : null,
+    stats ? h("p", {}, h("b", {}, "Base stats: "), stats) : null,
+    filled(fm.look) ? h("p", {}, h("b", {}, "Looks: "), fm.look) : null,
+    h("p", {class: "sub"}, "Make its sprites under SPRITES. Its pictures go under ART; the sprite studio can also draw from " + base.data.name + "'s pictures."));
+}
+function formChips(base, current) {                      // the base and its forms as buttons, to switch between them
+  const forms = base.data.forms || [];
+  if (!forms.length) return null;
+  return h("div", {class: "formchips", role: "group", "aria-label": "Forms"},
+    h("button", {type: "button", class: "small", "aria-pressed": String(!current), onclick: () => openDetail(base)}, base.data.name),
+    forms.map((f, k) => h("button", {type: "button", class: "small", "aria-pressed": String(current === k), onclick: () => openForm(base, k, "info")}, f.name || "form " + (k + 1))));
 }
 
 // Remove everything empty so only real content is saved.
@@ -3564,7 +3688,7 @@ function cryMaker(s) {
 
 function spriteStudio(s, startStep) {
   const st = {step: startStep || null, tries: [], line: [], worker: null, versions: [], loaded: false, editing: null, showAll: false, busyMsg: ""};
-  const pictures = imagesOf(s.id).filter(i => Number.isInteger(i.id));
+  const pictures = imagesOf(s.id).concat(s.form ? imagesOf(s.form.base.id) : []).filter(i => Number.isInteger(i.id));   // a form may draw from its base's pictures
   let chosen = (remember.get("refs-" + s.id) || "").split(",").map(Number).filter(id => pictures.some(p => p.id === id));
   if (!chosen.length) chosen = pictures.slice(0, 1).map(p => p.id);
   const top = h("section", {class: "screen top studio-top", "aria-label": "The sprite of " + s.data.name});
@@ -3666,7 +3790,8 @@ function spriteStudio(s, startStep) {
         const data = clean(Object.assign(JSON.parse(JSON.stringify(s.data)), {design}));
         save.disabled = true; note.textContent = "Saving...";
         try {
-          if (DEX.web.url) await saveEdit("species", s.id, Object.assign({}, data, {_base: s.data}));
+          if (s.form) await saveFormFields(s.form.base, s.form.index, {shape: readText(shape), move: readText(move), look: readText(look)});   // a form keeps its own words
+          else if (DEX.web.url) await saveEdit("species", s.id, Object.assign({}, data, {_base: s.data}));
           s.data = data; s.pending = {editor: me()}; Object.assign(b, bodyOf(s)); line();
         } catch (err) { note.textContent = err.message; save.disabled = false; }
       }}, "SAVE");
@@ -7617,7 +7742,7 @@ function renderList(list) {
     return h("tr", {class: "mon", tabindex: "0", onclick: () => openDetail(s), onkeydown: ev => ev.key === "Enter" && openDetail(s), onmouseenter: () => preview(s), onfocus: () => preview(s)},
       h("td", {}, pic ? h("img", {class: "ico" + (pic.pixel ? " px" : ""), src: pic.src, alt: "", loading: "lazy"}) : ""),
       h("td", {class: "sub"}, pad(d.dex)),
-      h("td", {class: "nm"}, d.name, s.pending ? h("span", {class: "pending"}, " edited") : null, s.problems.length ? h("span", {class: "badge need", style: "margin-left:4px", title: "Has warnings"}, "!") : null),
+      h("td", {class: "nm"}, d.name, (d.forms || []).length ? h("span", {class: "formnote"}, " +" + d.forms.length + (d.forms.length === 1 ? " form" : " forms")) : null, s.pending ? h("span", {class: "pending"}, " edited") : null, s.problems.length ? h("span", {class: "badge need", style: "margin-left:4px", title: "Has warnings"}, "!") : null),
       h("td", {}, h("div", {class: "types"}, (d.types || []).map(typeChip))),
       h("td", {class: "ab"}, [ab.primary, ab.secondary].filter(filled).join(" / ") || "\u2014"),
       h("td", {class: "ab"}, ab.hidden || "\u2014"),
@@ -7763,6 +7888,7 @@ function render() {
       h("div", {class: "pic"}, pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: "", loading: "lazy"}) : h("span", {class: "letter"}, (s.data.name || "?")[0])),
       h("div", {class: "num"}, "No." + pad(s.data.dex), s.problems.length ? h("span", {class: "badge need", style: "margin-left:6px", title: "Has warnings"}, "!") : null),
       h("div", {class: "name"}, s.data.name), h("div", {class: "types"}, (s.data.types || []).map(typeChip)),
+      (s.data.forms || []).length ? h("div", {class: "formnote"}, "+" + s.data.forms.length + (s.data.forms.length === 1 ? " form" : " forms")) : null,
       s.pending ? h("div", {class: "pending"}, "just edited") : null,
       h("div", {class: "meter", title: s.complete + "% filled in"}, h("i", {style: "width:" + s.complete + "%"}))));
   }
@@ -8082,6 +8208,7 @@ window.addEventListener("popstate", () => {      // the browser's back button: f
 });
 render();
 if (location.hash && byId.has(location.hash.slice(1))) openDetail(byId.get(location.hash.slice(1)));
+else if (location.hash && formOf(location.hash.slice(1))) { const f = formOf(location.hash.slice(1)); openForm(f.base, f.index, "info"); }
 loadRecentEdits();
 if (DEX.web.url) loadLost().then(renderNav).catch(() => {});
 trayLoad();

@@ -124,9 +124,32 @@ BACK_BOX = {"h": [0.6691373462851647, -0.1684466714078896, 34.8848780435225], "w
 
 
 # ---------- the Pokemon's words (as the LoRAs were trained: type, stage, height)
-def tags(species_id):
+def species_data(species_id):
+    """A Pokemon's data by its sprite id. A form (2026-11-25) has no entry of its own: it lives in its base's forms list with
+    its sprite id in fm["sid"], so it gets the base's data with what the form changes (types, stats, look, body shape, movement)."""
     species = {sid: d for sid, _, d in dexlib.load_species()[0]}
-    data = species.get(species_id) or {}
+    if species_id in species:
+        return species[species_id], species
+    for base_id, d in species.items():
+        for fm in d.get("forms") or []:
+            if isinstance(fm, dict) and fm.get("sid") == species_id:
+                out = dict(d, forms=[], _base_id=base_id)   # its evolutions stay: a form is as far along its line as its base
+                if fm.get("types"):
+                    out["types"] = fm["types"]
+                if fm.get("base_stats"):
+                    out["base_stats"] = dict(d.get("base_stats") or {}, **fm["base_stats"])
+                design = dict(d.get("design") or {})
+                for key, to in (("look", "look"), ("shape", "body_shape"), ("move", "movement")):
+                    if fm.get(key):
+                        design[to] = fm[key]
+                out["design"] = design
+                return out, species
+    return {}, species
+
+
+def tags(species_id):
+    data, species = species_data(species_id)
+    species_id = data.get("_base_id") or species_id
     evolves = bool(data.get("evolutions"))
     prevo = any(isinstance(e, dict) and e.get("into") == species_id for d in species.values() for e in (d.get("evolutions") or []))
     stage = ("a Pokemon that does not evolve" if not evolves and not prevo else "a first-stage Pokemon that evolves" if not prevo
@@ -444,8 +467,7 @@ def sketch_words(job, inputs):
     note = str(body.pop("note", "") or "").strip()
     words = about(dict(job, prompt=json.dumps(body)), inputs["tags"][0], move=False)
     if "Its look" not in words:                                  # nothing sent from the website: the dex's own words
-        species = {sid: d for sid, _, d in dexlib.load_species()[0]}
-        design = (species.get(job["species_id"]) or {}).get("design") or {}
+        design = species_data(job["species_id"])[0].get("design") or {}
         if design.get("body_shape"):
             words += "Its body shape: %s. " % str(design["body_shape"]).strip().rstrip(".")
         words += str(design.get("look") or "") + " "
@@ -1073,8 +1095,7 @@ def run(job, base, key, post, download, folder, log=print):
     if stage in ("front2", "back2"):                           # frame 2: only the picked frame 1 (the pair LoRA needs nothing else)
         inputs["front" if stage == "front2" else "back"] = Image.open(download(base, src["image"], folder / ("f2_%s.png" % stage))).convert("RGBA")
     if stage == "icon":
-        species = {sid: d for sid, _, d in dexlib.load_species()[0]}
-        inputs["body_color"] = (species.get(job["species_id"]) or {}).get("body_color")
+        inputs["body_color"] = species_data(job["species_id"])[0].get("body_color")
     made = 0
     for n in range(1, count + 1):
         seed = seed0 + n
