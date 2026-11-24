@@ -2052,7 +2052,7 @@ function formOf(sid) {                                   // a form's sprite id -
 }
 function formSpecies(base, i) {                          // a form dressed as a Pokemon, for its pages and its sprite studio
   const fm = base.data.forms[i], bd = base.data, design = Object.assign({}, bd.design || {});
-  for (const [from, to] of [["look", "look"], ["shape", "body_shape"], ["move", "movement"]]) if (filled(fm[from])) design[to] = fm[from];
+  for (const key of ["look", "body_shape", "movement"]) if (filled(fm[key])) design[key] = fm[key];   // not "move": the game reads that as a battle move
   const s = {id: fm.sid, form: {base, index: i, fm}, pending: null,
     data: Object.assign({}, bd, {name: bd.name + " " + fm.name, types: (fm.types || []).length ? fm.types : bd.types, design, forms: [], evolutions: []})};
   if (fm.base_stats && Object.keys(fm.base_stats).length) s.data.base_stats = Object.assign({}, bd.base_stats || {}, fm.base_stats);
@@ -4122,7 +4122,7 @@ function spriteStudio(s, startStep) {
         const data = clean(Object.assign(JSON.parse(JSON.stringify(s.data)), {design}));
         save.disabled = true; note.textContent = "Saving...";
         try {
-          if (s.form) await saveFormFields(s.form.base, s.form.index, {shape: readText(shape), move: readText(move), look: readText(look)});   // a form keeps its own words
+          if (s.form) await saveFormFields(s.form.base, s.form.index, {body_shape: readText(shape), movement: readText(move), look: readText(look)});   // a form keeps its own words
           else if (DEX.web.url) await saveEdit("species", s.id, Object.assign({}, data, {_base: s.data}));
           s.data = data; s.pending = {editor: me()}; Object.assign(b, bodyOf(s)); line();
         } catch (err) { note.textContent = err.message; save.disabled = false; }

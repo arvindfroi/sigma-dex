@@ -126,7 +126,7 @@ BACK_BOX = {"h": [0.6691373462851647, -0.1684466714078896, 34.8848780435225], "w
 # ---------- the Pokemon's words (as the LoRAs were trained: type, stage, height)
 def species_data(species_id):
     """A Pokemon's data by its sprite id. A form (2026-11-25) has no entry of its own: it lives in its base's forms list with
-    its sprite id in fm["sid"], so it gets the base's data with what the form changes (types, stats, look, body shape, movement)."""
+    its sprite id in fm["sid"], so it gets the base's data with what the form changes (types, stats, look, body_shape, movement)."""
     species = {sid: d for sid, _, d in dexlib.load_species()[0]}
     if species_id in species:
         return species[species_id], species
@@ -139,9 +139,9 @@ def species_data(species_id):
                 if fm.get("base_stats"):
                     out["base_stats"] = dict(d.get("base_stats") or {}, **fm["base_stats"])
                 design = dict(d.get("design") or {})
-                for key, to in (("look", "look"), ("shape", "body_shape"), ("move", "movement")):
+                for key in ("look", "body_shape", "movement"):      # not "move": the game build reads that as a battle move
                     if fm.get(key):
-                        design[to] = fm[key]
+                        design[key] = fm[key]
                 out["design"] = design
                 return out, species
     return {}, species
