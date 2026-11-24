@@ -17,7 +17,7 @@ body_color: white        # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Third Amendment
+  primary: Second Amendment
   secondary:             # optional
   hidden:                # optional
 
@@ -55,7 +55,7 @@ evolutions: []
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms:
-  - name: Third Amendment
+  - name: Second Amendment
     changes: looks
 
 # --- Moves ---

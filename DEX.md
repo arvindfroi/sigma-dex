@@ -262,4 +262,4 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 251 | [Eclipsox](data/species/eclipsox.yaml) | Normal / Dragon | Mold Breaker, Intimidate (H) | 720 |  | 72% |
 | 252 | [Voraxia](data/species/voraxia.yaml) | Dragon / Dark | Shadow Shield |  |  | 31% |
 | 253 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground | Lullaby | 600 |  | 72% |
-| 254 | [Meowthscot](data/species/meowthwo.yaml) | Normal | Third Amendment | 300 |  | 72% |
+| 254 | [Meowthscot](data/species/meowthwo.yaml) | Normal | Second Amendment | 300 |  | 72% |

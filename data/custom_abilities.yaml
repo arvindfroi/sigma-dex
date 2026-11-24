@@ -214,6 +214,10 @@ abilities:
     a Water-type move, it takes no damage and recovers 1/4 of its max HP
   similar_to: Beast Boost
   designer: Emil
+- id: third-amendment
+  name: Second Amendment
+  description: When hp is below half the user changes forms
+  effect: When hp is below half the user changes forms
 - id: sloth-combat
   name: Sloth Combat
   description: Doubles the user's Attack stat while it is asleep.
@@ -236,10 +240,6 @@ abilities:
   effect: Doubles the power of this Pokémon's sound-based moves.
   similar_to: Punk Rock
   designer: Emil
-- id: third-amendment
-  name: Third Amendment
-  description: When hp is below half the user changes forms
-  effect: When hp is below half the user changes forms
 - id: toxic-voice
   name: Toxic Voice
   description: Sound-based moves become Poison type. They may also badly poison the t

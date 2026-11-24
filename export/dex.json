@@ -48458,7 +48458,7 @@
       "weight_kg": 60,
       "body_color": "white",
       "abilities": {
-        "primary": "Third Amendment",
+        "primary": "Second Amendment",
         "secondary": null,
         "hidden": null
       },
@@ -48489,7 +48489,7 @@
       "evolutions": [],
       "forms": [
         {
-          "name": "Third Amendment",
+          "name": "Second Amendment",
           "changes": "looks"
         }
       ],
