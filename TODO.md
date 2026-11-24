@@ -30,22 +30,22 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Moves | TM/HM moves | 180 / 210 |
 | Location | encounters | 2 / 210 |
 | Design | concept | 44 / 210 |
-| Art | concept art | 204 / 210 |
+| Art | concept art | 205 / 210 |
 | Art | front sprite | 4 / 210 |
 | Art | front animation frame | 4 / 210 |
 | Art | back sprite | 4 / 210 |
 | Art | icon | 4 / 210 |
 | Art | footprint | 145 / 210 |
-| Art | shiny palette | 124 / 210 |
+| Art | shiny palette | 125 / 210 |
 | Art | cry | 174 / 210 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 186 / 210 |
-| DS back sprite 80x80 | 186 / 210 |
-| DS icon 32x32 | 183 / 210 |
+| DS front sprite 80x80 | 195 / 210 |
+| DS back sprite 80x80 | 195 / 210 |
+| DS icon 32x32 | 192 / 210 |
 
 ## Open dex slots (44)
 
@@ -546,14 +546,14 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #77 [Iglomodo mindre utv](data/species/iglomodo-mindre-utv.yaml) - 34%
+### #77 [Iglomodo mindre utv](data/species/iglomodo-mindre-utv.yaml) - 38%
 
 - **Dex page:** category, description, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
 ### #78 [Iglomodo](data/species/iglomodo.yaml) - 79%
 
@@ -1388,7 +1388,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
-### #188 [Pegalaxy](data/species/pegalaxy.yaml) - 10%
+### #188 [Pegalaxy](data/species/pegalaxy.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1396,7 +1396,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
 ### #233 [Tenebravis](data/species/tenebravis.yaml) - 21%
 

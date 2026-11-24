@@ -20159,7 +20159,7 @@
         "look": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/iglomodo-mindre-utv/5140.png",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -41751,8 +41751,8 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
+        "body_shape": "an insect body with a hard shell",
+        "movement": "It floats in the air.",
         "look": null
       },
       "assets": {
@@ -41831,8 +41831,8 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
+        "body_shape": "an insect body with a hard shell",
+        "movement": "It flies, flapping its wings.",
         "look": null
       },
       "assets": {
@@ -42581,9 +42581,9 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "an upright body on two legs without a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "Enderman from minecraft"
       },
       "assets": {
         "concept_art": "assets/concept-art/endermon/4941.png",
@@ -42748,9 +42748,9 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "an upright body on two legs without a tail",
+        "movement": "It walks on four legs.",
+        "look": "Iron golem"
       },
       "assets": {
         "concept_art": "assets/concept-art/viltector/2748.webp",
@@ -43406,9 +43406,9 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "a quadruped body",
+        "movement": "It flies, flapping its wings.",
+        "look": "A pegasus"
       },
       "assets": {
         "concept_art": "assets/concept-art/pegalaxy/4940.webp",
@@ -43417,7 +43417,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/pegalaxy.json",
         "cry": null
       },
       "engine": {

@@ -2912,13 +2912,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 956,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/956.png",
-    "caption": "[ds-back] sprite #125",
-    "editor": "Arvind"
-  },
-  {
     "id": 957,
     "species": "waffy",
     "file": "assets/concept-art/waffy/957.png",
@@ -10962,13 +10955,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 4742,
-    "species": "waffy",
-    "file": "assets/concept-art/waffy/4742.png",
-    "caption": "[ds-back2] sprite #901",
-    "editor": "Arvind"
-  },
-  {
     "id": 4747,
     "species": "maagamad",
     "file": "assets/concept-art/maagamad/4747.png",
@@ -11415,5 +11401,411 @@
     "file": "assets/concept-art/whaldrill3/5059.png",
     "caption": "[ds-front] sprite #956",
     "editor": "Emil"
+  },
+  {
+    "id": 5071,
+    "species": "crepawmon",
+    "file": "assets/concept-art/crepawmon/5071.png",
+    "caption": "[ds-front] sprite #957",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5072,
+    "species": "crepawmon",
+    "file": "assets/concept-art/crepawmon/5072.png",
+    "caption": "[ds-back] sprite #957",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5073,
+    "species": "crepawmon",
+    "file": "assets/concept-art/crepawmon/5073.png",
+    "caption": "[ds-icon] sprite #957",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5074,
+    "species": "crepawmon",
+    "file": "assets/concept-art/crepawmon/5074.png",
+    "caption": "[ds-follower] sprite #957",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5075,
+    "species": "crepawmon",
+    "file": "assets/concept-art/crepawmon/5075.png",
+    "caption": "[ds-front2] sprite #957",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5076,
+    "species": "crepawmon",
+    "file": "assets/concept-art/crepawmon/5076.png",
+    "caption": "[ds-back2] sprite #957",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5077,
+    "species": "viltector",
+    "file": "assets/concept-art/viltector/5077.png",
+    "caption": "[ds-front] sprite #958",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5078,
+    "species": "viltector",
+    "file": "assets/concept-art/viltector/5078.png",
+    "caption": "[ds-back] sprite #958",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5079,
+    "species": "viltector",
+    "file": "assets/concept-art/viltector/5079.png",
+    "caption": "[ds-icon] sprite #958",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5080,
+    "species": "viltector",
+    "file": "assets/concept-art/viltector/5080.png",
+    "caption": "[ds-follower] sprite #958",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5081,
+    "species": "viltector",
+    "file": "assets/concept-art/viltector/5081.png",
+    "caption": "[ds-front2] sprite #958",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5082,
+    "species": "viltector",
+    "file": "assets/concept-art/viltector/5082.png",
+    "caption": "[ds-back2] sprite #958",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5083,
+    "species": "pegalaxy",
+    "file": "assets/concept-art/pegalaxy/5083.png",
+    "caption": "[ds-front] sprite #961",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5084,
+    "species": "pegalaxy",
+    "file": "assets/concept-art/pegalaxy/5084.png",
+    "caption": "[ds-back] sprite #961",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5085,
+    "species": "pegalaxy",
+    "file": "assets/concept-art/pegalaxy/5085.png",
+    "caption": "[ds-icon] sprite #961",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5090,
+    "species": "pegalaxy",
+    "file": "assets/concept-art/pegalaxy/5090.png",
+    "caption": "[ds-follower] sprite #961",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5096,
+    "species": "pegalaxy",
+    "file": "assets/concept-art/pegalaxy/5096.png",
+    "caption": "[ds-front2] sprite #961",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5097,
+    "species": "pegalaxy",
+    "file": "assets/concept-art/pegalaxy/5097.png",
+    "caption": "[ds-back2] sprite #961",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5098,
+    "species": "racedent",
+    "file": "assets/concept-art/racedent/5098.png",
+    "caption": "[ds-front] sprite #962",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5099,
+    "species": "racedent",
+    "file": "assets/concept-art/racedent/5099.png",
+    "caption": "[ds-back] sprite #962",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5100,
+    "species": "racedent",
+    "file": "assets/concept-art/racedent/5100.png",
+    "caption": "[ds-icon] sprite #962",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5101,
+    "species": "racedent",
+    "file": "assets/concept-art/racedent/5101.png",
+    "caption": "[ds-follower] sprite #962",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5102,
+    "species": "racedent",
+    "file": "assets/concept-art/racedent/5102.png",
+    "caption": "[ds-front2] sprite #962",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5103,
+    "species": "racedent",
+    "file": "assets/concept-art/racedent/5103.png",
+    "caption": "[ds-back2] sprite #962",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5104,
+    "species": "ratpid",
+    "file": "assets/concept-art/ratpid/5104.png",
+    "caption": "[ds-front] sprite #963",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5105,
+    "species": "ratpid",
+    "file": "assets/concept-art/ratpid/5105.png",
+    "caption": "[ds-back] sprite #963",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5106,
+    "species": "ratpid",
+    "file": "assets/concept-art/ratpid/5106.png",
+    "caption": "[ds-icon] sprite #963",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5107,
+    "species": "ratpid",
+    "file": "assets/concept-art/ratpid/5107.png",
+    "caption": "[ds-follower] sprite #963",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5108,
+    "species": "ratpid",
+    "file": "assets/concept-art/ratpid/5108.png",
+    "caption": "[ds-front2] sprite #963",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5109,
+    "species": "ratpid",
+    "file": "assets/concept-art/ratpid/5109.png",
+    "caption": "[ds-back2] sprite #963",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5110,
+    "species": "plumbuzzz",
+    "file": "assets/concept-art/plumbuzzz/5110.png",
+    "caption": "[ds-front] sprite #964",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5111,
+    "species": "plumbuzzz",
+    "file": "assets/concept-art/plumbuzzz/5111.png",
+    "caption": "[ds-back] sprite #964",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5112,
+    "species": "plumbuzzz",
+    "file": "assets/concept-art/plumbuzzz/5112.png",
+    "caption": "[ds-icon] sprite #964",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5113,
+    "species": "plumbuzzz",
+    "file": "assets/concept-art/plumbuzzz/5113.png",
+    "caption": "[ds-follower] sprite #964",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5114,
+    "species": "plumbuzzz",
+    "file": "assets/concept-art/plumbuzzz/5114.png",
+    "caption": "[ds-front2] sprite #964",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5115,
+    "species": "plumbuzzz",
+    "file": "assets/concept-art/plumbuzzz/5115.png",
+    "caption": "[ds-back2] sprite #964",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5116,
+    "species": "demetiscet",
+    "file": "assets/concept-art/demetiscet/5116.png",
+    "caption": "[ds-front] sprite #966",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5117,
+    "species": "demetiscet",
+    "file": "assets/concept-art/demetiscet/5117.png",
+    "caption": "[ds-back] sprite #966",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5118,
+    "species": "demetiscet",
+    "file": "assets/concept-art/demetiscet/5118.png",
+    "caption": "[ds-icon] sprite #966",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5119,
+    "species": "demetiscet",
+    "file": "assets/concept-art/demetiscet/5119.png",
+    "caption": "[ds-follower] sprite #966",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5120,
+    "species": "demetiscet",
+    "file": "assets/concept-art/demetiscet/5120.png",
+    "caption": "[ds-front2] sprite #966",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5121,
+    "species": "demetiscet",
+    "file": "assets/concept-art/demetiscet/5121.png",
+    "caption": "[ds-back2] sprite #966",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5129,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/5129.png",
+    "caption": "[ds-back] sprite #967",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5133,
+    "species": "waffy",
+    "file": "assets/concept-art/waffy/5133.png",
+    "caption": "[ds-back2] sprite #967",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5134,
+    "species": "daytard",
+    "file": "assets/concept-art/daytard/5134.png",
+    "caption": "[ds-front] sprite #968",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5135,
+    "species": "daytard",
+    "file": "assets/concept-art/daytard/5135.png",
+    "caption": "[ds-back] sprite #968",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5136,
+    "species": "daytard",
+    "file": "assets/concept-art/daytard/5136.png",
+    "caption": "[ds-icon] sprite #968",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5137,
+    "species": "daytard",
+    "file": "assets/concept-art/daytard/5137.png",
+    "caption": "[ds-follower] sprite #968",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5138,
+    "species": "daytard",
+    "file": "assets/concept-art/daytard/5138.png",
+    "caption": "[ds-front2] sprite #968",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5139,
+    "species": "daytard",
+    "file": "assets/concept-art/daytard/5139.png",
+    "caption": "[ds-back2] sprite #968",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5140,
+    "species": "iglomodo-mindre-utv",
+    "file": "assets/concept-art/iglomodo-mindre-utv/5140.png",
+    "caption": "pasted",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5141,
+    "species": "iglomodo-mindre-utv",
+    "file": "assets/concept-art/iglomodo-mindre-utv/5141.png",
+    "caption": "pasted",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5142,
+    "species": "endermon",
+    "file": "assets/concept-art/endermon/5142.png",
+    "caption": "[ds-front] sprite #969",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5143,
+    "species": "endermon",
+    "file": "assets/concept-art/endermon/5143.png",
+    "caption": "[ds-back] sprite #969",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5144,
+    "species": "endermon",
+    "file": "assets/concept-art/endermon/5144.png",
+    "caption": "[ds-icon] sprite #969",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5145,
+    "species": "endermon",
+    "file": "assets/concept-art/endermon/5145.png",
+    "caption": "[ds-follower] sprite #969",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5146,
+    "species": "endermon",
+    "file": "assets/concept-art/endermon/5146.png",
+    "caption": "[ds-front2] sprite #969",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5147,
+    "species": "endermon",
+    "file": "assets/concept-art/endermon/5147.png",
+    "caption": "[ds-back2] sprite #969",
+    "editor": "Arvind"
   }
 ]
