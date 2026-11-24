@@ -740,8 +740,12 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .tanim .sub { color: var(--muted); }
 .tanim.on { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
 .tanim .tag { position: static; }
+.tanimpv { display: flex; gap: 6px; align-self: stretch; justify-content: center; background: var(--soft); padding: 2px 0; }
+.tanimpv > span { display: flex; flex-direction: column; align-items: center; }
+.tanimpv i { font-style: normal; font-size: 11px; color: var(--muted); }
 .twide { display: inline-block; width: 80px; height: 80px; overflow: visible; }
 .twide i { display: block; image-rendering: pixelated; transform-origin: 50% 100%; }
+.basecell.flipped { transform: scaleX(-1); }
 .tanimtop { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 8px 0; }
 .battlewrap { position: relative; display: inline-block; max-width: 100%; line-height: 0; }
 .battleanim, .battleback { position: absolute; width: 43.75%; pointer-events: none; }
@@ -749,6 +753,26 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .battleback { left: 4.7%; top: 50%; }
 .battleanim canvas, .battleback canvas, .battleback img { width: 100% !important; height: auto !important; image-rendering: pixelated; }
 .battleback img { width: 71.4% !important; margin: 16.7% 0 0 14.3%; }
+.battlebox { position: absolute; left: 0; right: 0; top: 75%; bottom: 0; background: #484048; border: 4px solid #484048; line-height: 1.3;
+  box-shadow: inset 0 0 0 3px #f8f8f8; outline: 0; font-family: var(--display); font-size: 13px; color: #303030; padding: 6px 12px; }
+.battlebox:empty { padding: 0; }
+.battlebox { background: #f8f8f8; border-color: #484048; box-shadow: none; }
+.edgewarn { display: inline-block; font-size: 12px; color: #fff; background: var(--warn, #c03030); padding: 1px 6px; margin: 2px 0; }
+.edgewarn[hidden] { display: none; }
+.tfields { margin-top: 14px; }
+.tfields h3 { margin: 0 0 4px; }
+.tfieldgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 6px 10px; }
+.tfieldgrid .field { display: flex; flex-direction: column; gap: 2px; }
+.tfieldgrid .field.wide { grid-column: span 2; }
+@media (max-width: 760px) { .tfieldgrid .field.wide { grid-column: auto; } }
+.tfieldgrid .field > span { font-size: 13px; color: var(--muted); }
+.tbasewrap { position: relative; display: flex; }
+.tbasewrap > .tbase { flex: 1; }
+.tplus { position: absolute; top: 2px; right: 2px; min-height: 0; padding: 0 5px; font-size: 13px; line-height: 18px; border-width: 2px; }
+.tplus.on, .tbase.also { border-color: var(--gold); }
+.tset { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.tsetbox { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 6px; background: var(--soft); border: 2px solid var(--line); min-width: 120px; }
+.tsetpic { min-height: 120px; display: flex; align-items: center; justify-content: center; }
 .tbase i { display: block; width: 80px; height: 80px; image-rendering: pixelated; }
 .tbase span { font-size: 10px; line-height: 1.1; color: #333; max-width: 80px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .tstrength { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
@@ -837,8 +861,10 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .tslot.dropto { border-color: var(--pink); outline: 2px dashed var(--pink); outline-offset: 2px; }
 .tedit { display: grid; grid-template-columns: minmax(170px, 220px) minmax(220px, 1fr) minmax(280px, 1.3fr); gap: 14px; background: var(--panel); border: 2px solid var(--line); padding: 12px; align-items: start; }
 .tleft, .tmid, .tright { display: grid; gap: 6px; min-width: 0; }
-.tpic { width: 120px; height: 120px; object-fit: contain; justify-self: center; }
-.tpic.noart { display: grid; place-items: center; font-family: var(--display); font-size: 40px; color: var(--muted); background: var(--soft); }
+/* the team builder's picture; scoped, since the trainer studio's picture row is also .tpic (2026-11-24: this rule made that row a
+   120x120 box, so the upload and paste area spilled over the rest of the PICTURE step) */
+.tedit .tpic { width: 120px; height: 120px; object-fit: contain; justify-self: center; }
+.tedit .tpic.noart { display: grid; place-items: center; font-family: var(--display); font-size: 40px; color: var(--muted); background: var(--soft); }
 .trow { display: flex; gap: 8px; }
 .flabel { font-family: var(--display); font-size: 13px; color: var(--muted); margin-top: 4px; }
 .tmove { display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; }
@@ -3695,6 +3721,7 @@ function spriteStudio(s, startStep) {
       h("button", {type: "button", class: "tilepic", disabled: !t.image, title: t.status === "broken" ? "The PC thinks this one is broken: " + (t.note || "") : inUse ? "In use" : "Use this one",
         onclick: () => !inUse && pick(t)}, pic, inUse ? h("span", {class: "tag"}, "IN USE") : null, t.status === "broken" ? h("span", {class: "warnmark broke"}, "BROKEN?") : null),
       made ? h("div", {class: "tilenote"}, made) : null,
+      t.image && ["front", "back", "front2", "back2"].includes(t.stage) ? edgeWarn(artUrl(t.image)) : null,
       t.image && DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openPixelEditor(t.stage, {src: artUrl(t.image), tryRow: t})}, "EDIT"),
         t.stage === "art" && t.status !== "failed" ? h("button", {type: "button", class: "small", title: "Draw it in a new pose, with the same design",
           onclick: ev => { ev.currentTarget.disabled = true; newPose(t); }}, "NEW POSE") : null) : null);
@@ -3981,13 +4008,16 @@ function spriteStudio(s, startStep) {
         dbRead("sprite_candidates?species_id=eq." + s.id + "&gen=eq.4&status=in.(approved,superseded)&order=id.desc&limit=20&select=id,status,front,back,icon,follower,front2,back2,created_at")]);
       st.loaded = true;
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; }
-    draw(); st.busyMsg = "";
+    if (st.timed) keepScroll(bottomSlot, draw); else draw();
+    st.timed = false; st.busyMsg = "";
     noteMine(s.id, true);
     clearTimeout(timer);
     // Often while something is drawn, and in the guided way also between two steps (the fronts start a moment after the
     // cut-out is done, on the server): the page must never look as if nothing happens.
     const busy = mine().length || st.tries.some(t => t.status === "drawing");
-    timer = setTimeout(() => { if (top.isConnected) load(); }, busy ? 4000 : st.loaded && guided() ? 6000 : 60000);
+    const wait = busy ? 4000 : st.loaded && guided() ? 6000 : 60000;
+    const tick = () => { if (!top.isConnected) return; if (handsBusy(bottomSlot)) { timer = setTimeout(tick, 1500); return; } st.timed = true; load(); };
+    timer = setTimeout(tick, wait);
   }
 
   // The editor takes the bottom screen; the top screen stays. Saving makes a new picture of that step, picked and in use.
@@ -4011,7 +4041,7 @@ function spriteStudio(s, startStep) {
     st.editing.el.scrollIntoView({block: "nearest"});
   }
 
-  const bottomSlot = h("div", {class: "studio-bottom"}, steps, page);
+  const bottomSlot = watchHands(h("div", {class: "studio-bottom"}, steps, page));
   noteMine(s.id, true);
   draw();
   load();
@@ -5099,22 +5129,36 @@ function renderCharacters() {
 // SAVE stores the pick with where it came from (base, strength, seed, picture, words) on the claim (MY TRAINER, slot
 // "trainer-<role id>") or on the NPC (slot "npc-<id>"). The uploaded picture stays PRIVATE (edge function trainer-photo):
 // it is never shown from the server, only the drawing PC gets it for the job it draws.
+// The steps (2026-11-24, Arvind: "flowen på trener sprite er ikke så bra ... jeg skjønner ikke hvorfor han lager en map sprite
+// når vi lager front spriten"): each step makes one thing, started by the person; VS comes before BACK (the back is drawn
+// from the picture and the picked VS) and the map figure is its own step, made from the picked front.
 const TSTEPS = [
-  {id: "picture", n: "1", label: "PICTURE", c: "pink", what: "The picture the drawing PC paints your trainer from."},
-  {id: "base", n: "2", label: "BASE", c: "purple", what: "A real trainer from the DS games whose body and pose are like the trainer you want. Your trainer keeps its size and stance; the look comes from your picture."},
-  {id: "make", n: "3", label: "MAKE", c: "blue", what: "The drawing PC paints the base with your picture: a battle sprite and a map figure each time. Tap the one you like best."},
-  {id: "map", n: "4", label: "MAP", c: "pink", what: "More map figures for the battle sprite you picked: each one is drawn a little differently. Tap the one that looks most like your trainer. Words here change only the map figure."},
-  {id: "anim", n: "5", label: "ANIM", c: "blue", what: "How your trainer moves when a battle starts. Most trainers just stand there; gym leaders, the Elite Four and other big trainers have a short animation with a few poses. Pick one whose poses suit your trainer and watch it on your own sprite, then MAKE draws the extra poses. Optional."},
-  {id: "vs", n: "6", label: "VS", c: "sky", what: "The portrait on the VS screen before a battle (gym leaders, the Elite Four, rivals and champions have one). The drawing PC paints it from your battle sprite and your picture. Optional."},
-  {id: "back", n: "7", label: "BACK", c: "purple", what: "Only for a player character or a tag-battle partner: your trainer seen from behind, throwing the Poke Ball at the start of a battle. First the back (pick the one most like your trainer), then the throw is drawn from it. Optional."},
+  {id: "picture", n: "1", label: "PICTURE", c: "pink", what: "The picture the drawing PC paints your trainer from, and a few words about how they look: the words matter as much as the picture."},
+  {id: "base", n: "2", label: "BASE", c: "purple", what: "A real trainer from the DS games whose body and pose are like the trainer you want. Your trainer keeps its size and stance; the look comes from your picture and words. Pick up to 2 more to try them too."},
+  {id: "make", n: "3", label: "FRONT", c: "blue", what: "The battle sprite: the drawing PC paints the base with your picture and words. Tap the one you like best."},
+  {id: "anim", n: "4", label: "ANIM", c: "blue", what: "How your trainer moves when a battle starts. Most trainers just stand there; gym leaders, the Elite Four and other big trainers have a short animation with a few poses. Pick one whose poses suit your trainer and watch it on your own sprite, then MAKE draws the extra poses. Optional."},
+  {id: "vs", n: "5", label: "VS", c: "sky", what: "The portrait on the VS screen before a battle (gym leaders, the Elite Four, rivals and champions have one). The drawing PC paints it from your battle sprite and your picture. Needed for a back."},
+  {id: "back", n: "6", label: "BACK", c: "purple", what: "Only for a player character or a tag-battle partner: your trainer seen from behind, throwing the Poke Ball at the start of a battle. First the back (drawn from your picture and the VS you picked), then the throw is drawn from it. Optional."},
+  {id: "map", n: "7", label: "MAP", c: "pink", what: "The little figure that walks around on the map, drawn from the battle sprite you picked. Each one is drawn a little differently: tap the one that looks most like your trainer. Words here change only the map figure."},
   {id: "save", n: "✓", label: "SAVE", c: "purple", what: "How your trainer looks in a battle and on the map."}];
+// The words about the trainer (2026-11-24, Arvind: "lag fields vi kan fylle ut"): the same fields as the tested recipe
+// (trainer_swap.py), each with an example; the drawing PC puts them in its text (scripts/trainer_studio.py battle_text).
+const TFIELDS = [["who", "Who", "a young man, an old woman, a girl of about 10"], ["cls", "Role", "Gym Leader, Ace Trainer, Hiker, Team Rocket"],
+  ["skin", "Skin", "light skin, tanned skin, dark brown skin, a pale made-up face"], ["hair", "Hair", "spiky white hair with a red streak, a golden band on the forehead"],
+  ["clothes", "Clothes", "a long white cape with a high collar, a black sleeveless vest, black trousers, brown boots"],
+  ["extra", "Extras", "glasses, a golden gauntlet on the right arm, a scar on the cheek"], ["held", "Holds", "a Poke Ball, a wooden staff, a big wrench"],
+  ["build", "Build", "slim, athletic, stout, very tall, small"], ["mood", "Mood", "a menacing grin, calm, cheerful"],
+  ["pose", "Pose", "empty = the base's pose; or e.g. standing wide, both hands raised like claws"], ["facing", "Facing", "empty = as the base; or e.g. facing the viewer"]];
 const NPC_WALK = {up: [9, 8], down: [11, 12], left: [1, 3], right: [4, 5]};   // frames of the game's 16-frame NPC sheet (2 steps each)
+const BATTLE_ROWS = "1890b02090b82090b82090b84098b85898b8609cb868a0b868a0b868a0b85898b83098c83098c82890c01888c01090c81090c81090c81090c81890c81890c82888c02878a02878a03080a83080a83080a83080a83080b83080b83080b83088c03098c858a0c068a0bc88b8d8a8c8d8e0e8f0e0e8f0f0f0f8e0e8f0d8e0d8d8e0d8b8d0c898b8b078a8a068a08868a08850907840907840907850907858988068a08880a89880a89890b8a0f8f0e0383838383838f8f0e0e0e0d0e0d8d0d8d8c8d0d8c8d0d0c8d0d0c0c8c8c0c0c8b8c0c8b8b8c0b0b8b8b0b8b8b0b0b0a8b0b0a8a8a8a0a0a898a0a89898a09898a090989890989888909080909088888878888878888880808070808070787868707068707068686860686858686858686858606050606050606050606050606050606050585848585848585848585848585848505040585040585040585040505040505040505040505040505040505040505040505040505040505040505040505040505040505040505040505040505040505040505040606050606050746c70a898a0a898a0a898a0a898a0e8e0e8e8e0e8e8e0e8e8e0e8e8e0e8e8e0e8e8e0e8";   // battle background colour per row (see battle() in the trainer studio)
 const tstudios = new Map();          // slot -> what the person has chosen so far (kept while they move around the site)
 const trainerBases = () => (DEX.trainer_bases && DEX.trainer_bases.bases) || [];
 const trainerBase = id => trainerBases().find(b => b.id === id);
-function baseCell(b, scale) {
-  const tb = DEX.trainer_bases, i = trainerBases().indexOf(b), cell = tb.cell * scale;
-  return h("i", {class: "basecell", style: "background:url(" + artUrl(tb.sheet) + ") " + (-(i % tb.cols) * cell) + "px " + (-Math.floor(i / tb.cols) * cell) + "px / " +
+// A base's cell on its sheet: the first sheet holds the HGSS and Platinum classes in index order; Origin's own trainers
+// (2026-11-24) have a sheet of their own (b.sheet, cell b.i). flip = drawn mirrored (the BASE step's MIRROR).
+function baseCell(b, scale, flip) {
+  const tb = DEX.trainer_bases, i = b.sheet ? b.i : trainerBases().filter(x => !x.sheet).indexOf(b), cell = tb.cell * scale;
+  return h("i", {class: "basecell" + (flip ? " flipped" : ""), style: "background:url(" + artUrl(b.sheet || tb.sheet) + ") " + (-(i % tb.cols) * cell) + "px " + (-Math.floor(i / tb.cols) * cell) + "px / " +
     (tb.cols * cell) + "px auto no-repeat;width:" + cell + "px;height:" + cell + "px", role: "img", "aria-label": b.label});
 }
 const spriteImg = (sp, cls) => sp && sp.image ? h("img", {class: "px " + (cls || "spritebig"), src: artUrl(sp.image), alt: "trainer sprite"}) : null;
@@ -5154,9 +5198,64 @@ function animPlayer(stripSrc, script, scale, opts) {
     for (const x of seq) { if (t < x[3]) { f = x; break; } t -= x[3]; }
     const cells = Math.max(1, Math.floor(im.width / 80)), cell = f[0] < cells ? f[0] : 0;
     ctx.clearRect(0, 0, w, hgt); ctx.imageSmoothingEnabled = false;
-    ctx.drawImage(im, cell * 80, 0, 80, 80, pad + f[1], pad + f[2], 80, 80);
+    ctx.drawImage(im, cell * 80, (opts && opts.row || 0) * 80, 80, 80, pad + f[1], pad + f[2], 80, 80);   // opts.row: a row of a sheet
   }});
   return canvas;
+}
+// Edge warning (2026-11-24, after Arvind found many Pokemon cut by the frame): a sprite (or each 80x80 frame of a strip) is
+// cut when 3 or more COLOURED pixels in a row, or a straight line of 8 or more pixels of any kind, lie on its top, left or
+// right edge (one or two outline pixels touching are fine; the bottom is left out: backs are cut there on purpose and feet
+// often stand on it). The same rule as the worker's edge check (scripts/studio_tries.py edge_cut).
+const edgeChecks = new Map();
+function edgesOf(src, cell) {
+  if (!edgeChecks.has(src)) edgeChecks.set(src, loadPicture(src).then(im => {
+    const c = Object.assign(document.createElement("canvas"), {width: im.width, height: im.height}), x = c.getContext("2d", {willReadFrequently: true});
+    x.drawImage(im, 0, 0); const d = x.getImageData(0, 0, im.width, im.height).data, out = new Set();
+    const px = (a, b) => d.subarray((b * im.width + a) * 4, (b * im.width + a) * 4 + 4), luma = p => (299 * p[0] + 587 * p[1] + 114 * p[2]) / 1000;
+    const cw = cell || im.width, chh = cell || im.height;
+    for (let cx = 0; cx + cw <= im.width; cx += cw) for (let cy = 0; cy + chh <= im.height; cy += chh) {
+      let dark = 255;
+      for (let yy = 0; yy < chh; yy++) for (let xx = 0; xx < cw; xx++) { const p = px(cx + xx, cy + yy); if (p[3]) dark = Math.min(dark, luma(p)); }
+      const cutoff = Math.max(60, dark + 40);
+      const line = (name, n, at) => { let o = 0, k = 0, bo = 0, bk = 0;
+        for (let i = 0; i < n; i++) { const p = at(i); o = p[3] ? o + 1 : 0; k = p[3] && luma(p) > cutoff ? k + 1 : 0; bo = Math.max(bo, o); bk = Math.max(bk, k); }
+        if (bk >= 3 || bo >= 8) out.add(name); };
+      line("top", cw, i => px(cx + i, cy)); line("left", chh, i => px(cx, cy + i)); line("right", chh, i => px(cx + cw - 1, cy + i));
+    }
+    return [...out];
+  }).catch(() => []));
+  return edgeChecks.get(src);
+}
+function edgeWarn(src, cell) {
+  const tag = h("span", {class: "edgewarn", hidden: ""});
+  if (src) edgesOf(src, cell).then(e => { if (e.length) { tag.hidden = false; tag.textContent = "⚠ touches the " + e.join(" and ") + " edge";
+    tag.title = "Part of the sprite reaches the " + e.join(" and ") + " edge of the 80x80 frame, so it may be cut off in the game. EDIT it, make it thinner or shorter in 2 BASE, or try again."; } });
+  return tag;
+}
+// Hands off while choosing (2026-11-24, Arvind: "jeg skal velge noe på en liste ... og at jeg blir 'kastet ut' er resettet
+// slik at jeg ikke får tid til å lagre valgene mine"). The studios ask the server every few seconds while something is drawn
+// and drew the whole page again, which closed an open list, dropped the focus and scrolled the grids back to the top.
+// Now a timed refresh waits while the person is busy in the studio (a list, a text box or a slider has the focus, or they
+// touched, typed or scrolled there in the last 5 seconds), and a refresh keeps the scroll of the grids and the dialog.
+const handsAt = new WeakMap();
+function watchHands(root) {
+  if (handsAt.has(root)) return root;
+  handsAt.set(root, 0);
+  const mark = () => handsAt.set(root, Date.now());
+  for (const ev of ["pointerdown", "keydown", "wheel", "scroll", "input", "change", "focusin"]) root.addEventListener(ev, mark, {capture: true, passive: true});
+  return root;
+}
+function handsBusy(root) {
+  const a = document.activeElement;
+  if (a && root.contains(a) && (a.tagName === "SELECT" || a.tagName === "TEXTAREA" || (a.tagName === "INPUT" && !["button", "checkbox", "radio", "range"].includes(a.type)))) return true;
+  return Date.now() - (handsAt.get(root) || 0) < 5000;
+}
+function keepScroll(root, redraw) {
+  const kinds = [".tbases", ".tanims", ".tiles", ".page", ".studio-bottom"], dlg = document.getElementById("dialog");
+  const saved = kinds.map(q => [...root.querySelectorAll(q)].map(e => e.scrollTop)), top = dlg ? dlg.scrollTop : 0, win = scrollY;
+  redraw();
+  kinds.forEach((q, i) => [...root.querySelectorAll(q)].forEach((e, k) => { if (saved[i][k]) e.scrollTop = saved[i][k]; }));
+  if (dlg && dlg.open) dlg.scrollTop = top; else scrollTo(scrollX, win);
 }
 // The 512x32 sheet as a 4x4 grid of frames (the pixel editor draws it big enough), and back.
 function npcToGrid(im) {
@@ -5185,10 +5284,12 @@ function tstudioState(slot) {
   if (!tstudios.has(slot)) {
     let photo = null;
     try { photo = JSON.parse(remember.get("trainer-photo-" + slot) || "null"); } catch (e) { photo = null; }
-    tstudios.set(slot, {photo, ref: null, base: remember.get("trainer-base-" + slot) || "", strength: 0.75, count: 3, words: remember.get("trainer-words-" + slot) || "",
+    tstudios.set(slot, {photo, ref: null, base: remember.get("trainer-base-" + slot) || "", strength: 0.75, count: 2, words: remember.get("trainer-words-" + slot) || "",
+      fields: (() => { try { return JSON.parse(remember.get("trainer-fields-" + slot) || "{}") || {}; } catch (e) { return {}; } })(),
+      more: (remember.get("trainer-more-" + slot) || "").split(",").filter(Boolean),
       filter: "", game: "", step: null, tries: [], vsTries: [], vsCount: 2, mapTries: [], mapCount: 3, mapExtra: "",
       animTries: [], animScript: Number(remember.get("trainer-anim-" + slot) || 0) || 0, animCount: 3, animExtra: "",
-      backTries: [], throwTries: [], backShape: remember.get("trainer-backshape-" + slot) || "short", width: Number(remember.get("trainer-width-" + slot) || 1) || 1, backCount: 6, backExtra: "", jobs: [], line: [], worker: null, loaded: false, editing: null, busyMsg: "", showAll: false});
+      backTries: [], throwTries: [], backShape: remember.get("trainer-backshape-" + slot) || "short", width: Number(remember.get("trainer-width-" + slot) || 1) || 1, flip: remember.get("trainer-flip-" + slot) === "1", height: Number(remember.get("trainer-height-" + slot) || 1) || 1, backCount: 6, backExtra: "", jobs: [], line: [], worker: null, loaded: false, editing: null, busyMsg: "", showAll: false});
   }
   return tstudios.get(slot);
 }
@@ -5220,8 +5321,14 @@ function trainerStudio(slot, opts) {
   // What the set shows: the picked try, else the sprite saved now.
   // Step MAP: the picked map figure drawn for the picked battle sprite (its parent_try), else the battle try's own.
   // a map figure drawn on by hand has the map try as its parent: walk up to the battle sprite it belongs to
+  // A battle sprite edited by hand (EDIT, MIRROR) is a new try whose parent is the sprite it came from. The map figures,
+  // animations and backs made from the earlier version still belong to it (2026-11-24: Arvind edited his front and his
+  // drawn map figure, animations and backs seemed gone): compare battle sprites by the job-made sprite they come from.
+  const battleRoot = id => { const m = new Map(st.tries.map(x => [x.id, x])); let x = m.get(id);
+    for (let i = 0; i < 20 && x && x.job_id === null && m.has(x.parent_try); i++) x = m.get(x.parent_try); return x ? x.id : id; };
+  const sameBattle = (a, b) => a === b || (a != null && b != null && battleRoot(a) === battleRoot(b));
   const mapBattle = t => { const m = new Map(st.mapTries.map(x => [x.id, x])); let x = t; for (let i = 0; i < 20 && m.has(x.parent_try); i++) x = m.get(x.parent_try); return x.parent_try; };
-  const pickedMap = () => { const b = picked(); return b ? st.mapTries.filter(t => t.picked && usable(t) && t.overworld && mapBattle(t) === b.id)
+  const pickedMap = () => { const b = picked(); return b ? st.mapTries.filter(t => t.picked && usable(t) && t.overworld && sameBattle(mapBattle(t), b.id))
     .sort((a, b2) => String(b2.picked_at).localeCompare(String(a.picked_at)))[0] || null : null; };
   const inSet = () => { const t = picked(), m = pickedMap(); return t ? {image: t.image, overworld: m ? m.overworld : t.overworld, tryRow: t, mapRow: m || t,
       live: opts.current && opts.current.try === t.id && opts.current.overworld === (m ? m.overworld : t.overworld)}
@@ -5229,16 +5336,23 @@ function trainerStudio(slot, opts) {
       mapRow: st.mapTries.find(x => x.id === opts.current.map_try) || st.tries.find(x => x.id === opts.current.try) || null, live: true} : null; };
   const mine = () => st.line.filter(j => j.species_id === slot);
   const each = () => secondsFor(st.worker && st.worker.timings, "trainer");
-  // Step 4 VS: the picked portrait, else the saved one.
+  // Step 5 VS: the picked portrait, else the saved one.
   const pickedVs = () => st.vsTries.filter(t => t.picked && usable(t)).sort((a, b) => String(b.picked_at).localeCompare(String(a.picked_at)))[0] || null;
   const vsInSet = () => { const t = pickedVs(); return t ? {image: t.image, tryRow: t} : opts.current && opts.current.vs ? {image: opts.current.vs, tryRow: st.vsTries.find(x => x.id === opts.current.vs_try) || null} : null; };
   // Step ANIM: the picked animation of the picked battle sprite (its from_try), for the script chosen now (0 = none).
-  const animOf = t => { const m = /anim (\d+)/.exec(t.recipe || ""); return m ? Number(m[1]) : 0; };
-  const pickedAnim = () => { const b = picked(); return b && st.animScript ? st.animTries.filter(t => t.picked && usable(t) && t.parent_try === b.id && animOf(t) === st.animScript)
+  // The animation (trainer class) of an anim try: its job's recipe 'anim:N'; else the try's recipe, old 'anim 70 d0.75' or
+  // ANIM v2 'anim pair+sw0.55 97 s1' (2026-11-24: the old pattern missed v2, so made animations never showed).
+  const animOf = t => {
+    const j = t.job_id && st.jobs.find(x => x.id === t.job_id), jm = j && /^anim:(\d+)$/.exec(j.recipe || "");
+    if (jm) return Number(jm[1]);
+    const m = /^anim\b(?:\s+\S*[^\d\s]\S*)*\s+(\d{1,3})(?:\s|$)/.exec(t.recipe || "");
+    return m ? Number(m[1]) : 0;
+  };
+  const pickedAnim = () => { const b = picked(); return b && st.animScript ? st.animTries.filter(t => t.picked && usable(t) && sameBattle(t.parent_try, b.id) && animOf(t) === st.animScript)
     .sort((a, b2) => String(b2.picked_at).localeCompare(String(a.picked_at)))[0] || null : null; };
   // Step BACK: the picked back (frame 1) of the picked battle sprite, and the picked throw drawn from that back.
   const backBattle = t => { const m = new Map(st.backTries.map(x => [x.id, x])); let x = t; for (let i = 0; i < 20 && m.has(x.parent_try); i++) x = m.get(x.parent_try); return x.parent_try; };
-  const pickedBack = () => { const b = picked(); return b ? st.backTries.filter(t => t.picked && usable(t) && backBattle(t) === b.id)
+  const pickedBack = () => { const b = picked(); return b ? st.backTries.filter(t => t.picked && usable(t) && sameBattle(backBattle(t), b.id))
     .sort((a, b2) => String(b2.picked_at).localeCompare(String(a.picked_at)))[0] || null : null; };
   const pickedThrow = () => { const k = pickedBack(); return k ? st.throwTries.filter(t => t.picked && usable(t) && t.parent_try === k.id)
     .sort((a, b2) => String(b2.picked_at).localeCompare(String(a.picked_at)))[0] || null : null; };
@@ -5274,17 +5388,17 @@ function trainerStudio(slot, opts) {
     }
     const p = picked(), cur = opts.current;
     if (p && (!cur || cur.try !== p.id)) return "PICKED\nGo to SAVE to make it " + (npc ? (opts.name || "the NPC") + "'s sprite." : "your trainer.");
-    if (cur) return (npc ? "THIS IS " + String(opts.name || "the NPC").toUpperCase() + " NOW" : "THIS IS YOUR TRAINER NOW") + "\nTap EDIT under a picture to change it, or make new ones in 3 MAKE.";
-    if (st.tries.some(usable)) return "PICK ONE\nIn 3 MAKE, tap the one you like best.";
+    if (cur) return (npc ? "THIS IS " + String(opts.name || "the NPC").toUpperCase() + " NOW" : "THIS IS YOUR TRAINER NOW") + "\nTap EDIT under a picture to change it, or make new ones in 3 FRONT.";
+    if (st.tries.some(usable)) return "PICK ONE\nIn 3 FRONT, tap the one you like best.";
     if (!hasPicture()) return (npc ? "LET'S MAKE THIS NPC\nStart with 1 PICTURE: a drawing of your own character." : "LET'S MAKE YOUR TRAINER\nStart with 1 PICTURE: a photo or drawing of yourself.");
     if (!st.base) return "PICK A BASE\nIn 2 BASE, tap a trainer whose body and pose are like " + (npc ? "your character's." : "yours.");
-    return "READY\nIn 3 MAKE, press MAKE. Each one takes " + aboutMinutes(each()) + ".";
+    return "READY\nIn 3 FRONT, press MAKE. Each one takes " + aboutMinutes(each()) + ".";
   }
 
   function drawTop() {
     const it = inSet();
     const slotBox = (label, pic, edit) => h("div", {class: "slot frame" + (it && it.live ? " live" : "")},
-      h("button", {type: "button", class: "slotpic", title: "Go to 3 MAKE", onclick: () => go("make")}, pic || h("div", {class: "slotempty"}, "—")),
+      h("button", {type: "button", class: "slotpic", title: "Go to 3 FRONT", onclick: () => go("make")}, pic || h("div", {class: "slotempty"}, "—")),
       h("div", {class: "slotname"}, label, it ? h("small", {}, it.live ? "saved" : "picked") : null), edit);
     const canEdit = it && it.tryRow && DEX.web.url;
     top.replaceChildren(
@@ -5296,11 +5410,11 @@ function trainerStudio(slot, opts) {
         slotBox("MAP", it && it.overworld ? npcWalker(artUrl(it.overworld), 3) : null,
           canEdit && it.overworld && it.mapRow ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("map", it.mapRow)}, "EDIT") : null),
         (() => { const v = vsInSet(); return h("div", {class: "slot frame"},
-          h("button", {type: "button", class: "slotpic", title: "Go to 4 VS", onclick: () => go("vs")}, v ? h("img", {class: "px", src: artUrl(v.image), alt: "VS portrait", style: "width:192px"}) : h("div", {class: "slotempty"}, "—")),
+          h("button", {type: "button", class: "slotpic", title: "Go to 5 VS", onclick: () => go("vs")}, v ? h("img", {class: "px", src: artUrl(v.image), alt: "VS portrait", style: "width:192px"}) : h("div", {class: "slotempty"}, "—")),
           h("div", {class: "slotname"}, "VS", v ? h("small", {}, opts.current && opts.current.vs === v.image ? "saved" : "picked") : h("small", {}, "optional")),
           v && v.tryRow && DEX.web.url ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("vs", v.tryRow)}, "EDIT") : null); })(),
         (() => { const b = backNow(); return h("div", {class: "slot frame"},
-          h("button", {type: "button", class: "slotpic", title: "Go to 7 BACK", onclick: () => go("back")}, b ? (b.throw ? animPlayer(artUrl(b.throw), null, 1.4, {frames: 8}) : h("img", {class: "px", src: artUrl(b.image), alt: "back", style: "width:160px"})) : h("div", {class: "slotempty"}, "—")),
+          h("button", {type: "button", class: "slotpic", title: "Go to 6 BACK", onclick: () => go("back")}, b ? (b.throw ? animPlayer(artUrl(b.throw), null, 1.4, {frames: 8}) : h("img", {class: "px", src: artUrl(b.image), alt: "back", style: "width:160px"})) : h("div", {class: "slotempty"}, "—")),
           h("div", {class: "slotname"}, "BACK", h("small", {}, b ? (b.throw ? "with throw" : "no throw yet") : "players only")),
           b && DEX.web.url && (b.throwRow || b.backRow) ? h("button", {type: "button", class: "small", onclick: () => b.throwRow ? openPixelEditor("throw", b.throwRow) : openPixelEditor("back", b.backRow)}, b.throwRow ? "EDIT THE THROW" : "EDIT")
             : null); })()),
@@ -5357,7 +5471,21 @@ function trainerStudio(slot, opts) {
           })}, "DELETE MY PICTURE")) : null)),
       pics.length ? h("div", {class: "hint"}, "Or use a picture from PICTURE on the trainer's page (those are public):") : null,
       pics.length ? h("div", {class: "tpic"}, pics.map(p => h("button", {type: "button", class: "tchoice" + (st.ref === p.id ? " on" : ""), "aria-pressed": String(st.ref === p.id),
-        onclick: () => { st.ref = st.ref === p.id ? null : p.id; draw(); }}, h("img", {src: p.src, alt: "trainer picture"})))) : null);
+        onclick: () => { st.ref = st.ref === p.id ? null : p.id; draw(); }}, h("img", {src: p.src, alt: "trainer picture"})))) : null,
+      fieldsBox());
+  }
+  // the words about the trainer: one box per field, kept on this device until MAKE sends them
+  function fieldsBox() {
+    const filled = () => TFIELDS.filter(([k]) => (st.fields[k] || "").trim()).length + " of " + TFIELDS.length + " filled";
+    const counter = h("span", {class: "sub"}, filled());
+    return h("div", {class: "tfields"},
+      h("h3", {}, "DESCRIBE " + (npc ? "YOUR CHARACTER" : "YOURSELF") + " ", counter),
+      h("div", {class: "hint", style: "margin-top:0"}, "Say what the picture shows, in plain words: the drawing PC follows the words for details (hair, clothes, what they hold) and the picture for the face and colours. Fill in what you can; Pose and Facing can stay empty."),
+      h("div", {class: "tfieldgrid"}, TFIELDS.map(([k, label, ex]) => {
+        const box = h("input", {type: "text", maxlength: 240, value: st.fields[k] || "", placeholder: "e.g. " + ex, "aria-label": label});
+        box.addEventListener("input", () => { st.fields[k] = box.value; remember.set("trainer-fields-" + slot, JSON.stringify(st.fields)); counter.textContent = filled(); });
+        return h("label", {class: "field" + (["clothes", "hair", "extra", "pose"].includes(k) ? " wide" : "")}, h("span", {}, label), box);
+      })));
   }
 
   // ----- 2 BASE
@@ -5366,38 +5494,56 @@ function trainerStudio(slot, opts) {
     const drawGrid = () => {
       const words = st.filter.toLowerCase().split(/\s+/).filter(Boolean);
       const shown = trainerBases().filter(b => (!st.game || b.game === st.game) &&
-        words.every(w => (b.label + " " + Object.values(b.fields || {}).join(" ")).toLowerCase().includes(w)));
+        words.every(w => (b.label + " " + b.game + " " + Object.values(b.fields || {}).join(" ")).toLowerCase().includes(w)))
+        .sort((a, c) => (c.game === "Origin") - (a.game === "Origin"));        // Origin's own trainers first
       const search = h("input", {type: "search", value: st.filter, placeholder: "Search: girl, cap, old, beard ...", "aria-label": "Search the bases", style: "max-width:240px"});
       search.addEventListener("input", () => { st.filter = search.value; const pos = search.selectionStart; drawGrid(); const s2 = area.querySelector("input[type=search]"); s2.focus(); s2.setSelectionRange(pos, pos); });
       const game = h("select", {"aria-label": "Game", onchange: ev => { st.game = ev.target.value; drawGrid(); }},
-        [["", "All (" + trainerBases().length + ")"], ["HGSS", "HeartGold/SoulSilver"], ["Pt", "Diamond/Pearl/Platinum"]].map(([v, t]) => h("option", {value: v, selected: st.game === v ? "" : null}, t)));
+        [["", "All (" + trainerBases().length + ")"], ["Origin", "Origin's own trainers"], ["HGSS", "HeartGold/SoulSilver"], ["Pt", "Diamond/Pearl/Platinum"]].map(([v, t]) => h("option", {value: v, selected: st.game === v ? "" : null}, t)));
       const b = trainerBase(st.base);
-      const wide = h("input", {type: "range", min: 1, max: 1.4, step: 0.05, value: st.width, "aria-label": "Body width", style: "max-width:160px"});
+      const wide = h("input", {type: "range", min: 0.7, max: 1.4, step: 0.05, value: st.width, "aria-label": "Body width", style: "max-width:160px"});
       const wideOut = h("b", {}, "x" + st.width.toFixed(2));
       const wideCell = b ? h("span", {class: "twide"}, baseCell(b, 1)) : null;
-      if (wideCell) wideCell.firstChild.style.transform = "scaleX(" + st.width + ")";
-      wide.addEventListener("input", () => { st.width = Number(wide.value); remember.set("trainer-width-" + slot, String(st.width)); wideOut.textContent = "x" + st.width.toFixed(2);
-        if (wideCell) wideCell.firstChild.style.transform = "scaleX(" + st.width + ")"; });
+      const shape = () => { if (wideCell) wideCell.firstChild.style.transform = "scale(" + (st.flip ? -st.width : st.width) + ", " + st.height + ")"; };
+      // the height (2026-11-24): shorter for a child, a little taller; the worker keeps the feet and fits the frame
+      const tall = h("input", {type: "range", min: 0.85, max: 1.1, step: 0.05, value: st.height, "aria-label": "Body height", style: "max-width:160px"});
+      const tallOut = h("b", {}, "x" + st.height.toFixed(2));
+      tall.addEventListener("input", () => { st.height = Number(tall.value); remember.set("trainer-height-" + slot, String(st.height)); tallOut.textContent = "x" + st.height.toFixed(2); shape(); });
+      shape();
+      wide.addEventListener("input", () => { st.width = Number(wide.value); remember.set("trainer-width-" + slot, String(st.width)); wideOut.textContent = "x" + st.width.toFixed(2); shape(); });
+      // MIRROR (2026-11-24, Arvind: "ikke bare endre bredden på en sprite men også å speilvende den"): the base turned the
+      // other way; the worker mirrors the start picture, so the new sprite faces that way too
+      const flip = h("button", {type: "button", class: "small" + (st.flip ? " primary" : ""), "aria-pressed": String(st.flip), title: "Turn the base the other way",
+        onclick: () => { st.flip = !st.flip; remember.set("trainer-flip-" + slot, st.flip ? "1" : ""); flip.setAttribute("aria-pressed", String(st.flip));
+          flip.classList.toggle("primary", st.flip); flip.textContent = st.flip ? "⇆ MIRRORED" : "⇆ MIRROR"; shape(); }}, st.flip ? "⇆ MIRRORED" : "⇆ MIRROR");
       fillIn(area, h("div", {class: "tstrength"}, search, game, h("b", {}, b ? "Base: " + b.label + " (" + b.game + ")" : "No base chosen yet")),
-        h("div", {class: "hint"}, "Pick a base with the same body type as your trainer: for a stout person, for example the Hiker (HGSS) or the Sailor or Wake (Platinum). Or make a slimmer base wider here:"),
-        h("div", {class: "tstrength"}, h("span", {class: "sub"}, "Body width"), wide, wideOut, wideCell, h("span", {class: "sub"}, "1.00 = as the base; 1.30-1.40 for a stout person.")),
-        h("div", {class: "tbases", role: "list"}, shown.map(x => h("button", {type: "button", class: "tbase" + (st.base === x.id ? " on" : ""), title: x.label + " (" + x.game + ")" + ((x.fields || {}).pose ? ": " + x.fields.pose : ""),
-          "aria-pressed": String(st.base === x.id), onclick: () => { st.base = x.id; remember.set("trainer-base-" + slot, x.id); draw(); }}, baseCell(x, 1), h("span", {}, x.label)))));
+        h("div", {class: "hint"}, "Pick a base with the same body type as your trainer: for a stout person, for example the Hiker (HGSS) or the Sailor or Wake (Platinum). Or make a base wider or thinner here:"),
+        h("div", {class: "tstrength"}, h("span", {class: "sub"}, "Body width"), wide, wideOut, flip, wideCell, h("span", {class: "sub"}, "1.00 = as the base; below 1 thinner, 1.30-1.40 for a stout person. MIRROR turns the base the other way.")),
+        h("div", {class: "tstrength"}, h("span", {class: "sub"}, "Body height"), tall, tallOut, h("span", {class: "sub"}, "below 1 shorter (a child), up to 1.10 taller; the feet stay on the ground.")),
+        st.base ? h("div", {class: "hint"}, "Tap a base to use it. Tap ＋ on up to 2 more to try them as well (MAKE draws each base): " +
+          (st.more.length ? "also " + st.more.map(id => (trainerBase(id) || {}).label || id).join(", ") + "." : "none yet.")) : null,
+        h("div", {class: "tbases", role: "list"}, shown.map(x => h("div", {class: "tbasewrap"}, h("button", {type: "button", class: "tbase" + (st.base === x.id ? " on" : "") + (st.more.includes(x.id) ? " also" : ""), title: x.label + " (" + x.game + ")" + ((x.fields || {}).pose ? ": " + x.fields.pose : ""),
+          "aria-pressed": String(st.base === x.id), onclick: () => { st.base = x.id; st.more = st.more.filter(id => id !== x.id); remember.set("trainer-base-" + slot, x.id); remember.set("trainer-more-" + slot, st.more.join(",")); draw(); }}, baseCell(x, 1), h("span", {}, x.label)),
+          st.base && st.base !== x.id ? h("button", {type: "button", class: "tplus" + (st.more.includes(x.id) ? " on" : ""), title: st.more.includes(x.id) ? "Do not try this one" : "Try this one too",
+            "aria-pressed": String(st.more.includes(x.id)), onclick: () => { st.more = st.more.includes(x.id) ? st.more.filter(id => id !== x.id) : st.more.concat(x.id).slice(-2);
+              remember.set("trainer-more-" + slot, st.more.join(",")); draw(); }}, st.more.includes(x.id) ? "✓" : "＋") : null))));
     };
     drawGrid();
     return area;
   }
 
-  // ----- 3 MAKE
+  // ----- 3 FRONT
   async function make(button) {
     if (!hasPicture()) { st.busyMsg = "A PICTURE FIRST\nUpload one in 1 PICTURE."; draw(); st.busyMsg = ""; return; }
     if (!st.base) { st.busyMsg = "A BASE FIRST\nPick one in 2 BASE."; draw(); st.busyMsg = ""; return; }
     button.disabled = true;
     noteMine(slot);
     try {
-      const words = st.words.trim().slice(0, 400);
-      await dbCall("request_trainer", {p_slot: slot, p_base: st.base, p_strength: st.strength, p_count: st.count, p_fields: Object.assign(words ? {words} : {}, st.width > 1 ? {width: st.width.toFixed(2)} : {}),
-        p_photo: st.ref ? null : st.photo.id, p_ref: st.ref || null, p_editor: me()});
+      const words = st.words.trim().slice(0, 400), described = {};
+      for (const [k] of TFIELDS) { const v = String(st.fields[k] || "").trim().slice(0, 240); if (v) described[k] = v; }
+      for (const b of [st.base].concat(st.more.filter(id => id !== st.base && trainerBase(id))))      // each base its own job
+        await dbCall("request_trainer", {p_slot: slot, p_base: b, p_strength: st.strength, p_count: st.count, p_fields: Object.assign({}, described, words ? {words} : {}, st.width !== 1 ? {width: st.width.toFixed(2)} : {}, st.height !== 1 ? {height: st.height.toFixed(2)} : {}, st.flip ? {flip: "1"} : {}),
+          p_photo: st.ref ? null : st.photo.id, p_ref: st.ref || null, p_editor: me()});
       await load();
     } catch (err) {
       if (/gone|upload it again/i.test(err.message)) { st.photo = null; remember.set("trainer-photo-" + slot, ""); err = new Error("The picture is gone from the server. Upload it again in 1 PICTURE."); }
@@ -5416,14 +5562,15 @@ function trainerStudio(slot, opts) {
     const p = picked(), on = p && p.id === t.id, saved = opts.current && opts.current.try === t.id;
     const j = jobOf(t), set = settingsOf(j), b = j && trainerBase(j.recipe);
     const made = t.job_id === null ? (t.recipe === "mirrored" ? "mirrored" : "drawn on") + (t.editor ? " by " + t.editor : "")
-      : (b ? b.label : j ? j.recipe : "") + (set.strength ? " · " + set.strength : "");
+      : (b ? b.label : j ? j.recipe : "") + (set.flip ? " · mirrored" : "") + (set.strength ? " · " + set.strength : "");
     return h("div", {class: "tile ttile" + (on ? " inuse" : "") + (t.status === "broken" ? " broken" : "")},
       h("button", {type: "button", class: "tilepic", disabled: !t.image, title: on ? "Picked" : "Pick this one", onclick: () => !on && pick(t)},
         h("img", {class: "px", src: artUrl(t.image), alt: "battle sprite #" + t.id, style: "width:120px"}),
         t.overworld ? npcWalker(artUrl(t.overworld), 2) : h("span", {class: "sub nomap"}, "no map figure"),
         on ? h("span", {class: "tag"}, saved ? "SAVED" : "PICKED") : saved ? h("span", {class: "tag"}, "SAVED") : null),
-      made ? h("div", {class: "tilenote"}, made) : null,
+      made ? h("div", {class: "tilenote"}, made) : null, t.image ? edgeWarn(artUrl(t.image)) : null,
       DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openPixelEditor("battle", t)}, "EDIT"),
+        h("button", {type: "button", class: "small", title: "A mirrored copy of this sprite (the map figure stays)", onclick: ev => mirrorTry(t, ev.currentTarget)}, "⇆ MIRROR"),
         t.overworld ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("map", t)}, "EDIT MAP") : null) : null);
   }
   function makePage() {
@@ -5431,16 +5578,19 @@ function trainerStudio(slot, opts) {
     const pic = st.ref ? (opts.pics || []).find(p => p.id === st.ref) : st.photo;
     const from = h("div", {class: "tryctl"},
       h("span", {class: "from"}, "picture ", pic && (pic.thumb || pic.src) ? h("img", {src: pic.thumb || pic.src, alt: ""}) : pic ? "uploaded" : h("button", {type: "button", class: "link", onclick: () => go("picture")}, "choose")),
-      h("span", {class: "from"}, "base ", b ? baseCell(b, 0.5) : h("button", {type: "button", class: "link", onclick: () => go("base")}, "choose"), b ? b.label : null));
+      h("span", {class: "from"}, "base ", b ? baseCell(b, 0.5, st.flip) : h("button", {type: "button", class: "link", onclick: () => go("base")}, "choose"),
+        b ? b.label + (st.flip ? " (mirrored)" : "") + (st.width !== 1 ? " x" + st.width.toFixed(2) + " wide" : "") + (st.height !== 1 ? " x" + st.height.toFixed(2) + " tall" : "") : null));
     const words = h("textarea", {rows: 2, maxlength: 400, placeholder: npc ? "e.g. holding a wooden staff, a red scarf, green eyes" : "e.g. holding a guitar, a red scarf, my glasses",
       "aria-label": "Anything to add"}, st.words);
     words.addEventListener("input", () => { st.words = words.value; remember.set("trainer-words-" + slot, words.value); });
     const strength = h("input", {type: "range", min: "0.6", max: "0.88", step: "0.01", value: String(st.strength), "aria-label": "How much it changes the base"});
-    const strengthLabel = h("b", {}, st.strength.toFixed(2));
-    strength.addEventListener("input", () => { st.strength = Number(strength.value); strengthLabel.textContent = st.strength.toFixed(2); });
+    const risky = () => st.strength > 0.8 ? " (risky: the figure may change size or pose)" : st.strength === 0.75 ? " (the tested setting)" : "";
+    const strengthLabel = h("b", {}, st.strength.toFixed(2) + risky());
+    strength.addEventListener("input", () => { st.strength = Number(strength.value); strengthLabel.textContent = st.strength.toFixed(2) + risky(); });
     const count = h("select", {"aria-label": "How many"}, [1, 2, 3, 4].map(n => h("option", {value: n, selected: n === st.count ? "" : null}, String(n))));
-    const time = h("span", {class: "sub"}, "(" + aboutMinutes(each() * st.count) + " for " + st.count + ")");
-    count.addEventListener("change", () => { st.count = Number(count.value); time.textContent = "(" + aboutMinutes(each() * st.count) + " for " + st.count + ")"; });
+    const nb = 1 + st.more.filter(id => id !== st.base && trainerBase(id)).length, timeText = () => "(" + aboutMinutes(each() * st.count * nb) + " for " + st.count * nb + ")";
+    const time = h("span", {class: "sub"}, timeText());
+    count.addEventListener("change", () => { st.count = Number(count.value); time.textContent = timeText(); });
     const btn = h("button", {type: "button", class: "primary", disabled: hasPicture() && st.base ? null : "", onclick: () => make(btn)}, "MAKE");
     // the tries: waiting ones first, then the newest
     const waiting = [];
@@ -5451,7 +5601,10 @@ function trainerStudio(slot, opts) {
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS[2].what),
       from,
-      h("label", {class: "notebox"}, h("span", {class: "sub"}, "Anything the picture does not show? (optional, one line)"), words),
+      h("div", {class: "sub"}, TFIELDS.filter(([k]) => (st.fields[k] || "").trim()).length ? "Your words from 1 PICTURE go with it. " : "",
+        h("button", {type: "button", class: "link", onclick: () => go("picture")}, TFIELDS.some(([k]) => (st.fields[k] || "").trim()) ? "Change the words" : "Describe your trainer first (it helps a lot)")),
+      st.more.length ? h("div", {class: "sub"}, "Bases: " + [st.base].concat(st.more).map(id => (trainerBase(id) || {}).label || id).join(", ") + " (each one " + st.count + "x)") : null,
+      h("label", {class: "notebox"}, h("span", {class: "sub"}, "Anything else? (optional, one line)"), words),
       h("div", {class: "tstrength"}, h("span", {class: "sub"}, "close to the base"), strength, h("span", {class: "sub"}, "more like the picture"), strengthLabel),
       h("div", {class: "tryctl"}, btn, count, time),
       failed.length ? h("div", {class: "notice warn"}, "The last request failed: " + failed[0].error) : null,
@@ -5460,7 +5613,7 @@ function trainerStudio(slot, opts) {
       !list.length && !waiting.length ? h("div", {class: "empty", style: "margin-top:8px"}, "Nothing made yet.") : null);
   }
 
-  // ----- 4 MAP
+  // ----- 7 MAP
   function mapTile(t) {
     if (t.waiting || t.status === "drawing") return h("div", {class: "tile wait"}, h("div", {class: "tilepic"}, h("span", {class: "spinner"}), h("span", {class: "sub"}, t.waiting ? "in line" : "drawing")));
     const p = pickedMap(), on = p && p.id === t.id, saved = opts.current && opts.current.map_try === t.id;
@@ -5488,23 +5641,23 @@ function trainerStudio(slot, opts) {
     for (const j of mine().filter(j => j.stage === "map")) for (let k = st.mapTries.filter(t => t.job_id === j.id).length; k < (j.count || 1); k++) waiting.push({waiting: true});
     // only the map figures of the picked battle sprite (others belong to another look); the battle try's own one first
     const list = from ? [from].filter(t => t.overworld).map(t => Object.assign({}, t, {own: true}))
-      .concat(st.mapTries.filter(t => t.status !== "failed" && mapBattle(t) === from.id).sort((a, b) => b.id - a.id)) : [];
+      .concat(st.mapTries.filter(t => t.status !== "failed" && sameBattle(mapBattle(t), from.id)).sort((a, b) => b.id - a.id)) : [];
     const ownTile = t => h("div", {class: "tile" + (!pickedMap() ? " inuse" : "")},
       h("button", {type: "button", class: "tilepic", title: "The map figure made with the battle sprite", onclick: async () => {
-        const all = st.mapTries.filter(m => m.picked && mapBattle(m) === from.id); if (!all.length) return;
+        const all = st.mapTries.filter(m => m.picked && sameBattle(mapBattle(m), from.id)); if (!all.length) return;
         try { for (const m of all) { await dbCall("pick_try", {p_try: m.id, p_picked: false, p_editor: me()}); m.picked = false; } draw(); } catch (err) { fail(err); } }},
         npcWalker(artUrl(t.overworld), 2), !pickedMap() ? h("span", {class: "tag"}, "PICKED") : null),
       h("div", {class: "tilenote"}, "made with the battle sprite"));
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "map").what),
       h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the map figure only (optional)"), extra),
-      h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "map") * st.mapCount) + ")" : "Pick a battle sprite in 3 MAKE first."),
+      h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "map") * st.mapCount) + ")" : "Pick a battle sprite in 3 FRONT first."),
         from ? h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(from.image), alt: ""})) : null),
       h("div", {class: "tiles"}, waiting.map(mapTile), list.slice(0, 13).map(t => t.own ? ownTile(t) : mapTile(t))),
       !list.length && !waiting.length ? h("div", {class: "empty", style: "margin-top:8px"}, "No map figure yet.") : null);
   }
 
-  // ----- 5 ANIM
+  // ----- 4 ANIM
   function animTile(t) {
     if (t.waiting || t.status === "drawing") return h("div", {class: "tile wait"}, h("div", {class: "tilepic"}, h("span", {class: "spinner"}), h("span", {class: "sub"}, t.waiting ? "in line" : "drawing")));
     const p = pickedAnim(), on = p && p.id === t.id, saved = opts.current && opts.current.anim && opts.current.anim.try === t.id;
@@ -5514,12 +5667,13 @@ function trainerStudio(slot, opts) {
         t.image ? animPlayer(artUrl(t.image), trainerAnim(animOf(t)), 1) : h("span", {class: "sub"}, "failed"),
         on ? h("span", {class: "tag"}, saved ? "SAVED" : "PICKED") : saved ? h("span", {class: "tag"}, "SAVED") : null),
       h("div", {class: "tilenote"}, d ? (Number(d[1]) >= 0.7 ? "bolder poses" : "closer to your sprite") : sd ? "variant " + (Number(sd[1]) === 1 ? 1 : Number(sd[1]) % 100) : ""),
-      t.image ? h("div", {class: "tilenote"}, h("img", {class: "px", src: artUrl(t.image), alt: "the poses", style: "height:40px;max-width:100%"})) : null);
+      t.image ? h("div", {class: "tilenote"}, h("img", {class: "px", src: artUrl(t.image), alt: "the poses", style: "height:40px;max-width:100%"})) : null,
+      t.image ? edgeWarn(artUrl(t.image), 80) : null);
   }
   function animPage() {
     const from = picked(), cur = trainerAnim(st.animScript);
     const base = from && jobOf(from) ? String(jobOf(from).recipe || "") : "";
-    const suggest = /^hgss:(\d+)$/.exec(base) && trainerAnim(Number(/^hgss:(\d+)$/.exec(base)[1])) ? Number(/^hgss:(\d+)$/.exec(base)[1]) : 0;
+    const bm = /^(?:hgss|origin):(\d+)$/.exec(base), suggest = bm && trainerAnim(Number(bm[1])) ? Number(bm[1]) : 0;   // an Origin base is the same class slot
     const choose = cls => { st.animScript = cls; remember.set("trainer-anim-" + slot, String(cls || "")); draw(); };
     const count = h("select", {"aria-label": "How many"}, [1, 2, 3, 4].map(n => h("option", {value: n, selected: n === st.animCount ? "" : null}, String(n))));
     count.addEventListener("change", () => { st.animCount = Number(count.value); });
@@ -5533,14 +5687,19 @@ function trainerStudio(slot, opts) {
     }}, "MAKE");
     const waiting = [];
     for (const j of mine().filter(j => j.stage === "anim" && j.recipe === "anim:" + st.animScript)) for (let k = st.animTries.filter(t => t.job_id === j.id).length; k < (j.count || 1); k++) waiting.push({waiting: true});
-    const list = from && cur ? st.animTries.filter(t => t.status !== "failed" && t.parent_try === from.id && animOf(t) === st.animScript).sort((a, b) => b.id - a.id) : [];
+    const list = from && cur ? st.animTries.filter(t => t.status !== "failed" && sameBattle(t.parent_try, from.id) && animOf(t) === st.animScript).sort((a, b) => b.id - a.id) : [];
+    // Each card plays the animation (2026-11-24, Arvind: "vi burde ha en måte å se og vite det"): the game's own poses with
+    // the script's moves, and next to it your battle sprite with the same moves (the poses come when MAKE draws them).
+    const posesSheet = DEX.trainer_anims && DEX.trainer_anims.poses ? artUrl(DEX.trainer_anims.poses) : null;
     const card = a => h("button", {type: "button", class: "tanim" + (st.animScript === a.cls ? " on" : ""), "aria-pressed": String(st.animScript === a.cls), onclick: () => choose(a.cls)},
       h("b", {}, a.name), a.cls === suggest ? h("span", {class: "tag"}, "YOUR BASE") : null,
+      posesSheet ? h("span", {class: "tanimpv"}, h("span", {}, animPlayer(posesSheet, a, 0.8, {row: trainerAnims().indexOf(a)}), h("i", {}, "the game")),
+        from ? h("span", {}, animPlayer(artUrl(from.image), a, 0.8), h("i", {}, "yours")) : null) : null,
       h("span", {class: "sub"}, a.poses + " poses · " + a.seconds + " s"), h("span", {}, a.shows), h("span", {class: "sub"}, a.moves));
     const scripts = trainerAnims().slice().sort((a, b) => (b.cls === suggest) - (a.cls === suggest));
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "anim").what),
-      !from ? h("div", {class: "empty"}, "Pick a battle sprite in 3 MAKE first.") : h("div", {class: "tanimtop"},
+      !from ? h("div", {class: "empty"}, "Pick a battle sprite in 3 FRONT first.") : h("div", {class: "tanimtop"},
         h("div", {class: "grass"}, cur ? animPlayer(artUrl((pickedAnim() || {}).image || from.image), cur, 2) : h("img", {class: "px", src: artUrl(from.image), alt: "battle sprite", style: "width:160px"})),
         h("div", {class: "sub"}, cur ? (pickedAnim() ? "Your trainer with the picked poses." : "The moves of " + cur.name + "'s animation on your sprite. MAKE draws the " + (cur.poses - 1) + " other pose" + (cur.poses > 2 ? "s" : "") + ".")
           : "No animation: your trainer stands still, like most trainers.")),
@@ -5552,7 +5711,7 @@ function trainerStudio(slot, opts) {
         h("b", {}, "NONE"), h("span", {}, "Stands still, like most trainers.")), scripts.map(card)));
   }
 
-  // ----- 7 BACK
+  // ----- 6 BACK
   function backTile(t) {
     if (t.waiting || t.status === "drawing") return h("div", {class: "tile wait"}, h("div", {class: "tilepic"}, h("span", {class: "spinner"}), h("span", {class: "sub"}, t.waiting ? "in line" : "drawing")));
     const p = pickedBack(), on = p && p.id === t.id, saved = opts.current && opts.current.back && opts.current.back.try === t.id;
@@ -5560,7 +5719,7 @@ function trainerStudio(slot, opts) {
       h("button", {type: "button", class: "tilepic", disabled: !t.image, title: on ? "Picked" : "Pick this one", onclick: () => !on && pick(t)},
         t.image ? h("img", {class: "px", src: artUrl(t.image), alt: "back #" + t.id, style: "width:120px"}) : h("span", {class: "sub"}, "failed"),
         on ? h("span", {class: "tag"}, saved ? "SAVED" : "PICKED") : saved ? h("span", {class: "tag"}, "SAVED") : null),
-      t.job_id === null ? h("div", {class: "tilenote"}, "drawn on" + (t.editor ? " by " + t.editor : "")) : null,
+      t.job_id === null ? h("div", {class: "tilenote"}, "drawn on" + (t.editor ? " by " + t.editor : "")) : null, t.image ? edgeWarn(artUrl(t.image)) : null,
       t.image && DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openPixelEditor("back", t)}, "EDIT")) : null);
   }
   function throwTile(t) {
@@ -5570,7 +5729,7 @@ function trainerStudio(slot, opts) {
       h("button", {type: "button", class: "tilepic", disabled: !t.image, title: on ? "Picked" : "Pick this one", onclick: () => !on && pick(t)},
         t.image ? animPlayer(artUrl(t.image), null, 1.2, {frames: 8}) : h("span", {class: "sub"}, "failed"), on ? h("span", {class: "tag"}, "PICKED") : null),
       t.image ? h("div", {class: "tilenote"}, h("img", {class: "px", src: artUrl(t.image), alt: "the throw", style: "height:40px;max-width:100%"})) : null,
-      t.job_id === null ? h("div", {class: "tilenote"}, "drawn on" + (t.editor ? " by " + t.editor : "")) : null,
+      t.job_id === null ? h("div", {class: "tilenote"}, "drawn on" + (t.editor ? " by " + t.editor : "")) : null, t.image ? edgeWarn(artUrl(t.image), 80) : null,
       t.image && DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openPixelEditor("throw", t)}, "EDIT")) : null);
   }
   function backPage() {
@@ -5585,7 +5744,9 @@ function trainerStudio(slot, opts) {
     count.addEventListener("change", () => { st.backCount = Number(count.value); });
     const extra = h("input", {type: "text", maxlength: 200, value: st.backExtra, placeholder: "e.g. a red cap, a big blue backpack", "aria-label": "Words for the back only", style: "width:100%"});
     extra.addEventListener("input", () => { st.backExtra = extra.value; });
-    const btn = h("button", {type: "button", class: "primary", disabled: from ? null : "", onclick: async () => {
+    // the back waits for a picked VS (2026-11-24: Arvind's back ran 16 s after his VS job, before a VS was picked, so it
+    // was drawn from the photo only; the locked recipe is photo + VS)
+    const btn = h("button", {type: "button", class: "primary", disabled: from && vsId ? null : "", onclick: async () => {
       btn.disabled = true;
       try { await dbCall("request_trainer_back", {p_try: from.id, p_shape: st.backShape, p_count: st.backCount, p_editor: me(), p_extra: st.backExtra.trim() || null, p_vs: vsId}); noteMine(slot); await load(); }
       catch (err) { fail(err); }
@@ -5600,13 +5761,14 @@ function trainerStudio(slot, opts) {
     const waiting = [], twait = [];
     for (const j of mine().filter(j => j.stage === "tback")) for (let i = st.backTries.filter(t => t.job_id === j.id).length; i < (j.count || 1); i++) waiting.push({waiting: true});
     for (const j of mine().filter(j => j.stage === "throw" && k && j.from_try === k.id)) for (let i = st.throwTries.filter(t => t.job_id === j.id).length; i < (j.count || 1); i++) twait.push({waiting: true});
-    const list = from ? st.backTries.filter(t => t.status !== "failed" && backBattle(t) === from.id).sort((a, b) => b.id - a.id) : [];
+    const list = from ? st.backTries.filter(t => t.status !== "failed" && sameBattle(backBattle(t), from.id)).sort((a, b) => b.id - a.id) : [];
     const throws = k ? st.throwTries.filter(t => t.status !== "failed" && t.parent_try === k.id).sort((a, b) => b.id - a.id) : [];
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "back").what),
-      !from ? h("div", {class: "empty"}, "Pick a battle sprite in 3 MAKE first.") : null,
+      !from ? h("div", {class: "empty"}, "Pick a battle sprite in 3 FRONT first.") : null,
       from ? h("div", {class: "hint"}, h("b", {}, "1. The back. "), "The drawing PC starts from a player's back with the same look and paints your trainer on it: most tries from your picture and your VS portrait, some from your battle sprite (they keep the clothes best in the throw). It often takes a few tries: pick the one most like your trainer, or EDIT it.") : null,
-      from && !vsId ? h("div", {class: "hint"}, "Tip: make and pick a VS portrait in 6 VS first. The back uses it too.") : null,
+      from && !vsId ? h("div", {class: "notice warn"}, "Pick a VS portrait in 5 VS first: the back is drawn from your picture and the VS together. ",
+        h("button", {type: "button", class: "link", onclick: () => go("vs")}, "Go to 5 VS")) : null,
       from ? h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the back only (optional)"), extra) : null,
       from ? h("div", {class: "tryctl"}, btn, shape, count, h("span", {class: "sub"}, "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "tback") * st.backCount) + ")")) : null,
       from ? h("div", {class: "tiles"}, waiting.map(backTile), list.slice(0, 16).map(backTile)) : null,
@@ -5616,7 +5778,7 @@ function trainerStudio(slot, opts) {
       k ? h("div", {class: "tiles"}, twait.map(throwTile), throws.slice(0, 8).map(throwTile)) : null);
   }
 
-  // ----- 6 VS
+  // ----- 5 VS
   function vsTile(t) {
     if (t.waiting || t.status === "drawing") return h("div", {class: "tile wait"}, h("div", {class: "tilepic"}, h("span", {class: "spinner"}), h("span", {class: "sub"}, t.waiting ? "in line" : "drawing")));
     const p = pickedVs(), on = p && p.id === t.id, saved = opts.current && opts.current.vs_try === t.id;
@@ -5642,25 +5804,43 @@ function trainerStudio(slot, opts) {
     const list = st.vsTries.filter(t => t.status !== "failed").sort((a, b) => b.id - a.id);
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "vs").what),
-      h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "vs") * st.vsCount) + ")" : "Pick a battle sprite in 3 MAKE first."),
+      h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "vs") * st.vsCount) + ")" : "Pick a battle sprite in 3 FRONT first."),
         from ? h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(from.image), alt: ""})) : null),
       h("div", {class: "tiles"}, waiting.map(vsTile), list.slice(0, 12).map(vsTile)),
       !list.length && !waiting.length ? h("div", {class: "empty", style: "margin-top:8px"}, "No VS portrait yet.") : null);
   }
 
   // ----- SAVE
+  // The battle screen (2026-11-24, Arvind OK'd "placement preview on the real battle background"): the colours of each row of
+  // Origin's trainer-battle background (sampled from an in-game screenshot at the sides, so only colours, no picture), the
+  // two light platforms and the text box where the game has them; sprites at the game's places.
   function battle(it) {
     const canvas = h("canvas", {width: 256, height: 192, class: "battle", "aria-label": "How it looks in a battle"});
     const ctx = canvas.getContext("2d"); ctx.imageSmoothingEnabled = false;
-    const sky = ctx.createLinearGradient(0, 0, 0, 112); sky.addColorStop(0, "#b0d8f8"); sky.addColorStop(1, "#d8ecf8");
-    ctx.fillStyle = sky; ctx.fillRect(0, 0, 256, 112); ctx.fillStyle = "#c8e098"; ctx.fillRect(0, 112, 256, 80);
-    ctx.fillStyle = "#a8c870"; ctx.beginPath(); ctx.ellipse(192, 78, 56, 16, 0, 0, 7); ctx.fill(); ctx.beginPath(); ctx.ellipse(68, 170, 68, 20, 0, 0, 7); ctx.fill();
+    for (let y = 0; y < 144; y++) { ctx.fillStyle = "#" + BATTLE_ROWS.slice(y * 6, y * 6 + 6); ctx.fillRect(0, y, 256, 1); }
+    const plat = (x, y, rx, ry) => { ctx.fillStyle = "#b0a8b8"; ctx.beginPath(); ctx.ellipse(x, y, rx + 2, ry + 2, 0, 0, 7); ctx.fill();
+      ctx.fillStyle = "#e0d8e0"; ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 7); ctx.fill(); };
+    plat(192, 82, 46, 11); plat(64, 142, 72, 12);
+    ctx.fillStyle = "#484048"; ctx.fillRect(0, 144, 256, 48); ctx.fillStyle = "#f8f8f8"; ctx.fillRect(6, 148, 244, 38);
     const a = animNow();
     if (it && it.image && !a) loadPicture(artUrl(it.image)).then(im => ctx.drawImage(im, 152, 4)).catch(() => {});
     const b = backNow();
     return h("div", {class: "together"}, h("div", {class: "battlewrap"}, canvas, a ? h("div", {class: "battleanim"}, animPlayer(artUrl(a.image), trainerAnim(a.script), 1)) : null,
-        b ? h("div", {class: "battleback"}, b.throw ? animPlayer(artUrl(b.throw), null, 1, {frames: 8}) : h("img", {class: "px", src: artUrl(b.image), alt: "back"})) : null),
-      h("div", {class: "grass"}, it && it.overworld ? npcWalker(artUrl(it.overworld), 3) : null));
+        b ? h("div", {class: "battleback"}, b.throw ? animPlayer(artUrl(b.throw), null, 1, {frames: 8}) : h("img", {class: "px", src: artUrl(b.image), alt: "back"})) : null,
+        h("div", {class: "battlebox"}, npc ? (opts.name || "Trainer") + " would like to battle!" : "")));
+  }
+  // Everything side by side (2026-11-24): front (moving when it has an animation), VS portrait, back (the throw) and map
+  // figure, so the person sees that they are one and the same trainer.
+  function setRow(it, vsNow) {
+    const a = animNow(), b = backNow();
+    const box = (label, el, warn) => h("div", {class: "tsetbox"}, h("div", {class: "tsetpic"}, el || h("span", {class: "sub"}, "none yet")), h("b", {}, label), warn || null);
+    return h("div", {class: "tset"},
+      box("FRONT", a ? animPlayer(artUrl(a.image), trainerAnim(a.script), 1.2) : it && it.image ? h("img", {class: "px", src: artUrl(it.image), alt: "front", style: "width:160px"}) : null,
+        a ? edgeWarn(artUrl(a.image), 80) : it && it.image ? edgeWarn(artUrl(it.image)) : null),
+      box("VS", vsNow ? h("img", {class: "px", src: artUrl(vsNow), alt: "VS portrait", style: "width:192px"}) : null),
+      box("BACK", b ? (b.throw ? animPlayer(artUrl(b.throw), null, 1.2, {frames: 8}) : h("img", {class: "px", src: artUrl(b.image), alt: "back", style: "width:160px"})) : null,
+        b ? edgeWarn(artUrl(b.throw || b.image), 80) : null),
+      box("MAP", it && it.overworld ? npcWalker(artUrl(it.overworld), 4) : null));
   }
   function savePage() {
     const t = picked(), it = inSet(), note = h("div", {class: "ask"}), pv = pickedVs(), pm = pickedMap();
@@ -5687,12 +5867,17 @@ function trainerStudio(slot, opts) {
         draw();
       } catch (err) { note.textContent = err.message; yes.disabled = false; }
     }}, "YES");
-    note.textContent = !t ? "Pick one in 3 MAKE first." : isSaved ? "This one is saved." : (npc ? "Make this " + (opts.name || "the NPC") + "'s sprite?" : "Make this your trainer?") + (owNow ? "" : " (it has no map figure yet)")
+    note.textContent = !t ? "Pick one in 3 FRONT first." : isSaved ? "This one is saved." : (npc ? "Make this " + (opts.name || "the NPC") + "'s sprite?" : "Make this your trainer?") + (owNow ? "" : " (it has no map figure yet)")
       + (backSave && !backSave.throw ? " (the back has no throw yet)" : "");
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "save").what),
       battle(it),
-      vsNow ? h("div", {class: "grass", style: "margin-top:8px"}, h("img", {class: "px", src: artUrl(vsNow), alt: "VS portrait", style: "width:192px"})) : null,
+      setRow(it, vsNow),
+      (() => {                      // what is still missing, each with the way to its step
+        const miss = [[!t, "make", "3 FRONT (needed)"], [!owNow, "map", "7 MAP (needed for the map)"], [!vsNow, "vs", "5 VS (gym leaders, rivals and champions)"],
+          [!backSave, "back", "6 BACK (only a player or partner)"], [!animSave, "anim", "4 ANIM (optional)"]].filter(x => x[0]);
+        return miss.length ? h("div", {class: "hint"}, "Not made yet: ", miss.map(([, id, label], i) => [i ? ", " : "", h("button", {type: "button", class: "link", onclick: () => go(id)}, label)])) : null;
+      })(),
       h("div", {class: "yesno", style: "position:static"}, note, h("div", {class: "menu", role: "group", "aria-label": "Save it?"}, yes,
         h("button", {type: "button", onclick: () => go("make")}, "NO"))));
   }
@@ -5722,11 +5907,13 @@ function trainerStudio(slot, opts) {
       st.loaded = true;
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; }
     if (!top.isConnected && st.loaded && timer !== null) return;      // the studio was closed: stop asking
-    draw(); st.busyMsg = "";
+    if (st.timed) keepScroll(bottomSlot, draw); else draw();
+    st.timed = false; st.busyMsg = "";
     noteMine(slot, true);
     clearTimeout(timer);
     const busy = mine().length || allTries().some(t => t.status === "drawing");
-    timer = setTimeout(() => { if (top.isConnected) load(); }, busy ? 4000 : 60000);
+    const tick = () => { if (!top.isConnected) return; if (handsBusy(bottomSlot)) { timer = setTimeout(tick, 1500); return; } st.timed = true; load(); };
+    timer = setTimeout(tick, busy ? 4000 : 60000);
   }
 
   // The editor takes the bottom screen; the top screen stays. Saving makes a new try (picked), the old one stays.
@@ -5748,6 +5935,19 @@ function trainerStudio(slot, opts) {
       h("div", {class: "tryctl"}, h("button", {type: "button", onclick: close}, "DONE")))};
     bottomSlot.replaceChildren(st.editing.el);
     st.editing.el.scrollIntoView({block: "nearest"});
+  }
+  // one tap: a mirrored copy of a battle sprite as a new try, picked (the editor's MIRROR does the same with more steps)
+  async function mirrorTry(t, button) {
+    button.disabled = true;
+    try {
+      const im = await loadPicture(artUrl(t.image)), c = Object.assign(document.createElement("canvas"), {width: im.width, height: im.height}), x = c.getContext("2d");
+      x.translate(im.width, 0); x.scale(-1, 1); x.drawImage(im, 0, 0);
+      const file = await new Promise(ok => c.toBlob(ok, "image/png"));
+      const row = await postForm("sprite-draw", {try: t.id, how: "mirrored", editor: me(), image: file});
+      await dbCall("pick_try", {p_try: row.id, p_picked: true, p_editor: me()}).catch(() => null);
+      await load();
+    } catch (err) { fail(err); }
+    button.disabled = false;
   }
   async function openPixelEditor(what, t, part) {
     const map = what === "map", vs = what === "vs", back = what === "back", thr = what === "throw";
@@ -5774,7 +5974,7 @@ function trainerStudio(slot, opts) {
     st.editing.el.scrollIntoView({block: "nearest"});
   }
 
-  const bottomSlot = h("div", {class: "studio-bottom"}, steps, page);
+  const bottomSlot = watchHands(h("div", {class: "studio-bottom"}, steps, page));
   draw();
   load();
   return {top, bottom: bottomSlot};
@@ -5851,7 +6051,10 @@ function renderNpcPage(n) {
     h("div", {class: "charstage"}, n.sprite ? spriteImg(n.sprite) : h("span", {class: "charsil"}, "?")),
     h("div", {class: "factrows"}, h("div", {}, h("span", {}, "Name"), nameBox), h("div", {}, h("span", {}, "Made by"), n.by ? person(n.by) : "someone")),
     h("div", {style: "margin-top:6px"}, about),
-    owner ? h("button", {type: "button", class: "small", style: "margin-top:8px", onclick: ev => sure(ev.currentTarget, "Really delete this NPC?", async () => { await save({deleted: true}); closeNpc(); })}, "Delete NPC") : null);
+    // Anyone may delete an NPC (2026-11-24, Arvind: "jeg klarer ikke å slette npcs": the button showed only for the person who
+    // made it, and another member had made the NPC). Deleting writes a new row with deleted: true, so it can be undone from the history.
+    h("button", {type: "button", class: "small", style: "margin-top:8px", onclick: ev => sure(ev.currentTarget, owner ? "Really delete this NPC?" : "Really delete " + (n.by ? person(n.by) + "'s" : "this") + " NPC?",
+      async () => { await save({deleted: true}); closeNpc(); })}, "Delete NPC"));
   const main = h("div", {class: "charmain"}, h("h3", {style: "margin-top:0"}, "Trainer studio"),
     trainerSpriteBox(n.id, {kind: "npc", name: n.name, pics: [], current: n.sprite, onPick: async sprite => { await saveNpc(n, {sprite}); n = npcs.get(n.id); },
       onClose: () => { if (npcOpen === n.id) renderNpcPage(npcs.get(n.id) || n); }}));

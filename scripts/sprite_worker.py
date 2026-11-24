@@ -635,6 +635,29 @@ def quick_lane(base, key, anon):
             log("could not report job %d: %s" % (job["id"], problem))
 
 
+def run_job_file(path, base, key):
+    """Claude's batch jobs without the queue (2026-11-24, the 17 Pokemon cut by the frame): `path` holds the jobs as
+    claim_sprite_job returns them (made with the same SQL); their rows are put in as 'running', so the normal worker never
+    takes them, and each one is finished here. Only the steps of the jobs in the file are drawn."""
+    jobs = json.loads(path.read_text(encoding="utf-8"))
+    settings = yaml.safe_load((ROOT / "data" / "sprite_prompts.yaml").read_text(encoding="utf-8"))
+    for job in jobs:
+        log("batch job %d: %s %s x%d" % (job["id"], job["species_id"], job.get("stage"), job.get("count") or 1))
+        error = ""
+        try:
+            ensure_comfy()
+            made = run(job, base, key, settings)
+            log("batch job %d: %d handed in" % (job["id"], made))
+        except Exception as problem:
+            error = "%s: %s" % (type(problem).__name__, problem)
+            log("batch job %d failed: %s" % (job["id"], error))
+        try:
+            post(base, key, {"action": "finish", "job_id": job["id"], "error": error[:480]})
+        except (RuntimeError, OSError) as problem:
+            log("could not report job %d: %s" % (job["id"], problem))
+    return 0
+
+
 def main():
     config = dexlib.load_config().get("web_edits") or {}
     base = (config.get("url") or "").rstrip("/")
@@ -643,6 +666,8 @@ def main():
     key = KEY_FILE.read_text().strip()
     head = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
     log("sprite worker started (%s)" % head[:7])
+    if "--job-file" in sys.argv:          # batch-only (2026-11-24): run these jobs and stop; never claims anybody's jobs
+        return run_job_file(Path(sys.argv[sys.argv.index("--job-file") + 1]), base, key)
     if STAGES == ALL_STAGES and config.get("key"):
         import anim_preview
         if anim_preview.player():

@@ -43,4 +43,6 @@ for c, (name, poses, moves) in T.items():
     seq = [[f['cell'], f.get('tx', 0), f.get('ty', 0), f['dur']] for f in q['frames']]
     out.append(dict(cls=c, name=name, poses=len({x[0] for x in seq}), cells=sorted({x[0] for x in seq}), seq=seq, shows=poses, moves=moves,
                     seconds=round(sum(x[3] for x in seq) / 30, 1)))
-json.dump(dict(fps=30, scripts=out), open(sys.argv[1], 'w'), separators=(',', ':'), ensure_ascii=False); print(len(out), 'scripts')
+# poses: the picker's sheet of the real poses, one row per script in this order (~/sigma-origin/title3d/legend/trainers/
+# dump_anim_poses.py, uploaded to storage like the trainer bases; 2026-11-24)
+json.dump(dict(fps=30, poses='trainer-bases/anim_poses.png', scripts=out), open(sys.argv[1], 'w'), separators=(',', ':'), ensure_ascii=False); print(len(out), 'scripts')

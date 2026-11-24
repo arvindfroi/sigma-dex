@@ -491,8 +491,9 @@ def try_art(n, seed, folder, job, inputs):
 def try_front(n, seed, folder, job, inputs):
     art = inputs["art"]
     words, side = inputs["tags"]
-    box = front_box(side, art)
-    template = folder / "front_template.png"
+    shrink = inputs.get("shrink") or 1.0                          # a redraw after the edge check: a smaller box
+    box = front_box(max(8, round(side * shrink)), art)
+    template = folder / ("front_template.png" if shrink == 1.0 else "front_template_%g.png" % shrink)
     if not template.exists():
         box_template(box).save(template)
         Image.new("RGBA", (640, 640), (255, 255, 255, 0)).save(folder / "blank.png")
@@ -667,8 +668,15 @@ def try_back_klein(n, seed, folder, job, inputs):
         framed(art).save(folder / "k_art640.png")
         fit_white(art).save(folder / "k_art.png")
         fit_white(rear_drawing(folder, folder / "k_art640.png", job["id"] * 100), smooth=True).save(folder / "k_hint.png")
-    raw = klein_draw(folder / ("back_raw_%d.png" % n), BACK_K.format(hint=BACK_HINT, about=about(job, words, move=False)),
-                     [folder / "k_front.png", folder / "k_art.png", folder / "k_hint.png"], 320, 320, seed, BACK_KLEIN)
+    shrink = inputs.get("shrink") or 1.0
+    kfront, text = folder / "k_front.png", BACK_K.format(hint=BACK_HINT, about=about(job, words, move=False))
+    if shrink != 1.0:                    # a redraw after the edge check: a smaller front as image 1 and "not so big" words
+        kfront = folder / ("k_front_%g.png" % shrink)
+        small = front.resize((max(1, round(front.width * shrink)), max(1, round(front.height * shrink))), Image.NEAREST)
+        pad = Image.new("RGBA", front.size, (0, 0, 0, 0)); pad.alpha_composite(small, ((front.width - small.width) // 2, front.height - small.height))
+        on_white(pad).save(kfront)
+        text = text.replace("big and low in the frame", "low in the frame, with a few pixels free at the top and both sides")
+    raw = klein_draw(folder / ("back_raw_%d.png" % n), text, [kfront, folder / "k_art.png", folder / "k_hint.png"], 320, 320, seed, BACK_KLEIN)
     # Klein's own colours (up to 15): snapping to the front's colours merged shades and made the backs flat (Arvind, 16 Oct:
     # "can't we just leave the shading"). The game's one palette for front and back is made at export, from both together;
     # the front's colours stay a button in the studio's editor.
@@ -939,6 +947,79 @@ def remember(timings, key, seconds):
         pass
 
 
+# ---------- the edge check (2026-11-24; Arvind found many of our sprites cut by the game's 80x80 frame: "det blir nok bare å
+# lage nye for alle mons som har alvorlig mye på kanten"). A front or back whose COLOUR reaches the top, left or right edge
+# in a run of EDGE_RUN pixels or more is cut; the dark outline alone does not count, and the bottom does not either (backs
+# are cut by the bottom edge on purpose). A cut try is drawn again a bit smaller (EDGE_SHRINK, a new seed each time); the
+# least cut one is kept, and one that still touches gets the note "cut at the ... edge" (the website shows it on the tile).
+# Frame 2 (front2/back2) is drawn again with a new seed only (it follows frame 1's size); a cut its frame 1 already has stays.
+EDGE_RUN = 3          # coloured pixels in a row on an edge
+EDGE_LINE = 8         # or a straight line of any pixels (a cut drawn as outline) this long
+EDGE_SHRINK = (0.88, 0.76)
+
+
+def _longest(v):
+    best = run = 0
+    for x in v:
+        run = run + 1 if x else 0
+        best = max(best, run)
+    return best
+
+
+def edge_cut(sprite, edges=("top", "left", "right")):
+    """{edge: longest run on it} for the edges a sprite is cut at: EDGE_RUN coloured pixels in a row, or EDGE_LINE pixels of
+    any kind (one or two outline pixels touching the edge are fine)"""
+    a = np.asarray(sprite.convert("RGBA")).astype(int)
+    op = a[..., 3] > 0
+    if not op.any():
+        return {}
+    luma = (299 * a[..., 0] + 587 * a[..., 1] + 114 * a[..., 2]) // 1000
+    colour = op & (luma > max(60, luma[op].min() + 40))          # not the outline (the darkest shade)
+    pick = {"top": (0, None), "left": (None, 0), "right": (None, -1)}
+    out = {}
+    for e in edges:
+        r, c = pick[e]
+        o, k = (op[r], colour[r]) if r is not None else (op[:, c], colour[:, c])
+        lo, lk = _longest(o), _longest(k)
+        if lk >= EDGE_RUN or lo >= EDGE_LINE:
+            out[e] = lo
+    return out
+
+
+def fit_frame(stage, n, seed, folder, job, inputs, first, log):
+    """the edge check around one try: (status, note, image, raw)"""
+    status, note, image, raw = first
+    if stage not in ("front", "back", "front2", "back2") or status != "done":
+        return first
+    old = set(edge_cut(inputs["front" if stage == "front2" else "back"])) if stage.endswith("2") else set()   # frame 1's own cut
+    check = lambda im: {e: v for e, v in edge_cut(im).items() if e not in old}
+    cut = check(Image.open(image))
+    if not cut:
+        return first
+    best, best_cut, kept = (status, note, image, raw), cut, Path(str(image).replace(".png", "_try0.png"))
+    Path(image).replace(kept); best = (status, note, kept, raw)
+    for k, shrink in enumerate(EDGE_SHRINK, 1):
+        log("try %d of job %d is cut at the %s edge: drawn again%s" % (n, job["id"], "/".join(best_cut), "" if stage.endswith("2") else " at x%.2f" % shrink))
+        inputs["shrink"] = shrink
+        try:
+            again = STAGES[stage](n, seed + 5000 * k, folder, job, inputs)
+        finally:
+            inputs.pop("shrink", None)
+        if again[0] != "done":
+            continue
+        moved = Path(str(again[2]).replace(".png", "_try%d.png" % k)); Path(again[2]).replace(moved)
+        c = check(Image.open(moved))
+        if sum(c.values()) < sum(best_cut.values()):
+            best, best_cut = (again[0], ((again[1] or "") + "; " if again[1] else "") + ("drawn again (new seed) to fit the frame" if stage.endswith("2")
+                              else "drawn x%.2f smaller to fit the frame" % shrink), moved, again[3]), c
+        if not c:
+            break
+    status, note, image, raw = best
+    if best_cut:
+        note = ((note + "; ") if note else "") + "cut at the %s edge" % " and ".join(sorted(best_cut))
+    return status, note, image, raw
+
+
 def run(job, base, key, post, download, folder, log=print):
     """Draw a job's tries one by one and hand each in as soon as it is done. Returns how many were handed in."""
     stage, count = job["stage"], int(job.get("count") or 1)
@@ -993,7 +1074,7 @@ def run(job, base, key, post, download, folder, log=print):
         post(base, key, {"action": "progress", "job_id": job["id"], "state": ("drawing %s: %s %d of %d" % (job["species_id"], stage, n, count))[:120]})
         started = time.time()
         try:
-            status, note, image, raw = STAGES[stage](n, seed, folder, job, inputs)
+            status, note, image, raw = fit_frame(stage, n, seed, folder, job, inputs, STAGES[stage](n, seed, folder, job, inputs), log)
         except Exception as problem:                             # one bad picture must not stop the others
             log("try %d of job %d failed: %s" % (n, job["id"], problem))
             post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": row["id"], "status": "failed",

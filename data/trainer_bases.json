@@ -3192,6 +3192,435 @@
 "build": "small and slim",
 "mood": "eager"
 }
+},
+{
+"id": "origin:0",
+"game": "Origin",
+"label": "Red",
+"sheet": "trainer-bases/origin.png",
+"i": 0,
+"fields": {
+"cls": "Pokemon Trainer",
+"who": "a teenage boy in a red cap and red vest"
+}
+},
+{
+"id": "origin:1",
+"game": "Origin",
+"label": "Leaf",
+"sheet": "trainer-bases/origin.png",
+"i": 1,
+"fields": {
+"cls": "Pokemon Trainer",
+"who": "a teenage girl with long brown hair"
+}
+},
+{
+"id": "origin:15",
+"game": "Origin",
+"label": "James (Team Rocket)",
+"sheet": "trainer-bases/origin.png",
+"i": 2,
+"fields": {
+"cls": "Team Rocket",
+"who": "a young man with blue hair in a black uniform"
+}
+},
+{
+"id": "origin:16",
+"game": "Origin",
+"label": "Karate King",
+"sheet": "trainer-bases/origin.png",
+"i": 3,
+"fields": {
+"cls": "Karate King",
+"who": "a martial artist man in a white gi and headband"
+}
+},
+{
+"id": "origin:17",
+"game": "Origin",
+"label": "Executive (captain)",
+"sheet": "trainer-bases/origin.png",
+"i": 4,
+"fields": {
+"cls": "Executive",
+"who": "a man in a captain's cap and dark uniform"
+}
+},
+{
+"id": "origin:27",
+"game": "Origin",
+"label": "Veteran (man)",
+"sheet": "trainer-bases/origin.png",
+"i": 5,
+"fields": {
+"cls": "Veteran",
+"who": "a young man with green hair"
+}
+},
+{
+"id": "origin:29",
+"game": "Origin",
+"label": "Veteran (woman)",
+"sheet": "trainer-bases/origin.png",
+"i": 6,
+"fields": {
+"cls": "Veteran",
+"who": "a young woman with green hair"
+}
+},
+{
+"id": "origin:30",
+"game": "Origin",
+"label": "Bird Keeper",
+"sheet": "trainer-bases/origin.png",
+"i": 7,
+"fields": {
+"cls": "Bird Keeper",
+"who": "a young man carrying a bird cage"
+}
+},
+{
+"id": "origin:37",
+"game": "Origin",
+"label": "Ninja Girl",
+"sheet": "trainer-bases/origin.png",
+"i": 8,
+"fields": {
+"cls": "Ninja Girl",
+"who": "a girl ninja with purple hair and a pink scarf"
+}
+},
+{
+"id": "origin:39",
+"game": "Origin",
+"label": "Rocket Elite (purple)",
+"sheet": "trainer-bases/origin.png",
+"i": 9,
+"fields": {
+"cls": "Rocket Elite",
+"who": "a woman with purple hair in a purple outfit"
+}
+},
+{
+"id": "origin:40",
+"game": "Origin",
+"label": "Rocket Elite (long blue hair)",
+"sheet": "trainer-bases/origin.png",
+"i": 10,
+"fields": {
+"cls": "Rocket Elite",
+"who": "a woman with very long blue hair"
+}
+},
+{
+"id": "origin:44",
+"game": "Origin",
+"label": "Rocket Elite (woman)",
+"sheet": "trainer-bases/origin.png",
+"i": 11,
+"fields": {
+"cls": "Rocket Elite",
+"who": "a woman with orange hair in a black Rocket dress"
+}
+},
+{
+"id": "origin:45",
+"game": "Origin",
+"label": "Rocket Elite (man)",
+"sheet": "trainer-bases/origin.png",
+"i": 12,
+"fields": {
+"cls": "Rocket Elite",
+"who": "a young man with teal hair in a black Rocket uniform"
+}
+},
+{
+"id": "origin:51",
+"game": "Origin",
+"label": "Executive (scientist)",
+"sheet": "trainer-bases/origin.png",
+"i": 13,
+"fields": {
+"cls": "Executive",
+"who": "an old man with grey hair in a long white lab coat"
+}
+},
+{
+"id": "origin:58",
+"game": "Origin",
+"label": "Jessie (Team Rocket)",
+"sheet": "trainer-bases/origin.png",
+"i": 14,
+"fields": {
+"cls": "Team Rocket",
+"who": "a young woman with long magenta hair in a black uniform"
+}
+},
+{
+"id": "origin:68",
+"game": "Origin",
+"label": "Ace Trainer (red jacket)",
+"sheet": "trainer-bases/origin.png",
+"i": 15,
+"fields": {
+"cls": "Ace Trainer",
+"who": "a young man with black hair in a red jacket"
+}
+},
+{
+"id": "origin:69",
+"game": "Origin",
+"label": "Rocket Elite (pink hair)",
+"sheet": "trainer-bases/origin.png",
+"i": 16,
+"fields": {
+"cls": "Rocket Elite",
+"who": "a girl with pink hair in a light blue dress"
+}
+},
+{
+"id": "origin:77",
+"game": "Origin",
+"label": "One-Ball Man",
+"sheet": "trainer-bases/origin.png",
+"i": 17,
+"fields": {
+"cls": "One-Ball Man",
+"who": "a young man with black hair in a black Rocket uniform"
+}
+},
+{
+"id": "origin:83",
+"game": "Origin",
+"label": "Executive (red coat)",
+"sheet": "trainer-bases/origin.png",
+"i": 18,
+"fields": {
+"cls": "Executive",
+"who": "a man with red hair in a long red Rocket coat"
+}
+},
+{
+"id": "origin:84",
+"game": "Origin",
+"label": "Executive (grey)",
+"sheet": "trainer-bases/origin.png",
+"i": 19,
+"fields": {
+"cls": "Executive",
+"who": "a man with grey hair in a grey Rocket jacket"
+}
+},
+{
+"id": "origin:86",
+"game": "Origin",
+"label": "Giovanni (hat)",
+"sheet": "trainer-bases/origin.png",
+"i": 20,
+"fields": {
+"cls": "Rocket Boss",
+"who": "a man in a black suit, holding a black hat"
+}
+},
+{
+"id": "origin:87",
+"game": "Origin",
+"label": "Elite Four (orange hair)",
+"sheet": "trainer-bases/origin.png",
+"i": 21,
+"fields": {
+"cls": "Elite Four",
+"who": "a woman with long orange hair"
+}
+},
+{
+"id": "origin:88",
+"game": "Origin",
+"label": "Lance",
+"sheet": "trainer-bases/origin.png",
+"i": 22,
+"fields": {
+"cls": "Elite Four",
+"who": "a man with spiky red hair and a long cape"
+}
+},
+{
+"id": "origin:89",
+"game": "Origin",
+"label": "Agatha",
+"sheet": "trainer-bases/origin.png",
+"i": 23,
+"fields": {
+"cls": "Elite Four",
+"who": "an old woman with a cane"
+}
+},
+{
+"id": "origin:90",
+"game": "Origin",
+"label": "Rival (woman)",
+"sheet": "trainer-bases/origin.png",
+"i": 24,
+"fields": {
+"cls": "Rival",
+"who": "a young woman with long brown hair and a green skirt"
+}
+},
+{
+"id": "origin:91",
+"game": "Origin",
+"label": "Hoenn Trainer",
+"sheet": "trainer-bases/origin.png",
+"i": 25,
+"fields": {
+"cls": "Hoenn Trainer",
+"who": "a young man with spiky blue hair and a grey vest"
+}
+},
+{
+"id": "origin:92",
+"game": "Origin",
+"label": "Sinnoh Trainer",
+"sheet": "trainer-bases/origin.png",
+"i": 26,
+"fields": {
+"cls": "Sinnoh Trainer",
+"who": "a girl with blond hair and a grey skirt"
+}
+},
+{
+"id": "origin:93",
+"game": "Origin",
+"label": "Cerulean Trainer",
+"sheet": "trainer-bases/origin.png",
+"i": 27,
+"fields": {
+"cls": "Cerulean Trainer",
+"who": "a boy in a green cap"
+}
+},
+{
+"id": "origin:94",
+"game": "Origin",
+"label": "Viridian Trainer",
+"sheet": "trainer-bases/origin.png",
+"i": 28,
+"fields": {
+"cls": "Viridian Trainer",
+"who": "a girl with a long blond ponytail and a straw hat"
+}
+},
+{
+"id": "origin:95",
+"game": "Origin",
+"label": "Executive (lab coat)",
+"sheet": "trainer-bases/origin.png",
+"i": 29,
+"fields": {
+"cls": "Executive",
+"who": "a man with purple hair and a white coat"
+}
+},
+{
+"id": "origin:96",
+"game": "Origin",
+"label": "Executive (mask)",
+"sheet": "trainer-bases/origin.png",
+"i": 30,
+"fields": {
+"cls": "Executive",
+"who": "a man in a masked helmet and red and black armour"
+}
+},
+{
+"id": "origin:103",
+"game": "Origin",
+"label": "Misty",
+"sheet": "trainer-bases/origin.png",
+"i": 31,
+"fields": {
+"cls": "Cerulean Trainer",
+"who": "a girl with an orange side ponytail and shorts"
+}
+},
+{
+"id": "origin:107",
+"game": "Origin",
+"label": "Sabrina",
+"sheet": "trainer-bases/origin.png",
+"i": 32,
+"fields": {
+"cls": "Leader",
+"who": "a woman with long green hair in a red dress"
+}
+},
+{
+"id": "origin:109",
+"game": "Origin",
+"label": "Gold",
+"sheet": "trainer-bases/origin.png",
+"i": 33,
+"fields": {
+"cls": "Pokemon Trainer",
+"who": "a boy in a black and yellow cap and red jacket"
+}
+},
+{
+"id": "origin:124",
+"game": "Origin",
+"label": "Giovanni",
+"sheet": "trainer-bases/origin.png",
+"i": 34,
+"fields": {
+"cls": "Rocket Boss",
+"who": "a man in a black suit"
+}
+},
+{
+"id": "origin:125",
+"game": "Origin",
+"label": "Gold (Johto)",
+"sheet": "trainer-bases/origin.png",
+"i": 35,
+"fields": {
+"cls": "Johto Trainer",
+"who": "a boy in a black and yellow cap and red jacket"
+}
+},
+{
+"id": "origin:126",
+"game": "Origin",
+"label": "Johto Trainer (girl)",
+"sheet": "trainer-bases/origin.png",
+"i": 36,
+"fields": {
+"cls": "Johto Trainer",
+"who": "a girl with blue hair in two tails"
+}
+},
+{
+"id": "origin:127",
+"game": "Origin",
+"label": "Steven",
+"sheet": "trainer-bases/origin.png",
+"i": 37,
+"fields": {
+"cls": "Hoenn Champion",
+"who": "a man with light blue hair in a dark suit"
+}
+},
+{
+"id": "origin:128",
+"game": "Origin",
+"label": "Cynthia",
+"sheet": "trainer-bases/origin.png",
+"i": 38,
+"fields": {
+"cls": "Sinnoh Champion",
+"who": "a woman with very long blond hair in a black coat"
+}
 }
 ]
 }

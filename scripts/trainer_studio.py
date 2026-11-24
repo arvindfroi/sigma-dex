@@ -22,13 +22,14 @@ Settings: TRAINER_CFG (folder with trainer_swap.py and build_trainer_klein*.py, 
 TRAINER_LORA (default pkmn_trainer_klein_c1_000002500.safetensors), NPC_LORA (default pkmn_followernpc_klein_v2_000001000).
 """
 import json
+import re
 import os
 import sys
 import time
 import urllib.request
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageOps
 
 import comfy
 import klein_follower
@@ -39,6 +40,10 @@ LORA = os.environ.get("TRAINER_LORA", "pkmn_trainer_klein_c1_000002500.safetenso
 NPC_LORA = os.environ.get("NPC_LORA", "pkmn_followernpc_klein_v2_000001000.safetensors")
 FIELDS = ("cls", "who", "skin", "hair", "clothes", "extra", "held", "pose", "facing", "build", "mood")
 SECONDS = 40
+# 2026-11-24 (Arvind: "jeg skjønner ikke hvorfor han lager en map sprite når vi lager front spriten"): a front try no longer
+# draws a map figure; the MAP step makes them from the picked front (run_map). TRAINER_FRONT_MAP=1 brings the old way back.
+FRONT_MAP = os.environ.get("TRAINER_FRONT_MAP") == "1"
+SECONDS = 40 if FRONT_MAP else 25          # a front with its map figure took about 40 s
 NPC_END = ("The sheet is a grid of 2 rows by 4 columns of 32x32 pixel art frames on a flat magenta background: the columns walk up "
            "(seen from behind), down (facing the viewer, as in image 1), left and right; the top row is the first step and the bottom "
            "row the second step. The same person in every frame, with the colours of image 1, drawn as a small overworld character "
@@ -64,23 +69,81 @@ def base_key(recipe):
     raise RuntimeError("unknown base trainer %r" % recipe)
 
 
+# Origin's own trainer pictures (2026-11-24, Arvind: "alle origins sprites burde også være der"): the classes Origin redrew
+# in its a/0/5/8 (Red, Leaf, Steven, Cynthia, Gold, Lance, Misty ...), frame 1 as the game shows it (member 0 placed by
+# cell 0, scripts/trainer_bases.py --origin). Like the other bases they live on the PC only:
+# lora-train\data\trainers\origin_fronts\NNN.png (NNN = the class).
+ORIGIN_FRONTS = Path(os.environ.get("TRAINER_ORIGIN", r"D:\LocalAI\lora-train\data\trainers\origin_fronts"))
+_BASE_INDEX = None
+
+
+def _origin_slot(recipe):
+    game, _, name = str(recipe or "").partition(":")
+    return int(name) if game == "origin" and name.isdigit() and len(name) <= 3 else None
+
+
+def base_frame(recipe):
+    """frame 1 of a base, 80x80 RGBA"""
+    n = _origin_slot(recipe)
+    if n is not None:
+        f = ORIGIN_FRONTS / ("%03d.png" % n)
+        if not f.exists():
+            raise RuntimeError("unknown base trainer %r" % recipe)
+        return Image.open(f).convert("RGBA")
+    T, _, _ = _modules()
+    return T.frames(base_key(recipe))[0]
+
+
+def base_row(recipe):
+    """the base's caption fields (cls, pose, facing, build ...); an Origin base has the fields of data/trainer_bases.json"""
+    global _BASE_INDEX
+    if _origin_slot(recipe) is not None:
+        if _BASE_INDEX is None:
+            f = Path(__file__).resolve().parent.parent / "data" / "trainer_bases.json"
+            _BASE_INDEX = {b["id"]: b for b in json.loads(f.read_text(encoding="utf-8"))["bases"]} if f.exists() else {}
+        b = _BASE_INDEX.get(str(recipe)) or {}
+        return dict(b.get("fields") or {}, cls=(b.get("fields") or {}).get("cls") or "Trainer")
+    T, _, _ = _modules()
+    return T.rows().get(base_key(recipe)) or {}
+
+
+def mirrored_row(row):
+    """the caption of a mirrored base: left and right swapped in the facing and the pose"""
+    swap = {"left": "right", "right": "left"}
+    return {k: re.sub(r"\b(left|right)\b", lambda m: swap[m.group(1)], v) if isinstance(v, str) else v for k, v in row.items()}
+
+
+def fields_of(settings):
+    """the description fields the person filled in (2026-11-24: the PICTURE step's fields, as in trainer_swap.py P)"""
+    f = settings.get("fields") or {}
+    return {k: " ".join(str(f[k]).split())[:240] for k in FIELDS if str(f.get(k) or "").strip() not in ("", "-")}
+
+
 def words_of(settings):
-    """the person's own words (one box); older jobs sent the eleven fields"""
+    """one line about the person for the steps after the front (VS, back, map): the look fields, then the free words"""
     w = " ".join(str(settings.get("words") or "").split())[:400]
-    if not w and settings.get("fields"):
-        f = settings["fields"]
-        w = ", ".join(str(f[k]).strip() for k in ("who", "hair", "clothes", "extra", "held") if str(f.get(k) or "").strip() not in ("", "-"))
-    return w
+    f = fields_of(settings)
+    look = ", ".join(f[k] for k in ("who", "skin", "hair", "clothes", "extra", "held") if f.get(k))
+    return ", ".join(x for x in (look, w) if x)
 
 
-def battle_text(base_row, words):
-    """the base's class, pose, facing and build (the start picture already has them) + the person's words; the look comes from
-    the picture"""
+def battle_text(base_row, words, fields=None):
+    """the caption of the tested recipe (trainer_swap.py: TB.caption(T.describe(P))): the base's class, pose, facing and build
+    (the start picture already has them) with the person's description fields over them, and their free words; the face and
+    colours come from the picture. Without fields: the base's four + the words as 'who' (2026-11-21 recipe)."""
     T, TB, _ = _modules()
     row = {k: (base_row or {}).get(k) or "-" for k in ("cls", "pose", "facing", "build")}
     if row["cls"] == "-":
         row["cls"] = "Trainer"
-    row["who"] = words or "-"
+    f = dict(fields or {})
+    if f:
+        row.update(f)
+        if words:
+            row["extra"] = ", ".join(x for x in (f.get("extra"), words) if x)
+        row.setdefault("who", "a trainer")
+        row.setdefault("held", "a Poke Ball")
+    else:
+        row["who"] = words or "-"
     return TB.caption(T.describe(row, drop=0), True)
 
 
@@ -138,7 +201,8 @@ def run(job, base, key, post, download, folder, log=print):
     strength = min(0.95, max(0.5, float(settings.get("strength") or 0.75)))
     words = words_of(settings)
     count = int(job.get("count") or 1)
-    bkey = base_key(job.get("recipe"))
+    recipe = job.get("recipe")
+    base_frame(recipe)                               # an unknown base fails here, before the picture is fetched
     # the person's picture: the private upload (a two-minute link from the server) or a public trainer picture
     if settings.get("photo"):
         link = post(base, key, {"action": "trainer_photo", "job_id": job["id"]})["url"]
@@ -151,14 +215,18 @@ def run(job, base, key, post, download, folder, log=print):
         raise RuntimeError("no picture of the trainer")
     art = comfy.upload(person_picture(got, folder / "person.png"))
     art2 = comfy.upload(square(got, folder / "person_sq.png"))
-    width = min(1.4, max(1.0, float(settings.get("width") or 1.0)))
-    if width > 1.0:                                  # the BASE step's width slider: the base frame widened (widen_front.py)
-        f1, _ = T.frames(bkey)
-        widen_front(f1, width).save(folder / "base_wide.png")
-        start = S.start("file:" + str(folder / "base_wide.png"), folder / "start.png")
-    else:
-        start = S.start(bkey, folder / "start.png")
-    text = battle_text(T.rows().get(bkey), words)
+    width = min(1.4, max(0.7, float(settings.get("width") or 1.0)))   # 2026-11-24: thinner too (0.7), not only wider
+    height = min(1.1, max(0.85, float(settings.get("height") or 1.0)))   # 2026-11-24: shorter (a child) or taller
+    flip = bool(settings.get("flip"))                # the BASE step's mirror (2026-11-24): the base turned the other way
+    f1 = base_frame(recipe)
+    if flip:
+        f1 = ImageOps.mirror(f1)
+    if width != 1.0 or height != 1.0:                # the BASE step's width and height sliders
+        f1 = reshape_front(f1, width, height)
+    f1.save(folder / "base_start.png")
+    start = S.start("file:" + str(folder / "base_start.png"), folder / "start.png")
+    row = base_row(recipe)
+    text = battle_text(mirrored_row(row) if flip else row, " ".join(str(settings.get("words") or "").split())[:400], fields_of(settings))
     ntext = npc_text(words, True)
     made = 0
     for n in range(1, count + 1):
@@ -175,8 +243,9 @@ def run(job, base, key, post, download, folder, log=print):
             sprite.save(image)
             status = "done" if sprite.getbbox() else "broken"
             files = {"image": image, "raw": raw}
-            note = "base %s%s, strength %.2f, seed %d" % (job.get("recipe"), " x%.2f wide" % width if width > 1.0 else "", strength, seed)
-            if status == "done":
+            note = "base %s%s%s%s, strength %.2f, seed %d" % (recipe, " x%.2f wide" % width if width != 1.0 else "", " x%.2f tall" % height if height != 1.0 else "",
+                                                             " mirrored" if flip else "", strength, seed)
+            if status == "done" and FRONT_MAP:
                 post(base, key, {"action": "progress", "job_id": job["id"], "state": "drawing a map figure: %d of %d" % (n, count)})
                 try:
                     one = comfy.upload(on_white(sprite, folder / ("battle%d_4x.png" % n)))
@@ -246,7 +315,7 @@ def run_vs(job, base, key, post, download, folder, log=print):
     ph.resize((max(16, round(ph.width * k) // 16 * 16), max(16, round(ph.height * k) // 16 * 16)), Image.LANCZOS).save(folder / "vs_photo_full.png")
     sprite_up = comfy.upload(folder / "vs_sprite.png")
     refs_of = {False: [sprite_up, comfy.upload(folder / "vs_photo.png")], True: [sprite_up, comfy.upload(folder / "vs_photo_full.png")]}
-    row = T.rows().get(base_key(job.get("recipe"))) or {}
+    row = base_row(job.get("recipe"))
     texts = {plain: vs_text(V, row.get("cls") or "Pokemon Trainer", settings.get("words") or "", plain) for plain in (False, True)}
     made = 0
     for n in range(1, int(job.get("count") or 1) + 1):
@@ -377,6 +446,26 @@ def widen_front(f, fx, fy=1.0):
     return out
 
 
+def reshape_front(f, fx, fy):
+    """the BASE step's body width and height (2026-11-24): the figure scaled by fx and fy around its centre, the feet kept
+    where they were; if the scaled figure would no longer fit the 80x80 frame it is made a little smaller as a whole"""
+    f = f.convert("RGBA")
+    bb = f.getbbox()
+    if not bb:
+        return f
+    W, H = f.size
+    fig = f.crop(bb)
+    w, h = max(1, round(fig.width * fx)), max(1, round(fig.height * fy))
+    k = min(1.0, (W - 2) / w, (bb[3] - 1) / h)              # keep a pixel free at the sides and the top
+    w, h = max(1, round(w * k)), max(1, round(h * k))
+    g = fig.resize((w, h), Image.NEAREST)
+    cx = (bb[0] + bb[2]) / 2
+    x0 = min(max(1, round(cx - w / 2)), W - 1 - w)
+    out = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    out.alpha_composite(g, (x0, bb[3] - h))
+    return out
+
+
 def widen_back(f, fx):
     """a player BACK frame widened by fx (and a little lower), feet kept (back_f1_front.widen, 2026-11-22)"""
     f = f.convert("RGBA")
@@ -490,7 +579,7 @@ def run_anim(job, base, key, post, download, folder, log=print):
     extra = " ".join(str(settings.get("extra") or "").split())[:200]
     who = (words + (". " + extra if extra else "")).strip(" .") or "the trainer in image 1"
     try:                                                   # the build: the battle sprite's base, or stout by the words/shape
-        brow = T.rows().get(base_key(str(src.get("recipe") or "").split(" ")[0])) or {}
+        brow = base_row(str(src.get("recipe") or "").split(" ")[0])
     except Exception:
         brow = {}
     build = brow.get("build") or "-"
