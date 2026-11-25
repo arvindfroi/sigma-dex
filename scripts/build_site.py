@@ -89,10 +89,12 @@ def main():
 
     # Shinies and cries saved on the website (assets/shiny/<pokemon>.json, assets/cries/<pokemon>.json, written by
     # import_web.py), and the facts about the official Pokemon the cry maker starts from (fetch_official_species.py).
+    form_ids = {f["sid"] for _, _, data in species for f in data.get("forms") or [] if isinstance(f, dict) and f.get("sid")}
+
     def saved(folder):
         out = {}
         for path in sorted((ROOT / "assets" / folder).glob("*.json")):
-            if path.stem in ids:
+            if path.stem in ids or path.stem in form_ids:   # a form's shiny or cry is kept under its sprite id
                 out[path.stem] = json.loads(path.read_text(encoding="utf-8"))
         return out
     cries = saved("cries")

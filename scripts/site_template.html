@@ -1462,6 +1462,8 @@ function picturesTab(s, onChange, top) {
 // whatever is pointed at; the bottom screen has coloured tabs with everything else. Edit turns the
 // bottom screen into the form while the top screen stays and follows the changes.
 const DETAIL_TABS = [["info", "INFO", "pink"], ["skills", "SKILLS", "purple"], ["moves", "MOVES", "blue"], ["pictures", "ART", "sky"], ["sprite", "SPRITES", "purple"], ["shiny", "SHINY", "sky"], ["cry", "CRY", "blue"], ["more", "MORE", "pink"]];
+// The tabs a form has (Emil 26 Nov 2026: forms lacked SKILLS and could not get a shiny or a cry). Its moves are its base's.
+const FORM_TABS = ["info", "skills", "pictures", "sprite", "shiny", "cry"];
 const VIEW_LABELS = {front: "FRONT", shiny: "SHINY", back: "BACK", icon: "ICON", follower: "WALK", art: "ART"};
 const dexEntry = d => (filled(d.category) ? "The " + d.category + " Pokemon\n" : "") + (filled(d.description) ? d.description.trim() : "No Pokedex entry yet.");
 const STAT_HELP = {hp: "How much damage it can take.", attack: "How hard its physical moves hit.", defense: "How well it takes physical hits.",
@@ -1524,8 +1526,8 @@ function explains(el, top, title, text) {
 function openDetail(s, tab) {
   tab = tab === "overview" ? "info" : tab || "info";
   if (["sprite", "shiny", "cry"].includes(tab) && !DEX.web.url) tab = "info";
-  if (s.form && !["info", "pictures", "sprite"].includes(tab)) tab = "info";
-  const d = s.data, tabs = DETAIL_TABS.filter(([id]) => (!["sprite", "shiny", "cry"].includes(id) || DEX.web.url) && (!s.form || ["info", "pictures", "sprite"].includes(id)));
+  if (s.form && !FORM_TABS.includes(tab)) tab = "info";
+  const d = s.data, tabs = DETAIL_TABS.filter(([id]) => (!["sprite", "shiny", "cry"].includes(id) || DEX.web.url) && (!s.form || FORM_TABS.includes(id)));
   if (location.hash !== "#" + s.id) history.replaceState(null, "", "#" + s.id);
   const top = monTop(s);
   shown = {s, top};
@@ -2056,6 +2058,15 @@ function formSpecies(base, i) {                          // a form dressed as a 
   const s = {id: fm.sid, form: {base, index: i, fm}, pending: null,
     data: Object.assign({}, bd, {name: bd.name + " " + fm.name, types: (fm.types || []).length ? fm.types : bd.types, design, forms: [], evolutions: []})};
   if (fm.base_stats && Object.keys(fm.base_stats).length) s.data.base_stats = Object.assign({}, bd.base_stats || {}, fm.base_stats);
+  const own = fm.abilities || {};
+  if (["primary", "secondary", "hidden"].some(k => filled(own[k]))) {
+    const ab = {}, seen = new Set();
+    for (const k of ["primary", "secondary", "hidden"]) {
+      const n = filled(own[k]) ? own[k] : (bd.abilities || {})[k];
+      if (filled(n) && !seen.has(String(n).toLowerCase())) { ab[k] = n; seen.add(String(n).toLowerCase()); }
+    }
+    s.data.abilities = ab;
+  }
   return derive(s);
 }
 async function saveForms(base, forms) {                  // saves the base with a new forms list
@@ -2133,9 +2144,9 @@ function formInfoPage(s, top) {                          // the INFO tab of a fo
       h("div", {}, h("span", {}, "What changes"), show(fm.changes === "battle" ? "type, stats or ability too" : "only how it looks"))),
     filled(fm.how) ? h("p", {}, h("b", {}, "How it changes: "), fm.how) : null,
     [ab.primary, ab.secondary, ab.hidden].some(filled) ? h("p", {}, h("b", {}, "Abilities: "), [ab.primary, ab.secondary, ab.hidden && ab.hidden + " (hidden)"].filter(filled).join(", ")) : null,
-    stats ? h("p", {}, h("b", {}, "Base stats: "), stats) : null,
+    stats ? [h("h2", {}, "Base stats"), statBars(s.data.base_stats || {}, s.bst), h("div", {class: "hint"}, "Its abilities and the damage it takes are under SKILLS.")] : null,
     filled(fm.look) ? h("p", {}, h("b", {}, "Looks: "), fm.look) : null,
-    h("p", {class: "sub"}, "Make its sprites under SPRITES. Its pictures go under ART; the sprite studio can also draw from " + base.data.name + "'s pictures."));
+    h("p", {class: "sub"}, "Make its sprites under SPRITES, its shiny under SHINY and its cry under CRY. Its pictures go under ART; the sprite studio can also draw from " + base.data.name + "'s pictures."));
 }
 function formChips(base, current) {                      // the base and its forms as buttons, to switch between them
   const forms = base.data.forms || [];

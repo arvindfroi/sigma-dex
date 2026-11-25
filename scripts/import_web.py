@@ -111,15 +111,26 @@ def own_sound(text):
     return pcm
 
 
+def form_owner(sid, files):
+    """the Pokemon whose forms list has this sprite id ('<base>-form-<name>'), or None"""
+    for base, (_, species) in files.items():
+        if any(isinstance(form, dict) and form.get("sid") == sid for form in species.get("forms") or []):
+            return base
+    return None
+
+
 def save_extra(kind, sid, row, files):
-    """A shiny or a cry saved on the website: its own file, and the species file points at it. Returns 1 if changed."""
-    if sid not in files:
-        raise ValueError("there is no Pokemon called '%s'" % sid)
+    """A shiny or a cry saved on the website: its own file, and the species file points at it. Returns 1 if changed.
+    A form's shiny or cry (26 Nov 2026) is only its own file, assets/<folder>/<form sprite id>.json: the export and the
+    website find it by the form's sprite id, so the base's species file is not touched."""
+    is_form = sid not in files and form_owner(sid, files) is not None
+    if sid not in files and not is_form:
+        raise ValueError("there is no Pokemon or form called '%s'" % sid)
     folder, field = SAVED[kind]
     target = ROOT / "assets" / folder / (sid + ".json")
     sound = target.with_suffix(".wav")       # a cry's own sound, next to its recipe
     data = row.get("data") or {}
-    path, species = files[sid]
+    path, species = files[sid] if not is_form else (None, {})
     assets = dict(species.get("assets") or {})
     if data.get("deleted"):
         if target.exists():
@@ -144,6 +155,8 @@ def save_extra(kind, sid, row, files):
             sound.unlink()
         target.write_text(json.dumps(entry, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
         assets[field] = target.relative_to(ROOT).as_posix()
+    if is_form:
+        return 1
     if assets == (species.get("assets") or {}):
         return 1
     species = dict(species, assets=assets)
