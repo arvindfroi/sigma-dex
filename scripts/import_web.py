@@ -177,6 +177,26 @@ def changed(new, old):
     return not (empty(new) and empty(old)) and new != old
 
 
+def take_anim_pick(updated, new, base):
+    """The battle animation pick (engine.anim_from) is the one part of `engine` the website edits; the rest of engine
+    (and assets) stays as the file has it (KEPT_FROM_FILE), which also threw every pick away after the one-off write-back
+    of 23 Nov (a friend: "frame 2 animasjoner har ikke blitt lagret"). The pick is taken when the editor changed it
+    versus the `base` they started from, so a page opened before a pick landed (it sends the old engine) cannot undo it;
+    a save without a base takes a pick that is set."""
+    pick = (new.get("engine") or {}).get("anim_from")
+    if isinstance(base, dict):
+        if not changed(pick, (base.get("engine") or {}).get("anim_from")):
+            return
+    elif empty(pick):
+        return
+    engine = dict(updated.get("engine") or {})
+    if empty(pick):
+        engine.pop("anim_from", None)
+    else:
+        engine["anim_from"] = pick
+    updated["engine"] = engine
+
+
 def merge_edit(current, new, base):
     """Apply only what the editor actually changed (new versus the `base` they started from) onto the file.
 
@@ -367,6 +387,8 @@ def main():
                     updated.pop(key, None)
                     if key in current:
                         updated[key] = copy.deepcopy(current[key])
+                take_anim_pick(updated, known_fields_only(row["data"]),
+                               known_fields_only(base) if isinstance(base, dict) else None)
             else:
                 path, current = dexlib.SPECIES_DIR / (sid + ".yaml"), None
                 for key in KEPT_FROM_FILE:
