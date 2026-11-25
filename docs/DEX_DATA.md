@@ -717,7 +717,7 @@ Arvind: the movesets nobody has changed can be built again with everything taken
 species). It now knows the explicit lines (Santrock -> Cindreon -> Custodix and Sigmanian Charcadet -> Glacépée
 written into the species files; `data/lines.yaml` stops Quimsy/ROKU and Felk/Moosus being guessed as lines, and
 the legendary trios in `data/legendaries.yaml` are never guessed together), and weight (Heavy Slam for 150 kg and
-up, now also Heat Crash for heavy Fire types). The 59 movesets people had changed, and SOLIDEDGE and Meowthwo
+up, now also Heat Crash for heavy Fire types). The 59 movesets people had changed, and SOLIDEDGE and Meowthscot
 (moves made by people), were left as they are.
 
 ---

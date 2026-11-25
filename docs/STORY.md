@@ -27,7 +27,7 @@ events in [When we finalize the game](PLANS.md#when-we-finalize-the-game), story
 1. **A new region dex, Gen 5 style.** Only our mons until the main story is over; the official ones come back after
    (decided 2026-11-11). Every wild encounter is something the player has never seen.
 2. **Evolution and growing up is the theme.** Humans cannot evolve; Team Rocket's EXP harness steals growth to force
-   it; real growth has to be earned (decided 2026-11-16). Meowthwo becomes Meowthree in the middle of the boss fight.
+   it; real growth has to be earned (decided 2026-11-16).
 3. **Two ways to play, chosen by the cartridge.** Sabertann is the standard game, Gravriel the hard one (decided).
 4. **Never grindy, never unfair.** Hard comes from smarter trainers, rules and caps, not from hours of levelling.
    Exp Share stays on. "Hardcore is already hard, it must not become impossible" (Arvind).
@@ -45,7 +45,7 @@ events in [When we finalize the game](PLANS.md#when-we-finalize-the-game), story
 | Items in battle | normal | Hard: no revives; Hardcore: no Bag items except Balls (built) |
 | Level cap | off by default | Hardcore: forced on (built); maybe lower (open) |
 | Losing | normal blackout | Gravriel picture on both screens + obituary (planned, needs the art) |
-| Special | | one special revive event, e.g. from the freed Meowthree (idea) |
+| Special | | one special revive event (idea) |
 | Mascot / legend | Sabertann takes Ho-Oh's role | Gravriel takes Lugia's role |
 
 **Proposal: version exclusives.** A handful of our lines appear in only one version (like Red/Blue), so trading
@@ -124,35 +124,14 @@ From the plans so far, in order (details in docs/PLANS.md ("When we finalize the
 1. Opening movie: Sabertann (or Gravriel) in the legend's role.
 2. Meowth with Jessie and James, the real talking Meowth; he "dies" (only implied); a man in a Meowth costume
    takes his place.
-3. Rocket reports about "subject 52" spread over the game (foreshadowing).
+3. Rocket reports spread over the game (foreshadowing; details in the private story notes).
 4. **Scripted wipe (Arvind: relatively early in the game, against an antagonist; which one is open):** a story battle you are allowed to lose; Giovanni
    breaks the fourth wall, heals your team and mocks you ("Get up, you're better than this. Need some help?").
    In Gravriel this battle must not count as a nuzlocke wipe (decide: the team is healed by the script).
-5. The boss fight: Meowthwo under Persian's control evolves into **Meowthree** in the middle of the battle.
-6. Giovanni's goal. Arvind's problem with "super trainer": then he would have made himself super, not
-   Meowthwo. **Proposal (Claude): turn people into Pokemon**, because humans cannot evolve, so he makes them into
-   something that can, and something you can catch and control. The costume man is his first test: Meowthwo is the
-   proof that it works. It ties the theme, Meowthwo and the Rocket reports together. A possible last twist: in his
-   final, Giovanni uses the harness on himself, so both ideas meet, and the mid-battle evolution code is reused.
-   **Arvind (2026-11-17): likes it.** Whether Giovanni himself is replaced by another character is undecided.
-   **Where it fits: the Beedrill "last stand"** (Arvind's idea, checked): Origin's final is three battles in the
-   Pokemon League (script file 822, text bank 520): Giovanni (trainer 244), Giovanni with his past copy (288 + 287),
-   then his first Pokemon Beedrill alone (trainer 289, one Lv100 Beedrill). The Beedrill part is short and simple: the
-   Beedrill appears as person 9, cries (cry 15 = Beedrill), 5 lines, `TrainerBattle 289`, 2 lines after, it is hidden.
-   To swap it for Giovanni putting on the harness: rewrite those 7 lines (easy); give trainer 289 the new creature
-   (easy, team data); person 9's overworld sprite and the cry become the creature's (the same kind of work as our
-   other mons); optional: the battle shows the creature as its own trainer, like Origin's Mewtwo battle (#1013), and
-   the change happens in the battle with the Meowthree code (later). New art needed: one new mon (front, back, icon,
-   overworld). Beedrill also stands in Giovanni's two other teams; those slots become our mons anyway.
-   **Catch him (Arvind: "irony"):** possible with a scripted wild battle after (or instead of) trainer 289, like a
-   legendary. **Checked the story order (corrected 2026-11-17):** the Mt. Silver meeting "two years" later (text
-   bank 539) comes **before** the final, not after: Cerulean Cave (Kanto) -> two years -> Johto -> Mt. Silver
-   (he finds the Adamant Orb) -> Dialga's space -> Distortion World (Giratina) -> the final at League HQ -> the final
-   Hall of Fame -> post-game. After the final he is led away to stand trial and does not come back, so catching him
-   at the very end needs no explanation. (Claude first wrote that he returns after the final: wrong.) The copy from
-   the past already appears in the final itself; a post-game rematch with that copy is an optional extra, not needed.
-7. Post-game: official Pokemon return; Meowth's fast food place; the freed Meowthree (and in Gravriel the special
-   revive).
+5. The big boss fight and Giovanni's goal and final: kept in the private story notes (Arvind wants the group
+   to be surprised).
+6. (see 5)
+7. Post-game: official Pokemon return; Meowth's fast food place (and in Gravriel the special revive).
 
 **Villains in Origin (counted 2026-11-17 from the trainer list):** one evil team only, Team Rocket. There is no
 Team Aqua/Magma/Galactic/Plasma: Origin makes the other regions' villains Rocket executives.
@@ -167,7 +146,7 @@ Origin's world is Kanto + Johto + the Sevii Islands (plus special places: Sinjoh
 space, Distortion World). No Hoenn or Sinnoh: Maxie, Archie, Cyrus and Charon only come over as Rocket executives.
 **Size of a villain swap:** about 3,000 text entries name Rocket or one of its people (Rocket in 199 of the 805
 text banks, Giovanni in 74). Three levels: (A) keep Rocket and its people, give them our mons and add our own
-beats (Meowthwo, the harness, the Giovanni twist): least work, planned anyway; (B) rename: same plot, new names and
+beats (our own scenes and twists): least work, planned anyway; (B) rename: same plot, new names and
 new trainer pictures (name swaps in the texts + about 16 new character pictures and a grunt): medium, can be done
 late; (C) our own villain plot: hundreds of scenes rewritten, not realistic. **Arvind (2026-11-17): A for now**; he does not know yet what Rocket would be replaced
 with. Ideas to keep in mind for B (Claude): (1) Rocket stays, but changes during the game as the harness spreads
@@ -179,8 +158,8 @@ legendaries) and our theme (names are placeholders):**
 - **A growth company (Claude's pick):** a self-improvement/biotech firm that sells "faster growth" to trainers; the
   EXP harness is its product. Ads and shops early in the game (foreshadowing, cheeky humour), crime behind it. Boss =
   the founder, executives = department heads, grunts = sales staff/lab workers. Fits the League gold (funding) and
-  the experiments (Meowthwo) directly.
-- **A cat syndicate:** built around the boss's Persian that controls Meowthwo; Origin already has Persian statues
+  the experiments directly.
+- **A cat syndicate:** built around the boss's Persian; Origin already has Persian statues
   with glowing eyes in the Mahogany base. Ties to the costume Meowth; check it does not clash with Sabertann (a cat).
 - **A shedding cult:** people who believe humans can "molt" into something higher; executives are ranks, grunts
   are novices. Darkest of the three; fits the Giovanni-in-the-harness ending.
@@ -338,9 +317,9 @@ Pikachu story and the wild Viridian Forest Pikachu to the Water starter.)
 
 | Origin Pokémon | Where it matters | Our candidate | Status |
 |---|---|---|---|
-| Meowth / Persian (52-53) | Team Rocket's **talking Meowth** (Jessie and James's trio); text 200 | — | **new**: a cat-like, mono Normal Rocket sidekick (mono Normal is a gap). Arvind 2026-11-12: Meowth is a man in a costume who becomes **Meowthwo** (takes Mewtwo's role), see docs/PLANS.md ("When we finalize the game") |
+| Meowth / Persian (52-53) | Team Rocket's **talking Meowth** (Jessie and James's trio); text 200 | — | **new**: a cat-like, mono Normal Rocket sidekick (mono Normal is a gap). Arvind 2026-11-12: Meowth is a man in a costume (Meowthscot); the rest is in the private story notes |
 | Mew (151) | Team Rocket closes Mt. Moon to catch it (early Kanto story); gift on Five Island; text 95 | Sandrema (mythic, Fairy/Ground) | partly: Sandrema could be "the Mew" or "the Celebi", not both |
-| Mewtwo (150) | Gift at Indigo Plateau; Giovanni's ace; text 85 | Cryoblade (Dark/Ice, 605, "Frozen Executioner") | partly: as Team Rocket's lab-made weapon. Otherwise **new**. Arvind 2026-11-12: **Meowthwo** takes this role |
+| Mewtwo (150) | Gift at Indigo Plateau; Giovanni's ace; text 85 | Cryoblade (Dark/Ice, 605, "Frozen Executioner") | partly: as Team Rocket's lab-made weapon. Otherwise **new**. Arvind 2026-11-12: taken by our own mon (private story notes) |
 | Slowpoke / Slowbro / Slowking (79, 80, 199) | Slowpoke Well, Team Rocket cutting tails; 21 Slowpoke figures in Azalea; text 82 | Saucerl → Abyssys / Octopearl (Psychic/Water) | partly: same types, but the designers must accept the "slow, tail gets cut" story |
 | Magikarp / Gyarados (129-130) | Red Gyarados at Lake of Rage; Lance, Clair, Cyrus; text 69 + 99 | — | **new**: a useless fish that turns fearsome (Magikarp-like is a gap) |
 | Snorlax (143) | Blocks Route 12, battle at level 35 | — | **new**: a big sleepy road-blocker, mono Normal (gap). Needs its own sleeping map figure |

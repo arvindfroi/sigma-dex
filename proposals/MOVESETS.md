@@ -1587,9 +1587,9 @@ Modelled on Aggron (line Aron > Lairon > Aggron); similar: Typhlosion, Pyroar, C
 - Example set: Fire Blast / Iron Defense / Morning Sun / Power Gem
 - Note: 7 of its own moves are all at level 1 (Ember, Fire Fang, Fire Spin, Rollout, Harden, Rock Tomb, Tackle): fine as ideas, but you may want to spread them over the levels
 
-## Meowthwo
+## Meowthscot
 
-### Meowthwo (Normal) - role: **Mixed wall**
+### Meowthscot (Normal) - role: **Mixed wall**
 Modelled on Kangaskhan (line Kangaskhan); similar: Kangaskhan, Persian, Miltank, Bouffalant, Audino, Furret.
 - Level-up: had 22, adds 0
 - TM/HM: had 12, adds 27: Toxic, Hidden Power, Sunny Day, Hyper Beam, Rain Dance, Iron Tail, Thunderbolt, Thunder, Earthquake, Dig, Shadow Ball, Brick Break, Double Team, Rock Tomb, Aerial Ace, Facade, Secret Power, Shadow Claw, Giga Impact, Captivate, Natural Gift, Swagger, Substitute, Bulldoze, Cut, Strength, Rock Smash

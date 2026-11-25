@@ -58,9 +58,6 @@ forms:
   - name: Second Amendment
     changes: looks
     sid: meowthwo-form-second-amendment
-  - name: meowthwo
-    changes: looks
-    sid: meowthwo-form-meowthwo
 
 # --- Moves ---
 learnset:
