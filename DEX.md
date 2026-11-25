@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**213 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
+**209 / 254** slots have a Pokemon - **0** are fully complete - average completeness **65%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -181,10 +181,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 170 | [Racedent](data/species/racedent.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) |  |  | 14% |
 | 171 | [Ratpid](data/species/ratpid.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) |  |  | 14% |
 | 172 | [S.Rotom](data/species/s-rotom.yaml) | Electric | Levitate | 440 |  | 17% |
-| 173 | [Rot.poison](data/species/rotom-vape.yaml) | Electric / Poison | Levitate | 520 |  | 21% |
-| 174 | [Rot.Fight](data/species/rot-fight.yaml) | Electric / Fighting | Levitate | 520 |  | 21% |
-| 175 | [Rot.Fairy](data/species/rot-fairy.yaml) | Electric / Fairy | Levitate | 520 |  | 17% |
-| 176 | [Rot.Normal](data/species/rot-normal.yaml) | Electric / Normal | Levitate | 520 |  | 17% |
+| 173 | *open slot* | | | | | |
+| 174 | *open slot* | | | | | |
+| 175 | *open slot* | | | | | |
+| 176 | *open slot* | | | | | |
 | 177 | [Thooji](data/species/thooji.yaml) | Fighting | Heavenly Pact |  |  | 17% |
 | 178 | [Endermon](data/species/endermon.yaml) | Dark | Anger Point | 600 |  | 17% |
 | 179 | [Crepawmon](data/species/crepawmon.yaml) | Normal / Grass | Lightning Rod | 600 |  | 17% |

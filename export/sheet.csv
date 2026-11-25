@@ -177,10 +177,10 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 170,Racedent,Dark,,Speed Boost,Limber,Quick Feet,=SUM(I172:N172),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind
 171,Ratpid,Dark,,Speed Boost,Limber,Quick Feet,=SUM(I173:N173),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind
 172,S.Rotom,Electric,,Levitate,,,=SUM(I174:N174),50,50,77,95,77,91,,,,,,,"1 sp_attack, 1 speed",,,,,,,,,,,,,,,,,,,,,
-173,Rot.poison,Electric,Poison,Levitate,,,=SUM(I175:N175),50,65,107,105,107,86,,,,,,,"1 defense, 1 sp_attack, 1 sp_defense",,,,,,,,,,,,,,,,,,,,BUST,
-174,Rot.Fight,Electric,Fighting,Levitate,,,=SUM(I176:N176),50,65,107,105,107,86,,,,,,,"1 defense, 1 sp_attack, 1 sp_defense",,,,,,,,,,,,Explosion,,,,,,,,,
-175,Rot.Fairy,Electric,Fairy,Levitate,,,=SUM(I177:N177),50,65,107,105,107,86,,,,,,,"1 defense, 1 sp_attack, 1 sp_defense",,,,,,,,,,,,,,,,,,,,,
-176,Rot.Normal,Electric,Normal,Levitate,,,=SUM(I178:N178),50,65,107,105,107,86,,,,,,,"1 defense, 1 sp_attack, 1 sp_defense",,,,,,,,,,,,,,,,,,,,,
+173,,,,,,,=SUM(I175:N175),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+174,,,,,,,=SUM(I176:N176),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+175,,,,,,,=SUM(I177:N177),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+176,,,,,,,=SUM(I178:N178),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 177,Thooji,Fighting,,Heavenly Pact,,,=SUM(I179:N179),,,,,,,,,,,,,,,,,,,,,,,,Inverted Bite of Heaven (1),,,,,,,,,Arvind,Arvind
 178,Endermon,Dark,,Anger Point,,,=SUM(I180:N180),80,130,80,100,80,130,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind
 179,Crepawmon,Normal,Grass,Lightning Rod,,,=SUM(I181:N181),150,150,50,150,50,50,,,,,,,"1 hp, 1 attack, 1 sp_attack",,,,,,,,,,,,,,,,,,,,,
