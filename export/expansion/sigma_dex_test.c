@@ -487,8 +487,8 @@ TEST("Sigma dex: Coatail has the data from its species file")
     EXPECT_EQ(info->baseHP, 76);
     EXPECT_EQ(info->baseAttack, 82);
     EXPECT_EQ(info->baseDefense, 61);
-    EXPECT_EQ(info->baseSpeed, 110);
-    EXPECT_EQ(info->baseSpAttack, 50);
+    EXPECT_EQ(info->baseSpeed, 115);
+    EXPECT_EQ(info->baseSpAttack, 45);
     EXPECT_EQ(info->baseSpDefense, 67);
     EXPECT_EQ(info->types[0], TYPE_NORMAL);
     EXPECT_EQ(info->types[1], TYPE_NORMAL);

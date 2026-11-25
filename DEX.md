@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**212 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
+**213 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -85,7 +85,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 74 | [Leadling](data/species/leadling.yaml) | Rock / Poison | Sturdy, Radiation Eater, Toxic Debris (H) | 280 | Leadleak (Lv 20) | 72% |
 | 75 | [Leadleak](data/species/leadling-utvikling.yaml) | Rock / Poison | Sturdy, Radiation Eater, Toxic Debris (H) | 400 | Blylem (Lv 40) | 72% |
 | 76 | [Blylem](data/species/blylem.yaml) | Rock / Poison | Sturdy, Radiation Eater, Toxic Debris (H) | 525 |  | 79% |
-| 77 | [Globzar](data/species/iglomodo-mindre-utv.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 320 | Iglomodo (Lv 35) | 38% |
+| 77 | [Globzar](data/species/iglomodo-mindre-utv.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 320 | Iglomodo (Lv 35) | 41% |
 | 78 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 520 |  | 79% |
 | 79 | [Furamire](data/species/furamire.yaml) | Normal / Fairy | Cute Charm, Competitive, Serene Grace (H) | 480 |  | 72% |
 | 80 | [Ciggiti](data/species/ciggiti.yaml) | Ghost | Smoked Up | 310 | Chuchar (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.), Parahaunt (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 72% |
@@ -195,11 +195,11 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 184 | [Tbur](data/species/tbur.yaml) | Ice |  |  |  | 10% |
 | 185 | [Nebur](data/species/nebur.yaml) | Ice / Electric |  |  |  | 14% |
 | 186 | [Rhamp](data/species/rhamp.yaml) | Psychic / Rock |  |  |  | 10% |
-| 187 | [Ledrake](data/species/ledrake.yaml) | Dragon |  |  |  | 21% |
-| 188 | [Gingalaxy](data/species/pegalaxy.yaml) | Flying |  |  |  | 14% |
+| 187 | [Ledrake](data/species/ledrake.yaml) | Dragon | Spinner |  |  | 24% |
+| 188 | [Gingalaxy](data/species/pegalaxy.yaml) | Flying | Spinner |  |  | 17% |
 | 189 | [gb vance](data/species/gb-vance.yaml) | Electric |  |  |  | 10% |
 | 190 | [de es lite](data/species/de-es-lite.yaml) | Electric |  |  |  | 10% |
-| 191 | *open slot* | | | | | |
+| 191 | [Minant](data/species/minant.yaml) | Bug / Ground |  |  |  | 7% |
 | 192 | *open slot* | | | | | |
 | 193 | *open slot* | | | | | |
 | 194 | *open slot* | | | | | |
@@ -241,7 +241,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 230 | *open slot* | | | | | |
 | 231 | *open slot* | | | | | |
 | 232 | *open slot* | | | | | |
-| 233 | [Tenebravis](data/species/tenebravis.yaml) | Dark | Grim Neigh | 600 |  | 28% |
+| 233 | [Tenebravis](data/species/tenebravis.yaml) | Dark | Grim Neigh | 600 |  | 31% |
 | 234 | [Balleisk](data/species/balleisk.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 300 | Greation (Lv 30) | 72% |
 | 235 | [Greation](data/species/greation.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 420 | Ultragon (Lv 55) | 72% |
 | 236 | [Ultragon](data/species/ultragon.yaml) | Dragon / Bug | Catch Master, Shield Dust (H) | 600 |  | 72% |

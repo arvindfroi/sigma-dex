@@ -5186,9 +5186,9 @@
         "hp": 76,
         "attack": 82,
         "defense": 61,
-        "sp_attack": 50,
+        "sp_attack": 45,
         "sp_defense": 67,
-        "speed": 110
+        "speed": 115
       },
       "ev_yield": {
         "speed": 2
@@ -17020,9 +17020,6 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement",
           "level-up moves",
           "TM/HM moves",
           "tutor moves",
@@ -17036,9 +17033,6 @@
           "egg cycles"
         ],
         "claude_sure": {
-          "body shape": 80,
-          "look": 80,
-          "movement": 80,
           "level-up moves": 61,
           "TM/HM moves": 66,
           "tutor moves": 56,
@@ -17051,9 +17045,9 @@
           "egg groups": 47,
           "egg cycles": 65
         },
-        "body_shape": "an upright body on two legs without a tail",
-        "movement": "It walks on its knuckles and feet like a gorilla.",
-        "look": "It is a huge grey gorilla with a bald tan face, a scarred brow and small yellow eyes. Its very long, thick arms end in big fists that it walks on. Grey armour plates cover its chest, shoulders and back, and a brown belt sits around its waist."
+        "body_shape": "a big ape that stands on its legs and long arms",
+        "movement": "It walks on its legs and knuckles.",
+        "look": "It is a huge, heavy grey gorilla with very long, thick arms and big brown knuckles, covered in shaggy grey fur with dark grey stone-like armour plates on its chest, shoulders and arms. It has a brown bald face with small yellow eyes, a heavy brow and a red battle scar."
       },
       "assets": {
         "concept_art": "assets/concept-art/yanklet/1315.webp",
@@ -20165,7 +20159,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:159",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/iglomodo-mindre-utv.json",
         "cry": null
       },
       "engine": {
@@ -29261,7 +29255,23 @@
           "level": 32
         }
       ],
-      "forms": [],
+      "forms": [
+        {
+          "name": "Shields Down",
+          "changes": "battle",
+          "abilities": {
+            "primary": "Shields Down"
+          },
+          "base_stats": {
+            "hp": 60,
+            "attack": 90,
+            "defense": 60,
+            "sp_attack": 130,
+            "sp_defense": 60,
+            "speed": 100
+          }
+        }
+      ],
       "learnset": {
         "level_up": [
           {
@@ -29496,7 +29506,23 @@
         "rare": null
       },
       "evolutions": [],
-      "forms": [],
+      "forms": [
+        {
+          "name": "Shields Down",
+          "changes": "battle",
+          "abilities": {
+            "primary": "Shields Down"
+          },
+          "base_stats": {
+            "hp": 60,
+            "attack": 90,
+            "defense": 60,
+            "sp_attack": 130,
+            "sp_defense": 60,
+            "speed": 100
+          }
+        }
+      ],
       "learnset": {
         "level_up": [
           {
@@ -43296,7 +43322,7 @@
       "weight_kg": null,
       "body_color": "red",
       "abilities": {
-        "primary": null,
+        "primary": "Spinner",
         "secondary": null,
         "hidden": null
       },
@@ -43376,7 +43402,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Spinner",
         "secondary": null,
         "hidden": null
       },
@@ -43601,6 +43627,87 @@
       "id": "de-es-lite"
     },
     {
+      "dex": 191,
+      "name": "Minant",
+      "credits": {
+        "designer": "Emil",
+        "artist": null
+      },
+      "types": [
+        "Bug",
+        "Ground"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "minant"
+    },
+    {
       "dex": 233,
       "name": "Tenebravis",
       "credits": {
@@ -43776,7 +43883,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/tenebravis.json",
         "cry": null
       },
       "engine": {

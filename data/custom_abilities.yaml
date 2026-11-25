@@ -227,6 +227,18 @@ abilities:
     moves that can be used during sleep, such as Sleep Talk and Snore, or if the Pokémon is put to sleep
     by Rest, which guarantees a short nap.
   designer: Emil
+- id: spinner
+  name: Spinner
+  description: Boosts the power of Spinning moves
+  effect: "Boosts the power of Spinning moves by 50%.\nMoves Spinner should boost\nMoves Boosted:\nIce\
+    \ Spinner, Rapid Spin, Spin Out, Gyro Ball, Drill Run, Rollout, Mortal Spin, Spin Out, Gyro Ball,\
+    \ Drill Peck, Twister, Whirlpool, Fire Spin, Sand Tomb, Leaf Tornado, Petal Dance, \n\nDrill and corkscrew\
+    \ moves:\n\n\t•\tDrill Peck (Flying, 80)\n\t•\tHorn Drill (Normal, OHKO)\n\t•\tCorkscrew Crash (Steel,\
+    \ 80, Z-move)\n\t•\tSpiral Drill-style moves, if your game has any\n\nWhirling and tornado moves:\n\
+    \n\t•\tTwister (Dragon, 40)\n\t•\tWhirlpool (Water, 35)\n\t•\tFire Spin (Fire, 35)\n\t•\tSand Tomb\
+    \ (Ground, 35)\n\t•\tLeaf Tornado (Grass, 65)\n\t•\tPetal Dance (Grass, 120)\n\t•\tHurricane (Flying,\
+    \ 110), optional\n\t•\tTornado-style moves like Gust, optional"
+  designer: Emil
 - id: stealth-chopper
   name: Stealth Chopper
   description: Grants immunity to Ground-type moves and raises the critical-hit ratio

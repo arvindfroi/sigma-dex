@@ -4249,13 +4249,6 @@
     "editor": null
   },
   {
-    "id": 1357,
-    "species": "zapitera",
-    "file": "assets/concept-art/zapitera/1357.png",
-    "caption": "[ds-front] sprite #231",
-    "editor": null
-  },
-  {
     "id": 1358,
     "species": "zapitera",
     "file": "assets/concept-art/zapitera/1358.png",
@@ -4520,13 +4513,6 @@
     "file": "assets/concept-art/maagamad/1491.png",
     "caption": "[ds-follower] sprite #245",
     "editor": null
-  },
-  {
-    "id": 1496,
-    "species": "mooceon",
-    "file": "assets/concept-art/mooceon/1496.png",
-    "caption": "[ds-front] sprite #247",
-    "editor": "Arvind"
   },
   {
     "id": 1497,
@@ -7581,13 +7567,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2539,
-    "species": "blylem",
-    "file": "assets/concept-art/blylem/2539.png",
-    "caption": "[ds-back] sprite #495",
-    "editor": "Arvind"
-  },
-  {
     "id": 2540,
     "species": "blylem",
     "file": "assets/concept-art/blylem/2540.png",
@@ -8680,13 +8659,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2880,
-    "species": "warrallier",
-    "file": "assets/concept-art/warrallier/2880.png",
-    "caption": "[ds-front2] sprite #562",
-    "editor": "Arvind"
-  },
-  {
     "id": 2886,
     "species": "heatbat",
     "file": "assets/concept-art/heatbat/2886.png",
@@ -8936,20 +8908,6 @@
     "species": "galfrogtom",
     "file": "assets/concept-art/galfrogtom/3084.png",
     "caption": "[ds-front2] sprite #601",
-    "editor": "Arvind"
-  },
-  {
-    "id": 3090,
-    "species": "galfrogtom",
-    "file": "assets/concept-art/galfrogtom/3090.png",
-    "caption": "[ds-back2] sprite #601",
-    "editor": "Arvind"
-  },
-  {
-    "id": 3095,
-    "species": "cloudgnome",
-    "file": "assets/concept-art/cloudgnome/3095.png",
-    "caption": "[ds-front2] sprite #605",
     "editor": "Arvind"
   },
   {
@@ -9723,13 +9681,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 3732,
-    "species": "slothbaby-utviklet",
-    "file": "assets/concept-art/slothbaby-utviklet/3732.png",
-    "caption": "[ds-front2] sprite #804",
-    "editor": "Arvind"
-  },
-  {
     "id": 3737,
     "species": "obsidog",
     "file": "assets/concept-art/obsidog/3737.png",
@@ -10388,13 +10339,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 4304,
-    "species": "whaldrill3",
-    "file": "assets/concept-art/whaldrill3/4304.png",
-    "caption": "[ds-front2] sprite #820",
-    "editor": "Arvind"
-  },
-  {
     "id": 4309,
     "species": "wreckingboo",
     "file": "assets/concept-art/wreckingboo/4309.png",
@@ -10427,20 +10371,6 @@
     "species": "crysteel",
     "file": "assets/concept-art/crysteel/4330.png",
     "caption": "[ds-back2] sprite #830",
-    "editor": "Arvind"
-  },
-  {
-    "id": 4335,
-    "species": "crystax",
-    "file": "assets/concept-art/crystax/4335.png",
-    "caption": "[ds-front2] sprite #827",
-    "editor": "Arvind"
-  },
-  {
-    "id": 4341,
-    "species": "crystax",
-    "file": "assets/concept-art/crystax/4341.png",
-    "caption": "[ds-back2] sprite #827",
     "editor": "Arvind"
   },
   {
@@ -10546,13 +10476,6 @@
     "species": "united",
     "file": "assets/concept-art/united/4432.png",
     "caption": "[ds-back2] sprite #844",
-    "editor": "Arvind"
-  },
-  {
-    "id": 4437,
-    "species": "horaxander",
-    "file": "assets/concept-art/horaxander/4437.png",
-    "caption": "[ds-back2] sprite #854",
     "editor": "Arvind"
   },
   {
@@ -11921,13 +11844,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 5179,
-    "species": "iglomodo-mindre-utv",
-    "file": "assets/concept-art/iglomodo-mindre-utv/5179.png",
-    "caption": "[ds-front] sprite #976",
-    "editor": "Arvind"
-  },
-  {
     "id": 5180,
     "species": "iglomodo-mindre-utv",
     "file": "assets/concept-art/iglomodo-mindre-utv/5180.png",
@@ -12010,5 +11926,89 @@
     "file": "assets/concept-art/zyzzfu/5210.png",
     "caption": "[ds-front2] sprite #984",
     "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 5282,
+    "species": "slothbaby-utviklet",
+    "file": "assets/concept-art/slothbaby-utviklet/5282.png",
+    "caption": "[ds-front2] sprite #991",
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 5295,
+    "species": "galfrogtom",
+    "file": "assets/concept-art/galfrogtom/5295.png",
+    "caption": "[ds-back2] sprite #1033",
+    "editor": "Emil"
+  },
+  {
+    "id": 5354,
+    "species": "warrallier",
+    "file": "assets/concept-art/warrallier/5354.png",
+    "caption": "[ds-front2] sprite #1004",
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 5362,
+    "species": "zapitera",
+    "file": "assets/concept-art/zapitera/5362.png",
+    "caption": "[ds-front] sprite #1006",
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 5378,
+    "species": "crystax",
+    "file": "assets/concept-art/crystax/5378.png",
+    "caption": "[ds-front2] sprite #1008",
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 5379,
+    "species": "crystax",
+    "file": "assets/concept-art/crystax/5379.png",
+    "caption": "[ds-back2] sprite #1008",
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 5390,
+    "species": "whaldrill3",
+    "file": "assets/concept-art/whaldrill3/5390.png",
+    "caption": "[ds-front2] sprite #1009",
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 5415,
+    "species": "horaxander",
+    "file": "assets/concept-art/horaxander/5415.png",
+    "caption": "[ds-back2] sprite #1050",
+    "editor": "Ivar"
+  },
+  {
+    "id": 5483,
+    "species": "blylem",
+    "file": "assets/concept-art/blylem/5483.png",
+    "caption": "[ds-back] sprite #1026",
+    "editor": "Emil"
+  },
+  {
+    "id": 5494,
+    "species": "mooceon",
+    "file": "assets/concept-art/mooceon/5494.png",
+    "caption": "[ds-front] sprite #1028",
+    "editor": "Emil"
+  },
+  {
+    "id": 5548,
+    "species": "iglomodo-mindre-utv",
+    "file": "assets/concept-art/iglomodo-mindre-utv/5548.png",
+    "caption": "[ds-front] sprite #1040",
+    "editor": "Emil"
+  },
+  {
+    "id": 5660,
+    "species": "cloudgnome",
+    "file": "assets/concept-art/cloudgnome/5660.png",
+    "caption": "[ds-front2] sprite #1057",
+    "editor": "michael"
   }
 ]

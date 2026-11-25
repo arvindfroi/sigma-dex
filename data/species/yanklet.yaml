@@ -117,13 +117,9 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [body shape, look, movement, level-up moves, "TM/HM moves", tutor moves,
-                     body color, catch rate, base exp, growth rate, base friendship, gender,
-                     egg groups, egg cycles]
+  filled_by_claude: [level-up moves, "TM/HM moves", tutor moves, body color, catch rate,
+                     base exp, growth rate, base friendship, gender, egg groups, egg cycles]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
-    body shape: 80
-    look: 80
-    movement: 80
     level-up moves: 61
     "TM/HM moves": 66
     tutor moves: 56
@@ -135,9 +131,9 @@ design:
     gender: 66
     egg groups: 47
     egg cycles: 65
-  body_shape: an upright body on two legs without a tail
-  movement: It walks on its knuckles and feet like a gorilla.
-  look: "It is a huge grey gorilla with a bald tan face, a scarred brow and small yellow eyes. Its very long, thick arms end in big fists that it walks on. Grey armour plates cover its chest, shoulders and back, and a brown belt sits around its waist."
+  body_shape: a big ape that stands on its legs and long arms
+  movement: It walks on its legs and knuckles.
+  look: "It is a huge, heavy grey gorilla with very long, thick arms and big brown knuckles, covered in shaggy grey fur with dark grey stone-like armour plates on its chest, shoulders and arms. It has a brown bald face with small yellow eyes, a heavy brow and a red battle scar."
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
