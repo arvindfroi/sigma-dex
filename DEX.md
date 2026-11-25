@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**210 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
+**212 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -182,7 +182,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 171 | [Ratpid](data/species/ratpid.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) |  |  | 14% |
 | 172 | [S.Rotom](data/species/s-rotom.yaml) | Electric | Levitate | 440 |  | 17% |
 | 173 | [Withstar](data/species/withstar.yaml) | Ground / Ghost |  |  |  | 10% |
-| 174 | *open slot* | | | | | |
+| 174 | [Sukunomon](data/species/sukunomon.yaml) | Fire / Dark |  |  |  | 14% |
 | 175 | *open slot* | | | | | |
 | 176 | *open slot* | | | | | |
 | 177 | [Thooji](data/species/thooji.yaml) | Fighting | Heavenly Pact |  |  | 17% |
@@ -228,7 +228,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 217 | *open slot* | | | | | |
 | 218 | *open slot* | | | | | |
 | 219 | *open slot* | | | | | |
-| 220 | *open slot* | | | | | |
+| 220 | [Malenio](data/species/malenio.yaml) | Bug / Fire | Scarlet bloom | 600 |  | 17% |
 | 221 | *open slot* | | | | | |
 | 222 | *open slot* | | | | | |
 | 223 | *open slot* | | | | | |

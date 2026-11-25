@@ -1,0 +1,31 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": 0.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 6.0,
+ "tone": 0.0,
+ "drive": 1.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.0,
+  "depth": 1.0
+ },
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: glide 6, wobble 1, rough 1"
+ ],
+ "by": "Ivar",
+ "at": "2026-11-25T15:39:53.052Z",
+ "audio": "assets/cries/sukunomon.wav"
+}

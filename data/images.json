@@ -12024,5 +12024,54 @@
     "file": "assets/concept-art/withstar/5745.png",
     "caption": null,
     "editor": "Arvind"
+  },
+  {
+    "id": 5746,
+    "species": "sukunomon",
+    "file": "assets/concept-art/sukunomon/5746.webp",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 5747,
+    "species": "sukunomon",
+    "file": "assets/concept-art/sukunomon/5747.png",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 5751,
+    "species": "malenio",
+    "file": "assets/concept-art/malenio/5751.webp",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 5752,
+    "species": "malenio",
+    "file": "assets/concept-art/malenio/5752.png",
+    "caption": null,
+    "editor": "Ivar"
+  },
+  {
+    "id": 5771,
+    "species": "malenio",
+    "file": "assets/concept-art/malenio/5771.png",
+    "caption": "[ds-front] sprite #1072",
+    "editor": "Ivar"
+  },
+  {
+    "id": 5772,
+    "species": "malenio",
+    "file": "assets/concept-art/malenio/5772.png",
+    "caption": "[ds-back] sprite #1072",
+    "editor": "Ivar"
+  },
+  {
+    "id": 5775,
+    "species": "malenio",
+    "file": "assets/concept-art/malenio/5775.png",
+    "caption": "[ds-front2] sprite #1072",
+    "editor": "Ivar"
   }
 ]

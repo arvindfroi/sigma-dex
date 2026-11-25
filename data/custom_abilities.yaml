@@ -207,6 +207,13 @@ abilities:
     The Pokémon is levitating which gives it ground immunity aswell as immunity to stage hazards exluding
     stealth rock
   designer: Emil
+- id: scarlet-bloom
+  name: Scarlet bloom
+  description: Scarlet blooms...
+  effect: Raises Speed by one stage at the end of every turn, immunity to every hazard but can still get
+    status effects.
+  similar_to: Magic Guard
+  designer: Ivar.
 - id: sea-ghost-emperor
   name: Sea Ghost Emperor
   description: Raises highest stat if it gets a knock out, Water-type moves heal it
