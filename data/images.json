@@ -11102,13 +11102,6 @@
     "editor": "Emil"
   },
   {
-    "id": 4932,
-    "species": "darkgonark",
-    "file": "assets/concept-art/darkgonark/4932.png",
-    "caption": "[ds-icon] sprite #935",
-    "editor": "Emil"
-  },
-  {
     "id": 4934,
     "species": "darkgonark",
     "file": "assets/concept-art/darkgonark/4934.png",
@@ -11998,9 +11991,37 @@
     "editor": "Arvind"
   },
   {
-    "id": 5727,
+    "id": 5741,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/5741.png",
+    "caption": "[ds-icon] sprite #1068",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5742,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/5742.png",
+    "caption": "[ds-follower] sprite #1068",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5743,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/5743.png",
+    "caption": "[ds-front2] sprite #1068",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5744,
+    "species": "darkgonark",
+    "file": "assets/concept-art/darkgonark/5744.png",
+    "caption": "[ds-back2] sprite #1068",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5745,
     "species": "withstar",
-    "file": "assets/concept-art/withstar/5727.webp",
+    "file": "assets/concept-art/withstar/5745.png",
     "caption": null,
     "editor": "Arvind"
   }

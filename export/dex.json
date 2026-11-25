@@ -1709,7 +1709,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Golduck"
+        "anim_from": "Empoleon"
       },
       "id": "warrallier"
     },
@@ -3829,7 +3829,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Wurmple"
       },
       "id": "wump"
     },
@@ -5991,7 +5992,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Walrein"
+        "anim_from": "Lapras"
       },
       "id": "mooceon"
     },
@@ -8071,7 +8072,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Finneon"
       },
       "id": "wispole"
     },
@@ -8605,7 +8607,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Alakazam"
+        "anim_from": "Elekid"
       },
       "id": "galfrogtom"
     },
@@ -10580,7 +10582,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Tangrowth"
       },
       "id": "sigmauler"
     },
@@ -11982,7 +11985,13 @@
         "rare": null
       },
       "evolutions": [],
-      "forms": [],
+      "forms": [
+        {
+          "name": "Battle bond",
+          "changes": "battle",
+          "sid": "chillalit-form-battle-bond"
+        }
+      ],
       "learnset": {
         "level_up": [
           {
@@ -12720,7 +12729,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Gorebyss"
+        "anim_from": "Elekid"
       },
       "id": "ampeel"
     },
@@ -16230,7 +16239,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Magnezone"
+        "anim_from": "Tangrowth"
       },
       "id": "nuclobyl"
     },
@@ -19962,7 +19971,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Rampardos"
+        "anim_from": "Bastiodon"
       },
       "id": "blylem"
     },
@@ -20168,7 +20177,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Empoleon"
       },
       "id": "iglomodo-mindre-utv"
     },
@@ -23773,7 +23783,7 @@
             "speed": 108
           },
           "look": "it has huge wings and a nice clean body that glitters.",
-          "notes": "The is a photo added to pictures.",
+          "notes": "East and west forms. jade is east",
           "sid": "dragem-form-jade"
         }
       ],
@@ -28411,7 +28421,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Dratini"
+        "anim_from": "Mew"
       },
       "id": "phantomb"
     },
@@ -28667,7 +28677,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Xatu"
+        "anim_from": "Mew"
       },
       "id": "sjef"
     },
@@ -30249,7 +30259,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Elekid"
       },
       "id": "zapitera"
     },
@@ -31491,7 +31502,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Empoleon"
+        "anim_from": "Sneasel"
       },
       "id": "autuman"
     },
@@ -32746,7 +32757,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Drapion"
       },
       "id": "dreadfang"
     },
@@ -36556,7 +36568,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Seaking"
+        "anim_from": "Lumineon"
       },
       "id": "wreckingdrake"
     },
@@ -39463,7 +39475,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Sneasel"
       },
       "id": "crystax"
     },
@@ -41112,7 +41125,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Dragonite"
+        "anim_from": "Bastiodon"
       },
       "id": "horaxander"
     },
@@ -41348,7 +41361,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Celebi"
       },
       "id": "natureo"
     },
@@ -41835,7 +41849,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Volbeat"
       },
       "id": "plumbuzzz"
     },
@@ -41995,7 +42010,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Umbreon"
       },
       "id": "racedent"
     },
@@ -42505,7 +42521,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Darkrai"
       },
       "id": "endermon"
     },
@@ -42590,7 +42607,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Tauros"
       },
       "id": "crepawmon"
     },
@@ -43006,7 +43024,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Delibird"
+        "anim_from": "Baltoy"
       },
       "id": "tbur"
     },
@@ -43250,7 +43268,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Dragonair"
       },
       "id": "ledrake"
     },
@@ -43330,7 +43349,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Azelf"
       },
       "id": "pegalaxy"
     },
@@ -43410,7 +43430,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Porygon"
       },
       "id": "gb-vance"
     },
@@ -43490,7 +43511,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Porygon-Z"
       },
       "id": "de-es-lite"
     },
@@ -46872,7 +46894,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Latias"
+        "anim_from": "Regice"
       },
       "id": "praxis"
     },
@@ -47100,7 +47122,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Latios"
+        "anim_from": "Regice"
       },
       "id": "laxis"
     },
