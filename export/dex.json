@@ -19970,8 +19970,8 @@
       "dex": 77,
       "name": "Globzar",
       "credits": {
-        "designer": "Emil Venge-Kvamme",
-        "artist": null
+        "designer": "Arvind",
+        "artist": "Arvind"
       },
       "types": [
         "Ice",
@@ -23773,7 +23773,8 @@
             "speed": 108
           },
           "look": "it has huge wings and a nice clean body that glitters.",
-          "notes": "The is a photo added to pictures."
+          "notes": "The is a photo added to pictures.",
+          "sid": "dragem-form-jade"
         }
       ],
       "learnset": {
@@ -29206,7 +29207,7 @@
     },
     {
       "dex": 113,
-      "name": "Aluminimonk",
+      "name": "Minimonk",
       "credits": {
         "designer": "Emil Venge-Kvamme",
         "artist": null
@@ -29263,13 +29264,14 @@
             "primary": "Shields Down"
           },
           "base_stats": {
-            "hp": 60,
-            "attack": 90,
-            "defense": 60,
-            "sp_attack": 130,
-            "sp_defense": 60,
-            "speed": 100
-          }
+            "hp": 40,
+            "attack": 70,
+            "defense": 40,
+            "sp_attack": 90,
+            "sp_defense": 40,
+            "speed": 80
+          },
+          "sid": "alminimonk-form-shields-down"
         }
       ],
       "learnset": {
@@ -29462,7 +29464,7 @@
     },
     {
       "dex": 114,
-      "name": "Aluminimonk Utviklin",
+      "name": "Aminimonk",
       "credits": {
         "designer": "Emil Venge-Kvamme",
         "artist": null
@@ -29520,7 +29522,8 @@
             "sp_attack": 130,
             "sp_defense": 60,
             "speed": 100
-          }
+          },
+          "sid": "alminimonk-utvikling-form-shields-down"
         }
       ],
       "learnset": {
@@ -29579,10 +29582,10 @@
           },
           {
             "level": 21,
-            "move": "Poison Gas"
+            "move": "Vacuum Wave"
           },
           {
-            "level": 24,
+            "level": 22,
             "move": "Extrasensory"
           },
           {
@@ -29598,20 +29601,24 @@
             "move": "Psyshock"
           },
           {
-            "level": 35,
-            "move": "Cosmic Power"
-          },
-          {
-            "level": 37,
+            "level": 30,
             "move": "Calm Mind"
           },
           {
-            "level": 37,
+            "level": 33,
+            "move": "Cosmic Power"
+          },
+          {
+            "level": 35,
+            "move": "Aura Sphere"
+          },
+          {
+            "level": 38,
             "move": "Safeguard"
           },
           {
             "level": 41,
-            "move": "Heal Pulse"
+            "move": "Shell Smash"
           },
           {
             "level": 48,
@@ -29623,8 +29630,10 @@
           }
         ],
         "tm_hm": [
+          "Focus Punch",
           "Calm Mind",
           "Toxic",
+          "Bulk Up",
           "Hidden Power",
           "Sunny Day",
           "Taunt",
@@ -29640,6 +29649,7 @@
           "Brick Break",
           "Double Team",
           "Reflect",
+          "Rock Tomb",
           "Torment",
           "Facade",
           "Secret Power",
@@ -29658,18 +29668,25 @@
           "Flash",
           "Thunder Wave",
           "Psych Up",
+          "Captivate",
           "Rock Slide",
           "Sleep Talk",
           "Natural Gift",
+          "Poison Jab",
           "Grass Knot",
           "Swagger",
           "Substitute",
           "Trick Room",
           "Psyshock",
+          "Low Sweep",
           "Foul Play",
+          "Bulldoze",
           "Psychic Terrain",
           "Body Press",
-          "Expanding Force"
+          "Expanding Force",
+          "Coaching",
+          "Strength",
+          "Rock Smash"
         ],
         "tutor": [
           "Body Slam",
@@ -29677,7 +29694,13 @@
           "Fire Punch",
           "Heal Bell",
           "Nasty Plot",
-          "Zen Headbutt"
+          "Zen Headbutt",
+          "Aura Sphere",
+          "Close Combat",
+          "Counter",
+          "Ice Punch",
+          "Power-Up Punch",
+          "Thunder Punch"
         ],
         "egg": []
       },
@@ -29718,12 +29741,12 @@
           "height": 45,
           "weight": 35
         },
-        "body_shape": null,
-        "movement": null,
+        "body_shape": "an upright body on two legs without a tail",
+        "movement": "It walks upright on two legs.",
         "look": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/alminimonk-utvikling/5725.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -30954,7 +30977,7 @@
       "dex": 120,
       "name": "Shadrove",
       "credits": {
-        "designer": null,
+        "designer": "Micheal",
         "artist": "Michael"
       },
       "types": [
@@ -36650,6 +36673,10 @@
             "move": "Thunder"
           },
           {
+            "level": 67,
+            "move": "Rising Voltage"
+          },
+          {
             "level": 70,
             "move": "Zap Cannon"
           }
@@ -36671,6 +36698,7 @@
           "Reflect",
           "Facade",
           "Rest",
+          "Energy Ball",
           "Fling",
           "Charge Beam",
           "Endure",
@@ -36681,8 +36709,7 @@
           "Substitute",
           "Electroweb",
           "Eerie Impulse",
-          "Electric Terrain",
-          "Energy Ball"
+          "Electric Terrain"
         ],
         "tutor": [
           "Dazzling Gleam",
@@ -38782,7 +38809,8 @@
           "Heat Wave",
           "Iron Head",
           "Leaf Storm",
-          "Seed Bomb"
+          "Seed Bomb",
+          "Rage Powder"
         ],
         "egg": []
       },
@@ -42234,6 +42262,87 @@
         "safari_flee_rate": 0
       },
       "id": "s-rotom"
+    },
+    {
+      "dex": 173,
+      "name": "Withstar",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Ground",
+        "Ghost"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/withstar/5726.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "withstar"
     },
     {
       "dex": 177,
@@ -48632,7 +48741,13 @@
       "forms": [
         {
           "name": "Second Amendment",
-          "changes": "looks"
+          "changes": "looks",
+          "sid": "meowthwo-form-second-amendment"
+        },
+        {
+          "name": "meowthwo",
+          "changes": "looks",
+          "sid": "meowthwo-form-meowthwo"
         }
       ],
       "learnset": {

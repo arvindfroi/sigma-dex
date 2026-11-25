@@ -82,12 +82,13 @@ learnset:
     - {level: 60, move: Electric Terrain}
     - {level: 60, move: Rain Dance}
     - {level: 65, move: Thunder}
+    - {level: 67, move: Rising Voltage}
     - {level: 70, move: Zap Cannon}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Light Screen, Protect, Rain Dance,
           Frustration, Solar Beam, Thunderbolt, Thunder, Return, Double Team, Reflect,
-          Facade, Rest, Fling, Charge Beam, Endure, Giga Impact, Thunder Wave, Sleep Talk,
-          Swagger, Substitute, Electroweb, Eerie Impulse, Electric Terrain, Energy Ball]
+          Facade, Rest, Energy Ball, Fling, Charge Beam, Endure, Giga Impact, Thunder Wave,
+          Sleep Talk, Swagger, Substitute, Electroweb, Eerie Impulse, Electric Terrain]
   # moves a move tutor can teach it
   tutor: [Dazzling Gleam, Thunder Punch, Volt Switch, Heat Wave, Earth Power]
   egg: []                # only needed for the first stage of an evolution line

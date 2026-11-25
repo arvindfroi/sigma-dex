@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**209 / 254** slots have a Pokemon - **0** are fully complete - average completeness **65%**.
+**210 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -121,14 +121,14 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 110 | [Phantail](data/species/sjef.yaml) | Ghost / Flying | Disguise | 480 |  | 76% |
 | 111 | [Oraclet](data/species/oraclet.yaml) | Psychic | Anticipation, Forewarn, Magic Guard (H) | 355 | Oraclaw (Lv 38) | 79% |
 | 112 | [Oraclaw](data/species/oraclaw.yaml) | Psychic / Flying | Anticipation, Forewarn, Magic Guard (H) | 525 |  | 79% |
-| 113 | [Aluminimonk](data/species/alminimonk.yaml) | Psychic | Shields Down | 300 | Aluminimonk Utviklin (Lv 32) | 72% |
-| 114 | [Aluminimonk Utviklin](data/species/alminimonk-utvikling.yaml) | Psychic / Fighting | Shields Down | 440 |  | 62% |
+| 113 | [Minimonk](data/species/alminimonk.yaml) | Psychic | Shields Down | 300 | Aminimonk (Lv 32) | 72% |
+| 114 | [Aminimonk](data/species/alminimonk-utvikling.yaml) | Psychic / Fighting | Shields Down | 440 |  | 66% |
 | 115 | [Sparktera](data/species/zapitera-mindre-utv.yaml) | Steel / Electric | Volt Absorb, Magnet Pull, Steely Spirit (H) | 305 | Zapitera (Lv 35) | 69% |
 | 116 | [Zapitera](data/species/zapitera.yaml) | Steel / Electric | Levitate, Magnet Pull, Stalwart (H) | 505 |  | 72% |
 | 117 | [Viridub](data/species/viridub.yaml) | Grass | Leaf Mane, Grass Pelt, Chlorophyll (H) | 369 | Viridub Utvikling (Leaf Stone) | 72% |
 | 118 | [Viridub Utvikling](data/species/viridub-utvikling.yaml) | Grass | Leaf Mane, Grass Pelt, Chlorophyll (H) | 510 |  | 59% |
 | 119 | [Shadeem](data/species/shadeem.yaml) | Dark | Illusion | 330 | Shadrove (Dusk Stone) | 76% |
-| 120 | [Shadrove](data/species/shadrove.yaml) | Dark | Illusion | 510 |  | 69% |
+| 120 | [Shadrove](data/species/shadrove.yaml) | Dark | Illusion | 510 |  | 72% |
 | 121 | [Autuman](data/species/autuman.yaml) | Grass / Fighting | Justified, Guts, Wind Rider (H) | 500 |  | 69% |
 | 122 | [Bugmight](data/species/bugmight.yaml) | Bug / Fighting | Justified, Guts, Tinted Lens (H) | 500 |  | 76% |
 | 123 | [Jawie](data/species/jawie.yaml) | Fire / Dragon | Strong Jaw, Intimidate, Dragonize (H) | 350 | Jawbreaker (Lv 42) | 72% |
@@ -181,7 +181,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 170 | [Racedent](data/species/racedent.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) |  |  | 14% |
 | 171 | [Ratpid](data/species/ratpid.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) |  |  | 14% |
 | 172 | [S.Rotom](data/species/s-rotom.yaml) | Electric | Levitate | 440 |  | 17% |
-| 173 | *open slot* | | | | | |
+| 173 | [Withstar](data/species/withstar.yaml) | Ground / Ghost |  |  |  | 10% |
 | 174 | *open slot* | | | | | |
 | 175 | *open slot* | | | | | |
 | 176 | *open slot* | | | | | |

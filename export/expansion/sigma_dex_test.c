@@ -2413,6 +2413,62 @@ SINGLE_BATTLE_TEST("Sigma dex: Oraclaw can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Minimonk has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_MINIMONK];
+    EXPECT_EQ(info->baseHP, 40);
+    EXPECT_EQ(info->baseAttack, 40);
+    EXPECT_EQ(info->baseDefense, 60);
+    EXPECT_EQ(info->baseSpeed, 40);
+    EXPECT_EQ(info->baseSpAttack, 40);
+    EXPECT_EQ(info->baseSpDefense, 80);
+    EXPECT_EQ(info->types[0], TYPE_PSYCHIC);
+    EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_SHIELDS_DOWN);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CONFUSION);
+    EXPECT_EQ(GetSpeciesName(SPECIES_MINIMONK)[0], CHAR_M);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Minimonk can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_MINIMONK) { Moves(MOVE_CONFUSION); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CONFUSION); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSION, player);
+    }
+}
+
+TEST("Sigma dex: Aminimonk has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_AMINIMONK];
+    EXPECT_EQ(info->baseHP, 60);
+    EXPECT_EQ(info->baseAttack, 50);
+    EXPECT_EQ(info->baseDefense, 100);
+    EXPECT_EQ(info->baseSpeed, 60);
+    EXPECT_EQ(info->baseSpAttack, 60);
+    EXPECT_EQ(info->baseSpDefense, 110);
+    EXPECT_EQ(info->types[0], TYPE_PSYCHIC);
+    EXPECT_EQ(info->types[1], TYPE_FIGHTING);
+    EXPECT_EQ(info->abilities[0], ABILITY_SHIELDS_DOWN);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_TEETER_DANCE);
+    EXPECT_EQ(GetSpeciesName(SPECIES_AMINIMONK)[0], CHAR_A);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Aminimonk can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_AMINIMONK) { Moves(MOVE_TEETER_DANCE); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_TEETER_DANCE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_TEETER_DANCE, player);
+    }
+}
+
 TEST("Sigma dex: Sparktera has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SPARKTERA];

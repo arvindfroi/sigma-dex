@@ -3,7 +3,7 @@ dex: 120
 name: Shadrove
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Micheal      # who came up with it (Discord name)
   artist: Michael        # who drew the concept art
 
 types: [Dark]            # 1 or 2 types, e.g. [Grass, Steel]

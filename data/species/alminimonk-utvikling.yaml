@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 114
-name: Aluminimonk Utviklin
+name: Aminimonk
 
 credits:
   designer: Emil Venge-Kvamme # who came up with it (Discord name)
@@ -59,6 +59,7 @@ forms:
     changes: battle
     abilities: {primary: Shields Down}
     base_stats: {hp: 60, attack: 90, defense: 60, sp_attack: 130, sp_defense: 60, speed: 100}
+    sid: alminimonk-utvikling-form-shields-down
 
 # --- Moves ---
 learnset:
@@ -77,27 +78,31 @@ learnset:
     - {level: 16, move: Headbutt}
     - {level: 17, move: Psybeam}
     - {level: 19, move: Hypnosis}
-    - {level: 21, move: Poison Gas}
-    - {level: 24, move: Extrasensory}
+    - {level: 21, move: Vacuum Wave}
+    - {level: 22, move: Extrasensory}
     - {level: 24, move: Meditate}
     - {level: 25, move: Recover}
     - {level: 26, move: Psyshock}
-    - {level: 35, move: Cosmic Power}
-    - {level: 37, move: Calm Mind}
-    - {level: 37, move: Safeguard}
-    - {level: 41, move: Heal Pulse}
+    - {level: 30, move: Calm Mind}
+    - {level: 33, move: Cosmic Power}
+    - {level: 35, move: Aura Sphere}
+    - {level: 38, move: Safeguard}
+    - {level: 41, move: Shell Smash}
     - {level: 48, move: Psychic}
     - {level: 50, move: Future Sight}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Light Screen,
-          Protect, Rain Dance, Safeguard, Frustration, Return, Psychic, Shadow Ball,
-          Brick Break, Double Team, Reflect, Torment, Facade, Secret Power, Rest, Attract,
-          Thief, Skill Swap, Focus Blast, Energy Ball, Fling, Charge Beam, Endure,
-          Drain Punch, Recycle, Giga Impact, Flash, Thunder Wave, Psych Up, Rock Slide,
-          Sleep Talk, Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock,
-          Foul Play, Psychic Terrain, Body Press, Expanding Force]
+  tm_hm: [Focus Punch, Calm Mind, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt,
+          Hyper Beam, Light Screen, Protect, Rain Dance, Safeguard, Frustration, Return,
+          Psychic, Shadow Ball, Brick Break, Double Team, Reflect, Rock Tomb, Torment,
+          Facade, Secret Power, Rest, Attract, Thief, Skill Swap, Focus Blast, Energy Ball,
+          Fling, Charge Beam, Endure, Drain Punch, Recycle, Giga Impact, Flash,
+          Thunder Wave, Psych Up, Captivate, Rock Slide, Sleep Talk, Natural Gift,
+          Poison Jab, Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Low Sweep,
+          Foul Play, Bulldoze, Psychic Terrain, Body Press, Expanding Force, Coaching,
+          Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Dazzling Gleam, Fire Punch, Heal Bell, Nasty Plot, Zen Headbutt]
+  tutor: [Body Slam, Dazzling Gleam, Fire Punch, Heal Bell, Nasty Plot, Zen Headbutt,
+          Aura Sphere, Close Combat, Counter, Ice Punch, Power-Up Punch, Thunder Punch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -128,13 +133,13 @@ design:
     egg cycles: 65
     height: 45
     weight: 35
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
-  movement:              # e.g. It walks on four legs. / It floats in the air.
+  body_shape: an upright body on two legs without a tail
+  movement: It walks upright on two legs.
   look:                  # what it looks like, a few plain sentences: It is a ...
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/aluminimonk-utviklin.png
+  concept_art: "assets/concept-art/alminimonk-utvikling/5725.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. What each field means:
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 208 / 209 |
-| Identity | designer credit | 198 / 209 |
-| Dex page | category | 47 / 209 |
-| Dex page | description | 47 / 209 |
-| Dex page | height | 181 / 209 |
-| Dex page | weight | 181 / 209 |
-| Dex page | body color | 179 / 209 |
-| Stats | base stats | 187 / 209 |
-| Stats | ability | 193 / 209 |
-| Stats | EV yield | 185 / 209 |
-| Stats | catch rate | 177 / 209 |
-| Stats | base exp | 177 / 209 |
-| Stats | growth rate | 177 / 209 |
-| Stats | base friendship | 177 / 209 |
-| Breeding | gender | 177 / 209 |
-| Breeding | egg groups | 177 / 209 |
-| Breeding | egg cycles | 177 / 209 |
-| Moves | level-up moves | 182 / 209 |
-| Moves | TM/HM moves | 180 / 209 |
-| Location | encounters | 2 / 209 |
-| Design | concept | 44 / 209 |
-| Art | concept art | 203 / 209 |
-| Art | front sprite | 4 / 209 |
-| Art | front animation frame | 4 / 209 |
-| Art | back sprite | 4 / 209 |
-| Art | icon | 4 / 209 |
-| Art | footprint | 145 / 209 |
-| Art | shiny palette | 128 / 209 |
-| Art | cry | 174 / 209 |
+| Identity | types | 209 / 210 |
+| Identity | designer credit | 200 / 210 |
+| Dex page | category | 47 / 210 |
+| Dex page | description | 47 / 210 |
+| Dex page | height | 181 / 210 |
+| Dex page | weight | 181 / 210 |
+| Dex page | body color | 179 / 210 |
+| Stats | base stats | 187 / 210 |
+| Stats | ability | 193 / 210 |
+| Stats | EV yield | 185 / 210 |
+| Stats | catch rate | 177 / 210 |
+| Stats | base exp | 177 / 210 |
+| Stats | growth rate | 177 / 210 |
+| Stats | base friendship | 177 / 210 |
+| Breeding | gender | 177 / 210 |
+| Breeding | egg groups | 177 / 210 |
+| Breeding | egg cycles | 177 / 210 |
+| Moves | level-up moves | 182 / 210 |
+| Moves | TM/HM moves | 180 / 210 |
+| Location | encounters | 2 / 210 |
+| Design | concept | 44 / 210 |
+| Art | concept art | 205 / 210 |
+| Art | front sprite | 4 / 210 |
+| Art | front animation frame | 4 / 210 |
+| Art | back sprite | 4 / 210 |
+| Art | icon | 4 / 210 |
+| Art | footprint | 145 / 210 |
+| Art | shiny palette | 128 / 210 |
+| Art | cry | 174 / 210 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 199 / 209 |
-| DS back sprite 80x80 | 199 / 209 |
-| DS icon 32x32 | 196 / 209 |
+| DS front sprite 80x80 | 199 / 210 |
+| DS back sprite 80x80 | 199 / 210 |
+| DS icon 32x32 | 196 / 210 |
 
-## Open dex slots (45)
+## Open dex slots (44)
 
-#173, #174, #175, #176, #192, #193, #194, #195, #196, #197, #198, #199, #200, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #218, #219, #220, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232
+#174, #175, #176, #192, #193, #194, #195, #196, #197, #198, #199, #200, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #218, #219, #220, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232
 
 ## Missing per Pokemon
 
@@ -787,19 +787,19 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #113 [Aluminimonk](data/species/alminimonk.yaml) - 72%
+### #113 [Minimonk](data/species/alminimonk.yaml) - 72%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #114 [Aluminimonk Utviklin](data/species/alminimonk-utvikling.yaml) - 62%
+### #114 [Aminimonk](data/species/alminimonk-utvikling.yaml) - 66%
 
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
 ### #115 [Sparktera](data/species/zapitera-mindre-utv.yaml) - 69%
 
@@ -836,9 +836,8 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #120 [Shadrove](data/species/shadrove.yaml) - 69%
+### #120 [Shadrove](data/species/shadrove.yaml) - 72%
 
-- **Identity:** designer credit
 - **Dex page:** category, description
 - **Location:** encounters
 - **Design:** concept
@@ -1229,6 +1228,16 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #173 [Withstar](data/species/withstar.yaml) - 10%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

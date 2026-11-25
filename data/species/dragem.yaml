@@ -62,6 +62,7 @@ forms:
     base_stats: {hp: 90, attack: 107, defense: 85, sp_attack: 50, sp_defense: 75, speed: 108}
     look: it has huge wings and a nice clean body that glitters.
     notes: The is a photo added to pictures.
+    sid: dragem-form-jade
 
 # --- Moves ---
 learnset:

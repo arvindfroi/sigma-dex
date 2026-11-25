@@ -1,6 +1,6 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 113
-name: Aluminimonk
+name: Minimonk
 
 credits:
   designer: Emil Venge-Kvamme # who came up with it (Discord name)
@@ -55,7 +55,8 @@ forms:
   - name: Shields Down
     changes: battle
     abilities: {primary: Shields Down}
-    base_stats: {hp: 60, attack: 90, defense: 60, sp_attack: 130, sp_defense: 60, speed: 100}
+    base_stats: {hp: 40, attack: 70, defense: 40, sp_attack: 90, sp_defense: 40, speed: 80}
+    sid: alminimonk-form-shields-down
 
 # --- Moves ---
 learnset:

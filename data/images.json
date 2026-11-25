@@ -10941,13 +10941,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 4837,
-    "species": "whaldrill0",
-    "file": "assets/concept-art/whaldrill0/4837.png",
-    "caption": "[ds-back2] sprite #918",
-    "editor": "Arvind"
-  },
-  {
     "id": 4843,
     "species": "whyrmshade",
     "file": "assets/concept-art/whyrmshade/4843.png",
@@ -11982,5 +11975,33 @@
     "file": "assets/concept-art/cloudgnome/5660.png",
     "caption": "[ds-front2] sprite #1057",
     "editor": "michael"
+  },
+  {
+    "id": 5706,
+    "species": "whaldrill0",
+    "file": "assets/concept-art/whaldrill0/5706.png",
+    "caption": "[ds-back2] sprite #1064",
+    "editor": "Emil"
+  },
+  {
+    "id": 5725,
+    "species": "alminimonk-utvikling",
+    "file": "assets/concept-art/alminimonk-utvikling/5725.webp",
+    "caption": "pasted",
+    "editor": "Emil"
+  },
+  {
+    "id": 5726,
+    "species": "withstar",
+    "file": "assets/concept-art/withstar/5726.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 5727,
+    "species": "withstar",
+    "file": "assets/concept-art/withstar/5727.webp",
+    "caption": null,
+    "editor": "Arvind"
   }
 ]

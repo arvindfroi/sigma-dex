@@ -112,7 +112,7 @@ learnset:
           Flame Charge, Acid Spray, Cut, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Fire Fang, Fire Punch, Flare Blitz, Heat Wave, Iron Head, Leaf Storm,
-          Seed Bomb]
+          Seed Bomb, Rage Powder]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
