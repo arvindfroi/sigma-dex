@@ -1,0 +1,31 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": 0.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.6
+ },
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: echo 0.6"
+ ],
+ "by": "Ivar",
+ "at": "2026-11-25T19:32:17.774Z",
+ "audio": "assets/cries/malenio.wav"
+}

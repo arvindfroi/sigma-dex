@@ -191,3 +191,14 @@ moves:
     \ those with the ability Oblivious."
   similar_to: Attract
   designer: Emil & Arvind
+- id: wither-shot
+  name: Wither Shot
+  type: Ghost
+  category: special
+  power: 100
+  accuracy: 100
+  pp: 10
+  target: all opponents
+  effect: The user launches a blackened skull that explodes on impact and rots the targets from within.
+    It deals damage and always poisons the target when it hits.
+  designer: Emil

@@ -1,5 +1,5 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
-dex: 130
+dex: 129
 name: Grincho
 
 credits:
@@ -24,8 +24,8 @@ abilities:
 base_stats:              # each 1-255
   hp: 50
   attack: 85
-  defense: 60
-  sp_attack: 60
+  defense: 67
+  sp_attack: 53
   sp_defense: 95
   speed: 65
 
@@ -88,10 +88,10 @@ learnset:
     - {level: 50, move: Double-Edge}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
-          Frustration, Return, Dig, Shadow Ball, Double Team, Facade, Secret Power, Rest,
-          Attract, Thief, Fling, Endure, Will-O-Wisp, Shadow Claw, Payback, Giga Impact,
-          Thunder Wave, Psych Up, Captivate, Sleep Talk, Natural Gift, Swagger, Substitute,
-          Cut, Strength, Rock Smash, Foul Play, Brick Break]
+          Frustration, Return, Dig, Shadow Ball, Brick Break, Double Team, Facade,
+          Secret Power, Rest, Attract, Thief, Fling, Endure, Will-O-Wisp, Shadow Claw,
+          Payback, Giga Impact, Thunder Wave, Psych Up, Captivate, Sleep Talk, Natural Gift,
+          Swagger, Substitute, Foul Play, Cut, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Curse, Endeavor, Poltergeist, Zen Headbutt]
   # only needed for the first stage of an evolution line

@@ -576,12 +576,13 @@
           },
           "base_stats": {
             "hp": 90,
-            "attack": 160,
+            "attack": 167,
             "defense": 140,
             "sp_attack": 80,
             "sp_defense": 120,
-            "speed": 40
-          }
+            "speed": 33
+          },
+          "sid": "leafaxer-form-mega-leafaxer"
         }
       ],
       "learnset": {
@@ -1425,7 +1426,8 @@
             "sp_attack": 82,
             "sp_defense": 90,
             "speed": 133
-          }
+          },
+          "sid": "warrallier-form-mega-warrallier"
         }
       ],
       "learnset": {
@@ -11989,6 +11991,14 @@
         {
           "name": "Battle bond",
           "changes": "battle",
+          "base_stats": {
+            "hp": 50,
+            "attack": 140,
+            "defense": 60,
+            "sp_attack": 149,
+            "sp_defense": 67,
+            "speed": 139
+          },
           "sid": "chillalit-form-battle-bond"
         }
       ],
@@ -13343,6 +13353,10 @@
             "move": "Extrasensory"
           },
           {
+            "level": 32,
+            "move": "Speed Swap"
+          },
+          {
             "level": 35,
             "move": "Bug Buzz"
           },
@@ -13355,7 +13369,7 @@
             "move": "Heal Pulse"
           },
           {
-            "level": 40,
+            "level": 42,
             "move": "Power Swap"
           },
           {
@@ -13364,6 +13378,14 @@
           },
           {
             "level": 50,
+            "move": "Hyper Voice"
+          },
+          {
+            "level": 54,
+            "move": "Expanding Force"
+          },
+          {
+            "level": 58,
             "move": "Future Sight"
           }
         ],
@@ -13392,7 +13414,9 @@
           "Focus Blast",
           "Energy Ball",
           "Fling",
+          "Charge Beam",
           "Endure",
+          "Silver Wind",
           "Giga Impact",
           "Flash",
           "Thunder Wave",
@@ -13400,17 +13424,26 @@
           "Sleep Talk",
           "Grass Knot",
           "Swagger",
+          "U-turn",
           "Substitute",
           "Trick Room",
           "Psyshock",
+          "Clear Smog",
           "Struggle Bug",
+          "Electroweb",
+          "Mystical Fire",
+          "Eerie Impulse",
           "Psychic Terrain",
+          "Lunge",
           "Expanding Force"
         ],
         "tutor": [
           "Bug Bite",
           "Dazzling Gleam",
-          "Zen Headbutt"
+          "Zen Headbutt",
+          "Iron Defense",
+          "Amnesia",
+          "Ally Switch"
         ],
         "egg": [
           "Encore",
@@ -21423,260 +21456,6 @@
     },
     {
       "dex": 83,
-      "name": "Goatjo",
-      "credits": {
-        "designer": "Ruben",
-        "artist": "Ruben"
-      },
-      "types": [
-        "Psychic",
-        "Dragon"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": 1.3,
-      "weight_kg": 40.3,
-      "body_color": "black",
-      "abilities": {
-        "primary": "Wonder Guard",
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": 1,
-        "attack": 100,
-        "defense": 67,
-        "sp_attack": 100,
-        "sp_defense": 67,
-        "speed": 100
-      },
-      "ev_yield": {
-        "attack": 1,
-        "sp_attack": 1,
-        "speed": 1
-      },
-      "catch_rate": 45,
-      "base_exp": 152,
-      "growth_rate": "medium_fast",
-      "base_friendship": 70,
-      "gender": 50,
-      "egg_groups": [
-        "field"
-      ],
-      "egg_cycles": 20,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 1,
-            "move": "Confusion"
-          },
-          {
-            "level": 1,
-            "move": "Leer"
-          },
-          {
-            "level": 1,
-            "move": "Tackle"
-          },
-          {
-            "level": 1,
-            "move": "Teleport"
-          },
-          {
-            "level": 5,
-            "move": "Bite"
-          },
-          {
-            "level": 8,
-            "move": "Dragon Tail"
-          },
-          {
-            "level": 12,
-            "move": "Helping Hand"
-          },
-          {
-            "level": 16,
-            "move": "Protect"
-          },
-          {
-            "level": 18,
-            "move": "Psybeam"
-          },
-          {
-            "level": 18,
-            "move": "Psycho Cut"
-          },
-          {
-            "level": 18,
-            "move": "Horn Attack"
-          },
-          {
-            "level": 24,
-            "move": "Dragon Claw"
-          },
-          {
-            "level": 25,
-            "move": "Dragon Breath"
-          },
-          {
-            "level": 40,
-            "move": "Calm Mind"
-          },
-          {
-            "level": 40,
-            "move": "Dragon Pulse"
-          },
-          {
-            "level": 40,
-            "move": "Psychic"
-          },
-          {
-            "level": 42,
-            "move": "Dragon Dance"
-          },
-          {
-            "level": 44,
-            "move": "Zen Headbutt"
-          },
-          {
-            "level": 50,
-            "move": "Future Sight"
-          },
-          {
-            "level": 54,
-            "move": "Dragon Rush"
-          }
-        ],
-        "tm_hm": [
-          "Dragon Claw",
-          "Calm Mind",
-          "Toxic",
-          "Hidden Power",
-          "Sunny Day",
-          "Hyper Beam",
-          "Light Screen",
-          "Protect",
-          "Rain Dance",
-          "Safeguard",
-          "Frustration",
-          "Return",
-          "Psychic",
-          "Shadow Ball",
-          "Double Team",
-          "Reflect",
-          "Aerial Ace",
-          "Facade",
-          "Secret Power",
-          "Attract",
-          "Thief",
-          "Focus Blast",
-          "Energy Ball",
-          "Dragon Pulse",
-          "Giga Impact",
-          "Flash",
-          "Thunder Wave",
-          "Psych Up",
-          "Sleep Talk",
-          "Grass Knot",
-          "Swagger",
-          "Trick Room",
-          "Psyshock",
-          "Psychic Terrain",
-          "Expanding Force"
-        ],
-        "tutor": [
-          "Body Slam",
-          "Draco Meteor",
-          "Dragon Dance",
-          "Iron Head",
-          "Outrage",
-          "Zen Headbutt",
-          "Headbutt"
-        ],
-        "egg": [
-          "Extrasensory",
-          "Stored Power",
-          "Synchronoise",
-          "Mirror Coat"
-        ]
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "body shape",
-          "look",
-          "movement",
-          "level-up moves",
-          "TM/HM moves",
-          "tutor moves",
-          "egg moves",
-          "body color",
-          "catch rate",
-          "base exp",
-          "growth rate",
-          "base friendship",
-          "gender",
-          "egg groups",
-          "egg cycles",
-          "height",
-          "weight"
-        ],
-        "claude_sure": {
-          "body shape": 80,
-          "look": 80,
-          "movement": 80,
-          "level-up moves": 52,
-          "TM/HM moves": 57,
-          "tutor moves": 47,
-          "egg moves": 47,
-          "body color": 80,
-          "catch rate": 60,
-          "base exp": 85,
-          "growth rate": 57,
-          "base friendship": 90,
-          "gender": 72,
-          "egg groups": 53,
-          "egg cycles": 65,
-          "height": 45,
-          "weight": 45
-        },
-        "body_shape": "a quadruped body",
-        "movement": "It walks on four legs.",
-        "look": "It is a goat-like creature with a long white and lilac shaggy mane and bushy tail, a pale face with a black band over its brow, a blue eye and a pink nose, and two long purple horns curving back. Its body and four legs are dark charcoal, with red and blue bands on the lower legs and black paws. A glowing purple orb floats at the tip of its tail."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/goatjo/1111.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": "assets/cries/goatjo.json"
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "goatjo"
-    },
-    {
-      "dex": 84,
       "name": "Puptive",
       "credits": {
         "designer": "Ruben",
@@ -21911,7 +21690,7 @@
       "id": "darkgonark"
     },
     {
-      "dex": 85,
+      "dex": 84,
       "name": "Detepup",
       "credits": {
         "designer": "Ruben",
@@ -22196,7 +21975,7 @@
       "id": "detecup"
     },
     {
-      "dex": 86,
+      "dex": 85,
       "name": "Snownin",
       "credits": {
         "designer": "Arvind",
@@ -22470,7 +22249,7 @@
       "id": "snownin"
     },
     {
-      "dex": 87,
+      "dex": 86,
       "name": "Verrith",
       "credits": {
         "designer": "Casper",
@@ -22724,7 +22503,7 @@
       "id": "verrith"
     },
     {
-      "dex": 88,
+      "dex": 87,
       "name": "Sigmanian Komala",
       "credits": {
         "designer": "Magnus",
@@ -22960,7 +22739,7 @@
       "id": "sigmanian-komala"
     },
     {
-      "dex": 89,
+      "dex": 88,
       "name": "Dahrugula",
       "credits": {
         "designer": "Magnus",
@@ -23252,7 +23031,7 @@
       "id": "dahrugula"
     },
     {
-      "dex": 90,
+      "dex": 89,
       "name": "Vires",
       "credits": {
         "designer": "Arvind",
@@ -23482,7 +23261,7 @@
       "id": "vires"
     },
     {
-      "dex": 91,
+      "dex": 90,
       "name": "Flurina",
       "credits": {
         "designer": "Arvind",
@@ -23719,7 +23498,7 @@
       "id": "flurina"
     },
     {
-      "dex": 92,
+      "dex": 91,
       "name": "Dragem",
       "credits": {
         "designer": "Arvind",
@@ -24003,7 +23782,7 @@
       "id": "dragem"
     },
     {
-      "dex": 93,
+      "dex": 92,
       "name": "Quimsy",
       "credits": {
         "designer": "Michael",
@@ -24260,7 +24039,7 @@
       "id": "quimsy"
     },
     {
-      "dex": 94,
+      "dex": 93,
       "name": "ROKU",
       "credits": {
         "designer": "Ruben",
@@ -24510,7 +24289,7 @@
       "id": "roku"
     },
     {
-      "dex": 95,
+      "dex": 94,
       "name": "Skiirtle",
       "credits": {
         "designer": "Arvind",
@@ -24755,7 +24534,7 @@
       "id": "skiirtle"
     },
     {
-      "dex": 96,
+      "dex": 95,
       "name": "McSkiirtle",
       "credits": {
         "designer": "Arvind",
@@ -25050,7 +24829,7 @@
       "id": "mcskiirtle"
     },
     {
-      "dex": 97,
+      "dex": 96,
       "name": "ambuger",
       "credits": {
         "designer": "Arvind",
@@ -25292,7 +25071,7 @@
       "id": "ambuger"
     },
     {
-      "dex": 98,
+      "dex": 97,
       "name": "Ambrr",
       "credits": {
         "designer": "Arvind",
@@ -25566,7 +25345,7 @@
       "id": "ambcoptr"
     },
     {
-      "dex": 99,
+      "dex": 98,
       "name": "Tortoplasm",
       "credits": {
         "designer": "Arvind",
@@ -25809,7 +25588,7 @@
       "id": "tortoplasm"
     },
     {
-      "dex": 100,
+      "dex": 99,
       "name": "Fossitoise",
       "credits": {
         "designer": "Arvind",
@@ -26047,7 +25826,7 @@
       "id": "tortoplasm-utviklet"
     },
     {
-      "dex": 101,
+      "dex": 100,
       "name": "Slothbaby",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -26277,7 +26056,7 @@
       "id": "slothbaby"
     },
     {
-      "dex": 102,
+      "dex": 101,
       "name": "Slothku",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -26589,7 +26368,7 @@
       "id": "slothbaby-utviklet"
     },
     {
-      "dex": 103,
+      "dex": 102,
       "name": "Terratyson",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -26843,7 +26622,7 @@
       "id": "gaiafinn"
     },
     {
-      "dex": 104,
+      "dex": 103,
       "name": "Obsidog",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -27101,7 +26880,7 @@
       "id": "obsidog"
     },
     {
-      "dex": 105,
+      "dex": 104,
       "name": "Geronimok",
       "credits": {
         "designer": "Casper",
@@ -27375,7 +27154,7 @@
       "id": "obsidog-utvikling"
     },
     {
-      "dex": 106,
+      "dex": 105,
       "name": "Slamquake",
       "credits": {
         "designer": "Ivar",
@@ -27654,7 +27433,7 @@
       "id": "slamquake"
     },
     {
-      "dex": 107,
+      "dex": 106,
       "name": "Limulk",
       "credits": {
         "designer": "Arvind",
@@ -27920,7 +27699,7 @@
       "id": "limulk"
     },
     {
-      "dex": 108,
+      "dex": 107,
       "name": "Mortbulk",
       "credits": {
         "designer": "Arvind",
@@ -28184,7 +27963,7 @@
       "id": "mortbulk"
     },
     {
-      "dex": 109,
+      "dex": 108,
       "name": "Phantomb",
       "credits": {
         "designer": "Ivar",
@@ -28426,7 +28205,7 @@
       "id": "phantomb"
     },
     {
-      "dex": 110,
+      "dex": 109,
       "name": "Phantail",
       "credits": {
         "designer": "Ivar",
@@ -28682,7 +28461,7 @@
       "id": "sjef"
     },
     {
-      "dex": 111,
+      "dex": 110,
       "name": "Oraclet",
       "credits": {
         "designer": "Johannes",
@@ -28926,7 +28705,7 @@
       "id": "oraclet"
     },
     {
-      "dex": 112,
+      "dex": 111,
       "name": "Oraclaw",
       "credits": {
         "designer": "Johannes",
@@ -29216,7 +28995,7 @@
       "id": "oraclaw"
     },
     {
-      "dex": 113,
+      "dex": 112,
       "name": "Minimonk",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -29473,7 +29252,7 @@
       "id": "alminimonk"
     },
     {
-      "dex": 114,
+      "dex": 113,
       "name": "Aminimonk",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -29776,7 +29555,7 @@
       "id": "alminimonk-utvikling"
     },
     {
-      "dex": 115,
+      "dex": 114,
       "name": "Sparktera",
       "credits": {
         "designer": "Ruben",
@@ -30008,7 +29787,7 @@
       "id": "zapitera-mindre-utv"
     },
     {
-      "dex": 116,
+      "dex": 115,
       "name": "Zapitera",
       "credits": {
         "designer": "Ruben & Emil",
@@ -30265,7 +30044,7 @@
       "id": "zapitera"
     },
     {
-      "dex": 117,
+      "dex": 116,
       "name": "Viridub",
       "credits": {
         "designer": "Rebekka",
@@ -30485,7 +30264,7 @@
       "id": "viridub"
     },
     {
-      "dex": 118,
+      "dex": 117,
       "name": "Viridub Utvikling",
       "credits": {
         "designer": null,
@@ -30731,7 +30510,7 @@
       "id": "viridub-utvikling"
     },
     {
-      "dex": 119,
+      "dex": 118,
       "name": "Shadeem",
       "credits": {
         "designer": "Michael",
@@ -30985,7 +30764,7 @@
       "id": "shadeem"
     },
     {
-      "dex": 120,
+      "dex": 119,
       "name": "Shadrove",
       "credits": {
         "designer": "Micheal",
@@ -31241,7 +31020,7 @@
       "id": "shadrove"
     },
     {
-      "dex": 121,
+      "dex": 120,
       "name": "Autuman",
       "credits": {
         "designer": "Arvind",
@@ -31507,7 +31286,7 @@
       "id": "autuman"
     },
     {
-      "dex": 122,
+      "dex": 121,
       "name": "Bugmight",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -31753,7 +31532,7 @@
       "id": "bugmight"
     },
     {
-      "dex": 123,
+      "dex": 122,
       "name": "Jawie",
       "credits": {
         "designer": "Ivar",
@@ -32012,7 +31791,7 @@
       "id": "jawie"
     },
     {
-      "dex": 124,
+      "dex": 123,
       "name": "Jawbreaker",
       "credits": {
         "designer": "Ivar",
@@ -32267,7 +32046,7 @@
       "id": "jawbreaker"
     },
     {
-      "dex": 125,
+      "dex": 124,
       "name": "Dreadipede",
       "credits": {
         "designer": "Ivar",
@@ -32511,7 +32290,7 @@
       "id": "dreadipede"
     },
     {
-      "dex": 126,
+      "dex": 125,
       "name": "Dreadfang",
       "credits": {
         "designer": "Ivar",
@@ -32763,7 +32542,7 @@
       "id": "dreadfang"
     },
     {
-      "dex": 127,
+      "dex": 126,
       "name": "Aquat",
       "credits": {
         "designer": "Ivar",
@@ -32998,7 +32777,7 @@
       "id": "surfer"
     },
     {
-      "dex": 128,
+      "dex": 127,
       "name": "Aquway",
       "credits": {
         "designer": "Ivar",
@@ -33268,7 +33047,7 @@
       "id": "subwaysurfer"
     },
     {
-      "dex": 129,
+      "dex": 128,
       "name": "Zyzzfu",
       "credits": {
         "designer": "Ivar",
@@ -33559,7 +33338,7 @@
       "id": "zyzzfu"
     },
     {
-      "dex": 130,
+      "dex": 129,
       "name": "Grincho",
       "credits": {
         "designer": "Michael",
@@ -33582,8 +33361,8 @@
       "base_stats": {
         "hp": 50,
         "attack": 85,
-        "defense": 60,
-        "sp_attack": 60,
+        "defense": 67,
+        "sp_attack": 53,
         "sp_defense": 95,
         "speed": 65
       },
@@ -33700,6 +33479,7 @@
           "Return",
           "Dig",
           "Shadow Ball",
+          "Brick Break",
           "Double Team",
           "Facade",
           "Secret Power",
@@ -33719,11 +33499,10 @@
           "Natural Gift",
           "Swagger",
           "Substitute",
+          "Foul Play",
           "Cut",
           "Strength",
-          "Rock Smash",
-          "Foul Play",
-          "Brick Break"
+          "Rock Smash"
         ],
         "tutor": [
           "Body Slam",
@@ -33810,7 +33589,7 @@
       "id": "grincho"
     },
     {
-      "dex": 131,
+      "dex": 130,
       "name": "Sigmanian Charcadet",
       "credits": {
         "designer": null,
@@ -34032,7 +33811,7 @@
       "id": "glac-pee-mindre-evo"
     },
     {
-      "dex": 132,
+      "dex": 131,
       "name": "Glacépée",
       "credits": {
         "designer": "Emil Venge-Kvamme",
@@ -34286,7 +34065,7 @@
       "id": "glac-p-e"
     },
     {
-      "dex": 133,
+      "dex": 132,
       "name": "Everdark",
       "credits": {
         "designer": "Ivar",
@@ -34550,7 +34329,7 @@
       "id": "everdark"
     },
     {
-      "dex": 134,
+      "dex": 133,
       "name": "Diedo",
       "credits": {
         "designer": "Magnus",
@@ -34784,7 +34563,7 @@
       "id": "diedo"
     },
     {
-      "dex": 135,
+      "dex": 134,
       "name": "Seraphinnen",
       "credits": {
         "designer": "Magnus",
@@ -35067,7 +34846,7 @@
       "id": "seraphinnen"
     },
     {
-      "dex": 136,
+      "dex": 135,
       "name": "Riftbloom",
       "credits": {
         "designer": "Michael",
@@ -35324,7 +35103,7 @@
       "id": "riftbloom"
     },
     {
-      "dex": 137,
+      "dex": 136,
       "name": "riftlees",
       "credits": {
         "designer": "Michael",
@@ -35586,7 +35365,7 @@
       "id": "riftlees"
     },
     {
-      "dex": 138,
+      "dex": 137,
       "name": "G-Circuit",
       "credits": {
         "designer": "Ruben",
@@ -35827,7 +35606,7 @@
       "id": "giga-circuit"
     },
     {
-      "dex": 139,
+      "dex": 138,
       "name": "Strawboo",
       "credits": {
         "designer": "Ruben",
@@ -36071,7 +35850,7 @@
       "id": "strawboo"
     },
     {
-      "dex": 140,
+      "dex": 139,
       "name": "Wreckingbo",
       "credits": {
         "designer": "Ruben",
@@ -36337,7 +36116,7 @@
       "id": "wreckingboo"
     },
     {
-      "dex": 141,
+      "dex": 140,
       "name": "Wreckdrake",
       "credits": {
         "designer": "Ruben",
@@ -36573,7 +36352,7 @@
       "id": "wreckingdrake"
     },
     {
-      "dex": 142,
+      "dex": 141,
       "name": "Iron Bulb",
       "credits": {
         "designer": "Arvind",
@@ -36789,7 +36568,7 @@
       "id": "iron-wire"
     },
     {
-      "dex": 143,
+      "dex": 142,
       "name": "Solidedge",
       "credits": {
         "designer": "Ivar",
@@ -37108,7 +36887,7 @@
       "id": "solidedge"
     },
     {
-      "dex": 144,
+      "dex": 143,
       "name": "Rosie",
       "credits": {
         "designer": "Ivar",
@@ -37196,7 +36975,7 @@
       "id": "rosie"
     },
     {
-      "dex": 145,
+      "dex": 144,
       "name": "Rosievoir",
       "credits": {
         "designer": "Ivar",
@@ -37278,7 +37057,7 @@
       "id": "rosievoir"
     },
     {
-      "dex": 146,
+      "dex": 145,
       "name": "Sealma",
       "credits": {
         "designer": "Arvind",
@@ -37530,7 +37309,7 @@
       "id": "whaldrill0"
     },
     {
-      "dex": 147,
+      "dex": 146,
       "name": "Narburr",
       "credits": {
         "designer": "Emil",
@@ -37783,7 +37562,7 @@
       "id": "whaldrill"
     },
     {
-      "dex": 148,
+      "dex": 147,
       "name": "Whaldrill",
       "credits": {
         "designer": "Emil",
@@ -38056,7 +37835,7 @@
       "id": "whaldrill3"
     },
     {
-      "dex": 149,
+      "dex": 148,
       "name": "Venofrib",
       "credits": {
         "designer": "Michael",
@@ -38280,7 +38059,7 @@
       "id": "venofrib"
     },
     {
-      "dex": 150,
+      "dex": 149,
       "name": "Vendepiede",
       "credits": {
         "designer": "Michael",
@@ -38570,7 +38349,7 @@
       "id": "vendepiede"
     },
     {
-      "dex": 151,
+      "dex": 150,
       "name": "Venorax",
       "credits": {
         "designer": "Michael",
@@ -38885,7 +38664,7 @@
       "id": "venorax"
     },
     {
-      "dex": 152,
+      "dex": 151,
       "name": "Raymon",
       "credits": {
         "designer": "Ivar",
@@ -38997,7 +38776,7 @@
       "id": "raymon"
     },
     {
-      "dex": 153,
+      "dex": 152,
       "name": "Crysteel",
       "credits": {
         "designer": "Michael",
@@ -39221,7 +39000,7 @@
       "id": "crysteel"
     },
     {
-      "dex": 154,
+      "dex": 153,
       "name": "Crystax",
       "credits": {
         "designer": "michael",
@@ -39481,7 +39260,7 @@
       "id": "crystax"
     },
     {
-      "dex": 155,
+      "dex": 154,
       "name": "Whyrmshade",
       "credits": {
         "designer": "Michael",
@@ -39712,7 +39491,7 @@
       "id": "whyrmshade"
     },
     {
-      "dex": 156,
+      "dex": 155,
       "name": "Abysspero",
       "credits": {
         "designer": "Michael",
@@ -39971,7 +39750,7 @@
       "id": "abysspero"
     },
     {
-      "dex": 157,
+      "dex": 156,
       "name": "Aqualoom",
       "credits": {
         "designer": "Michael",
@@ -40195,7 +39974,7 @@
       "id": "aqualoom"
     },
     {
-      "dex": 158,
+      "dex": 157,
       "name": "Cabat",
       "credits": {
         "designer": "Ivar",
@@ -40427,7 +40206,7 @@
       "id": "catbat"
     },
     {
-      "dex": 159,
+      "dex": 158,
       "name": "Cobramp",
       "credits": {
         "designer": "Ivar",
@@ -40676,7 +40455,7 @@
       "id": "cobrabat"
     },
     {
-      "dex": 160,
+      "dex": 159,
       "name": "Horaxigon",
       "credits": {
         "designer": "Ivar",
@@ -40893,7 +40672,7 @@
       "id": "horaxigon"
     },
     {
-      "dex": 161,
+      "dex": 160,
       "name": "Horaxander",
       "credits": {
         "designer": "Ivar",
@@ -41130,7 +40909,7 @@
       "id": "horaxander"
     },
     {
-      "dex": 162,
+      "dex": 161,
       "name": "Lansseax",
       "credits": {
         "designer": "Ivar",
@@ -41367,7 +41146,7 @@
       "id": "natureo"
     },
     {
-      "dex": 163,
+      "dex": 162,
       "name": "Dinoactyl",
       "credits": {
         "designer": "Arvind",
@@ -41449,7 +41228,7 @@
       "id": "dinoactyl"
     },
     {
-      "dex": 164,
+      "dex": 163,
       "name": "Wondertusk",
       "credits": {
         "designer": "Arvind",
@@ -41531,7 +41310,7 @@
       "id": "tusksir"
     },
     {
-      "dex": 165,
+      "dex": 164,
       "name": "Steinar",
       "credits": {
         "designer": "Arvind",
@@ -41613,7 +41392,7 @@
       "id": "steinar"
     },
     {
-      "dex": 166,
+      "dex": 165,
       "name": "Fleinar",
       "credits": {
         "designer": "Arvind",
@@ -41694,7 +41473,7 @@
       "id": "fleinar"
     },
     {
-      "dex": 167,
+      "dex": 166,
       "name": "Daytard",
       "credits": {
         "designer": "Arvind",
@@ -41774,7 +41553,7 @@
       "id": "daytard"
     },
     {
-      "dex": 168,
+      "dex": 167,
       "name": "plumbuzzz",
       "credits": {
         "designer": "Arvind",
@@ -41855,7 +41634,7 @@
       "id": "plumbuzzz"
     },
     {
-      "dex": 169,
+      "dex": 168,
       "name": "Demetiscet",
       "credits": {
         "designer": "Arvind",
@@ -41935,7 +41714,7 @@
       "id": "demetiscet"
     },
     {
-      "dex": 170,
+      "dex": 169,
       "name": "Racedent",
       "credits": {
         "designer": "Arvind",
@@ -42016,7 +41795,7 @@
       "id": "racedent"
     },
     {
-      "dex": 171,
+      "dex": 170,
       "name": "Ratpid",
       "credits": {
         "designer": "Arvind",
@@ -42096,7 +41875,7 @@
       "id": "ratpid"
     },
     {
-      "dex": 172,
+      "dex": 171,
       "name": "S.Rotom",
       "credits": {
         "designer": null,
@@ -42280,42 +42059,48 @@
       "id": "s-rotom"
     },
     {
-      "dex": 173,
-      "name": "Withstar",
+      "dex": 174,
+      "name": "Goatjo",
       "credits": {
-        "designer": "Arvind",
-        "artist": "Arvind"
+        "designer": "Ruben",
+        "artist": "Ruben"
       },
       "types": [
-        "Ground",
-        "Ghost"
+        "Psychic",
+        "Dragon"
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
+      "height_m": 1.3,
+      "weight_kg": 40.3,
+      "body_color": "black",
       "abilities": {
-        "primary": null,
+        "primary": "Wonder Guard",
         "secondary": null,
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 1,
+        "attack": 100,
+        "defense": 67,
+        "sp_attack": 100,
+        "sp_defense": 67,
+        "speed": 100
       },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
+      "ev_yield": {
+        "attack": 1,
+        "sp_attack": 1,
+        "speed": 1
+      },
+      "catch_rate": 45,
+      "base_exp": 152,
+      "growth_rate": "medium_fast",
+      "base_friendship": 70,
+      "gender": 50,
+      "egg_groups": [
+        "field"
+      ],
+      "egg_cycles": 20,
       "held_items": {
         "common": null,
         "rare": null
@@ -42323,10 +42108,140 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Confusion"
+          },
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Tackle"
+          },
+          {
+            "level": 1,
+            "move": "Teleport"
+          },
+          {
+            "level": 5,
+            "move": "Bite"
+          },
+          {
+            "level": 8,
+            "move": "Dragon Tail"
+          },
+          {
+            "level": 12,
+            "move": "Helping Hand"
+          },
+          {
+            "level": 16,
+            "move": "Protect"
+          },
+          {
+            "level": 18,
+            "move": "Psybeam"
+          },
+          {
+            "level": 18,
+            "move": "Psycho Cut"
+          },
+          {
+            "level": 18,
+            "move": "Horn Attack"
+          },
+          {
+            "level": 24,
+            "move": "Dragon Claw"
+          },
+          {
+            "level": 25,
+            "move": "Dragon Breath"
+          },
+          {
+            "level": 40,
+            "move": "Calm Mind"
+          },
+          {
+            "level": 40,
+            "move": "Dragon Pulse"
+          },
+          {
+            "level": 40,
+            "move": "Psychic"
+          },
+          {
+            "level": 42,
+            "move": "Dragon Dance"
+          },
+          {
+            "level": 44,
+            "move": "Zen Headbutt"
+          },
+          {
+            "level": 50,
+            "move": "Future Sight"
+          },
+          {
+            "level": 54,
+            "move": "Dragon Rush"
+          }
+        ],
+        "tm_hm": [
+          "Dragon Claw",
+          "Calm Mind",
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Safeguard",
+          "Frustration",
+          "Return",
+          "Psychic",
+          "Shadow Ball",
+          "Double Team",
+          "Reflect",
+          "Aerial Ace",
+          "Facade",
+          "Secret Power",
+          "Attract",
+          "Thief",
+          "Focus Blast",
+          "Energy Ball",
+          "Dragon Pulse",
+          "Giga Impact",
+          "Flash",
+          "Thunder Wave",
+          "Psych Up",
+          "Sleep Talk",
+          "Grass Knot",
+          "Swagger",
+          "Trick Room",
+          "Psyshock",
+          "Psychic Terrain",
+          "Expanding Force"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Draco Meteor",
+          "Dragon Dance",
+          "Iron Head",
+          "Outrage",
+          "Zen Headbutt",
+          "Headbutt"
+        ],
+        "egg": [
+          "Extrasensory",
+          "Stored Power",
+          "Synchronoise",
+          "Mirror Coat"
+        ]
       },
       "encounters": [],
       "design": {
@@ -42335,20 +42250,57 @@
         "notes": null,
         "wishes": null,
         "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "filled_by_claude": [
+          "body shape",
+          "look",
+          "movement",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves",
+          "egg moves",
+          "body color",
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "height",
+          "weight"
+        ],
+        "claude_sure": {
+          "body shape": 80,
+          "look": 80,
+          "movement": 80,
+          "level-up moves": 52,
+          "TM/HM moves": 57,
+          "tutor moves": 47,
+          "egg moves": 47,
+          "body color": 80,
+          "catch rate": 60,
+          "base exp": 85,
+          "growth rate": 57,
+          "base friendship": 90,
+          "gender": 72,
+          "egg groups": 53,
+          "egg cycles": 65,
+          "height": 45,
+          "weight": 45
+        },
+        "body_shape": "a quadruped body",
+        "movement": "It walks on four legs.",
+        "look": "It is a goat-like creature with a long white and lilac shaggy mane and bushy tail, a pale face with a black band over its brow, a blue eye and a pink nose, and two long purple horns curving back. Its body and four legs are dark charcoal, with red and blue bands on the lower legs and black paws. A glowing purple orb floats at the tip of its tail."
       },
       "assets": {
-        "concept_art": "assets/concept-art/withstar/5726.webp",
+        "concept_art": "assets/concept-art/goatjo/1111.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/goatjo.json"
       },
       "engine": {
         "no_flip": false,
@@ -42358,10 +42310,10 @@
         "icon_palette": null,
         "safari_flee_rate": 0
       },
-      "id": "withstar"
+      "id": "goatjo"
     },
     {
-      "dex": 174,
+      "dex": 175,
       "name": "Sukunomon",
       "credits": {
         "designer": "Ivar",
@@ -42442,7 +42394,7 @@
       "id": "sukunomon"
     },
     {
-      "dex": 177,
+      "dex": 176,
       "name": "Thooji",
       "credits": {
         "designer": "Arvind",
@@ -42527,7 +42479,7 @@
       "id": "thooji"
     },
     {
-      "dex": 178,
+      "dex": 177,
       "name": "Endermon",
       "credits": {
         "designer": "Arvind",
@@ -42608,7 +42560,7 @@
       "id": "endermon"
     },
     {
-      "dex": 179,
+      "dex": 178,
       "name": "Crepawmon",
       "credits": {
         "designer": null,
@@ -42694,7 +42646,7 @@
       "id": "crepawmon"
     },
     {
-      "dex": 180,
+      "dex": 179,
       "name": "Viltector",
       "credits": {
         "designer": "Arvind",
@@ -42774,6 +42726,94 @@
         "safari_flee_rate": 0
       },
       "id": "viltector"
+    },
+    {
+      "dex": 180,
+      "name": "Withstar",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Ground",
+        "Ghost"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Channeling",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 110,
+        "attack": 80,
+        "defense": 110,
+        "sp_attack": 160,
+        "sp_defense": 110,
+        "speed": 100
+      },
+      "ev_yield": {
+        "sp_attack": 3
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 50,
+            "move": "Wither Shot"
+          }
+        ],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/withstar/5726.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "withstar"
     },
     {
       "dex": 181,
@@ -43733,7 +43773,7 @@
             "sp_defense": 95,
             "speed": 140
           },
-          "look": "has wings and is more brutal attacks and speed.",
+          "look": "has wings and has more brutal attacks and speed.",
           "sid": "malenio-form-mega"
         }
       ],
@@ -43763,7 +43803,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/malenio.json"
       },
       "engine": {
         "no_flip": false,
@@ -43772,7 +43812,7 @@
         "back_y_offset": null,
         "icon_palette": null,
         "safari_flee_rate": 0,
-        "anim_from": "Alakazam"
+        "anim_from": "Palkia"
       },
       "id": "malenio"
     },

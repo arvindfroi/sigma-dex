@@ -22,5 +22,17 @@
     "species": "chillalit-form-battle-bond",
     "row": "chillalit-form-battle-bond (saved by Arvind)",
     "problem": "dex slot 46 is already taken"
+  },
+  {
+    "id": 2914,
+    "species": "warrallier-form-mega-warrallier",
+    "row": "warrallier-form-mega-warrallier (saved by Emil)",
+    "problem": "dex slot 6 is already taken"
+  },
+  {
+    "id": 2915,
+    "species": "warrallier-form-mega-warrallier",
+    "row": "warrallier-form-mega-warrallier (saved by Emil)",
+    "problem": "dex slot 6 is already taken"
   }
 ]

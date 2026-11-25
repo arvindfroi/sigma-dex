@@ -57,6 +57,7 @@ evolutions: []
 forms:
   - name: Battle bond
     changes: battle
+    base_stats: {hp: 50, attack: 140, defense: 60, sp_attack: 149, sp_defense: 67, speed: 139}
     sid: chillalit-form-battle-bond
 
 # --- Moves ---

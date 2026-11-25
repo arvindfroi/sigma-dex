@@ -300,14 +300,6 @@ static const u16 sFuramireEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sGoatjoEggMoveLearnset[] = {
-    MOVE_EXTRASENSORY,
-    MOVE_STORED_POWER,
-    MOVE_SYNCHRONOISE,
-    MOVE_MIRROR_COAT,
-    MOVE_UNAVAILABLE,
-};
-
 static const u16 sPuptiveEggMoveLearnset[] = {
     MOVE_FLAIL,
     MOVE_FAKE_OUT,
@@ -661,6 +653,14 @@ static const u16 sCabatEggMoveLearnset[] = {
 static const u16 sHoraxigonEggMoveLearnset[] = {
     MOVE_CURSE,
     MOVE_DRAGON_RUSH,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sGoatjoEggMoveLearnset[] = {
+    MOVE_EXTRASENSORY,
+    MOVE_STORED_POWER,
+    MOVE_SYNCHRONOISE,
+    MOVE_MIRROR_COAT,
     MOVE_UNAVAILABLE,
 };
 

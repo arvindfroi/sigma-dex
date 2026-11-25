@@ -6573,13 +6573,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2223,
-    "species": "wealther",
-    "file": "assets/concept-art/wealther/2223.png",
-    "caption": "[ds-front] sprite #417",
-    "editor": "Arvind"
-  },
-  {
     "id": 2224,
     "species": "wealther",
     "file": "assets/concept-art/wealther/2224.png",
@@ -7249,13 +7242,6 @@
     "species": "sigmauler",
     "file": "assets/concept-art/sigmauler/2436.png",
     "caption": "[ds-icon] sprite #469",
-    "editor": "Arvind"
-  },
-  {
-    "id": 2437,
-    "species": "warrallier",
-    "file": "assets/concept-art/warrallier/2437.png",
-    "caption": "[ds-front] sprite #470",
     "editor": "Arvind"
   },
   {
@@ -12073,5 +12059,89 @@
     "file": "assets/concept-art/malenio/5775.png",
     "caption": "[ds-front2] sprite #1072",
     "editor": "Ivar"
+  },
+  {
+    "id": 5780,
+    "species": "malenio",
+    "file": "assets/concept-art/malenio/5780.png",
+    "caption": "[ds-icon] sprite #1081",
+    "editor": "Ivar"
+  },
+  {
+    "id": 5781,
+    "species": "malenio",
+    "file": "assets/concept-art/malenio/5781.png",
+    "caption": "[ds-follower] sprite #1081",
+    "editor": "Ivar"
+  },
+  {
+    "id": 5783,
+    "species": "malenio",
+    "file": "assets/concept-art/malenio/5783.png",
+    "caption": "[ds-back2] sprite #1081",
+    "editor": "Ivar"
+  },
+  {
+    "id": 5784,
+    "species": "sukunomon",
+    "file": "assets/concept-art/sukunomon/5784.webp",
+    "caption": "pasted",
+    "editor": "Emil"
+  },
+  {
+    "id": 5788,
+    "species": "alminimonk-utvikling",
+    "file": "assets/concept-art/alminimonk-utvikling/5788.png",
+    "caption": "[ds-front] sprite #1076",
+    "editor": "Emil"
+  },
+  {
+    "id": 5789,
+    "species": "alminimonk-utvikling",
+    "file": "assets/concept-art/alminimonk-utvikling/5789.png",
+    "caption": "[ds-back] sprite #1076",
+    "editor": "Emil"
+  },
+  {
+    "id": 5790,
+    "species": "alminimonk-utvikling",
+    "file": "assets/concept-art/alminimonk-utvikling/5790.png",
+    "caption": "[ds-icon] sprite #1076",
+    "editor": "Emil"
+  },
+  {
+    "id": 5791,
+    "species": "alminimonk-utvikling",
+    "file": "assets/concept-art/alminimonk-utvikling/5791.png",
+    "caption": "[ds-back2] sprite #1076",
+    "editor": "Emil"
+  },
+  {
+    "id": 5812,
+    "species": "sukunomon",
+    "file": "assets/concept-art/sukunomon/5812.png",
+    "caption": "[ds-front] sprite #1080",
+    "editor": "Ivar"
+  },
+  {
+    "id": 5813,
+    "species": "sukunomon",
+    "file": "assets/concept-art/sukunomon/5813.png",
+    "caption": "[ds-back] sprite #1080",
+    "editor": "Ivar"
+  },
+  {
+    "id": 5854,
+    "species": "wealther",
+    "file": "assets/concept-art/wealther/5854.png",
+    "caption": "[ds-front] sprite #1088",
+    "editor": "Emil"
+  },
+  {
+    "id": 5860,
+    "species": "warrallier",
+    "file": "assets/concept-art/warrallier/5860.png",
+    "caption": "[ds-front] sprite #1089",
+    "editor": "Emil"
   }
 ]

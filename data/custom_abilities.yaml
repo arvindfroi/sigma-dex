@@ -32,6 +32,13 @@ abilities:
     holder is on the field and not fainted. There is no activation message, but the ability pop-up shows
     on switch-in like other battle abilities.'
   designer: Emil
+- id: channeling
+  name: Channeling
+  description: For five turns, Sp. Attack and Speed is halved. Grounded
+  effect: For five turns, the Pokémon’s Special Attack and Speed stats are halved and user is grounded.
+    Gain levitate after the 5 turns are finished
+  similar_to: Slow Start
+  designer: Emil
 - id: cold-hearted
   name: Cold-hearted
   description: Raises the Attack of this Pokémon when Snowscape is active

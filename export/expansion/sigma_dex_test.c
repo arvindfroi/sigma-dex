@@ -1797,34 +1797,6 @@ SINGLE_BATTLE_TEST("Sigma dex: Furamire can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: Goatjo has the data from its species file")
-{
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GOATJO];
-    EXPECT_EQ(info->baseHP, 1);
-    EXPECT_EQ(info->baseAttack, 100);
-    EXPECT_EQ(info->baseDefense, 67);
-    EXPECT_EQ(info->baseSpeed, 100);
-    EXPECT_EQ(info->baseSpAttack, 100);
-    EXPECT_EQ(info->baseSpDefense, 67);
-    EXPECT_EQ(info->types[0], TYPE_PSYCHIC);
-    EXPECT_EQ(info->types[1], TYPE_DRAGON);
-    EXPECT_EQ(info->abilities[0], ABILITY_WONDER_GUARD);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CONFUSION);
-    EXPECT_EQ(GetSpeciesName(SPECIES_GOATJO)[0], CHAR_G);
-}
-
-SINGLE_BATTLE_TEST("Sigma dex: Goatjo can use its first move in battle")
-{
-    GIVEN {
-        PLAYER(SPECIES_GOATJO) { Moves(MOVE_CONFUSION); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_CONFUSION); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSION, player);
-    }
-}
-
 TEST("Sigma dex: Puptive has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_PUPTIVE];
@@ -2838,9 +2810,9 @@ TEST("Sigma dex: Grincho has the data from its species file")
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GRINCHO];
     EXPECT_EQ(info->baseHP, 50);
     EXPECT_EQ(info->baseAttack, 85);
-    EXPECT_EQ(info->baseDefense, 60);
+    EXPECT_EQ(info->baseDefense, 67);
     EXPECT_EQ(info->baseSpeed, 65);
-    EXPECT_EQ(info->baseSpAttack, 60);
+    EXPECT_EQ(info->baseSpAttack, 53);
     EXPECT_EQ(info->baseSpDefense, 95);
     EXPECT_EQ(info->types[0], TYPE_NORMAL);
     EXPECT_EQ(info->types[1], TYPE_GHOST);
@@ -3614,6 +3586,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Lansseax can use its first move in battle")
         TURN { MOVE(player, MOVE_GROWTH); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWTH, player);
+    }
+}
+
+TEST("Sigma dex: Goatjo has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GOATJO];
+    EXPECT_EQ(info->baseHP, 1);
+    EXPECT_EQ(info->baseAttack, 100);
+    EXPECT_EQ(info->baseDefense, 67);
+    EXPECT_EQ(info->baseSpeed, 100);
+    EXPECT_EQ(info->baseSpAttack, 100);
+    EXPECT_EQ(info->baseSpDefense, 67);
+    EXPECT_EQ(info->types[0], TYPE_PSYCHIC);
+    EXPECT_EQ(info->types[1], TYPE_DRAGON);
+    EXPECT_EQ(info->abilities[0], ABILITY_WONDER_GUARD);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CONFUSION);
+    EXPECT_EQ(GetSpeciesName(SPECIES_GOATJO)[0], CHAR_G);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Goatjo can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_GOATJO) { Moves(MOVE_CONFUSION); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_CONFUSION); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSION, player);
     }
 }
 

@@ -59,7 +59,7 @@ forms:
     changes: battle
     how: It holds a mega stone.
     base_stats: {hp: 150, attack: 110, defense: 95, sp_attack: 110, sp_defense: 95, speed: 140}
-    look: has wings and is more brutal attacks and speed.
+    look: has wings and has more brutal attacks and speed.
     sid: malenio-form-mega
 
 # --- Moves ---
@@ -93,7 +93,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint:             # footprint.png  16x16, black and white
   shiny_palette:         # shiny.pal      the 16 colors of the shiny version
-  cry:                   # sound file
+  cry: "assets/cries/malenio.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:
@@ -103,4 +103,4 @@ engine:
   back_y_offset:         # pixels the back sprite is moved down
   icon_palette:          # 0, 1 or 2 - which shared icon palette fits best
   safari_flee_rate: 0
-  anim_from: Alakazam    # the official Pokemon whose battle animation it borrows
+  anim_from: Palkia      # the official Pokemon whose battle animation it borrows
