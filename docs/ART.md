@@ -594,7 +594,16 @@ steps are 1 PICTURE, 2 BASE, 3 MAKE, 4 MAP, 5 ANIM, 6 VS, 7 BACK, SAVE):
   (`animMirror`, saved as `anim.mirror`). `request_trainer_anim(..., p_copy, p_flip, p_width, p_height)` and the job carries
   `base`, `base_strength`, `base_seed`, `base_flip/width/height` (migration `2026-11-27_trainer_anim_copy.sql`, Arvind's OK).
   Tested on his Trainer X (~/sigma-origin/title3d/legend/trainers/anim_v3_test): words got random directions, copy got Silver's
-  poses with his face. Not tested: another trainer's animation than the base (v1's body leak), so FROM WORDS stays its default.
+  poses with his face. A pose much BIGGER than expected (over `ANIM_AREA_MAX` 1.25) is drawn again too, and a set still off in
+  size after `ANIM_TRIES` is handed in as `broken`.
+  **Another trainer's animation (night test 2026-11-27, Legion `results/anim_other`, scripts `other_test.py`/`other_fit.py`,
+  sheets + GIFs in ~/sigma-origin/title3d/legend/trainers/night_2026-11-27)**: Rival (23, mirrored, w0.95 h1.10 as his live
+  order 4056) and Chuck (75) on his Flint-based front 9920, 2 tries per arm: W words, C copy, S copy of a grey silhouette,
+  T copy recoloured with the front's colours, F copy with the width fitted to the front (area / height^2, h1.00). Every copy
+  arm changed the body's size from pose to pose (Rival 0.75-0.91 of expected = thinner trousers; Chuck up to 1.68 = Chuck's
+  wide squat) and 10 of 16 copy sets were `broken` after 3 draws each; W kept the body (Rival 1.01-1.13) and roughly followed
+  Chuck's crossed arms. The width fit (F) did not fix it. So FROM WORDS stays the default for another trainer, and the studio
+  says so; a fix would have to change the body inside the pose, not the pose's width.
 - **6 VS** (stage `vs`): the VS portrait, VS LoRA v1 step 2000 (image 1 = the battle sprite, image 2 = the picture). Since
   2026-11-23 every second try has no personal description (only "A trainer holding a Poke Ball", vs_gen.py NODESC) and the
   picture at its own size up to 1 MP (PHOTOFULL); tested only on one person, so both kinds are offered, not a switch.
