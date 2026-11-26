@@ -6212,7 +6212,12 @@ function trainerStudio(slot, opts) {
     }
     button.disabled = false;
   }
+  // 2026-11-26: Kurt Nilsen's back #9515 was picked and 1.5 s later #9512 too (a second tap while the page redrew); the
+  // newest pick is the one in use, so all his throws came from the back he did not choose. A tap on another try within
+  // 2 seconds of a pick is ignored.
   async function pick(t) {
+    if (st.lastPick && st.lastPick.id !== t.id && Date.now() - st.lastPick.at < 2000) return;
+    st.lastPick = {id: t.id, at: Date.now()};
     try { await dbCall("pick_try", {p_try: t.id, p_picked: true, p_editor: me()}); t.picked = true; t.picked_at = new Date().toISOString(); draw(); }
     catch (err) { fail(err); }
   }
@@ -6448,7 +6453,8 @@ function trainerStudio(slot, opts) {
       from ? h("div", {class: "tiles"}, waiting.map(backTile), list.slice(0, 16).map(backTile)) : null,
       from ? h("div", {class: "hint"}, h("b", {}, "2. The throw. "), k ? "Seven more frames drawn from the back you picked. Things held in the hand may drop out after a few frames." : "Pick a back first.") : null,
       k ? h("div", {class: "tryctl"}, throwBtn, tcount, h("span", {class: "sub"}, "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "throw") * (st.throwCount || 1)) + ")"),
-        h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(k.image), alt: ""}))) : null,
+        // the back the throw is drawn from, big enough to tell apart on a phone (the 36 px one hid a wrong pick)
+        h("span", {class: "from"}, "from back #" + k.id + " ", h("img", {class: "px", src: artUrl(k.image), alt: "back #" + k.id, style: "width:80px;height:80px"}))) : null,
       k ? h("div", {class: "tiles"}, twait.map(throwTile), throws.slice(0, 8).map(throwTile)) : null);
   }
 

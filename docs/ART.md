@@ -601,9 +601,13 @@ steps are 1 PICTURE, 2 BASE, 3 MAKE, 4 MAP, 5 ANIM, 6 VS, 7 BACK, SAVE):
   photo + image 2 the VS 4x on white (+ "Image 2 is a pixel art portrait of the same person ..."), base unwidened, no colour
   lock; no VS -> photo only; no photo -> the VS as image 1. F = image 1 the front 4x on white, colours locked to the front
   (keeps the clothes best in the throw; but it takes the base's hair on a bald person). The person picks.
+  The back's text says `Holding: a Poke Ball` and has no mood (2026-11-26, Kurt Nilsen: his guitar and "a big happy smile"
+  made some backs front views with the guitar held in front; with the same seeds and photo, 6 of 6 came out as real backs).
+  Things carried on the back go in the back's own words.
   Stage `throw` (RPC `request_trainer_throw(p_try = the picked back, p_editor, p_count 1-2)`) = frames 2-8:
   `pkmn_backmotion_klein_v5_000000750`, each frame an edit of our frame k-1 toward a template's pose map, our frame 1 as image
-  3, seeds 1 and 2, colours locked to frame 1, pick = IoU - lock distance / 60 (`back_motion5_gen.py`). Template 14 (Barry
+  3, seed 1 and the job's own seed (job id x 100 + 2; until 2026-11-26 seeds 1 and 2, so every throw of a back was the same
+  pixels), colours locked to frame 1, pick = IoU - lock distance / 60 (`back_motion5_gen.py`). Template 14 (Barry
   Pt) for slim people, 21 (Barry Pt wide, a real 8-frame set) when frame 1 came from base 20/21/22 or the words say stout;
   a second try uses the other template. The v5b widening is gone (it did not keep a stout test person wide).
   Test 2026-11-23 on our two OCs: D tries good on both (bald man with plaid and overalls; the ranger's red hair, green jacket

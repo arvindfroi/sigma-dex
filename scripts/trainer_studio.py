@@ -798,7 +798,12 @@ def run_tback(job, base, key, post, download, folder, log=print):
         row["extra"] = ", ".join(x for x in (f.get("extra"), " ".join(str(settings.get("words") or "").split()), extra) if x) or "-"
     else:
         row = {"cls": "Pokemon Trainer", "who": (words + (". " + extra if extra else "")).strip(" .") or "-"}
-    row.update(facing="seen from behind, turned to the right", pose="about to throw a Poke Ball")
+    # 2026-11-26 (Kurt Nilsen: "Holding: an acoustic guitar", "Mood: a big happy smile"): the held thing was drawn in front
+    # of him and the mood turned his face to us, so some backs were front views, and the throw made from one lost the
+    # guitar into a blob and his face in frame 6. A back holds a Poke Ball, as the game's player backs do, and shows no
+    # mood; anything carried on the back goes in the back's own words (extra). Same seeds and photo: 6 of 6 real backs.
+    row.update(facing="seen from behind, turned to the right", pose="about to throw a Poke Ball", held="a Poke Ball")
+    row.pop("mood", None)
     text = C.create_caption(T.describe(row, drop=0), True, back=True)
     photo = vs = None
     try:
@@ -883,6 +888,9 @@ def run_throw(job, base, key, post, download, folder, log=print):
     said = ((settings.get("words") or "") + " " + (fields_of(settings).get("build") or "")).lower()
     wide = (m and int(m.group(1)) in WIDE_BACKS) or any(w in said for w in STOUT_WORDS)
     templates = [THROW_WIDE, THROW_SLIM] if wide else [THROW_SLIM, THROW_WIDE]
+    # 2026-11-26: every throw of a back used seeds 1 and 2, so asking again gave the same pixels (Kurt Nilsen: three throws,
+    # all the same). Seed 1 (the tested one) stays; the second seed is the job's own, so a new order gives a new throw.
+    seeds = (THROW_SEEDS[0], job["id"] * 100 + 2)
 
     def up(im, name):
         T.on_magenta(im).save(folder / name)
@@ -899,8 +907,8 @@ def run_throw(job, base, key, post, download, folder, log=print):
         tpl = templates[n - 1]
         fr = B.frames(tpl)
         nfr = len(fr)
-        t = post(base, key, {"action": "try_start", "job_id": job["id"], "n": n, "seed": THROW_SEEDS[0],
-                             "recipe": "throw v5 c750 b%02d" % tpl, "expected_seconds": BACK_SECONDS * len(THROW_SEEDS) * (nfr - 1)})
+        t = post(base, key, {"action": "try_start", "job_id": job["id"], "n": n, "seed": seeds[0],
+                             "recipe": "throw v5 c750 b%02d" % tpl, "expected_seconds": BACK_SECONDS * len(seeds) * (nfr - 1)})
         started = time.time()
         try:
             ours = [f1]
@@ -909,7 +917,7 @@ def run_throw(job, base, key, post, download, folder, log=print):
                 r1 = up(ours[-1], "throw_prev%d_%d.png" % (n, k))
                 r2 = up(B2.pose(fr[k]), "throw_pose%d_%d.png" % (n, k))
                 best = None
-                for sd in THROW_SEEDS:
+                for sd in seeds:
                     raw = folder / ("throw_raw%d_%d_s%d.png" % (n, k, sd))
                     raw.write_bytes(comfy.run(comfy.klein(B5.caption(k + 1, nfr), [r1, r2, r3], 320, 320, sd, "sigma/backmotion5", lora=THROW_LORA)))
                     im, dist = lock_palette(klein_follower.to_back(raw), pal)
@@ -923,7 +931,7 @@ def run_throw(job, base, key, post, download, folder, log=print):
             image = folder / ("throw%d.png" % n)
             strip.save(image)
             post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "done",
-                             "note": ("throw from back #%s: v5 c750, template %02d (%s), seeds %s" % (src.get("id"), tpl, "wide" if tpl == THROW_WIDE else "slim", ",".join(map(str, THROW_SEEDS))))[:300],
+                             "note": ("throw from back #%s: v5 c750, template %02d (%s), seeds %s" % (src.get("id"), tpl, "wide" if tpl == THROW_WIDE else "slim", ",".join(map(str, seeds))))[:300],
                              "seconds": round(time.time() - started, 1)}, {"image": image})
             made += 1
         except Exception as problem:
