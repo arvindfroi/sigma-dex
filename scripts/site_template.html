@@ -6062,7 +6062,7 @@ function trainerStudio(slot, opts) {
     }));
   }
   function savePhotos() { remember.set("trainer-photo-" + slot, st.photo ? JSON.stringify(st.photo) : ""); remember.set("trainer-photos-" + slot, JSON.stringify(st.photos.slice(0, 20))); }
-  function go(id) { if (st.editing) return; st.step = id; st.showAll = false; draw(); }
+  function go(id) { if (st.editing) return; st.step = id; st.stepTouched = true; st.showAll = false; draw(); }
 
   // ----- 1 PICTURE
   function picturePage() {
@@ -6103,8 +6103,10 @@ function trainerStudio(slot, opts) {
       st.photos.length ? h("div", {class: "hint"}, "Your pictures (kept on the server, private; tap one to use it):") : null,
       st.photos.length ? h("div", {class: "tpic tphotos"}, st.photos.map(p => h("div", {class: "tphoto"},
         h("button", {type: "button", class: "tchoice" + (st.photo && st.photo.id === p.id && st.ref === null ? " on" : ""), "aria-pressed": String(!!(st.photo && st.photo.id === p.id && st.ref === null)),
-          title: "Use this picture", onclick: () => usePhoto(p)}, p.thumb ? h("img", {src: p.thumb, alt: "your picture (only on this device)"}) : h("span", {class: "sub"}, "picture #" + p.id)),
-        h("button", {type: "button", class: "small", onclick: ev => sure(ev.currentTarget, "Really delete?", () => dropPhoto(p))}, "Delete")))) : null,
+          title: "Use this picture", onclick: () => usePhoto(p)}, p.thumb ? h("img", {src: p.thumb, alt: "your picture (only on this device)"}) : h("span", {class: "sub"}, "picture #" + p.id + (p.fromOrder ? " (from your last order)" : ""))),
+        p.token ? h("button", {type: "button", class: "small", onclick: ev => sure(ev.currentTarget, "Really delete?", () => dropPhoto(p))}, "Delete")
+          : h("span", {class: "sub"}, "delete it on the device you uploaded it from")))) : null,
+      st.restoredNote ? h("div", {class: "notice info"}, st.restoredNote) : null,
       h("div", {class: "sub", style: "margin-top:8px"}, st.photos.length ? "Add another picture (the old ones stay until you delete them):" : "Upload one:", h("br"), upload, drop),
       pics.length ? h("div", {class: "hint"}, "Or use a picture from PICTURE on the trainer's page (those are public):") : null,
       pics.length ? h("div", {class: "tpic"}, pics.map(p => h("button", {type: "button", class: "tchoice" + (st.ref === p.id ? " on" : ""), "aria-pressed": String(st.ref === p.id),
@@ -6644,6 +6646,29 @@ function trainerStudio(slot, opts) {
     page.replaceChildren(!st.loaded ? h("div", {class: "empty"}, "Loading...")
       : stp.id === "picture" ? picturePage() : stp.id === "base" ? basePage() : stp.id === "make" ? makePage() : stp.id === "map" ? mapPage() : stp.id === "anim" ? animPage() : stp.id === "back" ? backPage() : stp.id === "vs" ? vsPage() : savePage());
   }
+  // A device with nothing remembered for this trainer (2026-11-27 night: a new phone or PC showed "picture: choose", "base:
+  // choose" and EMPTY description fields, so the next order went out without the description) takes the last FRONT order's
+  // picture number, base, description, words, mirror and shape. The picture itself stays private: only its number is reused,
+  // as the order already did; with no delete token on this device it cannot be deleted from here.
+  function restoreFromLastOrder() {
+    const j = st.jobs.find(x => x.prompt && x.prompt.length > 2);
+    if (!j) return;
+    const s = settingsOf(j);
+    let got = false;
+    if (!st.photo && !st.ref && !st.photos.length) {
+      if (s.photo) { st.photo = {id: Number(s.photo), fromOrder: true}; st.photos = [st.photo]; got = true; }
+      else if ((j.ref_image_ids || [])[0] && (opts.pics || []).some(p => p.id === j.ref_image_ids[0])) { st.ref = j.ref_image_ids[0]; got = true; }
+    }
+    if (!st.base && j.recipe && trainerBase(j.recipe)) { st.base = j.recipe; got = true; }
+    if (!Object.values(st.fields || {}).some(v => String(v || "").trim()) && s.fields && typeof s.fields === "object") { st.fields = Object.assign({}, s.fields); got = true; }
+    if (!st.words.trim() && s.words) st.words = String(s.words);
+    if (remember.get("trainer-width-" + slot) === "" && Number(s.width)) st.width = Number(s.width);
+    if (remember.get("trainer-height-" + slot) === "" && Number(s.height)) st.height = Number(s.height);
+    if (remember.get("trainer-flip-" + slot) === "" && s.flip) st.flip = true;
+    if (Number(s.strength)) st.strength = Number(s.strength);
+    if (got && !st.stepTouched && st.step === "picture") st.step = hasPicture() ? (st.base ? "make" : "base") : "picture";
+    if (got) st.restoredNote = "Filled in from your last order: " + [s.photo ? "picture #" + s.photo : "", st.base ? "base" : "", s.fields ? "description" : ""].filter(Boolean).join(", ") + ".";
+  }
   async function load() {
     try {
       [st.tries, st.jobs, st.line, st.worker, st.vsTries, st.mapTries, st.animTries, st.backTries, st.throwTries] = await Promise.all([
@@ -6657,6 +6682,7 @@ function trainerStudio(slot, opts) {
         dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.tback&order=id.desc&limit=200&select=id,job_id,n,seed,status,image,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at"),
         dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.throw&order=id.desc&limit=100&select=id,job_id,n,seed,status,image,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at")]);
       st.loaded = true;
+      if (!st.restored) { st.restored = true; restoreFromLastOrder(); }
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; }
     if (!top.isConnected && st.loaded && timer !== null) return;      // the studio was closed: stop asking
     if (st.timed) keepScroll(bottomSlot, draw); else draw();
