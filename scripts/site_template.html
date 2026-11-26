@@ -1816,6 +1816,16 @@ function moreTab(s) {
 }
 
 // ---------- editing ----------
+// A form's first field the browser finds wrong (26 Nov 2026: a wrong field on a hidden tab blocked SAVE without a word):
+// the sections around it are opened, it is focused and shown, and the text says which field and what is wrong.
+function firstInvalid(form) {
+  const bad = [...form.elements].find(el => el.willValidate && !el.checkValidity());
+  if (!bad) return null;
+  for (let el = bad.parentElement; el; el = el.parentElement) if (el.tagName === "DETAILS") el.open = true;
+  const box = bad.closest(".field"), title = box && box.querySelector("span");
+  return {el: bad, text: (title ? title.textContent + ": " : "") + bad.validationMessage,
+    show() { bad.focus(); bad.reportValidity(); }};
+}
 const field = (label, input, cls) => h("label", {class: "field" + (cls ? " " + cls : "")}, h("span", {}, label), input);
 const textInput = (value, attrs) => h("input", Object.assign({type: "text", value: value ?? ""}, attrs));
 const numberInput = (value, min, max, step, attrs) => h("input", Object.assign({type: "number", min, max, step: step || 1, value: value ?? "", inputmode: "decimal"}, attrs));
@@ -2305,15 +2315,12 @@ function openEditor(s) {
     // 26 Nov 2026 (Arvind: "save knappen reagerer ikke" on Freezrick): the browser blocked the save without a word when
     // a field on a hidden tab was invalid (its height 0.89 did not fit the 0.1 step). Now the form does not validate by
     // itself; SAVE opens the tab and section of the first field that is wrong and says what is wrong.
-    const bad = [...form.elements].find(el => el.willValidate && !el.checkValidity());
+    const bad = firstInvalid(form);
     if (bad) {
-      const tab = EDIT_TABS.findIndex(([id]) => pageEls[id].contains(bad));
+      const tab = EDIT_TABS.findIndex(([id]) => pageEls[id].contains(bad.el));
       if (tab >= 0) tabButtons[tab].click();
-      for (let el = bad.parentElement; el; el = el.parentElement) if (el.tagName === "DETAILS") el.open = true;
-      const box = bad.closest(".field"), title = box && box.querySelector("span"), label = title ? title.textContent : "";
-      error.textContent = (label ? label + ": " : "") + bad.validationMessage;
-      drawAsk();
-      bad.focus(); bad.reportValidity();
+      error.textContent = bad.text;
+      drawAsk(); bad.show();
       return;
     }
     const data = collect(), problem = check(data);
@@ -2560,6 +2567,8 @@ function openCustomEditor(kind, item) {
   }
   function submit(ev) {
     ev.preventDefault();
+    const bad = firstInvalid(ev.target);
+    if (bad) { error.textContent = bad.text; bad.show(); return; }
     const data = clean(Object.assign({name: readText(f.name), effect: readText(f.effect), similar_to: readText(f.similar), notes: readText(f.notes), designer: readText(f.designer)},
       isMove ? {type: f.type.value, category: f.category.value, power: readNumber(f.power), accuracy: readNumber(f.accuracy), pp: readNumber(f.pp),
         priority: readNumber(f.priority), target: f.target.value, contact: f.contact.checked, effect_chance: readNumber(f.chance)} : {description: readText(f.description)}));
@@ -2575,7 +2584,7 @@ function openCustomEditor(kind, item) {
     error.textContent = problem || "";
     if (!problem) send(data, id);
   }
-  showDialog(h("form", {onsubmit: submit},
+  showDialog(h("form", {novalidate: true, onsubmit: submit},
     h("div", {class: "top"}, h("div", {}, h("div", {class: "sub"}, "New " + K.one + (item.implemented ? " - already programmed into the game" : " - has to be programmed into the game")),
         h("h3", {}, isNew ? (item.name ? "Describe " + item.name : "Add a new " + K.one) : "Edit " + item.name)),
       h("div", {class: "actions"}, h("button", {type: "button", onclick: closeDialog}, "Cancel"))),
