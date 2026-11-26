@@ -6509,13 +6509,15 @@ function trainerStudio(slot, opts) {
     pose.addEventListener("change", () => { st.vsPose = pose.value; });
     const poseText = h("input", {type: "text", maxlength: 120, value: st.vsPoseText, placeholder: "e.g. arms crossed, smirking at the camera", "aria-label": "What they do, in your own words", style: "width:100%"});
     poseText.addEventListener("input", () => { st.vsPoseText = poseText.value; });
-    // How much your picture counts (2026-11-26, Arvind: Ludvig the hedgehog came out as a human boy). The drawing PC turns the
-    // VS model down and gives the picture more weight (trainer_studio.VS_LIKENESS, tested on Ludvig).
-    const like = h("select", {"aria-label": "How much it looks like your picture", style: "width:100%"},
-      [["", "As tested (the VS look: draws a human trainer)"], ["0.75", "A bit more like the picture"], ["0.6", "More like the picture"],
-       ["0.45", "Much more like the picture (good for animals and creatures)"], ["0.3", "Most like the picture (may lose the pixel style)"]]
-        .map(([v, t]) => h("option", {value: v, selected: String(st.vsLikeness == null ? "" : st.vsLikeness) === v ? "" : null}, t)));
-    like.addEventListener("change", () => { st.vsLikeness = like.value === "" ? null : Number(like.value); });
+    // How much your picture counts (2026-11-26, Arvind: Ludvig the hedgehog came out as a human boy; "mer fleksibelt" -> a
+    // slider). 1.00 = the tested VS look; lower turns the VS model down and gives the picture more weight
+    // (trainer_studio.vs_likeness, tested on Ludvig at 0.75, 0.60, 0.45 and 0.30).
+    const likeNow = () => st.vsLikeness == null ? 1 : st.vsLikeness;
+    const likeWord = v => v >= 0.995 ? " (the tested VS look: a human trainer)" : v >= 0.7 ? " (a bit more like the picture)" : v > 0.5 ? " (more like the picture)"
+      : v > 0.35 ? " (much more: good for animals and creatures)" : " (most: may lose the pixel style)";
+    const like = h("input", {type: "range", min: "0.3", max: "1", step: "0.05", value: String(likeNow()), "aria-label": "How much it looks like your picture"});
+    const likeLabel = h("b", {}, likeNow().toFixed(2) + likeWord(likeNow()));
+    like.addEventListener("input", () => { const v = Number(like.value); st.vsLikeness = v >= 0.995 ? null : v; likeLabel.textContent = v.toFixed(2) + likeWord(v); });
     const btn = h("button", {type: "button", class: "primary", disabled: from ? null : "", onclick: async () => {
       btn.disabled = true;
       // own words win over the list; "Random" leaves the pose out so the drawing PC picks one per try (also when 1 PICTURE has
@@ -6536,7 +6538,8 @@ function trainerStudio(slot, opts) {
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "vs").what),
       h("label", {class: "notebox"}, h("span", {class: "sub"}, "Pose"), pose),
       h("label", {class: "notebox"}, h("span", {class: "sub"}, "Or write what they do (optional, wins over the list)"), poseText),
-      h("label", {class: "notebox"}, h("span", {class: "sub"}, "How much it looks like your picture"), like),
+      h("div", {class: "notebox"}, h("span", {class: "sub"}, "How much it looks like your picture"),
+        h("div", {class: "tstrength"}, h("span", {class: "sub"}, "like your picture"), like, h("span", {class: "sub"}, "the VS look"), likeLabel)),
       h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "vs") * st.vsCount) + ")" : "Pick a battle sprite in 3 FRONT first."),
         from ? h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(from.image), alt: ""})) : null),
       h("div", {class: "tiles"}, waiting.map(vsTile), list.slice(0, 12).map(vsTile)),

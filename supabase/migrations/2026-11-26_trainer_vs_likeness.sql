@@ -1,7 +1,8 @@
 -- 2026-11-26 (Arvind: "kan vi velge hvor mye referansene teller? med ludvig vil jeg at det skal ligne mer på ham"): Ludvig the
 -- hedgehog came out as a human boy, because the VS LoRA draws human trainers. The VS job takes a likeness: how much the
 -- picture counts against the VS habit. The drawing PC turns the VS LoRA down to it and gives the picture more weight
--- (trainer_studio.VS_LIKENESS, the combinations tested on Ludvig). null = the studio recipe as before.
+-- (trainer_studio.vs_likeness, tested on Ludvig at 0.75/0.60/0.45/0.30; any value 0.30-1.00, Arvind: "mer fleksibelt").
+-- null or 1.00 = the studio recipe as before.
 drop function if exists public.request_trainer_vs(bigint, integer, text, jsonb);
 create function public.request_trainer_vs(p_try bigint, p_count integer, p_editor text, p_fields jsonb default null, p_likeness numeric default null)
 returns bigint
@@ -14,7 +15,7 @@ begin
   select * into t from public.sprite_tries where id = p_try and stage = 'trainer' and status in ('done', 'broken') and image is not null;
   if not found then raise exception 'Choose a finished battle sprite first'; end if;
   if p_count is null or p_count < 1 or p_count > 4 then raise exception 'Ask for 1 to 4 pictures'; end if;
-  if p_likeness is not null and not (round(p_likeness, 2) = any (array[0.75, 0.60, 0.45, 0.30])) then raise exception 'Choose a likeness from the list'; end if;
+  if p_likeness is not null and (p_likeness < 0.3 or p_likeness > 1) then raise exception 'The likeness is 0.30 to 1.00'; end if;
   walk := t.id;
   for i in 1..10 loop
     select * into j from public.sprite_jobs where id = (select job_id from public.sprite_tries where id = walk);

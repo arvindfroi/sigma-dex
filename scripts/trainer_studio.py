@@ -280,7 +280,18 @@ VS_SECONDS = 25
 # the picture weight is a DualCFGGuider (text vs the empty side with the battle sprite only at CFG 4, plus weight x (sprite +
 # picture - sprite)). Tested on Ludvig with his own seeds (title3d/legend/trainers/vs_likeness_test): the LoRA strength does
 # most of it; 0.60/0.45 gave a hedgehog face in the VS style, 0.30 once nearly the photo itself (the pixel style lost).
-VS_LIKENESS = {0.75: (0.75, 2.0), 0.6: (0.6, 3.5), 0.45: (0.45, 3.5), 0.3: (0.3, 3.5)}
+# Arvind: "gjerne ... mer fleksibelt": any likeness from 0.30 to 1.00 (a slider); the tested points keep their exact weights.
+
+
+def vs_likeness(like):
+    """likeness -> (VS LoRA strength, picture weight or None); none or 1.00 = the studio recipe. Tested on Ludvig: 0.75 with
+    weight 2.0, 0.60/0.45/0.30 with 3.5; a value between takes the weight of its side (the weight alone changed little)."""
+    if like in (None, ""):
+        return 1.0, None
+    ls = min(1.0, max(0.3, round(float(like), 2)))
+    if ls >= 0.995:
+        return 1.0, None
+    return ls, (2.0 if ls >= 0.7 else 3.5)
 
 
 # 2026-11-26 Arvind: "many VS sprites look very alike". Cause: every portrait was asked for the same pose
@@ -372,7 +383,7 @@ def run_vs(job, base, key, post, download, folder, log=print):
     refs_of = {False: [sprite_up, comfy.upload(folder / "vs_photo.png")], True: [sprite_up, comfy.upload(folder / "vs_photo_full.png")]}
     row = base_row(job.get("recipe"))
     like = settings.get("likeness")
-    lora_strength, weight = VS_LIKENESS.get(round(float(like), 2), (1.0, None)) if like not in (None, "") else (1.0, None)
+    lora_strength, weight = vs_likeness(like)
     made = 0
     for n in range(1, int(job.get("count") or 1) + 1):
         seed = job["id"] * 100 + n
