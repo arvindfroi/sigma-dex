@@ -2058,6 +2058,8 @@ function formSpecies(base, i) {                          // a form dressed as a 
   const s = {id: fm.sid, form: {base, index: i, fm}, pending: null,
     data: Object.assign({}, bd, {name: bd.name + " " + fm.name, types: (fm.types || []).length ? fm.types : bd.types, design, forms: [], evolutions: []})};
   if (fm.base_stats && Object.keys(fm.base_stats).length) s.data.base_stats = Object.assign({}, bd.base_stats || {}, fm.base_stats);
+  s.data.engine = Object.assign({}, bd.engine || {});
+  if (filled(fm.anim_from)) s.data.engine.anim_from = fm.anim_from;   // its own battle animation pick, else its base's
   const own = fm.abilities || {};
   if (["primary", "secondary", "hidden"].some(k => filled(own[k]))) {
     const ab = {}, seen = new Set();
@@ -4581,7 +4583,7 @@ function renderSprites() {
 // and for how long, and the same for its back. Ours borrow the record of an official Pokemon (1-493): by default the
 // closest one (scripts/anim_pick.py: body shape first, then types, size, weight, stats, colour, stage), or the one
 // picked here, saved in the dex as engine.anim_from.
-const animDonorOf = s => ((s.data.engine || {}).anim_from) || (((DEX.anim_picks || {})[s.id] || [])[0] || {}).name || "";
+const animDonorOf = s => ((s.data.engine || {}).anim_from) || (((DEX.anim_picks || {})[s.form ? s.form.base.id : s.id] || [])[0] || {}).name || "";
 // The animated preview of a frame-2 try (made on the drawing PC: our frame 1 and frame 2 played with the borrowed
 // animation), when it was made with the animation the Pokemon uses now; else ask for one, once per try and animation.
 const animOf = (t, donor) => t && t.anim && t.anim_from === donor ? artUrl(t.anim) : null;
@@ -4593,7 +4595,11 @@ async function askAnim(t, donor) {
 }
 function animChooser(s, opts) {
   opts = opts || {};
-  const picks = (DEX.anim_picks || {})[s.id] || [], chosen = (s.data.engine || {}).anim_from || "";
+  // A form keeps its pick in its base's forms list (26 Nov 2026, Arvind: "nettsiden lagrer ikke mine animasjonsvalg"):
+  // saved as a Pokemon of its own under the form's sprite id, the sync refused it ("dex slot is already taken").
+  const form = s.form, ownForm = () => (form.base.data.forms || [])[form.index] || {};
+  const picks = (DEX.anim_picks || {})[form ? form.base.id : s.id] || [];
+  const chosen = form ? ownForm().anim_from || "" : (s.data.engine || {}).anim_from || "";
   const note = h("span", {class: "sub", role: "status"});
   const names = (DEX.official_species || []).map(o => o.name).sort((a, b) => a.localeCompare(b));
   const sel = h("select", {"aria-label": "Battle animation borrowed from", onchange: async () => {
@@ -4602,13 +4608,23 @@ function animChooser(s, opts) {
     const data = clean(Object.assign(JSON.parse(JSON.stringify(s.data)), {engine}));
     sel.disabled = true; note.textContent = "Saving...";
     try {
+      if (form) {
+        await saveFormFields(form.base, form.index, {anim_from: sel.value});   // empty = the same as its base again
+        s.data.engine = Object.assign({}, form.base.data.engine || {});
+        if (sel.value) s.data.engine.anim_from = sel.value;
+        s.pending = {editor: me()}; note.textContent = "Saved.";
+        if (opts.onChange) opts.onChange(animDonorOf(s));
+        sel.disabled = false;
+        return;
+      }
       if (DEX.web.url) await saveEdit("species", s.id, Object.assign({}, data, {_base: s.data}));
       s.data = data; s.pending = {editor: me()}; note.textContent = "Saved.";
       if (opts.onChange) opts.onChange(animDonorOf(s));
     } catch (err) { note.textContent = err.message; }
     sel.disabled = false;
   }},
-    h("option", {value: ""}, picks[0] ? "The closest: " + picks[0].name : "The closest (worked out at the next website build)"),
+    h("option", {value: ""}, form ? "The same as " + form.base.data.name + ": " + (animDonorOf(form.base) || "the closest")
+      : picks[0] ? "The closest: " + picks[0].name : "The closest (worked out at the next website build)"),
     picks.length ? h("optgroup", {label: "Closest to " + s.data.name}, picks.map(p => h("option", {value: p.name}, p.name + " - " + p.why))) : null,
     h("optgroup", {label: "All of them"}, names.map(n => h("option", {value: n}, n))));
   sel.value = chosen;
