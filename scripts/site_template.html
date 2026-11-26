@@ -1557,7 +1557,7 @@ function explains(el, top, title, text) {
   return el;
 }
 
-function openDetail(s, tab) {
+function openDetail(s, tab, step) {                  // step: the sprite studio opens at it (the tray's PICK)
   tab = tab === "overview" ? "info" : tab || "info";
   if (["sprite", "shiny", "cry"].includes(tab) && !DEX.web.url) tab = "info";
   if (s.form && !FORM_TABS.includes(tab)) tab = "info";
@@ -1565,7 +1565,7 @@ function openDetail(s, tab) {
   if (location.hash !== "#" + s.id) history.replaceState(null, "", "#" + s.id);
   const top = monTop(s);
   shown = {s, top};
-  const studio = tab === "sprite" ? spriteStudio(s) : null;      // the sprite studio brings its own top screen (the set)
+  const studio = tab === "sprite" ? spriteStudio(s, step || null) : null;      // the sprite studio brings its own top screen (the set)
   const maker = tab === "shiny" ? shinyMaker(s) : tab === "cry" ? cryMaker(s) : null;   // so do the shiny and cry makers
   const pages = {info: s.form ? formInfoPage : infoPage, skills: skillsPage, moves: movesTab, pictures: s => picturesTab(s, null, top), more: moreTab};
   const reopen = id => s.form ? openForm(s.form.base, s.form.index, id) : openDetail(s, id);
@@ -6655,6 +6655,7 @@ function openTrainerStudio(slot, opts) {
 // What the trainer's page shows: the saved sprite and map figure, and the way into the studio.
 function trainerSpriteBox(slot, opts) {
   const cur = opts.current;
+  if (studioJump && studioJump.slot === slot && Date.now() - studioJump.at < 20000) { studioJump = null; setTimeout(() => openTrainerStudio(slot, opts), 0); }
   return h("div", {class: "tspritebox"},          // the saved sprites themselves are shown on top of the page (trainerShowcase)
     h("div", {class: "sub"}, cur ? "Saved " + String(cur.at || "").slice(0, 10) + (cur.by ? " by " + person(cur.by) : "") + "." : "No trainer sprite yet."),
     h("button", {type: "button", class: "primary", style: "margin-top:6px", onclick: () => openTrainerStudio(slot, opts)}, cur ? "OPEN THE TRAINER STUDIO" : "MAKE THE TRAINER SPRITE"));
@@ -8309,12 +8310,36 @@ async function trayLoad() {
       for (const sid of recent) {
         if (tray.jobs.some(j => j.species_id === sid)) continue;
         const fresh = done.filter(d => d.species_id === sid && new Date(d.finished_at).getTime() > mine[sid].seen);
-        if (fresh.length) tray.ready.push({sid, n: fresh.length});
+        if (fresh.length) tray.ready.push({sid, n: fresh.length, stage: fresh.reduce((a, b) => new Date(b.finished_at) > new Date(a.finished_at) ? b : a).stage});
       }
     }
+    // an NPC's name before the characters page has loaded them (else the row says "An NPC")
+    if (!npcs.size && tray.jobs.concat(tray.ready.map(r => ({species_id: r.sid}))).some(j => /^npc-/.test(j.species_id))) await loadNpcs().catch(() => {});
   } catch (e) { /* the tray waits for the next round */ }
   drawTray();
   tray.timer = setTimeout(trayLoad, tray.jobs.length ? 8000 : 60000);
+}
+// The tray's way to the pictures (2026-11-27, Arvind: "jeg savner at jeg kan trykke på pick i køen så tar den meg til den der
+// umiddelbart. av og til så tar den meg til karakteren, men ikke lenger enn det"): straight into the studio, at the step that
+// was drawn. A Pokemon opens its sprite studio; a trainer or an NPC opens its page and then the trainer studio by itself
+// (studioJump, picked up by trainerSpriteBox: only where the studio is shown, the owner's trainer or any NPC). Before, a trainer
+// only scrolled to the page and an NPC's ready pictures had no way in at all.
+const TRAY_STEP = {trainer: "make", vs: "vs", map: "map", anim: "anim", tback: "back", throw: "back"};
+let studioJump = null;
+function openSlot(sid, stage) {
+  const s = byId.get(sid), dlg = document.getElementById("dialog");
+  if (dlg.open) closeDialog();                // a studio already open (another one, or this one at another step) makes room
+  if (s) { return openDetail(s, "sprite", STUDIO_STEPS.some(x => x.id === stage) ? stage : null); }
+  const role = /^trainer-/.test(sid) && (DEX.characters || []).find(c => "trainer-" + c.id === sid);
+  if (!role && !/^npc-/.test(sid)) return;
+  if (TRAY_STEP[stage]) tstudioState(sid).step = TRAY_STEP[stage];
+  studioJump = {slot: sid, at: Date.now()};
+  if (role) openCharacter(role, "studio"); else openNpc(sid);
+}
+function trayName(sid, mineToo) {         // a trainer's role stays vague to others; your own shows its name
+  const s = byId.get(sid), npc = npcs.get(sid);
+  const role = /^trainer-/.test(sid) && (DEX.characters || []).find(c => "trainer-" + c.id === sid);
+  return s ? s.data.name : role ? (mineToo ? lookOf(role.id).name || charName(role) : "A trainer") : npc ? npc.name || "An NPC" : /^npc-/.test(sid) ? "An NPC" : sid;
 }
 function drawTray() {
   if (!tray.el) { tray.el = h("aside", {class: "tray", "aria-label": "Sprites being drawn"}); document.body.append(tray.el); }
@@ -8329,16 +8354,15 @@ function drawTray() {
     total += Math.max(5, (n - done) * each);
     const s = byId.get(j.species_id), isMine = !!mine[j.species_id];
     const trainer = /^trainer-/.test(j.species_id) && (DEX.characters || []).find(c => "trainer-" + c.id === j.species_id), npc = npcs.get(j.species_id);
-    const who = s ? s.data.name : trainer ? "A trainer" : npc ? npc.name || "An NPC" : /^npc-/.test(j.species_id) ? "An NPC" : j.species_id;
-    return h("button", {type: "button", class: "trayrow" + (isMine ? " mine" : ""), onclick: () => s ? openDetail(s, "sprite") : trainer ? openCharacter(trainer, "studio") : npc ? openNpc(npc.id) : null},
+    const who = trayName(j.species_id, isMine);
+    return h("button", {type: "button", class: "trayrow" + (isMine ? " mine" : ""), onclick: () => openSlot(j.species_id, j.stage)},
       j.status === "running" ? h("span", {class: "spinner"}) : h("span", {class: "dot"}),
       h("span", {class: "who"}, (isMine ? "\u2605 " : "") + who), h("span", {class: "what"}, n + " " + (names[j.stage] || j.stage || "sprite") + (n > 1 ? "s" : "")),
       h("span", {class: "when"}, j.status === "running" ? done + "/" + n : "in line", " \u00b7 ", online ? aboutMinutes(total).replace("about ", "~") : "waits for the PC"));
   });
   const readyRows = tray.ready.map(r => {
-    const s = byId.get(r.sid);
-    return h("button", {type: "button", class: "trayrow ready", onclick: () => s && openDetail(s, "sprite")},
-      h("span", {class: "tick"}, "\u2713"), h("span", {class: "who"}, s ? s.data.name : r.sid), h("span", {class: "what"}, r.n + " new picture" + (r.n > 1 ? "s" : "")), h("span", {class: "when"}, "PICK \u25b6"));
+    return h("button", {type: "button", class: "trayrow ready", onclick: () => openSlot(r.sid, r.stage)},
+      h("span", {class: "tick"}, "\u2713"), h("span", {class: "who"}, trayName(r.sid, true)), h("span", {class: "what"}, r.n + " new picture" + (r.n > 1 ? "s" : "")), h("span", {class: "when"}, "PICK \u25b6"));
   });
   const running = tray.jobs.find(j => j.status === "running");
   const head = h("button", {type: "button", class: "trayhead", "aria-expanded": String(tray.open), onclick: () => { tray.open = !tray.open; remember.set("tray", tray.open ? "" : "closed"); drawTray(); }},
