@@ -6446,7 +6446,7 @@ function trainerStudio(slot, opts) {
         h("div", {class: "storyline"}, mode(true, "COPY THE GAME'S POSES", "Paint the animation's own poses with your picture, like the front from its base"),
           mode(false, "FROM WORDS", "Draw each pose from words next to your sprite (the recipe before 27 Nov)")),
         h("div", {class: "sub"}, copyNow ? (sameBase ? "The drawing PC paints " + cur.name + "'s own poses with your picture and words, the way your front was painted from this base. Mirror, width and height are taken from your front; change them if you like."
-            : "The drawing PC paints " + cur.name + "'s poses with your picture and words. " + cur.name + " is another trainer than your base, so their clothes or body may show through (not tested yet): FROM WORDS is the safe choice.")
+            : "The drawing PC paints " + cur.name + "'s poses with your picture and words. " + cur.name + " is another trainer than your base: in the test (27 Nov, Rival and Chuck on a Flint-based front) the body came out thinner or much wider than your front from pose to pose, and FROM WORDS kept your body best. FROM WORDS is the safe choice.")
           : "The drawing PC draws each pose from words next to your sprite. MIRROR turns the moves."),
         h("div", {class: "tanimshape"},
           h("div", {class: "tanimcells"}, h("span", {class: "tanimcell"}, cell, h("i", {}, cur.name)), h("span", {class: "tanimcell"}, h("img", {class: "px", src: artUrl(from.image), alt: "your battle sprite", style: "width:96px"}), h("i", {}, "yours"))),
