@@ -650,6 +650,77 @@ def size_lock(panel, ref_h):
     return out, s
 
 
+# POSE COPY (2026-11-27, Arvind: "we dont do the pose copy technique when doing the animation?? ... jeg kopierer silver men at det
+# er mirrored og endret fasongen hans ... det er et av de svakere punktene"; "Ja, bygg det inn"). Tested on his Trainer X
+# (~/sigma-origin/title3d/legend/trainers/anim_v3_test, best = D): each pose j = the game's own pose (the picker sheet's cell j of
+# the script) mirrored and reshaped like the front's base (the BASE step's MIRROR, width, height), then the FRONT recipe (trainer
+# LoRA c1 swap, the person's picture, the fields with pose = the pose words, the front's strength; try 1 = the front's own seed),
+# the height fitted to the front by the game's pose/frame-1 height ratio, repainted 0.50 from the front (stage 2, as below),
+# colours locked to the front and loose bits (< 10 % of the body) removed. Today's words recipe got random directions there.
+# A pose that came out much smaller than the game's (area < ANIM_AREA x the front's x the game's ratio) is drawn again.
+ANIM_COPY_SWAP = 0.5
+ANIM_AREA = 0.82
+
+
+def size_fit(panel, want):
+    """the figure on a magenta panel scaled to `want` px tall around its feet when it is more than 5 % off"""
+    bb = fig_box(panel)
+    if not bb:
+        return panel, 1.0
+    h = bb[3] - bb[1]
+    if abs(h - want) <= want * 0.05:
+        return panel, 1.0
+    s = want / h
+    fig = panel.crop(bb)
+    fw, fh = max(1, round(fig.width * s)), max(1, round(fig.height * s))
+    out = Image.new("RGB", panel.size, (255, 0, 255))
+    cx = (bb[0] + bb[2]) / 2
+    out.paste(fig.resize((fw, fh), Image.LANCZOS), (round(cx - fw / 2), bb[3] - fh))
+    return out, s
+
+
+def no_loose(im, share=0.10):
+    """drop parts (8-connected) smaller than `share` of the biggest part, e.g. a Poke Ball floating loose"""
+    import numpy as np
+    a = np.array(im.convert("RGBA"))
+    solid = a[..., 3] > 0
+    lab = np.zeros(solid.shape, int)
+    sizes, n = {}, 0
+    for y, x in zip(*np.nonzero(solid)):
+        if lab[y, x]:
+            continue
+        n += 1
+        lab[y, x] = n
+        stack, c = [(y, x)], 0
+        while stack:
+            cy, cx = stack.pop()
+            c += 1
+            for yy in range(max(0, cy - 1), min(solid.shape[0], cy + 2)):
+                for xx in range(max(0, cx - 1), min(solid.shape[1], cx + 2)):
+                    if solid[yy, xx] and not lab[yy, xx]:
+                        lab[yy, xx] = n
+                        stack.append((yy, xx))
+        sizes[n] = c
+    if len(sizes) < 2:
+        return Image.fromarray(a)
+    big = max(sizes.values())
+    for k, c in sizes.items():
+        if c < share * big:
+            a[lab == k] = 0
+    return Image.fromarray(a)
+
+
+def area_of(im):
+    return sum(1 for p in im.convert("RGBA").getdata() if p[3])
+
+
+def script_base(script):
+    """the base id of an animation's own trainer (for its caption): Platinum's pt:<name>, else the class slot"""
+    if script.get("base"):
+        return script["base"]
+    return ("origin:%d" if script.get("game") == "Origin" else "hgss:%d") % script["cls"]
+
+
 def run_anim(job, base, key, post, download, folder, log=print):
     T, TB, S = _modules()
     settings = json.loads(job.get("prompt") or "{}")
@@ -691,6 +762,40 @@ def run_anim(job, base, key, post, download, folder, log=print):
     ref = comfy.upload(folder / "anim_f1.png")
     bb = fig_box(i1)
     ref_h = bb[3] - bb[1] if bb else i1.height
+    # POSE COPY: the game's poses as the start pictures (see ANIM_COPY_SWAP above)
+    same_base = settings.get("base") == script_base(script)
+    copy = settings.get("copy")
+    copy = same_base if copy is None else bool(copy)
+    pick = lambda k, front, dflt: settings.get(k) if settings.get(k) not in (None, "") else (settings.get(front) if same_base and settings.get(front) not in (None, "") else dflt)
+    flip = bool(pick("flip", "base_flip", False))
+    cwidth = min(1.4, max(0.7, float(pick("width", "base_width", 1.0))))
+    cheight = min(1.1, max(0.85, float(pick("height", "base_height", 1.0))))
+    copy_cells, copy_starts, copy_texts, ratio_h, ratio_a = {}, {}, {}, {}, {}
+    if copy:
+        listing = json.loads((Path(__file__).resolve().parent.parent / "data" / "trainer_anims.json").read_text(encoding="utf-8"))
+        rown = [x["cls"] for x in listing["scripts"]].index(cls)
+        posesheet = Image.open(download(base, listing["poses"], folder / "anim_poses.png")).convert("RGBA")
+        game = {j: posesheet.crop((80 * j, 80 * rown, 80 * j + 80, 80 * rown + 80)) for j in [0] + cells}
+        hh = lambda im: (lambda b: (b[3] - b[1]) if b else 80)(im.getbbox())
+        art = comfy.upload(person_picture(_photo(job, settings, base, key, post, download, folder), folder / "person.png"))
+        try:
+            crow = base_row(settings.get("base") if same_base else script_base(script))
+        except Exception:
+            crow = {}
+        crow = mirrored_row(crow) if flip and crow else crow
+        cstrength = min(0.95, max(0.5, float(settings.get("base_strength") or 0.75))) if same_base else 0.75
+        for j in drawn:
+            f = ImageOps.mirror(game[j]) if flip else game[j]
+            if cwidth != 1.0 or cheight != 1.0:
+                f = reshape_front(f, cwidth, cheight)
+            f.save(folder / ("anim_base%d.png" % j))
+            copy_starts[j] = S.start("file:" + str(folder / ("anim_base%d.png" % j)), folder / ("anim_start%d.png" % j))
+            copy_texts[j] = battle_text(crow, "", dict(fields_of(settings), pose=poses[j - 1]) if poses[j - 1:j] else fields_of(settings))
+            ratio_h[j] = hh(game[j]) / max(1, hh(game[0]))
+            ratio_a[j] = area_of(game[j]) / max(1, area_of(game[0]))
+        if settings.get("strength") in (None, ""):
+            swap = ANIM_COPY_SWAP
+    front_area = area_of(sprite)
     start = Image.new("RGB", (640, 320))
     start.paste(i1.resize((320, 320), Image.NEAREST) if i1.size != (320, 320) else i1, (0, 0))
     start.paste(start.crop((0, 0, 320, 320)), (320, 0))
@@ -704,8 +809,11 @@ def run_anim(job, base, key, post, download, folder, log=print):
     made = 0
     for n in range(1, count + 1):
         seed = n if n <= 1 else job["id"] * 100 + n         # seed 1 kept the faces best in the tests; the others give choice
+        if copy and n == 1 and settings.get("base_seed"):
+            seed = int(settings["base_seed"])                 # pose copy: the front's own seed kept the person best (test D)
         t = post(base, key, {"action": "try_start", "job_id": job["id"], "n": n, "seed": seed,
-                             "recipe": ("anim pair%s %s s%d" % ("+sw%g" % swap if swap > 0 else "", cls, seed))[:60], "expected_seconds": ANIM_SECONDS * len(drawn)})
+                             "recipe": ("anim %s%s%s %s s%d" % ("copy" if copy else "pair", "+sw%g" % swap if swap > 0 else "", "+mirror" if flip else "", cls, seed))[:60],
+                             "expected_seconds": ANIM_SECONDS * len(drawn)})
         started = time.time()
         try:
             # the likeness check (2026-11-24): a pose whose colours drift from the battle sprite's by more than ANIM_LIKE makes the
@@ -723,6 +831,24 @@ def run_anim(job, base, key, post, download, folder, log=print):
                 scales, gaps = [], []
                 for i, j in enumerate(drawn):
                     post(base, key, {"action": "progress", "job_id": job["id"], "state": "drawing pose %d of %d (animation %d of %d%s)" % (i + 2, len(drawn) + 1, n, count, ", again" if k else "")})
+                    if copy:
+                        raw = folder / ("anim_copy%d_%d_%d.png" % (n, j, k))
+                        raw.write_bytes(comfy.run(S.graph(copy_texts[j], [art], sd, LORA, copy_starts[j], cstrength)))
+                        panel, s = size_fit(Image.open(raw).convert("RGB"), ref_h * ratio_h[j])
+                        scales.append(round(s, 2))
+                        right = folder / ("anim_right%d_%d_%d.png" % (n, j, k))
+                        panel.save(right)
+                        if swap > 0:
+                            row = dict(swap_row, pose="the trainer " + (poses[j - 1] if poses[j - 1:j] else "in a new pose"))
+                            swapped = folder / ("anim_swap%d_%d_%d.png" % (n, j, k))
+                            swapped.write_bytes(comfy.run(S.graph(TB.caption(T.describe(row, drop=0), True) + " " + ANIM_STRICT, [ref], sd, LORA, comfy.upload(right), swap)))
+                            right = swapped
+                        pose, _ = lock_palette(trainer_post.battle(klein_follower.to_back(right)), pal)
+                        pose = no_loose(pose)
+                        strip.alpha_composite(pose, (80 * j, 0))
+                        small = area_of(pose) < ANIM_AREA * front_area * ratio_a[j]
+                        gaps.append(colour_gap(sprite, pose) + (1.0 if small else 0.0))
+                        continue
                     text = ("Two 80x80 pixel art battle sprites of the same trainer (%s, build: %s) side by side on a flat magenta "
                             "background, like two animation frames. The left one is exactly image 1. The right one is the same trainer with "
                             "exactly the same face, hair, clothes, colours, body shape and outline, %s, in a new pose: the trainer %s. %s"
@@ -753,8 +879,9 @@ def run_anim(job, base, key, post, download, folder, log=print):
             strip.save(image)
             shrunk = [s for s in scales if s < 1]
             post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "done",
-                             "note": ("%s animation (%d poses) side by side%s from battle sprite #%s, seed %d, build %s%s%s" % (
-                                 script["name"], len(drawn) + 1, " + swap %.2f" % swap if swap > 0 else "", src.get("id"), used_seed, build,
+                             "note": ("%s animation (%d poses) %s%s%s from battle sprite #%s, seed %d, build %s%s%s" % (
+                                 script["name"], len(drawn) + 1, ("copied from the game's poses" + (" x%.2f wide" % cwidth if cwidth != 1 else "") + (" x%.2f tall" % cheight if cheight != 1 else "")) if copy else "side by side",
+                                 " + swap %.2f" % swap if swap > 0 else "", ", mirrored" if flip else "", src.get("id"), used_seed, build,
                                  ", size locked x" + "/".join("%.2f" % s for s in shrunk) if shrunk else "",
                                  ", extra: " + extra if extra else "") + (", kept %d poses from #%s" % (kept, settings.get("frames_try")) if have is not None else "")
                                  + (", drawn %d times to keep the look (worst pose %.2f)" % (again + 1, worst) if again else ""))[:300],

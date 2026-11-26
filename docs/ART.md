@@ -582,6 +582,19 @@ steps are 1 PICTURE, 2 BASE, 3 MAKE, 4 MAP, 5 ANIM, 6 VS, 7 BACK, SAVE):
   Round 3: both texts end with ANIM_STRICT ("exactly two arms and two hands ... no arm or hand stays behind ... the hair
   exactly as in image 1"), against extra arms and hair that grew. Even so one seed in three can keep an old fist, so the
   page asks 3 tries by default and the person's pick is the filter.
+  **POSE COPY (2026-11-27, Arvind: "we dont do the pose copy technique when doing the animation?? ... jeg kopierer silver men at det
+  er mirrored og endret fasongen hans ... et av de svakere punktene"; "Ja, bygg det inn")**: the ANIM step has a BASE row like FRONT:
+  COPY THE GAME'S POSES / FROM WORDS, MIRROR, width and height, with a preview of the animation's first pose next to the battle
+  sprite. When the animation is the front's own base (`base === scriptBase(script)`), copy is on and mirror/width/height come
+  from the front's job. Copy: each pose j = the picker sheet's cell j (`trainer_anims.json` `poses`), mirrored + `reshape_front`,
+  then the FRONT recipe (c1 swap, the person's picture, the fields with pose = the pose words, the front's strength; try 1 = the
+  front's own seed), `size_fit` to the front's height x the game's height ratio, repaint `ANIM_COPY_SWAP` 0.50 from the front,
+  palette lock, `no_loose` (< 10 % of the body), and a pose whose area is under `ANIM_AREA` 0.82 x the front's x the game's
+  ratio is drawn again. The try's recipe says `anim copy...` and `+mirror`; a mirrored set plays its moves mirrored everywhere
+  (`animMirror`, saved as `anim.mirror`). `request_trainer_anim(..., p_copy, p_flip, p_width, p_height)` and the job carries
+  `base`, `base_strength`, `base_seed`, `base_flip/width/height` (migration `2026-11-27_trainer_anim_copy.sql`, Arvind's OK).
+  Tested on his Trainer X (~/sigma-origin/title3d/legend/trainers/anim_v3_test): words got random directions, copy got Silver's
+  poses with his face. Not tested: another trainer's animation than the base (v1's body leak), so FROM WORDS stays its default.
 - **6 VS** (stage `vs`): the VS portrait, VS LoRA v1 step 2000 (image 1 = the battle sprite, image 2 = the picture). Since
   2026-11-23 every second try has no personal description (only "A trainer holding a Poke Ball", vs_gen.py NODESC) and the
   picture at its own size up to 1 MP (PHOTOFULL); tested only on one person, so both kinds are offered, not a switch.
