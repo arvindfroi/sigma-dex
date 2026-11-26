@@ -765,6 +765,25 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .mytrainer .txt { display: flex; flex-direction: column; gap: 2px; }
 .mytrainer .go { font-family: var(--display); font-size: 12px; color: var(--pri); }
 @media (max-width: 560px) { .mytrainers, .mytrainer { width: 100%; } .mytrainer .charpv { width: 96px; } }
+#home[data-page=detail] > .screen.top { display: none; }
+.charhero { display: grid; grid-template-columns: minmax(220px, 320px) 1fr; gap: 18px; align-items: center; padding: 12px; margin: 10px 0 12px; background: var(--panel); border: 2px solid var(--line); }
+@media (max-width: 700px) { .charhero { grid-template-columns: 1fr; } }
+.heropic { width: 100%; aspect-ratio: 3 / 2; display: flex; align-items: center; justify-content: center; background: var(--soft); border: 2px solid var(--line); overflow: hidden; }
+.heropic img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
+.heropic img.photo { object-fit: cover; image-rendering: auto; }
+.heropic .charsil { font-size: 56px; }
+.herotext { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.heroname { font-family: var(--display); font-size: 28px; line-height: 1.1; }
+.herosteps { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin-top: 4px; }
+.heroedit { display: inline-flex; align-items: center; gap: 6px; }
+.herostep { font-size: 13px; padding: 2px 8px; min-height: 0; color: var(--muted); }
+.herostep.done { color: var(--good); border-color: var(--good); }
+.heroacts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.heroacts button { font-size: 16px; padding: 8px 14px; }
+.chartabs { display: flex; gap: 6px; flex-wrap: wrap; padding-bottom: 8px; margin-bottom: 10px; border-bottom: 2px solid var(--line); scroll-margin-top: 8px; }
+.chartabs button { font-family: var(--display); font-size: 15px; padding: 4px 16px; }
+.charabout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 900px) { .charabout { grid-template-columns: 1fr; } }
 .charfilter { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin: 8px 0 4px; }
 .charfilter .count { font-size: 12px; color: var(--muted); }
 .showcase { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; margin: 10px 0 14px; }
@@ -5562,13 +5581,18 @@ function charTop(c) {
 }
 // Each trainer has its own page (not a popup), laid out like Showdown's teambuilder: a bar on top, the trainer on the
 // left, the story team as six slots and every battle below it (Arvind, 2026-11-13). Address: #char=<role id>.
+// part: the tab to show ("studio"/"sprites", "team", "picture"/"about"; 2026-11-27 the page has tabs) and scroll to.
+let charTab = "";
 function openCharacter(c, part) {
   const first = charOpen !== c.id;
+  if (first) charTab = "";
+  const tab = {studio: "sprites", sprites: "sprites", team: "team", picture: "about", about: "about", others: "about"}[part];
+  if (tab) charTab = tab;
   charOpen = c.id; npcOpen = ""; view = "chars"; plan = null;
   if (location.hash !== "#char=" + c.id) history[first ? "pushState" : "replaceState"](null, "", "#char=" + c.id);
   const y = window.scrollY;
   render();
-  if (part) { const el = document.getElementById("char-" + part); if (el) el.scrollIntoView({block: "start"}); }
+  if (part) { const el = document.getElementById("char-tabs"); if (el) el.scrollIntoView({block: "start"}); }
   else window.scrollTo(0, first ? 0 : y);
 }
 function closeCharacter() {
@@ -5600,7 +5624,7 @@ function renderCharacterPage(c) {
     try { await saveEdit("claim", "claim-" + c.id, data); claims.set(c.id, data); openCharacter(c); }
     catch (err) { status.textContent = /check constraint/i.test(err.message) ? "Claiming is not switched on in the database yet." : err.message; }
   };
-  const goTo = part => h("button", {type: "button", class: "linkish", onclick: () => document.getElementById("char-" + part).scrollIntoView({block: "start"})}, part === "picture" ? "PICTURE" : part === "studio" ? "TRAINER STUDIO" : "STORY TEAM");
+  const goTo = part => h("button", {type: "button", class: "linkish", onclick: () => openCharacter(c, part)}, part === "picture" ? "PICTURE" : part === "studio" ? "TRAINER STUDIO" : "STORY TEAM");
 
   // ----- the bar on top, as Showdown's teambuilder has it
   const bar = h("div", {class: "tbar charbar"},
@@ -5625,8 +5649,6 @@ function renderCharacterPage(c) {
       : h("div", {class: "storyline"}, h("span", {class: "badge" + (live && cl.sprite ? " done" : "")}, "3"), "Make your trainer sprite in the ", live ? goTo("studio") : "TRAINER STUDIO"),
     h("div", {class: "storyline"}, h("span", {class: "badge" + (live && storyOf(c.id).lines.length ? " done" : "")}, "4"), "Build your story team under ", live ? goTo("team") : "STORY TEAM",
       live && sharesStory(c.id) ? " (shared with " + charName(mainChar) + ")" : "")];
-  const steps = isMine ? h("div", {class: "box"}, h("h3", {style: "margin-top:0"}, "Make this trainer yours"),
-    h("div", {class: "storyline"}, h("span", {class: "badge done"}, "1"), "You: " + person(cl.by)), restSteps(true)) : null;
   let claimArea = null;
   if (!CLAIMS_OPEN) claimArea = h("div", {class: "notice info"}, "Claiming opens soon.");
   else if (isMine) claimArea = h("button", {type: "button", onclick: async () => {
@@ -5741,24 +5763,58 @@ function renderCharacterPage(c) {
     follower ? h("div", {}, storyToggle(c.id), h("div", {class: "mergebtns"}, h("button", {type: "button", onclick: ev => sure(ev.currentTarget, "Really take it out?", () => work(ev.currentTarget, () => separateClaim(c.id)))},
       "Take this trainer out of the merge (it keeps a copy of everything)"))) : null,
     others.map(otherRow)) : null;
-  // every sprite on top, for anyone (2026-11-26); the small picture on the left only while there are no sprites
-  const show = trainerShowcase(look.sprite || (npcHere && npcHere.sprite), look.name || (npcHere && !cl.by ? npcHere.name : "") || "");
-  const left = h("div", {class: "charside"},
-    show ? null : h("div", {class: "charstage"}, pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("span", {class: "charsil"}, "?")),
-    h("div", {class: "factrows"},
+  // ----- the page (2026-11-27, Arvind: "jeg vil og at knappen for trener studio og slik ikke er gjemt helt nede. det bør ha mye
+  // bedre layout som respekterer sprite creation OG team building"): a hero on top with the VS portrait, the name and the two
+  // ways in (TRAINER STUDIO, STORY TEAM), then three tabs: SPRITES (every sprite + the studio), STORY TEAM (the six slots and
+  // every battle, at full width) and ABOUT (facts, pictures, your other trainers, give it back).
+  const sp = look.sprite || (npcHere && npcHere.sprite) || null;
+  const studioOpts = isMine && !follower ? {kind: "mine", name: charName(c), pics: pics.map(p => ({id: p.id, src: p.src})), current: cl.sprite,
+    onPick: async sprite => { cl.sprite = sprite; await saveClaim(cl.by, cl.slots, cl.story); }, onClose: () => { if (charOpen === c.id) openCharacter(c); }} : null;
+  const openStudio = () => studioOpts ? openTrainerStudio("trainer-" + c.id, studioOpts) : follower ? openCharacter(mainChar, "studio") : null;
+  const toTab = id => { charTab = id; openCharacter(c, "tabs"); };
+  const cap = x => x ? x.charAt(0).toUpperCase() + x.slice(1) : "";
+  const heroPic = h("div", {class: "heropic"}, sp && sp.vs ? h("img", {class: "px", src: artUrl(sp.vs), alt: "VS portrait"})
+    : sp && sp.image ? h("img", {class: "px front", src: artUrl(sp.image), alt: "battle sprite"})
+    : pic ? h("img", {class: "photo", src: pic.src, alt: "trainer picture"}) : h("span", {class: "charsil"}, "?"));
+  const step = (ok, label, onclick) => h("button", {type: "button", class: "herostep" + (ok ? " done" : ""), onclick}, (ok ? "✓ " : "○ ") + label);
+  const shownName = look.name || (npcHere && !cl.by ? npcHere.name : "") || "";
+  const hero = h("div", {class: "charhero"}, heroPic, h("div", {class: "herotext"},
+    h("div", {class: "heroname"}, shownName || charName(c)),
+    h("div", {class: "sub"}, [shownName ? charName(c) : null, canTeam ? (c.battles || 0) + " battles" : roughBattles(c.battles || 0), cap(c.place)].filter(Boolean).join(" · ")),
+    isMine ? h("div", {class: "herosteps"}, h("label", {class: "heroedit"}, h("span", {class: "sub"}, "Trainer name"), nameBox),
+      step(!!look.sprite, follower ? "sprites (from " + charName(mainChar) + ")" : "sprites", openStudio),
+      step(storyOf(c.id).lines.length > 0, "story team", () => toTab("team"))) : null,
+    isMine || npcHere ? h("div", {class: "heroacts"},
+      isMine ? h("button", {type: "button", class: "primary", onclick: openStudio}, follower ? "TRAINER STUDIO (ON " + charName(mainChar).toUpperCase() + ")" : look.sprite ? "✎ OPEN THE TRAINER STUDIO" : "✎ MAKE THE TRAINER SPRITE") : null,
+      h("button", {type: "button", class: isMine ? "" : "primary", onclick: () => toTab("team")}, "EDIT THE STORY TEAM ▶")) : null,
+    !cl.by ? claimArea : null));
+  if (!charTab) charTab = isMine ? (look.sprite ? "team" : "sprites") : !cl.by && !npcHere ? "about" : "sprites";
+  const tabBtn = (id, label) => h("button", {type: "button", role: "tab", class: "small" + (charTab === id ? " primary" : ""), "aria-selected": String(charTab === id), onclick: () => toTab(id)}, label);
+  const tabs = h("div", {class: "chartabs", role: "tablist", id: "char-tabs", "aria-label": "Parts of the trainer page"},
+    tabBtn("sprites", "SPRITES"), tabBtn("team", canTeam ? "STORY TEAM" : "TEAMS"), tabBtn("about", "ABOUT"));
+  // SPRITES: the studio first for the owner, then every sprite
+  const studio = isMine && follower ? h("div", {class: "box", id: "char-studio", style: "margin-top:0"},
+      h("div", {class: "sub"}, "This trainer is merged with ", openMain(), ": it uses that trainer's name and sprites, so make changes there. To give it sprites of its own, take it out of the merge under ABOUT > YOUR OTHER TRAINERS (it keeps a copy of everything)."))
+    : isMine ? h("div", {class: "box", id: "char-studio", style: "margin-top:0"}, h("b", {}, "Trainer studio"),
+      h("div", {class: "sub"}, "Your trainer's battle sprite, VS portrait, back, animation and map figure, made from your picture by the drawing PC in the style of the DS games."),
+      trainerSpriteBox("trainer-" + c.id, studioOpts)) : null;
+  const spritesTab = h("div", {}, studio,
+    trainerShowcase(sp, shownName) || h("div", {class: "empty", style: "margin-top:10px"}, isMine ? "No sprites yet: make them in the trainer studio." : npcHere ? "The NPC has no sprites yet (they are made on its page)." : "No sprites yet. The one who claims this trainer makes them."));
+  // ABOUT: the facts and, for the owner, giving it back; the pictures and the owner's other trainers
+  const facts = h("div", {class: "factrows"},
       h("div", {}, h("span", {}, "Role"), c.group),
       h("div", {}, h("span", {}, "Type"), String(c.type || "")),
-      c.about ? h("div", {}, h("span", {}, "Story"), c.about.charAt(0).toUpperCase() + c.about.slice(1)) : null,
-      h("div", {}, h("span", {}, "Surroundings"), c.place ? c.place.charAt(0).toUpperCase() + c.place.slice(1) : "—"),
+      c.about ? h("div", {}, h("span", {}, "Story"), cap(c.about)) : null,
+      h("div", {}, h("span", {}, "Surroundings"), c.place ? cap(c.place) : "—"),
       c.rule ? h("div", {}, h("span", {}, "Rule"), c.rule) : null,
       h("div", {}, h("span", {}, "Battles"), canTeam ? String(c.battles || 0) + " (each needs its own team): " + sideCount(c) : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
       c.dialogue ? h("div", {}, h("span", {}, "Dialogue"), talkWord(c) + ": " + c.dialogue.story + " text boxes in the story and " + c.dialogue.battle + " lines in battle, about " + c.dialogue.words.toLocaleString("en") + " words") : null,
       mates.length ? h("div", {}, h("span", {}, "Same trainer as"), h("span", {}, mates.map((x, i) => [i ? ", " : "",
         h("button", {type: "button", class: "linkish", onclick: () => openCharacter(charById(x))}, charName(charById(x)))]),
         follower && mates.length > 1 ? " (name and sprites from " + charName(mainChar) + ")" : "")) : null,
-      h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (look.name ? " (as " + look.name + ")" : "") : npcHere ? "the NPC " + (npcHere.name || "NPC") + (cl.assigned_by ? " (put here by " + person(cl.assigned_by) + ")" : "") : h("span", {class: "badge avail"}, "available"))),
-    steps, claimArea, mergeBox,
-    h("h3", {id: "char-picture"}, "Picture"),
+      h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (look.name ? " (as " + look.name + ")" : "") : npcHere ? "the NPC " + (npcHere.name || "NPC") + (cl.assigned_by ? " (put here by " + person(cl.assigned_by) + ")" : "") : h("span", {class: "badge avail"}, "available")));
+  const pictures = h("div", {},
+    h("h3", {id: "char-picture", style: "margin-top:0"}, "Picture"),
     h("div", {class: "charpics"}, pics.length ? pics.map(p => h("figure", {}, h("img", {src: p.src, alt: "trainer picture"}),
       // Whoever claimed the trainer, whoever uploaded the picture, or anyone while nobody holds the trainer, can remove it
       // (Arvind, 2026-11-17: people must be able to get rid of their pictures). The file itself is deleted too.
@@ -5769,14 +5825,10 @@ function renderCharacterPage(c) {
             trainerPics.set(c.id, (trainerPics.get(c.id) || []).filter(x => x.id !== p.id)); openCharacter(c, "picture"); }
           catch (err) { status.textContent = err.message; }
         })}, "Remove")) : null)) : h("span", {class: "sub"}, "No picture yet.")),
-    isMine ? h("div", {class: "sub"}, "Pictures here are public. For your trainer sprite, use the TRAINER STUDIO below: a picture you upload there stays private. ", upload) : h("div", {class: "sub"}, "The one who claims this trainer adds a picture here."),
-    isMine ? null : h("div", {class: "sub", style: "margin-top:8px"}, look.sprite ? "This trainer has its trainer sprite." : "The one who claims this trainer makes its sprite in the trainer studio."));
-  const studio = isMine && follower ? h("div", {class: "charmain", style: "margin-top:14px"}, h("h3", {id: "char-studio", style: "margin-top:0"}, "Trainer studio"),
-      h("div", {class: "sub"}, "This trainer is merged with ", openMain(), ": it uses that trainer's name and sprites, so make changes there. To give it sprites of its own, take it out of the merge under YOUR OTHER TRAINERS (it keeps a copy of everything)."))
-    : isMine ? h("div", {class: "charmain", style: "margin-top:14px"}, h("h3", {id: "char-studio", style: "margin-top:0"}, "Trainer studio"),
-    h("div", {class: "sub"}, "Your trainer's battle sprite and map figure, made from your picture by the drawing PC in the style of the DS games."),
-    trainerSpriteBox("trainer-" + c.id, {kind: "mine", name: charName(c), pics: pics.map(p => ({id: p.id, src: p.src})), current: cl.sprite,
-      onPick: async sprite => { cl.sprite = sprite; await saveClaim(cl.by, cl.slots, cl.story); }, onClose: () => { if (charOpen === c.id) openCharacter(c); }})) : null;
+    isMine ? h("div", {class: "sub"}, "Pictures here are public. For your trainer sprite, use the TRAINER STUDIO: a picture you upload there stays private. ", upload) : h("div", {class: "sub"}, "The one who claims this trainer adds a picture here."));
+  const aboutTab = h("div", {class: "charabout"},
+    h("div", {class: "charside"}, facts, isMine ? h("div", {style: "margin-top:10px"}, claimArea) : null),
+    h("div", {class: "charside"}, mergeBox ? h("div", {style: "margin-bottom:12px"}, mergeBox) : null, pictures));
 
   // ----- right: the story team as six slots (Showdown's team row), then every battle
   if (lib.teams === null && DEX.web.url && !lib.error && !lib.loading) { lib.loading = true; loadLibrary().catch(err => { lib.error = err.message; }).then(() => { lib.loading = false; if (charOpen === c.id) openCharacter(c); }); }
@@ -5911,7 +5963,8 @@ function renderCharacterPage(c) {
       h("div", {class: "sub"}, "Auto: the website makes each battle's team from your story team (how many Pokemon, levels, stages and moves). To change a battle's team, press Copy to TEAMS: the team opens in TEAMS and is used for that battle, and what you change there is saved here by itself. You can also pick one of your shared teams in the menu. The others only see your teams behind spoiler buttons."),
       battles);
   }
-  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, show, h("div", {class: "charcols"}, left, main), studio));
+  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, hero, tabs,
+    charTab === "team" ? main : charTab === "about" ? aboutTab : spritesTab));
 }
 function renderCharacters() {
   const grid = document.getElementById("grid");
@@ -8561,6 +8614,8 @@ function renderNav() {
   document.getElementById("show").style.display = view === "species" ? "" : "none";
   document.getElementById("home").className = "ds home" + (WIDE_VIEWS.includes(view) ? " wide" : "");
   document.getElementById("home").dataset.view = view;
+  // a trainer's or an NPC's own page starts right under the menu (2026-11-27: the CHARACTERS header pushed it far down)
+  document.getElementById("home").dataset.page = view === "chars" && (charOpen || npcOpen) ? "detail" : "";
   document.getElementById("botscreen").dataset.c = VIEW_COLOUR[view] || "purple";
   document.getElementById("page").classList.toggle("bare", (view === "species" && layout === "cards") || view === "board");
   drawTop();
