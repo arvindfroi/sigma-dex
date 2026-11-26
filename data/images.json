@@ -7504,13 +7504,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2530,
-    "species": "wump",
-    "file": "assets/concept-art/wump/2530.png",
-    "caption": "[ds-front] sprite #493",
-    "editor": "Arvind"
-  },
-  {
     "id": 2534,
     "species": "iglomodo",
     "file": "assets/concept-art/iglomodo/2534.png",
@@ -8684,13 +8677,6 @@
     "species": "bolthook",
     "file": "assets/concept-art/bolthook/2951.png",
     "caption": "[ds-back2] sprite #575",
-    "editor": "Arvind"
-  },
-  {
-    "id": 2956,
-    "species": "wump",
-    "file": "assets/concept-art/wump/2956.png",
-    "caption": "[ds-front2] sprite #576",
     "editor": "Arvind"
   },
   {
@@ -12268,6 +12254,20 @@
     "species": "bergflabbser",
     "file": "assets/concept-art/bergflabbser/6010.png",
     "caption": "[ds-front] sprite #1114",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6016,
+    "species": "wump",
+    "file": "assets/concept-art/wump/6016.png",
+    "caption": "[ds-front] sprite #1115",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6020,
+    "species": "wump",
+    "file": "assets/concept-art/wump/6020.png",
+    "caption": "[ds-front2] sprite #1115",
     "editor": "Arvind"
   }
 ]

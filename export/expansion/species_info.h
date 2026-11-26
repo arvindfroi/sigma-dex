@@ -751,9 +751,9 @@
 
     [SPECIES_PIPWI] =
     {
-        .baseHP = 55,
+        .baseHP = 50,
         .baseAttack = 55,
-        .baseDefense = 50,
+        .baseDefense = 45,
         .baseSpeed = 65,
         .baseSpAttack = 30,
         .baseSpDefense = 45,

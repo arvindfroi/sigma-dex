@@ -428,9 +428,9 @@ SINGLE_BATTLE_TEST("Sigma dex: Florantula can use its first move in battle")
 TEST("Sigma dex: Pipwi has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_PIPWI];
-    EXPECT_EQ(info->baseHP, 55);
+    EXPECT_EQ(info->baseHP, 50);
     EXPECT_EQ(info->baseAttack, 55);
-    EXPECT_EQ(info->baseDefense, 50);
+    EXPECT_EQ(info->baseDefense, 45);
     EXPECT_EQ(info->baseSpeed, 65);
     EXPECT_EQ(info->baseSpAttack, 30);
     EXPECT_EQ(info->baseSpDefense, 45);

@@ -25,7 +25,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 14 | [Wump](data/species/wump.yaml) | Bug | Swarm, Run Away, Unburden (H) | 300 | Twemp (Lv 16) | 69% |
 | 15 | [Twemp](data/species/twemp.yaml) | Bug / Grass | Swarm, Leaf Guard, Grassy Surge (H) | 380 | Florantula (Lv 38) | 69% |
 | 16 | [Florantula](data/species/florantula.yaml) | Bug / Grass | Swarm, Enticing Lure, Grassy Surge (H) | 490 |  | 72% |
-| 17 | [Pipwi](data/species/pipwi.yaml) | Grass | Early Bird, Harvest, Grass Pelt (H) | 300 | Tropistrich (Lv 30) | 72% |
+| 17 | [Pipwi](data/species/pipwi.yaml) | Grass | Early Bird, Harvest, Grass Pelt (H) | 290 | Tropistrich (Lv 30) | 72% |
 | 18 | [Tropistrich](data/species/pipwi-utv.yaml) | Grass / Flying | Early Bird, Harvest, Tough Claws (H) | 470 |  | 72% |
 | 19 | [Blutie](data/species/coati.yaml) | Normal | Run Away, Quick Feet, Unburden (H) | 255 | Coatail (Lv 20) | 72% |
 | 20 | [Coatail](data/species/coatail.yaml) | Normal | Run Away, Quick Feet, Unburden (H) | 446 |  | 72% |
