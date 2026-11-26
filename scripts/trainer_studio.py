@@ -312,15 +312,28 @@ def vs_pose(settings, seed, n):
     return own("pose") or g, own("facing") or f, own("mood") or m
 
 
-def vs_text(V, cls, words, plain=False, pose=None):
-    """plain (2026-11-23, vs_gen.py NODESC; tried on one test person: it looked more like them): no
-    personal description, only the pose words, so the likeness comes from the pictures"""
+def vs_text(V, cls, words, plain=False, pose=None, fields=None):
+    """plain (2026-11-23, vs_gen.py NODESC; tried on one test person: it looked more like them): no clothes or extra
+    words, so the likeness comes from the pictures. 2026-11-26 (Arvind: Stevie Wonder's VS "ble bare en hvit person",
+    "det virker jo som de ikke ser på bildet"): since the PICTURE fields (11-24) the person's words live in `fields`, not
+    `words`, and this step only read `words`, so every VS was asked for "a trainer" with no skin, hair or glasses. The VS LoRA
+    learnt from 54 portraits that are nearly all fair-skinned, so without the words it draws a light face whatever the
+    pictures show. Now the fields go in like the other steps; plain keeps skin, hair and extras (glasses, moustache), the
+    things that make the face, and leaves clothes and held items to the pictures."""
     g, f, m = pose or VS_POSES[0]
+    fd = dict(fields or {})
+    w = (words or "").strip().rstrip(".")
+    who = fd.get("who") or w or "a trainer"
+    if fd.get("build"):
+        who = "%s, %s build" % (who, fd["build"])               # describe() has no build field (as in vs_gen.py)
     if plain:
-        desc = "A trainer. Gesture: %s. Facing: %s. Mood: %s. " % (g, f, m)
+        r = {"who": who, "skin": fd.get("skin"), "hair": fd.get("hair"), "extra": fd.get("extra")}
+        desc = V.describe(r, "trainer", 0)
     else:
-        r = {"who": (words or "").strip().rstrip(".") or "a trainer", "gesture": g, "facing": f, "mood": m}
+        r = {"who": who, "skin": fd.get("skin"), "hair": fd.get("hair"), "clothes": fd.get("clothes"),
+             "extra": ", ".join(x for x in (fd.get("extra"), w if fd.get("who") else "") if x), "held": fd.get("held")}
         desc = V.describe(r, cls, 0)
+    desc += "Gesture: %s. Facing: %s. Mood: %s. " % (g, f, m)
     text = V.caption(desc, True).replace("often with a hand in a strong gesture", "with the pose given in the words")
     return text.replace("clothes and colours. ", "clothes and colours. Image 2 is a photo of the same person: keep their real face, age and build. ", 1)
 
@@ -363,7 +376,7 @@ def run_vs(job, base, key, post, download, folder, log=print):
             raw = folder / ("vs_raw%d.png" % n)
             plain = n % 2 == 0                           # half the tries without the description (tested only on one person)
             pose = vs_pose(settings, seed, n)
-            text = vs_text(V, row.get("cls") or "Pokemon Trainer", settings.get("words") or "", plain, pose)
+            text = vs_text(V, row.get("cls") or "Pokemon Trainer", settings.get("words") or "", plain, pose, fields_of(settings))
             raw.write_bytes(comfy.run(comfy.klein(text, refs_of[plain], 384, 256, seed, "sigma/trainervs", lora=VS_LORA)))
             portrait = klein_follower.to_back(raw)
             image = folder / ("vs%d.png" % n)
