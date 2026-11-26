@@ -33883,6 +33883,10 @@
       "learnset": {
         "level_up": [
           {
+            "level": 0,
+            "move": "Icicle Thrust"
+          },
+          {
             "level": 1,
             "move": "Ice Shard"
           },
@@ -33919,28 +33923,20 @@
             "move": "Slash"
           },
           {
-            "level": 22,
-            "move": "Power-Up Punch"
-          },
-          {
             "level": 25,
-            "move": "Dynamic Punch"
+            "move": "Agility"
           },
           {
-            "level": 32,
-            "move": "Brick Break"
+            "level": 28,
+            "move": "Reversal"
           },
           {
             "level": 32,
             "move": "Ice Fang"
           },
           {
-            "level": 33,
-            "move": "Reversal"
-          },
-          {
-            "level": 36,
-            "move": "Agility"
+            "level": 34,
+            "move": "Brick Break"
           },
           {
             "level": 37,

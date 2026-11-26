@@ -90,6 +90,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - Florantula: ability 'Enticing Lure' is not in the game yet, left out
 - Freezrick: move 'Ice Egg' is not in the game yet, left out
 - Furamire: move 'Flirty Punch' is not in the game yet, left out
+- Glacépée: move 'Icicle Thrust' is not in the game yet, left out
 - Harpie: evolution into Smeatherace left out until that Pokemon is ready
 - Leadleak: ability 'Radiation Eater' is not in the game yet, left out
 - Leadling: ability 'Radiation Eater' is not in the game yet, left out

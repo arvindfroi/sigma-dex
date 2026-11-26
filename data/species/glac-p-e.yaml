@@ -66,6 +66,7 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
+    - {level: 0, move: Icicle Thrust}
     - {level: 1, move: Ice Shard}
     - {level: 1, move: Leer}
     - {level: 1, move: Powder Snow}
@@ -75,12 +76,10 @@ learnset:
     - {level: 10, move: Focus Energy}
     - {level: 19, move: Feint}
     - {level: 21, move: Slash}
-    - {level: 22, move: Power-Up Punch}
-    - {level: 25, move: Dynamic Punch}
-    - {level: 32, move: Brick Break}
+    - {level: 25, move: Agility}
+    - {level: 28, move: Reversal}
     - {level: 32, move: Ice Fang}
-    - {level: 33, move: Reversal}
-    - {level: 36, move: Agility}
+    - {level: 34, move: Brick Break}
     - {level: 37, move: Icicle Crash}
     - {level: 40, move: Sacred Sword}
     - {level: 42, move: Iron Defense}

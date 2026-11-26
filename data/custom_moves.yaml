@@ -114,6 +114,19 @@ moves:
     ally's priority-boosted... no, that doesn't apply, so it works normally under all terrains.
   similar_to: Pollen Puff
   designer: Emil
+- id: icicle-thrust
+  name: Icicle Thrust
+  type: Ice
+  category: physical
+  power: 80
+  accuracy: 100
+  pp: 15
+  target: one opponent
+  contact: true
+  effect: User thrusts forward with a sharp icicle that ignores redirection and has a high critical-hit
+    ratio.
+  similar_to: Snipe Shot
+  designer: Emil
 - id: inverted-bite-of-heaven
   name: Inverted Bite of Heaven
   type: Fighting
