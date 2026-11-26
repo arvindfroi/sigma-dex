@@ -12185,5 +12185,89 @@
     "file": "assets/concept-art/glac-pee-mindre-evo/5922.png",
     "caption": "pasted",
     "editor": "Emil"
+  },
+  {
+    "id": 5923,
+    "species": "withstar",
+    "file": "assets/concept-art/withstar/5923.png",
+    "caption": "[ds-front] sprite #1100",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5924,
+    "species": "withstar",
+    "file": "assets/concept-art/withstar/5924.png",
+    "caption": "[ds-back] sprite #1100",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5925,
+    "species": "withstar",
+    "file": "assets/concept-art/withstar/5925.png",
+    "caption": "[ds-follower] sprite #1100",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5926,
+    "species": "withstar",
+    "file": "assets/concept-art/withstar/5926.png",
+    "caption": "[ds-front2] sprite #1100",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5927,
+    "species": "withstar",
+    "file": "assets/concept-art/withstar/5927.png",
+    "caption": "[ds-back2] sprite #1100",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5930,
+    "species": "withstar",
+    "file": "assets/concept-art/withstar/5930.png",
+    "caption": "[ds-icon] sprite #1100",
+    "editor": "Arvind"
+  },
+  {
+    "id": 5934,
+    "species": "glac-pee-mindre-evo",
+    "file": "assets/concept-art/glac-pee-mindre-evo/5934.png",
+    "caption": "[ds-front] sprite #1103",
+    "editor": "Emil"
+  },
+  {
+    "id": 5935,
+    "species": "glac-pee-mindre-evo",
+    "file": "assets/concept-art/glac-pee-mindre-evo/5935.png",
+    "caption": "[ds-back] sprite #1103",
+    "editor": "Emil"
+  },
+  {
+    "id": 5936,
+    "species": "glac-pee-mindre-evo",
+    "file": "assets/concept-art/glac-pee-mindre-evo/5936.png",
+    "caption": "[ds-icon] sprite #1103",
+    "editor": "Emil"
+  },
+  {
+    "id": 5940,
+    "species": "glac-pee-mindre-evo",
+    "file": "assets/concept-art/glac-pee-mindre-evo/5940.png",
+    "caption": "[ds-follower] sprite #1103",
+    "editor": "Emil"
+  },
+  {
+    "id": 5941,
+    "species": "glac-pee-mindre-evo",
+    "file": "assets/concept-art/glac-pee-mindre-evo/5941.png",
+    "caption": "[ds-front2] sprite #1103",
+    "editor": "Emil"
+  },
+  {
+    "id": 5942,
+    "species": "glac-pee-mindre-evo",
+    "file": "assets/concept-art/glac-pee-mindre-evo/5942.png",
+    "caption": "[ds-back2] sprite #1103",
+    "editor": "Emil"
   }
 ]

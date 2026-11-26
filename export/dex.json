@@ -33796,7 +33796,7 @@
           "tutor moves": 69,
           "egg moves": 69
         },
-        "body_shape": null,
+        "body_shape": "an upright body on two legs without a tail",
         "movement": null,
         "look": null
       },
@@ -42825,7 +42825,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Milotic"
       },
       "id": "withstar"
     },
