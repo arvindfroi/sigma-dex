@@ -131,7 +131,7 @@ Deno.serve(async (req: Request) => {
     // The trainer studio (2026-11-21): the uploaded picture of the job being drawn is private (trainer-photos); the
     // drawing PC gets a link that works for two minutes.
     if (action === "trainer_photo") {
-      if (!["trainer", "vs", "map", "tback"].includes(job.stage)) return reply(400, { message: "Not a trainer job" });   // vs = the VS portrait, map = more map figures, tback = the back (2026-11-22)
+      if (!["trainer", "vs", "map", "tback", "anim"].includes(job.stage)) return reply(400, { message: "Not a trainer job" });   // vs = the VS portrait, map = more map figures, tback = the back (2026-11-22), anim = the pose copy (2026-11-27)
       const { data: full } = await supabase.from("sprite_jobs").select("prompt").eq("id", jobId).single();
       let photo: number | null = null;
       try { photo = Number(JSON.parse(String(full?.prompt ?? "{}")).photo) || null; } catch (_e) { photo = null; }
