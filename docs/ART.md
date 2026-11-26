@@ -585,6 +585,13 @@ steps are 1 PICTURE, 2 BASE, 3 MAKE, 4 MAP, 5 ANIM, 6 VS, 7 BACK, SAVE):
 - **6 VS** (stage `vs`): the VS portrait, VS LoRA v1 step 2000 (image 1 = the battle sprite, image 2 = the picture). Since
   2026-11-23 every second try has no personal description (only "A trainer holding a Poke Ball", vs_gen.py NODESC) and the
   picture at its own size up to 1 MP (PHOTOFULL); tested only on one person, so both kinds are offered, not a switch.
+  **Pose (2026-11-26, Arvind: "many VS sprites look very alike")**: every portrait used to be asked for the same pose ("a
+  hand raised in a confident gesture", plain: "holding a Poke Ball", and the caption's "often with a hand in a strong
+  gesture"), so most came out with a raised index finger. Now the VS step has a Pose list (the 18 gestures of
+  `trainer_studio.VS_POSES`, the training captions' own words) and a free text box that wins over it; both go as the
+  `pose` field. "Random" leaves `pose` out and the drawing PC gives each try its own gesture + facing + mood from the list
+  (seeded); `facing` / `mood` from 1 PICTURE still win. A pose from 1 PICTURE (meant for the battle sprite) is not used for
+  the VS unless chosen here. Tried on seven NPCs: far more varied, likeness kept.
 - **7 BACK** (only player characters and tag partners; the order is front -> VS -> back -> throw; recipe
   `title3d/legend/trainers/locked_back_throw_v2`, "Step 1 update", Arvind 2026-11-23: "Ja vs + foto var bra"):
   stage `tback` (RPC `request_trainer_back(p_try, p_shape, p_count 1-8, p_editor, p_extra, p_vs)`, default 6; the page sends

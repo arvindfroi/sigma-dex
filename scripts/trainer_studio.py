@@ -277,15 +277,51 @@ VS_LORA = os.environ.get("TRAINER_VS_LORA", "pkmn_vs_klein_v1_000002000.safetens
 VS_SECONDS = 25
 
 
-def vs_text(V, cls, words, plain=False):
+# 2026-11-26 Arvind: "many VS sprites look very alike". Cause: every portrait was asked for the same pose
+# ("a hand raised in a confident gesture", plain: "holding a Poke Ball") and the caption ended "often with a hand in a strong
+# gesture". The LoRA was trained with varied gesture/facing/mood words (vs_captions.tsv), so each try now gets its own from this
+# list (same vocabulary as the training words), unless the person wrote a pose (settings or settings.fields: pose / facing / mood).
+VS_POSES = [
+    ("one fist raised beside the head", "turned to the right", "calm, determined"),
+    ("hand on hip", "facing the viewer", "sly smile"),
+    ("holding the ball up at the side", "facing the viewer", "calm, confident"),
+    ("arms crossed over the chest", "facing the viewer", "confident smirk"),
+    ("hand resting on cheek", "facing the viewer", "sweet smile"),
+    ("pointing at the viewer with two fingers", "turned to the left", "fierce, determined"),
+    ("both fists raised", "facing the viewer", "eager grin"),
+    ("hand held near the chest", "turned to the left", "cool, serious"),
+    ("one arm swung out to the side", "turned to the left", "excited open-mouth smile"),
+    ("hand raised in a salute", "facing the viewer", "cocky grin"),
+    ("hand tipping the hat", "facing the viewer", "amused smile"),
+    ("thumb pointing at himself", "facing the viewer", "eyes closed, relaxed smile"),
+    ("fist held up near the chest", "turned to the right", "calm, serious"),
+    ("hand on chin", "facing the viewer", "sly smirk"),
+    ("making a peace sign", "facing the viewer", "cheerful grin"),
+    ("arm stretched out to the side", "turned to the left", "confident grin"),
+    ("hands held low near the chest", "turned to the left", "calm, shy"),
+    ("fist raised in front of the chest", "turned to the right", "smug smirk"),
+]
+
+
+def vs_pose(settings, seed, n):
+    """(gesture, facing, mood) for try n: the person's own words win; the rest comes from VS_POSES, a different one per try"""
+    import random as _random
+    g, f, m = _random.Random(seed).choice(VS_POSES)
+    fields = settings.get("fields") if isinstance(settings.get("fields"), dict) else {}
+    own = lambda k: " ".join(str(settings.get(k) or fields.get(k) or "").split())[:120]
+    return own("pose") or g, own("facing") or f, own("mood") or m
+
+
+def vs_text(V, cls, words, plain=False, pose=None):
     """plain (2026-11-23, vs_gen.py NODESC; tried on one test person: it looked more like them): no
     personal description, only the pose words, so the likeness comes from the pictures"""
+    g, f, m = pose or VS_POSES[0]
     if plain:
-        desc = "A trainer holding a Poke Ball. "
+        desc = "A trainer. Gesture: %s. Facing: %s. Mood: %s. " % (g, f, m)
     else:
-        r = {"who": (words or "").strip().rstrip(".") or "a trainer", "gesture": "a hand raised in a confident gesture"}
+        r = {"who": (words or "").strip().rstrip(".") or "a trainer", "gesture": g, "facing": f, "mood": m}
         desc = V.describe(r, cls, 0)
-    text = V.caption(desc, True)
+    text = V.caption(desc, True).replace("often with a hand in a strong gesture", "with the pose given in the words")
     return text.replace("clothes and colours. ", "clothes and colours. Image 2 is a photo of the same person: keep their real face, age and build. ", 1)
 
 
@@ -316,7 +352,6 @@ def run_vs(job, base, key, post, download, folder, log=print):
     sprite_up = comfy.upload(folder / "vs_sprite.png")
     refs_of = {False: [sprite_up, comfy.upload(folder / "vs_photo.png")], True: [sprite_up, comfy.upload(folder / "vs_photo_full.png")]}
     row = base_row(job.get("recipe"))
-    texts = {plain: vs_text(V, row.get("cls") or "Pokemon Trainer", settings.get("words") or "", plain) for plain in (False, True)}
     made = 0
     for n in range(1, int(job.get("count") or 1) + 1):
         seed = job["id"] * 100 + n
@@ -327,13 +362,15 @@ def run_vs(job, base, key, post, download, folder, log=print):
         try:
             raw = folder / ("vs_raw%d.png" % n)
             plain = n % 2 == 0                           # half the tries without the description (tested only on one person)
-            raw.write_bytes(comfy.run(comfy.klein(texts[plain], refs_of[plain], 384, 256, seed, "sigma/trainervs", lora=VS_LORA)))
+            pose = vs_pose(settings, seed, n)
+            text = vs_text(V, row.get("cls") or "Pokemon Trainer", settings.get("words") or "", plain, pose)
+            raw.write_bytes(comfy.run(comfy.klein(text, refs_of[plain], 384, 256, seed, "sigma/trainervs", lora=VS_LORA)))
             portrait = klein_follower.to_back(raw)
             image = folder / ("vs%d.png" % n)
             portrait.save(image)
             status = "done" if portrait.size == (96, 64) and portrait.getbbox() else "broken"
             post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": status,
-                             "note": "VS portrait from battle sprite #%s + the picture%s, seed %d" % (src.get("id"), " (no description, full-size picture)" if plain else "", seed),
+                             "note": "VS portrait from battle sprite #%s + the picture%s, seed %d, pose: %s / %s / %s" % (src.get("id"), " (no description, full-size picture)" if plain else "", seed, pose[0], pose[1], pose[2]),
                              "seconds": round(time.time() - started, 1)}, {"image": image, "raw": raw})
             made += 1
         except Exception as problem:
