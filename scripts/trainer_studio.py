@@ -660,6 +660,10 @@ def size_lock(panel, ref_h):
 # A pose that came out much smaller than the game's (area < ANIM_AREA x the front's x the game's ratio) is drawn again.
 ANIM_COPY_SWAP = 0.5
 ANIM_AREA = 0.82
+# ... and one much bigger than that (2026-11-27 night, Arvind's Flint order 4052 try 3: a zoomed-in close-up cut at the bottom,
+# area 1.29 and 1.58 x the expected; good poses were 0.86-1.19): drawn again too. A set whose poses all stay off in size after
+# ANIM_TRIES is handed in as 'broken', so the studio shows it as doubtful.
+ANIM_AREA_MAX = 1.25
 
 
 def size_fit(panel, want):
@@ -846,8 +850,9 @@ def run_anim(job, base, key, post, download, folder, log=print):
                         pose, _ = lock_palette(trainer_post.battle(klein_follower.to_back(right)), pal)
                         pose = no_loose(pose)
                         strip.alpha_composite(pose, (80 * j, 0))
-                        small = area_of(pose) < ANIM_AREA * front_area * ratio_a[j]
-                        gaps.append(colour_gap(sprite, pose) + (1.0 if small else 0.0))
+                        want_area = front_area * ratio_a[j]
+                        off_size = not (ANIM_AREA * want_area <= area_of(pose) <= ANIM_AREA_MAX * want_area)
+                        gaps.append(colour_gap(sprite, pose) + (1.0 if off_size else 0.0))
                         continue
                     text = ("Two 80x80 pixel art battle sprites of the same trainer (%s, build: %s) side by side on a flat magenta "
                             "background, like two animation frames. The left one is exactly image 1. The right one is the same trainer with "
@@ -878,13 +883,14 @@ def run_anim(job, base, key, post, download, folder, log=print):
             image = folder / ("anim%d.png" % n)
             strip.save(image)
             shrunk = [s for s in scales if s < 1]
-            post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "done",
+            post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "broken" if worst >= 1.0 else "done",
                              "note": ("%s animation (%d poses) %s%s%s from battle sprite #%s, seed %d, build %s%s%s" % (
                                  script["name"], len(drawn) + 1, ("copied from the game's poses" + (" x%.2f wide" % cwidth if cwidth != 1 else "") + (" x%.2f tall" % cheight if cheight != 1 else "")) if copy else "side by side",
                                  " + swap %.2f" % swap if swap > 0 else "", ", mirrored" if flip else "", src.get("id"), used_seed, build,
                                  ", size locked x" + "/".join("%.2f" % s for s in shrunk) if shrunk else "",
                                  ", extra: " + extra if extra else "") + (", kept %d poses from #%s" % (kept, settings.get("frames_try")) if have is not None else "")
-                                 + (", drawn %d times to keep the look (worst pose %.2f)" % (again + 1, worst) if again else ""))[:300],
+                                 + (", drawn %d times to keep the look (worst pose %.2f)" % (again + 1, worst) if again else "")
+                                 + (", a pose is still far off in size" if worst >= 1.0 else ""))[:300],
                              "seconds": round(time.time() - started, 1)}, {"image": image})
             made += 1
         except Exception as problem:
