@@ -2201,7 +2201,7 @@ function openEditor(s) {
     category: textInput(d.category, {maxlength: 20}),
     description: h("textarea", {rows: 3, maxlength: 400}, d.description || ""),
     byClaude: new Map(),   // fields the "Fill in the empty ones for me" button filled: Claude's while left as they are
-    height: numberInput(d.height_m, 0.1, 99, 0.1), weight: numberInput(d.weight_kg, 0.1, 9999.9, 0.1),
+    height: numberInput(d.height_m, 0.1, 99, "any"), weight: numberInput(d.weight_kg, 0.1, 9999.9, "any"),
     color: selectInput(d.body_color, L.body_colors, "not decided"),
     ability1: abilityInput(abilities.primary), ability2: abilityInput(abilities.secondary),
     hidden: abilityInput(abilities.hidden),
@@ -2302,6 +2302,20 @@ function openEditor(s) {
   }
   async function submit(ev) {
     ev.preventDefault();
+    // 26 Nov 2026 (Arvind: "save knappen reagerer ikke" on Freezrick): the browser blocked the save without a word when
+    // a field on a hidden tab was invalid (its height 0.89 did not fit the 0.1 step). Now the form does not validate by
+    // itself; SAVE opens the tab and section of the first field that is wrong and says what is wrong.
+    const bad = [...form.elements].find(el => el.willValidate && !el.checkValidity());
+    if (bad) {
+      const tab = EDIT_TABS.findIndex(([id]) => pageEls[id].contains(bad));
+      if (tab >= 0) tabButtons[tab].click();
+      for (let el = bad.parentElement; el; el = el.parentElement) if (el.tagName === "DETAILS") el.open = true;
+      const box = bad.closest(".field"), title = box && box.querySelector("span"), label = title ? title.textContent : "";
+      error.textContent = (label ? label + ": " : "") + bad.validationMessage;
+      drawAsk();
+      bad.focus(); bad.reportValidity();
+      return;
+    }
     const data = collect(), problem = check(data);
     error.textContent = problem || "";
     drawAsk();
@@ -2451,7 +2465,7 @@ function openEditor(s) {
       : isNew ? "Save this new Pokemon?" + (newPics.length ? "\nWith " + newPics.length + " picture" + (newPics.length > 1 ? "s" : "") + "." : "") : "Nothing changed yet.",
       h("div", {class: "who"}, me() ? "Saved as " + me() : "Tip: write your name at the top of the page"));
   }
-  const form = h("form", {class: "ds", onsubmit: submit, oninput: () => { if (!queued) { queued = true; requestAnimationFrame(drawAsk); } },
+  const form = h("form", {class: "ds", novalidate: true, onsubmit: submit, oninput: () => { if (!queued) { queued = true; requestAnimationFrame(drawAsk); } },
     onchange: () => { if (!queued) { queued = true; requestAnimationFrame(drawAsk); } }},
     top.el, bottom);
   bottom.append(
