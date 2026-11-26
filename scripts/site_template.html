@@ -866,8 +866,8 @@ span.mergethumb { display: inline-flex; align-items: center; justify-content: ce
 .tfieldgrid .field.wide { grid-column: span 2; }
 @media (max-width: 760px) { .tfieldgrid .field.wide { grid-column: auto; } }
 .tfieldgrid .field > span { font-size: 13px; color: var(--muted); }
-.tfieldgrid .typo { font-size: 13px; color: var(--warn, #e0a030); }
-.tfieldgrid .typo button { margin-left: 6px; }
+.typo { font-size: 13px; color: var(--warn, #e0a030); }
+.typo button { margin-left: 6px; }
 .tbasewrap { position: relative; display: flex; }
 .tbasewrap > .tbase { flex: 1; }
 .tplus { position: absolute; top: 2px; right: 2px; min-height: 0; padding: 0 5px; font-size: 13px; line-height: 18px; border-width: 2px; }
@@ -5746,6 +5746,16 @@ function colourTypos(text) {
   }
   return out;
 }
+// the hint under a text box: "did you mean brown?" + a button that puts the word in (the box's own input listener saves it)
+function typoHint(input) {
+  const box = h("div", {class: "typo", role: "status"});
+  const check = () => fillIn(box, colourTypos(input.value).slice(0, 2).map(([w, t]) => h("div", {}, "\u201c" + w + "\u201d: did you mean " + t + "?",
+    h("button", {type: "button", class: "small", onclick: ev => { ev.preventDefault();
+      input.value = input.value.replace(new RegExp("\\b" + w + "\\b", "gi"), t); input.dispatchEvent(new Event("input")); }}, "Use " + t))));
+  input.addEventListener("input", check);
+  check();
+  return box;
+}
 const TFIELDS = [["who", "Who", "a young man, an old woman, a girl of about 10"],
   ["skin", "Skin", "light skin, tanned skin, dark brown skin, a pale made-up face"], ["hair", "Hair", "spiky white hair with a red streak, a golden band on the forehead"],
   ["clothes", "Clothes", "a long white cape with a high collar, a black sleeveless vest, black trousers, brown boots"],
@@ -6154,13 +6164,8 @@ function trainerStudio(slot, opts) {
     const counter = h("span", {class: "sub"}, filled());
     const box = ([k, label, ex]) => {
       const input = h("input", {type: "text", maxlength: 240, value: st.fields[k] || "", placeholder: "e.g. " + ex, "aria-label": label});
-      const typo = h("div", {class: "typo", role: "status"});
-      const check = () => fillIn(typo, colourTypos(input.value).slice(0, 2).map(([w, t]) => h("div", {}, "\u201c" + w + "\u201d: did you mean " + t + "?",
-        h("button", {type: "button", class: "small", onclick: ev => { ev.preventDefault();
-          input.value = input.value.replace(new RegExp("\\b" + w + "\\b", "gi"), t); input.dispatchEvent(new Event("input")); }}, "Use " + t))));
-      input.addEventListener("input", () => { st.fields[k] = input.value; remember.set("trainer-fields-" + slot, JSON.stringify(st.fields)); counter.textContent = filled(); check(); });
-      check();
-      return h("label", {class: "field" + (["clothes", "hair", "extra", "pose", "facing"].includes(k) ? " wide" : "")}, h("span", {}, label), input, typo);
+      input.addEventListener("input", () => { st.fields[k] = input.value; remember.set("trainer-fields-" + slot, JSON.stringify(st.fields)); counter.textContent = filled(); });
+      return h("label", {class: "field" + (["clothes", "hair", "extra", "pose", "facing"].includes(k) ? " wide" : "")}, h("span", {}, label), input, typoHint(input));
     };
     const moreN = TFIELDS_MORE.filter(([k]) => (st.fields[k] || "").trim()).length;
     return h("div", {class: "tfields"},
@@ -6294,7 +6299,7 @@ function trainerStudio(slot, opts) {
       h("div", {class: "sub"}, TFIELDS.filter(([k]) => (st.fields[k] || "").trim()).length ? "Your words from 1 PICTURE go with it. " : "",
         h("button", {type: "button", class: "link", onclick: () => go("picture")}, TFIELDS.some(([k]) => (st.fields[k] || "").trim()) ? "Change the words" : "Describe your trainer first (it helps a lot)")),
       st.more.length ? h("div", {class: "sub"}, "Bases: " + [st.base].concat(st.more).map(id => (trainerBase(id) || {}).label || id).join(", ") + " (each one " + st.count + "x)") : null,
-      h("label", {class: "notebox"}, h("span", {class: "sub"}, "Anything else? (optional, one line)"), words),
+      h("label", {class: "notebox"}, h("span", {class: "sub"}, "Anything else? (optional, one line)"), words, typoHint(words)),
       h("div", {class: "tstrength"}, h("span", {class: "sub"}, "close to the base"), strength, h("span", {class: "sub"}, "more like the picture"), strengthLabel),
       h("div", {class: "tryctl"}, btn, count, time),
       failed.length ? h("div", {class: "notice warn"}, "The last request failed: " + failed[0].error) : null,
@@ -6344,7 +6349,7 @@ function trainerStudio(slot, opts) {
       h("div", {class: "tilenote"}, "made with the battle sprite"));
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "map").what),
-      h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the map figure only (optional)"), extra),
+      h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the map figure only (optional)"), extra, typoHint(extra)),
       h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "map") * st.mapCount) + ")" : "Make a battle sprite in 3 FRONT first: the map figure is drawn from one."),
         from ? h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(from.image), alt: ""}), fromSel) : null),
       list.length ? h("div", {class: "hint"}, "All map figures of this trainer, from any battle sprite: the one you pick stays, whatever front you use.") : null,
@@ -6459,7 +6464,7 @@ function trainerStudio(slot, opts) {
             : "The moves of " + cur.name + "'s animation on your sprite. MAKE draws the " + (cur.poses - 1) + " other pose" + (cur.poses > 2 ? "s" : "") + ".")
           : "No animation: your trainer stands still, like most trainers.")),
       from && cur ? animBaseBox() : null,
-      from && cur ? h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the poses only (optional)"), extra) : null,
+      from && cur ? h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the poses only (optional)"), extra, typoHint(extra)) : null,
       from && cur ? h("div", {class: "tryctl"}, btn, count, strengthSelect("animStrength", [0.35, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7], copyNow ? "auto (0.50, tested)" : "auto (0.55, tested)", "How much each pose is repainted"),
         h("span", {class: "sub"}, "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "anim") * st.animCount) + ")")) : null,
       from && cur ? h("div", {class: "sub"}, "Strength: lower keeps the new pose; higher brings the face and clothes closer to your battle sprite (0.65 and up undid poses in the tests).") : null,
@@ -6528,7 +6533,7 @@ function trainerStudio(slot, opts) {
       from ? h("div", {class: "hint"}, h("b", {}, "1. The back. "), "The drawing PC starts from a player's back with the same look and paints your trainer on it: most tries from your picture and your VS portrait, some from your battle sprite (they keep the clothes best in the throw). It often takes a few tries: pick the one most like your trainer, or EDIT it.") : null,
       from && !vsId ? h("div", {class: "notice warn"}, "Pick a VS portrait in 5 VS first: the back is drawn from your picture and the VS together. ",
         h("button", {type: "button", class: "link", onclick: () => go("vs")}, "Go to 5 VS")) : null,
-      from ? h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the back only (optional)"), extra) : null,
+      from ? h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the back only (optional)"), extra, typoHint(extra)) : null,
       from ? h("div", {class: "tryctl"}, btn, shape, count, strengthSelect("backStrength", [0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8], "auto (0.60 / 0.65, tested)", "How far the back is repainted"),
         h("span", {class: "sub"}, "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "tback") * st.backCount) + ")")) : null,
       from ? h("div", {class: "sub"}, "Strength: lower keeps the game's back pose; higher looks more like your picture and VS, but may turn the face to the front.") : null,
@@ -6606,7 +6611,7 @@ function trainerStudio(slot, opts) {
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "vs").what),
       h("label", {class: "notebox"}, h("span", {class: "sub"}, "Pose"), pose),
-      h("label", {class: "notebox"}, h("span", {class: "sub"}, "Or write what they do (optional, wins over the list)"), poseText),
+      h("label", {class: "notebox"}, h("span", {class: "sub"}, "Or write what they do (optional, wins over the list)"), poseText, typoHint(poseText)),
       h("div", {class: "notebox"}, h("span", {class: "sub"}, "How much it looks like your picture"),
         h("div", {class: "tstrength"}, h("span", {class: "sub"}, "more the picture"), like, h("span", {class: "sub"}, "the VS look"), likeLabel)),
       h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "vs") * st.vsCount) + ")" : "Pick a battle sprite in 3 FRONT first."),
