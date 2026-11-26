@@ -50,7 +50,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Racedent** needs: base stats, a level-up move that exists in the game
 - **Ratpid** needs: base stats, a level-up move that exists in the game
 - **S.Rotom** needs: a level-up move that exists in the game
-- **Sukunomon** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Sukunomon** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Thooji** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Endermon** needs: a level-up move that exists in the game
 - **Crepawmon** needs: a level-up move that exists in the game

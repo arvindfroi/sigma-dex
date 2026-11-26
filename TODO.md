@@ -16,7 +16,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Dex page | height | 181 / 212 |
 | Dex page | weight | 181 / 212 |
 | Dex page | body color | 179 / 212 |
-| Stats | base stats | 191 / 212 |
+| Stats | base stats | 192 / 212 |
 | Stats | ability | 195 / 212 |
 | Stats | EV yield | 186 / 212 |
 | Stats | catch rate | 177 / 212 |
@@ -36,7 +36,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Art | back sprite | 4 / 212 |
 | Art | icon | 4 / 212 |
 | Art | footprint | 145 / 212 |
-| Art | shiny palette | 129 / 212 |
+| Art | shiny palette | 132 / 212 |
 | Art | cry | 176 / 212 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
@@ -905,14 +905,14 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #130 [Charcadet](data/species/glac-pee-mindre-evo.yaml) - 38%
+### #130 [Charcadet](data/species/glac-pee-mindre-evo.yaml) - 41%
 
 - **Dex page:** category, description, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, cry
 
 ### #131 [Glacépée](data/species/glac-p-e.yaml) - 72%
 
@@ -1233,10 +1233,10 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
 
-### #175 [Sukunomon](data/species/sukunomon.yaml) - 14%
+### #175 [Sukunomon](data/species/sukunomon.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -1263,7 +1263,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #178 [Crepawmon](data/species/crepawmon.yaml) - 17%
+### #178 [Crepawmon](data/species/crepawmon.yaml) - 21%
 
 - **Identity:** designer credit
 - **Dex page:** category, description, height, weight, body color
@@ -1272,7 +1272,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
 ### #179 [Viltector](data/species/viltector.yaml) - 21%
 
@@ -1284,7 +1284,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #180 [Withstar](data/species/withstar.yaml) - 24%
+### #180 [Withstar](data/species/withstar.yaml) - 28%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
@@ -1292,7 +1292,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
 ### #181 [Subwooca](data/species/subwocada.yaml) - 21%
 

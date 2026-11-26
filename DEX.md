@@ -138,7 +138,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 127 | [Aquway](data/species/subwaysurfer.yaml) | Water / Ground | Swift Swim, Storm Drain, Adaptability (H) | 495 |  | 72% |
 | 128 | [Zyzzfu](data/species/zyzzfu.yaml) | Electric / Fighting | Unseen Fist, Surge Surfer (H) | 600 |  | 72% |
 | 129 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve, Prankster, Shadow Tag (H) | 415 |  | 72% |
-| 130 | [Charcadet](data/species/glac-pee-mindre-evo.yaml) | Ice | Weak Armor, Ice Body (H) | 255 | Glacépée (Lv 30) | 38% |
+| 130 | [Charcadet](data/species/glac-pee-mindre-evo.yaml) | Ice | Weak Armor, Ice Body (H) | 255 | Glacépée (Lv 30) | 41% |
 | 131 | [Glacépée](data/species/glac-p-e.yaml) | Ice / Fighting | Long Reach, Weak Armor, Sniper (H) | 525 |  | 72% |
 | 132 | [Everdark](data/species/everdark.yaml) | Dark / Psychic | Armor Tail, Dark Aura (H) | 680 |  | 72% |
 | 133 | [Diedo](data/species/diedo.yaml) | Flying | Mind's Eye | 200 | Seraphinnen (Lv 20) | 76% |
@@ -183,12 +183,12 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 172 | *open slot* | | | | | |
 | 173 | *open slot* | | | | | |
 | 174 | [Goatjo](data/species/goatjo.yaml) | Psychic / Dragon | Wonder Guard | 435 |  | 66% |
-| 175 | [Sukunomon](data/species/sukunomon.yaml) | Fire / Dark |  |  |  | 14% |
+| 175 | [Sukunomon](data/species/sukunomon.yaml) | Fire / Dark |  | 619 |  | 17% |
 | 176 | [Thooji](data/species/thooji.yaml) | Fighting | Heavenly Pact |  |  | 17% |
 | 177 | [Endermon](data/species/endermon.yaml) | Dark | Anger Point | 600 |  | 17% |
-| 178 | [Crepawmon](data/species/crepawmon.yaml) | Normal / Grass | Lightning Rod | 600 |  | 17% |
+| 178 | [Crepawmon](data/species/crepawmon.yaml) | Normal / Grass | Lightning Rod | 600 |  | 21% |
 | 179 | [Viltector](data/species/viltector.yaml) | Steel | Sap Sipper | 600 |  | 21% |
-| 180 | [Withstar](data/species/withstar.yaml) | Ground / Ghost | Channeling | 670 |  | 24% |
+| 180 | [Withstar](data/species/withstar.yaml) | Ground / Ghost | Channeling | 670 |  | 28% |
 | 181 | [Subwooca](data/species/subwocada.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 320 | Cicadj (Lv 28) | 21% |
 | 182 | [Cicadj](data/species/cicadj.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 475 |  | 14% |
 | 183 | [Ibur](data/species/ibur.yaml) | Ice |  |  |  | 10% |

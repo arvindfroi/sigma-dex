@@ -7693,13 +7693,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2572,
-    "species": "bugmight",
-    "file": "assets/concept-art/bugmight/2572.png",
-    "caption": "[ds-front] sprite #501",
-    "editor": "Arvind"
-  },
-  {
     "id": 2573,
     "species": "bugmight",
     "file": "assets/concept-art/bugmight/2573.png",
@@ -7753,13 +7746,6 @@
     "species": "glac-p-e",
     "file": "assets/concept-art/glac-p-e/2580.png",
     "caption": "[ds-front] sprite #503",
-    "editor": "Arvind"
-  },
-  {
-    "id": 2581,
-    "species": "glac-p-e",
-    "file": "assets/concept-art/glac-p-e/2581.png",
-    "caption": "[ds-back] sprite #503",
     "editor": "Arvind"
   },
   {
@@ -9800,13 +9786,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 3869,
-    "species": "bugmight",
-    "file": "assets/concept-art/bugmight/3869.png",
-    "caption": "[ds-front2] sprite #744",
-    "editor": "Arvind"
-  },
-  {
     "id": 3875,
     "species": "bugmight",
     "file": "assets/concept-art/bugmight/3875.png",
@@ -9944,13 +9923,6 @@
     "species": "grincho",
     "file": "assets/concept-art/grincho/3982.png",
     "caption": "[ds-front2] sprite #764",
-    "editor": "Arvind"
-  },
-  {
-    "id": 3989,
-    "species": "glac-p-e",
-    "file": "assets/concept-art/glac-p-e/3989.png",
-    "caption": "[ds-back2] sprite #765",
     "editor": "Arvind"
   },
   {
@@ -12229,13 +12201,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 5934,
-    "species": "glac-pee-mindre-evo",
-    "file": "assets/concept-art/glac-pee-mindre-evo/5934.png",
-    "caption": "[ds-front] sprite #1103",
-    "editor": "Emil"
-  },
-  {
     "id": 5935,
     "species": "glac-pee-mindre-evo",
     "file": "assets/concept-art/glac-pee-mindre-evo/5935.png",
@@ -12268,6 +12233,41 @@
     "species": "glac-pee-mindre-evo",
     "file": "assets/concept-art/glac-pee-mindre-evo/5942.png",
     "caption": "[ds-back2] sprite #1103",
+    "editor": "Emil"
+  },
+  {
+    "id": 5949,
+    "species": "glac-pee-mindre-evo",
+    "file": "assets/concept-art/glac-pee-mindre-evo/5949.png",
+    "caption": "[ds-front] sprite #1104",
+    "editor": "Emil"
+  },
+  {
+    "id": 5980,
+    "species": "glac-p-e",
+    "file": "assets/concept-art/glac-p-e/5980.png",
+    "caption": "[ds-back] sprite #1110",
+    "editor": "Emil"
+  },
+  {
+    "id": 5984,
+    "species": "glac-p-e",
+    "file": "assets/concept-art/glac-p-e/5984.png",
+    "caption": "[ds-back2] sprite #1110",
+    "editor": "Emil"
+  },
+  {
+    "id": 5991,
+    "species": "bugmight",
+    "file": "assets/concept-art/bugmight/5991.png",
+    "caption": "[ds-front] sprite #1112",
+    "editor": "Emil"
+  },
+  {
+    "id": 5995,
+    "species": "bugmight",
+    "file": "assets/concept-art/bugmight/5995.png",
+    "caption": "[ds-front2] sprite #1112",
     "editor": "Emil"
   }
 ]

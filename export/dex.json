@@ -33807,7 +33807,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:442",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/glac-pee-mindre-evo.json",
         "cry": null
       },
       "engine": {
@@ -42348,12 +42348,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 111,
+        "attack": 55,
+        "defense": 222,
+        "sp_attack": 66,
+        "sp_defense": 88,
+        "speed": 77
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -42403,7 +42403,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Arcanine"
       },
       "id": "sukunomon"
     },
@@ -42645,7 +42646,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/crepawmon.json",
         "cry": null
       },
       "engine": {
@@ -42816,7 +42817,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/withstar.json",
         "cry": null
       },
       "engine": {
