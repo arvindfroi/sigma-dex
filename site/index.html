@@ -5926,7 +5926,7 @@ function tstudioState(slot) {
     tstudios.set(slot, {photo, photos, ref: null, base: remember.get("trainer-base-" + slot) || "", strength: 0.75, count: 2, words: remember.get("trainer-words-" + slot) || "",
       fields: (() => { try { return JSON.parse(remember.get("trainer-fields-" + slot) || "{}") || {}; } catch (e) { return {}; } })(),
       more: (remember.get("trainer-more-" + slot) || "").split(",").filter(Boolean),
-      filter: "", game: "", step: null, tries: [], vsTries: [], vsCount: 2, mapTries: [], mapCount: 3, mapExtra: "",
+      filter: "", game: "", step: null, tries: [], vsTries: [], vsCount: 2, vsPose: "", vsPoseText: "", mapTries: [], mapCount: 3, mapExtra: "",
       animTries: [], animScript: Number(remember.get("trainer-anim-" + slot) || 0) || 0, animCount: 3, animExtra: "",
       backTries: [], throwTries: [], backShape: remember.get("trainer-backshape-" + slot) || "short", width: Number(remember.get("trainer-width-" + slot) || 1) || 1, flip: remember.get("trainer-flip-" + slot) === "1", height: Number(remember.get("trainer-height-" + slot) || 1) || 1, backCount: 6, backExtra: "", jobs: [], line: [], worker: null, loaded: false, editing: null, busyMsg: "", showAll: false});
   }
@@ -6416,7 +6416,7 @@ function trainerStudio(slot, opts) {
     tcount.addEventListener("change", () => { st.throwCount = Number(tcount.value); });
     const count = h("select", {"aria-label": "How many"}, [2, 4, 6, 8].map(n => h("option", {value: n, selected: n === st.backCount ? "" : null}, String(n))));
     count.addEventListener("change", () => { st.backCount = Number(count.value); });
-    const extra = h("input", {type: "text", maxlength: 200, value: st.backExtra, placeholder: "e.g. a red cap, a big blue backpack", "aria-label": "Words for the back only", style: "width:100%"});
+    const extra = h("input", {type: "text", maxlength: 200, value: st.backExtra, placeholder: "e.g. a red cap, a big blue backpack, a guitar on the back", "aria-label": "Words for the back only", style: "width:100%"});
     extra.addEventListener("input", () => { st.backExtra = extra.value; });
     // the back waits for a picked VS (2026-11-24: Arvind's back ran 16 s after his VS job, before a VS was picked, so it
     // was drawn from the photo only; the locked recipe is photo + VS)
@@ -6463,13 +6463,43 @@ function trainerStudio(slot, opts) {
       t.job_id === null ? h("div", {class: "tilenote"}, "drawn on" + (t.editor ? " by " + t.editor : "")) : null,
       t.image && DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openPixelEditor("vs", t)}, "EDIT")) : null);
   }
+  // What the person does in the portrait (2026-11-26, Arvind: "many VS sprites look very alike" -> pick or write the pose).
+  // The same words the VS LoRA was trained with (the drawing PC's trainer_studio.VS_POSES). Sent as the 'pose' field: the
+  // drawing PC uses it as the gesture of every try; with "Random" each try gets its own pose from that list.
+  const VS_POSES = ["one fist raised beside the head", "hand on hip", "holding the ball up at the side", "arms crossed over the chest",
+    "hand resting on cheek", "pointing at the viewer with two fingers", "both fists raised", "hand held near the chest",
+    "one arm swung out to the side", "hand raised in a salute", "hand tipping the hat", "thumb pointing at himself",
+    "fist held up near the chest", "hand on chin", "making a peace sign", "arm stretched out to the side",
+    "hands held low near the chest", "fist raised in front of the chest"];
+  // the description fields saved with the job a battle sprite came from (a hand-drawn edit points back to its try)
+  function jobFieldsOf(t) {
+    for (let i = 0; t && i < 10; i++) {
+      const j = (st.jobs || []).find(x => x.id === t.job_id);
+      if (j) { try { const p = JSON.parse(j.prompt || "{}"); return p && p.fields && typeof p.fields === "object" ? p.fields : null; } catch (e) { return null; } }
+      t = (st.tries || []).find(x => x.id === t.parent_try);
+    }
+    return null;
+  }
   function vsPage() {
     const it = inSet(), from = it && it.tryRow;
     const count = h("select", {"aria-label": "How many"}, [1, 2, 3, 4].map(n => h("option", {value: n, selected: n === st.vsCount ? "" : null}, String(n))));
     count.addEventListener("change", () => { st.vsCount = Number(count.value); });
+    const pose = h("select", {"aria-label": "Pose", style: "width:100%"},
+      [h("option", {value: "", selected: st.vsPose ? null : ""}, "Random (a different pose on each try)")].concat(
+        VS_POSES.map(p => h("option", {value: p, selected: p === st.vsPose ? "" : null}, p.charAt(0).toUpperCase() + p.slice(1)))));
+    pose.addEventListener("change", () => { st.vsPose = pose.value; });
+    const poseText = h("input", {type: "text", maxlength: 120, value: st.vsPoseText, placeholder: "e.g. arms crossed, smirking at the camera", "aria-label": "What they do, in your own words", style: "width:100%"});
+    poseText.addEventListener("input", () => { st.vsPoseText = poseText.value; });
     const btn = h("button", {type: "button", class: "primary", disabled: from ? null : "", onclick: async () => {
       btn.disabled = true;
-      try { await dbCall("request_trainer_vs", {p_try: from.id, p_count: st.vsCount, p_editor: me(), p_fields: fieldsNow()}); noteMine(slot); await load(); }
+      // own words win over the list; "Random" leaves the pose out so the drawing PC picks one per try (also when 1 PICTURE has
+      // a pose: that one is for the battle sprite). The server replaces the battle sprite's saved fields with what is sent, so
+      // with nothing typed on this device the fields of the job the battle sprite came from go along (else its mood is lost).
+      const want = st.vsPoseText.trim() || st.vsPose;
+      let f = Object.assign({}, fieldsNow() || jobFieldsOf(from) || {});
+      if (want) f.pose = want; else delete f.pose;
+      if (!Object.keys(f).length) f = null;
+      try { await dbCall("request_trainer_vs", {p_try: from.id, p_count: st.vsCount, p_editor: me(), p_fields: f}); noteMine(slot); await load(); }
       catch (err) { fail(err); }
       btn.disabled = false;
     }}, "MAKE");
@@ -6478,6 +6508,8 @@ function trainerStudio(slot, opts) {
     const list = st.vsTries.filter(t => t.status !== "failed").sort((a, b) => b.id - a.id);
     return h("div", {},
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "vs").what),
+      h("label", {class: "notebox"}, h("span", {class: "sub"}, "Pose"), pose),
+      h("label", {class: "notebox"}, h("span", {class: "sub"}, "Or write what they do (optional, wins over the list)"), poseText),
       h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "vs") * st.vsCount) + ")" : "Pick a battle sprite in 3 FRONT first."),
         from ? h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(from.image), alt: ""})) : null),
       h("div", {class: "tiles"}, waiting.map(vsTile), list.slice(0, 12).map(vsTile)),
