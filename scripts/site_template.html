@@ -8567,6 +8567,14 @@ document.getElementById("title").textContent = DEX.project;
 drawDayNight();
 const meBox = document.getElementById("me");
 meBox.value = remember.get("editor");
+// Back to the welcome when the pointer has left the list and the top screen (2026-11-27, Arvind: "jeg ser ikke dette enda"):
+// on a computer, pointing at the list replaced the welcome with that Pokemon at once, and nothing brought it back.
+let homeBack = null;
+const homeCheck = () => { clearTimeout(homeBack); homeBack = setTimeout(() => {
+  if (view !== "species" || !previewed || !me()) return;
+  if (document.getElementById("grid").matches(":hover") || document.getElementById("topscreen").matches(":hover")) return;
+  previewed = null; drawTop(); }, 1500); };
+for (const id of ["grid", "topscreen"]) document.getElementById(id).addEventListener("mouseleave", homeCheck);
 let meRedraw = null;
 meBox.addEventListener("input", () => { remember.set("editor", meBox.value.trim());
   clearTimeout(meRedraw); meRedraw = setTimeout(() => { if (view === "species" && !previewed) drawTop(); }, 500); });
