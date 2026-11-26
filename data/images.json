@@ -8379,13 +8379,6 @@
     "editor": null
   },
   {
-    "id": 2787,
-    "species": "ibur",
-    "file": "assets/concept-art/ibur/2787.png",
-    "caption": "[ds-front] sprite #545",
-    "editor": null
-  },
-  {
     "id": 2788,
     "species": "ibur",
     "file": "assets/concept-art/ibur/2788.png",
@@ -12283,5 +12276,124 @@
     "file": "assets/concept-art/eivind/6025.jpg",
     "caption": null,
     "editor": null
+  },
+  {
+    "id": 6026,
+    "species": "leo",
+    "file": "assets/concept-art/leo/6026.webp",
+    "caption": "pasted",
+    "editor": "Emil"
+  },
+  {
+    "id": 6027,
+    "species": "leo",
+    "file": "assets/concept-art/leo/6027.webp",
+    "caption": "pasted",
+    "editor": "Emil"
+  },
+  {
+    "id": 6028,
+    "species": "leo",
+    "file": "assets/concept-art/leo/6028.png",
+    "caption": "[ds-front] sprite #1121",
+    "editor": "Emil"
+  },
+  {
+    "id": 6029,
+    "species": "leo",
+    "file": "assets/concept-art/leo/6029.png",
+    "caption": "[ds-back] sprite #1121",
+    "editor": "Emil"
+  },
+  {
+    "id": 6030,
+    "species": "leo",
+    "file": "assets/concept-art/leo/6030.png",
+    "caption": "[ds-icon] sprite #1121",
+    "editor": "Emil"
+  },
+  {
+    "id": 6031,
+    "species": "leothrax",
+    "file": "assets/concept-art/leothrax/6031.webp",
+    "caption": "pasted",
+    "editor": "Emil"
+  },
+  {
+    "id": 6032,
+    "species": "leorime",
+    "file": "assets/concept-art/leorime/6032.webp",
+    "caption": "pasted",
+    "editor": "Emil"
+  },
+  {
+    "id": 6033,
+    "species": "ghurtle",
+    "file": "assets/concept-art/ghurtle/6033.webp",
+    "caption": "pasted",
+    "editor": "Emil"
+  },
+  {
+    "id": 6034,
+    "species": "ghortoise",
+    "file": "assets/concept-art/ghortoise/6034.webp",
+    "caption": "pasted",
+    "editor": "Emil"
+  },
+  {
+    "id": 6035,
+    "species": "leothrax",
+    "file": "assets/concept-art/leothrax/6035.png",
+    "caption": "[ds-front] sprite #1117",
+    "editor": null
+  },
+  {
+    "id": 6036,
+    "species": "leothrax",
+    "file": "assets/concept-art/leothrax/6036.png",
+    "caption": "[ds-back] sprite #1117",
+    "editor": null
+  },
+  {
+    "id": 6037,
+    "species": "leothrax",
+    "file": "assets/concept-art/leothrax/6037.png",
+    "caption": "[ds-icon] sprite #1117",
+    "editor": null
+  },
+  {
+    "id": 6044,
+    "species": "leo",
+    "file": "assets/concept-art/leo/6044.png",
+    "caption": "[ds-follower] sprite #1121",
+    "editor": "Emil"
+  },
+  {
+    "id": 6045,
+    "species": "leo",
+    "file": "assets/concept-art/leo/6045.png",
+    "caption": "[ds-front2] sprite #1121",
+    "editor": "Emil"
+  },
+  {
+    "id": 6046,
+    "species": "leo",
+    "file": "assets/concept-art/leo/6046.png",
+    "caption": "[ds-back2] sprite #1121",
+    "editor": "Emil"
+  },
+  {
+    "id": 6059,
+    "species": "leorime",
+    "file": "assets/concept-art/leorime/6059.webp",
+    "caption": "pasted",
+    "editor": "Emil"
+  },
+  {
+    "id": 6060,
+    "species": "ibur",
+    "file": "assets/concept-art/ibur/6060.png",
+    "caption": "[ds-front] sprite #1122",
+    "editor": "Emil"
   }
 ]

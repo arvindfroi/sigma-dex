@@ -4,7 +4,7 @@
 
 **143** Pokemon are written as game code: Leaflet, Leafling, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Blutie, Coatail, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, Cloudgnome, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Gorambe, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Roostasaur, Leadling, Leadleak, Blylem, Globzar, Iglomodo, Furamire, Puptive, Detepup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, ambuger, Tortoplasm, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, Minimonk, Aminimonk, Sparktera, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, Jawie, Jawbreaker, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Charcadet, Glacépée, Everdark, Diedo, Riftbloom, riftlees, G-Circuit, Strawboo, Wreckingbo, Wreckdrake, Solidedge, Sealma, Narburr, Whaldrill, Venofrib, Vendepiede, Venorax, Raymon, Crysteel, Whyrmshade, Abysspero, Aqualoom, Cabat, Cobramp, Horaxigon, Horaxander, Lansseax, Ratpid, Goatjo, Viltector, Iron Bulb, Tenebravis, Santrock, Cindreon, Custodix, Entrigon, Tsunamo, Praxis, Laxis, Bergflabb, Sabertann, Eclipsox
 
-## Not exported yet (72)
+## Not exported yet (77)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -67,6 +67,11 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **gb vance** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **de es lite** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Minant** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Leo** needs: a level-up move that exists in the game
+- **Leorime** needs: a level-up move that exists in the game
+- **Leothrax** needs: a level-up move that exists in the game
+- **Ghurtle** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Ghortoise** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Wild Claws** needs: a level-up move that exists in the game
 - **Malenio** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Balleisk** needs: an ability that exists in the game
