@@ -1,10 +1,10 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
 dex: 130
-name: Sigmanian Charcadet
+name: Charcadet
 
 credits:
-  designer:              # who came up with it (Discord name)
-  artist:                # who drew the concept art
+  designer: Emil         # who came up with it (Discord name)
+  artist: Emil           # who drew the concept art
 
 types: [Ice]             # 1 or 2 types, e.g. [Grass, Steel]
 
@@ -119,7 +119,7 @@ design:
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---
 assets:
-  concept_art:           # e.g. assets/concept-art/sigmanian-charcadet.png
+  concept_art: "assets/concept-art/glac-pee-mindre-evo/5921.webp"
   front_sprite:          # front.png      64x64, 16 colors
   front_anim:            # anim_front.png 64x128, two frames stacked
   back_sprite:           # back.png       64x64, same 16 colors as the front

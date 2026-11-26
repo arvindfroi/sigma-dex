@@ -10,7 +10,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Area | Item | Filled in |
 |------|------|----------:|
 | Identity | types | 211 / 212 |
-| Identity | designer credit | 202 / 212 |
+| Identity | designer credit | 203 / 212 |
 | Dex page | category | 47 / 212 |
 | Dex page | description | 47 / 212 |
 | Dex page | height | 181 / 212 |
@@ -30,7 +30,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Moves | TM/HM moves | 180 / 212 |
 | Location | encounters | 2 / 212 |
 | Design | concept | 44 / 212 |
-| Art | concept art | 207 / 212 |
+| Art | concept art | 208 / 212 |
 | Art | front sprite | 4 / 212 |
 | Art | front animation frame | 4 / 212 |
 | Art | back sprite | 4 / 212 |
@@ -905,15 +905,14 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #130 [Sigmanian Charcadet](data/species/glac-pee-mindre-evo.yaml) - 31%
+### #130 [Charcadet](data/species/glac-pee-mindre-evo.yaml) - 38%
 
-- **Identity:** designer credit
 - **Dex page:** category, description, body color
 - **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Location:** encounters
 - **Design:** concept
-- **Art:** concept art, front sprite, front animation frame, back sprite, icon, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, shiny palette, cry
 
 ### #131 [Glacépée](data/species/glac-p-e.yaml) - 72%
 

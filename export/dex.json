@@ -6405,7 +6405,7 @@
             "move": "Agility"
           },
           {
-            "level": 41,
+            "level": 40,
             "move": "Storm Throw"
           },
           {
@@ -33600,10 +33600,10 @@
     },
     {
       "dex": 130,
-      "name": "Sigmanian Charcadet",
+      "name": "Charcadet",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Emil",
+        "artist": "Emil"
       },
       "types": [
         "Ice"
@@ -33801,7 +33801,7 @@
         "look": null
       },
       "assets": {
-        "concept_art": null,
+        "concept_art": "assets/concept-art/glac-pee-mindre-evo/5921.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,

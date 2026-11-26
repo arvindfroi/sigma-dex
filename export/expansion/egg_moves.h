@@ -546,6 +546,14 @@ static const u16 sGrinchoEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
+static const u16 sCharcadetEggMoveLearnset[] = {
+    MOVE_ICE_PUNCH,
+    MOVE_YAWN,
+    MOVE_AURORA_VEIL,
+    MOVE_ENCORE,
+    MOVE_UNAVAILABLE,
+};
+
 static const u16 sEverdarkEggMoveLearnset[] = {
     MOVE_SUCKER_PUNCH,
     MOVE_FEINT_ATTACK,

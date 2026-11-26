@@ -2833,6 +2833,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Grincho can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Charcadet has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_CHARCADET];
+    EXPECT_EQ(info->baseHP, 40);
+    EXPECT_EQ(info->baseAttack, 50);
+    EXPECT_EQ(info->baseDefense, 40);
+    EXPECT_EQ(info->baseSpeed, 35);
+    EXPECT_EQ(info->baseSpAttack, 50);
+    EXPECT_EQ(info->baseSpDefense, 40);
+    EXPECT_EQ(info->types[0], TYPE_ICE);
+    EXPECT_EQ(info->types[1], TYPE_ICE);
+    EXPECT_EQ(info->abilities[0], ABILITY_WEAK_ARMOR);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
+    EXPECT_EQ(GetSpeciesName(SPECIES_CHARCADET)[0], CHAR_C);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Charcadet can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_CHARCADET) { Moves(MOVE_GROWL); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+    }
+}
+
 TEST("Sigma dex: Glacépée has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GLAC_P_E];
