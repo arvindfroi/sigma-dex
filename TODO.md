@@ -13,21 +13,21 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Identity | designer credit | 206 / 215 |
 | Dex page | category | 47 / 215 |
 | Dex page | description | 47 / 215 |
-| Dex page | height | 181 / 215 |
-| Dex page | weight | 181 / 215 |
+| Dex page | height | 182 / 215 |
+| Dex page | weight | 182 / 215 |
 | Dex page | body color | 179 / 215 |
 | Stats | base stats | 196 / 215 |
-| Stats | ability | 199 / 215 |
+| Stats | ability | 200 / 215 |
 | Stats | EV yield | 191 / 215 |
-| Stats | catch rate | 177 / 215 |
+| Stats | catch rate | 178 / 215 |
 | Stats | base exp | 177 / 215 |
-| Stats | growth rate | 177 / 215 |
+| Stats | growth rate | 178 / 215 |
 | Stats | base friendship | 177 / 215 |
-| Breeding | gender | 177 / 215 |
-| Breeding | egg groups | 177 / 215 |
+| Breeding | gender | 178 / 215 |
+| Breeding | egg groups | 178 / 215 |
 | Breeding | egg cycles | 177 / 215 |
 | Moves | level-up moves | 185 / 215 |
-| Moves | TM/HM moves | 181 / 215 |
+| Moves | TM/HM moves | 182 / 215 |
 | Location | encounters | 2 / 215 |
 | Design | concept | 46 / 215 |
 | Art | concept art | 210 / 215 |
@@ -37,7 +37,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Art | icon | 4 / 215 |
 | Art | footprint | 145 / 215 |
 | Art | shiny palette | 133 / 215 |
-| Art | cry | 177 / 215 |
+| Art | cry | 178 / 215 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
@@ -1229,14 +1229,14 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #172 [Eivind](data/species/eivind.yaml) - 14%
+### #172 [Eivind](data/species/eivind.yaml) - 45%
 
-- **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
-- **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Dex page:** category, description, body color
+- **Stats:** base stats, EV yield, base exp, base friendship
+- **Breeding:** egg cycles
+- **Moves:** level-up moves
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
 
 ### #173 [Goatjo](data/species/goatjo.yaml) - 66%
 

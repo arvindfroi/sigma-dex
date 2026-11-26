@@ -2080,11 +2080,11 @@ SINGLE_BATTLE_TEST("Sigma dex: Tortoplasm can use its first move in battle")
 TEST("Sigma dex: Slothbaby has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SLOTHBABY];
-    EXPECT_EQ(info->baseHP, 85);
-    EXPECT_EQ(info->baseAttack, 130);
+    EXPECT_EQ(info->baseHP, 80);
+    EXPECT_EQ(info->baseAttack, 120);
     EXPECT_EQ(info->baseDefense, 50);
     EXPECT_EQ(info->baseSpeed, 75);
-    EXPECT_EQ(info->baseSpAttack, 30);
+    EXPECT_EQ(info->baseSpAttack, 45);
     EXPECT_EQ(info->baseSpDefense, 50);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
     EXPECT_EQ(info->types[1], TYPE_FIRE);

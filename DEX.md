@@ -180,7 +180,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 169 | [Ratpid](data/species/ratpid.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) | 415 |  | 24% |
 | 170 | [S.Rotom](data/species/s-rotom.yaml) | Electric | Levitate | 440 |  | 17% |
 | 171 | [Eiv](data/species/eiv.yaml) | Normal |  |  |  | 14% |
-| 172 | [Eivind](data/species/eivind.yaml) | Normal / Fighting |  |  |  | 14% |
+| 172 | [Eivind](data/species/eivind.yaml) | Normal / Fighting | Drunken Rage |  |  | 45% |
 | 173 | [Goatjo](data/species/goatjo.yaml) | Psychic / Dragon | Wonder Guard | 435 |  | 66% |
 | 174 | [Sukunomon](data/species/sukunomon.yaml) | Fire / Dark |  | 600 |  | 21% |
 | 175 | [Thooji](data/species/thooji.yaml) | Fighting | Heavenly Pact |  |  | 17% |

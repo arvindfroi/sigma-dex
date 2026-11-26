@@ -1,0 +1,28 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": 1.0,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.25,
+ "sweep": 0.0,
+ "tone": 0.0,
+ "drive": 0.25,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: pitch 1, length 1.25, rough 0.25"
+ ],
+ "by": "",
+ "at": "2026-11-26T20:14:28.278Z",
+ "audio": "assets/cries/eivind.wav"
+}

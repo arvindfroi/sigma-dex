@@ -3710,11 +3710,11 @@
 
     [SPECIES_SLOTHBABY] =
     {
-        .baseHP = 85,
-        .baseAttack = 130,
+        .baseHP = 80,
+        .baseAttack = 120,
         .baseDefense = 50,
         .baseSpeed = 75,
-        .baseSpAttack = 30,
+        .baseSpAttack = 45,
         .baseSpDefense = 50,
         .types = MON_TYPES(TYPE_FIRE),
         .catchRate = 60,

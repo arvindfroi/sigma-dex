@@ -25862,10 +25862,10 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": 85,
-        "attack": 130,
+        "hp": 80,
+        "attack": 120,
         "defense": 50,
-        "sp_attack": 30,
+        "sp_attack": 45,
         "sp_defense": 50,
         "speed": 75
       },
@@ -41980,11 +41980,11 @@
       ],
       "category": null,
       "description": null,
-      "height_m": null,
-      "weight_kg": null,
+      "height_m": 1.9,
+      "weight_kg": 80,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Drunken Rage",
         "secondary": null,
         "hidden": null
       },
@@ -41997,12 +41997,14 @@
         "speed": null
       },
       "ev_yield": null,
-      "catch_rate": null,
+      "catch_rate": 55,
       "base_exp": null,
-      "growth_rate": null,
+      "growth_rate": "medium_fast",
       "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
+      "gender": 100,
+      "egg_groups": [
+        "human_like"
+      ],
       "egg_cycles": null,
       "held_items": {
         "common": null,
@@ -42012,7 +42014,39 @@
       "forms": [],
       "learnset": {
         "level_up": [],
-        "tm_hm": [],
+        "tm_hm": [
+          "Focus Punch",
+          "Calm Mind",
+          "Bulk Up",
+          "Protect",
+          "Return",
+          "Brick Break",
+          "Torment",
+          "Facade",
+          "Rest",
+          "Attract",
+          "Thief",
+          "Snatch",
+          "False Swipe",
+          "Fling",
+          "Endure",
+          "Drain Punch",
+          "Flash",
+          "Poison Jab",
+          "Pluck",
+          "Substitute",
+          "Heavy Slam",
+          "Low Sweep",
+          "Foul Play",
+          "Draining Kiss",
+          "Play Rough",
+          "Brutal Swing",
+          "Body Press",
+          "Triple Axel",
+          "Cut",
+          "Strength",
+          "Rock Smash"
+        ],
         "tutor": [],
         "egg": []
       },
@@ -42026,7 +42060,7 @@
         "filled_by_claude": [],
         "body_shape": null,
         "movement": null,
-        "look": null
+        "look": "A More human lucario"
       },
       "assets": {
         "concept_art": "assets/concept-art/eivind/6025.jpg",
@@ -42036,7 +42070,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/eivind.json"
       },
       "engine": {
         "no_flip": false,
@@ -46842,8 +46876,8 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": 125,
-        "attack": 125,
+        "hp": 130,
+        "attack": 120,
         "defense": 100,
         "sp_attack": 75,
         "sp_defense": 100,
