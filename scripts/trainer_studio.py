@@ -635,6 +635,9 @@ def run_anim(job, base, key, post, download, folder, log=print):
         raise RuntimeError("unknown animation %r" % settings.get("script"))
     cls = script["cls"]
     poses = anim_poses().get(cls) or []
+    # the person's own strength for the swap that repaints each pose (2026-11-26); none = ANIM_SWAP (0.55, tested)
+    swap = settings.get("strength")
+    swap = min(0.75, max(0.3, float(swap))) if swap not in (None, "") else ANIM_SWAP
     sprite = Image.open(download(base, src["image"], folder / "battle.png")).convert("RGBA")
     pal = colours_of(sprite)
     cells = [j for j in script["cells"] if j]
@@ -676,7 +679,7 @@ def run_anim(job, base, key, post, download, folder, log=print):
     for n in range(1, count + 1):
         seed = n if n <= 1 else job["id"] * 100 + n         # seed 1 kept the faces best in the tests; the others give choice
         t = post(base, key, {"action": "try_start", "job_id": job["id"], "n": n, "seed": seed,
-                             "recipe": ("anim pair%s %s s%d" % ("+sw%g" % ANIM_SWAP if ANIM_SWAP > 0 else "", cls, seed))[:60], "expected_seconds": ANIM_SECONDS * len(drawn)})
+                             "recipe": ("anim pair%s %s s%d" % ("+sw%g" % swap if swap > 0 else "", cls, seed))[:60], "expected_seconds": ANIM_SECONDS * len(drawn)})
         started = time.time()
         try:
             # the likeness check (2026-11-24): a pose whose colours drift from the battle sprite's by more than ANIM_LIKE makes the
@@ -704,11 +707,11 @@ def run_anim(job, base, key, post, download, folder, log=print):
                     scales.append(round(s, 2))
                     right = folder / ("anim_right%d_%d_%d.png" % (n, j, k))
                     panel.save(right)
-                    if ANIM_SWAP > 0:                      # stage 2: the trainer LoRA swap brings the face back
+                    if swap > 0:                           # stage 2: the trainer LoRA swap brings the face back
                         post(base, key, {"action": "progress", "job_id": job["id"], "state": "cleaning pose %d of %d (animation %d of %d)" % (i + 2, len(drawn) + 1, n, count)})
                         row = dict(swap_row, pose="the trainer " + poses[j - 1])
                         swapped = folder / ("anim_swap%d_%d_%d.png" % (n, j, k))
-                        swapped.write_bytes(comfy.run(S.graph(TB.caption(T.describe(row, drop=0), True) + " " + ANIM_STRICT, [ref], sd, LORA, comfy.upload(right), ANIM_SWAP)))
+                        swapped.write_bytes(comfy.run(S.graph(TB.caption(T.describe(row, drop=0), True) + " " + ANIM_STRICT, [ref], sd, LORA, comfy.upload(right), swap)))
                         right = swapped
                     pose, _ = lock_palette(trainer_post.battle(klein_follower.to_back(right)), pal)
                     strip.alpha_composite(pose, (80 * j, 0))
@@ -725,7 +728,7 @@ def run_anim(job, base, key, post, download, folder, log=print):
             shrunk = [s for s in scales if s < 1]
             post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": "done",
                              "note": ("%s animation (%d poses) side by side%s from battle sprite #%s, seed %d, build %s%s%s" % (
-                                 script["name"], len(drawn) + 1, " + swap %.2f" % ANIM_SWAP if ANIM_SWAP > 0 else "", src.get("id"), used_seed, build,
+                                 script["name"], len(drawn) + 1, " + swap %.2f" % swap if swap > 0 else "", src.get("id"), used_seed, build,
                                  ", size locked x" + "/".join("%.2f" % s for s in shrunk) if shrunk else "",
                                  ", extra: " + extra if extra else "") + (", kept %d poses from #%s" % (kept, settings.get("frames_try")) if have is not None else "")
                                  + (", drawn %d times to keep the look (worst pose %.2f)" % (again + 1, worst) if again else ""))[:300],
@@ -826,6 +829,12 @@ def run_tback(job, base, key, post, download, folder, log=print):
     else:
         d_refs = None
         plan = [("F", b, 0.6) for _, b, _ in plan]
+    # the person's own strength (2026-11-26, Arvind: "velge styrke på basen på alle deler av trainer studio") for every try;
+    # none = the tested plan (0.60, the last tries 0.65)
+    chosen = settings.get("strength")
+    if chosen not in (None, ""):
+        chosen = min(0.85, max(0.4, float(chosen)))
+        plan = [(r, b, chosen) for r, b, _ in plan]
     on_white(front, folder / "front_ref.png")
     fref = comfy.upload(folder / "front_ref.png")
     starts = {}

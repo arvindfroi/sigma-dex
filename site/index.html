@@ -5928,7 +5928,7 @@ function tstudioState(slot) {
       more: (remember.get("trainer-more-" + slot) || "").split(",").filter(Boolean),
       filter: "", game: "", step: null, tries: [], vsTries: [], vsCount: 2, vsPose: "", vsPoseText: "", mapTries: [], mapCount: 3, mapExtra: "",
       animTries: [], animScript: Number(remember.get("trainer-anim-" + slot) || 0) || 0, animCount: 3, animExtra: "",
-      backTries: [], throwTries: [], backShape: remember.get("trainer-backshape-" + slot) || "short", width: Number(remember.get("trainer-width-" + slot) || 1) || 1, flip: remember.get("trainer-flip-" + slot) === "1", height: Number(remember.get("trainer-height-" + slot) || 1) || 1, backCount: 6, backExtra: "", jobs: [], line: [], worker: null, loaded: false, editing: null, busyMsg: "", showAll: false});
+      backTries: [], throwTries: [], backShape: remember.get("trainer-backshape-" + slot) || "short", width: Number(remember.get("trainer-width-" + slot) || 1) || 1, flip: remember.get("trainer-flip-" + slot) === "1", height: Number(remember.get("trainer-height-" + slot) || 1) || 1, backCount: 6, backExtra: "", backStrength: null, animStrength: null, jobs: [], line: [], worker: null, loaded: false, editing: null, busyMsg: "", showAll: false});
   }
   return tstudios.get(slot);
 }
@@ -6343,6 +6343,15 @@ function trainerStudio(slot, opts) {
       t.image ? edgeWarn(artUrl(t.image), 80) : null,
       t.image && DEX.web.url ? h("div", {class: "tileact"}, h("button", {type: "button", class: "small", onclick: () => openAnimFrames(t)}, "EDIT")) : null);
   }
+  // A strength for the steps that start from a picture, as FRONT has (2026-11-26, Arvind: "velge styrke på basen på alle
+  // deler av trainer studio"). Empty = the tested setting. BACK: how far the game's player back is repainted; ANIM: how much
+  // each new pose is repainted. VS, MAP and the throw are drawn from nothing (only reference pictures): no base to set.
+  function strengthSelect(key, values, auto, what) {
+    const s = h("select", {"aria-label": what}, [h("option", {value: "", selected: st[key] == null ? "" : null}, "Strength: " + auto)]
+      .concat(values.map(v => h("option", {value: String(v), selected: st[key] === v ? "" : null}, "Strength " + v.toFixed(2)))));
+    s.addEventListener("change", () => { st[key] = s.value === "" ? null : Number(s.value); });
+    return s;
+  }
   function animPage() {
     const from = picked(), cur = trainerAnim(st.animScript);
     const base = from && jobOf(from) ? String(jobOf(from).recipe || "") : "";
@@ -6355,7 +6364,7 @@ function trainerStudio(slot, opts) {
     const set = pickedAnim(), missing = missingFor(set, cur);
     const btn = h("button", {type: "button", class: "primary", disabled: from && cur ? null : "", onclick: async () => {
       btn.disabled = true;
-      try { await dbCall("request_trainer_anim", Object.assign({p_try: from.id, p_script: st.animScript, p_count: st.animCount, p_editor: me(), p_extra: st.animExtra.trim() || null, p_fields: fieldsNow()},
+      try { await dbCall("request_trainer_anim", Object.assign({p_try: from.id, p_script: st.animScript, p_count: st.animCount, p_editor: me(), p_extra: st.animExtra.trim() || null, p_fields: fieldsNow(), p_strength: st.animStrength},
           set && missing.length ? {p_frames: set.id} : {})); noteMine(slot); await load(); }
       catch (err) { fail(err); }
       btn.disabled = false;
@@ -6382,7 +6391,9 @@ function trainerStudio(slot, opts) {
             : "The moves of " + cur.name + "'s animation on your sprite. MAKE draws the " + (cur.poses - 1) + " other pose" + (cur.poses > 2 ? "s" : "") + ".")
           : "No animation: your trainer stands still, like most trainers.")),
       from && cur ? h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the poses only (optional)"), extra) : null,
-      from && cur ? h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "anim") * st.animCount) + ")")) : null,
+      from && cur ? h("div", {class: "tryctl"}, btn, count, strengthSelect("animStrength", [0.35, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7], "auto (0.55, tested)", "How much each pose is repainted"),
+        h("span", {class: "sub"}, "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "anim") * st.animCount) + ")")) : null,
+      from && cur ? h("div", {class: "sub"}, "Strength: lower keeps the new pose; higher brings the face and clothes closer to your battle sprite (0.65 and up undid poses in the tests).") : null,
       from && (list.length || waiting.length) ? h("div", {class: "hint"}, "Your sets of poses (tap one to use it; each plays with the animation chosen below):") : null,
       from ? h("div", {class: "tiles"}, waiting.map(animTile), list.slice(0, 12).map(animTile)) : null,
       h("div", {class: "hint"}, "Pick an animation:"),
@@ -6427,7 +6438,7 @@ function trainerStudio(slot, opts) {
     // was drawn from the photo only; the locked recipe is photo + VS)
     const btn = h("button", {type: "button", class: "primary", disabled: from && vsId ? null : "", onclick: async () => {
       btn.disabled = true;
-      try { await dbCall("request_trainer_back", {p_try: from.id, p_shape: st.backShape, p_count: st.backCount, p_editor: me(), p_extra: st.backExtra.trim() || null, p_vs: vsId, p_fields: fieldsNow()}); noteMine(slot); await load(); }
+      try { await dbCall("request_trainer_back", {p_try: from.id, p_shape: st.backShape, p_count: st.backCount, p_editor: me(), p_extra: st.backExtra.trim() || null, p_vs: vsId, p_fields: fieldsNow(), p_strength: st.backStrength}); noteMine(slot); await load(); }
       catch (err) { fail(err); }
       btn.disabled = false;
     }}, "MAKE");
@@ -6449,7 +6460,9 @@ function trainerStudio(slot, opts) {
       from && !vsId ? h("div", {class: "notice warn"}, "Pick a VS portrait in 5 VS first: the back is drawn from your picture and the VS together. ",
         h("button", {type: "button", class: "link", onclick: () => go("vs")}, "Go to 5 VS")) : null,
       from ? h("label", {class: "notebox"}, h("span", {class: "sub"}, "Words for the back only (optional)"), extra) : null,
-      from ? h("div", {class: "tryctl"}, btn, shape, count, h("span", {class: "sub"}, "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "tback") * st.backCount) + ")")) : null,
+      from ? h("div", {class: "tryctl"}, btn, shape, count, strengthSelect("backStrength", [0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8], "auto (0.60 / 0.65, tested)", "How far the back is repainted"),
+        h("span", {class: "sub"}, "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "tback") * st.backCount) + ")")) : null,
+      from ? h("div", {class: "sub"}, "Strength: lower keeps the game's back pose; higher looks more like your picture and VS, but may turn the face to the front.") : null,
       from ? h("div", {class: "tiles"}, waiting.map(backTile), list.slice(0, 16).map(backTile)) : null,
       from ? h("div", {class: "hint"}, h("b", {}, "2. The throw. "), k ? "Seven more frames drawn from the back you picked. Things held in the hand may drop out after a few frames." : "Pick a back first.") : null,
       k ? h("div", {class: "tryctl"}, throwBtn, tcount, h("span", {class: "sub"}, "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "throw") * (st.throwCount || 1)) + ")"),
