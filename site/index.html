@@ -6940,7 +6940,7 @@ function trainerStudio(slot, opts) {
       h("label", {class: "notebox"}, h("span", {class: "sub"}, "Pose"), pose),
       h("label", {class: "notebox"}, h("span", {class: "sub"}, "Or write what they do (optional, wins over the list)"), poseText),
       h("div", {class: "notebox"}, h("span", {class: "sub"}, "How much it looks like your picture"),
-        h("div", {class: "tstrength"}, h("span", {class: "sub"}, "like your picture"), like, h("span", {class: "sub"}, "the VS look"), likeLabel)),
+        h("div", {class: "tstrength"}, h("span", {class: "sub"}, "more the picture"), like, h("span", {class: "sub"}, "the VS look"), likeLabel)),
       h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "vs") * st.vsCount) + ")" : "Pick a battle sprite in 3 FRONT first."),
         from ? h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(from.image), alt: ""})) : null),
       h("div", {class: "tiles"}, waiting.map(vsTile), list.slice(0, 12).map(vsTile)),
