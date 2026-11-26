@@ -5773,10 +5773,7 @@ function renderCharacterPage(c) {
   const openStudio = () => studioOpts ? openTrainerStudio("trainer-" + c.id, studioOpts) : follower ? openCharacter(mainChar, "studio") : null;
   const toTab = id => { charTab = id; openCharacter(c, "tabs"); };
   const cap = x => x ? x.charAt(0).toUpperCase() + x.slice(1) : "";
-  const heroPic = h("div", {class: "heropic"}, sp && sp.vs ? h("img", {class: "px", src: artUrl(sp.vs), alt: "VS portrait"})
-    : sp && sp.image ? h("img", {class: "px front", src: artUrl(sp.image), alt: "battle sprite"})
-    : pic ? h("img", {class: "photo", src: pic.src, alt: "trainer picture"}) : h("span", {class: "charsil"}, "?"));
-  const step = (ok, label, onclick) => h("button", {type: "button", class: "herostep" + (ok ? " done" : ""), onclick}, (ok ? "✓ " : "○ ") + label);
+  const heroPic = heroPicture(sp, pic), step = heroStep;
   const shownName = look.name || (npcHere && !cl.by ? npcHere.name : "") || "";
   const hero = h("div", {class: "charhero"}, heroPic, h("div", {class: "herotext"},
     h("div", {class: "heroname"}, shownName || charName(c)),
@@ -7059,7 +7056,7 @@ function trainerSpriteBox(slot, opts) {
 }
 
 // ---------- NPCs made by the group (CREATE NPC): species_edits rows of kind 'npc', the newest row of an id wins ----------
-let npcs = new Map(), npcOpen = "";
+let npcs = new Map(), npcOpen = "", npcTab = "";
 async function loadNpcs() {
   const rows = await dbRead("species_edits?select=id,species_id,data,editor&kind=eq.npc&order=id.asc");
   npcs = new Map();
@@ -7071,7 +7068,9 @@ async function saveNpc(n, changes) {
   await saveEdit("npc", n.id, data);
   if (data.deleted) npcs.delete(n.id); else npcs.set(n.id, Object.assign(data, {id: n.id}));
 }
-function openNpc(id) {
+function openNpc(id, tab) {                    // tab: "sprites", "battles" or "about" (2026-11-27)
+  if (npcOpen !== id) npcTab = "";
+  if (tab) npcTab = tab;
   npcOpen = id; charOpen = ""; view = "chars";
   if (location.hash !== "#npc=" + id) history.pushState(null, "", "#npc=" + id);
   render(); window.scrollTo(0, 0);
@@ -7097,6 +7096,8 @@ function createNpcBox() {
     h("div", {class: "sub"}, "A person you meet in the game who is not one of us: your own character. It gets a trainer sprite in the trainer studio. Only characters you made yourself (no characters from other games, films or shows)."),
     h("div", {class: "storyline"}, name, h("button", {type: "button", class: "primary", onclick: go}, "Create")), note);
 }
+// The NPC page has the trainer page's layout (2026-11-27, Arvind: "Ja, samme oppsett"): a hero with the VS portrait, the name
+// and the ways in (TRAINER STUDIO, its battle role), then three tabs: SPRITES, BATTLES and ABOUT.
 function renderNpcPage(n) {
   const grid = document.getElementById("grid");
   const status = h("div", {class: "hint charstatus", role: "status"});
@@ -7108,21 +7109,47 @@ function renderNpcPage(n) {
   about.addEventListener("change", () => save({about: about.value.trim().slice(0, 300)}));
   const bar = h("div", {class: "tbar charbar"}, h("button", {type: "button", onclick: closeNpc}, "◀ All characters"), h("b", {class: "charname"}, n.name || "NPC"),
     h("span", {class: "grow"}), h("span", {class: "badge"}, "NPC" + (n.by ? " by " + person(n.by) : "")));
-  const show = trainerShowcase(n.sprite, n.name);
-  const left = h("div", {class: "charside"},
-    show ? null : h("div", {class: "charstage"}, h("span", {class: "charsil"}, "?")),
-    h("div", {class: "factrows"}, h("div", {}, h("span", {}, "Name"), nameBox), h("div", {}, h("span", {}, "Made by"), n.by ? person(n.by) : "someone")),
-    h("div", {style: "margin-top:6px"}, about),
-    // Anyone may delete an NPC (2026-11-24, Arvind: "jeg klarer ikke å slette npcs": the button showed only for the person who
-    // made it, and another member had made the NPC). Deleting writes a new row with deleted: true, so it can be undone from the history.
-    h("button", {type: "button", class: "small", style: "margin-top:8px", onclick: ev => sure(ev.currentTarget, owner ? "Really delete this NPC?" : "Really delete " + (n.by ? person(n.by) + "'s" : "this") + " NPC?",
-      async () => { await save({deleted: true}); closeNpc(); })}, "Delete NPC"));
-  const main = h("div", {class: "charmain"}, h("h3", {style: "margin-top:0"}, "Trainer studio"),
-    trainerSpriteBox(n.id, {kind: "npc", name: n.name, pics: [], current: n.sprite, onPick: async sprite => { await saveNpc(n, {sprite}); n = npcs.get(n.id); },
-      onClose: () => { if (npcOpen === n.id) renderNpcPage(npcs.get(n.id) || n); }}),
-    npcBattles(n, status));
-  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, show, h("div", {class: "charcols"}, left, main)));
+  const role = npcRole(n.id), sp = n.sprite || null;
+  const studioOpts = {kind: "npc", name: n.name, pics: [], current: n.sprite, onPick: async sprite => { await saveNpc(n, {sprite}); n = npcs.get(n.id); },
+    onClose: () => { if (npcOpen === n.id) renderNpcPage(npcs.get(n.id) || n); }};
+  const openStudio = () => openTrainerStudio(n.id, studioOpts);
+  const toTab = id => { npcTab = id; renderNpcPage(npcs.get(n.id) || n); const el = document.getElementById("char-tabs"); if (el) el.scrollIntoView({block: "start"}); };
+  const hero = h("div", {class: "charhero"}, heroPicture(sp, null), h("div", {class: "herotext"},
+    h("div", {class: "heroname"}, n.name || "NPC"),
+    h("div", {class: "sub"}, ["NPC" + (n.by ? " made by " + person(n.by) : ""), role ? "plays " + charName(role) + " (" + roughBattles(role.battles || 0) + ")" : "in no battle yet"].join(" · ")),
+    n.about ? h("div", {class: "sub"}, n.about) : null,
+    h("div", {class: "herosteps"}, h("label", {class: "heroedit"}, h("span", {class: "sub"}, "Name"), nameBox),
+      heroStep(!!(sp && sp.image), "sprites", openStudio), heroStep(!!role, role ? "battle role" : "no battle role yet", () => toTab("battles"))),
+    h("div", {class: "heroacts"},
+      h("button", {type: "button", class: "primary", onclick: openStudio}, sp && sp.image ? "✎ OPEN THE TRAINER STUDIO" : "✎ MAKE THE TRAINER SPRITE"),
+      role ? h("button", {type: "button", onclick: () => openCharacter(role, "team")}, "EDIT ITS STORY TEAM ▶")
+        : h("button", {type: "button", onclick: () => toTab("battles")}, "PUT IT IN A BATTLE ▶"))));
+  if (!npcTab) npcTab = "sprites";
+  const tabBtn = (id, label) => h("button", {type: "button", role: "tab", class: "small" + (npcTab === id ? " primary" : ""), "aria-selected": String(npcTab === id), onclick: () => toTab(id)}, label);
+  const tabs = h("div", {class: "chartabs", role: "tablist", id: "char-tabs", "aria-label": "Parts of the NPC page"}, tabBtn("sprites", "SPRITES"), tabBtn("battles", "BATTLES"), tabBtn("about", "ABOUT"));
+  const spritesTab = h("div", {},
+    h("div", {class: "box", style: "margin-top:0"}, h("b", {}, "Trainer studio"),
+      h("div", {class: "sub"}, "The NPC's battle sprite, VS portrait, back, animation and map figure, made from a picture by the drawing PC in the style of the DS games. Anyone in the group can work on it."),
+      trainerSpriteBox(n.id, studioOpts)),
+    trainerShowcase(sp, n.name) || h("div", {class: "empty", style: "margin-top:10px"}, "No sprites yet: make them in the trainer studio."));
+  const aboutTab = h("div", {class: "charabout"},
+    h("div", {class: "charside"}, h("div", {class: "factrows"}, h("div", {}, h("span", {}, "Name"), n.name || "NPC"), h("div", {}, h("span", {}, "Made by"), n.by ? person(n.by) : "someone"),
+        h("div", {}, h("span", {}, "Battles"), role ? h("button", {type: "button", class: "linkish", onclick: () => openCharacter(role)}, charName(role)) : "none yet")),
+      h("div", {style: "margin-top:8px"}, h("span", {class: "sub"}, "Who is this? Where do you meet them?"), about),
+      // Anyone may delete an NPC (2026-11-24, Arvind: "jeg klarer ikke å slette npcs": the button showed only for the person who
+      // made it, and another member had made the NPC). Deleting writes a new row with deleted: true, so it can be undone from the history.
+      h("button", {type: "button", class: "small", style: "margin-top:8px", onclick: ev => sure(ev.currentTarget, owner ? "Really delete this NPC?" : "Really delete " + (n.by ? person(n.by) + "'s" : "this") + " NPC?",
+        async () => { await save({deleted: true}); closeNpc(); })}, "Delete NPC")));
+  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, hero, tabs,
+    npcTab === "battles" ? npcBattles(n, status) : npcTab === "about" ? aboutTab : spritesTab));
 }
+// The hero's picture and its done marks, shared by the trainer and the NPC page (2026-11-27)
+function heroPicture(sp, pic) {
+  return h("div", {class: "heropic"}, sp && sp.vs ? h("img", {class: "px", src: artUrl(sp.vs), alt: "VS portrait"})
+    : sp && sp.image ? h("img", {class: "px front", src: artUrl(sp.image), alt: "battle sprite"})
+    : pic ? h("img", {class: "photo", src: pic.src, alt: "trainer picture"}) : h("span", {class: "charsil"}, "?"));
+}
+const heroStep = (ok, label, onclick) => h("button", {type: "button", class: "herostep" + (ok ? " done" : ""), onclick}, (ok ? "✓ " : "○ ") + label);
 // Where an NPC battles (2026-11-24, Arvind: "de spillerene VI kan ta i gjengen kommer ikke til å fylles opp. så da kan vi plassere
 // våres npc på de ledige ... så vi legger bare inn story lagene også blir resten gjort for oss"; "alle kan gjøre det"): an NPC
 // plays a trainer role nobody has claimed, with that role's story team, levels and battles, as a person who claims it.
@@ -8766,7 +8793,7 @@ function openSlot(sid, stage) {
   if (!role && !/^npc-/.test(sid)) return;
   if (TRAY_STEP[stage]) tstudioState(sid).step = TRAY_STEP[stage];
   studioJump = {slot: sid, at: Date.now()};
-  if (role) openCharacter(role, "studio"); else openNpc(sid);
+  if (role) openCharacter(role, "studio"); else openNpc(sid, "sprites");
 }
 function trayName(sid, mineToo) {         // a trainer's role stays vague to others; your own shows its name
   const s = byId.get(sid), npc = npcs.get(sid);
