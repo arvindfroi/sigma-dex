@@ -2844,7 +2844,7 @@ TEST("Sigma dex: Charcadet has the data from its species file")
     EXPECT_EQ(info->baseSpDefense, 40);
     EXPECT_EQ(info->types[0], TYPE_ICE);
     EXPECT_EQ(info->types[1], TYPE_ICE);
-    EXPECT_EQ(info->abilities[0], ABILITY_WEAK_ARMOR);
+    EXPECT_EQ(info->abilities[0], ABILITY_SNOW_CLOAK);
     EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_GROWL);
     EXPECT_EQ(GetSpeciesName(SPECIES_CHARCADET)[0], CHAR_C);
 }

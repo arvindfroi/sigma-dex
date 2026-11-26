@@ -138,7 +138,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 127 | [Aquway](data/species/subwaysurfer.yaml) | Water / Ground | Swift Swim, Storm Drain, Adaptability (H) | 495 |  | 72% |
 | 128 | [Zyzzfu](data/species/zyzzfu.yaml) | Electric / Fighting | Unseen Fist, Surge Surfer (H) | 600 |  | 72% |
 | 129 | [Grincho](data/species/grincho.yaml) | Normal / Ghost | Unnerve, Prankster, Shadow Tag (H) | 415 |  | 72% |
-| 130 | [Charcadet](data/species/glac-pee-mindre-evo.yaml) | Ice | Weak Armor, Ice Body (H) | 255 | Glacépée (Lv 30) | 41% |
+| 130 | [Charcadet](data/species/glac-pee-mindre-evo.yaml) | Ice | Snow Cloak, Weak Armor, Ice Body (H) | 255 | Glacépée (Lv 30) | 41% |
 | 131 | [Glacépée](data/species/glac-p-e.yaml) | Ice / Fighting | Long Reach, Weak Armor, Sniper (H) | 525 |  | 72% |
 | 132 | [Everdark](data/species/everdark.yaml) | Dark / Psychic | Armor Tail, Dark Aura (H) | 680 |  | 72% |
 | 133 | [Diedo](data/species/diedo.yaml) | Flying | Mind's Eye | 200 | Seraphinnen (Lv 20) | 76% |

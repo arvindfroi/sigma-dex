@@ -17,8 +17,8 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Weak Armor
-  secondary:             # optional
+  primary: Snow Cloak
+  secondary: Weak Armor  # optional
   hidden: Ice Body       # optional
 
 base_stats:              # each 1-255

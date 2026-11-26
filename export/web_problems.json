@@ -12,12 +12,6 @@
     "problem": "the name 'XL and Deep fried' is 17 characters, the game fits at most 16 (saved anyway; the game will show a shorter name)"
   },
   {
-    "id": 2299,
-    "species": "move:inverted-bite-of-heaven",
-    "row": "new move inverted-bite-of-heaven (saved by Arvind)",
-    "problem": "the name 'Inverted Bite of Heaven' is 23 characters, the game fits at most 16 (saved anyway; the game will show a shorter name)"
-  },
-  {
     "id": 2866,
     "species": "chillalit-form-battle-bond",
     "row": "chillalit-form-battle-bond (saved by Arvind)",
@@ -34,5 +28,11 @@
     "species": "warrallier-form-mega-warrallier",
     "row": "warrallier-form-mega-warrallier (saved by Emil)",
     "problem": "dex slot 6 is already taken"
+  },
+  {
+    "id": 3060,
+    "species": "move:inverted-bite-of-heaven",
+    "row": "new move inverted-bite-of-heaven (saved by Emil Venge-Kvamme)",
+    "problem": "the name 'Inverted Bite of Heaven' is 23 characters, the game fits at most 16 (saved anyway; the game will show a shorter name)"
   }
 ]

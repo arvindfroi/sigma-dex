@@ -20524,7 +20524,7 @@
       "base_exp": 168,
       "growth_rate": "fast",
       "base_friendship": 70,
-      "gender": 50,
+      "gender": 12.5,
       "egg_groups": [
         "grass"
       ],
@@ -20575,11 +20575,11 @@
           },
           {
             "level": 18,
-            "move": "Synthesis"
+            "move": "Tidy Up"
           },
           {
             "level": 22,
-            "move": "Flirt Punch"
+            "move": "Wish"
           },
           {
             "level": 24,
@@ -20595,7 +20595,7 @@
           },
           {
             "level": 31,
-            "move": "Wish"
+            "move": "Flirty Punch"
           },
           {
             "level": 35,
@@ -20650,6 +20650,8 @@
           "U-turn",
           "Substitute",
           "Psyshock",
+          "Low Sweep",
+          "Foul Play",
           "Draining Kiss",
           "Play Rough",
           "Mystical Fire",
@@ -20662,7 +20664,8 @@
           "Endeavor",
           "Heal Bell",
           "Hyper Voice",
-          "Magical Leaf"
+          "Magical Leaf",
+          "Follow Me"
         ],
         "egg": [
           "Lucky Chant",
@@ -20692,7 +20695,6 @@
           "base exp",
           "growth rate",
           "base friendship",
-          "gender",
           "egg groups",
           "egg cycles"
         ],
@@ -20710,7 +20712,6 @@
           "base exp": 85,
           "growth rate": 51,
           "base friendship": 90,
-          "gender": 54,
           "egg groups": 44,
           "egg cycles": 65
         },
@@ -33626,8 +33627,8 @@
       "weight_kg": 10.5,
       "body_color": null,
       "abilities": {
-        "primary": "Weak Armor",
-        "secondary": null,
+        "primary": "Snow Cloak",
+        "secondary": "Weak Armor",
         "hidden": "Ice Body"
       },
       "base_stats": {

@@ -3164,6 +3164,8 @@ static const u16 sFuramireTeachableLearnset[] = {
     MOVE_U_TURN,
     MOVE_SUBSTITUTE,
     MOVE_PSYSHOCK,
+    MOVE_LOW_SWEEP,
+    MOVE_FOUL_PLAY,
     MOVE_DRAINING_KISS,
     MOVE_PLAY_ROUGH,
     MOVE_MYSTICAL_FIRE,
@@ -3175,6 +3177,7 @@ static const u16 sFuramireTeachableLearnset[] = {
     MOVE_HEAL_BELL,
     MOVE_HYPER_VOICE,
     MOVE_MAGICAL_LEAF,
+    MOVE_FOLLOW_ME,
     MOVE_UNAVAILABLE,
 };
 
