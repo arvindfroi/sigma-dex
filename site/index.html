@@ -67,6 +67,8 @@ header .sub { color: #fbefff; font-size: 15px; }
 .daynight { display: flex; gap: 0; }
 .daynight button { min-height: 0; padding: 4px 10px; font-size: 13px; border-width: 2px; border-bottom-width: 3px; }
 .daynight button[aria-pressed=true] { background: var(--gold); color: #2c2000; border-color: #8a6a10; }
+.spoilrow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 10px; margin: 4px 0; }
+.spoilrow button { min-height: 0; padding: 3px 10px; font-size: 13px; }
 
 /* fields */
 input, select, textarea { font: inherit; font-size: 15px; color: var(--ink); background: var(--field); border: 3px solid var(--edge2); border-radius: 0; padding: 6px 9px; min-width: 0; }
@@ -1180,6 +1182,7 @@ input[type=range].shtrack::-moz-range-thumb { width: 8px; height: 20px; backgrou
     <div class="sub" id="summary"></div>
   </div>
   <div class="daynight" id="daynight" role="group" aria-label="Day or night"></div>
+  <div class="daynight" id="spoilers" role="group" aria-label="Pokemon pictures or names only"></div>
   <label class="me">NAME <input id="me" maxlength="40" placeholder="Discord name (optional)" autocomplete="nickname"></label>
 </header></div>
 <div id="welcomebar" hidden></div>
@@ -1242,6 +1245,8 @@ const ITEM_METHODS = ["item", "trade_item"];
 
 function h(tag, attrs, ...kids) {
   const el = document.createElement(tag);
+  if (attrs && tag === "img" && hiddenPic(attrs.src)) attrs = Object.assign({}, attrs, {src: HIDDEN_PIC, srcset: null, alt: "hidden picture (spoiler-free)", title: "Hidden: spoiler-free is on (top of the page)"});
+  if (attrs && tag === "a" && hiddenPic(attrs.href)) attrs = Object.assign({}, attrs, {href: null, target: null});
   for (const [k, v] of Object.entries(attrs || {})) {
     if (v === null || v === undefined || v === false) continue;
     if (k === "class") el.className = v; else if (k === "style") el.style.cssText = v;
@@ -1265,6 +1270,18 @@ function sure(button, ask, action) {
 }
 const remember = { get(k) { try { return localStorage.getItem("sigma-" + k) || ""; } catch (e) { return ""; } },
                    set(k, v) { try { localStorage.setItem("sigma-" + k, v); } catch (e) {} } };
+// Spoiler-free (27 Nov 2026, asked in Discord for someone who wants to play the game blind but still add Pokemon): every
+// Pokemon picture becomes a "?" box, so only names and types show. Trainer and NPC pictures stay. Kept on this device only.
+// A Pokemon's page can show that one's pictures again (the ones you made yourself), and hide them again.
+const NOSPOIL = {on: remember.get("nospoil") === "1", shown: new Set(remember.get("nospoil-shown").split(",").filter(Boolean))};
+const HIDDEN_PIC = "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><rect x="6" y="6" width="68" height="68" rx="10" fill="#888888" fill-opacity=".18" stroke="#888888" stroke-width="3" stroke-dasharray="7 5"/><text x="40" y="53" font-size="36" font-family="sans-serif" font-weight="bold" text-anchor="middle" fill="#888888">?</text></svg>');
+// The folder a picture is filed under: art/<id>/..., art/tries/<id>/... or art/candidates/<id>/... (here and in storage).
+const picFolder = src => { const m = String(src || "").match(/(?:^|\/)art\/(?:tries\/|candidates\/)?([^\/?#]+)\//); return m ? m[1] : null; };
+function hiddenPic(src) {
+  if (!NOSPOIL.on) return false;
+  const f = picFolder(src);
+  return !!f && !/^(trainer-|npc-)/.test(f) && !NOSPOIL.shown.has(f);
+}
 const me = () => document.getElementById("me").value.trim();   // optional: saving never needs a name (Arvind, 15 Nov 2026); only claiming a trainer asks for one
 let bySlot, byId;
 function index() { bySlot = new Map(DEX.species.map(s => [s.data.dex, s])); byId = new Map(DEX.species.map(s => [s.id, s])); }
@@ -1566,7 +1583,8 @@ function monTop(s) {
   function drawStage() {
     const src = (views.find(([v]) => v === view) || [])[1];
     const shinyImg = view === "shiny" ? h("img", {class: "px", alt: "shiny " + d.name}) : null;
-    if (shinyImg) shinyPicture(s.id, "front").then(url => { if (url) shinyImg.src = url; });
+    if (shinyImg && hiddenPic(ds.front)) shinyImg.src = HIDDEN_PIC;
+    else if (shinyImg) shinyPicture(s.id, "front").then(url => { if (url) shinyImg.src = url; });
     stage.replaceChildren(!src ? h("div", {class: "noart"}, "NO PICTURE YET") : shinyImg ? shinyImg : view === "follower" ? walker(src, 5)
       : h("img", {class: view === "art" ? null : "px" + (view === "icon" ? " icon" : ""), src, alt: VIEW_LABELS[view].toLowerCase() + " of " + d.name}));
     buttons.replaceChildren(...(views.length > 1 ? views.map(([v]) => h("button", {type: "button", "aria-pressed": String(v === view), onclick: () => { view = v; drawStage(); }}, VIEW_LABELS[v])) : []));
@@ -1574,7 +1592,7 @@ function monTop(s) {
   const top = {
     el: h("section", {class: "screen top", "aria-label": d.name || "New Pokemon"},
       h("div", {class: "namebar"}, s.id ? h("div", {class: "frame no"}, "No." + pad(d.dex)) : null, h("div", {class: "frame"}, name), types),
-      stage, buttons, box),
+      stage, buttons, views.length ? spoilerButton(s) : null, box),
     say(title, text) { box.replaceChildren(title ? h("span", {class: "say-title"}, title + "\n") : "", text || ""); },
     rest() { top.say("", rest()); },
     setRest(fn) { rest = fn; top.rest(); },
@@ -2791,6 +2809,7 @@ function secondsFor(timings, stage) {
   return ok(stage === "back" && t["back:klein"]) || ok(t[stage]) || TRY_DEFAULT_SECONDS[stage] || 60;
 }
 const loadPicture = src => new Promise((ok, no) => {
+  if (hiddenPic(src)) { no(new Error("the picture is hidden (spoiler-free)")); return; }   // nothing is drawn or worked out from it
   const im = new Image(); im.crossOrigin = "anonymous";
   im.onload = () => ok(im); im.onerror = () => no(new Error("the picture did not load")); im.src = src;
 });
@@ -8768,6 +8787,28 @@ function drawDayNight() {
     onclick: () => { if (id === "auto") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = id; remember.set("theme", id === "auto" ? "" : id); drawDayNight(); }}, label)));
 }
 
+// The spoiler-free switch at the top (on this device; the page loads again so every picture follows it).
+function drawSpoilers() {
+  const now = NOSPOIL.on ? "1" : "";
+  document.getElementById("spoilers").replaceChildren(...[["", "DESIGNS"], ["1", "NAMES ONLY"]].map(([v, label]) => h("button", {type: "button", "aria-pressed": String(now === v),
+    title: v ? "Spoiler-free: hide every Pokemon picture so only names and types show (on this device). Trainers still show." : "Show the Pokemon pictures",
+    onclick: () => { if (now === v) return; remember.set("nospoil", v); location.reload(); }}, label)));
+}
+// Every folder a Pokemon's pictures are filed under (its id, plus older upload folders such as "slothbaby-utviklet").
+const monFolders = s => [...new Set([s.id, ...allImages(s.id).map(i => picFolder(i.src)), ...Object.values(DEX.ds_sprites[s.id] || {}).map(picFolder),
+  picFolder((DEX.sprites[s.id] || {}).src)].filter(Boolean))];
+// On a Pokemon's page while spoiler-free is on: show this one's pictures (one you made yourself), or hide them again.
+function spoilerButton(s) {
+  if (!NOSPOIL.on || !s.id) return null;
+  const folders = monFolders(s), open = folders.some(f => NOSPOIL.shown.has(f));
+  return h("div", {class: "spoilrow"}, h("span", {class: "sub"}, open ? "Spoiler-free is on; this one's pictures show." : "Spoiler-free is on: the pictures are hidden."),
+    h("button", {type: "button", onclick: () => {
+      folders.forEach(f => open ? NOSPOIL.shown.delete(f) : NOSPOIL.shown.add(f));
+      remember.set("nospoil-shown", [...NOSPOIL.shown].join(","));
+      location.reload();
+    }}, open ? "HIDE THEM AGAIN" : "SHOW THIS ONE"));
+}
+
 function renderNav() {
   drawWelcome();
   const count = kind => DEX.custom[kind].length + undescribed(kind).length;
@@ -9141,6 +9182,7 @@ async function loadRecentEdits() {
 
 document.getElementById("title").textContent = DEX.project;
 drawDayNight();
+drawSpoilers();
 const meBox = document.getElementById("me");
 meBox.value = remember.get("editor");
 let meRedraw = null;
