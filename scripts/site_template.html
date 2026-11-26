@@ -866,6 +866,8 @@ span.mergethumb { display: inline-flex; align-items: center; justify-content: ce
 .tfieldgrid .field.wide { grid-column: span 2; }
 @media (max-width: 760px) { .tfieldgrid .field.wide { grid-column: auto; } }
 .tfieldgrid .field > span { font-size: 13px; color: var(--muted); }
+.tfieldgrid .typo { font-size: 13px; color: var(--warn, #e0a030); }
+.tfieldgrid .typo button { margin-left: 6px; }
 .tbasewrap { position: relative; display: flex; }
 .tbasewrap > .tbase { flex: 1; }
 .tplus { position: absolute; top: 2px; right: 2px; min-height: 0; padding: 0 5px; font-size: 13px; line-height: 18px; border-width: 2px; }
@@ -5714,6 +5716,36 @@ const TSTEPS = [
   {id: "save", n: "✓", label: "SAVE", c: "purple", what: "How your trainer looks in a battle and on the map."}];
 // The words about the trainer (2026-11-24, Arvind: "lag fields vi kan fylle ut"): the same fields as the tested recipe
 // (trainer_swap.py), each with an example; the drawing PC puts them in its text (scripts/trainer_studio.py battle_text).
+// A colour word one letter off (2026-11-27 night: Messi's "short bown hair" came out BLACK in his VS and was repainted brown
+// by hand; the drawing PC does not know "bown"): the box says "did you mean brown?" with a button. Common words that are one
+// letter from a colour (back, hold, finger, wavy ...) are never flagged; short colours (red, tan, gold, pink) are left out.
+const COLOUR_WORDS = ["black", "brown", "blond", "blonde", "ginger", "orange", "yellow", "green", "blue", "purple", "white", "grey", "gray",
+  "silver", "golden", "auburn", "chestnut", "beige", "maroon", "violet", "turquoise", "magenta", "crimson", "scarlet", "olive", "khaki",
+  "ivory", "tanned", "bronze", "copper", "platinum", "lilac", "lavender", "burgundy"];
+const NOT_TYPOS = new Set(["back", "block", "blank", "slack", "brow", "brows", "grown", "crown", "drown", "frown", "blown", "blood", "bond",
+  "blind", "bland", "blend", "blondes", "finger", "fingers", "singer", "ginger", "fellow", "mellow", "bellow", "greet", "greed", "preen",
+  "greens", "blur", "glue", "clue", "blues", "grew", "prey", "gravy", "grab", "pray", "tray", "write", "whine", "while", "whites", "olives",
+  "copier", "bronzed", "violets", "grays", "greys", "range", "oranges", "purples", "lilacs", "khakis", "blacks", "browns", "golden"]);
+function nearOne(a, b) {                      // one letter added, dropped or changed, or two next to each other swapped
+  if (a === b || Math.abs(a.length - b.length) > 1) return false;
+  if (a.length === b.length) {
+    const d = [...a].map((c, i) => c !== b[i] ? i : -1).filter(i => i >= 0);
+    return d.length === 1 || (d.length === 2 && d[1] === d[0] + 1 && a[d[0]] === b[d[1]] && a[d[1]] === b[d[0]]);
+  }
+  const [s, l] = a.length < b.length ? [a, b] : [b, a];
+  for (let i = 0; i < l.length; i++) if (l.slice(0, i) + l.slice(i + 1) === s) return true;
+  return false;
+}
+function colourTypos(text) {
+  const out = [];
+  for (const m of String(text || "").toLowerCase().matchAll(/[a-z]{4,}/g)) {
+    const w = m[0];
+    if (COLOUR_WORDS.includes(w) || NOT_TYPOS.has(w) || out.some(o => o[0] === w)) continue;
+    const t = COLOUR_WORDS.find(c => nearOne(w, c));
+    if (t) out.push([w, t]);
+  }
+  return out;
+}
 const TFIELDS = [["who", "Who", "a young man, an old woman, a girl of about 10"],
   ["skin", "Skin", "light skin, tanned skin, dark brown skin, a pale made-up face"], ["hair", "Hair", "spiky white hair with a red streak, a golden band on the forehead"],
   ["clothes", "Clothes", "a long white cape with a high collar, a black sleeveless vest, black trousers, brown boots"],
@@ -6122,8 +6154,13 @@ function trainerStudio(slot, opts) {
     const counter = h("span", {class: "sub"}, filled());
     const box = ([k, label, ex]) => {
       const input = h("input", {type: "text", maxlength: 240, value: st.fields[k] || "", placeholder: "e.g. " + ex, "aria-label": label});
-      input.addEventListener("input", () => { st.fields[k] = input.value; remember.set("trainer-fields-" + slot, JSON.stringify(st.fields)); counter.textContent = filled(); });
-      return h("label", {class: "field" + (["clothes", "hair", "extra", "pose", "facing"].includes(k) ? " wide" : "")}, h("span", {}, label), input);
+      const typo = h("div", {class: "typo", role: "status"});
+      const check = () => fillIn(typo, colourTypos(input.value).slice(0, 2).map(([w, t]) => h("div", {}, "\u201c" + w + "\u201d: did you mean " + t + "?",
+        h("button", {type: "button", class: "small", onclick: ev => { ev.preventDefault();
+          input.value = input.value.replace(new RegExp("\\b" + w + "\\b", "gi"), t); input.dispatchEvent(new Event("input")); }}, "Use " + t))));
+      input.addEventListener("input", () => { st.fields[k] = input.value; remember.set("trainer-fields-" + slot, JSON.stringify(st.fields)); counter.textContent = filled(); check(); });
+      check();
+      return h("label", {class: "field" + (["clothes", "hair", "extra", "pose", "facing"].includes(k) ? " wide" : "")}, h("span", {}, label), input, typo);
     };
     const moreN = TFIELDS_MORE.filter(([k]) => (st.fields[k] || "").trim()).length;
     return h("div", {class: "tfields"},
