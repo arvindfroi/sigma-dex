@@ -38,6 +38,19 @@ moves:
     Special Attack falls by one stage.
   similar_to: King’s Shield
   designer: Emil
+- id: flirt-punch
+  name: Flirt Punch
+  type: Fairy
+  category: physical
+  power: 75
+  accuracy: 100
+  pp: 10
+  target: one opponent
+  contact: true
+  effect: A charming punch that has a chance to infatuate the target, regardless of gender excluding genderless
+    Pokémon
+  effect_chance: 50
+  designer: Emil
 - id: gravirel-s-curse
   name: Gravirel’s Curse
   type: Ghost

@@ -76,6 +76,7 @@ learnset:
     - {level: 12, move: Charm}
     - {level: 15, move: Magical Leaf}
     - {level: 18, move: Synthesis}
+    - {level: 22, move: Flirt Punch}
     - {level: 24, move: Tri Attack}
     - {level: 25, move: Dazzling Gleam}
     - {level: 27, move: Sweet Kiss}
