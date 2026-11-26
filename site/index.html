@@ -6576,7 +6576,8 @@ function trainerStudio(slot, opts) {
     const btn = h("button", {type: "button", class: "primary", disabled: hasPicture() && st.base ? null : "", onclick: () => make(btn)}, "MAKE");
     // the tries: waiting ones first, then the newest
     const waiting = [];
-    for (const j of mine()) for (let k = st.tries.filter(t => t.job_id === j.id).length; k < (j.count || 1); k++) waiting.push({waiting: true});
+    // only FRONT orders (2026-11-27 night: every order of the trainer showed here as "in line", e.g. 6 animations on FRONT)
+    for (const j of mine().filter(j => (j.stage || "trainer") === "trainer")) for (let k = st.tries.filter(t => t.job_id === j.id).length; k < (j.count || 1); k++) waiting.push({waiting: true});
     const list = st.tries.filter(t => t.status !== "failed").sort((a, b2) => b2.id - a.id);
     const shown = st.showAll ? list : list.slice(0, Math.max(0, 12 - waiting.length));
     const failed = st.jobs.filter(j => j.status === "failed" && j.error).slice(0, 1);
