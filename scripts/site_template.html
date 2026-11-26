@@ -6455,7 +6455,7 @@ function trainerStudio(slot, opts) {
         h("div", {class: "grass"}, cur ? animPlayer(artUrl((pickedAnim() || {}).image || from.image), cur, 2, {mirror: playMirror}) : h("img", {class: "px", src: artUrl(from.image), alt: "battle sprite", style: "width:160px"})),
         h("div", {class: "sub"}, cur ? (set ? "Your poses (" + posesIn(set) + ", made for " + ((trainerAnim(animOf(set)) || {}).name || "another animation") + ") played with " + cur.name + "'s animation. " +
             (missing.length ? cur.name + " needs " + (Math.max(...cur.cells) + 1) + " poses: pose" + (missing.length > 1 ? "s " : " ") + missing.map(j => j + 1).join(", ") + (missing.length > 1 ? " show" : " shows") + " pose 1 for now. MAKE draws only the missing one" + (missing.length > 1 ? "s" : "") + " and keeps yours."
-              : "It has all the poses it needs: pick it and save.")
+              : "It has all the poses it needs" + (opts.current && opts.current.anim && opts.current.anim.try === set.id && opts.current.anim.script === st.animScript ? " and is in the game." : ": SAVE puts it in the game."))
             : "The moves of " + cur.name + "'s animation on your sprite. MAKE draws the " + (cur.poses - 1) + " other pose" + (cur.poses > 2 ? "s" : "") + ".")
           : "No animation: your trainer stands still, like most trainers.")),
       from && cur ? animBaseBox() : null,
