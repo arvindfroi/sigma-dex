@@ -260,7 +260,7 @@ button.chip[aria-pressed=true] { border-color: var(--gold); background: var(--so
 .badge.taken { color: var(--muted); border-color: var(--edge2); }
 .badge.mine { color: #f5c542; border-color: #f5c542; }
 .charcard.avail { outline: 3px solid var(--good); outline-offset: -9px; }
-.charcard.taken { opacity: .6; }
+.charcard.taken { opacity: 1; }
 .charcard .badge { font-size: 13px; white-space: normal; max-width: 100%; }
 .charcard.mine { outline: 3px solid #f5c542; outline-offset: -9px; }
 .badge.need { color: var(--warn); border-color: var(--warn); }
@@ -706,7 +706,7 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .charstatus { margin: 0; position: sticky; top: 0; z-index: 3; background: var(--panel); }
 .charstatus:empty { display: none; }
 .charcols { display: grid; grid-template-columns: minmax(260px, 340px) 1fr; gap: 14px; align-items: start; }
-@media (max-width: 900px) { .charcols { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) { .charcols { grid-template-columns: 1fr; } }   /* below this the battles table had no room */
 .charside, .charmain { background: var(--panel); border: 2px solid var(--line); padding: 10px 12px; min-width: 0; }
 .charstage { height: 180px; display: flex; align-items: center; justify-content: center; background: var(--soft); border: 2px solid var(--line); margin-bottom: 8px; }
 .charstage .charsil { font-family: var(--display); font-size: 48px; color: var(--muted); }
@@ -738,8 +738,33 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .tslot .slotbtns button { padding: 0 6px; min-height: 0; font-size: 12px; }
 .charpics { display: flex; gap: 8px; flex-wrap: wrap; } .charpics img { max-height: 160px; max-width: 160px; object-fit: contain; border: 2px solid var(--line); }
 .chardetail h4 { margin: 10px 0 4px; }
-.chargrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.chargrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; }
 .charcard { align-items: center; text-align: center; }
+/* the characters page (2026-11-26, Arvind: "bruk vs trainer sprites for å preview de ... den siden er litt clunky"): each card shows
+   the VS portrait (96x64, so a 3:2 box), a filter row on top, and every sprite of a trainer on its page */
+.charpv { width: 100%; aspect-ratio: 3 / 2; display: flex; align-items: center; justify-content: center; background: var(--soft); border: 2px solid var(--line); overflow: hidden; }
+.charpv img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
+.charpv img.front { width: auto; }
+.charpv img.photo { object-fit: cover; image-rendering: auto; }
+.charpv .charsil { font-size: 40px; }
+.charpv.empty { --tint: #8a8aa0; background: linear-gradient(160deg, color-mix(in srgb, var(--tint) 30%, var(--soft)), var(--soft) 75%); }
+.charinfo { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+@media (max-width: 560px) {      /* phones: a compact row per trainer, the picture on the left */
+  .chargrid { grid-template-columns: 1fr; gap: 6px; }
+  .charcard { flex-direction: row; align-items: center; text-align: left; gap: 10px; }
+  .charcard .charpv { width: 120px; flex: none; }
+  .charinfo { align-items: flex-start; flex: 1; }
+}
+.charfilter { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin: 8px 0 4px; }
+.charfilter .count { font-size: 12px; color: var(--muted); }
+.showcase { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; margin: 10px 0 14px; }
+.showcase > .together { flex: 0 1 512px; min-width: 0; }
+.showboxes { flex: 1 1 300px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.showrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.showbox { margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; padding: 8px; background: var(--soft); border: 2px solid var(--line); min-width: 0; }
+.showpic { display: flex; align-items: center; justify-content: center; max-width: 100%; flex: 1; }
+.showpic img, .showpic canvas { image-rendering: pixelated; max-width: 100%; height: auto !important; }
+.showbox figcaption { text-align: center; }
 .charthumb { width: 96px; height: 96px; display: flex; align-items: center; justify-content: center; }
 .charthumb img, .charstage img { max-width: 100%; max-height: 100%; object-fit: contain; }
 .charsil { font-size: 48px; opacity: .35; font-family: var(--pixel, monospace); }
@@ -5705,8 +5730,10 @@ function renderCharacterPage(c) {
     follower ? h("div", {}, storyToggle(c.id), h("div", {class: "mergebtns"}, h("button", {type: "button", onclick: ev => sure(ev.currentTarget, "Really take it out?", () => work(ev.currentTarget, () => separateClaim(c.id)))},
       "Take this trainer out of the merge (it keeps a copy of everything)"))) : null,
     others.map(otherRow)) : null;
+  // every sprite on top, for anyone (2026-11-26); the small picture on the left only while there are no sprites
+  const show = trainerShowcase(look.sprite || (npcHere && npcHere.sprite), look.name || (npcHere && !cl.by ? npcHere.name : "") || "");
   const left = h("div", {class: "charside"},
-    h("div", {class: "charstage"}, look.sprite ? spriteImg(look.sprite) : npcHere && npcHere.sprite ? spriteImg(npcHere.sprite) : pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("span", {class: "charsil"}, "?")),
+    show ? null : h("div", {class: "charstage"}, pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("span", {class: "charsil"}, "?")),
     h("div", {class: "factrows"},
       h("div", {}, h("span", {}, "Role"), c.group),
       h("div", {}, h("span", {}, "Type"), String(c.type || "")),
@@ -5873,7 +5900,7 @@ function renderCharacterPage(c) {
       h("div", {class: "sub"}, "Auto: the website makes each battle's team from your story team (how many Pokemon, levels, stages and moves). To change a battle's team, press Copy to TEAMS: the team opens in TEAMS and is used for that battle, and what you change there is saved here by itself. You can also pick one of your shared teams in the menu. The others only see your teams behind spoiler buttons."),
       battles);
   }
-  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, h("div", {class: "charcols"}, left, main), studio));
+  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, show, h("div", {class: "charcols"}, left, main), studio));
 }
 function renderCharacters() {
   const grid = document.getElementById("grid");
@@ -5892,23 +5919,36 @@ function renderCharacters() {
   const groups = [];
   for (const c of shuffledCharacters()) { let g = groups.find(x => x.name === c.group); if (!g) groups.push(g = {name: c.group, rows: []}); g.rows.push(c); }
   const card = c => {
-    const cl = claimOf(c.id), look = lookOf(c.id), pic = charPic(c), isMine = cl.by && mine && person(cl.by) === mine;
+    const cl = claimOf(c.id), look = lookOf(c.id), npc = roleNpc(cl), isMine = cl.by && mine && person(cl.by) === mine;
     return h("button", {type: "button", class: "card charcard " + (cl.by ? (isMine ? "mine" : "taken") : "avail"), onclick: () => openCharacter(c)},
-      h("div", {class: "charthumb"}, look.sprite ? spriteImg(look.sprite, "") : roleNpc(cl) && roleNpc(cl).sprite ? spriteImg(roleNpc(cl).sprite, "") : pic ? h("img", {src: pic.src, alt: ""}) : h("span", {class: "charsil"}, "?")),
-      h("b", {}, charName(c)), look.name ? h("div", {}, "\u201c" + look.name + "\u201d") : roleNpc(cl) ? h("div", {}, "\u201c" + (roleNpc(cl).name || "NPC") + "\u201d") : null,
+      charPreview(look.sprite || (npc && npc.sprite), charPic(c), TYPE_COLORS[String(c.type || "").split("/")[0].trim()]), h("div", {class: "charinfo"},
+      h("b", {}, charName(c)), look.name ? h("div", {}, "“" + look.name + "”") : npc ? h("div", {}, "“" + (npc.name || "NPC") + "”") : null,
       h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
-      h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "")),
-      c.dialogue ? h("div", {class: "sub"}, "💬 " + talkWord(c)) : null,
+      h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "") + (c.dialogue ? " · 💬 " + talkWord(c) : "")),
       cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "taken by " + person(cl.by))
-        : roleNpc(cl) ? h("span", {class: "badge taken"}, "NPC: " + (roleNpc(cl).name || "NPC")) : h("span", {class: "badge avail"}, "available"));
+        : npc ? h("span", {class: "badge taken"}, "NPC: " + (npc.name || "NPC")) : h("span", {class: "badge avail"}, "available")));
   };
+  // A filter row on top (2026-11-26, Arvind: the page was "litt clunky": one long scroll of 29 trainers and the NPCs)
+  const npcOf = c => roleNpc(claimOf(c.id));
+  const roleTest = {all: () => true, free: c => !claimOf(c.id).by && !npcOf(c), taken: c => !!(claimOf(c.id).by || npcOf(c)),
+    sprites: c => !!(lookOf(c.id).sprite || (npcOf(c) || {}).sprite), mine: c => !!(claimOf(c.id).by && mine && person(claimOf(c.id).by) === mine)};
+  const npcTest = {all: () => true, sprites: n => !!n.sprite, mine: n => !!(mine && person(n.by) === mine)};      // the NPCs show under these three
+  if (!roleTest[charFilter] || (charFilter === "mine" && !mine)) charFilter = "all";
+  const howMany = k => (DEX.characters || []).filter(roleTest[k]).length + (npcTest[k] ? [...npcs.values()].filter(npcTest[k]).length : 0);
+  const filters = h("div", {class: "charfilter", role: "group", "aria-label": "Show"}, CHAR_FILTERS.filter(([k]) => k !== "mine" || mine).map(([k, label]) =>
+    h("button", {type: "button", class: "small" + (k === charFilter ? " primary" : ""), "aria-pressed": String(k === charFilter), onclick: () => { charFilter = k; renderCharacters(); }}, label + " (" + howMany(k) + ")")));
+  const shown = groups.map(g => ({name: g.name, rows: g.rows.filter(roleTest[charFilter])})).filter(g => g.rows.length), npcShown = npcTest[charFilter];
   grid.replaceChildren(h("div", {style: "grid-column:1/-1"},
     CLAIMS_OPEN ? null : h("div", {class: "notice info"}, h("b", {}, "Work in progress. "), "Claiming is closed for now. Soon each trainer gets your own picture and the teams you fight with."),
-    h("div", {class: "sub"}, "The people you battle in the game. Who they really are stays a surprise; tap a trainer to see the type, how often you meet them and its teams."),
+    h("div", {class: "sub"}, "The people you battle in the game. Who they really are stays a surprise; tap a trainer to see the type, how often you meet them, its sprites and its teams."),
+    filters,
     claimsError ? h("div", {class: "hint"}, claimsError) : null,
-    groups.map(g => h("div", {}, h("h3", {}, g.name + "s"), h("div", {class: "chargrid"}, g.rows.map(card)))),
-    DEX.web.url ? npcSection() : null));
+    shown.map(g => h("div", {}, h("h3", {}, g.name + "s"), h("div", {class: "chargrid"}, g.rows.map(card)))),
+    !shown.length && !npcShown ? h("div", {class: "empty"}, "None here.") : null,
+    DEX.web.url && npcShown ? npcSection(npcShown, charFilter === "all") : null));
 }
+const CHAR_FILTERS = [["all", "All"], ["free", "Available"], ["taken", "Taken"], ["sprites", "With sprites"], ["mine", "Yours"]];
+let charFilter = "all";
 
 // ---------- the trainer studio v2 (2026-11-21) ----------
 // Arvind (21 Nov, on v1 with its eleven text fields): "it must mirror the sprite studio for Pokemon, people are used to it
@@ -5996,6 +6036,48 @@ function animPlayer(stripSrc, script, scale, opts) {
     ctx.drawImage(im, cell * 80, (opts && opts.row || 0) * 80, 80, 80, pad + f[1], pad + f[2], 80, 80);   // opts.row: a row of a sheet
   }});
   return canvas;
+}
+// The battle screen (2026-11-24, Arvind OK'd "placement preview on the real battle background"): the colours of each row of
+// Origin's trainer-battle background (sampled from an in-game screenshot at the sides, so only colours, no picture), the
+// two light platforms and the text box where the game has them; sprites at the game's places. Shared by the studio's SAVE
+// step and the characters page (2026-11-26). front = the battle sprite's path, anim/back as saved in a sprite.
+function battleScene(front, anim, back, text) {
+  const canvas = h("canvas", {width: 256, height: 192, class: "battle", "aria-label": "How it looks in a battle"});
+  const ctx = canvas.getContext("2d"); ctx.imageSmoothingEnabled = false;
+  for (let y = 0; y < 144; y++) { ctx.fillStyle = "#" + BATTLE_ROWS.slice(y * 6, y * 6 + 6); ctx.fillRect(0, y, 256, 1); }
+  const plat = (x, y, rx, ry) => { ctx.fillStyle = "#b0a8b8"; ctx.beginPath(); ctx.ellipse(x, y, rx + 2, ry + 2, 0, 0, 7); ctx.fill();
+    ctx.fillStyle = "#e0d8e0"; ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 7); ctx.fill(); };
+  plat(192, 82, 46, 11); plat(64, 142, 72, 12);
+  ctx.fillStyle = "#484048"; ctx.fillRect(0, 144, 256, 48); ctx.fillStyle = "#f8f8f8"; ctx.fillRect(6, 148, 244, 38);
+  if (front && !anim) loadPicture(artUrl(front)).then(im => ctx.drawImage(im, 152, 4)).catch(() => {});
+  return h("div", {class: "together"}, h("div", {class: "battlewrap"}, canvas, anim ? h("div", {class: "battleanim"}, animPlayer(artUrl(anim.image), trainerAnim(anim.script), 1)) : null,
+      back ? h("div", {class: "battleback"}, back.throw ? animPlayer(artUrl(back.throw), null, 1, {frames: 8}) : h("img", {class: "px", src: artUrl(back.image), alt: "back"})) : null,
+      h("div", {class: "battlebox"}, text || "")));
+}
+// A trainer's picture on the characters page (2026-11-26, Arvind: "bruk vs trainer sprites for å preview de på charatcers"):
+// its VS portrait, else its battle sprite, else the picture uploaded for the role.
+function charPreview(sp, pic, tint) {         // tint: the type's colour behind an empty one
+  const empty = !(sp && (sp.vs || sp.image)) && !pic;
+  return h("div", {class: "charpv" + (empty ? " empty" : ""), style: empty && tint ? "--tint:" + tint : null}, sp && sp.vs ? h("img", {class: "px", src: artUrl(sp.vs), alt: "", loading: "lazy"})
+    : sp && sp.image ? h("img", {class: "px front", src: artUrl(sp.image), alt: "", loading: "lazy"})
+    : pic ? h("img", {class: "photo", src: pic.src, alt: "", loading: "lazy"}) : h("span", {class: "charsil"}, "?"));
+}
+// Every sprite of a trainer, for anyone who opens its page (2026-11-26, Arvind: "gjør det lettere å se på deres sprites i
+// characters"; before, only the owner saw more than the battle sprite, inside the studio): the battle screen, the VS
+// portrait, the battle sprite with its intro, the back with the throw and the walking map figure.
+function trainerShowcase(sp, name) {
+  if (!sp || !sp.image) return null;
+  const a = sp.anim && sp.anim.image ? sp.anim : null, b = sp.back && sp.back.image ? sp.back : null;
+  const box = (label, el, note) => h("figure", {class: "showbox"}, h("div", {class: "showpic"}, el), h("figcaption", {}, h("b", {}, label), h("div", {class: "sub"}, note)));
+  return h("div", {class: "showcase"},
+    battleScene(sp.image, a, b, name ? name + " would like to battle!" : ""),
+    h("div", {class: "showboxes"},
+      sp.vs ? box("VS", h("img", {class: "px", src: artUrl(sp.vs), alt: "VS portrait", style: "width:288px"}), "on the VS screen before a battle") : null,
+      h("div", {class: "showrow"}, box("BATTLE", a ? animPlayer(artUrl(a.image), trainerAnim(a.script), 2) : h("img", {class: "px", src: artUrl(sp.image), alt: "battle sprite", style: "width:160px"}),
+        a ? "with its battle intro" : "the battle sprite"),
+      b ? box("BACK", b.throw ? animPlayer(artUrl(b.throw), null, 2, {frames: 8}) : h("img", {class: "px", src: artUrl(b.image), alt: "back", style: "width:160px"}),
+        b.throw ? "throwing the Poke Ball" : "seen from behind") : null,
+      sp.overworld ? box("MAP", npcWalker(artUrl(sp.overworld), 4), "walking on the map") : null)));
 }
 // Edge warning (2026-11-24, after Arvind found many Pokemon cut by the frame): a sprite (or each 80x80 frame of a strip) is
 // cut when 3 or more COLOURED pixels in a row, or a straight line of 8 or more pixels of any kind, lie on its top, left or
@@ -6708,23 +6790,9 @@ function trainerStudio(slot, opts) {
   }
 
   // ----- SAVE
-  // The battle screen (2026-11-24, Arvind OK'd "placement preview on the real battle background"): the colours of each row of
-  // Origin's trainer-battle background (sampled from an in-game screenshot at the sides, so only colours, no picture), the
-  // two light platforms and the text box where the game has them; sprites at the game's places.
+  // The battle screen with what is picked now (battleScene, shared with the characters page)
   function battle(it) {
-    const canvas = h("canvas", {width: 256, height: 192, class: "battle", "aria-label": "How it looks in a battle"});
-    const ctx = canvas.getContext("2d"); ctx.imageSmoothingEnabled = false;
-    for (let y = 0; y < 144; y++) { ctx.fillStyle = "#" + BATTLE_ROWS.slice(y * 6, y * 6 + 6); ctx.fillRect(0, y, 256, 1); }
-    const plat = (x, y, rx, ry) => { ctx.fillStyle = "#b0a8b8"; ctx.beginPath(); ctx.ellipse(x, y, rx + 2, ry + 2, 0, 0, 7); ctx.fill();
-      ctx.fillStyle = "#e0d8e0"; ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 7); ctx.fill(); };
-    plat(192, 82, 46, 11); plat(64, 142, 72, 12);
-    ctx.fillStyle = "#484048"; ctx.fillRect(0, 144, 256, 48); ctx.fillStyle = "#f8f8f8"; ctx.fillRect(6, 148, 244, 38);
-    const a = animNow();
-    if (it && it.image && !a) loadPicture(artUrl(it.image)).then(im => ctx.drawImage(im, 152, 4)).catch(() => {});
-    const b = backNow();
-    return h("div", {class: "together"}, h("div", {class: "battlewrap"}, canvas, a ? h("div", {class: "battleanim"}, animPlayer(artUrl(a.image), trainerAnim(a.script), 1)) : null,
-        b ? h("div", {class: "battleback"}, b.throw ? animPlayer(artUrl(b.throw), null, 1, {frames: 8}) : h("img", {class: "px", src: artUrl(b.image), alt: "back"})) : null,
-        h("div", {class: "battlebox"}, npc ? (opts.name || "Trainer") + " would like to battle!" : "")));
+    return battleScene(it && it.image, animNow(), backNow(), npc ? (opts.name || "Trainer") + " would like to battle!" : "");
   }
   // Everything side by side (2026-11-24): front (moving when it has an animation), VS portrait, back (the throw) and map
   // figure, so the person sees that they are one and the same trainer.
@@ -6919,8 +6987,7 @@ function openTrainerStudio(slot, opts) {
 // What the trainer's page shows: the saved sprite and map figure, and the way into the studio.
 function trainerSpriteBox(slot, opts) {
   const cur = opts.current;
-  return h("div", {class: "tspritebox"},
-    cur ? h("div", {class: "tpic"}, spriteImg(cur), cur.overworld ? npcWalker(artUrl(cur.overworld), 3) : null) : null,
+  return h("div", {class: "tspritebox"},          // the saved sprites themselves are shown on top of the page (trainerShowcase)
     h("div", {class: "sub"}, cur ? "Saved " + String(cur.at || "").slice(0, 10) + (cur.by ? " by " + person(cur.by) : "") + "." : "No trainer sprite yet."),
     h("button", {type: "button", class: "primary", style: "margin-top:6px", onclick: () => openTrainerStudio(slot, opts)}, cur ? "OPEN THE TRAINER STUDIO" : "MAKE THE TRAINER SPRITE"));
 }
@@ -6975,8 +7042,9 @@ function renderNpcPage(n) {
   about.addEventListener("change", () => save({about: about.value.trim().slice(0, 300)}));
   const bar = h("div", {class: "tbar charbar"}, h("button", {type: "button", onclick: closeNpc}, "◀ All characters"), h("b", {class: "charname"}, n.name || "NPC"),
     h("span", {class: "grow"}), h("span", {class: "badge"}, "NPC" + (n.by ? " by " + person(n.by) : "")));
+  const show = trainerShowcase(n.sprite, n.name);
   const left = h("div", {class: "charside"},
-    h("div", {class: "charstage"}, n.sprite ? spriteImg(n.sprite) : h("span", {class: "charsil"}, "?")),
+    show ? null : h("div", {class: "charstage"}, h("span", {class: "charsil"}, "?")),
     h("div", {class: "factrows"}, h("div", {}, h("span", {}, "Name"), nameBox), h("div", {}, h("span", {}, "Made by"), n.by ? person(n.by) : "someone")),
     h("div", {style: "margin-top:6px"}, about),
     // Anyone may delete an NPC (2026-11-24, Arvind: "jeg klarer ikke å slette npcs": the button showed only for the person who
@@ -6987,7 +7055,7 @@ function renderNpcPage(n) {
     trainerSpriteBox(n.id, {kind: "npc", name: n.name, pics: [], current: n.sprite, onPick: async sprite => { await saveNpc(n, {sprite}); n = npcs.get(n.id); },
       onClose: () => { if (npcOpen === n.id) renderNpcPage(npcs.get(n.id) || n); }}),
     npcBattles(n, status));
-  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, h("div", {class: "charcols"}, left, main)));
+  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, show, h("div", {class: "charcols"}, left, main)));
 }
 // Where an NPC battles (2026-11-24, Arvind: "de spillerene VI kan ta i gjengen kommer ikke til å fylles opp. så da kan vi plassere
 // våres npc på de ledige ... så vi legger bare inn story lagene også blir resten gjort for oss"; "alle kan gjøre det"): an NPC
@@ -7017,14 +7085,16 @@ function npcBattles(n, status) {
     free.length ? h("div", {class: "storyline"}, roleSel, h("button", {type: "button", onclick: ev => sure(ev.currentTarget, "Really put " + (n.name || "it") + " there?", putRole)}, "Put it there"))
       : h("div", {class: "sub"}, "Every trainer is taken."));
 }
-function npcSection() {
-  const list = [...npcs.values()].sort((a, b) => String(a.name).localeCompare(String(b.name)));
+function npcSection(test, withCreate) {
+  const list = [...npcs.values()].filter(test || (() => true)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
+  if (!list.length && !withCreate) return null;
   return h("div", {}, h("h3", {}, "NPCs"),
-    h("div", {class: "sub"}, "Characters the group made for the game. Tap one to change it or make its sprite."),
-    list.length ? h("div", {class: "chargrid"}, list.map(n => h("button", {type: "button", class: "card charcard", onclick: () => openNpc(n.id)},
-      h("div", {class: "charthumb"}, n.sprite ? spriteImg(n.sprite, "") : h("span", {class: "charsil"}, "?")),
-      h("b", {}, n.name || "NPC"), n.by ? h("div", {class: "sub"}, "by " + person(n.by)) : null))) : h("div", {class: "sub"}, "No NPCs yet."),
-    createNpcBox());
+    h("div", {class: "sub"}, "Characters the group made for the game. Tap one to see its sprites, change it or make its sprite."),
+    list.length ? h("div", {class: "chargrid"}, list.map(n => { const role = npcRole(n.id);
+      return h("button", {type: "button", class: "card charcard", onclick: () => openNpc(n.id)}, charPreview(n.sprite, null), h("div", {class: "charinfo"},
+        h("b", {}, n.name || "NPC"), n.by ? h("div", {class: "sub"}, "by " + person(n.by)) : null,
+        role ? h("span", {class: "badge taken"}, "plays " + charName(role)) : null)); })) : h("div", {class: "sub"}, "No NPCs yet."),
+    withCreate === false ? null : createNpcBox());
 }
 
 function renderBalance() {
