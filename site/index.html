@@ -7049,6 +7049,16 @@ function trainerStudio(slot, opts) {
       .sort((x, y) => String(y.picked_at).localeCompare(String(x.picked_at)))[0] : null;
     if (set && trainerAnim(animOf(set))) st.animScript = animOf(set);
   }
+  // The back's shape on a device that never chose one (2026-11-27 night): the last BACK order's (Gingka ordered spiky,
+  // Ludvig stout, Reodor cap; a new phone showed "Short hair", so the next order would have used short-haired backs).
+  async function restoreBackShape() {
+    if (remember.get("trainer-backshape-" + slot) !== "" || !st.backTries.some(t => t.job_id)) return;
+    try {
+      const j = (await dbRead("sprite_jobs?species_id=eq." + slot + "&stage=eq.tback&order=id.desc&limit=1&select=recipe"))[0];
+      const m = j && /^back:(\w+)$/.exec(j.recipe || "");
+      if (m && ["short", "spiky", "long", "cap", "tied", "stout"].includes(m[1])) st.backShape = m[1];
+    } catch (e) { /* keep "short" */ }
+  }
   async function load() {
     try {
       [st.tries, st.jobs, st.line, st.worker, st.vsTries, st.mapTries, st.animTries, st.backTries, st.throwTries] = await Promise.all([
@@ -7062,7 +7072,7 @@ function trainerStudio(slot, opts) {
         dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.tback&order=id.desc&limit=200&select=id,job_id,n,seed,status,image,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at"),
         dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.throw&order=id.desc&limit=100&select=id,job_id,n,seed,status,image,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at")]);
       st.loaded = true;
-      if (!st.restored) { st.restored = true; restoreAnim(); restoreFromLastOrder(); }
+      if (!st.restored) { st.restored = true; restoreAnim(); restoreFromLastOrder(); await restoreBackShape(); }
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; }
     if (!top.isConnected && st.loaded && timer !== null) return;      // the studio was closed: stop asking
     if (st.timed) keepScroll(bottomSlot, draw); else draw();
