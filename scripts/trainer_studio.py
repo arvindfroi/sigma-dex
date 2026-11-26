@@ -238,7 +238,7 @@ def run(job, base, key, post, download, folder, log=print):
         try:
             raw = folder / ("raw%d.png" % n)
             raw.write_bytes(comfy.run(S.graph(text, [art], seed, LORA, start, strength)))
-            sprite = trainer_post.battle(klein_follower.to_back(raw))
+            sprite = no_loose(trainer_post.battle(klein_follower.to_back(raw)), low_only=True)   # junk by the feet (see no_loose)
             image = folder / ("trainer%d.png" % n)
             sprite.save(image)
             status = "done" if sprite.getbbox() else "broken"
@@ -683,8 +683,10 @@ def size_fit(panel, want):
     return out, s
 
 
-def no_loose(im, share=0.10):
-    """drop parts (8-connected) smaller than `share` of the biggest part, e.g. a Poke Ball floating loose"""
+def no_loose(im, share=0.10, low_only=False):
+    """drop parts (8-connected) smaller than `share` of the biggest part, e.g. a Poke Ball floating loose. low_only: only parts
+    whose middle is in the lowest 30 % of the figure (FRONT, 2026-11-27 night: of 318 fronts 12 had loose parts; the ones by the
+    feet were junk people removed by hand - kick swooshes, specks - while those by the hands were a Poke Ball that belongs)"""
     import numpy as np
     a = np.array(im.convert("RGBA"))
     solid = a[..., 3] > 0
@@ -708,8 +710,10 @@ def no_loose(im, share=0.10):
     if len(sizes) < 2:
         return Image.fromarray(a)
     big = max(sizes.values())
+    ys = np.nonzero(solid)[0]
+    low = ys.min() + 0.7 * (ys.max() - ys.min())
     for k, c in sizes.items():
-        if c < share * big:
+        if c < share * big and (not low_only or np.nonzero(lab == k)[0].mean() >= low):
             a[lab == k] = 0
     return Image.fromarray(a)
 
