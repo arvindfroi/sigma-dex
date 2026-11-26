@@ -755,6 +755,13 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
   .charcard .charpv { width: 120px; flex: none; }
   .charinfo { align-items: flex-start; flex: 1; }
 }
+.welcome { margin: 10px 0 4px; display: flex; flex-direction: column; gap: 8px; }
+.welcomehi { font-family: var(--display); font-size: 17px; text-align: center; align-self: center; padding: 2px 10px; }
+.mytrainers { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+.mytrainer { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px; background: var(--soft); border: 2px solid var(--line); text-align: center; min-height: 0; color: var(--ink); }
+.mytrainer:hover, .mytrainer:focus-visible { border-color: var(--pri); }
+.mytrainer .charpv { margin-bottom: 4px; }
+.mytrainer .go { font-family: var(--display); font-size: 12px; color: var(--pri); }
 .charfilter { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin: 8px 0 4px; }
 .charfilter .count { font-size: 12px; color: var(--muted); }
 .showcase { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; margin: 10px 0 14px; }
@@ -8099,8 +8106,10 @@ function renderList(list) {
 
 // ---------- the page around it: menu tabs, the top screen, day and night ----------
 let view = "species";
-const MAIN_TABS = [["species", "POKEDEX", "purple"], ["teams", "TEAMS", "pink"], ["board", "REQUESTS", "pink"], ["sprites", "SPRITES", "blue"], ["progress", "PROGRESS", "sky"]];
-const MORE = [["swipe", "Frame 2 swipe"], ["lost", "Lost and found"], ["evo", "Evolution lines"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Balance"], ["chars", "Characters"], ["reorder", "Change dex numbers"]];
+// CHARACTERS is a main tab next to TEAMS and REQUESTS (2026-11-27, Arvind: "istedfor at character er inne på more -> characters så
+// burde det være vedsiden teams request og den main menu baren")
+const MAIN_TABS = [["species", "POKEDEX", "purple"], ["teams", "TEAMS", "pink"], ["board", "REQUESTS", "pink"], ["chars", "CHARACTERS", "purple"], ["sprites", "SPRITES", "blue"], ["progress", "PROGRESS", "sky"]];
+const MORE = [["swipe", "Frame 2 swipe"], ["lost", "Lost and found"], ["evo", "Evolution lines"], ["move", "New moves"], ["ability", "New abilities"], ["balance", "Balance"], ["reorder", "Change dex numbers"]];
 const WIDE_VIEWS = ["board", "progress", "teams", "chars", "reorder"];
 // What the top screen's dialog box says on each page.
 const CHARS_HELP = CLAIMS_OPEN || /[?&]chars-preview\b/.test(location.search) ? "CHARACTERS\nThe trainers in the game we can replace with ourselves. Who they really are stays a surprise: you only see the role, the type and how often you meet them." : "CHARACTERS\nWork in progress. Come back later!";
@@ -8118,7 +8127,7 @@ const PAGE_HELP = {
   balance: "BALANCE\nOur dex next to the official games: evolution lines, single types, base stat totals and types.",
   reorder: "DEX NUMBERS\nMove Pokemon to other numbers or make room between two. Nothing changes until you press Save.",
 };
-const VIEW_COLOUR = {swipe: "blue", evo: "blue", teams: "pink", species: "purple", board: "pink", sprites: "blue", progress: "sky", lost: "sky", move: "blue", ability: "pink", balance: "sky", reorder: "purple"};
+const VIEW_COLOUR = {chars: "purple", swipe: "blue", evo: "blue", teams: "pink", species: "purple", board: "pink", sprites: "blue", progress: "sky", lost: "sky", move: "blue", ability: "pink", balance: "sky", reorder: "purple"};
 
 function counts() {
   const playable = DEX.species.filter(s => !s.gameNeeds.length).length;
@@ -8149,12 +8158,32 @@ function drawTop() {
       h("button", {type: "button", class: "primary open-mon", onclick: () => openDetail(s)}, "▶ OPEN " + String(d.name).toUpperCase()));
     return;
   }
-  const c = counts();
+  const c = counts(), welcome = view === "species" ? myTrainersBox() : null;
   screen.replaceChildren(...[
     h("div", {}, h("div", {class: "screen-title"}, h("div", {class: "frame"}, view === "species" ? "SIGMA DEX" : (MAIN_TABS.find(t => t[0] === view) || MORE.find(t => t[0] === view) || [0, ""])[1].toUpperCase())),
       counterBoxes(), expBar("DEX", c.designed, c.size)),
-    view === "species" ? h("div", {class: "stage"}, featured ? h("img", {class: "px silhouette", src: DEX.ds_sprites[featured.id].front, alt: "Who is it?"}) : h("div", {class: "noart"}, "\u25bc POINT AT ONE")) : null,
+    welcome || (view === "species" ? h("div", {class: "stage"}, featured ? h("img", {class: "px silhouette", src: DEX.ds_sprites[featured.id].front, alt: "Who is it?"}) : h("div", {class: "noart"}, "\u25bc POINT AT ONE")) : null),
     h("div", {class: "dlg"}, PAGE_HELP[view] || "")].filter(Boolean));
+}
+// Welcome back (2026-11-27, Arvind: "på hjem skjermen så burde man få en preview av sine trener(e) med vs trainer og navnet. en
+// welcome back (name) også kan man trykke der for å redigere laget"): with a name in NAME, the front page greets you and shows
+// your claimed trainers (VS portrait and trainer name); a tap opens that trainer's story team. Shown on phones too.
+let homeClaimsAsked = false;
+function myTrainersBox() {
+  const who = me();
+  if (!who || !DEX.web.url) return null;
+  if (claims === null) {
+    if (!homeClaimsAsked) { homeClaimsAsked = true; loadClaims().catch(() => {}).then(() => { if (view === "species" && !previewed) drawTop(); }); }
+    return null;
+  }
+  const mine = ownedRoles(who);
+  return h("div", {class: "welcome"}, h("div", {class: "frame welcomehi"}, "WELCOME BACK, " + person(who).toUpperCase() + "!"),
+    mine.length ? h("div", {class: "mytrainers"}, mine.map(c => { const look = lookOf(c.id);
+      return h("button", {type: "button", class: "mytrainer", title: "Edit " + (look.name || charName(c)) + "'s story team", onclick: () => openCharacter(c, "team")},
+        charPreview(look.sprite, charPic(c), TYPE_COLORS[String(c.type || "").split("/")[0].trim()]),
+        h("b", {}, look.name || charName(c)), look.name ? h("span", {class: "sub"}, charName(c)) : null, h("span", {class: "go"}, "EDIT THE TEAM \u25b6")); }))
+      : h("div", {class: "sub", style: "text-align:center"}, "You have no trainer yet. ",
+          h("button", {type: "button", class: "linkish", onclick: () => { view = "chars"; render(); window.scrollTo(0, 0); }}, "Claim one under CHARACTERS \u25b6")));
 }
 function preview(s) { if (previewed !== s) { previewed = s; drawTop(); } }
 
@@ -8169,12 +8198,12 @@ function drawDayNight() {
 function renderNav() {
   const count = kind => DEX.custom[kind].length + undescribed(kind).length;
   const label = id => id === "lost" ? "Lost and found" + (lostCount !== null ? " (" + lostCount + ")" : "") : id === "move" ? "New moves (" + count("move") + ")" : id === "ability" ? "New abilities (" + count("ability") + ")" : MORE.find(m => m[0] === id)[1];
-  const go = id => () => { view = id; charOpen = ""; if (location.hash.startsWith("#char=")) history.replaceState(null, "", location.pathname + location.search); if (id === "reorder") openReorder(); else plan = null; render(); window.scrollTo(0, 0); };
+  const go = id => () => { view = id; charOpen = ""; npcOpen = ""; if (/^#(char|npc)=/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search); if (id === "reorder") openReorder(); else plan = null; render(); window.scrollTo(0, 0); };
   const inMore = MORE.some(m => m[0] === view);
   const more = h("details", {}, h("summary", {"aria-pressed": String(inMore)}, inMore ? label(view).toUpperCase() + " ▾" : "MORE ▾"),
     h("div", {class: "menu"}, MORE.filter(([id]) => (id !== "reorder" && id !== "lost") || DEX.web.url).map(([id]) => h("button", {type: "button", onclick: go(id)}, label(id)))));
   document.getElementById("nav").replaceChildren(
-    ...MAIN_TABS.filter(([id]) => id !== "sprites" || DEX.web.url).map(([id, text, c]) => h("button", {type: "button", "data-c": c, "aria-pressed": String(view === id), onclick: go(id)}, text)), more);
+    ...MAIN_TABS.filter(([id]) => (id !== "sprites" && id !== "chars") || DEX.web.url).map(([id, text, c]) => h("button", {type: "button", "data-c": c, "aria-pressed": String(view === id), onclick: go(id)}, text)), more);
   document.getElementById("tools").style.display = ["species", "move", "ability", "lost"].includes(view) ? "" : "none";
   for (const id of ["type", "stage", "designer", "lacks", "sort"]) document.getElementById(id).style.display = view === "species" ? "" : "none";
   const lay = document.getElementById("layout");
@@ -8538,7 +8567,9 @@ document.getElementById("title").textContent = DEX.project;
 drawDayNight();
 const meBox = document.getElementById("me");
 meBox.value = remember.get("editor");
-meBox.addEventListener("input", () => remember.set("editor", meBox.value.trim()));
+let meRedraw = null;
+meBox.addEventListener("input", () => { remember.set("editor", meBox.value.trim());
+  clearTimeout(meRedraw); meRedraw = setTimeout(() => { if (view === "species" && !previewed) drawTop(); }, 500); });
 DEX.species.forEach(derive); index();
 document.getElementById("type").append(...DEX.types.map(t => h("option", {value: t}, t)));
 refreshLists();
