@@ -176,8 +176,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 165 | [Daytard](data/species/daytard.yaml) | Bug |  |  |  | 14% |
 | 166 | [plumbuzzz](data/species/plumbuzzz.yaml) | Bug |  |  |  | 14% |
 | 167 | [Demetiscet](data/species/demetiscet.yaml) | Bug |  |  |  | 14% |
-| 168 | [Racedent](data/species/racedent.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) |  |  | 14% |
-| 169 | [Ratpid](data/species/ratpid.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) |  |  | 14% |
+| 168 | [Racedent](data/species/racedent.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) | 255 | Ratpid (Lv 20) | 21% |
+| 169 | [Ratpid](data/species/ratpid.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) | 415 |  | 24% |
 | 170 | [S.Rotom](data/species/s-rotom.yaml) | Electric | Levitate | 440 |  | 17% |
 | 171 | *open slot* | | | | | |
 | 172 | *open slot* | | | | | |
@@ -190,10 +190,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 179 | [Withstar](data/species/withstar.yaml) | Ground / Ghost | Channeling | 677 |  | 31% |
 | 180 | [Subwooca](data/species/subwocada.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 320 | Cicadj (Lv 28) | 21% |
 | 181 | [Cicadj](data/species/cicadj.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 475 |  | 14% |
-| 182 | [Ibur](data/species/ibur.yaml) | Ice |  |  |  | 10% |
-| 183 | [Tbur](data/species/tbur.yaml) | Ice |  |  |  | 10% |
-| 184 | [Nebur](data/species/nebur.yaml) | Ice / Electric |  |  |  | 14% |
-| 185 | [Rhamp](data/species/rhamp.yaml) | Psychic / Rock |  |  |  | 10% |
+| 182 | [Ibur](data/species/ibur.yaml) | Ice | Snow Cloak |  |  | 14% |
+| 183 | [Tbur](data/species/tbur.yaml) | Ice | Snow Cloak |  |  | 14% |
+| 184 | [Nebur](data/species/nebur.yaml) | Ice / Electric | As One |  |  | 17% |
+| 185 | [Rhamp](data/species/rhamp.yaml) | Psychic / Rock |  | 515 |  | 17% |
 | 186 | [Ledrake](data/species/ledrake.yaml) | Dragon | Spinner |  |  | 24% |
 | 187 | [Gingalaxy](data/species/pegalaxy.yaml) | Flying | Spinner |  |  | 17% |
 | 188 | [gb vance](data/species/gb-vance.yaml) | Electric |  |  |  | 10% |

@@ -16,9 +16,9 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Dex page | height | 181 / 213 |
 | Dex page | weight | 181 / 213 |
 | Dex page | body color | 179 / 213 |
-| Stats | base stats | 193 / 213 |
-| Stats | ability | 196 / 213 |
-| Stats | EV yield | 188 / 213 |
+| Stats | base stats | 196 / 213 |
+| Stats | ability | 199 / 213 |
+| Stats | EV yield | 191 / 213 |
 | Stats | catch rate | 177 / 213 |
 | Stats | base exp | 177 / 213 |
 | Stats | growth rate | 177 / 213 |
@@ -26,7 +26,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Breeding | gender | 177 / 213 |
 | Breeding | egg groups | 177 / 213 |
 | Breeding | egg cycles | 177 / 213 |
-| Moves | level-up moves | 184 / 213 |
+| Moves | level-up moves | 185 / 213 |
 | Moves | TM/HM moves | 181 / 213 |
 | Location | encounters | 2 / 213 |
 | Design | concept | 44 / 213 |
@@ -1189,22 +1189,22 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #168 [Racedent](data/species/racedent.yaml) - 14%
+### #168 [Racedent](data/species/racedent.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #169 [Ratpid](data/species/ratpid.yaml) - 14%
+### #169 [Ratpid](data/species/ratpid.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
@@ -1308,39 +1308,39 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #182 [Ibur](data/species/ibur.yaml) - 10%
+### #182 [Ibur](data/species/ibur.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #183 [Tbur](data/species/tbur.yaml) - 10%
+### #183 [Tbur](data/species/tbur.yaml) - 14%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #184 [Nebur](data/species/nebur.yaml) - 14%
+### #184 [Nebur](data/species/nebur.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** base stats, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #185 [Rhamp](data/species/rhamp.yaml) - 10%
+### #185 [Rhamp](data/species/rhamp.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** ability, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters

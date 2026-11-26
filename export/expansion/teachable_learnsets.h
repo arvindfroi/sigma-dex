@@ -1172,6 +1172,7 @@ static const u16 sSnobbitTeachableLearnset[] = {
 };
 
 static const u16 sFreezrickTeachableLearnset[] = {
+    MOVE_FOCUS_PUNCH,
     MOVE_TOXIC,
     MOVE_HAIL,
     MOVE_HIDDEN_POWER,
@@ -1186,6 +1187,7 @@ static const u16 sFreezrickTeachableLearnset[] = {
     MOVE_DIG,
     MOVE_BRICK_BREAK,
     MOVE_DOUBLE_TEAM,
+    MOVE_ROCK_TOMB,
     MOVE_FACADE,
     MOVE_SECRET_POWER,
     MOVE_REST,
@@ -1202,10 +1204,8 @@ static const u16 sFreezrickTeachableLearnset[] = {
     MOVE_BULLDOZE,
     MOVE_LIQUIDATION,
     MOVE_BODY_PRESS,
-    MOVE_ROCK_SMASH,
-    MOVE_FOCUS_PUNCH,
-    MOVE_ROCK_TOMB,
     MOVE_STRENGTH,
+    MOVE_ROCK_SMASH,
     MOVE_BODY_SLAM,
     MOVE_CHARM,
     MOVE_CLOSE_COMBAT,
@@ -6272,6 +6272,10 @@ static const u16 sLansseaxTeachableLearnset[] = {
     MOVE_SEED_BOMB,
     MOVE_SOLAR_BLADE,
     MOVE_ZEN_HEADBUTT,
+    MOVE_UNAVAILABLE,
+};
+
+static const u16 sRatpidTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 

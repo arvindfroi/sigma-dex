@@ -652,10 +652,10 @@ SINGLE_BATTLE_TEST("Sigma dex: Snobbit can use its first move in battle")
 TEST("Sigma dex: Freezrick has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_FREEZRICK];
-    EXPECT_EQ(info->baseHP, 90);
+    EXPECT_EQ(info->baseHP, 85);
     EXPECT_EQ(info->baseAttack, 105);
     EXPECT_EQ(info->baseDefense, 67);
-    EXPECT_EQ(info->baseSpeed, 76);
+    EXPECT_EQ(info->baseSpeed, 81);
     EXPECT_EQ(info->baseSpAttack, 15);
     EXPECT_EQ(info->baseSpDefense, 67);
     EXPECT_EQ(info->types[0], TYPE_ICE);
@@ -2081,9 +2081,9 @@ TEST("Sigma dex: Slothbaby has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SLOTHBABY];
     EXPECT_EQ(info->baseHP, 85);
-    EXPECT_EQ(info->baseAttack, 115);
+    EXPECT_EQ(info->baseAttack, 130);
     EXPECT_EQ(info->baseDefense, 50);
-    EXPECT_EQ(info->baseSpeed, 90);
+    EXPECT_EQ(info->baseSpeed, 75);
     EXPECT_EQ(info->baseSpAttack, 30);
     EXPECT_EQ(info->baseSpDefense, 50);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
@@ -3586,6 +3586,34 @@ SINGLE_BATTLE_TEST("Sigma dex: Lansseax can use its first move in battle")
         TURN { MOVE(player, MOVE_GROWTH); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWTH, player);
+    }
+}
+
+TEST("Sigma dex: Ratpid has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_RATPID];
+    EXPECT_EQ(info->baseHP, 50);
+    EXPECT_EQ(info->baseAttack, 81);
+    EXPECT_EQ(info->baseDefense, 50);
+    EXPECT_EQ(info->baseSpeed, 142);
+    EXPECT_EQ(info->baseSpAttack, 42);
+    EXPECT_EQ(info->baseSpDefense, 50);
+    EXPECT_EQ(info->types[0], TYPE_DARK);
+    EXPECT_EQ(info->types[1], TYPE_DARK);
+    EXPECT_EQ(info->abilities[0], ABILITY_SPEED_BOOST);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_BATON_PASS);
+    EXPECT_EQ(GetSpeciesName(SPECIES_RATPID)[0], CHAR_R);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Ratpid can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_RATPID) { Moves(MOVE_BATON_PASS); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_BATON_PASS); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, player);
     }
 }
 

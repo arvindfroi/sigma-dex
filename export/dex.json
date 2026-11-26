@@ -7089,12 +7089,12 @@
         "hidden": "Oblivious"
       },
       "base_stats": {
-        "hp": 90,
+        "hp": 85,
         "attack": 105,
         "defense": 67,
         "sp_attack": 15,
         "sp_defense": 67,
-        "speed": 76
+        "speed": 81
       },
       "ev_yield": {
         "attack": 2
@@ -7210,6 +7210,7 @@
           }
         ],
         "tm_hm": [
+          "Focus Punch",
           "Toxic",
           "Hail",
           "Hidden Power",
@@ -7224,6 +7225,7 @@
           "Dig",
           "Brick Break",
           "Double Team",
+          "Rock Tomb",
           "Facade",
           "Secret Power",
           "Rest",
@@ -7240,10 +7242,8 @@
           "Bulldoze",
           "Liquidation",
           "Body Press",
-          "Rock Smash",
-          "Focus Punch",
-          "Rock Tomb",
-          "Strength"
+          "Strength",
+          "Rock Smash"
         ],
         "tutor": [
           "Body Slam",
@@ -25862,11 +25862,11 @@
       },
       "base_stats": {
         "hp": 85,
-        "attack": 115,
+        "attack": 130,
         "defense": 50,
         "sp_attack": 30,
         "sp_defense": 50,
-        "speed": 90
+        "speed": 75
       },
       "ev_yield": {
         "attack": 1
@@ -41545,14 +41545,16 @@
         "hidden": "Quick Feet"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 35,
+        "attack": 45,
+        "defense": 25,
+        "sp_attack": 25,
+        "sp_defense": 25,
+        "speed": 100
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 1
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -41564,7 +41566,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "ratpid",
+          "method": "level",
+          "level": 20
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -41626,14 +41634,16 @@
         "hidden": "Quick Feet"
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 50,
+        "attack": 81,
+        "defense": 50,
+        "sp_attack": 42,
+        "sp_defense": 50,
+        "speed": 142
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "speed": 3
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -41648,7 +41658,12 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 28,
+            "move": "Baton Pass"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -42928,7 +42943,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Snow Cloak",
         "secondary": null,
         "hidden": null
       },
@@ -43009,7 +43024,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "Snow Cloak",
         "secondary": null,
         "hidden": null
       },
@@ -43091,7 +43106,7 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": null,
+        "primary": "As One",
         "secondary": null,
         "hidden": null
       },
@@ -43178,14 +43193,16 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 60,
+        "attack": 65,
+        "defense": 120,
+        "sp_attack": 130,
+        "sp_defense": 120,
+        "speed": 20
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_attack": 3
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,

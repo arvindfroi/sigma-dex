@@ -3193,6 +3193,11 @@ static const struct LevelUpMove sLansseaxLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
+static const struct LevelUpMove sRatpidLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(28, MOVE_BATON_PASS),
+    LEVEL_UP_END
+};
+
 static const struct LevelUpMove sGoatjoLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_CONFUSION),
     LEVEL_UP_MOVE( 1, MOVE_LEER),
