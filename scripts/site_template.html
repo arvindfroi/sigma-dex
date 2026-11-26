@@ -755,13 +755,16 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
   .charcard .charpv { width: 120px; flex: none; }
   .charinfo { align-items: flex-start; flex: 1; }
 }
-.welcome { margin: 10px 0 4px; display: flex; flex-direction: column; gap: 8px; }
-.welcomehi { font-family: var(--display); font-size: 17px; text-align: center; align-self: center; padding: 2px 10px; }
-.mytrainers { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
-.mytrainer { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px; background: var(--soft); border: 2px solid var(--line); text-align: center; min-height: 0; color: var(--ink); }
+#welcomebar { max-width: 1400px; margin: 0 auto; padding: 10px 16px 0; }
+.welcome { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.welcomehi { font-family: var(--display); font-size: 17px; padding: 2px 12px; }
+.mytrainers { display: flex; flex-wrap: wrap; gap: 8px; }
+.mytrainer { display: flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; background: var(--panel); border: 2px solid var(--line); text-align: left; min-height: 0; color: var(--ink); }
 .mytrainer:hover, .mytrainer:focus-visible { border-color: var(--pri); }
-.mytrainer .charpv { margin-bottom: 4px; }
+.mytrainer .charpv { width: 120px; flex: none; }
+.mytrainer .txt { display: flex; flex-direction: column; gap: 2px; }
 .mytrainer .go { font-family: var(--display); font-size: 12px; color: var(--pri); }
+@media (max-width: 560px) { .mytrainers, .mytrainer { width: 100%; } .mytrainer .charpv { width: 96px; } }
 .charfilter { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin: 8px 0 4px; }
 .charfilter .count { font-size: 12px; color: var(--muted); }
 .showcase { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; margin: 10px 0 14px; }
@@ -1148,6 +1151,7 @@ input[type=range].shtrack::-moz-range-thumb { width: 8px; height: 20px; backgrou
   <div class="daynight" id="daynight" role="group" aria-label="Day or night"></div>
   <label class="me">NAME <input id="me" maxlength="40" placeholder="Discord name (optional)" autocomplete="nickname"></label>
 </header></div>
+<div id="welcomebar" hidden></div>
 <nav id="nav" aria-label="Pages"></nav>
 <main>
   <div id="notice"></div>
@@ -8158,22 +8162,23 @@ function drawTop() {
       h("button", {type: "button", class: "primary open-mon", onclick: () => openDetail(s)}, "▶ OPEN " + String(d.name).toUpperCase()));
     return;
   }
-  const c = counts(), welcome = view === "species" ? myTrainersBox() : null;
+  const c = counts();
   screen.replaceChildren(...[
     h("div", {}, h("div", {class: "screen-title"}, h("div", {class: "frame"}, view === "species" ? "SIGMA DEX" : (MAIN_TABS.find(t => t[0] === view) || MORE.find(t => t[0] === view) || [0, ""])[1].toUpperCase())),
       counterBoxes(), expBar("DEX", c.designed, c.size)),
-    welcome || (view === "species" ? h("div", {class: "stage"}, featured ? h("img", {class: "px silhouette", src: DEX.ds_sprites[featured.id].front, alt: "Who is it?"}) : h("div", {class: "noart"}, "\u25bc POINT AT ONE")) : null),
+    view === "species" ? h("div", {class: "stage"}, featured ? h("img", {class: "px silhouette", src: DEX.ds_sprites[featured.id].front, alt: "Who is it?"}) : h("div", {class: "noart"}, "\u25bc POINT AT ONE")) : null,
     h("div", {class: "dlg"}, PAGE_HELP[view] || "")].filter(Boolean));
 }
 // Welcome back (2026-11-27, Arvind: "på hjem skjermen så burde man få en preview av sine trener(e) med vs trainer og navnet. en
-// welcome back (name) også kan man trykke der for å redigere laget"): with a name in NAME, the front page greets you and shows
-// your claimed trainers (VS portrait and trainer name); a tap opens that trainer's story team. Shown on phones too.
+// welcome back (name) også kan man trykke der for å redigere laget"): with a name in NAME, the site greets you and shows your
+// claimed trainers (VS portrait and trainer name); a tap opens that trainer's story team. Its own strip above the menu, on every
+// page (2026-11-27, Arvind: "skal være over dexxen og over meny baren"), so the menu does not jump between pages.
 let homeClaimsAsked = false;
 function myTrainersBox() {
   const who = me();
   if (!who || !DEX.web.url) return null;
   if (claims === null) {
-    if (!homeClaimsAsked) { homeClaimsAsked = true; loadClaims().catch(() => {}).then(() => { if (view === "species" && !previewed) drawTop(); }); }
+    if (!homeClaimsAsked) { homeClaimsAsked = true; loadClaims().catch(() => {}).then(drawWelcome); }
     return null;
   }
   const mine = ownedRoles(who);
@@ -8181,9 +8186,18 @@ function myTrainersBox() {
     mine.length ? h("div", {class: "mytrainers"}, mine.map(c => { const look = lookOf(c.id);
       return h("button", {type: "button", class: "mytrainer", title: "Edit " + (look.name || charName(c)) + "'s story team", onclick: () => openCharacter(c, "team")},
         charPreview(look.sprite, charPic(c), TYPE_COLORS[String(c.type || "").split("/")[0].trim()]),
-        h("b", {}, look.name || charName(c)), look.name ? h("span", {class: "sub"}, charName(c)) : null, h("span", {class: "go"}, "EDIT THE TEAM \u25b6")); }))
+        h("span", {class: "txt"}, h("b", {}, look.name || charName(c)), look.name ? h("span", {class: "sub"}, charName(c)) : null, h("span", {class: "go"}, "EDIT THE TEAM \u25b6"))); }))
       : h("div", {class: "sub", style: "text-align:center"}, "You have no trainer yet. ",
           h("button", {type: "button", class: "linkish", onclick: () => { view = "chars"; render(); window.scrollTo(0, 0); }}, "Claim one under CHARACTERS \u25b6")));
+}
+let welcomeSig = null;
+function drawWelcome() {                 // redrawn only when the name or your trainers change (render runs on every keystroke)
+  const bar = document.getElementById("welcomebar"), who = me();
+  const sig = JSON.stringify([who, claims === null ? null : ownedRoles(who).map(c => { const l = lookOf(c.id); return [c.id, l.name, l.sprite && (l.sprite.vs || l.sprite.image)]; })]);
+  if (sig === welcomeSig) return;
+  welcomeSig = sig;
+  const box = myTrainersBox();
+  bar.hidden = !box; bar.replaceChildren(...(box ? [box] : []));
 }
 function preview(s) { if (previewed !== s) { previewed = s; drawTop(); } }
 
@@ -8196,6 +8210,7 @@ function drawDayNight() {
 }
 
 function renderNav() {
+  drawWelcome();
   const count = kind => DEX.custom[kind].length + undescribed(kind).length;
   const label = id => id === "lost" ? "Lost and found" + (lostCount !== null ? " (" + lostCount + ")" : "") : id === "move" ? "New moves (" + count("move") + ")" : id === "ability" ? "New abilities (" + count("ability") + ")" : MORE.find(m => m[0] === id)[1];
   const go = id => () => { view = id; charOpen = ""; npcOpen = ""; if (/^#(char|npc)=/.test(location.hash)) history.replaceState(null, "", location.pathname + location.search); if (id === "reorder") openReorder(); else plan = null; render(); window.scrollTo(0, 0); };
@@ -8567,17 +8582,9 @@ document.getElementById("title").textContent = DEX.project;
 drawDayNight();
 const meBox = document.getElementById("me");
 meBox.value = remember.get("editor");
-// Back to the welcome when the pointer has left the list and the top screen (2026-11-27, Arvind: "jeg ser ikke dette enda"):
-// on a computer, pointing at the list replaced the welcome with that Pokemon at once, and nothing brought it back.
-let homeBack = null;
-const homeCheck = () => { clearTimeout(homeBack); homeBack = setTimeout(() => {
-  if (view !== "species" || !previewed || !me()) return;
-  if (document.getElementById("grid").matches(":hover") || document.getElementById("topscreen").matches(":hover")) return;
-  previewed = null; drawTop(); }, 1500); };
-for (const id of ["grid", "topscreen"]) document.getElementById(id).addEventListener("mouseleave", homeCheck);
 let meRedraw = null;
 meBox.addEventListener("input", () => { remember.set("editor", meBox.value.trim());
-  clearTimeout(meRedraw); meRedraw = setTimeout(() => { if (view === "species" && !previewed) drawTop(); }, 500); });
+  clearTimeout(meRedraw); meRedraw = setTimeout(drawWelcome, 500); });
 DEX.species.forEach(derive); index();
 document.getElementById("type").append(...DEX.types.map(t => h("option", {value: t}, t)));
 refreshLists();
