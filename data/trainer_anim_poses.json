@@ -1,5 +1,5 @@
 {
- "_about": "Pose words for the trainer front animation, side by side (2026-11-22). Key = animated class (a/0/5/8) whose intro script is used; list item j = what pose j+1 shows (pose 0 = the battle sprite itself). Written from Origin's real cells, about the BODY, not the leader's props, so the person keeps their own things. Used in the text: '... in a new pose: the trainer {words}'.",
+ "_about": "Pose words for the trainer front animation, side by side (2026-11-22). Key = animated class (a/0/5/8) whose intro script is used; list item j = what pose j+1 shows (pose 0 = the battle sprite itself). Written from Origin's real cells, about the BODY, not the leader's props, so the person keeps their own things. Used in the text: '... in a new pose: the trainer {words}'. Keys 1000-1018 (2026-11-27) are Platinum's animated trainers (scripts/trainer_anims.py PT), written from pret pokeplatinum's poses the same way.",
  "23": [
   "stands relaxed with one hand in a pocket, looking at you",
   "stands and reaches the free hand out toward you, palm open, as a challenge"
@@ -111,5 +111,81 @@
  "124": [
   "tosses a Poke Ball up into the air with one hand",
   "catches the Poke Ball again, the other hand in a pocket"
+ ],
+ "1000": [
+  "stands with one hand raised, the body swaying a little to the side",
+  "turns slightly to the side while a strong wind blows the hair and the clothes out to one side, one arm raised"
+ ],
+ "1001": [
+  "stands calmly with both hands folded together in front of the chest",
+  "chuckles with the eyes closed and one hand raised to the mouth"
+ ],
+ "1002": [
+  "leans forward with the shoulders hunched and a big grin, the hands on the hips",
+  "stands straight and laughs with the eyes closed and the head tilted back, the hands on the hips"
+ ],
+ "1003": [
+  "stands turned to the side and lifts one hand up in front of the chest",
+  "stands turned to the side and raises one hand to the face, a finger touching the bridge of the nose"
+ ],
+ "1004": [
+  "stands very still and straight with the arms at the sides, a cold calm face",
+  "stands with the feet apart and stretches one arm out to the side, the hand open"
+ ],
+ "1005": [
+  "raises one arm high up over the shoulder, the other hand on the hip",
+  "rests the raised arm on the shoulder, the other hand on the hip"
+ ],
+ "1006": [
+  "jumps up with one fist punched high into the air and the other arm out to the side",
+  "cheers with one fist raised above the head and the other hand on the hip"
+ ],
+ "1007": [
+  "bows deeply forward with the head down and the arms close to the body",
+  "turns the body and sweeps one arm out wide to the side like a dancer"
+ ],
+ "1008": [
+  "laughs with the eyes closed and both hands raised near the face",
+  "skips on one leg with the other knee bent and one arm swung out to the side"
+ ],
+ "1009": [
+  "stands straight and stretches both arms high above the head",
+  "drops into a low stance with the knees bent and the fists clenched at the sides"
+ ],
+ "1010": [
+  "points one arm high up and forward, the other arm out to the side, the feet apart",
+  "raises one hand to the top of the head, the feet apart"
+ ],
+ "1011": [
+  "sits on the ground with the legs stretched out, leaning back, looking bored",
+  "stands bent forward and turned away, the head down"
+ ],
+ "1012": [
+  "flexes in a low stance with both fists pressed together in front of the belly",
+  "stands with the chest pushed out and the fists down at the sides"
+ ],
+ "1013": [
+  "steps forward impatiently, leaning, with one fist raised",
+  "jumps with one knee raised and one fist pumped up in the air"
+ ],
+ "1014": [
+  "stands with one arm bent behind the head",
+  "lunges forward low with one fist thrust out in front"
+ ],
+ "1015": [
+  "waves gently with one hand raised beside the shoulder, the other hand at the chest",
+  "holds both hands shyly near the face"
+ ],
+ "1016": [
+  "stands quietly and tilts the head a little to one side",
+  "stands quietly and turns the head a little to the other side"
+ ],
+ "1017": [
+  "spins with both arms spread wide and the hair swinging out",
+  "skips with one knee raised high and the eyes closed happily"
+ ],
+ "1018": [
+  "flings one arm out wide to the side, the hand open",
+  "stretches that arm straight forward with the hand open"
  ]
 }

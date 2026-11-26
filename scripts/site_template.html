@@ -6277,7 +6277,8 @@ function trainerStudio(slot, opts) {
   function animPage() {
     const from = picked(), cur = trainerAnim(st.animScript);
     const base = from && jobOf(from) ? String(jobOf(from).recipe || "") : "";
-    const bm = /^(?:hgss|origin):(\d+)$/.exec(base), suggest = bm && trainerAnim(Number(bm[1])) ? Number(bm[1]) : 0;   // an Origin base is the same class slot
+    const bm = /^(?:hgss|origin):(\d+)$/.exec(base), ptMatch = trainerAnims().find(a => a.base && a.base === base);   // a Platinum base has its own (2026-11-27)
+    const suggest = bm && trainerAnim(Number(bm[1])) ? Number(bm[1]) : ptMatch ? ptMatch.cls : 0;   // an Origin base is the same class slot
     const choose = cls => { st.animScript = cls; remember.set("trainer-anim-" + slot, String(cls || "")); draw(); };
     const count = h("select", {"aria-label": "How many"}, [1, 2, 3, 4].map(n => h("option", {value: n, selected: n === st.animCount ? "" : null}, String(n))));
     count.addEventListener("change", () => { st.animCount = Number(count.value); });
@@ -6298,7 +6299,7 @@ function trainerStudio(slot, opts) {
     // the script's moves, and next to it your battle sprite with the same moves (the poses come when MAKE draws them).
     const posesSheet = DEX.trainer_anims && DEX.trainer_anims.poses ? artUrl(DEX.trainer_anims.poses) : null;
     const card = a => h("button", {type: "button", class: "tanim" + (st.animScript === a.cls ? " on" : ""), "aria-pressed": String(st.animScript === a.cls), onclick: () => choose(a.cls)},
-      h("b", {}, a.name), a.cls === suggest ? h("span", {class: "tag"}, "YOUR BASE") : null,
+      h("b", {}, a.name), a.game ? h("span", {class: "sub"}, " " + a.game) : null, a.cls === suggest ? h("span", {class: "tag"}, "YOUR BASE") : null,
       posesSheet ? h("span", {class: "tanimpv"}, h("span", {}, animPlayer(posesSheet, a, 0.8, {row: trainerAnims().indexOf(a)}), h("i", {}, "the game")),
         from ? h("span", {}, animPlayer(artUrl((pickedAnim() || from).image), a, 0.8), h("i", {}, pickedAnim() ? "your poses" + (missingFor(pickedAnim(), a).length ? " (+" + missingFor(pickedAnim(), a).length + " missing)" : "") : "yours")) : null) : null,
       h("span", {class: "sub"}, a.poses + " poses · " + a.seconds + " s"), h("span", {}, a.shows), h("span", {class: "sub"}, a.moves));
