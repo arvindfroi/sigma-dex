@@ -1423,7 +1423,7 @@
             "hp": 80,
             "attack": 145,
             "defense": 90,
-            "sp_attack": 82,
+            "sp_attack": 92,
             "sp_defense": 90,
             "speed": 133
           },
@@ -2296,9 +2296,9 @@
           },
           "base_stats": {
             "hp": 76,
-            "attack": 85,
+            "attack": 90,
             "defense": 82,
-            "sp_attack": 138,
+            "sp_attack": 133,
             "sp_defense": 82,
             "speed": 167
           },
@@ -27229,12 +27229,20 @@
             "move": "Tackle"
           },
           {
+            "level": 1,
+            "move": "Metal Claw"
+          },
+          {
             "level": 6,
             "move": "Ember"
           },
           {
             "level": 8,
             "move": "Autotomize"
+          },
+          {
+            "level": 12,
+            "move": "Headbutt"
           },
           {
             "level": 15,
@@ -27282,18 +27290,18 @@
           },
           {
             "level": 36,
-            "move": "Metal Claw"
+            "move": "Iron Head"
           },
           {
-            "level": 36,
-            "move": "Iron Head"
+            "level": 40,
+            "move": "Earth Power"
           },
           {
             "level": 43,
             "move": "Heat Crash"
           },
           {
-            "level": 44,
+            "level": 45,
             "move": "Shell Smash"
           },
           {
@@ -27302,7 +27310,7 @@
           },
           {
             "level": 54,
-            "move": "Heat Crash"
+            "move": "Flare Blitz"
           },
           {
             "level": 58,
@@ -35606,7 +35614,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": "hgss:125",
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/giga-circuit.json",
         "cry": "assets/cries/giga-circuit.json"
       },
       "engine": {
@@ -36367,222 +36375,6 @@
     },
     {
       "dex": 141,
-      "name": "Iron Bulb",
-      "credits": {
-        "designer": "Arvind",
-        "artist": "Arvind"
-      },
-      "types": [
-        "Electric"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": 0.7,
-      "weight_kg": 4,
-      "body_color": "yellow",
-      "abilities": {
-        "primary": "Quark Drive",
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": 50,
-        "attack": 90,
-        "defense": 55,
-        "sp_attack": 255,
-        "sp_defense": 55,
-        "speed": 65
-      },
-      "ev_yield": {
-        "sp_attack": 3
-      },
-      "catch_rate": 3,
-      "base_exp": 257,
-      "growth_rate": "slow",
-      "base_friendship": 35,
-      "gender": "genderless",
-      "egg_groups": [
-        "undiscovered"
-      ],
-      "egg_cycles": 120,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [
-          {
-            "level": 1,
-            "move": "Leer"
-          },
-          {
-            "level": 1,
-            "move": "Thunder Shock"
-          },
-          {
-            "level": 1,
-            "move": "Wrap"
-          },
-          {
-            "level": 5,
-            "move": "Charge"
-          },
-          {
-            "level": 10,
-            "move": "Thunder Wave"
-          },
-          {
-            "level": 15,
-            "move": "Ingrain"
-          },
-          {
-            "level": 20,
-            "move": "Parabolic Charge"
-          },
-          {
-            "level": 25,
-            "move": "Shock Wave"
-          },
-          {
-            "level": 30,
-            "move": "Hypnosis"
-          },
-          {
-            "level": 35,
-            "move": "Eerie Impulse"
-          },
-          {
-            "level": 40,
-            "move": "Discharge"
-          },
-          {
-            "level": 50,
-            "move": "Magnet Rise"
-          },
-          {
-            "level": 55,
-            "move": "Thunderbolt"
-          },
-          {
-            "level": 60,
-            "move": "Electric Terrain"
-          },
-          {
-            "level": 60,
-            "move": "Rain Dance"
-          },
-          {
-            "level": 65,
-            "move": "Thunder"
-          },
-          {
-            "level": 67,
-            "move": "Rising Voltage"
-          },
-          {
-            "level": 70,
-            "move": "Zap Cannon"
-          }
-        ],
-        "tm_hm": [
-          "Toxic",
-          "Hidden Power",
-          "Sunny Day",
-          "Hyper Beam",
-          "Light Screen",
-          "Protect",
-          "Rain Dance",
-          "Frustration",
-          "Solar Beam",
-          "Thunderbolt",
-          "Thunder",
-          "Return",
-          "Double Team",
-          "Reflect",
-          "Facade",
-          "Rest",
-          "Energy Ball",
-          "Fling",
-          "Charge Beam",
-          "Endure",
-          "Giga Impact",
-          "Thunder Wave",
-          "Sleep Talk",
-          "Swagger",
-          "Substitute",
-          "Electroweb",
-          "Eerie Impulse",
-          "Electric Terrain"
-        ],
-        "tutor": [
-          "Dazzling Gleam",
-          "Thunder Punch",
-          "Volt Switch",
-          "Heat Wave",
-          "Earth Power"
-        ],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": "Paradox form for bellsprout",
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [
-          "catch rate",
-          "base exp",
-          "growth rate",
-          "base friendship",
-          "gender",
-          "egg groups",
-          "egg cycles",
-          "level-up moves",
-          "TM/HM moves",
-          "tutor moves"
-        ],
-        "claude_sure": {
-          "catch rate": 90,
-          "base exp": 85,
-          "growth rate": 90,
-          "base friendship": 62,
-          "gender": 75,
-          "egg groups": 90,
-          "egg cycles": 90,
-          "level-up moves": 79,
-          "TM/HM moves": 84,
-          "tutor moves": 74
-        },
-        "body_shape": "an upright body on two legs without a tail",
-        "movement": "It walks upright on two legs.",
-        "look": "A bunch of electrical wires and outlet as hands and AV cables as legs."
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/iron-wire/1842.png",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": "assets/shiny/iron-wire.json",
-        "cry": "assets/cries/iron-wire.json"
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0,
-        "anim_from": "Elekid"
-      },
-      "id": "iron-wire"
-    },
-    {
-      "dex": 142,
       "name": "Solidedge",
       "credits": {
         "designer": "Ivar",
@@ -36901,7 +36693,7 @@
       "id": "solidedge"
     },
     {
-      "dex": 143,
+      "dex": 142,
       "name": "Rosie",
       "credits": {
         "designer": "Ivar",
@@ -36989,7 +36781,7 @@
       "id": "rosie"
     },
     {
-      "dex": 144,
+      "dex": 143,
       "name": "Rosievoir",
       "credits": {
         "designer": "Ivar",
@@ -37071,7 +36863,7 @@
       "id": "rosievoir"
     },
     {
-      "dex": 145,
+      "dex": 144,
       "name": "Sealma",
       "credits": {
         "designer": "Arvind",
@@ -37323,7 +37115,7 @@
       "id": "whaldrill0"
     },
     {
-      "dex": 146,
+      "dex": 145,
       "name": "Narburr",
       "credits": {
         "designer": "Emil",
@@ -37576,7 +37368,7 @@
       "id": "whaldrill"
     },
     {
-      "dex": 147,
+      "dex": 146,
       "name": "Whaldrill",
       "credits": {
         "designer": "Emil",
@@ -37849,7 +37641,7 @@
       "id": "whaldrill3"
     },
     {
-      "dex": 148,
+      "dex": 147,
       "name": "Venofrib",
       "credits": {
         "designer": "Michael",
@@ -38073,7 +37865,7 @@
       "id": "venofrib"
     },
     {
-      "dex": 149,
+      "dex": 148,
       "name": "Vendepiede",
       "credits": {
         "designer": "Michael",
@@ -38363,7 +38155,7 @@
       "id": "vendepiede"
     },
     {
-      "dex": 150,
+      "dex": 149,
       "name": "Venorax",
       "credits": {
         "designer": "Michael",
@@ -38678,7 +38470,7 @@
       "id": "venorax"
     },
     {
-      "dex": 151,
+      "dex": 150,
       "name": "Raymon",
       "credits": {
         "designer": "Ivar",
@@ -38790,7 +38582,7 @@
       "id": "raymon"
     },
     {
-      "dex": 152,
+      "dex": 151,
       "name": "Crysteel",
       "credits": {
         "designer": "Michael",
@@ -39014,7 +38806,7 @@
       "id": "crysteel"
     },
     {
-      "dex": 153,
+      "dex": 152,
       "name": "Crystax",
       "credits": {
         "designer": "michael",
@@ -39274,7 +39066,7 @@
       "id": "crystax"
     },
     {
-      "dex": 154,
+      "dex": 153,
       "name": "Whyrmshade",
       "credits": {
         "designer": "Michael",
@@ -39505,7 +39297,7 @@
       "id": "whyrmshade"
     },
     {
-      "dex": 155,
+      "dex": 154,
       "name": "Abysspero",
       "credits": {
         "designer": "Michael",
@@ -39764,7 +39556,7 @@
       "id": "abysspero"
     },
     {
-      "dex": 156,
+      "dex": 155,
       "name": "Aqualoom",
       "credits": {
         "designer": "Michael",
@@ -39988,7 +39780,7 @@
       "id": "aqualoom"
     },
     {
-      "dex": 157,
+      "dex": 156,
       "name": "Cabat",
       "credits": {
         "designer": "Ivar",
@@ -40220,7 +40012,7 @@
       "id": "catbat"
     },
     {
-      "dex": 158,
+      "dex": 157,
       "name": "Cobramp",
       "credits": {
         "designer": "Ivar",
@@ -40469,7 +40261,7 @@
       "id": "cobrabat"
     },
     {
-      "dex": 159,
+      "dex": 158,
       "name": "Horaxigon",
       "credits": {
         "designer": "Ivar",
@@ -40686,7 +40478,7 @@
       "id": "horaxigon"
     },
     {
-      "dex": 160,
+      "dex": 159,
       "name": "Horaxander",
       "credits": {
         "designer": "Ivar",
@@ -40923,7 +40715,7 @@
       "id": "horaxander"
     },
     {
-      "dex": 161,
+      "dex": 160,
       "name": "Lansseax",
       "credits": {
         "designer": "Ivar",
@@ -41160,7 +40952,7 @@
       "id": "natureo"
     },
     {
-      "dex": 162,
+      "dex": 161,
       "name": "Dinoactyl",
       "credits": {
         "designer": "Arvind",
@@ -41242,7 +41034,7 @@
       "id": "dinoactyl"
     },
     {
-      "dex": 163,
+      "dex": 162,
       "name": "Wondertusk",
       "credits": {
         "designer": "Arvind",
@@ -41324,7 +41116,7 @@
       "id": "tusksir"
     },
     {
-      "dex": 164,
+      "dex": 163,
       "name": "Steinar",
       "credits": {
         "designer": "Arvind",
@@ -41406,7 +41198,7 @@
       "id": "steinar"
     },
     {
-      "dex": 165,
+      "dex": 164,
       "name": "Fleinar",
       "credits": {
         "designer": "Arvind",
@@ -41487,7 +41279,7 @@
       "id": "fleinar"
     },
     {
-      "dex": 166,
+      "dex": 165,
       "name": "Daytard",
       "credits": {
         "designer": "Arvind",
@@ -41567,7 +41359,7 @@
       "id": "daytard"
     },
     {
-      "dex": 167,
+      "dex": 166,
       "name": "plumbuzzz",
       "credits": {
         "designer": "Arvind",
@@ -41648,7 +41440,7 @@
       "id": "plumbuzzz"
     },
     {
-      "dex": 168,
+      "dex": 167,
       "name": "Demetiscet",
       "credits": {
         "designer": "Arvind",
@@ -41728,7 +41520,7 @@
       "id": "demetiscet"
     },
     {
-      "dex": 169,
+      "dex": 168,
       "name": "Racedent",
       "credits": {
         "designer": "Arvind",
@@ -41809,7 +41601,7 @@
       "id": "racedent"
     },
     {
-      "dex": 170,
+      "dex": 169,
       "name": "Ratpid",
       "credits": {
         "designer": "Arvind",
@@ -41889,7 +41681,7 @@
       "id": "ratpid"
     },
     {
-      "dex": 171,
+      "dex": 170,
       "name": "S.Rotom",
       "credits": {
         "designer": null,
@@ -42073,7 +41865,7 @@
       "id": "s-rotom"
     },
     {
-      "dex": 174,
+      "dex": 173,
       "name": "Goatjo",
       "credits": {
         "designer": "Ruben",
@@ -42327,7 +42119,7 @@
       "id": "goatjo"
     },
     {
-      "dex": 175,
+      "dex": 174,
       "name": "Sukunomon",
       "credits": {
         "designer": "Ivar",
@@ -42348,14 +42140,16 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": 111,
-        "attack": 55,
-        "defense": 222,
-        "sp_attack": 66,
-        "sp_defense": 88,
-        "speed": 77
+        "hp": 110,
+        "attack": 135,
+        "defense": 90,
+        "sp_attack": 75,
+        "sp_defense": 90,
+        "speed": 100
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "attack": 3
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -42409,7 +42203,7 @@
       "id": "sukunomon"
     },
     {
-      "dex": 176,
+      "dex": 175,
       "name": "Thooji",
       "credits": {
         "designer": "Arvind",
@@ -42494,7 +42288,7 @@
       "id": "thooji"
     },
     {
-      "dex": 177,
+      "dex": 176,
       "name": "Endermon",
       "credits": {
         "designer": "Arvind",
@@ -42575,7 +42369,7 @@
       "id": "endermon"
     },
     {
-      "dex": 178,
+      "dex": 177,
       "name": "Crepawmon",
       "credits": {
         "designer": null,
@@ -42661,7 +42455,7 @@
       "id": "crepawmon"
     },
     {
-      "dex": 179,
+      "dex": 178,
       "name": "Viltector",
       "credits": {
         "designer": "Arvind",
@@ -42705,9 +42499,119 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Harden"
+          },
+          {
+            "level": 1,
+            "move": "Metal Claw"
+          },
+          {
+            "level": 1,
+            "move": "Tail Whip"
+          },
+          {
+            "level": 6,
+            "move": "Bulldoze"
+          },
+          {
+            "level": 18,
+            "move": "Stomp"
+          },
+          {
+            "level": 24,
+            "move": "Thunder Wave"
+          },
+          {
+            "level": 30,
+            "move": "Curse"
+          },
+          {
+            "level": 32,
+            "move": "Acid Armor"
+          },
+          {
+            "level": 36,
+            "move": "Amnesia"
+          },
+          {
+            "level": 36,
+            "move": "Iron Defense"
+          },
+          {
+            "level": 40,
+            "move": "Iron Head"
+          },
+          {
+            "level": 41,
+            "move": "Iron Tail"
+          },
+          {
+            "level": 42,
+            "move": "Hammer Arm"
+          },
+          {
+            "level": 46,
+            "move": "Heavy Slam"
+          },
+          {
+            "level": 50,
+            "move": "Wood Hammer"
+          },
+          {
+            "level": 54,
+            "move": "Superpower"
+          },
+          {
+            "level": 56,
+            "move": "Double Iron Bash"
+          },
+          {
+            "level": 60,
+            "move": "Lock-On"
+          }
+        ],
+        "tm_hm": [
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Hyper Beam",
+          "Protect",
+          "Frustration",
+          "Earthquake",
+          "Return",
+          "Brick Break",
+          "Double Team",
+          "Sandstorm",
+          "Rock Tomb",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Endure",
+          "Giga Impact",
+          "Stone Edge",
+          "Thunder Wave",
+          "Gyro Ball",
+          "Stealth Rock",
+          "Rock Slide",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Flash Cannon",
+          "Trick Room",
+          "Heavy Slam",
+          "Bulldoze",
+          "High Horsepower",
+          "Body Press"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Iron Head",
+          "Metal Claw",
+          "Thunder Punch"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -42743,7 +42647,7 @@
       "id": "viltector"
     },
     {
-      "dex": 180,
+      "dex": 179,
       "name": "Withstar",
       "credits": {
         "designer": "Arvind",
@@ -42767,7 +42671,7 @@
         "hp": 110,
         "attack": 80,
         "defense": 110,
-        "sp_attack": 160,
+        "sp_attack": 167,
         "sp_defense": 110,
         "speed": 100
       },
@@ -42818,7 +42722,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": "assets/shiny/withstar.json",
-        "cry": null
+        "cry": "assets/cries/withstar.json"
       },
       "engine": {
         "no_flip": false,
@@ -42832,7 +42736,7 @@
       "id": "withstar"
     },
     {
-      "dex": 181,
+      "dex": 180,
       "name": "Subwooca",
       "credits": {
         "designer": "Emil",
@@ -42921,7 +42825,7 @@
       "id": "subwocada"
     },
     {
-      "dex": 182,
+      "dex": 181,
       "name": "Cicadj",
       "credits": {
         "designer": null,
@@ -43004,7 +42908,7 @@
       "id": "cicadj"
     },
     {
-      "dex": 183,
+      "dex": 182,
       "name": "Ibur",
       "credits": {
         "designer": "Ruben",
@@ -43085,7 +42989,7 @@
       "id": "ibur"
     },
     {
-      "dex": 184,
+      "dex": 183,
       "name": "Tbur",
       "credits": {
         "designer": "Ruben",
@@ -43166,7 +43070,7 @@
       "id": "tbur"
     },
     {
-      "dex": 185,
+      "dex": 184,
       "name": "Nebur",
       "credits": {
         "designer": "Ruben",
@@ -43248,7 +43152,7 @@
       "id": "nebur"
     },
     {
-      "dex": 186,
+      "dex": 185,
       "name": "Rhamp",
       "credits": {
         "designer": "Ruben",
@@ -43330,7 +43234,7 @@
       "id": "rhamp"
     },
     {
-      "dex": 187,
+      "dex": 186,
       "name": "Ledrake",
       "credits": {
         "designer": "Arvind",
@@ -43411,7 +43315,7 @@
       "id": "ledrake"
     },
     {
-      "dex": 188,
+      "dex": 187,
       "name": "Gingalaxy",
       "credits": {
         "designer": "Arvind",
@@ -43492,7 +43396,7 @@
       "id": "pegalaxy"
     },
     {
-      "dex": 189,
+      "dex": 188,
       "name": "gb vance",
       "credits": {
         "designer": "Arvind",
@@ -43573,7 +43477,7 @@
       "id": "gb-vance"
     },
     {
-      "dex": 190,
+      "dex": 189,
       "name": "de es lite",
       "credits": {
         "designer": "Arvind",
@@ -43654,7 +43558,7 @@
       "id": "de-es-lite"
     },
     {
-      "dex": 191,
+      "dex": 190,
       "name": "Minant",
       "credits": {
         "designer": "Emil",
@@ -43735,6 +43639,305 @@
       "id": "minant"
     },
     {
+      "dex": 218,
+      "name": "Iron Bulb",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Electric"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": 0.7,
+      "weight_kg": 4,
+      "body_color": "yellow",
+      "abilities": {
+        "primary": "Quark Drive",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 50,
+        "attack": 90,
+        "defense": 55,
+        "sp_attack": 255,
+        "sp_defense": 55,
+        "speed": 65
+      },
+      "ev_yield": {
+        "sp_attack": 3
+      },
+      "catch_rate": 3,
+      "base_exp": 257,
+      "growth_rate": "slow",
+      "base_friendship": 35,
+      "gender": "genderless",
+      "egg_groups": [
+        "undiscovered"
+      ],
+      "egg_cycles": 120,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Leer"
+          },
+          {
+            "level": 1,
+            "move": "Thunder Shock"
+          },
+          {
+            "level": 1,
+            "move": "Wrap"
+          },
+          {
+            "level": 5,
+            "move": "Charge"
+          },
+          {
+            "level": 10,
+            "move": "Thunder Wave"
+          },
+          {
+            "level": 15,
+            "move": "Ingrain"
+          },
+          {
+            "level": 20,
+            "move": "Parabolic Charge"
+          },
+          {
+            "level": 25,
+            "move": "Shock Wave"
+          },
+          {
+            "level": 30,
+            "move": "Hypnosis"
+          },
+          {
+            "level": 35,
+            "move": "Eerie Impulse"
+          },
+          {
+            "level": 40,
+            "move": "Discharge"
+          },
+          {
+            "level": 50,
+            "move": "Magnet Rise"
+          },
+          {
+            "level": 55,
+            "move": "Thunderbolt"
+          },
+          {
+            "level": 60,
+            "move": "Electric Terrain"
+          },
+          {
+            "level": 60,
+            "move": "Rain Dance"
+          },
+          {
+            "level": 65,
+            "move": "Thunder"
+          },
+          {
+            "level": 67,
+            "move": "Rising Voltage"
+          },
+          {
+            "level": 70,
+            "move": "Zap Cannon"
+          }
+        ],
+        "tm_hm": [
+          "Toxic",
+          "Hidden Power",
+          "Sunny Day",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Solar Beam",
+          "Thunderbolt",
+          "Thunder",
+          "Return",
+          "Double Team",
+          "Reflect",
+          "Facade",
+          "Rest",
+          "Energy Ball",
+          "Fling",
+          "Charge Beam",
+          "Endure",
+          "Giga Impact",
+          "Thunder Wave",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Electroweb",
+          "Eerie Impulse",
+          "Electric Terrain"
+        ],
+        "tutor": [
+          "Dazzling Gleam",
+          "Thunder Punch",
+          "Volt Switch",
+          "Heat Wave",
+          "Earth Power"
+        ],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Paradox form for bellsprout",
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [
+          "catch rate",
+          "base exp",
+          "growth rate",
+          "base friendship",
+          "gender",
+          "egg groups",
+          "egg cycles",
+          "level-up moves",
+          "TM/HM moves",
+          "tutor moves"
+        ],
+        "claude_sure": {
+          "catch rate": 90,
+          "base exp": 85,
+          "growth rate": 90,
+          "base friendship": 62,
+          "gender": 75,
+          "egg groups": 90,
+          "egg cycles": 90,
+          "level-up moves": 79,
+          "TM/HM moves": 84,
+          "tutor moves": 74
+        },
+        "body_shape": "an upright body on two legs without a tail",
+        "movement": "It walks upright on two legs.",
+        "look": "A bunch of electrical wires and outlet as hands and AV cables as legs."
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/iron-wire/1842.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": "assets/shiny/iron-wire.json",
+        "cry": "assets/cries/iron-wire.json"
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0,
+        "anim_from": "Elekid"
+      },
+      "id": "iron-wire"
+    },
+    {
+      "dex": 219,
+      "name": "Wild Claws",
+      "credits": {
+        "designer": "Emil",
+        "artist": null
+      },
+      "types": [
+        "Fire",
+        "Fairy"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Protosynthesis",
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": 80,
+        "attack": 136,
+        "defense": 85,
+        "sp_attack": 59,
+        "sp_defense": 85,
+        "speed": 125
+      },
+      "ev_yield": {
+        "attack": 3
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": null,
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "wild-claws"
+    },
+    {
       "dex": 220,
       "name": "Malenio",
       "credits": {
@@ -43751,12 +43954,12 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Scarlet bloom",
-        "secondary": null,
+        "primary": "Scarlet Bloom",
+        "secondary": "Scarlet Rot",
         "hidden": null
       },
       "base_stats": {
-        "hp": 120,
+        "hp": 100,
         "attack": 85,
         "defense": 115,
         "sp_attack": 85,
@@ -43782,12 +43985,12 @@
           "changes": "battle",
           "how": "It holds a Origin forme item.",
           "base_stats": {
-            "hp": 120,
-            "attack": 110,
-            "defense": 95,
-            "sp_attack": 110,
-            "sp_defense": 95,
-            "speed": 140
+            "hp": 100,
+            "attack": 120,
+            "defense": 65,
+            "sp_attack": 120,
+            "sp_defense": 65,
+            "speed": 130
           },
           "look": "has wings and has more brutal attacks and speed.",
           "sid": "malenio-form-mega"
@@ -43805,7 +44008,7 @@
         "name_origin": null,
         "notes": null,
         "wishes": null,
-        "claude_fill": false,
+        "claude_fill": true,
         "filled_by_claude": [],
         "body_shape": null,
         "movement": null,
@@ -43920,12 +44123,24 @@
             "move": "Hyper Voice"
           },
           {
+            "level": 46,
+            "move": "Knock Off"
+          },
+          {
             "level": 50,
             "move": "Ruination"
           },
           {
-            "level": 57,
+            "level": 54,
+            "move": "Sucker Punch"
+          },
+          {
+            "level": 58,
             "move": "Haze"
+          },
+          {
+            "level": 62,
+            "move": "Foul Play"
           },
           {
             "level": 75,
@@ -43941,19 +44156,25 @@
           }
         ],
         "tm_hm": [
+          "Calm Mind",
           "Toxic",
           "Hidden Power",
           "Sunny Day",
           "Taunt",
+          "Ice Beam",
+          "Blizzard",
           "Hyper Beam",
           "Protect",
           "Rain Dance",
           "Frustration",
+          "Thunderbolt",
+          "Thunder",
           "Return",
           "Psychic",
           "Shadow Ball",
           "Brick Break",
           "Double Team",
+          "Shock Wave",
           "Sludge Bomb",
           "Rock Tomb",
           "Aerial Ace",
@@ -43962,30 +44183,39 @@
           "Secret Power",
           "Rest",
           "Thief",
+          "Snatch",
           "Focus Blast",
           "Fling",
           "Charge Beam",
           "Endure",
+          "Will-O-Wisp",
           "Embargo",
+          "Shadow Claw",
           "Payback",
           "Giga Impact",
+          "Flash",
           "Thunder Wave",
           "Swords Dance",
           "Psych Up",
           "Dark Pulse",
+          "Rock Slide",
           "Sleep Talk",
           "Natural Gift",
           "Swagger",
           "U-turn",
           "Substitute",
           "Psyshock",
-          "Foul Play"
+          "Foul Play",
+          "Cut",
+          "Strength",
+          "Rock Smash"
         ],
         "tutor": [
           "Curse",
           "Icy Wind",
           "Nasty Plot",
-          "Snarl"
+          "Snarl",
+          "Haze"
         ],
         "egg": []
       },
@@ -46175,10 +46405,10 @@
       "base_stats": {
         "hp": 100,
         "attack": 80,
-        "defense": 85,
-        "sp_attack": 120,
-        "sp_defense": 85,
-        "speed": 110
+        "defense": 90,
+        "sp_attack": 125,
+        "sp_defense": 90,
+        "speed": 115
       },
       "ev_yield": {
         "sp_attack": 3
@@ -46426,12 +46656,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": 120,
-        "attack": 120,
+        "hp": 125,
+        "attack": 125,
         "defense": 100,
-        "sp_attack": 70,
+        "sp_attack": 75,
         "sp_defense": 100,
-        "speed": 70
+        "speed": 75
       },
       "ev_yield": {
         "hp": 3
@@ -46689,11 +46919,11 @@
       },
       "base_stats": {
         "hp": 80,
-        "attack": 95,
-        "defense": 70,
-        "sp_attack": 130,
-        "sp_defense": 70,
-        "speed": 135
+        "attack": 105,
+        "defense": 75,
+        "sp_attack": 125,
+        "sp_defense": 75,
+        "speed": 140
       },
       "ev_yield": {
         "speed": 3
@@ -47853,7 +48083,7 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": 99,
+        "hp": 109,
         "attack": 181,
         "defense": 104,
         "sp_attack": 181,
@@ -47861,7 +48091,7 @@
         "speed": 21
       },
       "ev_yield": {
-        "attack": 1,
+        "attack": 2,
         "sp_attack": 1
       },
       "catch_rate": 3,
@@ -48122,7 +48352,7 @@
       },
       "base_stats": {
         "hp": 120,
-        "attack": 150,
+        "attack": 160,
         "defense": 100,
         "sp_attack": 120,
         "sp_defense": 100,

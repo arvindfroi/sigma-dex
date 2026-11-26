@@ -22,14 +22,14 @@ abilities:
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp: 99
+  hp: 109
   attack: 181
   defense: 104
   sp_attack: 181
   sp_defense: 104
   speed: 21
 
-ev_yield: {attack: 1, sp_attack: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {attack: 2, sp_attack: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate: 3            # 3 (legendary) to 255 (very easy)
 base_exp: 261            # exp yield when defeated, e.g. 64
 growth_rate: slow        # erratic fast medium_fast medium_slow slow fluctuating

@@ -6027,13 +6027,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2066,
-    "species": "bergflabbser",
-    "file": "assets/concept-art/bergflabbser/2066.png",
-    "caption": "[ds-front] sprite #377",
-    "editor": "Arvind"
-  },
-  {
     "id": 2069,
     "species": "bergflabbser",
     "file": "assets/concept-art/bergflabbser/2069.png",
@@ -12131,13 +12124,6 @@
     "editor": "Ivar"
   },
   {
-    "id": 5890,
-    "species": "sukunomon",
-    "file": "assets/concept-art/sukunomon/5890.png",
-    "caption": "[ds-back2] sprite #1094",
-    "editor": "Ivar"
-  },
-  {
     "id": 5894,
     "species": "sukunomon",
     "file": "assets/concept-art/sukunomon/5894.png",
@@ -12269,5 +12255,19 @@
     "file": "assets/concept-art/bugmight/5995.png",
     "caption": "[ds-front2] sprite #1112",
     "editor": "Emil"
+  },
+  {
+    "id": 6009,
+    "species": "sukunomon",
+    "file": "assets/concept-art/sukunomon/6009.png",
+    "caption": "[ds-back2] sprite #1113",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6010,
+    "species": "bergflabbser",
+    "file": "assets/concept-art/bergflabbser/6010.png",
+    "caption": "[ds-front] sprite #1114",
+    "editor": "Arvind"
   }
 ]

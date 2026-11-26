@@ -17,12 +17,12 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Scarlet bloom
-  secondary:             # optional
+  primary: Scarlet Bloom
+  secondary: Scarlet Rot # optional
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp: 120
+  hp: 100
   attack: 85
   defense: 115
   sp_attack: 85
@@ -58,7 +58,7 @@ forms:
   - name: Origin forme
     changes: battle
     how: It holds a Origin forme item.
-    base_stats: {hp: 120, attack: 110, defense: 95, sp_attack: 110, sp_defense: 95, speed: 140}
+    base_stats: {hp: 100, attack: 120, defense: 65, sp_attack: 120, sp_defense: 65, speed: 130}
     look: has wings and has more brutal attacks and speed.
     sid: malenio-form-mega
 
@@ -78,7 +78,7 @@ design:
   name_origin:
   notes:
   wishes:                # for Claude: how it should play, move ideas
-  claude_fill: false     # true = Claude may fill in what is missing
+  claude_fill: true      # true = Claude may fill in what is missing
   filled_by_claude: []   # fields Claude filled in (people can change them)
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement:              # e.g. It walks on four legs. / It floats in the air.

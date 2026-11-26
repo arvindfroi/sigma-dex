@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**212 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
+**213 / 254** slots have a Pokemon - **0** are fully complete - average completeness **64%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -145,61 +145,61 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 134 | [Seraphinnen](data/species/seraphinnen.yaml) | Flying | Soul-Heart, Mind's Eye, Aerilate (H) | 540 |  | 72% |
 | 135 | [Riftbloom](data/species/riftbloom.yaml) | Ghost / Psychic | Prankster, Shadow Tag (H) | 265 | riftlees (Lv 26) | 72% |
 | 136 | [riftlees](data/species/riftlees.yaml) | Ghost / Psychic | Prankster, Shadow Tag (H) | 425 |  | 72% |
-| 137 | [G-Circuit](data/species/giga-circuit.yaml) | Electric | Motor Drive, Flare Boost, Transistor (H) | 500 |  | 69% |
+| 137 | [G-Circuit](data/species/giga-circuit.yaml) | Electric | Motor Drive, Flare Boost, Transistor (H) | 500 |  | 72% |
 | 138 | [Strawboo](data/species/strawboo.yaml) | Water | Lightning Rod, Enticing Lure, Marvel Scale (H) | 240 | Wreckingbo (Lv 30) | 69% |
 | 139 | [Wreckingbo](data/species/wreckingboo.yaml) | Water | Lightning Rod, Enticing Lure, Marvel Scale (H) | 340 | Wreckdrake (Lv 48) | 69% |
 | 140 | [Wreckdrake](data/species/wreckingdrake.yaml) | Water / Dragon | Lightning Rod, Enticing Lure, Marvel Scale (H) | 540 |  | 66% |
-| 141 | [Iron Bulb](data/species/iron-wire.yaml) | Electric | Quark Drive | 570 |  | 72% |
-| 142 | [Solidedge](data/species/solidedge.yaml) | Bug / Psychic | Beast Boost | 600 |  | 69% |
-| 143 | [Rosie](data/species/rosie.yaml) | Grass / Fairy |  | 410 | Rosievoir (Lv 40) | 17% |
-| 144 | [Rosievoir](data/species/rosievoir.yaml) | Grass / Fairy |  | 505 |  | 21% |
-| 145 | [Sealma](data/species/whaldrill0.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 280 | Narburr (Lv 25) | 69% |
-| 146 | [Narburr](data/species/whaldrill.yaml) | Ice / Ground | Comatose, Oblivious, Thick Fat (H) | 450 | Whaldrill (Lv 42) | 69% |
-| 147 | [Whaldrill](data/species/whaldrill3.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 530 |  | 69% |
-| 148 | [Venofrib](data/species/venofrib.yaml) | Poison | Color Change, Poison Point, Protean (H) | 320 | Vendepiede (Lv 18) | 72% |
-| 149 | [Vendepiede](data/species/vendepiede.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 420 | Venorax (Lv 38) | 72% |
-| 150 | [Venorax](data/species/venorax.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 530 |  | 69% |
-| 151 | [Raymon](data/species/raymon.yaml) | Normal | Natural Cure, Bad Dreams | 540 |  | 31% |
-| 152 | [Crysteel](data/species/crysteel.yaml) | Steel / Rock | Clear Body, Pickup, Sand Force (H) | 290 |  | 72% |
-| 153 | [Crystax](data/species/crystax.yaml) | Steel / Rock | Crystal Body, Tough Claws, Sand Force (H) | 510 |  | 72% |
-| 154 | [Whyrmshade](data/species/whyrmshade.yaml) | Ghost | Cursed Body, Levitate, Infiltrator (H) | 340 | Abysspero (Lv 45) | 69% |
-| 155 | [Abysspero](data/species/abysspero.yaml) | Dragon / Ghost | Cursed Body, Berserk, Infiltrator (H) | 540 |  | 69% |
-| 156 | [Aqualoom](data/species/aqualoom.yaml) | Water / Steel | Rain Dish, Water Absorb, Oblivious (H) | 450 |  | 69% |
-| 157 | [Cabat](data/species/catbat.yaml) | Dark / Flying | Unnerve, Frisk, Heckler (H) | 255 | Cobramp (Lv 22) | 69% |
-| 158 | [Cobramp](data/species/cobrabat.yaml) | Dark / Flying | Unnerve, Frisk, Heckler (H) | 455 |  | 72% |
-| 159 | [Horaxigon](data/species/horaxigon.yaml) | Steel / Dragon | Mold Breaker, Download, Sheer Force (H) | 340 | Horaxander (Lv 45) | 69% |
-| 160 | [Horaxander](data/species/horaxander.yaml) | Steel / Dragon | Mold Breaker, Download, Sheer Force (H) | 540 |  | 69% |
-| 161 | [Lansseax](data/species/natureo.yaml) | Psychic / Grass | Slow Start, Natural Cure, Regenerator (H) | 640 |  | 69% |
-| 162 | [Dinoactyl](data/species/dinoactyl.yaml) | Dragon / Rock | Rough Skin, Compound Eyes |  |  | 21% |
-| 163 | [Wondertusk](data/species/tusksir.yaml) | Normal / Fire |  |  |  | 10% |
-| 164 | [Steinar](data/species/steinar.yaml) | Rock / Poison |  |  |  | 14% |
-| 165 | [Fleinar](data/species/fleinar.yaml) | Poison / Psychic | Curious Medicine |  |  | 14% |
-| 166 | [Daytard](data/species/daytard.yaml) | Bug |  |  |  | 14% |
-| 167 | [plumbuzzz](data/species/plumbuzzz.yaml) | Bug |  |  |  | 14% |
-| 168 | [Demetiscet](data/species/demetiscet.yaml) | Bug |  |  |  | 14% |
-| 169 | [Racedent](data/species/racedent.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) |  |  | 14% |
-| 170 | [Ratpid](data/species/ratpid.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) |  |  | 14% |
-| 171 | [S.Rotom](data/species/s-rotom.yaml) | Electric | Levitate | 440 |  | 17% |
+| 141 | [Solidedge](data/species/solidedge.yaml) | Bug / Psychic | Beast Boost | 600 |  | 69% |
+| 142 | [Rosie](data/species/rosie.yaml) | Grass / Fairy |  | 410 | Rosievoir (Lv 40) | 17% |
+| 143 | [Rosievoir](data/species/rosievoir.yaml) | Grass / Fairy |  | 505 |  | 21% |
+| 144 | [Sealma](data/species/whaldrill0.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 280 | Narburr (Lv 25) | 69% |
+| 145 | [Narburr](data/species/whaldrill.yaml) | Ice / Ground | Comatose, Oblivious, Thick Fat (H) | 450 | Whaldrill (Lv 42) | 69% |
+| 146 | [Whaldrill](data/species/whaldrill3.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 530 |  | 69% |
+| 147 | [Venofrib](data/species/venofrib.yaml) | Poison | Color Change, Poison Point, Protean (H) | 320 | Vendepiede (Lv 18) | 72% |
+| 148 | [Vendepiede](data/species/vendepiede.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 420 | Venorax (Lv 38) | 72% |
+| 149 | [Venorax](data/species/venorax.yaml) | Poison / Fire | Color Change, Spicy Spray, Protean (H) | 530 |  | 69% |
+| 150 | [Raymon](data/species/raymon.yaml) | Normal | Natural Cure, Bad Dreams | 540 |  | 31% |
+| 151 | [Crysteel](data/species/crysteel.yaml) | Steel / Rock | Clear Body, Pickup, Sand Force (H) | 290 |  | 72% |
+| 152 | [Crystax](data/species/crystax.yaml) | Steel / Rock | Crystal Body, Tough Claws, Sand Force (H) | 510 |  | 72% |
+| 153 | [Whyrmshade](data/species/whyrmshade.yaml) | Ghost | Cursed Body, Levitate, Infiltrator (H) | 340 | Abysspero (Lv 45) | 69% |
+| 154 | [Abysspero](data/species/abysspero.yaml) | Dragon / Ghost | Cursed Body, Berserk, Infiltrator (H) | 540 |  | 69% |
+| 155 | [Aqualoom](data/species/aqualoom.yaml) | Water / Steel | Rain Dish, Water Absorb, Oblivious (H) | 450 |  | 69% |
+| 156 | [Cabat](data/species/catbat.yaml) | Dark / Flying | Unnerve, Frisk, Heckler (H) | 255 | Cobramp (Lv 22) | 69% |
+| 157 | [Cobramp](data/species/cobrabat.yaml) | Dark / Flying | Unnerve, Frisk, Heckler (H) | 455 |  | 72% |
+| 158 | [Horaxigon](data/species/horaxigon.yaml) | Steel / Dragon | Mold Breaker, Download, Sheer Force (H) | 340 | Horaxander (Lv 45) | 69% |
+| 159 | [Horaxander](data/species/horaxander.yaml) | Steel / Dragon | Mold Breaker, Download, Sheer Force (H) | 540 |  | 69% |
+| 160 | [Lansseax](data/species/natureo.yaml) | Psychic / Grass | Slow Start, Natural Cure, Regenerator (H) | 640 |  | 69% |
+| 161 | [Dinoactyl](data/species/dinoactyl.yaml) | Dragon / Rock | Rough Skin, Compound Eyes |  |  | 21% |
+| 162 | [Wondertusk](data/species/tusksir.yaml) | Normal / Fire |  |  |  | 10% |
+| 163 | [Steinar](data/species/steinar.yaml) | Rock / Poison |  |  |  | 14% |
+| 164 | [Fleinar](data/species/fleinar.yaml) | Poison / Psychic | Curious Medicine |  |  | 14% |
+| 165 | [Daytard](data/species/daytard.yaml) | Bug |  |  |  | 14% |
+| 166 | [plumbuzzz](data/species/plumbuzzz.yaml) | Bug |  |  |  | 14% |
+| 167 | [Demetiscet](data/species/demetiscet.yaml) | Bug |  |  |  | 14% |
+| 168 | [Racedent](data/species/racedent.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) |  |  | 14% |
+| 169 | [Ratpid](data/species/ratpid.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) |  |  | 14% |
+| 170 | [S.Rotom](data/species/s-rotom.yaml) | Electric | Levitate | 440 |  | 17% |
+| 171 | *open slot* | | | | | |
 | 172 | *open slot* | | | | | |
-| 173 | *open slot* | | | | | |
-| 174 | [Goatjo](data/species/goatjo.yaml) | Psychic / Dragon | Wonder Guard | 435 |  | 66% |
-| 175 | [Sukunomon](data/species/sukunomon.yaml) | Fire / Dark |  | 619 |  | 17% |
-| 176 | [Thooji](data/species/thooji.yaml) | Fighting | Heavenly Pact |  |  | 17% |
-| 177 | [Endermon](data/species/endermon.yaml) | Dark | Anger Point | 600 |  | 17% |
-| 178 | [Crepawmon](data/species/crepawmon.yaml) | Normal / Grass | Lightning Rod | 600 |  | 21% |
-| 179 | [Viltector](data/species/viltector.yaml) | Steel | Sap Sipper | 600 |  | 21% |
-| 180 | [Withstar](data/species/withstar.yaml) | Ground / Ghost | Channeling | 670 |  | 28% |
-| 181 | [Subwooca](data/species/subwocada.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 320 | Cicadj (Lv 28) | 21% |
-| 182 | [Cicadj](data/species/cicadj.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 475 |  | 14% |
-| 183 | [Ibur](data/species/ibur.yaml) | Ice |  |  |  | 10% |
-| 184 | [Tbur](data/species/tbur.yaml) | Ice |  |  |  | 10% |
-| 185 | [Nebur](data/species/nebur.yaml) | Ice / Electric |  |  |  | 14% |
-| 186 | [Rhamp](data/species/rhamp.yaml) | Psychic / Rock |  |  |  | 10% |
-| 187 | [Ledrake](data/species/ledrake.yaml) | Dragon | Spinner |  |  | 24% |
-| 188 | [Gingalaxy](data/species/pegalaxy.yaml) | Flying | Spinner |  |  | 17% |
-| 189 | [gb vance](data/species/gb-vance.yaml) | Electric |  |  |  | 10% |
-| 190 | [de es lite](data/species/de-es-lite.yaml) | Electric |  |  |  | 10% |
-| 191 | [Minant](data/species/minant.yaml) | Bug / Ground |  |  |  | 7% |
+| 173 | [Goatjo](data/species/goatjo.yaml) | Psychic / Dragon | Wonder Guard | 435 |  | 66% |
+| 174 | [Sukunomon](data/species/sukunomon.yaml) | Fire / Dark |  | 600 |  | 21% |
+| 175 | [Thooji](data/species/thooji.yaml) | Fighting | Heavenly Pact |  |  | 17% |
+| 176 | [Endermon](data/species/endermon.yaml) | Dark | Anger Point | 600 |  | 17% |
+| 177 | [Crepawmon](data/species/crepawmon.yaml) | Normal / Grass | Lightning Rod | 600 |  | 21% |
+| 178 | [Viltector](data/species/viltector.yaml) | Steel | Sap Sipper | 600 |  | 28% |
+| 179 | [Withstar](data/species/withstar.yaml) | Ground / Ghost | Channeling | 677 |  | 31% |
+| 180 | [Subwooca](data/species/subwocada.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 320 | Cicadj (Lv 28) | 21% |
+| 181 | [Cicadj](data/species/cicadj.yaml) | Bug / Electric | Swarm, Subwoofer, Compound Eyes (H) | 475 |  | 14% |
+| 182 | [Ibur](data/species/ibur.yaml) | Ice |  |  |  | 10% |
+| 183 | [Tbur](data/species/tbur.yaml) | Ice |  |  |  | 10% |
+| 184 | [Nebur](data/species/nebur.yaml) | Ice / Electric |  |  |  | 14% |
+| 185 | [Rhamp](data/species/rhamp.yaml) | Psychic / Rock |  |  |  | 10% |
+| 186 | [Ledrake](data/species/ledrake.yaml) | Dragon | Spinner |  |  | 24% |
+| 187 | [Gingalaxy](data/species/pegalaxy.yaml) | Flying | Spinner |  |  | 17% |
+| 188 | [gb vance](data/species/gb-vance.yaml) | Electric |  |  |  | 10% |
+| 189 | [de es lite](data/species/de-es-lite.yaml) | Electric |  |  |  | 10% |
+| 190 | [Minant](data/species/minant.yaml) | Bug / Ground |  |  |  | 7% |
+| 191 | *open slot* | | | | | |
 | 192 | *open slot* | | | | | |
 | 193 | *open slot* | | | | | |
 | 194 | *open slot* | | | | | |
@@ -226,9 +226,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 215 | *open slot* | | | | | |
 | 216 | *open slot* | | | | | |
 | 217 | *open slot* | | | | | |
-| 218 | *open slot* | | | | | |
-| 219 | *open slot* | | | | | |
-| 220 | [Malenio](data/species/malenio.yaml) | Bug / Fire | Scarlet bloom | 620 |  | 24% |
+| 218 | [Iron Bulb](data/species/iron-wire.yaml) | Electric | Quark Drive | 570 |  | 72% |
+| 219 | [Wild Claws](data/species/wild-claws.yaml) | Fire / Fairy | Protosynthesis | 570 |  | 17% |
+| 220 | [Malenio](data/species/malenio.yaml) | Bug / Fire | Scarlet Bloom, Scarlet Rot | 600 |  | 24% |
 | 221 | *open slot* | | | | | |
 | 222 | *open slot* | | | | | |
 | 223 | *open slot* | | | | | |
@@ -250,15 +250,15 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 239 | [Custodix](data/species/custodix.yaml) | Fire / Rock | Fire Mane, Drought, Solar Power (H) | 600 |  | 76% |
 | 240 | [Entrigon](data/species/entrigon.yaml) | Fire / Electric | Motor Drive | 600 |  | 69% |
 | 241 | [Tsunamo](data/species/tsunamo.yaml) | Ice / Water | Water Absorb | 600 |  | 72% |
-| 242 | [Felk](data/species/felk.yaml) | Grass / Flying | Wind Master | 580 |  | 69% |
-| 243 | [Moosus](data/species/moosus.yaml) | Ice / Fairy | Aurora Dancer | 580 |  | 76% |
-| 244 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Rocket Science | 580 |  | 69% |
+| 242 | [Felk](data/species/felk.yaml) | Grass / Flying | Wind Master | 600 |  | 69% |
+| 243 | [Moosus](data/species/moosus.yaml) | Ice / Fairy | Aurora Dancer | 600 |  | 76% |
+| 244 | [Rockedeer](data/species/rockedeer.yaml) | Fire / Psychic | Rocket Science | 600 |  | 69% |
 | 245 | [Praxis](data/species/praxis.yaml) | Flying / Ghost | Levitate | 600 |  | 69% |
 | 246 | [Laxis](data/species/laxis.yaml) | Flying / Ice | Levitate | 600 |  | 69% |
 | 247 | [Maagamad](data/species/maagamad.yaml) | Flying / Poison | Weather Switch | 680 |  | 79% |
 | 248 | [Bergflabb](data/species/bergflabbser.yaml) | Water / Ground | Primordial Sea | 680 |  | 97% |
-| 249 | [Gravriel](data/species/gravriel.yaml) | Ghost / Grass | Sea Ghost Emperor | 690 |  | 79% |
-| 250 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 690 |  | 76% |
+| 249 | [Gravriel](data/species/gravriel.yaml) | Ghost / Grass | Sea Ghost Emperor | 700 |  | 79% |
+| 250 | [Sabertann](data/species/sabertann.yaml) | Dark / Water | Good as Gold, Supreme Overlord (H) | 700 |  | 76% |
 | 251 | [Eclipsox](data/species/eclipsox.yaml) | Normal / Dragon | Mold Breaker, Intimidate (H) | 720 |  | 72% |
 | 252 | [Voraxia](data/species/voraxia.yaml) | Dragon / Dark | Shadow Shield |  |  | 31% |
 | 253 | [Sandrema](data/species/sandrema.yaml) | Fairy / Ground | Lullaby | 600 |  | 72% |

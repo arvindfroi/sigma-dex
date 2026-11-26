@@ -76,20 +76,25 @@ learnset:
     - {level: 29, move: Dark Pulse}
     - {level: 38, move: Night Shade}
     - {level: 42, move: Hyper Voice}
+    - {level: 46, move: Knock Off}
     - {level: 50, move: Ruination}
-    - {level: 57, move: Haze}
+    - {level: 54, move: Sucker Punch}
+    - {level: 58, move: Haze}
+    - {level: 62, move: Foul Play}
     - {level: 75, move: Nasty Plot}
     - {level: 84, move: Dragon Pulse}
     - {level: 91, move: Hyper Beam}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
-          Frustration, Return, Psychic, Shadow Ball, Brick Break, Double Team, Sludge Bomb,
-          Rock Tomb, Aerial Ace, Torment, Facade, Secret Power, Rest, Thief, Focus Blast,
-          Fling, Charge Beam, Endure, Embargo, Payback, Giga Impact, Thunder Wave,
-          Swords Dance, Psych Up, Dark Pulse, Sleep Talk, Natural Gift, Swagger, U-turn,
-          Substitute, Psyshock, Foul Play]
+  tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard, Hyper Beam,
+          Protect, Rain Dance, Frustration, Thunderbolt, Thunder, Return, Psychic,
+          Shadow Ball, Brick Break, Double Team, Shock Wave, Sludge Bomb, Rock Tomb,
+          Aerial Ace, Torment, Facade, Secret Power, Rest, Thief, Snatch, Focus Blast,
+          Fling, Charge Beam, Endure, Will-O-Wisp, Embargo, Shadow Claw, Payback,
+          Giga Impact, Flash, Thunder Wave, Swords Dance, Psych Up, Dark Pulse, Rock Slide,
+          Sleep Talk, Natural Gift, Swagger, U-turn, Substitute, Psyshock, Foul Play, Cut,
+          Strength, Rock Smash]
   # moves a move tutor can teach it
-  tutor: [Curse, Icy Wind, Nasty Plot, Snarl]
+  tutor: [Curse, Icy Wind, Nasty Plot, Snarl, Haze]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

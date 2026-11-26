@@ -3113,34 +3113,6 @@ SINGLE_BATTLE_TEST("Sigma dex: Wreckdrake can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: Iron Bulb has the data from its species file")
-{
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_IRON_BULB];
-    EXPECT_EQ(info->baseHP, 50);
-    EXPECT_EQ(info->baseAttack, 90);
-    EXPECT_EQ(info->baseDefense, 55);
-    EXPECT_EQ(info->baseSpeed, 65);
-    EXPECT_EQ(info->baseSpAttack, 255);
-    EXPECT_EQ(info->baseSpDefense, 55);
-    EXPECT_EQ(info->types[0], TYPE_ELECTRIC);
-    EXPECT_EQ(info->types[1], TYPE_ELECTRIC);
-    EXPECT_EQ(info->abilities[0], ABILITY_QUARK_DRIVE);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);
-    EXPECT_EQ(GetSpeciesName(SPECIES_IRON_BULB)[0], CHAR_I);
-}
-
-SINGLE_BATTLE_TEST("Sigma dex: Iron Bulb can use its first move in battle")
-{
-    GIVEN {
-        PLAYER(SPECIES_IRON_BULB) { Moves(MOVE_LEER); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_LEER); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, player);
-    }
-}
-
 TEST("Sigma dex: Solidedge has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SOLIDEDGE];
@@ -3645,6 +3617,62 @@ SINGLE_BATTLE_TEST("Sigma dex: Goatjo can use its first move in battle")
     }
 }
 
+TEST("Sigma dex: Viltector has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_VILTECTOR];
+    EXPECT_EQ(info->baseHP, 80);
+    EXPECT_EQ(info->baseAttack, 142);
+    EXPECT_EQ(info->baseDefense, 135);
+    EXPECT_EQ(info->baseSpeed, 43);
+    EXPECT_EQ(info->baseSpAttack, 65);
+    EXPECT_EQ(info->baseSpDefense, 135);
+    EXPECT_EQ(info->types[0], TYPE_STEEL);
+    EXPECT_EQ(info->types[1], TYPE_STEEL);
+    EXPECT_EQ(info->abilities[0], ABILITY_SAP_SIPPER);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_HARDEN);
+    EXPECT_EQ(GetSpeciesName(SPECIES_VILTECTOR)[0], CHAR_V);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Viltector can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_VILTECTOR) { Moves(MOVE_HARDEN); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_HARDEN); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_HARDEN, player);
+    }
+}
+
+TEST("Sigma dex: Iron Bulb has the data from its species file")
+{
+    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_IRON_BULB];
+    EXPECT_EQ(info->baseHP, 50);
+    EXPECT_EQ(info->baseAttack, 90);
+    EXPECT_EQ(info->baseDefense, 55);
+    EXPECT_EQ(info->baseSpeed, 65);
+    EXPECT_EQ(info->baseSpAttack, 255);
+    EXPECT_EQ(info->baseSpDefense, 55);
+    EXPECT_EQ(info->types[0], TYPE_ELECTRIC);
+    EXPECT_EQ(info->types[1], TYPE_ELECTRIC);
+    EXPECT_EQ(info->abilities[0], ABILITY_QUARK_DRIVE);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_LEER);
+    EXPECT_EQ(GetSpeciesName(SPECIES_IRON_BULB)[0], CHAR_I);
+}
+
+SINGLE_BATTLE_TEST("Sigma dex: Iron Bulb can use its first move in battle")
+{
+    GIVEN {
+        PLAYER(SPECIES_IRON_BULB) { Moves(MOVE_LEER); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_LEER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, player);
+    }
+}
+
 TEST("Sigma dex: Tenebravis has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_TENEBRAVIS];
@@ -3901,7 +3929,7 @@ TEST("Sigma dex: Sabertann has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_SABERTANN];
     EXPECT_EQ(info->baseHP, 120);
-    EXPECT_EQ(info->baseAttack, 150);
+    EXPECT_EQ(info->baseAttack, 160);
     EXPECT_EQ(info->baseDefense, 100);
     EXPECT_EQ(info->baseSpeed, 100);
     EXPECT_EQ(info->baseSpAttack, 120);

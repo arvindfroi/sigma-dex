@@ -221,6 +221,12 @@ abilities:
     status effects.
   similar_to: Magic Guard
   designer: Ivar.
+- id: scarlet-rot
+  name: Scarlet Rot
+  description: Damaging Moves Apply Infistetion
+  effect: Damaging Moves Apply Infistetion inflicting damage equal to 1⁄8 of the targets maximum HP aswell
+    as trapping them for 4-5 turns.
+  designer: Emil
 - id: sea-ghost-emperor
   name: Sea Ghost Emperor
   description: Raises highest stat if it gets a knock out, Water-type moves heal it

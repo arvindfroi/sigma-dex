@@ -70,8 +70,10 @@ learnset:
     - {level: 1, move: Fire Fang}
     - {level: 1, move: Harden}
     - {level: 1, move: Tackle}
+    - {level: 1, move: Metal Claw}
     - {level: 6, move: Ember}
     - {level: 8, move: Autotomize}
+    - {level: 12, move: Headbutt}
     - {level: 15, move: Roar}
     - {level: 16, move: Bulldoze}
     - {level: 16, move: Curse}
@@ -83,12 +85,12 @@ learnset:
     - {level: 28, move: Sand Tomb}
     - {level: 30, move: Iron Defense}
     - {level: 33, move: Heavy Slam}
-    - {level: 36, move: Metal Claw}
     - {level: 36, move: Iron Head}
+    - {level: 40, move: Earth Power}
     - {level: 43, move: Heat Crash}
-    - {level: 44, move: Shell Smash}
+    - {level: 45, move: Shell Smash}
     - {level: 48, move: Earthquake}
-    - {level: 54, move: Heat Crash}
+    - {level: 54, move: Flare Blitz}
     - {level: 58, move: Gyro Ball}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Bulk Up, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance,

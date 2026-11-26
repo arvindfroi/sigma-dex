@@ -1,5 +1,5 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
-dex: 179
+dex: 178
 name: Viltector
 
 credits:
@@ -64,9 +64,34 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Harden}
+    - {level: 1, move: Metal Claw}
+    - {level: 1, move: Tail Whip}
+    - {level: 6, move: Bulldoze}
+    - {level: 18, move: Stomp}
+    - {level: 24, move: Thunder Wave}
+    - {level: 30, move: Curse}
+    - {level: 32, move: Acid Armor}
+    - {level: 36, move: Amnesia}
+    - {level: 36, move: Iron Defense}
+    - {level: 40, move: Iron Head}
+    - {level: 41, move: Iron Tail}
+    - {level: 42, move: Hammer Arm}
+    - {level: 46, move: Heavy Slam}
+    - {level: 50, move: Wood Hammer}
+    - {level: 54, move: Superpower}
+    - {level: 56, move: Double Iron Bash}
+    - {level: 60, move: Lock-On}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Frustration, Earthquake,
+          Return, Brick Break, Double Team, Sandstorm, Rock Tomb, Facade, Secret Power,
+          Rest, Endure, Giga Impact, Stone Edge, Thunder Wave, Gyro Ball, Stealth Rock,
+          Rock Slide, Sleep Talk, Swagger, Substitute, Flash Cannon, Trick Room, Heavy Slam,
+          Bulldoze, High Horsepower, Body Press]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Iron Head, Metal Claw, Thunder Punch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

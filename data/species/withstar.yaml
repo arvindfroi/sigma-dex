@@ -1,5 +1,5 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
-dex: 180
+dex: 179
 name: Withstar
 
 credits:
@@ -25,7 +25,7 @@ base_stats:              # each 1-255
   hp: 110
   attack: 80
   defense: 110
-  sp_attack: 160
+  sp_attack: 167
   sp_defense: 110
   speed: 100
 
@@ -95,7 +95,7 @@ assets:
   icon:                  # icon.png       32x64, two frames stacked
   footprint:             # footprint.png  16x16, black and white
   shiny_palette: "assets/shiny/withstar.json"
-  cry:                   # sound file
+  cry: "assets/cries/withstar.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---
 engine:
