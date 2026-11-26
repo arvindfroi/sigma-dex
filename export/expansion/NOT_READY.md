@@ -38,8 +38,8 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Viridub Utvikling** needs: an ability that exists in the game, a name of at most 10 letters
 - **Sigmanian Charcadet** needs: a name of at most 10 letters
 - **Seraphinnen** needs: a name of at most 10 letters
-- **Rosie** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Rosievoir** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Rosie** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Rosievoir** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Crystax** needs: an ability that exists in the game
 - **Dinoactyl** needs: base stats, a level-up move that exists in the game
 - **Wondertusk** needs: base stats, an ability that exists in the game, a level-up move that exists in the game

@@ -12143,5 +12143,33 @@
     "file": "assets/concept-art/warrallier/5860.png",
     "caption": "[ds-front] sprite #1089",
     "editor": "Emil"
+  },
+  {
+    "id": 5888,
+    "species": "sukunomon",
+    "file": "assets/concept-art/sukunomon/5888.png",
+    "caption": "[ds-icon] sprite #1094",
+    "editor": "Ivar"
+  },
+  {
+    "id": 5889,
+    "species": "sukunomon",
+    "file": "assets/concept-art/sukunomon/5889.png",
+    "caption": "[ds-front2] sprite #1094",
+    "editor": "Ivar"
+  },
+  {
+    "id": 5890,
+    "species": "sukunomon",
+    "file": "assets/concept-art/sukunomon/5890.png",
+    "caption": "[ds-back2] sprite #1094",
+    "editor": "Ivar"
+  },
+  {
+    "id": 5894,
+    "species": "sukunomon",
+    "file": "assets/concept-art/sukunomon/5894.png",
+    "caption": "[ds-follower] sprite #1094",
+    "editor": "Ivar"
   }
 ]

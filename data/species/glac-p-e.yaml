@@ -86,6 +86,7 @@ learnset:
     - {level: 42, move: Iron Defense}
     - {level: 49, move: Ice Spinner}
     - {level: 52, move: Close Combat}
+    - {level: 56, move: Mountain Gale}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Hail, Bulk Up, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard,
           Hyper Beam, Protect, Rain Dance, Earthquake, Return, Dig, Brick Break,

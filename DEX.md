@@ -151,8 +151,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 140 | [Wreckdrake](data/species/wreckingdrake.yaml) | Water / Dragon | Lightning Rod, Enticing Lure, Marvel Scale (H) | 540 |  | 66% |
 | 141 | [Iron Bulb](data/species/iron-wire.yaml) | Electric | Quark Drive | 570 |  | 72% |
 | 142 | [Solidedge](data/species/solidedge.yaml) | Bug / Psychic | Beast Boost | 600 |  | 69% |
-| 143 | [Rosie](data/species/rosie.yaml) | Grass / Fairy |  |  | Rosievoir (Lv 40) | 14% |
-| 144 | [Rosievoir](data/species/rosievoir.yaml) | Grass / Fairy |  |  |  | 17% |
+| 143 | [Rosie](data/species/rosie.yaml) | Grass / Fairy |  | 410 | Rosievoir (Lv 40) | 17% |
+| 144 | [Rosievoir](data/species/rosievoir.yaml) | Grass / Fairy |  | 505 |  | 21% |
 | 145 | [Sealma](data/species/whaldrill0.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 280 | Narburr (Lv 25) | 69% |
 | 146 | [Narburr](data/species/whaldrill.yaml) | Ice / Ground | Comatose, Oblivious, Thick Fat (H) | 450 | Whaldrill (Lv 42) | 69% |
 | 147 | [Whaldrill](data/species/whaldrill3.yaml) | Ice / Ground | Slush Rush, Sand Rush, Thick Fat (H) | 530 |  | 69% |
@@ -228,7 +228,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 217 | *open slot* | | | | | |
 | 218 | *open slot* | | | | | |
 | 219 | *open slot* | | | | | |
-| 220 | [Malenio](data/species/malenio.yaml) | Bug / Fire | Scarlet bloom | 600 |  | 21% |
+| 220 | [Malenio](data/species/malenio.yaml) | Bug / Fire | Scarlet bloom | 620 |  | 24% |
 | 221 | *open slot* | | | | | |
 | 222 | *open slot* | | | | | |
 | 223 | *open slot* | | | | | |

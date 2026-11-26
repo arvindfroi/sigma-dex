@@ -22,7 +22,7 @@ abilities:
   hidden:                # optional
 
 base_stats:              # each 1-255
-  hp: 100
+  hp: 120
   attack: 85
   defense: 115
   sp_attack: 85
@@ -55,10 +55,10 @@ evolutions: []
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms:
-  - name: Mega
+  - name: Origin forme
     changes: battle
-    how: It holds a mega stone.
-    base_stats: {hp: 150, attack: 110, defense: 95, sp_attack: 110, sp_defense: 95, speed: 140}
+    how: It holds a Origin forme item.
+    base_stats: {hp: 120, attack: 110, defense: 95, sp_attack: 110, sp_defense: 95, speed: 140}
     look: has wings and has more brutal attacks and speed.
     sid: malenio-form-mega
 
@@ -92,7 +92,7 @@ assets:
   back_sprite:           # back.png       64x64, same 16 colors as the front
   icon:                  # icon.png       32x64, two frames stacked
   footprint:             # footprint.png  16x16, black and white
-  shiny_palette:         # shiny.pal      the 16 colors of the shiny version
+  shiny_palette: "assets/shiny/malenio.json"
   cry: "assets/cries/malenio.json" # sound file
 
 # --- Game engine details (only matter once sprites exist, see docs/GAME_TECH.md#the-game-we-build-on) ---

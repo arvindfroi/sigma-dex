@@ -55,12 +55,11 @@ evolutions: []
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms:
-  - name: Mega Warrallier
+  - name: Mega
     changes: battle
     abilities: {primary: Adaptability}
     base_stats: {hp: 80, attack: 145, defense: 90, sp_attack: 82, sp_defense: 90, speed: 133}
     sid: warrallier-form-mega-warrallier
-    anim_from: Empoleon
 
 # --- Moves ---
 learnset:

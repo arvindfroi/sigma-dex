@@ -569,7 +569,7 @@
       "evolutions": [],
       "forms": [
         {
-          "name": "Mega Leafaxer",
+          "name": "Leafaxer",
           "changes": "battle",
           "abilities": {
             "primary": "Sharpness"
@@ -1414,7 +1414,7 @@
       "evolutions": [],
       "forms": [
         {
-          "name": "Mega Warrallier",
+          "name": "Mega",
           "changes": "battle",
           "abilities": {
             "primary": "Adaptability"
@@ -2289,7 +2289,7 @@
       "evolutions": [],
       "forms": [
         {
-          "name": "Mega Monarkhan",
+          "name": "Mega",
           "changes": "battle",
           "abilities": {
             "primary": "No Guard"
@@ -2301,7 +2301,8 @@
             "sp_attack": 138,
             "sp_defense": 82,
             "speed": 167
-          }
+          },
+          "sid": "blazterra-form-mega-monarkhan"
         }
       ],
       "learnset": {
@@ -11999,7 +12000,8 @@
             "sp_defense": 67,
             "speed": 139
           },
-          "sid": "chillalit-form-battle-bond"
+          "sid": "chillalit-form-battle-bond",
+          "anim_from": "Chingling"
         }
       ],
       "learnset": {
@@ -18895,6 +18897,10 @@
           {
             "level": 55,
             "move": "Double-Edge"
+          },
+          {
+            "level": 58,
+            "move": "Mountain Gale"
           }
         ],
         "tm_hm": [
@@ -20341,12 +20347,16 @@
             "move": "Ice Spinner"
           },
           {
-            "level": 49,
+            "level": 48,
             "move": "Ice Hammer"
           },
           {
-            "level": 54,
+            "level": 50,
             "move": "Gunk Shot"
+          },
+          {
+            "level": 54,
+            "move": "Mountain Gale"
           },
           {
             "level": 60,
@@ -33938,6 +33948,10 @@
           {
             "level": 52,
             "move": "Close Combat"
+          },
+          {
+            "level": 56,
+            "move": "Mountain Gale"
           }
         ],
         "tm_hm": [
@@ -36908,12 +36922,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 100,
+        "attack": 60,
+        "defense": 55,
+        "sp_attack": 70,
+        "sp_defense": 55,
+        "speed": 70
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -36996,12 +37010,12 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
+        "hp": 105,
+        "attack": 85,
+        "defense": 65,
+        "sp_attack": 85,
+        "sp_defense": 65,
+        "speed": 100
       },
       "ev_yield": null,
       "catch_rate": null,
@@ -37705,7 +37719,7 @@
           },
           {
             "level": 65,
-            "move": "Thrash"
+            "move": "Mountain Gale"
           }
         ],
         "tm_hm": [
@@ -42791,9 +42805,9 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "several bodies joined together",
+        "movement": "It floats in the air.",
+        "look": "wither"
       },
       "assets": {
         "concept_art": "assets/concept-art/withstar/5726.webp",
@@ -43740,7 +43754,7 @@
         "hidden": null
       },
       "base_stats": {
-        "hp": 100,
+        "hp": 120,
         "attack": 85,
         "defense": 115,
         "sp_attack": 85,
@@ -43762,11 +43776,11 @@
       "evolutions": [],
       "forms": [
         {
-          "name": "Mega",
+          "name": "Origin forme",
           "changes": "battle",
-          "how": "It holds a mega stone.",
+          "how": "It holds a Origin forme item.",
           "base_stats": {
-            "hp": 150,
+            "hp": 120,
             "attack": 110,
             "defense": 95,
             "sp_attack": 110,
@@ -43802,7 +43816,7 @@
         "back_sprite": null,
         "icon": null,
         "footprint": null,
-        "shiny_palette": null,
+        "shiny_palette": "assets/shiny/malenio.json",
         "cry": "assets/cries/malenio.json"
       },
       "engine": {
@@ -46495,7 +46509,7 @@
           },
           {
             "level": 54,
-            "move": "Thrash"
+            "move": "Mountain Gale"
           },
           {
             "level": 60,

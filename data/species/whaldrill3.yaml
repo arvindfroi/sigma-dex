@@ -89,7 +89,7 @@ learnset:
     - {level: 54, move: Ice Spinner}
     - {level: 58, move: Blizzard}
     - {level: 62, move: Headlong Rush}
-    - {level: 65, move: Thrash}
+    - {level: 65, move: Mountain Gale}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hail, Hidden Power, Sunny Day, Ice Beam, Blizzard, Hyper Beam,
           Light Screen, Protect, Rain Dance, Frustration, Earthquake, Return, Dig,

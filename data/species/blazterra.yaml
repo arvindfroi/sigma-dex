@@ -55,10 +55,11 @@ evolutions: []
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---
 forms:
-  - name: Mega Monarkhan
+  - name: Mega
     changes: battle
     abilities: {primary: No Guard}
     base_stats: {hp: 76, attack: 85, defense: 82, sp_attack: 138, sp_defense: 82, speed: 167}
+    sid: blazterra-form-mega-monarkhan
 
 # --- Moves ---
 learnset:

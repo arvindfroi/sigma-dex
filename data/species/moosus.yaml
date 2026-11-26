@@ -80,7 +80,7 @@ learnset:
     - {level: 40, move: Recover}
     - {level: 44, move: Ice Hammer}
     - {level: 48, move: Swords Dance}
-    - {level: 54, move: Thrash}
+    - {level: 54, move: Mountain Gale}
     - {level: 60, move: Moonblast}
     - {level: 64, move: Megahorn}
     - {level: 68, move: Horn Leech}

@@ -16,7 +16,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Dex page | height | 181 / 212 |
 | Dex page | weight | 181 / 212 |
 | Dex page | body color | 179 / 212 |
-| Stats | base stats | 189 / 212 |
+| Stats | base stats | 191 / 212 |
 | Stats | ability | 195 / 212 |
 | Stats | EV yield | 186 / 212 |
 | Stats | catch rate | 177 / 212 |
@@ -36,7 +36,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Art | back sprite | 4 / 212 |
 | Art | icon | 4 / 212 |
 | Art | footprint | 145 / 212 |
-| Art | shiny palette | 128 / 212 |
+| Art | shiny palette | 129 / 212 |
 | Art | cry | 176 / 212 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
@@ -45,7 +45,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 |------|---------:|
 | DS front sprite 80x80 | 202 / 212 |
 | DS back sprite 80x80 | 202 / 212 |
-| DS icon 32x32 | 198 / 212 |
+| DS icon 32x32 | 199 / 212 |
 
 ## Open dex slots (42)
 
@@ -995,20 +995,20 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
-### #143 [Rosie](data/species/rosie.yaml) - 14%
+### #143 [Rosie](data/species/rosie.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, cry
 
-### #144 [Rosievoir](data/species/rosievoir.yaml) - 17%
+### #144 [Rosievoir](data/species/rosievoir.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
@@ -1404,7 +1404,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** concept art, front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #220 [Malenio](data/species/malenio.yaml) - 21%
+### #220 [Malenio](data/species/malenio.yaml) - 24%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
@@ -1412,7 +1412,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint
 
 ### #233 [Tenebravis](data/species/tenebravis.yaml) - 31%
 
