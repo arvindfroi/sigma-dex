@@ -2641,10 +2641,10 @@ TEST("Sigma dex: Jawbreaker has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_JAWBREAKER];
     EXPECT_EQ(info->baseHP, 95);
-    EXPECT_EQ(info->baseAttack, 120);
+    EXPECT_EQ(info->baseAttack, 125);
     EXPECT_EQ(info->baseDefense, 82);
     EXPECT_EQ(info->baseSpeed, 75);
-    EXPECT_EQ(info->baseSpAttack, 76);
+    EXPECT_EQ(info->baseSpAttack, 71);
     EXPECT_EQ(info->baseSpDefense, 67);
     EXPECT_EQ(info->types[0], TYPE_FIRE);
     EXPECT_EQ(info->types[1], TYPE_DRAGON);

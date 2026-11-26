@@ -3412,6 +3412,7 @@
         .levelUpLearnset = sViresLevelUpLearnset,
         .teachableLearnset = sViresTeachableLearnset,
         .eggMoveLearnset = sViresEggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_FLURINA}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -4000,7 +4001,7 @@
         .levelUpLearnset = sLimulkLevelUpLearnset,
         .teachableLearnset = sLimulkTeachableLearnset,
         .eggMoveLearnset = sLimulkEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 37, SPECIES_MORTBULK}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_MORTBULK}),
         FOOTPRINT(QuestionMark)
     },
 
@@ -4702,10 +4703,10 @@
     [SPECIES_JAWBREAKER] =
     {
         .baseHP = 95,
-        .baseAttack = 120,
+        .baseAttack = 125,
         .baseDefense = 82,
         .baseSpeed = 75,
-        .baseSpAttack = 76,
+        .baseSpAttack = 71,
         .baseSpDefense = 67,
         .types = MON_TYPES(TYPE_FIRE, TYPE_DRAGON),
         .catchRate = 45,

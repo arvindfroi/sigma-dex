@@ -12269,5 +12269,19 @@
     "file": "assets/concept-art/wump/6020.png",
     "caption": "[ds-front2] sprite #1115",
     "editor": "Arvind"
+  },
+  {
+    "id": 6024,
+    "species": "eiv",
+    "file": "assets/concept-art/eiv/6024.jpg",
+    "caption": null,
+    "editor": null
+  },
+  {
+    "id": 6025,
+    "species": "eivind",
+    "file": "assets/concept-art/eivind/6025.jpg",
+    "caption": null,
+    "editor": null
   }
 ]

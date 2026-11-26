@@ -48,7 +48,7 @@ held_items:              # items wild ones can hold (optional)
 evolutions:
   - into: mortbulk
     method: level
-    level: 37
+    level: 35
     note: "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
 
 # --- Forms: other forms of this Pokemon (only what differs from the normal form) ---

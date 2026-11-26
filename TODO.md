@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. What each field means:
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 212 / 213 |
-| Identity | designer credit | 204 / 213 |
-| Dex page | category | 47 / 213 |
-| Dex page | description | 47 / 213 |
-| Dex page | height | 181 / 213 |
-| Dex page | weight | 181 / 213 |
-| Dex page | body color | 179 / 213 |
-| Stats | base stats | 196 / 213 |
-| Stats | ability | 199 / 213 |
-| Stats | EV yield | 191 / 213 |
-| Stats | catch rate | 177 / 213 |
-| Stats | base exp | 177 / 213 |
-| Stats | growth rate | 177 / 213 |
-| Stats | base friendship | 177 / 213 |
-| Breeding | gender | 177 / 213 |
-| Breeding | egg groups | 177 / 213 |
-| Breeding | egg cycles | 177 / 213 |
-| Moves | level-up moves | 185 / 213 |
-| Moves | TM/HM moves | 181 / 213 |
-| Location | encounters | 2 / 213 |
-| Design | concept | 44 / 213 |
-| Art | concept art | 208 / 213 |
-| Art | front sprite | 4 / 213 |
-| Art | front animation frame | 4 / 213 |
-| Art | back sprite | 4 / 213 |
-| Art | icon | 4 / 213 |
-| Art | footprint | 145 / 213 |
-| Art | shiny palette | 133 / 213 |
-| Art | cry | 177 / 213 |
+| Identity | types | 214 / 215 |
+| Identity | designer credit | 206 / 215 |
+| Dex page | category | 47 / 215 |
+| Dex page | description | 47 / 215 |
+| Dex page | height | 181 / 215 |
+| Dex page | weight | 181 / 215 |
+| Dex page | body color | 179 / 215 |
+| Stats | base stats | 196 / 215 |
+| Stats | ability | 199 / 215 |
+| Stats | EV yield | 191 / 215 |
+| Stats | catch rate | 177 / 215 |
+| Stats | base exp | 177 / 215 |
+| Stats | growth rate | 177 / 215 |
+| Stats | base friendship | 177 / 215 |
+| Breeding | gender | 177 / 215 |
+| Breeding | egg groups | 177 / 215 |
+| Breeding | egg cycles | 177 / 215 |
+| Moves | level-up moves | 185 / 215 |
+| Moves | TM/HM moves | 181 / 215 |
+| Location | encounters | 2 / 215 |
+| Design | concept | 46 / 215 |
+| Art | concept art | 210 / 215 |
+| Art | front sprite | 4 / 215 |
+| Art | front animation frame | 4 / 215 |
+| Art | back sprite | 4 / 215 |
+| Art | icon | 4 / 215 |
+| Art | footprint | 145 / 215 |
+| Art | shiny palette | 133 / 215 |
+| Art | cry | 177 / 215 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 204 / 213 |
-| DS back sprite 80x80 | 204 / 213 |
-| DS icon 32x32 | 201 / 213 |
+| DS front sprite 80x80 | 204 / 215 |
+| DS back sprite 80x80 | 204 / 215 |
+| DS icon 32x32 | 201 / 215 |
 
-## Open dex slots (41)
+## Open dex slots (39)
 
-#171, #172, #191, #192, #193, #194, #195, #196, #197, #198, #199, #200, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232
+#191, #192, #193, #194, #195, #196, #197, #198, #199, #200, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232
 
 ## Missing per Pokemon
 
@@ -1218,6 +1218,24 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #171 [Eiv](data/species/eiv.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #172 [Eivind](data/species/eivind.yaml) - 14%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** level-up moves, TM/HM moves
+- **Location:** encounters
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
 ### #173 [Goatjo](data/species/goatjo.yaml) - 66%

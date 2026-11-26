@@ -23092,7 +23092,8 @@
       "evolutions": [
         {
           "into": "flurina",
-          "method": "other",
+          "method": "level",
+          "level": 30,
           "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
@@ -27503,7 +27504,7 @@
         {
           "into": "mortbulk",
           "method": "level",
-          "level": 37,
+          "level": 35,
           "note": "Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet."
         }
       ],
@@ -31836,9 +31837,9 @@
       },
       "base_stats": {
         "hp": 95,
-        "attack": 120,
+        "attack": 125,
         "defense": 82,
-        "sp_attack": 76,
+        "sp_attack": 71,
         "sp_defense": 67,
         "speed": 75
       },
@@ -38627,7 +38628,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "crystax",
+          "method": "level",
+          "level": 35
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [
@@ -41879,6 +41886,167 @@
         "safari_flee_rate": 0
       },
       "id": "s-rotom"
+    },
+    {
+      "dex": 171,
+      "name": "Eiv",
+      "credits": {
+        "designer": "Eiv og Chat",
+        "artist": null
+      },
+      "types": [
+        "Normal"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Eiv, den lille pokemonen kjent for å aldri lage problemer for andre.",
+        "name_origin": null,
+        "notes": null,
+        "wishes": "Mid stats. Can ONLY learn physical moves",
+        "claude_fill": true,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/eiv/6024.jpg",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "eiv"
+    },
+    {
+      "dex": 172,
+      "name": "Eivind",
+      "credits": {
+        "designer": "Eiv og Chat",
+        "artist": "Eiv"
+      },
+      "types": [
+        "Normal",
+        "Fighting"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": "Eivind, the gangster pokemon. Kjent for å stå opp for pokemoner som blir hakket på av andre",
+        "name_origin": null,
+        "notes": null,
+        "wishes": "Quick and tanky, but also fragile. Only physical moves, except elemental punches and kicks",
+        "claude_fill": true,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/eivind/6025.jpg",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "eivind"
     },
     {
       "dex": 173,
