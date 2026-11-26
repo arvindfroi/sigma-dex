@@ -878,7 +878,10 @@ def run_throw(job, base, key, post, download, folder, log=print):
     f1 = Image.open(download(base, src["image"], folder / "throw_f1.png")).convert("RGBA").crop((0, 0, 80, 80))
     pal = colours_of(f1)
     m = re.search(r"\bb(\d\d)\b", str(src.get("recipe") or ""))
-    wide = (m and int(m.group(1)) in WIDE_BACKS) or any(w in (settings.get("words") or "").lower() for w in STOUT_WORDS)
+    # 2026-11-26: the build field too (since the PICTURE fields, 11-24, the words are mostly empty, so a stout person on a
+    # slim back base got the slim template first)
+    said = ((settings.get("words") or "") + " " + (fields_of(settings).get("build") or "")).lower()
+    wide = (m and int(m.group(1)) in WIDE_BACKS) or any(w in said for w in STOUT_WORDS)
     templates = [THROW_WIDE, THROW_SLIM] if wide else [THROW_SLIM, THROW_WIDE]
 
     def up(im, name):
