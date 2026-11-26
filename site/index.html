@@ -6713,7 +6713,7 @@ function trainerStudio(slot, opts) {
     const base = from && jobOf(from) ? String(jobOf(from).recipe || "") : "";
     const bm = /^(?:hgss|origin):(\d+)$/.exec(base), ptMatch = trainerAnims().find(a => a.base && a.base === base);   // a Platinum base has its own (2026-11-27)
     const suggest = bm && trainerAnim(Number(bm[1])) ? Number(bm[1]) : ptMatch ? ptMatch.cls : 0;   // an Origin base is the same class slot
-    const choose = cls => { st.animScript = cls; st.animCopy = st.animFlip = st.animWidth = st.animHeight = null; remember.set("trainer-anim-" + slot, String(cls || "")); draw(); };
+    const choose = cls => { st.animScript = cls; st.animCopy = st.animFlip = st.animWidth = st.animHeight = null; remember.set("trainer-anim-" + slot, String(cls || 0)); draw(); };
     // The animation's base (2026-11-27, Arvind: "speile animasjons basen OG ... justere høyde og bredde slik som når man velger basen
     // til front"; "Ja, bygg det inn"): COPY THE GAME'S POSES paints the animation's own poses with the person's picture, mirrored and
     // reshaped like the FRONT base (scripts/trainer_studio.py POSE COPY, tested on a mirrored Silver). When the animation is the
@@ -7038,6 +7038,17 @@ function trainerStudio(slot, opts) {
     if (got && !st.stepTouched && st.step === "picture") st.step = hasPicture() ? (st.base ? "make" : "base") : "picture";
     if (got) st.restoredNote = "Filled in from your last order: " + [s.photo ? "picture #" + s.photo : "", st.base ? "base" : "", s.fields ? "description" : ""].filter(Boolean).join(", ") + ".";
   }
+  // The animation on a device that never chose one (2026-11-27 night: a new phone showed "No animation" for Trainer X, and SAVE
+  // from there would have saved the sprite WITHOUT its animation): the saved sprite's animation, else the script of the picked
+  // set of poses of the picked battle sprite. "0" in the device's memory = the person chose no animation here.
+  function restoreAnim() {
+    if (remember.get("trainer-anim-" + slot) !== "" || st.animScript) return;
+    const b = picked(), c = opts.current;
+    if (c && c.anim && c.anim.script && (!b || c.try === b.id)) { st.animScript = Number(c.anim.script) || 0; return; }
+    const set = b ? st.animTries.filter(t => t.picked && usable(t) && sameBattle(t.parent_try, b.id))
+      .sort((x, y) => String(y.picked_at).localeCompare(String(x.picked_at)))[0] : null;
+    if (set && trainerAnim(animOf(set))) st.animScript = animOf(set);
+  }
   async function load() {
     try {
       [st.tries, st.jobs, st.line, st.worker, st.vsTries, st.mapTries, st.animTries, st.backTries, st.throwTries] = await Promise.all([
@@ -7051,7 +7062,7 @@ function trainerStudio(slot, opts) {
         dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.tback&order=id.desc&limit=200&select=id,job_id,n,seed,status,image,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at"),
         dbRead("sprite_tries?species_id=eq." + slot + "&stage=eq.throw&order=id.desc&limit=100&select=id,job_id,n,seed,status,image,recipe,note,parent_try,editor,picked,picked_at,started_at,finished_at")]);
       st.loaded = true;
-      if (!st.restored) { st.restored = true; restoreFromLastOrder(); }
+      if (!st.restored) { st.restored = true; restoreAnim(); restoreFromLastOrder(); }
     } catch (err) { st.busyMsg = "THAT DID NOT WORK\n" + err.message; }
     if (!top.isConnected && st.loaded && timer !== null) return;      // the studio was closed: stop asking
     if (st.timed) keepScroll(bottomSlot, draw); else draw();
