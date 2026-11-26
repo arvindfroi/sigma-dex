@@ -43,8 +43,8 @@ ORIGIN_DREW = {86, 87, 88, 89, 103, 107, 109, 124}
 # ... ja fix begge deler"). Read from pret/pokeplatinum res/trainers/classes/<name>/ front_anim.json, front_cell.json and
 # front.png (put in a folder by hand as <name>.json, <name>_cell.json, <name>_front.png; not in the repository). In Platinum each
 # cell has its own 80x80 picture (VRAM transfer, 100 tiles) and the moves are in the cells' positions, not in the animation:
-# each distinct picture is kept once (pose 0 = the still pose of sequence 0, which is the battle sprite), and a cell's shift
-# from the still cell becomes tx/ty. ids 1000+, so they never meet an Origin class number. Left out: elite_four_aaron (his jump
+# each distinct picture is kept once (pose 0 = front.png's first picture, the studio base's picture), and a cell's shift
+# from the still cell (sequence 0) becomes tx/ty. ids 1000+, so they never meet an Origin class number. Left out: elite_four_aaron (his jump
 # moves the picture 32 px down, which a trainer drawn standing cannot follow); the five Frontier Brains are in HGSS already.
 PT = {  # id: (pret name, name, what the poses show, how it moves)
  1000: ("champion_cynthia", "Cynthia", "Stands with one hand raised, then the wind blows the long hair and the coat out to one side.",
@@ -106,7 +106,9 @@ def platinum(folder):
         res = an['animationResults']
         still = res[an['sequences'][0]['frameData'][0]['resultId']]['index']
         intro = [(res[f['resultId']]['index'], f['frameDelay']) for f in an['sequences'][1]['frameData']]
-        order = [canon[cellblk[still]]]
+        # pose 0 = the picture the studio's base pt:<name> is (front.png's first picture, trainer_bases.py), so a front drawn on
+        # that base is pose 0 (2026-11-27: with the still pose first, 8 of the 19 started from another pose than their base)
+        order = [canon[0]]
         for cell, _ in intro:
             if canon[cellblk[cell]] not in order:
                 order.append(canon[cellblk[cell]])
@@ -127,4 +129,4 @@ if len(sys.argv) > 3:                                  # python trainer_anims.py
     out += platinum(sys.argv[3])
 # poses: the picker's sheet of the real poses, one row per script in this order (~/sigma-origin/title3d/legend/trainers/
 # dump_anim_poses.py, uploaded to storage like the trainer bases; 2026-11-24)
-json.dump(dict(fps=30, poses='trainer-bases/anim_poses_v2.png', scripts=out), open(sys.argv[1], 'w'), separators=(',', ':'), ensure_ascii=False); print(len(out), 'scripts')
+json.dump(dict(fps=30, poses='trainer-bases/anim_poses_v3.png', scripts=out), open(sys.argv[1], 'w'), separators=(',', ':'), ensure_ascii=False); print(len(out), 'scripts')
