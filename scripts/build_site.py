@@ -131,6 +131,8 @@ def main():
         # the 28 animated classes' intro scripts (poses, shifts, timing; scripts/trainer_anims.py), for the studio's ANIM step
         "trainer_anims": json.loads((ROOT / "data" / "trainer_anims.json").read_text(encoding="utf-8")) if (ROOT / "data" / "trainer_anims.json").exists() else None,
         "characters": yaml.safe_load((ROOT / "data" / "characters.yaml").read_text(encoding="utf-8")) if (ROOT / "data" / "characters.yaml").exists() else [],
+        # which claimable roles meet in the story, so one person's trainers that meet cannot be merged into one
+        "role_pairs": json.loads((ROOT / "data" / "role_pairs.json").read_text(encoding="utf-8")) if (ROOT / "data" / "role_pairs.json").exists() else {},
         "official_balance": json.loads((ROOT / "data" / "engine" / "official_balance.json").read_text(encoding="utf-8")) if (ROOT / "data" / "engine" / "official_balance.json").exists() else {"gens": {}},
         "requests": yaml.safe_load((ROOT / "data" / "requests.yaml").read_text(encoding="utf-8")) if (ROOT / "data" / "requests.yaml").exists() else [],
         "problems": report("web_problems.json"),

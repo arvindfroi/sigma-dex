@@ -743,6 +743,15 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .charthumb { width: 96px; height: 96px; display: flex; align-items: center; justify-content: center; }
 .charthumb img, .charstage img { max-width: 100%; max-height: 100%; object-fit: contain; }
 .charsil { font-size: 48px; opacity: .35; font-family: var(--pixel, monospace); }
+/* the owner's other trainers: merge or copy the sprites (2026-11-26) */
+.mergerow { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-top: 1px solid var(--line); margin-top: 6px; }
+.mergethumb { width: 56px; height: 56px; object-fit: contain; flex: none; }
+span.mergethumb { display: inline-flex; align-items: center; justify-content: center; font-size: 28px; }
+.mergetext { min-width: 0; flex: 1; }
+.mergebtns { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.mergepick { display: flex; align-items: center; gap: 8px; margin-top: 4px; cursor: pointer; }
+.mergepick .mergethumb { width: 40px; height: 40px; }
+.storyline .small { min-height: 0; }
 .charstage { height: 140px; display: flex; align-items: center; justify-content: center; }
 /* the trainer studio (2026-11-21) */
 .tstudio { display: grid; gap: 10px; }
@@ -4998,6 +5007,66 @@ const claimOf = id => (claims && claims.get(id)) || {by: "", slots: {}};
 // person's: anyone may change it. A person who claims the role later takes it over (the story team is kept).
 const roleNpc = cl => (!cl.by && cl.npc && npcs.get(cl.npc)) || null;
 const npcRole = id => (DEX.characters || []).find(c => { const cl = claimOf(c.id); return !cl.by && cl.npc === id; }) || null;
+// One person's trainers merged into one (2026-11-26, Arvind: "hvis man har claimet 2 eller mer karakterer så kan man liksom
+// merge de til 1 og/eller kopiere sprites. Da kan de ha 2 story lag hvis de vil med samme sprites"). A claim with same_as =
+// <main role id> is the same trainer as the main one: its name and sprites come from the main, and so does its story team
+// unless own_story is set (a shared team grows over the battles of both; the per-battle picks stay with each role). Only
+// between roles the same person holds, and never two that meet in the story (DEX.role_pairs). A role that leaves, or whose
+// main is given back, keeps copies of everything it showed. A copy instead is once: the sprites are copied, then each goes
+// its own way.
+const mainOf = id => { const cl = claimOf(id), to = cl.same_as, m = to && to !== id ? claimOf(to) : null;
+  return m && cl.by && m.by && person(m.by) === person(cl.by) && !m.same_as ? to : id; };
+const lookOf = id => claimOf(mainOf(id));                                   // where the name and the sprites come from
+const sharesStory = id => mainOf(id) !== id && !claimOf(id).own_story;
+const storyOf = id => Object.assign({lines: []}, (sharesStory(id) ? claimOf(mainOf(id)).story : claimOf(id).story) || {});
+const groupOf = id => (DEX.characters || []).map(c => c.id).filter(x => x === id || mainOf(x) === mainOf(id));
+const charById = id => (DEX.characters || []).find(c => c.id === id) || {id, code: id};
+const ownedRoles = who => { const p = person(who); return p ? (DEX.characters || []).filter(c => { const cl = claimOf(c.id); return cl.by && person(cl.by) === p; }) : []; };
+// Pairs of roles that meet (data/role_pairs.json, ~/sigma-origin/tools/role_merge, 2026-11-23): 'conflict' = in one scene,
+// so one person cannot be both; 'unsure' = they may meet. A merge checks every role of both groups.
+const pairOf = (a, b) => { const k = [a, b].sort().join("|"), p = DEX.role_pairs || {}; return (p.conflict || []).includes(k) ? "conflict" : (p.unsure || []).includes(k) ? "unsure" : "ok"; };
+function groupsMeet(a, b) {
+  let worst = "ok";
+  for (const x of groupOf(a)) for (const y of groupOf(b)) { const v = pairOf(x, y); if (v === "conflict") return v; if (v === "unsure") worst = v; }
+  return worst;
+}
+const deepCopy = x => x === undefined ? undefined : JSON.parse(JSON.stringify(x));
+async function putClaim(id, data) { await saveEdit("claim", "claim-" + id, data); claims.set(id, data); }
+// A role leaves its merge with copies of the name, sprites and (if it shared it) the story team, so nothing it shows disappears.
+async function separateClaim(id) {
+  const main = mainOf(id);
+  if (main === id) return;
+  const cl = claimOf(id), m = claimOf(main), data = Object.assign({}, cl, {name: m.name || cl.name || ""});
+  if (m.sprite) data.sprite = Object.assign(deepCopy(m.sprite), {copied_from: main}); else delete data.sprite;
+  if (!cl.own_story) data.story = deepCopy(m.story) || {lines: []};
+  delete data.same_as; delete data.own_story;
+  await putClaim(id, data);
+}
+// keep = the role whose name and sprites the merged trainer keeps; every role of the other group follows it. shared = one story
+// team for all (the main's; if it has none yet, the other's), or each joining role keeps its own.
+async function mergeClaims(keep, other, shared) {
+  keep = mainOf(keep); other = mainOf(other);
+  const k = Object.assign({}, claimOf(keep)), o = claimOf(other);
+  let changed = false;
+  if (!k.sprite && o.sprite) { k.sprite = deepCopy(o.sprite); changed = true; }
+  if (!k.name && o.name) { k.name = o.name; changed = true; }
+  if (shared && !((k.story || {}).lines || []).length && ((o.story || {}).lines || []).length) { k.story = deepCopy(o.story); changed = true; }
+  const joining = groupOf(other).map(id => ({id, hadShared: sharesStory(id)}));   // read before any row changes
+  if (changed) await putClaim(keep, k);
+  for (const {id, hadShared} of joining) {
+    const data = Object.assign({}, claimOf(id), {same_as: keep});
+    if (shared) delete data.own_story;
+    else { if (hadShared) data.story = deepCopy(o.story) || {lines: []}; data.own_story = true; }   // it had the other main's team
+    await putClaim(id, data);
+  }
+}
+// A one-off copy of one trainer's sprites (and its name, if asked) into another; a merged group gets it on its main.
+async function copyLook(from, to, withName) {
+  const src = lookOf(from), target = mainOf(to), data = Object.assign({}, claimOf(target));
+  data.sprite = Object.assign(deepCopy(src.sprite), {copied_from: mainOf(from)});
+  if (withName && src.name) data.name = src.name;
+  await putClaim(target, data);
+}
 // A team shown behind a spoiler button: the in-game teams are not secret, but nobody sees them by accident.
 function spoilerTeam(t) {
   if (!t) return h("span", {class: "sub"}, "no team chosen yet");
@@ -5146,6 +5215,9 @@ function renderCharacterPage(c) {
   const status = h("div", {class: "hint charstatus", role: "status"});
   const cl = claimOf(c.id), mine = person(me()), isMine = cl.by && mine && person(cl.by) === mine;
   const npcHere = roleNpc(cl), canTeam = isMine || !!npcHere;       // an NPC's story team: anyone may change it
+  // merged with another of the same person's trainers: the name and sprites (and maybe the story team) come from the main one
+  const mainId = mainOf(c.id), look = lookOf(c.id), follower = mainId !== c.id, mainChar = charById(mainId);
+  const mates = groupOf(c.id).filter(x => x !== c.id);
   // saveClaim(by, slots, story, how): how = "npc:<id>" puts an NPC in the role, "release" takes it out; with no `how`, a
   // role an NPC plays keeps its NPC (only its teams change), and an empty `by` otherwise gives the role back.
   const saveClaim = async (by, slots, story, how) => {
@@ -5154,9 +5226,9 @@ function renderCharacterPage(c) {
     const data = Object.assign({}, cl, {by, role: c.id, slots: slots || {}, story: story || cl.story || {lines: []}});
     const toNpc = how && how.startsWith("npc:") ? how.slice(4) : "";
     if (by) { delete data.npc; delete data.assigned_by; }                       // a person takes the role (from an NPC too)
-    else if (toNpc) { data.npc = toNpc; data.assigned_by = person(me()); data.name = ""; delete data.sprite; data.slots = {}; data.story = {lines: []}; }
+    else if (toNpc) { data.npc = toNpc; data.assigned_by = person(me()); data.name = ""; delete data.sprite; data.slots = {}; data.story = {lines: []}; delete data.same_as; delete data.own_story; }
     else if (cl.npc && how !== "release") { data.npc = cl.npc; }
-    else { data.slots = {}; data.story = {lines: []}; data.name = ""; delete data.sprite; delete data.npc; delete data.assigned_by; }
+    else { data.slots = {}; data.story = {lines: []}; data.name = ""; delete data.sprite; delete data.npc; delete data.assigned_by; delete data.same_as; delete data.own_story; }
     try { await saveEdit("claim", "claim-" + c.id, data); claims.set(c.id, data); openCharacter(c); }
     catch (err) { status.textContent = /check constraint/i.test(err.message) ? "Claiming is not switched on in the database yet." : err.message; }
   };
@@ -5167,22 +5239,33 @@ function renderCharacterPage(c) {
     h("button", {type: "button", onclick: closeCharacter}, "◀ All characters"),
     h("b", {class: "charname"}, charName(c)), h("span", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).filter(t => DEX.types.includes(t)).map(typeChip)),
     h("span", {class: "grow"}),
-    cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "claimed by " + person(cl.by) + (cl.name ? " (as " + cl.name + ")" : ""))
+    cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "claimed by " + person(cl.by) + (look.name ? " (as " + look.name + ")" : ""))
       : npcHere ? h("span", {class: "badge taken"}, "played by the NPC " + (npcHere.name || "NPC")) : h("span", {class: "badge avail"}, "available"));
 
   // ----- left: the trainer, its facts, claiming and the onboarding
-  const nameBox = isMine ? h("input", {type: "text", maxlength: 10, value: cl.name || "", placeholder: "Trainer name (max 10)", "aria-label": "Trainer name", style: "max-width:180px"}) : null;
-  if (nameBox) nameBox.addEventListener("change", () => { cl.name = nameBox.value.trim(); saveClaim(cl.by, cl.slots, cl.story); });
+  const nameBox = isMine ? h("input", {type: "text", maxlength: 10, value: look.name || "", placeholder: "Trainer name (max 10)", "aria-label": "Trainer name", style: "max-width:180px"}) : null;
+  if (nameBox) nameBox.addEventListener("change", () => {
+    if (!follower) { cl.name = nameBox.value.trim(); saveClaim(cl.by, cl.slots, cl.story); return; }
+    status.textContent = "Saving...";      // a merged trainer's name lives on the main one
+    putClaim(mainId, Object.assign({}, claimOf(mainId), {name: nameBox.value.trim()})).then(() => openCharacter(c), err => { status.textContent = err.message; });
+  });
+  const openMain = () => h("button", {type: "button", class: "linkish", onclick: () => openCharacter(mainChar, "studio")}, charName(mainChar).toUpperCase());
   // Step 1 is who you are (Discord name); claiming without a name starts the onboarding there (Arvind, 2026-11-13)
   const restSteps = live => [
-    h("div", {class: "storyline"}, h("span", {class: "badge" + (live && cl.name ? " done" : "")}, "2"), "Give your trainer a name", live ? ": " : "", live ? nameBox : null),
-    h("div", {class: "storyline"}, h("span", {class: "badge" + (live && cl.sprite ? " done" : "")}, "3"), "Make your trainer sprite in the ", live ? goTo("studio") : "TRAINER STUDIO"),
-    h("div", {class: "storyline"}, h("span", {class: "badge" + (live && ((cl.story || {}).lines || []).length ? " done" : "")}, "4"), "Build your story team under ", live ? goTo("team") : "STORY TEAM")];
+    h("div", {class: "storyline"}, h("span", {class: "badge" + (live && look.name ? " done" : "")}, "2"), "Give your trainer a name", live ? ": " : "", live ? nameBox : null),
+    live && follower ? h("div", {class: "storyline"}, h("span", {class: "badge" + (look.sprite ? " done" : "")}, "3"), "Sprites: the same as ", openMain(), " (merged)")
+      : h("div", {class: "storyline"}, h("span", {class: "badge" + (live && cl.sprite ? " done" : "")}, "3"), "Make your trainer sprite in the ", live ? goTo("studio") : "TRAINER STUDIO"),
+    h("div", {class: "storyline"}, h("span", {class: "badge" + (live && storyOf(c.id).lines.length ? " done" : "")}, "4"), "Build your story team under ", live ? goTo("team") : "STORY TEAM",
+      live && sharesStory(c.id) ? " (shared with " + charName(mainChar) + ")" : "")];
   const steps = isMine ? h("div", {class: "box"}, h("h3", {style: "margin-top:0"}, "Make this trainer yours"),
     h("div", {class: "storyline"}, h("span", {class: "badge done"}, "1"), "You: " + person(cl.by)), restSteps(true)) : null;
   let claimArea = null;
   if (!CLAIMS_OPEN) claimArea = h("div", {class: "notice info"}, "Claiming opens soon.");
-  else if (isMine) claimArea = h("button", {type: "button", onclick: () => saveClaim("", {})}, "Give it back");
+  else if (isMine) claimArea = h("button", {type: "button", onclick: async () => {
+    // the trainers merged with this one keep copies of its name, sprites and story team first
+    try { if (!follower) for (const x of mates) await separateClaim(x); } catch (err) { status.textContent = err.message; return; }
+    saveClaim("", {});
+  }}, "Give it back");
   else if (!cl.by) {
     claimArea = h("div", {});
     const intro = h("div", {class: "sub"}, "Claiming means: you become this trainer in the game. You give it a name, a picture and your own teams for its " + roughBattles(c.battles || 0) + ". You can give it back any time.");
@@ -5226,8 +5309,72 @@ function renderCharacterPage(c) {
       openCharacter(c, "picture"); }
     catch (err) { status.textContent = err.message; }
   });
+  // ----- the owner's other trainers: merge into one, or copy the sprites once (2026-11-26)
+  const others = isMine ? ownedRoles(cl.by).filter(o => o.id !== c.id) : [];
+  const work = async (btn, job) => {
+    btn.disabled = true; status.textContent = "Saving...";
+    try { await job(); status.textContent = ""; openCharacter(c); } catch (err) { status.textContent = err.message; btn.disabled = false; }
+  };
+  const thumb = id => { const l = lookOf(id); return l.sprite ? spriteImg(l.sprite, "mergethumb") : h("span", {class: "charsil mergethumb"}, "?"); };
+  const nameLine = id => charName(charById(id)) + (lookOf(id).name ? " “" + lookOf(id).name + "”" : "");
+  const setOwnStory = async (id, own) => {
+    const x = claimOf(id), data = Object.assign({}, x);
+    if (own) { data.own_story = true; if (!((x.story || {}).lines || []).length) data.story = deepCopy(claimOf(mainOf(id)).story) || {lines: []}; }
+    else delete data.own_story;            // its own team stays in its row and comes back if it is switched back
+    await putClaim(id, data);
+  };
+  const storyToggle = id => { const shared = sharesStory(id);
+    return h("div", {class: "storyline"}, h("span", {class: "sub"}, (id === c.id ? "This trainer's" : "Its") + " story team:"),
+      h("button", {type: "button", class: "small" + (shared ? " primary" : ""), "aria-pressed": String(shared), onclick: ev => shared || work(ev.currentTarget, () => setOwnStory(id, false))}, "shared with " + charName(charById(mainOf(id)))),
+      h("button", {type: "button", class: "small" + (shared ? "" : " primary"), "aria-pressed": String(!shared), title: "Its own story team: the one it had before, or else a copy of the shared one",
+        onclick: ev => !shared || work(ev.currentTarget, () => setOwnStory(id, true))}, "its own")); };
+  const copyButton = (from, to, label) => {
+    const src = lookOf(from), dst = lookOf(to), name = src.name && !dst.name ? " (and the name “" + src.name + "”)" : "";
+    return h("button", {type: "button", onclick: ev => { const btn = ev.currentTarget, go = () => work(btn, () => copyLook(from, to, !!name));
+      dst.sprite ? sure(btn, "Really? It replaces the sprites there", go) : go(); }}, label + name);
+  };
+  const otherRow = o => {
+    const link = h("button", {type: "button", class: "linkish", onclick: () => openCharacter(o)}, nameLine(o.id));
+    if (mainOf(o.id) === mainId) {          // already the same trainer
+      const oMain = mainOf(o.id) === o.id;
+      return h("div", {class: "mergerow"}, thumb(o.id), h("div", {class: "mergetext"}, link,
+        h("div", {class: "sub"}, "Merged: the same trainer as this one, " + (oMain ? "with its name and sprites." : follower ? "both with the name and sprites of " + charName(mainChar) + "." : "with this trainer's name and sprites.")),
+        oMain ? null : storyToggle(o.id),
+        follower ? null : h("div", {class: "mergebtns"}, h("button", {type: "button", onclick: ev => sure(ev.currentTarget, "Really take it out?", () => work(ev.currentTarget, () => separateClaim(o.id)))}, "Take it out of the merge"))));
+    }
+    const meet = groupsMeet(c.id, o.id), form = h("div", {class: "box", hidden: ""});
+    const openForm = () => {
+      const thisHas = !!look.sprite, thatHas = !!lookOf(o.id).sprite;
+      const keepHere = h("input", {type: "radio", name: "keep-" + o.id, checked: thisHas || !thatHas ? "" : null});
+      const keepThere = h("input", {type: "radio", name: "keep-" + o.id, checked: !thisHas && thatHas ? "" : null});
+      const share = h("input", {type: "radio", name: "story-" + o.id, checked: ""}), own = h("input", {type: "radio", name: "story-" + o.id});
+      form.replaceChildren(...[h("b", {}, "Keep the name and sprites of"),
+        h("label", {class: "mergepick"}, keepHere, thumb(c.id), nameLine(mainId)),
+        h("label", {class: "mergepick"}, keepThere, thumb(o.id), nameLine(mainOf(o.id))),
+        h("b", {style: "display:block;margin-top:8px"}, "Story team"),
+        h("label", {class: "mergepick"}, share, "One story team for both: it grows over the battles of both trainers"),
+        h("label", {class: "mergepick"}, own, "Each keeps its own story team (the same sprites, two teams)"),
+        meet === "unsure" ? h("div", {class: "sub", style: "margin-top:6px"}, "⚠ These two may meet in the story (not checked for sure). If they do, the same person stands there twice: ask Arvind to check it in the game.") : null,
+        h("div", {class: "mergebtns"},
+          h("button", {type: "button", class: "primary", onclick: ev => work(ev.currentTarget, () => keepHere.checked ? mergeClaims(mainId, o.id, share.checked) : mergeClaims(mainOf(o.id), c.id, share.checked))}, "Merge"),
+          h("button", {type: "button", onclick: () => { form.hidden = true; }}, "Cancel"))].filter(Boolean));
+      form.hidden = false;
+    };
+    return h("div", {class: "mergerow"}, thumb(o.id), h("div", {class: "mergetext"}, link,
+      meet === "conflict" ? h("div", {class: "sub"}, "These two meet in the story, so one person cannot be both at once: they cannot be merged. You can still copy the sprites (they then look like twins when they meet).") : null,
+      h("div", {class: "mergebtns"},
+        meet === "conflict" ? null : h("button", {type: "button", onclick: openForm}, "Merge into one trainer"),
+        lookOf(o.id).sprite ? copyButton(o.id, c.id, "Copy its sprites here") : null,
+        look.sprite ? copyButton(c.id, o.id, "Copy these sprites there") : null),
+      form));
+  };
+  const mergeBox = others.length ? h("div", {class: "box", id: "char-others"}, h("h3", {style: "margin-top:0"}, "Your other trainers"),
+    h("div", {class: "sub"}, "You hold more than one trainer. Merge them into one trainer: the same name and sprites in all their battles, with one story team or one each. Or copy the sprites from one to the other once; after that each goes its own way."),
+    follower ? h("div", {}, storyToggle(c.id), h("div", {class: "mergebtns"}, h("button", {type: "button", onclick: ev => sure(ev.currentTarget, "Really take it out?", () => work(ev.currentTarget, () => separateClaim(c.id)))},
+      "Take this trainer out of the merge (it keeps a copy of everything)"))) : null,
+    others.map(otherRow)) : null;
   const left = h("div", {class: "charside"},
-    h("div", {class: "charstage"}, cl.sprite ? spriteImg(cl.sprite) : npcHere && npcHere.sprite ? spriteImg(npcHere.sprite) : pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("span", {class: "charsil"}, "?")),
+    h("div", {class: "charstage"}, look.sprite ? spriteImg(look.sprite) : npcHere && npcHere.sprite ? spriteImg(npcHere.sprite) : pic ? h("img", {src: pic.src, alt: "trainer picture"}) : h("span", {class: "charsil"}, "?")),
     h("div", {class: "factrows"},
       h("div", {}, h("span", {}, "Role"), c.group),
       h("div", {}, h("span", {}, "Type"), String(c.type || "")),
@@ -5236,8 +5383,11 @@ function renderCharacterPage(c) {
       c.rule ? h("div", {}, h("span", {}, "Rule"), c.rule) : null,
       h("div", {}, h("span", {}, "Battles"), canTeam ? String(c.battles || 0) + " (each needs its own team): " + sideCount(c) : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
       c.dialogue ? h("div", {}, h("span", {}, "Dialogue"), talkWord(c) + ": " + c.dialogue.story + " text boxes in the story and " + c.dialogue.battle + " lines in battle, about " + c.dialogue.words.toLocaleString("en") + " words") : null,
-      h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (cl.name ? " (as " + cl.name + ")" : "") : npcHere ? "the NPC " + (npcHere.name || "NPC") + (cl.assigned_by ? " (put here by " + person(cl.assigned_by) + ")" : "") : h("span", {class: "badge avail"}, "available"))),
-    steps, claimArea,
+      mates.length ? h("div", {}, h("span", {}, "Same trainer as"), h("span", {}, mates.map((x, i) => [i ? ", " : "",
+        h("button", {type: "button", class: "linkish", onclick: () => openCharacter(charById(x))}, charName(charById(x)))]),
+        follower && mates.length > 1 ? " (name and sprites from " + charName(mainChar) + ")" : "")) : null,
+      h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (look.name ? " (as " + look.name + ")" : "") : npcHere ? "the NPC " + (npcHere.name || "NPC") + (cl.assigned_by ? " (put here by " + person(cl.assigned_by) + ")" : "") : h("span", {class: "badge avail"}, "available"))),
+    steps, claimArea, mergeBox,
     h("h3", {id: "char-picture"}, "Picture"),
     h("div", {class: "charpics"}, pics.length ? pics.map(p => h("figure", {}, h("img", {src: p.src, alt: "trainer picture"}),
       // Whoever claimed the trainer, whoever uploaded the picture, or anyone while nobody holds the trainer, can remove it
@@ -5250,8 +5400,10 @@ function renderCharacterPage(c) {
           catch (err) { status.textContent = err.message; }
         })}, "Remove")) : null)) : h("span", {class: "sub"}, "No picture yet.")),
     isMine ? h("div", {class: "sub"}, "Pictures here are public. For your trainer sprite, use the TRAINER STUDIO below: a picture you upload there stays private. ", upload) : h("div", {class: "sub"}, "The one who claims this trainer adds a picture here."),
-    isMine ? null : h("div", {class: "sub", style: "margin-top:8px"}, cl.sprite ? "This trainer has its trainer sprite." : "The one who claims this trainer makes its sprite in the trainer studio."));
-  const studio = isMine ? h("div", {class: "charmain", style: "margin-top:14px"}, h("h3", {id: "char-studio", style: "margin-top:0"}, "Trainer studio"),
+    isMine ? null : h("div", {class: "sub", style: "margin-top:8px"}, look.sprite ? "This trainer has its trainer sprite." : "The one who claims this trainer makes its sprite in the trainer studio."));
+  const studio = isMine && follower ? h("div", {class: "charmain", style: "margin-top:14px"}, h("h3", {id: "char-studio", style: "margin-top:0"}, "Trainer studio"),
+      h("div", {class: "sub"}, "This trainer is merged with ", openMain(), ": it uses that trainer's name and sprites, so make changes there. To give it sprites of its own, take it out of the merge under YOUR OTHER TRAINERS (it keeps a copy of everything)."))
+    : isMine ? h("div", {class: "charmain", style: "margin-top:14px"}, h("h3", {id: "char-studio", style: "margin-top:0"}, "Trainer studio"),
     h("div", {class: "sub"}, "Your trainer's battle sprite and map figure, made from your picture by the drawing PC in the style of the DS games."),
     trainerSpriteBox("trainer-" + c.id, {kind: "mine", name: charName(c), pics: pics.map(p => ({id: p.id, src: p.src})), current: cl.sprite,
       onPick: async sprite => { cl.sprite = sprite; await saveClaim(cl.by, cl.slots, cl.story); }, onClose: () => { if (charOpen === c.id) openCharacter(c); }})) : null;
@@ -5268,8 +5420,15 @@ function renderCharacterPage(c) {
   } else {
     const myTeams = (lib.teams || []).filter(t => mine && person(t.by) === mine);
     const plan = c.teams || [];
-    const story = Object.assign({lines: []}, cl.story || {});
-    const saveStory = lines => saveClaim(cl.by, cl.slots, Object.assign({}, story, {lines}));
+    const story = storyOf(c.id);
+    // a story team shared in a merge lives on the main trainer
+    const saveStory = lines => {
+      if (!sharesStory(c.id)) return saveClaim(cl.by, cl.slots, Object.assign({}, story, {lines}));
+      status.textContent = "Saving...";
+      return putClaim(mainId, Object.assign({}, claimOf(mainId), {story: Object.assign({}, story, {lines})})).then(() => openCharacter(c), err => { status.textContent = err.message; });
+    };
+    const storyHome = x => sharesStory(x) ? mainOf(x) : x;
+    const storyMates = groupOf(c.id).filter(x => x !== c.id && storyHome(x) === storyHome(c.id));
     const move = (k, d) => { const l = story.lines.slice(); [l[k + d], l[k]] = [l[k], l[k + d]]; saveStory(l); };
     // The story team as six slot cards, a variant of Showdown's teambuilder (2026-11-24, Arvind: "man kan trykke på hver slot og
     // legge til ... story laget må ha litt special attention"): tap an empty slot to add a line, a filled one to swap or remove
@@ -5375,6 +5534,8 @@ function renderCharacterPage(c) {
     main = h("div", {class: "charmain"},
       h("h3", {id: "char-team", style: "margin-top:0"}, npcHere ? (npcHere.name || "The NPC") + "'s story team" : "Your story team"),
       h("div", {class: "sub"}, "Tap a slot to add an evolution line (by its last evolution), tap a line to swap or remove it, and rank them (drag them, or use the arrows). No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage and with sensible moves for the level. IVs are set by themselves, exactly as in the original game: low early, high late."),
+      storyMates.length ? h("div", {class: "notice info"}, "This story team is shared with " + storyMates.map(x => charName(charById(x))).join(", ") +
+        " (merged): it grows over the battles of " + (storyMates.length > 1 ? "all of them" : "both") + ", and a change here changes it there too.") : null,
       slots, viewBar, pickBox,
       h("h3", {}, "Every battle"),
       h("div", {class: "sub"}, "Auto: the website makes each battle's team from your story team (how many Pokemon, levels, stages and moves). To change a battle's team, press Copy to TEAMS: the team opens in TEAMS and is used for that battle, and what you change there is saved here by itself. You can also pick one of your shared teams in the menu. The others only see your teams behind spoiler buttons."),
@@ -5399,10 +5560,10 @@ function renderCharacters() {
   const groups = [];
   for (const c of shuffledCharacters()) { let g = groups.find(x => x.name === c.group); if (!g) groups.push(g = {name: c.group, rows: []}); g.rows.push(c); }
   const card = c => {
-    const cl = claimOf(c.id), pic = charPic(c), isMine = cl.by && mine && person(cl.by) === mine;
+    const cl = claimOf(c.id), look = lookOf(c.id), pic = charPic(c), isMine = cl.by && mine && person(cl.by) === mine;
     return h("button", {type: "button", class: "card charcard " + (cl.by ? (isMine ? "mine" : "taken") : "avail"), onclick: () => openCharacter(c)},
-      h("div", {class: "charthumb"}, cl.sprite ? spriteImg(cl.sprite, "") : roleNpc(cl) && roleNpc(cl).sprite ? spriteImg(roleNpc(cl).sprite, "") : pic ? h("img", {src: pic.src, alt: ""}) : h("span", {class: "charsil"}, "?")),
-      h("b", {}, charName(c)), cl.name ? h("div", {}, "\u201c" + cl.name + "\u201d") : roleNpc(cl) ? h("div", {}, "\u201c" + (roleNpc(cl).name || "NPC") + "\u201d") : null,
+      h("div", {class: "charthumb"}, look.sprite ? spriteImg(look.sprite, "") : roleNpc(cl) && roleNpc(cl).sprite ? spriteImg(roleNpc(cl).sprite, "") : pic ? h("img", {src: pic.src, alt: ""}) : h("span", {class: "charsil"}, "?")),
+      h("b", {}, charName(c)), look.name ? h("div", {}, "\u201c" + look.name + "\u201d") : roleNpc(cl) ? h("div", {}, "\u201c" + (roleNpc(cl).name || "NPC") + "\u201d") : null,
       h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
       h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "")),
       c.dialogue ? h("div", {class: "sub"}, "💬 " + talkWord(c)) : null,
