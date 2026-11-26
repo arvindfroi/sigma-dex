@@ -275,6 +275,12 @@ def run(job, base, key, post, download, folder, log=print):
 # on white at 320), with the text of lora-train\v6cfg\vs_gen.py. 384x256 -> the game's 96x64 portrait, 15 colours.
 VS_LORA = os.environ.get("TRAINER_VS_LORA", "pkmn_vs_klein_v1_000002000.safetensors")
 VS_SECONDS = 25
+# How much the person's picture counts (2026-11-26, Arvind: "med ludvig vil jeg at det skal ligne mer på ham"): Ludvig the
+# hedgehog came out as a human boy, because the VS LoRA draws human trainers. likeness -> (VS LoRA strength, picture weight):
+# the picture weight is a DualCFGGuider (text vs the empty side with the battle sprite only at CFG 4, plus weight x (sprite +
+# picture - sprite)). Tested on Ludvig with his own seeds (title3d/legend/trainers/vs_likeness_test): the LoRA strength does
+# most of it; 0.60/0.45 gave a hedgehog face in the VS style, 0.30 once nearly the photo itself (the pixel style lost).
+VS_LIKENESS = {0.75: (0.75, 2.0), 0.6: (0.6, 3.5), 0.45: (0.45, 3.5), 0.3: (0.3, 3.5)}
 
 
 # 2026-11-26 Arvind: "many VS sprites look very alike". Cause: every portrait was asked for the same pose
@@ -365,11 +371,14 @@ def run_vs(job, base, key, post, download, folder, log=print):
     sprite_up = comfy.upload(folder / "vs_sprite.png")
     refs_of = {False: [sprite_up, comfy.upload(folder / "vs_photo.png")], True: [sprite_up, comfy.upload(folder / "vs_photo_full.png")]}
     row = base_row(job.get("recipe"))
+    like = settings.get("likeness")
+    lora_strength, weight = VS_LIKENESS.get(round(float(like), 2), (1.0, None)) if like not in (None, "") else (1.0, None)
     made = 0
     for n in range(1, int(job.get("count") or 1) + 1):
         seed = job["id"] * 100 + n
         t = post(base, key, {"action": "try_start", "job_id": job["id"], "n": n, "seed": seed,
-                             "recipe": VS_LORA.replace(".safetensors", "").replace("pkmn_", "")[:60], "expected_seconds": VS_SECONDS})
+                             "recipe": (VS_LORA.replace(".safetensors", "").replace("pkmn_", "") + (" l%.2f p%g" % (lora_strength, weight) if weight else ""))[:60],
+                             "expected_seconds": VS_SECONDS * (1.5 if weight else 1)})
         post(base, key, {"action": "progress", "job_id": job["id"], "state": "drawing a VS portrait: %d of %d" % (n, int(job.get("count") or 1))})
         started = time.time()
         try:
@@ -377,13 +386,19 @@ def run_vs(job, base, key, post, download, folder, log=print):
             plain = n % 2 == 0                           # half the tries without the description (tested only on one person)
             pose = vs_pose(settings, seed, n)
             text = vs_text(V, row.get("cls") or "Pokemon Trainer", settings.get("words") or "", plain, pose, fields_of(settings))
-            raw.write_bytes(comfy.run(comfy.klein(text, refs_of[plain], 384, 256, seed, "sigma/trainervs", lora=VS_LORA)))
+            g = comfy.klein(text, refs_of[plain], 384, 256, seed, "sigma/trainervs", lora=VS_LORA, lora_strength=lora_strength)
+            if weight:                                   # the picture counts more: positive = text + sprite + picture,
+                g["guider"] = {"class_type": "DualCFGGuider", "inputs": {   # middle = text + sprite, negative = empty + sprite
+                    "model": g["guider"]["inputs"]["model"], "cond1": ["rp2", 0], "cond2": ["rp1", 0], "negative": ["rn1", 0],
+                    "cfg_conds": weight, "cfg_cond2_negative": 4.0, "style": "regular"}}
+            raw.write_bytes(comfy.run(g))
             portrait = klein_follower.to_back(raw)
             image = folder / ("vs%d.png" % n)
             portrait.save(image)
             status = "done" if portrait.size == (96, 64) and portrait.getbbox() else "broken"
             post(base, key, {"action": "try_done", "job_id": job["id"], "try_id": t["id"], "status": status,
-                             "note": "VS portrait from battle sprite #%s + the picture%s, seed %d, pose: %s / %s / %s" % (src.get("id"), " (no description, full-size picture)" if plain else "", seed, pose[0], pose[1], pose[2]),
+                             "note": ("VS portrait from battle sprite #%s + the picture%s, seed %d, pose: %s / %s / %s%s" % (src.get("id"), " (no description, full-size picture)" if plain else "", seed, pose[0], pose[1], pose[2],
+                                      ", likeness %.2f (VS LoRA %.2f, picture x%g)" % (float(like), lora_strength, weight) if weight else ""))[:300],
                              "seconds": round(time.time() - started, 1)}, {"image": image, "raw": raw})
             made += 1
         except Exception as problem:

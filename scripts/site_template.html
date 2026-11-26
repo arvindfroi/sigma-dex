@@ -5594,7 +5594,7 @@ function tstudioState(slot) {
     tstudios.set(slot, {photo, photos, ref: null, base: remember.get("trainer-base-" + slot) || "", strength: 0.75, count: 2, words: remember.get("trainer-words-" + slot) || "",
       fields: (() => { try { return JSON.parse(remember.get("trainer-fields-" + slot) || "{}") || {}; } catch (e) { return {}; } })(),
       more: (remember.get("trainer-more-" + slot) || "").split(",").filter(Boolean),
-      filter: "", game: "", step: null, tries: [], vsTries: [], vsCount: 2, vsPose: "", vsPoseText: "", mapTries: [], mapCount: 3, mapExtra: "",
+      filter: "", game: "", step: null, tries: [], vsTries: [], vsCount: 2, vsPose: "", vsPoseText: "", vsLikeness: null, mapTries: [], mapCount: 3, mapExtra: "",
       animTries: [], animScript: Number(remember.get("trainer-anim-" + slot) || 0) || 0, animCount: 3, animExtra: "",
       backTries: [], throwTries: [], backShape: remember.get("trainer-backshape-" + slot) || "short", width: Number(remember.get("trainer-width-" + slot) || 1) || 1, flip: remember.get("trainer-flip-" + slot) === "1", height: Number(remember.get("trainer-height-" + slot) || 1) || 1, backCount: 6, backExtra: "", backStrength: null, animStrength: null, jobs: [], line: [], worker: null, loaded: false, editing: null, busyMsg: "", showAll: false});
   }
@@ -6177,6 +6177,13 @@ function trainerStudio(slot, opts) {
     pose.addEventListener("change", () => { st.vsPose = pose.value; });
     const poseText = h("input", {type: "text", maxlength: 120, value: st.vsPoseText, placeholder: "e.g. arms crossed, smirking at the camera", "aria-label": "What they do, in your own words", style: "width:100%"});
     poseText.addEventListener("input", () => { st.vsPoseText = poseText.value; });
+    // How much your picture counts (2026-11-26, Arvind: Ludvig the hedgehog came out as a human boy). The drawing PC turns the
+    // VS model down and gives the picture more weight (trainer_studio.VS_LIKENESS, tested on Ludvig).
+    const like = h("select", {"aria-label": "How much it looks like your picture", style: "width:100%"},
+      [["", "As tested (the VS look: draws a human trainer)"], ["0.75", "A bit more like the picture"], ["0.6", "More like the picture"],
+       ["0.45", "Much more like the picture (good for animals and creatures)"], ["0.3", "Most like the picture (may lose the pixel style)"]]
+        .map(([v, t]) => h("option", {value: v, selected: String(st.vsLikeness == null ? "" : st.vsLikeness) === v ? "" : null}, t)));
+    like.addEventListener("change", () => { st.vsLikeness = like.value === "" ? null : Number(like.value); });
     const btn = h("button", {type: "button", class: "primary", disabled: from ? null : "", onclick: async () => {
       btn.disabled = true;
       // own words win over the list; "Random" leaves the pose out so the drawing PC picks one per try (also when 1 PICTURE has
@@ -6186,7 +6193,7 @@ function trainerStudio(slot, opts) {
       let f = Object.assign({}, fieldsNow() || jobFieldsOf(from) || {});
       if (want) f.pose = want; else delete f.pose;
       if (!Object.keys(f).length) f = null;
-      try { await dbCall("request_trainer_vs", {p_try: from.id, p_count: st.vsCount, p_editor: me(), p_fields: f}); noteMine(slot); await load(); }
+      try { await dbCall("request_trainer_vs", Object.assign({p_try: from.id, p_count: st.vsCount, p_editor: me(), p_fields: f}, st.vsLikeness != null ? {p_likeness: st.vsLikeness} : {})); noteMine(slot); await load(); }
       catch (err) { fail(err); }
       btn.disabled = false;
     }}, "MAKE");
@@ -6197,6 +6204,7 @@ function trainerStudio(slot, opts) {
       h("div", {class: "hint", style: "margin-top:0"}, TSTEPS.find(x => x.id === "vs").what),
       h("label", {class: "notebox"}, h("span", {class: "sub"}, "Pose"), pose),
       h("label", {class: "notebox"}, h("span", {class: "sub"}, "Or write what they do (optional, wins over the list)"), poseText),
+      h("label", {class: "notebox"}, h("span", {class: "sub"}, "How much it looks like your picture"), like),
       h("div", {class: "tryctl"}, btn, count, h("span", {class: "sub"}, from ? "(" + aboutMinutes(secondsFor(st.worker && st.worker.timings, "vs") * st.vsCount) + ")" : "Pick a battle sprite in 3 FRONT first."),
         from ? h("span", {class: "from"}, "from ", h("img", {class: "px", src: artUrl(from.image), alt: ""})) : null),
       h("div", {class: "tiles"}, waiting.map(vsTile), list.slice(0, 12).map(vsTile)),
