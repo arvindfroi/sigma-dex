@@ -319,7 +319,8 @@ button.chip[aria-pressed=true] { border-color: var(--gold); background: var(--so
 .trio img { image-rendering: pixelated; background: var(--soft); display: block; }
 .trystage { border-top: 3px dashed var(--line); margin-top: 14px; }
 .tryctl { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 4px 0 8px; font-size: 14px; }
-.tryctl .from { display: inline-flex; align-items: center; gap: 6px; background: var(--soft); border: 2px solid var(--line); padding: 3px 8px; }
+.tryctl .from { display: inline-flex; align-items: center; gap: 6px; background: var(--soft); border: 2px solid var(--line); padding: 3px 8px; flex-wrap: wrap; max-width: 100%; }
+.tryctl .from select { max-width: 100%; min-width: 0; }   /* MAP's "from" list ran off a phone screen (2026-11-27 night) */
 .tryctl .from img { width: 36px; height: 36px; object-fit: contain; }
 .trygroup { margin: 6px 0 10px; }
 .tries { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
@@ -625,6 +626,10 @@ canvas.walker { image-rendering: pixelated; }
   .slotpic canvas.walker { width: 48px !important; height: 48px !important; }
   .slotname { font-size: 12px; flex-direction: column; align-items: center; gap: 0; }
   .slot button.small { min-height: 30px; padding: 2px 6px; font-size: 12px; }
+  /* phones: the studio's top screen filled the first screen, so the steps were out of sight (2026-11-27 night) */
+  .studio-top .namebar .frame.cat { display: none; }
+  .studio-top .namebar h3 { font-size: 18px; }
+  .studio-top .dlg { font-size: 13px; padding: 6px 10px; min-height: 0; }
 }
 
 /* the guided first time */
@@ -6022,9 +6027,10 @@ function trainerStudio(slot, opts) {
 
   function drawTop() {
     const it = inSet();
-    const slotBox = (label, pic, edit) => h("div", {class: "slot frame" + (it && it.live ? " live" : "")},
-      h("button", {type: "button", class: "slotpic", title: "Go to 3 FRONT", onclick: () => go("make")}, pic || h("div", {class: "slotempty"}, "—")),
-      h("div", {class: "slotname"}, label, it ? h("small", {}, it.live ? "saved" : "picked") : null), edit);
+    // 2026-11-27 night: the MAP box said "picked" under an empty box (the label followed the battle sprite) and went to FRONT
+    const slotBox = (label, pic, edit, step) => h("div", {class: "slot frame" + (it && it.live && pic ? " live" : "")},
+      h("button", {type: "button", class: "slotpic", title: step === "map" ? "Go to 7 MAP" : "Go to 3 FRONT", onclick: () => go(step || "make")}, pic || h("div", {class: "slotempty"}, "—")),
+      h("div", {class: "slotname"}, label, it ? h("small", {}, pic ? (it.live ? "saved" : "picked") : "not made yet") : null), edit);
     const canEdit = it && it.tryRow && DEX.web.url;
     top.replaceChildren(
       h("div", {class: "namebar"}, h("div", {class: "frame no"}, npc ? "NPC" : "TRAINER"), h("div", {class: "frame"}, h("h3", {}, String(opts.name || "Your trainer").toUpperCase())),
@@ -6033,7 +6039,7 @@ function trainerStudio(slot, opts) {
         slotBox("BATTLE", it && it.image ? (animNow() ? animPlayer(artUrl(animNow().image), trainerAnim(animNow().script), 1.4, {mirror: !!animNow().mirror}) : h("img", {class: "px", src: artUrl(it.image), alt: "battle sprite", style: "width:160px"})) : null,
           canEdit ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("battle", it.tryRow)}, "EDIT") : null),
         slotBox("MAP", it && it.overworld ? npcWalker(artUrl(it.overworld), 3) : null,
-          canEdit && it.overworld && it.mapRow ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("map", it.mapRow)}, "EDIT") : null),
+          canEdit && it.overworld && it.mapRow ? h("button", {type: "button", class: "small", onclick: () => openPixelEditor("map", it.mapRow)}, "EDIT") : null, "map"),
         (() => { const v = vsInSet(); return h("div", {class: "slot frame"},
           h("button", {type: "button", class: "slotpic", title: "Go to 5 VS", onclick: () => go("vs")}, v ? h("img", {class: "px", src: artUrl(v.image), alt: "VS portrait", style: "width:192px"}) : h("div", {class: "slotempty"}, "—")),
           h("div", {class: "slotname"}, "VS", v ? h("small", {}, opts.current && opts.current.vs === v.image ? "saved" : "picked") : h("small", {}, "optional")),
