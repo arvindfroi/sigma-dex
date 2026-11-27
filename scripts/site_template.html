@@ -5302,7 +5302,7 @@ function storyLinePicker(story, onChange) {
     () => finals.map(x => ({name: x.data.name, desc: storyChain(x.id).map(nameOf).join(" → ") + "  " + (x.data.types || []).join("/")})));
   box.addEventListener("change", () => {
     const x = speciesByName(box.value);
-    if (!x || story.lines.includes(x.id) || story.lines.length >= 6) return;
+    if (!x || story.lines.length >= 6) return;          // the same line twice is allowed, as in openPick
     onChange(story.lines.concat(x.id));
   });
   return box;
@@ -5603,13 +5603,18 @@ function renderCharacterPage(c) {
       const search = h("input", {type: "search", placeholder: "Search: name, type, ability or move (fire, levitate)", "aria-label": "Search for a line"});
       const list = h("div", {class: "storypicklist", role: "list"});
       const count = h("span", {class: "sub"});
-      const used = new Set(story.lines.flatMap(slotIds));
+      const used = new Map();                 // line -> how many slots have it
+      for (const e of story.lines) for (const x of new Set(slotIds(e))) used.set(x, (used.get(x) || 0) + 1);
       let typeF = "", sortK = "", sortDir = 1;
+      // The same line may be in the team more than once (2026-11-27, Arvind: "det må være mulig å legge til laget slik du
+      // ønsker så lenge det er lovlig" - someone wanted two of the same Pokemon / line and could not). The game allows it
+      // (Falkner has Pidgey and Pidgeotto), and each slot gets its own level, so a tapped line always goes in this slot: it
+      // no longer swaps with a slot that already has it (the order is changed with ◀ ▶ or by dragging).
       const choose = id => {
         const lines = story.lines.slice();
         if (opt) { lines[k] = {when: entry.when, options: Object.assign({}, entry.options, {[opt]: id})}; }
-        else if (k < lines.length) { const at = lines.findIndex(e => e === id); if (at >= 0) lines[at] = lines[k]; lines[k] = id; }   // a line already in the team swaps places
-        else if (!used.has(id)) lines.push(id);
+        else if (k < lines.length) lines[k] = id;
+        else lines.push(id);
         pickBox.hidden = true; saveStory(lines.slice(0, 6));
       };
       // Every line, searched and sorted like Showdown's teambuilder (2026-11-27, Arvind: "jeg ser ikke alle pokemon der. Eller
@@ -5623,12 +5628,12 @@ function renderCharacterPage(c) {
         const val = r => !sortK ? r.dex : sortK === "name" ? r.name : sortK === "bst" ? r.bst : (r.stats[sortK] ?? -1);
         rows.sort((a, b) => { const x = val(a.r), y = val(b.r); return (x > y ? 1 : x < y ? -1 : 0) * sortDir || a.r.dex - b.r.dex; });
         count.textContent = rows.length + (rows.length === 1 ? " line" : " lines");
-        list.replaceChildren(...rows.map(({r, hits}) => { const x = byId.get(r.id), p = portrait(x), inTeam = used.has(r.id);
+        list.replaceChildren(...rows.map(({r, hits}) => { const x = byId.get(r.id), p = portrait(x), inTeam = (used.get(r.id) || 0) - (r.id === cur ? 1 : 0);
           const why = hits.filter(w => w && w[0] !== "name").map(w => w[0] + ": " + w[1]);
           return h("button", {type: "button", class: "storypickrow" + (r.id === cur ? " on" : ""), onclick: () => choose(r.id)},
             p ? h("img", {class: p.pixel ? "px" : null, src: p.src, alt: "", loading: "lazy"}) : h("span", {class: "letter"}, (r.name || "?")[0]),
             h("b", {}, r.name, h("span", {class: "sub"}, "  #" + pad(r.dex))), h("span", {class: "types"}, r.types.map(typeChip)),
-            h("span", {class: "sub"}, r.chainNames.join(" → ") + (inTeam && r.id !== cur ? " · in the team" + (opt ? "" : " (swaps)") : "")),
+            h("span", {class: "sub"}, r.chainNames.join(" → ") + (inTeam > 0 ? " · " + (inTeam > 1 ? inTeam + " already" : "already") + " in the team (another one is fine)" : "")),
             h("span", {class: "sub statline"}, r.bst ? "BST " + r.bst + " · " + STATS.map(([k]) => SHORT_STAT[k] + " " + dash(r.stats[k])).join(" ") : "no stats yet"),
             r.abs.length ? h("span", {class: "sub"}, r.abs.join(" / ")) : null,
             why.length ? h("b", {class: "why"}, why.join(" · ")) : null); }),
