@@ -12479,5 +12479,68 @@
     "file": "assets/concept-art/eiv/6085.png",
     "caption": "[ds-back2] sprite #1126",
     "editor": "Arvind"
+  },
+  {
+    "id": 6088,
+    "species": "eiv",
+    "file": "assets/concept-art/eiv/6088.png",
+    "caption": "[ds-icon] sprite #1127",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6092,
+    "species": "eivind",
+    "file": "assets/concept-art/eivind/6092.png",
+    "caption": "[ds-front] sprite #1128",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6093,
+    "species": "eivind",
+    "file": "assets/concept-art/eivind/6093.png",
+    "caption": "[ds-back] sprite #1128",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6094,
+    "species": "eivind",
+    "file": "assets/concept-art/eivind/6094.png",
+    "caption": "[ds-icon] sprite #1128",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6095,
+    "species": "eivind",
+    "file": "assets/concept-art/eivind/6095.png",
+    "caption": "[ds-follower] sprite #1128",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6096,
+    "species": "eivind",
+    "file": "assets/concept-art/eivind/6096.png",
+    "caption": "[ds-front2] sprite #1128",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6097,
+    "species": "eivind",
+    "file": "assets/concept-art/eivind/6097.png",
+    "caption": "[ds-back2] sprite #1128",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6101,
+    "species": "alminimonk-utvikling",
+    "file": "assets/concept-art/alminimonk-utvikling/6101.png",
+    "caption": "[ds-front2] sprite #1129",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6113,
+    "species": "leothrax",
+    "file": "assets/concept-art/leothrax/6113.png",
+    "caption": "[ds-back2] sprite #1131",
+    "editor": "Arvind"
   }
 ]
