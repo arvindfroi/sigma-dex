@@ -742,6 +742,17 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .storypickrow img.px { image-rendering: pixelated; }
 .storypickrow.on { border-color: var(--gold); }
 .storypickrow .types { display: flex; gap: 2px; transform: scale(.8); transform-origin: left; }
+.storypickrow { grid-template-rows: none; grid-auto-rows: auto; align-content: start; }
+.storypickrow img, .storypickrow .letter { grid-row: 1 / span 6; grid-column: 1; align-self: start; }
+.storypickrow > :not(img):not(.letter) { grid-column: 2; }
+.storypickrow .statline { font-size: 11px; overflow-wrap: anywhere; }
+.storypicklist { grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); }
+.storypickrow { min-width: 0; }
+.storypickrow > * { min-width: 0; }
+.storypickrow .why { font-size: 11px; color: var(--pri); }
+.storyfilters { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 4px; align-items: center; }
+.storyfilters button { padding: 1px 7px; font-size: 12px; min-height: 0; border-width: 2px; }
+.storyfilters button.type { color: #ffffff; }
 .tslot .slotbtns button { padding: 0 6px; min-height: 0; font-size: 12px; }
 .charpics { display: flex; gap: 8px; flex-wrap: wrap; } .charpics img { max-height: 160px; max-width: 160px; object-fit: contain; border: 2px solid var(--line); }
 .chardetail h4 { margin: 10px 0 4px; }
@@ -5583,6 +5594,40 @@ function storyTeamView(team) {
       h("div", {class: "sub"}, m.moves.length ? m.moves.join(", ") : "no moves yet (comes when its moves are filled in)"));
   }));
 }
+// Every evolution line for the story team picker, worked out once: the last evolution, every stage's name and abilities, the
+// moves the line can learn (learnable walks back through the earlier stages), egg groups, the last stage's stats.
+let storyRowsCache = null;
+function storyLineRows() {
+  if (storyRowsCache) return storyRowsCache;
+  const finals = DEX.species.filter(x => !(x.data.evolutions || []).some(e => e && byId.has(e.into)));
+  storyRowsCache = finals.map(x => {
+    const chain = storyChain(x.id), xd = x.data;
+    const abs = [...new Set(chain.flatMap(id => { const a = (byId.get(id) || {data: {}}).data.abilities || {}; return [a.primary, a.secondary, a.hidden].filter(filled); }))];
+    return {id: x.id, name: xd.name || x.id, dex: Number(xd.dex) || 9999, chainNames: chain.map(nameOf), types: xd.types || [], abs,
+      moves: learnable(x.id).map(m => m.name), eggs: (xd.egg_groups || []).map(v => String(v).replaceAll("_", " ")),
+      stats: xd.base_stats || {}, bst: x.bst || 0};
+  });
+  return storyRowsCache;
+}
+// one search term against a line: [what matched, the value] or null. As in Showdown, a term that IS a type, ability, move or
+// egg group name means only that ("fire" = the Fire type, not every line that learns Fire Blast); any other term matches part
+// of a name of any stage, or at least 3 letters of a type, ability or move.
+let storyNames = null;
+function storyTermKind(t) {
+  if (!storyNames) {
+    const rows = storyLineRows(), set = f => new Set(rows.flatMap(f).map(v => String(v).toLowerCase()));
+    storyNames = {type: new Set(DEX.types.map(v => v.toLowerCase())), ability: set(r => r.abs), move: set(r => r.moves), "egg group": set(r => r.eggs)};
+  }
+  return ["type", "ability", "move", "egg group"].find(k => storyNames[k].has(t)) || "";
+}
+function storyTermHit(r, t) {
+  const kind = storyTermKind(t);
+  const vals = {type: r.types, ability: r.abs, move: r.moves, "egg group": r.eggs};
+  if (kind) { const v = vals[kind].find(v => String(v).toLowerCase() === t); return v ? [kind, v] : r.name.toLowerCase() === t ? ["name", ""] : null; }
+  if (r.chainNames.some(n => String(n).toLowerCase().includes(t))) return ["name", ""];
+  const part = k => { const v = t.length > 2 && vals[k].find(v => String(v).toLowerCase().includes(t)); return v ? [k, v] : null; };
+  return part("type") || part("ability") || part("move") || null;
+}
 function storyLinePicker(story, onChange) {
   const finals = DEX.species.filter(s => !(s.data.evolutions || []).some(e => e && byId.has(e.into)));
   const box = attachPicker(textInput("", {placeholder: "Add a line: type its last evolution", "aria-label": "Add an evolution line"}), "species",
@@ -5887,10 +5932,11 @@ function renderCharacterPage(c) {
     const pickBox = h("div", {class: "storypick", hidden: ""});
     const openPick = (k, opt) => {
       const entry = story.lines[k], cur = opt ? (entry && entry.options || {})[opt] : typeof entry === "string" ? entry : "";
-      const finals = DEX.species.filter(x => !(x.data.evolutions || []).some(e => e && byId.has(e.into)));
-      const search = h("input", {type: "search", placeholder: "Search: its last evolution, a type or an earlier stage", "aria-label": "Search for a line"});
+      const search = h("input", {type: "search", placeholder: "Search: name, type, ability or move (fire, levitate)", "aria-label": "Search for a line"});
       const list = h("div", {class: "storypicklist", role: "list"});
+      const count = h("span", {class: "sub"});
       const used = new Set(story.lines.flatMap(slotIds));
+      let typeF = "", sortK = "", sortDir = 1;
       const choose = id => {
         const lines = story.lines.slice();
         if (opt) { lines[k] = {when: entry.when, options: Object.assign({}, entry.options, {[opt]: id})}; }
@@ -5898,23 +5944,49 @@ function renderCharacterPage(c) {
         else if (!used.has(id)) lines.push(id);
         pickBox.hidden = true; saveStory(lines.slice(0, 6));
       };
+      // Every line, searched and sorted like Showdown's teambuilder (2026-11-27, Arvind: "jeg ser ikke alle pokemon der. Eller
+      // alle lines" - the list stopped at 60 - "mer som pokemon showdown hvor jeg kan sortere filtrere og skrive inn ulike ting
+      // som moves abilities"): terms split by commas must all match (a name of any stage, a type, an ability of any stage, a
+      // move the line can learn, an egg group), a type button narrows it, and the sort buttons order it by dex, name or stats.
       const fill = () => {
-        const q = search.value.trim().toLowerCase();
-        const rows = finals.filter(x => !q || (storyChain(x.id).map(nameOf).join(" ") + " " + (x.data.types || []).join(" ")).toLowerCase().includes(q)).slice(0, 60);
-        list.replaceChildren(...rows.map(x => { const p = portrait(x), inTeam = used.has(x.id);
-          return h("button", {type: "button", class: "storypickrow" + (x.id === cur ? " on" : ""), onclick: () => choose(x.id)},
-            p ? h("img", {class: p.pixel ? "px" : null, src: p.src, alt: ""}) : h("span", {class: "letter"}, (x.data.name || "?")[0]),
-            h("b", {}, x.data.name), h("span", {class: "types"}, (x.data.types || []).map(typeChip)),
-            h("span", {class: "sub"}, storyChain(x.id).map(nameOf).join(" → ") + (inTeam && x.id !== cur ? " · in the team" + (opt ? "" : " (swaps)") : ""))); }),
+        const terms = search.value.split(",").map(t => t.trim().toLowerCase()).filter(Boolean);
+        const rows = storyLineRows().map(r => ({r, hits: terms.map(t => storyTermHit(r, t))}))
+          .filter(({r, hits}) => (!typeF || r.types.includes(typeF)) && hits.every(Boolean));
+        const val = r => !sortK ? r.dex : sortK === "name" ? r.name : sortK === "bst" ? r.bst : (r.stats[sortK] ?? -1);
+        rows.sort((a, b) => { const x = val(a.r), y = val(b.r); return (x > y ? 1 : x < y ? -1 : 0) * sortDir || a.r.dex - b.r.dex; });
+        count.textContent = rows.length + (rows.length === 1 ? " line" : " lines");
+        list.replaceChildren(...rows.map(({r, hits}) => { const x = byId.get(r.id), p = portrait(x), inTeam = used.has(r.id);
+          const why = hits.filter(w => w && w[0] !== "name").map(w => w[0] + ": " + w[1]);
+          return h("button", {type: "button", class: "storypickrow" + (r.id === cur ? " on" : ""), onclick: () => choose(r.id)},
+            p ? h("img", {class: p.pixel ? "px" : null, src: p.src, alt: "", loading: "lazy"}) : h("span", {class: "letter"}, (r.name || "?")[0]),
+            h("b", {}, r.name, h("span", {class: "sub"}, "  #" + pad(r.dex))), h("span", {class: "types"}, r.types.map(typeChip)),
+            h("span", {class: "sub"}, r.chainNames.join(" → ") + (inTeam && r.id !== cur ? " · in the team" + (opt ? "" : " (swaps)") : "")),
+            h("span", {class: "sub statline"}, r.bst ? "BST " + r.bst + " · " + STATS.map(([k]) => SHORT_STAT[k] + " " + dash(r.stats[k])).join(" ") : "no stats yet"),
+            r.abs.length ? h("span", {class: "sub"}, r.abs.join(" / ")) : null,
+            why.length ? h("b", {class: "why"}, why.join(" · ")) : null); }),
           rows.length ? "" : h("div", {class: "sub"}, "Nothing found."));
       };
+      const typeBar = h("div", {class: "filters storyfilters"}, h("button", {type: "button", "aria-pressed": "true", onclick: () => { typeF = ""; redrawBars(); fill(); }}, "All types"),
+        DEX.types.map(t => h("button", {type: "button", class: "type", "data-type": t, style: "background:" + TYPE_COLORS[t] + ";border-color:" + TYPE_COLORS[t], "aria-pressed": "false",
+          onclick: () => { typeF = typeF === t ? "" : t; redrawBars(); fill(); }}, t)));
+      const SORTS = [["", "Dex"], ["name", "Name"], ["bst", "BST"], ...STATS.map(([k]) => [k, SHORT_STAT[k]])];
+      const sortBar = h("div", {class: "filters storyfilters"}, h("span", {class: "sub"}, "Sort:"),
+        SORTS.map(([k, label]) => h("button", {type: "button", "data-sort": k, "aria-pressed": "false", onclick: () => {
+          if (sortK === k) sortDir = -sortDir; else { sortK = k; sortDir = k === "" || k === "name" ? 1 : -1; } redrawBars(); fill(); }}, label)));
+      const redrawBars = () => {
+        typeBar.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String((b.dataset.type || "") === typeF)));
+        sortBar.querySelectorAll("button").forEach(b => { const on = b.dataset.sort === sortK;
+          b.setAttribute("aria-pressed", String(on)); b.textContent = (SORTS.find(s => s[0] === b.dataset.sort) || ["", ""])[1] + (on ? (sortDir > 0 ? " ▴" : " ▾") : ""); });
+      };
+      redrawBars();
       search.addEventListener("input", fill);
       fill();
       const optLabel = opt ? (STORY_WHEN[entry.when].options.find(o => o[0] === opt) || [opt, opt])[1] : "";
       pickBox.replaceChildren(h("div", {class: "storypickhead"},
           h("b", {}, "Slot " + (k + 1) + (opt ? " " + whenPhrase(entry.when, optLabel) : "") + ": " + (cur ? "swap " + nameOf(cur) : "add a line")), search,
           cur && !opt ? h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; saveStory(story.lines.filter((_, i) => i !== k)); }}, "Remove") : null,
-          h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; }}, "Close")), list);
+          h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; }}, "Close")), typeBar, sortBar,
+        h("div", {class: "sub"}, count, " · separate with commas to combine, e.g. ", h("i", {}, "water, levitate"), " or ", h("i", {}, "fire, u-turn")), list);
       pickBox.hidden = false; search.focus(); pickBox.scrollIntoView({block: "nearest"});
     };
     // a slot that depends on the player's starter, and back to one line for all
