@@ -12355,13 +12355,6 @@
     "editor": null
   },
   {
-    "id": 6037,
-    "species": "leothrax",
-    "file": "assets/concept-art/leothrax/6037.png",
-    "caption": "[ds-icon] sprite #1117",
-    "editor": null
-  },
-  {
     "id": 6044,
     "species": "leo",
     "file": "assets/concept-art/leo/6044.png",
@@ -12542,5 +12535,12 @@
     "file": "assets/concept-art/leothrax/6113.png",
     "caption": "[ds-back2] sprite #1131",
     "editor": "Arvind"
+  },
+  {
+    "id": 6116,
+    "species": "leothrax",
+    "file": "assets/concept-art/leothrax/6116.png",
+    "caption": "[ds-icon] sprite #1133",
+    "editor": "Emil Venge-Kvamme"
   }
 ]

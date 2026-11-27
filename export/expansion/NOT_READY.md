@@ -109,6 +109,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - Nukfae: move 'Poison Hug' is not in the game yet, left out
 - Octopearl: move 'Cosmic Shield' is not in the game yet, left out
 - Pipwi: evolution into Tropistrich left out until that Pokemon is ready
+- Sabertann: move 'Hiv og Hoi' is not in the game yet, left out
 - Sigmauler: move 'Rock Hammer' is not in the game yet, left out
 - Skiirtle: evolution into McSkiirtle left out until that Pokemon is ready
 - Slothbaby: evolution into Slothku left out until that Pokemon is ready

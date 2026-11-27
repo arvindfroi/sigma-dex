@@ -98,6 +98,23 @@ moves:
     poison.
   effect_chance: 30
   designer: Emil
+- id: hiv-og-hoi
+  name: Hiv og Hoi
+  type: Dark
+  category: physical
+  power: 70
+  accuracy: 100
+  pp: 5
+  target: one opponent
+  effect: 'Dersom Sabeltann ikke holder en item, stjeler han motstanderens item.
+
+    Dersom Sabeltann allerede holder en item, bytter han item med motstanderen. Han ender dermed alltid
+    opp med motstanderens bytte.
+
+    Dersom motstanderen ikke holder en stjelbar item, får angrepet ingen tilleggseffekt.
+
+    Skadebonus: Angrepet får 50 % ekstra power dersom motstanderen holder en item.'
+  designer: Arvind
 - id: ice-egg
   name: Ice Egg
   type: Ice
