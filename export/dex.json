@@ -19803,7 +19803,7 @@
         "level_up": [
           {
             "level": 0,
-            "move": "Smog"
+            "move": "Armor Cannon"
           },
           {
             "level": 1,
@@ -19870,6 +19870,10 @@
             "move": "Rock Slide"
           },
           {
+            "level": 28,
+            "move": "Smog"
+          },
+          {
             "level": 30,
             "move": "Sandstorm"
           },
@@ -19920,6 +19924,7 @@
           "Facade",
           "Rest",
           "Attract",
+          "Focus Blast",
           "Endure",
           "Giga Impact",
           "Rock Polish",
@@ -19934,6 +19939,7 @@
           "Heavy Slam",
           "Bulldoze",
           "Meteor Beam",
+          "Strength",
           "Rock Smash"
         ],
         "tutor": [
@@ -20295,12 +20301,24 @@
             "move": "Tackle"
           },
           {
+            "level": 4,
+            "move": "Growth"
+          },
+          {
             "level": 8,
             "move": "Poison Fang"
           },
           {
             "level": 9,
             "move": "Icy Wind"
+          },
+          {
+            "level": 10,
+            "move": "Powder Snow"
+          },
+          {
+            "level": 11,
+            "move": "Tail Whip"
           },
           {
             "level": 14,
@@ -20317,6 +20335,10 @@
           {
             "level": 29,
             "move": "Toxic"
+          },
+          {
+            "level": 29,
+            "move": "Poison Tail"
           },
           {
             "level": 32,
@@ -20348,7 +20370,7 @@
           },
           {
             "level": 48,
-            "move": "Ice Hammer"
+            "move": "Avalanche"
           },
           {
             "level": 50,
@@ -20356,11 +20378,15 @@
           },
           {
             "level": 54,
-            "move": "Mountain Gale"
+            "move": "Ice Hammer"
           },
           {
             "level": 60,
             "move": "Baneful Bunker"
+          },
+          {
+            "level": 60,
+            "move": "Mountain Gale"
           },
           {
             "level": 64,
@@ -20369,6 +20395,7 @@
         ],
         "tm_hm": [
           "Dragon Claw",
+          "Roar",
           "Toxic",
           "Hail",
           "Hidden Power",
@@ -20385,17 +20412,20 @@
           "Dig",
           "Double Team",
           "Sludge Bomb",
+          "Rock Tomb",
           "Facade",
           "Secret Power",
           "Rest",
           "Attract",
           "Thief",
+          "Fling",
           "Endure",
           "Dragon Pulse",
           "Giga Impact",
           "Avalanche",
           "Swords Dance",
           "Captivate",
+          "Rock Slide",
           "Sleep Talk",
           "Natural Gift",
           "Poison Jab",
@@ -20407,7 +20437,9 @@
           "Bulldoze",
           "Psychic Fangs",
           "Body Press",
-          "Triple Axel"
+          "Triple Axel",
+          "Strength",
+          "Rock Smash"
         ],
         "tutor": [
           "Body Slam",
@@ -27766,7 +27798,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "big-musi",
+          "method": "level",
+          "level": 55
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [
@@ -37665,14 +37703,14 @@
       },
       "base_stats": {
         "hp": 45,
-        "attack": 60,
+        "attack": 50,
         "defense": 45,
-        "sp_attack": 50,
+        "sp_attack": 60,
         "sp_defense": 55,
         "speed": 65
       },
       "ev_yield": {
-        "sp_defense": 1
+        "speed": 1
       },
       "catch_rate": 225,
       "base_exp": 64,
@@ -37890,14 +37928,14 @@
       },
       "base_stats": {
         "hp": 60,
-        "attack": 80,
+        "attack": 65,
         "defense": 55,
-        "sp_attack": 65,
+        "sp_attack": 80,
         "sp_defense": 75,
         "speed": 85
       },
       "ev_yield": {
-        "sp_defense": 2
+        "speed": 2
       },
       "catch_rate": 45,
       "base_exp": 147,
@@ -38180,14 +38218,14 @@
       },
       "base_stats": {
         "hp": 75,
-        "attack": 105,
+        "attack": 75,
         "defense": 70,
-        "sp_attack": 80,
-        "sp_defense": 90,
-        "speed": 110
+        "sp_attack": 110,
+        "sp_defense": 88,
+        "speed": 112
       },
       "ev_yield": {
-        "attack": 1,
+        "sp_attack": 1,
         "speed": 2
       },
       "catch_rate": 45,
@@ -38321,16 +38359,12 @@
             "move": "Fire Spin"
           },
           {
-            "level": 42,
+            "level": 40,
             "move": "Gastro Acid"
           },
           {
             "level": 43,
             "move": "Flamethrower"
-          },
-          {
-            "level": 44,
-            "move": "Gunk Shot"
           },
           {
             "level": 45,
@@ -38346,7 +38380,7 @@
           },
           {
             "level": 54,
-            "move": "Double-Edge"
+            "move": "Gunk Shot"
           },
           {
             "level": 58,
@@ -38393,12 +38427,13 @@
           "Natural Gift",
           "Poison Jab",
           "Swagger",
+          "U-turn",
           "Substitute",
           "Venoshock",
           "Flame Charge",
           "Acid Spray",
+          "Mystical Fire",
           "Cut",
-          "Strength",
           "Rock Smash"
         ],
         "tutor": [
@@ -38410,7 +38445,8 @@
           "Iron Head",
           "Leaf Storm",
           "Seed Bomb",
-          "Rage Powder"
+          "Rage Powder",
+          "Grass Knot"
         ],
         "egg": []
       },
@@ -38425,7 +38461,6 @@
           "height",
           "weight",
           "body color",
-          "EV yield",
           "catch rate",
           "base exp",
           "growth rate",
@@ -38438,7 +38473,6 @@
           "height": 55,
           "weight": 45,
           "body color": 90,
-          "EV yield": 85,
           "catch rate": 60,
           "base exp": 85,
           "growth rate": 57,
@@ -41327,7 +41361,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "plumbuzzz",
+          "method": "level",
+          "level": 12
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -41708,8 +41748,8 @@
       "dex": 170,
       "name": "S.Rotom",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Magnus",
+        "artist": "Magnus"
       },
       "types": [
         "Electric"
@@ -41765,6 +41805,7 @@
             "sp_defense": 107,
             "speed": 86
           },
+          "look": "a floating black head surronded by energy",
           "sid": "rotom-vape",
           "credits": {
             "designer": "BUST"
@@ -41773,7 +41814,9 @@
             "defense": 1,
             "sp_attack": 1,
             "sp_defense": 1
-          }
+          },
+          "movement": "It floats in the air.",
+          "body_shape": "only a head"
         },
         {
           "name": "Rot.Fight",
@@ -41791,6 +41834,7 @@
             "sp_defense": 107,
             "speed": 86
           },
+          "look": "a floating black head surronded by \nenergy",
           "sid": "rot-fight",
           "ev_yield": {
             "defense": 1,
@@ -41801,7 +41845,9 @@
             "tm_hm": [
               "Explosion"
             ]
-          }
+          },
+          "movement": "It floats in the air.",
+          "body_shape": "only a head"
         },
         {
           "name": "Rot.Fairy",
@@ -41864,9 +41910,9 @@
         "wishes": null,
         "claude_fill": true,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
+        "body_shape": "only a head",
+        "movement": "It floats in the air.",
+        "look": "a floating black head surronded by red energy"
       },
       "assets": {
         "concept_art": "assets/concept-art/s-rotom/2716.png",
@@ -43935,7 +43981,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/leo.json"
       },
       "engine": {
         "no_flip": false,
@@ -44028,7 +44074,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/leorime.json"
       },
       "engine": {
         "no_flip": false,
@@ -44242,7 +44288,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/leothrax.json"
       },
       "engine": {
         "no_flip": false,
@@ -44316,7 +44362,7 @@
         "look": null
       },
       "assets": {
-        "concept_art": "assets/concept-art/ghurtle/6033.webp",
+        "concept_art": "assets/concept-art/ghurtle/6145.webp",
         "front_sprite": null,
         "front_anim": null,
         "back_sprite": null,
@@ -44415,6 +44461,86 @@
         "safari_flee_rate": 0
       },
       "id": "ghortoise"
+    },
+    {
+      "dex": 196,
+      "name": "Big musi",
+      "credits": {
+        "designer": "Arvind",
+        "artist": "Arvind"
+      },
+      "types": [
+        "Fighting"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": null,
+        "hidden": null
+      },
+      "base_stats": {
+        "hp": null,
+        "attack": null,
+        "defense": null,
+        "sp_attack": null,
+        "sp_defense": null,
+        "speed": null
+      },
+      "ev_yield": null,
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/big-musi/6126.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "big-musi"
     },
     {
       "dex": 218,

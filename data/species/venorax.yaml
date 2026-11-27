@@ -23,13 +23,13 @@ abilities:
 
 base_stats:              # each 1-255
   hp: 75
-  attack: 105
+  attack: 75
   defense: 70
-  sp_attack: 80
-  sp_defense: 90
-  speed: 110
+  sp_attack: 110
+  sp_defense: 88
+  speed: 112
 
-ev_yield: {attack: 1, speed: 2} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {sp_attack: 1, speed: 2} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate: 45           # 3 (legendary) to 255 (very easy)
 base_exp: 238            # exp yield when defeated, e.g. 64
 growth_rate: medium_slow # erratic fast medium_fast medium_slow slow fluctuating
@@ -94,13 +94,12 @@ learnset:
     - {level: 34, move: Acid Spray}
     - {level: 34, move: Bite}
     - {level: 38, move: Fire Spin}
-    - {level: 42, move: Gastro Acid}
+    - {level: 40, move: Gastro Acid}
     - {level: 43, move: Flamethrower}
-    - {level: 44, move: Gunk Shot}
     - {level: 45, move: Fire Punch}
     - {level: 46, move: Sludge Bomb}
     - {level: 47, move: Haze}
-    - {level: 54, move: Double-Edge}
+    - {level: 54, move: Gunk Shot}
     - {level: 58, move: Flare Blitz}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect,
@@ -108,11 +107,11 @@ learnset:
           Dig, Brick Break, Double Team, Flamethrower, Sludge Bomb, Fire Blast, Facade,
           Secret Power, Rest, Attract, Thief, Overheat, Energy Ball, Fling, Endure,
           Will-O-Wisp, Payback, Giga Impact, Swords Dance, Captivate, Dark Pulse,
-          Sleep Talk, Natural Gift, Poison Jab, Swagger, Substitute, Venoshock,
-          Flame Charge, Acid Spray, Cut, Strength, Rock Smash]
+          Sleep Talk, Natural Gift, Poison Jab, Swagger, U-turn, Substitute, Venoshock,
+          Flame Charge, Acid Spray, Mystical Fire, Cut, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Fire Fang, Fire Punch, Flare Blitz, Heat Wave, Iron Head, Leaf Storm,
-          Seed Bomb, Rage Powder]
+          Seed Bomb, Rage Powder, Grass Knot]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -126,13 +125,12 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   # fields Claude filled in (people can change them)
-  filled_by_claude: [height, weight, body color, EV yield, catch rate, base exp,
-                     growth rate, base friendship, gender, egg groups, egg cycles]
+  filled_by_claude: [height, weight, body color, catch rate, base exp, growth rate,
+                     base friendship, gender, egg groups, egg cycles]
   claude_sure:             # how sure Claude is about each field it filled in, 0-100 (docs/DEX_DATA.md#letting-claude-fill-in-a-pokemon)
     height: 55
     weight: 45
     body color: 90
-    EV yield: 85
     catch rate: 60
     base exp: 85
     growth rate: 57

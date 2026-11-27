@@ -12327,13 +12327,6 @@
     "editor": "Emil"
   },
   {
-    "id": 6033,
-    "species": "ghurtle",
-    "file": "assets/concept-art/ghurtle/6033.webp",
-    "caption": "pasted",
-    "editor": "Emil"
-  },
-  {
     "id": 6034,
     "species": "ghortoise",
     "file": "assets/concept-art/ghortoise/6034.webp",
@@ -12542,5 +12535,26 @@
     "file": "assets/concept-art/leothrax/6116.png",
     "caption": "[ds-icon] sprite #1133",
     "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 6126,
+    "species": "big-musi",
+    "file": "assets/concept-art/big-musi/6126.webp",
+    "caption": null,
+    "editor": "Arvind"
+  },
+  {
+    "id": 6130,
+    "species": "leorime",
+    "file": "assets/concept-art/leorime/6130.png",
+    "caption": "[ds-follower] sprite #1136",
+    "editor": null
+  },
+  {
+    "id": 6145,
+    "species": "ghurtle",
+    "file": "assets/concept-art/ghurtle/6145.webp",
+    "caption": "pasted",
+    "editor": null
   }
 ]

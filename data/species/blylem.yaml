@@ -66,7 +66,7 @@ forms: []
 learnset:
   # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
   level_up:
-    - {level: 0, move: Smog}
+    - {level: 0, move: Armor Cannon}
     - {level: 1, move: Stealth Rock}
     - {level: 1, move: Harden}
     - {level: 1, move: Rock Throw}
@@ -83,6 +83,7 @@ learnset:
     - {level: 20, move: Iron Defense}
     - {level: 25, move: Venoshock}
     - {level: 25, move: Rock Slide}
+    - {level: 28, move: Smog}
     - {level: 30, move: Sandstorm}
     - {level: 34, move: Rock Blast}
     - {level: 36, move: Power Gem}
@@ -94,9 +95,9 @@ learnset:
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Toxic, Hidden Power, Sunny Day, Hyper Beam, Protect, Rain Dance, Earthquake,
           Return, Dig, Shadow Ball, Double Team, Sludge Bomb, Sandstorm, Rock Tomb, Facade,
-          Rest, Attract, Endure, Giga Impact, Rock Polish, Stone Edge, Stealth Rock,
-          Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute, Venoshock, Heavy Slam,
-          Bulldoze, Meteor Beam, Rock Smash]
+          Rest, Attract, Focus Blast, Endure, Giga Impact, Rock Polish, Stone Edge,
+          Stealth Rock, Rock Slide, Sleep Talk, Poison Jab, Swagger, Substitute, Venoshock,
+          Heavy Slam, Bulldoze, Meteor Beam, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Ancient Power, Body Slam, Curse, Earth Power, Power Gem, Flash Cannon,
           Armor Cannon, Zap Cannon, Shadow Bone, Destiny Bond]

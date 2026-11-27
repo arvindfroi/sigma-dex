@@ -1697,19 +1697,19 @@ TEST("Sigma dex: Blylem has the data from its species file")
     EXPECT_EQ(info->types[0], TYPE_ROCK);
     EXPECT_EQ(info->types[1], TYPE_POISON);
     EXPECT_EQ(info->abilities[0], ABILITY_STURDY);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_SMOG);
+    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_ARMOR_CANNON);
     EXPECT_EQ(GetSpeciesName(SPECIES_BLYLEM)[0], CHAR_B);
 }
 
 SINGLE_BATTLE_TEST("Sigma dex: Blylem can use its first move in battle")
 {
     GIVEN {
-        PLAYER(SPECIES_BLYLEM) { Moves(MOVE_SMOG); }
+        PLAYER(SPECIES_BLYLEM) { Moves(MOVE_ARMOR_CANNON); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_SMOG); }
+        TURN { MOVE(player, MOVE_ARMOR_CANNON); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SMOG, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ARMOR_CANNON, player);
     }
 }
 
@@ -3229,10 +3229,10 @@ TEST("Sigma dex: Venofrib has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_VENOFRIB];
     EXPECT_EQ(info->baseHP, 45);
-    EXPECT_EQ(info->baseAttack, 60);
+    EXPECT_EQ(info->baseAttack, 50);
     EXPECT_EQ(info->baseDefense, 45);
     EXPECT_EQ(info->baseSpeed, 65);
-    EXPECT_EQ(info->baseSpAttack, 50);
+    EXPECT_EQ(info->baseSpAttack, 60);
     EXPECT_EQ(info->baseSpDefense, 55);
     EXPECT_EQ(info->types[0], TYPE_POISON);
     EXPECT_EQ(info->types[1], TYPE_POISON);
@@ -3257,10 +3257,10 @@ TEST("Sigma dex: Vendepiede has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_VENDEPIEDE];
     EXPECT_EQ(info->baseHP, 60);
-    EXPECT_EQ(info->baseAttack, 80);
+    EXPECT_EQ(info->baseAttack, 65);
     EXPECT_EQ(info->baseDefense, 55);
     EXPECT_EQ(info->baseSpeed, 85);
-    EXPECT_EQ(info->baseSpAttack, 65);
+    EXPECT_EQ(info->baseSpAttack, 80);
     EXPECT_EQ(info->baseSpDefense, 75);
     EXPECT_EQ(info->types[0], TYPE_POISON);
     EXPECT_EQ(info->types[1], TYPE_FIRE);
@@ -3285,11 +3285,11 @@ TEST("Sigma dex: Venorax has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_VENORAX];
     EXPECT_EQ(info->baseHP, 75);
-    EXPECT_EQ(info->baseAttack, 105);
+    EXPECT_EQ(info->baseAttack, 75);
     EXPECT_EQ(info->baseDefense, 70);
-    EXPECT_EQ(info->baseSpeed, 110);
-    EXPECT_EQ(info->baseSpAttack, 80);
-    EXPECT_EQ(info->baseSpDefense, 90);
+    EXPECT_EQ(info->baseSpeed, 112);
+    EXPECT_EQ(info->baseSpAttack, 110);
+    EXPECT_EQ(info->baseSpDefense, 88);
     EXPECT_EQ(info->types[0], TYPE_POISON);
     EXPECT_EQ(info->types[1], TYPE_FIRE);
     EXPECT_EQ(info->abilities[0], ABILITY_COLOR_CHANGE);

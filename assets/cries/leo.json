@@ -1,0 +1,28 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "own": true,
+   "semi": 0.5,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.0,
+ "sweep": 6.0,
+ "tone": 0.85,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": null,
+ "reasons": [
+  "Its own sound",
+  "Changed by hand: pitch 0.5, glide 6, brightness 0.85"
+ ],
+ "by": "",
+ "at": "2026-11-27T20:38:38.210Z",
+ "audio": "assets/cries/leo.wav"
+}

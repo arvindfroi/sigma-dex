@@ -1,0 +1,30 @@
+{
+ "v": 1,
+ "seed": 0,
+ "layers": [
+  {
+   "dex": 364,
+   "semi": -4.5,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  }
+ ],
+ "stretch": 1.15,
+ "sweep": 6.0,
+ "tone": 0.15,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": null,
+ "ring": null,
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.1
+ },
+ "reasons": [
+  "Designed by hand",
+  "Changed by hand: pitch -4.5, length 1.15, glide 6, brightness 0.15, echo 0.1"
+ ],
+ "by": "",
+ "at": "2026-11-27T20:41:25.985Z"
+}

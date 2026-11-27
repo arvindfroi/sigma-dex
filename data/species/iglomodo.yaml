@@ -72,12 +72,16 @@ learnset:
     - {level: 1, move: Leer}
     - {level: 1, move: Poison Sting}
     - {level: 1, move: Tackle}
+    - {level: 4, move: Growth}
     - {level: 8, move: Poison Fang}
     - {level: 9, move: Icy Wind}
+    - {level: 10, move: Powder Snow}
+    - {level: 11, move: Tail Whip}
     - {level: 14, move: Cross Poison}
     - {level: 17, move: Ice Fang}
     - {level: 20, move: Bite}
     - {level: 29, move: Toxic}
+    - {level: 29, move: Poison Tail}
     - {level: 32, move: Poison Jab}
     - {level: 39, move: Crunch}
     - {level: 39, move: Slash}
@@ -85,18 +89,20 @@ learnset:
     - {level: 40, move: Blizzard}
     - {level: 42, move: Gunk Shot}
     - {level: 45, move: Ice Spinner}
-    - {level: 48, move: Ice Hammer}
+    - {level: 48, move: Avalanche}
     - {level: 50, move: Gunk Shot}
-    - {level: 54, move: Mountain Gale}
+    - {level: 54, move: Ice Hammer}
     - {level: 60, move: Baneful Bunker}
+    - {level: 60, move: Mountain Gale}
     - {level: 64, move: Shell Smash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tm_hm: [Dragon Claw, Toxic, Hail, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard,
-          Hyper Beam, Protect, Rain Dance, Frustration, Earthquake, Return, Dig,
-          Double Team, Sludge Bomb, Facade, Secret Power, Rest, Attract, Thief, Endure,
-          Dragon Pulse, Giga Impact, Avalanche, Swords Dance, Captivate, Sleep Talk,
-          Natural Gift, Poison Jab, Swagger, Substitute, Venoshock, Heavy Slam, Acid Spray,
-          Bulldoze, Psychic Fangs, Body Press, Triple Axel]
+  tm_hm: [Dragon Claw, Roar, Toxic, Hail, Hidden Power, Sunny Day, Taunt, Ice Beam,
+          Blizzard, Hyper Beam, Protect, Rain Dance, Frustration, Earthquake, Return, Dig,
+          Double Team, Sludge Bomb, Rock Tomb, Facade, Secret Power, Rest, Attract, Thief,
+          Fling, Endure, Dragon Pulse, Giga Impact, Avalanche, Swords Dance, Captivate,
+          Rock Slide, Sleep Talk, Natural Gift, Poison Jab, Swagger, Substitute, Venoshock,
+          Heavy Slam, Acid Spray, Bulldoze, Psychic Fangs, Body Press, Triple Axel,
+          Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Curse, Ice Fang, Icicle Spear, Icy Wind, Iron Defense, Dragon Dance,
           Outrage, Breaking Swipe, Gyro Ball, Jaw Lock, Mortal Spin]

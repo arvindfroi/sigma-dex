@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**220 / 254** slots have a Pokemon - **0** are fully complete - average completeness **63%**.
+**221 / 254** slots have a Pokemon - **0** are fully complete - average completeness **63%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -115,7 +115,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 104 | [Geronimok](data/species/obsidog-utvikling.yaml) | Dark / Rock | Guard Dog, Intimidate, Rough Skin (H) | 555 |  | 76% |
 | 105 | [Slamquake](data/species/slamquake.yaml) | Steel / Ground | Flash Fire, Steam Engine, Sand Force (H) | 500 |  | 72% |
 | 106 | [Limulk](data/species/limulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 369 | Mortbulk (Lv 35) | 72% |
-| 107 | [Mortbulk](data/species/mortbulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 490 |  | 69% |
+| 107 | [Mortbulk](data/species/mortbulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 490 | Big musi (Lv 55) | 69% |
 | 108 | [Phantomb](data/species/phantomb.yaml) | Ghost / Flying | Disguise | 280 | Phantail (Lv 40) | 72% |
 | 109 | [Phantail](data/species/sjef.yaml) | Ghost / Flying | Disguise | 480 |  | 76% |
 | 110 | [Oraclet](data/species/oraclet.yaml) | Psychic | Anticipation, Forewarn, Magic Guard (H) | 355 | Oraclaw (Lv 38) | 79% |
@@ -173,12 +173,12 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 162 | [Wondertusk](data/species/tusksir.yaml) | Normal / Fire |  |  |  | 10% |
 | 163 | [Steinar](data/species/steinar.yaml) | Rock / Poison |  |  |  | 14% |
 | 164 | [Fleinar](data/species/fleinar.yaml) | Poison / Psychic | Curious Medicine |  |  | 14% |
-| 165 | [Daytard](data/species/daytard.yaml) | Bug |  |  |  | 14% |
+| 165 | [Daytard](data/species/daytard.yaml) | Bug |  |  | plumbuzzz (Lv 12) | 14% |
 | 166 | [plumbuzzz](data/species/plumbuzzz.yaml) | Bug |  |  |  | 14% |
 | 167 | [Demetiscet](data/species/demetiscet.yaml) | Bug |  |  |  | 14% |
 | 168 | [Racedent](data/species/racedent.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) | 255 | Ratpid (Lv 20) | 21% |
 | 169 | [Ratpid](data/species/ratpid.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) | 415 |  | 24% |
-| 170 | [S.Rotom](data/species/s-rotom.yaml) | Electric | Levitate | 440 |  | 17% |
+| 170 | [S.Rotom](data/species/s-rotom.yaml) | Electric | Levitate | 440 |  | 21% |
 | 171 | [Eiv](data/species/eiv.yaml) | Normal |  |  |  | 17% |
 | 172 | [Eivind](data/species/eivind.yaml) | Normal / Fighting | Drunken Rage |  |  | 45% |
 | 173 | [Goatjo](data/species/goatjo.yaml) | Psychic / Dragon | Wonder Guard | 435 |  | 66% |
@@ -199,12 +199,12 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 188 | [gb vance](data/species/gb-vance.yaml) | Electric |  |  |  | 10% |
 | 189 | [de es lite](data/species/de-es-lite.yaml) | Electric |  |  |  | 10% |
 | 190 | [Minant](data/species/minant.yaml) | Bug / Ground |  |  |  | 7% |
-| 191 | [Leo](data/species/leo.yaml) | Ice / Water | Arctic Swimmer, Oblivious, Thick Fat (H) | 280 | Leorime (Lv 25) | 17% |
-| 192 | [Leorime](data/species/leorime.yaml) | Ice / Water | Arctic Swimmer, Oblivious, Thick Fat (H) | 450 | Leothrax (Lv 42) | 21% |
-| 193 | [Leothrax](data/species/leothrax.yaml) | Ice / Dragon | Arctic Swimmer, Marvel Scale, Thick Fat (H) | 530 |  | 28% |
+| 191 | [Leo](data/species/leo.yaml) | Ice / Water | Arctic Swimmer, Oblivious, Thick Fat (H) | 280 | Leorime (Lv 25) | 21% |
+| 192 | [Leorime](data/species/leorime.yaml) | Ice / Water | Arctic Swimmer, Oblivious, Thick Fat (H) | 450 | Leothrax (Lv 42) | 24% |
+| 193 | [Leothrax](data/species/leothrax.yaml) | Ice / Dragon | Arctic Swimmer, Marvel Scale, Thick Fat (H) | 530 |  | 31% |
 | 194 | [Ghurtle](data/species/ghurtle.yaml) | Ghost / Poison |  |  |  | 10% |
 | 195 | [Ghortoise](data/species/ghortoise.yaml) | Ghost / Poison |  |  |  | 10% |
-| 196 | *open slot* | | | | | |
+| 196 | [Big musi](data/species/big-musi.yaml) | Fighting |  |  |  | 10% |
 | 197 | *open slot* | | | | | |
 | 198 | *open slot* | | | | | |
 | 199 | *open slot* | | | | | |
