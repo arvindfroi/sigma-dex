@@ -30,9 +30,16 @@ import yaml
 import comfy
 import dexlib
 import pixel_render
+import sprite_colours  # noqa: F401  loaded now, before any job: see below
 import sprite_quality
 import sprites
 from dexlib import ROOT
+
+# 2026-11-27 (Arvind: icons he ordered for Eiv often never came): every icon try failed with "module 'sprite_colours' has no
+# attribute 'HG_ICON_PALETTES'". The trainer steps put lora-train\v6cfg first on sys.path (trainer_studio._modules and
+# v6cfg\trainer_swap.py), and v6cfg holds an OLD sprite_colours.py (15.10). studio_tries is imported lazily, so when a trainer
+# job ran first after a restart, studio_tries got the old module and every icon failed until the next restart. Importing
+# sprite_colours here, from scripts/, before any job, keeps the right one in sys.modules for the whole run.
 
 KEY_FILE = Path(os.environ.get("SIGMA_WORKER_KEY_FILE", ROOT / ".worker-key"))
 COMFY_DIR = os.environ.get("COMFY_DIR")
