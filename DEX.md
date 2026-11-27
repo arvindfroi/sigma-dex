@@ -200,7 +200,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 189 | [de es lite](data/species/de-es-lite.yaml) | Electric |  |  |  | 10% |
 | 190 | [Minant](data/species/minant.yaml) | Bug / Ground |  |  |  | 7% |
 | 191 | [Leo](data/species/leo.yaml) | Ice | Swift Swim | 280 |  | 17% |
-| 192 | [Leorime](data/species/leorime.yaml) | Ice | Swift Swim | 450 |  | 17% |
+| 192 | [Leorime](data/species/leorime.yaml) | Ice | Swift Swim, Oblivious, Unaware (H) | 450 |  | 17% |
 | 193 | [Leothrax](data/species/leothrax.yaml) | Ice / Dragon | Swift Swim | 530 |  | 17% |
 | 194 | [Ghurtle](data/species/ghurtle.yaml) | Ghost / Poison |  |  |  | 10% |
 | 195 | [Ghortoise](data/species/ghortoise.yaml) | Ghost / Poison |  |  |  | 10% |

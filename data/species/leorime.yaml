@@ -18,8 +18,8 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary: Swift Swim
-  secondary:             # optional
-  hidden:                # optional
+  secondary: Oblivious   # optional
+  hidden: Unaware        # optional
 
 base_stats:              # each 1-255
   hp: 80
@@ -80,7 +80,7 @@ design:
   wishes:                # for Claude: how it should play, move ideas
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: []   # fields Claude filled in (people can change them)
-  body_shape:            # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
+  body_shape: a body with fins # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
   movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...
 
@@ -103,3 +103,4 @@ engine:
   back_y_offset:         # pixels the back sprite is moved down
   icon_palette:          # 0, 1 or 2 - which shared icon palette fits best
   safari_flee_rate: 0
+  anim_from: Sealeo      # the official Pokemon whose battle animation it borrows

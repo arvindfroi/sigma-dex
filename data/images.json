@@ -12395,5 +12395,40 @@
     "file": "assets/concept-art/ibur/6060.png",
     "caption": "[ds-front] sprite #1122",
     "editor": "Emil"
+  },
+  {
+    "id": 6066,
+    "species": "leorime",
+    "file": "assets/concept-art/leorime/6066.png",
+    "caption": "[ds-front] sprite #1124",
+    "editor": "Emil"
+  },
+  {
+    "id": 6067,
+    "species": "leorime",
+    "file": "assets/concept-art/leorime/6067.png",
+    "caption": "[ds-back] sprite #1124",
+    "editor": "Emil"
+  },
+  {
+    "id": 6068,
+    "species": "leorime",
+    "file": "assets/concept-art/leorime/6068.png",
+    "caption": "[ds-icon] sprite #1124",
+    "editor": "Emil"
+  },
+  {
+    "id": 6069,
+    "species": "leorime",
+    "file": "assets/concept-art/leorime/6069.png",
+    "caption": "[ds-front2] sprite #1124",
+    "editor": "Emil"
+  },
+  {
+    "id": 6070,
+    "species": "leorime",
+    "file": "assets/concept-art/leorime/6070.png",
+    "caption": "[ds-back2] sprite #1124",
+    "editor": "Emil"
   }
 ]

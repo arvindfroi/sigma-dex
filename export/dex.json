@@ -43956,8 +43956,8 @@
       "body_color": null,
       "abilities": {
         "primary": "Swift Swim",
-        "secondary": null,
-        "hidden": null
+        "secondary": "Oblivious",
+        "hidden": "Unaware"
       },
       "base_stats": {
         "hp": 80,
@@ -43995,7 +43995,7 @@
         "wishes": null,
         "claude_fill": false,
         "filled_by_claude": [],
-        "body_shape": null,
+        "body_shape": "a body with fins",
         "movement": null,
         "look": null
       },
@@ -44015,7 +44015,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Sealeo"
       },
       "id": "leorime"
     },
@@ -44077,7 +44078,7 @@
         "claude_fill": false,
         "filled_by_claude": [],
         "body_shape": null,
-        "movement": null,
+        "movement": "It crawls along the ground on its legs.",
         "look": null
       },
       "assets": {
