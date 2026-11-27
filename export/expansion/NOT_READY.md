@@ -67,9 +67,9 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **gb vance** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **de es lite** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Minant** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Leo** needs: a level-up move that exists in the game
-- **Leorime** needs: a level-up move that exists in the game
-- **Leothrax** needs: a level-up move that exists in the game
+- **Leo** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Leorime** needs: an ability that exists in the game
+- **Leothrax** needs: an ability that exists in the game
 - **Ghurtle** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Ghortoise** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Wild Claws** needs: a level-up move that exists in the game

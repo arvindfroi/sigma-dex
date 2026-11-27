@@ -18,7 +18,7 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Dex page | body color | 179 / 220 |
 | Stats | base stats | 199 / 220 |
 | Stats | ability | 203 / 220 |
-| Stats | EV yield | 191 / 220 |
+| Stats | EV yield | 192 / 220 |
 | Stats | catch rate | 178 / 220 |
 | Stats | base exp | 177 / 220 |
 | Stats | growth rate | 178 / 220 |
@@ -26,8 +26,8 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Breeding | gender | 178 / 220 |
 | Breeding | egg groups | 178 / 220 |
 | Breeding | egg cycles | 177 / 220 |
-| Moves | level-up moves | 185 / 220 |
-| Moves | TM/HM moves | 182 / 220 |
+| Moves | level-up moves | 187 / 220 |
+| Moves | TM/HM moves | 183 / 220 |
 | Location | encounters | 2 / 220 |
 | Design | concept | 46 / 220 |
 | Art | concept art | 215 / 220 |
@@ -37,14 +37,14 @@ A Pokemon is complete when every item below is filled in. What each field means:
 | Art | icon | 4 / 220 |
 | Art | footprint | 145 / 220 |
 | Art | shiny palette | 133 / 220 |
-| Art | cry | 178 / 220 |
+| Art | cry | 179 / 220 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 207 / 220 |
-| DS back sprite 80x80 | 207 / 220 |
+| DS front sprite 80x80 | 208 / 220 |
+| DS back sprite 80x80 | 208 / 220 |
 | DS icon 32x32 | 204 / 220 |
 
 ## Open dex slots (34)
@@ -1220,14 +1220,14 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #171 [Eiv](data/species/eiv.yaml) - 14%
+### #171 [Eiv](data/species/eiv.yaml) - 17%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
-- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
 
 ### #172 [Eivind](data/species/eivind.yaml) - 45%
 
@@ -1424,22 +1424,21 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #192 [Leorime](data/species/leorime.yaml) - 17%
+### #192 [Leorime](data/species/leorime.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #193 [Leothrax](data/species/leothrax.yaml) - 17%
+### #193 [Leothrax](data/species/leothrax.yaml) - 28%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry

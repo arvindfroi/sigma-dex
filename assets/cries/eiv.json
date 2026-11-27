@@ -1,0 +1,43 @@
+{
+ "v": 1,
+ "seed": 2055324391,
+ "layers": [
+  {
+   "dex": 115,
+   "semi": 2.8,
+   "gain": 1.0,
+   "at": 0.0,
+   "rev": false
+  },
+  {
+   "dex": 327,
+   "semi": -1.08,
+   "gain": 0.6,
+   "at": 0.02,
+   "rev": false
+  }
+ ],
+ "stretch": 1.25,
+ "sweep": 2.0,
+ "tone": 0.0,
+ "drive": 0.0,
+ "len": 1.6,
+ "vib": {
+  "rate": 6.0,
+  "depth": 0.3
+ },
+ "ring": null,
+ "echo": {
+  "ms": 100.0,
+  "gain": 0.12
+ },
+ "reasons": [
+  "Starts from Kangaskhan's cry: same body plan, also Normal",
+  "Lower by 3 steps",
+  "Mixed with a quieter Spinda (same body plan, also Normal)",
+  "Bent lower so it is its own cry, not Kangaskhan's",
+  "Changed by hand: pitch 6, length 1.25, glide 2, wobble 0.3, echo 0.12"
+ ],
+ "by": "Arvind",
+ "at": "2026-11-27T09:34:12.449Z"
+}

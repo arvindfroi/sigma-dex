@@ -17,19 +17,19 @@ body_color:              # red blue yellow green black brown purple gray white p
 
 # --- Battle data ---
 abilities:
-  primary: Swift Swim
-  secondary:             # optional
-  hidden:                # optional
+  primary: Arctic Swimmer
+  secondary: Marvel Scale # optional
+  hidden: Thick Fat      # optional
 
 base_stats:              # each 1-255
   hp: 95
-  attack: 75
-  defense: 70
-  sp_attack: 120
-  sp_defense: 80
-  speed: 90
+  attack: 70
+  defense: 72
+  sp_attack: 125
+  sp_defense: 88
+  speed: 80
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {sp_attack: 3} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -64,9 +64,38 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
-  tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
-  tutor: []              # moves a move tutor can teach it
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 1, move: Copycat}
+    - {level: 1, move: Growl}
+    - {level: 1, move: Helping Hand}
+    - {level: 1, move: Powder Snow}
+    - {level: 12, move: Icy Wind}
+    - {level: 12, move: Mist}
+    - {level: 17, move: Dragon Breath}
+    - {level: 20, move: Twister}
+    - {level: 24, move: Aurora Beam}
+    - {level: 30, move: Chilling Water}
+    - {level: 35, move: Dragon Pulse}
+    - {level: 36, move: Flip Turn}
+    - {level: 40, move: Freeze-Dry}
+    - {level: 42, move: Nasty Plot}
+    - {level: 44, move: Ice Beam}
+    - {level: 45, move: Mirror Coat}
+    - {level: 48, move: Hydro Pump}
+    - {level: 52, move: Blizzard}
+    - {level: 58, move: Draco Meteor}
+  # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
+  tm_hm: [Water Pulse, Roar, Toxic, Hail, Hidden Power, Sunny Day, Taunt, Ice Beam,
+          Blizzard, Hyper Beam, Light Screen, Protect, Rain Dance, Frustration, Iron Tail,
+          Return, Shadow Ball, Double Team, Facade, Secret Power, Rest, Attract,
+          Focus Blast, Endure, Dragon Pulse, Giga Impact, Avalanche, Dark Pulse, Sleep Talk,
+          Swagger, Substitute, Play Rough, Psychic Fangs, Liquidation, Flip Turn, Surf,
+          Whirlpool, Waterfall]
+  # moves a move tutor can teach it
+  tutor: [Body Slam, Draco Meteor, Dragon Dance, Heat Wave, Hyper Voice, Icicle Spear,
+          Icy Wind, Outrage, Aqua Jet, Chilling Water, Water Pledge, Hydro Cannon,
+          Glaive Rush]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---
@@ -81,7 +110,7 @@ design:
   claude_fill: false     # true = Claude may fill in what is missing
   filled_by_claude: []   # fields Claude filled in (people can change them)
   body_shape:            # for the sprite studio, e.g. a quadruped body (docs/ART.md#the-sprite-studio)
-  movement: It crawls along the ground on its legs.
+  movement:              # e.g. It walks on four legs. / It floats in the air.
   look:                  # what it looks like, a few plain sentences: It is a ...
 
 # --- Assets (paths inside this repo, leave empty until the file exists) ---

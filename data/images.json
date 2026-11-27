@@ -12430,5 +12430,54 @@
     "file": "assets/concept-art/leorime/6070.png",
     "caption": "[ds-back2] sprite #1124",
     "editor": "Emil"
+  },
+  {
+    "id": 6079,
+    "species": "leothrax",
+    "file": "assets/concept-art/leothrax/6079.png",
+    "caption": "[ds-follower] sprite #1125",
+    "editor": null
+  },
+  {
+    "id": 6080,
+    "species": "leothrax",
+    "file": "assets/concept-art/leothrax/6080.png",
+    "caption": "[ds-front2] sprite #1125",
+    "editor": null
+  },
+  {
+    "id": 6081,
+    "species": "eiv",
+    "file": "assets/concept-art/eiv/6081.png",
+    "caption": "[ds-front] sprite #1126",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6082,
+    "species": "eiv",
+    "file": "assets/concept-art/eiv/6082.png",
+    "caption": "[ds-back] sprite #1126",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6083,
+    "species": "eiv",
+    "file": "assets/concept-art/eiv/6083.png",
+    "caption": "[ds-follower] sprite #1126",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6084,
+    "species": "eiv",
+    "file": "assets/concept-art/eiv/6084.png",
+    "caption": "[ds-front2] sprite #1126",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6085,
+    "species": "eiv",
+    "file": "assets/concept-art/eiv/6085.png",
+    "caption": "[ds-back2] sprite #1126",
+    "editor": "Arvind"
   }
 ]

@@ -41943,8 +41943,8 @@
         "wishes": "Mid stats. Can ONLY learn physical moves",
         "claude_fill": true,
         "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
+        "body_shape": "an upright body on two legs with a tail",
+        "movement": "It walks upright on two legs.",
         "look": null
       },
       "assets": {
@@ -41955,7 +41955,7 @@
         "icon": null,
         "footprint": null,
         "shiny_palette": null,
-        "cry": null
+        "cry": "assets/cries/eiv.json"
       },
       "engine": {
         "no_flip": false,
@@ -41963,7 +41963,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Kangaskhan"
       },
       "id": "eiv"
     },
@@ -43866,7 +43867,8 @@
         "artist": null
       },
       "types": [
-        "Ice"
+        "Ice",
+        "Water"
       ],
       "category": null,
       "description": null,
@@ -43874,9 +43876,9 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Swift Swim",
-        "secondary": null,
-        "hidden": null
+        "primary": "Arctic Swimmer",
+        "secondary": "Oblivious",
+        "hidden": "Thick Fat"
       },
       "base_stats": {
         "hp": 60,
@@ -43898,7 +43900,13 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "leorime",
+          "method": "level",
+          "level": 25
+        }
+      ],
       "forms": [],
       "learnset": {
         "level_up": [],
@@ -43947,7 +43955,8 @@
         "artist": null
       },
       "types": [
-        "Ice"
+        "Ice",
+        "Water"
       ],
       "category": null,
       "description": null,
@@ -43955,16 +43964,16 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Swift Swim",
+        "primary": "Arctic Swimmer",
         "secondary": "Oblivious",
-        "hidden": "Unaware"
+        "hidden": "Thick Fat"
       },
       "base_stats": {
-        "hp": 80,
-        "attack": 65,
+        "hp": 75,
+        "attack": 55,
         "defense": 60,
-        "sp_attack": 85,
-        "sp_defense": 70,
+        "sp_attack": 95,
+        "sp_defense": 75,
         "speed": 90
       },
       "ev_yield": null,
@@ -43979,10 +43988,21 @@
         "common": null,
         "rare": null
       },
-      "evolutions": [],
+      "evolutions": [
+        {
+          "into": "leothrax",
+          "method": "level",
+          "level": 42
+        }
+      ],
       "forms": [],
       "learnset": {
-        "level_up": [],
+        "level_up": [
+          {
+            "level": 0,
+            "move": "Chilling Water"
+          }
+        ],
         "tm_hm": [],
         "tutor": [],
         "egg": []
@@ -44037,19 +44057,21 @@
       "weight_kg": null,
       "body_color": null,
       "abilities": {
-        "primary": "Swift Swim",
-        "secondary": null,
-        "hidden": null
+        "primary": "Arctic Swimmer",
+        "secondary": "Marvel Scale",
+        "hidden": "Thick Fat"
       },
       "base_stats": {
         "hp": 95,
-        "attack": 75,
-        "defense": 70,
-        "sp_attack": 120,
-        "sp_defense": 80,
-        "speed": 90
+        "attack": 70,
+        "defense": 72,
+        "sp_attack": 125,
+        "sp_defense": 88,
+        "speed": 80
       },
-      "ev_yield": null,
+      "ev_yield": {
+        "sp_attack": 3
+      },
       "catch_rate": null,
       "base_exp": null,
       "growth_rate": null,
@@ -44064,9 +44086,139 @@
       "evolutions": [],
       "forms": [],
       "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
+        "level_up": [
+          {
+            "level": 1,
+            "move": "Copycat"
+          },
+          {
+            "level": 1,
+            "move": "Growl"
+          },
+          {
+            "level": 1,
+            "move": "Helping Hand"
+          },
+          {
+            "level": 1,
+            "move": "Powder Snow"
+          },
+          {
+            "level": 12,
+            "move": "Icy Wind"
+          },
+          {
+            "level": 12,
+            "move": "Mist"
+          },
+          {
+            "level": 17,
+            "move": "Dragon Breath"
+          },
+          {
+            "level": 20,
+            "move": "Twister"
+          },
+          {
+            "level": 24,
+            "move": "Aurora Beam"
+          },
+          {
+            "level": 30,
+            "move": "Chilling Water"
+          },
+          {
+            "level": 35,
+            "move": "Dragon Pulse"
+          },
+          {
+            "level": 36,
+            "move": "Flip Turn"
+          },
+          {
+            "level": 40,
+            "move": "Freeze-Dry"
+          },
+          {
+            "level": 42,
+            "move": "Nasty Plot"
+          },
+          {
+            "level": 44,
+            "move": "Ice Beam"
+          },
+          {
+            "level": 45,
+            "move": "Mirror Coat"
+          },
+          {
+            "level": 48,
+            "move": "Hydro Pump"
+          },
+          {
+            "level": 52,
+            "move": "Blizzard"
+          },
+          {
+            "level": 58,
+            "move": "Draco Meteor"
+          }
+        ],
+        "tm_hm": [
+          "Water Pulse",
+          "Roar",
+          "Toxic",
+          "Hail",
+          "Hidden Power",
+          "Sunny Day",
+          "Taunt",
+          "Ice Beam",
+          "Blizzard",
+          "Hyper Beam",
+          "Light Screen",
+          "Protect",
+          "Rain Dance",
+          "Frustration",
+          "Iron Tail",
+          "Return",
+          "Shadow Ball",
+          "Double Team",
+          "Facade",
+          "Secret Power",
+          "Rest",
+          "Attract",
+          "Focus Blast",
+          "Endure",
+          "Dragon Pulse",
+          "Giga Impact",
+          "Avalanche",
+          "Dark Pulse",
+          "Sleep Talk",
+          "Swagger",
+          "Substitute",
+          "Play Rough",
+          "Psychic Fangs",
+          "Liquidation",
+          "Flip Turn",
+          "Surf",
+          "Whirlpool",
+          "Waterfall"
+        ],
+        "tutor": [
+          "Body Slam",
+          "Draco Meteor",
+          "Dragon Dance",
+          "Heat Wave",
+          "Hyper Voice",
+          "Icicle Spear",
+          "Icy Wind",
+          "Outrage",
+          "Aqua Jet",
+          "Chilling Water",
+          "Water Pledge",
+          "Hydro Cannon",
+          "Glaive Rush"
+        ],
         "egg": []
       },
       "encounters": [],
@@ -44078,7 +44230,7 @@
         "claude_fill": false,
         "filled_by_claude": [],
         "body_shape": null,
-        "movement": "It crawls along the ground on its legs.",
+        "movement": null,
         "look": null
       },
       "assets": {

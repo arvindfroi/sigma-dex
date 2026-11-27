@@ -2,6 +2,11 @@
 # see data/engine/expansion.yaml for the 319 that do). Edit them on the website.
 # Each one has to be programmed into the game; 'implemented: true' marks the ones that are.
 abilities:
+- id: arctic-swimmer
+  name: Arctic Swimmer
+  description: Boosts Ice-type moves in rain and Water-type moves in Snowscape.
+  effect: Boosts this Pokémons Ice-type moves by 1.5x in rain and Water-type moves by 1.5x in Snowscape.
+  designer: Emil
 - id: aurora-dancer
   name: Aurora Dancer
   description: Ice-type moves raises the user’s Speed. Ice immunity. Levitating

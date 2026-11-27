@@ -195,9 +195,9 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 188,gb vance,Electric,,,,,=SUM(I190:N190),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind
 189,de es lite,Electric,,,,,=SUM(I191:N191),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind
 190,Minant,Bug,Ground,,,,=SUM(I192:N192),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Emil,
-191,Leo,Ice,,Swift Swim,,,=SUM(I193:N193),60,35,30,45,40,70,,,,,,,,,,,,,,,,,,,,,,,,,,,Ludvig,
-192,Leorime,Ice,,Swift Swim,Oblivious,Unaware,=SUM(I194:N194),80,65,60,85,70,90,,,,,,,,,,,,,,,,,,,,,,,,,,,Ludvig,
-193,Leothrax,Ice,Dragon,Swift Swim,,,=SUM(I195:N195),95,75,70,120,80,90,,,,,,,,,,,,,,,,,,,,,,,,,,,Ludvig,
+191,Leo,Ice,Water,Arctic Swimmer,Oblivious,Thick Fat,=SUM(I193:N193),60,35,30,45,40,70,,,,,,,,,,,,,,,,,,,,,,,,,,,Ludvig,
+192,Leorime,Ice,Water,Arctic Swimmer,Oblivious,Thick Fat,=SUM(I194:N194),75,55,60,95,75,90,Leo,Lv 25,,,,,,,,,,,,,,,,Chilling Water (evo),,,,,,,,,Ludvig,
+193,Leothrax,Ice,Dragon,Arctic Swimmer,Marvel Scale,Thick Fat,=SUM(I195:N195),95,70,72,125,88,80,Leorime,Lv 42,,,,,3 sp_attack,,,,,,,,,,,"Copycat (1), Growl (1), Helping Hand (1), Powder Snow (1), Icy Wind (12), Mist (12), Dragon Breath (17), Twister (20), Aurora Beam (24), Chilling Water (30), Dragon Pulse (35), Flip Turn (36), Freeze-Dry (40), Nasty Plot (42), Ice Beam (44), Mirror Coat (45), Hydro Pump (48), Blizzard (52), Draco Meteor (58)","Water Pulse, Roar, Toxic, Hail, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard, Hyper Beam, Light Screen, Protect, Rain Dance, Frustration, Iron Tail, Return, Shadow Ball, Double Team, Facade, Secret Power, Rest, Attract, Focus Blast, Endure, Dragon Pulse, Giga Impact, Avalanche, Dark Pulse, Sleep Talk, Swagger, Substitute, Play Rough, Psychic Fangs, Liquidation, Flip Turn, Surf, Whirlpool, Waterfall","Body Slam, Draco Meteor, Dragon Dance, Heat Wave, Hyper Voice, Icicle Spear, Icy Wind, Outrage, Aqua Jet, Chilling Water, Water Pledge, Hydro Cannon, Glaive Rush",,,,,,,Ludvig,
 194,Ghurtle,Ghost,Poison,,,,=SUM(I196:N196),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Noora,Noora
 195,Ghortoise,Ghost,Poison,,,,=SUM(I197:N197),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Noora,Noora
 196,,,,,,,=SUM(I198:N198),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

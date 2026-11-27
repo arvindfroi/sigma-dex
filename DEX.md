@@ -179,7 +179,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 168 | [Racedent](data/species/racedent.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) | 255 | Ratpid (Lv 20) | 21% |
 | 169 | [Ratpid](data/species/ratpid.yaml) | Dark | Speed Boost, Limber, Quick Feet (H) | 415 |  | 24% |
 | 170 | [S.Rotom](data/species/s-rotom.yaml) | Electric | Levitate | 440 |  | 17% |
-| 171 | [Eiv](data/species/eiv.yaml) | Normal |  |  |  | 14% |
+| 171 | [Eiv](data/species/eiv.yaml) | Normal |  |  |  | 17% |
 | 172 | [Eivind](data/species/eivind.yaml) | Normal / Fighting | Drunken Rage |  |  | 45% |
 | 173 | [Goatjo](data/species/goatjo.yaml) | Psychic / Dragon | Wonder Guard | 435 |  | 66% |
 | 174 | [Sukunomon](data/species/sukunomon.yaml) | Fire / Dark |  | 600 |  | 21% |
@@ -199,9 +199,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 188 | [gb vance](data/species/gb-vance.yaml) | Electric |  |  |  | 10% |
 | 189 | [de es lite](data/species/de-es-lite.yaml) | Electric |  |  |  | 10% |
 | 190 | [Minant](data/species/minant.yaml) | Bug / Ground |  |  |  | 7% |
-| 191 | [Leo](data/species/leo.yaml) | Ice | Swift Swim | 280 |  | 17% |
-| 192 | [Leorime](data/species/leorime.yaml) | Ice | Swift Swim, Oblivious, Unaware (H) | 450 |  | 17% |
-| 193 | [Leothrax](data/species/leothrax.yaml) | Ice / Dragon | Swift Swim | 530 |  | 17% |
+| 191 | [Leo](data/species/leo.yaml) | Ice / Water | Arctic Swimmer, Oblivious, Thick Fat (H) | 280 | Leorime (Lv 25) | 17% |
+| 192 | [Leorime](data/species/leorime.yaml) | Ice / Water | Arctic Swimmer, Oblivious, Thick Fat (H) | 450 | Leothrax (Lv 42) | 21% |
+| 193 | [Leothrax](data/species/leothrax.yaml) | Ice / Dragon | Arctic Swimmer, Marvel Scale, Thick Fat (H) | 530 |  | 28% |
 | 194 | [Ghurtle](data/species/ghurtle.yaml) | Ghost / Poison |  |  |  | 10% |
 | 195 | [Ghortoise](data/species/ghortoise.yaml) | Ghost / Poison |  |  |  | 10% |
 | 196 | *open slot* | | | | | |
