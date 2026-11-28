@@ -5199,6 +5199,12 @@ const sharesStory = id => mainOf(id) !== id && !claimOf(id).own_story;
 const storyOf = id => Object.assign({lines: []}, (sharesStory(id) ? claimOf(mainOf(id)).story : claimOf(id).story) || {});
 const groupOf = id => (DEX.characters || []).map(c => c.id).filter(x => x === id || mainOf(x) === mainOf(id));
 const charById = id => (DEX.characters || []).find(c => c.id === id) || {id, code: id};
+// A trainer Arvind makes himself (`owner` in data/characters.yaml; 2026-11-28, Arvind: "alle de trenerene jeg har sagt at jeg
+// skal fikse kan du legge inn på nettsiden men gjør de hidden. som andre utenom meg"): it shows only when the name box says
+// that person, and only they may claim it, put an NPC in it or change its story team. The site has no log-in, so it is
+// hidden on the page, not secret (the data is in the page's source).
+const ownerOk = c => !c || !c.owner || person(me()) === person(c.owner);
+const npcRoleShown = id => { const r = npcRole(id); return r && ownerOk(r) ? r : null; };
 const ownedRoles = who => { const p = person(who); return p ? (DEX.characters || []).filter(c => { const cl = claimOf(c.id); return cl.by && person(cl.by) === p; }) : []; };
 // Pairs of roles that meet (data/role_pairs.json, ~/sigma-origin/tools/role_merge, 2026-11-23): 'conflict' = in one scene,
 // so one person cannot be both; 'unsure' = they may meet. A merge checks every role of both groups.
@@ -5262,7 +5268,7 @@ function teamUse(teamId) {
 let charOrder = null;          // a random order, made once per visit, so the list gives nothing away
 function shuffledCharacters() {
   if (!charOrder) { charOrder = (DEX.characters || []).slice(); for (let i = charOrder.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [charOrder[i], charOrder[j]] = [charOrder[j], charOrder[i]]; } }
-  return charOrder;
+  return charOrder.filter(ownerOk);
 }
 // ---------- the smart story team (Arvind, 2026-11-12): one ranked team of evolution lines that grows over all battles ----------
 // The owner picks up to 6 lines by their LAST evolution (so split evolutions are clear) and ranks them: no. 1 is the star,
@@ -5528,7 +5534,7 @@ function renderCharacterPage(c) {
   }
   const status = h("div", {class: "hint charstatus", role: "status"});
   const cl = claimOf(c.id), mine = person(me()), isMine = cl.by && mine && person(cl.by) === mine;
-  const npcHere = roleNpc(cl), canTeam = isMine || !!npcHere;       // an NPC's story team: anyone may change it
+  const npcHere = roleNpc(cl), canTeam = isMine || (!!npcHere && ownerOk(c));       // an NPC's story team: anyone may change it (on an owner's trainer, only the owner)
   // merged with another of the same person's trainers: the name and sprites (and maybe the story team) come from the main one
   const mainId = mainOf(c.id), look = lookOf(c.id), follower = mainId !== c.id, mainChar = charById(mainId);
   const mates = groupOf(c.id).filter(x => x !== c.id);
@@ -5603,7 +5609,7 @@ function renderCharacterPage(c) {
     const pickNpc = h("select", {"aria-label": "NPC"}, h("option", {value: ""}, "Choose an NPC"), free.map((n, i) => h("option", {value: n.id}, (npcSecret(n) === "all" ? "Hidden NPC " + (i + 1) : n.name || n.id) + (n.sprite ? "" : " (no sprite yet)"))));
     const npcBox = npcHere ? h("div", {class: "box", style: "margin-top:8px"},
       h("div", {}, "Played by the NPC ", h("button", {type: "button", class: "link", onclick: () => openNpc(npcHere.id)}, npcHere.name || "NPC"),
-        cl.assigned_by ? " (put here by " + person(cl.assigned_by) + ")" : "", ". Anyone can build its story team below. If you claim the trainer, the NPC steps out and you keep its story team."),
+        cl.assigned_by ? " (put here by " + person(cl.assigned_by) + ")" : "", c.owner ? ". Only " + person(c.owner) + " sees this trainer and builds its story team below." : ". Anyone can build its story team below. If you claim the trainer, the NPC steps out and you keep its story team."),
       h("button", {type: "button", class: "small", style: "margin-top:6px", onclick: ev => sure(ev.currentTarget, "Really take the NPC out?", () => saveClaim("", {}, null, "release"))}, "Take the NPC out"))
       : free.length ? h("div", {class: "storyline", style: "margin-top:8px"}, h("span", {class: "sub"}, "Or let one of the group's NPCs play this trainer:"), pickNpc,
         h("button", {type: "button", onclick: ev => { if (!pickNpc.value) { note.textContent = "Choose an NPC first."; return; }
@@ -6074,7 +6080,7 @@ function renderCharacters() {
     loadClaims().catch(err => { claimsError = err.message; claims = new Map(); }).then(() => view === "chars" && renderCharacters());
     return;
   }
-  if (charOpen) { const oc = (DEX.characters || []).find(x => x.id === charOpen); if (oc) return renderCharacterPage(oc); charOpen = ""; }
+  if (charOpen) { const oc = (DEX.characters || []).find(x => x.id === charOpen && ownerOk(x)); if (oc) return renderCharacterPage(oc); charOpen = ""; }
   if (npcOpen) { const on = npcs.get(npcOpen); if (on) return renderNpcPage(on); npcOpen = ""; }
   const mine = person(me());
   const groups = [];
@@ -6099,7 +6105,7 @@ function renderCharacters() {
     sprites: c => !!(lookOf(c.id).sprite || (npcOf(c) || {}).sprite), mine: c => !!(claimOf(c.id).by && mine && person(claimOf(c.id).by) === mine)};
   const npcTest = {all: () => true, sprites: n => !!n.sprite, mine: n => !!(mine && person(n.by) === mine)};      // the NPCs show under these three
   if (!roleTest[charFilter] || (charFilter === "mine" && !mine)) charFilter = "all";
-  const howMany = k => (DEX.characters || []).filter(roleTest[k]).length + (npcTest[k] ? [...npcs.values()].filter(npcTest[k]).length : 0);
+  const howMany = k => (DEX.characters || []).filter(ownerOk).filter(roleTest[k]).length + (npcTest[k] ? [...npcs.values()].filter(npcTest[k]).length : 0);
   const filters = h("div", {class: "charfilter", role: "group", "aria-label": "Show"}, CHAR_FILTERS.filter(([k]) => k !== "mine" || mine).map(([k, label]) =>
     h("button", {type: "button", class: "small" + (k === charFilter ? " primary" : ""), "aria-pressed": String(k === charFilter), onclick: () => { charFilter = k; renderCharacters(); }}, label + " (" + howMany(k) + ")")));
   const shown = groups.map(g => ({name: g.name, rows: g.rows.filter(roleTest[charFilter])})).filter(g => g.rows.length), npcShown = npcTest[charFilter];
@@ -7356,17 +7362,17 @@ function renderNpcPage(n) {
   about.addEventListener("change", () => save({about: about.value.trim().slice(0, 300)}));
   const bar = h("div", {class: "tbar charbar"}, h("button", {type: "button", onclick: closeNpc}, "◀ All characters"), h("b", {class: "charname"}, n.name || "NPC"),
     h("span", {class: "grow"}), h("span", {class: "badge"}, "NPC" + (n.by ? " by " + person(n.by) : "")));
-  const role = npcRole(n.id), sp = n.sprite || null;
+  const role = npcRoleShown(n.id), hiddenRole = !role && !!npcRole(n.id), sp = n.sprite || null;
   const studioOpts = {kind: "npc", name: n.name, pics: [], current: n.sprite, onPick: async sprite => { await saveNpc(n, {sprite}); n = npcs.get(n.id); },
     onClose: () => { if (npcOpen === n.id) renderNpcPage(npcs.get(n.id) || n); }};
   const openStudio = () => openTrainerStudio(n.id, studioOpts);
   const toTab = id => { npcTab = id; renderNpcPage(npcs.get(n.id) || n); const el = document.getElementById("char-tabs"); if (el) el.scrollIntoView({block: "start"}); };
   const hero = h("div", {class: "charhero"}, heroPicture(sp, null), h("div", {class: "herotext"},
     h("div", {class: "heroname"}, n.name || "NPC"),
-    h("div", {class: "sub"}, ["NPC" + (n.by ? " made by " + person(n.by) : ""), role ? "plays " + charName(role) + " (" + roughBattles(role.battles || 0) + ")" : "in no battle yet"].join(" · ")),
+    h("div", {class: "sub"}, ["NPC" + (n.by ? " made by " + person(n.by) : ""), role ? "plays " + charName(role) + " (" + roughBattles(role.battles || 0) + ")" : hiddenRole ? "plays a trainer" : "in no battle yet"].join(" · ")),
     n.about ? h("div", {class: "sub"}, n.about) : null,
     h("div", {class: "herosteps"}, h("label", {class: "heroedit"}, h("span", {class: "sub"}, "Name"), nameBox),
-      heroStep(!!(sp && sp.image), "sprites", openStudio), heroStep(!!role, role ? "battle role" : "no battle role yet", () => toTab("battles"))),
+      heroStep(!!(sp && sp.image), "sprites", openStudio), heroStep(!!role || hiddenRole, role || hiddenRole ? "battle role" : "no battle role yet", () => toTab("battles"))),
     h("div", {class: "heroacts"},
       h("button", {type: "button", class: "primary", onclick: openStudio}, sp && sp.image ? "✎ OPEN THE TRAINER STUDIO" : "✎ MAKE THE TRAINER SPRITE"),
       role ? h("button", {type: "button", onclick: () => openCharacter(role, "team")}, "EDIT ITS STORY TEAM ▶")
@@ -7401,7 +7407,9 @@ const heroStep = (ok, label, onclick) => h("button", {type: "button", class: "he
 // våres npc på de ledige ... så vi legger bare inn story lagene også blir resten gjort for oss"; "alle kan gjøre det"): an NPC
 // plays a trainer role nobody has claimed, with that role's story team, levels and battles, as a person who claims it.
 function npcBattles(n, status) {
-  const role = npcRole(n.id);
+  const role = npcRoleShown(n.id);
+  if (!role && npcRole(n.id)) return h("div", {class: "box", style: "margin-top:14px"}, h("h3", {style: "margin-top:0"}, "Battles"),
+    h("div", {}, (n.name || "This NPC") + " already plays a trainer."));
   if (role) {
     const cl = claimOf(role.id);
     return h("div", {class: "box", style: "margin-top:14px"}, h("h3", {style: "margin-top:0"}, "Battles"),
@@ -7409,7 +7417,7 @@ function npcBattles(n, status) {
         " (" + (role.battles || 0) + " battles)" + (cl.assigned_by ? ", put there by " + person(cl.assigned_by) : "") + ". Its story team is built on that page; anyone can change it."));
   }
   if (claims === null) { loadClaims().then(() => { if (npcOpen === n.id) renderNpcPage(npcs.get(n.id) || n); }).catch(() => {}); return h("div", {class: "sub"}, "Loading the roles..."); }
-  const free = (DEX.characters || []).filter(c => { const cl = claimOf(c.id); return !cl.by && !cl.npc; });
+  const free = (DEX.characters || []).filter(c => { const cl = claimOf(c.id); return !cl.by && !cl.npc && ownerOk(c); });
   const roleSel = h("select", {"aria-label": "Role"}, h("option", {value: ""}, "Choose a trainer nobody has claimed"),
     free.map(c => h("option", {value: c.id}, charName(c) + " (" + roughBattles(c.battles || 0) + ")")));
   const putRole = async () => {
@@ -7434,7 +7442,7 @@ function npcSection(test, withCreate) {
       return h("button", {type: "button", class: "card charcard" + (secret ? " spoilcard" : ""), onclick: secret ? () => { showSecret(npcKeys(n)); renderCharacters(); } : () => openNpc(n.id)},
         charPreview(n.sprite, null), h("div", {class: "charinfo"},
         h("b", {}, noNames ? "An NPC" : n.name || "NPC"), n.by && !noNames ? h("div", {class: "sub"}, "by " + person(n.by)) : null,
-        role && !noNames ? h("span", {class: "badge taken"}, "plays " + charName(role)) : null,
+        role && !noNames ? h("span", {class: "badge taken"}, ownerOk(role) ? "plays " + charName(role) : "plays a trainer") : null,
         secret ? h("span", {class: "spoiltap"}, noNames ? "TAP TO SHOW WHO" : "TAP TO SHOW THE PICTURE") : null)); })) : h("div", {class: "sub"}, "No NPCs yet."),
     withCreate === false ? null : createNpcBox());
 }
@@ -8008,7 +8016,7 @@ function teamLibrary(team) {
       tb.cur = tb.teams.length - 1; tb.slot = 0; tb.panel = ""; saveTeams(); renderTeams(); }}, "Take a copy");
     const use = claims ? teamUse(t.id) : null;
     const body = open ? h("div", {class: "libbody"},
-      use ? h("div", {class: "sub"}, "Used in the game: " + use.c.group + " (" + use.c.type + "), battle " + use.battle + ".") : null,
+      use ? h("div", {class: "sub"}, ownerOk(use.c) ? "Used in the game: " + use.c.group + " (" + use.c.type + "), battle " + use.battle + "." : "Used in the game.") : null,
       use ? h("details", {class: "spoiler"}, h("summary", {}, "Show the team (spoiler)"), h("pre", {class: "libtext"}, t.text || "")) : h("pre", {class: "libtext"}, t.text || ""),
       h("div", {class: "libnotes"}, notes.length ? notes.map(n => h("div", {class: "libnote"}, h("b", {}, person(n.by) || "someone"), " ", h("span", {class: "sub"}, String(n.when || "").slice(0, 10)), h("div", {}, n.text)))
         : h("div", {class: "sub"}, "No comments yet.")),

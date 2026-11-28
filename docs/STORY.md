@@ -552,7 +552,9 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer G: Gold
 - Trainer H: not used since 2026-11-17 (it was "Koga (Elite Four)", Agatha's second team; merged into Trainer M)
 - Trainer I: Lance (Elite Four)
-- Trainer J: Green (a girl player meets Red instead: the same teams and lines, so it is one role)
+- Trainer J: Green (a girl player meets Red instead: the same teams and lines, so it is one role). Since 2026-11-28
+  Arvind's own and hidden from everyone else: the player you did not pick, Pinky or Sunniva (a boy player meets
+  Sunniva in Green's place, a girl player meets Pinky in Red's place); one story team, built on Pinky, for both
 - Trainer K: Lorelei (Elite Four)
 - Trainer L: Charon (executive)
 - Trainer M: Agatha (Elite Four)
@@ -573,7 +575,9 @@ Important trainers show only a code name and a random order, so nothing is spoil
   retired, hence AA)
 - Trainer AB: Norman (Ruby's father, Steven's friend; added 2026-11-28)
 
-Left out on purpose (Arvind makes him himself): the main rival (Blue). The two champions were left out on 2026-11-12 and
+Left out on purpose (Arvind makes him himself): the main rival (Blue). Since 2026-11-28 Blue (id rival-blue, 19 battles)
+and Trainer J are on the page as Arvind's own (`owner: Arvind`): shown only when the name box says Arvind, and only he
+can claim them, put an NPC in them or change their story teams (hidden on the page, not secret: no log-in). The two champions were left out on 2026-11-12 and
 are claimable again since 2026-11-17 (Arvind: "Du kan faktisk legge de til som mulige trenere tilbake").
 The villains (codes A, B, D, E, F, L, N, R, S, T, V) were taken off the website on 2026-11-12 (Arvind); their codes are kept
 here so the remaining letters keep their meaning.
@@ -601,7 +605,7 @@ scene that never starts. Fixed. Other things a claimer should know:
   (guide/known-issues.md, "Cynthia and Steven in Fuchsia City"); in the usual order there is a window, so battle them
   before Pokémon Tower. Also Cynthia on Route 12 (optional, one chance), Bruno in Pewter City (one chance), and the
   romance dates. Their teams are still worth making.
-- **Not on the page:** Blue (Arvind makes him), the villains (taken off 2026-11-12), and small recurring trainers such
+- **Not on the page:** Blue (Arvind makes him; on the page since 2026-11-28, but only Arvind sees it), the villains (taken off 2026-11-12), and small recurring trainers such
   as the Copycat (Norman was one of them until he became Trainer AB on 2026-11-28). Gold's unused trainer 260 (it has Green's
   team) is left out.
 - **Janine, Koga's daughter (checked 2026-11-17; on the page as Trainer AA since the same day).** All in Kanto; she is never seen in Johto (her old phone slot

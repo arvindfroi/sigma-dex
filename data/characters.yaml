@@ -17,6 +17,12 @@
 # iv = the IV level of Origin's team for that battle, as in the game (scripts/character_ivs.py); HP follows the level;
 # the story team builder uses it for every Pokemon (Arvind, 2026-11-17: "slik spillet gjør").
 # The Elite Four are among the important trainers. The main rival is left out (Arvind makes him himself, 2026-11-12).
+# owner: a trainer Arvind makes himself (2026-11-28, Arvind: "alle de trenerene jeg har sagt at jeg skal fikse kan du legge
+# inn på nettsiden men gjør de hidden. som andre utenom meg"). The website shows it only when the name box says that
+# person; nobody else can claim it, put an NPC in it or change its story team. The site has no log-in, so it is hidden
+# on the page, not secret (the data is in the page's source). Since then the main rival (rival-blue, 19 battles, sides
+# read from the multi_battle/TrainerBattle commands of Origin's scripts) and Trainer J (the player you did not pick:
+# Pinky or Sunniva) are in here as Arvind's own.
 # The two champions were left out on 2026-11-12 and came back as Trainer Y and Trainer Z on 2026-11-17 (Arvind:
 # "Du kan faktisk legge de til som mulige trenere tilbake"). Their school battle in Origin (Lv. 5) is not counted:
 # it can never be started in a normal game.
@@ -249,12 +255,14 @@
   - {lv: 90, size: 6, side: against, original: 'Gyarados 90, Salamence 90, Charizard 90, Aerodactyl 90, Dragonite 90, Kingdra 90', iv: 30}
   - {lv: 95, size: 6, side: against, original: 'Dragonite 95, Salamence 95, Aerodactyl 95, Gyarados 95, Charizard 95, Altaria 95', iv: 30}
 - id: trainer-j
-  group: Important trainer
+  owner: Arvind
+  group: Arvind's own trainer
   type: Mixed
-  place: you meet them again and again
+  about: 'Pinky or Sunniva: the player you did not pick. A boy player meets Sunniva (Origin''s Green), a girl player meets Pinky (Origin''s Red), with the same lines and teams'
+  place: you meet them again and again, as a rival and next to you
   battles: 8
   levels: [8, 15, 20, 23, 27, 33, 42, 93]
-  code: Trainer J
+  code: Pinky / Sunniva (rival)
   dialogue: {story: 702, battle: 20, words: 8605}
   teams:
   - {lv: 8, size: 2, side: with, original: 'Tangela 8, Bulbasaur 5', iv: 6}
@@ -417,3 +425,33 @@
   teams:
   - {lv: 87, size: 4, side: against, note: 'A 2-on-2 battle: they fight next to a gym leader, and the player has a partner too.', original: 'Slaking 86, Zangoose 87, Kangaskhan 87, Ursaluna 86', iv: 24}
   - {lv: 87, size: 6, side: against, note: 'After the story. The player picks a single battle, a double battle against them alone, or a double battle against them and another important trainer together.', original: 'Smeargle 86, Snorlax 87, Slaking 86, Kangaskhan 87, Porygon2 86, Ursaluna 87', iv: 24}
+- id: rival-blue
+  owner: Arvind
+  group: Arvind's own trainer
+  type: Mixed
+  about: the main rival
+  place: you meet them again and again, as a rival and next to you
+  code: Rival Blue
+  battles: 19
+  levels: [5, 7, 12, 16, 19, 22, 24, 24, 28, 30, 34, 42, 50, 70, 76, 76, 93, 97, 97]
+  dialogue: {story: 783, battle: 40, words: 9175}
+  teams:
+  - {lv: 5, size: 1, side: against, note: 'Our game: Blue takes Rainbro (Arvind, 2026-11-19).', original: Squirtle 5, iv: 1}
+  - {lv: 7, size: 3, side: against, original: 'Rattata 4, Pidgey 5, Squirtle 7', iv: 6}
+  - {lv: 12, size: 4, side: against, original: 'Rattata 11, Squirtle 12, Pidgey 11, Rhyhorn 10', iv: 6}
+  - {lv: 16, size: 4, side: with, original: 'Wartortle 16, Pidgey 15, Rhyhorn 13, Rattata 14', iv: 6}
+  - {lv: 19, size: 5, side: against, original: 'Wartortle 19, Rattata 18, Pidgeotto 18, Eevee 10, Abra 10', iv: 12}
+  - {lv: 22, size: 1, side: against, original: Wartortle 22, iv: 12}
+  - {lv: 24, size: 5, side: with, original: 'Exeggutor 22, Wartortle 24, Raticate 23, Eevee 20, Rhyhorn 22', iv: 12}
+  - {lv: 24, size: 4, side: against, original: 'Wartortle 24, Raticate 23, Pidgeotto 23, Rhyhorn 22', iv: 12}
+  - {lv: 28, size: 4, side: against, original: 'Kadabra 25, Wartortle 28, Raticate 26, Pidgeotto 27', iv: 12}
+  - {lv: 30, size: 6, side: against, original: 'Wartortle 30, Kadabra 28, Pidgeotto 29, Umbreon 28, Rhyhorn 28, Exeggutor 29', iv: 18}
+  - {lv: 34, size: 6, side: with, original: 'Wartortle 34, Kadabra 32, Pidgeotto 33, Umbreon 32, Rhyhorn 32, Exeggutor 32', iv: 18}
+  - {lv: 42, size: 6, side: with, original: 'Blastoise 42, Pidgeot 41, Alakazam 40, Arcanine 40, Rhydon 42, Umbreon 40', iv: 18}
+  - {lv: 50, size: 4, side: against, original: 'Blastoise 50, Rhydon 49, Umbreon 48, Arcanine 48', iv: 24}
+  - {lv: 70, size: 6, side: with, original: 'Blastoise 70, Pidgeot 69, Rhydon 68, Arcanine 68, Alakazam 69, Umbreon 67', iv: 24}
+  - {lv: 76, size: 4, side: against, original: 'Pidgeot 75, Rhydon 74, Alakazam 74, Blastoise 76', iv: 30}
+  - {lv: 76, size: 5, side: with, original: 'Blastoise 76, Pidgeot 75, Exeggutor 74, Alakazam 74, Rhydon 74', iv: 30}
+  - {lv: 93, size: 6, side: against, original: 'Umbreon 91, Arcanine 91, Rhydon 92, Alakazam 91, Blastoise 93, Pidgeot 92', iv: 30}
+  - {lv: 97, size: 6, side: against, original: 'Blastoise 97, Arcanine 96, Pidgeot 97, Exeggutor 96, Rhydon 97, Alakazam 96', iv: 30}
+  - {lv: 97, size: 6, side: against, original: 'Umbreon 96, Pidgeot 97, Blastoise 97, Rhydon 96, Alakazam 97, Arcanine 96', iv: 30}
