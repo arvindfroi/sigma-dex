@@ -3,7 +3,7 @@ dex: 81
 name: Chuchar
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Magnus       # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Ghost]           # 1 or 2 types, e.g. [Grass, Steel]
@@ -87,11 +87,11 @@ learnset:
     - {level: 49, move: Power Gem}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Calm Mind, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
-          Frustration, Solar Beam, Return, Psychic, Shadow Ball, Double Team, Facade, Rest,
-          Attract, Thief, Energy Ball, Endure, Will-O-Wisp, Embargo, Payback, Giga Impact,
-          Thunder Wave, Psych Up, Dark Pulse, Sleep Talk, Swagger, Substitute, Trick Room,
-          Giga Drain, Thunderbolt, Thunder, Torment, Secret Power, Skill Swap, Snatch,
-          Captivate, Natural Gift, Foul Play, Sludge Bomb]
+          Giga Drain, Frustration, Solar Beam, Thunderbolt, Thunder, Return, Psychic,
+          Shadow Ball, Double Team, Sludge Bomb, Torment, Facade, Secret Power, Rest,
+          Attract, Thief, Skill Swap, Snatch, Energy Ball, Endure, Will-O-Wisp, Embargo,
+          Payback, Giga Impact, Thunder Wave, Psych Up, Captivate, Dark Pulse, Sleep Talk,
+          Natural Gift, Swagger, Substitute, Trick Room, Foul Play]
   # moves a move tutor can teach it
   tutor: [Curse, Nasty Plot, Poltergeist, Icy Wind]
   egg: []                # only needed for the first stage of an evolution line

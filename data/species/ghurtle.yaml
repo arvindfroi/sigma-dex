@@ -1,5 +1,5 @@
 # Sigma Dex species file. What every field means: docs/DEX_DATA.md#field-guide
-dex: 194
+dex: 196
 name: Ghurtle
 
 credits:
@@ -18,18 +18,18 @@ body_color:              # red blue yellow green black brown purple gray white p
 # --- Battle data ---
 abilities:
   primary:
-  secondary:             # optional
-  hidden:                # optional
+  secondary: Anger Shell # optional
+  hidden: Dry Skin       # optional
 
 base_stats:              # each 1-255
-  hp:
-  attack:
-  defense:
-  sp_attack:
-  sp_defense:
-  speed:
+  hp: 72
+  attack: 45
+  defense: 95
+  sp_attack: 95
+  sp_defense: 136
+  speed: 42
 
-ev_yield:                # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
+ev_yield: {sp_defense: 3} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)
 base_exp:                # exp yield when defeated, e.g. 64
 growth_rate:             # erratic fast medium_fast medium_slow slow fluctuating
@@ -64,7 +64,9 @@ forms: []
 
 # --- Moves ---
 learnset:
-  level_up: []           # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  # e.g. [{level: 1, move: Tackle}, {level: 7, move: Vine Whip}]; level 0 = learned when evolving into this Pokemon
+  level_up:
+    - {level: 40, move: Shell Smash}
   tm_hm: []              # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tutor: []              # moves a move tutor can teach it
   egg: []                # only needed for the first stage of an evolution line

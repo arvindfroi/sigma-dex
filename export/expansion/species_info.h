@@ -4151,65 +4151,12 @@
         FOOTPRINT(QuestionMark)
     },
 
-    [SPECIES_ORACLET] =
-    {
-        .baseHP = 50,
-        .baseAttack = 55,
-        .baseDefense = 60,
-        .baseSpeed = 40,
-        .baseSpAttack = 80,
-        .baseSpDefense = 70,
-        .types = MON_TYPES(TYPE_PSYCHIC),
-        .catchRate = 190,
-        .expYield = 71,
-        .evYield_SpAttack = 1,
-        .genderRatio = PERCENT_FEMALE(50),
-        .eggCycles = 20,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_MEDIUM_FAST,
-        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FLYING),
-        .abilities = { ABILITY_ANTICIPATION, ABILITY_FOREWARN, ABILITY_MAGIC_GUARD },
-        .bodyColor = BODY_COLOR_PURPLE,
-        .speciesName = _("Oraclet"),
-        .cryId = CRY_NONE,
-        .natDexNum = NATIONAL_DEX_ORACLET,
-        .categoryName = _("Hatchling"),
-        .height = 6,
-        .weight = 68,
-        .description = COMPOUND_STRING(
-            "Oraclet hatches from a shell covered in\n"
-            "mysterious eyes. It scurries around on\n"
-            "its newly formed legs, using its psychic\n"
-            "power to sense the world around it."),
-        .pokemonScale = 256,
-        .pokemonOffset = 0,
-        .trainerScale = 256,
-        .trainerOffset = 0,
-        .frontPic = gMonFrontPic_CircledQuestionMark,
-        .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 0,
-        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
-        .backPic = gMonBackPic_CircledQuestionMark,
-        .backPicSize = MON_COORDS_SIZE(64, 64),
-        .backPicYOffset = 7,
-        .backAnimId = BACK_ANIM_NONE,
-        .palette = gMonPalette_CircledQuestionMark,
-        .shinyPalette = gMonShinyPalette_CircledQuestionMark,
-        .iconSprite = gMonIcon_QuestionMark,
-        .iconPalIndex = 0,
-        .levelUpLearnset = sOracletLevelUpLearnset,
-        .teachableLearnset = sOracletTeachableLearnset,
-        .eggMoveLearnset = sOracletEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_ORACLAW}),
-        FOOTPRINT(QuestionMark)
-    },
-
     [SPECIES_ORACLAW] =
     {
         .baseHP = 80,
-        .baseAttack = 75,
+        .baseAttack = 65,
         .baseDefense = 70,
-        .baseSpeed = 90,
+        .baseSpeed = 100,
         .baseSpAttack = 110,
         .baseSpDefense = 100,
         .types = MON_TYPES(TYPE_PSYCHIC, TYPE_FLYING),

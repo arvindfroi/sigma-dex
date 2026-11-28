@@ -2,9 +2,9 @@
 
 # Game export status
 
-**143** Pokemon are written as game code: Leaflet, Leafling, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Blutie, Coatail, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, Cloudgnome, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Gorambe, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Roostasaur, Leadling, Leadleak, Blylem, Globzar, Iglomodo, Furamire, Puptive, Detepup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, ambuger, Tortoplasm, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclet, Oraclaw, Minimonk, Aminimonk, Sparktera, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, Jawie, Jawbreaker, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Charcadet, Glacépée, Everdark, Diedo, Riftbloom, riftlees, G-Circuit, Strawboo, Wreckingbo, Wreckdrake, Solidedge, Sealma, Narburr, Whaldrill, Venofrib, Vendepiede, Venorax, Raymon, Crysteel, Whyrmshade, Abysspero, Aqualoom, Cabat, Cobramp, Horaxigon, Horaxander, Lansseax, Ratpid, Goatjo, Viltector, Iron Bulb, Tenebravis, Santrock, Cindreon, Custodix, Entrigon, Tsunamo, Praxis, Laxis, Bergflabb, Sabertann, Eclipsox
+**142** Pokemon are written as game code: Leaflet, Leafling, Leafaxer, Waffy, Wealther, Warrallier, Torchbat, Princinder, Monarkhan, Erobi, Harpie, Bolthook, Wump, Twemp, Florantula, Pipwi, Blutie, Coatail, Cowfin, Mooceon, Lapper, Brawleo, Snobbit, Freezrick, Bulbtle, Bulbtoise, Wispole, Croakble, Galfrogtom, Cloudgnome, Nukfae, Toxiren, Stonma, Sigmauler, Tinky, Motinky, Gortiki, Chebbi, Devampry, Chillalit, Zapana, Ampeel, Beatld, Fleuroom, Sporeshade, Razox, Unknighted, Nucloid, Nuclobyl, Julius, Conqrilla, Gorambe, Anjane, Janenon, Saucerl, Abyssys, Octopearl, Roostasaur, Leadling, Leadleak, Blylem, Globzar, Iglomodo, Furamire, Puptive, Detepup, Snownin, Vires, Flurina, Dragem, ROKU, Skiirtle, ambuger, Tortoplasm, Slothbaby, Terratyson, Obsidog, Geronimok, Slamquake, Limulk, Mortbulk, Phantomb, Phantail, Oraclaw, Minimonk, Aminimonk, Sparktera, Zapitera, Shadeem, Shadrove, Autuman, Bugmight, Jawie, Jawbreaker, Dreadipede, Dreadfang, Aquat, Aquway, Zyzzfu, Grincho, Charcadet, Glacépée, Everdark, Diedo, Riftbloom, riftlees, G-Circuit, Strawboo, Wreckingbo, Wreckdrake, Solidedge, Sealma, Narburr, Whaldrill, Venofrib, Vendepiede, Venorax, Raymon, Crysteel, Whyrmshade, Abysspero, Aqualoom, Cabat, Cobramp, Horaxigon, Horaxander, Lansseax, Ratpid, Goatjo, Viltector, Iron Bulb, Tenebravis, Santrock, Cindreon, Custodix, Entrigon, Tsunamo, Praxis, Laxis, Bergflabb, Sabertann, Eclipsox
 
-## Not exported yet (78)
+## Not exported yet (80)
 
 A Pokemon is exported once it has base stats, a valid type, an ability and a level-up move.
 
@@ -34,6 +34,7 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Ambrr** needs: an ability that exists in the game
 - **Fossitoise** needs: an ability that exists in the game
 - **Slothku** needs: an ability that exists in the game
+- **Oraclet** needs: an ability that exists in the game
 - **Viridub** needs: an ability that exists in the game
 - **Viridub Utvikling** needs: an ability that exists in the game, a name of at most 10 letters
 - **Seraphinnen** needs: a name of at most 10 letters
@@ -70,9 +71,10 @@ A Pokemon is exported once it has base stats, a valid type, an ability and a lev
 - **Leo** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Leorime** needs: an ability that exists in the game
 - **Leothrax** needs: an ability that exists in the game
-- **Ghurtle** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
-- **Ghortoise** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
 - **Big musi** needs: base stats, an ability that exists in the game, a level-up move that exists in the game
+- **Turtling** needs: an ability that exists in the game, a level-up move that exists in the game
+- **Ghurtle** needs: an ability that exists in the game
+- **Ghortoise** needs: an ability that exists in the game
 - **Wild Claws** needs: a level-up move that exists in the game
 - **Malenio** needs: an ability that exists in the game, a level-up move that exists in the game
 - **Balleisk** needs: an ability that exists in the game

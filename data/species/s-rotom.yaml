@@ -65,6 +65,7 @@ forms:
     credits: {designer: BUST}
     ev_yield: {defense: 1, sp_attack: 1, sp_defense: 1}
     movement: It floats in the air.
+    anim_from: Rotom
     body_shape: only a head
   - name: Rot.Fight
     changes: battle
@@ -76,6 +77,7 @@ forms:
     ev_yield: {defense: 1, sp_attack: 1, sp_defense: 1}
     learnset: {tm_hm: [Explosion]}
     movement: It floats in the air.
+    anim_from: Rotom
     body_shape: only a head
   - name: Rot.Fairy
     changes: battle
@@ -84,13 +86,17 @@ forms:
     base_stats: {hp: 50, attack: 65, defense: 107, sp_attack: 105, sp_defense: 107, speed: 86}
     sid: rot-fairy
     ev_yield: {defense: 1, sp_attack: 1, sp_defense: 1}
+    anim_from: Rotom
   - name: Rot.Normal
     changes: battle
     how: "Rotom enters this appliance in Rotom's Room (Silph Co.)."
     types: [Electric, Normal]
     base_stats: {hp: 50, attack: 65, defense: 107, sp_attack: 105, sp_defense: 107, speed: 86}
+    look: a floating black head surronded by energy
     sid: rot-normal
     ev_yield: {defense: 1, sp_attack: 1, sp_defense: 1}
+    movement: It floats in the air.
+    body_shape: only a head
 
 # --- Moves ---
 learnset:
@@ -133,3 +139,4 @@ engine:
   back_y_offset:         # pixels the back sprite is moved down
   icon_palette:          # 0, 1 or 2 - which shared icon palette fits best
   safari_flee_rate: 0
+  anim_from: Rotom       # the official Pokemon whose battle animation it borrows

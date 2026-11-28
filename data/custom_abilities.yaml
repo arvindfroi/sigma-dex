@@ -72,6 +72,12 @@ abilities:
     wears off after a few turns (or immediately upon switching out). The Attack boost, however, stays
     until the Pokémon leaves the field or the stat is changed by another effect.
   designer: Emil
+- id: egg-armor
+  name: Egg Armor
+  description: While at full HP, it takes half damage from attacks. Status immune
+  effect: While at full HP, this Pokémon takes half damage from attacks and can't be afflicted by status
+    conditions.
+  designer: Emil
 - id: glowing-lure
   name: Enticing Lure
   description: If user is hit by a contact move, its next move is a guaranteed crit

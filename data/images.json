@@ -4200,13 +4200,6 @@
     "editor": null
   },
   {
-    "id": 1322,
-    "species": "nuclobyl",
-    "file": "assets/concept-art/nuclobyl/1322.png",
-    "caption": "[ds-back] sprite #224",
-    "editor": null
-  },
-  {
     "id": 1323,
     "species": "nuclobyl",
     "file": "assets/concept-art/nuclobyl/1323.png",
@@ -9198,13 +9191,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 3398,
-    "species": "nuclobyl",
-    "file": "assets/concept-art/nuclobyl/3398.png",
-    "caption": "[ds-back2] sprite #658",
-    "editor": "Arvind"
-  },
-  {
     "id": 3404,
     "species": "julius",
     "file": "assets/concept-art/julius/3404.png",
@@ -12299,13 +12285,6 @@
     "editor": "Emil"
   },
   {
-    "id": 6029,
-    "species": "leo",
-    "file": "assets/concept-art/leo/6029.png",
-    "caption": "[ds-back] sprite #1121",
-    "editor": "Emil"
-  },
-  {
     "id": 6030,
     "species": "leo",
     "file": "assets/concept-art/leo/6030.png",
@@ -12323,13 +12302,6 @@
     "id": 6032,
     "species": "leorime",
     "file": "assets/concept-art/leorime/6032.webp",
-    "caption": "pasted",
-    "editor": "Emil"
-  },
-  {
-    "id": 6034,
-    "species": "ghortoise",
-    "file": "assets/concept-art/ghortoise/6034.webp",
     "caption": "pasted",
     "editor": "Emil"
   },
@@ -12362,13 +12334,6 @@
     "editor": "Emil"
   },
   {
-    "id": 6046,
-    "species": "leo",
-    "file": "assets/concept-art/leo/6046.png",
-    "caption": "[ds-back2] sprite #1121",
-    "editor": "Emil"
-  },
-  {
     "id": 6059,
     "species": "leorime",
     "file": "assets/concept-art/leorime/6059.webp",
@@ -12394,13 +12359,6 @@
     "species": "leorime",
     "file": "assets/concept-art/leorime/6067.png",
     "caption": "[ds-back] sprite #1124",
-    "editor": "Emil"
-  },
-  {
-    "id": 6068,
-    "species": "leorime",
-    "file": "assets/concept-art/leorime/6068.png",
-    "caption": "[ds-icon] sprite #1124",
     "editor": "Emil"
   },
   {
@@ -12530,13 +12488,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 6116,
-    "species": "leothrax",
-    "file": "assets/concept-art/leothrax/6116.png",
-    "caption": "[ds-icon] sprite #1133",
-    "editor": "Emil Venge-Kvamme"
-  },
-  {
     "id": 6126,
     "species": "big-musi",
     "file": "assets/concept-art/big-musi/6126.webp",
@@ -12556,5 +12507,103 @@
     "file": "assets/concept-art/ghurtle/6145.webp",
     "caption": "pasted",
     "editor": null
+  },
+  {
+    "id": 6166,
+    "species": "ghortoise",
+    "file": "assets/concept-art/ghortoise/6166.png",
+    "caption": "pasted",
+    "editor": null
+  },
+  {
+    "id": 6167,
+    "species": "ghurtling",
+    "file": "assets/concept-art/ghurtling/6167.webp",
+    "caption": "pasted",
+    "editor": "Emil"
+  },
+  {
+    "id": 6169,
+    "species": "nuclobyl",
+    "file": "assets/concept-art/nuclobyl/6169.png",
+    "caption": "[ds-back] sprite #1152",
+    "editor": "BUST"
+  },
+  {
+    "id": 6206,
+    "species": "leothrax",
+    "file": "assets/concept-art/leothrax/6206.png",
+    "caption": "[ds-icon] sprite #1149",
+    "editor": "Emil"
+  },
+  {
+    "id": 6218,
+    "species": "leorime",
+    "file": "assets/concept-art/leorime/6218.png",
+    "caption": "[ds-icon] sprite #1150",
+    "editor": "Emil"
+  },
+  {
+    "id": 6223,
+    "species": "leo",
+    "file": "assets/concept-art/leo/6223.png",
+    "caption": "[ds-back] sprite #1151",
+    "editor": "Emil"
+  },
+  {
+    "id": 6227,
+    "species": "leo",
+    "file": "assets/concept-art/leo/6227.png",
+    "caption": "[ds-back2] sprite #1151",
+    "editor": "Emil"
+  },
+  {
+    "id": 6233,
+    "species": "nuclobyl",
+    "file": "assets/concept-art/nuclobyl/6233.png",
+    "caption": "[ds-back2] sprite #1152",
+    "editor": "BUST"
+  },
+  {
+    "id": 6234,
+    "species": "s-rotom",
+    "file": "assets/concept-art/s-rotom/6234.png",
+    "caption": "[ds-front] sprite #1153",
+    "editor": "BUST"
+  },
+  {
+    "id": 6235,
+    "species": "s-rotom",
+    "file": "assets/concept-art/s-rotom/6235.png",
+    "caption": "[ds-back] sprite #1153",
+    "editor": "BUST"
+  },
+  {
+    "id": 6236,
+    "species": "s-rotom",
+    "file": "assets/concept-art/s-rotom/6236.png",
+    "caption": "[ds-icon] sprite #1153",
+    "editor": "BUST"
+  },
+  {
+    "id": 6237,
+    "species": "s-rotom",
+    "file": "assets/concept-art/s-rotom/6237.png",
+    "caption": "[ds-follower] sprite #1153",
+    "editor": "BUST"
+  },
+  {
+    "id": 6238,
+    "species": "s-rotom",
+    "file": "assets/concept-art/s-rotom/6238.png",
+    "caption": "[ds-front2] sprite #1153",
+    "editor": "BUST"
+  },
+  {
+    "id": 6239,
+    "species": "s-rotom",
+    "file": "assets/concept-art/s-rotom/6239.png",
+    "caption": "[ds-back2] sprite #1153",
+    "editor": "BUST"
   }
 ]

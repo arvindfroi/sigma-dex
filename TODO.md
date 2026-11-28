@@ -9,47 +9,47 @@ A Pokemon is complete when every item below is filled in. What each field means:
 
 | Area | Item | Filled in |
 |------|------|----------:|
-| Identity | types | 220 / 221 |
-| Identity | designer credit | 213 / 221 |
-| Dex page | category | 47 / 221 |
-| Dex page | description | 47 / 221 |
-| Dex page | height | 182 / 221 |
-| Dex page | weight | 182 / 221 |
-| Dex page | body color | 179 / 221 |
-| Stats | base stats | 199 / 221 |
-| Stats | ability | 203 / 221 |
-| Stats | EV yield | 192 / 221 |
-| Stats | catch rate | 178 / 221 |
-| Stats | base exp | 177 / 221 |
-| Stats | growth rate | 178 / 221 |
-| Stats | base friendship | 177 / 221 |
-| Breeding | gender | 178 / 221 |
-| Breeding | egg groups | 178 / 221 |
-| Breeding | egg cycles | 177 / 221 |
-| Moves | level-up moves | 187 / 221 |
-| Moves | TM/HM moves | 183 / 221 |
-| Location | encounters | 2 / 221 |
-| Design | concept | 46 / 221 |
-| Art | concept art | 216 / 221 |
-| Art | front sprite | 4 / 221 |
-| Art | front animation frame | 4 / 221 |
-| Art | back sprite | 4 / 221 |
-| Art | icon | 4 / 221 |
-| Art | footprint | 145 / 221 |
-| Art | shiny palette | 133 / 221 |
-| Art | cry | 182 / 221 |
+| Identity | types | 221 / 222 |
+| Identity | designer credit | 219 / 222 |
+| Dex page | category | 47 / 222 |
+| Dex page | description | 47 / 222 |
+| Dex page | height | 182 / 222 |
+| Dex page | weight | 182 / 222 |
+| Dex page | body color | 179 / 222 |
+| Stats | base stats | 202 / 222 |
+| Stats | ability | 204 / 222 |
+| Stats | EV yield | 195 / 222 |
+| Stats | catch rate | 178 / 222 |
+| Stats | base exp | 177 / 222 |
+| Stats | growth rate | 178 / 222 |
+| Stats | base friendship | 177 / 222 |
+| Breeding | gender | 178 / 222 |
+| Breeding | egg groups | 178 / 222 |
+| Breeding | egg cycles | 177 / 222 |
+| Moves | level-up moves | 189 / 222 |
+| Moves | TM/HM moves | 183 / 222 |
+| Location | encounters | 2 / 222 |
+| Design | concept | 46 / 222 |
+| Art | concept art | 217 / 222 |
+| Art | front sprite | 4 / 222 |
+| Art | front animation frame | 4 / 222 |
+| Art | back sprite | 4 / 222 |
+| Art | icon | 4 / 222 |
+| Art | footprint | 145 / 222 |
+| Art | shiny palette | 133 / 222 |
+| Art | cry | 182 / 222 |
 
 DS sprites for Origin HeartGold (approved in the sprite studio, not counted in the percentages):
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 209 / 221 |
-| DS back sprite 80x80 | 209 / 221 |
-| DS icon 32x32 | 206 / 221 |
+| DS front sprite 80x80 | 210 / 222 |
+| DS back sprite 80x80 | 210 / 222 |
+| DS icon 32x32 | 207 / 222 |
 
-## Open dex slots (33)
+## Open dex slots (32)
 
-#197, #198, #199, #200, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232
+#198, #199, #200, #201, #202, #203, #204, #205, #206, #207, #208, #209, #210, #211, #212, #213, #214, #215, #216, #217, #221, #222, #223, #224, #225, #226, #227, #228, #229, #230, #231, #232
 
 ## Missing per Pokemon
 
@@ -414,16 +414,14 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #57 [Sigmanian Unown](data/species/bulgarian-unown.yaml) - 72%
+### #57 [Sigmanian Unown](data/species/bulgarian-unown.yaml) - 76%
 
-- **Identity:** designer credit
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #58 [Unknighted](data/species/united.yaml) - 72%
+### #58 [Unknighted](data/species/united.yaml) - 76%
 
-- **Identity:** designer credit
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
@@ -568,23 +566,20 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon
 
-### #80 [Ciggiti](data/species/ciggiti.yaml) - 72%
+### #80 [Ciggiti](data/species/ciggiti.yaml) - 76%
 
-- **Identity:** designer credit
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #81 [Chuchar](data/species/chuchar.yaml) - 72%
+### #81 [Chuchar](data/species/chuchar.yaml) - 76%
 
-- **Identity:** designer credit
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
 
-### #82 [Parahaunt](data/species/parahaunt.yaml) - 72%
+### #82 [Parahaunt](data/species/parahaunt.yaml) - 76%
 
-- **Identity:** designer credit
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, shiny palette
@@ -1442,7 +1437,7 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette
 
-### #194 [Ghurtle](data/species/ghurtle.yaml) - 10%
+### #194 [Big musi](data/species/big-musi.yaml) - 10%
 
 - **Dex page:** category, description, height, weight, body color
 - **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
@@ -1452,22 +1447,32 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #195 [Ghortoise](data/species/ghortoise.yaml) - 10%
+### #195 [Turtling](data/species/ghurtling.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
 - **Moves:** level-up moves, TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
 
-### #196 [Big musi](data/species/big-musi.yaml) - 10%
+### #196 [Ghurtle](data/species/ghurtle.yaml) - 21%
 
 - **Dex page:** category, description, height, weight, body color
-- **Stats:** base stats, ability, EV yield, catch rate, base exp, growth rate, base friendship
+- **Stats:** ability, catch rate, base exp, growth rate, base friendship
 - **Breeding:** gender, egg groups, egg cycles
-- **Moves:** level-up moves, TM/HM moves
+- **Moves:** TM/HM moves
+- **Location:** encounters
+- **Design:** concept
+- **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry
+
+### #197 [Ghortoise](data/species/ghortoise.yaml) - 21%
+
+- **Dex page:** category, description, height, weight, body color
+- **Stats:** ability, catch rate, base exp, growth rate, base friendship
+- **Breeding:** gender, egg groups, egg cycles
+- **Moves:** TM/HM moves
 - **Location:** encounters
 - **Design:** concept
 - **Art:** front sprite, front animation frame, back sprite, icon, footprint, shiny palette, cry

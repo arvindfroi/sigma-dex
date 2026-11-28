@@ -3,7 +3,7 @@
 
 # Council of the Sigmas Pokedex
 
-**221 / 254** slots have a Pokemon - **0** are fully complete - average completeness **63%**.
+**222 / 254** slots have a Pokemon - **0** are fully complete - average completeness **63%**.
 
 What is still missing for each one: [TODO.md](TODO.md)
 
@@ -65,10 +65,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 54 | [Hippore](data/species/hippore.yaml) | Steel / Rock | Ore Body, Stamina, Sand Force (H) | 500 |  | 69% |
 | 55 | [Docuphant](data/species/docuphant.yaml) | Ground / Dragon | Thick Fat | 500 |  | 66% |
 | 56 | [Razox](data/species/razox.yaml) | Fairy / Ice | Snow Cloak, Thick Fat, Pixilate (H) | 500 |  | 72% |
-| 57 | [Sigmanian Unown](data/species/bulgarian-unown.yaml) | Electric / Psychic | Battery | 336 | Unknighted (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 72% |
-| 58 | [Unknighted](data/species/united.yaml) | Electric / Psychic | Battery | 467 |  | 72% |
+| 57 | [Sigmanian Unown](data/species/bulgarian-unown.yaml) | Electric / Psychic | Battery | 336 | Unknighted (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 76% |
+| 58 | [Unknighted](data/species/united.yaml) | Electric / Psychic | Battery | 467 |  | 76% |
 | 59 | [Hairyen](data/species/hairyen.yaml) | Grass / Water | Diver, Tangling Hair | 310 | Panzerien (Trade holding Metal Coat) | 79% |
-| 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Broken Swivel | 667 |  | 79% |
+| 60 | [Panzerien](data/species/panzerien.yaml) | Steel / Ground | Broken Swivel, Grass Pelt | 667 |  | 79% |
 | 61 | [Nucloid](data/species/nucloid.yaml) | Poison / Steel | Innards Out, Corrosion, Run Away (H) | 325 | Nuclobyl (Lv 40) | 79% |
 | 62 | [Nuclobyl](data/species/nuclobyl.yaml) | Poison / Steel | Innards Out, Corrosion, Filter (H) | 518 |  | 79% |
 | 63 | [Apeshii](data/species/apeshit.yaml) | Normal |  | 290 | Julius (Lv 20) | 69% |
@@ -88,9 +88,9 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 77 | [Globzar](data/species/iglomodo-mindre-utv.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 320 | Iglomodo (Lv 35) | 41% |
 | 78 | [Iglomodo](data/species/iglomodo.yaml) | Ice / Poison | Ice Body, Merciless, Ice Scales (H) | 520 |  | 79% |
 | 79 | [Furamire](data/species/furamire.yaml) | Normal / Fairy | Cute Charm, Competitive, Serene Grace (H) | 480 |  | 72% |
-| 80 | [Ciggiti](data/species/ciggiti.yaml) | Ghost | Smoked Up | 310 | Chuchar (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.), Parahaunt (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 72% |
-| 81 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 72% |
-| 82 | [Parahaunt](data/species/parahaunt.yaml) | Ghost | Smoked Up | 556 |  | 72% |
+| 80 | [Ciggiti](data/species/ciggiti.yaml) | Ghost | Smoked Up | 310 | Chuchar (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.), Parahaunt (Other: Link found from the group's cards, art and names on 8 Nov 2026; how it evolves is not decided yet.) | 76% |
+| 81 | [Chuchar](data/species/chuchar.yaml) | Ghost | Smoked Up | 574 |  | 76% |
+| 82 | [Parahaunt](data/species/parahaunt.yaml) | Ghost | Smoked Up | 556 |  | 76% |
 | 83 | [Puptive](data/species/darkgonark.yaml) | Normal | Pickup, Keen Eye, Download (H) | 317 | Detepup (Lv 20) | 66% |
 | 84 | [Detepup](data/species/detecup.yaml) | Normal | Pickup, Keen Eye, Download (H) | 462 |  | 72% |
 | 85 | [Snownin](data/species/snownin.yaml) | Ice | Snow Warning, Snow Cloak, Levitate (H) | 475 |  | 69% |
@@ -118,7 +118,7 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 107 | [Mortbulk](data/species/mortbulk.yaml) | Fighting | Anger Point, Heckler, Soundproof (H) | 490 | Big musi (Lv 55) | 69% |
 | 108 | [Phantomb](data/species/phantomb.yaml) | Ghost / Flying | Disguise | 280 | Phantail (Lv 40) | 72% |
 | 109 | [Phantail](data/species/sjef.yaml) | Ghost / Flying | Disguise | 480 |  | 76% |
-| 110 | [Oraclet](data/species/oraclet.yaml) | Psychic | Anticipation, Forewarn, Magic Guard (H) | 355 | Oraclaw (Lv 38) | 79% |
+| 110 | [Oraclet](data/species/oraclet.yaml) | Psychic | Egg Armor, Magic Guard (H) | 300 | Oraclaw (Lv 38) | 79% |
 | 111 | [Oraclaw](data/species/oraclaw.yaml) | Psychic / Flying | Anticipation, Forewarn, Magic Guard (H) | 525 |  | 79% |
 | 112 | [Minimonk](data/species/alminimonk.yaml) | Psychic | Shields Down | 300 | Aminimonk (Lv 32) | 72% |
 | 113 | [Aminimonk](data/species/alminimonk-utvikling.yaml) | Psychic / Fighting | Shields Down | 440 |  | 66% |
@@ -202,10 +202,10 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 191 | [Leo](data/species/leo.yaml) | Ice / Water | Arctic Swimmer, Oblivious, Thick Fat (H) | 280 | Leorime (Lv 25) | 21% |
 | 192 | [Leorime](data/species/leorime.yaml) | Ice / Water | Arctic Swimmer, Oblivious, Thick Fat (H) | 450 | Leothrax (Lv 42) | 24% |
 | 193 | [Leothrax](data/species/leothrax.yaml) | Ice / Dragon | Arctic Swimmer, Marvel Scale, Thick Fat (H) | 530 |  | 31% |
-| 194 | [Ghurtle](data/species/ghurtle.yaml) | Ghost / Poison |  |  |  | 10% |
-| 195 | [Ghortoise](data/species/ghortoise.yaml) | Ghost / Poison |  |  |  | 10% |
-| 196 | [Big musi](data/species/big-musi.yaml) | Fighting |  |  |  | 10% |
-| 197 | *open slot* | | | | | |
+| 194 | [Big musi](data/species/big-musi.yaml) | Fighting |  |  |  | 10% |
+| 195 | [Turtling](data/species/ghurtling.yaml) | Normal / Poison | Egg Armor, Run Away (H) | 230 | Ghurtle (Lv 30), Ghortoise (Lv 30) | 21% |
+| 196 | [Ghurtle](data/species/ghurtle.yaml) | Ghost / Poison | Anger Shell, Dry Skin (H) | 485 |  | 21% |
+| 197 | [Ghortoise](data/species/ghortoise.yaml) | Ghost / Poison | Anger Shell, Sand Rush (H) | 485 |  | 21% |
 | 198 | *open slot* | | | | | |
 | 199 | *open slot* | | | | | |
 | 200 | *open slot* | | | | | |

@@ -437,17 +437,6 @@ static const u16 sPhantombEggMoveLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 
-static const u16 sOracletEggMoveLearnset[] = {
-    MOVE_SYNCHRONOISE,
-    MOVE_GUARD_SWAP,
-    MOVE_ZEN_HEADBUTT,
-    MOVE_NASTY_PLOT,
-    MOVE_CURSE,
-    MOVE_ROOST,
-    MOVE_HELPING_HAND,
-    MOVE_UNAVAILABLE,
-};
-
 static const u16 sMinimonkEggMoveLearnset[] = {
     MOVE_PSYCHO_CUT,
     MOVE_MIRROR_COAT,

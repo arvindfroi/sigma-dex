@@ -3,8 +3,8 @@ dex: 57
 name: Sigmanian Unown
 
 credits:
-  designer:              # who came up with it (Discord name)
-  artist:                # who drew the concept art
+  designer: Magnus       # who came up with it (Discord name)
+  artist: Magnus         # who drew the concept art
 
 types: [Electric, Psychic] # 1 or 2 types, e.g. [Grass, Steel]
 

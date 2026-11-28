@@ -3,7 +3,7 @@ dex: 80
 name: Ciggiti
 
 credits:
-  designer:              # who came up with it (Discord name)
+  designer: Magnus       # who came up with it (Discord name)
   artist:                # who drew the concept art
 
 types: [Ghost]           # 1 or 2 types, e.g. [Grass, Steel]

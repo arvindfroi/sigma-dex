@@ -6719,6 +6719,7 @@
           "Dig",
           "Brick Break",
           "Double Team",
+          "Sandstorm",
           "Rock Tomb",
           "Facade",
           "Secret Power",
@@ -6741,8 +6742,7 @@
           "Body Press",
           "Meteor Beam",
           "Strength",
-          "Rock Smash",
-          "Sandstorm"
+          "Rock Smash"
         ],
         "tutor": [
           "Ancient Power",
@@ -14748,8 +14748,8 @@
       "dex": 57,
       "name": "Sigmanian Unown",
       "credits": {
-        "designer": null,
-        "artist": null
+        "designer": "Magnus",
+        "artist": "Magnus"
       },
       "types": [
         "Electric",
@@ -14985,7 +14985,7 @@
       "dex": 58,
       "name": "Unknighted",
       "credits": {
-        "designer": null,
+        "designer": "Magnus",
         "artist": null
       },
       "types": [
@@ -15510,7 +15510,7 @@
       "body_color": "brown",
       "abilities": {
         "primary": "Broken Swivel",
-        "secondary": null,
+        "secondary": "Grass Pelt",
         "hidden": null
       },
       "base_stats": {
@@ -20776,7 +20776,7 @@
       "dex": 80,
       "name": "Ciggiti",
       "credits": {
-        "designer": null,
+        "designer": "Magnus",
         "artist": null
       },
       "types": [
@@ -21019,7 +21019,7 @@
       "dex": 81,
       "name": "Chuchar",
       "credits": {
-        "designer": null,
+        "designer": "Magnus",
         "artist": null
       },
       "types": [
@@ -21149,16 +21149,24 @@
           "Hyper Beam",
           "Protect",
           "Rain Dance",
+          "Giga Drain",
           "Frustration",
           "Solar Beam",
+          "Thunderbolt",
+          "Thunder",
           "Return",
           "Psychic",
           "Shadow Ball",
           "Double Team",
+          "Sludge Bomb",
+          "Torment",
           "Facade",
+          "Secret Power",
           "Rest",
           "Attract",
           "Thief",
+          "Skill Swap",
+          "Snatch",
           "Energy Ball",
           "Endure",
           "Will-O-Wisp",
@@ -21167,22 +21175,14 @@
           "Giga Impact",
           "Thunder Wave",
           "Psych Up",
+          "Captivate",
           "Dark Pulse",
           "Sleep Talk",
+          "Natural Gift",
           "Swagger",
           "Substitute",
           "Trick Room",
-          "Giga Drain",
-          "Thunderbolt",
-          "Thunder",
-          "Torment",
-          "Secret Power",
-          "Skill Swap",
-          "Snatch",
-          "Captivate",
-          "Natural Gift",
-          "Foul Play",
-          "Sludge Bomb"
+          "Foul Play"
         ],
         "tutor": [
           "Curse",
@@ -21261,7 +21261,7 @@
       "dex": 82,
       "name": "Parahaunt",
       "credits": {
-        "designer": null,
+        "designer": "Magnus",
         "artist": null
       },
       "types": [
@@ -21391,6 +21391,7 @@
           "Hyper Beam",
           "Protect",
           "Rain Dance",
+          "Giga Drain",
           "Frustration",
           "Thunderbolt",
           "Thunder",
@@ -21423,8 +21424,7 @@
           "Swagger",
           "Substitute",
           "Trick Room",
-          "Foul Play",
-          "Giga Drain"
+          "Foul Play"
         ],
         "tutor": [
           "Charm",
@@ -28538,16 +28538,16 @@
       "weight_kg": 6.8,
       "body_color": "purple",
       "abilities": {
-        "primary": "Anticipation",
-        "secondary": "Forewarn",
+        "primary": "Egg Armor",
+        "secondary": null,
         "hidden": "Magic Guard"
       },
       "base_stats": {
-        "hp": 50,
-        "attack": 55,
-        "defense": 60,
-        "sp_attack": 80,
-        "sp_defense": 70,
+        "hp": 40,
+        "attack": 35,
+        "defense": 50,
+        "sp_attack": 70,
+        "sp_defense": 65,
         "speed": 40
       },
       "ev_yield": {
@@ -28789,11 +28789,11 @@
       },
       "base_stats": {
         "hp": 80,
-        "attack": 75,
+        "attack": 65,
         "defense": 70,
         "sp_attack": 110,
         "sp_defense": 100,
-        "speed": 90
+        "speed": 100
       },
       "ev_yield": {
         "sp_attack": 2
@@ -41816,6 +41816,7 @@
             "sp_defense": 1
           },
           "movement": "It floats in the air.",
+          "anim_from": "Rotom",
           "body_shape": "only a head"
         },
         {
@@ -41847,6 +41848,7 @@
             ]
           },
           "movement": "It floats in the air.",
+          "anim_from": "Rotom",
           "body_shape": "only a head"
         },
         {
@@ -41870,7 +41872,8 @@
             "defense": 1,
             "sp_attack": 1,
             "sp_defense": 1
-          }
+          },
+          "anim_from": "Rotom"
         },
         {
           "name": "Rot.Normal",
@@ -41888,12 +41891,15 @@
             "sp_defense": 107,
             "speed": 86
           },
+          "look": "a floating black head surronded by energy",
           "sid": "rot-normal",
           "ev_yield": {
             "defense": 1,
             "sp_attack": 1,
             "sp_defense": 1
-          }
+          },
+          "movement": "It floats in the air.",
+          "body_shape": "only a head"
         }
       ],
       "learnset": {
@@ -41930,7 +41936,8 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Rotom"
       },
       "id": "s-rotom"
     },
@@ -44296,174 +44303,13 @@
         "front_y_offset": null,
         "back_y_offset": null,
         "icon_palette": null,
-        "safari_flee_rate": 0
+        "safari_flee_rate": 0,
+        "anim_from": "Walrein"
       },
       "id": "leothrax"
     },
     {
       "dex": 194,
-      "name": "Ghurtle",
-      "credits": {
-        "designer": "Noora",
-        "artist": "Noora"
-      },
-      "types": [
-        "Ghost",
-        "Poison"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/ghurtle/6145.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "ghurtle"
-    },
-    {
-      "dex": 195,
-      "name": "Ghortoise",
-      "credits": {
-        "designer": "Noora",
-        "artist": "Noora"
-      },
-      "types": [
-        "Ghost",
-        "Poison"
-      ],
-      "category": null,
-      "description": null,
-      "height_m": null,
-      "weight_kg": null,
-      "body_color": null,
-      "abilities": {
-        "primary": null,
-        "secondary": null,
-        "hidden": null
-      },
-      "base_stats": {
-        "hp": null,
-        "attack": null,
-        "defense": null,
-        "sp_attack": null,
-        "sp_defense": null,
-        "speed": null
-      },
-      "ev_yield": null,
-      "catch_rate": null,
-      "base_exp": null,
-      "growth_rate": null,
-      "base_friendship": null,
-      "gender": null,
-      "egg_groups": [],
-      "egg_cycles": null,
-      "held_items": {
-        "common": null,
-        "rare": null
-      },
-      "evolutions": [],
-      "forms": [],
-      "learnset": {
-        "level_up": [],
-        "tm_hm": [],
-        "tutor": [],
-        "egg": []
-      },
-      "encounters": [],
-      "design": {
-        "concept": null,
-        "name_origin": null,
-        "notes": null,
-        "wishes": null,
-        "claude_fill": false,
-        "filled_by_claude": [],
-        "body_shape": null,
-        "movement": null,
-        "look": null
-      },
-      "assets": {
-        "concept_art": "assets/concept-art/ghortoise/6034.webp",
-        "front_sprite": null,
-        "front_anim": null,
-        "back_sprite": null,
-        "icon": null,
-        "footprint": null,
-        "shiny_palette": null,
-        "cry": null
-      },
-      "engine": {
-        "no_flip": false,
-        "elevation": 0,
-        "front_y_offset": null,
-        "back_y_offset": null,
-        "icon_palette": null,
-        "safari_flee_rate": 0
-      },
-      "id": "ghortoise"
-    },
-    {
-      "dex": 196,
       "name": "Big musi",
       "credits": {
         "designer": "Arvind",
@@ -44541,6 +44387,279 @@
         "safari_flee_rate": 0
       },
       "id": "big-musi"
+    },
+    {
+      "dex": 195,
+      "name": "Turtling",
+      "credits": {
+        "designer": "Noora",
+        "artist": "Noora"
+      },
+      "types": [
+        "Normal",
+        "Poison"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": "Egg Armor",
+        "secondary": null,
+        "hidden": "Run Away"
+      },
+      "base_stats": {
+        "hp": 40,
+        "attack": 30,
+        "defense": 50,
+        "sp_attack": 30,
+        "sp_defense": 50,
+        "speed": 30
+      },
+      "ev_yield": {
+        "defense": 1,
+        "sp_defense": 1
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [
+        {
+          "into": "ghurtle",
+          "method": "level",
+          "level": 30,
+          "note": "Reaches Level 30 while surfing"
+        },
+        {
+          "into": "ghortoise",
+          "method": "level",
+          "level": 30,
+          "note": "Reaches Level 30 on land"
+        }
+      ],
+      "forms": [],
+      "learnset": {
+        "level_up": [],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": "Baby turtle inside of an hatched egg"
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/ghurtling/6167.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "ghurtling"
+    },
+    {
+      "dex": 196,
+      "name": "Ghurtle",
+      "credits": {
+        "designer": "Noora",
+        "artist": "Noora"
+      },
+      "types": [
+        "Ghost",
+        "Poison"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": "Anger Shell",
+        "hidden": "Dry Skin"
+      },
+      "base_stats": {
+        "hp": 72,
+        "attack": 45,
+        "defense": 95,
+        "sp_attack": 95,
+        "sp_defense": 136,
+        "speed": 42
+      },
+      "ev_yield": {
+        "sp_defense": 3
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 40,
+            "move": "Shell Smash"
+          }
+        ],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/ghurtle/6145.webp",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "ghurtle"
+    },
+    {
+      "dex": 197,
+      "name": "Ghortoise",
+      "credits": {
+        "designer": "Noora",
+        "artist": "Noora"
+      },
+      "types": [
+        "Ghost",
+        "Poison"
+      ],
+      "category": null,
+      "description": null,
+      "height_m": null,
+      "weight_kg": null,
+      "body_color": null,
+      "abilities": {
+        "primary": null,
+        "secondary": "Anger Shell",
+        "hidden": "Sand Rush"
+      },
+      "base_stats": {
+        "hp": 72,
+        "attack": 95,
+        "defense": 136,
+        "sp_attack": 45,
+        "sp_defense": 95,
+        "speed": 42
+      },
+      "ev_yield": {
+        "defense": 3
+      },
+      "catch_rate": null,
+      "base_exp": null,
+      "growth_rate": null,
+      "base_friendship": null,
+      "gender": null,
+      "egg_groups": [],
+      "egg_cycles": null,
+      "held_items": {
+        "common": null,
+        "rare": null
+      },
+      "evolutions": [],
+      "forms": [],
+      "learnset": {
+        "level_up": [
+          {
+            "level": 40,
+            "move": "Shell Smash"
+          }
+        ],
+        "tm_hm": [],
+        "tutor": [],
+        "egg": []
+      },
+      "encounters": [],
+      "design": {
+        "concept": null,
+        "name_origin": null,
+        "notes": null,
+        "wishes": null,
+        "claude_fill": false,
+        "filled_by_claude": [],
+        "body_shape": null,
+        "movement": null,
+        "look": null
+      },
+      "assets": {
+        "concept_art": "assets/concept-art/ghortoise/6166.png",
+        "front_sprite": null,
+        "front_anim": null,
+        "back_sprite": null,
+        "icon": null,
+        "footprint": null,
+        "shiny_palette": null,
+        "cry": null
+      },
+      "engine": {
+        "no_flip": false,
+        "elevation": 0,
+        "front_y_offset": null,
+        "back_y_offset": null,
+        "icon_palette": null,
+        "safari_flee_rate": 0
+      },
+      "id": "ghortoise"
     },
     {
       "dex": 218,

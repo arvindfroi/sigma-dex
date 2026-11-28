@@ -2329,41 +2329,13 @@ SINGLE_BATTLE_TEST("Sigma dex: Phantail can use its first move in battle")
     }
 }
 
-TEST("Sigma dex: Oraclet has the data from its species file")
-{
-    const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ORACLET];
-    EXPECT_EQ(info->baseHP, 50);
-    EXPECT_EQ(info->baseAttack, 55);
-    EXPECT_EQ(info->baseDefense, 60);
-    EXPECT_EQ(info->baseSpeed, 40);
-    EXPECT_EQ(info->baseSpAttack, 80);
-    EXPECT_EQ(info->baseSpDefense, 70);
-    EXPECT_EQ(info->types[0], TYPE_PSYCHIC);
-    EXPECT_EQ(info->types[1], TYPE_PSYCHIC);
-    EXPECT_EQ(info->abilities[0], ABILITY_ANTICIPATION);
-    EXPECT_EQ(info->levelUpLearnset[0].move, MOVE_CONFUSION);
-    EXPECT_EQ(GetSpeciesName(SPECIES_ORACLET)[0], CHAR_O);
-}
-
-SINGLE_BATTLE_TEST("Sigma dex: Oraclet can use its first move in battle")
-{
-    GIVEN {
-        PLAYER(SPECIES_ORACLET) { Moves(MOVE_CONFUSION); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_CONFUSION); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSION, player);
-    }
-}
-
 TEST("Sigma dex: Oraclaw has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_ORACLAW];
     EXPECT_EQ(info->baseHP, 80);
-    EXPECT_EQ(info->baseAttack, 75);
+    EXPECT_EQ(info->baseAttack, 65);
     EXPECT_EQ(info->baseDefense, 70);
-    EXPECT_EQ(info->baseSpeed, 90);
+    EXPECT_EQ(info->baseSpeed, 100);
     EXPECT_EQ(info->baseSpAttack, 110);
     EXPECT_EQ(info->baseSpDefense, 100);
     EXPECT_EQ(info->types[0], TYPE_PSYCHIC);
