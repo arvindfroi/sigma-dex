@@ -69,6 +69,13 @@ header .sub { color: #fbefff; font-size: 15px; }
 .daynight button[aria-pressed=true] { background: var(--gold); color: #2c2000; border-color: #8a6a10; }
 .spoilrow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 10px; margin: 4px 0; }
 .spoilrow button { min-height: 0; padding: 3px 10px; font-size: 13px; }
+/* the spoiler warning (2026-11-28): a trainer's or NPC's picture is blurred until it is tapped */
+.spoilwrap { display: flex; align-items: center; gap: 8px; }
+.spoillabel { font-family: var(--display); font-size: 13px; color: #ffffff; text-shadow: 1px 1px 0 rgba(40, 20, 80, .6); }
+img.spoilblur { filter: blur(14px) saturate(.6); clip-path: inset(0); }
+.charcard.spoilcard .spoiltap { font-size: 13px; font-weight: bold; color: var(--pri); }
+.spoilgate { text-align: center; }
+.spoilgate .charpv { max-width: 320px; margin: 0 auto 10px; }
 
 /* fields */
 input, select, textarea { font: inherit; font-size: 15px; color: var(--ink); background: var(--field); border: 3px solid var(--edge2); border-radius: 0; padding: 6px 9px; min-width: 0; }
@@ -1202,7 +1209,7 @@ input[type=range].shtrack::-moz-range-thumb { width: 8px; height: 20px; backgrou
     <div class="sub" id="summary"></div>
   </div>
   <div class="daynight" id="daynight" role="group" aria-label="Day or night"></div>
-  <div class="daynight" id="spoilers" role="group" aria-label="Pokemon pictures or names only"></div>
+  <div class="spoilwrap"><span class="spoillabel" aria-hidden="true">SPOILERS</span><div class="daynight" id="spoilers" role="group" aria-label="Spoilers: visible, names only or no spoilers"></div></div>
   <label class="me">NAME <input id="me" maxlength="40" placeholder="Discord name (optional)" autocomplete="nickname"></label>
 </header></div>
 <div id="welcomebar" hidden></div>
@@ -1265,8 +1272,10 @@ const ITEM_METHODS = ["item", "trade_item"];
 
 function h(tag, attrs, ...kids) {
   const el = document.createElement(tag);
-  if (attrs && tag === "img" && hiddenPic(attrs.src)) attrs = Object.assign({}, attrs, {src: HIDDEN_PIC, srcset: null, alt: "hidden picture (spoiler-free)", title: "Hidden: spoiler-free is on (top of the page)"});
+  if (attrs && tag === "img" && hiddenPic(attrs.src)) attrs = Object.assign({}, attrs, {src: HIDDEN_PIC, srcset: null, alt: "hidden picture (spoiler warning)", title: "Hidden: the spoiler warning is on (SPOILERS at the top of the page)"});
   if (attrs && tag === "a" && hiddenPic(attrs.href)) attrs = Object.assign({}, attrs, {href: null, target: null});
+  if (attrs && tag === "img" && blurPic(attrs.src)) attrs = Object.assign({}, attrs, {class: ((attrs.class || "") + " spoilblur").trim(), title: "Spoiler: tap the trainer to show it"});
+  if (attrs && tag === "a" && blurPic(attrs.href)) attrs = Object.assign({}, attrs, {href: null, target: null});
   for (const [k, v] of Object.entries(attrs || {})) {
     if (v === null || v === undefined || v === false) continue;
     if (k === "class") el.className = v; else if (k === "style") el.style.cssText = v;
@@ -1293,14 +1302,29 @@ const remember = { get(k) { try { return localStorage.getItem("sigma-" + k) || "
 // Spoiler-free (27 Nov 2026, asked in Discord for someone who wants to play the game blind but still add Pokemon): every
 // Pokemon picture becomes a "?" box, so only names and types show. Trainer and NPC pictures stay. Kept on this device only.
 // A Pokemon's page can show that one's pictures again (the ones you made yourself), and hide them again.
-const NOSPOIL = {on: remember.get("nospoil") === "1", shown: new Set(remember.get("nospoil-shown").split(",").filter(Boolean))};
+// The spoiler warning (2026-11-28, Arvind: "på pokemon holder det å gjemme design og bevare navn ... men på characters så burde
+// man også kunne gjøre det slik at man ikke ser hvem som er hvem og navn. det bør være gjemt by default og bildene kan være
+// blurred. bare når man trykker på de så blir de synlige"): three steps at the top. VISIBLE shows everything. NAMES ONLY (the
+// old switch, still "1") hides every Pokemon picture and blurs the trainers' and NPCs' pictures. NO SPOILERS ("2") also hides
+// who plays which trainer and every trainer's and NPC's name. A trainer or NPC shows again when it is tapped; your own always show.
+// shown holds Pokemon folders, "trainer-<role>" and NPC ids (also their picture folders).
+const NOSPOIL = (() => { const v = remember.get("nospoil"), mode = v === "2" ? 2 : v === "1" ? 1 : 0;
+  return {mode, on: mode > 0, names: mode === 2, shown: new Set(remember.get("nospoil-shown").split(",").filter(Boolean))}; })();
+const saveShown = () => remember.set("nospoil-shown", [...NOSPOIL.shown].join(","));
 const HIDDEN_PIC = "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><rect x="6" y="6" width="68" height="68" rx="10" fill="#888888" fill-opacity=".18" stroke="#888888" stroke-width="3" stroke-dasharray="7 5"/><text x="40" y="53" font-size="36" font-family="sans-serif" font-weight="bold" text-anchor="middle" fill="#888888">?</text></svg>');
 // The folder a picture is filed under: art/<id>/..., art/tries/<id>/... or art/candidates/<id>/... (here and in storage).
 const picFolder = src => { const m = String(src || "").match(/(?:^|\/)art\/(?:tries\/|candidates\/)?([^\/?#]+)\//); return m ? m[1] : null; };
+const personFolder = f => /^(trainer-|npc-)/.test(f || "");
 function hiddenPic(src) {
   if (!NOSPOIL.on) return false;
   const f = picFolder(src);
-  return !!f && !/^(trainer-|npc-)/.test(f) && !NOSPOIL.shown.has(f);
+  return !!f && !personFolder(f) && !NOSPOIL.shown.has(f);
+}
+// A trainer's or NPC's picture under the spoiler warning: blurred, unless it was tapped or it is yours.
+function blurPic(src) {
+  if (!NOSPOIL.on) return false;
+  const f = picFolder(src);
+  return !!f && personFolder(f) && !NOSPOIL.shown.has(f) && !ownFolder(f);
 }
 const me = () => document.getElementById("me").value.trim();   // optional: saving never needs a name (Arvind, 15 Nov 2026); only claiming a trainer asks for one
 let bySlot, byId;
@@ -5360,6 +5384,58 @@ function sideCount(c) {
 const roughBattles = n => n >= 8 ? "many battles" : n >= 3 ? "several battles" : n === 2 ? "a couple of battles" : "one battle";
 const charName = c => c.code || (c.group + " · " + c.type);
 const charPic = c => (trainerPics.get(c.id) || [])[0];
+// ----- the spoiler warning on trainers and NPCs (2026-11-28; see NOSPOIL)
+function ownFolder(f) {                     // "trainer-<role>" of a role you play, or an NPC you made
+  try {
+    const mine = person(me());
+    if (!mine) return false;
+    if (f.startsWith("trainer-")) { const cl = claimOf(f.slice(8)); return !!(cl.by && person(cl.by) === mine); }
+    const n = npcs.get(f);
+    return !!(n && n.by && person(n.by) === mine);
+  } catch (e) { return false; }
+}
+// What the warning hides of a trainer now: "" (nothing), "pics" (NAMES ONLY: its pictures) or "all" (NO SPOILERS: who plays it,
+// its name and its pictures). Nothing on a trainer nobody plays and with no picture, one that was tapped, or your own.
+function roleSecret(c) {
+  if (!NOSPOIL.on || NOSPOIL.shown.has("trainer-" + c.id)) return "";
+  const cl = claimOf(c.id), mine = person(me()), npc = roleNpc(cl), look = lookOf(c.id);
+  if (cl.by && mine && person(cl.by) === mine) return "";
+  const pics = !!(look.sprite || (npc && npc.sprite) || charPic(c));
+  return NOSPOIL.names ? (cl.by || npc || look.name || pics ? "all" : "") : pics ? "pics" : "";
+}
+function npcSecret(n) {
+  if (!NOSPOIL.on || NOSPOIL.shown.has(n.id) || ownFolder(n.id)) return "";
+  return NOSPOIL.names ? "all" : n.sprite ? "pics" : "";
+}
+// every trainer/NPC picture folder in a sprite (paths like tries/trainer-gym-bug/..., or whole addresses)
+function foldersIn(o) {
+  const out = [], walk = v => { if (typeof v === "string") { const f = picFolder(/^https?:/.test(v) ? v : "art/" + v); if (personFolder(f)) out.push(f); }
+    else if (v && typeof v === "object") Object.values(v).forEach(walk); };
+  walk(o);
+  return out;
+}
+// What a tap shows: the role (or NPC) and every folder its pictures come from (a merged trainer's come from its main one).
+function roleKeys(c) {
+  const npc = roleNpc(claimOf(c.id));
+  return ["trainer-" + c.id, "trainer-" + mainOf(c.id), ...foldersIn(lookOf(c.id).sprite), ...(trainerPics.get(c.id) || []).map(p => picFolder(p.src)),
+    ...(npc ? [npc.id, ...foldersIn(npc.sprite)] : [])].filter(personFolder);
+}
+function npcKeys(n) { const role = npcRole(n.id); return [n.id, ...foldersIn(n.sprite), role ? "trainer-" + role.id : ""].filter(personFolder); }
+function showSecret(keys) { keys.forEach(k => NOSPOIL.shown.add(k)); saveShown(); }
+function hideSecret(keys) { keys.forEach(k => NOSPOIL.shown.delete(k)); saveShown(); }
+const SECRET_TEXT = {all: "Who this is, the name and the pictures are hidden.", pics: "The pictures are blurred."};
+// A trainer's or NPC's page while it is hidden: only the blurred picture and a way to show it.
+function spoilGate(bar, preview, secret, onShow) {
+  return h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar,
+    h("div", {class: "box spoilgate"}, preview, h("div", {}, h("b", {}, "Spoiler warning. "), SECRET_TEXT[secret]),
+      h("button", {type: "button", class: "primary", style: "margin-top:8px", onclick: onShow}, "SHOW IT")));
+}
+// On a page that was tapped open: hide it again.
+function spoilAgain(keys, onHide) {
+  if (!NOSPOIL.on || !keys.some(k => NOSPOIL.shown.has(k))) return null;
+  return h("div", {class: "spoilrow"}, h("span", {class: "sub"}, "The spoiler warning is on; you tapped to show this one."),
+    h("button", {type: "button", onclick: () => { hideSecret(keys); onHide(); }}, "HIDE IT AGAIN"));
+}
 function charTop(c) {
   const pic = charPic(c), cl = claimOf(c.id);
   return h("section", {class: "screen top", "aria-label": charName(c)},
@@ -5393,6 +5469,15 @@ function closeCharacter() {
 const talkWord = c => { const w = (c.dialogue || {}).words || 0; return w >= 5000 ? "talks a lot" : w >= 2000 ? "talks quite a bit" : w >= 800 ? "some dialogue" : w >= 100 ? "little dialogue" : "almost silent"; };
 function renderCharacterPage(c) {
   const grid = document.getElementById("grid");
+  const secret = roleSecret(c);
+  if (secret) {
+    const npc = roleNpc(claimOf(c.id));
+    grid.replaceChildren(spoilGate(h("div", {class: "tbar charbar"}, h("button", {type: "button", onclick: closeCharacter}, "◀ All characters"),
+        h("b", {class: "charname"}, charName(c)), h("span", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).filter(t => DEX.types.includes(t)).map(typeChip))),
+      charPreview(lookOf(c.id).sprite || (npc && npc.sprite), charPic(c), TYPE_COLORS[String(c.type || "").split("/")[0].trim()]), secret,
+      () => { showSecret(roleKeys(c)); renderCharacterPage(c); }));
+    return;
+  }
   const status = h("div", {class: "hint charstatus", role: "status"});
   const cl = claimOf(c.id), mine = person(me()), isMine = cl.by && mine && person(cl.by) === mine;
   const npcHere = roleNpc(cl), canTeam = isMine || !!npcHere;       // an NPC's story team: anyone may change it
@@ -5467,7 +5552,7 @@ function renderCharacterPage(c) {
     const note = h("div", {class: "hint", role: "status", style: "margin:6px 0 0"});
     // or an NPC plays it (anyone may do this; a person can still claim it later)
     const free = [...npcs.values()].filter(n => !npcRole(n.id)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
-    const pickNpc = h("select", {"aria-label": "NPC"}, h("option", {value: ""}, "Choose an NPC"), free.map(n => h("option", {value: n.id}, (n.name || n.id) + (n.sprite ? "" : " (no sprite yet)"))));
+    const pickNpc = h("select", {"aria-label": "NPC"}, h("option", {value: ""}, "Choose an NPC"), free.map((n, i) => h("option", {value: n.id}, (npcSecret(n) === "all" ? "Hidden NPC " + (i + 1) : n.name || n.id) + (n.sprite ? "" : " (no sprite yet)"))));
     const npcBox = npcHere ? h("div", {class: "box", style: "margin-top:8px"},
       h("div", {}, "Played by the NPC ", h("button", {type: "button", class: "link", onclick: () => openNpc(npcHere.id)}, npcHere.name || "NPC"),
         cl.assigned_by ? " (put here by " + person(cl.assigned_by) + ")" : "", ". Anyone can build its story team below. If you claim the trainer, the NPC steps out and you keep its story team."),
@@ -5927,7 +6012,7 @@ function renderCharacterPage(c) {
     // the open set stays open when the page is drawn again (after SAVE, or after picking another Pokemon for it)
     if (storyEdit && storyEdit.c === c.id && charTab === "team") { openSet.quiet = true; openSet(storyEdit.k, storyEdit.opt); openSet.quiet = false; }
   }
-  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, hero, tabs,
+  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, spoilAgain(roleKeys(c), () => renderCharacterPage(c)), status, hero, tabs,
     charTab === "team" ? main : charTab === "about" ? aboutTab : spritesTab));
 }
 function renderCharacters() {
@@ -5948,13 +6033,17 @@ function renderCharacters() {
   for (const c of shuffledCharacters()) { let g = groups.find(x => x.name === c.group); if (!g) groups.push(g = {name: c.group, rows: []}); g.rows.push(c); }
   const card = c => {
     const cl = claimOf(c.id), look = lookOf(c.id), npc = roleNpc(cl), isMine = cl.by && mine && person(cl.by) === mine;
-    return h("button", {type: "button", class: "card charcard " + (cl.by ? (isMine ? "mine" : "taken") : "avail"), onclick: () => openCharacter(c)},
+    const secret = roleSecret(c), noNames = secret === "all";      // spoiler warning: the first tap only shows the trainer
+    return h("button", {type: "button", class: "card charcard " + (cl.by ? (isMine ? "mine" : "taken") : "avail") + (secret ? " spoilcard" : ""),
+      onclick: secret ? () => { showSecret(roleKeys(c)); renderCharacters(); } : () => openCharacter(c)},
       charPreview(look.sprite || (npc && npc.sprite), charPic(c), TYPE_COLORS[String(c.type || "").split("/")[0].trim()]), h("div", {class: "charinfo"},
-      h("b", {}, charName(c)), look.name ? h("div", {}, "“" + look.name + "”") : npc ? h("div", {}, "“" + (npc.name || "NPC") + "”") : null,
+      h("b", {}, charName(c)), noNames ? null : look.name ? h("div", {}, "“" + look.name + "”") : npc ? h("div", {}, "“" + (npc.name || "NPC") + "”") : null,
       h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
       h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "") + (c.dialogue ? " · 💬 " + talkWord(c) : "")),
-      cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "taken by " + person(cl.by))
-        : npc ? h("span", {class: "badge taken"}, "NPC: " + (npc.name || "NPC")) : h("span", {class: "badge avail"}, "available")));
+      noNames ? h("span", {class: "badge taken"}, cl.by ? "taken" : npc ? "played by an NPC" : "has a picture")
+        : cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "taken by " + person(cl.by))
+        : npc ? h("span", {class: "badge taken"}, "NPC: " + (npc.name || "NPC")) : h("span", {class: "badge avail"}, "available"),
+      secret ? h("span", {class: "spoiltap"}, noNames ? "TAP TO SHOW WHO" : "TAP TO SHOW THE PICTURE") : null));
   };
   // A filter row on top (2026-11-26, Arvind: the page was "litt clunky": one long scroll of 29 trainers and the NPCs)
   const npcOf = c => roleNpc(claimOf(c.id));
@@ -5969,6 +6058,9 @@ function renderCharacters() {
   grid.replaceChildren(h("div", {style: "grid-column:1/-1"},
     CLAIMS_OPEN ? null : h("div", {class: "notice info"}, h("b", {}, "Work in progress. "), "Claiming is closed for now. Soon each trainer gets your own picture and the teams you fight with."),
     h("div", {class: "sub"}, "The people you battle in the game. Who they really are stays a surprise; tap a trainer to see the type, how often you meet them, its sprites and its teams."),
+    NOSPOIL.on ? h("div", {class: "spoilrow"}, h("span", {class: "sub"}, NOSPOIL.names ? "Spoiler warning: who plays each trainer and NPC, their names and their pictures are hidden. Tap one to show it."
+        : "Spoiler warning: the trainers' and NPCs' pictures are blurred. Tap one to show it."),
+      [...NOSPOIL.shown].some(personFolder) ? h("button", {type: "button", onclick: () => { hideSecret([...NOSPOIL.shown].filter(personFolder)); renderCharacters(); }}, "HIDE THEM ALL AGAIN") : null) : null,
     filters,
     claimsError ? h("div", {class: "hint"}, claimsError) : null,
     shown.map(g => h("div", {}, h("h3", {}, g.name + "s"), h("div", {class: "chargrid"}, g.rows.map(card)))),
@@ -7201,6 +7293,12 @@ function createNpcBox() {
 // and the ways in (TRAINER STUDIO, its battle role), then three tabs: SPRITES, BATTLES and ABOUT.
 function renderNpcPage(n) {
   const grid = document.getElementById("grid");
+  const secret = npcSecret(n);
+  if (secret) {
+    grid.replaceChildren(spoilGate(h("div", {class: "tbar charbar"}, h("button", {type: "button", onclick: closeNpc}, "◀ All characters"),
+      h("b", {class: "charname"}, secret === "all" ? "An NPC" : n.name || "NPC")), charPreview(n.sprite, null), secret, () => { showSecret(npcKeys(n)); renderNpcPage(n); }));
+    return;
+  }
   const status = h("div", {class: "hint charstatus", role: "status"});
   const mine = person(me()), owner = !n.by || (mine && person(n.by) === mine);
   const save = async changes => { status.textContent = "Saving..."; try { await saveNpc(n, changes); status.textContent = ""; if (!changes.deleted) { n = npcs.get(n.id); renderNpcPage(n); } } catch (err) { status.textContent = err.message; } };
@@ -7241,7 +7339,7 @@ function renderNpcPage(n) {
       // made it, and another member had made the NPC). Deleting writes a new row with deleted: true, so it can be undone from the history.
       h("button", {type: "button", class: "small", style: "margin-top:8px", onclick: ev => sure(ev.currentTarget, owner ? "Really delete this NPC?" : "Really delete " + (n.by ? person(n.by) + "'s" : "this") + " NPC?",
         async () => { await save({deleted: true}); closeNpc(); })}, "Delete NPC")));
-  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, hero, tabs,
+  grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, spoilAgain(npcKeys(n), () => renderNpcPage(n)), status, hero, tabs,
     npcTab === "battles" ? npcBattles(n, status) : npcTab === "about" ? aboutTab : spritesTab));
 }
 // The hero's picture and its done marks, shared by the trainer and the NPC page (2026-11-27)
@@ -7284,10 +7382,12 @@ function npcSection(test, withCreate) {
   if (!list.length && !withCreate) return null;
   return h("div", {}, h("h3", {}, "NPCs"),
     h("div", {class: "sub"}, "Characters the group made for the game. Tap one to see its sprites, change it or make its sprite."),
-    list.length ? h("div", {class: "chargrid"}, list.map(n => { const role = npcRole(n.id);
-      return h("button", {type: "button", class: "card charcard", onclick: () => openNpc(n.id)}, charPreview(n.sprite, null), h("div", {class: "charinfo"},
-        h("b", {}, n.name || "NPC"), n.by ? h("div", {class: "sub"}, "by " + person(n.by)) : null,
-        role ? h("span", {class: "badge taken"}, "plays " + charName(role)) : null)); })) : h("div", {class: "sub"}, "No NPCs yet."),
+    list.length ? h("div", {class: "chargrid"}, list.map(n => { const role = npcRole(n.id), secret = npcSecret(n), noNames = secret === "all";
+      return h("button", {type: "button", class: "card charcard" + (secret ? " spoilcard" : ""), onclick: secret ? () => { showSecret(npcKeys(n)); renderCharacters(); } : () => openNpc(n.id)},
+        charPreview(n.sprite, null), h("div", {class: "charinfo"},
+        h("b", {}, noNames ? "An NPC" : n.name || "NPC"), n.by && !noNames ? h("div", {class: "sub"}, "by " + person(n.by)) : null,
+        role && !noNames ? h("span", {class: "badge taken"}, "plays " + charName(role)) : null,
+        secret ? h("span", {class: "spoiltap"}, noNames ? "TAP TO SHOW WHO" : "TAP TO SHOW THE PICTURE") : null)); })) : h("div", {class: "sub"}, "No NPCs yet."),
     withCreate === false ? null : createNpcBox());
 }
 
@@ -8723,12 +8823,13 @@ function drawDayNight() {
     onclick: () => { if (id === "auto") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = id; remember.set("theme", id === "auto" ? "" : id); drawDayNight(); }}, label)));
 }
 
-// The spoiler-free switch at the top (on this device; the page loads again so every picture follows it).
+// The spoiler warning at the top (on this device; the page loads again so every picture follows it).
 function drawSpoilers() {
-  const now = NOSPOIL.on ? "1" : "";
-  document.getElementById("spoilers").replaceChildren(...[["", "DESIGNS"], ["1", "NAMES ONLY"]].map(([v, label]) => h("button", {type: "button", "aria-pressed": String(now === v),
-    title: v ? "Spoiler-free: hide every Pokemon picture so only names and types show (on this device). Trainers still show." : "Show the Pokemon pictures",
-    onclick: () => { if (now === v) return; remember.set("nospoil", v); location.reload(); }}, label)));
+  const now = ["", "1", "2"][NOSPOIL.mode];
+  document.getElementById("spoilers").replaceChildren(...[["", "VISIBLE", "Show everything: every Pokemon, trainer and NPC, and who plays them"],
+    ["1", "NAMES ONLY", "Hide every Pokemon picture so only names and types show, and blur the trainers' and NPCs' pictures (tap one to see it). On this device."],
+    ["2", "NO SPOILERS", "Also hide who plays each trainer and every trainer's and NPC's name: tap one to see it. Pokemon keep their names. On this device."]].map(([v, label, title]) =>
+    h("button", {type: "button", "aria-pressed": String(now === v), title, onclick: () => { if (now === v) return; remember.set("nospoil", v); location.reload(); }}, label)));
 }
 // Every folder a Pokemon's pictures are filed under (its id, plus older upload folders such as "slothbaby-utviklet").
 const monFolders = s => [...new Set([s.id, ...allImages(s.id).map(i => picFolder(i.src)), ...Object.values(DEX.ds_sprites[s.id] || {}).map(picFolder),
@@ -8737,7 +8838,7 @@ const monFolders = s => [...new Set([s.id, ...allImages(s.id).map(i => picFolder
 function spoilerButton(s) {
   if (!NOSPOIL.on || !s.id) return null;
   const folders = monFolders(s), open = folders.some(f => NOSPOIL.shown.has(f));
-  return h("div", {class: "spoilrow"}, h("span", {class: "sub"}, open ? "Spoiler-free is on; this one's pictures show." : "Spoiler-free is on: the pictures are hidden."),
+  return h("div", {class: "spoilrow"}, h("span", {class: "sub"}, open ? "The spoiler warning is on; this one's pictures show." : "Spoiler warning: the pictures are hidden."),
     h("button", {type: "button", onclick: () => {
       folders.forEach(f => open ? NOSPOIL.shown.delete(f) : NOSPOIL.shown.add(f));
       remember.set("nospoil-shown", [...NOSPOIL.shown].join(","));
@@ -8921,7 +9022,7 @@ function openSlot(sid, stage) {
 function trayName(sid, mineToo) {         // a trainer's role stays vague to others; your own shows its name
   const s = byId.get(sid), npc = npcs.get(sid);
   const role = /^trainer-/.test(sid) && (DEX.characters || []).find(c => "trainer-" + c.id === sid);
-  return s ? s.data.name : role ? (mineToo ? lookOf(role.id).name || charName(role) : "A trainer") : npc ? npc.name || "An NPC" : /^npc-/.test(sid) ? "An NPC" : sid;
+  return s ? s.data.name : role ? (mineToo ? lookOf(role.id).name || charName(role) : "A trainer") : npc ? (!mineToo && npcSecret(npc) === "all" ? "An NPC" : npc.name || "An NPC") : /^npc-/.test(sid) ? "An NPC" : sid;
 }
 function drawTray() {
   if (!tray.el) { tray.el = h("aside", {class: "tray", "aria-label": "Sprites being drawn"}); document.body.append(tray.el); }
