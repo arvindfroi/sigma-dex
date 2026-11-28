@@ -73,7 +73,7 @@ header .sub { color: #fbefff; font-size: 15px; }
 .spoilwrap { display: flex; align-items: center; gap: 8px; }
 .spoillabel { font-family: var(--display); font-size: 13px; color: #ffffff; text-shadow: 1px 1px 0 rgba(40, 20, 80, .6); }
 img.spoilblur { filter: blur(14px) saturate(.6); clip-path: inset(0); }
-.charcard.spoilcard .spoiltap { font-size: 13px; font-weight: bold; color: var(--pri); }
+.card .spoiltap, .charcard.spoilcard .spoiltap { font-size: 13px; font-weight: bold; color: var(--pri); }
 .spoilgate { text-align: center; }
 .spoilgate .charpv { max-width: 320px; margin: 0 auto 10px; }
 
@@ -1274,6 +1274,7 @@ function h(tag, attrs, ...kids) {
   const el = document.createElement(tag);
   if (attrs && tag === "img" && hiddenPic(attrs.src)) attrs = Object.assign({}, attrs, {src: HIDDEN_PIC, srcset: null, alt: "hidden picture (spoiler warning)", title: "Hidden: the spoiler warning is on (SPOILERS at the top of the page)"});
   if (attrs && tag === "a" && hiddenPic(attrs.href)) attrs = Object.assign({}, attrs, {href: null, target: null});
+  if (attrs && tag === "span" && attrs.class === "letter" && NOSPOIL.names) { attrs = Object.assign({}, attrs, {title: null}); kids = ["?"]; }
   if (attrs && tag === "img" && blurPic(attrs.src)) attrs = Object.assign({}, attrs, {class: ((attrs.class || "") + " spoilblur").trim(), title: "Spoiler: tap the trainer to show it"});
   if (attrs && tag === "a" && blurPic(attrs.href)) attrs = Object.assign({}, attrs, {href: null, target: null});
   for (const [k, v] of Object.entries(attrs || {})) {
@@ -1310,15 +1311,62 @@ const remember = { get(k) { try { return localStorage.getItem("sigma-" + k) || "
 // shown holds Pokemon folders, "trainer-<role>" and NPC ids (also their picture folders).
 const NOSPOIL = (() => { const v = remember.get("nospoil"), mode = v === "2" ? 2 : v === "1" ? 1 : 0;
   return {mode, on: mode > 0, names: mode === 2, shown: new Set(remember.get("nospoil-shown").split(",").filter(Boolean))}; })();
-const saveShown = () => remember.set("nospoil-shown", [...NOSPOIL.shown].join(","));
+const saveShown = () => { remember.set("nospoil-shown", [...NOSPOIL.shown].join(",")); nameMask = null; };
+// NO SPOILERS also hides our Pokemon's names (2026-11-28, Arvind: "på no spoilers så ser man fremdeles navn på pokemon. det
+// trengs ikke"): every text on the page is checked as it is drawn (a MutationObserver, set up at the end of the script), and a
+// name from our dex that was not tapped open becomes "???", also in title/alt/aria-label. Only what is shown changes: the data,
+// the edit boxes (input values, textareas) and what is saved keep the real names. A tap (or SHOW THIS ONE) adds the mon's id.
+let nameMask = null;
+function nameMaskRe() {
+  if (!NOSPOIL.names) return null;
+  if (!nameMask) {
+    const names = [...new Set(DEX.species.filter(s => !NOSPOIL.shown.has(s.id)).map(s => String(s.data.name || "").trim()).filter(n => n.length > 1))]
+      .sort((a, b) => b.length - a.length).map(n => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    nameMask = names.length ? new RegExp("(?<![\\p{L}\\p{N}])(?:" + names.join("|") + ")(?![\\p{L}\\p{N}])", "giu") : /(?!)/;
+  }
+  return nameMask;
+}
+const maskText = s => { const re = nameMaskRe(); return re && s ? s.replace(re, "???") : s; };
+const MASK_ATTRS = ["title", "alt", "aria-label"];
+function maskNode(node) {
+  if (!NOSPOIL.names || !node) return;
+  const fixText = n => { const p = n.parentNode; if (!p || /^(TEXTAREA|SCRIPT|STYLE)$/.test(p.nodeName)) return; const v = maskText(n.data); if (v !== n.data) n.data = v; };
+  const fixAttrs = el => { for (const a of MASK_ATTRS) { const x = el.getAttribute(a); if (x) { const v = maskText(x); if (v !== x) el.setAttribute(a, v); } } };
+  if (node.nodeType === 3) { fixText(node); return; }
+  if (node.nodeType !== 1) return;
+  fixAttrs(node);
+  node.querySelectorAll("[title],[alt],[aria-label]").forEach(fixAttrs);
+  const walk = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
+  for (let n = walk.nextNode(); n; n = walk.nextNode()) fixText(n);
+}
 const HIDDEN_PIC = "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><rect x="6" y="6" width="68" height="68" rx="10" fill="#888888" fill-opacity=".18" stroke="#888888" stroke-width="3" stroke-dasharray="7 5"/><text x="40" y="53" font-size="36" font-family="sans-serif" font-weight="bold" text-anchor="middle" fill="#888888">?</text></svg>');
 // The folder a picture is filed under: art/<id>/..., art/tries/<id>/... or art/candidates/<id>/... (here and in storage).
 const picFolder = src => { const m = String(src || "").match(/(?:^|\/)art\/(?:tries\/|candidates\/)?([^\/?#]+)\//); return m ? m[1] : null; };
 const personFolder = f => /^(trainer-|npc-)/.test(f || "");
+// Which Pokemon show a picture (2026-11-28): a file can sit in another mon's folder (Leafsteel's sprite is in tries/leafing/),
+// so a picture is judged by the mons that use it, not by its folder: it stays hidden until every one of them is tapped open.
+// A picture no mon uses yet (a try in a studio) goes by its folder. Rebuilt on every render (new pictures come in).
+const artKey = src => String(src || "").replace(/^.*\/object\/public\/art\//, "").replace(/^art\//, "").replace(/[?#].*$/, "");
+let picUsersMap = null;
+function picUsers(src) {
+  if (!picUsersMap) {
+    picUsersMap = new Map();
+    const add = (path, id) => { const k = path && artKey(path); if (!k) return; if (!picUsersMap.has(k)) picUsersMap.set(k, new Set()); picUsersMap.get(k).add(id); };
+    for (const s of DEX.species) {
+      if (!s.id) continue;
+      allImages(s.id).forEach(i => add(i.src, s.id));
+      Object.values(DEX.ds_sprites[s.id] || {}).forEach(v => typeof v === "string" && add(v, s.id));
+      add((DEX.sprites[s.id] || {}).src, s.id);
+    }
+  }
+  return picUsersMap.get(artKey(src));
+}
 function hiddenPic(src) {
   if (!NOSPOIL.on) return false;
   const f = picFolder(src);
-  return !!f && !personFolder(f) && !NOSPOIL.shown.has(f);
+  if (!f || personFolder(f)) return false;
+  const users = picUsers(src);
+  return users ? [...users].some(id => !NOSPOIL.shown.has(id)) : !NOSPOIL.shown.has(f);
 }
 // A trainer's or NPC's picture under the spoiler warning: blurred, unless it was tapped or it is yours.
 function blurPic(src) {
@@ -8828,7 +8876,7 @@ function drawSpoilers() {
   const now = ["", "1", "2"][NOSPOIL.mode];
   document.getElementById("spoilers").replaceChildren(...[["", "VISIBLE", "Show everything: every Pokemon, trainer and NPC, and who plays them"],
     ["1", "NAMES ONLY", "Hide every Pokemon picture so only names and types show, and blur the trainers' and NPCs' pictures (tap one to see it). On this device."],
-    ["2", "NO SPOILERS", "Also hide who plays each trainer and every trainer's and NPC's name: tap one to see it. Pokemon keep their names. On this device."]].map(([v, label, title]) =>
+    ["2", "NO SPOILERS", "Also hide our Pokemon's names, who plays each trainer and every trainer's and NPC's name: tap one to see it. On this device."]].map(([v, label, title]) =>
     h("button", {type: "button", "aria-pressed": String(now === v), title, onclick: () => { if (now === v) return; remember.set("nospoil", v); location.reload(); }}, label)));
 }
 // Every folder a Pokemon's pictures are filed under (its id, plus older upload folders such as "slothbaby-utviklet").
@@ -8837,11 +8885,11 @@ const monFolders = s => [...new Set([s.id, ...allImages(s.id).map(i => picFolder
 // On a Pokemon's page while spoiler-free is on: show this one's pictures (one you made yourself), or hide them again.
 function spoilerButton(s) {
   if (!NOSPOIL.on || !s.id) return null;
-  const folders = monFolders(s), open = folders.some(f => NOSPOIL.shown.has(f));
-  return h("div", {class: "spoilrow"}, h("span", {class: "sub"}, open ? "The spoiler warning is on; this one's pictures show." : "Spoiler warning: the pictures are hidden."),
+  const folders = monFolders(s), open = NOSPOIL.shown.has(s.id);
+  return h("div", {class: "spoilrow"}, h("span", {class: "sub"}, open ? "The spoiler warning is on; this one's " + (NOSPOIL.names ? "name and pictures show." : "pictures show.") : NOSPOIL.names ? "Spoiler warning: the name and the pictures are hidden." : "Spoiler warning: the pictures are hidden."),
     h("button", {type: "button", onclick: () => {
-      folders.forEach(f => open ? NOSPOIL.shown.delete(f) : NOSPOIL.shown.add(f));
-      remember.set("nospoil-shown", [...NOSPOIL.shown].join(","));
+      if (open) folders.forEach(f => NOSPOIL.shown.delete(f)); else NOSPOIL.shown.add(s.id);
+      saveShown();
       location.reload();
     }}, open ? "HIDE THEM AGAIN" : "SHOW THIS ONE"));
 }
@@ -8873,6 +8921,7 @@ function renderNav() {
 }
 
 function render() {
+  picUsersMap = null;                // pictures may have come in since (the spoiler warning judges each by the mons using it)
   renderNav();
   const c = counts();
   document.getElementById("summary").textContent = c.designed + " of " + c.size + " Pokemon designed, " + c.playable + " playable. Tap one to see, change or draw it.";
@@ -8911,12 +8960,14 @@ function render() {
   if (layout === "list" && matching.length) renderList(matching);
   for (const s of layout === "list" ? [] : matching) {
     const pic = portrait(s);
-    grid.append(h("button", {class: "card", onclick: () => openDetail(s), onmouseenter: () => preview(s), onfocus: () => preview(s)},
+    const secret = NOSPOIL.names && s.id && !NOSPOIL.shown.has(s.id);
+    grid.append(h("button", {class: "card", onclick: secret ? () => { showSecret([s.id]); render(); } : () => openDetail(s), onmouseenter: () => preview(s), onfocus: () => preview(s)},
       h("div", {class: "pic"}, pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: "", loading: "lazy"}) : h("span", {class: "letter"}, (s.data.name || "?")[0])),
       h("div", {class: "num"}, "No." + pad(s.data.dex), s.problems.length ? h("span", {class: "badge need", style: "margin-left:6px", title: "Has warnings"}, "!") : null),
       h("div", {class: "name"}, s.data.name), h("div", {class: "types"}, (s.data.types || []).map(typeChip)),
       (s.data.forms || []).length ? h("div", {class: "formnote"}, "+" + s.data.forms.length + (s.data.forms.length === 1 ? " form" : " forms")) : null,
       s.pending ? h("div", {class: "pending"}, "just edited") : null,
+      secret ? h("div", {class: "spoiltap"}, "TAP TO SHOW") : null,
       h("div", {class: "meter", title: s.complete + "% filled in"}, h("i", {style: "width:" + s.complete + "%"}))));
   }
   if (DEX.web.url && open.length && !query && !type && mode === "filled") grid.append(h("button", {class: "card open", style: layout === "list" ? "min-height:0;grid-column:1/-1;margin-top:8px" : null, onclick: () => openEditor({data: {dex: open[0]}})},
@@ -9220,6 +9271,11 @@ async function loadRecentEdits() {
 document.getElementById("title").textContent = DEX.project;
 drawDayNight();
 drawSpoilers();
+if (NOSPOIL.names) {
+  new MutationObserver(list => { for (const m of list) { if (m.type === "childList") m.addedNodes.forEach(maskNode); else if (m.type === "characterData") maskNode(m.target); else maskNode(m.target); } })
+    .observe(document.body, {childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: MASK_ATTRS});
+  maskNode(document.body);
+}
 const meBox = document.getElementById("me");
 meBox.value = remember.get("editor");
 let meRedraw = null;
