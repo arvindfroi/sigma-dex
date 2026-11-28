@@ -576,6 +576,9 @@ Important trainers show only a code name and a random order, so nothing is spoil
   retired, hence AA)
 - Trainer AB: Norman (Ruby's father, Steven's friend; added 2026-11-28)
 - Trainer AC: Tamao (third of the five Kimono sisters, an Indigo Conference competitor; added 2026-11-28, the page says "this trainer is a girl")
+- Trainer AD: the Copycat (Saffron City; added 2026-11-28, Arvind: "det kan vi fremdeles ha med som en karakter, men laget
+  skal ikke jeg lage"). In battle she uses the player's own trainer class (#340 class 1 for girl players, #341 class 0
+  for boy players), so she always looks like the player (Pinky or Sunniva); the claimer makes only her team.
 - Story 1-8 (story characters that never battle, added 2026-11-28; the page marks them with a red 0 BATTLES badge and
   has no TEAMS tab for them): Story 1 Kurt, Story 2 Daisy, Story 3 Goodshow, Story 4 Mr. Fuji, Story 5 Buena,
   Story 6 Prof. Elm, Story 7 Granny Kin, Story 8 Bill
@@ -610,8 +613,8 @@ scene that never starts. Fixed. Other things a claimer should know:
   (guide/known-issues.md, "Cynthia and Steven in Fuchsia City"); in the usual order there is a window, so battle them
   before Pokémon Tower. Also Cynthia on Route 12 (optional, one chance), Bruno in Pewter City (one chance), and the
   romance dates. Their teams are still worth making.
-- **Not on the page:** Blue (Arvind makes him; on the page since 2026-11-28, but only Arvind sees it), the villains (taken off 2026-11-12), and small recurring trainers such
-  as the Copycat (Norman was one of them until he became Trainer AB on 2026-11-28). Gold's unused trainer 260 (it has Green's
+- **Not on the page:** Blue (Arvind makes him; on the page since 2026-11-28, but only Arvind sees it), the villains (taken off 2026-11-12), and small recurring trainers
+  (Norman and the Copycat were among them until they became Trainer AB and Trainer AD on 2026-11-28). Gold's unused trainer 260 (it has Green's
   team) is left out.
 - **Janine, Koga's daughter (checked 2026-11-17; on the page as Trainer AA since the same day).** All in Kanto; she is never seen in Johto (her old phone slot
   went to Koga). Fuchsia Gym: she is the "Koga" eight steps north of the door (trainer 325: Venomoth, Golbat,

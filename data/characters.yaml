@@ -550,3 +550,14 @@
   levels: []
   dialogue: {story: 81, battle: 0, words: 889}
   teams: []
+- id: trainer-ad
+  group: Important trainer
+  type: Mixed
+  about: loves to imitate others
+  place: you meet them once, in their home
+  code: Trainer AD
+  battles: 1
+  levels: [36]
+  dialogue: {story: 3, battle: 0, words: 34}
+  teams:
+  - {lv: 36, size: 5, side: against, note: 'They copy the player: in battle the game shows the player''s own picture (a boy or a girl, after the player), so the one who claims them makes the team, not the battle sprite. The game has two versions of this battle (boy and girl players) with the same team.', original: 'Ditto 34, Pikachu 34, Venusaur 35, Charizard 36, Blastoise 36', iv: 12}

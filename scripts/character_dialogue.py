@@ -59,6 +59,7 @@ WHO = {
     "trainer-aa": (["Janine"], ["Ninja Girl Janine"]),
     "trainer-ab": (["Norman"], ["Ace Trainer Norman"]),   # added 2026-11-28
     "trainer-ac": (["Tamao"], ["Kimono Girl Tamao"]),   # added 2026-11-28
+    "trainer-ad": (["Copycat"], ["PKMN Trainer Copycat"]),   # added 2026-11-28 (#340 girl players, #341 boy players)
     # story characters that never battle (2026-11-28): speakers only
     "story-1": (["Kurt"], []),
     "story-2": (["Daisy"], []),
