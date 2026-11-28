@@ -45,6 +45,9 @@
 # Story characters (group 'Story character', ids story-1..story-8) added 2026-11-28 (Arvind: "du kan legge de til på men marker
 # 0 battles litt tydelig da"): big roles in the story that never battle. battles: 0, no levels, no teams, no type; the page shows
 # a red 0 BATTLES badge and no TEAMS tab. The real names are in docs/STORY.md (code names).
+# Trainer AC (Tamao, the third of five Kimono sisters) added 2026-11-28 (Arvind: "legg hun til. skriv det er en jente som note").
+# She is an Indigo Conference competitor (beaten by Cynthia in round one). Counted: the Victory Road battle (trainer 551) and
+# her team after the story (trainer 750: once in Violet City, and again in Ecruteak as a single or double battle).
 # The villains (Rocket, Magma, Aqua and Galactic: codes A, B, D, E, F, L, N, R, S, T, V) are left out too (Arvind, 2026-11-12).
 # dialogue: how much they say in Origin: story = text boxes in the story, battle = lines in battle, words =
 # both together (scripts/character_dialogue.py, counted 2026-11-16; only numbers, never the text).
@@ -463,6 +466,18 @@
   - {lv: 93, size: 6, side: against, original: 'Umbreon 91, Arcanine 91, Rhydon 92, Alakazam 91, Blastoise 93, Pidgeot 92', iv: 30}
   - {lv: 97, size: 6, side: against, original: 'Blastoise 97, Arcanine 96, Pidgeot 97, Exeggutor 96, Rhydon 97, Alakazam 96', iv: 30}
   - {lv: 97, size: 6, side: against, original: 'Umbreon 96, Pidgeot 97, Blastoise 97, Rhydon 96, Alakazam 97, Arcanine 96', iv: 30}
+- id: trainer-ac
+  group: Important trainer
+  type: Mixed
+  about: this trainer is a girl
+  place: you meet them a few times
+  code: Trainer AC
+  battles: 2
+  levels: [75, 85]
+  dialogue: {story: 33, battle: 3, words: 539}
+  teams:
+  - {lv: 75, size: 5, side: against, original: 'Umbreon 75, Mr. Mime 74, Azumarill 74, Smeargle 74, Blissey 74', iv: 24}
+  - {lv: 85, size: 6, side: against, note: 'Fought once in one town, and again in another where the player picks a single or a double battle.', original: 'Umbreon 85, Clefairy 84, Raichu 84, Crawdaunt 84, Noctowl 85, Claydol 85', iv: 24}
 - id: story-1
   group: Story character
   about: a craftsman whose work every Trainer uses

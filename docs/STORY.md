@@ -575,6 +575,7 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer AA: Janine (Koga's daughter; added 2026-11-17, shown as "master of disguise"; all 26 letters were used or
   retired, hence AA)
 - Trainer AB: Norman (Ruby's father, Steven's friend; added 2026-11-28)
+- Trainer AC: Tamao (third of the five Kimono sisters, an Indigo Conference competitor; added 2026-11-28, the page says "this trainer is a girl")
 - Story 1-8 (story characters that never battle, added 2026-11-28; the page marks them with a red 0 BATTLES badge and
   has no TEAMS tab for them): Story 1 Kurt, Story 2 Daisy, Story 3 Goodshow, Story 4 Mr. Fuji, Story 5 Buena,
   Story 6 Prof. Elm, Story 7 Granny Kin, Story 8 Bill
