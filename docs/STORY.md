@@ -575,6 +575,9 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer AA: Janine (Koga's daughter; added 2026-11-17, shown as "master of disguise"; all 26 letters were used or
   retired, hence AA)
 - Trainer AB: Norman (Ruby's father, Steven's friend; added 2026-11-28)
+- Story 1-8 (story characters that never battle, added 2026-11-28; the page marks them with a red 0 BATTLES badge and
+  has no TEAMS tab for them): Story 1 Kurt, Story 2 Daisy, Story 3 Goodshow, Story 4 Mr. Fuji, Story 5 Buena,
+  Story 6 Prof. Elm, Story 7 Granny Kin, Story 8 Bill
 
 Left out on purpose (Arvind makes him himself): the main rival (Blue). Since 2026-11-28 Blue (id rival-blue, 19 battles)
 and Trainer J are on the page as Arvind's own (`owner: Arvind`): shown only when the name box says Arvind, and only he
@@ -631,6 +634,21 @@ scene that never starts. Fixed. Other things a claimer should know:
   (trainer 266, file 883); after the story he battles you at home (single or double, trainer 228) or together with
   Steven. 65 text boxes, 1190 words. Ruby (20 lines) and Sapphire (8) are children with no Pokemon and no battles;
   Birch (20 lines, also on Route 12 in Kanto where he gives Torchic) never battles either, so none of them is on the page.
+- **Scan for missed characters (2026-11-28, after Norman).** Every named trainer record not on the page, joined to the
+  story speakers. Not on the page yet, all with battles: the Kimono sisters (Satsuki has the most lines but never battles;
+  Sakura #801 and Tamao #551/#750 do; their dance summons Lugia, our Gravriel), Molly (Ruins of Alph; you and Crystal
+  fight her Unown clones, #669/#670; her father Prof. Hale never battles), Curtis (#642, wants the Cerulean Gym),
+  Veteran A.J. (#511/#598, his own gym on Route 4), Granny Mae (#646/#684, fights next to Aroma Lady Dana) and Karate
+  King Kiyo (#899/#953, no tagged lines).
+- **Prof. Oak and Mom do not really battle.** Their trainer records (#232 Oak, Lv. 30; #207 Mom) are Team Rocket
+  illusions on the upper floors of Pokémon Tower: Maxie's Magcargo mixes its smoke with the tower's mist, so "people you
+  know" appear (bank 53#21-25: "Even with the illusion mist boosting us, we still can't win?"). Mom's copy asks you to go
+  home and fights you if you say no; Oak's copy is a trainer on the map (event file 40, object script 3232).
+- **The Indigo Conference main tournament (16 competitors, banks 587-589):** Blue v Eusine, Cynthia v Tamao, Green/Red v
+  Shane, the player v Goh, Misty v Del, Karen v Yuri, Will v Storm, Steven v Norman. On the page: Eusine, Cynthia,
+  Green/Red, Goh, Misty, Steven, Norman (and Blue as Arvind's own). Not on the page: Tamao (Kimono sister), Ace Trainer
+  Shane (#579, no lines; fights with Del on Victory Road), Guitarist Del (#506/#637, 7 boxes), Beauty Yuri (#346, 8
+  boxes), Black Belt Storm (#563, no lines), and Will and Karen (Team Rocket, left out with the villains).
 - **Other trainer-name fixes in the EN patch** (bank 719) do not touch these roles; only 703 and 705 did (see above).
 
 ### Text to fix when the characters are replaced

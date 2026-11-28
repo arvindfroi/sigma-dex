@@ -40,6 +40,10 @@
 # battle against the two of them, and Origin already has one after the story (Steven + Norman, trainer_battle 490 228).
 # Counted: the 2-on-2 Goldenrod Gym battle next to the gym leader (trainer 266) and his own team after the story
 # (trainer 228: single, double, or the double next to Trainer Y). His Indigo Conference matches are cutscenes.
+# Norman shows as Mixed (Arvind 2026-11-28: types only where the game needs one; his team is all Normal, but no rule asks for it).
+# Story characters (group 'Story character', ids story-1..story-8) added 2026-11-28 (Arvind: "du kan legge de til på men marker
+# 0 battles litt tydelig da"): big roles in the story that never battle. battles: 0, no levels, no teams, no type; the page shows
+# a red 0 BATTLES badge and no TEAMS tab. The real names are in docs/STORY.md (code names).
 # The villains (Rocket, Magma, Aqua and Galactic: codes A, B, D, E, F, L, N, R, S, T, V) are left out too (Arvind, 2026-11-12).
 # dialogue: how much they say in Origin: story = text boxes in the story, battle = lines in battle, words =
 # both together (scripts/character_dialogue.py, counted 2026-11-16; only numbers, never the text).
@@ -417,7 +421,7 @@
   - {lv: 75, size: 4, side: against, note: 'They also hide among other trainers right after this one, and that battle uses the other trainer''s team.', original: 'Crobat 75, Venomoth 75, Ditto 75, Swalot 75', iv: 24}
 - id: trainer-ab
   group: Important trainer
-  type: Normal
+  type: Mixed
   place: you meet them a few times
   code: Trainer AB
   battles: 2
@@ -456,3 +460,75 @@
   - {lv: 93, size: 6, side: against, original: 'Umbreon 91, Arcanine 91, Rhydon 92, Alakazam 91, Blastoise 93, Pidgeot 92', iv: 30}
   - {lv: 97, size: 6, side: against, original: 'Blastoise 97, Arcanine 96, Pidgeot 97, Exeggutor 96, Rhydon 97, Alakazam 96', iv: 30}
   - {lv: 97, size: 6, side: against, original: 'Umbreon 96, Pidgeot 97, Blastoise 97, Rhydon 96, Alakazam 97, Arcanine 96', iv: 30}
+- id: story-1
+  group: Story character
+  about: a craftsman whose work every Trainer uses
+  place: you meet them a few times
+  code: Story 1
+  battles: 0
+  levels: []
+  dialogue: {story: 50, battle: 0, words: 1006}
+  teams: []
+- id: story-2
+  group: Story character
+  about: family of someone you know well
+  place: you meet them a few times
+  code: Story 2
+  battles: 0
+  levels: []
+  dialogue: {story: 66, battle: 0, words: 670}
+  teams: []
+- id: story-3
+  group: Story character
+  about: the head of the region's biggest battle event
+  place: you meet them again and again
+  code: Story 3
+  battles: 0
+  levels: []
+  dialogue: {story: 219, battle: 0, words: 3075}
+  teams: []
+- id: story-4
+  group: Story character
+  about: a kind old man who looks after Pokemon
+  place: you meet them a couple of times
+  code: Story 4
+  battles: 0
+  levels: []
+  dialogue: {story: 33, battle: 0, words: 424}
+  teams: []
+- id: story-5
+  group: Story character
+  about: a voice on the radio
+  place: you meet them a few times
+  code: Story 5
+  battles: 0
+  levels: []
+  dialogue: {story: 73, battle: 0, words: 647}
+  teams: []
+- id: story-6
+  group: Story character
+  about: a researcher who helps you
+  place: you meet them a few times
+  code: Story 6
+  battles: 0
+  levels: []
+  dialogue: {story: 103, battle: 0, words: 944}
+  teams: []
+- id: story-7
+  group: Story character
+  about: an old woman with big plans for her town
+  place: you meet them a few times
+  code: Story 7
+  battles: 0
+  levels: []
+  dialogue: {story: 53, battle: 0, words: 619}
+  teams: []
+- id: story-8
+  group: Story character
+  about: a clever inventor
+  place: you meet them a few times
+  code: Story 8
+  battles: 0
+  levels: []
+  dialogue: {story: 81, battle: 0, words: 889}
+  teams: []

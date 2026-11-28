@@ -273,6 +273,7 @@ button.chip[aria-pressed=true] { border-color: var(--gold); background: var(--so
 .charcard .badge { font-size: 13px; white-space: normal; max-width: 100%; }
 .charcard.mine { outline: 3px solid #f5c542; outline-offset: -9px; }
 .badge.need { color: var(--warn); border-color: var(--warn); }
+.badge.nobattles { color: #ff6b6b; border-color: #ff6b6b; font-size: 13px; }   /* a story character that never battles (2026-11-28) */
 .badge.ai { color: var(--blue); border-color: var(--blue); }
 .card .line { color: var(--muted); font-size: 13px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
@@ -5439,7 +5440,11 @@ function sideCount(c) {
   const n = side => (c.teams || []).filter(b => (b.side || "against") === side).length;
   return [n("against") + " against you", n("with") + " next to you", n("both") ? n("both") + " both ways" : ""].filter(Boolean).join(", ");
 }
-const roughBattles = n => n >= 8 ? "many battles" : n >= 3 ? "several battles" : n === 2 ? "a couple of battles" : "one battle";
+const roughBattles = n => n >= 8 ? "many battles" : n >= 3 ? "several battles" : n === 2 ? "a couple of battles" : n === 1 ? "one battle" : "no battles";
+// Story characters (2026-11-28, Arvind: "du kan legge de til på men marker 0 battles litt tydelig da"): battles: 0, no teams,
+// no type; the page shows a red 0 BATTLES badge and has no TEAMS tab for them.
+const noBattles = c => !(c.battles > 0);
+const noBattlesBadge = () => h("span", {class: "badge nobattles", title: "This character never battles in the game"}, "0 BATTLES");
 const charName = c => c.code || (c.group + " · " + c.type);
 const charPic = c => (trainerPics.get(c.id) || [])[0];
 // ----- the spoiler warning on trainers and NPCs (2026-11-28; see NOSPOIL)
@@ -5592,7 +5597,8 @@ function renderCharacterPage(c) {
   }}, "Give it back");
   else if (!cl.by) {
     claimArea = h("div", {});
-    const intro = h("div", {class: "sub"}, "Claiming means: you become this trainer in the game. You give it a name, a picture and your own teams for its " + roughBattles(c.battles || 0) + ". You can give it back any time.");
+    const intro = h("div", {class: "sub"}, noBattles(c) ? "Claiming means: you become this character in the game. You give it a name and a picture. It never battles, so there are no teams to make. You can give it back any time."
+      : "Claiming means: you become this trainer in the game. You give it a name, a picture and your own teams for its " + roughBattles(c.battles || 0) + ". You can give it back any time.");
     const claimNow = note => { note.textContent = "Saving..."; saveClaim(person(me()), {}).then(() => { if (status.textContent && status.textContent !== "Saving...") note.textContent = status.textContent; }); };
     const askName = () => {     // no name yet: the onboarding starts with who you are, and the site remembers it
       const note = h("div", {class: "hint", role: "status", style: "margin:6px 0 0"});
@@ -5720,18 +5726,20 @@ function renderCharacterPage(c) {
   const shownName = look.name || (npcHere && !cl.by ? npcHere.name + (npcHere2 ? " / " + npcHere2.name : "") : "") || "";
   const hero = h("div", {class: "charhero"}, heroPic, h("div", {class: "herotext"},
     h("div", {class: "heroname"}, shownName || charName(c)),
-    h("div", {class: "sub"}, [shownName ? charName(c) : null, canTeam ? (c.battles || 0) + " battles" : roughBattles(c.battles || 0), cap(c.place)].filter(Boolean).join(" · ")),
+    h("div", {class: "sub"}, [shownName ? charName(c) : null, noBattles(c) ? null : canTeam ? (c.battles || 0) + " battles" : roughBattles(c.battles || 0), cap(c.place)].filter(Boolean).join(" · ")),
+    noBattles(c) ? h("div", {style: "margin:4px 0"}, noBattlesBadge(), h("span", {class: "sub"}, " never battles: a story character")) : null,
     isMine ? h("div", {class: "herosteps"}, h("label", {class: "heroedit"}, h("span", {class: "sub"}, "Trainer name"), nameBox),
       step(!!look.sprite, follower ? "sprites (from " + charName(mainChar) + ")" : "sprites", openStudio),
-      step(storyOf(c.id).lines.length > 0, "story team", () => toTab("team"))) : null,
+      noBattles(c) ? null : step(storyOf(c.id).lines.length > 0, "story team", () => toTab("team"))) : null,
     isMine || npcHere ? h("div", {class: "heroacts"},
       isMine ? h("button", {type: "button", class: "primary", onclick: openStudio}, follower ? "TRAINER STUDIO (ON " + charName(mainChar).toUpperCase() + ")" : look.sprite ? "✎ OPEN THE TRAINER STUDIO" : "✎ MAKE THE TRAINER SPRITE") : null,
-      h("button", {type: "button", class: isMine ? "" : "primary", onclick: () => toTab("team")}, "EDIT THE STORY TEAM ▶")) : null,
+      noBattles(c) ? null : h("button", {type: "button", class: isMine ? "" : "primary", onclick: () => toTab("team")}, "EDIT THE STORY TEAM ▶")) : null,
     !cl.by ? claimArea : null));
   if (!charTab) charTab = isMine ? (look.sprite ? "team" : "sprites") : !cl.by && !npcHere ? "about" : "sprites";
+  if (charTab === "team" && noBattles(c)) charTab = "about";
   const tabBtn = (id, label) => h("button", {type: "button", role: "tab", class: "small" + (charTab === id ? " primary" : ""), "aria-selected": String(charTab === id), onclick: () => toTab(id)}, label);
   const tabs = h("div", {class: "chartabs", role: "tablist", id: "char-tabs", "aria-label": "Parts of the trainer page"},
-    tabBtn("sprites", "SPRITES"), tabBtn("team", canTeam ? "STORY TEAM" : "TEAMS"), tabBtn("about", "ABOUT"));
+    tabBtn("sprites", "SPRITES"), noBattles(c) ? null : tabBtn("team", canTeam ? "STORY TEAM" : "TEAMS"), tabBtn("about", "ABOUT"));
   // SPRITES: the studio first for the owner, then every sprite
   const studio = isMine && follower ? h("div", {class: "box", id: "char-studio", style: "margin-top:0"},
       h("div", {class: "sub"}, "This trainer is merged with ", openMain(), ": it uses that trainer's name and sprites, so make changes there. To give it sprites of its own, take it out of the merge under ABOUT > YOUR OTHER TRAINERS (it keeps a copy of everything)."))
@@ -5745,11 +5753,12 @@ function renderCharacterPage(c) {
   // ABOUT: the facts and, for the owner, giving it back; the pictures and the owner's other trainers
   const facts = h("div", {class: "factrows"},
       h("div", {}, h("span", {}, "Role"), c.group),
-      h("div", {}, h("span", {}, "Type"), String(c.type || "")),
+      h("div", {}, h("span", {}, "Type"), String(c.type || "—")),
       c.about ? h("div", {}, h("span", {}, "Story"), cap(c.about)) : null,
       h("div", {}, h("span", {}, "Surroundings"), c.place ? cap(c.place) : "—"),
       c.rule ? h("div", {}, h("span", {}, "Rule"), c.rule) : null,
-      h("div", {}, h("span", {}, "Battles"), canTeam ? String(c.battles || 0) + " (each needs its own team): " + sideCount(c) : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
+      noBattles(c) ? h("div", {}, h("span", {}, "Battles"), h("span", {}, noBattlesBadge(), " None: this character never battles in the game, so there are no teams to make."))
+      : h("div", {}, h("span", {}, "Battles"), canTeam ? String(c.battles || 0) + " (each needs its own team): " + sideCount(c) : roughBattles(c.battles || 0) + " (the exact number is shown to the one who claims this trainer)"),
       c.dialogue ? h("div", {}, h("span", {}, "Dialogue"), talkWord(c) + ": " + c.dialogue.story + " text boxes in the story and " + c.dialogue.battle + " lines in battle, about " + c.dialogue.words.toLocaleString("en") + " words") : null,
       mates.length ? h("div", {}, h("span", {}, "Same trainer as"), h("span", {}, mates.map((x, i) => [i ? ", " : "",
         h("button", {type: "button", class: "linkish", onclick: () => openCharacter(charById(x))}, charName(charById(x)))]),
@@ -6109,8 +6118,8 @@ function renderCharacters() {
       onclick: secret ? () => { showSecret(roleKeys(c)); renderCharacters(); } : () => openCharacter(c)},
       charPreview(look.sprite || (npc && npc.sprite), charPic(c), TYPE_COLORS[String(c.type || "").split("/")[0].trim()]), h("div", {class: "charinfo"},
       h("b", {}, charName(c)), noNames ? null : look.name ? h("div", {}, "“" + look.name + "”") : npc ? h("div", {}, "“" + (npc.name || "NPC") + (roleNpc2(c, cl) ? " / " + (roleNpc2(c, cl).name || "NPC") : "") + "”") : null,
-      h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
-      h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "") + (c.dialogue ? " · 💬 " + talkWord(c) : "")),
+      noBattles(c) ? h("div", {}, noBattlesBadge()) : h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
+      h("div", {class: "sub"}, [noBattles(c) ? null : roughBattles(c.battles || 0), c.rule ? "gym rule" : null, c.dialogue ? "💬 " + talkWord(c) : null].filter(Boolean).join(" · ")),
       noNames ? h("span", {class: "badge taken"}, cl.by ? "taken" : npc ? "played by an NPC" : "has a picture")
         : cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "taken by " + person(cl.by))
         : npc ? h("span", {class: "badge taken"}, "NPC: " + (npc.name || "NPC") + (roleNpc2(c, cl) ? " + " + (roleNpc2(c, cl).name || "NPC") : "")) : h("span", {class: "badge avail"}, "available"),

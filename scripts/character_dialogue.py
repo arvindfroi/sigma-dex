@@ -58,6 +58,15 @@ WHO = {
     # Janine: her lines while disguised as Koga are labelled Koga in the game, so they are not counted.
     "trainer-aa": (["Janine"], ["Ninja Girl Janine"]),
     "trainer-ab": (["Norman"], ["Ace Trainer Norman"]),   # added 2026-11-28
+    # story characters that never battle (2026-11-28): speakers only
+    "story-1": (["Kurt"], []),
+    "story-2": (["Daisy"], []),
+    "story-3": (["Goodshow"], []),
+    "story-4": (["Mr. Fuji"], []),
+    "story-5": (["Buena"], []),
+    "story-6": (["Prof. Elm"], []),
+    "story-7": (["Granny Kin"], []),
+    "story-8": (["Bill"], []),
     "rival-blue": (["Blue"], ["Rival Blue"]),      # Arvind's own (owner: Arvind), hidden from everyone else
 }
 TAG = re.compile(r"^\s*([A-Z][A-Za-z.'\- ]{0,24}):\s")
