@@ -568,7 +568,7 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer T: Proton (executive)
 - Trainer U: not used since 2026-11-17 (it was "Lorin", Lance's second team; merged into Trainer I)
 - Trainer V: Cyrus (executive)
-- Trainer W: Silver (added 2026-11-12)
+- Trainer W: Silver (added 2026-11-12; Arvind's own and hidden from everyone else since 2026-11-28)
 - Trainer X: Goh, the One-Ball Man (added 2026-11-12)
 - Trainer Y: Steven (Hoenn champion; added back 2026-11-17)
 - Trainer Z: Cynthia (Sinnoh champion; added back 2026-11-17)

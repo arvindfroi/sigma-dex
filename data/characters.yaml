@@ -21,8 +21,9 @@
 # inn på nettsiden men gjør de hidden. som andre utenom meg"). The website shows it only when the name box says that
 # person; nobody else can claim it, put an NPC in it or change its story team. The site has no log-in, so it is hidden
 # on the page, not secret (the data is in the page's source). Since then the main rival (rival-blue, 19 battles, sides
-# read from the multi_battle/TrainerBattle commands of Origin's scripts) and Trainer J (the player you did not pick:
-# Pinky or Sunniva) are in here as Arvind's own.
+# read from the multi_battle/TrainerBattle commands of Origin's scripts), Trainer J (the player you did not pick:
+# Pinky or Sunniva) and Silver (trainer-w, nobody held it) are in here as Arvind's own (Arvind, 2026-11-28: "jeg skal
+# lage protags, blue/gray, og silver ... det er spesielt for meg som administerer denne romen").
 # The two champions were left out on 2026-11-12 and came back as Trainer Y and Trainer Z on 2026-11-17 (Arvind:
 # "Du kan faktisk legge de til som mulige trenere tilbake"). Their school battle in Origin (Lv. 5) is not counted:
 # it can never be started in a normal game.
@@ -341,10 +342,12 @@
   - {lv: 88, size: 6, side: against, original: 'Hitmontop 87, Machamp 87, Steelix 88, Hitmonlee 88, Hitmonchan 87, Infernape 88', iv: 30}
   - {lv: 92, size: 6, side: against, original: 'Hitmontop 91, Steelix 92, Machamp 91, Heracross 91, Infernape 92, Lucario 92', iv: 30}
 - id: trainer-w
-  group: Important trainer
+  owner: Arvind
+  group: Arvind's own trainer
   type: Mixed
+  about: Silver, the redhead you meet again and again
   place: you meet them again and again
-  code: Trainer W
+  code: Silver
   battles: 6
   levels: [18, 19, 60, 62, 90, 95]
   dialogue: {story: 311, battle: 1, words: 3621}
