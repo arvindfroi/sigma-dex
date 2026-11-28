@@ -198,9 +198,9 @@ From the Discord concept card (BUST, 2026-05-02): card name: UNOWN — CIRCUIT F
 192,leorime,Leorime,Ice,Water,Arctic Swimmer,Oblivious,Thick Fat,450,75,55,60,95,75,90,Leo,Lv 25,,,,,,,,,,,,,,,,Chilling Water (evo),,,,,,,,,Ludvig,,24
 193,leothrax,Leothrax,Ice,Dragon,Arctic Swimmer,Marvel Scale,Thick Fat,530,95,70,72,125,88,80,Leorime,Lv 42,,,,,3 sp_attack,,,,,,,,,,,"Copycat (1), Growl (1), Helping Hand (1), Powder Snow (1), Icy Wind (12), Mist (12), Dragon Breath (17), Twister (20), Aurora Beam (24), Chilling Water (30), Dragon Pulse (35), Flip Turn (36), Freeze-Dry (40), Nasty Plot (42), Ice Beam (44), Mirror Coat (45), Hydro Pump (48), Blizzard (52), Draco Meteor (58)","Water Pulse, Roar, Toxic, Hail, Hidden Power, Sunny Day, Taunt, Ice Beam, Blizzard, Hyper Beam, Light Screen, Protect, Rain Dance, Frustration, Iron Tail, Return, Shadow Ball, Double Team, Facade, Secret Power, Rest, Attract, Focus Blast, Endure, Dragon Pulse, Giga Impact, Avalanche, Dark Pulse, Sleep Talk, Swagger, Substitute, Play Rough, Psychic Fangs, Liquidation, Flip Turn, Surf, Whirlpool, Waterfall","Body Slam, Draco Meteor, Dragon Dance, Heat Wave, Hyper Voice, Icicle Spear, Icy Wind, Outrage, Aqua Jet, Chilling Water, Water Pledge, Hydro Cannon, Glaive Rush",,,,,,,Ludvig,,31
 194,big-musi,Big musi,Fighting,,,,,,,,,,,,Mortbulk,Lv 55,,,,,,,,,,,,,,,,,,,,,,,,,Arvind,Arvind,10
-195,ghurtling,Turtling,Normal,Poison,Egg Armor,,Run Away,230,40,30,50,30,50,30,,,,,,,"1 defense, 1 sp_defense",,,,,,,,,,,,,,,,,,,,Noora,Noora,21
-196,ghurtle,Ghurtle,Ghost,Poison,,Anger Shell,Dry Skin,485,72,45,95,95,136,42,Turtling,Lv 30,,,,,3 sp_defense,,,,,,,,,,,Shell Smash (40),,,,,,,,,Noora,Noora,21
-197,ghortoise,Ghortoise,Ghost,Poison,,Anger Shell,Sand Rush,485,72,95,136,45,95,42,Turtling,Lv 30,,,,,3 defense,,,,,,,,,,,Shell Smash (40),,,,,,,,,Noora,Noora,21
+195,ghurtling,Turtling,Normal,Poison,Egg Armor,,Run Away,230,37,30,50,30,50,33,,,,,,,"1 defense, 1 sp_defense",,,,,,,,,,,,,,,,,,,,Noora,Noora,21
+196,ghurtle,Ghurtle,Ghost,Poison,,Anger Shell,Dry Skin,480,67,45,95,95,136,42,Turtling,Lv 30,,,,,3 sp_defense,,,,,,,,,,,Shell Smash (40),,,,,,,,,Noora,Noora,21
+197,ghortoise,Ghortoise,Ghost,Poison,,Anger Shell,Sand Rush,480,67,95,136,45,95,42,Turtling,Lv 30,,,,,3 defense,,,,,,,,,,,Shell Smash (40),,,,,,,,,Noora,Noora,21
 198,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 199,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 200,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

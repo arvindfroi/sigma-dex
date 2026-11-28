@@ -22,7 +22,7 @@ abilities:
   hidden: Dry Skin       # optional
 
 base_stats:              # each 1-255
-  hp: 72
+  hp: 67
   attack: 45
   defense: 95
   sp_attack: 95

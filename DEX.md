@@ -204,8 +204,8 @@ What is still missing for each one: [TODO.md](TODO.md)
 | 193 | [Leothrax](data/species/leothrax.yaml) | Ice / Dragon | Arctic Swimmer, Marvel Scale, Thick Fat (H) | 530 |  | 31% |
 | 194 | [Big musi](data/species/big-musi.yaml) | Fighting |  |  |  | 10% |
 | 195 | [Turtling](data/species/ghurtling.yaml) | Normal / Poison | Egg Armor, Run Away (H) | 230 | Ghurtle (Lv 30), Ghortoise (Lv 30) | 21% |
-| 196 | [Ghurtle](data/species/ghurtle.yaml) | Ghost / Poison | Anger Shell, Dry Skin (H) | 485 |  | 21% |
-| 197 | [Ghortoise](data/species/ghortoise.yaml) | Ghost / Poison | Anger Shell, Sand Rush (H) | 485 |  | 21% |
+| 196 | [Ghurtle](data/species/ghurtle.yaml) | Ghost / Poison | Anger Shell, Dry Skin (H) | 480 |  | 21% |
+| 197 | [Ghortoise](data/species/ghortoise.yaml) | Ghost / Poison | Anger Shell, Sand Rush (H) | 480 |  | 21% |
 | 198 | *open slot* | | | | | |
 | 199 | *open slot* | | | | | |
 | 200 | *open slot* | | | | | |

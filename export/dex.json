@@ -44410,12 +44410,12 @@
         "hidden": "Run Away"
       },
       "base_stats": {
-        "hp": 40,
+        "hp": 37,
         "attack": 30,
         "defense": 50,
         "sp_attack": 30,
         "sp_defense": 50,
-        "speed": 30
+        "speed": 33
       },
       "ev_yield": {
         "defense": 1,
@@ -44507,7 +44507,7 @@
         "hidden": "Dry Skin"
       },
       "base_stats": {
-        "hp": 72,
+        "hp": 67,
         "attack": 45,
         "defense": 95,
         "sp_attack": 95,
@@ -44595,7 +44595,7 @@
         "hidden": "Sand Rush"
       },
       "base_stats": {
-        "hp": 72,
+        "hp": 67,
         "attack": 95,
         "defense": 136,
         "sp_attack": 45,

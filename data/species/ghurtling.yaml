@@ -22,12 +22,12 @@ abilities:
   hidden: Run Away       # optional
 
 base_stats:              # each 1-255
-  hp: 40
+  hp: 37
   attack: 30
   defense: 50
   sp_attack: 30
   sp_defense: 50
-  speed: 30
+  speed: 33
 
 ev_yield: {defense: 1, sp_defense: 1} # EVs given when defeated, 1-3 points total, e.g. {speed: 1}
 catch_rate:              # 3 (legendary) to 255 (very easy)

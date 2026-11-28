@@ -196,8 +196,11 @@ moves:
   accuracy: 90
   pp: 10
   target: one opponent
-  effect: The user swings and hits with its strong, heavy rock fist. It lowers the user's Speed, however.
+  contact: true
+  effect: 'The user swings and hits with its strong, heavy rock fist. It lowers the user''s Speed, however.
     (100% chance)
+
+    Punching Move buffed by Iron Fist'
   similar_to: Hammer Arm
   designer: Emil
 - id: siro-stream
