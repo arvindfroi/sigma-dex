@@ -263,6 +263,7 @@
   battles: 8
   levels: [8, 15, 20, 23, 27, 33, 42, 93]
   code: Pinky / Sunniva (rival)
+  pair: {npc: 'the rival when you play a girl, Origin''s Red', npc2: 'the rival when you play a boy, Origin''s Green'}
   dialogue: {story: 702, battle: 20, words: 8605}
   teams:
   - {lv: 8, size: 2, side: with, original: 'Tangela 8, Bulbasaur 5', iv: 6}

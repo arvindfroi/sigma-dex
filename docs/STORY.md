@@ -555,6 +555,7 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer J: Green (a girl player meets Red instead: the same teams and lines, so it is one role). Since 2026-11-28
   Arvind's own and hidden from everyone else: the player you did not pick, Pinky or Sunniva (a boy player meets
   Sunniva in Green's place, a girl player meets Pinky in Red's place); one story team, built on Pinky, for both
+  (the role is a `pair`: the claim's npc = Pinky plays Red's version, npc2 = Sunniva plays Green's)
 - Trainer K: Lorelei (Elite Four)
 - Trainer L: Charon (executive)
 - Trainer M: Agatha (Elite Four)

@@ -5184,7 +5184,11 @@ const claimOf = id => (claims && claims.get(id)) || {by: "", slots: {}};
 // som er til overs"; "alle kan gjøre det"): the claim row then has npc (its id) and assigned_by, no by. Its story team works as a
 // person's: anyone may change it. A person who claims the role later takes it over (the story team is kept).
 const roleNpc = cl => (!cl.by && cl.npc && npcs.get(cl.npc)) || null;
-const npcRole = id => (DEX.characters || []).find(c => { const cl = claimOf(c.id); return !cl.by && cl.npc === id; }) || null;
+// A role with two versions (data/characters.yaml `pair`, 2026-11-28, Arvind: "merge sunniva og pinky til en trener. det skal
+// funke slik som i spillene. hvis jeg velger pinky blir rivalen sunniva og hvis jeg velger sunniva blir rivalen pinky"): the
+// claim's `npc` plays one version and `npc2` the other (pair.npc / pair.npc2 say which); one story team for both.
+const roleNpc2 = (c, cl) => (c && c.pair && !cl.by && cl.npc && cl.npc2 && npcs.get(cl.npc2)) || null;
+const npcRole = id => (DEX.characters || []).find(c => { const cl = claimOf(c.id); return !cl.by && (cl.npc === id || (c.pair && cl.npc && cl.npc2 === id)); }) || null;
 // One person's trainers merged into one (2026-11-26, Arvind: "hvis man har claimet 2 eller mer karakterer så kan man liksom
 // merge de til 1 og/eller kopiere sprites. Da kan de ha 2 story lag hvis de vil med samme sprites"). A claim with same_as =
 // <main role id> is the same trainer as the main one: its name and sprites come from the main, and so does its story team
@@ -5534,7 +5538,7 @@ function renderCharacterPage(c) {
   }
   const status = h("div", {class: "hint charstatus", role: "status"});
   const cl = claimOf(c.id), mine = person(me()), isMine = cl.by && mine && person(cl.by) === mine;
-  const npcHere = roleNpc(cl), canTeam = isMine || (!!npcHere && ownerOk(c));       // an NPC's story team: anyone may change it (on an owner's trainer, only the owner)
+  const npcHere = roleNpc(cl), npcHere2 = roleNpc2(c, cl), canTeam = isMine || (!!npcHere && ownerOk(c));       // an NPC's story team: anyone may change it (on an owner's trainer, only the owner)
   // merged with another of the same person's trainers: the name and sprites (and maybe the story team) come from the main one
   const mainId = mainOf(c.id), look = lookOf(c.id), follower = mainId !== c.id, mainChar = charById(mainId);
   const mates = groupOf(c.id).filter(x => x !== c.id);
@@ -5545,10 +5549,12 @@ function renderCharacterPage(c) {
     status.textContent = "Saving...";
     const data = Object.assign({}, cl, {by, role: c.id, slots: slots || {}, story: story || cl.story || {lines: []}});
     const toNpc = how && how.startsWith("npc:") ? how.slice(4) : "";
-    if (by) { delete data.npc; delete data.assigned_by; }                       // a person takes the role (from an NPC too)
+    if (how && how.startsWith("npc2:")) { data.npc2 = how.slice(5); }          // the other version of a pair role (keeps the team)
+    else if (how === "release2") { delete data.npc2; }
+    else if (by) { delete data.npc; delete data.npc2; delete data.assigned_by; }   // a person takes the role (from an NPC too)
     else if (toNpc) { data.npc = toNpc; data.assigned_by = person(me()); data.name = ""; delete data.sprite; data.slots = {}; data.story = {lines: []}; delete data.same_as; delete data.own_story; }
     else if (cl.npc && how !== "release") { data.npc = cl.npc; }
-    else { data.slots = {}; data.story = {lines: []}; data.name = ""; delete data.sprite; delete data.npc; delete data.assigned_by; delete data.same_as; delete data.own_story; }
+    else { data.slots = {}; data.story = {lines: []}; data.name = ""; delete data.sprite; delete data.npc; delete data.npc2; delete data.assigned_by; delete data.same_as; delete data.own_story; }
     try { await saveEdit("claim", "claim-" + c.id, data); claims.set(c.id, data); openCharacter(c); }
     catch (err) { status.textContent = /check constraint/i.test(err.message) ? "Claiming is not switched on in the database yet." : err.message; }
   };
@@ -5560,7 +5566,7 @@ function renderCharacterPage(c) {
     h("b", {class: "charname"}, charName(c)), h("span", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).filter(t => DEX.types.includes(t)).map(typeChip)),
     h("span", {class: "grow"}),
     cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "claimed by " + person(cl.by) + (look.name ? " (as " + look.name + ")" : ""))
-      : npcHere ? h("span", {class: "badge taken"}, "played by the NPC " + (npcHere.name || "NPC")) : h("span", {class: "badge avail"}, "available"));
+      : npcHere ? h("span", {class: "badge taken"}, "played by the NPC " + (npcHere.name || "NPC") + (npcHere2 ? " and " + (npcHere2.name || "NPC") : "")) : h("span", {class: "badge avail"}, "available"));
 
   // ----- left: the trainer, its facts, claiming and the onboarding
   const nameBox = isMine ? h("input", {type: "text", maxlength: 10, value: look.name || "", placeholder: "Trainer name (max 10)", "aria-label": "Trainer name", style: "max-width:180px"}) : null;
@@ -5607,14 +5613,23 @@ function renderCharacterPage(c) {
     // or an NPC plays it (anyone may do this; a person can still claim it later)
     const free = [...npcs.values()].filter(n => !npcRole(n.id)).sort((a, b) => String(a.name).localeCompare(String(b.name)));
     const pickNpc = h("select", {"aria-label": "NPC"}, h("option", {value: ""}, "Choose an NPC"), free.map((n, i) => h("option", {value: n.id}, (npcSecret(n) === "all" ? "Hidden NPC " + (i + 1) : n.name || n.id) + (n.sprite ? "" : " (no sprite yet)"))));
+    const npcLink = n => h("button", {type: "button", class: "link", onclick: () => openNpc(n.id)}, n.name || "NPC");
+    const pickNpc2 = h("select", {"aria-label": "The other NPC"}, h("option", {value: ""}, "Choose an NPC"), free.map(n => h("option", {value: n.id}, (n.name || n.id) + (n.sprite ? "" : " (no sprite yet)"))));
+    const pairBox = c.pair && npcHere ? h("div", {class: "box", style: "margin-top:8px"},
+      h("div", {}, "Two versions, one story team: ", npcLink(npcHere), " ", h("span", {class: "sub"}, "(" + c.pair.npc + ")"),
+        npcHere2 ? [" and ", npcLink(npcHere2), " ", h("span", {class: "sub"}, "(" + c.pair.npc2 + ")")] : " and nobody yet in the other version" + " (" + c.pair.npc2 + ")."),
+      npcHere2 ? h("button", {type: "button", class: "small", style: "margin-top:6px", onclick: ev => sure(ev.currentTarget, "Really take " + (npcHere2.name || "it") + " out?", () => saveClaim("", cl.slots, cl.story, "release2"))}, "Take " + (npcHere2.name || "the other NPC") + " out")
+        : free.length ? h("div", {class: "storyline", style: "margin-top:6px"}, h("span", {class: "sub"}, "The other version:"), pickNpc2,
+          h("button", {type: "button", onclick: ev => { if (!pickNpc2.value) { note.textContent = "Choose an NPC first."; return; }
+            sure(ev.currentTarget, "Really put " + ((npcs.get(pickNpc2.value) || {}).name || "it") + " here?", () => saveClaim("", cl.slots, cl.story, "npc2:" + pickNpc2.value)); }}, "Put it here")) : null) : null;
     const npcBox = npcHere ? h("div", {class: "box", style: "margin-top:8px"},
-      h("div", {}, "Played by the NPC ", h("button", {type: "button", class: "link", onclick: () => openNpc(npcHere.id)}, npcHere.name || "NPC"),
+      h("div", {}, "Played by the NPC ", npcLink(npcHere), npcHere2 ? [" and ", npcLink(npcHere2)] : null,
         cl.assigned_by ? " (put here by " + person(cl.assigned_by) + ")" : "", c.owner ? ". Only " + person(c.owner) + " sees this trainer and builds its story team below." : ". Anyone can build its story team below. If you claim the trainer, the NPC steps out and you keep its story team."),
       h("button", {type: "button", class: "small", style: "margin-top:6px", onclick: ev => sure(ev.currentTarget, "Really take the NPC out?", () => saveClaim("", {}, null, "release"))}, "Take the NPC out"))
       : free.length ? h("div", {class: "storyline", style: "margin-top:8px"}, h("span", {class: "sub"}, "Or let one of the group's NPCs play this trainer:"), pickNpc,
         h("button", {type: "button", onclick: ev => { if (!pickNpc.value) { note.textContent = "Choose an NPC first."; return; }
           sure(ev.currentTarget, "Really put " + ((npcs.get(pickNpc.value) || {}).name || "it") + " here?", () => saveClaim("", {}, null, "npc:" + pickNpc.value)); }}, "Put the NPC here")) : null;
-    claimArea.replaceChildren(intro, h("button", {type: "button", class: "primary", onclick: () => me() ? claimNow(note) : askName()}, npcHere ? "Claim this trainer (the NPC steps out)" : "Claim this trainer"), note, npcBox);
+    claimArea.replaceChildren(intro, h("button", {type: "button", class: "primary", onclick: () => me() ? claimNow(note) : askName()}, npcHere ? "Claim this trainer (the NPC steps out)" : "Claim this trainer"), note, npcBox, pairBox);
   }
   const pic = charPic(c);
   const pics = trainerPics.get(c.id) || [];
@@ -5702,7 +5717,7 @@ function renderCharacterPage(c) {
   const toTab = id => { charTab = id; openCharacter(c, "tabs"); };
   const cap = x => x ? x.charAt(0).toUpperCase() + x.slice(1) : "";
   const heroPic = heroPicture(sp, pic), step = heroStep;
-  const shownName = look.name || (npcHere && !cl.by ? npcHere.name : "") || "";
+  const shownName = look.name || (npcHere && !cl.by ? npcHere.name + (npcHere2 ? " / " + npcHere2.name : "") : "") || "";
   const hero = h("div", {class: "charhero"}, heroPic, h("div", {class: "herotext"},
     h("div", {class: "heroname"}, shownName || charName(c)),
     h("div", {class: "sub"}, [shownName ? charName(c) : null, canTeam ? (c.battles || 0) + " battles" : roughBattles(c.battles || 0), cap(c.place)].filter(Boolean).join(" · ")),
@@ -5724,7 +5739,9 @@ function renderCharacterPage(c) {
       h("div", {class: "sub"}, "Your trainer's battle sprite, VS portrait, back, animation and map figure, made from your picture by the drawing PC in the style of the DS games."),
       trainerSpriteBox("trainer-" + c.id, studioOpts)) : null;
   const spritesTab = h("div", {}, studio,
-    trainerShowcase(sp, shownName) || h("div", {class: "empty", style: "margin-top:10px"}, isMine ? "No sprites yet: make them in the trainer studio." : npcHere ? "The NPC has no sprites yet (they are made on its page)." : "No sprites yet. The one who claims this trainer makes them."));
+    npcHere2 ? [[npcHere, c.pair.npc], [npcHere2, c.pair.npc2]].map(([n, when]) => h("div", {style: "margin-top:10px"}, h("h3", {style: "margin:0"}, (n.name || "NPC") + " ", h("span", {class: "sub"}, when)),
+        trainerShowcase(n.sprite || null, n.name || "") || h("div", {class: "empty"}, "No sprites yet (they are made on its page).")))
+    : trainerShowcase(sp, shownName) || h("div", {class: "empty", style: "margin-top:10px"}, isMine ? "No sprites yet: make them in the trainer studio." : npcHere ? "The NPC has no sprites yet (they are made on its page)." : "No sprites yet. The one who claims this trainer makes them."));
   // ABOUT: the facts and, for the owner, giving it back; the pictures and the owner's other trainers
   const facts = h("div", {class: "factrows"},
       h("div", {}, h("span", {}, "Role"), c.group),
@@ -5737,7 +5754,7 @@ function renderCharacterPage(c) {
       mates.length ? h("div", {}, h("span", {}, "Same trainer as"), h("span", {}, mates.map((x, i) => [i ? ", " : "",
         h("button", {type: "button", class: "linkish", onclick: () => openCharacter(charById(x))}, charName(charById(x)))]),
         follower && mates.length > 1 ? " (name and sprites from " + charName(mainChar) + ")" : "")) : null,
-      h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (look.name ? " (as " + look.name + ")" : "") : npcHere ? "the NPC " + (npcHere.name || "NPC") + (cl.assigned_by ? " (put here by " + person(cl.assigned_by) + ")" : "") : h("span", {class: "badge avail"}, "available")));
+      h("div", {}, h("span", {}, "Claimed by"), cl.by ? person(cl.by) + (look.name ? " (as " + look.name + ")" : "") : npcHere ? (npcHere2 ? "the NPCs " + (npcHere.name || "NPC") + " and " + (npcHere2.name || "NPC") : "the NPC " + (npcHere.name || "NPC")) + (cl.assigned_by ? " (put here by " + person(cl.assigned_by) + ")" : "") : h("span", {class: "badge avail"}, "available")));
   const pictures = h("div", {},
     h("h3", {id: "char-picture", style: "margin-top:0"}, "Picture"),
     h("div", {class: "charpics"}, pics.length ? pics.map(p => h("figure", {}, h("img", {src: p.src, alt: "trainer picture"}),
@@ -6055,7 +6072,7 @@ function renderCharacterPage(c) {
         h("td", {}, pick, copy));
     })));
     main = h("div", {class: "charmain"},
-      h("h3", {id: "char-team", style: "margin-top:0"}, npcHere ? (npcHere.name || "The NPC") + "'s story team" : "Your story team"),
+      h("h3", {id: "char-team", style: "margin-top:0"}, npcHere ? (npcHere2 ? (npcHere.name || "NPC") + " and " + (npcHere2.name || "NPC") : npcHere.name || "The NPC") + "'s story team" : "Your story team"),
       h("div", {class: "sub"}, "Tap an empty slot to add an evolution line (by its last evolution), and tap a Pokemon to build its set as in TEAMS: how far it evolves, moves, ability, item, nature and EVs (or swap or remove it). Rank them by dragging, or with the arrows. No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage for the level, with your set where it can have it and sensible moves for the rest. Levels and IVs are set by themselves, exactly as in the original game: low early, high late."),
       storyMates.length ? h("div", {class: "notice info"}, "This story team is shared with " + storyMates.map(x => charName(charById(x))).join(", ") +
         " (merged): it grows over the battles of " + (storyMates.length > 1 ? "all of them" : "both") + ", and a change here changes it there too.") : null,
@@ -6091,12 +6108,12 @@ function renderCharacters() {
     return h("button", {type: "button", class: "card charcard " + (cl.by ? (isMine ? "mine" : "taken") : "avail") + (secret ? " spoilcard" : ""),
       onclick: secret ? () => { showSecret(roleKeys(c)); renderCharacters(); } : () => openCharacter(c)},
       charPreview(look.sprite || (npc && npc.sprite), charPic(c), TYPE_COLORS[String(c.type || "").split("/")[0].trim()]), h("div", {class: "charinfo"},
-      h("b", {}, charName(c)), noNames ? null : look.name ? h("div", {}, "“" + look.name + "”") : npc ? h("div", {}, "“" + (npc.name || "NPC") + "”") : null,
+      h("b", {}, charName(c)), noNames ? null : look.name ? h("div", {}, "“" + look.name + "”") : npc ? h("div", {}, "“" + (npc.name || "NPC") + (roleNpc2(c, cl) ? " / " + (roleNpc2(c, cl).name || "NPC") : "") + "”") : null,
       h("div", {class: "types"}, String(c.type || "").split("/").map(t => t.trim()).map(t => DEX.types.includes(t) ? typeChip(t) : h("span", {class: "sub"}, t))),
       h("div", {class: "sub"}, roughBattles(c.battles || 0) + (c.rule ? " · gym rule" : "") + (c.dialogue ? " · 💬 " + talkWord(c) : "")),
       noNames ? h("span", {class: "badge taken"}, cl.by ? "taken" : npc ? "played by an NPC" : "has a picture")
         : cl.by ? h("span", {class: "badge " + (isMine ? "mine" : "taken")}, isMine ? "★ yours" : "taken by " + person(cl.by))
-        : npc ? h("span", {class: "badge taken"}, "NPC: " + (npc.name || "NPC")) : h("span", {class: "badge avail"}, "available"),
+        : npc ? h("span", {class: "badge taken"}, "NPC: " + (npc.name || "NPC") + (roleNpc2(c, cl) ? " + " + (roleNpc2(c, cl).name || "NPC") : "")) : h("span", {class: "badge avail"}, "available"),
       secret ? h("span", {class: "spoiltap"}, noNames ? "TAP TO SHOW WHO" : "TAP TO SHOW THE PICTURE") : null));
   };
   // A filter row on top (2026-11-26, Arvind: the page was "litt clunky": one long scroll of 29 trainers and the NPCs)
