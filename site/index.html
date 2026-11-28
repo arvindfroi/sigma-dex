@@ -734,6 +734,15 @@ button.big { font-size: 22px; padding: 10px 24px; margin-top: 10px; }
 .whenrow .mini { width: 24px; height: 24px; object-fit: contain; }
 .storyview { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
 .storypick { margin-top: 8px; border: 2px solid var(--line); background: var(--panel); padding: 6px; }
+.storyset { margin-top: 8px; display: grid; gap: 8px; }
+.storyset .tedit { border: 0; padding: 0; grid-template-columns: minmax(150px, 190px) minmax(200px, 1fr) minmax(0, 1.3fr); }
+.storyset .tright { min-width: 0; overflow-x: auto; }
+.storyset .tstats input[type=range] { width: 100%; min-width: 60px; }
+.storyset .tstats tr > :nth-child(3) { display: none; }      /* the base-stat bar: the stat at its last battle needs the room */
+@media (max-width: 900px) { .storyset .tedit { grid-template-columns: 1fr; } }
+.storycard .setline { font-size: 11px; text-align: center; }
+.storysetplan td, .storysetplan th { vertical-align: top; white-space: normal; }
+.balance.storysetplan { min-width: 0; }                      /* three columns fit a phone (other .balance tables scroll there) */
 .storypickhead { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; margin-bottom: 6px; }
 .storypickhead input { flex: 1 1 200px; }
 .storypicklist { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 4px; max-height: 340px; overflow: auto; }
@@ -5568,30 +5577,66 @@ const STORY_WHEN = {starter: {label: "the player's starter", options: [["leafing
   version: {label: "the version", options: [["glory", "Glory"], ["grave", "Grave"]]}};
 const whenPhrase = (when, label) => when === "version" ? "in Pokémon " + label : "if the player took " + label;
 const storyView = {starter: "leafing", version: "glory"};       // which starter and version the page shows the team for
-const slotLine = (entry, cond) => !entry ? "" : typeof entry === "string" ? entry
+// A slot can carry its own set, built once like a TEAMS set but without level and IVs (2026-11-28, Arvind: "det må gå an å
+// endre moveset og selve pokemonen inne på story team builder. Det er som normal team builden men man velger ikke levels og
+// IVs ... Man bygger laget sitt detaljert 1 gang så anvendes den for hver kamp og tilpasser den seg"): {line: id, set} where
+// id is the Pokemon it evolves up to (its last evolution, or an earlier stage where it stops evolving) and set = {ability:
+// "primary" | "secondary" | "hidden" (the slot, so every stage gets its own ability in that slot), item, nature, evs, moves}.
+// A slot that depends on a story choice keeps one set per option in `sets`. Origin's trainer records hold all of it.
+const slotLine = (entry, cond) => !entry ? "" : typeof entry === "string" ? entry : entry.line ? entry.line
   : (entry.options || {})[(cond || storyView)[entry.when]] || entry.default || Object.values(entry.options || {}).find(Boolean) || "";
-const slotIds = entry => !entry ? [] : typeof entry === "string" ? [entry] : Object.values(entry.options || {}).filter(Boolean);
+const slotSet = (entry, cond) => !entry || typeof entry === "string" ? null : entry.line ? entry.set || null
+  : (entry.sets || {})[(cond || storyView)[entry.when]] || null;
+const slotIds = entry => !entry ? [] : typeof entry === "string" ? [entry] : entry.line ? [entry.line] : Object.values(entry.options || {}).filter(Boolean);
+let storyEdit = null;                                 // the slot whose set is open: {c, k, opt}, kept while the page redraws
+// Can a Pokemon that has come this far (stages = base .. its stage now) have this move at this level? Level-up moves from
+// their level (a stage's "on evolving" moves once it is that stage); TM/HM, tutor and egg moves at any level, since a
+// trainer may have taught or bred them. That is what the game allows.
+function storyMoveAt(stages, level, move) {
+  const n = norm(move);
+  return stages.some(id => {
+    const ls = (byId.get(id) || {data: {}}).data.learnset || {};
+    if ([...(ls.tm_hm || []), ...(ls.tutor || []), ...(ls.egg || [])].some(x => norm(x) === n)) return true;
+    return (ls.level_up || []).some(m => m && norm(m.move) === n && (!m.level || m.level <= level));
+  });
+}
+// The first level a slot's Pokemon can have the move (null = never).
+function storyMoveFrom(target, move) {
+  const chain = storyChain(target);
+  for (let level = 1; level <= 100; level++) { const sid = stageAt(chain, level); if (storyMoveAt(chain.slice(0, chain.indexOf(sid) + 1), level, move)) return level; }
+  return null;
+}
 function storyTeam(c, story, i, cond) {
   const b = (c.teams || [])[i];
   if (!b || !story || !(story.lines || []).length) return [];
   const levels = String(b.original || "").split(",").map(x => Number((x.trim().match(/(\d+)$/) || [])[1])).filter(Boolean).sort((x, y) => y - x);
   const n = Math.min(b.size || levels.length || 1, story.lines.length);
-  return story.lines.slice(0, n).map(e => slotLine(e, cond)).map((finalId, k) => {
-    const level = levels[k] || b.lv, sid = stageAt(storyChain(finalId), level), s = byId.get(sid);
-    const ab = (s && s.data.abilities) || {};
-    return {species: sid, level, iv: Number.isInteger(b.iv) ? b.iv : 31, ability: ab.primary || "", ...storyMoves(sid, level)};
+  return story.lines.slice(0, n).map((e, k) => {
+    const target = slotLine(e, cond), set = slotSet(e, cond) || {}, chain = storyChain(target);
+    const level = levels[k] || b.lv, sid = stageAt(chain, level), s = byId.get(sid);
+    const ab = (s && s.data.abilities) || {}, auto = storyMoves(sid, level);
+    // the chosen moves it can have at this level, in their order; the free places get the automatic picks
+    const stages = chain.slice(0, chain.indexOf(sid) + 1);
+    const own = (set.moves || []).filter(mv => mv && storyMoveAt(stages, level, mv));
+    const moves = own.concat(auto.moves.filter(mv => !own.some(o => norm(o) === norm(mv)))).slice(0, 4);
+    return {species: sid, level, iv: Number.isInteger(b.iv) ? b.iv : 31, ability: (set.ability && ab[set.ability]) || ab.primary || "",
+      item: set.item || "", nature: set.nature || "", evs: set.evs || null, moves, own, role: auto.role};
   });
 }
 function storyTeamText(team) {
-  return team.map(m => nameOf(m.species) + "\nAbility: " + (m.ability || "-") + "\nLevel: " + m.level + "\n" +
+  return team.map(m => nameOf(m.species) + (m.item ? " @ " + m.item : "") + "\nAbility: " + (m.ability || "-") + "\nLevel: " + m.level + "\n" +
+    (m.evs && STATS.some(([k]) => m.evs[k]) ? "EVs: " + STATS.filter(([k]) => m.evs[k]).map(([k]) => m.evs[k] + " " + SHORT_STAT[k]).join(" / ") + "\n" : "") +
+    (m.nature ? m.nature + " Nature\n" : "") +
     "IVs: " + STATS.map(([k]) => storyIvs(m.iv, m.level)[k] + " " + SHORT_STAT[k]).join(" / ") + "\n" + m.moves.map(x => "- " + x).join("\n")).join("\n\n");
 }
 function storyTeamView(team) {
   return h("div", {class: "storyteam"}, team.map(m => {
     const s = byId.get(m.species), ds = s && DEX.ds_sprites[m.species], pic = s && (portrait(s));
     return h("div", {class: "storymon"}, pic ? h("img", {class: pic.pixel ? "px" : null, src: pic.src, alt: ""}) : null,
-      h("b", {}, nameOf(m.species)), h("span", {class: "sub"}, " lv " + m.level + " · IV " + m.iv + " (HP " + storyHpIv(m.level) + ")" + (m.ability ? " · " + m.ability : "")),
-      h("div", {class: "sub"}, m.moves.length ? m.moves.join(", ") : "no moves yet (comes when its moves are filled in)"));
+      h("b", {}, nameOf(m.species)), h("span", {class: "sub"}, " lv " + m.level + " · IV " + m.iv + " (HP " + storyHpIv(m.level) + ")" + (m.ability ? " · " + m.ability : "") +
+        (m.item ? " · @ " + m.item : "") + (m.nature ? " · " + m.nature : "")),
+      h("div", {class: "sub"}, m.moves.length ? m.moves.map((mv, i) => [i ? ", " : "", (m.own || []).some(o => norm(o) === norm(mv)) ? h("b", {title: "Chosen in the story team"}, mv) : mv])
+        : "no moves yet (comes when its moves are filled in)"));
   }));
 }
 // Every evolution line for the story team picker, worked out once: the last evolution, every stage's name and abilities, the
@@ -5924,14 +5969,16 @@ function renderCharacterPage(c) {
     };
     const storyHome = x => sharesStory(x) ? mainOf(x) : x;
     const storyMates = groupOf(c.id).filter(x => x !== c.id && storyHome(x) === storyHome(c.id));
-    const move = (k, d) => { const l = story.lines.slice(); [l[k + d], l[k]] = [l[k], l[k + d]]; saveStory(l); };
+    const move = (k, d) => { const l = story.lines.slice(); [l[k + d], l[k]] = [l[k], l[k + d]]; storyEdit = null; saveStory(l); };
     // The story team as six slot cards, a variant of Showdown's teambuilder (2026-11-24, Arvind: "man kan trykke på hver slot og
     // legge til ... story laget må ha litt special attention"): tap an empty slot to add a line, a filled one to swap or remove
     // it; No. 1, the star, wears the crown. Each card shows the line's levels from its first to its last battle.
     const lineLevels = k => { const lv = []; plan.forEach((b, i) => { const team = storyTeam(c, story, i); if (team[k]) lv.push(team[k].level); }); return lv; };
     const pickBox = h("div", {class: "storypick", hidden: ""});
-    const openPick = (k, opt) => {
-      const entry = story.lines[k], cur = opt ? (entry && entry.options || {})[opt] : typeof entry === "string" ? entry : "";
+    const openPick = (k, opt, fromSet) => {
+      const entry = story.lines[k], cur = opt ? (entry && entry.options || {})[opt] : slotLine(entry);
+      setBox.hidden = true;
+      if (!fromSet) storyEdit = null;           // from the set: the set opens again on the new Pokemon
       const search = h("input", {type: "search", placeholder: "Search: name, type, ability or move (fire, levitate)", "aria-label": "Search for a line"});
       const list = h("div", {class: "storypicklist", role: "list"});
       const count = h("span", {class: "sub"});
@@ -5942,10 +5989,16 @@ function renderCharacterPage(c) {
       // ønsker så lenge det er lovlig" - someone wanted two of the same Pokemon / line and could not). The game allows it
       // (Falkner has Pidgey and Pidgeotto), and each slot gets its own level, so a tapped line always goes in this slot: it
       // no longer swaps with a slot that already has it (the order is changed with ◀ ▶ or by dragging).
+      // A new Pokemon starts with no set of its own; the same one keeps its set.
       const choose = id => {
         const lines = story.lines.slice();
-        if (opt) { lines[k] = {when: entry.when, options: Object.assign({}, entry.options, {[opt]: id})}; }
-        else if (k < lines.length) lines[k] = id;
+        if (opt) {
+          const sets = Object.assign({}, entry.sets);
+          if (id !== cur) delete sets[opt];
+          lines[k] = Object.assign({}, entry, {options: Object.assign({}, entry.options, {[opt]: id}), sets});
+          if (!Object.keys(sets).length) delete lines[k].sets;
+        }
+        else if (k < lines.length) { if (id !== cur) lines[k] = id; }
         else lines.push(id);
         pickBox.hidden = true; saveStory(lines.slice(0, 6));
       };
@@ -5989,31 +6042,166 @@ function renderCharacterPage(c) {
       const optLabel = opt ? (STORY_WHEN[entry.when].options.find(o => o[0] === opt) || [opt, opt])[1] : "";
       pickBox.replaceChildren(h("div", {class: "storypickhead"},
           h("b", {}, "Slot " + (k + 1) + (opt ? " " + whenPhrase(entry.when, optLabel) : "") + ": " + (cur ? "swap " + nameOf(cur) : "add a line")), search,
-          cur && !opt ? h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; saveStory(story.lines.filter((_, i) => i !== k)); }}, "Remove") : null,
-          h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; }}, "Close")), typeBar, sortBar,
+          cur && !opt ? h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; storyEdit = null; saveStory(story.lines.filter((_, i) => i !== k)); }}, "Remove") : null,
+          h("button", {type: "button", class: "small", onclick: () => { pickBox.hidden = true; if (storyEdit) openSet(k, opt); }}, "Close")), typeBar, sortBar,
         h("div", {class: "sub"}, count, " · separate with commas to combine, e.g. ", h("i", {}, "water, levitate"), " or ", h("i", {}, "fire, u-turn")), list);
       pickBox.hidden = false; search.focus(); pickBox.scrollIntoView({block: "nearest"});
     };
-    // a slot that depends on the player's starter, and back to one line for all
-    const toWhen = (k, when) => { const id = story.lines[k], lines = story.lines.slice();
-      lines[k] = {when, options: Object.fromEntries(STORY_WHEN[when].options.map(([o]) => [o, id])), default: id}; saveStory(lines); };
-    const toOne = k => { const lines = story.lines.slice(); lines[k] = slotLine(lines[k]); saveStory(lines); };
+    // ----- a slot's own set: like a set in TEAMS, without level and IVs (see slotSet). It is built once; the table under it
+    // shows what every battle gets from it at that battle's level. Nothing is saved until SAVE.
+    const setBox = h("div", {class: "box storyset", hidden: ""});
+    const openSet = (k, opt) => {
+      const entry = story.lines[k];
+      if (!entry) return;
+      const id = opt ? (entry.options || {})[opt] : slotLine(entry);
+      const justSaved = !!(storyEdit && storyEdit.saved && storyEdit.k === k && storyEdit.opt === (opt || ""));
+      storyEdit = {c: c.id, k, opt: opt || ""};
+      if (!id) { openPick(k, opt, true); return; }
+      pickBox.hidden = true;
+      const saved = (opt ? (entry.sets || {})[opt] : slotSet(entry)) || {};
+      const draft = {ability: saved.ability || "primary", item: saved.item || "", nature: saved.nature || "",
+        evs: Object.assign(allStats(0), saved.evs || {}), moves: (saved.moves || []).concat(["", "", "", ""]).slice(0, 4)};
+      let target = id, dirty = false;
+      const cond = opt ? Object.assign({}, storyView, {[entry.when]: opt}) : storyView;
+      const clean = () => {                     // the set as saved: only what was chosen
+        const set = {};
+        if (draft.ability !== "primary") set.ability = draft.ability;
+        if (draft.item) set.item = draft.item;
+        if (draft.nature) set.nature = draft.nature;
+        if (STATS.some(([k2]) => draft.evs[k2])) set.evs = Object.assign({}, draft.evs);
+        const mv = draft.moves.filter(Boolean);
+        if (mv.length) set.moves = mv;
+        return Object.keys(set).length ? set : null;
+      };
+      const asEntry = () => {
+        const set = clean();
+        if (!opt) return set ? {line: target, set} : target;
+        const sets = Object.assign({}, entry.sets);
+        if (set) sets[opt] = set; else delete sets[opt];
+        const out = Object.assign({}, entry, {options: Object.assign({}, entry.options, {[opt]: target}), sets});
+        if (!Object.keys(sets).length) delete out.sets;
+        return out;
+      };
+      const close = () => { storyEdit = null; setBox.hidden = true; };
+      const draw = () => {
+        const s = byId.get(target), d = (s && s.data) || {}, ab = d.abilities || {};
+        const touch = redraw => { dirty = true; if (redraw) draw(); else { note.textContent = "Not saved yet."; drawPlan(); } };
+        const note = h("span", {class: "sub"}, dirty ? "Not saved yet." : justSaved ? "Saved." : "");
+        // the Pokemon: how far the line evolves (an earlier stage = it stops there), or another one from the list
+        const base = storyChain(target)[0], family = [];
+        const walk = x => { if (family.includes(x) || !byId.has(x)) return; family.push(x); for (const e of byId.get(x).data.evolutions || []) if (e && byId.has(e.into)) walk(e.into); };
+        walk(base);
+        const isLast = x => !((byId.get(x).data.evolutions || []).some(e => e && byId.has(e.into)));
+        const stageSel = h("select", {"aria-label": "How far it evolves", onchange: ev => { target = ev.target.value; touch(true); }},
+          family.map(x => h("option", {value: x, selected: x === target ? "" : null}, storyChain(x).map(nameOf).join(" → ") + (isLast(x) ? "" : " (stops here)"))));
+        const abilities = [["primary", ab.primary], ["secondary", ab.secondary], ["hidden", ab.hidden]].filter(([, v]) => filled(v));
+        const abilitySel = h("select", {"aria-label": "Ability", onchange: ev => { draft.ability = ev.target.value; touch(true); }},
+          abilities.map(([slot, v]) => h("option", {value: slot, selected: slot === draft.ability ? "" : null}, v + (slot === "hidden" ? " (hidden)" : ""))));
+        const itemBox = attachPicker(textInput(draft.item, {placeholder: "Item", "aria-label": "Item"}), "item", () => Object.entries(SD.items || {}).map(([name, desc]) => ({name, desc})));
+        itemBox.addEventListener("change", () => { draft.item = itemBox.value.trim(); touch(true); });
+        const natureSel = h("select", {"aria-label": "Nature", onchange: ev => { draft.nature = ev.target.value; touch(true); }},
+          h("option", {value: ""}, "— (the game picks one)"), Object.keys(NATURES).map(n => h("option", {value: n, selected: n === draft.nature ? "" : null}, natureLabel(n))));
+        // moves: what the line can learn; each shows from which level it can be used
+        const canLearn = s ? learnable(target) : [];
+        const learnRows = () => canLearn.map(x => Object.assign({}, moveInfo(x.name), {name: x.name, desc: x.how + " - " + (moveInfo(x.name).desc || "")}));
+        const moveBoxes = draft.moves.map((mv, i) => {
+          const box = attachPicker(textInput(mv, {placeholder: "Move " + (i + 1) + " (empty = automatic)", "aria-label": "Move " + (i + 1)}), "move", learnRows);
+          box.addEventListener("change", () => { draft.moves[i] = box.value.trim(); touch(true); });
+          const info = mv ? moveInfo(mv) : null, from = mv ? storyMoveFrom(target, mv) : null;
+          return h("div", {class: "tmove"}, box, info && !info.unknown ? h("span", {class: "mv"}, info.type ? typeChip(info.type) : null, catBadge(info.category), info.power ? " " + info.power : "") : null,
+            mv ? (from === null ? h("span", {class: "badge need", title: "Not in its learnset"}, "can't learn") : h("span", {class: "sub"}, from <= 1 ? " any level" : " from Lv " + from)) : null);
+        });
+        // EVs, and the stats at the slot's last battle (its level and IVs)
+        const last = [...plan.keys()].map(i => storyTeam(c, Object.assign({}, story, {lines: story.lines.map((e, j) => j === k ? asEntry() : e)}), i, cond)[k]).filter(Boolean).pop();
+        const evLeft = h("span", {class: "sub"}), statCells = {};
+        const statOf = k2 => { const ls = last && byId.get(last.species), b2 = ls && (ls.data.base_stats || {})[k2];
+          return Number.isInteger(b2) ? calcStat(b2, last.level, storyIvs(last.iv, last.level)[k2], draft.evs[k2] || 0, natureMult(draft.nature, k2), k2 === "hp") : null; };
+        const updateStats = () => {
+          for (const [k2] of STATS) { const v = statOf(k2); statCells[k2].textContent = v === null ? "—" : String(v); }
+          const used = STATS.reduce((a, [k2]) => a + (Number(draft.evs[k2]) || 0), 0);
+          evLeft.textContent = "EVs: " + used + " of 510 used, " + (510 - used) + " left";
+        };
+        const rows = STATS.map(([k2, label]) => {
+          const b2 = (d.base_stats || {})[k2];
+          const evNum = numberInput(draft.evs[k2], 0, 252, 4, {"aria-label": label + " EVs", style: "width:72px"});
+          const ev = h("input", {type: "range", min: 0, max: 252, step: 4, value: draft.evs[k2], "aria-label": label + " EVs slider"});
+          const setEv = v => {
+            const others = STATS.reduce((a, [o]) => a + (o === k2 ? 0 : Number(draft.evs[o]) || 0), 0);
+            draft.evs[k2] = Math.max(0, Math.min(252, 510 - others, Math.round((Number(v) || 0) / 4) * 4));
+            ev.value = evNum.value = draft.evs[k2]; updateStats(); touch(false);
+          };
+          ev.addEventListener("input", () => setEv(ev.value));
+          evNum.addEventListener("change", () => setEv(evNum.value));
+          statCells[k2] = h("td", {class: "num tot"});
+          const n = NATURES[draft.nature] || [];
+          return h("tr", {}, h("th", {class: n[0] === k2 ? "up" : n[1] === k2 ? "down" : null}, label), h("td", {class: "num"}, Number.isInteger(b2) ? String(b2) : "—"),
+            h("td", {}, h("div", {class: "track"}, h("i", {style: "width:" + Math.min(100, (b2 || 0) / 1.8) + "%;background:" + (b2 >= 110 ? "var(--good)" : b2 < 50 ? "var(--bad)" : "var(--pri)")}))),
+            h("td", {class: "evc"}, ev, evNum), statCells[k2]);
+        });
+        const statsTable = h("table", {class: "tstats"}, h("thead", {}, h("tr", {}, h("th", {}, ""), h("th", {class: "num"}, "Base"), h("th", {}, ""), h("th", {}, "EVs"),
+          h("th", {class: "num", title: "At its last battle"}, last ? "Lv " + last.level : "Stat"))), h("tbody", {}, rows));
+        updateStats();
+        // what every battle gets from the set
+        const planBox = h("div", {class: "scroll"});
+        function drawPlan() {
+          const trial = Object.assign({}, story, {lines: story.lines.map((e, j) => j === k ? asEntry() : e)});
+          const rowsP = [...plan.keys()].map(i => [i, storyTeam(c, trial, i, cond)[k]]).filter(([, m]) => m);
+          planBox.replaceChildren(rowsP.length ? h("table", {class: "balance storysetplan"}, h("thead", {}, h("tr", {}, ["Battle", "Lv", "Pokemon, ability and moves (bold = your moves)"].map(t => h("th", {}, t)))),
+            h("tbody", {}, rowsP.map(([i, m]) => h("tr", {}, h("td", {class: "num"}, String(i + 1)), h("td", {class: "num"}, String(m.level)),
+              h("td", {}, h("b", {}, nameOf(m.species)), h("span", {class: "sub"}, " · " + (m.ability || "—")),
+                h("div", {class: "sub"}, m.moves.length ? m.moves.map((mv, j) => [j ? ", " : "", m.own.some(o => norm(o) === norm(mv)) ? h("b", {}, mv) : mv]) : "—"))))))
+            : h("div", {class: "sub"}, "This slot is not in a battle yet (the battles with fewer Pokemon take the first slots)."));
+        }
+        drawPlan();
+        const optLabel = opt ? (STORY_WHEN[entry.when].options.find(o => o[0] === opt) || [opt, opt])[1] : "";
+        const save = h("button", {type: "button", class: "primary", onclick: () => { const lines = story.lines.slice(); lines[k] = asEntry(); dirty = false; storyEdit.saved = true; saveStory(lines); }}, "SAVE");
+        const shut = h("button", {type: "button", class: "small", onclick: ev => dirty ? sure(ev.currentTarget, "Close without saving?", close) : close()}, "Close");
+        const pic = s && portrait(s);
+        setBox.replaceChildren(
+          h("div", {class: "storypickhead"}, h("b", {}, "Slot " + (k + 1) + (opt ? " " + whenPhrase(entry.when, optLabel) : "") + ": " + nameOf(target)), save, shut, note),
+          h("div", {class: "sub"}, "Build the set once: every battle uses it at its own level. Level and IVs come from each battle, as in the game. A move it cannot have yet at a battle's level (a level-up move before its level) is left out there, and an empty or left-out place gets the automatic move. TM, tutor and egg moves work at any level."),
+          h("div", {class: "tedit"},
+            h("div", {class: "tleft"},
+              pic ? h("img", {class: "tpic" + (pic.pixel ? " px" : ""), src: pic.src, alt: ""}) : h("div", {class: "tpic noart"}, "?"),
+              s ? h("div", {class: "types"}, (d.types || []).map(typeChip)) : null,
+              field("Evolves up to", stageSel),
+              h("button", {type: "button", class: "small", onclick: () => openPick(k, opt, true)}, "Another Pokemon..."),
+              !opt ? h("button", {type: "button", class: "small", onclick: ev => sure(ev.currentTarget, "Really remove?", () => { storyEdit = null; setBox.hidden = true; saveStory(story.lines.filter((_, i) => i !== k)); })}, "Remove from team") : null,
+              s ? h("button", {type: "button", class: "small", onclick: () => openDetail(s)}, "Open " + d.name + "'s page") : null),
+            h("div", {class: "tmid"}, field("Item", itemBox), draft.item && (SD.items || {})[draft.item] ? h("div", {class: "sub"}, SD.items[draft.item]) : null,
+              field("Ability", abilitySel), abilities.length ? h("div", {class: "sub"}, "Each stage gets its own ability in this place.") : null,
+              h("div", {class: "flabel"}, "Moves"), moveBoxes,
+              s && !canLearn.length ? h("div", {class: "sub"}, d.name + " has no moves in its learnset yet.") : null),
+            h("div", {class: "tright"}, field("Nature", natureSel), statsTable, evLeft)),
+          h("div", {class: "flabel"}, "What every battle gets"), planBox);
+      };
+      draw();
+      setBox.hidden = false;
+      if (!openSet.quiet) setBox.scrollIntoView({block: "nearest"});
+    };
+    // a slot that depends on the player's starter, and back to one line for all (the slot's set goes along)
+    const toWhen = (k, when) => { const e = story.lines[k], id = slotLine(e), set = slotSet(e), lines = story.lines.slice(), opts = STORY_WHEN[when].options;
+      lines[k] = Object.assign({when, options: Object.fromEntries(opts.map(([o]) => [o, id])), default: id}, set ? {sets: Object.fromEntries(opts.map(([o]) => [o, deepCopy(set)]))} : {});
+      saveStory(lines); };
+    const toOne = k => { const e = story.lines[k], set = slotSet(e), lines = story.lines.slice(); lines[k] = set ? {line: slotLine(e), set: deepCopy(set)} : slotLine(e); saveStory(lines); };
     const mini = id => { const s2 = byId.get(id), p = s2 && portrait(s2); return p ? h("img", {class: (p.pixel ? "px " : "") + "mini", src: p.src, alt: ""}) : h("span", {class: "letter mini"}, (nameOf(id) || "?")[0]); };
     const slots = h("div", {class: "tslots storyslots"}, Array.from({length: 6}, (_, k) => {
       const entry = story.lines[k];
       if (!entry) return h("button", {type: "button", class: "tslot empty storyadd", title: "Add a line", onclick: () => openPick(Math.min(k, story.lines.length))},
         h("span", {class: "plus"}, "+"), h("span", {class: "sub"}, k === 0 ? "your star" : "add a line"));
       const id = slotLine(entry), s = byId.get(id), p = s && portrait(s), lv = lineLevels(k), when = typeof entry === "object" && STORY_WHEN[entry.when];
-      const card = h("div", {class: "tslot storycard" + (k === 0 ? " star" : "") + (when ? " when" : ""), role: "button", tabindex: "0", title: when ? "Drag to change the order" : "Tap to swap or remove; drag to change the order",
-          onclick: ev => { if (card.dataset.dragged || ev.target.closest(".slotbtns, .whenrows, .whenbtn")) return; if (!when) openPick(k); },
-          onkeydown: ev => { if (ev.key === "Enter" && !when) openPick(k); }},
+      const set = slotSet(entry), setWords = set ? [set.item ? "@ " + set.item : "", set.nature || "", (set.moves || []).length ? set.moves.length + " own move" + (set.moves.length > 1 ? "s" : "") : ""].filter(Boolean) : [];
+      const card = h("div", {class: "tslot storycard" + (k === 0 ? " star" : "") + (when ? " when" : ""), role: "button", tabindex: "0", title: when ? "Tap a choice to build its set; drag to change the order" : "Tap to build its set (moves, ability, item...), swap or remove it; drag to change the order",
+          onclick: ev => { if (card.dataset.dragged || ev.target.closest(".slotbtns, .whenrows, .whenbtn")) return; if (!when) openSet(k); },
+          onkeydown: ev => { if (ev.key === "Enter" && !when) openSet(k); }},
         k === 0 ? h("span", {class: "crown", "aria-label": "star"}, "👑") : h("span", {class: "badge"}, "#" + (k + 1)),
         p ? h("img", {class: p.pixel ? "px" : null, src: p.src, alt: ""}) : h("span", {class: "letter"}, (nameOf(id) || "?")[0]),
         h("span", {class: "nm"}, nameOf(id)), h("span", {class: "types"}, ((s && s.data.types) || []).map(typeChip)),
         when ? h("span", {class: "whenrows"}, h("span", {class: "sub"}, "depends on " + when.label + ":"),
-            when.options.map(([o, label]) => h("button", {type: "button", class: "whenrow" + (o === storyView[entry.when] ? " on" : ""), title: "The line " + whenPhrase(entry.when, label) + " (tap to change)", onclick: () => openPick(k, o)},
-              h("span", {class: "sub"}, label), mini(entry.options[o]), h("span", {}, nameOf(entry.options[o]) || "choose"))))
+            when.options.map(([o, label]) => h("button", {type: "button", class: "whenrow" + (o === storyView[entry.when] ? " on" : ""), title: "The Pokemon " + whenPhrase(entry.when, label) + " (tap to build its set or change it)", onclick: () => openSet(k, o)},
+              h("span", {class: "sub"}, label), mini(entry.options[o]), h("span", {}, nameOf(entry.options[o]) || "choose", (entry.sets || {})[o] ? " ✎" : ""))))
           : h("span", {class: "sub", style: "font-size:11px;text-align:center"}, storyChain(id).map(nameOf).join(" → ")),
+        !when ? h("span", {class: "sub setline"}, setWords.length ? "✎ " + setWords.join(" · ") : "automatic set") : null,
         h("span", {class: "sub lvl"}, lv.length ? "Lv " + lv[0] + (lv.length > 1 ? " → " + lv[lv.length - 1] : "") + " · " + lv.length + " battle" + (lv.length > 1 ? "s" : "") : "not in a battle yet"),
         when ? h("button", {type: "button", class: "link whenbtn", onclick: () => toOne(k)}, "one line for all")
           : h("span", {class: "whenbtn sub"}, "depends on: ", h("button", {type: "button", class: "link", onclick: () => toWhen(k, "starter")}, "starter"), " · ",
@@ -6028,7 +6216,7 @@ function renderCharacterPage(c) {
       whens.map(w => h("span", {class: "storyview"}, h("span", {class: "sub"}, STORY_WHEN[w].label + ":"),
         STORY_WHEN[w].options.map(([o, label]) => h("button", {type: "button", class: "small" + (o === storyView[w] ? " primary" : ""), "aria-pressed": String(o === storyView[w]),
           onclick: () => { storyView[w] = o; openCharacter(c, "team"); }}, label))))) : null;
-    dragSlots(slots, story.lines.length, (from, to) => saveStory(moveInList(story.lines, from, to)));
+    dragSlots(slots, story.lines.length, (from, to) => { storyEdit = null; saveStory(moveInList(story.lines, from, to)); });
     const battles = h("div", {class: "scroll"}, h("table", {class: "balance"}, plan.map((b, i) => {
       const tid = (cl.slots || {})[i], t = (lib.teams || []).find(x => x.id === tid), gen = storyTeam(c, story, i);
       const pick = h("select", {"aria-label": "Team for battle " + (i + 1), onchange: ev => { const slots = Object.assign({}, cl.slots || {}); if (ev.target.value) slots[i] = ev.target.value; else delete slots[i]; saveClaim(cl.by, slots, cl.story); }},
@@ -6037,7 +6225,8 @@ function renderCharacterPage(c) {
       // is saved to this battle by itself (Arvind, 2026-11-17: before, the copy was loose and the changes never came back).
       const copy = gen.length && !t ? h("button", {type: "button", title: "Put this team in TEAMS to change it; your changes are saved to this battle", onclick: async ev => {
         const btn = ev.currentTarget, name = (charName(c) + " battle " + (i + 1)).slice(0, 40);
-        const team = {name, mons: gen.map(m => Object.assign(blankMon(), {species: m.species, level: m.level, ability: m.ability, ivs: storyIvs(m.iv, m.level), moves: m.moves.concat(["", "", "", ""]).slice(0, 4)})),
+        const team = {name, mons: gen.map(m => Object.assign(blankMon(), {species: m.species, level: m.level, ability: m.ability, ivs: storyIvs(m.iv, m.level), moves: m.moves.concat(["", "", "", ""]).slice(0, 4),
+          item: m.item || "", nature: m.nature || "Hardy", evs: Object.assign(allStats(0), m.evs || {})})),
           shared: {id: newTeamId(name), by: person(me()), battle: name}};
         btn.disabled = true; status.textContent = "Copying...";
         try {
@@ -6060,13 +6249,15 @@ function renderCharacterPage(c) {
     })));
     main = h("div", {class: "charmain"},
       h("h3", {id: "char-team", style: "margin-top:0"}, npcHere ? (npcHere.name || "The NPC") + "'s story team" : "Your story team"),
-      h("div", {class: "sub"}, "Tap a slot to add an evolution line (by its last evolution), tap a line to swap or remove it, and rank them (drag them, or use the arrows). No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage and with sensible moves for the level. IVs are set by themselves, exactly as in the original game: low early, high late."),
+      h("div", {class: "sub"}, "Tap an empty slot to add an evolution line (by its last evolution), and tap a Pokemon to build its set as in TEAMS: how far it evolves, moves, ability, item, nature and EVs (or swap or remove it). Rank them by dragging, or with the arrows. No. 1 is your star: it is there from the first battle and is always the highest level. The team grows by itself: each battle gets as many Pokemon as the original, the top-ranked lines first, at the right stage for the level, with your set where it can have it and sensible moves for the rest. Levels and IVs are set by themselves, exactly as in the original game: low early, high late."),
       storyMates.length ? h("div", {class: "notice info"}, "This story team is shared with " + storyMates.map(x => charName(charById(x))).join(", ") +
         " (merged): it grows over the battles of " + (storyMates.length > 1 ? "all of them" : "both") + ", and a change here changes it there too.") : null,
-      slots, viewBar, pickBox,
+      slots, viewBar, pickBox, setBox,
       h("h3", {}, "Every battle"),
       h("div", {class: "sub"}, "Auto: the website makes each battle's team from your story team (how many Pokemon, levels, stages and moves). To change a battle's team, press Copy to TEAMS: the team opens in TEAMS and is used for that battle, and what you change there is saved here by itself. You can also pick one of your shared teams in the menu. The others only see your teams behind spoiler buttons."),
       battles);
+    // the open set stays open when the page is drawn again (after SAVE, or after picking another Pokemon for it)
+    if (storyEdit && storyEdit.c === c.id && charTab === "team") { openSet.quiet = true; openSet(storyEdit.k, storyEdit.opt); openSet.quiet = false; }
   }
   grid.replaceChildren(h("div", {class: "teams charpage", style: "grid-column:1/-1"}, bar, status, hero, tabs,
     charTab === "team" ? main : charTab === "about" ? aboutTab : spritesTab));
