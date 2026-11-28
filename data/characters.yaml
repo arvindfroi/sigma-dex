@@ -30,6 +30,10 @@
 # Trainer AA (Janine) added 2026-11-17 (Arvind: "du kan legge hun til ja det er gøy. skriv at denne personen er
 # master of disquise"). All 26 letters were used or retired, so the code is AA. Counted: her two battles with her own
 # team and the Attack EV sparring battle; the disguised Victory Road 3F battle uses another trainer's team.
+# Trainer AB (Norman) added 2026-11-28 (Arvind: "ja legg til norman på nettsiden da"): two brothers want a double
+# battle against the two of them, and Origin already has one after the story (Steven + Norman, trainer_battle 490 228).
+# Counted: the 2-on-2 Goldenrod Gym battle next to the gym leader (trainer 266) and his own team after the story
+# (trainer 228: single, double, or the double next to Trainer Y). His Indigo Conference matches are cutscenes.
 # The villains (Rocket, Magma, Aqua and Galactic: codes A, B, D, E, F, L, N, R, S, T, V) are left out too (Arvind, 2026-11-12).
 # dialogue: how much they say in Origin: story = text boxes in the story, battle = lines in battle, words =
 # both together (scripts/character_dialogue.py, counted 2026-11-16; only numbers, never the text).
@@ -402,3 +406,14 @@
   - {lv: 10, size: 6, side: against, note: 'A training battle the player can repeat for a berry after a badge: its Pokemon must give Attack EVs when beaten (Origin uses Pinsir, Zangoose and Solrock).', original: 'Pinsir 10, Pinsir 10, Zangoose 10, Zangoose 10, Solrock 10, Solrock 10', iv: 0}
   - {lv: 46, size: 4, side: against, note: 'Fought in disguise: the player thinks this is someone else until after the battle.', original: 'Venomoth 46, Golbat 46, Ariados 46, Haunter 46', iv: 18}
   - {lv: 75, size: 4, side: against, note: 'They also hide among other trainers right after this one, and that battle uses the other trainer''s team.', original: 'Crobat 75, Venomoth 75, Ditto 75, Swalot 75', iv: 24}
+- id: trainer-ab
+  group: Important trainer
+  type: Normal
+  place: you meet them a few times
+  code: Trainer AB
+  battles: 2
+  levels: [87, 87]
+  dialogue: {story: 65, battle: 7, words: 1190}
+  teams:
+  - {lv: 87, size: 4, side: against, note: 'A 2-on-2 battle: they fight next to a gym leader, and the player has a partner too.', original: 'Slaking 86, Zangoose 87, Kangaskhan 87, Ursaluna 86', iv: 24}
+  - {lv: 87, size: 6, side: against, note: 'After the story. The player picks a single battle, a double battle against them alone, or a double battle against them and another important trainer together.', original: 'Smeargle 86, Snorlax 87, Slaking 86, Kangaskhan 87, Porygon2 86, Ursaluna 87', iv: 24}

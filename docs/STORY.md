@@ -571,6 +571,7 @@ Important trainers show only a code name and a random order, so nothing is spoil
 - Trainer Z: Cynthia (Sinnoh champion; added back 2026-11-17)
 - Trainer AA: Janine (Koga's daughter; added 2026-11-17, shown as "master of disguise"; all 26 letters were used or
   retired, hence AA)
+- Trainer AB: Norman (Ruby's father, Steven's friend; added 2026-11-28)
 
 Left out on purpose (Arvind makes him himself): the main rival (Blue). The two champions were left out on 2026-11-12 and
 are claimable again since 2026-11-17 (Arvind: "Du kan faktisk legge de til som mulige trenere tilbake").
@@ -601,7 +602,7 @@ scene that never starts. Fixed. Other things a claimer should know:
   before Pokémon Tower. Also Cynthia on Route 12 (optional, one chance), Bruno in Pewter City (one chance), and the
   romance dates. Their teams are still worth making.
 - **Not on the page:** Blue (Arvind makes him), the villains (taken off 2026-11-12), and small recurring trainers such
-  as Norman (after the story, with Steven) and the Copycat. Gold's unused trainer 260 (it has Green's
+  as the Copycat (Norman was one of them until he became Trainer AB on 2026-11-28). Gold's unused trainer 260 (it has Green's
   team) is left out.
 - **Janine, Koga's daughter (checked 2026-11-17; on the page as Trainer AA since the same day).** All in Kanto; she is never seen in Johto (her old phone slot
   went to Koga). Fuchsia Gym: she is the "Koga" eight steps north of the door (trainer 325: Venomoth, Golbat,
@@ -614,6 +615,17 @@ scene that never starts. Fixed. Other things a claimer should know:
   3F competitors, which one depends on gender, starter and the Route 11 choice (that battle uses the competitor's
   team). Beat that one and she reveals herself and gives the password 570819. Misty later says she saw through
   Janine's disguise thanks to your hint (588#10). So: 2 battles with her own team, 1 disguised, plus the sparring; the page counts 3 (the sparring included).
+- **Norman (checked 2026-11-28; on the page as Trainer AB since the same day).** Arvind added him because two brothers
+  want a double battle against the two of them: one takes Steven (Trainer Y), the other Norman. That battle is already
+  in Origin after the story (Goldenrod, map 204, file 888: "Take on both Mr. Norman and me at once?", trainer_battle
+  490 228). His part: an Indigo Conference entrant in Kanto (you watch him lose to Yellow and to Steven, cutscenes
+  only); in Johto he lives in Goldenrod with his wife and son Ruby while Prof. Birch and his daughter Sapphire visit;
+  Ruby takes Sapphire into the tall grass, a wild Salamence attacks, the player saves them, and Norman wants to punish
+  Ruby (577#1 "20 lashes of my belt": rewrite this line when the texts are redone); he guards people outside during
+  the Radio Tower takeover with Whitney (573#102); Whitney's 2-on-2 Gym battle is you + Gold against Whitney + Norman
+  (trainer 266, file 883); after the story he battles you at home (single or double, trainer 228) or together with
+  Steven. 65 text boxes, 1190 words. Ruby (20 lines) and Sapphire (8) are children with no Pokemon and no battles;
+  Birch (20 lines, also on Route 12 in Kanto where he gives Torchic) never battles either, so none of them is on the page.
 - **Other trainer-name fixes in the EN patch** (bank 719) do not touch these roles; only 703 and 705 did (see above).
 
 ### Text to fix when the characters are replaced
