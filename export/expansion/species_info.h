@@ -3859,8 +3859,8 @@
     [SPECIES_GERONIMOK] =
     {
         .baseHP = 92,
-        .baseAttack = 128,
-        .baseDefense = 110,
+        .baseAttack = 132,
+        .baseDefense = 106,
         .baseSpeed = 70,
         .baseSpAttack = 65,
         .baseSpDefense = 90,

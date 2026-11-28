@@ -445,6 +445,9 @@ static const u16 sMinimonkEggMoveLearnset[] = {
     MOVE_SYNCHRONOISE,
     MOVE_GUARD_SWAP,
     MOVE_HELPING_HAND,
+    MOVE_THUNDER_PUNCH,
+    MOVE_ICE_PUNCH,
+    MOVE_FIRE_PUNCH,
     MOVE_UNAVAILABLE,
 };
 

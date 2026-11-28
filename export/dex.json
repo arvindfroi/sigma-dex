@@ -26950,8 +26950,8 @@
       },
       "base_stats": {
         "hp": 92,
-        "attack": 128,
-        "defense": 110,
+        "attack": 132,
+        "defense": 106,
         "sp_attack": 65,
         "sp_defense": 90,
         "speed": 70
@@ -27010,7 +27010,7 @@
           },
           {
             "level": 14,
-            "move": "Horn Attack"
+            "move": "Accelerock"
           },
           {
             "level": 18,
@@ -27083,6 +27083,10 @@
           {
             "level": 52,
             "move": "Double-Edge"
+          },
+          {
+            "level": 60,
+            "move": "Head Smash"
           }
         ],
         "tm_hm": [
@@ -29116,11 +29120,11 @@
           },
           "base_stats": {
             "hp": 40,
-            "attack": 70,
+            "attack": 65,
             "defense": 40,
-            "sp_attack": 90,
+            "sp_attack": 100,
             "sp_defense": 40,
-            "speed": 80
+            "speed": 75
           },
           "sid": "alminimonk-form-shields-down"
         }
@@ -29146,6 +29150,14 @@
           {
             "level": 4,
             "move": "Hypnosis"
+          },
+          {
+            "level": 6,
+            "move": "Double Kick"
+          },
+          {
+            "level": 10,
+            "move": "Triple Kick"
           },
           {
             "level": 12,
@@ -29236,7 +29248,8 @@
           "Body Slam",
           "Dazzling Gleam",
           "Nasty Plot",
-          "Zen Headbutt"
+          "Zen Headbutt",
+          "Fire Punch"
         ],
         "egg": [
           "Psycho Cut",
@@ -29245,7 +29258,10 @@
           "Zen Headbutt",
           "Synchronoise",
           "Guard Swap",
-          "Helping Hand"
+          "Helping Hand",
+          "Thunder Punch",
+          "Ice Punch",
+          "Fire Punch"
         ]
       },
       "encounters": [],
@@ -29421,7 +29437,7 @@
           },
           {
             "level": 16,
-            "move": "Headbutt"
+            "move": "Triple Kick"
           },
           {
             "level": 17,
@@ -29456,19 +29472,23 @@
             "move": "Calm Mind"
           },
           {
-            "level": 33,
+            "level": 32,
             "move": "Cosmic Power"
           },
           {
-            "level": 35,
+            "level": 34,
             "move": "Aura Sphere"
           },
           {
-            "level": 38,
+            "level": 37,
             "move": "Safeguard"
           },
           {
             "level": 41,
+            "move": "High Jump Kick"
+          },
+          {
+            "level": 44,
             "move": "Shell Smash"
           },
           {
@@ -29476,8 +29496,12 @@
             "move": "Psychic"
           },
           {
-            "level": 50,
+            "level": 52,
             "move": "Future Sight"
+          },
+          {
+            "level": 56,
+            "move": "Close Combat"
           }
         ],
         "tm_hm": [
@@ -29532,10 +29556,13 @@
           "Low Sweep",
           "Foul Play",
           "Bulldoze",
+          "Mystical Fire",
           "Psychic Terrain",
+          "Lunge",
           "Body Press",
           "Expanding Force",
           "Coaching",
+          "Triple Axel",
           "Strength",
           "Rock Smash"
         ],
@@ -29551,7 +29578,8 @@
           "Counter",
           "Ice Punch",
           "Power-Up Punch",
-          "Thunder Punch"
+          "Thunder Punch",
+          "Ice Punch"
         ],
         "egg": []
       },

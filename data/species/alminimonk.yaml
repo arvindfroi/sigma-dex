@@ -55,7 +55,7 @@ forms:
   - name: Shields Down
     changes: battle
     abilities: {primary: Shields Down}
-    base_stats: {hp: 40, attack: 70, defense: 40, sp_attack: 90, sp_defense: 40, speed: 80}
+    base_stats: {hp: 40, attack: 65, defense: 40, sp_attack: 100, sp_defense: 40, speed: 75}
     sid: alminimonk-form-shields-down
 
 # --- Moves ---
@@ -67,6 +67,8 @@ learnset:
     - {level: 1, move: Stored Power}
     - {level: 4, move: Confuse Ray}
     - {level: 4, move: Hypnosis}
+    - {level: 6, move: Double Kick}
+    - {level: 10, move: Triple Kick}
     - {level: 12, move: Imprison}
     - {level: 14, move: Psybeam}
     - {level: 16, move: Headbutt}
@@ -86,10 +88,10 @@ learnset:
           Natural Gift, Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Foul Play,
           Psychic Terrain, Expanding Force]
   # moves a move tutor can teach it
-  tutor: [Body Slam, Dazzling Gleam, Nasty Plot, Zen Headbutt]
+  tutor: [Body Slam, Dazzling Gleam, Nasty Plot, Zen Headbutt, Fire Punch]
   # only needed for the first stage of an evolution line
   egg: [Psycho Cut, Mirror Coat, Barrier, Zen Headbutt, Synchronoise, Guard Swap,
-        Helping Hand]
+        Helping Hand, Thunder Punch, Ice Punch, Fire Punch]
 
 # --- Where it is found ---
 encounters: []           # e.g. [{location: Route 1, method: grass, levels: 2-4, rate: 20}]

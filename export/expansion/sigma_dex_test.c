@@ -2165,8 +2165,8 @@ TEST("Sigma dex: Geronimok has the data from its species file")
 {
     const struct SpeciesInfo *info = &gSpeciesInfo[SPECIES_GERONIMOK];
     EXPECT_EQ(info->baseHP, 92);
-    EXPECT_EQ(info->baseAttack, 128);
-    EXPECT_EQ(info->baseDefense, 110);
+    EXPECT_EQ(info->baseAttack, 132);
+    EXPECT_EQ(info->baseDefense, 106);
     EXPECT_EQ(info->baseSpeed, 70);
     EXPECT_EQ(info->baseSpAttack, 65);
     EXPECT_EQ(info->baseSpDefense, 90);

@@ -75,7 +75,7 @@ learnset:
     - {level: 12, move: Imprison}
     - {level: 13, move: Yawn}
     - {level: 16, move: Stored Power}
-    - {level: 16, move: Headbutt}
+    - {level: 16, move: Triple Kick}
     - {level: 17, move: Psybeam}
     - {level: 19, move: Hypnosis}
     - {level: 21, move: Vacuum Wave}
@@ -84,12 +84,14 @@ learnset:
     - {level: 25, move: Recover}
     - {level: 26, move: Psyshock}
     - {level: 30, move: Calm Mind}
-    - {level: 33, move: Cosmic Power}
-    - {level: 35, move: Aura Sphere}
-    - {level: 38, move: Safeguard}
-    - {level: 41, move: Shell Smash}
+    - {level: 32, move: Cosmic Power}
+    - {level: 34, move: Aura Sphere}
+    - {level: 37, move: Safeguard}
+    - {level: 41, move: High Jump Kick}
+    - {level: 44, move: Shell Smash}
     - {level: 48, move: Psychic}
-    - {level: 50, move: Future Sight}
+    - {level: 52, move: Future Sight}
+    - {level: 56, move: Close Combat}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Focus Punch, Calm Mind, Toxic, Bulk Up, Hidden Power, Sunny Day, Taunt,
           Hyper Beam, Light Screen, Protect, Rain Dance, Safeguard, Frustration, Return,
@@ -98,11 +100,12 @@ learnset:
           Fling, Charge Beam, Endure, Drain Punch, Recycle, Giga Impact, Flash,
           Thunder Wave, Psych Up, Captivate, Rock Slide, Sleep Talk, Natural Gift,
           Poison Jab, Grass Knot, Swagger, Substitute, Trick Room, Psyshock, Low Sweep,
-          Foul Play, Bulldoze, Psychic Terrain, Body Press, Expanding Force, Coaching,
-          Strength, Rock Smash]
+          Foul Play, Bulldoze, Mystical Fire, Psychic Terrain, Lunge, Body Press,
+          Expanding Force, Coaching, Triple Axel, Strength, Rock Smash]
   # moves a move tutor can teach it
   tutor: [Body Slam, Dazzling Gleam, Fire Punch, Heal Bell, Nasty Plot, Zen Headbutt,
-          Aura Sphere, Close Combat, Counter, Ice Punch, Power-Up Punch, Thunder Punch]
+          Aura Sphere, Close Combat, Counter, Ice Punch, Power-Up Punch, Thunder Punch,
+          Ice Punch]
   egg: []                # only needed for the first stage of an evolution line
 
 # --- Where it is found ---

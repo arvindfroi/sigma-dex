@@ -23,8 +23,8 @@ abilities:
 
 base_stats:              # each 1-255
   hp: 92
-  attack: 128
-  defense: 110
+  attack: 132
+  defense: 106
   sp_attack: 65
   sp_defense: 90
   speed: 70
@@ -74,7 +74,7 @@ learnset:
     - {level: 1, move: Tackle}
     - {level: 7, move: Snarl}
     - {level: 10, move: Hone Claws}
-    - {level: 14, move: Horn Attack}
+    - {level: 14, move: Accelerock}
     - {level: 18, move: Smack Down}
     - {level: 18, move: Roar}
     - {level: 20, move: Scary Face}
@@ -93,6 +93,7 @@ learnset:
     - {level: 42, move: Reversal}
     - {level: 44, move: Swords Dance}
     - {level: 52, move: Double-Edge}
+    - {level: 60, move: Head Smash}
   # e.g. [Cut, Solar Beam] - only the game's TMs and HMs
   tm_hm: [Roar, Toxic, Hidden Power, Sunny Day, Taunt, Hyper Beam, Protect, Rain Dance,
           Frustration, Earthquake, Return, Dig, Brick Break, Double Team, Sandstorm,

@@ -4192,6 +4192,7 @@ static const u16 sMinimonkTeachableLearnset[] = {
     MOVE_DAZZLING_GLEAM,
     MOVE_NASTY_PLOT,
     MOVE_ZEN_HEADBUTT,
+    MOVE_FIRE_PUNCH,
     MOVE_UNAVAILABLE,
 };
 
@@ -4247,10 +4248,13 @@ static const u16 sAminimonkTeachableLearnset[] = {
     MOVE_LOW_SWEEP,
     MOVE_FOUL_PLAY,
     MOVE_BULLDOZE,
+    MOVE_MYSTICAL_FIRE,
     MOVE_PSYCHIC_TERRAIN,
+    MOVE_LUNGE,
     MOVE_BODY_PRESS,
     MOVE_EXPANDING_FORCE,
     MOVE_COACHING,
+    MOVE_TRIPLE_AXEL,
     MOVE_STRENGTH,
     MOVE_ROCK_SMASH,
     MOVE_BODY_SLAM,

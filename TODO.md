@@ -43,9 +43,9 @@ DS sprites for Origin HeartGold (approved in the sprite studio, not counted in t
 
 | Item | Approved |
 |------|---------:|
-| DS front sprite 80x80 | 210 / 222 |
-| DS back sprite 80x80 | 210 / 222 |
-| DS icon 32x32 | 207 / 222 |
+| DS front sprite 80x80 | 211 / 222 |
+| DS back sprite 80x80 | 211 / 222 |
+| DS icon 32x32 | 208 / 222 |
 
 ## Open dex slots (32)
 

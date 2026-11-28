@@ -6951,13 +6951,6 @@
     "editor": "Arvind"
   },
   {
-    "id": 2368,
-    "species": "eiscue",
-    "file": "assets/concept-art/eiscue/2368.png",
-    "caption": "[ds-icon] sprite #453",
-    "editor": "Arvind"
-  },
-  {
     "id": 2369,
     "species": "eiscue",
     "file": "assets/concept-art/eiscue/2369.png",
@@ -8134,13 +8127,6 @@
     "editor": "BUST"
   },
   {
-    "id": 2721,
-    "species": "eiscue",
-    "file": "assets/concept-art/eiscue/2721.png",
-    "caption": "[ds-front] sprite #533",
-    "editor": "Arvind"
-  },
-  {
     "id": 2725,
     "species": "thooji",
     "file": "assets/concept-art/thooji/2725.png",
@@ -8859,13 +8845,6 @@
     "species": "bulbtoise",
     "file": "assets/concept-art/bulbtoise/3129.png",
     "caption": "[ds-front2] sprite #608",
-    "editor": "Arvind"
-  },
-  {
-    "id": 3135,
-    "species": "eiscue",
-    "file": "assets/concept-art/eiscue/3135.png",
-    "caption": "[ds-front2] sprite #614",
     "editor": "Arvind"
   },
   {
@@ -12605,5 +12584,68 @@
     "file": "assets/concept-art/s-rotom/6239.png",
     "caption": "[ds-back2] sprite #1153",
     "editor": "BUST"
+  },
+  {
+    "id": 6246,
+    "species": "ghurtling",
+    "file": "assets/concept-art/ghurtling/6246.png",
+    "caption": "[ds-front] sprite #1155",
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 6247,
+    "species": "ghurtling",
+    "file": "assets/concept-art/ghurtling/6247.png",
+    "caption": "[ds-back] sprite #1155",
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 6248,
+    "species": "ghurtling",
+    "file": "assets/concept-art/ghurtling/6248.png",
+    "caption": "[ds-icon] sprite #1155",
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 6249,
+    "species": "ghurtling",
+    "file": "assets/concept-art/ghurtling/6249.png",
+    "caption": "[ds-follower] sprite #1155",
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 6250,
+    "species": "ghurtling",
+    "file": "assets/concept-art/ghurtling/6250.png",
+    "caption": "[ds-front2] sprite #1155",
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 6251,
+    "species": "ghurtling",
+    "file": "assets/concept-art/ghurtling/6251.png",
+    "caption": "[ds-back2] sprite #1155",
+    "editor": "Emil Venge-Kvamme"
+  },
+  {
+    "id": 6252,
+    "species": "eiscue",
+    "file": "assets/concept-art/eiscue/6252.png",
+    "caption": "[ds-front] sprite #1156",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6254,
+    "species": "eiscue",
+    "file": "assets/concept-art/eiscue/6254.png",
+    "caption": "[ds-icon] sprite #1156",
+    "editor": "Arvind"
+  },
+  {
+    "id": 6256,
+    "species": "eiscue",
+    "file": "assets/concept-art/eiscue/6256.png",
+    "caption": "[ds-front2] sprite #1156",
+    "editor": "Arvind"
   }
 ]
